@@ -2,7 +2,7 @@
 
 Status: Empirical / strategy
 
-Observation: in center-circle or center-triangle cases, the \(g\)-composition chain seems not to descend below a positive lower bound.
+Observation: in center-circle or center-triangle cases, the $g$-composition chain seems not to descend below a positive lower bound.
 
 Possible plan:
 

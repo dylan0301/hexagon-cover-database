@@ -4,7 +4,7 @@ Status: Research hygiene
 
 These files are concise research notes, not a single finished proof of the main theorem.
 
-The final theorem is about seven **open** unit equilateral triangles covering the side-\(1\) hexagon. Closed triangles and expanded hexagons occur through the Lebesgue-number/scaling equivalence.
+The final theorem is about seven **open** unit equilateral triangles covering the side-$1$ hexagon. Closed triangles and expanded hexagons occur through the Lebesgue-number/scaling equivalence.
 
 Rules:
 

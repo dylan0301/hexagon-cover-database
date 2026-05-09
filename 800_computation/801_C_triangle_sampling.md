@@ -2,7 +2,7 @@
 
 Status: Experiment plan
 
-Sample center triangles containing \(O\), then compute:
+Sample center triangles containing $O$, then compute:
 
 - CE type;
 - vertex-cone type;
@@ -11,6 +11,6 @@ Sample center triangles containing \(O\), then compute:
 
 Primary purpose: search for counterexamples to
 
-\[
+$$
 \mathrm{CE1}\text{ or }\mathrm{CE2}\implies \text{exactly one midpoint covered}.
-\]
+$$

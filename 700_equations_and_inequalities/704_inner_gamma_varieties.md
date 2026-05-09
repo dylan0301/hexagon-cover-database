@@ -2,7 +2,7 @@
 
 Status: Reference
 
-Inner gamma tuples come from center triangles containing \(O\). They can be sampled or parameterized by:
+Inner gamma tuples come from center triangles containing $O$. They can be sampled or parameterized by:
 
 1. kinematic measure on center-containing triangles;
 2. triangles with one vertex on one of the six rays;

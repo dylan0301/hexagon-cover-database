@@ -6,15 +6,15 @@ These notes organize definitions, proof strategies, local lemmas, computations, 
 
 ## Main theorem target
 
-\[
+$$
 \boxed{\text{The regular hexagon }H\text{ of side length }1\text{ cannot be covered by seven open unit equilateral triangles.}}
-\]
+$$
 
 The equivalent expanded closed-triangle formulation is:
 
-\[
+$$
 \boxed{\text{For every }L>1,\ H_L\text{ cannot be covered by seven closed unit equilateral triangles.}}
-\]
+$$
 
 The equivalence is proved in `100_foundations/103_open_unit_vs_shrunken_closed_equivalence.md`.
 
@@ -33,9 +33,9 @@ The equivalence is proved in `100_foundations/103_open_unit_vs_shrunken_closed_e
 
 The case
 
-\[
+$$
 \mathrm{CE0}+\text{at least one Vd1 or Vd2}
-\]
+$$
 
 is recorded as proven for the half-skeleton target in:
 

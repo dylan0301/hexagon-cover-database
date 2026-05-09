@@ -4,33 +4,33 @@ Status: Proven case split
 
 Assume
 
-\[
+$$
 T_C\text{ is CE0},
-\]
+$$
 
 and normalize so that
 
-\[
+$$
 T_0\text{ is Vd1 or Vd2}.
-\]
+$$
 
-Let \(x\) be the largest distance from \(O\) to the chosen adjacent-ray intersection of \(T_0\).
+Let $x$ be the largest distance from $O$ to the chosen adjacent-ray intersection of $T_0$.
 
 ## Subcase A: two holes are covered by two different triangles
 
 This is the ordinary chain case.
 
-For \(x<1/2\), the obstruction is
+For $x<1/2$, the obstruction is
 
-\[
+$$
 b+F^{\circ3}(a)<1.
-\]
+$$
 
-For \(x\ge1/2\), the obstruction is
+For $x\ge1/2$, the obstruction is
 
-\[
+$$
 b+F^{\circ4}(a)<1.
-\]
+$$
 
 The interpretation is that the remaining zero-diagonal chain cannot close.
 
@@ -38,9 +38,9 @@ The interpretation is that the remaining zero-diagonal chain cannot close.
 
 This is the frontier-compression case.
 
-The triangle covering two holes has stronger \((a,b)\)-constraints. Apply the frontier perturbation lemma to replace the actual \((a,b)\)-data by a dominating feasible frontier point.
+The triangle covering two holes has stronger $(a,b)$-constraints. Apply the frontier perturbation lemma to replace the actual $(a,b)$-data by a dominating feasible frontier point.
 
-After this replacement, the same \(F\)-chain contradiction applies.
+After this replacement, the same $F$-chain contradiction applies.
 
 ## Vd2 reduction
 

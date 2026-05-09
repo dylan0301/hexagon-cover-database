@@ -4,9 +4,9 @@ Status: Lemma target
 
 Target lemma:
 
-\[
+$$
 T_C\text{ is CE1 or CE2}\implies \#\{i:M_i\in T_C\}=1.
-\]
+$$
 
 Parameterized plan:
 

@@ -16,8 +16,8 @@ Output:
 
 Rule:
 
-\[
+$$
 \operatorname{length}(T_C\cap e_i)>0
-\]
+$$
 
 counts as an edge overlap. Point-only overlap does not count.
