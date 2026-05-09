@@ -1,27 +1,27 @@
-# Inner Gamma Model
+# Center Ray-Intersection Distance Model
 
 Status: Definition
 
-For each ray $[O,V_i]$, define
+For each direction $\theta\in\{0,60,120,180,240,300\}$, let $r_\theta$ be the ray from $O$ in direction $\theta$ degrees. Define
 
 $$
-\gamma_i=\operatorname{dist}\left(O,\partial T_C\cap[O,V_i]\right).
+d_\theta=\operatorname{dist}(O,\partial T_C\cap r_\theta).
 $$
 
-The inner gamma tuple is
+The center distance tuple is
 
 $$
-\gamma(T_C)=(\gamma_0,\dots,\gamma_5).
+d(T_C)=(d_0,d_{60},d_{120},d_{180},d_{240},d_{300}).
 $$
 
-The local $V_i$-triangle radial coordinate $c_i$ is measured from $V_i$ inward. Therefore the remaining radial length after the center triangle is
+The local $V_i$-triangle radial coordinate $c_i$ is measured from $V_i$ inward. Since $r_{60i}=[O,V_i]$, the remaining radial length after the center triangle is
 
 $$
-1-\gamma_i,
+1-d_{60i},
 $$
 
 and the local propagation argument uses
 
 $$
-c_i\le 1-\gamma_i.
+c_i\le 1-d_{60i}.
 $$

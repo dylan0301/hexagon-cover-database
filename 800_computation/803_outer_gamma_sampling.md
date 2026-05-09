@@ -1,4 +1,4 @@
-# Outer Gamma Sampling
+# Vertex $c$-Coordinate Sampling
 
 Status: Experiment plan
 

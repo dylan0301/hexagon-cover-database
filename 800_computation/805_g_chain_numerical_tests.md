@@ -20,4 +20,4 @@ $$
 x_0<x_6.
 $$
 
-Run separately by CE type and by center gamma constraints.
+Run separately by CE type and by center $d$-constraints.

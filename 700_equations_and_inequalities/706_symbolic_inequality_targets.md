@@ -9,7 +9,7 @@ Targets to prove symbolically:
 - CE2 one-interval attach/far cases.
 - T3-like inequality:
   $$
-  \alpha+\beta>\frac{\sqrt3}{2}.
+  a+b>\frac{\sqrt3}{2}.
   $$
 - Type 1 global minimum certificate:
   $$

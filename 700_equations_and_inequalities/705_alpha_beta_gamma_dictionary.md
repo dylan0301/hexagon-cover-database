@@ -1,11 +1,11 @@
-# Alpha-Beta-Gamma Dictionary
+# Historical Local Coordinate Dictionary
 
 Status: Dictionary
 
-The symbols $\alpha,\beta,\gamma$ are historical local coordinates. In most current local $V$-triangle files, use
+The symbols $\alpha,\beta,\gamma$ are historical local coordinates. In current local $V$-triangle files, use
 
 $$
 a,b,c.
 $$
 
-Warning: $\gamma_i$ usually means the C-triangle inner radial exit distance. If gamma is used for an outer or local quantity, write `outer gamma` or specify the coordinate system explicitly.
+For center-triangle radial data, use $d_0,d_{60},\dots,d_{300}$. For vertex-triangle radial data, use $c_i$ or $c(a_i,b_i)$.

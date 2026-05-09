@@ -15,8 +15,8 @@ Status: Reference
 - $T_i$: vertex triangle at $V_i$.
 - CE0/CE1/CE2: C-triangle perimeter-edge types.
 - Vd0/Vd1/Vd2/T3-like: V-triangle types.
-- inner gamma: radial exit tuple of $T_C$.
-- outer gamma: gamma tuple produced by vertex-triangle edge splits.
+- $d_0,d_{60},\dots,d_{300}$: radial exit tuple of $T_C$.
+- $c_i$: radial coordinate of $T_i$.
 - admissible set: feasible local triples $(a,b,c)$.
 - $g_c$: defect-coordinate propagation map.
 - $F$: zero-diagonal coverage-coordinate propagation map.

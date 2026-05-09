@@ -16,4 +16,4 @@ $$
 F(d)=\frac1{S_{\mathrm{even}}^2}-\frac1{S_{\mathrm{even}}S_{\mathrm{odd}}}+\frac1{S_{\mathrm{odd}}^2}-1.
 $$
 
-Although sign behavior inside the inner hull looked structured, it did not provide a complete separation between center and outer gamma sets.
+Although sign behavior inside the inner hull looked structured, it did not provide a complete separation between the inner gamma set and the outer gamma set.

@@ -20,10 +20,10 @@ $$
 a_i^2+a_ib_i+b_i^2\le1.
 $$
 
-Gamma bound:
+$d$-to-$c$ bound:
 
 $$
-c_i\le1-\gamma_i.
+c_i\le1-d_{60i}.
 $$
 
 Midpoint self-cover:

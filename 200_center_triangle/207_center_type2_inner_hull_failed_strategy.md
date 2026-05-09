@@ -2,7 +2,7 @@
 
 Status: Failed strategy
 
-This file records the Type 2 inner-hull analysis as part of the failed attempt to separate center-triangle inner gamma tuples from vertex-triangle outer gamma tuples.
+This file records the Type 2 inner-hull analysis as part of the failed attempt to separate the inner gamma set from the outer gamma set. In current notation, the inner gamma set is the set of center-triangle $d$-tuples and the outer gamma set is the set of vertex-triangle $c$-tuples.
 
 Define
 
@@ -22,4 +22,4 @@ $$
 x\in\operatorname{Int}(IH(V))\implies F(x)>0.
 $$
 
-This was not enough to prove the required separation. It is cross-referenced with the inner/outer gamma separation postmortem.
+This was not enough to prove the required separation. It is cross-referenced with the inner/outer gamma set separation postmortem.

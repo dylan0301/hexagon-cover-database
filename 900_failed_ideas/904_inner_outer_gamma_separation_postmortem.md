@@ -1,13 +1,13 @@
-# Inner / Outer Gamma Separation Postmortem
+# Inner / Outer Gamma Set Separation Postmortem
 
 Status: Failed / partial
 
-Inner gamma is the set of six-tuples realized by center triangles.
+The inner gamma set is the set of center-triangle distance tuples $d_0,d_{60},\dots,d_{300}$.
 
-Outer gamma is the set of six-tuples produced by vertex triangles under edge splits such as
+The outer gamma set is the set of vertex-triangle radial tuples $c_0,\dots,c_5$ produced under edge splits such as
 
 $$
-a_i+b_{i+1}=1.
+b_i+a_{i+1}=1.
 $$
 
 Both are semialgebraic subsets of $\mathbb R^6$.

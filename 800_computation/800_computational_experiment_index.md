@@ -5,8 +5,8 @@ Status: Navigation
 Experiments:
 
 - C-triangle sampling.
-- Inner gamma sampling.
-- Outer gamma sampling.
+- Center distance sampling.
+- Vertex $c$-coordinate sampling.
 - Admissible-set sampling.
 - $g$-chain tests.
 - Finite target search.

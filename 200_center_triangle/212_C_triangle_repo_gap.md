@@ -2,7 +2,7 @@
 
 Status: Implementation note
 
-Current source computes inner gamma data but does not compute:
+Current source computes center ray-intersection distance data but does not compute:
 
 - positive-length perimeter-edge overlaps of $T_C$;
 - CE0/CE1/CE2 labels;

@@ -8,6 +8,6 @@ The notes use three independent descriptions of $T_C$:
 
 1. CE perimeter-edge type: $\mathrm{CE0}$, $\mathrm{CE1}$, $\mathrm{CE2}$.
 2. Vertex-cone type: Type 1 or Type 2.
-3. Inner gamma data: six radial exit distances.
+3. Center ray-intersection distance data: $d_0,d_{60},\dots,d_{300}$.
 
-The gamma model is compatible with CE classification, but it does not preserve the explicit perimeter-edge case split.
+The $d$-tuple model is compatible with CE classification, but it does not preserve the explicit perimeter-edge case split.

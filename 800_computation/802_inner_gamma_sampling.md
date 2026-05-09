@@ -1,4 +1,4 @@
-# Inner Gamma Sampling
+# Center Distance Sampling
 
 Status: Experiment plan
 
