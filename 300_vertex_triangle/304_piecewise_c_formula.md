@@ -50,4 +50,8 @@ $$
 c^4-c^2+mc-m^2=0.
 $$
 
-This is a computational boundary formula. Branch completeness and uniqueness are separate proof obligations.
+This is a computational boundary formula. Branch completeness and
+uniqueness are separate proof obligations. In particular, do not invert
+these equations into a definition of $B_c(a)$, $b(a,c)$, or $b(c,a)$
+without checking the relevant admissible-cell inequalities and the intended
+branch; otherwise an algebraic root may be a fake geometric solution.

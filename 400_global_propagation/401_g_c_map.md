@@ -8,6 +8,12 @@ $$
 B_c(a)=\max\{b\in[0,1]:(a,b,c)\in\mathcal A\}.
 $$
 
+This is a set-defined maximum over the full admissible set. It is not
+defined by choosing an arbitrary root of a boundary equation. A root
+obtained from a boundary equation is only a candidate value of $b$; it
+contributes to $B_c(a)$ only if $(a,b,c)$ satisfies the relevant cell
+inequalities defining $\mathcal A$.
+
 Then
 
 $$

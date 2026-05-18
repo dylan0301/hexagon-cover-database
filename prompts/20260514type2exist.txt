@@ -1,0 +1,5 @@
+Try proving the following lemma:
+if we only use the triangles with a+b<=1 for perimeter triangles,
+then skeleton covering is impossible.
+note that the C-triangle has to be Ce1 or Ce2 then.
+tell me your attempt and tell me where you failed

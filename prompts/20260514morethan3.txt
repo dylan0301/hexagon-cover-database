@@ -1,0 +1,288 @@
+
+
+이게 Ce1이나 Ce2로 만들어지는 애들이 대각선 덮는게 너무 적어서
+V1 이랑 V5 triangle에서
+admissible set 하면
+오른쪽으로 치우쳐지게 되어요 
+그래서 항상 왼쪽에 빨간색 안덮인 부분 둘레가 3보다 큰 것 같아요
+근데 다 a+b<=1이어야되서 증명
+그냥 이런식으로 Ce1 Vd0랑 Ce2 Vd0를 전부다 제거할 수 있을거같아요
+
+
+{
+  "target": "S_HALF",
+  "targetTPoints": [
+    {
+      "id": "t1",
+      "t": 0.3,
+      "fixed": false
+    }
+  ],
+  "tool": "move",
+  "strictEps": 0,
+  "selectedTriangleId": "V2",
+  "triangles": [
+    {
+      "id": "C",
+      "center": {
+        "x": 0.48982466350156356,
+        "y": 0.25449976280828607
+      },
+      "angle": 2.02568049511364,
+      "fixed": false,
+      "hidden": false,
+      "midpointConstraints": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "edgePointConstraint": null,
+      "vd0": {
+        "enabled": false,
+        "mode": "max-c",
+        "rawSources": {}
+      }
+    },
+    {
+      "id": "V0",
+      "center": {
+        "x": 0.8020489588343326,
+        "y": 0.10937633131142852
+      },
+      "angle": 2.10584387431417,
+      "fixed": true,
+      "hidden": true,
+      "midpointConstraints": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "edgePointConstraint": null,
+      "vd0": {
+        "enabled": false,
+        "mode": "max-c",
+        "rawSources": {}
+      }
+    },
+    {
+      "id": "V1",
+      "center": {
+        "x": 0.04929972310938145,
+        "y": 0.577350269303682
+      },
+      "angle": 3.141592653817904,
+      "fixed": false,
+      "hidden": false,
+      "midpointConstraints": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "edgePointConstraint": null,
+      "vd0": {
+        "enabled": true,
+        "mode": "max-b",
+        "rawSources": {
+          "a": {
+            "kind": "label",
+            "labelId": "D1"
+          }
+        }
+      }
+    },
+    {
+      "id": "V2",
+      "center": {
+        "x": -0.9880491505073556,
+        "y": 1.1744993458824518
+      },
+      "angle": 2.0543501574999943,
+      "fixed": true,
+      "hidden": true,
+      "midpointConstraints": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "edgePointConstraint": null,
+      "vd0": {
+        "enabled": false,
+        "mode": "max-b",
+        "rawSources": {}
+      }
+    },
+    {
+      "id": "V3",
+      "center": {
+        "x": -1.570485367568901,
+        "y": -0.08877841048346315
+      },
+      "angle": 2.772376263708398,
+      "fixed": true,
+      "hidden": true,
+      "midpointConstraints": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "edgePointConstraint": null,
+      "vd0": {
+        "enabled": false,
+        "mode": "max-c",
+        "rawSources": {}
+      }
+    },
+    {
+      "id": "V4",
+      "center": {
+        "x": -0.5506471260071286,
+        "y": -1.4411572244786894
+      },
+      "angle": 2.006567197691818,
+      "fixed": true,
+      "hidden": true,
+      "midpointConstraints": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "edgePointConstraint": null,
+      "vd0": {
+        "enabled": false,
+        "mode": "max-c",
+        "rawSources": {}
+      }
+    },
+    {
+      "id": "V5",
+      "center": {
+        "x": 0.4999961738597887,
+        "y": -0.29106747001103345
+      },
+      "angle": 3.1391953480156847,
+      "fixed": false,
+      "hidden": false,
+      "midpointConstraints": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "edgePointConstraint": null,
+      "vd0": {
+        "enabled": true,
+        "mode": "max-a",
+        "rawSources": {
+          "b": {
+            "kind": "label",
+            "labelId": "D3"
+          }
+        }
+      }
+    }
+  ],
+  "labels": [
+    {
+      "id": "D1",
+      "name": "D1",
+      "mode": "dynamic",
+      "first": {
+        "kind": "triangle-edge",
+        "index": 2,
+        "triangleId": "C"
+      },
+      "second": {
+        "kind": "hex-edge",
+        "index": 0
+      },
+      "point": {
+        "x": 0.524649861462408,
+        "y": 0.8233305913320139
+      }
+    },
+    {
+      "id": "D2",
+      "name": "D2",
+      "mode": "dynamic",
+      "first": {
+        "kind": "hex-edge",
+        "index": 0
+      },
+      "second": {
+        "kind": "triangle-edge",
+        "index": 1,
+        "triangleId": "C"
+      },
+      "point": {
+        "x": 0.5790531489298303,
+        "y": 0.7291013333396632
+      }
+    },
+    {
+      "id": "D3",
+      "name": "D3",
+      "mode": "dynamic",
+      "first": {
+        "kind": "hex-edge",
+        "index": 5
+      },
+      "second": {
+        "kind": "triangle-edge",
+        "index": 0,
+        "triangleId": "C"
+      },
+      "point": {
+        "x": 0.9611466320725892,
+        "y": -0.0672960072954426
+      }
+    },
+    {
+      "id": "D4",
+      "name": "D4",
+      "mode": "dynamic",
+      "first": {
+        "kind": "hex-edge",
+        "index": 5
+      },
+      "second": {
+        "kind": "triangle-edge",
+        "index": 1,
+        "triangleId": "C"
+      },
+      "point": {
+        "x": 0.9651631505332217,
+        "y": -0.060339193252088696
+      }
+    }
+  ],
+  "selectedSegments": [],
+  "pointSeeds": [],
+  "selectedPointSeedId": null,
+  "status": "Vd0 auto-placed enabled triangles.",
+  "sampling": {
+    "v": [],
+    "c": [],
+    "rejected": []
+  },
+  "version": 7
+}

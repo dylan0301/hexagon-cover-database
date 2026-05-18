@@ -1,0 +1,48 @@
+
+### Function c(a,b)
+
+The piecewise-defined function `c: [0,1]² → [0,1]` is defined as:
+
+Given: `s = a+b`, `m = min(a,b)`, `M = max(a,b)`, `q = (a+b)⁴ - (a+b)² + ab`
+
+**Case 1:** `a² + ab + b² > 1` → undefined (rejected)
+
+**Case 2:** `a² + ab + b² ≤ 1, s > 1`
+- Equation: `(1-m²)c² - M(2mM+1)c + M²(1-M²) = 0`
+- Discriminant: `disc = M² * ((2mM + 1)² - 4(1 - m²)(1 - M²))`
+- Formula: `c = (M(2mM + 1) - √disc) / (2(1 - m²))` (smaller root)
+- Return: smaller root in [0,1]
+
+**Case 3:** `a² + ab + b² ≤ 1, s = 1`
+- Return: `c = M`
+
+**Case 4a:** `a² + ab + b² ≤ 1, s < 1, q ≥ 0`
+- Equation: `(1-s²)c² - Mc + M² = 0`
+- Formula: `c = 2M / (1 + √(4s² - 3))` (rationalized form)
+- Return: smaller root in [0,1]
+ㄴㄴ 이거 아니라 삼각형 한 꼭짓점이 어느쪽에 있느냐에 따라 달라짐. 근데 항상 M 기준 되나? 아마 되는듯
+
+**Case 4b:** `a² + ab + b² ≤ 1, s < 1, q < 0`
+- Equation: `c⁴ - c² + mc - m² = 0` (quartic)
+- Return: unique real root in (0,1]
+
+
+x^{4}-x^{2}+mx-m^{2} 이거 데스모스로 찍어보니까 진짜 unique real root in (0,1]맞음
+
+M이 고정일때 m(c)는 함수는 언제 증가하고 언제 감소할까?
+
+편미분 계산해보면 된다.
+
+$$
+m \ge \frac{-M + \sqrt{3(1-M^2)}}{2}
+$$
+
+**Case 1 (Upper Branch):** As $c$ decreases, **$m$ increases**.
+
+$$
+m \le \frac{-M + \sqrt{3(1-M^2)}}{2}
+$$
+
+**Case 2 (Lower Branch):** As $c$ decreases, **$m$ decreases**.
+
+하지만 m+M > 1 일땐, 항상 upper branch다. 따라서 c가 줄면 m은 는다.
