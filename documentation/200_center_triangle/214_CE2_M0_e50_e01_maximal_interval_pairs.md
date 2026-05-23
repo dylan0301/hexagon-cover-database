@@ -121,18 +121,14 @@ $$
 The target edges are parameterized by
 
 $$
-e_{0,1}(b)=V_0+b(V_1-V_0)
-=
-\left(1-\frac b2,\frac{\sqrt3}{2}b\right),
+e_{0,1}(b)=V_0+b(V_1-V_0)=\left(1-\frac b2,\frac{\sqrt3}{2}b\right),
 \qquad 0\le b\le1,
 $$
 
 and
 
 $$
-e_{5,0}(a)=V_0+a(V_5-V_0)
-=
-\left(1-\frac a2,-\frac{\sqrt3}{2}a\right),
+e_{5,0}(a)=V_0+a(V_5-V_0)=\left(1-\frac a2,-\frac{\sqrt3}{2}a\right),
 \qquad 0\le a\le1.
 $$
 
