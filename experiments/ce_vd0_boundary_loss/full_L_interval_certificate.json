@@ -1,0 +1,17 @@
+{
+  "status": "certificate-metadata",
+  "branch": "(Full,L)",
+  "variables": ["R", "eta"],
+  "domain": {
+    "R": [0.5, 0.9803921568627451],
+    "eta": [0.0, 0.13397459621556135]
+  },
+  "bad_set": ["Delta(R,eta) <= 0", "H(R,eta) >= 0"],
+  "safe_box_tests": ["inf Delta > 0", "sup H < 0"],
+  "recorded_run": {
+    "certified_boxes": 2307,
+    "unresolved_boxes": 0
+  },
+  "verifier": "verify_full_L_interval.py",
+  "note": "The verifier regenerates the box subdivision. This metadata file records the expected run summary."
+}
