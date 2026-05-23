@@ -2,16 +2,16 @@
 
 Guidelines for Codex agents working in this repository.
 
-This repository is a Markdown-only research database for the hexagon covering problem. Treat it as mathematical research notes, not as application code.
+The documentation corpus in `documentation/` is a Markdown research database for the hexagon covering problem. Treat those notes as mathematical research notes, not as application code.
 
 ## 1. Understand The Repository First
 
 Before editing, read the relevant navigation files:
 
 - `README.md`
-- `000_INDEX.md`
-- `001_README_FOR_FUTURE_WORK.md`
-- `100_foundations/106_proof_status_conventions.md`
+- `documentation/000_INDEX.md`
+- `documentation/001_README_FOR_FUTURE_WORK.md`
+- `documentation/100_foundations/106_proof_status_conventions.md`
 - The local index file for the folder being edited, when one exists.
 
 Assume the notes are delicate. Small wording changes can change mathematical meaning.
@@ -65,7 +65,7 @@ Every changed line should trace directly to the user's request.
 
 ## 4. Follow Repository Style
 
-Use Markdown only unless explicitly asked otherwise.
+Use Markdown for research-note files unless explicitly asked otherwise.
 
 Use LaTeX delimiters consistently:
 

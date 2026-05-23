@@ -1,0 +1,6 @@
+the current project only contains md files that explain the hexagon cover problem and my progress
+however, i will also add some codes that help prove some statements.
+so make a documentation folder and put all documentation folders there.
+but don't put the prompts, AGENTs.md, README.md in that. they remain in the main direcotry
+is there any more things that have to remain in the main directory?
+ask me quesitons

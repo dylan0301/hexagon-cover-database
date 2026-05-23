@@ -1,5 +1,10 @@
+# Documentation Manifest
+
+Paths are relative to this `documentation/` directory.
+
 000_INDEX.md
 001_README_FOR_FUTURE_WORK.md
+MANIFEST.txt
 100_foundations/100_problem_statement.md
 100_foundations/101_geometry_objects.md
 100_foundations/102_targets_skeleton_half_skeleton_lotus_benzene.md
@@ -12,7 +17,6 @@
 200_center_triangle/202_inner_gamma_model.md
 200_center_triangle/203_center_vertex_cone_types.md
 200_center_triangle/204_center_type1_parameterization.md
-200_center_triangle/205_center_type1_optimization.md
 200_center_triangle/206_center_type2_rank1_variety.md
 200_center_triangle/207_center_type2_inner_hull_failed_strategy.md
 200_center_triangle/208_center_type1_type2_dictionary.md
