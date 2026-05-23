@@ -4,7 +4,6 @@ Status: Checklist
 
 Targets to prove symbolically:
 
-- CE1/CE2 exactly-one-midpoint lemma.
 - Vd1 adjacent midpoint frontier.
 - CE2 one-interval attach/far cases.
 - T3-like inequality:

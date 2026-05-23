@@ -53,4 +53,4 @@ $$
 
 iff both intervals are contained in the primed intervals.
 
-This file supports the CE1/CE2 exactly-one-midpoint proof attempts.
+This file supports the CE1/CE2 exactly-one-midpoint proof write-up.

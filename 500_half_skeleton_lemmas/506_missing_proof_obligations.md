@@ -4,7 +4,6 @@ Status: Checklist
 
 Unresolved or target-level items:
 
-- CE1/CE2 exactly-one-midpoint lemma.
 - Full Vd1 adjacent-midpoint inequality outside the CE0 package.
 - CE2 maximality elimination of intersect cases.
 - CE2 attach/far case checks.

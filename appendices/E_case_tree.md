@@ -9,7 +9,7 @@ C-triangle:
     no Vd1/Vd2, T3-like  -> incomplete strategy
     all Vd0              -> open/needs handling
   CE1
-    depends on exactly-one-midpoint lemma
+    uses proven exactly-one-midpoint lemma
   CE2
     depends on one-interval lemma
 ```

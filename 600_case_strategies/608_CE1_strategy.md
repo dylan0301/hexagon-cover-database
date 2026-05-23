@@ -1,6 +1,6 @@
 # CE1 Strategy
 
-Status: Strategy / target-lemma dependent
+Status: Strategy
 
 Assume
 
@@ -8,7 +8,7 @@ $$
 T_C\text{ is CE1}.
 $$
 
-Target lemma:
+Use the proven local lemma:
 
 $$
 T_C\text{ covers exactly one midpoint }M_i.

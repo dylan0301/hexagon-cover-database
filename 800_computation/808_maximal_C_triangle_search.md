@@ -9,4 +9,4 @@ For CE0, CE1, and CE2:
 3. impose CE edge-overlap count;
 4. record covered midpoint set;
 5. compute maximal intervals for CE1 and product intervals for CE2;
-6. test the exactly-one-midpoint lemma.
+6. sanity-check the proven exactly-one-midpoint lemma.

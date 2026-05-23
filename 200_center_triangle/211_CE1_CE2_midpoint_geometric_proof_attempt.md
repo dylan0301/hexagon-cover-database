@@ -1,8 +1,8 @@
 # CE1 / CE2 Exactly-One-Midpoint: Geometric Proof Attempt
 
-Status: Lemma target
+Status: Strategy
 
-Target lemma:
+Lemma recorded as proven in [`../500_half_skeleton_lemmas/503_CE1_CE2_exactly_one_midpoint_lemma.md`](../500_half_skeleton_lemmas/503_CE1_CE2_exactly_one_midpoint_lemma.md):
 
 $$
 T_C\text{ is CE1 or CE2}\implies \#\{i:M_i\in T_C\}=1.
@@ -16,4 +16,4 @@ Geometric plan:
 4. If two adjacent midpoints are covered, use the equilateral side directions to force either CE0 failure or too many edge overlaps.
 5. Show that CE1 and CE2 allow exactly one midpoint in the nondegenerate regime.
 
-Current status: proof not complete.
+Current status: retained as the geometric proof route, not as the authoritative proof write-up.

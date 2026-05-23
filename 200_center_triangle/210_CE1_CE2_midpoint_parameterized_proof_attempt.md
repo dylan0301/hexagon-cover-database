@@ -1,8 +1,8 @@
 # CE1 / CE2 Exactly-One-Midpoint: Parameterized Proof Attempt
 
-Status: Lemma target
+Status: Strategy
 
-Target lemma:
+Lemma recorded as proven in [`../500_half_skeleton_lemmas/503_CE1_CE2_exactly_one_midpoint_lemma.md`](../500_half_skeleton_lemmas/503_CE1_CE2_exactly_one_midpoint_lemma.md):
 
 $$
 T_C\text{ is CE1 or CE2}\implies \#\{i:M_i\in T_C\}=1.
@@ -16,4 +16,4 @@ Parameterized plan:
 4. Prove that zero, two, three, or more midpoint containments are incompatible with the CE constraints.
 5. Treat tangencies and point-only contacts as degenerate boundary cases.
 
-Current status: proof not complete.
+Current status: retained as a parameterized proof route, not as the authoritative proof write-up.

@@ -9,7 +9,7 @@ Sample center triangles containing $O$, then compute:
 - covered midpoints;
 - center distance tuple $d_0,d_{60},\dots,d_{300}$.
 
-Primary purpose: search for counterexamples to
+Primary purpose: sanity-check the proven local lemma
 
 $$
 \mathrm{CE1}\text{ or }\mathrm{CE2}\implies \text{exactly one midpoint covered}.
