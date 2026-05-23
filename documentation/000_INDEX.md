@@ -26,8 +26,9 @@ The equivalence is proved in `100_foundations/103_open_unit_vs_shrunken_closed_e
 4. `300_vertex_triangle/300_V_triangle_overview.md`
 5. `400_global_propagation/403_six_step_composition.md`
 6. `500_half_skeleton_lemmas/500_half_skeleton_lemma_index.md`
-7. `600_case_strategies/600_case_strategy_index.md`
-8. `900_failed_ideas/900_failed_idea_index.md`
+7. `550_CE_Vd0_boundary_loss/550_index.md`
+8. `600_case_strategies/600_case_strategy_index.md`
+9. `900_failed_ideas/900_failed_idea_index.md`
 
 ## Most important current proof package
 
@@ -45,6 +46,14 @@ is recorded as proven for the half-skeleton target in:
 - `600_case_strategies/604_CE0_Vd1_Vd2_F_chain_inequalities.md`
 - `600_case_strategies/605_CE0_Vd1_Vd2_midpoint_hole_subcases.md`
 - `600_case_strategies/606_CE0_Vd1_Vd2_assembly.md`
+
+## Active CE1/CE2 Vd0 boundary-loss package
+
+The branch package for the CE1/CE2 all-Vd0 boundary-loss obstruction is recorded in:
+
+- `550_CE_Vd0_boundary_loss/550_index.md`
+
+It is not a finished proof of the full CE1/CE2 Vd0 case.  It contains a reduction, corrected admissible-map definitions, several proven branch lemmas, computational verification notes, and remaining lower-sheet $T_+$ obligations.
 
 ## Proof-status labels
 
