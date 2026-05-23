@@ -25,6 +25,7 @@ MANIFEST.txt
 200_center_triangle/211_CE1_CE2_midpoint_geometric_proof_attempt.md
 200_center_triangle/212_C_triangle_repo_gap.md
 200_center_triangle/213_CE1_M0_e01_maximal_intervals.md
+200_center_triangle/214_CE2_M0_e50_e01_maximal_interval_pairs.md
 300_vertex_triangle/300_V_triangle_overview.md
 300_vertex_triangle/301_V_triangle_types.md
 300_vertex_triangle/302_local_coordinates_abc.md
