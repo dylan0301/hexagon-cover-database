@@ -48,8 +48,7 @@ is recorded in
 For this subcase, the maximal feasible intervals are exactly
 
 $$
-[s,t]=\left[s,\sqrt{s^2-s+1}-(1-s)^2\right],
-\qquad 0<s<1.
+\boxed{\displaystyle [s,t]=[s,\sqrt{s^2-s+1}-(1-s)^2],\quad 0\lt s\lt 1}
 $$
 
 The endpoints $s=0$ and $s=1$ are limiting degeneracies, not feasible positive-length CE1 intervals.

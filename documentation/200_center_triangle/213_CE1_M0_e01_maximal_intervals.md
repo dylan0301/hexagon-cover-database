@@ -27,8 +27,7 @@ in the edge parameter $e_{0,1}(b)=V_0+b(V_1-V_0)$.
 The maximal feasible intervals are exactly
 
 $$
-[s,t]=\left[s,\sqrt{s^2-s+1}-(1-s)^2\right],
-\qquad 0<s<1.
+\boxed{\displaystyle [s,t]=[s,\sqrt{s^2-s+1}-(1-s)^2],\quad 0\lt s\lt 1}
 $$
 
 Maximality is interval inclusion:
