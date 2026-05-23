@@ -32,6 +32,34 @@ $$
 [s,t]\preceq[s',t']\iff s'\le s,\quad t'\ge t.
 $$
 
+### CE1 exact midpoint subset \(\{M_0\}\), normalized to \(e_{0,1}\)
+
+The full proof and numerical check for the normalized target
+
+\[
+T_C\cap\{M_0,\dots,M_5\}=\{M_0\},
+\qquad
+T_C\text{ has positive-length boundary overlap only on }e_{0,1},
+\]
+
+is recorded in
+[`213_CE1_M0_e01_maximal_intervals.md`](213_CE1_M0_e01_maximal_intervals.md).
+
+For this subcase, the maximal feasible intervals are exactly
+
+\[
+\boxed{
+[s,t]=
+\left[
+s,\,
+\sqrt{s^2-s+1}-(1-s)^2
+\right],
+\qquad 0<s<1.
+}
+\]
+
+The endpoints \(s=0\) and \(s=1\) are limiting degeneracies, not feasible positive-length CE1 intervals.
+
 ## CE2
 
 Normalize the two overlaps to adjacent edges:
