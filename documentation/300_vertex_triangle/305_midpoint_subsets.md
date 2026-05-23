@@ -24,3 +24,10 @@ Expected exact midpoint subsets:
   $$
   \{M_1\},\ \{M_5\}.
   $$
+
+Symmetry note. This inventory lists exact midpoint subsets before quotienting
+by the reflection symmetry fixing $V_0$ and $M_0$ and swapping $M_1$ with
+$M_5$. In case analysis, reflected copies need not be considered separately
+when the surrounding hypotheses are reflected with the local data. For
+example, the Vd1 cases $\{M_1\}$ and $\{M_5\}$ are equivalent, as are
+$\{M_0,M_1\}$ and $\{M_0,M_5\}$.

@@ -2,6 +2,17 @@
 
 Status: Computational formula
 
+Definition note. In this file, $c(a,b)$ means the maximum radial coordinate
+attainable by an admissible local triple whose edge coordinates contain at
+least the points prescribed by $a$ and $b$:
+
+$$
+c(a,b)=\max\{c': \exists (a',b',c')\in\mathcal A\text{ with }a'\ge a,\ b'\ge b\}.
+$$
+
+Thus $a$ and $b$ are lower-bound point-containment constraints, not
+necessarily the exact edge coordinates of the maximizing triple.
+
 Let
 
 $$
