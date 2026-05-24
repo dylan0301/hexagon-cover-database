@@ -6,6 +6,8 @@ This file records the rigorous self-contained reduction specification from `jcpa
 
 It is a specification of the target and proof obligations, not a proof that the target holds.
 
+Case context: In the current case tree, this specification is best read as a conditional fragment of the open $\mathrm{CE0}+\text{all Vd0}$ direction, after a prior reduction to the May 21/22 constrained slice with exactly one strict local vertex triangle, normalized at $V_4$.  It does not prove the full $\mathrm{CE0}+\text{all Vd0}$ case and does not establish the prior global monotonicity or equality reductions; it records the four-point Pattern A target and its proof obligations under those assumptions.
+
 ## 1. Geometry
 
 Let $H$ be the regular hexagon of side length $1$, centered at
