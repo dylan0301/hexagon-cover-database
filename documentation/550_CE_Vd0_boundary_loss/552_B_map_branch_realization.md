@@ -2,7 +2,7 @@
 
 Status: Definition with proven local branch-realization lemmas
 
-This file records the corrected interpretation of the Vd0 admissible map $B(a,c)$.  The main rule is that algebraic roots are only candidates.  The value $B(a,c)$ is the largest actually admissible $b$.
+This file records the corrected interpretation of the Vd0 admissible map $B(a,c)$ and the branch-pair notation used throughout `550_CE_Vd0_boundary_loss/`.  The main rule is that algebraic roots are only candidates.  The value $B(a,c)$ is the largest actually admissible $b$.
 
 ## 1. Correct definition
 
@@ -17,7 +17,7 @@ Here $\mathcal A$ is the Vd0 admissible set on the $a+b\le1$ side.
 Let
 
 $$
-sigma=a+b,
+\sigma=a+b,
 $$
 
 $$
@@ -82,9 +82,21 @@ $$
 
 and $B(a,c)$ is the maximum $b$ such that $c\in C(a,b)$.
 
-## 3. Branches
+## 3. Single-side branch labels
 
-The branch names in this folder mean that the maximizing value $b=B(a,c)$ is realized on the specified frontier.
+The branch names in this folder mean that the maximizing value $b=B(a,c)$ is realized on the specified frontier.  A label is not assigned merely because an algebraic equation has a root.
+
+The branch label set used here is
+
+$$
+\mathfrak B=\{L,\mathrm{Full},T_-,T_+^{hi},T_+^{lo}\}.
+$$
+
+When the sheet of $T_+$ is irrelevant or not yet split, the shorthand $T_+$ means
+
+$$
+T_+=T_+^{hi}\cup T_+^{lo}.
+$$
 
 ### Full
 
@@ -200,7 +212,93 @@ $$
 B_{T_+^{lo}}(a,c)\le {c\over2}.
 $$
 
-## 4. $D_1$ is not an independent branch
+## 4. Branch-pair notation
+
+For the active $C$-interval $[s,t]\subset e_{0,1}$, set
+
+$$
+u=1-t.
+$$
+
+The two adjacent maximal V-values are
+
+$$
+B_5:=B(s,1-\gamma_5),
+$$
+
+and
+
+$$
+B_1:=B(u,1-\gamma_1).
+$$
+
+Here $B_5$ is the $V_5$-side, or first, contribution.  It uses input boundary length $s$ and radial requirement $1-\gamma_5$.  The term $B_1$ is the $V_1$-side, or second, contribution.  It uses input boundary length $u=1-t$ and radial requirement $1-\gamma_1$.
+
+A branch pair
+
+$$
+(X,Y),\qquad X,Y\in\mathfrak B,
+$$
+
+means the following precise statement:
+
+$$
+B_5=B(s,1-\gamma_5)\text{ is realized on branch }X,
+$$
+
+and
+
+$$
+B_1=B(u,1-\gamma_1)\text{ is realized on branch }Y.
+$$
+
+The first coordinate is always the $B_5$ branch.  The second coordinate is always the $B_1$ branch.
+
+For example,
+
+$$
+(L,\mathrm{Full})
+$$
+
+means
+
+$$
+B_5=\ell(\gamma_5)
+$$
+
+with the Low branch realization conditions for input $s$, and
+
+$$
+B_1=1-u
+$$
+
+with the Full branch condition for input $u$.  Therefore, on this branch pair,
+
+$$
+F=B_5+B_1=\ell(\gamma_5)+1-u.
+$$
+
+Similarly,
+
+$$
+(T_+^{hi},T_-)
+$$
+
+means
+
+$$
+B_5=B_{T_+^{hi}}(s,1-\gamma_5),
+$$
+
+and
+
+$$
+B_1=B_{T_-}(u,1-\gamma_1).
+$$
+
+Branch-pair notation is therefore notation for a pair of realized maxima.  It is not notation for a pair of formal algebraic roots.
+
+## 5. $D_1$ is not an independent branch
 
 The separator
 
@@ -232,7 +330,7 @@ Thus increasing $b$ moves into $\Delta>0$.  If the Cell $2$ radial inequality is
 
 Therefore $D_1$ is only a switching interface, not a separate maximal $B$-branch.
 
-## 5. Full-Full impossibility
+## 6. Full-Full impossibility
 
 On the main $r>1$ C-branch, $(\mathrm{Full},\mathrm{Full})$ is impossible.
 
