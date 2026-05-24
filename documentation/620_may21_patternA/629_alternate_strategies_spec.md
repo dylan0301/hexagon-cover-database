@@ -11,6 +11,8 @@ The two strategies are:
 
 Important warning: band-window repairs of the four-point obstruction are false.  See `630_band_window_counterexamples.md` for exact counterexamples inside $[0.4,0.6]$, outside $[0.4,0.6]$, and outside $[1/3,2/3]$.
 
+Additional warning: full-skeleton noncoverage is false as a standalone target. See `../800_computation/811_skeleton_cover_counterexample.md`.
+
 ## 1. Common setup
 
 Let $H$ be the regular hexagon of side length $1$, centered at

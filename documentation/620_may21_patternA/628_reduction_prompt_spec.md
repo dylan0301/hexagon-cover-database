@@ -34,7 +34,7 @@ $$
 S=\partial H\cup [V_0,V_3]\cup [V_1,V_4]\cup [V_2,V_5].
 $$
 
-The global target is to prove that seven open equilateral triangles of side length $1$ cannot cover $S$.  This file only records the May 21/22 focused reduction target.
+Historical context: the original global target was to prove that seven open equilateral triangles of side length $1$ cannot cover $S$. The May 24, 2026 counterexample in `../800_computation/811_skeleton_cover_counterexample.md` refutes this as a standalone target. This file only records the May 21/22 focused reduction target.
 
 ## 2. Boundary points and local coordinates
 

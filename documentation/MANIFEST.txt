@@ -96,6 +96,7 @@ MANIFEST.txt
 800_computation/808_maximal_C_triangle_search.md
 800_computation/809_symbolic_certificate_format.md
 800_computation/810_numerical_evidence_policy.md
+800_computation/811_skeleton_cover_counterexample.md
 900_failed_ideas/900_failed_idea_index.md
 900_failed_ideas/901_dominance_weighting_postmortem.md
 900_failed_ideas/902_fractional_covering_postmortem.md
@@ -104,6 +105,7 @@ MANIFEST.txt
 900_failed_ideas/905_type2_inner_hull_separation_postmortem.md
 900_failed_ideas/906_polynomial_density_LP_postmortem.md
 900_failed_ideas/907_why_not_repeat_these.md
+900_failed_ideas/908_full_skeleton_noncoverage_postmortem.md
 950_implementation_notes/950_repo_gap_index.md
 950_implementation_notes/951_geometry_helpers_to_add.md
 950_implementation_notes/952_CE_classification_helper_spec.md

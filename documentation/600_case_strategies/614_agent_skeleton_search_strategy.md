@@ -4,6 +4,8 @@ Status: Strategy
 
 Goal: automate finite case checking and produce human-readable certificates.
 
+After the May 24, 2026 skeleton-cover counterexample in `../800_computation/811_skeleton_cover_counterexample.md`, this search should target strengthened finite sets or additional hypotheses. It should not search for a contradiction to covering $S$ alone.
+
 Certificate format:
 
 ```text

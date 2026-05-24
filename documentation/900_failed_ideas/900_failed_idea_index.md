@@ -11,3 +11,4 @@ Detailed postmortems:
 - `905_type2_inner_hull_separation_postmortem.md`
 - `906_polynomial_density_LP_postmortem.md`
 - `907_why_not_repeat_these.md`
+- `908_full_skeleton_noncoverage_postmortem.md`

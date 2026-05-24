@@ -64,6 +64,14 @@ The current four-point Pattern A reduction package is recorded in:
 
 It proves the $p$-elimination theorem and the endpoint Taylor theorem for the lower outside-quarter Pattern A reduced inequalities.  The remaining non-endpoint Bernstein certificate is still incomplete and is recorded as empirical/certificate-prototype status.
 
+## May 24 skeleton-cover counterexample
+
+The full-skeleton noncoverage target is refuted by a numerical counterexample:
+
+- `800_computation/811_skeleton_cover_counterexample.md`
+
+The verifier records seven closed equilateral triangles of side strictly less than $1$ covering $S$.  This does not prove a cover of $H$ and does not change conditional half-skeleton results under their stated hypotheses.
+
 ## Proof-status labels
 
 See `100_foundations/106_proof_status_conventions.md`.

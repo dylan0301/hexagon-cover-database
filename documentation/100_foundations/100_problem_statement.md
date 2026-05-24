@@ -55,3 +55,5 @@ H\supset S\supset S_{1/2}.
 $$
 
 Noncoverage of $S$ implies noncoverage of $H$. Noncoverage of $S_{1/2}$ gives a local or case-specific obstruction.
+
+The converse direction is not available. In fact, the May 24, 2026 counterexample in `../800_computation/811_skeleton_cover_counterexample.md` numerically verifies seven closed equilateral triangles of side strictly less than $1$ covering $S$. Thus $S$ is too small as a standalone global target.

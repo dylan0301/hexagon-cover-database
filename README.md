@@ -51,6 +51,17 @@ The navigation entry point is [`documentation/000_INDEX.md`](documentation/000_I
 
 The complete documentation file list is in [`documentation/MANIFEST.txt`](documentation/MANIFEST.txt).
 
+## Skeleton Counterexample Warning
+
+The May 24, 2026 imported counterexample numerically verifies seven closed
+equilateral triangles of side strictly less than $1$ covering the full skeleton
+$S$. See
+[`documentation/800_computation/811_skeleton_cover_counterexample.md`](documentation/800_computation/811_skeleton_cover_counterexample.md).
+
+Consequently, noncoverage of $S$ is no longer a viable standalone route to the
+main theorem. Conditional half-skeleton results keep their stated status unless
+the counterexample is separately shown to satisfy their hypotheses.
+
 ## Current Proof Package
 
 The most developed recorded case is:

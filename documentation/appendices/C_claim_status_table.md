@@ -5,6 +5,7 @@ Status: Reference
 | Claim | File | Status |
 |---|---|---|
 | Open unit cover iff shrunken closed cover iff expanded closed unit cover | `103` | Proven |
+| Seven unit triangles cannot cover $S$ | `811`, `908` | Failed / empirical counterexample |
 | CE0 + Vd1/Vd2 cannot cover $S_{1/2}$ | `601`-`606` | Proven |
 | CE1/CE2 implies exactly one midpoint | `503` | Proven local lemma |
 | CE2 one-interval lemma | `504` | Target lemma |

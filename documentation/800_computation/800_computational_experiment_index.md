@@ -13,3 +13,4 @@ Experiments:
 - Maximal half-skeleton search.
 - Maximal C-triangle search.
 - Symbolic certificate formatting.
+- May 24 skeleton-cover counterexample.

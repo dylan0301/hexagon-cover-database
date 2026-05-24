@@ -1,0 +1,4 @@
+https://github.com/dylan0301/hexagon-cover-visual
+from here, read the counterexample found that actually covers the hexagon skeleton.
+put example on covering the hexagon skeleton, and change all status according to that
+ask me questions
