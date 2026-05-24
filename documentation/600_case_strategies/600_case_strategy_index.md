@@ -10,3 +10,7 @@ Main cases:
 - `609`: CE2 strategy. Target-lemma dependent.
 - `610`: global T3-like strategy.
 - `611`-`615`: finite points, admissible-union, agent search, and lotus polynomial strategies.
+
+Related focused packages:
+
+- `../620_may21_patternA/`: May 21/22 four-point Pattern A reduction. Contains proven $p$-elimination and endpoint Taylor lemmas, plus an incomplete non-endpoint Bernstein certificate program.
