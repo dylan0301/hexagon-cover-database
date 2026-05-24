@@ -9,6 +9,8 @@ The two strategies are:
 1. a midpoint-window admissible-set attack;
 2. a five-point obstruction avoiding the assumption $a_1+b_1=1$.
 
+Important warning: band-window repairs of the four-point obstruction are false.  See `630_band_window_counterexamples.md` for exact counterexamples inside $[0.4,0.6]$, outside $[0.4,0.6]$, and outside $[1/3,2/3]$.
+
 ## 1. Common setup
 
 Let $H$ be the regular hexagon of side length $1$, centered at
@@ -169,7 +171,7 @@ Let $C_2$ be the radius-$1$ circle centered at $X_2$, and $C_5$ the radius-$1$ c
 
 ## 4. Strategy A: midpoint-window admissible-set attack
 
-The proposed claim is:
+The proposed local-admissible-set claim is:
 
 If
 
@@ -187,7 +189,7 @@ a_i=1-t_{i-1}\in[0.4,0.6],
  b_i=t_i\in[0.4,0.6].
 $$
 
-A proof should use only
+A proof would use only
 
 $$
 (a_i,b_i,c_i)\in\mathcal A,
@@ -196,7 +198,31 @@ $$
 
 and the need to cover the radial skeleton portions not handled by the central triangle.
 
-Known partial result from exploration: the smaller window
+### Important distinction
+
+This Strategy A local-admissible-set claim is different from the four-point obstruction.
+
+The four-point statement
+
+$$
+\Lambda(P_3,P_5,G_0,G_2)\ge1
+$$
+
+is already false inside the midpoint window $[0.4,0.6]$.  A certified example is
+
+$$
+q=\frac{499}{1000},\qquad p=r=\frac12,
+$$
+
+for which all six $t_i$ lie in $[0.4,0.6]$ but the four points fit inside an equilateral triangle of side
+
+$$
+\frac{8}{5\sqrt3}<1.
+$$
+
+Also, requiring at least one $t_i$ outside $[0.4,0.6]$ or outside $[1/3,2/3]$ does not rescue the four-point statement.  See `630_band_window_counterexamples.md`.
+
+Known partial result from exploration: the smaller local-admissible window
 
 $$
 t_i\in\left[\frac9{20},\frac{11}{20}\right]
@@ -208,13 +234,15 @@ $$
 c_i<\frac{31}{50},
 $$
 
-so the residual radial points lie beyond radius $19/50$, and six such residual points cannot be contained in one unit equilateral triangle.  This does not prove the full $[0.4,0.6]$ claim.
+so the residual radial points lie beyond radius $19/50$, and six such residual radial points cannot be contained in one unit equilateral triangle.  This does not prove the full $[0.4,0.6]$ local-admissible claim.
 
 Unresolved for Strategy A:
 
-- prove or disprove the full $[0.4,0.6]$ midpoint-window claim;
+- prove or disprove the full $[0.4,0.6]$ local-admissible-set midpoint-window claim;
 - find a cyclic inequality using the admissible slices of $\mathcal A$;
 - determine the largest symmetric window $[\lambda,1-\lambda]$ for which the local admissible-set obstruction is true.
+
+Not unresolved: the four-point band-window repairs are false; see `630_band_window_counterexamples.md`.
 
 ## 5. Strategy B: five-point obstruction without $a_1+b_1=1$
 
