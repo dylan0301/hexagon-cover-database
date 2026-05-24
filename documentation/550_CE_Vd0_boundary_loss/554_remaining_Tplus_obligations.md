@@ -170,7 +170,41 @@ $$
 
 Thus the empirical gap is approximately $0.08$ in the best focused samples, but this is not a proof and should not be cited as a proven bound.
 
-## 7. Suggested next proof target
+## 7. Strategy note
+
+The remaining lower-sheet cases appear numerically non-tight, but the recorded samples are only empirical.  A proof must still certify a strict bound for every point satisfying the exact branch-realization and C-geometry constraints.
+
+For any remaining $T_+T_+$ branch, the useful variables are the losses from the Full endpoints:
+
+$$
+B_5=1-s-d_5,
+\qquad
+B_1=1-u-d_1.
+$$
+
+Then
+
+$$
+F=B_5+B_1=1+w-d_1-d_5.
+$$
+
+Therefore the exact target is
+
+$$
+d_1+d_5>w.
+$$
+
+The important point is that $d_1$ and $d_5$ are coupled.  They are both constrained by the same C-geometry equations for $\gamma_1$ and $\gamma_5$, so estimating them separately loses too much information.  This is why the crude lower bound for a single $T_+$ loss fails near branch-switching layers where one of the local surplus parameters is small.
+
+The intended next proof should use the lower-sheet identity
+
+$$
+b=c\beta_-(\mu)
+$$
+
+together with the shared C-geometry constraints, rather than only the coarse bound $B\le c/2$.  A successful estimate should turn the empirical gap in the lower-sheet samples into a uniform analytic inequality for the three remaining branches.
+
+## 8. Suggested next proof target
 
 The most promising next target is an analytic uniform gap for the lower-sheet cases.  A plausible route is:
 
