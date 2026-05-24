@@ -38,6 +38,14 @@ The current result is not a full proof of the May 21/22 target. The proven part 
   - Records numerical tests, earlier four-point counterexamples, and the exact status of the outside-quarter version.
 - `626_current_status.md`
   - Short dependency and status table.
+- `627_original_prompt_context.md`
+  - Records the original May 21/22 visualization prompts, including the sector-enlarged intuition, midpoint-window alternative, five-point variant, and quadrilateral lemma reference.
+
+## External prompt sources imported
+
+The original prompt material is summarized in `627_original_prompt_context.md` rather than copied verbatim. The quadrilateral lemma itself is recorded as a proven local lemma in:
+
+- `../500_half_skeleton_lemmas/507_minimal_enclosing_equilateral_quadrilateral_lemma.md`
 
 ## Code
 
