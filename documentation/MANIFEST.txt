@@ -35,6 +35,7 @@ MANIFEST.txt
 300_vertex_triangle/306_Vd1_Vd2_constraints.md
 300_vertex_triangle/307_T3_like_constraints.md
 300_vertex_triangle/308_boundary_degeneracies.md
+300_vertex_triangle/309_ab_union_curve_a_plus_b_gt_1.md
 400_global_propagation/400_gamma_to_c_bounds.md
 400_global_propagation/401_g_c_map.md
 400_global_propagation/402_zero_diagonal_F_map.md
