@@ -43,3 +43,16 @@ Type 2 normalization:
 $$
 S_{\mathrm{even}}^2S_{\mathrm{odd}}^2-(S_{\mathrm{even}}^2-S_{\mathrm{even}}S_{\mathrm{odd}}+S_{\mathrm{odd}}^2)=0.
 $$
+
+Local $AB$-union curve in the strict branch
+
+$$
+a+b>1,
+\qquad
+ a^2+ab+b^2<1
+$$
+
+is recorded with full piecewise equations in
+[`../300_vertex_triangle/309_ab_union_curve_a_plus_b_gt_1.md`](../300_vertex_triangle/309_ab_union_curve_a_plus_b_gt_1.md).
+
+It consists of two unit-circle arcs and two line segments.
