@@ -14,3 +14,4 @@ Main cases:
 Related focused packages:
 
 - `../620_may21_patternA/`: May 21/22 four-point Pattern A reduction. Contains proven $p$-elimination and endpoint Taylor lemmas, plus an incomplete non-endpoint Bernstein certificate program.
+- `../630_may25_five_point_conjecture/`: May 25 five-point conjecture under the reduced slice. Records the target $\Lambda(K_5)>1$ and its branch/diagonal obligations; no proof is recorded.

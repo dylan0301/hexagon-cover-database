@@ -29,7 +29,8 @@ The equivalence is proved in `100_foundations/103_open_unit_vs_shrunken_closed_e
 7. `550_CE_Vd0_boundary_loss/550_index.md`
 8. `600_case_strategies/600_case_strategy_index.md`
 9. `620_may21_patternA/620_index.md`
-10. `900_failed_ideas/900_failed_idea_index.md`
+10. `630_may25_five_point_conjecture/630_index.md`
+11. `900_failed_ideas/900_failed_idea_index.md`
 
 ## Most important current proof package
 
@@ -63,6 +64,14 @@ The current four-point Pattern A reduction package is recorded in:
 - `620_may21_patternA/620_index.md`
 
 It proves the $p$-elimination theorem and the endpoint Taylor theorem for the lower outside-quarter Pattern A reduced inequalities.  The remaining non-endpoint Bernstein certificate is still incomplete and is recorded as empirical/certificate-prototype status.
+
+## Active May 25 five-point conjecture package
+
+The May 25 reduced five-point conjecture package is recorded in:
+
+- `630_may25_five_point_conjecture/630_index.md`
+
+It records the finite-point target $\Lambda(K_5)>1$ for $K_5=\{P_3,P_5,D_0,D_1,D_2\}$ under the reduced May 25 slice.  The target is open in this repository.
 
 ## May 24 skeleton-cover counterexample
 
