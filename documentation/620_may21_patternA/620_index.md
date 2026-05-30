@@ -22,6 +22,11 @@ $$
 P_3,\quad P_5,\quad G_0,\quad G_2.
 $$
 
+The exact nondegenerate strict $AB$-union frontier formula used for the
+$R_4$ boundary, including the two unit-circle arcs and two line segments, is
+recorded in
+[`../300_vertex_triangle/309_ab_union_curve_a_plus_b_gt_1.md`](../300_vertex_triangle/309_ab_union_curve_a_plus_b_gt_1.md).
+
 The current result is not a full proof of the May 21/22 target. The proven part is a reduction and endpoint theorem for Pattern A. The remaining non-endpoint monotonicity certificate is supported by Bernstein/root-isolation experiments but is not yet a complete finite certificate.
 
 ## Working strategy

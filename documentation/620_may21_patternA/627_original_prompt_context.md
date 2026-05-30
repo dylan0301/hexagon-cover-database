@@ -66,6 +66,10 @@ $$
 
 where $C_2$ and $C_5$ are full radius-$1$ circles, and the boundary is the non-axis curved boundary of $R_4$, not a hexagon edge and not a coordinate axis.
 
+The exact nondegenerate strict $AB$-union frontier formula for this boundary is
+recorded in
+[`../300_vertex_triangle/309_ab_union_curve_a_plus_b_gt_1.md`](../300_vertex_triangle/309_ab_union_curve_a_plus_b_gt_1.md).
+
 ## 3. Monotonicity intuition
 
 The prompt intuition is:

@@ -106,6 +106,11 @@ $$
 
 Strategic caveat: although $R(a,b)$ is formally defined for all local values, the AB-union construction has intended proof-strategy meaning only for a triangle with $a+b>1$.  In the May 21/22 reduction, this is the unique strict triangle at $V_4$.  The other vertices enter through equality or $\le1$ constraints and through radial max-$c$ points.  They should not be treated as independent AB-union proof objects unless that use is separately justified.
 
+For the nondegenerate strict frontier formula, with its two unit-circle arcs
+and two line segments, see
+[`../300_vertex_triangle/309_ab_union_curve_a_plus_b_gt_1.md`](../300_vertex_triangle/309_ab_union_curve_a_plus_b_gt_1.md).
+In the local predicate below, the two axis lengths are $\alpha$ and $\beta$.
+
 ## 4. Exact local predicate for $R(a,b)$
 
 Set

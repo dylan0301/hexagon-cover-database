@@ -56,6 +56,10 @@ $$
 \alpha=r,\qquad \beta=1-q.
 $$
 
+The exact nondegenerate strict $AB$-union frontier formula for these local
+axis lengths is recorded in
+[`../300_vertex_triangle/309_ab_union_curve_a_plus_b_gt_1.md`](../300_vertex_triangle/309_ab_union_curve_a_plus_b_gt_1.md).
+
 The local-to-global map is
 
 $$

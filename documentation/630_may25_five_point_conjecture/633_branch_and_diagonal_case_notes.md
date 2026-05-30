@@ -18,11 +18,45 @@ The selected $P_3$ branch is the non-axis intersection between $\partial R_4$
 and $C_2$ closest to $V_4$.  The selected $P_5$ branch is the analogous
 intersection with $C_5$.
 
+The exact nondegenerate strict $AB$-union frontier formula for $\partial R_4$
+is recorded in
+[`../300_vertex_triangle/309_ab_union_curve_a_plus_b_gt_1.md`](../300_vertex_triangle/309_ab_union_curve_a_plus_b_gt_1.md).
+
 The local $R(a,b)$ predicate in `631_reduction_prompt_spec.md` gives a
 semialgebraic way to test candidate intersections.  A branch proof must show
 more than the existence of an algebraic root: it must verify that the root lies
 on the active non-axis boundary piece, satisfies the relevant inequalities, and
 is the closest valid branch to $V_4$.
+
+## Line-piece realization target
+
+The May 30 working prompt proposes the following branch-realization target:
+for the reduced May 25 slice, the selected intersections defining $P_3$ and
+$P_5$ should occur on the line-segment pieces
+
+$$
+\Gamma_A^{\mathrm{lin}}\cup\Gamma_B^{\mathrm{lin}}
+$$
+
+of the strict $AB$-union frontier for $R_4$, not on the unit-circle arc
+pieces.  This is a proof target, not a proved assertion in this package.
+
+To certify this target, one must check the intersections of $C_2$ and $C_5$
+with all four frontier pieces from
+`../300_vertex_triangle/309_ab_union_curve_a_plus_b_gt_1.md`.  For each
+selected point the proof must show:
+
+1. a valid intersection lies on one of the two closed line segments;
+2. the point satisfies the active $R_4$ boundary conditions and segment
+   parameter bounds;
+3. every valid arc intersection is absent, farther from $V_4$, or belongs to a
+   separated tangent or endpoint case;
+4. the selected line-piece point is the closest valid non-axis branch to
+   $V_4$.
+
+Endpoint contacts at the junction points of the four-piece curve, circle
+tangencies, and the limiting degeneration $\rho_4=a_4^2+a_4b_4+b_4^2=1$
+should be treated as boundary cases before using a strict line-piece argument.
 
 ## Undefined branch cases
 
@@ -89,3 +123,45 @@ where $\rho_{ij}$ denotes the first valid intersection of $R_i$ with
 $[O,V_j]$, if it exists.  This formula is only a strategy notation here; each
 $\rho_{ij}$ still requires a branch-realization proof from the exact local
 predicate.
+
+The May 30 working prompt suggests a one-dimensional shortcut for these
+endpoint realizations.  For fixed $j$, compute the closest valid cut of
+$[O,V_j]$ caused by each region that can meet this half-diagonal, with special
+attention to the neighboring regions $R_{j-1}$ and $R_{j+1}$, and compare
+those cut radii with the local maximal radial reach of $R_j$.  If this
+comparison proves that no omitted region produces a smaller valid cut, then it
+certifies the same value of $\rho_j$ without explicitly constructing the full
+$a+b\le1$ $AB$-union frontier.
+
+This shortcut is only a proof strategy.  A finished argument still has to
+verify each candidate cut against the exact local predicate, prove the
+candidate is the first cut from $O$, and separate the case in which no cut
+occurs before $V_j$, giving $D_j=V_j$.
+
+## Five-point enclosing-triangle contact roadmap
+
+The remaining enclosing-triangle certificate should reduce the support-contact
+regimes for
+
+$$
+K_5=\{P_3,P_5,D_0,D_1,D_2\}
+$$
+
+to a finite list of inequalities.  The May 30 working target is that, in the
+generic contact regime, $P_3$ and $P_5$ lie on different supporting sides of a
+minimal enclosing equilateral triangle, while $D_1$ lies on the remaining
+supporting side.
+
+The next split is whether $D_0$ or $D_2$ supplies an additional side contact.
+When a symmetry or separate comparison justifies taking $D_0$ as the active
+one, the remaining generic subcases are:
+
+1. $D_0$ lies on the same supporting side as $D_1$;
+2. $D_0$ lies on the same supporting side as $P_5$.
+
+The reflected alternatives with $D_2$ active must be included unless they are
+explicitly removed by a proved symmetry or monotonicity argument.  Cases in
+which both $D_0$ and $D_2$ lie on supporting sides are boundary or tight-case
+obligations, not generic cases to discard.  The prompt suggests that some such
+cases may be perturbable unless the six boundary points are close to the
+hexagon vertices, but that perturbation claim remains a proof obligation here.

@@ -1,0 +1,24 @@
+For Branch realization for P3 and P5, look at the 309 file that contains a+b>1 curve.
+I am almost sure that the two circles intersect with ab union curve for V4 triangle at the line segments parts, not the arc parts.
+assure that this happens.
+
+For Diagonal endpoint realization, you can just compute the followings:
+for example, if i want to figure out ρj=min{1,ρ0j,ρ1j,…,ρ5j} on D_j,
+we can just check the closest location to O on D_j from D_{j-1} and D_{j+1} trianlge that can intersect on D_j
+and compare with max c point on V_j triangle.
+I'm saying this because we don't need to explicitly compute the ab union set for the cases a+b<=1.
+
+for Five-point enclosing-triangle certificate, combinatorally, there can be many cases for which point is on which side of the minimal enclosing equilateral triangle.
+however, in reality, there will be only a few cases.
+I am almost sure that P3 and P5 are always on different sides of the triangle,
+and D1 is on the reamining side of the triangle.
+there will be case split on whether D0 is on a side of triangle, or D2 is on a side of triangle.
+with probability 1, only one of D0 or D2 will be on a side of triangle, and the other will be in the interior of the triangle.
+if we WLOG assume D0 is on a side of triangle, you would again have to split cases if D0 is on the side where D1 is on or P5 is on.
+if it is the case if both D0 and D2 are on some sides of triangle, we can move infinitesimal amount of a point and minimal enclosing triangle won't change a lot.
+we only have to avoid this move in tight cases, and i think tight cases only happen if the 6 points on the hexagon perimeter are very near the hexagon vertices.
+figure out which combinatorial cases are realizble, and each case, use the necessary condition that case implies for the proof.
+
+this is a detail that i will use for the proof of 630.
+fill these missing details in appropriate places
+ask me questions
