@@ -10,6 +10,8 @@ C-triangle:
     all Vd0              -> open/needs handling
   CE1
     uses proven exactly-one-midpoint lemma
+    all-Vd0 boundary-loss subcase -> proven local lemma in 550-556
   CE2
     depends on one-interval lemma
+    all-Vd0 boundary-loss subcase -> proven local lemma after assuming one-interval reduction
 ```
