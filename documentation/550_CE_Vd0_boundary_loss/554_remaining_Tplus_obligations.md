@@ -1,12 +1,27 @@
-# Remaining $T_+$ Obligations
+# Former Remaining $T_+$ Obligations
 
-Status: Lemma target with failed approaches recorded
+Status: Reference / superseded
 
-This file records the remaining unsolved pieces after the branch lemmas in `553_proven_branch_lemmas.md`.
+This file records the lower-sheet $T_+$ obligations that were formerly open,
+plus failed approaches that should not be repeated.
 
-## 1. Solved $T_+$ branches
+The obligations recorded here are now discharged by
+`556_lower_sheet_completion_proofs.md`, which gives analytic proofs of all
+three formerly open branches:
 
-The following branches are proved or eliminated:
+$$
+(T_+^{lo},T_-),\qquad
+(T_+^{lo},T_+^{hi}),\qquad
+(T_+^{lo},T_+^{lo}).
+$$
+
+Thus this file is now historical.  It remains useful because it explains why
+some plausible proof approaches are invalid or too weak.
+
+## 1. Solved branches
+
+The following branches were already proved or eliminated before the lower-sheet
+completion:
 
 $$
 (L,T_+),
@@ -34,31 +49,24 @@ $$
 (T_+^{hi},T_+^{hi})\text{ is impossible}.
 $$
 
-Therefore only lower-sheet left $T_+$ cases remain.
-
-## 2. Remaining branches
-
-The remaining branches are:
+The lower-sheet completion proves the remaining three branches:
 
 $$
-(T_+^{lo},T_-),
-$$
-
-$$
-(T_+^{lo},T_+^{hi}),
-$$
-
-and
-
-$$
+(T_+^{lo},T_-),\qquad
+(T_+^{lo},T_+^{hi}),\qquad
 (T_+^{lo},T_+^{lo}).
 $$
 
-These are numerically non-tight, but no proof is recorded here.
+Therefore no lower-sheet $T_+$ branch remains open for the boundary-loss
+objective
 
-## 3. Coupled-loss formulation for $T_+T_+$
+$$
+F=B(s,1-\gamma_5)+B(u,1-\gamma_1)<1.
+$$
 
-For any $T_+T_+$ branch, write
+## 2. Historical coupled-loss formulation
+
+For any $T_+T_+$ branch, one can write
 
 $$
 B_5=1-s-d_5,
@@ -75,42 +83,100 @@ $$
 Thus the exact target is
 
 $$
-\boxed{d_1+d_5>w.}
+d_1+d_5>w.
 $$
 
-The two losses are not independent.  They are coupled by the common C-triangle equations
+This formulation correctly identifies the coupling in the problem, but it is
+not the proof route used in the final lower-sheet completion.  The final proof
+for $(T_+^{lo},T_+^{hi})$ instead uses the left lower-sheet maximal branch to
+bound the right high-sheet ratio.
+
+## 3. Final lower-sheet proof route
+
+Let
 
 $$
-\gamma_1=1-ru,
+R={1\over r},\qquad S=\sqrt{1-R+R^2},\qquad
+k={\sqrt{13}-1\over6}.
 $$
 
-and
+For the final branch
 
 $$
-\gamma_5=u-\delta-{w\over r-1}.
+(T_+^{lo},T_+^{hi}),
 $$
 
-For a generic $T_+$ loss with input $a$, full endpoint $y=1-a$, and radial value $c=y+\tau$, write
+the decisive chain is:
+
+1. Left lower sheet gives
+
+   $$
+   s\le k.
+   $$
+
+2. The $C$-geometry identity gives
+
+   $$
+   c_1:=1-\gamma_1\ge L(R):=1+{1-S\over R}-k.
+   $$
+
+3. Right high sheet gives
+
+   $$
+   c_1\le S.
+   $$
+
+4. Hence $L(R)\le S$, which forces
+
+   $$
+   R\ge k.
+   $$
+
+5. If $\beta=B_1/c_1$ is the right high-sheet ratio, then monotonicity of
+
+   $$
+   g_R(\beta)={\sqrt{\beta^2-\beta+1}\over R+\beta}
+   $$
+
+   and an exact one-variable factorization give
+
+   $$
+   \beta\le1-k.
+   $$
+
+6. Since the right branch is $T_+$, $\beta\ge R$.  Therefore
+
+   $$
+   k\le R\le1-k.
+   $$
+
+7. On this interval,
+
+   $$
+   S\le2k.
+   $$
+
+8. Hence
+
+   $$
+   B_1=\beta c_1\le(1-k)S\le2k(1-k)<{1\over2}.
+   $$
+
+The left lower-sheet bound gives
 
 $$
-B=1-a-d.
+B_5\le{1\over2},
 $$
 
-Then the loss $d$ is the unique positive root of
+so
 
 $$
-E(d)=y\tau-Ad-(1-c^2)d^2=0,
+F=B_5+B_1<1.
 $$
 
-where
+The full proof is in `556_lower_sheet_completion_proofs.md`.
 
-$$
-A=2c^2-c+2\tau.
-$$
-
-This gives a monotone loss variable, but the lower bounds obtained by estimating each loss separately are currently too weak for the remaining lower-sheet cases.
-
-## 4. Why separate loss bounds failed
+## 4. Failed approach: separate loss bounds
 
 For a $T_+$ loss equation
 
@@ -130,89 +196,74 @@ $$
 d_1+d_5>w
 $$
 
-globally.  The bound is too weak near branch-switching layers where one of the $\tau_i$ is small.
+globally.  The bound is too weak near branch-switching layers where one of the
+local surplus parameters is small.  The final proof avoids separate loss
+estimates.
 
-## 5. Lower-sheet information
+## 5. Failed approach: raw algebraic sheet parameterization
 
-On $T_+^{lo}$,
-
-$$
-B\le {c\over2}\le {1\over2}.
-$$
-
-This immediately proves $(T_+^{lo},L)$ because
-
-$$
-L\le {\sqrt3\over4}
-$$
-
-and
-
-$$
-{1\over2}+{\sqrt3\over4}<1.
-$$
-
-The same simple bound is not enough for $(T_+^{lo},T_-)$ or $T_+T_+$, because the other branch can in principle approach a full endpoint.  More correlation from the C-geometry is needed.
-
-## 6. Numerical status
-
-Strict maximal-branch sampling found realized lower-sheet cases.  Typical high values were around
-
-$$
-(T_+^{lo},T_+^{hi}):\qquad F\approx0.91965,
-$$
-
-and
-
-$$
-(T_+^{lo},T_+^{lo}):\qquad F\approx0.91093.
-$$
-
-Thus the empirical gap is approximately $0.08$ in the best focused samples, but this is not a proof and should not be cited as a proven bound.
-
-## 7. Strategy note
-
-The remaining lower-sheet cases appear numerically non-tight, but the recorded samples are only empirical.  A proof must still certify a strict bound for every point satisfying the exact branch-realization and C-geometry constraints.
-
-For any remaining $T_+T_+$ branch, the useful variables are the losses from the Full endpoints:
-
-$$
-B_5=1-s-d_5,
-\qquad
-B_1=1-u-d_1.
-$$
-
-Then
-
-$$
-F=B_5+B_1=1+w-d_1-d_5.
-$$
-
-Therefore the exact target is
-
-$$
-d_1+d_5>w.
-$$
-
-The important point is that $d_1$ and $d_5$ are coupled.  They are both constrained by the same C-geometry equations for $\gamma_1$ and $\gamma_5$, so estimating them separately loses too much information.  This is why the crude lower bound for a single $T_+$ loss fails near branch-switching layers where one of the local surplus parameters is small.
-
-The intended next proof should use the lower-sheet identity
+A tempting parameterization is to impose only the formal sheet equations
 
 $$
 b=c\beta_-(\mu)
 $$
 
-together with the shared C-geometry constraints, rather than only the coarse bound $B\le c/2$.  A successful estimate should turn the empirical gap in the lower-sheet samples into a uniform analytic inequality for the three remaining branches.
+for the left lower sheet and
 
-## 8. Suggested next proof target
+$$
+b=c\beta_+(\mu)
+$$
 
-The most promising next target is an analytic uniform gap for the lower-sheet cases.  A plausible route is:
+for the right high sheet.
 
-1. Parameterize the lower sheet by $\beta_-(\mu)$, where
-   $$
-   \beta_-(\mu)={1-\sqrt{4\mu^2-3}\over2}.
-   $$
-2. Use the equality $b=c\beta_-(\mu)$ to replace the crude $b\le c/2$ bound by a sharper branch-specific inequality.
-3. Combine this with the C-geometry constraints for $\gamma_1$ and $\gamma_5$ to prove a uniform gap in the remaining lower-sheet cases.
+This is insufficient.  It produces fake high-$F$ points because it does not
+enforce the corrected maximal definition
 
-This proof is not yet supplied.
+$$
+B(a,c)=\max\{b:(a,b,c)\in\mathcal A,\ a+b\le1\}.
+$$
+
+A formal algebraic root may be beaten by a Low or $T_-$ candidate and therefore
+may fail to be the realized branch of $B(a,c)$.  This is precisely why
+`552_B_map_branch_realization.md` treats branch labels as realized maxima, not
+as formal roots.
+
+## 6. Failed approach: infeasibility of $b=1/2$ alone
+
+One intermediate route tried to prove that $b=1/2$ is infeasible on the right
+side and then conclude $B_1<1/2$.
+
+The infeasibility inequalities can be certified, but the conclusion has a
+monotonicity gap: the exact admissible set for fixed $(a,c)$ is not simply
+downward closed in $b$ across the full semialgebraic model.  Thus infeasibility
+of the single value $b=1/2$ is not by itself enough to exclude a larger
+realized branch value without an additional monotonicity argument.
+
+The final proof avoids this gap by working directly with the realized right
+high-sheet ratio
+
+$$
+\beta={B_1\over c_1}
+$$
+
+and proving
+
+$$
+\beta\le1-k,\qquad c_1\le S\le2k.
+$$
+
+## 7. Numerical status
+
+Earlier strict sampling found the formerly remaining branches with visible
+empirical gap.  These numerical observations were useful for finding the
+analytic proof, but are no longer needed for the final status.
+
+The important proof status is now analytic:
+
+$$
+(T_+^{lo},T_-),\quad
+(T_+^{lo},T_+^{hi}),\quad
+(T_+^{lo},T_+^{lo})
+\quad\Longrightarrow\quad
+F<1.
+$$
