@@ -30,7 +30,8 @@ The equivalence is proved in `100_foundations/103_open_unit_vs_shrunken_closed_e
 8. `600_case_strategies/600_case_strategy_index.md`
 9. `620_may21_patternA/620_index.md`
 10. `630_may25_five_point_conjecture/630_index.md`
-11. `900_failed_ideas/900_failed_idea_index.md`
+11. `640_area_conjecture/640_index.md`
+12. `900_failed_ideas/900_failed_idea_index.md`
 
 ## Most important current proof package
 
@@ -72,6 +73,17 @@ The May 25 reduced five-point conjecture package is recorded in:
 - `630_may25_five_point_conjecture/630_index.md`
 
 It records the finite-point target $\Lambda(K_5)>1$ for $K_5=\{P_3,P_5,D_0,D_1,D_2\}$ under the reduced May 25 slice.  The target is open in this repository.
+
+## Active area-conjecture package
+
+The area-conjecture package is recorded in:
+
+- `640_area_conjecture/640_index.md`
+
+It records the target $\sum_i f(a_i,b_i)<5$ when at least two rows satisfy
+$a_i+b_i>1$, using the CE0 six-point model and the separate CE1/reduced-CE2
+seven-point extension.  The CE2 use assumes the CE2 one-interval lemma, and
+the package is not a completed proof.
 
 ## May 24 skeleton-cover counterexample
 

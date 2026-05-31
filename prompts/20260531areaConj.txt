@@ -1,0 +1,43 @@
+https://github.com/dylan0301/hexagon-cover-visual/tree/gulgu/Area_Conjecture
+read this and understand area conj. tell me what you understood
+suggest how we will tackle the case for ce1 or ce2 case where we have to plot 7 points around the hexagon perimeter.
+
+monotonicity는 무슨 말이냐면
+x_1 <= x_2
+y_2 <= y_2 이면
+f(x_1,y_1) >= f(x_2,y_2)
+이거는 search space가  포함관계라서 자명하게 성립해요
+a+b=1이라고 가정하는건 아니고
+좀더 맞는 말은
+a+b>1인 삼각형들에서 a+b>1을 깨뜨리지 않는 선에서 a+b<1쪽의 b를 maximize 할 수 있다고 말하면 되겠네요
+한 가지 더 relaxation을 하자면
+a+b>1인 삼각형들을 모두다 a+b = 1+eps 로 바꿔버려요 (육각형 한 변 길이는 1이고 eps은 그냥 작은 값이에요) 
+monotonicity 떄문에 이렇게 해도 되는데
+그렇게 해도 증명하는데는 충분할거같아요
+understand this and rephrase in english
+how would this apply for the ce1 and ce2 cases
+
+make a documentation file for your thoughts on area conjecture including the 7 points.
+assume the ce2 one interval lemma for this.
+
+$$
+f_C(s,t)+\sum_{i=0}^5 f(a_i,b_i) <6
+$$
+
+$$
+f_C^{\mathrm{CE0}}+\sum_{i=0}^5 f(a_i,b_i)<6.
+$$
+
+these are wrong
+
+what we aim is \sum_{i=0}^5 f(a_i,b_i) < 5 for the case where at least two a+b>1 triangle exist
+only difference between Ce0 and Ce1,Ce2 is that we plot 7 dots on hexagon perimeter and that affects a_i b_i values
+tell me what you understood and fix
+
+you may think of the threshold relaxation
+as following: I think this would be more correct
+we don't assume a+b= 1+eps,
+but when we have \sum_{i=0}^5 f(a_i,b_i), we use the inequality 
+f(a_i,b_i) <= f(a_i, 1+eps-a_i) for the case where a_i + b_i > 1
+write this and keep the original one and write : you should think if original one would be correect
+the threshold relaxation should work for both CE0 and CE1,CE2, so write on both,

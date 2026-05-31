@@ -15,3 +15,4 @@ Related focused packages:
 
 - `../620_may21_patternA/`: May 21/22 four-point Pattern A reduction. Contains proven $p$-elimination and endpoint Taylor lemmas, plus an incomplete non-endpoint Bernstein certificate program.
 - `../630_may25_five_point_conjecture/`: May 25 five-point conjecture under the reduced slice. Records the target $\Lambda(K_5)>1$ and its branch/diagonal obligations; no proof is recorded.
+- `../640_area_conjecture/`: area-conjecture strategy for proving $\sum_i f(a_i,b_i)<5$ when at least two rows have $a_i+b_i>1$, using CE0 six-point data and CE1/reduced-CE2 seven-point data; no proof is recorded.
