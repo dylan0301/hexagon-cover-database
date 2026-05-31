@@ -50,13 +50,14 @@ is recorded as proven for the half-skeleton target in:
 - `600_case_strategies/605_CE0_Vd1_Vd2_midpoint_hole_subcases.md`
 - `600_case_strategies/606_CE0_Vd1_Vd2_assembly.md`
 
-## Active CE1/CE2 Vd0 boundary-loss package
+## Proven CE1/CE2 Vd0 boundary-loss package
 
 The branch package for the CE1/CE2 all-Vd0 boundary-loss obstruction is recorded in:
 
 - `550_CE_Vd0_boundary_loss/550_index.md`
+- `550_CE_Vd0_boundary_loss/556_lower_sheet_completion_proofs.md`
 
-It is not a finished proof of the full CE1/CE2 Vd0 case.  It contains a reduction, corrected admissible-map definitions, several proven branch lemmas, computational verification notes, and remaining lower-sheet $T_+$ obligations.
+It proves the boundary-loss lemma under the package assumptions.  For CE2, it still uses the CE2 one-interval reduction assumed in `550_CE_Vd0_boundary_loss/551_setup_and_reduction.md`.
 
 ## Active May 21/22 Pattern A package
 
