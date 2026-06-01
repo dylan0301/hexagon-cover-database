@@ -16,9 +16,12 @@ one of the two CE2 boundary intervals is already covered by adjacent vertex
 triangles, so the remaining active $C$-only interval can be treated by the
 same seven-point model.
 
-This package does not prove the area conjecture, the structural formula for
-the local maximizer $T(a,b)$, or the CE2 one-interval lemma.  It records the
-intended reductions, monotonicity relaxation, and proof-tree structure.
+This package does not prove the full area conjecture, the structural formula
+for the local maximizer $T(a,b)$, or the CE2 one-interval lemma.  It now records
+a conditional CE0 analytic certificate: if the local square-loss bounds for
+$f(a,b)$ are supplied, then the CE0 six-point target with at least two
+supercritical rows follows.  That conditional certificate is in
+`647_CE0_conditional_area_certificate.md`.
 
 The shared area-conjecture target is:
 
@@ -58,11 +61,20 @@ $$
 Here $f(a,b)$ is the normalized maximum area inside $H$ for a unit vertex
 triangle forced to contain the corresponding local boundary data.
 
-If the displayed strict inequality were proved under the correct hypotheses,
+If the displayed strict inequality is proved under the correct hypotheses,
 then the six vertex triangles contribute less than five unit-triangle areas
 inside $H$.  The remaining center triangle contributes at most one
 unit-triangle area, so the seven triangles contribute less than the area of
 $H$.
+
+The conditional CE0 certificate in `647_CE0_conditional_area_certificate.md`
+proves the stronger bound
+
+$$
+\sum_{i=0}^5 f(a_i,b_i)<\frac{99}{20}
+$$
+
+under the local square-loss hypothesis stated there.
 
 ## Files
 
@@ -81,3 +93,6 @@ $H$.
   - Records the proof-tree structure for the shared target.
 - `646_current_status.md`
   - Lists dependencies, open obligations, and what is not yet proved.
+- `647_CE0_conditional_area_certificate.md`
+  - Proves the CE0 six-point inequality under the local square-loss hypothesis
+    for $f(a,b)$.
