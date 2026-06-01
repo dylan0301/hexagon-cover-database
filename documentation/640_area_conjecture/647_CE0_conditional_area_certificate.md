@@ -60,9 +60,8 @@ a+b>1
 g(a,b)\ge\max(a,b)^2.
 $$
 
-The second bound is stronger than the threshold-relaxation strategy in
-`644_threshold_relation.md`; this file does not use an $\varepsilon$-threshold
-or a global replacement map.
+The proof below does not use the $\varepsilon$-threshold relaxation or any
+global replacement map from `644_threshold_relaxation.md`.
 
 ## CE0 six-point notation
 
@@ -353,29 +352,17 @@ This proves the theorem.
 
 Assume the local square-loss hypothesis and the CE0 six-point model.  If at
 least two CE0 rows satisfy $a_i+b_i>1$, then the six vertex triangles contribute
-less than five unit-triangle areas inside $H$.
+less than $99/20$ unit-triangle areas inside $H$.
 
 The center triangle contributes at most one unit-triangle area.  Hence the seven
 unit triangles contribute less than
 
 $$
-5+1=6
-$$
-
-unit-triangle areas, which is strictly less than the normalized area of $H$ only
-because Theorem 647.1 gives the stronger bound
-
-$$
-\sum_{i=0}^5 f(a_i,b_i)<\frac{99}{20}.
-$$
-
-Thus the total contribution is actually bounded by
-
-$$
 \frac{99}{20}+1=\frac{119}{20}<6.
 $$
 
-Therefore such a CE0 configuration cannot cover $H$.
+Since the normalized area of $H$ is $6$, such a CE0 configuration cannot cover
+$H$.
 
 ## Dependencies and non-claims
 
