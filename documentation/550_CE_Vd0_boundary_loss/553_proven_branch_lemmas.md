@@ -7,21 +7,13 @@ This file records the branch lemmas currently proved for the reduction in `551_s
 Throughout, use
 
 $$
-u=1-t,
-\qquad
-w=t-s,
-\qquad
-s=1-u-w,
+u=1-t, \qquad w=t-s, \qquad s=1-u-w,
 $$
 
 and on the main $r>1$ C-geometry branch use
 
 $$
-R={1\over r},
-\qquad
-S=\sqrt{1-R+R^2},
-\qquad
-\delta={R\over 1+S}.
+R={1\over r}, \qquad S=\sqrt{1-R+R^2}, \qquad \delta={R\over 1+S}.
 $$
 
 The radial exits are
@@ -53,9 +45,7 @@ If $B_5=L$ and $B_1=\mathrm{Full}$, then $F<1$.
 On this branch,
 
 $$
-B_5=\ell(\gamma_5),
-\qquad
-B_1=1-u.
+B_5=\ell(\gamma_5), \qquad B_1=1-u.
 $$
 
 The Full condition for $B_1=B(u,1-\gamma_1)$ gives
@@ -85,8 +75,7 @@ $$
 The low branch satisfies
 
 $$
-\ell(\eta)\le2\eta+5\eta^2
-\qquad(0\le\eta\le1/8).
+\ell(\eta)\le2\eta+5\eta^2 \qquad(0\le\eta\le1/8).
 $$
 
 On the present branch this bound applies because $\gamma_5\le u-\delta_r\le1/(r+1)-1/(D+r)\le1/8$.  Therefore it is enough to prove
@@ -98,9 +87,7 @@ $$
 The left side is increasing in $u$ on the allowed interval, so it suffices to check $u=1/(r+1)$.  Substitution gives
 
 $$
-2\delta_r-u-5(u-\delta_r)^2
-=
-{2Dr+12D-2r^2+7r-11\over (D+r)^2(r+1)^2}.
+2\delta_r-u-5(u-\delta_r)^2 = {2Dr+12D-2r^2+7r-11\over (D+r)^2(r+1)^2}.
 $$
 
 The denominator is positive.  Since
@@ -152,19 +139,13 @@ so $b_5<u$ is equivalent to $\Psi_5(u)>0$.
 Set
 
 $$
-K=1-\gamma_5-s,
-\qquad
- y={s\over K}.
+K=1-\gamma_5-s, \qquad y={s\over K}.
 $$
 
 The case $y\ge1$ reduces to a two-variable calculus lemma.  Let
 
 $$
-v={\sqrt{y^2+y+1}\over y+1},
-\qquad
-\lambda={r-1\over r},
-\qquad
-\delta={1\over \sqrt{r^2-r+1}+r}.
+v={\sqrt{y^2+y+1}\over y+1}, \qquad \lambda={r-1\over r}, \qquad \delta={1\over \sqrt{r^2-r+1}+r}.
 $$
 
 The $T_-$ separator gives
@@ -194,8 +175,7 @@ $$
 The needed implication is
 
 $$
-U(r,y)\le0\quad\Longrightarrow\quad
-P(r,y):=1-v-\lambda\left({v\over y+1}-\delta\right)>0.
+U(r,y)\le0\quad\Longrightarrow\quad P(r,y):=1-v-\lambda\left({v\over y+1}-\delta\right)>0.
 $$
 
 In variables $R=1/r$ and $q=1/(y+1)$, this follows from:
@@ -203,9 +183,7 @@ In variables $R=1/r$ and $q=1/(y+1)$, this follows from:
 1. $U\le0$ implies $q<R$ by monotonicity of $U$ in $q$ and the endpoint check $U(R)>0$.
 2. $q\le R$ implies $P>0$ by the square-root bounds
    $$
-   \sqrt{1-q+q^2}\le 1-{q\over2}+{q^2\over2},
-   \qquad
-   \sqrt{1-R+R^2}\le 1-{R\over2}+{R^2\over2}.
+   \sqrt{1-q+q^2}\le 1-{q\over2}+{q^2\over2}, \qquad \sqrt{1-R+R^2}\le 1-{R\over2}+{R^2\over2}.
    $$
 
 The case $0<y<1$ is impossible.  Indeed, the Full condition forces
@@ -255,9 +233,7 @@ $$
 and therefore $\eta<1/100$.  The Full condition implies
 
 $$
-s\ge {\eta+e\delta\over1-e},
-\qquad
-\delta={1\over\sqrt{1+e+e^2}+1+e}.
+s\ge {\eta+e\delta\over1-e}, \qquad \delta={1\over\sqrt{1+e+e^2}+1+e}.
 $$
 
 Using
@@ -275,8 +251,7 @@ $$
 The low branch satisfies
 
 $$
-\ell(\eta)<2\eta+2\eta^2
-\qquad(0<\eta<1/100).
+\ell(\eta)<2\eta+2\eta^2 \qquad(0<\eta<1/100).
 $$
 
 Thus $\ell(\eta)<s$, and $F=1-s+\ell(\eta)<1$.
@@ -284,19 +259,13 @@ Thus $\ell(\eta)<s$, and $F=1-s+\ell(\eta)<1$.
 For the far region $r-1\ge1/50$, the bad set is reduced to the two inequalities
 
 $$
-\Delta(R,\eta)\le0,
-\qquad
-H(R,\eta)\ge0,
+\Delta(R,\eta)\le0, \qquad H(R,\eta)\ge0,
 $$
 
 where
 
 $$
-R={1\over r},
-\qquad
-\eta=\gamma_1,
-\qquad
-u=(1-\eta)R,
+R={1\over r}, \qquad \eta=\gamma_1, \qquad u=(1-\eta)R,
 $$
 
 $$
@@ -310,9 +279,7 @@ $$
 and
 
 $$
-H=u-\delta_R-{R(1-u)\over1-R}+\ell{2R-1\over1-R},
-\qquad
-\delta_R={R\over\sqrt{1-R+R^2}+1}.
+H=u-\delta_R-{R(1-u)\over1-R}+\ell{2R-1\over1-R}, \qquad \delta_R={R\over\sqrt{1-R+R^2}+1}.
 $$
 
 The interval verifier in `experiments/ce_vd0_boundary_loss/verify_full_L_interval.py` checks that every box satisfies either $\inf\Delta>0$ or $\sup H<0$.  The recorded run has $2307$ certified boxes and no unresolved boxes.
@@ -400,9 +367,7 @@ $$
 The left Low term satisfies
 
 $$
-\gamma_5<u-\delta_R,
-\qquad
-\delta_R={R\over\sqrt{1-R+R^2}+1},
+\gamma_5<u-\delta_R, \qquad \delta_R={R\over\sqrt{1-R+R^2}+1},
 $$
 
 and the quadratic Low estimate gives
@@ -588,11 +553,7 @@ for all $0\le s\le1/2$, by another convexity/endpoint comparison.  This contradi
 The only branches in this package not yet certified are lower-sheet $T_+$ branches:
 
 $$
-(T_+^{lo},T_-),
-\qquad
-(T_+^{lo},T_+^{hi}),
-\qquad
-(T_+^{lo},T_+^{lo}).
+(T_+^{lo},T_-), \qquad (T_+^{lo},T_+^{hi}), \qquad (T_+^{lo},T_+^{lo}).
 $$
 
 Numerical sampling finds these branches but with visible gap.  A typical best sample has

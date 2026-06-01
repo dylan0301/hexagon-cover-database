@@ -14,8 +14,7 @@ Assume $T_C$ is CE1 and normalize the unique positive-length boundary overlap
 to
 
 $$
-T_C\cap e_{0,1}=[s,t],
-\qquad 0<s<t<1.
+T_C\cap e_{0,1}=[s,t], \qquad 0<s<t<1.
 $$
 
 The interval $[s,t]$ is the active $C$-only boundary interval on $e_{0,1}$.
@@ -25,8 +24,7 @@ $s$ and $t$.
 For the other five edges, choose one cut point
 
 $$
-X_i=V_i+x_i(V_{i+1}-V_i),
-\qquad i=1,\dots,5,
+X_i=V_i+x_i(V_{i+1}-V_i), \qquad i=1,\dots,5,
 $$
 
 with
@@ -80,9 +78,7 @@ For a fixed seven-point configuration, the CE1/reduced-CE2 extension uses the
 same vertex-area target as the CE0 case:
 
 $$
-\#\{i:a_i+b_i>1\}\ge2
-\quad\Longrightarrow\quad
-\sum_{i=0}^5 f(a_i,b_i)<5.
+\#\{i:a_i+b_i>1\}\ge2 \quad\Longrightarrow\quad \sum_{i=0}^5 f(a_i,b_i)<5.
 $$
 
 Only the formulas for the rows $(a_i,b_i)$ differ from CE0.  If the displayed
@@ -95,7 +91,5 @@ The threshold relaxation from `644_threshold_relaxation.md` applies row by row
 in the same way as in CE0:
 
 $$
-a_i+b_i\ge1+\varepsilon
-\quad\Longrightarrow\quad
-f(a_i,b_i)\le f(a_i,1+\varepsilon-a_i).
+a_i+b_i\ge1+\varepsilon \quad\Longrightarrow\quad f(a_i,b_i)\le f(a_i,1+\varepsilon-a_i).
 $$

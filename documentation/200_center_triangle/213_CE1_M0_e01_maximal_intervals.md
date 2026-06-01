@@ -33,9 +33,7 @@ $$
 Maximality is interval inclusion:
 
 $$
-[s,t]\preceq [s',t']
-\quad\Longleftrightarrow\quad
-s'\le s,\quad t'\ge t.
+[s,t]\preceq [s',t'] \quad\Longleftrightarrow\quad s'\le s,\quad t'\ge t.
 $$
 
 The endpoints $s=0$ and $s=1$ are not feasible maximal intervals. They are limiting degeneracies.
@@ -67,15 +65,11 @@ O=(1,1),
 $$
 
 $$
-M_0=\left(\frac12,\frac12\right),\quad
-M_1=\left(1,\frac12\right),\quad
-M_2=\left(\frac32,1\right),
+M_0=\left(\frac12,\frac12\right),\quad M_1=\left(1,\frac12\right),\quad M_2=\left(\frac32,1\right),
 $$
 
 $$
-M_3=\left(\frac32,\frac32\right),\quad
-M_4=\left(1,\frac32\right),\quad
-M_5=\left(\frac12,1\right).
+M_3=\left(\frac32,\frac32\right),\quad M_4=\left(1,\frac32\right),\quad M_5=\left(\frac12,1\right).
 $$
 
 The target edge $e_{0,1}$ is $a=0,\ 0\le b\le1$, so its edge parameter is $b$.
@@ -181,9 +175,7 @@ $$
 But
 
 $$
-\frac{\lambda-\rho}{\lambda-1}
-\ge
-1-\frac{\lambda}{2}.
+\frac{\lambda-\rho}{\lambda-1} \ge 1-\frac{\lambda}{2}.
 $$
 
 Indeed, this is equivalent to
@@ -195,9 +187,7 @@ $$
 and after squaring,
 
 $$
-\left(\frac{\lambda^2-\lambda+2}{2}\right)^2-\rho^2
-=
-\frac{(\lambda^2-\lambda)^2}{4}\ge0.
+\left(\frac{\lambda^2-\lambda+2}{2}\right)^2-\rho^2 = \frac{(\lambda^2-\lambda)^2}{4}\ge0.
 $$
 
 Thus $\lambda>1$ is impossible. Hence every feasible target interval is represented with
@@ -281,8 +271,7 @@ $$
 The exclusion of $M_5$ is equivalent to
 
 $$
-F_0(M_5)=
-\rho+\lambda s-t-\frac{1+\lambda}{2}<0,
+F_0(M_5)= \rho+\lambda s-t-\frac{1+\lambda}{2}<0,
 $$
 
 so
@@ -295,34 +284,21 @@ Then $M_2,M_3,M_4$ are automatically excluded:
 
 * $M_1\notin T$ forces $M_2\notin T$, because
   $$
-  F_2(M_2)
-  =
-  t+\lambda-\frac32
-  <
-  -\frac{1-\lambda}{2}<0.
+  F_2(M_2) = t+\lambda-\frac32 < -\frac{1-\lambda}{2}<0.
   $$
 
 * $M_5\notin T$ forces $M_4\notin T$, because
   $$
-  F_0(M_4)
-  =
-  F_0(M_5)-\frac{\lambda}{2}<0.
+  F_0(M_4) = F_0(M_5)-\frac{\lambda}{2}<0.
   $$
 
 * If $\lambda\le\frac12$, then
   $$
-  F_2(M_3)
-  =
-  t-\frac32+\frac{3\lambda}{2}
-  <
-  \lambda-\frac12
-  \le0,
+  F_2(M_3) = t-\frac32+\frac{3\lambda}{2} < \lambda-\frac12 \le0,
   $$
   with strict negativity coming from $t<1-\lambda/2$. If $\lambda\ge\frac12$, then
   $$
-  F_0(M_3)
-  =
-  F_0(M_5)+\frac{1-2\lambda}{2}<0.
+  F_0(M_3) = F_0(M_5)+\frac{1-2\lambda}{2}<0.
   $$
 
 It remains to encode the CE1 boundary-edge condition.
@@ -354,9 +330,7 @@ $$
 Thus $T\cap e_{5,0}$ has positive length exactly when
 
 $$
-\frac{\lambda s}{1-\lambda}
-<
-\rho+\lambda s-t.
+\frac{\lambda s}{1-\lambda} < \rho+\lambda s-t.
 $$
 
 Therefore no positive-length overlap with $e_{5,0}$ is equivalent to
@@ -394,9 +368,7 @@ $$
 The upper endpoint minus the lower endpoint is strictly less than
 
 $$
-\frac{-3\lambda^2+2\lambda\rho+2\lambda-2}{2\lambda}
-\le
-\frac{-3\lambda^2+4\lambda-2}{2\lambda}<0,
+\frac{-3\lambda^2+2\lambda\rho+2\lambda-2}{2\lambda} \le \frac{-3\lambda^2+4\lambda-2}{2\lambda}<0,
 $$
 
 using $\rho\le1$. Hence no interval exists.
@@ -404,11 +376,7 @@ using $\rho\le1$. Hence no interval exists.
 On $e_{3,4}$, write $a=2,\ 1\le b\le2$. The simultaneous conditions $F_0\ge0$ and $F_2\ge0$ would require
 
 $$
-\frac{2-\rho-\lambda s+t}{1-\lambda}
-\le
-b
-\le
-2\lambda+t.
+\frac{2-\rho-\lambda s+t}{1-\lambda} \le b \le 2\lambda+t.
 $$
 
 The right endpoint minus the left endpoint is at most
@@ -426,9 +394,7 @@ $$
 because
 
 $$
-\left(\frac32-\lambda+\lambda^2\right)^2-\rho^2
-=
-\frac{4\lambda^4-8\lambda^3+12\lambda^2-8\lambda+5}{4}>0.
+\left(\frac32-\lambda+\lambda^2\right)^2-\rho^2 = \frac{4\lambda^4-8\lambda^3+12\lambda^2-8\lambda+5}{4}>0.
 $$
 
 On $e_{4,5}$, write $a=b+1,\ 0\le b\le1$. Then
@@ -440,11 +406,7 @@ $$
 Using the strict $M_5$-exclusion inequality,
 
 $$
-F_0
-<
-\frac{1+\lambda}{2}-1-\lambda b
-=
--\frac{1-\lambda}{2}-\lambda b<0.
+F_0 < \frac{1+\lambda}{2}-1-\lambda b = -\frac{1-\lambda}{2}-\lambda b<0.
 $$
 
 Thus all non-target boundary edges have zero positive-length overlap.
@@ -472,9 +434,7 @@ $$
 The two inequalities are compatible only if
 
 $$
-\rho-\frac{\lambda^2}{1-\lambda}s
-\le
-\rho-\lambda(1-s).
+\rho-\frac{\lambda^2}{1-\lambda}s \le \rho-\lambda(1-s).
 $$
 
 Since $0<\lambda<1$, this is equivalent to
@@ -492,8 +452,7 @@ $$
 Then $0<a<1$, and every feasible interval satisfies $\lambda\ge a$. The upper bound becomes
 
 $$
-t\le
-\sqrt{1-\lambda+\lambda^2}-a\lambda.
+t\le \sqrt{1-\lambda+\lambda^2}-a\lambda.
 $$
 
 For $\lambda\in[a,1)$, write $\lambda=a+d$, with $d\ge0$. Let
@@ -505,17 +464,13 @@ $$
 We claim
 
 $$
-\sqrt{1-\lambda+\lambda^2}-a\lambda
-\le
-R_a-a^2.
+\sqrt{1-\lambda+\lambda^2}-a\lambda \le R_a-a^2.
 $$
 
 Equivalently,
 
 $$
-\sqrt{1-\lambda+\lambda^2}
-\le
-R_a+ad.
+\sqrt{1-\lambda+\lambda^2} \le R_a+ad.
 $$
 
 After squaring, this becomes
@@ -533,29 +488,19 @@ $$
 Also,
 
 $$
-1-2a+2aR_a-(1-a)(1-a^2)
-=
-a(2R_a-1+a-a^2)
-=
-aR_a(2-R_a)>0.
+1-2a+2aR_a-(1-a)(1-a^2) = a(2R_a-1+a-a^2) = aR_a(2-R_a)>0.
 $$
 
 Therefore the desired inequality holds, and it is strict unless $d=0$. Hence every feasible interval satisfies
 
 $$
-t\le
-R_a-a^2
-=
-\sqrt{s^2-s+1}-(1-s)^2.
+t\le R_a-a^2 = \sqrt{s^2-s+1}-(1-s)^2.
 $$
 
 So every feasible interval $[s,t]$ is contained in
 
 $$
-\left[
-s,\,
-\sqrt{s^2-s+1}-(1-s)^2
-\right].
+\left[ s,\, \sqrt{s^2-s+1}-(1-s)^2 \right].
 $$
 
 ## Feasibility of the frontier
@@ -563,9 +508,7 @@ $$
 Fix $0<s<1$, and set
 
 $$
-\lambda=1-s,
-\qquad
-\rho=\sqrt{s^2-s+1},
+\lambda=1-s, \qquad \rho=\sqrt{s^2-s+1},
 $$
 
 $$
@@ -583,9 +526,7 @@ holds with equality. Thus $O$ lies on one side of the triangle.
 The no-positive-overlap condition on $e_{5,0}$ also holds with equality:
 
 $$
-t
-=
-\rho-\frac{\lambda^2}{1-\lambda}s.
+t = \rho-\frac{\lambda^2}{1-\lambda}s.
 $$
 
 Thus $T\cap e_{5,0}$ is a single point.
@@ -593,13 +534,7 @@ Thus $T\cap e_{5,0}$ is a single point.
 The target overlap has positive length because
 
 $$
-t-s
-=
-\rho-(s^2-s+1)
-=
-\rho-\rho^2
-=
-\rho(1-\rho)>0,
+t-s = \rho-(s^2-s+1) = \rho-\rho^2 = \rho(1-\rho)>0,
 $$
 
 as $0<s<1$ implies $\sqrt3/2<\rho<1$.
@@ -607,9 +542,7 @@ as $0<s<1$ implies $\sqrt3/2<\rho<1$.
 The strict midpoint exclusions hold. For $M_1$,
 
 $$
-\rho-(1-s)^2
-<
-1-\frac{1-s}{2},
+\rho-(1-s)^2 < 1-\frac{1-s}{2},
 $$
 
 because this is equivalent, after putting $a=1-s$, to
@@ -627,19 +560,13 @@ $$
 For $M_5$, the strict margin is
 
 $$
-t-\left(\rho+\lambda s-\frac{1+\lambda}{2}\right)
-=
-\frac{s}{2}>0.
+t-\left(\rho+\lambda s-\frac{1+\lambda}{2}\right) = \frac{s}{2}>0.
 $$
 
 Thus every interval
 
 $$
-\left[
-s,\,
-\sqrt{s^2-s+1}-(1-s)^2
-\right],
-\qquad 0<s<1,
+\left[ s,\, \sqrt{s^2-s+1}-(1-s)^2 \right], \qquad 0<s<1,
 $$
 
 is feasible.
@@ -666,11 +593,7 @@ $$
 $$
 so
 $$
-4(1-s)\sqrt{s^2-s+1}+2s-1
->
-4(1-s)^2+2s-1
-=
-4s^2-6s+3>0.
+4(1-s)\sqrt{s^2-s+1}+2s-1 > 4(1-s)^2+2s-1 = 4s^2-6s+3>0.
 $$
 
 Therefore $f$ is strictly increasing. If $s_1<s_2$, then
@@ -745,9 +668,7 @@ For each sampled unit equilateral triangle $Q_0Q_1Q_2$, the test:
 The sampling was intentionally concentrated near the Pareto front. The front triangles are realized by the two tight conditions
 
 $$
-O\in\partial T_C,
-\qquad
-T_C\cap e_{5,0}\text{ is a single point}.
+O\in\partial T_C, \qquad T_C\cap e_{5,0}\text{ is a single point}.
 $$
 
 The run used seed `20260506`.

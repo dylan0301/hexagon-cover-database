@@ -48,9 +48,7 @@ $$
 Set
 
 $$
-b_i=t_i,
-\qquad
- a_i=1-t_{i-1}.
+b_i=t_i, \qquad a_i=1-t_{i-1}.
 $$
 
 Thus
@@ -92,9 +90,7 @@ For $a\le b$, it is the union of the following cells.
 ### Cell 1
 
 $$
-a+b\le1,
-\qquad
- a^2+ab+b^2\le1,
+a+b\le1, \qquad a^2+ab+b^2\le1,
 $$
 
 $$
@@ -108,9 +104,7 @@ $$
 ### Cell 2
 
 $$
-a+b\le1,
-\qquad
- a^2+ab+b^2\le1,
+a+b\le1, \qquad a^2+ab+b^2\le1,
 $$
 
 $$
@@ -124,9 +118,7 @@ $$
 ### Cell 3
 
 $$
-a+b\ge1,
-\qquad
- a^2+ab+b^2\le1,
+a+b\ge1, \qquad a^2+ab+b^2\le1,
 $$
 
 $$
@@ -189,16 +181,13 @@ then the local admissible-set constraints at the six $V_i$-triangles are incompa
 Under this assumption,
 
 $$
-a_i=1-t_{i-1}\in[0.4,0.6],
-\qquad
- b_i=t_i\in[0.4,0.6].
+a_i=1-t_{i-1}\in[0.4,0.6], \qquad b_i=t_i\in[0.4,0.6].
 $$
 
 A proof would use only
 
 $$
-(a_i,b_i,c_i)\in\mathcal A,
-\qquad i=0,\dots,5,
+(a_i,b_i,c_i)\in\mathcal A, \qquad i=0,\dots,5,
 $$
 
 and the need to cover the radial skeleton portions not handled by the central triangle.
@@ -266,39 +255,25 @@ $$
 Keep
 
 $$
-a_3+b_3=1,
-\qquad
- a_5+b_5=1,
+a_3+b_3=1, \qquad a_5+b_5=1,
 $$
 
 and allow
 
 $$
-a_0+b_0\le1,
-\qquad
- a_1+b_1\le1,
-\qquad
- a_2+b_2\le1.
+a_0+b_0\le1, \qquad a_1+b_1\le1, \qquad a_2+b_2\le1.
 $$
 
 In edge parameters,
 
 $$
-t_3=t_2,
-\qquad
- t_5=t_4,
+t_3=t_2, \qquad t_5=t_4,
 $$
 
 with
 
 $$
-t_4>t_3,
-\qquad
- t_0\le t_5,
-\qquad
- t_1\le t_0,
-\qquad
- t_2\le t_1.
+t_4>t_3, \qquad t_0\le t_5, \qquad t_1\le t_0, \qquad t_2\le t_1.
 $$
 
 Use five obstruction points
@@ -324,21 +299,13 @@ $$
 in the four-parameter specialization
 
 $$
-t_2=t_3=q,
-\qquad
- t_4=t_5=r.
+t_2=t_3=q, \qquad t_4=t_5=r.
 $$
 
 Known partial result from exploration: near the suspected tight regime $q,t_1,t_0,r\to0$, the five-point obstruction approaches equality from above.  If
 
 $$
-r=\varepsilon,
-\qquad
-q=s\varepsilon,
-\qquad
- t_1=t\varepsilon,
-\qquad
- t_0=u\varepsilon,
+r=\varepsilon, \qquad q=s\varepsilon, \qquad t_1=t\varepsilon, \qquad t_0=u\varepsilon,
 $$
 
 with

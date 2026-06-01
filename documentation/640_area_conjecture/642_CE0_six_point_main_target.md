@@ -16,8 +16,7 @@ Thus $T_C$ has no positive-length overlap with any boundary edge.  The boundary
 handoff data is one cut point on each edge:
 
 $$
-X_i=V_i+x_i(V_{i+1}-V_i),
-\qquad i=0,\dots,5,
+X_i=V_i+x_i(V_{i+1}-V_i), \qquad i=0,\dots,5,
 $$
 
 where
@@ -35,8 +34,7 @@ $X_{i-1}$ to $V_i$, and the outgoing boundary length is the portion of $e_i$
 from $V_i$ to $X_i$.  Therefore
 
 $$
-(a_i,b_i)=(1-x_{i-1},x_i),
-\qquad i=0,\dots,5,
+(a_i,b_i)=(1-x_{i-1},x_i), \qquad i=0,\dots,5,
 $$
 
 with indices modulo $6$.
@@ -64,9 +62,7 @@ For the six vertex triangles, use the local area function $f(a,b)$ from
 The CE0 area-conjecture target is
 
 $$
-\#\{i:a_i+b_i>1\}\ge2
-\quad\Longrightarrow\quad
-\sum_{i=0}^5 f(a_i,b_i)<5.
+\#\{i:a_i+b_i>1\}\ge2 \quad\Longrightarrow\quad \sum_{i=0}^5 f(a_i,b_i)<5.
 $$
 
 If this strict inequality is proved under the correct CE0 hypotheses, then the
@@ -82,25 +78,19 @@ The final CE0 inequality above is proved in
 hypothesis:
 
 $$
-a+b\le1
-\quad\Longrightarrow\quad
-f(a,b)\le1-\min(a,b)^2,
+a+b\le1 \quad\Longrightarrow\quad f(a,b)\le1-\min(a,b)^2,
 $$
 
 and
 
 $$
-a+b>1
-\quad\Longrightarrow\quad
-f(a,b)\le1-\max(a,b)^2.
+a+b>1 \quad\Longrightarrow\quad f(a,b)\le1-\max(a,b)^2.
 $$
 
 Under this hypothesis, the stronger estimate holds:
 
 $$
-\#\{i:a_i+b_i>1\}\ge2
-\quad\Longrightarrow\quad
-\sum_{i=0}^5 f(a_i,b_i)<\frac{99}{20}<5.
+\#\{i:a_i+b_i>1\}\ge2 \quad\Longrightarrow\quad \sum_{i=0}^5 f(a_i,b_i)<\frac{99}{20}<5.
 $$
 
 This conditional certificate replaces the need for the threshold relaxation in

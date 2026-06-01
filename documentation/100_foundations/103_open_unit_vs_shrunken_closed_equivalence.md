@@ -105,9 +105,7 @@ $$
 to a cover of
 
 $$
-H_L,
-\qquad
-L=\frac1{1-\epsilon}>1,
+H_L, \qquad L=\frac1{1-\epsilon}>1,
 $$
 
 by closed unit triangles.
@@ -115,9 +113,7 @@ by closed unit triangles.
 Conversely, if $H_L$ is covered by closed unit triangles for some $L>1$, scaling down by $1/L$ gives a cover of $H$ by closed triangles of side
 
 $$
-\frac1L=1-\epsilon,
-\qquad
-\epsilon=1-\frac1L.
+\frac1L=1-\epsilon, \qquad \epsilon=1-\frac1L.
 $$
 
 ## Use in these notes

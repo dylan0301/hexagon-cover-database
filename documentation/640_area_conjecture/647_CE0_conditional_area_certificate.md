@@ -47,17 +47,13 @@ $$
 the forced normalized local area loss satisfies
 
 $$
-a+b\le1
-\quad\Longrightarrow\quad
-g(a,b)\ge\min(a,b)^2,
+a+b\le1 \quad\Longrightarrow\quad g(a,b)\ge\min(a,b)^2,
 $$
 
 and
 
 $$
-a+b>1
-\quad\Longrightarrow\quad
-g(a,b)\ge\max(a,b)^2.
+a+b>1 \quad\Longrightarrow\quad g(a,b)\ge\max(a,b)^2.
 $$
 
 The proof below does not use the $\varepsilon$-threshold relaxation or any
@@ -69,9 +65,7 @@ Use the CE0 six-point perimeter model from
 `642_CE0_six_point_main_target.md`.  Thus one cut point is chosen on each edge:
 
 $$
-X_i=V_i+x_i(V_{i+1}-V_i),
-\qquad 0\le x_i\le1,
-\qquad i=0,\dots,5,
+X_i=V_i+x_i(V_{i+1}-V_i), \qquad 0\le x_i\le1, \qquad i=0,\dots,5,
 $$
 
 with indices modulo $6$.
@@ -91,9 +85,7 @@ $$
 so
 
 $$
-a_i+b_i>1
-\quad\Longleftrightarrow\quad
-x_i>x_{i-1}.
+a_i+b_i>1 \quad\Longleftrightarrow\quad x_i>x_{i-1}.
 $$
 
 ## Theorem 647.1: conditional CE0 area certificate
@@ -145,10 +137,7 @@ $$
 because then
 
 $$
-\sum_{i=0}^5 f(1-x_{i-1},x_i)
-=6-\sum_{i=0}^5G_i
-<6-\frac{21}{20}
-=\frac{99}{20}.
+\sum_{i=0}^5 f(1-x_{i-1},x_i) =6-\sum_{i=0}^5G_i <6-\frac{21}{20} =\frac{99}{20}.
 $$
 
 For each $i$, there are two cases.
@@ -192,9 +181,7 @@ $$
 Now set
 
 $$
-m=\min_i x_i,
-\qquad
-M=\max_i x_i.
+m=\min_i x_i, \qquad M=\max_i x_i.
 $$
 
 The local function is symmetric:
@@ -215,17 +202,13 @@ $$
 with indices modulo $6$.  Then
 
 $$
-\min_i y_i=1-M,
-\qquad
-\max_i y_i=1-m.
+\min_i y_i=1-M, \qquad \max_i y_i=1-m.
 $$
 
 Also,
 
 $$
-y_i>y_{i-1}
-\quad\Longleftrightarrow\quad
-x_{-i}>x_{-i-1},
+y_i>y_{i-1} \quad\Longleftrightarrow\quad x_{-i}>x_{-i-1},
 $$
 
 so the number of supercritical rows is unchanged.  Moreover,
@@ -238,9 +221,7 @@ which is the corresponding old row with the two coordinates swapped.  Since
 $f(a,b)=f(b,a)$,
 
 $$
-\sum_{i=0}^5 f(1-y_{i-1},y_i)
-=
-\sum_{i=0}^5 f(1-x_{i-1},x_i).
+\sum_{i=0}^5 f(1-y_{i-1},y_i) = \sum_{i=0}^5 f(1-x_{i-1},x_i).
 $$
 
 Therefore, after replacing $x$ by $y$ if necessary, we may assume
@@ -265,8 +246,7 @@ Thus both entries of every row are at least $m$.  From the two loss estimates
 above, this implies the baseline bound
 
 $$
-G_i\ge m^2
-\qquad\text{for all }i.
+G_i\ge m^2 \qquad\text{for all }i.
 $$
 
 Because there is at least one strict ascent $x_i>x_{i-1}$, the cyclic sequence is
@@ -274,9 +254,7 @@ not constant.  Hence some minimum plateau is exited: there is an index $p$ such
 that
 
 $$
-x_{p-1}=m,
-\qquad
-x_p>m.
+x_{p-1}=m, \qquad x_p>m.
 $$
 
 For this row $p$,
@@ -300,9 +278,7 @@ $$
 Then
 
 $$
-(1-x_{q-1})+x_q
-=1+(x_q-x_{q-1})
->1.
+(1-x_{q-1})+x_q =1+(x_q-x_{q-1}) >1.
 $$
 
 Therefore
@@ -320,18 +296,13 @@ $$
 The remaining four rows still satisfy $G_i\ge m^2$.  Hence
 
 $$
-\sum_{i=0}^5G_i
->
-4m^2+(1-m)^2+\frac14.
+\sum_{i=0}^5G_i > 4m^2+(1-m)^2+\frac14.
 $$
 
 Finally,
 
 $$
-4m^2+(1-m)^2+\frac14
-=5m^2-2m+\frac54
-=5\left(m-\frac15\right)^2+\frac{21}{20}
-\ge\frac{21}{20}.
+4m^2+(1-m)^2+\frac14 =5m^2-2m+\frac54 =5\left(m-\frac15\right)^2+\frac{21}{20} \ge\frac{21}{20}.
 $$
 
 Thus

@@ -45,9 +45,7 @@ By $D_6$-symmetry, assume the Vd1/Vd2 triangle is $T_0$. Let $x$ be the largest 
 The proof splits into
 
 $$
-x<\frac12
-\qquad\text{and}\qquad
-x\ge\frac12.
+x<\frac12 \qquad\text{and}\qquad x\ge\frac12.
 $$
 
 The small-$x$ case uses

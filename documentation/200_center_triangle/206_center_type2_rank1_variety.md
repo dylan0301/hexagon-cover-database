@@ -20,10 +20,7 @@ Impose positivity from the beginning.
 Define
 
 $$
-M=\begin{pmatrix}
-d_{120} & d_0 & d_{240}\\
-d_{60} & d_{300} & d_{180}
-\end{pmatrix}.
+M=\begin{pmatrix} d_{120} & d_0 & d_{240}\\ d_{60} & d_{300} & d_{180} \end{pmatrix}.
 $$
 
 ## Euclidean derivation of the rank-one condition
@@ -39,19 +36,13 @@ In a $60$-degree cone, a line cutting the two boundary rays at distances $p$ and
 The three sides of an equilateral triangle have the same local direction after rotating these three cones by multiples of $120$ degrees. Therefore the three side-intercept ratios are equal:
 
 $$
-\frac{d_{120}}{d_{60}}
-=\frac{d_0}{d_{300}}
-=\frac{d_{240}}{d_{180}}.
+\frac{d_{120}}{d_{60}} =\frac{d_0}{d_{300}} =\frac{d_{240}}{d_{180}}.
 $$
 
 Equivalently, the three columns
 
 $$
-\begin{pmatrix}d_{120}\\ d_{60}\end{pmatrix},
-\qquad
-\begin{pmatrix}d_0\\ d_{300}\end{pmatrix},
-\qquad
-\begin{pmatrix}d_{240}\\ d_{180}\end{pmatrix}
+\begin{pmatrix}d_{120}\\ d_{60}\end{pmatrix}, \qquad \begin{pmatrix}d_0\\ d_{300}\end{pmatrix}, \qquad \begin{pmatrix}d_{240}\\ d_{180}\end{pmatrix}
 $$
 
 are proportional. With positivity imposed, this is exactly the rank-one condition
@@ -63,8 +54,7 @@ $$
 Thus
 
 $$
-M=\begin{pmatrix}a\\ b\end{pmatrix}\begin{pmatrix}x&y&z\end{pmatrix},
-\qquad a,b,x,y,z\ge0.
+M=\begin{pmatrix}a\\ b\end{pmatrix}\begin{pmatrix}x&y&z\end{pmatrix}, \qquad a,b,x,y,z\ge0.
 $$
 
 Equivalently,
@@ -80,16 +70,13 @@ $$
 Let
 
 $$
-S_{\mathrm{even}}=d_0+d_{120}+d_{240},
-\qquad
-S_{\mathrm{odd}}=d_{60}+d_{180}+d_{300}.
+S_{\mathrm{even}}=d_0+d_{120}+d_{240}, \qquad S_{\mathrm{odd}}=d_{60}+d_{180}+d_{300}.
 $$
 
 The normalization constraint is
 
 $$
-S_{\mathrm{even}}^2S_{\mathrm{odd}}^2-
-(S_{\mathrm{even}}^2-S_{\mathrm{even}}S_{\mathrm{odd}}+S_{\mathrm{odd}}^2)=0.
+S_{\mathrm{even}}^2S_{\mathrm{odd}}^2- (S_{\mathrm{even}}^2-S_{\mathrm{even}}S_{\mathrm{odd}}+S_{\mathrm{odd}}^2)=0.
 $$
 
 When both sums are nonzero, this is equivalent to

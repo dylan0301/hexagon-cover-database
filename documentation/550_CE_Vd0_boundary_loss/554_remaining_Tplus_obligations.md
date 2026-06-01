@@ -10,9 +10,7 @@ The obligations recorded here are now discharged by
 three formerly open branches:
 
 $$
-(T_+^{lo},T_-),\qquad
-(T_+^{lo},T_+^{hi}),\qquad
-(T_+^{lo},T_+^{lo}).
+(T_+^{lo},T_-),\qquad (T_+^{lo},T_+^{hi}),\qquad (T_+^{lo},T_+^{lo}).
 $$
 
 Thus this file is now historical.  It remains useful because it explains why
@@ -52,9 +50,7 @@ $$
 The lower-sheet completion proves the remaining three branches:
 
 $$
-(T_+^{lo},T_-),\qquad
-(T_+^{lo},T_+^{hi}),\qquad
-(T_+^{lo},T_+^{lo}).
+(T_+^{lo},T_-),\qquad (T_+^{lo},T_+^{hi}),\qquad (T_+^{lo},T_+^{lo}).
 $$
 
 Therefore no lower-sheet $T_+$ branch remains open for the boundary-loss
@@ -69,9 +65,7 @@ $$
 For any $T_+T_+$ branch, one can write
 
 $$
-B_5=1-s-d_5,
-\qquad
-B_1=1-u-d_1.
+B_5=1-s-d_5, \qquad B_1=1-u-d_1.
 $$
 
 Then
@@ -96,8 +90,7 @@ bound the right high-sheet ratio.
 Let
 
 $$
-R={1\over r},\qquad S=\sqrt{1-R+R^2},\qquad
-k={\sqrt{13}-1\over6}.
+R={1\over r},\qquad S=\sqrt{1-R+R^2},\qquad k={\sqrt{13}-1\over6}.
 $$
 
 For the final branch
@@ -261,9 +254,5 @@ analytic proof, but are no longer needed for the final status.
 The important proof status is now analytic:
 
 $$
-(T_+^{lo},T_-),\quad
-(T_+^{lo},T_+^{hi}),\quad
-(T_+^{lo},T_+^{lo})
-\quad\Longrightarrow\quad
-F<1.
+(T_+^{lo},T_-),\quad (T_+^{lo},T_+^{hi}),\quad (T_+^{lo},T_+^{lo}) \quad\Longrightarrow\quad F<1.
 $$

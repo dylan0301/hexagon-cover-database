@@ -83,8 +83,7 @@ $$
 and
 
 $$
-\gamma_5=u-\delta-\frac{w}{r-1}
-=u-\frac{R}{1+S}-\frac{R}{1-R}w.
+\gamma_5=u-\delta-\frac{w}{r-1} =u-\frac{R}{1+S}-\frac{R}{1-R}w.
 $$
 
 Equivalently, in $(R,u,s)$ variables,

@@ -13,9 +13,7 @@ $$
 and angles
 
 $$
-\angle DAB=\angle DCB=60^\circ,
-\qquad
-\angle ABC=\angle ADC=120^\circ.
+\angle DAB=\angle DCB=60^\circ, \qquad \angle ABC=\angle ADC=120^\circ.
 $$
 
 Let $X\in AD$ satisfy
@@ -37,11 +35,7 @@ Let the line $YZ$ meet $AB$ at $N$ and segment $BC$ at $Q$.
 In $\triangle AXP$,
 
 $$
-AX=L-x,
-\qquad
-\angle XAP=60^\circ,
-\qquad
-\angle AXP=\theta.
+AX=L-x, \qquad \angle XAP=60^\circ, \qquad \angle AXP=\theta.
 $$
 
 Hence
@@ -67,9 +61,7 @@ $$
 where
 
 $$
-PN=(1-XP)\frac{\sqrt3/2}{\sin\theta},
-\qquad
-XP=(L-x)\frac{\sqrt3/2}{\sin(60^\circ+\theta)}.
+PN=(1-XP)\frac{\sqrt3/2}{\sin\theta}, \qquad XP=(L-x)\frac{\sqrt3/2}{\sin(60^\circ+\theta)}.
 $$
 
 After simplifying using

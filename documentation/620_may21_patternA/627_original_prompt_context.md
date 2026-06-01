@@ -39,9 +39,7 @@ $$
 this becomes
 
 $$
-q<r,
-\qquad
-q\le p\le r.
+q<r, \qquad q\le p\le r.
 $$
 
 The equality reduction for $a_1+b_1=1$ was originally less certain than the equalities at $V_3,V_5$.  The five-point variant recorded in the alternate strategy adds the point $G_1$ to avoid assuming $a_1+b_1=1$.
@@ -59,9 +57,7 @@ However, the later instruction says not to clip these circles by a hexagon diago
 Thus the mathematical version used in this package is:
 
 $$
-P_3\in \partial R_4\cap C_2,
-\qquad
-P_5\in \partial R_4\cap C_5,
+P_3\in \partial R_4\cap C_2, \qquad P_5\in \partial R_4\cap C_5,
 $$
 
 where $C_2$ and $C_5$ are full radius-$1$ circles, and the boundary is the non-axis curved boundary of $R_4$, not a hexagon edge and not a coordinate axis.
@@ -80,9 +76,7 @@ The prompt intuition is:
 - this leads to the equality conditions
 
 $$
-a_3+b_3=1,
-\qquad
- a_5+b_5=1.
+a_3+b_3=1, \qquad a_5+b_5=1.
 $$
 
 The current repository package does not prove this original global monotonicity claim.  It starts after the constrained slice has been imposed and studies the resulting Pattern A four-point problem.

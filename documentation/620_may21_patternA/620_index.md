@@ -56,8 +56,7 @@ $$
 On this region the goal is not to sample many points, but to cover the whole domain by boxes in $(s,r)$ and certify each box. A simple model example is: if a polynomial $P(s,r)$ is converted to Bernstein form on a rectangle and every Bernstein coefficient is positive, then $P>0$ on the whole rectangle. In the actual Pattern A problem, this idea is used to certify root isolation, branch selection, coordinate bounds, and the derivative signs
 
 $$
-\widetilde F_{I,s}>0,\quad \widetilde F_{I,r}>0,\quad
-\widetilde F_{II,s}>0,\quad \widetilde F_{II,r}>0.
+\widetilde F_{I,s}>0,\quad \widetilde F_{I,r}>0,\quad \widetilde F_{II,s}>0,\quad \widetilde F_{II,r}>0.
 $$
 
 For branch selection, the quartic equations for $P_3$ and $P_5$ may have several algebraic roots. The certificate must show that the chosen root interval contains the selected root and that the active inequalities, such as $P_A,Q_A,S_A\ge0$ and $D_A^2\le1$, hold on the whole box. For recovered coordinates such as
@@ -122,12 +121,7 @@ These scripts are not proof by themselves. They are reproducibility aids for the
 Proven in this folder:
 
 $$
-\min_{q\le p\le r}\{\rho(r,p)+\rho(p,q)\}
-=
-\begin{cases}
-\rho_2(r,q)+q, & q\ge \sigma(r),\\
-r-\sigma(r)+\rho_2(\sigma(r),q), & q<\sigma(r),
-\end{cases}
+\min_{q\le p\le r}\{\rho(r,p)+\rho(p,q)\} = \begin{cases} \rho_2(r,q)+q, & q\ge \sigma(r),\\ r-\sigma(r)+\rho_2(\sigma(r),q), & q<\sigma(r), \end{cases}
 $$
 
 and
@@ -141,8 +135,7 @@ on the endpoint range $0<r\le 1/200$.
 Still open in this folder:
 
 $$
-\widetilde F_{I,s}>0,\quad \widetilde F_{I,r}>0,\quad
-\widetilde F_{II,s}>0,\quad \widetilde F_{II,r}>0
+\widetilde F_{I,s}>0,\quad \widetilde F_{I,r}>0,\quad \widetilde F_{II,s}>0,\quad \widetilde F_{II,r}>0
 $$
 
 on the full remaining non-endpoint region $1/200\le r\le (\sqrt{37}-3)/8$.

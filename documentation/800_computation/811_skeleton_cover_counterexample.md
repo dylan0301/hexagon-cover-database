@@ -26,13 +26,7 @@ The source note states that the retained snapshot produces seven closed
 equilateral triangles with side lengths:
 
 $$
-0.997938057288,\quad
-0.999413329246,\quad
-0.999200000000,\quad
-0.999200000000,\quad
-0.999494082847,\quad
-0.999200000000,\quad
-0.999469224232.
+0.997938057288,\quad 0.999413329246,\quad 0.999200000000,\quad 0.999200000000,\quad 0.999494082847,\quad 0.999200000000,\quad 0.999469224232.
 $$
 
 The local verifier checks the explicit vertex coordinates directly. It verifies:

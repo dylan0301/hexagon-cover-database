@@ -25,12 +25,7 @@ See `621_setup_and_patternA_reduction.md`.
 The minimum over $q\le p\le r$ is
 
 $$
-\min_{q\le p\le r}\{\rho(r,p)+\rho(p,q)\}
-=
-\begin{cases}
-\rho_2(r,q)+q, & q\ge\sigma(r),\\
-r-\sigma(r)+\rho_2(\sigma(r),q), & q<\sigma(r).
-\end{cases}
+\min_{q\le p\le r}\{\rho(r,p)+\rho(p,q)\} = \begin{cases} \rho_2(r,q)+q, & q\ge\sigma(r),\\ r-\sigma(r)+\rho_2(\sigma(r),q), & q<\sigma(r). \end{cases}
 $$
 
 See `622_radial_monotone_envelope.md`.
@@ -40,9 +35,7 @@ See `622_radial_monotone_envelope.md`.
 For $0<r\le1/200$,
 
 $$
-F_I(sr,r)>0,
-\qquad
-F_{II}(sr,r)>0.
+F_I(sr,r)>0, \qquad F_{II}(sr,r)>0.
 $$
 
 See `623_endpoint_taylor_remainder.md`.
@@ -60,17 +53,13 @@ Bernstein certificate prototypes prove derivative positivity on sample boxes and
 The target derivative signs are
 
 $$
-\widetilde F_{I,s}>0,
-\qquad
-\widetilde F_{I,r}>0,
+\widetilde F_{I,s}>0, \qquad \widetilde F_{I,r}>0,
 $$
 
 and
 
 $$
-\widetilde F_{II,s}>0,
-\qquad
-\widetilde F_{II,r}>0.
+\widetilde F_{II,s}>0, \qquad \widetilde F_{II,r}>0.
 $$
 
 See `624_nonendpoint_bernstein_status.md`.
@@ -80,9 +69,7 @@ See `624_nonendpoint_bernstein_status.md`.
 The following is still open in this package:
 
 $$
-F_I(q,r)\ge0
-\quad\text{and}\quad
-F_{II}(q,r)\ge0
+F_I(q,r)\ge0 \quad\text{and}\quad F_{II}(q,r)\ge0
 $$
 
 on the full non-endpoint lower outside-quarter region.

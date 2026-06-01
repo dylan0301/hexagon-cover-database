@@ -81,8 +81,7 @@ $$
 so
 
 $$
-g(\theta)=\sum_{i=0}^2 q_i\cdot R_\theta n_i
-=\cos\theta\,g(0)+\sin\theta\,g_\perp,
+g(\theta)=\sum_{i=0}^2 q_i\cdot R_\theta n_i =\cos\theta\,g(0)+\sin\theta\,g_\perp,
 $$
 
 where

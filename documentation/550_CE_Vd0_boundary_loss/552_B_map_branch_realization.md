@@ -61,9 +61,7 @@ $$
 then the two roots are
 
 $$
-c_-={2M\over 1+d},
-\qquad
-c_+={2M\over 1-d}
+c_-={2M\over 1+d}, \qquad c_+={2M\over 1-d}
 $$
 
 when the second expression is finite.  Thus the feasible radial set can be
@@ -349,8 +347,7 @@ $$
 Using
 
 $$
-\gamma_5=u-\delta-{w\over r-1},
-\qquad s=1-u-w,
+\gamma_5=u-\delta-{w\over r-1}, \qquad s=1-u-w,
 $$
 
 these conditions imply

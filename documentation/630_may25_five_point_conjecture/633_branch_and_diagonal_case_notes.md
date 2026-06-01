@@ -87,8 +87,7 @@ $$
 where
 
 $$
-\rho_j=\sup\{\rho\in[0,1]: \lambda V_j\in U
-\text{ for every }0\le\lambda<\rho\}.
+\rho_j=\sup\{\rho\in[0,1]: \lambda V_j\in U \text{ for every }0\le\lambda<\rho\}.
 $$
 
 Thus $D_j$ is determined by the first cut of the half-diagonal $[O,V_j]$ by

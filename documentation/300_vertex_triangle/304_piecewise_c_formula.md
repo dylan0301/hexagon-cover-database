@@ -16,11 +16,7 @@ necessarily the exact edge coordinates of the maximizing triple.
 Let
 
 $$
-s=a+b,
-\qquad
-m=\min(a,b),
-\qquad
-M=\max(a,b),
+s=a+b, \qquad m=\min(a,b), \qquad M=\max(a,b),
 $$
 
 and

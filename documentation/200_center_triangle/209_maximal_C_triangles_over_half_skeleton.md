@@ -37,9 +37,7 @@ $$
 The full proof and numerical check for the normalized target
 
 $$
-T_C\cap\{M_0,\dots,M_5\}=\{M_0\},
-\qquad
-T_C\text{ has positive-length boundary overlap only on }e_{0,1},
+T_C\cap\{M_0,\dots,M_5\}=\{M_0\}, \qquad T_C\text{ has positive-length boundary overlap only on }e_{0,1},
 $$
 
 is recorded in
@@ -68,8 +66,7 @@ $$
 Maximality is product interval inclusion:
 
 $$
-([s_{50},t_{50}],[s_{01},t_{01}])\preceq
-([s'_{50},t'_{50}],[s'_{01},t'_{01}])
+([s_{50},t_{50}],[s_{01},t_{01}])\preceq ([s'_{50},t'_{50}],[s'_{01},t'_{01}])
 $$
 
 iff both intervals are contained in the primed intervals.
@@ -79,9 +76,7 @@ iff both intervals are contained in the primed intervals.
 The full proof and numerical check for the normalized target
 
 $$
-T_C\cap\{M_0,\dots,M_5\}=\{M_0\},
-\qquad
-T_C\text{ has positive-length boundary overlap only on }e_{5,0}\text{ and }e_{0,1},
+T_C\cap\{M_0,\dots,M_5\}=\{M_0\}, \qquad T_C\text{ has positive-length boundary overlap only on }e_{5,0}\text{ and }e_{0,1},
 $$
 
 is recorded in
@@ -96,9 +91,7 @@ $$
 and
 
 $$
-S=x+y,
-\qquad
-D=\sqrt{x^2+xy+y^2}.
+S=x+y, \qquad D=\sqrt{x^2+xy+y^2}.
 $$
 
 For this subcase, the maximal feasible interval pairs are exactly all pairs
@@ -110,9 +103,7 @@ $$
 satisfying
 
 $$
-0<x<u<1,
-\qquad
-0<y<v<1,
+0<x<u<1, \qquad 0<y<v<1,
 $$
 
 $$
@@ -120,17 +111,13 @@ $$
 $$
 
 $$
-u(x+y)\ge x,
-\qquad
-v(x+y)\ge y,
+u(x+y)\ge x, \qquad v(x+y)\ge y,
 $$
 
 and
 
 $$
-u(x+y)<x+\frac y2,
-\qquad
-v(x+y)<y+\frac x2.
+u(x+y)<x+\frac y2, \qquad v(x+y)<y+\frac x2.
 $$
 
 Every feasible pair in this semialgebraic surface is already maximal under product inclusion. In particular, the two edge intervals cannot be optimized independently.

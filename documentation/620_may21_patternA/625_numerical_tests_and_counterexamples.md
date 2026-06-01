@@ -19,9 +19,7 @@ the four points $P_3,P_5,G_0,G_2$ can be enclosed by an equilateral triangle of 
 A certified counterexample from the working notes is
 
 $$
-q=\frac{499}{1000},
-\qquad
-p=r=\frac12.
+q=\frac{499}{1000}, \qquad p=r=\frac12.
 $$
 
 For this example, the four points fit inside an equilateral triangle of side
@@ -33,9 +31,7 @@ $$
 The attempt to repair the four-point strategy by assuming that at least one $t_i$ lies outside $[1/3,2/3]$ is also false. A certified example is
 
 $$
-p=r=\frac13,
-\qquad
-q=\frac{3333}{10000}<\frac13.
+p=r=\frac13, \qquad q=\frac{3333}{10000}<\frac13.
 $$
 
 In that example, $t_2=t_3<1/3$, but the four points still fit inside an equilateral triangle of side
@@ -57,9 +53,7 @@ was investigated.
 In the constrained slice, the outside-quarter condition is
 
 $$
-q<\frac14
-\qquad\text{or}\qquad
-r>\frac34.
+q<\frac14 \qquad\text{or}\qquad r>\frac34.
 $$
 
 The lower region is

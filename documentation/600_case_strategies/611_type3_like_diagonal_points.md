@@ -5,11 +5,7 @@ Status: Empirical strategy
 Special diagonal target values:
 
 $$
-0.382,
-\qquad
-0.5,
-\qquad
-0.634.
+0.382, \qquad 0.5, \qquad 0.634.
 $$
 
 Heuristic roles:

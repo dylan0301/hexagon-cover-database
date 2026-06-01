@@ -85,9 +85,7 @@ $$
 In that case,
 
 $$
-f(1-x_{i-1},x_i)
-\le
-f(1-x_{i-1},x_{i-1}+\varepsilon).
+f(1-x_{i-1},x_i) \le f(1-x_{i-1},x_{i-1}+\varepsilon).
 $$
 
 ## Application to CE1/reduced-CE2

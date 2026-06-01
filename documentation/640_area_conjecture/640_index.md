@@ -26,9 +26,7 @@ supercritical rows follows.  That conditional certificate is in
 The shared area-conjecture target is:
 
 $$
-\#\{i:a_i+b_i>1\}\ge2
-\quad\Longrightarrow\quad
-\sum_{i=0}^5 f(a_i,b_i)<5.
+\#\{i:a_i+b_i>1\}\ge2 \quad\Longrightarrow\quad \sum_{i=0}^5 f(a_i,b_i)<5.
 $$
 
 The difference between CE0 and CE1/reduced-CE2 is only how the perimeter cut
@@ -39,23 +37,19 @@ points determine the six rows $(a_i,b_i)$.
 Choose one cut point on each boundary edge:
 
 $$
-X_i=V_i+x_i(V_{i+1}-V_i),
-\qquad i=0,\dots,5.
+X_i=V_i+x_i(V_{i+1}-V_i), \qquad i=0,\dots,5.
 $$
 
 The six cut points determine six vertex rows
 
 $$
-(a_i,b_i)=(1-x_{i-1},x_i),
-\qquad i=0,\dots,5,
+(a_i,b_i)=(1-x_{i-1},x_i), \qquad i=0,\dots,5,
 $$
 
 with indices modulo $6$.  In the CE0 case, the shared target becomes
 
 $$
-\#\{i:a_i+b_i>1\}\ge2
-\quad\Longrightarrow\quad
-\sum_{i=0}^5 f(a_i,b_i)<5.
+\#\{i:a_i+b_i>1\}\ge2 \quad\Longrightarrow\quad \sum_{i=0}^5 f(a_i,b_i)<5.
 $$
 
 Here $f(a,b)$ is the normalized maximum area inside $H$ for a unit vertex

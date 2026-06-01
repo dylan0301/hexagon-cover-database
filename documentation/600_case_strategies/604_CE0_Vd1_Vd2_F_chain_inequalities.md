@@ -5,22 +5,19 @@ Status: Proven analytic inequality
 Define
 
 $$
-F(t)=\frac{t-1+\sqrt{1+6t-3t^2}}{2},
-\qquad 0\le t\le1.
+F(t)=\frac{t-1+\sqrt{1+6t-3t^2}}{2}, \qquad 0\le t\le1.
 $$
 
 For $x\in[0,1)$ and allowed $\theta$, define
 
 $$
-a(x,\theta)=
-\frac{\frac{\sqrt3}{2}-\sin(\pi/3+\theta)}{\sin(\theta-\pi/3)}-x,
+a(x,\theta)= \frac{\frac{\sqrt3}{2}-\sin(\pi/3+\theta)}{\sin(\theta-\pi/3)}-x,
 $$
 
 and
 
 $$
-b(x,\theta)=
-\frac{x\sin\theta-\sin(\theta-\pi/3)}{\sin(\theta+\pi/3)}.
+b(x,\theta)= \frac{x\sin\theta-\sin(\theta-\pi/3)}{\sin(\theta+\pi/3)}.
 $$
 
 At $\theta=\pi/3$, use continuous extension.
@@ -40,8 +37,7 @@ $$
 and
 
 $$
-\boxed{b(x,u)=
-\frac{x\sqrt3(1-u^2)+2u(x-2)}{\sqrt3(1-u^2)-2u}.}
+\boxed{b(x,u)= \frac{x\sqrt3(1-u^2)+2u(x-2)}{\sqrt3(1-u^2)-2u}.}
 $$
 
 ## Claim 1: small $x$
@@ -61,8 +57,7 @@ $$
 The proof uses affine upper bounds $P_1,P_2,P_3$ for $F$, giving
 
 $$
-F^{\circ3}(t)<t+\frac12
-\qquad (0\le t\le1/2).
+F^{\circ3}(t)<t+\frac12 \qquad (0\le t\le1/2).
 $$
 
 One then proves
@@ -128,9 +123,7 @@ $$
 Finally,
 
 $$
-1-\left(B(t)+\frac{21}{10}t+\frac{39}{100}\right)
-=
-\frac{840t^3+796t^2-274t+33}{100(1-2t)(2t+3)}>0
+1-\left(B(t)+\frac{21}{10}t+\frac{39}{100}\right) = \frac{840t^3+796t^2-274t+33}{100(1-2t)(2t+3)}>0
 $$
 
 for $0\le t\le1/5$. This proves Claim 2.

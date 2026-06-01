@@ -7,9 +7,7 @@ This folder records the proof package for the CE1/CE2, all-Vd0 boundary-loss obs
 The proved local statement is:
 
 $$
-\mathrm{CE1/CE2}+\text{all six }V_i\text{ are Vd0}+\text{all }a_i+b_i\le 1
-\quad\Longrightarrow\quad
-\text{boundary-loss contradiction.}
+\mathrm{CE1/CE2}+\text{all six }V_i\text{ are Vd0}+\text{all }a_i+b_i\le 1 \quad\Longrightarrow\quad \text{boundary-loss contradiction.}
 $$
 
 For CE2 this still uses the CE2 one-interval reduction assumed in `551_setup_and_reduction.md`.
@@ -31,19 +29,13 @@ $$
 After normalization, the active $C$-boundary interval is
 
 $$
-T_C\cap e_{0,1}=[s,t],
-\qquad
-u=1-t,
-\qquad
-w=t-s>0.
+T_C\cap e_{0,1}=[s,t], \qquad u=1-t, \qquad w=t-s>0.
 $$
 
 The adjacent maximal Vd0 contributions are
 
 $$
-B_5=B(s,1-\gamma_5),
-\qquad
-B_1=B(u,1-\gamma_1),
+B_5=B(s,1-\gamma_5), \qquad B_1=B(u,1-\gamma_1),
 $$
 
 where

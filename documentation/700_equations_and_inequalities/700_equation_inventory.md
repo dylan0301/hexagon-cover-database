@@ -47,9 +47,7 @@ $$
 Local $AB$-union curve in the strict branch
 
 $$
-a+b>1,
-\qquad
- a^2+ab+b^2<1
+a+b>1, \qquad a^2+ab+b^2<1
 $$
 
 is recorded with full piecewise equations in

@@ -17,9 +17,7 @@ $$
 with
 
 $$
-I_L\subset e_{3,4},
-\qquad
-I_R\subset e_{4,5}.
+I_L\subset e_{3,4}, \qquad I_R\subset e_{4,5}.
 $$
 
 The nearby vertex triangles are
@@ -62,28 +60,17 @@ For interval $I$ and $K_i=T_i\cap\partial H$:
 After maximality, intersect cases should be eliminated. The remaining cases are
 
 $$
-(\mathrm{attach},\mathrm{attach}),
-(\mathrm{attach},\mathrm{far}),
-(\mathrm{far},\mathrm{attach}),
-(\mathrm{far},\mathrm{far}).
+(\mathrm{attach},\mathrm{attach}), (\mathrm{attach},\mathrm{far}), (\mathrm{far},\mathrm{attach}), (\mathrm{far},\mathrm{far}).
 $$
 
 Coordinate form:
 
 $$
-x_3<\beta_L,
-\qquad
-x_5<\beta_R
-\implies
-b_4\ge\beta_L\quad\text{or}\quad a_4\ge\beta_R.
+x_3<\beta_L, \qquad x_5<\beta_R \implies b_4\ge\beta_L\quad\text{or}\quad a_4\ge\beta_R.
 $$
 
 After eliminating intersect cases:
 
 $$
-x_3\le\alpha_L,
-\qquad
-x_5\le\alpha_R
-\implies
-b_4\ge\beta_L\quad\text{or}\quad a_4\ge\beta_R.
+x_3\le\alpha_L, \qquad x_5\le\alpha_R \implies b_4\ge\beta_L\quad\text{or}\quad a_4\ge\beta_R.
 $$

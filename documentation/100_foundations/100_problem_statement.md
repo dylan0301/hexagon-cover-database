@@ -11,8 +11,7 @@ $$
 Its vertices are
 
 $$
-V_i=\left(\cos \frac{i\pi}{3},\sin \frac{i\pi}{3}\right),
-\qquad i\in \mathbb Z/6\mathbb Z.
+V_i=\left(\cos \frac{i\pi}{3},\sin \frac{i\pi}{3}\right), \qquad i\in \mathbb Z/6\mathbb Z.
 $$
 
 ## Final theorem target

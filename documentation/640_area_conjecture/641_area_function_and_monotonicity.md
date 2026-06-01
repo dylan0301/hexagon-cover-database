@@ -18,10 +18,7 @@ $$
 Define
 
 $$
-f(a,b)
-=
-\max_T
-\frac{\operatorname{area}(T\cap H)}{\operatorname{area}(T)},
+f(a,b) = \max_T \frac{\operatorname{area}(T\cap H)}{\operatorname{area}(T)},
 $$
 
 where the maximum is over closed unit equilateral triangles $T$ such that
@@ -56,9 +53,7 @@ This symmetry is used in the CE0 conditional certificate in
 The intended monotonicity statement is:
 
 $$
-a_1\le a_2,\qquad b_1\le b_2
-\quad\Longrightarrow\quad
-f(a_1,b_1)\ge f(a_2,b_2).
+a_1\le a_2,\qquad b_1\le b_2 \quad\Longrightarrow\quad f(a_1,b_1)\ge f(a_2,b_2).
 $$
 
 Reason: requiring the unit triangle to contain farther boundary points gives a
@@ -103,33 +98,25 @@ The conditional CE0 certificate in
 upper bounds:
 
 $$
-a+b\le1
-\quad\Longrightarrow\quad
-f(a,b)\le1-\min(a,b)^2,
+a+b\le1 \quad\Longrightarrow\quad f(a,b)\le1-\min(a,b)^2,
 $$
 
 and
 
 $$
-a+b>1
-\quad\Longrightarrow\quad
-f(a,b)\le1-\max(a,b)^2.
+a+b>1 \quad\Longrightarrow\quad f(a,b)\le1-\max(a,b)^2.
 $$
 
 Equivalently,
 
 $$
-a+b\le1
-\quad\Longrightarrow\quad
-1-f(a,b)\ge\min(a,b)^2,
+a+b\le1 \quad\Longrightarrow\quad 1-f(a,b)\ge\min(a,b)^2,
 $$
 
 and
 
 $$
-a+b>1
-\quad\Longrightarrow\quad
-1-f(a,b)\ge\max(a,b)^2.
+a+b>1 \quad\Longrightarrow\quad 1-f(a,b)\ge\max(a,b)^2.
 $$
 
 These square-loss bounds are not proved in this file.  Once they are proved or
@@ -143,9 +130,7 @@ The package aims to prove a vertex-triangle area bound in configurations with
 at least two supercritical rows:
 
 $$
-\#\{i:a_i+b_i>1\}\ge2
-\quad\Longrightarrow\quad
-\sum_{i=0}^5 f(a_i,b_i)<5.
+\#\{i:a_i+b_i>1\}\ge2 \quad\Longrightarrow\quad \sum_{i=0}^5 f(a_i,b_i)<5.
 $$
 
 This target uses only the six vertex-triangle functions $f(a_i,b_i)$.  The

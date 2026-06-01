@@ -104,6 +104,9 @@ Numerical optimization claims remain `Empirical` until a certificate is supplied
 
 - Keep research-note files Markdown-only unless the repository policy changes.
 - Use `$...$` for inline LaTeX and `$$...$$` for display LaTeX.
+- Write display-LaTeX blocks with `$$` on separate delimiter lines, and keep
+  the equation content between them on one physical line. Multi-line equation
+  content inside a `$$` block can fail to render.
 - Do not cite a claim as proven unless its source file has a proven status label.
 - Preserve failed approaches with enough detail to avoid repeating them.
 - Use [`documentation/appendices/B_notation_dictionary.md`](documentation/appendices/B_notation_dictionary.md) when introducing or checking notation.

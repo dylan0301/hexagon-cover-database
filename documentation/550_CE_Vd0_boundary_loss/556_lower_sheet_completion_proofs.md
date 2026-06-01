@@ -10,8 +10,7 @@ The notation is that of `551_setup_and_reduction.md` and
 write
 
 $$
-R={1\over r},\qquad S=\sqrt{1-R+R^2},\qquad
-\delta={R\over1+S},\qquad 0<R<1.
+R={1\over r},\qquad S=\sqrt{1-R+R^2},\qquad \delta={R\over1+S},\qquad 0<R<1.
 $$
 
 The active boundary interval is
@@ -198,8 +197,7 @@ $$
 The lower-sheet estimate gives
 
 $$
-B_5\le {1-\gamma_5\over2},\qquad
-B_1\le {1-\gamma_1\over2}.
+B_5\le {1-\gamma_5\over2},\qquad B_1\le {1-\gamma_1\over2}.
 $$
 
 Therefore
@@ -248,16 +246,13 @@ $$
 Substitute these values into the $C$-geometry formula for $\gamma_5$:
 
 $$
-\gamma_5=h-{h\over1+S_h}-{h\over1-h}(1-2h),
-\qquad
-S_h=\sqrt{1-h+h^2}.
+\gamma_5=h-{h\over1+S_h}-{h\over1-h}(1-2h), \qquad S_h=\sqrt{1-h+h^2}.
 $$
 
 Equivalently,
 
 $$
-\gamma_5
-=h\left({S_h\over1+S_h}-{1-2h\over1-h}\right).
+\gamma_5 =h\left({S_h\over1+S_h}-{1-2h\over1-h}\right).
 $$
 
 Now
@@ -281,10 +276,7 @@ $$
 This last inequality holds because
 
 $$
-S_h^2-(\sqrt3-1)^2
-=
-\left({5\over2}-\sqrt3\right)-(4-2\sqrt3)
-=\sqrt3-{3\over2}>0.
+S_h^2-(\sqrt3-1)^2 = \left({5\over2}-\sqrt3\right)-(4-2\sqrt3) =\sqrt3-{3\over2}>0.
 $$
 
 Thus $\gamma_5>0$, contradicting the equality requirement $\gamma_5=0$.
@@ -331,8 +323,7 @@ $$
 For the left branch, write
 
 $$
-a=s,\qquad c=1-\gamma_5,\qquad b=B_5,\qquad
-\mu=a+b,\qquad \beta={b\over c}.
+a=s,\qquad c=1-\gamma_5,\qquad b=B_5,\qquad \mu=a+b,\qquad \beta={b\over c}.
 $$
 
 Because the branch is $T_+^{lo}$,
@@ -438,8 +429,7 @@ $$
 For the right branch, write
 
 $$
-a=u=Rc_1,\qquad c=c_1,\qquad b=B_1,\qquad
-\mu=a+b,\qquad \beta={b\over c}.
+a=u=Rc_1,\qquad c=c_1,\qquad b=B_1,\qquad \mu=a+b,\qquad \beta={b\over c}.
 $$
 
 Then
@@ -476,16 +466,14 @@ Substituting $c_1=\mu/(R+\beta)$ and
 $\mu^2=\beta^2-\beta+1$ gives
 
 $$
-\Delta=
-{\beta(\beta^2-\beta+1)(R+\beta-1)(R\beta-R+\beta^2)\over(R+\beta)^2}.
+\Delta= {\beta(\beta^2-\beta+1)(R+\beta-1)(R\beta-R+\beta^2)\over(R+\beta)^2}.
 $$
 
 All factors except possibly $R+\beta-1$ are nonnegative.  The only non-obvious
 one is
 
 $$
-R\beta-R+\beta^2=\beta^2-R(1-\beta)
-\ge\beta^2-\beta(1-\beta)=\beta(2\beta-1)\ge0,
+R\beta-R+\beta^2=\beta^2-R(1-\beta) \ge\beta^2-\beta(1-\beta)=\beta(2\beta-1)\ge0,
 $$
 
 using $R\le\beta$ and $\beta\ge1/2$.  Hence $\Delta\ge0$ implies
@@ -497,16 +485,13 @@ $$
 Next,
 
 $$
-S^2(R+\beta)^2-\mu^2
-=(R+\beta-1)(R^3+R^2\beta-R\beta+R+1).
+S^2(R+\beta)^2-\mu^2 =(R+\beta-1)(R^3+R^2\beta-R\beta+R+1).
 $$
 
 The second factor is positive, because
 
 $$
-R^3+R^2\beta-R\beta+R+1
-=1+R+R^3-R\beta(1-R)
-\ge1+R^2+R^3>0.
+R^3+R^2\beta-R\beta+R+1 =1+R+R^3-R\beta(1-R) \ge1+R^2+R^3>0.
 $$
 
 Therefore
@@ -582,8 +567,7 @@ $$
 The sign is the sign of
 
 $$
-(2\beta-1)(R+\beta)-2(\beta^2-\beta+1)
-=(2\beta-1)R+\beta-2.
+(2\beta-1)(R+\beta)-2(\beta^2-\beta+1) =(2\beta-1)R+\beta-2.
 $$
 
 Since $0<R<1$ and $1/2\le\beta\le1$,
@@ -651,10 +635,7 @@ $$
 Substitution of $R=(1-2q)/(1-q^2)$ gives the exact factorization
 
 $$
-(\beta_0+q)(R+\beta_0)-2k
-=
-{(7-\sqrt{13})(q_0-q)\left(q^2+{\sqrt{13}+5\over3}q+{\sqrt{13}-3\over6}\right)
-\over6(1-q^2)}.
+(\beta_0+q)(R+\beta_0)-2k = {(7-\sqrt{13})(q_0-q)\left(q^2+{\sqrt{13}+5\over3}q+{\sqrt{13}-3\over6}\right) \over6(1-q^2)}.
 $$
 
 Every factor is nonnegative on $0\le q\le q_0$, and the denominator is

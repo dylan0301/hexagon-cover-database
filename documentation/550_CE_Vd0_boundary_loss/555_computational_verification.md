@@ -59,9 +59,7 @@ $(\mathrm{Full},L)$.  The tight horn is handled analytically in
 The far-region bad set is reduced to
 
 $$
-\Delta(R,\eta)\le0,
-\qquad
-H(R,\eta)\ge0.
+\Delta(R,\eta)\le0, \qquad H(R,\eta)\ge0.
 $$
 
 The interval certificate subdivides the rectangle and certifies each terminal
@@ -95,21 +93,13 @@ The branch $(L,T_+)$ is proved by a combination of:
 The corrected interval script uses variables
 
 $$
-R={1\over r},
-\qquad
-x=ru,
-\qquad
-\tau=x(1+R)-1,
-\qquad
-\eta=\gamma_5.
+R={1\over r}, \qquad x=ru, \qquad \tau=x(1+R)-1, \qquad \eta=\gamma_5.
 $$
 
 The corrected C-geometry formula is
 
 $$
-w={1-R\over R}(u-\delta_R-\eta),
-\qquad
-\delta_R={R\over\sqrt{1-R+R^2}+1}.
+w={1-R\over R}(u-\delta_R-\eta), \qquad \delta_R={R\over\sqrt{1-R+R^2}+1}.
 $$
 
 An earlier failed script used the wrong formula without the factor $1/R$.

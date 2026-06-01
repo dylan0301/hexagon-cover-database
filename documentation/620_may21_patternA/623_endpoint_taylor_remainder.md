@@ -39,8 +39,7 @@ $$
 and
 
 $$
-\Phi\left(r,\frac{167}{250}r\right)=
-\frac{r(47458321r^3-571787000r^2-456562500r+15625000)}{3906250000}>0
+\Phi\left(r,\frac{167}{250}r\right)= \frac{r(47458321r^3-571787000r^2-456562500r+15625000)}{3906250000}>0
 $$
 
 for $0<r\le1/200$.  Since $\Phi(r,B)$ is strictly increasing in $B$, the bound follows.
@@ -48,17 +47,13 @@ for $0<r\le1/200$.  Since $\Phi(r,B)$ is strictly increasing in $B$, the bound f
 Thus it is enough to prove $F_I>0$ on
 
 $$
-\frac23\le s\le1,
-\qquad
-0<r\le\frac1{200},
+\frac23\le s\le1, \qquad 0<r\le\frac1{200},
 $$
 
 and $F_{II}>0$ on
 
 $$
-\frac12\le s\le\frac{167}{250},
-\qquad
-0<r\le\frac1{200}.
+\frac12\le s\le\frac{167}{250}, \qquad 0<r\le\frac1{200}.
 $$
 
 ## 2. Taylor expansion of $\tau$
@@ -72,14 +67,7 @@ $$
 gives
 
 $$
-\begin{aligned}
-\tau(sr,r)=&\left(2s-\frac12\right)r
--\frac{32s^2-8s+5}{8}r^2\\
-&+\frac{712s^3-888s^2+440s-69}{16}r^3\\
-&-\frac{51072s^4-80288s^3+53424s^2-17392s+2397}{128}r^4\\
-&+\frac{1575936s^5-3305472s^4+2955856s^3-1378608s^2+333104s-33375}{256}r^5
-+O(r^6).
-\end{aligned}
+\begin{aligned} \tau(sr,r)=&\left(2s-\frac12\right)r -\frac{32s^2-8s+5}{8}r^2\\ &+\frac{712s^3-888s^2+440s-69}{16}r^3\\ &-\frac{51072s^4-80288s^3+53424s^2-17392s+2397}{128}r^4\\ &+\frac{1575936s^5-3305472s^4+2955856s^3-1378608s^2+333104s-33375}{256}r^5 +O(r^6). \end{aligned}
 $$
 
 The coefficients are obtained by substituting Taylor ansatzes for the selected $A$- and $B$-branch roots into the exact branch equations $F_A=C_2=0$ and $F_B=C_5=0$ and solving coefficient-by-coefficient.
@@ -125,19 +113,13 @@ $$
 On $2/3\le s\le1$,
 
 $$
-A_1(s)\ge\frac16,
-\qquad
-A_2(s)>0,
-\qquad
-A_4(s)>0,
+A_1(s)\ge\frac16, \qquad A_2(s)>0, \qquad A_4(s)>0,
 $$
 
 and
 
 $$
-|A_3(s)|\le13,
-\qquad
-|A_5(s)|\le576.
+|A_3(s)|\le13, \qquad |A_5(s)|\le576.
 $$
 
 Therefore
@@ -189,19 +171,13 @@ $$
 On $1/2\le s\le167/250$,
 
 $$
-B_1(s)=\frac16,
-\qquad
-B_2(s)>0,
-\qquad
-B_4(s)>0,
+B_1(s)=\frac16, \qquad B_2(s)>0, \qquad B_4(s)>0,
 $$
 
 and
 
 $$
-|B_3(s)|\le3,
-\qquad
-|B_5(s)|\le26.
+|B_3(s)|\le3, \qquad |B_5(s)|\le26.
 $$
 
 Therefore
@@ -253,9 +229,7 @@ $$
 the inverse Jacobian bounds are
 
 $$
-\|J_A^{-1}\|_\infty\le3,
-\qquad
-\|J_B^{-1}\|_\infty\le6.
+\|J_A^{-1}\|_\infty\le3, \qquad \|J_B^{-1}\|_\infty\le6.
 $$
 
 The Newton--Kantorovich correction gives
@@ -273,9 +247,7 @@ $$
 In the same endpoint box,
 
 $$
-\Delta v-\Delta u\ge0.90,
-\qquad
-0.90\le D\le1.10,
+\Delta v-\Delta u\ge0.90, \qquad 0.90\le D\le1.10,
 $$
 
 and direct differentiation of $\tau$ gives
@@ -305,9 +277,7 @@ $$
 Combining these estimates gives
 
 $$
-|E_I(s,r)|\le4\cdot10^9r^6,
-\qquad
-|E_{II}(s,r)|\le4\cdot10^9r^6.
+|E_I(s,r)|\le4\cdot10^9r^6, \qquad |E_{II}(s,r)|\le4\cdot10^9r^6.
 $$
 
 ## 6. Endpoint positivity
@@ -315,8 +285,7 @@ $$
 For Region I,
 
 $$
-F_I(sr,r)\ge0.1663r-4\cdot10^9r^6
-=r(0.1663-4\cdot10^9r^5).
+F_I(sr,r)\ge0.1663r-4\cdot10^9r^6 =r(0.1663-4\cdot10^9r^5).
 $$
 
 Since $r\le1/200$,
@@ -330,8 +299,7 @@ Hence $F_I(sr,r)>0$.
 For Region II,
 
 $$
-F_{II}(sr,r)\ge0.1665r-4\cdot10^9r^6
-=r(0.1665-4\cdot10^9r^5)>0.
+F_{II}(sr,r)\ge0.1665r-4\cdot10^9r^6 =r(0.1665-4\cdot10^9r^5)>0.
 $$
 
 Thus both reduced inequalities are proved for $0<r\le1/200$.

@@ -9,8 +9,7 @@ The May 24, 2026 counterexample in `../800_computation/811_skeleton_cover_counte
 Current target:
 
 $$
-S_{\{0.382,0.5,0.634\}}=S_{1/2}\cup\{P_i(0.382),P_i(0.634):i=0,
-\dots,5\}.
+S_{\{0.382,0.5,0.634\}}=S_{1/2}\cup\{P_i(0.382),P_i(0.634):i=0, \dots,5\}.
 $$
 
 Goal:

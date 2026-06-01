@@ -29,19 +29,13 @@ $$
 Then
 
 $$
-q<r,
-\qquad
-q\le p\le r,
+q<r, \qquad q\le p\le r,
 $$
 
 and all six edge parameters lie in the midpoint window:
 
 $$
-t_0=t_1=\frac12,
-\qquad
- t_2=t_3=\frac{499}{1000},
-\qquad
- t_4=t_5=\frac12.
+t_0=t_1=\frac12, \qquad t_2=t_3=\frac{499}{1000}, \qquad t_4=t_5=\frac12.
 $$
 
 In particular,
@@ -53,9 +47,7 @@ $$
 At $V_4$,
 
 $$
-a_4=1-q=\frac{501}{1000},
-\qquad
-b_4=r=\frac12.
+a_4=1-q=\frac{501}{1000}, \qquad b_4=r=\frac12.
 $$
 
 Thus
@@ -97,19 +89,13 @@ This also does not rescue the four-point strategy.
 Take
 
 $$
-p=r=\frac13,
-\qquad
-q=\frac{3333}{10000}<\frac13.
+p=r=\frac13, \qquad q=\frac{3333}{10000}<\frac13.
 $$
 
 Then
 
 $$
-t_0=t_1=\frac13,
-\qquad
- t_2=t_3=\frac{3333}{10000},
-\qquad
- t_4=t_5=\frac13.
+t_0=t_1=\frac13, \qquad t_2=t_3=\frac{3333}{10000}, \qquad t_4=t_5=\frac13.
 $$
 
 Thus $t_2$ and $t_3$ lie outside $[1/3,2/3]$.
@@ -117,9 +103,7 @@ Thus $t_2$ and $t_3$ lie outside $[1/3,2/3]$.
 At $V_4$,
 
 $$
-a_4=1-q=\frac{6667}{10000},
-\qquad
-b_4=r=\frac13,
+a_4=1-q=\frac{6667}{10000}, \qquad b_4=r=\frac13,
 $$
 
 so

@@ -89,9 +89,7 @@ $$
 The switch equation is equivalent to
 
 $$
-1-A=\frac{s(1+g)}2,
-\qquad
-\sigma(A)=\frac{s(1-g)}2.
+1-A=\frac{s(1+g)}2, \qquad \sigma(A)=\frac{s(1-g)}2.
 $$
 
 At the switch,
@@ -159,9 +157,7 @@ $$
 On the lower region,
 
 $$
-\rho_1'(B)>0,
-\qquad
-\rho_1'(B)\le1-2B,
+\rho_1'(B)>0, \qquad \rho_1'(B)\le1-2B,
 $$
 
 and
@@ -257,9 +253,7 @@ $$
 Therefore
 
 $$
-\frac{h_B(r,\beta)}{h_B(\sigma(r),\sigma(\beta))}
-\ge
-\frac{1-r}{1-\sigma(r)}.
+\frac{h_B(r,\beta)}{h_B(\sigma(r),\sigma(\beta))} \ge \frac{1-r}{1-\sigma(r)}.
 $$
 
 It remains to prove
@@ -287,24 +281,17 @@ The quintic factor is positive for $g\ge1/3$ because its value at $1/3$ is $8/9$
 Therefore
 
 $$
-\min_{q\le p\le r}\{\rho(r,p)+\rho(p,q)\}
-=
-\begin{cases}
-\rho_2(r,q)+q, & q\ge\sigma(r),\\
-r-\sigma(r)+\rho_2(\sigma(r),q), & q<\sigma(r).
-\end{cases}
+\min_{q\le p\le r}\{\rho(r,p)+\rho(p,q)\} = \begin{cases} \rho_2(r,q)+q, & q\ge\sigma(r),\\ r-\sigma(r)+\rho_2(\sigma(r),q), & q<\sigma(r). \end{cases}
 $$
 
 Thus Pattern A is reduced to
 
 $$
-\rho_2(r,q)+q\ge\tau(q,r)
-\qquad(q\ge\sigma(r)),
+\rho_2(r,q)+q\ge\tau(q,r) \qquad(q\ge\sigma(r)),
 $$
 
 and
 
 $$
-r-\sigma(r)+\rho_2(\sigma(r),q)\ge\tau(q,r)
-\qquad(q<\sigma(r)).
+r-\sigma(r)+\rho_2(\sigma(r),q)\ge\tau(q,r) \qquad(q<\sigma(r)).
 $$

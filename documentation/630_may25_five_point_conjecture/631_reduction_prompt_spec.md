@@ -26,8 +26,7 @@ $$
 The vertices are
 
 $$
-V_i=\left(\cos\frac{i\pi}{3},\sin\frac{i\pi}{3}\right),
-\qquad i=0,\dots,5,
+V_i=\left(\cos\frac{i\pi}{3},\sin\frac{i\pi}{3}\right), \qquad i=0,\dots,5,
 $$
 
 with indices modulo $6$.  Let
@@ -220,10 +219,7 @@ $$
 When $D_A>0$, set
 
 $$
-\ell_A=
-\max\left(D_A,\frac{P_A}{D_A}\right)
--
-\min\left(0,\frac{Q_A}{D_A},\frac{S_A}{D_A}\right).
+\ell_A= \max\left(D_A,\frac{P_A}{D_A}\right) - \min\left(0,\frac{Q_A}{D_A},\frac{S_A}{D_A}\right).
 $$
 
 The moving-side-through-$A$ condition is
@@ -253,10 +249,7 @@ $$
 When $D_B>0$, set
 
 $$
-\ell_B=
-\max\left(D_B,\frac{P_B}{D_B}\right)
--
-\min\left(0,\frac{Q_B}{D_B},\frac{S_B}{D_B}\right).
+\ell_B= \max\left(D_B,\frac{P_B}{D_B}\right) - \min\left(0,\frac{Q_B}{D_B},\frac{S_B}{D_B}\right).
 $$
 
 The moving-side-through-$B$ condition is
@@ -287,8 +280,7 @@ If $O\notin U$, then the five-point configuration is undefined.  Otherwise,
 for $j=0,1,2$, define
 
 $$
-\rho_j=\sup\{\rho\in[0,1]: \lambda V_j\in U
-\text{ for every }0\le \lambda<\rho\}.
+\rho_j=\sup\{\rho\in[0,1]: \lambda V_j\in U \text{ for every }0\le \lambda<\rho\}.
 $$
 
 Then define
@@ -320,12 +312,7 @@ $$
 For an angle $\theta$, define the three unit normal directions
 
 $$
-n_k(\theta)=
-\left(
-\cos\left(\theta+\frac{2\pi k}{3}\right),
-\sin\left(\theta+\frac{2\pi k}{3}\right)
-\right),
-\qquad k=0,1,2.
+n_k(\theta)= \left( \cos\left(\theta+\frac{2\pi k}{3}\right), \sin\left(\theta+\frac{2\pi k}{3}\right) \right), \qquad k=0,1,2.
 $$
 
 The side length of the smallest equilateral triangle with these outward normal

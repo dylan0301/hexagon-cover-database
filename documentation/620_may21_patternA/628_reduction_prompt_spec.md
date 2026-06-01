@@ -116,9 +116,7 @@ In the local predicate below, the two axis lengths are $\alpha$ and $\beta$.
 Set
 
 $$
-\alpha=b,
-\qquad
-\beta=a.
+\alpha=b, \qquad \beta=a.
 $$
 
 Let
@@ -164,9 +162,7 @@ D_A^2=(u-\alpha)^2+v^2-(u-\alpha)v,
 $$
 
 $$
-P_A=\alpha(\alpha-u+v)+\beta v,
-\qquad
-Q_A=\alpha(\alpha-u),
+P_A=\alpha(\alpha-u+v)+\beta v, \qquad Q_A=\alpha(\alpha-u),
 $$
 
 and
@@ -196,9 +192,7 @@ D_B^2=u^2+(v-\beta)^2-u(v-\beta),
 $$
 
 $$
-P_B=\beta(\beta-v+u)+\alpha u,
-\qquad
-Q_B=\beta(\beta-v),
+P_B=\beta(\beta-v+u)+\alpha u, \qquad Q_B=\beta(\beta-v),
 $$
 
 and
@@ -234,11 +228,7 @@ For $a\le b$, the set is the union of three cells.
 ### Cell 1
 
 $$
-a\le b,
-\qquad
-a+b\le1,
-\qquad
-a^2+ab+b^2\le1,
+a\le b, \qquad a+b\le1, \qquad a^2+ab+b^2\le1,
 $$
 
 $$
@@ -252,11 +242,7 @@ $$
 ### Cell 2
 
 $$
-a\le b,
-\qquad
-a+b\le1,
-\qquad
-a^2+ab+b^2\le1,
+a\le b, \qquad a+b\le1, \qquad a^2+ab+b^2\le1,
 $$
 
 $$
@@ -270,11 +256,7 @@ $$
 ### Cell 3
 
 $$
-a\le b,
-\qquad
-a+b\ge1,
-\qquad
-a^2+ab+b^2\le1,
+a\le b, \qquad a+b\ge1, \qquad a^2+ab+b^2\le1,
 $$
 
 $$
@@ -314,27 +296,19 @@ $$
 and
 
 $$
-a_0+b_0\le1,
-\qquad
-a_2+b_2\le1.
+a_0+b_0\le1, \qquad a_2+b_2\le1.
 $$
 
 Equivalently, after writing
 
 $$
-p=t_0=t_1,
-\qquad
-q=t_2=t_3,
-\qquad
-r=t_4=t_5,
+p=t_0=t_1, \qquad q=t_2=t_3, \qquad r=t_4=t_5,
 $$
 
 one has
 
 $$
-q<r,
-\qquad
-q\le p\le r.
+q<r, \qquad q\le p\le r.
 $$
 
 The intended monotonicity claim leading to this constrained slice is not assumed as proven in this repository package.
@@ -354,9 +328,7 @@ Define $P_3$ as the relevant intersection between the non-axis curved boundary o
 Define
 
 $$
-G_0=(1-c_0^{\max})V_0,
-\qquad
-G_2=(1-c_2^{\max})V_2.
+G_0=(1-c_0^{\max})V_0, \qquad G_2=(1-c_2^{\max})V_2.
 $$
 
 The four-point target is

@@ -113,17 +113,13 @@ The proof tree depends on the following unresolved pieces.
    bounds
 
    $$
-   a+b\le1
-   \quad\Longrightarrow\quad
-   f(a,b)\le1-\min(a,b)^2,
+   a+b\le1 \quad\Longrightarrow\quad f(a,b)\le1-\min(a,b)^2,
    $$
 
    and
 
    $$
-   a+b>1
-   \quad\Longrightarrow\quad
-   f(a,b)\le1-\max(a,b)^2.
+   a+b>1 \quad\Longrightarrow\quad f(a,b)\le1-\max(a,b)^2.
    $$
 
    A structural proof may use the conjectured axis-aligned and Type 2 realizers

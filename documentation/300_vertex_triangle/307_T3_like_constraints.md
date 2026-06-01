@@ -11,9 +11,7 @@ $$
 Important restrictions:
 
 $$
-a+c>1,
-\qquad
-b+c>1.
+a+c>1, \qquad b+c>1.
 $$
 
 Otherwise the configuration is axis-aligned-coverable.

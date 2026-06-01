@@ -27,25 +27,19 @@ conditional analytic inequality.
 Assume the local square-loss bounds
 
 $$
-a+b\le1
-\quad\Longrightarrow\quad
-f(a,b)\le1-\min(a,b)^2,
+a+b\le1 \quad\Longrightarrow\quad f(a,b)\le1-\min(a,b)^2,
 $$
 
 and
 
 $$
-a+b>1
-\quad\Longrightarrow\quad
-f(a,b)\le1-\max(a,b)^2.
+a+b>1 \quad\Longrightarrow\quad f(a,b)\le1-\max(a,b)^2.
 $$
 
 Then, in the CE0 six-point model,
 
 $$
-\#\{i:a_i+b_i>1\}\ge2
-\quad\Longrightarrow\quad
-\sum_{i=0}^5 f(a_i,b_i)<\frac{99}{20}<5.
+\#\{i:a_i+b_i>1\}\ge2 \quad\Longrightarrow\quad \sum_{i=0}^5 f(a_i,b_i)<\frac{99}{20}<5.
 $$
 
 Thus the final CE0 area inequality is no longer an independent open obligation

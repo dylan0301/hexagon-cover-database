@@ -16,9 +16,7 @@ It interacts locally with:
 For prescribed adjacent edge points $A$ and $B$ with local edge lengths $a$ and $b$, the exact local $AB$-union curve in the strict branch
 
 $$
-a+b>1,
-\qquad
- a^2+ab+b^2<1
+a+b>1, \qquad a^2+ab+b^2<1
 $$
 
 is recorded in

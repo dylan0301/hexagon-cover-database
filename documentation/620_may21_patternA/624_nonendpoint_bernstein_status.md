@@ -15,25 +15,19 @@ The method here is a certificate prototype. It has verified representative boxes
 Set $q=sr$ and define
 
 $$
-\widetilde F_I(s,r)=F_I(sr,r),
-\qquad
-\widetilde F_{II}(s,r)=F_{II}(sr,r).
+\widetilde F_I(s,r)=F_I(sr,r), \qquad \widetilde F_{II}(s,r)=F_{II}(sr,r).
 $$
 
 The monotone proof would follow from
 
 $$
-\widetilde F_{I,s}>0,
-\qquad
-\widetilde F_{I,r}>0,
+\widetilde F_{I,s}>0, \qquad \widetilde F_{I,r}>0,
 $$
 
 on Region I, and
 
 $$
-\widetilde F_{II,s}>0,
-\qquad
-\widetilde F_{II,r}>0,
+\widetilde F_{II,s}>0, \qquad \widetilde F_{II,r}>0,
 $$
 
 on Region II.
@@ -65,9 +59,7 @@ Here $h=\rho_2$.
 For $P_3$, eliminate $u$ from
 
 $$
-F_A(u,v)=0,
-\qquad
-C_2(u,v)=0
+F_A(u,v)=0, \qquad C_2(u,v)=0
 $$
 
 to get a quartic
@@ -79,9 +71,7 @@ $$
 For $P_5$, eliminate $u$ from
 
 $$
-F_B(u,v)=0,
-\qquad
-C_5(u,v)=0
+F_B(u,v)=0, \qquad C_5(u,v)=0
 $$
 
 to get
@@ -93,15 +83,13 @@ $$
 The branch is selected by filtering the quartic roots with
 
 $$
-P_A,Q_A,S_A\ge0,
-\qquad D_A^2\le1,
+P_A,Q_A,S_A\ge0, \qquad D_A^2\le1,
 $$
 
 and
 
 $$
-P_B,Q_B,S_B\ge0,
-\qquad D_B^2\le1.
+P_B,Q_B,S_B\ge0, \qquad D_B^2\le1.
 $$
 
 Then the root closest to $V_4$ is used.
@@ -127,9 +115,7 @@ $$
 and $D<0$ on the box, then $\ell\le u\le h$ is certified by Bernstein signs of
 
 $$
-N-D\ell\le0,
-\qquad
-N-Dh\ge0.
+N-D\ell\le0, \qquad N-Dh\ge0.
 $$
 
 This is much sharper than ordinary interval evaluation of $N/D$.
@@ -141,9 +127,7 @@ This is much sharper than ordinary interval evaluation of $N/D$.
 For
 
 $$
-s\in[0.68,0.6801],
-\qquad
-r\in[0.1,0.1001],
+s\in[0.68,0.6801], \qquad r\in[0.1,0.1001],
 $$
 
 the Bernstein certificate gives
@@ -161,9 +145,7 @@ $$
 For
 
 $$
-s\in[0.805733,0.806233],
-\qquad
-r\in[0.1,0.10025],
+s\in[0.805733,0.806233], \qquad r\in[0.1,0.10025],
 $$
 
 it gives
@@ -181,9 +163,7 @@ $$
 For
 
 $$
-s\in[0.70,0.7002],
-\qquad
-r\in[0.25,0.2502],
+s\in[0.70,0.7002], \qquad r\in[0.25,0.2502],
 $$
 
 it gives
@@ -203,9 +183,7 @@ $$
 For
 
 $$
-s\in[0.60,0.6001],
-\qquad
-r\in[0.1,0.1001],
+s\in[0.60,0.6001], \qquad r\in[0.1,0.1001],
 $$
 
 it gives
@@ -223,9 +201,7 @@ $$
 For
 
 $$
-s\in[0.55,0.5501],
-\qquad
-r\in[0.2,0.2001],
+s\in[0.55,0.5501], \qquad r\in[0.2,0.2001],
 $$
 
 it gives
@@ -243,9 +219,7 @@ $$
 For
 
 $$
-s\in[0.65,0.65005],
-\qquad
-r\in[0.38,0.38005],
+s\in[0.65,0.65005], \qquad r\in[0.38,0.38005],
 $$
 
 it gives
@@ -265,9 +239,7 @@ $$
 The prototype certified the full slab
 
 $$
-s\in[0.68,0.682],
-\qquad
-r\in[0.1,0.101]
+s\in[0.68,0.682], \qquad r\in[0.1,0.101]
 $$
 
 in Region I with subdivision $\Delta s=\Delta r=2\cdot10^{-4}$. All $50$ boxes certified, with
@@ -285,9 +257,7 @@ $$
 It also certified
 
 $$
-s\in[0.60,0.602],
-\qquad
-r\in[0.1,0.101]
+s\in[0.60,0.602], \qquad r\in[0.1,0.101]
 $$
 
 in Region II with the same subdivision. All $50$ boxes certified, with

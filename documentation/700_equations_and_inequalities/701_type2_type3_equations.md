@@ -17,9 +17,7 @@ $$
 Restrictions:
 
 $$
-a+c>1,
-\qquad
-b+c>1.
+a+c>1, \qquad b+c>1.
 $$
 
 Target claim:

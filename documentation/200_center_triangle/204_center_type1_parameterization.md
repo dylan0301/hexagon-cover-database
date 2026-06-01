@@ -18,9 +18,7 @@ $$
 The geometric domain is
 
 $$
-0\le d_\theta\le1
-\qquad
-(\theta\in\{0,60,120,180,240,300\}).
+0\le d_\theta\le1 \qquad (\theta\in\{0,60,120,180,240,300\}).
 $$
 
 ## Initial variety
@@ -124,9 +122,7 @@ $$
 Then
 
 $$
-d_{180}=\frac{uv}{u+w},
-\qquad
- d_{300}=\frac{uw}{u+w},
+d_{180}=\frac{uv}{u+w}, \qquad d_{300}=\frac{uw}{u+w},
 $$
 
 with

@@ -11,33 +11,25 @@ $$
 and the only positive-length overlaps with the hexagon boundary are on
 
 $$
-e_{5,0}
-\qquad\text{and}\qquad
-e_{0,1}.
+e_{5,0} \qquad\text{and}\qquad e_{0,1}.
 $$
 
 Write
 
 $$
-T_C\cap e_{5,0}=[s_{50},t_{50}],
-\qquad
-T_C\cap e_{0,1}=[s_{01},t_{01}].
+T_C\cap e_{5,0}=[s_{50},t_{50}], \qquad T_C\cap e_{0,1}=[s_{01},t_{01}].
 $$
 
 Maximality is product interval inclusion:
 
 $$
-([s_{50},t_{50}],[s_{01},t_{01}])
-\preceq
-([s'_{50},t'_{50}],[s'_{01},t'_{01}])
+([s_{50},t_{50}],[s_{01},t_{01}]) \preceq ([s'_{50},t'_{50}],[s'_{01},t'_{01}])
 $$
 
 if and only if
 
 $$
-s'_{50}\le s_{50},\quad t'_{50}\ge t_{50},
-\qquad
-s'_{01}\le s_{01},\quad t'_{01}\ge t_{01}.
+s'_{50}\le s_{50},\quad t'_{50}\ge t_{50}, \qquad s'_{01}\le s_{01},\quad t'_{01}\ge t_{01}.
 $$
 
 ## Theorem
@@ -83,9 +75,7 @@ $$
 Equivalently, the square root can be removed by replacing the equation by
 
 $$
-\left((u+v)(x+y)-xy\right)^2=x^2+xy+y^2,
-\qquad
-(u+v)(x+y)-xy>0.
+\left((u+v)(x+y)-xy\right)^2=x^2+xy+y^2, \qquad (u+v)(x+y)-xy>0.
 $$
 
 Every feasible pair in this set is already maximal under product inclusion.
@@ -95,49 +85,37 @@ Every feasible pair in this set is already maximal under product inclusion.
 Use the standard physical coordinates
 
 $$
-O=(0,0),
-\qquad
-V_i=\left(\cos\frac{i\pi}{3},\sin\frac{i\pi}{3}\right),
-\qquad
-M_i=\frac12V_i.
+O=(0,0), \qquad V_i=\left(\cos\frac{i\pi}{3},\sin\frac{i\pi}{3}\right), \qquad M_i=\frac12V_i.
 $$
 
 Thus
 
 $$
-V_0=(1,0),\quad
-V_1=\left(\frac12,\frac{\sqrt3}{2}\right),\quad
-V_5=\left(\frac12,-\frac{\sqrt3}{2}\right),
+V_0=(1,0),\quad V_1=\left(\frac12,\frac{\sqrt3}{2}\right),\quad V_5=\left(\frac12,-\frac{\sqrt3}{2}\right),
 $$
 
 and
 
 $$
-M_0=\left(\frac12,0\right),\quad
-M_1=\left(\frac14,\frac{\sqrt3}{4}\right),\quad
-M_5=\left(\frac14,-\frac{\sqrt3}{4}\right).
+M_0=\left(\frac12,0\right),\quad M_1=\left(\frac14,\frac{\sqrt3}{4}\right),\quad M_5=\left(\frac14,-\frac{\sqrt3}{4}\right).
 $$
 
 The target edges are parameterized by
 
 $$
-e_{0,1}(b)=V_0+b(V_1-V_0)=\left(1-\frac b2,\frac{\sqrt3}{2}b\right),
-\qquad 0\le b\le1,
+e_{0,1}(b)=V_0+b(V_1-V_0)=\left(1-\frac b2,\frac{\sqrt3}{2}b\right), \qquad 0\le b\le1,
 $$
 
 and
 
 $$
-e_{5,0}(a)=V_0+a(V_5-V_0)=\left(1-\frac a2,-\frac{\sqrt3}{2}a\right),
-\qquad 0\le a\le1.
+e_{5,0}(a)=V_0+a(V_5-V_0)=\left(1-\frac a2,-\frac{\sqrt3}{2}a\right), \qquad 0\le a\le1.
 $$
 
 Write a closed unit equilateral triangle as
 
 $$
-T=\{X:\ell_i(X)\ge0,\ i=0,1,2\},
-\qquad
-\ell_i(X)=\alpha_i-n_i\cdot X,
+T=\{X:\ell_i(X)\ge0,\ i=0,1,2\}, \qquad \ell_i(X)=\alpha_i-n_i\cdot X,
 $$
 
 where the outward unit normals $n_i$ are separated by $120^\circ$. The unit side-length condition is
@@ -153,9 +131,7 @@ First, $V_0\notin T_C$. If $V_0\in T_C$, then $O,V_0\in T_C$ and $|O-V_0|=1$. In
 Since $V_0\notin T_C$, at least one side inequality is violated at $V_0$. If a violated side has outward normal $n=(p,q)$, then positive-length intersection along both adjacent edges forces
 
 $$
-n\cdot(V_1-V_0)<0,
-\qquad
-n\cdot(V_5-V_0)<0.
+n\cdot(V_1-V_0)<0, \qquad n\cdot(V_5-V_0)<0.
 $$
 
 Equivalently,
@@ -181,23 +157,17 @@ $$
 The endpoint conditions force
 
 $$
-\alpha_2=n_2\cdot e_{5,0}(x)=n_2\cdot e_{0,1}(y)
-=
-\frac{\sqrt3(x+y-xy)}{2D},
+\alpha_2=n_2\cdot e_{5,0}(x)=n_2\cdot e_{0,1}(y) = \frac{\sqrt3(x+y-xy)}{2D},
 $$
 
 $$
-\alpha_0=n_0\cdot e_{0,1}(v)
-=
-\frac{\sqrt3(v(x+y)-y)}{2D},
+\alpha_0=n_0\cdot e_{0,1}(v) = \frac{\sqrt3(v(x+y)-y)}{2D},
 $$
 
 and
 
 $$
-\alpha_1=n_1\cdot e_{5,0}(u)
-=
-\frac{\sqrt3(u(x+y)-x)}{2D}.
+\alpha_1=n_1\cdot e_{5,0}(u) = \frac{\sqrt3(u(x+y)-x)}{2D}.
 $$
 
 Conversely, these formulas define three side lines with outward unit normals separated by $120^\circ$.
@@ -213,10 +183,7 @@ $$
 Substituting the three constants gives
 
 $$
-\frac{\sqrt3}{2D}
-\left(vS-y+uS-x+S-xy\right)
-=
-\frac{\sqrt3}{2}.
+\frac{\sqrt3}{2D} \left(vS-y+uS-x+S-xy\right) = \frac{\sqrt3}{2}.
 $$
 
 Since $S=x+y$, this is equivalent to
@@ -343,9 +310,7 @@ $$
 Thus
 
 $$
-e_{0,1}(b)\in T_C
-\quad\Longleftrightarrow\quad
-y\le b\le v,
+e_{0,1}(b)\in T_C \quad\Longleftrightarrow\quad y\le b\le v,
 $$
 
 and
@@ -363,9 +328,7 @@ $$
 Thus
 
 $$
-e_{5,0}(a)\in T_C
-\quad\Longleftrightarrow\quad
-x\le a\le u,
+e_{5,0}(a)\in T_C \quad\Longleftrightarrow\quad x\le a\le u,
 $$
 
 and
@@ -391,9 +354,7 @@ Its maximum is $uS-x-y<0$, because $uS<x+y/2$.
 On $e_{2,3}$, if a point were in $T_C$, two relevant scaled slacks would be
 
 $$
-N_0=cx+vS-x-2y,
-\qquad
-N_1=-cS+uS-x+y.
+N_0=cx+vS-x-2y, \qquad N_1=-cS+uS-x+y.
 $$
 
 Their sum is
@@ -411,9 +372,7 @@ $$
 because
 
 $$
-(2x+y-xy)^2-D^2
-=
-x\left(x(1-y)(3-y)+y(3-2y)\right)>0.
+(2x+y-xy)^2-D^2 = x\left(x(1-y)(3-y)+y(3-2y)\right)>0.
 $$
 
 Hence $N_0+N_1<0$, contradiction.
@@ -433,9 +392,7 @@ $$
 because
 
 $$
-(x+2y-xy)^2-D^2
-=
-y\left(x(3-2x)+y(1-x)(3-x)\right)>0.
+(x+2y-xy)^2-D^2 = y\left(x(3-2x)+y(1-x)(3-x)\right)>0.
 $$
 
 Hence $e_{3,4}$ also has no intersection with $T_C$. Therefore the only positive-length boundary overlaps are exactly $e_{5,0}$ and $e_{0,1}$.
@@ -481,17 +438,13 @@ $$
 The set $G$ is upward closed in each coordinate, because the derivatives of $2x+2y-xy$ are $2-y>0$ and $2-x>0$. On $G$,
 
 $$
-\frac{\partial F}{\partial x}
-=
-\frac{y(x-y+2yD)}{2D(x+y)^2},
+\frac{\partial F}{\partial x} = \frac{y(x-y+2yD)}{2D(x+y)^2},
 $$
 
 and
 
 $$
-\frac{\partial F}{\partial y}
-=
-\frac{x(y-x+2xD)}{2D(x+y)^2}.
+\frac{\partial F}{\partial y} = \frac{x(y-x+2xD)}{2D(x+y)^2}.
 $$
 
 Both derivatives are strictly positive. For $\partial F/\partial x$, if $x\ge y$, then $x-y+2yD>0$. If $x<y$ and $y\ge1/2$, then $D\ge y$, so
@@ -563,9 +516,7 @@ So no feasible CE2 pair is properly product-dominated. Every feasible pair in th
 The equalities
 
 $$
-uS=x
-\qquad\text{or}\qquad
-vS=y
+uS=x \qquad\text{or}\qquad vS=y
 $$
 
 are allowed; they place $O$ on side $1$ or side $0$.
@@ -587,9 +538,7 @@ is not allowed, because then $M_1\in\partial T_C$. Since triangles are closed, e
 The equalities
 
 $$
-u=x
-\qquad\text{or}\qquad
-v=y
+u=x \qquad\text{or}\qquad v=y
 $$
 
 are not allowed, because one target edge overlap has zero length.
@@ -597,9 +546,7 @@ are not allowed, because one target edge overlap has zero length.
 The equalities
 
 $$
-u=1
-\qquad\text{or}\qquad
-v=1
+u=1 \qquad\text{or}\qquad v=1
 $$
 
 are not allowed. If $v=1$, then $V_1\in T_C$, and convexity with $O\in T_C$ gives $M_1\in T_C$. If $u=1$, then $V_5\in T_C$, and convexity with $O\in T_C$ gives $M_5\in T_C$.
