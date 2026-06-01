@@ -23,3 +23,10 @@ is recorded in
 [`309_ab_union_curve_a_plus_b_gt_1.md`](309_ab_union_curve_a_plus_b_gt_1.md).
 
 In that branch, the frontier consists of exactly two unit-circle arcs and two line segments.
+
+## Neighbor-ray maximum
+
+For prescribed adjacent edge points $A$ and $B$ with local edge lengths $a$ and $b$, the maximum parameter $c$ for which a $V_i$-triangle can also contain the neighboring radial point $(1-c)V_{i+1}$ is recorded in
+[`310_neighbor_ray_max_c_formula.md`](310_neighbor_ray_max_c_formula.md).
+
+The reflected lower-neighbor function for $(1-c)V_{i-1}$ is obtained by swapping $a$ and $b$.
