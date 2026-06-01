@@ -11,6 +11,7 @@ Main cases:
 - `609`: CE2 strategy. Target-lemma dependent because it uses the CE2 one-interval reduction.
 - `610`: global T3-like strategy.
 - `611`-`615`: finite points, admissible-union, agent search, and lotus polynomial strategies.
+- `616`: CE1/CE2 two-supercritical set-cover strategy. Certificate-dependent.
 
 Related focused packages:
 
