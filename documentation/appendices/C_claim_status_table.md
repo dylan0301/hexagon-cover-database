@@ -10,6 +10,8 @@ Status: Reference
 | CE1/CE2 all-Vd0 boundary-loss lemma under the assumptions of `551` | `550`-`556` | Proven local lemma |
 | CE1/CE2 implies exactly one midpoint | `503` | Proven local lemma |
 | CE2 one-interval lemma | `504` | Target lemma |
+| CE0 area inequality under local square-loss bounds for $f(a,b)$ | `647` | Proven analytic inequality, conditional |
+| Local square-loss bounds for $f(a,b)$ | `641`, `647` | Lemma target |
 | T3-like directed graph reduction | `607`, `610` | Strategy / incomplete |
 | Type 1 minimum $\approx0.13918$ | `205` | Empirical |
 | Type 2 inner-hull separation | `207`, `905` | Failed |
