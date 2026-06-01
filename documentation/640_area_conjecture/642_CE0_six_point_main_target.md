@@ -75,6 +75,38 @@ $H$.  The center triangle contributes at most one unit-triangle area inside
 $H$, so the seven triangles contribute less than the area of $H$ and cannot
 cover $H$.
 
+## Conditional certificate now available
+
+The final CE0 inequality above is proved in
+`647_CE0_conditional_area_certificate.md` under the following local square-loss
+hypothesis:
+
+$$
+a+b\le1
+\quad\Longrightarrow\quad
+f(a,b)\le1-\min(a,b)^2,
+$$
+
+and
+
+$$
+a+b>1
+\quad\Longrightarrow\quad
+f(a,b)\le1-\max(a,b)^2.
+$$
+
+Under this hypothesis, the stronger estimate holds:
+
+$$
+\#\{i:a_i+b_i>1\}\ge2
+\quad\Longrightarrow\quad
+\sum_{i=0}^5 f(a_i,b_i)<\frac{99}{20}<5.
+$$
+
+This conditional certificate replaces the need for the threshold relaxation in
+the CE0 six-point subcase once the displayed local square-loss bounds are
+proved or otherwise certified.  It does not prove those local bounds.
+
 ## Why this is separate from CE1/CE2
 
 The CE0 model has six perimeter cut points because $T_C$ contributes no
@@ -87,13 +119,14 @@ interval.  That extension is recorded separately in
 
 ## Main proof obligations
 
-The CE0 six-point target requires:
+After `647_CE0_conditional_area_certificate.md`, the CE0 six-point target
+requires only the local input needed by that certificate:
 
-1. certified upper bounds for each $f(a_i,b_i)$, or a proved structural formula
-   for $f(a,b)$;
-2. a pointwise threshold-bound reduction for supercritical rows, using
-   $f(a_i,b_i)\le f(a_i,1+\varepsilon-a_i)$ when
-   $a_i+b_i\ge1+\varepsilon$;
-3. a proof of the final strict inequality
-   $\sum_{i=0}^5 f(a_i,b_i)<5$ on all relaxed CE0 regimes with at least two
-   supercritical rows.
+1. prove or certify the square-loss local upper bounds for $f(a,b)$ stated
+   above; or
+2. prove a structural formula for $f(a,b)$ that implies those square-loss
+   bounds.
+
+The older pointwise threshold-bound route in `644_threshold_relaxation.md`
+remains recorded as a strategy, but it is no longer needed for the conditional
+CE0 certificate if the square-loss local bounds are supplied.
