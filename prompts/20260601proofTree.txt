@@ -1,0 +1,29 @@
+ab-union Strategy
+If C-triangle overlaps with boundary of H, then there is a V-triangle with a+b > 1.
+'almost done' by GPT
+
+Now take V4 to be the triangle with a+b > 1.
+The ab-union of V4 consists of four curves (case when a+b > 1)
+Two circular arcs, arising from x3(on e3) and x4(on e4) (xi splits b_{i-1} and a_i)
+Two line segments, arising from extremal edges of triangles
+Now take five points on the hole (H - all the ab-unions arising from Vi's)
+Two points, on the line segments of ab-union of V4
+Each point is the intersection of line segment and the unit circle centered at x_{i \pm 1}
+Three points, on the diagonal d0 d1 d2
+'Usually' the intersection of the ab-union on V0 and diagonal d0
+Sometimes, ab-union on V5 or V1 might interfere with diagonal d0 (걸거치는 V-triangle) then we take max on diagonal and do
+Then the triangular diameter of those five points is > 1
+
+some thing like this, this is a tree of 5 point conjecture
+
+i want to make an overall proof tree md file of the hexagon noncoverability conjecture
+make a detailed proof tree with references to appropriate files
+formally define each step fully self contained so that reader doesn't have to read other files.
+the explicit computations for the proof doesn't have to be written (only reference is ok), but proof scheme or strategy or idea has to be written.
+main strategies are:
+number of a+b>1: 0 vs 1 vs >=2
+0: 550 CE Vd0 boundary loss
+1: use 5 point conjecture.
+2:  when CE0, it is proved. when CE1, CE2, use strategy 616
+
+ask me questions
