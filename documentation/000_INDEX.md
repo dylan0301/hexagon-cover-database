@@ -83,8 +83,16 @@ The area-conjecture package is recorded in:
 
 It records the target $\sum_i f(a_i,b_i)<5$ when at least two rows satisfy
 $a_i+b_i>1$, using the CE0 six-point model and the separate CE1/reduced-CE2
-seven-point extension.  The CE2 use assumes the CE2 one-interval lemma, and
-the package is not a completed proof.
+seven-point extension.  The CE2 use assumes the CE2 one-interval lemma.
+
+The package now includes a conditional CE0 analytic certificate:
+
+- `640_area_conjecture/647_CE0_conditional_area_certificate.md`
+
+This proves the CE0 six-point final inequality under the local square-loss
+bounds for $f(a,b)$.  The local square-loss bounds themselves remain open proof
+obligations, so the area package is not yet an unconditional proof of CE0, CE1,
+or CE2.
 
 ## May 24 skeleton-cover counterexample
 
