@@ -7,14 +7,49 @@ Status: Reference
 | Item | Status |
 |---|---|
 | Local function $f(a,b)$ | Definition / strategy |
+| Symmetry $f(a,b)=f(b,a)$ | Definition / direct symmetry |
 | Monotonicity of $f(a,b)$ under coordinate increase | Lemma target |
 | Structural description of $T(a,b)$ | Conjectural strategy |
+| Local square-loss bounds for $f(a,b)$ | Lemma target |
 | CE0 six-point perimeter model | Main strategy |
+| Conditional CE0 final inequality under local square-loss bounds | Proven analytic inequality |
 | CE1 seven-point perimeter model | Strategy |
 | CE2 seven-point model after one-interval reduction | Strategy, conditional |
 | Pointwise threshold bound $f(a_i,b_i)\le f(a_i,1+\varepsilon-a_i)$ | Strategy |
 | Global replacement formulation $a_i+b_i=1+\varepsilon$ | Strategy / unchecked |
 | Proof-tree structure | Reference |
+
+## Conditional CE0 result now recorded
+
+The file `647_CE0_conditional_area_certificate.md` proves the following
+conditional analytic inequality.
+
+Assume the local square-loss bounds
+
+$$
+a+b\le1
+\quad\Longrightarrow\quad
+f(a,b)\le1-\min(a,b)^2,
+$$
+
+and
+
+$$
+a+b>1
+\quad\Longrightarrow\quad
+f(a,b)\le1-\max(a,b)^2.
+$$
+
+Then, in the CE0 six-point model,
+
+$$
+\#\{i:a_i+b_i>1\}\ge2
+\quad\Longrightarrow\quad
+\sum_{i=0}^5 f(a_i,b_i)<\frac{99}{20}<5.
+$$
+
+Thus the final CE0 area inequality is no longer an independent open obligation
+once these local square-loss bounds are supplied.
 
 ## Open obligations
 
@@ -22,9 +57,12 @@ The package does not yet supply:
 
 - a proof of the structural conjecture for $T(a,b)$;
 - a sharp formula or certified upper bound for $f(a,b)$;
+- a proof of the local square-loss bounds needed by
+  `647_CE0_conditional_area_certificate.md`;
 - a proof of the CE2 one-interval lemma;
 - a complete pointwise threshold-bound reduction, including the boundary
-  regime $1<a_i+b_i<1+\varepsilon$;
+  regime $1<a_i+b_i<1+\varepsilon$, for routes that still use threshold
+  relaxation;
 - a decision about whether the older global replacement formulation can be
   made into a valid CE0 six-point or CE1/reduced-CE2 seven-point cut-point map;
 - a certified proof of
@@ -33,8 +71,8 @@ The package does not yet supply:
   \sum_{i=0}^5 f(a_i,b_i)<5
   $$
 
-  whenever at least two rows satisfy $a_i+b_i>1$, in the CE0 six-point model
-  and in the CE1/reduced-CE2 seven-point extension.
+  in the CE1/reduced-CE2 seven-point extension whenever at least two rows
+  satisfy $a_i+b_i>1$.
 
 ## Relation to existing packages
 
@@ -51,6 +89,10 @@ triangle contributes at most one normalized area unit.
 
 ## Status warning
 
+The CE0 theorem in `647_CE0_conditional_area_certificate.md` should be cited as
+conditional on the local square-loss bounds.  It should not be cited as an
+unconditional proof of the CE0 area case until those local bounds are proved or
+certified.
+
 Numerical evidence for the area conjecture or for the local structural
 maximizers should be recorded as empirical unless a certificate is supplied.
-This package should not be cited as proving the CE0, CE1, or CE2 cases.
