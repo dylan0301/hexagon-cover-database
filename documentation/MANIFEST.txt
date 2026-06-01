@@ -92,6 +92,7 @@ MANIFEST.txt
 640_area_conjecture/644_threshold_relaxation.md
 640_area_conjecture/645_proof_tree.md
 640_area_conjecture/646_current_status.md
+640_area_conjecture/647_CE0_conditional_area_certificate.md
 700_equations_and_inequalities/700_equation_inventory.md
 700_equations_and_inequalities/701_type2_type3_equations.md
 700_equations_and_inequalities/702_kite_inequality.md
