@@ -39,6 +39,18 @@ $$
 The quantity $1-f(a,b)$ is the normalized area forced outside $H$ by that
 local vertex requirement.
 
+## Symmetry
+
+By reflection in the symmetry axis of $H$ through $V_i$, the two adjacent
+boundary edges are interchanged.  Hence
+
+$$
+f(a,b)=f(b,a).
+$$
+
+This symmetry is used in the CE0 conditional certificate in
+`647_CE0_conditional_area_certificate.md`.
+
 ## Monotonicity
 
 The intended monotonicity statement is:
@@ -83,6 +95,47 @@ The working structural conjecture is:
 This structural conjecture is not proved in this repository.  Any use of
 explicit formulas for $f(a,b)$ must either prove this structure or independently
 certify the relevant upper bound for $f(a,b)$.
+
+## Square-loss local bounds sufficient for CE0
+
+The conditional CE0 certificate in
+`647_CE0_conditional_area_certificate.md` requires only the following two local
+upper bounds:
+
+$$
+a+b\le1
+\quad\Longrightarrow\quad
+f(a,b)\le1-\min(a,b)^2,
+$$
+
+and
+
+$$
+a+b>1
+\quad\Longrightarrow\quad
+f(a,b)\le1-\max(a,b)^2.
+$$
+
+Equivalently,
+
+$$
+a+b\le1
+\quad\Longrightarrow\quad
+1-f(a,b)\ge\min(a,b)^2,
+$$
+
+and
+
+$$
+a+b>1
+\quad\Longrightarrow\quad
+1-f(a,b)\ge\max(a,b)^2.
+$$
+
+These square-loss bounds are not proved in this file.  Once they are proved or
+certified, the CE0 six-point final inequality follows from
+`647_CE0_conditional_area_certificate.md` without using the threshold-relaxation
+route.
 
 ## Area target using $f$
 
