@@ -1,0 +1,60 @@
+- supercritical = a+b > 1
+- Classify $T_C$ as CE0, CE1, or CE2
+- Compute $N_+ = \#\{i : a_i+b_i > 1\}$
+- CE2 one interval lemma: CE2 triangle이어도 2개의 interval 중 하나는 가라 interval이다 (3월달에 디코에 그림으로 올려놓은 것)
+- $N_+ = 0$
+    - closed with one lemma assumption:
+        - CE0 + $N_+ = 0$ is trivially uncoverable
+        - CE1/CE2 + $N_+ = 0$:
+            - Assume: CE2 one interval lemma
+            - proved by calculation by GPT
+- $N_+ = 1$
+    - 점 5개 찍어서, triangle diameter > 1
+    - Ce0 Vd0
+        - Vd0 경우로 restriction 시킨다면 D0, D1, D2 point를 찍은게, 단순히 max c admissible set
+        
+       
+        
+    
+    - GPT almost proved
+    - Ce1/Ce2 Vd0:
+        - Assume: CE2 one interval lemma
+        - Use Proven Lemma:
+            - CE1 or CE2 삼각형은 정확히 하나의 midpoint를 커버한다
+        - Assume following:
+            - CE1 or CE2 삼각형이 M4를 커버한다고 가정:
+            - then V4 triangle is a+b>1
+            
+            
+            
+        - CE1/CE2 중 가라가 아닌 interval이 WLOG, V4V5 edge 위에 생겨요
+        - V4V5 edge위에 점을 7개를 찍는건데, 왼쪽에 있는 점을 X = b4, 오른쪽에 있는 점을 Y = a5
+        - V4의 ab union set은 X에만 영향을 받는데
+        - V5의 b5/a0 점 기준으로 반지름 1 원을 그린거니까, a5가 움직이는건 P5의 위치에 영향을 안미침
+            - 대신에 a5가 V5에 너무 가까워지면 D0에는 영향을 미칠 수 있음
+            - 
+    - Ce1/Ce2 V-걸거치는거
+        - D0, D1, D2 point를 사실 다르게 정의할거에요.
+        - U = 빨간 region = H - union((ab union))
+        - $\rho_j=\max\{\rho\in[0,1]: \lambda V_j\in U \text{ for every }0\le \lambda<\rho\}$ for j = 0,1,2
+            - ab union 이 필요가 없다고 한 이유?
+            - neighbor max c:
+                - V_i 에서 a,b 점들을 포함하는 constraint가 있을 때,
+                - r_{i+1} 위에서 가장 중심에 가깝게 닿을 수 있는 점. r_{i-1}에 대해서도 똑같이 정의됨
+                - $V_i$를 포함하고 a, b점들을 포함하는 임의의 삼각형 $T_i$가 있을 때
+                - $(1-c)V_{i+1}$ 를 포함하는 $T_i$가 있는 최대 $c$값???
+            - ab union curve를 쓰는 것과 같은 파워
+            - neighbor max c 함수를 explicit 하게 계산
+        - rho_j 보다 더 큰 좋은 함수로 max 케이스워크 없이 한방에 할 수 있게 하기
+            - 추가적으로 tight 한 케이스가 D0, D1, D2가 O로 수렴하는건데, 그때 비슷한 속도(?)로 새로운 점들이 O로 수렴한다면 괜찮을 것
+        - 아니면 대각선 위에서 잡는게 아니라 마주보는 변들의 중점을 잇는 선들 위에서 잡기
+- $N_+ \geq 2$
+    - CE0: closed
+        - 밖으로 튀어나가는 넓이가 삼각형 1개 넓이보다 큼. 간단한 계산으로 증명
+    - CE1/CE2: proof strategy exists
+        - Conjecture: CE1/CE2, N+ ≥2 then cannot cover S_{1/2}
+            - almost covering이 아닌 것의 definition: 1 closed 삼각형들로 1 hexagon의 S_{1/2}을 커버할때, 커버 못하는 부분의 길이 합 ≥ c > 0
+            - stronger conjecture: S_{1/2}의 midpoint들을 다 커버하면, almost covering 조차 안된다
+            - S_{1/2} 의 둘레 따라서 discrete point들을 찍고, set covering 문제로 reduce
+                - 모든 삼각형들을 찾아주는 알고리즘은 이미 있음
+                - midpoint combiatorial case 고정하고 나면 greedy

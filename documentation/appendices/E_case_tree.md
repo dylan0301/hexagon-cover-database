@@ -204,11 +204,15 @@ Hypothetical seven-triangle cover
   compute N_+ = #{i : a_i+b_i > 1}
 
   N_+ = 0
-    recorded closed branch:
+    CE0:
+      direct perimeter-length obstruction
+      T_C contributes no positive boundary interval
+      all vertex rows have a_i+b_i <= 1
+    CE1/CE2 recorded closed branch:
       CE1/CE2 + all Vd0 + all rows non-supercritical
       -> boundary-loss contradiction under the assumptions of 551
-    not recorded as a full theorem:
-      C-boundary-overlap implies some supercritical row
+    remaining reductions:
+      justify all-Vd0 and active-interval assumptions where needed
 
   N_+ = 1
     target:
@@ -228,14 +232,41 @@ The rest of this file makes the three $N_+$ branches explicit.
 
 ## Branch $N_+=0$
 
-The desired broad conclusion would be:
+This branch separates the no-boundary-overlap CE0 case from the CE1/CE2
+boundary-loss package.
+
+### CE0 perimeter branch
+
+In CE0, the center role $T_C$ has no positive-length overlap with
+$\partial H$.  Thus the perimeter of $H$ must be covered by the six vertex
+roles.
+
+For each vertex role, the row length $a_i+b_i$ is the perimeter length assigned
+to $T_i$ at the two boundary edges adjacent to $V_i$.  If $N_+=0$, then
 
 $$
-T_C\text{ has positive-length boundary overlap}\quad\Longrightarrow\quad N_+\ge1.
+a_i+b_i\le1 \qquad i=0,\dots,5.
 $$
 
-This broad implication is not recorded as a proven theorem in this repository.
-The recorded proven local package is narrower.
+Therefore the total assigned vertex-perimeter length is at most
+
+$$
+\sum_{i=0}^5(a_i+b_i)\le6.
+$$
+
+The boundary has length $6$.  In the open-triangle formulation, equality gives
+no slack for covering the full closed boundary by open unit triangles.  Thus the
+CE0, $N_+=0$ branch is intended to close by this direct perimeter-length
+obstruction.  A finished proof should state the boundary-handoff convention
+precisely enough to separate equality, endpoint, and open-cover cases.
+
+### CE1/CE2 boundary-loss branch
+
+When $T_C$ has a positive-length boundary overlap, the broad desired reduction
+is that the $N_+=0$ branch can be brought into the recorded all-Vd0
+boundary-loss package, after removing already-covered $C$-intervals when
+appropriate.  This broad reduction is not recorded as a proven theorem in this
+repository.  The recorded proven local package is narrower.
 
 The available result is the CE1/CE2 all-Vd0 boundary-loss package in
 [`../550_CE_Vd0_boundary_loss/550_index.md`](../550_CE_Vd0_boundary_loss/550_index.md).
@@ -431,7 +462,10 @@ The current proof obligations for this branch are:
    active non-axis frontier piece, validity of all inequalities, and closest
    valid branch selection.
 3. Prove diagonal endpoint realization for $D_0,D_1,D_2$ using the actual
-   union of all six regions $R_i$.
+   union of all six regions $R_i$.  A useful local ingredient is the proven
+   neighboring-ray maximum formula in
+   [`../300_vertex_triangle/310_neighbor_ray_max_c_formula.md`](../300_vertex_triangle/310_neighbor_ray_max_c_formula.md),
+   but it does not by itself prove the global first-cut statement for $D_j$.
 4. Prove $\Lambda(K_5)>1$ across every support-contact regime, or reduce it to
    a finite certified inequality list.
 5. Separate tangent, endpoint, undefined, and boundary cases.
@@ -552,6 +586,7 @@ The current tree has the following recorded statuses.
 | CE0 + Vd1/Vd2 half-skeleton obstruction | [`../600_case_strategies/601_CE0_Vd1_Vd2_half_skeleton_theorem.md`](../600_case_strategies/601_CE0_Vd1_Vd2_half_skeleton_theorem.md) | Proven |
 | CE1/CE2 all-Vd0 boundary-loss package | [`../550_CE_Vd0_boundary_loss/550_index.md`](../550_CE_Vd0_boundary_loss/550_index.md) | Proven local lemma |
 | CE2 one-interval lemma | [`../500_half_skeleton_lemmas/504_CE2_one_interval_lemma.md`](../500_half_skeleton_lemmas/504_CE2_one_interval_lemma.md) | Target lemma |
+| Neighboring-ray maximum formula | [`../300_vertex_triangle/310_neighbor_ray_max_c_formula.md`](../300_vertex_triangle/310_neighbor_ray_max_c_formula.md) | Proven local lemma |
 | May 25 five-point inequality $\Lambda(K_5)>1$ | [`../630_may25_five_point_conjecture/632_five_point_target_and_obligations.md`](../630_may25_five_point_conjecture/632_five_point_target_and_obligations.md) | Lemma target |
 | CE0 two-supercritical final inequality under square-loss bounds | [`../640_area_conjecture/647_CE0_conditional_area_certificate.md`](../640_area_conjecture/647_CE0_conditional_area_certificate.md) | Proven analytic inequality, conditional |
 | Local square-loss bounds for $f(a,b)$ | [`../640_area_conjecture/641_area_function_and_monotonicity.md`](../640_area_conjecture/641_area_function_and_monotonicity.md) | Lemma target / strategy |
@@ -562,8 +597,9 @@ The current tree has the following recorded statuses.
 To turn this strategy tree into a proof of the main theorem, the following
 gaps must be closed without weakening the stated hypotheses.
 
-1. Complete or replace the broad $N_+=0$ reduction outside the recorded
-   CE1/CE2 all-Vd0 boundary-loss package.
+1. Complete or replace the broad CE1/CE2 $N_+=0$ reduction outside the recorded
+   all-Vd0 boundary-loss package, and write the CE0 perimeter-handoff argument
+   with endpoint and open-cover cases separated.
 2. Prove the full reduction from every $N_+=1$ branch to the May 25 reduced
    slice, or add the missing sibling branches.
 3. Prove the May 25 branch-realization, diagonal-endpoint, and enclosing
