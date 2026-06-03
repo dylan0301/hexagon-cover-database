@@ -41,6 +41,7 @@ in this package.
 | Exact local $R(a,b)$ predicate | Reference |
 | $P_3,P_5$ selected branch realization | Open |
 | Diagonal endpoint realization for $D_0,D_1,D_2$ | Open |
+| Neighbor-envelope realization for $D_0,D_1,D_2$ | Strategy / open |
 | Five-point enclosing-triangle contact analysis | Open |
 | Certified inequality proving $\Lambda(K_5)>1$ | Open |
 | Counterexample with certified branch and containment data | None recorded |
@@ -58,3 +59,7 @@ target removes the assumption $a_1+b_1=1$ and introduces the three
 union-defined diagonal points $D_0,D_1,D_2$.  These three points are intended
 to use the actual first uncovered endpoints on the diagonals, rather than a
 fixed May 21/22 radial choice or a preassigned Vd1/Vd2-type local pattern.
+The one-critical neighbor-envelope strategy in
+`635_one_critical_neighbor_envelope_strategy.md` records a possible way to
+turn those endpoint definitions into four-variable max-free functions, but it
+does not prove the endpoint realization.

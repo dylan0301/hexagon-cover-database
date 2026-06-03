@@ -1,0 +1,13 @@
+$$
+\rho_j=\sup\{\rho\in[0,1]:\lambda V_j\in U\text{ for every }0\le\lambda<\rho\},
+$$
+since we have computed the max neighbor c function,
+we can exactly figure out how rho functino looks.
+locally take maximum for max c of j and max neighbor c of j-1, j+1
+i want to find a simple envelope function that does not use any maximum function
+this would be 4 variable functions 
+the 4 variabels are
+a, b values of j-1, j, j+1 (then we would have 6 but 2 pairs share same point)
+then we want to use that function to plot D0, D1, D2 point and simplify the proof
+write this strategy for 630 five point conjecture
+ask me questions

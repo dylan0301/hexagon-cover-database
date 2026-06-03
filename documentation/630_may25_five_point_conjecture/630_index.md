@@ -80,6 +80,9 @@ radial choice.
 
 This package does not prove the May 25 conjecture.  It records the precise
 target, branch choices, diagonal endpoint issues, and proof obligations.
+The June 3 one-critical neighbor-envelope strategy for simplifying the
+diagonal endpoint functions is recorded in
+[`635_one_critical_neighbor_envelope_strategy.md`](635_one_critical_neighbor_envelope_strategy.md).
 
 ## Skeleton-target caveat
 
@@ -101,3 +104,6 @@ target, not as a proof of full-skeleton noncoverage.
   - Branch-selection and diagonal-cut notes for $P_3$, $P_5$, and $D_j$.
 - `634_current_status.md`
   - Short status table and exact unresolved gaps.
+- `635_one_critical_neighbor_envelope_strategy.md`
+  - Strategy note for replacing the local radial/neighbor maximum defining
+    $D_j$ by a four-variable max-free envelope.
