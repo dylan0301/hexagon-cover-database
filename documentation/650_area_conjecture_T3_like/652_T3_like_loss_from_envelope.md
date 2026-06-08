@@ -41,6 +41,15 @@ $$
 G_{\mathrm{T3}}(a,b)=1-f_{\mathrm{T3}}(a,b).
 $$
 
+The smaller coordinate on either reflected tangent branch is $A(s)$.  Indeed,
+
+$$
+B(s)-A(s)
+=\frac{(2s-1)(s^2-s+1)}{(s-1)(s+1)}\ge0
+$$
+
+for $0\le s\le1/2$.
+
 ## Lemma 652.1: branch rows are nonsupercritical
 
 For every $s\in[0,1/2]$,
@@ -104,10 +113,18 @@ $$
 a+b\le A(s)+B(s)\le1.
 $$
 
-The reflected case is identical.  Therefore every T3-like row is
+If it is dominated by the reflected branch, then
+
+$$
+a\le B(s),
+\qquad
+b\le A(s),
+$$
+
+and the same sum bound gives $a+b\le1$.  Therefore every T3-like row is
 nonsupercritical.  This proves the lemma.
 
-## Lemma 652.2: pointwise branch loss bound
+## Lemma 652.2: pointwise small-coordinate branch loss bound
 
 For every $s\in[0,1/2]$,
 
@@ -115,8 +132,8 @@ $$
 G(s)\ge 2A(s)-4A(s)^2.
 $$
 
-The same statement holds for the reflected branch with $A(s)$ replaced by
-$B(s)$.
+This is the relevant bound for both reflected tangent branches, because $A(s)$
+is the smaller of the two branch coordinates.
 
 ### Proof
 
@@ -164,8 +181,7 @@ $$
 G(s)\ge 2A(s)-4A(s)^2.
 $$
 
-The reflected branch is the same calculation after swapping the two boundary
-coordinates.  This proves the lemma.
+This proves the lemma.
 
 ## Lemma 652.3: branch loss is at least $1/4$ past $A=1/4$
 
@@ -174,8 +190,6 @@ If $s\in[0,1/2]$ and $A(s)\ge1/4$, then
 $$
 G(s)\ge\frac14.
 $$
-
-The reflected branch satisfies the analogous statement with $B(s)\ge1/4$.
 
 ### Proof
 
@@ -231,7 +245,7 @@ $$
 G(s)\ge\frac14.
 $$
 
-The reflected case is identical.  This proves the lemma.
+This proves the lemma.
 
 ## Theorem 652.4: local T3-like loss bound from the envelope
 
@@ -257,13 +271,24 @@ $$
 ### Proof
 
 By the tangent-envelope conjecture, every T3-like candidate with local data
-$(a,b)$ is dominated by either the upper branch or the reflected branch.  It is
-enough to treat the upper branch.
+$(a,b)$ is dominated by either the upper branch or the reflected branch.
 
-Suppose the candidate is dominated by the upper branch at parameter $s$.  Then
+If it is dominated by the upper branch at parameter $s$, then
 
 $$
 A(s)\ge a\ge m.
+$$
+
+If it is dominated by the reflected branch at parameter $s$, then
+
+$$
+A(s)\ge b\ge m.
+$$
+
+Thus in either case the smaller tangent coordinate satisfies
+
+$$
+A(s)\ge m.
 $$
 
 Let
@@ -304,8 +329,8 @@ $$
 G(s)\ge\psi(m)=2m-4m^2.
 $$
 
-Thus the claimed inequality holds on the upper branch.  The reflected branch is
-identical.  Taking the supremum over all T3-like candidates gives
+Thus every tangent-envelope dominator has outside loss at least $2m-4m^2$.
+Taking the supremum over all T3-like candidates gives
 
 $$
 G_{\mathrm{T3}}(a,b)\ge2m-4m^2.
