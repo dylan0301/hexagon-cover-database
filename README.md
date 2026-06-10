@@ -1,8 +1,13 @@
-# Hexagon Covering Database
+# Hexagon Covering Proof Corpus
 
-The `documentation/` folder is a structured database of Markdown research notes about the problem of covering a regular hexagon by seven open unit equilateral triangles. It collects definitions, local lemmas, case strategies, computational experiments, and failed approaches.
+The `proof/` folder is the self-contained Markdown research corpus for the
+problem of covering a regular hexagon by seven open unit equilateral triangles.
+It contains definitions, proof-tree branches, local lemmas, computations,
+experiments, empirical notes, and failed approaches.
 
-These notes are not a single finished proof of the main theorem. Each file carries its own status label, and only files marked as proven should be cited as established results.
+These notes are not a single finished proof of the main theorem. Each file
+carries its own status label, and only files marked as proven should be cited
+as established results.
 
 ## Main Target
 
@@ -12,51 +17,51 @@ $$
 \boxed{\text{The regular hexagon }H\text{ of side length }1\text{ cannot be covered by seven open unit equilateral triangles.}}
 $$
 
-The main equivalent closed-triangle formulation is:
+The equivalent expanded closed-triangle formulation is:
 
 $$
 \boxed{\text{For every }L>1,\ H_L\text{ cannot be covered by seven closed unit equilateral triangles.}}
 $$
 
-The open/closed/scaled equivalence is recorded in [`documentation/100_foundations/103_open_unit_vs_shrunken_closed_equivalence.md`](documentation/100_foundations/103_open_unit_vs_shrunken_closed_equivalence.md).
+The open/closed/scaled equivalence is recorded in
+[`proof/100_foundations/103_open_unit_vs_shrunken_closed_equivalence.md`](proof/100_foundations/103_open_unit_vs_shrunken_closed_equivalence.md).
 
 ## Start Here
 
 Recommended reading order:
 
-1. [`documentation/100_foundations/100_problem_statement.md`](documentation/100_foundations/100_problem_statement.md)
-2. [`documentation/100_foundations/103_open_unit_vs_shrunken_closed_equivalence.md`](documentation/100_foundations/103_open_unit_vs_shrunken_closed_equivalence.md)
-3. [`documentation/200_center_triangle/200_C_triangle_overview.md`](documentation/200_center_triangle/200_C_triangle_overview.md)
-4. [`documentation/300_vertex_triangle/300_V_triangle_overview.md`](documentation/300_vertex_triangle/300_V_triangle_overview.md)
-5. [`documentation/400_global_propagation/403_six_step_composition.md`](documentation/400_global_propagation/403_six_step_composition.md)
-6. [`documentation/500_half_skeleton_lemmas/500_half_skeleton_lemma_index.md`](documentation/500_half_skeleton_lemmas/500_half_skeleton_lemma_index.md)
-7. [`documentation/600_case_strategies/600_case_strategy_index.md`](documentation/600_case_strategies/600_case_strategy_index.md)
-8. [`documentation/900_failed_ideas/900_failed_idea_index.md`](documentation/900_failed_ideas/900_failed_idea_index.md)
+1. [`proof/000_main_theorem.md`](proof/000_main_theorem.md)
+2. [`proof/001_proof_tree_index.md`](proof/001_proof_tree_index.md)
+3. [`proof/010_setup/010_open_closed_equivalence.md`](proof/010_setup/010_open_closed_equivalence.md)
+4. [`proof/100_Nplus0/100_index.md`](proof/100_Nplus0/100_index.md)
+5. [`proof/200_Nplus1/200_index.md`](proof/200_Nplus1/200_index.md)
+6. [`proof/300_Nplus_ge2/300_index.md`](proof/300_Nplus_ge2/300_index.md)
+7. [`proof/002_status_and_dependencies.md`](proof/002_status_and_dependencies.md)
 
-The navigation entry point is [`documentation/000_INDEX.md`](documentation/000_INDEX.md). The future-work hygiene note is [`documentation/001_README_FOR_FUTURE_WORK.md`](documentation/001_README_FOR_FUTURE_WORK.md).
+The legacy object-centered notes are still inside `proof/` as local source
+packages, for example `proof/100_foundations/`, `proof/300_vertex_triangle/`,
+and `proof/600_case_strategies/`. They are retained to preserve the file-level
+proof statuses and detailed arguments while the proof-tree files provide the
+paper-style navigation layer.
 
 ## Repository Layout
 
-- [`documentation/100_foundations/`](documentation/100_foundations): problem statement, geometry objects, target sets, open/closed equivalence, symmetry, and proof-status conventions.
-- [`documentation/200_center_triangle/`](documentation/200_center_triangle): center-triangle classifications, inner gamma models, cone types, parameterizations, and midpoint attempts.
-- [`documentation/300_vertex_triangle/`](documentation/300_vertex_triangle): vertex-triangle types, local coordinates, admissible sets, midpoint subsets, and boundary degeneracies.
-- [`documentation/400_global_propagation/`](documentation/400_global_propagation): propagation maps, cyclic contradiction templates, and global inequality structure.
-- [`documentation/500_half_skeleton_lemmas/`](documentation/500_half_skeleton_lemmas): local half-skeleton lemmas and missing proof obligations.
-- [`documentation/600_case_strategies/`](documentation/600_case_strategies): active case strategies, including the CE0 + Vd1/Vd2 proof package.
-- [`documentation/700_equations_and_inequalities/`](documentation/700_equations_and_inequalities): equation inventory, type equations, kite inequality, gamma constraints, and symbolic targets.
-- [`documentation/800_computation/`](documentation/800_computation): computational experiment plans, sampling notes, finite-target searches, and certificate formats.
-- [`documentation/900_failed_ideas/`](documentation/900_failed_ideas): postmortems for approaches that are known to be insufficient.
-- [`documentation/950_implementation_notes/`](documentation/950_implementation_notes): notes for future implementation helpers and repository policy.
-- [`documentation/appendices/`](documentation/appendices): glossary, notation dictionary, claim table, case tree, open questions, and reading order.
+- [`proof/010_setup/`](proof/010_setup): setup bridge files for the proof tree.
+- [`proof/100_Nplus0/`](proof/100_Nplus0): no-supercritical-row branch.
+- [`proof/200_Nplus1/`](proof/200_Nplus1): exactly-one-supercritical-row branch.
+- [`proof/300_Nplus_ge2/`](proof/300_Nplus_ge2): at-least-two-supercritical-row branch.
+- [`proof/400_local_lemmas/`](proof/400_local_lemmas): local lemma targets used by the proof tree.
+- [`proof/500_finite_point_algorithms/`](proof/500_finite_point_algorithms): finite-point algorithm routes.
+- [`proof/900_failed_and_empirical/`](proof/900_failed_and_empirical): failed and empirical route index.
 
-The complete documentation file list is in [`documentation/MANIFEST.txt`](documentation/MANIFEST.txt).
+The complete proof file list is in [`proof/MANIFEST.txt`](proof/MANIFEST.txt).
 
 ## Skeleton Counterexample Warning
 
 The May 24, 2026 imported counterexample numerically verifies seven closed
 equilateral triangles of side strictly less than $1$ covering the full skeleton
 $S$. See
-[`documentation/800_computation/811_skeleton_cover_counterexample.md`](documentation/800_computation/811_skeleton_cover_counterexample.md).
+[`proof/800_computation/811_skeleton_cover_counterexample.md`](proof/800_computation/811_skeleton_cover_counterexample.md).
 
 Consequently, noncoverage of $S$ is no longer a viable standalone route to the
 main theorem. Conditional half-skeleton results keep their stated status unless
@@ -72,18 +77,20 @@ $$
 
 It is recorded as a proven half-skeleton obstruction across:
 
-- [`documentation/600_case_strategies/601_CE0_Vd1_Vd2_half_skeleton_theorem.md`](documentation/600_case_strategies/601_CE0_Vd1_Vd2_half_skeleton_theorem.md)
-- [`documentation/600_case_strategies/602_CE0_Vd1_Vd2_rhombus_geometry.md`](documentation/600_case_strategies/602_CE0_Vd1_Vd2_rhombus_geometry.md)
-- [`documentation/600_case_strategies/603_CE0_Vd1_Vd2_frontier_perturbation.md`](documentation/600_case_strategies/603_CE0_Vd1_Vd2_frontier_perturbation.md)
-- [`documentation/600_case_strategies/604_CE0_Vd1_Vd2_F_chain_inequalities.md`](documentation/600_case_strategies/604_CE0_Vd1_Vd2_F_chain_inequalities.md)
-- [`documentation/600_case_strategies/605_CE0_Vd1_Vd2_midpoint_hole_subcases.md`](documentation/600_case_strategies/605_CE0_Vd1_Vd2_midpoint_hole_subcases.md)
-- [`documentation/600_case_strategies/606_CE0_Vd1_Vd2_assembly.md`](documentation/600_case_strategies/606_CE0_Vd1_Vd2_assembly.md)
+- [`proof/600_case_strategies/601_CE0_Vd1_Vd2_half_skeleton_theorem.md`](proof/600_case_strategies/601_CE0_Vd1_Vd2_half_skeleton_theorem.md)
+- [`proof/600_case_strategies/602_CE0_Vd1_Vd2_rhombus_geometry.md`](proof/600_case_strategies/602_CE0_Vd1_Vd2_rhombus_geometry.md)
+- [`proof/600_case_strategies/603_CE0_Vd1_Vd2_frontier_perturbation.md`](proof/600_case_strategies/603_CE0_Vd1_Vd2_frontier_perturbation.md)
+- [`proof/600_case_strategies/604_CE0_Vd1_Vd2_F_chain_inequalities.md`](proof/600_case_strategies/604_CE0_Vd1_Vd2_F_chain_inequalities.md)
+- [`proof/600_case_strategies/605_CE0_Vd1_Vd2_midpoint_hole_subcases.md`](proof/600_case_strategies/605_CE0_Vd1_Vd2_midpoint_hole_subcases.md)
+- [`proof/600_case_strategies/606_CE0_Vd1_Vd2_assembly.md`](proof/600_case_strategies/606_CE0_Vd1_Vd2_assembly.md)
 
-Other major cases are still strategy- or target-lemma-dependent; see [`documentation/600_case_strategies/600_case_strategy_index.md`](documentation/600_case_strategies/600_case_strategy_index.md).
+Other major cases are still strategy- or target-lemma-dependent; see
+[`proof/001_proof_tree_index.md`](proof/001_proof_tree_index.md).
 
 ## Status Labels
 
-Status labels are defined in [`documentation/100_foundations/106_proof_status_conventions.md`](documentation/100_foundations/106_proof_status_conventions.md).
+Status labels are defined in
+[`proof/100_foundations/106_proof_status_conventions.md`](proof/100_foundations/106_proof_status_conventions.md).
 
 Important labels:
 
@@ -109,4 +116,4 @@ Numerical optimization claims remain `Empirical` until a certificate is supplied
   content inside a `$$` block can fail to render.
 - Do not cite a claim as proven unless its source file has a proven status label.
 - Preserve failed approaches with enough detail to avoid repeating them.
-- Use [`documentation/appendices/B_notation_dictionary.md`](documentation/appendices/B_notation_dictionary.md) when introducing or checking notation.
+- Use [`proof/appendices/B_notation_dictionary.md`](proof/appendices/B_notation_dictionary.md) when introducing or checking notation.

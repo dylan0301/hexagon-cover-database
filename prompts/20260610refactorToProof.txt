@@ -1,0 +1,7 @@
+I want to refactor everything as a rigorous proof tree
+i want the structure to look as a paper
+i want each document to contain a small lemma 
+and one folder for a big theorem
+so don't separate like center traingle and vertex trianlgle something like this.
+suggest me the structure.
+the overall proof structure follows the current proof tree
