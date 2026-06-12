@@ -32,4 +32,4 @@ $$
 \mathrm{T3\text{-}like}: (o,n)=(2,1).
 $$
 
-The case $(o,n)=(2,2)$ is expected to be unattainable.
+The case $(o,n)=(2,2)$ is unattainable.

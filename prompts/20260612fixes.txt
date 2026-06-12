@@ -1,0 +1,14 @@
+these are the fixes for 1XXX needed
+- under 1XXX foundations, i want the files to be grouped into folders. so suggest the structure. i think we can make folder C triangle, V triangle.
+- in the ## Seven-triangle bookkeeping, each triangle has to cover only one point since the 7 points are at least distance 1 from each other. write this
+- i don't think we need 1028 center type1 type2 dictionary.md since 1022 inner gamma model.md contains it. i think we can delete 1028, look at it and tell me your opinion
+- 1035 file contains the maximal triangles over S_{1/2}. the currently written notes are not true for general skeleton. for example, maximal T3 like triangle over skeleton may not contain any midpoints.
+
+- put 1011 under 102X C triangle folder.
+- put 1012 vertex rows and Nplus under 103X V triangle
+
+rename the 100X global conventions to 10XX and files under it to start with 10
+rename the 102X C triangle to 11XX and also the files under it to start with 11
+rename the 103X V triangle to 12XX and also the files under it to start with 12
+
+delete 1111 file since it is exactly same as 1101

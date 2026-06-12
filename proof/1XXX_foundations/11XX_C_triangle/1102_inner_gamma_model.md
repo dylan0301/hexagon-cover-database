@@ -14,6 +14,10 @@ $$
 d(T_C)=(d_0,d_{60},d_{120},d_{180},d_{240},d_{300}).
 $$
 
+Type 1 and Type 2 are different vertex-cone arrangements for the same kind of
+six-distance data. Their algebraic varieties should be compared through these
+ray-intersection distances, not through special constant tuples.
+
 The local $V_i$-triangle radial coordinate $c_i$ is measured from $V_i$ inward. Since $r_{60i}=[O,V_i]$, the remaining radial length after the center triangle is
 
 $$

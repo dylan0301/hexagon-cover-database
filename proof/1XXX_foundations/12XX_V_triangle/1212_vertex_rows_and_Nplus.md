@@ -25,9 +25,9 @@ $$
 
 The main branch folders are:
 
-- [`../../0XXX_main/0001_proof_tree_index.md`](../0XXX_main/0001_proof_tree_index.md) for $N_+=0$.
-- [`../../0XXX_main/0001_proof_tree_index.md`](../0XXX_main/0001_proof_tree_index.md) for $N_+=1$.
-- [`../../0XXX_main/0001_proof_tree_index.md`](../0XXX_main/0001_proof_tree_index.md) for $N_+\ge2$.
+- [`../../0XXX_main/0001_proof_tree_index.md`](../../0XXX_main/0001_proof_tree_index.md) for $N_+=0$.
+- [`../../0XXX_main/0001_proof_tree_index.md`](../../0XXX_main/0001_proof_tree_index.md) for $N_+=1$.
+- [`../../0XXX_main/0001_proof_tree_index.md`](../../0XXX_main/0001_proof_tree_index.md) for $N_+\ge2$.
 
 The local vertex-coordinate conventions are recorded in
-[`1032_local_coordinates_abc.md`](1032_local_coordinates_abc.md).
+[`1202_local_coordinates_abc.md`](1202_local_coordinates_abc.md).

@@ -11,4 +11,3 @@ what i meant by 2XXX 20XX is for every folder.
 so that we can distinguish between the undecided digit
 tell me what you understood
 also 0XXX main and after that, we start from the second digit.
-so we h

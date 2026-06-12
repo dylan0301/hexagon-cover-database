@@ -4,7 +4,7 @@ Status: Reference
 
 | Claim | File | Status |
 |---|---|---|
-| Open unit cover iff shrunken closed cover iff expanded closed unit cover | [`../1XXX_foundations/1003_open_unit_vs_shrunken_closed_equivalence.md`](../1XXX_foundations/1003_open_unit_vs_shrunken_closed_equivalence.md) | Proven |
+| Open unit cover iff shrunken closed cover iff expanded closed unit cover | [`../1XXX_foundations/10XX_global_conventions/1003_open_unit_vs_shrunken_closed_equivalence.md`](../1XXX_foundations/10XX_global_conventions/1003_open_unit_vs_shrunken_closed_equivalence.md) | Proven |
 | Full-skeleton noncoverage as a standalone route | [`../9XXX_failed_ideas/908X_skeleton_cover_counterexample/9081_skeleton_cover_counterexample.md`](../9XXX_failed_ideas/908X_skeleton_cover_counterexample/9081_skeleton_cover_counterexample.md), [`../9XXX_failed_ideas/908X_skeleton_cover_counterexample/9080_full_skeleton_noncoverage_postmortem.md`](../9XXX_failed_ideas/908X_skeleton_cover_counterexample/9080_full_skeleton_noncoverage_postmortem.md) | Failed / empirical counterexample |
 | Main proof tree split by CE0/CE1/CE2 and then by $N_+$ | [`../0XXX_main/0001_proof_tree_index.md`](../0XXX_main/0001_proof_tree_index.md), [`0940_CE_case_tree.md`](0940_CE_case_tree.md) | Strategy |
 | CE0, $N_+=0$, perimeter-length obstruction | [`../3XXX_CE0/30XX_Nplus0/3010_CE0_perimeter_length_obstruction.md`](../3XXX_CE0/30XX_Nplus0/3010_CE0_perimeter_length_obstruction.md) | Lemma target |

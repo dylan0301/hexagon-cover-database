@@ -8,7 +8,7 @@ source file.
 
 | Branch or dependency | Source | Recorded status |
 |---|---|---|
-| Open/closed/scaled equivalence | [`../1XXX_foundations/1003_open_unit_vs_shrunken_closed_equivalence.md`](../1XXX_foundations/1003_open_unit_vs_shrunken_closed_equivalence.md) | Proven |
+| Open/closed/scaled equivalence | [`../1XXX_foundations/10XX_global_conventions/1003_open_unit_vs_shrunken_closed_equivalence.md`](../1XXX_foundations/10XX_global_conventions/1003_open_unit_vs_shrunken_closed_equivalence.md) | Proven |
 | CE0, $N_+=1$, at least one Vd1/Vd2 | [`../3XXX_CE0/31XX_Nplus1/311X_Vd1_Vd2_obstruction/3111_CE0_Vd1_Vd2_half_skeleton_theorem.md`](../3XXX_CE0/31XX_Nplus1/311X_Vd1_Vd2_obstruction/3111_CE0_Vd1_Vd2_half_skeleton_theorem.md) | Proven |
 | CE1, $N_+=0$, all Vd0 boundary loss | [`../4XXX_CE1/40XX_Nplus0/400X_all_Vd0_boundary_loss/4013_boundary_loss_index.md`](../4XXX_CE1/40XX_Nplus0/400X_all_Vd0_boundary_loss/4013_boundary_loss_index.md) | Proven local lemma under recorded assumptions |
 | CE2, $N_+=0$, all Vd0 | [`../5XXX_CE2/50XX_Nplus0/500X_all_Vd0_open/5011_CE2_Nplus0_all_Vd0_TODO.md`](../5XXX_CE2/50XX_Nplus0/500X_all_Vd0_open/5011_CE2_Nplus0_all_Vd0_TODO.md) | Open / TODO |

@@ -24,7 +24,7 @@ $$
 $$
 
 The open/closed/scaled equivalence is recorded in
-[`proof/1XXX_foundations/1003_open_unit_vs_shrunken_closed_equivalence.md`](proof/1XXX_foundations/1003_open_unit_vs_shrunken_closed_equivalence.md).
+[`proof/1XXX_foundations/10XX_global_conventions/1003_open_unit_vs_shrunken_closed_equivalence.md`](proof/1XXX_foundations/10XX_global_conventions/1003_open_unit_vs_shrunken_closed_equivalence.md).
 
 ## Start Here
 
@@ -32,14 +32,13 @@ Recommended reading order:
 
 1. [`proof/0XXX_main/0000_main_theorem.md`](proof/0XXX_main/0000_main_theorem.md)
 2. [`proof/0XXX_main/0001_proof_tree_index.md`](proof/0XXX_main/0001_proof_tree_index.md)
-3. [`proof/1XXX_foundations/1003_open_unit_vs_shrunken_closed_equivalence.md`](proof/1XXX_foundations/1003_open_unit_vs_shrunken_closed_equivalence.md)
-4. [`proof/1XXX_foundations/1010_cover_roles_TC_T0_to_T5.md`](proof/1XXX_foundations/1010_cover_roles_TC_T0_to_T5.md)
-5. [`proof/1XXX_foundations/1011_CE0_CE1_CE2_classification.md`](proof/1XXX_foundations/1011_CE0_CE1_CE2_classification.md)
-6. [`proof/1XXX_foundations/1012_vertex_rows_and_Nplus.md`](proof/1XXX_foundations/1012_vertex_rows_and_Nplus.md)
-7. [`proof/3XXX_CE0/3000_CE0_index.md`](proof/3XXX_CE0/3000_CE0_index.md)
-8. [`proof/4XXX_CE1/4000_CE1_index.md`](proof/4XXX_CE1/4000_CE1_index.md)
-9. [`proof/5XXX_CE2/5000_CE2_index.md`](proof/5XXX_CE2/5000_CE2_index.md)
-10. [`proof/0XXX_main/0002_status_and_dependencies.md`](proof/0XXX_main/0002_status_and_dependencies.md)
+3. [`proof/1XXX_foundations/10XX_global_conventions/1003_open_unit_vs_shrunken_closed_equivalence.md`](proof/1XXX_foundations/10XX_global_conventions/1003_open_unit_vs_shrunken_closed_equivalence.md)
+4. [`proof/1XXX_foundations/11XX_C_triangle/1101_CE_classification.md`](proof/1XXX_foundations/11XX_C_triangle/1101_CE_classification.md)
+5. [`proof/1XXX_foundations/12XX_V_triangle/1212_vertex_rows_and_Nplus.md`](proof/1XXX_foundations/12XX_V_triangle/1212_vertex_rows_and_Nplus.md)
+6. [`proof/3XXX_CE0/3000_CE0_index.md`](proof/3XXX_CE0/3000_CE0_index.md)
+7. [`proof/4XXX_CE1/4000_CE1_index.md`](proof/4XXX_CE1/4000_CE1_index.md)
+8. [`proof/5XXX_CE2/5000_CE2_index.md`](proof/5XXX_CE2/5000_CE2_index.md)
+9. [`proof/0XXX_main/0002_status_and_dependencies.md`](proof/0XXX_main/0002_status_and_dependencies.md)
 
 The corpus uses four-character folder range labels with literal `X` digits.
 Definitions live in
@@ -94,7 +93,7 @@ Other major cases are still strategy- or target-lemma-dependent; see
 ## Status Labels
 
 Status labels are defined in
-[`proof/1XXX_foundations/1006_proof_status_conventions.md`](proof/1XXX_foundations/1006_proof_status_conventions.md).
+[`proof/1XXX_foundations/10XX_global_conventions/1006_proof_status_conventions.md`](proof/1XXX_foundations/10XX_global_conventions/1006_proof_status_conventions.md).
 
 Important labels:
 

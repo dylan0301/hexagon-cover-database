@@ -12,6 +12,6 @@ Required targets include:
 - strictness statements excluding equality-only open-cover endpoints.
 
 The existing V-triangle type definitions are in
-[../../1XXX_foundations/1031_V_triangle_types.md](../../1XXX_foundations/1031_V_triangle_types.md).
+[../../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md](../../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md).
 
 No new length bound is proved here.

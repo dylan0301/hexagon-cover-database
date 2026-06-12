@@ -28,7 +28,7 @@ The main navigation files are:
 - [`../5XXX_CE2/5000_CE2_index.md`](../5XXX_CE2/5000_CE2_index.md).
 
 The open/closed equivalence is proved in
-[`../1XXX_foundations/1003_open_unit_vs_shrunken_closed_equivalence.md`](../1XXX_foundations/1003_open_unit_vs_shrunken_closed_equivalence.md).
+[`../1XXX_foundations/10XX_global_conventions/1003_open_unit_vs_shrunken_closed_equivalence.md`](../1XXX_foundations/10XX_global_conventions/1003_open_unit_vs_shrunken_closed_equivalence.md).
 
 The May 24, 2026 skeleton-cover counterexample prevents using full-skeleton
 noncoverage as a standalone route; see

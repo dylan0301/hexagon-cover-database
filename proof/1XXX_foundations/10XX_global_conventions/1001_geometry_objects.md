@@ -13,6 +13,7 @@ The radial segment from the center to $V_i$ is
 $$
 r_i=[O,V_i].
 $$
+We also call them the "Half Diagonals".
 
 The midpoint of $r_i$ is
 

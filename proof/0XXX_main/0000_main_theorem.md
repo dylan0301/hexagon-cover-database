@@ -20,7 +20,7 @@ $$
 $$
 
 The equivalence is proved in
-[`../1XXX_foundations/1003_open_unit_vs_shrunken_closed_equivalence.md`](../1XXX_foundations/1003_open_unit_vs_shrunken_closed_equivalence.md).
+[`../1XXX_foundations/10XX_global_conventions/1003_open_unit_vs_shrunken_closed_equivalence.md`](../1XXX_foundations/10XX_global_conventions/1003_open_unit_vs_shrunken_closed_equivalence.md).
 
 ## Proof-tree spine
 
@@ -54,4 +54,4 @@ Local definitions and support targets are collected in:
 This scaffold records the intended proof tree. A branch is not proved merely
 because it appears here. Proof status is inherited only from the cited source
 files, using the conventions in
-[`../1XXX_foundations/1006_proof_status_conventions.md`](../1XXX_foundations/1006_proof_status_conventions.md).
+[`../1XXX_foundations/10XX_global_conventions/1006_proof_status_conventions.md`](../1XXX_foundations/10XX_global_conventions/1006_proof_status_conventions.md).
