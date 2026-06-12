@@ -54,3 +54,19 @@ $$
 C_i=\left\{re^{i\theta}:r\ge0,\ \frac{i\pi}{3}\le \theta\le \frac{(i+1)\pi}{3}\right\}.
 $$ this is correct
 add in the agents.md to look for missing delimiter
+
+read 1203 file. 
+the 2004 piecewise c formula is essentially same, but it explicitly write the exact solutions.
+only include definitions in the 1XXX foundations, so move the 1203 file to 20XX vertex local geometry and just merge it into 2004 file. name the file to admissible set.
+rename 20XX folder to V triangle geometry.
+
+look at the current 2004 file. don't separate the cells and radial maximum formula.
+they are essentially the same. merge them.
+
+
+
+If we have an arbitrary $\mathrm{T3\text{-}like}\, V_i$-triangle, then we can translate it such that $V_i$ is on one side of the triangle, and it covers strictly more region than before translation.
+so we can assume that V_i is on one side of T3 like triangle. write this in 1201 file
+
+
+move the neighbor ray 2400 file into the 20XX V triangle geomtry. and delete the 24XX folder

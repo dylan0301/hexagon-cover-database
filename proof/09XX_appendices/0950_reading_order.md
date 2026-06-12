@@ -19,8 +19,8 @@ Status: Reference
 ```
 
 Use the `20XX`, `21XX`, `22XX`, ... geometric lemma subfolders for reusable
-local facts. The `23XX_ab_union_curves` and `24XX_neighbor_capacity` folders
-are intentionally separate.
+local facts. V-triangle capacity formulas live in `20XX_V_triangle_geometry`;
+the `23XX_ab_union_curves` folder remains separate.
 
 ## For CE0
 

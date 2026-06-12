@@ -32,4 +32,11 @@ $$
 \mathrm{T3\text{-}like}: (o,n)=(2,1).
 $$
 
+For a $\mathrm{T3\text{-}like}\, V_i$-triangle, we use the normalization
+that the triangle may be translated, preserving side length and orientation,
+so that $V_i$ lies on a side of $T_i$.  Relative to the local target under
+consideration, the translated triangle contains the previously covered target
+region and covers a strict superset of that region.  Thus T3-like arguments
+may assume $V_i$ lies on a side of $T_i$.
+
 The case $(o,n)=(2,2)$ is unattainable.

@@ -40,9 +40,9 @@ $$
 Here:
 
 - $C_{\mathrm{rad}}(a,b)$ denotes the local same-ray radial candidate from
-  [../../../../2XXX_geometric_lemmas/20XX_vertex_local_geometry/2004_piecewise_c_formula.md](../../../../2XXX_geometric_lemmas/20XX_vertex_local_geometry/2004_piecewise_c_formula.md).
+  [../../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md](../../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md).
 - $C_+(a,b)$ denotes the proven upper-neighbor capacity from
-  [../../../../2XXX_geometric_lemmas/24XX_neighbor_capacity/2400_neighbor_ray_max_c_formula.md](../../../../2XXX_geometric_lemmas/24XX_neighbor_capacity/2400_neighbor_ray_max_c_formula.md).
+  [../../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2008_neighbor_ray_max_c_formula.md](../../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2008_neighbor_ray_max_c_formula.md).
 - The lower-neighbor capacity is $C_-(a,b)=C_+(b,a)$.
 
 Undefined capacities should be treated as absent candidate cuts, not as
