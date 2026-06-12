@@ -42,3 +42,15 @@ f_{\mathrm{T3}}(a,b)
 $$
 
 The main problem is the alignment marker & inside the argument of \sup{...}. GitHub’s renderer is stricter than VS Code’s preview. Rewrite the expression using \substack under \sup; this is also mathematically cleaner.
+
+Missing or unrecognized delimiter for `\left`:
+
+```tex
+C_i=<left command><bare grouping brace>re^{i\theta}:r\ge0,\ \frac{i\pi}{3}\le \theta\le \frac{(i+1)\pi}{3}<right command><bare grouping brace>.
+```
+
+\left must be followed by a delimiter. A bare { is not a delimiter in LaTeX math; it is just a grouping brace. Use \{ and \}
+$$
+C_i=\left\{re^{i\theta}:r\ge0,\ \frac{i\pi}{3}\le \theta\le \frac{(i+1)\pi}{3}\right\}.
+$$ this is correct
+add in the agents.md to look for missing delimiter

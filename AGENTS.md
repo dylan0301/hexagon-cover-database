@@ -130,6 +130,9 @@ Use LaTeX delimiters consistently:
 - operator conditions: put conditions for `\sup`, `\inf`, `\min`, and `\max`
   in subscripts, using `\substack{...}` when multiple lines are needed. Do not
   put alignment markers inside operator arguments.
+- scalable delimiters: `\left` and `\right` must be followed by real
+  delimiters. For set braces, use `\left\{ ... \right\}`; do not put an
+  unescaped grouping brace immediately after `\left` or `\right`.
 
 Do not use `\(...\)` or `\[...\]`.
 
@@ -178,6 +181,9 @@ Examples:
   `rg -n -F "$(printf '\\134operator%s' name)" README.md AGENTS.md proof prompts`
 - Check operator arguments with embedded alignment markers:
   `rg -n -F "$(printf ':%s' '&')" README.md AGENTS.md proof prompts`
+- Check missing delimiters after scalable delimiter commands:
+  `rg -n -F "$(printf '\\134left{')" README.md AGENTS.md proof prompts`
+  `rg -n -F "$(printf '\\134right}')" README.md AGENTS.md proof prompts`
 - Check obsolete root paths:
   `rg 'documentatio[n]/|computation[s]/|experiment[s]/' README.md proof prompts`
 - Check a term replacement:
