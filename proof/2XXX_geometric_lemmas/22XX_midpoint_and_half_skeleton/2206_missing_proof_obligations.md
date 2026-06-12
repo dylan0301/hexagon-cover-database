@@ -4,7 +4,6 @@ Status: Checklist
 
 Unresolved or target-level items:
 
-- Full Vd1 adjacent-midpoint inequality outside the CE0 package.
 - CE2 maximality elimination of intersect cases.
 - CE2 attach/far case checks.
 - T3-like directed graph maximality.

@@ -15,6 +15,6 @@ length inefficiency of the relevant local types. These are not proved here.
 
 Local source and target files include:
 
-- [../../../2XXX_geometric_lemmas/22XX_midpoint_and_half_skeleton/2205_T3_like_midpoint_lemma.md](../../../2XXX_geometric_lemmas/22XX_midpoint_and_half_skeleton/2205_T3_like_midpoint_lemma.md).
+- [../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2006_T3_like_midpoint_lemma.md](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2006_T3_like_midpoint_lemma.md).
 - [4122_type3_like_diagonal_points.md](4122_type3_like_diagonal_points.md).
 - [../../../2XXX_geometric_lemmas/22XX_midpoint_and_half_skeleton/2210_midpoint_forcing_lemmas.md](../../../2XXX_geometric_lemmas/22XX_midpoint_and_half_skeleton/2210_midpoint_forcing_lemmas.md).

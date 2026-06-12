@@ -70,3 +70,7 @@ so we can assume that V_i is on one side of T3 like triangle. write this in 1201
 
 
 move the neighbor ray 2400 file into the 20XX V triangle geomtry. and delete the 24XX folder
+
+move 2201, 2205 files into 20XX V trianlge geometry with corrected numberings
+also 2006, 2007, 2202 files don't have any meaning just delete them
+mark 2201 as proved by the admissible set.

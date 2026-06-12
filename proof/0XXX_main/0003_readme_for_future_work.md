@@ -8,7 +8,10 @@ The final theorem is about seven **open** unit equilateral triangles covering th
 
 Rules:
 
-- Do not cite a result as proven unless its file says `Status: Proven`, `Status: Proven local lemma`, or `Status: Proven analytic inequality`.
+- Do not cite a result as fully proven unless its file says `Status: Proven`,
+  `Status: Proven local lemma`, or `Status: Proven analytic inequality`.
+- A `Practically proven` result may be used as a working dependency, but its
+  complete written proof is not yet recorded.
 - Numerical optimization remains `Empirical` unless a certificate is supplied.
 - Failed ideas are kept in detail to avoid repeating dead ends.
 - The Korean term **걸거치는** is preserved where it names the recurring geometric phenomenon of a triangle crossing or straddling adjacent structure in a non-axis-aligned way.
