@@ -6,7 +6,7 @@ This index organizes the current proof strategy first by the center-edge type
 CE0, CE1, CE2, then by the supercritical row count
 
 $$
-N_+=\#\{i:a_i+b_i>1\}.
+N_+=\left\lvert \left\lbrace\, i : a_i+b_i>1 \,\right\rbrace \right\rvert.
 $$
 
 ## Foundations And Lemmas

@@ -74,7 +74,7 @@ refer to the geometric lemmas for necessary parts
                 - note that V0 triangle T3 like triangle has to cover either M1 or M5
 
     - 42XX CE1 + Nplus2
-        claim: CE1/CE2에서 \#\{i:a_i+b_i>1\} >= 2 이면 hexagon skeleton not coverable
+        claim: CE1/CE2에서 \left\lvert \left\lbrace\, i : a_i+b_i>1 \,\right\rbrace \right\rvert >= 2 이면 hexagon skeleton not coverable
         proof)
         CE1/CE2는 midpoint 하나만 덮을 수 있는데 a+b>1인건 midpoint를 못 덮으니까, midpoint를 2개 이상 덮을 수 있는 T3 like 혹은 VD1/VD2가 존재
         hexagon skeleton의 전체 길이는 12이다.
@@ -121,7 +121,7 @@ refer to the geometric lemmas for necessary parts
                 - note that V0 triangle T3 like triangle has to cover either M1 or M5
 
     - 52XX CE1 + Nplus2
-        claim: CE1/CE2에서 \#\{i:a_i+b_i>1\} >= 2 이면 hexagon skeleton not coverable
+        claim: CE1/CE2에서 \left\lvert \left\lbrace\, i : a_i+b_i>1 \,\right\rbrace \right\rvert >= 2 이면 hexagon skeleton not coverable
         proof)
         CE1/CE2는 midpoint 하나만 덮을 수 있는데 a+b>1인건 midpoint를 못 덮으니까, midpoint를 2개 이상 덮을 수 있는 T3 like 혹은 VD1/VD2가 존재
         hexagon skeleton의 전체 길이는 12이다.

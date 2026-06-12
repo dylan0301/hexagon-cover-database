@@ -34,7 +34,7 @@ The intended proof first classifies $T_C$ as CE0, CE1, or CE2. Inside each CE
 branch it defines the vertex perimeter rows $(a_i,b_i)$ and splits by
 
 $$
-N_+=\#\{i:a_i+b_i>1\}.
+N_+=\left\lvert \left\lbrace\, i : a_i+b_i>1 \,\right\rbrace \right\rvert.
 $$
 
 The branch folders are:

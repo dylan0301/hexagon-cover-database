@@ -48,7 +48,7 @@ $$
 are proportional. With positivity imposed, this is exactly the rank-one condition
 
 $$
-\operatorname{rank}(M)\le1.
+\mathrm{rank}(M)\le1.
 $$
 
 Thus

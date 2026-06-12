@@ -2,7 +2,7 @@
 Hypothetical seven-triangle cover
   classify T_C as CE0, CE1, or CE2
   define perimeter rows (a_i,b_i) for the vertex roles
-  compute N_+ = \#\{i : a_i+b_i > 1\}
+  compute N_+ = \left\lvert \left\lbrace\, i : a_i+b_i > 1 \,\right\rbrace \right\rvert
 
   N_+ = 0
     CE0:
@@ -86,7 +86,7 @@ Hypothetical seven-triangle cover
       conditional area certificate from 647
       still needs local square-loss bounds for f(a,b)
     CE1/CE2:
-      claim: CE1/CE2에서 \#\{i:a_i+b_i>1\} >= 2 이면 hexagon skeleton not coverable
+      claim: CE1/CE2에서 \left\lvert \left\lbrace\, i : a_i+b_i>1 \,\right\rbrace \right\rvert >= 2 이면 hexagon skeleton not coverable
         proof)
         CE1/CE2는 midpoint 하나만 덮을 수 있는데 a+b>1인건 midpoint를 못 덮으니까, midpoint를 2개 이상 덮을 수 있는 T3 like 혹은 VD1/VD2가 존재
         hexagon skeleton의 전체 길이는 12이다.

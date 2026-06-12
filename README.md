@@ -114,8 +114,14 @@ Numerical optimization claims remain `Empirical` until a certificate is supplied
 
 - Keep research-note files Markdown-only unless the repository policy changes.
 - Use `$...$` for inline LaTeX and `$$...$$` for display LaTeX.
-- Write cardinalities in math as `\#\{...\}`; do not use an unescaped hash
-  before a set brace.
+- Write cardinalities in math as
+  `\left\lvert \left\lbrace\, ... \,\right\rbrace \right\rvert`;
+  do not use hash-based notation for cardinality.
+- Use `\mathrm{...}` for named operators in math; do not use the
+  operatorname macro.
+- Put conditions for `\sup`, `\inf`, `\min`, and `\max` in subscripts, using
+  `\substack{...}` when multiple lines are needed. Do not put alignment
+  markers inside operator arguments.
 - Write display-LaTeX blocks with `$$` on separate delimiter lines, and keep
   the equation content between them on one physical line. Multi-line equation
   content inside a `$$` block can fail to render.

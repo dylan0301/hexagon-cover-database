@@ -62,7 +62,7 @@ For the six vertex triangles, use the local area function $f(a,b)$ from
 The CE0 area-conjecture target is
 
 $$
-\#\{i:a_i+b_i>1\}\ge2 \quad\Longrightarrow\quad \sum_{i=0}^5 f(a_i,b_i)<5.
+\left\lvert \left\lbrace\, i : a_i+b_i>1 \,\right\rbrace \right\rvert\ge2 \quad\Longrightarrow\quad \sum_{i=0}^5 f(a_i,b_i)<5.
 $$
 
 If this strict inequality is proved under the correct CE0 hypotheses, then the
@@ -90,7 +90,7 @@ $$
 Under this hypothesis, the stronger estimate holds:
 
 $$
-\#\{i:a_i+b_i>1\}\ge2 \quad\Longrightarrow\quad \sum_{i=0}^5 f(a_i,b_i)<\frac{99}{20}<5.
+\left\lvert \left\lbrace\, i : a_i+b_i>1 \,\right\rbrace \right\rvert\ge2 \quad\Longrightarrow\quad \sum_{i=0}^5 f(a_i,b_i)<\frac{99}{20}<5.
 $$
 
 This conditional certificate replaces the need for the threshold relaxation in

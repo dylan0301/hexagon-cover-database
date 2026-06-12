@@ -6,7 +6,7 @@ This note records a possible certificate-producing computational route for the
 branch
 
 $$
-T_C\text{ is CE1 or CE2}, \qquad \#\{i:a_i+b_i>1\}\ge2.
+T_C\text{ is CE1 or CE2}, \qquad \left\lvert \left\lbrace\, i : a_i+b_i>1 \,\right\rbrace \right\rvert\ge2.
 $$
 
 The working observation is that previously found almost-covering candidates
@@ -55,7 +55,7 @@ For each case, enumerate finite coverage masks on $Q$:
 The set-covering instance should keep only tuples satisfying
 
 $$
-\#\{i:a_i+b_i>1\}\ge2.
+\left\lvert \left\lbrace\, i : a_i+b_i>1 \,\right\rbrace \right\rvert\ge2.
 $$
 
 For CE2, the certificate must state whether it assumes the CE2 one-interval

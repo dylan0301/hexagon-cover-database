@@ -19,7 +19,7 @@ $$
 The heuristic sign fact was:
 
 $$
-x\in\operatorname{Int}(IH(V))\implies F(x)>0.
+x\in\mathrm{Int}(IH(V))\implies F(x)>0.
 $$
 
 This was not enough to prove the required separation. It is cross-referenced with the inner/outer gamma set separation postmortem.

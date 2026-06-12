@@ -17,7 +17,7 @@ Classify $T_C$ as CE0, CE1, or CE2. Inside each CE branch, define the
 perimeter rows $(a_i,b_i)$ and split by
 
 $$
-N_+=\#\{i:a_i+b_i>1\}.
+N_+=\left\lvert \left\lbrace\, i : a_i+b_i>1 \,\right\rbrace \right\rvert.
 $$
 
 The main navigation files are:

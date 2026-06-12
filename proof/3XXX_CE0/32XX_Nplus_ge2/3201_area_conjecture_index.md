@@ -26,7 +26,7 @@ supercritical rows follows.  That conditional certificate is in
 The shared area-conjecture target is:
 
 $$
-\#\{i:a_i+b_i>1\}\ge2 \quad\Longrightarrow\quad \sum_{i=0}^5 f(a_i,b_i)<5.
+\left\lvert \left\lbrace\, i : a_i+b_i>1 \,\right\rbrace \right\rvert\ge2 \quad\Longrightarrow\quad \sum_{i=0}^5 f(a_i,b_i)<5.
 $$
 
 The difference between CE0 and CE1/reduced-CE2 is only how the perimeter cut
@@ -49,7 +49,7 @@ $$
 with indices modulo $6$.  In the CE0 case, the shared target becomes
 
 $$
-\#\{i:a_i+b_i>1\}\ge2 \quad\Longrightarrow\quad \sum_{i=0}^5 f(a_i,b_i)<5.
+\left\lvert \left\lbrace\, i : a_i+b_i>1 \,\right\rbrace \right\rvert\ge2 \quad\Longrightarrow\quad \sum_{i=0}^5 f(a_i,b_i)<5.
 $$
 
 Here $f(a,b)$ is the normalized maximum area inside $H$ for a unit vertex

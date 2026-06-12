@@ -123,7 +123,7 @@ This is the finite system used below.
 
 ## 4. Active-support reduction
 
-Let $Q(a,b,c)=\operatorname{conv}\{O,A,X,B\}$. For $a,b,c$ away from the obvious zero-length degeneracies, this is the convex quadrilateral with cyclic vertices $O,A,X,B$.
+Let $Q(a,b,c)=\mathrm{conv}\{O,A,X,B\}$. For $a,b,c$ away from the obvious zero-length degeneracies, this is the convex quadrilateral with cyclic vertices $O,A,X,B$.
 
 A boundary value of $C_+(a,b)$ is attained by a unit equilateral triangle whose support lines have one of the following non-dominated active patterns:
 

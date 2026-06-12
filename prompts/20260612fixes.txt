@@ -12,3 +12,33 @@ rename the 102X C triangle to 11XX and also the files under it to start with 11
 rename the 103X V triangle to 12XX and also the files under it to start with 12
 
 delete 1111 file since it is exactly same as 1101
+
+don't use #. use \left\lvert \left\lbrace\, i : a_i+b_i>1 \,\right\rbrace \right\rvert  something like this from now on. also edit the rules and files.
+
+The following macros are not allowed: operatorname
+
+$$
+H=\mathrm{conv}\{V_0,\dots,V_5\}.
+$$
+I also see this.
+Use \mathrm{conv} instead of the operatorname macro. also add this in the rules and edit files
+every operatorname. for example, benzene
+
+
+
+Unable to render expression.
+
+$$
+\boxed{
+\begin{aligned}
+f_{\mathrm{T3}}(a,b)
+\le
+\sup_{\substack{0\le s\le1/2\\ A(s)\ge a,\ B(s)\ge b}} F(s)
+\\
+{}\vee{}
+\sup_{\substack{0\le s\le1/2\\ B(s)\ge a,\ A(s)\ge b}} F(s).
+\end{aligned}
+}
+$$
+
+The main problem is the alignment marker & inside the argument of \sup{...}. GitHub’s renderer is stricter than VS Code’s preview. Rewrite the expression using \substack under \sup; this is also mathematically cleaner.

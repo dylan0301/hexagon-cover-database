@@ -12,7 +12,7 @@ The current organizing structure is the root-level proof tree:
 hypothetical seven-triangle cover
   classify T_C as CE0, CE1, or CE2
   define perimeter rows (a_i,b_i)
-  compute N_+ = \#\{i : a_i+b_i > 1\}
+  compute N_+ = \left\lvert \left\lbrace\, i : a_i+b_i > 1 \,\right\rbrace \right\rvert
   split first by CE0, CE1, or CE2
   split inside each CE branch by N_+ = 0, N_+ = 1, or N_+ >= 2
   split inside each N_+ branch by the number of VD0, VD1/VD2, T3 like triangles
@@ -122,8 +122,14 @@ Use LaTeX delimiters consistently:
 
 - inline math: `$...$`
 - display math: `$$...$$`
-- cardinalities: write `\#\{...\}` in math; do not use an unescaped hash
-  before a set brace.
+- cardinalities: write
+  `\left\lvert \left\lbrace\, ... \,\right\rbrace \right\rvert` in math;
+  do not use hash-based notation for cardinality.
+- named operators: write `\mathrm{...}` in math; do not use the operatorname
+  macro.
+- operator conditions: put conditions for `\sup`, `\inf`, `\min`, and `\max`
+  in subscripts, using `\substack{...}` when multiple lines are needed. Do not
+  put alignment markers inside operator arguments.
 
 Do not use `\(...\)` or `\[...\]`.
 
@@ -165,8 +171,13 @@ Examples:
 
 - Check old LaTeX delimiters:
   `rg '\\\\\\(|\\\\\\)|\\\\\\[|\\\\\\]' proof README.md`
-- Check raw hash-cardinality notation:
-  `rg -n '#\\{' README.md AGENTS.md proof prompts`
+- Check obsolete hash-cardinality notation:
+  `rg -n -F "$(printf '\\134#')" README.md AGENTS.md proof prompts`
+  `rg -n -F "$(printf '#%s' '{')" README.md AGENTS.md proof prompts`
+- Check unsupported named-operator macro:
+  `rg -n -F "$(printf '\\134operator%s' name)" README.md AGENTS.md proof prompts`
+- Check operator arguments with embedded alignment markers:
+  `rg -n -F "$(printf ':%s' '&')" README.md AGENTS.md proof prompts`
 - Check obsolete root paths:
   `rg 'documentatio[n]/|computation[s]/|experiment[s]/' README.md proof prompts`
 - Check a term replacement:

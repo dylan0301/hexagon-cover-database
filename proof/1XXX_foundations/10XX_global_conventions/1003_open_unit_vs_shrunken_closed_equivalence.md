@@ -23,7 +23,7 @@ where each $U_j$ is the interior of an equilateral triangle of side length $1$.
 For each $j$, define the margin function
 
 $$
-m_j(p)=\operatorname{dist}(p,\mathbb R^2\setminus U_j).
+m_j(p)=\mathrm{dist}(p,\mathbb R^2\setminus U_j).
 $$
 
 Then $m_j(p)>0$ iff $p\in U_j$. Define

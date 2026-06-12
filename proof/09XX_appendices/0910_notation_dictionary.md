@@ -10,7 +10,7 @@ Status: Reference
 - $1-d_{60i}$: available complementary radial distance on $[O,V_i]$ after $T_C$.
 - $a,b,c$: local V-triangle edge-edge-radial coordinates.
 - $(a_i,b_i)$: row data for the vertex role $T_i$.
-- $N_+$: $\#\{i:a_i+b_i>1\}$.
+- $N_+$: $\left\lvert \left\lbrace\, i : a_i+b_i>1 \,\right\rbrace \right\rvert$.
 - $K_5$: May 25 five-point set $\{P_3,P_5,D_0,D_1,D_2\}$.
 - $\Lambda(K)$: optimized side length of the smallest enclosing equilateral
   triangle for the finite set $K$.

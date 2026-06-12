@@ -5,7 +5,7 @@ Status: Definition
 Let
 
 $$
-N_E(T_C)=\#\{i:T_C\cap e_{i,i+1}\text{ contains a positive-length interval}\}.
+N_E(T_C)=\left\lvert \left\lbrace\, i : T_C\cap e_{i,i+1}\text{ contains a positive-length interval} \,\right\rbrace \right\rvert.
 $$
 
 Then

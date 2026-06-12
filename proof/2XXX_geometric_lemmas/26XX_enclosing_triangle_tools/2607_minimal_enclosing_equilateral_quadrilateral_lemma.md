@@ -117,7 +117,7 @@ Therefore the assumed three-unique-contact configuration is impossible. The only
 In the May 21/22 four-point package, this lemma justifies reducing the smallest enclosing equilateral triangle for
 
 $$
-Q=\operatorname{conv}\{P_3,P_5,G_0,G_2\}
+Q=\mathrm{conv}\{P_3,P_5,G_0,G_2\}
 $$
 
 to finitely many support contact patterns. Pattern A is the case where $P_3$ and $P_5$ share one supporting side, with $G_2$ and $G_0$ supporting the other two sides.

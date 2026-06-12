@@ -18,7 +18,7 @@ $$
 Define
 
 $$
-f(a,b) = \max_T \frac{\operatorname{area}(T\cap H)}{\operatorname{area}(T)},
+f(a,b) = \max_T \frac{\mathrm{area}(T\cap H)}{\mathrm{area}(T)},
 $$
 
 where the maximum is over closed unit equilateral triangles $T$ such that
@@ -30,7 +30,7 @@ $$
 The denominator is fixed:
 
 $$
-\operatorname{area}(T)=\frac{\sqrt3}{4}.
+\mathrm{area}(T)=\frac{\sqrt3}{4}.
 $$
 
 The quantity $1-f(a,b)$ is the normalized area forced outside $H$ by that
@@ -130,7 +130,7 @@ The package aims to prove a vertex-triangle area bound in configurations with
 at least two supercritical rows:
 
 $$
-\#\{i:a_i+b_i>1\}\ge2 \quad\Longrightarrow\quad \sum_{i=0}^5 f(a_i,b_i)<5.
+\left\lvert \left\lbrace\, i : a_i+b_i>1 \,\right\rbrace \right\rvert\ge2 \quad\Longrightarrow\quad \sum_{i=0}^5 f(a_i,b_i)<5.
 $$
 
 This target uses only the six vertex-triangle functions $f(a_i,b_i)$.  The

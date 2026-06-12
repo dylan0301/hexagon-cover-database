@@ -5,7 +5,7 @@ Status: Definition
 For each direction $\theta\in\{0,60,120,180,240,300\}$, let $r_\theta$ be the ray from $O$ in direction $\theta$ degrees. Define
 
 $$
-d_\theta=\operatorname{dist}(O,\partial T_C\cap r_\theta).
+d_\theta=\mathrm{dist}(O,\partial T_C\cap r_\theta).
 $$
 
 The center distance tuple is

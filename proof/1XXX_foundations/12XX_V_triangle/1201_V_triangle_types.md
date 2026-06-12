@@ -5,13 +5,13 @@ Status: Definition
 For a $V_i$-triangle, define
 
 $$
-o=\#\{\text{vertices of }T_i\text{ outside }H\},
+o=\left\lvert \left\lbrace\, \text{vertices of }T_i\text{ outside }H \,\right\rbrace \right\rvert,
 $$
 
 and
 
 $$
-n=\#\{\text{adjacent rays }r_{i-1},r_{i+1}\text{ having positive-length intersection with }T_i\}.
+n=\left\lvert \left\lbrace\, \text{adjacent rays }r_{i-1},r_{i+1}\text{ having positive-length intersection with }T_i \,\right\rbrace \right\rvert.
 $$
 
 The names are:

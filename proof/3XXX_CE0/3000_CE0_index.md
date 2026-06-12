@@ -5,7 +5,7 @@ Status: Navigation
 This branch assumes the center role $T_C$ is CE0. It then splits by
 
 $$
-N_+=\#\{i:a_i+b_i>1\}.
+N_+=\left\lvert \left\lbrace\, i : a_i+b_i>1 \,\right\rbrace \right\rvert.
 $$
 
 - [`30XX_Nplus0/3010_CE0_perimeter_length_obstruction.md`](30XX_Nplus0/3010_CE0_perimeter_length_obstruction.md): CE0, $N_+=0$ perimeter-length obstruction target.

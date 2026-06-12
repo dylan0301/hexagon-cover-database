@@ -39,7 +39,7 @@ $$
 Then, in the CE0 six-point model,
 
 $$
-\#\{i:a_i+b_i>1\}\ge2 \quad\Longrightarrow\quad \sum_{i=0}^5 f(a_i,b_i)<\frac{99}{20}<5.
+\left\lvert \left\lbrace\, i : a_i+b_i>1 \,\right\rbrace \right\rvert\ge2 \quad\Longrightarrow\quad \sum_{i=0}^5 f(a_i,b_i)<\frac{99}{20}<5.
 $$
 
 Thus the final CE0 area inequality is no longer an independent open obligation

@@ -163,7 +163,7 @@ Define the full no-midpoint T3-like local inside-area function by
 
 $$
 f_{\mathrm{T3}}(a,b)=
-\sup_T \frac{\operatorname{area}(T\cap H)}{\sqrt3/4},
+\sup_T \frac{\mathrm{area}(T\cap H)}{\sqrt3/4},
 $$
 
 where the supremum is over closed unit equilateral $V_0$-triangles satisfying
@@ -191,12 +191,10 @@ $$
 \begin{aligned}
 f_{\mathrm{T3}}(a,b)
 \le
-\sup\{F(s):&\ 0\le s\le1/2,\\
-& A(s)\ge a,\ B(s)\ge b\}
+\sup_{\substack{0\le s\le1/2\\ A(s)\ge a,\ B(s)\ge b}} F(s)
 \\
 {}\vee{}
-\sup\{F(s):&\ 0\le s\le1/2,\\
-& B(s)\ge a,\ A(s)\ge b\}.
+\sup_{\substack{0\le s\le1/2\\ B(s)\ge a,\ A(s)\ge b}} F(s).
 \end{aligned}
 }
 $$

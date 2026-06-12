@@ -53,7 +53,7 @@ $$
 Then
 
 $$
-\operatorname{Benzene}=S\cup\{B_0,\dots,B_5\}.
+\mathrm{Benzene}=S\cup\{B_0,\dots,B_5\}.
 $$
 
 ## Lotus
@@ -73,7 +73,7 @@ $$
 The lotus target is
 
 $$
-\operatorname{Lotus}=\partial H\cup\bigcup_{i=0}^5 L_i.
+\mathrm{Lotus}=\partial H\cup\bigcup_{i=0}^5 L_i.
 $$
 
 It is a one-dimensional target, not the filled parity/XOR region.

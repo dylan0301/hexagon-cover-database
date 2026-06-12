@@ -5,7 +5,7 @@ Status: Definition
 The regular side-$1$ hexagon is
 
 $$
-H=\operatorname{conv}\{V_0,\dots,V_5\}.
+H=\mathrm{conv}\{V_0,\dots,V_5\}.
 $$
 
 The radial segment from the center to $V_i$ is

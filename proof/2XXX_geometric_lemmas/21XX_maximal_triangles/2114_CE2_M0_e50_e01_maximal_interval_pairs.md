@@ -599,7 +599,7 @@ $$
 and
 
 $$
-\operatorname{mean}|\text{residual}|=2.727\cdot10^{-16}.
+\mathrm{mean}|\text{residual}|=2.727\cdot10^{-16}.
 $$
 
 No retained raw triangle violated any symbolic inequality at tolerance $5\cdot10^{-12}$ for the coupling equation and $10^{-10}$ for one-sided inequalities.

@@ -94,7 +94,7 @@ $$
 \boxed{
 \begin{gathered}
 T_C\text{ is CE0},\\
-\#\{i:a_i+b_i>1\}=1,\\
+\left\lvert \left\lbrace\, i : a_i+b_i>1 \,\right\rbrace \right\rvert=1,\\
 \text{one row is T3-like and all other rows are Vd0}
 \end{gathered}
 \quad\Longrightarrow\quad
