@@ -2,7 +2,7 @@
 Hypothetical seven-triangle cover
   classify T_C as CE0, CE1, or CE2
   define perimeter rows (a_i,b_i) for the vertex roles
-  compute N_+ = #{i : a_i+b_i > 1}
+  compute N_+ = \#\{i : a_i+b_i > 1\}
 
   N_+ = 0
     CE0:
@@ -86,7 +86,7 @@ Hypothetical seven-triangle cover
       conditional area certificate from 647
       still needs local square-loss bounds for f(a,b)
     CE1/CE2:
-      claim: CE1/CE2에서 #(a+b>1) >= 2 이면 hexagon skeleton not coverable
+      claim: CE1/CE2에서 \#\{i:a_i+b_i>1\} >= 2 이면 hexagon skeleton not coverable
         proof)
         CE1/CE2는 midpoint 하나만 덮을 수 있는데 a+b>1인건 midpoint를 못 덮으니까, midpoint를 2개 이상 덮을 수 있는 T3 like 혹은 VD1/VD2가 존재
         hexagon skeleton의 전체 길이는 12이다.
@@ -110,7 +110,7 @@ trying to remove gulgu V triangles
 - CE0 + at least one T3 like + no VD1/VD2
     - bipartite method is not suitable
         - it only proves that this configuration is not maximal over skeleton
-    - https://github.com/dylan0301/hexagon-cover-database/blob/main/proof/600_case_strategies/611_type3_like_diagonal_points.md
+    - https://github.com/dylan0301/hexagon-cover-database/blob/main/proof/4XXX_CE1/41XX_Nplus1/412X_at_least_two_T3_like/4122_type3_like_diagonal_points.md
         - plotting 3 points on diagonal
     - max area function constrained on T3 like
         - Success! so don't mention other things

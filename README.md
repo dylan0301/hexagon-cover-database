@@ -24,44 +24,48 @@ $$
 $$
 
 The open/closed/scaled equivalence is recorded in
-[`proof/100_foundations/103_open_unit_vs_shrunken_closed_equivalence.md`](proof/100_foundations/103_open_unit_vs_shrunken_closed_equivalence.md).
+[`proof/1XXX_foundations/1003_open_unit_vs_shrunken_closed_equivalence.md`](proof/1XXX_foundations/1003_open_unit_vs_shrunken_closed_equivalence.md).
 
 ## Start Here
 
 Recommended reading order:
 
-1. [`proof/000_main_theorem.md`](proof/000_main_theorem.md)
-2. [`proof/001_proof_tree_index.md`](proof/001_proof_tree_index.md)
-3. [`proof/010_setup/010_open_closed_equivalence.md`](proof/010_setup/010_open_closed_equivalence.md)
-4. [`proof/100_Nplus0/100_index.md`](proof/100_Nplus0/100_index.md)
-5. [`proof/200_Nplus1/200_index.md`](proof/200_Nplus1/200_index.md)
-6. [`proof/300_Nplus_ge2/300_index.md`](proof/300_Nplus_ge2/300_index.md)
-7. [`proof/002_status_and_dependencies.md`](proof/002_status_and_dependencies.md)
+1. [`proof/0XXX_main/0000_main_theorem.md`](proof/0XXX_main/0000_main_theorem.md)
+2. [`proof/0XXX_main/0001_proof_tree_index.md`](proof/0XXX_main/0001_proof_tree_index.md)
+3. [`proof/1XXX_foundations/1003_open_unit_vs_shrunken_closed_equivalence.md`](proof/1XXX_foundations/1003_open_unit_vs_shrunken_closed_equivalence.md)
+4. [`proof/1XXX_foundations/1010_cover_roles_TC_T0_to_T5.md`](proof/1XXX_foundations/1010_cover_roles_TC_T0_to_T5.md)
+5. [`proof/1XXX_foundations/1011_CE0_CE1_CE2_classification.md`](proof/1XXX_foundations/1011_CE0_CE1_CE2_classification.md)
+6. [`proof/1XXX_foundations/1012_vertex_rows_and_Nplus.md`](proof/1XXX_foundations/1012_vertex_rows_and_Nplus.md)
+7. [`proof/3XXX_CE0/3000_CE0_index.md`](proof/3XXX_CE0/3000_CE0_index.md)
+8. [`proof/4XXX_CE1/4000_CE1_index.md`](proof/4XXX_CE1/4000_CE1_index.md)
+9. [`proof/5XXX_CE2/5000_CE2_index.md`](proof/5XXX_CE2/5000_CE2_index.md)
+10. [`proof/0XXX_main/0002_status_and_dependencies.md`](proof/0XXX_main/0002_status_and_dependencies.md)
 
-The legacy object-centered notes are still inside `proof/` as local source
-packages, for example `proof/100_foundations/`, `proof/300_vertex_triangle/`,
-and `proof/600_case_strategies/`. They are retained to preserve the file-level
-proof statuses and detailed arguments while the proof-tree files provide the
-paper-style navigation layer.
+The corpus uses four-character folder range labels with literal `X` digits.
+Definitions live in
+`proof/1XXX_foundations/`, reusable geometric lemmas in
+`proof/2XXX_geometric_lemmas/`, and the proof tree splits first into CE0,
+CE1, and CE2 branches.
 
 ## Repository Layout
 
-- [`proof/010_setup/`](proof/010_setup): setup bridge files for the proof tree.
-- [`proof/100_Nplus0/`](proof/100_Nplus0): no-supercritical-row branch.
-- [`proof/200_Nplus1/`](proof/200_Nplus1): exactly-one-supercritical-row branch.
-- [`proof/300_Nplus_ge2/`](proof/300_Nplus_ge2): at-least-two-supercritical-row branch.
-- [`proof/400_local_lemmas/`](proof/400_local_lemmas): local lemma targets used by the proof tree.
-- [`proof/500_finite_point_algorithms/`](proof/500_finite_point_algorithms): finite-point algorithm routes.
-- [`proof/900_failed_and_empirical/`](proof/900_failed_and_empirical): failed and empirical route index.
+- [`proof/0XXX_main/`](proof/0XXX_main): main theorem, proof-tree index, status table, and manifest.
+- [`proof/09XX_appendices/`](proof/09XX_appendices): glossary, notation, open questions, and archived sketches.
+- [`proof/1XXX_foundations/`](proof/1XXX_foundations): definitions and conventions.
+- [`proof/2XXX_geometric_lemmas/`](proof/2XXX_geometric_lemmas): reusable geometric lemmas and targets.
+- [`proof/3XXX_CE0/`](proof/3XXX_CE0): CE0 proof-tree branch.
+- [`proof/4XXX_CE1/`](proof/4XXX_CE1): CE1 proof-tree branch.
+- [`proof/5XXX_CE2/`](proof/5XXX_CE2): CE2 proof-tree branch.
+- [`proof/9XXX_failed_ideas/`](proof/9XXX_failed_ideas): failed routes, empirical warnings, and counterexamples.
 
-The complete proof file list is in [`proof/MANIFEST.txt`](proof/MANIFEST.txt).
+The complete proof file list is in [`proof/0XXX_main/0004_manifest.txt`](proof/0XXX_main/0004_manifest.txt).
 
 ## Skeleton Counterexample Warning
 
 The May 24, 2026 imported counterexample numerically verifies seven closed
 equilateral triangles of side strictly less than $1$ covering the full skeleton
 $S$. See
-[`proof/800_computation/811_skeleton_cover_counterexample.md`](proof/800_computation/811_skeleton_cover_counterexample.md).
+[`proof/9XXX_failed_ideas/908X_skeleton_cover_counterexample/9081_skeleton_cover_counterexample.md`](proof/9XXX_failed_ideas/908X_skeleton_cover_counterexample/9081_skeleton_cover_counterexample.md).
 
 Consequently, noncoverage of $S$ is no longer a viable standalone route to the
 main theorem. Conditional half-skeleton results keep their stated status unless
@@ -77,20 +81,20 @@ $$
 
 It is recorded as a proven half-skeleton obstruction across:
 
-- [`proof/600_case_strategies/601_CE0_Vd1_Vd2_half_skeleton_theorem.md`](proof/600_case_strategies/601_CE0_Vd1_Vd2_half_skeleton_theorem.md)
-- [`proof/600_case_strategies/602_CE0_Vd1_Vd2_rhombus_geometry.md`](proof/600_case_strategies/602_CE0_Vd1_Vd2_rhombus_geometry.md)
-- [`proof/600_case_strategies/603_CE0_Vd1_Vd2_frontier_perturbation.md`](proof/600_case_strategies/603_CE0_Vd1_Vd2_frontier_perturbation.md)
-- [`proof/600_case_strategies/604_CE0_Vd1_Vd2_F_chain_inequalities.md`](proof/600_case_strategies/604_CE0_Vd1_Vd2_F_chain_inequalities.md)
-- [`proof/600_case_strategies/605_CE0_Vd1_Vd2_midpoint_hole_subcases.md`](proof/600_case_strategies/605_CE0_Vd1_Vd2_midpoint_hole_subcases.md)
-- [`proof/600_case_strategies/606_CE0_Vd1_Vd2_assembly.md`](proof/600_case_strategies/606_CE0_Vd1_Vd2_assembly.md)
+- [`proof/3XXX_CE0/31XX_Nplus1/311X_Vd1_Vd2_obstruction/3111_CE0_Vd1_Vd2_half_skeleton_theorem.md`](proof/3XXX_CE0/31XX_Nplus1/311X_Vd1_Vd2_obstruction/3111_CE0_Vd1_Vd2_half_skeleton_theorem.md)
+- [`proof/3XXX_CE0/31XX_Nplus1/311X_Vd1_Vd2_obstruction/3112_CE0_Vd1_Vd2_rhombus_geometry.md`](proof/3XXX_CE0/31XX_Nplus1/311X_Vd1_Vd2_obstruction/3112_CE0_Vd1_Vd2_rhombus_geometry.md)
+- [`proof/3XXX_CE0/31XX_Nplus1/311X_Vd1_Vd2_obstruction/3113_CE0_Vd1_Vd2_frontier_perturbation.md`](proof/3XXX_CE0/31XX_Nplus1/311X_Vd1_Vd2_obstruction/3113_CE0_Vd1_Vd2_frontier_perturbation.md)
+- [`proof/3XXX_CE0/31XX_Nplus1/311X_Vd1_Vd2_obstruction/3114_CE0_Vd1_Vd2_F_chain_inequalities.md`](proof/3XXX_CE0/31XX_Nplus1/311X_Vd1_Vd2_obstruction/3114_CE0_Vd1_Vd2_F_chain_inequalities.md)
+- [`proof/3XXX_CE0/31XX_Nplus1/311X_Vd1_Vd2_obstruction/3115_CE0_Vd1_Vd2_midpoint_hole_subcases.md`](proof/3XXX_CE0/31XX_Nplus1/311X_Vd1_Vd2_obstruction/3115_CE0_Vd1_Vd2_midpoint_hole_subcases.md)
+- [`proof/3XXX_CE0/31XX_Nplus1/311X_Vd1_Vd2_obstruction/3116_CE0_Vd1_Vd2_assembly.md`](proof/3XXX_CE0/31XX_Nplus1/311X_Vd1_Vd2_obstruction/3116_CE0_Vd1_Vd2_assembly.md)
 
 Other major cases are still strategy- or target-lemma-dependent; see
-[`proof/001_proof_tree_index.md`](proof/001_proof_tree_index.md).
+[`proof/0XXX_main/0001_proof_tree_index.md`](proof/0XXX_main/0001_proof_tree_index.md).
 
 ## Status Labels
 
 Status labels are defined in
-[`proof/100_foundations/106_proof_status_conventions.md`](proof/100_foundations/106_proof_status_conventions.md).
+[`proof/1XXX_foundations/1006_proof_status_conventions.md`](proof/1XXX_foundations/1006_proof_status_conventions.md).
 
 Important labels:
 
@@ -111,9 +115,11 @@ Numerical optimization claims remain `Empirical` until a certificate is supplied
 
 - Keep research-note files Markdown-only unless the repository policy changes.
 - Use `$...$` for inline LaTeX and `$$...$$` for display LaTeX.
+- Write cardinalities in math as `\#\{...\}`; do not use an unescaped hash
+  before a set brace.
 - Write display-LaTeX blocks with `$$` on separate delimiter lines, and keep
   the equation content between them on one physical line. Multi-line equation
   content inside a `$$` block can fail to render.
 - Do not cite a claim as proven unless its source file has a proven status label.
 - Preserve failed approaches with enough detail to avoid repeating them.
-- Use [`proof/appendices/B_notation_dictionary.md`](proof/appendices/B_notation_dictionary.md) when introducing or checking notation.
+- Use [`proof/09XX_appendices/0910_notation_dictionary.md`](proof/09XX_appendices/0910_notation_dictionary.md) when introducing or checking notation.
