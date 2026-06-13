@@ -11,4 +11,3 @@ Files:
 - [`21XX_C_triangle_geometry/21XX_index.md`](21XX_C_triangle_geometry/21XX_index.md).
 - [`25XX_length_bounds/25XX_index.md`](25XX_length_bounds/25XX_index.md).
 - [`26XX_enclosing_triangle_tools/26XX_index.md`](26XX_enclosing_triangle_tools/26XX_index.md).
-- [`27XX_equations_and_inequalities/2700_equation_inventory.md`](27XX_equations_and_inequalities/2700_equation_inventory.md).
