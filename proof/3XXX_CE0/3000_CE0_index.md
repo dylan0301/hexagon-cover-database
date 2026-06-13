@@ -10,7 +10,7 @@ $$
 
 | File | Recorded status | Branch |
 |---|---|---|
-| [`30XX_Nplus0/3010_CE0_perimeter_length_obstruction.md`](30XX_Nplus0/3010_CE0_perimeter_length_obstruction.md) | Lemma target | CE0, $N_+=0$ perimeter-length obstruction target. |
+| [`30XX_Nplus0/3010_CE0_perimeter_length_obstruction.md`](30XX_Nplus0/3010_CE0_perimeter_length_obstruction.md) | Proven | CE0, $N_+=0$ perimeter-length obstruction. |
 | [`31XX_Nplus1/310X_all_Vd0_five_point/3101_CE0_all_Vd0_five_point_index.md`](31XX_Nplus1/310X_all_Vd0_five_point/3101_CE0_all_Vd0_five_point_index.md) | Strategy | CE0, $N_+=1$, all Vd0, May 25 five-point route. |
 | [`31XX_Nplus1/311X_Vd1_Vd2_obstruction/3110_CE0_Vd1_Vd2_obstruction_index.md`](31XX_Nplus1/311X_Vd1_Vd2_obstruction/3110_CE0_Vd1_Vd2_obstruction_index.md) | Reference | CE0, $N_+=1$, at least one Vd1/Vd2. |
 | [`31XX_Nplus1/312X_T3_like_no_Vd1Vd2/3120_CE0_one_T3_like_area_certificate_index.md`](31XX_Nplus1/312X_T3_like_no_Vd1Vd2/3120_CE0_one_T3_like_area_certificate_index.md) | Reference | CE0, $N_+=1$, T3-like with no Vd1/Vd2. |

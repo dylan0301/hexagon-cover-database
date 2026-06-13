@@ -46,7 +46,7 @@ noncoverage as a standalone route; see
 
 | File | Recorded status | Notes |
 |---|---|---|
-| [`../3XXX_CE0/30XX_Nplus0/3010_CE0_perimeter_length_obstruction.md`](../3XXX_CE0/30XX_Nplus0/3010_CE0_perimeter_length_obstruction.md) | Lemma target | Status source. |
+| [`../3XXX_CE0/30XX_Nplus0/3010_CE0_perimeter_length_obstruction.md`](../3XXX_CE0/30XX_Nplus0/3010_CE0_perimeter_length_obstruction.md) | Proven | Status source. |
 
 ### CE0, $N_+=1$, all Vd0
 

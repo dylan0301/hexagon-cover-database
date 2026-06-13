@@ -6,7 +6,7 @@ Main CE0 branches:
 
 | File | Recorded status | Branch |
 |---|---|---|
-| [`../3XXX_CE0/30XX_Nplus0/3010_CE0_perimeter_length_obstruction.md`](../3XXX_CE0/30XX_Nplus0/3010_CE0_perimeter_length_obstruction.md) | Lemma target | CE0, $N_+=0$, perimeter-length obstruction target. |
+| [`../3XXX_CE0/30XX_Nplus0/3010_CE0_perimeter_length_obstruction.md`](../3XXX_CE0/30XX_Nplus0/3010_CE0_perimeter_length_obstruction.md) | Proven | CE0, $N_+=0$, perimeter-length obstruction. |
 | [`../3XXX_CE0/31XX_Nplus1/310X_all_Vd0_five_point/3101_CE0_all_Vd0_five_point_index.md`](../3XXX_CE0/31XX_Nplus1/310X_all_Vd0_five_point/3101_CE0_all_Vd0_five_point_index.md) | Strategy | CE0, $N_+=1$, all Vd0, five-point and algorithm routes. |
 | [`../3XXX_CE0/31XX_Nplus1/311X_Vd1_Vd2_obstruction/3110_CE0_Vd1_Vd2_obstruction_index.md`](../3XXX_CE0/31XX_Nplus1/311X_Vd1_Vd2_obstruction/3110_CE0_Vd1_Vd2_obstruction_index.md) | Reference | CE0, $N_+=1$, at least one Vd1/Vd2; proven half-skeleton obstruction. |
 | [`../3XXX_CE0/31XX_Nplus1/312X_T3_like_no_Vd1Vd2/3120_CE0_one_T3_like_area_certificate_index.md`](../3XXX_CE0/31XX_Nplus1/312X_T3_like_no_Vd1Vd2/3120_CE0_one_T3_like_area_certificate_index.md) | Reference | CE0, $N_+=1$, T3-like and no Vd1/Vd2; conditional area route. |
