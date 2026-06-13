@@ -59,8 +59,8 @@ $$
 $$
 
 For CE2, the certificate must state whether it assumes the CE2 one-interval
-lemma.  Without that assumption, both CE2 boundary intervals must remain in the
-enumerated center data.
+lemma under the V4 supercritical hypothesis.  Without that assumption, both CE2
+boundary intervals must remain in the enumerated center data.
 
 ## Set-covering certificate
 

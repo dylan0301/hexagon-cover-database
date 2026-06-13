@@ -8,8 +8,7 @@ used by the CE-first proof tree.
 Files:
 
 - [`20XX_V_triangle_geometry/20XX_index.md`](20XX_V_triangle_geometry/20XX_index.md).
-- [`21XX_maximal_triangles/21XX_index.md`](21XX_maximal_triangles/21XX_index.md).
-- [`22XX_midpoint_and_half_skeleton/22XX_index.md`](22XX_midpoint_and_half_skeleton/22XX_index.md).
+- [`21XX_C_triangle_geometry/21XX_index.md`](21XX_C_triangle_geometry/21XX_index.md).
 - [`23XX_ab_union_curves/23XX_index.md`](23XX_ab_union_curves/23XX_index.md).
 - [`25XX_length_bounds/25XX_index.md`](25XX_length_bounds/25XX_index.md).
 - [`26XX_enclosing_triangle_tools/26XX_index.md`](26XX_enclosing_triangle_tools/26XX_index.md).

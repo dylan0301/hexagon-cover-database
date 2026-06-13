@@ -16,8 +16,8 @@ $$
 \mathrm{CE1/CE2}+\text{all six }T_i\text{ are Vd0}+N_+=0 \quad\Longrightarrow\quad \text{boundary-loss contradiction}.
 $$
 
-For CE2, this package still uses the CE2 one-interval reduction assumed in
-`551_setup_and_reduction.md`.
+For CE2, this package still uses the CE2 one-interval lemma under the V4
+supercritical hypothesis.
 
 The branch analysis proves the inequality $F<1$ after reducing to realized
 $B$-map branch pairs. The formerly remaining lower-sheet branches are completed

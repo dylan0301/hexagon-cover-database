@@ -41,7 +41,7 @@ T_C\cap\{M_0,\dots,M_5\}=\{M_0\}, \qquad T_C\text{ has positive-length boundary 
 $$
 
 is recorded in
-[`2113_CE1_M0_e01_maximal_intervals.md`](2113_CE1_M0_e01_maximal_intervals.md).
+[`2102_CE1_M0_e01_maximal_intervals.md`](2102_CE1_M0_e01_maximal_intervals.md).
 
 For this subcase, the maximal feasible intervals are exactly
 
@@ -80,7 +80,7 @@ T_C\cap\{M_0,\dots,M_5\}=\{M_0\}, \qquad T_C\text{ has positive-length boundary 
 $$
 
 is recorded in
-[`2114_CE2_M0_e50_e01_maximal_interval_pairs.md`](2114_CE2_M0_e50_e01_maximal_interval_pairs.md).
+[`2103_CE2_M0_e50_e01_maximal_interval_pairs.md`](2103_CE2_M0_e50_e01_maximal_interval_pairs.md).
 
 Set
 

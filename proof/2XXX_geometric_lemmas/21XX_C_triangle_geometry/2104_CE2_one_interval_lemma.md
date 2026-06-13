@@ -1,11 +1,19 @@
 # CE2 One-Interval Lemma
 
-Status: Target lemma with missing proof obligations
+Status: Lemma target
 
 Normalize a CE2 center triangle so that
 
 $$
 M_4\in T_C.
+$$
+
+Let $T_4$ be the vertex role at $V_4$, and let $(a_4,b_4)$ be its incoming and
+outgoing perimeter row. Assume the skeleton covering has been maximalized and
+that $T_4$ is supercritical:
+
+$$
+a_4+b_4>1.
 $$
 
 Then
@@ -46,7 +54,8 @@ $$
 I_R\subset T_5.
 $$
 
-Equivalently, one of $T_3,T_4,T_5$ includes one CE2 interval.
+Equivalently, in the maximalized skeleton covering, one interval of
+$T_C\cap\partial H$ is covered by adjacent $V$-triangles.
 
 ## Interaction types
 

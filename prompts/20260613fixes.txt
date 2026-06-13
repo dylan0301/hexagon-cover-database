@@ -1,0 +1,15 @@
+look at 22XX folder.
+the only meaningful contents in that is 2203 and 2204.
+and they both are about CE1 or CE2.
+rename 21XX to C triangle geometry and move 2203 and 2204 file in that
+delete the remaining 22XX files and folder.
+also change the content in 2204. the statement of lemma should be that:
+V4 triangle has to be a supercritical triangle.
+ask me questions
+
+2116 has to be the one interval lemma for CE2.
+the supercritical was that if CE2 covers M4 and V4 is supercritical,
+then in the maximal covering of skeleton, one interval of the CE2 intersection with hexagon perimeter is covered by V triangles.
+re put the contents
+
+the 2115 file should be the base for all other files in 21XX. so make it 2100 and change the numbers of others

@@ -15,7 +15,8 @@ $$
 The intended case has:
 
 - $T_C$ is CE1 or CE2.
-- The CE2 one-interval lemma is assumed when reducing CE2 to one active boundary interval.
+- CE2 use of this reduction is conditional on the CE2 one-interval lemma under
+  the V4 supercritical hypothesis.
 - All six $V_i$-triangles are Vd0.
 - The contradiction assumption is
 
@@ -52,7 +53,8 @@ $$
 w>0.
 $$
 
-The same formulas apply to CE2 after using the CE2 one-interval lemma and discarding the $C$-interval already covered by nearby $V$-triangles.
+The same formulas apply to CE2 after using the CE2 one-interval lemma and
+discarding the $C$-interval already covered by nearby $V$-triangles.
 
 ## 3. C-triangle slope parameterization
 

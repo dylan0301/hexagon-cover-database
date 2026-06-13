@@ -6,8 +6,8 @@ Status: Reference
    endpoint, and open-cover cases.
 2. Complete or replace the broad CE1/CE2, $N_+=0$ reduction to the recorded
    all-Vd0 boundary-loss package.
-3. Complete the CE2 one-interval lemma, or explicitly keep every CE2 use
-   conditional on that lemma.
+3. Prove the CE2 one-interval lemma under the V4 supercritical hypothesis, or
+   explicitly keep every CE2 use conditional on that lemma.
 4. Prove the CE0 all-Vd0, $N_+=1$ algorithm-2 route: fixed $V_4$ points,
    diagonal-relaxation containment, limit-shape convexity, and interior
    finite certificate.

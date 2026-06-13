@@ -10,7 +10,8 @@ $$
 \mathrm{CE1/CE2}+\text{all six }V_i\text{ are Vd0}+\text{all }a_i+b_i\le 1 \quad\Longrightarrow\quad \text{boundary-loss contradiction.}
 $$
 
-For CE2 this still uses the CE2 one-interval reduction assumed in `551_setup_and_reduction.md`.
+For CE2 this still uses the CE2 one-interval lemma under the V4 supercritical
+hypothesis.
 
 Equivalently, under the CE1/CE2 reductions recorded here, any successful all-Vd0 covering must have at least one vertex triangle with
 
