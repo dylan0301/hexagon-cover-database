@@ -2,8 +2,7 @@
 
 Status: Strategy / lemma target
 
-This file records the local area function used by the CE0 six-point strategy
-and by the CE1/reduced-CE2 seven-point extension.
+This file records the local area function used by the CE0 six-point strategy.
 
 ## Local vertex data
 
@@ -46,7 +45,7 @@ f(a,b)=f(b,a).
 $$
 
 This symmetry is used in the CE0 conditional certificate in
-`647_CE0_conditional_area_certificate.md`.
+[`3208_CE0_conditional_area_certificate.md`](3208_CE0_conditional_area_certificate.md).
 
 ## Monotonicity
 
@@ -60,8 +59,7 @@ Reason: requiring the unit triangle to contain farther boundary points gives a
 smaller feasible search space.  A maximum over a smaller feasible set cannot
 exceed the maximum over a larger feasible set.
 
-This monotonicity is the basis for the threshold relaxation in
-`644_threshold_relaxation.md`.
+This monotonicity is recorded as local context for $f(a,b)$.
 
 ## Structural conjecture for local maximizers
 
@@ -94,8 +92,8 @@ certify the relevant upper bound for $f(a,b)$.
 ## Square-loss local bounds sufficient for CE0
 
 The conditional CE0 certificate in
-`647_CE0_conditional_area_certificate.md` requires only the following two local
-upper bounds:
+[`3208_CE0_conditional_area_certificate.md`](3208_CE0_conditional_area_certificate.md)
+requires only the following two local upper bounds:
 
 $$
 a+b\le1 \quad\Longrightarrow\quad f(a,b)\le1-\min(a,b)^2,
@@ -121,8 +119,8 @@ $$
 
 These square-loss bounds are not proved in this file.  Once they are proved or
 certified, the CE0 six-point final inequality follows from
-`647_CE0_conditional_area_certificate.md` without using the threshold-relaxation
-route.
+[`3208_CE0_conditional_area_certificate.md`](3208_CE0_conditional_area_certificate.md)
+directly.
 
 ## Area target using $f$
 

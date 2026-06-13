@@ -57,7 +57,7 @@ rows elsewhere.
 ## CE0 area target
 
 For the six vertex triangles, use the local area function $f(a,b)$ from
-`641_area_function_and_monotonicity.md`.
+[`3202_area_function_and_monotonicity.md`](3202_area_function_and_monotonicity.md).
 
 The CE0 area-conjecture target is
 
@@ -74,8 +74,8 @@ cover $H$.
 ## Conditional certificate now available
 
 The final CE0 inequality above is proved in
-`647_CE0_conditional_area_certificate.md` under the following local square-loss
-hypothesis:
+[`3208_CE0_conditional_area_certificate.md`](3208_CE0_conditional_area_certificate.md)
+under the following local square-loss hypothesis:
 
 $$
 a+b\le1 \quad\Longrightarrow\quad f(a,b)\le1-\min(a,b)^2,
@@ -93,30 +93,16 @@ $$
 \left\lvert \left\lbrace\, i : a_i+b_i>1 \,\right\rbrace \right\rvert\ge2 \quad\Longrightarrow\quad \sum_{i=0}^5 f(a_i,b_i)<\frac{99}{20}<5.
 $$
 
-This conditional certificate replaces the need for the threshold relaxation in
-the CE0 six-point subcase once the displayed local square-loss bounds are
-proved or otherwise certified.  It does not prove those local bounds.
-
-## Why this is separate from CE1/CE2
-
-The CE0 model has six perimeter cut points because $T_C$ contributes no
-positive-length boundary interval.
-
-The CE1 and reduced-CE2 model has seven perimeter cut points because one edge
-cut point is replaced by the two endpoints of an active $C$-only boundary
-interval.  That extension is recorded separately in
-`643_CE1_CE2_seven_point_extension.md`.
+It does not prove those local bounds.
 
 ## Main proof obligations
 
-After `647_CE0_conditional_area_certificate.md`, the CE0 six-point target
-requires only the local input needed by that certificate:
+After
+[`3208_CE0_conditional_area_certificate.md`](3208_CE0_conditional_area_certificate.md),
+the CE0 six-point target requires only the local input needed by that
+certificate:
 
 1. prove or certify the square-loss local upper bounds for $f(a,b)$ stated
    above; or
 2. prove a structural formula for $f(a,b)$ that implies those square-loss
    bounds.
-
-The older pointwise threshold-bound route in `644_threshold_relaxation.md`
-remains recorded as a strategy, but it is no longer needed for the conditional
-CE0 certificate if the square-loss local bounds are supplied.

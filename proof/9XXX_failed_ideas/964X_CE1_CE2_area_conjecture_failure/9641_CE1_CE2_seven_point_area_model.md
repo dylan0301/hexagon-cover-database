@@ -1,12 +1,13 @@
-# CE1/CE2 Seven-Point Extension
+# CE1/CE2 Seven-Point Area Model
 
-Status: Strategy
+Status: Failed
 
-This file records the perimeter-coordinate reduction used by the area
-conjecture strategy after the main CE0 six-point case.
+This file archives the seven-point perimeter-coordinate model from the failed
+CE1/reduced-CE2 area-conjecture route.
 
-This is not the main target of the package.  The main target is the CE0
-six-point model in `642_CE0_six_point_main_target.md`.
+This is not a live proof route.  The successful area certificate in the current
+proof tree is the CE0 six-point conditional certificate in
+[`../../3XXX_CE0/32XX_Nplus_ge2/3208_CE0_conditional_area_certificate.md`](../../3XXX_CE0/32XX_Nplus_ge2/3208_CE0_conditional_area_certificate.md).
 
 ## CE1 normalization
 
@@ -72,24 +73,15 @@ This file does not prove the CE2 one-interval lemma.  Without that reduction,
 full CE2 has two active $C$ boundary intervals and the honest perimeter model
 has more cut data than this seven-point package records.
 
-## Area inequality target
+## Failed area target
 
-For a fixed seven-point configuration, the CE1/reduced-CE2 extension uses the
-same vertex-area target as the CE0 case:
+For a fixed seven-point configuration, the failed route tried to use the same
+vertex-area target as the CE0 case:
 
 $$
 \left\lvert \left\lbrace\, i : a_i+b_i>1 \,\right\rbrace \right\rvert\ge2 \quad\Longrightarrow\quad \sum_{i=0}^5 f(a_i,b_i)<5.
 $$
 
-Only the formulas for the rows $(a_i,b_i)$ differ from CE0.  If the displayed
-strict inequality is proved, the six vertex triangles contribute less than five
-unit-triangle areas inside $H$.  The center triangle contributes at most one
-unit-triangle area, so the seven triangles contribute less than the area of
-$H$.
-
-The threshold relaxation from `644_threshold_relaxation.md` applies row by row
-in the same way as in CE0:
-
-$$
-a_i+b_i\ge1+\varepsilon \quad\Longrightarrow\quad f(a_i,b_i)\le f(a_i,1+\varepsilon-a_i).
-$$
+Only the formulas for the rows $(a_i,b_i)$ differ from CE0.  The displayed
+strict inequality is not certified in this repository and should not be used as
+a CE1/CE2 proof route.

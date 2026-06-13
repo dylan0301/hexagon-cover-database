@@ -4,10 +4,11 @@ Status: Proven analytic inequality
 
 This file proves the final CE0 six-point area inequality under explicit local
 square-loss upper bounds for the area function `f(a,b)` from
-`641_area_function_and_monotonicity.md`.
+[`3202_area_function_and_monotonicity.md`](3202_area_function_and_monotonicity.md).
 
 It does **not** prove those local upper bounds.  The local bounds remain a
-separate proof obligation, recorded in `646_current_status.md`.
+separate proof obligation, recorded in
+[`3207_current_status.md`](3207_current_status.md).
 
 ## Local square-loss hypothesis
 
@@ -56,13 +57,14 @@ $$
 a+b>1 \quad\Longrightarrow\quad g(a,b)\ge\max(a,b)^2.
 $$
 
-The proof below does not use the $\varepsilon$-threshold relaxation or any
-global replacement map from `644_threshold_relaxation.md`.
+The proof below uses only the square-loss hypothesis and the CE0 six-point row
+formulas.
 
 ## CE0 six-point notation
 
 Use the CE0 six-point perimeter model from
-`642_CE0_six_point_main_target.md`.  Thus one cut point is chosen on each edge:
+[`3203_CE0_six_point_main_target.md`](3203_CE0_six_point_main_target.md).
+Thus one cut point is chosen on each edge:
 
 $$
 X_i=V_i+x_i(V_{i+1}-V_i), \qquad 0\le x_i\le1, \qquad i=0,\dots,5,
@@ -339,14 +341,13 @@ $H$.
 
 This file depends on:
 
-- the definition of $f(a,b)$ in `641_area_function_and_monotonicity.md`;
-- the CE0 row formulas in `642_CE0_six_point_main_target.md`;
+- the definition of $f(a,b)$ in
+  [`3202_area_function_and_monotonicity.md`](3202_area_function_and_monotonicity.md);
+- the CE0 row formulas in
+  [`3203_CE0_six_point_main_target.md`](3203_CE0_six_point_main_target.md);
 - the local square-loss hypothesis stated above.
 
 This file does not prove:
 
 - the local square-loss hypothesis;
-- the structural conjecture for local maximizers $T(a,b)$;
-- the CE1 seven-point extension;
-- the reduced-CE2 seven-point extension;
-- the CE2 one-interval lemma.
+- the structural conjecture for local maximizers $T(a,b)$.
