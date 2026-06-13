@@ -7,5 +7,5 @@ targets used by the CE branches.
 
 | File | Recorded status | Notes |
 |---|---|---|
-| [`2500_boundary_length_bounds.md`](2500_boundary_length_bounds.md) | Lemma target | Boundary length bounds. |
-| [`2510_skeleton_length_bounds.md`](2510_skeleton_length_bounds.md) | Lemma target | Skeleton length bounds. |
+| [`2500_boundary_length_bounds.md`](2500_boundary_length_bounds.md) | Practically proven | Boundary length bounds. |
+| [`2510_skeleton_length_bounds.md`](2510_skeleton_length_bounds.md) | Practically proven | Skeleton length bounds. |

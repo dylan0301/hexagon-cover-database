@@ -68,6 +68,8 @@ Keep these distinctions intact:
 
 - `Definition`: exact convention or mathematical definition.
 - `Lemma target`: useful but not fully proved here.
+- `Practically proven`: proof is known and the statement may be used as a
+  working dependency, but the complete written proof is not recorded here.
 - `Strategy`: active proof direction.
 - `Empirical`: supported by computation or plotting only.
 - `Failed`: known insufficient or abandoned approach.

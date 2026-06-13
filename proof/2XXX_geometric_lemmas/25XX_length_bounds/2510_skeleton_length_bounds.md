@@ -1,6 +1,6 @@
 # Skeleton-Length Obstruction for CE1/CE2 with at Least Two Supercritical $V$-Triangles
 
-Status: Lemma target
+Status: Practically proven
 
 ## Statement
 

@@ -1,6 +1,6 @@
 # Boundary Length Bounds
 
-Status: Lemma target
+Status: Practically proven
 
 This file records the local boundary-length bounds needed by the proof-tree
 branches that try to close by perimeter length.

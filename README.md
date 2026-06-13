@@ -101,6 +101,8 @@ Important labels:
 - `Proven`: complete proof in the file or explicitly referenced files.
 - `Proven local lemma`: complete local proof used as a component.
 - `Proven analytic inequality`: complete inequality proof.
+- `Practically proven`: proof is known and the statement may be used as a
+  working dependency, but the complete written proof is not recorded here.
 - `Lemma target`: useful statement whose proof is not complete here.
 - `Strategy`: active proof direction.
 - `Empirical`: supported by computation or plotting only.
