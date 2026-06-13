@@ -51,7 +51,9 @@ $$
 F=B_5+B_1.
 $$
 
-The reduction in `551_setup_and_reduction.md` shows that $F<1$ gives the boundary contradiction: the portion left for $V_2,V_3,V_4$ has length $4-F>3$, while
+The reduction in
+[`4014_setup_and_reduction.md`](4014_setup_and_reduction.md)
+(Status: Strategy with proven reduction) shows that $F<1$ gives the boundary contradiction: the portion left for $V_2,V_3,V_4$ has length $4-F>3$, while
 
 $$
 (a_2+b_2)+(a_3+b_3)+(a_4+b_4)\le3.
@@ -63,16 +65,23 @@ $$
 F<1.
 $$
 
-Branch labels use the corrected maximal meaning from `552_B_map_branch_realization.md`: a branch label means the value of $B(a,c)$ is actually realized as the maximal admissible $b$, not merely that a formal algebraic root exists.
+Branch labels use the corrected maximal meaning from
+[`4015_B_map_branch_realization.md`](4015_B_map_branch_realization.md)
+(Status: Definition with proven local branch-realization lemmas): a branch label means the value of $B(a,c)$ is actually realized as the maximal admissible $b$, not merely that a formal algebraic root exists.
 
 ## Files
 
-- `551_setup_and_reduction.md`: target, notation, C-triangle parameterization, and reduction to $F<1`.
-- `552_B_map_branch_realization.md`: corrected definition of $B(a,c)$ and branch-realization conditions.
-- `553_proven_branch_lemmas.md`: previously proved branch lemmas.
-- `554_remaining_Tplus_obligations.md`: historical record of the lower-sheet obligations and failed approaches; superseded by `556_lower_sheet_completion_proofs.md` for proof status.
-- `555_computational_verification.md`: numerical checks, interval-certificate status, and code references.
-- `556_lower_sheet_completion_proofs.md`: analytic proofs of the formerly remaining lower-sheet branches $(T_+^{lo},T_-)$, $(T_+^{lo},T_+^{hi})$, and $(T_+^{lo},T_+^{lo})$.
+| File | Recorded status | Notes |
+|---|---|---|
+| [`4011_CE1_boundary_loss_package.md`](4011_CE1_boundary_loss_package.md) | Reference | Package overview. |
+| [`4012_remaining_reductions_to_all_Vd0.md`](4012_remaining_reductions_to_all_Vd0.md) | Strategy | Remaining reductions to all Vd0. |
+| [`4014_setup_and_reduction.md`](4014_setup_and_reduction.md) | Strategy with proven reduction | Target, notation, C-triangle parameterization, and reduction to $F<1$. |
+| [`4015_B_map_branch_realization.md`](4015_B_map_branch_realization.md) | Definition with proven local branch-realization lemmas | Corrected definition of $B(a,c)$ and branch-realization conditions. |
+| [`4016_proven_branch_lemmas.md`](4016_proven_branch_lemmas.md) | Proven local lemmas, with remaining branches recorded elsewhere | Previously proved branch lemmas. |
+| [`4017_remaining_Tplus_obligations.md`](4017_remaining_Tplus_obligations.md) | Reference / superseded | Historical record of the lower-sheet obligations and failed approaches; superseded by [`4019_lower_sheet_completion_proofs.md`](4019_lower_sheet_completion_proofs.md) for proof status. |
+| [`4018_computational_verification.md`](4018_computational_verification.md) | Empirical / certificate support, with lower-sheet observations superseded by proof | Numerical checks, interval-certificate status, and code references. |
+| [`4019_lower_sheet_completion_proofs.md`](4019_lower_sheet_completion_proofs.md) | Proven local lemma | Analytic proofs of the formerly remaining lower-sheet branches $(T_+^{lo},T_-)$, $(T_+^{lo},T_+^{hi})$, and $(T_+^{lo},T_+^{lo})$. |
+| [`409X_experiments/4090_README.md`](409X_experiments/4090_README.md) | Computational helpers | Experiment helpers for the package. |
 
 ## Current status
 
@@ -93,4 +102,6 @@ Proved or eliminated in this package:
 - $(T_+^{lo},T_+^{hi})$.
 - $(T_+^{lo},T_+^{lo})$.
 
-No realized branch pair remains open for the boundary-loss inequality $F<1$ under the assumptions of `551_setup_and_reduction.md`.
+No realized branch pair remains open for the boundary-loss inequality $F<1$ under the assumptions of
+[`4014_setup_and_reduction.md`](4014_setup_and_reduction.md)
+(Status: Strategy with proven reduction).

@@ -69,10 +69,12 @@ obligation recorded in `../../32XX_Nplus_ge2/3207_current_status.md`.
 ### Input 2: full T3-like tangent-envelope conjecture
 
 The local T3-like input is the no-midpoint tangent-envelope conjecture stated in
-`651_full_T3_like_tangent_envelope_conjecture.md`.
+[`3122_full_T3_like_tangent_envelope_conjecture.md`](3122_full_T3_like_tangent_envelope_conjecture.md)
+(Status: Lemma target).
 
 That conjecture implies the proved analytic loss bound in
-`652_T3_like_loss_from_envelope.md`:
+[`3123_T3_like_loss_from_envelope.md`](3123_T3_like_loss_from_envelope.md)
+(Status: Proven analytic inequality conditional on local envelope):
 
 $$
 a,b\ge m \quad\Longrightarrow\quad
@@ -88,7 +90,8 @@ $$
 ## Main conditional theorem
 
 Under the two local inputs above, the main theorem in
-`653_CE0_one_supercritical_T3_certificate.md` proves:
+[`3124_CE0_one_supercritical_T3_certificate.md`](3124_CE0_one_supercritical_T3_certificate.md)
+(Status: Proven analytic inequality conditional on local inputs) proves:
 
 $$
 \boxed{
@@ -109,20 +112,13 @@ than the normalized area $6$ of $H$.
 
 ## Files
 
-- `651_full_T3_like_tangent_envelope_conjecture.md`
-  - States the no-midpoint T3-like tangent-envelope conjecture and derives the
-    candidate tangent branch formulas.
-- `652_T3_like_loss_from_envelope.md`
-  - Proves the analytic consequences of the tangent envelope needed globally:
-    nonsupercriticality and the loss bound $G_{\mathrm{T3}}\ge2m-4m^2$.
-- `653_CE0_one_supercritical_T3_certificate.md`
-  - Proves the CE0 one-supercritical T3-like area contradiction under the two
-    local inputs.
-- `654_failures_and_open_obligations.md`
-  - Records the precise failure modes and remaining proof obligations.
-- `655_numerical_verification_protocol.md`
-  - Records an independent numerical verification plan for the local envelope
-    and the global inequality.
+| File | Recorded status | Notes |
+|---|---|---|
+| [`3122_full_T3_like_tangent_envelope_conjecture.md`](3122_full_T3_like_tangent_envelope_conjecture.md) | Lemma target | States the no-midpoint T3-like tangent-envelope conjecture and derives the candidate tangent branch formulas. |
+| [`3123_T3_like_loss_from_envelope.md`](3123_T3_like_loss_from_envelope.md) | Proven analytic inequality conditional on local envelope | Proves the analytic consequences of the tangent envelope needed globally: nonsupercriticality and the loss bound $G_{\mathrm{T3}}\ge2m-4m^2$. |
+| [`3124_CE0_one_supercritical_T3_certificate.md`](3124_CE0_one_supercritical_T3_certificate.md) | Proven analytic inequality conditional on local inputs | Proves the CE0 one-supercritical T3-like area contradiction under the two local inputs. |
+| [`3125_failures_and_open_obligations.md`](3125_failures_and_open_obligations.md) | Reference | Records the precise failure modes and remaining proof obligations. |
+| [`3126_CE0_no_Vd1_Vd2_with_T3_like.md`](3126_CE0_no_Vd1_Vd2_with_T3_like.md) | Strategy / incomplete | Records the separate directed-graph strategy for CE0 with no Vd1/Vd2 and at least one T3-like row. |
 
 ## Status warning
 

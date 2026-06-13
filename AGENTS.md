@@ -141,6 +141,10 @@ explanations, or speculative commentary.
 
 When adding links, use relative Markdown links to existing files.
 
+Index and navigation files must not use bare file-reference lists. When they
+list files or linked packages, use a Markdown table with a status column next
+to each file or package, inheriting the status from the cited source file.
+
 ## 6. Protect Mathematical Meaning
 
 When editing mathematical statements:

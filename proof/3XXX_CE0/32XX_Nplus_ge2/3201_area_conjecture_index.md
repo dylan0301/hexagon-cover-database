@@ -21,7 +21,8 @@ for the local maximizer $T(a,b)$, or the CE2 one-interval lemma.  It now records
 a conditional CE0 analytic certificate: if the local square-loss bounds for
 $f(a,b)$ are supplied, then the CE0 six-point target with at least two
 supercritical rows follows.  That conditional certificate is in
-`647_CE0_conditional_area_certificate.md`.
+[`3208_CE0_conditional_area_certificate.md`](3208_CE0_conditional_area_certificate.md)
+(Status: Proven analytic inequality).
 
 The shared area-conjecture target is:
 
@@ -61,7 +62,9 @@ inside $H$.  The remaining center triangle contributes at most one
 unit-triangle area, so the seven triangles contribute less than the area of
 $H$.
 
-The conditional CE0 certificate in `647_CE0_conditional_area_certificate.md`
+The conditional CE0 certificate in
+[`3208_CE0_conditional_area_certificate.md`](3208_CE0_conditional_area_certificate.md)
+(Status: Proven analytic inequality)
 proves the stronger bound
 
 $$
@@ -72,21 +75,12 @@ under the local square-loss hypothesis stated there.
 
 ## Files
 
-- `641_area_function_and_monotonicity.md`
-  - Defines $f(a,b)$, records monotonicity, and states the structural
-    conjecture for the local maximizing triangle.
-- `642_CE0_six_point_main_target.md`
-  - Defines the main CE0 six-point perimeter model and its area target.
-- `643_CE1_CE2_seven_point_extension.md`
-  - Defines the CE1/reduced-CE2 seven perimeter cut points and the induced rows
-    $(a_i,b_i)$.
-- `644_threshold_relaxation.md`
-  - Records the pointwise threshold bound for rows with
-    $a_i+b_i\ge1+\varepsilon$ and the unchecked global replacement formulation.
-- `645_proof_tree.md`
-  - Records the proof-tree structure for the shared target.
-- `646_current_status.md`
-  - Lists dependencies, open obligations, and what is not yet proved.
-- `647_CE0_conditional_area_certificate.md`
-  - Proves the CE0 six-point inequality under the local square-loss hypothesis
-    for $f(a,b)$.
+| File | Recorded status | Notes |
+|---|---|---|
+| [`3202_area_function_and_monotonicity.md`](3202_area_function_and_monotonicity.md) | Strategy / lemma target | Defines $f(a,b)$, records monotonicity, and states the structural conjecture for the local maximizing triangle. |
+| [`3203_CE0_six_point_main_target.md`](3203_CE0_six_point_main_target.md) | Strategy | Defines the main CE0 six-point perimeter model and its area target. |
+| [`3204_CE1_CE2_seven_point_extension_reference.md`](3204_CE1_CE2_seven_point_extension_reference.md) | Strategy | Defines the CE1/reduced-CE2 seven perimeter cut points and the induced rows $(a_i,b_i)$. |
+| [`3205_threshold_relaxation.md`](3205_threshold_relaxation.md) | Strategy | Records the pointwise threshold bound for rows with $a_i+b_i\ge1+\varepsilon$ and the unchecked global replacement formulation. |
+| [`3206_area_conjecture_proof_tree.md`](3206_area_conjecture_proof_tree.md) | Reference / strategy | Records the proof-tree structure for the shared target. |
+| [`3207_current_status.md`](3207_current_status.md) | Reference | Lists dependencies, open obligations, and what is not yet proved. |
+| [`3208_CE0_conditional_area_certificate.md`](3208_CE0_conditional_area_certificate.md) | Proven analytic inequality | Proves the CE0 six-point inequality under the local square-loss hypothesis for $f(a,b)$. |

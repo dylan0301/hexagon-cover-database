@@ -4,7 +4,9 @@ Status: Strategy
 
 This folder records the May 25 five-point obstruction target imported from:
 
-- [`dylan0301/hexagon-cover-visual/proof2/conj0525-reduction-prompt.md`](https://github.com/dylan0301/hexagon-cover-visual/blob/gulgu/proof2/conj0525-reduction-prompt.md)
+| Source | Recorded status | Notes |
+|---|---|---|
+| [`dylan0301/hexagon-cover-visual/proof2/conj0525-reduction-prompt.md`](https://github.com/dylan0301/hexagon-cover-visual/blob/gulgu/proof2/conj0525-reduction-prompt.md) | External source | Imported May 25 source prompt. |
 
 It concerns the reduced slice
 
@@ -26,8 +28,11 @@ $$
 
 The exact nondegenerate strict $AB$-union frontier formula for this local
 region, including the two unit-circle arcs and two line segments, is recorded
-in
-[../../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009_ab_union_curve_a_plus_b_gt_1.md](../../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009_ab_union_curve_a_plus_b_gt_1.md).
+in:
+
+| File | Recorded status | Notes |
+|---|---|---|
+| [../../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009_ab_union_curve_a_plus_b_gt_1.md](../../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009_ab_union_curve_a_plus_b_gt_1.md) | Reference / exact formula | Strict $AB$-union frontier formula. |
 
 while
 
@@ -82,28 +87,26 @@ This package does not prove the May 25 conjecture.  It records the precise
 target, branch choices, diagonal endpoint issues, and proof obligations.
 The June 3 one-critical neighbor-envelope strategy for simplifying the
 diagonal endpoint functions is recorded in
-[`3125_one_critical_neighbor_envelope_strategy.md`](3125_one_critical_neighbor_envelope_strategy.md).
+[`3125_one_critical_neighbor_envelope_strategy.md`](3125_one_critical_neighbor_envelope_strategy.md)
+(Status: Strategy).
 
 ## Skeleton-target caveat
 
 The source prompt describes a historical global obstruction for the full
 skeleton $S$.  In this repository, standalone noncoverage of $S$ is refuted by
 the May 24 numerical counterexample in
-`../../../../9XXX_failed_ideas/908X_skeleton_cover_counterexample/9081_skeleton_cover_counterexample.md`.
+[`../../../../9XXX_failed_ideas/908X_skeleton_cover_counterexample/9081_skeleton_cover_counterexample.md`](../../../../9XXX_failed_ideas/908X_skeleton_cover_counterexample/9081_skeleton_cover_counterexample.md)
+(Status: Empirical).
 
 Thus this folder should be read only as a focused conditional finite-point
 target, not as a proof of full-skeleton noncoverage.
 
 ## Files
 
-- `3121_reduction_prompt_spec.md`
-  - Self-contained May 25 reduced-slice specification in repository notation.
-- `3122_five_point_target_and_obligations.md`
-  - The conjectural five-point inequality and proof obligations.
-- `3123_branch_and_diagonal_case_notes.md`
-  - Branch-selection and diagonal-cut notes for $P_3$, $P_5$, and $D_j$.
-- `3124_current_status.md`
-  - Short status table and exact unresolved gaps.
-- `3125_one_critical_neighbor_envelope_strategy.md`
-  - Strategy note for replacing the local radial/neighbor maximum defining
-    $D_j$ by a four-variable max-free envelope.
+| File | Recorded status | Notes |
+|---|---|---|
+| [`3121_reduction_prompt_spec.md`](3121_reduction_prompt_spec.md) | Reference | Self-contained May 25 reduced-slice specification in repository notation. |
+| [`3122_five_point_target_and_obligations.md`](3122_five_point_target_and_obligations.md) | Lemma target | The conjectural five-point inequality and proof obligations. |
+| [`3123_branch_and_diagonal_case_notes.md`](3123_branch_and_diagonal_case_notes.md) | Strategy | Branch-selection and diagonal-cut notes for $P_3$, $P_5$, and $D_j$. |
+| [`3124_current_status.md`](3124_current_status.md) | Reference | Short status table and exact unresolved gaps. |
+| [`3125_one_critical_neighbor_envelope_strategy.md`](3125_one_critical_neighbor_envelope_strategy.md) | Strategy | Strategy note for replacing the local radial/neighbor maximum defining $D_j$ by a four-variable max-free envelope. |
