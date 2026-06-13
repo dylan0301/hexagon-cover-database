@@ -25,3 +25,12 @@ do we need the folder? tell me.
 2702 folder can be inside the  enclosing triangle folder 26XX
 
 also delete 2702 since it is in 9013. don't move it into 26XX
+
+inside 2500 file,
+- CE0 doesn't cover boundary by definition
+- CE1/CE2 covers at most 1/2 of boundary
+- Vd0 with $a+b\le1$ covers at most $1$ by definition;
+- Vd0 with $a+b>1$ covers at most $2/sqrt3$;
+- Vd1/Vd2 covers at most $1/2$;
+- T3-like covers at most $1$.
+add these. think about the proofs, because most of them are trivial
