@@ -42,10 +42,10 @@ Assume:
 
 Assume the following center-triangle skeleton cap:
 
-> **Center cap.** Every exact-$M_0$ CE1/CE2 center triangle satisfies
-> $$
-> L_S(T_C):=\mathcal H^1(T_C\cap S)<\frac32.
-> $$
+**Center cap.** Every exact-$M_0$ CE1/CE2 center triangle satisfies
+$$
+L_S(T_C):=\mathcal H^1(T_C\cap S)<\frac32.
+$$
 
 Then the seven triangles cannot cover $S$.
 
@@ -144,11 +144,11 @@ $$
 
 Assume the following unrestricted translated-center cap:
 
-> For any regular side-$1$ hexagon $K$, every CE1/CE2 center triangle $T$ satisfies
-> $$
-> L_{S(K)}(T)<\frac32,
-> $$
-> where $S(K)$ is the skeleton of $K$.
+For any regular side-$1$ hexagon $K$, every CE1/CE2 center triangle $T$ satisfies
+$$
+L_{S(K)}(T)<\frac32,
+$$
+where $S(K)$ is the skeleton of $K$.
 
 Then every $V_i$-triangle of type Vd1, Vd2, or T3-like satisfies
 $$
