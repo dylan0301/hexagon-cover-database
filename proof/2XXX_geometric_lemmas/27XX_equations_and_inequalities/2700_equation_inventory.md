@@ -51,6 +51,6 @@ a+b>1, \qquad a^2+ab+b^2<1
 $$
 
 is recorded with full piecewise equations in
-[`../23XX_ab_union_curves/2300_ab_union_curve_a_plus_b_gt_1.md`](../23XX_ab_union_curves/2300_ab_union_curve_a_plus_b_gt_1.md).
+[`../20XX_V_triangle_geometry/2009_ab_union_curve_a_plus_b_gt_1.md`](../20XX_V_triangle_geometry/2009_ab_union_curve_a_plus_b_gt_1.md).
 
 It consists of two unit-circle arcs and two line segments.

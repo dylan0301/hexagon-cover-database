@@ -19,8 +19,8 @@ Status: Reference
 ```
 
 Use the `20XX`, `21XX`, `22XX`, ... geometric lemma subfolders for reusable
-local facts. V-triangle capacity formulas live in `20XX_V_triangle_geometry`;
-the `23XX_ab_union_curves` folder remains separate.
+local facts. V-triangle capacity formulas and the $AB$-union curve live in
+`20XX_V_triangle_geometry`.
 
 ## For CE0
 

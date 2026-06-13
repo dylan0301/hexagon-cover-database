@@ -1,8 +1,29 @@
-# $AB$-Union Curve for $a+b>1$
+# $AB$-Union Set And Strict Curve
 
 Status: Reference / exact formula
 
-This file records the exact local $AB$-union frontier in the strict branch
+Let $A,O,B$ be three points with angle $120^\circ$ at $O$. Put
+
+$$
+A=ae_A,\qquad B=be_B,
+$$
+
+where $e_A$ and $e_B$ are unit directions with angle $120^\circ$, and let
+
+$$
+C=\{ue_A+ve_B:u\ge0,\ v\ge0\}.
+$$
+
+The local $AB$-union set is
+
+$$
+\mathcal U_{AB}(a,b)=C\cap\bigcup\{T:T\text{ is a closed unit equilateral triangle and }O,A,B\in T\}.
+$$
+
+If no such triangle exists, this union is empty.
+
+This file records the exact non-axis frontier of $\mathcal U_{AB}(a,b)$ only
+in the strict branch
 
 $$
 a+b>1, \qquad \rho=a^2+ab+b^2<1.

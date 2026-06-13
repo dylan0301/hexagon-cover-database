@@ -108,7 +108,7 @@ Strategic caveat: although $R(a,b)$ is formally defined for all local values, th
 
 For the nondegenerate strict frontier formula, with its two unit-circle arcs
 and two line segments, see
-[../../2XXX_geometric_lemmas/23XX_ab_union_curves/2300_ab_union_curve_a_plus_b_gt_1.md](../../2XXX_geometric_lemmas/23XX_ab_union_curves/2300_ab_union_curve_a_plus_b_gt_1.md).
+[../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009_ab_union_curve_a_plus_b_gt_1.md](../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009_ab_union_curve_a_plus_b_gt_1.md).
 In the local predicate below, the two axis lengths are $\alpha$ and $\beta$.
 
 ## 4. Exact local predicate for $R(a,b)$

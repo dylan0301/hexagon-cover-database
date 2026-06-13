@@ -64,7 +64,7 @@ where $C_2$ and $C_5$ are full radius-$1$ circles, and the boundary is the non-a
 
 The exact nondegenerate strict $AB$-union frontier formula for this boundary is
 recorded in
-[../../2XXX_geometric_lemmas/23XX_ab_union_curves/2300_ab_union_curve_a_plus_b_gt_1.md](../../2XXX_geometric_lemmas/23XX_ab_union_curves/2300_ab_union_curve_a_plus_b_gt_1.md).
+[../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009_ab_union_curve_a_plus_b_gt_1.md](../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009_ab_union_curve_a_plus_b_gt_1.md).
 
 ## 3. Monotonicity intuition
 

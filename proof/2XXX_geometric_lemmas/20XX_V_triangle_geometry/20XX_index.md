@@ -9,3 +9,4 @@ local midpoint targets used by the CE-first proof tree.
 - [`2005_midpoint_self_cover_lemma.md`](2005_midpoint_self_cover_lemma.md)
 - [`2006_T3_like_midpoint_lemma.md`](2006_T3_like_midpoint_lemma.md)
 - [`2008_neighbor_ray_max_c_formula.md`](2008_neighbor_ray_max_c_formula.md)
+- [`2009_ab_union_curve_a_plus_b_gt_1.md`](2009_ab_union_curve_a_plus_b_gt_1.md)
