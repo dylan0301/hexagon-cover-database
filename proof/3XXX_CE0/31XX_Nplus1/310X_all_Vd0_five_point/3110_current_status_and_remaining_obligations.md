@@ -18,8 +18,8 @@ This file summarizes the state of the CE0, $N_+=1$, all-Vd0 algorithm-2 route af
 
 | Component | File | Recorded status | Notes |
 |---|---|---|---|
-| Algorithm-2 transition strip | [`3109_algorithm2_transition_strip_certificate.md`](3109_algorithm2_transition_strip_certificate.md) | Empirical / certificate outline | Records interval constants and an interpolation scheme; verifier code or certificate data is not included. |
-| Numerical away-region behavior | [`3109_algorithm2_transition_strip_certificate.md`](3109_algorithm2_transition_strip_certificate.md) | Empirical / certificate outline | The lowest recorded dangerous value is $1.0031590223\ldots$ at $p=0.1$ and $T=0$. |
+| Algorithm-2 transition strip | [`3109_algorithm2_transition_strip_certificate.md`](3109_algorithm2_transition_strip_certificate.md) | Empirical | Records interval constants and an interpolation scheme; verifier code or certificate data is not included. |
+| Numerical away-region behavior | [`3109_algorithm2_transition_strip_certificate.md`](3109_algorithm2_transition_strip_certificate.md) | Empirical | The lowest recorded dangerous value is $1.0031590223\ldots$ at $p=0.1$ and $T=0$. |
 
 ## Still Open
 
