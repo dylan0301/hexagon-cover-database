@@ -8,67 +8,72 @@ $$
 T_C\text{ is CE0},\quad N_+=1,\quad\text{all }T_i\text{ are Vd0}\quad\Longrightarrow\quad\text{finite-point obstruction}.
 $$
 
-The assembly must combine:
+This file is not a proof. It records the dependency structure and current obligations for the intended proof.
 
-- the fixed points from the $V_4$ strict $AB$-union frontier;
-- the three algorithm-2 diagonal points;
-- the limit-shape convexity proof outside the central parameter region;
-- the interior finite certificate inside the central parameter region.
+## Current Dependency Table
 
-This file is not a proof. It records the dependency structure and current
-obligations for the intended proof.
+| Component | Recorded status | Source | Obligation |
+|---|---|---|---|
+| Algorithm-2 setup and point construction | Empirical strategy | [`3102_algorithm2_setup_and_point_construction.md`](3102_algorithm2_setup_and_point_construction.md) | Define the relaxed obstruction region exactly and prove point containment for all allowed parameters. |
+| Strict $P_3,P_5$ line realization | Proven local lemma | [`3105_strict_branch_line_realization.md`](3105_strict_branch_line_realization.md) | Treat the limiting boundary $\rho=1$ separately. |
+| Algorithm-2 two-variable model | Proven local lemma | [`3106_algorithm2_two_variable_transition.md`](3106_algorithm2_two_variable_transition.md) | Depends on the still-open equalities $a_3+b_3=1$ and $a_5+b_5=1$. |
+| Algorithm-1 tangent gap | Proven analytic inequality | [`3107_algorithm1_limit_tangent_gap.md`](3107_algorithm1_limit_tangent_gap.md) | Add a finite-$x$ remainder bound for the near-limit region. |
+| Convex cyclic order | Proven local lemma | [`3108_convex_order_from_line_branches.md`](3108_convex_order_from_line_branches.md) | Uses strict line realization and the algorithm-2 diagonal model. |
+| Transition-strip certificate | Empirical / certificate outline | [`3109_algorithm2_transition_strip_certificate.md`](3109_algorithm2_transition_strip_certificate.md) | Add verifier code or exact certificate data for the interval enclosures. |
+| Current status ledger | Reference | [`3110_current_status_and_remaining_obligations.md`](3110_current_status_and_remaining_obligations.md) | Tracks remaining open tasks. |
 
-## Status Table
+## Assembly Target
 
-| Component | Recorded status | Obligation |
-|---|---|---|
-| Algorithm-2 setup and point construction | Empirical strategy | Define the relaxed obstruction region exactly and prove point containment for all allowed parameters. |
-| Limit-shape convexity target | Lemma target | Prove convexity outside the central parameter region after fixing exact parameter ranges and active support regimes. |
-| Interior box certificate target | Empirical | Replace numerical success inside the central parameter box by a finite certified cover. |
-| Algorithm-2 assembly target | Lemma target | Combine point construction, limit-shape convexity, and interior certificate into the branch obstruction. |
+The intended proof must combine:
 
-## Limit-Shape Convexity Target
+| Input | Current status |
+|---|---|
+| Fixed $V_4$ points from the strict $AB$-union frontier | Strict line-piece branch proved for $\rho<1$; boundary $\rho=1$ open. |
+| Three algorithm-2 diagonal points | Two-variable construction proved under equality assumptions; containment in the relaxed obstruction region open. |
+| Near-limit treatment | Algorithm-1 tangent gap proved; finite-$x$ bound open. |
+| Away-region treatment | Transition strip has a certificate outline; region $p\ge0.15$ remains open. |
+| Full branch reduction | Slack/equality reduction to $a_3+b_3=a_5+b_5=1$ remains open. |
 
-The sketch suggests that when either $a_4$ or $b_4$ lies outside the interval
+## Transition-Strip Target
 
-$$
-[0.1,0.9],
-$$
-
-the algorithm-2 enclosing-side function behaves like a limit-shape problem and
-is convex in the remaining free variable. The intended reason is that the
-orientation of the minimum enclosing triangle appears not to change in this
-region.
-
-A proof of this target must:
-
-- state the exact parameter ranges replacing the empirical decimal bounds if
-  sharper rational or algebraic bounds are needed;
-- identify the active support pattern of the minimum enclosing triangle;
-- prove the orientation does not change on the whole region;
-- prove the resulting one-variable convexity inequality.
-
-Until such a proof is recorded, this remains a lemma target.
-
-## Interior Box Certificate Target
-
-For the region where
+The transition strip is organized in the variables
 
 $$
-a_4,b_4\in[0.1,0.9],
+p=1-b_4,\qquad q=1-a_4,
 $$
 
-the sketch reports numerical success for algorithm 2 after splitting into
-parameter subcases.
+with
 
-To become proof-level, this route needs a finite certificate covering the full
-interior parameter region. The certificate should include:
+$$
+0.1\le p\le0.15,\qquad p\le q.
+$$
 
-- exact parameter boxes;
-- branch-realization conditions for the selected fixed points;
-- containment of the algorithm-2 diagonal points in the relaxed region;
-- certified lower bound for the minimum enclosing equilateral triangle side
-  length;
-- endpoint and boundary-case treatment.
+The branch transition is
 
-Until the certificate is recorded, this is empirical support only.
+$$
+T(p,q)=(p+q)^4-(p+q)^2+pq.
+$$
+
+The certificate outline in [`3109_algorithm2_transition_strip_certificate.md`](3109_algorithm2_transition_strip_certificate.md) records the current numerical constants for:
+
+| Edge or branch | Recorded status |
+|---|---|
+| Dangerous edge $P_3P_5$ | Empirical / interval-certificate outline with lower value $1.0031590223\ldots$. |
+| Non-dangerous edge $D_0D_1$ | Conditional interval certificate outline. |
+| Non-dangerous edge $D_1D_2$ | Conditional interval certificate outline. |
+| Non-dangerous edge $D_2P_3$ | Conditional interpolation certificate outline. |
+| Non-dangerous edge $P_5D_0$ | Conditional interpolation certificate outline. |
+
+Until verifier data is added, these remain empirical or certificate-outline claims, not proven lemmas.
+
+## Remaining Required Work
+
+| Task | Status |
+|---|---|
+| Prove or replace the reduction to $a_3+b_3=1$ and $a_5+b_5=1$. | Open. |
+| Prove the limiting degeneration at $\rho=1$. | Open. |
+| Prove algorithm-2 point containment in the relaxed obstruction region. | Open. |
+| Package the transition-strip interval certificate. | Open. |
+| Finish $p\ge0.15$ and reflected away regions. | Open. |
+| Prove the finite-$x$ algorithm-1 near-limit bound. | Open. |
+| Assemble all local components into the CE0, $N_+=1$, all-Vd0 contradiction. | Open. |
