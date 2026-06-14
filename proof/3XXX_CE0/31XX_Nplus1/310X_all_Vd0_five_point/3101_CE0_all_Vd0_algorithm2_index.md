@@ -25,7 +25,7 @@ The live route is an algorithm-2 finite-point strategy. It replaces the older fa
 | [`3106_algorithm2_two_variable_transition.md`](3106_algorithm2_two_variable_transition.md) | Proven local lemma | Algorithm-2 two-variable reduction, transition polynomial, radius monotonicity, and limit failure. |
 | [`3107_algorithm1_limit_tangent_gap.md`](3107_algorithm1_limit_tangent_gap.md) | Proven analytic inequality | Near-limit algorithm-1 tangent coefficient satisfies $C_1\ge1/4$. |
 | [`3108_convex_order_from_line_branches.md`](3108_convex_order_from_line_branches.md) | Proven local lemma | Line branches imply $s\ge u$, $v\ge t$, and convex cyclic order for the algorithm-2 five points. |
-| [`3109_algorithm2_transition_strip_certificate.md`](3109_algorithm2_transition_strip_certificate.md) | Empirical / certificate outline | Transition-strip numerical constants and interpolation-certificate outline; verifier data not recorded. |
+| [`3109_algorithm2_transition_strip_certificate.md`](3109_algorithm2_transition_strip_certificate.md) | Empirical | Transition-strip numerical constants and interpolation-certificate outline; verifier data not recorded. |
 | [`3110_current_status_and_remaining_obligations.md`](3110_current_status_and_remaining_obligations.md) | Reference | Current status ledger and remaining obligations. |
 
 ## Archived related route
