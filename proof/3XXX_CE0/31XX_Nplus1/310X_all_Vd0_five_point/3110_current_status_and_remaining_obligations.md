@@ -18,8 +18,9 @@ This file summarizes the state of the CE0, $N_+=1$, all-Vd0 algorithm-2 route af
 
 | Component | File | Recorded status | Notes |
 |---|---|---|---|
-| Algorithm-2 transition strip | [`3109_algorithm2_transition_strip_certificate.md`](3109_algorithm2_transition_strip_certificate.md) | Empirical | Records interval constants and an interpolation scheme; verifier code or certificate data is not included. |
-| Numerical away-region behavior | [`3109_algorithm2_transition_strip_certificate.md`](3109_algorithm2_transition_strip_certificate.md) | Empirical | The lowest recorded dangerous value is $1.0031590223\ldots$ at $p=0.1$ and $T=0$. |
+| Algorithm-2 transition strip | [`3109_algorithm2_transition_strip_certificate.md`](3109_algorithm2_transition_strip_certificate.md) | Empirical / certificate outline | Records interval constants and an interpolation scheme. Helper code is in [`310X_computation/`](310X_computation/), but full interval subdivision data is not recorded. |
+| Numerical away-region behavior | [`3109_algorithm2_transition_strip_certificate.md`](3109_algorithm2_transition_strip_certificate.md) and [`310X_computation/algo2_numeric_model.py`](310X_computation/algo2_numeric_model.py) | Empirical | The lowest recorded dangerous value is $1.0031590223\ldots$ at $p=0.1$ and $T=0$. |
+| Symbolic identity and arithmetic helper scripts | [`310X_computation/`](310X_computation/) | Implementation note | These scripts support checking identities and certificate arithmetic. They do not by themselves complete the transition-strip certificate. |
 
 ## Still Open
 
@@ -29,7 +30,7 @@ The algorithm-2 route does not yet prove the CE0 all-Vd0 branch. The remaining o
 |---|---|
 | Justify the reductions $a_3+b_3=1$ and $a_5+b_5=1$ from the full all-Vd0 branch. | Open. |
 | Treat the limiting boundary $\rho=1$ for the strict $AB$ curve. | Open. |
-| Replace the transition-strip certificate outline with reproducible verifier code or exact certificate data. | Open. |
+| Replace the transition-strip certificate outline with reproducible verifier code or exact certificate data for all endpoint and curvature interval enclosures. | Open. |
 | Complete the algorithm-2 away region for $p\ge0.15$ and its reflection. | Open. |
 | Prove the near-limit finite-$x$ algorithm-1 remainder bound, or replace it by another certified near-limit argument. | Open. |
 | Prove that the algorithm-2 diagonal points are valid obstruction points for the exact relaxed region required by the CE0 all-Vd0 branch. | Open. |
