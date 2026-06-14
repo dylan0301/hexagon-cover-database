@@ -2,8 +2,7 @@
 
 Status: Strategy
 
-This folder records the live all-Vd0, one-supercritical CE0 route suggested by
-`prompts/20260610prooftreeSketch.txt`.
+This folder records the live all-Vd0, one-supercritical CE0 route suggested by `prompts/20260610prooftreeSketch.txt`.
 
 The branch assumptions are:
 
@@ -13,11 +12,7 @@ $$
 
 and all six vertex roles are Vd0.
 
-The live route is an algorithm-2 finite-point strategy. It replaces the older
-failed algorithm-1 unimodality approach by choosing diagonal points from
-equality-pattern relaxations among the nonsupercritical rows. Numerical
-evidence is not proof; all claims here remain strategy, lemma target, or
-empirical status until certified.
+The live route is an algorithm-2 finite-point strategy. It replaces the older failed algorithm-1 unimodality approach by choosing diagonal points from equality-pattern relaxations among the nonsupercritical rows. Numerical evidence is not proof; all claims here remain strategy, lemma target, or empirical status until certified.
 
 ## Files
 
@@ -26,6 +21,12 @@ empirical status until certified.
 | [`3102_algorithm2_setup_and_point_construction.md`](3102_algorithm2_setup_and_point_construction.md) | Empirical strategy | Reduced variables, fixed $V_4$ points, and algorithm-2 diagonal points. |
 | [`3103_algorithm2_obligations_and_status.md`](3103_algorithm2_obligations_and_status.md) | Reference | Assembly target, proof obligations, and status table. |
 | [`3104_may21_four_point_warning.md`](3104_may21_four_point_warning.md) | Failed | Warning for the failed May 21 four-point route. |
+| [`3105_strict_branch_line_realization.md`](3105_strict_branch_line_realization.md) | Proven local lemma | Strict $\rho<1$ realization of the selected $P_3,P_5$ intersections on the two $309$ line pieces. |
+| [`3106_algorithm2_two_variable_transition.md`](3106_algorithm2_two_variable_transition.md) | Proven local lemma | Algorithm-2 two-variable reduction, transition polynomial, radius monotonicity, and limit failure. |
+| [`3107_algorithm1_limit_tangent_gap.md`](3107_algorithm1_limit_tangent_gap.md) | Proven analytic inequality | Near-limit algorithm-1 tangent coefficient satisfies $C_1\ge1/4$. |
+| [`3108_convex_order_from_line_branches.md`](3108_convex_order_from_line_branches.md) | Proven local lemma | Line branches imply $s\ge u$, $v\ge t$, and convex cyclic order for the algorithm-2 five points. |
+| [`3109_algorithm2_transition_strip_certificate.md`](3109_algorithm2_transition_strip_certificate.md) | Empirical / certificate outline | Transition-strip numerical constants and interpolation-certificate outline; verifier data not recorded. |
+| [`3110_current_status_and_remaining_obligations.md`](3110_current_status_and_remaining_obligations.md) | Reference | Current status ledger and remaining obligations. |
 
 ## Archived related route
 
