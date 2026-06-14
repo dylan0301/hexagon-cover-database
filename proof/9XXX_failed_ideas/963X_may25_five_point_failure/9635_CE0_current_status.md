@@ -1,10 +1,13 @@
-# Current Status of the May 25 Five-Point Package
+# Current Status of the CE0 May 25 Archive
 
 Status: Reference
 
+This package is archived as a superseded route, not as a disproof of the
+five-point inequality.
+
 ## Recorded definitions
 
-The reduced slice is recorded in `631_reduction_prompt_spec.md`:
+The reduced slice is recorded in `9632_CE0_reduction_prompt_spec.md`:
 
 $$
 t_3=t_2,\qquad t_5=t_4,\qquad t_4>t_2,
@@ -24,7 +27,7 @@ $$
 
 ## Open target
 
-The main open target in this folder is
+The archived target in this folder is
 
 $$
 \Lambda(K_5)>1.
@@ -51,15 +54,15 @@ in this package.
 The May 25 conjecture is a focused finite-point obstruction.  It should not be
 read as reviving the standalone full-skeleton noncoverage target, which is
 refuted empirically in
-`../../../../9XXX_failed_ideas/908X_skeleton_cover_counterexample/9081_skeleton_cover_counterexample.md`.
+`../908X_skeleton_cover_counterexample/9081_skeleton_cover_counterexample.md`.
 
-The closest existing package is `../../../../9XXX_failed_ideas/962X_may21_four_point_failure/`, which handles a
+The closest existing package is `../962X_may21_four_point_failure/`, which handles a
 four-point Pattern A reduction under stronger equality structure.  The May 25
 target removes the assumption $a_1+b_1=1$ and introduces the three
 union-defined diagonal points $D_0,D_1,D_2$.  These three points are intended
 to use the actual first uncovered endpoints on the diagonals, rather than a
 fixed May 21/22 radial choice or a preassigned Vd1/Vd2-type local pattern.
 The one-critical neighbor-envelope strategy in
-`635_one_critical_neighbor_envelope_strategy.md` records a possible way to
+`9636_CE0_one_critical_neighbor_envelope_strategy.md` records a possible way to
 turn those endpoint definitions into four-variable max-free functions, but it
 does not prove the endpoint realization.

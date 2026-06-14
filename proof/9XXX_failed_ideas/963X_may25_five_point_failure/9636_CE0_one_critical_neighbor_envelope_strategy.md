@@ -7,7 +7,7 @@ endpoints $D_0,D_1,D_2$ in the May 25 five-point package.
 
 Here one-critical means the May 25 reduced slice with unique strict local
 $AB$-union vertex $V_4$, as specified in
-[`3121_reduction_prompt_spec.md`](3121_reduction_prompt_spec.md).
+[`9632_CE0_reduction_prompt_spec.md`](9632_CE0_reduction_prompt_spec.md).
 
 The point is to use the local radial maximum for the row $V_j$ together with
 the proven neighboring-ray maximums for $V_{j-1}$ and $V_{j+1}$, then replace
@@ -40,9 +40,9 @@ $$
 Here:
 
 - $C_{\mathrm{rad}}(a,b)$ denotes the local same-ray radial candidate from
-  [../../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md](../../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md).
+  [../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md](../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md).
 - $C_+(a,b)$ denotes the proven upper-neighbor capacity from
-  [../../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2008_neighbor_ray_max_c_formula.md](../../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2008_neighbor_ray_max_c_formula.md).
+  [../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2008_neighbor_ray_max_c_formula.md](../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2008_neighbor_ray_max_c_formula.md).
 - The lower-neighbor capacity is $C_-(a,b)=C_+(b,a)$.
 
 Undefined capacities should be treated as absent candidate cuts, not as
@@ -107,7 +107,7 @@ To turn this strategy into a diagonal endpoint realization, one must prove:
 
 1. the radial candidate $C_{\mathrm{rad}}(1-y,z)$ is valid on the intended
    local branch, using the exact predicate from
-   [`3121_reduction_prompt_spec.md`](3121_reduction_prompt_spec.md);
+   [`9632_CE0_reduction_prompt_spec.md`](9632_CE0_reduction_prompt_spec.md);
 2. the two neighboring candidates are valid applications of the proven
    neighbor-ray formula, including all undefined and boundary cases;
 3. every non-adjacent $R_i$ either misses $[O,V_j]$ before the candidate

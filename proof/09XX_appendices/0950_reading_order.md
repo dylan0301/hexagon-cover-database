@@ -32,7 +32,7 @@ local facts. V-triangle capacity formulas and the $AB$-union curve live in
 | [`../3XXX_CE0/31XX_Nplus1/`](../3XXX_CE0/31XX_Nplus1/) | Directory; see local files | CE0, $N_+=1$. |
 | [`../3XXX_CE0/32XX_Nplus_ge2/3201_area_conjecture_index.md`](../3XXX_CE0/32XX_Nplus_ge2/3201_area_conjecture_index.md) | Strategy | CE0, $N_+\ge2$. |
 
-Within `31XX_Nplus1`, read the all-Vd0 May 25 route, the exists Vd1/Vd2
+Within `31XX_Nplus1`, read the all-Vd0 algorithm-2 route, the exists Vd1/Vd2
 boundary-length obstruction, and the T3-like area route as separate branches.
 The old CE0 Vd1/Vd2 chain proof lives in
 [`../3XXX_CE0/33XX_old_Vd1_Vd2_chain_proof/3300_CE0_old_Vd1_Vd2_chain_proof_index.md`](../3XXX_CE0/33XX_old_Vd1_Vd2_chain_proof/3300_CE0_old_Vd1_Vd2_chain_proof_index.md)
@@ -66,4 +66,5 @@ The CE1 branch also records CE1/CE2 shared proofs that CE2 later cites.
 | [`../9XXX_failed_ideas/908X_skeleton_cover_counterexample/9081_skeleton_cover_counterexample.md`](../9XXX_failed_ideas/908X_skeleton_cover_counterexample/9081_skeleton_cover_counterexample.md) | Empirical | May 24 skeleton-cover counterexample. |
 | [`../9XXX_failed_ideas/962X_may21_four_point_failure/9620_may21_patternA_index.md`](../9XXX_failed_ideas/962X_may21_four_point_failure/9620_may21_patternA_index.md) | Strategy | May 21 four-point failure package. |
 | [`../9XXX_failed_ideas/963X_may25_five_point_failure/9630_may25_CE1_CE2_failure.md`](../9XXX_failed_ideas/963X_may25_five_point_failure/9630_may25_CE1_CE2_failure.md) | Failed | May 25 CE1/CE2 failure. |
+| [`../9XXX_failed_ideas/963X_may25_five_point_failure/9631_CE0_may25_supremum_endpoint_archive.md`](../9XXX_failed_ideas/963X_may25_five_point_failure/9631_CE0_may25_supremum_endpoint_archive.md) | Failed / superseded | Archived CE0 May 25 supremum-endpoint route. |
 | [`../9XXX_failed_ideas/980X_experiment_plans/9800_computational_experiment_index.md`](../9XXX_failed_ideas/980X_experiment_plans/9800_computational_experiment_index.md) | Navigation | Experiment-plan index. |

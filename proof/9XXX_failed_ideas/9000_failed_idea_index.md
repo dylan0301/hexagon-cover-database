@@ -18,6 +18,7 @@ Detailed postmortems:
 | [`908X_skeleton_cover_counterexample/9081_skeleton_cover_counterexample.md`](908X_skeleton_cover_counterexample/9081_skeleton_cover_counterexample.md) | Empirical | May 24 skeleton-cover counterexample. |
 | [`962X_may21_four_point_failure/9620_may21_patternA_index.md`](962X_may21_four_point_failure/9620_may21_patternA_index.md) | Strategy | May 21/22 Pattern A four-point package. |
 | [`963X_may25_five_point_failure/9630_may25_CE1_CE2_failure.md`](963X_may25_five_point_failure/9630_may25_CE1_CE2_failure.md) | Failed | May 25 CE1/CE2 failure. |
+| [`963X_may25_five_point_failure/9631_CE0_may25_supremum_endpoint_archive.md`](963X_may25_five_point_failure/9631_CE0_may25_supremum_endpoint_archive.md) | Failed / superseded | Archived CE0 May 25 supremum-endpoint route; no CE0 counterexample recorded. |
 | [`964X_CE1_CE2_area_conjecture_failure/9640_CE1_CE2_area_conjecture_failure.md`](964X_CE1_CE2_area_conjecture_failure/9640_CE1_CE2_area_conjecture_failure.md) | Failed | CE1/reduced-CE2 area-conjecture route failure. |
 | [`964X_CE1_CE2_area_conjecture_failure/9641_CE1_CE2_seven_point_area_model.md`](964X_CE1_CE2_area_conjecture_failure/9641_CE1_CE2_seven_point_area_model.md) | Failed | Archived CE1/reduced-CE2 seven-point area model. |
 | [`964X_CE1_CE2_area_conjecture_failure/9642_threshold_relaxation_failure.md`](964X_CE1_CE2_area_conjecture_failure/9642_threshold_relaxation_failure.md) | Failed | Archived threshold-relaxation and global-replacement route. |

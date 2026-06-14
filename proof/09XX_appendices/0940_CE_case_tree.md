@@ -50,13 +50,13 @@ noncoverage as a standalone route; see
 
 ### CE0, $N_+=1$, all Vd0
 
-- Route: May 25 five-point route and algorithm-2 finite-point route.
+- Route: algorithm-2 finite-point route.
 
 | File | Recorded status | Notes |
 |---|---|---|
-| [`../3XXX_CE0/31XX_Nplus1/310X_all_Vd0_five_point/3101_CE0_all_Vd0_five_point_index.md`](../3XXX_CE0/31XX_Nplus1/310X_all_Vd0_five_point/3101_CE0_all_Vd0_five_point_index.md) | Strategy | Algorithm-2 and five-point route index. |
-| [`../3XXX_CE0/31XX_Nplus1/310X_all_Vd0_five_point/312X_may25_five_point/3120_may25_five_point_index.md`](../3XXX_CE0/31XX_Nplus1/310X_all_Vd0_five_point/312X_may25_five_point/3120_may25_five_point_index.md) | Strategy | May 25 five-point route package. |
-| [`../3XXX_CE0/31XX_Nplus1/310X_all_Vd0_five_point/3130_may21_four_point_warning.md`](../3XXX_CE0/31XX_Nplus1/310X_all_Vd0_five_point/3130_may21_four_point_warning.md) | Failed | Warning: May 21 four-point route failed for this branch. |
+| [`../3XXX_CE0/31XX_Nplus1/310X_all_Vd0_five_point/3101_CE0_all_Vd0_algorithm2_index.md`](../3XXX_CE0/31XX_Nplus1/310X_all_Vd0_five_point/3101_CE0_all_Vd0_algorithm2_index.md) | Strategy | Algorithm-2 route index. |
+| [`../9XXX_failed_ideas/963X_may25_five_point_failure/9631_CE0_may25_supremum_endpoint_archive.md`](../9XXX_failed_ideas/963X_may25_five_point_failure/9631_CE0_may25_supremum_endpoint_archive.md) | Failed / superseded | Archived May 25 supremum-endpoint route; not a live all-Vd0 dependency. |
+| [`../3XXX_CE0/31XX_Nplus1/310X_all_Vd0_five_point/3104_may21_four_point_warning.md`](../3XXX_CE0/31XX_Nplus1/310X_all_Vd0_five_point/3104_may21_four_point_warning.md) | Failed | Warning: May 21 four-point route failed for this branch. |
 | [`../9XXX_failed_ideas/962X_may21_four_point_failure/9620_may21_patternA_index.md`](../9XXX_failed_ideas/962X_may21_four_point_failure/9620_may21_patternA_index.md) | Strategy | Archived May 21/22 Pattern A package. |
 
 ### CE0, $N_+=1$, exists Vd1/Vd2

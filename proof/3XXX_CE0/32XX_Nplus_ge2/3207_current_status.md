@@ -53,8 +53,9 @@ The package does not yet supply:
 
 ## Relation to existing packages
 
-The May 25 package in `../31XX_Nplus1/310X_all_Vd0_five_point/312X_may25_five_point/` studies a
-finite-point obstruction.  This folder instead studies an area upper bound for
+The archived May 25 package in
+[`../../9XXX_failed_ideas/963X_may25_five_point_failure/9631_CE0_may25_supremum_endpoint_archive.md`](../../9XXX_failed_ideas/963X_may25_five_point_failure/9631_CE0_may25_supremum_endpoint_archive.md)
+studies a finite-point obstruction.  This folder instead studies an area upper bound for
 the six vertex triangles under CE0 six-point perimeter data.  The center
 triangle is then bounded only by the trivial fact that a unit equilateral
 triangle contributes at most one normalized area unit.

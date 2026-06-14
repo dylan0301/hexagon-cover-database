@@ -7,7 +7,7 @@ counterexample is recorded here.
 
 ## Target statement
 
-Work in the reduced slice from `631_reduction_prompt_spec.md`.  Assume all five
+Work in the reduced slice from `9632_CE0_reduction_prompt_spec.md`.  Assume all five
 points
 
 $$
@@ -99,6 +99,6 @@ diagonal endpoint definitions, and enclosing-triangle containment.
 ## Relation to existing tools
 
 The support-function formula for $\Lambda(K)$ matches the formulation used in
-`../../../../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2607_minimal_enclosing_equilateral_quadrilateral_lemma.md`,
+`../../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2607_minimal_enclosing_equilateral_quadrilateral_lemma.md`,
 but that proven local lemma applies to convex quadrilaterals.  The May 25 set
 has five points, so a separate five-point contact analysis is still required.

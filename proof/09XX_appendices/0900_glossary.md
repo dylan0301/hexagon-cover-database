@@ -18,7 +18,7 @@ Status: Reference
 - $(a_i,b_i)$: incoming and outgoing boundary row data for $T_i$.
 - supercritical row: a row with $a_i+b_i>1$.
 - $N_+$: number of supercritical rows.
-- $K_5$: five-point obstruction set used in the May 25 branch.
+- $K_5$: five-point obstruction set used in the archived May 25 branch.
 - $d_0,d_{60},\dots,d_{300}$: radial exit tuple of $T_C$.
 - $c_i$: radial coordinate of $T_i$.
 - admissible set: feasible local triples $(a,b,c)$.

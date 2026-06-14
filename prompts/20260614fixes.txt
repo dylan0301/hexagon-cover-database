@@ -6,3 +6,9 @@ and make a new 311X exist VD1 VD2
 the proof is easy: hexagon boundary cannot be covered simply because of length.
 refer to the boundary length formulas and think
 ask me questions
+
+currently 311X is also a choosing 5 point strategy.
+however, the 312X doesn't assume all VD0. it has the supremum because we don't have VD0 yet. 
+move the 312X to failed package.
+what is your opinion.
+also what is meaning of 3102 and 3103? they don't seem to be useful

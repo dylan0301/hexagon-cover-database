@@ -11,8 +11,8 @@ Status: Reference
 4. Prove the CE0 all-Vd0, $N_+=1$ algorithm-2 route: fixed $V_4$ points,
    diagonal-relaxation containment, limit-shape convexity, and interior
    finite certificate.
-5. Prove the May 25 five-point target $\Lambda(K_5)>1$ or replace it with the
-   algorithm-2 certificate package.
+5. Keep the archived May 25 supremum-endpoint route separate unless a clean
+   all-Vd0 reduction is found.
 6. Prove or certify the local square-loss bounds for $f(a,b)$ needed by the
    CE0 $N_+\ge2$ area certificate.
 7. Prove the full T3-like tangent-envelope conjecture needed by the CE0

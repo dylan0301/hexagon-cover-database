@@ -7,7 +7,7 @@ Main CE0 branches:
 | File | Recorded status | Branch |
 |---|---|---|
 | [`../3XXX_CE0/30XX_Nplus0/3010_CE0_perimeter_length_obstruction.md`](../3XXX_CE0/30XX_Nplus0/3010_CE0_perimeter_length_obstruction.md) | Proven | CE0, $N_+=0$, perimeter-length obstruction. |
-| [`../3XXX_CE0/31XX_Nplus1/310X_all_Vd0_five_point/3101_CE0_all_Vd0_five_point_index.md`](../3XXX_CE0/31XX_Nplus1/310X_all_Vd0_five_point/3101_CE0_all_Vd0_five_point_index.md) | Strategy | CE0, $N_+=1$, all Vd0, five-point and algorithm routes. |
+| [`../3XXX_CE0/31XX_Nplus1/310X_all_Vd0_five_point/3101_CE0_all_Vd0_algorithm2_index.md`](../3XXX_CE0/31XX_Nplus1/310X_all_Vd0_five_point/3101_CE0_all_Vd0_algorithm2_index.md) | Strategy | CE0, $N_+=1$, all Vd0, algorithm-2 route. |
 | [`../3XXX_CE0/31XX_Nplus1/311X_exists_Vd1_Vd2/3110_CE0_Nplus1_exists_Vd1_Vd2_index.md`](../3XXX_CE0/31XX_Nplus1/311X_exists_Vd1_Vd2/3110_CE0_Nplus1_exists_Vd1_Vd2_index.md) | Reference | CE0, $N_+=1$, exists Vd1/Vd2; practically proven boundary-length obstruction. |
 | [`../3XXX_CE0/31XX_Nplus1/312X_T3_like_no_Vd1Vd2/3120_CE0_one_T3_like_area_certificate_index.md`](../3XXX_CE0/31XX_Nplus1/312X_T3_like_no_Vd1Vd2/3120_CE0_one_T3_like_area_certificate_index.md) | Reference | CE0, $N_+=1$, T3-like and no Vd1/Vd2; conditional area route. |
 | [`../3XXX_CE0/32XX_Nplus_ge2/3200_CE0_area_certificate.md`](../3XXX_CE0/32XX_Nplus_ge2/3200_CE0_area_certificate.md) | Reference | CE0, $N_+\ge2$, conditional area route. |
@@ -36,5 +36,5 @@ Related focused packages:
 | File | Recorded status | Notes |
 |---|---|---|
 | [`../9XXX_failed_ideas/962X_may21_four_point_failure/9620_may21_patternA_index.md`](../9XXX_failed_ideas/962X_may21_four_point_failure/9620_may21_patternA_index.md) | Strategy | May 21/22 four-point Pattern A route; failed for CE0, $N_+=1$, all Vd0. |
-| [`../3XXX_CE0/31XX_Nplus1/310X_all_Vd0_five_point/312X_may25_five_point/3120_may25_five_point_index.md`](../3XXX_CE0/31XX_Nplus1/310X_all_Vd0_five_point/312X_may25_five_point/3120_may25_five_point_index.md) | Strategy | May 25 five-point route, retained only for CE0, $N_+=1$, all Vd0. |
+| [`../9XXX_failed_ideas/963X_may25_five_point_failure/9631_CE0_may25_supremum_endpoint_archive.md`](../9XXX_failed_ideas/963X_may25_five_point_failure/9631_CE0_may25_supremum_endpoint_archive.md) | Failed / superseded | Archived May 25 CE0 supremum-endpoint route; no CE0 counterexample recorded. |
 | [`../9XXX_failed_ideas/963X_may25_five_point_failure/9630_may25_CE1_CE2_failure.md`](../9XXX_failed_ideas/963X_may25_five_point_failure/9630_may25_CE1_CE2_failure.md) | Failed | May 25 five-point failure for CE1/CE2 all-Vd0. |
