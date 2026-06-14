@@ -3,7 +3,7 @@
 Status: Empirical / certificate support, with lower-sheet observations superseded by proof
 
 This file records numerical checks and code references for the branch analysis
-in `400X_all_Vd0_boundary_loss/`.  Numerical results in this file are not proof
+in `401X_all_Vd0_boundary_loss/`.  Numerical results in this file are not proof
 unless explicitly paired with a finite interval certificate or a proven analytic
 lemma.
 
@@ -205,9 +205,9 @@ Any one of the following would invalidate or require revision of this package:
 Run from the repository root:
 
 ```bash
-python proof/4XXX_CE1/40XX_Nplus0/400X_all_Vd0_boundary_loss/409X_experiments/4094_verify_full_L_interval.py
-python proof/4XXX_CE1/40XX_Nplus0/400X_all_Vd0_boundary_loss/409X_experiments/4091_attempt_interval_L_Tplus_loss_exact_corrected.py
-python proof/4XXX_CE1/40XX_Nplus0/400X_all_Vd0_boundary_loss/409X_experiments/4093_refined_branch_sampler.py
+python proof/4XXX_CE1/40XX_Nplus0/409X_boundary_loss_experiments/4094_verify_full_L_interval.py
+python proof/4XXX_CE1/40XX_Nplus0/409X_boundary_loss_experiments/4091_attempt_interval_L_Tplus_loss_exact_corrected.py
+python proof/4XXX_CE1/40XX_Nplus0/409X_boundary_loss_experiments/4093_refined_branch_sampler.py
 ```
 
 The first two scripts are intended as certificate-style verifiers.  The sampler

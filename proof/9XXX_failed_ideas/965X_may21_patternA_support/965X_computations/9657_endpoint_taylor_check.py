@@ -1,7 +1,7 @@
 """Check endpoint Taylor coefficient bounds for the May 21/22 Pattern A package.
 
 This script is a reproducibility helper for
-`../623_endpoint_taylor_remainder.md`.
+`../../962X_may21_four_point_failure/9625_endpoint_taylor_remainder.md`.
 It is not a proof by itself.
 """
 

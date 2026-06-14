@@ -95,8 +95,8 @@ Use these proof-tree folders for new notes:
 Computation and experiment helpers are colocated with the proof package they
 support, for example:
 
-- `proof/4XXX_CE1/40XX_Nplus0/400X_all_Vd0_boundary_loss/409X_experiments/`
-- `proof/9XXX_failed_ideas/962X_may21_four_point_failure/962X_computations/`
+- `proof/4XXX_CE1/40XX_Nplus0/409X_boundary_loss_experiments/`
+- `proof/9XXX_failed_ideas/965X_may21_patternA_support/965X_computations/`
 - `proof/9XXX_failed_ideas/908X_skeleton_cover_counterexample/908X_computation/`
 
 ## 4. Make Surgical Markdown Changes

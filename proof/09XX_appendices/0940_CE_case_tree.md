@@ -99,7 +99,7 @@ noncoverage as a standalone route; see
 
 | File | Recorded status | Notes |
 |---|---|---|
-| [`../4XXX_CE1/40XX_Nplus0/400X_all_Vd0_boundary_loss/4013_boundary_loss_index.md`](../4XXX_CE1/40XX_Nplus0/400X_all_Vd0_boundary_loss/4013_boundary_loss_index.md) | Proven local lemma | Boundary-loss package under recorded assumptions. |
+| [`../4XXX_CE1/40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md`](../4XXX_CE1/40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md) | Proven local lemma | Boundary-loss package under recorded assumptions. |
 
 ### CE1, $N_+=1$, all Vd0
 
@@ -135,9 +135,9 @@ CE2 files cite CE1 shared routes only where the hypotheses are the same.
 
 | File | Recorded status | Branch |
 |---|---|---|
-| [`../5XXX_CE2/50XX_Nplus0/500X_all_Vd0_open/5011_CE2_Nplus0_all_Vd0_TODO.md`](../5XXX_CE2/50XX_Nplus0/500X_all_Vd0_open/5011_CE2_Nplus0_all_Vd0_TODO.md) | Strategy | All Vd0 open branch. |
+| [`../5XXX_CE2/50XX_Nplus0/500X_all_Vd0_boundary_loss_reference/5001_CE2_Nplus0_all_Vd0_boundary_loss_reference.md`](../5XXX_CE2/50XX_Nplus0/500X_all_Vd0_boundary_loss_reference/5001_CE2_Nplus0_all_Vd0_boundary_loss_reference.md) | Proven local lemma | All Vd0 boundary-loss reference. |
 | [`../5XXX_CE2/50XX_Nplus0/501X_Vd1_Vd2_obstruction/5012_CE2_Nplus0_Vd1_Vd2_TODO.md`](../5XXX_CE2/50XX_Nplus0/501X_Vd1_Vd2_obstruction/5012_CE2_Nplus0_Vd1_Vd2_TODO.md) | Lemma target | Vd1/Vd2 route target. |
-| [`../5XXX_CE2/50XX_Nplus0/502X_T3_like_no_Vd1Vd2/5013_CE2_Nplus0_T3_like_TODO.md`](../5XXX_CE2/50XX_Nplus0/502X_T3_like_no_Vd1Vd2/5013_CE2_Nplus0_T3_like_TODO.md) | Strategy | T3-like open branch. |
+| [`../5XXX_CE2/50XX_Nplus0/502X_T3_like_no_Vd1Vd2/5020_CE2_Nplus0_T3_like_TODO.md`](../5XXX_CE2/50XX_Nplus0/502X_T3_like_no_Vd1Vd2/5020_CE2_Nplus0_T3_like_TODO.md) | Strategy | T3-like open branch. |
 
 ### CE2, $N_+=1$
 

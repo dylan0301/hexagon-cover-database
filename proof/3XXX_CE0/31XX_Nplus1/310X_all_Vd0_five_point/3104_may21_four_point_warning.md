@@ -9,4 +9,4 @@ instead.
 The detailed failure records are in
 [`../../../9XXX_failed_ideas/962X_may21_four_point_failure/9620_may21_patternA_index.md`](../../../9XXX_failed_ideas/962X_may21_four_point_failure/9620_may21_patternA_index.md)
 and
-[`../../../9XXX_failed_ideas/962X_may21_four_point_failure/9634_band_window_counterexamples.md`](../../../9XXX_failed_ideas/962X_may21_four_point_failure/9634_band_window_counterexamples.md).
+[`../../../9XXX_failed_ideas/965X_may21_patternA_support/9654_band_window_counterexamples.md`](../../../9XXX_failed_ideas/965X_may21_patternA_support/9654_band_window_counterexamples.md).

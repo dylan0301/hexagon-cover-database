@@ -12,3 +12,7 @@ however, the 312X doesn't assume all VD0. it has the supremum because we don't h
 move the 312X to failed package.
 what is your opinion.
 also what is meaning of 3102 and 3103? they don't seem to be useful
+
+the 500X package follows the same proofs from 400X. so just refernece them.
+also there are very many files that doesn't follow the numbering of its parents.
+review them and fix

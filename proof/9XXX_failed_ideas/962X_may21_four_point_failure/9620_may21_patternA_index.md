@@ -87,9 +87,9 @@ Only steps 1, 2, and the endpoint part of step 3 are currently proved in this fo
 | [`9626_nonendpoint_bernstein_status.md`](9626_nonendpoint_bernstein_status.md) | Empirical | Records the Bernstein certificate strategy, verified boxes, and the remaining non-endpoint gap. |
 | [`9627_numerical_tests_and_counterexamples.md`](9627_numerical_tests_and_counterexamples.md) | Empirical | Records numerical tests, earlier four-point counterexamples, and the exact status of the outside-quarter version. |
 | [`9628_current_status.md`](9628_current_status.md) | Reference | Short dependency and status table. |
-| [`9631_original_prompt_context.md`](9631_original_prompt_context.md) | Strategy | Records the original May 21/22 visualization prompts, including the sector-enlarged intuition, midpoint-window alternative, five-point variant, and quadrilateral lemma reference. |
-| [`9632_reduction_prompt_spec.md`](9632_reduction_prompt_spec.md) | Reference | Self-contained rigorous May 21/22 reduction specification imported from the `proof2/conj0521-reduction-prompt.md` source. |
-| [`9633_alternate_strategies_spec.md`](9633_alternate_strategies_spec.md) | Strategy | Self-contained Strategy A / Strategy B specification imported from the `proof2/conj0521-alternate-strategies-prompt.md` source. |
+| [`965X_may21_patternA_support/9651_original_prompt_context.md`](../965X_may21_patternA_support/9651_original_prompt_context.md) | Strategy | Records the original May 21/22 visualization prompts, including the sector-enlarged intuition, midpoint-window alternative, five-point variant, and quadrilateral lemma reference. |
+| [`965X_may21_patternA_support/9652_reduction_prompt_spec.md`](../965X_may21_patternA_support/9652_reduction_prompt_spec.md) | Reference | Self-contained rigorous May 21/22 reduction specification imported from the `proof2/conj0521-reduction-prompt.md` source. |
+| [`965X_may21_patternA_support/9653_alternate_strategies_spec.md`](../965X_may21_patternA_support/9653_alternate_strategies_spec.md) | Strategy | Self-contained Strategy A / Strategy B specification imported from the `proof2/conj0521-alternate-strategies-prompt.md` source. |
 
 ## External prompt sources imported
 
@@ -98,9 +98,9 @@ recorded in:
 
 | File | Recorded status | Notes |
 |---|---|---|
-| [`9631_original_prompt_context.md`](9631_original_prompt_context.md) | Strategy | Original May 21/22 prompt context. |
-| [`9632_reduction_prompt_spec.md`](9632_reduction_prompt_spec.md) | Reference | Imported reduction prompt specification. |
-| [`9633_alternate_strategies_spec.md`](9633_alternate_strategies_spec.md) | Strategy | Imported alternate-strategies specification. |
+| [`965X_may21_patternA_support/9651_original_prompt_context.md`](../965X_may21_patternA_support/9651_original_prompt_context.md) | Strategy | Original May 21/22 prompt context. |
+| [`965X_may21_patternA_support/9652_reduction_prompt_spec.md`](../965X_may21_patternA_support/9652_reduction_prompt_spec.md) | Reference | Imported reduction prompt specification. |
+| [`965X_may21_patternA_support/9653_alternate_strategies_spec.md`](../965X_may21_patternA_support/9653_alternate_strategies_spec.md) | Strategy | Imported alternate-strategies specification. |
 
 The quadrilateral lemma itself is recorded as a proven local lemma in:
 
@@ -114,10 +114,10 @@ Prototype numerical and certification scripts are under:
 
 | File | Recorded status | Notes |
 |---|---|---|
-| [`962X_computations/9629_README.md`](962X_computations/9629_README.md) | experimental / reproducibility aid. | Computation README. |
-| [`962X_computations/9632_pattern_a_numeric_scan.py`](962X_computations/9632_pattern_a_numeric_scan.py) | Code helper | Pattern A numeric scan. |
-| [`962X_computations/9631_endpoint_taylor_check.py`](962X_computations/9631_endpoint_taylor_check.py) | Code helper | Endpoint Taylor check. |
-| [`962X_computations/9630_bernstein_bounds.py`](962X_computations/9630_bernstein_bounds.py) | Code helper | Bernstein bounds helper. |
+| [`965X_may21_patternA_support/965X_computations/9655_README.md`](../965X_may21_patternA_support/965X_computations/9655_README.md) | experimental / reproducibility aid. | Computation README. |
+| [`965X_may21_patternA_support/965X_computations/9658_pattern_a_numeric_scan.py`](../965X_may21_patternA_support/965X_computations/9658_pattern_a_numeric_scan.py) | Code helper | Pattern A numeric scan. |
+| [`965X_may21_patternA_support/965X_computations/9657_endpoint_taylor_check.py`](../965X_may21_patternA_support/965X_computations/9657_endpoint_taylor_check.py) | Code helper | Endpoint Taylor check. |
+| [`965X_may21_patternA_support/965X_computations/9656_bernstein_bounds.py`](../965X_may21_patternA_support/965X_computations/9656_bernstein_bounds.py) | Code helper | Bernstein bounds helper. |
 
 These scripts are not proof by themselves. They are reproducibility aids for the empirical and certificate-prototype claims in this folder.
 

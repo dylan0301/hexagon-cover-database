@@ -8,10 +8,10 @@ each with side strictly less than $1$, covering the unit hexagon skeleton $S$.
 
 Source files:
 
-- `counterexample_snapshot.json`: copied from `dylan0301/hexagon-cover-visual`.
-- `counterexample_cover.json`: copied from `dylan0301/hexagon-cover-visual`.
-- `verify_skeleton_cover.py`: independent local verifier for the explicit
-  triangle coordinates in `counterexample_cover.json`.
+- `9087_counterexample_snapshot.json`: copied from `dylan0301/hexagon-cover-visual`.
+- `9086_counterexample_cover.json`: copied from `dylan0301/hexagon-cover-visual`.
+- `9088_verify_skeleton_cover.py`: independent local verifier for the explicit
+  triangle coordinates in `9086_counterexample_cover.json`.
 
 The imported source states that `counterexample_cover.py` constructs and checks
 the seven triangles.  The verifier here does not regenerate the triangles from
@@ -25,11 +25,11 @@ $$
 Run:
 
 ```bash
-python proof/9XXX_failed_ideas/908X_skeleton_cover_counterexample/908X_computation/9092_verify_skeleton_cover.py
+python proof/9XXX_failed_ideas/908X_skeleton_cover_counterexample/908X_computation/9088_verify_skeleton_cover.py
 ```
 
 Negative self-check:
 
 ```bash
-python proof/9XXX_failed_ideas/908X_skeleton_cover_counterexample/908X_computation/9092_verify_skeleton_cover.py --expect-failure --drop-triangle C
+python proof/9XXX_failed_ideas/908X_skeleton_cover_counterexample/908X_computation/9088_verify_skeleton_cover.py --expect-failure --drop-triangle C
 ```

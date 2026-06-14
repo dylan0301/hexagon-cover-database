@@ -22,4 +22,5 @@ Detailed postmortems:
 | [`964X_CE1_CE2_area_conjecture_failure/9640_CE1_CE2_area_conjecture_failure.md`](964X_CE1_CE2_area_conjecture_failure/9640_CE1_CE2_area_conjecture_failure.md) | Failed | CE1/reduced-CE2 area-conjecture route failure. |
 | [`964X_CE1_CE2_area_conjecture_failure/9641_CE1_CE2_seven_point_area_model.md`](964X_CE1_CE2_area_conjecture_failure/9641_CE1_CE2_seven_point_area_model.md) | Failed | Archived CE1/reduced-CE2 seven-point area model. |
 | [`964X_CE1_CE2_area_conjecture_failure/9642_threshold_relaxation_failure.md`](964X_CE1_CE2_area_conjecture_failure/9642_threshold_relaxation_failure.md) | Failed | Archived threshold-relaxation and global-replacement route. |
+| [`965X_may21_patternA_support/9651_original_prompt_context.md`](965X_may21_patternA_support/9651_original_prompt_context.md) | Strategy | May 21/22 Pattern A support and imported prompt material. |
 | [`980X_experiment_plans/9800_computational_experiment_index.md`](980X_experiment_plans/9800_computational_experiment_index.md) | Navigation | Computational experiment plans. |

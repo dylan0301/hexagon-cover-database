@@ -177,7 +177,7 @@ def verify_skeleton_cover(triangles: list[Triangle]) -> tuple[bool, list[str]]:
 
 
 def parse_args() -> argparse.Namespace:
-    default_json = Path(__file__).with_name("counterexample_cover.json")
+    default_json = Path(__file__).with_name("9086_counterexample_cover.json")
     parser = argparse.ArgumentParser(description="Verify the May 24 skeleton-cover counterexample.")
     parser.add_argument("json_path", nargs="?", type=Path, default=default_json)
     parser.add_argument("--drop-triangle", help="omit a named triangle before checking coverage")

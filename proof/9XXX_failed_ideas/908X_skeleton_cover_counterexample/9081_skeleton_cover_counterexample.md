@@ -49,7 +49,7 @@ is numerically covered by these seven triangles.
 Run:
 
 ```bash
-python proof/9XXX_failed_ideas/908X_skeleton_cover_counterexample/908X_computation/9092_verify_skeleton_cover.py
+python proof/9XXX_failed_ideas/908X_skeleton_cover_counterexample/908X_computation/9088_verify_skeleton_cover.py
 ```
 
 The current local output reports:
@@ -66,7 +66,7 @@ certificate.
 A negative self-check is also available:
 
 ```bash
-python proof/9XXX_failed_ideas/908X_skeleton_cover_counterexample/908X_computation/9092_verify_skeleton_cover.py --expect-failure --drop-triangle C
+python proof/9XXX_failed_ideas/908X_skeleton_cover_counterexample/908X_computation/9088_verify_skeleton_cover.py --expect-failure --drop-triangle C
 ```
 
 Dropping the center triangle leaves gaps on all six radial segments.

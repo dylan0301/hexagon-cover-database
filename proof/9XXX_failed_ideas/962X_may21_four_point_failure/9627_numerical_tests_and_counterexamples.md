@@ -148,10 +148,10 @@ which is already handled by the Taylor theorem.
 
 ## 5. Code
 
-The scripts under `proof/9XXX_failed_ideas/962X_may21_four_point_failure/962X_computations/` reproduce the numerical scan and provide prototype Bernstein tools.
+The scripts under `proof/9XXX_failed_ideas/965X_may21_patternA_support/965X_computations/` reproduce the numerical scan and provide prototype Bernstein tools.
 
-- `pattern_a_numeric_scan.py` performs branch-filtered numerical scans.
-- `endpoint_taylor_check.py` checks Taylor-polynomial lower bounds.
-- `bernstein_bounds.py` contains prototype Bernstein bounding utilities.
+- `9658_pattern_a_numeric_scan.py` performs branch-filtered numerical scans.
+- `9657_endpoint_taylor_check.py` checks Taylor-polynomial lower bounds.
+- `9656_bernstein_bounds.py` contains prototype Bernstein bounding utilities.
 
 These are aids only. They are not a complete certificate of the non-endpoint region.
