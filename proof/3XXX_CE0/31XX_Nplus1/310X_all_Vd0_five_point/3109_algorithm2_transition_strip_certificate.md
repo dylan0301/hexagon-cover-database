@@ -1,6 +1,6 @@
 # Algorithm-2 Transition Strip Certificate Outline
 
-Status: Empirical / certificate outline
+Status: Empirical
 
 This file records the current certified-by-computation outline for the algorithm-2 transition strip. It is not a repository-grade certificate file: the interval subdivision data and verifier code are not included here. Therefore this file should not be cited as `Proven`.
 
