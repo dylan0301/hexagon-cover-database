@@ -19,3 +19,17 @@ review them and fix
 
 42XX package is just proved by the skeleton length route
 delete others. the skeletn length buonds is in 2510 file so just reference it.
+
+
+inside 25XX, add a diagonal length bounds file
+| CE1/CE2 center role | after reducing to the active $C$-only boundary interval | $\frac32$ |
+| Vd0 vertex role | $a+b\le1$ | $1$ |
+| Vd0 vertex role | $a+b>1$ | $\frac12$ |
+| T3-like vertex role | intended reduced boundary-length branch | $\frac12$ |
+
+then use this to prove 5130
+
+WLOG, assume V0 triangle is a T3 like.
+Then it can only intersect the half diagonals OV0
+and exactly one of OV1 and OV5
+if this thing is not written in the T3 like geometry, then also write it

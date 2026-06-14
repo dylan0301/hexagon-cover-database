@@ -115,7 +115,7 @@ noncoverage as a standalone route; see
 | File | Recorded status | Notes |
 |---|---|---|
 | [`../4XXX_CE1/41XX_Nplus1/411X_Vd1_Vd2_obstruction/4110_CE1_CE2_Vd1_Vd2_length_branches.md`](../4XXX_CE1/41XX_Nplus1/411X_Vd1_Vd2_obstruction/4110_CE1_CE2_Vd1_Vd2_length_branches.md) | Strategy | Shared Vd1/Vd2 route. |
-| [`../4XXX_CE1/41XX_Nplus1/412X_at_least_two_T3_like/4120_CE1_CE2_T3_like_midpoint_branches.md`](../4XXX_CE1/41XX_Nplus1/412X_at_least_two_T3_like/4120_CE1_CE2_T3_like_midpoint_branches.md) | Strategy | At least two T3-like route. |
+| [`../4XXX_CE1/41XX_Nplus1/412X_at_least_two_T3_like/4123_CE1_CE2_at_least_two_T3_like_diagonal_obstruction.md`](../4XXX_CE1/41XX_Nplus1/412X_at_least_two_T3_like/4123_CE1_CE2_at_least_two_T3_like_diagonal_obstruction.md) | Practically proven | At least two T3-like route. |
 | [`../4XXX_CE1/41XX_Nplus1/413X_exactly_one_T3_like/4130_CE1_exactly_one_T3_like_TODO.md`](../4XXX_CE1/41XX_Nplus1/413X_exactly_one_T3_like/4130_CE1_exactly_one_T3_like_TODO.md) | Strategy | Exactly one T3-like open branch. |
 
 ### CE1, $N_+\ge2$
@@ -145,7 +145,7 @@ CE2 files cite CE1 shared routes only where the hypotheses are the same.
 | [`../5XXX_CE2/51XX_Nplus1/510X_all_Vd0/5101_CE2_Nplus1_all_Vd0_TODO.md`](../5XXX_CE2/51XX_Nplus1/510X_all_Vd0/5101_CE2_Nplus1_all_Vd0_TODO.md) | Strategy | All Vd0 open branch. |
 | [`../5XXX_CE2/51XX_Nplus1/511X_at_least_two_Vd1_Vd2/5110_CE2_Nplus1_at_least_two_Vd1_Vd2_TODO.md`](../5XXX_CE2/51XX_Nplus1/511X_at_least_two_Vd1_Vd2/5110_CE2_Nplus1_at_least_two_Vd1_Vd2_TODO.md) | Lemma target | At least two Vd1/Vd2. |
 | [`../5XXX_CE2/51XX_Nplus1/512X_exactly_one_Vd1_Vd2/5120_CE2_Nplus1_exactly_one_Vd1_Vd2_TODO.md`](../5XXX_CE2/51XX_Nplus1/512X_exactly_one_Vd1_Vd2/5120_CE2_Nplus1_exactly_one_Vd1_Vd2_TODO.md) | Strategy | Exactly one Vd1/Vd2. |
-| [`../5XXX_CE2/51XX_Nplus1/513X_at_least_two_T3_like/5130_CE2_Nplus1_at_least_two_T3_like_TODO.md`](../5XXX_CE2/51XX_Nplus1/513X_at_least_two_T3_like/5130_CE2_Nplus1_at_least_two_T3_like_TODO.md) | Lemma target | At least two T3-like rows. |
+| [`../5XXX_CE2/51XX_Nplus1/513X_at_least_two_T3_like/5130_CE2_Nplus1_at_least_two_T3_like_TODO.md`](../5XXX_CE2/51XX_Nplus1/513X_at_least_two_T3_like/5130_CE2_Nplus1_at_least_two_T3_like_TODO.md) | Practically proven | At least two T3-like rows. |
 | [`../5XXX_CE2/51XX_Nplus1/514X_exactly_one_T3_like/5140_CE2_Nplus1_exactly_one_T3_like_TODO.md`](../5XXX_CE2/51XX_Nplus1/514X_exactly_one_T3_like/5140_CE2_Nplus1_exactly_one_T3_like_TODO.md) | Strategy | Exactly one T3-like row. |
 | [`../9XXX_failed_ideas/963X_may25_five_point_failure/9630_may25_CE1_CE2_failure.md`](../9XXX_failed_ideas/963X_may25_five_point_failure/9630_may25_CE1_CE2_failure.md) | Failed | Warning: May 25 five-point route is not used for all-Vd0 CE2. |
 

@@ -32,6 +32,23 @@ $$
 \mathrm{T3\text{-}like}: (o,n)=(2,1).
 $$
 
+Thus a T3-like $V_i$-triangle has positive-length intersection with exactly one
+of the adjacent half-diagonals $r_{i-1}$ and $r_{i+1}$. Among the six
+half-diagonals, it can have positive-length intersection only with
+
+$$
+r_i
+$$
+
+and exactly one of
+
+$$
+r_{i-1},\qquad r_{i+1}.
+$$
+
+Equivalently, after rotating indices to $i=0$, it can meet only $OV_0$ and
+exactly one of $OV_1$ and $OV_5$ in positive length.
+
 For a $\mathrm{T3\text{-}like}\, V_i$-triangle, we use the normalization
 that the triangle may be translated, preserving side length and orientation,
 so that $V_i$ lies on a side of $T_i$.  Relative to the local target under

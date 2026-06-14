@@ -10,7 +10,7 @@ by the local types of the vertex roles.
 | [`40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md`](40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md) | Proven local lemma | CE1, $N_+=0$, all Vd0 boundary-loss package under recorded assumptions. |
 | [`41XX_Nplus1/410X_all_Vd0/4101_CE1_Nplus1_all_Vd0_TODO.md`](41XX_Nplus1/410X_all_Vd0/4101_CE1_Nplus1_all_Vd0_TODO.md) | Strategy | CE1, $N_+=1$, all Vd0, open. |
 | [`41XX_Nplus1/411X_Vd1_Vd2_obstruction/4110_CE1_CE2_Vd1_Vd2_length_branches.md`](41XX_Nplus1/411X_Vd1_Vd2_obstruction/4110_CE1_CE2_Vd1_Vd2_length_branches.md) | Strategy | CE1, $N_+=1$, Vd1/Vd2 length route. |
-| [`41XX_Nplus1/412X_at_least_two_T3_like/4120_CE1_CE2_T3_like_midpoint_branches.md`](41XX_Nplus1/412X_at_least_two_T3_like/4120_CE1_CE2_T3_like_midpoint_branches.md) | Strategy | CE1, at least two T3-like rows. |
+| [`41XX_Nplus1/412X_at_least_two_T3_like/4123_CE1_CE2_at_least_two_T3_like_diagonal_obstruction.md`](41XX_Nplus1/412X_at_least_two_T3_like/4123_CE1_CE2_at_least_two_T3_like_diagonal_obstruction.md) | Practically proven | CE1, at least two T3-like rows. |
 | [`41XX_Nplus1/413X_exactly_one_T3_like/4130_CE1_exactly_one_T3_like_TODO.md`](41XX_Nplus1/413X_exactly_one_T3_like/4130_CE1_exactly_one_T3_like_TODO.md) | Strategy | CE1, exactly one T3-like row, open. |
 | [`42XX_Nplus_ge2/4200_CE1_CE2_skeleton_length_route.md`](42XX_Nplus_ge2/4200_CE1_CE2_skeleton_length_route.md) | Practically proven | CE1, $N_+\ge2$ shared skeleton-length obstruction. |
 

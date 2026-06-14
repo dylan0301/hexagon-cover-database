@@ -24,5 +24,7 @@ source file.
 | Full T3-like tangent-envelope conjecture | [`../3XXX_CE0/31XX_Nplus1/317X_T3_like_no_Vd1Vd2/3172_full_T3_like_tangent_envelope_conjecture.md`](../3XXX_CE0/31XX_Nplus1/317X_T3_like_no_Vd1Vd2/3172_full_T3_like_tangent_envelope_conjecture.md) | Lemma target |
 | CE0, $N_+=1$, all-Vd0 algorithm-2 route | [`../3XXX_CE0/31XX_Nplus1/310X_all_Vd0_five_point/3101_CE0_all_Vd0_algorithm2_index.md`](../3XXX_CE0/31XX_Nplus1/310X_all_Vd0_five_point/3101_CE0_all_Vd0_algorithm2_index.md) | Strategy / empirical |
 | CE1/CE2, $N_+\ge2$, skeleton-length obstruction | [`../4XXX_CE1/42XX_Nplus_ge2/4200_CE1_CE2_skeleton_length_route.md`](../4XXX_CE1/42XX_Nplus_ge2/4200_CE1_CE2_skeleton_length_route.md) | Practically proven |
+| CE1/CE2, $N_+=1$, at least two T3-like rows | [`../4XXX_CE1/41XX_Nplus1/412X_at_least_two_T3_like/4123_CE1_CE2_at_least_two_T3_like_diagonal_obstruction.md`](../4XXX_CE1/41XX_Nplus1/412X_at_least_two_T3_like/4123_CE1_CE2_at_least_two_T3_like_diagonal_obstruction.md) | Practically proven |
+| Diagonal length bounds for CE1/CE2 T3-like branches | [`../2XXX_geometric_lemmas/25XX_length_bounds/2520_diagonal_length_bounds.md`](../2XXX_geometric_lemmas/25XX_length_bounds/2520_diagonal_length_bounds.md) | Practically proven |
 
 Numerical or plotting support remains empirical unless a certificate is recorded.
