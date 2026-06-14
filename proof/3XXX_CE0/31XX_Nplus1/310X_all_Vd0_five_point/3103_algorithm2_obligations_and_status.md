@@ -19,7 +19,7 @@ This file is not a proof. It records the dependency structure and current obliga
 | Algorithm-2 two-variable model | Proven local lemma | [`3106_algorithm2_two_variable_transition.md`](3106_algorithm2_two_variable_transition.md) | Depends on the still-open equalities $a_3+b_3=1$ and $a_5+b_5=1$. |
 | Algorithm-1 tangent gap | Proven analytic inequality | [`3107_algorithm1_limit_tangent_gap.md`](3107_algorithm1_limit_tangent_gap.md) | Add a finite-$x$ remainder bound for the near-limit region. |
 | Convex cyclic order | Proven local lemma | [`3108_convex_order_from_line_branches.md`](3108_convex_order_from_line_branches.md) | Uses strict line realization and the algorithm-2 diagonal model. |
-| Transition-strip certificate | Empirical / certificate outline | [`3109_algorithm2_transition_strip_certificate.md`](3109_algorithm2_transition_strip_certificate.md) | Add verifier code or exact certificate data for the interval enclosures. |
+| Transition-strip certificate | Empirical | [`3109_algorithm2_transition_strip_certificate.md`](3109_algorithm2_transition_strip_certificate.md) | Add verifier code or exact certificate data for the interval enclosures. |
 | Current status ledger | Reference | [`3110_current_status_and_remaining_obligations.md`](3110_current_status_and_remaining_obligations.md) | Tracks remaining open tasks. |
 
 ## Assembly Target
@@ -58,7 +58,7 @@ The certificate outline in [`3109_algorithm2_transition_strip_certificate.md`](3
 
 | Edge or branch | Recorded status |
 |---|---|
-| Dangerous edge $P_3P_5$ | Empirical / interval-certificate outline with lower value $1.0031590223\ldots$. |
+| Dangerous edge $P_3P_5$ | Empirical interval-certificate outline with lower value $1.0031590223\ldots$. |
 | Non-dangerous edge $D_0D_1$ | Conditional interval certificate outline. |
 | Non-dangerous edge $D_1D_2$ | Conditional interval certificate outline. |
 | Non-dangerous edge $D_2P_3$ | Conditional interpolation certificate outline. |
