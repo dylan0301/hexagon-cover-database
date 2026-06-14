@@ -73,7 +73,6 @@ Branch labels use the corrected maximal meaning from
 
 | File | Recorded status | Notes |
 |---|---|---|
-| [`4011_CE1_boundary_loss_package.md`](4011_CE1_boundary_loss_package.md) | Reference | Package overview. |
 | [`4012_remaining_reductions_to_all_Vd0.md`](4012_remaining_reductions_to_all_Vd0.md) | Strategy | Remaining reductions to all Vd0. |
 | [`4014_setup_and_reduction.md`](4014_setup_and_reduction.md) | Strategy with proven reduction | Target, notation, C-triangle parameterization, and reduction to $F<1$. |
 | [`4015_B_map_branch_realization.md`](4015_B_map_branch_realization.md) | Definition with proven local branch-realization lemmas | Corrected definition of $B(a,c)$ and branch-realization conditions. |

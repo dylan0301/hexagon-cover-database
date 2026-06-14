@@ -75,5 +75,4 @@ under the local square-loss hypothesis stated there.
 |---|---|---|
 | [`3202_area_function_and_monotonicity.md`](3202_area_function_and_monotonicity.md) | Strategy / lemma target | Defines $f(a,b)$, records monotonicity, and states the structural conjecture for the local maximizing triangle. |
 | [`3204_supercritical_vertex_loss_lemma.md`](3204_supercritical_vertex_loss_lemma.md) | Proven analytic inequality | Proves the supercritical square-loss bound under the supercritical structural hypothesis. |
-| [`3206_area_conjecture_proof_tree.md`](3206_area_conjecture_proof_tree.md) | Reference | Records the CE0 conditional-certificate proof tree. |
 | [`3208_CE0_conditional_area_certificate.md`](3208_CE0_conditional_area_certificate.md) | Proven analytic inequality | Proves the CE0 six-point inequality under the local square-loss hypothesis for $f(a,b)$. |

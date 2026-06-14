@@ -9,7 +9,7 @@ Main CE0 branches:
 | [`../3XXX_CE0/30XX_Nplus0/3010_CE0_perimeter_length_obstruction.md`](../3XXX_CE0/30XX_Nplus0/3010_CE0_perimeter_length_obstruction.md) | Proven | CE0, $N_+=0$, perimeter-length obstruction. |
 | [`../3XXX_CE0/31XX_Nplus1/310X_all_Vd0_five_point/3101_CE0_all_Vd0_algorithm2_index.md`](../3XXX_CE0/31XX_Nplus1/310X_all_Vd0_five_point/3101_CE0_all_Vd0_algorithm2_index.md) | Strategy | CE0, $N_+=1$, all Vd0, algorithm-2 route. |
 | [`../3XXX_CE0/31XX_Nplus1/311X_exists_Vd1_Vd2/3110_CE0_Nplus1_exists_Vd1_Vd2_index.md`](../3XXX_CE0/31XX_Nplus1/311X_exists_Vd1_Vd2/3110_CE0_Nplus1_exists_Vd1_Vd2_index.md) | Reference | CE0, $N_+=1$, exists Vd1/Vd2; practically proven boundary-length obstruction. |
-| [`../3XXX_CE0/31XX_Nplus1/312X_T3_like_no_Vd1Vd2/3120_CE0_one_T3_like_area_certificate_index.md`](../3XXX_CE0/31XX_Nplus1/312X_T3_like_no_Vd1Vd2/3120_CE0_one_T3_like_area_certificate_index.md) | Reference | CE0, $N_+=1$, T3-like and no Vd1/Vd2; conditional area route. |
+| [`../3XXX_CE0/31XX_Nplus1/312X_T3_like_no_Vd1Vd2/3121_T3_like_area_certificate_index.md`](../3XXX_CE0/31XX_Nplus1/312X_T3_like_no_Vd1Vd2/3121_T3_like_area_certificate_index.md) | Strategy / conditional package | CE0, $N_+=1$, T3-like and no Vd1/Vd2; conditional area route. |
 | [`../3XXX_CE0/32XX_Nplus_ge2/3201_area_conjecture_index.md`](../3XXX_CE0/32XX_Nplus_ge2/3201_area_conjecture_index.md) | Strategy | CE0, $N_+\ge2$, conditional area package. |
 | [`../3XXX_CE0/33XX_old_Vd1_Vd2_chain_proof/3300_CE0_old_Vd1_Vd2_chain_proof_index.md`](../3XXX_CE0/33XX_old_Vd1_Vd2_chain_proof/3300_CE0_old_Vd1_Vd2_chain_proof_index.md) | Reference | Old CE0 Vd1/Vd2 chain proof. |
 
@@ -17,7 +17,7 @@ Main CE1 branches:
 
 | File | Recorded status | Branch |
 |---|---|---|
-| [`../4XXX_CE1/40XX_Nplus0/401X_all_Vd0_boundary_loss/4011_CE1_boundary_loss_package.md`](../4XXX_CE1/40XX_Nplus0/401X_all_Vd0_boundary_loss/4011_CE1_boundary_loss_package.md) | Reference | CE1, $N_+=0$, all Vd0 boundary-loss package under recorded assumptions. |
+| [`../4XXX_CE1/40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md`](../4XXX_CE1/40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md) | Proven local lemma | CE1, $N_+=0$, all Vd0 boundary-loss package under recorded assumptions. |
 | [`../4XXX_CE1/41XX_Nplus1/410X_all_Vd0/4101_CE1_Nplus1_all_Vd0_TODO.md`](../4XXX_CE1/41XX_Nplus1/410X_all_Vd0/4101_CE1_Nplus1_all_Vd0_TODO.md) | Strategy | CE1, $N_+=1$, all Vd0, open. |
 | [`../4XXX_CE1/41XX_Nplus1/411X_Vd1_Vd2_obstruction/4110_CE1_CE2_Vd1_Vd2_length_branches.md`](../4XXX_CE1/41XX_Nplus1/411X_Vd1_Vd2_obstruction/4110_CE1_CE2_Vd1_Vd2_length_branches.md) | Strategy | CE1/CE2 Vd1/Vd2 length route target. |
 | [`../4XXX_CE1/41XX_Nplus1/412X_at_least_two_T3_like/4120_CE1_CE2_T3_like_midpoint_branches.md`](../4XXX_CE1/41XX_Nplus1/412X_at_least_two_T3_like/4120_CE1_CE2_T3_like_midpoint_branches.md) | Strategy | CE1/CE2 at least two T3-like rows. |
