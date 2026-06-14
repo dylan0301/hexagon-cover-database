@@ -2,7 +2,7 @@
 
 Status: Reference
 
-This file records what the `312X_T3_like_no_Vd1Vd2` package does not prove,
+This file records what the `317X_T3_like_no_Vd1Vd2` package does not prove,
 and where naive area strategies fail.
 
 ## Completed conditional part

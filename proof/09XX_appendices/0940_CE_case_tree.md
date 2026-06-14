@@ -65,7 +65,7 @@ noncoverage as a standalone route; see
 
 | File | Recorded status | Notes |
 |---|---|---|
-| [`../3XXX_CE0/31XX_Nplus1/311X_exists_Vd1_Vd2/3110_CE0_Nplus1_exists_Vd1_Vd2_index.md`](../3XXX_CE0/31XX_Nplus1/311X_exists_Vd1_Vd2/3110_CE0_Nplus1_exists_Vd1_Vd2_index.md) | Reference | Status source; branch obstruction is recorded there as practically proven. |
+| [`../3XXX_CE0/31XX_Nplus1/314X_exists_Vd1_Vd2/3140_CE0_Nplus1_exists_Vd1_Vd2_index.md`](../3XXX_CE0/31XX_Nplus1/314X_exists_Vd1_Vd2/3140_CE0_Nplus1_exists_Vd1_Vd2_index.md) | Reference | Status source; branch obstruction is recorded there as practically proven. |
 
 ### CE0, old Vd1/Vd2 chain proof
 
@@ -79,8 +79,8 @@ noncoverage as a standalone route; see
 
 | File | Recorded status | Notes |
 |---|---|---|
-| [`../3XXX_CE0/31XX_Nplus1/312X_T3_like_no_Vd1Vd2/3121_T3_like_area_certificate_index.md`](../3XXX_CE0/31XX_Nplus1/312X_T3_like_no_Vd1Vd2/3121_T3_like_area_certificate_index.md) | Strategy / conditional package | Conditional area route index. |
-| [`../3XXX_CE0/31XX_Nplus1/312X_T3_like_no_Vd1Vd2/3124_CE0_one_supercritical_T3_certificate.md`](../3XXX_CE0/31XX_Nplus1/312X_T3_like_no_Vd1Vd2/3124_CE0_one_supercritical_T3_certificate.md) | Proven analytic inequality conditional on local inputs | Conditional analytic certificate. |
+| [`../3XXX_CE0/31XX_Nplus1/317X_T3_like_no_Vd1Vd2/3171_T3_like_area_certificate_index.md`](../3XXX_CE0/31XX_Nplus1/317X_T3_like_no_Vd1Vd2/3171_T3_like_area_certificate_index.md) | Strategy / conditional package | Conditional area route index. |
+| [`../3XXX_CE0/31XX_Nplus1/317X_T3_like_no_Vd1Vd2/3174_CE0_one_supercritical_T3_certificate.md`](../3XXX_CE0/31XX_Nplus1/317X_T3_like_no_Vd1Vd2/3174_CE0_one_supercritical_T3_certificate.md) | Proven analytic inequality conditional on local inputs | Conditional analytic certificate. |
 
 ### CE0, $N_+\ge2$
 
