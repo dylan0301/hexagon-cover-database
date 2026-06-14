@@ -1,6 +1,6 @@
 # Skeleton-Length Obstruction for CE1/CE2 with at Least Two Supercritical $V$-Triangles
 
-Status: Practically proven
+Status: Proven
 
 ## Statement
 
@@ -39,13 +39,6 @@ Assume:
    $$
    a_i+b_i>1.
    $$
-
-Assume the following center-triangle skeleton cap:
-
-**Center cap.** Every exact-$M_0$ CE1/CE2 center triangle satisfies
-$$
-L_S(T_C):=\mathcal H^1(T_C\cap S)<\frac32.
-$$
 
 Then the seven triangles cannot cover $S$.
 
@@ -105,7 +98,7 @@ A=\{i:a_i+b_i>1\}.
 $$
 By assumption,
 $$
-|A|\ge2.
+\left\lvert A\right\rvert\ge2.
 $$
 Since $A\subset\mathbb Z/6\mathbb Z$, at least one element of $A$ is not $0$. Choose
 $$
@@ -140,17 +133,338 @@ $$
 
 ---
 
-## Lemma 3: Vd1, Vd2, and T3-like skeleton caps follow from the CE1/CE2 center cap
+## Lemma 3: Exact-$M_0$ CE1/CE2 center triangles have skeleton length $<3/2$
 
-Assume the following unrestricted translated-center cap:
-
-For any regular side-$1$ hexagon $K$, every CE1/CE2 center triangle $T$ satisfies
+Let $T_C$ be an exact-$M_0$ CE1 or CE2 center triangle. Then
 $$
-L_{S(K)}(T)<\frac32,
+L_S(T_C):=\mathcal H^1(T_C\cap S)<\frac32.
 $$
-where $S(K)$ is the skeleton of $K$.
 
-Then every $V_i$-triangle of type Vd1, Vd2, or T3-like satisfies
+### Proof
+
+Use the local affine coordinates
+$$
+X=V_0+b(V_1-V_0)+a(V_5-V_0).
+$$
+Thus
+$$
+V_0=(0,0),\qquad V_1=(1,0),\qquad V_5=(0,1),\qquad O=(1,1).
+$$
+By reflection if necessary, assume that $T_C$ has positive boundary overlap with $e_{0,1}$. Write
+$$
+T_C\cap e_{0,1}=[s,t],\qquad 0<s<t<1.
+$$
+Label the two sides cutting $e_{0,1}$ so that
+$$
+T_C=\{F_0\ge0,\ F_1\ge0,\ F_2\ge0\},
+$$
+where
+$$
+F_1=\lambda b+(1-\lambda)a-\lambda s,
+$$
+$$
+F_2=-b+\lambda a+t,
+$$
+$$
+F_0=(1-\lambda)b-a+\rho+\lambda s-t,
+$$
+and
+$$
+\rho=\sqrt{1-\lambda+\lambda^2}.
+$$
+These three affine functions have gradients in the three side-normal directions of a unit equilateral triangle, and
+$$
+F_0+F_1+F_2=\rho.
+$$
+The exact-$M_0$ CE geometry forces
+$$
+0<\lambda<1.
+$$
+Indeed, if $\lambda=1$, then
+$$
+F_0(O)=s-t<0,
+$$
+contradicting $O\in T_C$. If $\lambda>1$, the conditions $O\in T_C$ and $s<t$ imply
+$$
+s>\frac{\lambda-\rho}{\lambda-1},
+$$
+whereas $M_1\notin T_C$ forces
+$$
+s<t<1-\frac{\lambda}{2}.
+$$
+But
+$$
+\frac{\lambda-\rho}{\lambda-1}\ge1-\frac{\lambda}{2},
+$$
+because this is equivalent to
+$$
+\frac{\lambda^2-\lambda+2}{2}\ge\rho,
+$$
+and after squaring the difference is
+$$
+\left(\frac{\lambda^2-\lambda+2}{2}\right)^2-\rho^2=\frac{(\lambda^2-\lambda)^2}{4}\ge0.
+$$
+Thus $\lambda\ge1$ is impossible, and after possibly relabeling the two cutting sides, $0<\lambda<1$.
+
+Define the center slacks
+$$
+C_0:=F_0(O),\qquad C_2:=F_2(O).
+$$
+Since $O\in T_C$,
+$$
+C_0\ge0,\qquad C_2\ge0.
+$$
+A direct calculation gives
+$$
+C_0=\rho-\lambda(1-s)-t,
+$$
+$$
+C_2=\lambda+t-1.
+$$
+Hence
+$$
+t=1-\lambda+C_2,
+$$
+and
+$$
+\lambda s=C_0+C_2+1-\rho.
+$$
+Set
+$$
+P:=\rho(1-\rho).
+$$
+
+The positive $e_{0,1}$ interval condition $s<t$ becomes
+$$
+\frac{C_0+C_2+1-\rho}{\lambda}<1-\lambda+C_2.
+$$
+Multiplying by $\lambda$ and using $\rho^2=1-\lambda+\lambda^2$, this is
+$$
+C_0+(1-\lambda)C_2<P.
+$$
+So
+$$
+\boxed{C_0+(1-\lambda)C_2<P.}
+$$
+
+The $e_{0,1}$ boundary contribution is
+$$
+\ell_{01}=t-s=1-\lambda+C_2-\frac{C_0+C_2+1-\rho}{\lambda}.
+$$
+
+Now compute the possible $e_{5,0}$ overlap. On $e_{5,0}$, $b=0$, so
+$$
+F_1=(1-\lambda)a-\lambda s,
+$$
+$$
+F_2=t+\lambda a>0,
+$$
+$$
+F_0=\rho+\lambda s-t-a.
+$$
+Thus the $e_{5,0}$ interval length is
+$$
+\ell_{50}=\left[a_U-a_L\right]_+,
+$$
+where
+$$
+a_L=\frac{\lambda s}{1-\lambda}=\frac{C_0+C_2+1-\rho}{1-\lambda}
+$$
+and
+$$
+a_U=\rho+\lambda s-t=C_0+\lambda.
+$$
+Therefore
+$$
+(1-\lambda)(a_U-a_L)=P-(\lambda C_0+C_2),
+$$
+so
+$$
+\boxed{\ell_{50}=\left[\frac{P-(\lambda C_0+C_2)}{1-\lambda}\right]_+.}
+$$
+This positive-part term is zero in the CE1 case and positive in the CE2 case.
+
+Let $d_i$ be the length of $T_C\cap[O,V_i]$. Parameterize each radial arm by distance $q$ from $O$ toward the corresponding vertex. Direct substitution into $F_0,F_1,F_2$ gives the following bounds:
+$$
+d_0=1-\lambda s=\rho-C_0-C_2,
+$$
+$$
+d_1\le\frac{C_2}{\lambda},
+$$
+$$
+d_2\le C_2,
+$$
+$$
+d_3\le\min\left(\frac{C_0}{\lambda},\frac{C_2}{1-\lambda}\right),
+$$
+$$
+d_4\le C_0,
+$$
+$$
+d_5\le\frac{C_0}{1-\lambda}.
+$$
+For example, along $[O,V_1]$ the side $F_2=0$ is reached after distance $C_2/\lambda$, while along $[O,V_3]$ the first exit is bounded by the smaller of the $F_0$ and $F_2$ exits.
+
+Hence
+$$
+L_S(T_C)\le \ell_{01}+\ell_{50}+d_0+d_1+d_2+d_3+d_4+d_5.
+$$
+Substituting the formulas gives
+$$
+\begin{aligned}
+L_S(T_C)
+\le{}&
+\left(1-\lambda+C_2-\frac{C_0+C_2+1-\rho}{\lambda}\right)\\
+&+\left[\frac{P-(\lambda C_0+C_2)}{1-\lambda}\right]_+\\
+&+(\rho-C_0-C_2)+\frac{C_2}{\lambda}+C_2
++\min\left(\frac{C_0}{\lambda},\frac{C_2}{1-\lambda}\right)
++C_0+\frac{C_0}{1-\lambda}.
+\end{aligned}
+$$
+After cancellation,
+$$
+L_S(T_C)
+\le
+K_\lambda
+-\frac{C_0}{\lambda}
++\frac{C_0}{1-\lambda}
++C_2
++\min\left(\frac{C_0}{\lambda},\frac{C_2}{1-\lambda}\right)
++\left[\frac{P-(\lambda C_0+C_2)}{1-\lambda}\right]_+,
+$$
+where
+$$
+K_\lambda:=1-\lambda+\rho-\frac{1-\rho}{\lambda}.
+$$
+We claim that the $C_0,C_2$ dependent part is at most $P/(1-\lambda)$.
+
+Set
+$$
+X=C_0,\qquad Y=C_2.
+$$
+Then
+$$
+X\ge0,\qquad Y\ge0,\qquad X+(1-\lambda)Y<P.
+$$
+Define
+$$
+\mathcal E(X,Y)=
+-\frac{X}{\lambda}
++\frac{X}{1-\lambda}
++Y
++\min\left(\frac{X}{\lambda},\frac{Y}{1-\lambda}\right)
++\left[\frac{P-(\lambda X+Y)}{1-\lambda}\right]_+.
+$$
+We prove
+$$
+\mathcal E(X,Y)\le\frac{P}{1-\lambda}.
+$$
+
+First suppose
+$$
+\frac{X}{\lambda}\le\frac{Y}{1-\lambda}.
+$$
+Then
+$$
+(1-\lambda)X\le\lambda Y.
+$$
+The minimum is $X/\lambda$, so
+$$
+\mathcal E=rac{X}{1-\lambda}+Y+\left[\frac{P-(\lambda X+Y)}{1-\lambda}\right]_+.
+$$
+If the positive part is zero, then
+$$
+\mathcal E=rac{X+(1-\lambda)Y}{1-\lambda}<\frac{P}{1-\lambda}.
+$$
+If the positive part is positive, then
+$$
+\mathcal E=rac{P+(1-\lambda)X-\lambda Y}{1-\lambda}\le\frac{P}{1-\lambda},
+$$
+because $(1-\lambda)X\le\lambda Y$.
+
+Now suppose
+$$
+\frac{X}{\lambda}\ge\frac{Y}{1-\lambda}.
+$$
+Then
+$$
+Y\le\frac{(1-\lambda)X}{\lambda}.
+$$
+The minimum is $Y/(1-\lambda)$. If the positive part is zero, then
+$$
+\mathcal E=-\frac{X}{\lambda}+\frac{X}{1-\lambda}+Y+rac{Y}{1-\lambda}.
+$$
+Since
+$$
+-\frac{X}{\lambda}+\frac{Y}{1-\lambda}\le0,
+$$
+we get
+$$
+\mathcal E\le\frac{X}{1-\lambda}+Y=rac{X+(1-\lambda)Y}{1-\lambda}<\frac{P}{1-\lambda}.
+$$
+If the positive part is positive, then
+$$
+\mathcal E=rac{P}{1-\lambda}+Y-\frac{(1-\lambda)X}{\lambda}\le\frac{P}{1-\lambda}.
+$$
+Thus in all cases
+$$
+\mathcal E(X,Y)\le\frac{P}{1-\lambda}.
+$$
+Therefore
+$$
+L_S(T_C)\le K_\lambda+\frac{P}{1-\lambda}.
+$$
+The inequality is strict in the nondegenerate CE1/CE2 branch because $s<t$ gives $X+(1-\lambda)Y<P$.
+
+It remains to prove
+$$
+K_\lambda+\frac{P}{1-\lambda}<\frac32.
+$$
+Using $P=\rho(1-\rho)$,
+$$
+K_\lambda+\frac{P}{1-\lambda}
+=1-\lambda+\rho-rac{1-\rho}{\lambda}+\frac{\rho(1-\rho)}{1-\lambda}.
+$$
+A direct simplification gives
+$$
+\frac32-\left(K_\lambda+\frac{P}{1-\lambda}\right)
+=
+\frac{2+\lambda-\lambda^2-2\rho(1+\lambda-\lambda^2)}{2\lambda(1-\lambda)}.
+$$
+Let
+$$
+A=1+\lambda-\lambda^2.
+$$
+The numerator is
+$$
+1+A-2\rho A.
+$$
+Both sides in the comparison $1+A>2\rho A$ are positive, so it is enough to square. We compute
+$$
+(1+A)^2-4A^2\rho^2
+=\lambda^2(1-\lambda)^2(5+4\lambda-4\lambda^2).
+$$
+For $0<\lambda<1$, this is positive. Hence
+$$
+1+A>2\rho A,
+$$
+and therefore
+$$
+K_\lambda+rac{P}{1-\lambda}<\frac32.
+$$
+Consequently
+$$
+L_S(T_C)<\frac32.
+$$
+$$
+\Box
+$$
+
+---
+
+## Lemma 4: Vd1, Vd2, and T3-like skeleton caps follow from the CE1/CE2 center cap
+
+Every $V_i$-triangle of type Vd1, Vd2, or T3-like satisfies
 $$
 L_S(T_i)<\frac32.
 $$
@@ -221,7 +535,7 @@ Hence, viewed as a center triangle for $\widetilde H$, the triangle $T_0$ has po
 
 A unit equilateral triangle cannot have positive-length overlap with three boundary edges of a regular side-$1$ hexagon. Indeed, among any three boundary edges of a regular hexagon, two contain positive-length subsegments whose mutual distance is strictly greater than $1$, while a unit equilateral triangle has diameter $1$. Therefore $T_0$, viewed in $\widetilde H$, is CE1 or CE2.
 
-By the translated CE1/CE2 center cap,
+By the CE1/CE2 exact-one-midpoint lemma applied to $\widetilde H$, the triangle $T_0$ covers exactly one radial midpoint of $\widetilde H$. By dihedral symmetry of $\widetilde H$, Lemma 3 applies to this translated CE1/CE2 center-triangle configuration. Hence
 $$
 L_{\widetilde S}(T_0)<\frac32.
 $$
@@ -245,7 +559,7 @@ $$
 
 ---
 
-## Lemma 4: Vd0 with $a_i+b_i\le1$ has skeleton length at most $2$
+## Lemma 5: Vd0 with $a_i+b_i\le1$ has skeleton length at most $2$
 
 Let $T_i$ be Vd0 and suppose
 $$
@@ -286,9 +600,9 @@ $$
 
 ---
 
-## Lemma 5: Vd0 with $a_i+b_i>1$ has skeleton length less than $3/2$
+## Lemma 6: Supercritical $V_i$-triangles have skeleton length less than $3/2$
 
-Let $T_i$ be Vd0 and suppose
+Let $T_i$ be a $V_i$-triangle and suppose
 $$
 a_i+b_i>1.
 $$
@@ -303,7 +617,7 @@ By rotational symmetry, normalize to $i=0$. Write
 $$
 a=a_0,\qquad b=b_0.
 $$
-Since $T_0$ is Vd0 and $a+b>1$, it has no adjacent-ray contribution. Thus its skeleton contribution is
+Since $a+b>1$, $T_0$ has no adjacent-ray contribution. Thus its skeleton contribution is
 $$
 L_S(T_0)=a+b+c,
 $$
@@ -370,7 +684,6 @@ Q(s,d)=
 &+s^4-6s^3-19s^2+60s-36.
 \end{aligned}
 $$
-
 We show
 $$
 Q(s,d)\ge0.
@@ -395,17 +708,7 @@ On
 $$
 1<s\le\frac2{\sqrt3}<2,
 $$
-all three terms are nonnegative:
-$$
-d^2\ge0,
-$$
-$$
-d(4s-3)\ge0,
-$$
-$$
-(s-1)(2-s)>0.
-$$
-Therefore
+all three terms are nonnegative. Therefore
 $$
 \frac{\partial Q}{\partial d}\ge0.
 $$
@@ -432,9 +735,7 @@ $$
 $$
 Thus $g$ is decreasing on this interval, and its minimum occurs at $s=2/\sqrt3$. We have
 $$
-g\left(\frac2{\sqrt3}\right)
-=
-\frac{88}{3}-\frac{136\sqrt3}{9}>0.
+g\left(\frac2{\sqrt3}\right)=\frac{88}{3}-\frac{136\sqrt3}{9}>0.
 $$
 Therefore
 $$
@@ -444,7 +745,6 @@ throughout the feasible interval, and hence
 $$
 Q(s,d)>0.
 $$
-
 Thus
 $$
 P(c_0)\ge0,
@@ -457,7 +757,6 @@ Therefore
 $$
 a+b+c\le\frac32.
 $$
-
 Equality can occur only in the limiting degenerate case $a+b\to1^+$. Since the branch assumes $a+b>1$, we have strict inequality:
 $$
 a+b+c<\frac32.
@@ -481,10 +780,6 @@ Assume:
    $$
    a_i+b_i>1.
    $$
-3. The exact-$M_0$ CE1/CE2 center cap holds:
-   $$
-   L_S(T_C)<\frac32.
-   $$
 
 Then
 $$
@@ -496,24 +791,29 @@ cannot cover the skeleton $S$.
 
 By Lemma 2, since at least two $V_i$-triangles are supercritical, at least one $V_i$-triangle is Vd1, Vd2, or T3-like.
 
-By Lemma 3, every Vd1, Vd2, or T3-like triangle satisfies
+By Lemma 4, every Vd1, Vd2, or T3-like triangle satisfies
 $$
 L_S(T_i)<\frac32.
 $$
 
-The supercritical triangles are Vd0 with empty local midpoint subset, and by Lemma 5 each satisfies
+By Lemma 6, every supercritical $V_i$-triangle satisfies
 $$
 L_S(T_i)<\frac32.
 $$
 
-The remaining ordinary Vd0 triangles with $a_i+b_i\le1$ satisfy, by Lemma 4,
+The remaining ordinary Vd0 triangles with $a_i+b_i\le1$ satisfy, by Lemma 5,
 $$
 L_S(T_i)\le2.
 $$
 
+The center triangle satisfies, by Lemma 3,
+$$
+L_S(T_C)<\frac32.
+$$
+
 The worst possible skeleton-length upper bound occurs when there are exactly:
 
-- two supercritical Vd0 triangles;
+- two supercritical $V$-triangles;
 - one Vd1/Vd2/T3-like rescuer;
 - three ordinary Vd0 non-supercritical triangles.
 
