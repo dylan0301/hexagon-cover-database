@@ -17,9 +17,7 @@ Status: Reference
    CE0 $N_+\ge2$ area certificate.
 7. Prove the full T3-like tangent-envelope conjecture needed by the CE0
    one-supercritical T3-like area certificate.
-8. Prove the CE1/CE2 skeleton-length bounds and strictness cases for the
-   $N_+\ge2$ branch.
-9. Decide the CE2 exactly-one Vd1/Vd2 and CE1/CE2 exactly-one T3-like
+8. Decide the CE2 exactly-one Vd1/Vd2 and CE1/CE2 exactly-one T3-like
    fallback routes, likely by discrete $S_{1/2}$ set-cover certificates.
-10. Convert remaining computational checks into human-readable certificates
+9. Convert remaining computational checks into human-readable certificates
     where they are intended to support proof-level claims.

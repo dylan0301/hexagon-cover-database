@@ -35,11 +35,9 @@ and does not extend to the CE1/reduced-CE2 seven-point model.
 
 ## Current replacement routes
 
-For CE1/CE2 with $N_+\ge2$, use the skeleton-length and set-cover routes:
+For CE1/CE2 with $N_+\ge2$, use the skeleton-length route:
 
 - [`../../4XXX_CE1/42XX_Nplus_ge2/4200_CE1_CE2_skeleton_length_route.md`](../../4XXX_CE1/42XX_Nplus_ge2/4200_CE1_CE2_skeleton_length_route.md)
-- [`../../4XXX_CE1/42XX_Nplus_ge2/4201_CE1_CE2_set_cover_fallback.md`](../../4XXX_CE1/42XX_Nplus_ge2/4201_CE1_CE2_set_cover_fallback.md)
-- [`../../4XXX_CE1/42XX_Nplus_ge2/4202_CE1_CE2_two_supercritical_set_cover_strategy.md`](../../4XXX_CE1/42XX_Nplus_ge2/4202_CE1_CE2_two_supercritical_set_cover_strategy.md)
 - [`../../5XXX_CE2/52XX_Nplus_ge2/5200_CE2_Nplus_ge2_shared_route.md`](../../5XXX_CE2/52XX_Nplus_ge2/5200_CE2_Nplus_ge2_shared_route.md)
 
 ## Non-claims

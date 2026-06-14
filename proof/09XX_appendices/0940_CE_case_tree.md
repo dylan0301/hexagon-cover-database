@@ -120,12 +120,11 @@ noncoverage as a standalone route; see
 
 ### CE1, $N_+\ge2$
 
-- Route: shared CE1/CE2 skeleton-length and set-cover routes.
+- Route: shared CE1/CE2 skeleton-length obstruction.
 
 | File | Recorded status | Notes |
 |---|---|---|
-| [`../4XXX_CE1/42XX_Nplus_ge2/4200_CE1_CE2_skeleton_length_route.md`](../4XXX_CE1/42XX_Nplus_ge2/4200_CE1_CE2_skeleton_length_route.md) | Lemma target | Skeleton-length route. |
-| [`../4XXX_CE1/42XX_Nplus_ge2/4202_CE1_CE2_two_supercritical_set_cover_strategy.md`](../4XXX_CE1/42XX_Nplus_ge2/4202_CE1_CE2_two_supercritical_set_cover_strategy.md) | Strategy | Set-cover route. |
+| [`../4XXX_CE1/42XX_Nplus_ge2/4200_CE1_CE2_skeleton_length_route.md`](../4XXX_CE1/42XX_Nplus_ge2/4200_CE1_CE2_skeleton_length_route.md) | Practically proven | Skeleton-length obstruction. |
 
 ## CE2
 
@@ -152,8 +151,8 @@ CE2 files cite CE1 shared routes only where the hypotheses are the same.
 
 ### CE2, $N_+\ge2$
 
-- Route: shared CE1/CE2 route.
+- Route: shared CE1/CE2 skeleton-length obstruction.
 
 | File | Recorded status | Notes |
 |---|---|---|
-| [`../5XXX_CE2/52XX_Nplus_ge2/5200_CE2_Nplus_ge2_shared_route.md`](../5XXX_CE2/52XX_Nplus_ge2/5200_CE2_Nplus_ge2_shared_route.md) | Lemma target | Status source. |
+| [`../5XXX_CE2/52XX_Nplus_ge2/5200_CE2_Nplus_ge2_shared_route.md`](../5XXX_CE2/52XX_Nplus_ge2/5200_CE2_Nplus_ge2_shared_route.md) | Practically proven | Shared skeleton-length obstruction. |

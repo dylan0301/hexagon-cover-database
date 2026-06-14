@@ -1,26 +1,20 @@
-# CE1/CE2 Skeleton-Length Route
+# CE1/CE2, $N_+\ge2$, Skeleton-Length Obstruction
 
-Status: Lemma target
+Status: Practically proven
 
-The sketch proposes that the CE1/CE2 branch with
+This branch is closed by the skeleton-length obstruction recorded in
+[`../../2XXX_geometric_lemmas/25XX_length_bounds/2510_skeleton_length_bounds.md`](../../2XXX_geometric_lemmas/25XX_length_bounds/2510_skeleton_length_bounds.md)
+(Status: Practically proven).
+
+The branch assumptions are
 
 $$
-N_+\ge2
+T_C\text{ is CE1 or CE2},\qquad N_+=\left\lvert \left\lbrace\, i : a_i+b_i>1 \,\right\rbrace \right\rvert\ge2.
 $$
 
-should close by a strict skeleton-length inequality.
+Under the normalized CE1/CE2 midpoint condition and the exact-$M_0$ CE1/CE2
+center cap stated in the source file, the seven role triangles cannot cover
+the skeleton $S$.
 
-The proposed upper-bound pattern is:
-
-- CE1/CE2 center role: at most $3/2$ skeleton length;
-- Vd0 with $a+b\le1$: at most $2$ skeleton length;
-- Vd0 with $a+b>1$: at most $3/2$ skeleton length;
-- Vd1/Vd2: at most $3/2$ skeleton length;
-- T3-like: at most $3/2$ skeleton length.
-
-The target is to prove that the total upper bound is strictly less than the
-length required to cover the relevant skeleton target after midpoint and
-supercritical-row constraints are included.
-
-This route is not proved here. The local length bounds and strict endpoint
-cases must be recorded before this branch can be upgraded.
+This file is a pointer only. The proof status and assumptions are inherited
+from the cited source file.

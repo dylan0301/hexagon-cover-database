@@ -16,4 +16,4 @@ same.
 | [`51XX_Nplus1/512X_exactly_one_Vd1_Vd2/5120_CE2_Nplus1_exactly_one_Vd1_Vd2_TODO.md`](51XX_Nplus1/512X_exactly_one_Vd1_Vd2/5120_CE2_Nplus1_exactly_one_Vd1_Vd2_TODO.md) | Strategy | CE2, $N_+=1$, exactly one Vd1/Vd2. |
 | [`51XX_Nplus1/513X_at_least_two_T3_like/5130_CE2_Nplus1_at_least_two_T3_like_TODO.md`](51XX_Nplus1/513X_at_least_two_T3_like/5130_CE2_Nplus1_at_least_two_T3_like_TODO.md) | Lemma target | CE2, $N_+=1$, at least two T3-like rows. |
 | [`51XX_Nplus1/514X_exactly_one_T3_like/5140_CE2_Nplus1_exactly_one_T3_like_TODO.md`](51XX_Nplus1/514X_exactly_one_T3_like/5140_CE2_Nplus1_exactly_one_T3_like_TODO.md) | Strategy | CE2, $N_+=1$, exactly one T3-like row. |
-| [`52XX_Nplus_ge2/5200_CE2_Nplus_ge2_shared_route.md`](52XX_Nplus_ge2/5200_CE2_Nplus_ge2_shared_route.md) | Lemma target | CE2, $N_+\ge2$, shared CE1/CE2 route. |
+| [`52XX_Nplus_ge2/5200_CE2_Nplus_ge2_shared_route.md`](52XX_Nplus_ge2/5200_CE2_Nplus_ge2_shared_route.md) | Practically proven | CE2, $N_+\ge2$, shared CE1/CE2 skeleton-length obstruction. |

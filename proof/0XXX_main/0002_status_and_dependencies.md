@@ -23,7 +23,6 @@ source file.
 | Remaining local square-loss inputs for $f(a,b)$ | [`../3XXX_CE0/32XX_Nplus_ge2/3202_area_function_and_monotonicity.md`](../3XXX_CE0/32XX_Nplus_ge2/3202_area_function_and_monotonicity.md) | Open obligations |
 | Full T3-like tangent-envelope conjecture | [`../3XXX_CE0/31XX_Nplus1/312X_T3_like_no_Vd1Vd2/3122_full_T3_like_tangent_envelope_conjecture.md`](../3XXX_CE0/31XX_Nplus1/312X_T3_like_no_Vd1Vd2/3122_full_T3_like_tangent_envelope_conjecture.md) | Lemma target |
 | CE0, $N_+=1$, all-Vd0 algorithm-2 route | [`../3XXX_CE0/31XX_Nplus1/310X_all_Vd0_five_point/3101_CE0_all_Vd0_algorithm2_index.md`](../3XXX_CE0/31XX_Nplus1/310X_all_Vd0_five_point/3101_CE0_all_Vd0_algorithm2_index.md) | Strategy / empirical |
-| CE1/CE2 skeleton-length route | [`../4XXX_CE1/42XX_Nplus_ge2/4200_CE1_CE2_skeleton_length_route.md`](../4XXX_CE1/42XX_Nplus_ge2/4200_CE1_CE2_skeleton_length_route.md) | Lemma target |
-| CE1/CE2 two-supercritical set-cover route | [`../4XXX_CE1/42XX_Nplus_ge2/4202_CE1_CE2_two_supercritical_set_cover_strategy.md`](../4XXX_CE1/42XX_Nplus_ge2/4202_CE1_CE2_two_supercritical_set_cover_strategy.md) | Strategy |
+| CE1/CE2, $N_+\ge2$, skeleton-length obstruction | [`../4XXX_CE1/42XX_Nplus_ge2/4200_CE1_CE2_skeleton_length_route.md`](../4XXX_CE1/42XX_Nplus_ge2/4200_CE1_CE2_skeleton_length_route.md) | Practically proven |
 
 Numerical or plotting support remains empirical unless a certificate is recorded.

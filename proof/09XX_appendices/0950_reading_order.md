@@ -45,7 +45,7 @@ The old CE0 Vd1/Vd2 chain proof lives in
 | [`../4XXX_CE1/4000_CE1_index.md`](../4XXX_CE1/4000_CE1_index.md) | Navigation | CE1 branch index. |
 | [`../4XXX_CE1/40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md`](../4XXX_CE1/40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md) | Proven local lemma | CE1, $N_+=0$. |
 | [`../4XXX_CE1/41XX_Nplus1/`](../4XXX_CE1/41XX_Nplus1/) | Directory; see local files | CE1, $N_+=1$. |
-| [`../4XXX_CE1/42XX_Nplus_ge2/4200_CE1_CE2_skeleton_length_route.md`](../4XXX_CE1/42XX_Nplus_ge2/4200_CE1_CE2_skeleton_length_route.md) | Lemma target | CE1, $N_+\ge2$. |
+| [`../4XXX_CE1/42XX_Nplus_ge2/4200_CE1_CE2_skeleton_length_route.md`](../4XXX_CE1/42XX_Nplus_ge2/4200_CE1_CE2_skeleton_length_route.md) | Practically proven | CE1, $N_+\ge2$. |
 
 The CE1 branch also records CE1/CE2 shared proofs that CE2 later cites.
 
@@ -56,7 +56,7 @@ The CE1 branch also records CE1/CE2 shared proofs that CE2 later cites.
 | [`../5XXX_CE2/5000_CE2_index.md`](../5XXX_CE2/5000_CE2_index.md) | Navigation | CE2 branch index. |
 | [`../5XXX_CE2/50XX_Nplus0/`](../5XXX_CE2/50XX_Nplus0/) | Directory; see local files | CE2, $N_+=0$. |
 | [`../5XXX_CE2/51XX_Nplus1/`](../5XXX_CE2/51XX_Nplus1/) | Directory; see local files | CE2, $N_+=1$. |
-| [`../5XXX_CE2/52XX_Nplus_ge2/5200_CE2_Nplus_ge2_shared_route.md`](../5XXX_CE2/52XX_Nplus_ge2/5200_CE2_Nplus_ge2_shared_route.md) | Lemma target | CE2, $N_+\ge2$. |
+| [`../5XXX_CE2/52XX_Nplus_ge2/5200_CE2_Nplus_ge2_shared_route.md`](../5XXX_CE2/52XX_Nplus_ge2/5200_CE2_Nplus_ge2_shared_route.md) | Practically proven | CE2, $N_+\ge2$. |
 
 ## For Failed Routes And Computations
 
