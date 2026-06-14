@@ -17,7 +17,7 @@ The global analytic implication is proved there under two local inputs:
 
 | Local input source | Recorded status | Notes |
 |---|---|---|
-| [`../../32XX_Nplus_ge2/3207_current_status.md`](../../32XX_Nplus_ge2/3207_current_status.md) | Reference | Vd0 square-loss bounds remain an open obligation. |
+| [`../../32XX_Nplus_ge2/3202_area_function_and_monotonicity.md`](../../32XX_Nplus_ge2/3202_area_function_and_monotonicity.md) | Strategy / lemma target | Vd0 square-loss bounds remain an open obligation. |
 | [`3122_full_T3_like_tangent_envelope_conjecture.md`](3122_full_T3_like_tangent_envelope_conjecture.md) | Lemma target | Full T3-like tangent-envelope conjecture. |
 
 Those local inputs are not proved in the package. Consequently this branch is

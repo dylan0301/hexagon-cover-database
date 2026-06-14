@@ -19,9 +19,10 @@ Induced rows:
   (a_i,b_i) = (1-x_{i-1},x_i), i=0,...,5
 
 Local area bounds:
-  prove or certify the local square-loss bounds
+  prove or certify the local square-loss inputs
     a+b <= 1  =>  f(a,b) <= 1 - min(a,b)^2
     a+b >  1  =>  f(a,b) <= 1 - max(a,b)^2
+  supercritical input is supplied by 3204 if the structural hypothesis holds
 
 Analytic certificate:
   apply 3208_CE0_conditional_area_certificate.md
@@ -51,6 +52,12 @@ and
 $$
 a+b>1 \quad\Longrightarrow\quad f(a,b)\le1-\max(a,b)^2.
 $$
+
+The supercritical implication is proved in
+[`3204_supercritical_vertex_loss_lemma.md`](3204_supercritical_vertex_loss_lemma.md)
+(Status: Proven analytic inequality), conditional on the supercritical
+structural hypothesis for $T(a,b)$.  The subcritical implication and that
+structural hypothesis remain open unless separately proved or certified.
 
 The conditional analytic step itself is recorded in
 [`3208_CE0_conditional_area_certificate.md`](3208_CE0_conditional_area_certificate.md)

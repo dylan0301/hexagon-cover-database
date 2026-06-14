@@ -122,6 +122,17 @@ certified, the CE0 six-point final inequality follows from
 [`3208_CE0_conditional_area_certificate.md`](3208_CE0_conditional_area_certificate.md)
 directly.
 
+The supercritical implication
+
+$$
+a+b>1 \quad\Longrightarrow\quad 1-f(a,b)\ge\max(a,b)^2
+$$
+
+is proved in
+[`3204_supercritical_vertex_loss_lemma.md`](3204_supercritical_vertex_loss_lemma.md)
+under the supercritical structural hypothesis stated above.  The structural
+hypothesis itself and the subcritical implication remain open obligations.
+
 ## Area target using $f$
 
 The package aims to prove a vertex-triangle area bound in configurations with

@@ -17,6 +17,12 @@ conditional certificate is in
 [`3208_CE0_conditional_area_certificate.md`](3208_CE0_conditional_area_certificate.md)
 (Status: Proven analytic inequality).
 
+The supercritical square-loss bound is now recorded in
+[`3204_supercritical_vertex_loss_lemma.md`](3204_supercritical_vertex_loss_lemma.md)
+(Status: Proven analytic inequality), conditional on the supercritical
+structural hypothesis for local maximizers.  The subcritical bound and the
+structural hypothesis itself remain open obligations.
+
 The CE0 area-conjecture target is:
 
 $$
@@ -68,7 +74,6 @@ under the local square-loss hypothesis stated there.
 | File | Recorded status | Notes |
 |---|---|---|
 | [`3202_area_function_and_monotonicity.md`](3202_area_function_and_monotonicity.md) | Strategy / lemma target | Defines $f(a,b)$, records monotonicity, and states the structural conjecture for the local maximizing triangle. |
-| [`3203_CE0_six_point_main_target.md`](3203_CE0_six_point_main_target.md) | Strategy | Defines the main CE0 six-point perimeter model and its area target. |
+| [`3204_supercritical_vertex_loss_lemma.md`](3204_supercritical_vertex_loss_lemma.md) | Proven analytic inequality | Proves the supercritical square-loss bound under the supercritical structural hypothesis. |
 | [`3206_area_conjecture_proof_tree.md`](3206_area_conjecture_proof_tree.md) | Reference | Records the CE0 conditional-certificate proof tree. |
-| [`3207_current_status.md`](3207_current_status.md) | Reference | Lists dependencies, open obligations, and what is not yet proved. |
 | [`3208_CE0_conditional_area_certificate.md`](3208_CE0_conditional_area_certificate.md) | Proven analytic inequality | Proves the CE0 six-point inequality under the local square-loss hypothesis for $f(a,b)$. |

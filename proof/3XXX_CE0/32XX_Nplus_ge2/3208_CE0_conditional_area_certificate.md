@@ -6,9 +6,13 @@ This file proves the final CE0 six-point area inequality under explicit local
 square-loss upper bounds for the area function `f(a,b)` from
 [`3202_area_function_and_monotonicity.md`](3202_area_function_and_monotonicity.md).
 
-It does **not** prove those local upper bounds.  The local bounds remain a
-separate proof obligation, recorded in
-[`3207_current_status.md`](3207_current_status.md).
+It does **not** prove the full local input.  The supercritical half is recorded
+in
+[`3204_supercritical_vertex_loss_lemma.md`](3204_supercritical_vertex_loss_lemma.md)
+conditional on the supercritical structural hypothesis.  The subcritical bound
+and the structural hypothesis remain separate proof obligations, recorded in
+[`3202_area_function_and_monotonicity.md`](3202_area_function_and_monotonicity.md)
+and summarized in [`3201_area_conjecture_index.md`](3201_area_conjecture_index.md).
 
 ## Local square-loss hypothesis
 
@@ -60,11 +64,16 @@ $$
 The proof below uses only the square-loss hypothesis and the CE0 six-point row
 formulas.
 
+The implication for $a+b>1$ is proved in
+[`3204_supercritical_vertex_loss_lemma.md`](3204_supercritical_vertex_loss_lemma.md)
+if the supercritical structural hypothesis for local maximizers is available.
+This certificate remains conditional until the full local square-loss input is
+proved or otherwise certified.
+
 ## CE0 six-point notation
 
-Use the CE0 six-point perimeter model from
-[`3203_CE0_six_point_main_target.md`](3203_CE0_six_point_main_target.md).
-Thus one cut point is chosen on each edge:
+Use the CE0 six-point perimeter model.  Thus one cut point is chosen on each
+edge:
 
 $$
 X_i=V_i+x_i(V_{i+1}-V_i), \qquad 0\le x_i\le1, \qquad i=0,\dots,5,
@@ -343,11 +352,9 @@ This file depends on:
 
 - the definition of $f(a,b)$ in
   [`3202_area_function_and_monotonicity.md`](3202_area_function_and_monotonicity.md);
-- the CE0 row formulas in
-  [`3203_CE0_six_point_main_target.md`](3203_CE0_six_point_main_target.md);
 - the local square-loss hypothesis stated above.
 
 This file does not prove:
 
-- the local square-loss hypothesis;
+- the full local square-loss hypothesis unconditionally;
 - the structural conjecture for local maximizers $T(a,b)$.

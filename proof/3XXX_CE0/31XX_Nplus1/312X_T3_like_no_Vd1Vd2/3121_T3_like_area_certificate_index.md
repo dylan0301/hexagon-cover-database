@@ -23,7 +23,8 @@ $n$ is the number of adjacent rays with positive-length intersection.
 
 ## CE0 perimeter model
 
-Use the CE0 six-point model from `../../32XX_Nplus_ge2/3203_CE0_six_point_main_target.md`.
+Use the CE0 six-point model recorded in
+`../../32XX_Nplus_ge2/3208_CE0_conditional_area_certificate.md`.
 Choose one cut point on each boundary edge:
 
 $$
@@ -64,7 +65,8 @@ $$
 where $G=1-f$ is normalized outside area.
 
 These bounds are not proved in this folder.  They remain the same local proof
-obligation recorded in `../../32XX_Nplus_ge2/3207_current_status.md`.
+obligation recorded in
+`../../32XX_Nplus_ge2/3202_area_function_and_monotonicity.md`.
 
 ### Input 2: full T3-like tangent-envelope conjecture
 

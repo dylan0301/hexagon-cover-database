@@ -88,7 +88,7 @@ noncoverage as a standalone route; see
 
 | File | Recorded status | Notes |
 |---|---|---|
-| [`../3XXX_CE0/32XX_Nplus_ge2/3200_CE0_area_certificate.md`](../3XXX_CE0/32XX_Nplus_ge2/3200_CE0_area_certificate.md) | Reference | Area-certificate route. |
+| [`../3XXX_CE0/32XX_Nplus_ge2/3201_area_conjecture_index.md`](../3XXX_CE0/32XX_Nplus_ge2/3201_area_conjecture_index.md) | Strategy | Area-certificate package. |
 | [`../3XXX_CE0/32XX_Nplus_ge2/3208_CE0_conditional_area_certificate.md`](../3XXX_CE0/32XX_Nplus_ge2/3208_CE0_conditional_area_certificate.md) | Proven analytic inequality | Conditional on local square-loss bounds. |
 
 ## CE1
