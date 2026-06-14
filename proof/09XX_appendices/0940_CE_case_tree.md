@@ -59,13 +59,19 @@ noncoverage as a standalone route; see
 | [`../3XXX_CE0/31XX_Nplus1/310X_all_Vd0_five_point/3130_may21_four_point_warning.md`](../3XXX_CE0/31XX_Nplus1/310X_all_Vd0_five_point/3130_may21_four_point_warning.md) | Failed | Warning: May 21 four-point route failed for this branch. |
 | [`../9XXX_failed_ideas/962X_may21_four_point_failure/9620_may21_patternA_index.md`](../9XXX_failed_ideas/962X_may21_four_point_failure/9620_may21_patternA_index.md) | Strategy | Archived May 21/22 Pattern A package. |
 
-### CE0, $N_+=1$, at least one Vd1/Vd2
+### CE0, $N_+=1$, exists Vd1/Vd2
 
-- Route: half-skeleton obstruction.
+- Route: boundary-length obstruction.
 
 | File | Recorded status | Notes |
 |---|---|---|
-| [`../3XXX_CE0/31XX_Nplus1/311X_Vd1_Vd2_obstruction/3110_CE0_Vd1_Vd2_obstruction_index.md`](../3XXX_CE0/31XX_Nplus1/311X_Vd1_Vd2_obstruction/3110_CE0_Vd1_Vd2_obstruction_index.md) | Reference | Status source; branch theorem is recorded there as proven. |
+| [`../3XXX_CE0/31XX_Nplus1/311X_exists_Vd1_Vd2/3110_CE0_Nplus1_exists_Vd1_Vd2_index.md`](../3XXX_CE0/31XX_Nplus1/311X_exists_Vd1_Vd2/3110_CE0_Nplus1_exists_Vd1_Vd2_index.md) | Reference | Status source; branch obstruction is recorded there as practically proven. |
+
+### CE0, old Vd1/Vd2 chain proof
+
+| File | Recorded status | Notes |
+|---|---|---|
+| [`../3XXX_CE0/33XX_old_Vd1_Vd2_chain_proof/3300_CE0_old_Vd1_Vd2_chain_proof_index.md`](../3XXX_CE0/33XX_old_Vd1_Vd2_chain_proof/3300_CE0_old_Vd1_Vd2_chain_proof_index.md) | Reference | General CE0 Vd1/Vd2 half-skeleton obstruction. |
 
 ### CE0, $N_+=1$, T3-like and no Vd1/Vd2
 

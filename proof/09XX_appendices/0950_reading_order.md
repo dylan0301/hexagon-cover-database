@@ -32,8 +32,11 @@ local facts. V-triangle capacity formulas and the $AB$-union curve live in
 | [`../3XXX_CE0/31XX_Nplus1/`](../3XXX_CE0/31XX_Nplus1/) | Directory; see local files | CE0, $N_+=1$. |
 | [`../3XXX_CE0/32XX_Nplus_ge2/3201_area_conjecture_index.md`](../3XXX_CE0/32XX_Nplus_ge2/3201_area_conjecture_index.md) | Strategy | CE0, $N_+\ge2$. |
 
-Within `31XX_Nplus1`, read the all-Vd0 May 25 route, the Vd1/Vd2 obstruction,
-and the T3-like area route as separate branches.
+Within `31XX_Nplus1`, read the all-Vd0 May 25 route, the exists Vd1/Vd2
+boundary-length obstruction, and the T3-like area route as separate branches.
+The old CE0 Vd1/Vd2 chain proof lives in
+[`../3XXX_CE0/33XX_old_Vd1_Vd2_chain_proof/3300_CE0_old_Vd1_Vd2_chain_proof_index.md`](../3XXX_CE0/33XX_old_Vd1_Vd2_chain_proof/3300_CE0_old_Vd1_Vd2_chain_proof_index.md)
+(Status: Reference).
 
 ## For CE1
 

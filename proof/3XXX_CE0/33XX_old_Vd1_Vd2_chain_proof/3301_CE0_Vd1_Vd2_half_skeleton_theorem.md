@@ -32,11 +32,11 @@ cannot occur in a seven-open-unit-triangle cover of $S_{1/2}(H)$.
 
 The proof is assembled from:
 
-1. `602_CE0_Vd1_Vd2_rhombus_geometry.md`.
-2. `603_CE0_Vd1_Vd2_frontier_perturbation.md`.
-3. `604_CE0_Vd1_Vd2_F_chain_inequalities.md`.
-4. `605_CE0_Vd1_Vd2_midpoint_hole_subcases.md`.
-5. `606_CE0_Vd1_Vd2_assembly.md`.
+1. [3302_CE0_Vd1_Vd2_rhombus_geometry.md](3302_CE0_Vd1_Vd2_rhombus_geometry.md).
+2. [3303_CE0_Vd1_Vd2_frontier_perturbation.md](3303_CE0_Vd1_Vd2_frontier_perturbation.md).
+3. [3304_CE0_Vd1_Vd2_F_chain_inequalities.md](3304_CE0_Vd1_Vd2_F_chain_inequalities.md).
+4. [3305_CE0_Vd1_Vd2_midpoint_hole_subcases.md](3305_CE0_Vd1_Vd2_midpoint_hole_subcases.md).
+5. [3306_CE0_Vd1_Vd2_assembly.md](3306_CE0_Vd1_Vd2_assembly.md).
 
 ## Normalization
 

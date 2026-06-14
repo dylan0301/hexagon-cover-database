@@ -94,7 +94,8 @@ This strategy is complementary to the area-conjecture route in
 supercritical rows.  The present route tries instead to certify finite
 half-skeleton noncoverage directly.
 
-It is also motivated by the proven CE0 + Vd1/Vd2 half-skeleton obstruction in
-`601_CE0_Vd1_Vd2_half_skeleton_theorem.md`, but it does not extend that theorem.
+It is also motivated by the proven old CE0 + Vd1/Vd2 half-skeleton obstruction in
+[`../../3XXX_CE0/33XX_old_Vd1_Vd2_chain_proof/3301_CE0_Vd1_Vd2_half_skeleton_theorem.md`](../../3XXX_CE0/33XX_old_Vd1_Vd2_chain_proof/3301_CE0_Vd1_Vd2_half_skeleton_theorem.md),
+but it does not extend that theorem.
 Any Vd1/Vd2 pressure found here must be recorded as a new certified local
 condition or kept as computational evidence.

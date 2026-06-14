@@ -78,14 +78,13 @@ $$
 \mathrm{CE0}+\text{at least one Vd1 or Vd2}.
 $$
 
-It is recorded as a proven half-skeleton obstruction across:
+It is recorded as a practically proven boundary-length obstruction for the
+$N_+=1$ branch in
+[`proof/3XXX_CE0/31XX_Nplus1/311X_exists_Vd1_Vd2/3111_CE0_Nplus1_exists_Vd1_Vd2_boundary_length_obstruction.md`](proof/3XXX_CE0/31XX_Nplus1/311X_exists_Vd1_Vd2/3111_CE0_Nplus1_exists_Vd1_Vd2_boundary_length_obstruction.md).
 
-- [`proof/3XXX_CE0/31XX_Nplus1/311X_Vd1_Vd2_obstruction/3111_CE0_Vd1_Vd2_half_skeleton_theorem.md`](proof/3XXX_CE0/31XX_Nplus1/311X_Vd1_Vd2_obstruction/3111_CE0_Vd1_Vd2_half_skeleton_theorem.md)
-- [`proof/3XXX_CE0/31XX_Nplus1/311X_Vd1_Vd2_obstruction/3112_CE0_Vd1_Vd2_rhombus_geometry.md`](proof/3XXX_CE0/31XX_Nplus1/311X_Vd1_Vd2_obstruction/3112_CE0_Vd1_Vd2_rhombus_geometry.md)
-- [`proof/3XXX_CE0/31XX_Nplus1/311X_Vd1_Vd2_obstruction/3113_CE0_Vd1_Vd2_frontier_perturbation.md`](proof/3XXX_CE0/31XX_Nplus1/311X_Vd1_Vd2_obstruction/3113_CE0_Vd1_Vd2_frontier_perturbation.md)
-- [`proof/3XXX_CE0/31XX_Nplus1/311X_Vd1_Vd2_obstruction/3114_CE0_Vd1_Vd2_F_chain_inequalities.md`](proof/3XXX_CE0/31XX_Nplus1/311X_Vd1_Vd2_obstruction/3114_CE0_Vd1_Vd2_F_chain_inequalities.md)
-- [`proof/3XXX_CE0/31XX_Nplus1/311X_Vd1_Vd2_obstruction/3115_CE0_Vd1_Vd2_midpoint_hole_subcases.md`](proof/3XXX_CE0/31XX_Nplus1/311X_Vd1_Vd2_obstruction/3115_CE0_Vd1_Vd2_midpoint_hole_subcases.md)
-- [`proof/3XXX_CE0/31XX_Nplus1/311X_Vd1_Vd2_obstruction/3116_CE0_Vd1_Vd2_assembly.md`](proof/3XXX_CE0/31XX_Nplus1/311X_Vd1_Vd2_obstruction/3116_CE0_Vd1_Vd2_assembly.md)
+The older general chain proof is recorded as a proven half-skeleton obstruction
+in
+[`proof/3XXX_CE0/33XX_old_Vd1_Vd2_chain_proof/3300_CE0_old_Vd1_Vd2_chain_proof_index.md`](proof/3XXX_CE0/33XX_old_Vd1_Vd2_chain_proof/3300_CE0_old_Vd1_Vd2_chain_proof_index.md).
 
 Other major cases are still strategy- or target-lemma-dependent; see
 [`proof/0XXX_main/0001_proof_tree_index.md`](proof/0XXX_main/0001_proof_tree_index.md).

@@ -1,0 +1,8 @@
+the current 311X package is a valid proof.
+it even works for any number of Nplus.
+however, we found a much more simple proof for CE0 Nplus1 VD1 or VD2 
+So move the current 311X directly under CE0 and rename it 33XX VD1 VD2 chain proof
+and make a new 311X exist VD1 VD2 
+the proof is easy: hexagon boundary cannot be covered simply because of length.
+refer to the boundary length formulas and think
+ask me questions
