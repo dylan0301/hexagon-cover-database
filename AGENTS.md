@@ -1,10 +1,17 @@
 # AGENTS.md
 
-Guidelines for Codex agents working in this repository.
+Guidelines for Codex or any AI agents working in this repository.
 
 The proof corpus in `proof/` is a Markdown research database for the hexagon
 covering problem. Treat those notes as mathematical research notes, not as
 application code.
+
+Role split:
+
+- `README.md` is the public entry point for readers.
+- `AGENTS.md` is editing policy for Codex agents and other automation.
+- `proof/0XXX_main/` is the proof scaffold: main theorem, proof-tree index,
+  and status/dependency table.
 
 The current organizing structure is the root-level proof tree:
 
@@ -31,14 +38,14 @@ Before editing, read the relevant navigation files:
 - `README.md`
 - `proof/0XXX_main/0000_main_theorem.md`
 - `proof/0XXX_main/0001_proof_tree_index.md`
-- `proof/0XXX_main/0003_readme_for_future_work.md`
 - `proof/0XXX_main/0002_status_and_dependencies.md`
-- `proof/1XXX_foundations/1006_proof_status_conventions.md`
+- `proof/09XX_appendices/0910_notation_dictionary.md`
+- `proof/1XXX_foundations/10XX_global_conventions/1006_proof_status_conventions.md`
 - The local index file for the folder being edited, when one exists.
 
-The user prompt `prompts/20260610prooftreeSketch.txt` records the current
-proof-tree sketch. Use it for branch organization, but do not treat sketch
-claims as proven unless a proof file in `proof/` supports that status.
+The file `proof/0XXX_main/0001_proof_tree_index.md` records the current
+proof-tree scaffold. Use it for branch organization, but do not treat a branch
+as proven unless a proof file in `proof/` supports that status.
 
 Assume the notes are delicate. Small wording changes can change mathematical
 meaning.
@@ -76,6 +83,11 @@ Keep these distinctions intact:
 
 Numerical or computational evidence stays `Empirical` unless a certificate is
 explicitly added.
+
+A global minimum, maximum, or infeasibility claim must remain `Empirical`
+unless it has an exact symbolic proof, interval certificate,
+quantifier-elimination certificate, or another independently checkable rigorous
+certificate.
 
 ## 3. Respect The Root `proof/` Layout
 
@@ -118,6 +130,7 @@ Every changed line should trace directly to the user's request.
 ## 5. Follow Repository Style
 
 Use Markdown for research-note files unless explicitly asked otherwise.
+Do not add image assets to proof notes unless explicitly requested.
 
 Use LaTeX delimiters consistently:
 
@@ -157,6 +170,9 @@ When editing mathematical statements:
 - preserve distinctions between `H`, `H_L`, `S`, and `S_{1/2}`,
 - preserve the primary CE branch split and the internal $N_+$ split,
 - preserve case labels such as CE0, CE1, CE2, Vd0, Vd1, Vd2, and T3-like.
+- preserve the Korean term **걸거치는** where it names the recurring geometric
+  phenomenon of a triangle crossing or straddling adjacent structure in a
+  non-axis-aligned way.
 
 If a requested edit seems to change the theorem, lemma, or proof content, stop
 and ask.

@@ -2,15 +2,12 @@
 
 Paths are relative to this `proof/` directory.
 
-09XX_appendices/0900_glossary.md
 09XX_appendices/0910_notation_dictionary.md
 09XX_appendices/0930_open_questions.md
 0XXX_main/0000_main_theorem.md
 0XXX_main/0001_proof_tree_index.md
 0XXX_main/0002_status_and_dependencies.md
-0XXX_main/0003_readme_for_future_work.md
-0XXX_main/0004_manifest.txt
-0XXX_main/0005_numerical_evidence_policy.md
+MANIFEST.txt
 1XXX_foundations/10XX_global_conventions/1000_problem_statement.md
 1XXX_foundations/10XX_global_conventions/1001_geometry_objects.md
 1XXX_foundations/10XX_global_conventions/1002_targets_skeleton_half_skeleton_lotus_benzene.md

@@ -9,6 +9,13 @@ These notes are not a single finished proof of the main theorem. Each file
 carries its own status label, and only files marked as proven should be cited
 as established results.
 
+## Document Roles
+
+- This `README.md` is the public entry point for readers of the corpus.
+- `AGENTS.md` is the editing policy for Codex agents and other automation.
+- `proof/0XXX_main/` is the proof scaffold: main theorem, proof-tree index,
+  and status/dependency table.
+
 ## Main Target
 
 The central theorem target is:
@@ -48,7 +55,7 @@ CE1, and CE2 branches.
 
 ## Repository Layout
 
-- [`proof/0XXX_main/`](proof/0XXX_main): main theorem, proof-tree index, status table, and manifest.
+- [`proof/0XXX_main/`](proof/0XXX_main): main theorem, proof-tree index, and status table.
 - [`proof/09XX_appendices/`](proof/09XX_appendices): glossary, notation, open questions, and archived sketches.
 - [`proof/1XXX_foundations/`](proof/1XXX_foundations): definitions and conventions.
 - [`proof/2XXX_geometric_lemmas/`](proof/2XXX_geometric_lemmas): reusable geometric lemmas and targets.
@@ -57,7 +64,7 @@ CE1, and CE2 branches.
 - [`proof/5XXX_CE2/`](proof/5XXX_CE2): CE2 proof-tree branch.
 - [`proof/9XXX_failed_ideas/`](proof/9XXX_failed_ideas): failed routes, empirical warnings, and counterexamples.
 
-The complete proof file list is in [`proof/0XXX_main/0004_manifest.txt`](proof/0XXX_main/0004_manifest.txt).
+The complete proof file list is in [`proof/MANIFEST.txt`](proof/MANIFEST.txt).
 
 ## Skeleton Counterexample Warning
 
@@ -110,10 +117,15 @@ Important labels:
 - `Reference`: dictionary, inventory, or index.
 
 Numerical optimization claims remain `Empirical` until a certificate is supplied.
+Global minimum, maximum, or infeasibility claims require an exact symbolic
+proof, interval certificate, quantifier-elimination certificate, or another
+independently checkable rigorous certificate before they can be treated as
+proven.
 
 ## Working Conventions
 
 - Keep research-note files Markdown-only unless the repository policy changes.
+- The proof corpus does not currently use image assets.
 - Use `$...$` for inline LaTeX and `$$...$$` for display LaTeX.
 - Write cardinalities in math as
   `\left\lvert \left\lbrace\, ... \,\right\rbrace \right\rvert`;
@@ -128,4 +140,4 @@ Numerical optimization claims remain `Empirical` until a certificate is supplied
   content inside a `$$` block can fail to render.
 - Do not cite a claim as proven unless its source file has a proven status label.
 - Preserve failed approaches with enough detail to avoid repeating them.
-- Use [`proof/09XX_appendices/0910_notation_dictionary.md`](proof/09XX_appendices/0910_notation_dictionary.md) when introducing or checking notation.
+- Use [`proof/09XX_appendices/0910_notation_dictionary.md`](proof/09XX_appendices/0910_notation_dictionary.md) when introducing or checking glossary terms and notation.

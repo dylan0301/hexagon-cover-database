@@ -27,3 +27,13 @@ inside each Nplus splits, also add another leaves with the Vd0 or VD1 or VD2 or 
 i think we don't need 0920 0930 0940 0950 0960 files
 also 097X is empty so don't need
 prove me wrong. why do we need them
+
+i think 0003 and 0005 files contents should be in agents.md and readme.md,
+not in the 0XXXmain folder. what do you think?
+and i need to separate the roles of agents.md and readme.md
+what are they exactly?
+tell me and plan
+
+can we merge 0900 and 0910?
+
+can we move manifest file into the most outer directory?
