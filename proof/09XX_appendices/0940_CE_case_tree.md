@@ -101,6 +101,14 @@ noncoverage as a standalone route; see
 |---|---|---|
 | [`../4XXX_CE1/40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md`](../4XXX_CE1/40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md) | Proven local lemma | Boundary-loss package under recorded assumptions. |
 
+### CE1, $N_+=0$, exists Vd1/Vd2
+
+- Route: boundary-length obstruction.
+
+| File | Recorded status | Notes |
+|---|---|---|
+| [`../4XXX_CE1/40XX_Nplus0/404X_exists_Vd1_Vd2_obstruction/4040_CE1_Nplus0_exists_Vd1_Vd2_boundary_length_obstruction.md`](../4XXX_CE1/40XX_Nplus0/404X_exists_Vd1_Vd2_obstruction/4040_CE1_Nplus0_exists_Vd1_Vd2_boundary_length_obstruction.md) | Practically proven | CE1 Vd1/Vd2 boundary-length obstruction. |
+
 ### CE1, $N_+=1$, all Vd0
 
 - Route: open branch.
@@ -114,7 +122,7 @@ noncoverage as a standalone route; see
 
 | File | Recorded status | Notes |
 |---|---|---|
-| [`../4XXX_CE1/41XX_Nplus1/411X_Vd1_Vd2_obstruction/4110_CE1_CE2_Vd1_Vd2_length_branches.md`](../4XXX_CE1/41XX_Nplus1/411X_Vd1_Vd2_obstruction/4110_CE1_CE2_Vd1_Vd2_length_branches.md) | Strategy | Shared Vd1/Vd2 route. |
+| [`../4XXX_CE1/41XX_Nplus1/411X_Vd1_Vd2_obstruction/4110_CE1_Nplus1_exists_Vd1_Vd2_boundary_length_obstruction.md`](../4XXX_CE1/41XX_Nplus1/411X_Vd1_Vd2_obstruction/4110_CE1_Nplus1_exists_Vd1_Vd2_boundary_length_obstruction.md) | Practically proven | CE1 Vd1/Vd2 boundary-length obstruction. |
 | [`../4XXX_CE1/41XX_Nplus1/412X_at_least_two_T3_like/4123_CE1_CE2_at_least_two_T3_like_diagonal_obstruction.md`](../4XXX_CE1/41XX_Nplus1/412X_at_least_two_T3_like/4123_CE1_CE2_at_least_two_T3_like_diagonal_obstruction.md) | Practically proven | At least two T3-like route. |
 | [`../4XXX_CE1/41XX_Nplus1/413X_exactly_one_T3_like/4130_CE1_exactly_one_T3_like_TODO.md`](../4XXX_CE1/41XX_Nplus1/413X_exactly_one_T3_like/4130_CE1_exactly_one_T3_like_TODO.md) | Strategy | Exactly one T3-like open branch. |
 

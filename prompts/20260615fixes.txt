@@ -1,0 +1,11 @@
+rename to 403X: move the 409X package inside 401X.
+add a 404X package of CE1 Nplus0 at least one VD1/VD2 proof. refer to 
+prompts/20260614_newStructure_status_mismatches.md
+maybe just refernece 4110 file and say this is strictly easier to proof
+ask me questions
+ actually, 4110 should only say the case CE1 with at least one VD1/VD2, and this is easily proved with the boundary length bound. you should also change
+    4110
+
+what i meant is look at the 20260611newStructure.txt and 
+make the folder for CE1 Nplus0 exist Vd1 Vd2 
+and make it a similar proof as 4110. not like this
