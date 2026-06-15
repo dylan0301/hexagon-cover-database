@@ -9,3 +9,16 @@ ask me questions
 what i meant is look at the 20260611newStructure.txt and 
 make the folder for CE1 Nplus0 exist Vd1 Vd2 
 and make it a similar proof as 4110. not like this
+
+change the 0001 file to follow something like  20260611newStructure.txt.
+I want it very explicitlly tree structure.
+
+actually don't hyperlink the files
+just build a markdown tree of the proof structure
+don't even write the file names.
+just write the file numbering
+
+don't write every file.
+only write the file that includes a valid thing including the practically proven.
+just make it same strucutre as 20260611newStructure.txt, but with more organized
+inside each Nplus splits, also add another leaves with the Vd0 or VD1 or VD2 or T3 like or these separations
