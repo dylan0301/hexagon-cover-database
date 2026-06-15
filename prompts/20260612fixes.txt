@@ -1,0 +1,76 @@
+these are the fixes for 1XXX needed
+- under 1XXX foundations, i want the files to be grouped into folders. so suggest the structure. i think we can make folder C triangle, V triangle.
+- in the ## Seven-triangle bookkeeping, each triangle has to cover only one point since the 7 points are at least distance 1 from each other. write this
+- i don't think we need 1028 center type1 type2 dictionary.md since 1022 inner gamma model.md contains it. i think we can delete 1028, look at it and tell me your opinion
+- 1035 file contains the maximal triangles over S_{1/2}. the currently written notes are not true for general skeleton. for example, maximal T3 like triangle over skeleton may not contain any midpoints.
+
+- put 1011 under 102X C triangle folder.
+- put 1012 vertex rows and Nplus under 103X V triangle
+
+rename the 100X global conventions to 10XX and files under it to start with 10
+rename the 102X C triangle to 11XX and also the files under it to start with 11
+rename the 103X V triangle to 12XX and also the files under it to start with 12
+
+delete 1111 file since it is exactly same as 1101
+
+don't use #. use \left\lvert \left\lbrace\, i : a_i+b_i>1 \,\right\rbrace \right\rvert  something like this from now on. also edit the rules and files.
+
+The following macros are not allowed: operatorname
+
+$$
+H=\mathrm{conv}\{V_0,\dots,V_5\}.
+$$
+I also see this.
+Use \mathrm{conv} instead of the operatorname macro. also add this in the rules and edit files
+every operatorname. for example, benzene
+
+
+
+Unable to render expression.
+
+$$
+\boxed{
+\begin{aligned}
+f_{\mathrm{T3}}(a,b)
+\le
+\sup_{\substack{0\le s\le1/2\\ A(s)\ge a,\ B(s)\ge b}} F(s)
+\\
+{}\vee{}
+\sup_{\substack{0\le s\le1/2\\ B(s)\ge a,\ A(s)\ge b}} F(s).
+\end{aligned}
+}
+$$
+
+The main problem is the alignment marker & inside the argument of \sup{...}. GitHub’s renderer is stricter than VS Code’s preview. Rewrite the expression using \substack under \sup; this is also mathematically cleaner.
+
+Missing or unrecognized delimiter for `\left`:
+
+```tex
+C_i=<left command><bare grouping brace>re^{i\theta}:r\ge0,\ \frac{i\pi}{3}\le \theta\le \frac{(i+1)\pi}{3}<right command><bare grouping brace>.
+```
+
+\left must be followed by a delimiter. A bare { is not a delimiter in LaTeX math; it is just a grouping brace. Use \{ and \}
+$$
+C_i=\left\{re^{i\theta}:r\ge0,\ \frac{i\pi}{3}\le \theta\le \frac{(i+1)\pi}{3}\right\}.
+$$ this is correct
+add in the agents.md to look for missing delimiter
+
+read 1203 file. 
+the 2004 piecewise c formula is essentially same, but it explicitly write the exact solutions.
+only include definitions in the 1XXX foundations, so move the 1203 file to 20XX vertex local geometry and just merge it into 2004 file. name the file to admissible set.
+rename 20XX folder to V triangle geometry.
+
+look at the current 2004 file. don't separate the cells and radial maximum formula.
+they are essentially the same. merge them.
+
+
+
+If we have an arbitrary $\mathrm{T3\text{-}like}\, V_i$-triangle, then we can translate it such that $V_i$ is on one side of the triangle, and it covers strictly more region than before translation.
+so we can assume that V_i is on one side of T3 like triangle. write this in 1201 file
+
+
+move the neighbor ray 2400 file into the 20XX V triangle geomtry. and delete the 24XX folder
+
+move 2201, 2205 files into 20XX V trianlge geometry with corrected numberings
+also 2006, 2007, 2202 files don't have any meaning just delete them
+mark 2201 as proved by the admissible set.

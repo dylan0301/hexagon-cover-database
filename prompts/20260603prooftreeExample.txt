@@ -1,6 +1,6 @@
 - supercritical = a+b > 1
 - Classify $T_C$ as CE0, CE1, or CE2
-- Compute $N_+ = \#\{i : a_i+b_i > 1\}$
+- Compute $N_+ = \left\lvert \left\lbrace\, i : a_i+b_i > 1 \,\right\rbrace \right\rvert$
 - CE2 one interval lemma: CE2 triangle이어도 2개의 interval 중 하나는 가라 interval이다 (3월달에 디코에 그림으로 올려놓은 것)
 - $N_+ = 0$
     - closed with one lemma assumption:

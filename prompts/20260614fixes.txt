@@ -1,0 +1,35 @@
+the current 311X package is a valid proof.
+it even works for any number of Nplus.
+however, we found a much more simple proof for CE0 Nplus1 VD1 or VD2 
+So move the current 311X directly under CE0 and rename it 33XX VD1 VD2 chain proof
+and make a new 311X exist VD1 VD2 
+the proof is easy: hexagon boundary cannot be covered simply because of length.
+refer to the boundary length formulas and think
+ask me questions
+
+currently 311X is also a choosing 5 point strategy.
+however, the 312X doesn't assume all VD0. it has the supremum because we don't have VD0 yet. 
+move the 312X to failed package.
+what is your opinion.
+also what is meaning of 3102 and 3103? they don't seem to be useful
+
+the 500X package follows the same proofs from 400X. so just refernece them.
+also there are very many files that doesn't follow the numbering of its parents.
+review them and fix
+
+42XX package is just proved by the skeleton length route
+delete others. the skeletn length buonds is in 2510 file so just reference it.
+
+
+inside 25XX, add a diagonal length bounds file
+| CE1/CE2 center role | after reducing to the active $C$-only boundary interval | $\frac32$ |
+| Vd0 vertex role | $a+b\le1$ | $1$ |
+| Vd0 vertex role | $a+b>1$ | $\frac12$ |
+| T3-like vertex role | intended reduced boundary-length branch | $\frac12$ |
+
+then use this to prove 5130
+
+WLOG, assume V0 triangle is a T3 like.
+Then it can only intersect the half diagonals OV0
+and exactly one of OV1 and OV5
+if this thing is not written in the T3 like geometry, then also write it

@@ -1,0 +1,142 @@
+
+Hypothetical seven-triangle cover
+  classify T_C as CE0, CE1, or CE2
+  define perimeter rows (a_i,b_i) for the vertex roles
+  compute N_+ = \left\lvert \left\lbrace\, i : a_i+b_i > 1 \,\right\rbrace \right\rvert
+
+  N_+ = 0
+    CE0:
+      direct perimeter-length obstruction
+      T_C contributes no positive boundary interval
+      all vertex rows have a_i+b_i <= 1
+    CE1/CE2 recorded closed branch:
+      CE1/CE2 + all Vd0 + all rows non-supercritical
+      -> boundary-loss contradiction under the assumptions of 551
+    remaining reductions:
+      justify all-Vd0 and active-interval assumptions where needed
+
+  N_+ = 1
+    target:
+      CE0 VD0일 때 2차원 문제로 reduce 하기
+        input: a4, b4
+        F_algo(a4,b4) = minimum enclosing triangle of 5 points chosen by given algorithm
+        f_algo(a4,b4) = F_algo(a4,b4)의 side length
+
+        VD0 때문에 항상 가정할 수 있는 것:
+        a3+b3=1, a5+b5=1
+
+        점 2개는 V4의 ab union set과 b2a3 점에서 그린 반지름 1 원, b5a0 점에서 그린 반지름 1 원의 교점으로 fix
+
+        그러면 현재 b1a2점과 b0a1점이 free variable이다. a1, b1 값을 변수로 받는다고 생각해도 된다.
+
+        algorithm 1: 이전에 하던 것과 같다
+        나머지 점 3개를 각각
+        V0의 max c point on diagonal
+        V1의 max c point on diagonal
+        V2의 max c point on diagonal
+        (VD0라서 max c point on diagonal을 그냥 잡아도 된다)
+
+        일단 reduce 되기 전이니까  f_algo(a4,b4,a1,b1) 이라고 하면
+
+        conjecture: fix a4,b4. 
+        if we fix a1, then  f_algo(a4,b4,a1,b1) is a unimodal function of b1
+        if we fix b1, then  f_algo(a4,b4,a1,b1) is a unimodal function of a1
+
+        conjecture이 true일거같은 이유:
+        WLOG a1값을 바꾼다고 치면 그림에서 D0, D1 점만 움직이는데 
+        a1 값이 일정한 방향으로 움직이면 D0, D1 도 일정한 방향으로 움직인다
+        그래서 f 그래프가 a1에 대한 quadratic 비슷하게 생겼을 것 같다
+
+        if conjecture is true, then we can assume:
+        항상 a0+b0, a1+b1, a2+b2 중에 2개의 값은 1
+
+        algorithm 2: 
+        위에서부터 0번,1번,2번 사진이라고 했을 때
+        0번 사진: a1+b1=1, a2+b2=1
+        1번 사진: a0+b0=1, a2+b2=1
+        2번 사진: a0+b0=1, a1+b1=1
+        상태로 대각선에 점을 찍었어요
+
+        이렇게 점 3개를 찍으면
+        b1a2 점이랑 b0a1 점이 어떻게 움직이든 상관없이 항상 빨간 영역 안에 들어가있게 되어요
+
+        worry: limit shape에서는 이렇게 relax 하면 f < =1이 될 수도 있을 것 같다 (확인 안해봄)
+        worry의 possible 해결방법: 위에 적은 unimodality conjecture가 limit shape 근처에서는 쉽게 증명할 수 있을 것 같다. 
+        F_algo(a4,b4,a1,b1)의 orientation이 안바뀌는 것 같기 때문
+
+        algorithm 1에서 unimodality conjecture는 깨지더라고요
+        깨지는 이유: 점 5개 중에 점 4개가 minimum triangle의 각 변들 위에 있을텐데, 어떤 점이 어떤 edge 위에 있다 이런 조합이 계속 바뀌어서 그거 바뀔때마다 좀 달라져요
+        근데 algorithm 2는 numerically 잘 되어요
+        both a4, b4 in [0.1, 0.9] 인 경우에 
+        0번 사진: a1+b1=1, a2+b2=1
+        1번 사진: a0+b0=1, a2+b2=1
+        2번 사진: a0+b0=1, a1+b1=1
+        상태로 대각선에 점을 찍었어요
+        전략을 사용하고
+
+        그리고 a4, b4 중 하나라도 not in [0.1, 0.9] 인 경우에 limit shape와 비슷하다고 하고
+        이때 unimodality conjecture가 성립하더라고요. 심지어 저기서 unimodal 이라는 단어를 convex로 바꾸어도 성립하더라고요.
+        이건 엄밀하게 증명할 수 있었어요.
+        그래서 algorithm 2로 엄밀하게 증명해달라고 하는데 
+        여러 a4 b4가 속해있는 값의 범위에 따라 케이스 나눠서
+        지금 부분 케이스들을 잘 증명하길래 끝까지 가보고 있어요
+        
+  N_+ >= 2
+    CE0:
+      conditional area certificate from 647
+      still needs local square-loss bounds for f(a,b)
+    CE1/CE2:
+      claim: CE1/CE2에서 \left\lvert \left\lbrace\, i : a_i+b_i>1 \,\right\rbrace \right\rvert >= 2 이면 hexagon skeleton not coverable
+        proof)
+        CE1/CE2는 midpoint 하나만 덮을 수 있는데 a+b>1인건 midpoint를 못 덮으니까, midpoint를 2개 이상 덮을 수 있는 T3 like 혹은 VD1/VD2가 존재
+        hexagon skeleton의 전체 길이는 12이다.
+        hexagon skeleton을 덮을 수 있는 길이의 upper bound.
+        CE1/CE2: 1.5
+        VD0 with a+b<=1: 2
+        VD0 with a+b>1: 1.5
+        VD1/VD2: 1.5
+        T3 like: 1.5
+        2+2+2+1.5+1.5+1.5+1.5 = 12가 upper bound인데 strict inequality
+
+
+
+
+assumption: exactly one a+b>1
+trying to remove gulgu V triangles
+
+- CE0 + at least one VD1/VD2
+    - cannot cover /partial H
+    - length not enough
+- CE0 + at least one T3 like + no VD1/VD2
+    - bipartite method is not suitable
+        - it only proves that this configuration is not maximal over skeleton
+    - https://github.com/dylan0301/hexagon-cover-database/blob/main/proof/4XXX_CE1/41XX_Nplus1/412X_at_least_two_T3_like/4122_type3_like_diagonal_points.md
+        - plotting 3 points on diagonal
+    - max area function constrained on T3 like
+        - Success! so don't mention other things
+- CE1 + at least one VD1/VD2
+    - cannot cover /partial H
+    - length not enough
+- CE2 + at least two VD1/VD2
+    - cannot cover /partial H
+    - length not enough
+- CE2 + exactly one VD1/VD2
+    - /partial H length is not enough for prove
+    - No almost covering for S_{1/2}, so discrete points relaxation to set cover?
+- CE1/CE2 + at least two T3 like + no VD1/VD2
+    - cannot cover diagonals
+    - length not enough
+        - VD0 triangles cover length < 1
+        - CE1/CE2 triangles cover length < 1.5
+        - T3 like triangles cover length < 0.5
+- CE1/CE2 + exactly one T3 like + no VD1/VD2
+    - If CE1/CE2 covers M0, then V0 triangle is T3 like
+        - Since T3 like can only cover exactly one midpoint, V0 triangle cannot be VD0
+        - If V0 triangle is a+b>1, since T3 like covers the neighborhood midpoint, so cannot cover the midpoints
+    - LP on skeleton union with small hexagon failed
+    - probably not almost coverable, so do set cover with few points on diagonal?
+        - note that V0 triangle T3 like triangle has to cover either M1 or M5
+
+need to calculuate geometric how much cover length
+for the skeleton cover length, if we have proved upper bound 3/2 for CE1 and CE2, then we automatically have the 3/2 bound for VD1/VD2 or T3 like as a corollary.
+CE1 or CE2 is containing hexagon center and assume it touches the edge V0V1. if we think the center as V0 or V1, then this C triangle becomes a VD1 or VD2 or T3 like.

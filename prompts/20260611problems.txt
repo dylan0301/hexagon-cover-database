@@ -1,0 +1,13 @@
+there are some problems in this new form of proof tree folder structure
+1. for example look at 010 open closed equivalence.md.
+ it just references to other file and does not have any meaning for itself.
+ don't create files like this, reduce unnecessary links.
+2. why are there folders with same numbering? like 100 foundations and 100 Nplus0
+i don't want this.
+3. You can't use 'macro parameter character #' in math mode warning i see. make it latex compilable. also add this in the global rules.
+ask me questions
+
+what i meant by 2XXX 20XX is for every folder.
+so that we can distinguish between the undecided digit
+tell me what you understood
+also 0XXX main and after that, we start from the second digit.

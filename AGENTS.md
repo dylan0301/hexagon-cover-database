@@ -1,29 +1,64 @@
 # AGENTS.md
 
-Guidelines for Codex agents working in this repository.
+Guidelines for Codex or any AI agents working in this repository.
 
-The documentation corpus in `documentation/` is a Markdown research database for the hexagon covering problem. Treat those notes as mathematical research notes, not as application code.
+The proof corpus in `proof/` is a Markdown research database for the hexagon
+covering problem. Treat those notes as mathematical research notes, not as
+application code.
+
+Role split:
+
+- `README.md` is the public entry point for readers.
+- `AGENTS.md` is editing policy for Codex agents and other automation.
+- `proof/0XXX_main/` is the proof scaffold: main theorem, proof-tree index,
+  and status/dependency table.
+
+The current organizing structure is the root-level proof tree:
+
+```text
+hypothetical seven-triangle cover
+  classify T_C as CE0, CE1, or CE2
+  define perimeter rows (a_i,b_i)
+  compute N_+ = \left\lvert \left\lbrace\, i : a_i+b_i > 1 \,\right\rbrace \right\rvert
+  split first by CE0, CE1, or CE2
+  split inside each CE branch by N_+ = 0, N_+ = 1, or N_+ >= 2
+  split inside each N_+ branch by the number of VD0, VD1/VD2, T3 like triangles
+```
+
+The CE0/CE1/CE2 split is the primary repository organization.
+
+Folder prefixes use four-character range labels with literal `X` digits, such
+as `3XXX_CE0`, `31XX_Nplus1`, and `310X_all_Vd0_five_point`. File prefixes
+remain concrete four-digit labels.
 
 ## 1. Understand The Repository First
 
 Before editing, read the relevant navigation files:
 
 - `README.md`
-- `documentation/000_INDEX.md`
-- `documentation/001_README_FOR_FUTURE_WORK.md`
-- `documentation/100_foundations/106_proof_status_conventions.md`
+- `proof/0XXX_main/0000_main_theorem.md`
+- `proof/0XXX_main/0001_proof_tree_index.md`
+- `proof/0XXX_main/0002_status_and_dependencies.md`
+- `proof/09XX_appendices/0910_notation_dictionary.md`
+- `proof/1XXX_foundations/10XX_global_conventions/1006_proof_status_conventions.md`
 - The local index file for the folder being edited, when one exists.
 
-Assume the notes are delicate. Small wording changes can change mathematical meaning.
+The file `proof/0XXX_main/0001_proof_tree_index.md` records the current
+proof-tree scaffold. Use it for branch organization, but do not treat a branch
+as proven unless a proof file in `proof/` supports that status.
 
-If the request is ambiguous, ask before editing. In particular, ask when a change could affect:
+Assume the notes are delicate. Small wording changes can change mathematical
+meaning.
+
+If the request is ambiguous, ask before editing. In particular, ask when a
+change could affect:
 
 - proof status,
 - theorem statements,
 - definitions,
 - notation,
 - case classifications,
-- claims marked empirical, failed, or incomplete.
+- claims marked empirical, failed, target, strategy, or incomplete.
 
 ## 2. Preserve Proof Status
 
@@ -39,14 +74,43 @@ Keep these distinctions intact:
 
 - `Definition`: exact convention or mathematical definition.
 - `Lemma target`: useful but not fully proved here.
+- `Practically proven`: proof is known and the statement may be used as a
+  working dependency, but the complete written proof is not recorded here.
 - `Strategy`: active proof direction.
 - `Empirical`: supported by computation or plotting only.
 - `Failed`: known insufficient or abandoned approach.
 - `Reference`: dictionary, inventory, or index.
 
-Numerical or computational evidence stays `Empirical` unless a certificate is explicitly added.
+Numerical or computational evidence stays `Empirical` unless a certificate is
+explicitly added.
 
-## 3. Make Surgical Markdown Changes
+A global minimum, maximum, or infeasibility claim must remain `Empirical`
+unless it has an exact symbolic proof, interval certificate,
+quantifier-elimination certificate, or another independently checkable rigorous
+certificate.
+
+## 3. Respect The Root `proof/` Layout
+
+The root `proof/` folder is now self-contained. Do not add new links to the
+old documentation tree, or to old root-level computation or experiment trees.
+
+Use these proof-tree folders for new notes:
+
+- `proof/1XXX_foundations/`: definitions and conventions.
+- `proof/2XXX_geometric_lemmas/`: reusable geometric lemmas and targets.
+- `proof/3XXX_CE0/`: the CE0 branch.
+- `proof/4XXX_CE1/`: the CE1 branch.
+- `proof/5XXX_CE2/`: the CE2 branch.
+- `proof/9XXX_failed_ideas/`: failed routes and empirical warnings.
+
+Computation and experiment helpers are colocated with the proof package they
+support, for example:
+
+- `proof/4XXX_CE1/40XX_Nplus0/409X_boundary_loss_experiments/`
+- `proof/9XXX_failed_ideas/965X_may21_patternA_support/965X_computations/`
+- `proof/9XXX_failed_ideas/908X_skeleton_cover_counterexample/908X_computation/`
+
+## 4. Make Surgical Markdown Changes
 
 Touch only what the user asked for.
 
@@ -63,22 +127,39 @@ If you notice unrelated problems, mention them instead of fixing them.
 
 Every changed line should trace directly to the user's request.
 
-## 4. Follow Repository Style
+## 5. Follow Repository Style
 
 Use Markdown for research-note files unless explicitly asked otherwise.
+Do not add image assets to proof notes unless explicitly requested.
 
 Use LaTeX delimiters consistently:
 
 - inline math: `$...$`
 - display math: `$$...$$`
+- cardinalities: write
+  `\left\lvert \left\lbrace\, ... \,\right\rbrace \right\rvert` in math;
+  do not use hash-based notation for cardinality.
+- named operators: write `\mathrm{...}` in math; do not use the operatorname
+  macro.
+- operator conditions: put conditions for `\sup`, `\inf`, `\min`, and `\max`
+  in subscripts, using `\substack{...}` when multiple lines are needed. Do not
+  put alignment markers inside operator arguments.
+- scalable delimiters: `\left` and `\right` must be followed by real
+  delimiters. For set braces, use `\left\{ ... \right\}`; do not put an
+  unescaped grouping brace immediately after `\left` or `\right`.
 
 Do not use `\(...\)` or `\[...\]`.
 
-Prefer concise research-note prose. Avoid decorative formatting, long explanations, or speculative commentary.
+Prefer concise research-note prose. Avoid decorative formatting, long
+explanations, or speculative commentary.
 
 When adding links, use relative Markdown links to existing files.
 
-## 5. Protect Mathematical Meaning
+Index and navigation files must not use bare file-reference lists. When they
+list files or linked packages, use a Markdown table with a status column next
+to each file or package, inheriting the status from the cited source file.
+
+## 6. Protect Mathematical Meaning
 
 When editing mathematical statements:
 
@@ -87,26 +168,45 @@ When editing mathematical statements:
 - preserve variable names unless asked,
 - preserve distinctions between open and closed triangles,
 - preserve distinctions between `H`, `H_L`, `S`, and `S_{1/2}`,
-- preserve case labels such as CE0, CE1, CE2, Vd1, Vd2, and T3-like.
+- preserve the primary CE branch split and the internal $N_+$ split,
+- preserve case labels such as CE0, CE1, CE2, Vd0, Vd1, Vd2, and T3-like.
+- preserve the Korean term **걸거치는** where it names the recurring geometric
+  phenomenon of a triangle crossing or straddling adjacent structure in a
+  non-axis-aligned way.
 
-If a requested edit seems to change the theorem, lemma, or proof content, stop and ask.
+If a requested edit seems to change the theorem, lemma, or proof content, stop
+and ask.
 
-## 6. Keep Things Simple
+## 7. Keep Things Simple
 
 Use the minimum change that solves the task.
 
-Do not add new abstractions, templates, automation, or metadata unless requested.
+Do not add new abstractions, templates, automation, or metadata unless
+requested.
 
-For documentation tasks, prefer direct edits over scripts unless the task is a broad mechanical rewrite.
+For documentation tasks, prefer direct edits over scripts unless the task is a
+broad mechanical rewrite.
 
-## 7. Verify Changes
+## 8. Verify Changes
 
 For broad Markdown edits, verify with targeted searches.
 
 Examples:
 
 - Check old LaTeX delimiters:
-  `rg '\\\\\\(|\\\\\\)|\\\\\\[|\\\\\\]'`
+  `rg '\\\\\\(|\\\\\\)|\\\\\\[|\\\\\\]' proof README.md`
+- Check obsolete hash-cardinality notation:
+  `rg -n -F "$(printf '\\134#')" README.md AGENTS.md proof prompts`
+  `rg -n -F "$(printf '#%s' '{')" README.md AGENTS.md proof prompts`
+- Check unsupported named-operator macro:
+  `rg -n -F "$(printf '\\134operator%s' name)" README.md AGENTS.md proof prompts`
+- Check operator arguments with embedded alignment markers:
+  `rg -n -F "$(printf ':%s' '&')" README.md AGENTS.md proof prompts`
+- Check missing delimiters after scalable delimiter commands:
+  `rg -n -F "$(printf '\\134left{')" README.md AGENTS.md proof prompts`
+  `rg -n -F "$(printf '\\134right}')" README.md AGENTS.md proof prompts`
+- Check obsolete root paths:
+  `rg 'documentatio[n]/|computation[s]/|experiment[s]/' README.md proof prompts`
 - Check a term replacement:
   `rg 'old term'`
 - Review changed files:
@@ -115,7 +215,7 @@ Examples:
 
 For generated or updated navigation files, check that linked paths exist.
 
-## 8. Be Explicit About Assumptions
+## 9. Be Explicit About Assumptions
 
 Before substantial work, briefly state:
 
@@ -125,10 +225,11 @@ Before substantial work, briefly state:
 
 For trivial edits, use judgment and proceed.
 
-## 9. Do Not Overstate Completion
+## 10. Do Not Overstate Completion
 
 At the end, report only what was actually done and verified.
 
 Mention anything not checked.
 
-Do not claim that the mathematical proof is complete unless the repository itself supports that claim.
+Do not claim that the mathematical proof is complete unless the repository
+itself supports that claim.

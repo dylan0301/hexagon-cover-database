@@ -1,0 +1,152 @@
+I mean always put number over the files and folders,
+just use different numbers.
+here is a structure suggestion. you may not exactly follow this, read this and suggest yours
+now we have four digit numbers for labels
+I do not mean that one line - is one file. adjust yourself
+
+0XXX main -put 0~~ files under here
+
+1XXX foundations - merge the current foundations and 010 setup
+also merge the Center triangles and vertex triangles.
+put definitions only.  put the definitions of T3 like and VD1 VD2 and CE1 CE2 or everything in this
+
+2XXX geometric lemmas - put frequently used lemmas here. make another folders with 20XX, 21XX, ...
+they include 
+    - admissible set for V trianlges, and corollary of them. the max c function, and midpoint containment iff a+b<=1.
+    - classification of maximal triangles over skeleton
+    - classification of maximal triangles over half skeleton. note that the exact midpoint subsets only count for maximal triangles over half skeleton. they may not be true for maximal triangles over skeleton.
+    - ab union curve equations
+    - neighbor max c formula
+    - half skeleton lemmas
+    - the minimal enclosing equilateral quadrilateral lemma: note that this is not a half skeleton lemma.
+    - also the t3 like midpoint lemma: write lemma: V_i T3 like triangle cannot contain M_i
+    - or anything else needed, but don't make a very short file that doesn't really have meaningful thing. don't put failed ideas here.
+
+now we go to the proof tree
+we will split by CE0, CE1, CE2 three large structures.
+refer to the geometric lemmas for necessary parts
+
+- 3XXX CE0
+    - 30XX CE0 + Nplus0 
+        - uncoverable trivial by hexagon boundary length shortage.
+    - 31XX CE0 + Nplus1
+        - 310X CE0 + Nplus1 + all VD0
+            - 5 point conjecture
+            - algorithm
+            - will add proof and calculations
+            - refer to the geometric lemmas needed
+        - 311X CE0 + Nplus1 + at least one VD1/VD2:
+            - uncoverable trivial by hexagon boundary length shortage.
+        - 312X CE0 + Nplus1 + at least one T3 like + no VD1/VD2:
+            - max area function constrained on T3 like: Success! will add proof
+
+    - 32XX CE0 + Nplus2
+        - area conjecture certificate
+        - still needs local square-loss bounds for f(a,b)
+
+- 4XXX CE1
+    - 40XX CE1 + Nplus0 
+        -400X CE1 + Nplus0 + all VD0:
+            - boundary loss contradiction proof works. not written here
+        -401X CE1 + Nplus0 + at least one VD1/VD2: 
+            - uncoverable trivial by hexagon boundary length shortage.
+        -402X CE1 + Nplus0 + at least one T3 like + no VD1/VD2:
+            - TODO
+
+    - 41XX CE1 + Nplus1
+        - 410X CE1 + Nplus1 + all VD0
+            - TODO
+        - 411X CE1 + Nplus1 + at least one VD1/VD2:
+            - uncoverable trivial by hexagon boundary length shortage. 
+        - 412X CE1 + at least two T3 like + no VD1/VD2:
+            - cannot cover diagonals
+            - length not enough
+                - VD0 triangles cover length < 1
+                - CE1/CE2 triangles cover length < 1.5
+                - T3 like triangles cover length < 0.5. be sure that these geometric lemmas are included in 2XXX
+        - 413X CE1 + exactly one T3 like + no VD1/VD2:
+            - TODO
+            - If CE1/CE2 covers M0, then V0 triangle is T3 like
+                - Since T3 like can only cover exactly one midpoint, V0 triangle cannot be VD0
+                - If V0 triangle is a+b>1, since T3 like covers the neighborhood midpoint, so cannot cover the midpoints
+            - LP on skeleton union with small hexagon failed
+            - probably not almost coverable, so do set cover with few points on diagonal?
+                - note that V0 triangle T3 like triangle has to cover either M1 or M5
+
+    - 42XX CE1 + Nplus2
+        claim: CE1/CE2에서 \left\lvert \left\lbrace\, i : a_i+b_i>1 \,\right\rbrace \right\rvert >= 2 이면 hexagon skeleton not coverable
+        proof)
+        CE1/CE2는 midpoint 하나만 덮을 수 있는데 a+b>1인건 midpoint를 못 덮으니까, midpoint를 2개 이상 덮을 수 있는 T3 like 혹은 VD1/VD2가 존재
+        hexagon skeleton의 전체 길이는 12이다.
+        hexagon skeleton을 덮을 수 있는 길이의 upper bound.
+        CE1/CE2: 1.5
+        VD0 with a+b<=1: 2
+        VD0 with a+b>1: 1.5
+        VD1/VD2: 1.5
+        T3 like: 1.5
+        2+2+2+1.5+1.5+1.5+1.5 = 12가 upper bound인데 strict inequality
+
+
+
+- 5XXX CE2
+    - 50XX CE2 + Nplus0 
+        -500X CE2 + Nplus0 + all VD0:
+            - boundary loss contradiction proof does not work. will write counterexample.
+            - TODO
+        -501X CE2 + Nplus0 + at least one VD1/VD2: 
+            - uncoverable trivial by hexagon boundary length shortage.
+        -502X CE2 + Nplus0 + at least one T3 like + no VD1/VD2:
+            - TODO
+
+    - 51XX CE2 + Nplus1
+        - 510X CE2 + Nplus1 + all VD0
+            - TODO
+        - 511X CE2 + Nplus1 + at least two VD1/VD2:
+            - uncoverable trivial by hexagon boundary length. refer to the geometric lemmas
+        - 512X CE2 + Nplus1 + exactly one VD1/VD2:
+            - No almost covering for S_{1/2}, so discrete points relaxation to set cover? will try
+        - 513X CE2 + at least two T3 like + no VD1/VD2:
+            - cannot cover diagonals
+            - length not enough
+                - VD0 triangles cover length < 1
+                - CE1/CE2 triangles cover length < 1.5
+                - T3 like triangles cover length < 0.5. be sure that these geometric lemmas are included in 2XXX
+        - 514X CE2 + exactly one T3 like + no VD1/VD2:
+            - TODO
+            - If CE1/CE2 covers M0, then V0 triangle is T3 like
+                - Since T3 like can only cover exactly one midpoint, V0 triangle cannot be VD0
+                - If V0 triangle is a+b>1, since T3 like covers the neighborhood midpoint, so cannot cover the midpoints
+            - LP on skeleton union with small hexagon failed
+            - probably not almost coverable, so do set cover with few points on diagonal?
+                - note that V0 triangle T3 like triangle has to cover either M1 or M5
+
+    - 52XX CE1 + Nplus2
+        claim: CE1/CE2에서 \left\lvert \left\lbrace\, i : a_i+b_i>1 \,\right\rbrace \right\rvert >= 2 이면 hexagon skeleton not coverable
+        proof)
+        CE1/CE2는 midpoint 하나만 덮을 수 있는데 a+b>1인건 midpoint를 못 덮으니까, midpoint를 2개 이상 덮을 수 있는 T3 like 혹은 VD1/VD2가 존재
+        hexagon skeleton의 전체 길이는 12이다.
+        hexagon skeleton을 덮을 수 있는 길이의 upper bound.
+        CE1/CE2: 1.5
+        VD0 with a+b<=1: 2
+        VD0 with a+b>1: 1.5
+        VD1/VD2: 1.5
+        T3 like: 1.5
+        2+2+2+1.5+1.5+1.5+1.5 = 12가 upper bound인데 strict inequality
+
+note that there are some same proofs that work both for CE1 and CE2.
+write them in CE1, and only refer to them in CE2 and write why they work simply.
+
+-9XXX failed ideas
+
+suggest your structure exactly detialed, and ask me questions
+
+the 4 point conjecture may21 had counterexample for CE0 nplus1 VD0
+the 5 point conjecture had counterexample for CE1 or CE2 nplus1 VD0, so we only use it for CE0 nplus1 VD0
+write 4 point conjecture failure in the 3XXX relevant place
+refer the 5 point conjecture failure in the releavant place for CE1 and CE2
+
+ 2040_ab_union_and_neighbor_capacity/
+ seprate the ab union and neighbor capacity. they don't relate
+ also, don't separate computation. put the computations in the relevant places.
+ 
+ for the 2XXX, start from 20XX 21XX 22XX... use the second digit. because we may add more folders

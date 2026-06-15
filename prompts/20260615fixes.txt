@@ -1,0 +1,39 @@
+rename to 403X: move the 409X package inside 401X.
+add a 404X package of CE1 Nplus0 at least one VD1/VD2 proof. refer to 
+prompts/20260614_newStructure_status_mismatches.md
+maybe just refernece 4110 file and say this is strictly easier to proof
+ask me questions
+ actually, 4110 should only say the case CE1 with at least one VD1/VD2, and this is easily proved with the boundary length bound. you should also change
+    4110
+
+what i meant is look at the 20260611newStructure.txt and 
+make the folder for CE1 Nplus0 exist Vd1 Vd2 
+and make it a similar proof as 4110. not like this
+
+change the 0001 file to follow something like  20260611newStructure.txt.
+I want it very explicitlly tree structure.
+
+actually don't hyperlink the files
+just build a markdown tree of the proof structure
+don't even write the file names.
+just write the file numbering
+
+don't write every file.
+only write the file that includes a valid thing including the practically proven.
+just make it same strucutre as 20260611newStructure.txt, but with more organized
+inside each Nplus splits, also add another leaves with the Vd0 or VD1 or VD2 or T3 like or these separations
+
+
+i think we don't need 0920 0930 0940 0950 0960 files
+also 097X is empty so don't need
+prove me wrong. why do we need them
+
+i think 0003 and 0005 files contents should be in agents.md and readme.md,
+not in the 0XXXmain folder. what do you think?
+and i need to separate the roles of agents.md and readme.md
+what are they exactly?
+tell me and plan
+
+can we merge 0900 and 0910?
+
+can we move manifest file into the most outer directory?

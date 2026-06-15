@@ -1,0 +1,15 @@
+# Geometric Lemma Index
+
+Status: Navigation
+
+This folder collects reusable geometric definitions, lemmas, and lemma targets
+used by the CE-first proof tree.
+
+Files:
+
+| File | Recorded status | Notes |
+|---|---|---|
+| [`20XX_V_triangle_geometry/20XX_index.md`](20XX_V_triangle_geometry/20XX_index.md) | Navigation | V-triangle geometry. |
+| [`21XX_C_triangle_geometry/21XX_index.md`](21XX_C_triangle_geometry/21XX_index.md) | Navigation | C-triangle geometry. |
+| [`25XX_length_bounds/25XX_index.md`](25XX_length_bounds/25XX_index.md) | Navigation | Length bounds. |
+| [`26XX_enclosing_triangle_tools/26XX_index.md`](26XX_enclosing_triangle_tools/26XX_index.md) | Navigation | Enclosing-triangle tools. |
