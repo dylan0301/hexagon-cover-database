@@ -9,10 +9,10 @@ same.
 | File | Recorded status | Branch |
 |---|---|---|
 | [`50XX_Nplus0/500X_all_Vd0_boundary_loss_reference/5001_CE2_Nplus0_all_Vd0_boundary_loss_reference.md`](50XX_Nplus0/500X_all_Vd0_boundary_loss_reference/5001_CE2_Nplus0_all_Vd0_boundary_loss_reference.md) | Proven local lemma | CE2, $N_+=0$, all Vd0 boundary-loss reference. |
-| [`50XX_Nplus0/501X_Vd1_Vd2_obstruction/5012_CE2_Nplus0_Vd1_Vd2_TODO.md`](50XX_Nplus0/501X_Vd1_Vd2_obstruction/5012_CE2_Nplus0_Vd1_Vd2_TODO.md) | Lemma target | CE2, $N_+=0$, Vd1/Vd2 length route target. |
+| [`50XX_Nplus0/501X_Vd1_Vd2_obstruction/5012_CE2_Nplus0_exists_Vd1_Vd2_boundary_length_obstruction.md`](50XX_Nplus0/501X_Vd1_Vd2_obstruction/5012_CE2_Nplus0_exists_Vd1_Vd2_boundary_length_obstruction.md) | Practically proven | CE2, $N_+=0$, at least one Vd1/Vd2 boundary-length obstruction. |
 | [`50XX_Nplus0/502X_T3_like_no_Vd1Vd2/5020_CE2_Nplus0_T3_like_TODO.md`](50XX_Nplus0/502X_T3_like_no_Vd1Vd2/5020_CE2_Nplus0_T3_like_TODO.md) | Strategy | CE2, $N_+=0$, T3-like/no Vd1/Vd2, open. |
 | [`51XX_Nplus1/510X_all_Vd0/5101_CE2_Nplus1_all_Vd0_TODO.md`](51XX_Nplus1/510X_all_Vd0/5101_CE2_Nplus1_all_Vd0_TODO.md) | Strategy | CE2, $N_+=1$, all Vd0, open. |
-| [`51XX_Nplus1/511X_at_least_two_Vd1_Vd2/5110_CE2_Nplus1_at_least_two_Vd1_Vd2_TODO.md`](51XX_Nplus1/511X_at_least_two_Vd1_Vd2/5110_CE2_Nplus1_at_least_two_Vd1_Vd2_TODO.md) | Lemma target | CE2, $N_+=1$, at least two Vd1/Vd2. |
+| [`51XX_Nplus1/511X_at_least_two_Vd1_Vd2/5110_CE2_Nplus1_at_least_two_Vd1_Vd2_boundary_length_obstruction.md`](51XX_Nplus1/511X_at_least_two_Vd1_Vd2/5110_CE2_Nplus1_at_least_two_Vd1_Vd2_boundary_length_obstruction.md) | Practically proven | CE2, $N_+=1$, at least two Vd1/Vd2 boundary-length obstruction. |
 | [`51XX_Nplus1/512X_exactly_one_Vd1_Vd2/5120_CE2_Nplus1_exactly_one_Vd1_Vd2_TODO.md`](51XX_Nplus1/512X_exactly_one_Vd1_Vd2/5120_CE2_Nplus1_exactly_one_Vd1_Vd2_TODO.md) | Strategy | CE2, $N_+=1$, exactly one Vd1/Vd2. |
 | [`51XX_Nplus1/513X_at_least_two_T3_like/5130_CE2_Nplus1_at_least_two_T3_like_TODO.md`](51XX_Nplus1/513X_at_least_two_T3_like/5130_CE2_Nplus1_at_least_two_T3_like_TODO.md) | Practically proven | CE2, $N_+=1$, at least two T3-like rows. |
 | [`51XX_Nplus1/514X_exactly_one_T3_like/5140_CE2_Nplus1_exactly_one_T3_like_TODO.md`](51XX_Nplus1/514X_exactly_one_T3_like/5140_CE2_Nplus1_exactly_one_T3_like_TODO.md) | Strategy | CE2, $N_+=1$, exactly one T3-like row. |
