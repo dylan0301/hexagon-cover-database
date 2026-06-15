@@ -6,8 +6,7 @@ Status: Proven
 
 Let $H$ be the regular hexagon of side length $1$, centered at $O$, with vertices
 $$
-V_i=(\cos(i\pi/3),\sin(i\pi/3)),
-\qquad i\in\mathbb Z/6\mathbb Z.
+V_i=(\cos(i\pi/3),\sin(i\pi/3)),\qquad i\in\mathbb Z/6\mathbb Z.
 $$
 Let
 $$
@@ -282,14 +281,7 @@ L_S(T_C)\le \ell_{01}+\ell_{50}+d_0+d_1+d_2+d_3+d_4+d_5.
 $$
 Substitution and cancellation give
 $$
-L_S(T_C)
-\le
-K_\lambda
--C_0/\lambda
-+C_0/(1-\lambda)
-+C_2
-+\min(C_0/\lambda,C_2/(1-\lambda))
-+\left[(P-(\lambda C_0+C_2))/(1-\lambda)\right]_+,
+L_S(T_C)\le K_\lambda-C_0/\lambda+C_0/(1-\lambda)+C_2+\min(C_0/\lambda,C_2/(1-\lambda))+\left[(P-(\lambda C_0+C_2))/(1-\lambda)\right]_+,
 $$
 where
 $$
@@ -306,9 +298,7 @@ X\ge0,\qquad Y\ge0,\qquad X+(1-\lambda)Y<P.
 $$
 Define
 $$
-\mathcal E(X,Y)=
--X/\lambda+X/(1-\lambda)+Y+\min(X/\lambda,Y/(1-\lambda))+
-\left[(P-(\lambda X+Y))/(1-\lambda)\right]_+.
+\mathcal E(X,Y)=-X/\lambda+X/(1-\lambda)+Y+\min(X/\lambda,Y/(1-\lambda))+\left[(P-(\lambda X+Y))/(1-\lambda)\right]_+.
 $$
 We prove
 $$
@@ -380,8 +370,7 @@ K_\lambda+P/(1-\lambda)=1-\lambda+\rho-(1-\rho)/\lambda+\rho(1-\rho)/(1-\lambda)
 $$
 A direct simplification gives
 $$
-3/2-(K_\lambda+P/(1-\lambda))=
-\frac{2+\lambda-\lambda^2-2\rho(1+\lambda-\lambda^2)}{2\lambda(1-\lambda)}.
+3/2-(K_\lambda+P/(1-\lambda))=\frac{2+\lambda-\lambda^2-2\rho(1+\lambda-\lambda^2)}{2\lambda(1-\lambda)}.
 $$
 Let
 $$
@@ -613,12 +602,7 @@ the first positive root of $P$ is then at most $c_0$, so $c\le c_0$.
 
 Substituting $c_0=3/2-s$ and multiplying by $16$ gives
 $$
-\begin{aligned}
-Q(s,d)=
-&d^4+8d^3s-6d^3+14d^2s^2-18d^2s+5d^2\\
-&-8ds^3+30ds^2-34ds+12d\\
-&+s^4-6s^3-19s^2+60s-36.
-\end{aligned}
+Q(s,d)=d^4+8d^3s-6d^3+14d^2s^2-18d^2s+5d^2-8ds^3+30ds^2-34ds+12d+s^4-6s^3-19s^2+60s-36.
 $$
 Differentiate with respect to $d$:
 $$
@@ -726,9 +710,7 @@ The worst possible skeleton-length upper bound occurs when there are exactly:
 
 Therefore
 $$
-L_S(T_C)+\sum_{i=0}^5L_S(T_i)
-<
-3/2+2\cdot(3/2)+3/2+3\cdot2.
+L_S(T_C)+\sum_{i=0}^5L_S(T_i)<3/2+2\cdot(3/2)+3/2+3\cdot2.
 $$
 The right-hand side is
 $$
