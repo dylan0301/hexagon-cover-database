@@ -34,7 +34,6 @@ Before editing, read the relevant navigation files:
 - `proof/0XXX_main/0003_readme_for_future_work.md`
 - `proof/0XXX_main/0002_status_and_dependencies.md`
 - `proof/1XXX_foundations/1006_proof_status_conventions.md`
-- `proof/09XX_appendices/0940_CE_case_tree.md`
 - The local index file for the folder being edited, when one exists.
 
 The user prompt `prompts/20260610prooftreeSketch.txt` records the current

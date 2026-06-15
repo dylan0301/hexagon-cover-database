@@ -50,6 +50,4 @@ lemmas, these current statuses are weaker than proven:
 | File | Role |
 |---|---|
 | [`../proof/0XXX_main/0002_status_and_dependencies.md`](../proof/0XXX_main/0002_status_and_dependencies.md) | Main status table. |
-| [`../proof/09XX_appendices/0920_claim_status_table.md`](../proof/09XX_appendices/0920_claim_status_table.md) | Claim status cross-check. |
-| [`../proof/09XX_appendices/0940_CE_case_tree.md`](../proof/09XX_appendices/0940_CE_case_tree.md) | Current CE branch organization. |
 | [`../proof/1XXX_foundations/10XX_global_conventions/1006_proof_status_conventions.md`](../proof/1XXX_foundations/10XX_global_conventions/1006_proof_status_conventions.md) | Status-label definitions. |

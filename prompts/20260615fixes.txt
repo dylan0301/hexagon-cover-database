@@ -22,3 +22,8 @@ don't write every file.
 only write the file that includes a valid thing including the practically proven.
 just make it same strucutre as 20260611newStructure.txt, but with more organized
 inside each Nplus splits, also add another leaves with the Vd0 or VD1 or VD2 or T3 like or these separations
+
+
+i think we don't need 0920 0930 0940 0950 0960 files
+also 097X is empty so don't need
+prove me wrong. why do we need them

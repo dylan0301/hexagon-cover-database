@@ -4,11 +4,7 @@ Paths are relative to this `proof/` directory.
 
 09XX_appendices/0900_glossary.md
 09XX_appendices/0910_notation_dictionary.md
-09XX_appendices/0920_claim_status_table.md
 09XX_appendices/0930_open_questions.md
-09XX_appendices/0940_CE_case_tree.md
-09XX_appendices/0950_reading_order.md
-09XX_appendices/0960_case_strategy_index.md
 0XXX_main/0000_main_theorem.md
 0XXX_main/0001_proof_tree_index.md
 0XXX_main/0002_status_and_dependencies.md
