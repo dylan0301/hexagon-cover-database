@@ -3,7 +3,8 @@
 Status: Proven analytic inequality conditional on local envelope
 
 This file proves the analytic consequences of the full T3-like tangent-envelope
-conjecture from `651_full_T3_like_tangent_envelope_conjecture.md`.
+conjecture from
+[`3172_full_T3_like_tangent_envelope_conjecture.md`](3172_full_T3_like_tangent_envelope_conjecture.md).
 
 The local envelope itself is not proved here.  The statements below are rigorous
 conditional consequences of that envelope.
@@ -250,7 +251,7 @@ This proves the lemma.
 ## Theorem 652.4: local T3-like loss bound from the envelope
 
 Assume the full tangent-envelope conjecture from
-`651_full_T3_like_tangent_envelope_conjecture.md`.
+[`3172_full_T3_like_tangent_envelope_conjecture.md`](3172_full_T3_like_tangent_envelope_conjecture.md).
 
 Let $0\le m\le1/2$.  If a T3-like row has lower-bound coordinates satisfying
 
@@ -337,3 +338,86 @@ G_{\mathrm{T3}}(a,b)\ge2m-4m^2.
 $$
 
 This proves the theorem.
+
+## Corollary 652.5: T3-like loss dominates the Vd0 floor
+
+Assume the full tangent-envelope conjecture from
+[`3172_full_T3_like_tangent_envelope_conjecture.md`](3172_full_T3_like_tangent_envelope_conjecture.md).
+
+Let $0\le m\le1/2$.  If a T3-like row has lower-bound coordinates satisfying
+
+$$
+a\ge m,
+\qquad
+b\ge m,
+$$
+
+then
+
+$$
+\boxed{
+G_{\mathrm{T3}}(a,b)\ge m^2.
+}
+$$
+
+### Proof
+
+By the tangent-envelope conjecture, every T3-like candidate with local data
+$(a,b)$ is dominated by either the upper branch or the reflected branch.
+
+In either case, since $a,b\ge m$, the smaller tangent coordinate satisfies
+
+$$
+A(s)\ge m.
+$$
+
+If $A(s)\le1/4$, then Lemma 652.2 gives
+
+$$
+G(s)\ge2A(s)-4A(s)^2.
+$$
+
+The function
+
+$$
+\psi(u)=2u-4u^2
+$$
+
+is increasing on $[0,1/4]$.  Since $m\le A(s)\le1/4$, we have
+
+$$
+G(s)\ge\psi(m)=2m-4m^2.
+$$
+
+Also $m\le1/4$ in this case, so
+
+$$
+2m-4m^2-m^2=m(2-5m)\ge0.
+$$
+
+Hence
+
+$$
+G(s)\ge m^2.
+$$
+
+If $A(s)\ge1/4$, then Lemma 652.3 gives
+
+$$
+G(s)\ge\frac14.
+$$
+
+Since $m\le1/2$, this implies
+
+$$
+G(s)\ge m^2.
+$$
+
+Thus every tangent-envelope dominator has outside loss at least $m^2$.  Taking
+the supremum over all T3-like candidates gives
+
+$$
+G_{\mathrm{T3}}(a,b)\ge m^2.
+$$
+
+This proves the corollary.

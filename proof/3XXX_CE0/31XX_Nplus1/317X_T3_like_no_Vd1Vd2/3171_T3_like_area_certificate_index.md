@@ -3,16 +3,16 @@
 Status: Strategy / conditional package
 
 This folder records the CE0 area route for the case with exactly one
-supercritical vertex row and one T3-like vertex row.
+supercritical vertex row and at least one T3-like vertex row.
 
-The package is separate from `../../32XX_Nplus_ge2/`.  The `640` package
-handles configurations with at least two supercritical rows.  This package
-handles the complementary CE0 pattern in which the center triangle is CE0,
-exactly one vertex row satisfies $a_i+b_i>1$, and one nonsupercritical vertex
-row is T3-like.
+The package is separate from `../../32XX_Nplus_ge2/`, which handles
+configurations with at least two supercritical rows.  This package handles the
+complementary CE0 pattern in which the center triangle is CE0, exactly one
+vertex row satisfies $a_i+b_i>1$, at least one nonsupercritical vertex row is
+T3-like, and every non-T3-like vertex row is Vd0.
 
-No midpoint condition is imposed on the T3-like row in this package.  The
-T3-like hypothesis means only
+No midpoint condition is imposed on T3-like rows in this package.  The T3-like
+hypothesis means only
 
 $$
 (o,n)=(2,1),
@@ -49,8 +49,8 @@ The final CE0 certificate in this folder is conditional on two local inputs.
 
 ### Input 1: Vd0 square-loss bounds
 
-For Vd0 rows, assume the same square-loss bounds used by the `640` conditional
-area certificate:
+For Vd0 rows, assume the same square-loss bounds used by the conditional area
+certificate in `../../32XX_Nplus_ge2/3208_CE0_conditional_area_certificate.md`:
 
 $$
 a+b\le1 \quad\Longrightarrow\quad G_{\mathrm{Vd0}}(a,b)\ge \min(a,b)^2,
@@ -83,6 +83,13 @@ a,b\ge m \quad\Longrightarrow\quad
 G_{\mathrm{T3}}(a,b)\ge 2m-4m^2.
 $$
 
+It also gives the comparison bound
+
+$$
+a,b\ge m \quad\Longrightarrow\quad
+G_{\mathrm{T3}}(a,b)\ge m^2.
+$$
+
 It also implies that T3-like rows are nonsupercritical:
 
 $$
@@ -100,7 +107,7 @@ $$
 \begin{gathered}
 T_C\text{ is CE0},\\
 \left\lvert \left\lbrace\, i : a_i+b_i>1 \,\right\rbrace \right\rvert=1,\\
-\text{one row is T3-like and all other rows are Vd0}
+\text{at least one row is T3-like and every non-T3-like row is Vd0}
 \end{gathered}
 \quad\Longrightarrow\quad
 \sum_{i=0}^5 G_i>1.
@@ -117,10 +124,8 @@ than the normalized area $6$ of $H$.
 | File | Recorded status | Notes |
 |---|---|---|
 | [`3172_full_T3_like_tangent_envelope_conjecture.md`](3172_full_T3_like_tangent_envelope_conjecture.md) | Lemma target | States the no-midpoint T3-like tangent-envelope conjecture and derives the candidate tangent branch formulas. |
-| [`3173_T3_like_loss_from_envelope.md`](3173_T3_like_loss_from_envelope.md) | Proven analytic inequality conditional on local envelope | Proves the analytic consequences of the tangent envelope needed globally: nonsupercriticality and the loss bound $G_{\mathrm{T3}}\ge2m-4m^2$. |
+| [`3173_T3_like_loss_from_envelope.md`](3173_T3_like_loss_from_envelope.md) | Proven analytic inequality conditional on local envelope | Proves the analytic consequences of the tangent envelope needed globally: nonsupercriticality and the loss bounds $G_{\mathrm{T3}}\ge2m-4m^2$ and $G_{\mathrm{T3}}\ge m^2$. |
 | [`3174_CE0_one_supercritical_T3_certificate.md`](3174_CE0_one_supercritical_T3_certificate.md) | Proven analytic inequality conditional on local inputs | Proves the CE0 one-supercritical T3-like area contradiction under the two local inputs. |
-| [`3175_failures_and_open_obligations.md`](3175_failures_and_open_obligations.md) | Reference | Records the precise failure modes and remaining proof obligations. |
-| [`3176_CE0_no_Vd1_Vd2_with_T3_like.md`](3176_CE0_no_Vd1_Vd2_with_T3_like.md) | Strategy / incomplete | Records the separate directed-graph strategy for CE0 with no Vd1/Vd2 and at least one T3-like row. |
 
 ## Status warning
 

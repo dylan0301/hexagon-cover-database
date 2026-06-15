@@ -3,10 +3,11 @@
 Status: Proven analytic inequality conditional on local inputs
 
 This file proves the global CE0 area contradiction for the case with exactly one
-supercritical row and one T3-like row, assuming the local inputs recorded in
-`650_index.md`.
+supercritical row and at least one T3-like row, assuming the local inputs
+recorded in
+[`3171_T3_like_area_certificate_index.md`](3171_T3_like_area_certificate_index.md).
 
-No midpoint condition is imposed on the T3-like row.
+No midpoint condition is imposed on any T3-like row.
 
 ## Local hypotheses
 
@@ -29,9 +30,10 @@ $$
 ### Hypothesis T3-envelope
 
 Assume the full T3-like tangent-envelope conjecture from
-`651_full_T3_like_tangent_envelope_conjecture.md`.
+[`3172_full_T3_like_tangent_envelope_conjecture.md`](3172_full_T3_like_tangent_envelope_conjecture.md).
 
-By `652_T3_like_loss_from_envelope.md`, this implies:
+By [`3173_T3_like_loss_from_envelope.md`](3173_T3_like_loss_from_envelope.md),
+this implies:
 
 1. every T3-like row is nonsupercritical:
 
@@ -44,6 +46,13 @@ By `652_T3_like_loss_from_envelope.md`, this implies:
    $$
    a,b\ge m \quad\Longrightarrow\quad
    G_{\mathrm{T3}}(a,b)\ge 2m-4m^2.
+   $$
+
+3. for every $0\le m\le1/2$,
+
+   $$
+   a,b\ge m \quad\Longrightarrow\quad
+   G_{\mathrm{T3}}(a,b)\ge m^2.
    $$
 
 ## CE0 model
@@ -83,7 +92,7 @@ Assume:
    \left\lvert \left\lbrace\, i : a_i+b_i>1 \,\right\rbrace \right\rvert=1;
    $$
 
-3. exactly one row is T3-like;
+3. at least one row is T3-like;
 4. every non-T3-like row is Vd0;
 5. the Vd0-square-loss hypothesis and the T3-envelope hypothesis hold.
 
@@ -107,8 +116,8 @@ unit-triangle areas inside $H$.
 
 ### Proof
 
-Let $p$ be the unique supercritical index and let $q$ be the T3-like index.
-By Lemma 652.1, the T3-like row is nonsupercritical.  Hence
+Let $p$ be the unique supercritical index and choose one T3-like index $q$.
+By Lemma 652.1, every T3-like row is nonsupercritical.  Hence
 
 $$
 q\ne p.
@@ -228,10 +237,10 @@ $$
 \boxed{G_0\ge(1-m)^2.}
 $$
 
-### Loss of the T3-like row
+### Loss of the selected T3-like row
 
-The T3-like row is some $q\in\{1,2,3,4,5\}$.  Since both its row coordinates are
-at least $m$, Theorem 652.4 gives
+The selected T3-like row is some $q\in\{1,2,3,4,5\}$.  Since both its row
+coordinates are at least $m$, Theorem 652.4 gives
 
 $$
 \boxed{G_q\ge2m-4m^2.}
@@ -247,14 +256,20 @@ i\ne0,
 i\ne q.
 $$
 
-Each of these rows is non-T3-like and nonsupercritical, hence Vd0 with
-$a_i+b_i\le1$.  By the subcritical Vd0-square-loss bound,
+Each of these rows is nonsupercritical.  If row $i$ is Vd0, then the
+subcritical Vd0-square-loss bound gives
 
 $$
 G_i\ge \min(a_i,b_i)^2.
 $$
 
 Since $a_i,b_i\ge m$,
+
+$$
+G_i\ge m^2.
+$$
+
+If row $i$ is T3-like, then Corollary 652.5 gives the same bound
 
 $$
 G_i\ge m^2.
