@@ -1,4 +1,4 @@
-# CE0 All-Vd0 Algorithm-2 Route
+# CE0 All-Vd0 Five-Point Route
 
 Status: Strategy
 
@@ -12,9 +12,21 @@ $$
 
 and all six vertex roles are Vd0.
 
-The live route is an algorithm-2 finite-point strategy. It replaces the older failed algorithm-1 unimodality approach by choosing diagonal points from equality-pattern relaxations among the nonsupercritical rows. Numerical evidence is not proof; all claims here remain strategy, lemma target, or empirical status until certified.
+The live route is a finite-point strategy with two complementary parts:
 
-## Files
+- far from the vertex-limit corners, use algorithm 2;
+- close to the vertex-limit corners, use algorithm 1 and a finite-$x$ remainder estimate.
+
+Numerical evidence is not proof. Claims remain strategy, lemma target, empirical, or certificate outline until a proof file records a proven status.
+
+## Subpackages
+
+| Package | Recorded status | Role |
+|---|---|---|
+| [`310X_far_from_tight/3100_far_from_tight_index.md`](310X_far_from_tight/3100_far_from_tight_index.md) | Strategy | Algorithm-2 away-from-limit region, including strict line realization, transition polynomial, convex order, and transition-strip certificate outline. |
+| [`312X_close_to_tight/3120_close_to_tight_index.md`](312X_close_to_tight/3120_close_to_tight_index.md) | Strategy | Algorithm-1 near-limit finite-$x$ route, including tangent gap, diagonal remainder progress, and the final $P_{\mathrm{res}}$ target. |
+
+## Shared And Legacy Files
 
 | File | Recorded status | Notes |
 |---|---|---|
@@ -29,7 +41,7 @@ The live route is an algorithm-2 finite-point strategy. It replaces the older fa
 | [`3110_current_status_and_remaining_obligations.md`](3110_current_status_and_remaining_obligations.md) | Reference | Current status ledger and remaining obligations. |
 | [`310X_computation/`](310X_computation/) | Experiment | Helper scripts for symbolic identity checks, interval arithmetic, numerical modeling, and certificate arithmetic. |
 
-## Archived related route
+## Archived Related Route
 
 | File | Recorded status | Notes |
 |---|---|---|
