@@ -8,7 +8,7 @@ $$
 a+b>1,\qquad \rho=a^2+ab+b^2<1.
 $$
 
-The limiting case $\rho=1$ is not covered here, because the strict four-piece formula in [`../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009_ab_union_curve_a_plus_b_gt_1.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009_ab_union_curve_a_plus_b_gt_1.md) degenerates there.
+The limiting case $\rho=1$ is not covered here, because the strict four-piece formula in [`../../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009_ab_union_curve_a_plus_b_gt_1.md`](../../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009_ab_union_curve_a_plus_b_gt_1.md) degenerates there.
 
 ## Statement
 

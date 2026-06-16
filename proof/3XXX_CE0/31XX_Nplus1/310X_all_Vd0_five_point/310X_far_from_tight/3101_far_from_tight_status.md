@@ -92,7 +92,7 @@ Thus, under algorithm 2 and strict line realization, only the five hull-edge sup
 
 ## Transition Strip Certificate Outline
 
-The file [`../3109_algorithm2_transition_strip_certificate.md`](../3109_algorithm2_transition_strip_certificate.md) records a certificate outline on
+The file [`3109_algorithm2_transition_strip_certificate.md`](3109_algorithm2_transition_strip_certificate.md) records a certificate outline on
 
 $$
 0.1\le p\le0.15.

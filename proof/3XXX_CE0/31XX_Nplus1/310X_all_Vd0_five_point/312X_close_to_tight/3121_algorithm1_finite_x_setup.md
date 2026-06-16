@@ -2,7 +2,7 @@
 
 Status: Lemma target
 
-This file states the finite-$x$ close-to-tight target for the CE0, $N_+=1$, all-Vd0 branch. The tangent inequality is proved in [`../3107_algorithm1_limit_tangent_gap.md`](../3107_algorithm1_limit_tangent_gap.md), but the finite-$x$ remainder estimate is not yet proved.
+This file states the finite-$x$ close-to-tight target for the CE0, $N_+=1$, all-Vd0 branch. The tangent inequality is proved in [`3125_algorithm1_limit_tangent_gap.md`](3125_algorithm1_limit_tangent_gap.md), but the finite-$x$ remainder estimate is not yet proved.
 
 ## Near-Limit Scaling
 

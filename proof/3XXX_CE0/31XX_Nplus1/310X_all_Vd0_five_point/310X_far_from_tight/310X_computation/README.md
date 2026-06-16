@@ -11,9 +11,9 @@ The scripts do not by themselves upgrade any mathematical statement to `Proven`.
 | File | Role | Proof status |
 |---|---|---|
 | `interval_decimal.py` | Small outward-rounded Decimal interval arithmetic helper. | Experiment. |
-| `verify_strict_branch_line_identities.py` | SymPy checks for algebraic identities used in `3105_strict_branch_line_realization.md`. | Helper for a proven local lemma. |
+| `verify_strict_branch_line_identities.py` | SymPy checks for algebraic identities used in [`../3105_strict_branch_line_realization.md`](../3105_strict_branch_line_realization.md). | Helper for a proven local lemma. |
 | `algo2_numeric_model.py` | High-precision numerical model for the algorithm-2 two-variable construction and lower-bound functions. | Empirical helper. |
-| `verify_transition_strip_certificate_arithmetic.py` | Checks that the recorded endpoint and curvature constants in `3109_algorithm2_transition_strip_certificate.md` imply positive interpolation margins. | Verifies only the arithmetic layer of the certificate outline. |
+| `verify_transition_strip_certificate_arithmetic.py` | Checks that the recorded endpoint and curvature constants in [`../3109_algorithm2_transition_strip_certificate.md`](../3109_algorithm2_transition_strip_certificate.md) imply positive interpolation margins. | Verifies only the arithmetic layer of the certificate outline. |
 
 ## Typical Commands
 
@@ -34,4 +34,4 @@ python algo2_numeric_model.py --p 0.12 --q 0.83
 
 ## Remaining Certificate Gap
 
-The transition-strip proof outline still lacks a full repository-grade interval certificate. In particular, the endpoint and curvature enclosures in `3109_algorithm2_transition_strip_certificate.md` need saved interval subdivision data or verifier code that checks them from first principles, including the selected-root branch checks for the 309 line-circle equations.
+The transition-strip proof outline still lacks a full repository-grade interval certificate. In particular, the endpoint and curvature enclosures in [`../3109_algorithm2_transition_strip_certificate.md`](../3109_algorithm2_transition_strip_certificate.md) need saved interval subdivision data or verifier code that checks them from first principles, including the selected-root branch checks for the 309 line-circle equations.
