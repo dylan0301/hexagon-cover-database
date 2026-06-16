@@ -1,0 +1,4 @@
+is there parts in AGENTs.md that we can make slim by referencing other files?
+
+read README.md again.
+only leave the parts that are needed for mathematicians reading our work, not developers

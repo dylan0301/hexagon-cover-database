@@ -1,20 +1,13 @@
 # Hexagon Covering Proof Corpus
 
-The `proof/` folder is the self-contained Markdown research corpus for the
-problem of covering a regular hexagon by seven open unit equilateral triangles.
-It contains definitions, proof-tree branches, local lemmas, computations,
+The `proof/` folder is the self-contained research corpus for the problem of
+covering a regular hexagon by seven open unit equilateral triangles. It
+contains definitions, proof-tree branches, local lemmas, computations,
 experiments, empirical notes, and failed approaches.
 
 These notes are not a single finished proof of the main theorem. Each file
 carries its own status label, and only files marked as proven should be cited
 as established results.
-
-## Document Roles
-
-- This `README.md` is the public entry point for readers of the corpus.
-- `AGENTS.md` is the editing policy for Codex agents and other automation.
-- `proof/0XXX_main/` is the proof scaffold: main theorem, proof-tree index,
-  and status/dependency table.
 
 ## Main Target
 
@@ -35,7 +28,7 @@ The open/closed/scaled equivalence is recorded in
 
 ## Start Here
 
-Recommended reading order:
+Recommended reading order for mathematical orientation:
 
 1. [`proof/0XXX_main/0000_main_theorem.md`](proof/0XXX_main/0000_main_theorem.md)
 2. [`proof/0XXX_main/0001_proof_tree_index.md`](proof/0XXX_main/0001_proof_tree_index.md)
@@ -53,7 +46,7 @@ Definitions live in
 `proof/2XXX_geometric_lemmas/`, and the proof tree splits first into CE0,
 CE1, and CE2 branches.
 
-## Repository Layout
+## Proof Corpus Map
 
 - [`proof/0XXX_main/`](proof/0XXX_main): main theorem, proof-tree index, and status table.
 - [`proof/09XX_appendices/`](proof/09XX_appendices): glossary, notation, open questions, and archived sketches.
@@ -77,66 +70,15 @@ Consequently, noncoverage of $S$ is no longer a viable standalone route to the
 main theorem. Conditional half-skeleton results keep their stated status unless
 the counterexample is separately shown to satisfy their hypotheses.
 
-## Current Proof Package
-
-The most developed recorded case is:
-
-$$
-\mathrm{CE0}+\text{at least one Vd1 or Vd2}.
-$$
-
-It is recorded as a practically proven boundary-length obstruction for the
-$N_+=1$ branch in
-[`proof/3XXX_CE0/31XX_Nplus1/314X_exists_Vd1_Vd2/3141_CE0_Nplus1_exists_Vd1_Vd2_boundary_length_obstruction.md`](proof/3XXX_CE0/31XX_Nplus1/314X_exists_Vd1_Vd2/3141_CE0_Nplus1_exists_Vd1_Vd2_boundary_length_obstruction.md).
-
-The older general chain proof is recorded as a proven half-skeleton obstruction
-in
-[`proof/3XXX_CE0/33XX_old_Vd1_Vd2_chain_proof/3300_CE0_old_Vd1_Vd2_chain_proof_index.md`](proof/3XXX_CE0/33XX_old_Vd1_Vd2_chain_proof/3300_CE0_old_Vd1_Vd2_chain_proof_index.md).
-
-Other major cases are still strategy- or target-lemma-dependent; see
-[`proof/0XXX_main/0001_proof_tree_index.md`](proof/0XXX_main/0001_proof_tree_index.md).
-
 ## Status Labels
 
 Status labels are defined in
 [`proof/1XXX_foundations/10XX_global_conventions/1006_proof_status_conventions.md`](proof/1XXX_foundations/10XX_global_conventions/1006_proof_status_conventions.md).
+For reading and citation, the main rule is: use a result as established only
+when its source file says `Status: Proven`.
 
-Important labels:
-
-- `Definition`: exact convention or mathematical definition.
-- `Proven`: complete proof in the file or explicitly referenced files,
-  including local lemmas and analytic inequalities.
-- `Practically proven`: proof is known and the statement may be used as a
-  working dependency, but the complete written proof is not recorded here.
-- `Lemma target`: useful statement whose proof is not complete here.
-- `Strategy`: active proof direction.
-- `Empirical`: supported by computation or plotting only.
-- `Failed`: known insufficient or abandoned approach.
-- `Experiment`: experiment plan, helper script, or reproducibility aid.
-- `Reference`: dictionary, inventory, index, navigation file, or status table.
-
-Numerical optimization claims remain `Empirical` until a certificate is supplied.
-Global minimum, maximum, or infeasibility claims require an exact symbolic
-proof, interval certificate, quantifier-elimination certificate, or another
-independently checkable rigorous certificate before they can be treated as
-proven.
-
-## Working Conventions
-
-- Keep research-note files Markdown-only unless the repository policy changes.
-- The proof corpus does not currently use image assets.
-- Use `$...$` for inline LaTeX and `$$...$$` for display LaTeX.
-- Write cardinalities in math as
-  `\left\lvert \left\lbrace\, ... \,\right\rbrace \right\rvert`;
-  do not use hash-based notation for cardinality.
-- Use `\mathrm{...}` for named operators in math; do not use the
-  operatorname macro.
-- Put conditions for `\sup`, `\inf`, `\min`, and `\max` in subscripts, using
-  `\substack{...}` when multiple lines are needed. Do not put alignment
-  markers inside operator arguments.
-- Write display-LaTeX blocks with `$$` on separate delimiter lines, and keep
-  the equation content between them on one physical line. Multi-line equation
-  content inside a `$$` block can fail to render.
-- Do not cite a claim as proven unless its source file has a proven status label.
-- Preserve failed approaches with enough detail to avoid repeating them.
-- Use [`proof/09XX_appendices/0910_notation_dictionary.md`](proof/09XX_appendices/0910_notation_dictionary.md) when introducing or checking glossary terms and notation.
+Files marked `Practically proven`, `Lemma target`, `Strategy`, `Empirical`,
+`Experiment`, `Failed`, or `Reference` are part of the working corpus, but they
+are not complete recorded proofs unless a proven source explicitly supplies the
+needed argument. Numerical optimization, plotting, or search evidence remains
+empirical unless a rigorous certificate is recorded.
