@@ -15,11 +15,11 @@ certificate: if the local square-loss bounds for $f(a,b)$ are supplied, then
 the CE0 six-point target with at least two supercritical rows follows.  That
 conditional certificate is in
 [`3208_CE0_conditional_area_certificate.md`](3208_CE0_conditional_area_certificate.md)
-(Status: Proven analytic inequality).
+(Status: Proven).
 
 The supercritical square-loss bound is now recorded in
 [`3204_supercritical_vertex_loss_lemma.md`](3204_supercritical_vertex_loss_lemma.md)
-(Status: Proven analytic inequality), conditional on the supercritical
+(Status: Proven), conditional on the supercritical
 structural hypothesis for local maximizers.  The subcritical bound and the
 structural hypothesis itself remain open obligations.
 
@@ -60,7 +60,7 @@ $H$.
 
 The conditional CE0 certificate in
 [`3208_CE0_conditional_area_certificate.md`](3208_CE0_conditional_area_certificate.md)
-(Status: Proven analytic inequality)
+(Status: Proven)
 proves the stronger bound
 
 $$
@@ -73,6 +73,6 @@ under the local square-loss hypothesis stated there.
 
 | File | Recorded status | Notes |
 |---|---|---|
-| [`3202_area_function_and_monotonicity.md`](3202_area_function_and_monotonicity.md) | Strategy / lemma target | Defines $f(a,b)$, records monotonicity, and states the structural conjecture for the local maximizing triangle. |
-| [`3204_supercritical_vertex_loss_lemma.md`](3204_supercritical_vertex_loss_lemma.md) | Proven analytic inequality | Proves the supercritical square-loss bound under the supercritical structural hypothesis. |
-| [`3208_CE0_conditional_area_certificate.md`](3208_CE0_conditional_area_certificate.md) | Proven analytic inequality | Proves the CE0 six-point inequality under the local square-loss hypothesis for $f(a,b)$. |
+| [`3202_area_function_and_monotonicity.md`](3202_area_function_and_monotonicity.md) | Strategy | Defines $f(a,b)$, records monotonicity, and states the structural conjecture for the local maximizing triangle. |
+| [`3204_supercritical_vertex_loss_lemma.md`](3204_supercritical_vertex_loss_lemma.md) | Proven | Proves the supercritical square-loss bound under the supercritical structural hypothesis. |
+| [`3208_CE0_conditional_area_certificate.md`](3208_CE0_conditional_area_certificate.md) | Proven | Proves the CE0 six-point inequality under the local square-loss hypothesis for $f(a,b)$. |

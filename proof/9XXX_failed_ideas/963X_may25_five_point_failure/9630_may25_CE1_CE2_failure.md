@@ -7,7 +7,7 @@ all-Vd0 setting. It is therefore not used for those branches.
 
 The related CE0 May 25 route is archived separately in
 [`9631_CE0_may25_supremum_endpoint_archive.md`](9631_CE0_may25_supremum_endpoint_archive.md)
-(Status: Failed / superseded). That CE0 archive records a route that is too
+(Status: Failed). That CE0 archive records a route that is too
 complicated for the live proof tree; it is not a counterexample to the CE0
 five-point inequality.
 

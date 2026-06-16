@@ -1,6 +1,6 @@
 # CE0 + Vd1/Vd2 $F$-Chain Inequalities
 
-Status: Proven analytic inequality
+Status: Proven
 
 Define
 

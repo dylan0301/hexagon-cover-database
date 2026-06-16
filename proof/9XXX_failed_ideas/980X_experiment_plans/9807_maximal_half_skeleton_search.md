@@ -1,6 +1,6 @@
 # Maximal Half-Skeleton Search
 
-Status: Experiment plan
+Status: Experiment
 
 For each $V$-triangle type and exact midpoint subset:
 

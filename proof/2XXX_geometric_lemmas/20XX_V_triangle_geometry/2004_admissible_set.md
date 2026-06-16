@@ -1,6 +1,6 @@
 # Admissible Set
 
-Status: Computational formula
+Status: Definition
 
 Let $\mathcal A\subset[0,1]^3$ be the set of possible local triples
 $(a,b,c)$.

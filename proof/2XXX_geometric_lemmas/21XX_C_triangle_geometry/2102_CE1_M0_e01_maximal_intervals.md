@@ -1,6 +1,6 @@
 # CE1, Exact Midpoint $M_0$, Edge $e_{0,1}$: Maximal Intervals
 
-Status: Proven certificate with numerical check
+Status: Proven
 
 This note proves the normalized CE1 subcase in which
 

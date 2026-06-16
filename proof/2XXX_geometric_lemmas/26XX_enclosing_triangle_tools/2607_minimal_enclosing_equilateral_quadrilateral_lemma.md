@@ -1,6 +1,6 @@
 # Minimal Enclosing Equilateral Triangle for a Convex Quadrilateral
 
-Status: Proven local lemma
+Status: Proven
 
 Source context: this lemma records the May 22 quadrilateral-triangle prompt from `hexagon-cover-visual/prompts/20260522quadTriangle.txt` in repository notation.
 

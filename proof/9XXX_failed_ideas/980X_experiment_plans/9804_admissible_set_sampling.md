@@ -1,6 +1,6 @@
 # Admissible Set Sampling
 
-Status: Experiment plan
+Status: Experiment
 
 Sample triples
 

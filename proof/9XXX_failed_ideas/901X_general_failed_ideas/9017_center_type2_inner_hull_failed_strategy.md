@@ -1,6 +1,6 @@
 # Center Type 2 Inner Hull Failed Strategy
 
-Status: Failed strategy
+Status: Failed
 
 This file records the Type 2 inner-hull analysis as part of the failed attempt to separate the inner gamma set from the outer gamma set. In current notation, the inner gamma set is the set of center-triangle $d$-tuples and the outer gamma set is the set of vertex-triangle $c$-tuples.
 

@@ -1,6 +1,6 @@
 # CE Vd0 Boundary-Loss Experiments
 
-Status: Computational helpers
+Status: Experiment
 
 This folder contains scripts supporting `proof/4XXX_CE1/40XX_Nplus0/401X_all_Vd0_boundary_loss/`.
 

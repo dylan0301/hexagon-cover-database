@@ -1,6 +1,6 @@
 # Setup and Boundary-Loss Reduction for CE1/CE2 Vd0
 
-Status: Strategy with proven reduction
+Status: Strategy
 
 This file records the normalized boundary-loss reduction for the CE1/CE2, all-Vd0 case.  It is used by the later branch files in this folder.
 

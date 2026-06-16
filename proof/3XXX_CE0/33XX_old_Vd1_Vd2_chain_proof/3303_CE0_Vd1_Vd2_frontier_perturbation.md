@@ -1,6 +1,6 @@
 # CE0 + Vd1/Vd2 Frontier Perturbation
 
-Status: Proven local lemma
+Status: Proven
 
 Let
 

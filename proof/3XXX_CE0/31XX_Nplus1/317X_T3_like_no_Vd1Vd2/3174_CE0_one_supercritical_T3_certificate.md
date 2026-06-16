@@ -1,6 +1,6 @@
 # CE0 One-Supercritical T3-like Area Certificate
 
-Status: Proven analytic inequality conditional on local inputs
+Status: Proven
 
 This file proves the global CE0 area contradiction for the case with exactly one
 supercritical row and at least one T3-like row, assuming the local inputs

@@ -1,6 +1,6 @@
 # Length Bounds
 
-Status: Navigation
+Status: Reference
 
 This block records boundary, skeleton, diagonal, and local-type length-bound
 targets used by the CE branches.

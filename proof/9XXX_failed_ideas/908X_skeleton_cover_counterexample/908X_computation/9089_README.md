@@ -1,6 +1,6 @@
 # May 24 Skeleton Cover Counterexample
 
-Status: experimental / reproducibility aid.
+Status: Experiment
 
 This folder records the retained counterexample from
 `dylan0301/hexagon-cover-visual` showing seven closed equilateral triangles,

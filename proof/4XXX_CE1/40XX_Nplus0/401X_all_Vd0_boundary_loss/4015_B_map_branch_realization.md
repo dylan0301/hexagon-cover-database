@@ -1,6 +1,6 @@
 # Corrected $B(a,c)$ Map and Branch Realization
 
-Status: Definition with proven local branch-realization lemmas
+Status: Definition
 
 This file records the corrected interpretation of the Vd0 admissible map $B(a,c)$ and the branch-pair notation used throughout `401X_all_Vd0_boundary_loss/`.  The main rule is that algebraic roots are only candidates.  The value $B(a,c)$ is the largest actually admissible $b$.
 

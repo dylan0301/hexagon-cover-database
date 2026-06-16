@@ -1,6 +1,6 @@
 # Radial Monotone Envelope and Elimination of $p$
 
-Status: Proven analytic inequality
+Status: Proven
 
 This file proves that the Pattern A radial sum
 

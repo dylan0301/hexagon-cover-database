@@ -1,6 +1,6 @@
 # Center Distance Sampling
 
-Status: Experiment plan
+Status: Experiment
 
 Samplers:
 

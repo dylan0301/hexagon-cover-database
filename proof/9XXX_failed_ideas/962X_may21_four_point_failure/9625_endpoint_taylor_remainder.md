@@ -1,6 +1,6 @@
 # Endpoint Taylor Remainder Proof
 
-Status: Proven analytic inequality
+Status: Proven
 
 This file proves the two reduced Pattern A inequalities on the endpoint range
 

@@ -2,7 +2,7 @@
 
 This folder contains prototype scripts for the May 21/22 Pattern A support package.
 
-Status: experimental / reproducibility aid.
+Status: Experiment
 
 The scripts are not a proof by themselves. They support the numerical scans, Taylor coefficient checks, and Bernstein-bounding prototypes described in the Markdown notes.
 

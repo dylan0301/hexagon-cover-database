@@ -1,6 +1,6 @@
 # Algorithm-2 Two-Variable Model And Transition Polynomial
 
-Status: Proven local lemma
+Status: Proven
 
 This file records the exact two-variable reduction used by algorithm 2 under the CE0, $N_+=1$, all-Vd0 branch assumptions and the additional equalities
 

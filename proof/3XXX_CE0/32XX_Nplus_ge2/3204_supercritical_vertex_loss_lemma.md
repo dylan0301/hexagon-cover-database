@@ -1,6 +1,6 @@
 # Supercritical Vertex-Loss Lemma
 
-Status: Proven analytic inequality
+Status: Proven
 
 This file proves the supercritical half of the square-loss local input used by
 the CE0 area certificate, conditional on the supercritical structural

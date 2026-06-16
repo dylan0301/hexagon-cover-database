@@ -1,6 +1,6 @@
 # Convex Cyclic Order From The Two Line Branches
 
-Status: Proven local lemma
+Status: Proven
 
 This file proves the convex-order reduction used in the algorithm-2 route, conditional on the strict line-branch realization proved in [`3105_strict_branch_line_realization.md`](3105_strict_branch_line_realization.md).
 

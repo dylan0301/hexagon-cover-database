@@ -1,6 +1,6 @@
 # Lower-Sheet $T_+$ Completion Proofs
 
-Status: Proven local lemma
+Status: Proven
 
 This file proves the lower-sheet $T_+$ branch obligations that were left open
 in `554_remaining_Tplus_obligations.md`.

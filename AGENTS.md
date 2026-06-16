@@ -64,22 +64,21 @@ change could affect:
 
 Do not upgrade or imply a stronger result than the source file supports.
 
-Only describe a result as proven if its file says one of:
-
-- `Status: Proven`
-- `Status: Proven local lemma`
-- `Status: Proven analytic inequality`
+Only describe a result as proven if its file says `Status: Proven`.
 
 Keep these distinctions intact:
 
 - `Definition`: exact convention or mathematical definition.
+- `Proven`: complete proof in the file or explicitly referenced files,
+  including local lemmas and analytic inequalities.
 - `Lemma target`: useful but not fully proved here.
 - `Practically proven`: proof is known and the statement may be used as a
   working dependency, but the complete written proof is not recorded here.
 - `Strategy`: active proof direction.
 - `Empirical`: supported by computation or plotting only.
+- `Experiment`: experiment plan, helper script, or reproducibility aid.
 - `Failed`: known insufficient or abandoned approach.
-- `Reference`: dictionary, inventory, or index.
+- `Reference`: dictionary, inventory, index, navigation file, or status table.
 
 Numerical or computational evidence stays `Empirical` unless a certificate is
 explicitly added.

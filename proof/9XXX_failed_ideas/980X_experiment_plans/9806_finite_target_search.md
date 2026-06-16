@@ -1,6 +1,6 @@
 # Finite Target Search
 
-Status: Experiment plan
+Status: Experiment
 
 Test the finite radial target values
 

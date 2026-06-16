@@ -1,6 +1,6 @@
 # Proof Tree Index
 
-Status: Navigation
+Status: Reference
 
 This is a numbered proof-structure tree. It is navigation only: a branch is not
 proved merely because it appears here, and proof status is inherited from the

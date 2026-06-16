@@ -1,6 +1,6 @@
 # Fractional Covering Postmortem
 
-Status: Failed / superseded
+Status: Failed
 
 Attempted goal:
 

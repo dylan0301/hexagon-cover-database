@@ -1,6 +1,6 @@
 # CE0 + Vd1/Vd2 Rhombus Geometry
 
-Status: Proven local lemma
+Status: Proven
 
 ## Setup
 

@@ -1,6 +1,6 @@
 # CE0 + Vd1/Vd2 Midpoint-Hole Subcases
 
-Status: Proven case split
+Status: Proven
 
 Assume
 

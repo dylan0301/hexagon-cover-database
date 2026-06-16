@@ -1,6 +1,6 @@
 # Separating Hyperplane Postmortem
 
-Status: Failed / partial
+Status: Failed
 
 Idea: separate the inner gamma set and outer gamma set by a hyperplane or low-degree hypersurface.
 

@@ -104,17 +104,16 @@ Status labels are defined in
 Important labels:
 
 - `Definition`: exact convention or mathematical definition.
-- `Proven`: complete proof in the file or explicitly referenced files.
-- `Proven local lemma`: complete local proof used as a component.
-- `Proven analytic inequality`: complete inequality proof.
+- `Proven`: complete proof in the file or explicitly referenced files,
+  including local lemmas and analytic inequalities.
 - `Practically proven`: proof is known and the statement may be used as a
   working dependency, but the complete written proof is not recorded here.
 - `Lemma target`: useful statement whose proof is not complete here.
 - `Strategy`: active proof direction.
 - `Empirical`: supported by computation or plotting only.
 - `Failed`: known insufficient or abandoned approach.
-- `Implementation note`: source-code or UI-facing note.
-- `Reference`: dictionary, inventory, or index.
+- `Experiment`: experiment plan, helper script, or reproducibility aid.
+- `Reference`: dictionary, inventory, index, navigation file, or status table.
 
 Numerical optimization claims remain `Empirical` until a certificate is supplied.
 Global minimum, maximum, or infeasibility claims require an exact symbolic

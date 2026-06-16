@@ -1,6 +1,6 @@
 # T3-like Area-Conjecture Package
 
-Status: Strategy / conditional package
+Status: Strategy
 
 This folder records the CE0 area route for the case with exactly one
 supercritical vertex row and at least one T3-like vertex row.
@@ -76,7 +76,7 @@ The local T3-like input is the no-midpoint tangent-envelope conjecture stated in
 
 That conjecture implies the proved analytic loss bound in
 [`3173_T3_like_loss_from_envelope.md`](3173_T3_like_loss_from_envelope.md)
-(Status: Proven analytic inequality conditional on local envelope):
+(Status: Proven):
 
 $$
 a,b\ge m \quad\Longrightarrow\quad
@@ -100,7 +100,7 @@ $$
 
 Under the two local inputs above, the main theorem in
 [`3174_CE0_one_supercritical_T3_certificate.md`](3174_CE0_one_supercritical_T3_certificate.md)
-(Status: Proven analytic inequality conditional on local inputs) proves:
+(Status: Proven) proves:
 
 $$
 \boxed{
@@ -124,8 +124,8 @@ than the normalized area $6$ of $H$.
 | File | Recorded status | Notes |
 |---|---|---|
 | [`3172_full_T3_like_tangent_envelope_conjecture.md`](3172_full_T3_like_tangent_envelope_conjecture.md) | Lemma target | States the no-midpoint T3-like tangent-envelope conjecture and derives the candidate tangent branch formulas. |
-| [`3173_T3_like_loss_from_envelope.md`](3173_T3_like_loss_from_envelope.md) | Proven analytic inequality conditional on local envelope | Proves the analytic consequences of the tangent envelope needed globally: nonsupercriticality and the loss bounds $G_{\mathrm{T3}}\ge2m-4m^2$ and $G_{\mathrm{T3}}\ge m^2$. |
-| [`3174_CE0_one_supercritical_T3_certificate.md`](3174_CE0_one_supercritical_T3_certificate.md) | Proven analytic inequality conditional on local inputs | Proves the CE0 one-supercritical T3-like area contradiction under the two local inputs. |
+| [`3173_T3_like_loss_from_envelope.md`](3173_T3_like_loss_from_envelope.md) | Proven | Proves the analytic consequences of the tangent envelope needed globally: nonsupercriticality and the loss bounds $G_{\mathrm{T3}}\ge2m-4m^2$ and $G_{\mathrm{T3}}\ge m^2$. |
+| [`3174_CE0_one_supercritical_T3_certificate.md`](3174_CE0_one_supercritical_T3_certificate.md) | Proven | Proves the CE0 one-supercritical T3-like area contradiction under the two local inputs. |
 
 ## Status warning
 

@@ -1,6 +1,6 @@
 # CE0 May 25 Supremum-Endpoint Archive
 
-Status: Failed / superseded
+Status: Failed
 
 This folder archives the May 25 five-point obstruction target for the CE0,
 $N_+=1$ setting. It is not recorded as a false inequality. It is archived
@@ -38,7 +38,7 @@ in:
 
 | File | Recorded status | Notes |
 |---|---|---|
-| [../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009_ab_union_curve_a_plus_b_gt_1.md](../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009_ab_union_curve_a_plus_b_gt_1.md) | Reference / exact formula | Strict $AB$-union frontier formula. |
+| [../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009_ab_union_curve_a_plus_b_gt_1.md](../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009_ab_union_curve_a_plus_b_gt_1.md) | Reference | Strict $AB$-union frontier formula. |
 
 while
 

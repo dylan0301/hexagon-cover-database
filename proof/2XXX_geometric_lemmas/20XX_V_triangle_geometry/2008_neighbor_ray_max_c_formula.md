@@ -1,6 +1,6 @@
 # Neighbor-Ray Maximum $c$ Formula
 
-Status: Proven local lemma
+Status: Proven
 
 This file records the adjacent-ray maximum for a normalized $V_0$-triangle. It is separate from [`2004_admissible_set.md`](2004_admissible_set.md): that file concerns the local radial coordinate on $[V_0,O]$, while this file concerns the neighboring radial point $(1-c)V_1$ on $r_1$.
 

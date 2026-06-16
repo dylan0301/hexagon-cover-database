@@ -16,10 +16,10 @@ The proof components are:
 
 | File | Recorded status | Notes |
 |---|---|---|
-| [3302_CE0_Vd1_Vd2_rhombus_geometry.md](3302_CE0_Vd1_Vd2_rhombus_geometry.md) | Proven local lemma | Rhombus geometry. |
-| [3303_CE0_Vd1_Vd2_frontier_perturbation.md](3303_CE0_Vd1_Vd2_frontier_perturbation.md) | Proven local lemma | Frontier perturbation. |
-| [3304_CE0_Vd1_Vd2_F_chain_inequalities.md](3304_CE0_Vd1_Vd2_F_chain_inequalities.md) | Proven analytic inequality | $F$-chain inequalities. |
-| [3305_CE0_Vd1_Vd2_midpoint_hole_subcases.md](3305_CE0_Vd1_Vd2_midpoint_hole_subcases.md) | Proven case split | Midpoint-hole subcases. |
+| [3302_CE0_Vd1_Vd2_rhombus_geometry.md](3302_CE0_Vd1_Vd2_rhombus_geometry.md) | Proven | Rhombus geometry. |
+| [3303_CE0_Vd1_Vd2_frontier_perturbation.md](3303_CE0_Vd1_Vd2_frontier_perturbation.md) | Proven | Frontier perturbation. |
+| [3304_CE0_Vd1_Vd2_F_chain_inequalities.md](3304_CE0_Vd1_Vd2_F_chain_inequalities.md) | Proven | $F$-chain inequalities. |
+| [3305_CE0_Vd1_Vd2_midpoint_hole_subcases.md](3305_CE0_Vd1_Vd2_midpoint_hole_subcases.md) | Proven | Midpoint-hole subcases. |
 | [3306_CE0_Vd1_Vd2_assembly.md](3306_CE0_Vd1_Vd2_assembly.md) | Proven | Assembly. |
 
 This scaffold file is a pointer only. The theorem status is inherited from the

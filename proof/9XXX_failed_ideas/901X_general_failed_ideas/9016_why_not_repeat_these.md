@@ -1,6 +1,6 @@
 # Why Not Repeat These
 
-Status: Research hygiene
+Status: Reference
 
 Do not restart dominance weighting unless the specific contradiction chains are broken.
 

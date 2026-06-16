@@ -1,6 +1,6 @@
 # Area Function and Monotonicity
 
-Status: Strategy / lemma target
+Status: Strategy
 
 This file records the local area function used by the CE0 six-point strategy.
 

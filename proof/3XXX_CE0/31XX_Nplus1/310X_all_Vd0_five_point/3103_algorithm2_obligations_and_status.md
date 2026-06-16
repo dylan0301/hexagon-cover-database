@@ -14,11 +14,11 @@ This file is not a proof. It records the dependency structure and current obliga
 
 | Component | Recorded status | Source | Obligation |
 |---|---|---|---|
-| Algorithm-2 setup and point construction | Empirical strategy | [`3102_algorithm2_setup_and_point_construction.md`](3102_algorithm2_setup_and_point_construction.md) | Define the relaxed obstruction region exactly and prove point containment for all allowed parameters. |
-| Strict $P_3,P_5$ line realization | Proven local lemma | [`3105_strict_branch_line_realization.md`](3105_strict_branch_line_realization.md) | Treat the limiting boundary $\rho=1$ separately. |
-| Algorithm-2 two-variable model | Proven local lemma | [`3106_algorithm2_two_variable_transition.md`](3106_algorithm2_two_variable_transition.md) | Depends on the still-open equalities $a_3+b_3=1$ and $a_5+b_5=1$. |
-| Algorithm-1 tangent gap | Proven analytic inequality | [`3107_algorithm1_limit_tangent_gap.md`](3107_algorithm1_limit_tangent_gap.md) | Add a finite-$x$ remainder bound for the near-limit region. |
-| Convex cyclic order | Proven local lemma | [`3108_convex_order_from_line_branches.md`](3108_convex_order_from_line_branches.md) | Uses strict line realization and the algorithm-2 diagonal model. |
+| Algorithm-2 setup and point construction | Strategy | [`3102_algorithm2_setup_and_point_construction.md`](3102_algorithm2_setup_and_point_construction.md) | Define the relaxed obstruction region exactly and prove point containment for all allowed parameters. |
+| Strict $P_3,P_5$ line realization | Proven | [`3105_strict_branch_line_realization.md`](3105_strict_branch_line_realization.md) | Treat the limiting boundary $\rho=1$ separately. |
+| Algorithm-2 two-variable model | Proven | [`3106_algorithm2_two_variable_transition.md`](3106_algorithm2_two_variable_transition.md) | Depends on the still-open equalities $a_3+b_3=1$ and $a_5+b_5=1$. |
+| Algorithm-1 tangent gap | Proven | [`3107_algorithm1_limit_tangent_gap.md`](3107_algorithm1_limit_tangent_gap.md) | Add a finite-$x$ remainder bound for the near-limit region. |
+| Convex cyclic order | Proven | [`3108_convex_order_from_line_branches.md`](3108_convex_order_from_line_branches.md) | Uses strict line realization and the algorithm-2 diagonal model. |
 | Transition-strip certificate | Empirical | [`3109_algorithm2_transition_strip_certificate.md`](3109_algorithm2_transition_strip_certificate.md) | Add verifier code or exact certificate data for the interval enclosures. |
 | Current status ledger | Reference | [`3110_current_status_and_remaining_obligations.md`](3110_current_status_and_remaining_obligations.md) | Tracks remaining open tasks. |
 

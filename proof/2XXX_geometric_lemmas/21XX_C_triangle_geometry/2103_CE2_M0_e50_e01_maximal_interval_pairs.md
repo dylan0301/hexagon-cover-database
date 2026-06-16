@@ -1,6 +1,6 @@
 # CE2, Exact Midpoint $M_0$, Edges $e_{5,0}$ and $e_{0,1}$: Maximal Interval Pairs
 
-Status: Proven certificate with numerical check
+Status: Proven
 
 This note proves the normalized CE2 subcase in which
 

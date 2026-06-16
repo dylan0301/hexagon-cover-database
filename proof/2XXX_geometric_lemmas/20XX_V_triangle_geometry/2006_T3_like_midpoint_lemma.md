@@ -1,6 +1,6 @@
 # T3-like Midpoint Lemma
 
-Status: Proven local lemma
+Status: Proven
 
 This file uses the $V_i$-triangle type convention from
 [`../../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md`](../../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md)

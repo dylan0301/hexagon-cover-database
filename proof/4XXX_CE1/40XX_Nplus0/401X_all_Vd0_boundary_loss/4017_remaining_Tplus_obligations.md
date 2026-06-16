@@ -1,6 +1,6 @@
 # Former Remaining $T_+$ Obligations
 
-Status: Reference / superseded
+Status: Reference
 
 This file records the lower-sheet $T_+$ obligations that were formerly open,
 plus failed approaches that should not be repeated.

@@ -1,6 +1,6 @@
 # Center Type 2 Rank-One Variety
 
-Status: Definition / algebraic characterization
+Status: Definition
 
 Use degree-indexed ray-intersection distances. For
 $\theta\in\{0,60,120,180,240,300\}$, let $e_\theta$ be the unit vector in direction $\theta$ degrees and let $r_\theta=\{te_\theta:t\ge0\}$. If

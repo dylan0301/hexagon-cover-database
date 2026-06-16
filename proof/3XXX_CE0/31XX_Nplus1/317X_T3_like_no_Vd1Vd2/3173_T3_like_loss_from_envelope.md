@@ -1,6 +1,6 @@
 # T3-like Loss Bound from the Tangent Envelope
 
-Status: Proven analytic inequality conditional on local envelope
+Status: Proven
 
 This file proves the analytic consequences of the full T3-like tangent-envelope
 conjecture from

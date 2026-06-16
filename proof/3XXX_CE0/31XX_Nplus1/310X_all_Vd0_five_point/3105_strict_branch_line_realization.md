@@ -1,6 +1,6 @@
 # Strict Branch Line Realization For The Two Fixed Points
 
-Status: Proven local lemma
+Status: Proven
 
 This file proves the strict nondegenerate branch-realization statement used by the algorithm-2 route. It applies only in the strict branch
 

@@ -1,6 +1,6 @@
 # Algorithm-2 Setup And Point Construction
 
-Status: Empirical strategy
+Status: Strategy
 
 After symmetry and reduction, take the unique supercritical row to be the $V_4$ row. The free data are organized as:
 

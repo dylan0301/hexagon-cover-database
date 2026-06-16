@@ -1,6 +1,6 @@
 # Maximal C-Triangle Search
 
-Status: Experiment plan
+Status: Experiment
 
 For CE0, CE1, and CE2:
 

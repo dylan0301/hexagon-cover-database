@@ -1,6 +1,6 @@
 # Setup and Pattern A Reduction
 
-Status: Proven local lemma
+Status: Proven
 
 This file defines the May 21/22 four-point Pattern A target and proves the scalar reduction used by the rest of this folder.
 

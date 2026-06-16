@@ -1,6 +1,6 @@
 # Algorithm-1 Tangent Gap Near The Vertex Limit
 
-Status: Proven analytic inequality
+Status: Proven
 
 This file records the tangent-cone inequality used for the near-limit part of the all-Vd0 strategy. It does not prove a finite-$x$ remainder estimate.
 

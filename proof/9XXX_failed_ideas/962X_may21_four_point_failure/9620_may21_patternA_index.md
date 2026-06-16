@@ -26,7 +26,7 @@ The exact nondegenerate strict $AB$-union frontier formula used for the
 $R_4$ boundary, including the two unit-circle arcs and two line segments, is
 recorded in
 [../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009_ab_union_curve_a_plus_b_gt_1.md](../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009_ab_union_curve_a_plus_b_gt_1.md)
-(Status: Reference / exact formula).
+(Status: Reference).
 
 The current result is not a full proof of the May 21/22 target. The proven part is a reduction and endpoint theorem for Pattern A. The remaining non-endpoint monotonicity certificate is supported by Bernstein/root-isolation experiments but is not yet a complete finite certificate.
 
@@ -34,7 +34,7 @@ The current result is not a full proof of the May 21/22 target. The proven part 
 
 The reduced Pattern A problem is treated in two regimes.
 
-First, near the endpoint $r=0$, direct interval arithmetic is too coarse. The branch conditions for the selected $P_3$ and $P_5$ points become nearly sharp there; for example, inequalities such as $Q_A\ge0$ can have very small slack. Instead, [`9625_endpoint_taylor_remainder.md`](9625_endpoint_taylor_remainder.md) (Status: Proven analytic inequality) expands the selected branches and the function $\tau(sr,r)$ as Taylor series in $r$. The proof then shows that the positive low-order terms dominate the higher-order error terms on
+First, near the endpoint $r=0$, direct interval arithmetic is too coarse. The branch conditions for the selected $P_3$ and $P_5$ points become nearly sharp there; for example, inequalities such as $Q_A\ge0$ can have very small slack. Instead, [`9625_endpoint_taylor_remainder.md`](9625_endpoint_taylor_remainder.md) (Status: Proven) expands the selected branches and the function $\tau(sr,r)$ as Taylor series in $r$. The proof then shows that the positive low-order terms dominate the higher-order error terms on
 
 $$
 0<r\le\frac1{200}.
@@ -81,9 +81,9 @@ Only steps 1, 2, and the endpoint part of step 3 are currently proved in this fo
 
 | File | Recorded status | Notes |
 |---|---|---|
-| [`9623_setup_and_patternA_reduction.md`](9623_setup_and_patternA_reduction.md) | Proven local lemma | Defines the local coordinates, the selected $P_3,P_5$ branches, the radial points $G_0,G_2$, the Pattern A support formula, and the reduced inequalities. |
-| [`9624_radial_monotone_envelope.md`](9624_radial_monotone_envelope.md) | Proven analytic inequality | Proves the monotone envelope theorem eliminating the parameter $p$ from Pattern A. |
-| [`9625_endpoint_taylor_remainder.md`](9625_endpoint_taylor_remainder.md) | Proven analytic inequality | Proves the endpoint theorem for $0<r\le 1/200$ using Taylor remainders. |
+| [`9623_setup_and_patternA_reduction.md`](9623_setup_and_patternA_reduction.md) | Proven | Defines the local coordinates, the selected $P_3,P_5$ branches, the radial points $G_0,G_2$, the Pattern A support formula, and the reduced inequalities. |
+| [`9624_radial_monotone_envelope.md`](9624_radial_monotone_envelope.md) | Proven | Proves the monotone envelope theorem eliminating the parameter $p$ from Pattern A. |
+| [`9625_endpoint_taylor_remainder.md`](9625_endpoint_taylor_remainder.md) | Proven | Proves the endpoint theorem for $0<r\le 1/200$ using Taylor remainders. |
 | [`9626_nonendpoint_bernstein_status.md`](9626_nonendpoint_bernstein_status.md) | Empirical | Records the Bernstein certificate strategy, verified boxes, and the remaining non-endpoint gap. |
 | [`9627_numerical_tests_and_counterexamples.md`](9627_numerical_tests_and_counterexamples.md) | Empirical | Records numerical tests, earlier four-point counterexamples, and the exact status of the outside-quarter version. |
 | [`9628_current_status.md`](9628_current_status.md) | Reference | Short dependency and status table. |
@@ -106,7 +106,7 @@ The quadrilateral lemma itself is recorded as a proven local lemma in:
 
 | File | Recorded status | Notes |
 |---|---|---|
-| [`../../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2607_minimal_enclosing_equilateral_quadrilateral_lemma.md`](../../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2607_minimal_enclosing_equilateral_quadrilateral_lemma.md) | Proven local lemma | Quadrilateral lemma. |
+| [`../../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2607_minimal_enclosing_equilateral_quadrilateral_lemma.md`](../../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2607_minimal_enclosing_equilateral_quadrilateral_lemma.md) | Proven | Quadrilateral lemma. |
 
 ## Code
 
@@ -114,7 +114,7 @@ Prototype numerical and certification scripts are under:
 
 | File | Recorded status | Notes |
 |---|---|---|
-| [`965X_may21_patternA_support/965X_computations/9655_README.md`](../965X_may21_patternA_support/965X_computations/9655_README.md) | experimental / reproducibility aid. | Computation README. |
+| [`965X_may21_patternA_support/965X_computations/9655_README.md`](../965X_may21_patternA_support/965X_computations/9655_README.md) | Experiment | Computation README. |
 | [`965X_may21_patternA_support/965X_computations/9658_pattern_a_numeric_scan.py`](../965X_may21_patternA_support/965X_computations/9658_pattern_a_numeric_scan.py) | Code helper | Pattern A numeric scan. |
 | [`965X_may21_patternA_support/965X_computations/9657_endpoint_taylor_check.py`](../965X_may21_patternA_support/965X_computations/9657_endpoint_taylor_check.py) | Code helper | Endpoint Taylor check. |
 | [`965X_may21_patternA_support/965X_computations/9656_bernstein_bounds.py`](../965X_may21_patternA_support/965X_computations/9656_bernstein_bounds.py) | Code helper | Bernstein bounds helper. |

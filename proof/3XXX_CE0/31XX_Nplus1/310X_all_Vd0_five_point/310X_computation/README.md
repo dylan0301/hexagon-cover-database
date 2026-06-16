@@ -1,6 +1,6 @@
 # 310X Computation Helpers
 
-Status: Implementation note
+Status: Experiment
 
 This folder contains helper code for the CE0, $N_+=1$, all-Vd0 algorithm-2 route. These scripts are colocated with the proof package they support.
 
@@ -10,7 +10,7 @@ The scripts do not by themselves upgrade any mathematical statement to `Proven`.
 
 | File | Role | Proof status |
 |---|---|---|
-| `interval_decimal.py` | Small outward-rounded Decimal interval arithmetic helper. | Implementation note. |
+| `interval_decimal.py` | Small outward-rounded Decimal interval arithmetic helper. | Experiment. |
 | `verify_strict_branch_line_identities.py` | SymPy checks for algebraic identities used in `3105_strict_branch_line_realization.md`. | Helper for a proven local lemma. |
 | `algo2_numeric_model.py` | High-precision numerical model for the algorithm-2 two-variable construction and lower-bound functions. | Empirical helper. |
 | `verify_transition_strip_certificate_arithmetic.py` | Checks that the recorded endpoint and curvature constants in `3109_algorithm2_transition_strip_certificate.md` imply positive interpolation margins. | Verifies only the arithmetic layer of the certificate outline. |

@@ -1,6 +1,6 @@
 # Proven Branch Lemmas for the CE1/CE2 Vd0 Boundary-Loss Reduction
 
-Status: Proven local lemmas, with remaining branches recorded elsewhere
+Status: Proven
 
 This file records the branch lemmas currently proved for the reduction in `551_setup_and_reduction.md`.
 

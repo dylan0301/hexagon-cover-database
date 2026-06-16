@@ -1,6 +1,6 @@
 # Maximal C-Triangles Over the Half-Skeleton
 
-Status: Definition / proof target, with proven normalized CE1 and CE2 subcases
+Status: Definition
 
 A $C$-triangle is a closed unit equilateral triangle constrained to contain $O$.
 

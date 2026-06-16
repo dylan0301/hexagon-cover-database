@@ -1,6 +1,6 @@
 # $g$-Chain Numerical Tests
 
-Status: Experiment plan
+Status: Experiment
 
 Test
 

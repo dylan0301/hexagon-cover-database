@@ -200,4 +200,4 @@ $$
 
 ## Status
 
-This file records a certificate outline and numerical constants. To upgrade this to `Proven analytic inequality`, the repository still needs the actual verifier code or certificate data for the interval enclosures, including the selected-root branch checks for the 309 line-circle equations.
+This file records a certificate outline and numerical constants. To upgrade this to `Proven`, the repository still needs the actual verifier code or certificate data for the interval enclosures, including the selected-root branch checks for the 309 line-circle equations.

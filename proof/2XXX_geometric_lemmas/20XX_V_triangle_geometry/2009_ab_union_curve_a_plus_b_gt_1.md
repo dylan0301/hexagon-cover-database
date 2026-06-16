@@ -1,6 +1,6 @@
 # $AB$-Union Set And Strict Curve
 
-Status: Reference / exact formula
+Status: Reference
 
 Let $A,O,B$ be three points with angle $120^\circ$ at $O$. Put
 

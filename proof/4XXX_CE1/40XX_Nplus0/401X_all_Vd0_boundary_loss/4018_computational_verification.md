@@ -1,6 +1,6 @@
 # Computational Verification for the CE1/CE2 Vd0 Boundary-Loss Package
 
-Status: Empirical / certificate support, with lower-sheet observations superseded by proof
+Status: Empirical
 
 This file records numerical checks and code references for the branch analysis
 in `401X_all_Vd0_boundary_loss/`.  Numerical results in this file are not proof

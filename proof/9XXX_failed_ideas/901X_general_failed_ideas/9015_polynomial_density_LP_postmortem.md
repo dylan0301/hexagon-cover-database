@@ -1,6 +1,6 @@
 # Polynomial Density LP Postmortem
 
-Status: Failed / superseded
+Status: Failed
 
 A historical approach represented edge and diagonal weights as polynomial densities. Triangle constraints were integrals of these densities over covered intervals.
 

@@ -1,6 +1,6 @@
 # Vertex $c$-Coordinate Sampling
 
-Status: Experiment plan
+Status: Experiment
 
 Sample cyclic edge splits satisfying
 

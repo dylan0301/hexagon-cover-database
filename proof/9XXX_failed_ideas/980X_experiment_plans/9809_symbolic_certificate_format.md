@@ -1,6 +1,6 @@
 # Symbolic Certificate Format
 
-Status: Experiment plan
+Status: Experiment
 
 Suggested certificate:
 

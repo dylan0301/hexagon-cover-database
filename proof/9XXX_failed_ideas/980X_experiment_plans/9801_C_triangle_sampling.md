@@ -1,6 +1,6 @@
 # C-Triangle Sampling
 
-Status: Experiment plan
+Status: Experiment
 
 Sample center triangles containing $O$, then compute:
 

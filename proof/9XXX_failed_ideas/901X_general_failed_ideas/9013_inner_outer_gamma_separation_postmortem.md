@@ -1,6 +1,6 @@
 # Inner / Outer Gamma Set Separation Postmortem
 
-Status: Failed / partial
+Status: Failed
 
 The inner gamma set is the set of center-triangle distance tuples $d_0,d_{60},\dots,d_{300}$.
 

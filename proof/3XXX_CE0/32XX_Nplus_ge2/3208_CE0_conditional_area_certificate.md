@@ -1,6 +1,6 @@
 # CE0 Conditional Area Certificate
 
-Status: Proven analytic inequality
+Status: Proven
 
 This file proves the final CE0 six-point area inequality under explicit local
 square-loss upper bounds for the area function `f(a,b)` from

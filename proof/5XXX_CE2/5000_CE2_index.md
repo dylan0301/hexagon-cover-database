@@ -1,6 +1,6 @@
 # CE2 Branch
 
-Status: Navigation
+Status: Reference
 
 This branch assumes the center role $T_C$ is CE2. Proofs shared with CE1 are
 recorded in the CE1 branch and cited here only when their hypotheses are the
@@ -8,7 +8,7 @@ same.
 
 | File | Recorded status | Branch |
 |---|---|---|
-| [`50XX_Nplus0/500X_all_Vd0_boundary_loss_reference/5001_CE2_Nplus0_all_Vd0_boundary_loss_reference.md`](50XX_Nplus0/500X_all_Vd0_boundary_loss_reference/5001_CE2_Nplus0_all_Vd0_boundary_loss_reference.md) | Proven local lemma | CE2, $N_+=0$, all Vd0 boundary-loss reference. |
+| [`50XX_Nplus0/500X_all_Vd0_boundary_loss_reference/5001_CE2_Nplus0_all_Vd0_boundary_loss_reference.md`](50XX_Nplus0/500X_all_Vd0_boundary_loss_reference/5001_CE2_Nplus0_all_Vd0_boundary_loss_reference.md) | Proven | CE2, $N_+=0$, all Vd0 boundary-loss reference. |
 | [`50XX_Nplus0/501X_Vd1_Vd2_obstruction/5012_CE2_Nplus0_exists_Vd1_Vd2_boundary_length_obstruction.md`](50XX_Nplus0/501X_Vd1_Vd2_obstruction/5012_CE2_Nplus0_exists_Vd1_Vd2_boundary_length_obstruction.md) | Practically proven | CE2, $N_+=0$, at least one Vd1/Vd2 boundary-length obstruction. |
 | [`50XX_Nplus0/502X_T3_like_no_Vd1Vd2/5020_CE2_Nplus0_T3_like_TODO.md`](50XX_Nplus0/502X_T3_like_no_Vd1Vd2/5020_CE2_Nplus0_T3_like_TODO.md) | Strategy | CE2, $N_+=0$, T3-like/no Vd1/Vd2, open. |
 | [`51XX_Nplus1/510X_all_Vd0/5101_CE2_Nplus1_all_Vd0_TODO.md`](51XX_Nplus1/510X_all_Vd0/5101_CE2_Nplus1_all_Vd0_TODO.md) | Strategy | CE2, $N_+=1$, all Vd0, open. |
