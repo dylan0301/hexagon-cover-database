@@ -1,8 +1,15 @@
-# Current Status And Remaining Obligations For The Algorithm-2 Route
+# Current Status And Remaining Obligations For The All-Vd0 Five-Point Route
 
 Status: Reference
 
-This file summarizes the state of the CE0, $N_+=1$, all-Vd0 algorithm-2 route after the June 2026 proof-tree discussion.
+This file summarizes the state of the CE0, $N_+=1$, all-Vd0 five-point route after the June 2026 proof-tree discussion. The package is split into a far-from-tight algorithm-2 subpackage and a close-to-tight algorithm-1 subpackage.
+
+## Subpackages
+
+| Package | Recorded status | Meaning |
+|---|---|---|
+| [`310X_far_from_tight/3100_far_from_tight_index.md`](310X_far_from_tight/3100_far_from_tight_index.md) | Strategy | Algorithm-2 away-from-limit route. |
+| [`312X_close_to_tight/3120_close_to_tight_index.md`](312X_close_to_tight/3120_close_to_tight_index.md) | Strategy | Algorithm-1 near-limit finite-$x$ route. |
 
 ## Proved Components Recorded In This Package
 
@@ -14,27 +21,28 @@ This file summarizes the state of the CE0, $N_+=1$, all-Vd0 algorithm-2 route af
 | Algorithm-1 tangent gap | [`3107_algorithm1_limit_tangent_gap.md`](3107_algorithm1_limit_tangent_gap.md) | Proven | The tangent coefficient satisfies $C_1\ge1/4$. |
 | Convex cyclic order from line branches | [`3108_convex_order_from_line_branches.md`](3108_convex_order_from_line_branches.md) | Proven | Once line realization holds, the algorithm-2 five points have cyclic order $D_0,D_1,D_2,P_3,P_5$. |
 
-## Empirical Or Certificate-Outline Components
+## Empirical, Practical, Or Certificate-Outline Components
 
 | Component | File | Recorded status | Notes |
 |---|---|---|---|
-| Algorithm-2 transition strip | [`3109_algorithm2_transition_strip_certificate.md`](3109_algorithm2_transition_strip_certificate.md) | Empirical / certificate outline | Records interval constants and an interpolation scheme. Helper code is in [`310X_computation/`](310X_computation/), but full interval subdivision data is not recorded. |
-| Numerical away-region behavior | [`3109_algorithm2_transition_strip_certificate.md`](3109_algorithm2_transition_strip_certificate.md) and [`310X_computation/algo2_numeric_model.py`](310X_computation/algo2_numeric_model.py) | Empirical | The lowest recorded dangerous value is $1.0031590223\ldots$ at $p=0.1$ and $T=0$. |
+| Far-from-tight transition strip | [`310X_far_from_tight/3101_far_from_tight_status.md`](310X_far_from_tight/3101_far_from_tight_status.md) and [`3109_algorithm2_transition_strip_certificate.md`](3109_algorithm2_transition_strip_certificate.md) | Empirical / certificate outline | Records interval constants and an interpolation scheme. Helper code is in [`310X_computation/`](310X_computation/), but full interval subdivision data is not recorded. |
+| Close-to-tight diagonal remainders | [`312X_close_to_tight/3122_diagonal_remainder_progress.md`](312X_close_to_tight/3122_diagonal_remainder_progress.md) | Practically proven | Records working estimates $E_{01}\ge-2x^2$ and $E_2\ge-kx^2$; full Bernstein data not recorded. |
+| Close-to-tight final $P_{\mathrm{res}}$ inequality | [`312X_close_to_tight/3123_pres_final_two_variable_target.md`](312X_close_to_tight/3123_pres_final_two_variable_target.md) | Lemma target | Final reduced two-variable target for the finite-$x$ algorithm-1 proof. |
 | Symbolic identity and arithmetic helper scripts | [`310X_computation/`](310X_computation/) | Experiment | These scripts support checking identities and certificate arithmetic. They do not by themselves complete the transition-strip certificate. |
 
 ## Still Open
 
-The algorithm-2 route does not yet prove the CE0 all-Vd0 branch. The remaining obligations are:
+The all-Vd0 five-point route does not yet prove the CE0 all-Vd0 branch. The remaining obligations are:
 
 | Obligation | Status |
 |---|---|
 | Justify the reductions $a_3+b_3=1$ and $a_5+b_5=1$ from the full all-Vd0 branch. | Open. |
 | Treat the limiting boundary $\rho=1$ for the strict $AB$ curve. | Open. |
-| Replace the transition-strip certificate outline with reproducible verifier code or exact certificate data for all endpoint and curvature interval enclosures. | Open. |
-| Complete the algorithm-2 away region for $p\ge0.15$ and its reflection. | Open. |
-| Prove the near-limit finite-$x$ algorithm-1 remainder bound, or replace it by another certified near-limit argument. | Open. |
+| Replace the far-from-tight transition-strip outline with reproducible verifier code or exact certificate data for all endpoint and curvature interval enclosures. | Open. |
+| Complete the far-from-tight algorithm-2 region for $p\ge0.15$ and its reflection. | Open. |
+| Prove the close-to-tight final two-variable target $P_{\mathrm{res}}\ge(2+k)x^2$, or replace it by another certified finite-$x$ argument. | Open. |
 | Prove that the algorithm-2 diagonal points are valid obstruction points for the exact relaxed region required by the CE0 all-Vd0 branch. | Open. |
-| Assemble the algorithm-1 near-limit and algorithm-2 away-region arguments into a full branch obstruction. | Open. |
+| Assemble the close-to-tight and far-from-tight arguments into a full branch obstruction. | Open. |
 
 ## Failed Or Discarded Routes
 
@@ -47,3 +55,5 @@ The following routes should not be reused without new hypotheses.
 | Algorithm 2 near the vertex-limit corners. | The tangent coefficient is negative for approach directions $1/3<k<1$. |
 | Global coordinate monotonicity of $P_3,P_5$. | For example, $P_3^y$ can decrease as $q$ increases. |
 | Ordinary convex-hull inclusion under slack pushes. | Individual support functions can move the wrong way; only the three-direction width has the hoped-for cancellation. |
+| Near-tight $x$-convexity of the finite-$x$ residual. | Stable second differences are negative in some smooth regions. |
+| Componentwise finite-linear diagonal bounds $r_j\ge xd_j$. | Diagonal deficits occur and are compensated by the $P_3P_5$ side term. |
