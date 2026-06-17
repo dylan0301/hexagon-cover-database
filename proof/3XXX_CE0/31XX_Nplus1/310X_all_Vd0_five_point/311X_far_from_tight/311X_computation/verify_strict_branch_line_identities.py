@@ -1,6 +1,6 @@
 """Symbolic identity checks for the strict branch line-realization proof.
 
-The file 3105 contains the human-readable proof. This script verifies the
+The file 3115 contains the human-readable proof. This script verifies the
 main algebraic identities used there with SymPy. It is a proof-helper, not a
 replacement for the sign arguments in the Markdown file.
 """

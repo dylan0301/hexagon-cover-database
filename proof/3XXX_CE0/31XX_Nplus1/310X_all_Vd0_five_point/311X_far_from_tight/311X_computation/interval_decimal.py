@@ -1,6 +1,6 @@
 """Small outward-rounded Decimal interval arithmetic helper.
 
-This module is intentionally tiny. It is used by the 310X verifier scripts
+This module is intentionally tiny. It is used by the 311X verifier scripts
 as a building block for independently checkable interval calculations.
 It only implements the operations needed by the current certificates.
 """

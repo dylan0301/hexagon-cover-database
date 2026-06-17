@@ -1,4 +1,4 @@
-"""Check the arithmetic layer of the 3109 transition-strip certificate outline.
+"""Check the arithmetic layer of the 3119 transition-strip certificate outline.
 
 This script verifies that the recorded endpoint lower bounds, branch widths,
 and curvature bounds imply positive denominator-free lower bounds on the

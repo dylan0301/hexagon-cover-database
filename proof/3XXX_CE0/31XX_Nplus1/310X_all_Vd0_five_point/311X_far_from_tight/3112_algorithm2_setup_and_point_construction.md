@@ -28,7 +28,7 @@ $$
 
 is recorded in [`../../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009_ab_union_curve_a_plus_b_gt_1.md`](../../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009_ab_union_curve_a_plus_b_gt_1.md).
 
-The strict branch realization for the selected two fixed points is now recorded in [`3105_strict_branch_line_realization.md`](3105_strict_branch_line_realization.md): in the strict $\rho<1$ branch, the $C_2$ circle intersects the non-axis frontier exactly once on $\Gamma_A^{\mathrm{lin}}$, and the $C_5$ circle intersects it exactly once on $\Gamma_B^{\mathrm{lin}}$.
+The strict branch realization for the selected two fixed points is now recorded in [`3115_strict_branch_line_realization.md`](3115_strict_branch_line_realization.md): in the strict $\rho<1$ branch, the $C_2$ circle intersects the non-axis frontier exactly once on $\Gamma_A^{\mathrm{lin}}$, and the $C_5$ circle intersects it exactly once on $\Gamma_B^{\mathrm{lin}}$.
 
 The limiting boundary $\rho=1$ is not covered by that proof because the nondegenerate strict curve formula degenerates there.
 
@@ -52,7 +52,7 @@ $$
 a_0+b_0=1,\qquad a_1+b_1=1.
 $$
 
-The two-variable reduction is recorded in [`3106_algorithm2_two_variable_transition.md`](3106_algorithm2_two_variable_transition.md). Under the equality assumptions, all three diagonal choices use the same local pair
+The two-variable reduction is recorded in [`3116_algorithm2_two_variable_transition.md`](3116_algorithm2_two_variable_transition.md). Under the equality assumptions, all three diagonal choices use the same local pair
 
 $$
 (1-b_4,1-a_4).

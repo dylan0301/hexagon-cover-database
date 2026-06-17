@@ -1,0 +1,9 @@
+i want to organize 310X proof structure.
+make a proof tree like 0001 file of the 5 point conjecture.
+which reductions, which branch splits, and which case splits, etc.
+don't reference the md files, only numbers.
+ask me questions
+
+make it a proof tree.
+I want it to be able to read as a math paper.
+lemmas and statements and conjectures and computations 
