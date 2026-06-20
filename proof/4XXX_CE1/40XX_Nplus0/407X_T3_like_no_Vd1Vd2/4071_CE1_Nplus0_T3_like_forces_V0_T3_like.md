@@ -60,7 +60,7 @@ c=\sup\{x\in[0,1]: [V_0,(1-x)V_0]\subset T\}
 $$
 
 be the own-radial exit coordinate on $r_0=[V_0,O]$, measured from $V_0$ toward
-$O$. Finally, let $\ell$ be the first parameter on $r_1=[V_1,O]$, measured from
+$O$. Finally, let $\ell$ be the first parameter on $r_1=[V_1,O]`, measured from
 $V_1$ toward $O$, at which $T$ enters $r_1$. Thus $T\cap r_1$ contains
 $M_1$ and begins at parameter $\ell\le 1/2$.
 
@@ -199,7 +199,7 @@ $$
 =h\left(-{1\over K}+{1\over\sin\theta}\right)>0.
 $$
 
-Using $\lambda\le1-\cos\theta$, we get
+Using $\lambda\le1-\cos\theta`, we get
 
 $$
 b+c
@@ -241,8 +241,8 @@ b+\ell-1
 ={ (K-h)(K-\sin\theta)\over K\sin\theta}.
 $$
 
-For $0<\theta<\pi/3$, both $K-h$ and $K-
-\sin\theta$ are strictly positive. Hence
+For $0<\theta<\pi/3$, both $K-h$ and $K-\sin\theta$ are strictly positive.
+Hence
 
 $$
 b+\ell>1.
@@ -333,7 +333,7 @@ $$
 a_{i+1}>b_i.
 $$
 
-Using $c_{i+1}\ge\ell_i$ and $b_i+\ell_i>1$, we get
+Using $c_{i+1}\ge\ell_i$ and $b_i+\ell_i>1`, we get
 
 $$
 b_i+c_{i+1}>1.
@@ -382,18 +382,26 @@ and a T3-like role covers exactly one adjacent midpoint in that inventory. Hence
 $M_j$ must be covered by one of the T3-like roles adjacent to it. Since $I$ is a
 maximal consecutive T3-like block, the covering role also has index in $I$.
 
-Thus the midpoints indexed by $I$ are matched to the T3-like triangles indexed
-by $I$, with edges only between adjacent indices. The left endpoint $m$ of $I$
-cannot be matched to $T_{m-1}$, since $T_{m-1}$ is not T3-like or does not
-exist inside $\{1,\dots,5\}$. Hence
+The number of T3-like triangles in $I$ is the same as the number of midpoint
+requirements indexed by $I$, and each T3-like triangle in $I$ covers exactly one
+adjacent midpoint. Therefore these incidences form a bijective matching between
+the midpoint labels in $I$ and the T3-like triangle labels in $I$, with edges
+only between adjacent indices.
+
+Let $m$ be the left endpoint of $I$. If $m=5$, then $M_5$ has no adjacent
+T3-like source, because $T_4$ is outside $I$ and $T_0$ is not T3-like. This is
+impossible. Hence $m<5$.
+
+The midpoint $M_m$ cannot be matched to $T_{m-1}$, since $T_{m-1}$ is not
+T3-like or does not exist inside $\{1,\dots,5\}$. Hence
 
 $$
 M_m\in T_{m+1}.
 $$
 
-Because $T_{m+1}$ covers exactly one adjacent midpoint, the triangle $T_m$ must
-cover $M_{m+1}$ in order for the triangle $T_m$ to be used in the matching.
-Therefore the first two indices of the block form a crossed adjacent pair:
+By bijectivity of the matching, the triangle $T_m$ must then be matched to its
+only possible remaining adjacent midpoint, namely $M_{m+1}$. Thus the first two
+indices of the block form a crossed adjacent pair:
 
 $$
 M_{m+1}\in T_m,\qquad M_m\in T_{m+1}.
