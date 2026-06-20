@@ -78,7 +78,8 @@ Vd1/Vd2, and T3-like vertex-role patterns.
     - at least one Vd1/Vd2
       - `404X`: boundary-length obstruction
     - at least one T3-like and no Vd1/Vd2
-      - TODO
+      - `407X`: $T_0$-must-be-T3-like reduction
+      - remaining post-reduction branch TODO
   - `41XX`: CE1, $N_+=1$
     - all Vd0
       - `410X`: TODO
