@@ -60,9 +60,9 @@ c=\sup\{x\in[0,1]: [V_0,(1-x)V_0]\subset T\}
 $$
 
 be the own-radial exit coordinate on $r_0=[V_0,O]$, measured from $V_0$ toward
-$O$. Finally, let $\ell$ be the first parameter on $r_1=[V_1,O]`, measured from
-$V_1$ toward $O$, at which $T$ enters $r_1$. Thus $T\cap r_1$ contains
-$M_1$ and begins at parameter $\ell\le 1/2$.
+$O$. Let $\ell$ be the first parameter on $r_1=[V_1,O]$, measured from $V_1$
+toward $O$, at which $T$ enters $r_1$. Thus $T\cap r_1$ contains $M_1$ and
+begins at parameter $\ell\le 1/2$.
 
 Then
 
@@ -125,27 +125,18 @@ $$
 K=\cos\left(\theta-{\pi\over6}\right).
 $$
 
-A direct solution of the two-by-two linear system for the three relevant lines
-$e_{0,1}$, $r_0$, and $r_1$ gives
+Solving the two-by-two linear systems for $e_{0,1}$, $r_0$, and $r_1$ gives
 
 $$
-b={h(1-\lambda)\over K},
-$$
-
-$$
-c={h\lambda\over\sin\theta},
-$$
-
-and
-
-$$
+b={h(1-\lambda)\over K},\qquad
+c={h\lambda\over\sin\theta},\qquad
 \ell={K-h(1-\lambda)\over\sin\theta}.
 $$
 
-Here the formula for $b$ comes from the side $x+y=1-\lambda$ on the boundary
-edge $e_{0,1}$; the formula for $c$ comes from the side $x=-\lambda$ on the
-own ray $r_0$; and the formula for $\ell$ comes from the side $x+y=1-\lambda$
-on the adjacent ray $r_1$.
+The formula for $b$ comes from the side $x+y=1-\lambda$ on the boundary edge
+$e_{0,1}$; the formula for $c$ comes from the side $x=-\lambda$ on the own ray
+$r_0$; and the formula for $\ell$ comes from the side $x+y=1-\lambda$ on the
+adjacent ray $r_1$.
 
 The condition $M_1\in T$ gives two active inequalities. First, the entry point
 on $r_1$ lies no farther than $M_1$, so
@@ -199,7 +190,7 @@ $$
 =h\left(-{1\over K}+{1\over\sin\theta}\right)>0.
 $$
 
-Using $\lambda\le1-\cos\theta`, we get
+Using $\lambda\le1-\cos\theta$, we get
 
 $$
 b+c
@@ -333,7 +324,7 @@ $$
 a_{i+1}>b_i.
 $$
 
-Using $c_{i+1}\ge\ell_i$ and $b_i+\ell_i>1`, we get
+Using $c_{i+1}\ge\ell_i$ and $b_i+\ell_i>1$, we get
 
 $$
 b_i+c_{i+1}>1.
