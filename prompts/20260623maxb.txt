@@ -1,0 +1,22 @@
+read the github commit history
+there was a document about b(c,a) function.
+write that in 20XX folder make new file.
+ask me questions
+i want B_c(a) to be written as explicit piecewise function
+
+if we have condition on The boundary $s=1$ gives
+somethinig like this, then we don't know the function b(c,a) in terms of c and a
+I want the condition as only in terms of c and a
+also, write a summary of the actual piecewise form using begin cases latex
+
+compute a function B_c(0) constrained on the supercritical.
+i don't know what to name the function.
+it is max B_c(a) function with a = 0 and constrained on the triangle is supercritical
+i suppose the triangle that realizes this value is one vertex of trianlge on hexagon edge, and exactly going through the c point, '
+and one vertex of hexagon on one edge of triangle.
+think about it and tell me
+
+what i mean by a=0 is that a is not equal to 0, there is no condition on the triangle has to contain the a point
+
+it should be a function of c.
+make a new file under 20XX containing this function
