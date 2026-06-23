@@ -1,14 +1,14 @@
-# CE1, $N_+=0$, T3-Like/No Vd1-Vd2: $T_0$ Forcing
+# CE1/CE2, $N_+=0$, T3-Like/No Vd1-Vd2: $T_0$ Forcing
 
 Status: Proven
 
 This file proves only the following reduction. It does not close the whole
-CE1, $N_+=0$, T3-like/no-Vd1-Vd2 branch.
+CE1/CE2, $N_+=0$, T3-like/no-Vd1-Vd2 branch.
 
 ## 1. Statement
 
-Work in the CE1 branch. Normalize by the CE1/CE2 exactly-one-midpoint lemma and
-by dihedral symmetry so that
+Work in the CE1/CE2 branch. Normalize by the CE1/CE2 exactly-one-midpoint lemma
+and by dihedral symmetry so that
 
 $$
 T_C\cap\{M_0,\dots,M_5\}=\{M_0\}.

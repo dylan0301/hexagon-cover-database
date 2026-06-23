@@ -2,7 +2,7 @@
 
 Status: Experiment
 
-This folder contains scripts supporting `proof/4XXX_CE1/40XX_Nplus0/401X_all_Vd0_boundary_loss/`.
+This folder contains scripts supporting `proof/4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss/`.
 
 ## Files
 
@@ -18,9 +18,9 @@ The scripts use Python and `mpmath.iv`.  They are research helpers, not a polish
 Run from the repository root:
 
 ```bash
-python proof/4XXX_CE1/40XX_Nplus0/401X_all_Vd0_boundary_loss/403X_boundary_loss_experiments/4034_verify_full_L_interval.py
-python proof/4XXX_CE1/40XX_Nplus0/401X_all_Vd0_boundary_loss/403X_boundary_loss_experiments/4031_attempt_interval_L_Tplus_loss_exact_corrected.py
-python proof/4XXX_CE1/40XX_Nplus0/401X_all_Vd0_boundary_loss/403X_boundary_loss_experiments/4033_refined_branch_sampler.py
+python proof/4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss/403X_boundary_loss_experiments/4034_verify_full_L_interval.py
+python proof/4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss/403X_boundary_loss_experiments/4031_attempt_interval_L_Tplus_loss_exact_corrected.py
+python proof/4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss/403X_boundary_loss_experiments/4033_refined_branch_sampler.py
 ```
 
 The sampler is empirical.  The interval scripts are certificate-style checks; repository-grade certification would require freezing the interval backend and, if desired, storing a full terminal-box certificate.

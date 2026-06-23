@@ -30,7 +30,8 @@ $$
 T_C,T_0,\dots,T_5.
 $$
 
-The intended proof first classifies $T_C$ as CE0, CE1, or CE2. Inside each CE
+The intended proof first classifies $T_C$ as CE0, CE1, or CE2. The CE1 and CE2
+cases are recorded together in the combined 4XXX branch. Inside each active
 branch it defines the vertex perimeter rows $(a_i,b_i)$ and splits by
 
 $$
@@ -40,8 +41,7 @@ $$
 The branch folders are:
 
 - [`../3XXX_CE0/3000_CE0_index.md`](../3XXX_CE0/3000_CE0_index.md): CE0.
-- [`../4XXX_CE1/4000_CE1_index.md`](../4XXX_CE1/4000_CE1_index.md): CE1.
-- [`../5XXX_CE2/5000_CE2_index.md`](../5XXX_CE2/5000_CE2_index.md): CE2.
+- [`../4XXX_CE1CE2/4000_CE1CE2_index.md`](../4XXX_CE1CE2/4000_CE1CE2_index.md): CE1/CE2.
 
 Local definitions and support targets are collected in:
 

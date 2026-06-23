@@ -36,15 +36,14 @@ Recommended reading order for mathematical orientation:
 4. [`proof/1XXX_foundations/11XX_C_triangle/1101_CE_classification.md`](proof/1XXX_foundations/11XX_C_triangle/1101_CE_classification.md)
 5. [`proof/1XXX_foundations/12XX_V_triangle/1212_vertex_rows_and_Nplus.md`](proof/1XXX_foundations/12XX_V_triangle/1212_vertex_rows_and_Nplus.md)
 6. [`proof/3XXX_CE0/3000_CE0_index.md`](proof/3XXX_CE0/3000_CE0_index.md)
-7. [`proof/4XXX_CE1/4000_CE1_index.md`](proof/4XXX_CE1/4000_CE1_index.md)
-8. [`proof/5XXX_CE2/5000_CE2_index.md`](proof/5XXX_CE2/5000_CE2_index.md)
-9. [`proof/0XXX_main/0002_status_and_dependencies.md`](proof/0XXX_main/0002_status_and_dependencies.md)
+7. [`proof/4XXX_CE1CE2/4000_CE1CE2_index.md`](proof/4XXX_CE1CE2/4000_CE1CE2_index.md)
+8. [`proof/0XXX_main/0002_status_and_dependencies.md`](proof/0XXX_main/0002_status_and_dependencies.md)
 
 The corpus uses four-character folder range labels with literal `X` digits.
 Definitions live in
 `proof/1XXX_foundations/`, reusable geometric lemmas in
-`proof/2XXX_geometric_lemmas/`, and the proof tree splits first into CE0,
-CE1, and CE2 branches.
+`proof/2XXX_geometric_lemmas/`, and the proof tree splits first into the CE0
+branch and the combined CE1/CE2 branch.
 
 ## Proof Corpus Map
 
@@ -53,8 +52,7 @@ CE1, and CE2 branches.
 - [`proof/1XXX_foundations/`](proof/1XXX_foundations): definitions and conventions.
 - [`proof/2XXX_geometric_lemmas/`](proof/2XXX_geometric_lemmas): reusable geometric lemmas and targets.
 - [`proof/3XXX_CE0/`](proof/3XXX_CE0): CE0 proof-tree branch.
-- [`proof/4XXX_CE1/`](proof/4XXX_CE1): CE1 proof-tree branch.
-- [`proof/5XXX_CE2/`](proof/5XXX_CE2): CE2 proof-tree branch.
+- [`proof/4XXX_CE1CE2/`](proof/4XXX_CE1CE2): combined CE1/CE2 proof-tree branch.
 - [`proof/9XXX_failed_ideas/`](proof/9XXX_failed_ideas): failed routes, empirical warnings, and counterexamples.
 
 The complete proof file list is in [`proof/MANIFEST.txt`](proof/MANIFEST.txt).

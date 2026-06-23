@@ -1,0 +1,8 @@
+The current subcases of CE2 all simply reference the CE1 cases except for 
+511X and 512X.
+So I want to just merge CE1 and CE2 into 4XXX
+suggest how we will deal with 511X and 512X
+also sugggest the changed structure
+
+look at 407X in the proof tree Index
+I thought this reduction can be done both for CE1 and CE2.

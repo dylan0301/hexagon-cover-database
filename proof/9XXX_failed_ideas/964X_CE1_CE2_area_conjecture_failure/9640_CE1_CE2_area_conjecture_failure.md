@@ -37,8 +37,7 @@ and does not extend to the CE1/reduced-CE2 seven-point model.
 
 For CE1/CE2 with $N_+\ge2$, use the skeleton-length route:
 
-- [`../../4XXX_CE1/42XX_Nplus_ge2/4200_CE1_CE2_skeleton_length_route.md`](../../4XXX_CE1/42XX_Nplus_ge2/4200_CE1_CE2_skeleton_length_route.md)
-- [`../../5XXX_CE2/52XX_Nplus_ge2/5200_CE2_Nplus_ge2_shared_route.md`](../../5XXX_CE2/52XX_Nplus_ge2/5200_CE2_Nplus_ge2_shared_route.md)
+- [`../../4XXX_CE1CE2/42XX_Nplus_ge2/4200_CE1_CE2_skeleton_length_route.md`](../../4XXX_CE1CE2/42XX_Nplus_ge2/4200_CE1_CE2_skeleton_length_route.md)
 
 ## Non-claims
 

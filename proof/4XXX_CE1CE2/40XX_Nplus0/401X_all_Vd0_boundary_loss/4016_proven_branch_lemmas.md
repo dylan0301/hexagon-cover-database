@@ -282,7 +282,7 @@ $$
 H=u-\delta_R-{R(1-u)\over1-R}+\ell{2R-1\over1-R}, \qquad \delta_R={R\over\sqrt{1-R+R^2}+1}.
 $$
 
-The interval verifier in `proof/4XXX_CE1/40XX_Nplus0/401X_all_Vd0_boundary_loss/403X_boundary_loss_experiments/4034_verify_full_L_interval.py` checks that every box satisfies either $\inf\Delta>0$ or $\sup H<0$.  The recorded run has $2307$ certified boxes and no unresolved boxes.
+The interval verifier in `proof/4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss/403X_boundary_loss_experiments/4034_verify_full_L_interval.py` checks that every box satisfies either $\inf\Delta>0$ or $\sup H<0$.  The recorded run has $2307$ certified boxes and no unresolved boxes.
 
 ## 4. The branch $(\mathrm{Full},T_-)$
 
@@ -382,7 +382,7 @@ $$
 F=\ell(\gamma_5)+1-u-d<1.
 $$
 
-For $1<r<10$, the corrected interval verifier `proof/4XXX_CE1/40XX_Nplus0/401X_all_Vd0_boundary_loss/403X_boundary_loss_experiments/4031_attempt_interval_L_Tplus_loss_exact_corrected.py` uses the exact loss equation
+For $1<r<10$, the corrected interval verifier `proof/4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss/403X_boundary_loss_experiments/4031_attempt_interval_L_Tplus_loss_exact_corrected.py` uses the exact loss equation
 
 $$
 E(d)=y\tau-Ad-(1-c^2)d^2

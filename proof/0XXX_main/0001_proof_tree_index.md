@@ -14,16 +14,17 @@ $$
 T_C,T_0,\dots,T_5.
 $$
 
-Classify $T_C$ as CE0, CE1, or CE2. Inside each CE branch, define perimeter
-rows $(a_i,b_i)$ and compute
+Classify $T_C$ as CE0, CE1, or CE2. The CE1 and CE2 cases are recorded
+together in the combined 4XXX branch. Inside each active branch, define
+perimeter rows $(a_i,b_i)$ and compute
 
 $$
 N_+=\left\lvert \left\lbrace\, i : a_i+b_i>1 \,\right\rbrace \right\rvert.
 $$
 
-Then split first by CE0, CE1, or CE2; inside each CE branch split by
-$N_+=0$, $N_+=1$, or $N_+\ge2$; inside each $N_+$ branch split by Vd0,
-Vd1/Vd2, and T3-like vertex-role patterns.
+Then split first by CE0 or by the combined CE1/CE2 branch; inside each branch
+split by $N_+=0$, $N_+=1$, or $N_+\ge2$; inside each $N_+$ branch split by
+Vd0, Vd1/Vd2, and T3-like vertex-role patterns.
 
 ## Setup
 
@@ -69,54 +70,30 @@ Vd1/Vd2, and T3-like vertex-role patterns.
       - `3204`: supercritical vertex-loss lemma
   - `33XX`: old CE0 Vd1/Vd2 chain proof
 
-## CE1 Branch
+## CE1/CE2 Branch
 
-- `4XXX`: CE1
-  - `40XX`: CE1, $N_+=0$
+- `4XXX`: CE1/CE2
+  - `40XX`: CE1/CE2, $N_+=0$
     - all Vd0
-      - `401X`: boundary-loss package
+      - `401X`: shared boundary-loss package
     - at least one Vd1/Vd2
-      - `404X`: boundary-length obstruction
+      - `404X`: CE1 and CE2 boundary-length obstructions
     - at least one T3-like and no Vd1/Vd2
-      - `407X`: $T_0$-must-be-T3-like reduction
-      - remaining post-reduction branch TODO
-  - `41XX`: CE1, $N_+=1$
+      - `407X`: shared CE1/CE2 $T_0$-must-be-T3-like reduction
+      - shared remaining post-reduction branch TODO
+  - `41XX`: CE1/CE2, $N_+=1$
     - all Vd0
-      - `410X`: TODO
+      - `410X`: shared TODO
       - `9630`: 5 point conjecture counterexample
-    - at least one Vd1/Vd2
-      - `411X`: boundary-length obstruction
+    - Vd1/Vd2 branches
+      - `411X`: CE1 at-least-one and CE2 at-least-two boundary-length obstructions
+      - `414X`: CE2 exactly-one Vd1/Vd2 TODO
     - at least two T3-like and no Vd1/Vd2
       - `412X`: shared CE1/CE2 diagonal obstruction
     - exactly one T3-like and no Vd1/Vd2
-      - `413X`: proven by shared CE1/CE2 boundary obstruction (`4131`, `4132`)
-  - `42XX`: CE1, $N_+\ge2$
+      - `413X`: shared CE1/CE2 boundary obstruction (`4131`, `4132`)
+  - `42XX`: CE1/CE2, $N_+\ge2$
     - `4200`: shared CE1/CE2 skeleton-length route
-
-## CE2 Branch
-
-- `5XXX`: CE2
-  - `50XX`: CE2, $N_+=0$
-    - all Vd0
-      - `500X`: boundary-loss reference
-    - at least one Vd1/Vd2
-      - `501X`: boundary-length obstruction
-    - at least one T3-like and no Vd1/Vd2
-      - `502X`: TODO
-  - `51XX`: CE2, $N_+=1$
-    - all Vd0
-      - `510X`: TODO
-      - `9630`: 5 point conjecture counterexample
-    - at least two Vd1/Vd2
-      - `511X`: boundary-length obstruction
-    - exactly one Vd1/Vd2
-      - `512X`: TODO
-    - at least two T3-like and no Vd1/Vd2
-      - `513X`: shared CE1/CE2 diagonal route
-    - exactly one T3-like and no Vd1/Vd2
-      - `514X`: proven by shared `413X` boundary obstruction
-  - `52XX`: CE2, $N_+\ge2$
-    - `5200`: shared CE1/CE2 skeleton-length route
 
 ## Failed-Idea Warnings
 

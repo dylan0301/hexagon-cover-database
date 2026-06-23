@@ -1,8 +1,8 @@
-# CE2, $N_+=1$, All Vd0
+# CE1/CE2, $N_+=1$, All Vd0
 
 Status: Strategy
 
-This branch is open in the current corpus.
+This CE1/CE2 branch is open in the current corpus.
 
 The May 25 five-point route is not used here. It has a counterexample for the
 CE1/CE2, $N_+=1$, all-Vd0 setting; see

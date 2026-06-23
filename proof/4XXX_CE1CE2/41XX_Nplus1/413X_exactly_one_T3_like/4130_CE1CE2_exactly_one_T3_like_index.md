@@ -1,4 +1,4 @@
-# CE1, $N_+=1$, Exactly One T3-Like Row
+# CE1/CE2, $N_+=1$, Exactly One T3-Like Row
 
 Status: Proven
 
@@ -23,5 +23,5 @@ this folder.
 ## Result
 
 Under the standing reductions excluding the Vd1/Vd2 branches and the
-at-least-two-T3-like branch, the CE1, $N_+=1$, exactly-one-T3-like branch
+at-least-two-T3-like branch, the CE1/CE2, $N_+=1$, exactly-one-T3-like branch
 cannot cover the hexagon perimeter.
