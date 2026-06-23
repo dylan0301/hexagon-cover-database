@@ -1,0 +1,56 @@
+read https://github.com/dylan0301/hexagon-cover-database the main branch again and understand the repository.
+this contains current progress on the hexagon covering problem.
+I am trying to prove 413X and 514X at once.
+
+These are already proved facts. We will use the fact that the 6 midpoints have to be covered. 
+- because of 2100 file, we may assume the CE1 or CE2 triangle only contains M0 among the midpoints.
+- If we look at the V triangles, there is one supercritical triangle, one T3 like triangle, and 4 a+b<=1 triangles.
+- the a+b <=1 V_i triangle contains the midpoint M_i. this is a fact. you may refer to 2005 file.
+- the supercritical triangle doesn't contain any midpoint because of 2005 file.
+- Since there are 6 midpoints in total, the T3 like triangle has to contain a neighbor's midpoint. refer to 2006 file.
+- Combinatorally considering the cases of midpoints, we conclude that the V0 triangle is T3 like triangle. WLOG assume it contains M1.
+- Then V1 triangle is the supercritical triangle.
+
+Now these are my new proof sketch using the facts above. We will use the fact that the skeleton has to be covered.
+Especially, let me prove that the length of hexagon perimeter that union of C, T0, T1 cover is at most 2. Actually some more relaxed than this statement.
+
+- We measure how much on r0 and r1 the C triangle covers. we can parameterize the C triangle geometry by the center coordinates and orientation.
+- Then the V0 triangle has to cover the remaining interval in r0, and the remaining interval on r1 until M1, since V1 triangle cannot reach M1.
+- This fact restricts the possible geometric combinations of the C triangle and V0 triangle. They will be very extreme cases.
+Now we have two new files in the github repository: 2007 and 2010. This will be needed for the V1 supercritical triangle
+
+Now we have 2 strategies. 
+using 2010: we only consider the uncovered portion on r1 and constraint that T1 has to cover that, and we calculate the maximum amout of length T1 can cover on the line segment V1V2. We don’t consider the uncovered portion on the line segment V0V1.
+
+Then
+Let [s,t] be the interval that C triangle intersect with V5V0 edge. it may be empty since C triangle may be CE1 and only intersect with V0V1.
+s,t are the length from V0 for the interval endpoints with s<t, which means s point is closer to V0 than t point.
+There will be 3 cases.
+1. T0 covers both s and t points.
+2. T0 covers only s point and does not cover t point.
+3. T0 doesn’t cover both s and t points.
+note that if T0 exactly pierces through the s or t point, then we think as containing (we work with closed triangles here)
+
+in case 1 and 3, the V5 triangle has to cover the endpoint on V5V0 the V0 triangle covered remaining.
+in case 2, the V5 triangle has to cover the t point.
+
+Then we compute the remaining hexagon periemeter length to be covered, and i suppose it is >=4.
+
+we have another strategy using 2007 file:
+The only thing change is that we get tighter condition for T1. 
+Similar to what we analyzed and case splitted the [s,t], consider the case split on the line segment V0V1,
+and use 2007 file to figure out how much T1 can cover on V1V2.
+Then compute the remaining hexagon perimeter.
+
+the second strategy is strictly more good than first, but the computations may get harder.
+
+your tasks are
+- do numerical experiments to emperically verify my strategies.
+- focus on proving with first strategy first.
+- if it fails, try with second strategy.
+- try solving more precisely using calculus and algebraic methods.
+- you may have to split some cases.
+- if it doesn’t work, you may use some interval arithemtic.
+- try using simple approximations in non tight regions.
+
+you must report your entire work with full detail with mathematical rigor, including failure where and why

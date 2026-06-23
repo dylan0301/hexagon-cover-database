@@ -89,7 +89,7 @@ Vd1/Vd2, and T3-like vertex-role patterns.
     - at least two T3-like and no Vd1/Vd2
       - `412X`: shared CE1/CE2 diagonal obstruction
     - exactly one T3-like and no Vd1/Vd2
-      - `413X`: TODO
+      - `413X`: proven by shared CE1/CE2 boundary obstruction (`4131`, `4132`)
   - `42XX`: CE1, $N_+\ge2$
     - `4200`: shared CE1/CE2 skeleton-length route
 
@@ -114,7 +114,7 @@ Vd1/Vd2, and T3-like vertex-role patterns.
     - at least two T3-like and no Vd1/Vd2
       - `513X`: shared CE1/CE2 diagonal route
     - exactly one T3-like and no Vd1/Vd2
-      - `514X`: TODO
+      - `514X`: proven by shared `413X` boundary obstruction
   - `52XX`: CE2, $N_+\ge2$
     - `5200`: shared CE1/CE2 skeleton-length route
 
