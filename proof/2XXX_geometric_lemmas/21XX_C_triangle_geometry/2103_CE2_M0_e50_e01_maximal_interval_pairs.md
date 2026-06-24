@@ -145,7 +145,7 @@ Among three outward normals separated by $120^\circ$, at most one lies in this o
 The side through $e_{5,0}(x)$ and $e_{0,1}(y)$ has outward unit normal
 
 $$
-n_2=\frac1{2D}\left(\sqrt3(x+y),\,y-x\right).
+n_2=\frac1{2D}\left(\sqrt3(x+y), y-x\right).
 $$
 
 Set

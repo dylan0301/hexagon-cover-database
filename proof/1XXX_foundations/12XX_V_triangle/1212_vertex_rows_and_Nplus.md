@@ -20,7 +20,7 @@ $$
 The proof-tree split uses
 
 $$
-N_+=\left\lvert \left\lbrace\, i : a_i+b_i>1 \,\right\rbrace \right\rvert.
+N_+=\left\lvert \left\lbrace i : a_i+b_i>1 \right\rbrace \right\rvert.
 $$
 
 The main branch folders are:

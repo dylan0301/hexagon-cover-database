@@ -5,7 +5,7 @@ Status: Practically proven
 Statement:
 
 $$
-T_C\text{ is CE1 or CE2}\implies \left\lvert \left\lbrace\, i : M_i\in T_C \,\right\rbrace \right\rvert=1.
+T_C\text{ is CE1 or CE2}\implies \left\lvert \left\lbrace i : M_i\in T_C \right\rbrace \right\rvert=1.
 $$
 
 Proof status note:

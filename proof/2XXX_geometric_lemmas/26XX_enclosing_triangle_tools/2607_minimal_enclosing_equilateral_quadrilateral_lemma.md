@@ -75,13 +75,13 @@ and this strict inequality persists under sufficiently small rotation.
 For $|\theta|<\varepsilon$, write $J$ for rotation by $90^\circ$. Then
 
 $$
-R_\theta n_i=\cos\theta\,n_i+\sin\theta\,J n_i,
+R_\theta n_i=\cos\theta n_i+\sin\theta J n_i,
 $$
 
 so
 
 $$
-g(\theta)=\sum_{i=0}^2 q_i\cdot R_\theta n_i =\cos\theta\,g(0)+\sin\theta\,g_\perp,
+g(\theta)=\sum_{i=0}^2 q_i\cdot R_\theta n_i =\cos\theta g(0)+\sin\theta g_\perp,
 $$
 
 where
@@ -105,7 +105,7 @@ $$
 If $g_\perp=0$, then for any sufficiently small nonzero $\theta$,
 
 $$
-g(\theta)=\cos\theta\,g(0)<g(0).
+g(\theta)=\cos\theta g(0)<g(0).
 $$
 
 In all cases a sufficiently small rotation of the normals gives a smaller enclosing equilateral triangle, contradicting minimality.

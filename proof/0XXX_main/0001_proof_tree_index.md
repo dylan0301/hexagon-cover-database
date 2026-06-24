@@ -19,7 +19,7 @@ together in the combined 4XXX branch. Inside each active branch, define
 perimeter rows $(a_i,b_i)$ and compute
 
 $$
-N_+=\left\lvert \left\lbrace\, i : a_i+b_i>1 \,\right\rbrace \right\rvert.
+N_+=\left\lvert \left\lbrace i : a_i+b_i>1 \right\rbrace \right\rvert.
 $$
 
 Then split first by CE0 or by the combined CE1/CE2 branch; inside each branch

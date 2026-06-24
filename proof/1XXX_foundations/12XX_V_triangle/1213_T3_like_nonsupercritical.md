@@ -17,7 +17,7 @@ $$
 Equivalently, a T3-like row is never counted by
 
 $$
-N_+=\left\lvert \left\lbrace\, i : a_i+b_i>1 \,\right\rbrace \right\rvert.
+N_+=\left\lvert \left\lbrace i : a_i+b_i>1 \right\rbrace \right\rvert.
 $$
 
 This fact may be used as a working dependency in the proof tree. The complete

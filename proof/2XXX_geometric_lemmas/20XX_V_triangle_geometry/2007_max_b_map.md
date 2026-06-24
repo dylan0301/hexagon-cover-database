@@ -120,7 +120,7 @@ The low candidate is valid on
 $$
 \begin{aligned}
 D_L=\{(a,c):\;&4c^2-3\ge0,\ 0\le b_L(c)\le a,\ a+b_L(c)\le1,\\
-&(a+b_L(c))^4-(a+b_L(c))^2+a\,b_L(c)\le0\}.
+&(a+b_L(c))^4-(a+b_L(c))^2+a b_L(c)\le0\}.
 \end{aligned}
 $$
 
@@ -129,7 +129,7 @@ The $T_-$ candidate is valid on
 $$
 \begin{aligned}
 D_-=\{(a,c):\;&c>0,\ 0\le b_-(a,c)\le a,\ a+b_-(a,c)\le1,\\
-&(a+b_-(a,c))^4-(a+b_-(a,c))^2+a\,b_-(a,c)\ge0\}.
+&(a+b_-(a,c))^4-(a+b_-(a,c))^2+a b_-(a,c)\ge0\}.
 \end{aligned}
 $$
 
@@ -140,7 +140,7 @@ $$
 D_+^\pm=\{(a,c):\;&0\le c<1,\ \Delta_+(a,c)\ge0,\
 b_+^\pm(a,c)\ge a,\ a+b_+^\pm(a,c)\le1,\\
 &(a+b_+^\pm(a,c))^4-(a+b_+^\pm(a,c))^2
-+a\,b_+^\pm(a,c)\ge0\}.
++a b_+^\pm(a,c)\ge0\}.
 \end{aligned}
 $$
 
@@ -150,7 +150,7 @@ $$
 \begin{aligned}
 D_S^-=\{(a,c):\;&c>0,\ c\le\frac12,\
 0\le b_S^-(a,c)\le a,\ a+b_S^-(a,c)\ge1,\\
-&a^2+a\,b_S^-(a,c)+(b_S^-(a,c))^2\le1\}.
+&a^2+a b_S^-(a,c)+(b_S^-(a,c))^2\le1\}.
 \end{aligned}
 $$
 

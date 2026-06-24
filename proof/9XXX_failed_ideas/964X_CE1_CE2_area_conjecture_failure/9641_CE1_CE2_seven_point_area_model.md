@@ -79,7 +79,7 @@ For a fixed seven-point configuration, the failed route tried to use the same
 vertex-area target as the CE0 case:
 
 $$
-\left\lvert \left\lbrace\, i : a_i+b_i>1 \,\right\rbrace \right\rvert\ge2 \quad\Longrightarrow\quad \sum_{i=0}^5 f(a_i,b_i)<5.
+\left\lvert \left\lbrace i : a_i+b_i>1 \right\rbrace \right\rvert\ge2 \quad\Longrightarrow\quad \sum_{i=0}^5 f(a_i,b_i)<5.
 $$
 
 Only the formulas for the rows $(a_i,b_i)$ differ from CE0.  The displayed

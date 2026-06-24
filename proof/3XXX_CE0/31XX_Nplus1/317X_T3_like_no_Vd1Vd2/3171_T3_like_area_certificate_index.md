@@ -106,7 +106,7 @@ $$
 \boxed{
 \begin{gathered}
 T_C\text{ is CE0},\\
-\left\lvert \left\lbrace\, i : a_i+b_i>1 \,\right\rbrace \right\rvert=1,\\
+\left\lvert \left\lbrace i : a_i+b_i>1 \right\rbrace \right\rvert=1,\\
 \text{at least one row is T3-like and every non-T3-like row is Vd0}
 \end{gathered}
 \quad\Longrightarrow\quad

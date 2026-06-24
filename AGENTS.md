@@ -79,8 +79,11 @@ Use LaTeX consistently:
 - inline math: `$...$`; display math: `$$...$$`; do not use `\(...\)` or
   `\[...\]`.
 - cardinalities:
-  `\left\lvert \left\lbrace\, ... \,\right\rbrace \right\rvert`; do not use
+  `\left\lvert \left\lbrace ... \right\rbrace \right\rvert`; do not use
   hash-based notation.
+- thin spacing: do not use the LaTeX thin-space command, written as a
+  backslash followed by a comma; use ordinary source spaces where token
+  separation is needed.
 - named operators: `\mathrm{...}`; do not use the operatorname macro.
 - operator conditions for `\sup`, `\inf`, `\min`, and `\max`: put conditions
   in subscripts, using `\substack{...}` when needed. Do not put alignment

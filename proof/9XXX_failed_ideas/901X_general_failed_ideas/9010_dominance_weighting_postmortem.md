@@ -13,7 +13,7 @@ $$
 Cumulative functions:
 
 $$
-E(t)=\int_0^t e(s)\,ds, \quad C(t)=\int_0^t c(s)\,ds, \quad V(t)=\int_0^t v(s)\,ds.
+E(t)=\int_0^t e(s) ds, \quad C(t)=\int_0^t c(s) ds, \quad V(t)=\int_0^t v(s) ds.
 $$
 
 A hyperparameter $\lambda$ was intended to make one side dominate another, e.g. $E_\lambda(a)\gg E_\lambda(b)$ for $a>b$.

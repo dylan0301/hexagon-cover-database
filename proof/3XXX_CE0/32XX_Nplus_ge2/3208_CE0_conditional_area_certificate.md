@@ -116,7 +116,7 @@ $$
 If at least two rows are supercritical, i.e.
 
 $$
-\left\lvert \left\lbrace\, i : a_i+b_i>1 \,\right\rbrace \right\rvert\ge2,
+\left\lvert \left\lbrace i : a_i+b_i>1 \right\rbrace \right\rvert\ge2,
 $$
 
 then

@@ -22,7 +22,7 @@ Status: Reference
 - $(a_i,b_i)$: incoming and outgoing boundary row data for the vertex role $T_i$.
 - $c_i$: radial coordinate of $T_i$.
 - supercritical row: a row with $a_i+b_i>1$.
-- $N_+$: $\left\lvert \left\lbrace\, i : a_i+b_i>1 \,\right\rbrace \right\rvert$, the number of supercritical rows.
+- $N_+$: $\left\lvert \left\lbrace i : a_i+b_i>1 \right\rbrace \right\rvert$, the number of supercritical rows.
 - $K_5$: archived May 25 five-point obstruction set $\{P_3,P_5,D_0,D_1,D_2\}$.
 - $\Lambda(K)$: optimized side length of the smallest enclosing equilateral
   triangle for the finite set $K$.

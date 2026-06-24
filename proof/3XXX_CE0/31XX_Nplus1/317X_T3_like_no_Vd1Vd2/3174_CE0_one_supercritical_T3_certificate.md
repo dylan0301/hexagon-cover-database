@@ -89,7 +89,7 @@ Assume:
 2. exactly one row is supercritical:
 
    $$
-   \left\lvert \left\lbrace\, i : a_i+b_i>1 \,\right\rbrace \right\rvert=1;
+   \left\lvert \left\lbrace i : a_i+b_i>1 \right\rbrace \right\rvert=1;
    $$
 
 3. at least one row is T3-like;

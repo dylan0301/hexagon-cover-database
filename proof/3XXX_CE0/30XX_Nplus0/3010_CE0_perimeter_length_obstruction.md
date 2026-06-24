@@ -17,7 +17,7 @@ $$
 and
 
 $$
-N_+=\left\lvert \left\lbrace\, i : a_i+b_i>1 \,\right\rbrace \right\rvert=0.
+N_+=\left\lvert \left\lbrace i : a_i+b_i>1 \right\rbrace \right\rvert=0.
 $$
 
 Then the cover cannot exist.

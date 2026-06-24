@@ -500,7 +500,7 @@ $$
 So every feasible interval $[s,t]$ is contained in
 
 $$
-\left[ s,\, \sqrt{s^2-s+1}-(1-s)^2 \right].
+\left[ s, \sqrt{s^2-s+1}-(1-s)^2 \right].
 $$
 
 ## Feasibility of the frontier
@@ -566,7 +566,7 @@ $$
 Thus every interval
 
 $$
-\left[ s,\, \sqrt{s^2-s+1}-(1-s)^2 \right], \qquad 0<s<1,
+\left[ s, \sqrt{s^2-s+1}-(1-s)^2 \right], \qquad 0<s<1,
 $$
 
 is feasible.

@@ -35,7 +35,7 @@ cases are recorded together in the combined 4XXX branch. Inside each active
 branch it defines the vertex perimeter rows $(a_i,b_i)$ and splits by
 
 $$
-N_+=\left\lvert \left\lbrace\, i : a_i+b_i>1 \,\right\rbrace \right\rvert.
+N_+=\left\lvert \left\lbrace i : a_i+b_i>1 \right\rbrace \right\rvert.
 $$
 
 The branch folders are:

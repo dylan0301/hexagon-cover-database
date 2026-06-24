@@ -15,7 +15,7 @@ T_C\text{ is CE2},
 $$
 
 $$
-N_+=\left\lvert \left\lbrace\, i : a_i+b_i>1 \,\right\rbrace \right\rvert=1,
+N_+=\left\lvert \left\lbrace i : a_i+b_i>1 \right\rbrace \right\rvert=1,
 $$
 
 and at least two $V_i$-triangles are Vd1 or Vd2.

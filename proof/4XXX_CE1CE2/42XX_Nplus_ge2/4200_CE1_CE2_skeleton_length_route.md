@@ -9,7 +9,7 @@ This branch is closed by the skeleton-length obstruction recorded in
 The branch assumptions are
 
 $$
-T_C\text{ is CE1 or CE2},\qquad N_+=\left\lvert \left\lbrace\, i : a_i+b_i>1 \,\right\rbrace \right\rvert\ge2.
+T_C\text{ is CE1 or CE2},\qquad N_+=\left\lvert \left\lbrace i : a_i+b_i>1 \right\rbrace \right\rvert\ge2.
 $$
 
 Under the normalized CE1/CE2 midpoint condition and the exact-$M_0$ CE1/CE2

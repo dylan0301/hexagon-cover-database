@@ -5,7 +5,7 @@ Status: Reference
 This branch assumes the center role $T_C$ is CE0. It then splits by
 
 $$
-N_+=\left\lvert \left\lbrace\, i : a_i+b_i>1 \,\right\rbrace \right\rvert.
+N_+=\left\lvert \left\lbrace i : a_i+b_i>1 \right\rbrace \right\rvert.
 $$
 
 | File | Recorded status | Branch |

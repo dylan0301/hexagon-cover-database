@@ -168,13 +168,13 @@ Q=(b,0),
 $$
 
 $$
-R=\left(b-\frac1z,\,-\frac t z\right),
+R=\left(b-\frac1z, -\frac t z\right),
 $$
 
 and
 
 $$
-S=\left(b-\frac t z,\,\frac{1-t}{z}\right).
+S=\left(b-\frac t z, \frac{1-t}{z}\right).
 $$
 
 Since $T$ contains $V_0=(0,0)$, the line segment $T\cap\left\{y=0\right\}$

@@ -10,7 +10,7 @@ T_C\text{ is CE1 or CE2},
 $$
 
 $$
-N_+=\left\lvert \left\lbrace\, i : a_i+b_i>1 \,\right\rbrace \right\rvert=1,
+N_+=\left\lvert \left\lbrace i : a_i+b_i>1 \right\rbrace \right\rvert=1,
 $$
 
 no $V_i$-triangle is Vd1 or Vd2, and at least two $V_i$-triangles are T3-like.

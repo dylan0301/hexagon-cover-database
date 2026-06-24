@@ -10,7 +10,7 @@ The failed route tried to use the seven-point perimeter model archived in
 to prove, for CE1 or reduced CE2 configurations,
 
 $$
-\left\lvert \left\lbrace\, i : a_i+b_i>1 \,\right\rbrace \right\rvert\ge2 \quad\Longrightarrow\quad \sum_{i=0}^5 f(a_i,b_i)<5.
+\left\lvert \left\lbrace i : a_i+b_i>1 \right\rbrace \right\rvert\ge2 \quad\Longrightarrow\quad \sum_{i=0}^5 f(a_i,b_i)<5.
 $$
 
 That CE1/reduced-CE2 area inequality is not a recorded proof route.  The CE0
