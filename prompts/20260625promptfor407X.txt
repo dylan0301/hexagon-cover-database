@@ -1,0 +1,19 @@
+read https://github.com/dylan0301/hexagon-cover-database the main branch and understand the repository.
+this contains current progress on the hexagon covering problem.
+I am trying to prove 407X.
+
+Read the 4071 file for already proven fact and use it.
+My conjecture is that we can use similar methods that we used in 401X package.
+Using admissible sets for T5 and T1, and using the reamining perimeter bounds.
+You may make reasonable statments and use them for the proof, leaving the statements you made as conjectures.
+Try reducing the problem into simple algebraic inequalities.
+
+your tasks are
+- make proof strategies and sketches based on reading 401X package and adapdting similar methods.
+- do numerical experiments to emperically verify those strategies.
+- try solving more precisely using calculus and algebraic methods.
+- you may have to split some cases.
+- if it doesn’t work, you may use some interval arithemtic.
+- try using simple approximations in non tight regions.
+
+you must report your entire work with full detail with mathematical rigor, including failure where and why
