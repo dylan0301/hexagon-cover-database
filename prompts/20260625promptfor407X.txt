@@ -6,11 +6,26 @@ Read the 4071 file for already proven fact and use it.
 My conjecture is that we can use similar methods that we used in 401X package.
 Using admissible sets for T5 and T1, and using the reamining perimeter bounds.
 You may make reasonable statments and use them for the proof, leaving the statements you made as conjectures.
-Try reducing the problem into simple algebraic inequalities.
+You cannot assume that T0 contains M1 or M5 if you are refering to 1205 file, since it talks about the maximal trianlges over S_{1/2}, not S.
+
+This is my proof sketch
+- WLOG assume T0 intersects r1= OV1 line segment.
+- we can easily prove that T2 triangle cannot be a T3 like triangle that intersects r1 using the facts that all midpoints has to be covered, and Lemma 3.1 from 4071 file.
+-Therefore the remaining uncovered portion on r1 (after C and T0 coverage) can only be covered by T1 triangle.
+- consider the covered portion on r1 by the C triangle. it would be an interval something like [0,x] (distance measured from the center of hexagon)
+- There are 2 cases: whether T0 contains the x point, or not.
+- If T0 contains the x point, let [s,t] be a coverage of r1 by T0, where s <=x. (we are using closed triangles). 
+	Then T1 triangle only has to cover length 1-t on r1.
+- If T0 does not contain the x point, then T1 triangle has sto cover length 1-x on r1.
+- Then we use admissible set for the T1 and T5 (refer to 2007 max b function) to do similarly as 401X proof.
+- then I think the remaining hexagon perimeter length is at most 3 
+- You will have to split these 2 cases.
+- Use the constraint on T0 has to cover the remaining portion on r0 (after C coverage)
 
 your tasks are
-- make proof strategies and sketches based on reading 401X package and adapdting similar methods.
+- make proof strategies and sketches explicitly based on reading my proof sketch and the files mentioned and adapdting similar methods.
 - do numerical experiments to emperically verify those strategies.
+- Try reducing the problem into simple algebraic inequalities.
 - try solving more precisely using calculus and algebraic methods.
 - you may have to split some cases.
 - if it doesn’t work, you may use some interval arithemtic.
