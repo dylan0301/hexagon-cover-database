@@ -33,10 +33,9 @@ remaining four non-supercritical, non-T3-like rows are Vd0 rows.
 
 Use the following local midpoint dependencies.
 
-1. A T3-like row $T_i$ does not contain $M_i$ and, after maximalization over
-   the half-skeleton, contains one adjacent midpoint.
-2. The exact local midpoint subsets for a T3-like row are the two reflected
-   possibilities $\{M_{i-1}\}$ and $\{M_{i+1}\}$.
+1. Since this is a full-skeleton cover and $T_C$ covers only $M_0$, every
+   midpoint $M_1,\dots,M_5$ must be covered by vertex roles.
+2. A T3-like row $T_i$ does not contain $M_i$.
 3. A supercritical row contains none of its three local midpoints.
 4. A Vd0 row has no positive-length adjacent-ray intersection and therefore
    cannot cover an adjacent midpoint.
@@ -84,44 +83,39 @@ $$
 \tau=0.
 $$
 
-Thus $T_0$ is the unique T3-like row. By the T3-like midpoint lemma and the
-local T3-like midpoint inventory, the exact adjacent midpoint set of $T_0$ is
-one of
+Thus $T_0$ is the unique T3-like row.
+
+Let $\sigma$ be the index of the unique supercritical row. Since $T_0$ is
+T3-like and T3-like rows are nonsupercritical, $\sigma\ne0$.
+
+If $\sigma\notin\{1,5\}$, then the midpoint $M_\sigma$ is not covered by
+$T_C$, because $\sigma\ne0$. It is not covered by $T_\sigma$, because
+$T_\sigma$ is supercritical. It is not covered by $T_0$, because $M_\sigma$ is
+not local to $T_0$. As before, no Vd0 row can rescue an adjacent midpoint, and
+every non-supercritical non-T3-like row in this branch is Vd0. Thus
+$M_\sigma$ would be uncovered, contradicting coverage of the six radial
+midpoints. Therefore
 
 $$
-\{M_1\},\qquad \{M_5\}.
+\sigma\in\{1,5\}.
 $$
 
-The reflection fixing $O,V_0,M_0$ swaps $M_1$ with $M_5$ and preserves the
-branch hypotheses. Therefore we may assume
+If $\sigma=1$, then $M_1$ cannot be covered by $T_C$, $T_1$, or any Vd0 row.
+Hence full-skeleton coverage forces
 
 $$
 M_1\in T_0.
 $$
 
-Under this normalization the exact local midpoint subset of $T_0$ is
-$\{M_1\}$, so
+If $\sigma=5$, the reflected argument gives $M_5\in T_0$. The reflection fixing
+$O,V_0,M_0$ swaps $M_1$ with $M_5$ and preserves the branch hypotheses.
+Therefore we may assume
 
 $$
-M_5\notin T_0.
+M_1\in T_0,\qquad \sigma=1.
 $$
 
-Let $\sigma$ be the index of the unique supercritical row. Since $T_0$ is
-T3-like and T3-like rows are nonsupercritical, $\sigma\ne0$.
-
-If $\sigma\ne1$, then the midpoint $M_\sigma$ is not covered by $T_C$, because
-$\sigma\ne0$. It is not covered by $T_\sigma$, because $T_\sigma$ is
-supercritical. It is not covered by $T_0$: if $\sigma=5$, this is the
-exclusion $M_5\notin T_0$, while if $\sigma\notin\{1,5\}$ the point
-$M_\sigma$ is not local to $T_0$. As before, no Vd0 row can rescue an
-adjacent midpoint, and every non-supercritical non-T3-like row in this branch
-is Vd0. Thus $M_\sigma$ would be uncovered. This contradiction proves
-
-$$
-\sigma=1.
-$$
-
-Therefore, after reflection if necessary,
+That is,
 
 $$
 T_0\text{ is T3-like with }M_1\in T_0,

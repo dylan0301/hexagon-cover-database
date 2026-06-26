@@ -29,9 +29,8 @@ $$
 Equivalently, under these hypotheses the alternative in which all T3-like roles
 lie among $T_1,\dots,T_5$ is impossible.
 
-The proof uses the local midpoint inventory over $S_{1/2}$ from
-[`../../../1XXX_foundations/12XX_V_triangle/1205_midpoint_subsets.md`](../../../1XXX_foundations/12XX_V_triangle/1205_midpoint_subsets.md),
-the T3-like midpoint exclusion from
+The proof uses full-skeleton coverage of the six radial midpoints after the
+exact-$M_0$ normalization, the T3-like midpoint exclusion from
 [`../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2006_T3_like_midpoint_lemma.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2006_T3_like_midpoint_lemma.md),
 and the T3-like half-diagonal support convention from
 [`../../../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md`](../../../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md).
@@ -344,6 +343,7 @@ Thus the crossed adjacent T3-like pair is impossible.
 Assume for contradiction that $T_0$ is not T3-like.
 
 Since no vertex role is Vd1 or Vd2, every vertex role is either Vd0 or T3-like.
+Since this is a full-skeleton cover, all six radial midpoints are in the target.
 By the CE1/CE2 exactly-one-midpoint normalization, $T_C$ covers $M_0$ and no
 other midpoint. Therefore every midpoint
 
@@ -368,16 +368,19 @@ $$
 M_j\notin T_j.
 $$
 
-A Vd0 role covers no adjacent midpoint in the half-skeleton midpoint inventory,
-and a T3-like role covers exactly one adjacent midpoint in that inventory. Hence
-$M_j$ must be covered by one of the T3-like roles adjacent to it. Since $I$ is a
-maximal consecutive T3-like block, the covering role also has index in $I$.
+The only vertex roles that can cover $M_j$ are the local roles based at
+$V_{j-1}$, $V_j$, and $V_{j+1}$. A Vd0 role covers no adjacent midpoint, and a
+T3-like role has positive-length intersection with exactly one adjacent ray.
+Hence $M_j$ must be covered by one of the T3-like roles adjacent to it. Since
+$I$ is a maximal consecutive T3-like block, the covering role also has index in
+$I$.
 
 The number of T3-like triangles in $I$ is the same as the number of midpoint
-requirements indexed by $I$, and each T3-like triangle in $I$ covers exactly one
-adjacent midpoint. Therefore these incidences form a bijective matching between
-the midpoint labels in $I$ and the T3-like triangle labels in $I$, with edges
-only between adjacent indices.
+requirements indexed by $I$, and each T3-like triangle in $I$ covers at most
+one adjacent midpoint. Since all midpoint requirements indexed by $I$ must be
+covered, these incidences form a bijective matching between the midpoint labels
+in $I$ and the T3-like triangle labels in $I$, with edges only between adjacent
+indices.
 
 Let $m$ be the left endpoint of $I$. If $m=5$, then $M_5$ has no adjacent
 T3-like source, because $T_4$ is outside $I$ and $T_0$ is not T3-like. This is
