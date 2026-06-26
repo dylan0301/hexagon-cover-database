@@ -1,0 +1,31 @@
+Here are the proof sketches for conjecture A,B,C 
+lemma 1: if there are at least 3 T3 like triangles, then skeleton is uncoverable.
+pf) refer to 2520 file. CE1/2 triangle is diagonal length at most 3/2, VD0 is at most 3, T3 like are at most 1/2 So they cannot add up to 6.
+
+We assumed T0 intersects r1.
+
+claim) T2 triangle is not T3 like
+pf) If it is, then M2 cannot be covered since we cannot use any more T3 like triangles.
+
+So r1 can only be covered by C, T0, T1
+
+By symmetric argument, T4 triangle is not T3 like since M4 cannot be covered
+So r5 can only be covered by C, T5
+
+claim) T5 triangle is not T3 like.
+pf) If it is, then M5 cannot be covered since we cannot use any more T3 like triangles.
+
+
+T1 triangle may be T3 like since T0 can cover M1.
+Assume T1 triangle is T3 like.
+There is no meaning if T1 intersects r2, since the local admissible set for T1 shrinks, and it is not maximal over skeleton if we simply use the remaining permieter length < 3
+Also I think if T1 triangle is T3 like and intersects r0, then this is also not skeleton maximal.
+
+So We may assume that only T0 is T3 like and all other triangles are VD0
+Try proving the non maximality, and also check my other arguments.
+
+Equipped with this, try proving the algebraic inequalities.
+
+Also you should not directly use the 2101 2102 2103 files, since they only talk about maximal triangles over S_{1/2}, not S.
+You should actually parameterize the C triangle by center coordinates and rotation angle.
+give detailed report including failures.
