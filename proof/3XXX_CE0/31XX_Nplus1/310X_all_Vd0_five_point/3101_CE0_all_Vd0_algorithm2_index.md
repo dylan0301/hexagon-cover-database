@@ -53,6 +53,12 @@ $$
 p\le q.
 $$
 
+The displayed ordered-half formulas below should be used with the convention
+from
+[`2004_admissible_set.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md):
+$m=\min(p,q)$ and $M=\max(p,q)$. Thus in the half written here $m=p$ and
+$M=q$; in the reflected half $p>q$, use $m=q$ and $M=p$.
+
 The close-to-tight coordinates near the lower vertex-limit corner are
 
 $$
