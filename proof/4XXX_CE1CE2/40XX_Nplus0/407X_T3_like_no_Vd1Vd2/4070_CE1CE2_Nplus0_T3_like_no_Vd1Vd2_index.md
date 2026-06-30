@@ -89,7 +89,13 @@ $$
 
    and proves the full left-$T_-$ family, including non-overlap, middle-overlap, $S$-dominance, and the final right-high residual.
 
-6. [`4076_remaining_branch_inventory.md`](4076_remaining_branch_inventory.md)
+6. [`4075a_Tminus_final_residual_calculus_lemma.md`](4075a_Tminus_final_residual_calculus_lemma.md)
+
+   Status: Proven.
+
+   Supplies the one-variable calculus lemma used in the final left-$T_-$ residual proof in `4075`.
+
+7. [`4076_remaining_branch_inventory.md`](4076_remaining_branch_inventory.md)
 
    Status: Open inventory.
 
