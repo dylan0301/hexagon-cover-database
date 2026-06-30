@@ -53,6 +53,25 @@ documentation tree, or to old root-level computation or experiment trees.
 Computation and experiment helpers should be colocated with the proof package
 they support.
 
+### Image Assets
+
+When images are explicitly requested, place them inside the nearest proof
+package that owns the mathematical content. Use a package-local `figures/`
+subfolder; do not create a root-level image dump.
+
+If an image records a failed route or counterexample to a proposed strategy,
+keep it in the relevant active branch by default. Use `proof/9XXX_failed_ideas/`
+only when the user explicitly asks for archival placement or no active package
+owns the content.
+
+Every committed image should be linked from a nearby Markdown note that states
+what it depicts, its status, and any source or verification context. Images,
+plots, and screenshots are not proofs. They remain `Empirical` unless a
+rigorous certificate is recorded.
+
+Use descriptive ASCII filenames with matching file extensions. Avoid spaces,
+commas, plus signs, and other shell-sensitive punctuation.
+
 ## 4. Make Surgical Markdown Changes
 
 Touch only what the user asked for.
@@ -72,7 +91,8 @@ changed line should trace directly to the user's request.
 ## 5. Follow Repository Style
 
 Use Markdown for research-note files unless explicitly asked otherwise. Do not
-add image assets to proof notes unless explicitly requested.
+add image assets to proof notes unless explicitly requested; when requested,
+follow the image-asset guidance above.
 
 Use LaTeX consistently:
 

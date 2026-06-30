@@ -1,0 +1,23 @@
+read https://github.com/dylan0301/hexagon-cover-database the main branch and understand the repository.
+this contains current progress on the hexagon covering problem.
+I am trying to prove 4140.
+It is CE2, N+=1, at least one VD1/VD2 triangle case.
+
+The following is a reduction to
+CE2, N+=1, exactly one VD1 or VD2 triangle, and exactly four VD0 non super critical triangle.
+- If there is more VD1/2 or T3 like triangle, we use 2510 skeleton length bounds
+- CE2, N+=1, VD1/2 and T3 like triangle contribute at most 3/2 to the skeleton.
+- We already have 3 of those, so they contribute 9/2.
+- If we have another VD1/2 or T3 like, then those four contribute 6, and other VD0 triangles can contribute 6, and this is strict inequality, so they cannot achieve 12.
+
+
+My plan is to do similar as the 33XX old VD1VD2 chain proof package.
+The old 33XX proof didn't assume anyting about N+, so we had to do 3 or 4 chain of F.
+However, now we have N+=1
+
+We will prove that this configuration cannot cover S_{1/2}
+
+
+------------------------------------------------------------------------
+
+Actually it seems that S_{1/2} is coverable

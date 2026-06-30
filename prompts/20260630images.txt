@@ -1,0 +1,10 @@
+I want to put images in my repository
+they will be mostly counterexamples or obstructions to my strategy.
+I want the images to be in correct repositorys.
+suggest me how to edit AGENTS.md
+Also I will put one image inside the 414X package.
+the image is a possible candidate of a cover of S_{1/2} with CE2, one VD1, N+=1, everything else is VD0 non supercritical.
+
+even if an image records a failed route,
+make default setting is to stay in the relavant package active branch.
+I changed the image file to webp
