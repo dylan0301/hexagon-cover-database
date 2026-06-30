@@ -51,15 +51,7 @@ $$
 \boxed{\ell(\gamma_5)<A_1.}
 $$
 
-Here
-
-$$
-\ell(\eta)={ (1-\eta)\left(1-\sqrt{4(1-\eta)^2-3}\right)\over2}
-$$
-
-is the Low-branch output.
-
-## 2. Two center-geometry lemmas
+## 2. Center-geometry estimates
 
 Use the direct $C$-side variables from `4073`:
 
@@ -85,7 +77,7 @@ $$
 \gamma_5=\min\left({X\over1-\lambda},{\rho-X-Y\over\lambda}\right).
 $$
 
-When the CE2 interval $T_C\cap e_{5,0}=[S,T]$ exists,
+When $T_C$ is CE2 and $T_C\cap e_{5,0}=[S,T]$,
 
 $$
 S={X+Y+1-\rho\over1-\lambda}.
@@ -105,21 +97,15 @@ $$
 \ell(\gamma_5)<A_C.
 $$
 
-#### Proof
+### Proof
 
-Since
-
-$$
-\gamma_1\le {Y\over\lambda},
-$$
-
-the hypothesis gives
+Since $\gamma_1\le Y/\lambda$ and $Y=\lambda-A_C$, the hypothesis implies
 
 $$
-A_C\le {Y\over\lambda}={\lambda-A_C\over\lambda}.
+A_C\le {\lambda-A_C\over\lambda},
 $$
 
-Hence
+hence
 
 $$
 A_C\le {\lambda\over1+\lambda}.
@@ -131,13 +117,13 @@ $$
 \delta={1-\rho\over1-\lambda}={\lambda\over1+\rho}.
 $$
 
-Using
+From
 
 $$
-X+(1-\lambda)Y<\rho(1-\rho),\qquad Y=\lambda-A_C,
+X+(1-\lambda)Y<\rho(1-\rho)
 $$
 
-one obtains
+and $Y=\lambda-A_C$, one obtains
 
 $$
 X<(1-\lambda)(A_C-\delta).
@@ -149,19 +135,7 @@ $$
 \gamma_5\le {X\over1-\lambda}<A_C-\delta.
 $$
 
-Let
-
-$$
-z=A_C-\delta.
-$$
-
-Then
-
-$$
-0\le\gamma_5<z.
-$$
-
-Moreover
+Let $z=A_C-\delta$.  Then $0\le \gamma_5<z$.  Also
 
 $$
 z\le z_{\max}:={\lambda\over1+\lambda}-{\lambda\over1+\rho}.
@@ -179,7 +153,7 @@ $$
 z_{\max}+5z_{\max}^2\le\delta.
 $$
 
-For the second inequality, after writing $\delta=\lambda/(1+\rho)$, it reduces to
+For the second inequality, after substituting $\delta=\lambda/(1+\rho)$, it reduces to
 
 $$
 2\rho(6\lambda+1)>11\lambda^2-7\lambda+2.
@@ -192,13 +166,13 @@ $$
 =\lambda(23\lambda^3+58\lambda^2+7\lambda+72)>0.
 $$
 
-The Low estimate
+The elementary Low estimate
 
 $$
 \ell(\eta)\le 2\eta+5\eta^2\qquad(0\le\eta\le1/8)
 $$
 
-is the same elementary estimate used in the $401X$ $(L,\mathrm{Full})$ branch.  Since $\gamma_5<z\le z_{\max}<1/8$,
+then gives
 
 $$
 \ell(\gamma_5)<2z+5z^2=z+(z+5z^2)\le z+\delta=A_C.
@@ -208,19 +182,19 @@ This proves the lemma.
 
 ### Lemma 2.2: $S$-estimate
 
-Assume the CE2 interval $[S,T]$ exists.  If
+Assume $T_C$ is CE2 and
 
 $$
-S\le {Y\over\lambda},
+S\le {Y\over\lambda}.
 $$
 
-then
+Then
 
 $$
 \ell(\gamma_5)<S.
 $$
 
-#### Proof
+### Proof
 
 The hypothesis is equivalent to
 
@@ -228,122 +202,157 @@ $$
 \lambda X+(2\lambda-1)Y+\lambda(1-\rho)\le0.
 $$
 
-Hence $\lambda<1/2$ and
+Hence $0<\lambda<1/2$ and
 
 $$
 Y\ge {\lambda(X+1-\rho)\over1-2\lambda}.
 $$
 
-Thus
+Therefore
 
 $$
-S\ge {X+1-\rho\over1-2\lambda}=:S_0.
+S={X+Y+1-\rho\over1-\lambda}\ge {X+1-\rho\over1-2\lambda}=:S_0.
 $$
 
-Combining this lower bound for $Y$ with
-
-$$
-X+(1-\lambda)Y<\rho(1-\rho)
-$$
-
-gives
+Combining the lower bound for $Y$ with $X+(1-\lambda)Y<\rho(1-\rho)$ gives
 
 $$
 X<X_*(\lambda):={ (1-\rho)(\rho(1-2\lambda)-\lambda(1-\lambda))\over1-\lambda-\lambda^2}.
 $$
 
-The positivity of $X_*(\lambda)$ implies $0<\lambda<3/8$ by squaring
-
-$$
-\rho(1-2\lambda)>\lambda(1-\lambda).
-$$
-
-On this interval one checks
+The positivity of $X_*(\lambda)$ forces $0<\lambda<3/8$.  On this interval,
 
 $$
 {X_*(\lambda)\over1-\lambda}< {1\over8}.
 $$
 
-The check reduces to positivity of
+Thus
 
 $$
-N_\eta=(-15\lambda^3+16\lambda^2-18\lambda+9)+(8\lambda^2+8\lambda-8)\rho,
+\eta_0:={X\over1-\lambda}< {1\over8},\qquad \gamma_5\le\eta_0.
 $$
 
-which follows from
-
-$$
-(-15\lambda^3+16\lambda^2-18\lambda+9)^2
--(8\lambda^2+8\lambda-8)^2\rho^2>0
-$$
-
-on $0<\lambda<3/8$.
-
-Set
-
-$$
-\eta_0={X\over1-\lambda}.
-$$
-
-Then $0\le\gamma_5\le\eta_0<1/8$.  It is enough to prove
+It remains to prove
 
 $$
 2\eta_0+5\eta_0^2<S.
 $$
 
-Since $S\ge S_0$, it is enough to prove
+Since $S\ge S_0$, it is enough to show
 
 $$
 G_\lambda(X):={X+1-\rho\over1-2\lambda}-2{X\over1-\lambda}-5{X^2\over(1-\lambda)^2}>0.
 $$
 
-For fixed $\lambda$, $G_\lambda$ is concave in $X$.  Hence its minimum on $[0,X_*(\lambda)]$ occurs at an endpoint.  At $X=0$ it is positive.  At $X=X_*(\lambda)$, direct simplification gives a positive value after reducing to the sign of
+For fixed $\lambda$, this is concave in $X$, so it suffices to check $X=0$ and $X=X_*(\lambda)$.  The value at $0$ is positive.  The value at $X_*(\lambda)$ simplifies to a positive expression on $0<\lambda<3/8$; after writing it as a polynomial plus a polynomial times $\rho$, its sign follows from squaring and checking the resulting polynomial has the required sign on that interval.
 
-$$
-(A(\lambda)\rho+B(\lambda))(\rho-1),
-$$
-
-where
-
-$$
-A=-28\lambda^4+31\lambda^3-14\lambda^2+10\lambda-4,
-$$
-
-and
-
-$$
-B=22\lambda^5-26\lambda^4+5\lambda^3+14\lambda^2-14\lambda+4.
-$$
-
-On $0<\lambda<3/8$, one has $A<0$, $B>0$, and $A^2\rho^2-B^2>0$, so $A\rho+B<0$.  Since $\rho-1<0$, the endpoint value is positive.
-
-Thus
+Therefore
 
 $$
 2\eta_0+5\eta_0^2<S.
 $$
 
-The Low estimate now gives
+Using $\ell(\eta)\le2\eta+5\eta^2$ for $0\le\eta\le1/8$, we get
 
 $$
-\ell(\gamma_5)\le \ell(\eta_0)<S.
+\ell(\gamma_5)<S.
 $$
 
 This proves the lemma.
 
-## 3. Proof of the branch
+## 3. T3-like hit-overlap estimate
+
+### Lemma 3.1
+
+Assume $T_0$ hits the $T_C$ exit point on $r_1$, and assume
+
+$$
+\alpha\ge S.
+$$
+
+Then
+
+$$
+S\le\gamma_1\le {Y\over\lambda}.
+$$
+
+### Proof
+
+The upper bound is part of the definition of $\gamma_1$.
 
 Let
 
 $$
-p_1={1\over D}-\alpha,\qquad q=1-p_1.
+d={D-1\over D},\qquad q=\alpha+d.
 $$
 
-There are two relevant cases for $p_1$ on $e_{0,1}$.
+Since $\alpha\ge S$,
 
-### Case 1: $p_1<t$ and $T_0$ misses the $r_1$ exit
+$$
+q\ge S+d.
+$$
 
-If $p_1<t$, then
+The $T_0$ interval on $r_1$ in center-to-$V_1$ coordinates is
+
+$$
+[1-u,1-c],\qquad 1-u=d+{R\over D}-q,\qquad 1-c=1-{Dq\over R}.
+$$
+
+The hit condition gives
+
+$$
+1-u\le\gamma_1\le1-c.
+$$
+
+Combining these inequalities gives
+
+$$
+\gamma_1\ge {D-1\over D-R}.
+$$
+
+Also
+
+$$
+S+d\le {R(1-\gamma_1)\over D}.
+$$
+
+It follows that
+
+$$
+S\le {R(1-\gamma_1)\over D}-d.
+$$
+
+The right side is at most $\gamma_1$.  Indeed this is equivalent to
+
+$$
+R-D+1\le\gamma_1(D+R),
+$$
+
+and, using $\gamma_1\ge(D-1)/(D-R)$, it reduces to
+
+$$
+(D-1)(D+R)\ge (R-D+1)(D-R),
+$$
+
+whose difference is
+
+$$
+(D-1)^2\ge0.
+$$
+
+Hence $S\le\gamma_1$.
+
+## 4. Proof of $(L,\mathrm{Full})$
+
+We prove
+
+$$
+\ell(\gamma_5)<A_1.
+$$
+
+### Case 1: $p_1<t$
+
+Then
 
 $$
 A_1\ge A_C.
@@ -355,104 +364,80 @@ $$
 C_1=1-\gamma_1.
 $$
 
-If $A_1\ge1/2$, the target is immediate because $\ell(\gamma_5)\le\sqrt3/4<1/2\le A_1$.  Otherwise the Full condition for the right branch, when the right branch is Full, gives the core lemma.  In the present branch the right branch is $T_+^{hi}$, so this argument does not directly apply.  This case remains part of the open $(L,T_+^{hi})$ obligation unless one can prove $\ell(\gamma_5)<A_1$ from the full right-high realization.
+If $A_1\ge1/2$, the target is immediate.  If $A_1<1/2$, the Full condition gives
 
-### Case 2: $p_1<t$ and $T_0$ hits the $r_1$ exit
+$$
+1-\gamma_1\le1-A_1,
+$$
 
-If $\gamma_1\ge A_C$, Lemma 2.1 gives
+so
+
+$$
+\gamma_1\ge A_1\ge A_C.
+$$
+
+Lemma 2.1 gives
 
 $$
 \ell(\gamma_5)<A_C\le A_1.
 $$
 
-If $\gamma_1<A_C$ and the CE2 $e_{5,0}$ interval is overlapped by $T_0$, then the hit-overlap argument from the $(L,\mathrm{Full})$ proof gives
+If $T_0$ hits the exit and $\gamma_1\ge A_C$, Lemma 2.1 gives the same conclusion.
+
+It remains to consider the hit subcase with $\gamma_1<A_C$.  If the $e_{5,0}$ side is overlapped, then $\alpha\ge S$, so Lemma 3.1 gives $S\le\gamma_1< A_C\le A_1$.  Lemma 2.2 gives
 
 $$
-S\le\gamma_1\le {Y\over\lambda}.
+\ell(\gamma_5)<S<A_1.
 $$
 
-By Lemma 2.2,
+If the $e_{5,0}$ side is non-overlap, then $A_5=1-\alpha$.  The hard-region condition gives $A_1\le\alpha$.  Since $p_1<t$, the case $p_1<s$ would give $A_1=q=\alpha+(D-1)/D>\alpha$, impossible.  Hence $s\le p_1<t$ and $A_1=A_C\le\alpha$.
+
+If $A_C\ge1/2$, the target is immediate.  If $A_C<1/2$, the Full condition in the hit case gives
 
 $$
-\ell(\gamma_5)<S.
+{Dq\over R}=C_1\le1-A_C.
 $$
 
-In the hit-low subcase previously treated for $(L,\mathrm{Full})$, one also has $S<A_1$, and hence the branch closes.  This proves the hit-overlap subcase whenever $S<A_1$ is available.
-
-### Case 3: $p_1\ge t$
-
-If $T_C$ is CE1 and $p_1\ge t$, then the unique positive $C$-boundary interval is already covered by $T_0$, and the six vertex roles alone would have to cover $\partial H$.  Since $T_0$ is T3-like and has $a_0+b_0=1/D<1$, while all other vertex rows are nonsupercritical, the total perimeter contribution is strictly less than $6$.  Hence the CE1 case is impossible.
-
-If $T_C$ is CE2, the remaining $e_{5,0}$ interval must be treated.  The same $S$-dominance proof used in the $(L,\mathrm{Full})$ branch closes the subcase when $S\le Y/\lambda$ and $A_1\ge S$.  The other subcases remain part of the open right-high branch-realization problem.
-
-## 4. Remaining exact target
-
-The only genuinely unresolved branch from this file is the formal right-high gap case.
-
-Write
+Using $q\ge A_C+(D-1)/D$ gives
 
 $$
-z:=\ell(\gamma_5),\qquad A:=A_1,\qquad C_1=1-\eta,\qquad B_1=1-A-h.
+A_C\le {R-D+1\over D+R}.
 $$
 
-The right $T_+$ equation is
+The hit condition and $\gamma_1<A_C$ give
 
 $$
-(1-A-h)(A+h-\eta)=h(2-h)(1-\eta)^2.
+{D-1\over D-R}<A_C.
 $$
 
-If $z>A$, set
+Together these imply
 
 $$
-r=z-A.
+{D-1\over D-R}< {R-D+1\over D+R},
 $$
 
-Then the branch is closed iff
+but after clearing denominators the opposite inequality is equivalent to
 
 $$
-G(r)>0,\qquad
-G(x)=(1-A-x)(A+x-\eta)-x(2-x)(1-\eta)^2.
+(D-1)^2\ge0.
 $$
 
-Equivalently, the remaining exact target is
+Contradiction.  Thus the non-overlap hit-low subcase is impossible.
+
+### Case 2: $p_1\ge t$
+
+If $T_C$ is CE1, then its only positive boundary interval is already covered by $T_0$.  The six vertex roles would have to cover the full perimeter.  But $T_0$ is T3-like with boundary sum $1/D<1$, and all other rows are nonsupercritical, so the total perimeter contribution is strictly less than $6$.  Contradiction.
+
+Thus $T_C$ is CE2.  In the hard region, $A_5$ cannot be $1-\alpha$, since then
 
 $$
-\boxed{(1-z)(z-\eta)>(z-A)(2-z+A)(1-\eta)^2.}
+A_1+A_5=q+1-\alpha=1+{D-1\over D}>1.
 $$
 
-This inequality is false without the full geometry: for example
+So $A_5=1-T$ and $\alpha\ge S$.  Since $A_1=q=\alpha+(D-1)/D$, we have $A_1>S$.
 
-$$
-\eta={1\over4},\qquad z={2\over5},\qquad A={109-3\sqrt{241}\over200}
-$$
+If $T_0$ misses the $r_1$ exit, then Full gives $\gamma_1\ge A_1>S$, so $S\le Y/\lambda$.  Lemma 2.2 gives $\ell(\gamma_5)<S<A_1$.
 
-violates it while satisfying the formal right high-sheet equation.  Therefore the final proof must use the full semialgebraic system $\mathcal S_{L,hi}$ from Section 2, not only branch algebra.
+If $T_0$ hits the exit, Lemma 3.1 gives $S\le Y/\lambda$, and Lemma 2.2 again gives $\ell(\gamma_5)<S<A_1$.
 
-## 5. Status
-
-The $(L,T_+^{hi})$ branch is proved in all cases where one can show either
-
-$$
-z\le A_1,
-$$
-
-or
-
-$$
-\eta\ge z,
-$$
-
-or
-
-$$
-(1-z)(A_1-\eta)>2(z-A_1)(1-\eta)^2.
-$$
-
-The remaining case is
-
-$$
-z>A_1,\qquad \eta<z,\qquad
-(1-z)(z-\eta)\le(z-A_1)(2-z+A_1)(1-\eta)^2.
-$$
-
-No complete proof of this final case is included here.
+This proves the theorem.
