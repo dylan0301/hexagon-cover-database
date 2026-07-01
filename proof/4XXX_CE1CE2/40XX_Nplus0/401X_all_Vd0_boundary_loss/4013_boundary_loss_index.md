@@ -73,7 +73,6 @@ Branch labels use the corrected maximal meaning from
 
 | File | Recorded status | Notes |
 |---|---|---|
-| [`4012_remaining_reductions_to_all_Vd0.md`](4012_remaining_reductions_to_all_Vd0.md) | Strategy | Remaining reductions to all Vd0. |
 | [`4014_setup_and_reduction.md`](4014_setup_and_reduction.md) | Strategy | Target, notation, C-triangle parameterization, and proven reduction to $F<1$. |
 | [`4015_B_map_branch_realization.md`](4015_B_map_branch_realization.md) | Definition | Corrected definition of $B(a,c)$ and proven branch-realization conditions. |
 | [`4016_proven_branch_lemmas.md`](4016_proven_branch_lemmas.md) | Proven | Previously proved branch lemmas. |
