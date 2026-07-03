@@ -1,22 +1,23 @@
-# CE0 All-Vd0 Five-Point Proof Tree
+# CE0 All-Vd0 Algorithm-2 Five-Point Proof Tree
 
 Status: Strategy
 
-This is a paper-style proof-tree scaffold for the live `310X` route. It is
-not itself a proof of the branch. Each statement below keeps the status of the
+This is a paper-style proof-tree scaffold for the existing `3100X`
+algorithm-2 five-point route inside the `310X` all-Vd0 package. It is not
+itself a proof of the branch. Each statement below keeps the status of the
 numbered note that supports it.
 
 ## Main Branch Target
 
-**Target `310X` (Status: Strategy).** Assume a hypothetical seven-triangle
+**Route `3100X` (Status: Strategy).** Assume a hypothetical seven-triangle
 cover lies in the branch
 
 $$
 T_C\text{ is CE0},\qquad N_+=1,
 $$
 
-and all six vertex roles are Vd0. The goal of the `310X` package is to prove
-that this branch cannot occur.
+and all six vertex roles are Vd0. The goal of this route is to prove that this
+branch cannot occur.
 
 By cyclic symmetry, take the unique supercritical row to be the $V_4$ row:
 
@@ -55,7 +56,7 @@ $$
 
 The displayed ordered-half formulas below should be used with the convention
 from
-[`2004_admissible_set.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md):
+[`2004_admissible_set.md`](../../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md):
 $m=\min(p,q)$ and $M=\max(p,q)$. Thus in the half written here $m=p$ and
 $M=q$; in the reflected half $p>q$, use $m=q$ and $M=p$.
 
@@ -76,7 +77,8 @@ The live branch splits into two complementary subtrees:
 | Number | Recorded status | Mathematical role |
 |---|---|---|
 | `310X` | Strategy | Full CE0, $N_+=1$, all-Vd0 branch target. |
-| `3102` | Reference | Status ledger and open assembly obligations. |
+| `3100X` | Strategy | Existing algorithm-2 five-point route. |
+| `31002` | Reference | Status ledger and open assembly obligations. |
 | `311X` | Strategy | Far-from-tight algorithm-2 subtree. |
 | `3111` | Reference | Far-from-tight status and remaining certificate obligations. |
 | `3112` | Strategy | Five-point construction and algorithm-2 diagonal choices. |
@@ -90,7 +92,7 @@ The live branch splits into two complementary subtrees:
 
 ## Reductions
 
-**Reduction Target `3102` (Recorded status: Reference).** The full all-Vd0
+**Reduction Target `31002` (Recorded status: Reference).** The full all-Vd0
 branch still needs a proof reducing the original row data to
 
 $$
@@ -98,7 +100,7 @@ a_3+b_3=1,\qquad a_5+b_5=1.
 $$
 
 This equality reduction is an open assembly obligation. It is not proved by
-the current `310X` files.
+the current `3100X` files.
 
 **Construction `3112` (Status: Strategy).** After the cyclic normalization,
 take $a_4,b_4$ as outer parameters and $a_1,b_1$ as the remaining free
@@ -403,8 +405,8 @@ close-to-tight subtree closes if `3123` is proved and the working estimates in
 
 ## Full Branch Assembly
 
-To prove the `310X` target, the final argument must combine the following
-pieces:
+To make the `3100X` algorithm-2 route prove the `310X` target, the final
+argument must combine the following pieces:
 
 | Piece | Required conclusion | Current status |
 |---|---|---|
@@ -414,14 +416,14 @@ pieces:
 | Close-to-tight subtree | Prove $\Lambda(K_5)>1$ near the vertex-limit corners. | Open |
 | Branch gluing | Show the far and close regions cover the full normalized parameter domain. | Open |
 
-Only after all rows in this assembly table are closed can the `310X` branch be
-recorded as proved.
+Only after all rows in this assembly table are closed can this route close the
+`310X` branch.
 
 ## Warnings And Failed Routes
 
 | Number | Recorded status | Warning |
 |---|---|---|
-| `3104` | Failed | The May 21 four-point obstruction is not a live proof route for this branch. |
+| `31004` | Failed | The May 21 four-point obstruction is not a live proof route for this branch. |
 | `9631` | Failed | The May 25 CE0 supremum-endpoint route is archived and is not a live dependency. |
 
 Numerical evidence, plotting evidence, and certificate outlines remain

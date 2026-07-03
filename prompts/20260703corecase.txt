@@ -1,0 +1,4 @@
+I have a new strategy for 310X case.
+So I want to rename 310X as all Vd0.
+move the current content under 310X to 3100X and rename with 5 letters.
+i will use the name 3101X for then new strategy.

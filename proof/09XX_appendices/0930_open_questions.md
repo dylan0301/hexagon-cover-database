@@ -8,9 +8,9 @@ Status: Reference
    all-Vd0 boundary-loss package.
 3. Prove the CE2 one-interval lemma under the V4 supercritical hypothesis, or
    explicitly keep every CE2 use conditional on that lemma.
-4. Prove the CE0 all-Vd0, $N_+=1$ algorithm-2 route: fixed $V_4$ points,
-   diagonal-relaxation containment, limit-shape convexity, and interior
-   finite certificate.
+4. Prove the `3100X` CE0 all-Vd0, $N_+=1$ algorithm-2 route: fixed $V_4$
+   points, diagonal-relaxation containment, limit-shape convexity, and
+   interior finite certificate.
 5. Keep the archived May 25 supremum-endpoint route separate unless a clean
    all-Vd0 reduction is found.
 6. Prove or certify the local square-loss bounds for $f(a,b)$ needed by the

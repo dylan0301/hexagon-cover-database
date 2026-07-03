@@ -58,7 +58,9 @@ Vd0, Vd1/Vd2, and T3-like vertex-role patterns.
     - `3010`: boundary-length obstruction
   - `31XX`: CE0, $N_+=1$
     - all Vd0
-      - `310X`: TODO: 5 point conjecture
+      - `310X`: all-Vd0 package
+        - `3100X`: existing algorithm-2 five-point route
+        - `3101X`: six-point strategy placeholder
     - at least one Vd1/Vd2
       - `314X`: boundary-length obstruction
     - at least one T3-like and no Vd1/Vd2

@@ -53,6 +53,17 @@ documentation tree, or to old root-level computation or experiment trees.
 Computation and experiment helpers should be colocated with the proof package
 they support.
 
+### Branch Package Layout
+
+When a branch package owns multiple active strategy subpackages, use a semantic
+parent package and keep strategy routes below it. For the CE0, $N_+=1$,
+all-Vd0 branch, `310X_all_Vd0/` is the parent package,
+`3100X_algorithm2_five_point/` is the existing algorithm-2 five-point route,
+and `3101X_six_point/` is reserved for the six-point strategy.
+
+Future branch reorganizations must preserve recorded statuses and update
+affected indexes, links, and `proof/MANIFEST.txt`.
+
 ### Image Assets
 
 When images are explicitly requested, place them inside the nearest proof
