@@ -14,3 +14,15 @@ non trivial part is the fall backs for P3 P4 P5.
 - try using simple approximations in non tight regions.
 
 you must report your entire work with full detail with mathematical rigor, including failure where and why
+
+ Line-side switch: the selected $P_5(t)$ stops lying on one of the two line sides of the two-line boundary and starts lying on the other. Then the fixed direction $w$ changes.
+  - Missing intersection: the moving circle $C_5(t)$ has no selected intersection with the non-axis two-line boundary.
+  - Axis hit: the circle meets the boundary only at an axis endpoint, meaning local $u=0$ or $v=0$. The note defines $P_3,P_5$ using the non-axis boundary $u>0,v>0$, so the line-intersection argument does not cover
+  this endpoint case.
+  - Point-on-edge fallback: if the selected non-axis intersection is absent, the construction defines $P_5=B(b)$, and similarly $P_3=A(a)$. That point is no longer produced by the circle-line equation used in the
+  derivative proof.
+
+prove that line side switch never happens.
+if missing intersection, then i thought we go to point on edge fallback.
+axis hit doesn't matter also. why is it a problem? explain.
+point on edge fallback can be also covered by the convex hull logic i think.
