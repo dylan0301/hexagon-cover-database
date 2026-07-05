@@ -1,32 +1,20 @@
-# Six-Point Core Construction
+# Relaxed-P Six-Point Core Construction
 
 Status: Definition
 
-This file defines the six diagnostic points used in the CE0, $N_+=1$,
-all-Vd0 core graph.  It records a construction, not a proof that the branch is
-closed.
+This file defines the relaxed six-point obstruction set used in the CE0,
+$N_+=1$, all-Vd0 core graph.  The construction keeps the strict row
+$R_4(a,b)$ fixed and replaces the two moving circle centers for $P_3$ and
+$P_5$ by the relaxed endpoint centers determined by the two variables
 
-The construction is self-contained in this package.  It was transcribed from
-the `Core Case` and `Core f(a,b)` modes of `dylan0301/hexagon-cover-visual` on
-branch `gulgu`, with the two-line $AB$-superset variant checked against commit
-`6dacaa72047d67a5d7c3e5fbc4bccb26c3e72732`.
+$$
+a=a_4,\qquad b=b_4.
+$$
 
-## Example figure
-
-![Six-point core example](figures/6point_example.PNG)
-
-The figure shows one visual example of the six-point construction.  The shaded
-core region is the local $R(a,b)$ or two-line $R^{\mathrm{lin}}(a,b)$ picture
-for the strict $V_4$ row, depending on the visualization toggle.  The points
-$P_3,P_4,P_5$ are the three local $P$ points from the strict $R_4$ geometry,
-including the two circle-intersection points and the line-line junction.  The
-points $D_0,D_1,D_2$ are the algorithm-2 diagonal points.  The orange and teal
-circles are the radius-$1$ circles centered at the retained boundary points,
-and the yellow triangle is the fitted enclosing equilateral triangle for the
-displayed example.
-
-This image is illustrative only.  It records a sampled visualization state; it
-is not a proof certificate for the six-point construction.
+The reduction proof and strict fixed-line monotonicity certificate are recorded
+in [`31012_core_graph_two_variable_relaxation.md`](31012_core_graph_two_variable_relaxation.md).
+This file records definitions only; it does not prove that the final two-variable
+surface gives an obstruction for every point of the domain.
 
 ## Hexagon coordinates
 
@@ -38,16 +26,14 @@ $$
 X_i=V_i+x_i(V_{i+1}-V_i).
 $$
 
-Thus $X_i$ is the shared boundary point on $[V_i,V_{i+1}]$.  Under the row
-convention
+The row convention is
 
 $$
-(a_i,b_i)=(1-x_{i-1},x_i),
+(a_i,b_i)=(1-x_{i-1},x_i).
 $$
 
-the same point $X_i$ is the outgoing $b_i$ point for the row at $V_i$ and the
-incoming $a_{i+1}$ point for the row at $V_{i+1}$.  Thus an image label of the
-form $b_i/a_{i+1}$ denotes $X_i$.
+Thus $X_i$ is the outgoing $b_i$ point for the row at $V_i$ and the incoming
+$a_{i+1}$ point for the row at $V_{i+1}$.
 
 At $V_4$, use the outgoing and incoming unit edge directions
 
@@ -61,13 +47,19 @@ $$
 P=V_4+u e_+ + v e_-.
 $$
 
-The edge data for the strict row are
+The local metric is
 
 $$
-a=a_4,\qquad b=b_4,
+Q(u,v)=u^2+v^2-uv.
 $$
 
-where the incoming edge point and outgoing edge point are
+The strict row data are
+
+$$
+a=a_4,\qquad b=b_4.
+$$
+
+The incoming and outgoing edge points of the preserved $V_4$ row are
 
 $$
 A(a)=V_4+a(V_3-V_4)=V_3+(1-a)(V_4-V_3),
@@ -79,78 +71,40 @@ $$
 B(b)=V_4+b(V_5-V_4).
 $$
 
-In the two-variable graph specialization, the retained edge points shown in the
-example image are
+The graph domain is
 
 $$
-X_2(a)=V_2+(1-a)(V_3-V_2),
+\mathcal D=\left\{(a,b):0\le a\le1,\ 0\le b\le1,\ a+b>1,\ a^2+ab+b^2\le1\right\}.
 $$
 
-$$
-X_3(a)=V_3+(1-a)(V_4-V_3)=A(a),
-$$
+Set
 
 $$
-X_4(b)=V_4+b(V_5-V_4)=B(b),
+r=b,\qquad s=a,\qquad \rho=r^2+rs+s^2.
 $$
 
-and
-
-$$
-X_5(b)=V_5+b(V_0-V_5).
-$$
-
-## The local sets $R(a,b)$ and $R^{\mathrm{lin}}(a,b)$
+## The preserved row and the strict two-line model
 
 The set $R(a,b)$ is the $V_4$-placed copy of the local $AB$-union set
 $\mathcal U_{AB}(b,a)$ recorded in
 [`../../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009_ab_union_curve_a_plus_b_gt_1.md`](../../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009_ab_union_curve_a_plus_b_gt_1.md).
-In that source note, take the abstract origin to be $V_4$, the first cone
-direction to be $e_+$, and the second cone direction to be $e_-$.  Thus the
-first marked point is the outgoing point $(b,0)$ and the second marked point is
-the incoming point $(0,a)$ in the local coordinates of this file.
+In that source note, the first cone direction is $e_+$ and the second cone
+direction is $e_-$.  Thus the marked points are $(b,0)$ and $(0,a)$ in the
+local coordinates of this file.
 
-Equivalently, $R(a,b)$ is the set of points $P$ for which there exists a closed
-unit equilateral triangle containing
-
-$$
-V_4,\qquad A(a),\qquad B(b),\qquad P.
-$$
-
-In the local coordinates at $V_4$, this is the set of $(u,v)$, $u,v\ge0$, that
-can be added to
-
-$$
-(0,0),\qquad (b,0),\qquad (0,a)
-$$
-
-inside one closed unit equilateral triangle.
-
-The graph domain used below is
-
-$$
-0\le a\le1,\qquad 0\le b\le1,\qquad a+b>1,\qquad a^2+ab+b^2\le1.
-$$
-
-In the strict nondegenerate branch, set
-
-$$
-r=b,\qquad s=a,\qquad \rho=r^2+rs+s^2,\qquad h=\frac{\sqrt3}{2},
-$$
-
-and
-
-$$
-D=\sqrt{4\rho-3}.
-$$
-
-For
+For the strict nondegenerate branch
 
 $$
 r+s>1,\qquad \rho<1,
 $$
 
-define
+let
+
+$$
+h=\frac{\sqrt3}{2},\qquad D=\sqrt{4\rho-3}.
+$$
+
+Define
 
 $$
 \alpha=\frac{h(r+2s-rD)}{2\rho},\qquad
@@ -168,7 +122,7 @@ $$
 \Omega=\alpha\delta-\gamma\beta.
 $$
 
-The two line pieces of the exact non-axis frontier lie on
+The two non-axis line sides of the strict two-line model lie on
 
 $$
 \alpha(u-r)+\beta v=0,
@@ -180,22 +134,21 @@ $$
 \gamma u+\delta(v-s)=0.
 $$
 
-The line-line junction is
+Their junction is
 
 $$
-u_J=\frac{\delta(r\alpha-s\beta)}{\Omega},
-\qquad
+u_J=\frac{\delta(r\alpha-s\beta)}{\Omega},\qquad
 v_J=\frac{\alpha(s\delta-r\gamma)}{\Omega}.
 $$
 
-Let $J(a,b)$ denote the corresponding point
+Let
 
 $$
 J(a,b)=V_4+u_J e_+ + v_J e_-.
 $$
 
-The two-line superset used by the current core route replaces the
-arc-line-line-arc check by the closed polygonal local region with vertices
+The strict two-line superset $R^{\mathrm{lin}}(a,b)$ is the closed polygonal
+local region with vertices
 
 $$
 (0,0),\qquad
@@ -204,54 +157,110 @@ $$
 \left(\frac{\delta s}{\gamma},0\right).
 $$
 
-Denote its $V_4$-placed version by $R^{\mathrm{lin}}(a,b)$.  It is the larger
-strict-row set used in the six-point graph relaxation; the original exact
-$AB$-union set $R(a,b)$ is retained as the background local model and for
-degenerate fallback cases.
+It is used only in the strict nondegenerate branch $\rho<1$.  On the boundary
+$\rho=1$, the line-line junction degenerates and $P_4$ is omitted from the
+selected set.
 
-## The three $P$ points
+Let $\partial_{\mathrm{na}}R^{\mathrm{lin}}(a,b)$ denote the non-axis part of
+the boundary, namely the part with local coordinates $u>0$ and $v>0$.  In the
+strict branch this is the union of the two line sides meeting at $J(a,b)$.
 
-Define the two radius-$1$ circles
+## Relaxed circle centers
+
+In relaxed-P mode the preserved region is still $R_4(a,b)$ or its strict
+two-line superset $R^{\mathrm{lin}}(a,b)$, but the two circle centers are virtual
+endpoint centers.
+
+For $P_3^{\mathrm{rel}}$, use
 
 $$
-C_2(a)=\left\{P:\left\lVert P-X_2(a)\right\rVert=1\right\},
+X_2^{\mathrm{rel}}(b)=V_2+b(V_3-V_2).
+$$
+
+In $V_4$-local coordinates this is
+
+$$
+X_2^{\mathrm{rel}}(b)=(1-b,2-b).
+$$
+
+For $P_5^{\mathrm{rel}}$, use
+
+$$
+X_5^{\mathrm{rel}}(a)=V_5+(1-a)(V_0-V_5).
+$$
+
+In $V_4$-local coordinates this is
+
+$$
+X_5^{\mathrm{rel}}(a)=(2-a,1-a).
+$$
+
+Define the relaxed radius-$1$ circles
+
+$$
+C_2^{\mathrm{rel}}(b)=\left\{P:\left\lVert P-X_2^{\mathrm{rel}}(b)\right\rVert=1\right\},
 $$
 
 and
 
 $$
-C_5(b)=\left\{P:\left\lVert P-X_5(b)\right\rVert=1\right\}.
+C_5^{\mathrm{rel}}(a)=\left\{P:\left\lVert P-X_5^{\mathrm{rel}}(a)\right\rVert=1\right\}.
 $$
 
-Let $\partial_{\mathrm{na}}R^{\mathrm{lin}}(a,b)$ denote the non-axis part of
-the boundary of $R^{\mathrm{lin}}(a,b)$, i.e. the part with local coordinates
-$u>0$ and $v>0$.  In the strict two-line branch, this is the union of the two
-line sides meeting at $J(a,b)$.
+These are the circles obtained by pretending that the nonsupercritical chain
+has been pushed to the endpoint equalities on the opposite side of the preserved
+$V_4$ row.
 
-If $\partial_{\mathrm{na}}R^{\mathrm{lin}}(a,b)\cap C_2(a)$ is nonempty,
-define $P_3(a,b)$ to be the point in this intersection closest to $V_4$.  If
-this selected intersection is absent but $a^2+ab+b^2\le1$, use the
+## The relaxed $P$ points
+
+If
+
+$$
+\partial_{\mathrm{na}}R^{\mathrm{lin}}(a,b)\cap C_2^{\mathrm{rel}}(b)
+$$
+
+is nonempty in the strict branch $\rho<1$, define $P_3^{\mathrm{rel}}(a,b)$ to
+be the point in this intersection closest to $V_4$ in the metric $Q$.  If this
+selected non-axis intersection is absent but $a^2+ab+b^2\le1$, use the
 point-on-edge fallback
 
 $$
-P_3(a,b)=A(a)=V_3+(1-a)(V_4-V_3).
+P_3^{\mathrm{rel}}(a,b)=A(a).
 $$
 
-If $\partial_{\mathrm{na}}R^{\mathrm{lin}}(a,b)\cap C_5(b)$ is nonempty,
-define $P_5(a,b)$ to be the point in this intersection closest to $V_4$.  If
-this selected intersection is absent but $a^2+ab+b^2\le1$, use the
+If
+
+$$
+\partial_{\mathrm{na}}R^{\mathrm{lin}}(a,b)\cap C_5^{\mathrm{rel}}(a)
+$$
+
+is nonempty in the strict branch $\rho<1$, define $P_5^{\mathrm{rel}}(a,b)$ to
+be the point in this intersection closest to $V_4$ in the metric $Q$.  If this
+selected non-axis intersection is absent but $a^2+ab+b^2\le1$, use the
 point-on-edge fallback
 
 $$
-P_5(a,b)=B(b)=V_4+b(V_5-V_4).
+P_5^{\mathrm{rel}}(a,b)=B(b).
 $$
 
-Define $P_4(a,b)=J(a,b)$ when the strict line junction exists and lies in
-$R^{\mathrm{lin}}(a,b)$.
+In the strict branch, the monotonicity certificate in
+[`31012_core_graph_two_variable_relaxation.md`](31012_core_graph_two_variable_relaxation.md)
+proves that the relaxed non-axis intersections exist and the fallbacks are not
+used.
 
-There is no point-on-edge fallback for $P_4$ in the visual model.  If the
-strict line junction is unavailable or fails membership in
-$R^{\mathrm{lin}}(a,b)$, then $P_4$ is missing.
+## The point $P_4$
+
+For $\rho<1$, define
+
+$$
+P_4(a,b)=J(a,b).
+$$
+
+For $\rho=1$, $P_4$ is omitted.  The limiting non-axis boundary is a single
+line segment, and the limiting line-line junction lies on the segment between
+the limiting $P_3^{\mathrm{rel}}$ and $P_5^{\mathrm{rel}}$.  Omitting $P_4$ on
+this boundary therefore does not change the convex hull relevant to the minimal
+enclosing equilateral triangle.
 
 ## The three diagonal points
 
@@ -261,24 +270,15 @@ $$
 p=1-b,\qquad q=1-a.
 $$
 
-The diagonal coordinate is the admissible-set boundary value from
+Let
+
+$$
+c_*=c(p,q),
+$$
+
+where $c(\alpha,\beta)$ is the admissible-set boundary value from
 [`../../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md`](../../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md).
-In that note, $c(\alpha,\beta)$ is the maximum radial coordinate attainable by
-an admissible local triple whose edge coordinates contain the prescribed
-lower-bound edge points.  For these three diagonal points, take
-
-$$
-(\alpha,\beta)=(p,q)=(1-b,1-a),
-$$
-
-so
-
-$$
-c_*=c(p,q).
-$$
-
-The branch formulas and definedness conditions for this value are inherited
-directly from the admissible-set note.
+In that note, $c(\alpha,\beta)$ is defined by lower-bound edge constraints.
 
 For $j=0,1,2$, define
 
@@ -286,21 +286,23 @@ $$
 D_j(a,b)=(1-c_*)V_j.
 $$
 
-Thus $D_j$ lies on the radial segment $[O,V_j]$ at distance $1-c_*$ from $O$.
-The value $c_*$ is the complementary local radial coordinate supplied by the
-admissible-set convention.
+These are the algorithm-2 diagonal points used in the relaxed two-variable core
+set.
 
-These are the algorithm-2 diagonal points used by the core graph.  They are
-not the red-witness points obtained by searching along the diagonals against
-all six $R_i$.
+## Relaxed selected sets
 
-## Six-point set
-
-When all enabled points are present, the six-point set is
+In the strict branch $\rho<1$, the relaxed six-point set is
 
 $$
-K_6(a,b)=\left\{P_3(a,b),P_4(a,b),P_5(a,b),D_0(a,b),D_1(a,b),D_2(a,b)\right\}.
+K_6^{\mathrm{rel}}(a,b)=
+\left\{P_3^{\mathrm{rel}}(a,b),P_4(a,b),P_5^{\mathrm{rel}}(a,b),D_0(a,b),D_1(a,b),D_2(a,b)\right\}.
 $$
 
-If a selected point is missing, the enclosing-triangle value for that selected
-point set is unavailable.
+On the boundary $\rho=1$, use the five-point boundary set
+
+$$
+K_5^{\partial,\mathrm{rel}}(a,b)=
+\left\{P_3^{\mathrm{rel}}(a,b),P_5^{\mathrm{rel}}(a,b),D_0(a,b),D_1(a,b),D_2(a,b)\right\}.
+$$
+
+Both selected sets are determined only by the two variables $(a,b)$.
