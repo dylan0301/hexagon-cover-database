@@ -60,7 +60,7 @@ Vd0, Vd1/Vd2, and T3-like vertex-role patterns.
     - all Vd0
       - `310X`: all-Vd0 package
         - `3100X`: existing algorithm-2 five-point route
-        - `3101X`: six-point strategy placeholder
+        - `3101X`: six-point construction and core graph definitions
     - at least one Vd1/Vd2
       - `314X`: boundary-length obstruction
     - at least one T3-like and no Vd1/Vd2

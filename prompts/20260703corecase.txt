@@ -2,3 +2,71 @@ I have a new strategy for 310X case.
 So I want to rename 310X as all Vd0.
 move the current content under 310X to 3100X and rename with 5 letters.
 i will use the name 3101X for then new strategy.
+
+https://github.com/dylan0301/hexagon-cover-visual/tree/gulgu
+read this and tell me how the 6 points are constructed, and what the 3d surface f(a,b) core case means
+
+except for P4 is all same?
+and i think we have pointonedge fallback.
+tell all the difference from 5 points
+
+make new files under 3101X 
+- mathematically define how the 6 points are constructed. don't reference the 3100X and make it self contained.
+(make sure to include the pointonedge fallback)
+- f(a,b) core case 모드에서 a+b>1인 a, b빼고 나머지 점들의 ai, bi는 어떻게 잡아진건지 how the relaxation to 2d exactly work
+- exact definition of the 3d graph surface
+- the minimum curve
+read again the github https://github.com/dylan0301/hexagon-cover-visual/tree/gulgu
+ask me questions,
+
+make another file that references the figures,
+and explain the limit behavior.
+it seems that when we traverse over the minimum curve, in one direction,
+the combinatorial type for which point is on which triangle side is always the same.
+그림처럼 항상 D0, D2, P4, P5 점들이 정해진 edge 위에 있어요
+
+Define the points of b0/a1, b1/a2, ... in the image
+to simplify the equations. for example, 
+$$
+C_2(a)=\left\{P:\left\lVert P-\left(V_2+(1-a)(V_3-V_2)\right)\right\rVert=1\right\},
+$$
+
+becomes simpler
+
+for the three diagonal points in 31011, refer to the admissible set
+
+since we have ab union and admissible set,
+in 31011file, don't write the duplicate things and just use direct reference as much as possible
+
+in the three P points, what is strict line junction? explain more detaily
+explain that the ab union curve is formed with arc, line, line, arc
+and the strict line junction is the intersection point of two lines
+
+is there proof that we can assume a_3+b_3=1 and a_5+b_5=1? monotonicity of side legnth of minimal enclosing triangle?
+even in the 5 point case?
+
+ 
+
+make the 31012 statement more clearly.
+lemma) the 6 points fall inside the red region of the H- 6 ab union sets.
+and the 6 points are determined by only 2 variables a and b
+
+to prove a_3+b_3=1 and a_5+b_5=1,
+by symmetry we only prove a_5+b_5=1
+assume we have X0 to X5 plotted,
+and fix X0~X4 and only move X5.
+By the construction of 6 points, only P5 can move.
+as X5 moves to V0 direction, i want to prove that convex hull of 6 points is increasing containmentwise
+P5 will move away from P4 along the fixed ab union set of V4.
+prove it
+
+prove that other branches 
+
+for the a+b>1 case, instead of the ab union set, we use a larger set that contains the ab union set.
+the original ab union set has arc, line, line, arc.
+if we check, then we don't use the arc, we just use two lines extended.
+https://github.com/dylan0301/hexagon-cover-visual/tree/gulgu
+look at the code again for reference.
+update the 3101X according to this.
+then the proof of 31012 will be more clear.
+think about it
