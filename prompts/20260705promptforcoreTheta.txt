@@ -1,0 +1,24 @@
+read https://github.com/dylan0301/hexagon-cover-database
+especially 3101X package.
+I want to prove the triangle diameter is always > 1 for these 6 points.
+however, I think the only tight parts are at the limit shapes
+Right now, we have two variables a,b and we want to prove f(a,b)>1 in our domain.
+however, try this strategy.
+extend the function to g(a,b,theta).
+this is defined as the minimal enclosing triangle of 6 points, but the rotation angle is fixed to theta.
+theta in [0,60 deg]
+then near the limit shape is just theta is near 0 or 60 deg.
+since other parts don't seem tight, maybe we can split ranges of theta into finite parts, and don't use the entire 6 point information.
+just choose suitable 3 points from 6 points in differetn ranges of theta and prove that g>1 in that range.
+only be careful near the limit point.
+but read 31015 file and only special 4 points seem to be important at limit shape.
+
+rephraze my strategy in your own words.
+- make proof strategies and sketches explicitly based on reading my proof sketch
+- do numerical experiments to emperically verify those strategies.
+- Try reducing the problem into simple algebraic inequalities.
+- try solving more precisely using calculus and algebraic methods.
+- you may have to split some cases.
+- if it doesn’t work, you may use some interval arithemtic.
+- try using simple approximations in non tight regions.
+you must report your entire work with full detail with mathematical rigor, including failure where and why
