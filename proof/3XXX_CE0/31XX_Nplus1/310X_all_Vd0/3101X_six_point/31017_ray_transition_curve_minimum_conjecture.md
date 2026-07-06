@@ -1,18 +1,25 @@
-# Ray-Slice Transition-Curve Minimum Target
+# Algebraic Slice Transition-Curve Targets
 
 Status: Lemma target
 
-This note records the conjectural ray-slice reduction for the fixed-angle
-six-point relaxed-P strategy.  It is not a proof.  The computational status and
-known failures of stronger variants are recorded in
-[`31018_ray_transition_computation_memo.md`](31018_ray_transition_computation_memo.md).
+This file generalizes the original ray-slice note.  The file name is kept for
+continuity, but the contents now record the algebraic slice families tested for
+the fixed-angle and optimized six-point relaxed-P strategy.
 
 All points in this note are the relaxed six-point points from
 [`31011_six_point_construction.md`](31011_six_point_construction.md).  In
 particular, $P_3$ means $P_3^{\mathrm{rel}}$ and $P_5$ means
-$P_5^{\mathrm{rel}}$.
+$P_5^{\mathrm{rel}}$.  No statement here concerns the older five-point
+actual-center points.
 
-## 1. Coordinates and transition polynomial
+The computational status of the slice families is recorded in
+[`31018_ray_transition_computation_memo.md`](31018_ray_transition_computation_memo.md).
+The constant-difference target is recorded separately in
+[`31019_constant_difference_slice_minimum_target.md`](31019_constant_difference_slice_minimum_target.md).
+A concise success/failure table is recorded in
+[`31020_slice_family_status_catalog.md`](31020_slice_family_status_catalog.md).
+
+## 1. Common coordinates
 
 Use
 
@@ -30,13 +37,25 @@ $$
 p\le q.
 $$
 
-The strict far-domain is
+The strict branch and supercritical conditions are
 
 $$
-\mathcal F_{0.1}^-=
-\{(p,q):0.1\le p\le q,
-\ p+q<1,
-\ (1-p)^2+(1-p)(1-q)+(1-q)^2<1\}.
+(1-p)^2+(1-p)(1-q)+(1-q)^2<1,
+\qquad
+S<1.
+$$
+
+The diagonal coordinate is
+
+$$
+c_*=c(p,q),
+$$
+
+and
+
+$$
+D_j=(1-c_*)V_j,
+\qquad j=0,1,2.
 $$
 
 The admissible-set branch transition polynomial is
@@ -45,8 +64,7 @@ $$
 T(p,q)=S^4-S^2+pq.
 $$
 
-For $p\le q$, the diagonal coordinate $c_*=c(p,q)$ is on one of the following
-branches:
+For $p\le q$, the diagonal value has the two recorded branch descriptions
 
 $$
 T\ge0:
@@ -55,7 +73,7 @@ c_*=
 \frac{2q}{1+\sqrt{4S^2-3}},
 $$
 
-or
+and
 
 $$
 T\le0:
@@ -65,9 +83,7 @@ c_*^4-c_*^2+pc_*-p^2=0,
 c_*\ge S.
 $$
 
-The transition curve is the common branch boundary.
-
-## 2. Geometric meaning of $T=0$
+## 2. Meaning of $T=0$
 
 The equality
 
@@ -157,238 +173,317 @@ $$
 The transition curve is therefore the locus where the diagonal radius equals
 the supercritical row gap.
 
-## 3. Ray foliation
+## 3. Constant-difference slices
 
-Use the ray slices
+Set
+
+$$
+d=q-p.
+$$
+
+Then
+
+$$
+p=\frac{S-d}{2},
+\qquad
+q=\frac{S+d}{2},
+$$
+
+and
+
+$$
+pq=\frac{S^2-d^2}{4}.
+$$
+
+Therefore on a fixed-$d$ slice,
+
+$$
+T(S,d)=S^4-\frac34S^2-\frac14d^2.
+$$
+
+The equation $T=0$ is
+
+$$
+4S^4-3S^2-d^2=0.
+$$
+
+Thus the unique positive transition value is
+
+$$
+S_T(d)=
+\sqrt{\frac{3+\sqrt{9+16d^2}}8},
+$$
+
+and
+
+$$
+p_T(d)=\frac{S_T(d)-d}{2},
+\qquad
+q_T(d)=\frac{S_T(d)+d}{2}.
+$$
+
+This is the primary slice-minimum target for the optimized six-point function.
+The conjectured theorem is
+
+$$
+F_6(p,q)\ge F_6(p_T(d),q_T(d))
+\qquad(q-p=d).
+$$
+
+The proof target and partial reductions are recorded in `31019`.
+
+## 4. Ray slices
+
+Use
 
 $$
 q=\kappa p,
-\qquad
-\kappa\ge1.
+\qquad \kappa\ge1.
 $$
 
-Along such a ray,
+Then
 
 $$
 T(p,\kappa p)
 =p^2\left((1+\kappa)^4p^2-(1+\kappa+\kappa^2)\right).
 $$
 
-Therefore the transition point on the ray is explicit:
+Hence the transition point is explicit:
 
 $$
 p_T(\kappa)=
 \frac{\sqrt{1+\kappa+\kappa^2}}{(1+\kappa)^2},
-$$
-
-and
-
-$$
+\qquad
 q_T(\kappa)=\kappa p_T(\kappa).
 $$
 
-The transition point lies on the cutoff boundary $p=0.1$ when
+Ray slices remain useful, but the unrestricted fixed-angle claim is false:
+for some fixed $\theta$, the minimum of $G_E$ along a ray occurs away from
+$T=0$.  The restricted dangerous-window version remains a working target.
+
+## 5. Constant local-metric slices
+
+Set
 
 $$
-\frac{1+\kappa+\kappa^2}{(1+\kappa)^4}=0.01.
+L=p^2-pq+q^2.
 $$
 
-Let $\kappa_{0.1}$ denote the unique solution with $\kappa\ge1$.  Numerically,
+In $(S,d)$ coordinates,
 
 $$
-\kappa_{0.1}=8.518281505052565\ldots .
+L=\frac{S^2+3d^2}{4}.
 $$
 
-Thus the transition part of the far lower half is parameterized by
+Thus
 
 $$
-1\le\kappa\le\kappa_{0.1}.
+d^2=\frac{4L-S^2}{3}.
 $$
 
-For $\kappa>\kappa_{0.1}$, the transition point lies outside the far cutoff
-$p\ge0.1$, so the relevant ray endpoint is $p=0.1$ rather than $p_T(\kappa)$.
-
-## 4. Ray-slice functions
-
-For a selected subset
+Substitution into $T$ gives
 
 $$
-E\subseteq\{P_3^{\mathrm{rel}},P_4,P_5^{\mathrm{rel}},D_0,D_1,D_2\},
+T(S,L)=S^4-\frac23S^2-\frac13L.
 $$
 
-define
+The transition equation is
 
 $$
-H_E(p;\kappa,\theta)=G_E(1-\kappa p,1-p,\theta),
+3S^4-2S^2-L=0.
 $$
 
-where the arguments of $G_E$ are $(a,b)$ and
+Letting $X=S^2$, the positive root is
 
 $$
-q=\kappa p,
-\qquad
-a=1-q,
-\qquad
-b=1-p.
+S_T(L)=
+\sqrt{\frac{1+\sqrt{1+3L}}3}.
 $$
 
-The admissible ray interval is
+Then
 
 $$
-p_{\rho,-}(\kappa)<p<\frac1{1+\kappa},
-$$
-
-with the far cutoff $p\ge0.1$, where
-
-$$
-p_{\rho,-}(\kappa)=
-\frac{3(1+\kappa)-
-\sqrt{9(1+\kappa)^2-8(1+\kappa+\kappa^2)}}
-{2(1+\kappa+\kappa^2)}.
-$$
-
-## 5. Restricted ray-minimum lemma target
-
-The current proof target is not the global all-angle version.  The computation
-memo records counterexamples to that stronger statement in non-dangerous angle
-regions.  The useful restricted target is the following.
-
-### Lemma target
-
-On each ray $q=\kappa p$ with $1\le\kappa\le\kappa_{0.1}$, the selected subset
-function has its minimum at $p=p_T(\kappa)$ in the following dangerous windows:
-
-1. For
-
-   $$
-   E=S_A=\{P_3^{\mathrm{rel}},P_5^{\mathrm{rel}},D_0,D_2\},
-   \qquad
-   18^\circ\le\theta\le26^\circ,
-   $$
-
-   prove
-
-   $$
-   H_{S_A}(p;\kappa,\theta)
-   \ge
-   H_{S_A}(p_T(\kappa);\kappa,\theta).
-   $$
-
-2. For
-
-   $$
-   E=S_C=\{P_3^{\mathrm{rel}},P_5^{\mathrm{rel}},D_1,D_2\},
-   \qquad
-   30^\circ\le\theta\le36^\circ,
-   $$
-
-   prove
-
-   $$
-   H_{S_C}(p;\kappa,\theta)
-   \ge
-   H_{S_C}(p_T(\kappa);\kappa,\theta).
-   $$
-
-3. For
-
-   $$
-   E=S_D=\{P_3^{\mathrm{rel}},P_5^{\mathrm{rel}},D_1\},
-   \qquad
-   36^\circ\le\theta\le40^\circ,
-   $$
-
-   prove
-
-   $$
-   H_{S_D}(p;\kappa,\theta)
-   \ge
-   H_{S_D}(p_T(\kappa);\kappa,\theta).
-   $$
-
-These statements would reduce the dangerous fixed-angle far-from-limit cases to
-one transition-curve check in $(\kappa,\theta)$.
-
-## 6. Monotonicity form
-
-A stronger and more certificate-friendly form is the two-sided derivative
-claim
-
-$$
-\frac{\partial}{\partial p}H_E(p;\kappa,\theta)\le0
-\qquad
-(p<p_T(\kappa)),
+d_T(L)=\sqrt{\frac{4L-S_T(L)^2}{3}},
 $$
 
 and
 
 $$
-\frac{\partial}{\partial p}H_E(p;\kappa,\theta)\ge0
+p_T(L)=\frac{S_T(L)-d_T(L)}2,
 \qquad
-(p>p_T(\kappa)),
+q_T(L)=\frac{S_T(L)+d_T(L)}2.
 $$
 
-within the relevant support-pattern cell and dangerous angle window.
-
-Because $G_E$ is a support maximum, this derivative statement should be proved
-after splitting by the active supports.  On each support cell, the derivative is
-algebraic.  The diagonal derivative is explicit on each branch.  On the quartic
-branch,
+This slice is algebraically simple and geometrically natural because it uses
+the same minus quadratic form as the local metric
 
 $$
-(4c_*^3-2c_*+p)\frac{dc_*}{dp}+c_*-2p=0,
+Q(u,v)=u^2+v^2-uv.
 $$
 
-so
+However, the global optimized $T=0$ minimum statement is empirically false very
+near the symmetric endpoint $L=3/16$.  It may still be useful after removing a
+small initial interval.
+
+## 6. General quadratic slices
+
+For
 
 $$
-\frac{dc_*}{dp}=
-\frac{2p-c_*}{4c_*^3-2c_*+p}.
+Q_\lambda(p,q)=p^2+\lambda pq+q^2=K,
 $$
 
-The relaxed points are represented by the selected line-circle root equations
-from the relaxed-P construction.  If the corresponding root parameters are
-$\lambda$ and $\mu$, then their derivatives are obtained from
+we have
 
 $$
-F_3(\lambda,p;\kappa)=0,
-\qquad
-F_5(\mu,p;\kappa)=0
+Q_\lambda=
+\frac{(2+\lambda)S^2+(2-\lambda)d^2}{4}.
 $$
 
-by
+Assume $\lambda<2$.  Solving for $d^2$ and substituting into $T$ gives
 
 $$
-\lambda'=-\frac{F_{3,p}}{F_{3,\lambda}},
-\qquad
-\mu'=-\frac{F_{5,p}}{F_{5,\mu}}.
+T=0
+\quad\Longleftrightarrow\quad
+(2-\lambda)X^2+(\lambda-1)X-K=0,
+\qquad X=S^2.
 $$
 
-This is the intended algebraic input for an interval proof of ray monotonicity.
-
-## 7. Transition-curve lower-bound target
-
-After the ray reduction, the remaining transition checks are
+Thus
 
 $$
-G_{S_A}(p_T(\kappa),q_T(\kappa),\theta)>1,
-\qquad
-18^\circ\le\theta\le26^\circ,
+S_T(\lambda,K)=
+\sqrt{
+\frac{1-\lambda+
+\sqrt{(\lambda-1)^2+4(2-\lambda)K}}
+{2(2-\lambda)}
+}.
 $$
 
+Then
+
 $$
-G_{S_C}(p_T(\kappa),q_T(\kappa),\theta)>1,
-\qquad
-30^\circ\le\theta\le36^\circ,
+d_T(\lambda,K)=
+\sqrt{\frac{4K-(2+\lambda)S_T(\lambda,K)^2}{2-\lambda}},
 $$
 
 and
 
 $$
-G_{S_D}(p_T(\kappa),q_T(\kappa),\theta)>1,
+p_T=\frac{S_T-d_T}{2},
 \qquad
-36^\circ\le\theta\le40^\circ,
+q_T=\frac{S_T+d_T}{2}.
 $$
 
-for $1\le\kappa\le\kappa_{0.1}$.  The empirical minima of these transition
-checks are recorded in `31018`.
+Computations suggest that negative $\lambda$ values are often viable, while
+nonnegative $\lambda$ values begin to fail.  The special case $\lambda=-1$ is
+most natural geometrically but has a small symmetric-endpoint failure.
+
+## 7. Slices not recommended
+
+The following slices have simple $T=0$ intersections but produced optimized
+or fixed-angle failures and are not recommended as global slice-minimum routes.
+
+### Constant product
+
+For
+
+$$
+pq=P,
+$$
+
+one gets
+
+$$
+S_T(P)=\sqrt{\frac{1+\sqrt{1-4P}}2}.
+$$
+
+Product slices failed near the symmetric regime.
+
+### Constant sum
+
+For
+
+$$
+S=p+q,
+$$
+
+one gets
+
+$$
+d_T(S)=S\sqrt{4S^2-3}.
+$$
+
+Constant-sum slices failed strongly, even in the near-limit support branch.
+
+### Euclidean quadratic
+
+For
+
+$$
+p^2+q^2=M,
+$$
+
+one gets
+
+$$
+S_T(M)=\sqrt{\frac{1+\sqrt{1+8M}}4}.
+$$
+
+This slice had small but genuine failures.
+
+### Plus quadratic
+
+For
+
+$$
+p^2+pq+q^2=K,
+$$
+
+one gets
+
+$$
+S_T(K)=K^{1/4}.
+$$
+
+Despite its admissible-set appearance, this slice failed repeatedly.
+
+## 8. Finite support-branch proof route
+
+For fixed $(p,q)$, the optimized value
+
+$$
+F_6(p,q)=\inf_\theta G_{K_6^{\mathrm{rel}}}(p,q,\theta)
+$$
+
+occurs at a support-tie angle.  Therefore every slice-minimum target can in
+principle be reduced to finitely many branch inequalities.
+
+For the constant-difference target, the observed transition support regimes are
+
+$$
+(D_1),(P_3),(P_5,D_0),
+$$
+
+$$
+(D_2),(P_3),(P_5,D_0),
+$$
+
+$$
+(D_1),(P_3,D_2),(P_5),
+$$
+
+and
+
+$$
+(D_0),(D_2),(P_4,P_5).
+$$
+
+The last branch is the near-limit support pattern involving
+
+$$
+D_0,D_2,P_4,P_5.
+$$
+
+A proof should certify each support branch against the transition value on the
+same slice.
