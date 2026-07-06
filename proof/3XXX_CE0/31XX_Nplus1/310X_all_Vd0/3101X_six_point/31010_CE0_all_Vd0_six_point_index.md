@@ -24,3 +24,6 @@ self-contained in this package.
 | [`31013_core_surface_definition.md`](31013_core_surface_definition.md) | Definition | Defines the side-length surface $F_6(a,b)$ and selected-point surfaces. |
 | [`31014_minimum_curve_definition.md`](31014_minimum_curve_definition.md) | Definition | Defines the ideal minimum relation and the sampled pink curve drawn by the app. |
 | [`31015_minimum_curve_limit_figures.md`](31015_minimum_curve_limit_figures.md) | Empirical | Records the toward-limit figure sequence and the observed stable support pattern involving $D_0,D_2,P_4,P_5$. |
+| [`31016_fixed_angle_g_strategy.md`](31016_fixed_angle_g_strategy.md) | Strategy | Defines the fixed-angle function $G_E(a,b,\theta)$ and records the far-from-limit selected-subset angle split for the relaxed six-point route. |
+| [`31017_ray_transition_curve_minimum_conjecture.md`](31017_ray_transition_curve_minimum_conjecture.md) | Lemma target | Records the ray-slice $T=0$ minimum and monotonicity target, including the explicit transition parameterization $q=\kappa p$. |
+| [`31018_ray_transition_computation_memo.md`](31018_ray_transition_computation_memo.md) | Experiment | Records numerical tests of the ray-slice transition target, including the failure of the unrestricted all-angle form and support for the restricted dangerous-window form. |
