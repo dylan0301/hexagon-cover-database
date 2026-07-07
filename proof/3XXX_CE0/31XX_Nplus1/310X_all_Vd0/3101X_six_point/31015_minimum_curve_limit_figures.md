@@ -8,6 +8,29 @@ associated with the six-point package.  They are evidence for a recurring
 contact pattern, not a proof that the contact pattern persists along the exact
 minimum relation.
 
+## Point-label warning
+
+The points labeled $P_3$ and $P_5$ in these screenshots are not the relaxed
+points $P_3^{\mathrm{rel}}$ and $P_5^{\mathrm{rel}}$ from
+[`31011_six_point_construction.md`](31011_six_point_construction.md).  They use
+the non-relaxed endpoint centers displayed below.  Therefore the figures in
+this note should not be cited as direct evidence for the relaxed-P six-point
+set without rechecking the corresponding relaxed points.
+
+## Slice convention
+
+These screenshots were made using the app's sampled vertical-slice convention:
+
+$$
+a=\text{constant},\qquad b\in\mathcal D_a.
+$$
+
+The current theoretical definition of slice partitions and minimum relations is
+recorded in
+[`31017_ray_transition_curve_minimum_conjecture.md`](31017_ray_transition_curve_minimum_conjecture.md).
+Thus the figures below are empirical evidence for this sampled vertical-slice
+curve only; they are not evidence for an arbitrary slice partition.
+
 ## Figure sequence
 
 The sequence below appears to move along the sampled minimum curve toward the

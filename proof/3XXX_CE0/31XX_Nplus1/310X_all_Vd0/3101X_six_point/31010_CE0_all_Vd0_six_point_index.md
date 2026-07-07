@@ -19,13 +19,12 @@ self-contained in this package.
 
 | File | Recorded status | Notes |
 |---|---|---|
-| [`31011_six_point_construction.md`](31011_six_point_construction.md) | Definition | Defines the relaxed-P two-line $AB$-superset construction, with $P_3^{\mathrm{rel}}$, $P_5^{\mathrm{rel}}$, strict $P_4$, boundary omission of $P_4$ on $\rho=1$, and the diagonal points $D_0,D_1,D_2$. |
+| [`31011_six_point_construction.md`](31011_six_point_construction.md) | Definition | Defines the relaxed-P two-line $AB$-superset construction, with $P_3^{\mathrm{rel}}$, $P_5^{\mathrm{rel}}$, $P_4$, the boundary collinearity note on $\rho=1$, and the diagonal points $D_0,D_1,D_2$. |
 | [`31012_core_graph_two_variable_relaxation.md`](31012_core_graph_two_variable_relaxation.md) | Proven | Proves the strict fixed-line monotonicity certificate, relaxed-P containment reduction, diagonal monotonicity reduction, and two-variable dependence. |
 | [`31013_core_surface_definition.md`](31013_core_surface_definition.md) | Definition | Defines the side-length surface $F_6(a,b)$ and selected-point surfaces. |
-| [`31014_minimum_curve_definition.md`](31014_minimum_curve_definition.md) | Definition | Defines the ideal minimum relation and the sampled pink curve drawn by the app. |
 | [`31015_minimum_curve_limit_figures.md`](31015_minimum_curve_limit_figures.md) | Empirical | Records the toward-limit figure sequence and the observed stable support pattern involving $D_0,D_2,P_4,P_5$. |
 | [`31016_fixed_angle_g_strategy.md`](31016_fixed_angle_g_strategy.md) | Strategy | Defines the fixed-angle function $G_E(a,b,\theta)$ and records the far-from-limit selected-subset angle split for the relaxed six-point route. |
-| [`31017_ray_transition_curve_minimum_conjecture.md`](31017_ray_transition_curve_minimum_conjecture.md) | Lemma target | Generalizes the ray note into algebraic slice transition targets, including constant-difference, ray, local-metric, quadratic, product, and sum slices. |
+| [`31017_ray_transition_curve_minimum_conjecture.md`](31017_ray_transition_curve_minimum_conjecture.md) | Lemma target | Defines the ideal minimum relation and records algebraic transition-curve targets, including constant-difference, ray, local-metric, quadratic, product, and sum slices. |
 | [`31018_ray_transition_computation_memo.md`](31018_ray_transition_computation_memo.md) | Experiment | Records numerical tests for the algebraic slice families, including fixed-angle failures and optimized-slice success/failure evidence. |
 | [`31019_constant_difference_slice_minimum_target.md`](31019_constant_difference_slice_minimum_target.md) | Lemma target | Records the primary constant-$d=q-p$ optimized slice theorem target, exact $T=0$ formula, support-tie reduction, and partial cusp analysis. |
 | [`31020_slice_family_status_catalog.md`](31020_slice_family_status_catalog.md) | Experiment | Concise success/failure catalog for the tested algebraic slice families and the recommended proof direction. |

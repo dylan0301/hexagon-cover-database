@@ -5,7 +5,7 @@ Status: Proven
 This file proves the relaxed-P reduction for the CE0, $N_+=1$, all-Vd0
 six-point route.  The construction is defined in
 [`31011_six_point_construction.md`](31011_six_point_construction.md).
-
+<!--
 The result proved here is local: after the unique supercritical row is rotated
 to $V_4$, the relaxed points
 
@@ -17,16 +17,82 @@ and the algorithm-2 diagonal points are controlled by the two variables
 
 $$
 a=a_4,\qquad b=b_4.
+$$ -->
+
+## Main conditional statement
+
+Let
+
+$$
+\mathcal U_6
+=
+H\setminus\bigcup_{i=0}^5 \mathrm{int}(T_i)
 $$
 
-This file does not prove the final inequality
+be the part of $H$ not covered by the interiors of the six vertex triangles.
+For a bounded set $A$, write $\Lambda(A)$ for the side length of the smallest
+closed equilateral triangle containing $A$.  Equivalently,
+
+$$
+\Lambda(A)=
+\inf_{\theta\in[0,2\pi/3)}
+\frac2{\sqrt3}
+\sum_{j=0}^2
+\sup_{P\in A} n_j(\theta)\cdot P.
+$$
+
+Since equilateral triangles are convex,
+
+$$
+\Lambda(A)=\Lambda(\mathrm{conv}\ A).
+$$
+
+The reduction below proves, in the strict branch, the convex-hull containment
+
+$$
+\mathrm{conv}\ K_6^{\mathrm{rel}}(a,b)
+\subseteq
+\mathrm{conv}\ \mathcal U_6.
+$$
+
+Therefore
+
+$$
+\Lambda(\mathcal U_6)
+=
+\Lambda(\mathrm{conv}\ \mathcal U_6)
+\ge
+\Lambda(K_6^{\mathrm{rel}}(a,b)).
+$$
+
+On the boundary $\rho=1$, the same notation is used.  The limiting points
+$P_3^{\mathrm{rel}},P_4,P_5^{\mathrm{rel}}$ are collinear, so $P_4$ is
+redundant for convex-hull and triangle-function values, and
+
+$$
+\mathrm{conv}\ K_6^{\mathrm{rel}}(a,b)
+\subseteq
+\mathrm{conv}\ \mathcal U_6,
+$$
+
+and hence
+
+$$
+\Lambda(\mathcal U_6)
+\ge
+\Lambda(K_6^{\mathrm{rel}}(a,b)).
+$$
+
+Thus, if the relaxed triangle-function inequality
 
 $$
 \Lambda(K_6^{\mathrm{rel}}(a,b))>1
 $$
 
-on the two-variable domain, and it does not by itself close the CE0,
-$N_+=1$, all-Vd0 branch.
+is proved on the two-variable domain, including the boundary $\rho=1$, then the
+full CE0, $N_+=1$, all-Vd0 six-point branch follows: $\mathcal U_6$ would have
+$\Lambda(\mathcal U_6)>1$, but in a cover the set $\mathcal U_6$ must be
+contained in the unit center triangle $T_C$.
 
 ## Statement
 
@@ -115,12 +181,26 @@ $$
 $$
 
 for the strict branch, where $K_6^{\mathrm{act}}$ denotes the corresponding
-actual six-point set with actual centers $E_2(x_2)$ and $E_5(x_5)$.
+actual six-point set with actual centers $E_2(x_2)$ and $E_5(x_5)$.  Since the
+actual selected points are vertex-uncovered obstruction points, this gives
 
-On the boundary $\rho=1$, the point $P_4$ is omitted as in
+$$
+\mathrm{conv}\ K_6^{\mathrm{rel}}(a,b)
+\subseteq
+\mathrm{conv}\ \mathcal U_6.
+$$
+
+On the boundary $\rho=1$, the limiting points $P_3^{\mathrm{rel}},P_4$ and
+$P_5^{\mathrm{rel}}$ are collinear as in
 [`31011_six_point_construction.md`](31011_six_point_construction.md).  The
-strict line junction degenerates to a point on the segment between the limiting
-$P_3$ and $P_5$, so omitting it does not change the relevant convex hull.
+point $P_4$ is redundant for the relevant convex hull, and the same notation
+$K_6^{\mathrm{rel}}(a,b)$ satisfies
+
+$$
+\mathrm{conv}\ K_6^{\mathrm{rel}}(a,b)
+\subseteq
+\mathrm{conv}\ \mathcal U_6.
+$$
 
 ## Chain inequalities
 
@@ -996,19 +1076,14 @@ $$
 (p,q)=(1-b,1-a).
 $$
 
-Thus, in the strict branch,
+Thus, throughout the domain,
 
 $$
 K_6^{\mathrm{rel}}=K_6^{\mathrm{rel}}(a,b).
 $$
 
-On $\rho=1$, the selected set is
-
-$$
-K_5^{\partial,\mathrm{rel}}(a,b),
-$$
-
-which also depends only on $(a,b)$.
+On $\rho=1$, the point $P_4$ is the limiting line junction and is collinear
+with the limiting $P_3^{\mathrm{rel}}$ and $P_5^{\mathrm{rel}}$.
 
 ## Boundary $\rho=1$
 
@@ -1031,10 +1106,10 @@ $$
 (r,0).
 $$
 
-The limiting line junction lies on this segment.  Therefore it lies in the
-convex hull of the limiting $P_3$ and $P_5$ points.  Omitting $P_4$ on this
-boundary does not change the convex hull and does not change the minimal
-enclosing equilateral triangle side length.
+The limiting line junction lies on this segment.  Therefore $P_4$ lies in the
+convex hull of the limiting $P_3$ and $P_5$ points, and keeping $P_4$ in
+$K_6^{\mathrm{rel}}$ does not change the convex hull or the minimal enclosing
+equilateral triangle side length.
 
-This proves the relaxed-P two-variable reduction with $P_4$ omitted on
-$\rho=1$.
+This proves the relaxed-P two-variable reduction with the same
+$K_6^{\mathrm{rel}}$ notation on $\rho=1$.

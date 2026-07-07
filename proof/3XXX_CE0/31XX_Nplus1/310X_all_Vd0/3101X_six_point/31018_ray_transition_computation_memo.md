@@ -42,7 +42,8 @@ K_6^{\mathrm{rel}}=
 \{P_3^{\mathrm{rel}},P_4,P_5^{\mathrm{rel}},D_0,D_1,D_2\}
 $$
 
-in the strict branch, with $P_4$ omitted on $\rho=1$ as in `31011`.
+with $P_4$ redundant on $\rho=1$ by the boundary collinearity recorded in
+`31011`.
 
 The experiments also used selected subsets
 

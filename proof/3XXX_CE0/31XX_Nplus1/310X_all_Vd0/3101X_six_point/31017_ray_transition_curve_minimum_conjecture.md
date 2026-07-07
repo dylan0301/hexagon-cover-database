@@ -19,7 +19,58 @@ The constant-difference target is recorded separately in
 A concise success/failure table is recorded in
 [`31020_slice_family_status_catalog.md`](31020_slice_family_status_catalog.md).
 
-## 1. Common coordinates
+## 1. Ideal minimum relation
+
+Let $E$ be a nonempty selected subset of
+
+$$
+\left\{P_3,P_4,P_5,D_0,D_1,D_2\right\}.
+$$
+
+Let $F_E(a,b)$ be the selected-point side-length surface from
+[`31013_core_surface_definition.md`](31013_core_surface_definition.md).  Let
+$\Omega\subseteq\mathcal D$ be the domain under consideration.  An
+$E$-admissible slice partition of $\Omega$ is a family $\mathscr S$ of nonempty
+subsets of $\Omega$ such that
+
+$$
+\bigcup_{\Sigma\in\mathscr S}\Sigma=\Omega,
+$$
+
+and
+
+$$
+\Sigma_1\cap\Sigma_2=\emptyset
+\qquad(\Sigma_1\ne\Sigma_2),
+$$
+
+with $F_E$ available somewhere on every $\Sigma\in\mathscr S$.
+
+For a slice $\Sigma\in\mathscr S$, define
+
+$$
+\mu_E(\Sigma)=\inf_{(a,b)\in\Sigma}F_E(a,b).
+$$
+
+The slice minimizer relation is
+
+$$
+\mathcal M_E(\Sigma)=
+\left\{(a,b)\in\Sigma:F_E(a,b)=\mu_E(\Sigma)\right\}.
+$$
+
+The minimum relation for the partition is
+
+$$
+\mathcal M_E(\mathscr S)=
+\bigcup_{\Sigma\in\mathscr S}\mathcal M_E(\Sigma).
+$$
+
+For the default all-six graph, write $\mathcal M_6(\mathscr S)$ for the
+relation obtained from
+$E=\left\{P_3,P_4,P_5,D_0,D_1,D_2\right\}$.
+
+## 2. Common coordinates
 
 Use
 
@@ -64,6 +115,20 @@ $$
 T(p,q)=S^4-S^2+pq.
 $$
 
+For a chosen slice partition $\mathscr S$, the working minimum-curve conjecture
+is that $\mathcal M_6(\mathscr S)$ is obtained by intersecting the slices of
+$\mathscr S$ with the algebraic transition curve
+
+$$
+T(1-b,1-a)=0
+$$
+
+inside the domain under consideration, with the reflected half treated by
+symmetry from the lower symmetric half $p\le q$.  This identification is
+conjectural; it does not prove that $F_6$ has a unique minimizer on each slice
+of the chosen partition, that $\mathcal M_6(\mathscr S)$ is continuous, or that
+the algebraic transition curve gives the exact global minimum relation.
+
 For $p\le q$, the diagonal value has the two recorded branch descriptions
 
 $$
@@ -83,7 +148,7 @@ c_*^4-c_*^2+pc_*-p^2=0,
 c_*\ge S.
 $$
 
-## 2. Meaning of $T=0$
+## 3. Meaning of $T=0$
 
 The equality
 
@@ -173,7 +238,7 @@ $$
 The transition curve is therefore the locus where the diagonal radius equals
 the supercritical row gap.
 
-## 3. Constant-difference slices
+## 4. Constant-difference slices
 
 Set
 
@@ -232,7 +297,7 @@ $$
 
 The proof target and partial reductions are recorded in `31019`.
 
-## 4. Ray slices
+## 5. Ray slices
 
 Use
 
@@ -261,7 +326,7 @@ Ray slices remain useful, but the unrestricted fixed-angle claim is false:
 for some fixed $\theta$, the minimum of $G_E$ along a ray occurs away from
 $T=0$.  The restricted dangerous-window version remains a working target.
 
-## 5. Constant local-metric slices
+## 6. Constant local-metric slices
 
 Set
 
@@ -325,7 +390,7 @@ However, the global optimized $T=0$ minimum statement is empirically false very
 near the symmetric endpoint $L=3/16$.  It may still be useful after removing a
 small initial interval.
 
-## 6. General quadratic slices
+## 7. General quadratic slices
 
 For
 
@@ -379,7 +444,7 @@ Computations suggest that negative $\lambda$ values are often viable, while
 nonnegative $\lambda$ values begin to fail.  The special case $\lambda=-1$ is
 most natural geometrically but has a small symmetric-endpoint failure.
 
-## 7. Slices not recommended
+## 8. Slices not recommended
 
 The following slices have simple $T=0$ intersections but produced optimized
 or fixed-angle failures and are not recommended as global slice-minimum routes.
@@ -448,7 +513,7 @@ $$
 
 Despite its admissible-set appearance, this slice failed repeatedly.
 
-## 8. Finite support-branch proof route
+## 9. Finite support-branch proof route
 
 For fixed $(p,q)$, the optimized value
 

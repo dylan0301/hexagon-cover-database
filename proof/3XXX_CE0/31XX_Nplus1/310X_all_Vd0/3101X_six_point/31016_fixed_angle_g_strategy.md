@@ -17,9 +17,10 @@ K_6^{\mathrm{rel}}(a,b)=
 \{P_3^{\mathrm{rel}},P_4,P_5^{\mathrm{rel}},D_0,D_1,D_2\}
 $$
 
-be the strict-branch relaxed set from `31011`.  On the boundary
-$\rho=a^2+ab+b^2=1$, the point $P_4$ is omitted as in that file.  The graph
-domain is
+be the relaxed set from `31011`.  On the boundary
+$\rho=a^2+ab+b^2=1$, the limiting points
+$P_3^{\mathrm{rel}},P_4,P_5^{\mathrm{rel}}$ are collinear, so $P_4$ is
+redundant for convex-hull and triangle-function values.  The graph domain is
 
 $$
 \mathcal D=

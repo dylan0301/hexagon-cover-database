@@ -158,8 +158,8 @@ $$
 $$
 
 It is used only in the strict nondegenerate branch $\rho<1$.  On the boundary
-$\rho=1$, the line-line junction degenerates and $P_4$ is omitted from the
-selected set.
+$\rho=1$, the line-line junction is interpreted as its limiting point, which is
+collinear with the limiting $P_3^{\mathrm{rel}}$ and $P_5^{\mathrm{rel}}$.
 
 Let $\partial_{\mathrm{na}}R^{\mathrm{lin}}(a,b)$ denote the non-axis part of
 the boundary, namely the part with local coordinates $u>0$ and $v>0$.  In the
@@ -256,11 +256,11 @@ $$
 P_4(a,b)=J(a,b).
 $$
 
-For $\rho=1$, $P_4$ is omitted.  The limiting non-axis boundary is a single
-line segment, and the limiting line-line junction lies on the segment between
-the limiting $P_3^{\mathrm{rel}}$ and $P_5^{\mathrm{rel}}$.  Omitting $P_4$ on
-this boundary therefore does not change the convex hull relevant to the minimal
-enclosing equilateral triangle.
+For $\rho=1$, define $P_4(a,b)$ as the limiting line-line junction.  The
+limiting non-axis boundary is a single line segment, and
+$P_3^{\mathrm{rel}},P_4,P_5^{\mathrm{rel}}$ are collinear on this segment.
+Thus $P_4$ is redundant for the convex hull relevant to the minimal enclosing
+equilateral triangle, but the notation $K_6^{\mathrm{rel}}(a,b)$ is still used.
 
 ## The three diagonal points
 
@@ -289,20 +289,15 @@ $$
 These are the algorithm-2 diagonal points used in the relaxed two-variable core
 set.
 
-## Relaxed selected sets
+## Relaxed selected set
 
-In the strict branch $\rho<1$, the relaxed six-point set is
+The relaxed six-point set is
 
 $$
 K_6^{\mathrm{rel}}(a,b)=
 \left\{P_3^{\mathrm{rel}}(a,b),P_4(a,b),P_5^{\mathrm{rel}}(a,b),D_0(a,b),D_1(a,b),D_2(a,b)\right\}.
 $$
 
-On the boundary $\rho=1$, use the five-point boundary set
-
-$$
-K_5^{\partial,\mathrm{rel}}(a,b)=
-\left\{P_3^{\mathrm{rel}}(a,b),P_5^{\mathrm{rel}}(a,b),D_0(a,b),D_1(a,b),D_2(a,b)\right\}.
-$$
-
-Both selected sets are determined only by the two variables $(a,b)$.
+On the boundary $\rho=1$, the collinear point $P_4$ does not change
+$\mathrm{conv}\ K_6^{\mathrm{rel}}(a,b)$ or $\Lambda(K_6^{\mathrm{rel}}(a,b))$.
+The selected set is determined only by the two variables $(a,b)$.
