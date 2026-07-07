@@ -61,6 +61,13 @@ all-Vd0 branch, `310X_all_Vd0/` is the parent package,
 `3100X_algorithm2_five_point/` is the existing algorithm-2 five-point route,
 and `3101X_six_point/` is reserved for the six-point strategy.
 
+Within a package range whose code ends in `X`, child numbered notes and
+subpackages should stay in that range. Use `0` through `9` first and then
+lowercase `a` through `z` for overflow; for example, after `31019` in
+`3101X_six_point/`, use `3101a`, not `31020`. Nested subpackages under
+`3100X_algorithm2_five_point/` should similarly use codes such as `3100aX`,
+not sibling-looking codes such as `311X`.
+
 Future branch reorganizations must preserve recorded statuses and update
 affected indexes, links, and `proof/MANIFEST.txt`.
 

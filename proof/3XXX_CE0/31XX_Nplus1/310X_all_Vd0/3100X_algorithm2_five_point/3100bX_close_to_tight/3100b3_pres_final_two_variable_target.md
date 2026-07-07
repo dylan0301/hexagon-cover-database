@@ -2,7 +2,7 @@
 
 Status: Lemma target
 
-This file records the final reduced close-to-tight target after the diagonal remainder estimates in [`3122_diagonal_remainder_progress.md`](3122_diagonal_remainder_progress.md).
+This file records the final reduced close-to-tight target after the diagonal remainder estimates in [`3100b2_diagonal_remainder_progress.md`](3100b2_diagonal_remainder_progress.md).
 
 ## Statement
 

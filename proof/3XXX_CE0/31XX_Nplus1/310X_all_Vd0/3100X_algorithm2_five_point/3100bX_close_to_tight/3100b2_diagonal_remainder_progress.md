@@ -6,7 +6,7 @@ This file records the working diagonal remainder estimates used in the close-to-
 
 ## Setup
 
-Use the near-limit variables from [`3121_algorithm1_finite_x_setup.md`](3121_algorithm1_finite_x_setup.md). The dominant-branch residual is bounded below by
+Use the near-limit variables from [`3100b1_algorithm1_finite_x_setup.md`](3100b1_algorithm1_finite_x_setup.md). The dominant-branch residual is bounded below by
 
 $$
 R_+\ge P_{\mathrm{res}}+E_{01}+E_2.

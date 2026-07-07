@@ -12,6 +12,6 @@
     "certified_boxes": 2307,
     "unresolved_boxes": 0
   },
-  "verifier": "4034_verify_full_L_interval.py",
+  "verifier": "401a4_verify_full_L_interval.py",
   "note": "The verifier regenerates the box subdivision. This metadata file records the expected run summary."
 }

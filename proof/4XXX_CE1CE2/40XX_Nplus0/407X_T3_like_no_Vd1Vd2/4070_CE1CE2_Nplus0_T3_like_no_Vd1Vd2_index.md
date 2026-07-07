@@ -89,7 +89,7 @@ $$
 
    and proves the full left-$T_-$ family, including non-overlap, middle-overlap, $S$-dominance, and the final right-high residual.
 
-6. [`4075a_Tminus_final_residual_calculus_lemma.md`](4075a_Tminus_final_residual_calculus_lemma.md)
+6. [`4077_Tminus_final_residual_calculus_lemma.md`](4077_Tminus_final_residual_calculus_lemma.md)
 
    Status: Proven.
 

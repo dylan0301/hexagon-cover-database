@@ -205,9 +205,9 @@ Any one of the following would invalidate or require revision of this package:
 Run from the repository root:
 
 ```bash
-python proof/4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss/403X_boundary_loss_experiments/4034_verify_full_L_interval.py
-python proof/4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss/403X_boundary_loss_experiments/4031_attempt_interval_L_Tplus_loss_exact_corrected.py
-python proof/4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss/403X_boundary_loss_experiments/4033_refined_branch_sampler.py
+python proof/4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss/401aX_boundary_loss_experiments/401a4_verify_full_L_interval.py
+python proof/4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss/401aX_boundary_loss_experiments/401a1_attempt_interval_L_Tplus_loss_exact_corrected.py
+python proof/4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss/401aX_boundary_loss_experiments/401a3_refined_branch_sampler.py
 ```
 
 The first two scripts are intended as certificate-style verifiers.  The sampler

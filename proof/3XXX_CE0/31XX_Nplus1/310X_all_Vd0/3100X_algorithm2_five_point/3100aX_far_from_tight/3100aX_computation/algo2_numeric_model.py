@@ -1,8 +1,8 @@
-"""High-precision numerical model for the 311X algorithm-2 construction.
+"""High-precision numerical model for the 3100aX algorithm-2 construction.
 
 This script is an empirical helper. It reproduces the two-variable model,
 the transition polynomial, the selected line-branch points, and the lower-bound
-quantities used in the 311X notes. It is not by itself a proof certificate.
+quantities used in the 3100aX notes. It is not by itself a proof certificate.
 """
 
 from __future__ import annotations

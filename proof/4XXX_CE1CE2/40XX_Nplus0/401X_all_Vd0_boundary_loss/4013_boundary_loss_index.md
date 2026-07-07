@@ -79,7 +79,7 @@ Branch labels use the corrected maximal meaning from
 | [`4017_remaining_Tplus_obligations.md`](4017_remaining_Tplus_obligations.md) | Reference | Historical record of the lower-sheet obligations and failed approaches; superseded by [`4019_lower_sheet_completion_proofs.md`](4019_lower_sheet_completion_proofs.md) for proof status. |
 | [`4018_computational_verification.md`](4018_computational_verification.md) | Empirical | Numerical checks, interval-certificate status, and code references. |
 | [`4019_lower_sheet_completion_proofs.md`](4019_lower_sheet_completion_proofs.md) | Proven | Analytic proofs of the formerly remaining lower-sheet branches $(T_+^{lo},T_-)$, $(T_+^{lo},T_+^{hi})$, and $(T_+^{lo},T_+^{lo})$. |
-| [`403X_boundary_loss_experiments/4030_README.md`](403X_boundary_loss_experiments/4030_README.md) | Experiment | Experiment helpers for the package. |
+| [`401aX_boundary_loss_experiments/401a0_README.md`](401aX_boundary_loss_experiments/401a0_README.md) | Experiment | Experiment helpers for the package. |
 
 ## Current status
 

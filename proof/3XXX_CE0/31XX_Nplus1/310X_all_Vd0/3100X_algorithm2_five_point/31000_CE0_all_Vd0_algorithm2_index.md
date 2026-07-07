@@ -79,16 +79,16 @@ The live branch splits into two complementary subtrees:
 | `310X` | Strategy | Full CE0, $N_+=1$, all-Vd0 branch target. |
 | `3100X` | Strategy | Existing algorithm-2 five-point route. |
 | `31002` | Reference | Status ledger and open assembly obligations. |
-| `311X` | Strategy | Far-from-tight algorithm-2 subtree. |
-| `3111` | Reference | Far-from-tight status and remaining certificate obligations. |
-| `3112` | Strategy | Five-point construction and algorithm-2 diagonal choices. |
-| `3115` | Proven | Strict $\rho<1$ line realization for $P_3,P_5$. |
-| `3116` | Proven | Two-variable algorithm-2 reduction and transition polynomial. |
-| `3118` | Proven | Convex cyclic order and five support-edge reduction. |
-| `3119` | Empirical | Transition-strip computation and certificate outline. |
-| `3122` | Practically proven | Close-to-tight diagonal remainder estimates. |
-| `3123` | Lemma target | Final close-to-tight two-variable inequality. |
-| `3125` | Proven | Algorithm-1 tangent gap. |
+| `3100aX` | Strategy | Far-from-tight algorithm-2 subtree. |
+| `3100a1` | Reference | Far-from-tight status and remaining certificate obligations. |
+| `3100a2` | Strategy | Five-point construction and algorithm-2 diagonal choices. |
+| `3100a5` | Proven | Strict $\rho<1$ line realization for $P_3,P_5$. |
+| `3100a6` | Proven | Two-variable algorithm-2 reduction and transition polynomial. |
+| `3100a8` | Proven | Convex cyclic order and five support-edge reduction. |
+| `3100a9` | Empirical | Transition-strip computation and certificate outline. |
+| `3100b2` | Practically proven | Close-to-tight diagonal remainder estimates. |
+| `3100b3` | Lemma target | Final close-to-tight two-variable inequality. |
+| `3100b5` | Proven | Algorithm-1 tangent gap. |
 
 ## Reductions
 
@@ -102,7 +102,7 @@ $$
 This equality reduction is an open assembly obligation. It is not proved by
 the current `3100X` files.
 
-**Construction `3112` (Status: Strategy).** After the cyclic normalization,
+**Construction `3100a2` (Status: Strategy).** After the cyclic normalization,
 take $a_4,b_4$ as outer parameters and $a_1,b_1$ as the remaining free
 variables. Under the equality assumptions
 
@@ -135,7 +135,7 @@ $$
 p\ge0.1,\qquad q\ge0.1.
 $$
 
-**Lemma `3115` (Status: Proven).** Assume the strict $V_4$ branch
+**Lemma `3100a5` (Status: Proven).** Assume the strict $V_4$ branch
 
 $$
 a+b>1,\qquad \rho=a^2+ab+b^2<1.
@@ -157,9 +157,9 @@ $\Gamma_A^{\mathrm{lin}}$. By symmetry, the radius-$1$ circle centered at the
 $C_5$ point meets $\Gamma_{AB}$ exactly once, and this intersection lies on
 $\Gamma_B^{\mathrm{lin}}$.
 
-The limiting boundary $\rho=1$ is not covered by `3115`.
+The limiting boundary $\rho=1$ is not covered by `3100a5`.
 
-**Lemma `3116` (Status: Proven).** Under the equality assumptions
+**Lemma `3100a6` (Status: Proven).** Under the equality assumptions
 
 $$
 a_3+b_3=1,\qquad a_5+b_5=1,
@@ -212,7 +212,7 @@ $$
 
 is nondecreasing in both $p$ and $q$ on the recorded away region.
 
-**Lemma `3118` (Status: Proven).** Once the strict line realization of `3115`
+**Lemma `3100a8` (Status: Proven).** Once the strict line realization of `3100a5`
 holds, write
 
 $$
@@ -245,14 +245,14 @@ $$
 D_0D_1,\quad D_1D_2,\quad D_2P_3,\quad P_3P_5,\quad P_5D_0.
 $$
 
-**Computation `3119` (Status: Empirical).** On the transition strip
+**Computation `3100a9` (Status: Empirical).** On the transition strip
 
 $$
 0.1\le p\le0.15,\qquad p\le q,
 $$
 
 the recorded computation gives a certificate outline for the five support-edge
-checks after `3118`. The dangerous edge is $P_3P_5$, with recorded numerical
+checks after `3100a8`. The dangerous edge is $P_3P_5$, with recorded numerical
 lower value
 
 $$
@@ -260,18 +260,18 @@ $$
 $$
 
 at the transition point. The non-dangerous edges are handled by interval and
-denominator-free lower-bound checks recorded in `3119`.
+denominator-free lower-bound checks recorded in `3100a9`.
 
 This is not a proof-level certificate. To upgrade this computation, the branch
 needs recorded interval subdivision data or verifier code, including the
 selected-root checks for the line-circle intersections.
 
-**Far-From-Tight Assembly Target `3111` (Recorded status: Reference).** The
+**Far-From-Tight Assembly Target `3100a1` (Recorded status: Reference).** The
 far-from-tight subtree will be complete after all of the following are proved:
 
 | Obligation | Current status |
 |---|---|
-| Upgrade the `3119` transition-strip outline to a proof-level certificate. | Open |
+| Upgrade the `3100a9` transition-strip outline to a proof-level certificate. | Open |
 | Prove the farther region $p\ge0.15$ and the reflected half. | Open |
 | Treat the limiting boundary $\rho=1$. | Open |
 | Prove the algorithm-2 diagonal points are valid obstruction points for the exact relaxed region. | Open |
@@ -281,7 +281,7 @@ far-from-tight subtree will be complete after all of the following are proved:
 The close-to-tight subtree uses algorithm 1 near the vertex-limit corners,
 where algorithm 2 is known not to suffice uniformly.
 
-**Lemma `3125` (Status: Proven).** In the lower vertex-limit scaling
+**Lemma `3100b5` (Status: Proven).** In the lower vertex-limit scaling
 
 $$
 a_4=(1+k)x,\qquad b_4=1-x,\qquad x\downarrow0,
@@ -324,7 +324,7 @@ $$
 This proves only the first-order tangent gap. It does not prove the finite-$x$
 close-to-tight branch.
 
-**Reduction `3121` (Status: Lemma target).** The finite-$x$ close-to-tight
+**Reduction `3100b1` (Status: Lemma target).** The finite-$x$ close-to-tight
 target is
 
 $$
@@ -337,7 +337,7 @@ $$
 R_+\ge P_{\mathrm{res}}+E_{01}+E_2.
 $$
 
-**Working Lemma `3122` (Status: Practically proven).** The recorded diagonal
+**Working Lemma `3100b2` (Status: Practically proven).** The recorded diagonal
 remainder estimates are
 
 $$
@@ -364,7 +364,7 @@ The $E_2$ proof tree splits into:
 The status is not `Proven` because the full Bernstein coefficient data or an
 independently checkable exact certificate is not recorded.
 
-**Target `3123` (Status: Lemma target).** After `3122`, the remaining
+**Target `3100b3` (Status: Lemma target).** After `3100b2`, the remaining
 two-variable target is
 
 $$
@@ -395,13 +395,13 @@ $$
 k_{\max}(x)=\frac{-(1+x)+\sqrt{1+6x-3x^2}}{2x}.
 $$
 
-The current proof options recorded in `3123` are monotonicity of the scaled
+The current proof options recorded in `3100b3` are monotonicity of the scaled
 margin in $x$, or a root-bound reduction for the selected line parameters.
 Neither option is complete.
 
-**Close-To-Tight Assembly Target `312X` (Status: Strategy).** The
-close-to-tight subtree closes if `3123` is proved and the working estimates in
-`3122` are upgraded or otherwise made rigorous enough for the final assembly.
+**Close-To-Tight Assembly Target `3100bX` (Status: Strategy).** The
+close-to-tight subtree closes if `3100b3` is proved and the working estimates in
+`3100b2` are upgraded or otherwise made rigorous enough for the final assembly.
 
 ## Full Branch Assembly
 

@@ -17,7 +17,7 @@ The computational status of the slice families is recorded in
 The constant-difference target is recorded separately in
 [`31019_constant_difference_slice_minimum_target.md`](31019_constant_difference_slice_minimum_target.md).
 A concise success/failure table is recorded in
-[`31020_slice_family_status_catalog.md`](31020_slice_family_status_catalog.md).
+[`3101a_slice_family_status_catalog.md`](3101a_slice_family_status_catalog.md).
 
 ## 1. Ideal minimum relation
 

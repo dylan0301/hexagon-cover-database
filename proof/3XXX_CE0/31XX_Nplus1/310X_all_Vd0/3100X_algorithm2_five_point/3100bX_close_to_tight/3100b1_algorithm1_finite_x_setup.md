@@ -2,7 +2,7 @@
 
 Status: Lemma target
 
-This file states the finite-$x$ close-to-tight target for the CE0, $N_+=1$, all-Vd0 branch. The tangent inequality is proved in [`3125_algorithm1_limit_tangent_gap.md`](3125_algorithm1_limit_tangent_gap.md), but the finite-$x$ remainder estimate is not yet proved.
+This file states the finite-$x$ close-to-tight target for the CE0, $N_+=1$, all-Vd0 branch. The tangent inequality is proved in [`3100b5_algorithm1_limit_tangent_gap.md`](3100b5_algorithm1_limit_tangent_gap.md), but the finite-$x$ remainder estimate is not yet proved.
 
 ## Near-Limit Scaling
 
@@ -122,4 +122,4 @@ $$
 P_{\mathrm{res}}\ge(2+k)x^2.
 $$
 
-The diagonal remainder bounds are recorded in [`3122_diagonal_remainder_progress.md`](3122_diagonal_remainder_progress.md). The final two-variable target is recorded in [`3123_pres_final_two_variable_target.md`](3123_pres_final_two_variable_target.md).
+The diagonal remainder bounds are recorded in [`3100b2_diagonal_remainder_progress.md`](3100b2_diagonal_remainder_progress.md). The final two-variable target is recorded in [`3100b3_pres_final_two_variable_target.md`](3100b3_pres_final_two_variable_target.md).

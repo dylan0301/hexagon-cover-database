@@ -8,28 +8,28 @@ This file summarizes the state of the CE0, $N_+=1$, all-Vd0 five-point route aft
 
 | Package | Recorded status | Meaning |
 |---|---|---|
-| [`311X_far_from_tight/3110_far_from_tight_index.md`](311X_far_from_tight/3110_far_from_tight_index.md) | Strategy | Algorithm-2 away-from-limit route. |
-| [`312X_close_to_tight/3120_close_to_tight_index.md`](312X_close_to_tight/3120_close_to_tight_index.md) | Strategy | Algorithm-1 near-limit finite-$x$ route. |
+| [`3100aX_far_from_tight/3100a0_far_from_tight_index.md`](3100aX_far_from_tight/3100a0_far_from_tight_index.md) | Strategy | Algorithm-2 away-from-limit route. |
+| [`3100bX_close_to_tight/3100b0_close_to_tight_index.md`](3100bX_close_to_tight/3100b0_close_to_tight_index.md) | Strategy | Algorithm-1 near-limit finite-$x$ route. |
 
 ## Proved Components Recorded In This Package
 
 | Component | File | Recorded status | Meaning |
 |---|---|---|---|
-| Strict line realization for $P_3,P_5$ | [`311X_far_from_tight/3115_strict_branch_line_realization.md`](311X_far_from_tight/3115_strict_branch_line_realization.md) | Proven | In the strict $\rho<1$ branch, the selected $C_2$ and $C_5$ intersections lie on $\Gamma_A^{\mathrm{lin}}$ and $\Gamma_B^{\mathrm{lin}}$. |
-| Algorithm-2 two-variable model | [`311X_far_from_tight/3116_algorithm2_two_variable_transition.md`](311X_far_from_tight/3116_algorithm2_two_variable_transition.md) | Proven | Under the equality assumptions, algorithm 2 depends only on $(p,q)=(1-b_4,1-a_4)$. |
-| Transition polynomial and diagonal-radius monotonicity | [`311X_far_from_tight/3116_algorithm2_two_variable_transition.md`](311X_far_from_tight/3116_algorithm2_two_variable_transition.md) | Proven | The branch transition is $T=(p+q)^4-(p+q)^2+pq$, and $r=1-c_*$ is nondecreasing. |
-| Algorithm-1 tangent gap | [`312X_close_to_tight/3125_algorithm1_limit_tangent_gap.md`](312X_close_to_tight/3125_algorithm1_limit_tangent_gap.md) | Proven | The tangent coefficient satisfies $C_1\ge1/4$. |
-| Convex cyclic order from line branches | [`311X_far_from_tight/3118_convex_order_from_line_branches.md`](311X_far_from_tight/3118_convex_order_from_line_branches.md) | Proven | Once line realization holds, the algorithm-2 five points have cyclic order $D_0,D_1,D_2,P_3,P_5$. |
+| Strict line realization for $P_3,P_5$ | [`3100aX_far_from_tight/3100a5_strict_branch_line_realization.md`](3100aX_far_from_tight/3100a5_strict_branch_line_realization.md) | Proven | In the strict $\rho<1$ branch, the selected $C_2$ and $C_5$ intersections lie on $\Gamma_A^{\mathrm{lin}}$ and $\Gamma_B^{\mathrm{lin}}$. |
+| Algorithm-2 two-variable model | [`3100aX_far_from_tight/3100a6_algorithm2_two_variable_transition.md`](3100aX_far_from_tight/3100a6_algorithm2_two_variable_transition.md) | Proven | Under the equality assumptions, algorithm 2 depends only on $(p,q)=(1-b_4,1-a_4)$. |
+| Transition polynomial and diagonal-radius monotonicity | [`3100aX_far_from_tight/3100a6_algorithm2_two_variable_transition.md`](3100aX_far_from_tight/3100a6_algorithm2_two_variable_transition.md) | Proven | The branch transition is $T=(p+q)^4-(p+q)^2+pq$, and $r=1-c_*$ is nondecreasing. |
+| Algorithm-1 tangent gap | [`3100bX_close_to_tight/3100b5_algorithm1_limit_tangent_gap.md`](3100bX_close_to_tight/3100b5_algorithm1_limit_tangent_gap.md) | Proven | The tangent coefficient satisfies $C_1\ge1/4$. |
+| Convex cyclic order from line branches | [`3100aX_far_from_tight/3100a8_convex_order_from_line_branches.md`](3100aX_far_from_tight/3100a8_convex_order_from_line_branches.md) | Proven | Once line realization holds, the algorithm-2 five points have cyclic order $D_0,D_1,D_2,P_3,P_5$. |
 
 ## Strategy, Empirical, Practical, Or Certificate-Outline Components
 
 | Component | File | Recorded status | Notes |
 |---|---|---|---|
-| Algorithm-2 setup and point construction | [`311X_far_from_tight/3112_algorithm2_setup_and_point_construction.md`](311X_far_from_tight/3112_algorithm2_setup_and_point_construction.md) | Strategy | Defines reduced variables, fixed $V_4$ points, and algorithm-2 diagonal points; exact relaxed-region containment remains open. |
-| Far-from-tight transition strip | [`311X_far_from_tight/3111_far_from_tight_status.md`](311X_far_from_tight/3111_far_from_tight_status.md) and [`311X_far_from_tight/3119_algorithm2_transition_strip_certificate.md`](311X_far_from_tight/3119_algorithm2_transition_strip_certificate.md) | Empirical / certificate outline | Records interval constants and an interpolation scheme. Helper code is in [`311X_far_from_tight/311X_computation/`](311X_far_from_tight/311X_computation/), but full interval subdivision data is not recorded. |
-| Close-to-tight diagonal remainders | [`312X_close_to_tight/3122_diagonal_remainder_progress.md`](312X_close_to_tight/3122_diagonal_remainder_progress.md) | Practically proven | Records working estimates $E_{01}\ge-2x^2$ and $E_2\ge-kx^2$; full Bernstein data not recorded. |
-| Close-to-tight final $P_{\mathrm{res}}$ inequality | [`312X_close_to_tight/3123_pres_final_two_variable_target.md`](312X_close_to_tight/3123_pres_final_two_variable_target.md) | Lemma target | Final reduced two-variable target for the finite-$x$ algorithm-1 proof. |
-| Symbolic identity and arithmetic helper scripts | [`311X_far_from_tight/311X_computation/`](311X_far_from_tight/311X_computation/) | Experiment | These scripts support checking identities and certificate arithmetic. They do not by themselves complete the transition-strip certificate. |
+| Algorithm-2 setup and point construction | [`3100aX_far_from_tight/3100a2_algorithm2_setup_and_point_construction.md`](3100aX_far_from_tight/3100a2_algorithm2_setup_and_point_construction.md) | Strategy | Defines reduced variables, fixed $V_4$ points, and algorithm-2 diagonal points; exact relaxed-region containment remains open. |
+| Far-from-tight transition strip | [`3100aX_far_from_tight/3100a1_far_from_tight_status.md`](3100aX_far_from_tight/3100a1_far_from_tight_status.md) and [`3100aX_far_from_tight/3100a9_algorithm2_transition_strip_certificate.md`](3100aX_far_from_tight/3100a9_algorithm2_transition_strip_certificate.md) | Empirical / certificate outline | Records interval constants and an interpolation scheme. Helper code is in [`3100aX_far_from_tight/3100aX_computation/`](3100aX_far_from_tight/3100aX_computation/), but full interval subdivision data is not recorded. |
+| Close-to-tight diagonal remainders | [`3100bX_close_to_tight/3100b2_diagonal_remainder_progress.md`](3100bX_close_to_tight/3100b2_diagonal_remainder_progress.md) | Practically proven | Records working estimates $E_{01}\ge-2x^2$ and $E_2\ge-kx^2$; full Bernstein data not recorded. |
+| Close-to-tight final $P_{\mathrm{res}}$ inequality | [`3100bX_close_to_tight/3100b3_pres_final_two_variable_target.md`](3100bX_close_to_tight/3100b3_pres_final_two_variable_target.md) | Lemma target | Final reduced two-variable target for the finite-$x$ algorithm-1 proof. |
+| Symbolic identity and arithmetic helper scripts | [`3100aX_far_from_tight/3100aX_computation/`](3100aX_far_from_tight/3100aX_computation/) | Experiment | These scripts support checking identities and certificate arithmetic. They do not by themselves complete the transition-strip certificate. |
 
 ## Assembly Target
 
@@ -64,7 +64,7 @@ T(p,q)=(p+q)^4-(p+q)^2+pq.
 $$
 
 The certificate outline in
-[`311X_far_from_tight/3119_algorithm2_transition_strip_certificate.md`](311X_far_from_tight/3119_algorithm2_transition_strip_certificate.md)
+[`3100aX_far_from_tight/3100a9_algorithm2_transition_strip_certificate.md`](3100aX_far_from_tight/3100a9_algorithm2_transition_strip_certificate.md)
 records the current numerical constants for:
 
 | Edge or branch | Recorded status |

@@ -4,7 +4,7 @@ Status: Empirical
 
 This file records the current certified-by-computation outline for the algorithm-2 transition strip. It is not a repository-grade certificate file: the interval subdivision data and verifier code are not included here. Therefore this file should not be cited as `Proven`.
 
-The results here are conditional on the algorithm-2 construction, the strict line-branch realization from [`3115_strict_branch_line_realization.md`](3115_strict_branch_line_realization.md), and the convex cyclic order from [`3118_convex_order_from_line_branches.md`](3118_convex_order_from_line_branches.md).
+The results here are conditional on the algorithm-2 construction, the strict line-branch realization from [`3100a5_strict_branch_line_realization.md`](3100a5_strict_branch_line_realization.md), and the convex cyclic order from [`3100a8_convex_order_from_line_branches.md`](3100a8_convex_order_from_line_branches.md).
 
 ## Transition Strip
 
