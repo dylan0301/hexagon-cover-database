@@ -1,0 +1,10 @@
+Inside the index file 31010, I want to make it as 
+only see this and understand the entire flow.
+make the notes shorter.
+31011: define 6 points
+31012: prove reduction to 2d optimization
+31013: define triangle diameter surface
+31015: triangle diameter figures
+31016: define fixed angle function 
+31017: define minimum curve and slices 
+also suggest others
