@@ -38,7 +38,7 @@ Vd0, Vd1/Vd2, and T3-like vertex-role patterns.
     - `2005`: midpoint self-cover criterion
     - `2006`: T3-like midpoint lemma
     - `2008`: neighbor-ray maximum formula
-    - `2009`: ab-union curve for $a+b>1$
+    - `2009X`: ab-set package, including the ab-union curve for $a+b>1$
   - `21XX`: C-triangle geometry
     - `2100`: CE1/CE2 exactly-one-midpoint lemma
     - `2101`: maximal C-triangles over the half skeleton

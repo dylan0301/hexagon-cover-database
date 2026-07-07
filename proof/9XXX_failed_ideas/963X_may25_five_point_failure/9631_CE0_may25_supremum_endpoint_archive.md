@@ -32,13 +32,13 @@ $$
 a_4+b_4>1,
 $$
 
-The exact nondegenerate strict $AB$-union frontier formula for this local
+The exact nondegenerate strict $AB$-union frontier corollary for this local
 region, including the two unit-circle arcs and two line segments, is recorded
 in:
 
 | File | Recorded status | Notes |
 |---|---|---|
-| [../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009_ab_union_curve_a_plus_b_gt_1.md](../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009_ab_union_curve_a_plus_b_gt_1.md) | Reference | Strict $AB$-union frontier formula. |
+| [../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md](../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md) | Proven | Strict $AB$-union frontier corollary. |
 
 while
 

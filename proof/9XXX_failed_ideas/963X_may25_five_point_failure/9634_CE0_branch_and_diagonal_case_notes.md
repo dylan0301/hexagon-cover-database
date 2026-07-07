@@ -20,7 +20,7 @@ intersection with $C_5$.
 
 The exact nondegenerate strict $AB$-union frontier formula for $\partial R_4$
 is recorded in
-[../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009_ab_union_curve_a_plus_b_gt_1.md](../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009_ab_union_curve_a_plus_b_gt_1.md).
+[../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md](../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md).
 
 The local $R(a,b)$ predicate in `9632_CE0_reduction_prompt_spec.md` gives a
 semialgebraic way to test candidate intersections.  A branch proof must show
@@ -43,7 +43,7 @@ pieces.  This is a proof target, not a proved assertion in this package.
 
 To certify this target, one must check the intersections of $C_2$ and $C_5$
 with all four frontier pieces from
-`../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009_ab_union_curve_a_plus_b_gt_1.md`.  For each
+`../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md`.  For each
 selected point the proof must show:
 
 1. a valid intersection lies on one of the two closed line segments;

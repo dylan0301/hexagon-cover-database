@@ -26,7 +26,7 @@ $$
 a+b>1,\qquad a^2+ab+b^2<1
 $$
 
-is recorded in [`../../../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009_ab_union_curve_a_plus_b_gt_1.md`](../../../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009_ab_union_curve_a_plus_b_gt_1.md).
+is recorded in [`../../../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md`](../../../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md).
 
 The strict branch realization for the selected two fixed points is now recorded in [`3115_strict_branch_line_realization.md`](3115_strict_branch_line_realization.md): in the strict $\rho<1$ branch, the $C_2$ circle intersects the non-axis frontier exactly once on $\Gamma_A^{\mathrm{lin}}$, and the $C_5$ circle intersects it exactly once on $\Gamma_B^{\mathrm{lin}}$.
 

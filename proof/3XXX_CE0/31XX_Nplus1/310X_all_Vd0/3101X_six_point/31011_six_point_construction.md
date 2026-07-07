@@ -87,7 +87,7 @@ $$
 
 The set $R(a,b)$ is the $V_4$-placed copy of the local $AB$-union set
 $\mathcal U_{AB}(b,a)$ recorded in
-[`../../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009_ab_union_curve_a_plus_b_gt_1.md`](../../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009_ab_union_curve_a_plus_b_gt_1.md).
+[`../../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md`](../../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md).
 In that source note, the first cone direction is $e_+$ and the second cone
 direction is $e_-$.  Thus the marked points are $(b,0)$ and $(0,a)$ in the
 local coordinates of this file.

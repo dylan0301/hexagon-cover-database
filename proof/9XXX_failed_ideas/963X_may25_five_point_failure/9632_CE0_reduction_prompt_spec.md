@@ -149,7 +149,7 @@ $$
 
 The exact nondegenerate strict $AB$-union frontier formula, including the two
 unit-circle arcs and two line segments, is recorded in
-[../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009_ab_union_curve_a_plus_b_gt_1.md](../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009_ab_union_curve_a_plus_b_gt_1.md).
+[../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md](../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md).
 In the local predicate below, the two axis lengths are $\alpha$ and $\beta$.
 
 The five-point construction uses all six sets $R_i$ when defining the three

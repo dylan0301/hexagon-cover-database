@@ -1,6 +1,6 @@
-# $AB$-Union Set And Strict Curve
+# Strict Supercritical $AB$-Union Corollary
 
-Status: Reference
+Status: Proven
 
 Let $A,O,B$ be three points with angle $120^\circ$ at $O$. Put
 
@@ -22,8 +22,17 @@ $$
 
 If no such triangle exists, this union is empty.
 
-This file records the exact non-axis frontier of $\mathcal U_{AB}(a,b)$ only
-in the strict branch
+This corollary records the exact non-axis frontier of $\mathcal U_{AB}(a,b)$ in
+cone coordinates. It is the strict $\sigma=a+b>1$, $R^2<1$ specialization of
+Band IV in
+[`20092_ab_set_case_catalog.md`](20092_ab_set_case_catalog.md), with proof
+inherited from
+[`20093_ab_set_proofs.md`](20093_ab_set_proofs.md). In the notation below,
+$\rho=R^2$.
+
+## Corollary
+
+Assume the strict branch
 
 $$
 a+b>1, \qquad \rho=a^2+ab+b^2<1.
@@ -151,4 +160,28 @@ Thus the strict $a+b>1$ $AB$-union curve consists of exactly two unit-circle arc
 
 The endpoint chord of each line piece coincides with the line piece itself.  It is neither above nor below the corresponding boundary piece.
 
-At $\rho=1$, one has $D=1$ and $\Omega=0$; the nondegenerate four-piece formula must be replaced by its limiting degeneration.
+## Proof
+
+Identify the cone-coordinate point $x=ue_A+ve_B$ with the Band IV coordinates
+used in [`20092_ab_set_case_catalog.md`](20092_ab_set_case_catalog.md). The
+Band IV chain there is
+
+$$
+c_A[B^*\to V]\to s_A^{\mathrm{IV}}\to s_B^{\mathrm{IV}}\to c_B[V'\to A^*].
+$$
+
+The two circle pieces become the circle equations centered at $A=(a,0)$ and
+$B=(0,b)$ in the cone metric
+$\lVert ue_A+ve_B\rVert^2=u^2+v^2-uv$. Solving the two Band IV extreme side
+lines $s_A^{\mathrm{IV}}$ and $s_B^{\mathrm{IV}}$ in these cone coordinates
+gives the displayed coefficients $\alpha,\beta,\gamma,\delta$ and their
+intersection $P_2$; their intersections with the two circle arcs are $P_1$ and
+$P_3$, while $P_0$ and $P_4$ are the cone-edge endpoints $A^*$ and $B^*$ in
+these coordinates. The Band IV catalog proves that no other non-axis arcs
+occur, and the proof file derives the extreme side lines from the endpoint
+orientations. Hence the four-piece frontier above is exactly the strict
+supercritical $AB$-union frontier.
+
+The corollary assumes $\rho<1$. At $\rho=1$, one has $D=1$ and $\Omega=0$;
+the nondegenerate four-piece formula must be replaced by its limiting
+degeneration.
