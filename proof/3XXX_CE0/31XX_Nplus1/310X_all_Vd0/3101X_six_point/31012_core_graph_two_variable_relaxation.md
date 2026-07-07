@@ -24,12 +24,38 @@ $$ -->
 Let
 
 $$
-\mathcal U_6
-=
-H\setminus\bigcup_{i=0}^5 \mathrm{int}(T_i)
+X_i=V_i+x_i(V_{i+1}-V_i)
 $$
 
-be the part of $H$ not covered by the interiors of the six vertex triangles.
+be the boundary handoff points, so
+
+$$
+(a_i,b_i)=(1-x_{i-1},x_i).
+$$
+
+For each $i$, let $R_i$ be the $V_i$-placed row $AB$-union set determined by
+the three marked points
+
+$$
+V_i,\qquad X_{i-1},\qquad X_i.
+$$
+
+Equivalently, in local coordinates at $V_i$ whose first axis points toward
+$V_{i+1}$ and whose second axis points toward $V_{i-1}$, the set $R_i$ is the
+copy of $\mathcal U_{AB}(b_i,a_i)$ from
+[`../../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md`](../../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md).
+
+Let
+
+$$
+\mathcal U_6
+=
+H\setminus\bigcup_{i=0}^5 \mathrm{int}(R_i)
+$$
+
+be the part of $H$ not covered by the interiors of the six row $AB$-union
+sets.
+
 For a bounded set $A$, write $\Lambda(A)$ for the side length of the smallest
 closed equilateral triangle containing $A$.  Equivalently,
 
@@ -182,7 +208,8 @@ $$
 
 for the strict branch, where $K_6^{\mathrm{act}}$ denotes the corresponding
 actual six-point set with actual centers $E_2(x_2)$ and $E_5(x_5)$.  Since the
-actual selected points are vertex-uncovered obstruction points, this gives
+actual six-point set consists of row $AB$-union interior-uncovered obstruction
+points, this gives
 
 $$
 \mathrm{conv}\ K_6^{\mathrm{rel}}(a,b)
@@ -962,10 +989,10 @@ Q(P_5^{\mathrm{rel}}-E_5(t))\ge1.
 $$
 
 Thus $P_5^{\mathrm{rel}}$ is not in the interior of any unit equilateral
-triangle containing the actual boundary point $E_5(t)$.  It is also on the
-boundary of the preserved row $R_4^{\mathrm{lin}}(a,b)$.  Therefore the relaxed
-$P_5$ point is valid for the two rows whose constraints are involved in the
-relaxation.
+triangle containing the actual boundary point $E_5(t)$, and hence is outside
+the interior of the adjacent row $AB$-union set.  It is also on the boundary of
+the preserved row $R_4^{\mathrm{lin}}(a,b)$.  Therefore the relaxed $P_5$ point
+is valid for the two rows whose constraints are involved in the relaxation.
 
 The same argument gives
 
@@ -974,7 +1001,8 @@ Q(P_3^{\mathrm{rel}}-E_2(x_2))\ge1,
 $$
 
 and $P_3^{\mathrm{rel}}$ lies on the boundary of $R_4^{\mathrm{lin}}(a,b)$.
-Thus the relaxed $P_3$ point is valid for its adjacent moving row as well.
+Thus the relaxed $P_3$ point is outside the interior of its adjacent row
+$AB$-union set and is valid for its adjacent moving row as well.
 
 The remaining row exclusions are the standard all-Vd0 locality input of this
 branch: the relaxed $P$ points lie on the preserved $V_4$ two-line boundary and
