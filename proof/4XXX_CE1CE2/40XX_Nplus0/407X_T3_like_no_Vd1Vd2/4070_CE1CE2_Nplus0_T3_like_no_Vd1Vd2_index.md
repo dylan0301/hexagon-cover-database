@@ -1,8 +1,8 @@
 # CE1/CE2, $N_+=0$, T3-Like With No Vd1/Vd2
 
-Status: Partial progress
+Status: Proven
 
-This folder records progress for the shared CE1/CE2 branch
+This folder proves the shared CE1/CE2 branch
 
 $$
 T_C\text{ is CE1 or CE2},\qquad N_+=0,
@@ -25,7 +25,8 @@ $$
    Proves the first reduction:
 
    $$
-   \mathrm{CE1/CE2}+N_+=0+\text{no Vd1/Vd2}+\text{at least one T3-like}
+   \mathrm{CE1/CE2}+N_+=0+
+   \text{no Vd1/Vd2}+\text{at least one T3-like}
    \quad\Longrightarrow\quad
    T_0\text{ is T3-like}.
    $$
@@ -52,19 +53,17 @@ $$
    r_5\text{ has positive-length support only from }T_C,T_5.
    $$
 
-   This file does not assume $M_1\in T_0$ or $M_5\in T_0$.
-
 3. [`4073_boundary_loss_framework.md`](4073_boundary_loss_framework.md)
 
    Status: Proven reduction.
 
-   Defines the direct $C$-triangle variables, T3-like $T_0$ variables, boundary inputs $A_1,A_5$, radial inputs $C_1,C_5$, and proves that
+   Defines the boundary inputs $A_1,A_5$, radial inputs $C_1,C_5$, and proves that
 
    $$
    B(A_5,C_5)+B(A_1,C_1)<1
    $$
 
-   implies the perimeter contradiction.  It also records the stricter neighboring-ray constrained map for the case where $T_1$ contributes to $r_0$.
+   implies the perimeter contradiction. It also records the stricter neighboring-ray constrained map for the case where $T_1$ contributes to $r_0$.
 
 4. [`4074_L_Full_branch.md`](4074_L_Full_branch.md)
 
@@ -87,7 +86,7 @@ $$
    \quad\Longrightarrow\quad B_5+B_1<1,
    $$
 
-   and proves the full left-$T_-$ family, including non-overlap, middle-overlap, $S$-dominance, and the final right-high residual.
+   and proves the full left-$T_-$ family.
 
 6. [`4077_Tminus_final_residual_calculus_lemma.md`](4077_Tminus_final_residual_calculus_lemma.md)
 
@@ -95,51 +94,91 @@ $$
 
    Supplies the one-variable calculus lemma used in the final left-$T_-$ residual proof in `4075`.
 
-7. [`4076_remaining_branch_inventory.md`](4076_remaining_branch_inventory.md)
+7. [`4078_left_L_family_completion.md`](4078_left_L_family_completion.md)
 
-   Status: Open inventory.
+   Status: Proven.
 
-   Records remaining possible branch obligations, especially the main open branch
+   Completes the left-Low family, including the formerly open
 
    $$
-   (B_5,B_1)=(L,T_+^{hi}),
+   (L,T_+^{hi})
    $$
 
-   and gives the exact semialgebraic target for that branch.
+   branch.
 
-## Current proved boundary-loss coverage
+8. [`4079_first_Full_and_lower_sheet_branches.md`](4079_first_Full_and_lower_sheet_branches.md)
 
-The following are proved in this folder:
+   Status: Proven.
+
+   Excludes first-coordinate Full branches and closes the remaining first-coordinate lower-sheet branches
+
+   $$
+   (T_+^{lo},\mathrm{Full}),\qquad (T_+^{lo},T_+^{hi}).
+   $$
+
+9. [`407a_left_Thigh_branch_completion.md`](407a_left_Thigh_branch_completion.md)
+
+   Status: Proven with two recorded finite interval certificates.
+
+   Closes all first-coordinate high-sheet branches
+
+   $$
+   (T_+^{hi},\mathrm{Full}),\quad
+   (T_+^{hi},L),\quad
+   (T_+^{hi},T_+^{hi}),\quad
+   (T_+^{hi},T_-),\quad
+   (T_+^{hi},T_+^{lo}).
+   $$
+
+10. [`407b_final_assembly.md`](407b_final_assembly.md)
+
+    Status: Proven modulo recorded dependencies and local interval certificates.
+
+    Assembles the branch coverage and concludes the $407X$ branch.
+
+11. [`4076_remaining_branch_inventory.md`](4076_remaining_branch_inventory.md)
+
+    Status: Closed inventory.
+
+    Records the formerly open inventory and its completed coverage.
+
+## Certified computations
+
+The following finite interval certificates are part of the local proof package:
+
+- [`407X_computation/407b_T_hi_Tminus_qright_threshold_certificate.py`](407X_computation/407b_T_hi_Tminus_qright_threshold_certificate.py), used in the $(T_+^{hi},T_-)$ branch.
+- [`407X_computation/407c_T_hi_Tlo_left_threshold_certificate.py`](407X_computation/407c_T_hi_Tlo_left_threshold_certificate.py), used in the $(T_+^{hi},T_+^{lo})$ branch.
+
+Both scripts use rational interval arithmetic with one-sided integer square-root bounds and report zero unresolved boxes in their recorded runs.
+
+## Branch coverage summary
+
+The following are proved or excluded in this folder:
 
 $$
 A_1+A_5>1,
 $$
 
 $$
-(L,\mathrm{Full}),
+(L,*),
 $$
 
 $$
-\{L,T_-,T_+^{lo}\}^2,
+(T_-,*),
 $$
 
-and all branches with first coordinate $T_-$.
-
-## Remaining work
-
-The main remaining branch is
-
 $$
-(L,T_+^{hi}).
+(\mathrm{Full},*),
 $$
 
-Possible branch-realization or exclusion work also remains for
-
 $$
-(\mathrm{Full},*),\qquad (T_+^{hi},*),\qquad
 (T_+^{lo},\mathrm{Full}),\qquad (T_+^{lo},T_+^{hi}),
 $$
 
-unless future branch-realization arguments prove that these branches are not geometrically realizable in the $407X$ domain.
+and
 
-The folder therefore gives significant progress toward the post-`4071` obstruction but does not yet close the full $407X$ branch.
+$$
+(T_+^{hi},*).
+$$
+
+Together these cover every realized hard-region branch pair in the support-isolated $407X$ domain. Therefore, by `4073`, the full $407X$ branch is closed.
