@@ -1,11 +1,9 @@
 # CE2, $N_+=1$, Exactly One Vd1/Vd2
 
-Status: Strategy
+Status: Proven
 
-This branch is not yet recorded as a complete theorem.  Several local
-placements are now proved, but the package still needs a final assembly or an
-additional obstruction for the remaining Vd1 adjacent-rescue placements where
-the unique supercritical row is not $T_0$.
+This branch is closed by the assembly proof
+[`4148_CE2_Nplus1_exactly_one_Vd1_Vd2_assembly.md`](4148_CE2_Nplus1_exactly_one_Vd1_Vd2_assembly.md).
 
 The Vd1/Vd2 corner-side normal form used by the local obstruction files is
 proved in
@@ -13,14 +11,7 @@ proved in
 
 A proved local cap for the Vd2 midpoint-rescue subcases is recorded in
 [`4142_CE2_Nplus1_Vd2_midpoint_local_caps.md`](4142_CE2_Nplus1_Vd2_midpoint_local_caps.md).
-It shows that Vd2 rows whose exact local midpoint subset is one of
-
-$$
-\{M_0,M_1\},\qquad \{M_0,M_5\},\qquad \{M_5,M_0,M_1\}
-$$
-
-have adjacent boundary contribution below the reduced 414X perimeter threshold
-needed to survive the CE2, $N_+=1$ accounting.
+It eliminates Vd2 rows that cover neighboring midpoint rescue subsets.
 
 The normalized adjacent-rescue Vd1 case
 
@@ -53,12 +44,14 @@ $$
 are obstructed in
 [`4146_CE2_Nplus1_T0_supercritical_nonadjacent_Vd1_Vd2_obstruction.md`](4146_CE2_Nplus1_T0_supercritical_nonadjacent_Vd1_Vd2_obstruction.md).
 
-These files close the placements in which the unique supercritical row is
-adjacent to $T_0$ as above or is itself $T_0$.  They do not yet record a full
-case assembly for every possible position of a Vd1 row that rescues a
-supercritical row away from the CE2-active vertex.  Until that final assembly or
-additional obstruction is supplied, this index remains `Status: Strategy`.
+The remaining adjacent-rescue placement where the unique supercritical row is
+not $T_0$ is obstructed in
+[`4147_CE2_Nplus1_Vd1_supercritical_pair_axis_replacement.md`](4147_CE2_Nplus1_Vd1_supercritical_pair_axis_replacement.md),
+using an axis-aligned replacement and the CE1/CE2 all-Vd0 boundary-loss package.
+
+The case split tying these local files together is recorded in `4148`.
 
 An empirical visual candidate for a cover of $S_{1/2}$ in this branch is
 recorded in
 [`4141_CE2_Nplus1_one_Vd1_S_half_cover_candidate.md`](4141_CE2_Nplus1_one_Vd1_S_half_cover_candidate.md).
+It is retained only as empirical history; it is not used in the proof.
