@@ -1,0 +1,30 @@
+read the repository again https://github.com/dylan0301/hexagon-cover-database
+For the case where T0 is not supercritical and also not VD1/VD2, consider the following strategy
+If T_i is supercritical, then the VD1/VD2 triangle should cover M_i.
+We already proved in 4142 that we cannot use VD2 triangle that covers neighbor's midpoint.
+So we can assume either T_{i-1} or T_{i+1} is VD1 triangle.
+consider the line segment M_i V_i.
+This line segment can only be covered by the VD1 triangle and the supercritical T_i.
+So T_i has to cover the remaining portion on M_iV_i that is not covered by the VD1 triangle.
+then we can think about the max b map defined in the 2007 file to find the maximal coverage over the skeleton S.
+
+For example, if T_3 triangle is VD1 and covers M_4, and T_4 is supercritical, the max b map we input for is
+the non covered portion on the edge V_3V_4, and the non covered portion on the line segmetn M_4 V_4 after placing T3 VD1 triangle.
+
+Let a_3, c_3, c_4, b_4 be the covered length of skeleton by these 2 triangles on the line segments V2V3, r_3, r_4, V4V5 respectively.
+my claim is that: a_3 + c_3 <= 1 and c_4 + b_4 <= 1,
+so we can cover the skeleton intersection with these two triangles by two axis aligend triangles.
+Then we have reduced the problem to the case where every V triangle is VD0 and non supercritical, and C triangle is CE2.
+We already proved in 401X that this configuration cannot cover the hexagon skeleton.
+
+this is my proof sketch.
+rephraze my strategy in your own words.
+- make proof strategies and sketches explicitly based on reading my proof sketch
+- do numerical experiments to emperically verify those strategies.
+- Try reducing the problem into simple algebraic inequalities.
+- try solving more precisely using calculus and algebraic methods.
+- you may have to split some cases.
+- if it doesn’t work, you may use some interval arithemtic.
+- try using simple approximations in non tight regions.
+you must report your entire work with full detail with mathematical rigor, including failure where and why
+
