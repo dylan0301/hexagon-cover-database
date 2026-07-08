@@ -1,0 +1,7 @@
+    [cert-fail] K0param/arc0(BxO)/d2/quad/num: no Handelman certificate (deg<=5+strict); poly = 3*s**2/4 - 3*s/2 - 11*sqrt(3)*s/35 + 121/1225 + 11*sqrt(3)/35
+    [cert-fail] K0param/arc0(BxO)/d2/quad/num: no Handelman certificate (deg<=5+strict); poly = 3*s**2/4 - 3*s/2 - 19*sqrt(3)*s/62 + 361/3844 + 19*sqrt(3)/62
+    [cert-fail] K0param/arc0(BxO)/d2/quad/num: no Handelman certificate (deg<=5+strict); poly = 3*s**2/4 - 3*s/2 - 11*sqrt(3)*s/35 + 121/1225 + 11*sqrt(3)/35
+    [cert-fail] K0param/arc0(BxO)/d2/quad/num: no Handelman certificate (deg<=5+strict); poly = 3*s**2/4 - 3*s/2 - 19*sqrt(3)*s/62 + 361/3844 + 19*sqrt(3)/62
+    [cert-fail] K0param/arc2(xAB)/d1/quad/num: no Handelman certificate (deg<=5+strict); poly = 4*s**8 - 8*s**7*t - 28*s**7 + 64*sqrt(3)*s**7/41 + 4*s**6*t**2 - 192*sqrt(3)*s**6*t/41 + 52*s**6*t -
+    [cert-fail] K0param/arc2(xAB)/d1/quad/num: no Handelman certificate (deg<=5+strict); poly = 4*s**8 - 8*s**7*t - 28*s**7 + 7*sqrt(3)*s**7/5 + 4*s**6*t**2 - 21*sqrt(3)*s**6*t/5 + 52*s**6*t - 51*
+    [cert-fail] K0param/arc2(xAB)/d1/quad/num: no Handelman certificate (deg<=5+strict); poly = 4*s**8 - 8*s**7*t - 28*s**7 + 40*sqrt(3)*s**7/37 + 4*s**6*t**2 - 120*sqrt(3)*s**6*t/37 + 52*s**6*t -

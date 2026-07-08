@@ -1,0 +1,5 @@
+/Users/jcpaik/Documents/research/ab-set/hole_lab.py:82: RuntimeWarning: invalid value encountered in add
+  return (VERT[i] + XY[..., :1] * EX[i][None, :]
+    [cert-fail] K0param/arc1(xAB)/d1/quad/num: no Handelman certificate (deg<=5+strict); poly = s**4/4 - s**3*t/4 - 713*s**3/956 - 9*sqrt(3)*s**3/704 - 3*s**2*t**2/16 - 677*sqrt(3)*s**2*t/1408 + 2
+/Users/jcpaik/Documents/research/ab-set/hole_lab.py:82: RuntimeWarning: invalid value encountered in add
+  return (VERT[i] + XY[..., :1] * EX[i][None, :]

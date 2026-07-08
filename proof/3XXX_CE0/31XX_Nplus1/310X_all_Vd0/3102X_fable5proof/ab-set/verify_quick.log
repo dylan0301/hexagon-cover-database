@@ -1,0 +1,52 @@
+== region audit ==
+  A2: violations = 0
+  A3: violations = 721
+  A5: violations = 0
+  A6: violations = 0
+  A7: violations = 0
+  A8: violations = 36
+== corner identities ==
+  (0.3,0.2): OK
+  (0.6,0.25): OK
+  (0.45,0.45): OK
+  (0.85,0.1): OK
+== per-case boundary verification ==
+  (1.000,0.900) PASS  empty ok
+  (0.050,0.050) PASS  case I.1      res=1.4e-15 SEQ-OK
+  (0.100,0.080) PASS  case I.2      res=2.2e-15 SEQ-OK
+  (0.250,0.150) PASS  case I.2      res=1.6e-15 SEQ-OK
+  (0.300,0.100) PASS  case I.3      res=1.5e-15 SEQ-OK
+  (0.150,0.250) PASS  case I.2'     res=1.7e-15 SEQ-OK
+  (0.372,0.087) PASS  case I.3      res=3.6e-15 SEQ-OK
+  (0.400,0.050) PASS  case I.3      res=1.9e-15 SEQ-OK
+  (0.087,0.372) PASS  case I.3'     res=1.3e-15 SEQ-OK
+  (0.350,0.350) PASS  case I.4      res=1.7e-15 SEQ-OK
+  (0.420,0.420) PASS  case I.4      res=1.8e-15 SEQ-OK
+  (0.420,0.350) PASS  case I.5      res=2.1e-15 SEQ-OK
+  (0.350,0.420) PASS  case I.5'     res=1.6e-15 SEQ-OK
+  (0.600,0.200) PASS  case I.6      res=1.9e-15 SEQ-OK
+  (0.550,0.150) PASS  case I.6      res=1.7e-15 SEQ-OK
+  (0.200,0.600) PASS  case I.6'     res=1.9e-15 SEQ-OK
+  (0.550,0.400) PASS  case II.1     res=1.7e-15 SEQ-OK
+  (0.800,0.135) PASS  case III.2    res=7.5e-15 SEQ-OK
+  (0.400,0.550) PASS  case II.1'    res=1.8e-15 SEQ-OK
+  (0.135,0.800) PASS  case III.2'   res=6.6e-15 SEQ-OK
+  (0.450,0.450) PASS  case II.2     res=3.6e-15 SEQ-OK
+  (0.467,0.420) PASS  case II.3     res=5.2e-15 SEQ-OK
+  (0.480,0.400) PASS  case II.3     res=5.8e-15 SEQ-OK
+  (0.400,0.480) PASS  case II.3'    res=6.1e-15 SEQ-OK
+  (0.875,0.002) FAIL  case III.1    res=1.9e-13 SEQ-MISMATCH got=('cA1', 'sgA', 'cA1', 'LA', 'epBO', 'sgA', 'epBO') exp=('cA1', 'sgA', 'sgB', 'cA1', 'LA', 'epBO', 'sgA', 'sgB', 'epBO', 'cB1')
+  (0.700,0.280) PASS  case III.2    res=7.7e-15 SEQ-OK
+  (0.660,0.330) PASS  case III.2    res=7.5e-15 SEQ-OK
+  (0.850,0.100) PASS  case III.4    res=5.8e-15 SEQ-OK
+  (0.900,0.050) PASS  case III.4    res=1.1e-14 SEQ-OK
+  (0.280,0.700) PASS  case III.2'   res=5.2e-15 SEQ-OK
+  (0.100,0.850) PASS  case III.4'   res=9.0e-15 SEQ-OK
+  (0.700,0.400) PASS  case IV       res=3.2e-15 SEQ-OK
+  (0.600,0.550) PASS  case IV       res=1.3e-15 SEQ-OK
+  (0.850,0.250) FAIL  case IV       res=2.7e-15 SEQ-MISMATCH got=('sgA', 'sgB') exp=('cA1', 'sgA', 'sgB', 'cB1')
+  (0.000,0.500) FAIL  case I.6'     res=1.4e-15 SEQ-MISMATCH got=('epAO', 'cA1', 'epAO', 'cA1', 'epAO', 'cA1', 'epAO', 'cA1', 'epAO', 'cA1', 'epAO', 'cA1', 'epAO', 'cA1', 'epAO', 'cA1', 'LB', 'cB1') exp=('cA1', 'epAO', 'LB', 'cB1')
+  (0.000,0.900) FAIL  case III.4'   res=1.7e-13 SEQ-MISMATCH got=('epAO', 'cA1', 'epAO', 'lOBA', 'sgB', 'epAO', 'cA1', 'epAO', 'cA1', 'LB', 'cB1', 'MB', 'sgB', 'cB1') exp=('cA1', 'epAO', 'sgA', 'lOBA', 'sgB', 'epAO', 'LB', 'cB1', 'sgA', 'MB', 'sgB', 'cB1')
+  (0.500,0.000) FAIL  case I.6      res=1.5e-15 SEQ-MISMATCH got=('cA1', 'LA', 'cB1', 'epBO', 'cB1', 'epBO', 'cB1', 'epBO', 'cB1', 'epBO', 'cB1', 'epBO', 'cB1', 'epBO', 'cB1', 'epBO', 'cB1', 'epBO', 'cB1', 'epBO', 'cB1', 'epBO', 'cB1', 'epBO', 'cB1', 'epBO', 'cB1', 'epBO', 'cB1', 'epBO', 'cB1', 'epBO') exp=('cA1', 'LA', 'epBO', 'cB1')
+  (0.000,0.000) FAIL  case I.2'     res=1.6e-15 SEQ-MISMATCH got=('epAO', 'cA1', 'epAO', 'cA1', 'epAO', 'cA1', 'epAO', 'cA1', 'epAO', 'cA1', 'epAO', 'cA1', 'epAO', 'cA1', 'epAO', 'cA1', 'epAO', 'cA1', 'epAO', 'cA1', 'epAO', 'cA1', 'epAO', 'cA1', 'epAO', 'cA1', 'epAO', 'cA1', 'epAO', 'cA1', 'epAO', 'cA1', 'epAO', 'cA1', 'epAO', 'cA1', 'epAO', 'cA1', 'epAO', 'cA1', 'epAO', 'cA1', 'epAO', 'cA1', 'epAO', 'cA1', 'epAO', 'cA1', 'epAO', 'cA1', 'epAO', 'cA1', 'epAO', 'cA1', 'epAO', 'cA1', 'epAO', 'cA1', 'epAO', 'cA1', 'epAO', 'cA1', 'epAO', 'cA1', 'epAO', 'cA1', 'epAO', 'cA1', 'epAO') exp=('cA1', 'epAO', 'epBO', 'cB1')
+== done: 32/38 samples passed ==

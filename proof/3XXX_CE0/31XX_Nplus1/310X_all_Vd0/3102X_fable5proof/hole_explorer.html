@@ -1,0 +1,674 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hole Explorer — S̃(s,t)</title>
+
+<style>
+:root{
+  --bg:#f6f7f5; --panel:#eceeea; --ink:#22282e; --ink-dim:#5c6670;
+  --line:#d3d7d0; --petal:#a9bccd; --petal-edge:#46607a;
+  --sliver:#c4b3cc; --sliver-edge:#6d5878;
+  --hole:#e2a63d; --hole-soft:#edc27a;
+  --tri:#2e7d91; --tri-soft:rgba(79,163,181,.16);
+  --good:#2e7d4f; --bad:#b34335; --accent:#b07514;
+  --chart-grid:#dfe2db;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#12161b; --panel:#1a2027; --ink:#e8eae6; --ink-dim:#98a2ab;
+    --line:#2b333c; --petal:#31465a; --petal-edge:#7d9cb8;
+    --sliver:#453a4e; --sliver-edge:#a98cb8;
+    --hole:#e2a63d; --hole-soft:#8a6620;
+    --tri:#63b7c9; --tri-soft:rgba(79,163,181,.20);
+    --good:#5cb884; --bad:#e07a6a; --accent:#e2a63d;
+    --chart-grid:#242c34;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#12161b; --panel:#1a2027; --ink:#e8eae6; --ink-dim:#98a2ab;
+  --line:#2b333c; --petal:#31465a; --petal-edge:#7d9cb8;
+  --sliver:#453a4e; --sliver-edge:#a98cb8;
+  --hole:#e2a63d; --hole-soft:#8a6620;
+  --tri:#63b7c9; --tri-soft:rgba(79,163,181,.20);
+  --good:#5cb884; --bad:#e07a6a; --accent:#e2a63d;
+  --chart-grid:#242c34;
+}
+:root[data-theme="light"]{
+  --bg:#f6f7f5; --panel:#eceeea; --ink:#22282e; --ink-dim:#5c6670;
+  --line:#d3d7d0; --petal:#a9bccd; --petal-edge:#46607a;
+  --sliver:#c4b3cc; --sliver-edge:#6d5878;
+  --hole:#e2a63d; --hole-soft:#edc27a;
+  --tri:#2e7d91; --tri-soft:rgba(79,163,181,.16);
+  --good:#2e7d4f; --bad:#b34335; --accent:#b07514;
+  --chart-grid:#dfe2db;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:"Avenir Next","Seravek","Segoe UI",ui-sans-serif,system-ui,sans-serif;
+  font-size:14px; line-height:1.45;
+}
+.wrap{max-width:1120px; margin:0 auto; padding:20px 22px 40px}
+header{display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; margin-bottom:6px}
+header h1{font-size:19px; font-weight:600; letter-spacing:.01em; margin:0}
+header .sub{color:var(--ink-dim); font-size:13px}
+.formula{color:var(--ink-dim); font-size:12.5px; margin:0 0 14px}
+.formula code{font-family:ui-monospace,"SF Mono",Menlo,monospace; font-size:12px; color:var(--ink)}
+.app{display:grid; grid-template-columns:minmax(360px,1fr) 340px; gap:18px}
+@media (max-width:840px){ .app{grid-template-columns:1fr} }
+.stage{position:relative; background:var(--panel); border:1px solid var(--line); border-radius:6px; padding:10px}
+canvas{display:block; width:100%; height:auto; touch-action:none}
+.rail{display:flex; flex-direction:column; gap:14px}
+.card{background:var(--panel); border:1px solid var(--line); border-radius:6px; padding:12px 14px}
+.card h2{
+  margin:0 0 10px; font-size:11px; font-weight:600; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--ink-dim);
+}
+.ctl{display:grid; grid-template-columns:26px 1fr 84px; align-items:center; gap:10px; margin:8px 0}
+.ctl label{font-style:italic; font-family:Georgia,serif; font-size:15px}
+.ctl input[type=range]{width:100%; accent-color:var(--accent)}
+.val{
+  font-family:ui-monospace,"SF Mono",Menlo,monospace; font-variant-numeric:tabular-nums;
+  font-size:12.5px; text-align:right; color:var(--ink);
+  background:var(--bg); border:1px solid var(--line); border-radius:4px; padding:2px 6px;
+}
+.note{color:var(--ink-dim); font-size:12px; margin-top:6px}
+.chips{display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:10px}
+.chip{background:var(--bg); border:1px solid var(--line); border-radius:5px; padding:6px 8px}
+.chip .k{font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-dim)}
+.chip .v{font-family:ui-monospace,"SF Mono",Menlo,monospace; font-variant-numeric:tabular-nums; font-size:13px}
+.sumline{display:flex; align-items:center; gap:10px; flex-wrap:wrap}
+.sumline .F{font-family:ui-monospace,"SF Mono",Menlo,monospace; font-size:16px; font-weight:600}
+.pill{
+  border-radius:999px; padding:3px 10px; font-size:12px; font-weight:600;
+  font-family:ui-monospace,"SF Mono",Menlo,monospace; font-variant-numeric:tabular-nums;
+  color:#fff; background:var(--good);
+}
+.pill.bad{background:var(--bad)}
+.legend{display:flex; gap:14px; flex-wrap:wrap; margin-top:8px; font-size:12px; color:var(--ink-dim)}
+.legend span{display:inline-flex; align-items:center; gap:6px}
+.sw{width:12px; height:12px; border-radius:3px; display:inline-block; border:1px solid var(--line)}
+.minimap-note{font-size:11.5px; color:var(--ink-dim); margin-top:4px}
+.kbd{color:var(--ink-dim)}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+<header>
+  <h1>Hole Explorer</h1>
+  <div class="sub">the reduced hole S̃(s,t) and its triangular support sum</div>
+</header>
+<p class="formula">
+  Hexagon minus one <em>sliver</em> <code>K(t,1−s)</code> at V₀ and five <em>petals</em>
+  <code>K(s,1−t)</code> at V₁…V₅. &nbsp;Fitting functional
+  <code>F(θ) = h(n₀)+h(n₁)+h(n₂)</code>, normals <code>n_k = u(θ+120°k)</code>;
+  the hole fits in a unit triangle iff <code>F ≤ h = √3⁄2 ≈ 0.8660</code>. The theorem: it never does.
+</p>
+
+<div class="app">
+  <div class="stage">
+    <canvas id="world" width="1240" height="1120"></canvas>
+  </div>
+  <div class="rail">
+    <div class="card">
+      <h2>Parameters</h2>
+      <div class="ctl"><label>s</label><input id="sR" type="range" min="0" max="1" step="0.0005" value="0.28"><span class="val" id="sV"></span></div>
+      <div class="ctl"><label>t</label><input id="tR" type="range" min="0" max="1" step="0.0005" value="0.5"><span class="val" id="tV"></span></div>
+      <div class="ctl"><label>θ</label><input id="thR" type="range" min="0" max="120" step="0.1" value="90"><span class="val" id="thV"></span></div>
+      <div class="note">s = a₅ (smallest edge split), t = a₀ (largest). t is clamped to
+        (s, t<sub>max</sub>(s)] where R₀² = t²+t(1−s)+(1−s)² ≤ 1. Sliders map through the admissible range.</div>
+    </div>
+    <div class="card">
+      <h2>Region T — click to set (s,t)</h2>
+      <canvas id="mini" width="612" height="428"></canvas>
+      <div class="minimap-note">t ≥ s below the ridge, R₀² ≤ 1 under the curve; dashed: mirror line s+t = 1.</div>
+    </div>
+    <div class="card">
+      <h2>Support sum at θ</h2>
+      <div class="chips">
+        <div class="chip"><div class="k">h(n₀)</div><div class="v" id="h0"></div></div>
+        <div class="chip"><div class="k">h(n₁)</div><div class="v" id="h1"></div></div>
+        <div class="chip"><div class="k">h(n₂)</div><div class="v" id="h2"></div></div>
+      </div>
+      <div class="sumline">
+        <span class="F" id="Fv"></span>
+        <span class="kbd">vs h = 0.8660</span>
+        <span class="pill" id="margin"></span>
+      </div>
+      <div class="note" id="minline"></div>
+    </div>
+    <div class="card">
+      <h2>F(φ) over one period — drag to move θ</h2>
+      <canvas id="chart" width="612" height="300"></canvas>
+    </div>
+    <div class="card">
+      <h2>Legend</h2>
+      <div class="legend">
+        <span><span class="sw" style="background:var(--hole)"></span>hole S̃</span>
+        <span><span class="sw" style="background:var(--petal)"></span>petals K(s,1−t)</span>
+        <span><span class="sw" style="background:var(--sliver)"></span>sliver K(t,1−s)</span>
+        <span><span class="sw" style="background:var(--tri-soft); border-color:var(--tri)"></span>enclosing triangle at θ</span>
+      </div>
+      <div class="note">Dots mark where the hole attains each support value. Supports come from
+      arc-length-refined boundary traces of the six sets (accuracy a few ×10⁻⁴), so tight corner
+      margins of a few thousandths display correctly; the amber fill is raster-sampled and cosmetic.
+      Exact positivity is what the certificates prove.</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+'use strict';
+// ================= CORE MATH (port of hole_lab.py) =================
+const TAU=Math.PI*2, D=Math.PI/180, H=Math.sqrt(3)/2;
+const V=[],EX=[],EY=[];
+for(let i=0;i<6;i++){
+  V.push([Math.cos(60*i*D),Math.sin(60*i*D)]);
+  const b=(240+60*i)*D;
+  EX.push([Math.cos(b),Math.sin(b)]);
+  EY.push([Math.cos(b-Math.PI/2),Math.sin(b-Math.PI/2)]);
+}
+// rho_phi(theta) for K(a,b): max r with F_{A,O,B, r u(theta)}(phi) <= H
+function rhoOf(theta,phi,a,b){
+  let F0=0; const m=[0,0,0], c=[0,0,0];
+  for(let k=0;k<3;k++){
+    const th=phi+k*TAU/3;
+    m[k]=Math.max(0, a*Math.cos(th-TAU/3), b*Math.cos(th));
+    c[k]=Math.cos(theta-th);
+    F0+=m[k];
+  }
+  if(F0>H+1e-14) return -1;
+  // knots where term k switches from m_k to r*c_k
+  const kn=[];
+  for(let k=0;k<3;k++) if(c[k]>1e-15) kn.push([m[k]/c[k],k]);
+  kn.sort((p,q)=>p[0]-q[0]);
+  let lo=0, F=F0, slope=0; const act=[false,false,false];
+  for(let j=0;j<=kn.length;j++){
+    const hi=(j<kn.length)?kn[j][0]:3.0;
+    if(slope>1e-15){
+      const rc=lo+(H-F)/slope;
+      if(rc<=hi+1e-15) return Math.min(rc,3.0);
+    }
+    if(j===kn.length) break;
+    F+=slope*(hi-lo);
+    lo=hi;
+    const k=kn[j][1];
+    if(!act[k]){act[k]=true; slope+=c[k];}
+  }
+  return 3.0; // capped
+}
+// feasibility-window helpers for extra phi samples
+function windows(a,b){
+  const s2=a+b, R2=a*a+a*b+b*b, out=[];
+  const R=Math.sqrt(R2);
+  const thAB=Math.atan2((a+2*b)/(2*R), Math.sqrt(3)*a/(2*R));
+  if(4*R2>3){ // mid gap / band IV arc around thAB
+    const kap=Math.acos(Math.sqrt(3)/(2*R));
+    out.push([thAB-Math.PI/6+kap, thAB+Math.PI/6-kap]);
+  }
+  if(4*s2*s2>3 && s2<=1){ // outer gap edges at +-psi1 (mod 120)
+    const psi=Math.acos(Math.sqrt(3)/(2*s2));
+    out.push([psi-0.02, psi+0.06]);
+    out.push([TAU/3-psi-0.06, TAU/3-psi+0.02]);
+  }
+  return out;
+}
+// r*(theta) table over theta in [0,120deg]
+function rStarTable(a,b,N){
+  const R2=a*a+a*b+b*b;
+  const tab=new Float64Array(N).fill(-1);
+  if(R2>1) return tab;      // empty set
+  const phis=[];
+  const M=520;
+  for(let j=0;j<M;j++) phis.push(j*TAU/3/M);
+  for(const [w0,w1] of windows(a,b)){
+    for(let j=0;j<=60;j++){
+      let p=w0+(w1-w0)*j/60;
+      p=((p%(TAU/3))+TAU/3)%(TAU/3);
+      phis.push(p);
+    }
+  }
+  for(let i=0;i<N;i++){
+    const th=(i/(N-1))*TAU/3;
+    let best=-1;
+    for(const p of phis){
+      const r=rhoOf(th,p,a,b);
+      if(r>best) best=r;
+    }
+    tab[i]=best;
+  }
+  return tab;
+}
+function tmaxOf(s){ const q=1-s; return (-q+Math.sqrt(4-3*q*q))/2; }
+// membership of a global point in set i (0=sliver at V0)
+function phiList(a,b){
+  const phis=[], M=700;
+  for(let j=0;j<M;j++) phis.push(j*TAU/3/M);
+  for(const [w0,w1] of windows(a,b)){
+    for(let j=0;j<=60;j++){
+      let p=w0+(w1-w0)*j/60;
+      p=((p%(TAU/3))+TAU/3)%(TAU/3);
+      phis.push(p);
+    }
+  }
+  return phis;
+}
+function makeSets(s,t){
+  const N=720;
+  const shapes=[[t,1-s],[s,1-t]];        // 0=sliver, 1=petal
+  const tabs=[], rhoMaxes=[];
+  for(const [a,b] of shapes){
+    const R2=a*a+a*b+b*b, phis=phiList(a,b);
+    const rm=(R2>1)?(()=>-1):(th=>{
+      let best=-1;
+      for(const p of phis){ const r=rhoOf(th,p,a,b); if(r>best)best=r; }
+      return best;
+    });
+    const tab=new Float64Array(N);
+    for(let j=0;j<N;j++) tab[j]=rm((j/(N-1))*TAU/3);
+    tabs.push(tab); rhoMaxes.push(rm);
+  }
+  function rsAt(i,ang){
+    const u=ang/(TAU/3)*(N-1), i0=Math.min(Math.max(Math.floor(u),0),N-2),
+          fr=u-i0, tab=tabs[i===0?0:1];
+    return tab[i0]*(1-fr)+tab[i0+1]*fr;
+  }
+  function test(x,y,i,eps){
+    eps=eps||1e-9;
+    const dx=x-V[i][0], dy=y-V[i][1];
+    const X=dx*EX[i][0]+dy*EX[i][1], Y=dx*EY[i][0]+dy*EY[i][1];
+    const r=Math.hypot(X,Y);
+    if(r<1e-12) return true;
+    let ang=Math.atan2(Y,X);
+    if(ang<-1e-9||ang>TAU/3+1e-9) return false;
+    if(ang<0)ang=0; if(ang>TAU/3)ang=TAU/3;
+    return r<=rsAt(i,ang)+eps;
+  }
+  // local boundary polyline, refined so point spacing along the arc is ~5e-4
+  function localTrace(si){
+    const tab=tabs[si], rm=rhoMaxes[si], pts=[], dth=TAU/3/(N-1);
+    for(let j=0;j<N-1;j++){
+      const th0=j*dth, r0=tab[j], r1=tab[j+1];
+      if(r0>0) pts.push([th0,r0]);
+      const rmax=Math.max(r0,r1);
+      if(rmax<=0) continue;
+      const nsub=Math.min(24, Math.floor(rmax*dth/5e-4));
+      for(let q=1;q<=nsub;q++){
+        const th=th0+dth*q/(nsub+1), r=rm(th);
+        if(r>0) pts.push([th,r]);
+      }
+    }
+    if(tab[N-1]>0) pts.push([TAU/3,tab[N-1]]);
+    return pts;
+  }
+  // exact-boundary points of the hole: trace each dK_i, keep points in H
+  // that are not strictly inside any other set
+  function boundaryPts(){
+    const traces=[localTrace(0),localTrace(1)];
+    const out=[];
+    for(let i=0;i<6;i++){
+      const tr=traces[i===0?0:1];
+      for(const [ang,r] of tr){
+        const lx=r*Math.cos(ang), ly=r*Math.sin(ang);
+        const x=V[i][0]+lx*EX[i][0]+ly*EY[i][0],
+              y=V[i][1]+lx*EX[i][1]+ly*EY[i][1];
+        if(!inHex(x,y)) continue;
+        let covered=false;
+        for(let k=0;k<6;k++){
+          if(k===i) continue;
+          if(test(x,y,k,-5e-5)){covered=true;break;}
+        }
+        if(!covered) out.push([x,y]);
+      }
+    }
+    return out;
+  }
+  return {test:(x,y,i)=>test(x,y,i,1e-9), boundaryPts};
+}
+function inHex(x,y){
+  for(let k=0;k<6;k++){
+    const a=(30+60*k)*D;
+    if(x*Math.cos(a)+y*Math.sin(a)>H+1e-12) return false;
+  }
+  return true;
+}
+// convex hull (monotone chain)
+function hull(pts){
+  pts=pts.slice().sort((p,q)=>p[0]-q[0]||p[1]-q[1]);
+  const cr=(o,a,b)=>(a[0]-o[0])*(b[1]-o[1])-(a[1]-o[1])*(b[0]-o[0]);
+  const lo=[],up=[];
+  for(const p of pts){ while(lo.length>=2&&cr(lo[lo.length-2],lo[lo.length-1],p)<=0)lo.pop(); lo.push(p); }
+  for(let i=pts.length-1;i>=0;i--){ const p=pts[i];
+    while(up.length>=2&&cr(up[up.length-2],up[up.length-1],p)<=0)up.pop(); up.push(p); }
+  lo.pop(); up.pop(); return lo.concat(up);
+}
+function supportOf(hl,nx,ny){
+  let best=-1e9, arg=null;
+  for(const p of hl){ const v=p[0]*nx+p[1]*ny; if(v>best){best=v;arg=p;} }
+  return [best,arg];
+}
+// ================= END CORE =================
+
+// ---------- state ----------
+const state={s:0.10, t:0.14, th:90, tester:null, holePts:[], hl:[], raster:null};
+
+// world canvas mapping
+const world=document.getElementById('world'), wctx=world.getContext('2d');
+const WW=world.width, WH=world.height;
+const SC=WW/2.62, CX=WW/2, CY=WH/2*1.0;
+const toPx=(x,y)=>[CX+x*SC, CY-y*SC];
+
+function cssVar(n){ return getComputedStyle(document.documentElement).getPropertyValue(n).trim(); }
+
+function recomputeSets(){
+  const sets=makeSets(state.s,state.t);
+  state.tester=sets.test;
+  const bpts=sets.boundaryPts();
+  state.bhull=bpts.length>=3?hull(bpts):bpts.slice();
+  // raster
+  const step=4; // device px per sample
+  const img=wctx.createImageData(WW,WH);
+  const dat=img.data;
+  const holePts=[];
+  const cPetal=hex2rgb(cssVar('--petal')), cSliver=hex2rgb(cssVar('--sliver'));
+  const cHole=hex2rgb(cssVar('--hole')), cBg=hex2rgb(cssVar('--panel'));
+  for(let py=0;py<WH;py+=1){
+    for(let px=0;px<WW;px+=1){
+      const x=(px-CX)/SC, y=(CY-py)/SC;
+      const o=(py*WW+px)*4;
+      let col=cBg, alpha=255;
+      if(inHex(x,y)){
+        let cov=0, covSliver=false;
+        for(let i=0;i<6;i++){
+          if(state.tester(x,y,i)){ cov++; if(i===0)covSliver=true; }
+        }
+        if(cov===0){ col=cHole; if(px%step===0&&py%step===0) holePts.push([x,y]); }
+        else col=covSliver&&cov===1?cSliver:(covSliver?mix(cSliver,cPetal,.5):cPetal);
+        if(cov>1) col=dark(col,.88);
+      }
+      dat[o]=col[0];dat[o+1]=col[1];dat[o+2]=col[2];dat[o+3]=alpha;
+    }
+  }
+  state.raster=img;
+  state.holePts=holePts;
+  // supports from exact boundary points; raster hull only as fallback
+  state.hl=(state.bhull&&state.bhull.length>=3)?state.bhull
+           :(holePts.length>=3?hull(holePts):holePts.slice());
+}
+function hex2rgb(h){ h=h.replace('#',''); if(h.length===3)h=h.split('').map(c=>c+c).join('');
+  return [parseInt(h.slice(0,2),16),parseInt(h.slice(2,4),16),parseInt(h.slice(4,6),16)]; }
+function mix(a,b,f){ return [0,1,2].map(i=>Math.round(a[i]*(1-f)+b[i]*f)); }
+function dark(c,f){ return c.map(v=>Math.round(v*f)); }
+
+function drawWorld(){
+  wctx.putImageData(state.raster,0,0);
+  // hexagon outline + division points
+  wctx.lineWidth=2.4; wctx.strokeStyle=cssVar('--ink-dim');
+  wctx.beginPath();
+  for(let k=0;k<=6;k++){ const [x,y]=toPx(V[k%6][0],V[k%6][1]); k?wctx.lineTo(x,y):wctx.moveTo(x,y); }
+  wctx.stroke();
+  // division points p_i (a_0=t on edge V0V1, else s)
+  wctx.fillStyle=cssVar('--ink');
+  for(let i=0;i<6;i++){
+    const a=(i===0)?state.t:state.s;
+    const p=[V[i][0]+a*(V[(i+1)%6][0]-V[i][0]), V[i][1]+a*(V[(i+1)%6][1]-V[i][1])];
+    const [x,y]=toPx(p[0],p[1]);
+    wctx.beginPath(); wctx.arc(x,y,4,0,TAU); wctx.fill();
+  }
+  // vertex labels
+  wctx.font='26px ui-monospace,Menlo,monospace'; wctx.fillStyle=cssVar('--ink-dim');
+  for(let k=0;k<6;k++){
+    const [x,y]=toPx(V[k][0]*1.12,V[k][1]*1.12);
+    wctx.fillText('V'+k,x-14,y+8);
+  }
+  drawSupport();
+}
+
+function drawSupport(){
+  if(state.hl.length<3) { updateReadouts([0,0,0],null); return; }
+  const th=state.th*D;
+  const hs=[],args=[],ns=[];
+  for(let k=0;k<3;k++){
+    const a=th+k*TAU/3, n=[Math.cos(a),Math.sin(a)];
+    const [v,arg]=supportOf(state.hl,n[0],n[1]);
+    ns.push(n);hs.push(v);args.push(arg);
+  }
+  // enclosing triangle corners: intersect lines x.n_i = h_i pairwise
+  const corners=[];
+  for(let k=0;k<3;k++){
+    const i=k,j=(k+1)%3;
+    const det=ns[i][0]*ns[j][1]-ns[i][1]*ns[j][0];
+    corners.push([(hs[i]*ns[j][1]-hs[j]*ns[i][1])/det,
+                  (ns[i][0]*hs[j]-ns[j][0]*hs[i])/det]);
+  }
+  wctx.save();
+  wctx.beginPath();
+  corners.forEach((c,i)=>{ const [x,y]=toPx(c[0],c[1]); i?wctx.lineTo(x,y):wctx.moveTo(x,y); });
+  wctx.closePath();
+  wctx.fillStyle=cssVar('--tri')+'22';
+  try{ wctx.fillStyle=getComputedStyle(document.documentElement).getPropertyValue('--tri-soft').trim()||wctx.fillStyle; }catch(e){}
+  wctx.fill();
+  wctx.lineWidth=3; wctx.strokeStyle=cssVar('--tri'); wctx.stroke();
+  // support attainment points
+  for(let k=0;k<3;k++){
+    const [x,y]=toPx(args[k][0],args[k][1]);
+    wctx.beginPath(); wctx.arc(x,y,7,0,TAU);
+    wctx.fillStyle=cssVar('--tri'); wctx.fill();
+    wctx.lineWidth=2; wctx.strokeStyle=cssVar('--bg'); wctx.stroke();
+  }
+  // normal arrows from triangle centroid
+  const cx=(corners[0][0]+corners[1][0]+corners[2][0])/3,
+        cy=(corners[0][1]+corners[1][1]+corners[2][1])/3;
+  wctx.lineWidth=2.2; wctx.strokeStyle=cssVar('--tri');
+  for(let k=0;k<3;k++){
+    const [x0,y0]=toPx(cx,cy), [x1,y1]=toPx(cx+ns[k][0]*0.22,cy+ns[k][1]*0.22);
+    wctx.beginPath(); wctx.moveTo(x0,y0); wctx.lineTo(x1,y1); wctx.stroke();
+    const a=Math.atan2(y1-y0,x1-x0);
+    wctx.beginPath(); wctx.moveTo(x1,y1);
+    wctx.lineTo(x1-9*Math.cos(a-0.4),y1-9*Math.sin(a-0.4));
+    wctx.lineTo(x1-9*Math.cos(a+0.4),y1-9*Math.sin(a+0.4));
+    wctx.closePath(); wctx.fillStyle=cssVar('--tri'); wctx.fill();
+  }
+  wctx.restore();
+  updateReadouts(hs,args);
+}
+
+let Fcurve=null;
+function computeFcurve(){
+  const NP=241, xs=new Float64Array(NP), ys=new Float64Array(NP);
+  let mn=1e9, mArg=0;
+  for(let j=0;j<NP;j++){
+    const ph=j/(NP-1)*TAU/3;
+    let F=0;
+    for(let k=0;k<3;k++){
+      const a=ph+k*TAU/3;
+      F+=supportOf(state.hl,Math.cos(a),Math.sin(a))[0];
+    }
+    xs[j]=ph/D; ys[j]=F;
+    if(F<mn){mn=F;mArg=ph/D;}
+  }
+  Fcurve={xs,ys,mn,mArg};
+}
+
+function updateReadouts(hs,args){
+  const F=hs[0]+hs[1]+hs[2];
+  const fmt=v=>v.toFixed(4);
+  document.getElementById('h0').textContent=fmt(hs[0]);
+  document.getElementById('h1').textContent=fmt(hs[1]);
+  document.getElementById('h2').textContent=fmt(hs[2]);
+  document.getElementById('Fv').textContent='F = '+F.toFixed(4);
+  const m=F-H, pill=document.getElementById('margin');
+  pill.textContent=(m>=0?'+':'')+m.toFixed(4);
+  pill.classList.toggle('bad',m<=0);
+  if(Fcurve){
+    document.getElementById('minline').textContent=
+      'min over φ: F = '+Fcurve.mn.toFixed(4)+' at φ = '+Fcurve.mArg.toFixed(1)+
+      '° (margin '+(Fcurve.mn-H>=0?'+':'')+(Fcurve.mn-H).toFixed(4)+')';
+  }
+}
+
+// ---------- F(phi) chart ----------
+const chart=document.getElementById('chart'), cctx=chart.getContext('2d');
+function drawChart(){
+  if(!Fcurve) return;
+  const Wc=chart.width, Hc=chart.height, padL=64, padR=14, padT=16, padB=40;
+  cctx.clearRect(0,0,Wc,Hc);
+  const y0=Math.min(H-0.03, Fcurve.mn-0.02);
+  let y1=Math.max(...Fcurve.ys)+0.04;
+  const xm=v=>padL+(v/120)*(Wc-padL-padR);
+  const ym=v=>Hc-padB-(v-y0)/(y1-y0)*(Hc-padT-padB);
+  cctx.strokeStyle=cssVar('--chart-grid'); cctx.lineWidth=1;
+  cctx.font='20px ui-monospace,Menlo,monospace'; cctx.fillStyle=cssVar('--ink-dim');
+  for(const gx of [0,30,60,90,120]){
+    cctx.beginPath(); cctx.moveTo(xm(gx),padT); cctx.lineTo(xm(gx),Hc-padB); cctx.stroke();
+    cctx.fillText(gx+'°',xm(gx)-14,Hc-12);
+  }
+  const yt=[y0, (y0+y1)/2, y1];
+  for(const gy of yt){
+    cctx.beginPath(); cctx.moveTo(padL,ym(gy)); cctx.lineTo(Wc-padR,ym(gy)); cctx.stroke();
+    cctx.fillText(gy.toFixed(2),6,ym(gy)+6);
+  }
+  // h line
+  cctx.strokeStyle=cssVar('--bad'); cctx.setLineDash([7,5]); cctx.lineWidth=2.4;
+  cctx.beginPath(); cctx.moveTo(padL,ym(H)); cctx.lineTo(Wc-padR,ym(H)); cctx.stroke();
+  cctx.setLineDash([]);
+  cctx.fillStyle=cssVar('--bad'); cctx.fillText('h',Wc-padR-22,ym(H)-6);
+  // curve
+  cctx.strokeStyle=cssVar('--hole'); cctx.lineWidth=3.2;
+  cctx.beginPath();
+  for(let j=0;j<Fcurve.xs.length;j++){
+    const X=xm(Fcurve.xs[j]), Y=ym(Fcurve.ys[j]);
+    j?cctx.lineTo(X,Y):cctx.moveTo(X,Y);
+  }
+  cctx.stroke();
+  // min marker
+  cctx.fillStyle=cssVar('--hole');
+  cctx.beginPath(); cctx.arc(xm(Fcurve.mArg),ym(Fcurve.mn),6,0,TAU); cctx.fill();
+  // theta cursor
+  cctx.strokeStyle=cssVar('--tri'); cctx.lineWidth=2.6;
+  cctx.beginPath(); cctx.moveTo(xm(state.th),padT); cctx.lineTo(xm(state.th),Hc-padB); cctx.stroke();
+}
+function chartPick(ev){
+  const r=chart.getBoundingClientRect();
+  const x=(ev.clientX-r.left)*(chart.width/r.width);
+  const padL=64,padR=14;
+  let th=(x-padL)/(chart.width-padL-padR)*120;
+  th=Math.max(0,Math.min(120,th));
+  state.th=th;
+  document.getElementById('thR').value=th;
+  syncLabels(); drawWorld(); drawChart();
+}
+let chartDrag=false;
+chart.addEventListener('pointerdown',e=>{chartDrag=true;chartPick(e);chart.setPointerCapture(e.pointerId);});
+chart.addEventListener('pointermove',e=>{if(chartDrag)chartPick(e);});
+chart.addEventListener('pointerup',()=>chartDrag=false);
+
+// ---------- region minimap ----------
+const mini=document.getElementById('mini'), mctx=mini.getContext('2d');
+const MB={s0:0,s1:0.62,t0:0,t1:0.72};
+function mx(s){ return 46+(s-MB.s0)/(MB.s1-MB.s0)*(mini.width-60); }
+function my(t){ return mini.height-34-(t-MB.t0)/(MB.t1-MB.t0)*(mini.height-52); }
+function drawMini(){
+  mctx.clearRect(0,0,mini.width,mini.height);
+  // region fill: t>=s and R0^2<=1
+  mctx.fillStyle=cssVar('--hole-soft');
+  mctx.beginPath();
+  let started=false;
+  const N=140;
+  for(let i=0;i<=N;i++){
+    const s=MB.s0+(MB.s1-MB.s0)*i/N, tm=Math.min(tmaxOf(s),MB.t1);
+    if(tm<s) continue;
+    const X=mx(s), Y=my(tm);
+    started?mctx.lineTo(X,Y):(mctx.moveTo(X,Y),started=true);
+  }
+  for(let i=N;i>=0;i--){
+    const s=MB.s0+(MB.s1-MB.s0)*i/N, tm=Math.min(tmaxOf(s),MB.t1);
+    if(tm<s) continue;
+    mctx.lineTo(mx(s),my(s));
+  }
+  mctx.closePath(); mctx.fill();
+  mctx.strokeStyle=cssVar('--accent'); mctx.lineWidth=2; mctx.stroke();
+  // mirror line s+t=1
+  mctx.strokeStyle=cssVar('--ink-dim'); mctx.setLineDash([6,5]); mctx.lineWidth=1.6;
+  mctx.beginPath(); mctx.moveTo(mx(0.38),my(0.62)); mctx.lineTo(mx(0.62),my(0.38)); mctx.stroke();
+  mctx.setLineDash([]);
+  // axes labels
+  mctx.font='19px ui-monospace,Menlo,monospace'; mctx.fillStyle=cssVar('--ink-dim');
+  mctx.fillText('s →', mini.width-52, mini.height-8);
+  mctx.fillText('t ↑', 8, 24);
+  // current point
+  mctx.beginPath(); mctx.arc(mx(state.s),my(state.t),8,0,TAU);
+  mctx.fillStyle=cssVar('--tri'); mctx.fill();
+  mctx.lineWidth=2.4; mctx.strokeStyle=cssVar('--bg'); mctx.stroke();
+}
+function miniPick(ev){
+  const r=mini.getBoundingClientRect();
+  const X=(ev.clientX-r.left)*(mini.width/r.width), Y=(ev.clientY-r.top)*(mini.height/r.height);
+  let s=MB.s0+(X-46)/(mini.width-60)*(MB.s1-MB.s0);
+  let t=MB.t0+(mini.height-34-Y)/(mini.height-52)*(MB.t1-MB.t0);
+  s=Math.max(0.004,Math.min(0.6,s));
+  const tmm=tmaxOf(s); t=Math.max(s+(tmm-s)*0.02,Math.min(t,tmm));
+  if(tmaxOf(s)<=s) return;
+  state.s=s; state.t=t;
+  document.getElementById('sR').value=s; syncTslider();
+  scheduleRecompute();
+}
+let miniDrag=false;
+mini.addEventListener('pointerdown',e=>{miniDrag=true;miniPick(e);mini.setPointerCapture(e.pointerId);});
+mini.addEventListener('pointermove',e=>{if(miniDrag)miniPick(e);});
+mini.addEventListener('pointerup',()=>miniDrag=false);
+
+// ---------- controls ----------
+const sR=document.getElementById('sR'), tR=document.getElementById('tR'), thR=document.getElementById('thR');
+function syncTslider(){
+  // t slider maps [0,1] onto (s, tmax(s)]
+  const tm=tmaxOf(state.s);
+  const f=(state.t-state.s)/Math.max(tm-state.s,1e-9);
+  tR.value=Math.max(0,Math.min(1,f));
+}
+function readSliders(){
+  state.s=Math.max(0.004,Math.min(0.6,parseFloat(sR.value)||0.1));
+  const tm=tmaxOf(state.s);
+  const f=parseFloat(tR.value);
+  state.t=state.s+(tm-state.s)*Math.max(0.02,Math.min(1,f));
+  state.th=parseFloat(thR.value);
+}
+function syncLabels(){
+  document.getElementById('sV').textContent=state.s.toFixed(4);
+  document.getElementById('tV').textContent=state.t.toFixed(4);
+  document.getElementById('thV').textContent=state.th.toFixed(1)+'°';
+}
+let pending=false;
+function scheduleRecompute(){
+  syncLabels(); drawMini();
+  if(pending) return;
+  pending=true;
+  requestAnimationFrame(()=>{
+    pending=false;
+    recomputeSets(); computeFcurve(); drawWorld(); drawChart(); syncLabels();
+  });
+}
+sR.addEventListener('input',()=>{readSliders();scheduleRecompute();});
+tR.addEventListener('input',()=>{readSliders();scheduleRecompute();});
+thR.addEventListener('input',()=>{readSliders();syncLabels();drawWorld();drawChart();});
+
+// theme change re-render
+try{
+  new MutationObserver(()=>scheduleRecompute())
+    .observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change',()=>scheduleRecompute());
+}catch(e){}
+
+// init
+state.s=0.10; state.t=Math.min(0.14,tmaxOf(0.10));
+sR.value=state.s; syncTslider(); thR.value=state.th;
+syncLabels(); drawMini();
+recomputeSets(); computeFcurve(); drawWorld(); drawChart();
+</script>
+
+</body>
+</html>

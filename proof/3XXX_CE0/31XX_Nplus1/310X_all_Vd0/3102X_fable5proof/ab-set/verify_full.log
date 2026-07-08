@@ -1,0 +1,59 @@
+== region audit ==
+  A2: violations = 0
+  A3: violations = 0
+  A5: violations = 0
+  A6: violations = 0
+  A7: violations = 0
+  A9: violations = 0
+== corner identities ==
+  (0.3,0.2): OK
+  (0.6,0.25): OK
+  (0.45,0.45): OK
+  (0.85,0.1): OK
+== per-case boundary verification ==
+  (1.000,0.900) PASS  empty ok
+  (0.050,0.050) PASS  case I.1      res=1.8e-15 SEQ-OK
+  (0.100,0.080) PASS  case I.2      res=1.6e-15 SEQ-OK
+  (0.250,0.150) PASS  case I.2      res=2.2e-15 SEQ-OK
+  (0.300,0.100) PASS  case I.3      res=2.1e-15 SEQ-OK
+  (0.150,0.250) PASS  case I.2'     res=1.4e-15 SEQ-OK
+  (0.372,0.087) PASS  case I.3      res=4.7e-15 SEQ-OK
+  (0.400,0.050) PASS  case I.3      res=3.8e-15 SEQ-OK
+  (0.087,0.372) PASS  case I.3'     res=1.5e-15 SEQ-OK
+  (0.350,0.350) PASS  case I.4      res=2.3e-15 SEQ-OK
+  (0.420,0.420) PASS  case I.4      res=3.4e-15 SEQ-OK
+  (0.420,0.350) PASS  case I.5      res=2.3e-15 SEQ-OK
+  (0.350,0.420) PASS  case I.5'     res=1.8e-15 SEQ-OK
+  (0.600,0.200) PASS  case I.6      res=2.4e-15 SEQ-OK
+  (0.550,0.150) PASS  case I.6      res=2.3e-15 SEQ-OK
+  (0.200,0.600) PASS  case I.6'     res=1.9e-15 SEQ-OK
+  (0.550,0.400) PASS  case II.1     res=2.2e-15 SEQ-OK
+  (0.800,0.135) PASS  case III.2    res=7.5e-15 SEQ-OK
+  (0.753,0.183) PASS  case II.1+lB  res=5.2e-15 SEQ-OK
+  (0.400,0.550) PASS  case II.1'    res=2.2e-15 SEQ-OK
+  (0.183,0.753) PASS  case II.1'+lA res=4.6e-15 SEQ-OK
+  (0.135,0.800) PASS  case III.2'   res=6.7e-15 SEQ-OK
+  (0.450,0.450) PASS  case II.2     res=3.5e-15 SEQ-OK
+  (0.467,0.420) PASS  case II.3     res=5.2e-15 SEQ-OK
+  (0.480,0.400) PASS  case II.3     res=5.7e-15 SEQ-OK
+  (0.400,0.480) PASS  case II.3'    res=6.1e-15 SEQ-OK
+  (0.240,0.255) PASS  case I.1c     res=2.1e-15 SEQ-OK
+  (0.255,0.240) PASS  case I.1c     res=1.7e-15 SEQ-OK
+  (0.235,0.260) PASS  case I.1b     res=1.9e-15 SEQ-OK
+  (0.260,0.235) PASS  case I.1a     res=2.1e-15 SEQ-OK
+  (0.860,0.020) PASS  case III.1    res=4.0e-14 SEQ-OK
+  (0.875,0.002) PASS  case III.1    res=4.6e-14 SEQ-OK (degenerate merge)
+  (0.700,0.280) PASS  case III.2    res=7.7e-15 SEQ-OK
+  (0.660,0.330) PASS  case III.2    res=7.6e-15 SEQ-OK
+  (0.850,0.100) PASS  case III.4    res=8.0e-15 SEQ-OK
+  (0.900,0.050) PASS  case III.4    res=1.1e-14 SEQ-OK
+  (0.280,0.700) PASS  case III.2'   res=5.2e-15 SEQ-OK
+  (0.100,0.850) PASS  case III.4'   res=7.1e-15 SEQ-OK
+  (0.700,0.400) PASS  case IV       res=3.2e-15 SEQ-OK
+  (0.600,0.550) PASS  case IV       res=1.1e-15 SEQ-OK
+  (0.850,0.250) PASS  case IV       res=2.7e-15 SEQ-OK
+  (0.000,0.500) PASS  case I.6'     res=1.4e-15 SEQ-OK (degenerate merge)
+  (0.000,0.900) PASS  case III.4'   res=7.6e-13 SEQ-OK (degenerate merge)
+  (0.500,0.000) PASS  case I.6      res=1.5e-15 SEQ-OK (degenerate merge)
+  (0.000,0.000) PASS  case I.2'     res=1.6e-15 SEQ-OK (degenerate merge)
+== done: 45/45 samples passed ==

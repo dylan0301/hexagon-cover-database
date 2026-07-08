@@ -1,0 +1,88 @@
+== witness validity (shared) ==
+  W0-vs-K1: sel ok
+  W0-vs-K0: sel ok
+    [cert-fail] WV0b-vs-K0[0.0000,0.0312]/arc2(xAB)/d1/quad/num: no Handelman certificate (deg<=5+strict); poly = s**2*t**2 - sqrt(3)*s**2*t + 3*s**2/4 + 8*s*t**3 - 4*sqrt(3)*s*t**2 + 2*s*t**2 - 3
+  WV0b-vs-K0: sel ok
+  WV0b-vs-K1: sel ok
+  WV0b-vs-K5: disk ok
+  WV0b-vs-K2: disk ok
+  WV0b-vs-K3: disk ok
+  WV0b-vs-K4: disk ok
+    [cert-fail] WV5-vs-K5[0.0000,0.0312]/arc2(BAB)/d2/quad/num: no Handelman certificate (deg<=5+strict); poly = 4*s**2*t**2 - 4*s*t**3 - 2*sqrt(3)*s*t**2 + 4*s*t**2 + 2*sqrt(3)*s*t + t**4 - 2*t**
+    [cert-fail] WV5-vs-K5[0.0000,0.0156]/arc2(BAB)/d2/quad/num: no Handelman certificate (deg<=5+strict); poly = 4*s**2*t**2 - 4*s*t**3 - 2*sqrt(3)*s*t**2 + 4*s*t**2 + 2*sqrt(3)*s*t + t**4 - 2*t**
+    [cert-fail] WV5-vs-K5[0.0000,0.0078]/arc2(BAB)/d2/quad/num: no Handelman certificate (deg<=5+strict); poly = 4*s**2*t**2 - 4*s*t**3 - 2*sqrt(3)*s*t**2 + 4*s*t**2 + 2*sqrt(3)*s*t + t**4 - 2*t**
+    [cert-fail] WV5-vs-K5[0.0000,0.0039]/arc2(BAB)/d2/quad/num: no Handelman certificate (deg<=5+strict); poly = 4*s**2*t**2 - 4*s*t**3 - 2*sqrt(3)*s*t**2 + 4*s*t**2 + 2*sqrt(3)*s*t + t**4 - 2*t**
+  WV5-vs-K5: *** FAILED: WV5-vs-K5[0.0000,0.0039]: INFEASIBLE-ROBUST (no arc path)
+  WV5-vs-K0: sel ok
+  WV5-vs-K4: sel ok
+  WV5-vs-K1: disk ok
+  WV5-vs-K2: disk ok
+  WV5-vs-K3: disk ok
+== hexagon membership (shared) ==
+  W0: in-H ok
+  WV0b: in-H ok
+  WV5: in-H ok
+  W0-vs-K1[ext]: sel ok
+  W0-vs-K0[ext]: sel ok
+  WV0b-vs-K0[ext]: sel ok
+    [cert-fail] WV0b-vs-K1[ext][0.0000,0.0625]/arc1(xAB)/d2/quad/num: no Handelman certificate (deg<=5+strict); poly = s**2*t**2 - 2*sqrt(3)*s*t**3 + 2*s*t**3 - s*t**2 - sqrt(3)*s*t - 2*sqrt(3)*t*
+    [cert-fail] WV0b-vs-K1[ext][0.0000,0.0625]/arc1(xAB)/d1/quad/num: no Handelman certificate (deg<=5+strict); poly = s**2*t**2/16 + sqrt(3)*s**2*t/4 + 3*s**2/4 - sqrt(3)*s*t**3/4 + s*t**3/8 - 17
+    [cert-fail] WV0b-vs-K1[ext][0.0000,0.0625]/arc0(xAO)/d2/lin/num: no Handelman certificate (deg<=5); poly = s**2/4 - sqrt(3)*s*t/2 - s*t/4 + s/4 + sqrt(3)*s/2 - t + sqrt(3)*t/2 + sqrt(3)/2
+  WV0b-vs-K1[ext]: sel ok
+  WV0b-vs-K5[ext]: disk ok
+  WV0b-vs-K2[ext]: disk ok
+  WV0b-vs-K3[ext]: disk ok
+  WV0b-vs-K4[ext]: disk ok
+    [cert-fail] WV5-vs-K5[ext][0.0000,0.0312]/arc2(BAB)/d2/quad/num: no Handelman certificate (deg<=5+strict); poly = 4*s**2*t**2 - 4*s*t**3 - 2*sqrt(3)*s*t**2 + 4*s*t**2 + 2*sqrt(3)*s*t + t**4 - 
+    [cert-fail] WV5-vs-K5[ext][0.0156,0.0312]/arc2(BAB)/d2/quad/num: no Handelman certificate (deg<=5+strict); poly = 4*s**2*t**2 - 4*s*t**3 - 2*sqrt(3)*s*t**2 + 4*s*t**2 + 2*sqrt(3)*s*t + t**4 - 
+    [cert-fail] WV5-vs-K5[ext][0.0156,0.0234]/arc2(BAB)/d2/quad/num: no Handelman certificate (deg<=5+strict); poly = 4*s**2*t**2 - 4*s*t**3 - 2*sqrt(3)*s*t**2 + 4*s*t**2 + 2*sqrt(3)*s*t + t**4 - 
+  WV5-vs-K5[ext]: *** FAILED: WV5-vs-K5[ext][0.0156,0.0234]: INFEASIBLE-ROBUST (no arc path)
+  WV5-vs-K0[ext]: sel ok
+  WV5-vs-K4[ext]: sel ok
+  WV5-vs-K1[ext]: disk ok
+  WV5-vs-K2[ext]: disk ok
+  WV5-vs-K3[ext]: disk ok
+== witness validity (C-low) ==
+    [cert-fail] Wdip-vs-K0[C-low][0.0000,0.0312]/arc2(xAB)/d1/lin/num: no Handelman certificate (deg<=5); poly = -49*sqrt(3)*s**3*t/60 + 49*s**3/120 + 61*sqrt(3)*s**2*t**2/48 - 59*s**2*t/80 + 32*s
+    [cert-fail] Wdip-vs-K0[C-low][0.0000,0.0312]/arc2(xAB)/d1/lin/num: no Handelman certificate (deg<=5); poly = -343*sqrt(3)*s**3*t/480 + 49*s**3/120 + 427*sqrt(3)*s**2*t**2/384 - 59*s**2*t/80 + 
+    [cert-fail] Wdip-vs-K0[C-low][0.0000,0.0156]/arc2(xAB)/d1/lin/num: no Handelman certificate (deg<=5); poly = -49*sqrt(3)*s**3*t/60 + 49*s**3/120 + 61*sqrt(3)*s**2*t**2/48 - 59*s**2*t/80 + 32*s
+    [cert-fail] Wdip-vs-K0[C-low][0.0000,0.0156]/arc2(xAB)/d1/lin/num: no Handelman certificate (deg<=5); poly = -343*sqrt(3)*s**3*t/480 + 49*s**3/120 + 427*sqrt(3)*s**2*t**2/384 - 59*s**2*t/80 + 
+    [cert-fail] Wdip-vs-K0[C-low][0.0000,0.0078]/arc2(xAB)/d1/lin/num: no Handelman certificate (deg<=5); poly = -49*sqrt(3)*s**3*t/40 + 49*s**3/120 + 61*sqrt(3)*s**2*t**2/32 - 59*s**2*t/80 + 16*s
+    [cert-fail] Wdip-vs-K0[C-low][0.0000,0.0078]/arc2(xAB)/d1/quad/num: no Handelman certificate (deg<=5+strict); poly = 7203*s**6*t**2/6400 - 2401*sqrt(3)*s**6*t/4800 + 2401*s**6/14400 - 147*s**5
+    [cert-fail] Wdip-vs-K0[C-low][0.0000,0.0078]/arc1(BAB)/d2/quad/num: no Handelman certificate (deg<=5+strict); poly = 49*s**2*t**2/64 + 7*sqrt(3)*s**2*t/8 + 3*s**2/4 - 49*s*t**3/16 - 7*sqrt(3)*
+    [cert-fail] Wdip-vs-K0[C-low][0.0000,0.0078]/arc2(xAB)/d1/lin/num: no Handelman certificate (deg<=5); poly = -49*sqrt(3)*s**3*t/240 + 49*s**3/120 + sqrt(3)*s**2*t**2/16 - 59*s**2*t/80 + 8*sqrt
+    [cert-fail] Wdip-vs-K0[C-low][0.0000,0.0078]/arc1(BAB)/cross/num: no Handelman certificate (deg<=5); poly = -2*sqrt(3)*s**2 + 5*sqrt(3)*s*t/2 - 5*s/2 - sqrt(3)*t**2/2 + t + sqrt(3)/2
+  Wdip-vs-K0[C-low]: *** FAILED: Wdip-vs-K0[C-low][0.0000,0.0078]: arc certification failed
+    [cert-fail] Wdip-vs-K5[C-low][0.0000,0.0312]/arc0(BxB)/d2/quad/num: no Handelman certificate (deg<=5+strict); poly = 2401*s**6/19200 - 5537*s**5*t/9600 - 2891*s**5/3200 + 25313*s**4*t**2/19200
+    [cert-fail] Wdip-vs-K5[C-low][0.0000,0.0312]/arc0(BxB)/d2/quad/num: no Handelman certificate (deg<=5+strict); poly = 16807*sqrt(3)*s**6/845000 + 29203363*s**6/243360000 - 22039073*s**5*t/40560
+    [cert-fail] Wdip-vs-K5[C-low][0.0000,0.0156]/arc0(BxB)/d2/quad/num: no Handelman certificate (deg<=5+strict); poly = 2401*s**6/19200 - 5537*s**5*t/9600 - 2891*s**5/3200 + 25313*s**4*t**2/19200
+    [cert-fail] Wdip-vs-K5[C-low][0.0000,0.0156]/arc0(BxB)/d2/quad/num: no Handelman certificate (deg<=5+strict); poly = 16807*sqrt(3)*s**6/845000 + 29203363*s**6/243360000 - 22039073*s**5*t/40560
+    [cert-fail] Wdip-vs-K5[C-low][0.0000,0.0078]/arc0(BxB)/d2/quad/num: no Handelman certificate (deg<=5+strict); poly = 2401*s**6/19200 - 5537*s**5*t/9600 - 2891*s**5/3200 + 25313*s**4*t**2/19200
+    [cert-fail] Wdip-vs-K5[C-low][0.0000,0.0078]/arc0(BxB)/d2/quad/num: no Handelman certificate (deg<=5+strict); poly = 16807*sqrt(3)*s**6/845000 + 29203363*s**6/243360000 - 22039073*s**5*t/40560
+    [cert-fail] Wdip-vs-K5[C-low][0.0000,0.0039]/arc0(BxB)/d2/quad/num: no Handelman certificate (deg<=5+strict); poly = 2401*s**6/19200 - 5537*s**5*t/9600 - 2891*s**5/3200 + 25313*s**4*t**2/19200
+    [cert-fail] Wdip-vs-K5[C-low][0.0000,0.0039]/arc0(BxB)/d2/quad/num: no Handelman certificate (deg<=5+strict); poly = 16807*sqrt(3)*s**6/845000 + 29203363*s**6/243360000 - 22039073*s**5*t/40560
+  Wdip-vs-K5[C-low]: *** FAILED: Wdip-vs-K5[C-low][0.0000,0.0039]: INFEASIBLE-ROBUST (no arc path)
+  Wdip-vs-K1[C-low]: disk ok
+  Wdip-vs-K2[C-low]: disk ok
+  Wdip-vs-K3[C-low]: disk ok
+  Wdip-vs-K4[C-low]: disk ok
+  Wst1-vs-K1[C-low]: *** FAILED: Wst1-vs-K1[C-low][0.0000,0.0039]: INFEASIBLE-ROBUST (no arc path)
+  Wst1-vs-K2[C-low]: *** FAILED: Wst1-vs-K2[C-low][0.0000,0.0039]: INFEASIBLE-ROBUST (no arc path)
+    [cert-fail] Wst1-vs-K3[C-low][0.0000,0.0312]/arc1(xAO)/d1/lin/num: no Handelman certificate (deg<=5); poly = 11474379*s**5*t + 3695139*sqrt(3)*s**5 - 45703035*s**4*t**2 - 5448555*sqrt(3)*s**4*
+    [cert-fail] Wst1-vs-K3[C-low][0.0000,0.0156]/arc0(BAO)/d2/quad/num: no Handelman certificate (deg<=5+strict); poly = s**2*t**2/4 + sqrt(3)*s**2*t/2 + 3*s**2/4 - s*t**3/2 - sqrt(3)*s*t**2 + s*t
+    [cert-fail] Wst1-vs-K3[C-low][0.0000,0.0078]/arc1(xAO)/d1/lin/num: no Handelman certificate (deg<=5); poly = 11474379*s**5*t + 3695139*sqrt(3)*s**5 - 45703035*s**4*t**2 - 5448555*sqrt(3)*s**4*
+    [cert-fail] Wst1-vs-K3[C-low][0.0000,0.0039]/arc1(xAO)/d1/lin/num: no Handelman certificate (deg<=5); poly = 11474379*s**5*t + 3695139*sqrt(3)*s**5 - 45703035*s**4*t**2 - 5448555*sqrt(3)*s**4*
+  Wst1-vs-K3[C-low]: *** FAILED: Wst1-vs-K3[C-low][0.0000,0.0039]: INFEASIBLE-ROBUST (no arc path)
+    [cert-fail] Wst1-vs-K0[C-low][0.0000,0.0312]/arc0(BxO)/d1/quad/num: no Handelman certificate (deg<=5+strict); poly = 37822859361*s**10 - 378228593610*s**9*t - 7564571872200*s**9 - 355414805424
+    [cert-fail] Wst1-vs-K0[C-low][0.0000,0.0312]/arc0(xxO)/d1/quad/num: no Handelman certificate (deg<=5+strict); poly = 16679880978201*s**10 - 135027607918770*s**9*t + 155325875775840*sqrt(3)*s**
+    [cert-fail] Wst1-vs-K0[C-low][0.0000,0.0312]/arc0(BxO)/d1/quad/num: no Handelman certificate (deg<=5+strict); poly = 37822859361*s**10 - 378228593610*s**9*t - 7564571872200*s**9 - 355414805424
+    [cert-fail] Wst1-vs-K0[C-low][0.0000,0.0312]/arc0(BxO)/d1/quad/num: no Handelman certificate (deg<=5+strict); poly = 37822859361*s**10 - 378228593610*s**9*t - 7564571872200*s**9 - 355414805424
+    [cert-fail] Wst1-vs-K0[C-low][0.0000,0.0312]/arc0(BxO)/d1/quad/num: no Handelman certificate (deg<=5+strict); poly = 37822859361*s**10 - 378228593610*s**9*t - 7564571872200*s**9 - 355414805424
+  Wst1-vs-K0[C-low]: *** FAILED: Wst1-vs-K0[C-low][0.0000,0.0312]: arc certification failed
+Traceback (most recent call last):
+  File "/Users/jcpaik/Documents/research/ab-set/gen_corner.py", line 830, in <module>
+    main()
+    ~~~~^^
+  File "/Users/jcpaik/Documents/research/ab-set/gen_corner.py", line 775, in main
+    raise RuntimeError(f'{tag}: no disk certificate')
+RuntimeError: Wst1-vs-K5[C-low]: no disk certificate

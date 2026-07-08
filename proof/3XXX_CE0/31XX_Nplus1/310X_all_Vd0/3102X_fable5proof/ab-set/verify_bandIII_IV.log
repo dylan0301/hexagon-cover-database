@@ -1,0 +1,4 @@
+(0.85,0.1) PASS case III.4    res=4.9e-15 SEQ-OK
+(0.9,0.05) PASS case III.4    res=1.6e-14 SEQ-OK
+(0.7,0.4) PASS case IV       res=3.2e-15 SEQ-OK
+(0.6,0.55) PASS case IV       res=1.0e-15 SEQ-OK
