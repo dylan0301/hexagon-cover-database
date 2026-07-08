@@ -28,3 +28,16 @@ rephraze my strategy in your own words.
 - try using simple approximations in non tight regions.
 you must report your entire work with full detail with mathematical rigor, including failure where and why
 
+if a_{i-1}+c_{i-1} <= 1, then place an axis aligned triangle such that one vertex is on the a_{i-1} point.
+and similarly place axis aligned triangle such that one vertex is on b_i point.
+you can also think as if a+c<=1 but c >= 1/2, then in the 2007 max b function, max b function is just 1-b, which is realized by an axis aligned tiragle. 
+considering this, finish the proof.
+give full reports including failure if exists
+
+
+
+
+https://github.com/dylan0301/hexagon-cover-database
+make new files under 414X for the reamaining case proofs.
+I want 414X case to be fully closed. I want mathematical rigor. you may edit or make files.
+make sure to read the repository rules and follow them when editing. only commit in the main branch
