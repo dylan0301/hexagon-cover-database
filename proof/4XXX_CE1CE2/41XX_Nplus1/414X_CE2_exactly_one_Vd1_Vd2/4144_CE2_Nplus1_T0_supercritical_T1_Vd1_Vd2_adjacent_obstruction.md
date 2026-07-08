@@ -53,8 +53,7 @@ Then the seven role triangles cannot cover the hexagon perimeter together with
 the two diagonal targets $r_1$ and $r_2$.  In particular, the adjacent
 $T_0$-supercritical, $T_1$-Vd1/Vd2 placement is impossible in the 414X branch.
 
-By reflection across the $OV_0$ axis, the same obstruction applies to the
-placement
+By reflection across the $OV_0$ axis, the same obstruction applies to
 
 $$
 T_0\text{ supercritical},\qquad T_5\text{ Vd1/Vd2}.
@@ -110,8 +109,8 @@ $$
 E:=vS-y.
 $$
 
-Substitution into the CE2 half-plane model gives the center-triangle lengths on
-$r_1$ and $r_2$, measured from $O$ toward the corresponding vertex:
+The center-triangle lengths on $r_1$ and $r_2$, measured from $O$ toward the
+corresponding vertex, are
 
 $$
 d_1^C=\frac{E}{x},
@@ -119,8 +118,7 @@ d_1^C=\frac{E}{x},
 d_2^C=\frac{E}{S}.
 $$
 
-Equivalently, in the coordinate measured from the vertex toward $O$, the
-uncovered vertex-side demands are
+Thus the vertex-side uncovered demands are
 
 $$
 q_1=1-d_1^C,
@@ -128,8 +126,11 @@ q_1=1-d_1^C,
 q_2=1-d_2^C.
 $$
 
-Indeed, on $r_2$ the active CE2 slack is $E-qS$, so the center-side exit
-coordinate is $E/S$.
+On $r_2$, this follows because the active CE2 slack has the form
+
+$$
+E-qS.
+$$
 
 ## Boundary demands from $T_0$ and $T_C$
 
@@ -156,7 +157,7 @@ $$
 [1-a_1,1]\quad\text{from }T_1.
 $$
 
-Therefore $T_1$ must satisfy
+Therefore
 
 $$
 a_1\ge A,
@@ -205,7 +206,7 @@ $$
 a_i+b_i\le1.
 $$
 
-Together with the boundary relation
+Together with
 
 $$
 b_i+a_{i+1}\ge1,
@@ -218,7 +219,7 @@ b_5\ge H\Longrightarrow b_4\ge H\Longrightarrow b_3\ge H
 \Longrightarrow b_2\ge H\Longrightarrow b_1\ge H.
 $$
 
-Thus every candidate satisfies
+Thus
 
 $$
 \boxed{a_1\ge A,
@@ -228,14 +229,14 @@ $$
 
 ## Local Vd1/Vd2 adjacent-ray bound
 
-Let $T_1$ be normalized at $V_1$.  For the adjacent ray touched by $T_1$, the
-standard corner-side normal form has a parameter $t>0$ and
+Normalize $T_1$ at $V_1$ and choose a touched adjacent ray.  In local
+coordinates $(X,Y)$ there is a parameter $t>0$ and
 
 $$
 d=\sqrt{t^2+t+1}
 $$
 
-such that, in local coordinates $(X,Y)$ at $V_1$,
+such that the corner-side normal form is
 
 $$
 X-(t+1)Y\le a,
@@ -252,9 +253,8 @@ tX+Y\le d-a-tb.
 $$
 
 Here $a=a_1$ and $b=b_1$ after choosing the side corresponding to the touched
-adjacent ray.  This is the same unit-equilateral corner normal form used for
-Vd2 rows; the Vd1 case is obtained by allowing only one of the two adjacent-ray
-intersections to have positive length.
+adjacent ray.  The Vd1 case is obtained by allowing only one adjacent-ray
+intersection to have positive length; the Vd2 case has both.
 
 If the outgoing adjacent ray has positive-length intersection, then its lower
 endpoint is strictly smaller than its upper endpoint, giving
@@ -275,14 +275,13 @@ $$
 a+b<\frac{(t+1)(d-1)-t^2}{t}.
 $$
 
-The right-hand side is strictly less than $1/2$.  Indeed, this is equivalent
-to
+The right-hand side is strictly less than $1/2$, because this is equivalent to
 
 $$
 (t+1)d<t^2+\frac{3t}{2}+1,
 $$
 
-and after squaring the positive sides the difference is
+and
 
 $$
 \left(t^2+\frac{3t}{2}+1\right)^2-(t+1)^2(t^2+t+1)=\frac{t^2}{4}>0.
@@ -297,17 +296,16 @@ $$
 Since the left side is at least $t(a+b)$, it is enough to prove
 
 $$
-(t+1)(d-t)-1<\frac t2.
+(t+1)(d-t)-1<\frac t2,
 $$
 
-This is again equivalent to
+which is again equivalent to the already proved inequality
 
 $$
-(t+1)d<t^2+\frac{3t}{2}+1,
+(t+1)d<t^2+\frac{3t}{2}+1.
 $$
 
-already proved.  Therefore positive-length intersection with either adjacent
-ray implies
+Therefore positive-length intersection with either adjacent ray implies
 
 $$
 \boxed{a_1+b_1<\frac12.}
@@ -322,10 +320,6 @@ $$
 
 ## Local radial-envelope bound for $T_2$
 
-The only unresolved way to cover $r_2$ after excluding a bridge by $T_1$ is for
-$T_2$ to reach the CE2 center interval from the $V_2$ side.  We first record a
-local envelope bound for that possibility.
-
 Let
 
 $$
@@ -334,7 +328,7 @@ p=\frac12+A,
 h=H.
 $$
 
-Since $A+H<1/2$,
+Then
 
 $$
 p\ge\frac12,
@@ -378,7 +372,7 @@ q=s^4-s^2+ph\ge \left(h+\frac12\right)^4-\left(h+\frac12\right)^2+\frac h2
 \ge0,
 $$
 
-where the last expression is increasing for $h>0$ and is already positive at
+where the last expression is increasing for $h>0$ and is positive at
 $h=3/8$.
 
 Evaluate $P$ at $c_0$:
@@ -388,14 +382,14 @@ P(c_0)=\frac{h}{81}\left(h^3-12h^2-63h+27\right).
 $$
 
 On $0\le h\le3/8$, the cubic in parentheses is decreasing and its value at
-$3/8$ is $891/512>0$.  Hence $P(c_0)>0$ whenever $h>0$.  Since $P(0)=-h^2<0$
-and the admissible branch ends at the first positive root, this gives
+$3/8$ is $891/512>0$.  Hence $P(c_0)>0$ for $h>0$.  Since $P(0)=-h^2<0$ and
+the admissible branch ends at the first positive root,
 
 $$
 c_{\max}(p,h)<c_0=1-\frac h3.
 $$
 
-For $h=0$ the desired inequality is $c_{\max}\le1$, which is immediate.
+For $h=0$, the desired inequality is the trivial bound $c_{\max}\le1$.
 
 ### Branch $q\ge0$
 
@@ -406,21 +400,21 @@ $$
 \qquad s=p+h.
 $$
 
-Evaluate at $c_0=1-h/3$:
+At $c_0=1-h/3$ this expression is
 
 $$
 G=(s^2-1)c_0^2+pc_0-p^2
-=rac{2h^3+2h^2p-12h^2-12hp+15h+9}{9}.
+=\frac{2h^3+2h^2p-12h^2-12hp+15h+9}{9}.
 $$
 
-For fixed $h\in[0,1/2]$, this expression is linear and decreasing in $p$,
-because the coefficient of $p$ is $2h^2-12h\le0$.  Therefore its minimum over
+For fixed $h\in[0,1/2]$, this is linear and decreasing in $p$, because the
+coefficient of $p$ is $2h^2-12h\le0$.  Hence its minimum over
 
 $$
 \frac12\le p\le1-h
 $$
 
-occurs at $p=1-h$.  At this endpoint,
+occurs at $p=1-h$.  There,
 
 $$
 G=\frac{2h(1-h)}3\ge0.
@@ -456,10 +450,10 @@ $$
 K:=x+2y-xy-D.
 $$
 
-Using
+Since
 
 $$
-d_2^C=\frac{D+xy-uS-y}{S},
+d_2^C=\frac{D+xy-uS-y}{S}
 $$
 
 and
@@ -468,7 +462,7 @@ $$
 D+xy-y=S-K,
 $$
 
-we get
+we have
 
 $$
 d_2^C=1-u-\frac KS=H-\frac KS.
@@ -488,29 +482,23 @@ b_\circ(x)=\frac{-x+\sqrt{4-3x^2}}2,
 h(x)=b_\circ(x)-\frac12.
 $$
 
-We first show
-
-$$
-H\le h(x).
-$$
-
-Since $A+H<1/2$, either the tail on $e_{0,1}$ is produced by $b_0$ and then
-$b_0>1/2+H$, or it is produced by $v$ and then $v>1/2+H$.  In the first case,
-$a_0\ge x$ and the unit-diameter condition for $T_0$ gives
+We first show $H\le h(x)$.  Since $A+H<1/2$, either the tail on $e_{0,1}$ is
+produced by $b_0$ and then $b_0>1/2+H$, or it is produced by $v$ and then
+$v>1/2+H$.  In the first case, $a_0\ge x$ and the unit-diameter condition for
+$T_0$ gives
 
 $$
 x^2+xb_0+b_0^2\le1,
 $$
 
 so $b_0\le b_\circ(x)$ and $H<h(x)$.  In the second case, the CE2 triangle
-contains the two boundary points at parameters $x$ and $v$, so their distance
-is at most one:
+contains boundary points at parameters $x$ and $v$, so
 
 $$
-x^2+xv+v^2\le1.
+x^2+xv+v^2\le1,
 $$
 
-Thus $v\le b_\circ(x)$ and again $H<h(x)$.  Hence
+and again $v\le b_\circ(x)$, hence $H<h(x)$.  Thus
 
 $$
 H\le h(x).
@@ -588,40 +576,41 @@ $$
 F'(b)=\frac{2}{(3-2b)^2}-\frac12-\frac{3b}{2\sqrt{4-3b^2}}<0,
 $$
 
-which follows after multiplying by the positive denominators and squaring the
-remaining radical comparison.  Hence
+and after clearing positive denominators this reduces to a one-variable
+polynomial inequality with nonnegative coefficients in $1-b$ and $2b-1$.
+Therefore
 
 $$
 F(b)\le F\left(\frac12\right)=\frac{\sqrt{13}-1}{4}.
 $$
 
-Therefore
+Hence
 
 $$
 \frac Ky\ge \frac32-\frac{\sqrt{13}-1}{4}=\frac{7-\sqrt{13}}4>\frac23.
 $$
 
-In this subcase $Sm=y$, so
+Since $Sm=y$ in this subcase,
 
 $$
-\frac{K}{Sm}=\frac Ky>\frac23.
+\frac{K}{Sm}>\frac23.
 $$
 
 #### Subcase I.2: $h(x)\le y/S$
 
-Now $m=h(x)$.  Set
+Now $m=h(x)$.  For fixed $x$ with $h(x)>0$, set
 
 $$
 g(y)=\frac KS=\frac{x+2y-xy-\sqrt{x^2+xy+y^2}}{x+y}.
 $$
 
-For fixed $x$ with $h(x)>0$, direct differentiation gives
+Direct differentiation gives
 
 $$
 g'(y)=\frac{x\left(2(1-x)D+x-y\right)}{2S^2D}>0.
 $$
 
-If $y\le x$, this is immediate.  If $y>x$, then $D\ge y$ and
+If $y\le x$, positivity is immediate.  If $y>x$, then $D\ge y$, so
 
 $$
 2(1-x)D+x-y\ge x+(1-2x)y>0,
@@ -639,30 +628,19 @@ Let $y_0$ be defined by
 $$
 \frac{y_0}{x+y_0}=h(x),
 \qquad
-\text{so}\qquad
  y_0=\frac{x h(x)}{1-h(x)}.
 $$
 
-Since $h(x)\le y/S$, we have $y\ge y_0$.  By monotonicity,
+Since $h(x)\le y/S$, we have $y\ge y_0$.  Therefore
 
 $$
-\frac{K(x,y)}{S}\ge\frac{K(x,y_0)}{x+y_0}.
+\frac{K(x,y)}{S h(x)}\ge\frac{K(x,y_0)}{(x+y_0)h(x)}=\frac{K(x,y_0)}{y_0}.
 $$
 
-Dividing by $h(x)$, and using $(x+y_0)h(x)=y_0$, gives
+The right side is the boundary value from Subcase I.1 and is greater than
+$2/3$.  Hence $K/(Sm)>2/3$.
 
-$$
-\frac{K(x,y)}{S h(x)}\ge\frac{K(x,y_0)}{y_0}.
-$$
-
-The right side is the boundary value from Subcase I.1, hence is greater than
-$2/3$.  Thus
-
-$$
-\frac{K}{Sm}>\frac23.
-$$
-
-Combining the two subcases, $K/(Sm)>2/3$.  Since $H\le m$, we get
+Combining the two subcases gives
 
 $$
 \frac{K}{SH}\ge\frac{K}{Sm}>\frac23.
@@ -686,8 +664,8 @@ in Branch I.
 
 Now $a_0=1-H$.
 
-First, the $e_{0,1}$ demand $A$ cannot be produced by $b_0$.  If
-$A=1-b_0$, then
+First, the $e_{0,1}$ demand $A$ cannot be produced by $b_0$.  If $A=1-b_0$,
+then
 
 $$
 A+H=2-a_0-b_0<\frac12,
@@ -711,7 +689,7 @@ $$
 a_0+b_0\le\frac2{\sqrt3}<\frac32,
 $$
 
-a contradiction.  Thus the active branch is
+a contradiction.  Thus
 
 $$
 A=1-v.
@@ -723,15 +701,15 @@ $$
 v>\frac12+H.
 $$
 
-For $A$ to be determined by the CE2 endpoint $v$, the row $T_0$ must reach the
-start $y$ of the CE2 interval on $e_{0,1}$; otherwise the gap before $y$ would
-force $A=1-b_0$.  Hence
+For $A$ to be determined by the CE2 endpoint $v$, $T_0$ must reach the start
+$y$ of the CE2 interval on $e_{0,1}$; otherwise the gap before $y$ would force
+$A=1-b_0$.  Hence
 
 $$
 b_0\ge y.
 $$
 
-Using $a_0=1-H$ and the disk condition,
+Using $a_0=1-H$ and the disk condition gives
 
 $$
 (1-H)^2+(1-H)y+y^2\le1.
@@ -749,8 +727,8 @@ $$
 L(y)=\frac{2+y-\sqrt{4-3y^2}}2.
 $$
 
-This is the smaller root of the quadratic in $H$.  Since $H<1/2$, the quadratic
-inequality gives
+This is the smaller root of the quadratic in $H$.  Since $H<1/2$, the
+quadratic inequality gives
 
 $$
 H\ge L(y).
@@ -784,7 +762,7 @@ $$
 \frac{D+xy-x-y}{S}<\frac L3.
 $$
 
-To prove the lemma, set
+Set
 
 $$
 r=\frac xy,
@@ -815,10 +793,10 @@ Since $0<L<1/2$, $0<r_0<1$.
 If $0<r\le r_0$, then
 
 $$
-R\le1+\frac r2+\frac{r^2}{2}.
+R\le1+\frac r2+\frac{r^2}{2},
 $$
 
-Therefore
+so
 
 $$
 \frac{R-r(1-y)-1}{r+1}\le
@@ -826,21 +804,55 @@ $$
 $$
 
 The right side is convex in $r$ on $[0,r_0]$, so its maximum occurs at an
-endpoint.  The endpoint $r=0$ gives $0$, and a direct substitution at $r_0$
-gives
+endpoint.  The endpoint $r=0$ gives $0$.  At $r=r_0$,
 
 $$
-\frac L3-rac{r_0\left(y-\frac12+\frac{r_0}{2}\right)}{r_0+1}>0.
+\frac L3-rac{r_0\left(y-\frac12+\frac{r_0}{2}\right)}{r_0+1}
+=
+\frac{N(L)}{6(3+4L)},
 $$
 
-Indeed, after substituting
+where
 
 $$
-y=\frac{L-1+\sqrt{1+6L-3L^2}}2,
+N(L)=16L^2y-8L^2+18L-9y,
+\qquad
+ y=\frac{L-1+\sqrt{1+6L-3L^2}}2.
 $$
 
-the numerator has derivative positive on $0<L<1/2$ and vanishes at $L=0$.
-Thus the desired inequality holds for $r\le r_0$.
+Let
+
+$$
+s=\sqrt{1+6L-3L^2}.
+$$
+
+Then $N(0)=0$ and
+
+$$
+2sN'(L)=s(48L^2-64L+27)-144L^3+240L^2+59L-27.
+$$
+
+On $0<L<1/2$, $48L^2-64L+27>0$, and
+
+$$
+s\ge1+3L-6L^2,
+$$
+
+because both sides are positive and the difference of squares is
+$36L^3(1-L)>0$.  Therefore
+
+$$
+2sN'(L)\ge2L(-144L^3+192L^2-33L+38)>0.
+$$
+
+The last cubic is positive on $0<L<1/2$.  Hence $N'(L)>0$, and since
+$N(0)=0$,
+
+$$
+N(L)>0.
+$$
+
+Thus the desired inequality holds for $0<r\le r_0$.
 
 If $r\ge r_0$, then
 
@@ -848,23 +860,36 @@ $$
 \frac{R-r(1-y)}{r+1}\le\frac12+L.
 $$
 
-This follows by squaring the positive equivalent inequality
+Indeed, this is equivalent to
 
 $$
-R\le \left(\frac12+L\right)(r+1)+r(1-y).
+R\le \left(\frac12+L\right)(r+1)+r(1-y),
 $$
 
-The squared difference is a convex quadratic in $r$; at $r=r_0$ both its value
-and derivative are positive after substituting
+whose right-hand side is positive.  After squaring, the difference is a convex
+quadratic in $r$.  At $r=r_0$, direct substitution of
 
 $$
-y=\frac{L-1+\sqrt{1+6L-3L^2}}2.
+y=\frac{L-1+\sqrt{1+6L-3L^2}}2
 $$
 
-Thus the squared difference is positive for all $r\ge r_0$.  Hence the
-hypothesis of the lemma cannot hold in this range.
+gives a positive value and a positive derivative; explicitly, after clearing
+positive denominators these are bounded below by
 
-This proves the analytic lemma.
+$$
+2(16L^4+8L^3+69L^2-48L+9)>0
+$$
+
+and
+
+$$
+2(8L^3+14L^2-20L+9)>0,
+$$
+
+respectively.  Therefore the squared difference is positive for all
+$r\ge r_0$, so the hypothesis of the lemma cannot hold in this range.
+
+The analytic lemma is proved.
 
 Applying the lemma gives
 
@@ -896,8 +921,7 @@ Combining Branches I and II proves the outer ratio target in all cases.
 
 ## Excluding $r_2$ coverage
 
-The diagonal $r_2$ is covered, in vertex-to-center coordinates, by the union of
-three possible intervals:
+In vertex-to-center coordinates, $r_2$ can be covered only by
 
 $$
 [0,c_2]\quad\text{from }T_2,
@@ -930,7 +954,7 @@ We exclude both alternatives.
 
 ### The bridge alternative
 
-If $T_1$ bridges to the center interval, then in the same corner normal form
+If $T_1$ bridges to the center interval, then in the corner normal form
 
 $$
 u_2=\frac{d-a_1-tb_1-1}{t}\ge q_2=1-d_2^C.
@@ -942,7 +966,7 @@ $$
 a_1+tb_1\le d-1-t+td_2^C.
 $$
 
-Since $d<t+1$ for $t>0$, this implies
+Since $d<t+1$ for $t>0$,
 
 $$
 a_1+tb_1<td_2^C\,t.
@@ -951,7 +975,7 @@ $$
 As $b_1\ge H$ and $a_1\ge0$,
 
 $$
-tH<td_2^C\,t,
+tH<d_2^C\,t,
 $$
 
 so
@@ -960,7 +984,7 @@ $$
 H<d_2^C.
 $$
 
-This contradicts the outer ratio target
+This contradicts
 
 $$
 d_2^C<\frac H3.
@@ -988,13 +1012,7 @@ $$
 a_1+b_1<\frac12
 $$
 
-and
-
-$$
-a_1\ge A,
-$$
-
-we have
+and $a_1\ge A$,
 
 $$
 b_1<\frac12-A.
@@ -1006,7 +1024,7 @@ $$
 a_2>\frac12+A.
 $$
 
-Also the backward boundary propagation gives
+Also backward boundary propagation gives
 
 $$
 b_2\ge H.
@@ -1043,20 +1061,17 @@ $T_0$-supercritical, $T_1$-Vd1/Vd2 placement cannot cover the required target.
 
 ## Boundary cases
 
-The final contradiction is strict.  The strictness comes from two sources:
-
-1. Vd1/Vd2 requires positive-length adjacent-ray intersection, giving
-   $a_1+b_1<1/2$.
-2. CE2 has strict positive boundary intervals and midpoint-exclusion
-   inequalities, so $u<1$ and the active tail $H$ is positive.
+The final contradiction is strict.  Vd1/Vd2 requires positive-length
+adjacent-ray intersection, giving $a_1+b_1<1/2$.  The CE2 interval constraints
+are also strict in the relevant endpoint cases, and $H>0$ for a genuine
+supercritical $T_0$ branch.
 
 Endpoint-only contacts on the adjacent ray do not count as Vd1/Vd2 positive
-length, and equality in the local adjacent-ray bound is therefore excluded.
+length and are excluded by the strict adjacent-ray inequality.
 
 ## Numerical check
 
-Independent numerical checks sampled the CE2 parameters $(x,u,y,v)$ using the
-exact relation
+Independent numerical checks sampled CE2 parameters $(x,u,y,v)$ using
 
 $$
 (u+v)(x+y)-xy=\sqrt{x^2+xy+y^2}
@@ -1070,7 +1085,7 @@ a_0+b_0>1,
  a_0^2+a_0b_0+b_0^2\le1,
 $$
 
-and then computed $A,H,d_2^C$.  The tested inequalities were
+and then computed $A,H,d_2^C$.  The checks tested
 
 $$
 A+H<\frac12\Longrightarrow d_2^C<\frac H3,
@@ -1082,6 +1097,5 @@ $$
 c_{\max}\left(\frac12+A,H\right)<1-d_2^C.
 $$
 
-No violation was found.  The closest samples approached the boundary faces
-$H\to0$ in the two active branches, consistent with the proof above.  The
-numerical check is not used as an input to the proof.
+No violation was found.  The numerical check is not used as an input to the
+proof.
