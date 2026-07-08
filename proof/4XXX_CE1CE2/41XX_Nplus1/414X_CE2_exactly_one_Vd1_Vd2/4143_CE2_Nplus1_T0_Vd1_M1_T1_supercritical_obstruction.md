@@ -44,7 +44,9 @@ $$
 are Vd0 rows satisfying
 
 $$
-a_i+b_i\le1,\qquad i=2,3,4,5.
+a_i+b_i\le1,
+\qquad
+ i=2,3,4,5.
 $$
 
 Then these seven role triangles cannot cover the hexagon perimeter.
@@ -85,17 +87,15 @@ $$
 \|(x,y)\|^2=x^2+y^2-xy.
 $$
 
-The relevant boundary edge and adjacent ray are
+The relevant boundary edge and adjacent rays are
 
 $$
 e_{5,0}=\{(x,0):0\le x\le1\},
+$$
+
+$$
+r_1=\{(x,1):0\le x\le1\},
 \qquad
-r_1=\{(x,1):0\le x\le1\}.
-$$
-
-The reflected adjacent ray is
-
-$$
 r_5=\{(1,y):0\le y\le1\}.
 $$
 
@@ -104,125 +104,157 @@ $r_1$ and no positive-length intersection with $r_5$.
 
 ## Local Vd1 normal form
 
-The unique outside vertex of $T_0$ is the corner vertex opposite the two sides
-which terminate the adjacent boundary intervals at $V_0$.  If one of these two
-terminating sides were not incident to the outside vertex, then the side through
-the outside vertex on that side of the corner would separate $T_0$ from the
-corresponding adjacent ray except possibly at an endpoint.  In the present
-$r_1$-branch, this would either destroy the positive-length $r_1$ intersection
-or create a positive-length $r_5$ intersection after reflection.  Thus the
-standard corner-side normal form applies.
-
-Hence there is a parameter $t>0$ such that $T_0$ is represented by
+Let $W$ be the unique outside vertex of $T_0$.  In the present adjacent-rescue
+branch, the two sides incident to $W$ are the two sides facing the $V_0$ corner.
+They determine two nonnegative intercepts $\alpha,\beta$ on the adjacent
+edge-lines.  The actual boundary coverage on $e_{5,0}$ is denoted by $a$; it
+satisfies
 
 $$
-x-(t+1)y\le a,
+a\le\alpha.
+$$
+
+The corresponding coverage on $e_{0,1}$ is not used below.
+
+The standard corner-side reduction is as follows.  The two unit side directions
+issuing from $W$ have positive local coordinates and meet at angle $60^\circ$.
+After reflecting the local picture if needed, they may be represented by
+
+$$
+(t+1,1),\qquad (t,t+1)
+$$
+
+for some $t>0$.  Their difference is $(1,-t)$, and all three vectors have
+squared metric length
+
+$$
+D=t^2+t+1.
+$$
+
+Set
+
+$$
+d=\sqrt D.
+$$
+
+The triangle is therefore represented by
+
+$$
+x-(t+1)y\le\alpha,
 $$
 
 $$
-ty-(t+1)x\le tb,
+ty-(t+1)x\le t\beta,
 $$
 
 and
 
 $$
-tx+y\le d-a-tb,
-\qquad
- d:=\sqrt{t^2+t+1}.
+tx+y\le d-\alpha-t\beta.
 $$
 
-The two side directions issuing from the outside vertex are
+The first side cuts the $e_{5,0}$ line at $(\alpha,0)$, and the second side
+cuts the $e_{0,1}$ line at $(0,\beta)$.
 
-$$
-(t+1,1),\qquad (t,t+1),
-$$
-
-and their difference is
-
-$$
-(1,-t).
-$$
-
-Each has squared metric length $t^2+t+1=d^2$.  After division by $d$, these
-are the three unit side directions of a unit equilateral triangle.  The first
-side cuts $e_{5,0}$ at $(a,0)$ and the second side cuts $e_{0,1}$ at $(0,b)$,
-so $a$ and $b$ are the adjacent boundary coverage coordinates.
+## The parameter satisfies $t\ge1$
 
 On $r_1$, points have the form $(x,1)$.  The first inequality is automatic on
-$0\le x\le1$, while the second and third give
+$0\le x\le1$, because
 
 $$
-x\ge c:=\frac{t(1-b)}{t+1},
+x-(t+1)\le -t\le\alpha.
 $$
 
-and
+The second side gives the lower bound
 
 $$
-x\le u:=\frac{d-a-tb-1}{t}.
+x\ge\frac{t(1-\beta)}{t+1},
 $$
 
-Thus
+and the third side gives the upper bound
+
+$$
+x\le\frac{d-\alpha-t\beta-1}{t}.
+$$
+
+Let
 
 $$
 T_0\cap r_1=[c,u]
 $$
 
-in the coordinate measured from $V_1$ toward $O$.  Since $M_1\in T_0$,
+where the coordinate is measured from $V_1$ toward $O$.  Since $M_1\in T_0$,
 
 $$
 c\le\frac12\le u.
 $$
 
-On $r_5$, points have the form $(1,y)$.  The first and third inequalities give
+Also,
 
 $$
-y\ge\frac{1-a}{t+1},
+t\beta\ge t-c(t+1).
+$$
+
+Indeed, if $\beta\le1$, then $c=t(1-\beta)/(t+1)$ and equality holds.  If
+$\beta>1$, then $c=0$ and $t\beta>t=t-c(t+1)$.
+
+The condition $M_1=(1/2,1)\in T_0$ gives, from the third side,
+
+$$
+\alpha+t\beta\le d-1-\frac t2.
+$$
+
+On $r_5$, points have the form $(1,y)$.  The second side is nonbinding on the
+unit segment because it gives only
+
+$$
+y\le1+\frac1t+\beta>1.
+$$
+
+The first and third sides give
+
+$$
+y\ge\frac{1-\alpha}{t+1}
 $$
 
 and
 
 $$
-y\le d-a-tb-t.
+y\le d-\alpha-t\beta-t.
 $$
 
-Since this is the Vd1 $r_1$-branch, $r_5$ has no positive-length intersection
-with $T_0$.  Hence
+Set
 
 $$
-d-a-tb-t\le\frac{1-a}{t+1}.
+U_5=d-\alpha-t\beta-t.
 $$
 
-The inequality $u\ge1/2$ gives
+From the midpoint inequality above,
 
 $$
-a+tb\le d-1-\frac t2.
+U_5\ge1-\frac t2.
+$$
+
+Since this is the Vd1 $r_1$-branch, $T_0\cap r_5$ has no positive length.
+
+If $\alpha\le1$, then $(1-\alpha)/(t+1)\ge0$, so no positive $r_5$ interval
+implies
+
+$$
+U_5\le\frac{1-\alpha}{t+1}\le\frac1{t+1}.
 $$
 
 Consequently,
 
 $$
-d-a-tb-t\ge1-\frac t2.
+1-\frac t2\le\frac1{t+1},
 $$
 
-Therefore
+which is equivalent to $t\ge1$.
 
-$$
-1-\frac t2\le\frac{1-a}{t+1}\le\frac1{t+1}.
-$$
-
-Multiplying by $t+1>0$ gives
-
-$$
-\left(1-\frac t2\right)(t+1)\le1,
-$$
-
-or
-
-$$
-t-t^2\le0.
-$$
-
-Since $t>0$, we have
+If $\alpha>1$, then $(1-\alpha)/(t+1)<0$.  In that case no positive $r_5$
+interval implies $U_5\le0$.  Since $U_5\ge1-t/2$, we get $t\ge2$.  Thus in all
+cases
 
 $$
 \boxed{t\ge1.}
@@ -258,28 +290,24 @@ after $T_0$ on $e_{5,0}$.
 
 ## Proof of $a\le A(c)$
 
+Since $a\le\alpha$, it is enough to prove $\alpha\le A(c)$.
+
 From
 
 $$
-c=\frac{t(1-b)}{t+1},
+\alpha+t\beta\le d-1-\frac t2
+$$
+
+and
+
+$$
+t\beta\ge t-c(t+1),
 $$
 
 we get
 
 $$
-tb=t-c(t+1).
-$$
-
-The condition $u\ge1/2$ is
-
-$$
-a+tb\le d-1-\frac t2.
-$$
-
-Substituting $tb=t-c(t+1)$ gives
-
-$$
-a\le d-1-\frac{3t}{2}+c(t+1).
+\alpha\le d-1-\frac{3t}{2}+c(t+1).
 $$
 
 Set
@@ -291,7 +319,7 @@ $$
 Then
 
 $$
-a\le F(t,c).
+\alpha\le F(t,c).
 $$
 
 For fixed $c\le1/2$,
@@ -323,8 +351,8 @@ $$
 L(c):=\sqrt3-\frac52+2c.
 $$
 
-Since $a\ge0$ and $a\le F(t,c)\le L(c)$, the feasible case has $L(c)\ge0$.
-It remains to compare $L(c)$ with $A(c)$.
+Since $\alpha\ge0$ and $\alpha\le F(t,c)\le L(c)$, every feasible row has
+$L(c)\ge0$.
 
 We prove the stronger estimate
 
@@ -341,11 +369,11 @@ $$
 The inequality $2L(c)\le A(c)$ is equivalent to
 
 $$
-R(c)\le 12-4\sqrt3-9c.
+R(c)\le12-4\sqrt3-9c.
 $$
 
-The right-hand side is positive on $0\le c\le1/2$.  Squaring is legitimate.
-The squared difference is
+The right-hand side is positive on $0\le c\le1/2$, since its minimum there is
+$15/2-4\sqrt3>0$.  Squaring is legitimate.  The squared difference is
 
 $$
 (12-4\sqrt3-9c)^2-(c^2-8c+4)=4Q(c),
@@ -378,10 +406,10 @@ $$
 Combining the inequalities gives
 
 $$
-a\le L(c)\le A(c).
+\alpha\le L(c)\le A(c).
 $$
 
-This proves
+Since $a\le\alpha$,
 
 $$
 \boxed{a\le A(c).}
@@ -395,26 +423,32 @@ $$
 \delta:=1-u.
 $$
 
-Since
+A Vd1 row in this branch cannot contain $O$.  If it contained both $V_0$ and
+$O$, then the distance-one pair $V_0,O$ would be two vertices of the unit
+triangle.  The third vertex would be $V_1$ or $V_5$, giving no outside vertex
+of $T_0$ and hence not Vd1.  Therefore $u<1$ and $\delta>0$.
+
+The third side gives
 
 $$
-u=\frac{d-a-tb-1}{t}
+u=\frac{d-\alpha-t\beta-1}{t}.
 $$
 
-and
-
-$$
-tb=t-c(t+1),
-$$
-
-we have
+Consequently,
 
 $$
 \delta
 =
-\frac{2t+1+a-c(t+1)-d}{t}
+\frac{t+1+\alpha+t\beta-d}{t}.
+$$
+
+Using $t\beta\ge t-c(t+1)$,
+
+$$
+\delta\ge
+\frac{2t+1+\alpha-c(t+1)-d}{t}
 =
-\delta_0+\frac at,
+\delta_0+\frac{\alpha}{t},
 $$
 
 where
@@ -449,16 +483,20 @@ $$
 z\mapsto \frac{z}{z+\delta_0+z/t}
 $$
 
-is increasing for $z\ge0$.  Since $0\le a\le F(t,c)$, we get
+is increasing for $z\ge0$.  Since $a\le\alpha\le F(t,c)$ and
+$\delta\ge\delta_0+\alpha/t$, we get
 
 $$
-\frac{a}{a+\delta}
-\le
+\frac{a}{a+\delta}\le\frac{\alpha}{\alpha+\delta}\le
+\frac{\alpha}{\alpha+\delta_0+\alpha/t}\le
 \frac{F(t,c)}{F(t,c)+1/2}.
 $$
 
-The denominator is $F(t,c)+1/2$ because equality $a=F(t,c)$ is exactly the
-case $u=1/2$, hence $\delta=1/2$.
+The denominator is $F(t,c)+1/2$ because
+
+$$
+\delta_0+\frac{F(t,c)}t=\frac12.
+$$
 
 Since $F(t,c)\le L(c)$ and $z\mapsto z/(z+1/2)$ is increasing for $z\ge0$,
 
@@ -507,8 +545,8 @@ There are three cases.
 
 ### Case 1: $T\le a$
 
-The Vd1 row covers the far endpoint of the CE2 interval.  The remaining tail
-of $e_{5,0}$ forces
+The Vd1 row covers the far endpoint of the CE2 interval.  The remaining tail of
+$e_{5,0}$ forces
 
 $$
 h\ge1-a.
@@ -578,9 +616,11 @@ $$
 $$
 
 The rows $T_2,T_3,T_4,T_5$ are Vd0 and have no positive-length support on
-$r_1$.  The supercritical row $T_1$ cannot cover $M_1$.  Hence the $O$-side
-radial gap of length $\delta$ before the Vd1 interval must be covered by
-$T_C$, and so
+$r_1$.  The supercritical row $T_1$ cannot cover $M_1$.  The center triangle
+$T_C$ contains $O$ and excludes $M_1$; by convexity, it cannot cover any point
+strictly on the $V_1$-side of $M_1$, because the segment from such a point to
+$O$ contains $M_1$.  Hence the $O$-side radial gap of length $\delta$ before
+the Vd1 interval must be covered by $T_C$, and so
 
 $$
 d_1\ge\delta.
@@ -788,7 +828,9 @@ $$
 But $T_2,T_3,T_4,T_5$ are nonsupercritical Vd0 rows, hence
 
 $$
-a_i+b_i\le1,\qquad i=2,3,4,5.
+a_i+b_i\le1,
+\qquad
+ i=2,3,4,5.
 $$
 
 Therefore
@@ -808,29 +850,23 @@ inequality.  The case $c=1/2$ is excluded because the strict supercritical
 envelope is undefined at radial coordinate $1/2$.
 
 Point-only contacts on $r_5$ do not affect the Vd1 type, because Vd1 excludes
-positive-length $r_5$ intersection only.  The proof uses the nonpositive-length
-condition in the form
-
-$$
-d-a-tb-t\le\frac{1-a}{t+1},
-$$
-
-which allows equality.
+positive-length $r_5$ intersection only.  The $t\ge1$ proof above treats both
+$\alpha\le1$ and $\alpha>1$, so it does not require the outside-vertex side to
+cut the actual unit segment $e_{5,0}$ before the vertex $V_5$.
 
 ## Numerical check
 
-The numerical check sampled the normal-form variables $t,a,b$ subject to
+The numerical check sampled the normal-form variables $t,\alpha,\beta$ subject
+to
 
 $$
 t\ge1,
 \qquad
-0\le a,b\le1,
+\alpha,\beta\ge0,
 $$
 
 $$
-c=\frac{t(1-b)}{t+1}\le\frac12,
-\qquad
-u=\frac{\sqrt{t^2+t+1}-a-tb-1}{t}\ge\frac12,
+c\le\frac12\le u,
 $$
 
 positive-length $r_1$ intersection, and no positive-length $r_5$ intersection.
@@ -843,8 +879,11 @@ $$
 and
 
 $$
-\frac{a}{a+1-u}\le A(c).
+\frac{a}{a+1-u}\le A(c),
 $$
+
+with $a$ taken as the actual initial boundary coverage on $e_{5,0}$, hence
+$a\le\alpha$.
 
 A second sampler used the CE2 slack variables $\lambda,X,Y$ from the side model
 and retained only hiding samples satisfying
