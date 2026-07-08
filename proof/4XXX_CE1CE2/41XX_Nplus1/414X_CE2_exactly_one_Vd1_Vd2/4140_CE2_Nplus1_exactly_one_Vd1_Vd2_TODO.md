@@ -14,9 +14,19 @@ $$
 $$
 
 have adjacent boundary contribution below the reduced 414X perimeter threshold
-needed to survive the CE2, $N_+=1$ accounting.  This is a local branch
-obstruction only; it does not close the remaining Vd1 midpoint-rescue cases or
-the full 414X branch.
+needed to survive the CE2, $N_+=1$ accounting.
+
+The normalized adjacent-rescue Vd1 case
+
+$$
+T_0\text{ Vd1},\qquad M_1\in T_0,\qquad T_1\text{ supercritical}
+$$
+
+is obstructed in
+[`4143_CE2_Nplus1_T0_Vd1_M1_T1_supercritical_obstruction.md`](4143_CE2_Nplus1_T0_Vd1_M1_T1_supercritical_obstruction.md),
+with the reflected $M_5/T_5$ case included by symmetry.  This closes that
+local placement only; it does not close the remaining Vd1 placements, the
+$\sigma=0$ placement, or the full 414X branch.
 
 An empirical visual candidate for a cover of $S_{1/2}$ in this branch is
 recorded in
