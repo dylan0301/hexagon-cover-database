@@ -24,9 +24,21 @@ $$
 
 is obstructed in
 [`4143_CE2_Nplus1_T0_Vd1_M1_T1_supercritical_obstruction.md`](4143_CE2_Nplus1_T0_Vd1_M1_T1_supercritical_obstruction.md),
-with the reflected $M_5/T_5$ case included by symmetry.  This closes that
-local placement only; it does not close the remaining Vd1 placements, the
-$\sigma=0$ placement, or the full 414X branch.
+with the reflected $M_5/T_5$ case included by symmetry.
+
+The adjacent remaining placement
+
+$$
+T_0\text{ supercritical},\qquad T_1\text{ Vd1/Vd2}
+$$
+
+is obstructed in
+[`4144_CE2_Nplus1_T0_supercritical_T1_Vd1_Vd2_adjacent_obstruction.md`](4144_CE2_Nplus1_T0_supercritical_T1_Vd1_Vd2_adjacent_obstruction.md),
+with the reflected $T_5$ placement included by symmetry.
+
+These are local placement obstructions only; they do not by themselves close
+non-adjacent Vd1 placements, the remaining $\sigma=0$ placements away from the
+adjacent normalization, or the full 414X branch.
 
 An empirical visual candidate for a cover of $S_{1/2}$ in this branch is
 recorded in
