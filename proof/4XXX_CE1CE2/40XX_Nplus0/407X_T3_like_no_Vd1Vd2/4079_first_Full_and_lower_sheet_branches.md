@@ -1,6 +1,6 @@
 # First-Full and Left-Lower-Sheet Branches in $407X$
 
-Status: Proven
+Status: Proven with local details in [`407c_rigor_completion_details.md`](407c_rigor_completion_details.md)
 
 This file closes the hard-region branch families
 
@@ -19,6 +19,9 @@ in the $407X$ boundary-loss reduction.
 Throughout, use the notation and standing hypotheses of
 [`4073_boundary_loss_framework.md`](4073_boundary_loss_framework.md), and the support isolation of
 [`4072_support_isolation_after_T0_T3_like.md`](4072_support_isolation_after_T0_T3_like.md).
+
+The detailed lower-sheet estimates used in Section 3 are proved in
+[`407c_rigor_completion_details.md`](407c_rigor_completion_details.md), Section 2.
 
 The hard region is
 
@@ -211,7 +214,7 @@ $$
 (1-\lambda)(1-u)\le {1-u\over2}.
 $$
 
-Since $u<1/2$, this gives $\lambda\ge1/2$.
+The midpoint exit bound `407c`, Lemma 2.1, gives $u<1/2$, hence $1-u>0$.  Thus $\lambda\ge1/2$.
 
 ### Lemma 3.2
 
@@ -237,7 +240,7 @@ contradiction.
 
 Assume $B_5=T_+^{lo}$ and $B_1=\mathrm{Full}$ in the hard region.  By Lemma 3.2, the right side is in the miss case, so $C_1=1-\gamma_1$ and $\gamma_1\le y$.  Also $S>y$.
 
-If $A_1=q$, then $q<1/2$ and the right Full condition gives $\gamma_1\ge q$.  But CE2 overlap gives $q>S$, so $y\ge q>S$, contradicting $S>y$.
+If $A_1=q$, then $q<1/2` and the right Full condition gives $\gamma_1\ge q$.  But CE2 overlap gives $q>S$, so $y\ge q>S$, contradicting $S>y$.
 
 If $A_1=A_C$ and $A_C\ge1/2$, Full gives $\gamma_1\ge1-A_C$, hence $y\ge1-A_C$.  Since $A_C=\lambda(1-y)$, this forces $y\ge1$, impossible.
 
@@ -259,22 +262,38 @@ contradicting $S<1/2$.  Thus the branch is impossible.
 
 Assume $B_5=T_+^{lo}$ and $B_1=T_+^{hi}$.  Lemma 3.2 again puts the right side in the miss case, so $C_1=1-y$.
 
-The left lower-sheet estimates give
+The left lower-sheet estimates in `407c`, Lemma 2.2, give
 
 $$
-y<{1\over4},
-\qquad
-S>{7\over16},
-\qquad
-A_C>{7\over16}.
+y<{1\over4}.
 $$
 
-For the right high sheet with $y<1/4$, the high-sheet input bound gives
+If $y<1-\sqrt3/2$, then the right high-sheet input filter gives
+
+$$
+A_1\le\ell(y).
+$$
+
+For $A_1=q$, CE2 overlap gives $q>S$, and `407c`, Lemma 2.2, gives $S>\ell(y)$, contradiction.  For $A_1=A_C$, we have $A_C=\lambda(1-y)$ with $\lambda\ge1/2$, so
+
+$$
+A_C\ge {1-y\over2}>\ell(y),
+$$
+
+again contradiction.
+
+If $y\ge1-\sqrt3/2$, then the coarse right high-sheet input bound for $y<1/4$ gives
 
 $$
 A_1\le {7\over16}.
 $$
 
-Indeed, writing $p=B_1/(1-y)$, if $p\le5/8$, then $A_1\le\mu/2\le7/16$; if $p\ge5/8$, then $A_1\le\mu-3p/4\le7/16$.
+Indeed, writing $p=B_1/(1-y)$, if $p\le5/8$, then $A_1\le\mu/2\le7/16$; if $p\ge5/8`, then $A_1\le\mu-3p/4\le7/16$.
 
-If $A_1=q$, then $q>S>7/16$, contradiction.  If $A_1=A_C$, then $A_C>7/16$, contradiction.  Hence $(T_+^{lo},T_+^{hi})$ is impossible.
+But `407c`, Lemma 2.2, gives
+
+$$
+S>{7\over16},\qquad A_C>{7\over16}
+$$
+
+in this range.  If $A_1=q$, then $q>S>7/16$, contradiction.  If $A_1=A_C$, then $A_C>7/16$, contradiction.  Hence $(T_+^{lo},T_+^{hi})$ is impossible.
