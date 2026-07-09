@@ -265,7 +265,7 @@ B_5+B_1
 m+2\rho-2+{r\over2}.
 $$
 
-If $r\le8/15$, then $m\le1$ and $2\rho-2+r/2\le0`.  If $r>8/15$, Lemma 3.4 of `407c` supplies the estimates $r<5/8$ and $\beta<4/5$, hence $m<15/16$; also $2\rho-2+r/2<1/16$.  Therefore $B_5+B_1<1$.
+If $r\le8/15$, then $m\le1$ and $2\rho-2+r/2\le0$.  If $r>8/15$, Lemma 3.4 of `407c` supplies the estimates $r<5/8$ and $\beta<4/5$, hence $m<15/16$; also $2\rho-2+r/2<1/16$.  Therefore $B_5+B_1<1$.
 
 ### 5.2. The $A_1=q$ subcase
 
@@ -297,7 +297,7 @@ $$
 \tau^4-3\tau^3+3\tau^2-3\tau+1=0.
 $$
 
-Because $q>S$, we have $S<93/200`.  Write
+Because $q>S$, we have $S<93/200$.  Write
 
 $$
 S=S_0+{1-r\over r}y,
@@ -305,7 +305,7 @@ S=S_0+{1-r\over r}y,
 S_0=1-{m\over r+\beta}+{1-r\over1+\rho}.
 $$
 
-Thus $S_0<93/200`.  The finite certificate
+Thus $S_0<93/200$.  The finite certificate
 [`407X_computation/407b_T_hi_Tminus_qright_threshold_certificate.py`](407X_computation/407b_T_hi_Tminus_qright_threshold_certificate.py) proves
 
 $$
@@ -436,7 +436,7 @@ $$
 
 By Lemma 6.1, write $B_1=Cp$ and $A_1=\mu-Cp$.
 
-If $A_1=A_C$, then $\mu-Cp=(1-r)C$.  The branch condition $B_1\ge A_1$ gives $p\ge1-r$.  Since $p\le1/2$, $r\ge1/2`.  The high-left half-bound gives $B_5<1/2$, while $B_1\le p\le1/2$, so $B_5+B_1<1$.
+If $A_1=A_C$, then $\mu-Cp=(1-r)C$.  The branch condition $B_1\ge A_1$ gives $p\ge1-r$.  Since $p\le1/2$, $r\ge1/2$.  The high-left half-bound gives $B_5<1/2`, while $B_1\le p\le1/2$, so $B_5+B_1<1$.
 
 If $A_1=q$, then $q>S`.  Since $q=\mu-(1-y)p=\mu-p+py$ and $S=S_0+((1-r)/r)y$, we have
 
@@ -444,7 +444,7 @@ $$
 S_0<\mu-p+\left(p-{1-r\over r}\right)y.
 $$
 
-If $(1-r)/r<p$, then $r>1/(1+p)\ge2/3`, so $B_5<1/2` and $B_1\le1/2`.
+If $(1-r)/r<p$, then $r>1/(1+p)\ge2/3$, so $B_5<1/2` and $B_1\le1/2`.
 
 If $(1-r)/r\ge p$, then $S_0<\mu-p`.  Lemma 6.2 gives $B_5<1-p`.  Since $B_1=Cp\le p$, we get $B_5+B_1<1$.
 
