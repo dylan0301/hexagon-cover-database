@@ -10,6 +10,9 @@ $$
 
 with no Vd1/Vd2 rows and at least one T3-like row.
 
+The detailed auxiliary inequalities used in the compressed branch files are recorded in
+[`407c_detailed_gap_closure.md`](407c_detailed_gap_closure.md).  Thus this assembly uses the branch files together with the expanded gap-closure lemmas and the two local finite interval certificates.
+
 ## 1. Structural reductions
 
 The file `4071` proves that, after the normalization
@@ -80,13 +83,13 @@ and all branches with first coordinate $T_-$ are proved in `4075`.
 
 ### New completion files
 
-The file `4078_left_L_family_completion.md` proves the remaining left-Low branches, including
+The file `4078_left_L_family_completion.md`, with details supplied in `407c_detailed_gap_closure.md`, proves the remaining left-Low branches, including
 
 $$
 (L,T_+^{hi}).
 $$
 
-The file `4079_first_Full_and_lower_sheet_branches.md` proves
+The file `4079_first_Full_and_lower_sheet_branches.md`, with details supplied in `407c_detailed_gap_closure.md`, proves
 
 $$
 (\mathrm{Full},*)\text{ is impossible},
@@ -100,7 +103,7 @@ $$
 (T_+^{lo},T_+^{hi}).
 $$
 
-The file `407a_left_Thigh_branch_completion.md` proves all first-coordinate high-sheet branches:
+The file `407a_left_Thigh_branch_completion.md`, with details supplied in `407c_detailed_gap_closure.md`, proves all first-coordinate high-sheet branches:
 
 $$
 (T_+^{hi},\mathrm{Full}),
