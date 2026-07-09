@@ -154,6 +154,7 @@ The following finite interval certificates are part of the local proof package:
 
 - [`407X_computation/407b_T_hi_Tminus_qright_threshold_certificate.py`](407X_computation/407b_T_hi_Tminus_qright_threshold_certificate.py), used in the $(T_+^{hi},T_-)$ branch.
 - [`407X_computation/407c_T_hi_Tlo_left_threshold_certificate.py`](407X_computation/407c_T_hi_Tlo_left_threshold_certificate.py), used in the $(T_+^{hi},T_+^{lo})$ branch.
+- [`407X_computation/README.md`](407X_computation/README.md), recording the expected outputs for the local certificates.
 
 Both scripts use rational interval arithmetic with one-sided integer square-root bounds and report zero unresolved boxes in their recorded runs.
 
