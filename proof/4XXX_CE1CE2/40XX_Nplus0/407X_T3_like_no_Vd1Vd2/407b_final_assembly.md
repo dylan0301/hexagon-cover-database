@@ -11,7 +11,8 @@ $$
 with no Vd1/Vd2 rows and at least one T3-like row.
 
 The detailed auxiliary inequalities used in the compressed branch files are recorded in
-[`407c_detailed_gap_closure.md`](407c_detailed_gap_closure.md).  Thus this assembly uses the branch files together with the expanded gap-closure lemmas and the two local finite interval certificates.
+[`407c_detailed_gap_closure.md`](407c_detailed_gap_closure.md) and the final remaining gap fixes are recorded in
+[`407e_final_gap_fixes.md`](407e_final_gap_fixes.md).  Thus this assembly uses the branch files together with the expanded gap-closure lemmas and the two local finite interval certificates.
 
 ## 1. Structural reductions
 
@@ -89,7 +90,7 @@ $$
 (L,T_+^{hi}).
 $$
 
-The file `4079_first_Full_and_lower_sheet_branches.md`, with details supplied in `407c_detailed_gap_closure.md`, proves
+The file `4079_first_Full_and_lower_sheet_branches.md`, with details supplied in `407c_detailed_gap_closure.md` and `407e_final_gap_fixes.md`, proves
 
 $$
 (\mathrm{Full},*)\text{ is impossible},
@@ -103,7 +104,7 @@ $$
 (T_+^{lo},T_+^{hi}).
 $$
 
-The file `407a_left_Thigh_branch_completion.md`, with details supplied in `407c_detailed_gap_closure.md`, proves all first-coordinate high-sheet branches:
+The file `407a_left_Thigh_branch_completion.md`, with details supplied in `407c_detailed_gap_closure.md` and `407e_final_gap_fixes.md`, proves all first-coordinate high-sheet branches:
 
 $$
 (T_+^{hi},\mathrm{Full}),
