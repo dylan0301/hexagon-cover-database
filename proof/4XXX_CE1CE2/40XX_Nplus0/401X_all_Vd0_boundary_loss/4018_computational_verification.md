@@ -8,7 +8,7 @@ unless explicitly paired with a finite interval certificate or a proven analytic
 lemma.
 
 The formerly open lower-sheet $T_+$ cases are now proved analytically in
-`556_lower_sheet_completion_proofs.md`.  The lower-sheet numerical observations
+`4019_lower_sheet_completion_proofs.md`.  The lower-sheet numerical observations
 below should be read as historical evidence that guided the proof, not as the
 current proof status.
 
@@ -16,11 +16,11 @@ current proof status.
 
 The supporting scripts are in:
 
-- `experiments/README.md`
-- `experiments/verify_full_L_interval.py`
-- `experiments/full_L_interval_certificate.json`
-- `experiments/attempt_interval_L_Tplus_loss_exact_corrected.py`
-- `experiments/refined_branch_sampler.py`
+- `401aX_boundary_loss_experiments/401a0_README.md`
+- `401aX_boundary_loss_experiments/401a4_verify_full_L_interval.py`
+- `401aX_boundary_loss_experiments/401a2_full_L_interval_certificate.json`
+- `401aX_boundary_loss_experiments/401a1_attempt_interval_L_Tplus_loss_exact_corrected.py`
+- `401aX_boundary_loss_experiments/401a3_refined_branch_sampler.py`
 
 ## 2. Strict branch sampling
 
@@ -51,9 +51,10 @@ final lower-sheet completion.
 
 ## 3. Interval certificate for $(\mathrm{Full},L)$
 
-The file `verify_full_L_interval.py` certifies the far region of the branch
+The file `401aX_boundary_loss_experiments/401a4_verify_full_L_interval.py`
+certifies the far region of the branch
 $(\mathrm{Full},L)$.  The tight horn is handled analytically in
-`553_proven_branch_lemmas.md`.
+`4016_proven_branch_lemmas.md`.
 
 The far-region bad set is reduced to
 
@@ -156,7 +157,7 @@ $(L,T_+)$.
 
 ## 5. Historical numerical status of lower-sheet cases
 
-Before `556_lower_sheet_completion_proofs.md`, strict sampling found the
+Before `4019_lower_sheet_completion_proofs.md`, strict sampling found the
 following formerly remaining branches:
 
 $$
@@ -187,7 +188,7 @@ $$
 
 These values suggested a visible gap.  The final proof does not rely on these
 numbers; it proves all three branches analytically in
-`556_lower_sheet_completion_proofs.md`.
+`4019_lower_sheet_completion_proofs.md`.
 
 ## 6. What would count as evidence of an error
 
@@ -198,7 +199,7 @@ Any one of the following would invalidate or require revision of this package:
 - A point in the corrected $(L,T_+)$ compact region where neither $\ell<u$ nor $E(\ell-u)>0$ holds while all branch conditions hold.
 - A realized $D_1$ point that is maximal without also lying on a $T_-$ or $T_+$ radial frontier.
 - A realized $(T_+^{hi},T_+^{hi})$ point satisfying all C-geometry and branch-realization conditions.
-- A realized lower-sheet branch satisfying all branch-realization conditions and violating one of the analytic inequalities in `556_lower_sheet_completion_proofs.md`.
+- A realized lower-sheet branch satisfying all branch-realization conditions and violating one of the analytic inequalities in `4019_lower_sheet_completion_proofs.md`.
 
 ## 7. Reproduction notes
 

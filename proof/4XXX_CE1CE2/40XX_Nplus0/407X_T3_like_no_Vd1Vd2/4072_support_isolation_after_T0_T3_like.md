@@ -1,6 +1,6 @@
 # Support Isolation After the $T_0$ T3-Like Reduction
 
-Status: Proven modulo recorded dependencies
+Status: Proven
 
 This file records the support-isolation progress for the branch
 

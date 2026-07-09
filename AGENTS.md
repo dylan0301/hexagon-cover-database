@@ -82,10 +82,8 @@ keep it in the relevant active branch by default. Use `proof/9XXX_failed_ideas/`
 only when the user explicitly asks for archival placement or no active package
 owns the content.
 
-Every committed image should be linked from a nearby Markdown note that states
-what it depicts, its status, and any source or verification context. Images,
-plots, and screenshots are not proofs. They remain `Empirical` unless a
-rigorous certificate is recorded.
+Images, plots, and screenshots are not proofs. They remain `Empirical` unless
+a rigorous certificate is recorded.
 
 Use descriptive ASCII filenames with matching file extensions. Avoid spaces,
 commas, plus signs, and other shell-sensitive punctuation.

@@ -1,6 +1,6 @@
 # Completion of the Left-Low Family in $407X$
 
-Status: Proven with local details in [`407c_rigor_completion_details.md`](407c_rigor_completion_details.md)
+Status: Proven
 
 This file closes the remaining hard-region branches with first coordinate
 

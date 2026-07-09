@@ -25,7 +25,7 @@ $$
 Assume further that, among the six vertex rows,
 
 $$
-N_+=\left|\{i:a_i+b_i>1\}\right|=1,
+N_+=\left\lvert \left\lbrace i : a_i+b_i>1 \right\rbrace \right\rvert=1,
 $$
 
 there is exactly one T3-like row, and no row is Vd1 or Vd2. Equivalently, the

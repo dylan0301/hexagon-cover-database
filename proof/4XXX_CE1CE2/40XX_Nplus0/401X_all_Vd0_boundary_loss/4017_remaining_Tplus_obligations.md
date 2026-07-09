@@ -6,7 +6,7 @@ This file records the lower-sheet $T_+$ obligations that were formerly open,
 plus failed approaches that should not be repeated.
 
 The obligations recorded here are now discharged by
-`556_lower_sheet_completion_proofs.md`, which gives analytic proofs of all
+`4019_lower_sheet_completion_proofs.md`, which gives analytic proofs of all
 three formerly open branches:
 
 $$
@@ -167,7 +167,7 @@ $$
 F=B_5+B_1<1.
 $$
 
-The full proof is in `556_lower_sheet_completion_proofs.md`.
+The full proof is in `4019_lower_sheet_completion_proofs.md`.
 
 ## 4. Failed approach: separate loss bounds
 

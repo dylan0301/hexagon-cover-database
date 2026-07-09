@@ -1,6 +1,6 @@
 # Final Assembly of the $407X$ Branch
 
-Status: Proven modulo recorded dependencies and local interval certificates
+Status: Proven
 
 This file assembles the proof of the branch
 

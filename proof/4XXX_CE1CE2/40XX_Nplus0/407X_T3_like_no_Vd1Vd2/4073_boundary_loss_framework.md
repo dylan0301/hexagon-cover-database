@@ -1,6 +1,6 @@
 # Boundary-Loss Framework for the $407X$ Post-Reduction Branch
 
-Status: Proven reduction
+Status: Proven
 
 This file records the boundary-loss reduction used after
 [`4072_support_isolation_after_T0_T3_like.md`](4072_support_isolation_after_T0_T3_like.md).

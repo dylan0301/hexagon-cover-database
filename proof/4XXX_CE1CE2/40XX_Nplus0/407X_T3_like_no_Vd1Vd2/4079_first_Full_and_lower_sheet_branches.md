@@ -1,6 +1,6 @@
 # First-Full and Left-Lower-Sheet Branches in $407X$
 
-Status: Proven with local details in [`407c_rigor_completion_details.md`](407c_rigor_completion_details.md)
+Status: Proven
 
 This file closes the hard-region branch families
 

@@ -1,0 +1,9 @@
+what are the new status labels in 407X package? add all the missing things in manifest. update the 401X references. images now don't have to be linked. for spaces, use _. delete + in the image file name. fix the
+  latex violations. make markdown table if not in the index files. prompts don't need to be changed
+
+add a new status: need interval certificate
+don't add table in the 0001
+
+for the need interval certificate: is the interval arithmetic not yet?
+
+just mark them as proven

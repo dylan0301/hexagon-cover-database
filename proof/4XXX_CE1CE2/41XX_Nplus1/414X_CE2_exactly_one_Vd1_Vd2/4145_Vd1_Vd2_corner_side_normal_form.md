@@ -171,7 +171,7 @@ $$
 One side direction is $(t+1,1)/d$ in local coordinates.  Its physical image is
 
 $$
-\frac1d\left(-\frac{t+2}{2},-\frac{\sqrt3\,t}{2}\right).
+\frac1d\left(-\frac{t+2}{2},-\frac{\sqrt3 t}{2}\right).
 $$
 
 Let $\phi(t)$ be its polar angle:
@@ -179,7 +179,7 @@ Let $\phi(t)$ be its polar angle:
 $$
 \cos\phi(t)=-\frac{t+2}{2d},
 \qquad
-\sin\phi(t)=-\frac{\sqrt3\,t}{2d}.
+\sin\phi(t)=-\frac{\sqrt3 t}{2d}.
 $$
 
 In the standard center-angle parameterization, the triangle vertices are

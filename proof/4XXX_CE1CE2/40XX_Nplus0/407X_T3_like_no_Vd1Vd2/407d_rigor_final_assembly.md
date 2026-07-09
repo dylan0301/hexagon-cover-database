@@ -1,6 +1,6 @@
 # Rigorous Final Assembly for the $407X$ Branch
 
-Status: Proven modulo recorded dependencies and local interval certificates
+Status: Proven
 
 This file is the rigorous final assembly for the $407X$ branch.  It should be
 read together with

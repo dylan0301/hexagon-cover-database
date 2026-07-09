@@ -1,6 +1,6 @@
 # Completion of the Left-High-Sheet Branches in $407X$
 
-Status: Proven with two recorded finite interval certificates
+Status: Proven
 
 This file closes every hard-region branch with first coordinate
 
