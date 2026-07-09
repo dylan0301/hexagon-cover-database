@@ -131,7 +131,7 @@ $$
 \texttt{407X\_computation/407c\_T\_hi\_Tlo\_left\_threshold\_certificate.py}.
 $$
 
-Both certificates use exact rational interval arithmetic with one-sided square-root bounds and record zero unresolved boxes.
+The recorded runs are summarized in `407X_computation/README.md`. Both certificates use exact rational interval arithmetic with one-sided square-root bounds and record zero unresolved boxes.
 
 ## 3. Conclusion
 
