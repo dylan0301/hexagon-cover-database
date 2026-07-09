@@ -77,7 +77,7 @@ $$
 
 ### Proof
 
-The case $A_5=1-\alpha$ is impossible for a left $T_+$ branch because the $T_0$ support bound gives $\alpha<1/2$, hence $A_5>1/2`, while every $T_+$ branch requires $a\le1/2$.
+The case $A_5=1-\alpha$ is impossible for a left $T_+$ branch because the $T_0$ support bound gives $\alpha<1/2$, hence $A_5>1/2$, while every $T_+$ branch requires $a\le1/2$.
 
 Thus $A_5=1-T$.  The center identities are the direct formulas from `4073`.  Setting $c=1-u$, the left input is $a=rc$ and $C_5=c$.  With $\beta=B_5/c$, the high sheet gives $\beta\ge1/2$, and $B_5\ge a$ gives $\beta\ge r$.  The $T_+$ equation gives
 
@@ -161,7 +161,7 @@ If $A_1=q$, then $q<1/2$ and the right Full condition gives $y\ge q$.  But $q>S$
 
 If $A_1=A_C$ and $A_C\ge1/2$, then Full gives $y\ge1-A_C$, which with $A_C=(1-r)(1-y)$ forces $y\ge1$, contradiction.
 
-If $A_1=A_C\le1/2$, then Full gives $y\ge A_C=(1-r)(1-y)$, hence $y\ge(1-r)/(2-r)$.  A direct estimate using the left high-sheet lower bound gives $S>1/2$, contradicting $S<1/2`.  Thus the branch is impossible.
+If $A_1=A_C\le1/2$, then Full gives $y\ge A_C=(1-r)(1-y)$, hence $y\ge(1-r)/(2-r)$.  A direct estimate using the left high-sheet lower bound gives $S>1/2$, contradicting $S<1/2$.  Thus the branch is impossible.
 
 ## 3. The branch $(T_+^{hi},L)$
 
@@ -265,7 +265,7 @@ B_5+B_1
 m+2\rho-2+{r\over2}.
 $$
 
-If $r\le8/15$, then $m\le1$ and $2\rho-2+r/2\le0$.  If $r>8/15$, Lemma 3.4 of `407c` supplies the estimates $r<5/8$ and $\beta<4/5$, hence $m<15/16$; also $2\rho-2+r/2<1/16$.  Therefore $B_5+B_1<1$.
+If $r\le8/15$, then $m\le1$ and $2\rho-2+r/2\le0`.  If $r>8/15$, Lemma 3.4 of `407c` supplies the estimates $r<5/8$ and $\beta<4/5$, hence $m<15/16$; also $2\rho-2+r/2<1/16$.  Therefore $B_5+B_1<1$.
 
 ### 5.2. The $A_1=q$ subcase
 
@@ -297,7 +297,7 @@ $$
 \tau^4-3\tau^3+3\tau^2-3\tau+1=0.
 $$
 
-Because $q>S$, we have $S<93/200$.  Write
+Because $q>S$, we have $S<93/200`.  Write
 
 $$
 S=S_0+{1-r\over r}y,
@@ -305,7 +305,7 @@ S=S_0+{1-r\over r}y,
 S_0=1-{m\over r+\beta}+{1-r\over1+\rho}.
 $$
 
-Thus $S_0<93/200$.  The finite certificate
+Thus $S_0<93/200`.  The finite certificate
 [`407X_computation/407b_T_hi_Tminus_qright_threshold_certificate.py`](407X_computation/407b_T_hi_Tminus_qright_threshold_certificate.py) proves
 
 $$
@@ -368,7 +368,7 @@ $$
 
 ### Proof
 
-The lower sheet gives $0<p\le1/2$.  The equation $p^2-p+1=(A_1+B_1)^2$ gives $A_1=\mu-Cp`.  The condition $B_1\ge A_1$ gives $2Cp\ge\mu$.  Since $C\le1$, this implies $2p\ge\mu$, hence $3p^2+p-1\ge0$.
+The lower sheet gives $0<p\le1/2$.  The equation $p^2-p+1=(A_1+B_1)^2$ gives $A_1=\mu-Cp$.  The condition $B_1\ge A_1$ gives $2Cp\ge\mu$.  Since $C\le1$, this implies $2p\ge\mu$, hence $3p^2+p-1\ge0$.
 
 ### Lemma 6.2: certified lower-sheet threshold
 
@@ -416,7 +416,7 @@ $$
 r\ge(1-\beta)(r+\beta)^2,
 $$
 
-and the lower-sheet condition $3p^2+p-1\ge0`.  It certifies every rational box by one of: domain beta exclusion, domain Cell-2 exclusion, $p$-domain exclusion, direct $B_5<1-p$ upper bound, or threshold exclusion $S_0\ge\sqrt{p^2-p+1}-p$.  The recorded run has $1459$ terminal boxes and no unresolved boxes.
+and the lower-sheet condition $3p^2+p-1\ge0$.  It certifies every rational box by one of: domain beta exclusion, domain Cell-2 exclusion, $p$-domain exclusion, direct $B_5<1-p$ upper bound, or threshold exclusion $S_0\ge\sqrt{p^2-p+1}-p$.  The recorded run has $1459$ terminal boxes and no unresolved boxes.
 
 ### Theorem 6.3
 
@@ -438,7 +438,7 @@ By Lemma 6.1, write $B_1=Cp$ and $A_1=\mu-Cp$.
 
 If $A_1=A_C$, then $\mu-Cp=(1-r)C$.  The branch condition $B_1\ge A_1$ gives $p\ge1-r$.  Since $p\le1/2$, $r\ge1/2`.  The high-left half-bound gives $B_5<1/2$, while $B_1\le p\le1/2$, so $B_5+B_1<1$.
 
-If $A_1=q$, then $q>S$.  Since $q=\mu-(1-y)p=\mu-p+py$ and $S=S_0+((1-r)/r)y`, we have
+If $A_1=q$, then $q>S`.  Since $q=\mu-(1-y)p=\mu-p+py$ and $S=S_0+((1-r)/r)y$, we have
 
 $$
 S_0<\mu-p+\left(p-{1-r\over r}\right)y.
