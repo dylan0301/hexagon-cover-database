@@ -164,7 +164,7 @@ $$
 
 ### Proof
 
-Put $A=A_C$.  Since $A_1=A_C$, $s\le p_1<t$.  Since $A_5=1-T$ is CE2 overlap, $\alpha\ge S$.  Hence
+Put $A=A_C$.  Since $A_1=A_C`, $s\le p_1<t$.  Since $A_5=1-T$ is CE2 overlap, $\alpha\ge S`.  Hence
 
 $$
 s+S\le p_1+\alpha={1\over D}<1.
@@ -188,19 +188,19 @@ $$
 \gamma_5< G_1:={A+\rho-1-\lambda^2\over1-\lambda}.
 $$
 
-Lemma 1.1 applied to $A_5=1-T$ gives $T\ge\ell(\gamma_5)+\gamma_5$.  If $\ell(\gamma_5)\ge A$, then $\gamma_5\le T-A=X+Y$, and hence
+Lemma 1.1 applied to $A_5=1-T$ gives $T\ge\ell(\gamma_5)+\gamma_5`.  If $\ell(\gamma_5)\ge A`, then $\gamma_5\le T-A=X+Y`, and hence
 
 $$
 \gamma_5\le {Y\over\lambda}={\lambda-A\over\lambda}=:G_2.
 $$
 
-Thus $\gamma_5\le G=\min(G_1,G_2)$.  The detailed comparison lemma `407c`, Lemma 1.3, proves $\ell(G)<A$.  Therefore $\ell(\gamma_5)<A$, contradiction.  Hence $\ell(\gamma_5)<A_1$.
+Thus $\gamma_5\le G=\min(G_1,G_2)`.  The detailed comparison lemma `407c`, Lemma 1.3, proves $\ell(G)<A`.  Therefore $\ell(\gamma_5)<A`, contradiction.  Hence $\ell(\gamma_5)<A_1$.
 
 ## 4. CE2 overlap with $A_1=q$
 
 ### Lemma 4.1: $p_1<s$
 
-Assume $A_5=1-T$, $B_5=L$, and $A_1=q$ because $p_1<s$.  Then
+Assume $A_5=1-T$, $B_5=L$, and $A_1=q$ because $p_1<s`.  Then
 
 $$
 \ell(\gamma_5)<q.
@@ -208,17 +208,17 @@ $$
 
 ### Proof
 
-Lemma 1.1 gives $T\ge\ell(\gamma_5)+\gamma_5$, so $\ell(\gamma_5)\le T-\gamma_5$.  Since $p_1<s$, one has $q=1-p_1>1-s$.  The hard region gives $q\le T$, so $s+T>1$.  The center identity
+Lemma 1.1 gives $T\ge\ell(\gamma_5)+\gamma_5`, so $\ell(\gamma_5)\le T-\gamma_5`.  Since $p_1<s`, one has $q=1-p_1>1-s`.  The hard region gives $q\le T`, so $s+T>1`.  The center identity
 
 $$
 T-\gamma_5-S={\lambda\over1-\lambda}(1-s-T)
 $$
 
-gives $T-\gamma_5<S$.  Hence $\ell(\gamma_5)<S$.  Finally CE2 overlap gives $q>S$, so $\ell(\gamma_5)<q$.
+gives $T-\gamma_5<S`.  Hence $\ell(\gamma_5)<S`.  Finally CE2 overlap gives $q>S`, so $\ell(\gamma_5)<q$.
 
 ### Lemma 4.2: $p_1\ge t$ and right high sheet
 
-Assume $A_5=1-T$, $B_5=L$, $A_1=q$ because $p_1\ge t$, and $B_1=T_+^{hi}$.  Then
+Assume $A_5=1-T`, $B_5=L`, $A_1=q` because $p_1\ge t`, and $B_1=T_+^{hi}`.  Then
 
 $$
 \ell(\gamma_5)<q.
@@ -226,7 +226,7 @@ $$
 
 ### Proof
 
-Let $u=\gamma_5$, $z=\ell(u)$, and $y=Y/\lambda$.  Lemma 1.1 gives $T\ge z+u$.  Since $T=(1-\lambda)u+\lambda$, we get
+Let $u=\gamma_5`, $z=\ell(u)`, and $y=Y/\lambda`.  Lemma 1.1 gives $T\ge z+u`.  Since $T=(1-\lambda)u+\lambda`, we get
 
 $$
 \lambda\ge {z\over1-u}.
@@ -238,9 +238,9 @@ $$
 S=u+{\lambda\over1+\rho}+{\lambda\over1-\lambda}y.
 $$
 
-The center-transfer lemma `407c`, Lemma 1.4, applies: if $\lambda\ge\ell(u)/(1-u)$ and either $y\ge1-\sqrt3/2$ or $S\le\ell(y)$, then $\ell(u)<S$.
+The center-transfer lemma `407c`, Lemma 1.4, applies: if $\lambda\ge\ell(u)/(1-u)` and either $y\ge1-\sqrt3/2` or $S\le\ell(y)`, then $\ell(u)<S`.
 
-If $T_0$ hits the exit on $r_1`, then `4074` gives $\ell(\gamma_5)<S<q$.  In the miss case, $C_1=1-\gamma_1$ and $\gamma_1\le y$.  The right high-sheet filter gives
+If $T_0$ hits the exit on $r_1$, then `4074` gives $\ell(\gamma_5)<S<q`.  In the miss case, $C_1=1-\gamma_1` and $\gamma_1\le y`.  The right high-sheet filter gives
 
 $$
 \gamma_1\ge1-\sqrt3/2
@@ -248,11 +248,11 @@ $$
 q\le\ell(\gamma_1).
 $$
 
-Thus either $y\ge1-\sqrt3/2$, or $S<q\le\ell(\gamma_1)\le\ell(y)$.  The transfer lemma gives $\ell(\gamma_5)<S<q$.
+Thus either $y\ge1-\sqrt3/2`, or $S<q\le\ell(\gamma_1)\le\ell(y)`.  The transfer lemma gives $\ell(\gamma_5)<S<q`.
 
 ## 5. Completion
 
-The branch $(L,\mathrm{Full})$ is proved in `4074`.  The branches with right branch in $\{L,T_-,T_+^{lo}\}$ are covered by `4075`.  The only remaining left-Low branch is right high sheet, and the preceding theorems cover all left input cases.  In those cases $B_5<A_1$, while $B_1\le1-A_1$, so
+The branch $(L,\mathrm{Full})$ is proved in `4074`.  The branches with right branch in $\{L,T_-,T_+^{lo}\}$ are covered by `4075`.  The only remaining left-Low branch is right high sheet, and the preceding theorems cover all left input cases.  In those cases $B_5<A_1`, while $B_1\le1-A_1`, so
 
 $$
 B_5+B_1<1.
