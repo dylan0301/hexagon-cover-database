@@ -192,7 +192,7 @@ $$
 
 ### Proof
 
-The case $A_5=1-\alpha$ is impossible because Lemma 1.1 gives $A_5>1/2$, while any $T_+$ branch requires $a\le1/2$.  Thus $A_5=1-T$.
+The case $A_5=1-\alpha$ is impossible because Lemma 1.1 gives $A_5>1/2$, while any $T_+$ branch requires $a\le1/2`.  Thus $A_5=1-T$.
 
 Set $u=\gamma_5$.  Since $T=(1-\lambda)u+\lambda$,
 
@@ -238,13 +238,13 @@ contradiction.
 
 ### Theorem 3.3: $(T_+^{lo},\mathrm{Full})$ is impossible
 
-Assume $B_5=T_+^{lo}$ and $B_1=\mathrm{Full}$ in the hard region.  By Lemma 3.2, the right side is in the miss case, so $C_1=1-\gamma_1$ and $\gamma_1\le y$.  Also $S>y$.
+Assume $B_5=T_+^{lo}$ and $B_1=\mathrm{Full}$ in the hard region.  By Lemma 3.2, the right side is in the miss case, so $C_1=1-\gamma_1$ and $\gamma_1\le y`.  Also $S>y$.
 
-If $A_1=q$, then $q<1/2` and the right Full condition gives $\gamma_1\ge q$.  But CE2 overlap gives $q>S$, so $y\ge q>S$, contradicting $S>y$.
+If $A_1=q$, then $q<1/2$ and the right Full condition gives $\gamma_1\ge q$.  But CE2 overlap gives $q>S$, so $y\ge q>S`, contradicting $S>y`.
 
-If $A_1=A_C$ and $A_C\ge1/2$, Full gives $\gamma_1\ge1-A_C$, hence $y\ge1-A_C$.  Since $A_C=\lambda(1-y)$, this forces $y\ge1$, impossible.
+If $A_1=A_C$ and $A_C\ge1/2`, Full gives $\gamma_1\ge1-A_C`, hence $y\ge1-A_C`.  Since $A_C=\lambda(1-y)$, this forces $y\ge1`, impossible.
 
-If $A_1=A_C\le1/2$, Full gives $\gamma_1\ge A_C$, hence
+If $A_1=A_C\le1/2`, Full gives $\gamma_1\ge A_C`, hence
 
 $$
 y\ge A_C=\lambda(1-y),
@@ -256,11 +256,11 @@ $$
 S\ge {\lambda\over1+\rho}+{\lambda\over1-\lambda}{\lambda\over1+\lambda}>{1\over4}+{1\over3}>{1\over2},
 $$
 
-contradicting $S<1/2$.  Thus the branch is impossible.
+contradicting $S<1/2`.  Thus the branch is impossible.
 
 ### Theorem 3.4: $(T_+^{lo},T_+^{hi})$ is impossible
 
-Assume $B_5=T_+^{lo}$ and $B_1=T_+^{hi}$.  Lemma 3.2 again puts the right side in the miss case, so $C_1=1-y$.
+Assume $B_5=T_+^{lo}$ and $B_1=T_+^{hi}$.  Lemma 3.2 again puts the right side in the miss case, so $C_1=1-y`.
 
 The left lower-sheet estimates in `407c`, Lemma 2.2, give
 
@@ -268,13 +268,13 @@ $$
 y<{1\over4}.
 $$
 
-If $y<1-\sqrt3/2$, then the right high-sheet input filter gives
+If $y<1-\sqrt3/2`, then the right high-sheet input filter gives
 
 $$
 A_1\le\ell(y).
 $$
 
-For $A_1=q$, CE2 overlap gives $q>S$, and `407c`, Lemma 2.2, gives $S>\ell(y)$, contradiction.  For $A_1=A_C$, we have $A_C=\lambda(1-y)$ with $\lambda\ge1/2$, so
+For $A_1=q`, CE2 overlap gives $q>S`, and `407c`, Lemma 2.2, gives $S>\ell(y)$, contradiction.  For $A_1=A_C`, we have $A_C=\lambda(1-y)$ with $\lambda\ge1/2`, so
 
 $$
 A_C\ge {1-y\over2}>\ell(y),
@@ -282,13 +282,13 @@ $$
 
 again contradiction.
 
-If $y\ge1-\sqrt3/2$, then the coarse right high-sheet input bound for $y<1/4$ gives
+If $y\ge1-\sqrt3/2`, then the coarse right high-sheet input bound for $y<1/4` gives
 
 $$
 A_1\le {7\over16}.
 $$
 
-Indeed, writing $p=B_1/(1-y)$, if $p\le5/8$, then $A_1\le\mu/2\le7/16$; if $p\ge5/8`, then $A_1\le\mu-3p/4\le7/16$.
+Indeed, writing $p=B_1/(1-y)$, if $p\le5/8`, then $A_1\le\mu/2\le7/16`; if $p\ge5/8`, then $A_1\le\mu-3p/4\le7/16`.
 
 But `407c`, Lemma 2.2, gives
 
@@ -296,4 +296,4 @@ $$
 S>{7\over16},\qquad A_C>{7\over16}
 $$
 
-in this range.  If $A_1=q$, then $q>S>7/16$, contradiction.  If $A_1=A_C$, then $A_C>7/16$, contradiction.  Hence $(T_+^{lo},T_+^{hi})$ is impossible.
+in this range.  If $A_1=q`, then $q>S>7/16`, contradiction.  If $A_1=A_C`, then $A_C>7/16`, contradiction.  Hence $(T_+^{lo},T_+^{hi})$ is impossible.
