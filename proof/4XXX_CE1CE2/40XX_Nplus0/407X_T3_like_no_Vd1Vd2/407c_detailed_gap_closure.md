@@ -1,135 +1,99 @@
-# Detailed Gap-Closure Lemmas for the $407X$ Completion
+# Detailed Gap-Closure Lemmas for the 407X Completion
 
 Status: Proven
 
-This file supplies the details that are used, sometimes in compressed form, in
+This file supplies the expanded derivations used by
 
-- [`4078_left_L_family_completion.md`](4078_left_L_family_completion.md),
-- [`4079_first_Full_and_lower_sheet_branches.md`](4079_first_Full_and_lower_sheet_branches.md), and
-- [`407a_left_Thigh_branch_completion.md`](407a_left_Thigh_branch_completion.md).
+- [4078_left_L_family_completion.md](4078_left_L_family_completion.md),
+- [4079_first_Full_and_lower_sheet_branches.md](4079_first_Full_and_lower_sheet_branches.md), and
+- [407a_left_Thigh_branch_completion.md](407a_left_Thigh_branch_completion.md).
 
-The purpose is to make the final assembly in
-[`407b_final_assembly.md`](407b_final_assembly.md) independent of any omitted
-"direct checks" in those files.
-
-Throughout use the variables of
-[`4073_boundary_loss_framework.md`](4073_boundary_loss_framework.md).  In the
-CE2 overlap formulas set
+It is written to make [407b_final_assembly.md](407b_final_assembly.md) independent of abbreviated phrases such as “direct check”.  The common notation is that of [4073_boundary_loss_framework.md](4073_boundary_loss_framework.md).  In the CE2 overlap part put
 
 $$
-r=1-\lambda,\qquad u=\gamma_5,\qquad y={Y\over\lambda},\qquad
-\rho=\sqrt{r^2-r+1}.
+r=1-λ,
+\quad
+u=γ_5,
+\quad
+y=Y/λ,
+\quad
+ρ=sqrt(r^2-r+1).
 $$
 
 The Low function is
 
 $$
-\ell(\eta)=
-{(1-\eta)(1-\sqrt{4(1-\eta)^2-3})\over2},\qquad
-0\le\eta\le\eta_0:=1-{\sqrt3\over2}.
+ℓ(η)=((1-η)(1-sqrt(4(1-η)^2-3)))/2,
+\quad
+0≤η≤η_0:=1-sqrt(3)/2.
 $$
 
-## 1. Details for the left-Low completion
+## 1. Left-Low details
 
 ### Lemma 1.1: Low separation
 
-Let $0\le\eta\le\eta_0$, let $z=\ell(\eta)$, and suppose the Low candidate is realized for input $a=1-\beta$.  Then
+If $0≤η≤η_0$, $z=ℓ(η)$, and the Low candidate is realized for input $a=1-β$, then
 
 $$
-\boxed{\beta\ge z+\eta.}
+β≥z+η.
 $$
 
-#### Proof
-
-The Low equation is
+Proof.  The Low equation is
 
 $$
-z^2-(1-\eta)z+(1-\eta)^2(1-(1-\eta)^2)=0.
+z^2-(1-η)z+(1-η)^2(1-(1-η)^2)=0.
 $$
 
-Equivalently,
-
-$$
-P(\eta,z)=0,
-$$
-
-where
+Equivalently $P(η,z)=0$, where
 
 $$
 P(x,z)=x^4-4x^3+5x^2-(2+z)x+z-z^2.
 $$
 
-The Low realization domain contains
+The Low domain contains $a+z≤1$ and
 
 $$
-a+z\le1,\qquad (a+z)^4-(a+z)^2+az\le0.
+(a+z)^4-(a+z)^2+az≤0.
 $$
 
-With $a=1-\beta$ and $h=\beta-z$, the first inequality gives $h\ge0$, while the second becomes
+With $a=1-β$ and $h=β-z$, the first condition gives $h≥0$, and the second becomes $P(h,z)≤0$.  On $0≤x≤η_0<1/7$,
 
 $$
-P(h,z)\le0.
+∂P/∂x=4x^3-12x^2+10x-(2+z)<0,
 $$
 
-On $0\le x\le\eta_0<1/7$,
+because $4x^3+10x<4/343+10/7<2$.  Thus $P(·,z)$ is strictly decreasing.  If $h<η$, then $P(h,z)>P(η,z)=0$, contradiction.  Hence $h≥η$, proving $β≥z+η$.
+
+### Lemma 1.2: Non-overlap Low comparison
+
+For $0<A<1/2$, set $r_A=sqrt(1-A+A^2)$ and $g=r_A(1-r_A)$.  Then
 
 $$
-{\partial P\over\partial x}=4x^3-12x^2+10x-(2+z)<0,
+2g+5g^2<A.
 $$
 
-because $4x^3+10x<4/343+10/7<2$ and the remaining terms are non-positive. Thus $P(\cdot,z)$ is strictly decreasing on $[0,\eta_0]$. If $h<\eta$, then $P(h,z)>P(\eta,z)=0$, contradicting $P(h,z)\le0$. Therefore $h\ge\eta$, i.e. $\beta\ge z+\eta$.
-
-### Lemma 1.2: the non-overlap comparison
-
-Let $0<A<1/2$ and set
+Proof.  Write $r_A=1-y$.  Then $0<y<1-sqrt(3)/2<1/7$, and
 
 $$
-r_A=\sqrt{1-A+A^2},\qquad g=r_A(1-r_A).
+A=(1-sqrt(1-8y+4y^2))/2.
 $$
 
-Then
+The target is equivalent to
 
 $$
-\boxed{2g+5g^2<A.}
+sqrt(1-8y+4y^2)<1-4y-6y^2+20y^3-10y^4.
 $$
 
-#### Proof
-
-Write $r_A=1-y$.  Since $0<A<1/2$, one has
+The right side is positive because
 
 $$
-0<y<1-{\sqrt3\over2}< {1\over7},
+1-4y-6y^2-10y^4>1-4/7-6/49-10/2401>0.
 $$
 
-and
+After squaring, the difference equals
 
 $$
-A={1-\sqrt{1-8y+4y^2}\over2}.
-$$
-
-The desired inequality is
-
-$$
-2(1-y)y+5(1-y)^2y^2<{1-\sqrt{1-8y+4y^2}\over2}.
-$$
-
-Equivalently,
-
-$$
-\sqrt{1-8y+4y^2}<1-4y-6y^2+20y^3-10y^4.
-$$
-
-The right side is positive for $0<y<1/7$, since
-
-$$
-1-4y-6y^2-10y^4>1-{4\over7}-{6\over49}-{10\over2401}>0.
-$$
-
-Squaring is therefore legitimate.  A direct expansion gives
-
-$$
-(1-4y-6y^2+20y^3-10y^4)^2-(1-8y+4y^2)
-=4y^3Q(y),
+4y^3 Q(y),
 $$
 
 where
@@ -138,560 +102,325 @@ $$
 Q(y)=25y^5-100y^4+130y^3-40y^2-36y+22.
 $$
 
-For $0<y<1/7$,
+On $0<y<1/7$,
 
 $$
-Q(y)>22-{36\over7}-{40\over49}-{100\over2401}>0.
+Q(y)>22-36/7-40/49-100/2401>0.
 $$
 
-Hence the squared difference is positive, proving the lemma.
+Thus $2g+5g^2<A$.
 
-### Lemma 1.3: the CE2 middle-overlap comparison
+### Lemma 1.3: CE2 middle-overlap comparison
 
-Let $0<A\le\lambda<1$, put
-
-$$
-\rho=\sqrt{1-\lambda+\lambda^2},
-$$
-
-and define
+Let $0<A≤λ<1$, $ρ=sqrt(1-λ+λ^2)$, and
 
 $$
-G_1={A+\rho-1-\lambda^2\over1-\lambda},\qquad
-G_2={\lambda-A\over\lambda},\qquad
-G=\min(G_1,G_2).
+G_1=(A+ρ-1-λ^2)/(1-λ),
+\quad
+G_2=(λ-A)/λ,
+\quad
+G=min(G_1,G_2).
 $$
 
-If $G\ge0$, then
+If $G≥0$, then $ℓ(G)<A$.
+
+Proof.  The crossing $G_1=G_2$ occurs at
 
 $$
-\boxed{\ell(G)<A.}
+A_0=λ(2-λ+λ^2-ρ),
 $$
 
-#### Proof
-
-The two functions cross when
+and then
 
 $$
-G_1=G_2.
+G_1=G_2=g=ρ(1-ρ),
+\quad
+A_0=λ(1-g).
 $$
 
-Solving gives
-
-$$
-A=A_0:=\lambda(2-\lambda+\lambda^2-\rho).
-$$
-
-At this value
-
-$$
-G_1=G_2=g:=\rho(1-\rho),\qquad A_0=\lambda(1-g).
-$$
-
-Let $c=1-g$ and $b_0=A_0=\lambda c$.  The Low polynomial at radial loss $g$ is
+Let $c=1-g$ and $b_0=A_0=λc$.  The Low polynomial at radial loss $g$ is
 
 $$
 P_c(b)=b^2-cb+c^2(1-c^2).
 $$
 
-A direct simplification using $\rho^2=1-\lambda+\lambda^2$ gives
+Substitution and $ρ^2=1-λ+λ^2$ give
 
 $$
-P_c(b_0)=-(\rho-1)^2(\rho^2+1)(\rho^2-\rho+1)^2<0.
+P_c(b_0)=-(ρ-1)^2(ρ^2+1)(ρ^2-ρ+1)^2<0.
 $$
 
-Since $P_c(0)=c^2(1-c^2)>0$, the point $b_0$ lies to the right of the smaller Low root, so
+Since $P_c(0)>0$, $b_0$ is to the right of the smaller Low root, so $ℓ(g)<A_0$.  If $G=G_2$, then $A≥A_0$ and $G≤g$, so $ℓ(G)<A$.  If $G=G_1$, then $A≤A_0$.  The function $F(A)=A-ℓ(G_1(A))$ is concave on the relevant interval because $G_1$ is affine and $ℓ$ is convex on $[0,1/8]$, while $g<1/8$.  At the endpoint $G_1=0$, $F(A)=A>0$, and at $A=A_0$, $F(A_0)>0$.  Hence $F>0$ throughout.
+
+### Lemma 1.4: Center transfer
+
+Let $0<u≤η_0$, $z=ℓ(u)$, and $λ≥z/(1-u)$.  Define
 
 $$
-\ell(g)<A_0.
+S_λ(v)=u+λ/(1+sqrt(1-λ+λ^2))+λv/(1-λ).
 $$
 
-If $G=G_2$, then $A\ge A_0$ and $G_2\le g$, hence
+If either $v≥η_0$, or $0≤v≤η_0$ and $S_λ(v)≤ℓ(v)$, then $z<S_λ(v)$.
+
+Proof.  Put $c=1-u$ and $β=z/c=(1-sqrt(4c^2-3))/2$.  Then $c^2=1-β+β^2$, and $λ≥β$.  Both $δ(λ)=λ/(1+sqrt(1-λ+λ^2))$ and $k(λ)=λ/(1-λ)$ are increasing, so $S_λ(v)≥S_β(v)$.
+
+At $λ=β$, $sqrt(1-β+β^2)=c$, hence
 
 $$
-\ell(G)\le\ell(g)<A_0\le A.
+S_β(v)=u+β/(1+c)+βv/(1-β).
 $$
 
-If $G=G_1$, then $A\le A_0$.  On the interval where $0\le G_1\le g$, the function
+If $S_β(0)≥z$, the conclusion is immediate, except possibly equality at $v=0$, which is incompatible with $S_λ(0)≤ℓ(0)=0$.  Otherwise define $v_0$ by $S_β(v_0)=z$.  A simplification gives
 
 $$
-F(A)=A-\ell(G_1(A))
+v_0=((1-β)(β^2+c-1))/(1+c).
 $$
 
-is concave because $G_1$ is affine and $\ell$ is convex on $[0,1/8]$.  Here $g\le(\sqrt3/2)(1-\sqrt3/2)<1/8$.  At the endpoint $G_1=0$, one has $F(A)=A>0$; at $A=A_0$, one has $F(A_0)=A_0-\ell(g)>0$.  Concavity gives $F>0$ throughout.  Therefore $\ell(G)<A$ in all cases.
-
-### Lemma 1.4: center-transfer for the left-Low/right-high residual
-
-Let $0<u\le\eta_0$, let $z=\ell(u)$, and suppose
+Then $v_0>0$ and
 
 $$
-\lambda\ge {z\over1-u}.
+u-v_0=((1-β)(1+β-β^2-c))/(1+c)>0,
 $$
 
-Set
+because $(1+β-β^2)^2-c^2=β(β-1)(β^2-β-3)>0$ for $0<β≤1/2$.  Also $v_0<(1-β)β^2≤1/8$.  The function $H(v)=S_β(v)-ℓ(v)$ is concave on $[0,v_0]$, with $H(0)>0$ and $H(v_0)=z-ℓ(v_0)>0$.  Hence $H>0$ on this interval.  If $S_λ(v)≤z$, then $v≤v_0$ and $S_λ(v)≥S_β(v)>ℓ(v)$, contradiction to the second alternative.  If $v≥η_0$, then $v>u>v_0$, so $S_λ(v)≥S_β(v)>z$.
 
-$$
-S_\lambda(v)=u+{\lambda\over1+\sqrt{1-\lambda+\lambda^2}}+{\lambda\over1-\lambda}v.
-$$
+## 2. Left-lower-sheet details
 
-If either $v\ge\eta_0$, or $0\le v\le\eta_0$ and
+### Lemma 2.1: Midpoint exit bound
 
-$$
-S_\lambda(v)\le\ell(v),
-$$
+In the normalized $407X$ branch, $γ_5<1/2$.
 
-then
+Proof.  The $C$-triangle contains exactly $M_0$ among the six radial midpoints.  Hence $M_5$ is not in $T_C$.  Since $T_C∩r_5$ is closed and has endpoint $γ_5$, and $M_5$ is at coordinate $1/2$ on $r_5$, one must have $γ_5<1/2$.
 
-$$
-\boxed{z<S_\lambda(v).}
-$$
+### Lemma 2.2: Lower-sheet estimates
 
-#### Proof
+Assume $B_5=T_+^{lo}$ in the hard CE2 overlap region.  Then:
 
-Put $c=1-u$ and
-
-$$
-\beta={z\over c}={1-\sqrt{4c^2-3}\over2}.
-$$
-
-Then $c^2=1-\beta+\beta^2$ and the hypothesis is $\lambda\ge\beta$.  Both
-
-$$
-\delta(\lambda)={\lambda\over1+\sqrt{1-\lambda+\lambda^2}},\qquad
-k(\lambda)={\lambda\over1-\lambda}
-$$
-
-are increasing in $\lambda$.  Hence $S_\lambda(v)\ge S_\beta(v)$ for every $v$.
-
-At $\lambda=\beta$ one has $\sqrt{1-\beta+eta^2}=c$, so
-
-$$
-S_\beta(v)=u+{\beta\over1+c}+{\beta\over1-\beta}v.
-$$
-
-If $S_\beta(0)\ge z$, then $S_\lambda(v)\ge z$ for all $v\ge0$.  Equality could occur only at $v=0$ and $S_\lambda(0)=z$, but the alternative $S_\lambda(0)\le\ell(0)=0$ is impossible since $S_\lambda(0)>0$.  Thus the desired strict inequality holds in all relevant cases.
-
-Assume now $S_\beta(0)<z$.  Let $v_0$ be defined by
-
-$$
-S_\beta(v_0)=z.
-$$
-
-Using $z=\beta c$ and $c^2=1-\beta+\beta^2$, one obtains
-
-$$
-v_0={ (1-\beta)(\beta^2+c-1)\over1+c}.
-$$
-
-The assumption $S_\beta(0)<z$ gives $v_0>0$.  Moreover
-
-$$
-u-v_0={ (1-\beta)(1+\beta-\beta^2-c)\over1+c}>0.
-$$
-
-Indeed, $c<1+\beta-\beta^2$ follows after squaring, since
-
-$$
-(1+\beta-\beta^2)^2-c^2
-=\beta(\beta-1)(\beta^2-\beta-3)>0
-$$
-
-for $0<\beta\le1/2$.  Also
-
-$$
-v_0<(1-\beta)\beta^2\le {1\over8}.
-$$
-
-Define
-
-$$
-H(v)=S_\beta(v)-\ell(v).
-$$
-
-On $[0,v_0]$, $\ell$ is convex, hence $H$ is concave.  Also
-
-$$
-H(0)=S_\beta(0)>0,\qquad H(v_0)=z-\ell(v_0)>0
-$$
-
-because $v_0<u$ and $\ell$ is increasing.  Therefore $H(v)>0$ on $[0,v_0]$.
-
-If $S_\lambda(v)\le z$, then $S_\beta(v)\le z$, so $v\le v_0$ and hence
-
-$$
-S_\lambda(v)\ge S_\beta(v)>\ell(v).
-$$
-
-This contradicts the second alternative.  If $v\ge\eta_0$, then $v>u>v_0$, so
-
-$$
-S_\lambda(v)\ge S_\beta(v)>S_\beta(v_0)=z.
-$$
-
-This proves the lemma.
-
-## 2. Details for the left-lower-sheet file
-
-### Lemma 2.1: midpoint exit bound
-
-In the normalized $407X$ branch,
-
-$$
-\boxed{\gamma_5<{1\over2}.}
-$$
-
-#### Proof
-
-The $C$-triangle contains exactly $M_0$ among the six radial midpoints.  Thus $M_5\notin T_C$.  The radial intersection $T_C\cap r_5$ is closed and has endpoint $\gamma_5$ in the center-to-$V_5$ coordinate.  Since $M_5$ is the point of coordinate $1/2$ on $r_5$, one must have $\gamma_5<1/2$.
-
-### Lemma 2.2: left lower-sheet estimates
-
-Assume $B_5=T_+^{lo}$ in the hard CE2 overlap region.  Put $r=1-\lambda$, $u=\gamma_5$, $y=Y/\lambda$, and $\rho=\sqrt{r^2-r+1}$.  Then
-
-1. $0<r\le1/2$ and $r\ge r_0:=(\sqrt3-1)/2$;
+1. $0<r≤1/2$ and $r≥r_0=(sqrt(3)-1)/2$;
 2. $y<1/4$;
-3. if $0\le y<\eta_0$, then $S>\ell(y)$;
-4. if $y\ge\eta_0$, then $S>7/16$ and $A_C>7/16$.
+3. if $0≤y<η_0$, then $S>ℓ(y)$;
+4. if $y≥η_0$, then $S>7/16$ and $A_C>7/16$.
 
-#### Proof
-
-The lower sheet has $A_5=1-T=(1-\lambda)(1-u)=r(1-u)$ and $C_5=1-u$.  Since $B_5\ge A_5$ and $B_5\le C_5/2$, one obtains $r\le1/2$.  By Lemma 2.1, $1-u>0$.
-
-Write $B_5=(1-u)\beta$ with $r\le\beta\le1/2$.  The $T_+$ equation gives
+Proof.  The lower sheet has $A_5=r(1-u)$ and $C_5=1-u$.  Since $B_5≥A_5$ and $B_5≤C_5/2$, Lemma 2.1 gives $r≤1/2$.  Write $B_5=(1-u)β$ with $r≤β≤1/2$.  The $T_+$ equation gives
 
 $$
-1-u={\sqrt{\beta^2-eta+1}\over r+\beta}.
+1-u=sqrt(β^2-β+1)/(r+β).
 $$
 
-Since $1-u\le1$, there must exist $\beta\le1/2$ with $r+\beta\ge\sqrt{\beta^2-eta+1}$.  The weakest condition occurs at $\beta=1/2$, giving
-
-$$
-r+{1\over2}\ge {\sqrt3\over2},
-$$
-
-so $r\ge r_0$.
+Because $1-u≤1$, existence of such a $β≤1/2$ forces $r+1/2≥sqrt(3)/2$, hence $r≥r_0$.
 
 Now
 
 $$
-S=u+{1-r\over1+\rho}+{1-r\over r}y.
+S=u+(1-r)/(1+ρ)+(1-r)y/r.
 $$
 
-Here $(1-r)/(1+ho)\ge2-\sqrt3$ and $(1-r)/r\ge1$.  Since CE2 overlap gives $S<1/2$, we get
+Here $(1-r)/(1+ρ)≥2-sqrt(3)$ and $(1-r)/r≥1$.  Since $S<1/2$, one gets $y<sqrt(3)-3/2<1/4$.
+
+For $0≤x≤η_0$, set
 
 $$
-y<{1\over2}-(2-\sqrt3)=\sqrt3-{3\over2}<{1\over4}.
+D(x)=u+(1-r)/(1+ρ)+(1-r)x/r-ℓ(x).
 $$
 
-For $0\le x\le\eta_0$, define
+The Low function is convex on $[0,η_0]$, so $D$ is concave.  We have $D(0)>0$.  At $x=η_0$, the three-range estimate in $r∈[r_0,1/2]$ gives
 
 $$
-D(x)=u+{1-r\over1+\rho}+{1-r\over r}x-\ell(x).
+u+(1-r)/(1+ρ)+(1-r)η_0/r>7/16>sqrt(3)/4=ℓ(η_0).
 $$
 
-The Low function is convex on $[0,\eta_0]$, so $D$ is concave.  One has $D(0)>0$.  At $x=\eta_0$, a three-range check in $r\in[r_0,1/2]$ gives
+If the feasible endpoint is instead $S=1/2`, then $D=1/2-ℓ(x)>0$.  Thus $D>0$ through the feasible interval, proving $S>ℓ(y)$ when $y<η_0$.
+
+For $y≥η_0`, the same endpoint estimate gives $S>7/16$.  Finally, $S<1/2` gives
 
 $$
-u+{1-r\over1+ho}+{1-r\over r}\eta_0>{7\over16}>{\sqrt3\over4}=\ell(\eta_0).
+y<(1/2-u-(1-r)/(1+ρ))/((1-r)/r).
 $$
 
-If the endpoint of the feasible interval is instead determined by $S=1/2$, then $D=1/2-\ell(x)>0$.  Thus $D>0$ throughout the feasible range, proving $S>\ell(y)$ for $y<\eta_0$.
-
-For $y\ge\eta_0$, the same three-range check yields
+Combining this with $1-u≤ρ/(2r)$ gives $A_C=(1-r)(1-y)>7/16$.  Explicitly, for $r≤7/16$,
 
 $$
-S\ge u+{1-r\over1+ho}+{1-r\over r}\eta_0>{7\over16}.
+A_C>1-3r/2+r(1-r)/(1+ρ)≥11/32+9(sqrt(3)-1)/64>7/16,
 $$
 
-Finally, $S<1/2$ gives
+and for $7/16≤r≤1/2$,
 
 $$
-y<{1/2-u-(1-r)/(1+ho)\over(1-r)/r}.
+A_C>1-r/2+r(1-r)/(1+ρ)-ρ/2>(447-16sqrt(193))/512>7/16.
 $$
 
-Using $A_C=(1-r)(1-y)$ and the lower bound for $u$ coming from
+## 3. Left-high-sheet details
+
+### Lemma 3.1: Left-high Cell-2 condition
+
+Under a realized left branch $B_5=T_+^{hi}$,
 
 $$
-1-u\le {\sqrt{r^2-r+1}\over2r},
+r≥(1-β)(r+β)^2.
 $$
 
-one obtains
+Proof.  The left input is $a=rc$, output $b=βc$, and $a+b=c(r+β)=m$, with $m^2=β^2-β+1$.  The realized branch is in Cell 2, so
 
 $$
-A_C>{7\over16}.
+Δ=(a+b)^4-(a+b)^2+ab≥0.
 $$
 
-Explicitly, for $r\le7/16$ this follows from
+Substitution gives $Δ=m^4-m^2+rβc^2$.  Since $c^2=m^2/(r+β)^2$ and $m^2-1=-β(1-β)$,
 
 $$
-A_C>1-{3r\over2}+r{1-r\over1+ho}
-\ge {11\over32}+{9(\sqrt3-1)\over64}>{7\over16},
+Δ=m^2(-β(1-β)+rβ/(r+β)^2).
 $$
 
-and for $7/16\le r\le1/2$ it follows from
+Because $m^2β>0`, this is equivalent to $r≥(1-β)(r+β)^2$.
 
-$$
-A_C>1-{r\over2}+r{1-r\over1+ho}-{\rho\over2}
->{447-16\sqrt{193}\over512}>{7\over16}.
-$$
-
-This proves all claims.
-
-## 3. Details for the left-high-sheet file
-
-### Lemma 3.1: the left-high Cell-2 condition
-
-Under the realized left branch $B_5=T_+^{hi}$, with the notation of `407a`, one has
-
-$$
-\boxed{r\ge(1-\beta)(r+\beta)^2.}
-$$
-
-#### Proof
-
-The left input is $a=rc$, the output is $b=\beta c$, and
-
-$$
-a+b=c(r+\beta)=m,\qquad m^2=\beta^2-\beta+1.
-$$
-
-The realized $T_+$ branch is in Cell 2, so
-
-$$
-\Delta=(a+b)^4-(a+b)^2+ab\ge0.
-$$
-
-Substituting gives
-
-$$
-\Delta=m^4-m^2+r\beta c^2.
-$$
-
-Since $c^2=m^2/(r+\beta)^2$ and $m^2-1=-\beta(1-\beta)$,
-
-$$
-\Delta=m^2\left(-\beta(1-\beta)+{r\beta\over(r+\beta)^2}\right).
-$$
-
-Because $m^2\beta>0$, the condition $\Delta\ge0$ is equivalent to
-
-$$
-r\ge(1-\beta)(r+\beta)^2.
-$$
-
-### Lemma 3.2: high-left envelope
+### Lemma 3.2: High-left envelope
 
 Let
 
 $$
-y_*={r\over1-r}\left({m\over r+\beta}-{1\over2}-{1-r\over1+\rho}\right),
-\qquad
-b={\beta m\over r+\beta}.
+y_*=(r/(1-r))(m/(r+β)-1/2-(1-r)/(1+ρ)),
+\quad
+b=βm/(r+β).
 $$
 
 Under the left-high hypotheses,
 
 $$
-\boxed{y_*<{1\over8}},
+y_*<1/8,
 \qquad
-\boxed{3y_*\le1-b.}
+3y_*≤1-b.
 $$
 
-#### Proof
+Proof.  The estimate $y_*<1/8$ follows in three ranges.  Since $m/(r+β)$ is decreasing in $β$, use $β_0=max(r,1/2,(1-r^2)/(1+2r))$.
 
-The proof of $y_*<1/8$ is the standard three-range estimate.  Since $m/(r+\beta)$ is decreasing in $\beta$, it suffices to use the lower endpoint
+If $0<r≤(sqrt(3)-1)/2$, then $m/(r+β)≤1$ and $(1-r)/(1+ρ)>(1-r)/2`, giving $y_*<r^2/(2(1-r))<1/8$.
 
-$$
-\beta_0(r)=\max\left(r,{1\over2},{1-r^2\over1+2r}\right).
-$$
-
-If $0<r\le(\sqrt3-1)/2$, then $m/(r+\beta)\le1$ and $(1-r)/(1+\rho)>(1-r)/2$, giving
+If $(sqrt(3)-1)/2≤r≤1/2`, then $m/(r+β)≤sqrt(3)/(1+2r)$ and $(1-r)/(1+ρ)≥2-sqrt(3)+(1/2-r)/2`.  The inequality $y_*<1/8` reduces to
 
 $$
-y_*<{r^2\over2(1-r)}<{1\over8}.
+8r^3-10r^2+(8sqrt(3)-9)r-1<0,
 $$
 
-If $(\sqrt3-1)/2\le r\le1/2$, then
+whose derivative is positive on the interval and whose value at $1/2$ is $4sqrt(3)-7<0$.
+
+If $1/2≤r<1`, then $m/(r+β)≤ρ/(2r)`, giving $y_*≤(ρ+1-3r)/(2(ρ+1))<1/8$ because $ρ+1<4r$.
+
+For the second estimate define $E_r(β)=1-b-3y_*$.  Direct differentiation gives
 
 $$
-{m\over r+\beta}\le {\sqrt3\over1+2r},\qquad
-{1-r\over1+ho}\ge2-\sqrt3+{1/2-r\over2}.
-$$
-
-The inequality $y_*<1/8$ reduces to
-
-$$
-8r^3-10r^2+(8\sqrt3-9)r-1<0.
-$$
-
-Its derivative is positive on the interval and the value at $1/2$ is $4\sqrt3-7<0$.
-
-If $1/2\le r<1$, then $m/(r+\beta)\le\rho/(2r)$, and the resulting bound is
-
-$$
-y_*\le {\rho+1-3r\over2(1+ho)}<{1\over8},
-$$
-
-because $\rho+1<4r$ for $r\ge1/2$.
-
-Now define
-
-$$
-E_r(\beta)=1-b-3y_*.
-$$
-
-A direct differentiation gives
-
-$$
-{\partial E_r\over\partial\beta}= {N_r(\beta)
-\over 2(\beta+r)^2(1-r)\sqrt{\beta^2-\beta+1}},
+∂E_r/∂β=N_r(β)/(2(β+r)^2(1-r)sqrt(β^2-β+1)),
 $$
 
 where
 
 $$
-N_r(\beta)=2\beta^3r-2\beta^3+4\beta^2r^2-5\beta^2r+eta^2-9\beta r^2+5r^2+4r.
+N_r(β)=2β^3r-2β^3+4β^2r^2-5β^2r+β^2-9βr^2+5r^2+4r.
 $$
 
 Moreover
 
 $$
-{\partial N_r\over\partial\beta}
-=-6\beta^2(1-r)+2\beta(1-r)(1-4r)-9r^2<0
+∂N_r/∂β=-6β^2(1-r)+2β(1-r)(1-4r)-9r^2<0
 $$
 
-on the allowed interval $\beta\ge1/2$.  Hence $E_r$ has no interior minimum.
-
-At $\beta=1$,
+on the allowed interval $β≥1/2`.  Hence $E_r$ has no interior minimum.  At $β=1`,
 
 $$
-E_r(1)={r(6r-ho+5)\over2(1+r)(1+ho)}>0.
+E_r(1)=r(6r-ρ+5)/(2(1+r)(1+ρ))>0.
 $$
 
-At the lower endpoint there are three cases.  If $0<r\le(\sqrt3-1)/2$, then $\beta_0=(1-r^2)/(1+2r)$ and
+At the lower endpoint: if $0<r≤(sqrt(3)-1)/2`, direct substitution gives a positive numerator bounded below by $r(7-10r-16r^2)>0$; if $(sqrt(3)-1)/2≤r≤1/2`, then $β_0=1/2`, so $b≤1/2` and $y_*<1/8`, giving $E_r>1/8`; if $1/2≤r<1`, then $β_0=r` and
 
 $$
-E_r(\beta_0)=
-{r(7+ho-2r-8r\rho-14r^2-2r^2\rho)
-\over2(1-r)(1+2r)(1+ho)}>0,
+E_r(r)=(10r-r^2-2ρ-2)/(2(1+ρ))>0.
 $$
 
-because the numerator is at least $r(7-10r-16r^2)>0$.  If $(\sqrt3-1)/2\le r\le1/2$, then $\beta_0=1/2$, so $b\le1/2$ and $y_*<1/8$, giving $E_r>1/8$.  If $1/2\le r<1$, then $\beta_0=r$ and
+Thus $3y_*≤1-b$.
 
-$$
-E_r(r)={10r-r^2-2\rho-2\over2(1+ho)}>0,
-$$
-
-because $10r-r^2-2\rho-2\ge10r-r^2-4>0$ on $[1/2,1]$.  Thus $3y_*\le1-b$.
-
-### Lemma 3.3: $S>3y$ and $A_C>3y$
+### Lemma 3.3: $S>3y$ and $A_C>3y`
 
 Under the left-high hypotheses in the hard region,
 
 $$
-\boxed{S>3y},\qquad \boxed{A_C>3y}.
+S>3y,
+\qquad
+A_C>3y.
 $$
 
-#### Proof
+Proof.  Since $y<y_*<1/10`, $3y<3/10`.  If $(1-r)/r≥3`, then $S>3y`.  Otherwise $S-3y` decreases with $y`, and at $y=y_*` one has $S=1/2`, so $S-3y>1/2-3/10>0`.
 
-Since $y<y_*<1/10$, one has $3y<3/10$.  Write
-
-$$
-S=u+{1-r\over1+ho}+{1-r\over r}y.
-$$
-
-If $(1-r)/r\ge3$, then $S>3y$.  Otherwise $S-3y$ is decreasing in $y$, and at $y=y_*$ one has $S=1/2$; hence
+For $A_C`, first show $1-r>3/8`.  If $r≤1/2` this is clear.  If $r>1/2`, then $y_*>0` implies
 
 $$
-S-3y>{1\over2}-3y_*>{1\over2}-{3\over10}>0.
+ρ/(2r)>1/2+(1-r)/(1+ρ),
 $$
 
-For $A_C$, first show $1-r>3/8$.  If $r\le1/2$ this is clear.  If $r>1/2$, feasibility $y_*>0$ gives
+which simplifies to $3r<1+ρ`.  Squaring gives $r<5/8`.  Thus $1-r>3/8`.  Since $A_C=(1-r)(1-y)` and $y<1/10`,
 
 $$
-{\rho\over2r}>{1\over2}+{1-r\over1+ho},
+A_C>(3/8)(9/10)=27/80>3/10>3y.
 $$
 
-which simplifies to $3r<1+ho$.  Squaring gives $r<5/8$.  Therefore $1-r>3/8$.  Since $A_C=(1-r)(1-y)$ and $y<1/10$,
+### Lemma 3.4: Detailed $T_-$ bounds for the $q$ case
+
+In the branch $B_1=T_-$ and $A_1=q`, set $C=1-y`, $q=tC`, and $B_1=b_1`. Then
 
 $$
-A_C>{3\over8}{9\over10}={27\over80}>{3\over10}>3y.
-$$
-
-### Lemma 3.4: detailed $T_-$ bounds for the $q$ case
-
-In the branch $B_1=T_-$ and $A_1=q$, set $C=1-y$, $q=tC$, and $B_1=b_1$.  Then
-
-$$
-B_1\le\kappa:={\sqrt{13}-1\over6},
+B_1≤κ:=(sqrt(13)-1)/6,
 $$
 
 and
 
 $$
-q\le\tau<{93\over200},
+q≤τ<93/200,
 $$
 
-where $\tau\in(0,1/2)$ is the unique root of
+where $τ∈(0,1/2)` is the unique root of
 
 $$
 x^4-3x^3+3x^2-3x+1=0.
 $$
 
-#### Proof
-
-The $T_-$ equation gives
+Proof.  The $T_-$ equation gives
 
 $$
-q+b_1=\mu=\sqrt{t^2-t+1}.
+q+b_1=μ=sqrt(t^2-t+1).
 $$
 
-Since $b_1\le q$, we have $b_1\le\mu/2$ and $\mu\le2q\le2t$.  Thus $3t^2+t-1\ge0$, so $t\ge\kappa$.  Also $y<1/10$ and $q<1/2$ give $t<5/9$.  On $[\kappa,5/9]$, the quantity $\mu/2$ is at most $\kappa$, proving $B_1\le\kappa$.
+Since $b_1≤q`, $b_1≤μ/2` and $μ≤2q≤2t`.  Thus $3t^2+t-1≥0`, so $t≥κ`.  Also $y<1/10` and $q<1/2` give $t<5/9`.  On $[κ,5/9]`, $μ/2≤κ`, proving $B_1≤κ`.
 
-For the $q$ bound, the realized Cell-2 condition gives
-
-$$
-(q+b_1)^4-(q+b_1)^2+qb_1\ge0.
-$$
-
-Substituting $q+b_1=\mu$ and $q=tC$ yields
+For the $q` bound, the realized Cell-2 condition gives
 
 $$
--tC^2+\mu C-(1-t)\mu^2\ge0.
+(q+b_1)^4-(q+b_1)^2+qb_1≥0.
 $$
 
-The case $t\ge1/2$ would force $C\le\mu<9/10$, contradicting $C>9/10$.  Hence $t<1/2$.  For $t<1/2$, the last quadratic gives
+Substituting $q+b_1=μ` and $q=tC` yields
 
 $$
-C\le {\mu(1-t)\over t}.
+-tC^2+μC-(1-t)μ^2≥0.
 $$
 
-Therefore
+The case $t≥1/2` would force $C≤μ<9/10`, contradicting $C>9/10`.  Hence $t<1/2`.  Then the quadratic gives $C≤μ(1-t)/t`, and therefore
 
 $$
-q=tC\le\min(t,\mu(1-t)).
+q=tC≤min(t, μ(1-t)).
 $$
 
-The maximum of the right side occurs when $t=\mu(1-t)$, which gives
-
-$$
-t^4-3t^3+3t^2-3t+1=0.
-$$
-
-The unique root in $(0,1/2)$ is $\tau$, and direct evaluation gives $\tau<93/200$.
+The maximum of the right side occurs at $t=μ(1-t)`, which gives the quartic above.  Its unique root in $(0,1/2)` is $τ`, and direct evaluation gives $τ<93/200`.
 
 ## 4. Certificate linkage
 
-The certificate `407b_T_hi_Tminus_qright_threshold_certificate.py` uses Lemma 3.1 as one of its domain conditions and proves
+The certificate `407b_T_hi_Tminus_qright_threshold_certificate.py` uses Lemma 3.1 as a domain condition and proves
 
 $$
-S_0<{93\over200}\quad\Longrightarrow\quad B_5<{5657\over10000}< {7-\sqrt{13}\over6}.
+S_0<93/200 \quad⇒\quad B_5<5657/10000<(7-sqrt(13))/6.
 $$
 
-The certificate `407c_T_hi_Tlo_left_threshold_certificate.py` uses Lemma 3.1 and the lower-sheet condition $3p^2+p-1\ge0$ and proves
+The certificate `407c_T_hi_Tlo_left_threshold_certificate.py` uses Lemma 3.1 and the lower-sheet condition $3p^2+p-1≥0` and proves
 
 $$
-S_0<\sqrt{p^2-p+1}-p\quad\Longrightarrow\quad B_5<1-p.
+S_0<sqrt(p^2-p+1)-p \quad⇒\quad B_5<1-p.
 $$
 
 Both scripts use rational interval arithmetic with one-sided integer square-root bounds and have recorded runs with zero unresolved boxes.
