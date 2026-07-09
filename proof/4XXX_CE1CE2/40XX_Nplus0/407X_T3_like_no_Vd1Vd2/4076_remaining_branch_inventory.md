@@ -7,10 +7,11 @@ This file records the branch inventory after the completion files
 - [`4078_left_L_family_completion.md`](4078_left_L_family_completion.md),
 - [`4079_first_Full_and_lower_sheet_branches.md`](4079_first_Full_and_lower_sheet_branches.md),
 - [`407a_left_Thigh_branch_completion.md`](407a_left_Thigh_branch_completion.md),
-- [`407b_final_assembly.md`](407b_final_assembly.md), and
-- [`407c_detailed_gap_closure.md`](407c_detailed_gap_closure.md).
+- [`407b_final_assembly.md`](407b_final_assembly.md),
+- [`407c_detailed_gap_closure.md`](407c_detailed_gap_closure.md), and
+- [`407e_final_gap_fixes.md`](407e_final_gap_fixes.md).
 
-The purpose of this file is to show that the formerly open hard-region branch obligations are now covered by local proof files.  The detailed auxiliary inequalities used in the compressed branch files are recorded in `407c`.
+The purpose of this file is to show that the formerly open hard-region branch obligations are now covered by local proof files.  The detailed auxiliary inequalities used in the compressed branch files are recorded in `407c` and `407e`.
 
 ## 1. Reduction target
 
@@ -90,7 +91,7 @@ $$
 
 ### First-Full and lower-sheet completions
 
-`4079`, with details in `407c`, proves that
+`4079`, with details in `407c` and `407e`, proves that
 
 $$
 (\mathrm{Full},*)
@@ -108,7 +109,7 @@ The remaining right branches for first-coordinate $T_+^{lo}$ are already covered
 
 ### Left-high completion
 
-`407a`, with details in `407c`, proves
+`407a`, with details in `407c` and `407e`, proves
 
 $$
 (T_+^{hi},\mathrm{Full}),
