@@ -4,11 +4,13 @@ Status: Proven
 
 This file records the local normal form used by
 [`4142_CE2_Nplus1_Vd2_midpoint_local_caps.md`](4142_CE2_Nplus1_Vd2_midpoint_local_caps.md),
-[`4143_CE2_Nplus1_T0_Vd1_M1_T1_supercritical_obstruction.md`](4143_CE2_Nplus1_T0_Vd1_M1_T1_supercritical_obstruction.md), and
-[`4144_CE2_Nplus1_T0_supercritical_T1_Vd1_Vd2_adjacent_obstruction.md`](4144_CE2_Nplus1_T0_supercritical_T1_Vd1_Vd2_adjacent_obstruction.md).
+[`4143_CE2_Nplus1_T0_Vd1_M1_T1_supercritical_obstruction.md`](4143_CE2_Nplus1_T0_Vd1_M1_T1_supercritical_obstruction.md),
+[`4144_CE2_Nplus1_T0_supercritical_T1_Vd1_Vd2_adjacent_obstruction.md`](4144_CE2_Nplus1_T0_supercritical_T1_Vd1_Vd2_adjacent_obstruction.md), and
+[`4147_CE2_Nplus1_Vd1_supercritical_pair_axis_replacement.md`](4147_CE2_Nplus1_Vd1_supercritical_pair_axis_replacement.md).
 
 The point is to connect the corner-side half-plane model with the standard
-center-and-angle parameterization of a closed unit equilateral triangle.
+center-and-angle parameterization of a closed unit equilateral triangle, and to
+record the adjacent-ray inequality used repeatedly in the 414X branch.
 
 ## Statement
 
@@ -194,7 +196,8 @@ $$
 Choosing
 
 $$
-\theta(t)=\phi(t)-\frac{4\pi}{3}\pmod{2\pi}
+\theta(t)=\phi(t)-\frac{4\pi}{3}
+\pmod{2\pi}
 $$
 
 makes these three vertices equal to the physical images of $Q_-$, $Q_5$, and
@@ -213,6 +216,50 @@ the normal form above.
 
 For a Vd1 row in the same corner branch, exactly one of the two adjacent-ray
 intersections has positive length.  The same side geometry applies; only one of
-the two adjacent-ray interval inequalities is required to be strict.
+the two adjacent-ray interval inequalities is required to be strict.  Endpoint
+only contact is handled by the closure of the same inequalities and never
+weakens the inequalities used in 414X.
 
-This proves the normal form used in the 414X local obstruction files.
+## Adjacent-ray bound
+
+In this normal form, if the outgoing adjacent ray has positive-length
+intersection, the lower endpoint is strictly smaller than the upper endpoint.
+This gives
+
+$$
+(t+1)a+tb<(t+1)(d-1)-t^2.
+$$
+
+Since
+
+$$
+(t+1)a+tb\ge t(a+b),
+$$
+
+we have
+
+$$
+a+b<\frac{(t+1)(d-1)-t^2}{t}.
+$$
+
+The right-hand side is strictly less than $1/2$.  Indeed this is equivalent to
+
+$$
+(t+1)d<t^2+\frac{3t}{2}+1,
+$$
+
+and after squaring the positive sides,
+
+$$
+\left(t^2+\frac{3t}{2}+1\right)^2-(t+1)^2(t^2+t+1)=\frac{t^2}{4}>0.
+$$
+
+The incoming adjacent-ray case is the reflection and gives the same bound.
+Hence every Vd1/Vd2 row in the corner-side branch satisfies
+
+$$
+\boxed{a+b<\frac12}
+$$
+
+whenever it has positive-length adjacent-ray intersection.  In endpoint-only
+closure cases the corresponding weak inequality $a+b\le1/2$ holds.
