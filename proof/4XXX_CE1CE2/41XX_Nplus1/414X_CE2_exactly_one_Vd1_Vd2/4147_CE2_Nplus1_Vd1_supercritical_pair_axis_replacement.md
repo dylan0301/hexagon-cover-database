@@ -3,14 +3,14 @@
 Status: Proven
 
 This file proves the remaining adjacent-rescue local replacement used in the
-[`4140`](4140_CE2_Nplus1_exactly_one_Vd1_Vd2_TODO.md) assembly.
+[`4148`](4148_CE2_Nplus1_exactly_one_Vd1_Vd2_assembly.md) assembly.
 
 It treats the branch where the unique supercritical row is not $T_0$, the
 unique Vd1/Vd2 row is adjacent to it, and the rescuer is Vd1.  The Vd2
 neighbor-midpoint rescue branches are eliminated separately in
-[`4142_CE2_Nplus1_Vd2_midpoint_local_caps.md`](4142_CE2_Nplus1_Vd2_midpoint_local_caps.md).
+[`4149_CE2_Nplus1_Vd2_neighbor_midpoint_obstruction.md`](4149_CE2_Nplus1_Vd2_neighbor_midpoint_obstruction.md).
 
-The local normal form used below is proved in
+The local normal form and adjacent-ray estimates are proved in
 [`4145_Vd1_Vd2_corner_side_normal_form.md`](4145_Vd1_Vd2_corner_side_normal_form.md).
 The maximal $B_c(a)$ map is the one recorded in
 [`../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2007_max_b_map.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2007_max_b_map.md),
@@ -29,13 +29,11 @@ $$
 
 Assume every other vertex row is Vd0 and nonsupercritical.  Then the boundary
 coverage supplied by the pair $(T_{i-1},T_i)$ can be replaced by two
-axis-aligned nonsupercritical Vd0 rows, without decreasing the boundary
-coverage on the three boundary edges affected by the pair.
-
-Consequently, any full cover in this branch would imply a CE2 all-Vd0
-nonsupercritical boundary cover, contradicting the proved all-Vd0 CE1/CE2
-boundary-loss package
-[`../40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md`](../../40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md).
+axis-aligned nonsupercritical Vd0 rows, without decreasing the boundary coverage
+on the three boundary edges affected by the pair.  Consequently, any full cover
+in this branch implies a CE2 all-Vd0 nonsupercritical boundary cover, which is
+impossible by the all-Vd0 CE1/CE2 boundary-loss package
+[`../../40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md`](../../40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md).
 
 The reflected case in which $T_{i+1}$ is Vd1 and covers $M_i$ is identical.
 
@@ -48,7 +46,7 @@ $$
 d=\sqrt{t^2+t+1}.
 $$
 
-By the corner-side normal form, after reflection if necessary,
+By the corner-side normal form,
 
 $$
 x-(t+1)y\le a,
@@ -65,9 +63,8 @@ tx+y\le d-a-tb.
 $$
 
 Here $a$ is the boundary coverage on the outer edge $e_{5,0}$, and $b$ is the
-coverage on the shared edge $e_{0,1}$ from the Vd1 side.
-
-The Vd1 row's own-radial reach is
+coverage on the shared edge $e_{0,1}$ from the Vd1 side.  The Vd1 row's
+own-radial reach is
 
 $$
 c=\frac{d-a-tb}{t+1}.
@@ -91,7 +88,8 @@ $$
 a+tb\le d-1-\frac t2.
 $$
 
-In this Vd1 branch the non-touched adjacent ray condition gives $t\ge1$.
+In this Vd1 branch $t\ge1$; endpoint-only degeneracy is obtained by closure and
+only weakens the inequalities below.
 
 ## First pair inequality
 
@@ -156,11 +154,7 @@ $12t^2+8t-4>0$.  Hence $a+c\le1$.
 
 ## The neighboring-ray entry satisfies $a\le\lambda\le1/2$
 
-The upper bound follows from
-
-$$
-b\ge\frac{t-1}{2t}:
-$$
+The upper bound follows from $b\ge(t-1)/(2t)$:
 
 $$
 \lambda=\frac{t(1-b)}{t+1}\le\frac12.
@@ -193,8 +187,8 @@ $$
 
 ## Forced lower bounds on the supercritical row
 
-The row $T_i$ must cover the part of the shared edge not covered by the Vd1
-row.  Thus its incoming boundary coordinate satisfies
+The row $T_i$ must cover the part of the shared edge not covered by the Vd1 row.
+Thus its incoming boundary coordinate satisfies
 
 $$
 a_i\ge1-b.
@@ -202,7 +196,7 @@ $$
 
 The segment $V_iM_i$ is covered only by the Vd1 row and $T_i$.  Since the Vd1
 row starts on this ray at $\lambda$, $T_i$ must cover at least the initial
-segment up to $\lambda$ on its own ray.  Thus its own-radial coordinate satisfies
+segment up to $\lambda$ on its own ray.  Thus
 
 $$
 c_i\ge\lambda.
@@ -226,10 +220,9 @@ $$
 a_i\ge1-b>\frac12.
 $$
 
-## Max-$B$ lemma
+## Max-$B$ lemma with both ordered halves
 
-We prove the following local consequence of the admissible-set branch
-inequalities:
+We prove
 
 $$
 \boxed{a\ge\frac12,\quad 0\le c\le\frac12
@@ -242,12 +235,18 @@ $$
 a\ge\frac12,\qquad 0\le c\le\frac12,\qquad b>1-c.
 $$
 
-Then $a+b>1$, so the triple lies in the $s>1$ branch of the admissible set.  In
-that branch, the recorded necessary inequality is
+Then $b\ge1/2$ and $a+b>1$.  Therefore the $s>1$ admissible branch applies in
+one of the two ordered halves.  In the ordered half $a\le b$, the recorded
+necessary inequality is
 
 $$
 F(a,b,c):=(a^2-1)c^2+(2ab^2+b)c+(b^4-b^2)\le0.
 $$
+
+In the reflected half $b<a$, the necessary inequality is $F(b,a,c)\le0$.
+We show that both inequalities are impossible.
+
+### Ordered half $a\le b$
 
 For $a\ge1/2$, $b\ge0$, and $c\ge0$,
 
@@ -264,8 +263,7 @@ $$
 Now
 
 $$
-\frac{\partial}{\partial b}F\left(\frac12,b,c\right)
-=4b^3-2b+2bc+c.
+\frac{\partial}{\partial b}F\left(\frac12,b,c\right)=4b^3-2b+2bc+c.
 $$
 
 For $b\ge1-c$, this derivative is at least its value at $b=1-c$, namely
@@ -275,8 +273,8 @@ $$
 $$
 
 This polynomial is positive on $0\le c\le1/2$: it is decreasing on this
-interval and has value $1/2$ at $c=1/2$.  Hence
-$F(1/2,b,c)$ is increasing for $b\ge1-c$, and so
+interval and has value $1/2$ at $c=1/2$.  Hence $F(1/2,b,c)$ is increasing for
+$b\ge1-c$, and
 
 $$
 F\left(\frac12,b,c\right)>F\left(\frac12,1-c,c\right).
@@ -288,19 +286,57 @@ $$
 F\left(\frac12,1-c,c\right)=\frac{c^2(2c-5)(2c-1)}4\ge0
 $$
 
-for $0\le c\le1/2$.  Therefore $F(a,b,c)>0$, contradicting the necessary
-branch inequality $F(a,b,c)\le0$.
+for $0\le c\le1/2$.  Hence $F(a,b,c)>0$, contradicting $F(a,b,c)\le0$.
+
+### Reflected half $b<a$
+
+Here the necessary inequality is $F(b,a,c)\le0$.  Put $r=1-c$.  Since
+$b>1-c$, both variables in $F(b,a,c)$ are at least $r$.
+
+For $X,Y\ge r$ and $0\le c\le1/2$, the function $F(X,Y,c)$ is increasing in
+$X$ and $Y$.  The $X$ derivative is
+
+$$
+2Xc^2+2Y^2c\ge0.
+$$
+
+The $Y$ derivative is
+
+$$
+4XYc+c+4Y^3-2Y.
+$$
+
+For $X,Y\ge r=1-c$, this is at least
+
+$$
+4r^2c+c+4r^3-2r=2-5c+4c^2>0
+$$
+
+on $0\le c\le1/2$.  Therefore
+
+$$
+F(b,a,c)>F(r,r,c).
+$$
+
+A direct calculation gives
+
+$$
+F(1-c,1-c,c)=c(1-2c)\ge0.
+$$
+
+Hence $F(b,a,c)>0$, contradicting $F(b,a,c)\le0$.
 
 Thus no admissible triple has $b>1-c$, and $B_c(a)\le1-c$.
 
 Apply this to $T_i$.  Its actual radial coordinate satisfies $c_i\le1/2$ in the
-$s>1$ branch, and $c_i\ge\lambda$.  Since $a_i>1/2$, the max-$B$ lemma gives
+supercritical $s>1$ branch, and $c_i\ge\lambda$.  Since $a_i>1/2$, the max-$B$
+lemma gives
 
 $$
 b_i\le1-c_i\le1-\lambda.
 $$
 
-Hence
+Therefore
 
 $$
 \boxed{\lambda+b_i\le1.}
@@ -312,25 +348,36 @@ $$
 \boxed{a+b_i\le1.}
 $$
 
-## Axis-aligned replacement
+## Explicit axis-aligned replacement
 
 The boundary candidate in the maximal map is
 
 $$
-b_F(a)=1-a,
+b_F(p)=1-p,
 $$
 
 with domain
 
 $$
-0\le a\le1,\qquad 0\le c\le\max(a,1-a).
+0\le p\le1,\qquad 0\le c\le\max(p,1-p).
 $$
 
-Because $a+c\le1$, we have $c\le1-a\le\max(a,1-a)$.  Therefore there is an
-axis-aligned admissible Vd0 row at $V_{i-1}$ with local triple
+This is the axis-aligned Vd0 triangle branch.  Explicitly, in the same
+corner-side half-plane model it is obtained as the closure limit in which the
+opposite side is the line through the two adjacent boundary points whose
+parameters sum to $1$.  It has no positive-length adjacent-ray intersection,
+hence is Vd0, and its boundary sum is exactly $1$.
+
+Because $a+c\le1$, we have
 
 $$
-(a,\ 1-a,\ c).
+c\le1-a\le\max(a,1-a).
+$$
+
+Thus there is an axis-aligned Vd0 row at $V_{i-1}$ with local triple
+
+$$
+(a,1-a,c).
 $$
 
 It preserves the outer boundary coverage $a$, preserves at least the own-radial
@@ -340,11 +387,11 @@ $$
 a+(1-a)=1.
 $$
 
-Likewise, since $\lambda+b_i\le1$, there is an axis-aligned admissible Vd0 row
-at $V_i$ with local triple
+Likewise, since $\lambda+b_i\le1$, there is an axis-aligned Vd0 row at $V_i$
+with local triple
 
 $$
-(1-b_i,\ b_i,\ \lambda).
+(1-b_i,b_i,\lambda).
 $$
 
 It preserves the outgoing boundary coverage $b_i$, covers the required initial
