@@ -1,6 +1,6 @@
 # Completion of the Left-Low Family in $407X$
 
-Status: Proven
+Status: Proven with local details in [`407c_rigor_completion_details.md`](407c_rigor_completion_details.md)
 
 This file closes the remaining hard-region branches with first coordinate
 
@@ -16,6 +16,9 @@ B_5=L\quad\Longrightarrow\quad B_5+B_1<1
 $$
 
 for every realized right branch in the support-isolated $407X$ domain.
+
+The detailed polynomial, convexity, and center-transfer computations used below are recorded in
+[`407c_rigor_completion_details.md`](407c_rigor_completion_details.md), Sections 1.1--1.4.
 
 Throughout use the notation of `4073`.  Let
 
@@ -55,7 +58,7 @@ $$
 (a+z)^4-(a+z)^2+az\le0.
 $$
 
-With $a=1-\beta$ and $h=\beta-z$, this is $P(h,z)\le0$.  On $0\le x\le1-\sqrt3/2<1/7$,
+With $a=1-\beta$ and $h=\beta-z$, this is $P(h,z)\le0$.  The domain condition $a+z\le1$ gives $h\ge0$; see `407c`, Lemma 1.1.  On $0\le x\le1-\sqrt3/2<1/7$,
 
 $$
 {\partial P\over\partial x}=4x^3-12x^2+10x-(2+z)<0.
@@ -123,19 +126,13 @@ $$
 (1-\lambda)A+\rho-1\le r_A-r_A^2.
 $$
 
-Writing $g=r_A-r_A^2$, one checks directly that
+Writing $g=r_A-r_A^2$, one has
 
 $$
 2g+5g^2<A.
 $$
 
-Indeed, with $y=1-r_A$, this reduces to
-
-$$
-4y^3(25y^5-100y^4+130y^3-40y^2-36y+22)>0,
-$$
-
-and the final polynomial is positive on $0<y<1-\sqrt3/2$.  Hence
+The complete polynomial positivity check is in `407c`, Lemma 1.2.  Hence
 
 $$
 \ell(\gamma_5)\le2\gamma_5+5\gamma_5^2\le2G+5G^2<A,
@@ -197,7 +194,7 @@ $$
 \gamma_5\le {Y\over\lambda}={\lambda-A\over\lambda}=:G_2.
 $$
 
-Thus $\gamma_5\le G=\min(G_1,G_2)$.  The comparison $\ell(G)<A$ follows by checking the crossover $G_1=G_2$, where $A=\lambda(2-\lambda+\lambda^2-\rho)$ and $G=\rho(1-\rho)$, and then using convexity of the Low function on $[0,1/8]$ on each side.  Hence $\ell(\gamma_5)<A$, contradiction.  Therefore $\ell(\gamma_5)<A_1$.
+Thus $\gamma_5\le G=\min(G_1,G_2)$.  The detailed comparison lemma `407c`, Lemma 1.3, proves $\ell(G)<A$.  Therefore $\ell(\gamma_5)<A$, contradiction.  Hence $\ell(\gamma_5)<A_1$.
 
 ## 4. CE2 overlap with $A_1=q$
 
@@ -241,9 +238,9 @@ $$
 S=u+{\lambda\over1+\rho}+{\lambda\over1-\lambda}y.
 $$
 
-The following center-transfer lemma applies: if $\lambda\ge\ell(u)/(1-u)$ and either $y\ge1-\sqrt3/2$ or $S\le\ell(y)$, then $\ell(u)<S$.  It is proved by reducing to the minimal value $\lambda=\ell(u)/(1-u)$, defining the point $v_0$ where the affine function $S_0(v)$ equals $\ell(u)$, and using concavity of $S_0(v)-\ell(v)$ on $[0,v_0]$.
+The center-transfer lemma `407c`, Lemma 1.4, applies: if $\lambda\ge\ell(u)/(1-u)$ and either $y\ge1-\sqrt3/2$ or $S\le\ell(y)$, then $\ell(u)<S$.
 
-If $T_0$ hits the exit on $r_1$, then `4074` gives $\ell(\gamma_5)<S<q$.  In the miss case, $C_1=1-\gamma_1$ and $\gamma_1\le y$.  The right high-sheet filter gives
+If $T_0$ hits the exit on $r_1`, then `4074` gives $\ell(\gamma_5)<S<q$.  In the miss case, $C_1=1-\gamma_1$ and $\gamma_1\le y$.  The right high-sheet filter gives
 
 $$
 \gamma_1\ge1-\sqrt3/2
