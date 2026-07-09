@@ -136,7 +136,13 @@ $$
 
     Assembles the branch coverage and concludes the $407X$ branch.
 
-11. [`4076_remaining_branch_inventory.md`](4076_remaining_branch_inventory.md)
+11. [`407c_detailed_gap_closure.md`](407c_detailed_gap_closure.md)
+
+    Status: Proven.
+
+    Supplies the expanded derivations for the compressed inequalities and branch-realization links used in `4078`, `4079`, and `407a`.
+
+12. [`4076_remaining_branch_inventory.md`](4076_remaining_branch_inventory.md)
 
     Status: Closed inventory.
 
