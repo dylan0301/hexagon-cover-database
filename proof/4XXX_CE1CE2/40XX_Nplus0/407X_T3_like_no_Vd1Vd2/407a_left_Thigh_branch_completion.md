@@ -13,7 +13,7 @@ It uses two finite rational interval certificates in
 - [`407X_computation/407b_T_hi_Tminus_qright_threshold_certificate.py`](407X_computation/407b_T_hi_Tminus_qright_threshold_certificate.py),
 - [`407X_computation/407c_T_hi_Tlo_left_threshold_certificate.py`](407X_computation/407c_T_hi_Tlo_left_threshold_certificate.py).
 
-The certificates use exact rational interval arithmetic with one-sided integer square-root bounds and have no unresolved boxes.
+The expanded derivations for the common left-high Cell-2 condition, the high-left envelope estimates, the $S>3y$ and $A_C>3y$ estimates, and the detailed right-$T_-$ bounds are recorded in [`407c_detailed_gap_closure.md`](407c_detailed_gap_closure.md).  The present file is the branch-level proof using those lemmas.
 
 Throughout, use the notation of `4073`.  Put
 
@@ -69,9 +69,15 @@ $$
 B_5={\beta m\over r+\beta}.
 $$
 
+The realized left-high branch also satisfies
+
+$$
+r\ge(1-\beta)(r+\beta)^2.
+$$
+
 ### Proof
 
-The case $A_5=1-\alpha$ is impossible for a left $T_+$ branch because the $T_0$ support bound gives $\alpha<1/2$, hence $A_5>1/2$, while every $T_+$ branch requires $a\le1/2$.
+The case $A_5=1-\alpha$ is impossible for a left $T_+$ branch because the $T_0$ support bound gives $\alpha<1/2$, hence $A_5>1/2`, while every $T_+$ branch requires $a\le1/2$.
 
 Thus $A_5=1-T$.  The center identities are the direct formulas from `4073`.  Setting $c=1-u$, the left input is $a=rc$ and $C_5=c$.  With $\beta=B_5/c$, the high sheet gives $\beta\ge1/2$, and $B_5\ge a$ gives $\beta\ge r$.  The $T_+$ equation gives
 
@@ -79,7 +85,7 @@ $$
 \beta^2-\beta+1=(a+B_5)^2=c^2(r+\beta)^2,
 $$
 
-so $c=m/(r+\beta)$.  The condition $c\le1$ gives $\beta\ge(1-r^2)/(1+2r)$.
+so $c=m/(r+\beta)$.  The condition $c\le1$ gives $\beta\ge(1-r^2)/(1+2r)$.  The Cell-2 condition gives $r\ge(1-\beta)(r+\beta)^2$ as proved in `407c`, Lemma 3.1.
 
 ### Lemma 1.2
 
@@ -135,31 +141,7 @@ $$
 
 ### Proof
 
-The condition $S<1/2$ gives
-
-$$
-y<y_*={r\over1-r}\left({m\over r+\beta}-{1\over2}-{1-r\over1+\rho}\right).
-$$
-
-For fixed $r$, the function $m/(r+\beta)$ is decreasing in $\beta$.  Evaluating at the lower endpoint $\beta_0(r)=\max(r,1/2,(1-r^2)/(1+2r))$ gives the following three cases.
-
-If $0<r\le(\sqrt3-1)/2$, then $m/(r+\beta)\le1$ and $(1-r)/(1+\rho)\ge1/3$, so $y_*<1/10$.
-
-If $(\sqrt3-1)/2\le r\le1/2$, then $m/(r+\beta)\le\sqrt3/(1+2r)$ and
-
-$$
-{1-r\over1+\rho}\ge2-\sqrt3+{1/2-r\over2}.
-$$
-
-The resulting inequality $y_*<1/10$ reduces to $P(r)<0$, where
-
-$$
-P(r)=20r^3+(40\sqrt3-96)r^2+(40\sqrt3-57)r-2.
-$$
-
-Since $P'(r)>0$ and $P(1/2)=-52+30\sqrt3<0$, this holds.
-
-If $1/2\le r<1$, then $m/(r+\beta)\le\rho/(2r)$, and $y_*<1/10$ is equivalent to $15r-4\rho-4>0$, whose left side is increasing and positive at $r=1/2$.  Thus $y<1/10$.
+This is Lemma 3.2 of `407c` in the stronger form $y_*<1/10$, applied to the inequality $y<y_*$ coming from $S<1/2$.
 
 ## 2. The branch $(T_+^{hi},\mathrm{Full})$
 
@@ -179,7 +161,7 @@ If $A_1=q$, then $q<1/2$ and the right Full condition gives $y\ge q$.  But $q>S$
 
 If $A_1=A_C$ and $A_C\ge1/2$, then Full gives $y\ge1-A_C$, which with $A_C=(1-r)(1-y)$ forces $y\ge1$, contradiction.
 
-If $A_1=A_C\le1/2$, then Full gives $y\ge A_C=(1-r)(1-y)$, hence $y\ge(1-r)/(2-r)$.  A direct estimate using the left high-sheet lower bound gives $S>1/2$, contradicting $S<1/2$.  Thus the branch is impossible.
+If $A_1=A_C\le1/2$, then Full gives $y\ge A_C=(1-r)(1-y)$, hence $y\ge(1-r)/(2-r)$.  A direct estimate using the left high-sheet lower bound gives $S>1/2$, contradicting $S<1/2`.  Thus the branch is impossible.
 
 ## 3. The branch $(T_+^{hi},L)$
 
@@ -207,7 +189,7 @@ $$
 b=B_5={\beta m\over r+\beta}.
 $$
 
-From $S<1/2$ we have $y<y_*$.  The high-left envelope estimates give
+From $S<1/2$ we have $y<y_*$.  Lemma 3.2 of `407c` gives
 
 $$
 y_*<{1\over8},
@@ -215,13 +197,7 @@ y_*<{1\over8},
 3y_*\le1-b.
 $$
 
-The second estimate is proved by setting
-
-$$
-E_r(\beta)=1-b-3y_*
-$$
-
-and checking that $E_r$ has no interior minimum; the endpoint values are positive in the three standard ranges of $r$.  Since
+Since
 
 $$
 \ell(y)\le2y+5y^2<3y<3y_*,
@@ -253,7 +229,7 @@ $$
 A_1\le\ell(y).
 $$
 
-The left high-sheet estimates also give
+Lemma 3.3 of `407c` gives
 
 $$
 S>3y,
@@ -289,7 +265,7 @@ B_5+B_1
 m+2\rho-2+{r\over2}.
 $$
 
-If $r\le8/15$, then $m\le1$ and $2\rho-2+r/2\le0$.  If $r>8/15$, feasibility $y_*>0$ implies $r<5/8$ and $\beta<4/5$, hence $m<15/16$; also $2\rho-2+r/2<1/16$.  Therefore $B_5+B_1<1$.
+If $r\le8/15$, then $m\le1$ and $2\rho-2+r/2\le0$.  If $r>8/15$, Lemma 3.4 of `407c` supplies the estimates $r<5/8$ and $\beta<4/5$, hence $m<15/16$; also $2\rho-2+r/2<1/16$.  Therefore $B_5+B_1<1$.
 
 ### 5.2. The $A_1=q$ subcase
 
@@ -303,19 +279,13 @@ q=tC,
 B_1=b_1.
 $$
 
-The $T_-$ equation gives
+Lemma 3.4 of `407c` proves
 
 $$
-q+b_1=\mu=\sqrt{t^2-t+1}.
+B_1\le\kappa:={\sqrt{13}-1\over6}
 $$
 
-The branch condition $b_1\le q$ and $y<1/10$ imply
-
-$$
-B_1\le\kappa:={\sqrt{13}-1\over6}.
-$$
-
-The realized $T_-$ cell condition gives
+and
 
 $$
 q\le\tau<{93\over200},
@@ -398,7 +368,7 @@ $$
 
 ### Proof
 
-The lower sheet gives $0<p\le1/2$.  The equation $p^2-p+1=(A_1+B_1)^2$ gives $A_1=\mu-Cp$.  The condition $B_1\ge A_1$ gives $2Cp\ge\mu$.  Since $C\le1$, this implies $2p\ge\mu$, hence $3p^2+p-1\ge0$.
+The lower sheet gives $0<p\le1/2$.  The equation $p^2-p+1=(A_1+B_1)^2$ gives $A_1=\mu-Cp`.  The condition $B_1\ge A_1$ gives $2Cp\ge\mu$.  Since $C\le1$, this implies $2p\ge\mu$, hence $3p^2+p-1\ge0$.
 
 ### Lemma 6.2: certified lower-sheet threshold
 
@@ -446,7 +416,7 @@ $$
 r\ge(1-\beta)(r+\beta)^2,
 $$
 
-and the lower-sheet condition $3p^2+p-1\ge0$.  It certifies every rational box by one of: domain beta exclusion, domain Cell-2 exclusion, $p$-domain exclusion, direct $B_5<1-p$ upper bound, or threshold exclusion $S_0\ge\sqrt{p^2-p+1}-p$.  The recorded run has $1459$ terminal boxes and no unresolved boxes.
+and the lower-sheet condition $3p^2+p-1\ge0`.  It certifies every rational box by one of: domain beta exclusion, domain Cell-2 exclusion, $p$-domain exclusion, direct $B_5<1-p$ upper bound, or threshold exclusion $S_0\ge\sqrt{p^2-p+1}-p$.  The recorded run has $1459$ terminal boxes and no unresolved boxes.
 
 ### Theorem 6.3
 
@@ -466,17 +436,17 @@ $$
 
 By Lemma 6.1, write $B_1=Cp$ and $A_1=\mu-Cp$.
 
-If $A_1=A_C$, then $\mu-Cp=(1-r)C$.  The branch condition $B_1\ge A_1$ gives $p\ge1-r$.  Since $p\le1/2$, $r\ge1/2$.  The high-left half-bound gives $B_5<1/2$, while $B_1\le p\le1/2$, so $B_5+B_1<1$.
+If $A_1=A_C$, then $\mu-Cp=(1-r)C$.  The branch condition $B_1\ge A_1$ gives $p\ge1-r$.  Since $p\le1/2$, $r\ge1/2`.  The high-left half-bound gives $B_5<1/2$, while $B_1\le p\le1/2$, so $B_5+B_1<1$.
 
-If $A_1=q$, then $q>S$.  Since $q=\mu-(1-y)p=\mu-p+py$ and $S=S_0+((1-r)/r)y$, we have
+If $A_1=q$, then $q>S$.  Since $q=\mu-(1-y)p=\mu-p+py$ and $S=S_0+((1-r)/r)y`, we have
 
 $$
 S_0<\mu-p+\left(p-{1-r\over r}\right)y.
 $$
 
-If $(1-r)/r<p$, then $r>1/(1+p)\ge2/3$, so $B_5<1/2$ and $B_1\le1/2$.
+If $(1-r)/r<p$, then $r>1/(1+p)\ge2/3`, so $B_5<1/2` and $B_1\le1/2`.
 
-If $(1-r)/r\ge p$, then $S_0<\mu-p$.  Lemma 6.2 gives $B_5<1-p$.  Since $B_1=Cp\le p$, we get $B_5+B_1<1$.
+If $(1-r)/r\ge p$, then $S_0<\mu-p`.  Lemma 6.2 gives $B_5<1-p`.  Since $B_1=Cp\le p$, we get $B_5+B_1<1$.
 
 ## 7. Conclusion for left-high branches
 
