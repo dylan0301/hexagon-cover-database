@@ -146,7 +146,7 @@ $$
 \texttt{407X\_computation/407c\_T\_hi\_Tlo\_left\_threshold\_certificate.py}.
 $$
 
-Both use exact rational interval arithmetic and one-sided integer square-root bounds. The recorded runs have zero unresolved boxes.
+Both use exact rational interval arithmetic and one-sided integer square-root bounds. The recorded runs have zero unresolved boxes and are summarized in `407X_computation/README.md`.
 
 ## 4. Final inventory
 
