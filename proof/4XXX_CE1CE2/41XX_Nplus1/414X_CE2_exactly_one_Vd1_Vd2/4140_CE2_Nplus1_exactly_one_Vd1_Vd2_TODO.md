@@ -5,13 +5,14 @@ Status: Proven
 This branch is closed by the assembly proof
 [`4148_CE2_Nplus1_exactly_one_Vd1_Vd2_assembly.md`](4148_CE2_Nplus1_exactly_one_Vd1_Vd2_assembly.md).
 
-The Vd1/Vd2 corner-side normal form used by the local obstruction files is
-proved in
+The Vd1/Vd2 corner-side normal form and adjacent-ray bound used by the local
+obstruction files are proved in
 [`4145_Vd1_Vd2_corner_side_normal_form.md`](4145_Vd1_Vd2_corner_side_normal_form.md).
 
-A proved local cap for the Vd2 midpoint-rescue subcases is recorded in
+A proved local cap for Vd2 midpoint-rescue subcases is recorded in
 [`4142_CE2_Nplus1_Vd2_midpoint_local_caps.md`](4142_CE2_Nplus1_Vd2_midpoint_local_caps.md).
-It eliminates Vd2 rows that cover neighboring midpoint rescue subsets.
+Its global use for all Vd2 neighbor-midpoint rescue cases is recorded in
+[`4149_CE2_Nplus1_Vd2_neighbor_midpoint_obstruction.md`](4149_CE2_Nplus1_Vd2_neighbor_midpoint_obstruction.md).
 
 The normalized adjacent-rescue Vd1 case
 
