@@ -1,47 +1,30 @@
-# CE0 Conditional Area Certificate
+# CE0 Six-Point Area Certificate
 
 Status: Proven
 
-This file proves the final CE0 six-point area inequality under explicit local
-square-loss upper bounds for the area function `f(a,b)` from
+This file proves the CE0 six-point area inequality from the two local
+square-loss bounds for the area function $f(a,b)$ defined in
 [`3202_area_function_and_monotonicity.md`](3202_area_function_and_monotonicity.md).
 
-It does **not** prove the full local input.  The supercritical half is recorded
-in
-[`3204_supercritical_vertex_loss_lemma.md`](3204_supercritical_vertex_loss_lemma.md)
-conditional on the supercritical structural hypothesis.  The subcritical bound
-and the structural hypothesis remain separate proof obligations, recorded in
-[`3202_area_function_and_monotonicity.md`](3202_area_function_and_monotonicity.md)
-and summarized in [`3201_area_conjecture_index.md`](3201_area_conjecture_index.md).
+Those local bounds are proved unconditionally in
+[`3205_unconditional_local_square_loss.md`](3205_unconditional_local_square_loss.md).
+Therefore the CE0 conclusion in this file is unconditional.
 
-## Local square-loss hypothesis
+## 1. Proven local square-loss input
 
-Assume the following two pointwise bounds for all local vertex rows under
-consideration:
+For every local vertex row,
 
-1. If
+$$
+f(a,b)\le1-\min(a,b)^2.
+$$
 
-   $$
-   a+b\le 1,
-   $$
+If the row is supercritical, then
 
-   then
-
-   $$
-   f(a,b)\le 1-\min(a,b)^2.
-   $$
-
-2. If
-
-   $$
-   a+b>1,
-   $$
-
-   then
-
-   $$
-   f(a,b)\le 1-\max(a,b)^2.
-   $$
+$$
+a+b>1
+\quad\Longrightarrow\quad
+f(a,b)\le1-\max(a,b)^2.
+$$
 
 Equivalently, with
 
@@ -49,34 +32,30 @@ $$
 g(a,b)=1-f(a,b),
 $$
 
-the forced normalized local area loss satisfies
+the normalized local area loss satisfies
 
 $$
-a+b\le1 \quad\Longrightarrow\quad g(a,b)\ge\min(a,b)^2,
+g(a,b)\ge\min(a,b)^2
 $$
 
-and
+for every feasible row, and
 
 $$
-a+b>1 \quad\Longrightarrow\quad g(a,b)\ge\max(a,b)^2.
+a+b>1
+\quad\Longrightarrow\quad
+g(a,b)\ge\max(a,b)^2.
 $$
 
-The proof below uses only the square-loss hypothesis and the CE0 six-point row
-formulas.
+## 2. CE0 six-point notation
 
-The implication for $a+b>1$ is proved in
-[`3204_supercritical_vertex_loss_lemma.md`](3204_supercritical_vertex_loss_lemma.md)
-if the supercritical structural hypothesis for local maximizers is available.
-This certificate remains conditional until the full local square-loss input is
-proved or otherwise certified.
-
-## CE0 six-point notation
-
-Use the CE0 six-point perimeter model.  Thus one cut point is chosen on each
-edge:
+Choose one cut point on each boundary edge:
 
 $$
-X_i=V_i+x_i(V_{i+1}-V_i), \qquad 0\le x_i\le1, \qquad i=0,\dots,5,
+X_i=V_i+x_i(V_{i+1}-V_i),
+\qquad
+0\le x_i\le1,
+\qquad
+i=0,\dots,5,
 $$
 
 with indices modulo $6$.
@@ -96,12 +75,14 @@ $$
 so
 
 $$
-a_i+b_i>1 \quad\Longleftrightarrow\quad x_i>x_{i-1}.
+a_i+b_i>1
+\quad\Longleftrightarrow\quad
+x_i>x_{i-1}.
 $$
 
-## Theorem 647.1: conditional CE0 area certificate
+## 3. Six-row theorem
 
-Assume the local square-loss hypothesis above.  Let
+Let
 
 $$
 x_0,\dots,x_5\in[0,1]
@@ -113,27 +94,28 @@ $$
 (a_i,b_i)=(1-x_{i-1},x_i).
 $$
 
-If at least two rows are supercritical, i.e.
+If at least two rows are supercritical, that is,
 
 $$
-\left\lvert \left\lbrace i : a_i+b_i>1 \right\rbrace \right\rvert\ge2,
+\left\lvert
+\left\lbrace
+i:a_i+b_i>1
+\right\rbrace
+\right\rvert
+\ge2,
 $$
 
 then
 
 $$
+\boxed{
 \sum_{i=0}^5 f(a_i,b_i)<\frac{99}{20}<5.
+}
 $$
 
-Equivalently,
+### Proof
 
-$$
-\sum_{i=0}^5 f(1-x_{i-1},x_i)<\frac{99}{20}<5.
-$$
-
-## Proof
-
-Define the row losses
+Define
 
 $$
 G_i=1-f(1-x_{i-1},x_i).
@@ -148,10 +130,14 @@ $$
 because then
 
 $$
-\sum_{i=0}^5 f(1-x_{i-1},x_i) =6-\sum_{i=0}^5G_i <6-\frac{21}{20} =\frac{99}{20}.
+\sum_{i=0}^5 f(1-x_{i-1},x_i)
+=
+6-\sum_{i=0}^5G_i
+<
+6-\frac{21}{20}
+=
+\frac{99}{20}.
 $$
-
-For each $i$, there are two cases.
 
 If
 
@@ -159,13 +145,7 @@ $$
 x_i\le x_{i-1},
 $$
 
-then
-
-$$
-1-x_{i-1}+x_i\le1,
-$$
-
-so the subcritical square-loss bound gives
+then the row is nonsupercritical and the minimum-square bound gives
 
 $$
 G_i\ge\min(1-x_{i-1},x_i)^2.
@@ -177,34 +157,27 @@ $$
 x_i>x_{i-1},
 $$
 
-then
-
-$$
-1-x_{i-1}+x_i>1,
-$$
-
-so the supercritical square-loss bound gives
+then the row is supercritical and the maximum-square bound gives
 
 $$
 G_i\ge\max(1-x_{i-1},x_i)^2.
 $$
 
-Now set
+Set
 
 $$
-m=\min_i x_i, \qquad M=\max_i x_i.
+m=\min_i x_i,
+\qquad
+M=\max_i x_i.
 $$
 
 The local function is symmetric:
 
 $$
-f(a,b)=f(b,a),
+f(a,b)=f(b,a).
 $$
 
-because reflecting the hexagon through the symmetry axis through a vertex swaps
-the incoming and outgoing boundary sides.
-
-Use this symmetry to normalize the cut sequence.  Define
+Reflect the cut sequence by
 
 $$
 y_i=1-x_{-i-1},
@@ -213,35 +186,37 @@ $$
 with indices modulo $6$.  Then
 
 $$
-\min_i y_i=1-M, \qquad \max_i y_i=1-m.
+\min_i y_i=1-M,
+\qquad
+\max_i y_i=1-m,
 $$
 
-Also,
+and
 
 $$
-y_i>y_{i-1} \quad\Longleftrightarrow\quad x_{-i}>x_{-i-1},
+y_i>y_{i-1}
+\quad\Longleftrightarrow\quad
+x_{-i}>x_{-i-1}.
 $$
 
-so the number of supercritical rows is unchanged.  Moreover,
+Thus the number of supercritical rows is unchanged.  Moreover,
 
 $$
-(1-y_{i-1},y_i)=(x_{-i},1-x_{-i-1}),
+(1-y_{i-1},y_i)
+=
+(x_{-i},1-x_{-i-1}),
 $$
 
-which is the corresponding old row with the two coordinates swapped.  Since
-$f(a,b)=f(b,a)$,
+which is the corresponding old row with its coordinates swapped.  Hence the
+sum of the six local area values is preserved.
 
-$$
-\sum_{i=0}^5 f(1-y_{i-1},y_i) = \sum_{i=0}^5 f(1-x_{i-1},x_i).
-$$
-
-Therefore, after replacing $x$ by $y$ if necessary, we may assume
+After replacing $x$ by its reflected sequence if necessary, assume
 
 $$
 m\le1-M.
 $$
 
-Under this normalization, for every $i$,
+For every $i$,
 
 $$
 x_i\ge m
@@ -253,34 +228,34 @@ $$
 1-x_{i-1}\ge1-M\ge m.
 $$
 
-Thus both entries of every row are at least $m$.  From the two loss estimates
-above, this implies the baseline bound
+Thus both entries of every row are at least $m$, and the local bounds imply
 
 $$
-G_i\ge m^2 \qquad\text{for all }i.
+G_i\ge m^2
+\qquad
+\text{for all }i.
 $$
 
-Because there is at least one strict ascent $x_i>x_{i-1}$, the cyclic sequence is
-not constant.  Hence some minimum plateau is exited: there is an index $p$ such
-that
+Because the cyclic sequence is not constant, some minimum plateau is exited.
+There is an index $p$ such that
 
 $$
-x_{p-1}=m, \qquad x_p>m.
+x_{p-1}=m,
+\qquad
+x_p>m.
 $$
 
-For this row $p$,
+For this supercritical row,
 
 $$
-G_p\ge\max(1-x_{p-1},x_p)^2.
+G_p
+\ge
+\max(1-x_{p-1},x_p)^2
+\ge
+(1-m)^2.
 $$
 
-Since $x_{p-1}=m$,
-
-$$
-G_p\ge(1-m)^2.
-$$
-
-By hypothesis, there is another strict ascent.  Choose $q\ne p$ with
+By hypothesis there is another strict ascent.  Choose $q\ne p$ with
 
 $$
 x_q>x_{q-1}.
@@ -289,31 +264,46 @@ $$
 Then
 
 $$
-(1-x_{q-1})+x_q =1+(x_q-x_{q-1}) >1.
+(1-x_{q-1})+x_q
+=
+1+(x_q-x_{q-1})
+>1.
 $$
 
 Therefore
 
 $$
-\max(1-x_{q-1},x_q)>\frac12.
+\max(1-x_{q-1},x_q)>\frac12,
 $$
 
-Since row $q$ is supercritical,
+and hence
 
 $$
-G_q\ge\max(1-x_{q-1},x_q)^2>\frac14.
+G_q>\frac14.
 $$
 
-The remaining four rows still satisfy $G_i\ge m^2$.  Hence
+The remaining four rows satisfy $G_i\ge m^2$.  Consequently,
 
 $$
-\sum_{i=0}^5G_i > 4m^2+(1-m)^2+\frac14.
+\sum_{i=0}^5G_i
+>
+4m^2+(1-m)^2+\frac14.
 $$
 
 Finally,
 
 $$
-4m^2+(1-m)^2+\frac14 =5m^2-2m+\frac54 =5\left(m-\frac15\right)^2+\frac{21}{20} \ge\frac{21}{20}.
+\begin{aligned}
+4m^2+(1-m)^2+\frac14
+&=
+5m^2-2m+\frac54
+\\
+&=
+5\left(m-\frac15\right)^2+\frac{21}{20}
+\\
+&\ge
+\frac{21}{20}.
+\end{aligned}
 $$
 
 Thus
@@ -322,39 +312,27 @@ $$
 \sum_{i=0}^5G_i>\frac{21}{20},
 $$
 
-and therefore
+which proves
 
 $$
-\sum_{i=0}^5 f(1-x_{i-1},x_i)<\frac{99}{20}<5.
+\sum_{i=0}^5 f(a_i,b_i)<\frac{99}{20}<5.
 $$
 
-This proves the theorem.
+## 4. CE0 area contradiction
 
-## Corollary 647.2: conditional CE0 area contradiction
-
-Assume the local square-loss hypothesis and the CE0 six-point model.  If at
-least two CE0 rows satisfy $a_i+b_i>1$, then the six vertex triangles contribute
-less than $99/20$ unit-triangle areas inside $H$.
-
-The center triangle contributes at most one unit-triangle area.  Hence the seven
-unit triangles contribute less than
-
-$$
-\frac{99}{20}+1=\frac{119}{20}<6.
-$$
-
-Since the normalized area of $H$ is $6$, such a CE0 configuration cannot cover
+If $T_C$ is CE0 and at least two vertex rows are supercritical, the six vertex
+triangles contribute less than $99/20$ normalized unit-triangle areas inside
 $H$.
 
-## Dependencies and non-claims
+The center triangle contributes at most one normalized unit-triangle area.
+Hence all seven triangles contribute less than
 
-This file depends on:
+$$
+\frac{99}{20}+1
+=
+\frac{119}{20}
+<6.
+$$
 
-- the definition of $f(a,b)$ in
-  [`3202_area_function_and_monotonicity.md`](3202_area_function_and_monotonicity.md);
-- the local square-loss hypothesis stated above.
-
-This file does not prove:
-
-- the full local square-loss hypothesis unconditionally;
-- the structural conjecture for local maximizers $T(a,b)$.
+The normalized area of the side-$1$ regular hexagon is $6$.  Therefore such a
+CE0 configuration cannot cover $H$.
