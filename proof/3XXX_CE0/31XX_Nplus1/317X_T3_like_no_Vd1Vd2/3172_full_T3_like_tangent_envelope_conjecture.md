@@ -1,232 +1,350 @@
-# Full T3-like Tangent-Envelope Conjecture
+# Full T3-Like Tangent-Envelope Conjecture: Failure Report
 
-Status: Lemma target
+Status: Failed
 
-This file states the local no-midpoint T3-like area envelope used by the CE0
-one-supercritical certificate in this folder.
+## 1. Failed claim
 
-No midpoint condition is imposed.  A local triangle may contain none, one, two,
-or three of the local midpoints.  The only local type condition is
+The proposed no-midpoint T3-like envelope used the branch
 
 $$
-(o,n)=(2,1).
+A(s)=\frac{s(s^2-s+1)}{1-s^2},
 $$
 
-This file does not prove the envelope.  It gives the exact tangent branch that
-experiments identify as the local supremal envelope, derives its formulas, and
-states the conjecture in the form needed by the global proof.
-
-## Local coordinates
-
-Normalize to $V_0$.  Use the triangular basis $V_0,V_1$, where
-
 $$
-V_5=V_0-V_1.
+B(s)=\frac{s^2-s+1}{1+s},
 $$
 
-The two boundary points adjacent to $V_0$ are
-
 $$
-P_A=e_{5,0}(A)=V_0+A(V_5-V_0)=V_0-AV_1,
-$$
-
-and
-
-$$
-P_B=e_{0,1}(B)=V_0+B(V_1-V_0)=(1-B)V_0+BV_1.
+F(s)=\frac{(s^2-s+1)^2}{1-s^2},
+\qquad
+0\le s\le\frac12,
 $$
 
-The upper tangent branch has a limiting vertex on the adjacent ray $r_1$:
+together with its reflection obtained by swapping $A(s)$ and $B(s)$.
+
+The conjecture asserted that every closed unit equilateral $V_0$-triangle of
+T3-like type
 
 $$
-S=sV_1,
-\qquad 0\le s\le\frac12.
+(o,n)=(2,1)
 $$
 
-The branch is the limiting configuration in which:
+with required boundary data $(a,b)$ was coordinatewise dominated by one of
+these two branches, with its normalized inside area also bounded by the branch
+value.
 
-1. the two sides through $S$ pass through $P_A$ and $P_B$;
-2. the opposite side of the unit equilateral triangle passes through $V_0$;
-3. the triangle is tangent to the adjacent ray $r_1$.
+That coordinatewise domination statement is false.
 
-The reflected lower branch is obtained by swapping $A$ and $B$.
+## 2. Local coordinate system
 
-## Branch equations
+Use
+
+$$
+X=V_0+x(V_1-V_0)+y(V_5-V_0).
+$$
+
+Then
+
+$$
+V_0=(0,0),
+$$
+
+the adjacent boundary edges are the positive coordinate axes, and physical
+squared distance is
+
+$$
+\lVert (x,y)\rVert^2=x^2+y^2-xy.
+$$
+
+Physical rotation by $60^\circ$ is
+
+$$
+R(x,y)=(x-y,x).
+$$
+
+## 3. Exact counterexample
+
+Set
+
+$$
+d=
+\left(
+\frac1{\sqrt7},
+-\frac2{\sqrt7}
+\right).
+$$
+
+Then
+
+$$
+\lVert d\rVert^2
+=
+\frac17+\frac47+\frac27
+=1.
+$$
 
 Let
 
 $$
-u=P_A-S=V_0-(A+s)V_1,
+Q_-=-\frac15d
+=
+\left(
+-\frac1{5\sqrt7},
+\frac2{5\sqrt7}
+\right),
+$$
+
+$$
+Q_+=\frac45d
+=
+\left(
+\frac4{5\sqrt7},
+-\frac8{5\sqrt7}
+\right),
 $$
 
 and
 
 $$
-v=P_B-S=(1-B)V_0+(B-s)V_1.
+S=Q_-+Rd
+=
+\left(
+\frac{2\sqrt7}{5},
+\frac{\sqrt7}{5}
+\right).
 $$
 
-In the triangular basis, the Euclidean inner product is determined by
+The triangle
 
 $$
-V_0\cdot V_0=1,
+T=\mathrm{conv}\left\{Q_-,Q_+,S\right\}
+$$
+
+is a unit equilateral triangle.  Indeed, its three side vectors are
+
+$$
+d,
 \qquad
-V_1\cdot V_1=1,
+Rd,
 \qquad
-V_0\cdot V_1=\frac12.
+Rd-d,
 $$
 
-The condition that the two side rays from $S$ meet at angle $60^\circ$ gives
+all of physical length $1$.
+
+Also,
 
 $$
-4(u\cdot v)^2=|u|^2|v|^2,
-\qquad
-u\cdot v>0.
+Q_-+\frac15(Q_+-Q_-)=0,
 $$
 
-Expanding and taking the observed T3-like tangent branch gives
+so $V_0=(0,0)\in T$.
+
+### 3.1 T3-like type
+
+The vertex $Q_-$ has negative $x$ coordinate, and $Q_+$ has negative $y$
+coordinate, so both lie outside $H$.
+
+The vertex $S$ satisfies
 
 $$
-As-A-B+s^2-s+1=0.
-$$
-
-Equivalently,
-
-$$
-B=(1-A)(1-s)+s^2.
-$$
-
-The condition that the opposite side of the unit equilateral triangle passes
-through $V_0$ gives
-
-$$
-A(1-s^2)=s(s^2-s+1).
-$$
-
-Therefore
-
-$$
-\boxed{
-A(s)=\frac{s(s^2-s+1)}{1-s^2}
-}
+0<S_y<S_x<2
 $$
 
 and
 
 $$
-\boxed{
-B(s)=\frac{s^2-s+1}{1+s}.
-}
+S_x-S_y=\frac{\sqrt7}{5}<1.
 $$
 
-The parameter range $0\le s\le1/2$ is exactly the range in which the upper
-branch runs from the axis endpoint $(A,B)=(0,1)$ to the symmetric endpoint
-$(A,B)=(1/2,1/2)$.
-
-## Area of the tangent branch
-
-The part of the tangent limiting triangle inside $H$ is the quadrilateral
+Hence $S\in H$.  Therefore exactly two vertices of $T$ lie outside $H$:
 
 $$
-V_0P_BSP_A.
+o=2.
 $$
 
-Using the coordinates above, its Euclidean area is
+The part of $T$ in the local wedge is the quadrilateral with vertices
 
 $$
-\frac{\sqrt3}{4}\bigl(A+B-Bs\bigr).
+(0,0),\qquad
+\left(\frac{4\sqrt7}{15},0\right),\qquad
+S,\qquad
+\left(0,\frac{\sqrt7}{15}\right).
 $$
 
-Since a unit equilateral triangle has area $\sqrt3/4$, the normalized inside
-area of the branch is
+Since
 
 $$
-F(s)=A(s)+B(s)-B(s)s.
+S_x=\frac{2\sqrt7}{5}>1
 $$
 
-Substituting the formulas for $A(s)$ and $B(s)$ gives
+and the other positive-axis $x$ coordinate is below $1$, the triangle has
+positive-length intersection with the adjacent ray $x=1$.
+
+All three triangle vertices have $y<1$, so the triangle does not meet the other
+adjacent ray $y=1$.  Thus
 
 $$
-\boxed{
-F(s)=\frac{(s^2-s+1)^2}{1-s^2}.
-}
+n=1.
 $$
 
-The reflected branch is
+Consequently,
 
 $$
-(B(s),A(s),F(s)).
+\boxed{(o,n)=(2,1),}
 $$
 
-## Tangent-envelope conjecture
+so $T$ is T3-like.
 
-Define the full no-midpoint T3-like local inside-area function by
+### 3.2 Boundary data and area
 
-$$
-f_{\mathrm{T3}}(a,b)=
-\sup_T \frac{\mathrm{area}(T\cap H)}{\sqrt3/4},
-$$
-
-where the supremum is over closed unit equilateral $V_0$-triangles satisfying
+The exact adjacent boundary reaches are
 
 $$
-(o,n)=(2,1),
-$$
-
-and containing the required local boundary points
-
-$$
-V_0,
+a=\frac{\sqrt7}{15},
 \qquad
- e_{5,0}(a),
-\qquad
- e_{0,1}(b).
+b=\frac{4\sqrt7}{15}.
 $$
 
-No midpoint condition is imposed in this definition.
-
-The conjectural envelope is:
+The normalized inside area is twice the affine-coordinate area of the
+quadrilateral above:
 
 $$
-\boxed{
 \begin{aligned}
-f_{\mathrm{T3}}(a,b)
-\le
-\sup_{\substack{0\le s\le1/2\\ A(s)\ge a,\ B(s)\ge b}} F(s)
+F_T
+&=
+bS_y+aS_x
 \\
-{}\vee{}
-\sup_{\substack{0\le s\le1/2\\ B(s)\ge a,\ A(s)\ge b}} F(s).
+&=
+\frac{4\sqrt7}{15}\frac{\sqrt7}{5}
++
+\frac{\sqrt7}{15}\frac{2\sqrt7}{5}
+\\
+&=
+\frac{14}{25}.
 \end{aligned}
+$$
+
+Thus the exact counterexample data is
+
+$$
+\boxed{
+\left(
+a,b,F_T
+\right)
+=
+\left(
+\frac{\sqrt7}{15},
+\frac{4\sqrt7}{15},
+\frac{14}{25}
+\right).
 }
 $$
 
-Here $\vee$ means the maximum of the two reflected quantities.  Empty suprema
-are ignored.
+## 4. Failure of coordinatewise domination
 
-Equivalently, every T3-like local triangle with required lower-bound data
-$(a,b)$ and normalized inside area $F_T$ is conjectured to be dominated by one
-of the two tangent branches: there exists $s\in[0,1/2]$ such that either
+On $0\le s\le1/2$,
+
+$$
+A'(s)=
+\frac{1-2s+4s^2-s^4}{(1-s^2)^2}>0,
+$$
+
+so $A$ is strictly increasing, while
+
+$$
+B'(s)=
+\frac{s^2+2s-2}{(1+s)^2}<0,
+$$
+
+so $B$ is strictly decreasing.
+
+At
+
+$$
+s=\frac15,
+$$
+
+the branch values are
+
+$$
+A\left(\frac15\right)=\frac7{40},
+\qquad
+B\left(\frac15\right)=\frac7{10}.
+$$
+
+The counterexample satisfies
+
+$$
+\frac{\sqrt7}{15}>\frac7{40}
+$$
+
+and
+
+$$
+\frac{4\sqrt7}{15}>\frac7{10}.
+$$
+
+Both inequalities are equivalent to
+
+$$
+8\sqrt7>21,
+$$
+
+which follows after squaring from $448>441$.
+
+If $s\le1/5$, then
+
+$$
+A(s)\le A(1/5)<a.
+$$
+
+If $s\ge1/5$, then
+
+$$
+B(s)\le B(1/5)<b.
+$$
+
+Therefore no point of the unreflected branch satisfies
 
 $$
 A(s)\ge a,
 \qquad
-B(s)\ge b,
-\qquad
-F_T\le F(s),
+B(s)\ge b.
 $$
 
-or
+For the reflected branch, domination would require $A(s)\ge b$.  But
 
 $$
-B(s)\ge a,
-\qquad
-A(s)\ge b,
-\qquad
-F_T\le F(s).
+A(s)\le A(1/2)=\frac12
+<
+\frac{4\sqrt7}{15}=b.
 $$
 
-## Non-claim
+Hence no reflected branch point dominates the counterexample either.
 
-This file does not prove that the tangent branch is the full T3-like envelope.
-The conjecture is the remaining local proof obligation for the T3-like area
-package.  The subsequent files prove rigorous consequences assuming this local
-input.
+This disproves the proposed coordinatewise tangent-envelope conjecture.
+
+## 5. What remains valid
+
+The one-dimensional branch formulas themselves are correct.  In particular,
+the branch loss inequalities proved algebraically in
+[`3173_T3_like_loss_from_envelope.md`](3173_T3_like_loss_from_envelope.md)
+remain valid statements about that boundary family.
+
+What fails is the claim that every T3-like triangle is coordinatewise dominated
+by the family.
+
+The weaker area statement needed by the CE0 global proof is nevertheless true.
+A direct orientation and area argument proves
+
+$$
+a,b\ge m
+\quad\Longrightarrow\quad
+G_{\mathrm{T3}}(a,b)\ge2m-4m^2
+$$
+
+without coordinatewise domination.  See
+[`3175_direct_T3_like_area_loss.md`](3175_direct_T3_like_area_loss.md).
+
+Thus this failed envelope is not used in the completed `317X` proof.
