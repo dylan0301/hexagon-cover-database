@@ -1,136 +1,82 @@
-# T3-like Area-Conjecture Package
+# T3-Like Area Package
 
-Status: Strategy
+Status: Proven
 
-This folder records the CE0 area route for the case with exactly one
-supercritical vertex row and at least one T3-like vertex row.
+This folder proves the CE0 branch with exactly one supercritical vertex row,
+at least one T3-like vertex row, and no Vd1/Vd2 rows.
 
-The package is separate from `../../32XX_Nplus_ge2/`, which handles
-configurations with at least two supercritical rows.  This package handles the
-complementary CE0 pattern in which the center triangle is CE0, exactly one
-vertex row satisfies $a_i+b_i>1$, at least one nonsupercritical vertex row is
-T3-like, and every non-T3-like vertex row is Vd0.
-
-No midpoint condition is imposed on T3-like rows in this package.  The T3-like
-hypothesis means only
+The branch assumptions are:
 
 $$
-(o,n)=(2,1),
+T_C\text{ is CE0},
 $$
 
-where $o$ is the number of vertices of the local unit triangle outside $H$ and
-$n$ is the number of adjacent rays with positive-length intersection.
-
-## CE0 perimeter model
-
-Use the CE0 six-point model recorded in
-`../../32XX_Nplus_ge2/3208_CE0_conditional_area_certificate.md`.
-Choose one cut point on each boundary edge:
-
 $$
-X_i=V_i+x_i(V_{i+1}-V_i), \qquad 0\le x_i\le1, \qquad i=0,\dots,5.
+\left\lvert
+\left\lbrace
+i:a_i+b_i>1
+\right\rbrace
+\right\rvert=1,
 $$
 
-The induced vertex row at $V_i$ is
+and every vertex row is Vd0 or T3-like, with at least one T3-like row.
+
+No midpoint condition is imposed on T3-like rows.  The T3-like hypothesis means
 
 $$
-(a_i,b_i)=(1-x_{i-1},x_i),
+(o,n)=(2,1).
 $$
 
-with indices modulo $6$.  Hence
+## Proof route
 
-$$
-a_i+b_i>1 \quad\Longleftrightarrow\quad x_i>x_{i-1}.
-$$
-
-## Local inputs used by this package
-
-The final CE0 certificate in this folder is conditional on two local inputs.
-
-### Input 1: Vd0 square-loss bounds
-
-For Vd0 rows, assume the same square-loss bounds used by the conditional area
-certificate in `../../32XX_Nplus_ge2/3208_CE0_conditional_area_certificate.md`:
-
-$$
-a+b\le1 \quad\Longrightarrow\quad G_{\mathrm{Vd0}}(a,b)\ge \min(a,b)^2,
-$$
-
-and
-
-$$
-a+b>1 \quad\Longrightarrow\quad G_{\mathrm{Vd0}}(a,b)\ge \max(a,b)^2,
-$$
-
-where $G=1-f$ is normalized outside area.
-
-These bounds are not proved in this folder.  They remain the same local proof
-obligation recorded in
-`../../32XX_Nplus_ge2/3202_area_function_and_monotonicity.md`.
-
-### Input 2: full T3-like tangent-envelope conjecture
-
-The local T3-like input is the no-midpoint tangent-envelope conjecture stated in
+The original coordinatewise tangent-envelope conjecture is false.  Its exact
+counterexample and failure analysis are recorded in
 [`3172_full_T3_like_tangent_envelope_conjecture.md`](3172_full_T3_like_tangent_envelope_conjecture.md)
-(Status: Lemma target).
+(Status: Failed).
 
-That conjecture implies the proved analytic loss bound in
-[`3173_T3_like_loss_from_envelope.md`](3173_T3_like_loss_from_envelope.md)
-(Status: Proven):
+The branch is instead closed by two unconditional area results:
 
-$$
-a,b\ge m \quad\Longrightarrow\quad
-G_{\mathrm{T3}}(a,b)\ge 2m-4m^2.
-$$
+1. [`../../32XX_Nplus_ge2/3205_unconditional_local_square_loss.md`](../../32XX_Nplus_ge2/3205_unconditional_local_square_loss.md)
+   proves for every local row
+   $$
+   G\ge\min(a,b)^2,
+   $$
+   and for every supercritical row
+   $$
+   G\ge\max(a,b)^2.
+   $$
+2. [`3175_direct_T3_like_area_loss.md`](3175_direct_T3_like_area_loss.md)
+   proves directly that T3-like rows are nonsupercritical and that
+   $$
+   a,b\ge m
+   \quad\Longrightarrow\quad
+   G_{\mathrm{T3}}(a,b)\ge2m-4m^2.
+   $$
 
-It also gives the comparison bound
-
-$$
-a,b\ge m \quad\Longrightarrow\quad
-G_{\mathrm{T3}}(a,b)\ge m^2.
-$$
-
-It also implies that T3-like rows are nonsupercritical:
-
-$$
-a+b\le1.
-$$
-
-## Main conditional theorem
-
-Under the two local inputs above, the main theorem in
+The global assembly in
 [`3174_CE0_one_supercritical_T3_certificate.md`](3174_CE0_one_supercritical_T3_certificate.md)
-(Status: Proven) proves:
+then proves
 
 $$
 \boxed{
-\begin{gathered}
-T_C\text{ is CE0},\\
-\left\lvert \left\lbrace i : a_i+b_i>1 \right\rbrace \right\rvert=1,\\
-\text{at least one row is T3-like and every non-T3-like row is Vd0}
-\end{gathered}
-\quad\Longrightarrow\quad
-\sum_{i=0}^5 G_i>1.
+\sum_{i=0}^5G_i>1.
 }
 $$
 
-Therefore the six vertex triangles contribute strictly less than five
-unit-triangle areas inside $H$.  The CE0 center triangle contributes at most one
-unit-triangle area inside $H$, so the seven triangles contribute strictly less
-than the normalized area $6$ of $H$.
+Therefore the six vertex triangles contribute less than five normalized
+unit-triangle areas inside $H$.  A CE0 center triangle contributes at most one,
+so the seven triangles contribute less than the normalized area $6$ of $H$.
 
 ## Files
 
 | File | Recorded status | Notes |
 |---|---|---|
-| [`3172_full_T3_like_tangent_envelope_conjecture.md`](3172_full_T3_like_tangent_envelope_conjecture.md) | Lemma target | States the no-midpoint T3-like tangent-envelope conjecture and derives the candidate tangent branch formulas. |
-| [`3173_T3_like_loss_from_envelope.md`](3173_T3_like_loss_from_envelope.md) | Proven | Proves the analytic consequences of the tangent envelope needed globally: nonsupercriticality and the loss bounds $G_{\mathrm{T3}}\ge2m-4m^2$ and $G_{\mathrm{T3}}\ge m^2$. |
-| [`3174_CE0_one_supercritical_T3_certificate.md`](3174_CE0_one_supercritical_T3_certificate.md) | Proven | Proves the CE0 one-supercritical T3-like area contradiction under the two local inputs. |
+| [`3172_full_T3_like_tangent_envelope_conjecture.md`](3172_full_T3_like_tangent_envelope_conjecture.md) | Failed | Gives an exact T3-like counterexample to coordinatewise tangent domination and records why that route fails. |
+| [`3173_T3_like_loss_from_envelope.md`](3173_T3_like_loss_from_envelope.md) | Proven | Retains correct one-dimensional tangent-branch algebra and the conditional consequences of the failed envelope assumption; it is not used in the final proof. |
+| [`3174_CE0_one_supercritical_T3_certificate.md`](3174_CE0_one_supercritical_T3_certificate.md) | Proven | Unconditional global CE0 one-supercritical assembly. |
+| [`3175_direct_T3_like_area_loss.md`](3175_direct_T3_like_area_loss.md) | Proven | Direct orientation reduction and T3-like area-loss theorem replacing the failed envelope. |
 
-## Status warning
+## Conclusion
 
-This folder contains a complete proof of the global analytic implication from
-the stated local inputs.  It does not prove the full T3-like tangent-envelope
-conjecture and does not prove the Vd0 square-loss bounds.  Consequently it is
-not an unconditional proof of the CE0 T3-like case until those local inputs are
-proved or certified.
+The `317X` branch is closed unconditionally.  The failed tangent-envelope
+domination statement is retained as a warning, but no final dependency uses it.
