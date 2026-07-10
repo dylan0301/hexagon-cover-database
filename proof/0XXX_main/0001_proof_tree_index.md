@@ -19,7 +19,12 @@ together in the combined 4XXX branch. Inside each active branch, define
 perimeter rows $(a_i,b_i)$ and compute
 
 $$
-N_+=\left\lvert \left\lbrace i : a_i+b_i>1 \right\rbrace \right\rvert.
+N_+=
+\left\lvert
+\left\lbrace
+i:a_i+b_i>1
+\right\rbrace
+\right\rvert.
 $$
 
 Then split first by CE0 or by the combined CE1/CE2 branch; inside each branch
@@ -64,12 +69,13 @@ Vd0, Vd1/Vd2, and T3-like vertex-role patterns.
     - at least one Vd1/Vd2
       - `314X`: boundary-length obstruction
     - at least one T3-like and no Vd1/Vd2
-      - `317X`: conditional area-certificate route
-      - `3174`: one-supercritical T3 certificate
+      - `317X`: unconditional direct area-loss route
+      - `3172`: failed coordinatewise tangent-envelope conjecture
+      - `3175`: direct T3-like area-loss theorem
   - `32XX`: CE0, $N_+\ge2$
-    - `3208`: conditional area certificate
-    - remaining local input
-      - `3204`: supercritical vertex-loss lemma
+    - `3205`: unconditional local square-loss theorem
+    - `3208`: six-row strict area certificate
+    - `3201`: proven branch assembly
   - `33XX`: old CE0 Vd1/Vd2 chain proof
 
 ## CE1/CE2 Branch
@@ -104,3 +110,6 @@ Vd0, Vd1/Vd2, and T3-like vertex-role patterns.
   - `962X`: May 21 four-point route fails for CE0, $N_+=1$, all Vd0
   - `9630`: May 25 five-point route fails for CE1/CE2 all-Vd0
   - `964X`: CE1/CE2 area-conjecture route failure
+- `3172`: exact counterexample to the full T3-like coordinatewise tangent
+  envelope; the `317X` branch is closed by the direct area theorem in `3175`
+  instead.
