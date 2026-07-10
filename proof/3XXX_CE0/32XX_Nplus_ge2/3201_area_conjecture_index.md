@@ -1,78 +1,94 @@
-# Area Conjecture Package
+# CE0, $N_+\ge2$, Area Package
 
-Status: Strategy
+Status: Proven
 
-This folder records the successful CE0 conditional area-certificate route for
-perimeter cut-point configurations.
+This folder proves the CE0 branch with at least two supercritical vertex rows.
 
-The main target is the CE0 six-point case.  In CE0 the center triangle has no
-positive-length boundary overlap, so the perimeter data is one ordinary cut
-point on each of the six boundary edges.
+The branch assumptions are
 
-This package does not prove the full area conjecture or the structural formula
-for the local maximizer $T(a,b)$.  It records a conditional CE0 analytic
-certificate: if the local square-loss bounds for $f(a,b)$ are supplied, then
-the CE0 six-point target with at least two supercritical rows follows.  That
-conditional certificate is in
+$$
+T_C\text{ is CE0},
+$$
+
+and
+
+$$
+N_+
+=
+\left\lvert
+\left\lbrace
+i:a_i+b_i>1
+\right\rbrace
+\right\rvert
+\ge2.
+$$
+
+## Proof route
+
+The local area function is defined in
+[`3202_area_function_and_monotonicity.md`](3202_area_function_and_monotonicity.md):
+
+$$
+f(a,b)
+=
+\max_T
+\frac{\mathrm{area}(T\cap H)}{\sqrt3/4},
+$$
+
+where $T$ ranges over closed unit equilateral vertex triangles containing the
+two required adjacent boundary points.
+
+The unconditional local theorem in
+[`3205_unconditional_local_square_loss.md`](3205_unconditional_local_square_loss.md)
+proves
+
+$$
+f(a,b)\le1-\min(a,b)^2
+$$
+
+for every feasible row, and
+
+$$
+a+b>1
+\quad\Longrightarrow\quad
+f(a,b)\le1-\max(a,b)^2.
+$$
+
+The six-row analytic certificate in
 [`3208_CE0_conditional_area_certificate.md`](3208_CE0_conditional_area_certificate.md)
-(Status: Proven).
-
-The supercritical square-loss bound is now recorded in
-[`3204_supercritical_vertex_loss_lemma.md`](3204_supercritical_vertex_loss_lemma.md)
-(Status: Proven), conditional on the supercritical
-structural hypothesis for local maximizers.  The subcritical bound and the
-structural hypothesis itself remain open obligations.
-
-The CE0 area-conjecture target is:
+proves from exactly these two inequalities that
 
 $$
-\left\lvert \left\lbrace i : a_i+b_i>1 \right\rbrace \right\rvert\ge2 \quad\Longrightarrow\quad \sum_{i=0}^5 f(a_i,b_i)<5.
+N_+\ge2
+\quad\Longrightarrow\quad
+\sum_{i=0}^5f(a_i,b_i)<\frac{99}{20}<5.
 $$
 
-## Main CE0 target
+Because the local hypotheses of `3208` are now proved in `3205`, the
+certificate is unconditional.
 
-Choose one cut point on each boundary edge:
-
-$$
-X_i=V_i+x_i(V_{i+1}-V_i), \qquad i=0,\dots,5.
-$$
-
-The six cut points determine six vertex rows
+The CE0 center triangle contributes at most one normalized unit-triangle area.
+Hence the seven triangles contribute less than
 
 $$
-(a_i,b_i)=(1-x_{i-1},x_i), \qquad i=0,\dots,5,
+\frac{99}{20}+1
+=
+\frac{119}{20}
+<6,
 $$
 
-with indices modulo $6$.  In the CE0 case, the shared target becomes
-
-$$
-\left\lvert \left\lbrace i : a_i+b_i>1 \right\rbrace \right\rvert\ge2 \quad\Longrightarrow\quad \sum_{i=0}^5 f(a_i,b_i)<5.
-$$
-
-Here $f(a,b)$ is the normalized maximum area inside $H$ for a unit vertex
-triangle forced to contain the corresponding local boundary data.
-
-If the displayed strict inequality is proved under the correct hypotheses,
-then the six vertex triangles contribute less than five unit-triangle areas
-inside $H$.  The remaining center triangle contributes at most one
-unit-triangle area, so the seven triangles contribute less than the area of
-$H$.
-
-The conditional CE0 certificate in
-[`3208_CE0_conditional_area_certificate.md`](3208_CE0_conditional_area_certificate.md)
-(Status: Proven)
-proves the stronger bound
-
-$$
-\sum_{i=0}^5 f(a_i,b_i)<\frac{99}{20}
-$$
-
-under the local square-loss hypothesis stated there.
+where $6$ is the normalized area of the side-$1$ regular hexagon.  Therefore
+the branch cannot cover $H$.
 
 ## Files
 
 | File | Recorded status | Notes |
 |---|---|---|
-| [`3202_area_function_and_monotonicity.md`](3202_area_function_and_monotonicity.md) | Strategy | Defines $f(a,b)$, records monotonicity, and states the structural conjecture for the local maximizing triangle. |
-| [`3204_supercritical_vertex_loss_lemma.md`](3204_supercritical_vertex_loss_lemma.md) | Proven | Proves the supercritical square-loss bound under the supercritical structural hypothesis. |
-| [`3208_CE0_conditional_area_certificate.md`](3208_CE0_conditional_area_certificate.md) | Proven | Proves the CE0 six-point inequality under the local square-loss hypothesis for $f(a,b)$. |
+| [`3202_area_function_and_monotonicity.md`](3202_area_function_and_monotonicity.md) | Reference | Defines $f(a,b)$, symmetry, monotonicity, and records the now-unneeded structural-maximizer conjecture as historical context. |
+| [`3204_supercritical_vertex_loss_lemma.md`](3204_supercritical_vertex_loss_lemma.md) | Proven | Earlier supercritical proof under a structural hypothesis; superseded by the unconditional theorem in `3205`. |
+| [`3205_unconditional_local_square_loss.md`](3205_unconditional_local_square_loss.md) | Proven | Proves both local square-loss inequalities for every admissible unit triangle without a structural hypothesis. |
+| [`3208_CE0_conditional_area_certificate.md`](3208_CE0_conditional_area_certificate.md) | Proven | Proves the six-row strict area inequality from the square-loss inequalities; `3205` discharges those hypotheses. |
+
+## Conclusion
+
+The CE0, $N_+\ge2$ branch is closed unconditionally.
