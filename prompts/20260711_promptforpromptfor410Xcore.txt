@@ -1,0 +1,20 @@
+ I want to prove 410X case.
+My conjecture is that 410X case cannot cover the skeleton S 
+my strategy is that paramtereize the center triangle with center coordinates and theta,
+I think there is already files using this parameterization
+There will be intervals on the hexagon boundary that CE1 or CE2 triangles intersect.
+If the V triangles cover all of those intervals which means V triangles cover the entire hexagno boundary,
+then this is reduced to 310X case of our strategy.
+So there is at least some interval on the hexagon boundary that is not covered by V triangles.
+Since we are only consdiering the skeleton, by monotonicity, we can assume that some V triangle only has to cover one endpoint of a uncovered interval. (we work with closed triangles)
+then use the max b map 2007 file, and we do the g compose chain of 6 triangles. you may refer to the failed strategy.
+ask me questions and rephrase this strategy. 
+generate a prompt that I will give to chatgpt Pro 
+to read my repository and prove rigorously
+refer to other prompts files
+
+you may refer to https://github.com/dylan0301/hexagon-cover-visual/tree/gulgu
+the Triangle mode for the monotonicity we can assume part
+
+if the V triangles cover the entire hexagon boundary, then we can similarly plot the 6 points on the hexagon boundary and use the ab union sets.
+this is a proof to reduction to 310X
