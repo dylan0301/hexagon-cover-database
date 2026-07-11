@@ -2,13 +2,14 @@
 
 Status: Strategy
 
-This file assembles the proposed local obstructions in the 414X package for the
-CE2, $N_+=1$, exactly-one-Vd1/Vd2 branch under the standard reduced hypotheses:
-all vertex rows other than the unique Vd1/Vd2 row are Vd0, and there is exactly
-one supercritical row.
+This file assembles the local obstructions only for the reduced no-T3-like
+subbranch of CE2, $N_+=1$, exactly one Vd1/Vd2: all vertex rows other than the
+unique Vd1/Vd2 row are Vd0, and there is exactly one supercritical row.
 
-The assembly is dependency-blocked at `4144`, `4147`, and the final use of the
-`4013` boundary-loss package.
+The exact-formula blockers in `4144`, `4145`, and the local part of `4147` are
+repaired. The assembly remains dependency-blocked at the final use of the
+`4013` boundary-loss package. It also does not address the global mixed
+Vd1/Vd2--T3-like branch recorded in `4140`.
 
 ## Statement
 
@@ -24,9 +25,10 @@ $$
 N_+=1,
 $$
 
-and exactly one vertex row is Vd1 or Vd2.  Under the reduced 414X hypotheses,
-these seven role triangles cannot cover the required target.  Hence the 414X
-branch would be impossible after the blocked dependencies are discharged.
+and exactly one vertex row is Vd1 or Vd2. Under the reduced no-T3-like
+hypotheses, these seven role triangles cannot cover the required target after
+the `4013` dependency is discharged. This statement is not the whole 414X
+branch.
 
 ## Dependencies
 
@@ -34,9 +36,9 @@ The proposed assembly uses the following local files.
 
 1. [`4149_CE2_Nplus1_Vd2_neighbor_midpoint_obstruction.md`](4149_CE2_Nplus1_Vd2_neighbor_midpoint_obstruction.md): a Vd2 row covering a neighboring midpoint is impossible by the Vd2 local caps from [`4142`](4142_CE2_Nplus1_Vd2_midpoint_local_caps.md) and boundary length.
 2. [`4143_CE2_Nplus1_T0_Vd1_M1_T1_supercritical_obstruction.md`](4143_CE2_Nplus1_T0_Vd1_M1_T1_supercritical_obstruction.md): the normalized pair $T_0$ Vd1, $M_1\in T_0$, $T_1$ supercritical is impossible, with reflection.
-3. [`4144_CE2_Nplus1_T0_supercritical_T1_Vd1_Vd2_adjacent_obstruction.md`](4144_CE2_Nplus1_T0_supercritical_T1_Vd1_Vd2_adjacent_obstruction.md): the adjacent placement $T_0$ supercritical, $T_1$ Vd1/Vd2 is impossible, with reflection.
+3. [`4144_CE2_Nplus1_T0_supercritical_T1_Vd1_Vd2_adjacent_obstruction.md`](4144_CE2_Nplus1_T0_supercritical_T1_Vd1_Vd2_adjacent_obstruction.md): the adjacent placement $T_0$ supercritical, $T_1$ Vd1/Vd2 is impossible, with reflection; its radial-envelope proof includes the exact Cell-$T$ selector.
 4. [`4146_CE2_Nplus1_T0_supercritical_nonadjacent_Vd1_Vd2_obstruction.md`](4146_CE2_Nplus1_T0_supercritical_nonadjacent_Vd1_Vd2_obstruction.md): the non-adjacent placements $T_0$ supercritical, $T_\tau$ Vd1/Vd2 for $\tau\in\{2,3,4\}$ are impossible.
-5. [`4147_CE2_Nplus1_Vd1_supercritical_pair_axis_replacement.md`](4147_CE2_Nplus1_Vd1_supercritical_pair_axis_replacement.md): if a Vd1 row adjacent to a supercritical row rescues that row's midpoint, the pair can be replaced by two nonsupercritical Vd0 rows, reducing to the all-Vd0 CE2 boundary-loss obstruction.
+5. [`4147_CE2_Nplus1_Vd1_supercritical_pair_axis_replacement.md`](4147_CE2_Nplus1_Vd1_supercritical_pair_axis_replacement.md): if a Vd1 row adjacent to a supercritical row rescues that row's midpoint, the pair can be replaced by two explicit nonsupercritical Vd0 rows, reducing conditionally to the all-Vd0 CE2 boundary-loss obstruction.
 
 The Vd1/Vd2 corner-side normal form and adjacent-ray bound needed by the local
 files are proved in
@@ -106,10 +108,12 @@ Thus no candidate exists in this case.
 
 ## Conclusion
 
-Every possible placement of the unique supercritical row and the unique
-Vd1/Vd2 row falls into one of the three cases above. Conditional on the
-blocked dependencies, every case would be impossible. At present the CE2,
-$N_+=1$, exactly-one-Vd1/Vd2 branch remains Strategy.
+Every placement of the unique supercritical row and the unique Vd1/Vd2 row
+within the reduced all-other-rows-Vd0 hypothesis falls into one of the three
+cases above. Conditional on `4013`, every such reduced case would be
+impossible. At present both that dependency and the separate mixed
+Vd1/Vd2--T3-like configurations remain open, so the full CE2, $N_+=1$,
+exactly-one-Vd1/Vd2 branch remains Strategy.
 
 $$
 \Box

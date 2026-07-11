@@ -59,13 +59,22 @@ V-type or $N_+$ exit.
 
 ## 3. C-triangle slope parameterization
 
+The formulas in this section are the historical $r>1$ specialization. The
+exact CE1 center domain and radial exits are proved in
+[`../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2105_CE1_exact_formulas.md`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2105_CE1_exact_formulas.md).
+The coupled two-interval CE2 domain is different and is proved in
+[`../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2106_CE2_exact_formulas.md`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2106_CE2_exact_formulas.md).
+No proof reducing every exact CE1/CE2 configuration to the specialization
+below is supplied in this package; this is one reason the file remains
+Strategy.
+
 Let the two side functions cutting $e_{0,1}$ at $s$ and $t$ have positive edge-slopes $p$ and $q$.  Put
 
 $$
 r=\frac qp.
 $$
 
-The relevant high-loss branch has $r>1$.  Define
+The recorded high-loss branch has $r>1$. Define
 
 $$
 D=\sqrt{r^2-r+1},\qquad R=\frac1r,\qquad S=\sqrt{1-R+R^2}=RD.

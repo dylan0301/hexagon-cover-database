@@ -159,6 +159,17 @@ a_\tau\ge A,
 b_\tau\ge H.
 $$
 
+Both $A$ and $H$ are positive. The CE2 endpoints satisfy $u,v<1$. If an
+alternative endpoint were supplied by $a_0=1$ or $b_0=1$, the diameter bound
+
+$$
+a_0^2+a_0b_0+b_0^2\le1
+$$
+
+would force the other coordinate to be zero, contradicting the strict
+supercritical condition $a_0+b_0>1$. Hence $a_\tau+b_\tau>0$, and the
+vertex-degenerate exception in `4145` cannot occur.
+
 By the Vd1/Vd2 adjacent-ray bound proved from the normal form in
 [`4145`](4145_Vd1_Vd2_corner_side_normal_form.md),
 

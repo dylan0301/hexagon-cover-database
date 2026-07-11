@@ -141,7 +141,7 @@ $$
 Set
 
 $$
-t_*=rac{2b-1}{1-b^2}.
+t_*=\frac{2b-1}{1-b^2}.
 $$
 
 Whenever the maximum in $N$ is $b$,

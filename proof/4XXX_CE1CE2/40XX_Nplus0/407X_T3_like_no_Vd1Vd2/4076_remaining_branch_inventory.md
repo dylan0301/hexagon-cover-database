@@ -14,7 +14,9 @@ This file records the branch inventory after the completion files
 This is a historical algebraic inventory. The local inequalities remain useful,
 but the discarded $T_+^{lo}$ sheet is not a realized branch, and the exact
 unclassified map does not prove inclusion in the actual-coordinate classified
-map. The detailed auxiliary inequalities are recorded in `407c` and `407e`.
+map. The detailed auxiliary inequalities are recorded in
+[`407c_rigor_completion_details.md`](407c_rigor_completion_details.md) and
+[`407e_final_gap_fixes.md`](407e_final_gap_fixes.md).
 
 ## 1. Reduction target
 
@@ -80,7 +82,9 @@ $$
 
 ### Left-Low completion
 
-`4078`, with details in `407c`, completes
+`4078`, with details in
+[`407c_rigor_completion_details.md`](407c_rigor_completion_details.md),
+completes
 
 $$
 (L,*),
@@ -94,7 +98,9 @@ $$
 
 ### First-Full and lower-sheet completions
 
-`4079`, with details in `407c` and `407e`, proves that
+`4079`, with details in
+[`407c_rigor_completion_details.md`](407c_rigor_completion_details.md) and
+[`407e_final_gap_fixes.md`](407e_final_gap_fixes.md), proves that
 
 $$
 (\mathrm{Full},*)
@@ -112,7 +118,9 @@ The remaining right branches for first-coordinate $T_+^{lo}$ are already covered
 
 ### Left-high completion
 
-`407a`, with details in `407c` and `407e`, proves
+`407a`, with details in
+[`407c_rigor_completion_details.md`](407c_rigor_completion_details.md) and
+[`407e_final_gap_fixes.md`](407e_final_gap_fixes.md), proves
 
 $$
 (T_+^{hi},\mathrm{Full}),
@@ -170,8 +178,7 @@ $$
 (T_+^{hi},*).
 $$
 
-Conditional on the historical branch inventory being replaced by a complete
-actual-coordinate classified-map inclusion, every hard-region branch would
-satisfy the `4073` contradiction or be geometrically impossible. The full
-$407X$ branch therefore remains Strategy, as recorded in `4070`, `407b`, and
-`407d`.
+This is the superseded five-label inventory. The complete safe four-label
+partition is proved in `4015`, and the corresponding exact reassembly is
+proved in `407d`. In particular, the fake $T_+^{lo}$ row above is not part of
+the current branch matrix.

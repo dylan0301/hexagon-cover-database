@@ -1,13 +1,15 @@
-# Proven Branch Lemmas for the CE1/CE2 Vd0 Boundary-Loss Reduction
+# Recorded Branch Lemmas for the CE1/CE2 Vd0 Boundary-Loss Reduction
 
 Status: Strategy
 
 Dependency warning: these calculations use the former algebraic branch
-labels. In particular, the old $T_+^{lo}$ sheet is not a geometric component
-of the exact admissible set. The inequalities are retained for a future safe
-relaxation audit, but this file no longer certifies realized-map branches.
+labels. The exact audit in `4015` proves that $L$, $T_-$, $T_+^{hi}$, and Full
+are the exhaustive true labels, while $T_+^{lo}$ is not geometric. Several
+calculations below are sketches or depend on certificates whose runtime
+dependency is not declared, so this file remains Strategy.
 
-This file records the branch lemmas currently proved for the reduction in `551_setup_and_reduction.md`.
+This file records the branch calculations for the reduction in
+[`4014_setup_and_reduction.md`](4014_setup_and_reduction.md).
 
 Throughout, use
 
@@ -553,24 +555,33 @@ $$
 
 for all $0\le s\le1/2$, by another convexity/endpoint comparison.  This contradicts left $T_+^{hi}$ realization.
 
-## 8. Remaining branches
+## 8. Exact-formula reaudit and remaining true branches
 
-The only branches in this package not yet certified are lower-sheet $T_+$ branches:
+The lower sheet $T_+^{lo}$ is empty after the exact component selector and is
+not an obligation. Conversely, the former claim that only those lower-sheet
+cases remained was false: it omitted genuine ordered pairs.
 
-$$
-(T_+^{lo},T_-), \qquad (T_+^{lo},T_+^{hi}), \qquad (T_+^{lo},T_+^{lo}).
-$$
-
-Numerical sampling finds these branches but with visible gap.  A typical best sample has
-
-$$
-(T_+^{lo},T_+^{hi}),\qquad F\approx0.91965,
-$$
-
-so
+First, all four pairs in $\{L,T_-\}^2$ are now proved without calculus. Both
+labels have output no larger than their input, so
 
 $$
-1-F\approx0.08035.
+B_5+B_1\le s+u=1-w<1.
 $$
 
-No proof of a uniform analytic bound is included here.  This is the main remaining obligation for the full $F<1$ branch proof.
+After removing the fake sheet and adding this observation, the genuine
+ordered pairs still lacking complete recorded proofs are
+
+$$
+\boxed{
+(T_-,T_+^{hi})
+\quad\text{and}\quad
+(\mathrm{Full},T_+^{hi}).
+}
+$$
+
+The first pair has nonempty exact CE1 domain; `4013` gives an explicit surd
+witness. The second was not found in the recorded sampling, but nonappearance
+is not a proof of infeasibility. In addition, the proof-sketch and
+certificate-backed steps earlier in this file must be completed or supplied
+with independently reproducible certificates before the branch matrix can be
+called proved.

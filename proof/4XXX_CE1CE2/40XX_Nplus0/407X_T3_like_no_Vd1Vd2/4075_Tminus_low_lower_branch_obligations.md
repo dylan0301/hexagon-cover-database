@@ -428,14 +428,56 @@ $$
 H(S)=S^2+2aS+X^2+2\lambda X-2X-\lambda.
 $$
 
-The function $H$ is increasing in $S$.  From $S\le Y/\lambda$ one obtains
+The function $H$ is increasing in $S$. From $S\le Y/\lambda$ one obtains
 
 $$
 S\ge {X+1-\rho\over1-2\lambda}
 $$
 
-and $0<\lambda<1/2$.  Substituting this lower bound into $H$ gives a positive expression by the same polynomial check used in Lemma 2.2 of
-[`4074_L_Full_branch.md`](4074_L_Full_branch.md).
+and $0<\lambda<1/2$. We now check the substitution explicitly. Put
+
+$$
+x=\lambda,
+\qquad
+S_0=\frac{X+1-\rho}{1-2x}.
+$$
+
+Multiplication by the positive denominator $(1-2x)^2$ gives
+
+$$
+\begin{aligned}
+(1-2x)^2H(S_0)
+={}&p(x)+q(x)\rho\\
+&+4x\left(2-3x+2x^2-\rho\right)X
++4x^2X^2,
+\end{aligned}
+$$
+
+where
+
+$$
+p(x)=4-8x+9x^2-4x^3,
+\qquad
+q(x)=-4+6x-4x^2.
+$$
+
+On $0<x<1/2$, one has $p>0$ and $q<0$. Indeed, both $p$ and
+$4-6x+4x^2$ are positive there. Moreover,
+
+$$
+p(x)^2-q(x)^2\rho^2
+=x^2\left(4-12x+13x^2-8x^3\right)>0.
+$$
+
+The cubic in parentheses is decreasing on $[0,1/2]$ and has value $1/4$ at
+$1/2$. Hence $p>|q|\rho$ and the constant term is positive. Also
+
+$$
+2-3x+2x^2>1>\rho,
+$$
+
+so the coefficient of $X$ is positive, and the coefficient of $X^2$ is
+positive. Therefore $H(S_0)>0$.
 
 Thus
 
@@ -525,9 +567,9 @@ $$
 
 This contradiction rules out the residual.  Therefore the entire left-$T_-$ family is proved.
 
-## 7. Remaining branch inventory
+## 7. Exact-formula inventory note
 
-After this file and `4074`, the following are proved:
+After this file and `4074`, the following genuine cases are proved:
 
 $$
 A_1+A_5>1,
@@ -538,12 +580,13 @@ $$
 $$
 
 $$
-\{L,T_-,T_+^{lo}\}^2,
+\{L,T_-\}^2,
 $$
 
 and all branches with first coordinate $T_-$.
 
-The remaining possible branch obligations are:
+The exact audit in `4015` deletes $T_+^{lo}$ completely. The remaining genuine
+branch obligations at this stage of the historical file order are:
 
 $$
 (L,T_+^{hi}),
@@ -561,10 +604,4 @@ $$
 (T_+^{hi},*),
 $$
 
-and possible lower-left/right-large branches
-
-$$
-(T_+^{lo},\mathrm{Full}),\qquad (T_+^{lo},T_+^{hi}),
-$$
-
-if they are geometrically realizable in the final $407X$ domain.
+There are no lower-sheet obligations.

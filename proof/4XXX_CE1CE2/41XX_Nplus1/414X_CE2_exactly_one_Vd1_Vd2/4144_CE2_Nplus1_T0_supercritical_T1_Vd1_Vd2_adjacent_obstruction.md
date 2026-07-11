@@ -1,6 +1,6 @@
 # CE2, $N_+=1$, $T_0$ Supercritical And Adjacent $T_1$ Vd1/Vd2
 
-Status: Strategy
+Status: Proven
 
 This file proves the adjacent remaining placement in the
 [`4140`](4140_CE2_Nplus1_exactly_one_Vd1_Vd2_TODO.md) branch:
@@ -21,9 +21,8 @@ the admissible-set radial envelope from
 and the CE2 interval-pair model from
 [`../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2103_CE2_M0_e50_e01_maximal_interval_pairs.md`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2103_CE2_M0_e50_e01_maximal_interval_pairs.md).
 
-Dependency update: `2004` now proves a corrected piecewise radial envelope.
-The local argument below is still retained as a strategy until its use of the
-old branch labels is rechecked against the new component selectors.
+The radial-envelope step below is rederived from the corrected piecewise
+formula in `2004`, including the Cell-$T$ component selector.
 
 ## Statement
 
@@ -172,7 +171,9 @@ $$
 
 ## Local Vd1/Vd2 adjacent-ray bound
 
-Normalize $T_1$ at $V_1$ and choose a touched adjacent ray.  In local
+The boundary propagation gave $b_1\ge H>0$, so the vertex-degenerate
+$a_1=b_1=0$ exception in `4145` cannot occur. Normalize $T_1$ at $V_1$ and
+choose a touched adjacent ray. In local
 coordinates $(X,Y)$ there is $t>0$ and
 
 $$
@@ -288,20 +289,117 @@ $$
 (s^2-1)c^2+pc-p^2\le0,\qquad s=p+h.
 $$
 
-At $c_0=1-h/3$ this expression is
+The former expansion at $c_0=1-h/3$ was incorrect. The exact expansion is
 
 $$
-G=\frac{2h^3+2h^2p-12h^2-12hp+15h+9}{9}.
+\begin{aligned}
+9F_T(p,h,c_0)={}&h(h-6)p^2
++\left(2h^3-12h^2+15h+9\right)p\\
+&+h^4-6h^3+8h^2+6h-9.
+\end{aligned}
 $$
 
-For fixed $h\in[0,1/2]$, $G$ is linear and decreasing in $p$, so its minimum
-for $1/2\le p\le1-h$ occurs at $p=1-h$.  There
+For $0<h\le1/2$, this expression is strictly increasing in $p$ on
+$[1/2,1-h]$. Its derivative is minimized at $p=1-h$, where it equals
 
 $$
-G=\frac{2h(1-h)}3\ge0.
+2h^2+3h+9>0.
 $$
 
-Thus $c_0$ lies at or beyond the first boundary root, and
+Also $q(p)=s^4-s^2+ph$ is strictly increasing wherever $q\ge0$. Indeed,
+$ph\le s^2/4$ gives
+
+$$
+q\le s^2\left(s^2-\frac34\right),
+$$
+
+so $q\ge0$ implies $s\ge\sqrt3/2$, and then
+
+$$
+q'(p)=4s^3-2s+h>0.
+$$
+
+Suppose first that $q(1/2)<0$. Then $h<3/8$, and there is a unique
+$p_0\in(1/2,1-h)$ with $q(p_0)=0$. At
+
+$$
+p_*=1-\frac{4h}{3},
+$$
+
+direct substitution gives
+
+$$
+q(p_*)=
+\frac{h}{81}\left(h^3-12h^2-63h+27\right)>0.
+$$
+
+Hence $p_0<p_*$ and
+
+$$
+s_0=p_0+h<c_0.
+$$
+
+At $q=0$, the exact Cells $L$ and $T$ agree and their selected radial root is
+$s_0$. Therefore $F_T(p_0,h,c_0)\ge0$, and monotonicity in $p$ gives the same
+inequality for every $p\ge p_0$.
+
+Now suppose $q(1/2)\ge0$. Put
+
+$$
+q_{1/2}(h)=h^4+2h^3+\frac{h^2}{2}-\frac3{16},
+$$
+
+and
+
+$$
+R(h)=9F_T\left(\frac12,h,c_0\right)
+=h^4-5h^3+\frac94h^2+12h-\frac92.
+$$
+
+Both functions are strictly increasing on $[0,1/2]$. Indeed,
+
+$$
+q_{1/2}'(h)=h\left(4h^2+6h+1\right)>0,
+$$
+
+and
+
+$$
+R'(h)=4h^3-15h^2+\frac92h+12.
+$$
+
+The latter derivative is concave on this interval and has endpoint values
+$12$ and $11$, so it is positive. For
+
+$$
+h_* = \frac{24}{65},
+$$
+
+one has
+
+$$
+q_{1/2}(h_*)=-\frac{20739}{285610000}<0,
+$$
+
+while
+
+$$
+R(h_*)=\frac{157527}{35701250}>0.
+$$
+
+Thus $q(1/2)\ge0$ implies $h>h_*$ and hence $R(h)>0$. Monotonicity in $p$
+again yields $F_T(p,h,c_0)\ge0$.
+
+Finally,
+
+$$
+c_0\le1\le2p.
+$$
+
+This is the exact Cell-$T$ selector check. It places $c_0$ on the selected
+lower component, not on the discarded high component. Since
+$F_T(p,h,c_0)\ge0$, $c_0$ lies at or beyond the selected first boundary root.
+Thus
 
 $$
 \boxed{c_{\max}\left(\frac12+A,H\right)\le1-\frac H3.}
@@ -397,8 +495,38 @@ $$
 F'(b)=\frac{2}{(3-2b)^2}-\frac12-\frac{3b}{2\sqrt{4-3b^2}}<0.
 $$
 
-After clearing positive denominators this last inequality reduces to a
-polynomial inequality in $1-b$ and $2b-1$ with nonnegative coefficients.  Thus
+For completeness, put $z=1-b\in[0,1/2]$. After moving the rational term and
+squaring the nonnegative sides, the required inequality is equivalent for
+$z>0$ to
+
+$$
+\begin{aligned}
+&9(1-z)^2(1+2z)^4\\
+&\quad-
+\left(3-4z-4z^2\right)^2
+\left(1+6z-3z^2\right)>0.
+\end{aligned}
+$$
+
+The left side is $zP(z)$. The Bernstein coefficients of the degree-$5$
+polynomial $P$ on $[0,1/2]$ are
+
+$$
+24,
+\quad
+50,
+\quad
+\frac{364}{5},
+\quad
+\frac{434}{5},
+\quad
+\frac{432}{5},
+\quad
+72.
+$$
+
+They are all positive. Thus $F'(b)<0$ for $b<1$, with equality only at
+$b=1$, and
 
 $$
 F(b)\le F\left(\frac12\right)=\frac{\sqrt{13}-1}{4},
@@ -567,7 +695,13 @@ $$
 \frac{r(y-1/2+r/2)}{r+1}.
 $$
 
-The right side is convex in $r$ on $[0,r_0]$, so its maximum is at an endpoint.
+The right side is convex in $r$ on $[0,r_0]$: its second derivative is
+
+$$
+\frac{2(1-y)}{(1+r)^3}>0.
+$$
+
+Thus its maximum is at an endpoint.
 At $r=0$ it is $0$.  At $r=r_0$,
 
 $$
@@ -595,11 +729,28 @@ $$
 s\ge1+3L-6L^2,
 $$
 
+because the right side is positive and the difference of the squares is
+$36L^3(1-L)$. Hence
+
 so
 
 $$
 2sN'(L)\ge2L(-144L^3+192L^2-33L+38)>0.
 $$
+
+The Bernstein coefficients of the last cubic on $[0,1/2]$ are
+
+$$
+38,
+\quad
+\frac{65}{2},
+\quad
+43,
+\quad
+\frac{103}{2},
+$$
+
+so its positivity is exact.
 
 Thus $N(L)>0$, proving the lemma when $r\le r_0$.
 
@@ -627,6 +778,49 @@ and
 $$
 2(8L^3+14L^2-20L+9)>0.
 $$
+
+For the quartic in the first line, the Bernstein coefficients on
+$[0,1/4]$ are
+
+$$
+9,
+\quad
+6,
+\quad
+\frac{119}{32},
+\quad
+\frac{35}{16},
+\quad
+\frac32,
+$$
+
+and on $[1/4,1/2]$ they are
+
+$$
+\frac32,
+\quad
+\frac{13}{16},
+\quad
+\frac{31}{32},
+\quad
+\frac{33}{16},
+\quad
+\frac{17}{4}.
+$$
+
+For the cubic in the second line, the coefficients on $[0,1/2]$ are
+
+$$
+9,
+\quad
+\frac{17}{3},
+\quad
+\frac72,
+\quad
+\frac72.
+$$
+
+All are positive.
 
 Therefore the squared difference is positive for all $r\ge r_0$, so the
 hypothesis of the lemma cannot hold in this range.  The analytic lemma follows.

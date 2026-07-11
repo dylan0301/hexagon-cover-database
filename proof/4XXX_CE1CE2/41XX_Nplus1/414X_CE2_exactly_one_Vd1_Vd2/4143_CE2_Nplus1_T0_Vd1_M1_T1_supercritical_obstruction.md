@@ -104,11 +104,26 @@ $r_1$ and no positive-length intersection with $r_5$.
 
 ## Local Vd1 normal form
 
-Let $W$ be the unique outside vertex of $T_0$.  In the present adjacent-rescue
-branch, the two sides incident to $W$ are the two sides facing the $V_0$ corner.
-They determine two nonnegative intercepts $\alpha,\beta$ on the adjacent
-edge-lines.  The actual boundary coverage on $e_{5,0}$ is denoted by $a$; it
-satisfies
+Let $a,b$ be the actual adjacent boundary reaches of $T_0$. First suppose
+$a=b=0$. The CE2 interval on $e_{0,1}$ starts at a strictly positive
+coordinate. Since $T_0$ supplies no initial boundary interval, $T_1$ must
+cover the whole edge from $V_1$, so its incoming reach satisfies $a_1\ge1$.
+The diameter bound
+
+$$
+a_1^2+a_1b_1+b_1^2\le1
+$$
+
+then forces $a_1=1$ and $b_1=0$, contradicting the strict supercritical
+condition $a_1+b_1>1$. Thus the exceptional vertex-degenerate branch from
+`4145` is impossible here.
+
+Assume $a+b>0$. The dichotomy proved in
+[`4145_Vd1_Vd2_corner_side_normal_form.md`](4145_Vd1_Vd2_corner_side_normal_form.md)
+puts $T_0$ in the corner-side normal form. Let $W$ be its unique outside
+vertex. The two sides incident to $W$ determine nonnegative intercepts
+$\alpha,\beta$ on the adjacent edge-lines. The actual boundary coverage on
+$e_{5,0}$ is denoted by $a$ and satisfies
 
 $$
 a\le\alpha.

@@ -35,9 +35,9 @@ $$
 Assume every other vertex row is Vd0 and nonsupercritical.  Then the boundary
 coverage supplied by the pair $(T_{i-1},T_i)$ can be replaced by two
 axis-aligned nonsupercritical Vd0 rows, without decreasing the boundary coverage
-on the three boundary edges affected by the pair.  Consequently, any full cover
-in this branch implies a CE2 all-Vd0 nonsupercritical boundary cover, which is
-impossible by the all-Vd0 CE1/CE2 boundary-loss package
+on the three boundary edges affected by the pair. Consequently, any full cover
+in this branch implies a CE2 all-Vd0 nonsupercritical boundary cover. Conditional
+on the all-Vd0 CE1/CE2 boundary-loss package, that cover would be impossible:
 [`../../40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md`](../../40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md).
 
 The reflected case in which $T_{i+1}$ is Vd1 and covers $M_i$ is identical.
@@ -45,7 +45,11 @@ The reflected case in which $T_{i+1}$ is Vd1 and covers $M_i$ is identical.
 ## Normalized Vd1 rescuer
 
 Normalize the pair so that the Vd1 row is a $V_0$-row touching the outgoing
-adjacent ray $r_1$ and covering $M_1$.  Write
+adjacent ray $r_1$ and covering $M_1$. Let $a,b$ be its actual adjacent
+boundary reaches. If $a=b=0$, the supercritical row at $V_1$ must cover the
+entire shared edge, so $a_i\ge1$. The diameter bound then forces
+$a_i=1$, $b_i=0$, contradicting $a_i+b_i>1$. Thus $a+b>0$, and the exact
+dichotomy in `4145` puts the rescuer in the corner-side normal form. Write
 
 $$
 d=\sqrt{t^2+t+1}.
@@ -355,23 +359,57 @@ $$
 
 ## Explicit axis-aligned replacement
 
-The boundary candidate in the maximal map is
+We do not invoke a historical branch name from the maximal map. Instead, for
+every $0\le p\le1$ construct an explicit unit Vd0 triangle in local
+coordinates. If $p\le1/2$, put
 
 $$
-b_F(p)=1-p,
+\Delta_p^-=
+\mathrm{conv}\left\{
+(0,1-p),
+(1,1-p),
+(0,-p)
+\right\}.
 $$
 
-with domain
+If $p\ge1/2$, put
 
 $$
-0\le p\le1,\qquad 0\le c\le\max(p,1-p).
+\Delta_p^+=
+\mathrm{conv}\left\{
+(p,0),
+(p,1),
+(p-1,0)
+\right\}.
 $$
 
-This is the axis-aligned Vd0 triangle branch.  Explicitly, in the same
-corner-side half-plane model it is obtained as the closure limit in which the
-opposite side is the line through the two adjacent boundary points whose
-parameters sum to $1$.  It has no positive-length adjacent-ray intersection,
-hence is Vd0, and its boundary sum is exactly $1$.
+In the local metric $\lVert(x,y)\rVert^2=x^2+y^2-xy$, each of the three side
+vectors in either construction has length $1$. Direct intersection with the
+two boundary axes gives exact reaches
+
+$$
+p,
+\qquad
+1-p.
+$$
+
+The own-radial reach is respectively $1-p$ and $p$, hence always
+
+$$
+\max\left\{p,1-p\right\}.
+$$
+
+The neighboring rays have no positive-length intersection with these
+triangles, so they are Vd0. Consequently either construction realizes every
+demand triple
+
+$$
+\left(p,1-p,c\right)
+\qquad
+\text{with}
+\qquad
+0\le c\le\max\left\{p,1-p\right\}.
+$$
 
 Because $a+c\le1$, we have
 
@@ -379,7 +417,8 @@ $$
 c\le1-a\le\max(a,1-a).
 $$
 
-Thus there is an axis-aligned Vd0 row at $V_{i-1}$ with local triple
+Thus the construction with $p=a$ gives a Vd0 row at $V_{i-1}$ with local
+triple
 
 $$
 (a,1-a,c).
@@ -392,8 +431,8 @@ $$
 a+(1-a)=1.
 $$
 
-Likewise, since $\lambda+b_i\le1$, there is an axis-aligned Vd0 row at $V_i$
-with local triple
+Likewise, since $\lambda+b_i\le1$, the construction with $p=1-b_i$ gives a
+Vd0 row at $V_i$ with local triple
 
 $$
 (1-b_i,b_i,\lambda).
@@ -422,7 +461,9 @@ All other vertex rows in this branch are already nonsupercritical Vd0 rows.
 Therefore any boundary cover in this branch would produce a CE2 all-Vd0 cover
 with every vertex row satisfying $a_j+b_j\le1$.
 
-This contradicts the CE1/CE2 all-Vd0 boundary-loss obstruction recorded in
+Once the `4013` dependency is discharged, this would contradict the CE1/CE2
+all-Vd0 boundary-loss obstruction recorded in
 [`../../40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md`](../../40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md).
 
-Hence the adjacent Vd1--supercritical rescue branch is impossible.
+Thus the local replacement is proved, and the adjacent
+Vd1--supercritical rescue branch is conditionally reduced to `4013`.

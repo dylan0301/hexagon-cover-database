@@ -58,7 +58,7 @@ be the boundary coordinate on $e_{0,1}$ from $V_0$ toward $V_1$.
 Let
 
 $$
-c=\sup\{x\in[0,1]: [V_0,(1-x)V_0]\subset T\}
+c=\sup\{x\in[0,1]: [V_0,V_0+x(O-V_0)]\subset T\}
 $$
 
 be the own-radial exit coordinate on $r_0=[V_0,O]$, measured from $V_0$ toward

@@ -47,10 +47,13 @@ is a closed unit equilateral triangle.  Its adjacent boundary coverages from
 $V_0$ are exactly $a$ on $e_{5,0}$ and $b$ on $e_{0,1}$ whenever the displayed
 corner is the local corner at $V_0$.
 
-Conversely, any Vd1 or Vd2 row in the corner-side branch, i.e. with its unique
-outside vertex equal to the intersection of the two sides cutting the two
-adjacent boundary intervals at $V_0$, has this form after possibly reflecting
-$x\leftrightarrow y$.
+Conversely, let a Vd1 or Vd2 row have actual adjacent boundary reaches $a,b$.
+There is an exact dichotomy:
+
+1. if $a+b>0$, the row has this form after possibly reflecting
+   $x\leftrightarrow y$;
+2. if $a=b=0$, a vertex-degenerate Vd1 configuration may fall outside this
+   normal form and must be handled separately.
 
 ## Derivation from vertices
 
@@ -143,13 +146,13 @@ $b$.
 The center in local coordinates is
 
 $$
-P_{\rm loc}=\frac{Q_-+Q_5+Q_1}{3}.
+P_{\mathrm{loc}}=\frac{Q_-+Q_5+Q_1}{3}.
 $$
 
 Thus
 
 $$
-P_{\rm loc}=\left(
+P_{\mathrm{loc}}=\left(
 \frac{-at-bt(t+1)+\frac d3(2t+1)}{d^2},
 \frac{-(t+1)a-tb+\frac d3(t+2)}{d^2}
 \right).
@@ -158,7 +161,7 @@ $$
 In physical coordinates,
 
 $$
-P_{\rm phys}=V_0+P_x(V_5-V_0)+P_y(V_1-V_0).
+P_{\mathrm{phys}}=V_0+P_x(V_5-V_0)+P_y(V_1-V_0).
 $$
 
 The physical image of a local vector $(p,q)$ is
@@ -185,7 +188,7 @@ $$
 In the standard center-angle parameterization, the triangle vertices are
 
 $$
-P_{\rm phys}+\frac1{\sqrt3}
+P_{\mathrm{phys}}+\frac1{\sqrt3}
 \left(
 \cos\left(\theta+\frac\pi2+\frac{2\pi k}{3}\right),
 \sin\left(\theta+\frac\pi2+\frac{2\pi k}{3}\right)
@@ -204,21 +207,80 @@ makes these three vertices equal to the physical images of $Q_-$, $Q_5$, and
 $Q_1$, up to cyclic order.  Hence the displayed half-plane model is exactly the
 center-and-rotation model specialized to the corner-side branch.
 
-## Why this covers the Vd1/Vd2 corner branch
+## Proof of the dichotomy
 
-For a Vd2 row, both adjacent rays have positive-length intersection and there
-is exactly one outside vertex.  In the local corner branch, that outside vertex
-is the intersection of the two sides which terminate the adjacent boundary
-intervals at $V_0$.  The two sides through that vertex have side directions
-which, after reflection if necessary, can be written as positive multiples of
-$(t+1,1)$ and $(t,t+1)$ for a unique $t>0$.  Scaling to unit side length gives
-the normal form above.
+Let $W$ be the unique vertex of the row triangle outside $H$, and let $U,Z$ be
+the other two vertices. Thus $U,Z\in H$. In the local coordinates above, the
+tangent cone of $H$ at $V_0$ is
 
-For a Vd1 row in the same corner branch, exactly one of the two adjacent-ray
-intersections has positive length.  The same side geometry applies; only one of
-the two adjacent-ray interval inequalities is required to be strict.  Endpoint
-only contact is handled by the closure of the same inequalities and never
-weakens the inequalities used in 414X.
+$$
+x\ge0,
+\qquad
+y\ge0.
+$$
+
+Assume first that $a+b>0$. Then $V_0$ is not a vertex of the row triangle. If
+it were, positive boundary reach would force an incident unit side to lie on
+one of the two unit hexagon edges at $V_0$. That side would equal the whole
+hexagon edge. The equilateral choice with one outside vertex lies outside the
+supporting line of that edge and has no positive-length adjacent-ray
+intersection, contradicting Vd1/Vd2.
+
+Write the positive barycentric relation
+
+$$
+V_0=\omega W+\mu U+\nu Z,
+\qquad
+\omega>0,
+\qquad
+\mu,\nu\ge0,
+\qquad
+\omega+\mu+\nu=1.
+$$
+
+Since $U$ and $Z$ have nonnegative local coordinates, this relation forces
+
+$$
+W_x\le0,
+\qquad
+W_y\le0.
+$$
+
+The opposite side $UZ$ lies in the convex hexagon. It cannot cut either
+adjacent supporting edge in its relative interior unless its line coincides
+with that hexagon edge: a noncoincident line would cross from the interior to
+the exterior. If it coincides, its unit length again makes it the whole
+hexagon edge, and the outside equilateral choice has $n=0$. Therefore the two
+sides terminating the adjacent boundary intervals are the sides incident to
+$W$.
+
+Their two directions point from the southwest tangent cone into the local
+first quadrant. The equilateral angle relation gives, after reflection if
+necessary, positive multiples of
+
+$$
+(t+1,1),
+\qquad
+(t,t+1)
+$$
+
+for a unique $t>0$. Unit normalization gives the three displayed half-planes.
+This proves the normal form whenever $a+b>0$.
+
+The exception $a=b=0$ is real. Put $r=1/\sqrt3$. Then
+
+$$
+\mathrm{conv}\left\{
+(0,0),
+(-r,r),
+(r,2r)
+\right\}
+$$
+
+is a unit equilateral triangle with one outside vertex and positive-length
+intersection with $r_1$. It is Vd1, contains the neighboring midpoint
+$M_1=(1/2,1)$, and is not in the southwest corner-side form. Downstream uses
+must therefore split off $a=b=0$ before invoking the normal form.
 
 ## Adjacent-ray bound
 
@@ -255,7 +317,7 @@ $$
 $$
 
 The incoming adjacent-ray case is the reflection and gives the same bound.
-Hence every Vd1/Vd2 row in the corner-side branch satisfies
+Hence every nondegenerate Vd1/Vd2 row satisfies
 
 $$
 \boxed{a+b<\frac12}
@@ -263,3 +325,6 @@ $$
 
 whenever it has positive-length adjacent-ray intersection.  In endpoint-only
 closure cases the corresponding weak inequality $a+b\le1/2$ holds.
+
+The exceptional case has $a+b=0$, so the same strict bound is trivially true
+there even though the half-plane parameterization need not apply.

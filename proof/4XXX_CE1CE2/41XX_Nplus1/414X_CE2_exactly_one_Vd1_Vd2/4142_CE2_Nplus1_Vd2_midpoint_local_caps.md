@@ -129,19 +129,15 @@ $x\leftrightarrow y$, which swaps $M_1$ and $M_5$ and swaps $a$ and $b$.
 ## Vd2 normal form
 
 A Vd2 triangle has exactly one vertex outside $H$ and positive-length
-intersection with both adjacent rays $r_5$ and $r_1$.  In the midpoint-rescue
-subcases treated here, the unique outside vertex is the $V_0$-corner vertex of
-the triangle: the two sides incident to it are exactly the two sides which
-terminate the initial intervals on $e_{5,0}$ and $e_{0,1}$.
+intersection with both adjacent rays $r_5$ and $r_1$. If $a+b=0$, both bounds
+in the statement are immediate. Assume henceforth that $a+b>0$.
 
-Indeed, if the side terminating one initial boundary interval were not incident
-to the unique outside vertex, then the side through the outside vertex on that
-side of the corner would separate $T_0$ from one adjacent ray, leaving at most a
-point contact.  This contradicts the Vd2 condition that both adjacent rays have
-positive-length intersection.  The same argument also excludes an outside
-vertex in only one of the two exterior half-strips; otherwise the opposite
-adjacent ray is separated from the triangle except for a possible endpoint
-contact.
+The exact dichotomy proved in
+[`4145_Vd1_Vd2_corner_side_normal_form.md`](4145_Vd1_Vd2_corner_side_normal_form.md)
+then puts the row in the corner-side normal form: the unique outside vertex is
+the intersection of the two sides terminating the initial boundary intervals.
+The exceptional vertex-degenerate branch can occur only when $a=b=0$ and has
+already been removed.
 
 Therefore, after reflecting if necessary, there is a parameter
 

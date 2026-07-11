@@ -5,10 +5,16 @@ Status: Strategy
 This branch has a proposed assembly in
 [`4148_CE2_Nplus1_exactly_one_Vd1_Vd2_assembly.md`](4148_CE2_Nplus1_exactly_one_Vd1_Vd2_assembly.md).
 
-The former `Proven` status is withdrawn. `2004` and `2007` now prove the
-corrected unclassified map, but `4144` has not yet been rechecked against its
-component selectors, and `4147` ends by invoking the Strategy-status `4013`
-package.
+The former `Proven` status is withdrawn. The exact-formula reaudit now repairs
+the Cell-$T$ selector calculation in `4144`, the Vd1/Vd2 normal-form
+degeneracy in `4145`, and the explicit Vd0 replacements in `4147`. The reduced
+no-T3-like assembly still ends by invoking the Strategy-status `4013` package.
+
+More importantly, the package does not contain a reduction eliminating mixed
+configurations with exactly one Vd1/Vd2 row and one or more T3-like rows. The
+`4148` assembly assumes all other vertex rows are Vd0. The `412X` and `413X`
+packages assume no Vd1/Vd2 row, so they do not cover this mixture. This is an
+independent global blocker even if `4013` is later proved.
 
 The Vd1/Vd2 corner-side normal form and adjacent-ray bound used by the local
 obstruction files are proved in
@@ -16,7 +22,7 @@ obstruction files are proved in
 
 A proved local cap for Vd2 midpoint-rescue subcases is recorded in
 [`4142_CE2_Nplus1_Vd2_midpoint_local_caps.md`](4142_CE2_Nplus1_Vd2_midpoint_local_caps.md).
-Its global use for all Vd2 neighbor-midpoint rescue cases is recorded in
+Its global use in the reduced no-T3-like subbranch is recorded in
 [`4149_CE2_Nplus1_Vd2_neighbor_midpoint_obstruction.md`](4149_CE2_Nplus1_Vd2_neighbor_midpoint_obstruction.md).
 
 The normalized adjacent-rescue Vd1 case
@@ -51,9 +57,10 @@ are obstructed in
 [`4146_CE2_Nplus1_T0_supercritical_nonadjacent_Vd1_Vd2_obstruction.md`](4146_CE2_Nplus1_T0_supercritical_nonadjacent_Vd1_Vd2_obstruction.md).
 
 The remaining adjacent-rescue placement where the unique supercritical row is
-not $T_0$ is obstructed in
+not $T_0$ has a proved local axis replacement in
 [`4147_CE2_Nplus1_Vd1_supercritical_pair_axis_replacement.md`](4147_CE2_Nplus1_Vd1_supercritical_pair_axis_replacement.md),
-using an axis-aligned replacement and the CE1/CE2 all-Vd0 boundary-loss package.
+but its final contradiction still uses the CE1/CE2 all-Vd0 boundary-loss
+package.
 
 The case split tying these local files together is recorded in `4148`.
 

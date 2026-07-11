@@ -7,12 +7,13 @@ This file records the global use of the Vd2 local caps from
 
 ## Statement
 
-In the CE2, $N_+=1$, exactly-one-Vd1/Vd2 branch, suppose the unique Vd1/Vd2
-row is Vd2 and covers a neighboring midpoint.  Then the branch is impossible by
-boundary length.
+In the reduced no-T3-like subbranch of CE2, $N_+=1$, exactly one Vd1/Vd2,
+suppose every other vertex row is Vd0 and the unique Vd1/Vd2 row is Vd2 and
+covers a neighboring midpoint. Then the branch is impossible by boundary
+length.
 
-Equivalently, a Vd2 row cannot be the unique rescuer of the midpoint of the
-unique supercritical row.
+Equivalently, under these reduced hypotheses, a Vd2 row cannot be the unique
+rescuer of the midpoint of the unique supercritical row.
 
 ## Local midpoint reduction
 
@@ -23,7 +24,17 @@ $$
 M_1=\left(\frac12,1\right)
 $$
 
-in local coordinates.  By the corner-side normal form from
+in local coordinates. Let $a,b$ be its adjacent boundary reaches. If
+$a=b=0$, then its boundary contribution is already
+
+$$
+a+b=0<\frac32-\frac2{\sqrt3},
+$$
+
+so the boundary-length contradiction below applies directly; no normal form
+or midpoint-subset reduction is needed. Assume henceforth that $a+b>0$.
+
+By the corner-side normal form from
 [`4145_Vd1_Vd2_corner_side_normal_form.md`](4145_Vd1_Vd2_corner_side_normal_form.md),
 there are $t>0$, $a\ge0$, $b\ge0$, and
 
@@ -133,12 +144,48 @@ contribution strictly less than $K_*$.
 
 ## Global boundary contradiction
 
-In the 414X branch there is one CE2 center row, one unique supercritical Vd0
-row, one unique Vd2 row, and four ordinary nonsupercritical Vd0 rows.
+In this reduced subbranch there is one CE2 center row, one unique
+supercritical Vd0 row, one unique Vd2 row, and four ordinary
+nonsupercritical Vd0 rows.
 
-The boundary caps recorded in
-[`../../../2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md`](../../../2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md)
-are:
+We derive the three remaining boundary caps directly, so this theorem does not
+depend on the `Practically proven` status of the general boundary-length note.
+
+For the CE2 center row, use the exact interval-pair variables from
+[`../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2103_CE2_M0_e50_e01_maximal_interval_pairs.md`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2103_CE2_M0_e50_e01_maximal_interval_pairs.md).
+With
+
+$$
+S=x+y,
+\qquad
+D=\sqrt{x^2+xy+y^2},
+$$
+
+the total active center-boundary length is
+
+$$
+(u-x)+(v-y)=\frac{D(1-D)}S.
+$$
+
+The CE2 start domain gives $S>1/2$, while $D(1-D)\le1/4$. Hence the center
+contribution is at most $1/2$.
+
+Each ordinary nonsupercritical Vd0 row contributes its two assigned boundary
+reaches $a_i+b_i\le1$. For the unique supercritical Vd0 row, the distance
+between its two assigned boundary endpoints and the unit-diameter condition
+give
+
+$$
+a^2+ab+b^2\le1.
+$$
+
+Since
+
+$$
+a^2+ab+b^2\ge\frac34(a+b)^2,
+$$
+
+its contribution is at most $2/\sqrt3$. Thus the needed caps are
 
 $$
 T_C\text{ CE1/CE2 active center contribution}\le\frac12,

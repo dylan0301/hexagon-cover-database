@@ -89,19 +89,18 @@ Vd0, Vd1/Vd2, and T3-like vertex-role patterns.
 - `4XXX`: CE1/CE2
   - `40XX`: CE1/CE2, $N_+=0$
     - all Vd0
-      - `401X`: shared boundary-loss package
+      - `401X`: exact capped-map audit; genuine ordered cells and CE2 exits remain
     - at least one Vd1/Vd2
       - `404X`: CE1 and CE2 boundary-length obstructions
     - at least one T3-like and no Vd1/Vd2
-      - `407X`: shared CE1/CE2 $T_0$-must-be-T3-like reduction
-      - shared remaining post-reduction branch TODO
+      - `407X`: proven exact four-label $T_0$-T3-like reassembly
   - `41XX`: CE1/CE2, $N_+=1$
     - all Vd0
       - `410X`: exact gap-propagation and CE2 replacement strategy
       - `9630`: 5 point conjecture counterexample
     - Vd1/Vd2 branches
       - `411X`: CE1 at-least-one and CE2 at-least-two boundary-length obstructions
-      - `414X`: CE2 exactly-one Vd1/Vd2 TODO
+      - `414X`: CE2 exactly-one Vd1/Vd2; reduced no-T3-like audit repaired, mixed T3-like branch open
     - at least two T3-like and no Vd1/Vd2
       - `412X`: shared CE1/CE2 diagonal obstruction
     - exactly one T3-like and no Vd1/Vd2

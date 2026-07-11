@@ -49,10 +49,16 @@ The strict sampler was used to check which branch pairs appear numerically after
 
 Representative findings:
 
-- The fake branch $(\mathrm{Full},\mathrm{Full})$ disappears after exact Full conditions are enforced.
+- The exact proof in `4013` excludes $(\mathrm{Full},\mathrm{Full})$. The
+  floating-point sampler can nevertheless print that label at nearly
+  degenerate points with $r-1$ and $w$ on the order of its tolerances; such
+  output is a numerical-classification artifact, not an exact realized
+  branch.
 - $D_1$ appears only as a switching surface, not as a maximal branch.
 - $(T_+^{hi},T_+^{hi})$ was not found, consistent with its analytic impossibility proof.
 - Formal lower-sheet $T_+$ roots stay visibly below $F=1$ in the old sampling.
+- The genuine ordered pair $(T_-,T_+^{hi})$ occurs. An exact CE1-domain
+  witness is recorded in `4013`.
 
 These strict sampling results are empirical and are not used as proof in the
 historical lower-sheet calculations.
@@ -91,9 +97,9 @@ $$
 
 The JSON certificate records the terminal boxes and the reason for each box.
 
-## 4. Corrected interval proof for $(L,T_+)$
+## 4. Recorded interval route for $(L,T_+)$
 
-The branch $(L,T_+)$ is proved by a combination of:
+The recorded route for $(L,T_+)$ combines:
 
 - an analytic $T_+$ horn proof for $r\ge10$;
 - a finite interval certificate for $1<r<10$.
@@ -160,8 +166,10 @@ $$
 0\text{ unresolved boxes}.
 $$
 
-This is treated as a computer-assisted certificate for the compact part of
-$(L,T_+)$.
+The script's summary counter also reports intermediate subdivided boxes under
+the word `unresolved`; the recorded claim of zero refers to terminal boxes.
+This reporting distinction should be fixed before treating the output as a
+standalone certificate.
 
 ## 5. Historical numerical status of lower-sheet cases
 
@@ -219,5 +227,17 @@ python proof/4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss/401aX_boundary_l
 python proof/4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss/401aX_boundary_loss_experiments/401a3_refined_branch_sampler.py
 ```
 
-The first two scripts are intended as certificate-style verifiers.  The sampler
-is exploratory.
+The first two scripts import `mpmath`, but the repository does not declare or
+vendor that dependency. In the strict audit environment both commands stopped
+immediately with
+
+```text
+ModuleNotFoundError: No module named 'mpmath'
+```
+
+After supplying `mpmath` in an isolated audit environment, the recorded
+Full-$L$ total of $2307$ terminal certified boxes and zero terminal unresolved
+boxes was reproduced. The $L$-$T_+$ terminal classifications above were also
+reproduced, subject to the intermediate-counter warning. These reproduction
+runs do not repair the undeclared dependency in the repository. The sampler
+uses only the standard library and remains exploratory.

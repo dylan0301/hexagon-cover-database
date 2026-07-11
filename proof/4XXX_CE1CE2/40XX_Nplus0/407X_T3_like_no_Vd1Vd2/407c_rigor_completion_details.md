@@ -91,7 +91,7 @@ $$
 Define
 
 $$
-G_1={A+ho-1-\lambda^2\over1-\lambda},\qquad
+G_1={A+\rho-1-\lambda^2\over1-\lambda},\qquad
 G_2={\lambda-A\over\lambda},\qquad G=\min(G_1,G_2).
 $$
 
@@ -106,13 +106,13 @@ $$
 The equality $G_1=G_2$ is equivalent to
 
 $$
-A=A_0:=\lambda(2-\lambda+\lambda^2-ho).
+A=A_0:=\lambda(2-\lambda+\lambda^2-\rho).
 $$
 
 At this value,
 
 $$
-G_1=G_2=g:=\rho(1-ho),
+G_1=G_2=g:=\rho(1-\rho),
 $$
 
 and
@@ -130,7 +130,7 @@ $$
 Using $\rho^2=1-\lambda+\lambda^2$, direct reduction gives
 
 $$
-F_c(b_0)=-(\rho-1)^2(\rho^2+1)(\rho^2-ho+1)^2<0.
+F_c(b_0)=-(\rho-1)^2(\rho^2+1)(\rho^2-\rho+1)^2<0.
 $$
 
 Since $F_c(0)=c^2(1-c^2)>0$ and $\ell(g)$ is the smaller positive root of $F_c$, this implies
@@ -151,7 +151,7 @@ $$
 F(A)=A-\ell(G_1(A)).
 $$
 
-The lower endpoint is $A_L=1+\lambda^2-ho$, where $G_1=0$ and $F(A_L)=A_L>0$.  At the upper endpoint $A_0$,
+The lower endpoint is $A_L=1+\lambda^2-\rho$, where $G_1=0$ and $F(A_L)=A_L>0$.  At the upper endpoint $A_0$,
 
 $$
 F(A_0)=A_0-\ell(g)>0.
@@ -173,7 +173,7 @@ Set
 
 $$
 \rho=\sqrt{1-\lambda+\lambda^2},\qquad
-S_\lambda(v)=u+{\lambda\over1+ho}+{\lambda\over1-\lambda}v.
+S_\lambda(v)=u+{\lambda\over1+\rho}+{\lambda\over1-\lambda}v.
 $$
 
 If either $v\ge1-\sqrt3/2$, or $0\le v\le1-\sqrt3/2$ and
@@ -205,7 +205,7 @@ $$
 and
 
 $$
-c^2=1-eta+eta^2.
+c^2=1-\beta+\beta^2.
 $$
 
 The hypothesis is $\lambda\ge\beta$.  The functions
@@ -229,7 +229,7 @@ $$
 At $\lambda=\beta$, the corresponding value of $\rho$ is $c$.  Thus
 
 $$
-S_\beta(v)=u+{\beta\over1+c}+{\beta\over1-eta}v.
+S_\beta(v)=u+{\beta\over1+c}+{\beta\over1-\beta}v.
 $$
 
 If $S_\beta(0)\ge z$, then $S_\lambda(v)\ge z$.  Strictness is automatic in the two alternatives of the lemma: if $v>0$, then $S_\beta(v)>S_\beta(0)$, and if $v=0$ the alternative $S_\lambda(0)\le\ell(0)=0$ is impossible because $S_\lambda(0)>0$.
@@ -243,25 +243,25 @@ $$
 Then
 
 $$
-v_0={ (1-eta)(\beta^2+c-1)\over1+c}>0.
+v_0={ (1-\beta)(\beta^2+c-1)\over1+c}>0.
 $$
 
 Also
 
 $$
-u-v_0={ (1-eta)(1+eta-eta^2-c)\over1+c}.
+u-v_0={ (1-\beta)(1+\beta-\beta^2-c)\over1+c}.
 $$
 
 The numerator is positive because
 
 $$
-(1+eta-eta^2)^2-c^2=eta(eta-1)(\beta^2-eta-3)>0
+(1+\beta-\beta^2)^2-c^2=\beta(\beta-1)(\beta^2-\beta-3)>0
 $$
 
 for $0<\beta\le1/2$.  Hence $0<v_0<u$.  Furthermore,
 
 $$
-v_0<(1-eta)\beta^2\le {1\over8}.
+v_0<(1-\beta)\beta^2\le {1\over8}.
 $$
 
 On $[0,v_0]$ the Low function is convex, so
@@ -351,7 +351,7 @@ $$
 For the lower-sheet parameterization, set $c=1-u$ and $B_5=c\beta$ with
 
 $$
-r\le\beta\le{1\over2},\qquad c={\sqrt{\beta^2-eta+1}\over r+\beta}.
+r\le\beta\le{1\over2},\qquad c={\sqrt{\beta^2-\beta+1}\over r+\beta}.
 $$
 
 The existence of such a point implies $r\ge r_0=(\sqrt3-1)/2$.
@@ -359,7 +359,7 @@ The existence of such a point implies $r\ge r_0=(\sqrt3-1)/2$.
 We next prove
 
 $$
-u+\delta+k\left(1-{\sqrt3\over2}ight)>{7\over16}.
+u+\delta+k\left(1-{\sqrt3\over2}\right)>{7\over16}.
 $$
 
 If $r\le7/16$, then $\delta>9/32$ and $k\ge9/7$, hence
@@ -439,13 +439,13 @@ because $223>16\sqrt{193}$.  This proves the lemma.
 In the left high-sheet parameterization
 
 $$
-A_5=rc,\qquad B_5=\beta c,\qquad c={m\over r+\beta},\qquad m^2=\beta^2-eta+1,
+A_5=rc,\qquad B_5=\beta c,\qquad c={m\over r+\beta},\qquad m^2=\beta^2-\beta+1,
 $$
 
 every realized $T_+^{hi}$ branch satisfies
 
 $$
-\boxed{r\ge(1-eta)(r+eta)^2.}
+\boxed{r\ge(1-\beta)(r+\beta)^2.}
 $$
 
 #### Proof
@@ -463,16 +463,16 @@ $$
 =m^2\left(m^2-1+{r\beta\over(r+\beta)^2}\right).
 $$
 
-Since $m^2-1=\beta^2-eta=-\beta(1-eta)$ and $m^2>0$, the inequality $\Delta\ge0$ is equivalent to
+Since $m^2-1=\beta^2-\beta=-\beta(1-\beta)$ and $m^2>0$, the inequality $\Delta\ge0$ is equivalent to
 
 $$
-{r\beta\over(r+\beta)^2}\ge \beta(1-eta).
+{r\beta\over(r+\beta)^2}\ge \beta(1-\beta).
 $$
 
 Dividing by $\beta>0$ gives
 
 $$
-r\ge(1-eta)(r+eta)^2.
+r\ge(1-\beta)(r+\beta)^2.
 $$
 
 ### Lemma 3.2: high-left envelope
@@ -545,13 +545,13 @@ $$
 A direct differentiation gives
 
 $$
-{\partial E_r\over\partial\beta}={N_r(\beta)\over2(\beta+r)^2(1-r)\sqrt{\beta^2-eta+1}},
+{\partial E_r\over\partial\beta}={N_r(\beta)\over2(\beta+r)^2(1-r)\sqrt{\beta^2-\beta+1}},
 $$
 
 where
 
 $$
-N_r(\beta)=2\beta^3r-2\beta^3+4\beta^2r^2-5\beta^2r+eta^2-9\beta r^2+5r^2+4r.
+N_r(\beta)=2\beta^3r-2\beta^3+4\beta^2r^2-5\beta^2r+\beta^2-9\beta r^2+5r^2+4r.
 $$
 
 Also
@@ -565,14 +565,14 @@ on the allowed domain $\beta\ge1/2$.  Hence $E_r$ has no interior minimum and it
 At $\beta=1$,
 
 $$
-E_r(1)={r(6r-ho+5)\over2(1+r)(1+ho)}>0.
+E_r(1)={r(6r-\rho+5)\over2(1+r)(1+\rho)}>0.
 $$
 
 At the lower endpoint there are three cases.  If $0<r\le r_0$, then $\beta_0=(1-r^2)/(1+2r)$ and
 
 $$
 E_r(\beta_0)=
-{r(7+ho-2r-8r\rho-14r^2-2r^2\rho)\over2(1-r)(1+2r)(1+ho)}>0,
+{r(7+\rho-2r-8r\rho-14r^2-2r^2\rho)\over2(1-r)(1+2r)(1+\rho)}>0,
 $$
 
 because the numerator is at least $r(7-10r-16r^2)>0$ for $r<3/8$.
@@ -586,7 +586,7 @@ $$
 If $1/2\le r<1$, then $\beta_0=r$ and
 
 $$
-E_r(r)={10r-r^2-2\rho-2\over2(1+ho)}>0,
+E_r(r)={10r-r^2-2\rho-2\over2(1+\rho)}>0,
 $$
 
 because $10r-r^2-2\rho-2\ge10r-r^2-4>0$ on $[1/2,1]$.
@@ -614,10 +614,10 @@ $$
 For $A_C$, first prove $1-r>3/8$.  If $r\le1/2$ this is immediate.  If $r>1/2$, the feasibility condition $y_*>0$ gives
 
 $$
-{\rho\over2r}>{1\over2}+{1-r\over1+ho}.
+{\rho\over2r}>{1\over2}+{1-r\over1+\rho}.
 $$
 
-This is equivalent to $3r<1+ho$.  Since $r>1/2$, squaring $3r-1<\rho$ gives $8r^2-5r<0$, so $r<5/8$.  Hence $1-r>3/8$ in all cases.
+This is equivalent to $3r<1+\rho$.  Since $r>1/2$, squaring $3r-1<\rho$ gives $8r^2-5r<0$, so $r<5/8$.  Hence $1-r>3/8$ in all cases.
 
 Therefore
 

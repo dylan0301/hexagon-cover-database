@@ -8,12 +8,22 @@ $$
 B_5=T_+^{hi}.
 $$
 
-It uses two finite rational interval certificates in
+Its exact four-label proof uses the finite rational interval certificate
 
-- [`407X_computation/407b_T_hi_Tminus_qright_threshold_certificate.py`](407X_computation/407b_T_hi_Tminus_qright_threshold_certificate.py),
-- [`407X_computation/407c_T_hi_Tlo_left_threshold_certificate.py`](407X_computation/407c_T_hi_Tlo_left_threshold_certificate.py).
+- [`407X_computation/407b_T_hi_Tminus_qright_threshold_certificate.py`](407X_computation/407b_T_hi_Tminus_qright_threshold_certificate.py).
 
-The expanded derivations for the common left-high Cell-2 condition, the high-left envelope estimates, the $S>3y$ and $A_C>3y$ estimates, and the detailed right-$T_-$ bounds are recorded in [`407c_detailed_gap_closure.md`](407c_detailed_gap_closure.md).  The present file is the branch-level proof using those lemmas.
+The second historical certificate,
+[`407X_computation/407c_T_hi_Tlo_left_threshold_certificate.py`](407X_computation/407c_T_hi_Tlo_left_threshold_certificate.py),
+checks the deleted fake-lower-sheet branch preserved in Section 6 and is not
+part of the exact branch matrix.
+
+The canonical expanded derivations for the common left-high Cell-$T$
+condition, the high-left envelope estimates, the $S>3y$ and $A_C>3y$
+estimates, and the detailed right-$T_-$ bounds are recorded in
+[`407c_rigor_completion_details.md`](407c_rigor_completion_details.md).
+The strengthened high-$r$ corrections are in
+[`407e_final_gap_fixes.md`](407e_final_gap_fixes.md). The present file is the
+branch-level proof using those lemmas.
 
 Throughout, use the notation of `4073`.  Put
 
@@ -85,7 +95,11 @@ $$
 \beta^2-\beta+1=(a+B_5)^2=c^2(r+\beta)^2,
 $$
 
-so $c=m/(r+\beta)$.  The condition $c\le1$ gives $\beta\ge(1-r^2)/(1+2r)$.  The Cell-2 condition gives $r\ge(1-\beta)(r+\beta)^2$ as proved in `407c`, Lemma 3.1.
+so $c=m/(r+\beta)$. The condition $c\le1$ gives
+$\beta\ge(1-r^2)/(1+2r)$. The Cell-$T$ condition gives
+$r\ge(1-\beta)(r+\beta)^2$ as proved in
+[`407c_rigor_completion_details.md`](407c_rigor_completion_details.md),
+Lemma 3.1.
 
 ### Lemma 1.2
 
@@ -141,7 +155,9 @@ $$
 
 ### Proof
 
-This is Lemma 3.2 of `407c` in the stronger form $y_*<1/10$, applied to the inequality $y<y_*$ coming from $S<1/2$.
+This is
+[`407e_final_gap_fixes.md`](407e_final_gap_fixes.md), Lemma 1.1, applied to
+the inequality $y<y_*$ coming from $S<1/2$.
 
 ## 2. The branch $(T_+^{hi},\mathrm{Full})$
 
@@ -189,7 +205,8 @@ $$
 b=B_5={\beta m\over r+\beta}.
 $$
 
-From $S<1/2$ we have $y<y_*$.  Lemma 3.2 of `407c` gives
+From $S<1/2$ we have $y<y_*$. Lemma 3.2 of
+[`407c_rigor_completion_details.md`](407c_rigor_completion_details.md) gives
 
 $$
 y_*<{1\over8},
@@ -229,7 +246,8 @@ $$
 A_1\le\ell(y).
 $$
 
-Lemma 3.3 of `407c` gives
+Lemma 3.3 of
+[`407c_rigor_completion_details.md`](407c_rigor_completion_details.md) gives
 
 $$
 S>3y,
@@ -265,7 +283,10 @@ B_5+B_1
 m+2\rho-2+{r\over2}.
 $$
 
-If $r\le8/15$, then $m\le1$ and $2\rho-2+r/2\le0$.  If $r>8/15$, Lemma 3.4 of `407c` supplies the estimates $r<5/8$ and $\beta<4/5$, hence $m<15/16$; also $2\rho-2+r/2<1/16$.  Therefore $B_5+B_1<1$.
+If $r\le8/15$, then $m\le1$ and $2\rho-2+r/2\le0$. If $r>8/15$,
+[`407e_final_gap_fixes.md`](407e_final_gap_fixes.md), Lemma 2.1, supplies
+$r<5/8$ and $\beta<4/5$, hence $m<15/16$; also
+$2\rho-2+r/2<1/16$. Therefore $B_5+B_1<1$.
 
 ### 5.2. The $A_1=q$ subcase
 
@@ -279,7 +300,8 @@ q=tC,
 B_1=b_1.
 $$
 
-Lemma 3.4 of `407c` proves
+Lemmas 4.1 and 4.2 of
+[`407c_rigor_completion_details.md`](407c_rigor_completion_details.md) prove
 
 $$
 B_1\le\kappa:={\sqrt{13}-1\over6}

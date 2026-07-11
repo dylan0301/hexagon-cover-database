@@ -47,7 +47,7 @@ $$
 Use local affine coordinates
 
 $$
-X_{\rm pt}=V_0+b(V_1-V_0)+a(V_5-V_0).
+X_{\mathrm{pt}}=V_0+b(V_1-V_0)+a(V_5-V_0).
 $$
 
 Normalize the $C$-triangle overlap on $e_{0,1}$ as
@@ -263,61 +263,48 @@ $$
 1-C_1=\gamma_1.
 $$
 
-## 6. Actual-coordinate $B$-map and the constrained $r_0$ variant
+## 6. Exact nonsupercritical demand relaxation
 
-Use the actual-coordinate nonsupercritical Vd0 map
+Define
 
 $$
-\mathsf B_c^0(a)=
-\sup\left\{
-B(T):A(T)\ge a,
-C(T)\ge c,
-A(T)+B(T)\le1,
-T\text{ Vd0}
-\right\}.
+\widehat B_c(a)=
+\max_{\substack{
+0\le b\le1-a\\
+{}(a,b,c)\in\mathcal A
+}}b
+=\min\left\{B_c(a),1-a\right\}.
 $$
 
-The exact unclassified support map and the classified-map semantics are
-recorded in
-[`../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2007_max_b_map.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2007_max_b_map.md)
-and the withdrawal of the fake Cell-2 sheet is recorded in
+The equality follows from the exact interval fiber $[0,B_c(a)]$ proved in
+[`../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2007_max_b_map.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2007_max_b_map.md).
+The complete four-label partition is proved in
 [`../401X_all_Vd0_boundary_loss/4015_B_map_branch_realization.md`](../401X_all_Vd0_boundary_loss/4015_B_map_branch_realization.md).
 
-If $T_1$ supports $r_0$, the right-side output must be bounded by the stricter
-actual-coordinate constrained map
+Let $T$ be any actual vertex role in the $N_+=0$ branch, with actual maximal
+reaches $A(T),B(T),C(T)$, and suppose
 
 $$
-\mathsf B^{0,r_0}(A_1,C_1,d_0)
-=
-\sup\left\{
-B(T):A(T)\ge A_1,
-C(T)\ge C_1,
-A(T)+B(T)\le1,
-T\text{ Vd0 and supplies the required }r_0\text{ reach }d_0
-\right\},
+A(T)\ge a,
+\qquad
+C(T)\ge c.
 $$
 
-where
+Then $A(T)+B(T)\le1$, and $T$ realizes the demand triple
+$(a,B(T),c)$. Hence
 
 $$
-d_0=1-\gamma_0.
+B(T)\le1-A(T)\le1-a,
+\qquad
+B(T)\le\widehat B_c(a).
 $$
 
-The required $r_0$ reach can equivalently be checked by the lower-neighbor
-maximum from
-[`../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2008_neighbor_ray_max_c_formula.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2008_neighbor_ray_max_c_formula.md),
-provided the check is applied to the actual reaches of $T$.
-
-Since
-
-$$
-\mathsf B^{0,r_0}(A_1,C_1,d_0)
-\le
-\mathsf B_{C_1}^0(A_1),
-$$
-
-any inequality proved with $\mathsf B_{C_1}^0(A_1)$ also proves the
-corresponding $r_0$-support branch.
+This does not require $T$ to be Vd0. It therefore covers the exceptional
+possible T3-like role $T_1$ left by `4072`. If $T_1$ must also supply a
+prescribed reach on $r_0$, that extra requirement only shrinks the realizing
+set, so the same $\widehat B$ remains a valid upper bound. No separate
+constrained Vd0 map is needed; a Vd0 row could not supply positive-length
+adjacent support on $r_0$ in the first place.
 
 ## 7. Boundary-loss contradiction
 
@@ -326,23 +313,24 @@ corresponding $r_0$-support branch.
 Assume the support-isolated $407X$ branch above.  If
 
 $$
-\mathsf B_{C_5}^0(A_5)+\mathsf B_{C_1}^0(A_1)<1,
+\widehat B_{C_5}(A_5)+\widehat B_{C_1}(A_1)<1,
 $$
 
 then the seven triangles cannot cover the hexagon perimeter in this branch.
 
-The same conclusion holds if $\mathsf B_{C_1}^0(A_1)$ is replaced by the
-constrained map $\mathsf B^{0,r_0}(A_1,C_1,d_0)$.
+The same conclusion holds when $T_1$ has an additional required reach on
+$r_0$.
 
 ### Proof
 
 The edge $e_{1,2}$ is covered from the $V_1$ side by $T_1$ by at most
 
 $$
-B_1:=\mathsf B_{C_1}^0(A_1),
+B_1:=\widehat B_{C_1}(A_1),
 $$
 
-or by the corresponding constrained value in the $r_0$-support case.  Hence $T_2$ must cover at least
+with any additional $r_0$ requirement only lowering this upper bound. Hence
+$T_2$ must cover at least
 
 $$
 1-B_1
@@ -359,7 +347,7 @@ $$
 On the $e_{4,5}$ side, $T_5$ covers at most
 
 $$
-B_5:=\mathsf B_{C_5}^0(A_5),
+B_5:=\widehat B_{C_5}(A_5),
 $$
 
 so $T_4$ must cover at least

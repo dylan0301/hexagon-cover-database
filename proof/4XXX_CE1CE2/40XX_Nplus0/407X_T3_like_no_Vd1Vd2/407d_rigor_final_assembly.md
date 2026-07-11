@@ -1,8 +1,9 @@
-# Rigorous Final Assembly for the $407X$ Branch
+# Exact-Formula Reassembly for the $407X$ Branch
 
-Status: Strategy
+Status: Proven
 
-This file is the former final assembly for the $407X$ branch. It should be
+This file reassembles the $407X$ branch using the corrected exact formulas. It
+should be
 read together with
 
 - [`4073_boundary_loss_framework.md`](4073_boundary_loss_framework.md),
@@ -11,14 +12,27 @@ read together with
 - [`407a_left_Thigh_branch_completion.md`](407a_left_Thigh_branch_completion.md), and
 - [`407c_rigor_completion_details.md`](407c_rigor_completion_details.md).
 
-The file `407c` supplies the detailed analytic lemmas that are only summarized
-inside the branch-completion files.
+The exact capped-map theorem in `4015` resolves the former classified-map
+blocker. It proves that the safe map $\widehat B$ has exactly four genuine
+labels:
 
-The assembly is now dependency-blocked: the exact audit of `2007` and `4015`
-removed the fake high-$c$ sheet and showed that the old algebraic inventory
-was not proved complete for the actual-coordinate row map. The local analytic
-and interval lemmas are not discarded, but they do not currently assemble to
-a proved exhaustive result.
+$$
+\mathrm{Full},
+\qquad
+L,
+\qquad
+T_-,
+\qquad
+T_+^{hi}.
+$$
+
+The fake label $T_+^{lo}$ is absent. The direct diagonal-cap proof now in
+`4072` also removes the former dependency on the practically-proven `2520`
+note, and `4073` uses $\widehat B$ for the possibly T3-like row $T_1$.
+
+The cited branch files have been canonicalized for strict GitHub math. All
+active lemma citations use explicit filenames, so the two historical detail
+files that share the `407c` prefix are unambiguous in this proof.
 
 ## 1. Reduction target
 
@@ -42,12 +56,11 @@ $$
 The file `4073` proves the boundary-loss reduction: the branch is closed once
 
 $$
-B(A_5,C_5)+B(A_1,C_1)<1
+\widehat B_{C_5}(A_5)+\widehat B_{C_1}(A_1)<1
 $$
 
-is proved.  If the neighboring-ray constrained right map is needed because
-$T_1$ contributes to $r_0$, then that map is no larger than $B(A_1,C_1)$, so the
-same strict inequality is sufficient.
+is proved. An additional neighboring-ray requirement on $T_1$ only shrinks
+the realizing set, so the same strict inequality is sufficient.
 
 ## 2. Hard-region branch inventory
 
@@ -65,10 +78,16 @@ $$
 A_1+A_5\le1.
 $$
 
-The possible first-coordinate branches are
+The possible first-coordinate branches are exactly
 
 $$
-L,\qquad T_-,\qquad T_+^{lo},\qquad T_+^{hi},\qquad \mathrm{Full}.
+L,
+\qquad
+T_-,
+\qquad
+T_+^{hi},
+\qquad
+\mathrm{Full}.
 $$
 
 They are covered as follows.
@@ -81,10 +100,12 @@ $$
 (L,\mathrm{Full})
 $$
 
-is proved in `4074`.  The right branches
+is proved in `4074`. The right branches
 
 $$
-L,\quad T_-,\quad T_+^{lo}
+L,
+\quad
+T_-
 $$
 
 are covered by `4075`.  The remaining right branch
@@ -93,8 +114,10 @@ $$
 (L,T_+^{hi})
 $$
 
-is proved in `4078`.  The detailed Low-polynomial, middle-overlap comparison,
-and center-transfer lemmas needed by `4078` are supplied in `407c`, Section 1.
+is proved in `4078`. The detailed Low-polynomial, middle-overlap comparison,
+and center-transfer lemmas needed by `4078` are supplied in
+[`407c_rigor_completion_details.md`](407c_rigor_completion_details.md),
+Section 1.
 
 Therefore
 
@@ -121,73 +144,39 @@ B_5\ne \mathrm{Full}.
 $$
 
 The detailed midpoint-exit and CE2-overlap estimates used there are supplied in
-`407c`, Section 2.
+`407c_rigor_completion_details.md`, Section 2.
 
-### 2.4. First coordinate $T_+^{lo}$
-
-The right branches
-
-$$
-L,\quad T_-,\quad T_+^{lo}
-$$
-
-are already covered by the square-family result in `4075`.  The two remaining
-right branches are handled in `4079`:
-
-$$
-(T_+^{lo},\mathrm{Full})\text{ is impossible},
-$$
-
-and
-
-$$
-(T_+^{lo},T_+^{hi})\text{ is impossible}.
-$$
-
-The detailed estimates
-
-$$
-y<{1\over4},\qquad S>\ell(y),\qquad
-\left(y\ge1-{\sqrt3\over2}\Rightarrow S>{7\over16},\ A_C>{7\over16}\right)
-$$
-
-are proved in `407c`, Lemma 2.2.
-
-Thus all first-coordinate lower-sheet branches are closed.
-
-### 2.5. First coordinate $T_+^{hi}$
+### 2.4. First coordinate $T_+^{hi}$
 
 The file `407a` proves the following branches:
 
 $$
 (T_+^{hi},\mathrm{Full}),\qquad
-(T_+^{hi},L),\qquad
-(T_+^{hi},T_+^{hi}),\qquad
-(T_+^{hi},T_-),\qquad
-(T_+^{hi},T_+^{lo}).
+(T_+^{hi},L),
+\qquad
+(T_+^{hi},T_+^{hi}),
+\qquad
+(T_+^{hi},T_-).
 $$
 
-The detailed high-sheet Cell-2 condition
+The detailed high-sheet Cell-$T$ condition
 
 $$
 r\ge(1-\beta)(r+\beta)^2,
 $$
 
 high-left envelope estimates, inequalities $S>3y$ and $A_C>3y$, and the right
-$T_-$ estimates are proved in `407c`, Sections 3 and 4.  The two finite interval
-certificates used in the $T_-$ and $T_+^{lo}$ right-branch cases are
+$T_-$ estimates are proved in `407c_rigor_completion_details.md` and
+`407e_final_gap_fixes.md`. The finite interval certificate used in the
+$T_-$ right-branch case is
 
 $$
-\texttt{407X\_computation/407b\_T\_hi\_Tminus\_qright\_threshold\_certificate.py},
+\texttt{407X\_computation/407b\_T\_hi\_Tminus\_qright\_threshold\_certificate.py}.
 $$
 
-and
-
-$$
-\texttt{407X\_computation/407c\_T\_hi\_Tlo\_left\_threshold\_certificate.py}.
-$$
-
-Their hypotheses are checked in `407c`, Section 5.
+Its hypotheses are checked in `407c_rigor_completion_details.md`, Section 5.
+The second historical certificate concerns the deleted fake lower sheet and
+is no longer part of the exact proof matrix.
 
 Therefore
 
@@ -197,20 +186,18 @@ $$
 
 ## 3. Conclusion
 
-Every branch pair in the former algebraic inventory either is impossible or
+The four-label partition in `4015` and the four row cases above exhaust every
+safe upper-map maximizer. Every genuine branch pair either is impossible or
 satisfies
 
 $$
-B(A_5,C_5)+B(A_1,C_1)<1.
+\widehat B_{C_5}(A_5)+\widehat B_{C_1}(A_1)<1.
 $$
 
-If that inventory is proved to be a complete safe upper partition of the
-exact classified map, `4073` gives the perimeter contradiction. Until then the
-branch
+Therefore `4073` gives the perimeter contradiction. The branch
 
 $$
 T_C\text{ is CE1 or CE2},\qquad N_+=0,
 $$
 
-with no Vd1/Vd2 rows and at least one T3-like row remains open at the
-branch-completeness dependency.
+with no Vd1/Vd2 rows and at least one T3-like row is proved.
