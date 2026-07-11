@@ -14,6 +14,9 @@ $$
 T_C\cap\{M_0,\dots,M_5\}=\{M_0\}.
 $$
 
+The center role is the closure of an open triangle containing $O$, so the
+hypothesis $O\in\mathrm{int}(T_C)$ required by `2100` is satisfied.
+
 Assume also that
 
 $$

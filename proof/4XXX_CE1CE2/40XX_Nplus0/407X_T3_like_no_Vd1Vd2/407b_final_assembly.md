@@ -1,14 +1,19 @@
 # Final Assembly of the $407X$ Branch
 
-Status: Proven
+Status: Strategy
 
-This file assembles the proof of the branch
+This file records the historical assembly of the branch
 
 $$
 T_C\text{ is CE1 or CE2},\qquad N_+=0,
 $$
 
 with no Vd1/Vd2 rows and at least one T3-like row.
+
+Dependency warning: the old branch list used a fake Cell-2 sheet and did not
+prove completeness for the exact actual-coordinate nonsupercritical map. The
+analytic cell inequalities below retain their local statuses, but this file no
+longer claims a complete branch assembly.
 
 The detailed auxiliary inequalities used in the compressed branch files are recorded in
 [`407c_detailed_gap_closure.md`](407c_detailed_gap_closure.md) and the final remaining gap fixes are recorded in
@@ -144,10 +149,13 @@ $$
 
 or is geometrically impossible in the $407X$ domain.  Therefore, by `4073`, the support-isolated $407X$ branch gives a perimeter contradiction.
 
-Hence the branch
+Conditional on a proof that the recorded algebraic cells form a complete safe
+upper partition of the exact classified map, the argument would close the
+branch
 
 $$
 T_C\text{ is CE1 or CE2},\qquad N_+=0,
 $$
 
-with no Vd1/Vd2 rows and at least one T3-like row is closed.
+with no Vd1/Vd2 rows and at least one T3-like row. That partition proof is
+currently open.

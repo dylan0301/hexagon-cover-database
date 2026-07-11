@@ -40,15 +40,21 @@ Vd0, Vd1/Vd2, and T3-like vertex-role patterns.
   - `1202`: local coordinates $(a,b,c)$
 - `2XXX`: geometric lemmas
   - `20XX`: V-triangle geometry
-    - `2005`: midpoint self-cover criterion
+    - `2004`: exact support-function admissible set
+    - `2005`: proved midpoint self-cover criterion
     - `2006`: T3-like midpoint lemma
+    - `2007`: exact implicit $B_c(a)$ map and classified-map semantics
     - `2008`: neighbor-ray maximum formula
     - `2009X`: ab-set package, including the ab-union curve for $a+b>1$
+    - `2010`: proved free strict-supercritical outgoing supremum
   - `21XX`: C-triangle geometry
-    - `2100`: CE1/CE2 exactly-one-midpoint lemma
+    - `2100`: proved CE1/CE2 exactly-one-midpoint lemma with $O$ interior
     - `2101`: maximal C-triangles over the half skeleton
     - `2102`: CE1 interval certificate
     - `2103`: CE2 interval-pair certificate
+    - `2104`: CE2 two-gap replacement theorem
+    - `2105`: CE1 exact center and radial formulas
+    - `2106`: CE2 exact center and radial formulas
   - `25XX`: length bounds
     - `2500`: boundary length bounds
     - `2510`: skeleton length bounds
@@ -91,7 +97,7 @@ Vd0, Vd1/Vd2, and T3-like vertex-role patterns.
       - shared remaining post-reduction branch TODO
   - `41XX`: CE1/CE2, $N_+=1$
     - all Vd0
-      - `410X`: shared TODO
+      - `410X`: exact gap-propagation and CE2 replacement strategy
       - `9630`: 5 point conjecture counterexample
     - Vd1/Vd2 branches
       - `411X`: CE1 at-least-one and CE2 at-least-two boundary-length obstructions

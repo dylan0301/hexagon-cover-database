@@ -11,6 +11,11 @@ $$
 for the incoming and outgoing boundary lengths assigned to the vertex role
 $T_i$ at $V_i$.
 
+For the $N_+$ split, these are the actual selected row reaches of $T_i$, not
+smaller lower-bound demands introduced by a relaxation. If a propagation map
+uses demands $(x,b)$, it must quantify the actual reaches separately before
+imposing a nonsupercritical or supercritical row class.
+
 A row is supercritical when
 
 $$

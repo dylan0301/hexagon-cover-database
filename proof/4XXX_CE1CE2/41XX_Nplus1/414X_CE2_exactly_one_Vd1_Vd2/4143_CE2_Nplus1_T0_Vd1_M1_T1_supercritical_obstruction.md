@@ -270,8 +270,8 @@ B(s):=\frac{s+\sqrt{s^2-8s+4}}2,
 A(s):=1-B(s).
 $$
 
-The function $B$ is the closed formula for the free strict supercritical
-outgoing-edge envelope on $0\le s<1/2$.
+The function $B$ is the nonattained free strict-supercritical outgoing-edge
+supremum on $0\le s<1/2$.
 
 We shall prove
 

@@ -1,8 +1,8 @@
 # Rigorous Final Assembly for the $407X$ Branch
 
-Status: Proven
+Status: Strategy
 
-This file is the rigorous final assembly for the $407X$ branch.  It should be
+This file is the former final assembly for the $407X$ branch. It should be
 read together with
 
 - [`4073_boundary_loss_framework.md`](4073_boundary_loss_framework.md),
@@ -13,6 +13,12 @@ read together with
 
 The file `407c` supplies the detailed analytic lemmas that are only summarized
 inside the branch-completion files.
+
+The assembly is now dependency-blocked: the exact audit of `2007` and `4015`
+removed the fake high-$c$ sheet and showed that the old algebraic inventory
+was not proved complete for the actual-coordinate row map. The local analytic
+and interval lemmas are not discarded, but they do not currently assemble to
+a proved exhaustive result.
 
 ## 1. Reduction target
 
@@ -191,16 +197,20 @@ $$
 
 ## 3. Conclusion
 
-Every hard-region realized branch pair either is impossible or satisfies
+Every branch pair in the former algebraic inventory either is impossible or
+satisfies
 
 $$
 B(A_5,C_5)+B(A_1,C_1)<1.
 $$
 
-By `4073`, this gives the perimeter contradiction.  Hence the branch
+If that inventory is proved to be a complete safe upper partition of the
+exact classified map, `4073` gives the perimeter contradiction. Until then the
+branch
 
 $$
 T_C\text{ is CE1 or CE2},\qquad N_+=0,
 $$
 
-with no Vd1/Vd2 rows and at least one T3-like row is closed.
+with no Vd1/Vd2 rows and at least one T3-like row remains open at the
+branch-completeness dependency.

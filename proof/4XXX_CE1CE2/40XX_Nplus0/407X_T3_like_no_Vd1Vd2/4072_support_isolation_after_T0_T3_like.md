@@ -39,6 +39,8 @@ We use the following recorded dependencies.
 
 1. The CE1/CE2 exact-one-midpoint dependency:
    [`../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2100_CE1_CE2_exactly_one_midpoint_lemma.md`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2100_CE1_CE2_exactly_one_midpoint_lemma.md).
+   Its hypothesis $O\in\mathrm{int}(T_C)$ is supplied by the original open
+   center role before closure.
 
 2. The T3-like midpoint exclusion:
    [`../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2006_T3_like_midpoint_lemma.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2006_T3_like_midpoint_lemma.md):

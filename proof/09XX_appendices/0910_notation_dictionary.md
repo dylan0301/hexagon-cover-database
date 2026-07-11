@@ -18,8 +18,12 @@ Status: Reference
 - Vd0/Vd1/Vd2/T3-like: V-triangle types.
 - $d_0,d_{60},\dots,d_{300}$: degree-indexed ray-intersection distances from $O$ to $\partial T_C$.
 - $1-d_{60i}$: available complementary radial distance on $[O,V_i]$ after $T_C$.
-- $a,b,c$: local V-triangle edge-edge-radial coordinates.
-- $(a_i,b_i)$: incoming and outgoing boundary row data for the vertex role $T_i$.
+- $a,b,c$: local V-triangle coordinates; in envelope files these are stated
+  lower-bound demands.
+- $A(T),B(T),C(T)$: actual maximal local reaches of a realizing vertex
+  triangle when they must be distinguished from demands.
+- $(a_i,b_i)$: actual selected incoming and outgoing boundary row data for the
+  vertex role $T_i$ in the $N_+$ split.
 - $c_i$: radial coordinate of $T_i$.
 - supercritical row: a row with $a_i+b_i>1$.
 - $N_+$: $\left\lvert \left\lbrace i : a_i+b_i>1 \right\rbrace \right\rvert$, the number of supercritical rows.

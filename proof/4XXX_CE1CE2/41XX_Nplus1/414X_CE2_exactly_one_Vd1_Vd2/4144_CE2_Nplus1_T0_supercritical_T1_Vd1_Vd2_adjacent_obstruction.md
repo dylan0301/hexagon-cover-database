@@ -1,6 +1,6 @@
 # CE2, $N_+=1$, $T_0$ Supercritical And Adjacent $T_1$ Vd1/Vd2
 
-Status: Proven
+Status: Strategy
 
 This file proves the adjacent remaining placement in the
 [`4140`](4140_CE2_Nplus1_exactly_one_Vd1_Vd2_TODO.md) branch:
@@ -20,6 +20,12 @@ the admissible-set radial envelope from
 [`../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md),
 and the CE2 interval-pair model from
 [`../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2103_CE2_M0_e50_e01_maximal_interval_pairs.md`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2103_CE2_M0_e50_e01_maximal_interval_pairs.md).
+
+Dependency warning: the radial-envelope step below invokes the former
+piecewise `2004` formulas. The corrected `2004` gives an exact finite support
+criterion but no proved replacement for that branch calculation. The local
+argument is retained as a strategy pending an exact support reproof of its
+radial bound.
 
 ## Statement
 

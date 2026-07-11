@@ -15,8 +15,8 @@ $$
 T_C,\ T_0,\dots,T_5,
 $$
 
-where $T_C$ is CE1 or CE2. Normalize by the CE1/CE2 exactly-one-midpoint
-lemma so that
+where $T_C$ is CE1 or CE2 and $O\in\mathrm{int}(T_C)$. Normalize by the
+CE1/CE2 exactly-one-midpoint lemma so that
 
 $$
 T_C\cap\{M_0,\dots,M_5\}=\{M_0\}.

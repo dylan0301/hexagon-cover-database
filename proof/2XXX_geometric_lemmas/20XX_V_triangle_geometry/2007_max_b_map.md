@@ -1,206 +1,310 @@
-# Maximal $B_c(a)$ Map
+# Exact Maximal $B_c(a)$ Map
 
-Status: Definition
+Status: Proven
 
-This file records the maximal next-edge coordinate for the full local
-admissible set $\mathcal A$ from
-[`2004_admissible_set.md`](2004_admissible_set.md). For fixed
-$c\in[0,1]$, define
+This note defines the maximal outgoing-coordinate map by the exact admissible
+set from [`2004_admissible_set.md`](2004_admissible_set.md). It also records an
+exact counterexample to the former candidate-root maximum.
 
-$$
-B_c(a)=\max\left\{b\in[0,1]:(a,b,c)\in\mathcal A\right\}.
-$$
+## Exact map
 
-The older working notation $b(c,a)$ refers to this same maximum. The
-conditions below are written only in terms of $a$, $c$, and explicitly named
-candidate functions of $a$ and $c$. A branch candidate contributes to
-$B_c(a)$ only when its listed domain condition holds.
-
-## Candidate Functions
-
-The circle-boundary candidate is
-
-$$
-b_\circ(a)=\frac{-a+\sqrt{4-3a^2}}{2}.
-$$
-
-For $0<a<1$, set
-
-$$
-m_\circ(a)=\min(a,b_\circ(a)),\qquad
-M_\circ(a)=\max(a,b_\circ(a)),
-$$
-
-and
-
-$$
-c_\circ(a)=
-\frac{
-M_\circ(a)(2m_\circ(a)M_\circ(a)+1)
--\sqrt{M_\circ(a)^2\left((2m_\circ(a)M_\circ(a)+1)^2
--4(1-m_\circ(a)^2)(1-M_\circ(a)^2)\right)}
-}{2(1-m_\circ(a)^2)}.
-$$
-
-The boundary candidate is
-
-$$
-b_F(a)=1-a.
-$$
-
-The low candidate is
-
-$$
-b_L(c)=\frac{c\left(1-\sqrt{4c^2-3}\right)}{2}.
-$$
-
-For the $T_-$ candidate, define
-
-$$
-b_-(a,c)=-a+\frac{\sqrt{a^2-ac+c^2}}{c}
-$$
-
-when $c>0$.
-
-For the two $T_+$ candidates, define
-
-$$
-\Delta_+(a,c)=(2ac^2+c)^2-4(1-c^2)(1-a^2)c^2,
-$$
-
-and, when $c\ne1$,
-
-$$
-b_+^\pm(a,c)=
-\frac{
-2ac^2+c
-\pm\sqrt{\Delta_+(a,c)}
-}{2(1-c^2)}.
-$$
-
-For the lower-side supercritical candidate, define
-
-$$
-b_S^-(a,c)=\frac{-a^2+\sqrt{a^2-ac+c^2}}{c}
-$$
-
-when $c>0$.
-
-For the upper-side supercritical candidate, define
-
-$$
-\mathcal R_S^+(a,c)=
-\left\{\rho\in[\max(a,1-a),b_\circ(a)]:
-\rho^4+(2ac-1)\rho^2+c\rho+(a^2-1)c^2=0
-\right\}.
-$$
-
-When $\mathcal R_S^+(a,c)$ is nonempty, set
-
-$$
-b_S^+(a,c)=\max \mathcal R_S^+(a,c).
-$$
-
-## Candidate Domains
-
-The circle candidate is valid on
-
-$$
-D_\circ=\left\{(a,c):0<a<1,\ 0\le c\le c_\circ(a)\right\}.
-$$
-
-The boundary candidate is valid on
-
-$$
-D_F=\left\{(a,c):0\le a\le1,\ 0\le c\le\max(a,1-a)\right\}.
-$$
-
-The low candidate is valid on
-
-$$
-\begin{aligned}
-D_L=\{(a,c):\;&4c^2-3\ge0,\ 0\le b_L(c)\le a,\ a+b_L(c)\le1,\\
-&(a+b_L(c))^4-(a+b_L(c))^2+a b_L(c)\le0\}.
-\end{aligned}
-$$
-
-The $T_-$ candidate is valid on
-
-$$
-\begin{aligned}
-D_-=\{(a,c):\;&c>0,\ 0\le b_-(a,c)\le a,\ a+b_-(a,c)\le1,\\
-&(a+b_-(a,c))^4-(a+b_-(a,c))^2+a b_-(a,c)\ge0\}.
-\end{aligned}
-$$
-
-Each $T_+$ candidate is valid on
-
-$$
-\begin{aligned}
-D_+^\pm=\{(a,c):\;&0\le c<1,\ \Delta_+(a,c)\ge0,\
-b_+^\pm(a,c)\ge a,\ a+b_+^\pm(a,c)\le1,\\
-&(a+b_+^\pm(a,c))^4-(a+b_+^\pm(a,c))^2
-+a b_+^\pm(a,c)\ge0\}.
-\end{aligned}
-$$
-
-The lower-side supercritical candidate is valid on
-
-$$
-\begin{aligned}
-D_S^-=\{(a,c):\;&c>0,\ c\le\frac12,\
-0\le b_S^-(a,c)\le a,\ a+b_S^-(a,c)\ge1,\\
-&a^2+a b_S^-(a,c)+(b_S^-(a,c))^2\le1\}.
-\end{aligned}
-$$
-
-The upper-side supercritical candidate is valid on
-
-$$
-D_S^+=\left\{(a,c):0\le a\le1,\ 0\le c\le\frac12,\
-\mathcal R_S^+(a,c)\ne\varnothing\right\}.
-$$
-
-## Piecewise Summary
-
-Let
-
-$$
-\begin{aligned}
-\mathcal B_c(a)=&
-\left\{b_\circ(a):(a,c)\in D_\circ\right\}
-\cup\left\{b_F(a):(a,c)\in D_F\right\}\\
-&\cup\left\{b_L(c):(a,c)\in D_L\right\}
-\cup\left\{b_-(a,c):(a,c)\in D_-\right\}\\
-&\cup\left\{b_+^+(a,c):(a,c)\in D_+^+\right\}
-\cup\left\{b_+^-(a,c):(a,c)\in D_+^-\right\}\\
-&\cup\left\{b_S^-(a,c):(a,c)\in D_S^-\right\}
-\cup\left\{b_S^+(a,c):(a,c)\in D_S^+\right\}.
-\end{aligned}
-$$
-
-Then the actual piecewise form is
+For $a,c\in[0,1]$, define
 
 $$
 B_c(a)=
-\begin{cases}
-\max\mathcal B_c(a),
-& 0\le a\le1,\ 0\le c\le1,\ \mathcal B_c(a)\ne\varnothing,\\
-\text{undefined},
-& \text{otherwise}.
-\end{cases}
+\max\left\{b\in[0,1]:(a,b,c)\in\mathcal A\right\}.
 $$
 
-The associated defect map is
+The fiber is nonempty because
+
+$$
+(a,0,c)\in\mathcal A
+$$
+
+for all $a,c\in[0,1]$: the unit triangle
+
+$$
+\mathrm{conv}\left\{0,e_A,e_R\right\}
+$$
+
+contains the three demanded points. Compactness of $\mathcal A$ gives the
+maximum. Down-closedness gives the exact fiber identity
+
+$$
+\left\{b:(a,b,c)\in\mathcal A\right\}=[0,B_c(a)].
+$$
+
+Equivalently, if $K=P(a,b,c)$ and $L_K$ is the finite support expression in
+`2004`, then
+
+$$
+\boxed{
+B_c(a)=
+\max\left\{
+b\in[0,1]:
+\min_{\phi\in\Theta_K}L_K(\phi)\le1
+\right\}.
+}
+$$
+
+This is an exact formula: $\Theta_K$ is a finite set of explicitly determined
+breakpoint directions.
+
+The defect map is
 
 $$
 g_c(a)=1-B_c(a).
 $$
 
-## Branch Warning
+## Monotonicity and symmetry
 
-The Cell 1/Cell 2 separator from
-[`2004_admissible_set.md`](2004_admissible_set.md) is only a switching
-interface before solving for candidate values. It is not an independent
-maximal branch for $B_c(a)$. After solving for the branch candidates, use the
-domain conditions above.
+If
+
+$$
+a_1\le a_2,
+\qquad
+c_1\le c_2,
+$$
+
+then inclusion of demand fibers gives
+
+$$
+B_{c_1}(a_1)\ge B_{c_2}(a_2).
+$$
+
+Thus $B_c(a)$ is nonincreasing in both demands and $g_c(a)$ is
+nondecreasing.
+
+Reflection in the radial line gives
+
+$$
+b\le B_c(a)
+\quad\Longleftrightarrow\quad
+a\le B_c(b).
+$$
+
+These statements use lower-bound demands. They do not by themselves classify
+the actual realizing row as nonsupercritical or supercritical.
+
+## Actual-coordinate classified maps
+
+For a unit vertex triangle $T$ containing the normalized vertex, let
+
+$$
+A(T),
+\qquad
+B(T),
+\qquad
+C(T)
+$$
+
+be its actual maximal reaches on the incoming boundary edge, outgoing
+boundary edge, and own radial arm.
+
+For a row class $\mathcal R$, define the proof-safe classified envelope
+
+$$
+B_c^{\mathcal R}(a)=
+\sup\left\{
+B(T):
+T\in\mathcal R,
+A(T)\ge a,
+C(T)\ge c
+\right\},
+$$
+
+when the set is nonempty. The two maps needed by an all-Vd0, $N_+=1$
+propagation are obtained from
+
+$$
+\mathcal R_0=
+\left\{
+T:T\text{ is Vd0 and }A(T)+B(T)\le1
+\right\},
+$$
+
+and
+
+$$
+\mathcal R_+=
+\left\{
+T:T\text{ is Vd0 and }A(T)+B(T)>1
+\right\}.
+$$
+
+Set
+
+$$
+g_c^{\mathcal R}(a)=1-B_c^{\mathcal R}(a).
+$$
+
+The same feasible-set inclusion proves that every classified $B$-map is
+nonincreasing and every classified $g$-map is nondecreasing. Also
+
+$$
+B_c^{\mathcal R}(a)\le B_c(a)
+$$
+
+for either class. Therefore the unclassified map is a valid rowwise
+relaxation, but it does not encode the condition $N_+=1$. A proof using the
+classified branch must enumerate the supercritical index and use
+$\mathcal R_+$ there and $\mathcal R_0$ at the other five rows.
+
+The shortcut
+
+$$
+\max\left\{b:(a,b,c)\in\mathcal A, a+b\le1\right\}
+$$
+
+is not a definition of the nonsupercritical map: $a,b$ are demands, while the
+classification concerns the actual reaches $A(T),B(T)$.
+
+## Exact failure of the former candidate maximum
+
+The previous version took the maximum of formal algebraic roots. The following
+exact witness shows that rule was false.
+
+Set
+
+$$
+a=\frac5{12},
+\qquad
+c=\frac{59}{60},
+\qquad
+b_0=\frac9{20}.
+$$
+
+For the four-point set $P(a,b_0,c)$, write
+
+$$
+A=a e_A,
+\qquad
+B=b_0e_B,
+\qquad
+C=c e_R.
+$$
+
+Take the outer-normal angle modulo
+$120$ degrees in the interval from $-30$ degrees to $90$ degrees. Put
+
+$$
+\phi_1=arctan\left(-\frac5{59\sqrt3}\right),
+\qquad
+\phi_2=arctan\left(\frac9{59\sqrt3}\right).
+$$
+
+Direct comparison of the four projections gives the support-maximizer triples
+
+$$
+[B,C,0],
+\quad
+[C,C,0],
+\quad
+[C,A,0],
+\quad
+[C,A,B]
+$$
+
+on the four consecutive intervals cut by
+
+$$
+-30\text{ degrees},
+\quad
+\phi_1,
+\quad
+\phi_2,
+\quad
+30\text{ degrees},
+\quad
+90\text{ degrees}.
+$$
+
+On each interval the support sum $S$ is positive and satisfies
+
+$$
+S''=-S<0,
+$$
+
+so its minimum is at an endpoint. At the four multiples of $30$ degrees the
+relevant values are
+
+$$
+\frac{\sqrt3}{2}(b_0+c)
+\quad\text{or}\quad
+\frac{\sqrt3}{2}(a+c),
+$$
+
+both strictly greater than $\sqrt3/2$. At $\phi_1$, the inequality
+$S>\sqrt3/2$ is equivalent to
+
+$$
+c^4-c^2+b_0c-b_0^2
+=
+\frac{2696161}{12960000}>0.
+$$
+
+At $\phi_2$, it is equivalent to
+
+$$
+c^4-c^2+ac-a^2
+=
+\frac{2645761}{12960000}>0.
+$$
+
+Therefore the exact support criterion gives
+
+$$
+(a,b_0,c)\notin\mathcal A.
+$$
+
+Down-closedness then gives
+
+$$
+B_c(a)<\frac9{20}.
+$$
+
+By contrast, the former $D_+^-$ candidate was
+
+$$
+b_*=
+\frac{38645-12\sqrt{10028761}}{1428}
+>\frac9{20}.
+$$
+
+It satisfied every domain test listed there. For completeness,
+
+$$
+b_*<\frac7{12},
+$$
+
+and, with
+
+$$
+q(b)=(a+b)^4-(a+b)^2+ab,
+$$
+
+one has
+
+$$
+q\left(\frac9{20}\right)=\frac{451}{810000}>0,
+\qquad
+q'\left(\frac9{20}\right)=\frac{17377}{13500}>0,
+$$
+
+while $q''>0$ thereafter. Hence $q(b_*)>0$. The inequalities
+$b_*>9/20$ and $b_*<7/12$ follow by squaring positive quantities:
+
+$$
+225(10028761)<47503^2,
+\qquad
+10028761>3151^2.
+$$
+
+Thus the old candidate rule asserted
+
+$$
+B_c(a)\ge b_*>\frac9{20},
+$$
+
+contradicting the exact support certificate. Those candidate sheets are not
+part of the corrected map.

@@ -216,7 +216,8 @@ $$
 B(c):=\frac{c+\sqrt{c^2-8c+4}}2.
 $$
 
-This is the closed free supercritical outgoing-edge envelope from `2010`.
+This is the nonattained free strict-supercritical outgoing-edge supremum from
+`2010`.
 Set
 
 $$

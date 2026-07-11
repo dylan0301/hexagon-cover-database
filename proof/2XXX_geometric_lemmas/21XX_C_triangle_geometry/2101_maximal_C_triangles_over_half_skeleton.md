@@ -122,4 +122,6 @@ $$
 
 Every feasible pair in this semialgebraic surface is already maximal under product inclusion. In particular, the two edge intervals cannot be optimized independently.
 
-This file supports the CE1/CE2 exactly-one-midpoint proof write-up.
+These normalized subcases are compatible with the proved exactly-one-midpoint
+theorem in `2100`, whose additional hypothesis is
+$O\in\mathrm{int}(T_C)$.

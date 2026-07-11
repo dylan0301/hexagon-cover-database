@@ -1,85 +1,366 @@
-# CE2 One-Interval Lemma
+# CE2 Two-Gap Systems Are Not Skeleton-Maximal
 
-Status: Lemma target
+Status: Proven
 
-Normalize a CE2 center triangle so that
+This note proves a replacement theorem for an all-Vd0 skeleton cover. It
+formalizes the useful part of the proposed monotonicity argument without
+claiming that the original supercritical triangle already binds a center
+interval endpoint.
 
-$$
-M_4\in T_C.
-$$
+## Normalization and gaps
 
-Let $T_4$ be the vertex role at $V_4$, and let $(a_4,b_4)$ be its incoming and
-outgoing perimeter row. Assume the skeleton covering has been maximalized and
-that $T_4$ is supercritical:
-
-$$
-a_4+b_4>1.
-$$
-
-Then
+Use the exact-$M_0$ CE2 normalization from
+[`2103_CE2_M0_e50_e01_maximal_interval_pairs.md`](2103_CE2_M0_e50_e01_maximal_interval_pairs.md):
 
 $$
-T_C\cap\partial H=I_L\sqcup I_R,
+T_C\cap e_{5,0}=[x,u],
+\qquad
+T_C\cap e_{0,1}=[y,v],
+$$
+
+where both edges are parameterized from $V_0$ and
+
+$$
+0<x<u<1,
+\qquad
+0<y<v<1.
+$$
+
+Let the actual adjacent boundary reaches of $T_0$ be
+
+$$
+a_0\text{ on }e_{5,0},
+\qquad
+b_0\text{ on }e_{0,1}.
+$$
+
+There is a V-gap in each CE2 interval exactly when
+
+$$
+J_L=(a_0,1-b_5)\subset[x,u]
+$$
+
+and
+
+$$
+J_R=(b_0,1-a_1)\subset[y,v]
+$$
+
+are nonempty. In particular,
+
+$$
+x\le a_0<1-b_5\le u,
+$$
+
+$$
+y\le b_0<1-a_1\le v.
+$$
+
+The exact complementary radial demand at $V_0$ is, by
+[`2106_CE2_exact_formulas.md`](2106_CE2_exact_formulas.md),
+
+$$
+c_0=\frac{xy}{x+y}.
+$$
+
+## Replacement-maximality convention
+
+With $T_C$ and the other five vertex roles fixed, call the local skeleton
+data at $V_0$ replacement-maximal if no unit equilateral replacement for
+$T_0$ can do all of the following:
+
+1. preserve the full skeleton cover;
+2. preserve both boundary reaches already assigned to $T_0$;
+3. preserve the complementary radial coverage required from $V_0$; and
+4. strictly extend one boundary reach through a nonempty V-gap.
+
+This is the $T_C$-relative maximality used in this note. Support that is lost
+only where it is already covered by $T_C$ is not an uncovered loss.
+
+## Theorem
+
+An all-Vd0 CE2 system with V-gaps in both center intervals is not
+replacement-maximal. More precisely, there are two replacements:
+
+- a left replacement preserving $b_0$ and extending $a_0$ to $u$;
+- a right replacement preserving $a_0$ and extending $b_0$ to $v$.
+
+Either replacement preserves the skeleton cover and makes one entire CE2
+center interval redundant for boundary coverage.
+
+The supercritical hypothesis is not needed for this theorem. In the `410X`
+branch, it is used separately to identify $T_0$ as the unique supercritical
+row.
+
+## Complementary corner triangle
+
+Use local affine coordinates
+
+$$
+X(p,q)=V_0+p(V_5-V_0)+q(V_1-V_0).
+$$
+
+The local metric is
+
+$$
+\lVert X(p,q)-V_0\rVert^2=p^2+q^2-pq.
+$$
+
+For $a,b>0$, define
+
+$$
+A=X(a,0),
+\qquad
+B=X(0,b),
+\qquad
+Q=X(-b,-a),
+$$
+
+and
+
+$$
+\Delta(a,b)=\mathrm{conv}\left\{A,B,Q\right\}.
+$$
+
+The three squared side lengths are all
+
+$$
+a^2+ab+b^2.
+$$
+
+Thus $\Delta(a,b)$ is equilateral with side length
+
+$$
+L(a,b)=\sqrt{a^2+ab+b^2}.
+$$
+
+The point $V_0=X(0,0)$ lies in $\Delta(a,b)$. Indeed, positive barycentric
+coefficients are obtained from
+
+$$
+\lambda_A=\frac ba\lambda_Q,
+\qquad
+\lambda_B=\frac ab\lambda_Q,
 $$
 
 with
 
 $$
-I_L\subset e_{3,4}, \qquad I_R\subset e_{4,5}.
+\lambda_A+\lambda_B+\lambda_Q=1.
 $$
 
-The nearby vertex triangles are
+The side $AB$ has equation
 
 $$
-T_3,T_4,T_5.
+\frac pa+\frac qb=1.
 $$
 
-## Target conclusion
-
-At least one of the following holds:
+Consequently the radial ray $X(c,c)$ exits $\Delta(a,b)$ at
 
 $$
-I_L\subset T_3,
+c=\frac{ab}{a+b}.
+$$
+
+By convexity, $\Delta(a,b)$ contains the two boundary segments of lengths
+$a,b$ from $V_0$ and the radial segment of length $ab/(a+b)$.
+
+## Left replacement
+
+Use
+
+$$
+a=u,
+\qquad
+b=b_0.
+$$
+
+The two points
+
+$$
+e_{5,0}(u),
+\qquad
+e_{0,1}(b_0)
+$$
+
+belong to $T_C$, because $b_0\in[y,v]$. A unit equilateral triangle has
+diameter one, so
+
+$$
+u^2+ub_0+b_0^2
+=
+\left\lVert e_{5,0}(u)-e_{0,1}(b_0)\right\rVert^2
+\le1.
+$$
+
+Hence
+
+$$
+L(u,b_0)\le1.
+$$
+
+The function
+
+$$
+f(p,q)=\frac{pq}{p+q}
+$$
+
+is increasing in both variables on the positive quadrant. Since
+
+$$
+u\ge x,
+\qquad
+b_0\ge y,
+$$
+
+we have
+
+$$
+\frac{ub_0}{u+b_0}
+\ge
+\frac{xy}{x+y}
+=c_0.
+$$
+
+Therefore
+
+$$
+T_0^L=\Delta(u,b_0)
+$$
+
+has side length at most one, preserves the old outgoing reach $b_0$, covers
+the required radial segment, and extends the incoming reach through $u$.
+In particular,
+
+$$
+T_C\cap e_{5,0}=[x,u]\subset T_0^L.
+$$
+
+If a triangle of side exactly one is required, enlarge $T_0^L$
+concentrically to side one.
+
+## Right replacement
+
+The reflected construction uses
+
+$$
+a=a_0,
+\qquad
+b=v.
+$$
+
+Now $a_0\in[x,u]$, so both
+
+$$
+e_{5,0}(a_0),
+\qquad
+e_{0,1}(v)
+$$
+
+belong to $T_C$. Therefore
+
+$$
+a_0^2+a_0v+v^2\le1,
+$$
+
+and
+
+$$
+\frac{a_0v}{a_0+v}
+\ge
+\frac{xy}{x+y}
+=c_0.
+$$
+
+Thus
+
+$$
+T_0^R=\Delta(a_0,v)
+$$
+
+preserves $a_0$, covers the required radial segment, and extends the outgoing
+reach through $v$. Hence
+
+$$
+T_C\cap e_{0,1}=[y,v]\subset T_0^R.
+$$
+
+## Preservation of the skeleton cover
+
+For the left replacement, the new triangle weakly enlarges the old
+$T_0$-coverage on $e_{5,0}$ and preserves it on $e_{0,1}$. It covers the
+radial arm from $V_0$ through the complementary handoff point $c_0$, while
+$T_C$ covers the remaining radial segment to $O$. The right replacement is
+symmetric.
+
+An all-Vd0 $T_0$ has no positive-length support on another radial arm.
+Point-only contacts cannot be essential in a finite closed cover: a punctured
+sequence near such a point is covered by the other finitely many closed
+triangles, so one of them contains a convergent subsequence and hence the
+limit point. Thus either replacement preserves the full skeleton cover.
+
+Because $J_L$ or $J_R$ has positive length and is newly covered by the
+replacement vertex triangle, the original two-gap system was not
+replacement-maximal.
+
+## Why bare monotonicity is insufficient
+
+Supercriticality alone does not force the original $T_0$ to bind $u$ or $v$.
+For example, set
+
+$$
+x=y=\frac3{10},
+\qquad
+u=v=\frac{10\sqrt3+3}{40},
+\qquad
+c_0=\frac3{20}.
+$$
+
+These values satisfy the CE2 coupling and strict midpoint inequalities. In
+physical coordinates with $V_0=(0,0)$ and the inward radial direction
+horizontal, take the unit triangle with vertices
+
+$$
+\left(-\frac{101}{200},0\right),
 $$
 
 $$
-I_L\subset T_4,
+\left(\frac{\sqrt3}{2}-\frac{101}{200},\frac12\right),
 $$
 
-$$
-I_R\subset T_4,
-$$
+and
 
 $$
-I_R\subset T_5.
+\left(\frac{\sqrt3}{2}-\frac{101}{200},-\frac12\right).
 $$
 
-Equivalently, in the maximalized skeleton covering, one interval of
-$T_C\cap\partial H$ is covered by adjacent $V$-triangles.
-
-## Interaction types
-
-For interval $I$ and $K_i=T_i\cap\partial H$:
-
-- include: $I\subset K_i$;
-- intersect: $I\cap K_i\ne\varnothing$ but $I\not\subset K_i$;
-- attach: $I\cap K_i=\varnothing$ and closures touch;
-- far: closures are disjoint.
-
-After maximality, intersect cases should be eliminated. The remaining cases are
+It has
 
 $$
-(\mathrm{attach},\mathrm{attach}), (\mathrm{attach},\mathrm{far}), (\mathrm{far},\mathrm{attach}), (\mathrm{far},\mathrm{far}).
+a_0=b_0=\frac{101}{200},
 $$
 
-Coordinate form:
+and radial reach
 
 $$
-x_3<\beta_L, \qquad x_5<\beta_R \implies b_4\ge\beta_L\quad\text{or}\quad a_4\ge\beta_R.
+\frac{\sqrt3}{2}-\frac{101}{200}>\frac3{20}.
 $$
 
-After eliminating intersect cases:
+Thus
 
 $$
-x_3\le\alpha_L, \qquad x_5\le\alpha_R \implies b_4\ge\beta_L\quad\text{or}\quad a_4\ge\beta_R.
+a_0+b_0>1,
+\qquad
+a_0<u,
+\qquad
+b_0<v.
 $$
+
+The proved conclusion is therefore an explicit replacement normalization,
+not a claim about endpoint binding by the original supercritical triangle.
+
+## Proof-tree scope
+
+Concentric enlargement can change the V-type or the value of $N_+$. The
+replacement proves the two-gap skeleton normalization, but a branch proof
+must route every changed type or row-sum class to the corresponding proof-tree
+branch. It may not silently assume that the replacement stays inside `410X`.

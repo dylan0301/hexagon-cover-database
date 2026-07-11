@@ -1,105 +1,223 @@
-# Admissible Set
+# Exact Local Admissible Set
 
-Status: Definition
+Status: Proven
 
-Let $\mathcal A\subset[0,1]^3$ be the set of possible local triples
-$(a,b,c)$.
+This note gives a proof-safe definition and an exact finite support-function
+test for the local admissible set. It replaces the former polynomial sheet
+list, which did not select the connected geometric component of one of its
+quadratic inequalities.
+
+## Local demand coordinates
+
+Put the vertex role at the origin. Let
+
+$$
+e_B=left(1,0\right),
+\qquad
+e_A=left(-\frac12,\frac{\sqrt3}{2}\right),
+\qquad
+e_R=e_A+e_B.
+$$
+
+The three vectors are unit vectors. The two boundary directions $e_A,e_B$
+meet at $120$ degrees, and $e_R$ is the inward radial direction.
+
+For $0\le a,b,c\le1$, set
+
+$$
+P(a,b,c)=
+\left\{
+0,
+a e_A,
+b e_B,
+c e_R
+\right\}.
+$$
+
+The numbers $(a,b,c)$ in this note are lower-bound demands. They are
+admissible when one closed unit equilateral triangle contains all four points.
+Thus
+
+$$
+\mathcal A=
+\left\{
+(a,b,c)\in[0,1]^3:
+P(a,b,c)\text{ lies in a closed unit equilateral triangle}
+\right\}.
+$$
+
+If a particular triangle has actual reaches $(A,B,C)$, then it realizes every
+demand triple satisfying
+
+$$
+0\le a\le A,
+\qquad
+0\le b\le B,
+\qquad
+0\le c\le C.
+$$
+
+This distinction is essential when a proof also fixes the row class through
+$A+B\le1$ or $A+B>1$.
+
+## Exact support criterion
+
+For a compact set $K\subset\mathbb R^2$, write
+
+$$
+h_K(n)=\max_{p\in K} n\mathbin{\cdot}p.
+$$
+
+For an angle $\phi$, let
+
+$$
+n_j(\phi)=
+\left(
+\cos\left(\phi+\frac{2\pi j}{3}\right),
+\sin\left(\phi+\frac{2\pi j}{3}\right)
+\right),
+\qquad j=0,1,2.
+$$
+
+Define
+
+$$
+L_K(\phi)=
+\frac{2}{\sqrt3}
+\sum_{j=0}^2 h_K\left(n_j(\phi)\right).
+$$
+
+Then
+
+$$
+\boxed{
+(a,b,c)\in\mathcal A
+\quad\Longleftrightarrow\quad
+\min_{0\le\phi<2\pi/3}L_{P(a,b,c)}(\phi)\le1.
+}
+$$
+
+### Proof
+
+Fix three outward unit normals $n_0,n_1,n_2$ separated by $120$ degrees. A
+triangle with these normals has the form
+
+$$
+E=\left\{x:n_j\mathbin{\cdot}x\le t_j, j=0,1,2\right\}.
+$$
+
+Because
+
+$$
+n_0+n_1+n_2=0,
+$$
+
+translation changes the three $t_j$ but not their sum. For an equilateral
+triangle of side length $L$, the centered support value is the inradius
+$L/(2\sqrt3)$. Hence
+
+$$
+L=\frac{2}{\sqrt3}(t_0+t_1+t_2).
+$$
+
+For a fixed orientation, the smallest such triangle containing $K$ has
+
+$$
+t_j=h_K(n_j).
+$$
+
+Its side length is therefore $L_K(\phi)$. Minimizing over the orientation
+proves the criterion.
+
+## Finite exact evaluation
+
+The angular minimum above is finite algebraic data, not a numerical oracle.
+Let $K=P(a,b,c)$ and form the finite breakpoint set
+
+$$
+\Theta_K=
+\left\{
+\phi\mathbin{\bmod}\frac{2\pi}{3}:
+n_j(\phi)\mathbin{\cdot}(p-q)=0
+\text{ for some }j\text{ and distinct }p,q\in K
+\right\}.
+$$
+
+Between consecutive breakpoints, each support value is attained at a fixed
+point of $K$. Consequently
+
+$$
+S(\phi)=
+\sum_{j=0}^2h_K\left(n_j(\phi)\right)
+$$
+
+has the form $A\cos\phi+B\sin\phi$ and satisfies
+
+$$
+S''(\phi)=-S(\phi)\le0.
+$$
+
+Thus $S$ is concave on every breakpoint cell, so its minimum on that cell is
+at an endpoint. Therefore
+
+$$
+\min_{0\le\phi<2\pi/3}L_K(\phi)
+=
+\min_{\phi\in\Theta_K}L_K(\phi),
+$$
+
+with any one angle added in the degenerate case $\Theta_K=\varnothing$.
+Every breakpoint is the direction perpendicular to a difference of two of
+the four displayed points. This gives an independently checkable finite exact
+test using only dot products, square roots, maxima, and comparisons.
+
+## Structural consequences
+
+The set $\mathcal A$ is compact. Indeed, the minimum support value is a
+continuous function of $(a,b,c)$ on the compact cube.
 
 It is symmetric:
 
 $$
-(a,b,c)\in\mathcal A\iff (b,a,c)\in\mathcal A.
+(a,b,c)\in\mathcal A
+\quad\Longleftrightarrow\quad
+(b,a,c)\in\mathcal A.
 $$
 
-In this file, $c(a,b)$ means the maximum radial coordinate attainable by an
-admissible local triple whose edge coordinates contain at least the points
-prescribed by $a$ and $b$:
+Reflection in the radial line swaps $e_A$ and $e_B$ and proves this identity.
+
+It is coordinatewise down-closed. If $(a,b,c)\in\mathcal A$ and
 
 $$
-c(a,b)=\max\{c': \exists (a',b',c')\in\mathcal A\text{ with }a'\ge a,\ b'\ge b\}.
+0\le a'\le a,
+\qquad
+0\le b'\le b,
+\qquad
+0\le c'\le c,
 $$
 
-Thus $a$ and $b$ are lower-bound point-containment constraints, not
-necessarily the exact edge coordinates of the maximizing triple.
-
-Let
+then convexity of the containing triangle and its containment of $0$ imply
 
 $$
-s=a+b, \qquad m=\min(a,b), \qquad M=\max(a,b),
+(a',b',c')\in\mathcal A.
 $$
 
-and
+In particular, every fixed-coordinate fiber is an interval starting at zero.
+There is no geometrically valid second high-$c$ component.
+
+## Radial envelope
+
+The lower-bound radial envelope is
 
 $$
-q=(a+b)^4-(a+b)^2+ab.
+c_{\max}(a,b)=
+\max\left\{c:(a,b,c)\in\mathcal A\right\}.
 $$
 
-The branch closure inequalities below are written in the ordered half $a\le b$.
-The reflected half is obtained by swapping $a$ and $b$. Each branch records
-both the admissibility inequalities for $\mathcal A$ and the corresponding
-solved boundary value for $c(a,b)$. The formula convention assigns $q=0$ to the
-$q\ge0$ branch.
+Compactness gives attainment. Down-closedness shows that the former
+definition with existential $a'\ge a$ and $b'\ge b$ gives exactly the same
+quantity. The exact value is obtained by the finite support test above.
 
-If
-
-$$
-a^2+ab+b^2>1,
-$$
-
-then $c(a,b)$ is undefined.
-
-## Branch $s<1$ and $q<0$
-
-The corresponding branch closure in $\mathcal A$ is
-
-$$
-s\le1,\qquad a^2+ab+b^2\le1,\qquad q\le0,\qquad c^4-c^2+ac-a^2\le0.
-$$
-
-The boundary value $c(a,b)$ is the unique root in $(0,1]$ of
-
-$$
-c^4-c^2+mc-m^2=0.
-$$
-
-## Branch $s<1$ and $q\ge0$
-
-The corresponding branch closure in $\mathcal A$ is
-
-$$
-s\le1,\qquad a^2+ab+b^2\le1,\qquad q\ge0,\qquad (s^2-1)c^2+bc-b^2\le0.
-$$
-
-The boundary value is
-
-$$
-c=\frac{2M}{1+\sqrt{4s^2-3}}.
-$$
-
-## Boundary $s=1$
-
-The value on the shared boundary is
-
-$$
-c=M.
-$$
-
-## Branch $s>1$
-
-The corresponding branch closure in $\mathcal A$ is
-
-$$
-s\ge1,\qquad a^2+ab+b^2\le1,\qquad (a^2-1)c^2+(2ab^2+b)c+(b^4-b^2)\le0,\qquad c\le\frac12.
-$$
-
-The boundary value is
-
-$$
-c=\frac{M(2mM+1)-\sqrt{M^2((2mM+1)^2-4(1-m^2)(1-M^2))}}{2(1-m^2)}.
-$$
-
-This is a computational boundary formula. Branch completeness and
-uniqueness are separate proof obligations. In particular, do not invert
-these equations into a definition of $B_c(a)$, $b(a,c)$, or $b(c,a)$
-without checking the relevant admissible-cell inequalities and the intended
-branch; otherwise an algebraic root may be a fake geometric solution.
+Any simpler polynomial expression for $c_{\max}$ must prove its breakpoint
+selection and component inequalities before it is used as a geometric
+formula.

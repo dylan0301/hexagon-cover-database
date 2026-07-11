@@ -1,11 +1,14 @@
 # CE2, $N_+=1$, Exactly One Vd1/Vd2 Assembly
 
-Status: Proven
+Status: Strategy
 
-This file assembles the local obstructions in the 414X package and closes the
+This file assembles the proposed local obstructions in the 414X package for the
 CE2, $N_+=1$, exactly-one-Vd1/Vd2 branch under the standard reduced hypotheses:
 all vertex rows other than the unique Vd1/Vd2 row are Vd0, and there is exactly
 one supercritical row.
+
+The assembly is dependency-blocked at `4144`, `4147`, and the final use of the
+`4013` boundary-loss package.
 
 ## Statement
 
@@ -23,11 +26,11 @@ $$
 
 and exactly one vertex row is Vd1 or Vd2.  Under the reduced 414X hypotheses,
 these seven role triangles cannot cover the required target.  Hence the 414X
-branch is impossible.
+branch would be impossible after the blocked dependencies are discharged.
 
 ## Dependencies
 
-We use the following proved local files.
+The proposed assembly uses the following local files.
 
 1. [`4149_CE2_Nplus1_Vd2_neighbor_midpoint_obstruction.md`](4149_CE2_Nplus1_Vd2_neighbor_midpoint_obstruction.md): a Vd2 row covering a neighboring midpoint is impossible by the Vd2 local caps from [`4142`](4142_CE2_Nplus1_Vd2_midpoint_local_caps.md) and boundary length.
 2. [`4143_CE2_Nplus1_T0_Vd1_M1_T1_supercritical_obstruction.md`](4143_CE2_Nplus1_T0_Vd1_M1_T1_supercritical_obstruction.md): the normalized pair $T_0$ Vd1, $M_1\in T_0$, $T_1$ supercritical is impossible, with reflection.
@@ -104,8 +107,9 @@ Thus no candidate exists in this case.
 ## Conclusion
 
 Every possible placement of the unique supercritical row and the unique
-Vd1/Vd2 row falls into one of the three cases above, and every case is
-impossible.  Therefore the CE2, $N_+=1$, exactly-one-Vd1/Vd2 branch is closed.
+Vd1/Vd2 row falls into one of the three cases above. Conditional on the
+blocked dependencies, every case would be impossible. At present the CE2,
+$N_+=1$, exactly-one-Vd1/Vd2 branch remains Strategy.
 
 $$
 \Box

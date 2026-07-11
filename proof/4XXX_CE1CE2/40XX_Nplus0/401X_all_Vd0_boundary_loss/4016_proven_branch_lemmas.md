@@ -1,6 +1,11 @@
 # Proven Branch Lemmas for the CE1/CE2 Vd0 Boundary-Loss Reduction
 
-Status: Proven
+Status: Strategy
+
+Dependency warning: these calculations use the former algebraic branch
+labels. In particular, the old $T_+^{lo}$ sheet is not a geometric component
+of the exact admissible set. The inequalities are retained for a future safe
+relaxation audit, but this file no longer certifies realized-map branches.
 
 This file records the branch lemmas currently proved for the reduction in `551_setup_and_reduction.md`.
 

@@ -1,6 +1,6 @@
 # CE2, $N_+=1$, Vd1--Supercritical Adjacent Pair Axis Replacement
 
-Status: Proven
+Status: Strategy
 
 This file proves the remaining adjacent-rescue local replacement used in the
 [`4148`](4148_CE2_Nplus1_exactly_one_Vd1_Vd2_assembly.md) assembly.
@@ -16,6 +16,11 @@ The maximal $B_c(a)$ map is the one recorded in
 [`../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2007_max_b_map.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2007_max_b_map.md),
 using the admissible-set branch inequalities from
 [`../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md).
+
+Dependency warning: the local bound and the two axis replacements can be
+reproved from the exact support criterion, but the final contradiction still
+invokes the dependency-blocked `4013` package. This file therefore remains a
+strategy until that final dependency is replaced or revalidated.
 
 ## Statement
 

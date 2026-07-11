@@ -21,6 +21,9 @@ $$
 T_C\cap\{M_0,\ldots,M_5\}=\{M_0\}.
 $$
 
+Here $O\in\mathrm{int}(T_C)$ is inherited from the original open center role,
+as required by the corrected midpoint theorem.
+
 By `4071`, $T_0$ is T3-like.  Reflect if necessary so that
 
 $$
@@ -260,25 +263,38 @@ $$
 1-C_1=\gamma_1.
 $$
 
-## 6. Corrected $B$-map and the constrained $r_0$ variant
+## 6. Actual-coordinate $B$-map and the constrained $r_0$ variant
 
-Use the corrected nonsupercritical $B$-map
+Use the actual-coordinate nonsupercritical Vd0 map
 
 $$
-B(a,c)=\max\{b\in[0,1-a]:(a,b,c)\in\mathcal A\}.
+\mathsf B_c^0(a)=
+\sup\left\{
+B(T):A(T)\ge a,
+C(T)\ge c,
+A(T)+B(T)\le1,
+T\text{ Vd0}
+\right\}.
 $$
 
-The explicit branch candidates and corrected branch-realization convention are recorded in
+The exact unclassified support map and the classified-map semantics are
+recorded in
 [`../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2007_max_b_map.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2007_max_b_map.md)
-and
+and the withdrawal of the fake Cell-2 sheet is recorded in
 [`../401X_all_Vd0_boundary_loss/4015_B_map_branch_realization.md`](../401X_all_Vd0_boundary_loss/4015_B_map_branch_realization.md).
 
-If $T_1$ supports $r_0$, the right-side output must be bounded by the stricter constrained map
+If $T_1$ supports $r_0$, the right-side output must be bounded by the stricter
+actual-coordinate constrained map
 
 $$
-B^{r_0}(A_1,C_1,d_0)
+\mathsf B^{0,r_0}(A_1,C_1,d_0)
 =
-\max\{b:(A_1,b,C_1)\in\mathcal A,\ A_1+b\le1,\ C_-(A_1,b)\ge d_0\},
+\sup\left\{
+B(T):A(T)\ge A_1,
+C(T)\ge C_1,
+A(T)+B(T)\le1,
+T\text{ Vd0 and supplies the required }r_0\text{ reach }d_0
+\right\},
 $$
 
 where
@@ -287,16 +303,21 @@ $$
 d_0=1-\gamma_0.
 $$
 
-Here $C_-$ is the lower-neighbor version of the adjacent-ray maximum from
-[`../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2008_neighbor_ray_max_c_formula.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2008_neighbor_ray_max_c_formula.md).
+The required $r_0$ reach can equivalently be checked by the lower-neighbor
+maximum from
+[`../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2008_neighbor_ray_max_c_formula.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2008_neighbor_ray_max_c_formula.md),
+provided the check is applied to the actual reaches of $T$.
 
 Since
 
 $$
-B^{r_0}(A_1,C_1,d_0)\le B(A_1,C_1),
+\mathsf B^{0,r_0}(A_1,C_1,d_0)
+\le
+\mathsf B_{C_1}^0(A_1),
 $$
 
-any inequality proved with $B(A_1,C_1)$ also proves the corresponding $r_0$-support branch.
+any inequality proved with $\mathsf B_{C_1}^0(A_1)$ also proves the
+corresponding $r_0$-support branch.
 
 ## 7. Boundary-loss contradiction
 
@@ -305,19 +326,20 @@ any inequality proved with $B(A_1,C_1)$ also proves the corresponding $r_0$-supp
 Assume the support-isolated $407X$ branch above.  If
 
 $$
-B(A_5,C_5)+B(A_1,C_1)<1,
+\mathsf B_{C_5}^0(A_5)+\mathsf B_{C_1}^0(A_1)<1,
 $$
 
 then the seven triangles cannot cover the hexagon perimeter in this branch.
 
-The same conclusion holds if $B(A_1,C_1)$ is replaced by the constrained map $B^{r_0}(A_1,C_1,d_0)$.
+The same conclusion holds if $\mathsf B_{C_1}^0(A_1)$ is replaced by the
+constrained map $\mathsf B^{0,r_0}(A_1,C_1,d_0)$.
 
 ### Proof
 
 The edge $e_{1,2}$ is covered from the $V_1$ side by $T_1$ by at most
 
 $$
-B_1:=B(A_1,C_1),
+B_1:=\mathsf B_{C_1}^0(A_1),
 $$
 
 or by the corresponding constrained value in the $r_0$-support case.  Hence $T_2$ must cover at least
@@ -337,7 +359,7 @@ $$
 On the $e_{4,5}$ side, $T_5$ covers at most
 
 $$
-B_5:=B(A_5,C_5),
+B_5:=\mathsf B_{C_5}^0(A_5),
 $$
 
 so $T_4$ must cover at least

@@ -34,12 +34,14 @@ $$
 T_C,T_0,T_1,\dots,T_5,
 $$
 
-where $T_C$ is a center triangle containing $O$, and $T_i$ is a $V_i$-triangle containing $V_i$.
+where $T_C$ is a center triangle containing $O$ in its interior, and $T_i$ is
+a $V_i$-triangle containing $V_i$.
 
 Assume:
 
 1. $T_C$ is CE1 or CE2.
-2. By the normalized CE1/CE2 midpoint lemma,
+2. By the normalized CE1/CE2 midpoint lemma, whose interior hypothesis is
+   supplied above,
 
    $$
    T_C\cap\{M_0,\dots,M_5\}=\{M_0\}.

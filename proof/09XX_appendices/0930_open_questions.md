@@ -6,8 +6,9 @@ Status: Reference
    endpoint, and open-cover cases.
 2. Complete or replace the broad CE1/CE2, $N_+=0$ reduction to the recorded
    all-Vd0 boundary-loss package.
-3. Prove the CE2 one-interval lemma under the V4 supercritical hypothesis, or
-   explicitly keep every CE2 use conditional on that lemma.
+3. Use the proved CE2 two-gap replacement theorem to audit every possible
+   V-type and $N_+$ exit, and prove the remaining one-gap propagation
+   inequalities.
 4. Prove the `3100X` CE0 all-Vd0, $N_+=1$ algorithm-2 route: fixed $V_4$
    points, diagonal-relaxation containment, limit-shape convexity, and
    interior finite certificate.

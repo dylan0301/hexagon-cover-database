@@ -1,9 +1,13 @@
 # CE2, $N_+=1$, Exactly One Vd1/Vd2
 
-Status: Proven
+Status: Strategy
 
-This branch is closed by the assembly proof
+This branch has a proposed assembly in
 [`4148_CE2_Nplus1_exactly_one_Vd1_Vd2_assembly.md`](4148_CE2_Nplus1_exactly_one_Vd1_Vd2_assembly.md).
+
+The former `Proven` status is withdrawn. The adjacent files `4144` and `4147`
+used the uncertified old admissible-map branches, and `4147` ends by invoking
+the dependency-blocked `4013` package.
 
 The Vd1/Vd2 corner-side normal form and adjacent-ray bound used by the local
 obstruction files are proved in

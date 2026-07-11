@@ -1,6 +1,11 @@
 # Lower-Sheet $T_+$ Completion Proofs
 
-Status: Proven
+Status: Strategy
+
+Dependency warning: the sheet called $T_+^{lo}$ below is the fake high-$c$
+component removed by the exact audit in `2007` and `4015`. The analytic
+inequalities are retained as historical relaxation calculations, not as a
+proof of realized geometric branch completeness.
 
 This file proves the lower-sheet $T_+$ branch obligations that were left open
 in `554_remaining_Tplus_obligations.md`.

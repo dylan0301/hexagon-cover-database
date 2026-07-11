@@ -15,8 +15,8 @@ $$
 The intended case has:
 
 - $T_C$ is CE1 or CE2.
-- CE2 use of this reduction is conditional on the CE2 one-interval lemma under
-  the V4 supercritical hypothesis.
+- CE2 use of this reduction is conditional on the replacement theorem in
+  `2104` and on routing every V-type or $N_+$ exit created by the replacement.
 - All six $V_i$-triangles are Vd0.
 - The contradiction assumption is
 
@@ -53,8 +53,9 @@ $$
 w>0.
 $$
 
-The same formulas apply to CE2 after using the CE2 one-interval lemma and
-discarding the $C$-interval already covered by nearby $V$-triangles.
+The same formulas apply to CE2 after using the `2104` two-gap replacement and
+selecting the one remaining active $C$-interval, conditional on routing any
+V-type or $N_+$ exit.
 
 ## 3. C-triangle slope parameterization
 
@@ -98,24 +99,30 @@ The values $1-\gamma_1$ and $1-\gamma_5$ are the radial requirements left for th
 
 ## 4. The maximal adjacent V-values
 
-Let
+Let the actual-coordinate nonsupercritical Vd0 map be
 
 $$
-B(a,c)=\max\{b:(a,b,c)\in\mathcal A,\ a+b\le1\},
+\mathsf B_c^0(a)=
+\sup\left\{
+B(T):A(T)\ge a,
+C(T)\ge c,
+A(T)+B(T)\le1,
+T\text{ Vd0}
+\right\},
 $$
 
-where $\mathcal A$ is the Vd0 admissible set in local coordinates.
+when the set is nonempty.
 
 The adjacent maximalized triangles satisfy
 
 $$
-B_1=B(u,1-\gamma_1),
+B_1=\mathsf B_{1-\gamma_1}^0(u),
 $$
 
 and
 
 $$
-B_5=B(s,1-\gamma_5).
+B_5=\mathsf B_{1-\gamma_5}^0(s).
 $$
 
 Define the boundary-loss objective
@@ -149,12 +156,18 @@ Each Vd0 triangle contributes at most $a_i+b_i$ units of boundary length on the 
 Thus the branch analysis in this folder is reduced to the following inequality:
 
 $$
-\boxed{B(s,1-\gamma_5)+B(u,1-\gamma_1)<1.}
+\boxed{
+\mathsf B_{1-\gamma_5}^0(s)
++\mathsf B_{1-\gamma_1}^0(u)<1.
+}
 $$
 
 ## 6. Covered-interval removal
 
-If the active $C$-boundary interval is already covered by adjacent V-triangles, then the $C$-triangle contributes no new boundary length on that interval.  In CE2, after the one-interval lemma, if both $C$-intervals are covered by V-triangles, then $T_C\cap\partial H$ contributes no new boundary length.
+If the active $C$-boundary interval is already covered by adjacent V-triangles,
+then the $C$-triangle contributes no new boundary length on that interval. In
+CE2, after the replacement normalization, if both $C$-intervals are covered by
+V-triangles, then $T_C\cap\partial H$ contributes no new boundary length.
 
 Under the open-triangle assumption and $a_i+b_i<1$, the six V-triangles alone have total boundary contribution strictly less than $6$, while $\partial H$ has length $6$.  Hence they cannot cover the perimeter.  Such covered-interval cases are removed before the branch analysis.
 

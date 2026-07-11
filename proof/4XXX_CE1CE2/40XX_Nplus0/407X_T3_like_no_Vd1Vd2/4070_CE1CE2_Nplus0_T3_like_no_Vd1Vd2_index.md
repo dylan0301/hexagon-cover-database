@@ -1,14 +1,20 @@
 # CE1/CE2, $N_+=0$, T3-Like With No Vd1/Vd2
 
-Status: Proven
+Status: Strategy
 
-This folder proves the shared CE1/CE2 branch
+This folder records the proposed closure of the shared CE1/CE2 branch
 
 $$
 T_C\text{ is CE1 or CE2},\qquad N_+=0,
 $$
 
 with no Vd1/Vd2 vertex roles and at least one T3-like vertex role.
+
+The former `Proven` status depended on the old `4015` algebraic branch
+inventory, including the fake $T_+^{lo}$ sheet. The exact classified-map
+inclusion and completeness have not been re-established, so the assembly is
+dependency-blocked even though many individual analytic inequalities remain
+proved.
 
 The midpoint normalization is
 
@@ -20,7 +26,7 @@ $$
 
 | File | Recorded status | Role |
 |---|---|---|
-| [`407b_final_assembly.md`](407b_final_assembly.md) | Proven | Preferred final assembly for the branch. |
+| [`407b_final_assembly.md`](407b_final_assembly.md) | Strategy | Historical assembly; exact branch completeness is open. |
 | [`4071_CE1CE2_Nplus0_T3_like_forces_V0_T3_like.md`](4071_CE1CE2_Nplus0_T3_like_forces_V0_T3_like.md) | Proven | Proves $T_0$ is T3-like. |
 | [`4072_support_isolation_after_T0_T3_like.md`](4072_support_isolation_after_T0_T3_like.md) | Proven | Proves support isolation after reflecting so that $T_0$ supports $r_1$. |
 | [`4073_boundary_loss_framework.md`](4073_boundary_loss_framework.md) | Proven | Reduces the case to $B(A_5,C_5)+B(A_1,C_1)<1$. |
@@ -69,4 +75,6 @@ $$
 (T_+^{hi},*).
 $$
 
-Together these cover every realized hard-region branch pair in the support-isolated $407X$ domain. Therefore, by `4073`, the full $407X$ branch is closed.
+These calculations covered the former algebraic inventory. They do not yet
+prove that every exact actual-coordinate maximum lies in a certified covered
+cell. Therefore the full $407X$ branch is not currently recorded as closed.

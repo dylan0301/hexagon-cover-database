@@ -63,13 +63,12 @@ from $V_i$ and $b_i$ is the outgoing boundary length from $V_i$.
 
 ## CE2 usage
 
-For CE2, this seven-point reduction is conditional on the CE2 one-interval
-lemma.  After normalizing and using that lemma, one CE2 boundary interval is
-treated as already covered by adjacent vertex triangles.  The remaining
-positive-length $C$-only interval is then normalized to $[s,t]\subset e_{0,1}$
-and the same seven-point model is used.
+For CE2, this seven-point reduction would now be conditional on the `2104`
+two-gap replacement, the resulting branch-exit audit, and selection of the
+remaining positive-length $C$-only interval as $[s,t]\subset e_{0,1}$.
 
-This file does not prove the CE2 one-interval lemma.  Without that reduction,
+This failed model predates the proved `2104` two-gap replacement. Without
+that replacement and its branch-exit audit,
 full CE2 has two active $C$ boundary intervals and the honest perimeter model
 has more cut data than this seven-point package records.
 

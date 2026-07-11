@@ -12,5 +12,7 @@ Sample center triangles containing $O$, then compute:
 Primary purpose: sanity-check the proven local lemma
 
 $$
-\mathrm{CE1}\text{ or }\mathrm{CE2}\implies \text{exactly one midpoint covered}.
+\mathrm{CE1}\text{ or }\mathrm{CE2},
+\quad O\in\mathrm{int}(T_C)
+\implies \text{exactly one midpoint covered}.
 $$
