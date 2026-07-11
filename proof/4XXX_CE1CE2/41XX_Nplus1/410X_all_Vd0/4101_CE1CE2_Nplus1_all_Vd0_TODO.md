@@ -89,10 +89,11 @@ argument; they do not replace a missing positive radial interval.
 
 ## 3. Proof-safe row maps
 
-The exact unclassified demand map is the finite support-function map
+The exact unclassified demand map is the piecewise support-contact map
 
 $$
-B_c(a)=\max\left\{b:(a,b,c)\in\mathcal A\right\}
+B_c(a)=
+\max_{\substack{0\le b\le1\\ {}(a,b,c)\in\mathcal A}}b
 $$
 
 from
@@ -105,19 +106,22 @@ $$
 
 is nondecreasing.
 
-The old list of algebraic candidates is not valid. In particular, it accepted
-a fake high-$c$ component at
+The old unselected list of algebraic candidates is not valid. In particular,
+it accepted a fake high-$c$ component at
 
 $$
 a=\frac5{12},
 \qquad
-c=\frac{59}{60},
+c=\frac{27}{28},
 $$
 
-where its candidate exceeded $9/20$ although the exact support test proves
+where its candidate was $9/20$ although the exact formula gives
 
 $$
-B_{59/60}\left(\frac5{12}\right)<\frac9{20}.
+B_{27/28}\left(\frac5{12}\right)
+=
+\frac{27(14-\sqrt{141})}{784}
+<\frac9{20}.
 $$
 
 For the $N_+=1$ classification, demands and actual row reaches must not be
@@ -429,8 +433,9 @@ c\le2\max(a,b)
 $$
 
 removes that particular sheet error, but still does not prove candidate
-attainment or branch completeness. A proof-level scan must evaluate the exact
-finite support minimum or use a certified upper relaxation.
+attainment or branch completeness inside the old visual code. A proof-level
+scan must evaluate the exact piecewise map in `2007`, evaluate the equivalent
+support minimum, or use a certified upper relaxation.
 
 The exact local example in `2104` also shows that supercriticality does not
 force the original $T_0$ to fill either CE2 interval. This is a counterexample

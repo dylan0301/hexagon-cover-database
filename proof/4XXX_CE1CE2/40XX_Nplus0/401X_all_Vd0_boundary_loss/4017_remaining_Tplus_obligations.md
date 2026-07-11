@@ -2,24 +2,25 @@
 
 Status: Reference
 
-This file records the lower-sheet $T_+$ obligations that were formerly open,
-plus failed approaches that should not be repeated.
+This file records formal lower-sheet $T_+$ calculations and failed approaches
+that should not be repeated. The label $T_+^{lo}$ is the fake high-$c$
+component excluded by `2004`, `2007`, and `4015`; it is not a realized branch.
 
-The obligations recorded here are now discharged by
-`4019_lower_sheet_completion_proofs.md`, which gives analytic proofs of all
-three formerly open branches:
+`4019_lower_sheet_completion_proofs.md` preserves analytic inequalities for
+the three formerly listed algebraic cases:
 
 $$
 (T_+^{lo},T_-),\qquad (T_+^{lo},T_+^{hi}),\qquad (T_+^{lo},T_+^{lo}).
 $$
 
-Thus this file is now historical.  It remains useful because it explains why
-some plausible proof approaches are invalid or too weak.
+Thus this file is historical. Later words such as "proved," "discharged," or
+"realized" refer only to the retired formal branch catalog, not to the exact
+geometric map or the classified Vd0 map.
 
-## 1. Solved branches
+## 1. Historical branch inventory
 
-The following branches were already proved or eliminated before the lower-sheet
-completion:
+The former inventory listed the following branches as proved or eliminated
+before the lower-sheet calculation:
 
 $$
 (L,T_+),
@@ -47,14 +48,14 @@ $$
 (T_+^{hi},T_+^{hi})\text{ is impossible}.
 $$
 
-The lower-sheet completion proves the remaining three branches:
+The lower-sheet calculation treated the remaining three formal cases:
 
 $$
 (T_+^{lo},T_-),\qquad (T_+^{lo},T_+^{hi}),\qquad (T_+^{lo},T_+^{lo}).
 $$
 
-Therefore no lower-sheet $T_+$ branch remains open for the boundary-loss
-objective
+These formal calculations do not establish the boundary-loss objective for
+the exact classified map
 
 $$
 F=B(s,1-\gamma_5)+B(u,1-\gamma_1)<1.
@@ -81,9 +82,9 @@ d_1+d_5>w.
 $$
 
 This formulation correctly identifies the coupling in the problem, but it is
-not the proof route used in the final lower-sheet completion.  The final proof
-for $(T_+^{lo},T_+^{hi})$ instead uses the left lower-sheet maximal branch to
-bound the right high-sheet ratio.
+not the route used in the final historical lower-sheet calculation. That
+calculation for $(T_+^{lo},T_+^{hi})$ instead uses the formal left lower-sheet
+value to bound the right high-sheet ratio.
 
 ## 3. Final lower-sheet proof route
 
@@ -167,7 +168,7 @@ $$
 F=B_5+B_1<1.
 $$
 
-The full proof is in `4019_lower_sheet_completion_proofs.md`.
+The full formal calculation is in `4019_lower_sheet_completion_proofs.md`.
 
 ## 4. Failed approach: separate loss bounds
 
@@ -213,7 +214,12 @@ This is insufficient.  It produces fake high-$F$ points because it does not
 enforce the corrected maximal definition
 
 $$
-B(a,c)=\max\{b:(a,b,c)\in\mathcal A,\ a+b\le1\}.
+B(a,c)=
+\max_{\substack{
+0\le b\le1\\
+{}(a,b,c)\in\mathcal A\\
+a+b\le1
+}}b.
 $$
 
 A formal algebraic root may be beaten by a Low or $T_-$ candidate and therefore
@@ -232,8 +238,8 @@ downward closed in $b$ across the full semialgebraic model.  Thus infeasibility
 of the single value $b=1/2$ is not by itself enough to exclude a larger
 realized branch value without an additional monotonicity argument.
 
-The final proof avoids this gap by working directly with the realized right
-high-sheet ratio
+The historical calculation attempts to avoid this gap by working with the
+right high-sheet ratio
 
 $$
 \beta={B_1\over c_1}

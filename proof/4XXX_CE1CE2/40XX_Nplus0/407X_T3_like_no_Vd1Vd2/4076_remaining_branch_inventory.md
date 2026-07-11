@@ -1,4 +1,4 @@
-# Closed Branch Inventory for $407X$
+# Historical Branch Inventory for $407X$
 
 Status: Reference
 
@@ -11,7 +11,10 @@ This file records the branch inventory after the completion files
 - [`407c_detailed_gap_closure.md`](407c_detailed_gap_closure.md), and
 - [`407e_final_gap_fixes.md`](407e_final_gap_fixes.md).
 
-The purpose of this file is to show that the formerly open hard-region branch obligations are now covered by local proof files.  The detailed auxiliary inequalities used in the compressed branch files are recorded in `407c` and `407e`.
+This is a historical algebraic inventory. The local inequalities remain useful,
+but the discarded $T_+^{lo}$ sheet is not a realized branch, and the exact
+unclassified map does not prove inclusion in the actual-coordinate classified
+map. The detailed auxiliary inequalities are recorded in `407c` and `407e`.
 
 ## 1. Reduction target
 
@@ -167,4 +170,8 @@ $$
 (T_+^{hi},*).
 $$
 
-Therefore every hard-region branch satisfies the `4073` boundary-loss contradiction or is geometrically impossible. Hence the full $407X$ branch is closed by `407b_final_assembly.md`.
+Conditional on the historical branch inventory being replaced by a complete
+actual-coordinate classified-map inclusion, every hard-region branch would
+satisfy the `4073` contradiction or be geometrically impossible. The full
+$407X$ branch therefore remains Strategy, as recorded in `4070`, `407b`, and
+`407d`.

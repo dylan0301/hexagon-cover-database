@@ -50,12 +50,12 @@ where
 $$
 \mathsf B^0_c(a)
 =
-\sup\left\{
-B(T):A(T)\ge a,
-C(T)\ge c,
-A(T)+B(T)\le1,
-T\text{ Vd0}
-\right\}.
+\sup_{\substack{
+A(T)\ge a\\
+C(T)\ge c\\
+A(T)+B(T)\le1\\
+T\text{ is Vd0}
+}}B(T).
 $$
 
 Let
@@ -90,8 +90,8 @@ geometric partition are recorded in
 |---|---|---|
 | [`4014_setup_and_reduction.md`](4014_setup_and_reduction.md) | Strategy | Target, notation, C-triangle parameterization, and proven reduction to $F<1$. |
 | [`4015_B_map_branch_realization.md`](4015_B_map_branch_realization.md) | Definition | Corrected demand/actual semantics and withdrawal of the fake high-$c$ sheet. |
-| [`4016_proven_branch_lemmas.md`](4016_proven_branch_lemmas.md) | Strategy | Historical algebraic branch inequalities pending exact-map realization audit. |
-| [`4017_remaining_Tplus_obligations.md`](4017_remaining_Tplus_obligations.md) | Reference | Historical record of the lower-sheet obligations and failed approaches; superseded by [`4019_lower_sheet_completion_proofs.md`](4019_lower_sheet_completion_proofs.md) for proof status. |
+| [`4016_proven_branch_lemmas.md`](4016_proven_branch_lemmas.md) | Strategy | Historical algebraic inequalities pending actual-coordinate classified-map inclusion audit. |
+| [`4017_remaining_Tplus_obligations.md`](4017_remaining_Tplus_obligations.md) | Reference | Historical record of the discarded lower-sheet obligations and failed approaches; cross-read with [`4019_lower_sheet_completion_proofs.md`](4019_lower_sheet_completion_proofs.md) as algebraic history only. |
 | [`4018_computational_verification.md`](4018_computational_verification.md) | Empirical | Numerical checks, interval-certificate status, and code references. |
 | [`4019_lower_sheet_completion_proofs.md`](4019_lower_sheet_completion_proofs.md) | Strategy | Historical calculations on the now-discarded lower sheet. |
 | [`401aX_boundary_loss_experiments/401a0_README.md`](401aX_boundary_loss_experiments/401a0_README.md) | Experiment | Experiment helpers for the package. |

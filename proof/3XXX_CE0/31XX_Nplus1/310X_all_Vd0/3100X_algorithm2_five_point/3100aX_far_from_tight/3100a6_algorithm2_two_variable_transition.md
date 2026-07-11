@@ -10,11 +10,10 @@ $$
 
 It does not prove those equalities from the full all-Vd0 hypotheses.
 
-The two-variable equality reduction below is exact. The former claim that the
-displayed mixed/quartic formulas form the selected complete radial envelope
-was inherited from the withdrawn `2004` branch catalog. Until those formulas
-are derived from the exact finite support criterion, the transition and
-monotonicity part of this note remains Strategy.
+The two-variable equality reduction below is exact. `2004` now supplies a
+proved corrected piecewise radial envelope, but the substitutions and
+monotonicity claims in this older note have not yet been rechecked against its
+component selectors. The transition part therefore remains Strategy.
 
 ## Two-Variable Reduction
 

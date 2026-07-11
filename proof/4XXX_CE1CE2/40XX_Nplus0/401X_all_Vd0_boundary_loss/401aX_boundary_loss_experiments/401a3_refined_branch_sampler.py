@@ -14,7 +14,11 @@ def feasible_b(a, c, b, tol=TOL):
     p = min(a, b)
     q = max(a, b)
     cell1 = Delta <= tol and c ** 4 - c ** 2 + p * c - p * p <= tol
-    cell2 = Delta >= -tol and ((u * u - 1) * c * c + q * c - q * q) <= tol
+    cell2 = (
+        Delta >= -tol
+        and ((u * u - 1) * c * c + q * c - q * q) <= tol
+        and c <= 2 * q + tol
+    )
     return cell1 or cell2
 
 

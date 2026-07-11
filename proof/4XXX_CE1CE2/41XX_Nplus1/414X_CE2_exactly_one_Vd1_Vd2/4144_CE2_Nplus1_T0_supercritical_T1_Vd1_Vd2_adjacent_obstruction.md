@@ -21,11 +21,9 @@ the admissible-set radial envelope from
 and the CE2 interval-pair model from
 [`../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2103_CE2_M0_e50_e01_maximal_interval_pairs.md`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2103_CE2_M0_e50_e01_maximal_interval_pairs.md).
 
-Dependency warning: the radial-envelope step below invokes the former
-piecewise `2004` formulas. The corrected `2004` gives an exact finite support
-criterion but no proved replacement for that branch calculation. The local
-argument is retained as a strategy pending an exact support reproof of its
-radial bound.
+Dependency update: `2004` now proves a corrected piecewise radial envelope.
+The local argument below is still retained as a strategy until its use of the
+old branch labels is rechecked against the new component selectors.
 
 ## Statement
 
@@ -134,7 +132,7 @@ where
 $$
 A=
 \begin{cases}
-1-b_0,& b_0<y,\\[2mm]
+1-b_0,& b_0<y,\\
 \max(0,1-\max(b_0,v)),& b_0\ge y.
 \end{cases}
 $$
@@ -150,7 +148,7 @@ where
 $$
 H=
 \begin{cases}
-1-a_0,& a_0<x,\\[2mm]
+1-a_0,& a_0<x,\\
 \max(0,1-\max(a_0,u)),& a_0\ge x.
 \end{cases}
 $$
@@ -436,7 +434,7 @@ $$
 Since $h(x)\le y/S$, $y\ge y_0$, so
 
 $$
-\frac{K(x,y)}{S h(x)}\ge\frac{K(x,y_0)}{(x+y_0)h(x)}=\frac{K(x,y_0)}{y_0}>rac23,
+\frac{K(x,y)}{S h(x)}\ge\frac{K(x,y_0)}{(x+y_0)h(x)}=\frac{K(x,y_0)}{y_0}>\frac{2}{3},
 $$
 
 where the last inequality is the boundary value from the previous subcase.

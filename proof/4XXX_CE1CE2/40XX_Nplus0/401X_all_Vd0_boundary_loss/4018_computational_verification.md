@@ -7,10 +7,11 @@ in `401X_all_Vd0_boundary_loss/`.  Numerical results in this file are not proof
 unless explicitly paired with a finite interval certificate or a proven analytic
 lemma.
 
-The formerly open lower-sheet $T_+$ cases are now proved analytically in
-`4019_lower_sheet_completion_proofs.md`.  The lower-sheet numerical observations
-below should be read as historical evidence that guided the proof, not as the
-current proof status.
+The lower-sheet $T_+^{lo}$ label below is the fake high-$c$ component excluded
+by the corrected map. `4019_lower_sheet_completion_proofs.md` preserves
+analytic calculations for that retired algebraic sheet. The numerical
+observations below are historical evidence, not geometric branch realization
+and not the current proof status.
 
 ## 1. Code location
 
@@ -24,13 +25,20 @@ The supporting scripts are in:
 
 ## 2. Strict branch sampling
 
-The strict branch sampler uses the corrected definition
+The historical branch sampler was intended to use the definition
 
 $$
-B(a,c)=\max\{b:(a,b,c)\in\mathcal A,\ a+b\le1\}
+B(a,c)=
+\max_{\substack{
+0\le b\le1\\
+{}(a,b,c)\in\mathcal A\\
+a+b\le1
+}}b
 $$
 
-rather than treating every algebraic root as a branch realization.
+but its old cell predicate predates the complete component selectors in
+`2004` and `2007`. Its lower-sheet labels therefore do not certify branch
+realization.
 
 The strict sampler was used to check which branch pairs appear numerically after enforcing:
 
@@ -44,10 +52,10 @@ Representative findings:
 - The fake branch $(\mathrm{Full},\mathrm{Full})$ disappears after exact Full conditions are enforced.
 - $D_1$ appears only as a switching surface, not as a maximal branch.
 - $(T_+^{hi},T_+^{hi})$ was not found, consistent with its analytic impossibility proof.
-- Lower-sheet $T_+$ cases are realized but stay visibly below $F=1$ in sampling.
+- Formal lower-sheet $T_+$ roots stay visibly below $F=1$ in the old sampling.
 
 These strict sampling results are empirical and are not used as proof in the
-final lower-sheet completion.
+historical lower-sheet calculations.
 
 ## 3. Interval certificate for $(\mathrm{Full},L)$
 
@@ -186,9 +194,9 @@ $$
 (T_+^{lo},T_+^{lo}):\quad F\approx0.91093.
 $$
 
-These values suggested a visible gap.  The final proof does not rely on these
-numbers; it proves all three branches analytically in
-`4019_lower_sheet_completion_proofs.md`.
+These values suggested a visible gap. The calculations in `4019` do not rely
+on the numbers, but neither the numbers nor those calculations realize the
+discarded lower sheet geometrically.
 
 ## 6. What would count as evidence of an error
 

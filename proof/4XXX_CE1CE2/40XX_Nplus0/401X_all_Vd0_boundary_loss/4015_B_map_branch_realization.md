@@ -8,12 +8,13 @@ radial component. That is impossible for the true down-closed admissible set.
 
 ## Exact unclassified map
 
-Use the exact admissible set $\mathcal A$ and finite support criterion from
+Use the exact piecewise admissible set $\mathcal A$ from
 [`../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md).
 The exact unclassified demand map is
 
 $$
-B_c(a)=\max\left\{b:(a,b,c)\in\mathcal A\right\}.
+B_c(a)=
+\max_{\substack{0\le b\le1\\ {}(a,b,c)\in\mathcal A}}b.
 $$
 
 It is proved and audited in
@@ -26,13 +27,12 @@ map relevant to an $N_+=0$ row is the supremal envelope
 
 $$
 \mathsf B_c^0(a)=
-\sup\left\{
-B(T):
-T\text{ is Vd0},
-A(T)\ge a,
-C(T)\ge c,
+\sup_{\substack{
+T\text{ is Vd0}\\
+A(T)\ge a\\
+C(T)\ge c\\
 A(T)+B(T)\le1
-\right\},
+}}B(T),
 $$
 
 when the set is nonempty. It satisfies the safe bounds
@@ -50,7 +50,11 @@ $$
 The shortcut
 
 $$
-\max\left\{b:(a,b,c)\in\mathcal A, a+b\le1\right\}
+\max_{\substack{
+0\le b\le1\\
+{}(a,b,c)\in\mathcal A\\
+a+b\le1
+}}b
 $$
 
 restricts demands, not the actual realizing row. It is an upper relaxation,
@@ -102,8 +106,9 @@ $$
 c\le2\max(a,b).
 $$
 
-This selector removes the demonstrated fake sheet. It does not prove that the
-remaining algebraic roots are attainable or form a complete maximum catalog.
+This selector removes the demonstrated fake sheet. By itself it does not prove
+that the remaining algebraic roots are attainable or complete; the full
+unclassified support-contact realization is now proved in `2007`.
 
 In the old notation, the sheet called $T_+^{lo}$ was this fake high-$c$
 component. It may not be called a realized branch of $B_c(a)$ or
@@ -125,9 +130,9 @@ T_+^{hi},
 T_+^{lo}
 $$
 
-in older `401X` and `407X` files are now historical algebraic labels. Their
+in older `401X` and `407X` files are historical algebraic labels. Their
 individual inequalities may still be useful, but the old list is not a
-proved complete geometric partition of the exact classified map.
+proved complete geometric partition of the actual classified map.
 
 Before either package is upgraded to `Proven`, it must establish one of the
 following:

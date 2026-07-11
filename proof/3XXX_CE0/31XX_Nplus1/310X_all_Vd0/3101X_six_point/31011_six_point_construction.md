@@ -273,12 +273,12 @@ $$
 Let
 
 $$
-c_*=c(p,q),
+c_*=c_{\max}(p,q),
 $$
 
-where $c(\alpha,\beta)$ is the admissible-set boundary value from
+where $c_{\max}(\alpha,\beta)$ is the admissible-set radial envelope from
 [`../../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md`](../../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md).
-In that note, $c(\alpha,\beta)$ is defined by lower-bound edge constraints.
+In that note, its arguments are lower-bound edge demands.
 
 For $j=0,1,2$, define
 

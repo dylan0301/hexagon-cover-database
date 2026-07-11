@@ -7,11 +7,11 @@ component removed by the exact audit in `2007` and `4015`. The analytic
 inequalities are retained as historical relaxation calculations, not as a
 proof of realized geometric branch completeness.
 
-This file proves the lower-sheet $T_+$ branch obligations that were left open
-in `554_remaining_Tplus_obligations.md`.
+This file records the formal lower-sheet $T_+$ calculations that were left
+open in the historical branch inventory.
 
-The notation is that of `551_setup_and_reduction.md` and
-`552_B_map_branch_realization.md`.  On the main $r>1$ center-triangle branch,
+The notation is inherited from the old setup and branch-realization notes. On
+the main $r>1$ center-triangle branch,
 write
 
 $$
@@ -42,14 +42,19 @@ $$
 F=B(s,1-\gamma_5)+B(u,1-\gamma_1)=B_5+B_1.
 $$
 
-The corrected map is
+The intended demand-coordinate relaxation was
 
 $$
-B(a,c)=\max\{b\in[0,1-a]:(a,b,c)\in\mathcal A\}.
+B(a,c)=
+\max_{\substack{
+0\le b\le1-a\\
+{}(a,b,c)\in\mathcal A
+}}b.
 $$
 
-Branch labels always mean realized maximal branches, not merely formal
-algebraic roots.
+That sentence in the former version was false for $T_+^{lo}$. The corrected
+component selectors remove this sheet, so every calculation involving it
+below is historical algebra rather than a realized maximal branch.
 
 ## 1. Sheet notation
 

@@ -83,7 +83,7 @@ The live branch splits into two complementary subtrees:
 | `3100a1` | Reference | Far-from-tight status and remaining certificate obligations. |
 | `3100a2` | Strategy | Five-point construction and algorithm-2 diagonal choices. |
 | `3100a5` | Proven | Strict $\rho<1$ line realization for $P_3,P_5$. |
-| `3100a6` | Strategy | Exact two-variable reduction; selected radial transition needs reproof. |
+| `3100a6` | Strategy | Exact two-variable reduction and radial formulas; transition use needs selector-aware rechecking. |
 | `3100a8` | Proven | Convex cyclic order and five support-edge reduction. |
 | `3100a9` | Empirical | Transition-strip computation and certificate outline. |
 | `3100b2` | Practically proven | Close-to-tight diagonal remainder estimates. |

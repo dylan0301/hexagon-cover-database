@@ -40,10 +40,10 @@ Vd0, Vd1/Vd2, and T3-like vertex-role patterns.
   - `1202`: local coordinates $(a,b,c)$
 - `2XXX`: geometric lemmas
   - `20XX`: V-triangle geometry
-    - `2004`: exact support-function admissible set
+    - `2004`: exact piecewise support-contact admissible set
     - `2005`: proved midpoint self-cover criterion
     - `2006`: T3-like midpoint lemma
-    - `2007`: exact implicit $B_c(a)$ map and classified-map semantics
+    - `2007`: exact piecewise $B_c(a)$ map and classified-map semantics
     - `2008`: neighbor-ray maximum formula
     - `2009X`: ab-set package, including the ab-union curve for $a+b>1$
     - `2010`: proved free strict-supercritical outgoing supremum
