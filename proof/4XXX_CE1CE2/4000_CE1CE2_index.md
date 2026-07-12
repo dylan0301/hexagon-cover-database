@@ -8,7 +8,7 @@ rows where their hypotheses differ from the CE1 branch.
 
 | File | Recorded status | Branch |
 |---|---|---|
-| [`40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md`](40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md) | Strategy | CE1/CE2, $N_+=0$, all Vd0; exact CE1, shared no-gap, and CE2 one-gap cases are proved, with four CE2 two-gap high-label endpoint pairs remaining. |
+| [`40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md`](40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md) | Proven | CE1/CE2, $N_+=0$, all Vd0; exact CE1 matrix and every CE2 no-gap, one-gap, and two-gap state are proved. |
 | [`40XX_Nplus0/404X_exists_Vd1_Vd2_obstruction/4040_CE1_Nplus0_exists_Vd1_Vd2_boundary_length_obstruction.md`](40XX_Nplus0/404X_exists_Vd1_Vd2_obstruction/4040_CE1_Nplus0_exists_Vd1_Vd2_boundary_length_obstruction.md) | Practically proven | CE1, $N_+=0$, at least one Vd1/Vd2 boundary-length obstruction. |
 | [`40XX_Nplus0/404X_exists_Vd1_Vd2_obstruction/4041_CE2_Nplus0_exists_Vd1_Vd2_boundary_length_obstruction.md`](40XX_Nplus0/404X_exists_Vd1_Vd2_obstruction/4041_CE2_Nplus0_exists_Vd1_Vd2_boundary_length_obstruction.md) | Practically proven | CE2, $N_+=0$, at least one Vd1/Vd2 boundary-length obstruction. |
 | [`40XX_Nplus0/407X_T3_like_no_Vd1Vd2/407d_rigor_final_assembly.md`](40XX_Nplus0/407X_T3_like_no_Vd1Vd2/407d_rigor_final_assembly.md) | Proven | CE1/CE2, $N_+=0$, at least one T3-like and no Vd1/Vd2; exact four-label support/map reassembly and perimeter contradiction. |
@@ -17,7 +17,7 @@ rows where their hypotheses differ from the CE1 branch.
 | [`41XX_Nplus1/411X_Vd1_Vd2_obstruction/4111_CE2_Nplus1_at_least_two_Vd1_Vd2_boundary_length_obstruction.md`](41XX_Nplus1/411X_Vd1_Vd2_obstruction/4111_CE2_Nplus1_at_least_two_Vd1_Vd2_boundary_length_obstruction.md) | Practically proven | CE2, $N_+=1$, at least two Vd1/Vd2 boundary-length obstruction. |
 | [`41XX_Nplus1/412X_at_least_two_T3_like/4123_CE1_CE2_at_least_two_T3_like_diagonal_obstruction.md`](41XX_Nplus1/412X_at_least_two_T3_like/4123_CE1_CE2_at_least_two_T3_like_diagonal_obstruction.md) | Practically proven | CE1/CE2, $N_+=1$, at least two T3-like rows. |
 | [`41XX_Nplus1/413X_exactly_one_T3_like/4130_CE1CE2_exactly_one_T3_like_index.md`](41XX_Nplus1/413X_exactly_one_T3_like/4130_CE1CE2_exactly_one_T3_like_index.md) | Proven | CE1/CE2, $N_+=1$, exactly one T3-like row; closed by the shared boundary obstruction in `4131` and `4132`. |
-| [`41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4140_CE2_Nplus1_exactly_one_Vd1_Vd2_TODO.md`](41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4140_CE2_Nplus1_exactly_one_Vd1_Vd2_TODO.md) | Reduction | CE2, $N_+=1$, exactly one Vd1/Vd2; `414a` closes every additional-positive-support case, while proved `414b` and `414c` bridges reduce the complementary branch solely to `4013`. |
+| [`41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4140_CE2_Nplus1_exactly_one_Vd1_Vd2_TODO.md`](41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4140_CE2_Nplus1_exactly_one_Vd1_Vd2_TODO.md) | Proven | CE2, $N_+=1$, exactly one Vd1/Vd2; `414a` closes every additional-positive-support case, and the proved complementary reduction terminates at proved `4013`. |
 | [`42XX_Nplus_ge2/4200_CE1_CE2_skeleton_length_route.md`](42XX_Nplus_ge2/4200_CE1_CE2_skeleton_length_route.md) | Practically proven | CE1/CE2, $N_+\ge2$ shared skeleton-length obstruction. |
 
 The May 25 five-point route is not used for CE1/CE2 all-Vd0; see

@@ -1,10 +1,12 @@
-# Exact CE2 Boundary-Loss Ledger After the One-Gap Completion
+# Exact CE2 Two-Gap Boundary-Loss Reduction and Branch Ledger
 
-Status: Strategy
+Status: Proven
 
-This note records the sole remaining obstruction in the CE2 half of `401X`.
-The no-gap case is proved in `4014`, and the exactly-one-gap case is proved
-analytically in `401d`. Only the two-gap case remains.
+This note gives the exact endpoint reduction and branch ledger for the CE2
+two-gap half of `401X`. The four formerly open high-label pairs are proved in
+[`401e_CE2_two_gap_completion.md`](401e_CE2_two_gap_completion.md). Together
+with the no-gap proof in `4014` and the one-gap proof in `401d`, this completes
+the CE2 package.
 
 ## Completed CE2 boundary states
 
@@ -24,7 +26,8 @@ The boundary states are now:
 2. Exactly one center interval contains a V-gap. The exact safe-map proof in
    [`401d_CE2_exact_branch_completion.md`](401d_CE2_exact_branch_completion.md)
    proves this case impossible in both orientations.
-3. Both center intervals contain V-gaps. This is the remaining state.
+3. Both center intervals contain V-gaps. The reduction below and the exact
+   four-pair proof in `401e` eliminate this state.
 
 ## Direct two-gap endpoint reduction
 
@@ -218,7 +221,7 @@ $$
 (T_+^{hi},T_+^{hi}).
 $$
 
-The pairs $(L,L)$ and $(L,T_-)$ have sum strictly below $K<1$. The
+The pairs $(L,L)$ and $(L,T_-)$ have sum at most $K<1$. The
 Full--$L$ pair is also excluded exactly. For completeness, if
 
 $$
@@ -307,7 +310,7 @@ $$
 
 which proves the Full--$L$ sum is less than one.
 
-The exact pairs still requiring a proof are therefore
+The branch reductions in this note leave exactly
 
 $$
 \boxed{
@@ -321,7 +324,9 @@ $$
 }
 $$
 
-No numerical scan or unselected algebraic root proves these four cases.
+These four pairs are proved analytically in `401e`, using only the selected
+safe-map components and the two strict CE2 endpoint inequalities. No
+numerical scan or unselected algebraic root is used.
 
 ## Simultaneous replacement fallback
 
@@ -333,13 +338,12 @@ supercritical Vd0 row. Thus, at the skeleton level, the two-gap $401X$ state
 reduces to the all-boundary-covered CE2, $N_+=1$, all-Vd0 state in `410X`.
 
 That replacement does not preserve the full interior hexagon cover, so the
-still-open all-boundary-covered transfer in `4101` cannot be used as a proof
-of the original `401X` branch. The direct four-pair target above or a
-full-cover-preserving replacement argument is still required.
+still-open all-boundary-covered transfer in `4101` is not used as a proof of
+the original `401X` branch. The direct four-pair theorem in `401e` avoids this
+replacement issue.
 
-## Exact remaining obligation
+## Exact completion
 
-To promote the combined `4013` package to `Proven`, it is necessary and
-sufficient within the recorded reduction to discharge the four high-label
-endpoint pairs above. The CE1 matrix, CE2 no-gap case, CE2 one-gap case, and
-arbitrary replacement-exit classification are no longer open items.
+The exact proof in `401e` discharges all four high-label endpoint pairs above.
+Thus the CE1 matrix, CE2 no-gap case, CE2 one-gap case, and CE2 two-gap case
+are all proved, and the combined `4013` package is `Proven`.

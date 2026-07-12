@@ -14,7 +14,8 @@ Then the seven roles cannot cover the hexagon perimeter.
 
 This theorem does not claim the full CE2 package. The no-gap case is proved
 in [`4014_setup_and_reduction.md`](4014_setup_and_reduction.md), Section 6.
-The two-gap case remains outside this theorem and will be handled separately.
+The two-gap case is outside this theorem and is proved separately in
+[`401e_CE2_two_gap_completion.md`](401e_CE2_two_gap_completion.md).
 
 ## 1. Boundary reduction
 

@@ -89,7 +89,7 @@ Vd0, Vd1/Vd2, and T3-like vertex-role patterns.
 - `4XXX`: CE1/CE2
   - `40XX`: CE1/CE2, $N_+=0$
     - all Vd0
-      - `401X`: exact CE1 matrix, shared no-gap case, and CE2 one-gap matrix proved; four CE2 two-gap high-label endpoint pairs remain
+      - `401X`: exact CE1 matrix and all CE2 no-gap, one-gap, and two-gap states proved
     - at least one Vd1/Vd2
       - `404X`: CE1 and CE2 boundary-length obstructions
     - at least one T3-like and no Vd1/Vd2
@@ -100,7 +100,7 @@ Vd0, Vd1/Vd2, and T3-like vertex-role patterns.
       - `9630`: 5 point conjecture counterexample
     - Vd1/Vd2 branches
       - `411X`: CE1 at-least-one and CE2 at-least-two boundary-length obstructions
-      - `414X`: additional positive-support branch closed by `414a`; proved classification and radial bridges reduce the complementary branch to `4013`
+      - `414X`: additional positive-support branch closed by `414a`; the complementary branch closes through the now-proved `4013` package
     - at least two T3-like and no Vd1/Vd2
       - `412X`: shared CE1/CE2 diagonal obstruction
     - exactly one T3-like and no Vd1/Vd2

@@ -1,18 +1,15 @@
 # CE1/CE2 Vd0 Boundary-Loss Package
 
-Status: Strategy
+Status: Proven
 
 This folder records the proof package for the CE1/CE2, all-Vd0 boundary-loss
 obstruction. The exact capped-map theorem in `4015` removes the fake lower
-sheet and proves that four genuine labels are exhaustive. The entire exact
-CE1 branch matrix is now proved analytically in `401b`, including both
-formerly open ordered pairs and both formerly certificate-backed cells.
-
-The combined package remains `Strategy` only because the CE2 two-gap endpoint
-inequality is not fully proved. The CE2 no-gap case is proved by the
-open-perimeter lemma in `4014`, and the exact one-gap matrix is proved in
-`401d`. The four remaining two-gap high-label pairs are recorded precisely in
-`401c`.
+sheet and proves that four genuine labels are exhaustive. The exact CE1 branch
+matrix is proved analytically in `401b`, including both formerly open ordered
+pairs and both formerly certificate-backed cells. For CE2, the no-gap case is
+proved by the open-perimeter lemma in `4014`, the exact one-gap matrix is
+proved in `401d`, and the exact two-gap matrix is proved in `401e`. Thus the
+combined package is complete.
 
 The target local statement is:
 
@@ -23,7 +20,8 @@ $$
 For CE2, the strengthened replacement theorem in `2104` gives a simultaneous
 Vd0 supercritical replacement covering both gaps. This classifies the
 skeleton exit exactly, but it does not preserve the full interior cover of
-$H$. The direct endpoint-pair target in `401c` avoids that replacement issue.
+$H$. The direct endpoint-pair proof in `401c` and `401e` avoids that
+replacement issue.
 
 For CE1, the proved consequence is that any successful all-Vd0 covering must
 have at least one vertex triangle with
@@ -76,7 +74,7 @@ $$
 
 The reduction in
 [`4014_setup_and_reduction.md`](4014_setup_and_reduction.md)
-(Status: Strategy) shows conditionally that $F<1$ gives the boundary
+(Status: Proven) shows that $F<1$ gives the boundary
 contradiction: the portion left for $V_2,V_3,V_4$ has length $4-F>3$, while
 
 $$
@@ -94,7 +92,8 @@ The exact safe relaxation and its complete four-label partition are proved in
 (Status: Proven).
 
 The CE2 active-interval formulas are handled separately. The exact one-gap
-proof is in `401d`, and the remaining two-gap endpoint target is in `401c`.
+proof is in `401d`, while the two-gap reduction and completion are in `401c`
+and `401e`.
 
 ## Exact CE1 branch-matrix completion
 
@@ -238,7 +237,7 @@ Section 4 proves it on that full domain.
 
 | File | Recorded status | Notes |
 |---|---|---|
-| [`4014_setup_and_reduction.md`](4014_setup_and_reduction.md) | Strategy | Exact CE1 notation and reduction to $F<1$; CE2 use remains conditional. |
+| [`4014_setup_and_reduction.md`](4014_setup_and_reduction.md) | Proven | Exact CE1 notation, boundary-loss reduction, and shared no-gap open-perimeter lemma. |
 | [`4015_B_map_branch_realization.md`](4015_B_map_branch_realization.md) | Proven | Exact safe capped map, four-label partition, and withdrawal of the fake high-$c$ sheet. |
 | [`4016_proven_branch_lemmas.md`](4016_proven_branch_lemmas.md) | Reference | Historical branch calculations superseded by the exact analytic CE1 proof in `401b`. |
 | [`4017_remaining_Tplus_obligations.md`](4017_remaining_Tplus_obligations.md) | Reference | Historical record of the discarded lower-sheet obligations and failed approaches; cross-read with [`4019_lower_sheet_completion_proofs.md`](4019_lower_sheet_completion_proofs.md) as algebraic history only. |
@@ -246,8 +245,9 @@ Section 4 proves it on that full domain.
 | [`4019_lower_sheet_completion_proofs.md`](4019_lower_sheet_completion_proofs.md) | Reference | Historical calculations on the now-discarded lower sheet. |
 | [`401aX_boundary_loss_experiments/401a0_README.md`](401aX_boundary_loss_experiments/401a0_README.md) | Experiment | Experiment helpers for the package. |
 | [`401b_CE1_exact_branch_completion.md`](401b_CE1_exact_branch_completion.md) | Proven | Complete exact CE1 four-label matrix; no computational dependency. |
-| [`401c_CE2_remaining_obligations.md`](401c_CE2_remaining_obligations.md) | Strategy | Exact two-gap endpoint reduction, proved low and Full--$L$ cells, and the four remaining high-label pairs. |
+| [`401c_CE2_remaining_obligations.md`](401c_CE2_remaining_obligations.md) | Proven | Exact two-gap endpoint reduction and complete branch ledger, with the final four pairs discharged in `401e`. |
 | [`401d_CE2_exact_branch_completion.md`](401d_CE2_exact_branch_completion.md) | Proven | Complete exact CE2 one-gap four-label matrix in both orientations. |
+| [`401e_CE2_two_gap_completion.md`](401e_CE2_two_gap_completion.md) | Proven | Complete exact proof of the four final CE2 two-gap high-label pairs. |
 
 ## Historical branch calculations
 
@@ -269,6 +269,7 @@ The following algebraic cells have recorded calculations in this package:
 - $(T_+^{lo},T_+^{lo})$.
 
 The exact upper-map inclusion is proved in `4015`, the exact CE1 branch matrix
-is proved in `401b`, the CE1/CE2 no-gap case is proved in `4014`, and the CE2
-one-gap case is proved in `401d`. The combined package remains `Strategy` only
-for the four CE2 two-gap high-label pairs stated in `401c`.
+is proved in `401b`, the CE1/CE2 no-gap case is proved in `4014`, the CE2
+one-gap case is proved in `401d`, and the CE2 two-gap case is proved in
+`401e`. Therefore the stated CE1/CE2 all-Vd0 boundary-loss obstruction is
+proved.

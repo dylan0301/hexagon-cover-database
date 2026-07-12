@@ -1,6 +1,6 @@
 # CE2, $N_+=1$, Vd1--Supercritical Adjacent Pair Axis Replacement
 
-Status: Reduction
+Status: Proven
 
 This file proves the remaining adjacent-rescue local replacement used in the
 [`4148`](4148_CE2_Nplus1_exactly_one_Vd1_Vd2_assembly.md) assembly.
@@ -19,8 +19,8 @@ using the admissible-set branch inequalities from
 
 Dependency statement: the local bounds and the boundary-preserving axis
 replacements are proved below. The full center-induced radial bridge is proved
-in `414b`. Consequently this file reduces the adjacent-rescue branch directly
-to `4013`, which is its sole terminal dependency.
+in `414b`. The resulting adjacent-rescue branch is an input to the now-proved
+`4013` package, so the branch is closed.
 
 ## Statement
 
@@ -35,7 +35,8 @@ $$
 Assume every other vertex row is Vd0 and nonsupercritical. Then the coverage
 supplied by the pair $(T_{i-1},T_i)$ can be replaced by two open-role
 nonsupercritical Vd0 rows without decreasing the required boundary or radial
-coverage. The replacement produces a CE2 all-Vd0 nonsupercritical input for
+coverage. The replacement produces the CE2 all-Vd0 nonsupercritical
+boundary/radial datum used by
 [`../../40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md`](../../40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md).
 
 The reflected case in which $T_{i+1}$ is Vd1 and covers $M_i$ is identical.
@@ -509,12 +510,15 @@ open nonsupercritical Vd0 roles while preserving the complete required
 boundary and radial cover.
 
 All other vertex rows in this branch are already nonsupercritical Vd0 rows.
-Therefore the proved replacement produces a CE2 all-Vd0 cover with every
-vertex row satisfying $a_j+b_j\le1$.
+Therefore the proved replacement produces a CE2 all-Vd0 boundary/radial
+datum with every vertex row satisfying $a_j+b_j\le1$. The replacement is not
+asserted to preserve the interior cover of $H$; the `4013` boundary-loss
+contradiction consumes only the preserved perimeter coverage and the exact
+complementary radial demands.
 
 This reduces the branch to the CE1/CE2
 all-Vd0 boundary-loss obstruction recorded in
 [`../../40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md`](../../40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md).
 
-Thus the adjacent Vd1--supercritical rescue branch reduces directly to
-`4013`.
+Thus the adjacent Vd1--supercritical rescue branch is impossible by the
+proved `4013` boundary-loss obstruction.
