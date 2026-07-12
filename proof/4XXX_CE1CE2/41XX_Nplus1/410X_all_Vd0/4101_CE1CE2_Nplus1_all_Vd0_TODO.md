@@ -6,6 +6,15 @@ This note records the strongest current rigorous reduction for the `410X`
 branch. It does not claim that the branch, `310X`, skeleton noncoverage, or
 the main theorem is proved.
 
+## Package progress
+
+| File | Recorded status | Role |
+|---|---|---|
+| [`4101_CE1CE2_Nplus1_all_Vd0_TODO.md`](4101_CE1CE2_Nplus1_all_Vd0_TODO.md) | Strategy | Exact setup, case ledger, and remaining obligations. |
+| [`4102_CE2_two_gap_completion.md`](4102_CE2_two_gap_completion.md) | Proven | Eliminates the CE2 two-gap state by importing the proved endpoint inequality from `401c` and `401e`. |
+| [`4103_one_gap_five_map_reduction.md`](4103_one_gap_five_map_reduction.md) | Reduction | Reduces CE1 and CE2 exactly-one-gap states to three explicit five-map targets and records exact shortcut failures. |
+| [`4104_all_boundary_transfer_to_310X.md`](4104_all_boundary_transfer_to_310X.md) | Reduction | Proves the all-boundary handoff and finite-point transfer to the strict six-point $F_6$ target. |
+
 ## 1. Exact starting formulation
 
 Begin with a hypothetical cover of the full side-one hexagon $H$ by seven
@@ -160,6 +169,40 @@ $$
 
 but it does not encode the one-supercritical-row condition.
 
+Two proved upper relaxations now encode the row classes safely. For
+$i\ne0$, the capped-map theorem in
+[`../../40XX_Nplus0/401X_all_Vd0_boundary_loss/4015_B_map_branch_realization.md`](../../40XX_Nplus0/401X_all_Vd0_boundary_loss/4015_B_map_branch_realization.md)
+gives
+
+$$
+B_i^0(x)
+\le
+\min\left\{B_{c_i}(x),1-x\right\}.
+$$
+
+Write
+
+$$
+\widehat B_c(x)=\min\left\{B_c(x),1-x\right\}.
+$$
+
+For the strict-supercritical row, the free envelope in
+[`../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2010_free_supercritical_max_b.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2010_free_supercritical_max_b.md)
+gives, for $c_0<1/2$,
+
+$$
+B_0^+(x)
+\le
+\min\left\{
+B_{c_0}(x),
+\frac{c_0+\sqrt{c_0^2-8c_0+4}}2
+\right\}.
+$$
+
+The strict-supercritical feasible set is empty for $c_0\ge1/2$. These bounds
+are sufficient for the exact reductions in `4103`; they are not asserted to
+be exact classified maps.
+
 ## 4. Boundary recurrence and V-gaps
 
 On $e_{i,i+1}$, parameterized from $V_i$, the adjacent vertex roles cover
@@ -225,7 +268,7 @@ $$
 
 If the adjacent vertex reaches already cover $[s,t]$, the six V-triangles
 cover all of $\partial H$. This is an all-boundary-covered case. It is not a
-$g$-chain contradiction by itself and is sent to the conditional transfer in
+$g$-chain contradiction by itself and is sent to the proved reduction in
 Section 8.
 
 ### CE1 with a V-gap
@@ -251,7 +294,9 @@ $$
 
 Both are necessary. A future obstruction proof must exclude their simultaneous
 validity over the exact CE1 domain using proof-safe classified maps or
-certified upper relaxations.
+certified upper relaxations. The stronger common-realization reduction and
+the exact remaining five-map target are proved in
+[`4103_one_gap_five_map_reduction.md`](4103_one_gap_five_map_reduction.md).
 
 ## 6. CE2 exhaustive split
 
@@ -305,60 +350,29 @@ $$
 \le1-x.
 $$
 
+The exact survivor splits and the two reflected five-map targets are recorded
+in `4103`. The two-adjacent-row shortcut from `401X` is not globally valid;
+`4103` gives exact CE1 and CE2 witnesses.
+
 ### Both intervals have V-gaps
 
-A single sixfold composition across either interval is not justified. The
-same $T_0$ touches both gaps, so the correct necessary split consists of two
-one-row conditions
+This state is proved impossible in
+[`4102_CE2_two_gap_completion.md`](4102_CE2_two_gap_completion.md). The two
+far-end inputs involve only $T_1$ and $T_5$, and the exact endpoint theorem
+from proved `401c` and `401e` gives
 
 $$
-\boxed{g_0(x)\le1-y,}
+\widehat B_{c_5}(1-u)
++
+\widehat B_{c_1}(1-v)
+<1.
 $$
 
-$$
-\boxed{g_0(y)\le1-x,}
-$$
+The resulting four-edge boundary remainder has length greater than three,
+contradicting the row caps for $T_2,T_3,T_4$. The supercritical row $T_0$
+does not occur in this argument.
 
-and two complementary five-row conditions
-
-$$
-\boxed{
-(g_5\circ g_4\circ g_3\circ g_2\circ g_1)(1-v)\le u,
-}
-$$
-
-$$
-\boxed{
-(g_1\circ g_2\circ g_3\circ g_4\circ g_5)(1-u)\le v.
-}
-$$
-
-The two one-row inequalities are still not a substitute for common
-realization. The same unit Vd0 triangle must satisfy
-
-$$
-A(T_0)\ge x,
-\qquad
-B(T_0)\ge y,
-\qquad
-C(T_0)\ge\frac{xy}{x+y},
-$$
-
-and
-
-$$
-A(T_0)+B(T_0)>1.
-$$
-
-The CE2 coupling
-
-$$
-u+v=\frac{\sqrt{x^2+xy+y^2}+xy}{x+y}
-$$
-
-must also be retained.
-
-## 7. CE2 two-gap replacement
+## 7. Independent CE2 two-gap skeleton replacement
 
 The proved replacement theorem
 [`../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2104_CE2_one_interval_lemma.md`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2104_CE2_one_interval_lemma.md)
@@ -404,11 +418,11 @@ unclassified V-type or $N_+$ exits.
 It still does not follow from bare supercriticality that the original $T_0$
 binds an endpoint. More importantly, the replacement is proved to preserve
 the skeleton, not the full interior cover of $H$. Therefore it does not by
-itself complete the original full-cover branch. A proof must justify this
-normalization before using interior obstruction points, or finish the
-all-boundary-covered transfer below without replacing the original roles.
+itself complete a full-cover branch. It is no longer needed for the CE2
+two-gap `410X` subcase, which is proved directly in `4102` without replacing
+the original roles.
 
-## 8. Conditional all-boundary-covered transfer
+## 8. Proven all-boundary-covered reduction
 
 If no center interval contains a V-gap, the six vertex roles cover every
 boundary edge. Select a boundary handoff point $X_i$ on each edge and write
@@ -417,17 +431,22 @@ $$
 (a_i,b_i)=(1-x_{i-1},x_i).
 $$
 
-The unique supercritical row and its exact $AB$-union set are then available
-in the same boundary-data form used by the two live `310X` strategies.
-Because the starting hypothesis covers the full hexagon $H$, not merely the
-skeleton, interior ab-union obstruction points may be selected and must be
-covered by one of the seven original triangles.
+The strict handoff construction and full-cover transfer are proved in
+[`4104_all_boundary_transfer_to_310X.md`](4104_all_boundary_transfer_to_310X.md).
+It supplies exactly one selected supercritical row, five strictly
+nonsupercritical rows, strict nondegenerate anchor distances, and the
+inclusion of the finite six-point interior obstruction set in $T_C$. No CE0
+property of the center role is needed.
 
-This gives a conditional transfer route to
-[`../../../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3100_CE0_Nplus1_all_Vd0_index.md`](../../../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3100_CE0_Nplus1_all_Vd0_index.md).
-It is not yet a theorem. Every use of CE0 in the selected `310X` construction
-must be audited and replaced by the exact hypothesis supplied by redundant
-V-boundary coverage. Moreover, both `3100X` and `3101X` remain Strategy.
+This is a proved reduction, not a completed obstruction. Its terminal
+inequality
+
+$$
+F_6(a,b)\ge1
+$$
+
+remains open. The `3101X` six-point package targets the stronger sufficient
+inequality $F_6(a,b)>1$.
 
 ## 9. Counterexample and numerical warnings
 
@@ -466,19 +485,17 @@ to that proposed inference, not to the replacement theorem and not to the full
 
 The branch remains open until all of the following are supplied:
 
-1. derive usable exact formulas or certified upper bounds for the classified
-   maps $B_i^0$ and $B_0^+$;
-2. exclude both propagation directions over the exact CE1 one-gap domain;
-3. exclude both directions over the exact CE2 one-gap domain;
-4. justify the simultaneous skeleton replacement at the full-cover level, or
-   avoid it by proving the needed direct two-gap inequality;
-5. complete the all-boundary-covered transfer to a specific `310X`
-   obstruction and discharge each CE0-only hypothesis there;
-6. convert any numerical global inequality into exact algebra, a finite
-   interval certificate, or another independently checkable proof.
+1. prove Target `4103-CE1` over the exact CE1 domain;
+2. prove the reflected Targets `4103-CE2-R` and `4103-CE2-L` over the exact
+   CE2 domain;
+3. prove Target `4104-F`, namely $F_6(a,b)\ge1$ on the strict selected
+   domain, or prove the stronger existing `3101X` target; and
+4. convert any numerical global inequality used for these targets into exact
+   algebra, a finite interval certificate, or another independently
+   checkable proof.
 
-The rigorous gain recorded here is the exact center parameterization, the
-corrected admissible-map semantics, the two-direction gap recurrences, the
-correct coupled two-gap inequalities, and the exactly classified CE2
-replacement that sends a two-gap skeleton system to the all-boundary-covered
-state inside `410X`.
+The rigorous progress now consists of the exact center parameterization and
+safe map semantics, the proved CE2 two-gap obstruction in `4102`, the exact
+one-gap reductions in `4103`, and the proved all-boundary transfer in `4104`.
+The overall package remains `Strategy` because the named terminal targets
+above are open.
