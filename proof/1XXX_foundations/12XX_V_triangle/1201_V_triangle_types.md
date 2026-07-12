@@ -14,11 +14,32 @@ $$
 n=\left\lvert \left\lbrace \text{adjacent rays }r_{i-1},r_{i+1}\text{ having positive-length intersection with }T_i \right\rbrace \right\rvert.
 $$
 
-The names are:
+Every original vertex role has
 
 $$
-\mathrm{Vd0}: (o,n)=(1,0)\text{ or }(2,0),
+1\le o\le3.
 $$
+
+Indeed, if all three vertices of $T_i$ belonged to the convex hexagon $H$,
+then the whole triangle would belong to $H$. This is impossible because the
+extreme point $V_i$ of $H$ lies in the interior of the original vertex role.
+
+The zero-adjacent-support class is
+
+$$
+\boxed{
+\mathrm{Vd0}: n=0,
+}
+$$
+
+or equivalently
+
+$$
+\mathrm{Vd0}:
+(o,n)=(1,0),(2,0),\text{ or }(3,0).
+$$
+
+The positive-support names are:
 
 $$
 \mathrm{Vd1}: (o,n)=(1,1),
@@ -57,3 +78,15 @@ region and covers a strict superset of that region.  Thus T3-like arguments
 may assume $V_i$ lies on a side of $T_i$.
 
 The case $(o,n)=(2,2)$ is unattainable.
+
+The positive-support list is not asserted to classify every pair with
+$n\ge1$. Proofs that need only the complementary split use
+
+$$
+n=0
+\qquad\text{or}\qquad
+n\ge1
+$$
+
+directly. In particular, the definition of Vd0 does not depend on the number
+of outside vertices.

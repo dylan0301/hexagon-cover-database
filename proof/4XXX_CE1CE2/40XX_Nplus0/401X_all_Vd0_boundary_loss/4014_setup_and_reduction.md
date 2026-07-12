@@ -15,8 +15,8 @@ $$
 The intended case has:
 
 - $T_C$ is CE1 or CE2.
-- CE2 use of this reduction is conditional on the replacement theorem in
-  `2104` and on routing every V-type or $N_+$ exit created by the replacement.
+- CE2 one-gap use is proved separately from the exact `2106` formulas in
+  `401d`; the remaining CE2 two-gap target is isolated in `401c`.
 - All six $V_i$-triangles are Vd0.
 - The contradiction assumption is
 
@@ -55,10 +55,9 @@ $$
 w>0.
 $$
 
-For CE2, selecting one remaining active interval after `2104` does not by
-itself justify the CE1 formulas below. The exact CE2 intervals and radial
-demands remain coupled as in `2106`; the resulting obligations are stated in
-`401c`.
+For CE2, selecting one interval does not justify the CE1 formulas below. The
+exact coupled intervals and radial demands from `2106` are used directly in
+`401d` and `401c`.
 
 ## 3. C-triangle slope parameterization
 
@@ -75,9 +74,9 @@ not an extra specialization. The exact CE1 center domain and radial exits are pr
 [`../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2105_CE1_exact_formulas.md`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2105_CE1_exact_formulas.md).
 The coupled two-interval CE2 domain is proved in
 [`../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2106_CE2_exact_formulas.md`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2106_CE2_exact_formulas.md).
-The coupled two-interval CE2 domain is not reduced to these formulas. This is
-why this combined CE1/CE2 setup file remains `Strategy`, even though the exact
-CE1 case is completed in `401b`.
+The coupled two-interval CE2 domain is not reduced to these formulas. This
+setup file remains `Strategy` as a combined note even though the exact CE1
+case is completed in `401b` and the exact CE2 one-gap case in `401d`.
 
 Let the two side functions cutting $e_{0,1}$ at $s$ and $t$ have positive
 edge-slopes $p$ and $q$, ordered so that

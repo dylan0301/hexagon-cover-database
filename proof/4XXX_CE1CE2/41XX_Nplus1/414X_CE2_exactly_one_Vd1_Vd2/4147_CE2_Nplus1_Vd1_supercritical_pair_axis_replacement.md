@@ -18,10 +18,9 @@ using the admissible-set branch inequalities from
 [`../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md).
 
 Dependency statement: the local bounds and the boundary-preserving axis
-replacements are proved below. Upgrading the second replacement to preserve
-the full center-induced radial demand is the explicit target `414b`. After
-that target, the route ends at `4013`. This file has `Reduction` status because
-it isolates and routes both terminal obligations; it does not prove them.
+replacements are proved below. The full center-induced radial bridge is proved
+in `414b`. Consequently this file reduces the adjacent-rescue branch directly
+to `4013`, which is its sole terminal dependency.
 
 ## Statement
 
@@ -33,14 +32,10 @@ T_{i-1}\text{ is Vd1 and covers }M_i,
 T_i\text{ is the unique supercritical row}.
 $$
 
-Assume every other vertex row is Vd0 and nonsupercritical.  Then the boundary
-coverage supplied by the pair $(T_{i-1},T_i)$ can be replaced by two
-axis-aligned nonsupercritical Vd0 rows, without decreasing the boundary coverage
-on the three boundary edges affected by the pair. Conditional on the radial
-bridge target
-[`414b_CE2_Vd1_axis_replacement_radial_bridge_target.md`](414b_CE2_Vd1_axis_replacement_radial_bridge_target.md),
-the replacement also preserves the complete radial cover and produces a CE2
-all-Vd0 nonsupercritical input for
+Assume every other vertex row is Vd0 and nonsupercritical. Then the coverage
+supplied by the pair $(T_{i-1},T_i)$ can be replaced by two open-role
+nonsupercritical Vd0 rows without decreasing the required boundary or radial
+coverage. The replacement produces a CE2 all-Vd0 nonsupercritical input for
 [`../../40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md`](../../40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md).
 
 The reflected case in which $T_{i+1}$ is Vd1 and covers $M_i$ is identical.
@@ -49,8 +44,10 @@ The reflected case in which $T_{i+1}$ is Vd1 and covers $M_i$ is identical.
 
 Normalize the pair so that the Vd1 row is a $V_0$-row touching the outgoing
 adjacent ray $r_1$ and covering $M_1$. Let $a,b$ be its actual adjacent
-boundary reaches. If $a=b=0$, the supercritical row at $V_1$ must cover the
-entire shared edge, so $a_i\ge1$. The diameter bound then forces
+boundary reaches. In the Case-3 use in `4148`, the center triangle has no
+trace on the shared edge and no other vertex role can contribute positive
+length there. Hence, if $a=b=0$, the supercritical row at $V_1$ must cover
+the entire shared edge, so $a_i\ge1$. The diameter bound then forces
 $a_i=1$, $b_i=0$, contradicting $a_i+b_i>1$. Thus $a+b>0$, and the exact
 dichotomy in `4145` puts the rescuer in the corner-side normal form. Write
 
@@ -195,6 +192,15 @@ Therefore
 
 $$
 \boxed{a\le\lambda\le\frac12.}
+$$
+
+For the original open roles the inequalities used above have positive margin.
+Thus the corresponding consequences are strict where needed below:
+
+$$
+a<\lambda,
+\qquad
+a+c<1.
 $$
 
 ## Forced lower bounds on the supercritical row
@@ -360,6 +366,12 @@ $$
 \boxed{a+b_i\le1.}
 $$
 
+For the original open-role data, $a<\lambda$ makes the last inequality strict:
+
+$$
+\boxed{a+b_i<1.}
+$$
+
 ## Explicit axis-aligned replacement
 
 We do not invoke a historical branch name from the maximal map. Instead, for
@@ -414,88 +426,95 @@ $$
 0\le c\le\max\left\{p,1-p\right\}.
 $$
 
-Because $a+c\le1$, we have
+The endpoint constructions put the distinguished vertex on a side. We now
+use the strict open-role margins to perturb them into valid vertex roles.
+
+The proved inequalities give
 
 $$
-c\le1-a\le\max(a,1-a).
+a<\lambda\le\frac12,
+\qquad
+a+c<1,
+\qquad
+a+b_i<1.
 $$
 
-Thus the construction with $p=a$ gives a Vd0 row at $V_{i-1}$ with local
-triple
+The radial bridge theorem
+[`414b_CE2_Vd1_axis_replacement_radial_bridge_target.md`](414b_CE2_Vd1_axis_replacement_radial_bridge_target.md)
+gives
 
 $$
-(a,1-a,c).
+c_i^{\mathrm{req}}
+<
+\max\{1-a,1-b_i\}.
 $$
 
-It preserves the outer boundary coverage $a$, preserves at least the own-radial
-coverage $c$, and satisfies
+Choose
 
 $$
-a+(1-a)=1.
+a<p_1<p_2<1-b_i
 $$
 
-Likewise, since $\lambda+b_i\le1$, the construction with $p=1-b_i$ gives a
-Vd0 row at $V_i$ with local triple
+so that
 
 $$
-(1-b_i,b_i,\lambda).
+p_1<\frac12,
+\qquad
+1-p_1>c,
 $$
 
-It preserves the outgoing boundary coverage $b_i$, covers the required initial
-radial part up to $\lambda$, and satisfies
+and
 
 $$
-(1-b_i)+b_i=1.
+\max\{p_2,1-p_2\}>c_i^{\mathrm{req}}.
 $$
 
-More generally, any parameter
+If the bridge maximum is supplied by $1-a$, take both parameters close to
+$a$. If it is supplied by $1-b_i$, first take $p_1$ close to $a$ and then take
+$p_2$ close to $1-b_i$. This proves that the displayed choices are
+simultaneously possible.
+
+For $p\le1/2$, translate $\Delta_p^-$ by $(-\varepsilon,0)$. Its actual local
+reaches become
 
 $$
-p\in[a,1-b_i]
+(p-\varepsilon,1-p,1-p).
 $$
 
-gives incoming reach at least $a$, outgoing reach at least $b_i$, and
-own-radial reach $\max\{p,1-p\}$. To remove the Vd1 row's adjacent support
-entirely, such a replacement must also reach the exact center-induced demand
+The distinguished vertex is interior, the row has zero adjacent support, and
+its boundary row sum is $1-\varepsilon<1$.
+
+For $p\ge1/2$, translate $\Delta_p^+$ by $(0,-\varepsilon)$. Its reaches
+become
 
 $$
-c_i^{\mathrm{req}}=1-d_i.
+(p,1-p-\varepsilon,p),
 $$
 
-The missing bridge statement is
+with the same interior, zero-support, and strict row-sum conclusions. If
+$p_2<1/2$, use the first translated construction for the second row as well.
+
+Apply the first replacement with $p_1$ and the second with $p_2$. Choose
+$\varepsilon>0$ smaller than all strict outer-boundary, outgoing-boundary,
+shared-edge, and radial margins. The first row still reaches at least $a$ and
+$c$. The second still reaches at least $b_i$ and
+$c_i^{\mathrm{req}}$. The shared boundary edge is covered because
 
 $$
-\text{there exists }p\in[a,1-b_i]
-\text{ with }
-c_i^{\mathrm{req}}\le\max\{p,1-p\}.
+(1-p_1)+(p_2-\varepsilon)>1.
 $$
 
-This statement is isolated as the lemma target `414b`. The already proved inequality
-$1-b_i\ge c_i\ge\lambda$ does not imply it, because the original Vd1 row may
-bridge beyond the old supercritical row's actual reach.
-
-For the generalized parameter $p$, the shared edge is covered because the
-first replacement contributes $1-a$ and the second contributes at least $p$,
-with
-
-$$
-(1-a)+p\ge1.
-$$
-
-The outgoing edge is preserved because $1-p\ge b_i$.
-
-Thus the original Vd1--supercritical adjacent pair can be replaced, for
-boundary coverage purposes, by two nonsupercritical Vd0 rows. Conditional on
-`414b`, the same pair also preserves the complete radial coverage.
+Thus the original Vd1--supercritical adjacent pair is replaced by two genuine
+open nonsupercritical Vd0 roles while preserving the complete required
+boundary and radial cover.
 
 All other vertex rows in this branch are already nonsupercritical Vd0 rows.
-Therefore `414b` would produce a CE2 all-Vd0 skeleton cover with every vertex
-row satisfying $a_j+b_j\le1$.
+Therefore the proved replacement produces a CE2 all-Vd0 cover with every
+vertex row satisfying $a_j+b_j\le1$.
 
 This reduces the branch to the CE1/CE2
 all-Vd0 boundary-loss obstruction recorded in
 [`../../40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md`](../../40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md).
 
-Thus the proved boundary replacement reduces the adjacent
-Vd1--supercritical rescue branch first to the radial bridge target `414b` and
-then to `4013`.
+Thus the adjacent Vd1--supercritical rescue branch reduces directly to
+`4013`.

@@ -2,14 +2,13 @@
 
 Status: Reduction
 
-This file assembles the local obstructions only after the normalization target
-`414c`: all vertex rows other than the unique Vd1/Vd2 row are Vd0, and there
-is exactly one supercritical row.
+This file assembles the local obstructions after the proved zero-support
+classification in `414c`: all vertex rows other than the unique Vd1/Vd2 row
+are Vd0, and there is exactly one supercritical row.
 
-The exact-formula blockers in `4144`, `4145`, and the local part of `4147` are
-repaired. This file proves that the entire no-T3-like subbranch reduces to the
-named normalization target `414c`, radial bridge target `414b`, and then to the `4013` boundary-loss
-dependency. The complementary mixed
+The exact-formula blockers in `4144`, `4145`, and `4147` are repaired. This
+file proves that the entire no-additional-positive-support subbranch reduces
+to the `4013` boundary-loss dependency. The complementary mixed
 Vd1/Vd2--T3-like branch is proved separately in `414a`.
 
 ## Statement
@@ -26,11 +25,11 @@ $$
 N_+=1,
 $$
 
-and exactly one vertex row is Vd1 or Vd2. Under the reduced no-T3-like
-hypotheses, every candidate is either contradicted directly or reduced to
-`414b` and `4013`. The passage into these reduced hypotheses is the separate
-target `414c`. This statement is the complementary reduction to the mixed-branch
-obstruction in `414a`.
+and exactly one vertex row is Vd1 or Vd2. Under the complementary
+no-additional-positive-support hypothesis, every candidate is either
+contradicted directly or reduced to `4013`. The proved classification bridge
+`414c` identifies every other zero-support row as Vd0. This statement is the
+complementary reduction to the mixed-branch obstruction in `414a`.
 
 ## Dependencies
 
@@ -40,7 +39,7 @@ The reduction uses the following local files.
 2. [`4143_CE2_Nplus1_T0_Vd1_M1_T1_supercritical_obstruction.md`](4143_CE2_Nplus1_T0_Vd1_M1_T1_supercritical_obstruction.md): the normalized pair $T_0$ Vd1, $M_1\in T_0$, $T_1$ supercritical is impossible, with reflection.
 3. [`4144_CE2_Nplus1_T0_supercritical_T1_Vd1_Vd2_adjacent_obstruction.md`](4144_CE2_Nplus1_T0_supercritical_T1_Vd1_Vd2_adjacent_obstruction.md): the adjacent placement $T_0$ supercritical, $T_1$ Vd1/Vd2 is impossible, with reflection; its radial-envelope proof includes the exact Cell-$T$ selector.
 4. [`4146_CE2_Nplus1_T0_supercritical_nonadjacent_Vd1_Vd2_obstruction.md`](4146_CE2_Nplus1_T0_supercritical_nonadjacent_Vd1_Vd2_obstruction.md): the non-adjacent placements $T_0$ supercritical, $T_\tau$ Vd1/Vd2 for $\tau\in\{2,3,4\}$ are impossible.
-5. [`4147_CE2_Nplus1_Vd1_supercritical_pair_axis_replacement.md`](4147_CE2_Nplus1_Vd1_supercritical_pair_axis_replacement.md): if a Vd1 row adjacent to a supercritical row rescues that row's midpoint, the boundary pair can be replaced by two explicit nonsupercritical Vd0 rows; [`414b`](414b_CE2_Vd1_axis_replacement_radial_bridge_target.md) is the remaining radial-preservation target before `4013` applies.
+5. [`4147_CE2_Nplus1_Vd1_supercritical_pair_axis_replacement.md`](4147_CE2_Nplus1_Vd1_supercritical_pair_axis_replacement.md): if a Vd1 row adjacent to a supercritical row rescues that row's midpoint, the pair can be replaced by two open nonsupercritical Vd0 rows preserving the boundary and radial cover. The radial bridge used there is proved in [`414b`](414b_CE2_Vd1_axis_replacement_radial_bridge_target.md).
 
 The Vd1/Vd2 corner-side normal form and adjacent-ray bound needed by the local
 files are proved in
@@ -104,7 +103,7 @@ If $T_\tau$ is Vd2, then it is a Vd2 row covering a neighboring midpoint.  This
 is eliminated by the Vd2 neighbor-midpoint obstruction in `4149`.
 
 If $T_\tau$ is Vd1, then the adjacent Vd1--supercritical rescue pair is
-reduced to `414b` and then `4013` by the axis-replacement argument of `4147`.
+reduced directly to `4013` by the axis-replacement argument of `4147`.
 
 Thus the Vd2 alternative is impossible, and the Vd1 alternative reduces to
 the named terminal dependency.
@@ -112,11 +111,11 @@ the named terminal dependency.
 ## Conclusion
 
 Every placement of the unique supercritical row and the unique Vd1/Vd2 row
-within the reduced all-other-rows-Vd0 hypothesis falls into one of the three
-cases above. Each case is contradicted directly or reduced by `4147` to
-`414b` and `4013`. Together with the stronger positive-support obstruction in
-`414a`, the full 414X package reduces to the three terminal dependencies
-`414c`, `414b`, and `4013`.
+within the all-other-rows-Vd0 hypothesis falls into one of the three cases
+above. Each case is contradicted directly or reduced by `4147` to `4013`.
+Together with the stronger positive-support obstruction in `414a` and the
+proved zero-support classification in `414c`, the full 414X package has the
+sole terminal dependency `4013`.
 
 $$
 \Box

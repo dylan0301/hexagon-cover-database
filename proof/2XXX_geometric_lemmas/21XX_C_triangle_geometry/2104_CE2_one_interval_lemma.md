@@ -85,6 +85,10 @@ replacement-maximal. More precisely, there are two replacements:
 - a left replacement preserving $b_0$ and extending $a_0$ to $u$;
 - a right replacement preserving $a_0$ and extending $b_0$ to $v$.
 
+There is also a simultaneous replacement extending both reaches to $u$ and
+$v$. It makes both CE2 center intervals redundant for boundary coverage and,
+after exact unit enlargement, is a supercritical Vd0 row.
+
 Either replacement preserves the skeleton cover and makes one entire CE2
 center interval redundant for boundary coverage.
 
@@ -163,6 +167,98 @@ $$
 
 By convexity, $\Delta(a,b)$ contains the two boundary segments of lengths
 $a,b$ from $V_0$ and the radial segment of length $ab/(a+b)$.
+
+## Simultaneous two-gap replacement
+
+Use
+
+$$
+a=u,
+\qquad
+b=v.
+$$
+
+Both endpoint points
+
+$$
+e_{5,0}(u),
+\qquad
+e_{0,1}(v)
+$$
+
+belong to the same unit center triangle $T_C$. Its diameter is one, so
+
+$$
+L:=\sqrt{u^2+uv+v^2}\le1.
+$$
+
+The complementary corner triangle
+
+$$
+\Delta(u,v)
+$$
+
+contains the full boundary segments of lengths $u$ and $v$. Since
+$u\ge x$ and $v\ge y$, monotonicity of $pq/(p+q)$ gives
+
+$$
+\frac{uv}{u+v}
+\ge
+\frac{xy}{x+y}
+=c_0.
+$$
+
+Thus this single triangle preserves the radial handoff at $V_0$ and covers
+both center-boundary intervals.
+
+If $L<1$, enlarge $\Delta(u,v)$ about $V_0$ by the factor $1/L$. In the local
+coordinates $X(p,q)$, the resulting unit triangle has vertices
+
+$$
+\left(\frac uL,0\right),
+\qquad
+\left(0,\frac vL\right),
+\qquad
+\left(-\frac vL,-\frac uL\right).
+$$
+
+Its actual adjacent boundary reaches are
+
+$$
+a_0'=\frac uL,
+\qquad
+b_0'=\frac vL.
+$$
+
+Because
+
+$$
+L^2-u^2=uv+v^2>0,
+\qquad
+L^2-v^2=u^2+uv>0,
+$$
+
+both positive vertices lie before the neighboring hexagon vertices. The
+third vertex has both local coordinates negative. Moreover every point of
+the triangle has both local coordinates strictly less than one, so it has no
+positive intersection with either adjacent radial arm. It is therefore Vd0.
+
+Finally,
+
+$$
+(u+v)^2-L^2=uv>0,
+$$
+
+and hence
+
+$$
+a_0'+b_0'=\frac{u+v}{L}>1.
+$$
+
+The simultaneous replacement is exactly supercritical and turns the two-gap
+system into an all-boundary-covered CE2 skeleton system. This is an exact
+branch classification of the replacement; it is not a claim that the
+original $T_0$ binds either endpoint.
 
 ## Left replacement
 
@@ -298,9 +394,10 @@ sequence near such a point is covered by the other finitely many closed
 triangles, so one of them contains a convergent subsequence and hence the
 limit point. Thus either replacement preserves the full skeleton cover.
 
-Because $J_L$ or $J_R$ has positive length and is newly covered by the
-replacement vertex triangle, the original two-gap system was not
-replacement-maximal.
+Because $J_L$ or $J_R$ has positive length and is newly covered by either
+one-sided replacement, the original two-gap system was not
+replacement-maximal. The simultaneous replacement covers both positive gaps
+and gives the stronger exact exit stated above.
 
 ## Why bare monotonicity is insufficient
 

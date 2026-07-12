@@ -364,8 +364,7 @@ The proved replacement theorem
 [`../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2104_CE2_one_interval_lemma.md`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2104_CE2_one_interval_lemma.md)
 shows that a two-gap all-Vd0 CE2 skeleton system is not replacement-maximal.
 
-If the original endpoints of $T_0$ are $a_0,b_0$, the exact complementary
-corner triangles
+The one-sided complementary corner triangles
 
 $$
 \Delta(u,b_0)
@@ -376,17 +375,38 @@ $$
 have side at most one, cover the radial demand $xy/(x+y)$, preserve the old
 boundary reaches, and fill the left or right CE2 interval respectively.
 
-This proves an existence normalization with at most one active center
-interval. It does not follow from bare supercriticality that the original
-$T_0$ binds an endpoint. It also does not prove that the replacement remains
-Vd0 or keeps $N_+=1$ after enlargement to side one.
+The strengthened theorem also gives the single simultaneous replacement
 
-Therefore:
+$$
+\Delta(u,v).
+$$
 
-- if the replacement stays in `410X`, continue with the one-gap chains;
-- if its V-type or row-sum class changes, route it to that proof-tree branch;
-- do not declare the two-gap branch closed until those exit branches are
-  checked.
+After homothetic unit enlargement, its actual boundary reaches are
+
+$$
+\frac uL,
+\qquad
+\frac vL,
+\qquad
+L=\sqrt{u^2+uv+v^2}\le1.
+$$
+
+It is Vd0 and strictly supercritical because
+
+$$
+\frac{u+v}{L}>1.
+$$
+
+Thus the simultaneous replacement fills both gaps and lands exactly in the
+all-boundary-covered CE2, $N_+=1$, all-Vd0 skeleton state. There are no
+unclassified V-type or $N_+$ exits.
+
+It still does not follow from bare supercriticality that the original $T_0$
+binds an endpoint. More importantly, the replacement is proved to preserve
+the skeleton, not the full interior cover of $H$. Therefore it does not by
+itself complete the original full-cover branch. A proof must justify this
+normalization before using interior obstruction points, or finish the
+all-boundary-covered transfer below without replacing the original roles.
 
 ## 8. Conditional all-boundary-covered transfer
 
@@ -450,7 +470,8 @@ The branch remains open until all of the following are supplied:
    maps $B_i^0$ and $B_0^+$;
 2. exclude both propagation directions over the exact CE1 one-gap domain;
 3. exclude both directions over the exact CE2 one-gap domain;
-4. route every V-type or $N_+$ exit created by the CE2 replacement;
+4. justify the simultaneous skeleton replacement at the full-cover level, or
+   avoid it by proving the needed direct two-gap inequality;
 5. complete the all-boundary-covered transfer to a specific `310X`
    obstruction and discharge each CE0-only hypothesis there;
 6. convert any numerical global inequality into exact algebra, a finite
@@ -458,6 +479,6 @@ The branch remains open until all of the following are supplied:
 
 The rigorous gain recorded here is the exact center parameterization, the
 corrected admissible-map semantics, the two-direction gap recurrences, the
-correct coupled two-gap inequalities, and the CE2 replacement that reduces a
-two-gap skeleton system to at most one active center interval modulo explicit
-branch exits.
+correct coupled two-gap inequalities, and the exactly classified CE2
+replacement that sends a two-gap skeleton system to the all-boundary-covered
+state inside `410X`.
