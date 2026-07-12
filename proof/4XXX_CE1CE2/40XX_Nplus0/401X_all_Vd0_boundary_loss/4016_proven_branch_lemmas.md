@@ -1,12 +1,13 @@
 # Recorded Branch Lemmas for the CE1/CE2 Vd0 Boundary-Loss Reduction
 
-Status: Strategy
+Status: Reference
 
-Dependency warning: these calculations use the former algebraic branch
-labels. The exact audit in `4015` proves that $L$, $T_-$, $T_+^{hi}$, and Full
-are the exhaustive true labels, while $T_+^{lo}$ is not geometric. Several
-calculations below are sketches or depend on certificates whose runtime
-dependency is not declared, so this file remains Strategy.
+Historical warning: these calculations use the former algebraic branch
+notation, include sketches and undeclared certificate dependencies, and in
+several places write a low expression in the old exit variable rather than
+the exact radial demand. They are retained as research history, not as a proof
+dependency. The complete corrected analytic CE1 matrix is proved in
+[`401b_CE1_exact_branch_completion.md`](401b_CE1_exact_branch_completion.md).
 
 This file records the branch calculations for the reduction in
 [`4014_setup_and_reduction.md`](4014_setup_and_reduction.md).
@@ -555,7 +556,7 @@ $$
 
 for all $0\le s\le1/2$, by another convexity/endpoint comparison.  This contradicts left $T_+^{hi}$ realization.
 
-## 8. Exact-formula reaudit and remaining true branches
+## 8. Historical exact-formula reaudit
 
 The lower sheet $T_+^{lo}$ is empty after the exact component selector and is
 not an obligation. Conversely, the former claim that only those lower-sheet
@@ -568,8 +569,8 @@ $$
 B_5+B_1\le s+u=1-w<1.
 $$
 
-After removing the fake sheet and adding this observation, the genuine
-ordered pairs still lacking complete recorded proofs are
+At the time of this historical audit, the genuine ordered pairs lacking
+complete recorded proofs were
 
 $$
 \boxed{
@@ -580,8 +581,9 @@ $$
 $$
 
 The first pair has nonempty exact CE1 domain; `4013` gives an explicit surd
-witness. The second was not found in the recorded sampling, but nonappearance
-is not a proof of infeasibility. In addition, the proof-sketch and
-certificate-backed steps earlier in this file must be completed or supplied
-with independently reproducible certificates before the branch matrix can be
-called proved.
+witness. The second was not found in the recorded sampling, and nonappearance
+was not a proof of infeasibility.
+
+Both cells, together with the sketch- and certificate-backed cells above, are
+now proved analytically in `401b`. This historical file is not used in that
+proof.

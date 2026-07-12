@@ -89,7 +89,7 @@ Vd0, Vd1/Vd2, and T3-like vertex-role patterns.
 - `4XXX`: CE1/CE2
   - `40XX`: CE1/CE2, $N_+=0$
     - all Vd0
-      - `401X`: exact capped-map audit; genuine ordered cells and CE2 exits remain
+      - `401X`: exact CE1 matrix and no-gap case proved; exact CE2 one-gap and replacement-routing obligations remain
     - at least one Vd1/Vd2
       - `404X`: CE1 and CE2 boundary-length obstructions
     - at least one T3-like and no Vd1/Vd2
@@ -100,7 +100,7 @@ Vd0, Vd1/Vd2, and T3-like vertex-role patterns.
       - `9630`: 5 point conjecture counterexample
     - Vd1/Vd2 branches
       - `411X`: CE1 at-least-one and CE2 at-least-two boundary-length obstructions
-      - `414X`: CE2 exactly-one Vd1/Vd2; reduced no-T3-like audit repaired, mixed T3-like branch open
+      - `414X`: additional positive-support branch closed by `414a`; complementary branch reduces to normalization target `414c`, radial target `414b`, and `4013`
     - at least two T3-like and no Vd1/Vd2
       - `412X`: shared CE1/CE2 diagonal obstruction
     - exactly one T3-like and no Vd1/Vd2

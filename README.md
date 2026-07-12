@@ -75,8 +75,8 @@ Status labels are defined in
 For reading and citation, the main rule is: use a result as established only
 when its source file says `Status: Proven`.
 
-Files marked `Practically proven`, `Lemma target`, `Strategy`, `Empirical`,
-`Experiment`, `Failed`, or `Reference` are part of the working corpus, but they
-are not complete recorded proofs unless a proven source explicitly supplies the
-needed argument. Numerical optimization, plotting, or search evidence remains
-empirical unless a rigorous certificate is recorded.
+Files marked `Reduction`, `Practically proven`, `Lemma target`, `Strategy`,
+`Empirical`, `Experiment`, `Failed`, or `Reference` are part of the working
+corpus, but they are not complete terminal proofs unless every named
+dependency has a proven source. Numerical optimization, plotting, or search
+evidence remains empirical unless a rigorous certificate is recorded.

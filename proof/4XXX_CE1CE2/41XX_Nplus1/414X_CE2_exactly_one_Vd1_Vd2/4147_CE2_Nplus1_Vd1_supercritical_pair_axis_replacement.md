@@ -1,6 +1,6 @@
 # CE2, $N_+=1$, Vd1--Supercritical Adjacent Pair Axis Replacement
 
-Status: Strategy
+Status: Reduction
 
 This file proves the remaining adjacent-rescue local replacement used in the
 [`4148`](4148_CE2_Nplus1_exactly_one_Vd1_Vd2_assembly.md) assembly.
@@ -17,10 +17,11 @@ The maximal $B_c(a)$ map is the one recorded in
 using the admissible-set branch inequalities from
 [`../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md).
 
-Dependency warning: the local bound and the two axis replacements can be
-reproved from the exact support criterion, but the final contradiction still
-invokes the dependency-blocked `4013` package. This file therefore remains a
-strategy until that final dependency is replaced or revalidated.
+Dependency statement: the local bounds and the boundary-preserving axis
+replacements are proved below. Upgrading the second replacement to preserve
+the full center-induced radial demand is the explicit target `414b`. After
+that target, the route ends at `4013`. This file has `Reduction` status because
+it isolates and routes both terminal obligations; it does not prove them.
 
 ## Statement
 
@@ -35,9 +36,11 @@ $$
 Assume every other vertex row is Vd0 and nonsupercritical.  Then the boundary
 coverage supplied by the pair $(T_{i-1},T_i)$ can be replaced by two
 axis-aligned nonsupercritical Vd0 rows, without decreasing the boundary coverage
-on the three boundary edges affected by the pair. Consequently, any full cover
-in this branch implies a CE2 all-Vd0 nonsupercritical boundary cover. Conditional
-on the all-Vd0 CE1/CE2 boundary-loss package, that cover would be impossible:
+on the three boundary edges affected by the pair. Conditional on the radial
+bridge target
+[`414b_CE2_Vd1_axis_replacement_radial_bridge_target.md`](414b_CE2_Vd1_axis_replacement_radial_bridge_target.md),
+the replacement also preserves the complete radial cover and produces a CE2
+all-Vd0 nonsupercritical input for
 [`../../40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md`](../../40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md).
 
 The reflected case in which $T_{i+1}$ is Vd1 and covers $M_i$ is identical.
@@ -445,25 +448,54 @@ $$
 (1-b_i)+b_i=1.
 $$
 
-The shared edge between the two replacement rows is covered because the two
-replacement contributions have lengths $1-a$ and $1-b_i$, and
+More generally, any parameter
 
 $$
-(1-a)+(1-b_i)\ge1
+p\in[a,1-b_i]
 $$
 
-is equivalent to $a+b_i\le1$.
+gives incoming reach at least $a$, outgoing reach at least $b_i$, and
+own-radial reach $\max\{p,1-p\}$. To remove the Vd1 row's adjacent support
+entirely, such a replacement must also reach the exact center-induced demand
+
+$$
+c_i^{\mathrm{req}}=1-d_i.
+$$
+
+The missing bridge statement is
+
+$$
+\text{there exists }p\in[a,1-b_i]
+\text{ with }
+c_i^{\mathrm{req}}\le\max\{p,1-p\}.
+$$
+
+This statement is isolated as the lemma target `414b`. The already proved inequality
+$1-b_i\ge c_i\ge\lambda$ does not imply it, because the original Vd1 row may
+bridge beyond the old supercritical row's actual reach.
+
+For the generalized parameter $p$, the shared edge is covered because the
+first replacement contributes $1-a$ and the second contributes at least $p$,
+with
+
+$$
+(1-a)+p\ge1.
+$$
+
+The outgoing edge is preserved because $1-p\ge b_i$.
 
 Thus the original Vd1--supercritical adjacent pair can be replaced, for
-boundary coverage purposes, by two nonsupercritical Vd0 rows.
+boundary coverage purposes, by two nonsupercritical Vd0 rows. Conditional on
+`414b`, the same pair also preserves the complete radial coverage.
 
 All other vertex rows in this branch are already nonsupercritical Vd0 rows.
-Therefore any boundary cover in this branch would produce a CE2 all-Vd0 cover
-with every vertex row satisfying $a_j+b_j\le1$.
+Therefore `414b` would produce a CE2 all-Vd0 skeleton cover with every vertex
+row satisfying $a_j+b_j\le1$.
 
-Once the `4013` dependency is discharged, this would contradict the CE1/CE2
+This reduces the branch to the CE1/CE2
 all-Vd0 boundary-loss obstruction recorded in
 [`../../40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md`](../../40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md).
 
-Thus the local replacement is proved, and the adjacent
-Vd1--supercritical rescue branch is conditionally reduced to `4013`.
+Thus the proved boundary replacement reduces the adjacent
+Vd1--supercritical rescue branch first to the radial bridge target `414b` and
+then to `4013`.

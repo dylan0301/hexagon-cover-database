@@ -1,20 +1,23 @@
 # CE2, $N_+=1$, Exactly One Vd1/Vd2
 
-Status: Strategy
+Status: Reduction
 
-This branch has a proposed assembly in
+This branch has a proved reduction assembly in
 [`4148_CE2_Nplus1_exactly_one_Vd1_Vd2_assembly.md`](4148_CE2_Nplus1_exactly_one_Vd1_Vd2_assembly.md).
 
-The former `Proven` status is withdrawn. The exact-formula reaudit now repairs
-the Cell-$T$ selector calculation in `4144`, the Vd1/Vd2 normal-form
-degeneracy in `4145`, and the explicit Vd0 replacements in `4147`. The reduced
-no-T3-like assembly still ends by invoking the Strategy-status `4013` package.
+The exact-formula reaudit repairs the Cell-$T$ selector calculation in `4144`,
+the Vd1/Vd2 normal-form degeneracy in `4145`, and the explicit Vd0
+replacements in `4147`. The complementary assembly first uses the Vd0
+normalization target `414c`, then reduces to the radial bridge target `414b`
+and the named `4013` boundary-loss dependency.
 
-More importantly, the package does not contain a reduction eliminating mixed
-configurations with exactly one Vd1/Vd2 row and one or more T3-like rows. The
-`4148` assembly assumes all other vertex rows are Vd0. The `412X` and `413X`
-packages assume no Vd1/Vd2 row, so they do not cover this mixture. This is an
-independent global blocker even if `4013` is later proved.
+Mixed configurations with exactly one Vd1/Vd2 row and one or more T3-like
+rows are now eliminated by the skeleton-length contradiction in
+[`414a_CE2_Nplus1_mixed_Vd1_Vd2_T3_like_skeleton_obstruction.md`](414a_CE2_Nplus1_mixed_Vd1_Vd2_T3_like_skeleton_obstruction.md).
+Thus the terminal dependencies of this package are `414c`, `414b`, and
+`4013`. The
+`Reduction` status certifies this routing; it does not by itself certify either
+terminal dependency.
 
 The Vd1/Vd2 corner-side normal form and adjacent-ray bound used by the local
 obstruction files are proved in
@@ -63,6 +66,14 @@ but its final contradiction still uses the CE1/CE2 all-Vd0 boundary-loss
 package.
 
 The case split tying these local files together is recorded in `4148`.
+
+The complete package split is therefore:
+
+- every subbranch with an additional positive-support row, including the
+  mixed Vd1/Vd2--T3-like subbranch, is `Proven` in `414a`;
+- the complementary no-additional-positive-support subbranch is reduced by
+  `4148` and `4147` to
+  `414c`, `414b`, and `4013`.
 
 An empirical visual candidate for a cover of $S_{1/2}$ in this branch is
 recorded in

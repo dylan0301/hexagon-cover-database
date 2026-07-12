@@ -26,7 +26,9 @@ $$
 
 The boundary target is the hexagon perimeter contribution in the picture target.  The radial midpoint assumptions and the two half-diagonal segments are used only to force the local $c$-requirements recorded below.
 
-If a $C$-boundary interval is already covered by the adjacent $V$-triangles, then that case is removable by the open-triangle perimeter argument.  Therefore the active cases considered here have a positive $C$-only interval.
+If every $C$-boundary interval is already covered by the vertex triangles,
+the no-gap lemma in Section 6 removes the case. Therefore the active cases
+considered here have at least one positive $C$-only interval.
 
 ## 2. Active interval notation
 
@@ -53,28 +55,40 @@ $$
 w>0.
 $$
 
-The same formulas apply to CE2 after using the `2104` two-gap replacement and
-selecting the one remaining active $C$-interval, conditional on routing any
-V-type or $N_+$ exit.
+For CE2, selecting one remaining active interval after `2104` does not by
+itself justify the CE1 formulas below. The exact CE2 intervals and radial
+demands remain coupled as in `2106`; the resulting obligations are stated in
+`401c`.
 
 ## 3. C-triangle slope parameterization
 
-The formulas in this section are the historical $r>1$ specialization. The
-exact CE1 center domain and radial exits are proved in
+The formulas in this section are the exact CE1 formulas after the substitutions
+
+$$
+R=\lambda,
+\qquad
+r=\frac1R.
+$$
+
+Since `2105` proves $0<\lambda<1$, the inequality $r>1$ is automatic and is
+not an extra specialization. The exact CE1 center domain and radial exits are proved in
 [`../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2105_CE1_exact_formulas.md`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2105_CE1_exact_formulas.md).
-The coupled two-interval CE2 domain is different and is proved in
+The coupled two-interval CE2 domain is proved in
 [`../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2106_CE2_exact_formulas.md`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2106_CE2_exact_formulas.md).
-No proof reducing every exact CE1/CE2 configuration to the specialization
-below is supplied in this package; this is one reason the file remains
-Strategy.
+The coupled two-interval CE2 domain is not reduced to these formulas. This is
+why this combined CE1/CE2 setup file remains `Strategy`, even though the exact
+CE1 case is completed in `401b`.
 
-Let the two side functions cutting $e_{0,1}$ at $s$ and $t$ have positive edge-slopes $p$ and $q$.  Put
+Let the two side functions cutting $e_{0,1}$ at $s$ and $t$ have positive
+edge-slopes $p$ and $q$, ordered so that
 
 $$
-r=\frac qp.
+R=\frac pq=\lambda,
+\qquad
+r=\frac qp=\frac1R>1.
 $$
 
-The recorded high-loss branch has $r>1$. Define
+Define
 
 $$
 D=\sqrt{r^2-r+1},\qquad R=\frac1r,\qquad S=\sqrt{1-R+R^2}=RD.
@@ -171,14 +185,48 @@ $$
 }
 $$
 
-## 6. Covered-interval removal
+## 6. Exact no-gap open-perimeter lemma
 
-If the active $C$-boundary interval is already covered by adjacent V-triangles,
-then the $C$-triangle contributes no new boundary length on that interval. In
-CE2, after the replacement normalization, if both $C$-intervals are covered by
-V-triangles, then $T_C\cap\partial H$ contributes no new boundary length.
+Suppose every center-boundary interval is already covered by the six open
+vertex-role triangles. Then those six triangles cover all of $\partial H$.
+Put
 
-Under the open-triangle assumption and $a_i+b_i<1$, the six V-triangles alone have total boundary contribution strictly less than $6$, while $\partial H$ has length $6$.  Hence they cannot cover the perimeter.  Such covered-interval cases are removed before the branch analysis.
+$$
+U_i=T_i\cap\partial H.
+$$
+
+Each $U_i$ is relatively open in the connected polygonal circle $\partial H$,
+and
+
+$$
+\mathcal H^1(U_i)\le a_i+b_i\le1.
+$$
+
+The cover cannot have only one nonempty member, because that member would be
+all of $\partial H$ despite having length at most $1<6$. The nonempty members
+of a finite relatively open cover of a connected circle therefore cannot be
+pairwise disjoint. Hence some $U_i\cap U_j$ is nonempty and
+relatively open. Every nonempty relatively open subset of $\partial H$ has
+positive length, so
+
+$$
+\sum_{i=0}^5\mathcal H^1(U_i)
+>
+\mathcal H^1\left(\bigcup_{i=0}^5U_i\right)
+=6.
+$$
+
+But the row caps give
+
+$$
+\sum_{i=0}^5\mathcal H^1(U_i)
+\le
+\sum_{i=0}^5(a_i+b_i)
+\le6,
+$$
+
+a contradiction. Thus the no-gap case is impossible for both CE1 and CE2,
+including every equality case $a_i+b_i=1$.
 
 ## 7. Degenerate limits
 

@@ -2,13 +2,16 @@
 
 Status: Strategy
 
-This folder records the proposed proof package for the CE1/CE2, all-Vd0
-boundary-loss obstruction. The exact capped-map theorem in `4015` now resolves
-the former Cell-$T$ component error: the fake lower sheet is deleted and the
-four genuine upper labels are exhaustive. The package is still not proved,
-because its recorded ordered-pair calculations do not cover every genuine
-pair, some certificate-backed calculations were not reproducible in the
-strict environment, and the CE2 replacement exits remain unrouted.
+This folder records the proof package for the CE1/CE2, all-Vd0 boundary-loss
+obstruction. The exact capped-map theorem in `4015` removes the fake lower
+sheet and proves that four genuine labels are exhaustive. The entire exact
+CE1 branch matrix is now proved analytically in `401b`, including both
+formerly open ordered pairs and both formerly certificate-backed cells.
+
+The combined package remains `Strategy` because the CE2 half is not proved.
+The exact one-gap CE2 inequality and the proof-tree use of the two-gap
+replacement are recorded precisely in `401c`. The no-gap case is proved by
+the open-perimeter lemma in `4014`.
 
 The target local statement is:
 
@@ -16,10 +19,13 @@ $$
 \mathrm{CE1/CE2}+\text{all six }V_i\text{ are Vd0}+\text{all }a_i+b_i\le 1 \quad\Longrightarrow\quad \text{boundary-loss contradiction.}
 $$
 
-For CE2, the replacement theorem in `2104` removes a two-gap system only up to
-possible V-type and $N_+$ exits. Those exits remain an assembly obligation.
+For CE2, the replacement theorem in `2104` proves that a two-gap skeleton
+system is not replacement-maximal. A full proof-tree use still requires a
+maximal-role convention before classification or explicit routing of possible
+V-type and $N_+$ exits.
 
-Equivalently, under the CE1/CE2 reductions recorded here, any successful all-Vd0 covering must have at least one vertex triangle with
+For CE1, the proved consequence is that any successful all-Vd0 covering must
+have at least one vertex triangle with
 
 $$
 a_i+b_i>1.
@@ -27,10 +33,11 @@ $$
 
 ## Boundary-loss reduction
 
-Work under the contradiction assumptions
+For the exact formula reduction below, work under the CE1 contradiction
+assumptions
 
 $$
-\mathrm{CE1/CE2}+\text{all six }V_i\text{ are Vd0}+\text{all }a_i+b_i\le1.
+\mathrm{CE1}+\text{all six }V_i\text{ are Vd0}+\text{all }a_i+b_i\le1.
 $$
 
 After normalization, the active $C$-boundary interval is
@@ -85,7 +92,14 @@ The exact safe relaxation and its complete four-label partition are proved in
 [`4015_B_map_branch_realization.md`](4015_B_map_branch_realization.md)
 (Status: Proven).
 
-## Exact branch-matrix reaudit
+The CE2 active-interval formulas are not identified with this CE1
+normalization. Their remaining one-gap and two-gap obligations are separated
+in `401c`.
+
+## Exact CE1 branch-matrix completion
+
+The exact analytic proof of every cell below is in
+[`401b_CE1_exact_branch_completion.md`](401b_CE1_exact_branch_completion.md).
 
 The true safe upper map has only the labels
 
@@ -141,15 +155,16 @@ The complete audit of the remaining ordered pairs is:
 |---|---|---|
 | $L$ | $L$ or $T_-$ | Proved above. |
 | $T_-$ | $L$ or $T_-$ | Proved above. |
-| $L$ | $T_+^{hi}$ or Full | Recorded in `4016`; the interval-backed part was not reproduced in the strict environment. |
-| $T_-$ | Full | Recorded in `4016`. |
-| $T_-$ | $T_+^{hi}$ | Open genuine ordered pair. |
-| $T_+^{hi}$ | $L$, $T_-$, $T_+^{hi}$, or Full | Recorded in `4016`, including two impossibility claims. |
-| Full | $L$ or $T_-$ | Recorded in `4016`; the Full-$L$ certificate was not reproduced in the strict environment. |
-| Full | $T_+^{hi}$ | Open; no proof is recorded. |
-| Full | Full | Proved impossible above. |
+| $L$ | $T_+^{hi}$ or Full | Proven analytically in `401b`, by monotone reduction to the shared $q=0$ transition. |
+| $T_-$ | Full | Proven analytically in `401b`. |
+| $T_-$ | $T_+^{hi}$ | Proven analytically in `401b` by the exact coupled-loss inequality. |
+| $T_+^{hi}$ | $L$ or $T_-$ | Proven by the exact CE1 center inequality and right low-label bound in `401b`. |
+| $T_+^{hi}$ | $T_+^{hi}$ or Full | Proven impossible analytically in `401b`. |
+| Full | $L$ or $T_-$ | Proven analytically in `401b`; no interval certificate is used. |
+| Full | $T_+^{hi}$ or Full | Proven impossible analytically in `401b`. |
 
-The first open pair is not vacuous. An exact CE1-domain witness is obtained by
+The formerly missing $(T_-,T_+^{hi})$ pair is not vacuous. An exact CE1-domain
+witness is obtained by
 taking the `2105` parameter
 
 $$
@@ -216,20 +231,22 @@ $$
 
 The branch selectors satisfy $q>0$, $B_5<s$, $B_1>u$, and $c_1<2B_1$.
 Moreover $B_5+B_1<0.812$. Thus the witness is not a counterexample to the
-target inequality; it proves that the missing ordered branch has nonempty
-domain and needs a proof.
+target inequality. It shows that the cell has nonempty domain; `401b`,
+Section 4 proves it on that full domain.
 
 ## Files
 
 | File | Recorded status | Notes |
 |---|---|---|
-| [`4014_setup_and_reduction.md`](4014_setup_and_reduction.md) | Strategy | Target, notation, C-triangle parameterization, and proven reduction to $F<1$. |
+| [`4014_setup_and_reduction.md`](4014_setup_and_reduction.md) | Strategy | Exact CE1 notation and reduction to $F<1$; CE2 use remains conditional. |
 | [`4015_B_map_branch_realization.md`](4015_B_map_branch_realization.md) | Proven | Exact safe capped map, four-label partition, and withdrawal of the fake high-$c$ sheet. |
-| [`4016_proven_branch_lemmas.md`](4016_proven_branch_lemmas.md) | Strategy | Historical algebraic inequalities; two genuine ordered pairs, incomplete sketches, and noncanonical certificate dependencies remain. |
+| [`4016_proven_branch_lemmas.md`](4016_proven_branch_lemmas.md) | Reference | Historical branch calculations superseded by the exact analytic CE1 proof in `401b`. |
 | [`4017_remaining_Tplus_obligations.md`](4017_remaining_Tplus_obligations.md) | Reference | Historical record of the discarded lower-sheet obligations and failed approaches; cross-read with [`4019_lower_sheet_completion_proofs.md`](4019_lower_sheet_completion_proofs.md) as algebraic history only. |
 | [`4018_computational_verification.md`](4018_computational_verification.md) | Empirical | Numerical checks, interval-certificate status, and code references. |
 | [`4019_lower_sheet_completion_proofs.md`](4019_lower_sheet_completion_proofs.md) | Reference | Historical calculations on the now-discarded lower sheet. |
 | [`401aX_boundary_loss_experiments/401a0_README.md`](401aX_boundary_loss_experiments/401a0_README.md) | Experiment | Experiment helpers for the package. |
+| [`401b_CE1_exact_branch_completion.md`](401b_CE1_exact_branch_completion.md) | Proven | Complete exact CE1 four-label matrix; no computational dependency. |
+| [`401c_CE2_remaining_obligations.md`](401c_CE2_remaining_obligations.md) | Strategy | Exact statement of the remaining one-gap and two-gap CE2 obligations; no-gap is proved in `4014`. |
 
 ## Historical branch calculations
 
@@ -250,7 +267,8 @@ The following algebraic cells have recorded calculations in this package:
 - $(T_+^{lo},T_+^{hi})$.
 - $(T_+^{lo},T_+^{lo})$.
 
-The exact upper-map inclusion is now proved in `4015`. The package remains
-Strategy until the two open genuine ordered pairs, the non-reproduced
-certificate-backed steps, the $r>1$ center-geometry reduction, and the CE2
-replacement exits are all certified.
+The exact upper-map inclusion is proved in `4015`, the exact CE1 branch matrix
+is proved in `401b`, and the CE1/CE2 no-gap case is proved in `4014`.
+The combined package remains `Strategy` only for the CE2 one-gap and two-gap
+obligations stated in `401c`; the former CE1 cell and certificate blockers are
+discharged.

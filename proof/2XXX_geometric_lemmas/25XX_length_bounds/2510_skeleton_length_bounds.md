@@ -28,14 +28,17 @@ $$
 \mathcal H^1(S)=6+6=12.
 $$
 
-Suppose a hypothetical cover of $S$ is organized as
+Suppose the closures of role triangles from a hypothetical open cover of $S$
+are organized as
 
 $$
 T_C,T_0,T_1,\dots,T_5,
 $$
 
 where $T_C$ is a center triangle containing $O$ in its interior, and $T_i$ is
-a $V_i$-triangle containing $V_i$.
+a $V_i$-triangle containing $V_i$ in its interior. The latter interior
+condition is inherited from the original open role before any optional
+boundary maximalization.
 
 Assume:
 
@@ -95,7 +98,7 @@ $$
 
 ---
 
-## Lemma 2: At least one non-Vd0 rescuer is forced
+## Lemma 2: At least one positive-support rescuer is forced
 
 Assume $T_C$ is CE1 or CE2 and covers exactly $M_0$. If at least two $V_i$-triangles satisfy
 
@@ -103,7 +106,8 @@ $$
 a_i+b_i>1,
 $$
 
-then at least one $V_i$-triangle is Vd1, Vd2, or T3-like.
+then at least one $V_i$-triangle has positive-length intersection with an
+adjacent radial arm.
 
 ### Proof
 
@@ -125,7 +129,9 @@ $$
 
 The case $j=s$ is excluded because $T_s$ does not contain $M_s$. Hence $M_s$ must be covered by $T_{s-1}$ or $T_{s+1}$.
 
-A Vd0 triangle has no positive-length adjacent-ray intersection and cannot cover an adjacent midpoint. Therefore the rescuer is Vd1, Vd2, or T3-like.
+An original open role that contains an adjacent midpoint also contains a
+positive-length interval of that adjacent radial arm. Therefore the rescuer
+has positive adjacent-ray support.
 
 $$
 \Box
@@ -553,9 +559,16 @@ $$
 
 ---
 
-## Lemma 4: Vd1, Vd2, and T3-like skeleton caps follow from Lemma 3
+## Lemma 4: Interior positive-support role caps follow from Lemma 3
 
-Every $V_i$-triangle of type Vd1, Vd2, or T3-like satisfies
+Let $T_i$ be the closure of an original open $V_i$-role, so that
+
+$$
+V_i\in\mathrm{int}(T_i).
+$$
+
+If this role has positive-length intersection with an adjacent radial arm,
+then
 
 $$
 L_S(T_i)<3/2.
@@ -627,9 +640,12 @@ $$
 [O,V_0]=[\widetilde O,W_3].
 $$
 
-Since $T_0$ contains $V_0=\widetilde O$, it is a center triangle for $\widetilde H$.
+Since $T_0$ contains $V_0=\widetilde O$ in its interior, it is an interior
+center triangle for $\widetilde H$. This is the point at which the original
+open-cover role must be used. An optional T3-like boundary normalization that
+moves $V_0$ onto a side does not satisfy this hypothesis and is not used here.
 
-If $T_0$ is Vd1, Vd2, or T3-like, then $T_0$ has positive-length intersection with at least one of the adjacent rays
+By hypothesis, $T_0$ has positive-length intersection with at least one of the adjacent rays
 
 $$
 [O,V_1]\quad\text{or}\quad[O,V_5].
@@ -639,7 +655,11 @@ These are boundary edges of $\widetilde H$. Hence, viewed as a center triangle f
 
 A unit equilateral triangle cannot have positive-length overlap with three boundary edges of a regular side-$1$ hexagon. Among any three boundary edges, two contain positive-length subsegments whose mutual distance is strictly greater than $1$, while a unit equilateral triangle has diameter $1$. Therefore $T_0$, viewed in $\widetilde H$, is CE1 or CE2.
 
-By the CE1/CE2 exact-one-midpoint lemma applied to $\widetilde H$, the triangle $T_0$ covers exactly one radial midpoint of $\widetilde H$. By dihedral symmetry of $\widetilde H$, Lemma 3 applies to this translated CE1/CE2 configuration. Hence
+By the CE1/CE2 exact-one-midpoint lemma applied to $\widetilde H$, with its
+required interior-center hypothesis now verified, the triangle $T_0$ covers
+exactly one radial midpoint of $\widetilde H$. By dihedral symmetry of
+$\widetilde H$, Lemma 3 applies to this translated CE1/CE2 configuration.
+Hence
 
 $$
 L_{\widetilde S}(T_0)<3/2.
@@ -657,7 +677,8 @@ $$
 L_S(T_0)\le L_{\widetilde S}(T_0)<3/2.
 $$
 
-By rotation symmetry, the same holds for every $V_i$-triangle of type Vd1, Vd2, or T3-like.
+By rotation symmetry, the same holds for every interior $V_i$-role with
+positive adjacent-ray support.
 
 $$
 \Box
@@ -665,9 +686,10 @@ $$
 
 ---
 
-## Lemma 5: Vd0 with $a_i+b_i\le1$ has skeleton length at most $2$
+## Lemma 5: A row without adjacent-ray support has skeleton length at most $2$
 
-Let $T_i$ be Vd0 and suppose
+Let $T_i$ have no positive-length intersection with either adjacent radial
+arm, and suppose
 
 $$
 a_i+b_i\le1.
@@ -683,7 +705,7 @@ $$
 
 By rotational symmetry, normalize to $i=0$.
 
-Since $T_0$ is Vd0, it has no positive-length intersection with the adjacent rays
+By hypothesis, $T_0$ has no positive-length intersection with the adjacent rays
 
 $$
 [O,V_1]\quad\text{and}\quad[O,V_5].
@@ -926,9 +948,10 @@ cannot cover the skeleton $S$.
 
 ### Proof
 
-By Lemma 2, since at least two $V_i$-triangles are supercritical, at least one $V_i$-triangle is Vd1, Vd2, or T3-like.
+By Lemma 2, since at least two $V_i$-triangles are supercritical, at least one
+other $V_i$-triangle has positive adjacent-ray support.
 
-By Lemma 4, every Vd1, Vd2, or T3-like triangle satisfies
+By Lemma 4, every such positive-support rescuer satisfies
 
 $$
 L_S(T_i)<3/2.
@@ -940,7 +963,9 @@ $$
 L_S(T_i)<3/2.
 $$
 
-The remaining ordinary Vd0 triangles with $a_i+b_i\le1$ satisfy, by Lemma 5,
+Every remaining nonsupercritical row contributes at most $2$. If it has
+positive adjacent-ray support, Lemma 4 gives the stronger bound $<3/2$; if it
+has no such support, Lemma 5 gives
 
 $$
 L_S(T_i)\le2.
@@ -955,8 +980,8 @@ $$
 The worst possible skeleton-length upper bound occurs when there are exactly:
 
 - two supercritical $V$-triangles;
-- one Vd1/Vd2/T3-like rescuer;
-- three ordinary Vd0 non-supercritical triangles.
+- one positive-support rescuer;
+- three other rows, each bounded above by $2$.
 
 Therefore
 
