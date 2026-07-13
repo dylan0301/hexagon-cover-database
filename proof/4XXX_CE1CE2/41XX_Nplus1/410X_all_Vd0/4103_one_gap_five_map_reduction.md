@@ -2,8 +2,12 @@
 
 Status: Reduction
 
-This note reduces the remaining CE1 and CE2 exactly-one-gap subcases of
-`410X` to explicit five-map inequalities. It also records exact witnesses
+This note reduces the CE1 and CE2 exactly-one-gap subcases of `410X` to
+explicit five-map inequalities. Those terminal inequalities are proved in
+[`4106_CE1_one_gap_five_map_completion.md`](4106_CE1_one_gap_five_map_completion.md)
+and
+[`4107_CE2_one_gap_five_map_completion.md`](4107_CE2_one_gap_five_map_completion.md).
+This note also records exact witnesses
 showing that the two-adjacent-row shortcut inherited from `401X` is not a
 valid global replacement for those targets.
 
@@ -130,7 +134,7 @@ The free strict-supercritical envelope also gives
 $Z_{\mathrm{CE1}}<S_+(c_0)$, but the unclassified bound is the sharper target
 needed below.
 
-The remaining CE1 lemma target is therefore
+The resulting CE1 lemma target is therefore
 
 $$
 \boxed{
@@ -215,7 +219,7 @@ $$
 B_{c_0}(y)>\max\left\{u,1-y\right\}.
 $$
 
-Thus the remaining right-gap target is
+Thus the resulting right-gap target is
 
 $$
 \boxed{
@@ -248,7 +252,7 @@ $$
 B_{c_0}(x)>\max\left\{v,1-x\right\}.
 $$
 
-The remaining reflected target is
+The resulting reflected target is
 
 $$
 \boxed{
@@ -496,10 +500,12 @@ These two witnesses are counterexamples to the shortcut inequality, not
 covers of $H$. They prove that this two-row shortcut cannot discard the
 intermediate maps $G_2,G_3,G_4$.
 
-## 6. Remaining terminal targets
+## 6. Discharged terminal targets
 
 This file proves the reduction to exactly the three boxed targets
-`4103-CE1`, `4103-CE2-R`, and `4103-CE2-L`. It does not prove those
-inequalities. Their completion requires an exact selected-branch analysis of
-the three intermediate maps, a rigorous interval certificate, or a stronger
-geometric coupling theorem.
+`4103-CE1`, `4103-CE2-R`, and `4103-CE2-L`. The exact selected-branch catalog
+needed by all three targets is proved in
+[`4105_selected_capped_map_catalog.md`](4105_selected_capped_map_catalog.md).
+Target `4103-CE1` is proved in `4106`; Targets `4103-CE2-R` and
+`4103-CE2-L` are proved in `4107`. Thus this reduction has no remaining
+terminal obligation.

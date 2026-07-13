@@ -14,6 +14,10 @@ the main theorem is proved.
 | [`4102_CE2_two_gap_completion.md`](4102_CE2_two_gap_completion.md) | Proven | Eliminates the CE2 two-gap state by importing the proved endpoint inequality from `401c` and `401e`. |
 | [`4103_one_gap_five_map_reduction.md`](4103_one_gap_five_map_reduction.md) | Reduction | Reduces CE1 and CE2 exactly-one-gap states to three explicit five-map targets and records exact shortcut failures. |
 | [`4104_all_boundary_transfer_to_310X.md`](4104_all_boundary_transfer_to_310X.md) | Reduction | Proves the all-boundary handoff and finite-point transfer to the strict six-point $F_6$ target. |
+| [`4105_selected_capped_map_catalog.md`](4105_selected_capped_map_catalog.md) | Proven | Evaluates every selected high-radial capped-map branch and proves its duality and threshold consequences. |
+| [`4106_CE1_one_gap_five_map_completion.md`](4106_CE1_one_gap_five_map_completion.md) | Proven | Proves Target `4103-CE1` by a three-map dual reduction and an exact Bernstein terminal certificate. |
+| [`4107_CE2_one_gap_five_map_completion.md`](4107_CE2_one_gap_five_map_completion.md) | Proven | Proves Targets `4103-CE2-R` and `4103-CE2-L`, including the complete reflected map order. |
+| [`4108_ce1_terminal_verifier.py`](4108_ce1_terminal_verifier.py) | Experiment | Reconstructs the exact rational Bernstein tensors used in `4106`. |
 
 ## 1. Exact starting formulation
 
@@ -292,11 +296,11 @@ $$
 }
 $$
 
-Both are necessary. A future obstruction proof must exclude their simultaneous
-validity over the exact CE1 domain using proof-safe classified maps or
-certified upper relaxations. The stronger common-realization reduction and
-the exact remaining five-map target are proved in
-[`4103_one_gap_five_map_reduction.md`](4103_one_gap_five_map_reduction.md).
+Both are necessary. The stronger common-realization reduction and the exact
+five-map target are proved in
+[`4103_one_gap_five_map_reduction.md`](4103_one_gap_five_map_reduction.md),
+and the terminal target is proved in
+[`4106_CE1_one_gap_five_map_completion.md`](4106_CE1_one_gap_five_map_completion.md).
 
 ## 6. CE2 exhaustive split
 
@@ -351,8 +355,10 @@ $$
 $$
 
 The exact survivor splits and the two reflected five-map targets are recorded
-in `4103`. The two-adjacent-row shortcut from `401X` is not globally valid;
-`4103` gives exact CE1 and CE2 witnesses.
+in `4103`, and both targets are proved in
+[`4107_CE2_one_gap_five_map_completion.md`](4107_CE2_one_gap_five_map_completion.md).
+The two-adjacent-row shortcut from `401X` is not globally valid; `4103` gives
+exact CE1 and CE2 witnesses.
 
 ### Both intervals have V-gaps
 
@@ -481,21 +487,18 @@ force the original $T_0$ to fill either CE2 interval. This is a counterexample
 to that proposed inference, not to the replacement theorem and not to the full
 `410X` obstruction.
 
-## 10. Remaining proof obligations
+## 10. Remaining proof obligation
 
-The branch remains open until all of the following are supplied:
+The CE1 and CE2 exactly-one-gap targets are proved in `4106` and `4107`.
+Together with the CE2 two-gap proof in `4102`, this closes every state in
+which a center interval contains a V-gap.
 
-1. prove Target `4103-CE1` over the exact CE1 domain;
-2. prove the reflected Targets `4103-CE2-R` and `4103-CE2-L` over the exact
-   CE2 domain;
-3. prove Target `4104-F`, namely $F_6(a,b)\ge1$ on the strict selected
-   domain, or prove the stronger existing `3101X` target; and
-4. convert any numerical global inequality used for these targets into exact
-   algebra, a finite interval certificate, or another independently
-   checkable proof.
+The full `410X` branch remains open only at Target `4104-F`: prove
 
-The rigorous progress now consists of the exact center parameterization and
-safe map semantics, the proved CE2 two-gap obstruction in `4102`, the exact
-one-gap reductions in `4103`, and the proved all-boundary transfer in `4104`.
-The overall package remains `Strategy` because the named terminal targets
-above are open.
+$$
+F_6(a,b)\ge1
+$$
+
+on the strict selected domain, or prove the stronger existing `3101X`
+target. The overall package remains `Strategy` because `4104-F` is a named
+open terminal target.

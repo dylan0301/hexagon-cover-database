@@ -96,7 +96,7 @@ Vd0, Vd1/Vd2, and T3-like vertex-role patterns.
       - `407X`: proven exact four-label $T_0$-T3-like reassembly
   - `41XX`: CE1/CE2, $N_+=1$
     - all Vd0
-      - `410X`: CE2 two-gap state proved; exact one-gap and all-boundary reductions remain open at named targets
+      - `410X`: CE2 two-gap and all exactly-one-gap states proved; the all-boundary reduction remains open at `4104-F`
       - `9630`: 5 point conjecture counterexample
     - Vd1/Vd2 branches
       - `411X`: CE1 at-least-one and CE2 at-least-two boundary-length obstructions
