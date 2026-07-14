@@ -18,8 +18,8 @@ The selected $P_3$ branch is the non-axis intersection between $\partial R_4$
 and $C_2$ closest to $V_4$.  The selected $P_5$ branch is the analogous
 intersection with $C_5$.
 
-The exact nondegenerate strict $AB$-union frontier formula for $\partial R_4$
-is recorded in
+The candidate nondegenerate strict $AB$-union frontier formula for
+$\partial R_4$ is recorded as a lemma target in
 [../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md](../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md).
 
 The local $R(a,b)$ predicate in `9632_CE0_reduction_prompt_spec.md` gives a

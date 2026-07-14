@@ -21,6 +21,12 @@ $$ -->
 
 ## Main conditional statement
 
+Assume the strict four-piece $AB$-union identity stated as lemma target
+[`../../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md`](../../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md),
+together with the limiting $\rho=1$ degeneration used below.  The implication
+proved in this file is conditional on those two geometric inputs; it does not
+prove them.
+
 Let
 
 $$
@@ -1139,5 +1145,6 @@ convex hull of the limiting $P_3$ and $P_5$ points, and keeping $P_4$ in
 $K_6^{\mathrm{rel}}$ does not change the convex hull or the minimal enclosing
 equilateral triangle side length.
 
-This proves the relaxed-P two-variable reduction with the same
+Subject to the two inputs stated at the start, this proves the relaxed-P
+two-variable reduction with the same
 $K_6^{\mathrm{rel}}$ notation on $\rho=1$.

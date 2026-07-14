@@ -30,6 +30,17 @@ $$
 L_K(n_0,n_1,n_2)=\frac{2}{\sqrt3}\left(h_K(n_0)+h_K(n_1)+h_K(n_2)\right).
 $$
 
+Indeed, for an equilateral triangle with these outward normals, incenter $z$,
+inradius $r$, and supporting constants $c_i$, one has
+
+$$
+c_i=z\cdot n_i+r.
+$$
+
+Since $n_0+n_1+n_2=0$, it follows that $c_0+c_1+c_2=3r$. Its side length
+is $2\sqrt3 r$, which is $2/\sqrt3$ times this sum. For fixed normals, the
+smallest containing choice is $c_i=h_K(n_i)$ for every $i$.
+
 Thus minimizing the side length over all orientations is equivalent to minimizing
 
 $$
@@ -50,38 +61,52 @@ $$
 h_i=h_Q(n_i).
 $$
 
-Each edge of $T$ must contain at least one vertex of $Q$. If some edge contained no point of $Q$, then its support value could be decreased slightly while keeping the other two support values fixed, producing a strictly smaller enclosing equilateral triangle. This contradicts minimality.
+Take the minimizing orientation to be $\theta=0$.
 
-Suppose first that some vertex $q$ of $Q$ is a vertex of $T$. Then $q$ lies on two adjacent edges of $T$. Since the third edge must also contain a vertex of $Q$, either two vertices of $Q$ are two vertices of $T$, giving pattern 3, or the remaining edge contacts provide two other vertices of $Q$ on edges of $T$, giving pattern 1.
+Write the three supporting half-planes of $T$ as
 
-It remains to consider the case where no vertex of $Q$ is a vertex of $T$. Then each contact point is on the relative interior of an edge of $T$.
+$$
+n_i\cdot x\le c_i.
+$$
 
-If all four vertices of $Q$ lie on edges of $T$, then pattern 2 holds. So assume, for contradiction, that not all four vertices of $Q$ lie on edges of $T$. Since each edge has a contact vertex and there are three edges, this means that exactly three vertices $q_0,q_1,q_2$ of $Q$ are edge contacts, one for each edge, and the fourth vertex lies strictly inside $T$.
+Containment gives $c_i\ge h_i$. If one of these inequalities were strict,
+replacing every $c_i$ by $h_i$ would give an enclosing equilateral triangle
+of the same orientation and side length
 
-Because each support is realized by a unique vertex, there exists $\varepsilon>0$ such that for $|\theta|<\varepsilon$,
+$$
+\frac{2}{\sqrt3}(h_0+h_1+h_2)
+<
+\frac{2}{\sqrt3}(c_0+c_1+c_2),
+$$
+
+contrary to minimality. Thus $c_i=h_i$ for every $i$. In particular, every
+edge of $T$ is a supporting line of $Q$ and contains at least one vertex of
+$Q$.
+
+We first record the rotation fact that will be used in both cases below.
+Suppose that, for each $i$, the support in direction $n_i$ is attained at a
+unique vertex $q_i$ of $Q$; the vertices $q_i$ need not be distinct. For every
+other vertex $p$ of $Q$,
+
+$$
+(q_i-p)\cdot n_i>0.
+$$
+
+There are only finitely many such strict inequalities, so they persist for
+all sufficiently small $|\theta|$. Hence, on a neighborhood of $0$,
 
 $$
 h_Q(R_\theta n_i)=q_i\cdot R_\theta n_i
 $$
 
-for each $i=0,1,2$. Indeed, for every other vertex $p\ne q_i$,
+for all $i$. If $J$ denotes rotation by $90^\circ$, then
 
 $$
-(q_i-p)\cdot n_i>0,
-$$
-
-and this strict inequality persists under sufficiently small rotation.
-
-For $|\theta|<\varepsilon$, write $J$ for rotation by $90^\circ$. Then
-
-$$
-R_\theta n_i=\cos\theta n_i+\sin\theta J n_i,
-$$
-
-so
-
-$$
-g(\theta)=\sum_{i=0}^2 q_i\cdot R_\theta n_i =\cos\theta g(0)+\sin\theta g_\perp,
+\begin{aligned}
+g(\theta)
+&=\sum_{i=0}^2 q_i\cdot R_\theta n_i\\
+&=\cos\theta g(0)+\sin\theta g_\perp,
+\end{aligned}
 $$
 
 where
@@ -90,27 +115,43 @@ $$
 g_\perp=\sum_{i=0}^2 q_i\cdot J n_i.
 $$
 
-If $g_\perp>0$, then for small negative $\theta$,
-
-$$
-g(\theta)<g(0).
-$$
-
-If $g_\perp<0$, then for small positive $\theta$,
-
-$$
-g(\theta)<g(0).
-$$
-
-If $g_\perp=0$, then for any sufficiently small nonzero $\theta$,
+Moreover, $g(0)>0$, because it is $\sqrt3/2$ times the positive side length
+of $T$. If $g_\perp>0$, a sufficiently small negative $\theta$ makes
+$g(\theta)<g(0)$; if $g_\perp<0$, a sufficiently small positive $\theta$
+does so; and if $g_\perp=0$, then every sufficiently small nonzero $\theta$
+satisfies
 
 $$
 g(\theta)=\cos\theta g(0)<g(0).
 $$
 
-In all cases a sufficiently small rotation of the normals gives a smaller enclosing equilateral triangle, contradicting minimality.
+Each alternative contradicts the minimality of $T$. We have therefore proved:
 
-Therefore the assumed three-unique-contact configuration is impossible. The only remaining possibilities are exactly patterns 1, 2, and 3.
+$$
+\boxed{\text{At a minimizing orientation, the three supports cannot all be unique.}}
+$$
+
+Now suppose that some vertex $q$ of $Q$ is a vertex of $T$. Label the two
+edges through $q$ as edges $0$ and $1$. The third edge contains a vertex
+$p\ne q$ of $Q$. If two distinct vertices of $Q\setminus\{q\}$ lie on edges
+of $T$, then pattern 1 holds. We may therefore assume that $p$ is the only
+vertex of $Q\setminus\{q\}$ on the boundary of $T$. If $p$ were also on edge
+$0$ or edge $1$, then, being already on the third edge, it would be a second
+vertex of $T$; this is pattern 3. Otherwise $q$ is the unique support vertex
+on edges $0$ and $1$, while $p$ is the unique support vertex on edge $2$.
+This contradicts the boxed rotation fact. Consequently pattern 1 or pattern 3
+must hold whenever a vertex of $Q$ is a vertex of $T$.
+
+It remains to consider the case where no vertex of $Q$ is a vertex of $T$.
+Then a vertex of $Q$ on the boundary of $T$ lies on exactly one edge of $T$.
+If all four vertices of $Q$ lie on edges of $T$, then pattern 2 holds.
+Otherwise, the three edges still require three distinct contact vertices, so
+exactly three vertices $q_0,q_1,q_2$ of $Q$ are boundary contacts, one on each
+edge, and the fourth vertex lies strictly inside $T$. Thus $q_i$ is the unique
+support vertex in direction $n_i$ for every $i$, again contradicting the
+boxed rotation fact.
+
+The listed three patterns are therefore exhaustive.
 
 ## 4. Use in the May 21/22 package
 

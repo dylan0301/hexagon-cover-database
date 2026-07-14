@@ -28,8 +28,13 @@ $$
 N_+=\left\lvert \left\lbrace i : a_i+b_i>1 \right\rbrace \right\rvert=1,
 $$
 
-there is exactly one T3-like row, and no row is Vd1 or Vd2. Equivalently, the
-remaining four non-supercritical, non-T3-like rows are Vd0 rows.
+there is exactly one T3-like row, and no row is Vd1 or Vd2. The T3-like row is
+nonsupercritical by
+[`../../../1XXX_foundations/12XX_V_triangle/1213_T3_like_nonsupercritical.md`](../../../1XXX_foundations/12XX_V_triangle/1213_T3_like_nonsupercritical.md),
+so the unique supercritical row is a different row. The exhaustive
+original-role classification in
+[`../../../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md`](../../../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md)
+shows that the remaining four nonsupercritical, non-T3-like rows are Vd0 rows.
 
 Use the following local midpoint dependencies.
 

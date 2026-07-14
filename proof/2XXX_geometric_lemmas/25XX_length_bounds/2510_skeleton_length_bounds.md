@@ -653,7 +653,11 @@ $$
 
 These are boundary edges of $\widetilde H$. Hence, viewed as a center triangle for $\widetilde H$, $T_0$ has positive-length overlap with at least one boundary edge of $\widetilde H$.
 
-A unit equilateral triangle cannot have positive-length overlap with three boundary edges of a regular side-$1$ hexagon. Among any three boundary edges, two contain positive-length subsegments whose mutual distance is strictly greater than $1$, while a unit equilateral triangle has diameter $1$. Therefore $T_0$, viewed in $\widetilde H$, is CE1 or CE2.
+The exhaustive CE classification in
+[`../../1XXX_foundations/11XX_C_triangle/1101_CE_classification.md`](../../1XXX_foundations/11XX_C_triangle/1101_CE_classification.md)
+proves that a unit equilateral triangle cannot have positive-length overlap
+with three boundary edges of a regular side-$1$ hexagon. Since $T_0$ has at
+least one such overlap in $\widetilde H$, it is CE1 or CE2 there.
 
 By the CE1/CE2 exact-one-midpoint lemma applied to $\widetilde H$, with its
 required interior-center hypothesis now verified, the triangle $T_0$ covers

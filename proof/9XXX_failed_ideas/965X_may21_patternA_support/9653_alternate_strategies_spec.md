@@ -155,7 +155,8 @@ inside one closed unit equilateral triangle.
 
 Strategic caveat: this AB-union construction has intended proof-strategy meaning only for a triangle with $a+b>1$.  In the May 21/22 setting, this is the unique strict triangle at $V_4$.
 
-The exact nondegenerate strict $AB$-union frontier formula is recorded in
+The candidate nondegenerate strict $AB$-union frontier formula is recorded as
+a lemma target in
 [../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md](../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md).
 
 Let

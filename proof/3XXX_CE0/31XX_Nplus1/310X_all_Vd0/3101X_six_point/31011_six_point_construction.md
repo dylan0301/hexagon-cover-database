@@ -122,7 +122,7 @@ $$
 \Omega=\alpha\delta-\gamma\beta.
 $$
 
-The two non-axis line sides of the strict two-line model lie on
+The two non-axis line sides of the candidate strict two-line model lie on
 
 $$
 \alpha(u-r)+\beta v=0,
@@ -147,7 +147,7 @@ $$
 J(a,b)=V_4+u_J e_+ + v_J e_-.
 $$
 
-The strict two-line superset $R^{\mathrm{lin}}(a,b)$ is the closed polygonal
+Define the candidate strict two-line superset $R^{\mathrm{lin}}(a,b)$ to be the closed polygonal
 local region with vertices
 
 $$
@@ -157,7 +157,9 @@ $$
 \left(\frac{\delta s}{\gamma},0\right).
 $$
 
-It is used only in the strict nondegenerate branch $\rho<1$.  On the boundary
+Its asserted containment of the actual row union is conditional on the
+unproved strict formula in `20091`.  It is used only in the strict
+nondegenerate branch $\rho<1$.  On the boundary
 $\rho=1$, the line-line junction is interpreted as its limiting point, which is
 collinear with the limiting $P_3^{\mathrm{rel}}$ and $P_5^{\mathrm{rel}}$.
 
@@ -245,8 +247,8 @@ $$
 
 In the strict branch, the monotonicity certificate in
 [`31012_core_graph_two_variable_relaxation.md`](31012_core_graph_two_variable_relaxation.md)
-proves that the relaxed non-axis intersections exist and the fallbacks are not
-used.
+proves, conditional on the strict-union target stated there, that the relaxed
+non-axis intersections exist and the fallbacks are not used.
 
 ## The point $P_4$
 

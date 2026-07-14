@@ -49,7 +49,7 @@ $OV_1$ and $OV_5$.
 
 The T3-like nonsupercritical working dependency is recorded in
 [`../../1XXX_foundations/12XX_V_triangle/1213_T3_like_nonsupercritical.md`](../../1XXX_foundations/12XX_V_triangle/1213_T3_like_nonsupercritical.md)
-(Status: Practically proven).
+(Status: Proven).
 
 ## Use in the CE1/CE2 T3-like branch
 

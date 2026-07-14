@@ -1,10 +1,10 @@
 # CE1/CE2, $N_+\ge2$, Skeleton-Length Obstruction
 
-Status: Practically proven
+Status: Proven
 
 This branch is closed by the skeleton-length obstruction recorded in
 [`../../2XXX_geometric_lemmas/25XX_length_bounds/2510_skeleton_length_bounds.md`](../../2XXX_geometric_lemmas/25XX_length_bounds/2510_skeleton_length_bounds.md)
-(Status: Practically proven).
+(Status: Proven).
 
 The branch assumptions inherited from the original open center role are
 

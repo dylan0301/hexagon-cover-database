@@ -70,8 +70,12 @@ $$
 
 where $\eta$ is distance from $V_1$ toward $O$.
 
-By the T3-like normalization convention, assume that $V_0$ lies on a side of
-$T_0$. Let that side have unit direction
+By the T3-like translation theorem in
+[`../../../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md`](../../../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md),
+replace $T_0$ by a same-orientation T3-like translate that contains its old
+closed trace on $H$ and has $V_0$ on a side. The theorem also shows that the
+old interior target $M_1\ne V_0$ remains interior to the translate. Let that
+side have unit direction
 
 $$
 w=(r,s),

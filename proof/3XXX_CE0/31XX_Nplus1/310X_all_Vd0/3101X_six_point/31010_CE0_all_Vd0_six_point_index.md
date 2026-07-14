@@ -15,7 +15,7 @@ is recorded.
 | Step | File | Recorded status | Role |
 |---:|---|---|---|
 | 1 | [`31011_six_point_construction.md`](31011_six_point_construction.md) | Definition | Defines the relaxed six-point set $K_6^{\mathrm{rel}}(a,b)$. |
-| 2 | [`31012_core_graph_two_variable_relaxation.md`](31012_core_graph_two_variable_relaxation.md) | Proven | Reduces the branch to a two-variable optimization over $(a,b)$. |
+| 2 | [`31012_core_graph_two_variable_relaxation.md`](31012_core_graph_two_variable_relaxation.md) | Proven | Conditional on strict-union target `20091` and its limiting degeneration, reduces the branch to a two-variable optimization over $(a,b)$. |
 | 3 | [`31013_core_surface_definition.md`](31013_core_surface_definition.md) | Definition | Defines the enclosing-triangle side-length surface $F_6(a,b)$. |
 | 4 | [`31015_minimum_curve_limit_figures.md`](31015_minimum_curve_limit_figures.md) | Empirical | Records minimum-curve figures and the observed near-limit support pattern. |
 | 5 | [`31016_fixed_angle_g_strategy.md`](31016_fixed_angle_g_strategy.md) | Strategy | Defines the fixed-angle function $G_E(a,b,\theta)$. |

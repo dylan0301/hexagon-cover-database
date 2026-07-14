@@ -34,10 +34,11 @@ Recommended reading order for mathematical orientation:
 2. [`proof/0XXX_main/0001_proof_tree_index.md`](proof/0XXX_main/0001_proof_tree_index.md)
 3. [`proof/1XXX_foundations/10XX_global_conventions/1003_open_unit_vs_shrunken_closed_equivalence.md`](proof/1XXX_foundations/10XX_global_conventions/1003_open_unit_vs_shrunken_closed_equivalence.md)
 4. [`proof/1XXX_foundations/11XX_C_triangle/1101_CE_classification.md`](proof/1XXX_foundations/11XX_C_triangle/1101_CE_classification.md)
-5. [`proof/1XXX_foundations/12XX_V_triangle/1212_vertex_rows_and_Nplus.md`](proof/1XXX_foundations/12XX_V_triangle/1212_vertex_rows_and_Nplus.md)
-6. [`proof/3XXX_CE0/3000_CE0_index.md`](proof/3XXX_CE0/3000_CE0_index.md)
-7. [`proof/4XXX_CE1CE2/4000_CE1CE2_index.md`](proof/4XXX_CE1CE2/4000_CE1CE2_index.md)
-8. [`proof/0XXX_main/0002_status_and_dependencies.md`](proof/0XXX_main/0002_status_and_dependencies.md)
+5. [`proof/1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md`](proof/1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md)
+6. [`proof/1XXX_foundations/12XX_V_triangle/1212_vertex_rows_and_Nplus.md`](proof/1XXX_foundations/12XX_V_triangle/1212_vertex_rows_and_Nplus.md)
+7. [`proof/3XXX_CE0/3000_CE0_index.md`](proof/3XXX_CE0/3000_CE0_index.md)
+8. [`proof/4XXX_CE1CE2/4000_CE1CE2_index.md`](proof/4XXX_CE1CE2/4000_CE1CE2_index.md)
+9. [`proof/0XXX_main/0002_status_and_dependencies.md`](proof/0XXX_main/0002_status_and_dependencies.md)
 
 The corpus uses four-character folder range labels with literal `X` digits.
 Definitions live in

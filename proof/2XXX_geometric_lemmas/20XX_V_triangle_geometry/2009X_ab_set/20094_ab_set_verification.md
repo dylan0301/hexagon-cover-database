@@ -8,16 +8,26 @@ This file summarizes the machine verification of the case tables in
 supporting exact-algebra scripts developed during the derivation:
 tangency/threshold identities re-derived in sympy).
 
+Here "verification" means reproducible numerical checking, not a rigorous
+certificate.  The orientation maximization uses floating-point grids and
+local refinement, the parameter audit is finite, and one or a few interior
+samples per sign region do not establish a universal curve-order or
+domination claim.  The unresolved exact obligations are listed in
+[`20093_ab_set_proofs.md`](20093_ab_set_proofs.md) under **Proof ledger**.
+
 ## Method
 
 Ground truth is computed from first principles only:
 a point $x$ lies in the union $U$ of unit equilateral triangles containing $\{A,O,B\}$ iff
 $\min_\varphi F_{\{A,O,B,x\}}(\varphi)\le\frac{\sqrt3}{2}$ (Viviani fitting criterion, proved in
 [`20093_ab_set_proofs.md`](20093_ab_set_proofs.md) §1). For each direction $\theta$ the boundary radius
-$r^*(\theta)=\max_{\varphi\in\Phi}\rho_\varphi(\theta)$ is evaluated by *exact* inversion of the
-piecewise-linear-in-$r$ equation $\sum_k\max(m_k,rc_k)=\frac{\sqrt3}2$ per orientation, maximized
-over a fine orientation grid with golden-section refinement **and** the exact $\Phi$-endpoints
-added (where $\rho_\varphi$ jumps). Accuracy of $r^*$: ~$10^{-12}$ (validated against closed-form
+$r^*(\theta)=\max_{\varphi\in\Phi}\rho_\varphi(\theta)$ is evaluated by algebraic inversion of the
+piecewise-linear-in-$r$ equation $\sum_k\max(m_k,rc_k)=\frac{\sqrt3}2$ at each sampled orientation,
+then maximized over a fine orientation grid with golden-section refinement.  The
+$\Phi$-endpoints are located numerically from sign changes on a fine grid and
+refined by bisection; this can miss an endpoint at which the defining function
+only touches zero.  Observed agreement for $r^*$ is about
+$10^{-12}$ (validated against closed-form
 points, e.g. circle points, to $10^{-14}$).
 
 Checked per sample $(a,b)$:
@@ -75,7 +85,7 @@ Additional targeted confirmations:
 
 ## Per-case boundary verification
 
-At least one interior sample of **every** case region of
+At least one claimed interior sample of every listed case region of
 [`20092_ab_set_case_catalog.md`](20092_ab_set_case_catalog.md) was verified — the numerically
 computed boundary (from the support-function ground truth) consists of exactly the claimed arcs in
 the claimed counterclockwise order, and every sampled boundary point lies on its claimed curve. The
@@ -85,13 +95,13 @@ claimed curve (tolerance $10^{-7}$; observed values are essentially machine prec
 | $(a,b)$ | case | arcs | max res |
 |---|---|---|---|
 | $(1.00,0.90)$ | 0 (empty) | — ($\min_\varphi F>h$) | — |
-| $(0.05,0.05)$, $(0.10,0.08)$ | I.1 | 8 | $1.8\times10^{-15}$ |
+| $(0.05,0.05)$ | I.1 | 8 | $1.8\times10^{-15}$ |
 | $(0.26,0.2346)$ | I.1a | 10 | $2.1\times10^{-15}$ |
 | $(0.2346,0.26)$ | I.1b | 10 | $1.9\times10^{-15}$ |
 | $(0.24,0.255)$, $(0.255,0.24)$ | I.1c | 10 | $2.1\times10^{-15}$ |
-| $(0.25,0.15)$, $(0.10,0.08)$ | I.2 | 5 | $2.2\times10^{-15}$ |
+| $(0.10,0.08)$, $(0.25,0.15)$ | I.2 | 5 | $2.2\times10^{-15}$ |
 | $(0.15,0.25)$ | I.2′ | 5 | $1.4\times10^{-15}$ |
-| $(0.372,0.087)$, $(0.40,0.05)$ | I.3 | 6 | $4.7\times10^{-15}$ |
+| $(0.30,0.10)$, $(0.372,0.087)$, $(0.40,0.05)$ | I.3 | 6 | $4.7\times10^{-15}$ |
 | $(0.087,0.372)$ | I.3′ | 6 | $1.5\times10^{-15}$ |
 | $(0.35,0.35)$, $(0.42,0.42)$ | I.4 | 8 | $3.4\times10^{-15}$ |
 | $(0.42,0.35)$ | I.5 | 5 | $2.3\times10^{-15}$ |
@@ -122,7 +132,10 @@ $b\to0$ tip of the III.1 sliver: its two $s_B$ pieces are present but too short 
 angular sampling, so it too is accepted under the sub-list rule; the interior III.1 point
 $(0.86,0.02)$ resolves all ten arcs exactly. Separately, as $R\to1$ (band IV, e.g. $(0.85,0.25)$)
 the two circular arcs shrink to the points $B,A$ and the two extreme segments approach the base
-$[A,B]$.)
+$[A,B]$; the checker therefore assigns that sample $5000$ directions even in
+quick mode.)
 
-The exact run log is produced by `python3 2009X_computation/verify_ab_set.py` (region audit + corner identities +
-the per-case table above). Every sample passes.
+The run log is produced by
+`python3 2009X_computation/verify_ab_set.py` (region audit, corner identities,
+and the per-case table above). Every programmed sample passes; this does not
+certify unsampled parameters or directions.

@@ -11,18 +11,27 @@ It interacts locally with:
 - radial segment $[V_i,O]$;
 - adjacent rays $r_{i-1}$ and $r_{i+1}$ for type classification.
 
+## Type classification
+
+For original vertex roles, the Vd0, Vd1, Vd2, and T3-like types are proved
+exhaustive in
+[`1201_V_triangle_types.md`](1201_V_triangle_types.md). That file also proves
+the same-orientation translation normalization used in T3-like arguments.
+
 ## Local $AB$-union frontier
 
-For prescribed adjacent edge points $A$ and $B$ with local edge lengths $a$ and $b$, the exact local $AB$-union curve in the strict branch
+For prescribed adjacent edge points $A$ and $B$ with local edge lengths $a$
+and $b$, the candidate local $AB$-union curve in the strict branch
 
 $$
 a+b>1, \qquad a^2+ab+b^2<1
 $$
 
-is recorded in
+is recorded as a lemma target in
 [`../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md`](../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md).
 
-In that branch, the frontier consists of exactly two unit-circle arcs and two line segments.
+The target formula gives two unit-circle arcs and two line segments, but its
+support-pattern exhaustion is not yet proved.
 
 ## Neighbor-ray maximum
 

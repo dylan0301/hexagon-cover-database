@@ -4,8 +4,7 @@ Status: Proven
 
 This file uses the $V_i$-triangle type convention from
 [`../../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md`](../../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md)
-and the half-skeleton midpoint inventory from
-[`../../1XXX_foundations/12XX_V_triangle/1205_midpoint_subsets.md`](../../1XXX_foundations/12XX_V_triangle/1205_midpoint_subsets.md).
+and proves the own-midpoint exclusion stated below.
 
 ## Statements
 
@@ -30,10 +29,6 @@ then
 $$
 M_i\notin T_i.
 $$
-
-Consequently, after maximalizing a T3-like $V_i$-triangle over the
-half-skeleton $S_{1/2}$, one may assume that it contains one of the adjacent
-midpoints $M_{i-1}$ or $M_{i+1}$.
 
 ## Proof of the midpoint exclusion
 
@@ -331,22 +326,19 @@ two outside vertices has $n=0$. A T3-like triangle has $(o,n)=(2,1)$, so a
 T3-like $V_0$-triangle cannot contain $M_0$. Rotating the argument proves the
 claim for every $i$.
 
-## Maximality consequence over $S_{1/2}$
+## Scope of the proved conclusion
 
-For a normalized $V_i$-triangle over $S_{1/2}$, the local midpoint set is
-
-$$
-\left\{M_{i-1},M_i,M_{i+1}\right\}.
-$$
-
-A T3-like triangle has positive-length intersection with exactly one of the
-two adjacent rays. By the midpoint exclusion above, it cannot contain $M_i$.
-If, after maximalizing over $S_{1/2}$, it contained neither adjacent midpoint,
-then its trace on the local half-skeleton would be dominated by the
-corresponding axis-aligned representative on the same adjacent side. This
-contradicts maximality. Hence a maximal T3-like representative over
-$S_{1/2}$ contains one of
+The proof above establishes only the own-midpoint exclusion
 
 $$
-M_{i-1},\qquad M_{i+1}.
+M_i\notin T_i.
 $$
+
+It does not prove that a maximal T3-like representative over $S_{1/2}$ must
+contain $M_{i-1}$ or $M_{i+1}$. In particular, the same-orientation
+translation theorem in
+[`../../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md`](../../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md)
+does not by itself supply the different-orientation, axis-aligned domination
+that such a maximality claim would require. No adjacent-midpoint consequence
+is therefore asserted in this file. Any proof that needs an adjacent midpoint
+must derive it from its cover hypotheses or from a separate proved lemma.

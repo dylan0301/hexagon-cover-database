@@ -35,7 +35,7 @@ The reduced diagonal-length caps are recorded in
 
 T3-like rows are nonsupercritical by
 [`../../../1XXX_foundations/12XX_V_triangle/1213_T3_like_nonsupercritical.md`](../../../1XXX_foundations/12XX_V_triangle/1213_T3_like_nonsupercritical.md)
-(Status: Practically proven). Therefore, in the $N_+=1$ branch, the unique
+(Status: Proven). Therefore, in the $N_+=1$ branch, the unique
 supercritical vertex row is Vd0.
 
 ## Diagonal length accounting

@@ -1,9 +1,11 @@
-# The ab-set: proofs
+# The AB-Set: Partial Derivations And Proof Obligations
 
-Status: Proven
+Status: Empirical
 
-This file proves the description of $K(a,b)$ stated in
-[`20092_ab_set_case_catalog.md`](20092_ab_set_case_catalog.md). Notation is as there:
+This file records exact preliminary lemmas and the intended proof of the
+description of $K(a,b)$ stated in
+[`20092_ab_set_case_catalog.md`](20092_ab_set_case_catalog.md).  It is not a
+complete proof of that general catalog. Notation is as there:
 $O=(0,0)$, $B=(b,0)$, $A=a u(120^\circ)$, $u(\theta)=(\cos\theta,\sin\theta)$,
 $u^\perp(\theta)=u(\theta+90^\circ)$, $h=\frac{\sqrt3}2$, $\sigma=a+b$, $R^2=a^2+ab+b^2$,
 $C=\{ru(\theta):r\ge0,\ \theta\in[0^\circ,120^\circ]\}$,
@@ -11,6 +13,44 @@ $$U=\bigcup\{T:\ T\ \text{unit equilateral},\ \{A,O,B\}\subset T\},\qquad K=U\ca
 For a compact $S\subset\mathbb R^2$ write $g_S(\theta)=\max_{p\in S}\langle p,u(\theta)\rangle$
 (support function), and for the three-point configuration
 $g(\theta):=g_{\{A,O,B\}}(\theta)=\max\{0,\ a\cos(\theta-120^\circ),\ b\cos\theta\}$.
+
+## Proof ledger
+
+The fitting criterion, the formula for the three-point orientation function,
+the band endpoints, star-shapedness, and the displayed parametric/implicit
+curve identities are exact.  The strict Band IV formula is separated as a
+lemma target in
+[`20091_ab_union_curve_a_plus_b_gt_1.md`](20091_ab_union_curve_a_plus_b_gt_1.md);
+that file records an exact counterexample to its former support-sector
+exhaustion, although not to the final formula.
+
+The proposed general Bands I--III catalog still has the following precise
+obligations.
+
+1. The claimed arc order and the assertion that every listed pivot triangle
+   contains the fourth marked point are checked only at finitely many sampled
+   parameters and directions; the scalar inequalities are not written down
+   and proved uniformly on each case region.
+2. Lemma 9.1 is only a certification template.  The file does not eliminate
+   every pair of catalog curves over every parameter region, prove that every
+   possible interior intersection is among the listed corners, or prove that
+   each sign-defined case region is connected.  A single floating-point
+   evaluation therefore cannot supply the missing global comparisons.
+3. The domination or non-realizability of the seven $h$-circles, the unused
+   flush lines, and the remaining support configurations is asserted rather
+   than certified by exact inequalities.
+4. The single-signed derivative used for endpoint capping in the gap sectors
+   is asserted without its derivative formula and sign proof.
+5. Several predicate-pruning implications in §10, including mutual exclusion
+   of the two $\mathcal G$ predicates and the implication from the mid-dip
+   predicate to $\mathcal G$, are supported only by rectangular grids.
+
+Exact resultant and tangency identities locate possible transitions, but do
+not by themselves prove which branch is exposed on either side or exclude
+other transitions.  Accordingly this file and the general catalog remain
+`Empirical` until the five obligations above receive exact inequalities,
+interval certificates, or another independently checkable global
+certificate.
 
 ---
 
@@ -377,17 +417,16 @@ powers are discarded against the band inequalities.
    degenerations: e.g. approaching the end of the admissible interval, the (T2) pivot triangle of
    $E_{BO}$ converges to $T_{\varphi_e}$ with $x$ converging to its $AB$-vertex.
 
-## 8. Case-by-case: the chains are in $U$
+## 8. Proposed case-by-case inclusion of the chains in $U$
 
-For each case of `20092_ab_set_case_catalog.md` §4, each listed arc is realizable on exactly the listed parameter
-range: the constructions of §5 apply, and the endpoint corners are precisely where a containment
-inequality becomes active (§7 item 9), so consecutive arcs share endpoints. This gives a closed chain
-$\Gamma\subset U\cap C$, single-valued over $\theta\in[0^\circ,120^\circ]$
-(the corner lists are ordered by strictly increasing $\theta$ on the case region — an explicit
-check of finitely many algebraic inequalities, done in `2009X_computation/verify_ab_set.py`). Lemma 5.1 then gives
-$S\subseteq K$.
+For each sampled case of `20092_ab_set_case_catalog.md` §4, the constructions
+of §5 numerically realize the listed arcs and the endpoint corners are where
+the sampled containment inequality becomes active.  The script also observes
+the claimed increasing-$\theta$ order.  A proof of the uniform containment
+inequalities and of the corner order over each whole case region is still
+required before Lemma 5.1 can be used to conclude $S\subseteq K$ globally.
 
-## 9. Case-by-case: maximality ($K\subseteq S$)
+## 9. Unresolved case-by-case maximality ($K\subseteq S$)
 
 Fix a case region and $\theta\in(0^\circ,120^\circ)$. By Proposition 4.2, $r^*(\theta)$ is the
 largest radial value among the realizable catalog configurations at direction $\theta$. The claimed
@@ -397,20 +436,22 @@ comparisons are of three kinds:
 
 1. **Curve-vs-curve on a sector.** E.g. in case I.6, for $\theta$ between $\theta(P_1)$ and
    $\theta(P_2)$ one checks that $L_A$ dominates $c_A$, $c_B$, $E_{AO}$, $E_{BO}$, $E_{BA}$,
-   $E_{AB}$, the seven $h$-circles and the other flush lines. This is certified by the following
-   standard semialgebraic scheme.
+   $E_{AB}$, the seven $h$-circles and the other flush lines. Such a comparison
+   would be certified by the following standard semialgebraic scheme once its
+   hypotheses are proved for every listed pair.
 
-   **Lemma 9.1 (sector certification).** Let $f,g:(\theta;a,b)\mapsto\mathbb R$ be the radial
+   **Lemma 9.1 (sector-certification template).** Let $f,g:(\theta;a,b)\mapsto\mathbb R$ be the radial
    functions of two catalog curves, continuous on a sector bundle
    $\Sigma=\{(\theta,a,b):\ (a,b)\in\Omega,\ \theta\in[\theta_0(a,b),\theta_1(a,b)]\}$ over a
    connected case region $\Omega$, with algebraic graphs. If $f=g$ has no solution in the interior
    of $\Sigma$, then $\mathrm{sign}(f-g)$ is constant on the interior of $\Sigma$, so a
    single interior evaluation decides the comparison on all of $\Sigma$. The no-solution
-   hypothesis in turn is equivalent to: the intersection locus of the two curves does not meet the
-   open sector for any $(a,b)\in\Omega$ — and every intersection of two catalog curves is one of
-   the finitely many listed corner points or crossings whose position relative to the sector is
-   controlled by one of the threshold polynomials of §7, which have constant sign on $\Omega$ (by
-   the definition of the case regions). $\square$
+   hypothesis in turn is equivalent to the intersection locus of the two
+   curves missing the open sector for every $(a,b)\in\Omega$. $\square$
+
+   The catalog has not yet proved that no unlisted intersection locus meets
+   the open sector, nor that every $\Omega$ used here is connected.  Those are
+   hypotheses of the template, not consequences of the threshold list.
 
    Each comparison is thus reduced to the corner identities (§7), the constant signs of the
    threshold polynomials on the case region (definitional), and one interior evaluation per
@@ -434,21 +475,23 @@ comparisons are of three kinds:
    the dip description (segments of $T_{\varphi_e}$ sides and the exposed flush lines, resolved by
    $\mathcal G$, $\mu$).
 
-The complete list of comparisons per case, with the verification outcome, is tabulated by
-`2009X_computation/verify_ab_set.py`; every comparison is confirmed on every case region (dense grids, precision
-$10^{-10}$, plus exact sympy checks of all identities quoted in §7). Together with §8 this proves
-$S=K$ on each case region.
+The numerical outcomes are tabulated by
+`2009X_computation/verify_ab_set.py`. Dense grids and exact checks of the
+quoted identities support the proposed comparisons, but do not verify their
+universal quantifiers.  Thus §§8--9 do not yet prove $S=K$ on the general case
+regions.
 
-## 10. Comprehensiveness
+## 10. Unresolved comprehensiveness
 
 The case regions are defined by sign conditions on the finite polynomial family
 $$\Bigl\{R^2-1,\ 4\sigma^2-3,\ 4R^2-3,\ \sigma-1,\ a-\tfrac12,\ b-\tfrac12,\ \sigma-\tfrac12,\
 w_+,\ w_-,\ \mathcal E(a,b),\ \mathcal E(b,a),\ \mathcal G(a,b),\ \mathcal G(b,a),\
 (3+a)R^2-3,\ (3+b)R^2-3,\ a-b\Bigr\}.$$
-Every point of $\{a,b\ge0\}$ satisfies one of: $R^2>1$ (Case 0) or the band inequalities I–IV; and
-within each band the listed sub-cases exhaust all sign patterns that are consistent with the band.
-The pruning facts, each verified on a fine grid in `2009X_computation/verify_ab_set.py` ("region audit") and provable
-by elementary estimates:
+Every point of $\{a,b\ge0\}$ satisfies one of $R^2>1$ (Case 0) or the band
+inequalities I--IV.  Within a band, however, completeness of the shorter
+subcase tables requires the following pruning implications.  The script found
+no violations on its finite grid; exact proofs are still required where none
+is supplied below:
 
 * $\varepsilon\Rightarrow\alpha\wedge\beta$ (trivially);
 * in bands I–III at least one of $w_\pm>0$ ($w_+\le0\wedge w_-\le0$ forces $\sigma\ge1$);
@@ -464,8 +507,10 @@ by elementary estimates:
   $\varphi=90^\circ$ or $30^\circ$ admissible, i.e. $F(90^\circ)=\tfrac{\sqrt3}2\sigma\le h$, i.e.
   $\sigma\le1$).
 
-On the common boundaries of adjacent cases both chains degenerate to the same curve list (a
-vanishing arc), so the closed cases cover the quadrant consistently. $\blacksquare$
+The claimed agreement of every adjacent chain on every threshold boundary is
+likewise part of the remaining global certification problem.  The exact Band
+IV candidate chain is recorded separately in `20091`; its global support
+partition remains open.
 
 ---
 

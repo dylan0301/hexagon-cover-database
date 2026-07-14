@@ -10,7 +10,7 @@ This subpackage collects the far-from-tight part of the CE0, $N_+=1$, all-Vd0 fi
 |---|---|---|
 | [`3100a1_far_from_tight_status.md`](3100a1_far_from_tight_status.md) | Reference | Current far-from-tight proof status, proved inputs, and remaining certificate obligations. |
 | [`3100a2_algorithm2_setup_and_point_construction.md`](3100a2_algorithm2_setup_and_point_construction.md) | Strategy | Reduced variables, fixed $V_4$ points, and algorithm-2 diagonal points; key containment remains empirical. |
-| [`3100a5_strict_branch_line_realization.md`](3100a5_strict_branch_line_realization.md) | Proven | Strict $\rho<1$ realization of $P_3,P_5$ on the two $309$ line pieces. |
+| [`3100a5_strict_branch_line_realization.md`](3100a5_strict_branch_line_realization.md) | Proven | Exact $\rho<1$ intersection calculation for the two candidate line pieces; actual-frontier use is conditional on lemma target `20091`. |
 | [`3100a6_algorithm2_two_variable_transition.md`](3100a6_algorithm2_two_variable_transition.md) | Strategy | Exact two-variable reduction and radial formulas; their transition use needs selector-aware rechecking. |
 | [`3100a8_convex_order_from_line_branches.md`](3100a8_convex_order_from_line_branches.md) | Proven | Convex cyclic order $D_0,D_1,D_2,P_3,P_5$ once line realization holds. |
 | [`3100a9_algorithm2_transition_strip_certificate.md`](3100a9_algorithm2_transition_strip_certificate.md) | Empirical / certificate outline | Transition-strip numerical constants and interpolation-certificate outline. |

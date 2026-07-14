@@ -1,6 +1,6 @@
 # AB-Set Case Catalog
 
-Status: Proven
+Status: Empirical
 
 **Setup.** Let $O=(0,0)$, let $B=(b,0)$ with $b\ge0$ on the positive $x$-axis, and let
 $A=a (\cos120^\circ,\sin120^\circ)=\bigl(-\tfrac a2,\tfrac{\sqrt3}2a\bigr)$ with $a\ge0$, so that
@@ -11,12 +11,21 @@ spanned by the directions of $OB$ and $OA$ (for $a=0$ or $b=0$ we keep this same
 > **Definition.** The **ab-set** is
 > $$K(a,b)\;=\;\Bigl( \bigcup\{T:\ T\ \text{closed equilateral triangle of side }1,\ \{A,O,B\}\subset T\}\Bigr)\ \cap\ C .$$
 
-This file gives the complete answer: a partition of $\{(a,b):a,b\ge0\}$ into cases described by
-polynomial inequalities, and for each case the boundary $\partial K(a,b)$ as a list of explicit
-algebraic curves in counterclockwise order. Proofs:
-[`20093_ab_set_proofs.md`](20093_ab_set_proofs.md). Machine verification of every case:
+This file records a proposed complete answer: a partition of
+$\{(a,b):a,b\ge0\}$ into cases described by polynomial inequalities, and for
+each case a proposed boundary $\partial K(a,b)$ as a list of explicit
+algebraic curves in counterclockwise order.  The general catalog remains
+empirical because the global curve comparisons and predicate-region pruning
+have not been certified.  The exact proof ledger is in
+[`20093_ab_set_proofs.md`](20093_ab_set_proofs.md). Numerical checks of every sampled case are in
 [`2009X_computation/verify_ab_set.py`](2009X_computation/verify_ab_set.py), summarized in
 [`20094_ab_set_verification.md`](20094_ab_set_verification.md).
+
+The strict Band IV subcase $a+b>1$, $R^2<1$ is isolated as a numerically
+supported lemma target in
+[`20091_ab_union_curve_a_plus_b_gt_1.md`](20091_ab_union_curve_a_plus_b_gt_1.md).
+Its candidate formula survives extensive tests, but the written
+support-pattern exhaustion is incomplete.
 
 **Notation.**
 $$h=\tfrac{\sqrt3}2,\qquad \sigma=a+b,\qquad R=\sqrt{a^2+ab+b^2}\;(=|AB|),\qquad
@@ -345,10 +354,11 @@ boundary ($R=1$).
 
 ## 7. Verification
 
-[`2009X_computation/verify_ab_set.py`](2009X_computation/verify_ab_set.py) certifies for
+[`2009X_computation/verify_ab_set.py`](2009X_computation/verify_ab_set.py) checks for
 representative samples inside every case region (and near every
 threshold): (i) the boundary computed from first principles (the support-function criterion, at
 machine precision) consists exactly of the claimed arcs in the claimed counterclockwise order;
 (ii) at many directions $\theta$ the boundary point lies on the claimed curve to $\le10^{-8}$;
-(iii) all corner/tangency identities of §2–§3 hold (exactly, via sympy). Results:
+(iii) the programmed corner/tangency identities of §2--§3 hold (exactly, via
+`sympy`).  These finite samples are evidence, not a global certificate. Results:
 [`20094_ab_set_verification.md`](20094_ab_set_verification.md).

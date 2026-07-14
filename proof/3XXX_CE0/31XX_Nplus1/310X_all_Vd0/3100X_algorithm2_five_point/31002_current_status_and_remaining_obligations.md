@@ -15,7 +15,7 @@ This file summarizes the state of the CE0, $N_+=1$, all-Vd0 five-point route aft
 
 | Component | File | Recorded status | Meaning |
 |---|---|---|---|
-| Strict line realization for $P_3,P_5$ | [`3100aX_far_from_tight/3100a5_strict_branch_line_realization.md`](3100aX_far_from_tight/3100a5_strict_branch_line_realization.md) | Proven | In the strict $\rho<1$ branch, the selected $C_2$ and $C_5$ intersections lie on $\Gamma_A^{\mathrm{lin}}$ and $\Gamma_B^{\mathrm{lin}}$. |
+| Strict candidate-chain intersections for $P_3,P_5$ | [`3100aX_far_from_tight/3100a5_strict_branch_line_realization.md`](3100aX_far_from_tight/3100a5_strict_branch_line_realization.md) | Proven | The selected $C_2$ and $C_5$ intersections with the candidate chain lie on its two line pieces; interpreting that chain as the actual frontier is conditional on lemma target `20091`. |
 | Algorithm-2 two-variable model | [`3100aX_far_from_tight/3100a6_algorithm2_two_variable_transition.md`](3100aX_far_from_tight/3100a6_algorithm2_two_variable_transition.md) | Strategy | The equality reduction and radial formulas are exact; their substitution into this route needs selector-aware rechecking. |
 | Transition polynomial and diagonal-radius monotonicity | [`3100aX_far_from_tight/3100a6_algorithm2_two_variable_transition.md`](3100aX_far_from_tight/3100a6_algorithm2_two_variable_transition.md) | Strategy | The radial envelope is now proved in `2004`; the transition and monotonicity application remain unaudited. |
 | Algorithm-1 tangent gap | [`3100bX_close_to_tight/3100b5_algorithm1_limit_tangent_gap.md`](3100bX_close_to_tight/3100b5_algorithm1_limit_tangent_gap.md) | Proven | The tangent coefficient satisfies $C_1\ge1/4$. |
@@ -37,7 +37,7 @@ The intended proof must combine:
 
 | Input | Current status |
 |---|---|
-| Fixed $V_4$ points from the strict $AB$-union frontier | Strict line-piece branch proved for $\rho<1$; boundary $\rho=1$ open. |
+| Fixed $V_4$ points from the strict $AB$-union frontier | Candidate-chain line-piece statement proved for $\rho<1$; actual-frontier identification depends on lemma target `20091`, and $\rho=1$ is open. |
 | Three algorithm-2 diagonal points | Two-variable construction proved under equality assumptions; containment in the relaxed obstruction region open. |
 | Near-limit treatment | Algorithm-1 tangent gap proved; finite-$x$ bound open. |
 | Away-region treatment | Transition strip has a certificate outline; region $p\ge0.15$ remains open. |

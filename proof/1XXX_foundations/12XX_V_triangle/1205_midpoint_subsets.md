@@ -13,6 +13,12 @@ full-skeleton arguments, midpoint containment must come from the cover
 hypotheses, midpoint-counting, type definitions, or a separate lemma; do not
 infer it from this $S_{1/2}$ inventory alone.
 
+The T3-like adjacent-midpoint line below is retained as a working inventory,
+not as a proved consequence of the own-midpoint exclusion in
+[`../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2006_T3_like_midpoint_lemma.md`](../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2006_T3_like_midpoint_lemma.md).
+A proof that every maximal T3-like representative over $S_{1/2}$ contains an
+adjacent midpoint is not recorded in the corpus.
+
 For a normalized $V_0$-triangle over $S_{1/2}$, the local midpoint set is
 
 $$
@@ -34,7 +40,7 @@ Midpoint subsets for maximal normalized $V_0$-triangles over $S_{1/2}$:
   $$
   \{M_0\},\ \{M_0,M_1\},\ \{M_0,M_5\},\ \{M_0,M_1,M_5\}.
   $$
-- T3-like $(o,n)=(2,1)$:
+- T3-like $(o,n)=(2,1)$, working inventory only:
   $$
   \{M_1\},\ \{M_5\}.
   $$

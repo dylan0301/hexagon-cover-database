@@ -13,9 +13,9 @@ Status: Reference
 - $S_{1/2}$: half-skeleton.
 - $T_C$: center triangle, not to be confused with the center point.
 - $T_i$: vertex triangle at $V_i$.
-- CE0/CE1/CE2: preferred names for C-triangle perimeter-edge types.
+- CE0/CE1/CE2: exhaustive preferred names for C-triangle perimeter-edge types.
 - Ce0/Ce1/Ce2: historical aliases.
-- Vd0/Vd1/Vd2/T3-like: V-triangle types.
+- Vd0/Vd1/Vd2/T3-like: exhaustive V-triangle types for original vertex roles.
 - $d_0,d_{60},\dots,d_{300}$: degree-indexed ray-intersection distances from $O$ to $\partial T_C$.
 - $1-d_{60i}$: available complementary radial distance on $[O,V_i]$ after $T_C$.
 - $a,b,c$: local V-triangle coordinates; in envelope files these are stated

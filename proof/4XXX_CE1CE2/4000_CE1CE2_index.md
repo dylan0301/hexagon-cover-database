@@ -6,6 +6,12 @@ This branch records the CE1 and CE2 cases together. It splits by $N_+$ and by
 the local types of the vertex roles. CE2-only exceptions are kept as separate
 rows where their hypotheses differ from the CE1 branch.
 
+For the original vertex roles in this proof tree,
+[`../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md`](../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md)
+proves that Vd0, Vd1, Vd2, and T3-like are exhaustive. The all-Vd0,
+Vd1/Vd2-present, and T3-like-present-with-no-Vd1/Vd2 divisions below therefore
+do not omit an additional positive-support type.
+
 | File | Recorded status | Branch |
 |---|---|---|
 | [`40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md`](40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md) | Proven | CE1/CE2, $N_+=0$, all Vd0; exact CE1 matrix and every CE2 no-gap, one-gap, and two-gap state are proved. |
@@ -18,7 +24,7 @@ rows where their hypotheses differ from the CE1 branch.
 | [`41XX_Nplus1/412X_at_least_two_T3_like/4123_CE1_CE2_at_least_two_T3_like_diagonal_obstruction.md`](41XX_Nplus1/412X_at_least_two_T3_like/4123_CE1_CE2_at_least_two_T3_like_diagonal_obstruction.md) | Practically proven | CE1/CE2, $N_+=1$, at least two T3-like rows. |
 | [`41XX_Nplus1/413X_exactly_one_T3_like/4130_CE1CE2_exactly_one_T3_like_index.md`](41XX_Nplus1/413X_exactly_one_T3_like/4130_CE1CE2_exactly_one_T3_like_index.md) | Proven | CE1/CE2, $N_+=1$, exactly one T3-like row; closed by the shared boundary obstruction in `4131` and `4132`. |
 | [`41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4140_CE2_Nplus1_exactly_one_Vd1_Vd2_TODO.md`](41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4140_CE2_Nplus1_exactly_one_Vd1_Vd2_TODO.md) | Proven | CE2, $N_+=1$, exactly one Vd1/Vd2; `414a` closes every additional-positive-support case, and the proved complementary reduction terminates at proved `4013`. |
-| [`42XX_Nplus_ge2/4200_CE1_CE2_skeleton_length_route.md`](42XX_Nplus_ge2/4200_CE1_CE2_skeleton_length_route.md) | Practically proven | CE1/CE2, $N_+\ge2$ shared skeleton-length obstruction. |
+| [`42XX_Nplus_ge2/4200_CE1_CE2_skeleton_length_route.md`](42XX_Nplus_ge2/4200_CE1_CE2_skeleton_length_route.md) | Proven | CE1/CE2, $N_+\ge2$ shared skeleton-length obstruction. |
 
 The May 25 five-point route is not used for CE1/CE2 all-Vd0; see
 [`../9XXX_failed_ideas/963X_may25_five_point_failure/9630_may25_CE1_CE2_failure.md`](../9XXX_failed_ideas/963X_may25_five_point_failure/9630_may25_CE1_CE2_failure.md)

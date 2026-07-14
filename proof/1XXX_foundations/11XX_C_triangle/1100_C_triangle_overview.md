@@ -10,4 +10,8 @@ The notes use three independent descriptions of $T_C$:
 2. Vertex-cone type: Type 1 or Type 2.
 3. Center ray-intersection distance data: $d_0,d_{60},\dots,d_{300}$.
 
+The first description is exhaustive: the proof that a unit $C$-triangle has
+positive-length overlap with at most two boundary edges is in
+[`1101_CE_classification.md`](1101_CE_classification.md).
+
 The $d$-tuple model is compatible with CE classification, but it does not preserve the explicit perimeter-edge case split.

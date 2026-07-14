@@ -1,4 +1,9 @@
-"""Verification of the ab-set case tables (20092_ab_set_case_catalog.md).
+"""Numerical checking of the ab-set case tables (20092_ab_set_case_catalog.md).
+
+This program is not a rigorous certificate: it samples parameter values and
+directions and uses floating-point orientation grids plus local refinement.
+It can find counterexamples and reproduce the empirical evidence, but a clean
+run does not establish the universal claims in the general catalog.
 
 Ground truth: for x = r u(theta), x in U  iff  min_phi F_{AOBx}(phi) <= sqrt(3)/2
 (Viviani fitting criterion). r*(theta) is computed by exact inversion of the
@@ -462,8 +467,9 @@ def region_audit(N=400):
 SAMPLES = [
     # (a, b) — at least one interior sample per case region
     (1.0, 0.9),                       # 0 (empty)
-    (0.05, 0.05), (0.10, 0.08),       # I.1
-    (0.25, 0.15), (0.30, 0.10),       # I.2
+    (0.05, 0.05),                     # I.1
+    (0.10, 0.08), (0.25, 0.15),       # I.2
+    (0.30, 0.10),                     # I.3
     (0.15, 0.25),                     # I.2'
     (0.372, 0.087), (0.40, 0.05),     # I.3
     (0.087, 0.372),                   # I.3'
@@ -490,7 +496,8 @@ SAMPLES = [
     (0.70, 0.28), (0.66, 0.33),      # III.2
     (0.85, 0.10), (0.90, 0.05),      # III.4
     (0.28, 0.70), (0.10, 0.85),      # III.2', III.4'
-    (0.70, 0.40), (0.60, 0.55), (0.85, 0.25),   # IV
+    (0.70, 0.40), (0.60, 0.55),
+    (0.85, 0.25, 5000),               # IV near rho=1; tiny circle arcs
     (0.0, 0.5), (0.0, 0.9), (0.5, 0.0), (0.0, 0.0),  # degenerate axes
 ]
 

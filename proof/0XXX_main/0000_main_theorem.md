@@ -30,9 +30,13 @@ $$
 T_C,T_0,\dots,T_5.
 $$
 
-The intended proof first classifies $T_C$ as CE0, CE1, or CE2. The CE1 and CE2
-cases are recorded together in the combined 4XXX branch. Inside each active
-branch it defines the vertex perimeter rows $(a_i,b_i)$ and splits by
+The intended proof first uses the exhaustive classification in
+[`../1XXX_foundations/11XX_C_triangle/1101_CE_classification.md`](../1XXX_foundations/11XX_C_triangle/1101_CE_classification.md)
+to classify $T_C$ as CE0, CE1, or CE2. The CE1 and CE2 cases are recorded
+together in the combined 4XXX branch. Inside each active branch it uses the
+exhaustive original-vertex-role types from
+[`../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md`](../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md),
+defines the vertex perimeter rows $(a_i,b_i)$, and splits by
 
 $$
 N_+=\left\lvert \left\lbrace i : a_i+b_i>1 \right\rbrace \right\rvert.

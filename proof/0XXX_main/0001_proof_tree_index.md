@@ -35,17 +35,20 @@ Vd0, Vd1/Vd2, and T3-like vertex-role patterns.
 
 - `1XXX`: foundations
   - `1003`: open-unit and shrunken-closed equivalence
-  - `1101`: CE0, CE1, CE2 classification
-  - `1201`: Vd0, Vd1, Vd2, and T3-like types
+  - `1101`: proved exhaustive CE0, CE1, CE2 classification
+  - `1201`: proved exhaustive Vd0, Vd1, Vd2, and T3-like classification for
+    original vertex roles, with proved T3-like translation normalization
   - `1202`: local coordinates $(a,b,c)$
 - `2XXX`: geometric lemmas
   - `20XX`: V-triangle geometry
     - `2004`: exact piecewise support-contact admissible set
     - `2005`: proved midpoint self-cover criterion
-    - `2006`: T3-like midpoint lemma
+    - `2006`: proved T3-like own-midpoint exclusion
     - `2007`: exact piecewise $B_c(a)$ map and classified-map semantics
     - `2008`: neighbor-ray maximum formula
-    - `2009X`: ab-set package, including the ab-union curve for $a+b>1$
+    - `2009X`: ab-set package; strict $a+b>1$, $R^2<1$ union is a
+      numerically supported lemma target in `20091`, general Bands I--III
+      catalog empirical
     - `2010`: proved free strict-supercritical outgoing supremum
   - `21XX`: C-triangle geometry
     - `2100`: proved CE1/CE2 exactly-one-midpoint lemma with $O$ interior
@@ -106,7 +109,7 @@ Vd0, Vd1/Vd2, and T3-like vertex-role patterns.
     - exactly one T3-like and no Vd1/Vd2
       - `413X`: shared CE1/CE2 boundary obstruction (`4131`, `4132`)
   - `42XX`: CE1/CE2, $N_+\ge2$
-    - `4200`: shared CE1/CE2 skeleton-length route
+    - `4200`: proven shared CE1/CE2 skeleton-length obstruction
 
 ## Failed-Idea Warnings
 

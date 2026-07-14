@@ -95,9 +95,13 @@ $$
 h={\sqrt3\over2}.
 $$
 
-By the T3-like normalization convention, translate the triangle, preserving its
-side length and orientation, so that $V_0$ lies on a side of $T$. Write that
-side in the unit direction
+By the T3-like translation theorem in
+[`../../../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md`](../../../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md),
+replace the triangle by a same-orientation translate whose trace on $H$
+contains the original trace and for which $V_0$ lies on a side. The translate
+is still T3-like, so the proved own-midpoint exclusion in `2006` still keeps
+$M_0$ out, while the containment preserves $M_1$. Write the side through
+$V_0$ in the unit direction
 
 $$
 d=(\cos\theta,\sin\theta),
@@ -345,7 +349,8 @@ Thus the crossed adjacent T3-like pair is impossible.
 
 Assume for contradiction that $T_0$ is not T3-like.
 
-Since no vertex role is Vd1 or Vd2, every vertex role is either Vd0 or T3-like.
+By the exhaustiveness theorem in `1201`, since no original vertex role is Vd1
+or Vd2, every vertex role is either Vd0 or T3-like.
 Since this is a full-skeleton cover, all six radial midpoints are in the target.
 By the CE1/CE2 exactly-one-midpoint normalization, $T_C$ covers $M_0$ and no
 other midpoint. Therefore every midpoint
