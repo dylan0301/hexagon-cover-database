@@ -59,9 +59,9 @@ Vd0, Vd1/Vd2, and T3-like vertex-role patterns.
     - `2105`: CE1 exact center and radial formulas
     - `2106`: CE2 exact center and radial formulas
   - `25XX`: length bounds
-    - `2500`: boundary length bounds
+    - `2500`: proved boundary length bounds
     - `2510`: skeleton length bounds
-    - `2520`: diagonal length bounds
+    - `2520`: proved diagonal length bounds
   - `26XX`: enclosing-triangle tools
     - `2607`: minimal enclosing equilateral quadrilateral lemma
 

@@ -55,8 +55,8 @@ We use the following recorded dependencies.
 4. Vd0, Vd1, Vd2, and T3-like are exhaustive for original vertex roles:
    [`../../../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md`](../../../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md).
 
-The two strict diagonal caps formerly imported from the practically-proven
-`2520` note are proved next, so this file no longer depends on that status.
+The two strict diagonal caps are reproved next, so this file is logically
+independent of the general `2520` package.
 
 ## 2. Exact diagonal caps
 

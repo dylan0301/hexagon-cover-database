@@ -1,6 +1,6 @@
 # CE1, $N_+=1$, Exists Vd1/Vd2 Boundary-Length Obstruction
 
-Status: Practically proven
+Status: Proven
 
 Assume a hypothetical seven-open-unit-triangle cover has role triangles
 
@@ -25,10 +25,21 @@ This CE1 branch is obstructed by boundary length, using the boundary caps in
 
 ## Boundary accounting
 
-The open boundary $\partial H$ has length $6$.
+Pass to the role closures and put
 
-For a normalized CE1 center role, the active $C$-only boundary interval has
-length
+$$
+L_C=\mathcal H^1(T_C\cap\partial H),
+\qquad
+L_i=\mathcal H^1(T_i\cap\partial H).
+$$
+
+If the open roles covered $\partial H$, then
+
+$$
+6\le L_C+\sum_{i=0}^5L_i.
+$$
+
+For a normalized CE1 center role, the full boundary trace has length at most
 
 $$
 \rho(1-\rho),\qquad \rho=\sqrt{s^2-s+1},\qquad 0<s<1.
@@ -41,22 +52,20 @@ $$
 \frac{\sqrt3}{2}-\frac34.
 $$
 
-Choose one Vd1/Vd2 vertex role. In the reduced boundary-length accounting, its
-boundary contribution is at most $\frac12$. The Vd1/Vd2 row is not the
-supercritical row in this branch.
+Choose one Vd1/Vd2 vertex role. Its full boundary trace is strictly less than
+$\frac12$, so this row is not supercritical.
 
-Among the remaining five vertex rows, exactly one is supercritical. Its worst
-boundary contribution is at most $\frac2{\sqrt3}$ in the Vd0 case. The T3-like
-case is no larger for this accounting. The other four rows are
-non-supercritical and contribute at most $1$ each.
+The boundary caps show that T3-like rows are also nonsupercritical. Therefore
+the unique supercritical row is Vd0. It has boundary contribution at most
+$\frac2{\sqrt3}$, and each of the other four rows contributes at most $1$.
 
-Therefore the total boundary contribution is at most
+Therefore
 
 $$
-\left(\frac{\sqrt3}{2}-\frac34\right)+\frac12+\frac2{\sqrt3}+4
+L_C+\sum_{i=0}^5L_i
+<\left(\frac{\sqrt3}{2}-\frac34\right)+\frac12+\frac2{\sqrt3}+4
 =\frac{15}{4}+\frac{7}{2\sqrt3}<6.
 $$
 
 This is incompatible with covering the length-$6$ open boundary. Hence the
-CE1, $N_+=1$, exists Vd1/Vd2 branch cannot occur in the open-cover proof tree,
-subject to the practically proven boundary caps cited above.
+CE1, $N_+=1$, exists Vd1/Vd2 branch cannot occur in the open-cover proof tree.

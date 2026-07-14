@@ -26,9 +26,9 @@ T_-,
 T_+^{hi}.
 $$
 
-The fake label $T_+^{lo}$ is absent. The direct diagonal-cap proof now in
-`4072` also removes the former dependency on the practically-proven `2520`
-note, and `4073` uses $\widehat B$ for the possibly T3-like row $T_1$.
+The fake label $T_+^{lo}$ is absent. The direct diagonal-cap proof in `4072`
+also makes that file independent of the general `2520` package, and `4073`
+uses $\widehat B$ for the possibly T3-like row $T_1$.
 
 The cited branch files have been canonicalized for strict GitHub math. All
 active lemma citations use explicit filenames, so the two historical detail

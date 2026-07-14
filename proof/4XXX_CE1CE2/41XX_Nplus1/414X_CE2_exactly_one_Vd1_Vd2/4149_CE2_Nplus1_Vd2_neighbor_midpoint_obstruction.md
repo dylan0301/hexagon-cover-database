@@ -148,8 +148,8 @@ In this reduced subbranch there is one CE2 center row, one unique
 supercritical Vd0 row, one unique Vd2 row, and four ordinary
 nonsupercritical Vd0 rows.
 
-We derive the three remaining boundary caps directly, so this theorem does not
-depend on the `Practically proven` status of the general boundary-length note.
+We derive the three remaining boundary caps directly, so this theorem is
+logically independent of the general boundary-length package.
 
 For the CE2 center row, use the exact interval-pair variables from
 [`../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2103_CE2_M0_e50_e01_maximal_interval_pairs.md`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2103_CE2_M0_e50_e01_maximal_interval_pairs.md).

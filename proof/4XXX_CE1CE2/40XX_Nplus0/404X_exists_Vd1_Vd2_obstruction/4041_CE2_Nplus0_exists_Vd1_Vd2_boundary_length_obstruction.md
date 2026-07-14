@@ -1,6 +1,6 @@
 # CE2, $N_+=0$, Exists Vd1/Vd2 Boundary-Length Obstruction
 
-Status: Practically proven
+Status: Proven
 
 Assume a hypothetical seven-open-unit-triangle cover has role triangles
 
@@ -25,10 +25,22 @@ This CE2 branch is obstructed by boundary length, using the boundary caps in
 
 ## Boundary accounting
 
-The open boundary $\partial H$ has length $6$.
+Pass to the role closures and put
 
-For a normalized CE2 center role, the two active $C$-only boundary intervals
-have total length
+$$
+L_C=\mathcal H^1(T_C\cap\partial H),
+\qquad
+L_i=\mathcal H^1(T_i\cap\partial H).
+$$
+
+If the open roles covered $\partial H$, then
+
+$$
+6\le L_C+\sum_{i=0}^5L_i.
+$$
+
+For a normalized CE2 center role, the two full CE2 boundary intervals have
+total length
 
 $$
 (u-x)+(v-y)=\frac{D(1-D)}{S},\qquad S=x+y,\qquad D=\sqrt{x^2+xy+y^2}.
@@ -37,19 +49,19 @@ $$
 The $O$-containment start-domain condition gives $S>1/2$, and
 $D(1-D)\le1/4$, so the CE2 center contribution is less than $\frac12$.
 
-Choose one Vd1/Vd2 vertex role. In the reduced boundary-length accounting, its
-boundary contribution is at most $\frac12$.
+Choose one Vd1/Vd2 vertex role. Its full boundary trace is strictly less than
+$\frac12$.
 
 Because $N_+=0$, every remaining vertex row is nonsupercritical. Each
 nonsupercritical row contributes at most $1$, so the other five vertex rows
 contribute at most $5$.
 
-Therefore the total boundary contribution is strictly less than
+Therefore
 
 $$
-\frac12+\frac12+5=6.
+L_C+\sum_{i=0}^5L_i
+<\frac12+\frac12+5=6.
 $$
 
 This is incompatible with covering the length-$6$ open boundary. Hence the
-CE2, $N_+=0$, exists Vd1/Vd2 branch cannot occur in the open-cover proof tree,
-subject to the practically proven boundary caps cited above.
+CE2, $N_+=0$, exists Vd1/Vd2 branch cannot occur in the open-cover proof tree.
