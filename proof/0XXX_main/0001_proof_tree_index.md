@@ -46,9 +46,9 @@ Vd0, Vd1/Vd2, and T3-like vertex-role patterns.
     - `2006`: proved T3-like own-midpoint exclusion
     - `2007`: exact piecewise $B_c(a)$ map and classified-map semantics
     - `2008`: neighbor-ray maximum formula
-    - `2009X`: ab-set package; strict $a+b>1$, $R^2<1$ union is a
-      numerically supported lemma target in `20091`, general Bands I--III
-      catalog empirical
+    - `2009X`: ab-set package; exact finite all-parameter caliper certificate
+      in `20095` and strict $a+b>1$, $R^2<1$ four-piece union in `20091`
+      proved; optional simplified Bands I--III named-curve catalog empirical
     - `2010`: proved free strict-supercritical outgoing supremum
   - `21XX`: C-triangle geometry
     - `2100`: proved CE1/CE2 exactly-one-midpoint lemma with $O$ interior

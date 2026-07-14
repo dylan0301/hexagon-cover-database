@@ -3,9 +3,12 @@
 Status: Empirical
 
 This file records exact preliminary lemmas and the intended proof of the
-description of $K(a,b)$ stated in
+optional simplified named-curve description in
 [`20092_ab_set_case_catalog.md`](20092_ab_set_case_catalog.md).  It is not a
-complete proof of that general catalog. Notation is as there:
+complete proof of that compression.  The ab-set itself has an exact proved
+finite description in
+[`20095_exact_caliper_certificate.md`](20095_exact_caliper_certificate.md).
+Notation is as in `20092`:
 $O=(0,0)$, $B=(b,0)$, $A=a u(120^\circ)$, $u(\theta)=(\cos\theta,\sin\theta)$,
 $u^\perp(\theta)=u(\theta+90^\circ)$, $h=\frac{\sqrt3}2$, $\sigma=a+b$, $R^2=a^2+ab+b^2$,
 $C=\{ru(\theta):r\ge0,\ \theta\in[0^\circ,120^\circ]\}$,
@@ -18,11 +21,10 @@ $g(\theta):=g_{\{A,O,B\}}(\theta)=\max\{0,\ a\cos(\theta-120^\circ),\ b\cos\thet
 
 The fitting criterion, the formula for the three-point orientation function,
 the band endpoints, star-shapedness, and the displayed parametric/implicit
-curve identities are exact.  The strict Band IV formula is separated as a
-lemma target in
+curve identities are exact.  The strict Band IV formula is proved in
 [`20091_ab_union_curve_a_plus_b_gt_1.md`](20091_ab_union_curve_a_plus_b_gt_1.md);
-that file records an exact counterexample to its former support-sector
-exhaustion, although not to the final formula.
+that file replaces the former incomplete support-sector argument with an
+exhaustive three-sector caliper proof and establishes the frontier order.
 
 The proposed general Bands I--III catalog still has the following precise
 obligations.
@@ -131,9 +133,11 @@ $F=\max\bigl(R\cos(\varphi-\delta), R\cos(\varphi-\delta-60^\circ)\bigr)$, whose
 exactly at $\varphi=\delta+30^\circ=\theta_{AB}$. Values and monotonicity follow, using
 $\frac{\sqrt3}2\sigma\le R\le\sigma$ (the first is $(a-b)^2\ge0$, the second is $ab\ge0$). $\square$
 
-**Corollary 2.3 (existence; bands).** $U\ne\varnothing$ iff $R\le1$; at $R=1$, $U$ is the single
-unit triangle with base $[A,B]$ and third vertex on the $O$-side of the line $AB$
-(the minimal enclosing triangle at orientation $\theta_{AB}$).
+**Corollary 2.3 (existence; bands).** $U\ne\varnothing$ iff $R\le1$.  At $R=1$ and $a,b>0$,
+$U$ is the single unit triangle with base $[A,B]$ and third vertex on the $O$-side of the line $AB$
+(the minimal enclosing triangle at orientation $\theta_{AB}$).  At $(a,b)=(1,0)$ or $(0,1)$,
+both unit triangles on the diameter segment occur in $U$, although the one on the outside of $C$
+contributes only the shared base edge to $K=U\cap C$.
 For $R<1$, comparing $h$ with the critical values
 $\tfrac{\sqrt3}2R\le\tfrac{\sqrt3}2\sigma\le R\le\sigma$ yields exactly the four band structures of
 $\Phi$ stated in the bands table of `20092_ab_set_case_catalog.md`, with endpoints:
@@ -494,11 +498,19 @@ no violations on its finite grid; exact proofs are still required where none
 is supplied below:
 
 * $\varepsilon\Rightarrow\alpha\wedge\beta$ (trivially);
-* in bands I–III at least one of $w_\pm>0$ ($w_+\le0\wedge w_-\le0$ forces $\sigma\ge1$);
+* the exact identity $w_++w_-=(a^2+b^2)(1-\sigma)$ proves that in bands I--III with
+  $\sigma<1$ and $(a,b)\ne(0,0)$ at least one of $w_\pm$ is positive; on $\sigma=1$ one has
+  $w_+=a-b$, $w_-=b-a$, so $(\tfrac12,\tfrac12)$ is the additional simultaneous zero;
 * band I $\wedge\ a\ge\tfrac12\Rightarrow w_+>0\wedge w_-\le0$ (so I.6 needs no further split);
 * band II excludes $\varepsilon$ ($\sigma>\tfrac{\sqrt3}2>\tfrac12$);
-* within bands II–III never $\mathcal G(a,b)>0\wedge\mathcal G(b,a)>0$; in band II the flush lines
-  occur only in the rows II.1/II.1′;
+* within bands II--III the identity
+  $$
+  \mathcal G(a,b)+\mathcal G(b,a)
+  =(\sigma-1)\left((\sigma+1)^2(a^2+b^2)+(\sigma+2)(3-2\sigma^2)\right)
+  $$
+  proves that the two $\mathcal G$ values cannot both be positive; the further assertion that in
+  band II the flush lines occur only in rows II.1/II.1′ remains part of the simplified-catalog
+  certification problem;
 * band III $\wedge a>b\Rightarrow a>\tfrac12>b$ (proved in §2-style estimates: $\max(a,b)\le\tfrac12$
   would give $R^2\le\tfrac34$, and $a,b>\tfrac12$ would give $\sigma>1$);
 * band III $\wedge a>b$: $(3+a)R^2>3\Rightarrow\mathcal G(a,b)>0$ (so case "$M_A$ without
@@ -507,10 +519,12 @@ is supplied below:
   $\varphi=90^\circ$ or $30^\circ$ admissible, i.e. $F(90^\circ)=\tfrac{\sqrt3}2\sigma\le h$, i.e.
   $\sigma\le1$).
 
-The claimed agreement of every adjacent chain on every threshold boundary is
-likewise part of the remaining global certification problem.  The exact Band
-IV candidate chain is recorded separately in `20091`; its global support
-partition remains open.
+The claimed agreement of every adjacent simplified chain on every threshold
+boundary is likewise part of the remaining global certification problem,
+with the simultaneous degeneracies $(0,0)$ and $(\tfrac12,\tfrac12)$ treated
+separately in `20092`.  The exact Band IV chain is proved independently in
+`20091`; the exhaustive all-parameter support-cell formula is proved in
+`20095`.
 
 ---
 

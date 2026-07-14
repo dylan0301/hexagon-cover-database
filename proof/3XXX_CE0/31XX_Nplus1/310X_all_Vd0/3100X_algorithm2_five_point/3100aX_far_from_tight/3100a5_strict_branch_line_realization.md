@@ -2,11 +2,9 @@
 
 Status: Proven
 
-This file proves an exact intersection statement for the candidate strict
-four-piece chain used by the algorithm-2 route.  The source chain is only a
-lemma target: its identification with the actual $AB$-union frontier is not
-proved.  Thus the algebraic result below is proven, while its geometric use as
-a frontier-realization theorem is conditional on
+This file proves an exact intersection statement for the strict four-piece
+chain used by the algorithm-2 route.  Its identification with the actual
+$AB$-union frontier is proved in
 [`../../../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md`](../../../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md).
 It applies only in the strict branch
 
@@ -14,8 +12,9 @@ $$
 a+b>1,\qquad \rho=a^2+ab+b^2<1.
 $$
 
-The limiting case $\rho=1$ is not covered here because the candidate strict
-four-piece formula degenerates there.
+The limiting case $\rho=1$ is not covered by this intersection calculation
+because the strict four-piece curve degenerates there; the union degeneration
+itself is proved in `20091`.
 
 ## Statement
 
@@ -31,8 +30,8 @@ $$
 a+b>1,\qquad \rho=a^2+ab+b^2<1.
 $$
 
-Let $\Gamma_{AB}$ be the candidate strict non-axis chain from the $AB$-union
-target file, with pieces
+Let $\Gamma_{AB}$ be the proved strict non-axis chain from the $AB$-union
+theorem, with pieces
 
 $$
 \Gamma_{AB}=\Gamma_A^{\mathrm{circ}}\cup\Gamma_A^{\mathrm{lin}}\cup\Gamma_B^{\mathrm{lin}}\cup\Gamma_B^{\mathrm{circ}}.
@@ -349,7 +348,7 @@ Since a concave function lies above the minimum of its endpoint values, $F>0$ on
 The $C_2$ circle has no zero on $\Gamma_A^{\mathrm{circ}}$, exactly one zero on
 $\Gamma_A^{\mathrm{lin}}$, and no zero on
 $\Gamma_B^{\mathrm{lin}}\cup\Gamma_B^{\mathrm{circ}}$. Hence its selected
-non-axis intersection with the candidate chain lies on
+non-axis intersection with the actual strict chain lies on
 $\Gamma_A^{\mathrm{lin}}$.
 
 The involution
@@ -360,10 +359,10 @@ $$
 
 sends $C_2=(b,1+b)$ to $C_5=(1+a,a)$ and sends
 $\Gamma_A^{\mathrm{lin}}$ to $\Gamma_B^{\mathrm{lin}}$. Hence the $C_5$ circle
-has its unique non-axis candidate-chain intersection on
+has its unique non-axis strict-frontier intersection on
 $\Gamma_B^{\mathrm{lin}}$.
 
-Thus, for the candidate chain in the strict nondegenerate branch,
+Thus, for the actual chain in the strict nondegenerate branch,
 
 $$
 P_3\in\Gamma_A^{\mathrm{lin}},\qquad P_5\in\Gamma_B^{\mathrm{lin}}.
@@ -371,4 +370,7 @@ $$
 
 ## Remaining Boundary
 
-The limiting case $\rho=1$ is not included. It should follow by a limiting degeneration argument, but that argument is not recorded here.
+The limiting case $\rho=1$ is not part of this strict intersection
+calculation.  The exact degeneration of the union is recorded in `20091`;
+any limiting selection statement specific to this construction must be read
+from its separately defined collinear limit.

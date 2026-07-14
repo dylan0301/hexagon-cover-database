@@ -19,13 +19,12 @@ $$
 a=a_4,\qquad b=b_4.
 $$ -->
 
-## Main conditional statement
+## Main reduction theorem
 
-Assume the strict four-piece $AB$-union identity stated as lemma target
+Use the strict four-piece $AB$-union identity proved in
 [`../../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md`](../../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md),
-together with the limiting $\rho=1$ degeneration used below.  The implication
-proved in this file is conditional on those two geometric inputs; it does not
-prove them.
+including the $\rho=1$ degeneration proved there.  Thus the reduction below
+has no remaining conditional $AB$-union input.
 
 Let
 

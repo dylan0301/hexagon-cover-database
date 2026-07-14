@@ -21,17 +21,20 @@ the same-orientation translation normalization used in T3-like arguments.
 ## Local $AB$-union frontier
 
 For prescribed adjacent edge points $A$ and $B$ with local edge lengths $a$
-and $b$, the candidate local $AB$-union curve in the strict branch
+and $b$, the local $AB$-union frontier in the strict branch
 
 $$
 a+b>1, \qquad a^2+ab+b^2<1
 $$
 
-is recorded as a lemma target in
+is proved in
 [`../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md`](../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md).
 
-The target formula gives two unit-circle arcs and two line segments, but its
-support-pattern exhaustion is not yet proved.
+The formula gives two unit-circle arcs and two line segments; its support
+partition, opposite-component redundancy, frontier order, and $\rho=1$
+degeneration are proved there.  An exact finite formula for all parameter
+bands is proved in
+[`../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20095_exact_caliper_certificate.md`](../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20095_exact_caliper_certificate.md).
 
 ## Neighbor-ray maximum
 

@@ -8,8 +8,13 @@ This file summarizes the machine verification of the case tables in
 supporting exact-algebra scripts developed during the derivation:
 tangency/threshold identities re-derived in sympy).
 
-Here "verification" means reproducible numerical checking, not a rigorous
-certificate.  The orientation maximization uses floating-point grids and
+Here "verification" means reproducible numerical checking of the optional
+simplified named-curve table, not a rigorous certificate.  The ab-set has a
+proved exact finite formula in
+[`20095_exact_caliper_certificate.md`](20095_exact_caliper_certificate.md),
+and the strict Band IV row has a separate analytic proof in
+[`20091_ab_union_curve_a_plus_b_gt_1.md`](20091_ab_union_curve_a_plus_b_gt_1.md).
+The orientation maximization here uses floating-point grids and
 local refinement, the parameter audit is finite, and one or a few interior
 samples per sign region do not establish a universal curve-order or
 domination claim.  The unresolved exact obligations are listed in
@@ -46,11 +51,14 @@ Checked per sample $(a,b)$:
 
 ## Region audit (predicate implications used to prune the case tables)
 
-Verified on a $400\times400$ grid over $\{a,b\in(0,1],\ R\le1\}$ — all with **zero violations**:
+Verified on a $400\times400$ interior grid over
+$\{a,b\in(0,1],\ R\le1\}$ — all sampled points had **zero violations**.  This grid does not include
+the exact simultaneous degeneracies $(0,0)$ and $(\tfrac12,\tfrac12)$; at both points
+$w_+=w_-=0$, so the former unqualified strict version of A2 was false.
 
 | audit | statement |
 |---|---|
-| A2 | in bands I–III at least one of $w_\pm>0$ |
+| A2 | in bands I--III with $a+b<1$ and $(a,b)\ne(0,0)$ at least one of $w_\pm>0$; on $a+b=1$, the only double zero is $(\tfrac12,\tfrac12)$ |
 | A3 | within bands II–III never $\mathcal G(a,b)>0\wedge\mathcal G(b,a)>0$ |
 | A5 | band III, $a>b$: $(3+a)R^2>3\Rightarrow\mathcal G(a,b)>0$ (case "$M_A$ without $\lambda_B$" empty) |
 | A6 | band I, $a\ge\frac12\Rightarrow w_+>0\wedge w_-\le0$ |
@@ -85,10 +93,12 @@ Additional targeted confirmations:
 
 ## Per-case boundary verification
 
-At least one claimed interior sample of every listed case region of
+At least one sample of every listed case region of
 [`20092_ab_set_case_catalog.md`](20092_ab_set_case_catalog.md) was verified — the numerically
 computed boundary (from the support-function ground truth) consists of exactly the claimed arcs in
-the claimed counterclockwise order, and every sampled boundary point lies on its claimed curve. The
+the claimed counterclockwise order, and every sampled boundary point lies on its claimed curve.
+The sample is interior whenever the case region has nonempty interior; II.0 is the isolated
+simultaneous degeneration.  The
 column "res" is the maximum over the sample's directions of the gradient-normalized residual to the
 claimed curve (tolerance $10^{-7}$; observed values are essentially machine precision).
 
@@ -108,6 +118,7 @@ claimed curve (tolerance $10^{-7}$; observed values are essentially machine prec
 | $(0.35,0.42)$ | I.5′ | 5 | $1.8\times10^{-15}$ |
 | $(0.60,0.20)$, $(0.55,0.15)$, $(0.5,0.0)$ | I.6 | 4 | $2.4\times10^{-15}$ |
 | $(0.20,0.60)$, $(0.0,0.5)$ | I.6′ | 4 | $1.9\times10^{-15}$ |
+| $(0.50,0.50)$ | II.0 simultaneous degeneration | 4 | $1.1\times10^{-8}$ (targeted reduced-resolution run) |
 | $(0.55,0.40)$ | II.1 | 7 | $2.2\times10^{-15}$ |
 | $(0.753,0.183)$ | II.1 + $\lambda_B$ | 8 | $5.2\times10^{-15}$ |
 | $(0.40,0.55)$ | II.1′ | 7 | $2.2\times10^{-15}$ |
@@ -122,7 +133,7 @@ claimed curve (tolerance $10^{-7}$; observed values are essentially machine prec
 | $(0.85,0.10)$, $(0.90,0.05)$ | III.4 | 11 | $4.9\times10^{-15}$ |
 | $(0.0,0.90)$ | III.4′ | (degenerate merge) | $7.6\times10^{-13}$ |
 | $(0.70,0.40)$, $(0.60,0.55)$, $(0.85,0.25)$ | IV | 4 | $3.2\times10^{-15}$ |
-| $(0.0,0.0)$ | I.2′ (all curves $\to$ unit circle) | (degenerate merge) | $1.6\times10^{-15}$ |
+| $(0.0,0.0)$ | simultaneous degeneration (all relevant curves $\to$ unit circle) | (degenerate merge) | $1.6\times10^{-15}$ |
 
 ("degenerate merge": at $a=0$ or $b=0$ several claimed curves coincide — e.g. at $a=0$, $c_A$,
 $E_{AO}$ and the unit circle are one curve and some arcs have length $0$ — so the arc-name

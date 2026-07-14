@@ -56,12 +56,11 @@ $$
 \alpha=r,\qquad \beta=1-q.
 $$
 
-The candidate nondegenerate strict $AB$-union frontier formula for these local
-axis lengths is recorded as a lemma target in
+The nondegenerate strict $AB$-union frontier formula for these local axis
+lengths is now proved in
 [../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md](../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md).
-The scalar reduction below is exact for the selected algebraic branches; its
-interpretation as a statement about the actual union frontier is conditional
-on that target.
+Consequently the scalar reduction below is exact both for the selected
+algebraic branches and for their interpretation on the actual union frontier.
 
 The local-to-global map is
 

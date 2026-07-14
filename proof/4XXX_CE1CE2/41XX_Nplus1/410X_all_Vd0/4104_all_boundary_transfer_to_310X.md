@@ -105,12 +105,12 @@ $$
 
 The union sets are defined abstractly in
 [`../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20090_ab_set_index.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20090_ab_set_index.md).
-The strict supercritical frontier candidate for the unique row with
-$a_i+b_i>1$ is recorded as a lemma target in
+The strict supercritical frontier for the unique row with $a_i+b_i>1$ is
+proved in
 [`../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md).
 No formula for the general empirical catalog is used in the transfer below.
-Any later step that replaces the abstract union by the four-piece strict
-frontier remains conditional on the unresolved target.
+Replacing the abstract strict union by that four-piece frontier is therefore
+rigorous; the separate optimization targets named below remain unchanged.
 
 The closure of the actual $T_i$ is one of the unit triangles in the defining
 union. If a point $P$ lies in both $\mathrm{int}(H)$ and the open triangle

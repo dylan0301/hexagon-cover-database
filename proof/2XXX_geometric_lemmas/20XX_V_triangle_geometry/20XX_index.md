@@ -12,5 +12,5 @@ local midpoint targets used by the CE-first proof tree.
 | [`2006_T3_like_midpoint_lemma.md`](2006_T3_like_midpoint_lemma.md) | Proven | T3-like own-midpoint exclusion; no $S_{1/2}$ adjacent-midpoint maximality consequence is asserted. |
 | [`2007_max_b_map.md`](2007_max_b_map.md) | Proven | Exact piecewise support-contact map, root-component selectors, classified-map semantics, and an exact former-sheet counterexample. |
 | [`2008_neighbor_ray_max_c_formula.md`](2008_neighbor_ray_max_c_formula.md) | Proven | Neighboring-ray maximum formula. |
-| [`2009X_ab_set/20090_ab_set_index.md`](2009X_ab_set/20090_ab_set_index.md) | Reference | $AB$-set package: strict supercritical union is a lemma target; general Bands I--III catalog empirical. |
+| [`2009X_ab_set/20090_ab_set_index.md`](2009X_ab_set/20090_ab_set_index.md) | Reference | $AB$-set package: exact finite all-parameter caliper certificate and strict Band IV closed form proved; optional simplified Bands I--III named-curve catalog empirical. |
 | [`2010_free_supercritical_max_b.md`](2010_free_supercritical_max_b.md) | Proven | Free strict-supercritical supremum; corrected closed-demand envelope. |

@@ -32,12 +32,13 @@ $$
 a_4+b_4>1,
 $$
 
-The candidate nondegenerate strict $AB$-union frontier for this local region,
-including the two unit-circle arcs and two line segments, is recorded in:
+The nondegenerate strict $AB$-union frontier for this local region, including
+the two unit-circle arcs and two line segments, was only a target when this
+failed route was written.  It is now proved in:
 
 | File | Recorded status | Notes |
 |---|---|---|
-| [../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md](../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md) | Lemma target | Strict $AB$-union frontier candidate; support-pattern exhaustion remains open. |
+| [../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md](../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md) | Proven | Exact strict $AB$-union identity, support-pattern exhaustion, frontier pieces, and degeneracy. |
 
 while
 

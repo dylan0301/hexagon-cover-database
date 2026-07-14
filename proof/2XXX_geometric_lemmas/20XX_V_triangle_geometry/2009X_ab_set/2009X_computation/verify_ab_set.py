@@ -174,6 +174,8 @@ def predicted_chain(a, b):
     P = predicates(a, b)
     if P['empty']:
         return ('EMPTY',)
+    if a == 0.5 and b == 0.5:
+        return ('cA1', 'sgA', 'sgB', 'cB1')
     if P['B4']:
         return ('cA1', 'sgA', 'sgB', 'cB1')
     seq = ['cA1']
@@ -215,6 +217,8 @@ def case_name(a, b):
     P = predicates(a, b)
     if P['empty']:
         return '0'
+    if a == 0.5 and b == 0.5:
+        return 'II.0'
     if P['B4']:
         return 'IV'
     if P['B3']:
@@ -434,7 +438,8 @@ def corner_checks(a, b):
 
 def region_audit(N=400):
     """implications used to prune the case tables
-    A2: in bands I-III at least one flank is exposed
+    A2: in bands I-III at least one flank is exposed, except at the exact
+        simultaneous degeneracies (0,0) and (1/2,1/2)
     A3: within bands II-III never both flush lines
     A5: band III (a>b): mu>0 implies G4>0 (so case III.3 is empty)
     A6: band I with a>=1/2 forces w+>0, w-<=0
@@ -449,7 +454,11 @@ def region_audit(N=400):
             if R2 > 1:
                 continue
             P = predicates(a, b)
-            if (P['B1'] or P['B2'] or P['B3']) and not P['wp'] and not P['wm']:
+            a2_exception = ((abs(a) < 1e-12 and abs(b) < 1e-12)
+                            or (abs(a - 0.5) < 1e-12
+                                and abs(b - 0.5) < 1e-12))
+            if ((P['B1'] or P['B2'] or P['B3']) and not a2_exception
+                    and not P['wp'] and not P['wm']):
                 viol['A2'] += 1
             if (P['B2'] or P['B3']) and P['G4'] and P['G4s']:
                 viol['A3'] += 1
@@ -478,6 +487,7 @@ SAMPLES = [
     (0.35, 0.42),                     # I.5'
     (0.60, 0.20), (0.55, 0.15),      # I.6
     (0.20, 0.60),                     # I.6'
+    (0.50, 0.50),                     # II.0 simultaneous degeneration
     (0.55, 0.40),                     # II.1
     (0.80, 0.135),                    # III.2 (additional sample)
     (0.753, 0.183),                   # II.1 + lambda_B

@@ -141,7 +141,7 @@ $$
 a+b>1,\qquad \rho=a^2+ab+b^2<1.
 $$
 
-Let $\Gamma_{AB}$ be the candidate strict non-axis chain, decomposed into the
+Let $\Gamma_{AB}$ be the proved strict non-axis chain, decomposed into the
 four pieces
 
 $$
@@ -157,10 +157,11 @@ $\Gamma_A^{\mathrm{lin}}$. By symmetry, the radius-$1$ circle centered at the
 $C_5$ point meets $\Gamma_{AB}$ exactly once, and this intersection lies on
 $\Gamma_B^{\mathrm{lin}}$.
 
-This is an exact statement about the candidate chain.  Its use as the actual
-$AB$-union frontier is conditional on lemma target `20091`.
+By the proved theorem `20091`, this is an exact statement about the actual
+strict $AB$-union frontier.
 
-The limiting boundary $\rho=1$ is not covered by `3100a5`.
+The separate limiting boundary $\rho=1$ is proved geometrically in `20091`,
+although the strict intersection calculation in `3100a5` does not use it.
 
 **Reduction `3100a6` (Status: Strategy).** Under the equality assumptions
 

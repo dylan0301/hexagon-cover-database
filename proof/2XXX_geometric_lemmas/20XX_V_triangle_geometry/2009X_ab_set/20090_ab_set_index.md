@@ -2,8 +2,10 @@
 
 Status: Reference
 
-This package separates a rigorously proved strict-supercritical formula from a
-larger empirical case catalog for the **ab-set**.
+This package contains two rigorous descriptions of the **ab-set**: an exact
+finite caliper certificate for all parameters and a simplified closed formula
+for the strict-supercritical branch.  A larger named-curve compression remains
+as an empirical refinement.
 
 ## Problem
 
@@ -19,7 +21,7 @@ The goal is to describe $K(a,b)$ for **all** $a,b\ge0$: break the parameter quad
 given by polynomial inequalities, and for each case give the boundary of $K(a,b)$ as a list of
 algebraic curves in counterclockwise order — with proof.
 
-## The proposed general answer, in one paragraph
+## The simplified named-curve proposal, in one paragraph
 
 Write $\sigma=a+b$, $R=\sqrt{a^2+ab+b^2}=|AB|$, $h=\tfrac{\sqrt3}{2}$. A finite set fits in a unit
 equilateral triangle of orientation $\varphi$ **iff** the sum of its three support values (in the
@@ -55,10 +57,11 @@ written as an explicit counterclockwise list of the catalog curves, are in
 
 | File | Recorded status | Contents |
 |---|---|---|
-| [`20092_ab_set_case_catalog.md`](20092_ab_set_case_catalog.md) | Empirical | Proposed curve catalog (§1), corner points (§2), sub-case predicates (§3), case tables (§4), degenerate parameters (§5), and worked examples (§6). |
-| [`20093_ab_set_proofs.md`](20093_ab_set_proofs.md) | Empirical | Exact preliminary lemmas and curve identities, followed by an explicit ledger of the missing global comparison, pruning, and exhaustiveness certificates. |
+| [`20095_exact_caliper_certificate.md`](20095_exact_caliper_certificate.md) | Proven | Exact all-parameter finite support-cell certificate, including repeated points, hull degeneracies, tangencies, and a degree-at-most-four semialgebraic boundary rule. |
+| [`20091_ab_union_curve_a_plus_b_gt_1.md`](20091_ab_union_curve_a_plus_b_gt_1.md) | Proven | Exact strict Band IV disk--half-plane union, exhaustive support proof, four-piece frontier order, and the $\rho=1$ degeneration. |
+| [`20092_ab_set_case_catalog.md`](20092_ab_set_case_catalog.md) | Empirical | Optional simplified named-curve catalog, corner points, sub-case predicates, case tables, degenerate parameters, and worked examples. |
+| [`20093_ab_set_proofs.md`](20093_ab_set_proofs.md) | Empirical | Exact preliminary identities for the simplified catalog, followed by an explicit ledger of its missing global comparison and pruning certificates. |
 | [`20094_ab_set_verification.md`](20094_ab_set_verification.md) | Empirical | Verification method, region audit, and per-case machine-verification table. |
-| [`20091_ab_union_curve_a_plus_b_gt_1.md`](20091_ab_union_curve_a_plus_b_gt_1.md) | Lemma target | Candidate strict Band IV cone-coordinate $AB$-union formula; the former support-sector exhaustion is disproved inside the file. |
 | [`2009X_computation/verify_ab_set.py`](2009X_computation/verify_ab_set.py) | Experiment | Self-contained numerical checker comparing a support-function ground truth against the claimed curves and arc order. |
 | [`2009X_computation/derive_quartics.py`](2009X_computation/derive_quartics.py) | Experiment | `sympy` derivation of the parametric and implicit forms of the four limaçon quartics. |
 | [`2009X_computation/derive_thresholds.py`](2009X_computation/derive_thresholds.py) | Experiment | `sympy` derivation/verification of corner points and sub-case threshold polynomials. |
@@ -78,14 +81,20 @@ curve claimed for that arc and that the arcs appear in the stated counterclockwi
 
 ## Status
 
-The strict branch $a+b>1$, $R^2<1$ candidate is isolated in
+The exact finite certificate for every $a,b\ge0$ is proved in
+[`20095_exact_caliper_certificate.md`](20095_exact_caliper_certificate.md).
+It is an exhaustive answer in support-cell form and does not require the
+twenty-region named-arc compression.  The strict branch
+$a+b>1$, $R^2<1$ is simplified further in
 [`20091_ab_union_curve_a_plus_b_gt_1.md`](20091_ab_union_curve_a_plus_b_gt_1.md),
-but its support-pattern partition is incomplete and one former intermediate
-equivalence has an exact counterexample.  The larger Bands I--III catalog is
-also not yet a proof: its advertised
-curve-order, domination, pruning, and sign-region claims are checked only on
-finite numerical samples.  The exact missing obligations are recorded at the
-start of [`20093_ab_set_proofs.md`](20093_ab_set_proofs.md).  The experiments
-remain useful evidence, summarized in
+where the disk--half-plane identity, every omitted support regime, the
+four-piece frontier order, and its $\rho=1$ degeneration are proved.
+
+The optional simplified Bands I--III named-curve table is not thereby proved:
+its advertised curve-order, domination, pruning, and sign-region claims are
+still checked only on finite numerical samples.  Its missing obligations are
+recorded at the start of
+[`20093_ab_set_proofs.md`](20093_ab_set_proofs.md).  The experiments remain
+useful evidence, summarized in
 [`20094_ab_set_verification.md`](20094_ab_set_verification.md), but they do not
-upgrade the general catalog above `Empirical`.
+upgrade that simplified refinement above `Empirical`.

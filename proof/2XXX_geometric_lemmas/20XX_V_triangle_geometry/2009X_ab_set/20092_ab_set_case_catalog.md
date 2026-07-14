@@ -11,21 +11,23 @@ spanned by the directions of $OB$ and $OA$ (for $a=0$ or $b=0$ we keep this same
 > **Definition.** The **ab-set** is
 > $$K(a,b)\;=\;\Bigl( \bigcup\{T:\ T\ \text{closed equilateral triangle of side }1,\ \{A,O,B\}\subset T\}\Bigr)\ \cap\ C .$$
 
-This file records a proposed complete answer: a partition of
-$\{(a,b):a,b\ge0\}$ into cases described by polynomial inequalities, and for
-each case a proposed boundary $\partial K(a,b)$ as a list of explicit
-algebraic curves in counterclockwise order.  The general catalog remains
-empirical because the global curve comparisons and predicate-region pruning
-have not been certified.  The exact proof ledger is in
+This file records an optional simplified presentation: a proposed partition
+of $\{(a,b):a,b\ge0\}$ into regions and a named list of algebraic boundary
+arcs in counterclockwise order.  The ab-set itself now has an exact proved
+all-parameter description in
+[`20095_exact_caliper_certificate.md`](20095_exact_caliper_certificate.md).
+The shorter named-arc compression here remains empirical because its global
+curve comparisons and predicate-region pruning have not been certified.  Its
+proof ledger is in
 [`20093_ab_set_proofs.md`](20093_ab_set_proofs.md). Numerical checks of every sampled case are in
 [`2009X_computation/verify_ab_set.py`](2009X_computation/verify_ab_set.py), summarized in
 [`20094_ab_set_verification.md`](20094_ab_set_verification.md).
 
-The strict Band IV subcase $a+b>1$, $R^2<1$ is isolated as a numerically
-supported lemma target in
+The strict Band IV subcase $a+b>1$, $R^2<1$ is proved independently in
 [`20091_ab_union_curve_a_plus_b_gt_1.md`](20091_ab_union_curve_a_plus_b_gt_1.md).
-Its candidate formula survives extensive tests, but the written
-support-pattern exhaustion is incomplete.
+That proof includes the formerly omitted support patterns, their redundancy
+in the opposite component, the four-piece frontier order, and the $R=1$
+degeneration.
 
 **Notation.**
 $$h=\tfrac{\sqrt3}2,\qquad \sigma=a+b,\qquad R=\sqrt{a^2+ab+b^2}\;(=|AB|),\qquad
@@ -40,9 +42,11 @@ Basic facts (proved in the companion file):
 * **Existence.** With $F=F_{\{A,O,B\}}$: $\min_\varphi F=\tfrac{\sqrt3}2R$. Hence:
 
 > **Case 0.** If $a^2+ab+b^2>1$, then $K(a,b)=\varnothing$.
-> If $a^2+ab+b^2=1$, then $K$ is the intersection of $C$ with the single unit triangle having base
-> $[A,B]$ and third vertex on the $O$-side of line $AB$ — a convex polygon (its boundary: the two
-> cone-edge segments and parts of the triangle's sides).
+> If $a^2+ab+b^2=1$, then $K$ is the intersection of $C$ with the unit triangle on base $[A,B]$
+> lying on the cone side.  For $a,b>0$ this is the unique unit triangle containing $A,O,B$.
+> At $(a,b)=(1,0)$ or $(0,1)$, the reflected unit triangle also contains the repeated endpoint
+> data, but its intersection with $C$ contributes only the shared base edge, so the stated formula
+> for $K$ remains correct.
 
 * **Symmetry.** Reflection across the ray $\theta=60^\circ$,
   $(X,Y)\mapsto\bigl(-\tfrac X2+\tfrac{\sqrt3}2Y,\ \tfrac{\sqrt3}2X+\tfrac Y2\bigr)$, maps
@@ -61,8 +65,10 @@ admissible triangle orientations. Its topology yields the primary cases:
 
 Here $\theta_{AB}$ is the outer normal direction of segment $AB$:
 $\cos\theta_{AB}=\frac{\sqrt3a}{2R},\ \sin\theta_{AB}=\frac{a+2b}{2R}$.
-Bands I–IV and Case 0 cover the quadrant; on shared band boundaries the adjacent descriptions
-coincide (degenerating arcs have zero length), so closed inequalities may be used everywhere.
+Bands I–IV and Case 0 cover the quadrant.  Generic shared boundaries are obtained by zero-length
+arc degeneration.  Simultaneous equality points such as $(\tfrac12,\tfrac12)$ require the explicit
+degenerate convention recorded in §4; the proved finite certificate in `20095` applies without any
+such convention.
 
 ---
 
@@ -141,11 +147,13 @@ $c_B$ and $E_{BO}$ do — this makes the axes $a=0$, $b=0$ continuous limits of 
 * $P_2=B+(1-b)u(60^\circ)=\bigl(\tfrac{1+b}2,\ \tfrac{\sqrt3}2(1-b)\bigr)\ \in\ L_A\cap E_{BA}\cap E_{BO}$.
 * $P_2'=A+(1-a)u(60^\circ)=\bigl(\tfrac{1-2a}2,\ \tfrac{\sqrt3}2\bigr)\ \in\ L_B\cap E_{AB}\cap E_{AO}$.
 * $P_3=B+u(120^\circ)=\bigl(b-\tfrac12,\ \tfrac{\sqrt3}2\bigr)\ \in\ L_B\cap c_B\cap E_{BO}$.
-* $G_1\in L_A\cap E_{AO}$: with the parametrization $x(t)=\bigl(\tfrac34-\tfrac t2,\
+* In the subcases where $a+b<1$ and this corner is used,
+  $G_1\in L_A\cap E_{AO}$: with the parametrization $x(t)=\bigl(\tfrac34-\tfrac t2,\
   \tfrac{\sqrt3}4(1+2t)\bigr)$ of $L_A$, $G_1=x(t)$ at the unique root
   $t\in\bigl(a-\tfrac12,\ \tfrac12-b\bigr)$ of
   $$\mathcal C_A(t)=8t^3-(4+8a)t^2+(6+8a)t+(6a-3).$$
-* $G_1'\in L_B\cap E_{BO}$: $x=(t,\tfrac{\sqrt3}2)$ at the unique root
+* In the mirrored subcases where $a+b<1$ and this corner is used,
+  $G_1'\in L_B\cap E_{BO}$: $x=(t,\tfrac{\sqrt3}2)$ at the unique root
   $t\in\bigl(b-\tfrac12,\ \tfrac12-a\bigr)$ of
   $$\mathcal C_B(t)=8t^3-(4+8b)t^2+(6+8b)t+(6b-3).$$
 * $G_2\in L_A\cap E_{BA}$ and $G_2'\in L_B\cap E_{AB}$: the analogous relevant roots of
@@ -189,7 +197,11 @@ proof that each is the exact threshold: proofs §7).
 * $w_+:=a(1-b^2)-b(b^2-b+1)>0$ — the **$A$-side flank** (pieces around $P_2$) is exposed
   (threshold: $P_2\in E_{AO}$).
 * $w_-:=b(1-a^2)-a(a^2-a+1)>0$ — the **$B$-side flank** (around $P_2'$) is exposed
-  (threshold: $P_2'\in E_{BO}$). In bands I–III at least one of $w_\pm>0$.
+  (threshold: $P_2'\in E_{BO}$).  The exact identity
+  $$w_++w_-=(a^2+b^2)(1-a-b)$$
+  shows that in bands I–III with $a+b<1$ and $(a,b)\ne(0,0)$ at least one is positive.  On
+  $a+b=1$, one has $w_+=a-b$, $w_-=b-a$; both vanish at
+  $(a,b)=(\tfrac12,\tfrac12)$, which is treated as a simultaneous degeneration below.
 * $\Lambda_B:\ \mathcal G(a,b)>0$ — the flush line $\lambda_B$ appears in the outer dip, where
   $$\mathcal G(a,b)=(1-b)^2\sigma^3+(b-1)(b-3)\sigma^2-b(b-1)\sigma-(b^2-3b+3).$$
   Mirror $\Lambda_A:\ \mathcal G(b,a)>0$ ($\lambda_A$ appears). Never both.
@@ -255,8 +267,9 @@ Explicitly:
 
 | case | region (within band II) | chain $\Gamma$ |
 |---|---|---|
-| II.1 | $a\ge\tfrac12$ (then $b<\tfrac12$, $w_-<0$) | $c_A\xrightarrow{P_1}L_A\xrightarrow{P_2}E_{BO}\xrightarrow{W_-}s_A^{\mathrm{out}}\to[\lambda]\to s_B^{\mathrm{out}}\xrightarrow{W_+}E_{BO}\xrightarrow{P_3}c_B$ |
-| II.1′ | mirror: $b\ge\tfrac12$ | $c_A\xrightarrow{P_1}E_{AO}\xrightarrow{W_-}s_A^{\mathrm{out}}\to[\lambda]\to s_B^{\mathrm{out}}\xrightarrow{W_+}E_{AO}\xrightarrow{P_2'}L_B\xrightarrow{P_3}c_B$ |
+| II.0 | $a=b=\tfrac12$ | simultaneous limit $c_A\to s_A^{\mathrm{out}}\to s_B^{\mathrm{out}}\to c_B$; all omitted named arcs have zero length |
+| II.1 | $a\ge\tfrac12$, $(a,b)\ne(\tfrac12,\tfrac12)$ (then $b<\tfrac12$, $w_-<0$) | $c_A\xrightarrow{P_1}L_A\xrightarrow{P_2}E_{BO}\xrightarrow{W_-}s_A^{\mathrm{out}}\to[\lambda]\to s_B^{\mathrm{out}}\xrightarrow{W_+}E_{BO}\xrightarrow{P_3}c_B$ |
+| II.1′ | mirror: $b\ge\tfrac12$, $(a,b)\ne(\tfrac12,\tfrac12)$ | $c_A\xrightarrow{P_1}E_{AO}\xrightarrow{W_-}s_A^{\mathrm{out}}\to[\lambda]\to s_B^{\mathrm{out}}\xrightarrow{W_+}E_{AO}\xrightarrow{P_2'}L_B\xrightarrow{P_3}c_B$ |
 | II.2 | $\alpha$, $\beta$, $w_+>0$, $w_->0$ | $c_A\xrightarrow{P_1}E_{AO}\xrightarrow{G_1}L_A\xrightarrow{P_2}E_{BO}\xrightarrow{W_-}s_A^{\mathrm{out}}\to[\lambda]\to s_B^{\mathrm{out}}\xrightarrow{W_+}E_{AO}\xrightarrow{P_2'}L_B\xrightarrow{G_1'}E_{BO}\xrightarrow{P_3}c_B$ |
 | II.3 | $\alpha$, $\beta$, $w_+>0$, $w_-\le0$ | $c_A\xrightarrow{P_1}E_{AO}\xrightarrow{G_1}L_A\xrightarrow{P_2}E_{BO}\xrightarrow{W_-}s_A^{\mathrm{out}}\to[\lambda]\to s_B^{\mathrm{out}}\xrightarrow{W_+}E_{BO}\xrightarrow{P_3}c_B$ |
 | II.3′ | mirror: $\alpha$, $\beta$, $w_+\le0$ | $c_A\xrightarrow{P_1}E_{AO}\xrightarrow{W_-}s_A^{\mathrm{out}}\to[\lambda]\to s_B^{\mathrm{out}}\xrightarrow{W_+}E_{AO}\xrightarrow{P_2'}L_B\xrightarrow{G_1'}E_{BO}\xrightarrow{P_3}c_B$ |
@@ -317,8 +330,9 @@ boundary ($R=1$).
 ## 5. Degenerate parameters
 
 * $a=b=0$: $K=\{X^2+Y^2\le1\}\cap C$; boundary: segment $[0,1]$ on $Y=0$, arc of $X^2+Y^2=1$ from
-  $(1,0)$ to $u(120^\circ)$, segment back to $O$. (Limit of I.1: all quartics and circles collapse
-  onto $X^2+Y^2=1$.)
+  $(1,0)$ to $u(120^\circ)$, segment back to $O$.  There is no unique fine-case label at this
+  simultaneous degeneration: all relevant quartics and circles collapse onto
+  $X^2+Y^2=1$.
 * $a=0<b$ (mirror for $b=0$): all case formulas apply verbatim with $A=O$. Then $B^*=(1,0)=P_1$,
   the $c_A$-arc degenerates to a point, and $c_A,E_{AO}$ both become the circle $X^2+Y^2=1$;
   $E_{BA}\to E_{BO}$; $L_A,\lambda_A,M_A$ keep their equations with $a=0$.

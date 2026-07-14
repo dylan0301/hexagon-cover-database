@@ -27,14 +27,15 @@ $$
 a+b>1,\qquad a^2+ab+b^2<1
 $$
 
-is recorded as a lemma target in [`../../../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md`](../../../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md).
+is proved in [`../../../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md`](../../../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md).
 
 The strict branch calculation for the selected two fixed points is recorded in
 [`3100a5_strict_branch_line_realization.md`](3100a5_strict_branch_line_realization.md):
-it proves the intersection statement for the candidate four-piece chain.  Its
-interpretation as the actual union frontier is conditional on `20091`.
+it proves the intersection statement for the four-piece chain, whose
+identification as the actual union frontier is now proved in `20091`.
 
-The limiting boundary $\rho=1$ is not covered by that proof because the nondegenerate strict curve formula degenerates there.
+The limiting boundary $\rho=1$ is not part of that strict intersection
+calculation; its exact union degeneration is proved separately in `20091`.
 
 ## Algorithm-2 Diagonal Points
 
