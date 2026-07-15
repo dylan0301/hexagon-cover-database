@@ -32,7 +32,7 @@ notation dictionary, and the local `410X` note. Then inspect at least:
 - `proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md`
 - `proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2007_max_b_map.md`
 - `proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2100` through `2103`
-- `proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4145_Vd1_Vd2_corner_side_normal_form.md`
+- `proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2014_Vd1_Vd2_corner_normal_form.md`
 - both live `310X` strategies, especially the six-point and ab-union
   construction
 - failed or empirical notes `9080`, `9081`, `9630`, and `9805`
@@ -47,7 +47,7 @@ result, or Practically proven lemma is not automatically a proved dependency.
 ## Strategy To Formalize
 
 Parameterize the center triangle $T_C$ by its centroid $z=(x,y)$ and rotation
-$\theta$. Use the standard unit-equilateral formula recorded in `4145`, but do
+$\theta$. Use the standard unit-equilateral formula recorded in `2014`, but do
 not import the Vd1/Vd2 corner assumptions of that note. Derive exact formulas
 for:
 

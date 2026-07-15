@@ -53,6 +53,9 @@ Vd0, Vd1/Vd2, and T3-like vertex-role patterns.
     - `2011`: proved exact capped nonsupercritical demand map, four-label
       partition, and duality
     - `2012`: proved high-radial low-root bounds and threshold consequence
+    - `2013`: proved T3-like side tradeoff and crossed-pair obstruction
+    - `2014`: proved Vd1/Vd2 corner normal form and half-unit boundary cap
+    - `2015`: proved the one-third Vd2 neighbor-midpoint cap
   - `21XX`: C-triangle geometry
     - `2100`: proved CE1/CE2 exactly-one-midpoint lemma with $O$ interior
     - `2101`: maximal C-triangles over the half skeleton
@@ -61,6 +64,8 @@ Vd0, Vd1/Vd2, and T3-like vertex-role patterns.
     - `2104`: CE2 two-gap replacement theorem
     - `2105`: CE1 exact center and radial formulas
     - `2106`: CE2 exact center and radial formulas
+    - `2107`: proved one-side capped-loss theorem
+    - `2108`: proved CE2 two-endpoint capped-loss theorem
   - `25XX`: length bounds
     - `2500`: proved boundary length bounds
     - `2510`: skeleton length bounds

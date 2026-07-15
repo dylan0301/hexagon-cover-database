@@ -1,4 +1,11 @@
-# Prompt For Proving The 410X One-Gap Five-Map Targets
+# Archived Prompt For Proving The 410X One-Gap Five-Map Targets
+
+Archive note, 2026-07-15: all three historical `4103` targets below are now
+proved in `4106_CE1_one_gap_five_map_completion.md` and
+`4107_CE2_one_gap_five_map_completion.md`.  The reduction file `4103` was
+absorbed into those proofs and deleted.  The current package ledger is
+`4101_CE1CE2_Nplus1_all_Vd0_strategy.md`; the sole open target is `4104-F`.
+The remainder of this file is preserved as the historical task specification.
 
 Read and analyze this repository:
 
@@ -37,16 +44,16 @@ This task does not include proving Target `4104-F`. Even if all three five-map
 targets are proved, state clearly that the full `410X` branch still depends on
 the all-boundary six-point target recorded in `4104`.
 
-## Current Rigorous Status
+## Current Resolution
 
-Read the current `410X` package before doing new work. Its status has advanced
-beyond the older July 11 prompt:
+The current `410X` package records:
 
-- `4101_CE1CE2_Nplus1_all_Vd0_TODO.md` is the current Strategy ledger.
+- `4101_CE1CE2_Nplus1_all_Vd0_strategy.md` is now the current Strategy ledger.
 - `4102_CE2_two_gap_completion.md` is Proven and eliminates the CE2 two-gap
   state.
-- `4103_one_gap_five_map_reduction.md` is a Reduction to the three targets in
-  this prompt.
+- The former one-gap reduction was a Reduction to the three historical
+  targets in this prompt; its routing is now incorporated into proved `4106`
+  and `4107`.
 - `4104_all_boundary_transfer_to_310X.md` is a Reduction to Target `4104-F`.
 
 Do not redo the center parameterization, monotonicity reduction, exhaustive

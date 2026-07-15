@@ -1,7 +1,7 @@
 read the repository again https://github.com/dylan0301/hexagon-cover-database
 For the case where T0 is not supercritical and also not VD1/VD2, consider the following strategy
 If T_i is supercritical, then the VD1/VD2 triangle should cover M_i.
-We already proved in 4142 that we cannot use VD2 triangle that covers neighbor's midpoint.
+The shared theorem `2015` proves that a Vd2 triangle covering a neighboring midpoint cannot occur in this branch.
 So we can assume either T_{i-1} or T_{i+1} is VD1 triangle.
 consider the line segment M_i V_i.
 This line segment can only be covered by the VD1 triangle and the supercritical T_i.

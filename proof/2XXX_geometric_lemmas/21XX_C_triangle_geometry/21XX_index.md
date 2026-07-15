@@ -14,3 +14,5 @@ C-triangle classifications and CE1/CE2 midpoint or row targets.
 | [`2104_CE2_one_interval_lemma.md`](2104_CE2_one_interval_lemma.md) | Proven | Two-gap all-Vd0 systems are not replacement-maximal; one-sided replacements and a simultaneous Vd0 supercritical replacement covering both gaps. |
 | [`2105_CE1_exact_formulas.md`](2105_CE1_exact_formulas.md) | Proven | CE1 center domain, interval, six radial exits, and demands. |
 | [`2106_CE2_exact_formulas.md`](2106_CE2_exact_formulas.md) | Proven | CE2 coupled interval domain, half-plane data, six radial exits, and demands. |
+| [`2107_one_side_capped_loss.md`](2107_one_side_capped_loss.md) | Proven | Exact one-side CE1/CE2 capped-loss theorem used by the all-Vd0 boundary packages. |
+| [`2108_CE2_two_endpoint_capped_loss.md`](2108_CE2_two_endpoint_capped_loss.md) | Proven | Exact strict two-endpoint capped-loss theorem on the normalized CE2 domain. |
