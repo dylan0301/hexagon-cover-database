@@ -2,10 +2,16 @@
 
 Status: Proven
 
-This note proves Targets `4103-CE2-R` and `4103-CE2-L` from
-[`4103_one_gap_five_map_reduction.md`](4103_one_gap_five_map_reduction.md).
-In fact, the inequalities below hold on the full strict CE2 center domain;
-the additional survivor restrictions in `4103` are not needed.
+This note proves that both orientations of the CE2 exactly-one-gap state in
+`410X` are impossible.  The analytic inequalities hold on the full strict
+CE2 center domain; no auxiliary survivor restriction or classified map for
+the supercritical row is needed.
+
+For the geometric application, assume the `410X` hypotheses: all six vertex
+roles are Vd0, $N_+=1$, and the unique center midpoint is $M_0$.  Section 1
+of
+[`4101_CE1CE2_Nplus1_all_Vd0_strategy.md`](4101_CE1CE2_Nplus1_all_Vd0_strategy.md)
+then proves that $T_0$ is the unique supercritical row.
 
 ## 1. Exact normalized CE2 domain
 
@@ -159,6 +165,54 @@ $$
 G_i(a)\ge a.
 $$
 
+## From a boundary gap to the analytic targets
+
+Suppose first that the active gap lies in the center interval
+$[y,v]\subset e_{0,1}$.  Boundary coverage gives
+
+$$
+b_0\ge y,
+\qquad
+a_1\ge1-v.
+$$
+
+The five rows $T_1,\dots,T_5$ are nonsupercritical.  Applying the capped-map
+upper bound at each row and using boundary coverage on the next edge gives
+
+$$
+a_0\ge
+Z_{\mathrm{CE2}}^R
+:=
+(G_5\circ G_4\circ G_3\circ G_2\circ G_1)(1-v).
+$$
+
+The same triangle $T_0$ has outgoing reach at least $y$ and radial reach at
+least $c_0$.  Reflection of the exact admissible set and monotonicity in the
+two demands therefore give
+
+$$
+a_0\le B_{c_0}(y).
+$$
+
+Thus the right-gap orientation is impossible once
+
+$$
+Z_{\mathrm{CE2}}^R>B_{c_0}(y)
+$$
+
+is proved.  Reflection across the axis through $V_0$ changes the left-gap
+orientation into the right-gap orientation and changes the required target
+to
+
+$$
+Z_{\mathrm{CE2}}^L
+:=
+(G_1\circ G_2\circ G_3\circ G_4\circ G_5)(1-u)
+>B_{c_0}(x).
+$$
+
+Sections 5--7 prove precisely these two inequalities.
+
 ## 2. The scalar low-root bounds
 
 For
@@ -274,47 +328,9 @@ z_0
 }
 $$
 
-The comparison $z_0>e(\alpha)$ is universal; its superficially symmetric
-replacement $z_0>e(\delta)$ is false.  For an exact counterexample, take
-
-$$
-R=\frac1{30},
-\qquad
-\alpha=\frac1{1000},
-\qquad
-\delta=\frac3{250}.
-$$
-
-Here
-
-$$
-P=\frac{30\sqrt{871}-871}{900}
->\frac{63}{5000}
-=\max\left\{
-\delta+R\alpha,
-\alpha+w\delta
-\right\},
-$$
-
-so the point lies in the strict normalized CE2 domain.  The first strict
-inequality is equivalent to $1500\sqrt{871}>44117$; both sides are positive,
-and their squared difference is $13440311$.  Nevertheless,
-
-$$
-z_0=\frac8{375}
-<e\left(\frac3{250}\right)
-=\frac{247\left(250-\sqrt{56536}\right)}{125000}.
-$$
-
-After multiplication by positive denominators, the last comparison follows
-by squaring
-
-$$
-177250>741\sqrt{56536};
-$$
-
-the squared difference is $374719084$.  Thus the proof below must retain the
-conditional threshold comparison in Section 5.
+Only the displayed comparison with $e(\alpha)$ is used below.  The
+two-threshold lemma supplies the needed conditional comparison with
+$e(\delta)$; no symmetric strengthening is assumed.
 
 ## 4. The two-threshold lemma
 
@@ -595,7 +611,7 @@ Z_{\mathrm{CE2}}^R
 }
 $$
 
-This is Target `4103-CE2-R`.
+This proves the required right-gap inequality.
 
 ## 7. Exact reflection and the left-gap target
 
@@ -667,10 +683,9 @@ Z_{\mathrm{CE2}}^L>B_{c_0}(x).
 }
 $$
 
-This is Target `4103-CE2-L`.
+This proves the required left-gap inequality.
 
 ## 8. Conclusion
 
-Both exactly-one-gap CE2 targets named in `4103` are proved on the full strict
-CE2 center domain.  Therefore every surviving CE2 exactly-one-gap state in
-the `410X` all-Vd0, $N_+=1$ branch is eliminated.
+Both exactly-one-gap CE2 orientations are therefore eliminated on the full
+strict CE2 center domain.

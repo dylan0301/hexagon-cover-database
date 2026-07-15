@@ -2,10 +2,16 @@
 
 Status: Proven
 
-This note proves Target `4103-CE1` from
-[`4103_one_gap_five_map_reduction.md`](4103_one_gap_five_map_reduction.md).
-The proof holds on the full strict CE1 center domain, so the additional
-survivor restriction in `4103` is not needed.
+This note proves that the CE1 exactly-one-gap state in `410X` is impossible.
+The analytic inequality holds on the full strict CE1 center domain; no
+auxiliary survivor restriction or classified map for the supercritical row
+is needed.
+
+For the geometric application, assume the `410X` hypotheses: all six vertex
+roles are Vd0, $N_+=1$, and the unique center midpoint is $M_0$.  Section 1
+of
+[`4101_CE1CE2_Nplus1_all_Vd0_strategy.md`](4101_CE1CE2_Nplus1_all_Vd0_strategy.md)
+then proves that $T_0$ is the unique supercritical row.
 
 The selected capped-map formulas and equality conventions used below are
 proved in
@@ -156,6 +162,54 @@ $$
 $$
 
 We prove that the reverse composition is strictly greater than $1-X$.
+
+## From the boundary gap to the analytic target
+
+Suppose the center interval $[s,t]\subset e_{0,1}$ contains the V-gap.  Full
+boundary coverage then gives
+
+$$
+b_0\ge s,
+\qquad
+a_1\ge X=1-t.
+$$
+
+Rows $T_1,\dots,T_5$ are nonsupercritical.  Starting with the actual incoming
+reach $a_1$, the capped-map theorem and boundary coverage give successively
+
+$$
+a_{j+1}\ge G_{c_j}(a_j),
+\qquad j=1,2,3,4,
+$$
+
+and
+
+$$
+a_0\ge G_{c_5}(a_5).
+$$
+
+Monotonicity therefore implies
+
+$$
+a_0\ge
+Z_{\mathrm{CE1}}
+:=
+(G_{c_5}\circ G_{c_4}\circ G_{c_3}\circ G_{c_2}\circ G_{c_1})(X).
+$$
+
+The same triangle $T_0$ has radial reach at least $c_0$ and outgoing reach
+$b_0\ge s$.  Reflection of the exact admissible set, followed by monotonicity
+in both demands, gives
+
+$$
+a_0\le B_{c_0}(s).
+$$
+
+Consequently it is enough to prove
+
+$$
+Z_{\mathrm{CE1}}>B_{c_0}(s).
+$$
 
 ## 3. Low-root estimates
 
@@ -839,4 +893,5 @@ Z_{\mathrm{CE1}}>B_{c_0}(s).
 }
 $$
 
-This proves Target `4103-CE1`.
+This contradicts the necessary inequality from the boundary gap.  Hence the
+CE1 exactly-one-gap state is impossible.

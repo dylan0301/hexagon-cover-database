@@ -2,8 +2,7 @@
 
 Status: Proven
 
-This note proves the CE2 two-gap subcase of `410X`. The exact endpoint
-inequality proved for `401X` applies unchanged because the exceptional
+This note proves the CE2 two-gap subcase of `410X`.  The exceptional
 supercritical row is $T_0$, while the endpoint and remainder rows used below
 are $T_1,\dots,T_5$.
 
@@ -54,6 +53,14 @@ $$
 where both parameters are measured from $V_0$. Assume that both intervals
 contain V-gaps.
 
+Reflection across the axis through $V_0$ exchanges the two intervals, the
+endpoint roles $T_1,T_5$, and the two summands used below.  Reflect if
+necessary so that
+
+$$
+y\le x.
+$$
+
 ## 2. Far-end inputs
 
 Put
@@ -63,6 +70,8 @@ S_0=x+y,
 \qquad
 R=\frac{x}{S_0},
 $$
+
+so $1/2\le R<1$.
 
 and
 
@@ -131,37 +140,20 @@ $e_{4,5}$ and $e_{1,2}$, respectively.
 The safe-map inequality is proved in
 [`2011_capped_demand_map.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md).
 
-## 3. Import of the exact endpoint theorem
+## 3. Exact endpoint loss
 
-The exact reduction in
-[`../../40XX_Nplus0/401X_all_Vd0_boundary_loss/401c_CE2_remaining_obligations.md`](../../40XX_Nplus0/401X_all_Vd0_boundary_loss/401c_CE2_remaining_obligations.md)
-uses only:
-
-- the strict CE2 endpoint domain from `2106`;
-- the two far-end inputs $p$ and $q$;
-- nonsupercriticality of $T_1$ and $T_5$; and
-- the exact four-label partition of $\widehat B$.
-
-It does not use $a_0+b_0\le1$. In its normalized variables
+The self-contained two-endpoint theorem
+[`../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2108_CE2_two_endpoint_capped_loss.md`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2108_CE2_two_endpoint_capped_loss.md)
+derives its strict endpoint inequalities directly from $x<u$, $y<v$, and the
+CE2 coupling in `2106`.  Applied with
 
 $$
-w=1-R,
-\qquad
 r=R,
 \qquad
-K=\sqrt{1-wr},
+w=1-R,
 $$
 
-$$
-p=w\alpha,
-\qquad
-q=r\beta,
-$$
-
-the two strict endpoint inequalities are consequences of $x<u$, $y<v$, and
-the CE2 coupling alone. The complete selected-branch theorem in
-[`../../40XX_Nplus0/401X_all_Vd0_boundary_loss/401e_CE2_two_gap_completion.md`](../../40XX_Nplus0/401X_all_Vd0_boundary_loss/401e_CE2_two_gap_completion.md)
-therefore applies verbatim and proves
+it proves
 
 $$
 \boxed{
@@ -172,7 +164,8 @@ $$
 }
 $$
 
-The exceptional row $T_0$ does not occur in this inequality.
+The exceptional row $T_0$ does not occur in this inequality; only the safe
+nonsupercritical maps for $T_5$ and $T_1$ are used.
 
 ## 4. Boundary contradiction
 
