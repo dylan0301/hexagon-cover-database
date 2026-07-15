@@ -1,276 +1,296 @@
-# CE1/CE2 Vd0 Boundary-Loss Package
+# CE1/CE2 All-Vd0 Boundary-Loss Obstruction
 
 Status: Proven
 
-This folder records the proof package for the CE1/CE2, all-Vd0 boundary-loss
-obstruction. The exact capped-map theorem in
-[`2011`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md)
-removes the fake lower
-sheet and proves that four genuine labels are exhaustive. The exact CE1 branch
-matrix is proved analytically in `401b`, including both formerly open ordered
-pairs and both formerly certificate-backed cells. For CE2, the no-gap case is
-proved by the open-perimeter lemma in `4014`, the exact one-gap matrix is
-proved in `401d`, and the exact two-gap matrix is proved in `401e`. Thus the
-combined package is complete.
+## Theorem
 
-The target local statement is:
+Assume that the center role is CE1 or CE2, all six vertex roles are Vd0,
+and
 
 $$
-\mathrm{CE1/CE2}+\text{all six }V_i\text{ are Vd0}+\text{all }a_i+b_i\le 1 \quad\Longrightarrow\quad \text{boundary-loss contradiction.}
+a_i+b_i\le1
+\qquad (i=0,\ldots,5).
 $$
 
-For CE2, the strengthened replacement theorem in `2104` gives a simultaneous
-Vd0 supercritical replacement covering both gaps. This classifies the
-skeleton exit exactly, but it does not preserve the full interior cover of
-$H$. The direct endpoint-pair proof in `401c` and `401e` avoids that
-replacement issue.
+Then the seven roles cannot cover the hexagon. Equivalently, every such
+cover has at least one supercritical vertex row $a_i+b_i>1$.
 
-For CE1, the proved consequence is that any successful all-Vd0 covering must
-have at least one vertex triangle with
+The proof uses the exact center formulas
+[`2105`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2105_CE1_exact_formulas.md)
+and
+[`2106`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2106_CE2_exact_formulas.md),
+the capped demand map
+[`2011`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md),
+and the two loss theorems
+[`2107`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2107_one_side_capped_loss.md)
+and
+[`2108`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2108_CE2_two_endpoint_capped_loss.md).
 
-$$
-a_i+b_i>1.
-$$
+## 1. Boundary bookkeeping
 
-## Boundary-loss reduction
+Write $a_i,b_i$ for the two incident boundary reaches of the Vd0 role at
+$V_i$. Vd0 boundary locality says that this role has no other positive-length
+boundary trace. If its incident input reach is at least $a$ and its radial
+demand is at least $c$, `2011` bounds its other incident reach by
+$\widehat B_c(a)$. The theorem in `2011` is an upper relaxation, so it applies
+to the actual row even when either requirement is exceeded.
 
-For the exact formula reduction below, work under the CE1 contradiction
-assumptions
-
-$$
-\mathrm{CE1}+\text{all six }V_i\text{ are Vd0}+\text{all }a_i+b_i\le1.
-$$
-
-After normalization, the active $C$-boundary interval is
-
-$$
-T_C\cap e_{0,1}=[s,t], \qquad u=1-t, \qquad w=t-s>0.
-$$
-
-The adjacent maximal Vd0 contributions are
+Suppose the roles adjacent to the center trace leave outgoing reaches at
+most $B_1$ on $e_{1,2}$ and $B_5$ on $e_{4,5}$. The roles at
+$V_2,V_3,V_4$ must then cover boundary length at least
 
 $$
-B_5=\mathsf B^0_{1-\gamma_5}(s),
-\qquad
-B_1=\mathsf B^0_{1-\gamma_1}(u),
+(1-B_1)+1+1+(1-B_5)=4-(B_1+B_5).
 $$
 
-where
-
-$$
-\mathsf B^0_c(a)
-=
-\sup_{\substack{
-A(T)\ge a\\
-C(T)\ge c\\
-A(T)+B(T)\le1\\
-T\text{ is Vd0}
-}}B(T).
-$$
-
-Let
-
-$$
-F=B_5+B_1.
-$$
-
-The reduction in
-[`4014_setup_and_reduction.md`](4014_setup_and_reduction.md)
-(Status: Proven) shows that $F<1$ gives the boundary
-contradiction: the portion left for $V_2,V_3,V_4$ has length $4-F>3$, while
+If $B_1+B_5<1$, this length is greater than $3$, whereas their row caps give
 
 $$
 (a_2+b_2)+(a_3+b_3)+(a_4+b_4)\le3.
 $$
 
-Therefore the branch analysis target is
+Thus every case below is finished once the two adjacent capped outputs have
+sum less than one.
+
+## 2. The no-gap case
+
+First suppose every center-boundary interval is already covered by the six
+vertex roles. Then the vertex roles alone cover all of $\partial H$. Put
 
 $$
-F<1.
+U_i=T_i\cap\partial H.
 $$
 
-The exact safe relaxation and its complete four-label partition are proved in
-[`2011_capped_demand_map.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md)
-(Status: Proven).
-
-The CE2 active-interval formulas are handled separately. The exact one-gap
-proof is in `401d`, while the two-gap reduction and completion are in `401c`
-and `401e`.
-
-## Exact CE1 branch-matrix completion
-
-The exact analytic proof of every cell below is in
-[`401b_CE1_exact_branch_completion.md`](401b_CE1_exact_branch_completion.md).
-
-The true safe upper map has only the labels
+Each $U_i$ is relatively open in the connected polygonal circle
+$\partial H$, and
 
 $$
-L,
+\mathcal H^1(U_i)\le a_i+b_i\le1.
+$$
+
+There are at least two nonempty $U_i$, since one set of length at most one
+cannot cover a perimeter of length six. The nonempty members of a finite
+relatively open cover of a connected space cannot be pairwise disjoint.
+Hence some $U_i\cap U_j$ is a nonempty relatively open subset of
+$\partial H$ and has positive length. Therefore
+
+$$
+\sum_{i=0}^5\mathcal H^1(U_i)
+>
+\mathcal H^1\left(\bigcup_{i=0}^5U_i\right)
+=6,
+$$
+
+contrary to
+
+$$
+\sum_{i=0}^5\mathcal H^1(U_i)
+\le
+\sum_{i=0}^5(a_i+b_i)
+\le6.
+$$
+
+This proves the no-gap case, including every equality case in the row caps.
+
+## 3. CE1
+
+Normalize the unique CE1 boundary interval as
+
+$$
+T_C\cap e_{0,1}=[s,t],
 \qquad
-T_-,
+u=1-t,
 \qquad
-T_+^{hi},
+w=t-s.
+$$
+
+The no-gap case being excluded, this interval contains an active V-gap; in
+particular $s,u,w>0$. Let $b_0$ be the reach of the $V_0$ role on
+$e_{0,1}$, let $a_0$ be its reach on $e_{5,0}$, and let $a_1,b_5$ be the
+reaches from $V_1,V_5$ toward the center interval. Coverage outside the
+center trace gives
+
+$$
+b_0\ge s,
 \qquad
-\mathrm{Full}.
+a_1\ge u.
 $$
 
-The labels $L$ and $T_-$ both satisfy $b\le a$. Therefore every pair in
-$\{L,T_-\}^2$ obeys the exact estimate
+The CE1 center has no trace on $e_{5,0}$, so boundary coverage there gives
+$a_0+b_5\ge1$. Since $a_0+b_0\le1$,
 
 $$
-B_5+B_1\le s+u=1-w<1.
+b_5\ge1-a_0\ge b_0\ge s.
 $$
 
-The pair $(\mathrm{Full},\mathrm{Full})$ is also impossible. Right Full gives
+This is the endpoint propagation needed for the two adjacent capped maps.
+
+Put
 
 $$
-ru\le\max\left\{u,1-u\right\}.
-$$
-
-Since $r>1$, this forces $u<1/2$ and $u\le1/(r+1)$. Left Full requires
-
-$$
-\gamma_5\ge\min\left\{s,1-s\right\}.
-$$
-
-Because $\gamma_5<u<1-s$, this forces $s\le1/2$ and $\gamma_5\ge s$. But
-
-$$
-\gamma_5-s
-=2u-1-\delta+w\frac{r-2}{r-1}.
-$$
-
-For $1<r\le2$ the right side is negative. For $r>2$, use $w<1-u$ and
-$u\le1/(r+1)$ to obtain
-
-$$
-\gamma_5-s
-<-\frac1{(r-1)(r+1)}-\delta<0,
-$$
-
-again a contradiction.
-
-The complete audit of the remaining ordered pairs is:
-
-| Left label | Right label | Reaudit result |
-|---|---|---|
-| $L$ | $L$ or $T_-$ | Proved above. |
-| $T_-$ | $L$ or $T_-$ | Proved above. |
-| $L$ | $T_+^{hi}$ or Full | Proven analytically in `401b`, by monotone reduction to the shared $q=0$ transition. |
-| $T_-$ | Full | Proven analytically in `401b`. |
-| $T_-$ | $T_+^{hi}$ | Proven analytically in `401b` by the exact coupled-loss inequality. |
-| $T_+^{hi}$ | $L$ or $T_-$ | Proven by the exact CE1 center inequality and right low-label bound in `401b`. |
-| $T_+^{hi}$ | $T_+^{hi}$ or Full | Proven impossible analytically in `401b`. |
-| Full | $L$ or $T_-$ | Proven analytically in `401b`; no interval certificate is used. |
-| Full | $T_+^{hi}$ or Full | Proven impossible analytically in `401b`. |
-
-The formerly missing $(T_-,T_+^{hi})$ pair is not vacuous. An exact CE1-domain
-witness is obtained by
-taking the `2105` parameter
-
-$$
-R=\frac25,
+0<R<1,
 \qquad
-\lambda=R=\frac25,
+S=\sqrt{1-R+R^2},
 \qquad
-s=\frac{687}{1000},
+\delta=\frac{R}{1+S}.
+$$
+
+The exact CE1 formulas in `2105` give the complementary radial demands
+
+$$
+c_1=\frac uR,
 \qquad
-t=\frac{689}{1000}.
-$$
-
-Thus
-
-$$
-u=1-t=\frac{311}{1000},
+c_5=1-\gamma_5,
 \qquad
-w=t-s=\frac1{500},
+\gamma_5=u-\delta-\frac{R}{1-R}w,
+$$
+
+with
+
+$$
+0<u<R,
 \qquad
-\rho=\frac{\sqrt{19}}5.
+\gamma_5>0.
 $$
 
-These values satisfy every inequality in the exact CE1 domain of
-[`../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2105_CE1_exact_formulas.md`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2105_CE1_exact_formulas.md).
-The two exact radial demands are
+Since $s+u+w=1$, all hypotheses of `2107` hold. Consequently
 
 $$
-c_1=\frac{311}{400},
+\widehat B_{c_5}(s)+\widehat B_{c_1}(u)<1.
+$$
+
+The propagated actual inputs are at least $s$ and $u$, so `2011` makes these
+valid upper bounds for the outgoing reaches. Section 1 now gives the
+contradiction.
+
+## 4. CE2 with exactly one active interval
+
+Use the exact CE2 notation
+
+$$
+T_C\cap e_{5,0}=[x,U],
 \qquad
-c_5=\frac{7071-1000\sqrt{19}}{3000}.
+T_C\cap e_{0,1}=[y,v],
 $$
 
-The selected Cell-$T$ roots are
+with both edges parameterized from $V_0$. Suppose first that the interval on
+$e_{0,1}$ contains an active V-gap and the interval on $e_{5,0}$ does not.
+As in Section 3, coverage gives
 
 $$
-B_5=
--s+
-\frac{\sqrt{s^2-sc_5+c_5^2}}{c_5},
-$$
-
-and, with
-
-$$
-\Delta_1=
-\left(2uc_1^2+c_1\right)^2
--4\left(1-c_1^2\right)\left(1-u^2\right)c_1^2,
-$$
-
-$$
-B_1=
-\frac{2uc_1^2+c_1-\sqrt{\Delta_1}}
-{2\left(1-c_1^2\right)}.
-$$
-
-Direct exact substitution gives
-
-$$
-B_5=0.217191501619\ldots
-\quad(T_-),
+b_0\ge y,
 \qquad
-B_1=0.594587510271\ldots
-\quad(T_+^{hi}).
+a_1\ge1-v.
 $$
 
-The branch selectors satisfy $q>0$, $B_5<s$, $B_1>u$, and $c_1<2B_1$.
-Moreover $B_5+B_1<0.812$. Thus the witness is not a counterexample to the
-target inequality. It shows that the cell has nonempty domain; `401b`,
-Section 4 proves it on that full domain.
+The absence of a gap on $e_{5,0}$ means that its center trace is already
+covered by the endpoint roles; together with coverage outside that trace,
+this gives $a_0+b_5\ge1$. Hence
 
-## Files
+$$
+b_5\ge1-a_0\ge b_0\ge y.
+$$
 
-| File | Recorded status | Notes |
-|---|---|---|
-| [`4014_setup_and_reduction.md`](4014_setup_and_reduction.md) | Proven | Exact CE1 notation, boundary-loss reduction, and shared no-gap open-perimeter lemma. |
-| [`4016_proven_branch_lemmas.md`](4016_proven_branch_lemmas.md) | Reference | Historical branch calculations superseded by the exact analytic CE1 proof in `401b`. |
-| [`4017_remaining_Tplus_obligations.md`](4017_remaining_Tplus_obligations.md) | Reference | Historical record of the discarded lower-sheet obligations and failed approaches; cross-read with [`4019_lower_sheet_completion_proofs.md`](4019_lower_sheet_completion_proofs.md) as algebraic history only. |
-| [`4018_computational_verification.md`](4018_computational_verification.md) | Empirical | Numerical checks, interval-certificate status, and code references. |
-| [`4019_lower_sheet_completion_proofs.md`](4019_lower_sheet_completion_proofs.md) | Reference | Historical calculations on the now-discarded lower sheet. |
-| [`401aX_boundary_loss_experiments/401a0_README.md`](401aX_boundary_loss_experiments/401a0_README.md) | Experiment | Experiment helpers for the package. |
-| [`401b_CE1_exact_branch_completion.md`](401b_CE1_exact_branch_completion.md) | Proven | Complete exact CE1 four-label matrix; no computational dependency. |
-| [`401c_CE2_remaining_obligations.md`](401c_CE2_remaining_obligations.md) | Proven | Exact two-gap endpoint reduction and complete branch ledger, with the final four pairs discharged in `401e`. |
-| [`401d_CE2_exact_branch_completion.md`](401d_CE2_exact_branch_completion.md) | Proven | Complete exact CE2 one-gap four-label matrix in both orientations. |
-| [`401e_CE2_two_gap_completion.md`](401e_CE2_two_gap_completion.md) | Proven | Complete exact proof of the four final CE2 two-gap high-label pairs. |
+Set
 
-## Historical branch calculations
+$$
+S_0=x+y,
+\qquad
+R=\frac{x}{S_0},
+\qquad
+S=\sqrt{1-R+R^2},
+$$
 
-The following algebraic cells have recorded calculations in this package:
+and
 
-- $(L,\mathrm{Full})$.
-- $(T_-,\mathrm{Full})$.
-- $(\mathrm{Full},L)$, using a local analytic horn proof plus a finite interval certificate for the far region.
-- $(\mathrm{Full},T_-)$.
-- $(\mathrm{Full},\mathrm{Full})$ is impossible.
-- $D_1$ is not an independent maximal branch.
-- $(L,T_+)$.
-- $(T_+,\mathrm{Full})$ is impossible.
-- $(T_+^{hi},L)$ and $(T_+^{lo},L)$.
-- $(T_+^{hi},T_-)$.
-- $(T_+^{hi},T_+^{hi})$ is impossible.
-- $(T_+^{lo},T_-)$.
-- $(T_+^{lo},T_+^{hi})$.
-- $(T_+^{lo},T_+^{lo})$.
+$$
+s=y,
+\qquad
+u=1-v,
+\qquad
+w=v-y.
+$$
 
-The exact upper-map inclusion is proved in `2011`, the exact CE1 branch matrix
-is proved in `401b`, the CE1/CE2 no-gap case is proved in `4014`, the CE2
-one-gap case is proved in `401d`, and the CE2 two-gap case is proved in
-`401e`. Therefore the stated CE1/CE2 all-Vd0 boundary-loss obstruction is
-proved.
+The formulas and coupling equation in `2106` give
+
+$$
+c_1=\frac uR,
+\qquad
+c_5=1-\gamma_5,
+\qquad
+\gamma_5=u-\frac{R}{1+S}-\frac{R}{1-R}w.
+$$
+
+Moreover,
+
+$$
+s,u,w>0,
+\qquad
+s+u+w=1,
+\qquad
+0<u<R,
+\qquad
+\gamma_5>0.
+$$
+
+Thus `2107` again yields
+
+$$
+\widehat B_{c_5}(y)+\widehat B_{c_1}(1-v)<1.
+$$
+
+Endpoint propagation and Section 1 finish this orientation. Reflection
+interchanges the two CE2 intervals and proves the other orientation.
+
+## 5. CE2 with two active intervals
+
+Keep the notation of Section 4 and put
+
+$$
+p=1-U,
+\qquad
+q=1-v.
+$$
+
+If both center intervals contain active V-gaps, coverage outside the far
+endpoints gives
+
+$$
+b_5\ge p,
+\qquad
+a_1\ge q.
+$$
+
+Set
+
+$$
+r=\frac{x}{x+y},
+\qquad
+w=\frac{y}{x+y}.
+$$
+
+After reflection if necessary, $0<w\le1/2$ and $r=1-w$. The exact radial
+formulas give
+
+$$
+c_5=\frac pw,
+\qquad
+c_1=\frac qr.
+$$
+
+The complete two-endpoint theorem `2108`, including the strict inequalities
+forced by the CE2 coupling equation, gives
+
+$$
+\widehat B_{p/w}(p)+\widehat B_{q/r}(q)<1.
+$$
+
+These are valid upper bounds for the adjacent outgoing reaches, so Section 1
+again gives the contradiction.
+
+Sections 2--5 exhaust CE1 and the zero-, one-, and two-active-interval CE2
+states. This proves the theorem.
+
+$$
+\Box
+$$
