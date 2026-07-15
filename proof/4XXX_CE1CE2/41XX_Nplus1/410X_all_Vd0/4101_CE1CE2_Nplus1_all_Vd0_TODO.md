@@ -14,7 +14,6 @@ the main theorem is proved.
 | [`4102_CE2_two_gap_completion.md`](4102_CE2_two_gap_completion.md) | Proven | Eliminates the CE2 two-gap state by importing the proved endpoint inequality from `401c` and `401e`. |
 | [`4103_one_gap_five_map_reduction.md`](4103_one_gap_five_map_reduction.md) | Reduction | Reduces CE1 and CE2 exactly-one-gap states to three explicit five-map targets and records exact shortcut failures. |
 | [`4104_all_boundary_transfer_to_310X.md`](4104_all_boundary_transfer_to_310X.md) | Reduction | Proves the all-boundary handoff and finite-point transfer to the strict six-point $F_6$ target. |
-| [`4105_selected_capped_map_catalog.md`](4105_selected_capped_map_catalog.md) | Proven | Evaluates every selected high-radial capped-map branch and proves its duality and threshold consequences. |
 | [`4106_CE1_one_gap_five_map_completion.md`](4106_CE1_one_gap_five_map_completion.md) | Proven | Proves Target `4103-CE1` by a three-map dual reduction and an exact Bernstein terminal certificate. |
 | [`4107_CE2_one_gap_five_map_completion.md`](4107_CE2_one_gap_five_map_completion.md) | Proven | Proves Targets `4103-CE2-R` and `4103-CE2-L`, including the complete reflected map order. |
 | [`4108_ce1_terminal_verifier.py`](4108_ce1_terminal_verifier.py) | Experiment | Reconstructs the exact rational Bernstein tensors used in `4106`. |
@@ -175,7 +174,7 @@ but it does not encode the one-supercritical-row condition.
 
 Two proved upper relaxations now encode the row classes safely. For
 $i\ne0$, the capped-map theorem in
-[`../../40XX_Nplus0/401X_all_Vd0_boundary_loss/4015_B_map_branch_realization.md`](../../40XX_Nplus0/401X_all_Vd0_boundary_loss/4015_B_map_branch_realization.md)
+[`2011_capped_demand_map.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md)
 gives
 
 $$

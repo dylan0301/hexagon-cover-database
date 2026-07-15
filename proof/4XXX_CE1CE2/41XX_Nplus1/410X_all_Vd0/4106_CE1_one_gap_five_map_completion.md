@@ -9,7 +9,7 @@ survivor restriction in `4103` is not needed.
 
 The selected capped-map formulas and equality conventions used below are
 proved in
-[`4105_selected_capped_map_catalog.md`](4105_selected_capped_map_catalog.md).
+[`2011_capped_demand_map.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md).
 
 ## 1. Exact normalized CE1 domain
 

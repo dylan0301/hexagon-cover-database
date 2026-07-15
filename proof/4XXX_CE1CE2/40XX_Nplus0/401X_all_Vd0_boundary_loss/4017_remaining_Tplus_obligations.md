@@ -4,7 +4,7 @@ Status: Reference
 
 This file records formal lower-sheet $T_+$ calculations and failed approaches
 that should not be repeated. The label $T_+^{lo}$ is the fake high-$c$
-component excluded by `2004`, `2007`, and `4015`; it is not a realized branch.
+component excluded by `2004`, `2007`, and `2011`; it is not a realized branch.
 
 `4019_lower_sheet_completion_proofs.md` preserves analytic inequalities for
 the three formerly listed algebraic cases:

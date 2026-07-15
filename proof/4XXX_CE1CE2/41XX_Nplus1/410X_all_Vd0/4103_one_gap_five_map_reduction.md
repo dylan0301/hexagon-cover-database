@@ -25,7 +25,7 @@ The exact unclassified map $B_c(a)$ is proved in
 [`../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2007_max_b_map.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2007_max_b_map.md).
 
 The safe capped-map theorem in
-[`../../40XX_Nplus0/401X_all_Vd0_boundary_loss/4015_B_map_branch_realization.md`](../../40XX_Nplus0/401X_all_Vd0_boundary_loss/4015_B_map_branch_realization.md)
+[`2011_capped_demand_map.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md)
 proves that the actual outgoing reach is at most $F_i(a)$.
 Every $G_i$ is nondecreasing because the exact demand map is nonincreasing in
 its incoming argument. Consequently these lower maps may be composed in the
@@ -505,7 +505,7 @@ intermediate maps $G_2,G_3,G_4$.
 This file proves the reduction to exactly the three boxed targets
 `4103-CE1`, `4103-CE2-R`, and `4103-CE2-L`. The exact selected-branch catalog
 needed by all three targets is proved in
-[`4105_selected_capped_map_catalog.md`](4105_selected_capped_map_catalog.md).
+[`2011_capped_demand_map.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md).
 Target `4103-CE1` is proved in `4106`; Targets `4103-CE2-R` and
 `4103-CE2-L` are proved in `4107`. Thus this reduction has no remaining
 terminal obligation.

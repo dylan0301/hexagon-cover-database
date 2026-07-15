@@ -129,7 +129,7 @@ where $B_5$ and $B_1$ denote the reaches of $T_5$ and $T_1$ on
 $e_{4,5}$ and $e_{1,2}$, respectively.
 
 The safe-map inequality is proved in
-[`../../40XX_Nplus0/401X_all_Vd0_boundary_loss/4015_B_map_branch_realization.md`](../../40XX_Nplus0/401X_all_Vd0_boundary_loss/4015_B_map_branch_realization.md).
+[`2011_capped_demand_map.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md).
 
 ## 3. Import of the exact endpoint theorem
 

@@ -4,7 +4,9 @@ Status: Proven
 
 This note proves the CE1 part of the `401X` all-Vd0, nonsupercritical
 boundary-loss obstruction. It uses the exact formulas in `2105` and the exact
-four-label safe map in `4015`. No interval certificate or undeclared runtime
+four-label safe map in
+[`2011`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md).
+No interval certificate or undeclared runtime
 dependency is used.
 
 The result does not include CE2. The final inequality in the exact CE1 domain
@@ -87,7 +89,7 @@ B_5=\widehat B_{c_5}(s),
 B_1=\widehat B_{c_1}(u),
 $$
 
-where $\widehat B$ is the safe capped map proved in `4015`. It is enough, by
+where $\widehat B$ is the safe capped map proved in `2011`. It is enough, by
 the boundary-loss reduction in `4014`, to prove
 
 $$

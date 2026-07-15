@@ -10,7 +10,9 @@ $$
 
 with no Vd1/Vd2 vertex roles and at least one T3-like vertex role.
 
-The exact capped-map theorem in `4015` now supplies a safe upper relaxation
+The exact capped-map theorem in
+[`2011`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md)
+now supplies a safe upper relaxation
 and a complete four-label partition. The fake $T_+^{lo}$ sheet is deleted.
 The direct diagonal-cap proof in `4072` and the universal nonsupercritical
 relaxation in `4073` repair two further logical gaps found in the reaudit.
@@ -44,7 +46,7 @@ $$
 | [`407c_detailed_gap_closure.md`](407c_detailed_gap_closure.md) | Proven | Supplies expanded derivations for compressed inequalities and branch-realization links. |
 | [`407c_rigor_completion_details.md`](407c_rigor_completion_details.md) | Proven | Records detailed proofs for analytic estimates and certificate domain reductions. |
 | [`407e_final_gap_fixes.md`](407e_final_gap_fixes.md) | Proven | Proves the final local estimates. |
-| [`4076_remaining_branch_inventory.md`](4076_remaining_branch_inventory.md) | Reference | Historical inventory; the exact four-label inventory is in `4015` and `407d`. |
+| [`4076_remaining_branch_inventory.md`](4076_remaining_branch_inventory.md) | Reference | Historical inventory; the exact four-label inventory is in `2011` and `407d`. |
 
 ## Certified computations
 

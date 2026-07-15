@@ -211,7 +211,9 @@ $$
 \delta=\alpha-A_C\ge0.
 $$
 
-Since $A_5=1-\alpha$, $A_1=A_C$, and $C_5=1-\gamma_5$, the $T_-$ root-order expression is
+The exact $T_-$ root-order test and its monotonicity are proved in
+[`2011`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md).
+Since $A_5=1-\alpha$, $A_1=A_C$, and $C_5=1-\gamma_5$, its expression here is
 
 $$
 \Psi^-_{1-\alpha,1-\gamma_5}(A_C)
@@ -585,7 +587,7 @@ $$
 
 and all branches with first coordinate $T_-$.
 
-The exact audit in `4015` deletes $T_+^{lo}$ completely. The remaining genuine
+The exact audit in `2011` deletes $T_+^{lo}$ completely. The remaining genuine
 branch obligations at this stage of the historical file order are:
 
 $$

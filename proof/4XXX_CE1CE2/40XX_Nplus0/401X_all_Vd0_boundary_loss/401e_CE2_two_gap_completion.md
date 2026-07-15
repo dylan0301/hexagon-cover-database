@@ -61,7 +61,7 @@ $$
 $$
 
 The exact four-label theorem in
-[`4015_B_map_branch_realization.md`](4015_B_map_branch_realization.md),
+[`2011_capped_demand_map.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md),
 together with the branch eliminations in `401c`, leaves only
 
 $$

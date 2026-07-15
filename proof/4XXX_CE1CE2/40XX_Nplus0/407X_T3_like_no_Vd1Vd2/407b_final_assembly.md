@@ -12,7 +12,7 @@ with no Vd1/Vd2 rows and at least one T3-like row.
 
 Dependency warning: this is the superseded assembly. Its old branch list used
 a fake Cell-$T$ sheet and did not prove completeness for the exact safe map.
-The corrected four-label partition is now proved in `4015`, and the canonical
+The corrected four-label partition is now proved in `2011`, and the canonical
 exact-formula reassembly is `407d`.
 
 The detailed auxiliary inequalities used in the compressed branch files are recorded in
@@ -150,7 +150,7 @@ $$
 or is geometrically impossible in the $407X$ domain.  Therefore, by `4073`, the support-isolated $407X$ branch gives a perimeter contradiction.
 
 The missing partition proof in this historical version is now supplied by
-`4015`. The exact four-label conclusion and current package status are recorded
+`2011`. The exact four-label conclusion and current package status are recorded
 in `407d`; this superseded file does not independently determine that status.
 
 The branch under discussion is

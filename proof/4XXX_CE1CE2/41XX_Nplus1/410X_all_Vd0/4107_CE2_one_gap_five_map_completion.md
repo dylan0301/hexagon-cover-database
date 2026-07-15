@@ -152,7 +152,7 @@ G_i(a)=G_{c_i}(a)=1-F_{c_i}(a),
 $$
 
 where the exact capped maps $F_c$ and $G_c$ are proved in
-[`4105_selected_capped_map_catalog.md`](4105_selected_capped_map_catalog.md).
+[`2011_capped_demand_map.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md).
 In particular, every $G_i$ is nondecreasing and extensive:
 
 $$
@@ -175,7 +175,7 @@ e(X)=\ell(1-X)
 \left(1-\sqrt{4(1-X)^2-3}\right).
 $$
 
-The scalar-root lemma in `4105` gives
+The scalar-root lemma in `2011` gives
 
 $$
 \boxed{

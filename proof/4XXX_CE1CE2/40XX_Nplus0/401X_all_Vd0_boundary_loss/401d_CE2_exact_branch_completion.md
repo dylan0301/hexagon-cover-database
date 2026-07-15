@@ -62,7 +62,8 @@ By Vd0 boundary and radial locality, only the endpoint roles can contribute
 positive boundary length on the adjacent edges, and each such row must meet
 its own complementary radial demand. Let $c_i=1-d_i$ be the exact demands
 from `2106`, and let $\widehat B$ be the capped safe map proved in
-[`4015_B_map_branch_realization.md`](4015_B_map_branch_realization.md). The outgoing boundary
+[`2011_capped_demand_map.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md).
+The outgoing boundary
 reaches of $T_5$ and $T_1$ are therefore at most
 
 $$

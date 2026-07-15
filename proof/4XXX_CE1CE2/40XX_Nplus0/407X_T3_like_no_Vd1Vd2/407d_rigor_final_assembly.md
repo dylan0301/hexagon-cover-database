@@ -12,7 +12,9 @@ read together with
 - [`407a_left_Thigh_branch_completion.md`](407a_left_Thigh_branch_completion.md), and
 - [`407c_rigor_completion_details.md`](407c_rigor_completion_details.md).
 
-The exact capped-map theorem in `4015` resolves the former classified-map
+The exact capped-map theorem in
+[`2011`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md)
+resolves the former classified-map
 blocker. It proves that the safe map $\widehat B$ has exactly four genuine
 labels:
 
@@ -186,7 +188,7 @@ $$
 
 ## 3. Conclusion
 
-The four-label partition in `4015` and the four row cases above exhaust every
+The four-label partition in `2011` and the four row cases above exhaust every
 safe upper-map maximizer. Every genuine branch pair either is impossible or
 satisfies
 

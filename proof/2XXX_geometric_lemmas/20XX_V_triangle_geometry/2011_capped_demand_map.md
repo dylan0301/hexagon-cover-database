@@ -1,17 +1,23 @@
-# Exact Selected Capped-Map Catalog
+# Exact Capped Nonsupercritical Demand Map
 
 Status: Proven
 
-This note gives a closed formula for the capped unclassified demand map used
-in the one-gap arguments. It is a specialization of the exact admissible set
-in
-[`2004_admissible_set.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md),
-with the component selector from that theorem retained throughout.
+This note gives the branch-independent capped demand map used throughout the
+CE1/CE2 boundary-loss arguments. It is a specialization of the exact
+admissible set in [`2004_admissible_set.md`](2004_admissible_set.md), with
+the component selector from that theorem retained throughout.
+
+The definition and four-label partition below apply for every
+$0\le a,c\le1$. The closed piecewise catalog is stated only in the
+high-radial range $1/2<c<1$ used by the later five-map arguments. At
+$c\le1/2$ and at the endpoints $c=1/2,1$, the globally exact formula remains
+$F_c(a)=\min\left\{B_c(a),1-a\right\}$ with $B_c$ supplied by `2007`; no
+unstated continuation of the high-radial display is intended.
 
 ## 1. Definitions
 
 For $0\le a,c\le1$, let $B_c(a)$ be the exact unclassified map proved in
-[`2007_max_b_map.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2007_max_b_map.md).
+[`2007_max_b_map.md`](2007_max_b_map.md).
 Define
 
 $$
@@ -33,6 +39,49 @@ $$
 Thus $F_c$ is the exact demand-coordinate cap. It is the proof-safe upper
 relaxation for a nonsupercritical Vd0 row; no assertion that its maximizing
 triangle belongs to that row class is needed.
+
+More precisely, let $A(T),B(T),C(T)$ be the actual local reaches of any
+vertex-role triangle, and suppose
+
+$$
+A(T)\ge a,
+\qquad
+C(T)\ge c,
+\qquad
+A(T)+B(T)\le1.
+$$
+
+Then the same triangle realizes the demand triple $(a,B(T),c)$, while
+
+$$
+B(T)\le1-A(T)\le1-a.
+$$
+
+Hence
+
+$$
+\boxed{B(T)\le F_c(a).}
+$$
+
+Taking suprema proves the same bound for any actual nonsupercritical row
+class. This is the only passage from demand coordinates to classified rows
+used downstream.
+
+The exact-cell proof below also gives an exhaustive four-label partition of
+every maximizer:
+
+$$
+\boxed{
+\mathrm{Full},\qquad L,\qquad T_-,\qquad T_+.
+}
+$$
+
+The genuine selected $T_+$ component is called $T_+^{hi}$ in the older
+branch files. The other formal quadratic component, formerly called
+$T_+^{lo}$, violates the selector
+$c\le2\max\left\{a,b\right\}$ and is not a geometric
+branch. Transition ties may be assigned in the order displayed in the
+piecewise catalog; they do not create a fifth label.
 
 For $1/2<c<1$, put
 
@@ -95,7 +144,36 @@ $$
 
 but the rationalized form remains stable as $c$ approaches $1$.
 
-## 2. Exact catalog
+For later comparisons on a selected $T_-$ branch, define
+
+$$
+\Psi^-_{a,c}(x)
+=c^2(a+x)^2-(a^2-ac+c^2).
+$$
+
+For $c>0$ and $a,x\ge0$, the displayed formula for $T_-$ gives the exact
+root-order test
+
+$$
+\boxed{
+T_-(a,c)<x
+\quad\Longleftrightarrow\quad
+\Psi^-_{a,c}(x)>0.
+}
+$$
+
+Indeed, both sides of
+$\sqrt{a^2-ac+c^2}<c(a+x)$ are nonnegative, so it may be squared without
+changing its direction. Moreover
+
+$$
+\frac{\partial}{\partial x}\Psi^-_{a,c}(x)=2c^2(a+x)\ge0,
+$$
+
+with strict increase unless $a=x=0$. This supplies the monotonicity used in
+downstream root-order arguments.
+
+## 2. Exact high-radial catalog
 
 ### 2.1. The range $1/2<c\le\sqrt3/2$
 

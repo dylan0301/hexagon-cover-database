@@ -179,6 +179,6 @@ $$
 $$
 
 This is the superseded five-label inventory. The complete safe four-label
-partition is proved in `4015`, and the corresponding exact reassembly is
+partition is proved in `2011`, and the corresponding exact reassembly is
 proved in `407d`. In particular, the fake $T_+^{lo}$ row above is not part of
 the current branch matrix.

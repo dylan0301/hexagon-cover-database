@@ -279,7 +279,7 @@ $$
 The equality follows from the exact interval fiber $[0,B_c(a)]$ proved in
 [`../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2007_max_b_map.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2007_max_b_map.md).
 The complete four-label partition is proved in
-[`../401X_all_Vd0_boundary_loss/4015_B_map_branch_realization.md`](../401X_all_Vd0_boundary_loss/4015_B_map_branch_realization.md).
+[`2011_capped_demand_map.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md).
 
 Let $T$ be any actual vertex role in the $N_+=0$ branch, with actual maximal
 reaches $A(T),B(T),C(T)$, and suppose

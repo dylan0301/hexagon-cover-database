@@ -3,7 +3,9 @@
 Status: Proven
 
 This folder records the proof package for the CE1/CE2, all-Vd0 boundary-loss
-obstruction. The exact capped-map theorem in `4015` removes the fake lower
+obstruction. The exact capped-map theorem in
+[`2011`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md)
+removes the fake lower
 sheet and proves that four genuine labels are exhaustive. The exact CE1 branch
 matrix is proved analytically in `401b`, including both formerly open ordered
 pairs and both formerly certificate-backed cells. For CE2, the no-gap case is
@@ -88,7 +90,7 @@ F<1.
 $$
 
 The exact safe relaxation and its complete four-label partition are proved in
-[`4015_B_map_branch_realization.md`](4015_B_map_branch_realization.md)
+[`2011_capped_demand_map.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md)
 (Status: Proven).
 
 The CE2 active-interval formulas are handled separately. The exact one-gap
@@ -238,7 +240,6 @@ Section 4 proves it on that full domain.
 | File | Recorded status | Notes |
 |---|---|---|
 | [`4014_setup_and_reduction.md`](4014_setup_and_reduction.md) | Proven | Exact CE1 notation, boundary-loss reduction, and shared no-gap open-perimeter lemma. |
-| [`4015_B_map_branch_realization.md`](4015_B_map_branch_realization.md) | Proven | Exact safe capped map, four-label partition, and withdrawal of the fake high-$c$ sheet. |
 | [`4016_proven_branch_lemmas.md`](4016_proven_branch_lemmas.md) | Reference | Historical branch calculations superseded by the exact analytic CE1 proof in `401b`. |
 | [`4017_remaining_Tplus_obligations.md`](4017_remaining_Tplus_obligations.md) | Reference | Historical record of the discarded lower-sheet obligations and failed approaches; cross-read with [`4019_lower_sheet_completion_proofs.md`](4019_lower_sheet_completion_proofs.md) as algebraic history only. |
 | [`4018_computational_verification.md`](4018_computational_verification.md) | Empirical | Numerical checks, interval-certificate status, and code references. |
@@ -268,7 +269,7 @@ The following algebraic cells have recorded calculations in this package:
 - $(T_+^{lo},T_+^{hi})$.
 - $(T_+^{lo},T_+^{lo})$.
 
-The exact upper-map inclusion is proved in `4015`, the exact CE1 branch matrix
+The exact upper-map inclusion is proved in `2011`, the exact CE1 branch matrix
 is proved in `401b`, the CE1/CE2 no-gap case is proved in `4014`, the CE2
 one-gap case is proved in `401d`, and the CE2 two-gap case is proved in
 `401e`. Therefore the stated CE1/CE2 all-Vd0 boundary-loss obstruction is

@@ -3,7 +3,7 @@
 Status: Reference
 
 Dependency warning: the sheet called $T_+^{lo}$ below is the fake high-$c$
-component removed by the exact audit in `2007` and `4015`. The analytic
+component removed by the exact audit in `2007` and `2011`. The analytic
 inequalities are retained as historical relaxation calculations, not as a
 proof of realized geometric branch completeness.
 

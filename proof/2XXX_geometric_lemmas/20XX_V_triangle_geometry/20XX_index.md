@@ -14,3 +14,4 @@ local midpoint targets used by the CE-first proof tree.
 | [`2008_neighbor_ray_max_c_formula.md`](2008_neighbor_ray_max_c_formula.md) | Proven | Neighboring-ray maximum formula. |
 | [`2009X_ab_set/20090_ab_set_index.md`](2009X_ab_set/20090_ab_set_index.md) | Reference | $AB$-set package: exact finite all-parameter caliper certificate and strict Band IV closed form proved; optional simplified Bands I--III named-curve catalog empirical. |
 | [`2010_free_supercritical_max_b.md`](2010_free_supercritical_max_b.md) | Proven | Free strict-supercritical supremum; corrected closed-demand envelope. |
+| [`2011_capped_demand_map.md`](2011_capped_demand_map.md) | Proven | Exact nonsupercritical cap, four genuine selected labels, high-radial catalog, duality, and threshold bounds. |

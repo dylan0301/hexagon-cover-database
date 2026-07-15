@@ -196,7 +196,9 @@ necessary so that any single $T_-$ label is placed second. If both labels are
 low, the low--low estimate below applies directly. Thus the same ordered list
 also exhausts the equality case.
 
-The four-label formula in `4015` reduces the possible ordered branch pairs
+The four-label formula in
+[`2011`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md)
+reduces the possible ordered branch pairs
 for
 
 $$

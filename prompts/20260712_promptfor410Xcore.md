@@ -67,7 +67,7 @@ Then inspect at least:
 - `proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2106_CE2_exact_formulas.md`
 - `proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2007_max_b_map.md`
 - `proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2010_free_supercritical_max_b.md`
-- `proof/4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss/4015_B_map_branch_realization.md`
+- `proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md`
 - the exact CE1 and CE2 endpoint theorems cited by `4102` and `4103`
 - the exact shortcut counterexamples in Section 5 of `4103`
 
