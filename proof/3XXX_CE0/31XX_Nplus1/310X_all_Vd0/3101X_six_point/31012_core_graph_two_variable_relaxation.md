@@ -2,9 +2,11 @@
 
 Status: Proven
 
-This file proves the relaxed-P reduction for the CE0, $N_+=1$, all-Vd0
-six-point route.  The construction is defined in
+This file proves the relaxed-P reduction for an all-boundary, $N_+=1$,
+all-Vd0 six-point system.  The construction is defined in
 [`31011_six_point_construction.md`](31011_six_point_construction.md).
+The theorem uses only the six V-role handoffs and row classes; it does not
+assume that the seventh, center role is CE0.
 <!--
 The result proved here is local: after the unique supercritical row is rotated
 to $V_4$, the relaxed points
@@ -120,10 +122,10 @@ $$
 \Lambda(K_6^{\mathrm{rel}}(a,b))>1
 $$
 
-is proved on the two-variable domain, including the boundary $\rho=1$, then the
-full CE0, $N_+=1$, all-Vd0 six-point branch follows: $\mathcal U_6$ would have
-$\Lambda(\mathcal U_6)>1$, but in a cover the set $\mathcal U_6$ must be
-contained in the unit center triangle $T_C$.
+is proved on the two-variable domain, including the boundary $\rho=1$, then
+every full-cover branch for which $\mathcal U_6$ lies in the unit center
+triangle follows.  This includes the CE0 six-point branch and the
+all-boundary CE1/CE2 transfer in `4104`.
 
 ## Statement
 
@@ -133,8 +135,9 @@ $$
 (a_i,b_i)=(1-x_{i-1},x_i)
 $$
 
-be the boundary row data of a CE0, $N_+=1$, all-Vd0 configuration, with the
-unique supercritical row equal to $V_4$.  Set
+be the boundary row data of six Vd0 roles covering $\partial H$, with exactly
+one supercritical row, rotated to $V_4$.  No hypothesis is imposed on the
+center role.  Set
 
 $$
 a=a_4,\qquad b=b_4.

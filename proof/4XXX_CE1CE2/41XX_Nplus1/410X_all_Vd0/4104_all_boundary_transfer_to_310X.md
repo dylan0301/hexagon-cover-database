@@ -163,12 +163,13 @@ a+b>1,
 a^2+ab+b^2<1.
 $$
 
-The point construction and fixed-line monotonicity proof in
+The CE-independent all-boundary theorem in
 [`../../../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3101X_six_point/31012_core_graph_two_variable_relaxation.md`](../../../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3101X_six_point/31012_core_graph_two_variable_relaxation.md)
-use only the selected handoff data, the five nonsupercritical chain
-inequalities, all-Vd0 locality, and the unique strict row. They construct an
-actual finite six-point set $K_6^{\mathrm{act}}$ of row-$AB$-union
-interior-uncovered points, all lying in $\mathrm{int}(H)$, and prove
+applies directly to the selected handoff data: its stated hypotheses are the
+five nonsupercritical chain inequalities, all-Vd0 locality, and the unique
+strict row, with no condition on the center role.  It constructs an actual
+finite six-point set $K_6^{\mathrm{act}}$ of row-$AB$-union
+interior-uncovered points, all lying in $\mathrm{int}(H)$, and proves
 
 $$
 \mathrm{conv}\ K_6^{\mathrm{rel}}(a,b)
