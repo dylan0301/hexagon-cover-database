@@ -3,13 +3,11 @@
 Status: Proven
 
 This file proves the normalized adjacent-rescue Vd1 subcase in the
-[`4140`](4140_CE2_Nplus1_exactly_one_Vd1_Vd2_TODO.md) branch.
+[`4140`](4140_CE2_Nplus1_exactly_one_Vd1_Vd2_index.md) branch.
 
-The local type conventions are those of
-[`../../../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md`](../../../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md),
-the local $(a,b,c)$ coordinates are those of
-[`../../../1XXX_foundations/12XX_V_triangle/1202_local_coordinates_abc.md`](../../../1XXX_foundations/12XX_V_triangle/1202_local_coordinates_abc.md),
-and the free strict supercritical envelope is the one recorded in
+The proof uses the Vd1 corner normal form in
+[`../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2014_Vd1_Vd2_corner_normal_form.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2014_Vd1_Vd2_corner_normal_form.md)
+and the free strict-supercritical envelope in
 [`../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2010_free_supercritical_max_b.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2010_free_supercritical_max_b.md).
 
 ## Statement
@@ -49,7 +47,8 @@ a_i+b_i\le1,
  i=2,3,4,5.
 $$
 
-Then these seven role triangles cannot cover the hexagon perimeter.
+Then these seven role triangles cannot cover the hexagon perimeter together
+with the radial arm $r_1$.
 
 By reflection, the same conclusion holds for the branch
 
@@ -57,219 +56,63 @@ $$
 T_0\text{ Vd1},\qquad M_5\in T_0,\qquad T_5\text{ supercritical}.
 $$
 
-## Normalized $V_0$ coordinates
+## Local Vd1 data
 
-Use local coordinates
-
-$$
-X=V_0+x(V_5-V_0)+y(V_1-V_0).
-$$
-
-Then
+Use the normalized coordinates of `2014`. Let $a,b$ be the exact boundary
+reaches of $T_0$. The normal form gives $t>0$ and
 
 $$
-V_0=(0,0),\qquad V_5=(1,0),\qquad V_1=(0,1),
+d=\sqrt{t^2+t+1}
 $$
 
-$$
-O=(1,1),
-$$
-
-and
+such that
 
 $$
-M_1=\left(\frac12,1\right).
+\begin{aligned}
+x-(t+1)y&\le a,\\
+ty-(t+1)x&\le tb,\\
+tx+y&\le d-a-tb.
+\end{aligned}
 $$
 
-The metric is
-
-$$
-\|(x,y)\|^2=x^2+y^2-xy.
-$$
-
-The relevant boundary edge and adjacent rays are
-
-$$
-e_{5,0}=\{(x,0):0\le x\le1\},
-$$
-
-$$
-r_1=\{(x,1):0\le x\le1\},
-\qquad
-r_5=\{(1,y):0\le y\le1\}.
-$$
-
-In the branch under consideration, $T_0$ has positive-length intersection with
-$r_1$ and no positive-length intersection with $r_5$.
-
-## Local Vd1 normal form
-
-Let $a,b$ be the actual adjacent boundary reaches of $T_0$. First suppose
-$a=b=0$. The CE2 interval on $e_{0,1}$ starts at a strictly positive
-coordinate. Since $T_0$ supplies no initial boundary interval, $T_1$ must
-cover the whole edge from $V_1$, so its incoming reach satisfies $a_1\ge1$.
-The diameter bound
-
-$$
-a_1^2+a_1b_1+b_1^2\le1
-$$
-
-then forces $a_1=1$ and $b_1=0$, contradicting the strict supercritical
-condition $a_1+b_1>1$. Thus the exceptional vertex-degenerate branch from
-`4145` is impossible here.
-
-Assume $a+b>0$. The dichotomy proved in
-[`4145_Vd1_Vd2_corner_side_normal_form.md`](4145_Vd1_Vd2_corner_side_normal_form.md)
-puts $T_0$ in the corner-side normal form. Let $W$ be its unique outside
-vertex. The two sides incident to $W$ determine nonnegative intercepts
-$\alpha,\beta$ on the adjacent edge-lines. The actual boundary coverage on
-$e_{5,0}$ is denoted by $a$ and satisfies
-
-$$
-a\le\alpha.
-$$
-
-The corresponding coverage on $e_{0,1}$ is not used below.
-
-The standard corner-side reduction is as follows.  The two unit side directions
-issuing from $W$ have positive local coordinates and meet at angle $60^\circ$.
-After reflecting the local picture if needed, they may be represented by
-
-$$
-(t+1,1),\qquad (t,t+1)
-$$
-
-for some $t>0$.  Their difference is $(1,-t)$, and all three vectors have
-squared metric length
-
-$$
-D=t^2+t+1.
-$$
-
-Set
-
-$$
-d=\sqrt D.
-$$
-
-The triangle is therefore represented by
-
-$$
-x-(t+1)y\le\alpha,
-$$
-
-$$
-ty-(t+1)x\le t\beta,
-$$
-
-and
-
-$$
-tx+y\le d-\alpha-t\beta.
-$$
-
-The first side cuts the $e_{5,0}$ line at $(\alpha,0)$, and the second side
-cuts the $e_{0,1}$ line at $(0,\beta)$.
-
-## The parameter satisfies $t\ge1$
-
-On $r_1$, points have the form $(x,1)$.  The first inequality is automatic on
-$0\le x\le1$, because
-
-$$
-x-(t+1)\le -t\le\alpha.
-$$
-
-The second side gives the lower bound
-
-$$
-x\ge\frac{t(1-\beta)}{t+1},
-$$
-
-and the third side gives the upper bound
-
-$$
-x\le\frac{d-\alpha-t\beta-1}{t}.
-$$
-
-Let
+Write
 
 $$
 T_0\cap r_1=[c,u]
 $$
 
-where the coordinate is measured from $V_1$ toward $O$.  Since $M_1\in T_0$,
+in the coordinate from $V_1$ toward $O$. Then
 
 $$
-c\le\frac12\le u.
+c=\frac{t(1-b)}{t+1},
+\qquad
+u=\frac{d-a-tb-1}{t}.
 $$
 
-Also,
+The midpoint condition gives
 
 $$
-t\beta\ge t-c(t+1).
+c\le\frac12\le u,
 $$
 
-Indeed, if $\beta\le1$, then $c=t(1-\beta)/(t+1)$ and equality holds.  If
-$\beta>1$, then $c=0$ and $t\beta>t=t-c(t+1)$.
-
-The condition $M_1=(1/2,1)\in T_0$ gives, from the third side,
+and hence
 
 $$
-\alpha+t\beta\le d-1-\frac t2.
+tb=t-c(t+1),
+\qquad
+a+tb\le d-1-\frac t2.
 $$
 
-On $r_5$, points have the form $(1,y)$.  The second side is nonbinding on the
-unit segment because it gives only
+Because $a<1$, the raw lower endpoint on $r_5$ is positive. If $t<1$, the
+last inequality gives
 
 $$
-y\le1+\frac1t+\beta>1.
+d-a-tb-t\ge1-\frac t2>\frac1{t+1}>
+\frac{1-a}{t+1},
 $$
 
-The first and third sides give
-
-$$
-y\ge\frac{1-\alpha}{t+1}
-$$
-
-and
-
-$$
-y\le d-\alpha-t\beta-t.
-$$
-
-Set
-
-$$
-U_5=d-\alpha-t\beta-t.
-$$
-
-From the midpoint inequality above,
-
-$$
-U_5\ge1-\frac t2.
-$$
-
-Since this is the Vd1 $r_1$-branch, $T_0\cap r_5$ has no positive length.
-
-If $\alpha\le1$, then $(1-\alpha)/(t+1)\ge0$, so no positive $r_5$ interval
-implies
-
-$$
-U_5\le\frac{1-\alpha}{t+1}\le\frac1{t+1}.
-$$
-
-Consequently,
-
-$$
-1-\frac t2\le\frac1{t+1},
-$$
-
-which is equivalent to $t\ge1$.
-
-If $\alpha>1$, then $(1-\alpha)/(t+1)<0$.  In that case no positive $r_5$
-interval implies $U_5\le0$.  Since $U_5\ge1-t/2$, we get $t\ge2$.  Thus in all
-cases
+forcing positive-length $r_5$ support. This contradicts the Vd1 hypothesis.
+Therefore
 
 $$
 \boxed{t\ge1.}
@@ -305,24 +148,22 @@ after $T_0$ on $e_{5,0}$.
 
 ## Proof of $a\le A(c)$
 
-Since $a\le\alpha$, it is enough to prove $\alpha\le A(c)$.
-
 From
 
 $$
-\alpha+t\beta\le d-1-\frac t2
+a+tb\le d-1-\frac t2
 $$
 
 and
 
 $$
-t\beta\ge t-c(t+1),
+tb=t-c(t+1),
 $$
 
 we get
 
 $$
-\alpha\le d-1-\frac{3t}{2}+c(t+1).
+a\le d-1-\frac{3t}{2}+c(t+1).
 $$
 
 Set
@@ -334,7 +175,7 @@ $$
 Then
 
 $$
-\alpha\le F(t,c).
+a\le F(t,c).
 $$
 
 For fixed $c\le1/2$,
@@ -366,7 +207,7 @@ $$
 L(c):=\sqrt3-\frac52+2c.
 $$
 
-Since $\alpha\ge0$ and $\alpha\le F(t,c)\le L(c)$, every feasible row has
+Since $a\ge0$ and $a\le F(t,c)\le L(c)$, every feasible row has
 $L(c)\ge0$.
 
 We prove the stronger estimate
@@ -421,14 +262,10 @@ $$
 Combining the inequalities gives
 
 $$
-\alpha\le L(c)\le A(c).
+a\le L(c)\le A(c).
 $$
 
-Since $a\le\alpha$,
-
-$$
-\boxed{a\le A(c).}
-$$
+Thus $\boxed{a\le A(c)}$.
 
 ## The auxiliary estimate
 
@@ -446,7 +283,7 @@ of $T_0$ and hence not Vd1.  Therefore $u<1$ and $\delta>0$.
 The third side gives
 
 $$
-u=\frac{d-\alpha-t\beta-1}{t}.
+u=\frac{d-a-tb-1}{t}.
 $$
 
 Consequently,
@@ -454,16 +291,16 @@ Consequently,
 $$
 \delta
 =
-\frac{t+1+\alpha+t\beta-d}{t}.
+\frac{t+1+a+tb-d}{t}.
 $$
 
-Using $t\beta\ge t-c(t+1)$,
+Using $tb=t-c(t+1)$,
 
 $$
-\delta\ge
-\frac{2t+1+\alpha-c(t+1)-d}{t}
+\delta=
+\frac{2t+1+a-c(t+1)-d}{t}
 =
-\delta_0+\frac{\alpha}{t},
+\delta_0+\frac{a}{t},
 $$
 
 where
@@ -498,12 +335,12 @@ $$
 z\mapsto \frac{z}{z+\delta_0+z/t}
 $$
 
-is increasing for $z\ge0$.  Since $a\le\alpha\le F(t,c)$ and
-$\delta\ge\delta_0+\alpha/t$, we get
+is increasing for $z\ge0$. Since $a\le F(t,c)$ and
+$\delta=\delta_0+a/t$, we get
 
 $$
-\frac{a}{a+\delta}\le\frac{\alpha}{\alpha+\delta}\le
-\frac{\alpha}{\alpha+\delta_0+\alpha/t}\le
+\frac{a}{a+\delta}
+\le
 \frac{F(t,c)}{F(t,c)+1/2}.
 $$
 
@@ -862,58 +699,13 @@ $T_1$ supercritical obstruction.
 The proof is strict at the final step because $T_1$ is strictly
 supercritical, so the free envelope gives $b_1<B(c_1)$ rather than a closed
 inequality.  The case $c=1/2$ is excluded because the strict supercritical
-envelope is undefined at radial coordinate $1/2$.
+feasible set is empty at radial coordinate $1/2$.
 
 Point-only contacts on $r_5$ do not affect the Vd1 type, because Vd1 excludes
-positive-length $r_5$ intersection only.  The $t\ge1$ proof above treats both
-$\alpha\le1$ and $\alpha>1$, so it does not require the outside-vertex side to
-cut the actual unit segment $e_{5,0}$ before the vertex $V_5$.
-
-## Numerical check
-
-The numerical check sampled the normal-form variables $t,\alpha,\beta$ subject
-to
+positive-length $r_5$ intersection only. The exact normal form has $a<1$, so
+the $t\ge1$ argument includes all endpoint configurations relevant to an
+original open role.
 
 $$
-t\ge1,
-\qquad
-\alpha,\beta\ge0,
+\Box
 $$
-
-$$
-c\le\frac12\le u,
-$$
-
-positive-length $r_1$ intersection, and no positive-length $r_5$ intersection.
-For each retained sample it checked
-
-$$
-a\le A(c)
-$$
-
-and
-
-$$
-\frac{a}{a+1-u}\le A(c),
-$$
-
-with $a$ taken as the actual initial boundary coverage on $e_{5,0}$, hence
-$a\le\alpha$.
-
-A second sampler used the CE2 slack variables $\lambda,X,Y$ from the side model
-and retained only hiding samples satisfying
-
-$$
-S\le a<T,
-\qquad
-Y\ge\lambda(1-u).
-$$
-
-It then checked
-
-$$
-T\le A(c).
-$$
-
-No counterexample was found.  These numerical checks are not used in the proof;
-they are recorded only as independent consistency tests of the formulas above.

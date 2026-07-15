@@ -3,7 +3,7 @@
 Status: Proven
 
 This file proves the non-adjacent placements in the
-[`4140`](4140_CE2_Nplus1_exactly_one_Vd1_Vd2_TODO.md) branch:
+[`4140`](4140_CE2_Nplus1_exactly_one_Vd1_Vd2_index.md) branch:
 
 $$
 T_C\text{ is CE2},\qquad T_0\text{ is the unique supercritical row},
@@ -11,8 +11,10 @@ T_C\text{ is CE2},\qquad T_0\text{ is the unique supercritical row},
 \qquad \tau\in\{2,3,4\}.
 $$
 
-It uses the Vd1/Vd2 corner-side normal form from
-[`4145_Vd1_Vd2_corner_side_normal_form.md`](4145_Vd1_Vd2_corner_side_normal_form.md)
+It uses the Vd1/Vd2 corner normal form from
+[`../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2014_Vd1_Vd2_corner_normal_form.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2014_Vd1_Vd2_corner_normal_form.md),
+the boundary cap from
+[`../../../2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md`](../../../2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md),
 and the CE2 interval-pair model from
 [`../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2103_CE2_M0_e50_e01_maximal_interval_pairs.md`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2103_CE2_M0_e50_e01_maximal_interval_pairs.md).
 
@@ -32,8 +34,8 @@ T_0\text{ is the unique supercritical row},
 T_\tau\text{ is the unique Vd1/Vd2 row for }\tau\in\{2,3,4\},
 $$
 
-and every other vertex row is Vd0 and nonsupercritical.  Then the required
-boundary and diagonal coverage is impossible.
+and every other vertex row is Vd0 and nonsupercritical. Then the seven roles
+cannot cover the hexagon perimeter together with $r_\tau$.
 
 ## CE2 notation
 
@@ -135,7 +137,7 @@ Equivalently,
 $$
 B=
 \begin{cases}
-b_0,& b_0<y,\\[2mm]
+b_0,& b_0<y,\\
 \max(b_0,v),& b_0\ge y,
 \end{cases}
 $$
@@ -145,7 +147,7 @@ and
 $$
 U=
 \begin{cases}
-a_0,& a_0<x,\\[2mm]
+a_0,& a_0<x,\\
 \max(a_0,u),& a_0\ge x.
 \end{cases}
 $$
@@ -167,11 +169,9 @@ a_0^2+a_0b_0+b_0^2\le1
 $$
 
 would force the other coordinate to be zero, contradicting the strict
-supercritical condition $a_0+b_0>1$. Hence $a_\tau+b_\tau>0$, and the
-vertex-degenerate exception in `4145` cannot occur.
+supercritical condition $a_0+b_0>1$.
 
-By the Vd1/Vd2 adjacent-ray bound proved from the normal form in
-[`4145`](4145_Vd1_Vd2_corner_side_normal_form.md),
+By the Vd1/Vd2 boundary cap in `2500`,
 
 $$
 a_\tau+b_\tau<\frac12.
@@ -477,7 +477,7 @@ a_\tau\ge A,
 b_\tau\ge H.
 $$
 
-In the Vd1/Vd2 corner-side normal form, the own-radial reach satisfies
+In the Vd1/Vd2 corner normal form `2014`, the own-radial reach satisfies
 
 $$
 c_\tau=\frac{d-a_\tau-tb_\tau}{t+1},
@@ -513,32 +513,6 @@ $$
 Thus $r_\tau$ is not covered.  This contradiction eliminates all non-adjacent
 placements $\tau=2,3,4$.
 
-## Numerical check
-
-Independent numerical checks sampled CE2 parameters satisfying
-
 $$
-(u+v)(x+y)-xy=\sqrt{x^2+xy+y^2}
+\Box
 $$
-
-and the CE2 inequalities, and sampled supercritical rows satisfying
-
-$$
-a_0+b_0>1,
-\qquad
- a_0^2+a_0b_0+b_0^2\le1.
-$$
-
-For every retained sample with $A+H<1/2$, the checks verified
-
-$$
-u+v-1<\min(A,H)
-$$
-
-and therefore
-
-$$
-d_2^C,d_3^C,d_4^C<\min(A,H).
-$$
-
-No violation was found.  The numerical check is not used in the proof.

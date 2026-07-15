@@ -3,7 +3,7 @@
 Status: Proven
 
 This file proves the adjacent remaining placement in the
-[`4140`](4140_CE2_Nplus1_exactly_one_Vd1_Vd2_TODO.md) branch:
+[`4140`](4140_CE2_Nplus1_exactly_one_Vd1_Vd2_index.md) branch:
 
 $$
 T_C\text{ is CE2},\qquad T_0\text{ is the unique supercritical row},
@@ -12,10 +12,10 @@ $$
 
 The reflected placement with $T_5$ Vd1/Vd2 is identical.
 
-The proof uses the local type conventions from
-[`../../../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md`](../../../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md),
-the local boundary coordinates from
-[`../../../1XXX_foundations/12XX_V_triangle/1202_local_coordinates_abc.md`](../../../1XXX_foundations/12XX_V_triangle/1202_local_coordinates_abc.md),
+The proof uses the Vd1/Vd2 normal form from
+[`../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2014_Vd1_Vd2_corner_normal_form.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2014_Vd1_Vd2_corner_normal_form.md),
+the boundary caps from
+[`../../../2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md`](../../../2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md),
 the admissible-set radial envelope from
 [`../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md),
 and the CE2 interval-pair model from
@@ -169,68 +169,10 @@ $$
 \boxed{a_1\ge A,\qquad b_1\ge H.}
 $$
 
-## Local Vd1/Vd2 adjacent-ray bound
+## Vd1/Vd2 boundary cap
 
-The boundary propagation gave $b_1\ge H>0$, so the vertex-degenerate
-$a_1=b_1=0$ exception in `4145` cannot occur. Normalize $T_1$ at $V_1$ and
-choose a touched adjacent ray. In local
-coordinates $(X,Y)$ there is $t>0$ and
-
-$$
-d=\sqrt{t^2+t+1}
-$$
-
-such that the corner-side normal form is
-
-$$
-X-(t+1)Y\le a,
-$$
-
-$$
-tY-(t+1)X\le tb,
-$$
-
-and
-
-$$
-tX+Y\le d-a-tb.
-$$
-
-Here $a=a_1$ and $b=b_1$ after choosing the side corresponding to the touched
-adjacent ray.
-
-If the outgoing adjacent ray has positive-length intersection, then
-
-$$
-(t+1)a+tb<(t+1)(d-1)-t^2.
-$$
-
-Since $(t+1)a+tb\ge t(a+b)$,
-
-$$
-a+b<\frac{(t+1)(d-1)-t^2}{t}.
-$$
-
-The right side is $<1/2$ because this is equivalent to
-
-$$
-(t+1)d<t^2+\frac{3t}{2}+1,
-$$
-
-and
-
-$$
-\left(t^2+\frac{3t}{2}+1\right)^2-(t+1)^2(t^2+t+1)=\frac{t^2}{4}>0.
-$$
-
-The incoming adjacent ray gives the reflected inequality
-
-$$
-ta+t(t+1)b<(t+1)(d-t)-1.
-$$
-
-Since the left side is at least $t(a+b)$, the same squared comparison gives
-$a+b<1/2$.  Hence every Vd1/Vd2 row satisfies
+The boundary-length theorem, equivalently the last conclusion of the normal
+form in `2014`, gives directly
 
 $$
 \boxed{a_1+b_1<\frac12.}
@@ -273,6 +215,11 @@ $$
 q=s^4-s^2+ph\ge\left(h+\frac12\right)^4-\left(h+\frac12\right)^2+\frac h2\ge0.
 $$
 
+For $h\ge3/8$ and $p\ge1/2$, the derivative
+$4s^3-2s+h$ is positive, so the first inequality follows by monotonicity in
+$p$. The last expression is increasing in $h>0$ and equals $33/4096$ at
+$h=3/8$.
+
 At $c_0$,
 
 $$
@@ -289,7 +236,7 @@ $$
 (s^2-1)c^2+pc-p^2\le0,\qquad s=p+h.
 $$
 
-The former expansion at $c_0=1-h/3$ was incorrect. The exact expansion is
+At $c_0=1-h/3$, the exact expansion is
 
 $$
 \begin{aligned}
@@ -668,6 +615,21 @@ $$
 \frac{D+xy-x-y}{S}<\frac L3.
 $$
 
+First note that
+
+$$
+\frac{D+xy-x}{S}<1.
+$$
+
+Indeed, $D<2x+y-xy$ because both sides are positive and
+
+$$
+(2x+y-xy)^2-D^2
+=x\left(y(3-2y)+x(1-y)(3-y)\right)>0.
+$$
+
+Thus the premise of the lemma forces $0<L<1/2$.
+
 Set
 
 $$
@@ -732,8 +694,6 @@ $$
 because the right side is positive and the difference of the squares is
 $36L^3(1-L)$. Hence
 
-so
-
 $$
 2sN'(L)\ge2L(-144L^3+192L^2-33L+38)>0.
 $$
@@ -754,76 +714,57 @@ so its positivity is exact.
 
 Thus $N(L)>0$, proving the lemma when $r\le r_0$.
 
-If $r\ge r_0$, then
+It remains to show that the premise cannot hold for $r\ge r_0$. Put
 
 $$
-\frac{R-r(1-y)}{r+1}\le\frac12+L.
+J(r)=\frac{R-r(1-y)}{r+1}.
 $$
 
-After squaring the positive equivalent inequality, the squared difference is a
-convex quadratic in $r$.  At $r=r_0$, after substituting
+Its derivative has the sign of
 
 $$
-y=\frac{L-1+\sqrt{1+6L-3L^2}}2,
+h(r)-(1-y),
+\qquad
+h(r)=\frac{r-1}{2R}.
 $$
 
-its value and derivative are bounded below by
+The function $h$ is strictly increasing, since
 
 $$
-2(16L^4+8L^3+69L^2-48L+9)>0
+h'(r)=\frac{3(r+1)}{4R^3}>0.
 $$
 
-and
+Hence $J$ decreases and then increases, with at most one turning point. Its
+maximum on $[r_0,\infty)$ is therefore attained at $r_0$ or in the limit
+$r\to\infty$.
+
+The limiting value is $y$, and
 
 $$
-2(8L^3+14L^2-20L+9)>0.
+y<\frac12+L
 $$
 
-For the quartic in the first line, the Bernstein coefficients on
-$[0,1/4]$ are
+because
 
 $$
-9,
-\quad
-6,
-\quad
-\frac{119}{32},
-\quad
-\frac{35}{16},
-\quad
-\frac32,
+(3-y)^2-(4-3y^2)=4y^2-6y+5>0.
 $$
 
-and on $[1/4,1/2]$ they are
+At $r=r_0$, use
 
 $$
-\frac32,
-\quad
-\frac{13}{16},
-\quad
-\frac{31}{32},
-\quad
-\frac{33}{16},
-\quad
-\frac{17}{4}.
+R\le1+\frac r2+\frac{r^2}{2}.
 $$
 
-For the cubic in the second line, the coefficients on $[0,1/2]$ are
+The numerator of the resulting lower bound for $1/2+L-J(r_0)$ is
 
 $$
-9,
-\quad
-\frac{17}{3},
-\quad
-\frac72,
-\quad
-\frac72.
+L-\frac12+r_0(1+L-y)-\frac{r_0^2}{2}
+=\frac{N(L)}{(3+4L)^2}>0.
 $$
 
-All are positive.
-
-Therefore the squared difference is positive for all $r\ge r_0$, so the
-hypothesis of the lemma cannot hold in this range.  The analytic lemma follows.
+Thus $J(r)<1/2+L$ for every $r\ge r_0$. The premise is impossible in this
+range, and the analytic lemma follows.
 
 Applying it gives
 
@@ -867,7 +808,9 @@ $$
 Therefore full coverage of $r_2$ requires either $c_2\ge q_2$, or else
 $T_1$ bridges to the center interval, in particular $u_2\ge q_2$.
 
-If $T_1$ bridges, then in the corner normal form
+If $T_1$ bridges, orient the normal form from `2014` so that $r_2$ is the
+supported adjacent arm. For some $t>0$ and $d=\sqrt{t^2+t+1}$, its upper
+endpoint is
 
 $$
 u_2=\frac{d-a_1-tb_1-1}{t}\ge q_2=1-d_2^C.
@@ -924,33 +867,6 @@ intersection, giving $a_1+b_1<1/2$.  CE2 has strict positive boundary intervals
 and $H>0$ for a genuine supercritical $T_0$ branch.  Endpoint-only adjacent-ray
 contacts do not count as Vd1/Vd2 positive length.
 
-## Numerical check
-
-Independent numerical checks sampled CE2 parameters $(x,u,y,v)$ using
-
 $$
-(u+v)(x+y)-xy=\sqrt{x^2+xy+y^2}
+\Box
 $$
-
-and the CE2 inequalities, sampled supercritical $(a_0,b_0)$ satisfying
-
-$$
-a_0+b_0>1,
-\qquad
- a_0^2+a_0b_0+b_0^2\le1,
-$$
-
-and computed $A,H,d_2^C$.  The checks tested
-
-$$
-A+H<\frac12\Longrightarrow d_2^C<\frac H3,
-$$
-
-and
-
-$$
-c_{\max}\left(\frac12+A,H\right)<1-d_2^C.
-$$
-
-No violation was found.  The numerical check is not used as an input to the
-proof.

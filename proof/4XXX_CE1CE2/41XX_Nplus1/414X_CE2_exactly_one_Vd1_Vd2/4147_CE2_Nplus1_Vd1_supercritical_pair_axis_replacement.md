@@ -1,462 +1,356 @@
-# CE2, $N_+=1$, Vd1--Supercritical Adjacent Pair Axis Replacement
+# CE2 Vd1--Supercritical Adjacent-Pair Axis Replacement
 
 Status: Proven
 
-This file proves the remaining adjacent-rescue local replacement used in the
-[`4148`](4148_CE2_Nplus1_exactly_one_Vd1_Vd2_assembly.md) assembly.
-
-It treats the branch where the unique supercritical row is not $T_0$, the
-unique Vd1/Vd2 row is adjacent to it, and the rescuer is Vd1.  The Vd2
-neighbor-midpoint rescue branches are eliminated separately in
+This note proves the Vd1 replacement used in the Case-3 branch of
+[`4148_CE2_Nplus1_exactly_one_Vd1_Vd2_assembly.md`](4148_CE2_Nplus1_exactly_one_Vd1_Vd2_assembly.md).
+The Vd2 alternative is eliminated by
 [`4149_CE2_Nplus1_Vd2_neighbor_midpoint_obstruction.md`](4149_CE2_Nplus1_Vd2_neighbor_midpoint_obstruction.md).
-
-The local normal form and adjacent-ray estimates are proved in
-[`4145_Vd1_Vd2_corner_side_normal_form.md`](4145_Vd1_Vd2_corner_side_normal_form.md).
-The maximal $B_c(a)$ map is the one recorded in
-[`../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2007_max_b_map.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2007_max_b_map.md),
-using the admissible-set branch inequalities from
-[`../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md).
-
-Dependency statement: the local bounds and the boundary-preserving axis
-replacements are proved below. The full center-induced radial bridge is proved
-in `414b`. The resulting adjacent-rescue branch is an input to the now-proved
-`4013` package, so the branch is closed.
 
 ## Statement
 
-Assume a reduced 414X cover candidate contains an adjacent pair
+Assume the original open roles cover the perimeter and radial skeleton in the
+complementary 414X branch. Let $T_i$ be the unique supercritical row, with
+$i\ne0$, and let an adjacent Vd1 row distinct from $T_0$ contain $M_i$.
+Assume every other vertex row is Vd0 and nonsupercritical.
+
+Then the Vd1--supercritical pair can be replaced by two open-role,
+nonsupercritical Vd0 rows while preserving every boundary and radial demand
+used by the CE2 all-Vd0 boundary-loss package. Hence this branch reduces to
+the proved
+[`4013`](../../40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md)
+obstruction.
+
+The case with the Vd1 row on the other side of $T_i$ follows by reflection.
+
+## Normalization and local consequences
+
+Normalize the Vd1 row at $V_0$, the supercritical row at $V_1$, and the
+rescued midpoint as $M_1$. The center triangle has no boundary trace on the
+shared edge $e_{0,1}$ in this Case-3 placement.
+
+Let $a,b$ be the Vd1 row's exact incident-edge reaches. By the normal form in
+[`../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2014_Vd1_Vd2_corner_normal_form.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2014_Vd1_Vd2_corner_normal_form.md),
+there are $t>0$ and
 
 $$
-T_{i-1}\text{ is Vd1 and covers }M_i,
+d=\sqrt{t^2+t+1}
+$$
+
+such that the row is
+
+$$
+\begin{aligned}
+x-(t+1)y&\le a,\\
+ty-(t+1)x&\le tb,\\
+tx+y&\le d-a-tb.
+\end{aligned}
+$$
+
+Its own-radial reach and its neighboring-ray endpoints are
+
+$$
+c=\frac{d-a-tb}{t+1},
+$$
+
+and
+
+$$
+\lambda=\frac{t(1-b)}{t+1},
 \qquad
-T_i\text{ is the unique supercritical row}.
+\mu=\frac{d-a-tb-1}{t},
 $$
 
-Assume every other vertex row is Vd0 and nonsupercritical. Then the coverage
-supplied by the pair $(T_{i-1},T_i)$ can be replaced by two open-role
-nonsupercritical Vd0 rows without decreasing the required boundary or radial
-coverage. The replacement produces the CE2 all-Vd0 nonsupercritical
-boundary/radial datum used by
-[`../../40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md`](../../40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md).
+where the neighboring-ray coordinate runs from $V_1$ toward $O$.
 
-The reflected case in which $T_{i+1}$ is Vd1 and covers $M_i$ is identical.
-
-## Normalized Vd1 rescuer
-
-Normalize the pair so that the Vd1 row is a $V_0$-row touching the outgoing
-adjacent ray $r_1$ and covering $M_1$. Let $a,b$ be its actual adjacent
-boundary reaches. In the Case-3 use in `4148`, the center triangle has no
-trace on the shared edge and no other vertex role can contribute positive
-length there. Hence, if $a=b=0$, the supercritical row at $V_1$ must cover
-the entire shared edge, so $a_i\ge1$. The diameter bound then forces
-$a_i=1$, $b_i=0$, contradicting $a_i+b_i>1$. Thus $a+b>0$, and the exact
-dichotomy in `4145` puts the rescuer in the corner-side normal form. Write
+Because the original open Vd1 role contains $M_1$, its closure satisfies,
+with strict margin,
 
 $$
-d=\sqrt{t^2+t+1}.
+b>\frac{t-1}{2t},
+\qquad
+a+tb<d-1-\frac t2.
 $$
 
-By the corner-side normal form,
+The row has no positive-length intersection with the other adjacent arm
+$r_5$. Since $a<1$, the lower raw endpoint there is positive. The preceding
+midpoint inequality gives
 
 $$
-x-(t+1)y\le a,
+d-a-tb-t>1-\frac t2.
 $$
 
-$$
-ty-(t+1)x\le tb,
-$$
-
-and
+If $t<1$, then
 
 $$
-tx+y\le d-a-tb.
+1-\frac t2>\frac1{t+1}>\frac{1-a}{t+1},
 $$
 
-Here $a$ is the boundary coverage on the outer edge $e_{5,0}$, and $b$ is the
-coverage on the shared edge $e_{0,1}$ from the Vd1 side.  The Vd1 row's
-own-radial reach is
+which would force a positive $r_5$ interval. Therefore
 
 $$
-c=\frac{d-a-tb}{t+1}.
+\boxed{t\ge1.}
 $$
 
-Its first point on the neighboring ray $r_1$, measured from $V_1$ toward $O$, is
+We next record four consequences needed by the replacement:
 
 $$
-\lambda=\frac{t(1-b)}{t+1}.
+\boxed{
+a+c<1,
+\qquad
+a<\lambda\le\frac12,
+\qquad
+b<\frac12,
+\qquad
+\mu<1-a.
+}
 $$
 
-The condition $M_1\in T_0$ gives
+For $a+c<1$, maximize
 
 $$
-b\ge \frac{t-1}{2t}
+a+c=a+\frac{d-a-tb}{t+1}
 $$
 
-and
+under the midpoint inequality. At the closed upper face
 
 $$
-a+tb\le d-1-\frac t2.
+a=d-1-\frac t2-tb,
 $$
 
-In this Vd1 branch $t\ge1$; endpoint-only degeneracy is obtained by closure and
-only weakens the inequalities below.
-
-## First pair inequality
-
-We prove
-
-$$
-\boxed{a+c\le1.}
-$$
-
-Since
-
-$$
-a+c=a+\frac{d-a-tb}{t+1},
-$$
-
-this expression is increasing in $a$.  Therefore its maximum under
-
-$$
-a+tb\le d-1-\frac t2
-$$
-
-occurs when
-
-$$
-a=d-1-\frac t2-tb.
-$$
-
-At this value,
+one has
 
 $$
 a+c-1
-=
--\frac{2bt^2+2bt-2dt-2d+t^2+4t+2}{2(t+1)}.
+=-
+\frac{2bt^2+2bt-2dt-2d+t^2+4t+2}{2(t+1)}.
 $$
 
-Using
-
-$$
-b\ge\frac{t-1}{2t},
-$$
-
-the numerator is at least
+Using $b\ge(t-1)/(2t)$, the numerator is at least
 
 $$
 2t^2+4t+1-2(t+1)d.
 $$
 
-Thus it is enough to prove
+This is positive for $t\ge1$, because
 
 $$
-2t^2+4t+1\ge2(t+1)d.
+(2t^2+4t+1)^2-4(t+1)^2d^2
+=4t^3+4t^2-4t-3>0.
 $$
 
-Both sides are positive.  Squaring gives
+The last cubic is positive at $t=1$ and has positive derivative for
+$t\ge1$.
+
+The original midpoint inequalities are strict, so $a+c<1$.
+
+The bound $\lambda\le1/2$ follows directly from
+$b\ge(t-1)/(2t)$. For the other direction, the upper bound for $a$ gives
 
 $$
-(2t^2+4t+1)^2-4(t+1)^2(t^2+t+1)=4t^3+4t^2-4t-3.
+a<d-1-\frac t2-tb.
 $$
 
-For $t\ge1$, this is positive: at $t=1$ it equals $1$, and its derivative is
-$12t^2+8t-4>0$.  Hence $a+c\le1$.
+The right side minus $t(1-b)/(t+1)$ decreases with $b$ and, at
+$b=(t-1)/(2t)$, equals $d-(t+1)<0$. Thus $a<\lambda$.
 
-## The neighboring-ray entry satisfies $a\le\lambda\le1/2$
-
-The upper bound follows from $b\ge(t-1)/(2t)$:
+Also,
 
 $$
-\lambda=\frac{t(1-b)}{t+1}\le\frac12.
+b<\frac{d-1-t/2}{t}<\frac12,
 $$
 
-For the lower bound, use
+because $d<t+1$.
+
+Finally,
 
 $$
-a\le d-1-\frac t2-tb.
+t(\mu+a-1)
+=d-(t+1)-tb+(t-1)a.
 $$
 
-It is enough to prove
+Using the closed midpoint bounds for $a$ and $b$ gives
 
 $$
-d-1-\frac t2-tb\le\frac{t(1-b)}{t+1}.
+t(\mu+a-1)
+\le t\left(d-2-\frac{t-1}{2}-tb\right)
+\le t(d-t-1)<0.
 $$
 
-The left side minus the right side is decreasing in $b$, so it is maximized at
-$b=(t-1)/(2t)$.  At that value the difference is
+Hence $\mu<1-a$.
 
-$$
-d-(t+1)<0.
-$$
+## The supercritical row
 
-Therefore
-
-$$
-\boxed{a\le\lambda\le\frac12.}
-$$
-
-For the original open roles the inequalities used above have positive margin.
-Thus the corresponding consequences are strict where needed below:
-
-$$
-a<\lambda,
-\qquad
-a+c<1.
-$$
-
-## Forced lower bounds on the supercritical row
-
-The row $T_i$ must cover the part of the shared edge not covered by the Vd1 row.
-Thus its incoming boundary coordinate satisfies
-
-$$
-a_i\ge1-b.
-$$
-
-The segment $V_iM_i$ is covered only by the Vd1 row and $T_i$.  Since the Vd1
-row starts on this ray at $\lambda$, $T_i$ must cover at least the initial
-segment up to $\lambda$ on its own ray.  Thus
-
-$$
-c_i\ge\lambda.
-$$
-
-Also $b<1/2$.  Indeed, $a\ge0$ and
-
-$$
-a+tb\le d-1-\frac t2
-$$
-
-imply
-
-$$
-b\le\frac{d-1-t/2}{t}<\frac12,
-$$
-
-because $d<t+1$.  Hence
+Let $a_i,b_i,c_i$ be the actual incoming, outgoing, and own-radial reaches of
+the supercritical row at $V_1$. Since no center or other vertex row has
+positive boundary trace on the shared edge,
 
 $$
 a_i\ge1-b>\frac12.
 $$
 
-## Max-$B$ lemma with both ordered halves
-
-We prove
-
-$$
-\boxed{a\ge\frac12,\quad 0\le c\le\frac12
-\quad\Longrightarrow\quad B_c(a)\le1-c.}
-$$
-
-Suppose, for contradiction, that an admissible triple $(a,b,c)$ satisfies
+On the rescued arm, the Vd1 interval starts at $\lambda$. The center excludes
+$M_1$, and every other vertex row has zero adjacent support. Thus coverage
+from $V_1$ up to the Vd1 interval forces
 
 $$
-a\ge\frac12,\qquad 0\le c\le\frac12,\qquad b>1-c.
+c_i\ge\lambda.
 $$
 
-Then $b\ge1/2$ and $a+b>1$.  Therefore the $s>1$ admissible branch applies in
-one of the two ordered halves.  In the ordered half $a\le b$, the recorded
-necessary inequality is
+We use the following direct consequence of the exact admissible set.
+
+### Half-square admissibility lemma
+
+If $(x,y,z)$ is an admissible demand triple and
 
 $$
-F(a,b,c):=(a^2-1)c^2+(2ab^2+b)c+(b^4-b^2)\le0.
+x\ge\frac12,
+\qquad
+0\le z\le\frac12,
 $$
 
-In the reflected half $b<a$, the necessary inequality is $F(b,a,c)\le0$.
-We show that both inequalities are impossible.
-
-### Ordered half $a\le b$
-
-For $a\ge1/2$, $b\ge0$, and $c\ge0$,
+then
 
 $$
-\frac{\partial F}{\partial a}=2ac^2+2b^2c\ge0.
+\boxed{y\le1-z.}
 $$
 
-Thus
+Suppose instead that an admissible triple $(x,y,z)$ has $y>1-z$.
+Then $x+y>1$, so the supercritical algebraic cell of
+[`../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md)
+applies.
+
+In the ordered half $x\le y$, its necessary inequality is
 
 $$
-F(a,b,c)\ge F\left(\frac12,b,c\right).
+F(x,y,z):=(x^2-1)z^2+(2xy^2+y)z+(y^4-y^2)\le0.
 $$
 
-Now
+The function $F$ is increasing in $x$. At $x=1/2$, its derivative in $y$ is
 
 $$
-\frac{\partial}{\partial b}F\left(\frac12,b,c\right)=4b^3-2b+2bc+c.
+4y^3-2y+2yz+z.
 $$
 
-For $b\ge1-c$, this derivative is at least its value at $b=1-c$, namely
+This derivative is increasing for $y\ge1-z$ and is positive at $y=1-z$.
+Indeed, its value there is
 
 $$
--4c^3+10c^2-7c+2.
+-4z^3+10z^2-7z+2>0
 $$
 
-This polynomial is positive on $0\le c\le1/2$: it is decreasing on this
-interval and has value $1/2$ at $c=1/2$.  Hence $F(1/2,b,c)$ is increasing for
-$b\ge1-c$, and
+on $0\le z\le1/2$: its derivative is nonpositive there, and its value at
+$z=1/2$ is $1/2$. The derivative with respect to $y$ is increasing because
+its own derivative is at least
 
 $$
-F\left(\frac12,b,c\right)>F\left(\frac12,1-c,c\right).
-$$
-
-A direct calculation gives
-
-$$
-F\left(\frac12,1-c,c\right)=\frac{c^2(2c-5)(2c-1)}4\ge0
-$$
-
-for $0\le c\le1/2$.  Hence $F(a,b,c)>0$, contradicting $F(a,b,c)\le0$.
-
-### Reflected half $b<a$
-
-Here the necessary inequality is $F(b,a,c)\le0$.  Put $r=1-c$.  Since
-$b>1-c$, both variables in $F(b,a,c)$ are at least $r$.
-
-For $X,Y\ge r$ and $0\le c\le1/2$, the function $F(X,Y,c)$ is increasing in
-$X$ and $Y$.  The $X$ derivative is
-
-$$
-2Xc^2+2Y^2c\ge0.
-$$
-
-The $Y$ derivative is
-
-$$
-4XYc+c+4Y^3-2Y.
-$$
-
-For $X,Y\ge r=1-c$, this is at least
-
-$$
-4r^2c+c+4r^3-2r=2-5c+4c^2>0
-$$
-
-on $0\le c\le1/2$.  Therefore
-
-$$
-F(b,a,c)>F(r,r,c).
-$$
-
-A direct calculation gives
-
-$$
-F(1-c,1-c,c)=c(1-2c)\ge0.
-$$
-
-Hence $F(b,a,c)>0$, contradicting $F(b,a,c)\le0$.
-
-Thus no admissible triple has $b>1-c$, and $B_c(a)\le1-c$.
-
-Apply this to $T_i$.  Its actual radial coordinate satisfies $c_i\le1/2$ in the
-supercritical $s>1$ branch, and $c_i\ge\lambda$.  Since $a_i>1/2$, the max-$B$
-lemma gives
-
-$$
-b_i\le1-c_i\le1-\lambda.
+12(1-z)^2-2+2z>0.
 $$
 
 Therefore
 
 $$
-\boxed{\lambda+b_i\le1.}
+F(x,y,z)>F\left(\frac12,1-z,z\right)
+=\frac{z^2(2z-5)(2z-1)}4\ge0,
 $$
 
-Using $a\le\lambda$, we also get
+a contradiction.
+
+In the reflected half $y<x$, the necessary inequality is $F(y,x,z)\le0$.
+Put $r=1-z$. Both arguments of $F$ are greater than or equal to $r$. On this
+quadrant $F$ is increasing in both arguments: the first derivative is
+nonnegative, and the second is bounded below by
 
 $$
-\boxed{a+b_i\le1.}
+4r^2z+z+4r^3-2r=2-5z+4z^2>0.
 $$
 
-For the original open-role data, $a<\lambda$ makes the last inequality strict:
+Here $4v^3-2v$ is increasing for $v\ge r\ge1/2$, which justifies the stated
+lower bound.
+
+Thus
+
+$$
+F(y,x,z)>F(r,r,z)=z(1-2z)\ge0,
+$$
+
+again a contradiction. This proves the lemma.
+
+For a supercritical row, the selected cell gives $c_i\le1/2$. Applying the
+lemma to $(x,y,z)=(a_i,b_i,c_i)$ yields
+
+$$
+b_i\le1-c_i\le1-\lambda.
+$$
+
+Since $a<\lambda$,
 
 $$
 \boxed{a+b_i<1.}
 $$
 
-## Explicit axis-aligned replacement
+## Center handoff
 
-We do not invoke a historical branch name from the maximal map. Instead, for
-every $0\le p\le1$ construct an explicit unit Vd0 triangle in local
-coordinates. If $p\le1/2$, put
+Let $d_i$ be the center triangle's covered length on the rescued arm, measured
+from $O$ toward $V_i$, and let
+
+$$
+c_i^{\mathrm{req}}=1-d_i
+$$
+
+be the exact vertex-side demand left by the CE2 center triangle on the rescued
+arm. The only original open roles with positive intervals on this arm are the
+supercritical row, the Vd1 row, and the center row. Therefore open coverage at
+the center handoff forces
+
+$$
+c_i^{\mathrm{req}}<\max\{c_i,\mu\}.
+$$
+
+Equality would leave the common open exit or entry point uncovered. Combining
+the preceding bounds gives
+
+$$
+\boxed{
+c_i^{\mathrm{req}}<\max\{1-b_i,1-a\}.
+}
+$$
+
+This proves the required radial bridge.
+
+## Explicit Vd0 replacements
+
+For $0\le p\le1$, define a closed unit triangle by
 
 $$
 \Delta_p^-=
 \mathrm{conv}\left\{
-(0,1-p),
-(1,1-p),
-(0,-p)
-\right\}.
+(0,1-p),(1,1-p),(0,-p)
+\right\}
+\qquad(p\le1/2),
 $$
 
-If $p\ge1/2$, put
+and
 
 $$
 \Delta_p^+=
 \mathrm{conv}\left\{
-(p,0),
-(p,1),
-(p-1,0)
-\right\}.
+(p,0),(p,1),(p-1,0)
+\right\}
+\qquad(p\ge1/2).
 $$
 
-In the local metric $\lVert(x,y)\rVert^2=x^2+y^2-xy$, each of the three side
-vectors in either construction has length $1$. Direct intersection with the
-two boundary axes gives exact reaches
+In the local metric, all three side vectors have length $1$. The two
+incident-edge reaches are $p$ and $1-p$, the own-radial reach is respectively
+$1-p$ or $p$, and there is no positive adjacent-ray support.
 
-$$
-p,
-\qquad
-1-p.
-$$
-
-The own-radial reach is respectively $1-p$ and $p$, hence always
-
-$$
-\max\left\{p,1-p\right\}.
-$$
-
-The neighboring rays have no positive-length intersection with these
-triangles, so they are Vd0. Consequently either construction realizes every
-demand triple
-
-$$
-\left(p,1-p,c\right)
-\qquad
-\text{with}
-\qquad
-0\le c\le\max\left\{p,1-p\right\}.
-$$
-
-The endpoint constructions put the distinguished vertex on a side. We now
-use the strict open-role margins to perturb them into valid vertex roles.
-
-The proved inequalities give
-
-$$
-a<\lambda\le\frac12,
-\qquad
-a+c<1,
-\qquad
-a+b_i<1.
-$$
-
-The radial bridge theorem
-[`414b_CE2_Vd1_axis_replacement_radial_bridge_target.md`](414b_CE2_Vd1_axis_replacement_radial_bridge_target.md)
-gives
-
-$$
-c_i^{\mathrm{req}}
-<
-\max\{1-a,1-b_i\}.
-$$
-
-Choose
+The strict inequalities proved above allow parameters
 
 $$
 a<p_1<p_2<1-b_i
 $$
 
-so that
+such that
 
 $$
 p_1<\frac12,
@@ -470,55 +364,47 @@ $$
 \max\{p_2,1-p_2\}>c_i^{\mathrm{req}}.
 $$
 
-If the bridge maximum is supplied by $1-a$, take both parameters close to
-$a$. If it is supplied by $1-b_i$, first take $p_1$ close to $a$ and then take
-$p_2$ close to $1-b_i$. This proves that the displayed choices are
-simultaneously possible.
+Choose $p_1$ close to $a$. For $p_2$, choose a point close to $a$ if the
+radial bridge is supplied by $1-a$, and close to $1-b_i$ if it is supplied by
+$1-b_i$.
 
-For $p\le1/2$, translate $\Delta_p^-$ by $(-\varepsilon,0)$. Its actual local
-reaches become
+Translate $\Delta_{p_1}^-$ by $(-\varepsilon,0)$. Its actual reaches become
 
 $$
-(p-\varepsilon,1-p,1-p).
+(p_1-\varepsilon,1-p_1,1-p_1).
 $$
 
 The distinguished vertex is interior, the row has zero adjacent support, and
-its boundary row sum is $1-\varepsilon<1$.
+its boundary sum is $1-\varepsilon$.
 
-For $p\ge1/2$, translate $\Delta_p^+$ by $(0,-\varepsilon)$. Its reaches
-become
+For the second row, translate $\Delta_{p_2}^-$ by $(-\varepsilon,0)$ when
+$p_2<1/2$, and translate $\Delta_{p_2}^+$ by $(0,-\varepsilon)$ when
+$p_2\ge1/2$. The relevant reaches are respectively
 
 $$
-(p,1-p-\varepsilon,p),
+(p_2-\varepsilon,1-p_2,1-p_2)
 $$
 
-with the same interior, zero-support, and strict row-sum conclusions. If
-$p_2<1/2$, use the first translated construction for the second row as well.
+or
 
-Apply the first replacement with $p_1$ and the second with $p_2$. Choose
-$\varepsilon>0$ smaller than all strict outer-boundary, outgoing-boundary,
-shared-edge, and radial margins. The first row still reaches at least $a$ and
-$c$. The second still reaches at least $b_i$ and
-$c_i^{\mathrm{req}}$. The shared boundary edge is covered because
+$$
+(p_2,1-p_2-\varepsilon,p_2).
+$$
+
+Choose $\varepsilon>0$ below every strict boundary and radial margin. The
+first row still supplies at least $a$ and $c$, and the second still supplies
+at least $b_i$ and $c_i^{\mathrm{req}}$. The shared boundary edge is covered
+because
 
 $$
 (1-p_1)+(p_2-\varepsilon)>1.
 $$
 
-Thus the original Vd1--supercritical adjacent pair is replaced by two genuine
-open nonsupercritical Vd0 roles while preserving the complete required
-boundary and radial cover.
+Thus both replacements are genuine open Vd0 roles with boundary sum less
+than $1$, and all required boundary and radial intervals are preserved. Every
+other vertex row was already nonsupercritical Vd0. The resulting datum is
+therefore excluded by the proved `4013` all-Vd0 boundary-loss package.
 
-All other vertex rows in this branch are already nonsupercritical Vd0 rows.
-Therefore the proved replacement produces a CE2 all-Vd0 boundary/radial
-datum with every vertex row satisfying $a_j+b_j\le1$. The replacement is not
-asserted to preserve the interior cover of $H$; the `4013` boundary-loss
-contradiction consumes only the preserved perimeter coverage and the exact
-complementary radial demands.
-
-This reduces the branch to the CE1/CE2
-all-Vd0 boundary-loss obstruction recorded in
-[`../../40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md`](../../40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md).
-
-Thus the adjacent Vd1--supercritical rescue branch is impossible by the
-proved `4013` boundary-loss obstruction.
+$$
+\Box
+$$

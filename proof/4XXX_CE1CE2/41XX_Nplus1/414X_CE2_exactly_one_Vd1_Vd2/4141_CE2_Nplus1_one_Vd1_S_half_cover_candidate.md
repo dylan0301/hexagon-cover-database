@@ -17,4 +17,4 @@ The intended reading of the image is:
 No coordinate data, interval certificate, or independent verifier is recorded
 here. The image is empirical visual evidence only. It does not prove a cover of
 $S_{1/2}$, $S$, $H$, or $H_L$, and it does not affect the `Proven` status of
-[`4140_CE2_Nplus1_exactly_one_Vd1_Vd2_TODO.md`](4140_CE2_Nplus1_exactly_one_Vd1_Vd2_TODO.md).
+[`4140_CE2_Nplus1_exactly_one_Vd1_Vd2_index.md`](4140_CE2_Nplus1_exactly_one_Vd1_Vd2_index.md).
