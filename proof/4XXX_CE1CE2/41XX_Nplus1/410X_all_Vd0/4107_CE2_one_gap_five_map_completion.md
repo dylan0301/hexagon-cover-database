@@ -175,7 +175,9 @@ e(X)=\ell(1-X)
 \left(1-\sqrt{4(1-X)^2-3}\right).
 $$
 
-The scalar-root lemma in `2011` gives
+The scalar-root lemma in
+[`2012`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2012_high_radial_low_root_bounds.md)
+gives
 
 $$
 \boxed{

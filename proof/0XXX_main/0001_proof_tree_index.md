@@ -51,7 +51,8 @@ Vd0, Vd1/Vd2, and T3-like vertex-role patterns.
       proved; optional simplified Bands I--III named-curve catalog empirical
     - `2010`: proved free strict-supercritical outgoing supremum
     - `2011`: proved exact capped nonsupercritical demand map, four-label
-      partition, duality, and high-demand thresholds
+      partition, and duality
+    - `2012`: proved high-radial low-root bounds and threshold consequence
   - `21XX`: C-triangle geometry
     - `2100`: proved CE1/CE2 exactly-one-midpoint lemma with $O$ interior
     - `2101`: maximal C-triangles over the half skeleton

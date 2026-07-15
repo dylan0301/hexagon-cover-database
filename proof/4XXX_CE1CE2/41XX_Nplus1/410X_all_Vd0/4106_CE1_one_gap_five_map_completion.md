@@ -159,13 +159,15 @@ We prove that the reverse composition is strictly greater than $1-X$.
 
 ## 3. Low-root estimates
 
-For $0<d\le1-\sqrt3/2$, define the low Cell-L root
+For $0<d\le1-\sqrt3/2$, define the low Cell-$L$ root
 
 $$
 e(d)=\ell(1-d).
 $$
 
-For $0<d\le1/8$,
+The exact scalar lemma
+[`2012_high_radial_low_root_bounds.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2012_high_radial_low_root_bounds.md)
+proves, on the ranges used below,
 
 $$
 \boxed{
@@ -173,50 +175,15 @@ e(d)<\frac{2d}{1-2d}.
 }
 $$
 
-To prove this, substitute $U=2d/(1-2d)$ into the Cell-L polynomial. The
-result is
-
-$$
-\frac{d^2}{(1-2d)^2}
-\left(
-4d^4-20d^3+37d^2-28d+3
-\right).
-$$
-
-The polynomial in parentheses is decreasing on $[0,1/8]$: its derivative is
-at most
-
-$$
-\frac{16}{512}+\frac{74}{8}-28<0.
-$$
-
-Its value at $1/8$ is $41/1024$. Thus $U$ lies strictly between the two
-Cell-L roots.
-
-We shall also use
+It also proves
 
 $$
 \boxed{
-e(d)<2d+5d^2
+e(d)\le2d+5d^2
 \qquad
-\left(0<d<\frac18\right).
+\left(0<d\le\frac18\right).
 }
 $$
-
-Indeed, for
-
-$$
-h_d(q)=q^2-(1-d)q+(1-d)^2-(1-d)^4,
-$$
-
-one has
-
-$$
-h_d(2d+5d^2)=d^2(3d+4)(8d-1)<0.
-$$
-
-Since $h_d$ is monic, the trial point lies between its roots and is greater
-than $e(d)$.
 
 ## 4. The first low root lies below the target
 
@@ -251,7 +218,7 @@ $$
 A<\frac{X}{2(1+X)}.
 $$
 
-Combining this with the first estimate of Section 3 gives
+Combining this with the first estimate of `2012` gives
 
 $$
 \boxed{e(A)<X.}
