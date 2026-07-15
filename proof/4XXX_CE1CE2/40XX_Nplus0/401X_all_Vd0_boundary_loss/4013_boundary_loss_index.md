@@ -35,6 +35,13 @@ demand is at least $c$, `2011` bounds its other incident reach by
 $\widehat B_c(a)$. The theorem in `2011` is an upper relaxation, so it applies
 to the actual row even when either requirement is exceeded.
 
+On the radial arm $r_i$, Vd0 locality leaves $T_i$ as the only vertex role
+with positive-length support.  Therefore, if the center role exits that arm
+at distance $d_i$ from $O$, coverage forces the actual radial reach of $T_i$
+from $V_i$ to be at least $1-d_i$.  This explicitly assigns every
+complementary demand $c_i=1-d_i$ used below to the corresponding endpoint
+role.
+
 Suppose the roles adjacent to the center trace leave outgoing reaches at
 most $B_1$ on $e_{1,2}$ and $B_5$ on $e_{4,5}$. The roles at
 $V_2,V_3,V_4$ must then cover boundary length at least

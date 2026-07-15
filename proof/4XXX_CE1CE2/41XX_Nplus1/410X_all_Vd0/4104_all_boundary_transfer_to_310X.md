@@ -145,6 +145,47 @@ This statement deliberately uses $\mathrm{int}(H)$. A boundary point of $H$
 can lie on the boundary of a cone-clipped $R_i$ even when it lies in $T_i$,
 so an unqualified plane-interior residual on all of $H$ would be too broad.
 
+### The six obstruction points are interior
+
+We record explicitly the strictness needed below.  The three $P$-points in
+the actual six-point construction lie on the non-axis part of the strict
+$AB$-union frontier at the selected row.  In its local corner coordinates
+$(u,v)$ they satisfy
+
+$$
+u>0,
+\qquad
+v>0,
+\qquad
+Q(u,v)=u^2+v^2-uv\le1.
+$$
+
+The last inequality holds because the exact frontier in `20091` belongs to
+the union of unit triangles containing the distinguished vertex.  The local
+hexagon inequalities from `1201` are strict here: $Q\le1$ gives $u,v<2$, and
+
+$$
+Q(u,v)=(u-v)^2+uv\le1
+$$
+
+with $uv>0$ gives $\lvert u-v\rvert<1$.  Hence all three $P$-points lie in
+$\mathrm{int}(H)$.
+
+Each diagonal obstruction point has the form
+
+$$
+(1-c)V_j,
+$$
+
+where $c$ is an admissible-set radial envelope with two positive boundary
+demands.  The strict handoffs give those demands positive, and the explicit
+formula in `2004` gives $c>0$.  Since also $c\le1$, the point lies on
+$[O,V_j)$ and therefore in $\mathrm{int}(H)$.  Consequently
+
+$$
+K_6^{\mathrm{act}}\subset\mathrm{int}(H).
+$$
+
 ## 4. Transfer of the six-point reduction
 
 Rotate the unique selected supercritical row to $V_4$ and put
