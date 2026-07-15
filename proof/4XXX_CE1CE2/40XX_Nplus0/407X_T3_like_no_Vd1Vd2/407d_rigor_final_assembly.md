@@ -6,9 +6,13 @@ This file reassembles the $407X$ branch using the corrected exact formulas. It
 should be
 read together with
 
+- [`4071_CE1CE2_Nplus0_T3_like_forces_V0_T3_like.md`](4071_CE1CE2_Nplus0_T3_like_forces_V0_T3_like.md),
+- [`4072_support_isolation_after_T0_T3_like.md`](4072_support_isolation_after_T0_T3_like.md),
 - [`4073_boundary_loss_framework.md`](4073_boundary_loss_framework.md),
+- [`4074_L_Full_branch.md`](4074_L_Full_branch.md),
+- [`4075_Tminus_low_lower_branch_obligations.md`](4075_Tminus_low_lower_branch_obligations.md),
 - [`4078_left_L_family_completion.md`](4078_left_L_family_completion.md),
-- [`4079_first_Full_and_lower_sheet_branches.md`](4079_first_Full_and_lower_sheet_branches.md),
+- [`4079_first_Full_branch.md`](4079_first_Full_branch.md),
 - [`407a_left_Thigh_branch_completion.md`](407a_left_Thigh_branch_completion.md), and
 - [`407c_rigor_completion_details.md`](407c_rigor_completion_details.md).
 
@@ -28,13 +32,9 @@ T_-,
 T_+^{hi}.
 $$
 
-The fake label $T_+^{lo}$ is absent. The direct diagonal-cap proof in `4072`
-also makes that file independent of the general `2520` package, and `4073`
-uses $\widehat B$ for the possibly T3-like row $T_1$.
-
-The cited branch files have been canonicalized for strict GitHub math. All
-active lemma citations use explicit filenames, so the two historical detail
-files that share the `407c` prefix are unambiguous in this proof.
+The fake label $T_+^{lo}$ is absent.  The support count in `4072` now cites
+the general diagonal-trace theorem `2520`, and `4073` uses $\widehat B$ for
+the possibly T3-like row $T_1$.
 
 ## 1. Reduction target
 
@@ -129,8 +129,8 @@ $$
 
 ### 2.2. First coordinate $T_-$
 
-The full first-coordinate $T_-$ family is proved in `4075`, with the final
-one-variable calculus lemma recorded in `4077`.  Therefore
+The full first-coordinate $T_-$ family, including its final one-variable
+calculus lemma, is proved in `4075`.  Therefore
 
 $$
 B_5=T_-\quad\Longrightarrow\quad B_5+B_1<1.
@@ -138,15 +138,12 @@ $$
 
 ### 2.3. First coordinate $\mathrm{Full}$
 
-Theorem 2.3 of `4079` proves that the hard region contains no first-coordinate
+Theorem 1.3 of `4079` proves that the hard region contains no first-coordinate
 Full branch:
 
 $$
 B_5\ne \mathrm{Full}.
 $$
-
-The detailed midpoint-exit and CE2-overlap estimates used there are supplied in
-`407c_rigor_completion_details.md`, Section 2.
 
 ### 2.4. First coordinate $T_+^{hi}$
 
@@ -168,17 +165,15 @@ r\ge(1-\beta)(r+\beta)^2,
 $$
 
 high-left envelope estimates, inequalities $S>3y$ and $A_C>3y$, and the right
-$T_-$ estimates are proved in `407c_rigor_completion_details.md` and
-`407e_final_gap_fixes.md`. The finite interval certificate used in the
+$T_-$ estimates are proved in `407c_rigor_completion_details.md` and `407a`.
+The finite interval certificate used in the
 $T_-$ right-branch case is
 
 $$
 \texttt{407X\_computation/407b\_T\_hi\_Tminus\_qright\_threshold\_certificate.py}.
 $$
 
-Its hypotheses are checked in `407c_rigor_completion_details.md`, Section 5.
-The second historical certificate concerns the deleted fake lower sheet and
-is no longer part of the exact proof matrix.
+Its hypotheses are checked in `407c_rigor_completion_details.md`, Section 4.
 
 Therefore
 

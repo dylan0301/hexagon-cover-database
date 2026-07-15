@@ -6,17 +6,15 @@ This file supplies detailed proofs for the analytic estimates and certificate
 hypotheses used by
 
 - [`4078_left_L_family_completion.md`](4078_left_L_family_completion.md),
-- [`4079_first_Full_and_lower_sheet_branches.md`](4079_first_Full_and_lower_sheet_branches.md), and
 - [`407a_left_Thigh_branch_completion.md`](407a_left_Thigh_branch_completion.md).
 
 It is intended as a local dependency for those files.  The computational
 certificates remain in `407X_computation/`.
 
-Throughout, use the notation of `4073`.  For high-sheet and lower-sheet
-calculations put
+Throughout, use the notation of `4073`.  For high-sheet calculations put
 
 $$
-r=1-\lambda,\qquad u=\gamma_5,\qquad y={Y\over\lambda},\qquad
+r=1-\lambda,\qquad u=\gamma_5,\qquad y=\frac{Y}{\lambda},\qquad
 \rho=\sqrt{r^2-r+1}.
 $$
 
@@ -34,7 +32,7 @@ satisfies $h\ge0$.
 
 #### Proof
 
-The Low branch is realized for input $a=1-\beta$ and output $z=\ell(\eta)$.  Its domain includes
+The Low branch is realized for input $a=1-\beta$ and output $z=e(\eta)$.  Its domain includes
 
 $$
 a+z\le1.
@@ -48,25 +46,51 @@ $$
 
 hence $z\le\beta$ and $h=\beta-z\ge0$.
 
-### Lemma 1.2: the polynomial used in the non-overlap Low comparison
+### Lemma 1.2: the non-overlap Low comparison
 
-For
-
-$$
-0<y<1-{\sqrt3\over2},
-$$
-
-the polynomial
+For $0<A<1/2$, put
 
 $$
-Q(y)=25y^5-100y^4+130y^3-40y^2-36y+22
+r_A=\sqrt{1-A+A^2},
+\qquad
+g=r_A(1-r_A).
 $$
 
-is positive.
+Then
+
+$$
+2g+5g^2<A.
+$$
 
 #### Proof
 
-Since $1-\sqrt3/2<1/7$, it is enough to prove positivity for $0<y<1/7$.  On this interval,
+Write $r_A=1-y$.  Then $0<y<1-\sqrt3/2<1/7$ and
+
+$$
+A=\frac{1-\sqrt{1-8y+4y^2}}{2}.
+$$
+
+The desired inequality is equivalent to
+
+$$
+\sqrt{1-8y+4y^2}<1-4y-6y^2+20y^3-10y^4.
+$$
+
+The right side is positive because
+
+$$
+1-4y-6y^2-10y^4
+>1-\frac{4}{7}-\frac{6}{49}-\frac{10}{2401}>0.
+$$
+
+After squaring, the difference of the right square and the left square is
+$4y^3Q(y)$, where
+
+$$
+Q(y)=25y^5-100y^4+130y^3-40y^2-36y+22.
+$$
+
+On $0<y<1/7$,
 
 $$
 Q(y)>22-36y-40y^2-100y^4.
@@ -75,7 +99,7 @@ $$
 Thus
 
 $$
-Q(y)>22-{36\over7}-{40\over49}-{100\over2401}={38414\over2401}>0.
+Q(y)>22-\frac{36}{7}-\frac{40}{49}-\frac{100}{2401}=\frac{38414}{2401}>0.
 $$
 
 This proves the claim.
@@ -91,14 +115,14 @@ $$
 Define
 
 $$
-G_1={A+\rho-1-\lambda^2\over1-\lambda},\qquad
-G_2={\lambda-A\over\lambda},\qquad G=\min(G_1,G_2).
+G_1=\frac{A+\rho-1-\lambda^2}{1-\lambda},\qquad
+G_2=\frac{\lambda-A}{\lambda},\qquad G=\min(G_1,G_2).
 $$
 
 If $G\ge0$, then
 
 $$
-\boxed{\ell(G)<A.}
+\boxed{e(G)<A.}
 $$
 
 #### Proof
@@ -121,7 +145,7 @@ $$
 A_0=\lambda(1-g).
 $$
 
-First prove $\ell(g)<A_0$.  Put $c=1-g$ and $b_0=A_0=\lambda c$.  The Low polynomial in $b$ is
+First prove $e(g)<A_0$.  Put $c=1-g$ and $b_0=A_0=\lambda c$.  The Low polynomial in $b$ is
 
 $$
 F_c(b)=b^2-cb+c^2(1-c^2).
@@ -133,53 +157,53 @@ $$
 F_c(b_0)=-(\rho-1)^2(\rho^2+1)(\rho^2-\rho+1)^2<0.
 $$
 
-Since $F_c(0)=c^2(1-c^2)>0$ and $\ell(g)$ is the smaller positive root of $F_c$, this implies
+Since $F_c(0)=c^2(1-c^2)>0$ and $e(g)$ is the smaller positive root of $F_c$, this implies
 
 $$
-\ell(g)<b_0=A_0.
+e(g)<b_0=A_0.
 $$
 
 If $G=G_2$, then $A\ge A_0$, and $G_2=(\lambda-A)/\lambda\le g$.  Since $\ell$ is increasing on the Low range,
 
 $$
-\ell(G)\le\ell(g)<A_0\le A.
+e(G)\le e(g)<A_0\le A.
 $$
 
 If $G=G_1$, then $A\le A_0$.  On the interval where $G_1\ge0$, let
 
 $$
-F(A)=A-\ell(G_1(A)).
+F(A)=A-e(G_1(A)).
 $$
 
 The lower endpoint is $A_L=1+\lambda^2-\rho$, where $G_1=0$ and $F(A_L)=A_L>0$.  At the upper endpoint $A_0$,
 
 $$
-F(A_0)=A_0-\ell(g)>0.
+F(A_0)=A_0-e(g)>0.
 $$
 
-Moreover $0\le G_1\le g<1/8$, and $\ell$ is convex on $[0,1/8]$.  Since $G_1$ is affine in $A$, the function $A\mapsto\ell(G_1(A))$ is convex, so $F$ is concave.  A concave function lies above the chord joining its endpoint values.  Hence $F(A)>0$ throughout the interval, proving $\ell(G_1(A))<A$.
+Moreover $0\le G_1\le g<1/8$, and $e$ is convex on $[0,1/8]$.  Since $G_1$ is affine in $A$, the function $A\mapsto e(G_1(A))$ is convex, so $F$ is concave.  A concave function lies above the chord joining its endpoint values.  Hence $F(A)>0$ throughout the interval, proving $e(G_1(A))<A$.
 
-Thus $\ell(G)<A$ in all cases.
+Thus $e(G)<A$ in all cases.
 
 ### Lemma 1.4: the center-transfer lemma used in `4078`
 
-Let $0<u\le1-\sqrt3/2$ and $z=\ell(u)$.  Suppose $0<\lambda<1$ and
+Let $0<u\le1-\sqrt3/2$ and $z=e(u)$.  Suppose $0<\lambda<1$ and
 
 $$
-\lambda\ge {z\over1-u}.
+\lambda\ge \frac{z}{1-u}.
 $$
 
 Set
 
 $$
 \rho=\sqrt{1-\lambda+\lambda^2},\qquad
-S_\lambda(v)=u+{\lambda\over1+\rho}+{\lambda\over1-\lambda}v.
+S_\lambda(v)=u+\frac{\lambda}{1+\rho}+\frac{\lambda}{1-\lambda}v.
 $$
 
 If either $v\ge1-\sqrt3/2$, or $0\le v\le1-\sqrt3/2$ and
 
 $$
-S_\lambda(v)\le\ell(v),
+S_\lambda(v)\le e(v),
 $$
 
 then
@@ -193,13 +217,13 @@ $$
 Put
 
 $$
-c=1-u,\qquad \beta={z\over c}.
+c=1-u,\qquad \beta=\frac{z}{c}.
 $$
 
-Since $z=\ell(u)$,
+Since $z=e(u)$,
 
 $$
-\beta={1-\sqrt{4c^2-3}\over2}
+\beta=\frac{1-\sqrt{4c^2-3}}{2}
 $$
 
 and
@@ -211,13 +235,13 @@ $$
 The hypothesis is $\lambda\ge\beta$.  The functions
 
 $$
-\lambda\mapsto {\lambda\over1+\sqrt{1-\lambda+\lambda^2}}
+\lambda\mapsto \frac{\lambda}{1+\sqrt{1-\lambda+\lambda^2}}
 $$
 
 and
 
 $$
-\lambda\mapsto {\lambda\over1-\lambda}
+\lambda\mapsto \frac{\lambda}{1-\lambda}
 $$
 
 are increasing on $(0,1)$.  Hence
@@ -229,10 +253,10 @@ $$
 At $\lambda=\beta$, the corresponding value of $\rho$ is $c$.  Thus
 
 $$
-S_\beta(v)=u+{\beta\over1+c}+{\beta\over1-\beta}v.
+S_\beta(v)=u+\frac{\beta}{1+c}+\frac{\beta}{1-\beta}v.
 $$
 
-If $S_\beta(0)\ge z$, then $S_\lambda(v)\ge z$.  Strictness is automatic in the two alternatives of the lemma: if $v>0$, then $S_\beta(v)>S_\beta(0)$, and if $v=0$ the alternative $S_\lambda(0)\le\ell(0)=0$ is impossible because $S_\lambda(0)>0$.
+If $S_\beta(0)\ge z$, then $S_\lambda(v)\ge z$.  Strictness is automatic in the two alternatives of the lemma: if $v>0$, then $S_\beta(v)>S_\beta(0)$, and if $v=0$ the alternative $S_\lambda(0)\le e(0)=0$ is impossible because $S_\lambda(0)>0$.
 
 It remains to treat the case $S_\beta(0)<z$.  Let $v_0$ be defined by
 
@@ -243,13 +267,13 @@ $$
 Then
 
 $$
-v_0={ (1-\beta)(\beta^2+c-1)\over1+c}>0.
+v_0=\frac{(1-\beta)(\beta^2+c-1)}{1+c}>0.
 $$
 
 Also
 
 $$
-u-v_0={ (1-\beta)(1+\beta-\beta^2-c)\over1+c}.
+u-v_0=\frac{(1-\beta)(1+\beta-\beta^2-c)}{1+c}.
 $$
 
 The numerator is positive because
@@ -261,19 +285,19 @@ $$
 for $0<\beta\le1/2$.  Hence $0<v_0<u$.  Furthermore,
 
 $$
-v_0<(1-\beta)\beta^2\le {1\over8}.
+v_0<(1-\beta)\beta^2\le \frac{1}{8}.
 $$
 
 On $[0,v_0]$ the Low function is convex, so
 
 $$
-H(v)=S_\beta(v)-\ell(v)
+H(v)=S_\beta(v)-e(v)
 $$
 
 is concave.  We have $H(0)>0$, and
 
 $$
-H(v_0)=z-\ell(v_0)>0
+H(v_0)=z-e(v_0)>0
 $$
 
 because $v_0<u$ and $\ell$ is increasing.  Hence $H(v)>0$ for $0\le v\le v_0$.
@@ -284,162 +308,24 @@ $$
 S_\lambda(v)\ge S_\beta(v)>z.
 $$
 
-If instead $0\le v\le1-\sqrt3/2$ and $S_\lambda(v)\le\ell(v)$, suppose for contradiction that $S_\lambda(v)\le z$.  Then $S_\beta(v)\le z$, so $v\le v_0$.  But then
+If instead $0\le v\le1-\sqrt3/2$ and $S_\lambda(v)\le e(v)$, suppose for contradiction that $S_\lambda(v)\le z$.  Then $S_\beta(v)\le z$, so $v\le v_0$.  But then
 
 $$
-S_\lambda(v)\ge S_\beta(v)>\ell(v),
+S_\lambda(v)\ge S_\beta(v)>e(v),
 $$
 
-contradicting $S_\lambda(v)\le\ell(v)$.  Therefore $S_\lambda(v)>z$.
+contradicting $S_\lambda(v)\le e(v)$.  Therefore $S_\lambda(v)>z$.
 
 This proves the lemma.
 
-## 2. Details for the left-lower-sheet arguments in `4079`
+## 2. Details for the left-high-sheet arguments in `407a`
 
-### Lemma 2.1: midpoint exit bound
-
-In the normalized $407X$ configuration,
-
-$$
-\gamma_5<{1\over2}.
-$$
-
-#### Proof
-
-The center triangle $T_C$ contains exactly $M_0$ among the radial midpoints.  Since $T_C\cap r_5$ is the closed interval from the center to the exit parameter $\gamma_5$, the condition $M_5\notin T_C$ gives $\gamma_5<1/2$.
-
-### Lemma 2.2: left lower-sheet estimates
-
-Assume $B_5=T_+^{lo}$ in the hard CE2 overlap region.  Let
-
-$$
-y={Y\over\lambda},\qquad r=1-\lambda,\qquad \rho=\sqrt{r^2-r+1}.
-$$
-
-Then
-
-$$
-y<{1\over4}.
-$$
-
-Moreover, if $0\le y<1-\sqrt3/2$, then
-
-$$
-S>\ell(y),
-$$
-
-and if $y\ge1-\sqrt3/2$, then
-
-$$
-S>{7\over16},\qquad A_C>{7\over16}.
-$$
-
-#### Proof
-
-The lower sheet gives $A_5=1-T$ and $\lambda\ge1/2$.  Thus $0<r\le1/2$.  Write
-
-$$
-S=u+\delta+ky,\qquad \delta={1-r\over1+\rho},\qquad k={1-r\over r}.
-$$
-
-Since $k\ge1$ and $\delta\ge2-\sqrt3$, the hard-region inequality $S<1/2$ implies
-
-$$
-y<{1\over2}-(2-\sqrt3)=\sqrt3-{3\over2}<{1\over4}.
-$$
-
-For the lower-sheet parameterization, set $c=1-u$ and $B_5=c\beta$ with
-
-$$
-r\le\beta\le{1\over2},\qquad c={\sqrt{\beta^2-\beta+1}\over r+\beta}.
-$$
-
-The existence of such a point implies $r\ge r_0=(\sqrt3-1)/2$.
-
-We next prove
-
-$$
-u+\delta+k\left(1-{\sqrt3\over2}\right)>{7\over16}.
-$$
-
-If $r\le7/16$, then $\delta>9/32$ and $k\ge9/7$, hence
-
-$$
-u+\delta+k\left(1-{\sqrt3\over2}\right)>{9\over32}+{9\over7}\left(1-{\sqrt3\over2}\right)>{7\over16}.
-$$
-
-If $7/16\le r\le9/20$, then $\delta>22/75$ and $k\ge11/9$, while $1-\sqrt3/2>1/8$, giving
-
-$$
-u+\delta+k\left(1-{\sqrt3\over2}\right)>{22\over75}+{11\over72}>{7\over16}.
-$$
-
-If $9/20\le r\le1/2$, then
-
-$$
-1-u\le{\rho\over2r}\le{\sqrt{301}\over18},
-$$
-
-so
-
-$$
-u+\delta+k\left(1-{\sqrt3\over2}\right)
-\ge
-4-{3\sqrt3\over2}-{\sqrt{301}\over18}>{7\over16}.
-$$
-
-The last inequality follows, for example, from $\sqrt{301}<347/20$ and $\sqrt3<97/56$.
-
-Now suppose $0\le y<1-\sqrt3/2$.  Define
-
-$$
-D(x)=u+\delta+kx-\ell(x).
-$$
-
-The function $\ell$ is convex on $[0,1-\sqrt3/2]$, hence $D$ is concave.  We have $D(0)>0$.  At $x=1-\sqrt3/2$ the preceding estimate gives
-
-$$
-D(x)>{7\over16}-{\sqrt3\over4}>0.
-$$
-
-If the interval is truncated earlier by $S=1/2$, then at that endpoint $D=1/2-\ell(x)>0$.  Therefore by concavity $D(y)>0$, i.e. $S>\ell(y)$.
-
-It remains to prove $A_C>7/16$ when $y\ge1-\sqrt3/2$.  From $S<1/2$,
-
-$$
-y<{1/2-u-\delta\over k}.
-$$
-
-Therefore
-
-$$
-A_C=(1-r)(1-y)>1-{3r\over2}+ru+r\delta.
-$$
-
-If $r\le7/16$, then $1-3r/2\ge11/32$ and $r\delta\ge9(\sqrt3-1)/64$, so $A_C>7/16$.
-
-If $r\ge7/16$, then $u\ge1-\rho/(2r)$ and $\delta\ge(1-r)/2$, hence
-
-$$
-A_C>1-{r\over2}+{r(1-r)\over2}-{\rho\over2}.
-$$
-
-On $[7/16,1/2]$, this is at least
-
-$$
-{3\over4}+{63\over512}- {\sqrt{193}\over32}>{7\over16},
-$$
-
-because $223>16\sqrt{193}$.  This proves the lemma.
-
-## 3. Details for the left-high-sheet arguments in `407a`
-
-### Lemma 3.1: realized left high-sheet Cell 2 condition
+### Lemma 2.1: realized left high-sheet Cell 2 condition
 
 In the left high-sheet parameterization
 
 $$
-A_5=rc,\qquad B_5=\beta c,\qquad c={m\over r+\beta},\qquad m^2=\beta^2-\beta+1,
+A_5=rc,\qquad B_5=\beta c,\qquad c=\frac{m}{r+\beta},\qquad m^2=\beta^2-\beta+1,
 $$
 
 every realized $T_+^{hi}$ branch satisfies
@@ -460,13 +346,13 @@ Now $A_5+B_5=m$ and $A_5B_5=r\beta c^2$.  Thus
 
 $$
 \Delta=m^4-m^2+r\beta c^2
-=m^2\left(m^2-1+{r\beta\over(r+\beta)^2}\right).
+=m^2\left(m^2-1+\frac{r\beta}{(r+\beta)^2}\right).
 $$
 
 Since $m^2-1=\beta^2-\beta=-\beta(1-\beta)$ and $m^2>0$, the inequality $\Delta\ge0$ is equivalent to
 
 $$
-{r\beta\over(r+\beta)^2}\ge \beta(1-\beta).
+\frac{r\beta}{(r+\beta)^2}\ge \beta(1-\beta).
 $$
 
 Dividing by $\beta>0$ gives
@@ -475,18 +361,18 @@ $$
 r\ge(1-\beta)(r+\beta)^2.
 $$
 
-### Lemma 3.2: high-left envelope
+### Lemma 2.2: high-left envelope
 
 For the left high-sheet parameterization, define
 
 $$
-y_*={r\over1-r}\left({m\over r+\beta}-{1\over2}-{1-r\over1+\rho}\right),\qquad b={\beta m\over r+\beta}.
+y_*=\frac{r}{1-r}\left(\frac{m}{r+\beta}-\frac{1}{2}-\frac{1-r}{1+\rho}\right),\qquad b=\frac{\beta m}{r+\beta}.
 $$
 
 If $S<1/2$, then $y<y_*$.  Moreover
 
 $$
-\boxed{y_*<{1\over8}},\qquad
+\boxed{y_*<\frac{1}{10}},\qquad
 \boxed{3y_*\le1-b.}
 $$
 
@@ -494,47 +380,119 @@ $$
 
 The inequality $S<1/2$ gives $y<y_*$ directly.
 
-First prove $y_*<1/8$.  The function $m/(r+\beta)$ is decreasing in $\beta$, so $y_*$ is maximized at
+First prove $y_*<1/10$.  The function $m/(r+\beta)$ is decreasing in
+$\beta$, so $y_*$ is maximized at
 
 $$
-\beta_0(r)=\max\left(r,{1\over2},{1-r^2\over1+2r}\right).
+\beta_0(r)=\max\left\{r,\frac{1}{2},\frac{1-r^2}{1+2r}\right\}.
 $$
 
 Let $r_0=(\sqrt3-1)/2$.
 
-If $0<r\le r_0$, then $m/(r+\beta)\le1$ and $(1-r)/(1+\rho)>(1-r)/2$, hence
+If $0<r\le r_0$, then $m/(r+\beta)\le1$ and
 
 $$
-y_*<{r^2\over2(1-r)}\le {r_0^2\over2(1-r_0)}<{1\over8}.
+\frac{1-r}{1+\rho}\ge \frac{1}{3}.
+$$
+
+For the latter inequality, $2-3r\ge\rho$ has positive sides, and its squared
+difference is
+
+$$
+(2-3r)^2-\rho^2=(8r-3)(r-1)\ge0.
+$$
+
+Therefore
+
+$$
+y_*\le \frac{r}{1-r}\left(\frac{1}{2}-\frac{1}{3}\right)
+<\frac{3}{5}\cdot\frac{1}{6}=\frac{1}{10}.
 $$
 
 If $r_0\le r\le1/2$, then
 
 $$
-{m\over r+\beta}\le{\sqrt3\over1+2r},\qquad {1-r\over1+\rho}>{1-r\over2}.
+\frac{m}{r+\beta}\le\frac{\sqrt3}{1+2r}.
 $$
 
-It remains to check
+We also use
 
 $$
-{r\over1-r}\left({\sqrt3\over1+2r}-1+{r\over2}\right)<{1\over8}.
+\frac{1-r}{1+\rho}
+\ge L(r):=2-\sqrt3+\frac{1/2-r}{2}.
 $$
 
-This is equivalent to
+This is equivalent to $1-r-L\ge L\rho$.  Both sides of the latter
+inequality are positive on $[r_0,1/2]$.  After squaring, the difference is
 
 $$
-8r^3-10r^2+(8\sqrt3-9)r-1<0.
+-\frac{(r-1)(2r-1)}{16}
+\left(
+2r^2+(8\sqrt3-17)r+56-32\sqrt3
+\right).
 $$
 
-The derivative is positive on the interval, and at $r=1/2$ the value is $4\sqrt3-7<0$.
+The quadratic factor is negative on $[r_0,1/2]$: its derivative is
+$4r+8\sqrt3-17<0$, and its value at $r_0$ is
+$(157-91\sqrt3)/2<0$.  Hence the displayed squared difference is
+nonnegative and the lower bound for $L$ follows.
 
-If $1/2\le r<1$, then $m/(r+\beta)\le\rho/(2r)$.  Hence
+Consequently
 
 $$
-y_*\le {\rho+1-3r\over2(\rho+1)}<{1\over8},
+y_*\le
+G(r):=\frac{r}{1-r}
+\left(
+\frac{\sqrt3}{1+2r}-\frac{1}{2}-2+\sqrt3-\frac{1/2-r}{2}
+\right).
 $$
 
-because the latter inequality is equivalent to $\rho+1<4r$, which follows from $\rho<1$ and $r\ge1/2$.
+A simplification gives
+
+$$
+\frac{1}{10}-G(r)
+=\frac{P(r)}{20(r-1)(2r+1)},
+$$
+
+where
+
+$$
+P(r)=20r^3+(40\sqrt3-96)r^2+(40\sqrt3-57)r-2.
+$$
+
+Here
+
+$$
+P'(r)=60r^2+(80\sqrt3-192)r+40\sqrt3-57.
+$$
+
+This quadratic is positive on the real line: its minimum is
+
+$$
+168\sqrt3-\frac{1453}{5}>0,
+$$
+
+where the last inequality follows by squaring the positive integers
+$840\sqrt3>1453$.  Hence $P$ is increasing.  Since
+$P(1/2)=30\sqrt3-52<0$, one has $P(r)<0$ throughout the interval.  The
+denominator is also negative, and therefore $G(r)<1/10$.
+
+Finally, if $1/2\le r<1$, then $m/(r+\beta)\le\rho/(2r)$, whence
+
+$$
+y_*
+\le\frac{\rho+1-3r}{2(1+\rho)}.
+$$
+
+The assertion that the right side is less than $1/10$ is equivalent to
+
+$$
+15r-4\rho-4>0.
+$$
+
+Its derivative is $15-2(2r-1)/\rho>0$; here
+$2r-1<\rho$ follows after squaring from $3r(1-r)>0$.  At $r=1/2$ its value is
+$7/2-2\sqrt3>0$.  This finishes the proof of $y_*<1/10$.
 
 Now prove $3y_*\le1-b$.  Let
 
@@ -545,7 +503,7 @@ $$
 A direct differentiation gives
 
 $$
-{\partial E_r\over\partial\beta}={N_r(\beta)\over2(\beta+r)^2(1-r)\sqrt{\beta^2-\beta+1}},
+\frac{\partial E_r}{\partial\beta}=\frac{N_r(\beta)}{2(\beta+r)^2(1-r)\sqrt{\beta^2-\beta+1}},
 $$
 
 where
@@ -557,7 +515,7 @@ $$
 Also
 
 $$
-{\partial N_r\over\partial\beta}=-6\beta^2(1-r)+2\beta(1-r)(1-4r)-9r^2<0
+\frac{\partial N_r}{\partial\beta}=-6\beta^2(1-r)+2\beta(1-r)(1-4r)-9r^2<0
 $$
 
 on the allowed domain $\beta\ge1/2$.  Hence $E_r$ has no interior minimum and it suffices to check endpoints.
@@ -565,14 +523,14 @@ on the allowed domain $\beta\ge1/2$.  Hence $E_r$ has no interior minimum and it
 At $\beta=1$,
 
 $$
-E_r(1)={r(6r-\rho+5)\over2(1+r)(1+\rho)}>0.
+E_r(1)=\frac{r(6r-\rho+5)}{2(1+r)(1+\rho)}>0.
 $$
 
 At the lower endpoint there are three cases.  If $0<r\le r_0$, then $\beta_0=(1-r^2)/(1+2r)$ and
 
 $$
 E_r(\beta_0)=
-{r(7+\rho-2r-8r\rho-14r^2-2r^2\rho)\over2(1-r)(1+2r)(1+\rho)}>0,
+\frac{r(7+\rho-2r-8r\rho-14r^2-2r^2\rho)}{2(1-r)(1+2r)(1+\rho)}>0,
 $$
 
 because the numerator is at least $r(7-10r-16r^2)>0$ for $r<3/8$.
@@ -580,20 +538,20 @@ because the numerator is at least $r(7-10r-16r^2)>0$ for $r<3/8$.
 If $r_0\le r\le1/2$, then $\beta_0=1/2$, so $b\le1/2$ and $y_*<1/8$, hence
 
 $$
-E_r(\beta_0)>1-{1\over2}-{3\over8}>0.
+E_r(\beta_0)>1-\frac{1}{2}-\frac{3}{8}>0.
 $$
 
 If $1/2\le r<1$, then $\beta_0=r$ and
 
 $$
-E_r(r)={10r-r^2-2\rho-2\over2(1+\rho)}>0,
+E_r(r)=\frac{10r-r^2-2\rho-2}{2(1+\rho)}>0,
 $$
 
 because $10r-r^2-2\rho-2\ge10r-r^2-4>0$ on $[1/2,1]$.
 
 Thus $E_r(\beta)\ge0$ throughout, proving $3y_*\le1-b$.
 
-### Lemma 3.3: the estimates $S>3y$ and $A_C>3y$
+### Lemma 2.3: the estimates $S>3y$ and $A_C>3y$
 
 Under $B_5=T_+^{hi}$ in the hard region,
 
@@ -608,13 +566,13 @@ Since $y<y_*<1/10$, we have $3y<3/10$.
 Write $S=u+\delta+ky$ with $k=(1-r)/r$.  If $k\ge3$, then $S>3y$.  If $k<3$, the function $S-3y$ decreases in $y$, and at the endpoint $y=y_*$ one has $S=1/2$.  Thus
 
 $$
-S-3y>{1\over2}-3y_*>{1\over2}-{3\over10}>0.
+S-3y>\frac{1}{2}-3y_*>\frac{1}{2}-\frac{3}{10}>0.
 $$
 
 For $A_C$, first prove $1-r>3/8$.  If $r\le1/2$ this is immediate.  If $r>1/2$, the feasibility condition $y_*>0$ gives
 
 $$
-{\rho\over2r}>{1\over2}+{1-r\over1+\rho}.
+\frac{\rho}{2r}>\frac{1}{2}+\frac{1-r}{1+\rho}.
 $$
 
 This is equivalent to $3r<1+\rho$.  Since $r>1/2$, squaring $3r-1<\rho$ gives $8r^2-5r<0$, so $r<5/8$.  Hence $1-r>3/8$ in all cases.
@@ -622,10 +580,10 @@ This is equivalent to $3r<1+\rho$.  Since $r>1/2$, squaring $3r-1<\rho$ gives $8
 Therefore
 
 $$
-A_C=(1-r)(1-y)>{3\over8}\cdot{9\over10}={27\over80}>{3\over10}>3y.
+A_C=(1-r)(1-y)>\frac{3}{8}\cdot\frac{9}{10}=\frac{27}{80}>\frac{3}{10}>3y.
 $$
 
-## 4. Details for the right $T_-$ estimates in `407a`
+## 3. Details for the right $T_-$ estimates in `407a`
 
 Let $C=1-y$, $q=tC$, and $B_1=b_1$.  In the right $T_-$ branch,
 
@@ -635,12 +593,12 @@ $$
 
 The branch condition $b_1\le q$ gives $b_1\le\mu/2$ and $\mu\le2t$.
 
-### Lemma 4.1
+### Lemma 3.1
 
 In the branch $B_1=T_-$ with $A_1=q$,
 
 $$
-B_1\le\kappa:={\sqrt{13}-1\over6}.
+B_1\le\kappa:=\frac{\sqrt{13}-1}{6}.
 $$
 
 #### Proof
@@ -654,21 +612,21 @@ $$
 so $3t^2+t-1\ge0$ and $t\ge\kappa$.  Since $y<1/10$ and $q<1/2$, one has $t=q/(1-y)<5/9$.  On $[\kappa,5/9]$,
 
 $$
-{1\over2}\sqrt{t^2-t+1}\le\kappa.
+\frac{1}{2}\sqrt{t^2-t+1}\le\kappa.
 $$
 
 Therefore
 
 $$
-B_1\le {\mu\over2}\le\kappa.
+B_1\le \frac{\mu}{2}\le\kappa.
 $$
 
-### Lemma 4.2
+### Lemma 3.2
 
 In the branch $B_1=T_-$ with $A_1=q$,
 
 $$
-q\le\tau<{93\over200},
+q\le\tau<\frac{93}{200},
 $$
 
 where $\tau$ is the unique root in $(0,1/2)$ of
@@ -696,7 +654,7 @@ Since $C>9/10$, this inequality first forces $t<1/2$: if $t\ge1/2$, the upper ro
 For $t<1/2$, the larger root is $\mu(1-t)/t$, so
 
 $$
-C\le{\mu(1-t)\over t}.
+C\le\frac{\mu(1-t)}{t}.
 $$
 
 Thus
@@ -726,27 +684,19 @@ $$
 This polynomial is strictly decreasing on $(0,1/2)$, so it has a unique root $\tau$ there.  Direct evaluation gives
 
 $$
-P\left({93\over200}\right)<0,
+P\left(\frac{93}{200}\right)<0,
 $$
 
 so $\tau<93/200$.
 
-## 5. Certificate applicability
+## 4. Certificate applicability
 
 The certificate `407b_T_hi_Tminus_qright_threshold_certificate.py` assumes the left high-sheet necessary conditions
 
 $$
 \beta\ge r,\qquad
-\beta\ge {1-r^2\over1+2r},\qquad
+\beta\ge \frac{1-r^2}{1+2r},\qquad
 r\ge(1-\beta)(r+\beta)^2.
 $$
 
-These are proved above in Lemma 3.1 and the common left-high parameterization.  Hence it applies to every realized left high-sheet branch.
-
-The certificate `407c_T_hi_Tlo_left_threshold_certificate.py` assumes the same left high-sheet conditions and the right lower-sheet necessary condition
-
-$$
-3p^2+p-1\ge0.
-$$
-
-The latter follows from $B_1\ge A_1$ as shown in `407a`, Lemma 6.1.  Therefore this certificate also applies to every realized branch in its stated case.
+These are proved above in Lemma 2.1 and the common left-high parameterization.  Hence it applies to every realized left high-sheet branch.

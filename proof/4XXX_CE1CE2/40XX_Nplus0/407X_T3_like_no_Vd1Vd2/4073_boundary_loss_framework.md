@@ -1,6 +1,6 @@
 # Boundary-Loss Framework for the $407X$ Post-Reduction Branch
 
-Status: Proven
+Status: Reduction
 
 This file records the boundary-loss reduction used after
 [`4072_support_isolation_after_T0_T3_like.md`](4072_support_isolation_after_T0_T3_like.md).
@@ -107,13 +107,13 @@ $$
 The radial exits are
 
 $$
-\gamma_1=\min\left({Y\over\lambda},{\rho-X-Y\over1-\lambda}\right),
+\gamma_1=\min\left(\frac{Y}{\lambda},\frac{\rho-X-Y}{1-\lambda}\right),
 $$
 
 and
 
 $$
-\gamma_5=\min\left({X\over1-\lambda},{\rho-X-Y\over\lambda}\right).
+\gamma_5=\min\left(\frac{X}{1-\lambda},\frac{\rho-X-Y}{\lambda}\right).
 $$
 
 When $T_C$ is CE2, write
@@ -125,41 +125,43 @@ $$
 Then
 
 $$
-S={X+Y+1-\rho\over1-\lambda},\qquad T=X+\lambda.
+S=\frac{X+Y+1-\rho}{1-\lambda},\qquad T=X+\lambda.
 $$
 
 For CE1, there is no positive-length $e_{5,0}$ interval.
 
 ## 3. T3-like $T_0$ data
 
-Use the side-through-$V_0$ T3-like parameterization.  Let
+Use the reusable boundary-ray normal form proved in
+[`2013`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2013_T3_like_side_tradeoff.md).
+Let
 
 $$
 T_0\cap e_{5,0}=[0,\alpha],\qquad T_0\cap e_{0,1}=[0,p_1].
 $$
 
-There are parameters $D,R$ satisfying
+It supplies parameters $D,R$ satisfying
 
 $$
-R^2-DR+D^2=1,\qquad D>1,
+R^2-DR+D^2=1,\qquad D>1,\qquad 0<R<1,
 $$
 
 and
 
 $$
-\alpha+p_1={1\over D}.
+\alpha+p_1=\frac{1}{D}.
 $$
 
 Put
 
 $$
-q:=1-p_1=\alpha+{D-1\over D}.
+q:=1-p_1=\alpha+\frac{D-1}{D}.
 $$
 
 On $r_1$, measured from $V_1$ toward $O$, the $T_0$ interval is
 
 $$
-[c,u],\qquad c={Dq\over R},\qquad u=q+{1-R\over D}.
+[c,u],\qquad c=\frac{Dq}{R},\qquad u=q+\frac{1-R}{D}.
 $$
 
 In center-to-$V_1$ coordinates, this interval is
@@ -174,7 +176,20 @@ $$
 1-u\le \gamma_1\le1-c.
 $$
 
-Otherwise it misses the exit.
+Otherwise it misses the exit.  The same normal form proves the common bounds
+
+$$
+\boxed{q<\frac{R}{1+R}<\frac{1}{2}}
+$$
+
+and
+
+$$
+\boxed{\alpha<q<\frac{1}{2}.}
+$$
+
+These two bounds are part of the common setup below; later branch proofs do
+not need to rederive them.
 
 ## 4. Boundary requirements $A_1,A_5$
 
@@ -280,6 +295,22 @@ The equality follows from the exact interval fiber $[0,B_c(a)]$ proved in
 [`../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2007_max_b_map.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2007_max_b_map.md).
 The complete four-label partition is proved in
 [`2011_capped_demand_map.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md).
+
+To avoid confusing the catalog variable with radial loss, put
+
+$$
+\eta_0=1-\frac{\sqrt3}{2}
+$$
+
+and define, for $0\le x\le\eta_0$,
+
+$$
+e(x):=\ell(1-x)
+=\frac{(1-x)\left(1-\sqrt{4(1-x)^2-3}\right)}{2}.
+$$
+
+Thus $e(x)$, not $\ell(x)$, is the $L$-label output when the radial demand is
+$1-x$.  This notation is used throughout the remaining $407X$ files.
 
 Let $T$ be any actual vertex role in the $N_+=0$ branch, with actual maximal
 reaches $A(T),B(T),C(T)$, and suppose

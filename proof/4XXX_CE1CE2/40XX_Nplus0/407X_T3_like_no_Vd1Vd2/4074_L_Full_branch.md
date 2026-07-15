@@ -36,7 +36,7 @@ $$
 Equivalently, since
 
 $$
-B(A_5,C_5)=\ell(\gamma_5),\qquad C_5=1-\gamma_5,
+B(A_5,C_5)=e(\gamma_5),\qquad C_5=1-\gamma_5,
 $$
 
 and
@@ -48,7 +48,7 @@ $$
 it is enough to prove
 
 $$
-\boxed{\ell(\gamma_5)<A_1.}
+\boxed{e(\gamma_5)<A_1.}
 $$
 
 ## 2. Center-geometry estimates
@@ -68,19 +68,19 @@ A_C=1-t=\lambda-Y,
 $$
 
 $$
-\gamma_1=\min\left({Y\over\lambda},{\rho-X-Y\over1-\lambda}\right),
+\gamma_1=\min\left(\frac{Y}{\lambda},\frac{\rho-X-Y}{1-\lambda}\right),
 $$
 
 and
 
 $$
-\gamma_5=\min\left({X\over1-\lambda},{\rho-X-Y\over\lambda}\right).
+\gamma_5=\min\left(\frac{X}{1-\lambda},\frac{\rho-X-Y}{\lambda}\right).
 $$
 
 When $T_C$ is CE2 and $T_C\cap e_{5,0}=[S,T]$,
 
 $$
-S={X+Y+1-\rho\over1-\lambda}.
+S=\frac{X+Y+1-\rho}{1-\lambda}.
 $$
 
 ### Lemma 2.1: core estimate
@@ -94,7 +94,7 @@ $$
 then
 
 $$
-\ell(\gamma_5)<A_C.
+e(\gamma_5)<A_C.
 $$
 
 ### Proof
@@ -102,19 +102,19 @@ $$
 Since $\gamma_1\le Y/\lambda$ and $Y=\lambda-A_C$, the hypothesis implies
 
 $$
-A_C\le {\lambda-A_C\over\lambda},
+A_C\le \frac{\lambda-A_C}{\lambda},
 $$
 
 hence
 
 $$
-A_C\le {\lambda\over1+\lambda}.
+A_C\le \frac{\lambda}{1+\lambda}.
 $$
 
 Put
 
 $$
-\delta={1-\rho\over1-\lambda}={\lambda\over1+\rho}.
+\delta=\frac{1-\rho}{1-\lambda}=\frac{\lambda}{1+\rho}.
 $$
 
 From
@@ -132,19 +132,19 @@ $$
 Therefore
 
 $$
-\gamma_5\le {X\over1-\lambda}<A_C-\delta.
+\gamma_5\le \frac{X}{1-\lambda}<A_C-\delta.
 $$
 
 Let $z=A_C-\delta$.  Then $0\le \gamma_5<z$.  Also
 
 $$
-z\le z_{\max}:={\lambda\over1+\lambda}-{\lambda\over1+\rho}.
+z\le z_{\max}:=\frac{\lambda}{1+\lambda}-\frac{\lambda}{1+\rho}.
 $$
 
 A direct calculation gives
 
 $$
-z_{\max}< {1\over8}
+z_{\max}< \frac{1}{8}
 $$
 
 and
@@ -169,13 +169,13 @@ $$
 The elementary Low estimate
 
 $$
-\ell(\eta)\le 2\eta+5\eta^2\qquad(0\le\eta\le1/8)
+e(\eta)\le 2\eta+5\eta^2\qquad(0\le\eta\le1/8)
 $$
 
 then gives
 
 $$
-\ell(\gamma_5)<2z+5z^2=z+(z+5z^2)\le z+\delta=A_C.
+e(\gamma_5)<2z+5z^2=z+(z+5z^2)\le z+\delta=A_C.
 $$
 
 This proves the lemma.
@@ -185,13 +185,13 @@ This proves the lemma.
 Assume $T_C$ is CE2 and
 
 $$
-S\le {Y\over\lambda}.
+S\le \frac{Y}{\lambda}.
 $$
 
 Then
 
 $$
-\ell(\gamma_5)<S.
+e(\gamma_5)<S.
 $$
 
 ### Proof
@@ -205,19 +205,19 @@ $$
 Hence $0<\lambda<1/2$ and
 
 $$
-Y\ge {\lambda(X+1-\rho)\over1-2\lambda}.
+Y\ge \frac{\lambda(X+1-\rho)}{1-2\lambda}.
 $$
 
 Therefore
 
 $$
-S={X+Y+1-\rho\over1-\lambda}\ge {X+1-\rho\over1-2\lambda}=:S_0.
+S=\frac{X+Y+1-\rho}{1-\lambda}\ge \frac{X+1-\rho}{1-2\lambda}=:S_0.
 $$
 
 Combining the lower bound for $Y$ with $X+(1-\lambda)Y<\rho(1-\rho)$ gives
 
 $$
-X<X_*(\lambda):={ (1-\rho)(\rho(1-2\lambda)-\lambda(1-\lambda))\over1-\lambda-\lambda^2}.
+X<X_*(\lambda):=\frac{(1-\rho)(\rho(1-2\lambda)-\lambda(1-\lambda))}{1-\lambda-\lambda^2}.
 $$
 
 The positivity of $X_*(\lambda)$ forces $0<\lambda<3/8$. Indeed, with
@@ -236,13 +236,13 @@ $$
 and its value at $x=3/8$ is $-1/64$. On this interval,
 
 $$
-{X_*(\lambda)\over1-\lambda}< {1\over8}.
+\frac{X_*(\lambda)}{1-\lambda}< \frac{1}{8}.
 $$
 
 Thus
 
 $$
-\eta_0:={X\over1-\lambda}< {1\over8},\qquad \gamma_5\le\eta_0.
+\eta_0:=\frac{X}{1-\lambda}< \frac{1}{8},\qquad \gamma_5\le\eta_0.
 $$
 
 It remains to prove
@@ -254,7 +254,7 @@ $$
 Since $S\ge S_0$, it is enough to show
 
 $$
-G_\lambda(X):={X+1-\rho\over1-2\lambda}-2{X\over1-\lambda}-5{X^2\over(1-\lambda)^2}>0.
+G_\lambda(X):=\frac{X+1-\rho}{1-2\lambda}-2\frac{X}{1-\lambda}-5\frac{X^2}{(1-\lambda)^2}>0.
 $$
 
 For fixed $\lambda$, this is concave in $X$, so it suffices to check $X=0$
@@ -431,10 +431,10 @@ $$
 2\eta_0+5\eta_0^2<S.
 $$
 
-Using $\ell(\eta)\le2\eta+5\eta^2$ for $0\le\eta\le1/8$, we get
+Using $e(\eta)\le2\eta+5\eta^2$ for $0\le\eta\le1/8$, we get
 
 $$
-\ell(\gamma_5)<S.
+e(\gamma_5)<S.
 $$
 
 This proves the lemma.
@@ -452,7 +452,7 @@ $$
 Then
 
 $$
-S\le\gamma_1\le {Y\over\lambda}.
+S\le\gamma_1\le \frac{Y}{\lambda}.
 $$
 
 ### Proof
@@ -462,7 +462,7 @@ The upper bound is part of the definition of $\gamma_1$.
 Let
 
 $$
-d={D-1\over D},\qquad q=\alpha+d.
+d=\frac{D-1}{D},\qquad q=\alpha+d.
 $$
 
 Since $\alpha\ge S$,
@@ -474,7 +474,7 @@ $$
 The $T_0$ interval on $r_1$ in center-to-$V_1$ coordinates is
 
 $$
-[1-u,1-c],\qquad 1-u=d+{R\over D}-q,\qquad 1-c=1-{Dq\over R}.
+[1-u,1-c],\qquad 1-u=d+\frac{R}{D}-q,\qquad 1-c=1-\frac{Dq}{R}.
 $$
 
 The hit condition gives
@@ -486,19 +486,19 @@ $$
 Combining these inequalities gives
 
 $$
-\gamma_1\ge {D-1\over D-R}.
+\gamma_1\ge \frac{D-1}{D-R}.
 $$
 
 Also
 
 $$
-S+d\le {R(1-\gamma_1)\over D}.
+S+d\le \frac{R(1-\gamma_1)}{D}.
 $$
 
 It follows that
 
 $$
-S\le {R(1-\gamma_1)\over D}-d.
+S\le \frac{R(1-\gamma_1)}{D}-d.
 $$
 
 The right side is at most $\gamma_1$.  Indeed this is equivalent to
@@ -526,7 +526,7 @@ Hence $S\le\gamma_1$.
 We prove
 
 $$
-\ell(\gamma_5)<A_1.
+e(\gamma_5)<A_1.
 $$
 
 ### Case 1: $p_1<t$
@@ -558,7 +558,7 @@ $$
 Lemma 2.1 gives
 
 $$
-\ell(\gamma_5)<A_C\le A_1.
+e(\gamma_5)<A_C\le A_1.
 $$
 
 If $T_0$ hits the exit and $\gamma_1\ge A_C$, Lemma 2.1 gives the same conclusion.
@@ -566,7 +566,7 @@ If $T_0$ hits the exit and $\gamma_1\ge A_C$, Lemma 2.1 gives the same conclusio
 It remains to consider the hit subcase with $\gamma_1<A_C$.  If the $e_{5,0}$ side is overlapped, then $\alpha\ge S$, so Lemma 3.1 gives $S\le\gamma_1< A_C\le A_1$.  Lemma 2.2 gives
 
 $$
-\ell(\gamma_5)<S<A_1.
+e(\gamma_5)<S<A_1.
 $$
 
 If the $e_{5,0}$ side is non-overlap, then $A_5=1-\alpha$.  The hard-region condition gives $A_1\le\alpha$.  Since $p_1<t$, the case $p_1<s$ would give $A_1=q=\alpha+(D-1)/D>\alpha$, impossible.  Hence $s\le p_1<t$ and $A_1=A_C\le\alpha$.
@@ -574,25 +574,25 @@ If the $e_{5,0}$ side is non-overlap, then $A_5=1-\alpha$.  The hard-region cond
 If $A_C\ge1/2$, the target is immediate.  If $A_C<1/2$, the Full condition in the hit case gives
 
 $$
-{Dq\over R}=C_1\le1-A_C.
+\frac{Dq}{R}=C_1\le1-A_C.
 $$
 
 Using $q\ge A_C+(D-1)/D$ gives
 
 $$
-A_C\le {R-D+1\over D+R}.
+A_C\le \frac{R-D+1}{D+R}.
 $$
 
 The hit condition and $\gamma_1<A_C$ give
 
 $$
-{D-1\over D-R}<A_C.
+\frac{D-1}{D-R}<A_C.
 $$
 
 Together these imply
 
 $$
-{D-1\over D-R}< {R-D+1\over D+R},
+\frac{D-1}{D-R}< \frac{R-D+1}{D+R},
 $$
 
 but after clearing denominators the opposite inequality is equivalent to
@@ -610,13 +610,13 @@ If $T_C$ is CE1, then its only positive boundary interval is already covered by 
 Thus $T_C$ is CE2.  In the hard region, $A_5$ cannot be $1-\alpha$, since then
 
 $$
-A_1+A_5=q+1-\alpha=1+{D-1\over D}>1.
+A_1+A_5=q+1-\alpha=1+\frac{D-1}{D}>1.
 $$
 
 So $A_5=1-T$ and $\alpha\ge S$.  Since $A_1=q=\alpha+(D-1)/D$, we have $A_1>S$.
 
-If $T_0$ misses the $r_1$ exit, then Full gives $\gamma_1\ge A_1>S$, so $S\le Y/\lambda$.  Lemma 2.2 gives $\ell(\gamma_5)<S<A_1$.
+If $T_0$ misses the $r_1$ exit, then Full gives $\gamma_1\ge A_1>S$, so $S\le Y/\lambda$.  Lemma 2.2 gives $e(\gamma_5)<S<A_1$.
 
-If $T_0$ hits the exit, Lemma 3.1 gives $S\le Y/\lambda$, and Lemma 2.2 again gives $\ell(\gamma_5)<S<A_1$.
+If $T_0$ hits the exit, Lemma 3.1 gives $S\le Y/\lambda$, and Lemma 2.2 again gives $e(\gamma_5)<S<A_1$.
 
 This proves the theorem.
