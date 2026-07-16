@@ -7,6 +7,10 @@ This note proves that both orientations of the CE2 exactly-one-gap state in
 CE2 center domain; no auxiliary survivor restriction or classified map for
 the supercritical row is needed.
 
+Here a V-gap is the full nonempty set missed by the two adjacent open vertex
+roles. It may be a positive-length interval or a singleton. The proof uses
+only weak endpoint bounds and therefore includes both cases.
+
 For the geometric application, assume the `410X` hypotheses: all six vertex
 roles are Vd0, $N_+=1$, and the unique center midpoint is $M_0$.  Section 1
 of
@@ -15,13 +19,14 @@ then proves that $T_0$ is the unique supercritical row.
 
 ## 1. Exact normalized CE2 domain
 
-Use the exact CE2 variables from
+Use the exact CE2 variables for the maximal closed traces associated with the
+open center role from
 [`../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2106_CE2_exact_formulas.md`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2106_CE2_exact_formulas.md):
 
 $$
-T_C\cap e_{5,0}=[x,u],
+\overline{T_C}\cap e_{5,0}=[x,u],
 \qquad
-T_C\cap e_{0,1}=[y,v].
+\overline{T_C}\cap e_{0,1}=[y,v].
 $$
 
 Set
@@ -167,8 +172,9 @@ $$
 
 ## From a boundary gap to the analytic targets
 
-Suppose first that the active gap lies in the center interval
-$[y,v]\subset e_{0,1}$.  Boundary coverage gives
+Suppose first that the active vertex-uncovered set
+$[b_0,1-a_1]$, possibly a singleton, lies in the open center trace associated
+with $[y,v]\subset e_{0,1}$. Boundary coverage gives
 
 $$
 b_0\ge y,

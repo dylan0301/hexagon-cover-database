@@ -41,17 +41,19 @@ $$
 
 Since $N_+=1$, $T_0$ is the unique supercritical row.
 
-Use the exact CE2 intervals from
+Use the exact CE2 maximal closed traces from
 [`../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2106_CE2_exact_formulas.md`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2106_CE2_exact_formulas.md):
 
 $$
-T_C\cap e_{5,0}=[x,u],
+\overline{T_C}\cap e_{5,0}=[x,u],
 \qquad
-T_C\cap e_{0,1}=[y,v],
+\overline{T_C}\cap e_{0,1}=[y,v],
 $$
 
-where both parameters are measured from $V_0$. Assume that both intervals
-contain V-gaps.
+where both parameters are measured from $V_0$. The corresponding open center
+traces are their relative interiors. Assume that both traces contain V-gaps,
+where a V-gap is the full nonempty set missed by the adjacent open vertex
+roles and may be a singleton.
 
 Reflection across the axis through $V_0$ exchanges the two intervals, the
 endpoint roles $T_1,T_5$, and the two summands used below.  Reflect if
@@ -81,25 +83,25 @@ p=1-u,
 q=1-v.
 $$
 
-The left gap is an interval
+Measured from $V_0$, the left vertex-uncovered set is
 
 $$
-(a_0,1-b_5)\subset[x,u],
+[a_0,1-b_5]\subset[x,u],
 $$
 
-so
+possibly with equal endpoints. Therefore
 
 $$
 b_5\ge1-u=p.
 $$
 
-The right gap is an interval
+Likewise, the right vertex-uncovered set is
 
 $$
-(b_0,1-a_1)\subset[y,v],
+[b_0,1-a_1]\subset[y,v],
 $$
 
-so
+again possibly with equal endpoints, and therefore
 
 $$
 a_1\ge1-v=q.

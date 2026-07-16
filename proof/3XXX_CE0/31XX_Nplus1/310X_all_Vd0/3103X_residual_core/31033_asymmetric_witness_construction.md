@@ -3,7 +3,10 @@
 Status: Proven
 
 This note defines the three asymmetric witnesses exactly and proves their
-uniform membership in the asymmetric model core from
+uniform membership in the asymmetric model core used by the
+center-independent all-boundary theorem
+[`31035_center_independent_all_boundary_obstruction.md`](31035_center_independent_all_boundary_obstruction.md)
+and its CE0 corollary
 [`31030_CE0_all_Vd0_residual_core_strategy.md`](31030_CE0_all_Vd0_residual_core_strategy.md).
 The proof uses the strict frontier theorem
 [`20091_ab_union_curve_a_plus_b_gt_1.md`](../../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md)

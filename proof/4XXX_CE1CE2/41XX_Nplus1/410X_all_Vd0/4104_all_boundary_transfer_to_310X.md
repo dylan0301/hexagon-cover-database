@@ -1,11 +1,15 @@
-# All-Boundary Six-Point Transfer to `310X`
+# Optional All-Boundary Six-Point Transfer to `3101X`
 
 Status: Reduction
 
 This note proves that an all-boundary-covered `410X` configuration supplies
 the exact one-supercritical anchored boundary data and finite interior
 obstruction set used by the `3101X` six-point strategy. No CE0 property of
-the center role is needed for this transfer.
+the center role is needed for this transfer. This remains a valid optional
+route to the open $F_6$ inequality, but it is no longer a terminal dependency
+of `410X`: the proved residual-core theorem
+[`31035_center_independent_all_boundary_obstruction.md`](../../../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31035_center_independent_all_boundary_obstruction.md)
+closes the same all-boundary hypotheses by a different witness set.
 
 ## 1. Hypotheses
 
@@ -21,6 +25,10 @@ For $T_i$, let $A_i$ be its actual maximal incoming reach on $e_{i-1,i}$,
 and let $B_i$ be its actual maximal outgoing reach on $e_{i,i+1}$.
 
 ## 2. Strict boundary handoffs
+
+This exact-one construction is also the first case of the general strict
+handoff-selection lemma
+[`1214_strict_boundary_handoff_selection.md`](../../../1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md).
 
 On the relative interior of $e_{i,i+1}$, only the two endpoint V-roles have
 positive-length local support. Since the roles are open and cover the whole
@@ -186,7 +194,7 @@ $$
 K_6^{\mathrm{act}}\subset\mathrm{int}(H).
 $$
 
-## 4. Transfer of the six-point reduction
+## 4. Optional transfer of the six-point reduction
 
 Rotate the unique selected supercritical row to $V_4$ and put
 
@@ -249,6 +257,10 @@ $$
 
 throughout the strict selected domain. The current `3101X` program targets
 the stronger inequality $F_6(a,b)>1$, which is sufficient but remains open.
+This reduction is not used to close the state: `31035` instead constructs the
+proved disk-plus-three-point witness $K_{\mathrm{wit}}(a,b)$ from the same
+strict handoffs and obtains a contradiction from
+$\Lambda(K_{\mathrm{wit}})\ge1$.
 
 ## 5. Dependency audit
 
@@ -264,5 +276,7 @@ The transfer does not prove Target `4104-F`. The constant-difference minimum
 in `31019`, the transition-curve lower bound, and the global support
 partition remain unproved or empirical. Unrestricted fixed-angle or ray
 claims with recorded counterexamples cannot be used as substitutes. Thus the
-six-point package remains `Strategy`, while the CE-independent transfer
-proved here is a `Reduction`.
+six-point package remains `Strategy`, while this optional transfer remains a
+`Reduction`. The failure to prove $F_6\ge1$ does not leave `410X` open,
+because the independent theorem `31035` proves that the all-boundary source
+configuration itself is impossible.

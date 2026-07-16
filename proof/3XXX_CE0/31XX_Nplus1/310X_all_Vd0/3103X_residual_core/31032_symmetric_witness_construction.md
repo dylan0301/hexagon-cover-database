@@ -2,7 +2,10 @@
 
 Status: Proven
 
-This note proves the symmetric-witness obligation in
+This note proves the symmetric-witness obligation used by the
+center-independent all-boundary theorem
+[`31035_center_independent_all_boundary_obstruction.md`](31035_center_independent_all_boundary_obstruction.md)
+and its CE0 corollary
 [`31030_CE0_all_Vd0_residual_core_strategy.md`](31030_CE0_all_Vd0_residual_core_strategy.md).
 It uses the exact radial envelope from
 [`2004_admissible_set.md`](../../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md)
@@ -480,6 +483,6 @@ r(a,b)=\frac{\sqrt3}{2}(1-c_*).
 }
 $$
 
-This proves the symmetric-witness and forced-disk obligation in `31030`.
+This proves the symmetric-witness and forced-disk obligation used in `31035`.
 It does not prove the asymmetric witness memberships or the terminal
 enclosure inequality. $\square$

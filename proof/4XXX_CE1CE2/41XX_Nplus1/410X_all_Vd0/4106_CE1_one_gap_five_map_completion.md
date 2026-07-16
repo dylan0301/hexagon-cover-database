@@ -7,6 +7,10 @@ The analytic inequality holds on the full strict CE1 center domain; no
 auxiliary survivor restriction or classified map for the supercritical row
 is needed.
 
+Here a V-gap is the full nonempty set missed by the two adjacent open vertex
+roles. It may be a positive-length interval or a singleton. The proof below
+uses only weak endpoint bounds and therefore covers both cases.
+
 For the geometric application, assume the `410X` hypotheses: all six vertex
 roles are Vd0, $N_+=1$, and the unique center midpoint is $M_0$.  Section 1
 of
@@ -165,8 +169,10 @@ We prove that the reverse composition is strictly greater than $1-X$.
 
 ## From the boundary gap to the analytic target
 
-Suppose the center interval $[s,t]\subset e_{0,1}$ contains the V-gap.  Full
-boundary coverage then gives
+Let $[s,t]\subset e_{0,1}$ be the maximal closed trace associated with the
+open center role. Suppose it contains the vertex-uncovered set
+$[b_0,1-a_1]$, possibly a singleton. Full boundary coverage puts this set in
+the open center trace and in particular gives
 
 $$
 b_0\ge s,
