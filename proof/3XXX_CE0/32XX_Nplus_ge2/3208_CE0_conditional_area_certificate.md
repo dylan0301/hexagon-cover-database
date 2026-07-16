@@ -10,6 +10,10 @@ Those local bounds are proved unconditionally in
 [`3205_unconditional_local_square_loss.md`](3205_unconditional_local_square_loss.md).
 Therefore the CE0 conclusion in this file is unconditional.
 
+The passage from actual maximal reaches to simultaneous selected demands is
+proved in the strict boundary-handoff theorem
+[`../../1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md`](../../1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md).
+
 ## 1. Proven local square-loss input
 
 For every local vertex row,
@@ -46,27 +50,50 @@ a+b>1
 g(a,b)\ge\max(a,b)^2.
 $$
 
-## 2. CE0 six-point notation
+## 2. CE0 strict handoff selection
 
-Choose one cut point on each boundary edge:
+Let $T_C$ be CE0, and let $A_i,B_i$ be the actual maximal incoming and
+outgoing reaches of the vertex triangle $T_i$.  The CE0 condition implies
+that the six vertex roles cover $\partial H$: otherwise a boundary point
+covered only by the open triangle $T_C$ would give a positive-length edge
+interval in $T_C$.
+
+Suppose the actual supercritical count satisfies
+
+$$
+\left\lvert
+\left\lbrace i:A_i+B_i>1\right\rbrace
+\right\rvert\ge2.
+$$
+
+The at-least-two theorem in `1214` supplies one cut point on each boundary
+edge,
 
 $$
 X_i=V_i+x_i(V_{i+1}-V_i),
 \qquad
-0\le x_i\le1,
-\qquad
 i=0,\dots,5,
 $$
 
-with indices modulo $6$.
-
-The induced local row at $V_i$ is
+with indices modulo $6$.  The selected lower-bound demands at $V_i$ are
 
 $$
 (a_i,b_i)=(1-x_{i-1},x_i).
 $$
 
-Therefore
+They satisfy
+
+$$
+0<a_i<A_i,
+\qquad
+0<b_i<B_i,
+$$
+
+and the closure of the actual triangle $T_i$ contains both selected edge
+anchors.  Thus that closure is feasible for the local function $f(a_i,b_i)$,
+and the normalized inside area of the actual role is at most $f(a_i,b_i)$.
+
+For selected rows,
 
 $$
 a_i+b_i=1-x_{i-1}+x_i,
@@ -79,6 +106,8 @@ a_i+b_i>1
 \quad\Longleftrightarrow\quad
 x_i>x_{i-1}.
 $$
+
+The choice guaranteed by `1214` has at least two such strict ascents.
 
 ## 3. Six-row theorem
 
@@ -93,6 +122,9 @@ and set
 $$
 (a_i,b_i)=(1-x_{i-1},x_i).
 $$
+
+Assume every pair $(a_i,b_i)$ is feasible for a unit equilateral vertex
+triangle.
 
 If at least two rows are supercritical, that is,
 
@@ -320,9 +352,11 @@ $$
 
 ## 4. CE0 area contradiction
 
-If $T_C$ is CE0 and at least two vertex rows are supercritical, the six vertex
-triangles contribute less than $99/20$ normalized unit-triangle areas inside
-$H$.
+If $T_C$ is CE0 and at least two actual vertex rows are supercritical, apply
+the strict handoff selection from Section 2.  The selected sequence has at
+least two strict ascents, so the six-row theorem applies.  Since each actual
+vertex triangle is feasible for its selected pair, the six vertex triangles
+contribute less than $99/20$ normalized unit-triangle areas inside $H$.
 
 The center triangle contributes at most one normalized unit-triangle area.
 Hence all seven triangles contribute less than

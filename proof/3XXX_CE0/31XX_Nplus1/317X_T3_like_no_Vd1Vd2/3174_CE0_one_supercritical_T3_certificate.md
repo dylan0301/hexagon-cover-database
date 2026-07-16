@@ -6,6 +6,8 @@ This file proves the CE0 area contradiction for the case with exactly one
 supercritical row and at least one T3-like row.  The proof is unconditional.
 It uses:
 
+- the strict boundary-handoff selection theorem in
+  [`../../../1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md`](../../../1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md);
 - the universal local square-loss theorem in
   [`../../32XX_Nplus_ge2/3205_unconditional_local_square_loss.md`](../../32XX_Nplus_ge2/3205_unconditional_local_square_loss.md);
 - the direct T3-like area-loss theorem in
@@ -48,25 +50,43 @@ a,b\ge m
 G\ge2m-4m^2.
 $$
 
-## 2. CE0 perimeter model
+## 2. CE0 perimeter handoffs
 
-Let $T_C$ be CE0.  Choose one cut point on each edge:
+Let $T_C$ be CE0, and let $A_i,B_i$ be the actual maximal incoming and
+outgoing reaches of $T_i$.  The six vertex roles cover $\partial H$: if a
+boundary point were covered only by the open triangle $T_C$, then $T_C$
+would contain a positive-length interval of an incident edge, contrary to
+CE0.
+
+Assume the actual rows have exactly one supercritical index.  Apply the
+strict boundary-handoff theorem in `1214`.  It supplies one cut point on each
+edge,
 
 $$
 X_i=V_i+x_i(V_{i+1}-V_i),
 \qquad
-0\le x_i\le1,
-\qquad
 i=0,\dots,5.
 $$
 
-The induced row at $V_i$ is
+The selected lower-bound demands at $V_i$ are
 
 $$
 (a_i,b_i)=(1-x_{i-1},x_i),
 $$
 
-with indices modulo $6$.  Hence
+with indices modulo $6$, and satisfy
+
+$$
+0<a_i<A_i,
+\qquad
+0<b_i<B_i.
+$$
+
+The closure of the actual triangle $T_i$ contains the two selected edge
+anchors and has the same area as $T_i$.  Hence all local lower-bound estimates
+below apply directly to the actual role.  Moreover, the handoff theorem
+proves that the selected rows have exactly one supercritical index, equal to
+the unique actual supercritical index.  For the selected rows,
 
 $$
 a_i+b_i>1
@@ -79,11 +99,11 @@ $$
 Assume:
 
 1. $T_C$ is CE0;
-2. exactly one row is supercritical:
+2. exactly one actual row is supercritical:
    $$
    \left\lvert
    \left\lbrace
-   i:a_i+b_i>1
+   i:A_i+B_i>1
    \right\rbrace
    \right\rvert=1;
    $$
@@ -103,7 +123,8 @@ Consequently, the seven triangles cannot cover $H$.
 
 ### Proof
 
-Let $p$ be the unique supercritical index and choose one T3-like index $q$.
+Use the strict handoffs from Section 2.  Let $p$ be the unique actual and
+selected supercritical index, and choose one T3-like index $q$.
 Every T3-like row is nonsupercritical, so
 
 $$
@@ -147,7 +168,8 @@ Thus $M>m$.
 ### 3.1 Reflection normalization
 
 The local loss bounds are symmetric in the two row coordinates.  Reflect the
-cut sequence by
+entire configuration and its selected cut sequence.  On cut coordinates this
+is
 
 $$
 y_i=1-x_{-i-1},

@@ -14,12 +14,14 @@ $$
 $$
 \left\lvert
 \left\lbrace
-i:a_i+b_i>1
+i:A_i+B_i>1
 \right\rbrace
 \right\rvert=1,
 $$
 
 and every vertex row is Vd0 or T3-like, with at least one T3-like row.
+Here $A_i,B_i$ are the actual maximal boundary reaches used in the definition
+of $N_+$.
 
 No midpoint condition is imposed on T3-like rows.  The T3-like hypothesis means
 
@@ -36,7 +38,15 @@ counterexample and failure analysis are recorded in
 
 The branch is instead closed by two unconditional area results:
 
-1. [`../../32XX_Nplus_ge2/3205_unconditional_local_square_loss.md`](../../32XX_Nplus_ge2/3205_unconditional_local_square_loss.md)
+1. The strict boundary-handoff theorem
+   [`../../../1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md`](../../../1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md)
+   selects lower-bound demands
+   $$
+   (a_i,b_i)=(1-x_{i-1},x_i)
+   $$
+   realized by the actual triangles and proves that their unique selected
+   supercritical index is the unique actual one.
+2. [`../../32XX_Nplus_ge2/3205_unconditional_local_square_loss.md`](../../32XX_Nplus_ge2/3205_unconditional_local_square_loss.md)
    proves for every local row
    $$
    G\ge\min(a,b)^2,
@@ -45,7 +55,7 @@ The branch is instead closed by two unconditional area results:
    $$
    G\ge\max(a,b)^2.
    $$
-2. [`3175_direct_T3_like_area_loss.md`](3175_direct_T3_like_area_loss.md)
+3. [`3175_direct_T3_like_area_loss.md`](3175_direct_T3_like_area_loss.md)
    proves directly that T3-like rows are nonsupercritical and that
    $$
    a,b\ge m

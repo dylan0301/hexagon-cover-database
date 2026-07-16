@@ -16,14 +16,27 @@ $$
 N_+
 =
 \left\lvert
-\left\lbrace
-i:a_i+b_i>1
-\right\rbrace
+\left\lbrace i:A_i+B_i>1\right\rbrace
 \right\rvert
 \ge2.
 $$
 
+Here $A_i,B_i$ are the actual maximal incoming and outgoing reaches of the
+vertex triangle $T_i$.
+
 ## Proof route
+
+The strict boundary-handoff theorem
+[`../../1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md`](../../1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md)
+proves that actual $N_+\ge2$ permits a simultaneous choice of strict handoffs
+whose selected lower-bound rows
+
+$$
+(a_i,b_i)=(1-x_{i-1},x_i)
+$$
+
+have at least two supercritical indices.  Each actual vertex triangle realizes
+its selected pair.
 
 The local area function is defined in
 [`3202_area_function_and_monotonicity.md`](3202_area_function_and_monotonicity.md):
@@ -59,7 +72,9 @@ The six-row analytic certificate in
 proves from exactly these two inequalities that
 
 $$
-N_+\ge2
+\left\lvert
+\left\lbrace i:a_i+b_i>1\right\rbrace
+\right\rvert\ge2
 \quad\Longrightarrow\quad
 \sum_{i=0}^5f(a_i,b_i)<\frac{99}{20}<5.
 $$
