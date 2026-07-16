@@ -373,13 +373,13 @@ $$
 On the mixed side $T>0$,
 
 $$
-c_*=rac{S+d}{1+\sqrt{4S^2-3}},
+c_*=\frac{S+d}{1+\sqrt{4S^2-3}},
 $$
 
 and evaluation at $T=0$ gives
 
 $$
-c'_+=-rac{D^2-D+3}{D(1+D)}.
+c'_+=-\frac{D^2-D+3}{D(1+D)}.
 $$
 
 For $0<D<1$,
