@@ -22,7 +22,7 @@ rows below form an exhaustive local-type split.
 | File | Recorded status | Branch |
 |---|---|---|
 | [`30XX_Nplus0/3010_CE0_perimeter_length_obstruction.md`](30XX_Nplus0/3010_CE0_perimeter_length_obstruction.md) | Proven | CE0, $N_+=0$ perimeter-length obstruction. |
-| [`31XX_Nplus1/310X_all_Vd0/3100_CE0_Nplus1_all_Vd0_index.md`](31XX_Nplus1/310X_all_Vd0/3100_CE0_Nplus1_all_Vd0_index.md) | Reference | CE0, $N_+=1$, all-Vd0 package. |
+| [`31XX_Nplus1/310X_all_Vd0/3100_CE0_Nplus1_all_Vd0_index.md`](31XX_Nplus1/310X_all_Vd0/3100_CE0_Nplus1_all_Vd0_index.md) | Reference | CE0, $N_+=1$, all-Vd0 package; closed by the proven `3103X` residual-core route. |
 | [`31XX_Nplus1/314X_exists_Vd1_Vd2/3140_CE0_Nplus1_exists_Vd1_Vd2_index.md`](31XX_Nplus1/314X_exists_Vd1_Vd2/3140_CE0_Nplus1_exists_Vd1_Vd2_index.md) | Reference | CE0, $N_+=1$, exists Vd1/Vd2. |
 | [`31XX_Nplus1/317X_T3_like_no_Vd1Vd2/3171_T3_like_area_certificate_index.md`](31XX_Nplus1/317X_T3_like_no_Vd1Vd2/3171_T3_like_area_certificate_index.md) | Proven | CE0, $N_+=1$, at least one T3-like and no Vd1/Vd2; unconditional area obstruction. |
 | [`32XX_Nplus_ge2/3201_area_conjecture_index.md`](32XX_Nplus_ge2/3201_area_conjecture_index.md) | Proven | CE0, $N_+\ge2$ unconditional square-loss area obstruction. |

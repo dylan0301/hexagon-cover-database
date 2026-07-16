@@ -1,9 +1,9 @@
 # CE0 All-Vd0 Residual-Core Strategy
 
-Status: Strategy
+Status: Proven
 
-This note records an independent residual-core and forced-disk route for the
-CE0, $N_+=1$, all-Vd0 branch. It does not close that branch. The original
+This note proves an independent residual-core and forced-disk route for the
+CE0, $N_+=1$, all-Vd0 branch. The original
 research blueprint is preserved verbatim in
 [`31031_original_residual_core_draft.md`](31031_original_residual_core_draft.md)
 for provenance. Statements in that imported draft have no corpus status unless
@@ -182,15 +182,18 @@ visual conjecture. The exact circle--line--line--circle decomposition, all
 five junctions, and the $a^2+ab+b^2=1$ degeneration are proved in
 [`20091_ab_union_curve_a_plus_b_gt_1.md`](../../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md).
 
-The line--line junction from that theorem supplies a canonical middle witness
-candidate $Q_0(a,b)$. Two further candidates $Q_-(a,b)$ and $Q_+(a,b)$ are to
-be defined by exact contacts on the two line pieces. Frontier membership alone
-does not prove that these points avoid the five comparison unions. The route
-therefore requires separate proofs that
+The line--line junction from that theorem supplies the middle witness
+$Q_0(a,b)$. The two exact relaxed line--circle contacts from `31012` supply
+$Q_-(a,b)$ and $Q_+(a,b)$. The proven
+[`31033_asymmetric_witness_construction.md`](31033_asymmetric_witness_construction.md)
+records their formulas and proves row by row that
 
 $$
 Q_-,Q_0,Q_+\in\mathcal C_{\mathrm{asym}}(a,b).
 $$
+
+That proof separately excludes all five comparison row unions; it does not
+infer core membership from distinguished-frontier membership alone.
 
 The stronger radial-depth claim from the imported draft is not used. The
 proved midpoint self-cover lemma
@@ -200,21 +203,41 @@ selected row cannot have its own radial midpoint in the corresponding open
 vertex role. It does not by itself give a strict radial-depth bound below
 $1/2$.
 
-## Symmetric witnesses and forced disk
+## Proven symmetric witnesses and forced disk
 
-The symmetric-witness target is to construct an explicit point
+Put
 
 $$
-P(a,b)\in\mathcal C_{\mathrm{sym}}(a,b)\setminus\left\{O\right\}
+p=1-b,
+\qquad
+q=1-a,
+\qquad
+c_*=c_{\max}(p,q),
 $$
 
-and certify its membership throughout the strict parameter domain. Put
+and define
+
+$$
+P(a,b)=(1-c_*)V_0,
+$$
+
+and
 
 $$
 P_k=\mathrm{Rot}_{k\pi/3}P,\qquad k=0,\dots,5.
 $$
 
-Here $\mathrm{Rot}_\theta$ denotes rotation about $O$ through angle $\theta$.
+The exact radial-envelope and neighboring-ray argument in the proven
+[`31032_symmetric_witness_construction.md`](31032_symmetric_witness_construction.md)
+shows throughout the full strict domain that
+
+$$
+P_k\in\mathcal C_{\mathrm{sym}}(a,b)
+\qquad(k=0,\dots,5),
+$$
+
+and that $0<c_*<1$. Here $\mathrm{Rot}_\theta$ denotes rotation about $O$
+through angle $\theta$.
 
 Rotational invariance places all six points in
 $\mathcal C_{\mathrm{sym}}\subseteq T_C$. Their convex hull is a regular
@@ -224,7 +247,7 @@ $$
 \mathcal D(a,b)
 =
 \left\{x:\lVert x\rVert\le
-\frac{\sqrt3}{2}\lVert P(a,b)\rVert\right\}.
+\frac{\sqrt3}{2}(1-c_*)\right\}.
 $$
 
 The disk is forced by the six points; it need not be a subset of either model
@@ -238,8 +261,8 @@ K_{\mathrm{wit}}(a,b)
 \mathcal D(a,b)\cup\left\{Q_-(a,b),Q_0(a,b),Q_+(a,b)\right\}.
 $$
 
-Once all six symmetric points and the three asymmetric points have certified
-core membership, convexity gives
+Since the six symmetric points and the three asymmetric points now have
+certified core membership, convexity gives
 
 $$
 K_{\mathrm{wit}}(a,b)\subseteq T_C.
@@ -277,21 +300,30 @@ $$
 0<a,b<1,\qquad a+b>1,\qquad a^2+ab+b^2<1.
 $$
 
-Together with the certified witness memberships, this inequality would
-contradict $K_{\mathrm{wit}}\subseteq T_C$ and close the `3103X` route.
+Together with the certified witness memberships, this inequality contradicts
+$K_{\mathrm{wit}}\subseteq T_C$ and closes the `3103X` route. Its analytic
+adjacent-line proof, four-cap reduction, outward-rounded mixed-overlap
+certificate, exact finite support-tie audit, and limiting-family analysis are
+recorded in the proven
+[`31034_witness_enclosure_inequality.md`](31034_witness_enclosure_inequality.md).
 
-## Status and remaining obligations
+## Status and dependencies
 
 | Item | Recorded status | Role in this route |
 |---|---|---|
 | Strict boundary handoffs and interior-uncovered transfer in `4104` | Reduction | Supplies exact one-supercritical selected data and the containment in $T_C$. |
 | Exact all-parameter $AB$-union certificate in `20095` | Proven | Justifies the row-union model without an empirical boundary catalog. |
 | Strict four-piece frontier in `20091` | Proven | Supplies exact circle and line pieces and the middle junction. |
+| Neighboring-ray maximum in `2008` | Proven | Supplies the adjacent comparison-row exclusion for the symmetric witness. |
 | Two-variable convex-hull reduction in `31012` | Proven | Supplies the established neighboring six-point reduction and chain comparison. |
-| Symmetric witness construction and uniform core membership | Lemma target | Must produce the six points that force the central disk. |
-| Exact definitions and core membership of $Q_-,Q_0,Q_+$ | Lemma target | Must certify the three asymmetric witnesses. |
-| Uniform inequality $\Lambda(K_{\mathrm{wit}})\ge1$ | Lemma target | Final analytic obstruction. |
+| Symmetric witness construction in [`31032`](31032_symmetric_witness_construction.md) | Proven | Gives all six uniform core witnesses and the forced central disk. |
+| Asymmetric witness construction in [`31033`](31033_asymmetric_witness_construction.md) | Proven | Gives exact formulas and uniform core membership of $Q_-,Q_0,Q_+$. |
+| Uniform inequality in [`31034`](31034_witness_enclosure_inequality.md) | Proven | Analytic adjacent overlaps and an outward-rounded certificate for both mixed overlaps prove the terminal inequality on the full strict domain. |
 | Plotted core shapes and limiting behavior from the source draft | Empirical | May guide formulas but cannot be cited as proof. |
 
-Until all three lemma targets are proved, this file and the `3103X` package
-remain `Strategy`.
+All terminal dependencies are now proven. The compact set
+$K_{\mathrm{wit}}\subseteq T_C$ has $\Lambda(K_{\mathrm{wit}})\ge1$, whereas
+every compact subset of an open unit equilateral triangle has enclosing side
+strictly below $1$. This contradiction proves that the CE0, $N_+=1$,
+all-Vd0 branch cannot occur. Thus this file and the `3103X` route have status
+`Proven`.

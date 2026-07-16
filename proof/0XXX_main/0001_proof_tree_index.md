@@ -83,7 +83,10 @@ Vd0, Vd1/Vd2, and T3-like vertex-role patterns.
       - `310X`: all-Vd0 package
         - `3100X`: existing algorithm-2 five-point route
         - `3101X`: six-point construction and core graph definitions
-        - `3103X`: independent residual-core and forced-disk strategy
+        - `3103X`: proven independent residual-core and forced-disk closure
+          - `31032`: proved uniform symmetric witness and forced-disk construction
+          - `31033`: proved exact asymmetric witnesses and uniform core membership
+          - `31034`: proved terminal enclosure inequality by analytic adjacent overlaps and an outward-rounded mixed-overlap certificate
     - at least one Vd1/Vd2
       - `314X`: boundary-length obstruction
     - at least one T3-like and no Vd1/Vd2
