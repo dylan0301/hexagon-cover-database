@@ -2,9 +2,9 @@
 
 Status: Proven
 
-This note gives the statement and the shortest complete proof of the
-`3103X` route. The exact witness constructions and the terminal enclosure
-estimate remain in the linked technical notes.
+This note gives the statement and a concise complete proof of the `3103X`
+route. The exact witness constructions and the terminal enclosure estimate
+remain in the linked technical notes.
 
 ## Theorem
 
@@ -93,9 +93,18 @@ a_i\ge1-b,
 b_i\ge1-a.
 $$
 
-The row unions are antitone in both demands, as proved in
-[`20095_exact_caliper_certificate.md`](../../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20095_exact_caliper_certificate.md).
-Hence, with
+By definition, the row unions are antitone in both demands:
+
+$$
+u'\ge u,
+\quad
+v'\ge v
+\quad\Longrightarrow\quad
+R_i(u',v')\subseteq R_i(u,v).
+\tag{3}
+$$
+
+Define
 
 $$
 \mathcal C_{\mathrm{asym}}(a,b)
@@ -116,10 +125,26 @@ $$
 =
 \mathrm{int}(H)
 \setminus
-\bigcup_{i=0}^5\mathrm{int}\left(R_i(1-b,1-a)\right),
+\bigcup_{i=0}^5\mathrm{int}\left(R_i(1-b,1-a)\right).
 $$
 
-we have
+The comparison above and (3) give
+
+$$
+\mathcal C_{\mathrm{asym}}(a,b)
+\subseteq
+\mathcal U_6^\circ.
+$$
+
+Moreover, $a+b>1$ gives $a>1-b$ and $b>1-a$, so (3) also gives
+
+$$
+\mathcal C_{\mathrm{sym}}(a,b)
+\subseteq
+\mathcal C_{\mathrm{asym}}(a,b).
+$$
+
+Together with (2),
 
 $$
 \mathcal C_{\mathrm{sym}}(a,b)
@@ -129,7 +154,7 @@ $$
 \mathcal U_6^\circ
 \subseteq
 T_C.
-\tag{3}
+\tag{4}
 $$
 
 Now put
@@ -153,7 +178,7 @@ P_k=(1-c_*)V_k
 \qquad(k=0,\dots,5).
 $$
 
-By (3), all six points lie in the convex triangle $T_C$. Their convex hull is a
+By (4), all six points lie in the convex triangle $T_C$. Their convex hull is a
 regular hexagon, so $T_C$ contains its centered incircle
 
 $$
@@ -162,7 +187,7 @@ $$
 \left\{x:\lVert x\rVert\le\eta\right\},
 \qquad
 \eta=\frac{\sqrt3}{2}(1-c_*).
-\tag{4}
+\tag{5}
 $$
 
 The asymmetric-witness theorem
@@ -188,7 +213,7 @@ satisfies
 
 $$
 K_{\mathrm{wit}}\subseteq T_C.
-\tag{5}
+\tag{6}
 $$
 
 Let $\Lambda(K)$ denote the minimum side length of an equilateral triangle
@@ -198,10 +223,10 @@ proves, for every $(a,b)$ satisfying (1), that
 
 $$
 \Lambda\left(K_{\mathrm{wit}}\right)\ge1.
-\tag{6}
+\tag{7}
 $$
 
-On the other hand, (5) places the compact set $K_{\mathrm{wit}}$ inside the open
+On the other hand, (6) places the compact set $K_{\mathrm{wit}}$ inside the open
 unit equilateral triangle $T_C$. Its three side margins are therefore positive.
 Moving all three sides of $T_C$ inward by a common sufficiently small amount
 produces an equilateral triangle of side length strictly less than $1$ that
@@ -211,4 +236,4 @@ $$
 \Lambda\left(K_{\mathrm{wit}}\right)<1,
 $$
 
-contradicting (6). Hence the assumed cover does not exist. $\square$
+contradicting (7). Hence the assumed cover does not exist. $\square$
