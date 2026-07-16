@@ -1,16 +1,20 @@
-# Proof Scaffold Status And Dependencies
+# Proof Status And Dependencies
 
 Status: Reference
 
-This table records the status of the main branches referenced by the proof
-scaffold. It does not upgrade any result beyond the status recorded in the
-source file.
+This table records the status of the main theorem assembly, its terminal
+branches, and the supporting results most directly referenced by the proof
+tree. It does not upgrade any result beyond the status recorded in the source
+file. Unfinished alternative routes are listed only where they clarify that
+the proved assembly does not depend on them.
 
 | Branch or dependency | Source | Recorded status |
 |---|---|---|
+| Exhaustive main-theorem assembly | [`0000_main_theorem.md`](0000_main_theorem.md) | Proven |
 | Open/closed/scaled equivalence | [`../1XXX_foundations/10XX_global_conventions/1003_open_unit_vs_shrunken_closed_equivalence.md`](../1XXX_foundations/10XX_global_conventions/1003_open_unit_vs_shrunken_closed_equivalence.md) | Proven |
 | Exhaustive CE0/CE1/CE2 classification, including $N_E(T_C)\le2$ | [`../1XXX_foundations/11XX_C_triangle/1101_CE_classification.md`](../1XXX_foundations/11XX_C_triangle/1101_CE_classification.md) | Proven |
 | Exhaustive Vd0/Vd1/Vd2/T3-like classification for original vertex roles and T3-like translation normalization | [`../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md`](../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md) | Proven |
+| Strict boundary handoff from actual reaches to selected rows; exact-one preservation and at-least-two existence | [`../1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md`](../1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md) | Proven |
 | Exact piecewise local admissible set and radial envelope | [`../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md`](../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md) | Proven |
 | Midpoint self-cover lemma | [`../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2005_midpoint_self_cover_lemma.md`](../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2005_midpoint_self_cover_lemma.md) | Proven |
 | Exact piecewise maximal $B_c(a)$ map and former-sheet counterexample | [`../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2007_max_b_map.md`](../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2007_max_b_map.md) | Proven |
@@ -30,31 +34,34 @@ source file.
 | One-side capped-loss theorem | [`../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2107_one_side_capped_loss.md`](../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2107_one_side_capped_loss.md) | Proven |
 | CE2 strict two-endpoint capped-loss theorem | [`../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2108_CE2_two_endpoint_capped_loss.md`](../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2108_CE2_two_endpoint_capped_loss.md) | Proven |
 | Boundary length bounds for center and vertex roles | [`../2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md`](../2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md) | Proven |
+| CE0, $N_+=0$, strict perimeter-length obstruction | [`../3XXX_CE0/30XX_Nplus0/3010_CE0_perimeter_length_obstruction.md`](../3XXX_CE0/30XX_Nplus0/3010_CE0_perimeter_length_obstruction.md) | Proven |
 | CE0, $N_+=1$, at least one Vd1/Vd2 | [`../3XXX_CE0/31XX_Nplus1/314X_exists_Vd1_Vd2/3141_CE0_Nplus1_exists_Vd1_Vd2_boundary_length_obstruction.md`](../3XXX_CE0/31XX_Nplus1/314X_exists_Vd1_Vd2/3141_CE0_Nplus1_exists_Vd1_Vd2_boundary_length_obstruction.md) | Proven |
 | CE1, $N_+=0$, at least one Vd1/Vd2 | [`../4XXX_CE1CE2/40XX_Nplus0/404X_exists_Vd1_Vd2_obstruction/4040_CE1_Nplus0_exists_Vd1_Vd2_boundary_length_obstruction.md`](../4XXX_CE1CE2/40XX_Nplus0/404X_exists_Vd1_Vd2_obstruction/4040_CE1_Nplus0_exists_Vd1_Vd2_boundary_length_obstruction.md) | Proven |
 | CE2, $N_+=0$, at least one Vd1/Vd2 | [`../4XXX_CE1CE2/40XX_Nplus0/404X_exists_Vd1_Vd2_obstruction/4041_CE2_Nplus0_exists_Vd1_Vd2_boundary_length_obstruction.md`](../4XXX_CE1CE2/40XX_Nplus0/404X_exists_Vd1_Vd2_obstruction/4041_CE2_Nplus0_exists_Vd1_Vd2_boundary_length_obstruction.md) | Proven |
 | CE1, $N_+=1$, at least one Vd1/Vd2 | [`../4XXX_CE1CE2/41XX_Nplus1/411X_Vd1_Vd2_obstruction/4110_CE1_Nplus1_exists_Vd1_Vd2_boundary_length_obstruction.md`](../4XXX_CE1CE2/41XX_Nplus1/411X_Vd1_Vd2_obstruction/4110_CE1_Nplus1_exists_Vd1_Vd2_boundary_length_obstruction.md) | Proven |
-| CE0, at least one Vd1/Vd2 old chain proof | [`../3XXX_CE0/33XX_old_Vd1_Vd2_chain_proof/3301_CE0_Vd1_Vd2_half_skeleton_theorem.md`](../3XXX_CE0/33XX_old_Vd1_Vd2_chain_proof/3301_CE0_Vd1_Vd2_half_skeleton_theorem.md) | Proven |
+| Archived CE0 Vd1/Vd2 chain route; not used by the main assembly | [`../3XXX_CE0/33XX_old_Vd1_Vd2_chain_proof/3301_CE0_Vd1_Vd2_half_skeleton_theorem.md`](../3XXX_CE0/33XX_old_Vd1_Vd2_chain_proof/3301_CE0_Vd1_Vd2_half_skeleton_theorem.md) | Proven |
 | CE1/CE2, $N_+=0$, all Vd0 boundary-loss package; exact CE1 matrix and every CE2 no-gap, one-gap, and two-gap state proved | [`../4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md`](../4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md) | Proven |
 | CE1/CE2, $N_+=0$, T3-like exact four-label reassembly and perimeter contradiction | [`../4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4070_CE1CE2_Nplus0_T3_like_no_Vd1Vd2_index.md`](../4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4070_CE1CE2_Nplus0_T3_like_no_Vd1Vd2_index.md) | Proven |
 | Neighboring-ray maximum formula | [`../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2008_neighbor_ray_max_c_formula.md`](../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2008_neighbor_ray_max_c_formula.md) | Proven |
 | Archived May 25 five-point supremum-endpoint route for CE0; no counterexample to the CE0 inequality recorded | [`../9XXX_failed_ideas/963X_may25_five_point_failure/9631_CE0_may25_supremum_endpoint_archive.md`](../9XXX_failed_ideas/963X_may25_five_point_failure/9631_CE0_may25_supremum_endpoint_archive.md) | Failed |
 | May 25 five-point route for CE1/CE2 all-Vd0 with reported counterexample | [`../9XXX_failed_ideas/963X_may25_five_point_failure/9630_may25_CE1_CE2_failure.md`](../9XXX_failed_ideas/963X_may25_five_point_failure/9630_may25_CE1_CE2_failure.md) | Failed |
-| CE0, $N_+\ge2$, unconditional square-loss area obstruction | [`../3XXX_CE0/32XX_Nplus_ge2/3201_area_conjecture_index.md`](../3XXX_CE0/32XX_Nplus_ge2/3201_area_conjecture_index.md) | Proven |
-| CE0, $N_+=1$, one-supercritical T3-like area obstruction | [`../3XXX_CE0/31XX_Nplus1/317X_T3_like_no_Vd1Vd2/3171_T3_like_area_certificate_index.md`](../3XXX_CE0/31XX_Nplus1/317X_T3_like_no_Vd1Vd2/3171_T3_like_area_certificate_index.md) | Proven |
+| CE0, $N_+\ge2$, unconditional square-loss area obstruction with selected-row handoff | [`../3XXX_CE0/32XX_Nplus_ge2/3201_area_conjecture_index.md`](../3XXX_CE0/32XX_Nplus_ge2/3201_area_conjecture_index.md) | Proven |
+| CE0, $N_+=1$, one-supercritical T3-like area obstruction with exact-one handoff | [`../3XXX_CE0/31XX_Nplus1/317X_T3_like_no_Vd1Vd2/3171_T3_like_area_certificate_index.md`](../3XXX_CE0/31XX_Nplus1/317X_T3_like_no_Vd1Vd2/3171_T3_like_area_certificate_index.md) | Proven |
 | Unconditional local square-loss theorem for $f(a,b)$ | [`../3XXX_CE0/32XX_Nplus_ge2/3205_unconditional_local_square_loss.md`](../3XXX_CE0/32XX_Nplus_ge2/3205_unconditional_local_square_loss.md) | Proven |
 | Direct T3-like nonsupercriticality and area-loss theorem | [`../3XXX_CE0/31XX_Nplus1/317X_T3_like_no_Vd1Vd2/3175_direct_T3_like_area_loss.md`](../3XXX_CE0/31XX_Nplus1/317X_T3_like_no_Vd1Vd2/3175_direct_T3_like_area_loss.md) | Proven |
 | Full T3-like coordinatewise tangent-envelope conjecture | [`../3XXX_CE0/31XX_Nplus1/317X_T3_like_no_Vd1Vd2/3172_full_T3_like_tangent_envelope_conjecture.md`](../3XXX_CE0/31XX_Nplus1/317X_T3_like_no_Vd1Vd2/3172_full_T3_like_tangent_envelope_conjecture.md) | Failed |
 | CE0, $N_+=1$, all-Vd0 algorithm-2 route with empirical components | [`../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3100X_algorithm2_five_point/31000_CE0_all_Vd0_algorithm2_index.md`](../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3100X_algorithm2_five_point/31000_CE0_all_Vd0_algorithm2_index.md) | Strategy |
 | CE0, $N_+=1$, all-Vd0 six-point construction and core graph definitions | [`../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3101X_six_point/31010_CE0_all_Vd0_six_point_index.md`](../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3101X_six_point/31010_CE0_all_Vd0_six_point_index.md) | Strategy |
 | CE0, $N_+=1$, all-Vd0 independent residual-core and forced-disk closure | [`../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31030_CE0_all_Vd0_residual_core_strategy.md`](../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31030_CE0_all_Vd0_residual_core_strategy.md) | Proven |
-| CE1/CE2, $N_+=1$, all-Vd0; CE2 two-gap and all exactly-one-gap states proved, with the all-boundary state reduced to `4104-F` | [`../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4101_CE1CE2_Nplus1_all_Vd0_strategy.md`](../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4101_CE1CE2_Nplus1_all_Vd0_strategy.md) | Strategy |
+| Center-class-independent all-boundary residual-core obstruction | [`../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31035_center_independent_all_boundary_obstruction.md`](../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31035_center_independent_all_boundary_obstruction.md) | Proven |
+| CE1/CE2, $N_+=1$, all-Vd0; every gap state proved and the no-gap state closed by `31035` | [`../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4101_CE1CE2_Nplus1_all_Vd0_strategy.md`](../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4101_CE1CE2_Nplus1_all_Vd0_strategy.md) | Proven |
 | `410X` CE2 two-gap subcase | [`../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4102_CE2_two_gap_completion.md`](../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4102_CE2_two_gap_completion.md) | Proven |
-| `410X` all-boundary subcase transfer to the strict six-point $F_6$ target | [`../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4104_all_boundary_transfer_to_310X.md`](../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4104_all_boundary_transfer_to_310X.md) | Reduction |
+| Optional `410X` all-boundary transfer to the strict six-point $F_6$ target; not used by the proved closure | [`../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4104_all_boundary_transfer_to_310X.md`](../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4104_all_boundary_transfer_to_310X.md) | Reduction |
 | `410X` CE1 exactly-one-gap five-map target | [`../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4106_CE1_one_gap_five_map_completion.md`](../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4106_CE1_one_gap_five_map_completion.md) | Proven |
 | `410X` CE2 exactly-one-gap five-map targets, including reflection | [`../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4107_CE2_one_gap_five_map_completion.md`](../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4107_CE2_one_gap_five_map_completion.md) | Proven |
 | CE1/CE2, $N_+\ge2$, skeleton-length obstruction | [`../4XXX_CE1CE2/42XX_Nplus_ge2/4200_CE1_CE2_skeleton_length_route.md`](../4XXX_CE1CE2/42XX_Nplus_ge2/4200_CE1_CE2_skeleton_length_route.md) | Proven |
 | CE1/CE2, $N_+=1$, at least two T3-like rows | [`../4XXX_CE1CE2/41XX_Nplus1/412X_at_least_two_T3_like/4123_CE1_CE2_at_least_two_T3_like_diagonal_obstruction.md`](../4XXX_CE1CE2/41XX_Nplus1/412X_at_least_two_T3_like/4123_CE1_CE2_at_least_two_T3_like_diagonal_obstruction.md) | Proven |
+| CE1/CE2, $N_+=1$, exactly one T3-like row and no Vd1/Vd2 | [`../4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like/4130_CE1CE2_exactly_one_T3_like_index.md`](../4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like/4130_CE1CE2_exactly_one_T3_like_index.md) | Proven |
 | CE2, $N_+=1$, at least two Vd1/Vd2 | [`../4XXX_CE1CE2/41XX_Nplus1/411X_Vd1_Vd2_obstruction/4111_CE2_Nplus1_at_least_two_Vd1_Vd2_boundary_length_obstruction.md`](../4XXX_CE1CE2/41XX_Nplus1/411X_Vd1_Vd2_obstruction/4111_CE2_Nplus1_at_least_two_Vd1_Vd2_boundary_length_obstruction.md) | Proven |
 | CE2, $N_+=1$, exactly one Vd1/Vd2; additional positive-support rows contradicted by `414a`, while proved classification and radial replacements close the complementary branch through proved `4013` | [`../4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4140_CE2_Nplus1_exactly_one_Vd1_Vd2_index.md`](../4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4140_CE2_Nplus1_exactly_one_Vd1_Vd2_index.md) | Proven |
 | Diagonal length bounds for CE1/CE2 T3-like branches | [`../2XXX_geometric_lemmas/25XX_length_bounds/2520_diagonal_length_bounds.md`](../2XXX_geometric_lemmas/25XX_length_bounds/2520_diagonal_length_bounds.md) | Proven |

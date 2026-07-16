@@ -4,7 +4,8 @@ Status: Reference
 
 This is a numbered proof-structure tree. It is navigation only: a branch is not
 proved merely because it appears here, and proof status is inherited from the
-numbered source notes.
+numbered source notes. The exhaustive assembly of the proven terminal branches
+is the main theorem in [`0000_main_theorem.md`](0000_main_theorem.md).
 
 ## Spine
 
@@ -39,6 +40,8 @@ Vd0, Vd1/Vd2, and T3-like vertex-role patterns.
   - `1201`: proved exhaustive Vd0, Vd1, Vd2, and T3-like classification for
     original vertex roles, with proved T3-like translation normalization
   - `1202`: local coordinates $(a,b,c)$
+  - `1214`: proved strict boundary-handoff selection for exact-one and
+    at-least-two actual supercritical patterns
 - `2XXX`: geometric lemmas
   - `20XX`: V-triangle geometry
     - `2004`: exact piecewise support-contact admissible set
@@ -87,15 +90,16 @@ Vd0, Vd1/Vd2, and T3-like vertex-role patterns.
           - `31032`: proved uniform symmetric witness and forced-disk construction
           - `31033`: proved exact asymmetric witnesses and uniform core membership
           - `31034`: proved terminal enclosure inequality by analytic adjacent overlaps and an outward-rounded mixed-overlap certificate
+          - `31035`: proved center-independent all-boundary obstruction
     - at least one Vd1/Vd2
       - `314X`: boundary-length obstruction
     - at least one T3-like and no Vd1/Vd2
-      - `317X`: unconditional direct area-loss route
+      - `317X`: unconditional direct area-loss route with exact-one handoff transfer
       - `3172`: failed coordinatewise tangent-envelope conjecture
       - `3175`: direct T3-like area-loss theorem
   - `32XX`: CE0, $N_+\ge2$
     - `3205`: unconditional local square-loss theorem
-    - `3208`: six-row strict area certificate
+    - `3208`: six-row strict area certificate with at-least-two handoff selection
     - `3201`: proven branch assembly
   - `33XX`: old CE0 Vd1/Vd2 chain proof
 
@@ -111,7 +115,10 @@ Vd0, Vd1/Vd2, and T3-like vertex-role patterns.
       - `407X`: proven exact four-label $T_0$-T3-like reassembly
   - `41XX`: CE1/CE2, $N_+=1$
     - all Vd0
-      - `410X`: CE2 two-gap and all exactly-one-gap states proved; the all-boundary reduction remains open at `4104-F`
+      - `410X`: all gap states proved; no-gap state closed by the
+        center-independent `31035` residual-core obstruction
+      - `4104-F`: optional older six-point target, still open but not a
+        dependency of the branch closure
       - `9630`: 5 point conjecture counterexample
     - Vd1/Vd2 branches
       - `411X`: CE1 at-least-one and CE2 at-least-two boundary-length obstructions

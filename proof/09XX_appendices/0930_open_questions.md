@@ -13,8 +13,9 @@ Status: Reference
    representative contains an adjacent midpoint.  The proved result in
    [`../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2006_T3_like_midpoint_lemma.md`](../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2006_T3_like_midpoint_lemma.md)
    excludes only the triangle's own midpoint.
-3. Prove the all-boundary six-point target $F_6(a,b)\ge1$ in `4104`, or the
-   stronger existing `3101X` inequality.
+3. Decide whether to continue the optional all-boundary six-point route by
+   proving $F_6(a,b)\ge1$ in `4104`, or the stronger existing `3101X`
+   inequality.  The main proof no longer depends on either target.
 4. Prove the `3100X` CE0 all-Vd0, $N_+=1$ algorithm-2 route: fixed $V_4$
    points, diagonal-relaxation containment, limit-shape convexity, and
    interior finite certificate.
@@ -28,6 +29,8 @@ all-Vd0 reduction is found.
 
 | Former question | Current source | Recorded status | Resolution |
 |---|---|---|---|
+| Transfer from actual reaches to strict selected cut rows | [`../1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md`](../1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md) | Proven | Strict boundary overlap gives feasible cut intervals; exact-one supercriticality is preserved for every selection, and an actual at-least-two pattern admits a simultaneous selection with at least two strict ascents. |
+| Center-independent all-boundary obstruction, including the `410X` no-gap state | [`../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31035_center_independent_all_boundary_obstruction.md`](../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31035_center_independent_all_boundary_obstruction.md) | Proven | The residual-core disk-plus-three-point witness closes full Vd0 boundary coverage with exactly one actual supercritical row for every center class. It bypasses, but does not prove, the optional $F_6$ target. |
 | Exact $AB$-union description and strict Band IV frontier | [`../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20095_exact_caliper_certificate.md`](../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20095_exact_caliper_certificate.md) | Proven | `20095` gives an exhaustive finite all-parameter caliper certificate; `20091` resolves all strict support regimes, proves the disk--half-plane identity and frontier order, and records the $\rho=1$ degeneration. |
 | CE0, $N_+=0$ perimeter handoff | [`../3XXX_CE0/30XX_Nplus0/3010_CE0_perimeter_length_obstruction.md`](../3XXX_CE0/30XX_Nplus0/3010_CE0_perimeter_length_obstruction.md) | Proven | The strict perimeter-length argument includes the open-cover endpoint issue. |
 | Local square-loss bounds and the CE0, $N_+\ge2$ assembly | [`../3XXX_CE0/32XX_Nplus_ge2/3201_area_conjecture_index.md`](../3XXX_CE0/32XX_Nplus_ge2/3201_area_conjecture_index.md) | Proven | `3205` proves the local square-loss theorem and `3201` records the unconditional branch assembly. |
