@@ -13,3 +13,4 @@ package only; proof status is inherited from the numbered source notes below.
 | [`3103X_residual_core/31032_symmetric_witness_construction.md`](3103X_residual_core/31032_symmetric_witness_construction.md) | Proven | Uniform sixfold symmetric-core witness and forced-disk radius. |
 | [`3103X_residual_core/31033_asymmetric_witness_construction.md`](3103X_residual_core/31033_asymmetric_witness_construction.md) | Proven | Exact asymmetric witnesses and row-by-row core membership. |
 | [`3103X_residual_core/31034_witness_enclosure_inequality.md`](3103X_residual_core/31034_witness_enclosure_inequality.md) | Proven | Full enclosure inequality via analytic adjacent overlaps and a rigorous mixed-overlap interval certificate. |
+| [`3103X_residual_core/31035_CE0_all_Vd0_residual_core_theorem.md`](3103X_residual_core/31035_CE0_all_Vd0_residual_core_theorem.md) | Proven | Concise theorem statement and complete modular proof of the branch contradiction. |
