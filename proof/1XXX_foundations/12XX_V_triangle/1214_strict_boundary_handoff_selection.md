@@ -2,384 +2,225 @@
 
 Status: Proven
 
-This note distinguishes the actual maximal boundary reaches of the six
-vertex-role triangles from smaller boundary demands selected at strict
-handoffs.  It proves that the selected rows preserve an actual exact-one
-supercritical pattern and that an actual at-least-two pattern admits a
-selection with at least two supercritical selected rows.
+This note connects the actual maximal boundary reaches of the six vertex
+roles to smaller demands chosen at boundary handoffs.  It proves two facts
+used by the $N_+$ branches:
 
-All indices below are taken modulo $6$.
+- one actual supercritical row remains the unique selected supercritical row
+  for every strict handoff selection;
+- two or more actual supercritical rows permit one selection with at least
+  two selected supercritical rows.
 
-## 1. Actual reaches and strict overlap intervals
+All indices are modulo $6$.
 
-Let
+## 1. Actual reaches and strict handoffs
 
-$$
-e_i=[V_i,V_{i+1}],
-$$
-
-and suppose that six open unit equilateral vertex-role triangles
-$T_0,\dots,T_5$ cover $\partial H$.  For $T_i$, let
+Let $T_i$ be the open unit equilateral vertex-role triangle containing
+$V_i$.  Assume that these six triangles cover $\partial H$, and let
 
 $$
-A_i
-=
-\sup\left\{
+\begin{aligned}
+A_i&=\sup\left\{
 t\in[0,1]:V_i+t(V_{i-1}-V_i)\in T_i
-\right\}
-$$
-
-be its actual maximal reach from $V_i$ along the incoming edge
-$e_{i-1}$, and let
-
-$$
-B_i
-=
-\sup\left\{
+\right\},\\
+B_i&=\sup\left\{
 t\in[0,1]:V_i+t(V_{i+1}-V_i)\in T_i
 \right\}
+\end{aligned}
 $$
 
-be its actual maximal reach from $V_i$ along the outgoing edge $e_i$.
-Thus $A_i,B_i$ are actual reaches in the sense of
-[`1202_local_coordinates_abc.md`](1202_local_coordinates_abc.md), not
-prescribed lower-bound demands.
+be its actual maximal reaches from $V_i$ along the incoming and outgoing
+hexagon edges.  These are actual reaches, not prescribed demands; compare
+[`1202_local_coordinates_abc.md`](1202_local_coordinates_abc.md).
 
-Use the coordinate $x\in[0,1]$ on $e_i$ measured from $V_i$:
-
-$$
-X_i(x)=V_i+x(V_{i+1}-V_i).
-$$
-
-Because $V_i$ is an interior point of $T_i$, openness gives positive reach in
-both edge directions.  The closure of $T_i$ is a compact equilateral triangle
-of diameter $1$.  Its distance from the interior point $V_i$ to every point
-of the closure is strictly less than $1$, since a diametral pair consists of
-two vertices of the closed triangle.  Therefore
+Because $V_i$ is interior to $T_i$, both reaches are positive.  They are
+also smaller than $1$: the distance from an interior point of a closed unit
+equilateral triangle to every point of that triangle is strictly less than
+its diameter $1$.  Hence
 
 $$
-0<A_i<1,
-\qquad
-0<B_i<1.
+0<A_i<1,\qquad 0<B_i<1.
 $$
 
-In this coordinate, $T_i$ contains the initial interval $0\le x<B_i$,
-while $T_{i+1}$ contains the terminal interval
-$1-A_{i+1}<x\le1$.  Here convexity makes each intersection with the edge an
-interval, and openness excludes its nonvertex endpoint.
-
-No vertex role other than $T_i$ or $T_{i+1}$ can cover a relative-interior
-point of $e_i$.  Indeed, every two points of an open unit equilateral
-triangle are at distance strictly less than $1$, whereas a relative-interior
-point of $e_i$ is at distance greater than $1$ from every nonendpoint
-hexagon vertex.  Since the six roles cover $e_i$, the two open edge intervals
-must overlap.  Therefore
+Parametrize $e_i=[V_i,V_{i+1}]$ by
 
 $$
-\boxed{1-A_{i+1}<B_i.}
+X_i(x)=V_i+x(V_{i+1}-V_i),\qquad 0\le x\le1.
 $$
 
-Set
+Convexity and openness give the edge traces
 
 $$
-\ell_i=1-A_{i+1},
-\qquad
-u_i=B_i,
-\qquad
-I_i=(\ell_i,u_i).
+T_i\cap e_i=[0,B_i),qquad
+T_{i+1}\cap e_i=(1-A_{i+1},1]
 $$
 
-Every $I_i$ is a nonempty open interval contained in $(0,1)$.
-
-## 2. Selected handoffs and selected demands
-
-Choose
-
-$$
-x_i\in I_i
-$$
-
-and put
+in this coordinate.  No other vertex role can contain an interior point of
+$e_i$: that point is more than distance $1$ from every nonendpoint hexagon
+vertex, whereas two points of an open unit equilateral triangle are less
+than distance $1$ apart.  Since the six roles cover $e_i$, the displayed
+traces must overlap strictly.  Thus, with
 
 $$
-X_i=X_i(x_i),
-\qquad
-a_i=1-x_{i-1},
-\qquad
-b_i=x_i.
+\ell_i=1-A_{i+1},qquad u_i=B_i,qquad I_i=(\ell_i,u_i),
 $$
 
-Then $X_i\in T_i\cap T_{i+1}$, and the selected demands satisfy
+every $I_i$ is a nonempty subinterval of $(0,1)$.
+
+Choose a strict handoff $x_i\in I_i$ on every edge and define the selected
+demands at $V_i$ by
 
 $$
-0<a_i<A_i,
-\qquad
-0<b_i<B_i.
+a_i=1-x_{i-1},qquad b_i=x_i.
 $$
 
-In particular, the actual triangle $T_i$ contains the three selected points
+Then $X_{i-1}(x_{i-1})$ and $X_i(x_i)$ lie in $T_i$, and
 
 $$
-V_i,
-\qquad
-X_{i-1},
-\qquad
-X_i.
+0<a_i<A_i,qquad 0<b_i<B_i.
 $$
 
-The two selected edge anchors are therefore at mutual distance strictly less
-than $1$.  In the local $120$-degree coordinates this gives
+Their mutual distance is strictly less than $1$, so the local $120$-degree
+coordinates satisfy
 
 $$
-\boxed{a_i^2+a_ib_i+b_i^2<1.}
+a_i^2+a_ib_i+b_i^2<1.                                      \tag{1}
 $$
 
-The actual and selected supercritical conditions are, respectively,
+The actual and selected row tests now become
 
 $$
-A_i+B_i>1
-\quad\Longleftrightarrow\quad
-u_i>\ell_{i-1},
+\begin{aligned}
+A_i+B_i>1 &\iff \ell_{i-1}<u_i,\\
+a_i+b_i>1 &\iff x_{i-1}<x_i.
+\end{aligned}                                               \tag{2}
 $$
 
-and
-
-$$
-a_i+b_i>1
-\quad\Longleftrightarrow\quad
-x_i>x_{i-1}.
-$$
-
-If actual row $i$ is nonsupercritical, then
-
-$$
-u_i=B_i\le1-A_i=\ell_{i-1}.
-$$
-
-Every strict handoff selection consequently satisfies
+In particular, if actual row $i$ is nonsupercritical, then
 
 $$
 x_i<u_i\le\ell_{i-1}<x_{i-1},
 $$
 
-so
-
-$$
-\boxed{A_i+B_i\le1\quad\Longrightarrow\quad a_i+b_i<1.}
-$$
-
-Notice that the conclusion is strict even when the actual row is critical.
-
-## 3. Exact-one preservation theorem
-
-Suppose exactly one actual row is supercritical.  Let $p$ be its index:
-
-$$
-A_p+B_p>1,
-$$
-
-and
-
-$$
-A_i+B_i\le1
-\qquad(i\ne p).
-$$
-
-Then every strict handoff selection has exactly one supercritical selected
-row, at the same index $p$.
-
-### Proof
-
-Section 2 gives
-
-$$
-a_i+b_i<1
-\qquad(i\ne p).
-$$
-
-The selected row sums telescope:
-
-$$
-\begin{aligned}
-\sum_{i=0}^5(a_i+b_i)
-&=
-\sum_{i=0}^5(1-x_{i-1}+x_i)
-\\
-&=6.
-\end{aligned}
-$$
-
-The five sums with $i\ne p$ have total strictly less than $5$.  Hence
-
-$$
-a_p+b_p
-=
-6-\sum_{i\ne p}(a_i+b_i)
->1.
-$$
-
-Thus $p$ is the unique selected supercritical index.  This proves the
-theorem.
-
-## 4. At-least-two selection theorem
-
-Suppose at least two actual rows are supercritical.  Then there is a strict
-handoff selection for which at least two selected rows are supercritical.
-
-### 4.1 Two nonconsecutive actual supercritical rows
-
-First suppose there are nonconsecutive actual supercritical indices $p$ and
-$q$.  The variable pairs
-
-$$
-\left\{x_{p-1},x_p\right\},
-\qquad
-\left\{x_{q-1},x_q\right\}
-$$
-
-are disjoint.
-
-Because row $p$ is actually supercritical,
-
-$$
-\ell_{p-1}<u_p.
-$$
-
-Choose $z_p\in(\ell_{p-1},u_p)$.  Both intervals
-
-$$
-(\ell_{p-1},\min(u_{p-1},z_p))
-$$
-
-and
-
-$$
-(\max(\ell_p,z_p),u_p)
-$$
-
-are nonempty.  Choose $x_{p-1}$ in the first and $x_p$ in the second.  Then
-
-$$
-x_{p-1}<z_p<x_p,
-$$
-
-so selected row $p$ is supercritical.  Make the identical construction for
-$q$.  The two constructions do not share a variable, and all remaining
-$x_i$ may be chosen arbitrarily in $I_i$.  Thus selected rows $p$ and $q$
-are both supercritical.
-
-This case always applies if there are at least three actual supercritical
-rows: among three indices on a six-cycle, two are nonconsecutive.  It also
-applies when there are exactly two and they are nonconsecutive.
-
-### 4.2 Exactly two adjacent actual supercritical rows
-
-It remains to suppose that the actual supercritical set is
-
-$$
-\left\{p,p+1\right\}.
-$$
-
-For each of the four complementary indices $i$, actual
-nonsupercriticality and strict boundary overlap give
-
-$$
-\ell_i<u_i\le\ell_{i-1},
-$$
-
 and therefore
 
 $$
-\ell_i<\ell_{i-1}.
+A_i+B_i\le1\quad\Longrightarrow\quad a_i+b_i<1.             \tag{3}
 $$
 
-Applying this to $i=p+2,p+3,p+4,p+5$ yields, in particular,
+The strict conclusion in (3) also covers an actual critical row.
+
+## 2. Supercritical-row transfer theorem
+
+For the strict handoffs constructed above:
+
+1. if exactly one actual row is supercritical, every selection has exactly
+   one selected supercritical row, at the same index;
+2. if at least two actual rows are supercritical, some selection has at
+   least two selected supercritical rows.
+
+We prove the two assertions separately.
+
+### Exact-one case
+
+Suppose $p$ is the only actual supercritical index.  Equation (3) gives
 
 $$
-\ell_{p-1}<\ell_{p+1}.
+a_i+b_i<1\qquad(i\ne p)
 $$
 
-Now
+for every strict handoff selection.  On the other hand,
 
 $$
-\ell_p<u_p
+\sum_{i=0}^5(a_i+b_i)
+=\sum_{i=0}^5(1-x_{i-1}+x_i)=6.                            \tag{4}
 $$
 
-by strict boundary overlap, and
+The five terms with $i\ne p$ have sum less than $5$, so (4) forces
+$a_p+b_p>1$.  Thus every strict selection has exactly one selected
+supercritical row, at the same index $p$.
+
+### At-least-two case
+
+Suppose at least two actual rows are supercritical.  We construct a strict
+selection with at least two selected ascents $x_{i-1}<x_i$, which are the
+desired rows by (2).
+
+First assume that two supercritical indices $p,q$ are nonadjacent.  For a
+supercritical index $r$, relation (2) gives
 
 $$
-\ell_{p-1}<u_p
+\ell_{r-1}<u_r.
 $$
 
-because actual row $p$ is supercritical.  Likewise,
+Choose $z_r$ strictly between these endpoints, then choose
 
 $$
-\ell_p<u_{p+1}
+\begin{aligned}
+x_{r-1}&\in
+(\ell_{r-1},\min(u_{r-1},z_r)),\\
+x_r&\in
+(\max(\ell_r,z_r),u_r).
+\end{aligned}                                               \tag{5}
 $$
 
-because actual row $p+1$ is supercritical, while
+Both intervals in (5) are nonempty because $I_{r-1}$ and $I_r$ are
+nonempty and $\ell_{r-1}<z_r<u_r$.  The choice gives
+$x_{r-1}<z_r<x_r$.  Apply it for $r=p$ and $r=q$.  The two pairs of
+variables are disjoint because $p,q$ are nonadjacent; choose every remaining
+$x_i$ arbitrarily in $I_i$.  Rows $p$ and $q$ are then selected
+supercritical.  This covers every pattern containing three or more
+supercritical indices, since three vertices of a $6$-cycle cannot be
+pairwise adjacent, and also covers two nonadjacent indices.
+
+It remains to treat exactly two adjacent supercritical indices, say
+$p,p+1$.  For each other index $i$, strict overlap and actual
+nonsupercriticality give
 
 $$
-\ell_{p-1}<\ell_{p+1}<u_{p+1}.
+\ell_i<u_i\le\ell_{i-1}.
 $$
 
-Consequently,
+Applying this successively at $i=p+2,p+3,p+4,p+5$ yields
 
 $$
-\boxed{
-\max(\ell_{p-1},\ell_p)
-<
-\min(u_p,u_{p+1}).
-}
+\ell_{p-1}<\ell_{p+1}.                                     \tag{6}
 $$
 
-Choose
+Strict overlap and supercriticality of rows $p,p+1$ give
 
 $$
-x_p
-\in
-\left(
-\max(\ell_{p-1},\ell_p),
-\min(u_p,u_{p+1})
-\right).
+\ell_p<u_p,\qquad \ell_{p-1}<u_p,\qquad
+\ell_p<u_{p+1},\qquad \ell_{p+1}<u_{p+1}.                 \tag{7}
 $$
 
-Because $x_p>\ell_{p-1}$ and $I_{p-1}$ is nonempty, one can choose
+By (6), the last inequality in (7) also gives
+$\ell_{p-1}<u_{p+1}$.  Hence every number in the lower pair is smaller than
+every number in the upper pair, so
 
 $$
-x_{p-1}\in I_{p-1}
+\max(\ell_{p-1},\ell_p)<\min(u_p,u_{p+1}).                 \tag{8}
 $$
 
-with $x_{p-1}<x_p$.  Because $x_p<u_{p+1}$ and $I_{p+1}$ is nonempty, one
-can choose
+Choose $x_p$ in the interval in (8).  Since
+$x_p>\ell_{p-1}$ and $x_p<u_{p+1}$, choose
 
 $$
-x_{p+1}\in I_{p+1}
+x_{p-1}\in I_{p-1},\qquad x_{p+1}\in I_{p+1}
 $$
 
-with $x_p<x_{p+1}$.  Choose the other three handoffs arbitrarily in their
-strict intervals.  Then
+so that $x_{p-1}<x_p<x_{p+1}$; the nonemptiness of the two intervals makes
+both choices possible.  Choose the other handoffs arbitrarily.  Then rows
+$p$ and $p+1$ are both selected supercritical, completing the proof.
 
-$$
-x_{p-1}<x_p<x_{p+1},
-$$
+## 3. Consequence for lower-bound arguments
 
-so both selected rows $p$ and $p+1$ are supercritical.  This completes the
-proof.
+The actual triangle $T_i$ contains the vertex and both selected anchors, so
+its closure is a closed unit equilateral triangle realizing the demand pair
+$(a_i,b_i)$.  Passing to the closure does not change its area.  Therefore
+any universal local area lower bound for those selected anchors applies to
+the actual role.
 
-## 5. Consequence for lower-bound arguments
-
-The actual triangle $T_i$ realizes every selected demand pair $(a_i,b_i)$.
-Its closure is a closed unit equilateral triangle containing the selected
-anchors, and passing to the closure does not change its area.  Therefore any
-universal local area estimate for the selected anchors applies directly to
-the actual role.  In particular:
-
-- the exact-one theorem permits a proof to use a selected strict ascent at
-  the same index as the unique actual supercritical row;
-- the at-least-two theorem permits a proof to use two selected strict ascents
-  when the actual supercritical count is at least two.
-
-The theorem does not assert that an arbitrary strict handoff selection
-preserves an actual at-least-two count.  Its at-least-two conclusion is an
-existence statement, and Section 4 gives the required simultaneous choice.
+The exact-one conclusion holds for every strict selection.  The
+at-least-two conclusion is only an existence statement, and the construction
+above supplies the required simultaneous choice.

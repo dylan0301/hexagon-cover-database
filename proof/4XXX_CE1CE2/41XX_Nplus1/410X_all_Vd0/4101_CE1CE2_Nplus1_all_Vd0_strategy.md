@@ -2,91 +2,51 @@
 
 Status: Proven
 
-This note gives the complete case split for `410X`. Every state containing a
-V-gap is excluded by the exact gap certificates in this package. In the
-remaining no-gap state, the six Vd0 roles cover all of $\partial H$, so the
-proved center-independent residual-core theorem `31035` applies. Thus every
-case in `410X` is impossible.
+## Theorem
 
-## Package ledger
+Seven open unit equilateral triangles cannot cover the side-one hexagon $H$
+when the center role is CE1 or CE2, all six vertex roles are Vd0, and
+$N_+=1$.
 
-| File | Status | Role |
-|---|---|---|
-| [`4101_CE1CE2_Nplus1_all_Vd0_strategy.md`](4101_CE1CE2_Nplus1_all_Vd0_strategy.md) | Proven | Hypotheses, exhaustive gap split, and assembly of all terminal contradictions. |
-| [`4102_CE2_two_gap_completion.md`](4102_CE2_two_gap_completion.md) | Proven | Excludes the CE2 state in which both center intervals contain V-gaps. |
-| [`4104_all_boundary_transfer_to_310X.md`](4104_all_boundary_transfer_to_310X.md) | Reduction | Optional transfer of the no-gap state to the still-open six-point target `4104-F`; not used in the branch closure. |
-| [`4106_CE1_one_gap_five_map_completion.md`](4106_CE1_one_gap_five_map_completion.md) | Proven | Excludes the CE1 one-gap state by an exact five-map inequality and Bernstein certificate. |
-| [`4107_CE2_one_gap_five_map_completion.md`](4107_CE2_one_gap_five_map_completion.md) | Proven | Excludes both reflected CE2 one-gap states. |
-| [`4108_ce1_terminal_verifier.py`](4108_ce1_terminal_verifier.py) | Experiment | Reconstructs the exact rational Bernstein tensors used in `4106`. |
-| [`../../../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31035_center_independent_all_boundary_obstruction.md`](../../../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31035_center_independent_all_boundary_obstruction.md) | Proven | Excludes every no-gap state from full Vd0 boundary coverage and exactly one supercritical actual row. |
+## 1. The unique supercritical row
 
-## 1. Hypotheses and the unique supercritical row
-
-Assume that seven open unit equilateral triangles cover the full side-one
-hexagon $H$.  Choose an open center role $T_C$ containing $O$ and six Vd0
-vertex roles $T_0,\dots,T_5$.  Assume
-
-$$
-T_C\text{ is CE1 or CE2},
-\qquad
-N_+=1.
-$$
-
-Here $(a_i,b_i)$ are the actual maximal incoming and outgoing boundary
-reaches of $T_i$, in the sense of
+Suppose such a cover exists. Write $U_C,U_0,\dots,U_5$ for its open roles and
+put $T_C=\overline{U_C}$ and $T_i=\overline{U_i}$. For each vertex role, let
+$a_i,b_i$ be its actual maximal incoming and outgoing boundary reaches, as
+defined in
 [`../../../1XXX_foundations/12XX_V_triangle/1202_local_coordinates_abc.md`](../../../1XXX_foundations/12XX_V_triangle/1202_local_coordinates_abc.md).
-
-For compact local calculations, replace each open role by its associated
-closed unit triangle. This is an immediate containment relaxation; the strict
-center domains used below still come from the original open center role.
 
 The exactly-one-midpoint theorem
 [`../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2100_CE1_CE2_exactly_one_midpoint_lemma.md`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2100_CE1_CE2_exactly_one_midpoint_lemma.md)
-allows the normalization
+allows us to normalize
 
 $$
-T_C\cap\{M_0,\dots,M_5\}=\{M_0\}.
+T_C\cap\left\{M_0,\dots,M_5\right\}=\left\{M_0\right\}.
 $$
 
-For $i\ne0$, radial locality therefore puts $M_i$ in $T_i$.  The midpoint
-self-cover theorem
+Fix $i\ne0$. Since $M_i$ is covered but is not in $T_C$, diameter locality
+leaves only $U_{i-1},U_i,U_{i+1}$ as possible covering vertex roles. If an
+adjacent role contained $M_i$, convexity and its open neighborhood at its own
+vertex would give positive-length support on the adjacent radial arm,
+contrary to Vd0. Hence $M_i\in U_i\subset T_i$. The midpoint self-cover theorem
 [`../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2005_midpoint_self_cover_lemma.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2005_midpoint_self_cover_lemma.md)
-gives
+therefore gives
 
 $$
 a_i+b_i\le1,
-\qquad i\ne0.
+\qquad i=1,\dots,5.
 $$
 
-Since $N_+=1$, the unique supercritical row is $T_0$.
-
-Let $d_i$ be the center role's radial exit toward $V_i$ and put
+Because $N_+=1$, it follows that $T_0$ is the unique supercritical row:
 
 $$
-c_i=1-d_i.
+a_0+b_0>1.
 $$
 
-Convexity of radial intersections shows that the actual radial reach of
-$T_i$ is at least $c_i$.  Lowering the actual demand to $c_i$ enlarges the
-feasible row set, so it is a valid relaxation.
+## 2. Boundary gaps and open endpoints
 
-For every nonsupercritical row $i\ne0$, define
-
-$$
-F_i(a)=\min\{B_{c_i}(a),1-a\},
-\qquad
-G_i(a)=1-F_i(a).
-$$
-
-The exact map $B_c$ is proved in
-[`../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2007_max_b_map.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2007_max_b_map.md),
-and the capped relaxation and monotonicity of $G_i$ are proved in
-[`../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md).
-
-## 2. Boundary gaps
-
-On $e_{i,i+1}$, measured from $V_i$, the two adjacent open vertex roles have
-traces
+On $e_{i,i+1}$, with coordinate measured from $V_i$, the adjacent roles
+$U_i,U_{i+1}$ have traces
 
 $$
 [0,b_i)
@@ -94,22 +54,31 @@ $$
 (1-a_{i+1},1].
 $$
 
-Consequently their uncovered set is
+Thus their uncovered set is
 
 $$
-\boxed{[b_i,1-a_{i+1}]}
+G_i=
+\begin{cases}
+[b_i,1-a_{i+1}],&b_i\le1-a_{i+1},\\
+\varnothing,&b_i>1-a_{i+1}.
+\end{cases}
 $$
 
-when $b_i\le1-a_{i+1}$, and is empty when
-$b_i>1-a_{i+1}$.  We call every nonempty such set a V-gap.  This convention
-includes the singleton equality case $b_i=1-a_{i+1}$, which cannot be
-discarded for open triangles.
+We call every nonempty $G_i$ a V-gap. In particular, equality gives the
+singleton gap $\{b_i\}$; it must not be discarded because the triangles are
+open. A missing gap is equivalent to the strict handoff
+$b_i>1-a_{i+1}$.
 
-The interval notation $[s,t]$ used for a center trace means the trace of the
-closed triangle associated with the open center role; the open role contains
-the relative interior $(s,t)$.  Full boundary coverage puts every V-gap in
-that open center trace.  In particular, if the closed center interval
-$[s,t]$ contains the gap, then
+All reaches are positive, so a nonempty $G_i$ lies in the relative interior
+of its edge. Vertex-role boundary locality, proved in
+[`../../../2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md`](../../../2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md),
+shows that no other vertex role can cover a relative-interior point of this
+edge. Hence every V-gap must lie in an open center trace. In particular, no
+gap can occur on an edge outside the CE1 or CE2 center traces.
+
+If $[s,t]$ is the corresponding maximal trace of $T_C$, then the $U_C$ trace
+is $(s,t)$. Full coverage gives
+$G_i\subset(s,t)$ and therefore the weak endpoint bounds
 
 $$
 b_i\ge s,
@@ -117,100 +86,73 @@ b_i\ge s,
 a_{i+1}\ge1-t.
 $$
 
-The center formulas and all of their strict domains are proved in
-[`../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2105_CE1_exact_formulas.md`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2105_CE1_exact_formulas.md)
+These bounds remain valid for singleton gaps. The exact CE1 and CE2 trace
+descriptions are proved in
+[`2105_CE1_exact_formulas.md`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2105_CE1_exact_formulas.md)
 and
-[`../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2106_CE2_exact_formulas.md`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2106_CE2_exact_formulas.md).
-The gap certificates `4102`, `4106`, and `4107` use only these weak endpoint
-bounds, so they include singleton V-gaps.
+[`2106_CE2_exact_formulas.md`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2106_CE2_exact_formulas.md).
 
-## 3. Exhaustive CE1 split
+## 3. CE1
 
-A CE1 role has one maximal closed boundary trace, normalized to
+Normalize the unique maximal closed center trace to
 
 $$
-\overline{T_C}\cap e_{0,1}=[s,t].
+T_C\cap e_{0,1}=[s,t].
 $$
 
-- If the trace contains a V-gap, including a singleton gap, `4106` propagates
-  the five nonsupercritical capped maps from $1-t$ and proves that the
-  resulting lower bound for $a_0$ is strictly greater than the exact upper
-  bound allowed by the same $T_0$ with $b_0\ge s$.  This is a contradiction.
-- If it contains no V-gap, the two adjacent open vertex traces cover their
-  whole edge and overlap strictly at their handoff. Outside the center edge,
-  the original full cover and Vd0 boundary locality already force coverage by
-  the vertex roles. Hence the six vertex roles cover all of $\partial H$, and
-  `31035` applies.
+There are exactly two cases.
 
-These two alternatives are exhaustive.
+1. If this trace contains a V-gap, the exact five-map theorem
+   [`4106_CE1_one_gap_five_map_completion.md`](4106_CE1_one_gap_five_map_completion.md)
+   applies to the unique-row normalization above and the weak endpoint bounds
+   from Section 2. It gives a contradiction, including when the gap is a
+   singleton.
+2. If it contains no V-gap, then no edge has a V-gap. The adjacent vertex
+   traces therefore cover every boundary edge, with strict overlap at every
+   handoff. Thus the six Vd0 roles cover $\partial H$. The center-independent
+   all-boundary obstruction
+   [`31035_center_independent_all_boundary_obstruction.md`](../../../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31035_center_independent_all_boundary_obstruction.md)
+   applies and gives a contradiction.
 
-## 4. Exhaustive CE2 split
+Hence CE1 is impossible.
 
-Normalize the two maximal closed center traces as
+## 4. CE2
+
+Normalize the two maximal closed center traces to
 
 $$
-\overline{T_C}\cap e_{5,0}=[x,u],
+T_C\cap e_{5,0}=[x,u],
 \qquad
-\overline{T_C}\cap e_{0,1}=[y,v],
+T_C\cap e_{0,1}=[y,v],
 $$
 
-with both coordinates measured from $V_0$.  Each trace either contains a
-V-gap, possibly a singleton, or does not, so exactly one of the following
-occurs.
+with both intervals measured from $V_0$. Each interval either contains a
+V-gap or does not, so the following three cases are exhaustive.
 
-1. Both contain gaps.  `4102` proves this impossible by the strict
-   two-endpoint capped-loss inequality.
-2. Exactly one contains a gap.  `4107` proves the right-gap five-map
-   inequality on the full strict CE2 domain; reflection across the axis
-   through $V_0$ gives the left-gap inequality.  Both orientations are
-   impossible.
-3. Neither contains a gap. The adjacent vertex roles cover both center edges
-   and, by the same locality argument as in CE1, all of $\partial H$.
-   Therefore `31035` applies.
+1. Both intervals contain gaps. The exact two-gap theorem
+   [`4102_CE2_two_gap_completion.md`](4102_CE2_two_gap_completion.md) gives a
+   contradiction.
+2. Exactly one interval contains a gap. The exact right-gap theorem and its
+   reflected left-gap form in
+   [`4107_CE2_one_gap_five_map_completion.md`](4107_CE2_one_gap_five_map_completion.md)
+   give a contradiction in either orientation.
+3. Neither interval contains a gap. As in CE1, no edge has a gap, so the six
+   Vd0 roles cover $\partial H$. The center-independent theorem `31035`
+   again gives a contradiction.
 
-Thus every CE2 state is routed either to a proved gap certificate or to the
-proved no-gap obstruction.
+Hence CE2 is impossible.
 
-## 5. No-gap closure
+## 5. Conclusion and the optional route
 
-In the remaining no-gap state, the six vertex roles cover $\partial H$.
-The original seven triangles cover all of $H$, all six vertex roles are Vd0,
-and $N_+=1$ means that exactly one actual maximal boundary row is
-supercritical. Therefore every hypothesis of
-[`31035_center_independent_all_boundary_obstruction.md`](../../../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31035_center_independent_all_boundary_obstruction.md)
-holds. That theorem gives an immediate contradiction.
+The CE1 split and the three CE2 cases exhaust all configurations under the
+theorem's hypotheses, and every case is impossible. This proves the theorem.
 
-More explicitly, its strict handoffs produce parameters satisfying
-
-$$
-0<a,b<1,
-\qquad
-a+b>1,
-\qquad
-a^2+ab+b^2<1.
-$$
-
-The theorem then forces the compact residual-core witness
+The reduction
+[`4104_all_boundary_transfer_to_310X.md`](4104_all_boundary_transfer_to_310X.md)
+sends the no-gap case to the older conjectural inequality $F_6(a,b)\ge1$.
+That route remains valid but optional: the proof above uses `31035` instead
+and does not assume or prove the $F_6$ inequality.
 
 $$
-K_{\mathrm{wit}}(a,b)
-\subseteq T_C
+\Box
 $$
-
-while the proven enclosure theorem gives
-
-$$
-\Lambda\left(K_{\mathrm{wit}}(a,b)\right)\ge1.
-$$
-
-A compact subset of the open unit equilateral triangle $T_C$ has enclosing
-side strictly below $1$, which is impossible.
-
-The optional reduction in `4104` still produces the older conjectural target
-$F_6(a,b)\ge1$. The argument above does not prove that inequality; it bypasses
-it with $K_{\mathrm{wit}}$. Hence the `3101X` six-point problem remains open
-as an optional route, but it is not a dependency of `410X`.
-
-The CE1 one-gap/no-gap alternatives and the three CE2 gap-count alternatives
-are exhaustive. Since every terminal case is now covered by a `Proven`
-source, the CE1/CE2, $N_+=1$, all-Vd0 branch is proved impossible.
