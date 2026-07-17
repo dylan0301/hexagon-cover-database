@@ -111,7 +111,7 @@ There are exactly two cases.
    traces therefore cover every boundary edge, with strict overlap at every
    handoff. Thus the six Vd0 roles cover $\partial H$. The center-independent
    all-boundary obstruction
-   [`31035_center_independent_all_boundary_obstruction.md`](../../../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31035_center_independent_all_boundary_obstruction.md)
+   [`31043_center_independent_direct_nine_point_obstruction.md`](../../../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3104X_direct_Vd0_nine_point/31043_center_independent_direct_nine_point_obstruction.md)
    applies and gives a contradiction.
 
 Hence CE1 is impossible.
@@ -137,7 +137,7 @@ V-gap or does not, so the following three cases are exhaustive.
    [`4107_CE2_one_gap_five_map_completion.md`](4107_CE2_one_gap_five_map_completion.md)
    give a contradiction in either orientation.
 3. Neither interval contains a gap. As in CE1, no edge has a gap, so the six
-   Vd0 roles cover $\partial H$. The center-independent theorem `31035`
+   Vd0 roles cover $\partial H$. The center-independent theorem `31043`
    again gives a contradiction.
 
 Hence CE2 is impossible.
@@ -150,7 +150,7 @@ theorem's hypotheses, and every case is impossible. This proves the theorem.
 The reduction
 [`4104_all_boundary_transfer_to_310X.md`](4104_all_boundary_transfer_to_310X.md)
 sends the no-gap case to the older conjectural inequality $F_6(a,b)\ge1$.
-That route remains valid but optional: the proof above uses `31035` instead
+That route remains valid but optional: the proof above uses `31043` instead
 and does not assume or prove the $F_6$ inequality.
 
 $$

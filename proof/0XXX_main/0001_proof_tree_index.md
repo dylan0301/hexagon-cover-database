@@ -91,6 +91,11 @@ Vd0, Vd1/Vd2, and T3-like vertex-role patterns.
           - `31033`: proved exact asymmetric witnesses and uniform core membership
           - `31034`: proved terminal enclosure inequality by analytic adjacent overlaps and an outward-rounded mixed-overlap certificate
           - `31035`: proved center-independent all-boundary obstruction
+        - `3104X`: proven direct all-Vd0 nine-point closure
+          - `31041`: proved direct forcing of six common radial witnesses
+          - `31042`: proved direct forcing of three asymmetric witnesses
+          - `31043`: proved center-independent direct nine-point obstruction
+          - `31044`: proved CE0, $N_+=1$, all-Vd0 completion
     - at least one Vd1/Vd2
       - `314X`: boundary-length obstruction
     - at least one T3-like and no Vd1/Vd2
@@ -116,7 +121,7 @@ Vd0, Vd1/Vd2, and T3-like vertex-role patterns.
   - `41XX`: CE1/CE2, $N_+=1$
     - all Vd0
       - `410X`: all gap states proved; no-gap state closed by the
-        center-independent `31035` residual-core obstruction
+        center-independent `31043` direct nine-point obstruction
       - `4104-F`: optional older six-point target, still open but not a
         dependency of the branch closure
       - `9630`: 5 point conjecture counterexample
