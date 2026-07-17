@@ -225,3 +225,10 @@ $\Lambda(K_{\mathrm{wit}}(a,b))<1$, contradicting (10). This proves the theorem.
 
 The proof used no CE0, CE1, or CE2 property of $T_C$. It also does not use
 the optional $F_6$ conjecture in `4104`.
+
+The exact-one hypothesis supplies the adjacent global-minimum-to-global-maximum
+handoff used in (6). It cannot in general be replaced by $N_+\ge2$ and a
+different strict-handoff selection. The exact comparison criterion, an
+$AB$-set noninclusion, and an actual all-Vd0 full-boundary counterexample are
+proved in
+[`31036_Nplus_ge2_complementary_AB_comparison_counterexample.md`](31036_Nplus_ge2_complementary_AB_comparison_counterexample.md).
