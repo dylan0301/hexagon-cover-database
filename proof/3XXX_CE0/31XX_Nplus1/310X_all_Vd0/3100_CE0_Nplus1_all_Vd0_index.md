@@ -15,6 +15,14 @@ package only; proof status is inherited from the numbered source notes below.
 | [`3103X_residual_core/31034_witness_enclosure_inequality.md`](3103X_residual_core/31034_witness_enclosure_inequality.md) | Proven | Full enclosure inequality via analytic adjacent overlaps and a rigorous mixed-overlap interval certificate. |
 | [`3103X_residual_core/31035_center_independent_all_boundary_obstruction.md`](3103X_residual_core/31035_center_independent_all_boundary_obstruction.md) | Proven | Center-class-independent obstruction for six Vd0 roles covering the full boundary with exactly one supercritical actual row. |
 | [`3103X_residual_core/31036_Nplus_ge2_complementary_AB_comparison_counterexample.md`](3103X_residual_core/31036_Nplus_ge2_complementary_AB_comparison_counterexample.md) | Proven | Exact scope theorem and all-Vd0 boundary construction showing why the complementary one-row uniformization does not extend to general $N_+\ge2$. |
+| [`3104X_direct_Vd0_nine_point/31040_direct_Vd0_nine_point_index.md`](3104X_direct_Vd0_nine_point/31040_direct_Vd0_nine_point_index.md) | Reference | Direct all-Vd0 nine-point package and dependency map; active simplified closure. |
+| [`3104X_direct_Vd0_nine_point/31041_direct_radial_forcing.md`](3104X_direct_Vd0_nine_point/31041_direct_radial_forcing.md) | Proven | Six common radial witnesses forced directly by the exact radial envelope, openness, Vd0 locality, and diameter. |
+| [`3104X_direct_Vd0_nine_point/31042_direct_asymmetric_witness_forcing.md`](3104X_direct_Vd0_nine_point/31042_direct_asymmetric_witness_forcing.md) | Proven | Three asymmetric witnesses forced directly; only the unique supercritical row uses the strict $AB$-frontier. |
+| [`3104X_direct_Vd0_nine_point/31043_center_independent_direct_nine_point_obstruction.md`](3104X_direct_Vd0_nine_point/31043_center_independent_direct_nine_point_obstruction.md) | Proven | Center-class-independent full-boundary obstruction from the six radial and three asymmetric witnesses. |
+| [`3104X_direct_Vd0_nine_point/31044_CE0_Nplus1_all_Vd0_direct_completion.md`](3104X_direct_Vd0_nine_point/31044_CE0_Nplus1_all_Vd0_direct_completion.md) | Proven | CE0, $N_+=1$, all-Vd0 completion by the direct center-independent theorem. |
 
 The `31036` counterexample is a scope warning for the complementary
 two-parameter comparison. It does not alter the proven $N_+=1$ closure.
+The `3103X` package remains an independent proven residual-core proof; the
+active `3104X` route reaches the same terminal enclosure theorem without
+nonsupercritical $AB$-unions or model-core comparisons.
