@@ -1,0 +1,642 @@
+\section{Geometric setup and structural reductions}
+\label{sec:structural-reductions}
+\label{sec:structural}
+
+Throughout, indices are taken in $\mathbb Z/6\mathbb Z$.  Put
+\[
+ O=(0,0),\qquad
+ V_i=\left(\cos\frac{i\pi}{3},\sin\frac{i\pi}{3}\right),
+ \qquad
+ H=\mathrm{conv}\{V_0,\ldots,V_5\}.
+\]
+Thus $H$ is the regular hexagon of side length one.  We use the notation
+\[
+ e_{i,i+1}=[V_i,V_{i+1}],\qquad
+ r_i=[O,V_i],\qquad M_i=\frac12V_i,
+\]
+and, when needed,
+\[
+ D=\bigcup_{i=0}^5r_i,\qquad
+ S=\partial H\cup D,\qquad
+ S_{1/2}=\partial H\cup\{O,M_0,\ldots,M_5\}.
+\]
+The arms $r_i$ meet only at $O$, up to sets of one-dimensional measure zero,
+and consequently
+\begin{equation}
+ \mathcal H^1(\partial H)=6,
+ \qquad \mathcal H^1(D)=6,
+ \qquad \mathcal H^1(S)=12.
+ \label{eq:target-lengths}
+\end{equation}
+For $L>0$, $H_L:=LH$ denotes the concentric regular hexagon of side length
+$L$.  All symmetries used below belong to the dihedral group $D_6$; applying
+a symmetry always transports the indices, orientations, and incoming and
+outgoing labels together.
+
+\subsection{Open, closed, and scaled formulations}
+
+\begin{proposition}[Compactness and scaling equivalence]
+\label{prop:open-closed-scaled}
+The following assertions are equivalent.
+\begin{enumerate}
+ \item The set $H$ is covered by seven open equilateral triangles of side
+ length $1$.
+ \item For some $\varepsilon>0$, the set $H$ is covered by seven closed
+ equilateral triangles of side length $1-\varepsilon$.
+ \item For some $L>1$, the set $H_L$ is covered by seven closed equilateral
+ triangles of side length $1$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Suppose that open unit triangles $U_1,\ldots,U_7$ cover $H$.  Define
+\[
+ m_j(p)=\mathrm{dist}(p,\mathbb R^2\setminus U_j),
+ \qquad m(p)=\max_{1\le j\le7}m_j(p).
+\]
+The continuous function $m$ is positive on the compact set $H$, so
+$\eta:=\min_{p\in H}m(p)>0$.  Choose
+\[
+ 0<\rho<\min\left\{\eta,\frac{\sqrt3}{6}\right\}.
+\]
+Moving each side of $U_j$ inward through distance $\rho$ gives a closed
+equilateral triangle $K_j$ of side $1-2\sqrt3\rho$.  Every $p\in H$ has
+$m_j(p)\ge\eta>\rho$ for some $j$, and hence belongs to $K_j$.  This proves
+(1)$\Rightarrow$(2), with $\varepsilon=2\sqrt3\rho$.
+
+Conversely, enlarging a closed triangle of side $1-\varepsilon$ about its
+incenter to an open triangle of side $1$ preserves containment, proving
+(2)$\Rightarrow$(1).  Finally, dilation by $(1-\varepsilon)^{-1}$ identifies
+(2) with (3), with
+\[
+ L=(1-\varepsilon)^{-1}>1.
+\]
+\end{proof}
+
+We conduct the geometric argument in the open side-one model.  Denote the
+original open triangles by $U_C$ and $U_i$ for $0\le i\le5$, and put
+\[
+ T_C=\overline{U_C},\qquad T_i=\overline{U_i}.
+\]
+The distinction between $U_i$ and $T_i$ will be maintained: closure may add
+endpoints or tangencies, although it does not change area or one-dimensional
+trace measure.
+
+\begin{lemma}[Distinct roles]
+\label{lem:distinct-roles}
+The seven triangles can be labelled so that
+\[
+ O\in U_C,\qquad V_i\in U_i\quad(0\le i\le5),
+\]
+and these seven roles are distinct.  Consequently
+\[
+ O\in\mathrm{int}(T_C),\qquad V_i\in\mathrm{int}(T_i).
+\]
+\end{lemma}
+
+\begin{proof}
+The seven distinguished points $O,V_0,\ldots,V_5$ are pairwise at distance
+at least $1$.  Any two points of an open unit equilateral triangle are at
+distance strictly less than its diameter $1$.  Thus one open triangle
+contains at most one distinguished point.  Selecting a covering triangle for
+each of the seven points gives an injection from seven points to seven
+triangles, hence a bijection and the asserted labelling.
+\end{proof}
+
+\subsection{The center classification}
+
+For a closed center role define
+\[
+ N_E(T_C)=
+ \left\lvert\left\{i:T_C\cap e_{i,i+1}\text{ contains a
+ positive-length interval}\right\}\right\rvert.
+\]
+Point contacts, endpoint contacts, and tangencies do not contribute.  We say
+that $T_C$ has type CE0, CE1, or CE2 according as $N_E(T_C)$ is $0$, $1$, or
+$2$.
+
+\begin{proposition}[Exhaustive center types]
+\label{prop:ce-classification}
+Every center role has exactly one of the types CE0, CE1, and CE2.
+Equivalently,
+\[
+ N_E(T_C)\le2.
+\]
+\end{proposition}
+
+\begin{proof}
+Among any three edges of the six-cycle $\partial H$, two have no common
+endpoint.  It is therefore enough to show that relative-interior points of
+two nonadjacent edges are more than unit distance apart.  Up to symmetry
+there are two cases.  For $0<t,s<1$, put
+\[
+ x=(1-t)V_0+tV_1.
+\]
+If $y=(1-s)V_2+sV_3$, direct calculation gives
+\[
+ \lVert x-y\rVert^2-1=(1-t)(2-t)+s(s+t)>0.
+\]
+If instead $y=(1-s)V_3+sV_4$ and $u=t+s$, then
+\[
+ \lVert x-y\rVert^2-1=(u-1)^2+2>0.
+\]
+A unit equilateral triangle has diameter $1$.  It therefore cannot contain
+relative-interior points on two nonadjacent hexagon edges.  Three
+positive-length edge traces would supply such a pair, a contradiction.
+\end{proof}
+
+\subsection{Vertex types and the T3-like normalization}
+
+For an original vertex role $T_i$, let
+\[
+ o(T_i)=\left\lvert\left\{
+ \text{vertices of }T_i\text{ outside }H
+ \right\}\right\rvert
+\]
+and let $n(T_i)$ be the number of adjacent arms $r_{i-1},r_{i+1}$ having
+positive-length intersection with $T_i$.  We use the names
+\[
+ \begin{array}{c|c}
+ \text{type}&(o,n)\\ \hline
+ \mathrm{Vd0}&(1,0),(2,0),(3,0)\\
+ \mathrm{Vd1}&(1,1)\\
+ \mathrm{Vd2}&(1,2)\\
+ \text{T3-like}&(2,1).
+ \end{array}
+\]
+
+\begin{lemma}[Local wedge]
+\label{lem:local-wedge}
+Every original vertex role has $1\le o\le3$.  If it has positive-length
+intersection with one adjacent arm, at least one of its vertices belongs to
+$H$; if it has positive-length intersection with both adjacent arms, at
+least two of its vertices belong to $H$.
+\end{lemma}
+
+\begin{proof}
+Normalize to $i=0$ and write
+\[
+ X=V_0+x(V_1-V_0)+y(V_5-V_0).
+\]
+Then $V_0=(0,0)$,
+\[
+ \lVert(x,y)\rVert^2=x^2+y^2-xy,
+\]
+and, within the closed unit ball about $V_0$, membership in $H$ is equivalent
+to membership in the wedge
+\[
+ W=\{(x,y):x\ge0, y\ge0\}.
+\]
+Indeed,
+\[
+ x^2+y^2-xy=\left(y-\frac x2\right)^2+\frac{3x^2}{4}
+              =(x-y)^2+xy
+\]
+shows that $x,y\ge0$ and norm at most one imply the remaining hexagon
+inequalities.  The adjacent arms are
+\[
+ r_1=\{(1,y):0\le y\le1\},
+ \qquad r_5=\{(x,1):0\le x\le1\}.
+\]
+
+Suppose $T_0\cap r_1$ has positive length, and let $m$ be the largest
+$x$-coordinate of a vertex of $T_0$.  If $m>1$, a maximizing vertex
+$(m,y)$ lies in the unit ball and hence satisfies $0<y<1$; it belongs to
+$H$.  If $m=1$, positive-length contact with the supporting line $x=1$
+forces a side of $T_0$ to lie there, and both endpoints satisfy
+$1+y^2-y\le1$, hence belong to $H$.  The same argument applies to $r_5$.
+If both arms are met but only one triangle vertex belonged to $H$, that
+vertex would have to have both $x>1$ and $y>1$.  This is impossible because
+$(x-y)^2+xy>1$.
+
+Finally, if all three triangle vertices belonged to the convex set $H$, then
+$T_0\subset H$.  This is incompatible with the extreme point $V_0$ lying in
+the interior of $T_0$.  Hence $o\ge1$.
+\end{proof}
+
+\begin{proposition}[Exhaustive vertex types]
+\label{prop:vertex-classification}
+Every original vertex role has exactly one of the four types Vd0, Vd1, Vd2,
+and T3-like.
+\end{proposition}
+
+\begin{proof}
+We have $n\in\{0,1,2\}$.  Lemma~\ref{lem:local-wedge} gives $o\le2$ when
+$n\ge1$, and $o\le1$ when $n=2$.  Together with $o\ge1$, the possibilities
+are
+\[
+ \begin{array}{c|c}
+ n&\text{possible }o\\ \hline
+ 0&1,2,3\\
+ 1&1,2\\
+ 2&1,
+ \end{array}
+\]
+which are precisely the four named classes.
+\end{proof}
+
+The next normalization is useful for trace estimates, but its final warning
+is essential.
+
+\begin{proposition}[T3-like closed-trace domination]
+\label{prop:t3-translation}
+Let $T$ be the closure of an original T3-like $V_i$-role.  There is a
+translate $\widehat T$ of $T$, with the same orientation and side length,
+such that
+\[
+ V_i\in\mathrm{relint}(\text{a side of }\widehat T),
+ \qquad T\cap H\subsetneq\widehat T\cap H,
+\]
+and $\widehat T$ remains of type $(o,n)=(2,1)$.  Every old open interior
+point in $H\setminus\{V_i\}$ remains an interior point of $\widehat T$.
+The point $V_i$ itself becomes a boundary point, so $\widehat T$ is a
+closed-trace majorant and is not a replacement open role.
+\end{proposition}
+
+\begin{proof}
+Use the wedge coordinates of Lemma~\ref{lem:local-wedge}.  Set
+\[
+ D_t=1-t+t^2,\qquad z=\sqrt{D_t},\qquad 0\le t\le1.
+\]
+After relabelling triangle vertices, every orientation belongs to one of the
+following two families:
+\[
+ \begin{array}{c|cc}
+ &\text{first side vector}&\text{second side vector}\\ \hline
+ \mathrm{I}&z^{-1}(1,t)&z^{-1}(1-t,1)\\
+ \mathrm{II}&z^{-1}(t,-(1-t))&z^{-1}(1,t).
+ \end{array}
+\]
+For Type I write
+\[
+ U=\alpha+y-tx,\qquad V=\beta+x-(1-t)y,
+ \qquad T=\{U\ge0,V\ge0,U+V\le z\}.
+\]
+Here $\alpha,\beta>0$ and $\alpha+\beta<z$.  Direct inversion shows that if
+exactly two triangle vertices are outside $W$, the sole wedge vertex has
+both coordinates strictly below $1$: in the two possible cases its
+coordinates are bounded respectively by $(1-t)/z$ and $t/z$, with the
+endpoint strictness supplied by $\alpha>0$ or $\beta>0$.  The support
+argument in Lemma~\ref{lem:local-wedge} then excludes positive-length contact
+with either $x=1$ or $y=1$.  Thus Type I cannot be T3-like.
+
+For Type II write
+\[
+ U=\alpha+(1-t)x+ty,\qquad V=\beta+tx-y,
+ \qquad T=\{U\ge0,V\ge0,U+V\le z\}.
+\]
+Reflecting in $x=y$ if necessary, assume the supported adjacent arm is
+$r_1$.  The two outside vertices have respectively a negative $x$- and a
+negative $y$-coordinate, while the unique wedge vertex is
+\[
+ Q=\left(
+ \frac{z-\alpha-t\beta}{D_t},
+ \frac{t(z-\alpha)+(1-t)\beta}{D_t}
+ \right).
+\]
+The endpoint cases $t=0,1$ give no positive adjacent interval, so
+$0<t<1$.  The exact axis reaches are
+\[
+ A=\beta,\qquad B=z-\alpha-\beta,
+\]
+and T3-like support is equivalent to
+\[
+ Q_x>1,\qquad Q_y\le1.
+\]
+
+Define $\widehat T$ by replacing $\alpha$ with $0$ and keeping $t,\beta$
+fixed.  Since the linear map $(x,y)\mapsto(U,V)$ is nonsingular, this changes
+only the translation.  At the origin, $\widehat U=0$ and
+$0<\widehat V=\beta<z$, so $V_0$ is in the relative interior of a side.  For
+$(x,y)\in W$,
+\[
+ \widehat U=(1-t)x+ty\ge0,\qquad
+ \widehat V=V,\qquad
+ \widehat U+\widehat V=U+V-\alpha.
+\]
+Thus $T\cap W\subset\widehat T\cap W$.  The old $x$-axis reach is $B$ and
+the new one is $B+\alpha$; because $B<1$ and $\alpha>0$, the inclusion is
+strict inside $H$.
+
+The two outside vertices remain outside, whereas $V_0$ and the new wedge
+vertex lie in $H$, so $o=2$.  Moreover $\widehat Q_x>Q_x>1$.  From $Q_x>1$
+one gets $t\beta<z-\alpha-D_t$, and hence
+\[
+ tD_t(1-\widehat Q_y)
+ >D_t(1-z)+(1-t)\alpha>0.
+\]
+Thus $\widehat Q_y<1$ and $n=1$.  Finally, for every nonzero point of $W$,
+$\widehat U>0$; the displayed slack relations show that every old interior
+point other than the origin remains interior.
+\end{proof}
+
+\subsection{Reach coordinates, supercritical rows, and gaps}
+
+For the original vertex role $U_i$, define its actual maximal incoming,
+outgoing, and radial reaches by
+\[
+ \begin{aligned}
+ A_i&=\sup\{t\in[0,1]:V_i+t(V_{i-1}-V_i)\in U_i\},\\
+ B_i&=\sup\{t\in[0,1]:V_i+t(V_{i+1}-V_i)\in U_i\},\\
+ C_i&=\sup\{t\in[0,1]:V_i+t(O-V_i)\in U_i\}.
+ \end{aligned}
+\]
+Thus the closure $T_i$ contains the corresponding endpoints.  We reserve
+lowercase $(a_i,b_i,c_i)$ for selected or prescribed lower-bound demands
+whenever actual and selected values occur together.  A realizing role then
+satisfies
+\[
+ A_i\ge a_i,\qquad B_i\ge b_i,\qquad C_i\ge c_i.
+\]
+An actual row is supercritical if $A_i+B_i>1$, and
+\begin{equation}
+ N_+=\left\lvert\left\{i:A_i+B_i>1\right\}\right\rvert.
+ \label{eq:N-plus-definition}
+\end{equation}
+This definition never counts a smaller demand pair in place of the actual
+row.
+
+Parametrize $e_{i,i+1}$ by
+\[
+ X_i(x)=V_i+x(V_{i+1}-V_i),\qquad 0\le x\le1.
+\]
+The two incident open traces are
+\[
+ U_i\cap e_{i,i+1}=[0,B_i),
+ \qquad
+ U_{i+1}\cap e_{i,i+1}=(1-A_{i+1},1]
+\]
+in this coordinate.  A \emph{boundary gap} on this edge is the nonempty
+closed complement between these two traces,
+\[
+ [B_i,1-A_{i+1}]\qquad\text{when }B_i\le1-A_{i+1}.
+\]
+In particular, equality gives a singleton gap.  This convention records the
+actual open traces; a point missing from both open roles is not erased merely
+because both closures contain it.
+
+\begin{lemma}[T3-like rows are nonsupercritical]
+\label{lem:t3-nonsupercritical}
+Every original T3-like row satisfies
+\begin{equation}
+ A_i+B_i\le1.
+\label{eq:t3-nonsupercritical}
+\end{equation}
+In particular, it is not counted by $N_+$.
+\end{lemma}
+
+\begin{proof}
+The proof of Proposition~\ref{prop:t3-translation} showed that a T3-like
+role has Type II orientation with
+\[
+ A_i=\beta,\qquad B_i=z-\alpha-\beta,\qquad
+ z=\sqrt{1-t+t^2}\le1.
+\]
+Thus $A_i+B_i=z-\alpha\le1$.  The same conclusion holds after reflection.
+\end{proof}
+
+We record the precise transfer from actual rows to strict handoff demands.
+Its hypothesis that the six vertex roles themselves cover the boundary is
+part of the statement.
+
+\begin{proposition}[Strict boundary handoffs]
+\label{prop:strict-handoffs}
+\label{thm:strict-handoff}
+Assume that $U_0,\ldots,U_5$ cover $\partial H$.  On each edge choose
+\[
+ x_i\in(1-A_{i+1},B_i)
+\]
+and define
+\[
+ a_i=1-x_{i-1},\qquad b_i=x_i.
+\]
+Then $0<a_i<A_i$, $0<b_i<B_i$, the two selected anchors lie in $U_i$, and
+\[
+ a_i^2+a_ib_i+b_i^2<1.
+\]
+Moreover:
+\begin{enumerate}
+ \item if exactly one actual row, indexed by $p$, is supercritical, every
+ strict selection has exactly one selected supercritical row, also indexed
+ by $p$;
+ \item if at least two actual rows are supercritical, some simultaneous
+ strict selection has at least two selected supercritical rows.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Because $V_i$ is interior to a diameter-one closed triangle,
+\[
+ 0<A_i<1,\qquad 0<B_i<1.
+\]
+No nonincident vertex role contains a relative-interior point of
+$e_{i,i+1}$, since such a point is more than unit distance from its
+distinguished vertex.  The two displayed incident traces therefore cover
+the edge and, being relatively open and nonempty, overlap.  Hence each
+interval $(1-A_{i+1},B_i)$ is nonempty.  The anchor and distance assertions
+follow from the choice and from the fact that two points of $U_i$ are at
+distance strictly less than one.
+
+Put $\ell_i=1-A_{i+1}$ and $u_i=B_i$.  Then
+\begin{equation}
+ A_i+B_i>1\iff \ell_{i-1}<u_i,
+ \qquad
+ a_i+b_i>1\iff x_{i-1}<x_i.
+ \label{eq:actual-selected-ascents}
+\end{equation}
+If actual row $i$ is nonsupercritical, then
+\[
+ x_i<u_i\le\ell_{i-1}<x_{i-1},
+\]
+so every selected version of it is strictly subcritical.  Also
+\begin{equation}
+ \sum_{i=0}^5(a_i+b_i)
+ =\sum_{i=0}^5(1-x_{i-1}+x_i)=6.
+ \label{eq:handoff-telescoping}
+\end{equation}
+If $p$ is the sole actual supercritical index, the other five selected sums
+are strictly below one; equation~\eqref{eq:handoff-telescoping} forces the
+$p$th sum above one.  This proves (1).
+
+For (2), first take two nonadjacent supercritical indices $p,q$.  For each
+$r\in\{p,q\}$ choose
+\[
+ \ell_{r-1}<z_r<u_r,
+\]
+then choose
+\[
+ x_{r-1}\in(\ell_{r-1},\min\{u_{r-1},z_r\}),
+ \quad
+ x_r\in(\max\{\ell_r,z_r\},u_r).
+\]
+The two pairs of variables are disjoint and give ascents at $p,q$.  Any set
+of at least three indices on a six-cycle contains two nonadjacent indices.
+It remains to consider exactly two adjacent supercritical indices $p,p+1$.
+For the other four nonsupercritical rows, successive inequalities
+$\ell_i<u_i\le\ell_{i-1}$ give
+\[
+ \ell_{p-1}<\ell_{p+1}.
+\]
+Together with supercriticality at $p,p+1$, this implies
+\[
+ \max\{\ell_{p-1},\ell_p\}<\min\{u_p,u_{p+1}\}.
+\]
+Choose $x_p$ between these bounds and then choose
+$x_{p-1}<x_p<x_{p+1}$ in their respective overlap intervals.  By
+\eqref{eq:actual-selected-ascents}, both adjacent rows are selected
+supercritical.
+\end{proof}
+
+\subsection{Midpoint forcing}
+
+We first need a local fact for vertex roles.  Take unit vectors
+\[
+ u=\left(\frac12,\frac{\sqrt3}{2}\right),\qquad
+ v=\left(\frac12,-\frac{\sqrt3}{2}\right).
+\]
+
+\begin{lemma}[Self-midpoint obstruction]
+\label{lem:self-midpoint}
+Let a closed unit triangle contain
+\[
+ 0,\qquad au,\qquad bv,\qquad \frac{u+v}{2}.
+\]
+Then $a+b\le1$.  Consequently, for every vertex role,
+\[
+ M_i\in T_i\quad\Longrightarrow\quad A_i+B_i\le1.
+\]
+If the two demanded boundary points and the midpoint are contained with a
+positive margin, the conclusion is strict.
+\end{lemma}
+
+\begin{proof}
+Suppose $a+b>1$ and set
+\[
+ K=\mathrm{conv}\left\{0,au,\frac{u+v}{2},bv\right\}.
+\]
+For outward unit normals $n_0,n_1,n_2$ separated by $120^\circ$, the least
+equilateral triangle with those normals and containing $K$ has side length
+\[
+ \frac2{\sqrt3}\sum_{j=0}^2h_K(n_j).
+\]
+On an angular interval where the three support vertices are fixed, the
+support sum $S$ satisfies $S''=-S<0$.  Hence its angular minimum occurs at a
+breakpoint, namely at an outward normal to one of the four edges of $K$.
+
+For the edge from $0$ to $au$, direct projection gives
+\[
+ S_{0A}=\max\left\{\frac{\sqrt3}{4},\frac{\sqrt3 a}{2}\right\}
+          +\frac{\sqrt3 b}{2}>\frac{\sqrt3}{2};
+\]
+if $a\ge1/2$ this is $(\sqrt3/2)(a+b)$, and if $a<1/2$ then
+$b>1/2$.  The edge through $bv$ is symmetric.  For the edge from $au$ to
+$(u+v)/2$, put $D_a=\sqrt{4a^2-2a+1}$.  Projection gives
+\[
+ S_{AM}=
+ \begin{cases}
+ \dfrac{\sqrt3(a+b)}{2D_a},&a\le\frac12,\\[4pt]
+ \dfrac{\sqrt3(2a^2+b)}{2D_a},&a>\frac12.
+ \end{cases}
+\]
+The first value is strictly above $\sqrt3/2$ because $D_a\le1$.  In the
+second case, $b>1-a$ and
+\[
+ (2a^2-a+1)^2-D_a^2=a^2(2a-1)^2\ge0,
+\]
+so again $S_{AM}>\sqrt3/2$.  The fourth edge is symmetric.  Every enclosing
+equilateral triangle therefore has side greater than one, a contradiction.
+
+If equality $a+b=1$ occurred while all relevant points had positive margin,
+both boundary demands could be increased slightly; the closed conclusion
+would then be violated.
+\end{proof}
+
+The corresponding center fact is exact and uses the interior condition at
+$O$.
+
+\begin{proposition}[Unique center midpoint]
+\label{prop:unique-center-midpoint}
+Let $T_C$ be a closed unit equilateral triangle with
+$O\in\mathrm{int}(T_C)$.  If $T_C$ has positive-length intersection with a
+boundary edge of $H$, then it contains exactly one of
+$M_0,\ldots,M_5$.
+\end{proposition}
+
+\begin{proof}
+Normalize a positive overlap to
+\[
+ T_C\cap e_{0,1}=[s,t],\qquad 0\le s<t\le1,
+\]
+where $e_{0,1}$ is parametrized from $V_0$ to $V_1$.  In affine coordinates
+\[
+ X=V_0+b(V_1-V_0)+a(V_5-V_0),
+\]
+reflect if necessary so that the ratio of the two cutting slopes satisfies
+$0<\lambda<1$, and put $\rho=\sqrt{1-\lambda+\lambda^2}$.  The triangle has
+the exact side-slack representation
+\[
+ \begin{aligned}
+ F_1&=\lambda b+(1-\lambda)a-\lambda s,\\
+ F_2&=-b+\lambda a+t,\\
+ F_0&=(1-\lambda)b-a+\rho+\lambda s-t,
+ \end{aligned}
+ \qquad
+ T_C=\{F_0,F_1,F_2\ge0\},
+\]
+with $F_0+F_1+F_2=\rho$.  The case $\lambda=1$ would give
+$F_0(O)=s-t<0$; the reflected labelling supplies $0<\lambda<1$.
+
+Set $C_j=F_j(O)$.  Since $O$ is interior,
+\[
+ C_0,C_1,C_2>0,\qquad C_0+C_1+C_2=\rho.
+\]
+The positive overlap is equivalent to
+\[
+ C_0+(1-\lambda)C_2<P,\qquad P=\rho(1-\rho).
+\]
+Using $1-\rho^2=\lambda(1-\lambda)$, we have
+\[
+ P=\frac{\lambda(1-\lambda)\rho}{1+\rho}
+ <\frac{\lambda(1-\lambda)}2,\qquad
+ P<\frac{1-\lambda}{2}.
+\]
+Substitution of the six midpoints gives the exact criteria
+\[
+ \begin{array}{c|l}
+ M_0&C_1\ge\frac12\\
+ M_1&C_1\ge\frac{1-\lambda}{2},\ C_2\ge\frac\lambda2\\
+ M_2&C_2\ge\frac12\\
+ M_3&C_0\ge\frac\lambda2,\ C_2\ge\frac{1-\lambda}{2}\\
+ M_4&C_0\ge\frac12\\
+ M_5&C_0\ge\frac{1-\lambda}{2},\ C_1\ge\frac\lambda2.
+ \end{array}
+\]
+Now
+\[
+ C_0+C_2<\frac{P}{1-\lambda},
+\]
+and therefore
+\[
+ C_1>\rho-\frac{P}{1-\lambda}
+ =\frac{\rho(\rho-\lambda)}{1-\lambda}>\frac12;
+\]
+the last inequality follows from
+\[
+ 2\rho(\rho-\lambda)-(1-\lambda)
+ =\frac{(1-\lambda)(\rho-\lambda)}{\rho+\lambda}>0.
+\]
+Thus $M_0\in T_C$.  On the other hand,
+\[
+ C_2<\frac{P}{1-\lambda}<\frac\lambda2,
+ \qquad
+ C_0<P<\min\left\{\frac\lambda2,\frac{1-\lambda}{2},\frac12\right\}.
+\]
+The table excludes $M_1,\ldots,M_5$.  Undoing the reflection and rotation
+proves the assertion.
+\end{proof}
+
+\begin{remark}
+The hypothesis $O\in\mathrm{int}(T_C)$ cannot be weakened to
+$O\in T_C$: the triangle $\mathrm{conv}\{O,V_0,V_1\}$ has a boundary-edge
+overlap and contains both $M_0$ and $M_1$.
+\end{remark}

@@ -1,0 +1,992 @@
+\section{Strategy 1: direct length-sum obstructions}
+\label{sec:strategy1-length}
+\label{sec:length}
+
+For a closed triangle $T$ and a rectifiable target $E$, write
+\[
+ L_E(T)=\mathcal H^1(T\cap E).
+\]
+The passage from an original open role $U$ to its closure $T=\overline U$
+can only enlarge the trace.  Hence a cover of $E$ by the open roles implies
+\begin{equation}
+ \mathcal H^1(E)
+ \le L_E(T_C)+\sum_{i=0}^5L_E(T_i).
+ \label{eq:length-subadditivity}
+\end{equation}
+All estimates in this section concern full traces.  They therefore remain
+valid for any assigned measurable subsets of those traces.
+
+The strategy uses three one-dimensional targets: $\partial H$, $D$, and
+$S=\partial H\cup D$, whose measures were recorded in
+\eqref{eq:target-lengths}.  The skeleton estimates below are conditional on
+specific center and row hypotheses; no unconditional noncoverage assertion
+for $S$ is made.
+
+\subsection{Exact neighboring-arm capacity}
+
+We first record the exact neighboring-arm capacity.  Normalize at $V_0$ and
+put
+\[
+ A_a=V_0+a(V_5-V_0),\quad
+ B_b=V_0+b(V_1-V_0),\quad
+ X_c=(1-c)V_1.
+\]
+Let $C_+(a,b)$ be the largest $c\in[0,1]$ for which a closed unit
+equilateral triangle contains $V_0,A_a,B_b,X_c$; call it undefined when no
+such $c$ exists.  Reflection gives $C_-(a,b)=C_+(b,a)$ for the other
+neighboring arm.
+
+\begin{theorem}[Exact neighboring-arm capacity]
+\label{thm:neighbor-ray-capacity}
+For $0\le a\le1/2$, let $p(a)$ be the unique zero in $[a,1]$ of
+\[
+ f_a(x)=x^3-(a+2)x^2+2(a+1)x-1,
+\]
+and set
+\[
+ \sigma(a)=1-p(a),\qquad
+ \tau(a)=1-a-(p(a)-a)(1-p(a)).
+\]
+Then
+\[
+ C_+(a,b)=
+ \begin{cases}
+ \text{undefined},&a+b>1,\\
+ 1-b,&a+b\le1,\ a>1/2,\\
+ 1-b,&0\le a\le1/2,\ 0\le b\le\sigma(a),\\
+ p(a),&0\le a\le1/2,\ \sigma(a)\le b\le\tau(a),\\
+ a+\dfrac12-\sqrt{(a+b)^2-\dfrac34},
+ &0\le a\le1/2,\ \tau(a)<b\le1-a.
+ \end{cases}
+ \label{eq:neighbor-capacity}
+\]
+At $b=\tau(a)$ the plateau value $p(a)$ is used.  In particular, if a
+vertex role has actual reaches $A_i+B_i>1$, it has no positive-length trace
+on either adjacent radial arm; in fact it contains no point of either
+adjacent arm.
+\end{theorem}
+
+\begin{proof}
+Use the cone basis
+\[
+ E_-=V_5-V_0,\qquad E_+=V_1-V_0.
+\]
+Then the four points have coordinates
+\[
+ (0,0),\quad(a,0),\quad(0,b),\quad(c,1),
+\]
+and $\lVert uE_-+vE_+\rVert^2=u^2+v^2-uv$.  For
+$R^2+S^2-RS=1$, define
+\[
+ U=(R-S)u+Sv,\quad V=Su-Rv,\quad W=Ru+(S-R)v.
+\]
+A translate of the unit equilateral triangle with this orientation contains
+the four points exactly when
+\[
+ \max W-\min U-\min V\le1.                 \tag{\(*\)}
+\]
+As in the support argument in Lemma~\ref{lem:self-midpoint}, on every angular
+cell with fixed support vertices the left side of \((*)\) is a sinusoid with
+negative second derivative at an interior minimum candidate.  Thus a
+minimizing orientation lies at a support breakpoint, where a side contains
+one of the hull edges.  Checking $OA,AX,XB,BO$ against the three possible
+support sides leaves, up to dominated reflected patterns, precisely the
+following three configurations:
+\[
+ \begin{array}{c|c}
+ \text{active support}&\text{candidate }c\\ \hline
+ OA\text{ and }BX&1-b\\
+ AX,\ B\text{ inactive}&p(a)\\
+ AX,\ B\text{ active}&a+\dfrac12-\sqrt{(a+b)^2-\dfrac34}.
+ \end{array}
+\]
+We give the algebra selecting the cells, which also verifies that no squared
+branch has been retained incorrectly.
+
+For the first pattern one may take $R=S=1$.  Its side length is $b+c$, and
+$A$ is contained exactly when $a\le c$.  Thus $c=1-b$ is feasible exactly
+when $a+b\le1$.
+
+For the second and third patterns, the side $AX$ gives, with $d=c-a$,
+$R=Sd$.  When $B$ is inactive, the opposite support conditions give
+\[
+ (d(c-1)+1)^2=d^2-d+1,
+\]
+which factors as
+\[
+ (c-a)f_a(c)=0.
+\]
+For $0\le a\le1/2$, one has $f_a(a)=2a-1\le0$, $f_a(1)=a\ge0$, and
+\[
+ f_a'(x)=3x^2-2(a+2)x+2(a+1)>0
+\]
+because its discriminant is $4(a^2-2a-2)<0$.  Hence the required root
+$p(a)$ is unique.  The remaining containment inequality is
+\[
+ b\le1-p(a)(1+a-p(a))=\tau(a),
+\]
+and this branch dominates $1-b$ exactly when $b\ge\sigma(a)$.
+
+When $B$ is active, the side-length equation gives
+$S=-1/(a+b)$ and
+\[
+ d^2-d+1=(a+b)^2.
+\]
+The relevant root $0\le d\le1/2$ yields the last expression in
+\eqref{eq:neighbor-capacity}.  Its nonactive inequalities reduce to
+\[
+ 0\le a\le\frac12,\qquad \tau(a)\le b\le1-a.
+\]
+The square root is real on this cell.  Indeed, writing $p=p(a)$ gives
+\[
+ a=\frac{(1-p)(p^2-p+1)}{p(2-p)},\qquad
+ a+\tau(a)=\frac{p^2-p+1}{p(2-p)}\ge\frac{\sqrt3}{2}.
+\]
+Finally, for $s=a+b\in[\sqrt3/2,1]$,
+\[
+ s-\frac12-\sqrt{s^2-\frac34}\ge0,
+\]
+so this branch dominates $1-b$.  The three selected cells are ordered because
+$\tau(a)-\sigma(a)=(p(a)-a)p(a)\ge0$ and $\tau(a)\le1-a$.  The support-edge
+enumeration shows that when $a+b>1$ none is feasible, proving undefinedness.
+Reflection exchanges $a,b$ and the two neighboring arms.
+\end{proof}
+
+\subsection{Conditional skeleton trace caps}
+
+We now develop the skeleton estimate used only when the center is CE1 or CE2.
+The first lemma is the center contribution.
+
+\begin{lemma}[Center skeleton cap]
+\label{lem:center-skeleton-cap}
+If $T_C$ is a CE1 or CE2 center role and contains exactly one radial
+midpoint, then
+\[
+ L_S(T_C)<\frac32.
+\]
+\end{lemma}
+
+\begin{proof}
+Normalize the unique midpoint as $M_0$ and a positive boundary overlap to
+$e_{0,1}$.  Use the side slacks from
+Proposition~\ref{prop:unique-center-midpoint}, with $0<\lambda<1$ and
+$\rho=\sqrt{1-\lambda+\lambda^2}$.  Put
+\[
+ X=F_0(O),\qquad Y=F_2(O),\qquad P=\rho(1-\rho).
+\]
+The positive-length condition $s<t$ is equivalent to
+\begin{equation}
+ X+(1-\lambda)Y<P.
+ \label{eq:center-skeleton-domain}
+\end{equation}
+The boundary trace on $e_{0,1}$ is
+\[
+ \ell_{01}=1-\lambda+Y-\frac{X+Y+1-\rho}{\lambda},
+\]
+and the possible second trace on $e_{5,0}$ has length
+\[
+ \ell_{50}=
+ \left[\frac{P-(\lambda X+Y)}{1-\lambda}\right]_+.
+\]
+Parametrizing the six radial arms by distance from $O$, direct substitution
+in the three side slacks gives the upper bounds
+\[
+ \begin{array}{c|cccccc}
+ i&0&1&2&3&4&5\\ \hline
+ \mathcal H^1(T_C\cap r_i)
+ &\rho-X-Y&Y/\lambda&Y&
+ \min\{X/\lambda,Y/(1-\lambda)\}&X&X/(1-\lambda).
+ \end{array}
+\]
+Adding boundary and radial contributions yields
+\[
+ L_S(T_C)\le K_\lambda+\mathcal E(X,Y),
+\]
+where
+\[
+ K_\lambda=1-\lambda+\rho-\frac{1-\rho}{\lambda}
+\]
+and
+\[
+ \mathcal E(X,Y)=
+ -\frac X\lambda+\frac X{1-\lambda}+Y
+ +\min\left\{\frac X\lambda,\frac Y{1-\lambda}\right\}
+ +\left[\frac{P-(\lambda X+Y)}{1-\lambda}\right]_+.
+\]
+Splitting according to which term realizes the minimum and whether the
+positive part vanishes gives, in all four cases,
+\begin{equation}
+ \mathcal E(X,Y)\le\frac{P}{1-\lambda}.
+ \label{eq:center-skeleton-E-bound}
+\end{equation}
+For example, if $X/\lambda\le Y/(1-\lambda)$, the expression without the
+positive part is $X/(1-\lambda)+Y$; if the positive part is active, the
+excess over $P/(1-\lambda)$ is
+$X-\lambda Y/(1-\lambda)\le0$.  In the opposite order, the corresponding
+excess is $Y-(1-\lambda)X/\lambda\le0$.  If the positive part vanishes,
+\eqref{eq:center-skeleton-domain} gives the same bound strictly.
+
+It remains only to estimate a one-variable expression:
+\[
+ \frac32-K_\lambda-\frac{P}{1-\lambda}
+ =\frac{1+A-2\rho A}{2\lambda(1-\lambda)},
+ \qquad A=1+\lambda-\lambda^2.
+\]
+Both sides in $1+A>2\rho A$ are positive, and
+\[
+ (1+A)^2-4A^2\rho^2
+ =\lambda^2(1-\lambda)^2(5+4\lambda-4\lambda^2)>0.
+\]
+Thus $K_\lambda+P/(1-\lambda)<3/2$, proving the lemma.
+\end{proof}
+
+\begin{lemma}[Positive-support skeleton cap]
+\label{lem:positive-support-skeleton-cap}
+Let $T_i$ be the closure of an original open vertex role, so
+$V_i\in\mathrm{int}(T_i)$.  If $T_i$ has positive-length intersection with
+an adjacent radial arm, then
+\[
+ L_S(T_i)<\frac32.
+\]
+\end{lemma}
+
+\begin{proof}
+Normalize to $i=0$ and translate the hexagon by $V_0$:
+\[
+ \widetilde H=V_0+H,\qquad \widetilde O=V_0,\qquad W_j=V_0+V_j.
+\]
+Then $W_3=O$, $W_2=V_1$, and $W_4=V_5$.  The five original skeleton
+components on which a unit triangle containing $V_0$ can have
+positive-length trace are
+\[
+ [V_0,V_1],\ [V_0,V_5],\ [O,V_1],\ [O,V_0],\ [O,V_5].
+\]
+All five belong to the skeleton $\widetilde S$ of $\widetilde H$.  Since
+$V_0=\widetilde O$ is interior to $T_0$, the triangle is a legitimate center
+role for $\widetilde H$.  Its positive adjacent-arm trace is a positive
+boundary-edge trace of $\widetilde H$, so it is CE1 or CE2 by
+Proposition~\ref{prop:ce-classification}.  Proposition
+\ref{prop:unique-center-midpoint} and Lemma~\ref{lem:center-skeleton-cap}
+therefore give
+\[
+ L_{\widetilde S}(T_0)<\frac32.
+\]
+A nonlocal component of $S$ is more than unit distance from the interior
+point $V_0$, apart from zero-measure endpoints.  Hence
+$L_S(T_0)\le L_{\widetilde S}(T_0)$.
+\end{proof}
+
+\begin{lemma}[No-support skeleton cap]
+\label{lem:no-support-skeleton-cap}
+If a vertex role has $A_i+B_i\le1$ and no positive-length trace on either
+adjacent radial arm, then
+\[
+ L_S(T_i)\le2.
+\]
+\end{lemma}
+
+\begin{proof}
+Its boundary contribution is $A_i+B_i\le1$ by
+\eqref{eq:vertex-boundary-locality}.  For $P=sV_j\in r_j\setminus\{O\}$,
+\[
+ \lVert V_i-P\rVert^2
+ =1+s^2-2s\cos\frac{(j-i)\pi}{3}>1
+\]
+when $j\notin\{i-1,i,i+1\}$.  The two adjacent arms have zero-length trace
+by hypothesis, so only the own unit arm can contribute positive length.
+This adds at most one.
+\end{proof}
+
+For the remaining cap we use one specialized part of the exact local
+equilateral enclosure criterion.  In local directions $u,v$ meeting at
+$120^\circ$, suppose a closed unit triangle contains
+\[
+ 0,\quad au,\quad bv,\quad c(u+v),
+\]
+with $0\le a\le b\le1$ and $a+b>1$.  The support-line calculation gives the
+selected supercritical cell
+\begin{equation}
+ \begin{aligned}
+ &a^2+ab+b^2\le1,\qquad c\le\frac12,\\
+ &(a^2-1)c^2+(2ab^2+b)c+(b^4-b^2)\le0,
+ \end{aligned}
+ \label{eq:supercritical-admissible-cell}
+\end{equation}
+where $c$ lies on the connected component containing $c=0$.  To see the
+selector directly, the quadratic is negative at $c=0$, positive at
+$c=1/2$, and opens downward.  For the middle assertion, four times its value
+at $1/2$ is increasing in $a$ and, at $a=1-b$, equals
+$b^2(2b-1)^2$; it is therefore positive when $a+b>1$.
+Hence $c\le1/2$ selects its smaller-root component.  Formula
+\eqref{eq:supercritical-admissible-cell} follows by
+fixing in the support sum the three active contacts $\{B\}$,
+$\{B,c(u+v)\}$, and $\{A\}$, and squaring the positive unit-side equation.
+
+\begin{lemma}[Supercritical skeleton cap]
+\label{lem:supercritical-skeleton-cap}
+If $A_i+B_i>1$, then
+\[
+ L_S(T_i)<\frac32.
+\]
+\end{lemma}
+
+\begin{proof}
+Theorem~\ref{thm:neighbor-ray-capacity} excludes both adjacent arms.  Thus,
+after normalizing and writing $a=A_i$, $b=B_i$, the skeleton trace has length
+$a+b+c$, where $c$ is the own-arm reach.  Reflect so that $a\le b$, and put
+\[
+ s=a+b,\qquad \delta=b-a,\qquad c_0=\frac32-s.
+\]
+The diameter constraint gives
+\[
+ 1<s\le\frac2{\sqrt3},\qquad
+ 0\le\delta\le\sqrt{4-3s^2}.
+\]
+Let $P(c)$ denote the quadratic in
+\eqref{eq:supercritical-admissible-cell}.  Substitution and multiplication by
+$16$ give
+\[
+ \begin{aligned}
+ 16P(c_0)=Q(s,\delta)
+ &=\delta^4+8\delta^3s-6\delta^3+14\delta^2s^2-18\delta^2s+5\delta^2\\
+ &\quad-8\delta s^3+30\delta s^2-34\delta s+12\delta\\
+ &\quad+s^4-6s^3-19s^2+60s-36.
+ \end{aligned}
+\]
+Its derivative factors as
+\[
+ \frac{\partial Q}{\partial\delta}
+ =2(2\delta+4s-3)
+ \bigl(\delta^2+\delta(4s-3)+(s-1)(2-s)\bigr)\ge0.
+\]
+Therefore
+\[
+ Q(s,\delta)\ge Q(s,0)
+ =(s-1)(s^3-5s^2-24s+36)>0.
+\]
+Indeed, the cubic is decreasing on $[1,2/\sqrt3]$ and at its right endpoint
+equals $88/3-136\sqrt3/9>0$.  Hence $P(c_0)>0$.  Since
+\eqref{eq:supercritical-admissible-cell} selects the smaller-root component,
+$P(c)\le0$ forces $c<c_0$.  Thus $a+b+c<3/2$.
+\end{proof}
+
+\begin{lemma}[A positive-support rescuer is forced]
+\label{lem:positive-support-rescuer}
+Suppose $T_C$ is CE1 or CE2 and, after symmetry, contains exactly $M_0$.  If
+at least two vertex rows are supercritical, then a vertex role distinct from
+a chosen supercritical role has positive-length adjacent-arm support.
+\end{lemma}
+
+\begin{proof}
+Choose a supercritical index $s\ne0$.  Lemma~\ref{lem:self-midpoint} gives
+$M_s\notin T_s$, and $M_s\notin T_C$ by the unique-midpoint property.  In
+the original open cover, $M_s$ is therefore contained by some other open
+vertex role.  Diameter one restricts this role to $U_{s-1}$ or $U_{s+1}$.
+Because it contains an interior point of the adjacent arm, its intersection
+with that arm has positive length.
+\end{proof}
+
+\begin{theorem}[Conditional skeleton obstruction]
+\label{thm:conditional-skeleton-obstruction}
+If $T_C$ is CE1 or CE2, $O\in\mathrm{int}(T_C)$, and $N_+\ge2$, the seven
+roles cannot cover $S$.
+\end{theorem}
+
+\begin{proof}
+Proposition~\ref{prop:unique-center-midpoint} supplies the exact-one-midpoint
+hypothesis.  Two supercritical roles, the forced positive-support rescuer,
+and the center each contribute strictly less than $3/2$, by
+Lemmas~\ref{lem:supercritical-skeleton-cap},
+\ref{lem:positive-support-rescuer},
+\ref{lem:positive-support-skeleton-cap}, and
+\ref{lem:center-skeleton-cap}.  The remaining three rows contribute at most
+$2$ each; a further positive-support or supercritical row only improves this
+estimate.  Therefore
+\[
+ L_S(T_C)+\sum_{i=0}^5L_S(T_i)
+ <\frac32+2\left(\frac32\right)+\frac32+3\cdot2=12,
+\]
+contradicting \eqref{eq:length-subadditivity} and
+$\mathcal H^1(S)=12$.
+\end{proof}
+
+\begin{proposition}[CE2 mixed positive-support obstruction]
+\label{prop:ce2-mixed-positive-support-length}
+Assume $T_C$ is CE2, $N_+=1$, exactly one vertex role is Vd1 or Vd2, and
+$k\ge1$ additional vertex roles have positive-length adjacent-arm support.
+Then the seven roles cannot cover $S$.
+\end{proposition}
+
+\begin{proof}
+The unique supercritical role has no adjacent support by
+Theorem~\ref{thm:neighbor-ray-capacity}; it is therefore distinct from the
+Vd1/Vd2 role and the $k$ additional positive-support roles.  The center,
+supercritical role, Vd1/Vd2 role, and the $k$ additional roles all have
+skeleton trace strictly below $3/2$.  Each of the remaining $4-k$ roles is
+nonsupercritical and has no adjacent support, so its trace is at most $2$.
+Consequently
+\[
+ L_S(T_C)+\sum_{i=0}^5L_S(T_i)
+ <\frac32(3+k)+2(4-k)=\frac{25-k}{2}\le12.
+\]
+For $k=1$ the numerical right side equals $12$, but the preceding trace
+bounds are strict, so the total is still strictly below $12$.
+\end{proof}
+
+\subsection{Diagonal trace caps}
+
+\begin{theorem}[Diagonal trace table]
+\label{thm:diagonal-trace-table}
+For closures of original open roles,
+\[
+ \begin{array}{c|c|c}
+ \text{role}&\text{hypothesis}&L_D\\ \hline
+ T_C&\mathrm{CE1/CE2},\ O\in\mathrm{int}(T_C)&<\dfrac32\\[3pt]
+ T_i&\mathrm{Vd0},\ A_i+B_i\le1&\le1\\
+ T_i&\mathrm{Vd0},\ A_i+B_i>1&<\dfrac12\\
+ T_i&\text{T3-like}&<\dfrac12.
+ \end{array}
+ \label{eq:diagonal-trace-table}
+\]
+\end{theorem}
+
+\begin{proof}
+A vertex role $T_i$ can meet only $r_{i-1},r_i,r_{i+1}$ in positive length.
+Indeed, for $P=sV_j\in r_j\setminus\{O\}$,
+\[
+ \lVert V_i-P\rVert^2
+ =1+s^2-2s\cos\frac{(j-i)\pi}{3}>1
+\]
+when $j\notin\{i-1,i,i+1\}$.  A Vd0 role therefore meets only its own
+unit arm, proving the first Vd0 cap.  If it is supercritical, the
+self-midpoint obstruction gives $M_i\notin T_i$.  Since $T_i\cap r_i$ is an
+interval containing $V_i$, its length is then strictly below $1/2$.
+
+For the center cap, use the notation $\lambda,\rho,C_0,C_1,C_2$ from
+Proposition~\ref{prop:unique-center-midpoint}.  The positive boundary overlap
+gives
+\[
+ C_0+(1-\lambda)C_2<\rho(1-\rho).
+\]
+Direct radial exit bounds are
+\[
+ \begin{array}{c|cccccc}
+ i&0&1&2&3&4&5\\ \hline
+ \mathcal H^1(T_C\cap r_i)\text{ is at most}
+ &C_1&C_2/\lambda&C_2&C_0/\lambda&C_0&C_0/(1-\lambda).
+ \end{array}
+\]
+Thus, using $C_0+C_1+C_2=\rho$,
+\[
+ \begin{aligned}
+ L_D(T_C)
+ &\le\rho+\frac{C_0+(1-\lambda)C_2}{\lambda(1-\lambda)}\\
+ &<\rho+\frac{\rho(1-\rho)}{1-\rho^2}
+ =\rho+\frac{\rho}{1+\rho}<\frac32.
+ \end{aligned}
+\]
+The last inequality follows from
+\[
+ \frac32-\rho-\frac{\rho}{1+\rho}
+ =\frac{(1-\rho)(2\rho+3)}{2(1+\rho)}>0.
+\]
+
+It remains to treat T3-like roles.  Apply the closed-trace majorant
+$\widehat T$ from Proposition~\ref{prop:t3-translation}, reflected so its
+supported adjacent arm is $r_1$.  In its Type II parameters,
+\[
+ 0<t<1,\quad \Delta=1-t+t^2,\quad z=\sqrt\Delta,\quad0<\beta<z,
+\]
+and positive support is equivalent to
+\[
+ \beta<\frac{z-\Delta}{t}=\frac{(1-t)z}{1+z}.
+\]
+The own-arm length and adjacent-arm length are respectively
+\[
+ c=\frac{\beta}{1-t},\qquad
+ d=\frac{z-\Delta-t\beta}{1-t}.
+\]
+No other arm contributes.  Hence
+\[
+ L_D(T_i)\le L_D(\widehat T)
+ =\beta+\frac{z-\Delta}{1-t}
+ <\frac{z-\Delta}{t(1-t)}
+ =\frac{z}{1+z}<\frac12.
+\]
+\end{proof}
+
+\subsection{Vd1/Vd2 corner estimates}
+
+We next isolate the much stronger trace loss caused by Vd1 and Vd2 geometry.
+For the following two results use the temporary coordinates
+\[
+ X=V_0+x(V_5-V_0)+y(V_1-V_0).
+\]
+Thus $V_0=(0,0)$, $V_5=(1,0)$, $V_1=(0,1)$, $O=(1,1)$, and
+$\lVert(x,y)\rVert^2=x^2+y^2-xy$.
+
+\begin{proposition}[Vd1/Vd2 corner normal form]
+\label{prop:vd-corner-normal-form}
+Let $T$ be the closure of an original Vd1 or Vd2 role at $V_0$, and let
+$a,b$ be its exact reaches toward $V_5,V_1$.  There is a unique $t>0$ such
+that, with $d=\sqrt{t^2+t+1}$,
+\[
+ T=\left\{(x,y):
+ \begin{aligned}
+ x-(t+1)y&\le a,\\
+ ty-(t+1)x&\le tb,\\
+ tx+y&\le d-a-tb
+ \end{aligned}\right\}.
+ \label{eq:vd-normal-form}
+\]
+The raw traces, in coordinates measured from the indicated outer vertex, are
+\[
+ \begin{array}{c|c}
+ r_0&0\le s\le\dfrac{d-a-tb}{t+1}\\[6pt]
+ r_1&\dfrac{t(1-b)}{t+1}\le s\le\dfrac{d-a-tb-1}{t}\\[8pt]
+ r_5&\dfrac{1-a}{t+1}\le s\le d-a-tb-t.
+ \end{array}
+ \label{eq:vd-ray-intervals}
+\]
+Intersecting with $[0,1]$ gives the actual traces.  Moreover,
+\begin{equation}
+ a+b<\frac12.
+ \label{eq:vd-half-cap}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+A Vd1/Vd2 triangle has one vertex $W$ outside $H$ and two vertices $U,Z$
+in $H$.  Since $V_0$ is an interior convex combination of them, both
+coordinates of $W$ are negative.  The two axis endpoints $(a,0),(0,b)$ lie
+on distinct sides incident with $W$.  Put $p=U-W$, $q=Z-W$.  Both vectors
+have positive coordinates and satisfy
+\[
+ \lVert p\rVert=\lVert q\rVert=\lVert p-q\rVert=1.
+\]
+The order in which the two sides cross the positive axes selects the
+$60^\circ$ rotation
+\[
+ q=(p_x-p_y,p_x),\qquad p_x>p_y>0.
+\]
+Writing $t=(p_x-p_y)/p_y$ gives uniquely
+\[
+ p=\frac{(t+1,1)}d,\qquad q=\frac{(t,t+1)}d.
+\]
+The two side lines through the axis endpoints and the parallel third side
+are exactly those in \eqref{eq:vd-normal-form}.  Substitution of
+$(s,s),(s,1),(1,s)$ gives \eqref{eq:vd-ray-intervals}.
+
+If the $r_1$ trace has positive length, its lower endpoint is smaller than
+its upper endpoint.  Clearing denominators gives
+\[
+ (t+1)a+tb<(t+1)(d-1)-t^2.
+\]
+Since the left side is at least $t(a+b)$,
+\[
+ a+b<\frac{(t+1)(d-1)-t^2}{t}<\frac12.
+\]
+For the last inequality, both sides are positive and
+\[
+ \left(t^2+\frac{3t}{2}+1\right)^2
+ -(t+1)^2(t^2+t+1)=\frac{t^2}{4}>0.
+\]
+Reflection proves the same conclusion when the supported arm is $r_5$.
+\end{proof}
+
+\begin{lemma}[Vd2 neighboring-midpoint cap]
+\label{lem:vd2-neighbor-midpoint-cap}
+If an original Vd2 role contains either neighboring midpoint, then its exact
+boundary reaches satisfy
+\[
+ a+b<\frac13.
+\]
+\end{lemma}
+
+\begin{proof}
+In Proposition~\ref{prop:vd-corner-normal-form}, reflection sends
+$(t,a,b,M_1,M_5)$ to $(1/t,b,a,M_5,M_1)$, so assume $t\ge1$ and put
+$U=a+tb$.
+
+If $M_5=(1,1/2)$ is contained, the third half-plane in
+\eqref{eq:vd-normal-form} gives
+\[
+ a+b\le U\le d-t-\frac12\le\sqrt3-\frac32<\frac13;
+\]
+the middle expression decreases for $t\ge1$.
+
+If $M_1=(1/2,1)$ is contained, the second and third half-planes give
+\[
+ b\ge\frac{t-1}{2t},\qquad
+ a+b\le S(t):=d-t-\frac1{2t}.
+\]
+Positive-length contact with the other adjacent arm $r_5$ gives, by
+\eqref{eq:vd-ray-intervals},
+\[
+ a+b<R(t):=\frac{2(t+1)d-3t^2-t-2}{2t}.
+\]
+Direct differentiation shows that $S$ is increasing and $R$ decreasing on
+$[1,\infty)$.  For example, the sign calculation for $S'$ reduces to
+\[
+ (2t+1)^2t^4-(t^2+t+1)(2t^2-1)^2
+ =(t+1)(t^3+3t^2-1)>0,
+\]
+while $R'<0$ follows from $d>t+1/2$.  Splitting at $t=4/3$ yields
+\[
+ \begin{aligned}
+ 1\le t\le\frac43&:\quad
+ a+b\le S(4/3)=\frac{8\sqrt{37}-41}{24}<\frac13,\\
+ t\ge\frac43&:\quad
+ a+b<R(4/3)=\frac{7\sqrt{37}-39}{12}<\frac13.
+ \end{aligned}
+\]
+The final inequalities follow respectively from
+$8\sqrt{37}<49$ and $7\sqrt{37}<43$.
+\end{proof}
+
+\subsection{Exact center intervals and boundary trace caps}
+
+The next two lemmas turn the unique-midpoint normalization from
+Proposition~\ref{prop:unique-center-midpoint} into exact boundary data.
+
+\begin{lemma}[CE1 maximal interval]
+\label{lem:ce1-maximal-interval}
+Normalize an exact-$M_0$ CE1 center triangle so that its only
+positive-length boundary trace is
+\[
+ T_C\cap e_{0,1}=[s,t].
+\]
+Then $0<s<t<1$ and
+\begin{equation}
+ t\le f(s):=\sqrt{s^2-s+1}-(1-s)^2.
+ \label{eq:ce1-interval-frontier}
+\end{equation}
+In the closed relaxation $O\in T_C$, the maximal intervals under inclusion
+are exactly $[s,f(s)]$, $0<s<1$.  They are mutually incomparable.
+\end{lemma}
+
+\begin{proof}
+Use the side slacks in the proof of
+Proposition~\ref{prop:unique-center-midpoint}.  Exact $M_0$ and positive
+overlap force $0<\lambda<1$.  The center condition gives
+\[
+ t\le\rho-\lambda(1-s),\qquad
+ \rho=\sqrt{1-\lambda+\lambda^2}.
+\]
+Since CE1 has no positive-length trace on $e_{5,0}$, restricting the slacks
+to that edge gives
+\[
+ t\ge\rho-\frac{\lambda^2}{1-\lambda}s.
+\]
+Compatibility implies $\lambda\ge1-s$.  Put $q=1-s$ and write
+$\lambda=q+d$, $d\ge0$.  Then
+\[
+ t\le\sqrt{1-\lambda+\lambda^2}-q\lambda
+     \le\sqrt{1-q+q^2}-q^2=f(s).
+\]
+For completeness, the second inequality follows after squaring from
+\[
+ d(1-q^2)\le1-2q+2q\sqrt{1-q+q^2};
+\]
+its left side is at most $(1-q)(1-q^2)$, and the difference is
+\[
+ q\sqrt{1-q+q^2}\left(2-\sqrt{1-q+q^2}\right)>0.
+\]
+
+For $0<s<1$, choose $\lambda=1-s$ and
+$t=f(s)$.  Both displayed center and no-$e_{5,0}$ inequalities are equalities.
+The target length is
+\[
+ t-s=\rho-\rho^2=\rho(1-\rho)>0,
+ \qquad \rho=\sqrt{s^2-s+1},
+\]
+and direct substitution gives the strict exclusions of $M_1$ and $M_5$;
+the remaining midpoints are then excluded by the same side slacks.  Thus the
+frontier is feasible in the closed relaxation.  Finally,
+\[
+ f'(s)=2-2s+\frac{2s-1}{2\sqrt{s^2-s+1}}>0,
+\]
+so two different frontier intervals have both left and right endpoints
+strictly ordered and neither contains the other.
+\end{proof}
+
+\begin{lemma}[CE2 interval-pair characterization]
+\label{lem:ce2-interval-pairs}
+Normalize an exact-$M_0$ CE2 center triangle so that
+\[
+ T_C\cap e_{5,0}=[x,u],\qquad
+ T_C\cap e_{0,1}=[y,v].
+\]
+Put $S_0=x+y$ and $\Delta=\sqrt{x^2+xy+y^2}$.  The feasible interval pairs
+are exactly those satisfying
+\[
+ 0<x<u<1,qquad0<y<v<1,
+ \label{eq:ce2-positive-intervals}
+\]
+\begin{equation}
+ (u+v)S_0-xy=\Delta,
+ \label{eq:ce2-coupling}
+\end{equation}
+\begin{equation}
+ uS_0\ge x,\quad vS_0\ge y,\qquad
+ uS_0<x+\frac y2,\quad vS_0<y+\frac x2.
+ \label{eq:ce2-midpoint-domain}
+\end{equation}
+Every such pair is maximal under product interval inclusion.  This is the
+exact maximal \emph{closed} interval-pair domain.  When the pair is the
+closure of an original open center role, the two center inequalities retain
+the strict form
+\[
+ uS_0>x,\qquad vS_0>y.
+\]
+\end{lemma}
+
+\begin{proof}
+The point $V_0$ cannot belong to $T_C$: otherwise $O,V_0$, at distance one,
+would be two vertices of the unit triangle, and its third vertex would be
+$V_1$ or $V_5$, allowing only one of the two stated boundary overlaps.  The
+unique side violated at $V_0$ therefore cuts the two initial endpoints
+$x,y$.  Its outward normal and the two rotations by $120^\circ$ are
+\[
+ n_2=\frac{1}{2\Delta}(\sqrt3(x+y),y-x),\qquad
+ n_0=R_{2\pi/3}n_2,\qquad n_1=R_{-2\pi/3}n_2.
+\]
+Writing the triangle as $n_j\cdot X\le\alpha_j$, the four endpoints give
+\[
+ \begin{aligned}
+ \alpha_2&=\frac{\sqrt3(S_0-xy)}{2\Delta},\\
+ \alpha_0&=\frac{\sqrt3(vS_0-y)}{2\Delta},\\
+ \alpha_1&=\frac{\sqrt3(uS_0-x)}{2\Delta}.
+ \end{aligned}
+\]
+The unit side condition $\alpha_0+\alpha_1+\alpha_2=\sqrt3/2$ is precisely
+\eqref{eq:ce2-coupling}.  The conditions $O\in T_C$ are the first two weak
+inequalities in \eqref{eq:ce2-midpoint-domain}.  Substitution of $M_1$ and
+$M_5$ shows that their exclusion is exactly the last two strict inequalities;
+these also exclude $M_2,M_3,M_4$, while the weak inequalities imply
+$M_0\in T_C$.  Restricting the three side slacks to the two target edges
+gives exactly $[x,u]$ and $[y,v]$.  On each remaining edge one of the
+following necessary slack sums is negative:
+\[
+ \Delta+xy-(2x+y),\qquad
+ \Delta+xy-(x+2y),
+\]
+because
+\[
+ \begin{aligned}
+ (2x+y-xy)^2-\Delta^2
+ &=x\bigl(x(1-y)(3-y)+y(3-2y)\bigr)>0,\\
+ (x+2y-xy)^2-\Delta^2
+ &=y\bigl(x(3-2x)+y(1-x)(3-x)\bigr)>0.
+ \end{aligned}
+\]
+Thus there are no further positive boundary traces.
+
+For maximality define
+\[
+ F(x,y)=\frac{\Delta+xy}{x+y}=u+v.
+\]
+The weak center inequalities imply the start domain
+$2x+2y-xy\ge1$.  On it,
+\[
+ \frac{\partial F}{\partial x}
+ =\frac{y(x-y+2y\Delta)}{2\Delta(x+y)^2}>0,
+ \quad
+ \frac{\partial F}{\partial y}
+ =\frac{x(y-x+2x\Delta)}{2\Delta(x+y)^2}>0.
+\]
+If another feasible pair product-dominated the given one, its initial
+coordinates would be no larger and its terminal coordinates no smaller.
+Monotonicity would make its terminal sum no larger, while domination makes it
+no smaller.  Equality forces all four endpoints to agree.
+\end{proof}
+
+\begin{theorem}[Boundary trace table]
+\label{thm:boundary-trace-table}
+For closures of original open roles, the following bounds hold:
+\[
+ \begin{array}{c|c|c}
+ \text{role}&\text{hypothesis}&L_{\partial H}\\ \hline
+ T_C&\mathrm{CE0}&0\\
+ T_C&\mathrm{CE1}&\le\dfrac{\sqrt3}{2}-\dfrac34\\[3pt]
+ T_C&\mathrm{CE2}&<\dfrac12\\[3pt]
+ T_i&\mathrm{Vd0},\ A_i+B_i\le1&\le1\\
+ T_i&\mathrm{Vd0},\ A_i+B_i>1&\le\dfrac2{\sqrt3}\\[3pt]
+ T_i&\mathrm{Vd1/Vd2}&<\dfrac12\\
+ T_i&\text{T3-like}&<1.
+ \end{array}
+ \label{eq:boundary-trace-table}
+\]
+\end{theorem}
+
+\begin{proof}
+For every vertex role,
+\begin{equation}
+ L_{\partial H}(T_i)=A_i+B_i.
+ \label{eq:vertex-boundary-locality}
+\end{equation}
+Indeed, the two incident traces are initial intervals of these lengths.  A
+relative-interior point of any nonincident edge is more than unit distance
+from $V_i$, whereas $V_i$ is interior to the diameter-one triangle $T_i$.
+This excludes any other positive-length boundary trace.
+
+The CE0 row is the definition.  In the CE1 row put
+\[
+ \rho=\sqrt{s^2-s+1}\in[\sqrt3/2,1).
+\]
+Lemma~\ref{lem:ce1-maximal-interval} gives
+\[
+ L_{\partial H}(T_C)=t-s\le\rho(1-\rho)
+ \le\frac{\sqrt3}{2}-\frac34.
+\]
+For CE2, Lemma~\ref{lem:ce2-interval-pairs} gives
+\[
+ \begin{aligned}
+ L_{\partial H}(T_C)
+ &=(u-x)+(v-y)\\
+ &=\frac{\Delta+xy}{S_0}-S_0
+ =\frac{\Delta(1-\Delta)}{S_0}.
+ \end{aligned}
+\]
+The center inequalities imply
+$\Delta+xy\ge S_0$, whence $S_0\ge(1+xy)/2>1/2$ after squaring.  Since the
+trace is positive, $0<\Delta<1$, and therefore
+\[
+ L_{\partial H}(T_C)\le\frac1{4S_0}<\frac12.
+\]
+
+For a nonsupercritical Vd0 row, \eqref{eq:vertex-boundary-locality} is enough.
+For a supercritical row, its incident endpoints are at squared distance
+$A_i^2+A_iB_i+B_i^2\le1$, and hence
+\[
+ \frac34(A_i+B_i)^2\le1.
+\]
+This proves the $2/\sqrt3$ cap.  The Vd1/Vd2 row is
+\eqref{eq:vd-half-cap}.  Finally, the Type II calculation in
+Proposition~\ref{prop:t3-translation} gives for an original T3-like role
+\[
+ A_i+B_i=z-\alpha<z<1
+\]
+because $0<t<1$ and $\alpha>0$.
+\end{proof}
+
+\subsection{Terminal length contradictions}
+
+\begin{proposition}[Boundary-length branches]
+\label{prop:boundary-length-branches}
+The following branches are impossible:
+\begin{enumerate}
+ \item CE0 with $N_+=0$;
+ \item CE0 with $N_+=1$ and at least one Vd1/Vd2 role;
+ \item CE1 or CE2 with $N_+=0$ and at least one Vd1/Vd2 role;
+ \item CE1 with $N_+=1$ and at least one Vd1/Vd2 role;
+ \item CE2 with $N_+=1$ and at least two Vd1/Vd2 roles.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+In CE0, the center open role contains no relative-interior boundary point.
+No nonincident vertex role can contain such a point either.  Hence on every
+edge the two incident open vertex traces form two nonempty relatively open
+sets covering a connected interval; they overlap in positive length.  Thus
+\[
+ 1<B_i+A_{i+1}
+\]
+on every edge.  Summing gives
+$6<\sum_i(A_i+B_i)$, contradicting $N_+=0$.  This proves (1).
+
+For the other cases apply Theorem~\ref{thm:boundary-trace-table}.  Put
+\[
+ \gamma_1=\frac{\sqrt3}{2}-\frac34.
+\]
+Vd1, Vd2, and T3-like roles are nonsupercritical, so whenever $N_+=1$ the
+unique supercritical role in these cases is Vd0.  The respective total trace
+bounds are
+\[
+ \begin{array}{c|c}
+ \text{case}&L_{\partial H}(T_C)+\sum_iL_{\partial H}(T_i)\\ \hline
+ \text{CE0, }N_+=1,\ \ge1\text{ Vd1/Vd2}
+ &<\frac12+\frac2{\sqrt3}+4<6\\[3pt]
+ \text{CE1, }N_+=0,\ \ge1\text{ Vd1/Vd2}
+ &<\gamma_1+\frac12+5<6\\[3pt]
+ \text{CE2, }N_+=0,\ \ge1\text{ Vd1/Vd2}
+ &<\frac12+\frac12+5=6\\[3pt]
+ \text{CE1, }N_+=1,\ \ge1\text{ Vd1/Vd2}
+ &<\gamma_1+\frac12+\frac2{\sqrt3}+4<6\\[3pt]
+ \text{CE2, }N_+=1,\ \ge2\text{ Vd1/Vd2}
+ &<\frac12+2\left(\frac12\right)+\frac2{\sqrt3}+3<6.
+ \end{array}
+\]
+Each contradicts \eqref{eq:length-subadditivity} for the length-six boundary.
+The numerical inequalities follow, for example, from
+$9/2+2/\sqrt3<6$ and
+$15/4+7/(2\sqrt3)<6$.
+\end{proof}
+
+\begin{proposition}[Vd2 neighboring-midpoint branch]
+\label{prop:ce2-vd2-midpoint-length}
+Assume a CE2, $N_+=1$ configuration has exactly one Vd1/Vd2 role, that role
+is Vd2 and contains a neighboring midpoint, and all other vertex roles are
+Vd0.  Then the boundary cannot be covered.
+\end{proposition}
+
+\begin{proof}
+Lemma~\ref{lem:vd2-neighbor-midpoint-cap} and
+Theorem~\ref{thm:boundary-trace-table} give
+\[
+ L_{\partial H}(T_C)+\sum_iL_{\partial H}(T_i)
+ <\frac12+\frac13+\frac2{\sqrt3}+4<6.
+\]
+The last inequality is equivalent to $12<7\sqrt3$, whose square is
+$144<147$.
+\end{proof}
+
+\begin{proposition}[At least two T3-like roles]
+\label{prop:t3-diagonal-obstruction}
+Assume the center is CE1 or CE2, $N_+=1$, no vertex role is Vd1 or Vd2,
+and at least two vertex roles are T3-like.  Then the diagonal target $D$
+cannot be covered.
+\end{proposition}
+
+\begin{proof}
+Let $k\ge2$ be the number of T3-like roles.  By
+Lemma~\ref{lem:t3-nonsupercritical}, the unique supercritical role is Vd0;
+$2\le k\le5$, and the remaining $5-k$ roles are nonsupercritical Vd0.
+Theorem~\ref{thm:diagonal-trace-table} gives
+\[
+ L_D(T_C)+\sum_iL_D(T_i)
+ <\frac32+\frac12+\frac{k}{2}+(5-k)
+ =7-\frac{k}{2}\le6,
+\]
+contradicting $\mathcal H^1(D)=6$ and
+\eqref{eq:length-subadditivity}.
+\end{proof}
+
+\begin{proposition}[Branches closed by Strategy 1]
+\label{prop:length-branches}
+Direct length-sum obstructions close precisely the following rows of the
+final routing table:
+\begin{enumerate}
+ \item CE0, $N_+=0$;
+ \item CE0, $N_+=1$, with a Vd1/Vd2 role;
+ \item CE1/CE2, $N_+=0$, with a Vd1/Vd2 role;
+ \item CE1, $N_+=1$, with a Vd1/Vd2 role;
+ \item CE2, $N_+=1$, with at least two Vd1/Vd2 roles;
+ \item CE1/CE2, $N_+=1$, with no Vd1/Vd2 role and at least two
+ T3-like roles;
+ \item CE1/CE2, $N_+\ge2$;
+ \item within the CE2, $N_+=1$ package with exactly one Vd1/Vd2 role, the Vd2
+ neighboring-midpoint subcase and every subcase with an additional
+ positive-support role.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Items (1)--(5) are Proposition~\ref{prop:boundary-length-branches}; item (6)
+is Proposition~\ref{prop:t3-diagonal-obstruction}; item (7) is
+Theorem~\ref{thm:conditional-skeleton-obstruction}; and the two subfamilies
+in item (8) are Propositions~\ref{prop:ce2-vd2-midpoint-length} and
+\ref{prop:ce2-mixed-positive-support-length}.  These are only the indicated
+subcases of the exceptional CE2 row; its remaining placements are handled by
+the exact-demand strategy.
+\end{proof}

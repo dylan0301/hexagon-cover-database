@@ -1,0 +1,361 @@
+\section{Exact local and center formulas}
+\label{app:formulas}
+
+This appendix records the formulas used by the propagation arguments in
+Section~\ref{sec:exact-demand}.  Every radical below denotes its nonnegative
+value, and every algebraic root is restricted to the stated geometric
+contact interval.  This last convention is important: an unrestricted root
+of a squared support equation need not describe an enclosing triangle.
+
+\subsection{The local admissible set}
+
+Put
+\[
+ u=\left(\frac12,\frac{\sqrt3}{2}\right),\qquad
+ v=\left(\frac12,-\frac{\sqrt3}{2}\right)
+\]
+and, for $0\le a,b,c\le1$, let
+\[
+ K(a,b,c)=\conv\{0,au,bv,c(u+v)\}.
+\]
+Write $L_{\min}(a,b,c)$ for the least side length of an equilateral
+triangle containing this set, and let
+\[
+ \mathcal A=\{(a,b,c)\in[0,1]^3:L_{\min}(a,b,c)\le1\}.
+\]
+Set $s=a+b$, $D=(a^2+ab+b^2)^{1/2}$, and
+\[
+ R_a=(a^2-ac+c^2)^{1/2},\qquad
+ R_b=(b^2-bc+c^2)^{1/2}.
+\]
+When $s>0$ and $cs>ab$, define
+\[
+ L_{OA}=b+\max\{a,c\},\qquad
+ L_{BO}=a+\max\{b,c\},
+\]
+\[
+ L_{AC}=
+ \begin{cases}
+ (a^2+bc)/R_a,&a\ge c,\\
+ c(a+b)/R_a,&a<c\le a+b,\\
+ c^2/R_a,&c>a+b,
+ \end{cases}
+\]
+and let $L_{CB}$ be the same formula with $a$ and $b$ interchanged.
+The support-function computation in the proof of
+Proposition~\ref{prop:exact-admissible-set} gives
+\begin{equation}
+ L_{\min}(a,b,c)=
+ \begin{cases}
+ c,&a=b=0,\\
+ D,&s>0\text{ and }cs\le ab,\\
+ \min\{L_{OA},L_{BO},L_{AC},L_{CB}\},
+     &s>0\text{ and }cs>ab.
+ \end{cases}
+ \label{eq:Lmin-support-formula}
+\end{equation}
+
+For the polynomial form, put
+\[
+ m=\min\{a,b\},\quad M=\max\{a,b\},\quad
+ d=a^2+ab+b^2,
+ \quad q=s^4-s^2+ab,
+\]
+\[
+ F_L=c^4-c^2+mc-m^2,
+\]
+\[
+ F_T=(s^2-1)c^2+Mc-M^2,
+\]
+\[
+ F_S=(m^2-1)c^2+(2mM^2+M)c+(M^4-M^2).
+\]
+Then
+\begin{equation}
+ \mathcal A=\mathcal A_L\cup\mathcal A_T\cup\mathcal A_S,
+ \label{eq:admissible-cells}
+\end{equation}
+where
+\[
+ \begin{aligned}
+ \mathcal A_L={}&\{d\le1, s\le1, q\le0, F_L\le0\},\\
+ \mathcal A_T={}&\{d\le1, s\le1, q\ge0, F_T\le0, c\le2M\},\\
+ \mathcal A_S={}&\{d\le1, s>1, F_S\le0, c\le\tfrac12\}.
+ \end{aligned}
+\]
+All three sets are understood to lie in $[0,1]^3$.  The selector
+$c\le2M$ removes the spurious upper sheet of $F_T\le0$, and
+$c\le1/2$ selects the lower component in the supercritical cell.
+
+\subsection{The exact outgoing map}
+
+For $a,c\in[0,1]$, define
+\[
+ B_c(a)=\max\{b\in[0,1]:(a,b,c)\in\mathcal A\},
+ \qquad
+ \beta(a)=\frac{-a+\sqrt{4-3a^2}}2.
+\]
+The fiber is the whole interval $[0,B_c(a)]$.  We now give the finite
+piecewise-algebraic formula used in the proof.  The following catalog assumes
+$0<a,c<1$ and writes $\beta=\beta(a)$; an inapplicable entry is assigned
+$-\infty$.
+
+The inner and axial candidates are
+\[
+ \beta_{\rm in}=
+ \begin{cases}\beta,&c(a+\beta)\le a\beta,\\-\infty,&\text{otherwise},\end{cases}
+ \qquad
+ \beta_{OA}=\min\{\beta,1-\max\{a,c\}\},
+\]
+\[
+ \beta_{BO}=
+ \begin{cases}\min\{\beta,1-a\},&a+c\le1,\\-\infty,&a+c>1.
+ \end{cases}
+\]
+For the two $AC$ contacts set
+\[
+ U_A=\begin{cases}+\infty,&a=c,\\ac/(a-c),&a>c,
+ \end{cases}
+\]
+and
+\[
+ \beta_{AC}^{(1)}=
+ \begin{cases}
+ \min\{\beta,U_A,(R_a-a^2)/c\},
+ &a\ge c\text{ and this minimum is nonnegative},\\
+ -\infty,&\text{otherwise},
+ \end{cases}
+\]
+\[
+ \beta_{AC}^{(2)}=
+ \begin{cases}
+ \min\{\beta,R_a/c-a\},&a<c\text{ and }R_a\ge c^2,\\
+ -\infty,&\text{otherwise}.
+ \end{cases}
+\]
+
+There are three $CB$ contacts.  Define
+\[
+ P_{a,c}(b)=b^4+(2ac-1)b^2+cb+(a^2-1)c^2
+\]
+and
+\[
+ U_H=\begin{cases}
+ \beta,&a\le c,\\
+ \min\{\beta,ac/(a-c)\},&a>c.
+ \end{cases}
+\]
+If $c\le U_H$, let $\rho_H$ denote the largest root of $P_{a,c}$ in
+$[c,U_H]$, when such a root exists.  Then
+\[
+ \beta_{CB}^{(1)}=
+ \begin{cases}
+ U_H,&c\le U_H\text{ and }P_{a,c}(U_H)\le0,\\
+ \rho_H,&c\le U_H, P_{a,c}(U_H)>0,
+              \text{ and }\rho_H\text{ exists},\\
+ -\infty,&\text{otherwise}.
+ \end{cases}
+\]
+Next put
+\[
+ L_M=\max\{0,c-a\},\quad U_M=\min\{c,\beta\},
+\]
+\[
+ Q_{a,c}(b)=(c^2-1)b^2+(2ac^2+c)b+(a^2-1)c^2,
+\]
+\[
+ \Delta_M=(2ac^2+c)^2-4(1-c^2)(1-a^2)c^2,
+ \quad
+ r_\pm=\frac{2ac^2+c\pm\sqrt{\Delta_M}}{2(1-c^2)}
+\]
+when $\Delta_M\ge0$.  The middle contact is
+\[
+ \beta_{CB}^{(2)}=
+ \begin{cases}
+ -\infty,&L_M>U_M,\\
+ U_M,&L_M\le U_M\text{ and }Q_{a,c}(U_M)\le0,\\
+ r_-,&\Delta_M\ge0\text{ and }L_M\le r_-<U_M<r_+,\\
+ -\infty,&\text{otherwise}.
+ \end{cases}
+\]
+If $\Delta_M<0$, the second line applies whenever $L_M\le U_M$.
+Finally set $U_L=\min\{\beta,c-a\}$ and, for $c\ge\sqrt3/2$,
+\[
+ \ell(c)=\frac c2\left(1-\sqrt{4c^2-3}\right),\qquad
+ r(c)=\frac c2\left(1+\sqrt{4c^2-3}\right).
+\]
+Then
+\[
+ \beta_{CB}^{(3)}=
+ \begin{cases}
+ -\infty,&U_L<0,\\
+ U_L,&U_L\ge0\text{ and }c<\sqrt3/2,\\
+ U_L,&c\ge\sqrt3/2\text{ and }
+       (U_L\le\ell(c)\text{ or }U_L\ge r(c)),\\
+ \ell(c),&c\ge\sqrt3/2\text{ and }\ell(c)<U_L<r(c).
+ \end{cases}
+\]
+With
+\[
+ \mathcal B(a,c)=\{\beta_{\rm in},\beta_{OA},\beta_{BO},
+ \beta_{AC}^{(1)},\beta_{AC}^{(2)},
+ \beta_{CB}^{(1)},\beta_{CB}^{(2)},\beta_{CB}^{(3)}\}\setminus\{-\infty\},
+\]
+the final formula is
+\begin{equation}
+ B_c(a)=
+ \begin{cases}
+ \beta(a),&c=0,\\
+ 1,&a=0, 0<c\le1,\\
+ 0,&a=1, 0<c\le1,\\
+ 0,&0<a<1, c=1,\\
+ \max\mathcal B(a,c),&0<a,c<1.
+ \end{cases}
+ \label{eq:exact-B-map}
+\end{equation}
+Every entry in $\mathcal B$ is obtained from one of the exhaustive support
+contacts in~\eqref{eq:Lmin-support-formula}; hence the maximum introduces no
+unverified algebraic branch.
+
+\subsection{The capped nonsupercritical map}
+
+Define
+\[
+ F_c(a)=\min\{B_c(a),1-a\},\qquad G_c(a)=1-F_c(a).
+\]
+For $1/2<c<1$, set
+\[
+ h(c)=\frac{2c}{\sqrt{16c^2-3}+1},
+\]
+\[
+ T_-(a,c)=\frac{\sqrt{a^2-ac+c^2}}c-a,
+\]
+and
+\[
+ T_+(a,c)=
+ \frac{2(1-a^2)c^2}{2ac^2+c+\sqrt{\Delta(a,c)}},
+ \quad
+ \Delta(a,c)=(2ac^2+c)^2-4(1-c^2)(1-a^2)c^2.
+\]
+For $1/2<c\le\sqrt3/2$,
+\begin{equation}
+ F_c(a)=
+ \begin{cases}
+ 1-a,&0\le a\le1-c,\\
+ T_+(a,c),&1-c<a<h(c),\\
+ h(c),&a=h(c),\\
+ T_-(a,c),&h(c)<a<c,\\
+ 1-a,&c\le a\le1.
+ \end{cases}
+ \label{eq:capped-map-low}
+\end{equation}
+For $\sqrt3/2<c<1$,
+\begin{equation}
+ F_c(a)=
+ \begin{cases}
+ 1-a,&0\le a\le1-c,\\
+ T_+(a,c),&1-c<a\le\ell(c),\\
+ \ell(c),&\ell(c)<a<r(c),\\
+ T_-(a,c),&r(c)\le a<c,\\
+ 1-a,&c\le a\le1.
+ \end{cases}
+ \label{eq:capped-map-high}
+\end{equation}
+At $a=\ell(c)$ the value is $r(c)$; immediately to its right it drops to
+$\ell(c)$.  Thus endpoints may not be reassigned by continuity.  The four
+genuine labels are Full, $L$, $T_+$, and $T_-$.  The map is nonincreasing,
+$G_c(a)\ge a$, and reflection of $\mathcal A$ gives the exact duality
+\begin{equation}
+ G_c(a)\le z\quad\Longleftrightarrow\quad
+ G_c(1-z)\le1-a.
+ \label{eq:capped-duality}
+\end{equation}
+
+\subsection{Exact center models}
+
+We record the normalized forms after rotating and, when necessary,
+reflecting so that the unique center-covered midpoint is $M_0$.
+
+For CE1, use affine coordinates
+\[
+ X=V_0+b(V_1-V_0)+a(V_5-V_0)
+\]
+and write $T_C\cap e_{0,1}=[s,t]$.  Put
+\[
+ 0<\lambda<1,\qquad \rho=\sqrt{1-\lambda+\lambda^2},
+\]
+\[
+ \begin{aligned}
+ F_1&=\lambda b+(1-\lambda)a-\lambda s,\\
+ F_2&=-b+\lambda a+t,\\
+ F_0&=(1-\lambda)b-a+\rho+\lambda s-t,
+ \end{aligned}
+\qquad
+ T_C=\{F_0,F_1,F_2\ge0\}.
+\]
+At $O$, the three slacks are
+\[
+ C_0=\rho+\lambda s-t-\lambda,\quad
+ C_1=1-\lambda s,\quad
+ C_2=t+\lambda-1,\quad
+ C_0+C_1+C_2=\rho.
+\]
+The exact closed domain is
+\begin{align*}
+ &0<\lambda<1,\quad0\le s<t\le1,\quad
+ t+\lambda(1-s)\le\rho,\quad t\ge1-\lambda,\\
+ &\lambda s\le\tfrac12,\quad t<1-\tfrac\lambda2,\quad
+ t>\rho+\lambda s-\tfrac{1+\lambda}{2},\quad
+ t\ge\rho-\frac{\lambda^2}{1-\lambda}s.
+\end{align*}
+For the closure of an open center role the first two center slacks satisfy
+$C_0,C_2>0$.  The radial exits $d_i$ and complementary demands $c_i=1-d_i$
+are
+\begin{equation}
+ \begin{aligned}
+ d_0&=1-\lambda s,&c_0&=\lambda s,\\
+ d_1&=C_2/\lambda,&c_1&=1-C_2/\lambda,\\
+ d_2&=C_2,&c_2&=1-C_2,\\
+ d_3&=\min\{C_0/\lambda,C_2/(1-\lambda)\},
+ &c_3&=1-d_3,\\
+ d_4&=C_0,&c_4&=1-C_0,\\
+ d_5&=C_0/(1-\lambda),&c_5&=1-C_0/(1-\lambda).
+ \end{aligned}
+ \label{eq:CE1-exits}
+\end{equation}
+
+For CE2, parameterize the two adjacent edge traces from $V_0$ by
+\[
+ T_C\cap e_{5,0}=[x,u],\qquad T_C\cap e_{0,1}=[y,v]
+\]
+and put
+\[
+ S=x+y,\qquad D=\sqrt{x^2+xy+y^2}.
+\]
+The exact domain is
+\begin{align*}
+ &0<x<u<1,\qquad0<y<v<1,\\
+ &(u+v)S-xy=D,\qquad uS\ge x,\qquad vS\ge y,\\
+ &uS<x+\tfrac y2,\qquad vS<y+\tfrac x2.
+\end{align*}
+The two center inequalities become strict for the closure of an open center
+role: $uS>x$ and $vS>y$.  In particular,
+\begin{equation}
+ u+v=\frac{D+xy}{x+y};
+ \label{eq:CE2-coupling}
+\end{equation}
+the two edge intervals cannot be varied independently.  The exact exits are
+\begin{equation}
+ \begin{aligned}
+ d_0&=1-xy/S,&d_1&=(vS-y)/x,&d_2&=(vS-y)/S,\\
+ d_3&=\min\{(vS-y)/y,(uS-x)/x\},\\
+ d_4&=(uS-x)/S,&d_5&=(uS-x)/y,
+ \end{aligned}
+ \label{eq:CE2-exits}
+\end{equation}
+and again $c_i=1-d_i$.  In both normalized center classes,
+\[
+ d_0\ge\frac12,\qquad d_i<\frac12\ (i\ne0),
+ \qquad
+ c_0\le\frac12,\qquad c_i>\frac12\ (i\ne0).
+\]

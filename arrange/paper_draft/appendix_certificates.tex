@@ -1,0 +1,354 @@
+\section{Exact and interval certificates}
+\label{app:certificates}
+
+This appendix records the finite certificates used above.  A certificate is
+part of the proof only through the exact statement and verification argument
+given here.  The listed programs are reproducibility aids; neither a plot nor
+an unrecorded floating-point convention is used.
+
+\subsection{The finite caliper certificate}
+
+Let $R$ and $J$ denote counterclockwise rotations through $2\pi/3$ and
+$\pi/2$, respectively.  For a nonempty finite set $S\subset\mathbb R^2$ and
+a vector $N$, put
+\begin{equation}
+ W_S(N)=\sum_{k=0}^2\max_{z\in S}\langle z,R^kN\rangle .
+ \label{eq:caliper-support-sum}
+\end{equation}
+
+\begin{theorem}[Finite caliper certificate]
+\label{thm:cert-caliper}
+If $S$ has at least two distinct points, then $S$ is contained in a closed
+unit equilateral triangle if and only if there are distinct $p,q\in S$ and
+$\varepsilon\in\{-1,1\}$ for which
+\begin{equation}
+ W_S\bigl(\varepsilon J(q-p)\bigr)
+ \le \frac{\sqrt3}{2}\lVert p-q\rVert .
+ \label{eq:finite-caliper-test}
+\end{equation}
+If $S$ consists of one point, it is contained in equilateral triangles of
+arbitrarily small positive side length.
+
+For $S_x=\{O,A,B,x\}$, every clause of
+\eqref{eq:finite-caliper-test} is a finite polynomial clause of degree at
+most four in the coordinates of $A,B,x$; at most $12\cdot4^3$ clauses are
+required, and repeated point labels merely delete zero-length pairs.
+\end{theorem}
+
+\begin{proof}
+For a unit vector $n$, write
+\[
+ G_S(n)=\sum_{k=0}^2h_S(R^kn),
+ \qquad h_S(n)=\max_{z\in S}\langle z,n\rangle .
+\]
+The three supporting half-planes with normals $n,Rn,R^2n$ form an
+equilateral triangle of side $2G_S(n)/\sqrt3$.  Hence $S$ fits in a closed
+unit equilateral triangle precisely when
+$\min_{\lVert n\rVert=1}G_S(n)\le\sqrt3/2$.
+
+On an open normal-direction cell on which the three support points are
+fixed, $G_S(\theta)=c\cos\theta+d\sin\theta$ and
+$G_S''=-G_S<0$ unless all points coincide.  Thus a minimum occurs at a
+cell boundary, where some support line contains two distinct points $p,q$.
+After a cyclic rotation of the three normals, its normal is
+$\varepsilon J(q-p)/\lVert p-q\rVert$.  Homogeneity yields
+\eqref{eq:finite-caliper-test}.  A nondegenerate segment is checked directly
+with its two normals.
+
+For the polynomial expansion fix $(p,q,\varepsilon)$, put
+$N=\varepsilon J(q-p)$ and $N_k=R^kN$, and choose support labels
+$z_0,z_1,z_2\in S_x$.  The support cell is
+\begin{equation}
+ \langle z_k,N_k\rangle\ge\langle z,N_k\rangle
+ \quad(z\in S_x,\ k=0,1,2),
+ \label{eq:caliper-cell}
+\end{equation}
+with $\lVert p-q\rVert^2>0$.  Since $W_S(N)\ge0$, the remaining test is
+\begin{equation}
+ 4\left(\sum_{k=0}^2\langle z_k,N_k\rangle\right)^2
+ \le3\lVert p-q\rVert^2.
+ \label{eq:caliper-cell-polynomial}
+\end{equation}
+The points are affine-linear in the parameters, so
+\eqref{eq:caliper-cell}--\eqref{eq:caliper-cell-polynomial} have degree at
+most four.  Six unordered pairs, two signs, and $4^3$ support-label triples
+give the asserted finite exhaustive list.
+\end{proof}
+
+\subsection{The hard four-label interval certificate}
+
+\begin{theorem}[Rational interval certificate for the hard label pair]
+\label{thm:cert-407}
+Let $0\le r\le1$ and $1/2\le\beta\le1$ satisfy the realized
+$T_+^{\mathrm{hi}}$ left-label conditions
+\begin{equation}
+ \beta\ge r,
+ \qquad
+ \beta\ge\frac{1-r^2}{1+2r},
+ \qquad
+ r-(1-\beta)(r+\beta)^2\ge0.
+ \label{eq:407-domain}
+\end{equation}
+Put
+\begin{align}
+ M_\beta&=\sqrt{\beta^2-\beta+1},
+ &M_r&=\sqrt{r^2-r+1},\notag\\
+ B_5&=\frac{\beta M_\beta}{r+\beta},
+ &S_0&=1-\frac{M_\beta}{r+\beta}
+          +\frac{1-r}{1+M_r}.
+ \label{eq:407-certificate-functions}
+\end{align}
+Then
+\begin{equation}
+ S_0<\frac{93}{200}
+ \quad\Longrightarrow\quad
+ B_5<\frac{5657}{10000}
+ <\frac{7-\sqrt{13}}6.
+ \label{eq:407-certificate-target}
+\end{equation}
+\end{theorem}
+
+\begin{proof}[Certificate verification]
+Start with the rational rectangle
+$[0,1]\times[1/2,1]$.  On a box
+$[r_-,r_+]\times[\beta_-,\beta_+]$, discard it when rational interval
+arithmetic proves that one of the three conditions in
+\eqref{eq:407-domain} is impossible.  Enclose each square root from above
+by a rational with denominator $10^{18}$, increasing the numerator until an
+exact integer comparison proves that its square dominates the radicand.
+The box is certified if these outward bounds prove either
+\[
+ B_5<\frac{5657}{10000}
+ \quad\text{or}\quad
+ S_0\ge\frac{93}{200}.
+\]
+Otherwise bisect the longer rational side.  Stop only after certification or
+at width $2^{-30}$.  The exhaustive run has $1174$ certified terminal boxes,
+maximum depth $30$, and no unresolved box.  Their pruning counts are
+\[
+ (112,290,20,752)
+\]
+for, respectively, the $B_5$ bound, the $S_0$ bound, the elementary domain
+conditions, and the cell selector.  Finally
+$(7-6\cdot5657/10000)^2>13$ is an exact rational comparison, proving the
+last inequality in \eqref{eq:407-certificate-target}.
+
+The reproducibility command is
+\begin{verbatim}
+python3 proof/4XXX_CE1CE2/40XX_Nplus0/
+  407X_T3_like_no_Vd1Vd2/407X_computation/
+  407b_T_hi_Tminus_qright_threshold_certificate.py
+\end{verbatim}
+with the line breaks removed.  Its expected final line is
+\texttt{B0 < (7-sqrt(13))/6 verified}.
+\end{proof}
+
+\subsection{The CE1 one-gap Bernstein certificate}
+
+\begin{theorem}[Bernstein certificate for the CE1 terminal map]
+\label{thm:cert-ce1-five-map}
+In the normalized CE1 one-gap domain of
+Proposition~\ref{prop:ce1-one-gap}, let $k\in(0,1/2)$ be the rationalized
+orientation parameter, let $A=\alpha P$ with $0<\alpha<1$, and let
+$D$ range between the exact endpoints
+\[
+ D_0=P-RA,
+ \qquad
+ D_h=A(4R-1)+10RA^2-\eta.
+\]
+For the terminal lower estimate $L_2$ defined there, put
+\[
+ \Psi(R,A,D)=L_2-2D-3D^2.
+\]
+Then $\Psi(R,A,D)>0$ throughout the strict feasible domain.
+\end{theorem}
+
+\begin{proof}[Certificate verification]
+For fixed $R,A$, $\partial_D^2\Psi=-6$; it is enough to verify positivity
+at $D_0$ and $D_h$.  After substituting the rational expressions in
+$(k,\alpha)$ and clearing denominators known to be positive, the numerator
+of $\Psi(D_0)$ has bidegree $(13,3)$ on
+$[0,1/2]\times[0,1]$.  Its $56$ tensor-product Bernstein coefficients are
+positive except for the single coefficient at the boundary index $(0,3)$,
+which is zero; the least positive coefficient is $2187/8192$.  The strict
+feasible domain does not meet the equality represented by that boundary
+coefficient.
+
+The exact feasibility condition $D_h>0$ first implies $k>1/5$.  On
+$[1/5,1/2]\times[0,1]$, the numerator of $\Psi(D_h)$ has bidegree $(21,4)$
+and all $110$ Bernstein coefficients are positive; the least is
+\[
+ \frac{818360091}{28940800000}.
+\]
+The canonical coefficient-tensor SHA-256 digests are, respectively,
+\begin{verbatim}
+831285d98a37fcf362f31a1d8d6859e91a38ec418b5b2df19494c1c05da4d21e
+242eb4af2b3163854095ff91b8c72dd650a5110951771f1a2e9022cae9da9e2e
+\end{verbatim}
+so the printed tensors can be compared byte-for-byte with the stated
+certificate.  Bernstein positivity proves positivity at both endpoints;
+concavity places $\Psi$ above their chord.
+
+The same exact-rational run verifies the auxiliary degree-eight signs used
+to deduce $D<1/10$.  Run
+\begin{verbatim}
+python3 proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/
+  4108_ce1_terminal_verifier.py
+\end{verbatim}
+with the line break removed.  The program uses symbolic rational arithmetic
+and no floating-point comparison.
+\end{proof}
+
+\subsection{The outward-rounded mixed-overlap certificate}
+
+\begin{theorem}[Mixed cap-overlap certificate]
+\label{thm:cert-mixed-overlap}
+In the strict residual-core domain
+\[
+ 0<a,b<1,\qquad a+b>1,\qquad a^2+ab+b^2<1,
+\]
+let $c_*$, $A$, $C$, $\eta$, $\Delta_0$, $u$, and the quantities
+$r_X^0,\ell_X^0,P_X^0$ for $X\in\{A,C\}$ be those of
+Section~\ref{sec:ab-core} and equations
+\eqref{eq:mixed-certificate-quantities} below.  Then
+\begin{equation}
+ r_A^0\ge0,\qquad r_C^0\ge0,\qquad
+ \Delta_0\le0,\qquad P_A^0\ge0,\qquad P_C^0\ge0.
+ \label{eq:mixed-five-signs}
+\end{equation}
+Both $P$ inequalities hold at every fixed asymmetric parameter; reflection
+is used only to restrict the domain to $a\ge b$.
+\end{theorem}
+
+\begin{proof}[Certificate verification]
+Represent a global vector as $(x,(\sqrt3/2)y)$ and put $C'=R^{-1}C$.  For
+$A=(x_A,(\sqrt3/2)y_A)$ and
+$C'=(x',(\sqrt3/2)y')$, define
+\begin{align}
+ \Delta_0&=x_Ay'-y_Ax',&u&=\langle A,C'\rangle,\notag\\
+ r_X^0&=\lVert X\rVert^2-\frac34(1-c_*)^2,
+ &\ell_X^0&=(1-c_*)u-(2c_*-1)\lVert X\rVert^2,\notag\\
+ P_X^0&=r_X^0\Delta_0^2-(\ell_X^0)^2.
+ \label{eq:mixed-certificate-quantities}
+\end{align}
+
+By reflection take $z=a-b\ge0$.  Introduce all variables used by the
+pruning test:
+\begin{equation}
+ \begin{aligned}
+ p&=1-b,& q&=1-a,& s&=p+q,\\
+ U&=1-s=a+b-1,& m&=q,& z&=p-q,
+ \end{aligned}
+ \label{eq:mixed-pruning-variables}
+\end{equation}
+and
+\begin{equation}
+ D^2=z^2+6U+3U^2=4(a^2+ab+b^2)-3.
+ \label{eq:mixed-pruning-D2}
+\end{equation}
+Thus $p=(s+z)/2$, $q=(s-z)/2=m$, and the inverse conversion is
+\begin{equation}
+ a=1-m,\qquad b=1-(s-m).                        \label{eq:mixed-inverse-ab}
+\end{equation}
+
+The selected radial value has two complete rational charts.  On the $L$
+sheet put $x=1+t$ and
+\[
+ c_*=\frac{x^2+3}{4x},\qquad
+ m=\frac{(x^2+3)(x-1)(x+3)}{16x^2},\qquad
+ s=c_*-v.
+\]
+Equivalently,
+\begin{equation}
+ z=s-2m,\qquad p=s-m,\qquad
+ a=1-m,\qquad b=1-s+m.                         \label{eq:L-chart-ab}
+\end{equation}
+The identity $x=2c_*-\sqrt{4c_*^2-3}$ and the displayed formula for $m$
+are exactly the selected-root equation
+$c_*^4-c_*^2+mc_*-m^2=0$.  The actual reflected $L$-sheet domain is the
+subset satisfying
+\[
+ z\ge0,\quad 0<m\le p<1,\quad U>0,\quad 0<D^2<1,\quad
+ c_*\ge s,\quad \chi=s^4-s^2+mp\le0.
+\]
+It is enclosed by the closed rational superrectangle
+\[
+ 0\le t\le\frac34,\qquad 0\le v\le\frac4{25}.
+\]
+Indeed $0\le t\le\sqrt3-1<3/4$ and
+$0\le v\le U<2/\sqrt3-1<4/25$.
+
+On the other sheet put $x=1+t$ and
+\[
+ s=\frac{x^2+3}{4x},\qquad
+ E=\frac{3-x^2}{2x},\qquad
+ c_*=s-v,\qquad z=sE-v(1+E).
+\]
+The exact inverse conversion is
+\begin{equation}
+ m=\frac{s-z}{2},\qquad p=\frac{s+z}{2},\qquad
+ a=1-\frac{s-z}{2},\qquad b=1-\frac{s+z}{2}.   \label{eq:T-chart-ab}
+\end{equation}
+Here $x=2s-\sqrt{4s^2-3}$ and $c_*=(s+z)/(1+E)$, so $v\ge0$ is the
+selected side of the sheet, with $v=0$ its selector face.  Its actual
+reflected domain is the subset satisfying
+\[
+ z\ge0,\quad 0<m\le p<1,\quad U>0,\quad 0<D^2<1,\quad
+ c_*>\frac23,\quad \chi=s^4-s^2+mp\ge0,
+\]
+and it is enclosed by
+\[
+ 0\le t\le\frac34,\qquad 0\le v\le\frac13.
+\]
+The bounds follow from $x\le\sqrt3<7/4$ and $0\le v<1/3$.
+These closed superrectangles include all selector and endpoint faces.  They
+also contain points outside the original domain; proving the certificate
+there only strengthens the enclosure.
+
+Every binary64 endpoint operation is widened by one next-representable
+number toward the relevant infinity.  Rational constants are enclosed from
+both sides.  Square-root endpoints are moved until exact integer-ratio
+comparisons prove that their squares enclose the radicand.  Thus the square
+root step has no unverified library-rounding premise.
+
+A box is pruned only when outward intervals prove that it cannot satisfy a
+necessary domain condition
+\[
+ x^2\le3,\quad z\ge0,\quad m\ge0,\quad U\ge0,\quad0\le D^2\le1,
+\]
+and, on the second sheet, $c_*>2/3$.  Before certification, the entire box
+must lie in $D^2>0$ and the two Newton denominators must have negative upper
+endpoints.  For each target $f$, centered first-order interval automatic
+differentiation uses
+\[
+ f(B)\subseteq f(t_0,v_0)+\partial_t f(B)(t-t_0)
+                         +\partial_v f(B)(v-v_0).
+\]
+Unresolved boxes are bisected along the larger relative chart width through
+depth $16$.
+
+On the $L$ chart the run processes $21040$ boxes, prunes $1258$, certifies
+$9907$, and leaves none unresolved; the least certified lower bound for a
+mixed $P$ is
+\[
+ 2.522678787629918\cdot10^{-7}.
+\]
+On the other chart it
+processes $18574$, prunes $222$, certifies $9208$, and leaves none
+unresolved; the corresponding least bound is
+\[
+ 9.92316118814129\cdot10^{-7}.
+\]
+The deterministic output reports
+\texttt{result: PASS} and \texttt{total\_unresolved\_boxes: 0}.
+
+The reproduction command is
+\begin{verbatim}
+python3 proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/
+  3103X_residual_core/3103X_computation/
+  verify_tangent_witness_mixed_overlap.py
+\end{verbatim}
+with line breaks removed.  Directed enclosure of every retained box and
+exhaustive bisection of both superrectangles prove
+\eqref{eq:mixed-five-signs} on the full parameter domain.
+\end{proof}

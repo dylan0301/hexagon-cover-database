@@ -1,0 +1,1982 @@
+\section{Strategy 2: exact boundary--radial demand propagation}
+\label{sec:exact-demand}
+
+This section treats the configurations in which a coarse length sum does not
+by itself record enough information.  The mechanism is always the same.  A
+center trace fixes boundary inputs and complementary radial demands; an exact
+local map propagates these data through nonsupercritical rows; and the
+returning demand exceeds the remaining boundary or radial capacity.
+
+Actual maximal reaches continue to be denoted by $(A_i,B_i,C_i)$, while
+lowercase letters denote prescribed demands.  The only machine-assisted
+statements used in this section are the rational interval certificate
+Theorem~\ref{thm:cert-407} and the exact Bernstein certificate
+Theorem~\ref{thm:cert-ce1-five-map}, both in
+Appendix~\ref{app:certificates}.  All other estimates in this section are
+proved analytically.  In particular, no empirical branch catalogue and no
+formal root from a discarded algebraic component is used.
+
+\subsection{The exact local feasible set}
+
+Put
+\[
+ u=\left(\frac12,\frac{\sqrt3}{2}\right),\qquad
+ v=\left(\frac12,-\frac{\sqrt3}{2}\right).
+\]
+For $0\le a,b,c\le1$ define
+\[
+ K(a,b,c)=\conv\{0,au,bv,c(u+v)\}.
+\]
+Thus $a,b$ are lower demands on the two incident boundary rays and $c$ is a
+lower demand on the inward radial ray.
+
+\begin{definition}
+\label{def:admissible-demands}
+The local admissible set is
+\[
+ \begin{aligned}
+ \mathcal A=\{(a,b,c)\in[0,1]^3:\;&K(a,b,c)\text{ is contained}\\
+ &\text{in a closed unit equilateral triangle}\}.
+ \end{aligned}
+\]
+For $a,c\in[0,1]$ put
+\[
+ \begin{aligned}
+ B_c(a)&=\max\{b:(a,b,c)\in\mathcal A\},\\
+ F_c(a)&=\min\{B_c(a),1-a\},\\
+ G_c(a)&=1-F_c(a).
+ \end{aligned}
+\]
+\end{definition}
+
+The distinction between demands and actual reaches is important.  If a role
+has actual reaches $(A,B,C)$ and $A\ge a$, $C\ge c$, then $(a,B,c)$ is a
+demand triple realized by the same role.  If in addition $A+B\le1$, then
+\begin{equation}
+ B\le F_c(a).
+ \label{eq:safe-capped-bound}
+\end{equation}
+No assertion about the type of a maximizing triangle is required.
+
+\begin{proposition}[Exact admissible set and radial envelope]
+\label{prop:exact-admissible-set}
+\label{prop:local-admissible}
+Put
+\[
+ s=a+b,\qquad d=a^2+ab+b^2,\qquad
+ m=\min\{a,b\},\qquad M=\max\{a,b\},
+\]
+and
+\[
+ q=s^4-s^2+ab.
+\]
+Define
+\begin{align*}
+ F_L(a,b,c)&=c^4-c^2+mc-m^2,\\
+ F_T(a,b,c)&=(s^2-1)c^2+Mc-M^2,\\
+ F_S(a,b,c)&=(m^2-1)c^2+(2mM^2+M)c+M^4-M^2.
+\end{align*}
+Then $\mathcal A=\mathcal A_L\cup\mathcal A_T\cup\mathcal A_S$, where
+\begin{align*}
+ \mathcal A_L&=\{d\le1, s\le1, q\le0, F_L\le0\},\\
+ \mathcal A_T&=\{d\le1, s\le1, q\ge0, F_T\le0, c\le2M\},\\
+ \mathcal A_S&=\{d\le1, s>1, F_S\le0, c\le\tfrac12\}.
+\end{align*}
+All variables in these three sets are also constrained to $[0,1]$.
+
+For $d\le1$, the maximal radial demand is
+\begin{equation}
+ c_{\max}(a,b)=
+ \begin{cases}
+  1,&a=b=0,\\
+  C_L(m),&s\le1, q\le0, (a,b)\ne(0,0),\\
+  C_T(m,M),&s\le1, q>0,\\
+  C_S(m,M),&s>1,
+ \end{cases}
+ \label{eq:radial-envelope}
+\end{equation}
+where $C_L(m)$ is the unique root in $[\sqrt3/2,1]$ of
+\[
+ z^4-z^2+mz-m^2=0,
+\]
+and
+\[
+ C_T(m,M)=\frac{2M}{1+\sqrt{4s^2-3}},
+\qquad
+ C_S(m,M)=
+ \frac{M(2mM+1)-M\sqrt{4d-3}}{2(1-m^2)}.
+\]
+If $d>1$, the radial envelope is undefined.  At $q=0$ the two subcritical
+formulas agree and equal $s$.
+\end{proposition}
+
+\begin{proof}
+If $s>0$ and $cs\le ab$, then $c/a+c/b\le1$ (with the zero-coordinate
+cases obtained by continuity), so $c(u+v)$ lies in
+$\conv\{0,au,bv\}$.  Its minimum enclosing equilateral side is the diameter
+\[
+ \sqrt{a^2+ab+b^2}.
+\]
+Assume now that $cs>ab$.  The four points occur cyclically as
+$0,bv,c(u+v),au$.  For three outward unit normals separated by
+$120^\circ$, the required side equals $2/\sqrt3$ times the sum of the three
+support values.  On an angular cell with fixed support points this sum has
+second derivative equal to its negative.  Hence an angular minimum occurs
+when a normal is perpendicular to one of the four hull edges.  The four
+resulting side lengths are
+\begin{align*}
+ L_{0A}&=b+\max\{a,c\},&
+ L_{B0}&=a+\max\{b,c\},\\
+ L_{AC}&=
+ \begin{cases}
+ (a^2+bc)/\sqrt{a^2-ac+c^2},&a\ge c,\\
+ c(a+b)/\sqrt{a^2-ac+c^2},&a<c\le a+b,\\
+ c^2/\sqrt{a^2-ac+c^2},&c>a+b,
+ \end{cases}
+\end{align*}
+and $L_{CB}$ is obtained by interchanging $a,b$.  Thus the minimum side is
+the minimum of these four expressions.
+
+Ordering $a,b$ as $m\le M$, squaring the positive support equations gives
+$F_L=0,F_T=0,F_S=0$ in the three respective contact regimes; the inactive
+support inequalities give $q\le0,q\ge0,s>1$.  Squaring creates one spurious
+component in each of the last two cells.  In the $T$ cell the two roots are
+\[
+ \frac{2M}{1+\sqrt{4s^2-3}},
+ \qquad
+ \frac{2M}{1-\sqrt{4s^2-3}},
+\]
+and $c\le2M$ selects the first.  In the $S$ cell the smaller root lies below
+$1/2$ and the other above $1/2$; hence $c\le1/2$ is exactly the geometric
+selector.  The $L$ fiber is the interval from zero to its unique selected
+root.  Solving the selected equations gives \eqref{eq:radial-envelope}.
+This also proves that $\mathcal A$ is coordinatewise down-closed.
+\end{proof}
+
+\subsection{The exactly-one-supercritical all-$\Vdzero$ branch}
+
+For a center interval, call the nonempty closed set missed by its two open
+endpoint roles a \emph{V-gap}.  It may be a singleton.  If the maximal
+closed center trace is $[s,t]$, open coverage gives the weak bounds
+$b_i\ge s$ and $a_{i+1}\ge1-t$; thus none of the arguments below discards a
+singleton gap.
+
+\begin{proposition}[CE1 one-gap five-map obstruction]
+\label{prop:ce1-one-gap}
+Assume that every vertex role is $\Vdzero$, $N_+=1$, and the center role is
+CE1.  If its boundary trace contains a V-gap, the roles do not cover $H$.
+\end{proposition}
+
+\begin{proof}
+By midpoint locality, rows $1,\ldots,5$ contain their own radial midpoints;
+hence they are nonsupercritical and row $0$ is the unique supercritical
+row.  Put
+\[
+ R=\lambda,\quad w=1-R,\quad E=\sqrt{1-Rw},\quad
+ \eta=1-E,\quad P=\eta E,
+\]
+and let $A=C_0$, $D=C_2$ in Proposition~\ref{prop:center-exact-formulas}.
+Then, with $X=R-D$, $m=A/R$ and
+$H=(\eta+A+D)/(2R)=s/2$, the exact strict domain is
+\begin{equation}
+\begin{gathered}
+ A>0,\quad D>0,\quad A+wD<P,\quad D+RA\ge P,\\
+ A<\frac w2,\quad D<\frac R2,\quad RD-wA>0,
+\end{gathered}
+\label{eq:ce1-normal-domain}
+\end{equation}
+and the six complementary demands are
+\[
+ c_0=\eta+A+D,\quad c_1=1-\frac DR,\quad c_2=1-D,
+ \quad c_3=1-m,\quad c_4=1-A,\quad c_5=1-\frac Aw.
+\]
+The gap gives $B_0\ge s$ and $A_1\ge X$.  Boundary propagation through the
+five nonsupercritical rows therefore gives
+\[
+ A_0\ge Z:=
+ (G_{c_5}\circ G_{c_4}\circ G_{c_3}\circ G_{c_2}\circ G_{c_1})(X),
+ \qquad A_0\le B_{c_0}(s).
+\]
+It remains to prove the reverse strict inequality.
+
+Repeated use of \eqref{eq:S2-capped-duality} reduces it to
+\begin{equation}
+ (G_{c_2}\circ G_{c_3}\circ G_{c_4})(H)>1-X.
+ \label{eq:ce1-suffix}
+\end{equation}
+The elementary low-root estimates give
+\[
+ e(A)<X,\qquad H>A.
+\]
+At row $4$, every label except $T_+^{\rm hi}$ already yields
+$G_{1-A}(H)>1-X$.  On $T_+^{\rm hi}$ its selector forces $X>1/2$.
+Indeed, if $X\le1/2$, the selector and the two center inequalities give
+\[
+ Q(A):=\eta+P+wA-2R(2A+5A^2)\le0,
+ \qquad 0<A<A_0:=P-w(R-\tfrac12).
+\]
+The quadratic $Q$ is strictly concave and $Q(0)=\eta+P=Rw>0$.
+Rationalize by
+\[
+ k=\frac{R}{1+E},\qquad
+ R=\frac{k(2-k)}{1-k^2},\quad
+ E=\frac{1-k+k^2}{1-k^2},\quad
+ \eta=\frac{k(1-2k)}{1-k^2}.
+\]
+When $R\le1/2$, one has $k\le2-\sqrt3<27/100$ and $A_0\ge P$, while
+\[
+ Q(P)=\frac{k(1-2k)(-f_8(k))}{(1-k^2)^5},
+\]
+where
+\[
+ f_8(k)=16k^8-77k^7+175k^6-244k^5+199k^4
+       -101k^3+13k^2+12k-3.
+\]
+The degree-eight Bernstein coefficients of $-f_8$ on $[0,27/100]$ are
+\[
+\begin{gathered}
+3,\ \frac{519}{200},\ \frac{603723}{280000},\
+\frac{96261783}{56000000},\ \frac{9126684741}{7000000000},\\
+\frac{129114182427}{140000000000},\
+\frac{650458634673}{1120000000000},\
+\frac{226624193321631}{800000000000000},\
+\frac{81581849832351}{2500000000000000}.
+\end{gathered}
+\]
+They are positive, so $Q(P)>0$.
+When $R>1/2$, $0<A_0<P$ and
+\[
+ Q(A_0)=\frac{(1-2k)(-g_5(k))}{2(1-k^2)^3},\qquad
+ g_5(k)=32k^5-118k^4+150k^3-86k^2+18k-1.
+\]
+At $k_0=2-\sqrt3$,
+$g_5(k_0)=3471-2004\sqrt3<0$ because
+$3\cdot2004^2-3471^2=207$.  The Bernstein coefficients of $-g_5'$ on
+$[1/4,1/2]$ are
+\[
+ \frac{29}{8},\quad\frac{167}{32},\quad\frac{83}{16},\quad
+ \frac{19}{4},\quad\frac92.
+\]
+Thus $g_5$ decreases and remains negative for $k>k_0>1/4$, so
+$Q(A_0)>0$.  In either range concavity makes $Q(A)>0$ throughout the
+allowed interval, contradicting $Q(A)\le0$ and proving $X>1/2$.
+
+Put $p_1=G_{1-A}(H)$.  If row $3$ is not $T_+^{\rm hi}$, then
+$p_1\le A+e(A)<3A+5A^2<29/64<1/2$, and
+$2R(H-m)=\eta+D-A>\eta-P>0$.  Thus both Full branches are impossible;
+on $L$, $T_-$, or the low-$c$ tie one has $F_{1-m}(p_1)\le p_1$, proving
+\eqref{eq:ce1-suffix}.  In the remaining two-$T_+$ branch the selected
+quadratic
+\[
+ (1-q)(q-d)=(q-p)(2-q+p)(1-d)^2
+\]
+gives, by substitution at trial values,
+\begin{align*}
+ p_1&>L_1:=(2-4A)H-(1-4A)A,\\
+ p_2:=G_{1-m}(p_1)&>L_2:=(2-5m)L_1-(1-5m)m.
+\end{align*}
+For the first inequality the residual, divided by $p-A$, is
+\[
+ -16A^5+40A^4-9A^3-20A^2+9A
+ +p(16A^4-40A^3+17A^2+6A-3)>0;
+\]
+for the second it is
+\[
+ -25m^5+60m^4-11m^3-25m^2+10m
+ +p(25m^4-60m^3+21m^2+8m-3)>0.
+\]
+For row $4$, the coefficient of $p$ in the first residual is negative:
+the Bernstein coefficients of its negative on $[0,1/8]$ are
+\[
+ 3,\quad\frac{45}{16},\quad\frac{991}{384},\quad
+ \frac{595}{256},\quad\frac{527}{256}.
+\]
+Using $p\le e(A)<2A+5A^2$, the residual is bounded below by
+\[
+ A(80A^5-184A^4+45A^3+55A^2-23A+3)>0;
+\]
+indeed $3-23A-184A^4\ge41/512$ and the omitted terms are nonnegative.
+
+For row $3$, $X>1/2$ implies $m<w/2<1/4$.  Every selected $T_+$ input
+satisfies $p_1\le13m/4$: in the high-$c$ range this follows from
+$e(m)<2m/(1-2m)$, and in the low-$c$ range from the fixed-point comparison
+\[
+ 676m^4-1352m^3+439m^2+84m-16\ge0,
+\]
+whose Bernstein coefficients on $[2/15,1/2]$ are
+\[
+ \frac{676}{50625},\quad\frac{559}{45},\quad
+ \frac{26099}{1080},\quad\frac{921}{40},\quad9.
+\]
+The coefficient of $p$ in the second residual is negative, since its
+negative has Bernstein coefficients
+\[
+ 3,\quad\frac52,\quad\frac{57}{32},\quad
+ \frac{69}{64},\quad\frac{135}{256}
+\]
+on $[0,1/4]$.  At $p=13m/4$ the residual is
+\[
+ \frac m4(225m^4-540m^3+229m^2+4m+1)>0,
+\]
+and the final polynomial has Bernstein coefficients
+\[
+ 1,\quad\frac54,\quad\frac{373}{96},\quad
+ \frac{435}{64},\quad\frac{2241}{256}.
+\]
+This proves the two displayed strict growth estimates without an omitted
+branch.
+
+Finally let $D_0=P-RA$ and
+$D_h=A(4R-1)+10RA^2-\eta$.  The function
+\[
+ \Psi(R,A,D)=L_2-2D-3D^2
+\]
+is concave in $D$, and feasibility puts $D_0\le D\le D_h$.
+The exact certificate Theorem~\ref{thm:cert-ce1-five-map} proves
+$\Psi(D_0)>0$ and $\Psi(D_h)>0$ on the entire domain
+\eqref{eq:ce1-normal-domain}.  Hence $p_2>2D+3D^2$.
+
+We record separately the exact one-variable check $D<1/10$.  Otherwise
+$A<A_*:=P-w/10$, and $D_h(A)$ is increasing because $R>1/2$.  Direct
+substitution gives
+\[
+ \frac1{10}-D_h(A_*)=
+ -\frac{k(k-2)g_8(k)}{10(k-1)^5(k+1)^5},
+\]
+where
+\[
+ g_8(k)=319k^8-1028k^7+2002k^6-2220k^5+1665k^4
+        -796k^3+128k^2+44k-14.
+\]
+The Bernstein coefficients of $-g_8$ on $[0,3/8]$ are
+\[
+ 14,\ \frac{191}{16},\ \frac{517}{56},\ \frac{47549}{7168},\
+ \frac{253507}{57344},\ \frac{1237193}{458752},\
+ \frac{5443567}{3670016},\ \frac{3148355}{4194304},\
+ \frac{6601025}{16777216},
+\]
+and on $[3/8,1/2]$ they are
+\[
+ \frac{6601025}{16777216},\ \frac{575445}{2097152},\
+ \frac{1446371}{7340032},\ \frac{144525}{917504},\
+ \frac{69247}{458752},\ \frac{9831}{57344},\
+ \frac{6075}{28672},\ \frac{135}{512},\ \frac{81}{256}.
+\]
+All are positive, so $D_h(A_*)<1/10$, contradicting
+$D\le D_h(A)<D_h(A_*)$.  Thus $D<1/10$.  The low root $e(D)$ is the
+smaller root of
+\[
+ H_D(z)=z^2-(1-D)z+(1-D)^2-(1-D)^4,
+\]
+and direct substitution gives
+$H_D(2D+3D^2)=D^2(8D^2+19D-2)<0$.  Hence
+$e(D)<2D+3D^2<p_2$.  Every row-$2$ label now yields
+$G_{1-D}(p_2)>1-X$, proving \eqref{eq:ce1-suffix}.
+
+The first and fifth maps are extensive, and therefore
+\[
+ Z>1-H=1-\frac s2.
+\]
+The diameter endpoint
+$\beta(s)=(-s+\sqrt{4-3s^2})/2$ satisfies
+$B_{c_0}(s)\le\beta(s)<1-s/2$.  Thus $Z>B_{c_0}(s)$, contradicting the two
+bounds on $a_0$.
+\end{proof}
+
+\begin{proposition}[CE2 one-gap five-map obstruction]
+\label{prop:ce2-one-gap}
+Assume that every vertex role is $\Vdzero$, $N_+=1$, and the center role is
+CE2.  If exactly one of its two boundary traces contains a V-gap, the roles
+do not cover $H$.
+\end{proposition}
+
+\begin{proof}
+Again row $0$ is uniquely supercritical.  Put
+\[
+ R=\frac{x}{x+y},\quad w=1-R,\quad E=\sqrt{1-Rw},\quad
+ \eta=1-E,\quad P=\eta E,
+\]
+and
+\[
+ \alpha=u-R,\qquad \delta=v-w,\qquad k=\eta+\alpha+\delta.
+\]
+The exact CE2 domain becomes
+\begin{equation}
+ \alpha,\delta>0,\qquad
+ \delta+R\alpha<P,\qquad \alpha+w\delta<P,
+ \label{eq:ce2-normal-domain}
+\end{equation}
+with $x=k/w$, $y=k/R$, and demands
+\[
+ \begin{aligned}
+ c_0&=k, & c_1&=1-\delta/R,\\
+ c_2&=1-\delta, & c_3&=1-\min\{\delta/w,\alpha/R\},\\
+ c_4&=1-\alpha, & c_5&=1-\alpha/w.
+ \end{aligned}
+\]
+Write $G_i=G_{c_i}$ for $1\le i\le5$.
+Suppose the gap is in $[y,v]$.  Its endpoint bounds give the initial input
+$z_0=1-v=R-\delta$ and target $y$.  From
+\eqref{eq:ce2-normal-domain}, the concavity of
+\[
+ \pi(q)=(\eta+q)(1-2q)-2qw,\qquad
+ \pi(0)=\eta,\quad \pi(P)=\eta(\eta+2ER^2),
+\]
+and \eqref{eq:low-root-bounds},
+\begin{equation}
+ z_0>\frac{\eta+\alpha}{w}>
+ \frac{2\alpha}{1-2\alpha}>e(\alpha).
+ \label{eq:ce2-initial-threshold}
+\end{equation}
+Put $Q=y/2=k/(2R)$.  We also have
+\begin{equation}
+ \min\{e(\alpha),e(\delta)\}<Q.
+ \label{eq:ce2-two-threshold}
+\end{equation}
+For if both roots were at least $Q$, then
+$\alpha,\delta>Q/(2(1+Q))$; eliminating $\eta$ with the first inequality in
+\eqref{eq:ce2-normal-domain} would give $H(Q)>0$, where
+\[
+ H(q)=\left(2R-\frac1{1+q}\right)(E+R)-2R^2-
+ \frac{w}{2(1+q)}.
+\]
+But $H'(q)>0$, $Q<w/(2R)$, and
+\[
+ H\left(\frac w{2R}\right)=\frac{R(2RE-R-1)}{R+1}<0,
+\]
+the last sign following from
+$(R+1)^2-4R^2E^2=(1-R)(4R^3+3R+1)>0$.
+
+If $e(\alpha)<Q$, row $4$ and
+\eqref{eq:high-demand-threshold} give $z_4>1-Q$; otherwise
+\eqref{eq:ce2-two-threshold} gives $e(\delta)<Q$, and
+\eqref{eq:ce2-initial-threshold} makes row $2$ give $z_2>1-Q$.  Extensivity
+of the remaining maps yields
+\[
+ Z_R=(G_5\circ G_4\circ G_3\circ G_2\circ G_1)(1-v)>1-y/2.
+\]
+Moreover the two inequalities in \eqref{eq:ce2-normal-domain} imply
+$E(\alpha+\delta)<\eta$, hence $x^2+xy+y^2<1$.  The exact inner selector at
+the diameter endpoint is therefore active and
+\[
+ B_{c_0}(y)=\beta(y)<1-y/2.
+\]
+Thus $Z_R>B_{c_0}(y)$, contrary to the supercritical row's admissibility.
+Reflection exchanges $(x,u,R,\alpha)$ with $(y,v,w,\delta)$ and reverses the
+five maps, proving the other orientation.
+\end{proof}
+
+\begin{proposition}[Positive-gap all-$\Vdzero$, $N_+=1$]
+\label{prop:nplus-one-all-vd0}
+If the center role is CE1 or CE2, every vertex role is $\Vdzero$, and
+$N_+=1$, then no cover of $H$ can have a boundary gap in the actual open
+vertex-role traces.
+\end{proposition}
+
+\begin{proof}
+The midpoint argument used above makes $T_0$ uniquely supercritical.  In an
+assumed cover, every boundary gap in the vertex-role traces must lie in a
+center trace.  CE1 therefore has the one-gap state excluded by
+Proposition~\ref{prop:ce1-one-gap}.  For CE2, the exactly-one-gap state is
+Proposition~\ref{prop:ce2-one-gap}; if both center intervals contain gaps, the
+endpoint bounds and exact exits are those of
+Lemma~\ref{lem:two-endpoint-capped-loss}, so the two far outgoing reaches sum
+to less than one.  Rows $2,3,4$ would then have to cover more than three
+boundary units, contradicting their three nonsupercritical caps.  This
+exhausts the one- and two-gap states, including singleton gaps.  The zero-gap
+state is intentionally owned by the center-independent obstruction of
+Strategy~4.
+\end{proof}
+
+\subsection{The exactly-one-$T3$ branch}
+
+\begin{proposition}[Exactly one T3-like row]
+\label{prop:nplus-one-one-t3}
+Assume the center role is CE1 or CE2, $N_+=1$, exactly one vertex role is
+T3-like, and no role is Vd1 or Vd2.  Then the roles do not cover $H$.
+\end{proposition}
+
+\begin{proof}
+Normalize the center midpoint to $M_0$.  A T3-like row misses its own
+midpoint, a supercritical row misses all its local midpoints, and a Vd0 row
+cannot rescue a neighboring midpoint.  Consequently, after reflection,
+\[
+ T_0\text{ is T3-like},\qquad M_1\in T_0,
+ \qquad T_1\text{ is uniquely supercritical},
+\]
+and $T_2,\ldots,T_5$ are nonsupercritical Vd0 rows.
+
+In $V_0$ wedge coordinates put
+\[
+ 1\le D\le\frac2{\sqrt3},\quad E=\sqrt{4-3D^2},\quad
+ R=\frac{D+E}{2},
+\]
+and let $a$ be the $e_{5,0}$ reach of $T_0$.  Its interval on $r_1$ is
+\[
+ [c,u],\qquad c=\frac{D(1+a)-1}{R},\qquad
+ u=1-\frac RD+a,
+\]
+where
+$E/(2D)\le a\le(4-3D+E)/(4D)$.  Its own-radial exit is $x_0=aD/R$.
+For $B(c)=\mathcal B(c)$ and $A(c)=1-B(c)$, direct substitution gives
+\[
+ c-\frac{x_0(2-x_0)}{1+x_0}
+ =\frac{2N(D,a)}{(D+E)(2Da+D+E)},
+\]
+where
+\[
+ N=4D^2a^2+D^2a+D^2-DEa+DE-2Da-D-E.
+\]
+This convex quadratic is nonnegative: on $1\le D\le8/7$ its minimum on
+the allowed interval is at $a=E/(2D)$, and squaring reduces the sign to
+$4(D-1)(7D^3-10D^2-8D+12)\ge0$; on
+$8/7\le D\le2/\sqrt3$ its critical value is positive because
+$(9D-10)E+9D^2-6D-4>0$.  Before using monotonicity, note explicitly that
+\[
+ x_0=\frac{aD}{R}\le\frac{4-3D+E}{4R}\le\frac12;
+\]
+the second inequality is equivalent, using $2R=D+E$, to $D\ge1$.
+Also $c\le1/2$ because $M_1\in[c,u]$, and hence
+$0\le A(c)=1-\mathcal B(c)\le1/2$.  Since
+$X(2-X)/(1+X)$ is increasing on $[0,1/2]$, this proves
+\begin{equation}
+ x_0\le A(c).
+ \label{eq:t3-radial-edge}
+\end{equation}
+
+Radial coverage forces the supercritical row's own demand $c_1\ge c$.
+Lemma~\ref{lem:free-supercritical-envelope} gives
+$b_1<B(c_1)\le B(c)$.  On $e_{5,0}$ the far row $T_5$ is forced to reach
+at least $h\ge B(c)$.  Indeed this is $h\ge1-a$ unless a CE2 interval hides
+the boundary gap.  In the hiding case the side model gives
+$T\le x_0$, and \eqref{eq:t3-radial-edge} again gives
+$h\ge1-T\ge B(c)$.  Therefore
+\[
+ \sum_{i=2}^5(a_i+b_i)
+ \ge (1-b_1)+1+1+1+h>4,
+\]
+contrary to the four row caps.  The case $c=1/2$ is already impossible
+because the strict supercritical feasible set is empty there.
+\end{proof}
+
+\subsection{The nonsupercritical CE1/CE2 boundary packages}
+
+\begin{proposition}[All-Vd0 boundary loss]
+\label{prop:nplus-zero-all-vd0}
+Assume that $T_C$ is CE1 or CE2, every vertex role is Vd0, and
+\[
+ A_i+B_i\le1\qquad(0\le i\le5).
+\]
+Then the seven roles do not cover $H$.
+\end{proposition}
+
+\begin{proof}
+If the center boundary traces are already covered by the open vertex roles,
+then those six roles cover all of $\partial H$.  Put
+$W_i=U_i\cap\partial H$.  These are relatively open subsets of the
+connected circle $\partial H$, each of length at most one.  At least two are
+nonempty, and a finite relatively open cover of a connected space cannot
+have its nonempty members pairwise disjoint.  Thus two overlap on a
+positive-length relatively open set, whence
+\[
+ 6=\Haus(\partial H)<\sum_{i=0}^5\Haus(W_i)
+ \le\sum_{i=0}^5(A_i+B_i)\le6,
+\]
+a contradiction.
+
+Suppose next that $T_C$ is CE1 and its trace $[s,t]\subset e_{0,1}$
+contains a boundary gap.  Put $u=1-t$ and $w=t-s$.  Boundary coverage gives
+$B_0\ge s$ and $A_1\ge u$.  Since the center has no trace on $e_{5,0}$,
+\[
+ A_0+B_5\ge1,\qquad A_0+B_0\le1,
+\]
+and hence $B_5\ge B_0\ge s$.  The exact CE1 formulas, after putting
+$R=\lambda$ in the orientation selected there, have the form
+\[
+ c_1=u/R,\qquad
+ c_5=1-\left(u-\frac{R}{1+\sqrt{1-R+R^2}}
+                   -\frac{R}{1-R}w\right).
+\]
+All hypotheses of Lemma~\ref{lem:one-side-capped-loss} hold.  Therefore the
+outgoing reaches of rows $1$ and $5$ satisfy
+$\widehat b_1+\widehat b_5<1$, where
+\[
+ \widehat b_1\le F_{c_1}(u),\qquad
+ \widehat b_5\le F_{c_5}(s).
+\]
+Rows $2,3,4$ must then supply boundary length at least
+\[
+ (1-\widehat b_1)+1+1+(1-\widehat b_5)>3,
+\]
+contrary to their three row caps.
+
+Now let $T_C$ be CE2.  If exactly one of $[x,u]$, $[y,v]$ contains a gap,
+reflect so that it is $[y,v]$.  The interval $[x,u]$ is covered by its
+endpoint roles, so the same endpoint propagation gives inputs $y$ and
+$1-v$.  With
+\[
+ R=\frac{x}{x+y},\qquad s=y,\qquad u'=1-v,\qquad w'=v-y,
+\]
+the CE2 coupling and exit formulas are exactly those of
+Lemma~\ref{lem:one-side-capped-loss}.  The preceding three-row contradiction
+applies unchanged.  If both center intervals contain gaps, put
+\[
+ p=1-u,\quad q=1-v,\quad r=\frac{x}{x+y},\quad
+ w=\frac{y}{x+y}.
+\]
+The far endpoint roles have inputs at least $p,q$ and radial demands
+$p/w,q/r$.  Lemma~\ref{lem:two-endpoint-capped-loss} again makes their two
+outgoing reaches sum to less than one, and the same middle three-row budget
+is impossible.  These are the no-, one-, and two-active-interval states,
+and are exhaustive.
+\end{proof}
+
+We next treat the additional T3-like rows in the $N_+=0$ branch.  The
+following local facts also reappear later.
+
+\begin{lemma}[T3-like midpoint and side tradeoff]
+\label{lem:t3-midpoint-tradeoff}
+Let $T_i$ be T3-like.  Then $M_i\notin T_i$.  After applying the closed-trace
+domination of Proposition~\ref{prop:t3-translation}, suppose the selected
+adjacent support is on $r_{i+1}$ and $M_{i+1}$ belongs to the dominated
+trace.  If $b$ is its boundary reach toward $V_{i+1}$, $c$ its exit on its
+own arm, and $\ell$ its entry on $r_{i+1}$, all measured from the relevant
+vertex, then
+\begin{equation}
+ b+c<1,\qquad b+\ell>1.
+ \label{eq:t3-side-tradeoff}
+\end{equation}
+Consequently two adjacent T3-like traces that cover each other's midpoint,
+whose selected supports point toward one another, cannot cover both outer
+half-arms if no other role has positive support there.
+\end{lemma}
+
+\begin{proof}
+Normalize at $V_0$ with wedge coordinates $(x,y)$ and metric
+$x^2+y^2-xy$.  Suppose first, toward the own-midpoint claim, that a unit
+triangle with two outside vertices $A,B$ contains both $(0,0)$ and
+$(1/2,1/2)$.  Diameter one implies that an outside vertex has a negative
+coordinate and that each of its coordinates is strictly below one.  Order
+$A,B$ and write
+\[
+ B-A=(r,s),\qquad C-A=(s,s-r),\qquad r^2+s^2-rs=1.
+\]
+Since $(0,0)$ lies in the triangle, for some $\lambda,\mu\ge0$ with
+$\lambda+\mu\le1$,
+\[
+ A=-\lambda(r,s)-\mu(s,s-r).
+\]
+The midpoint condition is exactly
+\[
+ \lambda+\frac r2\ge0,\qquad
+ \mu+\frac{s-r}{2}\ge0,\qquad
+ \lambda+\mu+\frac s2\le1.
+\]
+Put $t=s-r$.  The four choices of negative coordinates of $A,B$ give the
+required bounds on the third vertex as follows.
+\begin{enumerate}
+\item If $A_x,B_x<0$, then $C_x=A_x+s<1$ when $s\le1$.  When $s>1$,
+the unit equation gives $r,t>0$, and $B_x<0$ gives $C_x<t<1$.
+For the other coordinate, $C_y=B_y-r<1$ when $r\ge0$; when $r<0$, put
+$q=-r+s$ to obtain
+\[
+ C_y\le q-\frac{q^2-1}{2}\le1.
+\]
+\item If $A_y,B_y<0$, the reflected argument gives the same two bounds.
+\item If $A_x<0$ and $B_y<0$, the alternative $s>1$ would imply
+$\mu>1-\lambda$, which is impossible.  Hence $C_x<1$.  Also,
+$r<-1$ would imply $s<0$ and then $A_x\ge0$; consequently
+$C_y=B_y-r\le1$.
+\item If $A_y<0$ and $B_x<0$, reflection of the preceding case applies.
+\end{enumerate}
+In the $r<0$ entry, $q=-r+s$ and
+$(-r)^2+s^2-rs=1$ give $(-r)s=q^2-1$, while
+$\lambda\ge-r/2$ gives the displayed bound.  Thus every vertex satisfies
+$x\le1,y\le1$, and only $C$ can meet either equality line.  Convexity makes
+both adjacent-arm intersections zero-length, contradicting the T3-like
+condition.  Hence $M_0\notin T_0$.
+
+For the tradeoff, the translated T3-like trace has the exhaustive Type-II
+form
+\[
+ \begin{aligned}
+ (1-t)x+ty&\ge0,\\
+ \beta+tx-y&\ge0,\\
+ \beta+x-(1-t)y&\le z,
+ \end{aligned}
+ \qquad 0<t<1,\quad z=\sqrt{1-t+t^2},\quad0<\beta<z.
+\]
+For the selected support on $r_1$, substitution in the Type-II half-planes
+gives
+\[
+ b=z-\beta,\qquad c=\frac{\beta}{1-t},\qquad
+ \ell=\frac{\beta+1-z}{1-t}.
+\]
+The condition $M_1\in T$ is
+$\beta\le z-(1+t)/2$.  Therefore
+\[
+ b+c\le z+\frac{t}{1-t}
+ \left(z-\frac{1+t}{2}\right)
+ =1-\frac{(1-z)^2}{2(1-t)}<1,
+\]
+whereas
+\[
+ b+\ell-1=\frac{t(1-z+\beta)}{1-t}>0.
+\]
+For a crossed adjacent pair, coverage forces
+$c_i\ge\ell_{i+1}$ and $c_{i+1}\ge\ell_i$.  Combining these two
+inequalities with \eqref{eq:t3-side-tradeoff} gives both
+$b_i<b_{i+1}$ and $b_{i+1}<b_i$, a contradiction.
+\end{proof}
+
+\begin{lemma}[The support-isolated four-label inequality]
+\label{lem:407-four-label-loss}
+Assume $T_C$ is CE1 or CE2, $N_+=0$, no role is Vd1 or Vd2, and, after
+normalization and reflection, $T_0$ is T3-like with selected adjacent
+support on $r_1$.  Then the two endpoint rows in the isolated configuration
+satisfy
+\begin{equation}
+ F_{c_5^\ast}(a_5^\ast)+F_{c_1^\ast}(a_1^\ast)<1,
+ \label{eq:407-loss}
+\end{equation}
+where $a_1^\ast,a_5^\ast$ are the exact boundary inputs and
+$c_1^\ast,c_5^\ast$ the exact radial demands defined below.
+\end{lemma}
+
+\begin{proof}
+Use the CE1 side variables $0<\lambda<1$,
+$\rho=\sqrt{1-\lambda+\lambda^2}$ and center slacks
+\[
+ X=F_0(O),\qquad Y=F_2(O).
+\]
+Then
+\[
+ a_C=\lambda-Y,\qquad
+ \lambda s=X+Y+1-\rho,
+\]
+and
+\[
+ \gamma_1=\min\left\{\frac Y\lambda,
+                 \frac{\rho-X-Y}{1-\lambda}\right\},\qquad
+ \gamma_5=\min\left\{\frac X{1-\lambda},
+                 \frac{\rho-X-Y}{\lambda}\right\}.
+\]
+For CE2 the second boundary interval is $[S,T]$, where
+\[
+ S=\frac{X+Y+1-\rho}{1-\lambda},\qquad T=X+\lambda.
+\]
+
+The T3-like normal form supplies $D>1$, $0<R<1$, and $\alpha,p\ge0$ with
+\[
+ R^2-DR+D^2=1,\qquad \alpha+p=1/D,\qquad
+ q=1-p=\alpha+(D-1)/D<1/2.
+\]
+Its interval on $r_1$, measured from $V_1$, is
+\[
+ [c,u],\qquad c=Dq/R,\qquad u=q+(1-R)/D.
+\]
+For an initial trace $[0,p]$ and a center interval $J=[L,U]$, define
+\[
+ \Theta(p,J)=
+ \begin{cases}
+ 1-p,&J=\varnothing\text{ or }p<L,\\
+ 1-\max\{p,U\},&p\ge L.
+ \end{cases}
+\]
+Then
+\[
+ a_1^\ast=\Theta(p,[s,t]),\qquad
+ a_5^\ast=\Theta(\alpha,[S,T]),
+\]
+with the second interval empty in CE1, and
+\[
+ c_5^\ast=1-\gamma_5,\qquad
+ c_1^\ast=
+ \begin{cases}
+ c,&1-u\le\gamma_1\le1-c,\\
+ 1-\gamma_1,&\text{otherwise}.
+ \end{cases}
+\]
+
+If $a_1^\ast+a_5^\ast>1$, the two caps already imply
+$F_{c_5^\ast}(a_5^\ast)+F_{c_1^\ast}(a_1^\ast)<1$.  Assume the hard region
+$a_1^\ast+a_5^\ast\le1$.  The following table is an exhaustive audit of the four
+possible first labels; the middle column records the exact decisive
+inequality.
+\[
+\begin{array}{c|c|c}
+\text{first label}&\text{right labels}&\text{conclusion}\\ \hline
+L&\mathrm{Full}&e(\gamma_5)<a_1^\ast\\
+L&L,T_-&F_{c_5^\ast}(a_5^\ast)+F_{c_1^\ast}(a_1^\ast)<1\\
+L&T_+^{\mathrm{hi}}&e(\gamma_5)<a_1^\ast\\
+T_-&L,T_-&F_{c_5^\ast}(a_5^\ast)+F_{c_1^\ast}(a_1^\ast)<1\\
+T_-&\mathrm{Full},T_+^{\mathrm{hi}}&F_{c_5^\ast}(a_5^\ast)<a_1^\ast\\
+\mathrm{Full}&\text{all}&\text{impossible}\\
+T_+^{\mathrm{hi}}&\mathrm{Full},T_+^{\mathrm{hi}}&\text{impossible}\\
+T_+^{\mathrm{hi}}&L,T_-&F_{c_5^\ast}(a_5^\ast)+F_{c_1^\ast}(a_1^\ast)<1.
+\end{array}
+\]
+We verify the nonformal entries.  Put
+$\kappa=(1-\rho)/(1-\lambda)$.  From
+$X+(1-\lambda)Y<\rho(1-\rho)$ one obtains
+\begin{align}
+ \gamma_1\ge a_C&\Longrightarrow e(\gamma_5)<a_C,
+ \label{eq:407-core-estimate}\\
+ S\le Y/\lambda&\Longrightarrow e(\gamma_5)<S.
+ \label{eq:407-S-estimate}
+\end{align}
+For \eqref{eq:407-core-estimate}, one has
+$\gamma_5<a_C-\kappa$ and
+$a_C-\kappa<1/8$; then \eqref{eq:low-root-bounds} applies, and the remaining
+comparison is
+\[
+ (a_C-\kappa)+5(a_C-\kappa)^2\le\kappa.
+\]
+After squaring its positive sides, the difference is
+$\lambda(23\lambda^3+58\lambda^2+7\lambda+72)>0$.
+For \eqref{eq:407-S-estimate}, the premise forces
+$0<\lambda<3/8$ and
+\[
+ \gamma_5\le\frac X{1-\lambda}<\frac18,\qquad
+ S\ge\frac{X+1-\rho}{1-2\lambda}.
+\]
+The concave quadratic in $X$ obtained from
+$2X/(1-\lambda)+5X^2/(1-\lambda)^2<S$ is positive at both endpoints;
+clearing radicals gives respectively the positive squares recorded in
+\eqref{eq:407-core-estimate} and
+$\lambda^2(1-2\lambda)^2(1-\lambda)^2(-R_8)$, where every Bernstein
+coefficient of $-R_8$ on $[0,3/8]$ is positive.
+
+The $L$ separation follows from its exact polynomial: if its output is
+$z=e(\eta)$ at input $1-\beta$, then
+\[
+ \beta\ge z+\eta.
+ \label{eq:407-L-separation}
+\]
+Indeed the selector polynomial
+$P(x,z)=x^4-4x^3+5x^2-(2+z)x+z-z^2$ is strictly decreasing on the low
+range and vanishes at $x=\eta$.  Equations
+\eqref{eq:407-core-estimate}--\eqref{eq:407-L-separation}, with the three
+possibilities for $\Theta$, prove every first-$L$ entry.  For a first $T_-$
+label the exact root test
+\[
+ T_-(a,c)<z\iff c^2(a+z)^2-(a^2-ac+c^2)>0
+\]
+is increasing in $z$.  Substitution of $a_1^\ast$, followed by the center
+inequality, proves $F_{c_5^\ast}(a_5^\ast)<a_1^\ast$ except in the low--low entries, which
+are immediate from $T_-(a,c)\le\min\{a,1-a\}$ and $L<1/2$.
+First-coordinate Full would force either
+$X\ge(1-\lambda)\alpha$ and $Y\ge\lambda-\alpha$, contradicting
+$s\le p$, or, in the CE2 overlap case, $S\ge1/2$, contradicting
+$S\le\alpha<1/2$.
+
+For a first $T_+^{\mathrm{hi}}$ label put $r=1-\lambda$,
+$y=Y/\lambda$ and choose $\beta$ so that
+\[
+ m=\sqrt{\beta^2-\beta+1},\quad
+ 1-\gamma_5=\frac m{r+\beta},\quad
+ F_{c_5^\ast}(a_5^\ast)=\frac{\beta m}{r+\beta}.
+\]
+The exact selector is
+\begin{equation}
+ \beta\ge\max\left\{r,\frac12,\frac{1-r^2}{1+2r}\right\},\qquad
+ r\ge(1-\beta)(r+\beta)^2.
+ \label{eq:407-high-domain}
+\end{equation}
+The center inequalities give $y<1/10$ and, with
+\[
+ y_*=\frac r{1-r}
+ \left(\frac m{r+\beta}-\frac12-\frac{1-r}{1+\sqrt{r^2-r+1}}\right),
+\]
+give $y<y_*$ and
+\[
+ 3y_*\le1-\frac{\beta m}{r+\beta}.
+\]
+This proves the right-$L$ entry by $e(y)<3y$.  It excludes right Full and
+right high by the exact high-input filter.  For right $T_-$ with input
+$a_C$, direct substitution gives a sum below one.  For input $q$, put
+$c=1-y$, $q=tc$, and let $\widehat b_1=F_{c_1^\ast}(q)$.  The selected $T_-$ equations
+give
+\[
+ \widehat b_1\le\kappa:=\frac{\sqrt{13}-1}{6},\qquad
+ q\le\tau<\frac{93}{200},
+\]
+where $\tau\in(0,1/2)$ is the unique root of
+$\tau^4-3\tau^3+3\tau^2-3\tau+1=0$.  In this CE2 overlap subcase the
+support ordering gives $q>S$.  The common left-high identities are
+\[
+ S=S_0+\frac{1-r}{r}y,\qquad
+ S_0=1-\frac{m}{r+\beta}+\frac{1-r}{1+\sqrt{r^2-r+1}}.
+\]
+Since $y>0$, we have the complete chain
+\[
+ S_0<S<q\le\tau<\frac{93}{200}.
+\]
+Thus the $S_0$ hypothesis of Theorem~\ref{thm:cert-407} holds; together
+with the exact selector domain \eqref{eq:407-high-domain}, it gives
+\[
+ F_{c_5^\ast}(a_5^\ast)<\frac{5657}{10000}
+ <\frac{7-\sqrt{13}}6.
+\]
+Thus the final sum is also below one.  The table is exhaustive, proving
+\eqref{eq:407-loss}.
+\end{proof}
+
+\begin{proposition}[The $N_+=0$ T3-like branch]
+\label{prop:nplus-zero-t3}
+Assume that $T_C$ is CE1 or CE2, $N_+=0$, no vertex role is Vd1 or Vd2,
+and at least one vertex role is T3-like.  Then the seven roles do not cover
+$H$.
+\end{proposition}
+
+\begin{proof}
+Normalize the unique center midpoint to $M_0$ and simultaneously apply the
+closed-trace domination of Proposition~\ref{prop:t3-translation} to every
+T3-like role.  If $T_0$ were not T3-like, a maximal consecutive block of
+T3-like indices among $1,\ldots,5$ would have to match its roles bijectively
+to the same block of uncovered midpoints.  The matching uses only adjacent
+indices, because a T3-like role misses its own midpoint and Vd0 roles cannot
+cover adjacent midpoints.  Its first two roles therefore form a crossed pair
+forbidden by Lemma~\ref{lem:t3-midpoint-tradeoff}.  Hence $T_0$ is T3-like;
+reflect so that it supports $r_1$.
+
+The diagonal trace bounds from Section~\ref{sec:strategy1-length} imply that
+there are at most two T3-like roles: if there were $k\ge3$, the center,
+T3-like, and nonsupercritical Vd0 diagonal caps would give
+\[
+ 6<\frac32+\frac{k}{2}+(6-k)\le6.
+\]
+Midpoint locality then forces $T_2,T_4,T_5$ to be Vd0.  Consequently $r_1$
+has positive support only from $T_C,T_0,T_1$, and $r_5$ only from $T_C,T_5$.
+
+The actual outgoing reaches of $T_1,T_5$ are bounded by the two safe maps in
+Lemma~\ref{lem:407-four-label-loss}; an extra adjacent-ray demand on a
+possible T3-like $T_1$ only shrinks its feasible set.  Thus their sum is
+less than one.  Rows $T_2,T_3,T_4$ must cover more than three units of the
+four intervening boundary edges, while their three nonsupercritical caps
+sum to at most three.  This contradiction proves the proposition.
+\end{proof}
+
+\subsection{The exact capped map}
+
+For $1/2<c<1$ put
+\[
+ \ell(c)=\frac c2\left(1-\sqrt{4c^2-3}\right),\qquad
+ r(c)=c-\ell(c)
+\]
+when $c\ge\sqrt3/2$, and
+\[
+ h(c)=\frac{2c}{1+\sqrt{16c^2-3}}.
+\]
+Also define
+\begin{align*}
+ T_-(a,c)&=\frac{\sqrt{a^2-ac+c^2}}c-a,\\
+ T_+(a,c)&=
+ \frac{2(1-a^2)c^2}
+ {2ac^2+c+\sqrt{(2ac^2+c)^2-4(1-c^2)(1-a^2)c^2}}.
+\end{align*}
+
+\begin{proposition}[Four-label capped map]
+\label{prop:capped-demand-map}
+For $1/2<c\le\sqrt3/2$,
+\begin{equation}
+ F_c(a)=
+ \begin{cases}
+  1-a,&0\le a\le1-c,\\
+  T_+(a,c),&1-c<a<h(c),\\
+  h(c),&a=h(c),\\
+  T_-(a,c),&h(c)<a<c,\\
+  1-a,&c\le a\le1.
+ \end{cases}
+ \label{eq:S2-capped-map-low}
+\end{equation}
+For $\sqrt3/2<c<1$,
+\begin{equation}
+ F_c(a)=
+ \begin{cases}
+  1-a,&0\le a\le1-c,\\
+  T_+(a,c),&1-c<a\le\ell(c),\\
+  \ell(c),&\ell(c)<a<r(c),\\
+  T_-(a,c),&r(c)\le a<c,\\
+  1-a,&c\le a\le1.
+ \end{cases}
+ \label{eq:S2-capped-map-high}
+\end{equation}
+Thus there are exactly four labels
+\[
+ \mathrm{Full},\qquad L,\qquad T_-,\qquad T_+^{\mathrm{hi}}.
+\]
+At $a=\ell(c)$ in \eqref{eq:S2-capped-map-high},
+$F_c(a)=r(c)$; immediately to its right the value is $\ell(c)$.  This
+downward jump is genuine.  The formal other root of the $T_+$ quadratic is
+not feasible because it violates $c\le2\max\{a,F_c(a)\}$.
+
+The maps $F_c$ are nonincreasing, the maps $G_c=1-F_c$ are nondecreasing
+and extensive, and
+\begin{equation}
+ G_c(a)\le z\quad\Longleftrightarrow\quad
+ G_c(1-z)\le1-a.
+ \label{eq:S2-capped-duality}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The cap $a+b\le1$ eliminates the $S$ cell of
+Proposition~\ref{prop:exact-admissible-set}.  On the cap $b=1-a$, the $T$
+inequality reduces to $M(c-M)\le0$; hence the Full face is feasible exactly
+for $a\le1-c$ or $a\ge c$.  Off that face a maximal point lies on $F_L=0$
+or $F_T=0$.  The $L$ equation has roots $\ell(c),r(c)$ and the selector
+$q\le0$ keeps only the smaller coordinate.  The ordered $T$ halves give
+respectively the displayed lower quadratic root $T_+$ and the root $T_-$.
+Their order boundary is $a=b=h(c)$, while their $q=0$ boundaries are
+$(\ell(c),r(c))$ and $(r(c),\ell(c))$.  These observations give
+\eqref{eq:S2-capped-map-low}--\eqref{eq:S2-capped-map-high}, including all equality
+assignments.
+
+Down-closedness gives monotonicity.  Finally,
+\[
+ G_c(a)\le z\iff F_c(a)\ge1-z
+ \iff(a,1-z,c)\in\mathcal A,\quad a+1-z\le1.
+\]
+Reflection $a\leftrightarrow b$ gives \eqref{eq:S2-capped-duality}.
+\end{proof}
+
+For $0<X<1-\sqrt3/2$ write
+\[
+ e(X)=\ell(1-X).
+\]
+The root equation gives the estimates
+\begin{equation}
+ X<e(X)<\frac{2X}{1-2X},\qquad
+ e(X)\le2X+5X^2\quad(0<X\le1/8),
+ \label{eq:low-root-bounds}
+\end{equation}
+and
+\begin{equation}
+ a>e(X)\quad\Longrightarrow\quad
+ G_{1-X}(a)\ge1-e(X).
+ \label{eq:high-demand-threshold}
+\end{equation}
+Indeed, substitution into
+$z^2-(1-X)z+(1-X)^2-(1-X)^4$ gives the two comparisons, and
+\eqref{eq:high-demand-threshold} is read directly from
+\eqref{eq:S2-capped-map-high}.  We shall also use
+$e(X)<2X+3X^2$ for $0<X\le1/10$, obtained from
+$X^2(8X^2+19X-2)<0$.
+
+\begin{lemma}[Free strict-supercritical envelope]
+\label{lem:free-supercritical-envelope}
+For $0\le c<1/2$,
+\[
+ \sup\{b:\exists a, (a,b,c)\in\mathcal A, a+b>1\}
+ =\mathcal B(c):=\frac{c+\sqrt{c^2-8c+4}}2.
+\]
+The supremum is not attained.  For $c\ge1/2$ the strict feasible set is
+empty.  The function $\mathcal B$ is strictly decreasing on $[0,1/2]$.
+\end{lemma}
+
+\begin{proof}
+Lemma~\ref{lem:self-midpoint} excludes $c\ge1/2$.  On the boundary
+$a=1-b$, a support rotation has strict slack precisely when
+\[
+ c<\frac{1-b^2}{2-b}.
+\]
+The right side decreases from $1/2$ to zero.  Solving equality gives the
+displayed larger root.  Equality has no strict support slack, which explains
+nonattainment.  Differentiation gives
+\[
+ \mathcal B'(c)=\frac12\left(1+\frac{c-4}{\sqrt{c^2-8c+4}}\right)<0,
+\]
+since $(4-c)^2-(c^2-8c+4)=12$.
+\end{proof}
+
+\subsection{Exact center traces and complementary demands}
+
+The normalization in Proposition~\ref{prop:unique-center-midpoint} lets us
+assume that the unique center midpoint is $M_0$.
+
+\begin{proposition}[Exact CE1 and CE2 formulas]
+\label{prop:center-exact-formulas}
+In the CE1 case there are $0<\lambda<1$, $0\le s<t\le1$, and
+$\rho=\sqrt{1-\lambda+\lambda^2}$ for which
+\[
+ T_C\cap e_{0,1}=[s,t]
+\]
+and
+\begin{align*}
+ C_0&=\rho+\lambda s-t-\lambda,&
+ C_1&=1-\lambda s,&
+ C_2&=t+\lambda-1.
+\end{align*}
+The exact domain is
+\begin{gather*}
+ C_0>0,\quad C_2>0,\quad
+ \lambda s\le\tfrac12,\quad t<1-\tfrac\lambda2,\\
+ t>\rho+\lambda s-\frac{1+\lambda}{2},\qquad
+ t\ge\rho-\frac{\lambda^2}{1-\lambda}s.
+\end{gather*}
+The center exits on the six arms are
+\begin{align*}
+ d_0&=C_1,& d_1&=C_2/\lambda,\\
+ d_2&=C_2,& d_3&=\min\{C_0/\lambda,C_2/(1-\lambda)\},\\
+ d_4&=C_0,& d_5&=C_0/(1-\lambda).
+\end{align*}
+
+In the CE2 case write
+\[
+ T_C\cap e_{5,0}=[x,u],\qquad
+ T_C\cap e_{0,1}=[y,v],\qquad S=x+y,\quad
+ D=\sqrt{x^2+xy+y^2}.
+\]
+Then
+\begin{gather*}
+ 0<x<u<1,\qquad0<y<v<1,\\
+ (u+v)S-xy=D,\qquad uS\ge x,\quad vS\ge y,\\
+ uS<x+y/2,\qquad vS<y+x/2,
+\end{gather*}
+where the two weak center inequalities are strict for closures of original
+open center roles.  The six exits are
+\[
+ \begin{aligned}
+ d_0&=1-\frac{xy}{S},&
+ d_1&=\frac{vS-y}{x},&
+ d_2&=\frac{vS-y}{S},\\
+ d_3&=\min\left\{\frac{vS-y}{y},\frac{uS-x}{x}\right\},&
+ d_4&=\frac{uS-x}{S},&
+ d_5&=\frac{uS-x}{y}.
+ \end{aligned}
+\]
+In either case the complementary demand on row $i$ is $c_i=1-d_i$;
+$c_0\le1/2$ and $c_i>1/2$ for $i\ne0$.
+\end{proposition}
+
+\begin{proof}
+In the affine coordinates
+$X=V_0+b(V_1-V_0)+a(V_5-V_0)$, the CE1 triangle is cut out by
+\[
+ \begin{aligned}
+ F_1&=\lambda b+(1-\lambda)a-\lambda s,\\
+ F_2&=-b+\lambda a+t,\\
+ F_0&=(1-\lambda)b-a+\rho+\lambda s-t.
+ \end{aligned}
+\]
+Substitution of $O,M_0,\ldots,M_5$ and of the six radial parametrizations
+gives the displayed domain and exits.  The last domain inequality is exactly
+the absence of a positive interval on $e_{5,0}$.
+
+For CE2, the side through the initial endpoints has outward normal
+$(\sqrt3S,y-x)/(2D)$.  Rotating it by $\pm120^\circ$, the three support
+constants are
+\[
+ \frac{\sqrt3(S-xy)}{2D},\qquad
+ \frac{\sqrt3(vS-y)}{2D},\qquad
+ \frac{\sqrt3(uS-x)}{2D}.
+\]
+Their sum is $\sqrt3/2$ exactly when $(u+v)S-xy=D$.  Substitution of the
+midpoints gives the four remaining inequalities, and substitution of the
+radial rays gives the six exits.  The inequalities $d_0\ge1/2>d_i$
+for $i\ne0$ are precisely the exact-midpoint conditions.
+\end{proof}
+
+\subsection{Two reusable capped-loss inequalities}
+
+\begin{lemma}[One-side capped loss]
+\label{lem:one-side-capped-loss}
+Let $0<R<1$, $S=\sqrt{1-R+R^2}$, and let $s,u,w>0$ satisfy
+$s+u+w=1$ and $0<u<R$.  Put
+\[
+ \delta=\frac{R}{1+S},\qquad
+ \gamma=u-\delta-\frac{R}{1-R}w,
+\]
+and assume $\gamma>0$.  Set
+\[
+ c_1=u/R,\qquad c_5=1-\gamma.
+\]
+Then
+\begin{equation}
+ F_{c_5}(s)+F_{c_1}(u)<1.
+ \label{eq:one-side-loss}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Put $\eta=(1-R)\delta=1-S$ and
+\[
+ \widehat b_5=F_{c_5}(s),\qquad
+ \widehat b_1=F_{c_1}(u).
+\]
+The center identity may be written
+\begin{equation}
+ c_5=\frac{1-u+\eta-Rs}{1-R}.
+ \label{eq:one-side-center-line}
+\end{equation}
+The hypotheses imply $1/2<c_1,c_5<1$: for example
+$u>\delta$ gives $c_1>1/(1+S)>1/2$, and
+$\gamma<u-\delta<R-\delta=RS/(1+S)<1/2$ gives $c_5>1/2$.
+Thus the four high-radial labels of
+Proposition~\ref{prop:capped-demand-map} are exhaustive.
+
+\smallskip\noindent
+\emph{Right low labels.}
+If the right label is $T_-$, its exact frontier equation gives
+$(u+\widehat b_1)^2=1-R+R^2=S^2$, so $\widehat b_1=S-u$.  For a right $L$ label write
+$\widehat b_1=kc_1$, $0\le k\le1/2$, and $C=1-k+k^2=c_1^2$.  With $X_R=R+k$, the
+Cell-$L$ selector factors as
+\[
+ q=c_1^2(X_R-1)G_k(X_R),\qquad
+ G_k(X)=CX^3+CX^2-k(1-k)X+k^2.
+\]
+For $X\ge k$, $G_k(X)>0$: when $k>0$,
+$G_k'(X)\ge k(1+2k-k^2+3k^3)>0$ and
+$G_k(k)=k^2(1+k+k^3)>0$.  Hence $q\le0$ gives $X_R\le1$.  If
+$h_R=1-X_R$, then
+\[
+ S^2-(u+\widehat b_1)^2=h_R(1+2k^2+k(1-k)h_R)\ge0.
+\]
+Consequently either right low label satisfies
+\begin{equation}
+ \widehat b_1\le X:=S-u.
+ \label{eq:one-side-right-low}
+\end{equation}
+
+\smallskip\noindent
+\emph{A left low label against right high or Full.}
+For left $T_-$ put $z=s/c_5=1-p$ and
+$h=\sqrt{1-p+p^2}$.  The component selector gives
+$0\le p\le1/2$, the frontier gives $s+\widehat b_5=h$, and its selector gives
+$s\le(1-p)h$.  Equation \eqref{eq:one-side-center-line} becomes
+$c_5(1-Rp)=1-u+\eta$, whence
+\[
+ u\ge \eta+(1-h)+Rph.
+\]
+Put $q_0=ph$.  If $q_0>R$, then
+$p(1-p)>R(1-R)$ and the preceding lower bound would give $u>R$.
+Thus $q_0\le R$, and
+\[
+ \eta+1-h>
+ \frac{R(1-R)+p(1-p)}2\ge(1-R)q_0.
+\]
+Substitution in the exact formula
+\[
+ w=\frac{(1-R)(1-u)p-\eta(1-p)}{1-Rp}
+\]
+now gives $w<1-h$.  A right high output has the form $H-u$, where
+$H=\sqrt{1-\beta+\beta^2}\le1$; for Full take $H=1$.  Hence
+\[
+ \widehat b_5+\widehat b_1=h+H-(s+u)=1+w-(1-h)-(1-H)<1.
+\]
+
+For a left $L$ label write
+\[
+ c_5=h(x):=\sqrt{1-x+x^2},\qquad
+ \widehat b_5=xh(x),\qquad 0\le x\le\frac12,
+\]
+and, along the center line,
+\[
+ s(x)=\frac{R-u+\eta+(1-R)(1-h(x))}{R}.
+\]
+If $y=s(x)/h(x)$, the exact selector factorization is
+\[
+ \frac{q}{h(x)^2}=(y-(1-x))P_x(y),
+\]
+where
+\begin{align*}
+ P_x(y)={}&(1-x+x^2)y^3+(1+2x-2x^2+3x^3)y^2\\
+ &+(x+2x^2-x^3+3x^4)y+(x^2+x^3+x^5).
+\end{align*}
+Every coefficient is nonnegative on $0\le x\le1/2$, and the polynomial is
+positive at every nondegenerate point.  Thus a selected $L$ point has
+$s(x)\le(1-x)h(x)$.  The two curves meet once in $(0,1/2)$: at $x=0$ the
+left side is smaller, while at $x=1/2$ it is enough to use
+\[
+ u\le\frac{R}{1+R}\quad(\mathrm{Full}),\qquad
+ u\le\min\{RS,S/2\}\quad(T_+^{\rm hi}).
+\]
+Writing $e_0=1-\sqrt3/2$, the corresponding endpoint differences are
+\[
+ \frac{(1-R)(R^2+2Re_0+2e_0)}{2(1+R)}>0
+\]
+for Full, and respectively
+$[2e_0(1-R)-R^3]/2\ge0$ for $R\le1/2$ and
+$(1-R)(3R+4e_0-2)/4\ge0$ for $R\ge1/2$ in the high case.
+At the unique transition $x_0$, the $L$ frontier is the $q=0$ endpoint of
+the preceding $T_-$ branch.  Since $xh(x)$ increases, every selected left
+$L$ output is no larger than that transition output.  The preceding strict
+loss therefore also covers $(L,T_+^{\rm hi})$ and $(L,\mathrm{Full})$.
+
+\smallskip\noindent
+\emph{Full and high exclusions.}
+Left Full forces $s<1/2$ and $\gamma\ge s$.  Right Full or right high gives
+$u\le1/2$, but
+\[
+ \gamma-s=2u-1-\delta+\frac{1-2R}{1-R}w<0:
+\]
+for $R\ge1/2$ this is immediate, while for $R<1/2$ use $w<1-u$ to bound it
+by $(u-R)/(1-R)-\delta<0$.  Thus left Full cannot pair with either label.
+If the left label is high and the right one Full, then $s<1/2$ and
+$u\le R/(1+R)$, whereas $\gamma>0$ and $w>1/2-u$ force
+$u>R/2+\eta>R/(1+R)$; the final inequality is equivalent to
+$2(1+R)>1+S$.  This pair is also impossible.
+
+\smallskip\noindent
+\emph{A right low label.}
+Use \eqref{eq:one-side-right-low}.  If $s>X$, the cap gives
+$\widehat b_5+\widehat b_1<1$.  Suppose $s\le X$ and put
+\[
+ c_X=X+2\delta,\qquad f(c,z)=c^4-c^2+zc-z^2.
+\]
+At the limiting value $u=R$, with $\kappa=\delta$, one has
+\[
+ X_0=\frac{1-2\kappa}{1+\kappa},\qquad
+ c_0=\frac{1+2\kappa^2}{1+\kappa}.
+\]
+Now $c_0>\sqrt3/2$ because
+$16\kappa^4+13\kappa^2-6\kappa+1>0$, and
+\[
+ f(c_0,X_0)=
+ \frac{\kappa^2(1-2\kappa)^2
+ (4\kappa^4+4\kappa^3+10\kappa^2+6\kappa+5)}{(1+\kappa)^4}>0.
+\]
+Along the $u$-line,
+$\frac d{du}f(c_X,X)=-4c_X^3+c_X+X<0$, so the same two signs hold before
+the limiting endpoint.  Therefore, for
+$\ell(c)=c(1-\sqrt{4c^2-3})/2$,
+\[
+ \ell(c_X)<X<c_X-\ell(c_X),\qquad \ell(c_X)<1-X.
+\]
+
+Write $c=h(z)=\sqrt{1-z+z^2}$ and let $z_X$ satisfy $h(z_X)=c_X$.
+The actual $c_5(s)$ corresponds to $0<z\le z_X<1/2$, and
+\[
+ s(z)=s_0+\frac{1-R}{R}(1-h(z)),\qquad
+ s_0=\frac{R-u+\eta}{R}>0.
+\]
+The transition input $(1-z)h(z)$ decreases, and the preceding root ordering
+gives $s(z_X)<(1-z_X)h(z_X)$, hence the same strict inequality for all
+$z\le z_X$.  To check the order of the two boundary coordinates put
+\[
+ \phi(z)=s(z)-zh(z),\qquad k_R=\frac{1-R}{R}.
+\]
+Its endpoint values are $s_0>0$ and $X-\ell(c_X)>0$.  Moreover
+\[
+ \phi'(z)=\frac{(k_R+z)(1-2z)}{2h(z)}-h(z).
+\]
+For $k_R\le2$ this is nonpositive; for $k_R>2$ its zero is described by the
+strictly increasing function
+$K_0(z)=(2-3z+4z^2)/(1-2z)$, so the minimum is again at an endpoint.
+Thus $zh(z)<s(z)$.  Applying the already displayed polynomial $P_z$ gives
+the strict Cell-$L$ selector, and
+$s+zh(z)\le X+\ell(c_X)<1$.  Since
+$\partial_bF_L=c(1-2z)>0$ and each feasible fiber is an interval, the capped
+maximum is
+\[
+ \widehat b_5\le zh(z)\le z_Xh(z_X)=\ell(c_X)<1-X.
+\]
+Together with $\widehat b_1\le X$, this proves the loss for every right low label.
+
+\smallskip\noindent
+\emph{High--high.}
+Let $c_L(z)$ be the unique root in $[\sqrt3/2,1]$ of $f(c,z)=0$.
+With $D_c=4c^3-2c+z>0$, implicit differentiation gives
+\[
+ c_L''(z)=
+ \frac{2(c^2-cz+z^2)+16c^2z(c-z)}{D_c^3}>0.
+\]
+A selected left high label requires $s<1/2$ and $c_5(s)\le c_L(s)$.
+Define
+\[
+ s_0=\frac{R-u+\eta}{R};
+\]
+then $0<s_0<s$ and $c_5(s_0)=1$.  The explicitly named function
+$g(z)=c_5(z)-c_L(z)$ is concave, with $g(s_0)>0$.  The right high bound
+$u\le\min\{RS,S/2\}$ gives $c_5(1/2)>7/8$.  For $R\le1/2$ this follows
+after squaring from
+$17-10R+9R^2-64R^3-64R^4>0$ (a decreasing polynomial with value $9/4$ at
+$1/2$); for $R\ge1/2$ it follows from
+$(3+R)^2-16S^2=(1-R)(15R-7)>0$.  Finally
+\[
+ f(7/8,1/2)=33/4096>0
+\]
+and $f$ increases in $c$ on this range, so $c_L(1/2)<7/8$ and
+$g(1/2)>0$.  Concavity contradicts $g(s)\le0$.  Thus high--high is
+impossible.
+
+If both labels are low, the cap already gives
+$\widehat b_5+\widehat b_1\le s+u=1-w<1$.  The preceding five paragraphs cover every other
+ordered pair of the four labels, proving \eqref{eq:one-side-loss}.
+\end{proof}
+
+\begin{lemma}[CE2 two-endpoint capped loss]
+\label{lem:two-endpoint-capped-loss}
+Let $[x,U]$ and $[y,v]$ be an exact CE2 pair as in
+Proposition~\ref{prop:center-exact-formulas}.  Put
+\[
+ p=1-U,\qquad q=1-v,\qquad
+ r=\frac{x}{x+y},\qquad w=\frac{y}{x+y},
+\]
+and reflect if necessary so that $0<w\le1/2$ and $r=1-w$.  Then
+\begin{equation}
+ F_{p/w}(p)+F_{q/r}(q)<1.
+ \label{eq:two-endpoint-loss}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Put
+\[
+ S_0=x+y,\quad K=\sqrt{1-wr},\quad
+ z=\frac{w}{1+K},\quad\zeta=\frac{r}{1+K},
+ \quad\alpha=\frac pw,\quad\beta=\frac qr.
+\]
+Then $D=S_0K$, $1-K=wr/(1+K)$, and the exact midpoint inequalities give
+$1/2<\alpha,\beta<1$.  Dividing the coupling equation
+$(U+v)S_0-xy=D$ by $S_0$, and using successively $x<U$ and $y<v$, gives
+the strict endpoint inequalities
+\begin{equation}
+ \beta+p>1+z,\qquad \alpha+q>1+\zeta.
+ \label{eq:ce2-strict-endpoints}
+\end{equation}
+Define
+\[
+ \Phi_w(\alpha)=F_\alpha(w\alpha),\qquad
+ \Phi_r(\beta)=F_\beta(r\beta),\qquad
+ h(t)=\sqrt{1-t+t^2}.
+\]
+Thus the desired sum is $\Phi_w(\alpha)+\Phi_r(\beta)$.
+
+\smallskip\noindent
+\emph{Selected branch parametrizations.}
+For a side of weight $\sigma\in\{w,r\}$, every $L$ label has
+\begin{equation}
+ c=h(k),\qquad F_c(\sigma c)=kh(k),\qquad0\le k\le w,
+ \label{eq:two-endpoint-L-param}
+\end{equation}
+on either side.  On the large side the range follows from
+\[
+ Q_{\rm cell}/h(k)^2=(k-w)G_k(r+k),
+\]
+where
+$G_k(X)=h(k)^2X^3+h(k)^2X^2-k(1-k)X+k^2>0$ for $X\ge k$.
+The remaining selected parametrizations are
+\begin{align}
+ \alpha&=\frac{h(a)}{w+a},&
+ \Phi_w(\alpha)&=a\alpha,& r\le a<1,
+ \label{eq:two-endpoint-small-high}\\
+ \beta&=\frac{h(b)}{r+b},&
+ \Phi_r(\beta)&=b\beta,& r\le b<1,
+ \label{eq:two-endpoint-large-high}\\
+ \beta&=\frac K{r+t},&
+ \Phi_r(\beta)&=t\beta=K-r\beta,& w\le t\le r.
+ \label{eq:two-endpoint-large-tminus}
+\end{align}
+For example, the small-high selector factors as
+\[
+ h(a)^2a\left(\frac{w}{(w+a)^2}-(1-a)\right),\qquad
+ w-(1-a)(w+a)^2=(a-r)(a^2+wa-w),
+\]
+which gives $a\ge r$; the other two factorizations are
+$(b-w)(b^2+rb-r)$ and $(t-w)(r^2-wt)$, respectively.  These formulas
+specify the selected geometric components, not discarded algebraic roots.
+
+The small-side $T_-$ label is absent for $w<1/2$.  Large-side Full is
+incompatible with the first inequality in
+\eqref{eq:ce2-strict-endpoints}.  Small-side Full can pair only with $L$:
+either high or $T_-$ on the large side has $\beta\le K$, which would force
+$p>(1+r)z>w/(1+w)$, contrary to Full.  Thus, up to the symmetric
+$w=r=1/2$ tie, the exact list is
+\begin{equation}
+ (\mathrm{Full},L),(T_+^{\rm hi},L),(L,L),(L,T_-),
+ (L,T_+^{\rm hi}),(T_+^{\rm hi},T_-),(T_+^{\rm hi},T_+^{\rm hi}).
+ \label{eq:two-endpoint-pairs}
+\end{equation}
+
+Low--low sums are at most $K<1$: an $L$ output is at most $wK$, while
+\eqref{eq:two-endpoint-large-tminus} is at most $rK$.  For Full--$L$, put
+\[
+ b_{\rm thr}=1+z-\frac{w}{1+w},\qquad
+ \kappa=\frac{w}{1+(1+w)z}.
+\]
+Full and \eqref{eq:ce2-strict-endpoints} give $\beta>b_{\rm thr}$ and
+$(1+\kappa)b_{\rm thr}=1+z$.  Direct reduction yields
+\[
+ b_{\rm thr}^2-h(\kappa)^2
+ =\frac{w^2(A(w)+KC(w))}{D_0(w,K)}>0,
+\]
+where
+\begin{align*}
+ A(w)&=8-5w+22w^2+6w^3+5w^4+5w^5-w^6,\\
+ C(w)&=8-w+14w^2+4w^3-2w^4+w^5,\\
+ D_0(w,K)&=((1+w)(1+K))^2(1+K+w+w^2)^2.
+\end{align*}
+Both numerator polynomials are positive on $[0,1/2]$.  Since $h$ decreases
+and $(1+k)h(k)$ increases there,
+$\beta=h(k)>b_{\rm thr}>h(\kappa)$ implies
+$(1+k)\beta<1+z$; combined with \eqref{eq:ce2-strict-endpoints}, this gives
+$k\beta<p$ and hence the strict Full--$L$ loss.
+
+It remains to verify the four pairs containing a high label on the small
+side.
+
+\smallskip\noindent
+\emph{$(L,T_+^{\rm hi})$.}
+Use parameters $0\le k\le w$ and $r\le t<1$:
+\[
+ \alpha=h(k),\quad\Phi_w=kh(k),\qquad
+ \beta=\frac{h(t)}{r+t},\quad\Phi_r=\frac{th(t)}{r+t}.
+\]
+The first output and the last output increase in their parameters, while
+$h(t)/(r+t)$ decreases.  If $w\le2/5$, then
+\[
+ \Phi_w+\Phi_r<wK+\frac1{2-w}<1;
+\]
+after using $K\le1-wr/2$, the positive cleared gap is
+$P(w)=w^4-3w^3+4w^2-6w+2$, which decreases on $[0,2/5]$ and has
+$P(2/5)=46/625$.  If $w\ge2/5$, the first endpoint inequality gives
+$\beta>r+z\ge3/4$.  Since
+$h(3/4)/(r+3/4)=\sqrt{13}/(7-4w)<3/4$, monotonicity forces $t<3/4$.
+Therefore
+\[
+ \Phi_w+\Phi_r<\frac{\sqrt3}{4}+\frac{3\sqrt{13}}{20}<1.
+\]
+
+\smallskip\noindent
+\emph{$(T_+^{\rm hi},T_-)$.}
+Use $a,t$ from \eqref{eq:two-endpoint-small-high} and
+\eqref{eq:two-endpoint-large-tminus}.  Both demands are at most $K$.
+The first endpoint inequality gives
+\[
+ \alpha>\frac{1+z-K}{w}=\frac{1+r}{1+K}=:a_0.
+\]
+Thus $K>1-w^2$, which forces $w>1/3$, and comparison at $a=2/3$ forces
+$a<2/3$.  The function
+\[
+ G(a)=\frac{(1+a)h(a)}{w+a}
+\]
+decreases on $[r,2/3]$, because its derivative numerator
+$2a^3+(4w-1)a^2+(1-w)a+w-2$ is at most its value
+$-7/54$ at $(2/3,1/2)$.  Hence $G(a)\le(1+r)K$.
+Using the second endpoint inequality and
+$\Phi_r=K-r\beta$ gives
+\[
+ \Phi_w+\Phi_r<(2+r)K-1-\zeta<1.
+\]
+After multiplication by $1+K$, the last positive gap is
+$r(3w-w^2-K)$; its squared comparison is
+\[
+ (3w-w^2)^2-K^2=w^4-6w^3+8w^2+w-1>0
+\]
+for $w>1/3$ (value $1/81$ at $1/3$, positive derivative thereafter).
+
+\smallskip\noindent
+\emph{$(T_+^{\rm hi},T_+^{\rm hi})$.}
+Use parameters $a,b$ from \eqref{eq:two-endpoint-small-high}--
+\eqref{eq:two-endpoint-large-high}.  The endpoint inequalities first force
+$w>2/5$: for $w\le2/5$, the asserted contrary inequality
+$K(w+1/(2r))\le1+z$ reduces, after multiplication by $2r(1+K)$, to
+\[
+ K(2w^2-4w+1)+2w^4-4w^3+w^2-w+1>0,
+\]
+which is immediate according as the coefficient of $K$ is nonnegative or,
+using $K\le1$, from the decreasing polynomial
+$2w^4-4w^3+3w^2-5w+2\ge172/625$.
+
+For $F_c(t)=(1+t)h(t)/(c+t)$, the derivative numerator
+$2t^3+(4c-1)t^2+(1-c)t+c-2$ is increasing on the present rectangle, so
+$F_c$ has at most one interior minimum.  Endpoint comparison gives
+\[
+ \Phi_w+\alpha\le\frac2{1+w},\qquad
+ \Phi_r+\beta\le\frac2{1+r}.
+\]
+The nontrivial endpoint signs are exactly
+\[
+ 4-(1+r)^2(1+w)^2K^2
+ =-w^2(w-1)^2(w^2-w-3)>0
+\]
+and
+\[
+ 16r^2-(1+r)^4h(r)^2
+ =(1-r)(r^5+4r^4+7r^3+9r^2-4r-1)>0;
+\]
+the bracket is increasing on $[1/2,1]$ and equals $13/32$ at $1/2$.
+Weighting the two strict endpoint inequalities by $w/K^2$ and $r/K^2$
+gives
+\[
+ \alpha+\beta>\frac{2K+1}{K(1+K)}.
+\]
+Consequently
+\[
+ \Phi_w+\Phi_r<\frac2{1+w}+\frac2{1+r}
+ -\frac{2K+1}{K(1+K)}<1.
+\]
+The numerator of the last gap is $3Kwr-Q(w)$, where
+$Q(w)=w^4-2w^3+7w^2-6w+2>0$.  Its squared difference is
+\[
+ D(w)=-w^8+4w^7-9w^6+13w^5-41w^4+65w^3-55w^2+24w-4.
+\]
+Here $D'(w)=(1-2w)H(w)$ with
+\[
+ H(w)=4w^6-12w^5+21w^4-22w^3+71w^2-62w+24>0
+\]
+on $[2/5,1/2]$; use
+$71w^2-62w+24\ge743/71$ and the remaining cubic block at least $-11/4$.
+Thus $D$ increases and $D(2/5)=4904/390625>0$, proving the claim.
+
+\smallskip\noindent
+\emph{$(T_+^{\rm hi},L)$.}
+Use the fully specified parameters
+\[
+ \alpha=\frac{h(t)}{w+t},\quad p=w\alpha,\quad b=t\alpha,
+ \quad\frac12\le t<1,
+\]
+and
+\[
+ \beta=H=h(k),\quad \widehat b_L=kH,\quad 0\le k\le w.
+\]
+Since $p+b=h(t)$, the first endpoint inequality gives
+\begin{equation}
+ 1-(b+kH)>G:=2+z-h(t)-(1+k)H.
+ \label{eq:two-endpoint-high-L-G}
+\end{equation}
+Put
+\[
+ p_0=1+z-K=\frac{w(2-w)}{1+K},
+\]
+let $t_0\in(1/2,1)$ be the unique point with
+$p(t_0)=wh(t_0)/(w+t_0)=p_0$, and put $b_0=t_0p_0/w$.
+The exact endpoint lemma is
+\begin{equation}
+ b_0<1-wK.
+ \label{eq:two-endpoint-b0}
+\end{equation}
+To verify it, set $b_*=1-wK$ and $T_*=wb_*/p_0$.  One has $0<T_*<1$, and
+\[
+ p_0^2(w+T_*)^2-w^2h(T_*)^2
+ =-\frac{w^3(KE(w)+J(w))}{(1+K)^2(2-w)^2}>0,
+\]
+where
+\[
+ E(w)=2w^5+3w^3-20w^2+23w-6,
+\]
+\[
+ J(w)=w^6+8w^5-22w^4+12w^3+6w^2+2w-6.
+\]
+Here $J\le-111/64$; if $E>0$, then
+$KE+J<E+J<0$, because $E+J$ is increasing and equals $-139/64$ at
+$w=1/2$.  Thus $p(T_*)<p(t_0)$.  Since $p(t)$ decreases,
+$t_0<T_*$ and \eqref{eq:two-endpoint-b0} follows.
+
+Finally put $P=1+z-p$.  If $P<K$, then $t<t_0$ and $k\le w$, so
+\[
+ G>2+z-h(t_0)-(1+w)K=1-b_0-wK>0.
+\]
+If $P\ge K$, then $K\le P\le P_1:=1+z-w/(1+w)\le1$ and there is
+$a\in[0,w]$ with $h(a)=P$.  Since $P<H$, one has $k<a$ and
+$(1+k)H<(1+a)P=P+\ell(P)$, where
+$\ell(P)=P(1-\sqrt{4P^2-3})/2$.  Hence
+\[
+ G>\mathcal D(P):=1-b(P)-\ell(P).
+\]
+This function is concave.  Indeed $\ell''(P)>0$, and the high output $b$ is
+convex in $p=1+z-P$: with
+$A_t=2+w-(1+2w)t>0$ and
+$Q_t=8wt^2+4t^2-8wt-13t-w+4<0$,
+\[
+ \frac{d^2b}{dp^2}=-\frac{2h(t)(t+w)^3Q_t}{w^2A_t^3}>0.
+\]
+At $P=K$, \eqref{eq:two-endpoint-b0} gives
+$\mathcal D(K)=1-b_0-wK>0$.  At $P=P_1$, set
+$\kappa=w/(1+(1+w)z)$.  The Full--$L$ comparison already proved gives
+$P_1>h(\kappa)$, hence
+$\ell(P_1)<\kappa P_1=w/(1+w)$, while $b(P_1)=1/(1+w)$.
+Thus $\mathcal D(P_1)>0$, and concavity gives $G>0$ throughout.
+Equation \eqref{eq:two-endpoint-high-L-G} proves the final hard pair.
+
+The exact list \eqref{eq:two-endpoint-pairs} is now exhausted, proving
+\eqref{eq:two-endpoint-loss}.
+\end{proof}
+
+\subsection{The exactly-one-Vd1/Vd2 placements}
+
+We now assume CE2, $N_+=1$, and exactly one row is Vd1 or Vd2.  The corner
+normal form of Proposition~\ref{prop:vd-corner-normal-form} will be used in
+the following form: for some $t>0$ and $d=\sqrt{t^2+t+1}$,
+\begin{equation}
+ x-(t+1)y\le a,\qquad ty-(t+1)x\le tb,\qquad
+ tx+y\le d-a-tb.
+ \label{eq:vd-corner-form}
+\end{equation}
+In particular $a+b<1/2$ for a positive-support row.
+
+\begin{lemma}[Vd1 adjacent rescue]
+\label{lem:vd1-adjacent-rescue}
+Assume an original open-role skeleton cover in the CE2 exact-$M_0$ branch,
+with $T_C\cap\{M_0,\ldots,M_5\}=\{M_0\}$.  Suppose $T_0$ is the unique Vd1
+row, $M_1\in T_0$, $T_1$ is uniquely supercritical, and
+$T_2,\ldots,T_5$ are nonsupercritical Vd0 rows.  Suppose also that these are
+the only positive-adjacent-support roles.  Then the roles do not cover the
+perimeter together with $r_1$.
+\end{lemma}
+
+\begin{proof}
+From \eqref{eq:vd-corner-form}, the $r_1$ interval is
+\[
+ [c,u],\qquad c=\frac{t(1-b)}{t+1},\qquad
+ u=\frac{d-a-tb-1}{t}.
+\]
+The midpoint inequalities and absence of positive $r_5$ support force
+$t\ge1$.  They also give
+\[
+ a\le F(t,c):=d-1-\frac{3t}{2}+c(t+1)
+ \le L(c):=\sqrt3-\frac52+2c.
+\]
+With $A(c)=1-\mathcal B(c)$, squaring positive sides gives
+\[
+ 2L(c)\le A(c),
+\]
+because the difference is
+$4(20c^2+(18\sqrt3-52)c+47-24\sqrt3)>0$ on $[0,1/2]$.
+Writing $\delta=1-u$, the same normal form yields
+\[
+ \frac{a}{a+\delta}\le\frac{L(c)}{L(c)+1/2}\le2L(c)\le A(c).
+ \label{eq:vd1-auxiliary}
+\]
+Thus $a\le A(c)$.  If the CE2 interval on $e_{5,0}$ hides the gap after
+$T_0$, its side parameters $X,Y,\lambda,\rho$ satisfy
+$Y\ge\lambda\delta$ and $S\le a$, whence
+\[
+ T=X+\lambda\le a+\lambda(u-a)\le\frac{a}{a+\delta}\le A(c).
+\]
+In every other ordering its forced tail starts no later than $a$.
+Consequently the far-row reach is always $h\ge\mathcal B(c)$.
+
+Coverage of $r_1$ gives the supercritical row a radial demand at least $c$.
+Therefore Lemma~\ref{lem:free-supercritical-envelope} gives
+$b_1<\mathcal B(c)\le h$.  The four remaining row caps would then have to
+satisfy
+\[
+ \sum_{i=2}^5(a_i+b_i)\ge(1-b_1)+1+1+1+h>4,
+\]
+a contradiction.
+\end{proof}
+
+\begin{lemma}[Adjacent positive-support placement]
+\label{lem:vd-adjacent-placement}
+Assume an original open-role skeleton cover in the CE2 exact-$M_0$ branch,
+with $T_C\cap\{M_0,\ldots,M_5\}=\{M_0\}$.  Suppose $T_0$ is uniquely
+supercritical, $T_1$ is the unique Vd1/Vd2 row, and
+$T_2,T_3,T_4,T_5$ are nonsupercritical Vd0 rows; in particular, there is no
+additional positive-adjacent-support row.  Then the perimeter together with
+$r_1,r_2$ is not covered.  The reflected $T_5$ placement is also impossible.
+\end{lemma}
+
+\begin{proof}
+Use the CE2 variables $S=x+y$, $D=\sqrt{x^2+xy+y^2}$ and $E=vS-y$.
+The center length on $r_2$, measured from $O$, is $d_2^C=E/S$.  Let $A,H$
+be the boundary demands forced on $T_1$ from $e_{0,1}$ and the propagated
+$e_{5,0}$ tail.  The corner cap gives
+\begin{equation}
+ A+H<\frac12.
+ \label{eq:adjacent-AH}
+\end{equation}
+The exact radial envelope of Proposition~\ref{prop:exact-admissible-set},
+including the Cell-$T$ selector $c\le2M$, gives
+\begin{equation}
+ c_{\max}\left(\frac12+A,H\right)\le1-\frac H3.
+ \label{eq:adjacent-envelope}
+\end{equation}
+For completeness, at $c=1-H/3$ the Cell-$L$ polynomial is
+\[
+ \frac{H}{81}(H^3-12H^2-63H+27)>0
+ \quad(0<H\le3/8),
+\]
+while the Cell-$T$ expression is increasing in the larger boundary input
+$p\in[1/2,1-H]$; at the order-change point it is nonnegative, and if the
+cell is already active at $p=1/2$ its endpoint sign is
+$H^4-5H^3+9H^2/4+12H-9/2>0$.  Also $1-H/3\le2p$, so the selected, rather
+than discarded, component is used.  This proves \eqref{eq:adjacent-envelope}.
+
+The CE2 coupling and \eqref{eq:adjacent-AH} give the strict outer ratio
+\begin{equation}
+ d_2^C<\frac H3.
+ \label{eq:adjacent-outer-ratio}
+\end{equation}
+There are two endpoint sources for $H$.  If $H=1-u$, put
+$K=x+2y-xy-D$; then $d_2^C/H=1-K/(SH)$, and the diameter endpoint bounds
+give $K/(SH)>2/3$.  If $H=1-a_0$, the disk inequality gives
+$H\ge L(y)=(2+y-\sqrt{4-3y^2})/2$; squaring the CE2 comparison yields
+$(D+xy-x-y)/S<L(y)/3\le H/3$.  These are precisely the two alternatives,
+proving \eqref{eq:adjacent-outer-ratio}.
+
+Now $r_2$ can be covered only by $T_2$, the center, and a possible bridge
+from $T_1$.  The normal form makes a bridge imply $H<d_2^C$, contrary to
+\eqref{eq:adjacent-outer-ratio}.  Without a bridge, boundary propagation
+gives $T_2$ inputs strictly exceeding $1/2+A$ and $H$; then
+\eqref{eq:adjacent-envelope} gives
+$c_2\le1-H/3<1-d_2^C$, so $T_2$ cannot meet the center interval either.
+\end{proof}
+
+\begin{lemma}[Nonadjacent positive-support placements]
+\label{lem:vd-nonadjacent-placement}
+Assume an original open-role skeleton cover in the CE2 exact-$M_0$ branch,
+with $T_C\cap\{M_0,\ldots,M_5\}=\{M_0\}$.  Suppose $T_0$ is uniquely
+supercritical, $T_\tau$ is the unique Vd1/Vd2 row for
+$\tau\in\{2,3,4\}$, and every other vertex row is nonsupercritical Vd0;
+in particular, there is no additional positive-adjacent-support row.  Then
+the perimeter together with $r_\tau$ is not covered.
+\end{lemma}
+
+\begin{proof}
+Let $A,H$ be the two boundary demands propagated to $T_\tau$, and put
+$B=1-A$, $U=1-H$.  The distance endpoint
+\[
+ \beta(z)=\frac{-z+\sqrt{4-3z^2}}2
+\]
+gives $B\le\beta(x)$ and $U\le\beta(y)$, whether an extent comes from the
+supercritical row or from the corresponding CE2 endpoint.  The exact CE2
+comparison
+\begin{equation}
+ \frac{D+xy}{S}+\beta(x)<2
+ \label{eq:ce2-extent-comparison}
+\end{equation}
+follows by squaring: with $b=\beta(x)$, the required quadratic in $y$ is
+concave, positive at $y=0$, and at $y=1$ its numerator reduces to
+$4x^2(x^4+4x^3+9x^2+11x+8)$.  Reflection gives the $y$ version.  Since
+$u+v=(D+xy)/S$, it follows that
+\begin{equation}
+ u+v-1<\min(A,H)=:m.
+ \label{eq:nonadjacent-margin}
+\end{equation}
+
+Put $P=vS-y$ and $Q=uS-x$.  Then $P+Q=(u+v-1)S$, while the center lengths
+on $r_2,r_3,r_4$ are
+\[
+ \frac P S,\qquad \min\left\{\frac P y,\frac Q x\right\},
+ \qquad\frac Q S.
+\]
+Equation \eqref{eq:nonadjacent-margin} makes each strictly less than $m$.
+On the other hand \eqref{eq:vd-corner-form} gives
+$c_\tau<1-m$.  Hence the vertex-side demand $1-d_\tau^C$ is strictly larger
+than $c_\tau$, leaving $r_\tau$ uncovered.
+\end{proof}
+
+\begin{lemma}[Vd1--supercritical replacement]
+\label{lem:vd1-pair-replacement}
+\leavevmode\par\noindent
+Assume an original open-role perimeter-and-radial-skeleton cover in the CE2
+exact-$M_0$ branch and the complementary no-additional-positive-support
+case.  Let $T_i$, $i\ne0$, be uniquely supercritical, and let the unique Vd1
+row, distinct from $T_0$ and adjacent to $T_i$, contain $M_i$.  Assume every
+other vertex row is nonsupercritical Vd0 and the center has no boundary trace
+on the shared edge of this pair.  Then the pair can be replaced by two open
+nonsupercritical Vd0 roles preserving all boundary and radial demands used
+by Proposition~\ref{prop:nplus-zero-all-vd0}.
+\end{lemma}
+
+\begin{proof}
+Normalize the Vd1 row at $V_0$ and the supercritical row at $V_1$.
+By the shared-edge hypothesis, no center trace intervenes on $e_{0,1}$;
+by the no-additional-positive-support hypothesis, no third vertex role has
+positive boundary or radial support in the handoffs used below.
+In \eqref{eq:vd-corner-form}, midpoint rescue and one-sided support imply
+$t\ge1$ and, with
+\[
+ c=\frac{d-a-tb}{t+1},\quad
+ \lambda=\frac{t(1-b)}{t+1},\quad
+ \mu=\frac{d-a-tb-1}{t},
+\]
+give the strict consequences
+\begin{equation}
+ a+c<1,\qquad a<\lambda\le\frac12,\qquad
+ b<\frac12,\qquad \mu<1-a.
+ \label{eq:replacement-margins}
+\end{equation}
+The shared edge forces the supercritical input $a_i\ge1-b>1/2$, and radial
+coverage forces $c_i\ge\lambda$.  A direct consequence of
+Proposition~\ref{prop:exact-admissible-set} is
+\[
+ (x,y,z)\in\mathcal A,\quad x\ge1/2,\quad z\le1/2
+ \quad\Longrightarrow\quad y\le1-z.
+\]
+Indeed, substituting $x=1/2,y=1-z$ in the selected supercritical polynomial
+gives $z^2(2z-5)(2z-1)/4\ge0$, and the polynomial is increasing in both
+relevant coordinates.  Hence $b_i\le1-c_i\le1-\lambda$ and
+$a+b_i<1$.  Open radial handoff further gives
+\[
+ c_i^{\rm req}<\max\{c_i,\mu\}
+ <\max\{1-b_i,1-a\}.
+\]
+
+Choose $a<p_1<p_2<1-b_i$ within these strict margins.  In local coordinates
+use the unit triangles
+\[
+ \Delta_p^-=\conv\{(0,1-p),(1,1-p),(0,-p)\},\quad p\le1/2,
+\]
+and
+\[
+ \Delta_p^+=\conv\{(p,0),(p,1),(p-1,0)\},\quad p\ge1/2.
+\]
+Their incident reaches are $p,1-p$, their own-radial reach is respectively
+$1-p,p$, and they have zero adjacent support.  Small translations, chosen
+below every strict margin above, make the two replacements open Vd0 roles
+with boundary sum $<1$ while preserving the shared boundary and both radial
+handoffs.  Thus the datum reduces to Proposition~\ref{prop:nplus-zero-all-vd0}.
+\end{proof}
+
+\begin{proposition}[Complementary exact Vd1/Vd2 placements]
+\label{prop:ce2-one-vd-placement}
+Consider the CE2 exact-$M_0$, $N_+=1$ branch with exactly one Vd1 or Vd2
+role.  Assume that no other vertex row has positive adjacent support and that
+the unique Vd2 role, if present, covers neither neighboring midpoint.  Then
+the configuration is impossible.
+\end{proposition}
+
+\begin{proof}
+By the vertex classification, the no-additional-positive-support hypothesis
+makes every vertex row other than the unique Vd1/Vd2 row Vd0; all such rows
+other than the unique supercritical row are nonsupercritical.  This is
+precisely the complementary branch in which Lemmas
+\ref{lem:vd1-adjacent-rescue}--\ref{lem:vd1-pair-replacement} apply.
+
+Let $T_\sigma$ be uniquely supercritical and $T_\tau$ the unique Vd1/Vd2
+row.  They are distinct by the corner cap.  If $\sigma=0$, the adjacent
+placements $\tau=1,5$ are excluded by
+Lemma~\ref{lem:vd-adjacent-placement}, and $\tau=2,3,4$ by
+Lemma~\ref{lem:vd-nonadjacent-placement}.  If $\tau=0$, midpoint forcing
+makes $\sigma=1$ or $5$ and $T_0$ cover that midpoint.  Vd1 is excluded by
+Lemma~\ref{lem:vd1-adjacent-rescue}; Vd2 would cover the neighboring midpoint
+$M_\sigma$, contrary to the proposition's hypothesis.
+
+If neither index is zero, midpoint forcing makes the two rows adjacent and
+the positive-support row rescue the supercritical midpoint.  Vd2 is again
+excluded by the neighboring-midpoint hypothesis; Vd1 reduces by
+Lemma~\ref{lem:vd1-pair-replacement} to the $N_+=0$ all-Vd0 obstruction.
+These alternatives exhaust the complementary exact-placement branch.
+\end{proof}
+
+\subsection{Strategy 2 terminal routing}
+
+\begin{proposition}[Exact-demand terminal branches]
+\label{prop:demand-branches}
+The exact-demand method proves the following terminal exclusions:
+\begin{enumerate}
+\item CE1 or CE2, $N_+=0$, all vertex roles Vd0;
+\item CE1 or CE2, $N_+=0$, with at least one T3-like role and no Vd1/Vd2;
+\item CE1 or CE2, $N_+=1$, all vertex roles Vd0, with at least one boundary
+gap;
+\item CE1 or CE2, $N_+=1$, exactly one T3-like role and no Vd1/Vd2;
+\item the complementary exact-placement subcases of CE2, $N_+=1$, with
+exactly one Vd1 or Vd2: no additional positive-support row and no Vd2
+neighboring-midpoint rescue.
+\end{enumerate}
+All gap alternatives include singleton gaps.
+\end{proposition}
+
+\begin{proof}
+The five items are respectively Propositions
+\ref{prop:nplus-zero-all-vd0}, \ref{prop:nplus-zero-t3},
+\ref{prop:nplus-one-all-vd0}, \ref{prop:nplus-one-one-t3}, and
+\ref{prop:ce2-one-vd-placement}.  The strictness at open handoffs appears in
+the weak endpoint bounds, the nonattained supercritical envelope, and the
+strict replacement margins; no positive-length assumption is made about a
+V-gap itself.
+\end{proof}

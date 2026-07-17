@@ -1,0 +1,110 @@
+\section{Exhaustive assembly}
+\label{sec:assembly}
+
+We now assemble the four mechanisms.  The table is included to make the
+exhaustiveness audit visible: its rows are mutually exclusive after the
+center type and the value of $N_+$ have been fixed, except for the one row
+explicitly marked as a joint application of Strategies~1 and~2.
+
+\begin{center}
+\small
+\renewcommand{\arraystretch}{1.13}
+\begin{tabular}{p{.25\textwidth}p{.52\textwidth}c}
+center and row count&exhaustive refinement&route\\ \hline
+$\CEzero$, $N_+=0$&all vertex types&1\\
+$\CEzero$, $N_+=1$&all six roles $\Vdzero$&4\\
+$\CEzero$, $N_+=1$&a $\Vdone$ or $\Vdtwo$ role&1\\
+$\CEzero$, $N_+=1$&no $\Vdone/\Vdtwo$ role and a $\Tlike$ role&3\\
+$\CEzero$, $N_+\ge2$&all vertex types&3\\ \hline
+$\CEone/\CEtwo$, $N_+=0$&all six roles $\Vdzero$&2\\
+$\CEone/\CEtwo$, $N_+=0$&a $\Vdone$ or $\Vdtwo$ role&1\\
+$\CEone/\CEtwo$, $N_+=0$&no $\Vdone/\Vdtwo$ role and a $\Tlike$ role&2\\ \hline
+$\CEone/\CEtwo$, $N_+=1$&all $\Vdzero$, zero gaps&4\\
+$\CEone/\CEtwo$, $N_+=1$&all $\Vdzero$, exactly one gap&2\\
+$\CEtwo$, $N_+=1$&all $\Vdzero$, exactly two gaps&2\\
+$\CEone$, $N_+=1$&a $\Vdone$ or $\Vdtwo$ role&1\\
+$\CEtwo$, $N_+=1$&at least two $\Vdone/\Vdtwo$ roles&1\\
+$\CEtwo$, $N_+=1$&exactly one $\Vdone/\Vdtwo$ role&1+2\\
+$\CEone/\CEtwo$, $N_+=1$&no $\Vdone/\Vdtwo$ role and exactly one $\Tlike$ role&2\\
+$\CEone/\CEtwo$, $N_+=1$&no $\Vdone/\Vdtwo$ role and at least two $\Tlike$ roles&1\\
+$\CEone/\CEtwo$, $N_+\ge2$&all vertex types&1
+\end{tabular}
+\end{center}
+
+\begin{lemma}[Exhaustiveness of the gap split]
+\label{lem:gap-exhaustion}
+On each edge the complement of the two incident vertex-role traces is either
+empty or one closed interval; a singleton interval counts as a gap.  Every
+edge having a gap has positive-length intersection with the open center
+role.  Consequently a $\CEzero$ center permits no gaps, a $\CEone$ center
+permits at most one, and a $\CEtwo$ center permits at most two.
+\end{lemma}
+
+\begin{proof}
+In the coordinate $X_i(x)$ of Section~\ref{sec:structural-reductions}, the
+two incident open traces are intervals issuing from $0$ and $1$.  Their
+complement is therefore either empty or the single interval
+$[B_i,1-A_{i+1}]$, including the equality case.
+
+If this complement is nonempty, each of its points must be covered by
+$U_C$: a nonincident vertex role cannot contain an interior point of the
+edge, because that point is more than unit distance from the role's
+distinguished vertex.  Choose any point of the gap.  Since $U_C$ is open,
+its intersection with the edge contains a relative neighborhood of that
+point, and hence has positive length.  Thus different gap edges give
+different edges counted by $N_E(T_C)$.  Proposition~\ref{prop:ce-classification}
+now gives the assertion, including singleton gaps.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+Suppose that seven open unit equilateral triangles cover $H$.  By
+Lemma~\ref{lem:distinct-roles}, label them as one center role and six vertex
+roles.  Proposition~\ref{prop:ce-classification} places the center in exactly
+one of $\CEzero,\CEone,\CEtwo$, and~\eqref{eq:N-plus-definition} places the
+actual vertex rows in exactly one of $N_+=0$, $N_+=1$, and $N_+\ge2$.
+
+First suppose the center is $\CEzero$.  If $N_+=0$, the perimeter obstruction
+in Proposition~\ref{prop:length-branches} applies.  If $N_+\ge2$, the strict
+area certificate in Proposition~\ref{prop:area-branches} applies.  Let
+$N_+=1$.  Proposition~\ref{prop:vertex-classification} gives exactly three
+refinements: all roles are $\Vdzero$; at least one is $\Vdone$ or $\Vdtwo$;
+or no such role occurs and at least one role is $\Tlike$.  The first
+refinement has zero gaps by Lemma~\ref{lem:gap-exhaustion} and contradicts
+Theorem~\ref{thm:zero-gap-obstruction}; the second is closed by
+Proposition~\ref{prop:length-branches}; and the third is closed by
+Proposition~\ref{prop:area-branches}.
+
+Now suppose the center is $\CEone$ or $\CEtwo$.  When $N_+=0$, the same
+vertex-type trichotomy is exhaustive.  The all-$\Vdzero$ and the
+no-$\Vdone/\Vdtwo$ but $\Tlike$ refinements contradict
+Proposition~\ref{prop:demand-branches}, while the refinement containing a
+$\Vdone$ or $\Vdtwo$ role contradicts
+Proposition~\ref{prop:length-branches}.  When $N_+\ge2$, the conditional
+skeleton obstruction in Proposition~\ref{prop:length-branches} applies.
+
+It remains that the center is $\CEone$ or $\CEtwo$ and $N_+=1$.  If all six
+vertex roles are $\Vdzero$, Lemma~\ref{lem:gap-exhaustion} gives zero or one
+gap in class $\CEone$ and zero, one, or two gaps in class $\CEtwo$.  The
+zero-gap state contradicts Theorem~\ref{thm:zero-gap-obstruction}; the
+one-gap states and the $\CEtwo$ two-gap state contradict
+Proposition~\ref{prop:demand-branches}.
+
+Suppose instead that a $\Vdone$ or $\Vdtwo$ role occurs.  In class $\CEone$,
+or in class $\CEtwo$ when at least two such roles occur,
+Proposition~\ref{prop:length-branches} applies.  The remaining possibility is
+$\CEtwo$ with exactly one $\Vdone/\Vdtwo$ role.  The exceptional placement
+theorem incorporated in Proposition~\ref{prop:demand-branches}, together
+with the neighboring-midpoint and conditional-skeleton subcases in
+Proposition~\ref{prop:length-branches}, exhausts that hybrid package.
+
+Finally suppose there is no $\Vdone$ or $\Vdtwo$ role but not all roles are
+$\Vdzero$.  Then Proposition~\ref{prop:vertex-classification} says that the
+remaining non-$\Vdzero$ roles are precisely $\Tlike$.  Exactly one such role
+is excluded by Proposition~\ref{prop:demand-branches}, and at least two are
+excluded by Proposition~\ref{prop:length-branches}.  Every row of the table
+has now produced a contradiction.  Therefore the assumed open cover does not
+exist.
+\end{proof}
+
+Corollary~\ref{cor:expanded-closed} follows at once from
+Proposition~\ref{prop:open-closed-scaled}.

@@ -1,0 +1,175 @@
+# Private source ledger
+
+This is an authoring and verification record, not a reader-facing proof. Paths
+are relative to the repository root. A grouped row applies to every listed
+source and manuscript label. Within a table cell, a bare filename after a
+fully qualified path is in the same directory as the preceding qualified
+path.
+
+## Persistent artifacts
+
+| Artifact | Role |
+|---|---|
+| arrange/paper_draft/main.tex | AMS preamble, metadata, assembly, and XeLaTeX setup. |
+| arrange/paper_draft/01_introduction.tex | Introduction, main theorem, and roadmap. |
+| arrange/paper_draft/02_structural_reductions.tex | Common geometry and exhaustive reductions. |
+| arrange/paper_draft/03_strategy1_length.tex | Direct length-sum strategy. |
+| arrange/paper_draft/04_strategy2_exact_demand.tex | Exact demand-propagation strategy. |
+| arrange/paper_draft/05_strategy3_area.tex | Area-loss strategy. |
+| arrange/paper_draft/06_strategy4_ab_core.tex | Zero-gap residual-core strategy. |
+| arrange/paper_draft/07_exhaustive_assembly.tex | Seventeen-row routing and final proof. |
+| arrange/paper_draft/appendix_exact_formulas.tex | Long exact formulas and label tables. |
+| arrange/paper_draft/appendix_certificates.tex | Checkable certificate theorems and reproduction details. |
+| arrange/paper_draft/source_ledger.md | This provenance/status ledger. |
+| arrange/paper_draft/fonts/README.md | Embedded-font provenance and build note. |
+| arrange/paper_draft/fonts/OFL.txt | SIL Open Font License. |
+| arrange/paper_draft/fonts/noto_sans_kr_subset_115.ttf | Glyph subset containing 걸. |
+| arrange/paper_draft/fonts/noto_sans_kr_subset_118.ttf | Glyph subset containing 거치는. |
+| arrange/paper_draft/main.pdf | Derived compiled manuscript. |
+| arrange/paper_draft/figures/ | Intentionally empty; no figure is needed. |
+
+Build from arrange/paper_draft with:
+latexmk -xelatex -interaction=nonstopmode -halt-on-error main.tex.
+Auxiliary files are transient and are not committed. No external literature
+was supplied or needed for the proof, so there is no bibliography.
+
+## Main theorem and common reductions
+
+| Authoritative source path(s) | Recorded status | Manuscript label(s) |
+|---|---|---|
+| proof/0XXX_main/0000_main_theorem.md | Proven | thm:main |
+| proof/1XXX_foundations/10XX_global_conventions/1003_open_unit_vs_shrunken_closed_equivalence.md | Proven | cor:expanded-closed; prop:open-closed-scaled |
+| proof/1XXX_foundations/10XX_global_conventions/1000_problem_statement.md; 1001_geometry_objects.md | Definition | lem:distinct-roles, derived from the defined forcing points and proved in the manuscript |
+| proof/1XXX_foundations/11XX_C_triangle/1101_CE_classification.md | Proven | prop:ce-classification |
+| proof/1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md | Proven | lem:local-wedge; prop:vertex-classification; prop:t3-translation |
+| proof/1XXX_foundations/12XX_V_triangle/1213_T3_like_nonsupercritical.md; proof/3XXX_CE0/31XX_Nplus1/317X_T3_like_no_Vd1Vd2/3175_direct_T3_like_area_loss.md | Proven | lem:t3-nonsupercritical |
+| proof/1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md | Proven | prop:strict-handoffs; thm:strict-handoff |
+| proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2005_midpoint_self_cover_lemma.md | Proven | lem:self-midpoint |
+| proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2100_CE1_CE2_exactly_one_midpoint_lemma.md | Proven | prop:unique-center-midpoint |
+
+Paper-wide definitions also use 1001_geometry_objects.md,
+1002_targets_skeleton_half_skeleton_lotus_benzene.md,
+1005_symmetry_and_normalization.md, 1202_local_coordinates_abc.md,
+1208_boundary_degeneracies.md, and 1212_vertex_rows_and_Nplus.md, all recorded
+as Definition. Only the objects explicitly defined again in the manuscript are
+retained.
+
+## Strategy 1: direct length sums
+
+| Authoritative source path(s) | Recorded status | Manuscript label(s) |
+|---|---|---|
+| proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2008_neighbor_ray_max_c_formula.md | Proven | thm:neighbor-ray-capacity |
+| proof/2XXX_geometric_lemmas/25XX_length_bounds/2510_skeleton_length_bounds.md | Proven | lem:center-skeleton-cap; lem:positive-support-skeleton-cap; lem:no-support-skeleton-cap; lem:supercritical-skeleton-cap; lem:positive-support-rescuer; thm:conditional-skeleton-obstruction |
+| proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/414a_CE2_Nplus1_mixed_Vd1_Vd2_T3_like_skeleton_obstruction.md | Proven | prop:ce2-mixed-positive-support-length; prop:length-branches |
+| proof/2XXX_geometric_lemmas/25XX_length_bounds/2520_diagonal_length_bounds.md | Proven | thm:diagonal-trace-table |
+| proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2014_Vd1_Vd2_corner_normal_form.md | Proven | prop:vd-corner-normal-form |
+| proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2015_Vd2_neighbor_midpoint_cap.md | Proven | lem:vd2-neighbor-midpoint-cap |
+| proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2102_CE1_M0_e01_maximal_intervals.md | Proven | lem:ce1-maximal-interval |
+| proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2103_CE2_M0_e50_e01_maximal_interval_pairs.md | Proven | lem:ce2-interval-pairs |
+| proof/2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md | Proven | thm:boundary-trace-table |
+| proof/3XXX_CE0/30XX_Nplus0/3010_CE0_perimeter_length_obstruction.md; proof/3XXX_CE0/31XX_Nplus1/314X_exists_Vd1_Vd2/3141_CE0_Nplus1_exists_Vd1_Vd2_boundary_length_obstruction.md; proof/4XXX_CE1CE2/40XX_Nplus0/404X_exists_Vd1_Vd2_obstruction/4040_CE1_Nplus0_exists_Vd1_Vd2_boundary_length_obstruction.md; 4041_CE2_Nplus0_exists_Vd1_Vd2_boundary_length_obstruction.md; proof/4XXX_CE1CE2/41XX_Nplus1/411X_Vd1_Vd2_obstruction/4110_CE1_Nplus1_exists_Vd1_Vd2_boundary_length_obstruction.md; 4111_CE2_Nplus1_at_least_two_Vd1_Vd2_boundary_length_obstruction.md | Proven | prop:boundary-length-branches; prop:length-branches |
+| proof/4XXX_CE1CE2/42XX_Nplus_ge2/4200_CE1_CE2_skeleton_length_route.md | Proven | thm:conditional-skeleton-obstruction; prop:length-branches |
+| proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4149_CE2_Nplus1_Vd2_neighbor_midpoint_obstruction.md | Proven | prop:ce2-vd2-midpoint-length; prop:length-branches |
+| proof/4XXX_CE1CE2/41XX_Nplus1/412X_at_least_two_T3_like/4123_CE1_CE2_at_least_two_T3_like_diagonal_obstruction.md | Proven | prop:t3-diagonal-obstruction; prop:length-branches |
+
+## Strategy 2: exact demand propagation
+
+| Authoritative source path(s) | Recorded status | Manuscript label(s) |
+|---|---|---|
+| proof/1XXX_foundations/12XX_V_triangle/1202_local_coordinates_abc.md | Definition | def:admissible-demands |
+| proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md | Proven | prop:exact-admissible-set; prop:local-admissible |
+| proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2006_T3_like_midpoint_lemma.md; 2013_T3_like_side_tradeoff.md | Proven | lem:t3-midpoint-tradeoff |
+| proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2007_max_b_map.md | Proven | exact maximal outgoing map used by prop:capped-demand-map and recorded in appendix_exact_formulas.tex |
+| proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2010_free_supercritical_max_b.md | Proven | lem:free-supercritical-envelope |
+| proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md | Proven | prop:capped-demand-map |
+| proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2012_high_radial_low_root_bounds.md | Proven | low-root estimates used by lem:407-four-label-loss |
+| proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2105_CE1_exact_formulas.md; 2106_CE2_exact_formulas.md | Proven | prop:center-exact-formulas |
+| proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2107_one_side_capped_loss.md | Proven | lem:one-side-capped-loss |
+| proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2108_CE2_two_endpoint_capped_loss.md | Proven | lem:two-endpoint-capped-loss |
+| proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4106_CE1_one_gap_five_map_completion.md | Proven | prop:ce1-one-gap |
+| proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4107_CE2_one_gap_five_map_completion.md | Proven | prop:ce2-one-gap |
+| proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4101_CE1CE2_Nplus1_all_Vd0_strategy.md; 4102_CE2_two_gap_completion.md; 4106_CE1_one_gap_five_map_completion.md; 4107_CE2_one_gap_five_map_completion.md | Proven | prop:nplus-one-all-vd0 |
+| proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2104_CE2_one_interval_lemma.md | Proven | two-gap replacement step in prop:nplus-one-all-vd0 |
+| proof/4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like/4130_CE1CE2_exactly_one_T3_like_index.md; 4131_midpoint_forcing_reduction.md; 4132_CE1_CE2_exactly_one_T3_like_boundary_obstruction.md | Proven | prop:nplus-one-one-t3 |
+| proof/4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md | Proven | prop:nplus-zero-all-vd0 |
+| proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4071_CE1CE2_Nplus0_T3_like_forces_V0_T3_like.md; 4072_support_isolation_after_T0_T3_like.md; 4074_L_Full_branch.md; 4075_Tminus_low_lower_branch_obligations.md; 4078_left_L_family_completion.md; 4079_first_Full_branch.md; 407a_left_Thigh_branch_completion.md; 407c_rigor_completion_details.md; 407d_rigor_final_assembly.md | Proven | lem:407-four-label-loss; prop:nplus-zero-t3 |
+| proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4070_CE1CE2_Nplus0_T3_like_no_Vd1Vd2_index.md | Proven | package provenance for prop:nplus-zero-t3; terminal proof is supplied by the proved branch files in the preceding row |
+| proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4143_CE2_Nplus1_T0_Vd1_M1_T1_supercritical_obstruction.md | Proven | lem:vd1-adjacent-rescue |
+| proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4144_CE2_Nplus1_T0_supercritical_T1_Vd1_Vd2_adjacent_obstruction.md | Proven | lem:vd-adjacent-placement |
+| proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4146_CE2_Nplus1_T0_supercritical_nonadjacent_Vd1_Vd2_obstruction.md | Proven | lem:vd-nonadjacent-placement |
+| proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4147_CE2_Nplus1_Vd1_supercritical_pair_axis_replacement.md | Proven | lem:vd1-pair-replacement |
+| proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4140_CE2_Nplus1_exactly_one_Vd1_Vd2_index.md | Proven | package provenance for prop:ce2-one-vd-placement |
+| proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4148_CE2_Nplus1_exactly_one_Vd1_Vd2_assembly.md | Proven | prop:ce2-one-vd-placement; complementary exact-placement part of prop:demand-branches |
+| All proved terminal sources in this Strategy 2 table | Proven | prop:demand-branches |
+
+The Reduction file 4073_boundary_loss_framework.md organizes notation only.
+The scripts 407b_T_hi_Tminus_qright_threshold_certificate.py and
+4108_ce1_terminal_verifier.py are reproduction aids, not status sources.
+
+## Strategy 3: area loss
+
+| Authoritative source path(s) | Recorded status | Manuscript label(s) |
+|---|---|---|
+| proof/3XXX_CE0/32XX_Nplus_ge2/3205_unconditional_local_square_loss.md | Proven | lem:area-wedge; thm:local-square-loss |
+| proof/3XXX_CE0/31XX_Nplus1/317X_T3_like_no_Vd1Vd2/3175_direct_T3_like_area_loss.md | Proven | thm:t3-direct-loss |
+| proof/3XXX_CE0/32XX_Nplus_ge2/3208_CE0_conditional_area_certificate.md; 3201_area_conjecture_index.md | Proven | lem:two-ascent-area |
+| proof/3XXX_CE0/31XX_Nplus1/317X_T3_like_no_Vd1Vd2/3174_CE0_one_supercritical_T3_certificate.md; 3171_T3_like_area_certificate_index.md | Proven | lem:one-ascent-t3-area |
+| All proved terminal sources in this Strategy 3 table | Proven | prop:area-branches |
+
+The notation-only source 3202_area_function_and_monotonicity.md is Reference;
+its historical conjecture is not used.
+
+## Strategy 4: zero-gap residual core
+
+| Authoritative source path(s) | Recorded status | Manuscript label(s) |
+|---|---|---|
+| proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md; 20095_exact_caliper_certificate.md | Proven | thm:strict-ab-union |
+| proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md; 2008_neighbor_ray_max_c_formula.md; proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31032_symmetric_witness_construction.md | Proven | lem:ab-extreme-jump |
+| proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31032_symmetric_witness_construction.md | Proven | lem:symmetric-core-witness |
+| proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3101X_six_point/31012_core_graph_two_variable_relaxation.md | Proven | lem:fixed-line-signs |
+| proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31033_asymmetric_witness_construction.md | Proven | lem:asymmetric-core-witness |
+| proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31034_witness_enclosure_inequality.md | Proven | thm:witness-enclosure |
+| proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31035_center_independent_all_boundary_obstruction.md | Proven | thm:zero-gap-obstruction |
+| proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31030_CE0_all_Vd0_residual_core_strategy.md; proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4101_CE1CE2_Nplus1_all_Vd0_strategy.md | Proven | prop:ab-core-branches |
+
+The AB index 20090 is Reference only. The empirical files 20092--20094, the
+incomplete 3100X/3101X packages apart from the proved 31012 facts, and the
+false comparison in 31036 are not dependencies.
+
+## Final assembly and certificates
+
+| Authoritative source path(s) | Recorded status | Manuscript label(s) |
+|---|---|---|
+| proof/1XXX_foundations/11XX_C_triangle/1101_CE_classification.md; proof/2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md; proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4101_CE1CE2_Nplus1_all_Vd0_strategy.md | Proven | lem:gap-exhaustion |
+| proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20095_exact_caliper_certificate.md | Proven | thm:cert-caliper |
+| proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/407c_rigor_completion_details.md; 407d_rigor_final_assembly.md | Proven | thm:cert-407 |
+| proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4106_CE1_one_gap_five_map_completion.md | Proven | thm:cert-ce1-five-map |
+| proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31034_witness_enclosure_inequality.md | Proven | thm:cert-mixed-overlap |
+
+The reproduction scripts have no independent proof status. Their role is only
+to replay the exact integer/rational or outward-rounded checks stated and
+justified in the appendix.
+
+## Deliberate exclusions
+
+No theorem depends on a source recorded as Practically proven, Lemma target,
+Strategy, Empirical, Experiment, or Failed. In particular, the paper excludes
+the empirical AB catalogs 20092--20094; the false global skeleton claim; the
+failed 3172 tangent-envelope conjecture and unused 3173 route; superseded 3204;
+the algorithm-2/five-point and unverified six-point packages; optional
+Reduction 4104; the original residual-core draft gaps; and the false
+\(N_+\ge2\) AB comparison. Reference and navigation files only locate the
+proved sources itemized above.
+
+The repository-level audit also read README.md,
+proof/0XXX_main/0001_proof_tree_index.md,
+proof/0XXX_main/0002_status_and_dependencies.md,
+proof/09XX_appendices/0910_notation_dictionary.md, and
+proof/1XXX_foundations/10XX_global_conventions/1006_proof_status_conventions.md.
+They govern navigation, notation, and status interpretation, not theorem
+proofs.  The Reference index
+proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20090_ab_set_index.md
+is used only for navigation.  The false global-skeleton route is excluded in
+accord with
+proof/9XXX_failed_ideas/908X_skeleton_cover_counterexample/9081_skeleton_cover_counterexample.md,
+recorded as Empirical; the paper uses only branch-conditional skeleton results.

@@ -1,0 +1,66 @@
+\documentclass{amsart}
+\usepackage{amsmath,amssymb,amsthm,mathtools,graphicx}
+\usepackage{fontspec}
+
+\newfontfamily\hangulA[Path=fonts/]{noto_sans_kr_subset_115.ttf}
+\newfontfamily\hangulB[Path=fonts/]{noto_sans_kr_subset_118.ttf}
+\newcommand{\straddlinghangul}{{\hangulA 걸}{\hangulB 거치는}}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\CEzero}{\mathrm{CE0}}
+\newcommand{\CEone}{\mathrm{CE1}}
+\newcommand{\CEtwo}{\mathrm{CE2}}
+\newcommand{\Vdzero}{\mathrm{Vd0}}
+\newcommand{\Vdone}{\mathrm{Vd1}}
+\newcommand{\Vdtwo}{\mathrm{Vd2}}
+\newcommand{\Tlike}{\mathrm{T3\text{-}like}}
+\newcommand{\Haus}{\mathcal H^1}
+\newcommand{\conv}{\mathrm{conv}}
+\newcommand{\interior}{\mathrm{int}}
+
+\title[Seven triangles do not cover the unit hexagon]
+{Seven Open Unit Equilateral Triangles Do Not Cover a Regular Unit Hexagon}
+\author{Author}
+\keywords{equilateral triangles, geometric covering, regular hexagon,
+boundary propagation, area loss, caliper certificate}
+\subjclass[2020]{52C15, 52A40, 51M04}
+
+\begin{document}
+
+\begin{abstract}
+We prove that the regular hexagon of side length one cannot be covered by
+seven open equilateral triangles of side length one.  Equivalently, no
+regular hexagon of side length greater than one is covered by seven closed
+unit equilateral triangles.  Seven distinguished points force one center
+role and six vertex roles.  An exhaustive classification of those roles
+reduces the proof to four mechanisms: direct boundary, radial, diagonal,
+and conditional-skeleton length sums; exact propagation of boundary and
+radial demands; normalized area loss; and a center-independent residual-core
+obstruction based on exact $AB$-unions.  The machine-assisted steps are
+stated as finite, independently checkable interval certificates with directed
+rounding or exact rational arithmetic.
+\end{abstract}
+
+\maketitle
+
+\input{01_introduction}
+\input{02_structural_reductions}
+\input{03_strategy1_length}
+\input{04_strategy2_exact_demand}
+\input{05_strategy3_area}
+\input{06_strategy4_ab_core}
+\input{07_exhaustive_assembly}
+
+\appendix
+\input{appendix_exact_formulas}
+\input{appendix_certificates}
+
+\end{document}

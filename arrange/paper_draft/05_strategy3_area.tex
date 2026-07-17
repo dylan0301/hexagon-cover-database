@@ -1,0 +1,397 @@
+\section{Strategy 3: area loss}
+\label{sec:area}
+
+Let
+\[
+ A_\triangle=\frac{\sqrt3}{4}
+\]
+be the area of a unit equilateral triangle.  Throughout this section areas
+are divided by $A_\triangle$.  Thus a unit triangle has normalized area one
+and $H$ has normalized area six.
+
+\subsection{The local square-loss inequalities}
+
+Fix a vertex $V_i$.  Let $P_a$ and $P_b$ be the points at distances $a$ and
+$b$ from $V_i$ on its incoming and outgoing boundary edges.  For a closed
+unit equilateral triangle $T$ containing $V_i,P_a,P_b$, put
+\[
+ G(T)=\frac{\operatorname{area}(T\setminus H)}{A_\triangle}.
+\]
+Equivalently, if
+\[
+ f(a,b)=\max_T\frac{\operatorname{area}(T\cap H)}{A_\triangle},
+ \qquad G(a,b)=1-f(a,b),
+\]
+then $G(a,b)$ is the least possible normalized loss.  Reflection in the
+radial axis interchanges $a$ and $b$, and increasing either demand can only
+decrease $f$.
+
+\begin{lemma}[Local wedge reduction]
+\label{lem:area-wedge}
+After rotating indices to $i=0$, write
+\[
+ X=V_0+x(V_1-V_0)+y(V_5-V_0),
+ \qquad W=\{(x,y):x\ge0,\ y\ge0\}.
+\]
+If a closed unit equilateral triangle $T$ contains $V_0$, then
+\[
+ T\cap H=T\cap W.
+\]
+Normalized Euclidean area is twice the corresponding $(x,y)$-coordinate
+area.
+\end{lemma}
+
+\begin{proof}
+The two basis vectors have length one and angle $120^\circ$, so
+\[
+ \lVert(x,y)\rVert^2=x^2+y^2-xy,
+ \qquad
+ \left\lvert\det(V_1-V_0,V_5-V_0)\right\rvert=\frac{\sqrt3}{2}.
+\]
+The hexagon is
+\[
+ H=\{0\le x,y\le2,\ |x-y|\le1\}\subset W.
+\]
+Conversely, if $(x,y)\in T\cap W$, then the diameter-one condition gives
+$x^2+y^2-xy\le1$.  Hence
+\[
+ |x-y|^2\le x^2+y^2-xy\le1,
+ \qquad
+ \frac34x^2\le x^2+y^2-xy,
+\]
+and the same estimate holds for $y$.  Thus $|x-y|\le1$ and
+$0\le x,y\le2/\sqrt3<2$, proving $(x,y)\in H$.  The determinant identity
+proves the area assertion.
+\end{proof}
+
+\begin{theorem}[Unconditional local square loss]
+\label{thm:local-square-loss}
+For every feasible pair $0\le a,b\le1$ and every realizing closed unit
+equilateral triangle $T$,
+\begin{equation}
+ G(T)\ge\min(a,b)^2.                         \label{eq:min-square-loss}
+\end{equation}
+If $a+b>1$, then
+\begin{equation}
+ G(T)\ge\max(a,b)^2.                         \label{eq:max-square-loss}
+\end{equation}
+Consequently the same inequalities hold for $G(a,b)=1-f(a,b)$.
+\end{theorem}
+
+\begin{proof}
+In the coordinates of Lemma~\ref{lem:area-wedge}, physical rotation through
+$60^\circ$ is $R(x,y)=(x-y,x)$.  Put
+\[
+ 0\le t\le1,\qquad D=1-t+t^2,\qquad z=\sqrt D.
+\]
+After choosing one of the six directed sides, every orientation has one of
+the following two forms:
+\[
+ \begin{array}{c|cc}
+ &d&Rd\\ \hline
+ \mathrm{I}&z^{-1}(1,t)&z^{-1}(1-t,1)\\[2mm]
+ \mathrm{II}&z^{-1}(t,-(1-t))&z^{-1}(1,t).
+ \end{array}                                      \tag{5.1}
+\]
+Indeed these forms cover, respectively, the physical direction sectors
+$[120^\circ,180^\circ]$ and $[60^\circ,120^\circ]$; their endpoints cover
+the common boundary orientations.
+
+For Type I introduce
+\[
+ U=\alpha+y-tx,\qquad V=\beta+x-(1-t)y.
+\]
+Then $T$ is the simplex $U,V\ge0$, $U+V\le z$.  Containment of
+$(0,0),(0,a),(b,0)$ gives
+\[
+ \alpha\ge tb,\quad \beta\ge(1-t)a,
+ \quad \alpha+\beta+(1-t)b\le z,
+ \quad \alpha+\beta+ta\le z.                 \tag{5.2}
+\]
+The two inequalities defining $W$ become
+\[
+ (1-t)U+V\ge(1-t)\alpha+\beta,
+ \qquad U+tV\ge\alpha+t\beta.
+\]
+For fixed $t$, lowering $\alpha$ or $\beta$ therefore enlarges $T\cap W$.
+The outside loss is minimized at
+$\alpha=tb$, $\beta=(1-t)a$.  At that placement the portion outside $W$
+has vertices, in the $(U,V)$-plane,
+\[
+ (0,0),\quad(a+tb,0),\quad(tb,(1-t)a),
+ \quad(0,b+(1-t)a).
+\]
+Since the Jacobian of $(x,y)\mapsto(U,V)$ has absolute value $D$,
+\begin{equation}
+ G(T)\ge G_{\mathrm I}(a,b;t)
+ =\frac{(1-t)a^2+tb^2+2t(1-t)ab}{D}.          \label{eq:type-I-loss}
+\end{equation}
+If $a\le b$, then
+\[
+ D(G_{\mathrm I}-a^2)
+ =t\{b^2-a^2+(1-t)(a^2+2ab)\}\ge0;
+\]
+the reflected factorization proves $G_{\mathrm I}\ge b^2$ when $b\le a$.
+This proves \eqref{eq:min-square-loss} in Type I.
+
+Suppose now that $a+b>1$ and $a\le b$.  Set
+\[
+ r=\frac ab,\qquad t_0=\frac{1-r^2}{1+2r}.
+\]
+Since $b>1/(1+r)$, feasibility in \eqref{eq:type-I-loss} and (5.2) excludes
+$0\le t<t_0$: for $0<t<t_0$,
+\[
+ \left(\frac{1+r(1-t)}{1+r}\right)^2-D
+ =\frac{t(1+2r)(t_0-t)}{(1+r)^2}>0,
+\]
+so $b+(1-t)a>z$, while $t=0$ would give $a+b\le1$.  Hence $t\ge t_0$, and
+\[
+ D(G_{\mathrm I}-b^2)
+ =(1-t)b^2\{r^2-1+t(2r+1)\}\ge0.
+\]
+If $b\le a$, put $r=b/a$ and
+$t_1=(r^2+2r)/(1+2r)$.  The identical reflected calculation excludes
+$t>t_1$ and gives
+\[
+ D(G_{\mathrm I}-a^2)
+ =ta^2\{r^2+2r-t(1+2r)\}\ge0.
+\]
+Thus \eqref{eq:max-square-loss} holds in Type I.
+
+For Type II put
+\[
+ U=\alpha+(1-t)x+ty,\qquad V=\beta+tx-y.
+\]
+Again $T$ is the simplex $U,V\ge0$, $U+V\le z$.  Its exact reaches on the
+positive $y$- and $x$-axes are
+\[
+ A=\beta,\qquad B=z-\alpha-\beta,\qquad A+B\le z\le1.       \tag{5.3}
+\]
+In particular Type II is impossible when $a+b>1$.  Its wedge intersection
+is the quadrilateral with vertices
+\[
+ (0,0),\quad(B,0),\quad
+ \left(\frac{B+(1-t)A}{D},\frac{A+tB}{D}\right),
+ \quad(0,A).
+\]
+Hence
+\begin{equation}
+ G(T)=G_{\mathrm{II}}(A,B;t)
+ =1-\frac{(1-t)A^2+tB^2+2AB}{D}.              \label{eq:type-II-loss}
+\end{equation}
+Let $S=A+B$.  If $A\le B$, write $A=rS$, $B=(1-r)S$ with
+$0\le r\le1/2$.  Since $S^2\le D$, and with
+\[
+ C=(1-t)r^2+t(1-r)^2+2r(1-r),
+\]
+we have $G_{\mathrm{II}}\ge1-C$.  The exact factorization
+\[
+ 1-C-r^2D=(1-t)(1-2r+tr^2)\ge0
+\]
+gives $G_{\mathrm{II}}\ge r^2D\ge A^2$.  Reflection gives
+$G_{\mathrm{II}}\ge B^2$ when $B\le A$.  Since $A\ge a$ and $B\ge b$,
+this proves \eqref{eq:min-square-loss}.  The two orientation types are
+exhaustive, so the theorem follows.
+\end{proof}
+
+\subsection{The direct $\Tlike$ loss}
+
+The next theorem uses the classification data $(o,n)$ from
+Section~\ref{sec:structural}: $o$ counts triangle vertices outside $H$, and
+$n$ counts adjacent radial arms met in positive length.  Thus a $\Tlike$
+role has $(o,n)=(2,1)$.
+
+\begin{theorem}[Direct $\Tlike$ loss]
+\label{thm:t3-direct-loss}
+Let $T$ be a closed unit $V_i$-triangle of $\Tlike$ type, and let $a,b$ be
+lower bounds for its adjacent boundary reaches.  Then
+\begin{equation}
+ a+b\le1.                                 \label{eq:t3-area-nonsupercritical}
+\end{equation}
+Moreover, for $0\le m\le1/2$,
+\begin{equation}
+ a,b\ge m
+ \quad\Longrightarrow\quad
+ G(T)\ge2m-4m^2.                               \label{eq:t3-loss}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Use the two orientation forms (5.1).  In Type I the three simplex vertices
+are
+\begin{align*}
+ Q_0&=D^{-1}(-(1-t)\alpha-\beta,-\alpha-t\beta),\\
+ Q_1&=D^{-1}(z-(1-t)\alpha-\beta,tz-\alpha-t\beta),\\
+ Q_2&=D^{-1}((1-t)z-(1-t)\alpha-\beta,z-\alpha-t\beta).
+\end{align*}
+The first coordinate of $Q_1$ and the second coordinate of $Q_2$ are
+nonnegative.  If two vertices lie outside the wedge, then $Q_0$ and exactly
+one of $Q_1,Q_2$ do.  If $Q_1$ is outside, the sole wedge vertex $Q_2$ has
+both coordinates strictly below one; this follows from
+$(1-t)/z\le1$, with strictness either from $t>0$ or from $\alpha>0$ at
+$t=0$.  If $Q_2$ is outside, the reflected estimate $t/z\le1$ gives the
+same conclusion for $Q_1$.  Axis intersection points are also at coordinate
+at most one by the diameter bound.  Hence neither adjacent radial arm is met
+in positive length.  A Type I triangle with $o=2$ has $n=0$, so it cannot be
+$\Tlike$.
+
+For Type II retain the exact reaches $A,B$ in (5.3), put $S=A+B$, and let
+\[
+ Q=\left(\frac{B+(1-t)A}{D},\frac{A+tB}{D}\right)
+\]
+be the unique triangle vertex in the wedge.  Equation (5.3) immediately
+gives $a+b\le A+B\le1$, proving
+\eqref{eq:t3-area-nonsupercritical}.  The endpoint orientations $t=0,1$ cannot
+have $(o,n)=(2,1)$; hence $0<t<1$.  Reflecting if necessary, assume that
+$Q_x>1$ and $Q_y\le1$.  The first inequality is
+\[
+ S-tA>D.
+\]
+Since $S\le z$, it follows that
+\[
+ A<L:=\frac{z-D}{t}=\frac{z(1-z)}t.            \tag{5.4}
+\]
+The normalized inside area is
+\[
+ I(S,A)=\frac{(1-t)A^2+t(S-A)^2+2A(S-A)}D.
+\]
+For fixed $t,A$, this increases with $S$, so the loss is bounded below by
+its value at $S=z$.  There
+\[
+ G(z,A)=\frac{tA^2+(1-t)(z-A)^2}{D},
+\]
+and this decreases for $A<L<(1-t)z$.  Thus
+\[
+ G(T)\ge G(z,L).                                \tag{5.5}
+\]
+
+Set $r=(1-z)/t$.  Then $0<r<1/2$, and eliminating $t,z$ gives
+\[
+ t=\frac{1-2r}{1-r^2},\qquad
+ z=\frac{r^2-r+1}{1-r^2},
+\]
+\[
+ L=A_0(r):=\frac{r(r^2-r+1)}{1-r^2},\qquad
+ z-L=B_0(r):=\frac{r^2-r+1}{1+r}.
+\]
+The limiting normalized inside area and loss are
+\[
+ F_0(r)=\frac{(r^2-r+1)^2}{1-r^2},
+ \qquad G_0(r)=1-F_0(r).
+\]
+Since the exact reach $A$ is at least the required demand $a\ge m$, (5.4)
+gives $A_0(r)>m$.  Direct simplification yields
+\[
+ G_0(r)-\{2A_0(r)-4A_0(r)^2\}
+ =\frac{r^2(5r^4-8r^3+13r^2-8r+2)}{(1-r^2)^2}\ge0,
+\]
+because the last polynomial is at least $9r^2-8r+2\ge2/9$ on
+$[0,1/2]$.  Also $A_0(r)\le r$, and
+\[
+ G_0(r)-\frac14
+ =\frac{(1-2r)(2r^3-3r^2+6r-1)}{4(1-r^2)}\ge0
+ \quad\text{when }A_0(r)\ge\frac14;
+\]
+the cubic is increasing and has value $11/32$ at $r=1/4$.
+
+Finally $\psi(u)=2u-4u^2$ is increasing on $[0,1/4]$ and never exceeds
+$1/4$ on $[0,1/2]$.  If $A_0(r)\le1/4$, then
+$G_0(r)\ge\psi(A_0(r))\ge\psi(m)$; if $A_0(r)\ge1/4$, then
+$G_0(r)\ge1/4\ge\psi(m)$.  Together with (5.5), this proves
+\eqref{eq:t3-loss}.  The reflected crossing is identical.
+\end{proof}
+
+\subsection{The cyclic area certificates}
+
+The selected handoffs of Theorem~\ref{thm:strict-handoff} have the form
+\[
+ (a_i,b_i)=(1-x_{i-1},x_i),\qquad 0<x_i<1,
+\]
+with cyclic indices.  Row $i$ is selected supercritical exactly when
+$x_i>x_{i-1}$.
+
+\begin{lemma}[At least two selected ascents]
+\label{lem:two-ascent-area}
+Suppose every selected pair is feasible and at least two rows are
+supercritical.  Then
+\[
+ \sum_{i=0}^5f(1-x_{i-1},x_i)<\frac{99}{20}<5.
+\]
+\end{lemma}
+
+\begin{proof}
+Put $m=\min_i x_i$ and $M=\max_i x_i$.  The reflection
+$y_i=1-x_{-i-1}$ swaps each row's two coordinates and preserves the sum and
+the number of ascents.  Hence assume $m\le1-M$.  Every row coordinate is at
+least $m$, so \eqref{eq:min-square-loss} gives loss at least $m^2$.
+
+Choose an ascent out of a minimum plateau, say
+$x_{p-1}=m<x_p$.  Its row contains the coordinate $1-m$ and
+\eqref{eq:max-square-loss} gives loss at least $(1-m)^2$.  At a second
+ascent $q\ne p$, one row coordinate is strictly larger than $1/2$, so its
+loss is strictly larger than $1/4$.  The other four rows lose at least
+$m^2$ each.  Therefore the total loss is strictly larger than
+\[
+ 4m^2+(1-m)^2+\frac14
+ =5\left(m-\frac15\right)^2+\frac{21}{20}
+ \ge\frac{21}{20}.
+\]
+Subtracting from six proves the assertion.
+\end{proof}
+
+\begin{lemma}[One ascent and a $\Tlike$ row]
+\label{lem:one-ascent-t3-area}
+Suppose there is exactly one selected supercritical row, all roles are
+$\Vdzero$ or $\Tlike$, and at least one is $\Tlike$.  Then the total
+normalized loss of the six actual vertex triangles is strictly greater
+than one.
+\end{lemma}
+
+\begin{proof}
+Rotate so that the unique ascent is row $0$.  Then
+\[
+ x_0>x_5,\qquad x_0\ge x_1\ge\cdots\ge x_5.
+\]
+Put $M=x_0$, $m=x_5$, and reflect as above so that $m\le1-M$.  Every row
+coordinate is at least $m$, and $0<m\le1/2$.  The supercritical row has
+pair $(1-m,M)$, so its loss is at least $(1-m)^2$.  By
+\eqref{eq:t3-area-nonsupercritical}, a $\Tlike$ row is not row $0$; by
+Theorem~\ref{thm:t3-direct-loss} it loses at least $2m-4m^2$.  Each of the
+remaining four rows loses at least $m^2$.  The total is therefore at least
+\[
+ (1-m)^2+(2m-4m^2)+4m^2=1+m^2>1.
+\]
+\end{proof}
+
+\begin{proposition}[Branches closed by area]
+\label{prop:area-branches}
+The following branches are impossible:
+\begin{enumerate}
+\item $T_C$ is $\CEzero$, $N_+\ge2$, with arbitrary vertex-role types;
+\item $T_C$ is $\CEzero$, $N_+=1$, no role is $\Vdone$ or $\Vdtwo$, and
+at least one role is $\Tlike$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+In the $\CEzero$ class, the center role has no positive-length boundary
+trace.  If the six vertex roles missed a boundary point, openness of the
+center role would give such a trace.  Hence the vertex roles cover
+$\partial H$, so Theorem~\ref{thm:strict-handoff} applies.
+
+If $N_+\ge2$, its at-least-two clause selects handoffs with at least two
+supercritical rows.  Lemma~\ref{lem:two-ascent-area} bounds the six vertex
+triangles' total normalized inside area by less than $99/20$.  The center
+triangle contributes at most one, so the total is less than
+\[
+ \frac{99}{20}+1=\frac{119}{20}<6,
+\]
+which is insufficient to cover $H$.
+
+If $N_+=1$, the exact-one clause preserves the unique actual
+supercritical index for every strict selection.  The exhaustive vertex-type
+hypothesis gives the assumptions of Lemma~\ref{lem:one-ascent-t3-area}; the
+six vertex triangles contribute less than five normalized area, and the
+center triangle contributes at most one.  Again the sum is strictly below
+the normalized area six of $H$.
+\end{proof}
