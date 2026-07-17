@@ -14,3 +14,7 @@ package only; proof status is inherited from the numbered source notes below.
 | [`3103X_residual_core/31033_asymmetric_witness_construction.md`](3103X_residual_core/31033_asymmetric_witness_construction.md) | Proven | Exact asymmetric witnesses and row-by-row core membership. |
 | [`3103X_residual_core/31034_witness_enclosure_inequality.md`](3103X_residual_core/31034_witness_enclosure_inequality.md) | Proven | Full enclosure inequality via analytic adjacent overlaps and a rigorous mixed-overlap interval certificate. |
 | [`3103X_residual_core/31035_center_independent_all_boundary_obstruction.md`](3103X_residual_core/31035_center_independent_all_boundary_obstruction.md) | Proven | Center-class-independent obstruction for six Vd0 roles covering the full boundary with exactly one supercritical actual row. |
+| [`3103X_residual_core/31036_Nplus_ge2_complementary_AB_comparison_counterexample.md`](3103X_residual_core/31036_Nplus_ge2_complementary_AB_comparison_counterexample.md) | Proven | Exact scope theorem and all-Vd0 boundary construction showing why the complementary one-row uniformization does not extend to general $N_+\ge2$. |
+
+The `31036` counterexample is a scope warning for the complementary
+two-parameter comparison. It does not alter the proven $N_+=1$ closure.
