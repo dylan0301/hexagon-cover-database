@@ -46,8 +46,11 @@ coverage. After that point, the argument is center-class independent.
 - `31035` reduces the cover to the residual-core witness.
 - [`31032`](31032_symmetric_witness_construction.md) and
   [`31033`](31033_asymmetric_witness_construction.md) construct that witness.
-- [`31034`](31034_witness_enclosure_inequality.md) proves its terminal
-  enclosure bound.
+- [`31034`](31034_witness_enclosure_inequality.md) gives the terminal cap
+  reduction and analytic adjacent overlaps.
+- [`31037`](31037_rational_cmax_upper_envelope.md) proves both remaining mixed
+  overlaps by exact rational algebra and integer Bernstein coefficients, with
+  no interval arithmetic.
 
 The original research blueprint remains, for provenance only, in
 [`31031_original_residual_core_draft.md`](31031_original_residual_core_draft.md).
