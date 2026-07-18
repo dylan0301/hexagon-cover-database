@@ -21,6 +21,11 @@ Status: Reference
    interior finite certificate.
 5. Convert remaining computational checks into human-readable certificates
    where they are intended to support proof-level claims.
+6. Complete or refute the rational radial-envelope route in
+   [`../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31037_rational_cmax_upper_envelope.md`](../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31037_rational_cmax_upper_envelope.md):
+   either prove that the single tangent-line upper envelope lies below the
+   adjacent-overlap envelope and establish the two resulting Gram inequalities,
+   or split along that algebraic comparison and certify both cells exactly.
 
 Keep the archived May 25 supremum-endpoint route separate unless a clean
 all-Vd0 reduction is found.
