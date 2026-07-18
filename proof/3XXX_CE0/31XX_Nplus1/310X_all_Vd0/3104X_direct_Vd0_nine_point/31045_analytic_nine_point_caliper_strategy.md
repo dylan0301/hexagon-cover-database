@@ -50,7 +50,7 @@ The direct radial-forcing theorem
 [`31041_direct_radial_forcing.md`](31041_direct_radial_forcing.md) gives
 
 $$
-D_i=rV_i\in U_C
+D_i=rV_i\in T_C
 \qquad(i=0,\ldots,5).
 $$
 
@@ -58,7 +58,7 @@ The direct asymmetric-forcing theorem
 [`31042_direct_asymmetric_witness_forcing.md`](31042_direct_asymmetric_witness_forcing.md) gives
 
 $$
-Q_-,Q_0,Q_+\in U_C.
+Q_-,Q_0,Q_+\in T_C.
 $$
 
 Retain the junction-tangent points from Section 3 of `31034`.  Thus
@@ -75,7 +75,7 @@ where the two open intervals are line segments.  Since the center role is
 convex,
 
 $$
-A,B,C\in U_C.
+A,B,C\in T_C.
 $$
 
 Define the finite set
@@ -291,8 +291,8 @@ A proof attempt should use the same exact two radial-envelope cells as `31034`.
 6. Prove the resulting signs by factorization, monotonicity, convexity, or
    endpoint comparison.  No interval boxes are intended in this route.
 
-The six radial witnesses also allow some flexibility.  Since $O,D_i\in U_C$
-and $U_C$ is convex, every point
+The six radial witnesses also allow some flexibility.  Since $O,D_i\in T_C$
+and $T_C$ is convex, every point
 
 $$
 \widetilde D_i=\widetilde r V_i,
