@@ -21,11 +21,6 @@ Status: Reference
    interior finite certificate.
 5. Convert remaining computational checks into human-readable certificates
    where they are intended to support proof-level claims.
-6. Complete or refute the rational radial-envelope route in
-   [`../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31037_rational_cmax_upper_envelope.md`](../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31037_rational_cmax_upper_envelope.md):
-   either prove that the single tangent-line upper envelope lies below the
-   adjacent-overlap envelope and establish the two resulting Gram inequalities,
-   or split along that algebraic comparison and certify both cells exactly.
 
 Keep the archived May 25 supremum-endpoint route separate unless a clean
 all-Vd0 reduction is found.
@@ -34,6 +29,7 @@ all-Vd0 reduction is found.
 
 | Former question | Current source | Recorded status | Resolution |
 |---|---|---|---|
+| Interval-free mixed witness overlaps | [`../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31037_rational_cmax_upper_envelope.md`](../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31037_rational_cmax_upper_envelope.md) | Proven | Branchwise rational upper envelopes replace the exact radial radicals by smaller forced disks; exact rational-function elimination and integer Bernstein coefficients prove both mixed overlaps with no floating-point or interval arithmetic. |
 | Transfer from actual reaches to strict selected cut rows | [`../1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md`](../1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md) | Proven | Strict boundary overlap gives feasible cut intervals; exact-one supercriticality is preserved for every selection, and an actual at-least-two pattern admits a simultaneous selection with at least two strict ascents. |
 | Center-independent all-boundary obstruction, including the `410X` no-gap state | [`../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3104X_direct_Vd0_nine_point/31043_center_independent_direct_nine_point_obstruction.md`](../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3104X_direct_Vd0_nine_point/31043_center_independent_direct_nine_point_obstruction.md) | Proven | Direct Vd0 forcing gives six common radial witnesses plus three asymmetric witnesses, and `31034` closes the enclosure. The result bypasses, but does not prove, the optional $F_6$ target; `31035` remains an independent proven residual-core proof. |
 | Exact $AB$-union description and strict Band IV frontier | [`../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20095_exact_caliper_certificate.md`](../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20095_exact_caliper_certificate.md) | Proven | `20095` gives an exhaustive finite all-parameter caliper certificate; `20091` resolves all strict support regimes, proves the disk--half-plane identity and frontier order, and records the $\rho=1$ degeneration. |
