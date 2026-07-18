@@ -143,62 +143,6 @@ with the line breaks removed.  Its expected final line is
 \texttt{B0 < (7-sqrt(13))/6 verified}.
 \end{proof}
 
-\subsection{The CE1 one-gap Bernstein certificate}
-
-\begin{theorem}[Bernstein certificate for the CE1 terminal map]
-\label{thm:cert-ce1-five-map}
-In the normalized CE1 one-gap domain of
-Proposition~\ref{prop:ce1-one-gap}, let $k\in(0,1/2)$ be the rationalized
-orientation parameter, let $A=\alpha P$ with $0<\alpha<1$, and let
-$D$ range between the exact endpoints
-\[
- D_0=P-RA,
- \qquad
- D_h=A(4R-1)+10RA^2-\eta.
-\]
-For the terminal lower estimate $L_2$ defined there, put
-\[
- \Psi(R,A,D)=L_2-2D-3D^2.
-\]
-Then $\Psi(R,A,D)>0$ throughout the strict feasible domain.
-\end{theorem}
-
-\begin{proof}[Certificate verification]
-For fixed $R,A$, $\partial_D^2\Psi=-6$; it is enough to verify positivity
-at $D_0$ and $D_h$.  After substituting the rational expressions in
-$(k,\alpha)$ and clearing denominators known to be positive, the numerator
-of $\Psi(D_0)$ has bidegree $(13,3)$ on
-$[0,1/2]\times[0,1]$.  Its $56$ tensor-product Bernstein coefficients are
-positive except for the single coefficient at the boundary index $(0,3)$,
-which is zero; the least positive coefficient is $2187/8192$.  The strict
-feasible domain does not meet the equality represented by that boundary
-coefficient.
-
-The exact feasibility condition $D_h>0$ first implies $k>1/5$.  On
-$[1/5,1/2]\times[0,1]$, the numerator of $\Psi(D_h)$ has bidegree $(21,4)$
-and all $110$ Bernstein coefficients are positive; the least is
-\[
- \frac{818360091}{28940800000}.
-\]
-The canonical coefficient-tensor SHA-256 digests are, respectively,
-\begin{verbatim}
-831285d98a37fcf362f31a1d8d6859e91a38ec418b5b2df19494c1c05da4d21e
-242eb4af2b3163854095ff91b8c72dd650a5110951771f1a2e9022cae9da9e2e
-\end{verbatim}
-so the printed tensors can be compared byte-for-byte with the stated
-certificate.  Bernstein positivity proves positivity at both endpoints;
-concavity places $\Psi$ above their chord.
-
-The same exact-rational run verifies the auxiliary degree-eight signs used
-to deduce $D<1/10$.  Run
-\begin{verbatim}
-python3 proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/
-  4108_ce1_terminal_verifier.py
-\end{verbatim}
-with the line break removed.  The program uses symbolic rational arithmetic
-and no floating-point comparison.
-\end{proof}
-
 \subsection{The outward-rounded mixed-overlap certificate}
 
 \begin{theorem}[Mixed cap-overlap certificate]

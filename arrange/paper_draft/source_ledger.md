@@ -103,8 +103,10 @@ retained.
 | All proved terminal sources in this Strategy 2 table | Proven | prop:demand-branches |
 
 The Reduction file 4073_boundary_loss_framework.md organizes notation only.
-The scripts 407b_T_hi_Tminus_qright_threshold_certificate.py and
-4108_ce1_terminal_verifier.py are reproduction aids, not status sources.
+The script 407b_T_hi_Tminus_qright_threshold_certificate.py is a
+reproduction aid, not a status source.  The superseded exact-rational script
+4108_ce1_terminal_verifier.py is retained only as an independent cross-check
+of the former Bernstein route and is not a manuscript dependency.
 
 ## Strategy 3: area loss
 
@@ -143,7 +145,6 @@ false comparison in 31036 are not dependencies.
 | proof/1XXX_foundations/11XX_C_triangle/1101_CE_classification.md; proof/2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md; proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4101_CE1CE2_Nplus1_all_Vd0_strategy.md | Proven | lem:gap-exhaustion |
 | proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20095_exact_caliper_certificate.md | Proven | thm:cert-caliper |
 | proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/407c_rigor_completion_details.md; 407d_rigor_final_assembly.md | Proven | thm:cert-407 |
-| proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4106_CE1_one_gap_five_map_completion.md | Proven | thm:cert-ce1-five-map |
 | proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31034_witness_enclosure_inequality.md | Proven | thm:cert-mixed-overlap |
 
 The reproduction scripts have no independent proof status. Their role is only

@@ -245,6 +245,16 @@ e(d)\le2d+5d^2
 }
 $$
 
+and the sharper terminal estimate
+
+$$
+\boxed{
+e(d)<2d+3d^2
+\qquad
+\left(0<d\le\frac1{10}\right).
+}
+$$
+
 ## 4. The first low root lies below the target
 
 The inequality $A+wD<P$, with $D=R-X$, gives
@@ -390,24 +400,49 @@ f_8(k)={}&16k^8-77k^7+175k^6-244k^5+199k^4\\
 \end{aligned}
 $$
 
-The degree-eight Bernstein coefficients of $-f_8$ on $[0,27/100]$ are
+Put $p=-f_8$. Direct differentiation and regrouping give
+
+$$
+p'(k)=-12+g_1(k)+g_2(k)+g_3(k),
+$$
+
+where
 
 $$
 \begin{aligned}
-&3,
-\frac{519}{200},
-\frac{603723}{280000},
-\frac{96261783}{56000000},
-\frac{9126684741}{7000000000},\\
-&\frac{129114182427}{140000000000},
-\frac{650458634673}{1120000000000},
-\frac{226624193321631}{800000000000000},
-\frac{81581849832351}{2500000000000000}.
+g_1(k)&=-k(4k-1)(199k-26),\\
+g_2(k)&=10k^4(122-105k),\\
+g_3(k)&=k^6(539-128k).
 \end{aligned}
 $$
 
-They are all positive, so $Q(P)>0$. Concavity now gives $Q(A)>0$ for
-$0<A<P$, a contradiction.
+The first term is positive only for $26/199<k<1/4$. On that interval,
+
+$$
+g_1(k)
+\le\frac14\max_k(1-4k)(199k-26)
+=\frac{9025}{12736}<\frac34,
+$$
+
+and the same upper bound is automatic when $g_1(k)\le0$. The functions
+$g_2$ and $g_3$ are increasing on $[0,27/100]$, and direct rational
+evaluation gives
+
+$$
+g_2\left(\frac{27}{100}\right)<5,
+\qquad
+g_3\left(\frac{27}{100}\right)<\frac15.
+$$
+
+Consequently $p'(k)<-12+3/4+5+1/5<0$. Since
+
+$$
+p\left(\frac{27}{100}\right)
+=\frac{81581849832351}{2500000000000000}>0,
+$$
+
+one has $-f_8(k)=p(k)>0$ throughout the required interval. Thus $Q(P)>0$.
+Concavity now gives $Q(A)>0$ for $0<A<P$, a contradiction.
 
 If $R>1/2$, then $0<A_0<P$ and direct expansion gives
 
@@ -434,18 +469,11 @@ $$
 3\mathbin{\cdot}2004^2-3471^2=207>0.
 $$
 
-The Bernstein coefficients of $-g_5'$ on $[1/4,1/2]$ are
+For $u=4k-1\in[0,1]$, direct expansion gives
 
 $$
-\frac{29}{8},
-\qquad
-\frac{167}{32},
-\qquad
-\frac{83}{16},
-\qquad
-\frac{19}{4},
-\qquad
-\frac92.
+-g_5'(k)
+=\frac{29-5u^4+u\left(39(u-1)^2+12\right)}8>0.
 $$
 
 Thus $g_5$ is strictly decreasing on this interval. Since
@@ -491,75 +519,84 @@ $$
 It remains only to analyze the branch in which rows $4$ and $3$ are both
 $T_+$.
 
-## 7. Two exact $T_+$ growth estimates
+## 7. Concavity on the selected $T_+$ arcs
 
-Consider a selected $T_+$ transition with deficit $d$, input $p$, and
-output
+Consider a selected $T_+$ transition with deficit $0<d<1/2$, input $p$,
+and output
 
 $$
 q=G_{1-d}(p).
 $$
 
-The selected quadratic is equivalently
+Put $c=1-d$ and $u=q-p$. The selected quadratic is
 
 $$
-(1-q)(q-d)=(q-p)(2-q+p)(1-d)^2.
+f(q)=g(u),
+\qquad
+f(q)=(1-q)(q-d),
+\qquad
+g(u)=c^2u(2-u).
 $$
 
-The selected $q$ is the larger root, and $q>p>d$. The residual is a concave
-quadratic in $q$, and at the trial point $q=p$ it equals
+On either selected $T_+$ arc, the exact catalog gives $f'(q)>0$ and
+$g'(u)>0$. Write
 
 $$
-(1-p)(p-d)>0.
+A_0=f'(q)=1+d-2q,
+\qquad
+B_0=g'(u)=2c^2(1-u).
 $$
 
-Thus $p$ lies strictly between the two roots. For a trial value $L$ with
-$p<L<1$, positivity of the residual at $L$ implies $q>L$. When a trial
-value is at most $p$, the same conclusion follows immediately from $q>p$.
+Implicit differentiation gives
+
+$$
+u'=\frac{A_0}{B_0},
+\qquad
+u''=\frac{2\left(c^2A_0^2-B_0^2\right)}{B_0^3}.
+$$
+
+Since $p>d$ and $u>0$,
+
+$$
+B_0-cA_0
+=c(1-3d+2p+2du)>0
+$$
+
+and
+
+$$
+B_0-A_0
+=1-5d+2d^2+2p+2d(2-d)u
+>(1-d)(1-2d)>0.
+$$
+
+It follows that $u''<0$ and that $p=q-u$ is an increasing, strictly convex
+function of $q$. Its inverse $q=G_{1-d}(p)$ is therefore increasing and
+strictly concave on each selected $T_+$ arc. In particular, it lies above
+the chord joining the endpoints of that arc.
 
 ### 7.1. Row 4
 
-For $0<d<1/8$ and $p\le e(d)$, set
+In the high-$c$ range the selected arc has endpoints
 
 $$
-L=p+(1-4d)(p-d).
+(p,q)=(d,d)
+\qquad\text{and}\qquad
+(p,q)=(e(d),d+e(d)).
 $$
 
-Here $p<L<1$: the lower inequality uses $p>d$, while
-$L<2p<4d/(1-2d)<1$.
-
-Substitution in the quadratic gives
+Hence
 
 $$
-(p-d)S_4(d,p),
+q\ge p+\frac{d}{e(d)-d}(p-d).
 $$
 
-where
+For row $4$, $d=A<P\le(2\sqrt3-3)/4<1/8$, so the estimate in `2012`
+gives
 
 $$
-\begin{aligned}
-S_4(d,p)={}&-16d^5+40d^4-9d^3-20d^2+9d\\
-&+p(16d^4-40d^3+17d^2+6d-3).
-\end{aligned}
-$$
-
-The coefficient of $p$ is negative on $[0,1/8]$. Using
-$p\le e(d)<2d+5d^2$ therefore gives
-
-$$
-S_4(d,p)>S_4(d,2d+5d^2),
-$$
-
-and the latter is
-
-$$
-d\left(80d^5-184d^4+45d^3+55d^2-23d+3\right)>0.
-$$
-
-For the last sign, discard the positive terms and use
-
-$$
-3-23d-184d^4\ge\frac{41}{512}>0.
+\frac{d}{e(d)-d}
+>\frac{1-2d}{1+2d}>1-4d.
 $$
 
 Applied with $d=A$ and $p=H$, this proves
@@ -578,110 +615,72 @@ $$
 m<\frac w2<\frac14.
 $$
 
-Every selected row-3 $T_+$ input satisfies
+We claim that every selected row-3 $T_+$ transition satisfies
 
 $$
-p_1\le\frac{13m}{4}.
+q>p+(1-5m)(p-m).
 $$
 
-In the high-$c$ range this follows from
-$p_1\le e(m)<2m/(1-2m)<13m/4$. In the low-$c$ range the endpoint is the
-fixed point $h(1-m)$. The desired comparison
-$h(1-m)\le13m/4$ reduces, after squaring two positive sides, to positivity
-of
+This is immediate from $q>p$ when $m\ge1/5$. Suppose $m<1/5$. In the
+high-$c$ range, if $m\le1/8$, the preceding high-$c$ chord estimate gives
+a coefficient greater than $1-4m>1-5m$. If $1/8<m<1-\sqrt3/2$, use
+$e(m)\le(1-m)/2$ to obtain
 
 $$
-676m^4-1352m^3+439m^2+84m-16.
+\frac{m}{e(m)-m}
+\ge\frac{2m}{1-3m}>1-5m.
 $$
 
-Its Bernstein coefficients on $[2/15,1/2]$ are
+The last inequality is equivalent to
 
 $$
-\frac{676}{50625},
-\qquad
-\frac{559}{45},
-\qquad
-\frac{26099}{1080},
-\qquad
-\frac{921}{40},
-\qquad
-9.
+15m^2-10m+1<0,
 $$
 
-This interval contains the entire low-$c$ range needed here.
+which holds because this quadratic is decreasing below $1/3$ and has value
+$-1/64$ at $m=1/8$.
 
-Set
-
-$$
-L=p+(1-5d)(p-d).
-$$
-
-If $d\ge1/5$, then $L\le p<q$, so the desired lower bound is immediate.
-Suppose $d<1/5$. Then $p<L<1$ on the selected range, and the quadratic
-residual argument applies. Explicitly,
+It remains to consider the low-$c$ selected arc. Its endpoints are
 
 $$
-L\le\frac{d(22-45d)}4<1.
+(p,q)=(m,m)
+\qquad\text{and}\qquad
+(p,q)=\left(h(1-m),1-h(1-m)\right),
 $$
 
-The quadratic residual at $L$ is $(p-d)S_5(d,p)$, where
+so its chord coefficient beyond extensivity is
 
 $$
-\begin{aligned}
-S_5(d,p)={}&-25d^5+60d^4-11d^3-25d^2+10d\\
-&+p(25d^4-60d^3+21d^2+8d-3).
-\end{aligned}
+\frac{1-2h(1-m)}{h(1-m)-m}.
 $$
 
-The Bernstein coefficients of the negative of the coefficient of $p$ on
-$[0,1/4]$ are
+On $3/4\le c\le\sqrt3/2$, direct differentiation of the formula in `2011`
+shows that $h(c)$ is nonincreasing. Moreover
 
 $$
-3,
-\qquad
-\frac52,
-\qquad
-\frac{57}{32},
-\qquad
-\frac{69}{64},
-\qquad
-\frac{135}{256}.
+h\left(\frac34\right)
+=\frac{3}{2(\sqrt6+1)}<\frac7{16}.
 $$
 
-Thus this coefficient is negative. At the upper bound $p=13d/4$,
+Here low $c$ gives $m\ge1-\sqrt3/2>2/15>1/16$, and hence
 
 $$
-S_5\left(d,\frac{13d}{4}\right)
-=
-\frac d4
-\left(225d^4-540d^3+229d^2+4d+1\right)>0.
+h(1-m)<\frac7{16}<\frac{3+m}{7}.
 $$
 
-The Bernstein coefficients of the last polynomial on $[0,1/4]$ are
+Thus the displayed chord coefficient is greater than $1/3$, while
+$1-5m<1/3$. This proves the claim in every row-3 selected $T_+$ regime.
 
-$$
-1,
-\qquad
-\frac54,
-\qquad
-\frac{373}{96},
-\qquad
-\frac{435}{64},
-\qquad
-\frac{2241}{256}.
-$$
-
-Therefore, if
+With
 
 $$
 p_2=G_{1-m}(p_1),
 $$
 
-then
+the claim gives
 
 $$
-p_2>
-(2-5m)p_1-(1-5m)m.
+p_2>(2-5m)p_1-(1-5m)m.
 $$
 
 Because $2-5m>0$, the row-4 bound may be substituted to give
@@ -692,83 +691,13 @@ p_2>L_2,
 L_2=(2-5m)L_1-(1-5m)m.
 $$
 
-## 8. Exact terminal certificate
+## 8. Exact analytic terminal estimate
 
-Define
-
-$$
-\Psi(R,A,D)=L_2-2D-3D^2.
-$$
-
-For fixed $R,A$,
-
-$$
-\frac{\partial^2\Psi}{\partial D^2}=-6.
-$$
-
-The center inequality supplies the lower endpoint
-
-$$
-D\ge D_0:=P-RA.
-$$
-
-The row-4 $T_+$ selector and $e(A)<2A+5A^2$ supply the upper endpoint
+The row-4 $T_+$ selector and $e(A)<2A+5A^2$ give
 
 $$
 D\le D_h:=A(4R-1)+10RA^2-\eta.
 $$
-
-Write
-
-$$
-A=\alpha P,
-\qquad
-0<\alpha<1,
-$$
-
-and use the rational parameter $k$ from Section 5. The exact verifier
-[`4108_ce1_terminal_verifier.py`](4108_ce1_terminal_verifier.py) expands
-$\Psi(D_0)$ and $\Psi(D_h)$ over the rational rectangles and proves the
-following facts using rational arithmetic only.
-
-- After removal of positive denominators, the numerator for $\Psi(D_0)$
-  has bidegree $(13,3)$ on $[0,1/2]\mathbin{\times}[0,1]$. Its 56
-  Bernstein coefficients consist of 55 positive coefficients and the single
-  boundary zero at index $(0,3)$. The least positive coefficient is
-  $2187/8192$. The canonical tensor digest is
-  `831285d98a37fcf362f31a1d8d6859e91a38ec418b5b2df19494c1c05da4d21e`.
-- Actual feasibility has $D_h>0$. The verifier proves that this forces
-  $k>1/5$. On $[1/5,1/2]\mathbin{\times}[0,1]$, the numerator for
-  $\Psi(D_h)$ has bidegree $(21,4)$ and all 110 Bernstein coefficients are
-  positive. The least is $818360091/28940800000$, and the canonical tensor
-  digest is
-  `242eb4af2b3163854095ff91b8c72dd650a5110951771f1a2e9022cae9da9e2e`.
-
-Because actual $k$ and $\alpha$ are interior, the boundary zero in the first
-tensor causes no equality. Hence
-
-$$
-\Psi(D_0)>0,
-\qquad
-\Psi(D_h)>0.
-$$
-
-The function $\Psi$ is concave in $D$, so it lies above the chord joining
-its endpoint values. Therefore
-
-$$
-\boxed{\Psi(R,A,D)>0.}
-$$
-
-For reproducibility, from the repository root run
-
-```text
-python3 proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4108_ce1_terminal_verifier.py
-```
-
-The script requires SymPy and uses no floating-point comparisons.
-
-## 9. The final row-2 split
 
 We first prove
 
@@ -776,58 +705,215 @@ $$
 \boxed{D<\frac1{10}.}
 $$
 
-From $A+wD<P$,
+Suppose instead that $D\ge1/10$. Since $R>1/2$ and
 
 $$
-D<\frac{P-A}{w}.
+P=\frac{RwE}{1+E}<\frac{Rw}{2},
 $$
 
-If $D\ge1/10$, then
+the inequality $A+wD<P$ gives
 
 $$
-A<P-\frac w{10}=:A_*.
+A<\frac{w(5R-1)}{10}=:\overline A.
 $$
 
-Because $R>1/2$, the function $D_h(A)$ is strictly increasing. The exact
-verifier proves
+The function $D_h(A)$ is increasing. Also
+$\eta=Rw/(1+E)>Rw/2$, so
 
 $$
-\frac1{10}-D_h(A_*)
-=
--\frac{k(k-2)g_8(k)}{10(k-1)^5(k+1)^5}>0
+D<D_h(\overline A)
+<U(R):=\overline A(4R-1)+10R\overline A^2-\frac{Rw}{2}.
 $$
 
-for $0<k<1/2$, where
+Direct expansion gives
+
+$$
+\frac1{10}-U(R)=-\frac{R}{10}P_4(R),
+$$
+
+where
+
+$$
+P_4(R)=25R^4-60R^3+26R^2+22R-14.
+$$
+
+For $y=2R-1\in(0,1)$,
+
+$$
+16P_4(R)=25y^4-20y^3-106y^2+124y-39
+\le-101y^2+124y-39<0.
+$$
+
+The last quadratic has discriminant $-380$. Thus $U(R)<1/10$, a
+contradiction.
+
+Now define
+
+$$
+\Psi(D)=L_2-2D-3D^2,
+\qquad
+J(D)=L_2-\frac{23}{10}D.
+$$
+
+The bound just proved gives
+
+$$
+\Psi(D)-J(D)=3D\left(\frac1{10}-D\right)>0.
+$$
+
+For fixed $R,A$, exact differentiation yields
+
+$$
+J'(D)=\frac{S(R,A)}{10R^2},
+$$
+
+where
+
+$$
+S(R,A)=100A^2-(40R+50)A+R(20-23R).
+$$
+
+The nonempty interval $P-RA\le D\le D_h$ implies
+
+$$
+Rw\le A(5R-1+10RA).
+$$
+
+Since $A<P<Rw/2\le1/8$, it follows that
+
+$$
+A>\frac{4Rw}{25R-4}=:A_*.
+$$
+
+Moreover $\partial S/\partial A<-45$, and direct substitution gives
+
+$$
+S(R,A)<S(R,A_*)
+=-\frac{R q_3(R)}{(25R-4)^2},
+$$
+
+where
+
+$$
+q_3(R)=8775R^3-14260R^2+7928R-1120.
+$$
+
+For $y=2R-1\in(0,1)$,
+
+$$
+8q_3(R)=8775y^3-2195y^2+997y+3007\ge812>0.
+$$
+
+Thus $J$ is strictly decreasing, and $J(D)\ge J(D_h)$.
+
+At $D=D_h$, one has $H=2A+5A^2$. Write the corresponding value of $L_2$
+as $L_{2,h}$. Exact expansion gives
+
+$$
+L_{2,h}-A(1+4R)=\frac{A}{R^2}Q(R,A),
+$$
+
+where
 
 $$
 \begin{aligned}
-g_8(k)={}&319k^8-1028k^7+2002k^6-2220k^5+1665k^4\\
-&-796k^3+128k^2+44k-14.
+Q(R,A)={}&100A^3R-40A^2R^2-30A^2R+12AR^2-15AR+5A\\
+&-4R^3+5R^2-R.
 \end{aligned}
 $$
 
-The last sign is certified by the positive Bernstein coefficients of
-$-g_8$ on $[0,3/8]$ and $[3/8,1/2]$, all printed by `4108`. It follows that
+On $0\le A\le Rw/2$,
 
 $$
-D\le D_h(A)<D_h(A_*)<\frac1{10},
+\frac{\partial^2Q}{\partial A^2}=20R(30A-4R-3)<0.
 $$
 
-a contradiction.
-
-For $0<D<1/10$, direct substitution gives
+It therefore suffices to check the endpoints. They are
 
 $$
-h_D(2D+3D^2)=D^2(8D^2+19D-2)<0.
+Q(R,0)=Rw(4R-1)>0
 $$
 
-Thus
+and
 
 $$
-e(D)<2D+3D^2.
+Q\left(R,\frac{Rw}{2}\right)=\frac{Rw}{2}p(R),
 $$
 
-The terminal certificate now yields
+where
+
+$$
+p(R)=25R^5-30R^4+20R^3-3R^2-7R+3.
+$$
+
+For $y=2R-1$,
+
+$$
+32p(R)=25y^5+65y^4+90y^3+106y^2-35y+5>0,
+$$
+
+because $106y^2-35y+5$ has discriminant $-895$. Hence
+
+$$
+L_{2,h}>A(1+4R).
+$$
+
+Finally, $A<P=\eta E$, $A<Rw/2$, and
+
+$$
+\frac1E>1+\frac{Rw}{2}
+$$
+
+give
+
+$$
+\frac{D_h}{A}
+<C_0:=4R-2+5R^2w-\frac{Rw}{2}.
+$$
+
+Direct expansion gives
+
+$$
+1+4R-\frac{23}{10}C_0=\frac{h_3(R)}{20},
+$$
+
+where
+
+$$
+h_3(R)=230R^3-253R^2-81R+112.
+$$
+
+Here $h_3''(R)=46(30R-11)\ge184$. At $R_0=20/23$,
+
+$$
+h_3(R_0)=\frac{788}{529},
+\qquad
+h_3'(R_0)=\frac{17}{23}.
+$$
+
+Strong convexity therefore gives
+
+$$
+h_3(R)\ge
+\frac{788}{529}-\frac{(17/23)^2}{368}
+=\frac{289695}{194672}>0.
+$$
+
+Consequently
+
+$$
+J(D_h)>A\left(1+4R-\frac{23}{10}C_0\right)>0.
+$$
+
+Combining the estimates proves
+
+$$
+\boxed{\Psi(D)>J(D)\ge J(D_h)>0.}
+$$
+
+## 9. The final row-2 split
+
+The terminal estimate and the sharper low-root bound from Section 3 yield
 
 $$
 \boxed{

@@ -9,12 +9,11 @@ returning demand exceeds the remaining boundary or radial capacity.
 
 Actual maximal reaches continue to be denoted by $(A_i,B_i,C_i)$, while
 lowercase letters denote prescribed demands.  The only machine-assisted
-statements used in this section are the rational interval certificate
-Theorem~\ref{thm:cert-407} and the exact Bernstein certificate
-Theorem~\ref{thm:cert-ce1-five-map}, both in
-Appendix~\ref{app:certificates}.  All other estimates in this section are
-proved analytically.  In particular, no empirical branch catalogue and no
-formal root from a discarded algebraic component is used.
+statement used in this section is the rational interval certificate
+Theorem~\ref{thm:cert-407} in Appendix~\ref{app:certificates}.  All other
+estimates in this section are proved analytically.  In particular, no
+empirical branch catalogue and no formal root from a discarded algebraic
+component is used.
 
 \subsection{The exact local feasible set}
 
@@ -232,18 +231,31 @@ where
  f_8(k)=16k^8-77k^7+175k^6-244k^5+199k^4
        -101k^3+13k^2+12k-3.
 \]
-The degree-eight Bernstein coefficients of $-f_8$ on $[0,27/100]$ are
+For $0\le k\le27/100$, put
 \[
-\begin{gathered}
-3,\ \frac{519}{200},\ \frac{603723}{280000},\
-\frac{96261783}{56000000},\ \frac{9126684741}{7000000000},\\
-\frac{129114182427}{140000000000},\
-\frac{650458634673}{1120000000000},\
-\frac{226624193321631}{800000000000000},\
-\frac{81581849832351}{2500000000000000}.
-\end{gathered}
+ q(k)=\frac{2333}{5}k^3-303k^2+26k+12.
 \]
-They are positive, so $Q(P)>0$.
+Then
+\[
+ f_8'(k)-q(k)
+ =\frac{k^3}{5}\left(640k^4+k^2(5250-2695k)+1647-6100k\right)
+ \ge0.
+\]
+Writing $t=27/100-k$, one also has
+\[
+ q(k)\ge
+ \frac{30576939}{5000000}+\frac{1089743}{50000}t>0,
+\]
+because the difference between the two sides is
+\[
+ -\frac{t(100t-27)(116650t+12759)}{25000}\ge0.
+\]
+Thus $f_8$ is increasing.  At $k_0=2-\sqrt3$,
+\[
+ f_8(k_0)=77724-44874\sqrt3<0,
+ \qquad 3\cdot44874^2-77724^2=7452>0.
+\]
+Hence $f_8(k)<0$ for $k\le k_0$, and so $Q(P)>0$.
 When $R>1/2$, $0<A_0<P$ and
 \[
  Q(A_0)=\frac{(1-2k)(-g_5(k))}{2(1-k^2)^3},\qquad
@@ -251,13 +263,13 @@ When $R>1/2$, $0<A_0<P$ and
 \]
 At $k_0=2-\sqrt3$,
 $g_5(k_0)=3471-2004\sqrt3<0$ because
-$3\cdot2004^2-3471^2=207$.  The Bernstein coefficients of $-g_5'$ on
-$[1/4,1/2]$ are
+$3\cdot2004^2-3471^2=207$.  If $y=4k-1\in[0,1]$, then
 \[
- \frac{29}{8},\quad\frac{167}{32},\quad\frac{83}{16},\quad
- \frac{19}{4},\quad\frac92.
+ 8g_5'(k)=5y^4-39y^3+78y^2-51y-29
+ \le y(-34y^2+78y-51)-29<0,
 \]
-Thus $g_5$ decreases and remains negative for $k>k_0>1/4$, so
+because the displayed quadratic has discriminant $-852$.  Thus $g_5$
+decreases and remains negative for $k>k_0>1/4$, so
 $Q(A_0)>0$.  In either range concavity makes $Q(A)>0$ throughout the
 allowed interval, contradicting $Q(A)\le0$ and proving $X>1/2$.
 
@@ -265,106 +277,203 @@ Put $p_1=G_{1-A}(H)$.  If row $3$ is not $T_+^{\rm hi}$, then
 $p_1\le A+e(A)<3A+5A^2<29/64<1/2$, and
 $2R(H-m)=\eta+D-A>\eta-P>0$.  Thus both Full branches are impossible;
 on $L$, $T_-$, or the low-$c$ tie one has $F_{1-m}(p_1)\le p_1$, proving
-\eqref{eq:ce1-suffix}.  In the remaining two-$T_+$ branch the selected
-quadratic
+\eqref{eq:ce1-suffix}.  We use the following elementary property of a
+selected $T_+$ arc.  Put $d=1-c$, let $q=G_c(p)$, and write $u=q-p$.
+The selected equation is
 \[
- (1-q)(q-d)=(q-p)(2-q+p)(1-d)^2
+ f(q):=(1-q)(q-d)=g(u):=(1-d)^2u(2-u).
 \]
-gives, by substitution at trial values,
+On the interior of the arc, $f',g'>0$.  If
+\[
+ A_0=f'(q)=1+d-2q,\qquad
+ B_0=g'(u)=2(1-d)^2(1-u),
+\]
+then
+\[
+ u'=\frac{A_0}{B_0},\qquad
+ u''=\frac{2((1-d)^2A_0^2-B_0^2)}{B_0^3}.
+\]
+Moreover
+\[
+ B_0-(1-d)A_0=(1-d)(1-3d+2p+2du)>0
+\]
+and
+\[
+ B_0-A_0\ge(1-d)(1-2d)>0.
+\]
+Thus $p=q-u$ is increasing and strictly convex as a function of $q$.
+Consequently $q=G_{1-d}(p)$ is increasing and strictly concave on each
+selected arc; a tie endpoint follows by continuity.
+
+When $d<1-\sqrt3/2$, the arc endpoints are
+$(d,d)$ and $(e(d),d+e(d))$.  Its chord and
+$e(d)<2d/(1-2d)$ give
+\[
+ q\ge p+\frac{d}{e(d)-d}(p-d)
+ >p+\frac{1-2d}{1+2d}(p-d).
+\]
+This is stronger than both the row-$4$ coefficient $1-4d$ and the row-$3$
+coefficient $1-5d$.  In the low-$c$ row-$3$ range
+$1-\sqrt3/2\le d<1/5$, the other endpoint is
+$(h(1-d),1-h(1-d))$, and the chord coefficient is
+\[
+ \frac{1-2h(1-d)}{h(1-d)-d}>\frac13>1-5d.
+\]
+Indeed $h(1-d)<(3+d)/7$: substitution of $(3+d)/7$ into its defining
+upward quadratic gives
+\[
+ \frac{-1+30d-65d^2+16d^3+4d^4}{49}>0.
+\]
+Here $d\ge1-\sqrt3/2>2/15$, and
+$-1+30d-65d^2$ is increasing and already equals $83/45$ at $2/15$.
+For $d\ge1/5$, extensivity alone is stronger than the row-$3$ estimate.
+
+Applying these chord bounds first with $d=A$ and then with $d=m$ proves,
+without an omitted selected branch,
 \begin{align*}
  p_1&>L_1:=(2-4A)H-(1-4A)A,\\
  p_2:=G_{1-m}(p_1)&>L_2:=(2-5m)L_1-(1-5m)m.
 \end{align*}
-For the first inequality the residual, divided by $p-A$, is
-\[
- -16A^5+40A^4-9A^3-20A^2+9A
- +p(16A^4-40A^3+17A^2+6A-3)>0;
-\]
-for the second it is
-\[
- -25m^5+60m^4-11m^3-25m^2+10m
- +p(25m^4-60m^3+21m^2+8m-3)>0.
-\]
-For row $4$, the coefficient of $p$ in the first residual is negative:
-the Bernstein coefficients of its negative on $[0,1/8]$ are
-\[
- 3,\quad\frac{45}{16},\quad\frac{991}{384},\quad
- \frac{595}{256},\quad\frac{527}{256}.
-\]
-Using $p\le e(A)<2A+5A^2$, the residual is bounded below by
-\[
- A(80A^5-184A^4+45A^3+55A^2-23A+3)>0;
-\]
-indeed $3-23A-184A^4\ge41/512$ and the omitted terms are nonnegative.
 
-For row $3$, $X>1/2$ implies $m<w/2<1/4$.  Every selected $T_+$ input
-satisfies $p_1\le13m/4$: in the high-$c$ range this follows from
-$e(m)<2m/(1-2m)$, and in the low-$c$ range from the fixed-point comparison
+Finally let
 \[
- 676m^4-1352m^3+439m^2+84m-16\ge0,
+ D_0=P-RA,\qquad
+ D_h=A(4R-1)+10RA^2-\eta,\qquad x=Rw.
 \]
-whose Bernstein coefficients on $[2/15,1/2]$ are
+Feasibility puts $D_0\le D\le D_h$.  We first prove that the actual
+feasible value satisfies $D<1/10$.  Since
 \[
- \frac{676}{50625},\quad\frac{559}{45},\quad
- \frac{26099}{1080},\quad\frac{921}{40},\quad9.
+ P=\frac{xE}{1+E}<\frac x2,\qquad
+ \eta=\frac{x}{1+E}>\frac x2,
 \]
-The coefficient of $p$ in the second residual is negative, since its
-negative has Bernstein coefficients
+the contrary assumption $D\ge1/10$ and $A+wD<P$ give
 \[
- 3,\quad\frac52,\quad\frac{57}{32},\quad
- \frac{69}{64},\quad\frac{135}{256}
+ A<\overline A:=\frac{w(5R-1)}{10}.
 \]
-on $[0,1/4]$.  At $p=13m/4$ the residual is
+The function $D_h(A)$ is increasing, so
 \[
- \frac m4(225m^4-540m^3+229m^2+4m+1)>0,
+ D\le D_h(A)<D_h(\overline A)
+ <U(R):=\overline A(4R-1)+10R\overline A^2-\frac x2.
 \]
-and the final polynomial has Bernstein coefficients
+Direct expansion yields
 \[
- 1,\quad\frac54,\quad\frac{373}{96},\quad
- \frac{435}{64},\quad\frac{2241}{256}.
+ \frac1{10}-U(R)=-\frac{R}{10}P_4(R),
+ \qquad
+ P_4(R)=25R^4-60R^3+26R^2+22R-14.
 \]
-This proves the two displayed strict growth estimates without an omitted
-branch.
+For $y=2R-1\in[0,1]$,
+\[
+ 16P_4(R)=25y^4-20y^3-106y^2+124y-39
+ \le-101y^2+124y-39<0.
+\]
+The last quadratic has discriminant $-380$.  Hence $U(R)<1/10$, a
+contradiction, and therefore $D<1/10$.
 
-Finally let $D_0=P-RA$ and
-$D_h=A(4R-1)+10RA^2-\eta$.  The function
+It remains to compare $L_2$ with $2D+3D^2$.  Put
 \[
- \Psi(R,A,D)=L_2-2D-3D^2
+ J(D)=L_2(D)-\frac{23}{10}D.
 \]
-is concave in $D$, and feasibility puts $D_0\le D\le D_h$.
-The exact certificate Theorem~\ref{thm:cert-ce1-five-map} proves
-$\Psi(D_0)>0$ and $\Psi(D_h)>0$ on the entire domain
-\eqref{eq:ce1-normal-domain}.  Hence $p_2>2D+3D^2$.
-
-We record separately the exact one-variable check $D<1/10$.  Otherwise
-$A<A_*:=P-w/10$, and $D_h(A)$ is increasing because $R>1/2$.  Direct
-substitution gives
+Since
 \[
- \frac1{10}-D_h(A_*)=
- -\frac{k(k-2)g_8(k)}{10(k-1)^5(k+1)^5},
+ L_2-2D-3D^2-J(D)=3D\left(\frac1{10}-D\right)>0,
+\]
+it is enough to prove $J(D)>0$.  Exact differentiation gives
+\[
+ J'(D)=\frac{S(R,A)}{10R^2},\qquad
+ S(R,A)=100A^2-(40R+50)A+R(20-23R).
+\]
+The inequality $D_0\le D_h$ is equivalent to
+\[
+ x\le A(5R-1+10RA).
+\]
+Because $A<P<x/2\le1/8$,
+\[
+ A>L:=\frac{4x}{25R-4}.
+\]
+Also $\partial_A S=200A-40R-50<-45$, and direct substitution gives
+\[
+ S(R,L)=-\frac{R q_3(R)}{(25R-4)^2},
 \]
 where
 \[
- g_8(k)=319k^8-1028k^7+2002k^6-2220k^5+1665k^4
-        -796k^3+128k^2+44k-14.
+ q_3(R)=8775R^3-14260R^2+7928R-1120.
 \]
-The Bernstein coefficients of $-g_8$ on $[0,3/8]$ are
+For $y=2R-1$,
 \[
- 14,\ \frac{191}{16},\ \frac{517}{56},\ \frac{47549}{7168},\
- \frac{253507}{57344},\ \frac{1237193}{458752},\
- \frac{5443567}{3670016},\ \frac{3148355}{4194304},\
- \frac{6601025}{16777216},
+ 8q_3(R)=8775y^3-2195y^2+997y+3007\ge812>0.
 \]
-and on $[3/8,1/2]$ they are
+Thus $J'(D)<0$ and $J(D)\ge J(D_h)$.
+
+At $D=D_h$ one has $H=2A+5A^2$.  Write $L_{2,h}=L_2(D_h)$.
+Expansion gives
 \[
- \frac{6601025}{16777216},\ \frac{575445}{2097152},\
- \frac{1446371}{7340032},\ \frac{144525}{917504},\
- \frac{69247}{458752},\ \frac{9831}{57344},\
- \frac{6075}{28672},\ \frac{135}{512},\ \frac{81}{256}.
+ L_{2,h}-A(1+4R)=\frac{A}{R^2}\mathcal Q(R,A),
 \]
-All are positive, so $D_h(A_*)<1/10$, contradicting
-$D\le D_h(A)<D_h(A_*)$.  Thus $D<1/10$.  The low root $e(D)$ is the
-smaller root of
+where
+\[
+\begin{aligned}
+ \mathcal Q(R,A)={}&100A^3R-40A^2R^2-30A^2R
+ +12AR^2-15AR+5A\\
+ &-4R^3+5R^2-R.
+\end{aligned}
+\]
+On $0\le A\le x/2$,
+\[
+ \partial_A^2\mathcal Q=20R(30A-4R-3)<0.
+\]
+Its two endpoint values are
+\[
+ \mathcal Q(R,0)=x(4R-1)>0,\qquad
+ \mathcal Q\left(R,\frac x2\right)=\frac{x}{2}p(R),
+\]
+where
+\[
+ p(R)=25R^5-30R^4+20R^3-3R^2-7R+3.
+\]
+For $y=2R-1$,
+\[
+ 32p(R)=25y^5+65y^4+90y^3+106y^2-35y+5>0,
+\]
+because the terms of degree at least three are nonnegative and
+$106y^2-35y+5$ has discriminant $-895$.  Concavity therefore gives
+$L_{2,h}>A(1+4R)$.
+
+On the other hand, $A<P=\eta E$ and $A<P<x/2$ imply
+\[
+ \frac{D_h}{A}
+ =4R-1+10RA-\frac{\eta}{A}
+ <C_0:=4R-2+5Rx-\frac x2.
+\]
+Here we used
+\[
+ \frac1E>1+\frac x2,
+ \qquad
+ (1-x)\left(1+\frac x2\right)^2
+ =1-\frac{x^2(3+x)}4<1.
+\]
+Finally,
+\[
+ 1+4R-\frac{23}{10}C_0=\frac{h_3(R)}{20},
+ \qquad
+ h_3(R)=230R^3-253R^2-81R+112.
+\]
+Since $h_3''(R)=46(30R-11)\ge184$, strong convexity at $R_0=20/23$
+gives
+\[
+ h_3(R)\ge
+ \frac{788}{529}-\frac{(17/23)^2}{368}
+ =\frac{289695}{194672}>0.
+\]
+Consequently
+\[
+ J(D_h)>A\left(1+4R-\frac{23}{10}C_0\right)>0,
+\]
+and hence
+\[
+ p_2>L_2>2D+3D^2.
+\]
+
+The low root $e(D)$ is the smaller root of
 \[
  H_D(z)=z^2-(1-D)z+(1-D)^2-(1-D)^4,
 \]
