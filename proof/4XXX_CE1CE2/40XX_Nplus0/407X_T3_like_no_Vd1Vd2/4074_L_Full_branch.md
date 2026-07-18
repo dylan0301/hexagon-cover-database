@@ -233,210 +233,74 @@ $$
 -\frac{(1-2x)^2}{2\rho}-2\rho-1+2x<0,
 $$
 
-and its value at $x=3/8$ is $-1/64$. On this interval,
+and its value at $x=3/8$ is $-1/64$.
 
+On this interval put
 $$
-\frac{X_*(\lambda)}{1-\lambda}< \frac{1}{8}.
+\delta=\frac{1-\rho}{1-x}=\frac{x}{1+\rho},
+\qquad
+\eta=\frac{X}{1-x},
 $$
+and abbreviate
+$$
+f=\rho(1-2x)-x(1-x),
+\qquad
+d=1-x-x^2.
+$$
+Then $f,d>0$ and
+$$
+\eta<\delta\frac{f}{d}.
+$$
+In fact,
+$$
+\frac fd<1-2x.
+$$
+Indeed, after multiplying by the positive denominators, this is equivalent to
+$$
+\rho<d+\frac{x(1-x)}{1-2x}
+=1+\frac{2x^3}{1-2x},
+$$
+which follows from $\rho<1$.  Consequently
+$$
+0\le\gamma_5\le\eta
+<\delta(1-2x)
+=\frac{x(1-2x)}{1+\rho}
+<\frac18.
+$$
+
+If $\eta=0$, then $e(\gamma_5)=0<S$.  Assume $\eta>0$.  The lower bound for
+$S$ becomes
+$$
+S\ge S_0
+=\frac{1-x}{1-2x}(\eta+\delta)
+>2\eta\left(\frac{1-x}{1-2x}\right)^2.
+$$
+It remains only to compare the right side with the elementary Low bound.
+Since $\eta<\delta(1-2x)$,
+$$
+5\eta<5\delta(1-2x)
+<\frac{2x(2-3x)}{(1-2x)^2}
+=2\left[\left(\frac{1-x}{1-2x}\right)^2-1\right].
+$$
+For the middle inequality, after cancelling $x>0$, it suffices that
+$$
+5(1-2x)^3<2(2-3x)(1+\rho).
+$$
+Since $\rho>1-x$, this follows from
+$$
+2(2-3x)(2-x)-5(1-2x)^3
+=(4x-3)(10x^2-6x-1)>0.
+$$
+Both factors on the right are negative for $0<x<3/8$; for the quadratic,
+$10x^2\le(15/4)x<6x+1$.
 
 Thus
-
 $$
-\eta_0:=\frac{X}{1-\lambda}< \frac{1}{8},\qquad \gamma_5\le\eta_0.
+e(\gamma_5)\le2\gamma_5+5\gamma_5^2
+\le2\eta+5\eta^2
+<2\eta\left(\frac{1-x}{1-2x}\right)^2
+<S.
 $$
-
-It remains to prove
-
-$$
-2\eta_0+5\eta_0^2<S.
-$$
-
-Since $S\ge S_0$, it is enough to show
-
-$$
-G_\lambda(X):=\frac{X+1-\rho}{1-2\lambda}-2\frac{X}{1-\lambda}-5\frac{X^2}{(1-\lambda)^2}>0.
-$$
-
-For fixed $\lambda$, this is concave in $X$, so it suffices to check $X=0$
-and $X=X_*(\lambda)$. We give the two endpoint checks explicitly. Put
-
-$$
-x=\lambda,
-\qquad
-d_0=1-x-x^2,
-$$
-
-and
-
-$$
-N=(1-\rho)\left(\rho(1-2x)-x(1-x)\right),
-\qquad
-X_*=\frac{N}{d_0}.
-$$
-
-At the first endpoint,
-
-$$
-G_x(0)=\frac{1-\rho}{1-2x}>0.
-$$
-
-The earlier bound $X_*/(1-x)<1/8$ is equivalent to $W>0$, where
-
-$$
-W=d_0(1-x)-8N=p_1+q_1\rho,
-$$
-
-$$
-p_1=9-18x+16x^2-15x^3,
-\qquad
-q_1=-8+8x+8x^2.
-$$
-
-The Bernstein coefficients of $p_1$ and $q_1$ on $[0,3/8]$ are respectively
-
-$$
-9,
-\quad
-\frac{27}{4},
-\quad
-\frac{21}{4},
-\quad
-\frac{1899}{512},
-$$
-
-and
-
-$$
--8,
-\quad
--\frac{13}{2},
-\quad
--\frac{31}{8}.
-$$
-
-Thus $p_1>0$ and $q_1<0$. Moreover,
-
-$$
-p_1^2-q_1^2\rho^2=(1-x)R_5(x),
-$$
-
-where the Bernstein coefficients of $R_5$ on $[0,3/8]$ are
-
-$$
-R_5(x)=17-115x+369x^2-541x^3+383x^4-161x^5,
-$$
-
-and those coefficients are
-
-$$
-17,
-\quad
-\frac{67}{8},
-\quad
-\frac{3161}{640},
-\quad
-\frac{19657}{5120},
-\quad
-\frac{76543}{20480},
-\quad
-\frac{118501}{32768}.
-$$
-
-Hence $p_1>|q_1|\rho$ and $W>0$.
-
-For the second endpoint, multiplication of $G_x(X_*)$ by the positive factor
-
-$$
-(1-2x)(1-x)^2d_0^2
-$$
-
-gives $P+Q\rho$, where
-
-$$
-P=-8+44x-98x^2+134x^3-147x^4+131x^5-102x^6+56x^7,
-$$
-
-and
-
-$$
-Q=8-40x+76x^2-82x^3+54x^4+18x^5-44x^6.
-$$
-
-Their Bernstein coefficients on $[0,3/8]$ are
-
-$$
-\begin{aligned}
-P:
-&-8,
--\frac{79}{14},
--\frac{883}{224},
--\frac{24151}{8960},
--\frac{255811}{143360},\\
-&-\frac{258469}{229376},
--\frac{616339}{917504},
--\frac{98465}{262144},
-\end{aligned}
-$$
-
-and
-
-$$
-Q:
-8,
-\frac{11}{2},
-\frac{297}{80},
-\frac{12397}{5120},
-\frac{15169}{10240},
-\frac{27561}{32768},
-\frac{28985}{65536}.
-$$
-
-Thus $P<0<Q$. Finally,
-
-$$
-P^2-Q^2\rho^2
-=x^2(1-2x)^2(1-x)^2R_8(x),
-$$
-
-where the Bernstein coefficients of $R_8$ are
-
-$$
-\begin{aligned}
-R_8(x)={}&-16-16x+452x^2-1480x^3+2560x^4-2972x^5\\
-&+2293x^6-1076x^7+300x^8,
-\end{aligned}
-$$
-
-and those coefficients are
-
-$$
-\begin{aligned}
-&-16,
--\frac{67}{4},
--\frac{6823}{448},
--\frac{45995}{3584},
--\frac{9167}{896},\\
-&-\frac{3561541}{458752},
--\frac{41162803}{7340032},
--\frac{16172827}{4194304},
--\frac{10599805}{4194304}.
-\end{aligned}
-$$
-
-Therefore $P^2<Q^2\rho^2$, so $Q\rho>-P$ and $G_x(X_*)>0$.
-
-Therefore
-
-$$
-2\eta_0+5\eta_0^2<S.
-$$
-
-Using $e(\eta)\le2\eta+5\eta^2$ for $0\le\eta\le1/8$, we get
-
-$$
-e(\gamma_5)<S.
-$$
-
 This proves the lemma.
 
 ## 3. T3-like hit-overlap estimate

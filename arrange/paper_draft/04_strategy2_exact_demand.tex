@@ -8,11 +8,9 @@ local map propagates these data through nonsupercritical rows; and the
 returning demand exceeds the remaining boundary or radial capacity.
 
 Actual maximal reaches continue to be denoted by $(A_i,B_i,C_i)$, while
-lowercase letters denote prescribed demands.  The only machine-assisted
-statement used in this section is the rational interval certificate
-Theorem~\ref{thm:cert-407} in Appendix~\ref{app:certificates}.  All other
-estimates in this section are proved analytically.  In particular, no
-empirical branch catalogue and no formal root from a discarded algebraic
+lowercase letters denote prescribed demands.  Every estimate in this section
+is proved analytically.  In particular, no empirical branch catalogue,
+machine-assisted certificate, or formal root from a discarded algebraic
 component is used.
 
 \subsection{The exact local feasible set}
@@ -943,19 +941,52 @@ comparison is
 \]
 After squaring its positive sides, the difference is
 $\lambda(23\lambda^3+58\lambda^2+7\lambda+72)>0$.
-For \eqref{eq:407-S-estimate}, the premise forces
-$0<\lambda<3/8$ and
+For \eqref{eq:407-S-estimate}, combine the premise with the center
+inequality and put $x=\lambda$.  This gives $0<x<3/8$ and
 \[
- \gamma_5\le\frac X{1-\lambda}<\frac18,\qquad
- S\ge\frac{X+1-\rho}{1-2\lambda}.
+ X<X_*=\frac{(1-\rho)(\rho(1-2x)-x(1-x))}{1-x-x^2}.
 \]
-The concave quadratic in $X$ obtained from
-$2X/(1-\lambda)+5X^2/(1-\lambda)^2<S$ is positive at both endpoints;
-clearing radicals gives respectively the positive squares recorded in
-\eqref{eq:407-core-estimate} and
-$\lambda^2(1-2\lambda)^2(1-\lambda)^2(-R_8)$, where every Bernstein
-coefficient of $-R_8$ on $[0,3/8]$ is positive.
-
+Set
+\[
+ \delta=\frac{1-\rho}{1-x}=\frac{x}{1+\rho},\qquad
+ \eta=\frac{X}{1-x},\qquad
+ f=\rho(1-2x)-x(1-x),\qquad d=1-x-x^2.
+\]
+Then $\gamma_5\le\eta<\delta f/d$.  Moreover
+\[
+ \frac fd<1-2x,
+\]
+because, after multiplication by positive denominators, this is just
+\[
+ \rho<d+\frac{x(1-x)}{1-2x}
+ =1+\frac{2x^3}{1-2x}.
+\]
+Hence $\eta<\delta(1-2x)<1/8$.  If $\eta=0$, the assertion is immediate.
+Otherwise,
+\[
+ S\ge\frac{X+1-\rho}{1-2x}
+ =\frac{1-x}{1-2x}(\eta+\delta)
+ >2\eta\left(\frac{1-x}{1-2x}\right)^2.
+\]
+On the other hand,
+\[
+ 5\eta<5\delta(1-2x)
+ <2\left[\left(\frac{1-x}{1-2x}\right)^2-1\right].
+\]
+For the middle sign use $\rho>1-x$ and
+\[
+2(2-3x)(2-x)-5(1-2x)^3
+ =(4x-3)(10x^2-6x-1)>0
+ \qquad(0<x<3/8).
+\]
+Indeed both factors are negative; for the quadratic use
+$10x^2\le15x/4<6x+1$.
+The low-root estimate \eqref{eq:low-root-bounds} now gives
+\[
+ e(\gamma_5)\le2\gamma_5+5\gamma_5^2
+ \le2\eta+5\eta^2<S,
+\]
+proving \eqref{eq:407-S-estimate} without any polynomial coefficient list.
 The $L$ separation follows from its exact polynomial: if its output is
 $z=e(\eta)$ at input $1-\beta$, then
 \[
@@ -1021,12 +1052,68 @@ Since $y>0$, we have the complete chain
 \[
  S_0<S<q\le\tau<\frac{93}{200}.
 \]
-Thus the $S_0$ hypothesis of Theorem~\ref{thm:cert-407} holds; together
-with the exact selector domain \eqref{eq:407-high-domain}, it gives
+We now replace the former interval subdivision by a one-variable comparison.
+Write $s=r+\beta$ and $\rho_r=\sqrt{r^2-r+1}$.  The selected Cell~2
+inequality factors as
+\[
+ r-(1-\beta)(r+\beta)^2
+ =(s-1)(\beta^2+r\beta-r).
+\]
+The second factor is nonnegative because $r\le\beta$ and $\beta\ge1/2$;
+if it vanishes, then $r=\beta=1/2$.  Hence $s\ge1$.  It follows that
+$\rho_r\le m$, since
+$\rho_r^2-m^2=(r-\beta)(s-1)\le0$.
+
+Define the one-variable lower bound
+\[
+ \overline S(\beta)=1-m+\frac{\beta}{1+m}.
+\]
+Then
+\[
+ S_0\ge1-\frac m s+\frac{1-r}{1+m}\ge\overline S(\beta).
+\]
+Indeed, the second difference is
+\[
+ (s-1)\left(\frac m s-\frac1{1+m}\right)\ge0.
+\]
+For the last sign use $s\le2\beta\le m(1+m)$: if
+$g=3\beta-\beta^2-1$, then $g>0$ and
+\[
+ m^2-g^2=-\beta(\beta-1)(\beta^2-5\beta+5)\ge0,
+ \qquad m^2+g=2\beta.
+\]
+
+Put $B_0=5657/10000$, $T=93/200$, and $\beta_*=161/250$.
+If $\beta m/s\ge B_0$, then $\beta m\ge B_0$.  The function
+$\phi(\beta)=\beta m$ is strictly increasing, and the exact comparison
+\[
+ B_0^2-\beta_*^2m(\beta_*)^2
+ =\frac{22782769}{62500000000}>0
+\]
+therefore gives $\beta>\beta_*$.  On $[\beta_*,1]$ put
+\[
+ H(\beta)=\frac{107}{200}-Tm-(1-\beta)^2.
+\]
+Since $H''=-3T/(4m^3)-2<0$, the function $H$ is concave.  Its endpoint
+values are positive: $H(1)=7/100$, while, for
+$a_*=107/200-(1-\beta_*)^2=51033/125000$,
+\[
+ a_*^2-T^2m(\beta_*)^2
+ =\frac{1693881}{62500000000}>0.
+\]
+Thus $H>0$ throughout the interval.  The identity
+\[
+ (\overline S(\beta)-T)(1+m)=H(\beta)
+\]
+shows that $\beta m/s\ge B_0$ would force $S_0>T$, a contradiction.
+Consequently
 \[
  F_{c_5^\ast}(a_5^\ast)<\frac{5657}{10000}
  <\frac{7-\sqrt{13}}6.
 \]
+The final strict comparison follows by squaring
+$\sqrt{13}<18029/5000$, whose squared difference is
+$44841/25000000>0$.
 Thus the final sum is also below one.  The table is exhaustive, proving
 \eqref{eq:407-loss}.
 \end{proof}

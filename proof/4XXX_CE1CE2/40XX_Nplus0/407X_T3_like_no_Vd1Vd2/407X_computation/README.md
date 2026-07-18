@@ -2,8 +2,12 @@
 
 Status: Reference
 
-This directory contains the finite interval certificate used in the completed
-`407X_T3_like_no_Vd1Vd2` proof package.
+This directory retains the finite interval certificate formerly used in the
+completed `407X_T3_like_no_Vd1Vd2` proof package. The certified implication
+now has an analytic proof in
+[`../407c_rigor_completion_details.md`](../407c_rigor_completion_details.md),
+Lemma 4.1. The script is an optional independent exact check, not a proof
+dependency.
 
 The script uses exact rational interval arithmetic.  Square roots are enclosed
 by one-sided rational bounds obtained using integer arithmetic.  No floating

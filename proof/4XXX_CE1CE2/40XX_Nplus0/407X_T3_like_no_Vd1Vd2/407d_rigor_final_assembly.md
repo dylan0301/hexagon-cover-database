@@ -166,14 +166,10 @@ $$
 
 high-left envelope estimates, inequalities $S>3y$ and $A_C>3y$, and the right
 $T_-$ estimates are proved in `407c_rigor_completion_details.md` and `407a`.
-The finite interval certificate used in the
-$T_-$ right-branch case is
-
-$$
-\texttt{407X\_computation/407b\_T\_hi\_Tminus\_qright\_threshold\_certificate.py}.
-$$
-
-Its hypotheses are checked in `407c_rigor_completion_details.md`, Section 4.
+The $T_-$ right-branch threshold is proved analytically in
+`407c_rigor_completion_details.md`, Lemma 4.1. Its hypotheses are the
+realized high-sheet Cell-$T$ condition checked in `407c`, Lemma 2.1, and the
+common left-high parameterization checked in `407a`, Lemma 1.1.
 
 Therefore
 

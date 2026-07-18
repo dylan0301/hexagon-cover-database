@@ -8,13 +8,10 @@ $$
 B_5=T_+^{hi}.
 $$
 
-Its exact four-label proof uses the finite rational interval certificate
-
-- [`407X_computation/407b_T_hi_Tminus_qright_threshold_certificate.py`](407X_computation/407b_T_hi_Tminus_qright_threshold_certificate.py).
-
 The canonical expanded derivations for the common left-high Cell-$T$
 condition, the high-left envelope estimates, the $S>3y$ and $A_C>3y$
-estimates, and the detailed right-$T_-$ bounds are recorded in
+estimates, the detailed right-$T_-$ bounds, and the analytic threshold lemma
+are recorded in
 [`407c_rigor_completion_details.md`](407c_rigor_completion_details.md).  The
 present file is the branch-level proof using those lemmas.
 
@@ -432,8 +429,8 @@ S=S_0+\frac{1-r}{r}y,
 S_0=1-\frac{m}{r+\beta}+\frac{1-r}{1+\rho}.
 $$
 
-Thus $S_0<93/200$.  The finite certificate
-[`407X_computation/407b_T_hi_Tminus_qright_threshold_certificate.py`](407X_computation/407b_T_hi_Tminus_qright_threshold_certificate.py) proves
+Thus $S_0<93/200$. Lemma 4.1 of
+[`407c_rigor_completion_details.md`](407c_rigor_completion_details.md) proves
 
 $$
 S_0<\frac{93}{200}

@@ -1,6 +1,6 @@
 """
-Finite interval certificate for the remaining 407X left-high/right-Tminus
-q-right reduction used in the accompanying proof file.
+Optional finite interval cross-check for the 407X left-high/right-Tminus
+q-right reduction, now proved analytically in 407c, Lemma 4.1.
 
 It proves the implication
 

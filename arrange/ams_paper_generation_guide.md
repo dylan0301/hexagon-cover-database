@@ -559,9 +559,11 @@ At minimum, document:
 
 1. the finite all-parameter caliper certificate in `20095`;
 2. the outward-rounded mixed-overlap certificate in `31034`;
-3. the exact rational interval certificate used by the hard `407X` label pair;
-4. every exact terminal or Bernstein-type certificate retained from the
-   one-gap propagation proofs.
+3. every other machine-assisted certificate that remains a logical dependency
+   after analytic simplification.
+
+Optional historical cross-checks superseded by analytic proofs belong in the
+source ledger and proof package, not in the manuscript certificate appendix.
 
 For each certificate, state:
 

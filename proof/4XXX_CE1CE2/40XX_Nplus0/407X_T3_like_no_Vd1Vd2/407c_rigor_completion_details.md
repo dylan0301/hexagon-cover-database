@@ -2,14 +2,14 @@
 
 Status: Proven
 
-This file supplies detailed proofs for the analytic estimates and certificate
-hypotheses used by
+This file supplies detailed proofs for the analytic estimates used by
 
 - [`4078_left_L_family_completion.md`](4078_left_L_family_completion.md),
 - [`407a_left_Thigh_branch_completion.md`](407a_left_Thigh_branch_completion.md).
 
-It is intended as a local dependency for those files.  The computational
-certificates remain in `407X_computation/`.
+It is intended as a local dependency for those files. The computational check
+remains in `407X_computation/`, but the threshold implication formerly
+supplied by that check is proved analytically in Lemma 4.1 below.
 
 Throughout, use the notation of `4073`.  For high-sheet calculations put
 
@@ -689,14 +689,209 @@ $$
 
 so $\tau<93/200$.
 
-## 4. Certificate applicability
+## 4. Analytic left-high threshold
 
-The certificate `407b_T_hi_Tminus_qright_threshold_certificate.py` assumes the left high-sheet necessary conditions
+### Lemma 4.1
+
+Let $0<r<1$ and
 
 $$
-\beta\ge r,\qquad
-\beta\ge \frac{1-r^2}{1+2r},\qquad
-r\ge(1-\beta)(r+\beta)^2.
+\max\left\{r,\frac12\right\}\le\beta\le1.
 $$
 
-These are proved above in Lemma 2.1 and the common left-high parameterization.  Hence it applies to every realized left high-sheet branch.
+Put
+
+$$
+m=\sqrt{\beta^2-\beta+1},
+\qquad
+\rho=\sqrt{r^2-r+1},
+\qquad
+s=r+\beta,
+$$
+
+$$
+S_0=1-\frac{m}{s}+\frac{1-r}{1+\rho},
+\qquad
+B_5=\frac{\beta m}{s}.
+$$
+
+If the realized high-sheet Cell 2 condition
+
+$$
+r\ge(1-\beta)(r+\beta)^2
+$$
+
+holds, then
+
+$$
+S_0<\frac{93}{200}
+\quad\Longrightarrow\quad
+B_5<\frac{5657}{10000}.
+$$
+
+#### Proof
+
+First simplify the Cell 2 condition. The exact factorization
+
+$$
+r-(1-\beta)(r+\beta)^2
+=
+(s-1)(\beta^2+r\beta-r)
+$$
+
+has a nonnegative second factor, because
+
+$$
+\beta^2+r\beta-r
+=\beta^2-r(1-\beta)
+\ge\beta^2-\beta(1-\beta)
+=\beta(2\beta-1)\ge0.
+$$
+
+If this factor vanishes, the displayed inequalities force
+$r=\beta=1/2$, and hence $s=1$. Otherwise the Cell 2 condition forces
+$s>1$. Thus in every case
+
+$$
+s\ge1.
+$$
+
+Conversely, $s\ge1$ makes both factors nonnegative, so on the stated domain
+the Cell 2 condition is equivalent to $s\ge1$. In particular, the additional
+left-high condition $\beta\ge(1-r^2)/(1+2r)$ is not needed for this lemma.
+
+Since $r\le\beta$,
+
+$$
+\rho^2-m^2=(r-\beta)(s-1)\le0,
+$$
+
+so $\rho\le m$. Define
+
+$$
+\overline S(\beta)=1-m+\frac{\beta}{1+m}.
+$$
+
+Then
+
+$$
+S_0\ge1-\frac{m}{s}+\frac{1-r}{1+m}.
+$$
+
+The difference between the right side and $\overline S(\beta)$ is
+
+$$
+(s-1)\left(\frac{m}{s}-\frac{1}{1+m}\right).
+$$
+
+This is nonnegative. Indeed, $s\le2\beta$, and
+
+$$
+2\beta\le m(1+m).
+$$
+
+For the latter inequality, put $g=3\beta-\beta^2-1$. On
+$[1/2,1]$ one has $g>0$, while
+
+$$
+m^2-g^2
+=-\beta(\beta-1)(\beta^2-5\beta+5)\ge0.
+$$
+
+Hence $m\ge g$, and therefore
+
+$$
+m(1+m)\ge m^2+g=2\beta.
+$$
+
+We have proved
+
+$$
+S_0\ge\overline S(\beta).
+$$
+
+Now set
+
+$$
+B_0=\frac{5657}{10000},
+\qquad
+T=\frac{93}{200},
+\qquad
+\beta_*=\frac{161}{250}.
+$$
+
+Suppose $B_5\ge B_0$. Since $s\ge1$, this gives
+
+$$
+\beta m=sB_5\ge B_0.
+$$
+
+The function $\phi(\beta)=\beta m$ is strictly increasing, because
+
+$$
+\phi'(\beta)=\frac{4\beta^2-3\beta+2}{2m}>0.
+$$
+
+At $\beta_*$,
+
+$$
+B_0^2-\beta_*^2m(\beta_*)^2
+=\frac{22782769}{62500000000}>0.
+$$
+
+Thus $\beta>\beta_*$. It remains to show
+$\overline S(\beta)>T$ on $[\beta_*,1]$. Put
+
+$$
+F(\beta)=\frac{107}{200}-T m-(1-\beta)^2.
+$$
+
+Since
+
+$$
+m''=\frac{3}{4m^3},
+$$
+
+one has
+
+$$
+F''(\beta)=-\frac{3T}{4m^3}-2<0.
+$$
+
+Thus $F$ is concave. At the right endpoint,
+
+$$
+F(1)=\frac{7}{100}>0.
+$$
+
+At the left endpoint, put
+
+$$
+a_*:=\frac{107}{200}-(1-\beta_*)^2
+=\frac{51033}{125000}>0.
+$$
+
+The exact comparison
+
+$$
+a_*^2-T^2m(\beta_*)^2
+=\frac{1693881}{62500000000}>0
+$$
+
+gives $F(\beta_*)>0$. Concavity places $F$ above the positive chord
+joining its endpoint values, so $F>0$ throughout $[\beta_*,1]$.
+Finally, the identity
+
+$$
+\left(\overline S(\beta)-T\right)(1+m)=F(\beta)
+$$
+
+shows that $\overline S(\beta)>T$. We have proved
+
+$$
+B_5\ge B_0
+\quad\Longrightarrow\quad
+S_0\ge\overline S(\beta)>T.
+$$
+
+Taking the contrapositive gives the claimed strict implication. $\square$

@@ -36,10 +36,10 @@ assembly in `407d`.
 | [`4078_left_L_family_completion.md`](4078_left_L_family_completion.md) | Proven | Proves the remaining $(L,T_+^{hi})$ branch. |
 | [`4079_first_Full_branch.md`](4079_first_Full_branch.md) | Proven | Proves that the first-coordinate $\mathrm{Full}$ branch cannot occur in the hard region. |
 | [`407a_left_Thigh_branch_completion.md`](407a_left_Thigh_branch_completion.md) | Proven | Proves all four first-coordinate $T_+^{hi}$ branches. |
-| [`407c_rigor_completion_details.md`](407c_rigor_completion_details.md) | Proven | Supplies the detailed Low, high-sheet, center-transfer, and certificate-domain estimates used above. |
+| [`407c_rigor_completion_details.md`](407c_rigor_completion_details.md) | Proven | Supplies the detailed Low, high-sheet, center-transfer, and analytic threshold estimates used above. |
 | [`407d_rigor_final_assembly.md`](407d_rigor_final_assembly.md) | Proven | Checks the exact four-label inventory and assembles the perimeter contradiction. |
-| [`407X_computation/407b_T_hi_Tminus_qright_threshold_certificate.py`](407X_computation/407b_T_hi_Tminus_qright_threshold_certificate.py) | Experiment | Exact rational interval certificate used only in the $(T_+^{hi},T_-)$ branch. |
-| [`407X_computation/README.md`](407X_computation/README.md) | Reference | Records the certificate target, method, and expected output. |
+| [`407X_computation/407b_T_hi_Tminus_qright_threshold_certificate.py`](407X_computation/407b_T_hi_Tminus_qright_threshold_certificate.py) | Experiment | Optional exact rational check of the analytic threshold in `407c`; not a proof dependency. |
+| [`407X_computation/README.md`](407X_computation/README.md) | Reference | Records the optional check, method, and expected output. |
 
 The shared inputs are the exact four-label capped-demand theorem
 [`2011`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md),
@@ -76,6 +76,7 @@ Thus every genuine label pair either is unrealizable or has total capped
 output strictly below $1$.  The reduction in `4073` then gives the required
 perimeter contradiction.
 
-The retained certificate has been rerun with $1174$ terminal boxes, maximum
-depth $30$, and zero unresolved boxes.  No deleted historical or fake-sheet
-certificate is part of the proof.
+The $(T_+^{hi},T_-)$ threshold is now proved analytically in `407c`, Lemma
+4.1. The interval script in `407X_computation/` is retained only as a
+redundant exact check and is not a dependency of the proof. No deleted
+historical or fake-sheet certificate is part of the proof.
