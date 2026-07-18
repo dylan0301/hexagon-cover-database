@@ -1,0 +1,236 @@
+\section{An exact rational certificate for the mixed overlaps}
+\label{sec:exact-mixed-overlap}
+
+This appendix gives an interval-free replacement for the two mixed-overlap
+signs used in Theorem~\ref{thm:witness-enclosure}.  It uses exact rational
+function algebra followed by exact integer Bernstein coefficients.  The
+outward-rounded certificate in the preceding appendix remains a redundant
+independent check, but is not needed for this proof.
+
+Retain the notation of Section~\ref{sec:ab-core}.  Thus
+\[
+ p=1-b,\qquad q=1-a,\qquad
+ s=p+q,\qquad m=\min\{p,q\},\qquad M=\max\{p,q\},
+\]
+\[
+ \chi=s^4-s^2+mM,\qquad h=\frac{\sqrt3}{2},
+ \qquad c_*=c_{\max}(p,q).
+\]
+The strict domain gives
+\begin{equation}
+ mM>(1-s)(2-s),\qquad m>1-s,\qquad s>\frac23.
+ \label{eq:exact-mixed-domain}
+\end{equation}
+Put
+\[
+ F_m(x)=x^4-x^2+mx-m^2,\qquad
+ \kappa=F_m'(s)=4s^3-2s+m.
+\]
+Since $m>1-s$,
+\begin{equation}
+ \kappa>4s^3-3s+1=(s+1)(2s-1)^2>0.
+ \label{eq:kappa-positive}
+\end{equation}
+
+\subsection{Rational upper envelopes}
+
+Define
+\begin{equation}
+ \bar c_L=s-\frac{\chi}{\kappa}\quad(\chi\le0),
+ \qquad
+ \bar c_T=s-\frac{\chi}{1-m}\quad(\chi\ge0).
+ \label{eq:branchwise-cbar}
+\end{equation}
+
+\begin{lemma}[Branchwise radial upper bounds]
+\label{lem:branchwise-cbar}
+On the corresponding radial cells,
+\[
+ c_*\le\bar c_L<1,\qquad c_*\le\bar c_T<1.
+\]
+At $\chi=0$ both upper bounds equal $s=c_*$.
+\end{lemma}
+
+\begin{proof}
+On the $C_L(m)$ cell, $F_m(s)=\chi\le0$ and $F_m(c_*)=0$.
+For $x\ge s>2/3$ one has $F_m''(x)=12x^2-2>0$, so convexity and
+\eqref{eq:kappa-positive} give
+\[
+ 0=F_m(c_*)\ge F_m(s)+F_m'(s)(c_*-s),
+\]
+whence $c_*\le s-\chi/\kappa=\bar c_L$.
+Let $U=1-s$.  The first inequality in
+\eqref{eq:exact-mixed-domain} gives $mM>U(1+U)$, and therefore
+\[
+ \begin{aligned}
+ \chi+U\kappa
+ &>U\{m+3s^3-s^2-3s+2\}\\
+ &=U\{m+1-4U+8U^2-3U^3\}>0.
+ \end{aligned}
+\]
+Indeed $0<U<1/3$ and
+$1-4U+8U^2-3U^3>1-4U+7U^2>0$.  Thus $\bar c_L<1$.
+
+On the other cell put
+\[
+ E=\sqrt{4s^2-3},\qquad
+ m_0=\frac{s(1-E)}2,\qquad M_0=\frac{s(1+E)}2.
+\]
+Then
+\[
+ \chi=(m-m_0)(M_0-m),\qquad
+ s-c_*=rac{2(m-m_0)}{1+E}.
+\]
+Hence
+\[
+ \frac{\chi}{s-c_*}
+ =\frac{1+E}{2}(M_0-m)\le1-m,
+\]
+because $0\le E\le1$ and $M_0\le1$.  This proves
+$c_*\le\bar c_T$, while $\chi>0$ gives $\bar c_T<s<1$.
+\end{proof}
+
+Reflect so that $z=a-b\ge0$ and put $U=a+b-1$.  Then
+\[
+ s=1-U,\qquad m=\frac{1-U-z}{2},\qquad
+ D^2=z^2+6U+3U^2=:K(U,z),
+\]
+\[
+ \Xi(U,z):=4\chi
+ =1-10U+21U^2-16U^3+4U^4-z^2,
+\]
+\[
+ G(U,z):=2\kappa=5-21U+24U^2-8U^3-z.
+\]
+Consequently
+\begin{equation}
+ \bar c_L=1-U-\frac{\Xi(U,z)}{2G(U,z)},
+ \qquad
+ \bar c_T=1-U-\frac{\Xi(U,z)}{2(1+U+z)}.
+ \label{eq:rational-cbar}
+\end{equation}
+Thus both upper bounds are rational in $U,z$.
+
+\subsection{The Gram residuals}
+
+On the active cell write $\bar c$ for the corresponding expression in
+\eqref{eq:rational-cbar}, and put
+\[
+ \bar\eta=h(1-\bar c),\qquad
+ e=1-\bar c,\qquad t=2\bar c-1.
+\]
+Lemma~\ref{lem:branchwise-cbar} gives $0<\bar\eta\le\eta$ in the region
+$c_*>2/3$.  Hence the three disks obtained from
+$\mathbb D(C,2\eta)$, $\mathbb D(W,\eta)$, and
+$\mathbb D(RA,2\eta)$ by replacing $\eta$ with $\bar\eta$ are
+subsets of the disks already contained in the Minkowski sum.
+
+Represent a global vector as $(x,hy)$ and put $C'=R^{-1}C$,
+\[
+ N_A=\lVert A\rVert^2,\qquad N_C=\lVert C\rVert^2,\qquad
+ \nu=\langle A,C'\rangle,\qquad
+ \Delta_0=x_Ay_{C'}-y_Ax_{C'}.
+\]
+The Gram identity is
+\[
+ h^2\Delta_0^2=N_AN_C-\nu^2.
+\]
+The two mixed square residuals for the smaller disks factor as
+\begin{equation}
+ \bar P_A=h^2N_AQ_A,\qquad
+ Q_A=\Delta_0^2-\lVert tA-eC'\rVert^2,
+ \label{eq:QA-factor}
+\end{equation}
+\begin{equation}
+ \bar P_C=h^2N_CQ_C,\qquad
+ Q_C=\Delta_0^2-\lVert tC'-eA\rVert^2.
+ \label{eq:QC-factor}
+\end{equation}
+For instance,
+\[
+ \begin{aligned}
+ \frac{\bar P_A}{h^2}
+ &=(N_A-h^2e^2)\Delta_0^2-(tN_A-e\nu)^2\\
+ &=N_A\{\Delta_0^2-t^2N_A-e^2N_C+2te\nu\},
+ \end{aligned}
+\]
+which is \eqref{eq:QA-factor}.  Thus it remains to prove $Q_A,Q_C\ge0$.
+
+\subsection{Exact Bernstein certificate}
+
+The tangent witnesses are rational functions of $U,z,D$.  Substitute
+\eqref{eq:rational-cbar} into \eqref{eq:QA-factor}--\eqref{eq:QC-factor}
+and carry out all operations in $\mathbb Q(U,z,D)$.  Each denominator is a
+positive rational constant times $(D+3)^4$, the square of the relevant
+upper-envelope denominator, and the squares of the two Newton-derivative
+numerators.  The latter derivatives are strictly negative by the fixed-line
+sign lemma; hence the denominators are positive throughout the strict domain.
+
+After reducing the numerator modulo $D^2-K(U,z)$, exact division gives, for
+$B\in\{L,T\}$ and $X\in\{A,C\}$,
+\begin{equation}
+ \operatorname{num}(Q_{B,X})
+ =32(K+3)^2\{A_{B,X}(U,z)+D B_{B,X}(U,z)\},
+ \label{eq:exact-core-reduction}
+\end{equation}
+where $A_{B,X},B_{B,X}\in\mathbb Z[U,z]$.  Their term counts are
+\[
+\begin{array}{c|cc}
+(B,X)&\#A_{B,X}&\#B_{B,X}\\ \hline
+(L,A)&347&298\\
+(L,C)&347&298\\
+(T,A)&342&294\\
+(T,C)&341&294.
+\end{array}
+\]
+
+The reflected strict domain is contained in
+\[
+ 0\le U\le\frac4{25},\qquad 0\le z\le1,
+ \qquad 1-K(U,z)>0,
+\]
+with $\Xi\le0$ on the $L$ cell and $\Xi\ge0$ on the closure of the $T$ cell.
+The verifier converts all eight polynomials in
+\eqref{eq:exact-core-reduction}, together with $1-K$ and $\Xi$, to the
+bivariate Bernstein basis on this rational rectangle.  It clears one common
+positive denominator, and every later midpoint de Casteljau subdivision
+clears a common power of two.  Therefore all stored coefficients are exact
+integers.
+
+A box is discarded only when exact Bernstein coefficients prove it lies
+outside $K<1$ or outside the selected radial cell.  It is certified when every
+Bernstein coefficient of the four relevant target polynomials is
+nonnegative.  The convex-hull property of the Bernstein basis then proves all
+four polynomials nonnegative on the box.  The deterministic subdivision has
+no unresolved boxes:
+\[
+\begin{array}{c|rrrrrr}
+&\text{processed}&\text{split}&\text{certified}&K\text{-pruned}
+&\chi\text{-pruned}&\text{max depth}\\ \hline
+L&165&82&43&3&37&19\\
+T&191&95&43&4&49&19.
+\end{array}
+\]
+The transcript SHA-256 values are
+\[
+\begin{aligned}
+L:\;&\texttt{a9f738749a66b74afd19a8ba4fa7f3c8936d5e3428f040ef9bf77d121efc647d},\\
+T:\;&\texttt{9775745d5147da389f1bf8d1939389cd25e600fbd7b1abcbfcdfd1d691cbd6c1}.
+\end{aligned}
+\]
+The complete verifier is
+\begin{verbatim}
+proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/
+3103X_residual_core/3103X_computation/
+verify_rational_mixed_overlap.py
+\end{verbatim}
+It uses no floating-point operation, directed rounding, or interval
+arithmetic.
+
+Since $D\ge0$, nonnegativity of the eight integer polynomials proves
+$Q_A,Q_C\ge0$ for $z\ge0$ by
+\eqref{eq:exact-core-reduction}; reflection supplies $z\le0$.  Equations
+\eqref{eq:QA-factor}--\eqref{eq:QC-factor} give the two mixed cap overlaps for
+the smaller disks, hence for the original disks.  Together with the two
+analytic adjacent overlaps, this completes the cap chain and proves
+Theorem~\ref{thm:witness-enclosure} without interval arithmetic.
