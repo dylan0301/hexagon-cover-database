@@ -208,9 +208,12 @@ K_{\mathrm{wit}}(a,b)
 $$
 
 Let $\Lambda(K)$ be the least side length of a closed equilateral triangle
-containing $K$. The terminal enclosure theorem
-[`31034_witness_enclosure_inequality.md`](31034_witness_enclosure_inequality.md)
-proves throughout (2) that
+containing $K$. The terminal cap reduction and analytic adjacent-overlap proof
+are in
+[`31034_witness_enclosure_inequality.md`](31034_witness_enclosure_inequality.md),
+and the two remaining mixed overlaps are proved without interval arithmetic in
+[`31037_rational_cmax_upper_envelope.md`](31037_rational_cmax_upper_envelope.md).
+Together they prove throughout (2) that
 
 $$
 \Lambda(K_{\mathrm{wit}}(a,b))\ge1.
