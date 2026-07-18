@@ -305,7 +305,8 @@ Then
 $$
 \boxed{
 \widetilde c
-=1-U-rac{\Xi(U,z)}{2G(U,z)}.
+=1-U-
+\dfrac{\Xi(U,z)}{2G(U,z)}.
 }
 \tag{12}
 $$
@@ -394,7 +395,7 @@ N_A=\lVert A\rVert^2,
 \qquad
 N_C=\lVert C\rVert^2,
 \qquad
-u=\langle C,RA\rangle,
+u_0=\langle C,RA\rangle,
 \qquad
 \Delta=\operatorname{cross}(C,RA),
 $$
@@ -410,7 +411,7 @@ $$
 The Gram identity is
 
 $$
-\Delta^2=N_AN_C-\nu^2.
+\Delta^2=N_AN_C-u_0^2.
 \tag{16}
 $$
 
@@ -422,7 +423,7 @@ $$
 P_A
 =N_A\left[
 \Delta^2-h^2\lVert tRA-eC\rVert^2
-\right],
+\right].
 }
 \tag{17}
 $$
@@ -448,7 +449,7 @@ $$
 \tag{19}
 $$
 
-These forms avoid the nested $\eta,\tau,\nu$ expression and expose the mixed
+These forms avoid the nested $\eta,\tau,u_0$ expression and expose the mixed
 conditions as two Gram-determinant inequalities.
 
 ## 7. Proposed exact-algebra route
