@@ -253,9 +253,11 @@ units, even though this guide informally calls them chapters.
 7. **Exhaustive assembly.** Route every terminal case and conclude the main
    theorem.
 
-Appendices should contain long piecewise formulas, exhaustive finite label
-tables, interval certificates, reproduction details, and any coordinate proof
-whose length would obscure the main argument.
+Appendices should contain the long piecewise formulas, exhaustive finite label
+tables, interval certificates, reproduction details, and coordinate proofs
+that remain logical dependencies and whose length would obscure the main
+argument.  Do not reproduce a full algebraic catalogue when every use has
+been replaced by a shorter proved consequence.
 
 ## 5. Shared Setup And Structural Reductions
 
@@ -363,12 +365,11 @@ continuity.
 |---|---|---|
 | [`2004_admissible_set.md`](../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md) | Proven | Prove the exact local admissible set and radial envelope. |
 | [`2006_T3_like_midpoint_lemma.md`](../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2006_T3_like_midpoint_lemma.md) | Proven | Exclude a T3-like role from its own midpoint. |
-| [`2007_max_b_map.md`](../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2007_max_b_map.md) | Proven | Prove the exact piecewise maximal $B_c(a)$ map and its valid branch selectors. |
+| [`2007_max_b_map.md`](../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2007_max_b_map.md) | Proven | Supply the outgoing-fiber interval and universal diameter bound; retain the full contact catalogue only in the proof source. |
 | [`2010_free_supercritical_max_b.md`](../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2010_free_supercritical_max_b.md) | Proven | Prove the free strict-supercritical outgoing supremum. |
 | [`2011_capped_demand_map.md`](../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md) | Proven | Prove the exact capped nonsupercritical map, its four genuine labels, and duality. |
 | [`2012_high_radial_low_root_bounds.md`](../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2012_high_radial_low_root_bounds.md) | Proven | Supply the high-radial low-root estimates. |
 | [`2013_T3_like_side_tradeoff.md`](../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2013_T3_like_side_tradeoff.md) | Proven | Prove the T3-like side tradeoff and crossed-pair obstruction. |
-| [`2104_CE2_one_interval_lemma.md`](../proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2104_CE2_one_interval_lemma.md) | Proven | Supply the CE2 two-gap replacement theorem. |
 | [`2105_CE1_exact_formulas.md`](../proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2105_CE1_exact_formulas.md) | Proven | Derive the exact CE1 domain, trace, radial exits, and demands. |
 | [`2106_CE2_exact_formulas.md`](../proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2106_CE2_exact_formulas.md) | Proven | Derive the exact CE2 domain, coupled traces, radial exits, and demands. |
 | [`2107_one_side_capped_loss.md`](../proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2107_one_side_capped_loss.md) | Proven | Prove the one-side capped-output loss theorem. |

@@ -506,7 +506,7 @@ Z_{\mathrm{CE2}}^R>1-\frac y2.
 }
 $$
 
-## 6. Identification of the exact supercritical target
+## 6. Diameter bound for the supercritical target
 
 Define the diameter endpoint
 
@@ -520,94 +520,21 @@ $$
 q^2+q\beta(q)+\beta(q)^2=1.
 $$
 
-Multiply the strict inequality $\delta+R\alpha<P$ by $R$, multiply
-$\alpha+w\delta<P$ by $w$, and add.  Since
-
-$$
-R^2+w=R+w^2=E^2,
-$$
-
-this gives
-
-$$
-E^2(\alpha+\delta)<P=\eta E,
-$$
-
-and therefore
-
-$$
-E(\alpha+\delta)<\eta.
-$$
-
-Using
-
-$$
-S=\frac{\eta+\alpha+\delta}{\eta(1+E)},
-$$
-
-the last inequality is equivalent to
-
-$$
-SE<1.
-$$
-
-But
-
-$$
-x^2+xy+y^2=S^2E^2,
-$$
-
-so
-
-$$
-x^2+xy+y^2<1,
-\qquad
-x<\beta(y).
-$$
-
 The diameter bound in
 [`../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2007_max_b_map.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2007_max_b_map.md)
-always gives
+holds for every radial demand and gives
 
 $$
 B_{c_0}(y)\le\beta(y).
 $$
 
-Conversely,
-
-$$
-c_0=k=Ry=wx.
-$$
-
-The exact inner-triangle selector at the diameter endpoint is
-
-$$
-c_0\left(y+\beta(y)\right)
-\le y\beta(y).
-$$
-
-After division by $y>0$ and substitution of $Ry=wx$, this selector is
-equivalent to
-
-$$
-x\le\beta(y).
-$$
-
-It is strict here.  Thus the diameter endpoint is admissible, and
-
-$$
-\boxed{
-B_{c_0}(y)=\beta(y).
-}
-$$
-
-Finally, because $y>0$,
+Because $y>0$,
 
 $$
 \beta(y)<1-\frac y2.
 $$
 
-Combining this with Section 5 proves
+Combining these two inequalities with Section 5 proves
 
 $$
 \boxed{
@@ -675,10 +602,10 @@ Z_{\mathrm{CE2}}^L
 }
 $$
 
-The reflected diameter and inner-selector argument gives
+The reflected diameter bound gives
 
 $$
-B_{c_0}(x)=\beta(x)<1-\frac x2.
+B_{c_0}(x)\le\beta(x)<1-\frac x2.
 $$
 
 Consequently

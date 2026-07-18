@@ -79,7 +79,7 @@ retained.
 | proof/1XXX_foundations/12XX_V_triangle/1202_local_coordinates_abc.md | Definition | def:admissible-demands |
 | proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md | Proven | prop:exact-admissible-set; prop:local-admissible |
 | proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2006_T3_like_midpoint_lemma.md; 2013_T3_like_side_tradeoff.md | Proven | lem:t3-midpoint-tradeoff |
-| proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2007_max_b_map.md | Proven | exact maximal outgoing map used by prop:capped-demand-map and recorded in appendix_exact_formulas.tex |
+| proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2007_max_b_map.md | Proven | outgoing-fiber interval and universal diameter bound used by the one-gap proofs; the unused full contact catalogue is deliberately not reproduced |
 | proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2010_free_supercritical_max_b.md | Proven | lem:free-supercritical-envelope |
 | proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md | Proven | prop:capped-demand-map |
 | proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2012_high_radial_low_root_bounds.md | Proven | low-root estimates used by lem:407-four-label-loss |
@@ -89,7 +89,6 @@ retained.
 | proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4106_CE1_one_gap_five_map_completion.md | Proven | prop:ce1-one-gap |
 | proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4107_CE2_one_gap_five_map_completion.md | Proven | prop:ce2-one-gap |
 | proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4101_CE1CE2_Nplus1_all_Vd0_strategy.md; 4102_CE2_two_gap_completion.md; 4106_CE1_one_gap_five_map_completion.md; 4107_CE2_one_gap_five_map_completion.md | Proven | prop:nplus-one-all-vd0 |
-| proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2104_CE2_one_interval_lemma.md | Proven | two-gap replacement step in prop:nplus-one-all-vd0 |
 | proof/4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like/4130_CE1CE2_exactly_one_T3_like_index.md; 4131_midpoint_forcing_reduction.md; 4132_CE1_CE2_exactly_one_T3_like_boundary_obstruction.md | Proven | prop:nplus-one-one-t3 |
 | proof/4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md | Proven | prop:nplus-zero-all-vd0 |
 | proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4071_CE1CE2_Nplus0_T3_like_forces_V0_T3_like.md; 4072_support_isolation_after_T0_T3_like.md; 4074_L_Full_branch.md; 4075_Tminus_low_lower_branch_obligations.md; 4078_left_L_family_completion.md; 4079_first_Full_branch.md; 407a_left_Thigh_branch_completion.md; 407c_rigor_completion_details.md; 407d_rigor_final_assembly.md | Proven | lem:407-four-label-loss; prop:nplus-zero-t3 |
