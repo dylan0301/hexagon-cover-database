@@ -11,7 +11,7 @@ the repository's CE-first folder tree:
 1. direct length-sum obstructions;
 2. exact boundary--radial demand propagation;
 3. area loss;
-4. the zero-gap $AB$-set residual-core obstruction.
+4. the center-independent direct nine-point obstruction.
 
 The repository remains the authoritative source for mathematical content and
 proof status. The generated paper must reorganize that content without
@@ -41,9 +41,9 @@ Apply these rules throughout generation:
    every terminal dependency is independently `Proven`.
 4. Never promote `Practically proven`, `Lemma target`, `Strategy`,
    `Empirical`, `Experiment`, or `Failed` material into the proof.
-5. Exact interval or finite certificates must be presented as independently
-   checkable arguments. A plot, floating-point run, or script invocation by
-   itself is not a proof.
+5. Exact finite certificates and exact positive-basis identities must be
+   presented as independently checkable arguments. A plot, floating-point
+   run, or script invocation by itself is not a proof.
 6. Repository identifiers and paths are provenance for the authoring process.
    The reader-facing paper must contain mathematical theorem names, statements,
    proofs, and ordinary cross-references rather than appeals to files such as
@@ -79,7 +79,14 @@ arrange/paper_draft/
 |-- 07_exhaustive_assembly.tex
 |-- appendix_exact_formulas.tex
 |-- appendix_certificates.tex
+|-- appendix_exact_mixed_overlap.tex
 |-- source_ledger.md
+|-- fonts/
+|   |-- README.md
+|   |-- OFL.txt
+|   |-- noto_sans_kr_subset_115.ttf
+|   `-- noto_sans_kr_subset_118.ttf
+|-- main.pdf
 |-- references.bib                 # only when verified sources are cited
 `-- figures/
 ```
@@ -94,6 +101,11 @@ The preamble in `main.tex` must begin with the following minimum structure:
 ```latex
 \documentclass{amsart}
 \usepackage{amsmath,amssymb,amsthm,mathtools,graphicx}
+\usepackage{fontspec}
+
+\newfontfamily\hangulA[Path=fonts/]{noto_sans_kr_subset_115.ttf}
+\newfontfamily\hangulB[Path=fonts/]{noto_sans_kr_subset_118.ttf}
+\newcommand{\straddlinghangul}{{\hangulA 걸}{\hangulB 거치는}}
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
@@ -126,15 +138,22 @@ Use this assembly order:
 \appendix
 \input{appendix_exact_formulas}
 \input{appendix_certificates}
+\input{appendix_exact_mixed_overlap}
 % Add \bibliographystyle{amsplain} and \bibliography{references} only if used.
 \end{document}
 ```
 
+Do not add an input for the deleted
+`06_strategy4_nonbranching_completion.tex`; its exact material belongs in
+`appendix_exact_mixed_overlap.tex`.
+
 Add `\bibliography{references}` only when `references.bib` contains verified
 external sources that are actually cited. Compile from
-`arrange/paper_draft/`, so `main.pdf`, logs, and auxiliary files also remain
-inside that workspace. No `\input`, bibliography, or graphics path may escape
-it.
+`arrange/paper_draft/` with XeLaTeX so `fontspec` can load the local Hangul
+subsets. The tracked `main.pdf`, logs, and auxiliary files must remain inside
+that workspace. Regenerate `main.pdf` after every accepted source change; a
+stale PDF is not an acceptable deliverable. No `\input`, bibliography, font,
+or graphics path may escape the workspace.
 
 The manuscript must contain, in this order:
 
@@ -173,7 +192,8 @@ Do not attempt the full manuscript in one pass. Use the following sequence.
 1. Work from `arrange/paper_draft/` and use the fixed source layout from
    Section 2, omitting only the conditional bibliography when it is unused.
 2. Initialize `source_ledger.md` and record every persistent file in the
-   workspace.
+   workspace, including the exact mixed-overlap appendix, embedded fonts,
+   their license and provenance, and the tracked `main.pdf`.
 3. Read every shared source in Section 5 below.
 4. Read every source assigned to the strategy currently being drafted.
 5. Confirm the recorded status in the source itself, not merely in an index.
@@ -224,11 +244,15 @@ not replace this audit by the sentence “all remaining cases are similar.”
 ### Stage 7: certificates and final audit
 
 Place long exact tables and formulas in `appendix_exact_formulas.tex`. Place
-certificate theorems and reproduction details in
-`appendix_certificates.tex`. Assemble every component through `main.tex`, run
-the checks in Section 15, compile from `arrange/paper_draft/`, and inspect
-every warning, undefined reference, missing citation, and missing asset. Only
-then produce the final paper.
+the finite caliper theorem and its reproduction details in
+`appendix_certificates.tex`. Put the active rational-envelope and global
+Bernstein mixed-overlap proof in `appendix_exact_mixed_overlap.tex`. Assemble
+every component through `main.tex`, run the checks in Section 15, and compile
+from `arrange/paper_draft/` with
+`latexmk -xelatex -interaction=nonstopmode -halt-on-error main.tex`. Inspect
+every warning, undefined reference, missing citation, missing font, and
+missing asset, and regenerate the tracked `main.pdf`. Only then produce the
+final paper.
 
 ## 4. Reader-Facing Paper Architecture
 
@@ -247,16 +271,18 @@ units, even though this guide informally calls them chapters.
    arguments.
 5. **Strategy 3: Area loss.** Develop the local loss inequalities and global
    six-row area certificates for CE0.
-6. **Strategy 4: Zero-gap $AB$-set residual core.** Treat the unified
-   $N_+=1$, all-Vd0, zero-boundary-gap branch without splitting first by center
-   class.
+6. **Strategy 4: Center-independent direct nine-point obstruction.** Treat
+   the unified $N_+=1$, all-Vd0, zero-boundary-gap branch by forcing six
+   radial and three asymmetric witnesses into the center role, without
+   splitting first by center class.
 7. **Exhaustive assembly.** Route every terminal case and conclude the main
    theorem.
 
 Appendices should contain the long piecewise formulas, exhaustive finite label
-tables, interval certificates, reproduction details, and coordinate proofs
-that remain logical dependencies and whose length would obscure the main
-argument.  Do not reproduce a full algebraic catalogue when every use has
+tables, exact finite certificates, global positive-basis identities,
+reproduction details, and coordinate proofs that remain logical dependencies
+and whose length would obscure the main argument. Do not reproduce a full
+algebraic catalogue or a superseded interval audit when every active use has
 been replaced by a shorter proved consequence.
 
 ## 5. Shared Setup And Structural Reductions
@@ -398,6 +424,161 @@ When this section needs a boundary or diagonal cap already proved in Strategy
 | [`4147_CE2_Nplus1_Vd1_supercritical_pair_axis_replacement.md`](../proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4147_CE2_Nplus1_Vd1_supercritical_pair_axis_replacement.md) | Proven | Replace the Vd1--supercritical pair and reduce to the proved all-Vd0 package. |
 | [`4148_CE2_Nplus1_exactly_one_Vd1_Vd2_assembly.md`](../proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4148_CE2_Nplus1_exactly_one_Vd1_Vd2_assembly.md) | Proven | Assemble these exact cases with Strategy 1's two exceptional subcases. |
 
+### Required five-link one-gap chains
+
+Do not compress a one-gap proof to the name of a fivefold composition. For
+each orientation, display the starting endpoint demand, all five scalar
+iterates, the capped-map bound for each actual row, the intervening boundary
+handoff, the returning actual reach on row $0$, and its incompatible
+supercritical-row upper bound. Use $(A_i,B_i)$ for actual boundary reaches and
+reserve $c_i$ for the radial lower-bound demands.
+
+For CE1, use the normalized variables of `4106`, including
+
+$$
+\begin{aligned}
+c_0&=\eta+A+D,&
+c_1&=1-\frac DR,&
+c_2&=1-D,\\
+c_3&=1-\frac AR,&
+c_4&=1-A,&
+c_5&=1-\frac Aw,
+\end{aligned}
+$$
+
+and put $z_0=X=R-D$ and $z_j=G_{c_j}(z_{j-1})$ for
+$1\le j\le5$. Write all five actual-row links:
+
+$$
+\begin{aligned}
+A_1&\ge z_0,&
+B_1&\le F_{c_1}(z_0),&
+A_2&\ge1-B_1\ge z_1,\\
+A_2&\ge z_1,&
+B_2&\le F_{c_2}(z_1),&
+A_3&\ge1-B_2\ge z_2,\\
+A_3&\ge z_2,&
+B_3&\le F_{c_3}(z_2),&
+A_4&\ge1-B_3\ge z_3,\\
+A_4&\ge z_3,&
+B_4&\le F_{c_4}(z_3),&
+A_5&\ge1-B_4\ge z_4,\\
+A_5&\ge z_4,&
+B_5&\le F_{c_5}(z_4),&
+A_0&\ge1-B_5\ge z_5.
+\end{aligned}
+$$
+
+End with the complete contradiction
+
+$$
+A_0\ge Z_{\mathrm{CE1}}:=z_5
+>B_{c_0}(s)\ge A_0.
+$$
+
+For the CE2 right-gap orientation, use the exact demands
+
+$$
+\begin{aligned}
+c_0&=k,&
+c_1&=1-\frac{\delta}{R},&
+c_2&=1-\delta,\\
+c_3&=1-\min\left\{\frac{\delta}{w},\frac{\alpha}{R}\right\},&
+c_4&=1-\alpha,&
+c_5&=1-\frac{\alpha}{w}.
+\end{aligned}
+$$
+
+Put $z_0=1-v=R-\delta$ and $z_j=G_{c_j}(z_{j-1})$. The
+unique-gap hypothesis makes the other five handoffs strict, so write
+
+$$
+\begin{aligned}
+A_1&\ge z_0,&
+B_1&\le F_{c_1}(z_0),&
+A_2&>1-B_1\ge z_1,\\
+A_2&>z_1,&
+B_2&\le F_{c_2}(z_1),&
+A_3&>1-B_2\ge z_2,\\
+A_3&>z_2,&
+B_3&\le F_{c_3}(z_2),&
+A_4&>1-B_3\ge z_3,\\
+A_4&>z_3,&
+B_4&\le F_{c_4}(z_3),&
+A_5&>1-B_4\ge z_4,\\
+A_5&>z_4,&
+B_5&\le F_{c_5}(z_4),&
+A_0&>1-B_5\ge z_5.
+\end{aligned}
+$$
+
+The terminal comparison must be shown as
+
+$$
+A_0>Z_R:=z_5>B_{c_0}(y)\ge A_0.
+$$
+
+For the CE2 left-gap orientation, do not write only “by symmetry.” Record the
+reflection
+
+$$
+x\longleftrightarrow y,
+\quad u\longleftrightarrow v,
+\quad R\longleftrightarrow w,
+\quad \alpha\longleftrightarrow\delta,
+$$
+
+$$
+A'_0=B_0,
+\quad B'_0=A_0,
+\quad A'_i=B_{6-i},
+\quad B'_i=A_{6-i},
+\quad c'_i=c_{6-i}
+\quad(1\le i\le5).
+$$
+
+Put $\widetilde z_0=1-u=w-\alpha$ and
+$\widetilde z_j=G_{c_{6-j}}(\widetilde z_{j-1})$. Then explicitly write the
+reverse five-row chain
+
+$$
+\begin{aligned}
+B_5&\ge\widetilde z_0,&
+A_5&\le F_{c_5}(\widetilde z_0),&
+B_4&>1-A_5\ge\widetilde z_1,\\
+B_4&>\widetilde z_1,&
+A_4&\le F_{c_4}(\widetilde z_1),&
+B_3&>1-A_4\ge\widetilde z_2,\\
+B_3&>\widetilde z_2,&
+A_3&\le F_{c_3}(\widetilde z_2),&
+B_2&>1-A_3\ge\widetilde z_3,\\
+B_2&>\widetilde z_3,&
+A_2&\le F_{c_2}(\widetilde z_3),&
+B_1&>1-A_2\ge\widetilde z_4,\\
+B_1&>\widetilde z_4,&
+A_1&\le F_{c_1}(\widetilde z_4),&
+B_0&>1-A_1\ge\widetilde z_5.
+\end{aligned}
+$$
+
+Conclude with
+
+$$
+B_0>Z_L:=\widetilde z_5>B_{c_0}(x)\ge B_0.
+$$
+
+Use the simplified analytic proofs on the full strict CE1 and CE2 center
+domains. Do not introduce an auxiliary survivor restriction or a classified
+map for the unique supercritical row. In the CE1 estimate, retain the current
+$p=-f_8$ derivative decomposition for the $Q(P)$ sign, the manifestly
+positive expression for $-g_5'$, and monotonicity of $h$ together with
+$h(3/4)<7/16$ for the low-$c$ row-$3$ chord. Retain the direct CE2
+two-threshold argument, the analytic `407X` completion, the direct `2108`
+two-gap loss, singleton-gap handling, and the universal diameter bound. The
+optional `4104` reduction and historical `4108` verifier are not
+dependencies, and the unused full `2007` contact catalogue should not be
+reproduced.
+
 For the `407X` package, incorporate the mathematical reduction proved in
 [`4073_boundary_loss_framework.md`](../proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4073_boundary_loss_framework.md)
 but do not cite that `Reduction` file as a terminal proof. Read and integrate
@@ -425,7 +606,7 @@ Normalize areas consistently. If one unit equilateral triangle has area
 $\sqrt3/4$, then the side-one hexagon has normalized area $6$. Make every
 strict inequality leading to a total below $6$ explicit.
 
-## 9. Strategy 4: Zero-Gap $AB$-Set Residual Core
+## 9. Strategy 4: Center-Independent Direct Nine-Point Obstruction
 
 State the strategy theorem without a CE hypothesis:
 
@@ -443,18 +624,26 @@ separate reproofs.
 
 | Source | Recorded status | Manuscript role |
 |---|---|---|
-| [`20090_ab_set_index.md`](../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20090_ab_set_index.md) | Reference | Use only for navigation; state the corner-cone-clipped $AB$-union explicitly from the proved `20091`/`20095` package before using it. |
-| [`20091_ab_union_curve_a_plus_b_gt_1.md`](../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md) | Proven | Prove the strict-supercritical four-piece frontier. |
-| [`20095_exact_caliper_certificate.md`](../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20095_exact_caliper_certificate.md) | Proven | Supply the exact finite all-parameter caliper certificate and monotonicity semantics. |
-| [`31012_core_graph_two_variable_relaxation.md`](../proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3101X_six_point/31012_core_graph_two_variable_relaxation.md) | Proven | Use only the proved fixed-line and two-variable facts invoked by the residual-core route. |
-| [`31032_symmetric_witness_construction.md`](../proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31032_symmetric_witness_construction.md) | Proven | Construct the uniform symmetric-core witness and forced disk. |
-| [`31033_asymmetric_witness_construction.md`](../proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31033_asymmetric_witness_construction.md) | Proven | Construct the exact asymmetric witnesses and prove core membership. |
-| [`31034_witness_enclosure_inequality.md`](../proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31034_witness_enclosure_inequality.md) | Proven | Prove the terminal enclosing-triangle inequality, including the rigorous mixed-overlap certificate. |
-| [`31035_center_independent_all_boundary_obstruction.md`](../proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31035_center_independent_all_boundary_obstruction.md) | Proven | Assemble the center-independent zero-gap theorem. |
-| [`31030_CE0_all_Vd0_residual_core_strategy.md`](../proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31030_CE0_all_Vd0_residual_core_strategy.md) | Proven | Deduce the CE0 corollary by proving that CE0 forces full vertex-role boundary coverage. |
+| [`2004_admissible_set.md`](../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md) | Proven | Reuse Strategy 2's exact radial envelope $c_{\max}$ for the common radial demand. |
+| [`20090_ab_set_index.md`](../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20090_ab_set_index.md) | Reference | Use only for navigation; no index statement is a proof. |
+| [`20095_exact_caliper_certificate.md`](../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20095_exact_caliper_certificate.md) | Proven | Supply the exact finite caliper theorem underlying the strict specialization. |
+| [`20091_ab_union_curve_a_plus_b_gt_1.md`](../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md) | Proven | Prove the four-piece frontier used only for the unique supercritical row. |
+| [`31012_core_graph_two_variable_relaxation.md`](../proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3101X_six_point/31012_core_graph_two_variable_relaxation.md) | Proven | Use only the fixed-line circle signs for the actual moving handoffs $X_2$ and $X_5$. |
+| [`31033_asymmetric_witness_construction.md`](../proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31033_asymmetric_witness_construction.md) | Proven | Supply the exact formulas, interior bounds, and elementary distance inequalities for $Q_-,Q_0,Q_+$. |
+| [`31034_witness_enclosure_inequality.md`](../proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31034_witness_enclosure_inequality.md) | Proven | Supply the terminal cap reduction and analytic adjacent-overlap proof; do not use its superseded outward-rounded mixed-overlap subsection. |
+| [`31037_rational_cmax_upper_envelope.md`](../proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31037_rational_cmax_upper_envelope.md) | Proven | Replace $c_*$ by branchwise rational upper envelopes and reduce the two mixed overlaps to eight integer-polynomial signs. |
+| [`31038_global_analytic_core_positivity.md`](../proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31038_global_analytic_core_positivity.md) | Proven | Prove those signs on three fixed charts by twenty global Bernstein identities, without interval arithmetic or subdivision. |
+| [`31041_direct_radial_forcing.md`](../proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3104X_direct_Vd0_nine_point/31041_direct_radial_forcing.md) | Proven | Force the six common radial witnesses out of every actual vertex role by $c_{\max}$, openness, Vd0 locality, and diameter. |
+| [`31042_direct_asymmetric_witness_forcing.md`](../proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3104X_direct_Vd0_nine_point/31042_direct_asymmetric_witness_forcing.md) | Proven | Force the three asymmetric witnesses out of every actual vertex role using the strict frontier, vertex distances, and $X_2,X_5$. |
+| [`31043_center_independent_direct_nine_point_obstruction.md`](../proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3104X_direct_Vd0_nine_point/31043_center_independent_direct_nine_point_obstruction.md) | Proven | Assemble the center-independent direct nine-point contradiction. |
+| [`31044_CE0_Nplus1_all_Vd0_direct_completion.md`](../proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3104X_direct_Vd0_nine_point/31044_CE0_Nplus1_all_Vd0_direct_completion.md) | Proven | Deduce the CE0 branch by proving that CE0 forces full vertex-role boundary coverage. |
+| [`4101_CE1CE2_Nplus1_all_Vd0_strategy.md`](../proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4101_CE1CE2_Nplus1_all_Vd0_strategy.md) | Proven | Reuse `31043` for the CE1/CE2 zero-gap cases after Strategy 2 handles the positive-gap cases. |
 
-Reuse Strategy 2's exact local admissible set and Strategy 1's neighbor-ray
-formula where `31032` requires them. Do not reproduce those earlier proofs.
+The direct proof uses no $AB$-union for a nonsupercritical row, no symmetric
+or asymmetric model residual core, no antitone comparison of six model
+unions, no neighboring-ray theorem `2008`, and no optional six-point
+inequality. Do not import those ingredients from the older independent
+`3103X` proof.
 
 The section must explain the logical chain
 
@@ -463,10 +652,25 @@ $$
 \Longrightarrow
 \text{full Vd0 boundary cover}
 \Longrightarrow
-\text{forced residual core}
+\text{strict exact-one handoffs}
 \Longrightarrow
-\text{witness set not contained in an open unit triangle}.
+\text{six radial and three asymmetric witnesses forced into }T_C
+\Longrightarrow
+\Lambda(K_{\mathrm{wit}})\ge1
+\Longrightarrow
+\text{contradiction with containment in the open unit triangle }T_C.
 $$
+
+For the radial witnesses, explicitly exclude each $D_i$ from its matching
+role by maximality of $c_{\max}$ and openness, from its adjacent roles by Vd0
+locality, and from the three remaining roles by diameter. Their convex hull
+forces the centered disk used in the enclosure theorem. For the asymmetric
+witnesses, explicitly exclude row $4$ by the unique strict-row frontier,
+rows $0,1,2$ by vertex distances, and rows $3,5$ by the actual handoffs
+$X_2,X_5$. Then invoke `31034`, `31037`, and `31038` for the exact terminal
+enclosure inequality. Keep the filename `06_strategy4_ab_core.tex` only for
+assembly compatibility; reader-facing prose must call this the direct
+nine-point obstruction.
 
 ## 10. Exhaustive Routing Table
 
@@ -559,24 +763,52 @@ machine-assisted parts used in the proof.
 At minimum, document:
 
 1. the finite all-parameter caliper certificate in `20095`;
-2. the outward-rounded mixed-overlap certificate in `31034`;
-3. every other machine-assisted certificate that remains a logical dependency
+2. the branchwise rational $c_{\max}$ envelopes and exact mixed-overlap
+   reduction in `31037`;
+3. the three fixed charts and twenty global tensor-product Bernstein
+   identities in `31038`;
+4. every other machine-assisted certificate that remains a logical dependency
    after analytic simplification.
 
 Optional historical cross-checks superseded by analytic proofs belong in the
 source ledger and proof package, not in the manuscript certificate appendix.
+In particular, the outward-rounded adaptive subdivision in Section 7 of
+`31034` and the adaptive verifier retained by `31037` are redundant legacy
+audits, not dependencies of the active paper.
 
 For each certificate, state:
 
 - the exact parameter domain;
 - the target inequality;
-- the rational or directed-rounding representation;
-- the subdivision and safe-pruning rules;
-- why the terminal boxes cover the full domain;
+- the exact rational, integer-polynomial, or $\mathbb Q(\sqrt3)$
+  representation;
+- every positive denominator and equivalence used in clearing radicals;
+- why the finite events or fixed analytic charts cover the full domain;
+- the global positive-basis identity and exact coefficient-sign test;
 - the strict margin or sign conclusion;
 - the software command and expected output, as reproducibility information;
 - why the mathematical verification does not depend on unrecorded
   floating-point assumptions.
+
+For the mixed overlaps, record the $L$- and $T$-cell rational envelopes, the
+reduction to the eight polynomials $A_{B,X},B_{B,X}$, the $T,L_0,L_1$ chart
+coverage, and the exact sign check for the twenty global Bernstein
+expansions. Record the canonical polynomial digest and the deterministic
+`PASS` output with `adaptive_subdivision: false` and
+`branch_and_bound: false`. The reproduction command is
+
+```text
+python3 proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/3103X_computation/verify_global_core_positivity.py
+```
+
+and the required canonical digest is
+
+```text
+dc46aaf263655d5159ecd3a81db72ee82477951d06172f4743b248df37209485
+```
+
+Do not describe interval boxes, pruning, adaptive depth, or directed rounding
+as part of the active proof.
 
 Scripts marked `Experiment` may be cited as reproduction aids only after the
 paper has stated the exact certificate and verification theorem. Do not turn a
@@ -586,7 +818,7 @@ script's status into the status of a mathematical lemma.
 
 Figures are optional. Generate one only when it materially clarifies the
 geometric setup, a case structure, an exact local map, a trace budget, or the
-residual-core witness construction. Do not add decorative images.
+direct nine-point witness construction. Do not add decorative images.
 
 Every visual asset and every file used to generate it must live under
 `arrange/paper_draft/figures/`. This includes:
@@ -640,11 +872,25 @@ Do not use the following as proof dependencies:
 - the algorithm-2 five-point packages and their empirical transition strips;
 - the six-point strategy package, except for the specific proved facts in
   `31012` used by Strategy 4;
+- the older model residual-core assembly `31030`, `31032`, and `31035`, which
+  remains an independent proved route but is not the paper's active route;
+- the outward-rounded mixed-overlap subsection of `31034`, its adaptive
+  interval verifier, and the redundant adaptive verifier retained by `31037`;
+- the proposed analytic finite-nine-point replacement `31045`, whose status
+  remains `Strategy`;
 - the optional reduction `4104`;
+- the historical `4108` CE1 verifier;
 - the empirical historical candidate `4141`;
 - the May 21 and May 25 failed finite-point routes;
 - the old `33XX` chain, which is not a dependency of the current main
   assembly.
+
+The direct route may still reuse the proved formulas in `31033`, the cap
+reduction and adjacent overlaps in `31034`, and the exact `31037`/`31038`
+mixed-overlap completion. The neighbor-ray theorem `2008` remains a valid
+Strategy 1 dependency, but it is not a Strategy 4 dependency. Strategy 2 may
+use the outgoing-fiber and diameter consequences of `2007` without importing
+its unused full contact catalogue.
 
 Do not assert global noncoverage of the full skeleton. The numerical
 counterexample recorded in
@@ -665,6 +911,11 @@ The LLM must complete every item before presenting the manuscript.
       manuscript results.
 - [ ] No empirical, failed, strategy, experiment, or optional route appears as
       a proof dependency.
+- [ ] Strategy 4 is sourced through `31041`--`31044`, with the reused proved
+      ingredients `31012`, `31033`, `31034`, `31037`, and `31038` recorded
+      individually.
+- [ ] Every Markdown provenance link in this guide and `source_ledger.md`
+      resolves to an existing file.
 
 ### Exhaustiveness audit
 
@@ -675,6 +926,8 @@ The LLM must complete every item before presenting the manuscript.
 - [ ] Every vertex-role refinement follows from the proved exhaustive type
       classification.
 - [ ] Zero, one, and two boundary gaps are handled with singleton gaps retained.
+- [ ] The CE1, CE2 right-gap, and reflected CE2 left-gap proofs each display
+      all five actual-row transitions and their terminal row-$0$ contradiction.
 
 ### Rigor audit
 
@@ -683,24 +936,38 @@ The LLM must complete every item before presenting the manuscript.
 - [ ] Every midpoint-forcing argument lists all possible rescuing roles.
 - [ ] Every length or area total specifies its normalization and strictness.
 - [ ] Every exact certificate has a theorem statement and reproducible audit.
+- [ ] The active mixed-overlap proof uses the fixed-chart global Bernstein
+      certificate, not interval arithmetic, adaptive subdivision, or
+      branch-and-bound.
+- [ ] Strategy 4 directly excludes all nine witnesses from all six actual
+      vertex roles before applying the enclosure theorem.
 - [ ] No branch-specific skeleton result is stated globally.
 
 ### AMS manuscript audit
 
-- [ ] The LaTeX source compiles without errors or undefined references.
+- [ ] `latexmk -xelatex -interaction=nonstopmode -halt-on-error main.tex`
+      compiles without errors, undefined references, or undefined citations.
 - [ ] Every theorem, lemma, equation, section, and appendix reference resolves.
-- [ ] Every `\input`, bibliography, and graphics reference resolves inside
-      `arrange/paper_draft/`.
+- [ ] Every `\input`, bibliography, font, and graphics reference resolves
+      inside `arrange/paper_draft/`.
+- [ ] `main.tex` includes `appendix_exact_mixed_overlap.tex` and does not
+      include `06_strategy4_nonbranching_completion.tex`.
+- [ ] `fontspec` loads both local Noto Sans KR subsets under XeLaTeX, and
+      **걸거치는** renders in the compiled paper.
 - [ ] The abstract states the theorem and proof mechanisms without overstating
       what computation proves.
 - [ ] The introduction's roadmap agrees with the final routing table.
 - [ ] The final theorem invokes the open/closed/scaled equivalence correctly.
 - [ ] The bibliography contains no invented or unverified entry.
+- [ ] The tracked `main.pdf` was regenerated from the final accepted sources
+      and is not stale.
 
 ### Workspace and figure audit
 
 - [ ] All persistent paper sources, build-support files, compiled output, logs,
       and auxiliary files remain under `arrange/paper_draft/`.
+- [ ] The embedded font subsets, their provenance README, and `OFL.txt` remain
+      under `arrange/paper_draft/fonts/` and are recorded in the source ledger.
 - [ ] No generated manuscript file modifies `proof/`, the repository root, or
       another package.
 - [ ] Every visual asset, source drawing, data file, and generation script is

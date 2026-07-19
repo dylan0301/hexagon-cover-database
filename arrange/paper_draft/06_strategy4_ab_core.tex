@@ -1,11 +1,14 @@
-\section{Strategy 4: the zero-gap $AB$-set residual core}
+\section{Strategy 4: the direct nine-point obstruction}
 \label{sec:ab-core}
 
 This section proves a center-class-independent theorem.  Its hypotheses are
 that all six vertex roles are $\Vdzero$, that they cover the full boundary,
 and that exactly one actual boundary row is supercritical.  The theorem will
 therefore apply both to the $\CEzero$ branch and to the zero-gap subcases of
-$\CEone$ and $\CEtwo$.
+$\CEone$ and $\CEtwo$.  Six common radial points and three asymmetric points
+are excluded directly from all six actual vertex roles and are therefore
+forced into the center role.  Only the unique supercritical row uses an
+$AB$-union; no nonsupercritical model core is introduced.
 
 \subsection{Corner-clipped $AB$-unions}
 
@@ -23,13 +26,7 @@ and define
 \end{equation}
 The finite description in Theorem~\ref{thm:cert-caliper} applies to the
 four-point set $\{O,A,B,x\}$ and makes membership in \eqref{eq:ab-union} an
-exact finite semialgebraic condition of degree at most four.  We shall also
-use the immediate antitonicity
-\begin{equation}
- a'\ge a,\quad b'\ge b
- \quad\Longrightarrow\quad
- \mathcal R(a',b')\subseteq\mathcal R(a,b).    \label{eq:ab-antitone}
-\end{equation}
+exact finite semialgebraic condition of degree at most four.
 
 The strict supercritical branch admits a simpler closed form.  In the next
 statement write $x=ue_A+ve_B$ and
@@ -176,14 +173,9 @@ $a(4-(1-D)^2)>0$ and $b(4-(1-D)^2)>0$.  This proves the asserted four-piece
 order.
 \end{proof}
 
-For each hexagon vertex $V_i$, let $R_i(a,b)$ denote the rotated copy of
-$\mathcal R(a,b)$ in its corner cone, with the first coordinate incoming and
-the second outgoing.  Formula \eqref{eq:ab-antitone} is valid for every
-$R_i$.
+\subsection{Exact-one handoffs and common demands}
 
-\subsection{From zero gaps to two model cores}
-
-\begin{lemma}[The extreme jump]
+\begin{lemma}[Exact-one handoff chain]
 \label{lem:ab-extreme-jump}
 Assume the six vertex roles cover $\partial H$ and exactly one actual row is
 supercritical.  Rotate its index to $4$.  The strict handoffs supplied by
@@ -199,7 +191,7 @@ one has
 \begin{equation}
  0<a,b<1,\qquad a+b>1,\qquad a^2+ab+b^2<1,       \label{eq:ab-strict-domain}
 \end{equation}
-and, for $i\ne4$, the selected demands obey
+and every selected row obeys
 \[
  a_i\ge p,\qquad b_i\ge q.
 \]
@@ -216,38 +208,9 @@ Finally every $x_j\in[x_3,x_4]$, so
 $1-x_{i-1}\ge1-x_4=p$ and $x_i\ge x_3=q$.
 \end{proof}
 
-Define the actual residual and the asymmetric and symmetric model cores by
-\begin{align}
- \mathcal U_6^\circ
- &=\interior(H)\setminus\bigcup_{i=0}^5\interior R_i(a_i,b_i),
-                                                        \label{eq:actual-core}\\
- \mathcal C_{\rm asym}(a,b)
- &=\interior(H)\setminus\left(
- \interior R_4(a,b)\cup\bigcup_{i\ne4}\interior R_i(p,q)\right),
-                                                        \label{eq:asym-core}\\
- \mathcal C_{\rm sym}(a,b)
- &=\interior(H)\setminus\bigcup_{i=0}^5\interior R_i(p,q).
-                                                        \label{eq:sym-core}
-\end{align}
-If $P\in\interior(H)$ is covered by an open vertex role, then a small ball
-about $P$ lies both in its corner cone and in its closed associated triangle;
-hence $P$ lies in the plane interior of its row union.  Thus a full cover
-forces
-\[
- \mathcal U_6^\circ\subseteq U_C.
-\]
-Lemma~\ref{lem:ab-extreme-jump} and antitonicity give
-\begin{equation}
- \boxed{
- \mathcal C_{\rm sym}(a,b)
- \subseteq\mathcal C_{\rm asym}(a,b)
- \subseteq\mathcal U_6^\circ
- \subseteq U_C.}                                \label{eq:core-chain}
-\end{equation}
+\subsection{Six directly forced radial points}
 
-\subsection{The forced disk and the three asymmetric witnesses}
-
-Put
+Put $h=\sqrt3/2$ and
 \[
  s=p+q,\qquad m=\min(p,q),\qquad M=\max(p,q),
  \qquad \chi=s^4-s^2+pq.
@@ -271,18 +234,18 @@ where $C_L(m)$ is the unique root in $[\sqrt3/2,1]$ of
 \]
 At $\chi=0$ the two expressions agree and equal $s$.
 
-\begin{lemma}[Symmetric radial witnesses]
+\begin{lemma}[Direct radial forcing]
 \label{lem:symmetric-core-witness}
 One has
 \begin{equation}
  0<c_*<1,\qquad c_*>1-m.                         \label{eq:cstar-bounds}
 \end{equation}
-For every $k$,
+Assume that every $U_i$ is $\Vdzero$ and that
+$U_C,U_0,\ldots,U_5$ cover $H$.  Then, for every $i$,
 \[
- P_k=(1-c_*)V_k\in\mathcal C_{\rm sym}(a,b).
+ D_i=(1-c_*)V_i\in U_C.
 \]
-Consequently every convex set containing $\mathcal C_{\rm sym}(a,b)$
-contains the centered closed disk
+Consequently $U_C$ contains the centered closed disk
 \begin{equation}
  \mathcal D_\eta=\{x:\lVert x\rVert\le\eta\},
  \qquad \eta=h(1-c_*).                           \label{eq:forced-disk}
@@ -306,60 +269,32 @@ one has
 Thus $A_0>E$ and $c_*>1-m$.  This proves
 \eqref{eq:cstar-bounds}.
 
-We need only the following consequence of the neighboring-ray formula in
-Theorem~\ref{thm:neighbor-ray-capacity}.  If $0<m\le M$ and $m+M\le1$, then
-\begin{equation}
- C_+(M,m)=1-m,\qquad C_+(m,M)\le1-m.             \label{eq:neighbor-consequence}
-\end{equation}
-For reference, when $M\le1/2$ this follows by evaluating the defining cubic
-\[
- f_M(z)=z^3-(M+2)z^2+2(M+1)z-1
-\]
-at $z=1-m$: $f_M(1-m)\ge m^2(1-2m)\ge0$.
-The same evaluation with $m$ in place of $M$ handles the first two pieces of
-$C_+(m,M)$.  On its final piece,
-\[
- C_+(m,M)=m+\frac12-\sqrt{(m+M)^2-\frac34}.
-\]
-If $m\le1/4$, this is at most $m+1/2\le1-m$.  If $m>1/4$, let
-$\pi=\pi(m)$ be the root of $f_m$ in $[m,1]$ and put $d=\pi-m$.
-Then $0\le d\le1-2m$ and the root equation is
-\[
- d\pi(2-\pi)=2\pi-1.
-\]
-The final branch begins after
-$\tau(m)=1-m-d(1-\pi)$, and the preceding identity gives
-\[
- (m+\tau(m))^2-(4m^2-2m+1)
- =(d-2m)(d+2m-1)\ge0.
-\]
-Indeed $m>1/4$ implies $d\le1-2m<2m$, so both factors are nonpositive.
-Thus $M>\tau(m)$ gives $(m+M)^2>4m^2-2m+1$, and hence
-$C_+(m,M)<1-m$.
-Together with \eqref{eq:cstar-bounds},
-\begin{equation}
- c_*>\max\{C_+(p,q),C_+(q,p)\}.                 \label{eq:neighbor-strict}
-\end{equation}
+Fix $i$.  If $D_i\in U_i$, openness supplies $\varepsilon>0$ with
+$c_*+\varepsilon<1$ such that
+$(1-c_*-\varepsilon)V_i\in U_i$.  The same role contains its two selected
+handoff anchors.  Since their incoming and outgoing demands dominate $p$ and
+$q$, convexity and passage to the closure give a closed unit triangle
+realizing $(p,q,c_*+\varepsilon)$.  This contradicts the definition of
+$c_*=c_{\max}(p,q)$.  Hence $D_i\notin U_i$.
 
-It suffices to prove the assertion for $P_0$.  In the local cone coordinates
-at $V_j$, its coordinates and squared distance from $V_j$ are
+If $D_i$ belonged to $U_{i-1}$ or $U_{i+1}$, a small plane ball inside that
+open role would meet the adjacent radial arm $r_i$ in a positive-length
+interval.  This contradicts the $\Vdzero$ definition.  For the remaining
+roles put $r=1-c_*>0$.  Directly,
 \[
-\begin{array}{c|c|c}
-j& P_0&\lVert P_0-V_j\rVert^2\\ \hline
-0&(c_*,c_*)&c_*^2\\
-1&(c_*,1)&c_*^2-c_*+1\\
-2&(1,2-c_*)&c_*^2-3c_*+3\\
-3&(2-c_*,2-c_*)&(2-c_*)^2\\
-4&(2-c_*,1)&c_*^2-3c_*+3\\
-5&(1,c_*)&c_*^2-c_*+1.
-\end{array}
+ \lVert rV_i-V_{i\pm2}\rVert^2=1+r+r^2>1,
+ \qquad
+ \lVert rV_i-V_{i+3}\rVert=1+r>1.
 \]
-By definition of the radial maximum, $P_0$ lies on, but not in the plane
-interior of, $R_0(p,q)$.  The diameter bound excludes it from
-$R_2,R_3,R_4$.  Membership in $R_1$ or $R_5$ would contradict
-\eqref{eq:neighbor-strict}.  Hence $P_0\in\mathcal C_{\rm sym}$, and rotation
-gives all six points.  Their convex hull is a regular hexagon of circumradius
-$1-c_*$, whose incircle is exactly \eqref{eq:forced-disk}.
+Since $V_j\in U_j$ and two points of an open unit triangle are at distance
+strictly below $1$, these inequalities exclude $D_i$ from the other three
+vertex roles.  Thus no vertex role contains $D_i$.  The point lies in
+$\interior(H)$ by \eqref{eq:cstar-bounds}, so the assumed cover forces
+$D_i\in U_C$.
+
+The six points $D_i$ form a regular hexagon of circumradius $1-c_*$.  Their
+convex hull contains its centered incircle of radius $h(1-c_*)$, and convexity
+of $U_C$ gives \eqref{eq:forced-disk}.
 \end{proof}
 
 We next define the three asymmetric witnesses.  At $V_4$ use local
@@ -391,6 +326,12 @@ Put
 \[
  E_-=(1-b,2-b),\qquad E_+=(2-a,1-a).
 \]
+The actual adjacent handoffs have local centers
+\[
+ C_5(t)=(1+t,t),\qquad 1-a\le t\le b,
+ \quad\text{and}\quad
+ C_3(y)=(y,1+y),\qquad 1-b\le y\le a.
+\]
 The restrictions of the two unit-circle equations are
 \begin{align}
  g_-(\lambda)&=\frac34\lambda^2
@@ -406,7 +347,7 @@ Let $\lambda_-$ and $\mu_+$ be their first roots; explicitly,
  -\frac23\sqrt{9(\delta+a\gamma)^2-9a^2+9a-6}.
 \end{align*}
 
-\begin{lemma}[Fixed-line sign lemma]
+\begin{lemma}[Moving adjacent-role signs]
 \label{lem:fixed-line-signs}
 Throughout \eqref{eq:ab-strict-domain},
 \begin{equation}
@@ -417,9 +358,16 @@ Moreover $J_u,J_v<1/2$.  The point $L_+(\mu_+)$ satisfies
 \[
  (L_+(\mu_+))_u+(L_+(\mu_+))_v<3-2a,
 \]
-and the reflected bound holds for $L_-(\lambda_-)$.  Each first-root point
-lies outside the opposite comparison circle, while $J$ lies strictly outside
-both comparison circles.
+and the reflected bound holds for $L_-(\lambda_-)$.  Writing
+$F(P,t)=\mathsf q(P-C_5(t))-1$, one has, for every $t\in[1-a,b]$,
+\begin{equation}
+ F(L_+(\mu_+),t)\ge0,\qquad F(J,t)>0,\qquad
+ F(L_-(\lambda_-),t)>0.                           \label{eq:moving-right-signs}
+\end{equation}
+Under the reflection
+$(u,v,a,b)\leftrightarrow(v,u,b,a)$, the analogous signs hold for every
+$y\in[1-b,a]$: the first-root point $L_-(\lambda_-)$ has nonnegative sign
+against $C_3(y)$, and the other two witnesses have strictly positive sign.
 \end{lemma}
 
 \begin{proof}
@@ -444,9 +392,20 @@ where
 \]
 indeed $z^2+Uz+1-3U\ge1-3U-U^2/4>0$, and
 $5z^2+9Uz+15U^2$ is positive definite.  Thus $F(J,t_0)>0$.
+Also
+\[
+ J_u+J_v=\frac{(1+U)(3-D)}{3+D}<1.
+\]
+Indeed this inequality is $3U<D(2+U)$, which follows from
+$D^2\ge3U(2+U)$ and $(2+U)^3>3U$.  Since
+\[
+ \frac{\partial F}{\partial t}(P,t)=1+2t-P_u-P_v,
+\]
+$F(J,t)$ is strictly increasing for $t\ge0$, and therefore is positive
+throughout $[1-a,b]$.
 
 On the opposite line $L_-$, the derivative at the junction, after
-multiplication by a positive factor, has numerator
+multiplication by a positive factor, has at $t=1-a$ the numerator
 \[
  N_0=D(9+3z^2+6Uz-9U^2)+P_0,
 \]
@@ -458,9 +417,26 @@ where
 \end{aligned}
 \]
 The coefficient of $D$ is at least $9-6U-9U^2>0$, while
-$P_0\ge9+54U-18U>0$.  Hence $N_0>0$.  Since the restriction of $F$ to
-$L_-$ is a convex quadratic, it is positive from the junction to the line
-endpoint and has no intersection there.
+$P_0\ge9+54U-18U>0$.  Hence $N_0>0$.  At the other endpoint $t=b$, the
+corresponding numerator is
+\[
+ N_1=D(9+3z^2+6U-3U^2)+P_1,
+\]
+where
+\[
+\begin{aligned}
+ P_1={}&9U^4-3U^3z+45U^3+9U^2z^2-6U^2z+72U^2\\
+      &-Uz^3+21Uz^2+9Uz+45U+2z^4+9z^2+9.
+\end{aligned}
+\]
+Its $D$-coefficient is positive and, using $|z|<1$,
+\[
+ P_1\ge9+45U-9U-U-6U^2-3U^3>0.
+\]
+The junction derivative is affine in $t$, so it is positive throughout
+$[1-a,b]$.  Since the restriction of $F$ to $L_-$ is a convex quadratic,
+is positive at the junction, and is increasing there, it has no intersection
+on the opposite line side for any actual adjacent handoff.
 
 On the correct line $L_+$, the value at its outer endpoint $h^{-1}$ has,
 after multiplication by a positive factor, numerator
@@ -516,16 +492,15 @@ $-32U^2-80U-8<0$.  Hence its minimum on $z^2<\Omega$ is at
 $z=\sqrt\Omega$, where
 $B(U,\sqrt\Omega)=6(1-3U-\sqrt\Omega)>0$ because
 $(1-3U)^2-\Omega=12U^2$.  Thus $E_u+E_v<3-2a$.
-Also
+Also $J_u+J_v<1<3-2a$, and the coordinate sum is affine on the
+line segment, so the same strict bound holds at the first root.  Now
 \[
- J_u+J_v=\frac{(1+U)(3-D)}{3+D}<1.
+ \frac{\partial F}{\partial t}(P,t)=1+2t-P_u-P_v.
 \]
-Indeed this inequality is $3U<D(2+U)$, which follows from
-$D^2\ge3U(2+U)$ and $(2+U)^3>3U$.  Hence
-$J_u+J_v<1<3-2a$, and the coordinate sum is affine on the
-line segment, so the same strict bound holds at the first root.  Reflection
-gives the bound on $L_-$.  The convexity and signs above also give all
-same- and opposite-circle assertions.
+Since $F(L_+(\mu_+),1-a)=0$, the coordinate-sum bound makes its $t$-derivative
+strictly positive for $t\ge1-a$.  Together with the no-opposite-line result,
+this proves \eqref{eq:moving-right-signs}.  Reflection gives both the bound on
+$L_-$ and the complete $C_3(y)$ statement.
 \end{proof}
 
 Define the local and global witnesses by
@@ -536,52 +511,74 @@ Define the local and global witnesses by
 \end{equation}
 and by the displayed conversion from $(u,v)$ to the plane.
 
-\begin{lemma}[Asymmetric witness membership]
+\begin{lemma}[Direct asymmetric forcing]
 \label{lem:asymmetric-core-witness}
-The three points $Q_-,Q_0,Q_+$ lie in
-$\mathcal C_{\rm asym}(a,b)$.
+Assume that $U_C,U_0,\ldots,U_5$ cover $H$.  Then
+\[
+ Q_-,Q_0,Q_+
+ \in\interior(H)\setminus\bigcup_{i=0}^5U_i,
+\]
+and consequently all three witnesses belong to $U_C$.
 \end{lemma}
 
 \begin{proof}
 The root order and positivity of the line coordinates give
-$0<u,v<1$ for all three points.  Each lies on the frontier of a unit
-triangle containing $V_4$, so $\mathsf q(u,v)\le1$; hence
+$0<u,v<1$ for all three points.  Each belongs to $\mathcal R(b,a)$ and hence
+lies in a closed unit triangle containing $V_4$, so
+$\mathsf q(u,v)\le1$; hence
 $|u-v|<1$ and all three points lie in $\interior(H)$.
 
-In these coordinates the mandatory points of the five comparison unions are
+The closure of $U_4$ is one of the triangles represented by
+$\mathcal R(b,a)$, since it contains $V_4,X_3,X_4$.  All three witnesses lie
+on its exact non-axis frontier.  If one belonged to the open triangle $U_4$,
+a sufficiently small plane ball about it would lie both in $U_4$ and in the
+interior of the corner cone, making the witness an interior point of
+$\mathcal R(b,a)$.  This contradiction excludes $U_4$.
+
+For the roles $U_0,U_1,U_2$, their contained vertices have local coordinates
 \[
- \begin{array}{c|ccccc}
- i&0&1&2&3&5\\ \hline
- & (2,1)&(2,2)&(1,2)&E_-&E_+.
+ \begin{array}{c|ccc}
+ i&0&1&2\\ \hline
+ V_i&(2,1)&(2,2)&(1,2).
  \end{array}
 \]
-Every $R_i(p,q)$ is contained in the unit disk about its mandatory point.
 For $P=(u,v)$,
 \[
  \lVert P-(2,1)\rVert^2-1=\mathsf q(u,v)+2-3u,
  \quad
  \lVert P-(1,2)\rVert^2-1=\mathsf q(u,v)+2-3v.
 \]
-The inequalities $J_u,J_v<1/2$ and the line order exclude the appropriate
-two witnesses directly.  For the remaining pair, the first-root circle and
-the sum bound in Lemma~\ref{lem:fixed-line-signs} give
+The inequalities $J_u,J_v<1/2$ and the line order give distance greater than
+one from $V_0$ for $Q_-,Q_0$ and from $V_2$ for $Q_0,Q_+$.  For the remaining
+pair, the first-root circle and the sum bound in
+Lemma~\ref{lem:fixed-line-signs} give
 \[
- \lVert Q_+-(2,1)\rVert^2-1
+ \lVert Q_+-V_0\rVert^2-1
  =a(3-a-(Q_+)_u-(Q_+)_v)>a^2,
 \]
-and the reflected inequality for $Q_-$.  All three points are farther than
-one from $(2,2)$, because writing $u=1-\xi$, $v=1-\eta$ gives
+and, by reflection, $\lVert Q_--V_2\rVert^2-1>b^2$.  All three points are
+farther than one from $V_1=(2,2)$, because writing $u=1-\xi$, $v=1-\eta$
+gives
 \[
- \lVert P-(2,2)\rVert^2
+ \lVert P-V_1\rVert^2
  =1+\xi+\eta+\xi^2+\eta^2-\xi\eta>1.
 \]
-The circle signs in Lemma~\ref{lem:fixed-line-signs} exclude the interiors of
-$R_3$ and $R_5$.  Finally all three points lie on the exact line frontier of
-$R_4(a,b)$, and hence not in its interior.  This proves the claim.
+Since two points in one open unit equilateral triangle have distance strictly
+less than one, these inequalities exclude $U_0,U_1,U_2$.
+
+The actual handoff $X_5=C_5(x_5)$ belongs to $U_5$, and
+$1-a<x_5<b$ by \eqref{eq:extreme-chain}.  The three signs in
+\eqref{eq:moving-right-signs} therefore put every witness at distance at
+least one from $X_5$, excluding $U_5$.  Similarly, if $y=1-x_2$, then
+$1-b<y<a$, $X_2=C_3(y)\in U_3$, and the reflected signs exclude $U_3$.
+Thus no vertex role contains any witness.  The assumed cover now forces all
+three interior witnesses into $U_C$.
 \end{proof}
 
-By \eqref{eq:core-chain}, Lemmas~\ref{lem:symmetric-core-witness} and
-\ref{lem:asymmetric-core-witness} force the compact set
+The nine directly forced points are
+$D_0,\ldots,D_5,Q_-,Q_0,Q_+$.  Under a putative cover,
+Lemmas~\ref{lem:symmetric-core-witness} and
+\ref{lem:asymmetric-core-witness} therefore force the compact set
 \begin{equation}
  K_{\rm wit}(a,b)=
  \mathcal D_\eta\cup\{Q_-,Q_0,Q_+\}
@@ -787,39 +784,27 @@ increasing and already equals $(7h-5)/4>0$ at $s=h$.  The preceding sheet gives
 $d\ge2s-1$.  Therefore \eqref{eq:adjacent-overlaps} holds on both
 sheets, and reflection supplies the other line.
 
-It remains to check the two mixed overlaps.  Put
+It remains to check the two mixed overlaps.  On the two radial cells use the
+rational upper envelopes
 \[
- \Delta=\operatorname{cross}(C,RA),\qquad
- u=\langle C,RA\rangle,\qquad
- Z_X=\tau\lVert X\rVert^2-\eta u,
+ \bar c_L=s-\frac{\chi}{4s^3-2s+m},\qquad
+ \bar c_T=s-\frac{\chi}{1-m}
 \]
-\begin{equation}
- P_X=(\lVert X\rVert^2-\eta^2)\Delta^2-Z_X^2,
- \qquad X\in\{A,C\}.                            \label{eq:mixed-P}
-\end{equation}
-To compare these quantities with the certificate, represent global vectors
-as $(x,hy)$, put $C'=R^{-1}C$, and use the notation
-$\Delta_0,r_X^0,\ell_X^0,P_X^0$ of
-\eqref{eq:mixed-certificate-quantities}.  Rotation invariance and
-$\eta=h(1-c_*)$, $\tau=h(2c_*-1)$ give the exact scaling
-\begin{equation}
- \Delta=-h\Delta_0,\qquad
- Z_X=-h\ell_X^0,\qquad
- P_X=h^2P_X^0,                                  \label{eq:mixed-scaling}
-\end{equation}
-and $r_X^0=\lVert X\rVert^2-\eta^2$.
-The outward-rounded certificate in
-Theorem~\ref{thm:cert-mixed-overlap} proves, on the complete strict domain,
-that the two radicands are nonnegative, $\Delta_0\le0$, and
-$P_A,P_C\ge0$; the ray-order calculation above makes $\Delta>0$.
-Consequently
+from Lemma~\ref{lem:global-branchwise-cbar}.  They satisfy
+$c_*\le\bar c<1$, so
+$\bar\eta=h(1-\bar c)$ obeys $0<\bar\eta\le\eta$.  The exact reduction in
+Appendix~\ref{sec:exact-mixed-overlap} factors the two mixed Gram residuals
+for the smaller caps into positive factors and eight integer-polynomial
+signs.  Three fixed analytic charts and twenty global Bernstein identities
+prove all eight signs without interval arithmetic or domain subdivision.
+They are precisely the common-support inequalities for
 \[
- \sqrt{\lVert X\rVert^2-\eta^2}\,\Delta\ge Z_X,
- \qquad X=A,C.
+ \mathbb D(C,2\bar\eta),\ \mathbb D(W,\bar\eta)
+ \quad\text{and}\quad
+ \mathbb D(W,\bar\eta),\ \mathbb D(RA,2\bar\eta).
 \]
-For $X=A$ this is exactly the common-support inequality for the caps of
-$\mathbb D(C,2\eta)$ and $\mathbb D(W,\eta)$; for $X=C$ it is the analogous
-inequality for $\mathbb D(W,\eta)$ and $\mathbb D(RA,2\eta)$.
+Hence both pairs of smaller caps overlap.  Enlarging their radii from
+$\bar\eta$ to $\eta$ proves the required two mixed overlaps.
 
 Thus the four consecutive pairs of caps centered on the rays (6.1) overlap.
 Every cap is a single arc of half-width less than $\pi/2$, and the positive
@@ -831,7 +816,7 @@ $h_S\ge h$, so $\Lambda(\widehat K)\ge1$.  Equation
 
 \subsection{The center-independent obstruction}
 
-\begin{theorem}[Center-independent zero-gap obstruction]
+\begin{theorem}[Center-independent direct nine-point obstruction]
 \label{thm:zero-gap-obstruction}
 There is no cover of $H$ by open unit equilateral triangles
 $U_C,U_0,\ldots,U_5$ such that
@@ -840,14 +825,14 @@ $U_C,U_0,\ldots,U_5$ such that
 \item $U_0,\ldots,U_5$ cover $\partial H$; and
 \item exactly one actual maximal boundary row is supercritical.
 \end{enumerate}
-No center class is assumed for the associated closed center role $T_C$.
+No center class is assumed for $U_C$.
 \end{theorem}
 
 \begin{proof}
-The extreme-jump construction gives a parameter pair in
-\eqref{eq:ab-strict-domain}, and \eqref{eq:core-chain} together with the two
-witness lemmas gives the compact containment
-$K_{\rm wit}(a,b)\subset U_C$.  Theorem~\ref{thm:witness-enclosure} says
+Lemma~\ref{lem:ab-extreme-jump} gives a parameter pair in
+\eqref{eq:ab-strict-domain}.  Direct radial forcing and direct asymmetric
+forcing give the compact containment $K_{\rm wit}(a,b)\subset U_C$.
+Theorem~\ref{thm:witness-enclosure} says
 $\Lambda(K_{\rm wit})\ge1$.
 
 On the other hand, a compact subset of an open unit equilateral triangle has
@@ -860,16 +845,17 @@ contradiction.
 
 \begin{remark}[Why exact-one is essential]
 \label{rem:exact-one-essential}
-For a distinguished selected ascent $x_3<x_4$, the five antitone comparisons
-used in \eqref{eq:core-chain} hold exactly when $x_3$ is a global minimum and
-$x_4$ a global maximum.  The exact-one chain
-\eqref{eq:extreme-chain} guarantees this.  With two or more ascents there
-need not be any minimum-to-maximum ascent, so replacing all other rows by
-$R_i(1-x_4,x_3)$ is not justified.  The $N_+\ge2$ branch is therefore handled
-by Strategy~3 or Strategy~1, not by this comparison.
+The exact-one handoff theorem identifies the unique selected supercritical
+row and makes every other selected row a strict descent.  Thus
+\eqref{eq:extreme-chain} simultaneously provides the global minimum and
+maximum used in the common radial demands, puts the two actual adjacent
+handoffs in the intervals of Lemma~\ref{lem:fixed-line-signs}, and leaves only
+one strict $AB$-frontier to analyze.  With two or more ascents this single
+chain need not exist.  The $N_+\ge2$ branch is therefore handled by
+Strategy~3 or Strategy~1.
 \end{remark}
 
-\begin{proposition}[Branches closed by the residual core]
+\begin{proposition}[Branches closed by direct nine-point forcing]
 \label{prop:ab-core-branches}
 Theorem~\ref{thm:zero-gap-obstruction} closes precisely the following
 rows of the final routing table:
