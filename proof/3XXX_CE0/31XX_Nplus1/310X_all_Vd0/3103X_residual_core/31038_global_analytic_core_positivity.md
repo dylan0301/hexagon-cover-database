@@ -12,16 +12,17 @@ $$
 \qquad D^2=z^2+6U+3U^2,
 $$
 
-with positive denominators. The present note proves the eight polynomial
+with positive denominators.  The present note proves the eight polynomial
 signs by three fixed analytic charts and global positive-basis expansions.
 There is no interval arithmetic, adaptive subdivision, pruning, or
 branch-and-bound.
 
-The exact verifier and its exported polynomial data are:
+The exact verifier and its canonical compressed polynomial data are:
 
 - [`3103X_computation/verify_global_core_positivity.py`](3103X_computation/verify_global_core_positivity.py);
-- [`3103X_computation/mixed_overlap_core_polynomials.json`](3103X_computation/mixed_overlap_core_polynomials.json);
-- [`3103X_computation/export_mixed_overlap_core_polynomials.py`](3103X_computation/export_mixed_overlap_core_polynomials.py).
+- [`3103X_computation/mixed_overlap_core_polynomials.py`](3103X_computation/mixed_overlap_core_polynomials.py), together with its six numbered data chunks.
+
+The verifier authenticates the decoded polynomial transcript before using it.
 
 ## Claim
 
@@ -42,7 +43,7 @@ $$
 
 On the reflected domain $z\ge0$, all eight polynomials are nonnegative.
 The proof below uses no branch-and-bound, no adaptive subdivision, and no
-interval arithmetic. It consists of three fixed analytic charts and one
+interval arithmetic.  It consists of three fixed analytic charts and one
 global tensor-product Bernstein expansion for each transformed target.
 
 ## 1. Exact domain
@@ -82,7 +83,7 @@ H(U)=(U-1)^2(4U^2-8U+1)
 $$
 
 shows that $H\ge0$ on $[0,U_H]$ and $H\le0$ on
-$[U_H,U_{\max}]$. Also
+$[U_H,U_{\max}]$.  Also
 
 $$
 G(U)-H(U)=4U\bigl(1-6U+4U^2-U^3\bigr)\ge0
@@ -119,11 +120,11 @@ P(r,s)=
 \binom nj s^j(1-s)^{n-j}.
 $$
 
-Every basis function is nonnegative on the square. Therefore
+Every basis function is nonnegative on the square.  Therefore
 $b_{ij}\ge0$ for all $i,j$ implies $P\ge0$ on the whole square.
 This is one global algebraic identity, not a subdivision argument.
 
-All coefficients below lie in $\mathbb Q(\sqrt3)$. Their signs are checked
+All coefficients below lie in $\mathbb Q(\sqrt3)$.  Their signs are checked
 exactly: for $a,b\in\mathbb Q$, the sign of $a+b\sqrt3$ is determined by
 rational sign tests and, when necessary, comparison of $a^2$ with $3b^2$.
 
@@ -172,8 +173,8 @@ F\!\left(\frac{(x-1)(3-x)}{4x},
  y\frac{9-x^4}{8x^2}\right)
 $$
 
-is an integer polynomial and has the same sign as $F$. Set
-$x=1+(\sqrt3-1)r$. The single global Bernstein expansions on
+is an integer polynomial and has the same sign as $F$.  Set
+$x=1+(\sqrt3-1)r$.  The single global Bernstein expansions on
 $(r,y)\in[0,1]^2$ have the following exact sign data.
 
 | polynomial | bidegree | Bernstein coefficients | zeros |
@@ -183,8 +184,8 @@ $(r,y)\in[0,1]^2$ have the following exact sign data.
 | $A_{T,C}$ | $(88,22)$ | 2047 | 2 |
 | $B_{T,C}$ | $(80,20)$ | 1701 | 0 |
 
-Every nonzero coefficient is strictly positive. Hence all four $T$-cell
-polynomials are nonnegative. The two zero coefficients in each $A$ row are
+Every nonzero coefficient is strictly positive.  Hence all four $T$-cell
+polynomials are nonnegative.  The two zero coefficients in each $A$ row are
 boundary coefficients and cause no difficulty.
 
 ## 4. The $L$ cell
@@ -249,7 +250,7 @@ This maps the square exactly onto
 $U_H\le U\le U_{\max}$, $0\le w\le G(U)$.
 
 On each square, convert $E_F$ and $R_F$ once to tensor Bernstein form.
-Every coefficient is strictly positive. The exact degrees and counts are:
+Every coefficient is strictly positive.  The exact degrees and counts are:
 
 | $F$ | $L_0:E_F$ | $L_0:R_F$ | $L_1:E_F$ | $L_1:R_F$ |
 |---|---:|---:|---:|---:|
@@ -258,8 +259,8 @@ Every coefficient is strictly positive. The exact degrees and counts are:
 | $A_{L,C}$ | $(46,11);564$ | $(92,22);2139$ | $(26,11);324$ | $(52,22);1219$ |
 | $B_{L,C}$ | $(42,10);473$ | $(84,20);1785$ | $(24,10);275$ | $(48,20);1029$ |
 
-Each entry records “bidegree; number of coefficients.” There are no zero or
-negative coefficients in any of these sixteen expansions. Thus
+Each entry records “bidegree; number of coefficients.”  There are no zero or
+negative coefficients in any of these sixteen expansions.  Thus
 $E_F,R_F\ge0$, and the even/odd lemma proves all four $L$-cell polynomial
 signs.
 
@@ -280,7 +281,7 @@ A_{B,X}+DB_{B,X}\ge0.
 $$
 
 The positive denominator and common-factor calculation from the exact
-elimination therefore gives both mixed residual inequalities. Reflection
+elimination therefore gives both mixed residual inequalities.  Reflection
 supplies $z\le0$.
 
 The certificate is nonbranching in the literal sense: it uses three fixed
@@ -295,16 +296,11 @@ From the repository root run
 python3 proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/3103X_computation/verify_global_core_positivity.py
 ```
 
-The verifier reads `mixed_overlap_core_polynomials.json` from the same
-directory. To regenerate that file from the exact elimination routine, run
-
-```text
-python3 proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/3103X_computation/export_mixed_overlap_core_polynomials.py
-```
-
-and compare the output byte-for-byte with the committed JSON file. The program
-uses only exact integers, rational numbers, and $\mathbb Q(\sqrt3)$ sign
-comparisons. Its deterministic result is `PASS`, with
+The verifier loads the canonical compressed polynomial transcript from the
+numbered data modules in the same directory and checks its SHA-256 digest
+before performing any positivity calculation.  The program uses only exact
+integers, rational numbers, and $\mathbb Q(\sqrt3)$ sign comparisons.  Its
+deterministic result is `PASS`, with
 
 ```text
 adaptive_subdivision: false
