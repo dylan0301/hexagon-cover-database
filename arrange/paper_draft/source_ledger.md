@@ -82,7 +82,7 @@ retained.
 | proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2007_max_b_map.md | Proven | outgoing-fiber interval and universal diameter bound used by the one-gap proofs; the unused full contact catalogue is deliberately not reproduced |
 | proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2010_free_supercritical_max_b.md | Proven | lem:free-supercritical-envelope |
 | proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md | Proven | prop:capped-demand-map |
-| proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2012_high_radial_low_root_bounds.md | Proven | low-root estimates used by lem:407-four-label-loss |
+| proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2012_high_radial_low_root_bounds.md | Proven | eq:low-root-bounds; eq:high-demand-threshold; prop:ce1-one-gap; prop:ce2-one-gap; lem:407-four-label-loss |
 | proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2105_CE1_exact_formulas.md; 2106_CE2_exact_formulas.md | Proven | prop:center-exact-formulas |
 | proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2107_one_side_capped_loss.md | Proven | lem:one-side-capped-loss |
 | proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2108_CE2_two_endpoint_capped_loss.md | Proven | lem:two-endpoint-capped-loss |
