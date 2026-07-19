@@ -276,13 +276,22 @@ nonnegative on the corresponding radial cells.
 
 \subsection{Reproduction and completion}
 
-The exact verifier is
+The exact package-local checks are
 \begin{verbatim}
 proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/
-3103X_residual_core/3103X_computation/
+3105X_self_contained_direct_Vd0_nine_point/
+3105X_computation/
+verify_mixed_overlap_core_derivation.py
+
+proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/
+3105X_self_contained_direct_Vd0_nine_point/
+3105X_computation/
 verify_global_core_positivity.py
 \end{verbatim}
-It authenticates the canonical core-polynomial data with SHA-256 digest
+The first derives the eight core polynomials exactly from the witness formulas
+and checks equality with the stored transcript.  The second proves their signs
+by the twenty global Bernstein identities.  Both authenticate the canonical
+core-polynomial data with SHA-256 digest
 \begin{verbatim}
 dc46aaf263655d5159ecd3a81db72ee82477951d06172f4743b248df37209485
 \end{verbatim}

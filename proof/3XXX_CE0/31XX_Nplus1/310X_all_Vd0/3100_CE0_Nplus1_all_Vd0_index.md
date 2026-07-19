@@ -22,9 +22,21 @@ package only; proof status is inherited from the numbered source notes below.
 | [`3104X_direct_Vd0_nine_point/31042_direct_asymmetric_witness_forcing.md`](3104X_direct_Vd0_nine_point/31042_direct_asymmetric_witness_forcing.md) | Proven | Three asymmetric witnesses forced directly; only the unique supercritical row uses the strict $AB$-frontier. |
 | [`3104X_direct_Vd0_nine_point/31043_center_independent_direct_nine_point_obstruction.md`](3104X_direct_Vd0_nine_point/31043_center_independent_direct_nine_point_obstruction.md) | Proven | Center-class-independent full-boundary obstruction from the six radial and three asymmetric witnesses. |
 | [`3104X_direct_Vd0_nine_point/31044_CE0_Nplus1_all_Vd0_direct_completion.md`](3104X_direct_Vd0_nine_point/31044_CE0_Nplus1_all_Vd0_direct_completion.md) | Proven | CE0, $N_+=1$, all-Vd0 completion by the direct center-independent theorem. |
+| [`3105X_self_contained_direct_Vd0_nine_point/31050_self_contained_direct_Vd0_nine_point_index.md`](3105X_self_contained_direct_Vd0_nine_point/31050_self_contained_direct_Vd0_nine_point_index.md) | Reference | Canonical self-contained direct nine-point package and sole predecessor-provenance map. |
+| [`3105X_self_contained_direct_Vd0_nine_point/31051_direct_radial_forcing.md`](3105X_self_contained_direct_Vd0_nine_point/31051_direct_radial_forcing.md) | Proven | Direct forcing of the six common radial witnesses. |
+| [`3105X_self_contained_direct_Vd0_nine_point/31052_fixed_line_circle_signs.md`](3105X_self_contained_direct_Vd0_nine_point/31052_fixed_line_circle_signs.md) | Proven | Complete fixed-line, moving-circle, first-root, coordinate, and reflection signs. |
+| [`3105X_self_contained_direct_Vd0_nine_point/31053_direct_asymmetric_witness_forcing.md`](3105X_self_contained_direct_Vd0_nine_point/31053_direct_asymmetric_witness_forcing.md) | Proven | Exact three-witness construction and direct exclusion from all actual vertex roles. |
+| [`3105X_self_contained_direct_Vd0_nine_point/31054_four_cap_enclosure_reduction.md`](3105X_self_contained_direct_Vd0_nine_point/31054_four_cap_enclosure_reduction.md) | Proven | Newton inner witnesses, cap-chain reduction, ray order, and analytic adjacent overlaps. |
+| [`3105X_self_contained_direct_Vd0_nine_point/31055_rational_radial_envelopes_and_mixed_reduction.md`](3105X_self_contained_direct_Vd0_nine_point/31055_rational_radial_envelopes_and_mixed_reduction.md) | Proven | Rational radial envelopes and exact reduction of the mixed overlaps to eight integer polynomials. |
+| [`3105X_self_contained_direct_Vd0_nine_point/31056_global_analytic_mixed_positivity.md`](3105X_self_contained_direct_Vd0_nine_point/31056_global_analytic_mixed_positivity.md) | Proven | Three fixed charts and twenty global Bernstein identities proving all eight signs. |
+| [`3105X_self_contained_direct_Vd0_nine_point/31057_terminal_nine_point_enclosure.md`](3105X_self_contained_direct_Vd0_nine_point/31057_terminal_nine_point_enclosure.md) | Proven | Exact terminal nine-point enclosure inequality. |
+| [`3105X_self_contained_direct_Vd0_nine_point/31058_center_independent_direct_nine_point_obstruction.md`](3105X_self_contained_direct_Vd0_nine_point/31058_center_independent_direct_nine_point_obstruction.md) | Proven | Canonical center-class-independent all-boundary obstruction. |
+| [`3105X_self_contained_direct_Vd0_nine_point/31059_CE0_Nplus1_all_Vd0_completion.md`](3105X_self_contained_direct_Vd0_nine_point/31059_CE0_Nplus1_all_Vd0_completion.md) | Proven | Canonical CE0, $N_+=1$, all-Vd0 terminal proof. |
 
 The `31036` counterexample is a scope warning for the complementary
 two-parameter comparison. It does not alter the proven $N_+=1$ closure.
-The `3103X` package remains an independent proven residual-core proof; the
-active `3104X` route reaches the same terminal enclosure theorem without
-nonsupercritical $AB$-unions or model-core comparisons.
+The `3103X` package remains an independent proven residual-core proof, and
+`3104X` remains its proven direct successor.  The canonical `3105X` route
+rewrites the direct construction, all fixed-line and enclosure computations,
+and the exact polynomial certificate inside one self-contained package.  It
+uses no nonsupercritical $AB$-union or model-core comparison.

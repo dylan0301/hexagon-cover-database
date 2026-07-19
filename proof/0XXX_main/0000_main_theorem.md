@@ -53,7 +53,7 @@ It remains only to list the exhaustive terminal cases.
 | Actual-row and vertex-type case | Proven contradiction |
 |---|---|
 | $N_+=0$ | Strict perimeter obstruction [`3010`](../3XXX_CE0/30XX_Nplus0/3010_CE0_perimeter_length_obstruction.md) |
-| $N_+=1$, all six roles Vd0 | Direct all-Vd0 nine-point completion [`31044`](../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3104X_direct_Vd0_nine_point/31044_CE0_Nplus1_all_Vd0_direct_completion.md) |
+| $N_+=1$, all six roles Vd0 | Self-contained direct all-Vd0 nine-point completion [`31059`](../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31059_CE0_Nplus1_all_Vd0_completion.md) |
 | $N_+=1$, some role Vd1 or Vd2 | Boundary-length obstruction [`3141`](../3XXX_CE0/31XX_Nplus1/314X_exists_Vd1_Vd2/3141_CE0_Nplus1_exists_Vd1_Vd2_boundary_length_obstruction.md) |
 | $N_+=1$, no Vd1/Vd2 role and some T3-like role | Direct area obstruction [`3171`](../3XXX_CE0/31XX_Nplus1/317X_T3_like_no_Vd1Vd2/3171_T3_like_area_certificate_index.md) |
 | $N_+\ge2$ | Six-row square-loss obstruction [`3201`](../3XXX_CE0/32XX_Nplus_ge2/3201_area_conjecture_index.md) |

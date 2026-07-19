@@ -6,8 +6,9 @@ This note records the concise independent residual-core theorem for the CE0,
 $N_+=1$, all-Vd0 branch. It is a direct corollary of the center-independent
 theorem
 [`31035_center_independent_all_boundary_obstruction.md`](31035_center_independent_all_boundary_obstruction.md).
-The main-theorem assembly continues to use the direct `3104X` completion
-[`31044_CE0_Nplus1_all_Vd0_direct_completion.md`](../3104X_direct_Vd0_nine_point/31044_CE0_Nplus1_all_Vd0_direct_completion.md)
+The main-theorem assembly now uses the self-contained direct `3105X`
+completion
+[`31059_CE0_Nplus1_all_Vd0_completion.md`](../3105X_self_contained_direct_Vd0_nine_point/31059_CE0_Nplus1_all_Vd0_completion.md)
 as its terminal source for this branch.
 
 ## Theorem

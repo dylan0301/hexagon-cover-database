@@ -2,8 +2,10 @@
 
 Status: Reference
 
-This package gives the short active proof of the CE0, $N_+=1$, all-Vd0
-branch.  It works first at the level of actual open vertex roles.  Six common
+This package records the proven predecessor of the canonical self-contained
+[`3105X` proof](../3105X_self_contained_direct_Vd0_nine_point/31050_self_contained_direct_Vd0_nine_point_index.md)
+of the CE0, $N_+=1$, all-Vd0 branch.  It works first at the level of actual
+open vertex roles.  Six common
 radial points are forced directly by the exact radial envelope and the Vd0
 condition, while the three asymmetric points are forced by distances from
 actual handoff points and the frontier of the unique supercritical row.

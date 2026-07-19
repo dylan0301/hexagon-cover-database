@@ -1,0 +1,28 @@
+Specifically:
+
+  - 31041 directly forces the six radial points, mainly using 2004.
+  - 31042 directly forces the three asymmetric points, reusing:
+      - witness formulas and distance calculations from 31033;
+      - moving-circle signs from 31012.
+
+  - 31043 assembles the nine-point contradiction, reusing:
+      - enclosure/cap reduction and adjacent overlaps from 31034;
+      - rational envelopes from 31037;
+      - exact Bernstein positivity and its verifier from 31038.
+
+  - 31044 supplies the CE0 wrapper.
+
+  So the distinction is:
+
+  - Active logical construction and assembly: 3104X.
+  - Shared formula/certificate backend: 31033, 31034, 31037, and 31038.
+  - Not used: the old 31030/31032/31035 residual model-core assembly or its nonsupercritical-union comparisons.
+
+  The exact verifier remains under 3103X_computation/ for historical/package ownership reasons, but its result is an active dependency of the 3104X proof.
+
+Make a new 3105X proof package
+that is self contained and does not cite any other 310X files.
+in the index file, just write the citatiosn from other 310X files, and we make this self contained.
+write the proofs for 3105X.
+and let other files cite the proof from 3105X if necessary
+ask me questions for details for design and implementation

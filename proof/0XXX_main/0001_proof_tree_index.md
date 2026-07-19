@@ -92,11 +92,18 @@ Vd0, Vd1/Vd2, and T3-like vertex-role patterns.
           - `31034`: proved terminal cap reduction and analytic adjacent overlaps
           - `31037`: proved both mixed overlaps by branchwise rational radial envelopes and exact integer Bernstein coefficients, eliminating interval arithmetic
           - `31035`: proved center-independent all-boundary obstruction
-        - `3104X`: proven direct all-Vd0 nine-point closure
+        - `3104X`: proven predecessor direct all-Vd0 nine-point closure
           - `31041`: proved direct forcing of six common radial witnesses
           - `31042`: proved direct forcing of three asymmetric witnesses
           - `31043`: proved center-independent direct nine-point obstruction
           - `31044`: proved CE0, $N_+=1$, all-Vd0 completion
+        - `3105X`: canonical self-contained direct all-Vd0 nine-point closure
+          - `31051`--`31053`: direct radial and asymmetric forcing with all
+            fixed-line signs proved locally
+          - `31054`--`31057`: exact cap reduction, rational mixed-overlap
+            reduction, global Bernstein certificate, and terminal enclosure
+          - `31058`: proved center-independent direct nine-point obstruction
+          - `31059`: proved CE0, $N_+=1$, all-Vd0 completion
     - at least one Vd1/Vd2
       - `314X`: boundary-length obstruction
     - at least one T3-like and no Vd1/Vd2
@@ -122,7 +129,7 @@ Vd0, Vd1/Vd2, and T3-like vertex-role patterns.
   - `41XX`: CE1/CE2, $N_+=1$
     - all Vd0
       - `410X`: all gap states proved; no-gap state closed by the
-        center-independent `31043` direct nine-point obstruction
+        center-independent `31058` direct nine-point obstruction
       - `4104-F`: optional older six-point target, still open but not a
         dependency of the branch closure
       - `9630`: 5 point conjecture counterexample

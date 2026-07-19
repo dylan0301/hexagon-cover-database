@@ -628,22 +628,22 @@ separate reproofs.
 | [`20090_ab_set_index.md`](../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20090_ab_set_index.md) | Reference | Use only for navigation; no index statement is a proof. |
 | [`20095_exact_caliper_certificate.md`](../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20095_exact_caliper_certificate.md) | Proven | Supply the exact finite caliper theorem underlying the strict specialization. |
 | [`20091_ab_union_curve_a_plus_b_gt_1.md`](../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md) | Proven | Prove the four-piece frontier used only for the unique supercritical row. |
-| [`31012_core_graph_two_variable_relaxation.md`](../proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3101X_six_point/31012_core_graph_two_variable_relaxation.md) | Proven | Use only the fixed-line circle signs for the actual moving handoffs $X_2$ and $X_5$. |
-| [`31033_asymmetric_witness_construction.md`](../proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31033_asymmetric_witness_construction.md) | Proven | Supply the exact formulas, interior bounds, and elementary distance inequalities for $Q_-,Q_0,Q_+$. |
-| [`31034_witness_enclosure_inequality.md`](../proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31034_witness_enclosure_inequality.md) | Proven | Supply the terminal cap reduction and analytic adjacent-overlap proof; do not use its superseded outward-rounded mixed-overlap subsection. |
-| [`31037_rational_cmax_upper_envelope.md`](../proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31037_rational_cmax_upper_envelope.md) | Proven | Replace $c_*$ by branchwise rational upper envelopes and reduce the two mixed overlaps to eight integer-polynomial signs. |
-| [`31038_global_analytic_core_positivity.md`](../proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31038_global_analytic_core_positivity.md) | Proven | Prove those signs on three fixed charts by twenty global Bernstein identities, without interval arithmetic or subdivision. |
-| [`31041_direct_radial_forcing.md`](../proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3104X_direct_Vd0_nine_point/31041_direct_radial_forcing.md) | Proven | Force the six common radial witnesses out of every actual vertex role by $c_{\max}$, openness, Vd0 locality, and diameter. |
-| [`31042_direct_asymmetric_witness_forcing.md`](../proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3104X_direct_Vd0_nine_point/31042_direct_asymmetric_witness_forcing.md) | Proven | Force the three asymmetric witnesses out of every actual vertex role using the strict frontier, vertex distances, and $X_2,X_5$. |
-| [`31043_center_independent_direct_nine_point_obstruction.md`](../proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3104X_direct_Vd0_nine_point/31043_center_independent_direct_nine_point_obstruction.md) | Proven | Assemble the center-independent direct nine-point contradiction. |
-| [`31044_CE0_Nplus1_all_Vd0_direct_completion.md`](../proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3104X_direct_Vd0_nine_point/31044_CE0_Nplus1_all_Vd0_direct_completion.md) | Proven | Deduce the CE0 branch by proving that CE0 forces full vertex-role boundary coverage. |
-| [`4101_CE1CE2_Nplus1_all_Vd0_strategy.md`](../proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4101_CE1CE2_Nplus1_all_Vd0_strategy.md) | Proven | Reuse `31043` for the CE1/CE2 zero-gap cases after Strategy 2 handles the positive-gap cases. |
+| [`31051_direct_radial_forcing.md`](../proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31051_direct_radial_forcing.md) | Proven | Force the six common radial witnesses out of every actual vertex role by $c_{\max}$, openness, Vd0 locality, and diameter. |
+| [`31052_fixed_line_circle_signs.md`](../proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31052_fixed_line_circle_signs.md) | Proven | Prove all first-root, moving-circle, coordinate-sum, endpoint, and reflected signs locally. |
+| [`31053_direct_asymmetric_witness_forcing.md`](../proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31053_direct_asymmetric_witness_forcing.md) | Proven | Define $Q_-,Q_0,Q_+$ exactly and exclude them from all six actual vertex roles using the strict frontier, vertex distances, and $X_2,X_5$. |
+| [`31054_four_cap_enclosure_reduction.md`](../proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31054_four_cap_enclosure_reduction.md) | Proven | Supply the Newton inner witnesses, cap-chain reduction, ray order, and analytic adjacent-overlap proof. |
+| [`31055_rational_radial_envelopes_and_mixed_reduction.md`](../proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31055_rational_radial_envelopes_and_mixed_reduction.md) | Proven | Replace $c_*$ by branchwise rational upper envelopes and reduce the two mixed overlaps to eight integer-polynomial signs. |
+| [`31056_global_analytic_mixed_positivity.md`](../proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31056_global_analytic_mixed_positivity.md) | Proven | Prove those signs on three fixed charts by twenty global Bernstein identities, without interval arithmetic or subdivision. |
+| [`31057_terminal_nine_point_enclosure.md`](../proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31057_terminal_nine_point_enclosure.md) | Proven | Assemble the exact terminal inequality $\Lambda(K_{\mathrm{wit}})\ge1$. |
+| [`31058_center_independent_direct_nine_point_obstruction.md`](../proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31058_center_independent_direct_nine_point_obstruction.md) | Proven | Assemble the center-independent direct nine-point contradiction. |
+| [`31059_CE0_Nplus1_all_Vd0_completion.md`](../proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31059_CE0_Nplus1_all_Vd0_completion.md) | Proven | Deduce the CE0 branch by proving that CE0 forces full vertex-role boundary coverage. |
+| [`4101_CE1CE2_Nplus1_all_Vd0_strategy.md`](../proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4101_CE1CE2_Nplus1_all_Vd0_strategy.md) | Proven | Reuse `31058` for the CE1/CE2 zero-gap cases after Strategy 2 handles the positive-gap cases. |
 
 The direct proof uses no $AB$-union for a nonsupercritical row, no symmetric
 or asymmetric model residual core, no antitone comparison of six model
 unions, no neighboring-ray theorem `2008`, and no optional six-point
-inequality. Do not import those ingredients from the older independent
-`3103X` proof.
+inequality.  All direct and computational ingredients must come from the
+self-contained `3105X` package; older packages are provenance only.
 
 The section must explain the logical chain
 
@@ -667,8 +667,8 @@ locality, and from the three remaining roles by diameter. Their convex hull
 forces the centered disk used in the enclosure theorem. For the asymmetric
 witnesses, explicitly exclude row $4$ by the unique strict-row frontier,
 rows $0,1,2$ by vertex distances, and rows $3,5$ by the actual handoffs
-$X_2,X_5$. Then invoke `31034`, `31037`, and `31038` for the exact terminal
-enclosure inequality. Keep the filename `06_strategy4_ab_core.tex` only for
+$X_2,X_5$. Then invoke `31054`--`31057` for the exact terminal enclosure
+inequality. Keep the filename `06_strategy4_ab_core.tex` only for
 assembly compatibility; reader-facing prose must call this the direct
 nine-point obstruction.
 
@@ -764,17 +764,17 @@ At minimum, document:
 
 1. the finite all-parameter caliper certificate in `20095`;
 2. the branchwise rational $c_{\max}$ envelopes and exact mixed-overlap
-   reduction in `31037`;
+   reduction in `31055`;
 3. the three fixed charts and twenty global tensor-product Bernstein
-   identities in `31038`;
+   identities in `31056`;
 4. every other machine-assisted certificate that remains a logical dependency
    after analytic simplification.
 
 Optional historical cross-checks superseded by analytic proofs belong in the
 source ledger and proof package, not in the manuscript certificate appendix.
-In particular, the outward-rounded adaptive subdivision in Section 7 of
-`31034` and the adaptive verifier retained by `31037` are redundant legacy
-audits, not dependencies of the active paper.
+In particular, the older outward-rounded adaptive subdivision and adaptive
+mixed-overlap verifier are redundant legacy audits, not dependencies of the
+active paper.
 
 For each certificate, state:
 
@@ -798,10 +798,16 @@ expansions. Record the canonical polynomial digest and the deterministic
 `branch_and_bound: false`. The reproduction command is
 
 ```text
-python3 proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/3103X_computation/verify_global_core_positivity.py
+python3 proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/verify_mixed_overlap_core_derivation.py
+python3 proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/verify_global_core_positivity.py
 ```
 
-and the required canonical digest is
+The first command derives the canonical polynomial transcript exactly from
+the witness formulas using SymPy and checks byte-for-byte equality.  The
+second uses only the Python standard library to verify the twenty global
+Bernstein identities.
+
+The required canonical digest is
 
 ```text
 dc46aaf263655d5159ecd3a81db72ee82477951d06172f4743b248df37209485
@@ -870,10 +876,11 @@ Do not use the following as proof dependencies:
   route `3173`;
 - the superseded structural route `3204`;
 - the algorithm-2 five-point packages and their empirical transition strips;
-- the six-point strategy package, except for the specific proved facts in
-  `31012` used by Strategy 4;
+- the six-point strategy package;
 - the older model residual-core assembly `31030`, `31032`, and `31035`, which
   remains an independent proved route but is not the paper's active route;
+- the predecessor direct assembly `31041`--`31044`, which remains proved but
+  is superseded as the active source by the self-contained `3105X` package;
 - the outward-rounded mixed-overlap subsection of `31034`, its adaptive
   interval verifier, and the redundant adaptive verifier retained by `31037`;
 - the proposed analytic finite-nine-point replacement `31045`, whose status
@@ -885,12 +892,12 @@ Do not use the following as proof dependencies:
 - the old `33XX` chain, which is not a dependency of the current main
   assembly.
 
-The direct route may still reuse the proved formulas in `31033`, the cap
-reduction and adjacent overlaps in `31034`, and the exact `31037`/`31038`
-mixed-overlap completion. The neighbor-ray theorem `2008` remains a valid
-Strategy 1 dependency, but it is not a Strategy 4 dependency. Strategy 2 may
-use the outgoing-fiber and diameter consequences of `2007` without importing
-its unused full contact catalogue.
+The predecessor formulas and certificates are cited only in the `31050`
+provenance index; the active direct route uses their complete local rewrites
+in `31051`--`31057`. The neighbor-ray theorem `2008` remains a valid Strategy
+1 dependency, but it is not a Strategy 4 dependency. Strategy 2 may use the
+outgoing-fiber and diameter consequences of `2007` without importing its
+unused full contact catalogue.
 
 Do not assert global noncoverage of the full skeleton. The numerical
 counterexample recorded in
@@ -911,9 +918,9 @@ The LLM must complete every item before presenting the manuscript.
       manuscript results.
 - [ ] No empirical, failed, strategy, experiment, or optional route appears as
       a proof dependency.
-- [ ] Strategy 4 is sourced through `31041`--`31044`, with the reused proved
-      ingredients `31012`, `31033`, `31034`, `31037`, and `31038` recorded
-      individually.
+- [ ] Strategy 4 is sourced entirely through the self-contained proven
+      package `31051`--`31059`; earlier `310X` ingredients appear only in the
+      `31050` provenance index.
 - [ ] Every Markdown provenance link in this guide and `source_ledger.md`
       resolves to an existing file.
 

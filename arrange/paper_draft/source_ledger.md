@@ -127,23 +127,23 @@ its historical conjecture is not used.
 | Authoritative source path(s) | Recorded status | Manuscript label(s) |
 |---|---|---|
 | proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md | Proven | thm:strict-ab-union; the only $AB$-union used is the unique supercritical-row frontier |
-| proof/1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md; proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3104X_direct_Vd0_nine_point/31043_center_independent_direct_nine_point_obstruction.md | Proven | lem:ab-extreme-jump; exact-one handoff chain and common demands |
-| proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md; proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3104X_direct_Vd0_nine_point/31041_direct_radial_forcing.md | Proven | lem:symmetric-core-witness; direct forcing of all six radial witnesses by $c_{\max}$, openness, Vd0 locality, and diameter |
-| proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3101X_six_point/31012_core_graph_two_variable_relaxation.md | Proven | lem:fixed-line-signs; fixed-line circle signs for the actual moving handoffs |
-| proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31033_asymmetric_witness_construction.md | Proven | lem:fixed-line-signs; lem:asymmetric-core-witness; exact asymmetric formulas and direct distance inequalities |
-| proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3104X_direct_Vd0_nine_point/31042_direct_asymmetric_witness_forcing.md | Proven | lem:asymmetric-core-witness; direct exclusion of the three witnesses from the six actual vertex roles using $X_2$ and $X_5$ |
-| proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31034_witness_enclosure_inequality.md | Proven | thm:witness-enclosure; terminal cap reduction and analytic adjacent overlaps |
-| proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31037_rational_cmax_upper_envelope.md; 31038_global_analytic_core_positivity.md | Proven | thm:witness-enclosure; sec:exact-mixed-overlap; rational radial envelopes, exact mixed-overlap reduction, and global Bernstein positivity |
-| proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3104X_direct_Vd0_nine_point/31043_center_independent_direct_nine_point_obstruction.md | Proven | thm:zero-gap-obstruction; center-independent direct nine-point contradiction |
-| proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3104X_direct_Vd0_nine_point/31044_CE0_Nplus1_all_Vd0_direct_completion.md; proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4101_CE1CE2_Nplus1_all_Vd0_strategy.md | Proven | prop:ab-core-branches; CE0 completion and CE1/CE2 zero-gap reuse of 31043 |
+| proof/1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md; proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31058_center_independent_direct_nine_point_obstruction.md | Proven | lem:ab-extreme-jump; exact-one handoff chain and common demands |
+| proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md; proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31051_direct_radial_forcing.md | Proven | lem:symmetric-core-witness; direct forcing of all six radial witnesses by $c_{\max}$, openness, Vd0 locality, and diameter |
+| proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31052_fixed_line_circle_signs.md | Proven | lem:fixed-line-signs; complete fixed-line circle signs for the actual moving handoffs |
+| proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31053_direct_asymmetric_witness_forcing.md | Proven | lem:asymmetric-core-witness; exact formulas, direct distances, and exclusion using $X_2,X_5$ |
+| proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31054_four_cap_enclosure_reduction.md; 31057_terminal_nine_point_enclosure.md | Proven | thm:witness-enclosure; terminal cap reduction, analytic adjacent overlaps, and enclosure assembly |
+| proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31055_rational_radial_envelopes_and_mixed_reduction.md; 31056_global_analytic_mixed_positivity.md | Proven | thm:witness-enclosure; sec:exact-mixed-overlap; rational radial envelopes, exact mixed-overlap reduction, and global Bernstein positivity |
+| proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31058_center_independent_direct_nine_point_obstruction.md | Proven | thm:zero-gap-obstruction; center-independent direct nine-point contradiction |
+| proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31059_CE0_Nplus1_all_Vd0_completion.md; proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4101_CE1CE2_Nplus1_all_Vd0_strategy.md | Proven | prop:ab-core-branches; CE0 completion and CE1/CE2 zero-gap reuse of 31058 |
 
 The direct route uses no nonsupercritical $AB$-union, model-core inclusion,
-neighboring-ray comparison, or optional six-point inequality.  The older
-3103X route through 31030, 31032, and 31035 remains an independent Proven
-proof but is not an active manuscript dependency; the shared exact sources
-31033, 31034, 31037, and 31038 remain active.  The AB index 20090 is Reference
-only, and the empirical files 20092--20094 and false comparison in 31036 are
-not dependencies.
+neighboring-ray comparison, or optional six-point inequality.  All active
+direct construction and exact certificate ingredients are now recorded
+inside the self-contained `3105X` package.  The older `3103X` residual-core
+route and `3104X` direct route remain independently Proven predecessors but
+are not active manuscript dependencies.  The AB index 20090 is Reference
+only, and the empirical files 20092--20094 and the false complementary
+comparison are not dependencies.
 
 The proposed file
 proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3104X_direct_Vd0_nine_point/31045_analytic_nine_point_caliper_strategy.md
@@ -156,7 +156,7 @@ chain.
 |---|---|---|
 | proof/1XXX_foundations/11XX_C_triangle/1101_CE_classification.md; proof/2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md; proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4101_CE1CE2_Nplus1_all_Vd0_strategy.md | Proven | lem:gap-exhaustion |
 | proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20095_exact_caliper_certificate.md | Proven | thm:cert-caliper |
-| proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31037_rational_cmax_upper_envelope.md; 31038_global_analytic_core_positivity.md | Proven | sec:exact-mixed-overlap; exact mixed-overlap dependency of thm:witness-enclosure |
+| proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31055_rational_radial_envelopes_and_mixed_reduction.md; 31056_global_analytic_mixed_positivity.md | Proven | sec:exact-mixed-overlap; exact mixed-overlap dependency of thm:witness-enclosure |
 
 The manuscript-dependent reproduction scripts have no independent proof
 status. Their role is only to replay the exact integer, rational, and
@@ -173,9 +173,9 @@ failed 3172 tangent-envelope conjecture and unused 3173 route; superseded 3204;
 the algorithm-2/five-point and unverified six-point packages; optional
 Reduction 4104; Strategy 31045; the outward-rounded and adaptive
 mixed-overlap audits; and the false \(N_+\ge2\) AB comparison.  The older
-Proven 3103X model-core assembly is retained only as an unused independent
-proof. Reference and navigation files only locate the proved sources
-itemized above.
+Proven `3103X` model-core and `3104X` direct assemblies are retained only as
+unused independent predecessors. Reference and navigation files only locate
+the proved sources itemized above.
 
 The repository-level audit also read README.md,
 proof/0XXX_main/0001_proof_tree_index.md,
