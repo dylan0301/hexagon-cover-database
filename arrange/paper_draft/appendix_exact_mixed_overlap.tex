@@ -1,0 +1,303 @@
+\section{A global analytic certificate for the mixed overlaps}
+\label{sec:exact-mixed-overlap}
+
+This appendix gives an interval-free and nonadaptive replacement for the two
+mixed-overlap signs used in Theorem~\ref{thm:witness-enclosure}.  It first
+replaces the exact radial value by rational upper envelopes, then reduces the
+mixed residuals to eight integer-polynomial signs.  Three fixed analytic charts
+and twenty global Bernstein expansions prove those signs.  No interval
+arithmetic, box subdivision, pruning, or branch-and-bound is used.
+
+Retain the notation of Section~\ref{sec:ab-core}.  Thus
+\[
+ p=1-b,\qquad q=1-a,\qquad
+ s=p+q,\qquad m=\min\{p,q\},\qquad M=\max\{p,q\},
+\]
+\[
+ \chi=s^4-s^2+mM,\qquad h=\frac{\sqrt3}{2},
+ \qquad c_*=c_{\max}(p,q).
+\]
+The strict domain gives
+\begin{equation}
+ mM>(1-s)(2-s),\qquad m>1-s,\qquad s>\frac23.
+ \label{eq:global-mixed-domain}
+\end{equation}
+Put
+\[
+ F_m(x)=x^4-x^2+mx-m^2,
+ \qquad \kappa=F_m'(s)=4s^3-2s+m.
+\]
+Since $m>1-s$,
+\begin{equation}
+ \kappa>4s^3-3s+1=(s+1)(2s-1)^2>0.
+ \label{eq:global-kappa-positive}
+\end{equation}
+
+\subsection{Rational radial upper envelopes}
+
+Define
+\begin{equation}
+ \bar c_L=s-\frac{\chi}{\kappa}\quad(\chi\le0),
+ \qquad
+ \bar c_T=s-\frac{\chi}{1-m}\quad(\chi\ge0).
+ \label{eq:global-branchwise-cbar}
+\end{equation}
+
+\begin{lemma}[Branchwise radial upper bounds]
+\label{lem:global-branchwise-cbar}
+On the corresponding radial cells,
+\[
+ c_*\le\bar c_L<1,\qquad c_*\le\bar c_T<1.
+\]
+At $\chi=0$ both upper bounds equal $s=c_*$.
+\end{lemma}
+
+\begin{proof}
+On the $C_L(m)$ cell, $F_m(s)=\chi\le0$ and $F_m(c_*)=0$.  For
+$x\ge s>2/3$ one has $F_m''(x)=12x^2-2>0$, so convexity and
+\eqref{eq:global-kappa-positive} give
+\[
+ 0=F_m(c_*)\ge F_m(s)+F_m'(s)(c_*-s),
+\]
+whence $c_*\le s-\chi/\kappa=\bar c_L$.  Let $U=1-s$.  From
+\eqref{eq:global-mixed-domain}, $mM>U(1+U)$, and therefore
+\[
+ \begin{aligned}
+ \chi+U\kappa
+ &>U\{m+3s^3-s^2-3s+2\}\\
+ &=U\{m+1-4U+8U^2-3U^3\}>0.
+ \end{aligned}
+\]
+Indeed $0<U<1/3$ and
+$1-4U+8U^2-3U^3>1-4U+7U^2>0$.  Thus $\bar c_L<1$.
+
+On the other cell put
+\[
+ E=\sqrt{4s^2-3},\qquad
+ m_0=\frac{s(1-E)}2,\qquad M_0=\frac{s(1+E)}2.
+\]
+Then
+\[
+ \chi=(m-m_0)(M_0-m),\qquad
+ s-c_*=\frac{2(m-m_0)}{1+E}.
+\]
+Hence
+\[
+ \frac{\chi}{s-c_*}
+ =\frac{1+E}{2}(M_0-m)\le1-m,
+\]
+because $0\le E\le1$ and $M_0\le1$.  This proves
+$c_*\le\bar c_T$, while $\chi>0$ gives $\bar c_T<s<1$.
+\end{proof}
+
+Reflect so that $z=a-b\ge0$ and put $U=a+b-1$.  Then
+\[
+ s=1-U,\qquad m=\frac{1-U-z}{2},\qquad
+ D^2=z^2+6U+3U^2=:K(U,z),
+\]
+\[
+ \Xi(U,z):=4\chi
+ =1-10U+21U^2-16U^3+4U^4-z^2,
+\]
+\[
+ G(U,z):=2\kappa=5-21U+24U^2-8U^3-z.
+\]
+Consequently
+\begin{equation}
+ \bar c_L=1-U-\frac{\Xi(U,z)}{2G(U,z)},
+ \qquad
+ \bar c_T=1-U-\frac{\Xi(U,z)}{2(1+U+z)}.
+ \label{eq:global-rational-cbar}
+\end{equation}
+Neither expression contains the quartic root or the radial radical
+$\sqrt{4s^2-3}$.
+
+\subsection{The Gram residuals and exact core reduction}
+
+On the active cell write $\bar c$ for the corresponding expression in
+\eqref{eq:global-rational-cbar}, and put
+\[
+ \bar\eta=h(1-\bar c),\qquad e=1-\bar c,
+ \qquad t=2\bar c-1.
+\]
+Lemma~\ref{lem:global-branchwise-cbar} gives
+$0<\bar\eta\le\eta=h(1-c_*)$ when $c_*>2/3$.  Thus the three disks obtained
+from $\mathbb D(C,2\eta)$, $\mathbb D(W,\eta)$, and
+$\mathbb D(RA,2\eta)$ by replacing $\eta$ with $\bar\eta$ are contained in
+the disks already present in the Minkowski sum.
+
+Represent a global vector as $(x,hy)$ and put $C'=R^{-1}C$,
+\[
+ N_A=\lVert A\rVert^2,\qquad N_C=\lVert C\rVert^2,
+ \qquad \nu=\langle A,C'\rangle,
+ \qquad \Delta_0=x_Ay_{C'}-y_Ax_{C'}.
+\]
+The Gram identity is
+\[
+ h^2\Delta_0^2=N_AN_C-\nu^2.
+\]
+The two mixed square residuals for the smaller disks factor as
+\begin{equation}
+ \bar P_A=h^2N_AQ_A,
+ \qquad Q_A=\Delta_0^2-\lVert tA-eC'\rVert^2,
+ \label{eq:global-QA-factor}
+\end{equation}
+\begin{equation}
+ \bar P_C=h^2N_CQ_C,
+ \qquad Q_C=\Delta_0^2-\lVert tC'-eA\rVert^2.
+ \label{eq:global-QC-factor}
+\end{equation}
+All witness coordinates are rational in $U,z,D$.  Substituting
+\eqref{eq:global-rational-cbar} into
+\eqref{eq:global-QA-factor}--\eqref{eq:global-QC-factor} and reducing modulo
+$D^2-K(U,z)$ gives, for $B\in\{L,T\}$ and $X\in\{A,C\}$,
+\begin{equation}
+ \operatorname{num}(Q_{B,X})
+ =32(K+3)^2\{A_{B,X}(U,z)+D B_{B,X}(U,z)\},
+ \label{eq:global-core-reduction}
+\end{equation}
+where $A_{B,X},B_{B,X}\in\mathbb Z[U,z]$.  Every omitted denominator is
+strictly positive: it is a positive constant times $(D+3)^4$, the square of
+the relevant upper-envelope denominator, and squares of the two nonzero
+Newton-derivative numerators.  The term counts are
+\[
+\begin{array}{c|cc}
+(B,X)&\#A_{B,X}&\#B_{B,X}\\ \hline
+(L,A)&347&298\\
+(L,C)&347&298\\
+(T,A)&342&294\\
+(T,C)&341&294.
+\end{array}
+\]
+Since $D\ge0$, it remains to prove all eight integer polynomials nonnegative.
+
+\subsection{Three fixed charts and global positive bases}
+
+Set
+\[
+ \mathcal G(U)=1-6U-3U^2,
+ \qquad
+ H(U)=1-10U+21U^2-16U^3+4U^4,
+\]
+\[
+ U_H=1-\frac{\sqrt3}{2},
+ \qquad U_{\max}=\frac2{\sqrt3}-1.
+\]
+The identities
+\[
+ 4\chi=H(U)-z^2,
+ \qquad
+ H(U)=(U-1)^2(4U^2-8U+1)
+\]
+and
+\[
+ \mathcal G(U)-H(U)
+ =4U(1-6U+4U^2-U^3)\ge0\quad(0\le U\le U_H)
+\]
+show that the radial cells are exactly covered by
+\begin{equation}
+\begin{array}{ll}
+T:&0\le U\le U_H,\quad 0\le z^2\le H(U),\\[1mm]
+L_0:&0\le U\le U_H,\quad H(U)\le z^2\le\mathcal G(U),\\[1mm]
+L_1:&U_H\le U\le U_{\max},\quad 0\le z^2\le\mathcal G(U).
+\end{array}
+\label{eq:global-three-cells}
+\end{equation}
+
+We use the elementary positive-basis fact that a polynomial whose
+coefficients in the tensor Bernstein basis on $[0,1]^2$ are all nonnegative
+is nonnegative on that square.  This is one global polynomial identity, not a
+subdivision procedure.  All coefficients below lie in $\mathbb Q(\sqrt3)$,
+and their signs are decided exactly by rational comparisons.
+
+For the $T$ cell use
+\begin{equation}
+ U=\frac{(x-1)(3-x)}{4x},
+ \qquad z=y\frac{9-x^4}{8x^2},
+ \qquad 1\le x\le\sqrt3,
+ \quad 0\le y\le1.
+ \label{eq:global-T-chart}
+\end{equation}
+Here
+\[
+ H\!\left(\frac{(x-1)(3-x)}{4x}\right)
+ =\left(\frac{9-x^4}{8x^2}\right)^2,
+\]
+so the chart covers the whole $T$ cell.  Clearing the positive powers of
+$2$ and $x$, then putting $x=1+(\sqrt3-1)r$, gives four global Bernstein
+expansions on $[0,1]^2$:
+\[
+\begin{array}{c|ccc}
+&\text{bidegree}&\text{coefficients}&\text{zero coefficients}\\ \hline
+A_{T,A}&(88,22)&2047&2\\
+B_{T,A}&(80,20)&1701&0\\
+A_{T,C}&(88,22)&2047&2\\
+B_{T,C}&(80,20)&1701&0.
+\end{array}
+\]
+Every nonzero coefficient is strictly positive.
+
+For an $L$-cell polynomial $F(U,z)$, write
+\[
+ F(U,z)=E_F(U,w)+zO_F(U,w),\qquad w=z^2,
+\]
+and put
+\[
+ R_F(U,w)=E_F(U,w)^2-wO_F(U,w)^2.
+\]
+The implications $E_F\ge0$ and $R_F\ge0$ give
+$E_F\ge\sqrt w\,|O_F|$, hence $F\ge0$.  Use the two fixed charts
+\begin{equation}
+ U=U_Hr,
+ \qquad
+ w=H(U)+s\{\mathcal G(U)-H(U)\}
+ \label{eq:global-L0-chart}
+\end{equation}
+for $L_0$, and
+\begin{equation}
+ U=U_H+(U_{\max}-U_H)r,
+ \qquad w=s\mathcal G(U)
+ \label{eq:global-L1-chart}
+\end{equation}
+for $L_1$, with $0\le r,s\le1$.  The global Bernstein expansions of
+$E_F$ and $R_F$ have the following bidegrees and coefficient counts:
+\[
+\begin{array}{c|cc|cc}
+F&L_0:E_F&L_0:R_F&L_1:E_F&L_1:R_F\\ \hline
+A_{L,A}&(46,11);564&(92,22);2139&(26,11);324&(52,22);1219\\
+B_{L,A}&(42,10);473&(84,20);1785&(24,10);275&(48,20);1029\\
+A_{L,C}&(46,11);564&(92,22);2139&(26,11);324&(52,22);1219\\
+B_{L,C}&(42,10);473&(84,20);1785&(24,10);275&(48,20);1029.
+\end{array}
+\]
+Every coefficient in these sixteen expansions is strictly positive.
+Therefore all eight polynomials in \eqref{eq:global-core-reduction} are
+nonnegative on the corresponding radial cells.
+
+\subsection{Reproduction and completion}
+
+The exact verifier is
+\begin{verbatim}
+proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/
+3103X_residual_core/3103X_computation/
+verify_global_core_positivity.py
+\end{verbatim}
+It authenticates the canonical core-polynomial data with SHA-256 digest
+\begin{verbatim}
+dc46aaf263655d5159ecd3a81db72ee82477951d06172f4743b248df37209485
+\end{verbatim}
+and returns
+\begin{verbatim}
+adaptive_subdivision: false
+branch_and_bound: false
+result: PASS
+\end{verbatim}
+using exact integer, rational, and $\mathbb Q(\sqrt3)$ arithmetic.
+
+Since $D\ge0$, the eight signs prove $Q_A,Q_C\ge0$ for $z\ge0$ by
+\eqref{eq:global-core-reduction}; reflection supplies $z\le0$.
+Equations~\eqref{eq:global-QA-factor}--\eqref{eq:global-QC-factor} give the two
+mixed cap overlaps for the smaller disks, hence for the original disks.
+Together with the two analytic adjacent overlaps, this completes the cap chain
+and proves Theorem~\ref{thm:witness-enclosure} without interval arithmetic or
+branch-and-bound.

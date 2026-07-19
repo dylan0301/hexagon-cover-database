@@ -89,7 +89,8 @@ Vd0, Vd1/Vd2, and T3-like vertex-role patterns.
         - `3103X`: proven independent residual-core and forced-disk closure
           - `31032`: proved uniform symmetric witness and forced-disk construction
           - `31033`: proved exact asymmetric witnesses and uniform core membership
-          - `31034`: proved terminal enclosure inequality by analytic adjacent overlaps and an outward-rounded mixed-overlap certificate
+          - `31034`: proved terminal cap reduction and analytic adjacent overlaps
+          - `31037`: proved both mixed overlaps by branchwise rational radial envelopes and exact integer Bernstein coefficients, eliminating interval arithmetic
           - `31035`: proved center-independent all-boundary obstruction
         - `3104X`: proven direct all-Vd0 nine-point closure
           - `31041`: proved direct forcing of six common radial witnesses

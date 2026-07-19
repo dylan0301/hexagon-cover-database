@@ -156,9 +156,12 @@ The convex hull of these nine points contains the set in (8).
 ### 4. Terminal enclosure contradiction
 
 For a compact set $K$, let $\Lambda(K)$ be the least side length of a closed
-equilateral triangle containing $K$.  The terminal theorem
-[`31034_witness_enclosure_inequality.md`](../3103X_residual_core/31034_witness_enclosure_inequality.md)
-proves throughout the strict domain (3) that
+equilateral triangle containing $K$.  The terminal cap reduction and analytic
+adjacent-overlap proof are in
+[`31034_witness_enclosure_inequality.md`](../3103X_residual_core/31034_witness_enclosure_inequality.md),
+and the two mixed overlaps are completed without interval arithmetic in
+[`31037_rational_cmax_upper_envelope.md`](../3103X_residual_core/31037_rational_cmax_upper_envelope.md).
+Together they prove throughout the strict domain (3) that
 
 $$
 \Lambda\left(K_{\mathrm{wit}}(a,b)\right)\ge1.
@@ -194,4 +197,5 @@ $$
 
 the neighboring-ray maximum theorem `2008`, or the optional six-point
 inequality $F_6\ge1$.  The unique supercritical frontier, the exact
-fixed-line circle signs, and the terminal theorem `31034` remain essential.
+fixed-line circle signs, the terminal reduction `31034`, and the exact
+mixed-overlap completion `31037` remain essential.
