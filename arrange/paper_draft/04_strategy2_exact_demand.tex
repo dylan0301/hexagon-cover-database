@@ -150,12 +150,239 @@ root.  Solving the selected equations gives \eqref{eq:radial-envelope}.
 This also proves that $\mathcal A$ is coordinatewise down-closed.
 \end{proof}
 
+\subsection{The exact capped map}
+
+For $1/2<c<1$ put
+\[
+ \ell(c)=\frac c2\left(1-\sqrt{4c^2-3}\right),\qquad
+ r(c)=c-\ell(c)
+\]
+when $c\ge\sqrt3/2$, and
+\[
+ h(c)=\frac{2c}{1+\sqrt{16c^2-3}}.
+\]
+Also define
+\begin{align*}
+ T_-(a,c)&=\frac{\sqrt{a^2-ac+c^2}}c-a,\\
+ T_+(a,c)&=
+ \frac{2(1-a^2)c^2}
+ {2ac^2+c+\sqrt{(2ac^2+c)^2-4(1-c^2)(1-a^2)c^2}}.
+\end{align*}
+
+\begin{proposition}[Four-label capped map]
+\label{prop:capped-demand-map}
+For $1/2<c\le\sqrt3/2$,
+\begin{equation}
+ F_c(a)=
+ \begin{cases}
+  1-a,&0\le a\le1-c,\\
+  T_+(a,c),&1-c<a<h(c),\\
+  h(c),&a=h(c),\\
+  T_-(a,c),&h(c)<a<c,\\
+  1-a,&c\le a\le1.
+ \end{cases}
+ \label{eq:S2-capped-map-low}
+\end{equation}
+For $\sqrt3/2<c<1$,
+\begin{equation}
+ F_c(a)=
+ \begin{cases}
+  1-a,&0\le a\le1-c,\\
+  T_+(a,c),&1-c<a\le\ell(c),\\
+  \ell(c),&\ell(c)<a<r(c),\\
+  T_-(a,c),&r(c)\le a<c,\\
+  1-a,&c\le a\le1.
+ \end{cases}
+ \label{eq:S2-capped-map-high}
+\end{equation}
+Thus there are exactly four labels
+\[
+ \mathrm{Full},\qquad L,\qquad T_-,\qquad T_+^{\mathrm{hi}}.
+\]
+At $a=\ell(c)$ in \eqref{eq:S2-capped-map-high},
+$F_c(a)=r(c)$; immediately to its right the value is $\ell(c)$.  This
+downward jump is genuine.  The formal other root of the $T_+$ quadratic is
+not feasible because it violates $c\le2\max\{a,F_c(a)\}$.
+
+The maps $F_c$ are nonincreasing, the maps $G_c=1-F_c$ are nondecreasing
+and extensive, and
+\begin{equation}
+ G_c(a)\le z\quad\Longleftrightarrow\quad
+ G_c(1-z)\le1-a.
+ \label{eq:S2-capped-duality}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The cap $a+b\le1$ eliminates the $S$ cell of
+Proposition~\ref{prop:exact-admissible-set}.  On the cap $b=1-a$, the $T$
+inequality reduces to $M(c-M)\le0$; hence the Full face is feasible exactly
+for $a\le1-c$ or $a\ge c$.  Off that face a maximal point lies on $F_L=0$
+or $F_T=0$.  The $L$ equation has roots $\ell(c),r(c)$ and the selector
+$q\le0$ keeps only the smaller coordinate.  The ordered $T$ halves give
+respectively the displayed lower quadratic root $T_+$ and the root $T_-$.
+Their order boundary is $a=b=h(c)$, while their $q=0$ boundaries are
+$(\ell(c),r(c))$ and $(r(c),\ell(c))$.  These observations give
+\eqref{eq:S2-capped-map-low}--\eqref{eq:S2-capped-map-high}, including all equality
+assignments.
+
+Down-closedness gives monotonicity, while $F_c(a)\le1-a$ gives
+$G_c(a)\ge a$.  Finally,
+\[
+ G_c(a)\le z\iff F_c(a)\ge1-z
+ \iff(a,1-z,c)\in\mathcal A,\quad a+1-z\le1.
+\]
+Reflection $a\leftrightarrow b$ gives \eqref{eq:S2-capped-duality}.
+\end{proof}
+
+Put
+\[
+ \mu=\frac{2\sqrt3-3}{4},
+\]
+and, for $0<X<1-\sqrt3/2$, write
+\[
+ e(X)=\ell(1-X).
+\]
+The root equation gives
+\begin{equation}
+ \begin{aligned}
+ X&<e(X) &&\left(0<X<1-\frac{\sqrt3}{2}\right),\\
+ e(X)&<\frac{2X}{1-2X} &&(0<X\le\mu),\\
+ e(X)&\le2X+5X^2 &&(0<X\le1/8).
+ \end{aligned}
+ \label{eq:low-root-bounds}
+\end{equation}
+Moreover,
+\begin{equation}
+ a>e(X)\quad\Longrightarrow\quad
+ G_{1-X}(a)\ge1-e(X)
+ \qquad\left(0<X<1-\frac{\sqrt3}{2}\right).
+ \label{eq:high-demand-threshold}
+\end{equation}
+Indeed, for
+\[
+ p_X(z)=z^2-(1-X)z+(1-X)^2-(1-X)^4,
+\]
+one has
+\[
+ p_X(X)=X(1-3X+4X^2-X^3)>0.
+\]
+Since $X<(1-X)/2$, this puts $X$ strictly below the smaller root $e(X)$.
+For $U=2X/(1-2X)$, direct substitution gives
+\[
+ p_X(U)=-\frac{X^2}{(1-2X)^2}
+ (4X^4-20X^3+37X^2-28X+3).
+\]
+The polynomial in parentheses is decreasing on $[0,\mu]$ and at the right
+endpoint equals $8217/64-74\sqrt3>0$.  Indeed, its derivative is at most
+$16/512+74/8-28<0$, and
+$(8217/64)^2-3\mathbin{\cdot}74^2=230001/4096>0$.  Hence $p_X(U)<0$, which puts $U$
+strictly between the roots.  Finally,
+\[
+ p_X(2X+5X^2)=X^2(3X+4)(8X-1)\le0,
+\]
+and $X<2X+5X^2<(1-X)/2$ on the stated range.  Thus the trial point lies
+between the two roots, proving the third comparison.  The implication
+\eqref{eq:high-demand-threshold} is read directly from
+\eqref{eq:S2-capped-map-high}.  We shall also use
+$e(X)<2X+3X^2$ for $0<X\le1/10$, obtained from
+$p_X(2X+3X^2)=X^2(8X^2+19X-2)<0$; here too the trial point lies strictly
+between $X$ and $(1-X)/2$.
+
+\subsection{Exact center traces and complementary demands}
+
+The normalization in Proposition~\ref{prop:unique-center-midpoint} lets us
+assume that the unique center midpoint is $M_0$.
+
+\begin{proposition}[Exact CE1 and CE2 formulas]
+\label{prop:center-exact-formulas}
+In the CE1 case there are $0<\lambda<1$, $0\le s<t\le1$, and
+$\rho=\sqrt{1-\lambda+\lambda^2}$ for which
+\[
+ T_C\cap e_{0,1}=[s,t]
+\]
+and
+\begin{align*}
+ C_0&=\rho+\lambda s-t-\lambda,&
+ C_1&=1-\lambda s,&
+ C_2&=t+\lambda-1.
+\end{align*}
+The exact domain is
+\begin{gather*}
+ C_0>0,\quad C_2>0,\quad
+ \lambda s\le\tfrac12,\quad t<1-\tfrac\lambda2,\\
+ t>\rho+\lambda s-\frac{1+\lambda}{2},\qquad
+ t\ge\rho-\frac{\lambda^2}{1-\lambda}s.
+\end{gather*}
+The center exits on the six arms are
+\begin{align*}
+ d_0&=C_1,& d_1&=C_2/\lambda,\\
+ d_2&=C_2,& d_3&=\min\{C_0/\lambda,C_2/(1-\lambda)\},\\
+ d_4&=C_0,& d_5&=C_0/(1-\lambda).
+\end{align*}
+
+In the CE2 case write
+\[
+ T_C\cap e_{5,0}=[x,u],\qquad
+ T_C\cap e_{0,1}=[y,v],\qquad S=x+y,\quad
+ D=\sqrt{x^2+xy+y^2}.
+\]
+Then
+\begin{gather*}
+ 0<x<u<1,\qquad0<y<v<1,\\
+ (u+v)S-xy=D,\qquad uS\ge x,\quad vS\ge y,\\
+ uS<x+y/2,\qquad vS<y+x/2,
+\end{gather*}
+where the two weak center inequalities are strict for closures of original
+open center roles.  The six exits are
+\[
+ \begin{aligned}
+ d_0&=1-\frac{xy}{S},&
+ d_1&=\frac{vS-y}{x},&
+ d_2&=\frac{vS-y}{S},\\
+ d_3&=\min\left\{\frac{vS-y}{y},\frac{uS-x}{x}\right\},&
+ d_4&=\frac{uS-x}{S},&
+ d_5&=\frac{uS-x}{y}.
+ \end{aligned}
+\]
+In either case the complementary demand on row $i$ is $c_i=1-d_i$;
+$c_0\le1/2$ and $c_i>1/2$ for $i\ne0$.
+\end{proposition}
+
+\begin{proof}
+In the affine coordinates
+$X=V_0+b(V_1-V_0)+a(V_5-V_0)$, the CE1 triangle is cut out by
+\[
+ \begin{aligned}
+ F_1&=\lambda b+(1-\lambda)a-\lambda s,\\
+ F_2&=-b+\lambda a+t,\\
+ F_0&=(1-\lambda)b-a+\rho+\lambda s-t.
+ \end{aligned}
+\]
+Substitution of $O,M_0,\ldots,M_5$ and of the six radial parametrizations
+gives the displayed domain and exits.  The last domain inequality is exactly
+the absence of a positive interval on $e_{5,0}$.
+
+For CE2, the side through the initial endpoints has outward normal
+$(\sqrt3S,y-x)/(2D)$.  Rotating it by $\pm120^\circ$, the three support
+constants are
+\[
+ \frac{\sqrt3(S-xy)}{2D},\qquad
+ \frac{\sqrt3(vS-y)}{2D},\qquad
+ \frac{\sqrt3(uS-x)}{2D}.
+\]
+Their sum is $\sqrt3/2$ exactly when $(u+v)S-xy=D$.  Substitution of the
+midpoints gives the four remaining inequalities, and substitution of the
+radial rays gives the six exits.  The inequalities $d_0\ge1/2>d_i$
+for $i\ne0$ are precisely the exact-midpoint conditions.
+\end{proof}
+
 \subsection{The exactly-one-supercritical all-$\Vdzero$ branch}
 
 For a center interval, call the nonempty closed set missed by its two open
 endpoint roles a \emph{V-gap}.  It may be a singleton.  If the maximal
 closed center trace is $[s,t]$, open coverage gives the weak bounds
-$b_i\ge s$ and $a_{i+1}\ge1-t$; thus none of the arguments below discards a
+$B_i\ge s$ and $A_{i+1}\ge1-t$; thus none of the arguments below discards a
 singleton gap.
 
 \begin{proposition}[CE1 one-gap five-map obstruction]
@@ -170,9 +397,11 @@ hence they are nonsupercritical and row $0$ is the unique supercritical
 row.  Put
 \[
  R=\lambda,\quad w=1-R,\quad E=\sqrt{1-Rw},\quad
- \eta=1-E,\quad P=\eta E,
+ \eta=1-E,\quad P=\eta E.
 \]
-and let $A=C_0$, $D=C_2$ in Proposition~\ref{prop:center-exact-formulas}.
+Let $A$ and $D$ denote the center exits called $C_0$ and $C_2$,
+respectively, in Proposition~\ref{prop:center-exact-formulas}; they are not
+the actual vertex-role radial reaches denoted by $C_i$.
 Then, with $X=R-D$, $m=A/R$ and
 $H=(\eta+A+D)/(2R)=s/2$, the exact strict domain is
 \begin{equation}
@@ -187,30 +416,119 @@ and the six complementary demands are
  c_0=\eta+A+D,\quad c_1=1-\frac DR,\quad c_2=1-D,
  \quad c_3=1-m,\quad c_4=1-A,\quad c_5=1-\frac Aw.
 \]
-The gap gives $B_0\ge s$ and $A_1\ge X$.  Boundary propagation through the
-five nonsupercritical rows therefore gives
+The gap gives $B_0\ge s$ and $A_1\ge X$.  Define
 \[
- A_0\ge Z:=
- (G_{c_5}\circ G_{c_4}\circ G_{c_3}\circ G_{c_2}\circ G_{c_1})(X),
- \qquad A_0\le B_{c_0}(s).
+ z_0=X,\qquad z_j=G_{c_j}(z_{j-1})\quad(1\le j\le5).
 \]
-It remains to prove the reverse strict inequality.
+We now justify the fivefold propagation.  Suppose $A_j\ge z_{j-1}$ for
+some $1\le j\le5$.  Radial coverage gives actual radial reach at least
+$c_j$, and row $j$ is nonsupercritical.  Hence the safe capped bound
+\eqref{eq:safe-capped-bound} and the monotonicity of $F_{c_j}$ give
+\[
+ B_j\le F_{c_j}(z_{j-1}).
+\]
+There is no V-gap on the next edge: for $j=1,\ldots,4$ that edge has no
+center trace, and for $j=5$ the CE1 center has no trace on $e_{5,0}$.
+The strict open-trace handoff has the weak consequence
+\[
+ A_{j+1}\ge1-B_j\ge1-F_{c_j}(z_{j-1})=z_j,
+\]
+where $A_6$ means $A_0$.  Starting from $A_1\ge z_0$ proves
+\begin{equation}
+ A_0\ge z_5=:Z
+ =(G_{c_5}\circ G_{c_4}\circ G_{c_3}\circ G_{c_2}\circ G_{c_1})(X).
+ \label{eq:ce1-fivefold-propagation}
+\end{equation}
+On row $0$, the inequalities $B_0\ge s$ and actual radial reach at least
+$c_0$, followed by reflection and down-closedness of $\mathcal A$, show that
+$(s,A_0,c_0)\in\mathcal A$.  Therefore
+\begin{equation}
+ A_0\le B_{c_0}(s).
+ \label{eq:ce1-supercritical-target}
+\end{equation}
 
-Repeated use of \eqref{eq:S2-capped-duality} reduces it to
+It remains to prove $Z>B_{c_0}(s)$.  Since $G_{c_1}$ and $G_{c_5}$ are
+extensive and the middle maps are nondecreasing, it is enough first to prove
+\[
+ (G_{c_4}\circ G_{c_3}\circ G_{c_2})(X)>1-H.
+\]
+The negation of this inequality is, by three explicit applications of
+\eqref{eq:S2-capped-duality}, equivalent to
+\begin{align*}
+ &(G_{c_4}\circ G_{c_3}\circ G_{c_2})(X)\le1-H\\
+ &\quad\Longleftrightarrow\quad
+ G_{c_4}(H)\le1-(G_{c_3}\circ G_{c_2})(X)\\
+ &\quad\Longleftrightarrow\quad
+ (G_{c_3}\circ G_{c_4})(H)\le1-G_{c_2}(X)\\
+ &\quad\Longleftrightarrow\quad
+ (G_{c_2}\circ G_{c_3}\circ G_{c_4})(H)\le1-X.
+\end{align*}
+We shall prove the reverse strict inequality
 \begin{equation}
  (G_{c_2}\circ G_{c_3}\circ G_{c_4})(H)>1-X.
  \label{eq:ce1-suffix}
 \end{equation}
-The elementary low-root estimates give
+Here $A<P\le\mu$, because $P=E(1-E)$ and $E\ge\sqrt3/2$.  We first prove
+the two input comparisons used at row $4$.  Since $D=R-X$, the inequality
+$A+wD<P$ and the identity $Rw=\eta+P$ give
 \[
- e(A)<X,\qquad H>A.
+ A<wX-\eta.
 \]
-At row $4$, every label except $T_+^{\rm hi}$ already yields
-$G_{1-A}(H)>1-X$.  On $T_+^{\rm hi}$ its selector forces $X>1/2$.
-Indeed, if $X\le1/2$, the selector and the two center inequalities give
+Put
+\[
+ \varphi(q)=wq-\frac{q}{2(1+q)}.
+\]
+The bound $0<D<R/2$ gives $R/2<X<R$, and $\varphi$ is convex.  At the
+endpoints,
+\[
+ \varphi(R/2)<\frac{Rw}{2}<\eta,
+\]
+while $\varphi(R)<\eta$ is equivalent to
+\[
+ E(1-2R^2)<1,
+\]
+which follows from $E<1$.  Convexity therefore gives
+$\varphi(X)<\eta$, and hence
+\[
+ A<\frac{X}{2(1+X)}.
+\]
+Using the rational low-root bound in its valid range,
+\begin{equation}
+ e(A)<\frac{2A}{1-2A}<X.
+ \label{eq:ce1-first-low-root}
+\end{equation}
+We also have
+\[
+ 2R(H-A)=\eta+D+(1-2R)A.
+\]
+This is positive if $R\le1/2$.  If $R>1/2$, then $A<P=\eta E$ gives
+\[
+ 2R(H-A)>
+ \eta\bigl(1-(2R-1)E\bigr)>0.
+\]
+Thus $H>A$.  Since $H=s/2$ and $0<s<t\le1$, we also have
+$H<1/2<1-A$.
+
+Now consult the exact high-radial catalog for $c_4=1-A$.  The lower and
+upper Full ranges would require $H\le A$ and $H\ge1-A$, respectively, so
+both are impossible.  On the $L$ or $T_-$ range,
+\[
+ F_{1-A}(H)\le e(A),
+\]
+and therefore
+\[
+ G_{1-A}(H)\ge1-e(A)>1-X
+\]
+by \eqref{eq:ce1-first-low-root}.  Thus only the
+$T_+^{\rm hi}$ range remains.  Its selector gives
+\[
+ H\le e(A)\le2A+5A^2.
+\]
+We claim that this range forces $X>1/2$.  Indeed, if $X\le1/2$, the selector
+and the two center inequalities give
 \[
  Q(A):=\eta+P+wA-2R(2A+5A^2)\le0,
- \qquad 0<A<A_0:=P-w(R-\tfrac12).
+ \qquad 0<A<A_\star:=P-w(R-\tfrac12).
 \]
 The quadratic $Q$ is strictly concave and $Q(0)=\eta+P=Rw>0$.
 Rationalize by
@@ -220,7 +538,7 @@ Rationalize by
  E=\frac{1-k+k^2}{1-k^2},\quad
  \eta=\frac{k(1-2k)}{1-k^2}.
 \]
-When $R\le1/2$, one has $k\le2-\sqrt3<27/100$ and $A_0\ge P$, while
+When $R\le1/2$, one has $k\le2-\sqrt3<27/100$ and $A_\star\ge P$, while
 \[
  Q(P)=\frac{k(1-2k)(-f_8(k))}{(1-k^2)^5},
 \]
@@ -254,9 +572,9 @@ Thus $f_8$ is increasing.  At $k_0=2-\sqrt3$,
  \qquad 3\cdot44874^2-77724^2=7452>0.
 \]
 Hence $f_8(k)<0$ for $k\le k_0$, and so $Q(P)>0$.
-When $R>1/2$, $0<A_0<P$ and
+When $R>1/2$, $0<A_\star<P$ and
 \[
- Q(A_0)=\frac{(1-2k)(-g_5(k))}{2(1-k^2)^3},\qquad
+ Q(A_\star)=\frac{(1-2k)(-g_5(k))}{2(1-k^2)^3},\qquad
  g_5(k)=32k^5-118k^4+150k^3-86k^2+18k-1.
 \]
 At $k_0=2-\sqrt3$,
@@ -268,14 +586,20 @@ $3\cdot2004^2-3471^2=207$.  If $y=4k-1\in[0,1]$, then
 \]
 because the displayed quadratic has discriminant $-852$.  Thus $g_5$
 decreases and remains negative for $k>k_0>1/4$, so
-$Q(A_0)>0$.  In either range concavity makes $Q(A)>0$ throughout the
+$Q(A_\star)>0$.  In either range concavity makes $Q(A)>0$ throughout the
 allowed interval, contradicting $Q(A)\le0$ and proving $X>1/2$.
 
 Put $p_1=G_{1-A}(H)$.  If row $3$ is not $T_+^{\rm hi}$, then
 $p_1\le A+e(A)<3A+5A^2<29/64<1/2$, and
-$2R(H-m)=\eta+D-A>\eta-P>0$.  Thus both Full branches are impossible;
-on $L$, $T_-$, or the low-$c$ tie one has $F_{1-m}(p_1)\le p_1$, proving
-\eqref{eq:ce1-suffix}.  We use the following elementary property of a
+$2R(H-m)=\eta+D-A>\eta-P>0$.  Extensivity gives
+$p_1\ge H>m$, while $p_1<1/2<1-m$; thus both Full ranges are impossible.
+On $L$, $T_-$, or the low-$c$ tie one has $F_{1-m}(p_1)\le p_1$, so
+\[
+ G_{1-m}(p_1)\ge1-p_1>1-X.
+\]
+Extensivity of the final reverse map $G_{1-D}$ preserves this strict bound
+and proves \eqref{eq:ce1-suffix}.  It remains to treat the selected row-$3$
+$T_+$ branch.  We use the following elementary property of a
 selected $T_+$ arc.  Put $d=1-c$, let $q=G_c(p)$, and write $u=q-p$.
 The selected equation is
 \[
@@ -283,35 +607,50 @@ The selected equation is
 \]
 On the interior of the arc, $f',g'>0$.  If
 \[
- A_0=f'(q)=1+d-2q,\qquad
- B_0=g'(u)=2(1-d)^2(1-u),
+ \mathsf A=f'(q)=1+d-2q,\qquad
+ \mathsf B=g'(u)=2(1-d)^2(1-u),
 \]
 then
 \[
- u'=\frac{A_0}{B_0},\qquad
- u''=\frac{2((1-d)^2A_0^2-B_0^2)}{B_0^3}.
+ u'=\frac{\mathsf A}{\mathsf B},\qquad
+ u''=\frac{2((1-d)^2\mathsf A^2-\mathsf B^2)}{\mathsf B^3}.
 \]
 Moreover
 \[
- B_0-(1-d)A_0=(1-d)(1-3d+2p+2du)>0
+ \mathsf B-(1-d)\mathsf A=(1-d)(1-3d+2p+2du)>0
 \]
 and
 \[
- B_0-A_0\ge(1-d)(1-2d)>0.
+ \mathsf B-\mathsf A\ge(1-d)(1-2d)>0.
 \]
 Thus $p=q-u$ is increasing and strictly convex as a function of $q$.
 Consequently $q=G_{1-d}(p)$ is increasing and strictly concave on each
 selected arc; a tie endpoint follows by continuity.
 
 When $d<1-\sqrt3/2$, the arc endpoints are
-$(d,d)$ and $(e(d),d+e(d))$.  Its chord and
-$e(d)<2d/(1-2d)$ give
+$(d,d)$ and $(e(d),d+e(d))$, so concavity gives
+\begin{equation}
+ q\ge p+\frac{d}{e(d)-d}(p-d).
+ \label{eq:ce1-selected-chord}
+\end{equation}
+For $0<d\le\mu$, the valid rational low-root bound gives
 \[
- q\ge p+\frac{d}{e(d)-d}(p-d)
- >p+\frac{1-2d}{1+2d}(p-d).
+ \frac{d}{e(d)-d}>\frac{1-2d}{1+2d}>1-4d>1-5d.
 \]
-This is stronger than both the row-$4$ coefficient $1-4d$ and the row-$3$
-coefficient $1-5d$.  In the low-$c$ row-$3$ range
+This covers row $4$, because its parameter is $d=A<P\le\mu$.  For the
+row-$3$ parameter $d=m$, which need not be at most $\mu$, the remaining
+high-radial range is handled without the rational estimate.  If
+$\mu<d\le1/8$, then
+\[
+ \frac{d}{e(d)-d}\ge\frac1{1+5d}>1-5d
+\]
+by $e(d)\le2d+5d^2$.  If
+$1/8<d<1-\sqrt3/2$, then $e(d)<(1-d)/2$ and hence
+\[
+ \frac{d}{e(d)-d}>\frac{2d}{1-3d}>1-5d.
+\]
+The last comparison is equivalent to $15d^2-10d+1<0$; its smaller root
+$(5-\sqrt{10})/15$ is less than $1/8$.  In the low-$c$ row-$3$ range
 $1-\sqrt3/2\le d<1/5$, the other endpoint is
 $(h(1-d),1-h(1-d))$, and the chord coefficient is
 \[
@@ -477,17 +816,54 @@ The low root $e(D)$ is the smaller root of
 \]
 and direct substitution gives
 $H_D(2D+3D^2)=D^2(8D^2+19D-2)<0$.  Hence
-$e(D)<2D+3D^2<p_2$.  Every row-$2$ label now yields
-$G_{1-D}(p_2)>1-X$, proving \eqref{eq:ce1-suffix}.
+$e(D)<2D+3D^2<p_2$.  To check every row-$2$ label explicitly, put
+\[
+ e_D=e(D)=\ell(1-D),\qquad r_D=1-D-e_D.
+\]
+Since $D<1/10$, one has $c_2=1-D>\sqrt3/2$, and the exact catalog is
+\[
+ \begin{array}{c|c|c}
+ \text{input range}&\text{label}&F_{1-D}(p)\\
+ \hline
+ 0\le p\le D&\text{lower Full}&1-p\\
+ D<p\le e_D&T_+&T_+(p,1-D)\\
+ e_D<p<r_D&L&e_D\\
+ r_D\le p<1-D&T_-&T_-(p,1-D)\\
+ 1-D\le p\le1&\text{upper Full}&1-p.
+ \end{array}
+\]
+The inequality $p_2>e_D$ excludes the first two ranges.  On the $L$ range
+$F_{1-D}(p_2)=e_D$; on the $T_-$ range, monotonicity and
+$F_{1-D}(r_D)=e_D$ give $F_{1-D}(p_2)\le e_D$.  Hence in both middle
+ranges
+\[
+ G_{1-D}(p_2)\ge1-e_D>1-X,
+\]
+because
+\[
+ e_D<2D+3D^2<\frac{23}{100}<\frac12<X.
+\]
+Finally, on upper Full,
+\[
+ G_{1-D}(p_2)=p_2\ge1-D>1-X
+\]
+because $X>1/2>D$.  Thus every row-$2$ label gives the strict inequality
+\eqref{eq:ce1-suffix}.
 
-The first and fifth maps are extensive, and therefore
+By the suffix reduction and duality established above,
 \[
  Z>1-H=1-\frac s2.
 \]
-The diameter endpoint
-$\beta(s)=(-s+\sqrt{4-3s^2})/2$ satisfies
-$B_{c_0}(s)\le\beta(s)<1-s/2$.  Thus $Z>B_{c_0}(s)$, contradicting the two
-bounds on $a_0$.
+For any admissible pair of boundary reaches $s,b$, the diameter constraint is
+$s^2+sb+b^2\le1$.  Its positive endpoint
+\[
+ \beta(s)=\frac{-s+\sqrt{4-3s^2}}2
+\]
+therefore satisfies $B_{c_0}(s)\le\beta(s)$.  Since $s>0$,
+$\sqrt{4-3s^2}<2$, and so $\beta(s)<1-s/2$.  Thus
+$Z>B_{c_0}(s)$, contradicting
+\eqref{eq:ce1-fivefold-propagation} and
+\eqref{eq:ce1-supercritical-target}.
 \end{proof}
 
 \begin{proposition}[CE2 one-gap five-map obstruction]
@@ -522,14 +898,65 @@ with $x=k/w$, $y=k/R$, and demands
  \end{aligned}
 \]
 Write $G_i=G_{c_i}$ for $1\le i\le5$.
-Suppose the gap is in $[y,v]$.  Its endpoint bounds give the initial input
-$z_0=1-v=R-\delta$ and target $y$.  From
-\eqref{eq:ce2-normal-domain}, the concavity of
+Since $E\ge\sqrt3/2$ and $E(1-E)$ decreases on this range,
+\begin{equation}
+ 0<\alpha,\delta<P\le\mu<1-\frac{\sqrt3}{2}.
+ \label{eq:ce2-root-range}
+\end{equation}
+Thus all low-root estimates used below are within their stated ranges.
+
+Suppose first that the gap is in $[y,v]$; then $[x,u]$ contains no V-gap.
+The endpoint bounds give
 \[
- \pi(q)=(\eta+q)(1-2q)-2qw,\qquad
- \pi(0)=\eta,\quad \pi(P)=\eta(\eta+2ER^2),
+ B_0\ge y,\qquad A_1\ge z_0:=1-v=R-\delta.
 \]
-and \eqref{eq:low-root-bounds},
+Define all five successive map inputs before using them:
+\begin{equation}
+ z_i=G_i(z_{i-1})\quad(1\le i\le5),
+ \qquad
+ Z_R=z_5=(G_5\circ G_4\circ G_3\circ G_2\circ G_1)(1-v).
+ \label{eq:ce2-right-chain}
+\end{equation}
+As in the CE1 proof, these scalar inputs are dominated by the actual row
+reaches.  Indeed, if $A_i\ge z_{i-1}$, then radial coverage, the
+nonsupercritical cap, and monotonicity give
+\[
+ B_i\le F_{c_i}(z_{i-1}).
+\]
+For $i=1,\ldots,4$ the next edge has no center trace, while for $i=5$ the
+other center interval $[x,u]$ contains no V-gap.  Hence the next open-trace
+handoff gives, with $A_6=A_0$,
+\[
+ A_{i+1}\ge1-B_i\ge G_i(z_{i-1})=z_i.
+\]
+Induction from $A_1\ge z_0$ proves
+\begin{equation}
+ A_0\ge Z_R.
+ \label{eq:ce2-right-actual}
+\end{equation}
+On the supercritical row, $B_0\ge y$ and the actual radial reach is at least
+$c_0$.  Reflection and down-closedness of $\mathcal A$ therefore give
+\begin{equation}
+ A_0\le B_{c_0}(y).
+ \label{eq:ce2-right-target}
+\end{equation}
+
+We next estimate the formal chain.  The second inequality in
+\eqref{eq:ce2-normal-domain} and the identity $Rw=\eta+P$ give
+\[
+ wz_0=Rw-w\delta>\eta+\alpha.
+\]
+The function
+\[
+ \pi(q)=(\eta+q)(1-2q)-2qw
+\]
+is concave, and direct simplification gives
+\[
+ \pi(0)=\eta>0,\qquad
+ \pi(P)=\eta(\eta+2ER^2)>0.
+\]
+Because $0<\alpha<P$, concavity gives $\pi(\alpha)>0$.  Together with
+\eqref{eq:low-root-bounds} and \eqref{eq:ce2-root-range}, this proves
 \begin{equation}
  z_0>\frac{\eta+\alpha}{w}>
  \frac{2\alpha}{1-2\alpha}>e(\alpha).
@@ -540,35 +967,133 @@ Put $Q=y/2=k/(2R)$.  We also have
  \min\{e(\alpha),e(\delta)\}<Q.
  \label{eq:ce2-two-threshold}
 \end{equation}
-For if both roots were at least $Q$, then
-$\alpha,\delta>Q/(2(1+Q))$; eliminating $\eta$ with the first inequality in
-\eqref{eq:ce2-normal-domain} would give $H(Q)>0$, where
+Suppose instead that both roots are at least $Q$.  The strict rational
+low-root bounds then imply
+\[
+ \alpha>L,\qquad\delta>L,
+ \qquad L=\frac{Q}{2(1+Q)}.
+\]
+Since $k=2RQ=\eta+\alpha+\delta$, we obtain
+\[
+ \eta<Q\left(2R-\frac1{1+Q}\right).
+\]
+On the other hand, the first inequality in
+\eqref{eq:ce2-normal-domain} gives
+\begin{align*}
+ \eta E&>\delta+R\alpha
+ =R(\alpha+\delta)+w\delta\\
+ &>R(2RQ-\eta)+wL,
+\end{align*}
+and hence
+\[
+ \eta(E+R)>Q\left(2R^2+\frac{w}{2(1+Q)}\right).
+\]
+Combining the strict upper and lower bounds for $\eta$ gives $H(Q)>0$, where
 \[
  H(q)=\left(2R-\frac1{1+q}\right)(E+R)-2R^2-
  \frac{w}{2(1+q)}.
 \]
-But $H'(q)>0$, $Q<w/(2R)$, and
+But
+\[
+ H'(q)=\frac{E+R+w/2}{(1+q)^2}>0.
+\]
+Moreover $x=k/w<1$ gives $Q<w/(2R)$, and
 \[
  H\left(\frac w{2R}\right)=\frac{R(2RE-R-1)}{R+1}<0,
 \]
 the last sign following from
 $(R+1)^2-4R^2E^2=(1-R)(4R^3+3R+1)>0$.
+Thus $H(Q)<H(w/(2R))<0$, a contradiction.  This proves
+\eqref{eq:ce2-two-threshold}.
 
-If $e(\alpha)<Q$, row $4$ and
-\eqref{eq:high-demand-threshold} give $z_4>1-Q$; otherwise
-\eqref{eq:ce2-two-threshold} gives $e(\delta)<Q$, and
-\eqref{eq:ce2-initial-threshold} makes row $2$ give $z_2>1-Q$.  Extensivity
-of the remaining maps yields
+Every $G_i$ is extensive.  If $e(\alpha)<Q$, then
+$z_3\ge z_0>e(\alpha)$, and $c_4=1-\alpha$ together with
+\eqref{eq:high-demand-threshold} gives
 \[
- Z_R=(G_5\circ G_4\circ G_3\circ G_2\circ G_1)(1-v)>1-y/2.
+ z_4\ge1-e(\alpha)>1-Q.
 \]
-The universal diameter bound for the outgoing fiber gives
+Thus $z_5>1-Q$.  Otherwise $e(\alpha)\ge Q$, so
+\eqref{eq:ce2-two-threshold} and \eqref{eq:ce2-initial-threshold} give
 \[
- B_{c_0}(y)\le\beta(y)<1-y/2.
+ z_1\ge z_0>e(\alpha)\ge Q>e(\delta).
 \]
-Thus $Z_R>B_{c_0}(y)$, contrary to the supercritical row's admissibility.
-Reflection exchanges $(x,u,R,\alpha)$ with $(y,v,w,\delta)$ and reverses the
-five maps, proving the other orientation.
+Since $c_2=1-\delta$, the threshold lemma gives
+\[
+ z_2\ge1-e(\delta)>1-Q,
+\]
+and rows $3,4,5$ preserve this strict inequality.  Hence in both cases
+\begin{equation}
+ Z_R>1-Q=1-\frac y2.
+ \label{eq:ce2-right-lower}
+\end{equation}
+Define again
+\[
+ \beta(q)=\frac{-q+\sqrt{4-3q^2}}2.
+\]
+The universal diameter bound gives
+\[
+ B_{c_0}(y)\le\beta(y)<1-\frac y2.
+\]
+This contradicts \eqref{eq:ce2-right-actual} and
+\eqref{eq:ce2-right-target}.
+
+It remains to record the other orientation explicitly.  Reflection across
+the axis through $V_0$ exchanges
+\[
+ (x,u,R,\alpha)\longleftrightarrow(y,v,w,\delta)
+\]
+and transforms the demand sequence by
+\[
+ (c_1,c_2,c_3,c_4,c_5)
+ \longleftrightarrow(c_5,c_4,c_3,c_2,c_1).
+\]
+Suppose now that the gap is in $[x,u]$, so $[y,v]$ contains no V-gap.  Its
+endpoint bounds give
+\[
+ A_0\ge x,\qquad B_5\ge\widetilde z_0:=1-u.
+\]
+Define the reflected chain by
+\[
+ \widetilde z_1=G_5(\widetilde z_0),\quad
+ \widetilde z_2=G_4(\widetilde z_1),\quad
+ \widetilde z_3=G_3(\widetilde z_2),\quad
+ \widetilde z_4=G_2(\widetilde z_3),\quad
+ \widetilde z_5=G_1(\widetilde z_4).
+\]
+The same one-row argument, now starting with the actual reach $B_5$ and
+traversing rows $5,4,3,2,1$, gives successively
+\[
+ A_j\le F_{c_j}(\widetilde z_{5-j}),\qquad
+ B_{j-1}\ge1-A_j\ge\widetilde z_{6-j}
+ \quad(j=5,4,3,2,1).
+\]
+The last handoff is valid because the other center interval $[y,v]$ has no
+V-gap.  In particular,
+\begin{equation}
+ B_0\ge Z_L:=\widetilde z_5
+ =(G_1\circ G_2\circ G_3\circ G_4\circ G_5)(1-u).
+ \label{eq:ce2-left-actual}
+\end{equation}
+Meanwhile the actual row-$0$ reaches satisfy $A_0\ge x$ and $C_0\ge c_0$.
+Coordinatewise down-closedness gives $(x,B_0,c_0)\in\mathcal A$, and hence
+\begin{equation}
+ B_0\le B_{c_0}(x).
+ \label{eq:ce2-left-target}
+\end{equation}
+If $G_i'$ denotes the $i$th map after reflection, then
+\[
+ G_1'=G_5,\quad G_2'=G_4,\quad G_3'=G_3,
+ \quad G_4'=G_2,\quad G_5'=G_1.
+\]
+The normalized domain, initial-threshold proof, and two-threshold proof are
+invariant under the displayed exchange.  Applying the right-chain argument
+to the reflected variables therefore gives
+\[
+ Z_L>1-\frac x2>B_{c_0}(x),
+\]
+where the last inequality is the same diameter estimate with $x$ in place of
+$y$.  This contradicts \eqref{eq:ce2-left-actual} and
+\eqref{eq:ce2-left-target}, completing both orientations.
 \end{proof}
 
 \begin{proposition}[Positive-gap all-$\Vdzero$, $N_+=1$]
@@ -1151,113 +1676,6 @@ four intervening boundary edges, while their three nonsupercritical caps
 sum to at most three.  This contradiction proves the proposition.
 \end{proof}
 
-\subsection{The exact capped map}
-
-For $1/2<c<1$ put
-\[
- \ell(c)=\frac c2\left(1-\sqrt{4c^2-3}\right),\qquad
- r(c)=c-\ell(c)
-\]
-when $c\ge\sqrt3/2$, and
-\[
- h(c)=\frac{2c}{1+\sqrt{16c^2-3}}.
-\]
-Also define
-\begin{align*}
- T_-(a,c)&=\frac{\sqrt{a^2-ac+c^2}}c-a,\\
- T_+(a,c)&=
- \frac{2(1-a^2)c^2}
- {2ac^2+c+\sqrt{(2ac^2+c)^2-4(1-c^2)(1-a^2)c^2}}.
-\end{align*}
-
-\begin{proposition}[Four-label capped map]
-\label{prop:capped-demand-map}
-For $1/2<c\le\sqrt3/2$,
-\begin{equation}
- F_c(a)=
- \begin{cases}
-  1-a,&0\le a\le1-c,\\
-  T_+(a,c),&1-c<a<h(c),\\
-  h(c),&a=h(c),\\
-  T_-(a,c),&h(c)<a<c,\\
-  1-a,&c\le a\le1.
- \end{cases}
- \label{eq:S2-capped-map-low}
-\end{equation}
-For $\sqrt3/2<c<1$,
-\begin{equation}
- F_c(a)=
- \begin{cases}
-  1-a,&0\le a\le1-c,\\
-  T_+(a,c),&1-c<a\le\ell(c),\\
-  \ell(c),&\ell(c)<a<r(c),\\
-  T_-(a,c),&r(c)\le a<c,\\
-  1-a,&c\le a\le1.
- \end{cases}
- \label{eq:S2-capped-map-high}
-\end{equation}
-Thus there are exactly four labels
-\[
- \mathrm{Full},\qquad L,\qquad T_-,\qquad T_+^{\mathrm{hi}}.
-\]
-At $a=\ell(c)$ in \eqref{eq:S2-capped-map-high},
-$F_c(a)=r(c)$; immediately to its right the value is $\ell(c)$.  This
-downward jump is genuine.  The formal other root of the $T_+$ quadratic is
-not feasible because it violates $c\le2\max\{a,F_c(a)\}$.
-
-The maps $F_c$ are nonincreasing, the maps $G_c=1-F_c$ are nondecreasing
-and extensive, and
-\begin{equation}
- G_c(a)\le z\quad\Longleftrightarrow\quad
- G_c(1-z)\le1-a.
- \label{eq:S2-capped-duality}
-\end{equation}
-\end{proposition}
-
-\begin{proof}
-The cap $a+b\le1$ eliminates the $S$ cell of
-Proposition~\ref{prop:exact-admissible-set}.  On the cap $b=1-a$, the $T$
-inequality reduces to $M(c-M)\le0$; hence the Full face is feasible exactly
-for $a\le1-c$ or $a\ge c$.  Off that face a maximal point lies on $F_L=0$
-or $F_T=0$.  The $L$ equation has roots $\ell(c),r(c)$ and the selector
-$q\le0$ keeps only the smaller coordinate.  The ordered $T$ halves give
-respectively the displayed lower quadratic root $T_+$ and the root $T_-$.
-Their order boundary is $a=b=h(c)$, while their $q=0$ boundaries are
-$(\ell(c),r(c))$ and $(r(c),\ell(c))$.  These observations give
-\eqref{eq:S2-capped-map-low}--\eqref{eq:S2-capped-map-high}, including all equality
-assignments.
-
-Down-closedness gives monotonicity.  Finally,
-\[
- G_c(a)\le z\iff F_c(a)\ge1-z
- \iff(a,1-z,c)\in\mathcal A,\quad a+1-z\le1.
-\]
-Reflection $a\leftrightarrow b$ gives \eqref{eq:S2-capped-duality}.
-\end{proof}
-
-For $0<X<1-\sqrt3/2$ write
-\[
- e(X)=\ell(1-X).
-\]
-The root equation gives the estimates
-\begin{equation}
- X<e(X)<\frac{2X}{1-2X},\qquad
- e(X)\le2X+5X^2\quad(0<X\le1/8),
- \label{eq:low-root-bounds}
-\end{equation}
-and
-\begin{equation}
- a>e(X)\quad\Longrightarrow\quad
- G_{1-X}(a)\ge1-e(X).
- \label{eq:high-demand-threshold}
-\end{equation}
-Indeed, substitution into
-$z^2-(1-X)z+(1-X)^2-(1-X)^4$ gives the two comparisons, and
-\eqref{eq:high-demand-threshold} is read directly from
-\eqref{eq:S2-capped-map-high}.  We shall also use
-$e(X)<2X+3X^2$ for $0<X\le1/10$, obtained from
-$X^2(8X^2+19X-2)<0$.
-
 \begin{lemma}[Free strict-supercritical envelope]
 \label{lem:free-supercritical-envelope}
 For $0\le c<1/2$,
@@ -1282,94 +1700,6 @@ nonattainment.  Differentiation gives
  \mathcal B'(c)=\frac12\left(1+\frac{c-4}{\sqrt{c^2-8c+4}}\right)<0,
 \]
 since $(4-c)^2-(c^2-8c+4)=12$.
-\end{proof}
-
-\subsection{Exact center traces and complementary demands}
-
-The normalization in Proposition~\ref{prop:unique-center-midpoint} lets us
-assume that the unique center midpoint is $M_0$.
-
-\begin{proposition}[Exact CE1 and CE2 formulas]
-\label{prop:center-exact-formulas}
-In the CE1 case there are $0<\lambda<1$, $0\le s<t\le1$, and
-$\rho=\sqrt{1-\lambda+\lambda^2}$ for which
-\[
- T_C\cap e_{0,1}=[s,t]
-\]
-and
-\begin{align*}
- C_0&=\rho+\lambda s-t-\lambda,&
- C_1&=1-\lambda s,&
- C_2&=t+\lambda-1.
-\end{align*}
-The exact domain is
-\begin{gather*}
- C_0>0,\quad C_2>0,\quad
- \lambda s\le\tfrac12,\quad t<1-\tfrac\lambda2,\\
- t>\rho+\lambda s-\frac{1+\lambda}{2},\qquad
- t\ge\rho-\frac{\lambda^2}{1-\lambda}s.
-\end{gather*}
-The center exits on the six arms are
-\begin{align*}
- d_0&=C_1,& d_1&=C_2/\lambda,\\
- d_2&=C_2,& d_3&=\min\{C_0/\lambda,C_2/(1-\lambda)\},\\
- d_4&=C_0,& d_5&=C_0/(1-\lambda).
-\end{align*}
-
-In the CE2 case write
-\[
- T_C\cap e_{5,0}=[x,u],\qquad
- T_C\cap e_{0,1}=[y,v],\qquad S=x+y,\quad
- D=\sqrt{x^2+xy+y^2}.
-\]
-Then
-\begin{gather*}
- 0<x<u<1,\qquad0<y<v<1,\\
- (u+v)S-xy=D,\qquad uS\ge x,\quad vS\ge y,\\
- uS<x+y/2,\qquad vS<y+x/2,
-\end{gather*}
-where the two weak center inequalities are strict for closures of original
-open center roles.  The six exits are
-\[
- \begin{aligned}
- d_0&=1-\frac{xy}{S},&
- d_1&=\frac{vS-y}{x},&
- d_2&=\frac{vS-y}{S},\\
- d_3&=\min\left\{\frac{vS-y}{y},\frac{uS-x}{x}\right\},&
- d_4&=\frac{uS-x}{S},&
- d_5&=\frac{uS-x}{y}.
- \end{aligned}
-\]
-In either case the complementary demand on row $i$ is $c_i=1-d_i$;
-$c_0\le1/2$ and $c_i>1/2$ for $i\ne0$.
-\end{proposition}
-
-\begin{proof}
-In the affine coordinates
-$X=V_0+b(V_1-V_0)+a(V_5-V_0)$, the CE1 triangle is cut out by
-\[
- \begin{aligned}
- F_1&=\lambda b+(1-\lambda)a-\lambda s,\\
- F_2&=-b+\lambda a+t,\\
- F_0&=(1-\lambda)b-a+\rho+\lambda s-t.
- \end{aligned}
-\]
-Substitution of $O,M_0,\ldots,M_5$ and of the six radial parametrizations
-gives the displayed domain and exits.  The last domain inequality is exactly
-the absence of a positive interval on $e_{5,0}$.
-
-For CE2, the side through the initial endpoints has outward normal
-$(\sqrt3S,y-x)/(2D)$.  Rotating it by $\pm120^\circ$, the three support
-constants are
-\[
- \frac{\sqrt3(S-xy)}{2D},\qquad
- \frac{\sqrt3(vS-y)}{2D},\qquad
- \frac{\sqrt3(uS-x)}{2D}.
-\]
-Their sum is $\sqrt3/2$ exactly when $(u+v)S-xy=D$.  Substitution of the
-midpoints gives the four remaining inequalities, and substitution of the
-radial rays gives the six exits.  The inequalities $d_0\ge1/2>d_i$
-for $i\ne0$ are precisely the exact-midpoint conditions.
 \end{proof}
 
 \subsection{Two reusable capped-loss inequalities}
