@@ -1,18 +1,24 @@
-# CE0 All-Vd0 Residual-Core Closure
+# CE0, $N_+=1$, All-Vd0 Residual-Core Theorem
 
 Status: Proven
 
-This note closes the CE0, $N_+=1$, all-Vd0 branch as a direct corollary of
-the center-independent theorem
+This note records the concise independent residual-core theorem for the CE0,
+$N_+=1$, all-Vd0 branch. It is a direct corollary of the center-independent
+theorem
 [`31035_center_independent_all_boundary_obstruction.md`](31035_center_independent_all_boundary_obstruction.md).
+The main-theorem assembly continues to use the direct `3104X` completion
+[`31044_CE0_Nplus1_all_Vd0_direct_completion.md`](../3104X_direct_Vd0_nine_point/31044_CE0_Nplus1_all_Vd0_direct_completion.md)
+as its terminal source for this branch.
 
-## Corollary
+## Theorem
 
 There is no cover of $H$ by seven open unit equilateral triangles for which
 
 - the center role $T_C$ is CE0;
 - all six vertex roles $T_0,\dots,T_5$ are Vd0; and
 - exactly one actual maximal boundary row is supercritical.
+
+Equivalently, the CE0, $N_+=1$, all-Vd0 branch is impossible.
 
 ## Proof
 

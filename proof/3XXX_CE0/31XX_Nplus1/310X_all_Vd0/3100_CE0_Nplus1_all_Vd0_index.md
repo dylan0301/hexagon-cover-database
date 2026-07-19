@@ -9,7 +9,7 @@ package only; proof status is inherited from the numbered source notes below.
 |---|---|---|
 | [`3100X_algorithm2_five_point/31000_CE0_all_Vd0_algorithm2_index.md`](3100X_algorithm2_five_point/31000_CE0_all_Vd0_algorithm2_index.md) | Strategy | Existing algorithm-2 five-point route, with empirical and open components recorded in the package. |
 | [`3101X_six_point/31010_CE0_all_Vd0_six_point_index.md`](3101X_six_point/31010_CE0_all_Vd0_six_point_index.md) | Strategy | Six-point construction and core graph definition package. |
-| [`3103X_residual_core/31030_CE0_all_Vd0_residual_core_strategy.md`](3103X_residual_core/31030_CE0_all_Vd0_residual_core_strategy.md) | Proven | CE0 corollary of the center-independent all-boundary residual-core obstruction. |
+| [`3103X_residual_core/31030_CE0_all_Vd0_residual_core_strategy.md`](3103X_residual_core/31030_CE0_all_Vd0_residual_core_strategy.md) | Proven | Concise independent CE0 residual-core theorem, deduced from the center-independent all-boundary obstruction. |
 | [`3103X_residual_core/31032_symmetric_witness_construction.md`](3103X_residual_core/31032_symmetric_witness_construction.md) | Proven | Uniform sixfold symmetric-core witness and forced-disk radius. |
 | [`3103X_residual_core/31033_asymmetric_witness_construction.md`](3103X_residual_core/31033_asymmetric_witness_construction.md) | Proven | Exact asymmetric witnesses and row-by-row core membership. |
 | [`3103X_residual_core/31034_witness_enclosure_inequality.md`](3103X_residual_core/31034_witness_enclosure_inequality.md) | Proven | Enclosure reduction, ray order, and analytic adjacent overlaps. |
