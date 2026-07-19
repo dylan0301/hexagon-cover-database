@@ -109,15 +109,29 @@ $$
 0<m<\frac w2<\frac12,
 $$
 
-because $A<P=RwE/(1+E)<Rw/2$. In particular, all three demands below lie
-strictly between $1/2$ and $1$:
+because $A<P=RwE/(1+E)<Rw/2$. The six complementary radial demands from
+`2105` are, in the present variables,
 
 $$
-c_2=1-D,
-\qquad
-c_3=1-m,
-\qquad
-c_4=1-A.
+\boxed{
+\begin{aligned}
+c_0&=Rs=\eta+A+D,\\
+c_1&=1-\frac DR,\\
+c_2&=1-D,\\
+c_3&=1-\min\left\{\frac AR,\frac Dw\right\}=1-\frac AR=1-m,\\
+c_4&=1-A,\\
+c_5&=1-\frac Aw.
+\end{aligned}
+}
+$$
+
+Here the formula for $c_3$ uses $RD>wA$. The exact-one-midpoint
+normalization gives $c_0\le1/2$. The bounds $D<R/2$, $A<w/2$, and
+$m<1/2$ give
+
+$$
+\frac12<c_j<1,
+\qquad j=1,2,3,4,5.
 $$
 
 Finally set
@@ -155,20 +169,42 @@ $$
 }
 $$
 
-Indeed, $G_{c_1}(X)\ge X$, the three displayed maps are nondecreasing, and
-$G_{c_5}$ is extensive.
-
-Repeated duality shows that failure of this suffix inequality is equivalent
-to
+Indeed, put $\Phi=G_{c_4}\circ G_{c_3}\circ G_{c_2}$. Since $G_{c_1}$ and
+$G_{c_5}$ are extensive and $\Phi$ is nondecreasing,
 
 $$
-(G_{c_2}\circ G_{c_3}\circ G_{c_4})(H)\le1-X.
+\begin{aligned}
+(G_{c_5}\circ\Phi\circ G_{c_1})(X)
+&\ge(\Phi\circ G_{c_1})(X)\\
+&\ge\Phi(X).
+\end{aligned}
+$$
+
+Repeated duality makes the reduction exact. Namely, failure of the suffix
+inequality is equivalent successively to
+
+$$
+\begin{aligned}
+(G_{c_4}\circ G_{c_3}\circ G_{c_2})(X)\le1-H
+&\quad\Longleftrightarrow\quad
+G_{c_4}(H)
+\le1-(G_{c_3}\circ G_{c_2})(X)\\
+&\quad\Longleftrightarrow\quad
+(G_{c_3}\circ G_{c_4})(H)
+\le1-G_{c_2}(X)\\
+&\quad\Longleftrightarrow\quad
+(G_{c_2}\circ G_{c_3}\circ G_{c_4})(H)
+\le1-X.
+\end{aligned}
 $$
 
 We prove that the reverse composition is strictly greater than $1-X$.
 
 ## From the boundary gap to the analytic target
 
+Use $a_i,b_i$ for the actual boundary reaches as in
+[`1202_local_coordinates_abc.md`](../../../1XXX_foundations/12XX_V_triangle/1202_local_coordinates_abc.md);
+the symbols $c_i$ above are prescribed lower-bound radial demands.
 Let $[s,t]\subset e_{0,1}$ be the maximal closed trace associated with the
 open center role. Suppose it contains the vertex-uncovered set
 $[b_0,1-a_1]$, possibly a singleton. Full boundary coverage puts this set in
@@ -180,21 +216,69 @@ b_0\ge s,
 a_1\ge X=1-t.
 $$
 
-Rows $T_1,\dots,T_5$ are nonsupercritical.  Starting with the actual incoming
-reach $a_1$, the capped-map theorem and boundary coverage give successively
+Let $\widehat c_j$ be the actual radial reach of $T_j$. Radial coverage and
+the relaxation proved in `2105` give
 
 $$
-a_{j+1}\ge G_{c_j}(a_j),
-\qquad j=1,2,3,4,
+\widehat c_j\ge c_j,
+\qquad j=0,1,\dots,5.
 $$
 
-and
+Rows $T_1,\dots,T_5$ are nonsupercritical, so $a_j+b_j\le1$ for these
+rows. Define the formal iterates
 
 $$
-a_0\ge G_{c_5}(a_5).
+z_0=X,
+\qquad
+z_j=G_{c_j}(z_{j-1}),
+\qquad j=1,2,3,4,5.
 $$
 
-Monotonicity therefore implies
+We claim that the actual incoming reaches dominate these iterates. The gap
+bound gives $a_1\ge z_0$. If $a_j\ge z_{j-1}$, the capped-map theorem,
+applied to the actual row $T_j$, and the fact that $F_{c_j}$ is nonincreasing
+give
+
+$$
+b_j\le F_{c_j}(a_j)\le F_{c_j}(z_{j-1}).
+$$
+
+The CE1 center has no trace on the other five boundary edges. Full boundary
+coverage therefore gives $a_{j+1}+b_j\ge1$ for $j=1,2,3,4$ and
+$a_0+b_5\ge1$. Hence, for $j=1,2,3,4$,
+
+$$
+\begin{aligned}
+a_{j+1}
+&\ge1-b_j\\
+&\ge1-F_{c_j}(z_{j-1})\\
+&=G_{c_j}(z_{j-1})=z_j,
+\end{aligned}
+$$
+
+and the same calculation in the fifth row gives
+
+$$
+a_0\ge1-b_5\ge G_{c_5}(z_4)=z_5.
+$$
+
+Thus the induction gives
+
+$$
+a_1\ge z_0,
+\quad
+a_2\ge z_1,
+\quad
+a_3\ge z_2,
+\quad
+a_4\ge z_3,
+\quad
+a_5\ge z_4,
+\quad
+a_0\ge z_5,
+$$
+
+and therefore
 
 $$
 a_0\ge
@@ -203,9 +287,25 @@ Z_{\mathrm{CE1}}
 (G_{c_5}\circ G_{c_4}\circ G_{c_3}\circ G_{c_2}\circ G_{c_1})(X).
 $$
 
-The same triangle $T_0$ has radial reach at least $c_0$ and outgoing reach
-$b_0\ge s$.  Reflection of the exact admissible set, followed by monotonicity
-in both demands, gives
+For the upper bound, the actual row $T_0$ realizes
+$(a_0,b_0,\widehat c_0)$ in the exact admissible set $\mathcal A$ of
+[`2004_admissible_set.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md).
+Since
+$b_0\ge s$ and $\widehat c_0\ge c_0$, coordinatewise down-closure gives
+
+$$
+(a_0,s,c_0)\in\mathcal A.
+$$
+
+Reflection of $\mathcal A$ exchanges the two boundary coordinates, so
+
+$$
+(s,a_0,c_0)\in\mathcal A.
+$$
+
+By the definition of the exact outgoing envelope in
+[`2007_max_b_map.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2007_max_b_map.md),
+this is precisely the bound
 
 $$
 a_0\le B_{c_0}(s).
@@ -227,11 +327,13 @@ $$
 
 The exact scalar lemma
 [`2012_high_radial_low_root_bounds.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2012_high_radial_low_root_bounds.md)
-proves, on the ranges used below,
+proves
 
 $$
 \boxed{
-e(d)<\frac{2d}{1-2d}.
+e(d)<\frac{2d}{1-2d}
+\qquad
+\left(0<d\le\frac{2\sqrt3-3}{4}\right).
 }
 $$
 
@@ -622,13 +724,21 @@ q>p+(1-5m)(p-m).
 $$
 
 This is immediate from $q>p$ when $m\ge1/5$. Suppose $m<1/5$. In the
-high-$c$ range, if $m\le1/8$, the preceding high-$c$ chord estimate gives
-a coefficient greater than $1-4m>1-5m$. If $1/8<m<1-\sqrt3/2$, use
-$e(m)\le(1-m)/2$ to obtain
+high-$c$ range the catalog gives $e(m)>m$. If $m\le1/8$, the second
+estimate in Section 3 gives
 
 $$
 \frac{m}{e(m)-m}
-\ge\frac{2m}{1-3m}>1-5m.
+\ge\frac{1}{1+5m}>1-5m.
+$$
+
+This avoids applying the first estimate of Section 3 beyond its proved
+range. If $1/8<m<1-\sqrt3/2$, the exact formula gives
+$e(m)<(1-m)/2$, and hence
+
+$$
+\frac{m}{e(m)-m}
+>\frac{2m}{1-3m}>1-5m.
 $$
 
 The last inequality is equivalent to
@@ -921,22 +1031,58 @@ p_2>L_2>2D+3D^2>e(D).
 }
 $$
 
-This strict inequality handles every row-2 selector:
+Here $c_2=1-D>\sqrt3/2$. Put
 
-- lower Full and $T_+$ are impossible because $p_2>e(D)$;
-- on L or $T_-$, the catalog gives
-  $F_{1-D}(p_2)\le e(D)$, and hence
-  $G_{1-D}(p_2)\ge1-e(D)>1-X$, where the last strict inequality follows
-  from
+$$
+e_D=e(D)=\ell(1-D),
+\qquad
+r_D=(1-D)-e_D.
+$$
 
-  $$
-  e(D)<2D+3D^2<\frac{23}{100}<\frac12<X;
-  $$
+The exact high-radial catalog partitions the row-2 input axis into
 
-- on upper Full, $G_{1-D}(p_2)=p_2\ge1-D>1-X$, because
-  $X>1/2>D$.
+$$
+\begin{array}{c|c|c}
+\text{input range}&\text{label}&F_{1-D}(p)\\
+\hline
+0\le p\le D&\text{lower Full}&1-p\\
+D<p\le e_D&T_+&T_+(p,1-D)\\
+e_D<p<r_D&L&e_D\\
+r_D\le p<1-D&T_-&T_-(p,1-D)\\
+1-D\le p\le1&\text{upper Full}&1-p.
+\end{array}
+$$
 
-Therefore every reverse branch satisfies
+Since $p_2>e_D$, the lower Full and $T_+$ ranges are impossible. On the
+$L$ range, $F_{1-D}(p_2)=e_D$. On the $T_-$ range, monotonicity and the
+transition value $F_{1-D}(r_D)=e_D$ give
+
+$$
+F_{1-D}(p_2)\le e_D.
+$$
+
+Thus in either of these middle ranges,
+
+$$
+G_{1-D}(p_2)
+\ge1-e_D
+>1-X,
+$$
+
+where the last strict inequality follows from
+
+$$
+e_D<2D+3D^2<\frac{23}{100}<\frac12<X.
+$$
+
+Finally, on upper Full one has
+
+$$
+G_{1-D}(p_2)=p_2\ge1-D>1-X,
+$$
+
+because $X>1/2>D$. Therefore every row-2 selector satisfies the required
+strict inequality. Equivalently,
 
 $$
 (G_{c_2}\circ G_{c_3}\circ G_{c_4})(H)>1-X.

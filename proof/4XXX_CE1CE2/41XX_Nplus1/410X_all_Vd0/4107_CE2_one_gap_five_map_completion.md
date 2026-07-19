@@ -172,9 +172,23 @@ $$
 
 ## From a boundary gap to the analytic targets
 
-Suppose first that the active vertex-uncovered set
+Use the actual boundary reaches $a_i,b_i$ from
+[`1202_local_coordinates_abc.md`](../../../1XXX_foundations/12XX_V_triangle/1202_local_coordinates_abc.md),
+and write $\widehat c_i$ for the actual radial reach of $T_i$.  Thus the
+symbols $c_i$ above remain lower-bound demands.  The radial-exit theorem
+`2106` gives
+
+$$
+\widehat c_i\ge c_i
+\qquad (i=0,\dots,5).
+$$
+
+Suppose first that the unique active vertex-uncovered set
 $[b_0,1-a_1]$, possibly a singleton, lies in the open center trace associated
-with $[y,v]\subset e_{0,1}$. Boundary coverage gives
+with $[y,v]\subset e_{0,1}$, while the trace associated with $[x,u]$ contains
+no V-gap.  The weak endpoint bounds proved in Section 2 of
+[`4101_CE1CE2_Nplus1_all_Vd0_strategy.md`](4101_CE1CE2_Nplus1_all_Vd0_strategy.md)
+give
 
 $$
 b_0\ge y,
@@ -182,19 +196,97 @@ b_0\ge y,
 a_1\ge1-v.
 $$
 
-The five rows $T_1,\dots,T_5$ are nonsupercritical.  Applying the capped-map
-upper bound at each row and using boundary coverage on the next edge gives
+The same section of `4101` shows that absence of a V-gap is equivalent to a
+strict handoff.  Since the displayed gap is the unique gap, the other five
+edges therefore satisfy
 
 $$
-a_0\ge
+a_{i+1}>1-b_i
+\qquad (i=1,\dots,4),
+$$
+
+and the fifth-row return satisfies
+
+$$
+a_0>1-b_5.
+$$
+
+Define, once for this orientation,
+
+$$
+z_0=1-v=R-\delta,
+\qquad
+z_i=G_i(z_{i-1})
+\quad (i=1,\dots,5),
+$$
+
+and hence
+
+$$
 Z_{\mathrm{CE2}}^R
 :=
+z_5=
 (G_5\circ G_4\circ G_3\circ G_2\circ G_1)(1-v).
 $$
 
-The same triangle $T_0$ has outgoing reach at least $y$ and radial reach at
-least $c_0$.  Reflection of the exact admissible set and monotonicity in the
-two demands therefore give
+Here is the full passage from the actual rows to this formal composition.
+The initial endpoint bound is $a_1\ge z_0$.  For $1\le i\le4$, suppose
+inductively that $a_i\ge z_{i-1}$.  The row $T_i$ is nonsupercritical by
+Section 1 of `4101`, and its actual reaches satisfy
+
+$$
+a_i\ge z_{i-1},
+\qquad
+\widehat c_i\ge c_i.
+$$
+
+The proof-safe capped-map bound in `2011` therefore gives
+
+$$
+b_i\le F_{c_i}(z_{i-1})=F_i(z_{i-1}).
+$$
+
+Combining this with the strict handoff on the next edge yields
+
+$$
+\begin{aligned}
+a_{i+1}
+&>1-b_i\\
+&\ge1-F_i(z_{i-1})\\
+&=G_i(z_{i-1})\\
+&=z_i.
+\end{aligned}
+$$
+
+This proves successively $a_2\ge z_1,\dots,a_5\ge z_4$.  Applying the same
+capped-map bound to the nonsupercritical fifth row and then using the final
+return handoff gives
+
+$$
+\begin{aligned}
+a_0
+&>1-b_5\\
+&\ge1-F_5(z_4)\\
+&=G_5(z_4)\\
+&=z_5
+=Z_{\mathrm{CE2}}^R.
+\end{aligned}
+$$
+
+Thus, in particular,
+
+$$
+a_0\ge Z_{\mathrm{CE2}}^R.
+$$
+
+The same triangle $T_0$ has outgoing reach $b_0\ge y$ and actual radial reach
+$\widehat c_0\ge c_0$.  Reflection of the local admissible set proved in
+[`2004_admissible_set.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md)
+interchanges the two boundary demands and preserves the radial demand.  The
+same result proves coordinatewise down-closure, so
+$(y,a_0,c_0)$ is admissible.  The definition of the exact unclassified map in
+[`2007_max_b_map.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2007_max_b_map.md)
+therefore gives
 
 $$
 a_0\le B_{c_0}(y).
@@ -206,18 +298,23 @@ $$
 Z_{\mathrm{CE2}}^R>B_{c_0}(y)
 $$
 
-is proved.  Reflection across the axis through $V_0$ changes the left-gap
-orientation into the right-gap orientation and changes the required target
-to
+is proved.  For the left-gap orientation, put
 
 $$
 Z_{\mathrm{CE2}}^L
 :=
-(G_1\circ G_2\circ G_3\circ G_4\circ G_5)(1-u)
->B_{c_0}(x).
+(G_1\circ G_2\circ G_3\circ G_4\circ G_5)(1-u).
 $$
 
-Sections 5--7 prove precisely these two inequalities.
+The reflected row-by-row argument in Section 7 will give
+$b_0\ge Z_{\mathrm{CE2}}^L$ and $b_0\le B_{c_0}(x)$.  Thus the remaining
+analytic targets proved in Sections 5--7 are precisely
+
+$$
+Z_{\mathrm{CE2}}^R>B_{c_0}(y),
+\qquad
+Z_{\mathrm{CE2}}^L>B_{c_0}(x).
+$$
 
 ## 2. The scalar low-root bounds
 
@@ -235,9 +332,15 @@ e(X)=\ell(1-X)
 \left(1-\sqrt{4(1-X)^2-3}\right).
 $$
 
+Also put
+
+$$
+\mu=\frac{2\sqrt3-3}{4}.
+$$
+
 The scalar-root lemma in
 [`2012`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2012_high_radial_low_root_bounds.md)
-gives
+gives, on the smaller range $0<X\le\mu$,
 
 $$
 \boxed{
@@ -245,7 +348,8 @@ X<e(X)<\frac{2X}{1-2X}.
 }
 $$
 
-The high-demand threshold lemma in the same file gives
+The high-demand threshold lemma in the same file holds on the full range
+$0<X<1-\sqrt3/2$ and gives
 
 $$
 \boxed{
@@ -262,7 +366,7 @@ $$
 P\le
 \frac{\sqrt3}{2}
 \left(1-\frac{\sqrt3}{2}\right)
-=:\mu
+=\mu
 =\frac{2\sqrt3-3}{4}.
 $$
 
@@ -282,13 +386,8 @@ because $7>4\sqrt3$.
 
 ## 3. A universal lower bound for the initial input
 
-In the right-gap orientation, the five-map chain starts at
-
-$$
-z_0=1-v=R-\delta.
-$$
-
-The second strict domain inequality gives
+For the right-gap input $z_0$ defined above, the second strict domain
+inequality gives
 
 $$
 wz_0
@@ -451,30 +550,9 @@ contradicting $H(Q)>0$.  The two-threshold lemma follows.
 
 ## 5. Completion of the right-gap five-map inequality
 
-Define successive inputs by
-
-$$
-z_1=G_1(z_0),
-\qquad
-z_2=G_2(z_1),
-\qquad
-z_3=G_3(z_2),
-$$
-
-$$
-z_4=G_4(z_3),
-\qquad
-z_5=G_5(z_4).
-$$
-
-Then
-
-$$
-z_5=Z_{\mathrm{CE2}}^R.
-$$
-
-Every map is extensive, so every later input is at least $z_0$ and any
-strict lower bound, once obtained, persists through the rest of the chain.
+For the successive inputs $z_1,\dots,z_5$ defined in the geometric induction
+above, every map is extensive.  Thus every later input is at least $z_0$, and
+any strict lower bound, once obtained, persists through the rest of the chain.
 
 If $e(\alpha)<Q$, then $z_3\ge z_0>e(\alpha)$.  Since $c_4=1-\alpha$, the
 threshold lemma at row $4$ gives
@@ -546,10 +624,30 @@ $$
 
 This proves the required right-gap inequality.
 
+Together with the actual-row bounds from the geometric induction,
+
+$$
+a_0\ge Z_{\mathrm{CE2}}^R
+>B_{c_0}(y)
+\ge a_0,
+$$
+
+which is the required contradiction in the right-gap orientation.
+
 ## 7. Exact reflection and the left-gap target
 
-Reflect the configuration across the symmetry axis through $V_0$.  On the
-normalized variables this exchanges
+Suppose now that the unique gap lies in the trace $[x,u]\subset e_{5,0}$.
+In the coordinate on this edge measured from $V_0$, the vertex-uncovered set
+is $[a_0,1-b_5]$.  Its containment in the open center trace $(x,u)$ gives
+
+$$
+a_0\ge x,
+\qquad
+b_5\ge1-u.
+$$
+
+Reflect the configuration across the symmetry axis through $V_0$, and use
+primes for the reflected data.  On the normalized variables this exchanges
 
 $$
 x\longleftrightarrow y,
@@ -561,8 +659,26 @@ R\longleftrightarrow w,
 \alpha\longleftrightarrow\delta.
 $$
 
-The strict normalized CE2 domain is invariant.  The radial demands transform
-in the exact order
+The strict normalized CE2 domain is invariant.  Reflection fixes row $0$ and
+reverses rows $1,\dots,5$.  It interchanges incoming and outgoing actual
+boundary reaches, so
+
+$$
+a'_0=b_0,
+\qquad
+b'_0=a_0,
+$$
+
+and
+
+$$
+a'_i=b_{6-i},
+\qquad
+b'_i=a_{6-i}
+\qquad (i=1,\dots,5).
+$$
+
+The radial demands transform in the exact order
 
 $$
 (c_1,c_2,c_3,c_4,c_5)
@@ -570,7 +686,8 @@ $$
 (c_5,c_4,c_3,c_2,c_1).
 $$
 
-Let primes denote the reflected maps.  Then
+In particular, $c'_0=c_0$ and $c'_i=c_{6-i}$ for $1\le i\le5$.  The
+reflected maps consequently satisfy
 
 $$
 G'_1=G_5,
@@ -591,8 +708,41 @@ G'_5\circ G'_4\circ G'_3\circ G'_2\circ G'_1
 =G_1\circ G_2\circ G_3\circ G_4\circ G_5.
 $$
 
-Its initial input is $1-v'=1-u$, and its right target is $y'=x$.  Applying
-the already proved right-gap inequality to the reflected configuration gives
+Its initial actual reach is
+
+$$
+a'_1=b_5\ge1-u=1-v',
+$$
+
+and its right-gap endpoint demand is
+
+$$
+b'_0=a_0\ge x=y'.
+$$
+
+The five-row geometric induction already proved above, now applied in the
+reflected order $T_5,T_4,T_3,T_2,T_1$, gives
+
+$$
+\begin{aligned}
+b_0=a'_0
+&\ge
+(G'_5\circ G'_4\circ G'_3\circ G'_2\circ G'_1)(1-v')\\
+&=(G_1\circ G_2\circ G_3\circ G_4\circ G_5)(1-u)\\
+&=Z_{\mathrm{CE2}}^L.
+\end{aligned}
+$$
+
+Meanwhile $a_0\ge x$ and $\widehat c_0\ge c_0$.  Coordinatewise
+down-closure gives the admissible triple $(x,b_0,c_0)$, so the
+defining upper bound for the exact map $B_{c_0}$ gives
+
+$$
+b_0\le B_{c_0}(x).
+$$
+
+It remains to compare the two bounds.  Applying the already proved analytic
+right-gap inequality to the reflected parameters gives
 
 $$
 \boxed{
@@ -616,7 +766,16 @@ Z_{\mathrm{CE2}}^L>B_{c_0}(x).
 }
 $$
 
-This proves the required left-gap inequality.
+Combining this with the two actual-row bounds gives
+
+$$
+b_0\ge Z_{\mathrm{CE2}}^L
+>B_{c_0}(x)
+\ge b_0,
+$$
+
+a contradiction.  This proves the required left-gap inequality and eliminates
+the reflected orientation.
 
 ## 8. Conclusion
 
