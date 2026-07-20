@@ -16,7 +16,9 @@ There are two exhaustive branches.
 
 The reusable Vd1/Vd2 geometry has been moved to the `2XXX` block: `2014`
 contains the corner normal form, while `2015` contains the Vd2
-neighbor-midpoint cap.
+neighbor-midpoint cap.  The rational half-edge radial envelope appearing in
+the adjacent placement is also isolated, with its exact domain counterexample,
+in `2012`.
 
 ## Files
 
@@ -24,7 +26,7 @@ neighbor-midpoint cap.
 |---|---|---|
 | [`4141_CE2_Nplus1_one_Vd1_S_half_cover_candidate.md`](4141_CE2_Nplus1_one_Vd1_S_half_cover_candidate.md) | Empirical | Historical visual candidate; not used in the proof. |
 | [`4143_CE2_Nplus1_T0_Vd1_M1_T1_supercritical_obstruction.md`](4143_CE2_Nplus1_T0_Vd1_M1_T1_supercritical_obstruction.md) | Proven | Vd1 row at $V_0$ rescuing the adjacent supercritical row. |
-| [`4144_CE2_Nplus1_T0_supercritical_T1_Vd1_Vd2_adjacent_obstruction.md`](4144_CE2_Nplus1_T0_supercritical_T1_Vd1_Vd2_adjacent_obstruction.md) | Proven | Supercritical row at $V_0$ and adjacent Vd1/Vd2 row. |
+| [`4144_CE2_Nplus1_T0_supercritical_T1_Vd1_Vd2_adjacent_obstruction.md`](4144_CE2_Nplus1_T0_supercritical_T1_Vd1_Vd2_adjacent_obstruction.md) | Proven | Supercritical row at $V_0$ and adjacent Vd1/Vd2 row; [`2012`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2012_high_radial_low_root_bounds.md) records the reusable half-edge envelope and its exact domain limit. |
 | [`4146_CE2_Nplus1_T0_supercritical_nonadjacent_Vd1_Vd2_obstruction.md`](4146_CE2_Nplus1_T0_supercritical_nonadjacent_Vd1_Vd2_obstruction.md) | Proven | Supercritical row at $V_0$ and non-adjacent Vd1/Vd2 row. |
 | [`4147_CE2_Nplus1_Vd1_supercritical_pair_axis_replacement.md`](4147_CE2_Nplus1_Vd1_supercritical_pair_axis_replacement.md) | Proven | Vd1--supercritical pair replacement and radial bridge. |
 | [`4148_CE2_Nplus1_exactly_one_Vd1_Vd2_assembly.md`](4148_CE2_Nplus1_exactly_one_Vd1_Vd2_assembly.md) | Proven | Exhaustive placement assembly. |
