@@ -1,0 +1,143 @@
+\subsection{A reusable half-edge radial envelope}
+
+The adjacent CE2 placement above uses a rational upper bound for a single
+admissible-set fiber.  We isolate it here because the domain restriction is
+essential and because the same formula is false on the full nonsupercritical
+fiber domain.
+
+\begin{lemma}[Half-edge rational radial envelope]
+\label{lem:half-edge-radial-envelope}
+Suppose
+\[
+ \frac12\le p<1,\qquad 0\le h\le p,\qquad p+h<1.
+\]
+Then
+\begin{equation}
+ c_{\max}(p,h)\le1-\frac h3.
+ \label{eq:half-edge-radial-envelope}
+\end{equation}
+The inequality is strict when the selected admissible-set component is
+$\mathcal A_T$.
+\end{lemma}
+
+\begin{proof}
+Put
+\[
+ s=p+h,\qquad d=p^2+ph+h^2,\qquad q=s^4-s^2+ph.
+\]
+Because $s<1$, one has $d=s^2-ph<1$, so only the two nonsupercritical cells
+of Proposition~\ref{prop:exact-admissible-set} occur.  Since $p\ge h$, in
+$\mathcal A_L$ the selected radial value is the unique root
+$C_L(h)\in[\sqrt3/2,1]$ of
+\[
+ P_h(c):=c^4-c^2+hc-h^2=0,
+\]
+with $C_L(0)=1$.  In $\mathcal A_T$ the selector $c\le2p$ keeps the smaller
+geometric root
+\[
+ C_T(p,h)=\frac{2p}{1+\sqrt{4s^2-3}}.
+\]
+The two expressions agree when $q=0$.
+
+First assume $q\le0$.  If $h\ge3/8$, then $p\ge1/2$ and $s\ge7/8$.  On this
+region
+\[
+ \frac{\partial q}{\partial p}=4s^3-2s+h
+ \ge4\left(\frac78\right)^3-2\left(\frac78\right)+\frac38
+ =\frac{167}{128}>0.
+\]
+Moreover
+\[
+ \frac{d}{dh}q\left(\frac12,h\right)
+ =h(4h^2+6h+1)>0.
+\]
+Thus
+\[
+ q(p,h)\ge q\left(\frac12,\frac38\right)=\frac{33}{4096}>0,
+\]
+a contradiction.  Hence $0\le h<3/8$.  At
+$c_0=1-h/3$,
+\[
+ P_h(c_0)=\frac h{81}\left(h^3-12h^2-63h+27\right).
+\]
+The cubic in parentheses decreases on $[0,3/8]$ and has value $891/512$ at
+$3/8$, so this expression is positive for $h>0$.  Also
+$c_0>7/8>\sqrt3/2$, and
+\[
+ P_h'(c)=c(4c^2-2)+h>0\qquad(c\ge\sqrt3/2).
+\]
+Therefore the selected root lies below $c_0$.  The case $h=0$ gives equality.
+
+Now assume $q>0$.  Put
+\[
+ r=\sqrt{4s^2-3},\qquad \delta=\frac{p-h}{s}.
+\]
+The exact identity
+\[
+ \frac q{s^2}=\frac{r^2-\delta^2}{4}
+\]
+gives $0\le\delta<r$.  Thus $r>0$ and we may write
+$\delta=wr$ with $0\le w<1$.  Then
+\[
+ p=\frac{s(1+wr)}2,\qquad
+ h=\frac{s(1-wr)}2,
+\]
+and
+\[
+ C_T(p,h)=\frac{s(1+wr)}{1+r}.
+\]
+For fixed $s,r$, set
+\[
+ \Psi(w)=C_T(p,h)+\frac h3.
+\]
+A direct differentiation gives
+\[
+ \Psi'(w)=\frac{sr(5-r)}{6(1+r)}>0,
+\]
+so
+\[
+ \Psi(w)<\Psi(1)=\frac{s(7-r)}6.
+\]
+The hypothesis $p\ge1/2$ gives $s(1+wr)=2p\ge1$, and hence
+$s(1+r)\ge1$.  This forces $r>1/8$: otherwise
+\[
+ 4s^2(1+r)^2=(r^2+3)(1+r)^2
+ \le\frac{193}{64}\frac{81}{64}
+ =\frac{15633}{4096}<4.
+\]
+Finally,
+\[
+ 144-(r^2+3)(7-r)^2
+ =(1-r)(r^3-13r^2+39r-3).
+\]
+On $[1/8,1]$ the cubic factor is increasing because its derivative
+$3r^2-26r+39$ is at least $16$, and its value at $1/8$ is $857/512>0$.
+Since $1/8<r<1$, it follows that
+\[
+ \frac{s(7-r)}6<1.
+\]
+Consequently $C_T(p,h)+h/3<1$, which proves the strict $\mathcal A_T$ case.
+\end{proof}
+
+\begin{remark}[Exact domain limitation]
+The hypothesis $p\ge1/2$ cannot be removed.  At
+\[
+ p=h=\frac25
+\]
+one has $d=12/25<1$, $s=4/5<1$, and $q=-44/625<0$, so the selected
+component is $\mathcal A_L$.  At the proposed cap $c_0=13/15$,
+\[
+ P_{2/5}\left(\frac{13}{15}\right)
+ =-\frac{14}{50625}<0,
+ \qquad
+ P_{2/5}(1)=\frac6{25}>0.
+\]
+Since $13/15>\sqrt3/2$ and $P_{2/5}$ is strictly increasing on the selected
+root interval,
+\[
+ c_{\max}\left(\frac25,\frac25\right)>\frac{13}{15}.
+\]
+Thus Lemma~\ref{lem:half-edge-radial-envelope} is a necessary relaxation only
+on its stated half-edge domain; it does not define a global replacement for
+the fibers $B_c$, $F_c$, or $G_c$.
+\end{remark}
