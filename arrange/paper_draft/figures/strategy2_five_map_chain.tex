@@ -1,0 +1,18 @@
+\begin{tikzpicture}[node distance=10mm and 10mm]
+  \node[draw,rounded corners,fill=CenterBlue!8,inner sep=4pt] (z0) {$z_0$ from the center gap};
+  \node[draw,rounded corners,right=of z0,inner sep=4pt] (z1) {$z_1$};
+  \node[draw,rounded corners,right=of z1,inner sep=4pt] (z2) {$z_2$};
+  \node[draw,rounded corners,right=of z2,inner sep=4pt] (z3) {$z_3$};
+  \node[draw,rounded corners,below=of z3,inner sep=4pt] (z4) {$z_4$};
+  \node[draw,rounded corners,left=of z4,inner sep=4pt] (z5) {$z_5$};
+  \node[draw,rounded corners,fill=DemandRed!8,left=of z5,inner sep=4pt] (end) {row-$0$ capacity};
+  \draw[flow] (z0)--node[figlabel,above] {$G_{c_1}$} (z1);
+  \draw[flow] (z1)--node[figlabel,above] {$G_{c_2}$} (z2);
+  \draw[flow] (z2)--node[figlabel,above] {$G_{c_3}$} (z3);
+  \draw[flow] (z3)--node[figlabel,right] {$G_{c_4}$} (z4);
+  \draw[flow] (z4)--node[figlabel,above] {$G_{c_5}$} (z5);
+  \draw[-{Stealth[length=2mm]},DemandRed,line width=.9pt]
+    (z5)--node[figlabel,above] {$z_5>B_{c_0}(s)$} (end);
+  \node[figlabel,align=center,below=9mm of z5]
+    {each arrow is an inequality for an actual next-row reach, not merely a formal composition};
+\end{tikzpicture}

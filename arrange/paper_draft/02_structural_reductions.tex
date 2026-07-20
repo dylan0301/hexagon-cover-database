@@ -375,6 +375,38 @@ In particular, equality gives a singleton gap.  This convention records the
 actual open traces; a point missing from both open roles is not erased merely
 because both closures contain it.
 
+\begin{figure}[H]
+\centering
+\input{figures/handoff_and_gap}
+\caption{One-dimensional trace model; only the drawn lengths are schematic.
+The top panel shows a strict handoff in the overlap
+$(1-A_{i+1},B_i)$.  The bottom panel shows the closed gap
+$[B_i,1-A_{i+1}]$; when its endpoints coincide, the resulting singleton is
+still uncovered by the two open traces.}
+\label{fig:handoff-gap}
+\end{figure}
+
+\begin{lemma}[Exhaustiveness of the gap split]
+\label{lem:gap-exhaustion}
+On each edge the complement of the two incident vertex-role traces is either
+empty or one closed interval; a singleton interval counts as a gap.  Every
+edge having a gap has positive-length intersection with the open center
+role.  Consequently a $\CEzero$ center permits no gaps, a $\CEone$ center
+permits at most one, and a $\CEtwo$ center permits at most two.
+\end{lemma}
+
+\begin{proof}
+The two incident traces are intervals issuing from the two endpoints, so
+their complement is exactly the interval displayed above when nonempty.  A
+nonincident vertex role cannot contain a relative-interior point of the edge:
+that point is more than unit distance from the role's distinguished vertex.
+Thus every point of a gap lies in $U_C$.  Because $U_C$ is open, its
+intersection with that edge contains a relative neighborhood and hence has
+positive length.  Different gap edges therefore give different edges counted
+by $N_E(T_C)$.  Proposition~\ref{prop:ce-classification} gives the three
+stated bounds, including singleton gaps.
+\end{proof}
+
 \begin{lemma}[T3-like rows are nonsupercritical]
 \label{lem:t3-nonsupercritical}
 Every original T3-like row satisfies

@@ -1,0 +1,21 @@
+\begin{tikzpicture}[scale=2.05]
+  \HexCoords
+  \DrawHexagon
+  \DrawRays
+  \fill[CenterBlue] (O) circle (.025);
+  \node[figlabel,below left] at (O) {$O$; center role $U_C$};
+  \foreach \i in {0,...,5}{
+    \fill (V\i) circle (.022);
+    \fill[white,draw=RadialTeal,line width=.5pt]
+      ($(O)!.5!(V\i)$) circle (.019);
+  }
+  \node[figlabel,right] at (V0) {$V_0$; role $U_0$};
+  \node[figlabel,above right] at (V1) {$V_1$; role $U_1$};
+  \node[figlabel,above left] at (V2) {$V_2$; role $U_2$};
+  \node[figlabel,left] at (V3) {$V_3$; role $U_3$};
+  \node[figlabel,below left] at (V4) {$V_4$; role $U_4$};
+  \node[figlabel,below right] at (V5) {$V_5$; role $U_5$};
+  \node[figlabel,above] at ($(O)!.5!(V0)$) {$M_0$};
+  \node[figlabel,above right] at ($(O)!.68!(V1)$) {$r_1$};
+  \node[figlabel,above right] at ($(V0)!.53!(V1)$) {$e_{0,1}$};
+\end{tikzpicture}

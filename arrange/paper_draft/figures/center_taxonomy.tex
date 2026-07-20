@@ -1,0 +1,20 @@
+\begin{tikzpicture}[scale=.86]
+  \foreach \x/\name in {0/$\mathrm{CE0}$,4/$\mathrm{CE1}$,8/$\mathrm{CE2}$}{
+    \begin{scope}[xshift=\x cm]
+      \coordinate (a0) at (1,0);
+      \coordinate (a1) at (.5,.866);
+      \coordinate (a2) at (-.5,.866);
+      \coordinate (a3) at (-1,0);
+      \coordinate (a4) at (-.5,-.866);
+      \coordinate (a5) at (.5,-.866);
+      \draw[hex] (a0)--(a1)--(a2)--(a3)--(a4)--(a5)--cycle;
+      \draw[centerrole] (-.53,-.40)--(.60,-.23)--(-.08,.64)--cycle;
+      \node[panellabel] at (0,-1.25) {\name};
+    \end{scope}
+  }
+  \draw[demand] ($(4,0)+(1,0)!.32!(.5,.866)$)--($(4,0)+(1,0)!.70!(.5,.866)$);
+  \draw[demand] ($(8,0)+(1,0)!.18!(.5,.866)$)--($(8,0)+(1,0)!.62!(.5,.866)$);
+  \draw[demand] ($(8,0)+(1,0)!.18!(.5,-.866)$)--($(8,0)+(1,0)!.62!(.5,-.866)$);
+  \node[figlabel,align=center,text=DemandRed] at (6,-1.72)
+    {red segments are the positive-length traces of $T_C$ on $\partial H$};
+\end{tikzpicture}

@@ -1,7 +1,7 @@
-\section{Strategy 2: exact boundary--radial demand propagation}
-\label{sec:exact-demand}
+\section{Exact formulas and technical proofs for Strategy 2}
+\label{app:strategy2-details}
 
-This section treats the configurations in which a coarse length sum does not
+This appendix treats the configurations in which a coarse length sum does not
 by itself record enough information.  The mechanism is always the same.  A
 center trace fixes boundary inputs and complementary radial demands; an exact
 local map propagates these data through nonsupercritical rows; and the
@@ -1303,8 +1303,8 @@ applies unchanged.  If both center intervals contain gaps, put
  p=1-u,\quad q=1-v,\quad r=\frac{x}{x+y},\quad
  w=\frac{y}{x+y}.
 \]
-The far endpoint roles have inputs at least $p,q$ and radial demands
-$p/w,q/r$.  Lemma~\ref{lem:two-endpoint-capped-loss} again makes their two
+The far endpoint roles have inputs at least $p$ and $q$, with radial demands
+$p/w$ and $q/r$.  By Lemma~\ref{lem:two-endpoint-capped-loss}, their two
 outgoing reaches sum to less than one, and the same middle three-row budget
 is impossible.  These are the no-, one-, and two-active-interval states,
 and are exhaustive.
@@ -2351,34 +2351,23 @@ $e_{5,0}$ tail.  The corner cap gives
  A+H<\frac12.
  \label{eq:adjacent-AH}
 \end{equation}
-The exact radial envelope of Proposition~\ref{prop:exact-admissible-set},
-including the Cell-$T$ selector $c\le2M$, gives
+Apply Lemma~\ref{lem:half-edge-radial-envelope} with
+$p=1/2+A$ and $h=H$.  Equation~\eqref{eq:adjacent-AH} gives
+\[
+ p\ge\frac12,\qquad 0\le h\le p,\qquad p+h<1,
+\]
+so every hypothesis of that lemma is present.  It gives
 \begin{equation}
  c_{\max}\left(\frac12+A,H\right)\le1-\frac H3.
  \label{eq:adjacent-envelope}
 \end{equation}
-For completeness, at $c=1-H/3$ the Cell-$L$ polynomial is
-\[
- \frac{H}{81}(H^3-12H^2-63H+27)>0
- \quad(0<H\le3/8),
-\]
-while the Cell-$T$ expression is increasing in the larger boundary input
-$p\in[1/2,1-H]$; at the order-change point it is nonnegative, and if the
-cell is already active at $p=1/2$ its endpoint sign is
-$H^4-5H^3+9H^2/4+12H-9/2>0$.  Also $1-H/3\le2p$, so the selected, rather
-than discarded, component is used.  This proves \eqref{eq:adjacent-envelope}.
-
-The CE2 coupling and \eqref{eq:adjacent-AH} give the strict outer ratio
+The exact CE2 coupling, the disk constraints for $T_0$ and the center role,
+and \eqref{eq:adjacent-AH} are precisely the hypotheses of
+Lemma~\ref{lem:ce2-adjacent-outer-ratio}.  Therefore
 \begin{equation}
  d_2^C<\frac H3.
  \label{eq:adjacent-outer-ratio}
 \end{equation}
-There are two endpoint sources for $H$.  If $H=1-u$, put
-$K=x+2y-xy-D$; then $d_2^C/H=1-K/(SH)$, and the diameter endpoint bounds
-give $K/(SH)>2/3$.  If $H=1-a_0$, the disk inequality gives
-$H\ge L(y)=(2+y-\sqrt{4-3y^2})/2$; squaring the CE2 comparison yields
-$(D+xy-x-y)/S<L(y)/3\le H/3$.  These are precisely the two alternatives,
-proving \eqref{eq:adjacent-outer-ratio}.
 
 Now $r_2$ can be covered only by $T_2$, the center, and a possible bridge
 from $T_1$.  The normal form makes a bridge imply $H<d_2^C$, contrary to

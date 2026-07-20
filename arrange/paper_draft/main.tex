@@ -1,6 +1,9 @@
 \documentclass{amsart}
 \usepackage{amsmath,amssymb,amsthm,mathtools,graphicx}
 \usepackage{fontspec}
+\usepackage{booktabs,float,microtype,tikz}
+\usetikzlibrary{arrows.meta,calc,positioning}
+\input{figures/tikz_setup}
 
 \newfontfamily\hangulA[Path=fonts/]{noto_sans_kr_subset_115.ttf}
 \newfontfamily\hangulB[Path=fonts/]{noto_sans_kr_subset_118.ttf}
@@ -34,6 +37,7 @@ boundary propagation, area loss, caliper certificate}
 \subjclass[2020]{52C15, 52A40, 51M04}
 
 \begin{document}
+\raggedbottom
 
 \begin{abstract}
 We prove that the regular hexagon of side length one cannot be covered by
@@ -45,24 +49,31 @@ reduces the proof to four mechanisms: direct boundary, radial, diagonal,
 and conditional-skeleton length sums; exact propagation of boundary and
 radial demands; normalized area loss; and a center-independent direct
 nine-point obstruction.  The last mechanism forces six radial and three
-asymmetric witnesses into the center role.  Its terminal mixed-overlap signs
-are certified by exact rational reductions and global Bernstein identities,
-with no interval subdivision or branch-and-bound.
+asymmetric witnesses into the center role.  The body presents the geometric
+decisions and the exhaustive routing; piecewise formulas, monotonicity
+estimates, and certificate algebra are isolated in appendices.  The terminal
+mixed-overlap signs are certified by exact rational reductions and
+computer-verified global Bernstein identities, with no interval subdivision
+or branch-and-bound.
 \end{abstract}
 
 \maketitle
+\tableofcontents
 
 \input{01_introduction}
 \input{02_structural_reductions}
+\input{03_strategy1_overview}
+\input{04_strategy2_overview}
+\input{05_strategy3_overview}
+\input{06_strategy4_overview}
+\input{07_exhaustive_assembly}
+
+\appendix
 \input{03_strategy1_length}
 \input{04_strategy2_exact_demand}
 \input{04a_strategy2_half_edge_envelope}
 \input{05_strategy3_area}
 \input{06_strategy4_ab_core}
-\input{07_exhaustive_assembly}
-
-\appendix
-\input{appendix_exact_formulas}
 \input{appendix_certificates}
 \input{appendix_exact_mixed_overlap}
 

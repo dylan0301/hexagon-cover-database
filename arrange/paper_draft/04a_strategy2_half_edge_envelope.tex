@@ -1,7 +1,9 @@
-\subsection{A reusable half-edge radial envelope}
+\section{Rational and monotonicity bounds}
+\label{app:rational-monotonicity}
 
-The adjacent CE2 placement above uses a rational upper bound for a single
-admissible-set fiber.  We isolate it here because the domain restriction is
+The adjacent CE2 placement in Appendix~\ref{app:strategy2-details} uses a
+rational upper bound for a single admissible-set fiber.  We isolate it here
+because the domain restriction is
 essential and because the same formula is false on the full nonsupercritical
 fiber domain.
 
@@ -141,3 +143,293 @@ Thus Lemma~\ref{lem:half-edge-radial-envelope} is a necessary relaxation only
 on its stated half-edge domain; it does not define a global replacement for
 the fibers $B_c$, $F_c$, or $G_c$.
 \end{remark}
+
+\begin{lemma}[CE2 adjacent outer-ratio bound]
+\label{lem:ce2-adjacent-outer-ratio}
+Let $0<x,y,u,v<1$, and put
+\[
+ S=x+y,\qquad D=\sqrt{x^2+xy+y^2}.
+\]
+Assume the exact CE2 relations
+\[
+ u+v=\frac{D+xy}{S},\qquad uS\ge x,\qquad vS\ge y,
+ \qquad x^2+xv+v^2\le1.
+\]
+Let $a_0,b_0\ge0$ satisfy
+\[
+ a_0+b_0>1,\qquad a_0^2+a_0b_0+b_0^2\le1,
+\]
+and define the two boundary tails by
+\[
+ A=
+ \begin{cases}
+  1-b_0,&b_0<y,\\
+  \max\{0,1-\max\{b_0,v\}\},&b_0\ge y,
+ \end{cases}
+\]
+and
+\[
+ H=
+ \begin{cases}
+  1-a_0,&a_0<x,\\
+  \max\{0,1-\max\{a_0,u\}\},&a_0\ge x.
+ \end{cases}
+\]
+If $H>0$ and $A+H<1/2$, then the center reach
+\[
+ d_2^C=\frac{D+xy-uS-y}{S}=v-\frac yS
+\]
+satisfies
+\[
+ d_2^C<\frac H3.
+\]
+\end{lemma}
+
+\begin{proof}
+Because $H>0$, its definition leaves exactly two endpoint sources.
+
+\smallskip
+\noindent\emph{First source: $H=1-u$.}
+Here $a_0\ge x$ and $a_0\le u$.  Define
+\[
+ K=x+2y-xy-D.
+\]
+Since $D+xy-y=S-K$, one has
+\[
+ d_2^C=1-u-\frac KS=H-\frac KS,
+ \qquad
+ \frac{d_2^C}{H}=1-\frac{K}{SH}.
+\]
+Put
+\[
+ b_\circ(x)=\frac{-x+\sqrt{4-3x^2}}2,\qquad
+ h(x)=b_\circ(x)-\frac12.
+\]
+We first claim
+\begin{equation}
+ H\le\min\left\{\frac yS,h(x)\right\}.
+ \label{eq:outer-first-H-bound}
+\end{equation}
+The inequality $H\le y/S$ follows from $H=1-u$ and $uS\ge x$.
+For the other inequality, $A+H<1/2$ says that whichever of $b_0$ and
+$v$ produces the $e_{0,1}$ tail is greater than $1/2+H$.  If it is $b_0$,
+then $a_0\ge x$ and the disk inequality give
+$b_0\le b_\circ(x)$.  If it is $v$, the center-role diameter inequality
+$x^2+xv+v^2\le1$ gives $v\le b_\circ(x)$.  In either case
+$H<h(x)$, proving \eqref{eq:outer-first-H-bound}.
+
+Set
+\[
+ m=\min\left\{\frac yS,h(x)\right\}.
+\]
+We prove $K/(Sm)>2/3$.  First suppose $y/S\le h(x)$ and put $r=y/x$.
+Then
+\[
+ r\le\frac{h(x)}{1-h(x)},\qquad r\le1.
+\]
+The exact inequality
+\[
+ \sqrt{1+r+r^2}\le1+\frac r2+\frac{r^2}{2}
+\]
+follows because the difference of the squares is $r^2(r+1)^2/4$.
+Consequently
+\[
+ \frac Ky\ge\frac32-x-\frac r2
+ \ge\frac32-x-\frac{h(x)}{2(1-h(x))}.
+\]
+Write $b=h(x)+1/2=b_\circ(x)$.  The diameter relation is symmetric, so
+$x=b_\circ(b)$.  Define
+\[
+ F(b)=\frac{-b+\sqrt{4-3b^2}}2+\frac{b-1/2}{3-2b}.
+\]
+On $1/2\le b\le1$,
+\[
+ F'(b)=\frac{2}{(3-2b)^2}-\frac12
+ -\frac{3b}{2\sqrt{4-3b^2}}<0.
+\]
+For the last sign, put $z=1-b\in[0,1/2]$.  After moving the rational
+term and squaring the nonnegative sides, for $z>0$ it is equivalent to
+\[
+ \begin{aligned}
+ &9(1-z)^2(1+2z)^4\\
+ &\qquad-
+ (3-4z-4z^2)^2(1+6z-3z^2)>0.
+ \end{aligned}
+\]
+The left side is $zP(z)$, where the Bernstein coefficients of the
+degree-$5$ polynomial $P$ on $[0,1/2]$ are
+\[
+ 24,\qquad50,\qquad\frac{364}{5},\qquad\frac{434}{5},\qquad
+ \frac{432}{5},\qquad72.
+\]
+Thus $F$ is decreasing, and
+\[
+ F(b)\le F\left(\frac12\right)=\frac{\sqrt{13}-1}{4}.
+\]
+It follows that
+\[
+ \frac Ky\ge\frac{7-\sqrt{13}}4>\frac23.
+\]
+Here $Sm=y$, so $K/(Sm)>2/3$.
+
+Now suppose $h(x)\le y/S$, so $m=h(x)$.  For fixed $x$, define
+\[
+ g(y)=\frac{x+2y-xy-\sqrt{x^2+xy+y^2}}{x+y}.
+\]
+Then
+\[
+ g'(y)=\frac{x\{2(1-x)D+x-y\}}{2S^2D}>0.
+\]
+The sign is immediate for $y\le x$.  For $y>x$, the bound $D\ge y$ gives
+\[
+ 2(1-x)D+x-y\ge x+(1-2x)y
+ =x(1-y)+y(1-x)>0.
+\]
+Let $y_0$ satisfy $y_0/(x+y_0)=h(x)$.  Since $y\ge y_0$,
+\[
+ \frac{K(x,y)}{Sh(x)}
+ \ge\frac{K(x,y_0)}{(x+y_0)h(x)}
+ =\frac{K(x,y_0)}{y_0}>\frac23,
+\]
+where the last inequality is the boundary value from the preceding
+subcase.  Hence $K/(Sm)>2/3$ in all cases.  Since $H\le m$,
+\[
+ \frac{K}{SH}\ge\frac{K}{Sm}>\frac23,
+\]
+and therefore $d_2^C/H<1/3$.
+
+\smallskip
+\noindent\emph{Second source: $H=1-a_0$.}
+Now $a_0=1-H$.  The $e_{0,1}$ tail cannot be $A=1-b_0$, since otherwise
+\[
+ A+H=2-a_0-b_0<\frac12
+\]
+would imply $a_0+b_0>3/2$, contrary to
+$a_0+b_0\le2/\sqrt3$, which follows from the disk inequality.  Thus
+$A=1-v$ and
+\[
+ v>\frac12+H.
+\]
+For $v$ to determine the tail, $T_0$ reaches the start $y$ of the CE2
+interval, so $b_0\ge y$.  The disk inequality becomes
+\[
+ (1-H)^2+(1-H)y+y^2\le1,
+\]
+or
+\[
+ H^2-(2+y)H+y+y^2\le0.
+\]
+Put
+\[
+ L(y)=\frac{2+y-\sqrt{4-3y^2}}2.
+\]
+Since $H<1/2$, this gives $H\ge L(y)$.  Moreover $uS\ge x$ and the
+CE2 coupling give
+\[
+ v\le\frac{D+xy-x}{S},
+\]
+and hence
+\begin{equation}
+ \frac{D+xy-x}{S}>\frac12+L(y).
+ \label{eq:outer-analytic-premise}
+\end{equation}
+
+We now prove the exact analytic implication needed here.  Fix $0<y<1$,
+write $L=L(y)$, and suppose \eqref{eq:outer-analytic-premise} holds.
+First,
+\[
+ \frac{D+xy-x}{S}<1.
+\]
+Indeed, both sides in $D<2x+y-xy$ are positive, and
+\[
+ (2x+y-xy)^2-D^2
+ =x\{y(3-2y)+x(1-y)(3-y)\}>0.
+\]
+Thus the premise forces $0<L<1/2$.  Set
+\[
+ r=\frac xy,\qquad R=\sqrt{r^2+r+1},\qquad
+ r_0=\frac{3-4L}{3+4L}.
+\]
+Then
+\[
+ \frac{D+xy-x}{S}=\frac{R-r(1-y)}{r+1},\qquad
+ \frac{D+xy-x-y}{S}=\frac{R-r(1-y)-1}{r+1}.
+\]
+
+Suppose first that $0<r\le r_0$.  Using
+$R\le1+r/2+r^2/2$ gives
+\[
+ \frac{R-r(1-y)-1}{r+1}
+ \le\frac{r(y-1/2+r/2)}{r+1}.
+\]
+The right side is convex in $r$, since its second derivative is
+$2(1-y)/(1+r)^3>0$, so its maximum on $[0,r_0]$ is at an endpoint.
+At $r=0$ it is zero, while
+\[
+ \frac L3-\frac{r_0(y-1/2+r_0/2)}{r_0+1}
+ =\frac{N(L)}{6(3+4L)},
+\]
+where
+\[
+ N(L)=16L^2y-8L^2+18L-9y,\qquad
+ y=\frac{L-1+\sqrt{1+6L-3L^2}}2.
+\]
+Write $s=\sqrt{1+6L-3L^2}$.  Then $N(0)=0$ and
+\[
+ 2sN'(L)=s(48L^2-64L+27)-144L^3+240L^2+59L-27.
+\]
+For $0<L<1/2$, one has $48L^2-64L+27>0$ and
+\[
+ s\ge1+3L-6L^2,
+\]
+because the right side is positive and the difference of the squares is
+$36L^3(1-L)$.  Therefore
+\[
+ 2sN'(L)\ge2L(-144L^3+192L^2-33L+38)>0.
+\]
+The Bernstein coefficients of the last cubic on $[0,1/2]$ are
+\[
+ 38,\qquad\frac{65}{2},\qquad43,\qquad\frac{103}{2},
+\]
+so its positivity is exact.  Thus $N(L)>0$, proving
+\begin{equation}
+ \frac{D+xy-x-y}{S}<\frac L3
+ \label{eq:outer-analytic-conclusion}
+\end{equation}
+when $r\le r_0$.
+
+It remains to exclude the premise when $r\ge r_0$.  Put
+\[
+ J(r)=\frac{R-r(1-y)}{r+1}.
+\]
+Its derivative has the sign of
+\[
+ \frac{r-1}{2R}-(1-y).
+\]
+The function $(r-1)/(2R)$ is strictly increasing, since
+\[
+ \frac{d}{dr}\left(\frac{r-1}{2R}\right)
+ =\frac{3(r+1)}{4R^3}>0.
+\]
+Hence $J$ decreases and then increases, with at most one turning point, so
+its maximum on $[r_0,\infty)$ occurs at $r_0$ or in the limit.  The limit is
+$y$, and
+\[
+ y<\frac12+L
+\]
+because $(3-y)^2-(4-3y^2)=4y^2-6y+5>0$.  At $r=r_0$, again using
+$R\le1+r/2+r^2/2$,
+\[
+ \frac12+L-J(r_0)\ge\frac{N(L)}{(3+4L)^2}>0.
+\]
+Thus $J(r)<1/2+L$ for every $r\ge r_0$, contradicting the premise.
+This completes the proof of \eqref{eq:outer-analytic-conclusion}.
+
+Finally,
+\[
+ d_2^C=v-\frac yS
+ \le\frac{D+xy-x-y}{S}
+ <\frac{L(y)}3\le\frac H3.
+\]
+The two endpoint sources are exhaustive, so the lemma follows.
+\end{proof}

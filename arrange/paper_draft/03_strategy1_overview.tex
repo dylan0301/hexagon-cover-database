@@ -1,0 +1,66 @@
+\section{Strategy 1: direct length-sum obstructions}
+\label{sec:strategy1-length}
+\label{sec:length}
+
+For a closed triangle $T$ and a rectifiable target $E$, put
+$L_E(T)=\mathcal H^1(T\cap E)$.  If the original open roles cover $E$,
+then their closures satisfy
+\begin{equation}
+ \mathcal H^1(E)\le L_E(T_C)+\sum_{i=0}^5L_E(T_i).
+ \label{eq:length-principle}
+\end{equation}
+Strategy~1 contradicts this inequality on one of three targets.  Figure
+\ref{fig:strategy1-targets} is a visual index; the skeleton estimate is
+always conditional on the branch hypotheses and is never asserted globally.
+
+\begin{figure}[H]
+\centering
+\input{figures/strategy1_trace_targets}
+\caption{Exact targets and their one-dimensional measures.  The coloring is
+explanatory.  The full-skeleton panel is conditional, not a claim that seven
+unit triangles can never cover $S$.}
+\label{fig:strategy1-targets}
+\end{figure}
+
+\subsection{The human-level mechanism}
+
+There are three ways for the sum in \eqref{eq:length-principle} to fail.
+
+\begin{enumerate}
+\item On $\partial H$, center and vertex classifications give a short trace
+table.  A Vd1/Vd2 role pays a half-unit boundary cap, while a supercritical
+row forces compensating restrictions on neighboring traces.  This closes
+the perimeter branches.
+\item On $D$, a nonsupercritical Vd0 role contributes at most one, a
+supercritical Vd0 role strictly less than one half, and a T3-like role
+strictly less than one half.  If $k\ge2$ rows are T3-like and exactly one
+row is supercritical, the total is
+\[
+ L_D(T_C)+\sum_iL_D(T_i)
+ <\frac32+\frac12+\frac{k}{2}+(5-k)
+ =7-\frac{k}{2}\le6,
+\]
+contradicting $\mathcal H^1(D)=6$.
+\item On $S$, the center, supercritical, positive-support, and no-support
+caps combine only under the hypotheses of the conditional skeleton theorem.
+They close $N_+\ge2$ in the CE1/CE2 classes and the indicated hybrid CE2
+subcases.
+\end{enumerate}
+
+The exact neighboring-arm formula, every trace table, and all endpoint
+strictness checks are proved in Appendix~\ref{app:strategy1-details}.  The
+body uses only their branch-level consequences.
+
+\begin{proposition}[Strategy 1 interface]
+\label{prop:length-interface}
+Strategy~1 closes the rows of Table~\ref{tab:routing} assigned to route $1$,
+including its part of the $1+2$ row.
+\end{proposition}
+
+\begin{proof}
+Appendix Proposition~\ref{prop:length-branches} lists the same rows and
+derives them from the boundary, radial, diagonal, and conditional-skeleton
+trace theorems.  The list includes the Vd2 neighboring-midpoint and
+additional-positive-support parts of the hybrid CE2 package, and excludes
+the complementary placements reserved for Strategy~2.
+\end{proof}

@@ -1,0 +1,42 @@
+% Shared drawing conventions for the reader-facing figures.
+\definecolor{CenterBlue}{HTML}{2563EB}
+\definecolor{VertexOrange}{HTML}{D97706}
+\definecolor{DemandRed}{HTML}{B91C1C}
+\definecolor{RadialTeal}{HTML}{0F766E}
+\definecolor{GapPurple}{HTML}{6D28D9}
+\tikzset{
+  hex/.style={draw=black,line width=.8pt,fill=black!2},
+  ray/.style={draw=black!38,line width=.5pt},
+  centerrole/.style={draw=CenterBlue,dashed,fill=CenterBlue!10,line width=.9pt},
+  vertexrole/.style={draw=VertexOrange,fill=VertexOrange!10,line width=.8pt},
+  demand/.style={draw=DemandRed,line width=1.35pt},
+  radialdemand/.style={draw=RadialTeal,line width=1.35pt},
+  gap/.style={draw=GapPurple,line width=2.4pt},
+  witness/.style={circle,fill=DemandRed,draw=white,line width=.35pt,inner sep=1.7pt},
+  flow/.style={-{Stealth[length=2mm]},draw=RadialTeal,line width=.85pt},
+  figlabel/.style={font=\scriptsize,inner sep=1.2pt},
+  panellabel/.style={font=\small\bfseries,inner sep=1.5pt}
+}
+
+\newcommand{\HexCoords}{%
+  \coordinate (O) at (0,0);
+  \coordinate (V0) at (1,0);
+  \coordinate (V1) at (.5,{sqrt(3)/2});
+  \coordinate (V2) at (-.5,{sqrt(3)/2});
+  \coordinate (V3) at (-1,0);
+  \coordinate (V4) at (-.5,{-sqrt(3)/2});
+  \coordinate (V5) at (.5,{-sqrt(3)/2});
+}
+\newcommand{\DrawHexagon}{%
+  \draw[hex] (V0)--(V1)--(V2)--(V3)--(V4)--(V5)--cycle;
+}
+\newcommand{\DrawRays}{%
+  \foreach \i in {0,...,5}{\draw[ray] (O)--(V\i);}
+}
+\newcommand{\DrawVertexRole}[4]{% vertex index, extra tilt, delta, label
+  \begin{scope}[shift={(V#1)},rotate={60*#1+#2}]
+    \draw[vertexrole]
+      (#3,0)--({#3-sqrt(3)/2},.5)--({#3-sqrt(3)/2},-.5)--cycle;
+    \node[figlabel,anchor=south] at (#3,0) {$#4$};
+  \end{scope}
+}

@@ -11,14 +11,18 @@ path.
 | Artifact | Role |
 |---|---|
 | arrange/paper_draft/main.tex | AMS preamble, metadata, assembly, and XeLaTeX setup. |
-| arrange/paper_draft/01_introduction.tex | Introduction, main theorem, and roadmap. |
-| arrange/paper_draft/02_structural_reductions.tex | Common geometry and exhaustive reductions. |
-| arrange/paper_draft/03_strategy1_length.tex | Direct length-sum strategy. |
-| arrange/paper_draft/04_strategy2_exact_demand.tex | Exact demand-propagation strategy. |
-| arrange/paper_draft/05_strategy3_area.tex | Area-loss strategy. |
-| arrange/paper_draft/06_strategy4_ab_core.tex | Center-independent direct nine-point strategy. |
-| arrange/paper_draft/07_exhaustive_assembly.tex | Seventeen-row routing and final proof. |
-| arrange/paper_draft/appendix_exact_formulas.tex | Long exact formulas and label tables. |
+| arrange/paper_draft/01_introduction.tex | First-chapter theorem, definitions, seventeen-row table, and four-strategy overview. |
+| arrange/paper_draft/02_structural_reductions.tex | Common geometry, exhaustive reductions, and gap-count lemma. |
+| arrange/paper_draft/03_strategy1_overview.tex | Reader-facing Strategy 1 mechanism and interface proposition. |
+| arrange/paper_draft/04_strategy2_overview.tex | Reader-facing Strategy 2 map interface, actual-row induction, branch flows, and interface proposition. |
+| arrange/paper_draft/05_strategy3_overview.tex | Reader-facing Strategy 3 global loss sums and interface proposition. |
+| arrange/paper_draft/06_strategy4_overview.tex | Reader-facing Strategy 4 nine-point mechanism and interface proposition. |
+| arrange/paper_draft/07_exhaustive_assembly.tex | Five-block audit of the Chapter 1 routing table and final proof. |
+| arrange/paper_draft/03_strategy1_length.tex | Complete Strategy 1 formulas and proofs, included as a technical appendix. |
+| arrange/paper_draft/04_strategy2_exact_demand.tex | Complete Strategy 2 formulas and proofs, included as a technical appendix. |
+| arrange/paper_draft/04a_strategy2_half_edge_envelope.tex | Rational/monotonicity appendix with the half-edge envelope and its exact domain limitation. |
+| arrange/paper_draft/05_strategy3_area.tex | Complete Strategy 3 local and global calculations, included as a technical appendix. |
+| arrange/paper_draft/06_strategy4_ab_core.tex | Complete Strategy 4 witness and enclosure calculations, included as a technical appendix. |
 | arrange/paper_draft/appendix_certificates.tex | Exact finite caliper certificate. |
 | arrange/paper_draft/appendix_exact_mixed_overlap.tex | Active rational-envelope and global-Bernstein proof of the mixed overlaps. |
 | arrange/paper_draft/source_ledger.md | This provenance/status ledger. |
@@ -27,12 +31,31 @@ path.
 | arrange/paper_draft/fonts/noto_sans_kr_subset_115.ttf | Glyph subset containing 걸. |
 | arrange/paper_draft/fonts/noto_sans_kr_subset_118.ttf | Glyph subset containing 거치는. |
 | arrange/paper_draft/main.pdf | Derived compiled manuscript. |
-| arrange/paper_draft/figures/ | Intentionally empty; no figure is needed. |
+| arrange/paper_draft/figures/ | TikZ sources and shared styles for the reader-facing geometric figures. |
 
 Build from arrange/paper_draft with:
 latexmk -xelatex -interaction=nonstopmode -halt-on-error main.tex.
 Auxiliary files are transient and are not committed. No external literature
 was supplied or needed for the proof, so there is no bibliography.
+
+## Figure ledger
+
+Every figure is explanatory and no proof depends on visual inspection.
+
+| Figure source | Status and coordinate source |
+|---|---|
+| figures/tikz_setup.tex | Shared print-safe styles; exact hexagon coordinates from `1001_geometry_objects.md`. |
+| figures/geometry_roles.tex | Exact target geometry and role anchors in the paper normalization. |
+| figures/center_taxonomy.tex | Schematic CE0/CE1/CE2 trace-count thumbnails, not to scale. |
+| figures/vertex_taxonomy.tex | Schematic Vd0/Vd1/Vd2/T3-like incidence thumbnails, not to scale. |
+| figures/handoff_and_gap.tex | Exact one-dimensional trace/gap convention with schematic interval lengths; includes open endpoints and singleton gaps. |
+| figures/strategy1_trace_targets.tex | Exact sets $\partial H,D,S$ and their lengths; colors are explanatory. |
+| figures/strategy2_ce1_n0_all_vd0.tex | Exact CE1 center sample $\lambda=1/2,s=3/5,t=31/50$ and exact individual rotated Vd0 models; their simultaneous placement is illustrative, not a cover. |
+| figures/strategy2_ce2_n0_all_vd0.tex | Exact symmetric CE2 center sample $x=y=2/5$, $u=v=\sqrt3/4+1/10$ and exact individual rotated Vd0 models; their simultaneous placement is illustrative. |
+| figures/strategy2_five_map_chain.tex | Schematic actual-row propagation graph, not a substitute for the five-link inequalities. |
+| figures/strategy3_area_loss.tex | Schematic local wedge loss and cyclic summation, not to scale. |
+| figures/strategy4_nine_point_witness.tex | Symbolically exact radial-point pattern with schematic parameter-dependent asymmetric witnesses. |
+| figures/strategy4_cap_chain.tex | Schematic support-direction cap chain, not to scale. |
 
 ## Main theorem and common reductions
 
@@ -72,6 +95,7 @@ retained.
 | proof/4XXX_CE1CE2/42XX_Nplus_ge2/4200_CE1_CE2_skeleton_length_route.md | Proven | thm:conditional-skeleton-obstruction; prop:length-branches |
 | proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4149_CE2_Nplus1_Vd2_neighbor_midpoint_obstruction.md | Proven | prop:ce2-vd2-midpoint-length; prop:length-branches |
 | proof/4XXX_CE1CE2/41XX_Nplus1/412X_at_least_two_T3_like/4123_CE1_CE2_at_least_two_T3_like_diagonal_obstruction.md | Proven | prop:t3-diagonal-obstruction; prop:length-branches |
+| All proved terminal sources in this Strategy 1 table | Proven | prop:length-interface, which cites prop:length-branches |
 
 ## Strategy 2: exact demand propagation
 
@@ -87,6 +111,7 @@ retained.
 | proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2105_CE1_exact_formulas.md; 2106_CE2_exact_formulas.md | Proven | prop:center-exact-formulas |
 | proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2107_one_side_capped_loss.md | Proven | lem:one-side-capped-loss |
 | proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2108_CE2_two_endpoint_capped_loss.md | Proven | lem:two-endpoint-capped-loss |
+| proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2012_high_radial_low_root_bounds.md; proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4144_CE2_Nplus1_T0_supercritical_T1_Vd1_Vd2_adjacent_obstruction.md | Proven | lem:half-edge-radial-envelope; lem:ce2-adjacent-outer-ratio; app:rational-monotonicity; exact domain restriction, counterexample, and adjacent outer-ratio calculation |
 | proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4106_CE1_one_gap_five_map_completion.md | Proven | prop:ce1-one-gap; explicit five-link actual-row chain $1\to2\to3\to4\to5\to0$, from $A_1\ge X$ through all five capped maps to $A_0\ge Z>B_{c_0}(s)$ |
 | proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4107_CE2_one_gap_five_map_completion.md | Proven | prop:ce2-one-gap; explicit right-gap chain $1\to2\to3\to4\to5\to0$ ending at $A_0>Z_R>B_{c_0}(y)$, and its fully reflected left-gap chain $5\to4\to3\to2\to1\to0$ ending at $B_0>Z_L>B_{c_0}(x)$ |
 | proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4101_CE1CE2_Nplus1_all_Vd0_strategy.md; 4102_CE2_two_gap_completion.md; 4106_CE1_one_gap_five_map_completion.md; 4107_CE2_one_gap_five_map_completion.md | Proven | prop:nplus-one-all-vd0 |
@@ -100,7 +125,7 @@ retained.
 | proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4147_CE2_Nplus1_Vd1_supercritical_pair_axis_replacement.md | Proven | lem:vd1-pair-replacement |
 | proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4140_CE2_Nplus1_exactly_one_Vd1_Vd2_index.md | Proven | package provenance for prop:ce2-one-vd-placement |
 | proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4148_CE2_Nplus1_exactly_one_Vd1_Vd2_assembly.md | Proven | prop:ce2-one-vd-placement; complementary exact-placement part of prop:demand-branches |
-| All proved terminal sources in this Strategy 2 table | Proven | prop:demand-branches |
+| All proved terminal sources in this Strategy 2 table | Proven | prop:demand-branches; prop:demand-interface |
 
 The Reduction file 4073_boundary_loss_framework.md organizes notation only.
 The script 407b_T_hi_Tminus_qright_threshold_certificate.py is retained as
@@ -117,7 +142,7 @@ of the former Bernstein route and is not a manuscript dependency.
 | proof/3XXX_CE0/31XX_Nplus1/317X_T3_like_no_Vd1Vd2/3175_direct_T3_like_area_loss.md | Proven | thm:t3-direct-loss |
 | proof/3XXX_CE0/32XX_Nplus_ge2/3208_CE0_conditional_area_certificate.md; 3201_area_conjecture_index.md | Proven | lem:two-ascent-area |
 | proof/3XXX_CE0/31XX_Nplus1/317X_T3_like_no_Vd1Vd2/3174_CE0_one_supercritical_T3_certificate.md; 3171_T3_like_area_certificate_index.md | Proven | lem:one-ascent-t3-area |
-| All proved terminal sources in this Strategy 3 table | Proven | prop:area-branches |
+| All proved terminal sources in this Strategy 3 table | Proven | prop:area-branches; prop:area-interface |
 
 The notation-only source 3202_area_function_and_monotonicity.md is Reference;
 its historical conjecture is not used.
@@ -132,9 +157,9 @@ its historical conjecture is not used.
 | proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31052_fixed_line_circle_signs.md | Proven | lem:fixed-line-signs; complete fixed-line circle signs for the actual moving handoffs |
 | proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31053_direct_asymmetric_witness_forcing.md | Proven | lem:asymmetric-core-witness; exact formulas, direct distances, and exclusion using $X_2,X_5$ |
 | proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31054_four_cap_enclosure_reduction.md; 31057_terminal_nine_point_enclosure.md | Proven | thm:witness-enclosure; terminal cap reduction, analytic adjacent overlaps, and enclosure assembly |
-| proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31055_rational_radial_envelopes_and_mixed_reduction.md; 31056_global_analytic_mixed_positivity.md | Proven | thm:witness-enclosure; sec:exact-mixed-overlap; rational radial envelopes, exact mixed-overlap reduction, and global Bernstein positivity |
+| proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31055_rational_radial_envelopes_and_mixed_reduction.md; 31056_global_analytic_mixed_positivity.md | Proven | thm:witness-enclosure; app:exact-mixed-overlap; rational radial envelopes, exact mixed-overlap reduction, and global Bernstein positivity |
 | proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31058_center_independent_direct_nine_point_obstruction.md | Proven | thm:zero-gap-obstruction; center-independent direct nine-point contradiction |
-| proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31059_CE0_Nplus1_all_Vd0_completion.md; proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4101_CE1CE2_Nplus1_all_Vd0_strategy.md | Proven | prop:ab-core-branches; CE0 completion and CE1/CE2 zero-gap reuse of 31058 |
+| proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31059_CE0_Nplus1_all_Vd0_completion.md; proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4101_CE1CE2_Nplus1_all_Vd0_strategy.md | Proven | prop:ab-core-branches; prop:nine-point-interface; CE0 completion and CE1/CE2 zero-gap reuse of 31058 |
 
 The direct route uses no nonsupercritical $AB$-union, model-core inclusion,
 neighboring-ray comparison, or optional six-point inequality.  All active
@@ -156,7 +181,7 @@ chain.
 |---|---|---|
 | proof/1XXX_foundations/11XX_C_triangle/1101_CE_classification.md; proof/2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md; proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4101_CE1CE2_Nplus1_all_Vd0_strategy.md | Proven | lem:gap-exhaustion |
 | proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20095_exact_caliper_certificate.md | Proven | thm:cert-caliper |
-| proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31055_rational_radial_envelopes_and_mixed_reduction.md; 31056_global_analytic_mixed_positivity.md | Proven | sec:exact-mixed-overlap; exact mixed-overlap dependency of thm:witness-enclosure |
+| proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31055_rational_radial_envelopes_and_mixed_reduction.md; 31056_global_analytic_mixed_positivity.md | Proven | app:exact-mixed-overlap; exact mixed-overlap dependency of thm:witness-enclosure |
 
 The manuscript-dependent reproduction scripts have no independent proof
 status. Their role is only to replay the exact integer, rational, and

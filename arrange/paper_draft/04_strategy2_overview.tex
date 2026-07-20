@@ -1,0 +1,125 @@
+\section{Strategy 2: exact boundary--radial demand propagation}
+\label{sec:exact-demand}
+
+Length alone does not record where a trace must continue.  Strategy~2 keeps
+that positional information.  In local unit vectors
+\[
+ u=\left(\frac12,\frac{\sqrt3}{2}\right),\qquad
+ v=\left(\frac12,-\frac{\sqrt3}{2}\right),
+\]
+define
+\[
+ K(a,b,c)=\conv\{0,au,bv,c(u+v)\}.
+\]
+Let $B_c(a)$ be the largest outgoing demand $b$ for which $K(a,b,c)$ fits
+in a closed unit equilateral triangle, and set
+\[
+ F_c(a)=\min\{B_c(a),1-a\},\qquad G_c(a)=1-F_c(a).
+\]
+The admissible set is coordinatewise down-closed.  Hence $F_c$ is
+nonincreasing, $G_c$ is nondecreasing and extensive, and reflection gives
+an exact duality.  The piecewise formula has a genuine downward jump; no
+argument below uses continuity at that jump.
+
+\subsection{How an actual row propagates a demand}
+
+Suppose an actual nonsupercritical row has $A_i\ge z$, radial reach
+$C_i\ge c_i$, and $A_i+B_i\le1$.  Then its realized demand triple gives
+\[
+ B_i\le F_{c_i}(z).
+\]
+If the next incident open traces cover their boundary point, the next actual
+incoming reach satisfies
+\begin{equation}
+ A_{i+1}\ge1-B_i\ge G_{c_i}(z).
+ \label{eq:actual-propagation}
+\end{equation}
+Thus every arrow in Figure~\ref{fig:five-map-chain} is an inequality for an
+actual row.  It is not a merely formal composition of scalar functions.
+
+\begin{figure}[H]
+\centering
+\input{figures/strategy2_five_map_chain}
+\caption{Schematic five-row propagation for a one-gap branch.  The technical
+appendix proves the displayed terminal strict inequality, including every
+endpoint assignment and the reflected CE2 chain.}
+\label{fig:five-map-chain}
+\end{figure}
+
+For a CE1 center trace, exact center geometry supplies one interval
+$[s,t]\subset e_{0,1}$ and six exits $d_i$ from $O$; the complementary
+radial demand is $c_i=1-d_i$.  For CE2 there are coupled intervals
+$[x,u]\subset e_{5,0}$ and $[y,v]\subset e_{0,1}$.  Figures
+\ref{fig:ce1-n0-vd0} and \ref{fig:ce2-n0-vd0} show the variables used in the
+$N_+=0$, all-Vd0 package.  They display three representative Vd0 roles,
+including an axis-aligned one, while the argument treats all six roles.
+
+\begin{figure}[H]
+\centering
+\input{figures/strategy2_ce1_n0_all_vd0}
+\caption{Mixed exact/schematic CE1 picture.  The blue center triangle is the
+exact sample $\lambda=1/2$, $s=3/5$, $t=31/50$; each displayed amber triangle
+is an exact individual Vd0 model with $A_i+B_i=1/2$.  Their simultaneous
+placement only illustrates the variables and is not a candidate cover.
+Distances $d_i$ run from $O$ outward, whereas $c_i=1-d_i$ runs from $V_i$
+inward.}
+\label{fig:ce1-n0-vd0}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\input{figures/strategy2_ce2_n0_all_vd0}
+\caption{Mixed exact/schematic CE2 picture.  The center triangle is the exact
+symmetric sample $x=y=2/5$ and $u=v=\sqrt3/4+1/10$; the three amber roles are
+exact individual Vd0 models and are not asserted to form a cover.  A right
+gap starts the demands $B_0\ge y$ and $A_1\ge1-v$; reflection gives the left
+gap demands.}
+\label{fig:ce2-n0-vd0}
+\end{figure}
+
+\subsection{The branch-level contradictions}
+
+For a one-gap branch, repeated use of \eqref{eq:actual-propagation} gives the
+five actual-row chain $1\to2\to3\to4\to5\to0$.  The exact terminal estimates
+proved in Appendix~\ref{app:strategy2-details} have the forms
+\[
+ A_0\ge Z>B_{c_0}(s)\ge A_0
+\]
+for CE1 and
+\[
+ A_0>Z_R>B_{c_0}(y)\ge A_0
+\]
+for the CE2 right gap.  Reflection $i\mapsto-i$ gives the fully written left
+chain $5\to4\to3\to2\to1\to0$ and
+\[
+ B_0>Z_L>B_{c_0}(x)\ge B_0.
+\]
+The two-gap CE2 state uses the exact two-endpoint capped loss; the no-active-
+gap $N_+=0$ state uses the strict overlap of a finite relatively open cover
+of the connected boundary circle.  The remaining Strategy~2 branches use the
+same interface together with the T3-like side tradeoff or the exact
+Vd1/Vd2 placement classification.
+
+All radical comparisons, low-root bounds, four-label branch tables, capped
+loss inequalities, and placement polynomials are deferred.  In particular,
+the half-edge rational envelope is used only on its valid domain
+\[
+ p\ge\frac12,\qquad0\le h\le p,\qquad p+h<1;
+\]
+Appendix~\ref{app:rational-monotonicity} also records a counterexample outside
+that domain.
+
+\begin{proposition}[Strategy 2 interface]
+\label{prop:demand-interface}
+Strategy~2 closes the rows of Table~\ref{tab:routing} assigned to route $2$,
+including its part of the $1+2$ row.  Singleton gaps are included.
+\end{proposition}
+
+\begin{proof}
+Appendix Proposition~\ref{prop:demand-branches} proves the exact terminal
+list: the two $N_+=0$ packages, every positive-gap all-Vd0 state with
+$N_+=1$, the exactly-one-T3-like state, and the complementary exact
+placements in the hybrid CE2 package.  Equation~\eqref{eq:actual-propagation}
+is the handoff from each appendix scalar inequality to the actual role
+geometry.
+\end{proof}

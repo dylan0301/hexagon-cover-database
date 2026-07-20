@@ -72,12 +72,16 @@ arrange/paper_draft/
 |-- main.tex
 |-- 01_introduction.tex
 |-- 02_structural_reductions.tex
-|-- 03_strategy1_length.tex
-|-- 04_strategy2_exact_demand.tex
-|-- 05_strategy3_area.tex
-|-- 06_strategy4_ab_core.tex
+|-- 03_strategy1_overview.tex
+|-- 04_strategy2_overview.tex
+|-- 05_strategy3_overview.tex
+|-- 06_strategy4_overview.tex
 |-- 07_exhaustive_assembly.tex
-|-- appendix_exact_formulas.tex
+|-- 03_strategy1_length.tex             # technical appendix
+|-- 04_strategy2_exact_demand.tex       # technical appendix
+|-- 04a_strategy2_half_edge_envelope.tex # rational/monotonicity appendix
+|-- 05_strategy3_area.tex               # technical appendix
+|-- 06_strategy4_ab_core.tex            # technical appendix
 |-- appendix_certificates.tex
 |-- appendix_exact_mixed_overlap.tex
 |-- source_ledger.md
@@ -88,7 +92,7 @@ arrange/paper_draft/
 |   `-- noto_sans_kr_subset_118.ttf
 |-- main.pdf
 |-- references.bib                 # only when verified sources are cited
-`-- figures/
+`-- figures/                       # TikZ sources and shared styles
 ```
 
 If another persistent source or build-support file becomes necessary, place it
@@ -102,6 +106,9 @@ The preamble in `main.tex` must begin with the following minimum structure:
 \documentclass{amsart}
 \usepackage{amsmath,amssymb,amsthm,mathtools,graphicx}
 \usepackage{fontspec}
+\usepackage{booktabs,float,microtype,tikz}
+\usetikzlibrary{arrows.meta,calc,positioning}
+\input{figures/tikz_setup}
 
 \newfontfamily\hangulA[Path=fonts/]{noto_sans_kr_subset_115.ttf}
 \newfontfamily\hangulB[Path=fonts/]{noto_sans_kr_subset_118.ttf}
@@ -117,6 +124,11 @@ The preamble in `main.tex` must begin with the following minimum structure:
 \newtheorem{remark}[theorem]{Remark}
 ```
 
+Place `\raggedbottom` immediately after `\begin{document}`.  The illustrated
+reader-facing chapters intentionally keep figures beside the argument they
+explain, so pages may end at different vertical positions rather than stretch
+display spacing to fill every page.
+
 `main.tex` owns the title metadata, abstract, document environment, component
 assembly, optional bibliography, and `\end{document}`. The numbered component
 files begin with their own `\section` command and contain no document preamble.
@@ -128,15 +140,20 @@ Use this assembly order:
 % Exact theorem statement and proof-method summary.
 \end{abstract}
 \maketitle
+\tableofcontents
 \input{01_introduction}
 \input{02_structural_reductions}
-\input{03_strategy1_length}
-\input{04_strategy2_exact_demand}
-\input{05_strategy3_area}
-\input{06_strategy4_ab_core}
+\input{03_strategy1_overview}
+\input{04_strategy2_overview}
+\input{05_strategy3_overview}
+\input{06_strategy4_overview}
 \input{07_exhaustive_assembly}
 \appendix
-\input{appendix_exact_formulas}
+\input{03_strategy1_length}
+\input{04_strategy2_exact_demand}
+\input{04a_strategy2_half_edge_envelope}
+\input{05_strategy3_area}
+\input{06_strategy4_ab_core}
 \input{appendix_certificates}
 \input{appendix_exact_mixed_overlap}
 % Add \bibliographystyle{amsplain} and \bibliography{references} only if used.
@@ -158,12 +175,14 @@ or graphics path may escape the workspace.
 The manuscript must contain, in this order:
 
 1. title, author placeholder, abstract, and keywords;
-2. introduction and precise main theorem;
-3. geometric setup and exhaustive structural reductions;
-4. one major section for each of the four strategies in the order specified
+2. first-chapter definitions, precise main theorem, the complete routing
+   table, and the four-strategy overview;
+3. proofs of the exhaustive structural reductions;
+4. one reader-facing section for each of the four strategies in the order specified
    here;
 5. an exhaustive final assembly;
-6. technical appendices for long exact formulas and certificates;
+6. technical appendices containing the complete formulas, monotonicity
+   bounds, branch calculations, and certificates;
 7. a bibliography only when genuine, verified external references are actually
    cited.
 
@@ -171,6 +190,11 @@ Do not invent historical claims or bibliography entries. If external
 literature has not been supplied or independently verified, omit the
 bibliography from the delivered manuscript and record the missing literature
 review only in the private drafting ledger.
+
+The body may state an interface proposition and defer its complete proof to a
+named appendix.  In that case the body must still state the hypotheses,
+conclusion, actual-to-selected handoff, and branch-level logical mechanism;
+the appendix must retain every exact inequality and strictness check.
 
 Use `\label`, `\ref`, and `\eqref` consistently. Recommended label prefixes
 are `sec:`, `thm:`, `lem:`, `prop:`, `cor:`, `def:`, `eq:`, and `app:`. Every
@@ -207,44 +231,51 @@ $(a_i,b_i,c_i)$ for selected or prescribed lower-bound demands. If a local
 section uses lowercase letters for actual reaches, explicitly announce that
 temporary convention and do not mix the two meanings.
 
-### Stage 1: shared setup
+### Stage 1: reader map and shared setup
 
-Draft the introduction in `01_introduction.tex`. Draft the geometric model,
+Draft the theorem, geometric and case dictionary, complete routing table, and
+four-strategy overview in `01_introduction.tex`.  Draft the proofs of the
 open/closed/scaled equivalence, role assignment, exhaustive classifications,
-$N_+$ definition, and strict-handoff machinery in
+gap-count lemma, $N_+$ definition, and strict-handoff machinery in
 `02_structural_reductions.tex`. Audit that the resulting case split is
 exhaustive before drafting any strategy section.
 
 ### Stages 2--5: the four strategy sections
 
-Write the strategies into these files, in order:
+Write the reader-facing strategy narratives into these files, in order:
 
-1. Strategy 1 in `03_strategy1_length.tex`;
-2. Strategy 2 in `04_strategy2_exact_demand.tex`;
-3. Strategy 3 in `05_strategy3_area.tex`;
-4. Strategy 4 in `06_strategy4_ab_core.tex`.
+1. Strategy 1 in `03_strategy1_overview.tex`;
+2. Strategy 2 in `04_strategy2_overview.tex`;
+3. Strategy 3 in `05_strategy3_overview.tex`;
+4. Strategy 4 in `06_strategy4_overview.tex`.
 
 For each strategy file:
 
-1. prove its chapter-local reusable lemmas;
-2. state and prove its terminal branch theorems;
-3. record exactly which rows of the final routing table it closes;
+1. explain the geometric mechanism and the exact input/output interface;
+2. retain the short human-level induction or global sum that makes the
+   strategy work;
+3. state an interface proposition recording exactly which routing rows it
+   closes and cite its complete technical appendix proof;
 4. check that all strict inequalities survive passage between open roles,
    their closures, actual reaches, and selected demands;
-5. stop and repair any unresolved dependency before moving to the next
-   strategy.
+5. place the complete formula and branch proofs in the corresponding existing
+   technical source: `03_strategy1_length.tex`,
+   `04_strategy2_exact_demand.tex`, `05_strategy3_area.tex`, or
+   `06_strategy4_ab_core.tex`.
 
 ### Stage 6: final assembly
 
-Write the main proof in `07_exhaustive_assembly.tex` from the routing table in
-Section 10. The assembly must show explicitly that every CE class, every
+Write the main proof in `07_exhaustive_assembly.tex` from the routing table
+already displayed in Chapter 1. The assembly must show explicitly that every CE class, every
 $N_+$ range, and every exhaustive vertex-type refinement has been handled. Do
 not replace this audit by the sentence “all remaining cases are similar.”
 
 ### Stage 7: certificates and final audit
 
-Place long exact tables and formulas in `appendix_exact_formulas.tex`. Place
-the finite caliper theorem and its reproduction details in
+Keep the complete trace, exact-demand, area, and nine-point calculations in
+the four technical strategy files, after `\appendix`.  Put the reusable
+half-edge rational envelope and its domain counterexample in
+`04a_strategy2_half_edge_envelope.tex`. Place the finite caliper theorem and its reproduction details in
 `appendix_certificates.tex`. Put the active rational-envelope and global
 Bernstein mixed-overlap proof in `appendix_exact_mixed_overlap.tex`. Assemble
 every component through `main.tex`, run the checks in Section 15, and compile
@@ -259,27 +290,30 @@ final paper.
 Use the following major sections. In an `amsart` paper these are `\section`
 units, even though this guide informally calls them chapters.
 
-1. **Introduction and main result.** State the open-unit theorem, the expanded
-   closed formulation, the four proof mechanisms, and the proof roadmap.
-2. **Geometric setup and structural reductions.** Establish the common
-   definitions, role assignment, classifications, rows, gaps, and handoffs.
-3. **Strategy 1: Direct length-sum obstructions.** Develop coarse
-   one-dimensional trace budgets on the boundary, diagonals, and conditional
-   skeleton targets.
-4. **Strategy 2: Exact boundary--radial demand propagation.** Develop the exact
-   CE1/CE2 trace formulas, local maps, gap propagation, and exact placement
-   arguments.
-5. **Strategy 3: Area loss.** Develop the local loss inequalities and global
-   six-row area certificates for CE0.
+1. **Overview, notation, and main result.** State the open-unit theorem and
+   expanded closed formulation; introduce $H,O,V_i,e_{i,i+1},r_i,M_i$, the
+   seven roles, CE and vertex types, actual reaches, $N_+$, and gaps; display
+   the complete seventeen-row routing table; and give the four-strategy
+   overview before any long proof.
+2. **Geometric setup and structural reductions.** Prove the common role
+   assignment, classifications, row and gap exhaustiveness, and handoffs.
+3. **Strategy 1: Direct length-sum obstructions.** Explain the three targets
+   and the terminal trace budgets; defer the trace formula proofs.
+4. **Strategy 2: Exact boundary--radial demand propagation.** Define the
+   abstract $B_c,F_c,G_c$ interface, prove one actual-row propagation step,
+   display the five-link branch flow and terminal contradictions, and defer
+   the piecewise/monotonicity algebra.
+5. **Strategy 3: Area loss.** Display the two short global loss sums and defer
+   the orientation-by-orientation local inequalities.
 6. **Strategy 4: Center-independent direct nine-point obstruction.** Treat
    the unified $N_+=1$, all-Vd0, zero-boundary-gap branch by forcing six
    radial and three asymmetric witnesses into the center role, without
    splitting first by center class.
-7. **Exhaustive assembly.** Route every terminal case and conclude the main
-   theorem.
+7. **Exhaustive assembly.** Audit the five top-level blocks against the
+   Chapter 1 table and conclude the main theorem without repeating the table.
 
-Appendices should contain the long piecewise formulas, exhaustive finite label
-tables, exact finite certificates, global positive-basis identities,
+Appendices must contain the long piecewise formulas, exhaustive finite label
+tables, rational and monotonicity bounds, exact finite certificates, global positive-basis identities,
 reproduction details, and coordinate proofs that remain logical dependencies
 and whose length would obscure the main argument. Do not reproduce a full
 algebraic catalogue or a superseded interval audit when every active use has
@@ -319,9 +353,10 @@ essential in Strategy 2 and Strategy 4.
 
 ## 6. Strategy 1: Direct Length-Sum Obstructions
 
-### Chapter-local lemmas
+### Technical trace lemmas
 
-Develop the following results inside this strategy section before their branch
+State only the consequences needed to read the body strategy.  Prove the
+following results in the Strategy 1 technical appendix before its branch
 applications.
 
 | Source | Recorded status | Manuscript role |
@@ -385,7 +420,7 @@ The entire CE1/CE2, $N_+=0$, all-Vd0 package belongs here, including its
 elementary no-active-gap subcase. Keep that package together for conceptual
 continuity.
 
-### Chapter-local lemmas
+### Exact-demand technical lemmas
 
 | Source | Recorded status | Manuscript role |
 |---|---|---|
@@ -426,12 +461,14 @@ When this section needs a boundary or diagonal cap already proved in Strategy
 
 ### Required five-link one-gap chains
 
-Do not compress a one-gap proof to the name of a fivefold composition. For
-each orientation, display the starting endpoint demand, all five scalar
-iterates, the capped-map bound for each actual row, the intervening boundary
-handoff, the returning actual reach on row $0$, and its incompatible
-supercritical-row upper bound. Use $(A_i,B_i)$ for actual boundary reaches and
-reserve $c_i$ for the radial lower-bound demands.
+The reader-facing chapter must define $z_j=G_{c_j}(z_{j-1})$, prove explicitly
+that one such scalar step bounds the next actual reach, show the order
+$1\to2\to3\to4\to5\to0$, and display the three terminal contradictions for
+CE1, CE2 right gap, and reflected CE2 left gap.  The Strategy 2 technical
+appendix must display the starting endpoint demand, all five scalar iterates,
+the capped-map bound for each actual row, every intervening boundary handoff,
+the returning actual reach on row $0$, and its incompatible upper bound. Use
+$(A_i,B_i)$ for actual boundary reaches and reserve $c_i$ for radial demands.
 
 For CE1, use the normalized variables of `4106`, including
 
@@ -822,9 +859,13 @@ script's status into the status of a mathematical lemma.
 
 ## 13. Figure Policy And Asset Layout
 
-Figures are optional. Generate one only when it materially clarifies the
-geometric setup, a case structure, an exact local map, a trace budget, or the
-direct nine-point witness construction. Do not add decorative images.
+The reader-facing manuscript must use figures where they materially separate
+the geometric idea from the appendix algebra.  At minimum include: the target
+hexagon and seven role anchors; the CE and vertex-type taxonomies; the
+handoff/gap convention; the three Strategy 1 trace targets; labelled CE1 and
+CE2 all-Vd0 pictures showing three vertex roles with one axis-aligned; the
+five-map chain; the local/cyclic area-loss mechanism; and the nine-point and
+support-cap constructions.  Do not add decorative images.
 
 Every visual asset and every file used to generate it must live under
 `arrange/paper_draft/figures/`. This includes:
@@ -864,8 +905,9 @@ The prose must prove every mathematical claim independently of the figure.
 Figures, plots, and screenshots are explanatory aids, not proofs or
 certificates.
 
-If no figure materially improves the exposition, leave `figures/` empty and
-omit figure packages beyond the minimum preamble.
+Use `figures/tikz_setup.tex` for the shared print-safe styles and exact hexagon
+coordinates.  Individual figures remain separate TikZ fragments so a reader
+can inspect or revise one construction without editing the proof text.
 
 ## 14. Excluded And Historical Material
 
@@ -928,6 +970,8 @@ The LLM must complete every item before presenting the manuscript.
 
 - [ ] Every row of the routing table in Section 10 appears exactly once in the
       final assembly, except the explicitly identified Strategy 1/2 hybrid.
+- [ ] The complete routing table appears in Chapter 1 and is not duplicated in
+      Chapter 7.
 - [ ] The CE0/CE1/CE2 split is proved exhaustive.
 - [ ] The $N_+=0$, $N_+=1$, and $N_+\ge2$ split is exhaustive.
 - [ ] Every vertex-role refinement follows from the proved exhaustive type
@@ -959,6 +1003,9 @@ The LLM must complete every item before presenting the manuscript.
       inside `arrange/paper_draft/`.
 - [ ] `main.tex` includes `appendix_exact_mixed_overlap.tex` and does not
       include `06_strategy4_nonbranching_completion.tex`.
+- [ ] `main.tex` uses the four overview files in the body and the four complete
+      strategy files, plus `04a_strategy2_half_edge_envelope.tex`, only after
+      `\appendix`.
 - [ ] `fontspec` loads both local Noto Sans KR subsets under XeLaTeX, and
       **걸거치는** renders in the compiled paper.
 - [ ] The abstract states the theorem and proof mechanisms without overstating

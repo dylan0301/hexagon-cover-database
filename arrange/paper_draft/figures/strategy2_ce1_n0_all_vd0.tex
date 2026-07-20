@@ -1,0 +1,30 @@
+\begin{tikzpicture}[scale=2.05]
+  \HexCoords
+  \DrawHexagon
+  \DrawRays
+  % Exact CE1 sample: lambda=1/2, s=3/5, t=31/50.
+  \coordinate (Ctop) at (.7,{47*sqrt(3)/150});
+  \coordinate (Cbot) at (.7,{-1+47*sqrt(3)/150});
+  \coordinate (Cleft) at ({.7-sqrt(3)/2},{-.5+47*sqrt(3)/150});
+  \draw[centerrole] (Ctop)--(Cbot)--(Cleft)--cycle;
+  \DrawVertexRole{0}{0}{.25}{T_0}
+  \DrawVertexRole{1}{0}{.25}{T_1}
+  \DrawVertexRole{5}{0}{.25}{T_5}
+  \coordinate (Spt) at ($(V0)!.60!(V1)$);
+  \coordinate (Tpt) at ($(V0)!.62!(V1)$);
+  \draw[demand] (Spt)--(Tpt);
+  \fill[DemandRed] (Spt) circle (.022);
+  \fill[DemandRed] (Tpt) circle (.022);
+  \node[figlabel,above right,text=DemandRed] at ($(Spt)!.5!(Tpt)$)
+    {$[s,t]\subset e_{0,1}$};
+  \coordinate (J0) at ($(O)!.70!(V0)$);
+  \draw[CenterBlue,line width=1.3pt] (O)--(J0);
+  \draw[RadialTeal,line width=1.3pt] (J0)--(V0);
+  \fill[white,draw=black,line width=.45pt] (J0) circle (.019);
+  \node[figlabel,below] at ($(O)!.38!(J0)$) {$d_0$};
+  \node[figlabel,below] at ($(J0)!.52!(V0)$) {$c_0=1-d_0$};
+  \node[figlabel,align=left,anchor=west] at (1.27,.62)
+    {$B_0\ge s$\\$A_1\ge1-t$\\$A_i+B_i\le1$};
+  \node[figlabel,align=center] at (0,-1.25)
+    {only $T_0,T_1,T_5$ are shown; $T_0$ is axis-aligned};
+\end{tikzpicture}

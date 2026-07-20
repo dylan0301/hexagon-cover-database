@@ -1,0 +1,25 @@
+\begin{tikzpicture}[scale=.84]
+  \foreach \x/\title in {0/$\partial H$: length $6$,4/$D$: length $6$,8/$S=\partial H\cup D$: length $12$}{
+    \begin{scope}[xshift=\x cm]
+      \coordinate (a0) at (1,0);
+      \coordinate (a1) at (.5,.866);
+      \coordinate (a2) at (-.5,.866);
+      \coordinate (a3) at (-1,0);
+      \coordinate (a4) at (-.5,-.866);
+      \coordinate (a5) at (.5,-.866);
+      \coordinate (o) at (0,0);
+      \draw[hex] (a0)--(a1)--(a2)--(a3)--(a4)--(a5)--cycle;
+      \node[panellabel,align=center] at (0,-1.38) {\title};
+    \end{scope}
+  }
+  \draw[demand] (1,0)--(.5,.866)--(-.5,.866)--(-1,0)--(-.5,-.866)--(.5,-.866)--cycle;
+  \foreach \p in {(4,0),(4.5,.866),(3.5,.866),(3,0),(3.5,-.866),(4.5,-.866)}{
+    \draw[radialdemand] (4,0)--\p;
+  }
+  \draw[demand] (9,0)--(8.5,.866)--(7.5,.866)--(7,0)--(7.5,-.866)--(8.5,-.866)--cycle;
+  \foreach \p in {(9,0),(8.5,.866),(7.5,.866),(7,0),(7.5,-.866),(8.5,-.866)}{
+    \draw[radialdemand] (8,0)--\p;
+  }
+  \node[figlabel,align=center,text=DemandRed] at (8,-1.93)
+    {the full-skeleton estimate is used only under its stated branch hypotheses};
+\end{tikzpicture}

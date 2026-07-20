@@ -1,20 +1,26 @@
-\section{Introduction and main result}
+\section{Overview, notation, and main result}
 \label{sec:introduction}
 
-Let $H$ be the regular hexagon of side length one.  The problem is to decide
-whether seven open equilateral triangles of the same side length can cover
-$H$.  The use of open triangles is essential at boundary handoffs: when two
-open traces meet at a common endpoint, that endpoint is still uncovered.
+This chapter gives the reader the entire proof architecture before any long
+calculation.  It introduces the geometric objects and case labels, states the
+exhaustive routing table, and explains the four mechanisms that close its
+rows.  Section~\ref{sec:structural-reductions} then proves that these labels
+and reductions are exhaustive.  The complete algebra supporting the four
+mechanisms is collected after the final assembly in
+Appendices~\ref{app:strategy1-details}--\ref{app:strategy4-details}.
+
+\subsection{The theorem}
+
+Let $H$ be the regular hexagon of side length one.
 
 \begin{theorem}[Main theorem]
 \label{thm:main}
-The regular side-one hexagon $H$ cannot be covered by seven open unit
-equilateral triangles.
+The hexagon $H$ cannot be covered by seven open equilateral triangles of
+side length one.
 \end{theorem}
 
-The compactness and scaling lemma proved in
-Proposition~\ref{prop:open-closed-scaled} gives the following equivalent
-form.
+The compactness and scaling argument in
+Proposition~\ref{prop:open-closed-scaled} gives the equivalent closed form.
 
 \begin{corollary}[Expanded closed formulation]
 \label{cor:expanded-closed}
@@ -22,44 +28,164 @@ For every $L>1$, the regular hexagon $H_L$ of side length $L$ cannot be
 covered by seven closed unit equilateral triangles.
 \end{corollary}
 
-The proof is organized by mechanism rather than by the eventual case tree.
-Section~\ref{sec:structural-reductions} fixes the geometric model, assigns the seven
-roles, and proves exhaustive center- and vertex-role classifications.  It
-also transfers the supercritical-row count from actual maximal boundary
-reaches to strictly selected handoff demands.
+\subsection{A geometric dictionary}
+\label{subsec:reader-dictionary}
 
-Section~\ref{sec:length} establishes direct one-dimensional trace bounds on
-the boundary, the six radial arms, the three main diagonals, and the full
-skeleton when the additional hypotheses needed for a skeleton estimate are
-present.  These estimates dispose of the coarse branches and several
-exceptional positive-support configurations.
+Indices are taken in $\mathbb Z/6\mathbb Z$.  Put
+\[
+ O=(0,0),\qquad
+ V_i=\left(\cos\frac{i\pi}{3},\sin\frac{i\pi}{3}\right),\qquad
+ H=\conv\{V_0,\ldots,V_5\}.
+\]
+Write $e_{i,i+1}=[V_i,V_{i+1}]$ for a boundary edge,
+$r_i=[O,V_i]$ for a radial arm, and $M_i=V_i/2$.  The radial target and the
+full skeleton are
+\[
+ D=\bigcup_{i=0}^5r_i,\qquad S=\partial H\cup D,
+\]
+with lengths $\mathcal H^1(\partial H)=\mathcal H^1(D)=6$ and
+$\mathcal H^1(S)=12$.
 
-Section~\ref{sec:exact-demand} develops exact local admissibility and capped
-demand maps.  Exact center-trace and radial-exit formulas turn a center gap or
-a missing midpoint into boundary and radial demands.  Iteration of the local
-maps returns a demand that is incompatible with the remaining trace capacity.
-This section contains the delicate $\CEone/\CEtwo$ branches.
+Seven distinguished points force seven distinct roles: $U_C$ contains $O$
+and $U_i$ contains $V_i$.  Their closures are denoted by $T_C$ and $T_i$.
+The distinction is essential because closing an open trace may add an
+endpoint or a tangency.
 
-Section~\ref{sec:area} normalizes the area of a unit equilateral triangle to
-one.  It proves unconditional local square-loss estimates and a separate
-loss estimate for the recurrent \straddlinghangul{} (straddling)
-$\Tlike$ configuration.
-Their cyclic sum closes the remaining $\CEzero$ branches with one or at
-least two supercritical rows.
+\begin{figure}[H]
+\centering
+\input{figures/geometry_roles}
+\caption{Exact target geometry in the normalization above.  The labels show
+the seven forced role anchors; they do not prescribe the orientations of the
+covering triangles.}
+\label{fig:geometry-roles}
+\end{figure}
 
-Section~\ref{sec:ab-core} treats the all-$\Vdzero$, exactly-one-supercritical,
-zero-gap configuration without any center-class assumption.  Six common
-radial points and three asymmetric points are excluded directly from the six
-actual vertex roles; only the unique supercritical row uses an exact
-corner-clipped $AB$-frontier.  Convexity forces the resulting nine-point
-witness into the center role, while a caliper inequality rules out its
-enclosure by an open unit equilateral triangle.
+The center type records the number of boundary edges on which $T_C$ has a
+positive-length trace.  These numbers are $0,1,2$, giving respectively
+$\CEzero,\CEone,\CEtwo$.  For a vertex role, let $o$ be the number of its
+triangle vertices outside $H$ and $n$ the number of adjacent arms met in
+positive length.  The exhaustive names are
+\[
+\begin{array}{c|c}
+\text{type}&(o,n)\\ \hline
+\Vdzero&(1,0),(2,0),(3,0)\\
+\Vdone&(1,1)\\
+\Vdtwo&(1,2)\\
+\Tlike&(2,1).
+\end{array}
+\]
+The drawings in Figure~\ref{fig:role-taxonomy} encode only these incidence
+data; the proofs of exhaustiveness appear in
+Propositions~\ref{prop:ce-classification} and
+\ref{prop:vertex-classification}.
 
-Finally, Section~\ref{sec:assembly} gives the exhaustive routing table and
-proves Theorem~\ref{thm:main}.  Long formulas are collected in
-Appendix~\ref{app:formulas}.  Appendix~\ref{app:certificates} records the
-finite caliper certificate, and Appendix~\ref{sec:exact-mixed-overlap} gives
-the exact rational and global-Bernstein certificate for the two mixed
-overlaps.  No interval subdivision, branch-and-bound, plot, floating-point
-optimization, or unproved structural conjecture is used as a logical
-dependency.
+\begin{figure}[H]
+\centering
+\input{figures/center_taxonomy}
+\par\medskip
+\input{figures/vertex_taxonomy}
+\caption{Schematic role taxonomy, not to scale.  The top row records only
+the number of adjacent positive center traces.  In the bottom row, red dots
+represent triangle vertices outside $H$ and teal strokes represent
+positive-length support on adjacent radial arms.}
+\label{fig:role-taxonomy}
+\end{figure}
+
+For an original open vertex role, let $A_i,B_i,C_i$ be its actual maximal
+incoming boundary, outgoing boundary, and inward radial reaches.  Thus row
+$i$ is \emph{supercritical} when $A_i+B_i>1$, and
+\[
+ N_+=\left\lvert\left\{i:A_i+B_i>1\right\}\right\rvert.
+\]
+Lowercase $(a_i,b_i,c_i)$ will always denote smaller selected demands, never
+the actual maxima used to define $N_+$.
+
+On $e_{i,i+1}$, parametrized from $V_i$ to $V_{i+1}$, the two incident open
+traces are $[0,B_i)$ and $(1-A_{i+1},1]$.  Their nonempty complement
+\[
+ [B_i,1-A_{i+1}]
+\]
+is a boundary gap.  Equality gives a singleton gap, which remains uncovered
+because both incident traces are open at that point.
+
+\subsection{The exhaustive routing table}
+
+Table~\ref{tab:routing} is the logical spine of the proof.  Each row is a
+mutually exclusive refinement after the center class and $N_+$ are fixed,
+except for the one row explicitly assigned jointly to Strategies~1 and~2.
+Its exhaustiveness is proved in Chapters~2 and~7.
+
+\begin{table}[H]
+\centering
+\scriptsize
+\renewcommand{\arraystretch}{1.07}
+\begin{tabular}{p{.25\textwidth}p{.55\textwidth}c}
+\toprule
+center and row count&exhaustive refinement&route\\
+\midrule
+$\CEzero$, $N_+=0$&all vertex types&1\\
+$\CEzero$, $N_+=1$&all six roles $\Vdzero$&4\\
+$\CEzero$, $N_+=1$&a $\Vdone$ or $\Vdtwo$ role&1\\
+$\CEzero$, $N_+=1$&no $\Vdone/\Vdtwo$ role and a $\Tlike$ role&3\\
+$\CEzero$, $N_+\ge2$&all vertex types&3\\
+\midrule
+$\CEone/\CEtwo$, $N_+=0$&all six roles $\Vdzero$&2\\
+$\CEone/\CEtwo$, $N_+=0$&a $\Vdone$ or $\Vdtwo$ role&1\\
+$\CEone/\CEtwo$, $N_+=0$&no $\Vdone/\Vdtwo$ role and a $\Tlike$ role&2\\
+\midrule
+$\CEone/\CEtwo$, $N_+=1$&all $\Vdzero$, zero gaps&4\\
+$\CEone/\CEtwo$, $N_+=1$&all $\Vdzero$, exactly one gap&2\\
+$\CEtwo$, $N_+=1$&all $\Vdzero$, exactly two gaps&2\\
+$\CEone$, $N_+=1$&a $\Vdone$ or $\Vdtwo$ role&1\\
+$\CEtwo$, $N_+=1$&at least two $\Vdone/\Vdtwo$ roles&1\\
+$\CEtwo$, $N_+=1$&exactly one $\Vdone/\Vdtwo$ role&1+2\\
+$\CEone/\CEtwo$, $N_+=1$&no $\Vdone/\Vdtwo$ role and exactly one $\Tlike$ role&2\\
+$\CEone/\CEtwo$, $N_+=1$&no $\Vdone/\Vdtwo$ role and at least two $\Tlike$ roles&1\\
+$\CEone/\CEtwo$, $N_+\ge2$&all vertex types&1\\
+\bottomrule
+\end{tabular}
+\caption{The complete terminal routing.  Route $j$ means Strategy $j$;
+$1+2$ is the single hybrid package.}
+\label{tab:routing}
+\end{table}
+
+\subsection{The four strategies}
+
+\paragraph{Strategy 1: one-dimensional trace budgets.}
+Choose one of $\partial H$, $D$, or the conditional skeleton $S$.  Bound the
+trace of each role on that target according to its center class, vertex type,
+and supercritical status.  In every routed branch the seven upper bounds add
+to strictly less than the target length.  The target, rather than the case
+label, is the organizing idea.
+
+\paragraph{Strategy 2: exact demand propagation.}
+A center trace supplies boundary inputs and complementary radial demands.
+For a nonsupercritical vertex row, a monotone capped map converts an incoming
+boundary demand into a lower bound on the next row.  Iterating around the
+hexagon returns to row $0$ with a demand exceeding its exact remaining
+capacity.  The body displays the actual-row propagation mechanism; the
+individual five-link inequalities, piecewise map,
+rational estimates, and derivative checks are isolated in
+Appendices~\ref{app:strategy2-details} and
+\ref{app:rational-monotonicity}.
+
+\paragraph{Strategy 3: area loss.}
+Normalize a unit triangle to area one, so $H$ has area six.  Each selected
+boundary handoff forces a square amount of a vertex triangle outside the
+local hexagonal wedge.  Two ascents, or one ascent together with a
+$\Tlike$ row, force total loss greater than one; after adding the center
+triangle, the available inside area is strictly less than six.
+
+\paragraph{Strategy 4: a direct nine-point obstruction.}
+In the zero-gap, all-$\Vdzero$, exact-one state, the five nonsupercritical
+handoffs form one strict descent chain.  It produces common lower demands
+that force six radial points and three asymmetric points into $U_C$.
+Their convex hull cannot fit in an open unit equilateral triangle: an exact
+caliper argument gives enclosing side at least one, whereas compact
+containment in $U_C$ would give side strictly below one.
+
+The proof uses no global noncoverage claim for $S$, no interval subdivision,
+and no branch-and-bound.  The last mixed-overlap step is an exact
+computer-verified Bernstein certificate; its precise mathematical input,
+output, rational reduction, and digest are recorded in
+Appendix~\ref{app:exact-mixed-overlap}.
