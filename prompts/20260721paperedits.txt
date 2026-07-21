@@ -1,0 +1,4 @@
+inside 01_introduction.tex,
+use the new examplefigure figures temporary. current tikz figures are trash.
+also change the name of my figures approporiate
+ask me questions for details

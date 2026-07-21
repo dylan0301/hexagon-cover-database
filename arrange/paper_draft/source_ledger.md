@@ -31,7 +31,7 @@ path.
 | arrange/paper_draft/fonts/noto_sans_kr_subset_115.ttf | Glyph subset containing 걸. |
 | arrange/paper_draft/fonts/noto_sans_kr_subset_118.ttf | Glyph subset containing 거치는. |
 | arrange/paper_draft/main.pdf | Derived compiled manuscript. |
-| arrange/paper_draft/figures/ | TikZ sources and shared styles for the reader-facing geometric figures. |
+| arrange/paper_draft/figures/ | TikZ sources, shared styles, and temporary PNG role examples for the reader-facing geometric figures. |
 
 Build from arrange/paper_draft with:
 latexmk -xelatex -interaction=nonstopmode -halt-on-error main.tex.
@@ -46,8 +46,8 @@ Every figure is explanatory and no proof depends on visual inspection.
 |---|---|
 | figures/tikz_setup.tex | Shared print-safe styles; exact hexagon coordinates from `1001_geometry_objects.md`. |
 | figures/geometry_roles.tex | Exact target geometry and role anchors in the paper normalization. |
-| figures/center_taxonomy.tex | Schematic CE0/CE1/CE2 trace-count thumbnails, not to scale. |
-| figures/vertex_taxonomy.tex | Schematic Vd0/Vd1/Vd2/T3-like incidence thumbnails, not to scale. |
+| figures/role_examples/center_role_ce0_example.png; center_role_ce1_example.png; center_role_ce2_example.png | Temporary author-supplied illustrative center-role screenshots, not to scale; blank outer margins are cropped. |
+| figures/role_examples/vertex_role_vd0_axis_aligned_example.png; vertex_role_vd0_nonsupercritical_example.png; vertex_role_vd0_supercritical_example.png; vertex_role_vd1_example.png; vertex_role_vd2_example.png; vertex_role_t3_like_example.png | Temporary author-supplied illustrative vertex-role screenshots, not to scale; blank outer margins are cropped. |
 | figures/handoff_and_gap.tex | Exact one-dimensional trace/gap convention with schematic interval lengths; includes open endpoints and singleton gaps. |
 | figures/strategy1_trace_targets.tex | Exact sets $\partial H,D,S$ and their lengths; colors are explanatory. |
 | figures/strategy2_ce1_n0_all_vd0.tex | Exact CE1 center sample $\lambda=1/2,s=3/5,t=31/50$ and exact individual rotated Vd0 models; their simultaneous placement is illustrative, not a cover. |

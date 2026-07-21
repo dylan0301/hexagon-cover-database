@@ -62,9 +62,39 @@ covering triangles.}
 
 The center type records the number of boundary edges on which $T_C$ has a
 positive-length trace.  These numbers are $0,1,2$, giving respectively
-$\CEzero,\CEone,\CEtwo$.  For a vertex role, let $o$ be the number of its
-triangle vertices outside $H$ and $n$ the number of adjacent arms met in
-positive length.  The exhaustive names are
+$\CEzero,\CEone,\CEtwo$.
+
+\begin{figure}[H]
+\centering
+\begin{minipage}[t]{.32\textwidth}
+\vspace{0pt}\centering
+\includegraphics[width=\linewidth,height=.20\textheight,keepaspectratio]
+  {figures/role_examples/center_role_ce0_example.png}
+\par\smallskip
+\footnotesize (a) $\CEzero$
+\end{minipage}\hfill
+\begin{minipage}[t]{.32\textwidth}
+\vspace{0pt}\centering
+\includegraphics[width=\linewidth,height=.20\textheight,keepaspectratio]
+  {figures/role_examples/center_role_ce1_example.png}
+\par\smallskip
+\footnotesize (b) $\CEone$
+\end{minipage}\hfill
+\begin{minipage}[t]{.32\textwidth}
+\vspace{0pt}\centering
+\includegraphics[width=\linewidth,height=.20\textheight,keepaspectratio]
+  {figures/role_examples/center_role_ce2_example.png}
+\par\smallskip
+\footnotesize (c) $\CEtwo$
+\end{minipage}
+\caption{Illustrative examples of the three center-role types.  The
+screenshots are not to scale, and no proof depends on visual inspection.}
+\label{fig:center-role-examples}
+\end{figure}
+
+For a vertex role, let $o$ be the number of its triangle vertices outside
+$H$ and $n$ the number of adjacent arms met in positive length.  The
+exhaustive names are
 \[
 \begin{array}{c|c}
 \text{type}&(o,n)\\ \hline
@@ -74,22 +104,10 @@ positive length.  The exhaustive names are
 \Tlike&(2,1).
 \end{array}
 \]
-The drawings in Figure~\ref{fig:role-taxonomy} encode only these incidence
-data; the proofs of exhaustiveness appear in
+These classifications are mathematical rather than pictorial; the proofs of
+exhaustiveness appear in
 Propositions~\ref{prop:ce-classification} and
 \ref{prop:vertex-classification}.
-
-\begin{figure}[H]
-\centering
-\input{figures/center_taxonomy}
-\par\medskip
-\input{figures/vertex_taxonomy}
-\caption{Schematic role taxonomy, not to scale.  The top row records only
-the number of adjacent positive center traces.  In the bottom row, red dots
-represent triangle vertices outside $H$ and teal strokes represent
-positive-length support on adjacent radial arms.}
-\label{fig:role-taxonomy}
-\end{figure}
 
 For an original open vertex role, let $A_i,B_i,C_i$ be its actual maximal
 incoming boundary, outgoing boundary, and inward radial reaches.  Thus row
@@ -99,6 +117,58 @@ $i$ is \emph{supercritical} when $A_i+B_i>1$, and
 \]
 Lowercase $(a_i,b_i,c_i)$ will always denote smaller selected demands, never
 the actual maxima used to define $N_+$.
+
+\begin{figure}[H]
+\centering
+\begin{minipage}[t]{.32\textwidth}
+\vspace{0pt}\centering
+\includegraphics[width=\linewidth,height=.22\textheight,keepaspectratio]
+  {figures/role_examples/vertex_role_vd0_axis_aligned_example.png}
+\par\smallskip
+\footnotesize (a) axis-aligned $\Vdzero$
+\end{minipage}\hfill
+\begin{minipage}[t]{.32\textwidth}
+\vspace{0pt}\centering
+\includegraphics[width=\linewidth,height=.22\textheight,keepaspectratio]
+  {figures/role_examples/vertex_role_vd0_nonsupercritical_example.png}
+\par\smallskip
+\footnotesize (b) nonsupercritical $\Vdzero$
+\end{minipage}\hfill
+\begin{minipage}[t]{.32\textwidth}
+\vspace{0pt}\centering
+\includegraphics[width=\linewidth,height=.22\textheight,keepaspectratio]
+  {figures/role_examples/vertex_role_vd0_supercritical_example.png}
+\par\smallskip
+\footnotesize (c) supercritical $\Vdzero$
+\end{minipage}
+\par\medskip
+\begin{minipage}[t]{.32\textwidth}
+\vspace{0pt}\centering
+\includegraphics[width=\linewidth,height=.22\textheight,keepaspectratio]
+  {figures/role_examples/vertex_role_vd1_example.png}
+\par\smallskip
+\footnotesize (d) $\Vdone$
+\end{minipage}\hfill
+\begin{minipage}[t]{.32\textwidth}
+\vspace{0pt}\centering
+\includegraphics[width=\linewidth,height=.22\textheight,keepaspectratio]
+  {figures/role_examples/vertex_role_vd2_example.png}
+\par\smallskip
+\footnotesize (e) $\Vdtwo$
+\end{minipage}\hfill
+\begin{minipage}[t]{.32\textwidth}
+\vspace{0pt}\centering
+\includegraphics[width=\linewidth,height=.22\textheight,keepaspectratio]
+  {figures/role_examples/vertex_role_t3_like_example.png}
+\par\smallskip
+\footnotesize (f) $\Tlike$
+\end{minipage}
+\caption{Illustrative vertex-role examples.  The top row shows three
+$\Vdzero$ configurations; the bottom row shows the remaining three role
+types.  The screenshots are not to scale, and no proof depends on visual
+inspection.}
+\label{fig:vertex-role-examples}
+\end{figure}
 
 On $e_{i,i+1}$, parametrized from $V_i$ to $V_{i+1}$, the two incident open
 traces are $[0,B_i)$ and $(1-A_{i+1},1]$.  Their nonempty complement
