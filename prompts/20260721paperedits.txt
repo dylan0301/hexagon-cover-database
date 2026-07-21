@@ -2,3 +2,7 @@ inside 01_introduction.tex,
 use the new examplefigure figures temporary. current tikz figures are trash.
 also change the name of my figures approporiate
 ask me questions for details
+
+in 03 strategy1 overview.tex,
+there is part showing partial H, D, S image.
+but D figure only has 5 half diagonals. fix it
