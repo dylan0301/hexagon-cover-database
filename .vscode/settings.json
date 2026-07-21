@@ -1,0 +1,39 @@
+{
+  "latex-workshop.latex.recipe.default": "latexmk (xelatex, clean source)",
+  "latex-workshop.latex.outDir": "%TMPDIR%",
+  "latex-workshop.latex.auxDir": "%OUTDIR%",
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "latexmk (xelatex, clean source)",
+      "tools": [
+        "latexmk-xelatex-temp",
+        "copy-built-pdf"
+      ]
+    }
+  ],
+  "latex-workshop.latex.tools": [
+    {
+      "name": "latexmk-xelatex-temp",
+      "command": "latexmk",
+      "cwd": "%DIR%",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "-file-line-error",
+        "-xelatex",
+        "-outdir=%OUTDIR%",
+        "%DOC%"
+      ]
+    },
+    {
+      "name": "copy-built-pdf",
+      "command": "cp",
+      "cwd": "%DIR%",
+      "args": [
+        "%OUTDIR%/%DOCFILE%.pdf",
+        "%DIR%/%DOCFILE%.pdf"
+      ]
+    }
+  ]
+}
