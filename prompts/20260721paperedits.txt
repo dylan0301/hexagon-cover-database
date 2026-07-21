@@ -6,3 +6,13 @@ ask me questions for details
 in 03 strategy1 overview.tex,
 there is part showing partial H, D, S image.
 but D figure only has 5 half diagonals. fix it
+
+in strategy 2 overview.tex, there is two figures that start with 
+Mixed exact/schematic CE1/2 picture. The blue center
+triangle is the exact sample λ = 1/2, s = 3/5, t = 31/50; each
+displayed amber triangle is an exact individual Vd0 model with
+Ai + Bi = 1/2. Their simultaneou ...
+this should be specifically CE12 N+=0 all Vd0
+so should be in appendix. or maybe the relavant loss lemmas i don't know
+also replace the figures with just new CE12 N+=0 all VD0 figure
+ask me questions for details

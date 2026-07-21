@@ -50,8 +50,7 @@ Every figure is explanatory and no proof depends on visual inspection.
 | figures/role_examples/vertex_role_vd0_axis_aligned_example.png; vertex_role_vd0_nonsupercritical_example.png; vertex_role_vd0_supercritical_example.png; vertex_role_vd1_example.png; vertex_role_vd2_example.png; vertex_role_t3_like_example.png | Temporary author-supplied illustrative vertex-role screenshots, not to scale; blank outer margins are cropped. |
 | figures/handoff_and_gap.tex | Exact one-dimensional trace/gap convention with schematic interval lengths; includes open endpoints and singleton gaps. |
 | figures/strategy1_trace_targets.tex | Exact sets $\partial H,D,S$ and their lengths; colors are explanatory. |
-| figures/strategy2_ce1_n0_all_vd0.tex | Exact CE1 center sample $\lambda=1/2,s=3/5,t=31/50$ and exact individual rotated Vd0 models; their simultaneous placement is illustrative, not a cover. |
-| figures/strategy2_ce2_n0_all_vd0.tex | Exact symmetric CE2 center sample $x=y=2/5$, $u=v=\sqrt3/4+1/10$ and exact individual rotated Vd0 models; their simultaneous placement is illustrative. |
+| figures/strategy2_ce1_ce2_n0_all_vd0.png | Author-supplied common schematic for the CE1/CE2, $N_+=0$, all-Vd0 boundary package, not to scale; three representative Vd0 roles are shown, and the placement is not a candidate cover. |
 | figures/strategy2_five_map_chain.tex | Schematic actual-row propagation graph, not a substitute for the five-link inequalities. |
 | figures/strategy3_area_loss.tex | Schematic local wedge loss and cyclic summation, not to scale. |
 | figures/strategy4_nine_point_witness.tex | Symbolically exact radial-point pattern with schematic parameter-dependent asymmetric witnesses. |
