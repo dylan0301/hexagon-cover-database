@@ -16,3 +16,7 @@ this should be specifically CE12 N+=0 all Vd0
 so should be in appendix. or maybe the relavant loss lemmas i don't know
 also replace the figures with just new CE12 N+=0 all VD0 figure
 ask me questions for details
+
+I added global area loss and local area loss images.
+in strategy 3 overview.tex, replace the figures 
+ask questions for details
