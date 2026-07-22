@@ -1,6 +1,5 @@
-\section{Strategy 1: direct length-sum obstructions}
-\label{sec:strategy1-length}
-\label{sec:length}
+\subsection{Strategy 1: direct length-sum obstructions}
+\label{subsec:length-guide}
 
 For a closed triangle $T$ and a rectifiable target $E$, put
 $L_E(T)=\mathcal H^1(T\cap E)$.  If the original open roles cover $E$,
@@ -22,7 +21,7 @@ unit triangles can never cover $S$.}
 \label{fig:strategy1-targets}
 \end{figure}
 
-\subsection{The human-level mechanism}
+\subsubsection{The human-level mechanism}
 
 There are three ways for the sum in \eqref{eq:length-principle} to fail.
 
@@ -48,19 +47,12 @@ subcases.
 \end{enumerate}
 
 The exact neighboring-arm formula, every trace table, and all endpoint
-strictness checks are proved in Appendix~\ref{app:strategy1-details}.  The
-body uses only their branch-level consequences.
+strictness checks are proved in Section~\ref{sec:length}.
 
-\begin{proposition}[Strategy 1 interface]
-\label{prop:length-interface}
-Strategy~1 closes the rows of Table~\ref{tab:routing} assigned to route $1$,
-including its part of the $1+2$ row.
-\end{proposition}
-
-\begin{proof}
-Appendix Proposition~\ref{prop:length-branches} lists the same rows and
-derives them from the boundary, radial, diagonal, and conditional-skeleton
-trace theorems.  The list includes the Vd2 neighboring-midpoint and
-additional-positive-support parts of the hybrid CE2 package, and excludes
-the complementary placements reserved for Strategy~2.
-\end{proof}
+\paragraph{Branches closed by the length argument.}
+Section~\ref{sec:length} derives the boundary, radial, diagonal, and
+conditional-skeleton contradictions and ends with the exact list in
+Proposition~\ref{prop:length-branches}.  It closes every row of
+Table~\ref{tab:routing} assigned to route $1$.  Within the hybrid $1+2$ row,
+it closes the Vd2 neighboring-midpoint and additional-positive-support
+subcases; the complementary exact placements are treated by Strategy~2.

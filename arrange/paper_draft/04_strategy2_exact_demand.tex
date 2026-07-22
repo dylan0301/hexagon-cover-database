@@ -1,9 +1,10 @@
-\section{Exact formulas and technical proofs for Strategy 2}
-\label{app:strategy2-details}
+\section{Exact Local Demand Calculus}
+\label{sec:exact-local-demand-calculus}
 
-This appendix treats the configurations in which a coarse length sum does not
-by itself record enough information.  The mechanism is always the same.  A
-center trace fixes boundary inputs and complementary radial demands; an exact
+This section develops the local calculus for configurations in which a coarse
+length sum does not by itself record enough information.  The mechanism is
+always the same.  A center trace fixes boundary inputs and complementary
+radial demands; an exact
 local map propagates these data through nonsupercritical rows; and the
 returning demand exceeds the remaining boundary or radial capacity.
 
@@ -376,6 +377,9 @@ midpoints gives the four remaining inequalities, and substitution of the
 radial rays gives the six exits.  The inequalities $d_0\ge1/2>d_i$
 for $i\ne0$ are precisely the exact-midpoint conditions.
 \end{proof}
+
+\section{Cyclic Propagation in the All-$\Vdzero$ Cases}
+\label{sec:cyclic-all-vd0}
 
 \subsection{The exactly-one-supercritical all-$\Vdzero$ branch}
 
@@ -1167,6 +1171,9 @@ state is intentionally owned by the center-independent obstruction of
 Strategy~4.
 \end{proof}
 
+\section{Nonsupercritical, T3-like, and Vd1/Vd2 Demand Branches}
+\label{sec:t3-vd-demand-branches}
+
 \subsection{The exactly-one-$T3$ branch}
 
 \begin{proposition}[Exactly one T3-like row]
@@ -1723,7 +1730,7 @@ cover adjacent midpoints.  Its first two roles therefore form a crossed pair
 forbidden by Lemma~\ref{lem:t3-midpoint-tradeoff}.  Hence $T_0$ is T3-like;
 reflect so that it supports $r_1$.
 
-The diagonal trace bounds from Section~\ref{sec:strategy1-length} imply that
+The diagonal trace bounds from Section~\ref{sec:length} imply that
 there are at most two T3-like roles: if there were $k\ge3$, the center,
 T3-like, and nonsupercritical Vd0 diagonal caps would give
 \[
@@ -2283,6 +2290,8 @@ The exact list \eqref{eq:two-endpoint-pairs} is now exhausted, proving
 \eqref{eq:two-endpoint-loss}.
 \end{proof}
 
+\input{04a_strategy2_half_edge_envelope}
+
 \subsection{The exactly-one-Vd1/Vd2 placements}
 
 We now assume CE2, $N_+=1$, and exactly one row is Vd1 or Vd2.  The corner
@@ -2530,7 +2539,7 @@ Lemma~\ref{lem:vd1-pair-replacement} to the $N_+=0$ all-Vd0 obstruction.
 These alternatives exhaust the complementary exact-placement branch.
 \end{proof}
 
-\subsection{Strategy 2 terminal routing}
+\subsection{Exact-demand terminal routing}
 
 \begin{proposition}[Exact-demand terminal branches]
 \label{prop:demand-branches}

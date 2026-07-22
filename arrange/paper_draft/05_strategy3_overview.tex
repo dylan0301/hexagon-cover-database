@@ -1,5 +1,5 @@
-\section{Strategy 3: area loss}
-\label{sec:area}
+\subsection{Strategy 3: area loss}
+\label{subsec:area-guide}
 
 Normalize the area of a unit equilateral triangle to one.  Then
 $\mathrm{area}(H)=6$.  At a vertex, affine wedge coordinates identify
@@ -17,7 +17,7 @@ A T3-like row has the separate bound
  \mathrm{loss}(T_i)\ge2m-4m^2.
 \]
 Their coordinate proofs, with every orientation retained, are in
-Appendix~\ref{app:strategy3-details}.
+Section~\ref{sec:area}.
 
 \begin{figure}[H]
 \centering
@@ -40,11 +40,11 @@ local panel shows one vertex-role triangle with boundary reaches $a,b$, and
 the global panel shows the six cyclic vertex-role triangles.  Only the darker
 colored portions represent area retained inside $H$.  The exact loss
 inequalities and cyclic sums are proved independently in
-Appendix~\ref{app:strategy3-details}.}
+Section~\ref{sec:area}.}
 \label{fig:area-loss}
 \end{figure}
 
-\subsection{The two global sums}
+\subsubsection{The two global sums}
 
 Strict handoffs have $(a_i,b_i)=(1-x_{i-1},x_i)$, and selected
 supercritical rows are precisely the cyclic ascents $x_i>x_{i-1}$.  If there
@@ -66,16 +66,11 @@ at least $m^2$ each.  Their total is
 The six vertex roles therefore contribute total inside area less than five;
 adding the center role still gives less than the required six.
 
-\begin{proposition}[Strategy 3 interface]
-\label{prop:area-interface}
-Strategy~3 closes the two rows of Table~\ref{tab:routing} assigned to route
-$3$: CE0 with $N_+\ge2$, and CE0 with $N_+=1$, no Vd1/Vd2 role, and at least
-one T3-like role.
-\end{proposition}
-
-\begin{proof}
-The strict-handoff theorem transfers the actual $N_+$ pattern to the selected
-ascents.  The two sums above are the global certificate.  Appendix
-Proposition~\ref{prop:area-branches} verifies the local hypotheses and the
-strict area normalization in both branches.
-\end{proof}
+\paragraph{Branches closed by area loss.}
+Strategy~3 closes precisely the two rows of Table~\ref{tab:routing} assigned
+to route $3$: CE0 with $N_+\ge2$, and CE0 with $N_+=1$, no Vd1/Vd2 role, and
+at least one T3-like role.  The strict-handoff theorem transfers the actual
+$N_+$ pattern to the selected ascents, and the two sums above give the global
+certificate.  Section~\ref{sec:area} verifies the local hypotheses and the
+strict normalization, culminating in
+Proposition~\ref{prop:area-branches}.

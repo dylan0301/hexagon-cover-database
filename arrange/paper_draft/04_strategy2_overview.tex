@@ -1,5 +1,5 @@
-\section{Strategy 2: exact boundary--radial demand propagation}
-\label{sec:exact-demand}
+\subsection{Strategy 2: exact boundary--radial demand propagation}
+\label{subsec:exact-demand-guide}
 
 Length alone does not record where a trace must continue.  Strategy~2 keeps
 that positional information.  In local unit vectors
@@ -21,7 +21,7 @@ nonincreasing, $G_c$ is nondecreasing and extensive, and reflection gives
 an exact duality.  The piecewise formula has a genuine downward jump; no
 argument below uses continuity at that jump.
 
-\subsection{How an actual row propagates a demand}
+\subsubsection{How an actual row propagates a demand}
 
 Suppose an actual nonsupercritical row has $A_i\ge z$, radial reach
 $C_i\ge c_i$, and $A_i+B_i\le1$.  Then its realized demand triple gives
@@ -42,15 +42,15 @@ $[s,t]\subset e_{0,1}$ and six exits $d_i$ from $O$; the complementary
 radial demand is $c_i=1-d_i$.  For CE2 there are coupled intervals
 $[x,u]\subset e_{5,0}$ and $[y,v]\subset e_{0,1}$.
 Figure~\ref{fig:ce1-ce2-n0-all-vd0} in
-Appendix~\ref{app:strategy2-details} gives a common schematic for the
+Section~\ref{sec:cyclic-all-vd0} gives a common schematic for the
 CE1/CE2, $N_+=0$, all-Vd0 package.  It shows only three representative Vd0
 roles; the argument treats all six.
 
-\subsection{The branch-level contradictions}
+\subsubsection{The branch-level contradictions}
 
 For a one-gap branch, repeated use of \eqref{eq:actual-propagation} gives the
 five actual-row chain $1\to2\to3\to4\to5\to0$.  The exact terminal estimates
-proved in Appendix~\ref{app:strategy2-details} have the forms
+proved in Section~\ref{sec:cyclic-all-vd0} have the forms
 \[
  A_0\ge Z>B_{c_0}(s)\ge A_0
 \]
@@ -70,25 +70,23 @@ same interface together with the T3-like side tradeoff or the exact
 Vd1/Vd2 placement classification.
 
 All radical comparisons, low-root bounds, four-label branch tables, capped
-loss inequalities, and placement polynomials are deferred.  In particular,
+loss inequalities, and placement polynomials are proved in
+Sections~\ref{sec:exact-local-demand-calculus}--%
+\ref{sec:t3-vd-demand-branches}.  In particular,
 the half-edge rational envelope is used only on its valid domain
 \[
  p\ge\frac12,\qquad0\le h\le p,\qquad p+h<1;
 \]
-Appendix~\ref{app:rational-monotonicity} also records a counterexample outside
+Subsection~\ref{sec:half-edge-envelope} also records a counterexample outside
 that domain.
 
-\begin{proposition}[Strategy 2 interface]
-\label{prop:demand-interface}
-Strategy~2 closes the rows of Table~\ref{tab:routing} assigned to route $2$,
-including its part of the $1+2$ row.  Singleton gaps are included.
-\end{proposition}
-
-\begin{proof}
-Appendix Proposition~\ref{prop:demand-branches} proves the exact terminal
-list: the two $N_+=0$ packages, every positive-gap all-Vd0 state with
-$N_+=1$, the exactly-one-T3-like state, and the complementary exact
-placements in the hybrid CE2 package.  Equation~\eqref{eq:actual-propagation}
-is the handoff from each appendix scalar inequality to the actual role
-geometry.
-\end{proof}
+\paragraph{Branches closed by exact demand.}
+Sections~\ref{sec:cyclic-all-vd0} and
+\ref{sec:t3-vd-demand-branches} close every row of Table~\ref{tab:routing}
+assigned to route $2$, including the complementary exact placements in the
+hybrid $1+2$ row.  The terminal list in
+Proposition~\ref{prop:demand-branches} consists of the all-Vd0 and T3-like
+$N_+=0$ packages, every positive-gap all-Vd0 state with $N_+=1$, the
+exactly-one-T3-like state, and those complementary CE2 placements.  Singleton
+gaps are included.  Equation~\eqref{eq:actual-propagation} is the handoff from
+each scalar inequality to the actual role geometry.

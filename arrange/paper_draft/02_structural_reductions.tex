@@ -1,4 +1,4 @@
-\section{Geometric setup and structural reductions}
+\section{Structural Reduction to Finite Cases}
 \label{sec:structural-reductions}
 \label{sec:structural}
 
@@ -661,3 +661,21 @@ The hypothesis $O\in\mathrm{int}(T_C)$ cannot be weakened to
 $O\in T_C$: the triangle $\mathrm{conv}\{O,V_0,V_1\}$ has a boundary-edge
 overlap and contains both $M_0$ and $M_1$.
 \end{remark}
+
+\begin{proposition}[Exhaustive structural reduction]
+\label{prop:exhaustive-structural-reduction}
+Every hypothetical cover by seven open unit equilateral triangles admits the
+distinct center and vertex roles used in Table~\ref{tab:routing}, and its
+actual reaches determine exactly one row of that table.
+\end{proposition}
+
+\begin{proof}
+Lemma~\ref{lem:distinct-roles} gives the seven roles.
+Propositions~\ref{prop:ce-classification} and
+\ref{prop:vertex-classification} give the exhaustive and mutually exclusive
+center and vertex types.  The actual reaches determine exactly one of
+$N_+=0$, $N_+=1$, and $N_+\ge2$.  In the all-$\Vdzero$, $N_+=1$
+center-trace cases, Lemma~\ref{lem:gap-exhaustion} supplies the exhaustive
+gap refinement.  The remaining vertex-type refinements in
+Table~\ref{tab:routing} are disjoint by construction.
+\end{proof}

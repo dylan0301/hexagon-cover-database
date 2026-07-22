@@ -1,7 +1,7 @@
-\section{The exact global certificate for the mixed overlaps}
-\label{app:exact-mixed-overlap}
+\subsection{The exact global certificate for the mixed overlaps}
+\label{subsec:exact-mixed-overlap}
 
-This appendix proves the two mixed-overlap signs used in
+This subsection proves the two mixed-overlap signs used in
 Theorem~\ref{thm:witness-enclosure}.  It first
 replaces the exact radial value by rational upper envelopes, then reduces the
 mixed residuals to eight integer-polynomial signs.  Three fixed analytic charts
@@ -33,7 +33,7 @@ Since $m>1-s$,
  \label{eq:global-kappa-positive}
 \end{equation}
 
-\subsection{Rational radial upper envelopes}
+\subsubsection{Rational radial upper envelopes}
 
 Define
 \begin{equation}
@@ -112,7 +112,7 @@ Consequently
 Neither expression contains the quartic root or the radial radical
 $\sqrt{4s^2-3}$.
 
-\subsection{The Gram residuals and exact core reduction}
+\subsubsection{The Gram residuals and exact core reduction}
 
 On the active cell write $\bar c$ for the corresponding expression in
 \eqref{eq:global-rational-cbar}, and put
@@ -171,7 +171,7 @@ Newton-derivative numerators.  The term counts are
 \]
 Since $D\ge0$, it remains to prove all eight integer polynomials nonnegative.
 
-\subsection{Three fixed charts and global positive bases}
+\subsubsection{Three fixed charts and global positive bases}
 
 Set
 \[
@@ -274,39 +274,19 @@ Every coefficient in these sixteen expansions is strictly positive.
 Therefore all eight polynomials in \eqref{eq:global-core-reduction} are
 nonnegative on the corresponding radial cells.
 
-\subsection{Reproduction and completion}
+\begin{lemma}[Exact mixed-cap overlaps]
+\label{lem:exact-mixed-cap-overlaps}
+In the regime $c_*>2/3$, the tangent witnesses defined above satisfy
+\[
+ I(C,2\eta)\cap I(W,\eta)\ne\varnothing,
+ \qquad
+ I(W,\eta)\cap I(RA,2\eta)\ne\varnothing.
+\]
+\end{lemma}
 
-The exact package-local checks are
-\begin{verbatim}
-proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/
-3105X_self_contained_direct_Vd0_nine_point/
-3105X_computation/
-verify_mixed_overlap_core_derivation.py
-
-proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/
-3105X_self_contained_direct_Vd0_nine_point/
-3105X_computation/
-verify_global_core_positivity.py
-\end{verbatim}
-The first derives the eight core polynomials exactly from the witness formulas
-and checks equality with the stored transcript.  The second proves their signs
-by the twenty global Bernstein identities.  Both authenticate the canonical
-core-polynomial data with SHA-256 digest
-\begin{verbatim}
-dc46aaf263655d5159ecd3a81db72ee82477951d06172f4743b248df37209485
-\end{verbatim}
-and returns
-\begin{verbatim}
-adaptive_subdivision: false
-branch_and_bound: false
-result: PASS
-\end{verbatim}
-using exact integer, rational, and $\mathbb Q(\sqrt3)$ arithmetic.
-
+\begin{proof}
 Since $D\ge0$, the eight signs prove $Q_A,Q_C\ge0$ for $z\ge0$ by
 \eqref{eq:global-core-reduction}; reflection supplies $z\le0$.
 Equations~\eqref{eq:global-QA-factor}--\eqref{eq:global-QC-factor} give the two
 mixed cap overlaps for the smaller disks, hence for the original disks.
-Together with the two analytic adjacent overlaps, this completes the cap chain
-and proves Theorem~\ref{thm:witness-enclosure} without interval arithmetic or
-branch-and-bound.
+\end{proof}

@@ -1,0 +1,39 @@
+\section{Exact Certificate Record}
+\label{app:certificate-record}
+
+The mathematical reduction and global positive-basis proof of the two mixed
+overlaps appear in Section~\ref{subsec:exact-mixed-overlap}.  This appendix
+records the associated exact data and replay interface; it introduces no
+additional hypothesis or numerical evidence into the proof.
+
+The canonical data live with the proof package in
+\begin{verbatim}
+proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/
+3105X_self_contained_direct_Vd0_nine_point/
+3105X_computation/
+\end{verbatim}
+The module \texttt{mixed\_overlap\_core\_polynomials.py} assembles the six
+numbered \texttt{mixed\_overlap\_core\_data\_*.py} shards.  The two exact
+checks are
+\begin{verbatim}
+verify_mixed_overlap_core_derivation.py
+verify_global_core_positivity.py
+\end{verbatim}
+The first derives the eight core polynomials from the witness formulas and
+checks equality with the stored transcript.  The second checks the twenty
+global Bernstein identities and the exact signs of their coefficients in
+$\mathbb Q(\sqrt3)$.  Neither check uses interval arithmetic, adaptive
+subdivision, pruning, or branch-and-bound.
+
+Both checks authenticate the canonical core-polynomial data with SHA-256
+digest
+\begin{verbatim}
+dc46aaf263655d5159ecd3a81db72ee82477951d06172f4743b248df37209485
+\end{verbatim}
+and return
+\begin{verbatim}
+adaptive_subdivision: false
+branch_and_bound: false
+result: PASS
+\end{verbatim}
+using exact integer, rational, and $\mathbb Q(\sqrt3)$ arithmetic.

@@ -72,18 +72,20 @@ arrange/paper_draft/
 |-- main.tex
 |-- 01_introduction.tex
 |-- 02_structural_reductions.tex
-|-- 03_strategy1_overview.tex
-|-- 04_strategy2_overview.tex
-|-- 05_strategy3_overview.tex
-|-- 06_strategy4_overview.tex
-|-- 07_exhaustive_assembly.tex
-|-- 03_strategy1_length.tex             # technical appendix
-|-- 04_strategy2_exact_demand.tex       # technical appendix
-|-- 04a_strategy2_half_edge_envelope.tex # rational/monotonicity appendix
-|-- 05_strategy3_area.tex               # technical appendix
-|-- 06_strategy4_ab_core.tex            # technical appendix
-|-- appendix_certificates.tex
-|-- appendix_exact_mixed_overlap.tex
+|-- 03_strategy1_overview.tex           # Section 1 subsection
+|-- 04_strategy2_overview.tex           # Section 1 subsection
+|-- 05_strategy3_overview.tex           # Section 1 subsection
+|-- 06_strategy4_overview.tex           # Section 1 subsection
+|-- 03_strategy1_length.tex             # complete Section 3 proof
+|-- 04_strategy2_exact_demand.tex       # complete Sections 4--6 proofs
+|-- 04a_strategy2_half_edge_envelope.tex # nested in Section 6 at first use
+|-- 05_strategy3_area.tex               # complete Section 7 proof
+|-- 06_strategy4_ab_core.tex            # complete Section 8 proof
+|-- appendix_certificates.tex           # legacy name; nested in Section 8
+|-- appendix_exact_mixed_overlap.tex    # legacy name; nested in Section 8
+|-- 07_exhaustive_assembly.tex          # Section 9
+|-- appendix_symbols.tex                # Appendix A
+|-- appendix_certificate_record.tex     # Appendix B audit/reproduction only
 |-- source_ledger.md
 |-- fonts/
 |   |-- README.md
@@ -106,7 +108,7 @@ The preamble in `main.tex` must begin with the following minimum structure:
 \documentclass{amsart}
 \usepackage{amsmath,amssymb,amsthm,mathtools,graphicx}
 \usepackage{fontspec}
-\usepackage{booktabs,float,microtype,tikz}
+\usepackage{booktabs,float,longtable,microtype,tikz}
 \usetikzlibrary{arrows.meta,calc,positioning}
 \input{figures/tikz_setup}
 
@@ -124,8 +126,8 @@ The preamble in `main.tex` must begin with the following minimum structure:
 \newtheorem{remark}[theorem]{Remark}
 ```
 
-Place `\raggedbottom` immediately after `\begin{document}`.  The illustrated
-reader-facing chapters intentionally keep figures beside the argument they
+Place `\raggedbottom` immediately after `\begin{document}`. The illustrated
+reader-facing sections intentionally keep figures beside the argument they
 explain, so pages may end at different vertical positions rather than stretch
 display spacing to fill every page.
 
@@ -142,27 +144,32 @@ Use this assembly order:
 \maketitle
 \tableofcontents
 \input{01_introduction}
-\input{02_structural_reductions}
 \input{03_strategy1_overview}
 \input{04_strategy2_overview}
 \input{05_strategy3_overview}
 \input{06_strategy4_overview}
-\input{07_exhaustive_assembly}
-\appendix
+\input{02_structural_reductions}
 \input{03_strategy1_length}
 \input{04_strategy2_exact_demand}
-\input{04a_strategy2_half_edge_envelope}
 \input{05_strategy3_area}
 \input{06_strategy4_ab_core}
-\input{appendix_certificates}
-\input{appendix_exact_mixed_overlap}
+\input{07_exhaustive_assembly}
+\appendix
+\input{appendix_symbols}
+\input{appendix_certificate_record}
 % Add \bibliographystyle{amsplain} and \bibliography{references} only if used.
 \end{document}
 ```
 
-Do not add an input for the deleted
-`06_strategy4_nonbranching_completion.tex`; its exact material belongs in
-`appendix_exact_mixed_overlap.tex`.
+The four overview files deliberately follow `01_introduction.tex` before
+Section 2: each begins with `\subsection`, so together they complete Section 1,
+``A Guide to the Proof.'' The detailed strategy files are numbered body
+inputs. Do not input `04a_strategy2_half_edge_envelope.tex`,
+`appendix_certificates.tex`, or `appendix_exact_mixed_overlap.tex` directly
+from `main.tex`; despite the latter two legacy filenames, each is nested by
+the owning body file immediately before its first use. Do not add an input for
+the deleted `06_strategy4_nonbranching_completion.tex`; its active exact
+material is already integrated into the Section 8 sequence.
 
 Add `\bibliography{references}` only when `references.bib` contains verified
 external sources that are actually cited. Compile from
@@ -175,15 +182,16 @@ or graphics path may escape the workspace.
 The manuscript must contain, in this order:
 
 1. title, author placeholder, abstract, and keywords;
-2. first-chapter definitions, precise main theorem, the complete routing
-   table, and the four-strategy overview;
-3. proofs of the exhaustive structural reductions;
-4. one reader-facing section for each of the four strategies in the order specified
-   here;
-5. an exhaustive final assembly;
-6. technical appendices containing the complete formulas, monotonicity
-   bounds, branch calculations, and certificates;
-7. a bibliography only when genuine, verified external references are actually
+2. Section 1, ``A Guide to the Proof,'' containing the definitions, precise
+   main theorem, complete routing table, and four overview subsections;
+3. Section 2, proving the exhaustive structural reductions;
+4. Sections 3--8, containing the complete proof in dependency order, with
+   Strategy 2 split across Sections 4--6;
+5. Section 9, giving the exhaustive final assembly;
+6. Appendix A, containing only the table of symbols;
+7. Appendix B, containing only the exact-certificate audit and reproduction
+   record; and
+8. a bibliography only when genuine, verified external references are actually
    cited.
 
 Do not invent historical claims or bibliography entries. If external
@@ -191,10 +199,12 @@ literature has not been supplied or independently verified, omit the
 bibliography from the delivered manuscript and record the missing literature
 review only in the private drafting ledger.
 
-The body may state an interface proposition and defer its complete proof to a
-named appendix.  In that case the body must still state the hypotheses,
-conclusion, actual-to-selected handoff, and branch-level logical mechanism;
-the appendix must retain every exact inequality and strictness check.
+Every proof-critical theorem, formula, monotonicity bound, branch calculation,
+exact inequality, and strictness check belongs in Sections 2--9. No terminal
+branch theorem may be stated in the body and proved only in an appendix.
+Appendix B may record certificate artifact identifiers, digests, commands, and
+expected output, but it must not introduce a mathematical dependency needed
+to close a branch.
 
 Use `\label`, `\ref`, and `\eqref` consistently. Recommended label prefixes
 are `sec:`, `thm:`, `lem:`, `prop:`, `cor:`, `def:`, `eq:`, and `app:`. Every
@@ -203,9 +213,9 @@ cross-reference. Avoid duplicated proofs: prove a specialized lemma in the
 strategy section that owns it, then cite it later.
 
 The final paper must be self-contained at the level expected of a research
-article. It may move lengthy algebra and certified finite checks to appendices,
-but the body must state their exact inputs, outputs, hypotheses, and logical
-role.
+article. Lengthy proof algebra and certified finite checks remain in the
+numbered body at their first logical use. The appendices are reference aids,
+not a second proof pass.
 
 ## 3. Staged Generation Workflow
 
@@ -216,8 +226,8 @@ Do not attempt the full manuscript in one pass. Use the following sequence.
 1. Work from `arrange/paper_draft/` and use the fixed source layout from
    Section 2, omitting only the conditional bibliography when it is unused.
 2. Initialize `source_ledger.md` and record every persistent file in the
-   workspace, including the exact mixed-overlap appendix, embedded fonts,
-   their license and provenance, and the tracked `main.pdf`.
+   workspace, including the nested exact mixed-overlap body input, embedded
+   fonts, their license and provenance, and the tracked `main.pdf`.
 3. Read every shared source in Section 5 below.
 4. Read every source assigned to the strategy currently being drafted.
 5. Confirm the recorded status in the source itself, not merely in an index.
@@ -231,55 +241,62 @@ $(a_i,b_i,c_i)$ for selected or prescribed lower-bound demands. If a local
 section uses lowercase letters for actual reaches, explicitly announce that
 temporary convention and do not mix the two meanings.
 
-### Stage 1: reader map and shared setup
+### Stage 1: Section 1 reader guide
 
 Draft the theorem, geometric and case dictionary, complete routing table, and
-four-strategy overview in `01_introduction.tex`.  Draft the proofs of the
-open/closed/scaled equivalence, role assignment, exhaustive classifications,
-gap-count lemma, $N_+$ definition, and strict-handoff machinery in
-`02_structural_reductions.tex`. Audit that the resulting case split is
-exhaustive before drafting any strategy section.
+proof spine in `01_introduction.tex`. Write the four short strategy overviews,
+in order, in `03_strategy1_overview.tex`, `04_strategy2_overview.tex`,
+`05_strategy3_overview.tex`, and `06_strategy4_overview.tex`. These four files
+begin with `\subsection` and are assembled immediately after
+`01_introduction.tex`, so they are subsections of the same Section 1 rather
+than standalone strategy sections.
 
-### Stages 2--5: the four strategy sections
+### Stage 2: Section 2 structural reduction
 
-Write the reader-facing strategy narratives into these files, in order:
+Draft the proofs of the open/closed/scaled equivalence, role assignment,
+exhaustive classifications, gap-count lemma, $N_+$ definition, and
+strict-handoff machinery in `02_structural_reductions.tex`. End with the
+finite-case structural theorem and audit that its rows are mutually exclusive
+and exhaustive before drafting a terminal proof.
 
-1. Strategy 1 in `03_strategy1_overview.tex`;
-2. Strategy 2 in `04_strategy2_overview.tex`;
-3. Strategy 3 in `05_strategy3_overview.tex`;
-4. Strategy 4 in `06_strategy4_overview.tex`.
+### Stages 3--6: Sections 3--8 complete proof
 
-For each strategy file:
+Draft the full mathematical arguments in dependency order:
 
-1. explain the geometric mechanism and the exact input/output interface;
-2. retain the short human-level induction or global sum that makes the
-   strategy work;
-3. state an interface proposition recording exactly which routing rows it
-   closes and cite its complete technical appendix proof;
-4. check that all strict inequalities survive passage between open roles,
-   their closures, actual reaches, and selected demands;
-5. place the complete formula and branch proofs in the corresponding existing
-   technical source: `03_strategy1_length.tex`,
-   `04_strategy2_exact_demand.tex`, `05_strategy3_area.tex`, or
+1. Section 3, trace budgets and length contradictions, in
+   `03_strategy1_length.tex`;
+2. Sections 4--6, exact local demand calculus, cyclic all-Vd0 propagation,
+   and nonsupercritical or exceptional-type demand branches, in
+   `04_strategy2_exact_demand.tex`;
+3. Section 7, area-loss obstructions, in `05_strategy3_area.tex`; and
+4. Section 8, the direct nine-point obstruction, in
    `06_strategy4_ab_core.tex`.
 
-### Stage 6: final assembly
+For every body section, explain the geometric mechanism and exact interface,
+prove the complete formulas and branch results before they are invoked, and
+check that strict inequalities survive passage between open roles, their
+closures, actual reaches, and selected demands. Nest
+`04a_strategy2_half_edge_envelope.tex` inside Section 6 immediately before its
+first application. Nest `appendix_certificates.tex` and
+`appendix_exact_mixed_overlap.tex` inside Section 8 immediately before their
+first applications; their legacy filenames do not make them appendices.
+
+### Stage 7: Section 9 final assembly
 
 Write the main proof in `07_exhaustive_assembly.tex` from the routing table
-already displayed in Chapter 1. The assembly must show explicitly that every CE class, every
-$N_+$ range, and every exhaustive vertex-type refinement has been handled. Do
-not replace this audit by the sentence “all remaining cases are similar.”
+already displayed in Section 1. The assembly must show explicitly that every
+CE class, every $N_+$ range, and every exhaustive vertex-type refinement has
+been handled. Do not replace this audit by the sentence “all remaining cases
+are similar.”
 
-### Stage 7: certificates and final audit
+### Stage 8: reference appendices and final audit
 
-Keep the complete trace, exact-demand, area, and nine-point calculations in
-the four technical strategy files, after `\appendix`.  Put the reusable
-half-edge rational envelope and its domain counterexample in
-`04a_strategy2_half_edge_envelope.tex`. Place the finite caliper theorem and its reproduction details in
-`appendix_certificates.tex`. Put the active rational-envelope and global
-Bernstein mixed-overlap proof in `appendix_exact_mixed_overlap.tex`. Assemble
-every component through `main.tex`, run the checks in Section 15, and compile
-from `arrange/paper_draft/` with
+Generate Appendix A from `appendix_symbols.tex`, listing only symbols actually
+used and the body section where each is defined. Generate Appendix B from
+`appendix_certificate_record.tex`, recording certificate artifact identifiers,
+canonical digests, replay commands, and expected exact output without adding a
+new proof dependency. Assemble every top-level component through `main.tex`,
+run the checks in Section 15, and compile from `arrange/paper_draft/` with
 `latexmk -xelatex -interaction=nonstopmode -halt-on-error main.tex`. Inspect
 every warning, undefined reference, missing citation, missing font, and
 missing asset, and regenerate the tracked `main.pdf`. Only then produce the
@@ -290,34 +307,43 @@ final paper.
 Use the following major sections. In an `amsart` paper these are `\section`
 units, even though this guide informally calls them chapters.
 
-1. **Overview, notation, and main result.** State the open-unit theorem and
+1. **A Guide to the Proof.** State the open-unit theorem and
    expanded closed formulation; introduce $H,O,V_i,e_{i,i+1},r_i,M_i$, the
    seven roles, CE and vertex types, actual reaches, $N_+$, and gaps; display
-   the complete seventeen-row routing table; and give the four-strategy
-   overview before any long proof.
-2. **Geometric setup and structural reductions.** Prove the common role
-   assignment, classifications, row and gap exhaustiveness, and handoffs.
-3. **Strategy 1: Direct length-sum obstructions.** Explain the three targets
-   and the terminal trace budgets; defer the trace formula proofs.
-4. **Strategy 2: Exact boundary--radial demand propagation.** Define the
-   abstract $B_c,F_c,G_c$ interface, prove one actual-row propagation step,
-   display the five-link branch flow and terminal contradictions, and defer
-   the piecewise/monotonicity algebra.
-5. **Strategy 3: Area loss.** Display the two short global loss sums and defer
-   the orientation-by-orientation local inequalities.
-6. **Strategy 4: Center-independent direct nine-point obstruction.** Treat
+   the complete seventeen-row routing table; and end with four overview
+   subsections, one for each proof mechanism.
+2. **Structural Reduction to Finite Cases.** Prove the common role assignment,
+   classifications, row and gap exhaustiveness, handoffs, and the structural
+   theorem routing every hypothetical cover.
+3. **Trace Budgets and Length Contradictions.** Prove the boundary, radial,
+   diagonal, and conditional-skeleton trace results, followed by every
+   terminal length branch they close.
+4. **Exact Local Demand Calculus.** Define and prove the admissible set,
+   $B_c,F_c,G_c$ interface, center traces, complementary demands, and reusable
+   rational and capped-loss inequalities.
+5. **Cyclic Propagation in the All-Vd0 Cases.** Give the full CE1/CE2
+   five-link chains and positive-gap $N_+=1$ cases.
+6. **Nonsupercritical, T3-like, and Vd1/Vd2 Demand Branches.** Prove the
+   $N_+=0$ all-Vd0 package, one-T3-like and nonsupercritical T3-like cases,
+   capped-loss arguments, mixed placements, and hybrid CE2 Vd1/Vd2 closure.
+7. **Area-Loss Obstructions.** Prove the local square-loss and direct T3-like
+   loss theorems, both cyclic sums, and their terminal area branches.
+8. **The Direct Nine-Point Obstruction.** Treat
    the unified $N_+=1$, all-Vd0, zero-boundary-gap branch by forcing six
    radial and three asymmetric witnesses into the center role, without
-   splitting first by center class.
-7. **Exhaustive assembly.** Audit the five top-level blocks against the
-   Chapter 1 table and conclude the main theorem without repeating the table.
+   splitting first by center class; include the finite caliper criterion,
+   enclosure reduction, mixed-overlap reduction, and global Bernstein proof
+   before the terminal enclosure theorem.
+9. **Exhaustive Assembly.** Audit the five top-level blocks against the
+   Section 1 table and conclude the main theorem without repeating the table.
 
-Appendices must contain the long piecewise formulas, exhaustive finite label
-tables, rational and monotonicity bounds, exact finite certificates, global positive-basis identities,
-reproduction details, and coordinate proofs that remain logical dependencies
-and whose length would obscure the main argument. Do not reproduce a full
-algebraic catalogue or a superseded interval audit when every active use has
-been replaced by a shorter proved consequence.
+Appendix A is a table of symbols only. Appendix B is an exact-certificate
+audit and reproduction record only. Long piecewise formulas, finite label
+tables, rational and monotonicity bounds, exact certificate proofs,
+positive-basis identities, and coordinate arguments that remain logical
+dependencies belong in Sections 3--8 at their first use. Do not reproduce a
+full algebraic catalogue or a superseded interval audit when every active use
+has been replaced by a shorter proved consequence.
 
 ## 5. Shared Setup And Structural Reductions
 
@@ -355,9 +381,9 @@ essential in Strategy 2 and Strategy 4.
 
 ### Technical trace lemmas
 
-State only the consequences needed to read the body strategy.  Prove the
-following results in the Strategy 1 technical appendix before its branch
-applications.
+Prove the following results in Section 3 before their branch applications.
+The short Section 1 overview may state only the consequences needed to see the
+strategy, but Section 3 must contain the complete arguments.
 
 | Source | Recorded status | Manuscript role |
 |---|---|---|
@@ -406,7 +432,7 @@ assembly. Strategy 2 proves its remaining placement subcases.
 
 ## 7. Strategy 2: Exact Boundary--Radial Demand Propagation
 
-This section owns the difficult CE1/CE2 exact-value arguments. Its common
+Sections 4--6 own the difficult CE1/CE2 exact-value arguments. Their common
 mechanism is:
 
 1. exact center geometry turns a boundary gap, midpoint placement, or radial
@@ -416,9 +442,11 @@ mechanism is:
 3. the returning demand is incompatible with the remaining boundary or radial
    capacity.
 
-The entire CE1/CE2, $N_+=0$, all-Vd0 package belongs here, including its
-elementary no-active-gap subcase. Keep that package together for conceptual
-continuity.
+Section 4 establishes the shared local calculus. Section 5 owns the entire
+CE1/CE2, $N_+=0$, all-Vd0 package, including its elementary no-active-gap
+subcase, and the positive-gap all-Vd0 propagation chains. Section 6 owns the
+T3-like and Vd1/Vd2 branches. Keep each terminal package together for
+conceptual continuity.
 
 ### Exact-demand technical lemmas
 
@@ -436,8 +464,8 @@ continuity.
 | [`2107_one_side_capped_loss.md`](../proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2107_one_side_capped_loss.md) | Proven | Prove the one-side capped-output loss theorem. |
 | [`2108_CE2_two_endpoint_capped_loss.md`](../proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2108_CE2_two_endpoint_capped_loss.md) | Proven | Prove the strict two-endpoint CE2 capped-output theorem. |
 
-When this section needs a boundary or diagonal cap already proved in Strategy
-1, cite that result rather than reproducing it.
+When Sections 4--6 need a boundary or diagonal cap already proved in Section
+3, cite that result rather than reproducing it.
 
 ### Terminal packages
 
@@ -448,7 +476,7 @@ When this section needs a boundary or diagonal cap already proved in Strategy
 | [`4102_CE2_two_gap_completion.md`](../proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4102_CE2_two_gap_completion.md) | Proven | CE2, $N_+=1$, all Vd0, with two gaps. |
 | [`4106_CE1_one_gap_five_map_completion.md`](../proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4106_CE1_one_gap_five_map_completion.md) | Proven | CE1, $N_+=1$, all Vd0, with one gap. |
 | [`4107_CE2_one_gap_five_map_completion.md`](../proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4107_CE2_one_gap_five_map_completion.md) | Proven | CE2, $N_+=1$, all Vd0, with one gap in either orientation. |
-| [`4101_CE1CE2_Nplus1_all_Vd0_strategy.md`](../proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4101_CE1CE2_Nplus1_all_Vd0_strategy.md) | Proven | Assemble the positive-gap cases here; defer its zero-gap case to Strategy 4. |
+| [`4101_CE1CE2_Nplus1_all_Vd0_strategy.md`](../proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4101_CE1CE2_Nplus1_all_Vd0_strategy.md) | Proven | Assemble the positive-gap cases here; route its zero-gap case to Strategy 4. |
 | [`4130_CE1CE2_exactly_one_T3_like_index.md`](../proof/4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like/4130_CE1CE2_exactly_one_T3_like_index.md) | Proven | CE1/CE2, $N_+=1$, exactly one T3-like role and no Vd1/Vd2 role. |
 | [`4131_midpoint_forcing_reduction.md`](../proof/4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like/4131_midpoint_forcing_reduction.md) | Proven | Prove the exact midpoint and placement reduction for the preceding row. |
 | [`4132_CE1_CE2_exactly_one_T3_like_boundary_obstruction.md`](../proof/4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like/4132_CE1_CE2_exactly_one_T3_like_boundary_obstruction.md) | Proven | Prove its exact T3-like/supercritical propagation inequality and terminal boundary contradiction. |
@@ -461,14 +489,14 @@ When this section needs a boundary or diagonal cap already proved in Strategy
 
 ### Required five-link one-gap chains
 
-The reader-facing chapter must define $z_j=G_{c_j}(z_{j-1})$, prove explicitly
+Section 5 must define $z_j=G_{c_j}(z_{j-1})$, prove explicitly
 that one such scalar step bounds the next actual reach, show the order
 $1\to2\to3\to4\to5\to0$, and display the three terminal contradictions for
-CE1, CE2 right gap, and reflected CE2 left gap.  The Strategy 2 technical
-appendix must display the starting endpoint demand, all five scalar iterates,
-the capped-map bound for each actual row, every intervening boundary handoff,
-the returning actual reach on row $0$, and its incompatible upper bound. Use
-$(A_i,B_i)$ for actual boundary reaches and reserve $c_i$ for radial demands.
+CE1, CE2 right gap, and reflected CE2 left gap. It must display the starting
+endpoint demand, all five scalar iterates, the capped-map bound for each actual
+row, every intervening boundary handoff, the returning actual reach on row
+$0$, and its incompatible upper bound. Use $(A_i,B_i)$ for actual boundary
+reaches and reserve $c_i$ for radial demands.
 
 For CE1, use the normalized variables of `4106`, including
 
@@ -627,7 +655,7 @@ the proved branch files listed by `4070`, including the exact final assembly in
 This strategy contains only the final unconditional area route for CE0. Do not
 include the failed tangent-envelope route or superseded structural hypotheses.
 
-### Chapter-local lemmas and terminal assemblies
+### Section 7 lemmas and terminal assemblies
 
 | Source | Recorded status | Manuscript role |
 |---|---|---|
@@ -657,7 +685,7 @@ automatically. CE1 and CE2 zero-gap cases satisfy the same center-independent
 hypotheses and must be treated as applications of the same theorem, not as
 separate reproofs.
 
-### Chapter-local lemmas and terminal theorem
+### Section 8 lemmas and terminal theorem
 
 | Source | Recorded status | Manuscript role |
 |---|---|---|
@@ -762,8 +790,9 @@ The generated paper must follow these rules.
   coverage properties are preserved.
 - When using symmetry, specify how every orientation-sensitive index and
   coordinate transforms.
-- End each strategy section with a proposition listing precisely the terminal
-  branches it closes.
+- End each strategy's complete body block with a proposition listing precisely
+  the terminal branches it closes; for Strategy 2 this proposition belongs at
+  the end of Section 6.
 
 ### Notation and LaTeX
 
@@ -792,10 +821,13 @@ The generated paper must follow these rules.
 - If a reflected case is omitted, write the exact reflection and explain why
   it preserves the hypotheses and conclusion.
 
-## 12. Certificate Appendices
+## 12. Certificate Proofs And Audit Record
 
 The paper must include independently checkable certificate statements for all
-machine-assisted parts used in the proof.
+machine-assisted parts used in the proof. Their mathematical statements and
+proofs belong in Section 8 at first use. Appendix B records the exact replay
+interface and audit data only; it may not supply a theorem needed by Section 8
+or Section 9.
 
 At minimum, document:
 
@@ -808,12 +840,12 @@ At minimum, document:
    after analytic simplification.
 
 Optional historical cross-checks superseded by analytic proofs belong in the
-source ledger and proof package, not in the manuscript certificate appendix.
+source ledger and proof package, not in Appendix B.
 In particular, the older outward-rounded adaptive subdivision and adaptive
 mixed-overlap verifier are redundant legacy audits, not dependencies of the
 active paper.
 
-For each certificate, state:
+For each certificate, prove in Section 8:
 
 - the exact parameter domain;
 - the target inequality;
@@ -823,16 +855,23 @@ For each certificate, state:
 - why the finite events or fixed analytic charts cover the full domain;
 - the global positive-basis identity and exact coefficient-sign test;
 - the strict margin or sign conclusion;
-- the software command and expected output, as reproducibility information;
 - why the mathematical verification does not depend on unrecorded
   floating-point assumptions.
 
-For the mixed overlaps, record the $L$- and $T$-cell rational envelopes, the
-reduction to the eight polynomials $A_{B,X},B_{B,X}$, the $T,L_0,L_1$ chart
-coverage, and the exact sign check for the twenty global Bernstein
-expansions. Record the canonical polynomial digest and the deterministic
-`PASS` output with `adaptive_subdivision: false` and
-`branch_and_bound: false`. The reproduction command is
+Then record in Appendix B:
+
+- the exact artifact or transcript being authenticated;
+- its canonical digest;
+- the software command and expected deterministic output; and
+- the arithmetic model and explicit absence of interval subdivision,
+  branch-and-bound, or unrecorded floating-point assumptions.
+
+For the mixed overlaps, Section 8 must give the $L$- and $T$-cell rational
+envelopes, the reduction to the eight polynomials $A_{B,X},B_{B,X}$, the
+$T,L_0,L_1$ chart coverage, and the exact sign check for the twenty global
+Bernstein expansions. Appendix B records the canonical polynomial digest and
+the deterministic `PASS` output with `adaptive_subdivision: false` and
+`branch_and_bound: false`. The reproduction commands are
 
 ```text
 python3 proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/verify_mixed_overlap_core_derivation.py
@@ -860,7 +899,7 @@ script's status into the status of a mathematical lemma.
 ## 13. Figure Policy And Asset Layout
 
 The reader-facing manuscript must use figures where they materially separate
-the geometric idea from the appendix algebra.  At minimum include: the target
+the geometric idea from dense body algebra. At minimum include: the target
 hexagon and seven role anchors; the CE and vertex-type taxonomies; the
 three Strategy 1 trace targets; labelled CE1 and CE2 all-Vd0 pictures showing
 three vertex roles with one axis-aligned; the local/cyclic area-loss mechanism;
@@ -970,8 +1009,8 @@ The LLM must complete every item before presenting the manuscript.
 
 - [ ] Every row of the routing table in Section 10 appears exactly once in the
       final assembly, except the explicitly identified Strategy 1/2 hybrid.
-- [ ] The complete routing table appears in Chapter 1 and is not duplicated in
-      Chapter 7.
+- [ ] The complete routing table appears in Section 1 and is not duplicated in
+      Section 9.
 - [ ] The CE0/CE1/CE2 split is proved exhaustive.
 - [ ] The $N_+=0$, $N_+=1$, and $N_+\ge2$ split is exhaustive.
 - [ ] Every vertex-role refinement follows from the proved exhaustive type
@@ -1001,11 +1040,19 @@ The LLM must complete every item before presenting the manuscript.
 - [ ] Every theorem, lemma, equation, section, and appendix reference resolves.
 - [ ] Every `\input`, bibliography, font, and graphics reference resolves
       inside `arrange/paper_draft/`.
-- [ ] `main.tex` includes `appendix_exact_mixed_overlap.tex` and does not
-      include `06_strategy4_nonbranching_completion.tex`.
-- [ ] `main.tex` uses the four overview files in the body and the four complete
-      strategy files, plus `04a_strategy2_half_edge_envelope.tex`, only after
-      `\appendix`.
+- [ ] The four overview files are Section 1 subsections and occur before the
+      Section 2 structural reduction.
+- [ ] The complete strategy files are body inputs in Sections 3--8, Strategy 2
+      occupies Sections 4--6, and the exhaustive assembly is Section 9.
+- [ ] `04_strategy2_exact_demand.tex` nests
+      `04a_strategy2_half_edge_envelope.tex` immediately before first use.
+- [ ] `06_strategy4_ab_core.tex` nests `appendix_certificates.tex` and
+      `appendix_exact_mixed_overlap.tex` immediately before first use;
+      `main.tex` does not input those files directly and does not include
+      `06_strategy4_nonbranching_completion.tex`.
+- [ ] After `\appendix`, `main.tex` inputs only `appendix_symbols.tex` and
+      `appendix_certificate_record.tex`; neither appendix closes a terminal
+      branch.
 - [ ] `fontspec` loads both local Noto Sans KR subsets under XeLaTeX, and
       **걸거치는** renders in the compiled paper.
 - [ ] The abstract states the theorem and proof mechanisms without overstating

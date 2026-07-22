@@ -1,5 +1,5 @@
-\section{Strategy 4: the direct nine-point obstruction}
-\label{sec:ab-core}
+\subsection{Strategy 4: the direct nine-point obstruction}
+\label{subsec:nine-point-guide}
 
 Assume all six vertex roles are Vd0, they cover $\partial H$, and exactly
 one actual boundary row is supercritical.  Rotate the supercritical index to
@@ -16,7 +16,7 @@ Then $a+b>1$, $a^2+ab+b^2<1$, and every selected row has incoming and
 outgoing demands at least $p$ and $q$.  This single descent chain is why the
 strategy is specific to $N_+=1$.
 
-\subsection{Forcing nine points into the center role}
+\subsubsection{Forcing nine points into the center role}
 
 Let $c_*=c_{\max}(p,q)$ be the exact maximal radial reach for the common
 boundary demands.  The six points
@@ -44,7 +44,7 @@ forcing, or enclosure inequality is inferred from the picture.}
 \label{fig:strategy4-core-case}
 \end{figure}
 
-\subsection{Why the witness cannot fit}
+\subsubsection{Why the witness cannot fit}
 
 For a compact set $K$, let $\Lambda(K)$ be the least side length of a closed
 equilateral triangle containing $K$.  The witness-enclosure theorem proves
@@ -54,24 +54,19 @@ equilateral triangle containing $K$.  The witness-enclosure theorem proves
 \]
 Its geometric core is a four-cap chain in the support-direction circle.
 Adjacent overlaps are analytic; the two mixed overlaps are reduced to exact
-integer-polynomial signs and verified by global Bernstein identities.
+integer-polynomial signs and verified by global Bernstein identities in
+Subsection~\ref{subsec:exact-mixed-overlap}.
 
 The nine-point set is compact.  If it lay inside the open unit triangle
 $U_C$, positive clearance from the three sides would place it in a closed
 equilateral triangle of side strictly below one, contradicting the displayed
 lower bound.
 
-\begin{proposition}[Strategy 4 interface]
-\label{prop:nine-point-interface}
+\paragraph{Branches closed by direct forcing.}
 Strategy~4 closes exactly the zero-gap, all-Vd0, $N_+=1$ rows of
-Table~\ref{tab:routing}, for every center class.
-\end{proposition}
-
-\begin{proof}
-The technical center-independent obstruction is
-Theorem~\ref{thm:zero-gap-obstruction}.  In CE0, a missed boundary point
-would create a positive center trace, so zero gaps are automatic.  In CE1
-or CE2, zero gaps say directly that the six vertex roles cover
-$\partial H$.  Appendix Proposition~\ref{prop:ab-core-branches} makes these
-two applications explicit.
-\end{proof}
+Table~\ref{tab:routing}, for every center class.  The center-independent
+obstruction is Theorem~\ref{thm:zero-gap-obstruction} in
+Section~\ref{sec:ab-core}.  In CE0, a missed boundary point would create a
+positive center trace, so zero gaps are automatic.  In CE1 or CE2, zero gaps
+say directly that the six vertex roles cover $\partial H$.
+Proposition~\ref{prop:ab-core-branches} makes these two applications explicit.

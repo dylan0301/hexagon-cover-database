@@ -1,13 +1,13 @@
-\section{Overview, notation, and main result}
+\section{A Guide to the Proof}
 \label{sec:introduction}
 
-This chapter gives the reader the entire proof architecture before any long
+This section gives the reader the entire proof architecture before any long
 calculation.  It introduces the geometric objects and case labels, states the
-exhaustive routing table, and explains the four mechanisms that close its
-rows.  Section~\ref{sec:structural-reductions} then proves that these labels
-and reductions are exhaustive.  The complete algebra supporting the four
-mechanisms is collected after the final assembly in
-Appendices~\ref{app:strategy1-details}--\ref{app:strategy4-details}.
+exhaustive routing table, and previews the four mechanisms that close its
+rows.  Section~\ref{sec:structural-reductions} proves that the labels and
+reductions are exhaustive.  The complete proofs then appear in dependency
+order in Sections~\ref{sec:length}--\ref{sec:ab-core}, before the final audit
+in Section~\ref{sec:assembly}.
 
 \subsection{The theorem}
 
@@ -183,7 +183,8 @@ because both incident traces are open at that point.
 Table~\ref{tab:routing} is the logical spine of the proof.  Each row is a
 mutually exclusive refinement after the center class and $N_+$ are fixed,
 except for the one row explicitly assigned jointly to Strategies~1 and~2.
-Its exhaustiveness is proved in Chapters~2 and~7.
+Its exhaustiveness is proved in Section~\ref{sec:structural-reductions}, and
+the row-by-row audit is carried out in Section~\ref{sec:assembly}.
 
 \begin{table}[H]
 \centering
@@ -226,18 +227,19 @@ Choose one of $\partial H$, $D$, or the conditional skeleton $S$.  Bound the
 trace of each role on that target according to its center class, vertex type,
 and supercritical status.  In every routed branch the seven upper bounds add
 to strictly less than the target length.  The target, rather than the case
-label, is the organizing idea.
+label, is the organizing idea.  Subsection~\ref{subsec:length-guide} gives the
+reader-level argument, and Section~\ref{sec:length} gives the complete trace
+bounds and terminal contradictions.
 
 \paragraph{Strategy 2: exact demand propagation.}
 A center trace supplies boundary inputs and complementary radial demands.
 For a nonsupercritical vertex row, a monotone capped map converts an incoming
 boundary demand into a lower bound on the next row.  Iterating around the
 hexagon returns to row $0$ with a demand exceeding its exact remaining
-capacity.  The body displays the actual-row propagation mechanism; the
-individual five-link inequalities, piecewise map,
-rational estimates, and derivative checks are isolated in
-Appendices~\ref{app:strategy2-details} and
-\ref{app:rational-monotonicity}.
+capacity.  Subsection~\ref{subsec:exact-demand-guide} displays the actual-row
+propagation mechanism.  Sections~\ref{sec:exact-local-demand-calculus}--%
+\ref{sec:t3-vd-demand-branches} give the piecewise map, the individual
+five-link inequalities, the rational estimates, and the terminal branches.
 
 \paragraph{Strategy 3: area loss.}
 Normalize a unit triangle to area one, so $H$ has area six.  Each selected
@@ -245,6 +247,8 @@ boundary handoff forces a square amount of a vertex triangle outside the
 local hexagonal wedge.  Two ascents, or one ascent together with a
 $\Tlike$ row, force total loss greater than one; after adding the center
 triangle, the available inside area is strictly less than six.
+Subsection~\ref{subsec:area-guide} previews the two cyclic sums, and
+Section~\ref{sec:area} proves their local hypotheses.
 
 \paragraph{Strategy 4: a direct nine-point obstruction.}
 In the zero-gap, all-$\Vdzero$, exact-one state, the five nonsupercritical
@@ -252,10 +256,12 @@ handoffs form one strict descent chain.  It produces common lower demands
 that force six radial points and three asymmetric points into $U_C$.
 Their convex hull cannot fit in an open unit equilateral triangle: an exact
 caliper argument gives enclosing side at least one, whereas compact
-containment in $U_C$ would give side strictly below one.
+containment in $U_C$ would give side strictly below one.  The reader-level
+construction is in Subsection~\ref{subsec:nine-point-guide}, and the complete
+argument is in Section~\ref{sec:ab-core}.
 
 The proof uses no global noncoverage claim for $S$, no interval subdivision,
 and no branch-and-bound.  The last mixed-overlap step is an exact
 computer-verified Bernstein certificate; its precise mathematical input,
-output, rational reduction, and digest are recorded in
-Appendix~\ref{app:exact-mixed-overlap}.
+output, and rational reduction are proved in
+Subsection~\ref{subsec:exact-mixed-overlap}.

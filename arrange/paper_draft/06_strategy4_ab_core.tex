@@ -1,8 +1,8 @@
-\section{Technical nine-point construction and enclosure}
-\label{app:strategy4-details}
+\section{The Direct Nine-Point Obstruction}
+\label{sec:ab-core}
 
-This appendix supplies the exact frontier, witness, sign, and cap-overlap
-calculations used by the geometric narrative in Section~\ref{sec:ab-core}.
+This section supplies the exact frontier, witness, sign, and cap-overlap
+calculations for the direct nine-point obstruction.
 
 This section proves a center-class-independent theorem.  Its hypotheses are
 that all six vertex roles are $\Vdzero$, that they cover the full boundary,
@@ -12,6 +12,8 @@ $\CEone$ and $\CEtwo$.  Six common radial points and three asymmetric points
 are excluded directly from all six actual vertex roles and are therefore
 forced into the center role.  Only the unique supercritical row uses an
 $AB$-union; no nonsupercritical model core is introduced.
+
+\input{appendix_certificates}
 
 \subsection{Corner-clipped $AB$-unions}
 
@@ -588,7 +590,7 @@ Lemmas~\ref{lem:symmetric-core-witness} and
  \subset U_C.                                    \label{eq:forced-witness-set}
 \end{equation}
 
-\subsection{The enclosure inequality}
+\subsection{Tangent reduction and exact mixed overlaps}
 
 For a compact set $K$, let $\Lambda(K)$ be the least side length of a closed
 equilateral triangle containing $K$.  With $R$ denoting rotation through
@@ -598,20 +600,8 @@ $2\pi/3$,
  \sum_{j=0}^2h_K(R^jn).                          \label{eq:lambda-support}
 \end{equation}
 
-\begin{theorem}[Witness enclosure]
-\label{thm:witness-enclosure}
-For every $(a,b)$ in \eqref{eq:ab-strict-domain},
-\[
- \Lambda(K_{\rm wit}(a,b))\ge1.
-\]
-\end{theorem}
-
-\begin{proof}
-The disk alone gives
-$\Lambda(K_{\rm wit})\ge3\eta/h=3(1-c_*)$, so the assertion is automatic
-when $c_*\le2/3$.  Assume henceforth $c_*>2/3$.
-
-We first remove the square radicals in the first-root witnesses.  Normalize
+For the nontrivial regime $c_*>2/3$, we first remove the square radicals in
+the first-root witnesses.  Normalize
 $\bar\alpha=\alpha/h$, and similarly for the other three coefficients, and
 put
 \[
@@ -661,14 +651,34 @@ For a disk $\mathbb D(X,r)$ let
 \[
  I(X,r)=\{n:\lVert n\rVert=1,\ \langle X,n\rangle+r\ge h\}.
 \]
+
+\input{appendix_exact_mixed_overlap}
+
+\subsection{The enclosure inequality}
+
+\begin{theorem}[Witness enclosure]
+\label{thm:witness-enclosure}
+For every $(a,b)$ in \eqref{eq:ab-strict-domain},
+\[
+ \Lambda(K_{\rm wit}(a,b))\ge1.
+\]
+\end{theorem}
+
+\begin{proof}
+The disk alone gives
+$\Lambda(K_{\rm wit})\ge3\eta/h=3(1-c_*)$, so the assertion is automatic
+when $c_*\le2/3$.  Assume henceforth $c_*>2/3$.
+
+The tangent construction above gives \eqref{eq:tangent-reduction}, the
+Minkowski sum $S$, and the four disks in \eqref{eq:four-cap-disks}.
 If the caps of the disks in \eqref{eq:four-cap-disks} cover the unit circle,
 then $h_S(n)\ge h$ for every $n$ and \eqref{eq:lambda-support} proves
 $\Lambda(\widehat K)\ge1$.
 
 Put $\tau=h-2\eta=h(2c_*-1)$.  The rays of
-\[
- A,\ B,\ C,\ W,\ RA                              \tag{6.1}
-\]
+\begin{equation}
+ A,\ B,\ C,\ W,\ RA                              \label{eq:cap-ray-order}
+\end{equation}
 occur in this cyclic order from $A$ to $RA$.  Indeed the two line distances
 give
 \[
@@ -788,28 +798,14 @@ $d\ge2s-1$.  Therefore \eqref{eq:adjacent-overlaps} holds on both
 sheets, and reflection supplies the other line.
 
 It remains to check the two mixed overlaps.  On the two radial cells use the
-rational upper envelopes
-\[
- \bar c_L=s-\frac{\chi}{4s^3-2s+m},\qquad
- \bar c_T=s-\frac{\chi}{1-m}
-\]
-from Lemma~\ref{lem:global-branchwise-cbar}.  They satisfy
-$c_*\le\bar c<1$, so
-$\bar\eta=h(1-\bar c)$ obeys $0<\bar\eta\le\eta$.  The exact reduction in
-Appendix~\ref{app:exact-mixed-overlap} factors the two mixed Gram residuals
-for the smaller caps into positive factors and eight integer-polynomial
-signs.  Three fixed analytic charts and twenty global Bernstein identities
-prove all eight signs without interval arithmetic or domain subdivision.
-They are precisely the common-support inequalities for
-\[
- \mathbb D(C,2\bar\eta),\ \mathbb D(W,\bar\eta)
- \quad\text{and}\quad
- \mathbb D(W,\bar\eta),\ \mathbb D(RA,2\bar\eta).
-\]
-Hence both pairs of smaller caps overlap.  Enlarging their radii from
-$\bar\eta$ to $\eta$ proves the required two mixed overlaps.
+exact rational envelopes and global Bernstein identities established in
+Subsection~\ref{subsec:exact-mixed-overlap}.
+Lemma~\ref{lem:exact-mixed-cap-overlaps} gives precisely the overlaps for
+$\mathbb D(C,2\eta)$ with $\mathbb D(W,\eta)$ and for
+$\mathbb D(W,\eta)$ with $\mathbb D(RA,2\eta)$.
 
-Thus the four consecutive pairs of caps centered on the rays (6.1) overlap.
+Thus the four consecutive pairs of caps centered on the rays
+\eqref{eq:cap-ray-order} overlap.
 Every cap is a single arc of half-width less than $\pi/2$, and the positive
 crosses put each overlap in the intervening short sector.  They cover the
 sector from $A$ to $RA$; rotation through $2\pi/3$ covers the circle.  Hence
