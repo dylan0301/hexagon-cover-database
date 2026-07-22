@@ -53,8 +53,7 @@ Every figure is explanatory and no proof depends on visual inspection.
 | figures/strategy2_ce1_ce2_n0_all_vd0.png | Author-supplied common schematic for the CE1/CE2, $N_+=0$, all-Vd0 boundary package, not to scale; three representative Vd0 roles are shown, and the placement is not a candidate cover. |
 | figures/strategy2_five_map_chain.tex | Schematic actual-row propagation graph, not a substitute for the five-link inequalities. |
 | figures/strategy3_local_area_loss.png; figures/strategy3_global_area_loss.png | Author-supplied schematic local and cyclic area-retention views, not to scale; only the darker colored portions represent area retained inside $H$, and no proof depends on visual inspection. |
-| figures/strategy4_nine_point_witness.tex | Symbolically exact radial-point pattern with schematic parameter-dependent asymmetric witnesses. |
-| figures/strategy4_cap_chain.tex | Schematic support-direction cap chain, not to scale. |
+| figures/strategy4_core_case_example.png | Author-supplied illustrative Strategy 4 core-case screenshot, not to scale; no proof depends on visual inspection. |
 
 ## Main theorem and common reductions
 
