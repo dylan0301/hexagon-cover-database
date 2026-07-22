@@ -48,10 +48,8 @@ Every figure is explanatory and no proof depends on visual inspection.
 | figures/geometry_roles.tex | Exact target geometry and role anchors in the paper normalization. |
 | figures/role_examples/center_role_ce0_example.png; center_role_ce1_example.png; center_role_ce2_example.png | Temporary author-supplied illustrative center-role screenshots, not to scale; blank outer margins are cropped. |
 | figures/role_examples/vertex_role_vd0_axis_aligned_example.png; vertex_role_vd0_nonsupercritical_example.png; vertex_role_vd0_supercritical_example.png; vertex_role_vd1_example.png; vertex_role_vd2_example.png; vertex_role_t3_like_example.png | Temporary author-supplied illustrative vertex-role screenshots, not to scale; blank outer margins are cropped. |
-| figures/handoff_and_gap.tex | Exact one-dimensional trace/gap convention with schematic interval lengths; includes open endpoints and singleton gaps. |
 | figures/strategy1_trace_targets.tex | Exact sets $\partial H,D,S$ and their lengths; colors are explanatory. |
 | figures/strategy2_ce1_ce2_n0_all_vd0.png | Author-supplied common schematic for the CE1/CE2, $N_+=0$, all-Vd0 boundary package, not to scale; three representative Vd0 roles are shown, and the placement is not a candidate cover. |
-| figures/strategy2_five_map_chain.tex | Schematic actual-row propagation graph, not a substitute for the five-link inequalities. |
 | figures/strategy3_local_area_loss.png; figures/strategy3_global_area_loss.png | Author-supplied schematic local and cyclic area-retention views, not to scale; only the darker colored portions represent area retained inside $H$, and no proof depends on visual inspection. |
 | figures/strategy4_core_case_example.png | Author-supplied illustrative Strategy 4 core-case screenshot, not to scale; no proof depends on visual inspection. |
 

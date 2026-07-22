@@ -862,10 +862,10 @@ script's status into the status of a mathematical lemma.
 The reader-facing manuscript must use figures where they materially separate
 the geometric idea from the appendix algebra.  At minimum include: the target
 hexagon and seven role anchors; the CE and vertex-type taxonomies; the
-handoff/gap convention; the three Strategy 1 trace targets; labelled CE1 and
-CE2 all-Vd0 pictures showing three vertex roles with one axis-aligned; the
-five-map chain; the local/cyclic area-loss mechanism; and the nine-point and
-support-cap constructions.  Do not add decorative images.
+three Strategy 1 trace targets; labelled CE1 and CE2 all-Vd0 pictures showing
+three vertex roles with one axis-aligned; the local/cyclic area-loss mechanism;
+and the nine-point and support-cap constructions.  Do not add decorative
+images.
 
 Every visual asset and every file used to generate it must live under
 `arrange/paper_draft/figures/`. This includes:

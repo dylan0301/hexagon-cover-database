@@ -20,3 +20,10 @@ ask me questions for details
 I added global area loss and local area loss images.
 in strategy 3 overview.tex, replace the figures 
 ask questions for details
+
+delete the figures igure 6. Schematic five-row propagation for a one-gap branch.
+  The technical appendix proves the displayed terminal strict inequal-
+  ity, including every endpoint assignment and the reflected CE2
+  chain. and also figure 4 ure 4. One-dimensional trace model; only the drawn lengths
+  are schematic. The top panel shows a strict handoff in the overlap
+  uncovered by the two open traces. they don't help anything
