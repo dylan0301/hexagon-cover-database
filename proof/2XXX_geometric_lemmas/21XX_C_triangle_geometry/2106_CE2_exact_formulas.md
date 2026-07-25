@@ -1,31 +1,144 @@
-# CE2 Exact Center, Interval-Coupling, Radial-Exit, and Demand Formulas
+# CE2 Exact Formulas as a Signed-Normal-Form Adapter
 
 Status: Proven
 
-This note records the exact formulas for the normalized CE2 center triangle
-with unique midpoint $M_0$. The general centroid-and-angle model and generic
-edge clipping formulas are recorded in
-[`2105_CE1_exact_formulas.md`](2105_CE1_exact_formulas.md).
+This note records the CE2 specialization of the common signed center normal
+form in
+[`2109`](2109_signed_CE1_CE2_center_normal_form.md).  The former interval-pair
+coupling and all six radial exits follow from one three-parameter model.
 
-## Interval variables and exact domain
+## 1. Signed variables and exact domain
 
-Parameterize both adjacent edges from $V_0$:
+Put
 
 $$
-e_{5,0}(a)=V_0+a(V_5-V_0),
+0<R<1,
 \qquad
-e_{0,1}(b)=V_0+b(V_1-V_0).
+W=1-R,
 $$
 
-Write
+$$
+E=\sqrt{1-RW},
+\qquad
+\eta=1-E,
+\qquad
+P=E(1-E).
+$$
+
+Let $\alpha,\delta$ be the two nontrivial center slacks and put
+
+$$
+k=\eta+\alpha+\delta.
+$$
+
+Define
+
+$$
+\Delta_R=P-\alpha-W\delta,
+\qquad
+\Delta_L=P-R\alpha-\delta.
+$$
+
+The closed normalized exact-$M_0$ CE2 domain is
+
+$$
+\boxed{
+\begin{gathered}
+0<R<1,
+\qquad
+\alpha\ge0,
+\qquad
+\delta\ge0,\\
+\Delta_R>0,
+\qquad
+\Delta_L>0.
+\end{gathered}
+}
+$$
+
+For the closure of an original open center role, the center slacks are strict:
+
+$$
+\boxed{\alpha>0,
+\qquad
+\delta>0.}
+$$
+
+The two positive center traces, both parameterized from $V_0$, are
+
+$$
+\boxed{
+T_C\cap e_{5,0}=[x,u],
+\qquad
+x=\frac{k}{W},
+\qquad
+u=R+\alpha,
+}
+$$
+
+and
+
+$$
+\boxed{
+T_C\cap e_{0,1}=[y,v],
+\qquad
+y=\frac{k}{R},
+\qquad
+v=W+\delta.
+}
+$$
+
+Here $\nu$ is the far endpoint denoted by $u$ in the legacy notation. Thus,
+when using the historical symbols below, set $u=\nu$.
+
+Their lengths are
+
+$$
+\nu-x=\frac{\Delta_L}{W}>0,
+$$
+
+and
+
+$$
+v-y=\frac{\Delta_R}{R}>0.
+$$
+
+The midpoint inequalities formerly listed separately follow from the signed
+domain and the midpoint tests in
+[`2100`](2100_CE1_CE2_exactly_one_midpoint_lemma.md).  In particular,
+
+$$
+T_C\cap\{M_0,\ldots,M_5\}=\{M_0\}.
+$$
+
+Conversely, `2109` proves that every normalized exact-$M_0$ CE2 center role
+yields exactly these signed inequalities.  Hence the domain is exact.
+
+## 2. Legacy interval-pair coupling
+
+Return to the historical endpoint names
 
 $$
 T_C\cap e_{5,0}=[x,u],
 \qquad
-T_C\cap e_{0,1}=[y,v].
+T_C\cap e_{0,1}=[y,v],
 $$
 
-Set
+where
+
+$$
+x=\frac{k}{W},
+\qquad
+u=u=R+\alpha,
+$$
+
+$$
+y=\frac{k}{R},
+\qquad
+v=W+\delta.
+$$
+
+Put
 
 $$
 S=x+y,
@@ -33,78 +146,97 @@ S=x+y,
 D=\sqrt{x^2+xy+y^2}.
 $$
 
-By the exact interval-pair certificate in
-[`2103_CE2_M0_e50_e01_maximal_interval_pairs.md`](2103_CE2_M0_e50_e01_maximal_interval_pairs.md),
-the maximal closed exact-$M_0$ CE2 domain is
+Then
 
 $$
-0<x<u<1,
+S=\frac{k}{RW},
 \qquad
-0<y<v<1,
+D=\frac{Ek}{RW}.
 $$
 
-$$
-(u+v)S-xy=D,
-$$
+The classical coupling equation follows immediately:
 
 $$
-uS\ge x,
-\qquad
-vS\ge y,
+\begin{aligned}
+(u+v)S-xy
+&=
+(1+\alpha+\delta)\frac{k}{RW}
+-
+\frac{k^2}{RW}\\
+&=
+\frac{Ek}{RW}\\
+&=D.
+\end{aligned}
+$$
+
+Thus
+
+$$
+\boxed{(u+v)S-xy=D,}
+$$
+
+or equivalently
+
+$$
+\boxed{u+v=\frac{D+xy}{x+y}.}
+$$
+
+The two intervals are therefore coupled automatically; the coupling is not an
+additional equation beyond the signed normal form.
+
+The old center-containment quantities also reduce to the signed slacks:
+
+$$
+vS-y=\delta S,
 $$
 
 and
 
 $$
+uS-x=\alpha S.
+$$
+
+Consequently
+
+$$
+uS\ge x,
+\qquad
+vS\ge y
+$$
+
+are exactly $\alpha,\delta\ge0$, with strict inequalities for closures of
+original open center roles.  Likewise
+
+$$
 uS<x+\frac y2,
 \qquad
-vS<y+\frac x2.
+vS<y+\frac x2
 $$
 
-For the closure of an open center role, the two center inequalities are
-strict:
+are the exact neighboring-midpoint exclusions and follow from
+$\alpha<W/2$ and $\delta<R/2$.
+
+## 3. Half-plane model
+
+In the affine coordinates of `2109`, the common side slacks are
 
 $$
-uS>x,
-\qquad
-vS>y.
+\begin{aligned}
+F_0&=R+\alpha-a+Wb,\\
+F_1&=Rb+Wa-k,\\
+F_2&=W+\delta-b+Ra.
+\end{aligned}
 $$
 
-The interval on $e_{5,0}$ in the counterclockwise parameter from $V_5$ to
-$V_0$ is
+This is equivalent to the legacy physical-coordinate support model in which
+the side through the initial endpoints has outward normal
 
 $$
-[1-u,1-x].
+n_2=\frac1{2D}\left(\sqrt3S,y-x\right),
 $$
 
-The two intervals are coupled by
-
-$$
-\boxed{
-u+v=\frac{D+xy}{x+y}.
-}
-$$
-
-They cannot be varied independently.
-
-## Half-plane data
-
-In standard physical coordinates, the side through the two initial endpoints
-has outward normal
-
-$$
-n_2=\frac1{2D}\left(\sqrt3S,y-x\right).
-$$
-
-Set
-
-$$
-n_0=R_{2\pi/3}n_2,
-\qquad
-n_1=R_{-2\pi/3}n_2.
-$$
-
-The support constants are
+and the other two normals are its rotations by $\pm2\pi/3$.  The support
+constants are
 
 $$
 \alpha_2=\frac{\sqrt3(S-xy)}{2D},
@@ -112,138 +244,75 @@ $$
 
 $$
 \alpha_0=\frac{\sqrt3(vS-y)}{2D},
-$$
-
-$$
+\qquad
 \alpha_1=\frac{\sqrt3(uS-x)}{2D}.
 $$
 
-Thus
+Their sum is $\sqrt3/2$ precisely because the coupling identity above holds.
+No separate support calculation is needed.
 
-$$
-T_C=
-\left\{
-X:n_j\mathbin{\cdot}X\le\alpha_j, j=0,1,2
-\right\}.
-$$
+## 4. Radial exits and demands
 
-The identity
-
-$$
-\alpha_0+\alpha_1+\alpha_2=\frac{\sqrt3}{2}
-$$
-
-is equivalent to the coupling equation and proves that the side length is
-one.
-
-## Exact radial exits
-
-The ray $r_0$ exits through side $2$, so
-
-$$
-d_0
-=
-\frac{\alpha_2}{n_2\mathbin{\cdot}V_0}
-=
-\frac{S-xy}{S}
-=
-1-\frac{xy}{S}.
-$$
-
-The rays $r_1,r_2$ exit through side $0$:
-
-$$
-d_1=\frac{vS-y}{x},
-\qquad
-d_2=\frac{vS-y}{S}.
-$$
-
-The rays $r_4,r_5$ exit through side $1$:
-
-$$
-d_4=\frac{uS-x}{S},
-\qquad
-d_5=\frac{uS-x}{y}.
-$$
-
-On $r_3$, sides $0$ and $1$ both give upper bounds:
-
-$$
-d_3=
-\min\left\{
-\frac{vS-y}{y},
-\frac{uS-x}{x}
-\right\}.
-$$
-
-Therefore
+The common exit theorem `2109` gives
 
 $$
 \boxed{
 \begin{aligned}
-d_0&=1-\frac{xy}{S},\\
-d_1&=\frac{vS-y}{x},\\
-d_2&=\frac{vS-y}{S},\\
-d_3&=\min\left\{
-\frac{vS-y}{y},
-\frac{uS-x}{x}
-\right\},\\
-d_4&=\frac{uS-x}{S},\\
-d_5&=\frac{uS-x}{y}.
+d_0^C&=E-\alpha-\delta,\\
+d_1^C&=\frac{\delta}{R},\\
+d_2^C&=\delta,\\
+d_3^C&=\min\left\{\frac{\alpha}{R},\frac{\delta}{W}\right\},\\
+d_4^C&=\alpha,\\
+d_5^C&=\frac{\alpha}{W}.
 \end{aligned}
 }
 $$
 
-## Complementary radial demands
-
-Set
-
-$$
-c_i=1-d_i.
-$$
-
-Then
+Substitution of the legacy endpoints gives the former formulas exactly:
 
 $$
 \boxed{
 \begin{aligned}
-c_0&=\frac{xy}{x+y},\\
-c_1&=1-\frac{vS-y}{x},\\
-c_2&=1-\frac{vS-y}{S},\\
-c_3&=1-\min\left\{
-\frac{vS-y}{y},
-\frac{uS-x}{x}
-\right\},\\
-c_4&=1-\frac{uS-x}{S},\\
-c_5&=1-\frac{uS-x}{y}.
+d_0^C&=1-\frac{xy}{S},\\
+d_1^C&=\frac{vS-y}{x},\\
+d_2^C&=\frac{vS-y}{S},\\
+d_3^C&=\min\left\{\frac{vS-y}{y},\frac{uS-x}{x}\right\},\\
+d_4^C&=\frac{uS-x}{S},\\
+d_5^C&=\frac{uS-x}{y}.
 \end{aligned}
 }
 $$
 
-The exact midpoint conditions imply
+The complementary vertex-role demands are
 
 $$
-d_0\ge\frac12,
+\boxed{c_i=1-d_i^C.}
+$$
+
+For closures of original open center roles,
+
+$$
+d_0^C>\frac12,
 \qquad
-d_i<\frac12\quad(i\ne0),
+d_i^C<\frac12\quad(i\ne0),
 $$
 
 and hence
 
 $$
-c_0\le\frac12,
+c_0<\frac12,
 \qquad
 c_i>\frac12\quad(i\ne0).
 $$
 
-As in `2105`, the inequality $\widehat c_i\ge c_i$ for an actual vertex-role
-reach is a relaxation in the correct direction by convexity and
-coordinatewise down-closedness.
+If an actual vertex role reaches distance $\widehat c_i$ from $V_i$, radial
+coverage gives $\widehat c_i\ge c_i$.  Replacing the actual reach by this lower
+demand is a valid relaxation by coordinatewise down-closedness.
 
-## Two-gap propagation warning
+## 5. Two-gap warning
 
-If both CE2 intervals contain V-gaps, the correct necessary propagation does
-not consist of one six-row chain across either interval. It splits into two
-one-row conditions through $T_0$ and two complementary five-row conditions.
-The exact inequalities and the common-$T_0$ realization condition are
-recorded in the `410X` strategy note.
+The common formulas do not make the two-gap state into two independent
+one-gap chains.  Both gaps share the same supercritical row $T_0$ and the same
+center triangle.  The exact paired endpoint loss is the rank-two theorem
+[`2108`](2108_CE2_two_endpoint_capped_loss.md), while the one-gap interface is
+[`4105`](../../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4105_CE1_CE2_one_gap_five_row_interface.md).
