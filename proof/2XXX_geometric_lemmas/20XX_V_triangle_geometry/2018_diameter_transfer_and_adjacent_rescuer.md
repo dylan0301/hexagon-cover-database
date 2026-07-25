@@ -1,0 +1,323 @@
+# Diameter Transfer and the Common Adjacent-Rescuer Obstruction
+
+Status: Proven
+
+This note isolates two elementary mechanisms used repeatedly in the CE1/CE2
+branches: the diameter transfer between adjacent boundary edges and the common
+center-trace argument for a T3-like or Vd1 row rescuing a neighboring
+supercritical row.
+
+## 1. The diameter-transfer curve
+
+For $0\le q\le1$, define
+
+$$
+\boxed{
+\beta(q)=\frac{-q+\sqrt{4-3q^2}}2.
+}
+$$
+
+This is the larger nonnegative solution of
+
+$$
+q^2+qb+b^2=1.
+$$
+
+Consequently, if a unit equilateral triangle contains points at parameters
+$q$ and $b$ on the two boundary edges incident to one hexagon vertex, then
+
+$$
+q^2+qb+b^2\le1
+$$
+
+and hence
+
+$$
+\boxed{b\le\beta(q).}
+$$
+
+Define the complementary tail
+
+$$
+\boxed{
+\lambda_\circ(q)=1-\beta(q)
+=\frac{2+q-\sqrt{4-3q^2}}2.
+}
+$$
+
+For every $q>0$,
+
+$$
+\sqrt{4-3q^2}<2,
+$$
+
+so
+
+$$
+\boxed{
+\beta(q)<1-\frac q2,
+\qquad
+\lambda_\circ(q)>\frac q2.
+}
+$$
+
+The same curve is the terminal diameter bound in the one-gap proofs and the
+boundary-extent curve in the one-Vd1/Vd2 obstructions.
+
+## 2. Supercritical boundary functions
+
+For $0\le c\le1/2$, put
+
+$$
+B(c)=\frac{c+\sqrt{c^2-8c+4}}2,
+\qquad
+A(c)=1-B(c).
+$$
+
+The free strict-supercritical theorem
+[`2010`](2010_free_supercritical_max_b.md) says that a strict supercritical
+row whose own-radial demand is at least $c$ has outgoing boundary reach
+strictly less than $B(c)$. The function $B$ is strictly decreasing on
+$[0,1/2]$, because
+
+$$
+B'(c)
+=
+\frac12\left(1+\frac{c-4}{\sqrt{c^2-8c+4}}\right)<0,
+$$
+
+where the sign follows from
+
+$$
+(4-c)^2-(c^2-8c+4)=12>0.
+$$
+
+## 3. Common center hiding lemma
+
+Use the signed center variables from
+[`2109`](../21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md).
+Thus the possible companion trace on $e_{5,0}$ is
+
+$$
+J_L=
+\left[\frac{k}{W},R+\alpha\right]
+$$
+
+when $\Delta_L>0$, and there is no positive-length companion trace when
+$\Delta_L\le0$. Also
+
+$$
+d_1^C=\frac{\delta}{R}.
+$$
+
+Let a local rescuer $T_0$ have boundary trace $[0,a]$ on $e_{5,0}$ and an
+adjacent-radial trace $[c,u]$ on $r_1$, measured from $V_1$ toward $O$. Put
+
+$$
+\varepsilon=1-u>0,
+\qquad
+\Theta=\frac{a}{a+\varepsilon}.
+$$
+
+Assume
+
+$$
+\boxed{
+a\le A(c),
+\qquad
+\Theta\le A(c),
+}
+$$
+
+and assume that the center role must cover the $O$-side radial interval of
+length $\varepsilon$ before the rescuer begins. Equivalently,
+
+$$
+\boxed{d_1^C\ge\varepsilon.}
+$$
+
+Let $h$ be the boundary reach forced on the opposite endpoint role $T_5$ along
+$e_{5,0}$, measured from $V_5$ toward $V_0$. Then
+
+$$
+\boxed{h\ge B(c).}
+$$
+
+### Proof
+
+If the center has no positive companion trace, the portion after $[0,a]$
+forces
+
+$$
+h\ge1-a\ge1-A(c)=B(c).
+$$
+
+The same conclusion holds when the companion trace lies completely before or
+completely after the endpoint $a$: an open boundary gap begins at $a$, or the
+remaining tail begins at $a$.
+
+It remains to consider the only hiding configuration
+
+$$
+\frac{k}{W}\le a<R+\alpha.
+$$
+
+The radial hypothesis and $d_1^C=\delta/R$ give
+
+$$
+\delta\ge R\varepsilon.
+$$
+
+The left endpoint inequality gives
+
+$$
+k=\eta+\alpha+\delta\le Wa.
+$$
+
+In particular,
+
+$$
+R\varepsilon\le Wa,
+$$
+
+and hence
+
+$$
+R(a+\varepsilon)\le a.
+$$
+
+Thus
+
+$$
+\boxed{R\le\Theta.}
+$$
+
+Moreover,
+
+$$
+\alpha
+\le
+Wa-R\varepsilon-\eta.
+$$
+
+Therefore the far endpoint of the companion trace satisfies
+
+$$
+\begin{aligned}
+R+\alpha
+&\le
+R+Wa-R\varepsilon\\
+&=
+a+R(u-a).
+\end{aligned}
+$$
+
+Since the hiding case has $R+\alpha>a$, the last inequality forces $u>a$.
+Using $R\le\Theta$,
+
+$$
+R+\alpha
+\le
+a+\Theta(u-a).
+$$
+
+Because $u=1-\varepsilon$,
+
+$$
+a+\Theta(u-a)
+=
+a+\frac{a}{a+\varepsilon}(1-\varepsilon-a)
+=
+\frac{a}{a+\varepsilon}
+=
+\Theta.
+$$
+
+Consequently
+
+$$
+R+\alpha\le\Theta\le A(c).
+$$
+
+In the hiding case $T_5$ must reach the far center endpoint, so
+
+$$
+h\ge1-(R+\alpha)
+\ge1-A(c)
+=B(c).
+$$
+
+This completes all cases.
+
+## 4. Common adjacent-rescuer contradiction
+
+Assume, in addition to the hypotheses of Section 3, that:
+
+- $T_1$ is the unique strict supercritical row;
+- coverage of $r_1$ forces its own-radial reach to be at least $c$;
+- $T_2,T_3,T_4,T_5$ are nonsupercritical rows;
+- these four rows must cover the ordinary boundary chain from $e_{1,2}$ to
+  $e_{5,0}$.
+
+The strict supercritical theorem and the monotonicity of $B$ give
+
+$$
+b_1<B(c).
+$$
+
+Section 3 gives
+
+$$
+h\ge B(c)>b_1.
+$$
+
+The boundary obligations are
+
+$$
+a_2\ge1-b_1,
+$$
+
+$$
+b_2+a_3\ge1,
+\qquad
+b_3+a_4\ge1,
+\qquad
+b_4+a_5\ge1,
+$$
+
+and
+
+$$
+b_5\ge h.
+$$
+
+Adding them yields
+
+$$
+\begin{aligned}
+\sum_{i=2}^5(a_i+b_i)
+&\ge
+(1-b_1)+1+1+1+h\\
+&=
+4+(h-b_1)\\
+&>4.
+\end{aligned}
+$$
+
+But nonsupercriticality gives
+
+$$
+a_i+b_i\le1
+\qquad(i=2,3,4,5),
+$$
+
+so the same sum is at most $4$. This contradiction proves the common
+adjacent-rescuer obstruction once the local rescuer inequalities
+
+$$
+a\le A(c),
+\qquad
+\frac{a}{a+1-u}\le A(c)
+$$
+
+have been verified for the relevant T3-like or Vd1 normal form.
