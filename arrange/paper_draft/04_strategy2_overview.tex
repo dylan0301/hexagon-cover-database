@@ -37,20 +37,30 @@ incoming reach satisfies
 Thus each successive use of \eqref{eq:actual-propagation} is an inequality
 for an actual row, not merely a formal composition of scalar functions.
 
+The nonlinear selected-$T_+$ part of every capped map is one universal curve.
+After normalizing the output by the radial deficit, its increment is
+\[
+ \psi(x)=1-\sqrt{1-x+x^2}.
+\]
+This gives strict concavity and both chord bounds without a separate implicit
+differentiation in each branch.  Once a chain input crosses a low-root
+threshold $e(d)$, the map $G_{1-d}$ gives an output at least $1-e(d)$ and all
+later extensive maps preserve it.  Section~\ref{sec:strategy2-reader} proves
+this normal form and the one-hit and two-threshold routing lemmas.
+
 For a CE1 center trace, exact center geometry supplies one interval
 $[s,t]\subset e_{0,1}$ and six exits $d_i$ from $O$; the complementary
 radial demand is $c_i=1-d_i$.  For CE2 there are coupled intervals
 $[x,u]\subset e_{5,0}$ and $[y,v]\subset e_{0,1}$.
-Figure~\ref{fig:ce1-ce2-n0-all-vd0} in
-Section~\ref{sec:cyclic-all-vd0} gives a common schematic for the
-CE1/CE2, $N_+=0$, all-Vd0 package.  It shows only three representative Vd0
-roles; the argument treats all six.
+Figure~\ref{fig:ce1-ce2-n0-all-vd0} in the Strategy~2 technical appendix
+gives a common schematic for the CE1/CE2, $N_+=0$, all-Vd0 package.  It shows
+only three representative Vd0 roles; the argument treats all six.
 
 \subsubsection{The branch-level contradictions}
 
 For a one-gap branch, repeated use of \eqref{eq:actual-propagation} gives the
 five actual-row chain $1\to2\to3\to4\to5\to0$.  The exact terminal estimates
-proved in Section~\ref{sec:cyclic-all-vd0} have the forms
+have the forms
 \[
  A_0\ge Z>B_{c_0}(s)\ge A_0
 \]
@@ -58,35 +68,35 @@ for CE1 and
 \[
  A_0>Z_R>B_{c_0}(y)\ge A_0
 \]
-for the CE2 right gap.  Reflection $i\mapsto-i$ gives the fully written left
-chain $5\to4\to3\to2\to1\to0$ and
+for the CE2 right gap.  Reflection $i\mapsto-i$ gives the left chain
+$5\to4\to3\to2\to1\to0$ and
 \[
  B_0>Z_L>B_{c_0}(x)\ge B_0.
 \]
-The two-gap CE2 state uses the exact two-endpoint capped loss; the no-active-
-gap $N_+=0$ state uses the strict overlap of a finite relatively open cover
-of the connected boundary circle.  The remaining Strategy~2 branches use the
-same interface together with the T3-like side tradeoff or the exact
-Vd1/Vd2 placement classification.
+The shortened CE1 proof uses the universal $T_+$ chords, a concavity argument
+forcing $X>1/2$, and one terminal threshold trigger.  The CE2 proof uses the
+two-threshold routing lemma directly.  The two-gap CE2 state uses the exact
+two-endpoint capped loss; the no-active-gap $N_+=0$ state uses the strict
+overlap of a finite relatively open cover of the connected boundary circle.
+The remaining branches combine the same interface with the T3-like side
+tradeoff or the exact Vd1/Vd2 placement classification.
 
-All radical comparisons, low-root bounds, four-label branch tables, capped
-loss inequalities, and placement polynomials are proved in
+All full radical comparisons, contact-label tables, capped-loss inequalities,
+and placement polynomials are retained in the Strategy~2 technical appendix,
 Sections~\ref{sec:exact-local-demand-calculus}--%
-\ref{sec:t3-vd-demand-branches}.  In particular,
-the half-edge rational envelope is used only on its valid domain
+\ref{sec:t3-vd-demand-branches}.  In particular, the half-edge rational
+envelope is used only on its valid domain
 \[
  p\ge\frac12,\qquad0\le h\le p,\qquad p+h<1;
 \]
-Subsection~\ref{sec:half-edge-envelope} also records a counterexample outside
-that domain.
+Subsection~\ref{sec:half-edge-envelope} records a counterexample outside that
+domain.
 
 \paragraph{Branches closed by exact demand.}
-Sections~\ref{sec:cyclic-all-vd0} and
-\ref{sec:t3-vd-demand-branches} close every row of Table~\ref{tab:routing}
-assigned to route $2$, including the complementary exact placements in the
-hybrid $1+2$ row.  The terminal list in
-Proposition~\ref{prop:demand-branches} consists of the all-Vd0 and T3-like
-$N_+=0$ packages, every positive-gap all-Vd0 state with $N_+=1$, the
-exactly-one-T3-like state, and those complementary CE2 placements.  Singleton
-gaps are included.  Equation~\eqref{eq:actual-propagation} is the handoff from
-each scalar inequality to the actual role geometry.
+Proposition~\ref{prop:reader-demand-branches} closes every row of
+Table~\ref{tab:routing} assigned to route $2$, including the complementary
+exact placements in the hybrid $1+2$ row.  The list consists of the all-Vd0
+and T3-like $N_+=0$ packages, every positive-gap all-Vd0 state with $N_+=1$,
+the exactly-one-T3-like state, and the complementary CE2 placements.
+Singleton gaps are included.  Equation~\eqref{eq:actual-propagation} is the
+handoff from each scalar inequality to the actual role geometry.
