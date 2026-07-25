@@ -2,210 +2,171 @@
 
 Status: Proven
 
-This note proves the CE2 two-gap subcase of `410X`.  The exceptional
-supercritical row is $T_0$, while the endpoint and remainder rows used below
-are $T_1,\dots,T_5$.
+This note proves the CE2 two-gap subcase of `410X` using the signed center
+normal form and the exact two-endpoint loss theorem.
 
-## 1. Hypotheses and normalization
+## 1. Setup
 
-Begin with the full side-one hexagon $H$ covered by seven open unit
-equilateral triangles. Assume the center role is CE2, every vertex role is
-Vd0, and
+Assume a hypothetical seven-open-unit-triangle cover has:
 
-$$
-N_+=1.
-$$
+- a CE2 center role;
+- six Vd0 vertex roles;
+- $N_+=1$;
+- a V-gap, possibly a singleton, in each of the two center traces.
 
-Normalize the unique center midpoint to $M_0$. The exactly-one-midpoint
-theorem in
-[`../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2100_CE1_CE2_exactly_one_midpoint_lemma.md`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2100_CE1_CE2_exactly_one_midpoint_lemma.md)
-gives
+Normalize the unique center midpoint to $M_0$. The argument in
+[`4101`](4101_CE1CE2_Nplus1_all_Vd0_strategy.md) shows that rows
+$T_1,\ldots,T_5$ are nonsupercritical and $T_0$ is the unique supercritical
+row.
 
-$$
-T_C\cap\left\{M_0,\dots,M_5\right\}=\left\{M_0\right\}.
-$$
-
-For $i\ne0$, diameter locality leaves only $T_{i-1},T_i,T_{i+1}$ as
-possible vertex roles containing $M_i$. An original open adjacent role
-$T_{i-1}$ or $T_{i+1}$ containing $M_i$ would have positive-length support
-on the adjacent radial arm, contrary to the Vd0 definition in
-[`../../../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md`](../../../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md).
-Thus $M_i\in T_i$. The midpoint self-cover theorem in
-[`../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2005_midpoint_self_cover_lemma.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2005_midpoint_self_cover_lemma.md)
-then gives
+Use the signed CE2 variables in
+[`2109`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md):
 
 $$
-a_i+b_i\le1,
-\qquad i=1,\dots,5.
-$$
-
-Since $N_+=1$, $T_0$ is the unique supercritical row.
-
-Use the exact CE2 maximal closed traces from
-[`../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2106_CE2_exact_formulas.md`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2106_CE2_exact_formulas.md):
-
-$$
-\overline{T_C}\cap e_{5,0}=[x,u],
+0<R<1,
 \qquad
-\overline{T_C}\cap e_{0,1}=[y,v],
+W=1-R,
 $$
 
-where both parameters are measured from $V_0$. The corresponding open center
-traces are their relative interiors. Assume that both traces contain V-gaps,
-where a V-gap is the full nonempty set missed by the adjacent open vertex
-roles and may be a singleton.
-
-Reflection across the axis through $V_0$ exchanges the two intervals, the
-endpoint roles $T_1,T_5$, and the two summands used below.  Reflect if
-necessary so that
-
 $$
-y\le x.
-$$
-
-## 2. Far-end inputs
-
-Put
-
-$$
-S_0=x+y,
+E=\sqrt{1-RW},
 \qquad
-R=\frac{x}{S_0},
-$$
-
-so $1/2\le R<1$.
-
-and
-
-$$
-p=1-u,
+\eta=1-E,
 \qquad
-q=1-v.
+P=E(1-E),
 $$
 
-Measured from $V_0$, the left vertex-uncovered set is
-
 $$
-[a_0,1-b_5]\subset[x,u],
+k=\eta+\alpha+\delta,
 $$
 
-possibly with equal endpoints. Therefore
+with
 
 $$
-b_5\ge1-u=p.
+\alpha+W\delta<P,
+\qquad
+R\alpha+\delta<P.
 $$
 
-Likewise, the right vertex-uncovered set is
+The two center traces are
 
 $$
-[b_0,1-a_1]\subset[y,v],
-$$
-
-again possibly with equal endpoints, and therefore
-
-$$
-a_1\ge1-v=q.
-$$
-
-The exact radial formulas in `2106` give
-
-$$
-c_5=1-\frac{uS_0-x}{y}
-=\frac{p}{1-R},
+\left[\frac{k}{W},R+\alpha\right]
+\subset e_{5,0},
 $$
 
 and
 
 $$
-c_1=1-\frac{vS_0-y}{x}
-=\frac qR.
+\left[\frac{k}{R},W+\delta\right]
+\subset e_{0,1}.
+$$
+
+Put their far-side inputs
+
+$$
+p=1-(R+\alpha)=W-\alpha,
+$$
+
+$$
+q=1-(W+\delta)=R-\delta.
+$$
+
+Both are strictly positive.
+
+## 2. Endpoint demands
+
+The left V-gap is contained in the open center trace on $e_{5,0}$. Therefore
+the endpoint role at $V_5$ must reach at least $p$ on that edge:
+
+$$
+b_5\ge p.
+$$
+
+Likewise the right V-gap gives
+
+$$
+a_1\ge q.
+$$
+
+The common radial-exit formulas in `2109` give
+
+$$
+c_5=1-\frac{\alpha}{W}=\frac pW,
+$$
+
+and
+
+$$
+c_1=1-\frac{\delta}{R}=\frac qR.
 $$
 
 Let
 
 $$
-\widehat B_c(a)=\min\left\{B_c(a),1-a\right\}
+\widehat B_c(a)=\min\{B_c(a),1-a\}
 $$
 
-be the proved safe upper map for a nonsupercritical Vd0 row. Reflection of
-the local coordinates for $T_5$ and the two endpoint demands above give
+be the exact safe map for a nonsupercritical row. Reflection of the local
+coordinates for $T_5$ and the proof-safe capped-map theorem give
 
 $$
-B_5\le\widehat B_{p/(1-R)}(p),
-\qquad
+B_5\le\widehat B_{p/W}(p),
+$$
+
+$$
 B_1\le\widehat B_{q/R}(q),
 $$
 
-where $B_5$ and $B_1$ denote the reaches of $T_5$ and $T_1$ on
-$e_{4,5}$ and $e_{1,2}$, respectively.
+where $B_5$ and $B_1$ denote the outgoing reaches of $T_5$ and $T_1$ on
+$e_{4,5}$ and $e_{1,2}$.
 
-The safe-map inequality is proved in
-[`2011_capped_demand_map.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md).
-
-## 3. Exact endpoint loss
-
-The self-contained two-endpoint theorem
-[`../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2108_CE2_two_endpoint_capped_loss.md`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2108_CE2_two_endpoint_capped_loss.md)
-derives its strict endpoint inequalities directly from $x<u$, $y<v$, and the
-CE2 coupling in `2106`.  Applied with
-
-$$
-r=R,
-\qquad
-w=1-R,
-$$
-
-it proves
+The exact two-endpoint theorem
+[`2108`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2108_CE2_two_endpoint_capped_loss.md)
+applies after reflecting if necessary so that its smaller weight comes first.
+Its two strict endpoint hypotheses are exactly the two signed trace
+inequalities above. It gives
 
 $$
 \boxed{
-\widehat B_{p/(1-R)}(p)
+\widehat B_{p/W}(p)
 +
 \widehat B_{q/R}(q)
 <1.
 }
 $$
 
-The exceptional row $T_0$ does not occur in this inequality; only the safe
-nonsupercritical maps for $T_5$ and $T_1$ are used.
+Consequently
 
-## 4. Boundary contradiction
+$$
+\boxed{B_1+B_5<1.}
+$$
 
-The center role has no positive-length boundary trace on
+## 3. Boundary contradiction
+
+The center has no positive boundary trace on
 
 $$
 e_{1,2}\cup e_{2,3}\cup e_{3,4}\cup e_{4,5}.
 $$
 
-Isolated contacts do not affect boundary length. By Vd0 and diameter
-boundary locality, no non-endpoint vertex role has positive-length support on
-a boundary edge. After the endpoint contributions of $T_1$ and $T_5$, the
-portion of these
-four edges left for $T_2,T_3,T_4$ has length at least
+By Vd0 locality, after the endpoint contributions of $T_1$ and $T_5$, the
+three rows $T_2,T_3,T_4$ must cover boundary length at least
 
 $$
 (1-B_1)+1+1+(1-B_5)
 =4-(B_1+B_5)>3.
 $$
 
-But the three rows are nonsupercritical, so their total boundary contribution
-is at most
+But these rows are nonsupercritical, so
 
 $$
-(a_2+b_2)+(a_3+b_3)+(a_4+b_4)\le3.
+(a_2+b_2)+(a_3+b_3)+(a_4+b_4)
+\le3.
 $$
 
-This is a contradiction. Hence an all-Vd0 CE2, $N_+=1$ system cannot have a
-V-gap in both center intervals.
+This contradiction eliminates the CE2 two-gap state.
 
 $$
 \Box
 $$
-
-## 5. Scope
-
-The proof starts from the original full-$H$ cover and uses only its necessary
-boundary and radial consequences. It does not replace $T_0$ and therefore
-does not need to preserve the interior cover under the skeleton replacement
-from `2104`. The simultaneous replacement remains a valid skeleton theorem,
-but it is not a dependency of this completion.
