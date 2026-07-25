@@ -1,0 +1,223 @@
+\subsection{Common perimeter and skeleton budgets}
+
+The signed center formula also removes the repeated CE1/CE2 length arithmetic.
+We first state a generic perimeter deficit and then the small-slack consequence
+used by the one-Vd1/Vd2 placements.
+
+\begin{lemma}[Master perimeter deficit]
+\label{lem:signed-perimeter-deficit}
+Put
+\[
+ \theta=\frac2{\sqrt3}-1.
+\]
+Suppose a branch has an exact-$M_0$ CE1 or CE2 center contribution $L_C$,
+$n$ supercritical Vd0 rows, $m$ distinguished nonsupercritical rows with
+strict boundary caps $q_1,\ldots,q_m<1$, and $6-n-m$ remaining rows whose
+boundary contributions are at most $1$.  If
+\begin{equation}
+ L_C+n\theta\le\sum_{j=1}^m(1-q_j),
+ \label{eq:signed-perimeter-deficit}
+\end{equation}
+then the seven roles do not cover $\partial H$.
+\end{lemma}
+
+\begin{proof}
+The supercritical Vd0 cap is $2/\sqrt3$.  Hence the total boundary
+contribution is strictly less than
+\[
+ \begin{aligned}
+ L_C+n\frac2{\sqrt3}+\sum_{j=1}^m q_j+(6-n-m)
+ &=6+L_C+n\theta-\sum_{j=1}^m(1-q_j)\\
+ &\le6.
+ \end{aligned}
+\]
+The strictness comes from the distinguished-row caps.  A cover of the
+perimeter would give the opposite weak inequality by subadditivity.
+\end{proof}
+
+\begin{lemma}[Small center slacks in the one-Vd1/Vd2 branch]
+\label{lem:signed-small-slack}
+Assume there is exactly one supercritical Vd0 row, exactly one Vd1/Vd2 row,
+and four nonsupercritical Vd0 rows.  Then every candidate surviving the
+perimeter budget is CE2 and satisfies
+\begin{equation}
+ \boxed{
+ \alpha+\delta<\frac1{24},
+ \qquad
+ \alpha+\delta<\frac{\min\{R,W\}}6.}
+ \label{eq:signed-small-slacks}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+The Vd1/Vd2 boundary cap is strict and equals $1/2$.  If the perimeter were
+covered, Lemma~\ref{lem:signed-perimeter-deficit} would force
+\[
+ L_C+\theta>\frac12.
+\]
+Put
+\[
+ \kappa=\frac12-\theta=\frac32-\frac2{\sqrt3}.
+\]
+Thus $L_C>\kappa$.  The CE1 cap in
+Corollary~\ref{cor:signed-center-boundary} gives
+\[
+ L_C+\theta
+ \le\left(\frac{\sqrt3}{2}-\frac34\right)
+   +\left(\frac2{\sqrt3}-1\right)
+ <\frac12,
+\]
+so every survivor is CE2.
+
+Set $T=\alpha+\delta$.  The CE2 formula gives
+\[
+ T<M(E):=
+ \frac{RW}{E^2}\left(\frac{E}{1+E}-\kappa\right).
+\]
+Since $RW=1-E^2$,
+\[
+ M(E)=\frac{1-E}{E^2}\bigl(E-\kappa(1+E)\bigr),
+\]
+and
+\[
+ M'(E)=-\frac{E-2\kappa}{E^3}<0
+ \qquad\left(\frac{\sqrt3}{2}\le E<1\right).
+\]
+Here $2\kappa<\sqrt3/2$, because it is equivalent to
+$6\sqrt3<11$, whose square is $108<121$.  Therefore
+\[
+ T<M\left(\frac{\sqrt3}{2}\right)
+ =\frac{8\sqrt3}{9}-\frac32<\frac1{24}.
+\]
+The last inequality is equivalent to $64\sqrt3<111$, and follows after
+squaring from $12288<12321$.
+
+For the second estimate, use $E/(1+E)<1/2$:
+\[
+ T<\frac{RW}{E^2}\left(\frac12-\kappa\right)
+   =\frac{RW}{E^2}\theta.
+\]
+Since
+\[
+ E^2=W+R^2=R+W^2,
+\]
+one has $RW/E^2\le R$ and $RW/E^2\le W$.  Also
+$\theta<1/6$, equivalently $12<7\sqrt3$, whose square is $144<147$.
+This proves \eqref{eq:signed-small-slacks}.
+\end{proof}
+
+\begin{lemma}[CE2 initial endpoints dominate the total slack]
+\label{lem:signed-endpoints-dominate-slack}
+Assume $\Delta_R>0$ and $\Delta_L>0$.  Put
+\[
+ T=\alpha+\delta,
+ \qquad
+ x=\frac{\eta+T}{W},
+ \qquad
+ y=\frac{\eta+T}{R}.
+\]
+Then
+\begin{equation}
+ \boxed{T<\frac12\min\{x,y\}.}
+ \label{eq:signed-endpoint-slack}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Equation~\eqref{eq:signed-total-slack} gives $T<\eta/E$.  Moreover
+\[
+ E^2-(2R-1)^2=3RW>0,
+\]
+so $|2R-1|<E$ and therefore $|2R-1|T<\eta$.  Hence
+\[
+ x-2T=\frac{\eta-(1-2R)T}{W}>0,
+\]
+and
+\[
+ y-2T=\frac{\eta-(2R-1)T}{R}>0.
+\]
+This is \eqref{eq:signed-endpoint-slack}.
+\end{proof}
+
+\begin{theorem}[Three short vertex roles]
+\label{thm:three-short-roles}
+Call a vertex role short if it is supercritical or has positive-length
+intersection with an adjacent radial arm.  If an exact-$M_0$ CE1/CE2 branch
+contains at least three short vertex roles, then the seven roles do not cover
+the full skeleton $S$.
+\end{theorem}
+
+\begin{proof}
+The center skeleton cap is
+\[
+ L_S(T_C)<\frac32.
+\]
+Every short role also has skeleton contribution strictly less than $3/2$:
+this is the supercritical cap for a supercritical role and the translated
+center-role cap for an original positive-support role.  Every remaining role
+is nonsupercritical and has no adjacent-ray support, so its skeleton
+contribution is at most $2$.
+
+If there are $q\ge3$ short roles, then
+\[
+ \begin{aligned}
+ L_S(T_C)+\sum_{i=0}^5L_S(T_i)
+ &<\frac32+q\frac32+(6-q)2\\
+ &=\frac{27-q}{2}\\
+ &\le12.
+ \end{aligned}
+\]
+The full skeleton has length $12$, so subadditivity for a cover gives a
+contradiction.
+\end{proof}
+
+\begin{corollary}[Length branches closed by the common budgets]
+\label{cor:signed-budget-branches}
+The following branches are impossible.
+\begin{enumerate}
+\item $N_+=0$ and at least one Vd1/Vd2 row, for either CE1 or CE2;
+\item CE1, $N_+=1$, and at least one Vd1/Vd2 row;
+\item CE2, $N_+=1$, and at least two Vd1/Vd2 rows;
+\item CE2, $N_+=1$, with a Vd2 row containing a neighboring midpoint;
+\item CE1 or CE2, $N_+=1$, with at least two T3-like rows and no Vd1/Vd2 row;
+\item CE1 or CE2, $N_+=1$, with one Vd1/Vd2 row and an additional
+positive-support row;
+\item CE1 or CE2 with $N_+\ge2$.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+For item 1, the center contribution is strictly less than $1/2$ and the
+chosen Vd1/Vd2 row has strict cap $1/2$; the other five rows contribute at
+most $1$ each.  This is Lemma~\ref{lem:signed-perimeter-deficit} with
+$n=0$ and $q_1=1/2$.
+
+For item 2, the unique supercritical row is Vd0, while the CE1 center cap,
+the Vd1/Vd2 cap, and the four remaining unit caps give
+\[
+ \left(\frac{\sqrt3}{2}-\frac34\right)
+ +\frac12+\frac2{\sqrt3}+4<6.
+\]
+For item 3, the corresponding CE2 sum is strictly less than
+\[
+ \frac12+\frac12+\frac12+\frac2{\sqrt3}+3<6.
+\]
+For item 4, the neighboring-midpoint Vd2 cap is $1/3$, and the total is
+strictly less than
+\[
+ \frac12+\frac13+\frac2{\sqrt3}+4<6.
+\]
+
+For item 5, the unique supercritical row and two T3-like rows are three short
+roles.  For item 6, the supercritical row, the Vd1/Vd2 row, and the additional
+positive-support row are three short roles.  Theorem~\ref{thm:three-short-roles}
+closes both.
+
+Finally suppose $N_+\ge2$.  Choose a supercritical index $s\ne0$.  Its own
+midpoint $M_s$ is not covered by that row, and the exact-$M_0$ center does not
+cover it.  Diameter locality leaves only rows $s-1,s,s+1$ as possible vertex
+roles containing $M_s$.  Thus one of the adjacent rows contains $M_s$ and,
+because it is the closure of an original open role, has positive-length
+support on the adjacent radial arm.  Together with two supercritical rows,
+this gives three short roles, and the theorem applies.
+\end{proof}
