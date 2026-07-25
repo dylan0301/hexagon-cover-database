@@ -9,7 +9,7 @@ used in the surviving CE2 one-Vd1/Vd2 branch.
 
 ## 1. Signed center-boundary formula
 
-Use the notation of `2109`:
+Use the notation
 
 $$
 0<R<1,
@@ -45,43 +45,24 @@ $$
 
 ### CE1
 
-If $\Delta_L\le0$, then
-
-$$
-R\alpha+\delta\ge P.
-$$
-
-Multiplication by $W$ gives
-
-$$
-RW\alpha+W\delta\ge WP.
-$$
-
-Since $\alpha\ge RW\alpha$,
+If $\Delta_L\le0$, then $R\alpha+\delta\ge P$. Multiplication by $W$ and
+$\alpha\ge RW\alpha$ give
 
 $$
 \alpha+W\delta\ge WP.
 $$
 
-Therefore
-
-$$
-\Delta_R=P-\alpha-W\delta\le RP,
-$$
-
-and hence
+Thus $\Delta_R\le RP$, and hence
 
 $$
 \boxed{L_C\le P.}
 $$
 
-Because $E\ge\sqrt3/2$ and $E(1-E)$ is decreasing on this interval,
+Because $E\ge\sqrt3/2$ and $E(1-E)$ decreases on this interval,
 
 $$
 \boxed{
-L_C
-\le
-\frac{\sqrt3}{2}-\frac34.
+L_C\le\frac{\sqrt3}{2}-\frac34.
 }
 $$
 
@@ -97,11 +78,11 @@ L_C
 +
 \frac{P-R\alpha-\delta}{W}\\
 &=
-\frac{P-E^2(\alpha+\delta)}{RW}.
+\frac{P-E^2(\alpha+\delta)}{RW},
 \end{aligned}
 $$
 
-Here
+because
 
 $$
 W+R^2=W^2+R=E^2.
@@ -113,7 +94,7 @@ $$
 \frac{P}{RW}=\frac{E}{1+E}.
 $$
 
-Thus
+Therefore
 
 $$
 \boxed{
@@ -129,7 +110,7 @@ $$
 This proves both center-role entries of the boundary-cap table in
 [`2500`](2500_boundary_length_bounds.md) from one formula.
 
-## 2. A master perimeter-deficit lemma
+## 2. Master perimeter-deficit lemma
 
 Put
 
@@ -141,10 +122,9 @@ Suppose a branch has:
 
 - an exact-$M_0$ CE1 or CE2 center role with boundary contribution $L_C$;
 - $n$ supercritical Vd0 rows, each with contribution at most $2/\sqrt3$;
-- $m$ distinguished nonsupercritical rows with strict contribution bounds
+- $m\ge1$ distinguished nonsupercritical rows with strict contribution bounds
   $q_1,\ldots,q_m<1$;
-- $6-n-m$ remaining nonsupercritical Vd0 rows, each with contribution at most
-  $1$.
+- $6-n-m$ remaining nonsupercritical rows, each with contribution at most $1$.
 
 If
 
@@ -174,10 +154,10 @@ L_C+n\frac2{\sqrt3}
 \end{aligned}
 $$
 
-The strictness comes from the distinguished-row bounds. This contradicts
-subadditivity for a cover of the perimeter, whose length is $6$.
+The strictness follows from $m\ge1$ and the strict distinguished-row bounds.
+This contradicts subadditivity for a cover of the length-$6$ perimeter.
 
-## 3. The one-supercritical, one-Vd1/Vd2 reduction
+## 3. One supercritical row and one Vd1/Vd2 row
 
 Assume a branch has exactly:
 
@@ -185,8 +165,8 @@ Assume a branch has exactly:
 - one Vd1 or Vd2 row;
 - four nonsupercritical Vd0 rows.
 
-The Vd1/Vd2 boundary cap in `2500` is strict and equals $1/2$. Thus perimeter
-coverage would force
+The Vd1/Vd2 boundary cap is strict and equals $1/2$. Perimeter coverage would
+therefore force
 
 $$
 L_C+\theta>\frac12.
@@ -201,7 +181,7 @@ $$
 }
 $$
 
-Every surviving candidate must satisfy
+Every surviving candidate satisfies
 
 $$
 \boxed{L_C>\kappa.}
@@ -218,21 +198,16 @@ L_C+\theta
 <\frac12.
 $$
 
-Hence a candidate in this branch is automatically CE2.
-
-For CE2 put
+Hence every survivor is CE2. Put
 
 $$
 T=\alpha+\delta.
 $$
 
-The exact formula in Section 1 and $L_C>\kappa$ give
+The CE2 boundary formula and $L_C>\kappa$ give
 
 $$
-T
-<
-M(E)
-:=
+T<M(E):=
 \frac{RW}{E^2}
 \left(
 \frac{E}{1+E}-\kappa
@@ -242,19 +217,19 @@ $$
 Since $RW=1-E^2$,
 
 $$
-M(E)
-=
+M(E)=
 \frac{1-E}{E^2}
-\left(E-\kappa(1+E)\right).
+\left(E-\kappa(1+E)\right),
 $$
 
-Direct differentiation gives
+and
 
 $$
 M'(E)=-\frac{E-2\kappa}{E^3}<0
 $$
 
-for $\sqrt3/2\le E<1$. Therefore
+for $\sqrt3/2\le E<1$. Here $2\kappa<\sqrt3/2$, because this is equivalent
+to $6\sqrt3<11$, whose square is $108<121$. Thus
 
 $$
 T
@@ -266,27 +241,14 @@ M\left(\frac{\sqrt3}{2}\right)
 \frac1{24}.
 $$
 
-For the last comparison, it is enough to note that
-
-$$
-64\sqrt3<111,
-$$
-
-which follows after squaring from $12288<12321$.
-
-Thus every surviving candidate satisfies
+The last comparison follows from $64\sqrt3<111$, whose square is
+$12288<12321$. Therefore
 
 $$
 \boxed{\alpha+\delta<\frac1{24}.}
 $$
 
-There is also an orientation-sensitive estimate. Since
-
-$$
-\frac{E}{1+E}<\frac12,
-$$
-
-we obtain
+There is also an orientation-sensitive estimate. Since $E/(1+E)<1/2$,
 
 $$
 T
@@ -297,15 +259,14 @@ T
 \frac{RW}{E^2}\theta.
 $$
 
-Now
+Now $RW/E^2\le R$ and $RW/E^2\le W$, because
 
 $$
-\frac{RW}{E^2}\le R,
-\qquad
-\frac{RW}{E^2}\le W,
+E^2=W+R^2=R+W^2.
 $$
 
-because $W\le E^2$ and $R\le E^2$. Also $\theta<1/6$. Hence
+Also $\theta<1/6$, equivalently $12<7\sqrt3$, whose square is $144<147$.
+Hence
 
 $$
 \boxed{
@@ -315,12 +276,12 @@ $$
 }
 $$
 
-These two bounds are the only global CE2 estimates used in the shortened
-adjacent and non-adjacent one-Vd1/Vd2 obstructions.
+These are the only global CE2 estimates used in the shortened adjacent and
+non-adjacent one-Vd1/Vd2 obstructions.
 
-## 4. The CE2 total-slack lemma
+## 4. CE2 total-slack and endpoint lemma
 
-Assume $\Delta_R>0$ and $\Delta_L>0$, and again put
+Assume $\Delta_R>0$ and $\Delta_L>0$, and put
 
 $$
 T=\alpha+\delta.
@@ -356,7 +317,7 @@ $$
 \boxed{T<\frac{\eta}{E}.}
 $$
 
-Let the two initial endpoints of the CE2 traces be
+The two initial endpoints of the CE2 traces are
 
 $$
 x=\frac{\eta+T}{W},
@@ -370,13 +331,7 @@ $$
 E^2-(2R-1)^2=3RW>0,
 $$
 
-one has $|2R-1|<E$. Hence
-
-$$
-|2R-1|T<\eta.
-$$
-
-It follows that
+one has $|2R-1|<E$ and hence $|2R-1|T<\eta$. It follows that
 
 $$
 x-2T
@@ -400,13 +355,12 @@ T<\frac12\min\{x,y\}.
 }
 $$
 
-## 5. A three-short-role skeleton theorem
+## 5. Three-short-role skeleton theorem
 
 Call a vertex role **short** when it is either supercritical or has
-positive-length intersection with an adjacent radial arm. The two conditions
-are disjoint, but disjointness is not needed below.
+positive-length intersection with an adjacent radial arm.
 
-The proved bounds in [`2510`](2510_skeleton_length_bounds.md) are:
+The proved bounds in [`2510`](2510_skeleton_length_bounds.md) are
 
 $$
 L_S(T_C)<\frac32
@@ -440,11 +394,11 @@ L_S(T_C)+\sum_{i=0}^5L_S(T_i)
 $$
 
 Since the full skeleton has length $12$, subadditivity gives a contradiction.
-Therefore:
+Therefore
 
 $$
 \boxed{
-\text{Three short vertex roles imply skeleton noncoverage.}
+\text{three short vertex roles imply skeleton noncoverage.}
 }
 $$
 
