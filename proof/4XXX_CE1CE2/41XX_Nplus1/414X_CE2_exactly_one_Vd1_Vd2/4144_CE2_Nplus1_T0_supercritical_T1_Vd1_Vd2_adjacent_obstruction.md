@@ -12,8 +12,8 @@ T_0\text{ is the unique supercritical row},
 T_1\text{ is the unique Vd1/Vd2 row}.
 $$
 
-The reflected placement with $T_5$ Vd1/Vd2 follows by the explicit reflection
-in the signed center normal form.
+The reflected placement with $T_5$ Vd1/Vd2 follows from the explicit
+reflection in the signed center normal form.
 
 ## 1. Signed center variables
 
@@ -46,7 +46,8 @@ The two CE2 traces are
 $$
 T_C\cap e_{5,0}
 =
-\left[\frac{k}{W},R+\alpha\right],
+\left[\frac{k}{W},R+\alpha\right]
+=:[x,u],
 $$
 
 and
@@ -54,21 +55,8 @@ and
 $$
 T_C\cap e_{0,1}
 =
-\left[\frac{k}{R},W+\delta\right].
-$$
-
-For later notation put
-
-$$
-x=\frac{k}{W},
-\qquad
-u=R+\alpha,
-$$
-
-$$
-y=\frac{k}{R},
-\qquad
-v=W+\delta.
+\left[\frac{k}{R},W+\delta\right]
+=:[y,v].
 $$
 
 The center exit on $r_2$ is
@@ -137,7 +125,7 @@ $$
 
 The Vd1/Vd2 corner normal form
 [`2014`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2014_Vd1_Vd2_corner_normal_form.md)
-gives the strict boundary cap
+gives
 
 $$
 a_1+b_1<\frac12.
@@ -157,20 +145,16 @@ applies to exactly one supercritical Vd0 row, exactly one Vd1/Vd2 row, and
 four nonsupercritical Vd0 rows. It gives
 
 $$
-\boxed{
-\alpha+\delta<\frac1{24},
-}
+\boxed{\alpha+\delta<\frac1{24},}
 $$
 
-and the orientation-sensitive estimate
+and
 
 $$
 \boxed{
 \alpha+\delta<\frac{\min\{R,W\}}6.
 }
 $$
-
-These two inequalities replace the separate outer-ratio calculations.
 
 ## 4. The center exit is below $H/3$
 
@@ -180,7 +164,7 @@ $$
 \boxed{d_2^C=\delta<\frac H3.}
 $$
 
-There are two possible positive sources of the boundary tail $H$.
+Because $H>0$, its definition has only two possible positive sources.
 
 ### Case 1: $H=1-u=W-\alpha$
 
@@ -199,10 +183,8 @@ $$
 Therefore
 
 $$
-3\delta<W-\alpha=H,
+3\delta<W-\alpha=H.
 $$
-
-as required.
 
 ### Case 2: $H=1-a_0$
 
@@ -224,13 +206,25 @@ $$
 a_0+b_0\le\frac2{\sqrt3}<\frac32,
 $$
 
-which is impossible. Hence
+which is impossible.
+
+We must also exclude the zero branch in the definition of $A$. The strict
+supercritical condition and the endpoint-distance inequality imply $b_0<1$:
+if $b_0=1$, then the latter inequality forces $a_0=0$, contradicting
+$a_0+b_0>1$. The exact CE2 trace has $v<1$. Hence
 
 $$
-A=1-v,
+\max\{b_0,v\}<1,
 $$
 
-and therefore
+so the maximum defining $A$ is positive. Since the only possible positive
+sources are $1-b_0$ and $1-v$, and the first has just been excluded, we have
+
+$$
+\boxed{A=1-v.}
+$$
+
+Thus
 
 $$
 v>\frac12+H.
@@ -300,14 +294,13 @@ R-\frac12+\frac{4W}{15}
 \frac1{24}.
 $$
 
-For $R\ge13/24$, the simpler estimate
+For $R\ge13/24$,
 
 $$
-J(R)>R-\frac12\ge\frac1{24}
+J(R)>R-\frac12\ge\frac1{24}.
 $$
 
-applies. Thus $R\ge3/8$ would give $\delta>1/24$, contrary to Section 3.
-Hence
+Thus $R\ge3/8$ would give $\delta>1/24$, contrary to Section 3. Hence
 
 $$
 R<\frac38.
@@ -358,7 +351,7 @@ $$
 \frac H3.
 $$
 
-This proves the outer-ratio target in both cases.
+This proves the center-exit estimate in both cases.
 
 ## 5. Excluding coverage of $r_2$
 
@@ -374,8 +367,8 @@ center interval.
 
 ### The Vd1/Vd2 row cannot bridge
 
-Orient the normal form `2014` so that $r_2$ is the supported adjacent arm.
-For some $t>0$ and
+Orient the normal form `2014` so that $r_2$ is the supported adjacent arm. For
+some $t>0$ and
 
 $$
 d=\sqrt{t^2+t+1},
@@ -437,12 +430,10 @@ p=\frac12+A.
 $$
 
 Then $p\ge1/2$, $H\le p$, and $p+H<1$. Coordinatewise down-closedness of the
-exact admissible set therefore gives
+exact admissible set gives
 
 $$
-c_2
-\le
-c_{\max}(p,H).
+c_2\le c_{\max}(p,H).
 $$
 
 The half-edge radial envelope in
@@ -450,18 +441,13 @@ The half-edge radial envelope in
 gives
 
 $$
-c_2
-\le
-1-\frac H3.
+c_2\le1-\frac H3.
 $$
 
 But $\delta<H/3$, so
 
 $$
-1-\frac H3
-<
-1-\delta
-=q_2.
+1-\frac H3<1-\delta=q_2.
 $$
 
 Thus $c_2<q_2$, a contradiction.
