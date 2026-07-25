@@ -8,16 +8,24 @@ Seven open unit equilateral triangles cannot cover the side-one hexagon $H$
 when the center role is CE1 or CE2, all six vertex roles are Vd0, and
 $N_+=1$.
 
+The positive-gap proofs use the exact capped map from `2011`. The CE1
+one-gap proof additionally uses the universal selected-$T_+$ normal form
+[`2016`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2016_universal_Tplus_normal_form.md)
+and the threshold-routing theorem
+[`2017`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2017_threshold_routing.md).
+The no-gap proof remains the center-independent Newton nine-point obstruction
+`31058`.
+
 ## 1. The unique supercritical row
 
 Suppose such a cover exists. Write $U_C,U_0,\dots,U_5$ for its open roles and
 put $T_C=\overline{U_C}$ and $T_i=\overline{U_i}$. For each vertex role, let
 $a_i,b_i$ be its actual maximal incoming and outgoing boundary reaches, as
 defined in
-[`../../../1XXX_foundations/12XX_V_triangle/1202_local_coordinates_abc.md`](../../../1XXX_foundations/12XX_V_triangle/1202_local_coordinates_abc.md).
+[`1202_local_coordinates_abc.md`](../../../1XXX_foundations/12XX_V_triangle/1202_local_coordinates_abc.md).
 
 The exactly-one-midpoint theorem
-[`../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2100_CE1_CE2_exactly_one_midpoint_lemma.md`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2100_CE1_CE2_exactly_one_midpoint_lemma.md)
+[`2100_CE1_CE2_exactly_one_midpoint_lemma.md`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2100_CE1_CE2_exactly_one_midpoint_lemma.md)
 allows us to normalize
 
 $$
@@ -29,7 +37,7 @@ leaves only $U_{i-1},U_i,U_{i+1}$ as possible covering vertex roles. If an
 adjacent role contained $M_i$, convexity and its open neighborhood at its own
 vertex would give positive-length support on the adjacent radial arm,
 contrary to Vd0. Hence $M_i\in U_i\subset T_i$. The midpoint self-cover theorem
-[`../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2005_midpoint_self_cover_lemma.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2005_midpoint_self_cover_lemma.md)
+[`2005_midpoint_self_cover_lemma.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2005_midpoint_self_cover_lemma.md)
 therefore gives
 
 $$
@@ -71,14 +79,13 @@ $b_i>1-a_{i+1}$.
 
 All reaches are positive, so a nonempty $G_i$ lies in the relative interior
 of its edge. Vertex-role boundary locality, proved in
-[`../../../2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md`](../../../2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md),
+[`2500_boundary_length_bounds.md`](../../../2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md),
 shows that no other vertex role can cover a relative-interior point of this
 edge. Hence every V-gap must lie in an open center trace. In particular, no
 gap can occur on an edge outside the CE1 or CE2 center traces.
 
 If $[s,t]$ is the corresponding maximal trace of $T_C$, then the $U_C$ trace
-is $(s,t)$. Full coverage gives
-$G_i\subset(s,t)$ and therefore the weak endpoint bounds
+is $(s,t)$. Full coverage gives $G_i\subset(s,t)$ and therefore
 
 $$
 b_i\ge s,
@@ -86,8 +93,8 @@ b_i\ge s,
 a_{i+1}\ge1-t.
 $$
 
-These bounds remain valid for singleton gaps. The exact CE1 and CE2 trace
-descriptions are proved in
+These weak endpoint bounds remain valid for singleton gaps. The exact CE1 and
+CE2 trace descriptions are proved in
 [`2105_CE1_exact_formulas.md`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2105_CE1_exact_formulas.md)
 and
 [`2106_CE2_exact_formulas.md`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2106_CE2_exact_formulas.md).
@@ -102,11 +109,13 @@ $$
 
 There are exactly two cases.
 
-1. If this trace contains a V-gap, the exact five-map theorem
+1. If this trace contains a V-gap, the exact five-row theorem
    [`4106_CE1_one_gap_five_map_completion.md`](4106_CE1_one_gap_five_map_completion.md)
-   applies to the unique-row normalization above and the weak endpoint bounds
-   from Section 2. It gives a contradiction, including when the gap is a
-   singleton.
+   applies to the unique-row normalization and the weak endpoint bounds. Its
+   scalar proof uses the universal selected-$T_+$ chords from `2016`, the
+   shortened concavity proof that the hard row-$4$ branch forces $X>1/2$,
+   and the one-hit threshold route from `2017`. It gives a contradiction,
+   including when the gap is a singleton.
 2. If it contains no V-gap, then no edge has a V-gap. The adjacent vertex
    traces therefore cover every boundary edge, with strict overlap at every
    handoff. Thus the six Vd0 roles cover $\partial H$. The center-independent
@@ -135,7 +144,8 @@ V-gap or does not, so the following three cases are exhaustive.
 2. Exactly one interval contains a gap. The exact right-gap theorem and its
    reflected left-gap form in
    [`4107_CE2_one_gap_five_map_completion.md`](4107_CE2_one_gap_five_map_completion.md)
-   give a contradiction in either orientation.
+   give a contradiction in either orientation. Their scalar core is the
+   two-threshold route recorded abstractly in `2017`.
 3. Neither interval contains a gap. As in CE1, no edge has a gap, so the six
    Vd0 roles cover $\partial H$. The center-independent theorem `31058`
    again gives a contradiction.
