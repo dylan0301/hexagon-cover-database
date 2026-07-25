@@ -28,6 +28,7 @@ this index.
 | [`31057_terminal_nine_point_enclosure.md`](31057_terminal_nine_point_enclosure.md) | Proven | Assembles the exact terminal inequality $\Lambda(K_{\mathrm{wit}})\ge1$. |
 | [`31058_center_independent_direct_nine_point_obstruction.md`](31058_center_independent_direct_nine_point_obstruction.md) | Proven | Gives the reusable center-class-independent all-boundary contradiction. |
 | [`31059_CE0_Nplus1_all_Vd0_completion.md`](31059_CE0_Nplus1_all_Vd0_completion.md) | Proven | Closes the CE0, $N_+=1$, all-Vd0 branch. |
+| [`3105a_disk_plus_point_enclosure.md`](3105a_disk_plus_point_enclosure.md) | Proven | Optional exact formula for a centered disk plus one point; closes a subregion but is not used by the canonical proof or paper. |
 
 The package-local directory [`3105X_computation/`](3105X_computation/)
 contains the exact symbolic derivation audit, the nonadaptive global
@@ -77,4 +78,5 @@ dc46aaf263655d5159ecd3a81db72ee82477951d06172f4743b248df37209485
 The older model residual-core proof remains independently Proven.  The new
 canonical route does not use nonsupercritical $AB$-unions, their model-core
 comparison, the neighboring-ray maximum theorem, the optional six-point
-inequality, interval subdivision, or branch-and-bound.
+inequality, interval subdivision, or branch-and-bound.  The optional `3105a`
+disk-plus-point lemma is likewise not a dependency of the canonical route.
