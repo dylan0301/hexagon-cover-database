@@ -59,6 +59,10 @@ Vd0, Vd1/Vd2, and T3-like vertex-role patterns.
     - `2013`: proved T3-like side tradeoff and crossed-pair obstruction
     - `2014`: proved Vd1/Vd2 corner normal form and half-unit boundary cap
     - `2015`: proved the one-third Vd2 neighbor-midpoint cap
+    - `2016`: proved the universal selected-$T_+$ normal form, strict
+      concavity, chord bounds, and rational parameter
+    - `2017`: proved one-hit and two-threshold routing for extensive capped-map
+      chains, with the actual-row induction kept explicit
   - `21XX`: C-triangle geometry
     - `2100`: proved CE1/CE2 exactly-one-midpoint lemma with $O$ interior
     - `2101`: maximal C-triangles over the half skeleton
@@ -104,6 +108,8 @@ Vd0, Vd1/Vd2, and T3-like vertex-role patterns.
             reduction, global Bernstein certificate, and terminal enclosure
           - `31058`: proved center-independent direct nine-point obstruction
           - `31059`: proved CE0, $N_+=1$, all-Vd0 completion
+          - `3105a`: optional proved disk-plus-one-point enclosure formula;
+            not used by the canonical proof or manuscript
     - at least one Vd1/Vd2
       - `314X`: boundary-length obstruction
     - at least one T3-like and no Vd1/Vd2
@@ -125,11 +131,14 @@ Vd0, Vd1/Vd2, and T3-like vertex-role patterns.
     - at least one Vd1/Vd2
       - `404X`: CE1 and CE2 boundary-length obstructions
     - at least one T3-like and no Vd1/Vd2
-      - `407X`: proven exact four-label $T_0$-T3-like reassembly
+      - `407X`: proven exact four-label $T_0$-T3-like reassembly; the
+        left-high-sheet package uses the universal `2016` selected-$T_+$ curve
   - `41XX`: CE1/CE2, $N_+=1$
     - all Vd0
       - `410X`: all gap states proved; no-gap state closed by the
         center-independent `31058` direct nine-point obstruction
+      - `4106`: CE1 one-gap proof uses `2016` for selected-$T_+$ concavity and
+        `2017` for the terminal threshold trigger
       - `4104-F`: optional older six-point target, still open but not a
         dependency of the branch closure
       - `9630`: 5 point conjecture counterexample
