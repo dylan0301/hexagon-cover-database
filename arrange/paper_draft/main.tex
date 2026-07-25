@@ -41,21 +41,23 @@ boundary propagation, area loss, caliper certificate}
 
 \begin{abstract}
 We prove that the regular hexagon of side length one cannot be covered by
-seven open equilateral triangles of side length one.  Equivalently, no
+seven open equilateral triangles of side length one. Equivalently, no
 regular hexagon of side length greater than one is covered by seven closed
-unit equilateral triangles.  Seven distinguished points force one center
-role and six vertex roles.  An exhaustive classification of those roles
+unit equilateral triangles. Seven distinguished points force one center
+role and six vertex roles. An exhaustive classification of those roles
 reduces the proof to four mechanisms: direct boundary, radial, diagonal,
 and conditional-skeleton length sums; exact propagation of boundary and
 radial demands; normalized area loss; and a center-independent direct
-nine-point obstruction.  The last mechanism forces six radial and three
-asymmetric witnesses into the center role.  A reader-facing guide first gives
+nine-point obstruction. The last mechanism forces six radial and three
+asymmetric witnesses into the center role. A reader-facing guide first gives
 the entire proof architecture; simplified body sections then present the
 geometric mechanisms and terminal implications, while the complete formula
-catalogues and exact certificates appear in technical appendices.  The
-terminal mixed-overlap signs are certified by exact rational reductions and
-computer-verified global Bernstein identities, with no interval subdivision
-or branch-and-bound.
+catalogues and exact certificates appear in technical appendices. The CE1
+and CE2 center roles are treated by one signed normal form, so their common
+traces, radial exits, propagation chains, and length budgets are derived only
+once. The terminal mixed-overlap signs are certified by exact rational
+reductions and computer-verified global Bernstein identities, with no
+interval subdivision or branch-and-bound.
 \end{abstract}
 
 \maketitle
@@ -74,6 +76,9 @@ or branch-and-bound.
 \input{07_exhaustive_assembly}
 
 \appendix
+\input{04a_signed_center_calculus}
+\input{04b_common_CE1_CE2_budgets}
+\input{04c_short_Vd_placements}
 \input{04_strategy2_exact_demand}
 \input{06_strategy4_ab_core}
 \input{appendix_symbols}
