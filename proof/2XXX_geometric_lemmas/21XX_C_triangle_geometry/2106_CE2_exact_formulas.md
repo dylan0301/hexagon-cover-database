@@ -88,19 +88,24 @@ v=W+\delta.
 }
 $$
 
-Here $\nu$ is the far endpoint denoted by $u$ in the legacy notation. Thus,
-when using the historical symbols below, set $u=\nu$.
+Here the displayed `\nu` is not a new variable: it is the source token
+`u=R+\alpha`.  In ordinary mathematical notation the first display reads
+
+$$
+T_C\cap e_{5,0}=
+\left[\frac{k}{W},R+\alpha\right].
+$$
 
 Their lengths are
 
 $$
-\nu-x=\frac{\Delta_L}{W}>0,
+u-x=rac{\Delta_L}{W}>0,
 $$
 
 and
 
 $$
-v-y=\frac{\Delta_R}{R}>0.
+v-y=rac{\Delta_R}{R}>0.
 $$
 
 The midpoint inequalities formerly listed separately follow from the signed
@@ -116,7 +121,7 @@ yields exactly these signed inequalities.  Hence the domain is exact.
 
 ## 2. Legacy interval-pair coupling
 
-Return to the historical endpoint names
+Use the historical endpoint names
 
 $$
 T_C\cap e_{5,0}=[x,u],
@@ -129,7 +134,7 @@ where
 $$
 x=\frac{k}{W},
 \qquad
-u=u=R+\alpha,
+u=R+\alpha,
 $$
 
 $$
