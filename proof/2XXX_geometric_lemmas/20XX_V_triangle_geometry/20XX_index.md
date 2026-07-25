@@ -21,3 +21,4 @@ local midpoint targets used by the CE-first proof tree.
 | [`2015_Vd2_neighbor_midpoint_cap.md`](2015_Vd2_neighbor_midpoint_cap.md) | Proven | A Vd2 role containing either neighboring midpoint satisfies $a+b<1/3$. |
 | [`2016_universal_Tplus_normal_form.md`](2016_universal_Tplus_normal_form.md) | Proven | Universal selected-$T_+$ curve, strict concavity, chord bounds, and optional rational parameter. |
 | [`2017_threshold_routing.md`](2017_threshold_routing.md) | Proven | One-hit and two-threshold routing through extensive capped-demand chains, with the actual-row handoff stated explicitly. |
+| [`2018_diameter_transfer_and_adjacent_rescuer.md`](2018_diameter_transfer_and_adjacent_rescuer.md) | Proven | Common adjacent-edge diameter curve, center hiding inequality, and class-independent adjacent-rescuer boundary contradiction used by the T3-like and Vd1 branches. |
