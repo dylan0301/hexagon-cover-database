@@ -1,13 +1,11 @@
 \section{Strategy 2: Exact Demand Propagation}
 \label{sec:strategy2-reader}
 
-This section gives the reusable geometric mechanism and the shortened proofs
-that drive Strategy~2.  The exact admissible-set classification, all radical
-comparisons, the complete four-label tables, and the unchanged terminal
-polynomial estimates are recorded in
-Appendix~\ref{sec:exact-local-demand-calculus} and its following Strategy~2
-sections.  In the body, every formal map is connected explicitly to an actual
-nonsupercritical row.
+This section presents the reusable mechanism without repeating separate CE1
+and CE2 coordinate systems.  The complete signed center proof is in
+Appendix~\ref{sec:signed-ce12-reductions}; the exact admissible-set catalogue
+and the remaining scalar certificates are in
+Appendix~\ref{sec:exact-local-demand-calculus}.
 
 \subsection{The local propagation interface}
 
@@ -50,13 +48,14 @@ They also prove the exact reflection duality
  \label{eq:reader-capped-duality}
 \end{equation}
 
-Suppose an actual row has maximal reaches $(A_i,B_i,C_i)$ and is
-nonsupercritical.  If
+Suppose an actual nonsupercritical row has maximal reaches
+$(A_i,B_i,C_i)$ and
 \[
- A_i\ge z,\qquad C_i\ge c_i,\qquad A_i+B_i\le1,
+ A_i\ge z,
+ \qquad
+ C_i\ge c_i.
 \]
-then the same role realizes the lower-bound demand triple $(z,B_i,c_i)$ and
-therefore
+The same role realizes $(z,B_i,c_i)$, so
 \[
  B_i\le F_{c_i}(z).
 \]
@@ -68,21 +67,24 @@ If the next boundary handoff gives $A_{i+1}\ge1-B_i$, then
  =G_{c_i}(z).
  \label{eq:reader-actual-propagation}
 \end{equation}
-Every composition below is shorthand for repeated applications of
-\eqref{eq:reader-actual-propagation} to the stated actual rows.
+Every composition below is shorthand for repeated applications of this
+inequality to specified actual rows.
 
-\subsection{A universal normal form for every selected $T_+$ arc}
+\subsection{The universal selected-$T_+$ curve}
 
 The exact capped map has four genuine labels: Full, $L$, $T_-$, and selected
-$T_+$.  The nonlinear part of the last label is independent of the radial
-deficit.
+$T_+$.  Its only nonlinear transition is independent of the row deficit.
 
 \begin{proposition}[Universal selected-$T_+$ curve]
 \label{prop:reader-universal-tplus}
 Fix $0<d<1/2$, put $c=1-d$, and suppose an input $p$ belongs to a selected
 $T_+$ arc of $G_c$.  Write
 \[
- q=G_c(p),\qquad \nu=q-p,\qquad x=\frac{q-d}{1-d}.
+ q=G_c(p),
+ \qquad
+ \nu=q-p,
+ \qquad
+ x=\frac{q-d}{1-d}.
 \]
 Then
 \begin{equation}
@@ -91,7 +93,8 @@ Then
 \end{equation}
 and
 \begin{equation}
- q=d+(1-d)x,\qquad
+ q=d+(1-d)x,
+ \qquad
  p=d+(1-d)x-\psi(x).
  \label{eq:reader-tplus-normal}
 \end{equation}
@@ -100,69 +103,59 @@ every selected $T_+$ arc.
 \end{proposition}
 
 \begin{proof}
-The selected quadratic in Proposition~\ref{prop:capped-demand-map} is
+The selected quadratic is
 \[
  (1-q)(q-d)=(1-d)^2\nu(2-\nu).
 \]
-Substituting $q=d+(1-d)x$ and cancelling $(1-d)^2$ gives
+Substituting $q=d+(1-d)x$ gives
 \[
  x(1-x)=\nu(2-\nu).
 \]
 The selected component uses the smaller root, which is
-\eqref{eq:reader-psi}.  Put $r(x)=1-x+x^2$.  Then
+\eqref{eq:reader-psi}.  If $r(x)=1-x+x^2$, then
 \[
  \psi'(x)=\frac{1-2x}{2\sqrt{r(x)}},
  \qquad
  \psi''(x)=-\frac{3}{4r(x)^{3/2}}<0.
 \]
-The input function
+Thus
 \[
  p_d(x)=d+(1-d)x-\psi(x)
 \]
-satisfies
-\[
- p_d'(x)=1-d-\psi'(x)>0,
- \qquad
- p_d''(x)=-\psi''(x)>0.
-\]
-Thus $p_d$ is increasing and strictly convex.  Its inverse is increasing and
-strictly concave, and $q=d+(1-d)x$ is affine in that inverse.
+is increasing and strictly convex.  Its inverse is increasing and strictly
+concave, while $q=d+(1-d)x$ is affine in that inverse.
 \end{proof}
 
-Two chord bounds will be used repeatedly.  In the high-radial range put
-$e(d)=\ell(1-d)$.  The selected arc has endpoints
-\[
- (p,q)=(d,d),\qquad (p,q)=(e(d),d+e(d)),
-\]
-so
+In the high-radial range put $e(d)=\ell(1-d)$.  The selected arc has endpoints
+$(d,d)$ and $(e(d),d+e(d))$, so concavity gives
 \begin{equation}
  G_{1-d}(p)
  \ge p+\frac{d}{e(d)-d}(p-d).
  \label{eq:reader-high-chord}
 \end{equation}
 In the low-radial range, if $t=h(1-d)$ is the order-transition value, the
-endpoints are $(d,d)$ and $(t,1-t)$, and therefore
+endpoints are $(d,d)$ and $(t,1-t)$, and
 \begin{equation}
  G_{1-d}(p)
  \ge p+\frac{1-2t}{t-d}(p-d).
  \label{eq:reader-low-chord}
 \end{equation}
 
-For algebraic calculations the same curve has a rational parameter.  With
-$z=\psi(x)/x$,
+For algebraic calculations put $z=\psi(x)/x$.  Then
 \begin{equation}
- x=\frac{1-2z}{1-z^2},\qquad
+ x=\frac{1-2z}{1-z^2},
+ \qquad
  \psi(x)=\frac{z(1-2z)}{1-z^2}.
  \label{eq:reader-tplus-rational}
 \end{equation}
-In the historical high-sheet notation $x=1-\beta$ and
-$m_\beta=\sqrt{\beta^2-\beta+1}$, this becomes
+In the historical notation $x=1-\beta$ and
+$m_\beta=\sqrt{\beta^2-\beta+1}$,
 \begin{equation}
- \beta=\frac{z(2-z)}{1-z^2},\qquad
+ \beta=\frac{z(2-z)}{1-z^2},
+ \qquad
  m_\beta=\frac{1-z+z^2}{1-z^2}.
  \label{eq:reader-beta-rational}
 \end{equation}
-This is the normalization used in the shortened $407X$ high-sheet proof.
 
 \subsection{Threshold routing}
 
@@ -173,8 +166,6 @@ For $0<d<1-\sqrt3/2$, the exact high-demand threshold is
  G_{1-d}(z)\ge1-e(d).
  \label{eq:reader-high-threshold}
 \end{equation}
-The following lemma isolates the only logical use of a long map composition
-after such a threshold has been crossed.
 
 \begin{lemma}[Threshold routing]
 \label{lem:reader-threshold-routing}
@@ -184,324 +175,140 @@ If $G_k=G_{1-d}$ and $z_{k-1}>e(d)$, then
  z_j\ge1-e(d)
  \qquad(j\ge k).
 \]
-In particular, if $e(d)<Q$, then every later output is strictly larger than
-$1-Q$.
-
-Suppose instead that a chain contains later occurrences of both
-$G_{1-d_1}$ and $G_{1-d_2}$, that
+If a chain contains later occurrences of $G_{1-d_1}$ and $G_{1-d_2}$ and
 \[
- z_0>e(d_1),\qquad
- \min\{e(d_1),e(d_2)\}<Q.
+ z_0>e(d_1),
+ \qquad
+ \min\{e(d_1),e(d_2)\}<Q,
 \]
-Then one of the two threshold rows forces every subsequent output above
-$1-Q$.
+then one of those two rows forces every subsequent output above $1-Q$.
 \end{lemma}
 
 \begin{proof}
-Equation~\eqref{eq:reader-high-threshold} gives
-$z_k\ge1-e(d)$, and extensivity preserves this bound.  For the two-threshold
-statement, if $e(d_1)<Q$, route the initial strict inequality to the
-$G_{1-d_1}$ row.  Otherwise
+Equation~\eqref{eq:reader-high-threshold} gives the first triggered output,
+and extensivity preserves it.  For the two-threshold statement, if
+$e(d_1)<Q$, trigger at the first row.  Otherwise
 \[
  z_0>e(d_1)\ge Q>e(d_2),
 \]
-so route it to the $G_{1-d_2}$ row.  The first triggered row gives the desired
-strict output, and all later maps preserve it.
+so trigger at the second row.
 \end{proof}
 
-The lemma does not replace the actual-row argument.  It is applied only after
-\eqref{eq:reader-actual-propagation} has identified the formal iterates as
-lower bounds for the actual incoming reaches.
+The lemma is used only after Equation~\eqref{eq:reader-actual-propagation} has
+identified each formal input as a lower bound for an actual row.
 
-\subsection{The CE1 one-gap chain with the shortened $X>1/2$ proof}
+\subsection{One signed five-row chain}
 
-We give the full logical route and isolate the unchanged terminal estimate in
-one appendix lemma.  Use the exact CE1 variables of
-Proposition~\ref{prop:center-exact-formulas}:
+Use the signed center data of
+Proposition~\ref{prop:signed-center-normal-form}.  Put
 \[
- R=\lambda,\qquad w=1-R,\qquad
- E=\sqrt{1-R+R^2}=\sqrt{1-Rw},
+ X=R-\delta,
+ \qquad
+ H=\frac{\eta+\alpha+\delta}{2R},
+ \qquad
+ m=\min\left\{\frac\alpha R,\frac\delta W\right\}.
 \]
+The five nonsupercritical demands are
 \[
- \eta=1-E,\qquad P=\eta E,\qquad A=C_0,\qquad D=C_2.
+ 1-\frac\delta R,
+ \quad1-\delta,
+ \quad1-m,
+ \quad1-\alpha,
+ \quad1-\frac\alpha W.
 \]
-They satisfy
+A gap in the normalized right trace starts the same actual chain
+$1\to2\to3\to4\to5\to0$ for CE1 and CE2.  The common interface in
+Proposition~\ref{prop:signed-one-gap-interface} reduces both classes to
 \begin{equation}
- A,D>0,\qquad A+wD<P,\qquad D+RA\ge P,\qquad
- A<\frac w2,\qquad D<\frac R2.
- \label{eq:reader-ce1-domain}
+ \left(G_{1-\delta}\circ G_{1-m}\circ G_{1-\alpha}\right)(H)
+ >W+\delta.
+ \label{eq:reader-signed-three-map}
 \end{equation}
-Put
-\[
- X=R-D,\qquad
- m=\frac AR,\qquad
- H=\frac{\eta+A+D}{2R}.
-\]
-The five high radial demands are
-\[
- c_1=1-\frac DR,\quad c_2=1-D,\quad c_3=1-m,\quad
- c_4=1-A,\quad c_5=1-\frac Aw.
-\]
-
-A gap in the center interval $[s,t]\subset e_{0,1}$ gives
-$a_1\ge X=1-t$ and $b_0\ge s$.  Applying
-\eqref{eq:reader-actual-propagation} to rows $1,2,3,4,5$ gives
-\begin{equation}
- a_0\ge
- Z:=(G_{c_5}\circ G_{c_4}\circ G_{c_3}\circ G_{c_2}\circ G_{c_1})(X).
- \label{eq:reader-ce1-five-map}
-\end{equation}
-The supercritical row realizes $(s,a_0,c_0)$ after reflection and
-coordinatewise relaxation, so
-\begin{equation}
- a_0\le B_{c_0}(s).
- \label{eq:reader-ce1-target}
-\end{equation}
-
-Duality and extensivity reduce the lower bound to the three-row suffix
-\begin{equation}
- (G_{c_2}\circ G_{c_3}\circ G_{c_4})(H)>1-X.
- \label{eq:reader-ce1-suffix}
-\end{equation}
-The elementary low-root estimates give
-\begin{equation}
- e(A)<X,\qquad H>A.
- \label{eq:reader-ce1-first-bounds}
-\end{equation}
-For completeness, the first inequality follows from
-$A+wD<P$ and $D=R-X$.  Indeed, with
-\[
- f(X)=wX-\frac{X}{2(1+X)},
-\]
-convexity and the endpoint values at $X=R/2,R$ give $f(X)<\eta$, hence
-\[
- A<\frac{X}{2(1+X)}.
-\]
-Together with $e(A)<2A/(1-2A)$ this gives $e(A)<X$.  Also
-\[
- 2R(H-A)=\eta+D+(1-2R)A>0;
-\]
-when $R>1/2$, use $A<P=\eta E$ to obtain the strict sign.
-
-At row $4$, the Full labels are impossible.  The $L$ and $T_-$ labels give
-\[
- G_{1-A}(H)\ge1-e(A)>1-X.
-\]
-It remains to consider the selected $T_+$ label.
-
-\begin{lemma}[The selected row-$4$ branch forces $X>1/2$]
-\label{lem:reader-ce1-x-half}
-Under \eqref{eq:reader-ce1-domain}, if $H\le e(A)$, then
-\[
- X>\frac12.
-\]
-\end{lemma}
-
-\begin{proof}
-Suppose $X\le1/2$.  The selected label and the strict low-root estimate give
-\[
- H\le e(A)<\frac{2A}{1-2A}.
-\]
-The other center inequality gives
-\[
- \begin{aligned}
- 2RH
- &=\eta+A+D\\
- &\ge\eta+A+P-RA\\
- &=\eta+P+wA=w(R+A).
- \end{aligned}
-\]
-Consequently
-\[
- f_R(A)<0,\qquad
- f_R(z):=w(R+z)(1-2z)-4Rz.
-\]
-But $f_R''(z)=-4w<0$ and $f_R(0)=Rw>0$.
-
-If $R\le1/2$, then $0<A<P$.  Using $P=(1-E)E$ and
-$E^2=1-R+R^2$,
-\[
- f_R(P)
- =(1-E)\left(4E^3-2E^2+1-R(2E^3-2E^2+5E)\right).
-\]
-The coefficient of $R$ is positive, so
-\[
- f_R(P)\ge\frac{1-E}{2}\phi(E),\qquad
- \phi(E)=6E^3-2E^2-5E+2.
-\]
-On $\sqrt3/2\le E<1$,
-\[
- \phi'(E)=18E^2-4E-5>0,\qquad
- \phi(\sqrt3/2)=\frac{2-\sqrt3}{4}>0.
-\]
-Thus $f_R(P)>0$.  Strict concavity places $f_R$ above the positive chord
-joining its values at $0$ and $P$, contradicting $f_R(A)<0$.
-
-If $R>1/2$, then $D=R-X\ge R-1/2$, and the first center inequality gives
-\[
- 0<A<A_0,\qquad
- A_0=P-w\left(R-\frac12\right)=\frac w2-\eta.
-\]
-Again using $E^2=1-R+R^2$,
-\[
- f_R(A_0)=\frac{1-E}{2}(E+11R-3ER-5).
-\]
-Since $11-3E>0$ and $R>1/2$,
-\[
- E+11R-3ER-5
- >\frac{11-3E}{2}+E-5
- =\frac{1-E}{2}>0.
-\]
-Thus $f_R(A_0)>0$, and concavity gives the same contradiction on
-$(0,A_0)$.  Therefore $X>1/2$.
-\end{proof}
-
-Assume now that rows $4$ and $3$ are both selected $T_+$.  Put
-\[
- p_1=G_{1-A}(H),\qquad p_2=G_{1-m}(p_1).
-\]
-The high-radial chord \eqref{eq:reader-high-chord} and the low-root bounds
-give
-\begin{equation}
- p_1>L_1:=(2-4A)H-(1-4A)A.
- \label{eq:reader-L1}
-\end{equation}
-Since $X>1/2$, one has $R>1/2$ and $m<w/2<1/4$.  Applying the appropriate
-high- or low-radial chord from
-\eqref{eq:reader-high-chord}--\eqref{eq:reader-low-chord} gives
-\begin{equation}
- p_2>L_2:=(2-5m)L_1-(1-5m)m.
- \label{eq:reader-L2}
-\end{equation}
-The coefficient comparison is elementary: for $m\le1/8$ use
-$e(m)\le2m+5m^2$; for $1/8<m<1-\sqrt3/2$ use
-$e(m)<(1-m)/2$; and on the low-radial arc use
-$h(1-m)<7/16<(3+m)/7$.
-
-The unchanged terminal calculation in
-Appendix~\ref{sec:cyclic-all-vd0} proves from
-\eqref{eq:reader-ce1-domain}, the two selected labels, and
-\eqref{eq:reader-L2} that
-\begin{equation}
- D<\frac1{10},\qquad
- p_2>L_2>2D+3D^2>e(D).
- \label{eq:reader-ce1-terminal}
-\end{equation}
-Now threshold routing, rather than a new five-label table, finishes the
-argument.  The row-$2$ map is $G_{1-D}$, so
-\[
- G_{1-D}(p_2)\ge1-e(D)>1-X,
-\]
-where the last inequality follows from
-\[
- e(D)<2D+3D^2<\frac{23}{100}<\frac12<X.
-\]
-This is \eqref{eq:reader-ce1-suffix}.  Duality and the extensive outer maps
-give
-\[
- Z>1-H=1-\frac s2.
-\]
-Finally the boundary diameter condition gives
-\[
- B_{c_0}(s)
- \le\frac{-s+\sqrt{4-3s^2}}2
- <1-\frac s2.
-\]
-Together with \eqref{eq:reader-ce1-five-map} and
-\eqref{eq:reader-ce1-target}, this is the contradiction
-\[
- a_0\ge Z>B_{c_0}(s)\ge a_0.
-\]
+The only remaining distinction is the sign of
+$\Delta_L=P-R\alpha-\delta$.
 
 \begin{proposition}[Simplified CE1 one-gap obstruction]
 \label{prop:reader-ce1-one-gap}
-The CE1, $N_+=1$, all-$\Vdzero$, exactly-one-gap state is impossible.
+The CE1, $N_+=1$, all-$\Vdzero$, one-gap state is impossible.
 \end{proposition}
 
 \begin{proof}
-The actual-row induction, the suffix duality, the branch split above, and
-Lemma~\ref{lem:reader-ce1-x-half} prove the required terminal contradiction in
-every selected row-$4$ label.
+Here $\Delta_L\le0$.  The low-root estimates give $e(\alpha)<X$ and
+$H>\alpha$.  At the row with deficit $\alpha$, the Full labels are impossible.
+The $L$ and $T_-$ labels immediately force an output above $1-X$.
+
+On the selected $T_+$ label, the center inequalities force $X>1/2$.  Applying
+\eqref{eq:reader-high-chord} first at deficit $\alpha$ and then the appropriate
+high- or low-radial chord at deficit $m$ gives lower bounds
+\[
+ p_1>(2-4\alpha)H-(1-4\alpha)\alpha=:L_1,
+\]
+\[
+ p_2>(2-5m)L_1-(1-5m)m=:L_2.
+\]
+The exact terminal calculation in Appendix~\ref{sec:cyclic-all-vd0} proves
+\begin{equation}
+ \delta<\frac1{10},
+ \qquad
+ p_2>L_2>2\delta+3\delta^2>e(\delta).
+ \label{eq:reader-ce1-terminal}
+\end{equation}
+Threshold routing at the row with deficit $\delta$ therefore gives an output
+above $1-X$, proving \eqref{eq:reader-signed-three-map}.  The common actual-row
+interface then yields
+\[
+ a_0\ge Z>B_k(k/R)\ge a_0,
+\]
+a contradiction.  All inequalities used in the selected branch, including
+the proof that $X>1/2$ and the terminal estimate
+\eqref{eq:reader-ce1-terminal}, are proved in the cited appendix.
 \end{proof}
 
-\subsection{CE2 one-gap routing}
+\begin{proposition}[Simplified CE2 one-gap obstruction]
+\label{prop:reader-ce2-one-gap}
+The CE2, $N_+=1$, all-$\Vdzero$, exactly-one-gap state is impossible in either
+orientation.
+\end{proposition}
 
-The CE2 proof is an especially clean use of
-Lemma~\ref{lem:reader-threshold-routing}.  Normalize the exact center
-parameters by
+\begin{proof}
+Here $\Delta_L>0$.  Proposition~\ref{prop:signed-ce2-one-gap} proves
 \[
- R=\frac{x}{x+y},\qquad w=1-R,\qquad E=\sqrt{1-Rw},\qquad
- \eta=1-E,\qquad P=\eta E,
+ R-\delta>e(\alpha),
+ \qquad
+ \min\{e(\alpha),e(\delta)\}<H.
 \]
-and put
+If $e(\alpha)<H$, threshold routing triggers at the row with deficit
+$\alpha$.  Otherwise
 \[
- \alpha=u-R,\qquad \delta=v-w,\qquad k=\eta+\alpha+\delta.
+ R-\delta>e(\alpha)\ge H>e(\delta),
 \]
-The strict center domain is
-\[
- \alpha,\delta>0,\qquad
- \delta+R\alpha<P,\qquad
- \alpha+w\delta<P.
-\]
-For a right-hand gap the initial input is
-\[
- z_0=1-v=R-\delta,
-\]
-and the decisive target is
-\[
- Q=\frac y2=\frac{k}{2R}.
-\]
-The exact center inequalities, proved in
-Appendix~\ref{sec:cyclic-all-vd0}, give
-\begin{equation}
- z_0>e(\alpha),\qquad
- \min\{e(\alpha),e(\delta)\}<Q.
- \label{eq:reader-ce2-two-thresholds}
-\end{equation}
-The five actual nonsupercritical rows give the formal chain by
-\eqref{eq:reader-actual-propagation}.  If $e(\alpha)<Q$, the row with radial
-deficit $\alpha$ forces the output above $1-Q$.  Otherwise
-\[
- z_0>e(\alpha)\ge Q>e(\delta),
-\]
-and the row with deficit $\delta$ does so.  Every subsequent map is extensive.
-Thus the return demand satisfies
-\[
- Z_{\mathrm{CE2}}^R>1-\frac y2.
-\]
-The diameter endpoint gives
-\[
- B_{c_0}(y)<1-\frac y2,
-\]
-contradicting the two actual bounds on row $0$.  Reflection exchanges
-$(x,u,\alpha,R)$ with $(y,v,\delta,w)$ and proves the left-gap orientation.
-This is Proposition~\ref{prop:ce2-one-gap}.
+and it triggers at the row with deficit $\delta$.  In either case the return
+output exceeds $1-H$, contradicting the common supercritical-row bound.
+Reflection exchanges $R$ with $W$, $\alpha$ with $\delta$, and reverses the
+row order, so the second orientation is identical.
+\end{proof}
 
-\subsection{The $407X$ high-sheet package}
+\subsection{The remaining exact-demand branches}
 
-The T3-like $N_+=0$ branch reduces to one strict two-coordinate capped-loss
-inequality.  Its difficult first-coordinate label is the selected high sheet.
-The local radical formerly written
+The CE2 two-gap state uses the same endpoint deficits $\alpha/W$ and
+$\delta/R$, but the two gaps share row $T_0$; the paired capped-loss theorem is
+therefore retained.  The $N_+=0$ all-Vd0 proof uses the same one-side loss and
+the common three-row boundary budget.  The T3-like high sheet is the universal
+curve \eqref{eq:reader-psi}, with the rational parameter
+\eqref{eq:reader-beta-rational}; only its branch-specific endpoint estimates
+remain in Appendix~\ref{sec:t3-vd-demand-branches}.
+
+For the one-Vd1/Vd2 branch, Lemma~\ref{lem:signed-small-slack} first gives
 \[
- m_\beta=\sqrt{\beta^2-\beta+1}
+ \alpha+\delta<\frac1{24},
+ \qquad
+ \alpha+\delta<\frac{\min\{R,W\}}6.
 \]
-is exactly the universal curve
-\eqref{eq:reader-psi} with $x=1-\beta$, and may be replaced by the rational
-coordinate \eqref{eq:reader-beta-rational}.  The center radical
-$\rho=\sqrt{r^2-r+1}$ is independent and is retained.
-
-The exact high-sheet estimates in
-Appendix~\ref{sec:t3-vd-demand-branches} prove
-\[
- y_*<\frac1{10},\qquad 3y_*\le1-B_5,\qquad
- S>3y,\qquad A_C>3y,
-\]
-and the analytic left-high threshold needed for the right $T_-$ label.  With
-the universal normal form, these are the only branch-specific estimates: no
-separate selected-$T_+$ curvature calculation remains.  They assemble the
-four genuine labels into Proposition~\ref{prop:nplus-zero-t3}.
-
-\subsection{Strategy 2 branch assembly}
+These bounds prove the adjacent and nonadjacent placements in
+Lemmas~\ref{lem:signed-vd-adjacent-placement} and
+\ref{lem:signed-vd-nonadjacent-placement}.  The common hiding argument for a
+T3-like or Vd1 adjacent rescuer is
+Lemma~\ref{lem:signed-adjacent-rescuer}.
 
 \begin{proposition}[Branches closed by exact demand]
 \label{prop:reader-demand-branches}
@@ -519,12 +326,12 @@ Singleton gaps are included.
 
 \begin{proof}
 The first item is Propositions~\ref{prop:nplus-zero-all-vd0} and
-\ref{prop:nplus-zero-t3}.  For the second item, the CE1 one-gap state is
-Proposition~\ref{prop:reader-ce1-one-gap}; the two CE2 one-gap orientations
-are Proposition~\ref{prop:ce2-one-gap}; the CE2 two-gap and all remaining gap
-states are assembled in Proposition~\ref{prop:nplus-one-all-vd0}.  The third
-item is Proposition~\ref{prop:nplus-one-one-t3}.  The fourth is
-Proposition~\ref{prop:ce2-one-vd-placement}.  In every positive-gap chain,
-Equation~\eqref{eq:reader-actual-propagation} supplies the passage from scalar
-maps to actual role reaches.
+\ref{prop:nplus-zero-t3}.  For the second, the one-gap states are
+Propositions~\ref{prop:reader-ce1-one-gap} and
+\ref{prop:reader-ce2-one-gap}; the two-gap state and the no-gap transfer are
+assembled in Proposition~\ref{prop:nplus-one-all-vd0}.  The third item is
+Proposition~\ref{prop:nplus-one-one-t3}.  The fourth is
+Proposition~\ref{prop:signed-ce2-one-vd-placements}.  In every positive-gap
+chain, Equation~\eqref{eq:reader-actual-propagation} supplies the passage from
+scalar maps to actual role reaches.
 \end{proof}
