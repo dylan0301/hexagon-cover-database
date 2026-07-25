@@ -42,7 +42,10 @@ m_\beta=\frac{1-z+z^2}{1-z^2}.
 $$
 
 The branch proofs retain $\beta,m_\beta$ where that notation is shorter; the
-independent center radical $\sqrt{r^2-r+1}$ remains necessary.
+independent center radical $\sqrt{r^2-r+1}$ remains necessary. The high-sheet
+center variable is $\nu=\gamma_5$ throughout `407a` and Section 2 of `407c`;
+[`407e`](407e_high_sheet_symbol_convention.md) records the exact symbol
+convention and separates it from the unrelated local variable $u$ in `407c`.
 
 ## Proof path
 
@@ -58,6 +61,7 @@ independent center radical $\sqrt{r^2-r+1}$ remains necessary.
 | [`407a_left_Thigh_branch_completion.md`](407a_left_Thigh_branch_completion.md) | Proven | Proves all four first-coordinate $T_+^{hi}$ branches, using the universal selected-$T_+$ normalization. |
 | [`407c_rigor_completion_details.md`](407c_rigor_completion_details.md) | Proven | Supplies the detailed Low, center-transfer, high-sheet envelope, and analytic threshold estimates; selected-$T_+$ curvature is imported from `2016`. |
 | [`407d_rigor_final_assembly.md`](407d_rigor_final_assembly.md) | Proven | Checks the exact four-label inventory and assembles the perimeter contradiction. |
+| [`407e_high_sheet_symbol_convention.md`](407e_high_sheet_symbol_convention.md) | Definition | Fixes $\nu=\gamma_5$ as the common high-sheet center variable and distinguishes it from the unrelated local $u$ in `407c`. |
 | [`407X_computation/407b_T_hi_Tminus_qright_threshold_certificate.py`](407X_computation/407b_T_hi_Tminus_qright_threshold_certificate.py) | Experiment | Optional exact rational check of the analytic threshold in `407c`; not a proof dependency. |
 | [`407X_computation/README.md`](407X_computation/README.md) | Reference | Records the optional check, method, and expected output. |
 
@@ -91,7 +95,7 @@ first label:
 |---|---|
 | $L$ | `4074`, `4075`, and `4078` |
 | $T_-$ | `4075` |
-| $T_+^{hi}$ | `407a`, with details in `407c` and common curvature in `2016` |
+| $T_+^{hi}$ | `407a`, with details in `407c`, common curvature in `2016`, and symbol convention in `407e` |
 | $\mathrm{Full}$ | Excluded by `4079` |
 
 Thus every genuine label pair either is unrealizable or has total capped
