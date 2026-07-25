@@ -53,8 +53,8 @@ asymmetric witnesses into the center role.  A reader-facing guide first gives
 the entire proof architecture; the complete reductions, formulas, terminal
 branches, and enclosure argument then appear in dependency order in the
 numbered body.  The terminal mixed-overlap signs are certified by exact
-rational reductions and computer-verified global Bernstein identities, with
-no interval subdivision or branch-and-bound.
+rational reductions and computer-verified global Bernstein identities in a
+technical appendix, with no interval subdivision or branch-and-bound.
 \end{abstract}
 
 \maketitle
@@ -69,10 +69,11 @@ no interval subdivision or branch-and-bound.
 \input{03_strategy1_length}
 \input{04_strategy2_exact_demand}
 \input{05_strategy3_area}
-\input{06_strategy4_ab_core}
+\input{06_strategy4_reader}
 \input{07_exhaustive_assembly}
 
 \appendix
+\input{06_strategy4_ab_core}
 \input{appendix_symbols}
 \input{appendix_certificate_record}
 
