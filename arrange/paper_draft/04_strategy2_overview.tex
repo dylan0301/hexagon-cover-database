@@ -1,8 +1,8 @@
 \subsection{Strategy 2: exact boundary--radial demand propagation}
 \label{subsec:exact-demand-guide}
 
-Length alone does not record where a trace must continue.  Strategy~2 keeps
-that positional information.  In local unit vectors
+Length alone does not record where a trace must continue. Strategy~2 keeps
+that positional information. In local unit vectors
 \[
  u=\left(\frac12,\frac{\sqrt3}{2}\right),\qquad
  v=\left(\frac12,-\frac{\sqrt3}{2}\right),
@@ -16,15 +16,15 @@ in a closed unit equilateral triangle, and set
 \[
  F_c(a)=\min\{B_c(a),1-a\},\qquad G_c(a)=1-F_c(a).
 \]
-The admissible set is coordinatewise down-closed.  Hence $F_c$ is
+The admissible set is coordinatewise down-closed. Hence $F_c$ is
 nonincreasing, $G_c$ is nondecreasing and extensive, and reflection gives
-an exact duality.  The piecewise formula has a genuine downward jump; no
+an exact duality. The piecewise formula has a genuine downward jump; no
 argument below uses continuity at that jump.
 
 \subsubsection{How an actual row propagates a demand}
 
 Suppose an actual nonsupercritical row has $A_i\ge z$, radial reach
-$C_i\ge c_i$, and $A_i+B_i\le1$.  Then its realized demand triple gives
+$C_i\ge c_i$, and $A_i+B_i\le1$. Then its realized demand triple gives
 \[
  B_i\le F_{c_i}(z).
 \]
@@ -43,60 +43,99 @@ After normalizing the output by the radial deficit, its increment is
  \psi(x)=1-\sqrt{1-x+x^2}.
 \]
 This gives strict concavity and both chord bounds without a separate implicit
-differentiation in each branch.  Once a chain input crosses a low-root
+differentiation in each branch. Once a chain input crosses a low-root
 threshold $e(d)$, the map $G_{1-d}$ gives an output at least $1-e(d)$ and all
-later extensive maps preserve it.  Section~\ref{sec:strategy2-reader} proves
+later extensive maps preserve it. Section~\ref{sec:strategy2-reader} proves
 this normal form and the one-hit and two-threshold routing lemmas.
 
-For a CE1 center trace, exact center geometry supplies one interval
-$[s,t]\subset e_{0,1}$ and six exits $d_i$ from $O$; the complementary
-radial demand is $c_i=1-d_i$.  For CE2 there are coupled intervals
-$[x,u]\subset e_{5,0}$ and $[y,v]\subset e_{0,1}$.
-Figure~\ref{fig:ce1-ce2-n0-all-vd0} in the Strategy~2 technical appendix
-gives a common schematic for the CE1/CE2, $N_+=0$, all-Vd0 package.  It shows
-only three representative Vd0 roles; the argument treats all six.
+\subsubsection{One signed center model for CE1 and CE2}
+
+The center equations are common. Put
+\[
+ 0<R<1,\qquad W=1-R,\qquad E=\sqrt{1-RW},
+\]
+\[
+ \eta=1-E,\qquad P=E(1-E),\qquad
+ k=\eta+\alpha+\delta.
+\]
+The normalized trace on $e_{0,1}$ and the possible companion trace on
+$e_{5,0}$ are
+\[
+ I_R=\left[\frac{k}{R},W+\delta\right],\qquad
+ I_L=\left[\frac{k}{W},R+\alpha\right].
+\]
+Their signed surpluses are
+\[
+ \Delta_R=P-\alpha-W\delta,\qquad
+ \Delta_L=P-R\alpha-\delta.
+\]
+The normalization requires $\Delta_R>0$. The center role is CE1 exactly when
+$\Delta_L\le0$, and CE2 exactly when $\Delta_L>0$. Thus the second interval
+is not a second equation system; it is the positive part of one signed
+quantity.
+
+The six center exits are simultaneously
+\[
+ \begin{aligned}
+ d_0^C&=E-\alpha-\delta,&
+ d_1^C&=\delta/R,&
+ d_2^C&=\delta,\\
+ d_3^C&=\min\{\alpha/R,\delta/W\},&
+ d_4^C&=\alpha,&
+ d_5^C&=\alpha/W.
+ \end{aligned}
+\]
+The complementary row demand is always $c_i=1-d_i^C$. The complete proof,
+including the legacy CE1 and CE2 dictionaries, is in
+Section~\ref{sec:signed-ce12-reductions}.
 
 \subsubsection{The branch-level contradictions}
 
-For a one-gap branch, repeated use of \eqref{eq:actual-propagation} gives the
-five actual-row chain $1\to2\to3\to4\to5\to0$.  The exact terminal estimates
-have the forms
+For any one-gap branch, repeated use of \eqref{eq:actual-propagation} gives the
+same five actual-row chain $1\to2\to3\to4\to5\to0$. Its right-trace input is
+$R-\delta$, its supercritical boundary input is $k/R$, and its five radial
+deficits are
 \[
- A_0\ge Z>B_{c_0}(s)\ge A_0
+ \frac\delta R,\quad \delta,\quad
+ \min\left\{\frac\alpha R,\frac\delta W\right\},
+ \quad\alpha,\quad\frac\alpha W.
 \]
-for CE1 and
-\[
- A_0>Z_R>B_{c_0}(y)\ge A_0
-\]
-for the CE2 right gap.  Reflection $i\mapsto-i$ gives the left chain
-$5\to4\to3\to2\to1\to0$ and
-\[
- B_0>Z_L>B_{c_0}(x)\ge B_0.
-\]
-The shortened CE1 proof uses the universal $T_+$ chords, a concavity argument
-forcing $X>1/2$, and one terminal threshold trigger.  The CE2 proof uses the
-two-threshold routing lemma directly.  The two-gap CE2 state uses the exact
-two-endpoint capped loss; the no-active-gap $N_+=0$ state uses the strict
-overlap of a finite relatively open cover of the connected boundary circle.
-The remaining branches combine the same interface with the T3-like side
-tradeoff or the exact Vd1/Vd2 placement classification.
+The CE1 and CE2 proofs therefore share the full geometric induction, duality
+reduction, and terminal diameter comparison. Only the scalar proof of the
+middle three-map inequality differs: the CE1 sign uses the universal
+selected-$T_+$ chords, whereas the CE2 sign gives a shorter two-threshold
+route. Reflection exchanges $R$ with $W$, $\alpha$ with $\delta$, and reverses
+the row order.
 
-All full radical comparisons, contact-label tables, capped-loss inequalities,
-and placement polynomials are retained in the Strategy~2 technical appendix,
-Sections~\ref{sec:exact-local-demand-calculus}--%
-\ref{sec:t3-vd-demand-branches}.  In particular, the half-edge rational
+The two-gap state is genuinely CE2 because it requires $\Delta_L>0$. Its two
+endpoint demands still use the same two deficits $\alpha/W$ and $\delta/R$,
+but the two gaps share the same supercritical row, so the exact paired
+capped-loss theorem is retained.
+
+In the exactly-one-Vd1/Vd2 branch, the preliminary perimeter budget removes
+CE1. Every surviving CE2 candidate satisfies
+\[
+ \alpha+\delta<\frac1{24},\qquad
+ \alpha+\delta<\frac{\min\{R,W\}}6.
+\]
+These two common bounds replace the former outer-ratio and nonadjacent CE2
+polynomial comparisons. They give $d_2^C<H/3$ in the adjacent placement and
+$d_\tau^C<\min\{A,H\}$ for $\tau=2,3,4$ in the nonadjacent placements.
+
+All exact local-map formulae and the CE1 terminal polynomial estimate remain
+in Appendix~\ref{sec:exact-local-demand-calculus}. The signed common center,
+short CE2 threshold proof, common budgets, and shortened Vd1/Vd2 placements
+are proved in Section~\ref{sec:signed-ce12-reductions}. The half-edge radial
 envelope is used only on its valid domain
 \[
  p\ge\frac12,\qquad0\le h\le p,\qquad p+h<1;
 \]
-Subsection~\ref{sec:half-edge-envelope} records a counterexample outside that
-domain.
+Subsection~\ref{sec:half-edge-envelope} records its exact counterexample
+outside that domain.
 
 \paragraph{Branches closed by exact demand.}
 Proposition~\ref{prop:reader-demand-branches} closes every row of
 Table~\ref{tab:routing} assigned to route $2$, including the complementary
-exact placements in the hybrid $1+2$ row.  The list consists of the all-Vd0
-and T3-like $N_+=0$ packages, every positive-gap all-Vd0 state with $N_+=1$,
-the exactly-one-T3-like state, and the complementary CE2 placements.
-Singleton gaps are included.  Equation~\eqref{eq:actual-propagation} is the
-handoff from each scalar inequality to the actual role geometry.
+exact placements in the hybrid $1+2$ row. Singleton gaps are included, and
+Equation~\eqref{eq:actual-propagation} is the handoff from every scalar
+inequality to the actual role geometry.
