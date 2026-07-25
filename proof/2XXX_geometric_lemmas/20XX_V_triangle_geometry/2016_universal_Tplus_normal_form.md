@@ -29,7 +29,7 @@ $G_c=1-F_c$, and write
 $$
 q=G_c(p),
 \qquad
-u=q-p.
+\nu=q-p.
 $$
 
 The exact selected quadratic from `2011` is
