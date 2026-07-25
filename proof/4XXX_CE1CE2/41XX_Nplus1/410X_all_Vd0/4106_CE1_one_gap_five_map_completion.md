@@ -12,19 +12,21 @@ roles. It may be a positive-length interval or a singleton. The proof below
 uses only weak endpoint bounds and therefore covers both cases.
 
 For the geometric application, assume the `410X` hypotheses: all six vertex
-roles are Vd0, $N_+=1$, and the unique center midpoint is $M_0$.  Section 1
-of
+roles are Vd0, $N_+=1$, and the unique center midpoint is $M_0$. Section 1 of
 [`4101_CE1CE2_Nplus1_all_Vd0_strategy.md`](4101_CE1CE2_Nplus1_all_Vd0_strategy.md)
 then proves that $T_0$ is the unique supercritical row.
 
-The selected capped-map formulas and equality conventions used below are
-proved in
+The exact capped maps are proved in
 [`2011_capped_demand_map.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md).
+The selected-$T_+$ concavity and both chord forms are isolated in
+[`2016_universal_Tplus_normal_form.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2016_universal_Tplus_normal_form.md),
+and the final one-hit threshold step is isolated in
+[`2017_threshold_routing.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2017_threshold_routing.md).
 
 ## 1. Exact normalized CE1 domain
 
 Use the variables in
-[`../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2105_CE1_exact_formulas.md`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2105_CE1_exact_formulas.md).
+[`2105_CE1_exact_formulas.md`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2105_CE1_exact_formulas.md).
 Put
 
 $$
@@ -53,9 +55,8 @@ Rw=\eta(1+E),
 P=Rw-\eta=\frac{RwE}{1+E}
 $$
 
-will be used repeatedly.
-
-Since $\sqrt3/2\le E<1$ and $E-E^2$ is decreasing on this interval,
+will be used repeatedly. Since $\sqrt3/2\le E<1$ and $E-E^2$ is decreasing
+on this interval,
 
 $$
 0<P\le\frac{2\sqrt3-3}{4}<\frac18.
@@ -110,7 +111,7 @@ $$
 $$
 
 because $A<P=RwE/(1+E)<Rw/2$. The six complementary radial demands from
-`2105` are, in the present variables,
+`2105` are
 
 $$
 \boxed{
@@ -126,8 +127,8 @@ c_5&=1-\frac Aw.
 $$
 
 Here the formula for $c_3$ uses $RD>wA$. The exact-one-midpoint
-normalization gives $c_0\le1/2$. The bounds $D<R/2$, $A<w/2$, and
-$m<1/2$ give
+normalization gives $c_0\le1/2$. The bounds $D<R/2$, $A<w/2$, and $m<1/2$
+give
 
 $$
 \frac12<c_j<1,
@@ -160,8 +161,7 @@ G_c(1-z)\le1-a.
 }
 $$
 
-Every $G_c$ is nondecreasing and satisfies $G_c(a)\ge a$. It is therefore
-enough to prove the stronger suffix inequality
+Every $G_c$ is nondecreasing and extensive. It is therefore enough to prove
 
 $$
 \boxed{
@@ -169,46 +169,38 @@ $$
 }
 $$
 
-Indeed, put $\Phi=G_{c_4}\circ G_{c_3}\circ G_{c_2}$. Since $G_{c_1}$ and
-$G_{c_5}$ are extensive and $\Phi$ is nondecreasing,
+Indeed, put $\Phi=G_{c_4}\circ G_{c_3}\circ G_{c_2}$. Then
 
 $$
-\begin{aligned}
 (G_{c_5}\circ\Phi\circ G_{c_1})(X)
-&\ge(\Phi\circ G_{c_1})(X)\\
-&\ge\Phi(X).
-\end{aligned}
+\ge(\Phi\circ G_{c_1})(X)
+\ge\Phi(X).
 $$
 
-Repeated duality makes the reduction exact. Namely, failure of the suffix
-inequality is equivalent successively to
+Repeated duality gives
 
 $$
 \begin{aligned}
 (G_{c_4}\circ G_{c_3}\circ G_{c_2})(X)\le1-H
-&\quad\Longleftrightarrow\quad
-G_{c_4}(H)
-\le1-(G_{c_3}\circ G_{c_2})(X)\\
-&\quad\Longleftrightarrow\quad
-(G_{c_3}\circ G_{c_4})(H)
-\le1-G_{c_2}(X)\\
-&\quad\Longleftrightarrow\quad
-(G_{c_2}\circ G_{c_3}\circ G_{c_4})(H)
-\le1-X.
+&\Longleftrightarrow
+G_{c_4}(H)\le1-(G_{c_3}\circ G_{c_2})(X)\\
+&\Longleftrightarrow
+(G_{c_3}\circ G_{c_4})(H)\le1-G_{c_2}(X)\\
+&\Longleftrightarrow
+(G_{c_2}\circ G_{c_3}\circ G_{c_4})(H)\le1-X.
 \end{aligned}
 $$
 
 We prove that the reverse composition is strictly greater than $1-X$.
 
-## From the boundary gap to the analytic target
+## 3. Actual-row induction from the boundary gap
 
 Use $a_i,b_i$ for the actual boundary reaches as in
 [`1202_local_coordinates_abc.md`](../../../1XXX_foundations/12XX_V_triangle/1202_local_coordinates_abc.md);
 the symbols $c_i$ above are prescribed lower-bound radial demands.
 Let $[s,t]\subset e_{0,1}$ be the maximal closed trace associated with the
 open center role. Suppose it contains the vertex-uncovered set
-$[b_0,1-a_1]$, possibly a singleton. Full boundary coverage puts this set in
-the open center trace and in particular gives
+$[b_0,1-a_1]$, possibly a singleton. Full boundary coverage gives
 
 $$
 b_0\ge s,
@@ -224,8 +216,7 @@ $$
 \qquad j=0,1,\dots,5.
 $$
 
-Rows $T_1,\dots,T_5$ are nonsupercritical, so $a_j+b_j\le1$ for these
-rows. Define the formal iterates
+Rows $T_1,\dots,T_5$ are nonsupercritical. Define
 
 $$
 z_0=X,
@@ -234,51 +225,29 @@ z_j=G_{c_j}(z_{j-1}),
 \qquad j=1,2,3,4,5.
 $$
 
-We claim that the actual incoming reaches dominate these iterates. The gap
-bound gives $a_1\ge z_0$. If $a_j\ge z_{j-1}$, the capped-map theorem,
-applied to the actual row $T_j$, and the fact that $F_{c_j}$ is nonincreasing
-give
+The actual incoming reaches dominate these iterates. The gap gives
+$a_1\ge z_0$. If $a_j\ge z_{j-1}$, the capped-map theorem and monotonicity of
+$F_{c_j}$ give
 
 $$
 b_j\le F_{c_j}(a_j)\le F_{c_j}(z_{j-1}).
 $$
 
-The CE1 center has no trace on the other five boundary edges. Full boundary
-coverage therefore gives $a_{j+1}+b_j\ge1$ for $j=1,2,3,4$ and
-$a_0+b_5\ge1$. Hence, for $j=1,2,3,4$,
+The center has no trace on the other five boundary edges, so
+$a_{j+1}+b_j\ge1$ for $j=1,2,3,4$ and $a_0+b_5\ge1$. Hence
 
 $$
-\begin{aligned}
-a_{j+1}
-&\ge1-b_j\\
-&\ge1-F_{c_j}(z_{j-1})\\
-&=G_{c_j}(z_{j-1})=z_j,
-\end{aligned}
+a_{j+1}\ge1-b_j\ge G_{c_j}(z_{j-1})=z_j
+\qquad(1\le j\le4),
 $$
 
-and the same calculation in the fifth row gives
+and
 
 $$
 a_0\ge1-b_5\ge G_{c_5}(z_4)=z_5.
 $$
 
-Thus the induction gives
-
-$$
-a_1\ge z_0,
-\quad
-a_2\ge z_1,
-\quad
-a_3\ge z_2,
-\quad
-a_4\ge z_3,
-\quad
-a_5\ge z_4,
-\quad
-a_0\ge z_5,
-$$
-
-and therefore
+Thus
 
 $$
 a_0\ge
@@ -287,67 +256,56 @@ Z_{\mathrm{CE1}}
 (G_{c_5}\circ G_{c_4}\circ G_{c_3}\circ G_{c_2}\circ G_{c_1})(X).
 $$
 
-For the upper bound, the actual row $T_0$ realizes
-$(a_0,b_0,\widehat c_0)$ in the exact admissible set $\mathcal A$ of
-[`2004_admissible_set.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md).
-Since
-$b_0\ge s$ and $\widehat c_0\ge c_0$, coordinatewise down-closure gives
-
-$$
-(a_0,s,c_0)\in\mathcal A.
-$$
-
-Reflection of $\mathcal A$ exchanges the two boundary coordinates, so
+For the upper bound, $T_0$ realizes
+$(a_0,b_0,\widehat c_0)$ in the exact admissible set. Since $b_0\ge s$ and
+$\widehat c_0\ge c_0$, down-closedness and reflection give
 
 $$
 (s,a_0,c_0)\in\mathcal A.
 $$
 
-By the definition of the exact outgoing envelope in
+By the exact outgoing envelope in
 [`2007_max_b_map.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2007_max_b_map.md),
-this is precisely the bound
 
 $$
 a_0\le B_{c_0}(s).
 $$
 
-Consequently it is enough to prove
+It remains to prove
 
 $$
 Z_{\mathrm{CE1}}>B_{c_0}(s).
 $$
 
-## 3. Low-root estimates
+## 4. Low-root estimates and the first threshold
 
-For $0<d\le1-\sqrt3/2$, define the low Cell-$L$ root
+For $0<d\le1-\sqrt3/2$, put
 
 $$
 e(d)=\ell(1-d).
 $$
 
-The exact scalar lemma
+The scalar bounds in
 [`2012_high_radial_low_root_bounds.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2012_high_radial_low_root_bounds.md)
-proves
+are
 
 $$
 \boxed{
 e(d)<\frac{2d}{1-2d}
 \qquad
-\left(0<d\le\frac{2\sqrt3-3}{4}\right).
+\left(0<d\le\frac{2\sqrt3-3}{4}\right),
 }
 $$
-
-It also proves
 
 $$
 \boxed{
 e(d)\le2d+5d^2
 \qquad
-\left(0<d\le\frac18\right).
+\left(0<d\le\frac18\right),
 }
 $$
 
-and the sharper terminal estimate
+and
 
 $$
 \boxed{
@@ -356,8 +314,6 @@ e(d)<2d+3d^2
 \left(0<d\le\frac1{10}\right).
 }
 $$
-
-## 4. The first low root lies below the target
 
 The inequality $A+wD<P$, with $D=R-X$, gives
 
@@ -371,8 +327,7 @@ $$
 f(X)=wX-\frac{X}{2(1+X)}.
 $$
 
-Because $D<R/2$, one has $R/2<X<R$. Moreover $f$ is convex. At the two
-endpoints,
+Because $D<R/2$, one has $R/2<X<R$, and $f$ is convex. At the endpoints,
 
 $$
 f\left(\frac R2\right)<\frac{Rw}{2}<\eta,
@@ -384,19 +339,19 @@ $$
 E(1-2R^2)<1,
 $$
 
-which is immediate from $E<1$. Hence $f(X)<\eta$, and therefore
+which follows from $E<1$. Hence
 
 $$
 A<\frac{X}{2(1+X)}.
 $$
 
-Combining this with the first estimate of `2012` gives
+The first low-root estimate now gives
 
 $$
 \boxed{e(A)<X.}
 $$
 
-We also have $H>A$. In fact,
+We also have $H>A$. Indeed,
 
 $$
 2R(H-A)=\eta+D+(1-2R)A.
@@ -419,178 +374,193 @@ H>A,
 H<\frac12<1-A.
 $$
 
-If the selected branch is L or $T_-$, the catalog gives
+If the selected branch is L or $T_-$, then
 
 $$
 F_{1-A}(H)\le e(A),
 $$
 
-so
+and therefore
 
 $$
 G_{1-A}(H)\ge1-e(A)>1-X.
 $$
 
-Thus only the $T_+$ branch needs further work. Its selector gives
+Only the selected $T_+$ branch remains. Its selector gives
 
 $$
-H\le e(A)\le2A+5A^2.
+H\le e(A)<\frac{2A}{1-2A}.
 $$
 
-We now prove that this branch forces
+We prove
 
 $$
 \boxed{X>\frac12.}
 $$
 
-Suppose instead that $X\le1/2$. The inequality $D+RA\ge P$ gives
-
-$$
-2RH=\eta+A+D\ge\eta+P+wA.
-$$
-
-Therefore
-
-$$
-Q(A):=\eta+P+wA-2R(2A+5A^2)\le0.
-$$
-
-The other center inequality and $X\le1/2$ give
-
-$$
-A<P-w\left(R-\frac12\right)=:A_0.
-$$
-
-The quadratic $Q$ is strictly concave and
-
-$$
-Q(0)=\eta+P=Rw>0.
-$$
-
-It remains to check its other endpoint. Rationalize by
-
-$$
-k=\frac{R}{1+E},
-\qquad
-0<k<\frac12.
-$$
-
-Then
-
-$$
-R=\frac{k(2-k)}{1-k^2},
-\qquad
-E=\frac{1-k+k^2}{1-k^2},
-\qquad
-\eta=\frac{k(1-2k)}{1-k^2}.
-$$
-
-If $R\le1/2$, then $k\le2-\sqrt3<27/100$, $A_0\ge P$, and direct
-expansion gives
-
-$$
-Q(P)=
-\frac{k(1-2k)(-f_8(k))}{(1-k^2)^5},
-$$
-
-where
+Suppose instead that $X\le1/2$. The lower center inequality gives
 
 $$
 \begin{aligned}
-f_8(k)={}&16k^8-77k^7+175k^6-244k^5+199k^4\\
-&-101k^3+13k^2+12k-3.
+2RH
+&=\eta+A+D\\
+&\ge\eta+A+P-RA\\
+&=\eta+P+wA\\
+&=w(R+A).
 \end{aligned}
 $$
 
-Put $p=-f_8$. Direct differentiation and regrouping give
+Combining this with the selected-$T_+$ bound yields
 
 $$
-p'(k)=-12+g_1(k)+g_2(k)+g_3(k),
+\frac{w(R+A)}{2R}
+\le H
+<\frac{2A}{1-2A}.
+$$
+
+Thus
+
+$$
+f_R(A)<0,
 $$
 
 where
+
+$$
+f_R(z)=w(R+z)(1-2z)-4Rz.
+$$
+
+This quadratic is strictly concave:
+
+$$
+f_R''(z)=-4w<0,
+$$
+
+and
+
+$$
+f_R(0)=Rw>0.
+$$
+
+We now check the other endpoint of the possible interval for $A$.
+
+### 5.1. The range $R\le1/2$
+
+Since $D>0$ and $A+wD<P$,
+
+$$
+0<A<P.
+$$
+
+Using $P=(1-E)E$ and $E^2=1-R+R^2$, direct simplification gives
+
+$$
+f_R(P)
+=(1-E)
+\left(
+4E^3-2E^2+1-R(2E^3-2E^2+5E)
+\right).
+$$
+
+The coefficient $2E^3-2E^2+5E$ is positive. Hence $R\le1/2$ gives
+
+$$
+f_R(P)
+\ge
+\frac{1-E}{2}
+\left(6E^3-2E^2-5E+2\right).
+$$
+
+Put
+
+$$
+\phi(E)=6E^3-2E^2-5E+2.
+$$
+
+On $\sqrt3/2\le E<1$,
+
+$$
+\phi'(E)=18E^2-4E-5>0,
+$$
+
+because its value at $E=\sqrt3/2$ is
+
+$$
+\frac{17}{2}-2\sqrt3>0.
+$$
+
+Also
+
+$$
+\phi\left(\frac{\sqrt3}{2}\right)
+=\frac{2-\sqrt3}{4}>0.
+$$
+
+Therefore $f_R(P)>0$. Strict concavity puts $f_R$ above its endpoint chord,
+so
+
+$$
+f_R(A)>0
+\qquad(0<A<P),
+$$
+
+contrary to $f_R(A)<0$.
+
+### 5.2. The range $R>1/2$
+
+The assumption $X\le1/2$ gives
+
+$$
+D=R-X\ge R-\frac12.
+$$
+
+Hence
+
+$$
+0<A<A_0,
+\qquad
+A_0:=P-w\left(R-\frac12\right)=\frac w2-\eta.
+$$
+
+Using again $E^2=1-R+R^2$, direct simplification gives
+
+$$
+f_R(A_0)
+=
+\frac{1-E}{2}
+\left(E+11R-3ER-5\right).
+$$
+
+Since $11-3E>0$ and $R>1/2$,
 
 $$
 \begin{aligned}
-g_1(k)&=-k(4k-1)(199k-26),\\
-g_2(k)&=10k^4(122-105k),\\
-g_3(k)&=k^6(539-128k).
+E+11R-3ER-5
+&=R(11-3E)+E-5\\
+&>\frac{11-3E}{2}+E-5\\
+&=\frac{1-E}{2}>0.
 \end{aligned}
 $$
 
-The first term is positive only for $26/199<k<1/4$. On that interval,
+Thus $f_R(A_0)>0$. Concavity again gives
 
 $$
-g_1(k)
-\le\frac14\max_k(1-4k)(199k-26)
-=\frac{9025}{12736}<\frac34,
+f_R(A)>0
+\qquad(0<A<A_0),
 $$
 
-and the same upper bound is automatic when $g_1(k)\le0$. The functions
-$g_2$ and $g_3$ are increasing on $[0,27/100]$, and direct rational
-evaluation gives
-
-$$
-g_2\left(\frac{27}{100}\right)<5,
-\qquad
-g_3\left(\frac{27}{100}\right)<\frac15.
-$$
-
-Consequently $p'(k)<-12+3/4+5+1/5<0$. Since
-
-$$
-p\left(\frac{27}{100}\right)
-=\frac{81581849832351}{2500000000000000}>0,
-$$
-
-one has $-f_8(k)=p(k)>0$ throughout the required interval. Thus $Q(P)>0$.
-Concavity now gives $Q(A)>0$ for $0<A<P$, a contradiction.
-
-If $R>1/2$, then $0<A_0<P$ and direct expansion gives
-
-$$
-Q(A_0)=
-\frac{(1-2k)(-g_5(k))}{2(1-k^2)^3},
-$$
-
-where
-
-$$
-g_5(k)=32k^5-118k^4+150k^3-86k^2+18k-1.
-$$
-
-At $k_0=2-\sqrt3$,
-
-$$
-g_5(k_0)=3471-2004\sqrt3<0,
-$$
-
-because
-
-$$
-3\mathbin{\cdot}2004^2-3471^2=207>0.
-$$
-
-For $u=4k-1\in[0,1]$, direct expansion gives
-
-$$
--g_5'(k)
-=\frac{29-5u^4+u\left(39(u-1)^2+12\right)}8>0.
-$$
-
-Thus $g_5$ is strictly decreasing on this interval. Since
-$k>k_0>1/4$, one has $g_5(k)<0$, and hence $Q(A_0)>0$. Concavity gives
-$Q(A)>0$ for $0<A<A_0$, again a contradiction. This proves $X>1/2$.
+contrary to $f_R(A)<0$. Both ranges are impossible, proving
+$X>1/2$.
 
 ## 6. Routing at row 3
 
-Assume from now on that row $4$ is $T_+$, and put
+Assume from now on that row $4$ is selected $T_+$, and put
 
 $$
 p_1=G_{1-A}(H).
 $$
 
-By monotonicity and the catalog value at the end of the $T_+$ interval,
+By monotonicity and the catalog value at the end of the selected interval,
 
 $$
 p_1\le A+e(A)<3A+5A^2<\frac{29}{64}<\frac12.
@@ -605,8 +575,7 @@ $$
 so $p_1\ge H>m$. Since $m<1/2$, both Full branches at row $3$ are
 impossible.
 
-If row $3$ is L, $T_-$, or the low-$c$ tie
-$p_1=h(1-m)$, the catalog gives
+If row $3$ is L, $T_-$, or the low-radial tie, the exact catalog gives
 
 $$
 F_{1-m}(p_1)\le p_1.
@@ -619,67 +588,17 @@ G_{1-m}(p_1)\ge1-p_1>\frac12>1-X.
 $$
 
 It remains only to analyze the branch in which rows $4$ and $3$ are both
-$T_+$.
+selected $T_+$.
 
-## 7. Concavity on the selected $T_+$ arcs
+## 7. Universal selected-$T_+$ chord bounds
 
-Consider a selected $T_+$ transition with deficit $0<d<1/2$, input $p$,
-and output
-
-$$
-q=G_{1-d}(p).
-$$
-
-Put $c=1-d$ and $u=q-p$. The selected quadratic is
-
-$$
-f(q)=g(u),
-\qquad
-f(q)=(1-q)(q-d),
-\qquad
-g(u)=c^2u(2-u).
-$$
-
-On either selected $T_+$ arc, the exact catalog gives $f'(q)>0$ and
-$g'(u)>0$. Write
-
-$$
-A_0=f'(q)=1+d-2q,
-\qquad
-B_0=g'(u)=2c^2(1-u).
-$$
-
-Implicit differentiation gives
-
-$$
-u'=\frac{A_0}{B_0},
-\qquad
-u''=\frac{2\left(c^2A_0^2-B_0^2\right)}{B_0^3}.
-$$
-
-Since $p>d$ and $u>0$,
-
-$$
-B_0-cA_0
-=c(1-3d+2p+2du)>0
-$$
-
-and
-
-$$
-B_0-A_0
-=1-5d+2d^2+2p+2d(2-d)u
->(1-d)(1-2d)>0.
-$$
-
-It follows that $u''<0$ and that $p=q-u$ is an increasing, strictly convex
-function of $q$. Its inverse $q=G_{1-d}(p)$ is therefore increasing and
-strictly concave on each selected $T_+$ arc. In particular, it lies above
-the chord joining the endpoints of that arc.
+The universal normal form in `2016` proves that every selected $T_+$ map is
+increasing and strictly concave. It also gives the two exact chord forms used
+below, so no branch-specific implicit differentiation is required.
 
 ### 7.1. Row 4
 
-In the high-$c$ range the selected arc has endpoints
+On the high-radial selected arc the endpoints are
 
 $$
 (p,q)=(d,d)
@@ -693,12 +612,14 @@ $$
 q\ge p+\frac{d}{e(d)-d}(p-d).
 $$
 
-For row $4$, $d=A<P\le(2\sqrt3-3)/4<1/8$, so the estimate in `2012`
-gives
+For row $4$, $d=A<P<(1/8)$, and the first low-root bound gives
 
 $$
 \frac{d}{e(d)-d}
->\frac{1-2d}{1+2d}>1-4d.
+>
+\frac{1-2d}{1+2d}
+>
+1-4d.
 $$
 
 Applied with $d=A$ and $p=H$, this proves
@@ -717,28 +638,35 @@ $$
 m<\frac w2<\frac14.
 $$
 
-We claim that every selected row-3 $T_+$ transition satisfies
+We claim that every selected row-$3$ $T_+$ transition satisfies
 
 $$
 q>p+(1-5m)(p-m).
 $$
 
-This is immediate from $q>p$ when $m\ge1/5$. Suppose $m<1/5$. In the
-high-$c$ range the catalog gives $e(m)>m$. If $m\le1/8$, the second
-estimate in Section 3 gives
+This is immediate from $q>p$ when $m\ge1/5$. Suppose $m<1/5$.
+
+On the high-radial selected arc, the universal chord coefficient is
+
+$$
+\frac{m}{e(m)-m}.
+$$
+
+If $m\le1/8$, then
 
 $$
 \frac{m}{e(m)-m}
 \ge\frac{1}{1+5m}>1-5m.
 $$
 
-This avoids applying the first estimate of Section 3 beyond its proved
-range. If $1/8<m<1-\sqrt3/2$, the exact formula gives
-$e(m)<(1-m)/2$, and hence
+If $1/8<m<1-\sqrt3/2$, then $e(m)<(1-m)/2$, and hence
 
 $$
 \frac{m}{e(m)-m}
->\frac{2m}{1-3m}>1-5m.
+>
+\frac{2m}{1-3m}
+>
+1-5m.
 $$
 
 The last inequality is equivalent to
@@ -750,36 +678,40 @@ $$
 which holds because this quadratic is decreasing below $1/3$ and has value
 $-1/64$ at $m=1/8$.
 
-It remains to consider the low-$c$ selected arc. Its endpoints are
+On the low-radial selected arc, put $t=h(1-m)$. The universal chord
+coefficient is
 
 $$
-(p,q)=(m,m)
-\qquad\text{and}\qquad
-(p,q)=\left(h(1-m),1-h(1-m)\right),
+\frac{1-2t}{t-m}.
 $$
 
-so its chord coefficient beyond extensivity is
-
-$$
-\frac{1-2h(1-m)}{h(1-m)-m}.
-$$
-
-On $3/4\le c\le\sqrt3/2$, direct differentiation of the formula in `2011`
-shows that $h(c)$ is nonincreasing. Moreover
+On $3/4\le c\le\sqrt3/2$, the exact formula in `2011` shows that $h(c)$ is
+nonincreasing, and
 
 $$
 h\left(\frac34\right)
 =\frac{3}{2(\sqrt6+1)}<\frac7{16}.
 $$
 
-Here low $c$ gives $m\ge1-\sqrt3/2>2/15>1/16$, and hence
+Here the low-radial range gives
 
 $$
-h(1-m)<\frac7{16}<\frac{3+m}{7}.
+m\ge1-\frac{\sqrt3}{2}>\frac2{15}>\frac1{16},
 $$
 
-Thus the displayed chord coefficient is greater than $1/3$, while
-$1-5m<1/3$. This proves the claim in every row-3 selected $T_+$ regime.
+so
+
+$$
+t=h(1-m)<\frac7{16}<\frac{3+m}{7}.
+$$
+
+Thus
+
+$$
+\frac{1-2t}{t-m}>\frac13>1-5m.
+$$
+
+This proves the row-$3$ claim in every selected $T_+$ regime.
 
 With
 
@@ -793,7 +725,7 @@ $$
 p_2>(2-5m)p_1-(1-5m)m.
 $$
 
-Because $2-5m>0$, the row-4 bound may be substituted to give
+Because $2-5m>0$, the row-$4$ bound gives
 
 $$
 p_2>L_2,
@@ -803,7 +735,7 @@ $$
 
 ## 8. Exact analytic terminal estimate
 
-The row-4 $T_+$ selector and $e(A)<2A+5A^2$ give
+The row-$4$ selector and $e(A)\le2A+5A^2$ give
 
 $$
 D\le D_h:=A(4R-1)+10RA^2-\eta.
@@ -824,7 +756,7 @@ $$
 the inequality $A+wD<P$ gives
 
 $$
-A<\frac{w(5R-1)}{10}=:\overline A.
+A<\frac{w(5R-1)}{10}=: \overline A.
 $$
 
 The function $D_h(A)$ is increasing. Also
@@ -854,7 +786,7 @@ $$
 \le-101y^2+124y-39<0.
 $$
 
-The last quadratic has discriminant $-380$. Thus $U(R)<1/10$, a
+The last quadratic has negative discriminant. Thus $U(R)<1/10$, a
 contradiction.
 
 Now define
@@ -865,7 +797,7 @@ $$
 J(D)=L_2-\frac{23}{10}D.
 $$
 
-The bound just proved gives
+Since $D<1/10$,
 
 $$
 \Psi(D)-J(D)=3D\left(\frac1{10}-D\right)>0.
@@ -889,13 +821,13 @@ $$
 Rw\le A(5R-1+10RA).
 $$
 
-Since $A<P<Rw/2\le1/8$, it follows that
+Since $A<P<Rw/2\le1/8$,
 
 $$
 A>\frac{4Rw}{25R-4}=:A_*.
 $$
 
-Moreover $\partial S/\partial A<-45$, and direct substitution gives
+Moreover $\partial S/\partial A<-45$, and
 
 $$
 S(R,A)<S(R,A_*)
@@ -916,8 +848,8 @@ $$
 
 Thus $J$ is strictly decreasing, and $J(D)\ge J(D_h)$.
 
-At $D=D_h$, one has $H=2A+5A^2$. Write the corresponding value of $L_2$
-as $L_{2,h}$. Exact expansion gives
+At $D=D_h$, one has $H=2A+5A^2$. Write the corresponding value of $L_2$ as
+$L_{2,h}$. Exact expansion gives
 
 $$
 L_{2,h}-A(1+4R)=\frac{A}{R^2}Q(R,A),
@@ -938,10 +870,10 @@ $$
 \frac{\partial^2Q}{\partial A^2}=20R(30A-4R-3)<0.
 $$
 
-It therefore suffices to check the endpoints. They are
+It therefore suffices to check the endpoints:
 
 $$
-Q(R,0)=Rw(4R-1)>0
+Q(R,0)=Rw(4R-1)>0,
 $$
 
 and
@@ -962,7 +894,7 @@ $$
 32p(R)=25y^5+65y^4+90y^3+106y^2-35y+5>0,
 $$
 
-because $106y^2-35y+5$ has discriminant $-895$. Hence
+because $106y^2-35y+5$ has negative discriminant. Hence
 
 $$
 L_{2,h}>A(1+4R).
@@ -1001,7 +933,7 @@ h_3(R_0)=\frac{788}{529},
 h_3'(R_0)=\frac{17}{23}.
 $$
 
-Strong convexity therefore gives
+Strong convexity gives
 
 $$
 h_3(R)\ge
@@ -1018,12 +950,12 @@ $$
 Combining the estimates proves
 
 $$
-\boxed{\Psi(D)>J(D)\ge J(D_h)>0.}
+\boxed{
+\Psi(D)>J(D)\ge J(D_h)>0.
+}
 $$
 
-## 9. The final row-2 split
-
-The terminal estimate and the sharper low-root bound from Section 3 yield
+Therefore
 
 $$
 \boxed{
@@ -1031,58 +963,36 @@ p_2>L_2>2D+3D^2>e(D).
 }
 $$
 
-Here $c_2=1-D>\sqrt3/2$. Put
+## 9. The row-2 threshold trigger
+
+The preceding section gives $D<1/10$ and
 
 $$
-e_D=e(D)=\ell(1-D),
-\qquad
-r_D=(1-D)-e_D.
+p_2>e(D).
 $$
 
-The exact high-radial catalog partitions the row-2 input axis into
+The one-hit threshold-routing lemma `2017`, applied to the row-$2$ map
+$G_{1-D}$, gives directly
 
 $$
-\begin{array}{c|c|c}
-\text{input range}&\text{label}&F_{1-D}(p)\\
-\hline
-0\le p\le D&\text{lower Full}&1-p\\
-D<p\le e_D&T_+&T_+(p,1-D)\\
-e_D<p<r_D&L&e_D\\
-r_D\le p<1-D&T_-&T_-(p,1-D)\\
-1-D\le p\le1&\text{upper Full}&1-p.
-\end{array}
+G_{1-D}(p_2)\ge1-e(D).
 $$
 
-Since $p_2>e_D$, the lower Full and $T_+$ ranges are impossible. On the
-$L$ range, $F_{1-D}(p_2)=e_D$. On the $T_-$ range, monotonicity and the
-transition value $F_{1-D}(r_D)=e_D$ give
+Moreover
 
 $$
-F_{1-D}(p_2)\le e_D.
+e(D)<2D+3D^2<\frac{23}{100}<\frac12<X.
 $$
 
-Thus in either of these middle ranges,
+Hence
 
 $$
-G_{1-D}(p_2)
-\ge1-e_D
->1-X,
+\boxed{
+G_{1-D}(p_2)>1-X.
+}
 $$
 
-where the last strict inequality follows from
-
-$$
-e_D<2D+3D^2<\frac{23}{100}<\frac12<X.
-$$
-
-Finally, on upper Full one has
-
-$$
-G_{1-D}(p_2)=p_2\ge1-D>1-X,
-$$
-
-because $X>1/2>D$. Therefore every row-2 selector satisfies the required
-strict inequality. Equivalently,
+Equivalently,
 
 $$
 (G_{c_2}\circ G_{c_3}\circ G_{c_4})(H)>1-X.
@@ -1094,7 +1004,7 @@ $$
 (G_{c_4}\circ G_{c_3}\circ G_{c_2})(X)>1-H.
 $$
 
-Restoring the extensive first and fifth maps proves
+Restoring the extensive first and fifth maps gives
 
 $$
 Z_{\mathrm{CE1}}>1-H=1-\frac s2.
@@ -1123,7 +1033,7 @@ $$
 \beta(s)<1-\frac s2.
 $$
 
-Combining the last three inequalities gives
+Combining the inequalities gives
 
 $$
 \boxed{
@@ -1131,5 +1041,5 @@ Z_{\mathrm{CE1}}>B_{c_0}(s).
 }
 $$
 
-This contradicts the necessary inequality from the boundary gap.  Hence the
+This contradicts the necessary inequality from the boundary gap. Hence the
 CE1 exactly-one-gap state is impossible.
