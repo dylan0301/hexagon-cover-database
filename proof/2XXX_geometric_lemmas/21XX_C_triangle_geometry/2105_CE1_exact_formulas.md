@@ -1,324 +1,227 @@
-# CE1 Exact Center, Interval, Radial-Exit, and Demand Formulas
+# CE1 Exact Formulas as a Signed-Normal-Form Adapter
 
 Status: Proven
 
-This note records exact formulas for a normalized CE1 center triangle with
-unique midpoint $M_0$. It uses the interval certificate in
-[`2102_CE1_M0_e01_maximal_intervals.md`](2102_CE1_M0_e01_maximal_intervals.md).
+This note records the CE1 specialization of the common signed center normal
+form in
+[`2109`](2109_signed_CE1_CE2_center_normal_form.md).  No separate CE1 line,
+interval, or radial-exit calculation is required.
 
-## General center-and-angle model
+## 1. Variables
 
-Write
-
-$$
-u(\alpha)=(\cos\alpha,\sin\alpha).
-$$
-
-A unit equilateral triangle with centroid $z$ and angle $\theta$ has vertices
-
-$$
-z+\frac1{\sqrt3}
-u\left(\theta+\frac\pi2+\frac{2\pi k}{3}\right),
-\qquad k=0,1,2.
-$$
-
-Its outward normals and support constants are
-
-$$
-n_k=u\left(\theta-\frac\pi2+\frac{2\pi k}{3}\right),
-$$
-
-$$
-h_k=\frac1{2\sqrt3}+n_k\mathbin{\cdot}z.
-$$
-
-Thus
-
-$$
-T_C=\left\{p:n_k\mathbin{\cdot}p\le h_k, k=0,1,2\right\}.
-$$
-
-The exact center condition is
-
-$$
-O\in T_C\quad\Longleftrightarrow\quad h_k\ge0\text{ for every }k,
-$$
-
-with strict inequalities for $O\in\mathrm{int}(T_C)$.
-
-For the ray from $O$ toward $V_i$, the exit distance inside the unit radial
-segment is
-
-$$
-d_i=
-\min\left\{
-1,
-\min_{\substack{0\le k\le2\\n_k\mathbin{\cdot}V_i>0}}
-\frac{h_k}{n_k\mathbin{\cdot}V_i}
-\right\}.
-$$
-
-For a boundary edge
-
-$$
-e_i(q)=V_i+q(V_{i+1}-V_i),
-\qquad 0\le q\le1,
-$$
-
-put
-
-$$
-A_{ik}=n_k\mathbin{\cdot}V_i,
-\qquad
-B_{ik}=n_k\mathbin{\cdot}(V_{i+1}-V_i).
-$$
-
-When every constraint with $B_{ik}=0$ satisfies $A_{ik}\le h_k$, the exact
-clipped interval is
-
-$$
-s_i=
-\max\left\{
-0,
-\max_{B_{ik}<0}\frac{h_k-A_{ik}}{B_{ik}}
-\right\},
-$$
-
-$$
-t_i=
-\min\left\{
-1,
-\min_{B_{ik}>0}\frac{h_k-A_{ik}}{B_{ik}}
-\right\}.
-$$
-
-It is nonempty exactly when $s_i\le t_i$.
-An empty inner maximum or minimum contributes no bound.
-
-## Normalized CE1 side model
-
-Use affine coordinates
-
-$$
-X=V_0+b(V_1-V_0)+a(V_5-V_0).
-$$
-
-Write
-
-$$
-T_C\cap e_{0,1}=[s,t].
-$$
-
-For
+Put
 
 $$
 0<\lambda<1,
 \qquad
+W=1-\lambda,
+$$
+
+$$
 \rho=\sqrt{1-\lambda+\lambda^2},
+\qquad
+\eta=1-\rho,
+\qquad
+P=\rho(1-\rho).
 $$
 
-set
+Let
 
 $$
-F_1=\lambda b+(1-\lambda)a-\lambda s,
+\alpha=C_0,
+\qquad
+\delta=C_2,
+\qquad
+k=\eta+\alpha+\delta.
 $$
 
-$$
-F_2=-b+\lambda a+t,
-$$
+In the affine coordinates
 
 $$
-F_0=(1-\lambda)b-a+\rho+\lambda s-t.
+X=V_0+b(V_1-V_0)+a(V_5-V_0),
 $$
 
-Then
+the triangle is
 
 $$
-T_C=\left\{F_0\ge0,F_1\ge0,F_2\ge0\right\}.
+T_C=\left\{F_0\ge0,F_1\ge0,F_2\ge0\right\},
 $$
+
+where
+
+$$
+\begin{aligned}
+F_0&=\lambda+\alpha-a+Wb,\\
+F_1&=\lambda b+Wa-k,\\
+F_2&=W+\delta-b+\lambda a.
+\end{aligned}
+$$
+
+These are the side slacks of a unit equilateral triangle because they are the
+common edge-cut normal form proved in `2109`.
+
+## 2. Exact CE1 domain
 
 Define
 
 $$
-C_0=F_0(O)=\rho+\lambda s-t-\lambda,
+\Delta_R=P-\alpha-W\delta,
+\qquad
+\Delta_L=P-\lambda\alpha-\delta.
 $$
 
-$$
-C_1=F_1(O)=1-\lambda s,
-$$
+The normalized positive center trace is on $e_{0,1}$.  The closed exact-$M_0$
+CE1 domain is
 
 $$
-C_2=F_2(O)=t+\lambda-1.
-$$
-
-They satisfy
-
-$$
-C_0+C_1+C_2=\rho.
-$$
-
-## Exact CE1 domain
-
-The normalized closed exact-$M_0$ CE1 domain is
-
-$$
+\boxed{
+\begin{gathered}
 0<\lambda<1,
 \qquad
-0\le s<t\le1,
+\alpha\ge0,
+\qquad
+\delta\ge0,\\
+\Delta_R>0,
+\qquad
+\Delta_L\le0.
+\end{gathered}
+}
+$$
+
+For the closure of an original open center role, the center slacks are strict:
+
+$$
+\boxed{\alpha>0,
+\qquad
+\delta>0.}
+$$
+
+The trace is
+
+$$
+\boxed{
+T_C\cap e_{0,1}=[s,t],
+\qquad
+s=\frac{k}{\lambda},
+\qquad
+t=W+\delta.
+}
+$$
+
+Its length is
+
+$$
+t-s=\frac{\Delta_R}{\lambda}>0.
+$$
+
+The companion trace on $e_{5,0}$ has signed length
+
+$$
+\frac{\Delta_L}{W}.
+$$
+
+Thus $\Delta_L\le0$ is exactly the assertion that the companion edge has no
+positive-length overlap.  Equality permits one point contact, as required by
+the CE1 definition.
+
+The historical center slacks are recovered exactly:
+
+$$
+C_0=\rho+\lambda s-t-\lambda=\alpha,
 $$
 
 $$
-t+\lambda(1-s)\le\rho,
+C_1=1-\lambda s=\rho-\alpha-\delta,
 $$
 
 $$
-t\ge1-\lambda,
+C_2=t+\lambda-1=\delta.
 $$
 
-$$
-\lambda s\le\frac12,
-$$
+The inequalities formerly listed separately in this file follow from the
+signed domain.  For example,
 
 $$
-t<1-\frac\lambda2,
-$$
-
-$$
-t>\rho+\lambda s-\frac{1+\lambda}{2},
+\delta<\frac{P}{W}
+=\frac{\rho\lambda}{1+\rho}
+<\frac\lambda2,
 $$
 
 and
 
 $$
-t\ge\rho-\frac{\lambda^2}{1-\lambda}s.
+\alpha<P
+<\min\left\{\frac\lambda2,\frac W2\right\}.
 $$
 
-The first two nontrivial weak inequalities are $C_0\ge0$ and $C_2\ge0$.
-For the closure of an open center role, replace them by
+The midpoint tests in
+[`2100`](2100_CE1_CE2_exactly_one_midpoint_lemma.md) therefore give
 
 $$
-C_0>0,
-\qquad
-C_2>0.
+T_C\cap\{M_0,\ldots,M_5\}=\{M_0\}.
 $$
 
-The last inequality excludes a positive-length overlap with $e_{5,0}$.
+Conversely, the common edge-cut calculation in `2109` shows that every
+normalized exact-$M_0$ CE1 triangle yields precisely these signed inequalities.
+Hence the displayed domain is exact.
 
-## Ray substitutions
+## 3. Radial exits and demands
 
-Let $q$ denote distance from $O$ toward $V_i$. In the affine $(b,a)$
-coordinates,
-
-$$
-r_0(q)=(1-q,1-q),
-\qquad
-r_1(q)=(1,1-q),
-$$
+The common exit theorem `2109` gives
 
 $$
-r_2(q)=(1+q,1),
-\qquad
-r_3(q)=(1+q,1+q),
+\boxed{
+\begin{aligned}
+d_0^C&=\rho-\alpha-\delta,\\
+d_1^C&=\frac{\delta}{\lambda},\\
+d_2^C&=\delta,\\
+d_3^C&=\min\left\{\frac{\alpha}{\lambda},\frac{\delta}{W}\right\},\\
+d_4^C&=\alpha,\\
+d_5^C&=\frac{\alpha}{W}.
+\end{aligned}
+}
 $$
 
+In the CE1 sign range,
+
 $$
-r_4(q)=(1,1+q),
-\qquad
-r_5(q)=(1-q,1).
+\Delta_L\le0<\Delta_R
 $$
 
-Substitution gives the decreasing slacks and their first zeros:
+implies
 
-| ray | decreasing slack or slacks | first exit |
-|---|---|---|
-| $r_0$ | $F_1=C_1-q$ | $C_1$ |
-| $r_1$ | $F_2=C_2-\lambda q$ and $F_1=C_1-(1-\lambda)q$ | $C_2/\lambda$ |
-| $r_2$ | $F_2=C_2-q$ | $C_2$ |
-| $r_3$ | $F_0=C_0-\lambda q$ and $F_2=C_2-(1-\lambda)q$ | $\min\{C_0/\lambda,C_2/(1-\lambda)\}$ |
-| $r_4$ | $F_0=C_0-q$ | $C_0$ |
-| $r_5$ | $F_0=C_0-(1-\lambda)q$ and $F_1=C_1-\lambda q$ | $C_0/(1-\lambda)$ |
-
-For $r_1$, exact exclusion of $M_1$ gives $C_2/\lambda<1/2$, while
-$M_0\in T_C$ gives $C_1/(1-\lambda)>1/2$. Thus the listed first exit is
-correct. The $r_5$ statement is the reflected argument.
-
-## Exact radial exits and demands
+$$
+\lambda\delta>W\alpha.
+$$
 
 Therefore
 
 $$
-\boxed{
-\begin{aligned}
-d_0&=1-\lambda s,\\
-d_1&=\frac{C_2}{\lambda},\\
-d_2&=C_2,\\
-d_3&=\min\left\{
-\frac{C_0}{\lambda},
-\frac{C_2}{1-\lambda}
-\right\},\\
-d_4&=C_0,\\
-d_5&=\frac{C_0}{1-\lambda}.
-\end{aligned}
-}
+\boxed{d_3^C=\frac{\alpha}{\lambda}.}
 $$
 
-The complementary vertex-role radial demands are
+The complementary vertex-role demands are
 
 $$
-c_i=1-d_i.
+\boxed{c_i=1-d_i^C.}
 $$
 
-Explicitly,
+For closures of original open center roles,
 
 $$
-\boxed{
-\begin{aligned}
-c_0&=\lambda s,\\
-c_1&=1-\frac{C_2}{\lambda},\\
-c_2&=1-C_2,\\
-c_3&=1-\min\left\{
-\frac{C_0}{\lambda},
-\frac{C_2}{1-\lambda}
-\right\},\\
-c_4&=1-C_0,\\
-c_5&=1-\frac{C_0}{1-\lambda}.
-\end{aligned}
-}
-$$
-
-Since the midpoint subset is exactly $\{M_0\}$,
-
-$$
-d_0\ge\frac12,
+d_0^C>\frac12,
 \qquad
-d_i<\frac12\quad(i\ne0),
+d_i^C<\frac12\quad(i\ne0),
 $$
 
 and hence
 
 $$
-c_0\le\frac12,
+c_0<\frac12,
 \qquad
 c_i>\frac12\quad(i\ne0).
 $$
 
-## Direction of the radial relaxation
-
-Suppose the actual radial reach of $T_i$ from $V_i$ is $\widehat c_i$. Full
-coverage of $r_i$ gives
-
-$$
-\widehat c_i\ge1-d_i=c_i.
-$$
-
-If $c'\ge c$, the demand point at $c$ lies on the segment from $V_i$ to the
-demand point at $c'$. Convexity therefore gives
-
-$$
-\left\{T_i:\widehat c_i\ge c'\right\}
-\subset
-\left\{T_i:\widehat c_i\ge c\right\}.
-$$
-
-Replacing the actual reach by $c_i=1-d_i$ enlarges the feasible row set and is
-therefore a valid relaxation in the required direction.
+If an actual vertex role reaches distance $\widehat c_i$ from $V_i$, radial
+coverage gives $\widehat c_i\ge c_i$.  Replacing the actual reach by this lower
+demand enlarges the local feasible set, so it is a valid proof relaxation.
