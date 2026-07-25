@@ -1,17 +1,19 @@
-\subsection{Half-edge envelopes for adjacent CE2 placements}
+\subsection{Half-edge radial envelope}
 \label{sec:half-edge-envelope}
 
-The adjacent CE2 placement in Section~\ref{sec:t3-vd-demand-branches} uses a
-rational upper bound for a single admissible-set fiber.  We isolate it here
-because the domain restriction is
-essential and because the same formula is false on the full nonsupercritical
-fiber domain.
+The adjacent Vd1/Vd2 placement uses one upper bound for a single admissible-set
+fiber.  Its half-edge domain is essential; outside that domain the linear cap
+is false.
 
 \begin{lemma}[Half-edge rational radial envelope]
 \label{lem:half-edge-radial-envelope}
 Suppose
 \[
- \frac12\le p<1,\qquad 0\le h\le p,\qquad p+h<1.
+ \frac12\le p<1,
+ \qquad
+ 0\le h\le p,
+ \qquad
+ p+h<1.
 \]
 Then
 \begin{equation}
@@ -25,70 +27,77 @@ $\mathcal A_T$.
 \begin{proof}
 Put
 \[
- s=p+h,\qquad d=p^2+ph+h^2,\qquad q=s^4-s^2+ph.
+ s=p+h,
+ \qquad
+ d=p^2+ph+h^2,
+ \qquad
+ q=s^4-s^2+ph.
 \]
 Because $s<1$, one has $d=s^2-ph<1$, so only the two nonsupercritical cells
-of Proposition~\ref{prop:exact-admissible-set} occur.  Since $p\ge h$, in
-$\mathcal A_L$ the selected radial value is the unique root
-$C_L(h)\in[\sqrt3/2,1]$ of
+of Proposition~\ref{prop:exact-admissible-set} occur.
+
+First suppose $q\le0$.  Since $p\ge h$, the selected radial value is the
+unique root $C_L(h)\in[\sqrt3/2,1]$ of
 \[
  P_h(c):=c^4-c^2+hc-h^2=0,
 \]
-with $C_L(0)=1$.  In $\mathcal A_T$ the selector $c\le2p$ keeps the smaller
-geometric root
+with $C_L(0)=1$.  This cell forces $h<3/8$.  Indeed, if $h\ge3/8$, then
+$p\ge1/2$ and $s\ge7/8$, while
 \[
- C_T(p,h)=\frac{2p}{1+\sqrt{4s^2-3}}.
+ \frac{\partial q}{\partial p}
+ =4s^3-2s+h
+ \ge\frac{167}{128}>0
 \]
-The two expressions agree when $q=0$.
-
-First assume $q\le0$.  If $h\ge3/8$, then $p\ge1/2$ and $s\ge7/8$.  On this
-region
-\[
- \frac{\partial q}{\partial p}=4s^3-2s+h
- \ge4\left(\frac78\right)^3-2\left(\frac78\right)+\frac38
- =\frac{167}{128}>0.
-\]
-Moreover
+and
 \[
  \frac{d}{dh}q\left(\frac12,h\right)
  =h(4h^2+6h+1)>0.
 \]
 Thus
 \[
- q(p,h)\ge q\left(\frac12,\frac38\right)=\frac{33}{4096}>0,
+ q(p,h)\ge q\left(\frac12,\frac38\right)
+ =\frac{33}{4096}>0,
 \]
-a contradiction.  Hence $0\le h<3/8$.  At
-$c_0=1-h/3$,
-\[
- P_h(c_0)=\frac h{81}\left(h^3-12h^2-63h+27\right).
-\]
-The cubic in parentheses decreases on $[0,3/8]$ and has value $891/512$ at
-$3/8$, so this expression is positive for $h>0$.  Also
-$c_0>7/8>\sqrt3/2$, and
-\[
- P_h'(c)=c(4c^2-2)+h>0\qquad(c\ge\sqrt3/2).
-\]
-Therefore the selected root lies below $c_0$.  The case $h=0$ gives equality.
+a contradiction.
 
-Now assume $q>0$.  Put
+At $c_0=1-h/3$,
 \[
- r=\sqrt{4s^2-3},\qquad \delta=\frac{p-h}{s}.
+ P_h(c_0)
+ =\frac h{81}\left(h^3-12h^2-63h+27\right).
+\]
+The cubic decreases on $[0,3/8]$ and has value $891/512$ at $3/8$, so this
+quantity is positive for $h>0$.  Also $c_0>7/8>\sqrt3/2$ and
+\[
+ P_h'(c)=c(4c^2-2)+h>0
+ \qquad(c\ge\sqrt3/2).
+\]
+Hence $C_L(h)<c_0$.  The case $h=0$ gives equality.
+
+Now suppose $q>0$.  The selector keeps the smaller geometric root
+\[
+ C_T(p,h)=\frac{2p}{1+\sqrt{4s^2-3}}.
+\]
+Put
+\[
+ r=\sqrt{4s^2-3},
+ \qquad
+ \gamma=\frac{p-h}{s}.
 \]
 The exact identity
 \[
- \frac q{s^2}=\frac{r^2-\delta^2}{4}
+ \frac q{s^2}=\frac{r^2-\gamma^2}{4}
 \]
-gives $0\le\delta<r$.  Thus $r>0$ and we may write
-$\delta=wr$ with $0\le w<1$.  Then
+gives $0\le\gamma<r$.  Write $\gamma=wr$ with $0\le w<1$.  Then
 \[
- p=\frac{s(1+wr)}2,\qquad
+ p=\frac{s(1+wr)}2,
+ \qquad
  h=\frac{s(1-wr)}2,
 \]
 and
 \[
  C_T(p,h)=\frac{s(1+wr)}{1+r}.
 \]
-For fixed $s,r$, set
+For fixed $s,r$, define
 \[
  \Psi(w)=C_T(p,h)+\frac h3.
 \]
@@ -100,25 +109,23 @@ so
 \[
  \Psi(w)<\Psi(1)=\frac{s(7-r)}6.
 \]
-The hypothesis $p\ge1/2$ gives $s(1+wr)=2p\ge1$, and hence
-$s(1+r)\ge1$.  This forces $r>1/8$: otherwise
+The hypothesis $p\ge1/2$ gives $s(1+r)\ge1$.  This forces $r>1/8$;
+otherwise
 \[
  4s^2(1+r)^2=(r^2+3)(1+r)^2
- \le\frac{193}{64}\frac{81}{64}
- =\frac{15633}{4096}<4.
+ \le\frac{193}{64}\frac{81}{64}<4.
 \]
 Finally,
 \[
  144-(r^2+3)(7-r)^2
  =(1-r)(r^3-13r^2+39r-3).
 \]
-On $[1/8,1]$ the cubic factor is increasing because its derivative
-$3r^2-26r+39$ is at least $16$, and its value at $1/8$ is $857/512>0$.
-Since $1/8<r<1$, it follows that
+On $[1/8,1]$ the cubic factor is increasing and has value $857/512$ at
+$1/8$.  Hence $s(7-r)/6<1$, and therefore
 \[
- \frac{s(7-r)}6<1.
+ C_T(p,h)+\frac h3<1.
 \]
-Consequently $C_T(p,h)+h/3<1$, which proves the strict $\mathcal A_T$ case.
+This proves the strict $\mathcal A_T$ estimate.
 \end{proof}
 
 \begin{remark}[Exact domain limitation]
@@ -126,8 +133,8 @@ The hypothesis $p\ge1/2$ cannot be removed.  At
 \[
  p=h=\frac25
 \]
-one has $d=12/25<1$, $s=4/5<1$, and $q=-44/625<0$, so the selected
-component is $\mathcal A_L$.  At the proposed cap $c_0=13/15$,
+one has $d=12/25<1$, $s=4/5<1$, and $q=-44/625<0$, so the selected component
+is $\mathcal A_L$.  At $c_0=13/15$,
 \[
  P_{2/5}\left(\frac{13}{15}\right)
  =-\frac{14}{50625}<0,
@@ -139,297 +146,32 @@ root interval,
 \[
  c_{\max}\left(\frac25,\frac25\right)>\frac{13}{15}.
 \]
-Thus Lemma~\ref{lem:half-edge-radial-envelope} is a necessary relaxation only
-on its stated half-edge domain; it does not define a global replacement for
-the fibers $B_c$, $F_c$, or $G_c$.
+Thus Lemma~\ref{lem:half-edge-radial-envelope} is used only on its stated
+half-edge domain.
 \end{remark}
 
-\begin{lemma}[CE2 adjacent outer-ratio bound]
+\begin{lemma}[Adjacent CE2 outer-ratio compatibility form]
 \label{lem:ce2-adjacent-outer-ratio}
-Let $0<x,y,u,v<1$, and put
+Under the reduced branch hypotheses of
+Lemma~\ref{lem:signed-vd-adjacent-placement}, use the legacy CE2 variables
 \[
- S=x+y,\qquad D=\sqrt{x^2+xy+y^2}.
+ x=\frac{k}{W},
+ \qquad
+ u=R+\alpha,
+ \qquad
+ y=\frac{k}{R},
+ \qquad
+ v=W+\delta.
 \]
-Assume the exact CE2 relations
+If $H$ is the propagated $e_{5,0}$ tail, then
 \[
- u+v=\frac{D+xy}{S},\qquad uS\ge x,\qquad vS\ge y,
- \qquad x^2+xv+v^2\le1.
-\]
-Let $a_0,b_0\ge0$ satisfy
-\[
- a_0+b_0>1,\qquad a_0^2+a_0b_0+b_0^2\le1,
-\]
-and define the two boundary tails by
-\[
- A=
- \begin{cases}
-  1-b_0,&b_0<y,\\
-  \max\{0,1-\max\{b_0,v\}\},&b_0\ge y,
- \end{cases}
-\]
-and
-\[
- H=
- \begin{cases}
-  1-a_0,&a_0<x,\\
-  \max\{0,1-\max\{a_0,u\}\},&a_0\ge x.
- \end{cases}
-\]
-If $H>0$ and $A+H<1/2$, then the center reach
-\[
- d_2^C=\frac{D+xy-uS-y}{S}=v-\frac yS
-\]
-satisfies
-\[
- d_2^C<\frac H3.
+ d_2^C=\delta<\frac H3.
 \]
 \end{lemma}
 
 \begin{proof}
-Because $H>0$, its definition leaves exactly two endpoint sources.
-
-\smallskip
-\noindent\emph{First source: $H=1-u$.}
-Here $a_0\ge x$ and $a_0\le u$.  Define
-\[
- K=x+2y-xy-D.
-\]
-Since $D+xy-y=S-K$, one has
-\[
- d_2^C=1-u-\frac KS=H-\frac KS,
- \qquad
- \frac{d_2^C}{H}=1-\frac{K}{SH}.
-\]
-Put
-\[
- b_\circ(x)=\frac{-x+\sqrt{4-3x^2}}2,\qquad
- h(x)=b_\circ(x)-\frac12.
-\]
-We first claim
-\begin{equation}
- H\le\min\left\{\frac yS,h(x)\right\}.
- \label{eq:outer-first-H-bound}
-\end{equation}
-The inequality $H\le y/S$ follows from $H=1-u$ and $uS\ge x$.
-For the other inequality, $A+H<1/2$ says that whichever of $b_0$ and
-$v$ produces the $e_{0,1}$ tail is greater than $1/2+H$.  If it is $b_0$,
-then $a_0\ge x$ and the disk inequality give
-$b_0\le b_\circ(x)$.  If it is $v$, the center-role diameter inequality
-$x^2+xv+v^2\le1$ gives $v\le b_\circ(x)$.  In either case
-$H<h(x)$, proving \eqref{eq:outer-first-H-bound}.
-
-Set
-\[
- m=\min\left\{\frac yS,h(x)\right\}.
-\]
-We prove $K/(Sm)>2/3$.  First suppose $y/S\le h(x)$ and put $r=y/x$.
-Then
-\[
- r\le\frac{h(x)}{1-h(x)},\qquad r\le1.
-\]
-The exact inequality
-\[
- \sqrt{1+r+r^2}\le1+\frac r2+\frac{r^2}{2}
-\]
-follows because the difference of the squares is $r^2(r+1)^2/4$.
-Consequently
-\[
- \frac Ky\ge\frac32-x-\frac r2
- \ge\frac32-x-\frac{h(x)}{2(1-h(x))}.
-\]
-Write $b=h(x)+1/2=b_\circ(x)$.  The diameter relation is symmetric, so
-$x=b_\circ(b)$.  Define
-\[
- F(b)=\frac{-b+\sqrt{4-3b^2}}2+\frac{b-1/2}{3-2b}.
-\]
-On $1/2\le b\le1$,
-\[
- F'(b)=\frac{2}{(3-2b)^2}-\frac12
- -\frac{3b}{2\sqrt{4-3b^2}}<0.
-\]
-For the last sign, put $z=1-b\in[0,1/2]$.  After moving the rational
-term and squaring the nonnegative sides, for $z>0$ it is equivalent to
-\[
- \begin{aligned}
- &9(1-z)^2(1+2z)^4\\
- &\qquad-
- (3-4z-4z^2)^2(1+6z-3z^2)>0.
- \end{aligned}
-\]
-The left side is $zP(z)$, where the Bernstein coefficients of the
-degree-$5$ polynomial $P$ on $[0,1/2]$ are
-\[
- 24,\qquad50,\qquad\frac{364}{5},\qquad\frac{434}{5},\qquad
- \frac{432}{5},\qquad72.
-\]
-Thus $F$ is decreasing, and
-\[
- F(b)\le F\left(\frac12\right)=\frac{\sqrt{13}-1}{4}.
-\]
-It follows that
-\[
- \frac Ky\ge\frac{7-\sqrt{13}}4>\frac23.
-\]
-Here $Sm=y$, so $K/(Sm)>2/3$.
-
-Now suppose $h(x)\le y/S$, so $m=h(x)$.  For fixed $x$, define
-\[
- g(y)=\frac{x+2y-xy-\sqrt{x^2+xy+y^2}}{x+y}.
-\]
-Then
-\[
- g'(y)=\frac{x\{2(1-x)D+x-y\}}{2S^2D}>0.
-\]
-The sign is immediate for $y\le x$.  For $y>x$, the bound $D\ge y$ gives
-\[
- 2(1-x)D+x-y\ge x+(1-2x)y
- =x(1-y)+y(1-x)>0.
-\]
-Let $y_0$ satisfy $y_0/(x+y_0)=h(x)$.  Since $y\ge y_0$,
-\[
- \frac{K(x,y)}{Sh(x)}
- \ge\frac{K(x,y_0)}{(x+y_0)h(x)}
- =\frac{K(x,y_0)}{y_0}>\frac23,
-\]
-where the last inequality is the boundary value from the preceding
-subcase.  Hence $K/(Sm)>2/3$ in all cases.  Since $H\le m$,
-\[
- \frac{K}{SH}\ge\frac{K}{Sm}>\frac23,
-\]
-and therefore $d_2^C/H<1/3$.
-
-\smallskip
-\noindent\emph{Second source: $H=1-a_0$.}
-Now $a_0=1-H$.  The $e_{0,1}$ tail cannot be $A=1-b_0$, since otherwise
-\[
- A+H=2-a_0-b_0<\frac12
-\]
-would imply $a_0+b_0>3/2$, contrary to
-$a_0+b_0\le2/\sqrt3$, which follows from the disk inequality.  Thus
-$A=1-v$ and
-\[
- v>\frac12+H.
-\]
-For $v$ to determine the tail, $T_0$ reaches the start $y$ of the CE2
-interval, so $b_0\ge y$.  The disk inequality becomes
-\[
- (1-H)^2+(1-H)y+y^2\le1,
-\]
-or
-\[
- H^2-(2+y)H+y+y^2\le0.
-\]
-Put
-\[
- L(y)=\frac{2+y-\sqrt{4-3y^2}}2.
-\]
-Since $H<1/2$, this gives $H\ge L(y)$.  Moreover $uS\ge x$ and the
-CE2 coupling give
-\[
- v\le\frac{D+xy-x}{S},
-\]
-and hence
-\begin{equation}
- \frac{D+xy-x}{S}>\frac12+L(y).
- \label{eq:outer-analytic-premise}
-\end{equation}
-
-We now prove the exact analytic implication needed here.  Fix $0<y<1$,
-write $L=L(y)$, and suppose \eqref{eq:outer-analytic-premise} holds.
-First,
-\[
- \frac{D+xy-x}{S}<1.
-\]
-Indeed, both sides in $D<2x+y-xy$ are positive, and
-\[
- (2x+y-xy)^2-D^2
- =x\{y(3-2y)+x(1-y)(3-y)\}>0.
-\]
-Thus the premise forces $0<L<1/2$.  Set
-\[
- r=\frac xy,\qquad R=\sqrt{r^2+r+1},\qquad
- r_0=\frac{3-4L}{3+4L}.
-\]
-Then
-\[
- \frac{D+xy-x}{S}=\frac{R-r(1-y)}{r+1},\qquad
- \frac{D+xy-x-y}{S}=\frac{R-r(1-y)-1}{r+1}.
-\]
-
-Suppose first that $0<r\le r_0$.  Using
-$R\le1+r/2+r^2/2$ gives
-\[
- \frac{R-r(1-y)-1}{r+1}
- \le\frac{r(y-1/2+r/2)}{r+1}.
-\]
-The right side is convex in $r$, since its second derivative is
-$2(1-y)/(1+r)^3>0$, so its maximum on $[0,r_0]$ is at an endpoint.
-At $r=0$ it is zero, while
-\[
- \frac L3-\frac{r_0(y-1/2+r_0/2)}{r_0+1}
- =\frac{N(L)}{6(3+4L)},
-\]
-where
-\[
- N(L)=16L^2y-8L^2+18L-9y,\qquad
- y=\frac{L-1+\sqrt{1+6L-3L^2}}2.
-\]
-Write $s=\sqrt{1+6L-3L^2}$.  Then $N(0)=0$ and
-\[
- 2sN'(L)=s(48L^2-64L+27)-144L^3+240L^2+59L-27.
-\]
-For $0<L<1/2$, one has $48L^2-64L+27>0$ and
-\[
- s\ge1+3L-6L^2,
-\]
-because the right side is positive and the difference of the squares is
-$36L^3(1-L)$.  Therefore
-\[
- 2sN'(L)\ge2L(-144L^3+192L^2-33L+38)>0.
-\]
-The Bernstein coefficients of the last cubic on $[0,1/2]$ are
-\[
- 38,\qquad\frac{65}{2},\qquad43,\qquad\frac{103}{2},
-\]
-so its positivity is exact.  Thus $N(L)>0$, proving
-\begin{equation}
- \frac{D+xy-x-y}{S}<\frac L3
- \label{eq:outer-analytic-conclusion}
-\end{equation}
-when $r\le r_0$.
-
-It remains to exclude the premise when $r\ge r_0$.  Put
-\[
- J(r)=\frac{R-r(1-y)}{r+1}.
-\]
-Its derivative has the sign of
-\[
- \frac{r-1}{2R}-(1-y).
-\]
-The function $(r-1)/(2R)$ is strictly increasing, since
-\[
- \frac{d}{dr}\left(\frac{r-1}{2R}\right)
- =\frac{3(r+1)}{4R^3}>0.
-\]
-Hence $J$ decreases and then increases, with at most one turning point, so
-its maximum on $[r_0,\infty)$ occurs at $r_0$ or in the limit.  The limit is
-$y$, and
-\[
- y<\frac12+L
-\]
-because $(3-y)^2-(4-3y^2)=4y^2-6y+5>0$.  At $r=r_0$, again using
-$R\le1+r/2+r^2/2$,
-\[
- \frac12+L-J(r_0)\ge\frac{N(L)}{(3+4L)^2}>0.
-\]
-Thus $J(r)<1/2+L$ for every $r\ge r_0$, contradicting the premise.
-This completes the proof of \eqref{eq:outer-analytic-conclusion}.
-
-Finally,
-\[
- d_2^C=v-\frac yS
- \le\frac{D+xy-x-y}{S}
- <\frac{L(y)}3\le\frac H3.
-\]
-The two endpoint sources are exhaustive, so the lemma follows.
+This is exactly Equation~\eqref{eq:signed-adjacent-ratio}, whose proof uses
+the common perimeter small-slack bounds
+\eqref{eq:signed-small-slacks}.  It replaces the former separate
+$x,y,u,v$ outer-ratio calculation.
 \end{proof}
