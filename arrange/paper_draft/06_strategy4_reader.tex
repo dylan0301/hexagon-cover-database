@@ -74,12 +74,31 @@ The exact outer points $Q_-$ and $Q_+$ contain two independent quadratic
 radicals.  We remove them without weakening the obstruction by taking one
 Newton step inward along each frontier line.
 
-Use the normalized frontier coefficients
+Put
+\[
+ \rho=a^2+ab+b^2,
+ \qquad
+ D=\sqrt{4\rho-3},
+\]
+and define the $V_4$-corner frontier coefficients
+\begin{align*}
+ \alpha&=\frac{h(b+2a-bD)}{2\rho},&
+ \beta&=\frac{h(b-a+(a+b)D)}{2\rho},\\
+ \gamma&=\frac{h(-b+a+(a+b)D)}{2\rho},&
+ \delta&=\frac{h(2b+a-aD)}{2\rho}.
+\end{align*}
+The two line pieces meet in the local point
+\[
+ Q_0^{\mathrm{loc}}
+ =\left(\frac{2b+a-aD}{D+3},
+         \frac{b+2a-bD}{D+3}\right).
+\]
+Normalize
 \[
  \bar\alpha=\alpha/h,\qquad \bar\beta=\beta/h,\qquad
  \bar\gamma=\gamma/h,\qquad \bar\delta=\delta/h,
 \]
-and the dimensionless line parameters
+and use the dimensionless line parameters
 \[
  \xi=\lambda/h,\qquad \zeta=\mu/h,\qquad
  \xi_*=\zeta_*=\frac{8\rho}{3(D+3)}.
@@ -88,9 +107,11 @@ Let $g_-$ and $g_+$ be the rescaled quadratic restrictions of the two
 adjacent-handoff circles to the two frontier lines.  Appendix~\ref{sec:ab-core}
 proves
 \[
- g_\pm(\xi_*)>0,\qquad g_\pm'(\xi_*)<0
+ g_-(\xi_*)>0>g_-'(\xi_*),
+ \qquad
+ g_+(\zeta_*)>0>g_+'(\zeta_*).
 \]
-with the evident use of $\zeta_*$ for $g_+$.  Define
+Define
 \[
  \widehat\xi_-
  =\xi_*-\frac{g_-(\xi_*)}{g_-'(\xi_*)},
@@ -100,19 +121,25 @@ with the evident use of $\zeta_*$ for $g_+$.  Define
 \]
 For a strictly convex quadratic that is positive and decreasing before its
 first root, the tangent zero lies strictly between the base point and that
-root.  Hence the points
+root.  Hence the local points
 \begin{align*}
- A&=\left(b-\frac34\bar\beta\widehat\xi_-,
+ A^{\mathrm{loc}}&=\left(b-\frac34\bar\beta\widehat\xi_-,
           \frac34\bar\alpha\widehat\xi_-\right),\\
- B&=Q_0,\\
- C&=\left(\frac34\bar\delta\widehat\zeta_+,
+ B^{\mathrm{loc}}&=Q_0^{\mathrm{loc}},\\
+ C^{\mathrm{loc}}&=\left(\frac34\bar\delta\widehat\zeta_+,
           a-\frac34\bar\gamma\widehat\zeta_+\right)
 \end{align*}
-(in the local $V_4$ coordinates) satisfy
+satisfy
 \[
- A\in(Q_0,Q_-),\qquad C\in(Q_0,Q_+).
+ A^{\mathrm{loc}}\in(Q_0^{\mathrm{loc}},Q_-^{\mathrm{loc}}),
+ \qquad
+ C^{\mathrm{loc}}\in(Q_0^{\mathrm{loc}},Q_+^{\mathrm{loc}}).
 \]
-Thus
+Convert a local point $(u,v)$ to the plane by
+\[
+ V_4+u(V_5-V_4)+v(V_3-V_4),
+\]
+and denote the resulting points by $A,B,C$.  Then
 \begin{equation}
  \widehat K:=\conv(\mathcal D_\eta\cup\{A,B,C\})
  \subseteq\conv(K_{\mathrm{wit}}),
@@ -120,8 +147,7 @@ Thus
  \Lambda(K_{\mathrm{wit}})\ge\Lambda(\widehat K).
  \label{eq:reader-newton-reduction}
 \end{equation}
-All coordinates of $A,B,C$ are rational functions of $a,b$ and
-$D=\sqrt{4(a^2+ab+b^2)-3}$.
+All coordinates of $A,B,C$ are rational functions of $a,b,D$.
 
 \subsection{The cap-chain lemma}
 
