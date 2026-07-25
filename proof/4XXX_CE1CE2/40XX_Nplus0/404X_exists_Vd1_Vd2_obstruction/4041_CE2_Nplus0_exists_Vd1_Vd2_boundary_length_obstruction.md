@@ -2,66 +2,36 @@
 
 Status: Proven
 
-Assume a hypothetical seven-open-unit-triangle cover has role triangles
+Assume a hypothetical cover has a CE2 center role, no supercritical vertex
+row, and at least one Vd1 or Vd2 row.
+
+The signed center-budget theorem
+[`2530`](../../../2XXX_geometric_lemmas/25XX_length_bounds/2530_common_CE1_CE2_budget_lemmas.md)
+gives the strict center bound
 
 $$
-T_C,T_0,\dots,T_5,
+L_{\partial H}(T_C)<\frac12.
 $$
 
-with
+Choose one Vd1/Vd2 row.  The boundary cap in
+[`2500`](../../../2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md)
+gives
 
 $$
-T_C\text{ is CE2},
+L_{\partial H}(T_{\mathrm{Vd1/Vd2}})<\frac12.
 $$
 
-$$
-N_+=\left\lvert \left\lbrace i : a_i+b_i>1 \right\rbrace \right\rvert=0,
-$$
-
-and at least one $V_i$-triangle is Vd1 or Vd2.
-
-This CE2 branch is obstructed by boundary length, using the boundary caps in
-[`../../../2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md`](../../../2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md).
-
-## Boundary accounting
-
-Pass to the role closures and put
+Every other vertex row is nonsupercritical.  By the exhaustive type
+classification, each has boundary contribution at most $1$.  Hence the total
+available boundary length is strictly less than
 
 $$
-L_C=\mathcal H^1(T_C\cap\partial H),
-\qquad
-L_i=\mathcal H^1(T_i\cap\partial H).
+\frac12+\frac12+5=6.
 $$
 
-If the open roles covered $\partial H$, then
+This contradicts coverage of the side-one hexagon perimeter.  Therefore the
+CE2, $N_+=0$, exists-Vd1/Vd2 branch is impossible.
 
 $$
-6\le L_C+\sum_{i=0}^5L_i.
+\Box
 $$
-
-For a normalized CE2 center role, the two full CE2 boundary intervals have
-total length
-
-$$
-(u-x)+(v-y)=\frac{D(1-D)}{S},\qquad S=x+y,\qquad D=\sqrt{x^2+xy+y^2}.
-$$
-
-The $O$-containment start-domain condition gives $S>1/2$, and
-$D(1-D)\le1/4$, so the CE2 center contribution is less than $\frac12$.
-
-Choose one Vd1/Vd2 vertex role. Its full boundary trace is strictly less than
-$\frac12$.
-
-Because $N_+=0$, every remaining vertex row is nonsupercritical. Each
-nonsupercritical row contributes at most $1$, so the other five vertex rows
-contribute at most $5$.
-
-Therefore
-
-$$
-L_C+\sum_{i=0}^5L_i
-<\frac12+\frac12+5=6.
-$$
-
-This is incompatible with covering the length-$6$ open boundary. Hence the
-CE2, $N_+=0$, exists Vd1/Vd2 branch cannot occur in the open-cover proof tree.
