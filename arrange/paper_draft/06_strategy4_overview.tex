@@ -47,15 +47,24 @@ forcing, or enclosure inequality is inferred from the picture.}
 \subsubsection{Why the witness cannot fit}
 
 For a compact set $K$, let $\Lambda(K)$ be the least side length of a closed
-equilateral triangle containing $K$.  The witness-enclosure theorem proves
+equilateral triangle containing $K$.  The exact outer frontier points contain
+two independent quadratic radicals, so the proof replaces $Q_-$ and $Q_+$ by
+one-step Newton points lying strictly inside the segments from $Q_0$ to those
+outer points.  This produces an inner witness set with rational coordinates
+in the single radical $D=\sqrt{4(a^2+ab+b^2)-3}$.
+
+The geometric core is then a four-cap chain in the support-direction circle.
+The concise proof in Section~\ref{sec:strategy4-reader} consists of direct
+forcing, the Newton reduction, a cyclic cap-chain lemma, a proposition
+asserting the four overlaps, and the enclosure contradiction.  The two
+adjacent overlaps are analytic.  The two mixed overlaps are reduced to exact
+integer-polynomial signs and verified by global Bernstein identities in the
+Strategy~4 technical appendix, Subsection~\ref{subsec:exact-mixed-overlap}.
+Thus
 \[
  \Lambda\!\left(\conv(\mathcal D_\eta\cup
  \{Q_-,Q_0,Q_+\})\right)\ge1.
 \]
-Its geometric core is a four-cap chain in the support-direction circle.
-Adjacent overlaps are analytic; the two mixed overlaps are reduced to exact
-integer-polynomial signs and verified by global Bernstein identities in
-Subsection~\ref{subsec:exact-mixed-overlap}.
 
 The nine-point set is compact.  If it lay inside the open unit triangle
 $U_C$, positive clearance from the three sides would place it in a closed
@@ -64,9 +73,10 @@ lower bound.
 
 \paragraph{Branches closed by direct forcing.}
 Strategy~4 closes exactly the zero-gap, all-Vd0, $N_+=1$ rows of
-Table~\ref{tab:routing}, for every center class.  The center-independent
-obstruction is Theorem~\ref{thm:zero-gap-obstruction} in
-Section~\ref{sec:ab-core}.  In CE0, a missed boundary point would create a
-positive center trace, so zero gaps are automatic.  In CE1 or CE2, zero gaps
-say directly that the six vertex roles cover $\partial H$.
-Proposition~\ref{prop:ab-core-branches} makes these two applications explicit.
+Table~\ref{tab:routing}, for every center class.  The reader-facing
+center-independent obstruction is
+Theorem~\ref{thm:reader-zero-gap-obstruction}.  In CE0, a missed boundary
+point would create a positive center trace, so zero gaps are automatic.  In
+CE1 or CE2, zero gaps say directly that the six vertex roles cover
+$\partial H$.  Proposition~\ref{prop:reader-ab-core-branches} makes these two
+applications explicit.
