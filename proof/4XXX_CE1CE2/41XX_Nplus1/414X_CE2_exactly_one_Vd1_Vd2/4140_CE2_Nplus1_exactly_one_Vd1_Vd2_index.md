@@ -2,35 +2,53 @@
 
 Status: Proven
 
-The full case split and final proof are in
+The full placement assembly is
 [`4148_CE2_Nplus1_exactly_one_Vd1_Vd2_assembly.md`](4148_CE2_Nplus1_exactly_one_Vd1_Vd2_assembly.md).
+The branch is CE2-only because the common perimeter budget in
+[`2530`](../../../2XXX_geometric_lemmas/25XX_length_bounds/2530_common_CE1_CE2_budget_lemmas.md)
+eliminates CE1 before the local placement analysis.
 
 There are two exhaustive branches.
 
 1. If any row in addition to the unique Vd1/Vd2 row has positive adjacent
-   support, `414a` gives a skeleton-length contradiction.
-2. Otherwise, the classification in
+   support, the three-short-role theorem in `2530`, applied through `414a`,
+   gives a skeleton-length contradiction.
+2. Otherwise the classification in
    [`1201`](../../../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md)
-   makes every other row Vd0. The placement split in `4148` is then closed by
+   makes every other row Vd0. The placement split in `4148` is closed by
    `4143`, `4144`, `4146`, `4147`, `4149`, and the proved `4013` package.
 
-The reusable Vd1/Vd2 geometry has been moved to the `2XXX` block: `2014`
-contains the corner normal form, while `2015` contains the Vd2
-neighbor-midpoint cap.  The rational half-edge radial envelope appearing in
-the adjacent placement is also isolated, with its exact domain counterexample,
-in `2012`.
+The local geometry is now organized as follows.
+
+- [`2014`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2014_Vd1_Vd2_corner_normal_form.md)
+  gives the Vd1/Vd2 corner normal form and $a+b<1/2$.
+- [`2015`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2015_Vd2_neighbor_midpoint_cap.md)
+  gives the $a+b<1/3$ neighboring-midpoint cap for Vd2.
+- [`2018`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2018_diameter_transfer_and_adjacent_rescuer.md)
+  gives the common adjacent-edge diameter curve and the class-independent
+  center-hiding argument used by the T3-like and Vd1 rescue branches.
+- [`2530`](../../../2XXX_geometric_lemmas/25XX_length_bounds/2530_common_CE1_CE2_budget_lemmas.md)
+  gives the surviving CE2 bounds
+  $$
+  \alpha+\delta<\frac1{24},
+  \qquad
+  \alpha+\delta<\frac{\min\{R,1-R\}}6.
+  $$
+  These replace the former long outer-ratio and nonadjacent CE2 polynomial
+  comparisons in `4144` and `4146`.
+- [`2012`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2012_high_radial_low_root_bounds.md)
+  retains only the reusable half-edge radial envelope used after the short
+  center-exit estimate in `4144`.
 
 ## Files
 
 | File | Recorded status | Role |
 |---|---|---|
 | [`4141_CE2_Nplus1_one_Vd1_S_half_cover_candidate.md`](4141_CE2_Nplus1_one_Vd1_S_half_cover_candidate.md) | Empirical | Historical visual candidate; not used in the proof. |
-| [`4143_CE2_Nplus1_T0_Vd1_M1_T1_supercritical_obstruction.md`](4143_CE2_Nplus1_T0_Vd1_M1_T1_supercritical_obstruction.md) | Proven | Vd1 row at $V_0$ rescuing the adjacent supercritical row. |
-| [`4144_CE2_Nplus1_T0_supercritical_T1_Vd1_Vd2_adjacent_obstruction.md`](4144_CE2_Nplus1_T0_supercritical_T1_Vd1_Vd2_adjacent_obstruction.md) | Proven | Supercritical row at $V_0$ and adjacent Vd1/Vd2 row; [`2012`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2012_high_radial_low_root_bounds.md) records the reusable half-edge envelope and its exact domain limit. |
-| [`4146_CE2_Nplus1_T0_supercritical_nonadjacent_Vd1_Vd2_obstruction.md`](4146_CE2_Nplus1_T0_supercritical_nonadjacent_Vd1_Vd2_obstruction.md) | Proven | Supercritical row at $V_0$ and non-adjacent Vd1/Vd2 row. |
+| [`4143_CE2_Nplus1_T0_Vd1_M1_T1_supercritical_obstruction.md`](4143_CE2_Nplus1_T0_Vd1_M1_T1_supercritical_obstruction.md) | Proven | Vd1 row at $V_0$ rescuing the adjacent supercritical row; its center-hiding step is the common theorem `2018`. |
+| [`4144_CE2_Nplus1_T0_supercritical_T1_Vd1_Vd2_adjacent_obstruction.md`](4144_CE2_Nplus1_T0_supercritical_T1_Vd1_Vd2_adjacent_obstruction.md) | Proven | Adjacent Vd1/Vd2 placement; `2530` gives $d_2^C<H/3$ by short slack estimates, and `2012` finishes the ordinary-row alternative. |
+| [`4146_CE2_Nplus1_T0_supercritical_nonadjacent_Vd1_Vd2_obstruction.md`](4146_CE2_Nplus1_T0_supercritical_nonadjacent_Vd1_Vd2_obstruction.md) | Proven | Nonadjacent placements; the total center slack and the common diameter curve give every relevant center exit below the propagated boundary minimum. |
 | [`4147_CE2_Nplus1_Vd1_supercritical_pair_axis_replacement.md`](4147_CE2_Nplus1_Vd1_supercritical_pair_axis_replacement.md) | Proven | Vd1--supercritical pair replacement and radial bridge. |
 | [`4148_CE2_Nplus1_exactly_one_Vd1_Vd2_assembly.md`](4148_CE2_Nplus1_exactly_one_Vd1_Vd2_assembly.md) | Proven | Exhaustive placement assembly. |
-| [`4149_CE2_Nplus1_Vd2_neighbor_midpoint_obstruction.md`](4149_CE2_Nplus1_Vd2_neighbor_midpoint_obstruction.md) | Proven | Vd2 neighbor-midpoint boundary obstruction. |
-| [`414a_CE2_Nplus1_mixed_Vd1_Vd2_T3_like_skeleton_obstruction.md`](414a_CE2_Nplus1_mixed_Vd1_Vd2_T3_like_skeleton_obstruction.md) | Proven | Additional positive-support branch. |
-| [`../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2014_Vd1_Vd2_corner_normal_form.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2014_Vd1_Vd2_corner_normal_form.md) | Proven | Shared Vd1/Vd2 corner normal form and half-unit boundary cap. |
-| [`../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2015_Vd2_neighbor_midpoint_cap.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2015_Vd2_neighbor_midpoint_cap.md) | Proven | Shared $a+b<1/3$ cap for Vd2 neighbor rescue. |
+| [`4149_CE2_Nplus1_Vd2_neighbor_midpoint_obstruction.md`](4149_CE2_Nplus1_Vd2_neighbor_midpoint_obstruction.md) | Proven | Vd2 neighbor-midpoint branch, now a direct corollary of the common perimeter budget and the $1/3$ cap. |
+| [`414a_CE2_Nplus1_mixed_Vd1_Vd2_T3_like_skeleton_obstruction.md`](414a_CE2_Nplus1_mixed_Vd1_Vd2_T3_like_skeleton_obstruction.md) | Proven | Additional positive-support branch, now the three-short-role skeleton theorem. |
