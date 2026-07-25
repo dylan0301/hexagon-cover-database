@@ -1,0 +1,277 @@
+\section{Strategy 4: Direct Nine-Point Forcing}
+\label{sec:strategy4-reader}
+
+This section gives the geometric proof of the direct nine-point obstruction.
+The exact frontier calculations, moving-circle signs, adjacent-overlap
+inequalities, rational radial envelopes, and global Bernstein identities are
+proved in Appendix~\ref{sec:ab-core}.  The body of the proof uses those
+verified inputs only through the forcing lemmas and the four-overlap
+proposition below.
+
+Assume throughout that all six vertex roles are $\Vdzero$, that they cover
+$\partial H$, and that exactly one actual boundary row is supercritical.
+Rotate its index to $4$.  Lemma~\ref{lem:ab-extreme-jump} gives strict
+handoffs
+\begin{equation}
+ x_3<x_2<x_1<x_0<x_5<x_4,
+ \label{eq:reader-extreme-chain}
+\end{equation}
+and parameters
+\begin{equation}
+ a=1-x_3,\qquad b=x_4,\qquad p=1-b,\qquad q=1-a
+ \label{eq:reader-ab-parameters}
+\end{equation}
+with
+\begin{equation}
+ 0<a,b<1,\qquad a+b>1,\qquad a^2+ab+b^2<1.
+ \label{eq:reader-ab-domain}
+\end{equation}
+Every selected row has incoming demand at least $p$ and outgoing demand at
+least $q$.
+
+\subsection{Direct forcing of the disk and three frontier points}
+
+Let
+\[
+ c_*=c_{\max}(p,q),\qquad h=\frac{\sqrt3}{2},\qquad
+ \eta=h(1-c_*).
+\]
+The six radial points
+\[
+ D_i=(1-c_*)V_i,\qquad 0\le i\le5,
+\]
+are excluded from their matching roles by maximality, from the two adjacent
+roles by $\Vdzero$ locality, and from the other three roles by distance from
+their distinguished vertices.  Lemma~\ref{lem:symmetric-core-witness}
+therefore gives
+\begin{equation}
+ \mathcal D_\eta:=\{X:\lVert X\rVert\le\eta\}\subset U_C.
+ \label{eq:reader-forced-disk}
+\end{equation}
+
+At the supercritical corner $V_4$, the strict $AB$-frontier consists of two
+circle pieces and two line pieces.  The two line pieces meet at $Q_0$; their
+first intersections with the two actual adjacent-handoff unit circles are
+$Q_-$ and $Q_+$.  The exact moving-circle signs in
+Lemma~\ref{lem:fixed-line-signs} exclude all three points from the two
+adjacent roles.  Direct vertex-distance inequalities exclude the remaining
+three nondistinguished roles, and exact frontier membership excludes the
+supercritical role.  Lemma~\ref{lem:asymmetric-core-witness} therefore gives
+\begin{equation}
+ Q_-,Q_0,Q_+\in U_C.
+ \label{eq:reader-forced-asymmetric}
+\end{equation}
+Consequently the center role contains the compact witness set
+\begin{equation}
+ K_{\mathrm{wit}}
+ =\mathcal D_\eta\cup\{Q_-,Q_0,Q_+\}.
+ \label{eq:reader-witness-set}
+\end{equation}
+
+\subsection{Newton inner points}
+
+The exact outer points $Q_-$ and $Q_+$ contain two independent quadratic
+radicals.  We remove them without weakening the obstruction by taking one
+Newton step inward along each frontier line.
+
+Use the normalized frontier coefficients
+\[
+ \bar\alpha=\alpha/h,\qquad \bar\beta=\beta/h,\qquad
+ \bar\gamma=\gamma/h,\qquad \bar\delta=\delta/h,
+\]
+and the dimensionless line parameters
+\[
+ \xi=\lambda/h,\qquad \zeta=\mu/h,\qquad
+ \xi_*=\zeta_*=\frac{8\rho}{3(D+3)}.
+\]
+Let $g_-$ and $g_+$ be the rescaled quadratic restrictions of the two
+adjacent-handoff circles to the two frontier lines.  Appendix~\ref{sec:ab-core}
+proves
+\[
+ g_\pm(\xi_*)>0,\qquad g_\pm'(\xi_*)<0
+\]
+with the evident use of $\zeta_*$ for $g_+$.  Define
+\[
+ \widehat\xi_-
+ =\xi_*-\frac{g_-(\xi_*)}{g_-'(\xi_*)},
+ \qquad
+ \widehat\zeta_+
+ =\zeta_*-\frac{g_+(\zeta_*)}{g_+'(\zeta_*)}.
+\]
+For a strictly convex quadratic that is positive and decreasing before its
+first root, the tangent zero lies strictly between the base point and that
+root.  Hence the points
+\begin{align*}
+ A&=\left(b-\frac34\bar\beta\widehat\xi_-,
+          \frac34\bar\alpha\widehat\xi_-\right),\\
+ B&=Q_0,\\
+ C&=\left(\frac34\bar\delta\widehat\zeta_+,
+          a-\frac34\bar\gamma\widehat\zeta_+\right)
+\end{align*}
+(in the local $V_4$ coordinates) satisfy
+\[
+ A\in(Q_0,Q_-),\qquad C\in(Q_0,Q_+).
+\]
+Thus
+\begin{equation}
+ \widehat K:=\conv(\mathcal D_\eta\cup\{A,B,C\})
+ \subseteq\conv(K_{\mathrm{wit}}),
+ \qquad
+ \Lambda(K_{\mathrm{wit}})\ge\Lambda(\widehat K).
+ \label{eq:reader-newton-reduction}
+\end{equation}
+All coordinates of $A,B,C$ are rational functions of $a,b$ and
+$D=\sqrt{4(a^2+ab+b^2)-3}$.
+
+\subsection{The cap-chain lemma}
+
+For a compact set $K$, let
+\[
+ h_K(n)=\max_{X\in K}\langle X,n\rangle,
+\]
+and let $R$ denote rotation through $2\pi/3$.  The least equilateral side
+containing $K$ is
+\begin{equation}
+ \Lambda(K)=\frac1h\min_{\lVert n\rVert=1}
+ \sum_{j=0}^2h_K(R^jn).
+ \label{eq:reader-lambda-support}
+\end{equation}
+For a disk $\mathbb D(X,r)$ define its level-$h$ cap
+\[
+ I(X,r)=\{n\in S^1:\langle X,n\rangle+r\ge h\}.
+\]
+
+\begin{lemma}[Cyclic cap chain]
+\label{lem:reader-cap-chain}
+Let $K$ be compact and put
+\[
+ S=K+RK+R^2K.
+\]
+Suppose $S$ contains the full $R$-orbits of
+\[
+ \mathbb D(A,2\eta),\quad
+ \mathbb D(B,2\eta),\quad
+ \mathbb D(C,2\eta),\quad
+ \mathbb D(W,\eta),
+ \qquad W=C+RA.
+\]
+Assume that the rays
+\[
+ A,\ B,\ C,\ W,\ RA
+\]
+occur in this cyclic order, each corresponding cap is a connected arc of
+half-width less than $\pi/2$, and the four consecutive pairs
+\begin{align*}
+ I(A,2\eta)&\leftrightarrow I(B,2\eta),&
+ I(B,2\eta)&\leftrightarrow I(C,2\eta),\\
+ I(C,2\eta)&\leftrightarrow I(W,\eta),&
+ I(W,\eta)&\leftrightarrow I(RA,2\eta)
+\end{align*}
+overlap across their intervening short sectors.  Then $\Lambda(K)\ge1$.
+\end{lemma}
+
+\begin{proof}
+The four overlaps and the cyclic ray order make the five caps cover the
+sector from the ray of $A$ to the ray of $RA$.  Their $R$-orbits cover the
+unit circle.  For every unit normal $n$, one of the displayed disks therefore
+has support at least $h$ in direction $n$.  Since all those disks lie in $S$,
+\[
+ h_S(n)\ge h.
+\]
+On the other hand,
+\[
+ h_S(n)=\sum_{j=0}^2h_K(R^jn).
+\]
+Equation~\eqref{eq:reader-lambda-support} now gives $\Lambda(K)\ge1$.
+\end{proof}
+
+\subsection{The four verified overlaps}
+
+For $K=\widehat K$, the Minkowski sum in the cap-chain lemma contains the
+four required disk orbits: one witness point and two copies of the centered
+disk give the three radius-$2\eta$ orbits, while $C+RA$ and one disk copy give
+the radius-$\eta$ orbit.
+
+\begin{proposition}[Four-overlap certificate]
+\label{prop:reader-four-overlaps}
+Assume \eqref{eq:reader-ab-domain} and $c_*>2/3$.  The Newton points above
+satisfy
+\[
+ \lVert A\rVert,\lVert C\rVert>\eta,
+\]
+the rays $A,B,C,W,RA$ occur in that cyclic order, and all four consecutive
+cap overlaps in Lemma~\ref{lem:reader-cap-chain} hold.
+\end{proposition}
+
+\begin{proof}
+The exact ray-order, determinant, and radius inequalities are proved in
+Appendix~\ref{sec:ab-core}.  The two equal-radius overlaps are the analytic
+adjacent-line inequalities there.  The two mixed overlaps are reduced to
+rational radial envelopes and exact Gram residuals in
+Subsection~\ref{subsec:exact-mixed-overlap}; the resulting eight polynomial
+signs are proved by the twenty global Bernstein identities recorded in that
+appendix.  These statements are precisely the four overlaps asserted here.
+\end{proof}
+
+\subsection{Enclosure and the center-independent contradiction}
+
+\begin{theorem}[Reader-facing witness enclosure]
+\label{thm:reader-witness-enclosure}
+For every pair $(a,b)$ satisfying \eqref{eq:reader-ab-domain},
+\[
+ \Lambda(K_{\mathrm{wit}}(a,b))\ge1.
+\]
+\end{theorem}
+
+\begin{proof}
+The disk alone gives
+\[
+ \Lambda(K_{\mathrm{wit}})\ge\frac{3\eta}{h}=3(1-c_*),
+\]
+so the result is immediate when $c_*\le2/3$.  Assume $c_*>2/3$.
+The Newton reduction \eqref{eq:reader-newton-reduction},
+Proposition~\ref{prop:reader-four-overlaps}, and
+Lemma~\ref{lem:reader-cap-chain} give
+\[
+ \Lambda(K_{\mathrm{wit}})
+ \ge\Lambda(\widehat K)
+ \ge1.
+\]
+\end{proof}
+
+\begin{theorem}[Center-independent direct obstruction]
+\label{thm:reader-zero-gap-obstruction}
+There is no cover of $H$ by open unit equilateral triangles
+$U_C,U_0,\ldots,U_5$ such that every $U_i$ is a $\Vdzero$ role, the six
+vertex roles cover $\partial H$, and exactly one actual boundary row is
+supercritical.
+\end{theorem}
+
+\begin{proof}
+Direct forcing gives the compact containment
+$K_{\mathrm{wit}}\subset U_C$, whereas
+Theorem~\ref{thm:reader-witness-enclosure} gives
+$\Lambda(K_{\mathrm{wit}})\ge1$.  A compact subset of an open unit
+equilateral triangle has positive clearance from all three sides and is
+therefore contained in a closed equilateral triangle of side strictly below
+one.  This would give $\Lambda(K_{\mathrm{wit}})<1$, a contradiction.
+\end{proof}
+
+\begin{proposition}[Branches closed by Strategy 4]
+\label{prop:reader-ab-core-branches}
+Theorem~\ref{thm:reader-zero-gap-obstruction} closes
+\begin{enumerate}
+\item the $\CEzero$, $N_+=1$, all-$\Vdzero$ branch;
+\item the zero-gap $\CEone$ and $\CEtwo$, $N_+=1$, all-$\Vdzero$ branches.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+In the $\CEzero$ branch, a boundary point missed by the six vertex roles would
+belong to the open center role and create a positive center trace, contrary to
+$\CEzero$.  Thus the vertex roles cover $\partial H$.  In the $\CEone$ and
+$\CEtwo$ branches, zero gaps mean exactly that the adjacent vertex traces
+cover every boundary edge.  The exact-one hypothesis supplies the unique
+supercritical row in all three cases, so
+Theorem~\ref{thm:reader-zero-gap-obstruction} applies.
+\end{proof}
