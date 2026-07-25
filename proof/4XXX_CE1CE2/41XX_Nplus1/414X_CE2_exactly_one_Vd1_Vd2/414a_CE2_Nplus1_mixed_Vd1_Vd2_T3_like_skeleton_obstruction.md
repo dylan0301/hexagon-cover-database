@@ -1,105 +1,42 @@
-# CE2, $N_+=1$, Mixed Vd1/Vd2--Positive-Support Skeleton Obstruction
+# CE1/CE2, $N_+=1$, Mixed Vd1/Vd2--Positive-Support Obstruction
 
 Status: Proven
 
-This note closes the part of `414X` containing exactly one Vd1/Vd2 row and
-one or more additional positive-adjacent-support rows. In particular, it
-closes every requested mixture with one or more T3-like rows. It applies the skeleton caps from
-[`../../../2XXX_geometric_lemmas/25XX_length_bounds/2510_skeleton_length_bounds.md`](../../../2XXX_geometric_lemmas/25XX_length_bounds/2510_skeleton_length_bounds.md)
-to the closures of the original open-cover role triangles.
+Assume the closures of original open-cover roles satisfy:
 
-## Statement
+- the center role is CE1 or CE2 with exact midpoint set $\{M_0\}$;
+- $N_+=1$;
+- exactly one vertex row is Vd1 or Vd2;
+- at least one additional vertex row has positive-length support on an adjacent
+  radial arm.
 
-Assume the closures of original open-cover roles satisfy
+The unique supercritical row is distinct from every positive-support row:
+[`2008`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2008_neighbor_ray_max_c_formula.md)
+shows that a supercritical row has no positive adjacent-ray support.
 
-$$
-T_C\text{ is CE2},
-\qquad
-T_C\cap\{M_0,\dots,M_5\}=\{M_0\},
-$$
+In the terminology of the common skeleton theorem
+[`2530`](../../../2XXX_geometric_lemmas/25XX_length_bounds/2530_common_CE1_CE2_budget_lemmas.md),
+there are at least three short vertex roles:
 
-$N_+=1$, exactly one vertex row is Vd1 or Vd2, and $k\ge1$ additional vertex
-rows have positive-length intersection with an adjacent radial arm. Then the
-seven role triangles cannot cover the full skeleton $S$.
+- the unique supercritical row;
+- the Vd1/Vd2 row;
+- one additional positive-support row.
 
-## Distinct roles
-
-The unique supercritical row is distinct from every positive-support row.
-Indeed, the adjacent-ray formula in
-[`../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2008_neighbor_ray_max_c_formula.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2008_neighbor_ray_max_c_formula.md)
-shows that a row with $a_i+b_i>1$ has no positive-length adjacent-ray
-support. Every other row is nonsupercritical because $N_+=1$.
-
-Consequently the six vertex roles consist of:
-
-- one supercritical row;
-- one Vd1/Vd2 row;
-- $k$ additional positive-support rows; and
-- $4-k$ remaining nonsupercritical rows with no adjacent-ray support.
-
-Here $1\le k\le4$. No exhaustiveness assertion about the displayed
-outside-vertex labels in `1201` is needed.
-
-## Skeleton-length contradiction
-
-For a role triangle $T$, write
+The three-short-role theorem therefore gives
 
 $$
-L_S(T)=\mathcal H^1(T\cap S).
+L_S(T_C)+\sum_{i=0}^5L_S(T_i)<12.
 $$
 
-The bounds in `2510` give
+This estimate is applied to the closures of the original open roles, before
+any optional T3-like translation, so the interior hypotheses of the skeleton
+caps remain valid.  Since the full skeleton has length $12$, subadditivity for
+a cover gives a contradiction.
 
-$$
-L_S(T_C)<\frac32,
-$$
-
-$$
-L_S(T_{\mathrm{supercritical}})<\frac32,
-$$
-
-and, for the closures of the original open-cover roles,
-
-$$
-L_S(T_{\mathrm{Vd1/Vd2}})<\frac32,
-\qquad
-L_S(T_{\mathrm{positive},j})<\frac32.
-$$
-
-For a T3-like row, this application is made before the optional translation in
-`1201`: every distinguished vertex lies in the interior of its original
-open-cover role, which is the interior hypothesis required by `2510`,
-Lemma 4. Each of the remaining $4-k$ nonsupercritical rows has no adjacent-ray
-support, so `2510`, Lemma 5 gives
-
-$$
-L_S(T_j)\le2.
-$$
-
-Therefore
-
-$$
-\begin{aligned}
-L_S(T_C)+\sum_{i=0}^5L_S(T_i)
-&<\frac32(3+k)+2(4-k)\\
-&=\frac{25-k}{2}\\
-&\le12.
-\end{aligned}
-$$
-
-When $k=1$, the displayed numerical bound equals $12$, but at least the
-center and supercritical bounds are strict, so the total is still strictly
-less than $12$.
-
-If the seven triangles covered $S$, subadditivity would instead give
-
-$$
-12=\mathcal H^1(S)
-\le L_S(T_C)+\sum_{i=0}^5L_S(T_i),
-$$
-
-a contradiction. Hence every stated mixed positive-support configuration,
-including every Vd1/Vd2--T3-like mixture, is impossible.
+Thus every mixed one-Vd1/Vd2 branch with an additional positive-support row,
+including every Vd1/Vd2--T3-like mixture, is impossible.  The proof is
+class-independent; the file remains in `414X` only because that assembly uses
+it in the surviving CE2 branch.
 
 $$
 \Box
