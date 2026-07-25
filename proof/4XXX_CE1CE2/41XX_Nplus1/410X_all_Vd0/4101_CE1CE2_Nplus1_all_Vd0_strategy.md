@@ -8,53 +8,50 @@ Seven open unit equilateral triangles cannot cover the side-one hexagon $H$
 when the center role is CE1 or CE2, all six vertex roles are Vd0, and
 $N_+=1$.
 
-The positive-gap proofs use the exact capped map from `2011`. The CE1
-one-gap proof additionally uses the universal selected-$T_+$ normal form
-[`2016`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2016_universal_Tplus_normal_form.md)
-and the threshold-routing theorem
-[`2017`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2017_threshold_routing.md).
-The no-gap proof remains the center-independent Newton nine-point obstruction
-`31058`.
+The center geometry is expressed by the signed common normal form
+[`2109`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md).
+The one-gap actual-row induction is the common theorem
+[`4105`](4105_CE1_CE2_one_gap_five_row_interface.md). The CE1 and CE2 files
+`4106` and `4107` now contain only the two sign-dependent scalar completions.
 
-## 1. The unique supercritical row
+## 1. Unique supercritical row
 
-Suppose such a cover exists. Write $U_C,U_0,\dots,U_5$ for its open roles and
-put $T_C=\overline{U_C}$ and $T_i=\overline{U_i}$. For each vertex role, let
-$a_i,b_i$ be its actual maximal incoming and outgoing boundary reaches, as
-defined in
-[`1202_local_coordinates_abc.md`](../../../1XXX_foundations/12XX_V_triangle/1202_local_coordinates_abc.md).
-
-The exactly-one-midpoint theorem
-[`2100_CE1_CE2_exactly_one_midpoint_lemma.md`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2100_CE1_CE2_exactly_one_midpoint_lemma.md)
-allows us to normalize
+Suppose such a cover exists. Write $U_C,U_0,\ldots,U_5$ for the open roles and
+put
 
 $$
-T_C\cap\left\{M_0,\dots,M_5\right\}=\left\{M_0\right\}.
+T_C=\overline{U_C},
+\qquad
+T_i=\overline{U_i}.
 $$
 
-Fix $i\ne0$. Since $M_i$ is covered but is not in $T_C$, diameter locality
-leaves only $U_{i-1},U_i,U_{i+1}$ as possible covering vertex roles. If an
-adjacent role contained $M_i$, convexity and its open neighborhood at its own
-vertex would give positive-length support on the adjacent radial arm,
-contrary to Vd0. Hence $M_i\in U_i\subset T_i$. The midpoint self-cover theorem
-[`2005_midpoint_self_cover_lemma.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2005_midpoint_self_cover_lemma.md)
-therefore gives
+The exactly-one-midpoint theorem allows the normalization
+
+$$
+T_C\cap\left\{M_0,\ldots,M_5\right\}=\left\{M_0\right\}.
+$$
+
+Fix $i\ne0$. Since $M_i$ is covered but not in $T_C$, diameter locality leaves
+only $U_{i-1},U_i,U_{i+1}$ as possible vertex roles containing it. If an
+adjacent role contained $M_i$, openness and convexity would give
+positive-length support on the adjacent radial arm, contrary to Vd0.
+Therefore $M_i\in U_i\subset T_i$. The midpoint self-cover theorem gives
 
 $$
 a_i+b_i\le1,
-\qquad i=1,\dots,5.
+\qquad i=1,\ldots,5.
 $$
 
-Because $N_+=1$, it follows that $T_0$ is the unique supercritical row:
+Since $N_+=1$, row $T_0$ is uniquely supercritical:
 
 $$
 a_0+b_0>1.
 $$
 
-## 2. Boundary gaps and open endpoints
+## 2. Gaps and open endpoints
 
-On $e_{i,i+1}$, with coordinate measured from $V_i$, the adjacent roles
-$U_i,U_{i+1}$ have traces
+On $e_{i,i+1}$, with coordinate measured from $V_i$, the adjacent open
+vertex traces are
 
 $$
 [0,b_i)
@@ -62,7 +59,7 @@ $$
 (1-a_{i+1},1].
 $$
 
-Thus their uncovered set is
+Their missed set is
 
 $$
 G_i=
@@ -72,20 +69,12 @@ G_i=
 \end{cases}
 $$
 
-We call every nonempty $G_i$ a V-gap. In particular, equality gives the
-singleton gap $\{b_i\}$; it must not be discarded because the triangles are
-open. A missing gap is equivalent to the strict handoff
+A nonempty $G_i$ is a V-gap. Equality gives a singleton gap and is retained,
+because the triangles are open. A missing gap is exactly the strict handoff
 $b_i>1-a_{i+1}$.
 
-All reaches are positive, so a nonempty $G_i$ lies in the relative interior
-of its edge. Vertex-role boundary locality, proved in
-[`2500_boundary_length_bounds.md`](../../../2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md),
-shows that no other vertex role can cover a relative-interior point of this
-edge. Hence every V-gap must lie in an open center trace. In particular, no
-gap can occur on an edge outside the CE1 or CE2 center traces.
-
-If $[s,t]$ is the corresponding maximal trace of $T_C$, then the $U_C$ trace
-is $(s,t)$. Full coverage gives $G_i\subset(s,t)$ and therefore
+By boundary locality, every V-gap lies in a positive center trace. If the
+corresponding maximal closed center trace is $[s,t]$, gap containment gives
 
 $$
 b_i\ge s,
@@ -93,75 +82,129 @@ b_i\ge s,
 a_{i+1}\ge1-t.
 $$
 
-These weak endpoint bounds remain valid for singleton gaps. The exact CE1 and
-CE2 trace descriptions are proved in
-[`2105_CE1_exact_formulas.md`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2105_CE1_exact_formulas.md)
-and
-[`2106_CE2_exact_formulas.md`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2106_CE2_exact_formulas.md).
+These weak endpoint bounds include singleton gaps.
 
-## 3. CE1
+## 3. One signed center model
 
-Normalize the unique maximal closed center trace to
+Use the variables of `2109`:
 
 $$
-T_C\cap e_{0,1}=[s,t].
-$$
-
-There are exactly two cases.
-
-1. If this trace contains a V-gap, the exact five-row theorem
-   [`4106_CE1_one_gap_five_map_completion.md`](4106_CE1_one_gap_five_map_completion.md)
-   applies to the unique-row normalization and the weak endpoint bounds. Its
-   scalar proof uses the universal selected-$T_+$ chords from `2016`, the
-   shortened concavity proof that the hard row-$4$ branch forces $X>1/2$,
-   and the one-hit threshold route from `2017`. It gives a contradiction,
-   including when the gap is a singleton.
-2. If it contains no V-gap, then no edge has a V-gap. The adjacent vertex
-   traces therefore cover every boundary edge, with strict overlap at every
-   handoff. Thus the six Vd0 roles cover $\partial H$. The center-independent
-   all-boundary obstruction
-   [`31058_center_independent_direct_nine_point_obstruction.md`](../../../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31058_center_independent_direct_nine_point_obstruction.md)
-   applies and gives a contradiction.
-
-Hence CE1 is impossible.
-
-## 4. CE2
-
-Normalize the two maximal closed center traces to
-
-$$
-T_C\cap e_{5,0}=[x,u],
+0<R<1,
 \qquad
-T_C\cap e_{0,1}=[y,v],
+W=1-R,
 $$
 
-with both intervals measured from $V_0$. Each interval either contains a
-V-gap or does not, so the following three cases are exhaustive.
+$$
+E=\sqrt{1-RW},
+\qquad
+\eta=1-E,
+\qquad
+P=E(1-E),
+$$
 
-1. Both intervals contain gaps. The exact two-gap theorem
-   [`4102_CE2_two_gap_completion.md`](4102_CE2_two_gap_completion.md) gives a
-   contradiction.
-2. Exactly one interval contains a gap. The exact right-gap theorem and its
-   reflected left-gap form in
-   [`4107_CE2_one_gap_five_map_completion.md`](4107_CE2_one_gap_five_map_completion.md)
-   give a contradiction in either orientation. Their scalar core is the
-   two-threshold route recorded abstractly in `2017`.
-3. Neither interval contains a gap. As in CE1, no edge has a gap, so the six
-   Vd0 roles cover $\partial H$. The center-independent theorem `31058`
-   again gives a contradiction.
+$$
+k=\eta+\alpha+\delta.
+$$
 
-Hence CE2 is impossible.
+The normalized positive trace and the possible companion trace are
 
-## 5. Conclusion and the optional route
+$$
+I_R=\left[\frac{k}{R},W+\delta\right],
+$$
 
-The CE1 split and the three CE2 cases exhaust all configurations under the
-theorem's hypotheses, and every case is impossible. This proves the theorem.
+and
 
-The reduction
-[`4104_all_boundary_transfer_to_310X.md`](4104_all_boundary_transfer_to_310X.md)
-sends the no-gap case to the older conjectural inequality $F_6(a,b)\ge1$.
-That route remains valid but optional: the proof above uses `31058` instead
-and does not assume or prove the $F_6$ inequality.
+$$
+I_L=\left[\frac{k}{W},R+\alpha\right].
+$$
+
+Define
+
+$$
+\Delta_R=P-\alpha-W\delta>0,
+$$
+
+and
+
+$$
+\Delta_L=P-R\alpha-\delta.
+$$
+
+Then
+
+$$
+T_C\text{ is CE1}
+\quad\Longleftrightarrow\quad
+\Delta_L\le0,
+$$
+
+while
+
+$$
+T_C\text{ is CE2}
+\quad\Longleftrightarrow\quad
+\Delta_L>0.
+$$
+
+Thus there are only three gap patterns to consider: no active trace, exactly
+one active trace, and two active traces. The last is possible only in CE2.
+
+## 4. No active gap
+
+If neither positive center trace contains a V-gap, then no edge has a V-gap.
+The six Vd0 roles therefore cover every boundary edge with a strict handoff.
+Hence the six vertex roles alone cover $\partial H$.
+
+The center-independent direct nine-point obstruction
+[`31058`](../../../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31058_center_independent_direct_Vd0_nine_point_obstruction.md)
+then gives a contradiction.
+
+## 5. Exactly one active gap
+
+After reflection if necessary, suppose the active gap lies in $I_R$ and the
+companion trace is empty or gap-free. The common actual-row theorem
+[`4105`](4105_CE1_CE2_one_gap_five_row_interface.md) gives the five successive
+nonsupercritical transitions through rows $1,2,3,4,5$ and reduces the branch
+to one three-map scalar target.
+
+If $\Delta_L\le0$, this is the CE1 sign. The selected-$T_+$ chord proof in
+[`4106`](4106_CE1_one_gap_five_map_completion.md) proves the scalar target,
+including every selected label and singleton gaps.
+
+If $\Delta_L>0$, this is the CE2 sign with a gap-free companion trace. The
+short total-slack and two-threshold proof in
+[`4107`](4107_CE2_one_gap_five_map_completion.md) proves the same target.
+Reflection exchanges
+
+$$
+R\longleftrightarrow W,
+\qquad
+\alpha\longleftrightarrow\delta,
+$$
+
+and reverses rows $1,\ldots,5$, so it also proves the other CE2 orientation.
+
+Thus every exactly-one-gap state is impossible.
+
+## 6. Two active gaps
+
+Two active gaps require $\Delta_L>0$ and hence CE2. The paired endpoint
+requirements share the same center triangle and the same supercritical row,
+so they are not two independent one-gap chains. The exact rank-two endpoint
+loss theorem is applied in
+[`4102`](4102_CE2_two_gap_completion.md), which gives a boundary-length
+contradiction for the three middle nonsupercritical rows.
+
+Thus the two-gap state is impossible.
+
+## 7. Conclusion
+
+The no-gap, one-gap, and two-gap patterns exhaust CE1 and CE2. Every pattern
+is impossible, proving the theorem.
+
+The older reduction
+[`4104`](4104_all_boundary_transfer_to_310X.md) to the conjectural inequality
+$F_6(a,b)\ge1$ remains optional and is not used.
 
 $$
 \Box
