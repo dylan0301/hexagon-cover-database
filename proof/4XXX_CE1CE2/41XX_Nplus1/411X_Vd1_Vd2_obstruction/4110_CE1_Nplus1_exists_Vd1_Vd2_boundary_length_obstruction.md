@@ -2,70 +2,51 @@
 
 Status: Proven
 
-Assume a hypothetical seven-open-unit-triangle cover has role triangles
+Assume a hypothetical cover has a CE1 center role, exactly one supercritical
+vertex row, and at least one Vd1 or Vd2 row.
+
+A Vd1/Vd2 row is nonsupercritical, and T3-like rows are also
+nonsupercritical.  Hence the unique supercritical row is Vd0.  The boundary
+caps in
+[`2500`](../../../2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md)
+and the signed center theorem
+[`2530`](../../../2XXX_geometric_lemmas/25XX_length_bounds/2530_common_CE1_CE2_budget_lemmas.md)
+give
 
 $$
-T_C,T_0,\dots,T_5,
-$$
-
-with
-
-$$
-T_C\text{ is CE1},
+L_{\partial H}(T_C)
+\le
+\frac{\sqrt3}{2}-\frac34,
 $$
 
 $$
-N_+=\left\lvert \left\lbrace i : a_i+b_i>1 \right\rbrace \right\rvert=1,
+L_{\partial H}(T_{\mathrm{Vd1/Vd2}})<\frac12,
 $$
 
-and at least one $V_i$-triangle is Vd1 or Vd2.
-
-This CE1 branch is obstructed by boundary length, using the boundary caps in
-[`../../../2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md`](../../../2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md).
-
-## Boundary accounting
-
-Pass to the role closures and put
+and
 
 $$
-L_C=\mathcal H^1(T_C\cap\partial H),
-\qquad
-L_i=\mathcal H^1(T_i\cap\partial H).
+L_{\partial H}(T_{\mathrm{supercritical}})
+\le
+\frac2{\sqrt3}.
 $$
 
-If the open roles covered $\partial H$, then
+Every remaining row is nonsupercritical and has boundary contribution at most
+$1$.  Therefore the total available boundary length is strictly less than
 
 $$
-6\le L_C+\sum_{i=0}^5L_i.
+\left(\frac{\sqrt3}{2}-\frac34\right)
++
+\frac12
++
+\frac2{\sqrt3}
++4
+<6.
 $$
 
-For a normalized CE1 center role, the full boundary trace has length at most
+This contradicts perimeter coverage.  Therefore the CE1, $N_+=1$,
+exists-Vd1/Vd2 branch is impossible.
 
 $$
-\rho(1-\rho),\qquad \rho=\sqrt{s^2-s+1},\qquad 0<s<1.
+\Box
 $$
-
-Since $\rho\ge\sqrt3/2$ and $\rho(1-\rho)$ is decreasing on
-$[\sqrt3/2,1]$, this contribution is at most
-
-$$
-\frac{\sqrt3}{2}-\frac34.
-$$
-
-Choose one Vd1/Vd2 vertex role. Its full boundary trace is strictly less than
-$\frac12$, so this row is not supercritical.
-
-The boundary caps show that T3-like rows are also nonsupercritical. Therefore
-the unique supercritical row is Vd0. It has boundary contribution at most
-$\frac2{\sqrt3}$, and each of the other four rows contributes at most $1$.
-
-Therefore
-
-$$
-L_C+\sum_{i=0}^5L_i
-<\left(\frac{\sqrt3}{2}-\frac34\right)+\frac12+\frac2{\sqrt3}+4
-=\frac{15}{4}+\frac{7}{2\sqrt3}<6.
-$$
-
-This is incompatible with covering the length-$6$ open boundary. Hence the
-CE1, $N_+=1$, exists Vd1/Vd2 branch cannot occur in the open-cover proof tree.
