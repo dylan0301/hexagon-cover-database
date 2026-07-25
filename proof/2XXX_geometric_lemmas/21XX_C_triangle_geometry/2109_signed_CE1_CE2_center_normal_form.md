@@ -2,14 +2,14 @@
 
 Status: Proven
 
-This note gives one exact normal form for both normalized CE1 and CE2 center
+This note gives one exact normal form for normalized CE1 and CE2 center
 triangles. The two classes differ only by the sign of one companion-trace
 surplus. It is a reparameterization of the edge-cut model in
-[`2100`](2100_CE1_CE2_exactly_one_midpoint_lemma.md), and it subsumes the
-separate radial-exit formulas in [`2105`](2105_CE1_exact_formulas.md) and
+[`2100`](2100_CE1_CE2_exactly_one_midpoint_lemma.md) and subsumes the separate
+radial-exit lists in [`2105`](2105_CE1_exact_formulas.md) and
 [`2106`](2106_CE2_exact_formulas.md).
 
-## 1. Common signed variables
+## 1. Common variables and side slacks
 
 Use the affine coordinates
 
@@ -18,15 +18,13 @@ X=V_0+b(V_1-V_0)+a(V_5-V_0).
 $$
 
 Normalize a positive-length center trace to $e_{0,1}$. After the reflection
-used in `2100`, let
+used in `2100`, put
 
 $$
 0<R<1,
 \qquad
 W=1-R,
 $$
-
-and put
 
 $$
 E=\sqrt{1-R+R^2}=\sqrt{1-RW},
@@ -38,13 +36,13 @@ $$
 P=E(1-E).
 $$
 
-The identities
+The identity
 
 $$
-RW=1-E^2=\eta(1+E)=\eta+P
+\boxed{RW=1-E^2=\eta(1+E)=\eta+P}
 $$
 
-will be used throughout.
+will be used repeatedly.
 
 Let $F_0,F_1,F_2$ be the three side slacks in the edge-cut normal form and set
 
@@ -58,11 +56,11 @@ $$
 k=\eta+\alpha+\delta.
 $$
 
-Then the center triangle is exactly
+Then
 
 $$
 \boxed{
-T_C=\left\{F_0\ge0,F_1\ge0,F_2\ge0\right\},
+T_C=\{F_0\ge0,F_1\ge0,F_2\ge0\},
 }
 $$
 
@@ -78,7 +76,9 @@ F_2&=W+\delta-b+Ra.
 }
 $$
 
-Indeed, the model in `2100` is
+### Proof of the common form
+
+The proved edge-cut model is
 
 $$
 F_1=Rb+Wa-Rs,
@@ -92,26 +92,26 @@ $$
 F_0=Wb-a+E+Rs-t.
 $$
 
-The definitions of the two center slacks give
+The definitions of the center slacks give
 
 $$
 t=W+\delta,
 \qquad
-Rs=\eta+\alpha+\delta=k,
+Rs=\eta+\alpha+\delta=k.
 $$
 
-and substitution gives the displayed common form. Also
+Substitution gives the displayed common form. Also
 
 $$
-F_0+F_1+F_2=E.
+F_0+F_1+F_2=E,
 $$
 
-Thus the three side normals and the unit-side condition are exactly those of
-the proved edge-cut normal form.
+so these are exactly the three side slacks of the same unit equilateral
+triangle.
 
-## 2. The active and companion traces
+## 2. Active and companion traces
 
-On $e_{0,1}$ one has $a=0$. The two active inequalities are
+On $e_{0,1}$ one has $a=0$. The active inequalities are
 
 $$
 Rb\ge k,
@@ -119,7 +119,7 @@ Rb\ge k,
 b\le W+\delta.
 $$
 
-Therefore
+Thus
 
 $$
 \boxed{
@@ -129,12 +129,10 @@ I_R:=T_C\cap e_{0,1}
 }
 $$
 
-Define the active-trace surplus
+Define
 
 $$
-\boxed{
-\Delta_R=P-\alpha-W\delta.
-}
+\boxed{\Delta_R=P-\alpha-W\delta.}
 $$
 
 A direct calculation gives
@@ -159,12 +157,10 @@ $$
 \left[\frac{k}{W},R+\alpha\right].
 $$
 
-Define the signed companion surplus
+Define
 
 $$
-\boxed{
-\Delta_L=P-R\alpha-\delta.
-}
+\boxed{\Delta_L=P-R\alpha-\delta.}
 $$
 
 Its signed length is
@@ -175,19 +171,38 @@ R+\alpha-\frac{k}{W}
 \frac{\Delta_L}{W}.
 $$
 
-Consequently
+Therefore
 
 $$
 \boxed{
 \left\lvert T_C\cap e_{5,0}\right\rvert
 =
-\frac{[\Delta_L]_+}{W},
+\frac{[\Delta_L]_+}{W}.
 }
 $$
 
-where $[x]_+=\max\{x,0\}$.
+The positive right trace implies
 
-The sign of $\Delta_L$ is exactly the CE1/CE2 distinction:
+$$
+\delta<\frac{P}{W}
+=
+\frac{ER}{1+E}
+<
+\frac R2.
+$$
+
+On $e_{1,2}$, parameterized by $b=1+q$, $a=q$, one has
+
+$$
+F_2=\delta-R-Wq<0.
+$$
+
+Thus a second positive trace cannot lie on $e_{1,2}$. The exhaustive CE
+classification says that a center triangle has at most two positive boundary
+traces and that two such traces are adjacent. Hence $e_{5,0}$ is the only
+possible companion edge.
+
+Consequently
 
 $$
 \boxed{
@@ -200,31 +215,13 @@ $$
 }
 $$
 
-Equality $\Delta_L=0$ gives only a point contact on $e_{5,0}$ and is therefore
-CE1 under the positive-length definition.
+Equality $\Delta_L=0$ gives only a point contact and is therefore CE1 under
+the positive-length definition.
 
-To see that no other positive boundary trace is omitted, first note that
-$\Delta_R>0$ implies
+## 3. Exact signed domain and midpoint set
 
-$$
-\delta<\frac{P}{W}=\frac{ER}{1+E}<\frac R2.
-$$
-
-On $e_{1,2}$, parameterized by $b=1+q$, $a=q$, one has
-
-$$
-F_2=\delta-R-Wq<0.
-$$
-
-Thus the second adjacent trace cannot occur on $e_{1,2}$. The CE
-classification in [`1101`](../../1XXX_foundations/11XX_C_triangle/1101_CE_classification.md)
-shows that a center triangle has at most two positive boundary traces and that
-two such traces are adjacent. Therefore $e_{5,0}$ is the only possible
-companion edge.
-
-## 3. Exact domain and midpoint set
-
-The normalized exact domain is
+For closures of original open center roles, the exact normalized signed domain
+is
 
 $$
 \boxed{
@@ -246,13 +243,16 @@ $$
 F_1(O)=E-\alpha-\delta.
 $$
 
-It is positive, and in fact greater than $1/2$. Indeed,
+Since
 
 $$
-W(\alpha+\delta)\le \alpha+W\delta<P,
+W(\alpha+\delta)
+\le
+\alpha+W\delta
+<P,
 $$
 
-so
+we obtain
 
 $$
 E-\alpha-\delta
@@ -262,54 +262,52 @@ E-\frac{P}{W}
 \frac{E(E-R)}{W}.
 $$
 
-Since $E^2-R^2=W$,
+Moreover
 
 $$
-2E(E-R)-W
-=
-\frac{W(E-R)}{E+R}>0.
+2E(E-R)-W=(E-R)^2>0,
 $$
 
-Hence
+so
 
 $$
-F_1(O)>\frac12.
+\boxed{F_1(O)>\frac12.}
 $$
 
 Also
 
 $$
-\delta<\frac{P}{W}=\frac{ER}{1+E}<\frac R2,
+\delta<\frac{P}{W}<\frac R2,
 $$
 
 and
 
 $$
-\alpha<P
-=
-\frac{ERW}{1+E}
-<\min\left\{\frac R2,\frac W2\right\}.
+\alpha<P<\min\left\{\frac R2,\frac W2\right\}.
 $$
 
-The midpoint tests in `2100` now give
+The midpoint tests in `2100` therefore give
 
 $$
 \boxed{
-T_C\cap\left\{M_0,\ldots,M_5\right\}=\left\{M_0\right\}.
+T_C\cap\{M_0,\ldots,M_5\}=\{M_0\}.
 }
 $$
 
-Conversely, the displayed side functions define the proved unit-equilateral
-edge-cut model, the three center slacks are positive, the normalized trace has
-length $\Delta_R/R>0$, and the preceding midpoint inequalities hold. The sign
-of $\Delta_L$ then gives precisely CE1 or CE2. Thus the signed domain is both
-necessary and sufficient.
+Conversely, the displayed side slacks define the proved unit-equilateral
+edge-cut model, the three center slacks are positive, the right trace has
+length $\Delta_R/R>0$, and the midpoint inequalities above hold. The sign of
+$\Delta_L$ then gives exactly CE1 or CE2. Thus the signed domain is both
+necessary and sufficient for closures of original open center roles.
+
+For a merely closed center triangle, replace $\alpha>0$ and $\delta>0$ by the
+appropriate weak inequalities; the strict versions are the ones used by the
+open-cover proof tree.
 
 ## 4. One common list of radial exits
 
 Let $d_i^C$ be the length of $T_C\cap[O,V_i]$, measured from $O$ toward $V_i$.
-Substitution of the six radial parametrizations into the common side slacks
-gives
+Substitution of the six radial parametrizations gives
 
 $$
 \boxed{
@@ -324,10 +322,9 @@ d_5^C&=\frac{\alpha}{W}.
 }
 $$
 
-For example, on $r_1$ the decreasing slack $F_2$ is
-$\delta-Rq$, while on $r_3$ the two decreasing slacks are
-$\alpha-Rq$ and $\delta-Wq$. The remaining four formulas are immediate in
-the same way.
+For example, on $r_1$ the decreasing slack is $\delta-Rq$, and on $r_3$ the
+two decreasing slacks are $\alpha-Rq$ and $\delta-Wq$. The remaining formulas
+follow directly or by reflection.
 
 The complementary vertex-side radial demands are
 
@@ -353,7 +350,13 @@ $$
 
 for closures of original open center roles.
 
-In the CE1 sign range, $\Delta_L\le0<\Delta_R$ implies
+In the CE1 sign range,
+
+$$
+\Delta_L\le0<\Delta_R
+$$
+
+implies
 
 $$
 R\alpha+\delta\ge P>\alpha+W\delta,
@@ -365,33 +368,37 @@ $$
 R\delta>W\alpha.
 $$
 
-Thus the minimum on $r_3$ specializes automatically to
+Thus
 
 $$
-d_3^C=\frac{\alpha}{R}
+\boxed{d_3^C=\frac{\alpha}{R}}
 $$
 
-in CE1. No separate CE1 exit formula is needed.
+in CE1; no separate CE1 exit calculation is needed.
 
-## 5. Legacy-variable dictionary
+## 5. Legacy dictionaries
 
-The variables in `2105` are recovered by
+### CE1
+
+The variables of `2105` are
 
 $$
+\boxed{
 \lambda=R,
 \qquad
 s=\frac{k}{R},
 \qquad
 t=W+\delta,
-$$
-
-$$
+\qquad
 C_0=\alpha,
 \qquad
 C_2=\delta.
+}
 $$
 
-The variables in `2106` are recovered by
+### CE2
+
+The variables of `2106` are
 
 $$
 \boxed{
@@ -401,27 +408,27 @@ u=R+\alpha,
 \qquad
 y=\frac{k}{R},
 \qquad
-v=W+\delta,
+v=W+\delta.
 }
 $$
 
-where $\nu$ is the far endpoint called $u$ in `2106`. Thus
+In the preceding display, the plain endpoint variable is $u=R+\alpha$; hence
 
 $$
-T_C\cap e_{5,0}=[x,\nu],
+T_C\cap e_{5,0}=[x,u],
 \qquad
 T_C\cap e_{0,1}=[y,v].
 $$
 
-If
+Put
 
 $$
 S=x+y,
 \qquad
-D=\sqrt{x^2+xy+y^2},
+D=\sqrt{x^2+xy+y^2}.
 $$
 
-then
+Then
 
 $$
 S=\frac{k}{RW},
@@ -429,20 +436,24 @@ S=\frac{k}{RW},
 D=\frac{Ek}{RW}.
 $$
 
-The CE2 coupling equation follows without a separate derivation:
+The CE2 coupling equation follows automatically:
 
 $$
 \begin{aligned}
-(\nu+v)S-xy
+(u+v)S-xy
 &=
-(1+\alpha+\delta)\frac{k}{RW}-\frac{k^2}{RW}\\
+(1+\alpha+\delta)\frac{k}{RW}
+-
+\frac{k^2}{RW}\\
 &=
 \frac{Ek}{RW}\\
 &=D.
 \end{aligned}
 $$
 
-## 6. Common boundary contribution and reflection
+Thus the coupling is not an additional equation beyond the signed normal form.
+
+## 6. Boundary contribution and reflection
 
 The full center-boundary contribution is
 
@@ -464,6 +475,5 @@ R\longleftrightarrow W,
 \alpha\longleftrightarrow\delta,
 $$
 
-and reverses the row order $1,2,3,4,5$. Thus every left-oriented statement
-is obtained from its right-oriented form by this explicit substitution; no
-unlabeled symmetry convention is required.
+and reverses the row order $1,2,3,4,5$. Every left-oriented statement is
+obtained from its right-oriented form by this explicit substitution.
