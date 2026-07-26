@@ -1,6 +1,7 @@
 name: Complete remaining unification edits
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - agent/manuscript-unification
