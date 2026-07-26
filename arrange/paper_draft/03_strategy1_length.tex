@@ -46,81 +46,70 @@ midpoint, then
 \end{lemma}
 
 \begin{proof}
-Normalize the unique midpoint as $M_0$ and a positive boundary overlap to
-$e_{0,1}$.  Use the signed side slacks from
-Proposition~\ref{prop:signed-center-normal-form}, and put
+Normalize the unique midpoint as $M_0$ and the positive boundary trace to
+$e_{0,1}$.  Use the signed variables of
+Proposition~\ref{prop:signed-center-normal-form}; in particular
 \[
- \lambda=R,\qquad \rho=E,\qquad X=\alpha,\qquad Y=\delta.
+ W=1-R,\qquad E=\sqrt{1-RW},\qquad
+ \eta=1-E,\qquad P=E(1-E).
 \]
-Thus $0<\lambda<1$ and
-$\rho=\sqrt{1-\lambda+\lambda^2}$.  Put
-\[
- P=\rho(1-\rho),
-\]
-so the positive-length condition $s<t$ is equivalent to
+The positive trace condition is
 \begin{equation}
- X+(1-\lambda)Y<P.
+ \alpha+W\delta<P.
  \label{eq:center-skeleton-domain}
 \end{equation}
-The boundary trace on $e_{0,1}$ is
+The two possible boundary contributions are
 \[
- \ell_{01}=1-\lambda+Y-\frac{X+Y+1-\rho}{\lambda},
+ \ell_{01}=W+\delta-\frac{\eta+\alpha+\delta}{R},
+ \qquad
+ \ell_{50}=\frac{[P-(R\alpha+\delta)]_+}{W}.
 \]
-and the possible second trace on $e_{5,0}$ has length
+The six radial contributions are bounded by
 \[
- \ell_{50}=
- \left[\frac{P-(\lambda X+Y)}{1-\lambda}\right]_+.
-\]
-Parametrizing the six radial arms by distance from $O$, direct substitution
-in the three side slacks gives the upper bounds
-\[
- \begin{array}{c|cccccc}
+\begin{array}{c|cccccc}
  i&0&1&2&3&4&5\\ \hline
- \mathcal H^1(T_C\cap r_i)
- &\rho-X-Y&Y/\lambda&Y&
- \min\{X/\lambda,Y/(1-\lambda)\}&X&X/(1-\lambda).
- \end{array}
+ \mathcal H^1(T_C\cap r_i)&
+ E-\alpha-\delta&\delta/R&\delta&
+ \min\{\alpha/R,\delta/W\}&\alpha&\alpha/W.
+\end{array}
 \]
-Adding boundary and radial contributions yields
+Adding gives
 \[
- L_S(T_C)\le K_\lambda+\mathcal E(X,Y),
+ L_S(T_C)\le K_R+\mathcal E(\alpha,\delta),
 \]
 where
 \[
- K_\lambda=1-\lambda+\rho-\frac{1-\rho}{\lambda}
+ K_R=W+E-\frac\eta R
 \]
 and
 \[
- \mathcal E(X,Y)=
- -\frac X\lambda+\frac X{1-\lambda}+Y
- +\min\left\{\frac X\lambda,\frac Y{1-\lambda}\right\}
- +\left[\frac{P-(\lambda X+Y)}{1-\lambda}\right]_+.
+ \mathcal E(\alpha,\delta)
+ =-\frac\alpha R+\frac\alpha W+\delta
+ +\min\left\{\frac\alpha R,\frac\delta W\right\}
+ +\frac{[P-(R\alpha+\delta)]_+}{W}.
 \]
-Splitting according to which term realizes the minimum and whether the
-positive part vanishes gives, in all four cases,
+Splitting only according to the minimum and the positive part gives
 \begin{equation}
- \mathcal E(X,Y)\le\frac{P}{1-\lambda}.
+ \mathcal E(\alpha,\delta)\le\frac PW.
  \label{eq:center-skeleton-E-bound}
 \end{equation}
-For example, if $X/\lambda\le Y/(1-\lambda)$, the expression without the
-positive part is $X/(1-\lambda)+Y$; if the positive part is active, the
-excess over $P/(1-\lambda)$ is
-$X-\lambda Y/(1-\lambda)\le0$.  In the opposite order, the corresponding
-excess is $Y-(1-\lambda)X/\lambda\le0$.  If the positive part vanishes,
+For example, if $\alpha/R\le\delta/W$, the expression without the positive
+part is $\alpha/W+\delta$; when the positive part is active, its excess over
+$P/W$ is $\alpha-R\delta/W\le0$.  The reflected order gives excess
+$\delta-W\alpha/R\le0$.  If the positive part vanishes,
 \eqref{eq:center-skeleton-domain} gives the same bound strictly.
 
-It remains only to estimate a one-variable expression:
+Put $A=1+R-R^2$.  Then
 \[
- \frac32-K_\lambda-\frac{P}{1-\lambda}
- =\frac{1+A-2\rho A}{2\lambda(1-\lambda)},
- \qquad A=1+\lambda-\lambda^2.
+ \frac32-K_R-\frac PW
+ =\frac{1+A-2EA}{2RW}.
 \]
-Both sides in $1+A>2\rho A$ are positive, and
+Both sides of $1+A>2EA$ are positive, and
 \[
- (1+A)^2-4A^2\rho^2
- =\lambda^2(1-\lambda)^2(5+4\lambda-4\lambda^2)>0.
+ (1+A)^2-4A^2E^2
+ =R^2W^2(5+4R-4R^2)>0.
 \]
-Thus $K_\lambda+P/(1-\lambda)<3/2$, proving the lemma.
+Thus $K_R+P/W<3/2$.
 \end{proof}
 
 \begin{lemma}[Positive-support skeleton cap]

@@ -44,20 +44,16 @@ We prove that the regular hexagon of side length one cannot be covered by
 seven open equilateral triangles of side length one. Equivalently, no
 regular hexagon of side length greater than one is covered by seven closed
 unit equilateral triangles. Seven distinguished points force one center
-role and six vertex roles. An exhaustive classification of those roles
-reduces the proof to four mechanisms: perimeter and conditional-skeleton
-trace budgets; exact propagation of boundary and radial demands; normalized
-area loss; and a center-independent direct nine-point obstruction. The last
-mechanism forces six radial and three
-asymmetric witnesses into the center role. A reader-facing guide first gives
-the entire proof architecture; simplified body sections then present the
-geometric mechanisms and terminal implications, while only the irreducible
-exact calculations and certificates remain in technical appendices. The CE1
-and CE2 center roles are treated by one signed normal form, so their traces,
-radial exits, propagation chains, and length budgets are derived only once.
-The terminal mixed-overlap signs are certified by exact rational reductions
-and computer-verified global Bernstein identities, with no interval
-subdivision or branch-and-bound.
+role and six vertex roles. An exhaustive classification reduces the proof to
+three certificate types: additive trace or area deficits, monotone propagation
+of boundary and radial demands, and a convex support obstruction. The last
+certificate forces six radial and three asymmetric witnesses into the center
+role. A signed normal form treats CE1 and CE2 simultaneously, while one
+universal enclosure and transfer calculus supplies the equilateral gauge,
+interval residuals, boundary-path budgets, and the selected high-sheet curve used
+throughout the proof. The terminal mixed-overlap signs are certified by exact
+rational reductions and computer-verified global Bernstein identities, with
+no interval subdivision or branch-and-bound.
 \end{abstract}
 
 \maketitle
@@ -66,6 +62,7 @@ subdivision or branch-and-bound.
 \input{01_introduction}
 \input{02_structural_reductions}
 \input{04a_signed_center_calculus}
+\input{02a_universal_calculus}
 \input{03_strategy1_length}
 \input{04b_common_CE1_CE2_budgets}
 \input{04_strategy2_reader}

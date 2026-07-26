@@ -62,6 +62,7 @@ arrange/paper_draft/
 |-- 01_introduction.tex
 |-- 02_structural_reductions.tex
 |-- 04a_signed_center_calculus.tex
+|-- 02a_universal_calculus.tex
 |-- 03_strategy1_length.tex
 |-- 04b_common_CE1_CE2_budgets.tex
 |-- 04_strategy2_reader.tex
@@ -70,7 +71,6 @@ arrange/paper_draft/
 |-- 07_exhaustive_assembly.tex
 |-- 04c_short_Vd_placements.tex
 |-- 04_strategy2_exact_demand.tex
-|-- 04a_strategy2_half_edge_envelope.tex
 |-- 06_strategy4_ab_core.tex
 |-- appendix_certificates.tex
 |-- appendix_exact_mixed_overlap.tex
@@ -94,9 +94,12 @@ after the final theorem assembly.
   reductions.
 - `04a_signed_center_calculus.tex` proves the common signed CE1/CE2 model and
   defines the local propagation interface in the body.
+- `02a_universal_calculus.tex` proves the enclosure gauge, universal radical,
+  interval residuals, boundary-path budget, selected-$T_+$ curve, and
+  threshold routing once for all later strategies.
 - `03_strategy1_length.tex` contains the complete length arguments.
-- `04_strategy2_reader.tex` contains the universal selected-$T_+$ curve,
-  threshold routing, shortened CE1 one-gap proof, CE2 routing, and
+- `04_strategy2_reader.tex` contains the all-Vd0 gap-rank kernel, one common
+  CE2 two-gap application, the two sign-dependent one-gap clauses, and
   reader-facing branch assembly.
 - `05_strategy3_area.tex` contains the complete area-loss arguments.
 - `06_strategy4_reader.tex` contains only direct witness forcing, Newton
@@ -109,6 +112,9 @@ after the final theorem assembly.
 
 After `\appendix`, input:
 
+- `04c_short_Vd_placements.tex`: the quarter radial envelope, rational
+  T3-like and Vd1 profiles, common adjacent rescuer, and shortened Vd
+  placements;
 - `04_strategy2_exact_demand.tex`: the proof-complete exact admissible-set
   catalogue, full terminal inequalities, and complete Strategy 2 branch audit;
 - `06_strategy4_ab_core.tex`: the proof-complete strict $AB$ frontier,
@@ -158,6 +164,7 @@ assembly order is:
 \input{01_introduction}
 \input{02_structural_reductions}
 \input{04a_signed_center_calculus}
+\input{02a_universal_calculus}
 \input{03_strategy1_length}
 \input{04b_common_CE1_CE2_budgets}
 \input{04_strategy2_reader}
@@ -172,10 +179,10 @@ assembly order is:
 \input{appendix_symbols}
 ```
 
-Do not input `04a_strategy2_half_edge_envelope.tex`,
-`appendix_certificates.tex`, or
+Do not input `appendix_certificates.tex` or
 `appendix_exact_mixed_overlap.tex` directly from `main.tex`; their owning
-sources control their placement.
+sources control their placement.  The historical half-edge $1/3$ envelope
+has no standalone manuscript source and is not an active dependency.
 
 A bibliography is included only when verified external sources are actually
 cited. No bibliography is required for the present proof.
@@ -242,7 +249,19 @@ $$
 Do not write a formal composition without identifying the actual rows that
 realize these inequalities. Singleton gaps must remain included.
 
-### 5.2. Universal selected-$T_+$ curve
+### 5.2. Interval residuals and boundary paths
+
+Use $\mathcal R_J(p)$ for the far-side demand after an initial trace and
+a center interval.  The generalized transfer is
+$\mathcal G_{c,J}=\mathcal R_J\mathbin{\circ}F_c$, and
+$\mathcal G_{c,\varnothing}=G_c$.  Use the boundary-path lemma instead of
+repeating three-row or four-row terminal sums.
+
+The all-Vd0 CE1/CE2 proof is organized by $N_+\in\{0,1\}$ and the
+active-gap rank $g\in\{0,1,2\}$; the paired endpoint theorem has one
+common geometric application in the two $g=2$ cells.
+
+### 5.3. Universal selected-$T_+$ curve
 
 The authoritative reusable source is
 [`2016_universal_Tplus_normal_form.md`](../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2016_universal_Tplus_normal_form.md).
@@ -295,7 +314,7 @@ Use this parameter when it genuinely shortens algebra. Retain
 $\beta,m_\beta$ when substituting $z$ would enlarge independent center
 formulas.
 
-### 5.3. Threshold routing
+### 5.4. Threshold routing
 
 The authoritative source is
 [`2017_threshold_routing.md`](../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2017_threshold_routing.md).
@@ -307,7 +326,7 @@ decisive threshold instead of evaluating them unnecessarily.
 For the CE2 one-gap proof, retain the two-threshold dichotomy exactly. Do not
 replace it by an unsupported symmetric strengthening.
 
-### 5.4. CE1 one-gap proof
+### 5.5. CE1 one-gap proof
 
 The authoritative branch source is
 [`4106_CE1_one_gap_five_map_completion.md`](../proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4106_CE1_one_gap_five_map_completion.md).
@@ -340,7 +359,7 @@ Do not restore the superseded degree-eight and degree-five endpoint
 polynomials. Retain the existing proved terminal estimate unless a complete,
 strictly shorter replacement is proved in the proof package.
 
-### 5.5. The $407X$ package
+### 5.6. The $407X$ package
 
 `407a` and `407c` use the universal selected-$T_+$ normalization. The
 independent center radical $\rho=\sqrt{r^2-r+1}$ remains. Keep the exact
@@ -348,12 +367,12 @@ high-left envelope, center-transfer, $S>3y$, $A_C>3y$, and analytic
 right-$T_-$ threshold estimates. The optional historical script remains a
 cross-check only.
 
-### 5.6. The `4144` branch
+### 5.7. The `4144` branch
 
-The active shortened `4144` proof uses the common signed small-slack bounds
-and the exact adjacent-placement lemma.  The half-edge envelope remains
-available only on its stated domain and is not a substitute outside that
-domain.
+The active `4144` proof uses interval residuals, the common small-slack
+bounds, the stronger margin $\delta<H/4$, and the global quarter envelope
+$c_{\max}(p,h)\le1-h/4$.  The historical half-edge $1/3$ envelope is not
+an active manuscript dependency.
 
 ## 6. Strategy 4 Authoring Requirements
 
@@ -383,16 +402,8 @@ complete mixed-overlap proof is obtained.
 
 ### 6.2. Cap-chain body proof
 
-The body defines the support functional
-
-$$
-\Lambda(K)=
-\frac{1}{\sqrt3/2}
-\min_{\lVert n\rVert=1}
-\sum_{j=0}^2h_K(R^jn)
-$$
-
-and the disk caps
+The universal calculus section defines the enclosure gauge $\Lambda$ once.
+Strategy 4 reuses it and defines only the disk caps
 
 $$
 I(X,r)=
@@ -484,10 +495,14 @@ For each manuscript result, record:
 
 The ledger must state explicitly that:
 
-- `2016` and `2017` are active Strategy 2 dependencies;
+- `2019`, `201a`, `201b`, and `201c` are active universal-calculus
+  dependencies;
+- `2016` and `2017` remain the authoritative selected-$T_+$ and threshold
+  sources;
 - `4106` uses the shortened $X>1/2$ proof;
-- `407a` and `407c` use the universal selected-$T_+$ curve;
-- `4144` is unchanged;
+- `407a` and `407c` write $\nu=\gamma_5$ directly and use the universal
+  selected-$T_+$ curve;
+- `4144` uses the quarter envelope;
 - Newton inner points remain active;
 - `3105a` is proved but excluded from the manuscript;
 - the mixed-overlap Bernstein identities occur in a true appendix.

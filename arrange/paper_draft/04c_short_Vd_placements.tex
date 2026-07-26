@@ -1,298 +1,293 @@
-\section{Short Exact Vd1/Vd2 Placements}
+\section{Short Local Profiles and Exact Vd Placements}
 \label{sec:short-vd-placements}
 
-We now prove the two local placements that previously required separate CE2
-outer-ratio calculations.  The common small-slack lemma reduces both to
-one-line comparisons with the center exits.
-
-\begin{lemma}[Adjacent Vd1/Vd2 placement]
-\label{lem:signed-vd-adjacent-placement}
-Assume a reduced CE2 exact-$M_0$ candidate has $N_+=1$, row $T_0$ uniquely
-supercritical, row $T_1$ the unique Vd1/Vd2 row, and rows
-$T_2,T_3,T_4,T_5$ nonsupercritical Vd0.  Then the perimeter together with
-$r_1,r_2$ is not covered.  The reflected $T_5$ placement is also impossible.
-\end{lemma}
-
-\begin{proof}
-Use the signed variables of
-Proposition~\ref{prop:signed-center-normal-form}.  Write
-\[
- x=\frac{k}{W},\qquad u=R+\alpha,\qquad
- y=\frac{k}{R},\qquad v=W+\delta.
-\]
-The center exit on $r_2$ is
-\begin{equation}
- d_2^C=\delta.
- \label{eq:signed-adjacent-d2}
-\end{equation}
-
-Let $(a_0,b_0)$ be the boundary reaches of the supercritical row.  Then
-\begin{equation}
- a_0+b_0>1,
- \qquad
- a_0^2+a_0b_0+b_0^2\le1.
- \label{eq:signed-adjacent-disk}
-\end{equation}
-Coverage on $e_{0,1}$ forces the incoming reach of $T_1$ to be at least
-\[
- A=
- \begin{cases}
- 1-b_0,&b_0<y,\\
- \max\{0,1-\max\{b_0,v\}\},&b_0\ge y.
- \end{cases}
-\]
-Coverage on $e_{5,0}$ forces the far endpoint row to reach at least
-\[
- H=
- \begin{cases}
- 1-a_0,&a_0<x,\\
- \max\{0,1-\max\{a_0,u\}\},&a_0\ge x.
- \end{cases}
-\]
-A genuine candidate has $H>0$.  Propagating this lower bound through the
-ordinary nonsupercritical rows gives
-\[
- b_5\ge H\Longrightarrow b_4\ge H\Longrightarrow b_3\ge H
- \Longrightarrow b_2\ge H\Longrightarrow b_1\ge H.
-\]
-Thus
-\[
- a_1\ge A,\qquad b_1\ge H.
-\]
-The Vd1/Vd2 corner cap gives
-\begin{equation}
- \boxed{A+H<\frac12.}
- \label{eq:signed-adjacent-AH}
-\end{equation}
-
-Lemma~\ref{lem:signed-small-slack} applies and gives
-\begin{equation}
- \alpha+\delta<\frac1{24},
- \qquad
- \alpha+\delta<\frac{\min\{R,W\}}6.
- \label{eq:signed-adjacent-small}
-\end{equation}
-We claim
-\begin{equation}
- \boxed{\delta<\frac H3.}
- \label{eq:signed-adjacent-ratio}
-\end{equation}
-There are two possible positive sources of $H$.
-
-If $H=1-u=W-\alpha$, then
-\[
- 3\delta+\alpha
- \le3(\alpha+\delta)
- <\frac W2<W,
-\]
-so $3\delta<W-\alpha=H$.
-
-Now assume $H=1-a_0$.  The other demand $A$ cannot equal $1-b_0$; otherwise
-\eqref{eq:signed-adjacent-AH} would imply $a_0+b_0>3/2$, whereas
-\eqref{eq:signed-adjacent-disk} gives $a_0+b_0\le2/\sqrt3<3/2$.  Since
-$b_0<1$ and $v<1$, the maximum defining $A$ is positive.  Hence
-\[
- A=1-v,\qquad v>\frac12+H.
-\]
-This alternative requires $b_0\ge y$.  Since $a_0=1-H$ and $b_0\ge y$,
-\eqref{eq:signed-adjacent-disk} gives
-\[
- (1-H)^2+(1-H)y+y^2\le1.
-\]
-Lemma~\ref{lem:signed-diameter-transfer} therefore gives
-\begin{equation}
- H\ge\lambda_\circ(y)>\frac y2
- >\frac{\eta}{2R}.
- \label{eq:signed-adjacent-Hlower}
-\end{equation}
-
-Suppose $R\ge3/8$.  From $v=W+\delta>1/2+H$ and
-\eqref{eq:signed-adjacent-Hlower},
-\[
- \delta>J(R):=R-\frac12+\frac{\eta}{2R}.
-\]
-We show $J(R)\ge1/24$.  If $3/8\le R\le13/24$, then
-$RW\ge15/64$, so $E\le7/8$ and
-\[
- \frac{\eta}{2R}=\frac{W}{2(1+E)}\ge\frac{4W}{15}.
-\]
-Thus
-\[
- J(R)\ge\frac{11R}{15}-\frac7{30}\ge\frac1{24}.
-\]
-If $R\ge13/24$, then already $R-1/2\ge1/24$.  Both alternatives contradict
-$\delta<1/24$, so
-\[
- R<\frac38.
-\]
-Now
-\[
- (2-3R)^2-E^2=(3-8R)(1-R)>0,
-\]
-so $E<2-3R$ and
-\[
- \frac\eta R=\frac{W}{1+E}>\frac13.
-\]
-Therefore $y>1/3$ and \eqref{eq:signed-adjacent-Hlower} gives $H>1/6$.
-Together with $\delta<1/24$, this yields
-\[
- \delta<\frac1{24}<\frac1{18}<\frac H3.
-\]
-This proves \eqref{eq:signed-adjacent-ratio}.
-
-It remains to cover $r_2$.  Orient the Vd1/Vd2 corner normal form so that
-$r_2$ is its supported adjacent arm.  For some $t>0$ and
-$d=\sqrt{t^2+t+1}$, its upper endpoint is
-\[
- u_2=\frac{d-a_1-tb_1-1}{t}.
-\]
-If it bridged to the center interval, then $u_2\ge1-\delta$, and hence
-\[
- a_1+tb_1\le d-1-t+t\delta<t\delta,
-\]
-because $d<t+1$.  Since $b_1\ge H$, this gives $H<\delta$, contrary to
-\eqref{eq:signed-adjacent-ratio}.
-
-Without such a bridge, row $T_2$ would have to reach the center interval.
-The boundary handoff gives $a_2\ge1-b_1$.  Since
-$a_1+b_1<1/2$ and $a_1\ge A$,
-\[
- a_2>\frac12+A.
-\]
-Backward propagation gives $b_2\ge H$.  Put $p=1/2+A$.  Then
-\eqref{eq:signed-adjacent-AH} gives
-\[
- p\ge\frac12,\qquad 0\le H\le p,\qquad p+H<1.
-\]
-Coordinatewise down-closedness and the half-edge radial envelope give
-\[
- c_2\le c_{\max}(p,H)\le1-\frac H3<1-\delta.
-\]
-Thus $T_2$ also fails to meet the center interval, and $r_2$ is uncovered.
-Reflection exchanges $T_1$ and $T_5$, proving the reflected placement.
-\end{proof}
-
-\begin{lemma}[Nonadjacent Vd1/Vd2 placements]
-\label{lem:signed-vd-nonadjacent-placement}
-Assume the same reduced CE2 branch, but let the unique Vd1/Vd2 row be
-$T_\tau$ with $\tau\in\{2,3,4\}$.  Then the perimeter together with
-$r_\tau$ is not covered.
-\end{lemma}
-
-\begin{proof}
-Put
-\[
- T=\alpha+\delta,\qquad
- x=\frac{\eta+T}{W},\qquad
- y=\frac{\eta+T}{R}.
-\]
-Lemma~\ref{lem:signed-endpoints-dominate-slack} gives
-\begin{equation}
- T<\frac12\min\{x,y\}.
- \label{eq:signed-nonadjacent-slack}
-\end{equation}
-
-Let $B,U$ be the farthest already-covered extents from $V_0$ on the two
-active boundary edges, and put
-\[
- A=1-B,\qquad H=1-U.
-\]
-Explicitly,
-\[
- B=
- \begin{cases}
- b_0,&b_0<y,\\
- \max\{b_0,v\},&b_0\ge y,
- \end{cases}
-\qquad
- U=
- \begin{cases}
- a_0,&a_0<x,\\
- \max\{a_0,u\},&a_0\ge x.
- \end{cases}
-\]
-Boundary propagation gives
-\[
- a_\tau\ge A,\qquad b_\tau\ge H,
-\]
-and the Vd1/Vd2 cap gives $A+H<1/2$.
-
-We prove
-\begin{equation}
- B\le\beta(x),\qquad U\le\beta(y).
- \label{eq:signed-nonadjacent-beta}
-\end{equation}
-It suffices to prove the first inequality.  If $B=v$, the center contains the
-points with parameters $x$ and $v$ on the two adjacent edges, so
-$x^2+xv+v^2\le1$ and $v\le\beta(x)$.  If $B=b_0$ and $a_0<x$, then
-$U=a_0$ and $A+H<1/2$ would imply $a_0+b_0>3/2$, contrary to the disk
-inequality.  Thus $a_0\ge x$.  The same disk inequality gives
-$b_0\le\beta(a_0)\le\beta(x)$ because $\beta$ is decreasing.  Reflection
-proves the second inequality in \eqref{eq:signed-nonadjacent-beta}.
-
-Lemma~\ref{lem:signed-diameter-transfer} and
-\eqref{eq:signed-nonadjacent-slack} now give
-\[
- A=1-B>\frac x2>T,
- \qquad
- H=1-U>\frac y2>T.
-\]
-Hence
-\begin{equation}
- \boxed{T<\min\{A,H\}.}
- \label{eq:signed-nonadjacent-margin}
-\end{equation}
-
-The center exits are
-\[
- d_2^C=\delta<T,\qquad d_4^C=\alpha<T,
-\]
-and
-\[
- d_3^C
- =\min\left\{\frac\alpha R,\frac\delta W\right\}
- \le R\frac\alpha R+W\frac\delta W=T.
-\]
-Thus
-\begin{equation}
- d_\tau^C<\min\{A,H\},
- \qquad \tau=2,3,4.
- \label{eq:signed-nonadjacent-center}
-\end{equation}
-
-For the Vd1/Vd2 row, the corner normal form gives
-\[
- c_\tau=\frac{d-a_\tau-tb_\tau}{t+1},
- \qquad d=\sqrt{t^2+t+1}<t+1.
-\]
-Therefore
-\[
- c_\tau
- <1-\frac{a_\tau+tb_\tau}{t+1}
- \le1-\min\{A,H\}.
-\]
-But the vertex-side entry point of the center interval is
-$1-d_\tau^C>1-\min\{A,H\}$.  Hence the own-radial trace of $T_\tau$ does
-not meet the center trace.  Diameter locality and the Vd0 hypotheses exclude
-any other positive interval on $r_\tau$, so that arm is uncovered.
-\end{proof}
-
-\subsection{A common adjacent-rescuer theorem}
+This appendix proves the local profile estimates used by the one-special-role
+branches.  A T3-like rescuer and a Vd1 rescuer satisfy the same two scalar
+inequalities and therefore share one center-hiding theorem.  The remaining
+Vd1/Vd2 placements use the interval residuals from
+Section~\ref{sec:universal-calculus}, one global radial envelope, and two
+immediate consequences of the corner normal form.
 
 For $0\le c\le1/2$, put
-\[
+\begin{equation}
  B_{\rm sc}(c)=\frac{c+\sqrt{c^2-8c+4}}2,
  \qquad
  A_{\rm sc}(c)=1-B_{\rm sc}(c).
-\]
+ \label{eq:short-supercritical-envelope}
+\end{equation}
 The free strict-supercritical envelope says that a strict supercritical row
 with radial demand at least $c$ has outgoing reach strictly below
 $B_{\rm sc}(c)$, and $B_{\rm sc}$ is strictly decreasing.
 
+\subsection{A global quarter radial envelope}
+
+For $(p,h)\in[0,1]^2$, let $c_{\max}(p,h)$ be the maximal radial coordinate
+such that $(p,h,c)$ belongs to the local admissible set.
+
+\begin{lemma}[Quarter radial envelope]
+\label{lem:quarter-radial-envelope}
+If
+\[
+ 0\le h\le p,
+ \qquad
+ p+h<1,
+\]
+then
+\begin{equation}
+ c_{\max}(p,h)\le1-\frac h4.
+ \label{eq:quarter-radial-envelope}
+\end{equation}
+The inequality is strict on the selected $\mathcal A_T$ component.
+\end{lemma}
+
+\begin{proof}
+Put $s=p+h$ and $q=s^4-s^2+ph$.  Since $s<1$, only the two
+nonsupercritical cells of Proposition~\ref{prop:exact-admissible-set} occur.
+
+On $\mathcal A_L$, the smaller boundary coordinate is $h$, and the selected
+radial frontier is the unique root in $[\sqrt3/2,1]$ of
+\[
+ P_h(c)=c^4-c^2+hc-h^2=0.
+\]
+At $c_0=1-h/4$,
+\[
+ P_h(c_0)=\frac h{256}(h^3-16h^2-240h+128).
+\]
+The cubic decreases on $[0,1/2]$ and has value $33/8$ at $1/2$, so this is
+positive for $h>0$.  Moreover
+\[
+ P_h\left(\frac{\sqrt3}{2}\right)
+ =-\left(h-\frac{\sqrt3}{4}\right)^2\le0,
+ \qquad
+ P_h'(c)>0\quad(c\ge\sqrt3/2).
+\]
+Hence the selected root is below $c_0$; for $h=0$ equality gives
+$c_{\max}=1$.
+
+On $\mathcal A_T$, put
+\[
+ r=\sqrt{4s^2-3},
+ \qquad
+ \gamma=\frac{p-h}{s}.
+\]
+The exact identity
+\[
+ \frac q{s^2}=\frac{r^2-\gamma^2}{4}
+\]
+gives $0\le\gamma<r$.  Write $\gamma=wr$, $0\le w<1$.  Then
+\[
+ p=\frac{s(1+wr)}2,
+ \qquad
+ h=\frac{s(1-wr)}2,
+ \qquad
+ c_{\max}=\frac{s(1+wr)}{1+r}.
+\]
+For
+\[
+ \Psi(w)=c_{\max}+\frac h4
+\]
+one has
+\[
+ \Psi'(w)=\frac{sr(7-r)}{8(1+r)}>0,
+\]
+so
+\[
+ \Psi(w)<\Psi(1)=\frac{s(9-r)}8.
+\]
+Since $4s^2=r^2+3$,
+\[
+ 256-(r^2+3)(9-r)^2
+ =(1-r)(r^3-17r^2+67r+13)>0
+\]
+for $0\le r<1$; the cubic is increasing and positive on this interval.
+Thus $s(9-r)<8$ and $c_{\max}+h/4<1$.
+\end{proof}
+
+\subsection{The rational T3-like rescuer profile}
+
+\begin{lemma}[T3-like rescuer profile]
+\label{lem:short-t3-rescuer-profile}
+Let a translated T3-like role at $V_0$ contain $M_1$, have boundary trace
+$[0,a]$ on $e_{5,0}$, and have adjacent-radial trace $[c,u]$ on $r_1$ measured
+from $V_1$ toward $O$.  Then
+\begin{equation}
+ a\le A_{\rm sc}(c),
+ \qquad
+ \frac{a}{a+1-u}\le A_{\rm sc}(c).
+ \label{eq:short-t3-profile}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+The translated T3-like normal form supplies
+\[
+ 1\le D\le\frac2{\sqrt3},
+ \qquad
+ E=\sqrt{4-3D^2},
+ \qquad
+ \varrho=\frac{D+E}{2},
+\]
+and
+\[
+ \frac{E}{2D}\le a\le\frac{4-3D+E}{4D}.
+\]
+Its radial interval is
+\[
+ c=\frac{D(1+a)-1}{\varrho},
+ \qquad
+ u=1-\frac\varrho D+a.
+\]
+Put
+\[
+ x=\frac{aD}{\varrho},
+ \qquad
+ \theta=\frac{D-1}{\varrho}.
+\]
+The relation $\varrho^2-D\varrho+D^2=1$ gives
+\[
+ \varrho=\frac{1-2\theta}{1-\theta+\theta^2},
+ \qquad
+ D=\frac{1-\theta^2}{1-\theta+\theta^2},
+ \qquad
+ E=\frac{1-4\theta+\theta^2}{1-\theta+\theta^2},
+\]
+with $0\le\theta\le2-\sqrt3$.  Moreover
+\begin{equation}
+ c=x+\theta,
+ \qquad
+ \frac{1-4\theta+\theta^2}{2(1-2\theta)}
+ \le x\le\frac12-\theta.
+ \label{eq:short-t3-x-domain}
+\end{equation}
+
+Let
+\[
+ \Phi(z)=\frac{z(2-z)}{1+z}.
+\]
+It is increasing on $[0,1/2]$ and
+$\Phi(A_{\rm sc}(c))=c$.  Hence it is enough to prove
+$\Phi(x)\le x+\theta$, or equivalently
+\[
+ Q_\theta(x)=2x^2+(\theta-1)x+\theta\ge0.
+\]
+The vertex is $x_*=(1-\theta)/4$.  If $0\le\theta\le1/5$, the lower endpoint
+$x_L$ in \eqref{eq:short-t3-x-domain} satisfies
+\[
+ x_L-x_*=\frac{1-5\theta}{4(1-2\theta)}\ge0,
+\]
+and
+\[
+ Q_\theta(x_L)
+ =\frac{\theta(1-5\theta+11\theta^2-\theta^3)}
+ {2(1-2\theta)^2}\ge0.
+\]
+If $1/5\le\theta\le2-\sqrt3$, the vertex lies in the feasible interval and
+\[
+ Q_\theta(x)\ge Q_\theta(x_*)
+ =\frac{10\theta-1-\theta^2}{8}>0.
+\]
+Thus $x\le A_{\rm sc}(c)$.  Since $D\ge\varrho$, one has $a\le x$, and
+\[
+ \frac{a}{a+1-u}=\frac{aD}{\varrho}=x.
+\]
+This proves both inequalities.
+\end{proof}
+
+\subsection{The Vd1 rescuer profile}
+
+\begin{lemma}[Vd1 rescuer profile]
+\label{lem:short-vd1-rescuer-profile}
+Let a Vd1 role at $V_0$ contain $M_1$, have boundary trace $[0,a]$ on
+$e_{5,0}$, and have adjacent-radial trace $[c,u]$ on $r_1$.  Assume it has no
+positive support on $r_5$.  Then
+\begin{equation}
+ a\le A_{\rm sc}(c),
+ \qquad
+ \frac{a}{a+1-u}\le A_{\rm sc}(c).
+ \label{eq:short-vd1-profile}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+The Vd corner normal form gives $t>0$, $d=\sqrt{t^2+t+1}$, and
+\[
+ c=\frac{t(1-b)}{t+1},
+ \qquad
+ u=\frac{d-a-tb-1}{t}.
+\]
+The midpoint condition implies
+\[
+ tb=t-c(t+1),
+ \qquad
+ a+tb\le d-1-\frac t2.
+\]
+One-sided support forces $t\ge1$.  Indeed, if $t<1$, then
+\[
+ d-a-tb-t\ge1-\frac t2>\frac1{t+1}>\frac{1-a}{t+1},
+\]
+so the raw $r_5$ interval has positive length, contrary to the Vd1 type.
+
+Put
+\[
+ F(t,c)=\sqrt{t^2+t+1}-1-\frac{3t}{2}+c(t+1).
+\]
+Then $a\le F(t,c)$.  Since $c\le1/2$,
+\[
+ \frac{\partial F}{\partial t}
+ =\frac{2t+1}{2\sqrt{t^2+t+1}}-\frac32+c
+ \le\frac{2t+1}{2\sqrt{t^2+t+1}}-1<0,
+\]
+where the last inequality follows from
+$(2t+1)^2<4(t^2+t+1)$.  Thus $F$ decreases for $t\ge1$, and
+\[
+ a\le F(t,c)\le L(c):=\sqrt3-\frac52+2c.
+\]
+Every feasible row has $L(c)\ge0$.  The inequality
+$2L(c)\le A_{\rm sc}(c)$ is equivalent to
+\[
+ \sqrt{c^2-8c+4}\le12-4\sqrt3-9c.
+\]
+The right side is positive on $[0,1/2]$.  Squaring is therefore
+legitimate, and the squared difference is $4Q(c)$, where
+\[
+ Q(c)=20c^2+(18\sqrt3-52)c+47-24\sqrt3.
+\]
+The polynomial is decreasing on $[0,1/2]$ and
+$Q(1/2)=26-15\sqrt3>0$.  Hence $2L(c)\le A_{\rm sc}(c)$,
+and therefore $a\le A_{\rm sc}(c)$.
+
+Put $\varepsilon=1-u>0$.  The endpoint formula gives
+\[
+ \varepsilon=\varepsilon_0+\frac at,
+ \qquad
+ \varepsilon_0=\frac{2t+1-c(t+1)-d}{t}.
+\]
+Since $c\le1/2$ and $t\ge1$,
+\[
+ 2t+1-c(t+1)-d\ge\frac{3t+1}{2}-d>0;
+\]
+the last inequality follows after squaring from
+$(3t+1)^2/4-d^2=(5t^2+2t-3)/4>0$.  Thus
+$\varepsilon_0>0$.  Moreover,
+\[
+ \varepsilon_0+\frac{F(t,c)}t=\frac12.
+\]
+Since $z/(z+\varepsilon_0+z/t)$ increases in $z$,
+\[
+ \frac{a}{a+\varepsilon}
+ \le\frac{F(t,c)}{F(t,c)+1/2}
+ \le\frac{L(c)}{L(c)+1/2}
+ \le2L(c)
+ \le A_{\rm sc}(c).
+\]
+\end{proof}
+
+\subsection{A common adjacent-rescuer theorem}
+
 \begin{lemma}[Common adjacent-rescuer obstruction]
 \label{lem:signed-adjacent-rescuer}
-Let a local rescuer $T_0$ have trace $[0,a]$ on $e_{5,0}$ and adjacent-radial
-trace $[c,u]$ on $r_1$, measured from $V_1$ toward $O$.  Put
+Let a local rescuer $T_0$ have trace $[0,a]$ on $e_{5,0}$ and
+adjacent-radial trace $[c,u]$ on $r_1$, measured from $V_1$ toward $O$.  Put
 \[
  \varepsilon=1-u>0,
  \qquad
@@ -313,69 +308,50 @@ covered.
 
 \begin{proof}
 The center exit on $r_1$ is $\delta/R$, so radial isolation gives
-\begin{equation}
+\[
  \delta\ge R\varepsilon.
- \label{eq:signed-rescuer-radial}
-\end{equation}
-Let $h$ be the reach forced on $T_5$ along $e_{5,0}$.  If the center has no
-positive companion trace, or if its companion trace does not hide the gap
-after coordinate $a$, then
+\]
+Let $h$ be the reach forced on $T_5$ along $e_{5,0}$.  If the companion center
+trace does not hide the gap after coordinate $a$, then
 \[
  h\ge1-a\ge B_{\rm sc}(c).
 \]
-It remains to consider the hiding order
+In the only hiding order,
 \[
  \frac{k}{W}\le a<R+\alpha.
 \]
-The left endpoint inequality and \eqref{eq:signed-rescuer-radial} give
+The left endpoint inequality and radial isolation give
 \[
- k=\eta+\alpha+\delta\le Wa,
+ k\le Wa,
  \qquad
- R\varepsilon\le Wa.
+ R\varepsilon\le Wa,
 \]
-Hence
-\[
- R(a+\varepsilon)\le a,
- \qquad
- R\le\Theta.
-\]
-Also
+so $R(a+\varepsilon)\le a$ and $R\le\Theta$.  Also
 \[
  \alpha\le Wa-R\varepsilon-\eta,
 \]
-so the far center endpoint satisfies
+whence
 \[
- R+\alpha\le R+Wa-R\varepsilon=a+R(u-a).
+ R+\alpha\le a+R(u-a).
 \]
-Because the hiding order has $R+\alpha>a$, this forces $u>a$.  Therefore
+The hiding order forces $u>a$, and therefore
 \[
- R+\alpha
- \le a+\Theta(u-a)
- =\frac{a}{a+\varepsilon}
- =\Theta
- \le A_{\rm sc}(c).
+ R+\alpha\le a+\Theta(u-a)=\Theta\le A_{\rm sc}(c).
 \]
 Thus in every ordering
-\begin{equation}
+\[
  h\ge B_{\rm sc}(c).
- \label{eq:signed-rescuer-tail}
-\end{equation}
-
-Coverage of $r_1$ gives the supercritical row a radial demand at least $c$.
-The strict envelope and its monotonicity give
-\[
- b_1<B_{\rm sc}(c).
 \]
-Together with \eqref{eq:signed-rescuer-tail}, $h>b_1$.  The four remaining
-boundary obligations give
+Coverage of $r_1$ gives the supercritical row radial demand at least $c$, so
+its outgoing reach satisfies
 \[
- \begin{aligned}
- \sum_{i=2}^5(a_i+b_i)
- &\ge(1-b_1)+1+1+1+h\\
- &=4+(h-b_1)>4,
- \end{aligned}
+ b_1<B_{\rm sc}(c)\le h.
 \]
-contrary to the four nonsupercritical row caps.
+Lemma~\ref{lem:reader-boundary-path}, applied to $T_2,T_3,T_4,T_5$, gives
+\[
+ \sum_{i=2}^5(a_i+b_i)\ge4+h-b_1>4,
+\]
+contrary to their four nonsupercritical caps.
 \end{proof}
 
 \begin{corollary}[T3-like and Vd1 adjacent rescue]
@@ -385,32 +361,193 @@ branch and to the normalized Vd1 row containing the neighboring midpoint.
 \end{corollary}
 
 \begin{proof}
-For the T3-like normal form, the local proof in
-Equation~\eqref{eq:t3-radial-edge} gives
-\[
- x_0=\frac{aD}{R_{\rm loc}}\le A_{\rm sc}(c),
-\]
-while $a\le x_0$.  Its endpoint is
-\[
- u=1-\frac{R_{\rm loc}}D+a,
-\]
-so
-\[
- \Theta=\frac{a}{a+1-u}=\frac{aD}{R_{\rm loc}}=x_0.
-\]
-Thus \eqref{eq:signed-rescuer-local} holds.
-
-For the Vd1 normal form, the complete local calculation in
-Lemma~\ref{lem:vd1-adjacent-rescue} gives
-\[
- a\le A_{\rm sc}(c),
- \qquad
- \frac{a}{a+1-u}\le A_{\rm sc}(c).
-\]
-In both branches, the support-isolation and midpoint arguments force the
-center to cover the $O$-side gap before the rescuer begins.  The common lemma
-therefore supplies the same final boundary contradiction.
+Lemmas~\ref{lem:short-t3-rescuer-profile} and
+\ref{lem:short-vd1-rescuer-profile} give the two local inequalities.  In both
+branches, midpoint and support isolation force the center to cover the
+$O$-side radial gap before the rescuer begins.
 \end{proof}
+
+\subsection{Adjacent Vd1/Vd2 placement}
+
+\begin{lemma}[Adjacent Vd1/Vd2 placement]
+\label{lem:signed-vd-adjacent-placement}
+Assume a reduced CE2 exact-$M_0$ candidate has $N_+=1$, row $T_0$ uniquely
+supercritical, row $T_1$ the unique Vd1/Vd2 row, and rows
+$T_2,T_3,T_4,T_5$ nonsupercritical Vd0.  Then the perimeter together with
+$r_2$ is not covered.  The reflected $T_5$ placement is also impossible.
+\end{lemma}
+
+\begin{proof}
+Let
+\[
+ I_L=\left[\frac{k}{W},R+\alpha\right],
+ \qquad
+ I_R=\left[\frac{k}{R},W+\delta\right].
+\]
+For the supercritical reaches $(a_0,b_0)$, put
+\[
+ A=\mathcal R_{I_R}(b_0),
+ \qquad
+ H=\mathcal R_{I_L}(a_0).
+\]
+The endpoint-distance inequality is
+\[
+ a_0^2+a_0b_0+b_0^2\le1.
+\]
+It implies $a_0,b_0<1$.  The signed center bounds give
+$R+\alpha<1$, so $H>0$.  Boundary propagation gives
+\[
+ a_1\ge A,
+ \qquad
+ b_i\ge H\quad(1\le i\le5).
+\]
+The Vd cap gives
+\begin{equation}
+ A+H<\frac12.
+ \label{eq:signed-adjacent-AH}
+\end{equation}
+
+The common perimeter budget gives
+\[
+ T:=\alpha+\delta<\frac1{24},
+ \qquad
+ T<\frac{\min\{R,W\}}6.
+\]
+We claim
+\begin{equation}
+ \delta<\frac H4.
+ \label{eq:signed-adjacent-quarter}
+\end{equation}
+If $H=W-\alpha$, then
+\[
+ 4\delta+\alpha\le4T<\frac{2W}{3}<W.
+\]
+Suppose $H=1-a_0$.  The other residual cannot be $1-b_0$, since otherwise
+\eqref{eq:signed-adjacent-AH} would give $a_0+b_0>3/2$, whereas
+the endpoint-distance inequality gives
+$a_0+b_0\le2/\sqrt3<3/2$.  Hence
+\[
+ A=1-(W+\delta),
+ \qquad
+ b_0\ge y:=\frac{k}{R},
+\]
+and $W+\delta>1/2+H$.  Diameter transfer gives
+\[
+ H>\frac y2>\frac{\eta}{2R}.
+\]
+Thus
+\[
+ \delta>J(R):=R-\frac12+\frac{\eta}{2R}.
+\]
+Writing $\eta/R=W/(1+E)$, exact differentiation gives
+\[
+ 4E(1+E)^2J'(R)
+ =2E(1+E)(1+2E)-W(2R-1).
+\]
+If $R\le1/2$, the second term is nonnegative after subtraction.  If
+$R\ge1/2$, then $W(2R-1)\le1/8$, while the first term is larger
+than $1/8$.  Thus $J'(R)>0$.  Since $J(3/8)=1/24$, the bound
+$\delta<1/24$ forces $R<3/8$.  Then
+\[
+ (2-3R)^2-E^2=(3-8R)(1-R)>0,
+\]
+so $\eta/R>1/3$ and $H>1/6$.  Hence $4\delta<1/6<H$, proving
+\eqref{eq:signed-adjacent-quarter}.
+
+The center interval on $r_2$ begins from the vertex side at $1-\delta$.  If
+$T_1$ supports $r_2$, its exact endpoint satisfies
+\[
+ u_2<1-b_1-\frac{a_1}{t}\le1-H<1-\delta.
+\]
+Thus it does not bridge to the center.  For $T_2$, boundary handoff gives
+\[
+ a_2>\frac12+A,
+ \qquad b_2\ge H.
+\]
+Put $p=1/2+A$.  Equation~\eqref{eq:signed-adjacent-AH} gives
+$0\le H\le p$ and $p+H<1$.  Lemma~\ref{lem:quarter-radial-envelope} gives
+\[
+ c_2\le c_{\max}(p,H)
+ \le1-\frac H4
+ <1-\delta.
+\]
+Thus neither possible radial bridge reaches the center interval, and $r_2$ is
+uncovered.
+\end{proof}
+
+\subsection{Nonadjacent Vd1/Vd2 placements}
+
+\begin{lemma}[Nonadjacent Vd1/Vd2 placements]
+\label{lem:signed-vd-nonadjacent-placement}
+Under the same reduced CE2 branch, let the unique Vd1/Vd2 row be
+$T_\tau$ with $\tau\in\{2,3,4\}$.  Then the perimeter together with
+$r_\tau$ is not covered.
+\end{lemma}
+
+\begin{proof}
+Put
+\[
+ T=\alpha+\delta,
+ \qquad
+ x=\frac{\eta+T}{W},
+ \qquad
+ y=\frac{\eta+T}{R}.
+\]
+Lemma~\ref{lem:signed-endpoints-dominate-slack} gives
+\[
+ T<\frac12\min\{x,y\}.
+\]
+Let $(a_0,b_0)$ be the reaches of the unique supercritical row.  Then
+\[
+ a_0+b_0>1,\qquad a_0^2+a_0b_0+b_0^2\le1.
+\]
+Let
+\[
+ B=e_{[y,W+\delta]}(b_0),
+ \qquad U=e_{[x,R+\alpha]}(a_0),
+ \qquad A=1-B,
+ \qquad H=1-U.
+\]
+Boundary propagation and the Vd cap give
+\[
+ a_\tau\ge A,
+ \qquad b_\tau\ge H,
+ \qquad A+H<\frac12.
+\]
+
+Let $\beta(q)=(-q+\sqrt{4-3q^2})/2$.  The component endpoint $B$ is either
+$b_0$ or $W+\delta$.  In the latter case the center diameter gives
+$B\le\beta(x)$.  In the former case, if $a_0<x$, then $U=a_0$ and
+$A+H<1/2$ would force $a_0+b_0>3/2$, contrary to
+$a_0+b_0\le2/\sqrt3$.  Hence $a_0\ge x$, and
+$B=b_0\le\beta(a_0)\le\beta(x)$.  Reflection gives $U\le\beta(y)$.
+Consequently
+\[
+ A>\frac x2>T,
+ \qquad
+ H>\frac y2>T.
+\]
+Thus
+\[
+ d_\tau^C<\min\{A,H\}
+ \qquad(\tau=2,3,4),
+\]
+because the three exits are $\delta$, $\alpha$, and
+$\min\{\alpha/R,\delta/W\}\le T$.
+
+The Vd corner normal form gives the own-radial margin
+\[
+ c_\tau<1-\min\{A,H\}.
+\]
+But the center interval begins from the vertex side at
+\[
+ 1-d_\tau^C>1-\min\{A,H\}.
+\]
+The two radial traces are disjoint, and all other roles are excluded by Vd0
+locality and diameter locality.
+\end{proof}
+
+\subsection{Placement assembly}
 
 \begin{proposition}[Short one-Vd1/Vd2 placement assembly]
 \label{prop:signed-ce2-one-vd-placements}

@@ -24,7 +24,7 @@ Throughout, use the notation of `4073`. For high-sheet calculations put
 $$
 r=1-\lambda,
 \qquad
-u=\gamma_5,
+\nu=\gamma_5,
 \qquad
 y=\frac{Y}{\lambda},
 \qquad

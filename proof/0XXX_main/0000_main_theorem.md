@@ -31,13 +31,13 @@ $T_C$ is exactly one of CE0, CE1, and CE2. By
 [`1201`](../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md), every
 vertex role is exactly one of Vd0, Vd1, Vd2, and T3-like.
 
-Let $(a_i,b_i)$ be the actual maximal boundary reaches of $T_i$ and set
+Let $(A_i,B_i)$ be the actual maximal boundary reaches of $T_i$ and set
 
 $$
 N_+
 =
 \left\lvert
-\left\lbrace i:a_i+b_i>1\right\rbrace
+\left\lbrace i:A_i+B_i>1\right\rbrace
 \right\rvert.
 $$
 

@@ -1,0 +1,281 @@
+\section{Universal Enclosure and Transfer Calculus}
+\label{sec:universal-calculus}
+
+This section collects the geometry shared by the exact-demand and direct
+witness arguments.  The same equilateral enclosure functional governs the
+local admissible set of Strategy~2 and the forced witness set of Strategy~4.
+The same radical governs the signed center, all selected $T_+$ arcs, and the
+standard local frontiers.  Finally, one interval-component operator replaces
+all branch-specific endpoint case distinctions.
+
+\subsection{The equilateral enclosure gauge}
+
+Let $\mathsf R$ denote counterclockwise rotation through $2\pi/3$.  For a
+nonempty compact set $K\subset\mathbb R^2$, put
+\[
+ h_K(n)=\max_{x\in K}\langle x,n\rangle
+\]
+and
+\begin{equation}
+ \Lambda(K)=\frac2{\sqrt3}
+ \min_{\lVert n\rVert=1}
+ \sum_{j=0}^2h_K(\mathsf R^jn).
+ \label{eq:universal-lambda}
+\end{equation}
+
+\begin{proposition}[Equilateral enclosure gauge]
+\label{prop:universal-enclosure-gauge}
+The number $\Lambda(K)$ is the least side length of a closed equilateral
+triangle containing $K$.  It is monotone under inclusion, translation
+invariant, and positively homogeneous.  If $K$ is a finite polygonal hull, a
+minimizing normal may be chosen perpendicular to one of its hull edges.
+\end{proposition}
+
+\begin{proof}
+For a fixed unit normal $n$, the three supporting half-planes with outward
+normals $n,\mathsf Rn,\mathsf R^2n$ form an equilateral triangle.  Its side is
+$2/\sqrt3$ times the sum of the three support numbers, which proves
+\eqref{eq:universal-lambda}.  Monotonicity and homogeneity are immediate, while
+translation invariance follows from
+\[
+ n+\mathsf Rn+\mathsf R^2n=0.
+\]
+On an open normal-direction cell with three fixed support points, the support
+sum has the form $A\cos\theta+B\sin\theta$ and has second derivative equal to
+its negative.  In the nondegenerate case an interior critical point is a
+maximum.  Hence a minimum occurs at a cell boundary, where one support line
+contains a hull edge.
+\end{proof}
+
+For the local demand hull
+\[
+ K(a,b,c)=\conv\{0,au,bv,c(u+v)\},
+\]
+introduced in Section~\ref{sec:signed-ce12-reductions}, the admissible set is
+therefore
+\begin{equation}
+ \mathcal A
+ =\{(a,b,c)\in[0,1]^3:\Lambda(K(a,b,c))\le1\}.
+ \label{eq:universal-admissible-gauge}
+\end{equation}
+The exact support cells and radial envelope are proved in
+Appendix~\ref{sec:exact-local-demand-calculus}.
+
+\subsection{One equilateral radical}
+
+For $0\le x\le1$, define
+\begin{equation}
+ \omega(x)=\sqrt{1-x+x^2},
+ \qquad
+ \sigma(x)=1-\omega(x).
+ \label{eq:universal-radical}
+\end{equation}
+Then
+\begin{equation}
+ \omega(1-x)=\omega(x),
+ \qquad
+ \sigma(x)=\frac{x(1-x)}{1+\omega(x)},
+ \label{eq:universal-radical-identities}
+\end{equation}
+and direct differentiation gives
+\begin{equation}
+ \sigma''(x)=-\frac3{4\omega(x)^3}<0.
+ \label{eq:universal-sigma-concavity}
+\end{equation}
+Thus $\sigma$ is strictly concave.  In the signed center calculus,
+\[
+ E=\omega(R),\qquad \eta=\sigma(R).
+\]
+
+For $0<x<1$, put $z=\sigma(x)/x$.  Eliminating the square root gives
+\begin{equation}
+ x=\frac{1-2z}{1-z^2},
+ \qquad
+ \sigma(x)=\frac{z(1-2z)}{1-z^2},
+ \qquad 0<z<\frac12.
+ \label{eq:universal-rational-radical}
+\end{equation}
+This is the common rational parameter used in the selected high-sheet
+calculations.
+
+\subsection{Interval residuals and actual-row transfer}
+
+Let $J\subseteq[0,1]$ be empty or a closed interval.  For $0\le p\le1$, put
+\[
+ e_J(p)=\sup\{x\in[0,1]:[0,x]\subseteq[0,p]\cup J\},
+ \qquad
+ \mathcal R_J(p)=1-e_J(p).
+\]
+If $J=[L,U]$, then
+\begin{equation}
+ \mathcal R_{[L,U]}(p)=
+ \begin{cases}
+  1-p,&p<L,\\
+  1-\max\{p,U\},&p\ge L,
+ \end{cases}
+ \qquad
+ \mathcal R_\varnothing(p)=1-p.
+ \label{eq:reader-residual-formula}
+\end{equation}
+The map is nonincreasing in $p$ and under enlargement of $J$.
+
+\begin{lemma}[Generalized boundary handoff]
+\label{lem:reader-generalized-handoff}
+Suppose a unit boundary edge is covered by a left trace contained in $[0,p]$,
+a center trace $J$, and a right trace contained in $[1-q,1]$.  Then
+\[
+ q\ge\mathcal R_J(p).
+\]
+If an actual nonsupercritical row has incoming reach at least $a$, radial reach
+at least $c$, and outgoing reach $B$, then the next actual incoming reach
+satisfies
+\begin{equation}
+ A_{\rm next}
+ \ge \mathcal R_J(B)
+ \ge \mathcal R_J(F_c(a)).
+ \label{eq:reader-generalized-transfer}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+The component of $[0,p]\cup J$ containing $0$ is $[0,e_J(p)]$.  If
+$1-q>e_J(p)$, the intervening open interval is uncovered.  Hence
+$q\ge1-e_J(p)$.  The actual-row bound $B\le F_c(a)$ was proved in
+\eqref{eq:reader-actual-propagation}; monotonicity of $\mathcal R_J$ gives the
+second assertion.
+\end{proof}
+
+Define
+\[
+ \mathcal G_{c,J}(a)=\mathcal R_J(F_c(a)).
+\]
+Then $\mathcal G_{c,\varnothing}=G_c$.  Thus the usual map $G_c$ is simply the
+no-center-interval member of one transfer family.
+
+\begin{lemma}[Boundary-path budget]
+\label{lem:reader-boundary-path}
+Let $T_1,\ldots,T_k$ be roles on a chain of $k+1$ consecutive unit boundary
+edges.  If the two external endpoint roles contribute at most $u$ and $v$ on
+the first and last edges, then coverage forces
+\begin{equation}
+ \sum_{j=1}^k(A_j+B_j)\ge k+1-u-v.
+ \label{eq:reader-path-budget}
+\end{equation}
+Consequently, if all $k$ internal rows are nonsupercritical, the chain is
+impossible whenever $u+v<1$.
+\end{lemma}
+
+\begin{proof}
+The first and last edges give $A_1\ge1-u$ and $B_k\ge1-v$.  Each middle edge
+gives $B_j+A_{j+1}\ge1$.  Adding these $k+1$ inequalities proves
+\eqref{eq:reader-path-budget}.
+\end{proof}
+
+\subsection{The universal selected-$T_+$ curve}
+
+\begin{proposition}[Universal selected-$T_+$ curve]
+\label{prop:reader-universal-tplus}
+Fix $0<d<1/2$, put $c=1-d$, and suppose an input $p$ belongs to a selected
+$T_+$ arc of $G_c$.  Write
+\[
+ q=G_c(p),
+ \qquad \nu=q-p,
+ \qquad x=\frac{q-d}{1-d}.
+\]
+Then
+\begin{equation}
+ \nu=\sigma(x)=1-\sqrt{1-x+x^2},
+ \label{eq:reader-psi}
+\end{equation}
+and
+\begin{equation}
+ q=d+(1-d)x,
+ \qquad
+ p=d+(1-d)x-\sigma(x).
+ \label{eq:reader-tplus-normal}
+\end{equation}
+Consequently $p\mapsto G_{1-d}(p)$ is increasing and strictly concave on
+every selected $T_+$ arc.
+\end{proposition}
+
+\begin{proof}
+The selected quadratic is
+\[
+ (1-q)(q-d)=(1-d)^2\nu(2-\nu).
+\]
+Substitution of $q=d+(1-d)x$ gives
+\[
+ x(1-x)=\nu(2-\nu).
+\]
+The selected component uses the smaller root, namely $\nu=\sigma(x)$.  For
+fixed $d$, the function
+\[
+ p_d(x)=d+(1-d)x-\sigma(x)
+\]
+is increasing and strictly convex by \eqref{eq:universal-sigma-concavity}.
+Its inverse is increasing and strictly concave, and $q=d+(1-d)x$ is affine in
+that inverse.
+\end{proof}
+
+With $e(d)$ from \eqref{eq:signed-low-root-definition}, the high-radial chord
+is
+\begin{equation}
+ G_{1-d}(p)
+ \ge p+\frac{d}{e(d)-d}(p-d).
+ \label{eq:reader-high-chord}
+\end{equation}
+If $t=h(1-d)$ is the low-radial order transition, the corresponding chord is
+\begin{equation}
+ G_{1-d}(p)
+ \ge p+\frac{1-2t}{t-d}(p-d).
+ \label{eq:reader-low-chord}
+\end{equation}
+The rational form \eqref{eq:universal-rational-radical} gives, in the
+historical notation $x=1-\beta$,
+\begin{equation}
+ \beta=\frac{z(2-z)}{1-z^2},
+ \qquad
+ m_\beta=\frac{1-z+z^2}{1-z^2}.
+ \label{eq:reader-beta-rational}
+\end{equation}
+
+\subsection{Threshold routing}
+
+For $0<d<1-\sqrt3/2$, the exact high-demand threshold is
+\begin{equation}
+ z>e(d)
+ \quad\Longrightarrow\quad
+ G_{1-d}(z)\ge1-e(d).
+ \label{eq:reader-high-threshold}
+\end{equation}
+
+\begin{lemma}[Threshold routing]
+\label{lem:reader-threshold-routing}
+Let $z_j=G_j(z_{j-1})$, where every $G_j$ is nondecreasing and extensive.  If
+$G_k=G_{1-d}$ and $z_{k-1}>e(d)$, then
+\[
+ z_j\ge1-e(d)\qquad(j\ge k).
+\]
+If a chain contains later occurrences of $G_{1-d_1}$ and $G_{1-d_2}$ and
+\[
+ z_0>e(d_1),
+ \qquad
+ \min\{e(d_1),e(d_2)\}<Q,
+\]
+then one of those two rows forces every subsequent output above $1-Q$.
+\end{lemma}
+
+\begin{proof}
+Equation~\eqref{eq:reader-high-threshold} gives the first triggered output,
+and extensivity preserves it.  For the two-threshold statement, if
+$e(d_1)<Q$, trigger at the first row.  Otherwise
+\[
+ z_0>e(d_1)\ge Q>e(d_2),
+\]
+so trigger at the second row.
+\end{proof}
+
+The lemma is used only after an actual-row induction such as
+\eqref{eq:reader-actual-propagation} or
+\eqref{eq:reader-generalized-transfer} has identified every formal iterate as
+a lower bound for the corresponding actual row.

@@ -106,17 +106,10 @@ The same lemma gives
 
 \subsection{The cap-chain lemma}
 
-For a compact set $K$, let
-\[
- h_K(n)=\max_{X\in K}\langle X,n\rangle,
-\]
-and let $R$ denote rotation through $2\pi/3$.  The least equilateral side
-containing $K$ is
-\begin{equation}
- \Lambda(K)=\frac1h\min_{\lVert n\rVert=1}
- \sum_{j=0}^2h_K(R^jn).
- \label{eq:reader-lambda-support}
-\end{equation}
+Use the enclosure gauge $\Lambda$ from
+Proposition~\ref{prop:universal-enclosure-gauge}, and let $\mathsf R$ denote
+rotation through $2\pi/3$.
+
 For a disk $\mathbb D(X,r)$ define its level-$h$ cap
 \[
  I(X,r)=\{n\in S^1:\langle X,n\rangle+r\ge h\}.
@@ -126,19 +119,19 @@ For a disk $\mathbb D(X,r)$ define its level-$h$ cap
 \label{lem:reader-cap-chain}
 Let $K$ be compact and put
 \[
- S=K+RK+R^2K.
+ S=K+\mathsf R K+\mathsf R^2K.
 \]
-Suppose $S$ contains the full $R$-orbits of
+Suppose $S$ contains the full $\mathsf R$-orbits of
 \[
  \mathbb D(A,2\eta),\quad
  \mathbb D(B,2\eta),\quad
  \mathbb D(C,2\eta),\quad
  \mathbb D(W,\eta),
- \qquad W=C+RA.
+ \qquad W=C+\mathsf R A.
 \]
 Assume that the rays
 \[
- A,\ B,\ C,\ W,\ RA
+ A,\ B,\ C,\ W,\ \mathsf R A
 \]
 occur in this cyclic order, each corresponding cap is a connected arc of
 half-width less than $\pi/2$, and the four consecutive pairs
@@ -146,14 +139,14 @@ half-width less than $\pi/2$, and the four consecutive pairs
  I(A,2\eta)&\leftrightarrow I(B,2\eta),&
  I(B,2\eta)&\leftrightarrow I(C,2\eta),\\
  I(C,2\eta)&\leftrightarrow I(W,\eta),&
- I(W,\eta)&\leftrightarrow I(RA,2\eta)
+ I(W,\eta)&\leftrightarrow I(\mathsf R A,2\eta)
 \end{align*}
 overlap across their intervening short sectors.  Then $\Lambda(K)\ge1$.
 \end{lemma}
 
 \begin{proof}
 The four overlaps and the cyclic ray order make the five caps cover the
-sector from the ray of $A$ to the ray of $RA$.  Their $R$-orbits cover the
+sector from the ray of $A$ to the ray of $\mathsf R A$.  Their $\mathsf R$-orbits cover the
 unit circle.  For every unit normal $n$, one of the displayed disks therefore
 has support at least $h$ in direction $n$.  Since all those disks lie in $S$,
 \[
@@ -161,16 +154,16 @@ has support at least $h$ in direction $n$.  Since all those disks lie in $S$,
 \]
 On the other hand,
 \[
- h_S(n)=\sum_{j=0}^2h_K(R^jn).
+ h_S(n)=\sum_{j=0}^2h_K(\mathsf R^jn).
 \]
-Equation~\eqref{eq:reader-lambda-support} now gives $\Lambda(K)\ge1$.
+Proposition~\ref{prop:universal-enclosure-gauge} now gives $\Lambda(K)\ge1$.
 \end{proof}
 
 \subsection{The four verified overlaps}
 
 For $K=\widehat K$, the Minkowski sum in the cap-chain lemma contains the
 four required disk orbits: one witness point and two copies of the centered
-disk give the three radius-$2\eta$ orbits, while $C+RA$ and one disk copy give
+disk give the three radius-$2\eta$ orbits, while $C+\mathsf R A$ and one disk copy give
 the radius-$\eta$ orbit.
 
 \begin{proposition}[Four-overlap certificate]
@@ -180,7 +173,7 @@ satisfy
 \[
  \lVert A\rVert,\lVert C\rVert>\eta,
 \]
-the rays $A,B,C,W,RA$ occur in that cyclic order, and all four consecutive
+the rays $A,B,C,W,\mathsf R A$ occur in that cyclic order, and all four consecutive
 cap overlaps in Lemma~\ref{lem:reader-cap-chain} hold.
 \end{proposition}
 
