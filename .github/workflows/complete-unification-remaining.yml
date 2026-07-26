@@ -1,0 +1,37 @@
+name: Complete remaining unification edits
+
+on:
+  push:
+    branches:
+      - agent/manuscript-unification
+    paths:
+      - arrange/paper_draft/_complete_unification_remaining.py
+      - .github/workflows/complete-unification-remaining.yml
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out implementation branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/manuscript-unification
+          fetch-depth: 0
+
+      - name: Apply exact remaining transformations
+        run: python arrange/paper_draft/_complete_unification_remaining.py
+
+      - name: Commit transformed sources
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          rm -f arrange/paper_draft/finalize_unification_error.log
+          git add -A
+          if ! git diff --cached --quiet; then
+            git commit -m 'Complete unified manuscript sources'
+            git push origin HEAD:agent/manuscript-unification
+          fi
