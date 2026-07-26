@@ -65,6 +65,7 @@ body {
 button, input, select { font: inherit; }
 button, select, input[type="range"] { min-height: 42px; }
 button:focus-visible, select:focus-visible, input:focus-visible, summary:focus-visible {
+  outline: 3px solid var(--accent);
   outline: 3px solid color-mix(in srgb, var(--accent) 70%, transparent);
   outline-offset: 2px;
 }
@@ -142,6 +143,213 @@ h1 {
   font-size: 13px;
 }
 .notice strong { color: var(--ink); }
+.intro-grid {
+  display: grid;
+  grid-template-columns: minmax(0, .92fr) minmax(420px, 1.08fr);
+  gap: 16px;
+  margin: 18px 0 14px;
+}
+.intro-card {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+.intro-copy {
+  display: grid;
+  align-content: center;
+  padding: clamp(18px, 3vw, 30px);
+}
+.intro-copy h2 {
+  margin: 0;
+  font-size: clamp(22px, 3vw, 32px);
+  line-height: 1.12;
+  letter-spacing: -.02em;
+}
+.intro-copy > p:not(.eyebrow) {
+  margin: 11px 0 0;
+  color: var(--muted);
+  font-size: 15px;
+}
+.term-row {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+.term-chip {
+  display: inline-flex;
+  gap: 6px;
+  align-items: baseline;
+  padding: 7px 9px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-2);
+  color: var(--muted);
+  font-size: 11.5px;
+}
+.term-chip strong { color: var(--ink); }
+.role-schematic {
+  display: grid;
+  grid-template-columns: minmax(260px, .85fr) minmax(220px, 1.15fr);
+  align-items: center;
+  gap: 12px;
+  min-height: 286px;
+  padding: 16px;
+  background:
+    radial-gradient(circle at 25% 45%, color-mix(in srgb, var(--accent-soft) 58%, transparent), transparent 48%),
+    var(--panel-2);
+}
+.role-schematic svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 255px;
+}
+.role-logic {
+  display: grid;
+  gap: 9px;
+}
+.logic-step {
+  position: relative;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: color-mix(in srgb, var(--panel) 91%, transparent);
+}
+.logic-step + .logic-step::before {
+  content: "↓";
+  position: absolute;
+  top: -18px;
+  left: 18px;
+  z-index: 1;
+  color: var(--accent);
+  font-weight: 800;
+}
+.logic-step .logic-key {
+  display: block;
+  color: var(--accent);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.logic-step strong {
+  display: block;
+  margin-top: 2px;
+  font-size: 13px;
+}
+.logic-step span {
+  display: block;
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 11px;
+}
+.proof-spine {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 8px;
+  margin: 14px 0;
+}
+.spine-step {
+  position: relative;
+  min-width: 0;
+  padding: 12px 13px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: var(--panel);
+}
+.spine-step + .spine-step::before {
+  content: "→";
+  position: absolute;
+  left: -10px;
+  top: 50%;
+  z-index: 2;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--bg);
+  color: var(--accent);
+  font-weight: 800;
+  line-height: 18px;
+  text-align: center;
+  transform: translateY(-50%);
+}
+.spine-step .spine-key {
+  color: var(--accent);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.spine-step strong {
+  display: block;
+  margin-top: 3px;
+  font-size: 13px;
+}
+.spine-step p {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 11.5px;
+}
+.contradiction-band {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto;
+  gap: 10px;
+  align-items: center;
+  margin: 14px 0 18px;
+  padding: 12px;
+  border: 1px solid color-mix(in srgb, var(--purple) 30%, var(--line));
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--purple-soft) 46%, var(--panel));
+}
+.inequality-card {
+  padding: 9px 11px;
+  border-radius: 8px;
+  background: var(--panel);
+}
+.inequality-card small {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.inequality-card strong {
+  display: block;
+  margin-top: 2px;
+  font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+  font-size: clamp(14px, 2vw, 18px);
+}
+.logic-symbol {
+  color: var(--purple);
+  font-size: 22px;
+  font-weight: 800;
+}
+.contradiction-result {
+  color: var(--red);
+  font-weight: 800;
+}
+.scope-details {
+  margin: 0 0 16px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: var(--panel);
+}
+.scope-details summary {
+  cursor: pointer;
+  padding: 10px 12px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+.scope-details p {
+  margin: 0;
+  padding: 0 12px 12px;
+  color: var(--muted);
+  font-size: 12px;
+}
 .tour {
   position: sticky;
   top: 0;
@@ -229,7 +437,12 @@ h1 {
   align-items: start;
 }
 .main-column, .rail { min-width: 0; }
-.main-column { display: grid; gap: 15px; }
+.main-column {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 15px;
+}
+.main-column > * { min-width: 0; }
 .rail {
   position: sticky;
   top: 122px;
@@ -267,6 +480,189 @@ h1 {
   color: var(--muted);
   font-size: 13px;
 }
+.stage-glossary {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: baseline;
+  gap: 7px 11px;
+  flex-wrap: wrap;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-2);
+}
+.stage-glossary .key {
+  color: var(--muted);
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+.glossary-term {
+  color: var(--muted);
+  font-size: 11.5px;
+}
+.glossary-term strong {
+  color: var(--ink);
+  font-weight: 800;
+}
+.stage-question {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  gap: 9px;
+  margin-top: 2px;
+}
+.stage-question > div {
+  padding: 10px 11px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-2);
+}
+.stage-question .key {
+  display: block;
+  color: var(--muted);
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.stage-question strong {
+  display: block;
+  margin-top: 3px;
+  font-size: 13px;
+}
+.stage-equation {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 9px 12px;
+  border: 1px solid color-mix(in srgb, var(--accent) 34%, var(--line));
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--accent-soft) 52%, var(--panel));
+  color: var(--ink);
+  font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+  font-size: clamp(12px, 1.5vw, 15px);
+  font-weight: 650;
+  text-align: center;
+}
+.stage-takeaway {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 9px;
+  align-items: center;
+  padding: 9px 11px;
+  border-radius: 8px;
+  background: var(--green-soft);
+  color: var(--green);
+  font-size: 12px;
+}
+.stage-takeaway .takeaway-mark {
+  display: grid;
+  place-items: center;
+  width: 23px;
+  height: 23px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  font-weight: 900;
+}
+.stage-source {
+  color: var(--green);
+  font-size: 10.5px;
+  white-space: nowrap;
+}
+.stage-tools {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 10px 12px;
+}
+.stage-tools .tool-intro {
+  margin-right: auto;
+}
+.stage-tools .tool-intro strong {
+  display: block;
+  font-size: 12px;
+}
+.stage-tools .tool-intro span {
+  display: block;
+  color: var(--muted);
+  font-size: 10.5px;
+}
+.tool-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.tool-row[hidden] { display: none; }
+.tool-row label {
+  color: var(--muted);
+  font-size: 11px;
+}
+.tool-row select { width: auto; min-width: 190px; }
+.tool-row input[type="range"] { width: min(240px, 42vw); }
+.tool-row output {
+  min-width: 52px;
+  font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+  font-size: 11px;
+}
+.tool-row .radio-row { margin: 0; }
+.evidence-card h3 {
+  margin: 0 0 5px;
+  font-size: 14px;
+}
+.evidence-card > p {
+  margin: 0 0 10px;
+  color: var(--muted);
+  font-size: 11.5px;
+}
+.table-scroll { overflow-x: auto; }
+.evidence-card details > summary {
+  cursor: pointer;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 800;
+}
+.evidence-card details[open] > summary { margin-bottom: 8px; }
+.exclusion-table {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+  font-size: 11px;
+}
+.exclusion-table th,
+.exclusion-table td {
+  padding: 9px 10px;
+  border: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+.exclusion-table th {
+  background: var(--panel-2);
+  color: var(--muted);
+  font-size: 9.5px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.exclusion-table td:first-child {
+  color: var(--accent);
+  font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+  font-weight: 800;
+  white-space: nowrap;
+}
+.exclusion-result {
+  margin-top: 9px;
+  padding: 8px 10px;
+  border-radius: 7px;
+  background: var(--green-soft);
+  color: var(--green);
+  font-weight: 700;
+  text-align: center;
+}
 .route-note {
   grid-column: 1 / -1;
   display: none;
@@ -279,36 +675,53 @@ h1 {
 }
 .route-note.visible { display: block; }
 .visual-grid { display: grid; gap: 15px; }
+.visual-grid.direction-first .aux-grid { order: 0; }
+.visual-grid.direction-first #physicalFigure { order: 1; }
 .aux-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 15px;
 }
+.aux-grid > figure:not([hidden]) { grid-column: 1 / -1; }
 figure { overflow: hidden; }
 .figure-head {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 10px;
+  flex-wrap: wrap;
   padding: 10px 12px 8px;
   border-bottom: 1px solid var(--line);
 }
 .figure-head h3 {
+  flex: 1 1 240px;
   margin: 0;
   font-size: 13px;
+  font-weight: 700;
+}
+.mobile-swipe {
+  display: none;
+  color: var(--muted);
+  font-size: 10px;
   font-weight: 700;
 }
 .canvas-wrap {
   position: relative;
   min-height: 240px;
+  overflow-x: auto;
+  scrollbar-width: thin;
   background: var(--panel-2);
 }
 canvas {
   display: block;
   width: 100%;
   height: auto;
+  margin-inline: auto;
   touch-action: none;
 }
+#physicalCanvas, #directionCanvas { max-width: 1120px; }
+#newtonCanvas { max-width: 760px; }
+#parameterCanvas { max-width: 650px; }
 figcaption {
   min-height: 42px;
   padding: 8px 12px 10px;
@@ -514,18 +927,102 @@ a { color: var(--accent); }
 }
 body.explore .aux-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 body.explore #newtonFigure, body.explore #directionFigure { display: block !important; }
+body:not(.explore) .layout { grid-template-columns: 1fr; }
+body:not(.explore) .rail { display: none; }
+body:not(.explore) #newtonFigure,
+body:not(.explore) #directionFigure { grid-column: 1 / -1; }
+.overlap-checklist {
+  display: none;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 7px;
+  padding: 10px 12px 12px;
+  border-top: 1px solid var(--line);
+}
+.overlap-checklist.visible { display: grid; }
+.overlap-item {
+  padding: 8px 9px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: var(--panel);
+}
+.overlap-item strong {
+  display: block;
+  font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+  font-size: 12px;
+}
+.overlap-item span {
+  display: block;
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 9.5px;
+}
+.overlap-item.adjacent { border-top: 3px solid var(--accent); }
+.overlap-item.mixed { border-top: 3px solid var(--purple); }
+#parameterCanvas, #directionCanvas { cursor: crosshair; }
+#directionCanvas.static { cursor: default; }
 @media (max-width: 1080px) {
+  .intro-grid { grid-template-columns: 1fr; }
+  .proof-spine { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .layout { grid-template-columns: 1fr; }
   .rail { position: static; grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .rail details { grid-column: auto; }
+  body.explore .rail { order: -1; }
 }
 @media (max-width: 760px) {
-  .page { padding-inline: 10px; }
+  .page {
+    padding-inline: 10px;
+    padding-bottom: 116px;
+  }
+  .role-schematic { grid-template-columns: 1fr; }
+  .proof-spine { grid-template-columns: 1fr 1fr; }
+  .spine-step + .spine-step::before { display: none; }
+  .contradiction-band {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .logic-symbol { line-height: .8; }
   .aux-grid, body.explore .aux-grid, .rail { grid-template-columns: 1fr; }
   .stage-copy { grid-template-columns: 1fr; }
   .stage-copy .space-badge { justify-self: start; }
+  .stage-question { grid-template-columns: 1fr; }
+  .notice { grid-template-columns: 1fr; }
+  .stage-takeaway { grid-template-columns: auto 1fr; }
+  .stage-source { grid-column: 2; white-space: normal; }
+  .stage-tools { align-items: stretch; }
+  .stage-tools .tool-intro { flex-basis: 100%; }
+  .tool-row { flex: 1 1 100%; flex-wrap: wrap; }
+  .tool-row input[type="range"] { flex: 1; width: auto; }
+  .overlap-checklist { grid-template-columns: 1fr 1fr; }
   .control { grid-template-columns: 72px minmax(0, 1fr) 60px; }
-  .tour { position: static; }
+  .tour {
+    position: static;
+    backdrop-filter: none;
+  }
+  .tour-row {
+    position: fixed;
+    right: 10px;
+    bottom: 8px;
+    left: 10px;
+    z-index: 40;
+    justify-content: center;
+    padding: 7px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: color-mix(in srgb, var(--panel) 96%, transparent);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(12px);
+  }
+  .tour-row .segmented {
+    display: inline-flex;
+    flex-basis: 100%;
+    justify-content: center;
+  }
+  .tour-row .stage-counter { min-width: 58px; }
+  #physicalCanvas, #directionCanvas { min-width: 840px; }
+  #newtonCanvas { min-width: 620px; }
+  #parameterCanvas { min-width: 500px; }
+  canvas { touch-action: pan-x pan-y; }
+  .mobile-swipe { display: inline; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -548,29 +1045,139 @@ body.explore #newtonFigure, body.explore #directionFigure { display: block !impo
 <div class="page">
   <header id="pageHeader">
     <div>
-      <p class="eyebrow">CE0 · N₊ = 1 · all-Vd0 · Strategy 4</p>
-      <h1 id="pageTitle">Newton and the cyclic cap chain</h1>
-      <p class="subtitle">An interactive explanation of the proof mechanism: why the Newton points are taken, why the Minkowski sum appears, and how physical disks become arcs of supporting directions.</p>
+      <p class="eyebrow">Hexagon-cover proof · Strategy 4</p>
+      <h1 id="pageTitle">Why nine forced points cannot fit in the seventh triangle</h1>
+      <p class="subtitle">Inside one decisive branch of the seven-triangle covering problem, a visual tour from boundary handoffs to Newton inner points and a cyclic chain of supporting directions.</p>
     </div>
     <span class="status-badge">Reference visualization</span>
   </header>
 
-  <div class="notice" id="explanationNotice">
-    <strong>Not a proof certificate.</strong>
-    <span>The coordinates come from the proved formulas, but pixels and floating-point samples do not prove the ray order or cap overlaps. Those facts are established in the linked Proven notes. Here the goal is to make their logical role visible.</span>
-  </div>
-
   <main id="mechanismExplorer">
+    <section class="intro-grid" aria-labelledby="overviewTitle">
+      <div class="intro-card intro-copy">
+        <p class="eyebrow">20-second overview</p>
+        <h2 id="overviewTitle">Seven roles leave nowhere else for the witnesses to go</h2>
+        <p>The problem asks whether a regular side-1 hexagon H can be covered by seven open side-1 equilateral triangles. Its six vertices and center are pairwise at least one unit apart, so no open unit triangle can contain two of them: six triangles must serve the vertices and the seventh must serve the center.</p>
+        <p><strong>Strategy 4 subcase.</strong> The six vertex roles are Vd0 (no positive radial trace), together cover the full boundary, and exactly one actual boundary row is supercritical. Under these hypotheses, the proof constructs nine points rejected by every vertex role, so the cover forces them all into the center role.</p>
+        <div class="term-row" aria-label="Key terms">
+          <span class="term-chip"><strong>Witness</strong> a point all six vertex roles reject</span>
+          <span class="term-chip"><strong>U<sub>C</sub></strong> the remaining center triangle</span>
+          <span class="term-chip"><strong>Λ(K)</strong> least enclosing equilateral side</span>
+        </div>
+      </div>
+      <div class="intro-card role-schematic">
+        <svg viewBox="0 0 320 270" role="img" aria-labelledby="roleDiagramTitle roleDiagramDesc">
+          <title id="roleDiagramTitle">Seven triangle roles in the hypothetical cover</title>
+          <desc id="roleDiagramDesc">A regular hexagon has six labeled vertex roles U zero through U five and a seventh center role U C. The orientations of the triangles are deliberately not shown.</desc>
+          <polygon points="160,28 258,82 258,188 160,242 62,188 62,82"
+            fill="none" stroke="var(--line)" stroke-width="3"/>
+          <line x1="160" y1="135" x2="160" y2="28" stroke="var(--grid)" stroke-width="1.5"/>
+          <line x1="160" y1="135" x2="258" y2="82" stroke="var(--grid)" stroke-width="1.5"/>
+          <line x1="160" y1="135" x2="258" y2="188" stroke="var(--grid)" stroke-width="1.5"/>
+          <line x1="160" y1="135" x2="160" y2="242" stroke="var(--grid)" stroke-width="1.5"/>
+          <line x1="160" y1="135" x2="62" y2="188" stroke="var(--grid)" stroke-width="1.5"/>
+          <line x1="160" y1="135" x2="62" y2="82" stroke="var(--grid)" stroke-width="1.5"/>
+          <circle cx="160" cy="135" r="50"
+            fill="var(--purple-soft)" stroke="var(--purple)" stroke-width="2.5" stroke-dasharray="7 5"/>
+          <text x="160" y="129" text-anchor="middle" fill="var(--purple)" font-size="17" font-weight="800">U<tspan baseline-shift="sub" font-size="11">C</tspan></text>
+          <text x="160" y="146" text-anchor="middle" fill="var(--muted)" font-size="10">remaining role</text>
+          <g fill="var(--panel)" stroke="var(--accent)" stroke-width="2">
+            <circle cx="160" cy="28" r="20"/><circle cx="258" cy="82" r="20"/>
+            <circle cx="258" cy="188" r="20"/><circle cx="160" cy="242" r="20"/>
+            <circle cx="62" cy="188" r="20"/><circle cx="62" cy="82" r="20"/>
+          </g>
+          <g fill="var(--accent)" font-size="12" font-weight="800" text-anchor="middle">
+            <text x="160" y="32">U₀</text><text x="258" y="86">U₁</text>
+            <text x="258" y="192">U₂</text><text x="160" y="246">U₃</text>
+            <text x="62" y="192">U₄</text><text x="62" y="86">U₅</text>
+          </g>
+          <text x="160" y="266" text-anchor="middle" fill="var(--muted)" font-size="9">role schematic only · no triangle position or orientation implied</text>
+        </svg>
+        <div class="role-logic" aria-label="Forcing logic">
+          <div class="logic-step">
+            <span class="logic-key">Assume</span>
+            <strong>The Strategy 4 cover branch holds</strong>
+            <span>Six Vd0 roles cover ∂H; exactly one actual row is supercritical.</span>
+          </div>
+          <div class="logic-step">
+            <span class="logic-key">Construct</span>
+            <strong>6 radial + 3 frontier witnesses</strong>
+            <span>Each is excluded from U₀,…,U₅.</span>
+          </div>
+          <div class="logic-step">
+            <span class="logic-key">Force</span>
+            <strong>All nine witnesses lie in U<sub>C</sub></strong>
+            <span>Then prove that no open unit triangle can hold them.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="proof-spine" aria-label="Proof in one glance">
+      <div class="spine-step">
+        <span class="spine-key">1 · Force</span>
+        <strong>Nine witnesses enter U<sub>C</sub></strong>
+        <p>Boundary handoffs rule out all six vertex roles.</p>
+      </div>
+      <div class="spine-step">
+        <span class="spine-key">2 · Simplify</span>
+        <strong>Move two points safely inward</strong>
+        <p>One Newton tangent step removes two extra radicals.</p>
+      </div>
+      <div class="spine-step">
+        <span class="spine-key">3 · Measure</span>
+        <strong>Test every orientation</strong>
+        <p>Three support distances equal one candidate triangle side.</p>
+      </div>
+      <div class="spine-step">
+        <span class="spine-key">4 · Combine</span>
+        <strong>Add three rotated copies</strong>
+        <p>A Minkowski sum turns three supports into one.</p>
+      </div>
+      <div class="spine-step">
+        <span class="spine-key">5 · Cover</span>
+        <strong>Disk or caps certify all directions</strong>
+        <p>The centered disk closes the easy branch; five caps close the hard branch.</p>
+      </div>
+      <div class="spine-step">
+        <span class="spine-key">6 · Contradict</span>
+        <strong>The same set needs side ≥1 and &lt;1</strong>
+        <p>Geometry and open containment cannot both hold.</p>
+      </div>
+    </section>
+
+    <div class="contradiction-band" aria-label="The final contradiction">
+      <div class="inequality-card">
+        <small>Enclosure geometry · disk or cap chain</small>
+        <strong>Λ(K<sub>wit</sub>) ≥ 1</strong>
+      </div>
+      <span class="logic-symbol">but</span>
+      <div class="inequality-card">
+        <small>Compact K<sub>wit</sub> inside open unit U<sub>C</sub></small>
+        <strong>Λ(K<sub>wit</sub>) &lt; 1</strong>
+      </div>
+      <span class="contradiction-result">impossible</span>
+    </div>
+
+    <details class="scope-details">
+      <summary>Exact scope and branch terminology</summary>
+      <p>The reusable obstruction assumes that six open Vd0 vertex roles cover the full boundary and exactly one actual boundary row is supercritical. After rotating that row to index 4, strict handoffs give x₃&lt;x₂&lt;x₁&lt;x₀&lt;x₅&lt;x₄. The theorem is independent of the center class: it closes the CE0 application and the zero-gap CE1/CE2 applications. Vd0 means that a vertex role has no positive-length trace on either adjacent radial arm.</p>
+    </details>
+
+    <div class="notice" id="explanationNotice">
+      <strong>How to read the page.</strong>
+      <span>The guided pictures explain the proved logic; they are not certificates. Exact ray order, circle signs, and cap overlaps are established in the stage-linked notes. Switch to <em>Research lab</em> to vary the terminal parameters and inspect numerical readouts.</span>
+    </div>
+
     <nav class="tour" id="tourBar" aria-label="Proof mechanism stages">
       <div class="tour-row">
-        <div class="segmented" aria-label="Explorer mode">
-          <button type="button" id="guidedMode" aria-pressed="true">Guided</button>
-          <button type="button" id="exploreMode" aria-pressed="false">Explore</button>
+        <div class="segmented" role="group" aria-label="Explorer mode">
+          <button type="button" id="guidedMode" aria-pressed="true">Guided story</button>
+          <button type="button" id="exploreMode" aria-pressed="false">Research lab</button>
         </div>
         <button type="button" class="tour-control" id="prevStage">← Back</button>
-        <button type="button" class="tour-control" id="playTour" aria-pressed="false">Play</button>
         <button type="button" class="tour-control" id="nextStage">Next →</button>
-        <span class="stage-counter" id="stageCounter">1 / 9</span>
+        <span class="stage-counter" id="stageCounter">1 / 6</span>
       </div>
       <div class="stage-list" id="stageList"></div>
     </nav>
@@ -585,13 +1192,102 @@ body.explore #newtonFigure, body.explore #directionFigure { display: block !impo
           <span class="space-badge" id="stageSpaceBadge">Original witness plane</span>
           <p class="lead" id="stageLead"></p>
           <p class="mechanism" id="stageMechanism"></p>
+          <div class="stage-glossary" aria-label="Terms used in this step">
+            <span class="key">Terms for this step</span>
+            <span id="stageGlossaryTerms"></span>
+          </div>
+          <div class="stage-question">
+            <div>
+              <span class="key">Question answered here</span>
+              <strong id="stageQuestion"></strong>
+            </div>
+            <div>
+              <span class="key">What to look for</span>
+              <strong id="stageVisualCue"></strong>
+            </div>
+          </div>
+          <div class="stage-equation" id="stageEquation"></div>
+          <div class="stage-takeaway">
+            <span class="takeaway-mark">✓</span>
+            <span id="stageTakeaway"></span>
+            <a class="stage-source" id="stageSourceLink" href="#sourceDetails">Why this is rigorous</a>
+          </div>
           <p class="route-note" id="stageRouteNote"></p>
+        </section>
+
+        <section class="card stage-tools" id="stageTools" aria-label="Controls for the current scene">
+          <div class="tool-intro">
+            <strong id="toolTitle">Scene control</strong>
+            <span id="toolHint">This scene is explanatory; no control is needed.</span>
+          </div>
+          <div class="tool-row" id="newtonTool" hidden>
+            <label for="newtonSide">Frontier side</label>
+            <select id="newtonSide">
+              <option value="minus">Q₀ → Q− gives A</option>
+              <option value="plus">Q₀ → Q+ gives C</option>
+            </select>
+          </div>
+          <div class="tool-row" id="recipeTool" hidden>
+            <label for="minkowskiRecipe">Disk built inside S</label>
+            <select id="minkowskiRecipe">
+              <option value="A">𝔻(A, 2η)</option>
+              <option value="B">𝔻(B, 2η)</option>
+              <option value="C">𝔻(C, 2η)</option>
+              <option value="W">𝔻(W, η)</option>
+            </select>
+          </div>
+          <div class="tool-row" id="normalTool" hidden>
+            <label for="normalRange">Normal direction n</label>
+            <input id="normalRange" type="range" min="0" max="359.8" step="0.2" value="270">
+            <output id="normalValue" for="normalRange">270.0°</output>
+          </div>
+          <div class="tool-row" id="orbitTool" hidden>
+            <div class="radio-row">
+              <label><input type="radio" name="orbit" id="orbitSector" value="sector" checked> explain one 120° sector</label>
+              <label><input type="radio" name="orbit" id="orbitFull" value="full"> show all three rotations</label>
+            </div>
+          </div>
+        </section>
+
+        <section class="card evidence-card" id="forcingEvidence" aria-labelledby="forcingEvidenceTitle">
+          <details>
+            <summary id="forcingEvidenceTitle">Proof detail: why all six vertex roles reject the witnesses</summary>
+            <p>This is the logical content behind the first picture. The exact inequalities are in the linked Proven notes.</p>
+            <div class="table-scroll">
+              <table class="exclusion-table">
+              <thead>
+                <tr>
+                  <th>Witness family</th>
+                  <th>Matching / supercritical role</th>
+                  <th>Adjacent roles</th>
+                  <th>Remaining roles</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Dᵢ</td>
+                  <td>c<sub>max</sub> and openness exclude Uᵢ</td>
+                  <td>Vd0 radial locality excludes Uᵢ₋₁ and Uᵢ₊₁</td>
+                  <td>Distance at least 1 from the other distinguished vertices</td>
+                </tr>
+                <tr>
+                  <td>Q−, Q₀, Q+</td>
+                  <td>Exact strict row-4 frontier excludes U₄</td>
+                  <td>Endpoint-circle roots plus moving signs for the actual U₃,U₅ handoffs</td>
+                  <td>Direct distances from V₀,V₁,V₂</td>
+                </tr>
+              </tbody>
+              </table>
+            </div>
+            <div class="exclusion-result">All six vertex roles are unavailable; the cover forces every witness into U<sub>C</sub>.</div>
+          </details>
         </section>
 
         <div class="visual-grid" id="visualGrid">
           <figure id="physicalFigure">
             <div class="figure-head">
               <h3 id="physicalTitle">Physical geometry</h3>
+              <span class="mobile-swipe">Swipe diagram ↔</span>
               <span class="space-badge" id="physicalSpaceBadge">Original witness plane</span>
             </div>
             <div class="canvas-wrap">
@@ -607,6 +1303,7 @@ body.explore #newtonFigure, body.explore #directionFigure { display: block !impo
             <figure id="newtonFigure">
               <div class="figure-head">
                 <h3 id="newtonTitle">Newton tangent graph</h3>
+                <span class="mobile-swipe">Swipe diagram ↔</span>
                 <span class="space-badge">Parameter line</span>
               </div>
               <div class="canvas-wrap">
@@ -622,41 +1319,50 @@ body.explore #newtonFigure, body.explore #directionFigure { display: block !impo
             <figure id="directionFigure">
               <div class="figure-head">
                 <h3 id="directionTitle">Circle of normal directions</h3>
+                <span class="mobile-swipe">Swipe diagram ↔</span>
                 <span class="space-badge">Direction space S¹</span>
               </div>
               <div class="canvas-wrap">
                 <span class="supplementary" id="directionSupplementary">Supplementary here: the three centered-disk contributions already reach h in every direction.</span>
-                <canvas id="directionCanvas" width="760" height="430" role="img" aria-labelledby="directionTitle directionCaption">
+                <canvas id="directionCanvas" width="1120" height="600" role="img" aria-labelledby="directionTitle directionCaption">
                   Direction circle showing support caps and the current normal.
                 </canvas>
               </div>
               <div class="readout" id="directionReadout"></div>
               <figcaption id="directionCaption">The sets I(X,r) live on this direction circle; they are not pieces of the physical disks.</figcaption>
+              <div class="overlap-checklist" id="overlapChecklist" aria-label="The four proved cap overlaps">
+                <div class="overlap-item adjacent"><strong>A ↔ B</strong><span>adjacent overlap · analytic</span></div>
+                <div class="overlap-item adjacent"><strong>B ↔ C</strong><span>adjacent overlap · analytic</span></div>
+                <div class="overlap-item mixed"><strong>C ↔ W</strong><span>mixed overlap · exact certificate</span></div>
+                <div class="overlap-item mixed"><strong>W ↔ RA</strong><span>mixed overlap · exact certificate</span></div>
+              </div>
             </figure>
           </div>
         </div>
       </div>
 
       <aside class="rail" id="controlRail" aria-label="Explorer controls and definitions">
-        <section class="card">
+        <details class="card" open>
+          <summary>Terminal parameters and layers</summary>
+          <div class="details-body">
           <fieldset id="parameterFieldset">
-            <legend>Full strict (a,b) domain</legend>
+            <legend>Terminal enclosure domain</legend>
             <div class="presets">
-              <button type="button" class="preset" id="presetAsymmetric" data-a="0.55" data-b="0.58">Asymmetric</button>
+              <button type="button" class="preset" id="presetAsymmetric" data-a="0.55" data-b="0.58">Hard case</button>
               <button type="button" class="preset" id="presetSymmetric" data-a="0.57" data-b="0.57">Symmetric</button>
-              <button type="button" class="preset" id="presetDisk" data-a="0.52" data-b="0.52">Disk route</button>
+              <button type="button" class="preset" id="presetDisk" data-a="0.52" data-b="0.52">Disk-only</button>
             </div>
             <div class="control">
               <label for="sumRange">sum a+b</label>
-              <input id="sumRange" type="range" min="1.0005" max="1.1542" step="0.0001">
+              <input id="sumRange" type="range" min="1" max="1.1547005" step="0.000001">
               <output id="sumValue" for="sumRange"></output>
             </div>
             <div class="control">
               <label for="asymmetryRange">asymmetry</label>
-              <input id="asymmetryRange" type="range" min="-0.995" max="0.995" step="0.001">
+              <input id="asymmetryRange" type="range" min="-1" max="1" step="0.00001">
               <output id="asymmetryValue" for="asymmetryRange"></output>
             </div>
-            <p class="hint">Normalized asymmetry σ=(a−b)/√(4−3(a+b)²), with −1&lt;σ&lt;1. The L and T labels name the two exact radial-envelope cells.</p>
+            <p class="hint">Every cover-derived pair lies in this strict domain; the plot does not claim that every displayed pair arises from a full cover. Here ρ=a²+ab+b² and σ=(a−b)/√(4−3(a+b)²).</p>
             <div class="metrics">
               <div class="metric"><div class="key">a</div><div class="value" id="aValue"></div></div>
               <div class="metric"><div class="key">b</div><div class="value" id="bValue"></div></div>
@@ -675,39 +1381,8 @@ body.explore #newtonFigure, body.explore #directionFigure { display: block !impo
               </canvas>
             </div>
             <h3 class="sr-only" id="parameterTitle">Admissible parameter domain</h3>
-            <p class="hint" id="parameterCaption">Click or drag inside the shaded strict domain. Sliders use domain-safe sum and normalized asymmetry coordinates.</p>
+            <p class="hint" id="parameterCaption">Click or drag inside the shaded terminal domain. The sliders use sum and normalized asymmetry coordinates.</p>
             <div class="readout" id="parameterReadout" style="padding-inline:0; border-top:0"></div>
-          </fieldset>
-
-          <fieldset id="mechanismFieldset">
-            <legend>Mechanism controls</legend>
-            <div class="control">
-              <label for="newtonSide">Newton side</label>
-              <select id="newtonSide">
-                <option value="minus">g− : Q₀ toward Q−</option>
-                <option value="plus">g+ : Q₀ toward Q+</option>
-              </select>
-              <span></span>
-            </div>
-            <div class="control">
-              <label for="minkowskiRecipe">Disk recipe</label>
-              <select id="minkowskiRecipe">
-                <option value="A">𝔻(A, 2η)</option>
-                <option value="B">𝔻(B, 2η)</option>
-                <option value="C">𝔻(C, 2η)</option>
-                <option value="W">𝔻(W, η)</option>
-              </select>
-              <span></span>
-            </div>
-            <div class="control">
-              <label for="normalRange">normal n</label>
-              <input id="normalRange" type="range" min="0" max="360" step="0.2" value="270">
-              <output id="normalValue" for="normalRange">270.0°</output>
-            </div>
-            <div class="radio-row">
-              <label><input type="radio" name="orbit" id="orbitSector" value="sector"> one 120° sector</label>
-              <label><input type="radio" name="orbit" id="orbitFull" value="full" checked> full R-orbit</label>
-            </div>
           </fieldset>
 
           <fieldset id="layerFieldset">
@@ -721,7 +1396,8 @@ body.explore #newtonFigure, body.explore #directionFigure { display: block !impo
               <label><input type="checkbox" id="layerLabels" checked> labels</label>
             </div>
           </fieldset>
-        </section>
+          </div>
+        </details>
 
         <details class="card" id="formalDetails">
           <summary>Formal definitions for this stage</summary>
@@ -734,6 +1410,7 @@ body.explore #newtonFigure, body.explore #directionFigure { display: block !impo
             <p>The page follows the canonical self-contained package. The visualization does not replace these arguments.</p>
             <ul class="source-list">
               <li><a href="31051_direct_radial_forcing.md">31051</a>: six radial witnesses and the forced centered disk.</li>
+              <li><a href="31052_fixed_line_circle_signs.md">31052</a>: endpoint-circle roots and the moving signs for the actual adjacent handoffs.</li>
               <li><a href="31053_direct_asymmetric_witness_forcing.md">31053</a>: the three exact asymmetric witnesses.</li>
               <li><a href="31054_four_cap_enclosure_reduction.md">31054</a>: Newton inner points, Minkowski disks, ray order, and adjacent overlaps.</li>
               <li><a href="31055_rational_radial_envelopes_and_mixed_reduction.md">31055</a> and <a href="31056_global_analytic_mixed_positivity.md">31056</a>: the two mixed overlaps.</li>
@@ -757,7 +1434,7 @@ const PI = Math.PI;
 const TAU = 2 * PI;
 const DEG = PI / 180;
 const H = Math.sqrt(3) / 2;
-const DOMAIN_EPS = 5e-4;
+const DOMAIN_EPS = 1e-4;
 const S_MAX = 2 / Math.sqrt(3);
 const ROT120 = 2 * PI / 3;
 
@@ -776,59 +1453,81 @@ const COLORS = {
 const STAGES = [
   {
     id: 'forcing',
-    short: 'Witnesses',
-    title: 'Force nine witnesses into the center role',
+    short: 'Force nine points',
+    title: 'Force a disk and three frontier points into the center role',
     space: 'Original witness plane',
-    lead: 'Six radial points and three asymmetric frontier points cannot belong to any of the six vertex roles, so a hypothetical cover must place all nine in the center triangle.',
-    mechanism: 'The picture treats the exclusion theorems as proved inputs. Convexity turns the six radial points into the centered disk 𝒟η, while Q−, Q₀, Q+ supply the asymmetric information.',
+    lead: 'The six vertex roles overlap along the hexagon boundary. Choose one shared handoff point on each edge. The one-supercritical-row hypothesis puts those six handoffs in a strict cyclic order, and that order determines six radial witnesses Dᵢ and three frontier witnesses Q−, Q₀, Q+.',
+    mechanism: 'Distance, the Vd0 condition, and exact frontier inequalities reject every constructed point from all six vertex roles. The cover therefore leaves only U_C. Because U_C is convex, the six Dᵢ also force their entire inner hexagon and its centered disk into U_C.',
+    glossary: [
+      ['role', 'one covering triangle, named by the distinguished point it must contain'],
+      ['handoff', 'a chosen point shared by neighboring vertex roles on a hexagon edge'],
+      ['witness', 'a constructed point rejected by all six vertex roles']
+    ],
+    question: 'Why must one triangle contain all nine constructed points?',
+    cue: 'The six teal Dᵢ form a regular inner hexagon and hence force its incircle; the blue–gold–purple Q-chain supplies the missing asymmetry.',
+    equation: 'nine points avoid U₀,…,U₅  +  cover  ⇒  nine points ⊂ U_C;  convexity  ⇒  K_wit ⊂ U_C',
+    takeaway: 'The center role is forced to contain a centered disk 𝒟η together with Q−, Q₀, Q+.',
+    source: '31058_center_independent_direct_nine_point_obstruction.md',
+    sourceLabel: 'Forcing: 31051–31053 and 31058',
+    toolTitle: 'Read the forcing picture',
+    toolHint: 'No control is needed. The arrows show logical forcing, not motion.',
+    tools: [],
     formal: [
+      'x₃ < x₂ < x₁ < x₀ < x₅ < x₄;  a = 1−x₃,  b = x₄,  p = 1−b,  q = 1−a.',
       'Dᵢ = (1 − c*)Vᵢ,  η = h(1 − c*),  h = √3/2.',
       'K_wit = 𝒟η ∪ {Q−, Q₀, Q+} ⊂ U_C.'
     ]
   },
   {
-    id: 'disk',
-    short: 'Disk branch',
-    title: 'First check whether the centered disk already wins',
-    space: 'Original witness plane',
-    lead: 'An equilateral triangle containing a centered radius-η disk needs side at least 3η/h = 3(1 − c*).',
-    mechanism: 'If c* ≤ 2/3, this lower bound is already at least one. The proof then skips Newton and the cap chain. If c* > 2/3, the disk is too small by itself, so the asymmetric witnesses must be used.',
-    formal: [
-      'Λ(K_wit) ≥ 3η/h = 3(1 − c*).',
-      'c* ≤ 2/3  ⇒  Λ(K_wit) ≥ 1.'
-    ]
-  },
-  {
     id: 'newton',
-    short: 'Newton',
-    title: 'Replace the radical outer points by Newton inner points',
+    short: 'Simplify inward',
+    title: 'Move the two difficult witnesses inward to simpler safe points',
     space: 'Original witness plane',
-    lead: 'Along each frontier line, the adjacent-circle equation becomes a strictly convex quadratic. Its tangent at the junction reaches zero before the true first root.',
-    mechanism: 'The tangent zero defines A or C. Newton is not being used to approximate the root: the strict placement “junction < tangent zero < first root” is the point. It removes an extra quadratic radical while keeping the new point inside the old witness segment.',
+    lead: 'First there is an easy fork: if c*≤2/3, the centered disk alone already forces Λ≥1. In the hard case c*>2/3, we use the asymmetric points but replace Q− and Q+ by inner points A and C.',
+    mechanism: 'On each frontier line, the endpoint-circle equation is a strictly convex quadratic. Its tangent at the junction crosses zero before the true first root. This is a certified inward move, not a numerical approximation.',
+    glossary: [
+      ['c*', 'the largest radial demand compatible with the two boundary demands'],
+      ['η', 'the radius of the centered disk forced in Step 1'],
+      ['Newton step', 'the zero of a tangent line, used here as a proved inner bound']
+    ],
+    question: 'How can we remove two quadratic radicals without losing the obstruction?',
+    cue: 'Select either side. In both the physical segment and graph, the green tangent-zero point lies strictly between Q₀ and the red/outer first root.',
+    equation: 'Q₀ — A — Q−  and  Q₀ — C — Q+  ⇒  K̂ ⊂ conv(K_wit)',
+    takeaway: 'It is enough to obstruct K̂=conv(𝒟η∪{A,B,C}), with B=Q₀ and simpler coordinates.',
+    source: '31054_four_cap_enclosure_reduction.md',
+    sourceLabel: 'Newton placement: 31052 and 31054',
+    toolTitle: 'Compare one Newton side',
+    toolHint: 'The selected frontier side is emphasized in both diagrams.',
+    tools: ['newton'],
     formal: [
+      'Λ(K_wit) ≥ 3η/h = 3(1−c*);  c*≤2/3 closes the easy branch.',
       'x̂ = x* − g(x*)/g′(x*), with g(x*) > 0 > g′(x*).',
-      'x* < x̂ < first root; hence A ∈ (Q₀,Q−) and C ∈ (Q₀,Q+).'
-    ]
-  },
-  {
-    id: 'inner-set',
-    short: 'Inner set',
-    title: 'Keep a smaller set whose obstruction is enough',
-    space: 'Original witness plane',
-    lead: 'Set B = Q₀ and take the convex hull of the centered disk with A, B, C.',
-    mechanism: 'Because A and C lie on the two witness segments, K̂ lies inside conv(K_wit). Enclosure size is monotone under inclusion, so proving Λ(K̂) ≥ 1 proves the same lower bound for the original witnesses.',
-    formal: [
+      'x* < x̂ < first root; hence A ∈ (Q₀,Q−) and C ∈ (Q₀,Q+).',
       'K̂ = conv(𝒟η ∪ {A,B,C}) ⊂ conv(K_wit).',
       'Λ(K_wit) ≥ Λ(K̂).'
     ]
   },
   {
     id: 'support',
-    short: 'Three supports',
-    title: 'An equilateral triangle reads three support directions',
+    short: 'Measure orientations',
+    title: 'Measure every equilateral-triangle orientation with three supports',
     space: 'Original witness plane',
-    lead: 'For one triangle orientation, its three outward normals are n, Rn, R²n. The three support distances determine the least side length at that orientation.',
-    mechanism: 'Rotating the normal changes the orientation of the candidate enclosing triangle. The proof must show that the sum of the three supports never drops below h, the altitude of a side-one equilateral triangle.',
+    lead: 'Fix an orientation. Its three outward normals are n, Rn, R²n, where R rotates by 120°. The three supporting lines form the smallest enclosing equilateral triangle at that orientation.',
+    mechanism: 'The side length at this orientation is the sum of the three support distances divided by h=√3/2. Rotating n tests every possible orientation, so the proof needs a uniform lower bound.',
+    glossary: [
+      ['support h_K(n)', 'the farthest signed distance of K in direction n'],
+      ['R', 'rotation by 120°'],
+      ['Λ(K)', 'the least side length of any closed equilateral triangle containing K']
+    ],
+    question: 'How do we compare K̂ with every rotated equilateral triangle at once?',
+    cue: 'Drag n. The dashed candidate triangle and its three colored support lines rotate together; the readout adds their signed distances.',
+    equation: 'orientation n  ↦  [h_K̂(n)+h_K̂(Rn)+h_K̂(R²n)] / h',
+    takeaway: 'Proving the support sum is at least h for every n is exactly proving Λ(K̂)≥1.',
+    source: '31054_four_cap_enclosure_reduction.md',
+    sourceLabel: 'Support formula: 31054',
+    toolTitle: 'Rotate the candidate triangle',
+    toolHint: 'Move n to inspect a different enclosing-triangle orientation.',
+    tools: ['normal'],
     formal: [
       'h_K(n) = max{x·n : x ∈ K}.',
       'Λ(K̂) = (1/h) min_|n|=1 [h_K̂(n)+h_K̂(Rn)+h_K̂(R²n)].'
@@ -836,11 +1535,25 @@ const STAGES = [
   },
   {
     id: 'minkowski',
-    short: 'Minkowski',
-    title: 'Package the three supports into one auxiliary set',
+    short: 'Add three copies',
+    title: 'Add three rotated copies so one support measures all three sides',
     space: 'Minkowski-sum plane',
-    lead: 'Minkowski addition converts the sum of three support functions into the single support function of S = K̂ + RK̂ + R²K̂.',
-    mechanism: 'Choosing one witness point and two centered-disk points produces a radius-2η disk in S. Choosing C, RA, and one disk point produces the radius-η bridge disk centered at W = C + RA. The symbol is Greek eta: 2η, not 2n.',
+    lead: 'The auxiliary set S=K̂+RK̂+R²K̂ contains every sum of one point from each rotated copy. Its single support h_S(n) equals the three-support sum from the previous scene.',
+    mechanism: 'Simple choices inside the three copies produce whole disks inside S: radius 2η at A,B,C, and a radius η bridge at W=C+RA. These four disk orbits are the only pieces the cap argument needs.',
+    glossary: [
+      ['K̂', 'the simpler inner witness set built in Step 2'],
+      ['Minkowski sum', 'all pointwise sums, one choice from each set'],
+      ['S', 'an auxiliary sum that packages three support distances into one']
+    ],
+    question: 'Why introduce a Minkowski sum instead of keeping three separate support values?',
+    cue: 'Choose a disk recipe. The three top trays show one legal ingredient from each rotated copy; their possible sums fill the disk drawn inside S below.',
+    equation: 'h_S(n) = h_K̂(n)+h_K̂(Rn)+h_K̂(R²n),   S=K̂+RK̂+R²K̂',
+    takeaway: 'The enclosure problem is reduced to showing that a small family of explicit disks gives S support at least h in every direction.',
+    source: '31054_four_cap_enclosure_reduction.md',
+    sourceLabel: 'Minkowski disk orbits: 31054',
+    toolTitle: 'Build one certified disk inside S',
+    toolHint: 'Switch recipes to see which point/disk choices produce A, B, C, or W.',
+    tools: ['recipe'],
     formal: [
       'h_S(n) = h_K̂(n)+h_K̂(Rn)+h_K̂(R²n).',
       'A + R𝒟η + R²𝒟η = 𝔻(A,2η).',
@@ -848,36 +1561,53 @@ const STAGES = [
     ]
   },
   {
-    id: 'cap-meaning',
-    short: 'Cap meaning',
-    title: 'Turn each physical disk into an arc of good directions',
-    space: 'Physical S-plane + direction space',
-    lead: 'The support of the physical disk 𝔻(X,r) in direction n is X·n + r.',
-    mechanism: 'I(X,r) is the arc of normal directions for which that support reaches the target height h. It lives on S¹, not in the physical plane. Drag the normal to see the physical support line and direction arc update together.',
+    id: 'cap-chain',
+    short: 'Cover directions',
+    title: 'Chain five direction caps across one 120° sector',
+    space: 'Minkowski-sum plane + direction space',
+    lead: 'A physical disk 𝔻(X,r) certifies the normal directions I(X,r) where X·n+r≥h. Each I(X,r) is a connected arc in direction space, not a piece of the physical disk.',
+    mechanism: 'The rays occur in the order A,B,C,W,RA. Every cap has half-width below 90°, and each consecutive pair overlaps across its intervening short sector. Thus the five caps cover A-to-RA, exactly 120°. Rotating the chain twice covers S¹.',
+    glossary: [
+      ['direction cap I(X,r)', 'the normals for which disk 𝔻(X,r) reaches support h'],
+      ['W', 'the bridge-disk center C+RA'],
+      ['RA', 'the point A rotated by 120°']
+    ],
+    question: 'How do four proved overlaps certify every possible triangle orientation?',
+    cue: 'Read the unwrapped strip from A at 0° to RA at 120°. The four green connectors are the overlaps; the small ring shows the three rotated sectors.',
+    equation: 'A ↔ B ↔ C ↔ W ↔ RA  covers 120°;  apply R,R²  ⇒  every n∈S¹',
+    takeaway: 'For every normal n, one disk inside S reaches support h; hence h_S(n)≥h and Λ(K̂)≥1.',
+    source: '31057_terminal_nine_point_enclosure.md',
+    sourceLabel: 'Ray order and overlaps: 31054–31057',
+    toolTitle: 'Inspect one sector, then the full orbit',
+    toolHint: 'The one-sector view exposes the four overlaps; the full-orbit view repeats it three times.',
+    tools: ['normal', 'orbit'],
     formal: [
       'I(X,r) = {n ∈ S¹ : X·n + r ≥ h}.',
-      'If θ is measured from X, then cos θ ≥ (h − r)/|X|.'
-    ]
-  },
-  {
-    id: 'cap-chain',
-    short: 'Cap chain',
-    title: 'Overlap five caps across one 120° sector',
-    space: 'Minkowski-sum plane + direction space',
-    lead: 'The rays occur in the order A, B, C, W, RA. Four consecutive overlaps connect their five direction caps from A to the rotated copy RA.',
-    mechanism: 'That covers one 120° fundamental sector. Applying R and R² covers every normal direction, hence h_S(n) ≥ h for all n. The last displayed A-cap is the first cap of the next sector, which is why four disk orbits produce a five-cap chain.',
-    formal: [
       'I(A,2η) ↔ I(B,2η) ↔ I(C,2η) ↔ I(W,η) ↔ I(RA,2η).',
       'All n are covered ⇒ h_S(n) ≥ h ⇒ Λ(K̂) ≥ 1.'
     ]
   },
   {
     id: 'conclusion',
-    short: 'Contradiction',
-    title: 'Compactness turns the enclosure bound into a contradiction',
+    short: 'Contradict',
+    title: 'The forced compact set simultaneously needs side at least one and below one',
     space: 'Logical conclusion',
     lead: 'The forcing argument put the compact witness set inside the hypothetical open unit center triangle.',
     mechanism: 'Positive clearance from its three sides would let us move all sides inward and obtain a closed equilateral triangle of side strictly below one. That says Λ(K_wit) < 1, contradicting the enclosure result Λ(K_wit) ≥ 1.',
+    glossary: [
+      ['compact', 'closed and bounded, so positive clearance from an open container is attained'],
+      ['open triangle', 'its boundary is excluded'],
+      ['contradiction', 'the same set cannot require side at least one and also fit below one']
+    ],
+    question: 'Where does openness enter the final contradiction?',
+    cue: 'The left panel is the assumed open containment. The right panel shrinks all three sides by positive clearance while keeping the compact witness set inside.',
+    equation: 'K_wit ⊂ U_C open unit  ⇒  Λ(K_wit)<1,   but geometry gives Λ(K_wit)≥1',
+    takeaway: 'No cover satisfying the all-boundary, all-Vd0, exactly-one-supercritical hypotheses exists.',
+    source: '31058_center_independent_direct_nine_point_obstruction.md',
+    sourceLabel: 'Terminal contradiction: 31057–31058',
+    toolTitle: 'Final logical handoff',
+    toolHint: 'No control is needed. The right-hand smaller triangle is schematic.',
+    tools: [],
     formal: [
       'K_wit compact and K_wit ⊂ U_C open unit triangle ⇒ Λ(K_wit) < 1.',
       'Cap route or disk route ⇒ Λ(K_wit) ≥ 1. Contradiction.'
@@ -885,8 +1615,32 @@ const STAGES = [
   }
 ];
 
-const ROUTE_CAP = STAGES.map(s => s.id);
-const ROUTE_DISK = ['forcing', 'disk', 'conclusion'];
+const ROUTE_STORY = STAGES.map(s => s.id);
+
+const EASY_DISK_STAGE = {
+  title: 'Easy branch: one centered disk handles every orientation',
+  space: 'Original witness plane + direction space',
+  lead: 'Here c*≤2/3, so η=h(1−c*)≥h/3. A centered disk has the same support η in every direction; the three normals of any equilateral-triangle orientation therefore contribute at least 3η≥h.',
+  mechanism: 'This is already the full enclosure certificate for these parameters. Newton points, the Minkowski disks, and the four cap overlaps belong only to the hard branch c*>2/3 and are not invoked here.',
+  glossary: [
+    ['η', 'the radius of the centered disk forced in Step 1'],
+    ['h=√3/2', 'the altitude of a side-1 equilateral triangle'],
+    ['Λ(K_wit)', 'the least enclosing equilateral-triangle side']
+  ],
+  question: 'Why does one centered disk close all triangle orientations at once?',
+  cue: 'The complete green direction ring means the same estimate works for every normal n, not that physical disks cover the plane.',
+  equation: 'h_K(n)+h_K(Rn)+h_K(R²n) ≥ η+η+η = 3η ≥ h',
+  takeaway: 'The disk gives Λ(K_wit)≥3η/h≥1 directly, so the proof proceeds to the final contradiction.',
+  source: '31057_terminal_nine_point_enclosure.md',
+  sourceLabel: 'Easy disk branch: 31057',
+  toolTitle: 'Easy branch selected by these parameters',
+  toolHint: 'The centered disk certifies every orientation, so no cap-chain control is needed.',
+  formal: [
+    '𝒟η ⊂ K_wit and h_𝒟η(n)=η for every unit normal n.',
+    'h_K_wit(n)+h_K_wit(Rn)+h_K_wit(R²n) ≥ 3η.',
+    'c*≤2/3 ⇒ 3η/h=3(1−c*)≥1 ⇒ Λ(K_wit)≥1.'
+  ]
+};
 
 const state = {
   mode: 'guided',
@@ -900,7 +1654,7 @@ const state = {
   newtonSide: 'minus',
   recipe: 'A',
   normalDeg: 270,
-  orbit: 'full',
+  orbit: 'sector',
   layers: {
     witnesses: true,
     innerSet: true,
@@ -1115,30 +1869,26 @@ function capContains(disk, angle) {
 
 function strictParamsFromSumSkew(sum, asymmetry) {
   const room = Math.sqrt(Math.max(0, 4 - 3 * sum * sum));
-  const difference = clamp(asymmetry, -.995, .995) * room;
+  const difference = clamp(asymmetry, -.999999, .999999) * room;
   return [(sum + difference) / 2, (sum - difference) / 2];
 }
 
 function sumSkewFromParams(a, b) {
   const sum = a + b;
   const room = Math.sqrt(Math.max(1e-16, 4 - 3 * sum * sum));
-  return { sum, asymmetry: clamp((a - b) / room, -.995, .995) };
+  return { sum, asymmetry: (a - b) / room };
 }
 
 function activeStageIds() {
-  return state.model && state.model.route === 'automatic' ? ROUTE_DISK : ROUTE_CAP;
+  return ROUTE_STORY;
 }
 
 function navigationStageIds() {
-  return state.mode === 'explore' ? ROUTE_CAP : activeStageIds();
+  return ROUTE_STORY;
 }
 
 function stageIndex(id = state.stageId) {
   return STAGES.findIndex(s => s.id === id);
-}
-
-function activeIndex() {
-  return activeStageIds().indexOf(state.stageId);
 }
 
 function currentStage() {
@@ -1149,8 +1899,6 @@ function stopTour() {
   if (state.playTimer) clearInterval(state.playTimer);
   state.playTimer = null;
   state.playing = false;
-  $('playTour').textContent = 'Play';
-  $('playTour').setAttribute('aria-pressed', 'false');
 }
 
 function announce(message) {
@@ -1160,9 +1908,6 @@ function announce(message) {
 
 function setStage(id, announceChange = true) {
   if (!STAGES.some(s => s.id === id)) return;
-  if (state.mode === 'guided' && !activeStageIds().includes(id)) {
-    id = state.model.route === 'automatic' ? 'disk' : id;
-  }
   state.stageId = id;
   stopTour();
   updateStageUI();
@@ -1179,50 +1924,46 @@ function advanceStage(delta) {
   updateStageUI();
   scheduleDraw();
   announce(`Stage: ${currentStage().title}`);
-  if (state.playing && next === ids.length - 1) stopTour();
 }
 
-function toggleTour() {
-  if (state.playing) {
-    stopTour();
-    announce('Guided playback stopped.');
-    return;
-  }
-  state.playing = true;
-  $('playTour').textContent = 'Pause';
-  $('playTour').setAttribute('aria-pressed', 'true');
-  const navigation = navigationStageIds();
-  if (navigation.indexOf(state.stageId) === navigation.length - 1) state.stageId = navigation[0];
-  updateStageUI();
-  scheduleDraw();
-  announce(`Stage: ${currentStage().title}`);
-  state.playTimer = window.setInterval(() => {
-    const ids = navigationStageIds();
-    const i = ids.indexOf(state.stageId);
-    if (i >= ids.length - 1) {
-      stopTour();
-      return;
-    }
-    state.stageId = ids[i + 1];
-    updateStageUI();
-    scheduleDraw();
-    announce(`Stage: ${currentStage().title}`);
-    if (i + 1 === ids.length - 1) stopTour();
-  }, 4500);
+function resetGuidedExample() {
+  state.a = .55;
+  state.b = .58;
+  const sk = sumSkewFromParams(state.a, state.b);
+  state.sum = sk.sum;
+  state.asymmetry = sk.asymmetry;
+  state.model = deriveGeometry(state.a, state.b);
+  state.newtonSide = 'minus';
+  state.recipe = 'A';
+  state.normalDeg = 270;
+  state.orbit = 'sector';
+  state.parameterMessage = '';
+  Object.keys(state.layers).forEach(key => { state.layers[key] = true; });
+
+  $('newtonSide').value = state.newtonSide;
+  $('minkowskiRecipe').value = state.recipe;
+  $('normalRange').value = state.normalDeg;
+  $('orbitSector').checked = true;
+  $('orbitFull').checked = false;
+  [
+    'layerWitnesses', 'layerInnerSet', 'layerSupportLines',
+    'layerDisks', 'layerSOutline', 'layerLabels'
+  ].forEach(id => { $(id).checked = true; });
+  syncParameterUI();
 }
 
 function setMode(mode) {
   state.mode = mode;
+  if (mode === 'guided') resetGuidedExample();
   document.body.classList.toggle('explore', mode === 'explore');
   $('guidedMode').setAttribute('aria-pressed', String(mode === 'guided'));
   $('exploreMode').setAttribute('aria-pressed', String(mode === 'explore'));
-  if (mode === 'guided' && !activeStageIds().includes(state.stageId)) {
-    state.stageId = state.model.route === 'automatic' ? 'disk' : 'forcing';
-  }
   stopTour();
   updateStageUI();
   scheduleDraw();
-  announce(`${mode === 'guided' ? 'Guided' : 'Explore'} mode selected.`);
+  announce(mode === 'guided'
+    ? 'Guided story selected and reset to the standard hard-branch example.'
+    : 'Research lab selected.');
 }
 
 function buildStageButtons() {
@@ -1234,66 +1975,82 @@ function buildStageButtons() {
     button.className = 'stage-pill';
     button.dataset.stage = stage.id;
     button.textContent = `${i + 1}. ${stage.short}`;
-    button.addEventListener('click', () => {
-      if (state.mode === 'guided' && !activeStageIds().includes(stage.id)) {
-        announce('That stage is not needed on the current automatic-disk route. Use Explore mode to inspect it.');
-        return;
-      }
-      setStage(stage.id);
-    });
+    button.addEventListener('click', () => setStage(stage.id));
     list.appendChild(button);
   });
 }
 
 function updateStageUI() {
   const stage = currentStage();
-  const active = activeStageIds();
-  const aIndex = Math.max(0, active.indexOf(stage.id));
-  $('stageKicker').textContent = `Stage ${stageIndex() + 1}`;
-  $('stageTitle').textContent = stage.title;
-  $('stageLead').textContent = stage.lead;
-  $('stageMechanism').textContent = stage.mechanism;
-  $('stageSpaceBadge').textContent = stage.space;
-  $('stageCounter').textContent = state.mode === 'guided'
-    ? `${aIndex + 1} / ${active.length}`
-    : `${stageIndex() + 1} / ${STAGES.length}`;
-  $('formalBody').innerHTML = stage.formal.map(x => `<div class="formula">${x}</div>`).join('');
+  const index = stageIndex();
+  const automaticCap = stage.id === 'cap-chain' && state.model.route === 'automatic';
+  const view = automaticCap ? { ...stage, ...EASY_DISK_STAGE } : stage;
+  $('stageKicker').textContent = `Step ${index + 1} of ${STAGES.length}`;
+  $('stageTitle').textContent = view.title;
+  $('stageLead').textContent = view.lead;
+  $('stageMechanism').textContent = view.mechanism;
+  $('stageGlossaryTerms').innerHTML = view.glossary
+    .map(([term, meaning]) => `<span class="glossary-term"><strong>${term}</strong> — ${meaning}</span>`)
+    .join(' · ');
+  $('stageQuestion').textContent = view.question;
+  $('stageVisualCue').textContent = view.cue;
+  $('stageEquation').textContent = view.equation;
+  $('stageTakeaway').textContent = view.takeaway;
+  $('stageSourceLink').href = view.source;
+  $('stageSourceLink').textContent = view.sourceLabel;
+  $('stageSpaceBadge').textContent = view.space;
+  $('stageCounter').textContent = `${index + 1} / ${STAGES.length}`;
+  $('toolTitle').textContent = view.toolTitle;
+  $('toolHint').textContent = view.toolHint;
+  $('newtonTool').hidden = !stage.tools.includes('newton');
+  $('recipeTool').hidden = !stage.tools.includes('recipe');
+  $('normalTool').hidden = !stage.tools.includes('normal') || automaticCap;
+  $('orbitTool').hidden = !stage.tools.includes('orbit') || automaticCap;
+  $('forcingEvidence').hidden = stage.id !== 'forcing';
+  $('formalBody').innerHTML = view.formal.map(x => `<div class="formula">${x}</div>`).join('');
   document.querySelectorAll('.stage-pill').forEach(button => {
     const id = button.dataset.stage;
     if (id === stage.id) button.setAttribute('aria-current', 'step');
     else button.removeAttribute('aria-current');
-    const unavailable = state.mode === 'guided' && !active.includes(id);
-    button.classList.toggle('inactive-route', unavailable);
-    if (unavailable) button.setAttribute('aria-disabled', 'true');
-    else button.removeAttribute('aria-disabled');
   });
+  const activeStageButton = document.querySelector('.stage-pill[aria-current="step"]');
+  const stageList = $('stageList');
+  if (activeStageButton) {
+    const listRect = stageList.getBoundingClientRect();
+    const buttonRect = activeStageButton.getBoundingClientRect();
+    const buttonCenter = buttonRect.left - listRect.left +
+      stageList.scrollLeft + buttonRect.width / 2;
+    stageList.scrollLeft = Math.max(0, buttonCenter - stageList.clientWidth / 2);
+  }
 
   const guided = state.mode === 'guided';
-  const showNewton = !guided || ['newton', 'inner-set'].includes(stage.id);
-  const showDirection = !guided || ['cap-meaning', 'cap-chain'].includes(stage.id);
+  const showNewton = stage.id === 'newton';
+  const showDirection = stage.id === 'cap-chain';
+  $('visualGrid').classList.toggle('direction-first', guided && stage.id === 'cap-chain');
   $('newtonFigure').hidden = !showNewton;
   $('directionFigure').hidden = !showDirection;
+  directionCanvas.classList.toggle('static', automaticCap);
+  $('overlapChecklist').classList.toggle(
+    'visible', stage.id === 'cap-chain' && state.model.route === 'cap'
+  );
   const supplementary = state.model.route === 'automatic';
   $('newtonSupplementary').classList.toggle('visible', supplementary && state.mode === 'explore');
-  $('directionSupplementary').classList.toggle(
-    'visible',
-    supplementary && state.mode === 'explore' && ['cap-meaning', 'cap-chain'].includes(stage.id)
-  );
+  $('directionSupplementary').classList.remove('visible');
 
   const routeNote = $('stageRouteNote');
-  if (state.model.route === 'automatic' && !['forcing', 'disk', 'conclusion'].includes(stage.id)) {
-    routeNote.textContent = 'For these parameters c* ≤ 2/3, so this panel is supplementary: the proof already closed using the centered disk.';
+  if (state.model.route === 'automatic' && stage.id !== 'conclusion') {
+    routeNote.textContent = stage.id === 'cap-chain'
+      ? 'Easy branch active: this scene shows the direct centered-disk certificate; the cap-chain lemma is not used.'
+      : 'Easy branch for the current parameters: c*≤2/3, so the centered disk already proves Λ≥1. Intermediate hard-route scenes remain visible as supplementary explanations.';
     routeNote.classList.add('visible');
-  } else if (stage.id === 'disk' && state.model.route === 'cap') {
-    routeNote.textContent = 'Here c* > 2/3, so the disk alone is too small. Continue to the Newton and cap-chain stages.';
-    routeNote.classList.add('visible');
-  } else if (stage.id === 'disk') {
-    routeNote.textContent = 'Here c* ≤ 2/3. Guided mode now skips directly to the final compactness contradiction.';
+  } else if (stage.id === 'newton') {
+    routeNote.textContent = 'Hard branch active: c*>2/3, so the disk alone is too small and the asymmetric witnesses are needed.';
     routeNote.classList.add('visible');
   } else {
     routeNote.classList.remove('visible');
   }
 
+  physicalCanvas.setAttribute('aria-label', `${view.title}. ${view.cue} Takeaway: ${view.takeaway}`);
   const navigation = navigationStageIds();
   const navigationIndex = navigation.indexOf(stage.id);
   $('prevStage').disabled = navigationIndex <= 0;
@@ -1346,10 +2103,6 @@ function setParameters(a, b, source = 'control') {
   state.asymmetry = sk.asymmetry;
   state.model = deriveGeometry(a, b);
   state.parameterMessage = '';
-  if (state.mode === 'guided' && !activeStageIds().includes(state.stageId)) {
-    state.stageId = state.model.route === 'automatic' ? 'disk' : 'forcing';
-    stopTour();
-  }
   syncParameterUI();
   updateStageUI();
   scheduleDraw();
@@ -1503,18 +2256,43 @@ function drawLineEquation(ctx, map, normal, value, color, dash = []) {
   drawPolyline(ctx, map, [a, b], { stroke: color, width: 1.8, dash });
 }
 
+function roundedRectPath(ctx, x, y, width, height, radius) {
+  if (typeof ctx.roundRect === 'function') {
+    ctx.roundRect(x, y, width, height, radius);
+    return;
+  }
+  const r = Math.min(radius, width / 2, height / 2);
+  ctx.moveTo(x + r, y);
+  ctx.lineTo(x + width - r, y);
+  ctx.quadraticCurveTo(x + width, y, x + width, y + r);
+  ctx.lineTo(x + width, y + height - r);
+  ctx.quadraticCurveTo(x + width, y + height, x + width - r, y + height);
+  ctx.lineTo(x + r, y + height);
+  ctx.quadraticCurveTo(x, y + height, x, y + height - r);
+  ctx.lineTo(x, y + r);
+  ctx.quadraticCurveTo(x, y, x + r, y);
+}
+
 function hull(points) {
   const sorted = [...points].sort((a, b) => a[0] - b[0] || a[1] - b[1]);
   if (sorted.length <= 2) return sorted;
   const lower = [];
   for (const p of sorted) {
-    while (lower.length >= 2 && cross(sub(lower.at(-1), lower.at(-2)), sub(p, lower.at(-1))) <= 0) lower.pop();
+    while (lower.length >= 2 &&
+      cross(
+        sub(lower[lower.length - 1], lower[lower.length - 2]),
+        sub(p, lower[lower.length - 1])
+      ) <= 0) lower.pop();
     lower.push(p);
   }
   const upper = [];
   for (let i = sorted.length - 1; i >= 0; i--) {
     const p = sorted[i];
-    while (upper.length >= 2 && cross(sub(upper.at(-1), upper.at(-2)), sub(p, upper.at(-1))) <= 0) upper.pop();
+    while (upper.length >= 2 &&
+      cross(
+        sub(upper[upper.length - 1], upper[upper.length - 2]),
+        sub(p, upper[upper.length - 1])
+      ) <= 0) upper.pop();
     upper.push(p);
   }
   lower.pop();
@@ -1555,8 +2333,21 @@ function drawCanvasLabel(ctx, text, x, y, options = {}) {
 }
 
 function drawWitnessScene(ctx, model) {
-  const map = wholeMapper(physicalCanvas, [-1.28, 1.28, -1.18, 1.18], 38);
+  const map = mapperForRect(
+    { x: 18, y: 58, w: 720, h: physicalCanvas.height - 88 },
+    [-1.28, 1.28, -1.18, 1.18],
+    38
+  );
   drawPolyline(ctx, map, [...VERTICES, VERTICES[0]], { stroke: css('--line'), width: 2 });
+  VERTICES.forEach((v, i) => {
+    const p = map.p(scale(1.13, v));
+    drawCanvasLabel(ctx, `U${i}`, p[0], p[1], {
+      color: css('--muted'),
+      font: '700 12px system-ui',
+      align: 'center',
+      baseline: 'middle'
+    });
+  });
   if (state.layers.witnesses) {
     drawPolyline(ctx, map, [...model.radialPoints, model.radialPoints[0]], {
       stroke: css('--accent'),
@@ -1578,14 +2369,100 @@ function drawWitnessScene(ctx, model) {
       dy: -7,
       font: '600 11px system-ui'
     }));
+    drawPolyline(ctx, map, [model.QMinus, model.QZero, model.QPlus], {
+      stroke: css('--gold'),
+      width: 2.2,
+      dash: [7, 5]
+    });
     drawPoint(ctx, map, model.QMinus, { fill: css('--blue'), shape: 'diamond', label: 'Q−' });
     drawPoint(ctx, map, model.QZero, { fill: css('--gold'), shape: 'diamond', label: 'Q₀' });
     drawPoint(ctx, map, model.QPlus, { fill: css('--purple'), shape: 'diamond', label: 'Q+' });
   }
   drawPoint(ctx, map, [0, 0], { fill: css('--ink'), radius: 3, label: 'O', dx: 7, dy: 8 });
-  drawCanvasLabel(ctx, 'Six radial witnesses force the centered disk by convexity.', 24, 30, {
+  drawCanvasLabel(ctx, 'Physical locations in H', 28, 31, {
     color: css('--accent'),
-    font: '650 14px system-ui'
+    font: '750 15px system-ui'
+  });
+  drawCanvasLabel(ctx, 'D₀,…,D₅ force the teal disk by convexity; Q−,Q₀,Q+ add asymmetry.', 28, 50, {
+    color: css('--muted'),
+    font: '12px system-ui'
+  });
+
+  const bx = 770, bw = 325;
+  ctx.save();
+  ctx.fillStyle = css('--panel');
+  ctx.strokeStyle = css('--line');
+  ctx.lineWidth = 1.5;
+  ctx.beginPath();
+  roundedRectPath(ctx, bx, 78, bw, 544, 12);
+  ctx.fill();
+  ctx.stroke();
+  ctx.restore();
+  drawCanvasLabel(ctx, 'WHY THE CENTER ROLE IS FORCED', bx + 18, 110, {
+    color: css('--accent'),
+    font: '800 12px system-ui'
+  });
+
+  const logicBoxes = [
+    {
+      y: 137,
+      key: '1 · EXCLUDE',
+      title: 'Every witness is outside U₀,…,U₅',
+      detail: 'radial maximality · Vd0 locality · distances · exact frontier and moving signs'
+    },
+    {
+      y: 286,
+      key: '2 · USE THE COVER',
+      title: 'Each witness must lie in U_C',
+      detail: 'the seven-role assignment leaves only the center role'
+    },
+    {
+      y: 421,
+      key: '3 · USE CONVEXITY',
+      title: 'U_C contains 𝒟η and Q−,Q₀,Q+',
+      detail: 'six Dᵢ fill their convex inner hexagon and its incircle'
+    }
+  ];
+  logicBoxes.forEach((box, i) => {
+    ctx.save();
+    ctx.fillStyle = i === 2 ? css('--green-soft') : css('--panel-2');
+    ctx.strokeStyle = i === 2 ? css('--green') : css('--line');
+    ctx.beginPath();
+    roundedRectPath(ctx, bx + 15, box.y, bw - 30, 105, 8);
+    ctx.fill();
+    ctx.stroke();
+    ctx.restore();
+    drawCanvasLabel(ctx, box.key, bx + 29, box.y + 24, {
+      color: i === 2 ? css('--green') : css('--accent'),
+      font: '800 10px system-ui'
+    });
+    drawCanvasLabel(ctx, box.title, bx + 29, box.y + 48, {
+      color: css('--ink'),
+      font: '700 13px system-ui'
+    });
+    const words = box.detail.split(' ');
+    let line = '', lineNo = 0;
+    for (const word of words) {
+      const trial = `${line}${line ? ' ' : ''}${word}`;
+      if (ctx.measureText(trial).width > bw - 64 && line) {
+        drawCanvasLabel(ctx, line, bx + 29, box.y + 69 + 15 * lineNo, {
+          color: css('--muted'), font: '10.5px system-ui'
+        });
+        line = word;
+        lineNo += 1;
+      } else line = trial;
+    }
+    if (line) drawCanvasLabel(ctx, line, bx + 29, box.y + 69 + 15 * lineNo, {
+      color: css('--muted'), font: '10.5px system-ui'
+    });
+    if (i < logicBoxes.length - 1) drawCanvasLabel(ctx, '↓', bx + bw / 2, box.y + 128, {
+      color: css('--accent'), font: '800 22px system-ui', align: 'center'
+    });
+  });
+  const diskSide = 3 * model.eta / H;
+  drawCanvasLabel(ctx, `disk-only test: 3η/h = ${fmt(diskSide, 4)} ${diskSide >= 1 ? '≥ 1  ✓' : '< 1  → use Q-points'}`, bx + 18, 597, {
+    color: diskSide >= 1 ? css('--green') : css('--purple'),
+    font: '700 12px ui-monospace'
   });
 }
 
@@ -1626,10 +2503,17 @@ function drawNewtonGeometry(ctx, model, showInnerHull = false) {
   drawPolyline(ctx, map, [...VERTICES, VERTICES[0]], { stroke: css('--line'), width: 1.5 });
   const eMinus = localToGlobal([1 - model.b, 2 - model.b]);
   const ePlus = localToGlobal([2 - model.a, 1 - model.a]);
-  drawCircle(ctx, map, eMinus, 1, { stroke: css('--blue'), width: 1.5, dash: [6, 5] });
-  drawCircle(ctx, map, ePlus, 1, { stroke: css('--purple'), width: 1.5, dash: [6, 5] });
-  drawPolyline(ctx, map, [model.B, model.QMinus], { stroke: css('--blue'), width: 3 });
-  drawPolyline(ctx, map, [model.B, model.QPlus], { stroke: css('--purple'), width: 3 });
+  const minusSelected = state.newtonSide === 'minus';
+  ctx.save();
+  ctx.globalAlpha = minusSelected ? 1 : .25;
+  drawCircle(ctx, map, eMinus, 1, { stroke: css('--blue'), width: minusSelected ? 2.3 : 1.3, dash: [7, 5] });
+  drawPolyline(ctx, map, [model.B, model.QMinus], { stroke: css('--blue'), width: minusSelected ? 4 : 2 });
+  ctx.restore();
+  ctx.save();
+  ctx.globalAlpha = minusSelected ? .25 : 1;
+  drawCircle(ctx, map, ePlus, 1, { stroke: css('--purple'), width: minusSelected ? 1.3 : 2.3, dash: [7, 5] });
+  drawPolyline(ctx, map, [model.B, model.QPlus], { stroke: css('--purple'), width: minusSelected ? 2 : 4 });
+  ctx.restore();
   if ((showInnerHull || state.mode === 'explore') && state.layers.innerSet) {
     drawPolyline(ctx, map, [...khatOutline(model), khatOutline(model)[0]], {
       stroke: css('--green'),
@@ -1643,8 +2527,14 @@ function drawNewtonGeometry(ctx, model, showInnerHull = false) {
     drawPoint(ctx, map, model.QZero, { fill: css('--gold'), shape: 'diamond', label: 'Q₀ = B' });
     drawPoint(ctx, map, model.QPlus, { fill: css('--purple'), shape: 'diamond', label: 'Q+' });
   }
-  drawPoint(ctx, map, model.A, { fill: css('--green'), shape: 'square', label: 'A', dy: 10 });
-  drawPoint(ctx, map, model.C, { fill: css('--green'), shape: 'square', label: 'C', dy: 10 });
+  ctx.save();
+  ctx.globalAlpha = minusSelected ? 1 : .3;
+  drawPoint(ctx, map, model.A, { fill: css('--green'), shape: 'square', label: 'A', dy: 12, radius: 7 });
+  ctx.restore();
+  ctx.save();
+  ctx.globalAlpha = minusSelected ? .3 : 1;
+  drawPoint(ctx, map, model.C, { fill: css('--green'), shape: 'square', label: 'C', dy: 12, radius: 7 });
+  ctx.restore();
   if (showInnerHull) {
     drawCircle(ctx, map, [0, 0], model.eta, {
       fill: css('--accent'),
@@ -1654,51 +2544,90 @@ function drawNewtonGeometry(ctx, model, showInnerHull = false) {
     });
     drawPoint(ctx, map, model.B, { fill: css('--gold'), shape: 'square', label: 'B', dy: 10 });
   }
-  drawCanvasLabel(ctx, 'Dashed circles: endpoint constraints. Solid segments: frontier lines.', 22, 28, {
+  const selectedData = model.newton[state.newtonSide];
+  drawCanvasLabel(ctx, 'Dashed circles are endpoint constraints; moving-sign inequalities handle the actual adjacent handoffs.', 22, 28, {
     color: css('--muted'),
     font: '12px system-ui'
   });
+  drawCanvasLabel(ctx,
+    `${selectedData.name}:  junction x*  <  tangent zero x̂  <  first root  ⇒  ${selectedData.inner} lies inside Q₀${selectedData.outer}`,
+    22, 54, { color: css('--green'), font: '700 13px ui-monospace' });
+}
+
+function intersectSupportLines(n0, value0, n1, value1) {
+  const determinant = cross(n0, n1);
+  return [
+    (value0 * n1[1] - n0[1] * value1) / determinant,
+    (n0[0] * value1 - value0 * n1[0]) / determinant
+  ];
 }
 
 function drawSupportScene(ctx, model) {
-  const map = wholeMapper(physicalCanvas, [-1.4, 1.4, -1.25, 1.25], 45);
+  const angle = state.normalDeg * DEG;
+  const colors = [css('--blue'), css('--gold'), css('--purple')];
+  const labels = ['n', 'Rn', 'R²n'];
+  const normals = Array.from({ length: 3 }, (_, j) => unit(angle + j * ROT120));
+  const supports = normals.map(n => supportKhat(model, n));
+  const parts = supports.map(item => item.value);
+  const triangle = [
+    intersectSupportLines(normals[1], parts[1], normals[2], parts[2]),
+    intersectSupportLines(normals[2], parts[2], normals[0], parts[0]),
+    intersectSupportLines(normals[0], parts[0], normals[1], parts[1])
+  ];
   const outline = khatOutline(model);
+  const plottedPoints = [...triangle, ...outline];
+  const xs = plottedPoints.map(point => point[0]);
+  const ys = plottedPoints.map(point => point[1]);
+  const margin = .18;
+  const bounds = [
+    Math.min(...xs) - margin,
+    Math.max(...xs) + margin,
+    Math.min(...ys) - margin,
+    Math.max(...ys) + margin
+  ];
+  const map = wholeMapper(physicalCanvas, bounds, 45);
+
+  drawPolyline(ctx, map, [...triangle, triangle[0]], {
+    stroke: css('--muted'),
+    fill: css('--panel'),
+    alpha: .24,
+    width: 2.2,
+    dash: [10, 7]
+  });
   if (state.layers.innerSet) {
     drawPolyline(ctx, map, [...outline, outline[0]], {
       stroke: css('--green'),
       fill: css('--green'),
-      alpha: .12,
-      width: 2.2
+      alpha: .13,
+      width: 2.4
     });
   }
-  const angle = state.normalDeg * DEG;
-  const colors = [css('--blue'), css('--gold'), css('--purple')];
-  const labels = ['n', 'Rn', 'R²n'];
-  const parts = [];
-  for (let j = 0; j < 3; j++) {
-    const n = unit(angle + j * ROT120);
-    const support = supportKhat(model, n);
-    parts.push(support.value);
+  normals.forEach((n, j) => {
+    const support = supports[j];
     if (state.layers.supports) {
       drawLineEquation(ctx, map, n, support.value, colors[j]);
       drawArrow(ctx, map, [0, 0], scale(.42, n), colors[j], labels[j]);
       drawPoint(ctx, map, support.point, {
         fill: colors[j],
         shape: j === 0 ? 'circle' : j === 1 ? 'square' : 'diamond',
-        radius: 4,
+        radius: 5,
         label: support.label,
-        font: '600 11px system-ui'
+        font: '700 12px system-ui'
       });
     }
-  }
-  const sum = parts.reduce((x, y) => x + y, 0);
-  drawCanvasLabel(ctx, `support sum = ${parts.map(x => fmt(x, 3)).join(' + ')} = ${fmt(sum, 4)}`, 26, 31, {
-    color: css('--ink'),
-    font: '650 14px ui-monospace'
   });
-  drawCanvasLabel(ctx, `orientation side = sum / h = ${fmt(sum / H, 4)}`, 26, 54, {
+  const sum = parts.reduce((x, y) => x + y, 0);
+  drawCanvasLabel(ctx, 'Dashed outline: the least enclosing equilateral triangle at this orientation', 26, 31, {
+    color: css('--muted'),
+    font: '12px system-ui'
+  });
+  drawCanvasLabel(ctx, `three supports = ${parts.map(x => fmt(x, 3)).join(' + ')} = ${fmt(sum, 4)}`, 26, 54, {
+    color: css('--ink'),
+    font: '700 14px ui-monospace'
+  });
+  drawCanvasLabel(ctx, `forced side at this orientation = support sum / h = ${fmt(sum / H, 4)}`, 26, 78, {
     color: sum >= H ? css('--green') : css('--red'),
-    font: '13px ui-monospace'
+    font: '700 13px ui-monospace'
   });
 }
 
@@ -1742,7 +2671,7 @@ function drawMinkowskiScene(ctx, model) {
     ctx.strokeStyle = css('--line');
     ctx.lineWidth = 1.5;
     ctx.beginPath();
-    ctx.roundRect(rect.x, rect.y, rect.w, rect.h, 8);
+    roundedRectPath(ctx, rect.x, rect.y, rect.w, rect.h, 8);
     ctx.fill();
     ctx.stroke();
     ctx.restore();
@@ -1782,7 +2711,7 @@ function drawMinkowskiScene(ctx, model) {
   ctx.strokeStyle = css('--line');
   ctx.lineWidth = 1.5;
   ctx.beginPath();
-  ctx.roundRect(resultRect.x, resultRect.y, resultRect.w, resultRect.h, 8);
+  roundedRectPath(ctx, resultRect.x, resultRect.y, resultRect.w, resultRect.h, 8);
   ctx.fill();
   ctx.stroke();
   ctx.restore();
@@ -1857,6 +2786,12 @@ function drawSupportDiskScene(ctx, model, chain = false) {
         width: 1.7
       });
       drawArrow(ctx, map, [0, 0], item.center, css(COLORS[item.key]), item.label);
+    });
+    drawCanvasLabel(ctx, 'Physical S-plane: explicit disks contained in S', 24, 29, {
+      color: css('--ink'), font: '750 14px system-ui'
+    });
+    drawCanvasLabel(ctx, 'Dashed radius-h circle is only a support-level guide; the disks do not need to cover the physical plane.', 24, 51, {
+      color: css('--muted'), font: '12px system-ui'
     });
   } else {
     const recipe = recipeData(model, state.recipe);
@@ -1971,48 +2906,45 @@ function drawPhysical() {
   const model = state.model;
   const stage = currentStage().id;
   if (stage === 'forcing') drawWitnessScene(ctx, model);
-  else if (stage === 'disk') drawDiskRouteScene(ctx, model);
-  else if (stage === 'newton') drawNewtonGeometry(ctx, model, false);
-  else if (stage === 'inner-set') drawNewtonGeometry(ctx, model, true);
+  else if (stage === 'newton') drawNewtonGeometry(ctx, model, true);
   else if (stage === 'support') drawSupportScene(ctx, model);
   else if (stage === 'minkowski') drawMinkowskiScene(ctx, model);
-  else if (stage === 'cap-meaning') drawSupportDiskScene(ctx, model, false);
+  else if (stage === 'cap-chain' && model.route === 'automatic') drawDiskRouteScene(ctx, model);
   else if (stage === 'cap-chain') drawSupportDiskScene(ctx, model, true);
   else drawConclusionScene(ctx);
 
   const spaces = {
     forcing: 'Original witness plane',
-    disk: 'Original witness plane',
     newton: 'Original witness plane',
-    'inner-set': 'Original witness plane',
     support: 'Original witness plane',
     minkowski: 'Minkowski-sum plane S',
-    'cap-meaning': 'Physical Minkowski-sum plane S',
-    'cap-chain': 'Physical Minkowski-sum plane S',
+    'cap-chain': model.route === 'automatic' ? 'Original witness plane' : 'Physical Minkowski-sum plane S',
     conclusion: 'Logical schematic'
   };
   $('physicalSpaceBadge').textContent = spaces[stage];
-  $('physicalTitle').textContent = stage === 'minkowski'
-    ? 'How the disks are built inside S'
-    : stage === 'cap-chain'
-      ? 'Disk centers and rays in the S-plane'
-      : stage === 'conclusion'
-        ? 'Open-to-closed compactness handoff'
-        : 'Physical geometry';
+  const titles = {
+    forcing: 'How the nine witnesses are forced',
+    newton: 'Certified inward replacement on the two frontier lines',
+    support: 'Three supports form one enclosing equilateral triangle',
+    minkowski: 'How explicit disks are built inside S',
+    'cap-chain': model.route === 'automatic'
+      ? 'Easy branch: the centered disk already forces side at least one'
+      : 'Physical disks and ordered rays in the S-plane',
+    conclusion: 'Open-to-closed compactness handoff'
+  };
+  $('physicalTitle').textContent = titles[stage];
   const n = unit(state.normalDeg * DEG);
   const s = supportS(model, n);
-  const selectedDisk = recipeData(model, state.recipe).disk;
-  const selectedSupport = dot(selectedDisk.center, n) + selectedDisk.radius;
   const newton = model.newton[state.newtonSide];
+  const certificate = diskOrbitCertificate(model, state.normalDeg * DEG);
   const readouts = {
-    forcing: `radial radius 1−c*=${fmt(1 - model.cStar, 5)}; forced incircle radius η=${fmt(model.eta, 5)}; three asymmetric witnesses Q−, Q₀, Q+.`,
-    disk: `disk-only lower bound 3η/h=${fmt(3 * model.eta / H, 5)} ${model.route === 'automatic' ? '≥' : '<'} 1.`,
-    newton: `${newton.name}: x*=${fmt(newton.xStar, 6)} < x̂=${fmt(newton.xHat, 6)} < first root=${fmt(newton.root, 6)}.`,
-    'inner-set': `A∈(Q₀,Q−), C∈(Q₀,Q+); therefore K̂⊂conv(K_wit) and Λ(K_wit)≥Λ(K̂).`,
-    support: `normal ${fmt(state.normalDeg, 1)}°: h_S(n)/h=${fmt(s.value / H, 5)}.`,
+    forcing: `nine forced points: D₀,…,D₅ and Q−,Q₀,Q+; incircle η=${fmt(model.eta, 5)}; disk-only bound 3η/h=${fmt(3 * model.eta / H, 5)}.`,
+    newton: `${newton.name}: x*=${fmt(newton.xStar, 6)} < x̂=${fmt(newton.xHat, 6)} < first root=${fmt(newton.root, 6)}; K̂⊂conv(K_wit).`,
+    support: `normal ${fmt(state.normalDeg, 1)}°: orientation side = h_S(n)/h=${fmt(s.value / H, 5)}.`,
     minkowski: `${recipeData(model, state.recipe).equation}; this entire disk lies inside S.`,
-    'cap-meaning': `${selectedDisk.label}: X·n+r=${fmt(selectedSupport, 5)} ${selectedSupport >= H ? '≥' : '<'} h.`,
-    'cap-chain': `full rotated disk family: h_S(n)/h=${fmt(s.value / H, 5)} at n=${fmt(state.normalDeg, 1)}°.`,
+    'cap-chain': model.route === 'automatic'
+      ? `centered-disk bound 3η/h=${fmt(3 * model.eta / H, 5)}≥1; Newton and cap overlaps are not invoked.`
+      : `displayed disk-orbit support/h=${fmt(certificate.value / H, 5)}; full h_S(n)/h=${fmt(s.value / H, 5)} at n=${fmt(state.normalDeg, 1)}°.`,
     conclusion: `enclosure mechanism: Λ(K_wit)≥1; hypothetical compact containment in U_C: Λ(K_wit)<1.`
   };
   $('physicalReadout').textContent = readouts[stage];
@@ -2138,81 +3070,436 @@ function chainDisks(model) {
   ];
 }
 
+function unwrapAtOrAfter(angle, lowerBound) {
+  while (angle < lowerBound - 1e-10) angle += TAU;
+  return angle;
+}
+
+function diskOrbitCertificate(model, angle) {
+  let best = { value: -Infinity, label: '' };
+  const rotations = [0, ROT120, 2 * ROT120];
+  for (const item of chainDisks(model).slice(0, 4)) {
+    for (const rotation of rotations) {
+      const center = rot(item.center, rotation);
+      const value = dot(center, unit(angle)) + item.radius;
+      if (value > best.value) {
+        best = {
+          value,
+          label: `${item.label}${rotation ? ` rotated ${Math.round(rotation / DEG)}°` : ''}`
+        };
+      }
+    }
+  }
+  return best;
+}
+
+function drawUnwrappedCapChain(ctx, model) {
+  const items = chainDisks(model);
+  const sectorStart = angleOf(model.A);
+  const sectorEnd = sectorStart + ROT120;
+  let previousCenter = sectorStart;
+  const intervals = items.map((item, i) => {
+    const cap = capForDisk({ center: item.center, radius: item.radius });
+    let centerAngle = i === 0
+      ? sectorStart
+      : i === items.length - 1
+        ? sectorEnd
+        : unwrapAtOrAfter(angleOf(item.center), previousCenter);
+    previousCenter = centerAngle;
+    return {
+      ...item,
+      centerAngle,
+      left: centerAngle - cap.halfWidth,
+      right: centerAngle + cap.halfWidth
+    };
+  });
+
+  const w = directionCanvas.width;
+  const viewStart = sectorStart - 12 * DEG;
+  const viewEnd = sectorEnd + 12 * DEG;
+  const x0 = 150, x1 = w - 185;
+  const X = angle => x0 + (angle - viewStart) / (viewEnd - viewStart) * (x1 - x0);
+  const rowY = [92, 178, 264, 350, 436];
+  const barHeight = 34;
+
+  drawCanvasLabel(ctx, 'UNWRAP ONE FUNDAMENTAL SECTOR', 24, 30, {
+    color: css('--accent'), font: '800 12px system-ui'
+  });
+  drawCanvasLabel(ctx, 'A direction belongs to a bar exactly when that disk has support at least h.', 24, 52, {
+    color: css('--muted'), font: '12px system-ui'
+  });
+  ctx.save();
+  ctx.strokeStyle = css('--line');
+  ctx.lineWidth = 1.5;
+  ctx.setLineDash([6, 5]);
+  [sectorStart, sectorEnd].forEach(angle => {
+    ctx.beginPath();
+    ctx.moveTo(X(angle), 72);
+    ctx.lineTo(X(angle), 496);
+    ctx.stroke();
+  });
+  ctx.restore();
+
+  intervals.forEach((item, i) => {
+    const left = X(Math.max(item.left, viewStart));
+    const right = X(Math.min(item.right, viewEnd));
+    const color = css(COLORS[item.key]);
+    drawCanvasLabel(ctx, `${item.label}`, 28, rowY[i] + 23, {
+      color, font: '800 15px ui-monospace'
+    });
+    drawCanvasLabel(ctx, item.label === 'W' ? 'I(W,η)' : `I(${item.label},2η)`, 58, rowY[i] + 23, {
+      color: css('--muted'), font: '12px ui-monospace'
+    });
+    ctx.save();
+    ctx.globalAlpha = .18;
+    ctx.fillStyle = color;
+    ctx.beginPath();
+    roundedRectPath(ctx, left, rowY[i], Math.max(2, right - left), barHeight, 10);
+    ctx.fill();
+    ctx.restore();
+    ctx.save();
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    roundedRectPath(ctx, left, rowY[i], Math.max(2, right - left), barHeight, 10);
+    ctx.stroke();
+    ctx.restore();
+    const centerX = X(item.centerAngle);
+    ctx.fillStyle = color;
+    ctx.beginPath();
+    ctx.arc(centerX, rowY[i] + barHeight / 2, 5, 0, TAU);
+    ctx.fill();
+  });
+
+  for (let i = 0; i < intervals.length - 1; i++) {
+    const overlapLeft = Math.max(intervals[i].left, intervals[i + 1].left, sectorStart);
+    const overlapRight = Math.min(intervals[i].right, intervals[i + 1].right, sectorEnd);
+    const midpoint = (overlapLeft + overlapRight) / 2;
+    const x = X(midpoint);
+    const y0 = rowY[i] + barHeight;
+    const y1 = rowY[i + 1];
+    ctx.save();
+    ctx.strokeStyle = css('--green');
+    ctx.lineWidth = 5;
+    ctx.beginPath();
+    ctx.moveTo(x, y0);
+    ctx.lineTo(x, y1);
+    ctx.stroke();
+    ctx.fillStyle = css('--green');
+    ctx.beginPath();
+    ctx.arc(x, (y0 + y1) / 2, 9, 0, TAU);
+    ctx.fill();
+    ctx.restore();
+    drawCanvasLabel(ctx, '✓', x, (y0 + y1) / 2 + 4, {
+      color: css('--panel'), font: '800 10px system-ui', align: 'center'
+    });
+    drawCanvasLabel(ctx, i < 2 ? 'analytic overlap' : 'exact mixed certificate', x + 14, (y0 + y1) / 2 + 4, {
+      color: i < 2 ? css('--accent') : css('--purple'), font: '700 10px system-ui'
+    });
+  }
+
+  ctx.save();
+  ctx.strokeStyle = css('--green');
+  ctx.lineWidth = 10;
+  ctx.lineCap = 'round';
+  ctx.beginPath();
+  ctx.moveTo(X(sectorStart), 522);
+  ctx.lineTo(X(sectorEnd), 522);
+  ctx.stroke();
+  ctx.restore();
+  drawCanvasLabel(ctx, '0° · ray A', X(sectorStart), 552, {
+    color: css('--ink'), font: '700 11px system-ui', align: 'center'
+  });
+  drawCanvasLabel(ctx, 'the five caps cover the whole sector', (X(sectorStart) + X(sectorEnd)) / 2, 548, {
+    color: css('--green'), font: '800 12px system-ui', align: 'center'
+  });
+  drawCanvasLabel(ctx, '120° · ray RA', X(sectorEnd), 552, {
+    color: css('--ink'), font: '700 11px system-ui', align: 'center'
+  });
+
+  const normalAngle = state.normalDeg * DEG;
+  const equivalent = sectorStart + normalizeAngle(normalAngle - sectorStart) % ROT120;
+  const normalX = X(equivalent);
+  ctx.save();
+  ctx.strokeStyle = css('--ink');
+  ctx.lineWidth = 2;
+  ctx.setLineDash([4, 4]);
+  ctx.beginPath();
+  ctx.moveTo(normalX, 68);
+  ctx.lineTo(normalX, 496);
+  ctx.stroke();
+  ctx.restore();
+  drawCanvasLabel(ctx, 'selected n (mod 120°)', normalX, 69, {
+    color: css('--ink'), font: '700 10px system-ui', align: 'center'
+  });
+
+  const ringCenter = [w - 88, 495];
+  const ringRadius = 55;
+  ctx.strokeStyle = css('--line');
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.arc(ringCenter[0], ringCenter[1], ringRadius, 0, TAU);
+  ctx.stroke();
+  for (let j = 0; j < 3; j++) {
+    ctx.save();
+    ctx.strokeStyle = css('--green');
+    ctx.globalAlpha = .45 + .22 * j;
+    ctx.lineWidth = 9;
+    ctx.beginPath();
+    ctx.arc(ringCenter[0], ringCenter[1], ringRadius, -PI / 2 + j * ROT120, -PI / 2 + (j + 1) * ROT120);
+    ctx.stroke();
+    ctx.restore();
+  }
+  drawCanvasLabel(ctx, 'rotate the sector', ringCenter[0], 418, {
+    color: css('--muted'), font: '700 10px system-ui', align: 'center'
+  });
+  drawCanvasLabel(ctx, 'R and R²', ringCenter[0], 499, {
+    color: css('--green'), font: '800 11px system-ui', align: 'center'
+  });
+  drawCanvasLabel(ctx, '⇒ all S¹', ringCenter[0], 516, {
+    color: css('--green'), font: '800 11px system-ui', align: 'center'
+  });
+}
+
+function drawAutomaticDiskDirections(ctx, model) {
+  const w = directionCanvas.width;
+  const h = directionCanvas.height;
+  const center = [285, 305];
+  const radius = 184;
+  const normalAngle = state.normalDeg * DEG;
+  const normalColors = ['--accent', '--gold', '--purple'];
+
+  drawCanvasLabel(ctx, 'ONE ROTATION-INVARIANT ESTIMATE', 24, 30, {
+    color: css('--accent'), font: '800 12px system-ui'
+  });
+  drawCanvasLabel(ctx, 'The green ring means every starting normal n is certified.', 24, 52, {
+    color: css('--muted'), font: '12px system-ui'
+  });
+
+  ctx.save();
+  ctx.strokeStyle = css('--green');
+  ctx.lineWidth = 13;
+  ctx.globalAlpha = .22;
+  ctx.beginPath();
+  ctx.arc(center[0], center[1], radius, 0, TAU);
+  ctx.stroke();
+  ctx.globalAlpha = 1;
+  ctx.lineWidth = 3;
+  ctx.beginPath();
+  ctx.arc(center[0], center[1], radius, 0, TAU);
+  ctx.stroke();
+  ctx.restore();
+
+  for (let i = 0; i < 24; i++) {
+    const angle = i * TAU / 24;
+    const inner = radius - (i % 2 ? 5 : 10);
+    ctx.save();
+    ctx.strokeStyle = css('--green');
+    ctx.lineWidth = i % 2 ? 1 : 2;
+    ctx.beginPath();
+    ctx.moveTo(
+      center[0] + inner * Math.cos(angle),
+      center[1] - inner * Math.sin(angle)
+    );
+    ctx.lineTo(
+      center[0] + (radius + 5) * Math.cos(angle),
+      center[1] - (radius + 5) * Math.sin(angle)
+    );
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  for (let j = 0; j < 3; j++) {
+    const angle = normalAngle + j * ROT120;
+    const end = [
+      center[0] + (radius - 18) * Math.cos(angle),
+      center[1] - (radius - 18) * Math.sin(angle)
+    ];
+    ctx.save();
+    ctx.strokeStyle = css(normalColors[j]);
+    ctx.fillStyle = css(normalColors[j]);
+    ctx.lineWidth = 4;
+    ctx.beginPath();
+    ctx.moveTo(center[0], center[1]);
+    ctx.lineTo(...end);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(end[0], end[1], 6, 0, TAU);
+    ctx.fill();
+    ctx.restore();
+    drawCanvasLabel(ctx, ['n', 'Rn', 'R²n'][j], end[0] + 9, end[1] - 7, {
+      color: css(normalColors[j]), font: '800 13px system-ui'
+    });
+    const supportPoint = [
+      center[0] + 88 * Math.cos(angle),
+      center[1] - 88 * Math.sin(angle)
+    ];
+    drawCanvasLabel(ctx, 'η', supportPoint[0], supportPoint[1] + 4, {
+      color: css(normalColors[j]), font: '800 15px ui-monospace', align: 'center'
+    });
+  }
+
+  ctx.save();
+  ctx.fillStyle = css('--accent-soft');
+  ctx.strokeStyle = css('--accent');
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.arc(center[0], center[1], 62, 0, TAU);
+  ctx.fill();
+  ctx.stroke();
+  ctx.restore();
+  drawCanvasLabel(ctx, '𝒟η', center[0], center[1] - 6, {
+    color: css('--accent'), font: '800 24px ui-monospace', align: 'center'
+  });
+  drawCanvasLabel(ctx, 'centered disk', center[0], center[1] + 20, {
+    color: css('--muted'), font: '11px system-ui', align: 'center'
+  });
+  drawCanvasLabel(ctx, 'every n ∈ S¹  ✓', center[0], 548, {
+    color: css('--green'), font: '800 15px system-ui', align: 'center'
+  });
+
+  const cardX = 535;
+  const cardW = w - cardX - 34;
+  const drawCard = (y, number, title, formula, detail, color) => {
+    ctx.save();
+    ctx.fillStyle = css('--panel');
+    ctx.strokeStyle = css('--line');
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    roundedRectPath(ctx, cardX, y, cardW, 116, 10);
+    ctx.fill();
+    ctx.stroke();
+    ctx.fillStyle = css(color);
+    ctx.beginPath();
+    ctx.arc(cardX + 32, y + 34, 18, 0, TAU);
+    ctx.fill();
+    ctx.restore();
+    drawCanvasLabel(ctx, String(number), cardX + 32, y + 39, {
+      color: css('--panel'), font: '800 13px system-ui', align: 'center'
+    });
+    drawCanvasLabel(ctx, title, cardX + 62, y + 27, {
+      color: css('--ink'), font: '800 14px system-ui'
+    });
+    drawCanvasLabel(ctx, formula, cardX + 62, y + 54, {
+      color: css(color), font: '750 14px ui-monospace'
+    });
+    drawCanvasLabel(ctx, detail, cardX + 62, y + 82, {
+      color: css('--muted'), font: '11px system-ui'
+    });
+  };
+
+  drawCard(70, 1, 'Same support in every direction', 'h_𝒟η(n) = η', 'Centering removes all dependence on the angle of n.', '--accent');
+  drawCard(218, 2, 'Add the three triangle normals', 'η + η + η = 3η', 'The normals n, Rn, R²n are always 120° apart.', '--purple');
+  drawCard(366, 3, 'Use the easy-branch threshold', `3η/h = ${fmt(3 * model.eta / H, 5)} ≥ 1`, 'Therefore every oriented enclosing triangle has side at least one.', '--green');
+
+  ctx.save();
+  ctx.fillStyle = css('--green-soft');
+  ctx.strokeStyle = css('--green');
+  ctx.lineWidth = 1.5;
+  ctx.beginPath();
+  roundedRectPath(ctx, cardX, 518, cardW, 56, 10);
+  ctx.fill();
+  ctx.stroke();
+  ctx.restore();
+  drawCanvasLabel(ctx, 'Λ(K_wit) ≥ 3η/h ≥ 1  ·  Newton and cap overlaps skipped', cardX + cardW / 2, 551, {
+    color: css('--green'), font: '800 13px ui-monospace', align: 'center'
+  });
+}
+
 function drawDirection() {
   const ctx = clearCanvas(directionCanvas);
   const model = state.model;
   const stage = currentStage().id;
-  const center = [directionCanvas.width * .47, directionCanvas.height * .51];
-  const baseRadius = Math.min(directionCanvas.height * .34, directionCanvas.width * .23);
+  const normalAngle = state.normalDeg * DEG;
+  const exactSupport = supportS(model, unit(normalAngle)).value;
+  if (stage === 'cap-chain' && model.route === 'automatic') {
+    $('directionTitle').textContent = 'Centered-disk certificate for all directions';
+    $('directionCaption').textContent = 'A centered disk contributes η to each of the three support directions. Since 3η≥h in this branch, no direction-cap overlap is needed.';
+    directionCanvas.setAttribute(
+      'aria-label',
+      `Easy centered-disk branch. Every normal is certified because three eta divided by h equals ${fmt(3 * model.eta / H, 5)}, at least one. Newton points and cap overlaps are not used.`
+    );
+    drawAutomaticDiskDirections(ctx, model);
+    $('directionReadout').textContent =
+      `uniform centered-disk bound: 3η/h=${fmt(3 * model.eta / H, 5)}≥1 for every n; cap-chain proposition not invoked.`;
+    return;
+  }
+
+  const certificate = diskOrbitCertificate(model, normalAngle);
+  $('directionTitle').textContent = stage === 'cap-chain' && state.orbit === 'sector'
+    ? 'Unwrapped five-cap chain on one 120° sector'
+    : stage === 'cap-chain'
+      ? 'Three rotated cap chains cover the full direction circle'
+      : 'One physical disk becomes an arc of normal directions';
+  $('directionCaption').textContent = stage === 'cap-chain'
+    ? 'Four consecutive short-sector overlaps cover A-to-RA; rotation by R and R² repeats the argument around S¹.'
+    : 'The set I(X,r) lives in direction space S¹; it is not a piece of the physical disk.';
+
+  if (stage === 'cap-chain' && state.orbit === 'sector') {
+    directionCanvas.setAttribute(
+      'aria-label',
+      'Hard-branch cap chain unwrapped across one 120-degree sector. Five connected caps occur in ray order A, B, C, W, RA; four consecutive overlaps cover the sector, and rotations cover every direction.'
+    );
+    drawUnwrappedCapChain(ctx, model);
+    $('directionReadout').textContent =
+      `displayed disk-orbit certificate at n=${fmt(state.normalDeg, 1)}°: ${certificate.label} gives ${fmt(certificate.value / H, 5)}h; full h_S(n)=${fmt(exactSupport / H, 5)}h.`;
+    return;
+  }
+
+  const center = [directionCanvas.width * .42, directionCanvas.height * .52];
+  const baseRadius = Math.min(directionCanvas.height * .34, directionCanvas.width * .2);
   ctx.strokeStyle = css('--line');
   ctx.lineWidth = 2;
   ctx.beginPath();
   ctx.arc(center[0], center[1], baseRadius, 0, TAU);
   ctx.stroke();
-  drawCanvasLabel(ctx, 'S¹: unit normal directions', center[0], 27, {
-    color: css('--muted'),
-    font: '650 13px system-ui',
-    align: 'center'
+  drawCanvasLabel(ctx, stage === 'cap-chain' ? 'FULL DIRECTION CIRCLE S¹' : 'ONE DISK CAP IN DIRECTION SPACE', center[0], 36, {
+    color: css('--accent'), font: '800 12px system-ui', align: 'center'
   });
 
   let activeLabels = [];
-  if (model.route === 'automatic' && ['disk', 'conclusion'].includes(stage)) {
-    ctx.strokeStyle = css('--green');
-    ctx.lineWidth = 11;
-    ctx.beginPath();
-    ctx.arc(center[0], center[1], baseRadius, 0, TAU);
-    ctx.stroke();
-    activeLabels = ['𝒟η + R𝒟η + R²𝒟η: all directions'];
-  } else if (stage === 'cap-chain') {
-    const items = chainDisks(model);
-    const rotations = state.orbit === 'full' ? [0, ROT120, 2 * ROT120] : [0];
+  if (stage === 'cap-chain') {
+    const items = chainDisks(model).slice(0, 4);
+    const rotations = [0, ROT120, 2 * ROT120];
     items.forEach((item, i) => {
-      const lane = baseRadius - 42 + i * 18;
-      rotations.forEach(rotation => drawCapArc(
-        ctx, center, lane, item, css(COLORS[item.key]), rotation, 7
-      ));
+      const lane = baseRadius - 52 + i * 30;
+      rotations.forEach(rotation => drawCapArc(ctx, center, lane, item, css(COLORS[item.key]), rotation, 10));
       const rayAngle = angleOf(item.center);
       const p = [center[0] + lane * Math.cos(rayAngle), center[1] - lane * Math.sin(rayAngle)];
-      drawCanvasLabel(ctx, item.label, p[0], p[1] - 9, {
-        color: css(COLORS[item.key]),
-        font: '700 10px system-ui',
-        align: 'center'
+      drawCanvasLabel(ctx, item.label, p[0], p[1] - 12, {
+        color: css(COLORS[item.key]), font: '800 12px system-ui', align: 'center'
+      });
+      rotations.forEach(rotation => {
+        const disk = { center: rot(item.center, rotation), radius: item.radius };
+        if (capContains(disk, normalAngle)) {
+          activeLabels.push(`${item.label}${rotation ? `+${Math.round(rotation / DEG)}°` : ''}`);
+        }
       });
     });
-
-    const unionRadius = baseRadius + 48;
-    const sectorOrigin = normalizeAngle(angleOf(model.A));
-    const unionItems = state.orbit === 'full' ? items.slice(0, 4) : items;
+    const unionRadius = baseRadius + 70;
     for (let i = 0; i < 360; i++) {
       const a0 = i * TAU / 360;
       const a1 = (i + 1.2) * TAU / 360;
       const midpoint = (a0 + a1) / 2;
-      const inDisplayedSector = normalizeAngle(midpoint - sectorOrigin) <= ROT120 + .01;
-      let covered = false;
-      for (const item of unionItems) {
-        const rotationsToTest = state.orbit === 'full' ? [0, ROT120, 2 * ROT120] : [0];
-        for (const rotation of rotationsToTest) {
-          const disk = { center: rot(item.center, rotation), radius: item.radius };
-          if (capContains(disk, midpoint)) covered = true;
-        }
-      }
-      ctx.strokeStyle = state.orbit === 'sector' && !inDisplayedSector
-        ? css('--line')
-        : covered ? css('--green') : css('--red');
-      ctx.lineWidth = 5;
+      const covered = items.some(item => rotations.some(rotation => capContains({
+        center: rot(item.center, rotation),
+        radius: item.radius
+      }, midpoint)));
+      ctx.strokeStyle = covered ? css('--green') : css('--red');
+      ctx.lineWidth = 6;
       ctx.beginPath();
       ctx.arc(center[0], center[1], unionRadius, -a1, -a0);
       ctx.stroke();
     }
   } else {
     const disk = recipeData(model, state.recipe).disk;
-    drawCapArc(ctx, center, baseRadius, disk, css(COLORS[state.recipe]), 0, 12);
+    drawCapArc(ctx, center, baseRadius, disk, css(COLORS[state.recipe]), 0, 15);
+    if (capContains(disk, normalAngle)) activeLabels.push(disk.label);
   }
 
-  const normalAngle = state.normalDeg * DEG;
   const end = [
-    center[0] + (baseRadius + 62) * Math.cos(normalAngle),
-    center[1] - (baseRadius + 62) * Math.sin(normalAngle)
+    center[0] + (baseRadius + 88) * Math.cos(normalAngle),
+    center[1] - (baseRadius + 88) * Math.sin(normalAngle)
   ];
   ctx.save();
   ctx.strokeStyle = css('--ink');
@@ -2226,52 +3513,52 @@ function drawDirection() {
   ctx.arc(end[0], end[1], 6, 0, TAU);
   ctx.fill();
   ctx.restore();
-  drawCanvasLabel(ctx, 'n', end[0] + 8, end[1] - 5, {
-    color: css('--ink'),
-    font: '700 13px system-ui'
+  drawCanvasLabel(ctx, 'n', end[0] + 9, end[1] - 6, {
+    color: css('--ink'), font: '800 14px system-ui'
   });
 
-  if (stage === 'cap-chain') {
-    const rotations = state.orbit === 'full' ? [0, ROT120, 2 * ROT120] : [0];
-    const activeItems = state.orbit === 'full'
-      ? chainDisks(model).slice(0, 4)
-      : chainDisks(model);
-    for (const item of activeItems) {
-      for (const rotation of rotations) {
-        const disk = { center: rot(item.center, rotation), radius: item.radius };
-        if (capContains(disk, normalAngle)) activeLabels.push(`${item.label}${rotation ? ` rotated ${Math.round(rotation / DEG)}°` : ''}`);
-      }
-    }
-  } else if (!(model.route === 'automatic' && ['disk', 'conclusion'].includes(stage))) {
-    const disk = recipeData(model, state.recipe).disk;
-    if (capContains(disk, normalAngle)) activeLabels.push(disk.label);
-  }
-
-  const sectorStart = angleOf(model.A);
-  if (state.orbit === 'sector' && stage === 'cap-chain') {
-    [sectorStart, sectorStart + ROT120].forEach((angle, i) => {
-      const p = [
-        center[0] + (baseRadius + 56) * Math.cos(angle),
-        center[1] - (baseRadius + 56) * Math.sin(angle)
+  const lx = directionCanvas.width * .76;
+  drawCanvasLabel(ctx, stage === 'cap-chain' ? 'WHAT THE RINGS MEAN' : 'PHYSICAL DISK → DIRECTION ARC', lx, 112, {
+    color: css('--accent'), font: '800 12px system-ui'
+  });
+  const legendLines = stage === 'cap-chain'
+    ? [
+        ['A, B, C', 'radius-2η disk orbits'],
+        ['W', 'radius-η bridge-disk orbit'],
+        ['outer green ring', 'their union certifies every n'],
+        ['black ray', `current normal ${fmt(state.normalDeg, 1)}°`]
+      ]
+    : [
+        [recipeData(model, state.recipe).disk.label, 'one physical disk inside S'],
+        ['colored arc', 'directions where X·n+r≥h'],
+        ['black ray', `current normal ${fmt(state.normalDeg, 1)}°`]
       ];
-      ctx.save();
-      ctx.strokeStyle = css('--gold');
-      ctx.setLineDash([6, 5]);
-      ctx.beginPath(); ctx.moveTo(...center); ctx.lineTo(...p); ctx.stroke();
-      ctx.restore();
-      drawCanvasLabel(ctx, i ? 'RA boundary' : 'A boundary', p[0], p[1], {
-        color: css('--gold'),
-        font: '600 10px system-ui',
-        align: 'center'
-      });
+  legendLines.forEach(([key, value], i) => {
+    drawCanvasLabel(ctx, key, lx, 154 + 58 * i, {
+      color: css('--ink'), font: '800 13px system-ui'
     });
-  }
-
-  const selected = recipeData(model, state.recipe).disk;
-  const selectedSupport = dot(selected.center, unit(normalAngle)) + selected.radius;
-  $('directionReadout').textContent = activeLabels.length
-    ? `n=${fmt(state.normalDeg, 1)}°; active cap(s): ${activeLabels.join(', ')}.`
-    : `n=${fmt(state.normalDeg, 1)}°; selected disk support=${fmt(selectedSupport, 5)} ${selectedSupport >= H ? '≥' : '<'} h; this disk ${selectedSupport >= H ? 'does' : 'does not'} certify this direction.`;
+    drawCanvasLabel(ctx, value, lx, 174 + 58 * i, {
+      color: css('--muted'), font: '11px system-ui'
+    });
+  });
+  drawCanvasLabel(ctx, `active: ${activeLabels.length ? activeLabels.join(', ') : 'none for the selected single disk'}`, lx, 430, {
+    color: activeLabels.length ? css('--green') : css('--red'), font: '700 11px system-ui'
+  });
+  drawCanvasLabel(ctx, `disk-orbit support / h = ${fmt(certificate.value / H, 5)}`, lx, 468, {
+    color: css('--green'), font: '700 12px ui-monospace'
+  });
+  drawCanvasLabel(ctx, `full h_S(n) / h = ${fmt(exactSupport / H, 5)}`, lx, 492, {
+    color: css('--ink'), font: '700 12px ui-monospace'
+  });
+  $('directionReadout').textContent = stage === 'cap-chain'
+    ? `displayed disk-orbit certificate at n=${fmt(state.normalDeg, 1)}°: ${certificate.label} gives ${fmt(certificate.value / H, 5)}h; full h_S(n)=${fmt(exactSupport / H, 5)}h.`
+    : `n=${fmt(state.normalDeg, 1)}°; selected cap ${activeLabels.length ? 'contains' : 'does not contain'} n.`;
+  directionCanvas.setAttribute(
+    'aria-label',
+    stage === 'cap-chain'
+      ? 'Hard-branch full direction circle. Three rotated copies of the connected cap chain certify every normal direction.'
+      : 'One physical disk represented by the arc of normal directions where its support reaches the target h.'
+  );
 }
 
 function drawParameterDomain() {
@@ -2328,7 +3615,7 @@ function drawParameterDomain() {
   drawCanvasLabel(ctx, 'ρ=1', X(.72), Y(.50) - 7, { color: css('--gold'), font: '10px system-ui' });
 
   const presets = [
-    { a: .55, b: .58, label: 'A' },
+    { a: .55, b: .58, label: 'H' },
     { a: .57, b: .57, label: 'S' },
     { a: .52, b: .52, label: 'D' }
   ];
@@ -2348,14 +3635,13 @@ function drawParameterDomain() {
 function updateCaptions() {
   const stage = currentStage().id;
   const captions = {
-    forcing: 'The hexagon of radial witnesses has incircle radius η. The three Q-points are forced separately by the asymmetric exclusion theorem.',
-    disk: 'The drawn equilateral triangle is the least one centered around the disk; its side is 3η/h.',
-    newton: 'The physical panel shows both frontier segments. Use “Newton side” to synchronize the graph with Q₀→Q− or Q₀→Q+.',
-    'inner-set': 'The green hull K̂ uses A, B, C and the centered disk; it is deliberately smaller than the original witness hull.',
-    support: 'The colored lines support K̂ in directions n, Rn, R²n. Their signed distances add to the side numerator.',
-    minkowski: 'The top trays show one legal choice from each rotated copy. The bottom disk consists entirely of such sums.',
-    'cap-meaning': 'The gold dashed line is the target level h; the other support line belongs to the selected physical disk.',
-    'cap-chain': 'The physical disks need not overlap. Their associated direction arcs overlap, which is the fact used by the proof.',
+    forcing: 'The role labels are schematic. The exclusion theorems—not the pixels—force all nine witnesses into U_C; convexity then forces the centered disk.',
+    newton: 'The selected branch is emphasized. The endpoint constraint defines the first root; proved moving signs transfer exclusion to the actual adjacent handoff.',
+    support: 'The dashed triangle is the least enclosing equilateral triangle for the selected orientation. The three colored supports determine its side.',
+    minkowski: 'Each top tray supplies one legal point from K̂, RK̂, or R²K̂. Their possible sums fill the displayed disk inside S.',
+    'cap-chain': state.model.route === 'automatic'
+      ? 'The easy branch uses only the centered disk: each of the three support directions contributes η, so 3η≥h. Newton points and cap overlaps are not invoked.'
+      : 'The physical disks do not need to overlap. Their support caps overlap in direction space, as shown in the next panel.',
     conclusion: 'This final diagram is intentionally schematic: the hypothetical containment cannot actually occur.'
   };
   $('physicalCaption').textContent = captions[stage];
@@ -2363,9 +3649,9 @@ function updateCaptions() {
 
 function drawAll() {
   drawPhysical();
-  drawNewtonGraph();
-  drawDirection();
-  drawParameterDomain();
+  if (!$('newtonFigure').hidden) drawNewtonGraph();
+  if (!$('directionFigure').hidden) drawDirection();
+  if (state.mode === 'explore') drawParameterDomain();
   updateCaptions();
 }
 
@@ -2386,10 +3672,21 @@ function pickDomain(event) {
 }
 
 function pickDirection(event) {
+  if (directionCanvas.classList.contains('static')) return;
   stopTour();
   const [x, y] = pointerToCanvas(event, directionCanvas);
-  const center = [directionCanvas.width * .47, directionCanvas.height * .51];
-  state.normalDeg = normalizeAngle(Math.atan2(center[1] - y, x - center[0])) / DEG;
+  if (currentStage().id === 'cap-chain' && state.orbit === 'sector') {
+    const sectorStart = angleOf(state.model.A);
+    const sectorEnd = sectorStart + ROT120;
+    const viewStart = sectorStart - 12 * DEG;
+    const viewEnd = sectorEnd + 12 * DEG;
+    const x0 = 150, x1 = directionCanvas.width - 185;
+    const angle = viewStart + clamp((x - x0) / (x1 - x0), 0, 1) * (viewEnd - viewStart);
+    state.normalDeg = normalizeAngle(clamp(angle, sectorStart, sectorEnd)) / DEG;
+  } else {
+    const center = [directionCanvas.width * .42, directionCanvas.height * .52];
+    state.normalDeg = normalizeAngle(Math.atan2(center[1] - y, x - center[0])) / DEG;
+  }
   $('normalRange').value = state.normalDeg;
   $('normalValue').textContent = `${fmt(state.normalDeg, 1)}°`;
   scheduleDraw();
@@ -2400,7 +3697,6 @@ function bindControls() {
   $('exploreMode').addEventListener('click', () => setMode('explore'));
   $('prevStage').addEventListener('click', () => { stopTour(); advanceStage(-1); });
   $('nextStage').addEventListener('click', () => { stopTour(); advanceStage(1); });
-  $('playTour').addEventListener('click', toggleTour);
 
   document.querySelectorAll('.preset').forEach(button => {
     button.addEventListener('click', () => setParameters(Number(button.dataset.a), Number(button.dataset.b), 'preset'));
@@ -2413,7 +3709,7 @@ function bindControls() {
   });
   $('asymmetryRange').addEventListener('input', event => {
     stopTour();
-    const asymmetry = clamp(Number(event.target.value), -.995, .995);
+    const asymmetry = clamp(Number(event.target.value), -.999999, .999999);
     const [a, b] = strictParamsFromSumSkew(state.sum, asymmetry);
     setParameters(a, b, 'slider');
   });
@@ -2429,7 +3725,7 @@ function bindControls() {
   });
   $('normalRange').addEventListener('input', event => {
     stopTour();
-    state.normalDeg = Number(event.target.value);
+    state.normalDeg = normalizeAngle(Number(event.target.value) * DEG) / DEG;
     $('normalValue').textContent = `${fmt(state.normalDeg, 1)}°`;
     scheduleDraw();
   });
@@ -2466,6 +3762,7 @@ function bindControls() {
   parameterCanvas.addEventListener('pointercancel', () => { state.domainDragging = false; });
 
   directionCanvas.addEventListener('pointerdown', event => {
+    if (directionCanvas.classList.contains('static')) return;
     state.directionDragging = true;
     directionCanvas.setPointerCapture(event.pointerId);
     pickDirection(event);
@@ -2479,9 +3776,12 @@ function bindControls() {
   });
   directionCanvas.addEventListener('pointercancel', () => { state.directionDragging = false; });
 
-  try {
-    matchMedia('(prefers-color-scheme: dark)').addEventListener('change', scheduleDraw);
-  } catch (_) {}
+  const colorScheme = matchMedia('(prefers-color-scheme: dark)');
+  if (typeof colorScheme.addEventListener === 'function') {
+    colorScheme.addEventListener('change', scheduleDraw);
+  } else if (typeof colorScheme.addListener === 'function') {
+    colorScheme.addListener(scheduleDraw);
+  }
 }
 
 function initialize() {
