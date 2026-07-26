@@ -685,11 +685,8 @@ The midpoint argument used above makes $T_0$ uniquely supercritical.  In an
 assumed cover, every boundary gap in the vertex-role traces must lie in a
 center trace.  CE1 therefore has the one-gap state excluded by
 Proposition~\ref{prop:ce1-one-gap}.  For CE2, the exactly-one-gap state is
-Proposition~\ref{prop:signed-ce2-one-gap}; if both center intervals contain gaps, the
-endpoint bounds and exact exits are those of
-Lemma~\ref{lem:two-endpoint-capped-loss}, so the two far outgoing reaches sum
-to less than one.  Rows $2,3,4$ would then have to cover more than three
-boundary units, contradicting their three nonsupercritical caps.  This
+Proposition~\ref{prop:signed-ce2-one-gap}; the two-gap state is the common
+application in Proposition~\ref{prop:reader-common-two-gap}.  This
 exhausts the one- and two-gap states, including singleton gaps.  The zero-gap
 state is intentionally owned by the center-independent obstruction of
 Strategy~4.
@@ -708,65 +705,18 @@ T3-like, and no role is Vd1 or Vd2.  Then the roles do not cover $H$.
 
 \begin{proof}
 Normalize the center midpoint to $M_0$.  A T3-like row misses its own
-midpoint, a supercritical row misses all its local midpoints, and a Vd0 row
-cannot rescue a neighboring midpoint.  Consequently, after reflection,
+midpoint, a supercritical row misses its local midpoint, and a Vd0 row cannot
+rescue a neighboring midpoint.  Consequently, after reflection,
 \[
  T_0\text{ is T3-like},\qquad M_1\in T_0,
  \qquad T_1\text{ is uniquely supercritical},
 \]
-and $T_2,\ldots,T_5$ are nonsupercritical Vd0 rows.
-
-In $V_0$ wedge coordinates put
-\[
- 1\le D\le\frac2{\sqrt3},\quad E=\sqrt{4-3D^2},\quad
- R=\frac{D+E}{2},
-\]
-and let $a$ be the $e_{5,0}$ reach of $T_0$.  Its interval on $r_1$ is
-\[
- [c,u],\qquad c=\frac{D(1+a)-1}{R},\qquad
- u=1-\frac RD+a,
-\]
-where
-$E/(2D)\le a\le(4-3D+E)/(4D)$.  Its own-radial exit is $x_0=aD/R$.
-For $B(c)=\mathcal B(c)$ and $A(c)=1-B(c)$, direct substitution gives
-\[
- c-\frac{x_0(2-x_0)}{1+x_0}
- =\frac{2N(D,a)}{(D+E)(2Da+D+E)},
-\]
-where
-\[
- N=4D^2a^2+D^2a+D^2-DEa+DE-2Da-D-E.
-\]
-This convex quadratic is nonnegative: on $1\le D\le8/7$ its minimum on
-the allowed interval is at $a=E/(2D)$, and squaring reduces the sign to
-$4(D-1)(7D^3-10D^2-8D+12)\ge0$; on
-$8/7\le D\le2/\sqrt3$ its critical value is positive because
-$(9D-10)E+9D^2-6D-4>0$.  Before using monotonicity, note explicitly that
-\[
- x_0=\frac{aD}{R}\le\frac{4-3D+E}{4R}\le\frac12;
-\]
-the second inequality is equivalent, using $2R=D+E$, to $D\ge1$.
-Also $c\le1/2$ because $M_1\in[c,u]$, and hence
-$0\le A(c)=1-\mathcal B(c)\le1/2$.  Since
-$X(2-X)/(1+X)$ is increasing on $[0,1/2]$, this proves
-\begin{equation}
- x_0\le A(c).
- \label{eq:t3-radial-edge}
-\end{equation}
-
-Radial coverage forces the supercritical row's own demand $c_1\ge c$.
-Lemma~\ref{lem:free-supercritical-envelope} gives
-$b_1<B(c_1)\le B(c)$.  On $e_{5,0}$ the far row $T_5$ is forced to reach
-at least $h\ge B(c)$.  Indeed this is $h\ge1-a$ unless a CE2 interval hides
-the boundary gap.  In the hiding case the side model gives
-$T\le x_0$, and \eqref{eq:t3-radial-edge} again gives
-$h\ge1-T\ge B(c)$.  Therefore
-\[
- \sum_{i=2}^5(a_i+b_i)
- \ge (1-b_1)+1+1+1+h>4,
-\]
-contrary to the four row caps.  The case $c=1/2$ is already impossible
-because the strict supercritical feasible set is empty there.
+and $T_2,\ldots,T_5$ are nonsupercritical Vd0 rows.  The rational local
+calculation is Lemma~\ref{lem:short-t3-rescuer-profile}.  It verifies the two
+local inequalities in \eqref{eq:signed-rescuer-local}, while midpoint and
+support isolation force the center to cover the $O$-side radial gap.  The
+common adjacent-rescuer obstruction, Corollary~\ref{cor:signed-adjacent-rescuers},
+therefore gives the contradiction.
 \end{proof}
 
 \subsection{The nonsupercritical CE1/CE2 boundary packages}
@@ -1798,8 +1748,6 @@ The exact list \eqref{eq:two-endpoint-pairs} is now exhausted, proving
 \eqref{eq:two-endpoint-loss}.
 \end{proof}
 
-\input{04a_strategy2_half_edge_envelope}
-
 \subsection{The exactly-one-Vd1/Vd2 placements}
 
 We now assume CE2, $N_+=1$, and exactly one row is Vd1 or Vd2.  The corner
@@ -1815,53 +1763,16 @@ In particular $a+b<1/2$ for a positive-support row.
 \begin{lemma}[Vd1 adjacent rescue]
 \label{lem:vd1-adjacent-rescue}
 Assume an original open-role skeleton cover in the CE2 exact-$M_0$ branch,
-with $T_C\cap\{M_0,\ldots,M_5\}=\{M_0\}$.  Suppose $T_0$ is the unique Vd1
-row, $M_1\in T_0$, $T_1$ is uniquely supercritical, and
-$T_2,\ldots,T_5$ are nonsupercritical Vd0 rows.  Suppose also that these are
-the only positive-adjacent-support roles.  Then the roles do not cover the
-perimeter together with $r_1$.
+with $T_0$ the unique Vd1 row, $M_1\in T_0$, $T_1$ uniquely supercritical,
+$T_2,\ldots,T_5$ nonsupercritical Vd0, and no other positive-adjacent-support
+role.  Then the perimeter together with $r_1$ is not covered.
 \end{lemma}
 
 \begin{proof}
-From \eqref{eq:vd-corner-form}, the $r_1$ interval is
-\[
- [c,u],\qquad c=\frac{t(1-b)}{t+1},\qquad
- u=\frac{d-a-tb-1}{t}.
-\]
-The midpoint inequalities and absence of positive $r_5$ support force
-$t\ge1$.  They also give
-\[
- a\le F(t,c):=d-1-\frac{3t}{2}+c(t+1)
- \le L(c):=\sqrt3-\frac52+2c.
-\]
-With $A(c)=1-\mathcal B(c)$, squaring positive sides gives
-\[
- 2L(c)\le A(c),
-\]
-because the difference is
-$4(20c^2+(18\sqrt3-52)c+47-24\sqrt3)>0$ on $[0,1/2]$.
-Writing $\delta=1-u$, the same normal form yields
-\[
- \frac{a}{a+\delta}\le\frac{L(c)}{L(c)+1/2}\le2L(c)\le A(c).
- \label{eq:vd1-auxiliary}
-\]
-Thus $a\le A(c)$.  If the CE2 interval on $e_{5,0}$ hides the gap after
-$T_0$, its side parameters $X,Y,\lambda,\rho$ satisfy
-$Y\ge\lambda\delta$ and $S\le a$, whence
-\[
- T=X+\lambda\le a+\lambda(u-a)\le\frac{a}{a+\delta}\le A(c).
-\]
-In every other ordering its forced tail starts no later than $a$.
-Consequently the far-row reach is always $h\ge\mathcal B(c)$.
-
-Coverage of $r_1$ gives the supercritical row a radial demand at least $c$.
-Therefore Lemma~\ref{lem:free-supercritical-envelope} gives
-$b_1<\mathcal B(c)\le h$.  The four remaining row caps would then have to
-satisfy
-\[
- \sum_{i=2}^5(a_i+b_i)\ge(1-b_1)+1+1+1+h>4,
-\]
-a contradiction.
+Lemma~\ref{lem:short-vd1-rescuer-profile} proves the two local inequalities
+in \eqref{eq:signed-rescuer-local}.  Midpoint and support isolation force the
+center to cover the $O$-side radial gap before the Vd1 interval.  The result is
+therefore Corollary~\ref{cor:signed-adjacent-rescuers}.
 \end{proof}
 
 \begin{lemma}[Vd1--supercritical replacement]
