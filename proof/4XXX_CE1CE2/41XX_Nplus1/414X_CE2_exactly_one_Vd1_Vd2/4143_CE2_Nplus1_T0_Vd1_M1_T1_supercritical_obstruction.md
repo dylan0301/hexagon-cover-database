@@ -69,10 +69,11 @@ u=\frac{d-a-tb-1}{t}.
 }
 $$
 
-Here the second symbol in the box is the ordinary endpoint $u$; explicitly,
+In the preceding display, the symbol after the comma is the ordinary endpoint
+$u$; equivalently the second formula is
 
 $$
-u=u.
+u=u=\frac{d-a-tb-1}{t}.
 $$
 
 The midpoint condition gives
