@@ -15,7 +15,7 @@ def replace_exact(path: Path, old: str, new: str, *, count: int = 1) -> None:
 
 # Strategy 4: use one rotation symbol throughout the reader cap chain.
 strategy4 = ROOT / "arrange/paper_draft/06_strategy4_reader.tex"
-replace_exact(strategy4, "the full $R$-orbits of", "the full $\\mathsf R$-orbits of")
+replace_exact(strategy4, "full $R$-orbits of", "full $\\mathsf R$-orbits of")
 replace_exact(strategy4, "sector from the ray of $A$ to the ray of $RA$.",
               "sector from the ray of $A$ to the ray of $\\mathsf R A$.")
 
