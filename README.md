@@ -42,15 +42,41 @@ Recommended reading order for mathematical orientation:
 5. [`proof/1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md`](proof/1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md)
 6. [`proof/1XXX_foundations/12XX_V_triangle/1212_vertex_rows_and_Nplus.md`](proof/1XXX_foundations/12XX_V_triangle/1212_vertex_rows_and_Nplus.md)
 7. [`proof/1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md`](proof/1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md)
-8. [`proof/3XXX_CE0/3000_CE0_index.md`](proof/3XXX_CE0/3000_CE0_index.md)
-9. [`proof/4XXX_CE1CE2/4000_CE1CE2_index.md`](proof/4XXX_CE1CE2/4000_CE1CE2_index.md)
-10. [`proof/0XXX_main/0002_status_and_dependencies.md`](proof/0XXX_main/0002_status_and_dependencies.md)
+8. [`proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2019_interval_component_and_path_budget.md`](proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2019_interval_component_and_path_budget.md)
+9. [`proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201a_equilateral_enclosure_and_radical_calculus.md`](proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201a_equilateral_enclosure_and_radical_calculus.md)
+10. [`proof/2XXX_geometric_lemmas/25XX_length_bounds/2530_common_CE1_CE2_budget_lemmas.md`](proof/2XXX_geometric_lemmas/25XX_length_bounds/2530_common_CE1_CE2_budget_lemmas.md)
+11. [`proof/3XXX_CE0/3000_CE0_index.md`](proof/3XXX_CE0/3000_CE0_index.md)
+12. [`proof/4XXX_CE1CE2/4000_CE1CE2_index.md`](proof/4XXX_CE1CE2/4000_CE1CE2_index.md)
+13. [`proof/0XXX_main/0002_status_and_dependencies.md`](proof/0XXX_main/0002_status_and_dependencies.md)
 
 The corpus uses four-character folder range labels with literal `X` digits.
-Definitions live in
-`proof/1XXX_foundations/`, reusable geometric lemmas in
+Definitions live in `proof/1XXX_foundations/`, reusable geometric lemmas in
 `proof/2XXX_geometric_lemmas/`, and the proof tree splits first into the CE0
 branch and the combined CE1/CE2 branch.
+
+## Unified Proof Architecture
+
+The manuscript and active proof packages use three certificate classes,
+retained as four named strategies for geometric readability:
+
+1. **additive deficits:** boundary or conditional-skeleton length, and
+   normalized area loss;
+2. **isotone transfer:** exact boundary and radial demands propagated through
+   the capped local map;
+3. **convex support:** the equilateral enclosure gauge applied to the forced
+   nine-point witness set.
+
+The universal local layer is:
+
+- [`2019`](proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2019_interval_component_and_path_budget.md): interval residuals, generalized handoffs, and boundary-path budgets;
+- [`201a`](proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201a_equilateral_enclosure_and_radical_calculus.md): one enclosure gauge, one equilateral radical, and the four-frontier atlas;
+- [`201b`](proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201b_quarter_radial_envelope.md): the global quarter radial envelope;
+- [`201c`](proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201c_Vd_corner_radial_margins.md): the two Vd corner radial margins;
+- [`2110`](proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2110_common_CE2_two_gap_application.md): one common application of the CE2 paired-endpoint theorem.
+
+For CE1/CE2 all-Vd0 branches, the active proof is organized by the actual row
+count $N_+\in\{0,1\}$ and the active-gap rank $g\in\{0,1,2\}$.  The two
+$g=2$ cells share the same paired-endpoint theorem.
 
 ## Preview Interactive HTML in GitHub Codespaces
 
