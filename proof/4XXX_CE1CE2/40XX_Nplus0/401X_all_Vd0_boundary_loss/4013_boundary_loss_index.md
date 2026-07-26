@@ -88,7 +88,7 @@ while the companion trace is empty or gap-free.  Put
 $$
 s=\frac{k}{R},
 \qquad
-u=R-\delta,
+q=R-\delta,
 \qquad
 \omega=W+\delta-\frac{k}{R}.
 $$
@@ -96,7 +96,7 @@ $$
 Then
 
 $$
-s+\nu+\omega=1.
+s+q+\omega=1.
 $$
 
 Gap containment gives
@@ -104,7 +104,7 @@ Gap containment gives
 $$
 b_0\ge s,
 \qquad
-a_1\ge\nu.
+a_1\ge q.
 $$
 
 Since the companion edge has no active gap,
@@ -133,14 +133,14 @@ c_1=1-\frac{\delta}{R},
 c_5=1-\frac{\alpha}{W}.
 $$
 
-The variables $R,s,\nu,\omega$ satisfy the hypotheses of the one-side
+The variables $R,s,q,\omega$ satisfy the hypotheses of the one-side
 capped-loss theorem
 [`2107`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2107_one_side_capped_loss.md).
 Its second radial deficit is exactly $\alpha/W$, so it gives
 
 $$
 \boxed{
-F_{c_5}(s)+F_{c_1}(\nu)<1.
+F_{c_5}(s)+F_{c_1}(q)<1.
 }
 $$
 
@@ -150,7 +150,7 @@ outer edges of the middle boundary path.  The safe capped map gives
 $$
 B_5\le F_{c_5}(s),
 \qquad
-B_1\le F_{c_1}(\nu),
+B_1\le F_{c_1}(q),
 $$
 
 and hence
