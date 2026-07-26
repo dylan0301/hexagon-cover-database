@@ -36,7 +36,7 @@ If the supported adjacent arm is the one corresponding to the second endpoint
 formula in `2014`, its upper endpoint is
 
 $$
-u_+=rac{d-a-tb-1}{t}.
+u_+=\frac{d-a-tb-1}{t}.
 $$
 
 ## 1. Own-radial margin
@@ -88,15 +88,13 @@ $$
 Hence
 
 $$
-\boxed{
-u_+<1-b-\frac at<1-b.}
+\boxed{u_+<1-b-\frac at<1-b.}
 $$
 
 In particular, if $b\ge H$, then
 
 $$
-\boxed{
-u_+<1-H.}
+\boxed{u_+<1-H.}
 $$
 
 Reflection supplies the corresponding formulas for the other supported
