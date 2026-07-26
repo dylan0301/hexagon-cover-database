@@ -10,13 +10,13 @@ Assume the closures of original open-cover roles satisfy:
 - at least one additional vertex row has positive-length support on an adjacent
   radial arm.
 
-The unique supercritical row is distinct from every positive-support row:
-[`2008`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2008_neighbor_ray_max_c_formula.md)
-shows that a supercritical row has no positive adjacent-ray support.
+The exact short-role count in
+[`2530`](../../../2XXX_geometric_lemmas/25XX_length_bounds/2530_common_CE1_CE2_budget_lemmas.md)
+shows that supercritical roles and positive-support roles are disjoint:
+every supercritical role is Vd0, while every positive-support role is
+Vd1, Vd2, or T3-like and is nonsupercritical.
 
-In the terminology of the common skeleton theorem
-[`2530`](../../../2XXX_geometric_lemmas/25XX_length_bounds/2530_common_CE1_CE2_budget_lemmas.md),
-there are at least three short vertex roles:
+Thus there are at least three short vertex roles:
 
 - the unique supercritical row;
 - the Vd1/Vd2 row;

@@ -10,7 +10,9 @@ monotonicity, duality, and threshold consequences are used here.
 
 \begin{proposition}[Signed CE1/CE2 center normal form]
 \label{prop:signed-center-normal-form}
-Normalize a positive center trace to $e_{0,1}$ and use affine coordinates
+Let $T_C$ be a closed unit equilateral triangle with
+$O\in\interior(T_C)$ and a positive-length boundary trace.  Normalize such
+a trace to $e_{0,1}$ and use affine coordinates
 \[
  X=V_0+b(V_1-V_0)+a(V_5-V_0).
 \]
@@ -85,8 +87,15 @@ For closures of original open center roles one has $\alpha,\delta>0$.
 \end{proposition}
 
 \begin{proof}
-Use the edge-cut normal form from the unique-midpoint proof.  Its side slacks
-are
+Write
+\[
+ T_C\cap e_{0,1}=[s,t],
+ \qquad 0\le s<t\le1.
+\]
+The two sides through these endpoints have a positive slope ratio.  Reflect
+across the perpendicular bisector of $e_{0,1}$ if necessary and call the
+ratio $R\le1$; put $W=1-R$.  Direct equations for the three side lines give
+the unit-equilateral edge-cut slacks
 \[
  F_1=Rb+Wa-Rs,
 \]
@@ -96,6 +105,10 @@ are
 \[
  F_0=Wb-a+E+Rs-t.
 \]
+Here $E=\sqrt{1-RW}$ is forced by the unit side-length relation.  The case
+$R=1$ would give $F_0(O)=s-t<0$, contrary to
+$O\in\interior(T_C)$.  Thus $0<R<1$.
+
 Set
 \[
  \alpha=F_0(O),\qquad \delta=F_2(O).
@@ -189,6 +202,7 @@ $\alpha,\delta>0$ there.
 \end{proof}
 
 \begin{remark}[Legacy variables]
+\label{rem:signed-legacy-variables}
 For CE1, take
 \[
  \lambda=R,\qquad s=\frac{k}{R},\qquad t=W+\delta,\qquad
@@ -285,6 +299,89 @@ $q^2+qb+b^2$, so it is at most the squared diameter $1$.  Solving the
 quadratic in $b$ gives $b\le\beta(q)$.  For $q>0$,
 $\sqrt{4-3q^2}<2$, which gives both strict linear comparisons.
 \end{proof}
+
+\subsection{The local propagation interface}
+
+Let
+\[
+ u=\left(\frac12,\frac{\sqrt3}{2}\right),
+ \qquad
+ v=\left(\frac12,-\frac{\sqrt3}{2}\right),
+\]
+and for $0\le a,b,c\le1$ put
+\[
+ K(a,b,c)=\conv\{0,au,bv,c(u+v)\}.
+\]
+The local admissible set is
+\[
+ \mathcal A
+ =\{(a,b,c):K(a,b,c)\text{ lies in a closed unit equilateral triangle}\}.
+\]
+For $a,c\in[0,1]$ define
+\[
+ \begin{aligned}
+ B_c(a)&=\max\{b:(a,b,c)\in\mathcal A\},&
+ F_c(a)&=\min\{B_c(a),1-a\},\\
+ G_c(a)&=1-F_c(a).&&
+ \end{aligned}
+\]
+Propositions~\ref{prop:exact-admissible-set} and
+\ref{prop:capped-demand-map} prove that $\mathcal A$ is coordinatewise
+down-closed, $F_c$ is nonincreasing, and $G_c$ is nondecreasing and
+extensive:
+\begin{equation}
+ G_c(z)\ge z.
+ \label{eq:reader-extensive}
+\end{equation}
+They also prove the exact reflection duality
+\begin{equation}
+ G_c(a)\le z
+ \quad\Longleftrightarrow\quad
+ G_c(1-z)\le1-a.
+ \label{eq:reader-capped-duality}
+\end{equation}
+
+Suppose an actual nonsupercritical row has maximal reaches
+$(A_i,B_i,C_i)$ and
+\[
+ A_i\ge z,
+ \qquad
+ C_i\ge c_i.
+\]
+The same role realizes $(z,B_i,c_i)$, so
+\[
+ B_i\le F_{c_i}(z).
+\]
+If the next boundary handoff gives $A_{i+1}\ge1-B_i$, then
+\begin{equation}
+ A_{i+1}
+ \ge1-B_i
+ \ge1-F_{c_i}(z)
+ =G_{c_i}(z).
+ \label{eq:reader-actual-propagation}
+\end{equation}
+Every composition below is shorthand for repeated applications of this
+inequality to specified actual rows.
+
+For the low-root thresholds used below, put
+\begin{equation}
+ e(d)=\frac{1-d}{2}
+ \left(1-\sqrt{4(1-d)^2-3}\right)
+ \qquad
+ \left(0<d<1-\frac{\sqrt3}{2}\right).
+ \label{eq:signed-low-root-definition}
+\end{equation}
+For the low-radial order transition, put
+\begin{equation}
+ h(c)=\frac{2c}{1+\sqrt{16c^2-3}}
+ \qquad\left(\frac12<c\le\frac{\sqrt3}{2}\right).
+ \label{eq:signed-order-transition}
+\end{equation}
+The exact map calculation in
+\eqref{eq:low-root-bounds}--\eqref{eq:high-demand-threshold} supplies the
+quoted bounds and threshold implication for $e$; Proposition
+\ref{prop:capped-demand-map} identifies $h$ as the low-radial order
+transition.
 
 \subsection{The common one-gap interface}
 
@@ -417,18 +514,14 @@ Define
  \Phi(t)=(\eta+t)(1-t)-2Rt.
 \]
 This function is concave, so its minimum on $[0,\eta/E]$ is at an endpoint.
-Clearly $\Phi(0)=\eta>0$.  Put $\xi=2R-1$.  Direct simplification gives
+Clearly $\Phi(0)=\eta>0$.  Direct simplification using
+$E^2=1-R+R^2$ gives
 \[
  \Phi\left(\frac\eta E\right)
- =\frac{RW}{2E^2(1+E)}
- \left(1+\xi^2-\xi\sqrt{3+\xi^2}\right).
+ =\frac{R(E-R)^2}{E^2}>0.
 \]
-If $\xi\le0$, the last factor is positive.  If $0<\xi<1$, then
-\[
- (1+\xi^2)^2-\xi^2(3+\xi^2)=1-\xi^2>0,
-\]
-so it is positive again.  Thus $\Phi(T)>0$, proving the desired comparison
-and \eqref{eq:signed-two-threshold}.
+Thus $\Phi(T)>0$, proving the desired comparison and
+\eqref{eq:signed-two-threshold}.
 \end{proof}
 
 \begin{proposition}[Short CE2 one-gap completion]

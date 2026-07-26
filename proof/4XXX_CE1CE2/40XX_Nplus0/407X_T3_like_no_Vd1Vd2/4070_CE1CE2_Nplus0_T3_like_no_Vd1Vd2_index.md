@@ -52,7 +52,7 @@ convention and separates it from the unrelated local variable $u$ in `407c`.
 | File | Status | Role |
 |---|---|---|
 | [`4071_CE1CE2_Nplus0_T3_like_forces_V0_T3_like.md`](4071_CE1CE2_Nplus0_T3_like_forces_V0_T3_like.md) | Proven | Simultaneously normalizes the T3-like traces and forces $T_0$ to be T3-like by midpoint matching and the crossed-pair obstruction. |
-| [`4072_support_isolation_after_T0_T3_like.md`](4072_support_isolation_after_T0_T3_like.md) | Proven | Uses the general diagonal-length caps to show that at most two roles are T3-like and isolates the two active radial arms. |
+| [`4072_support_isolation_after_T0_T3_like.md`](4072_support_isolation_after_T0_T3_like.md) | Proven | Uses the three-short-role theorem to show that at most two roles are T3-like and isolates the two active radial arms. |
 | [`4073_boundary_loss_framework.md`](4073_boundary_loss_framework.md) | Reduction | Derives the center and T3-like demands and reduces the branch to $\widehat B_{C_5}(A_5)+\widehat B_{C_1}(A_1)<1$. |
 | [`4074_L_Full_branch.md`](4074_L_Full_branch.md) | Proven | Proves the $(L,\mathrm{Full})$ branch. |
 | [`4075_Tminus_low_lower_branch_obligations.md`](4075_Tminus_low_lower_branch_obligations.md) | Proven | Proves the $(L,L)$ and $(L,T_-)$ branches and the entire left-$T_-$ family. |
@@ -71,8 +71,8 @@ the universal selected-$T_+$ theorem
 [`2016`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2016_universal_Tplus_normal_form.md),
 the T3-like side tradeoff and crossed-pair theorem
 [`2013`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2013_T3_like_side_tradeoff.md),
-and the diagonal-length theorem
-[`2520`](../../../2XXX_geometric_lemmas/25XX_length_bounds/2520_diagonal_length_bounds.md).
+and the short-role count and three-short-role theorem
+[`2530`](../../../2XXX_geometric_lemmas/25XX_length_bounds/2530_common_CE1_CE2_budget_lemmas.md).
 
 ## Exhaustive analytic inventory
 

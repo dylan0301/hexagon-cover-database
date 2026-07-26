@@ -68,13 +68,13 @@ A_C=1-t=\lambda-Y,
 $$
 
 $$
-\gamma_1=\min\left(\frac{Y}{\lambda},\frac{\rho-X-Y}{1-\lambda}\right),
+\gamma_1=\frac{Y}{\lambda},
 $$
 
 and
 
 $$
-\gamma_5=\min\left(\frac{X}{1-\lambda},\frac{\rho-X-Y}{\lambda}\right).
+\gamma_5=\frac{X}{1-\lambda}.
 $$
 
 When $T_C$ is CE2 and $T_C\cap e_{5,0}=[S,T]$,

@@ -281,39 +281,14 @@ $$
 \Phi(0)=\eta>0.
 $$
 
-For the other endpoint put
-
-$$
-\xi=2R-1.
-$$
-
-Then
-
-$$
-E=\frac12\sqrt{3+\xi^2},
-$$
-
-and direct simplification gives
+For the other endpoint, direct simplification using
+$E^2=1-R+R^2$ gives
 
 $$
 \Phi\left(\frac{\eta}{E}\right)
 =
-\frac{RW}{2E^2(1+E)}
-\left(1+\xi^2-\xi\sqrt{3+\xi^2}\right).
-$$
-
-The prefactor is positive. If $\xi\le0$, the last factor is positive
-immediately. If $0<\xi<1$, then
-
-$$
-(1+\xi^2)^2-\xi^2(3+\xi^2)
-=1-\xi^2>0,
-$$
-
-so again
-
-$$
-1+\xi^2>\xi\sqrt{3+\xi^2}.
+\frac{R(E-R)^2}{E^2}
+>0.
 $$
 
 Thus $\Phi$ is positive at both endpoints and therefore throughout the

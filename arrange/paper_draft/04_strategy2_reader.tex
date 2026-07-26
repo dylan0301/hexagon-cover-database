@@ -2,73 +2,14 @@
 \label{sec:strategy2-reader}
 
 This section presents the reusable mechanism without repeating separate CE1
-and CE2 coordinate systems.  The complete signed center proof is in
-Appendix~\ref{sec:signed-ce12-reductions}; the exact admissible-set catalogue
-and the remaining scalar certificates are in
+and CE2 coordinate systems.  Section~\ref{sec:signed-ce12-reductions}
+develops the signed center model and the local propagation interface; the
+exact admissible-set catalogue and the remaining scalar certificates are in
 Appendix~\ref{sec:exact-local-demand-calculus}.
 
-\subsection{The local propagation interface}
-
-Let
-\[
- u=\left(\frac12,\frac{\sqrt3}{2}\right),
- \qquad
- v=\left(\frac12,-\frac{\sqrt3}{2}\right),
-\]
-and for $0\le a,b,c\le1$ put
-\[
- K(a,b,c)=\conv\{0,au,bv,c(u+v)\}.
-\]
-The local admissible set is
-\[
- \mathcal A
- =\{(a,b,c):K(a,b,c)\text{ lies in a closed unit equilateral triangle}\}.
-\]
-For $a,c\in[0,1]$ define
-\[
- B_c(a)=\max\{b:(a,b,c)\in\mathcal A\},
- \qquad
- F_c(a)=\min\{B_c(a),1-a\},
- \qquad
- G_c(a)=1-F_c(a).
-\]
-Propositions~\ref{prop:exact-admissible-set} and
-\ref{prop:capped-demand-map} prove that $\mathcal A$ is coordinatewise
-down-closed, $F_c$ is nonincreasing, and $G_c$ is nondecreasing and
-extensive:
-\begin{equation}
- G_c(z)\ge z.
- \label{eq:reader-extensive}
-\end{equation}
-They also prove the exact reflection duality
-\begin{equation}
- G_c(a)\le z
- \quad\Longleftrightarrow\quad
- G_c(1-z)\le1-a.
- \label{eq:reader-capped-duality}
-\end{equation}
-
-Suppose an actual nonsupercritical row has maximal reaches
-$(A_i,B_i,C_i)$ and
-\[
- A_i\ge z,
- \qquad
- C_i\ge c_i.
-\]
-The same role realizes $(z,B_i,c_i)$, so
-\[
- B_i\le F_{c_i}(z).
-\]
-If the next boundary handoff gives $A_{i+1}\ge1-B_i$, then
-\begin{equation}
- A_{i+1}
- \ge1-B_i
- \ge1-F_{c_i}(z)
- =G_{c_i}(z).
- \label{eq:reader-actual-propagation}
-\end{equation}
-Every composition below is shorthand for repeated applications of this
-inequality to specified actual rows.
+We now build on the maps $\mathcal A$, $B_c$, $F_c$, and $G_c$ defined in
+that section.  In particular, every composition below is interpreted through
+the actual-row implication \eqref{eq:reader-actual-propagation}.
 
 \subsection{The universal selected-$T_+$ curve}
 
@@ -126,7 +67,8 @@ is increasing and strictly convex.  Its inverse is increasing and strictly
 concave, while $q=d+(1-d)x$ is affine in that inverse.
 \end{proof}
 
-In the high-radial range put $e(d)=\ell(1-d)$.  The selected arc has endpoints
+With $e(d)$ defined by \eqref{eq:signed-low-root-definition}, the selected
+high-radial arc has endpoints
 $(d,d)$ and $(e(d),d+e(d))$, so concavity gives
 \begin{equation}
  G_{1-d}(p)

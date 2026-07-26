@@ -156,7 +156,7 @@ The six Vd0 roles therefore cover every boundary edge with a strict handoff.
 Hence the six vertex roles alone cover $\partial H$.
 
 The center-independent direct nine-point obstruction
-[`31058`](../../../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31058_center_independent_direct_Vd0_nine_point_obstruction.md)
+[`31058`](../../../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31058_center_independent_direct_nine_point_obstruction.md)
 then gives a contradiction.
 
 ## 5. Exactly one active gap

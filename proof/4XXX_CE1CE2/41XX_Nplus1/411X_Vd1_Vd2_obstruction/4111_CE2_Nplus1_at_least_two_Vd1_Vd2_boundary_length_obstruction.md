@@ -33,9 +33,9 @@ Every remaining row is nonsupercritical and contributes at most $1$ to the
 boundary.  Thus the total available boundary length is strictly less than
 
 $$
-\frac12+rac12+rac12+rac2{\sqrt3}+3
+\frac12+\frac12+\frac12+\frac2{\sqrt3}+3
 =
-\frac92+rac2{\sqrt3}
+\frac92+\frac2{\sqrt3}
 <6.
 $$
 

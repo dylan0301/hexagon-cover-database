@@ -104,16 +104,24 @@ $$
 X+(1-\lambda)Y<\rho(1-\rho).
 $$
 
-The radial exits are
+The signed center bounds in
+[`2109`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md)
+give
 
 $$
-\gamma_1=\min\left(\frac{Y}{\lambda},\frac{\rho-X-Y}{1-\lambda}\right),
+\rho-X-Y>\frac12,\qquad
+\frac{Y}{\lambda}<\frac12,\qquad
+\frac{X}{1-\lambda}<\frac12.
 $$
 
-and
+Consequently the apparent minima in the two radial exits are not genuine:
 
 $$
-\gamma_5=\min\left(\frac{X}{1-\lambda},\frac{\rho-X-Y}{\lambda}\right).
+\boxed{
+\gamma_1=\frac{Y}{\lambda},
+\qquad
+\gamma_5=\frac{X}{1-\lambda}.
+}
 $$
 
 When $T_C$ is CE2, write

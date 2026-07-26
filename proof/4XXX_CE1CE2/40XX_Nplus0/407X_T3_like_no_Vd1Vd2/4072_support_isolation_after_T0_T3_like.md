@@ -22,44 +22,20 @@ positive-length adjacent support of $T_0$ is on $r_1$.
 
 ## At most two T3-like roles
 
-Let $k$ be the number of T3-like vertex roles.  The diagonal-trace theorem
-[`2520`](../../../2XXX_geometric_lemmas/25XX_length_bounds/2520_diagonal_length_bounds.md)
-gives the following bounds for the role closures:
+Let $k$ be the number of T3-like vertex roles.  The common budget theorem
+[`2530`](../../../2XXX_geometric_lemmas/25XX_length_bounds/2530_common_CE1_CE2_budget_lemmas.md)
+gives the exact short-role count
 
 $$
-L_D(T_C)<\frac{3}{2},
-\qquad
-L_D(T_i)<\frac{1}{2}\quad\text{for each T3-like role},
+q=N_++m.
 $$
 
-and
-
-$$
-L_D(T_i)\le1\quad\text{for each nonsupercritical Vd0 role}.
-$$
-
-Every T3-like role is nonsupercritical by
-[`1213`](../../../1XXX_foundations/12XX_V_triangle/1213_T3_like_nonsupercritical.md),
-and $N_+=0$ makes every Vd0 role nonsupercritical.  Since the six radial arms
-have total length $6$, coverage and subadditivity would imply
-
-$$
-6
-\le
-L_D(T_C)+\sum_{i=0}^5L_D(T_i)
-<
-\frac{3}{2}+\frac{k}{2}+(6-k)
-=\frac{15-k}{2}.
-$$
-
-For $k\ge3$ the right side is at most $6$, a contradiction.  Hence
+Here $N_+=0$, there are no Vd1/Vd2 roles, and $m=k$.  Thus $q=k$.  The
+three-short-role theorem in the same source excludes $q\ge3$, and hence
 
 $$
 \boxed{k\le2.}
 $$
-
-This citation removes the former duplication of the diagonal-cap proofs and
-also removes the old circular dependency on the side model in `4073`.
 
 ## Forced Vd0 roles
 

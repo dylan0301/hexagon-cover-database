@@ -32,9 +32,9 @@ T_-,
 T_+^{hi}.
 $$
 
-The fake label $T_+^{lo}$ is absent.  The support count in `4072` now cites
-the general diagonal-trace theorem `2520`, and `4073` uses $\widehat B$ for
-the possibly T3-like row $T_1$.
+The fake label $T_+^{lo}$ is absent.  The support count in `4072` now uses
+the common short-role theorem `2530`, and `4073` uses $\widehat B$ for the
+possibly T3-like row $T_1$.
 
 ## 1. Reduction target
 

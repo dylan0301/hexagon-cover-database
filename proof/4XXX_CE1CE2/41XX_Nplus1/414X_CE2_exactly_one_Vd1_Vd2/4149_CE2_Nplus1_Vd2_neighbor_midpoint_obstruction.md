@@ -34,7 +34,7 @@ and a contribution at most $1$ from each of the other four nonsupercritical
 rows.  Therefore the total available boundary length is strictly less than
 
 $$
-\frac12+rac13+rac2{\sqrt3}+4<6.
+\frac12+\frac13+\frac2{\sqrt3}+4<6.
 $$
 
 The final inequality is equivalent to $12<7\sqrt3$, and follows after
