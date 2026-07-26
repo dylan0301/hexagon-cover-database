@@ -56,7 +56,9 @@ jobs:
           expected = h*(h**3 - 16*h**2 - 240*h + 128)/256
           assert s.simplify(P - expected) == 0
 
-          assert s.factor(256 - (r**2 + 3)*(9-r)**2) == (1-r)*(r**3 - 17*r**2 + 67*r + 13)
+          factorized = s.factor(256 - (r**2 + 3)*(9-r)**2)
+          expected_factorized = (1-r)*(r**3 - 17*r**2 + 67*r + 13)
+          assert s.simplify(factorized - expected_factorized) == 0
 
           R = s.symbols('R', positive=True)
           W = 1-R
@@ -70,7 +72,7 @@ jobs:
           theta, x = s.symbols('theta x', real=True)
           Phi = x*(2-x)/(1+x)
           Q = 2*x**2 + (theta-1)*x + theta
-          assert s.factor((x+theta-Phi)*(1+x)-Q) == 0
+          assert s.simplify((x+theta-Phi)*(1+x)-Q) == 0
           print('new_symbolic_identities: PASS')
           PY
 
