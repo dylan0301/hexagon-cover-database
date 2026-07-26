@@ -1,0 +1,128 @@
+name: Verify unified manuscript
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - agent/manuscript-unification
+    paths:
+      - .github/workflows/verify-unified-manuscript.yml
+      - arrange/paper_draft/*.tex
+      - arrange/paper_draft/figures/**
+      - arrange/ams_paper_generation_guide.md
+      - proof/**/*.md
+      - proof/**/*.py
+
+permissions:
+  contents: write
+
+jobs:
+  verify:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out implementation branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/manuscript-unification
+          fetch-depth: 0
+
+      - name: Install TeX and verification tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            latexmk texlive-xetex texlive-latex-extra texlive-fonts-recommended \
+            texlive-pictures texlive-science poppler-utils python3-sympy ripgrep
+
+      - name: Verify new symbolic identities
+        run: |
+          python - <<'PY'
+          import sympy as s
+
+          h, r = s.symbols('h r', real=True)
+          c0 = 1 - h/4
+          P = s.expand(c0**4 - c0**2 + h*c0 - h**2)
+          expected = h*(h**3 - 16*h**2 - 240*h + 128)/256
+          assert s.simplify(P - expected) == 0
+
+          assert s.factor(256 - (r**2 + 3)*(9-r)**2) == (1-r)*(r**3 - 17*r**2 + 67*r + 13)
+
+          R = s.symbols('R', positive=True)
+          W = 1-R
+          E = s.sqrt(1-R+R**2)
+          eta = 1-E
+          J = R-s.Rational(1,2)+eta/(2*R)
+          lhs = s.simplify(4*E*(1+E)**2*s.diff(J,R))
+          rhs = 2*E*(1+E)*(1+2*E)-W*(2*R-1)
+          assert s.simplify(lhs-rhs) == 0
+
+          theta, x = s.symbols('theta x', real=True)
+          Phi = x*(2-x)/(1+x)
+          Q = 2*x**2 + (theta-1)*x + theta
+          assert s.factor((x+theta-Phi)*(1+x)-Q) == 0
+          print('new_symbolic_identities: PASS')
+          PY
+
+      - name: Replay exact mixed-overlap certificates
+        working-directory: proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation
+        run: |
+          python verify_mixed_overlap_core_derivation.py
+          python verify_global_core_positivity.py
+
+      - name: Audit active-source references and labels
+        run: |
+          if rg -n '407e_high_sheet_symbol_convention|04a_strategy2_half_edge_envelope|eq:reader-lambda-support' \
+              arrange/paper_draft/*.tex arrange/ams_paper_generation_guide.md proof --glob '!MANIFEST.txt'; then
+            echo 'obsolete active reference found'
+            exit 1
+          fi
+          labels=$(grep -Rho '\\label{[^}]*}' arrange/paper_draft --include='*.tex' | sort | uniq -d)
+          if [ -n "$labels" ]; then
+            echo 'duplicate LaTeX labels:'
+            echo "$labels"
+            exit 1
+          fi
+
+      - name: Build manuscript with XeLaTeX
+        working-directory: arrange/paper_draft
+        run: |
+          latexmk -xelatex -interaction=nonstopmode -halt-on-error main.tex
+          if grep -E 'LaTeX Warning: (Reference|Citation).*undefined|There were undefined references|multiply defined' main.log; then
+            echo 'reference or label warning found'
+            exit 1
+          fi
+          pdfinfo main.pdf | tee /tmp/pdfinfo.txt
+          pages=$(awk '/^Pages:/ {print $2}' /tmp/pdfinfo.txt)
+          test -n "$pages"
+          pdftoppm -f 1 -l 1 -singlefile -png -r 120 main.pdf /tmp/main-first
+          pdftoppm -f "$pages" -l "$pages" -singlefile -png -r 120 main.pdf /tmp/main-last
+          pdftotext main.pdf /tmp/main.txt
+          test -s /tmp/main-first.png
+          test -s /tmp/main-last.png
+          test -s /tmp/main.txt
+          latexmk -c main.tex
+
+      - name: Regenerate proof manifest
+        run: |
+          find proof -type d -name __pycache__ -prune -exec rm -rf {} +
+          (
+            cd proof
+            find . -type f ! -name MANIFEST.txt -printf '%P\n' | LC_ALL=C sort > MANIFEST.txt
+          )
+          test -s proof/MANIFEST.txt
+          ! grep -q '407e_high_sheet_symbol_convention.md' proof/MANIFEST.txt
+          grep -q '2019_interval_component_and_path_budget.md' proof/MANIFEST.txt
+          grep -q '201a_equilateral_enclosure_and_radical_calculus.md' proof/MANIFEST.txt
+          grep -q '201b_quarter_radial_envelope.md' proof/MANIFEST.txt
+          grep -q '201c_Vd_corner_radial_margins.md' proof/MANIFEST.txt
+          grep -q '2110_common_CE2_two_gap_application.md' proof/MANIFEST.txt
+
+      - name: Commit generated PDF and manifest
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add arrange/paper_draft/main.pdf proof/MANIFEST.txt
+          if ! git diff --cached --quiet; then
+            git commit -m 'Rebuild unified manuscript and manifest'
+            git push origin HEAD:agent/manuscript-unification
+          fi
