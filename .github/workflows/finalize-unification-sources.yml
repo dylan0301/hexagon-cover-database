@@ -8,6 +8,12 @@ on:
     paths:
       - arrange/paper_draft/_finalize_unification_sources.py
       - .github/workflows/finalize-unification-sources.yml
+  pull_request:
+    branches:
+      - main
+    paths:
+      - arrange/paper_draft/_finalize_unification_sources.py
+      - .github/workflows/finalize-unification-sources.yml
 
 permissions:
   contents: write
