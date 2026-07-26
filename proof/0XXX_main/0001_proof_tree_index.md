@@ -49,7 +49,7 @@ non-Vd0 roles when $N_+=0$, or at most one when $N_+=1$.
   - `1214`: proved strict boundary-handoff selection for exact-one and
     at-least-two actual supercritical patterns
 - `2XXX`: geometric lemmas
-  - `20XX`: V-triangle geometry
+  - `20XX`: V-triangle and universal local geometry
     - `2004`: exact piecewise support-contact admissible set
     - `2005`: proved midpoint self-cover criterion
     - `2006`: proved T3-like own-midpoint exclusion
@@ -69,6 +69,14 @@ non-Vd0 roles when $N_+=0$, or at most one when $N_+=1$.
       concavity, chord bounds, and rational parameter
     - `2017`: proved one-hit and two-threshold routing for extensive capped-map
       chains, with the actual-row induction kept explicit
+    - `2018`: proved the diameter-transfer curve and class-independent
+      adjacent-rescuer obstruction
+    - `2019`: proved the interval residual operator, generalized center-assisted
+      handoff, radial component form, and boundary-path budget
+    - `201a`: proved the common equilateral enclosure gauge, universal radical
+      calculus, and four-frontier atlas
+    - `201b`: proved the global quarter radial envelope
+      $c_{\max}(p,h)\le1-h/4$
   - `21XX`: C-triangle geometry
     - `2100`: proved CE1/CE2 exactly-one-midpoint lemma with $O$ interior
     - `2101`: maximal C-triangles over the half skeleton
@@ -79,6 +87,9 @@ non-Vd0 roles when $N_+=0$, or at most one when $N_+=1$.
     - `2106`: CE2 exact center and radial formulas
     - `2107`: proved one-side capped-loss theorem
     - `2108`: proved CE2 two-endpoint capped-loss theorem
+    - `2109`: proved one signed CE1/CE2 center normal form
+    - `2110`: proved one common geometric application of the CE2 two-endpoint
+      theorem to both all-Vd0 two-gap branches
   - `25XX`: length bounds
     - `2500`: proved boundary length bounds
     - `2510`: skeleton length bounds
