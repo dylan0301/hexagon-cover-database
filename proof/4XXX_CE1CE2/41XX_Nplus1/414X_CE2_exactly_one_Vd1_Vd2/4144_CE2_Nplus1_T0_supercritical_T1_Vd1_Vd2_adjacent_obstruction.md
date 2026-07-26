@@ -2,61 +2,54 @@
 
 Status: Proven
 
-This file proves the adjacent placement in the `414X` branch:
+This file proves the adjacent placement in the `414X` branch.  The former
+half-edge $1/3$ envelope is replaced by the global quarter radial envelope
+[`201b`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/201b_quarter_radial_envelope.md),
+and the two Vd radial substitutions are replaced by the corner margins
+[`201c`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/201c_Vd_corner_radial_margins.md).
+
+## 1. Setup and residual boundary demands
+
+Assume
 
 $$
 T_C\text{ is CE2},
 \qquad
 T_0\text{ is the unique supercritical row},
 \qquad
-T_1\text{ is the unique Vd1/Vd2 row}.
+T_1\text{ is the unique Vd1/Vd2 row},
 $$
 
-The reflected placement with $T_5$ Vd1/Vd2 follows from the explicit
-reflection in the signed center normal form.
-
-## 1. Signed center variables
-
-Use
-[`2109`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md).
-Put
+and $T_2,T_3,T_4,T_5$ are nonsupercritical Vd0 rows.  Use the signed center
+variables from
+[`2109`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md):
 
 $$
 0<R<1,
 \qquad
 W=1-R,
-$$
-
-$$
+\qquad
 E=\sqrt{1-RW},
 \qquad
 \eta=1-E,
-\qquad
-P=E(1-E),
 $$
-
-and let $\alpha,\delta>0$ be the two center slacks. Set
 
 $$
 k=\eta+\alpha+\delta.
 $$
 
-The two CE2 traces are
+The two center intervals, in coordinates from $V_0$, are
 
 $$
-T_C\cap e_{5,0}
-=
-\left[\frac{k}{W},R+\alpha\right]
-=:[x,u],
+I_L=\left[\frac{k}{W},R+\alpha\right]
+\subset e_{5,0},
 $$
 
 and
 
 $$
-T_C\cap e_{0,1}
-=
-\left[\frac{k}{R},W+\delta\right]
-=:[y,v].
+I_R=\left[\frac{k}{R},W+\delta\right]
+\subset e_{0,1}.
 $$
 
 The center exit on $r_2$ is
@@ -65,43 +58,31 @@ $$
 \boxed{d_2^C=\delta.}
 $$
 
-## 2. Boundary demands at the adjacent Vd1/Vd2 row
-
-Let $(a_0,b_0)$ be the boundary reaches of the supercritical row $T_0$. Then
+Let $(a_0,b_0)$ be the boundary reaches of the supercritical row.  Then
 
 $$
+\boxed{
 a_0+b_0>1,
+\qquad
+a_0^2+a_0b_0+b_0^2\le1.
+}
 $$
 
-and the distance between its two boundary endpoints gives
+Use the residual operator from
+[`2019`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2019_interval_component_and_path_budget.md)
+and put
 
 $$
-\boxed{a_0^2+a_0b_0+b_0^2\le1.}
+\boxed{
+A=\mathcal R_{I_R}(b_0),
+\qquad
+H=\mathcal R_{I_L}(a_0).
+}
 $$
 
-Coverage on $e_{0,1}$ forces $T_1$ to have incoming reach at least
-
-$$
-A=
-\begin{cases}
-1-b_0,&b_0<y,\\
-\max\left\{0,1-\max\{b_0,v\}\right\},&b_0\ge y.
-\end{cases}
-$$
-
-Coverage on $e_{5,0}$ forces the endpoint row $T_5$ to have reach at least
-
-$$
-H=
-\begin{cases}
-1-a_0,&a_0<x,\\
-\max\left\{0,1-\max\{a_0,u\}\right\},&a_0\ge x.
-\end{cases}
-$$
-
-In a genuine candidate $H>0$. The four ordinary rows $T_2,T_3,T_4,T_5$ are
-nonsupercritical Vd0 rows. Boundary handoffs propagate the $T_5$ bound
-backward:
+Thus $A$ is the incoming reach forced on $T_1$, while $H$ is the far-side
+reach forced on $T_5$.  In a genuine reduced candidate $H>0$.  Boundary
+handoffs through the four ordinary nonsupercritical rows give
 
 $$
 b_5\ge H
@@ -115,144 +96,119 @@ b_2\ge H
 b_1\ge H.
 $$
 
-Thus
+Hence
 
 $$
-\boxed{a_1\ge A,
+a_1\ge A,
 \qquad
-b_1\ge H.}
+b_1\ge H.
 $$
 
-The Vd1/Vd2 corner normal form
-[`2014`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2014_Vd1_Vd2_corner_normal_form.md)
-gives
-
-$$
-a_1+b_1<\frac12.
-$$
-
-Consequently
+The Vd1/Vd2 half-unit cap gives
 
 $$
 \boxed{A+H<\frac12.}
 $$
 
-## 3. The small center-slack domain
+## 2. A quarter-margin for the center exit
 
-The common boundary-budget theorem
+The common perimeter budget
 [`2530`](../../../2XXX_geometric_lemmas/25XX_length_bounds/2530_common_CE1_CE2_budget_lemmas.md)
-applies to exactly one supercritical Vd0 row, exactly one Vd1/Vd2 row, and
-four nonsupercritical Vd0 rows. It gives
-
-$$
-\boxed{\alpha+\delta<\frac1{24},}
-$$
-
-and
+gives
 
 $$
 \boxed{
-\alpha+\delta<\frac{\min\{R,W\}}6.
+T:=\alpha+\delta<\frac1{24},
+\qquad
+T<\frac{\min\{R,W\}}6.
 }
 $$
-
-## 4. The center exit is below $H/3$
 
 We prove
 
 $$
-\boxed{d_2^C=\delta<\frac H3.}
+\boxed{\delta<\frac H4.}
 $$
 
-Because $H>0$, its definition has only two possible positive sources.
+Since $H>0$, the residual formula has two possible positive values.
 
-### Case 1: $H=1-u=W-\alpha$
+### Case 1: $H=1-(R+\alpha)=W-\alpha$
 
-The orientation-sensitive bound gives
+Then
 
 $$
-3\delta+\alpha
+4\delta+\alpha
 \le
-3(\alpha+\delta)
+4(\alpha+\delta)
 <
-\frac W2
-<
-W.
+\frac{2W}{3}
+<W,
 $$
 
-Therefore
+so
 
 $$
-3\delta<W-\alpha=H.
+4\delta<W-\alpha=H.
 $$
 
 ### Case 2: $H=1-a_0$
 
-First, the demand $A$ cannot equal $1-b_0$. Otherwise
+The other residual $A$ cannot equal $1-b_0$.  Otherwise
 
 $$
 A+H=2-a_0-b_0<\frac12
 $$
 
-would imply
+would give $a_0+b_0>3/2$, whereas the endpoint-distance inequality gives
 
 $$
-a_0+b_0>\frac32.
+a_0+b_0\le\frac2{\sqrt3}<\frac32.
 $$
 
-But the endpoint-distance inequality gives
+Also $b_0<1$, because $b_0=1$ would force $a_0=0$ in the endpoint-distance
+inequality, contradicting strict supercriticality.  The signed center domain
+gives
 
 $$
-a_0+b_0\le\frac2{\sqrt3}<\frac32,
+W+\delta<1.
 $$
 
-which is impossible.
-
-We must also exclude the zero branch in the definition of $A$. The strict
-supercritical condition and the endpoint-distance inequality imply $b_0<1$:
-if $b_0=1$, then the latter inequality forces $a_0=0$, contradicting
-$a_0+b_0>1$. The exact CE2 trace has $v<1$. Hence
+Consequently the residual $A$ is positive.  The residual formula therefore
+forces
 
 $$
-\max\{b_0,v\}<1,
+\boxed{
+A=1-(W+\delta),
+\qquad
+b_0\ge\frac{k}{R}.
+}
 $$
 
-so the maximum defining $A$ is positive. Since the only possible positive
-sources are $1-b_0$ and $1-v$, and the first has just been excluded, we have
+Since $A+H<1/2$,
 
 $$
-\boxed{A=1-v.}
+W+\delta>\frac12+H.
 $$
 
-Thus
+Put
 
 $$
-v>\frac12+H.
+y=\frac{k}{R}.
 $$
 
-For the demand to be determined by $v$, row $T_0$ reaches the initial center
-endpoint $y$, so $b_0\ge y$. Since $a_0=1-H$, the endpoint-distance
-inequality gives
+Because $a_0=1-H$ and $b_0\ge y$, the endpoint-distance inequality gives
 
 $$
 (1-H)^2+(1-H)y+y^2\le1.
 $$
 
-Since $A+H<1/2$, one has $H<1/2$. The diameter-transfer lemma
-[`2018`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2018_diameter_transfer_and_adjacent_rescuer.md)
-therefore gives
+The diameter-transfer lemma `2018` gives
 
 $$
-H\ge\lambda_\circ(y)>\frac y2.
+H>\frac y2>\frac{\eta}{2R}.
 $$
 
-Also
-
-$$
-y=\frac{\eta+\alpha+\delta}{R}>\frac\eta R.
-$$
-
-Suppose first that $R\ge3/8$. Since $v=W+\delta>1/2+H$,
+Therefore
 
 $$
 \delta
@@ -261,46 +217,43 @@ R-\frac12+\frac{\eta}{2R}
 =:J(R).
 $$
 
-We claim
-
-$$
-J(R)\ge\frac1{24}
-\qquad(R\ge3/8).
-$$
-
-For $3/8\le R\le13/24$, one has
-
-$$
-RW\ge\frac{15}{64},
-\qquad
-E\le\frac78.
-$$
-
 Using
 
 $$
-\frac\eta R=\frac{W}{1+E},
+\frac{\eta}{R}=\frac{W}{1+E},
 $$
 
-we obtain
+we have
 
 $$
-J(R)
-\ge
-R-\frac12+\frac{4W}{15}
+J(R)=R-\frac12+\frac{W}{2(1+E)}.
+$$
+
+Exact differentiation gives
+
+$$
+4E(1+E)^2J'(R)
 =
-\frac{11R}{15}-\frac7{30}
-\ge
-\frac1{24}.
+2E(1+E)(1+2E)-W(2R-1)>0.
 $$
 
-For $R\ge13/24$,
+For $R\le1/2$ the last term is nonnegative after subtraction.  For
+$R\ge1/2$,
 
 $$
-J(R)>R-\frac12\ge\frac1{24}.
+W(2R-1)\le\frac18,
 $$
 
-Thus $R\ge3/8$ would give $\delta>1/24$, contrary to Section 3. Hence
+whereas the first term is already larger than $1/8$.  Hence $J$ is strictly
+increasing.  Since
+
+$$
+E\left(\frac38\right)=\frac78,
+\qquad
+J\left(\frac38\right)=\frac1{24},
+$$
+
+the inequalities $\delta>J(R)$ and $\delta<1/24$ force
 
 $$
 R<\frac38.
@@ -309,103 +262,57 @@ $$
 Now
 
 $$
-(2-3R)^2-E^2
-=(3-8R)(1-R)>0,
+(2-3R)^2-E^2=(3-8R)(1-R)>0,
 $$
 
-so
+so $E<2-3R$ and
 
 $$
-E<2-3R.
-$$
-
-Therefore
-
-$$
-\frac\eta R
+\frac{\eta}{R}
 =
 \frac{W}{1+E}
 >
-\frac{W}{3W}
-=
 \frac13.
 $$
 
-It follows that
+Thus
 
 $$
-y>\frac13,
-\qquad
-H>\frac y2>\frac16.
+H>\frac{\eta}{2R}>\frac16.
 $$
 
-Combining this with $\delta<1/24$ gives
+Together with $\delta<1/24$, this gives
 
 $$
-\delta
-<
-\frac1{24}
-<
-\frac1{18}
-<
-\frac H3.
+4\delta<\frac16<H.
 $$
 
-This proves the center-exit estimate in both cases.
+Both cases prove the quarter-margin.
 
-## 5. Excluding coverage of $r_2$
+## 3. Neither possible radial bridge reaches the center
 
-The center covers $r_2$ from $O$ to distance $\delta$. Thus the vertex-side
-entry point is
+The center interval on $r_2$ ends at distance $\delta$ from $O$, so its
+vertex-side entry point is
 
 $$
 q_2=1-\delta.
 $$
 
-There are only two possible ways to connect the vertex-side cover to this
-center interval.
+### The Vd1/Vd2 row
 
-### The Vd1/Vd2 row cannot bridge
-
-Orient the normal form `2014` so that $r_2$ is the supported adjacent arm. For
-some $t>0$ and
+If $T_1$ has no positive-length trace on $r_2$, there is nothing to prove.
+Otherwise orient the corner normal form toward that supported arm.  The
+supported-arm margin `201c`, together with $b_1\ge H$, gives
 
 $$
-d=\sqrt{t^2+t+1},
+u_2<1-H<1-\delta=q_2.
 $$
 
-its upper endpoint on $r_2$ is
+Thus $T_1$ cannot meet the center interval.
 
-$$
-u_2=\frac{d-a_1-tb_1-1}{t}.
-$$
+### The ordinary row $T_2$
 
-If $T_1$ bridged to the center interval, then $u_2\ge q_2$, so
-
-$$
-a_1+tb_1
-\le
-d-1-t+t\delta.
-$$
-
-Since $d<t+1$,
-
-$$
-a_1+tb_1<t\delta.
-$$
-
-But $a_1\ge0$ and $b_1\ge H$, so $tH<t\delta$, contradicting
-$\delta<H/3$.
-
-### The ordinary row $T_2$ cannot reach the center interval
-
-If $T_2$ reached the center interval, its own-radial reach $c_2$ would satisfy
-
-$$
-c_2\ge q_2.
-$$
-
-On $e_{1,2}$,
+Coverage of $e_{1,2}$ gives
 
 $$
 a_2\ge1-b_1.
@@ -417,43 +324,40 @@ $$
 a_2>\frac12+A.
 $$
 
-Backward boundary propagation gives
-
-$$
-b_2\ge H.
-$$
-
-Put
+Backward propagation gives $b_2\ge H$.  Put
 
 $$
 p=\frac12+A.
 $$
 
-Then $p\ge1/2$, $H\le p$, and $p+H<1$. Coordinatewise down-closedness of the
-exact admissible set gives
+The inequality $A+H<1/2$ gives
 
 $$
-c_2\le c_{\max}(p,H).
+0\le H\le p,
+\qquad
+p+H<1.
 $$
 
-The half-edge radial envelope in
-[`2012`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2012_high_radial_low_root_bounds.md)
-gives
+Coordinatewise down-closedness of the exact admissible set and the quarter
+envelope `201b` give
 
 $$
-c_2\le1-\frac H3.
+c_2
+\le
+c_{\max}(p,H)
+\le
+1-\frac H4
+<
+1-\delta
+=q_2.
 $$
 
-But $\delta<H/3$, so
+Thus $T_2$ also cannot meet the center interval.  Diameter locality and the
+Vd0 hypotheses exclude any other positive interval on $r_2$, so that arm is
+uncovered.
 
-$$
-1-\frac H3<1-\delta=q_2.
-$$
-
-Thus $c_2<q_2$, a contradiction.
-
-Neither possible bridge covers $r_2$. Hence the adjacent
-$T_0$-supercritical, $T_1$-Vd1/Vd2 placement is impossible.
+The reflected adjacent placement with $T_5$ Vd1/Vd2 is identical.  Therefore
+every adjacent placement is impossible.
 
 $$
 \Box
