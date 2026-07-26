@@ -1,18 +1,17 @@
-name: Apply second manuscript cleanup
+name: Finalize PR 14 source cleanup
 
 on:
   push:
     branches:
       - agent/manuscript-unification
     paths:
-      - arrange/paper_draft/_apply_manuscript_cleanup2.py
       - .github/workflows/apply-manuscript-cleanup2.yml
 
 permissions:
   contents: write
 
 jobs:
-  apply:
+  cleanup:
     if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
@@ -22,15 +21,138 @@ jobs:
           ref: agent/manuscript-unification
           fetch-depth: 0
 
-      - name: Apply asserted transformations
-        run: python arrange/paper_draft/_apply_manuscript_cleanup2.py
+      - name: Apply final source corrections
+        run: |
+          python - <<'PY'
+          from pathlib import Path
 
-      - name: Commit transformed sources
+          def replace_exact(path: Path, old: str, new: str) -> None:
+              text = path.read_text(encoding="utf-8")
+              count = text.count(old)
+              if count != 1:
+                  raise RuntimeError(f"{path}: expected one copy, found {count}: {old!r}")
+              path.write_text(text.replace(old, new), encoding="utf-8")
+
+          main = Path("arrange/paper_draft/main.tex")
+          replace_exact(
+              main,
+              "interval residuals, boundary-path budgets, and selected-$T_+$ curve used",
+              "interval residuals, boundary-path budgets, and the selected high-sheet curve used",
+          )
+
+          vd = Path("arrange/paper_draft/04c_short_Vd_placements.tex")
+          replace_exact(
+              vd,
+              "Then $a\\le F(t,c)$, and $F$ decreases in $t\\ge1$.  Hence\n"
+              "\\[\n"
+              " a\\le F(t,c)\\le L(c):=\\sqrt3-\\frac52+2c.\n"
+              "\\]",
+              "Then $a\\le F(t,c)$.  Since $c\\le1/2$,\n"
+              "\\[\n"
+              " \\frac{\\partial F}{\\partial t}\n"
+              " =\\frac{2t+1}{2\\sqrt{t^2+t+1}}-\\frac32+c\n"
+              " \\le\\frac{2t+1}{2\\sqrt{t^2+t+1}}-1<0,\n"
+              "\\]\n"
+              "where the last inequality follows from\n"
+              "$(2t+1)^2<4(t^2+t+1)$.  Thus $F$ decreases for $t\\ge1$, and\n"
+              "\\[\n"
+              " a\\le F(t,c)\\le L(c):=\\sqrt3-\\frac52+2c.\n"
+              "\\]",
+          )
+          replace_exact(
+              vd,
+              "Every feasible row has $L(c)\\ge0$.  The inequality\n"
+              "$2L(c)\\le A_{\\rm sc}(c)$ follows after squaring from\n"
+              "\\[\n"
+              " Q(c)=20c^2+(18\\sqrt3-52)c+47-24\\sqrt3>0\n"
+              "\\]\n"
+              "on $[0,1/2]$: the polynomial is decreasing there and\n"
+              "$Q(1/2)=26-15\\sqrt3>0$.  Thus $a\\le A_{\\rm sc}(c)$.",
+              "Every feasible row has $L(c)\\ge0$.  The inequality\n"
+              "$2L(c)\\le A_{\\rm sc}(c)$ is equivalent to\n"
+              "\\[\n"
+              " \\sqrt{c^2-8c+4}\\le12-4\\sqrt3-9c.\n"
+              "\\]\n"
+              "The right side is positive on $[0,1/2]$.  Squaring is therefore\n"
+              "legitimate, and the squared difference is $4Q(c)$, where\n"
+              "\\[\n"
+              " Q(c)=20c^2+(18\\sqrt3-52)c+47-24\\sqrt3.\n"
+              "\\]\n"
+              "The polynomial is decreasing on $[0,1/2]$ and\n"
+              "$Q(1/2)=26-15\\sqrt3>0$.  Hence $2L(c)\\le A_{\\rm sc}(c)$,\n"
+              "and therefore $a\\le A_{\\rm sc}(c)$.",
+          )
+          replace_exact(
+              vd,
+              " \\varepsilon_0=\\frac{2t+1-c(t+1)-d}{t}>0,\n"
+              "\\]\n"
+              "and\n"
+              "\\[\n"
+              " \\varepsilon_0+\\frac{F(t,c)}t=\\frac12.\n"
+              "\\]",
+              " \\varepsilon_0=\\frac{2t+1-c(t+1)-d}{t}.\n"
+              "\\]\n"
+              "Since $c\\le1/2$ and $t\\ge1$,\n"
+              "\\[\n"
+              " 2t+1-c(t+1)-d\\ge\\frac{3t+1}{2}-d>0;\n"
+              "\\]\n"
+              "the last inequality follows after squaring from\n"
+              "$(3t+1)^2/4-d^2=(5t^2+2t-3)/4>0$.  Thus\n"
+              "$\\varepsilon_0>0$.  Moreover,\n"
+              "\\[\n"
+              " \\varepsilon_0+\\frac{F(t,c)}t=\\frac12.\n"
+              "\\]",
+          )
+          replace_exact(
+              vd,
+              "The other residual cannot be $1-b_0$, since otherwise\n"
+              "\\eqref{eq:signed-adjacent-AH} would give $a_0+b_0>3/2$.",
+              "The other residual cannot be $1-b_0$, since otherwise\n"
+              "\\eqref{eq:signed-adjacent-AH} would give $a_0+b_0>3/2$, whereas\n"
+              "the endpoint-distance inequality gives\n"
+              "$a_0+b_0\\le2/\\sqrt3<3/2$.",
+          )
+          replace_exact(
+              vd,
+              "In the former case, $a_0<x$ would force\n"
+              "$a_0+b_0>3/2$, so $a_0\\ge x$ and\n"
+              "$B=b_0\\le\\beta(a_0)\\le\\beta(x)$.",
+              "In the former case, if $a_0<x$, then $U=a_0$ and\n"
+              "$A+H<1/2$ would force $a_0+b_0>3/2$, contrary to\n"
+              "$a_0+b_0\\le2/\\sqrt3$.  Hence $a_0\\ge x$, and\n"
+              "$B=b_0\\le\\beta(a_0)\\le\\beta(x)$.",
+          )
+          PY
+
+      - name: Regenerate the proof manifest and remove temporary machinery
+        run: |
+          find proof -type d -name __pycache__ -prune -exec rm -rf {} +
+          (
+            cd proof
+            {
+              printf '%s\n\n' '# Proof Manifest'
+              printf '%s\n\n' 'Paths are relative to this `proof/` directory.'
+              { find . -type f ! -name MANIFEST.txt -printf '%P\n'; printf '%s\n' MANIFEST.txt; } | LC_ALL=C sort
+            } > MANIFEST.txt
+          )
+          git rm -f --ignore-unmatch \
+            .github/workflows/apply-manuscript-cleanup2.yml \
+            .github/workflows/apply-manuscript-dedup.yml \
+            .github/workflows/complete-unification-remaining.yml \
+            .github/workflows/diagnose-unified-latex.yml \
+            .github/workflows/verify-unified-manuscript.yml \
+            arrange/paper_draft/_apply_manuscript_cleanup2.py \
+            arrange/paper_draft/_apply_unification_edits.py \
+            arrange/paper_draft/_complete_unification_remaining.py \
+            arrange/paper_draft/_finalize_unification_sources.py \
+            arrange/paper_draft/finalize_unification_error.log \
+            arrange/paper_draft/latex_diagnostic.log
+
+      - name: Commit the clean persistent diff
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -A
-          if ! git diff --cached --quiet; then
-            git commit -m 'Apply second manuscript cleanup'
-            git push origin HEAD:agent/manuscript-unification
-          fi
+          git diff --cached --check
+          git commit -m 'Clean PR14 and finalize persistent sources'
+          git push origin HEAD:agent/manuscript-unification
