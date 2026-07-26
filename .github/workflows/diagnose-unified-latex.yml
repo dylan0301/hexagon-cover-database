@@ -1,0 +1,32 @@
+name: Diagnose unified LaTeX
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - agent/manuscript-unification
+    paths:
+      - .github/workflows/diagnose-unified-latex.yml
+  pull_request:
+    branches:
+      - main
+    paths:
+      - .github/workflows/diagnose-unified-latex.yml
+      - arrange/paper_draft/*.tex
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out implementation branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/manuscript-unification
+
+      - name: Compile with XeLaTeX container
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex
+          working_directory: arrange/paper_draft
+          latexmk_use_xelatex: true
+          args: -interaction=nonstopmode -halt-on-error -file-line-error
