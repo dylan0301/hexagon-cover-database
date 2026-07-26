@@ -5,9 +5,11 @@ This section gives the reader the entire proof architecture before any long
 calculation.  It introduces the geometric objects and case labels, states the
 exhaustive routing table, and previews the four mechanisms that close its
 rows.  Section~\ref{sec:structural-reductions} proves that the labels and
-reductions are exhaustive.  The complete proofs then appear in dependency
-order in Sections~\ref{sec:length}--\ref{sec:ab-core}, before the final audit
-in Section~\ref{sec:assembly}.
+reductions are exhaustive, and Section~\ref{sec:signed-ce12-reductions}
+gives the common signed center model.  The reader-facing proofs then appear
+in Sections~\ref{sec:length}--\ref{sec:strategy4-reader}, before the final
+audit in Section~\ref{sec:assembly}; the irreducible exact calculations are
+retained in the appendices.
 
 \subsection{The theorem}
 
@@ -118,6 +120,19 @@ $i$ is \emph{supercritical} when $A_i+B_i>1$, and
 Lowercase $(a_i,b_i,c_i)$ will always denote smaller selected demands, never
 the actual maxima used to define $N_+$.
 
+For the CE1/CE2 case tree, call a vertex role \emph{short} if it is
+supercritical or has positive-length trace on an adjacent radial arm.  Let
+$m$ be the number of roles of type $\Vdone$, $\Vdtwo$, or $\Tlike$, and let
+$q$ be the number of short roles.  Lemma~\ref{lem:short-role-count} proves
+the identity
+\[
+ q=N_++m.
+\]
+Thus the first CE1/CE2 routing row below removes every branch with three
+short roles before any finer split is made.  In particular, the midpoint
+rescuer of Lemma~\ref{lem:positive-support-rescuer} puts every
+$N_+\ge2$ branch in that row.
+
 \begin{figure}[H]
 \centering
 \begin{minipage}[t]{.32\textwidth}
@@ -180,11 +195,13 @@ because both incident traces are open at that point.
 
 \subsection{The exhaustive routing table}
 
-Table~\ref{tab:routing} is the logical spine of the proof.  Each row is a
-mutually exclusive refinement after the center class and $N_+$ are fixed,
-except for the one row explicitly assigned jointly to Strategies~1 and~2.
-Its exhaustiveness is proved in Section~\ref{sec:structural-reductions}, and
-the row-by-row audit is carried out in Section~\ref{sec:assembly}.
+Table~\ref{tab:routing} is the logical spine of the proof.  The CE0 rows are
+disjoint as written.  The CE1/CE2 rows are applied from top to bottom: after
+the first row one has $q\le2$, so each later refinement is mutually
+exclusive.  The one row marked $1+2$ is explicitly assigned jointly to
+Strategies~1 and~2.  Exhaustiveness is proved in
+Section~\ref{sec:structural-reductions}, and the final audit appears in
+Section~\ref{sec:assembly}.
 
 \begin{table}[H]
 \centering
@@ -200,35 +217,31 @@ $\CEzero$, $N_+=1$&a $\Vdone$ or $\Vdtwo$ role&1\\
 $\CEzero$, $N_+=1$&no $\Vdone/\Vdtwo$ role and a $\Tlike$ role&3\\
 $\CEzero$, $N_+\ge2$&all vertex types&3\\
 \midrule
+$\CEone/\CEtwo$&$q\ge3$&1\\
 $\CEone/\CEtwo$, $N_+=0$&all six roles $\Vdzero$&2\\
 $\CEone/\CEtwo$, $N_+=0$&a $\Vdone$ or $\Vdtwo$ role&1\\
 $\CEone/\CEtwo$, $N_+=0$&no $\Vdone/\Vdtwo$ role and a $\Tlike$ role&2\\
-\midrule
 $\CEone/\CEtwo$, $N_+=1$&all $\Vdzero$, zero gaps&4\\
-$\CEone/\CEtwo$, $N_+=1$&all $\Vdzero$, exactly one gap&2\\
-$\CEtwo$, $N_+=1$&all $\Vdzero$, exactly two gaps&2\\
-$\CEone$, $N_+=1$&a $\Vdone$ or $\Vdtwo$ role&1\\
-$\CEtwo$, $N_+=1$&at least two $\Vdone/\Vdtwo$ roles&1\\
-$\CEtwo$, $N_+=1$&exactly one $\Vdone/\Vdtwo$ role&1+2\\
-$\CEone/\CEtwo$, $N_+=1$&no $\Vdone/\Vdtwo$ role and exactly one $\Tlike$ role&2\\
-$\CEone/\CEtwo$, $N_+=1$&no $\Vdone/\Vdtwo$ role and at least two $\Tlike$ roles&1\\
-$\CEone/\CEtwo$, $N_+\ge2$&all vertex types&1\\
+$\CEone/\CEtwo$, $N_+=1$&all $\Vdzero$, a positive gap&2\\
+$\CEone/\CEtwo$, $N_+=1$&exactly one $\Tlike$, no $\Vdone/\Vdtwo$&2\\
+$\CEone/\CEtwo$, $N_+=1$&exactly one $\Vdone/\Vdtwo$, no $\Tlike$&
+  $1\;/\;1{+}2$\\
 \bottomrule
 \end{tabular}
-\caption{The complete terminal routing.  Route $j$ means Strategy $j$;
-$1+2$ is the single hybrid package.}
+\caption{The complete terminal routing.  The CE1/CE2 rows are read in
+order.  Route $j$ means Strategy $j$.  In the last row the first entry is
+for CE1 and the second for CE2; $1+2$ is the single hybrid package.}
 \label{tab:routing}
 \end{table}
 
 \subsection{The four strategies}
 
 \paragraph{Strategy 1: one-dimensional trace budgets.}
-Choose one of $\partial H$, $D$, or the conditional skeleton $S$.  Bound the
-trace of each role on that target according to its center class, vertex type,
-and supercritical status.  In every routed branch the seven upper bounds add
-to strictly less than the target length.  The target, rather than the case
-label, is the organizing idea.  Subsection~\ref{subsec:length-guide} gives the
-reader-level argument, and Section~\ref{sec:length} gives the complete trace
+Choose either $\partial H$ or the conditional skeleton $S$.  Bound the trace
+of each role on that target according to its center class, vertex type, and
+supercritical status.  In every routed branch the seven upper bounds add to
+strictly less than the target length.  The target, rather than the case
+label, is the organizing idea.  Section~\ref{sec:length} gives the trace
 bounds and terminal contradictions.
 
 \paragraph{Strategy 2: exact demand propagation.}
@@ -236,10 +249,10 @@ A center trace supplies boundary inputs and complementary radial demands.
 For a nonsupercritical vertex row, a monotone capped map converts an incoming
 boundary demand into a lower bound on the next row.  Iterating around the
 hexagon returns to row $0$ with a demand exceeding its exact remaining
-capacity.  Subsection~\ref{subsec:exact-demand-guide} displays the actual-row
-propagation mechanism.  Sections~\ref{sec:exact-local-demand-calculus}--%
-\ref{sec:t3-vd-demand-branches} give the piecewise map, the individual
-five-link inequalities, the rational estimates, and the terminal branches.
+capacity.  Section~\ref{sec:strategy2-reader} gives the common actual-row
+propagation mechanism; Appendices~\ref{sec:exact-local-demand-calculus}--%
+\ref{sec:t3-vd-demand-branches} retain the exact piecewise map and the
+branch-specific scalar certificates.
 
 \paragraph{Strategy 3: area loss.}
 Normalize a unit triangle to area one, so $H$ has area six.  Each selected
@@ -247,8 +260,7 @@ boundary handoff forces a square amount of a vertex triangle outside the
 local hexagonal wedge.  Two ascents, or one ascent together with a
 $\Tlike$ row, force total loss greater than one; after adding the center
 triangle, the available inside area is strictly less than six.
-Subsection~\ref{subsec:area-guide} previews the two cyclic sums, and
-Section~\ref{sec:area} proves their local hypotheses.
+Section~\ref{sec:area} proves the local inequalities and both cyclic sums.
 
 \paragraph{Strategy 4: a direct nine-point obstruction.}
 In the zero-gap, all-$\Vdzero$, exact-one state, the five nonsupercritical
@@ -257,8 +269,9 @@ that force six radial points and three asymmetric points into $U_C$.
 Their convex hull cannot fit in an open unit equilateral triangle: an exact
 caliper argument gives enclosing side at least one, whereas compact
 containment in $U_C$ would give side strictly below one.  The reader-level
-construction is in Subsection~\ref{subsec:nine-point-guide}, and the complete
-argument is in Section~\ref{sec:ab-core}.
+construction and enclosure argument are in
+Section~\ref{sec:strategy4-reader}; Appendix~\ref{sec:ab-core} contains the
+exact frontier and overlap certificates.
 
 The proof uses no global noncoverage claim for $S$, no interval subdivision,
 and no branch-and-bound.  The last mixed-overlap step is an exact

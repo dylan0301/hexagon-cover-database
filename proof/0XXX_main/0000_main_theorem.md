@@ -64,25 +64,31 @@ classification forces a T3-like role. Hence CE0 is impossible.
 
 ### CE1 and CE2
 
-| Actual-row and vertex-type case | Proven contradiction |
+Let $m$ be the number of Vd1, Vd2, or T3-like roles, and let $q$ be the
+number of short roles. The exact short-role count in
+[`2530`](../2XXX_geometric_lemmas/25XX_length_bounds/2530_common_CE1_CE2_budget_lemmas.md)
+is
+
+$$
+q=N_++m.
+$$
+
+Every case with $q\ge3$ is impossible by the three-short-role skeleton
+theorem. If $N_+\ge2$, midpoint rescue forces a further positive-support
+role, so again $q\ge3$. It remains to consider $N_+\le1$ and $q\le2$.
+
+| Surviving actual-row and vertex-type case | Proven contradiction |
 |---|---|
 | $N_+=0$, all six roles Vd0 | Exact boundary-loss package [`4013`](../4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md) |
-| $N_+=0$, some Vd1/Vd2 role, CE1 | Boundary-length obstruction [`4040`](../4XXX_CE1CE2/40XX_Nplus0/404X_exists_Vd1_Vd2_obstruction/4040_CE1_Nplus0_exists_Vd1_Vd2_boundary_length_obstruction.md) |
-| $N_+=0$, some Vd1/Vd2 role, CE2 | Boundary-length obstruction [`4041`](../4XXX_CE1CE2/40XX_Nplus0/404X_exists_Vd1_Vd2_obstruction/4041_CE2_Nplus0_exists_Vd1_Vd2_boundary_length_obstruction.md) |
+| $N_+=0$, some Vd1/Vd2 role | Boundary-length obstructions [`4040`](../4XXX_CE1CE2/40XX_Nplus0/404X_exists_Vd1_Vd2_obstruction/4040_CE1_Nplus0_exists_Vd1_Vd2_boundary_length_obstruction.md), [`4041`](../4XXX_CE1CE2/40XX_Nplus0/404X_exists_Vd1_Vd2_obstruction/4041_CE2_Nplus0_exists_Vd1_Vd2_boundary_length_obstruction.md) |
 | $N_+=0$, no Vd1/Vd2 role and some T3-like role | Four-label obstruction [`4070`](../4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4070_CE1CE2_Nplus0_T3_like_no_Vd1Vd2_index.md) |
-| $N_+=1$, some Vd1/Vd2 role, CE1 | Boundary-length obstruction [`4110`](../4XXX_CE1CE2/41XX_Nplus1/411X_Vd1_Vd2_obstruction/4110_CE1_Nplus1_exists_Vd1_Vd2_boundary_length_obstruction.md) |
-| $N_+=1$, at least two Vd1/Vd2 roles, CE2 | Boundary-length obstruction [`4111`](../4XXX_CE1CE2/41XX_Nplus1/411X_Vd1_Vd2_obstruction/4111_CE2_Nplus1_at_least_two_Vd1_Vd2_boundary_length_obstruction.md) |
-| $N_+=1$, exactly one Vd1/Vd2 role, CE2 | Exhaustive mixed-type assembly [`4140`](../4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4140_CE2_Nplus1_exactly_one_Vd1_Vd2_index.md) |
-| $N_+=1$, no Vd1/Vd2 role and at least two T3-like roles | Diagonal obstruction [`4123`](../4XXX_CE1CE2/41XX_Nplus1/412X_at_least_two_T3_like/4123_CE1_CE2_at_least_two_T3_like_diagonal_obstruction.md) |
-| $N_+=1$, no Vd1/Vd2 role and exactly one T3-like role | Boundary obstruction [`4130`](../4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like/4130_CE1CE2_exactly_one_T3_like_index.md) |
 | $N_+=1$, all six roles Vd0 | Exact gap closure [`4101`](../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4101_CE1CE2_Nplus1_all_Vd0_strategy.md) |
-| $N_+\ge2$ | Shared skeleton-length obstruction [`4200`](../4XXX_CE1CE2/42XX_Nplus_ge2/4200_CE1_CE2_skeleton_length_route.md) |
+| $N_+=1$, exactly one T3-like role | Boundary obstruction [`4130`](../4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like/4130_CE1CE2_exactly_one_T3_like_index.md) |
+| $N_+=1$, exactly one Vd1/Vd2 role | CE1 boundary obstruction [`4110`](../4XXX_CE1CE2/41XX_Nplus1/411X_Vd1_Vd2_obstruction/4110_CE1_Nplus1_exists_Vd1_Vd2_boundary_length_obstruction.md), or CE2 mixed-type assembly [`4140`](../4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4140_CE2_Nplus1_exactly_one_Vd1_Vd2_index.md) |
 
-For $N_+=0$, the first four rows are exhaustive by the vertex
-classification. For $N_+=1$, first split according to whether a Vd1/Vd2 role
-occurs; in CE2 split further into exactly one or at least two. If none occurs,
-the number of T3-like roles is $0$, $1$, or at least $2$, giving the next
-three rows. Thus CE1 and CE2 are impossible.
+For $N_+=0$, the first three rows are exhaustive. For $N_+=1$, the short-role
+count leaves at most one non-Vd0 role, giving the last three rows. Thus CE1
+and CE2 are impossible.
 
 All three center classes lead to contradictions. Therefore seven open unit
 equilateral triangles cannot cover $H$. The equivalence in `1003` gives the

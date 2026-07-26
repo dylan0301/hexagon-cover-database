@@ -1,8 +1,8 @@
 \subsection{Common perimeter and skeleton budgets}
 
-The signed center formula also removes the repeated CE1/CE2 length arithmetic.
-We first state a generic perimeter deficit and then the small-slack consequence
-used by the one-Vd1/Vd2 placements.
+The signed center formula also removes repeated length arithmetic.  We first
+state a generic perimeter deficit, then count all short roles before entering
+the CE1/CE2 case tree.
 
 \begin{lemma}[Master perimeter deficit]
 \label{lem:signed-perimeter-deficit}
@@ -10,10 +10,10 @@ Put
 \[
  \theta=\frac2{\sqrt3}-1.
 \]
-Suppose a branch has an exact-$M_0$ CE1 or CE2 center contribution $L_C$,
-$n$ supercritical Vd0 rows, $m\ge1$ distinguished nonsupercritical rows with
-strict boundary caps $q_1,\ldots,q_m<1$, and $6-n-m$ remaining rows whose
-boundary contributions are at most $1$. If
+Suppose a branch has a center contribution $L_C$, $n$ supercritical Vd0
+rows, $m\ge1$ distinguished nonsupercritical rows with strict boundary caps
+$q_1,\ldots,q_m<1$, and $6-n-m$ remaining rows whose boundary contributions
+are at most $1$. If
 \begin{equation}
  L_C+n\theta\le\sum_{j=1}^m(1-q_j),
  \label{eq:signed-perimeter-deficit}
@@ -172,53 +172,85 @@ The full skeleton has length $12$, so subadditivity for a cover gives a
 contradiction.
 \end{proof}
 
+\begin{lemma}[Short-role count]
+\label{lem:short-role-count}
+Let $m$ be the number of vertex roles of type Vd1, Vd2, or T3-like, and let
+$q$ be the number of short vertex roles.  Then
+\begin{equation}
+ \boxed{q=N_++m.}
+ \label{eq:short-role-count}
+\end{equation}
+Consequently, every exact-$M_0$ CE1/CE2 branch with $N_++m\ge3$ is
+impossible.
+\end{lemma}
+
+\begin{proof}
+The exhaustive vertex classification says that Vd0 is exactly the class with
+no positive-length adjacent-arm support, while Vd1, Vd2, and T3-like are
+exactly the three classes with such support.  Proposition
+\ref{prop:vd-corner-normal-form} gives $A_i+B_i<1/2$ for Vd1/Vd2, and
+Lemma~\ref{lem:t3-nonsupercritical} gives $A_i+B_i\le1$ for T3-like.
+Thus none of these $m$ roles is supercritical.  Conversely, every
+supercritical role is Vd0, so it has no positive adjacent-arm support.
+The two disjoint sources of short roles are therefore the $N_+$
+supercritical roles and the $m$ non-Vd0 roles.  This proves
+\eqref{eq:short-role-count}; Theorem~\ref{thm:three-short-roles} gives the
+last assertion.
+\end{proof}
+
 \begin{corollary}[Length branches closed by the common budgets]
 \label{cor:signed-budget-branches}
 The following branches are impossible.
 \begin{enumerate}
+\item CE0, $N_+=1$, and at least one Vd1/Vd2 row;
 \item $N_+=0$ and at least one Vd1/Vd2 row, for either CE1 or CE2;
 \item CE1, $N_+=1$, and at least one Vd1/Vd2 row;
 \item CE2, $N_+=1$, and at least two Vd1/Vd2 rows;
 \item CE2, $N_+=1$, with a Vd2 row containing a neighboring midpoint;
-\item CE1 or CE2, $N_+=1$, with at least two T3-like rows and no Vd1/Vd2 row;
-\item CE1 or CE2, $N_+=1$, with one Vd1/Vd2 row and an additional
-positive-support row;
+\item CE1 or CE2 with $N_++m\ge3$, where $m$ is the number of Vd1, Vd2,
+or T3-like roles;
 \item CE1 or CE2 with $N_+\ge2$.
 \end{enumerate}
 \end{corollary}
 
 \begin{proof}
-For item 1, the center contribution is strictly less than $1/2$ and the
+For item 1, take $L_C=0$, one supercritical cap $2/\sqrt3$, and one strict
+Vd1/Vd2 cap $1/2$ in Lemma~\ref{lem:signed-perimeter-deficit}; the needed
+inequality is
+\[
+ \frac2{\sqrt3}-1<\frac12.
+\]
+
+For item 2, the center contribution is strictly less than $1/2$ and the
 chosen Vd1/Vd2 row has strict cap $1/2$; the other five rows contribute at
 most $1$ each. This is Lemma~\ref{lem:signed-perimeter-deficit} with
 $n=0$ and $q_1=1/2$.
 
-For item 2, the unique supercritical row is Vd0, while the CE1 center cap,
+For item 3, the unique supercritical row is Vd0, while the CE1 center cap,
 the Vd1/Vd2 cap, and the four remaining unit caps give
 \[
  \left(\frac{\sqrt3}{2}-\frac34\right)
  +\frac12+\frac2{\sqrt3}+4<6.
 \]
-For item 3, the corresponding CE2 sum is strictly less than
+For item 4, the corresponding CE2 sum is strictly less than
 \[
  \frac12+\frac12+\frac12+\frac2{\sqrt3}+3<6.
 \]
-For item 4, the neighboring-midpoint Vd2 cap is $1/3$, and the total is
+For item 5, the neighboring-midpoint Vd2 cap is $1/3$, and the total is
 strictly less than
 \[
  \frac12+\frac13+\frac2{\sqrt3}+4<6.
 \]
 
-For item 5, the unique supercritical row and two T3-like rows are three short
-roles. For item 6, the supercritical row, the Vd1/Vd2 row, and the additional
-positive-support row are three short roles. Theorem~\ref{thm:three-short-roles}
-closes both.
+Item 6 is Lemma~\ref{lem:short-role-count} and
+Theorem~\ref{thm:three-short-roles}.
 
 Finally suppose $N_+\ge2$. Choose a supercritical index $s\ne0$. Its own
 midpoint $M_s$ is not covered by that row, and the exact-$M_0$ center does not
 cover it. Diameter locality leaves only rows $s-1,s,s+1$ as possible vertex
 roles containing $M_s$. Thus one of the adjacent rows contains $M_s$ and,
 because it is the closure of an original open role, has positive-length
-support on the adjacent radial arm. Together with two supercritical rows,
-this gives three short roles, and the theorem applies.
+support on the adjacent radial arm. By Lemma~\ref{lem:short-role-count}, this
+rescuer is nonsupercritical and distinct from the two supercritical rows.
+Thus there are three short roles, and the theorem applies.
 \end{proof}

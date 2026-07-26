@@ -32,6 +32,12 @@ Then split first by CE0 or by the combined CE1/CE2 branch; inside each branch
 split by $N_+=0$, $N_+=1$, or $N_+\ge2$; inside each $N_+$ branch split by
 Vd0, Vd1/Vd2, and T3-like vertex-role patterns.
 
+For CE1/CE2, first let $m$ be the number of Vd1, Vd2, or T3-like roles and
+let $q$ be the number of short roles. The proved common-budget package `2530`
+gives $q=N_++m$ and eliminates $q\ge3$; midpoint rescue also eliminates
+$N_+\ge2$. The surviving tree therefore has $N_+\le1$ and at most two
+non-Vd0 roles when $N_+=0$, or at most one when $N_+=1$.
+
 ## Setup
 
 - `1XXX`: foundations
@@ -76,7 +82,10 @@ Vd0, Vd1/Vd2, and T3-like vertex-role patterns.
   - `25XX`: length bounds
     - `2500`: proved boundary length bounds
     - `2510`: skeleton length bounds
-    - `2520`: proved diagonal length bounds
+    - `2520`: proved diagonal length bounds, retained as a historical result
+      but no longer used by the active proof path
+    - `2530`: common perimeter budgets, the three-short-role theorem, and the
+      exact count $q=N_++m$
   - `26XX`: enclosing-triangle tools
     - `2607`: minimal enclosing equilateral quadrilateral lemma
 
@@ -146,7 +155,7 @@ Vd0, Vd1/Vd2, and T3-like vertex-role patterns.
       - `411X`: CE1 at-least-one and CE2 at-least-two boundary-length obstructions
       - `414X`: additional positive-support branch closed by `414a`; the complementary branch closes through the now-proved `4013` package
     - at least two T3-like and no Vd1/Vd2
-      - `412X`: shared CE1/CE2 diagonal obstruction
+      - `412X`: shared CE1/CE2 three-short-role skeleton corollary
     - exactly one T3-like and no Vd1/Vd2
       - `413X`: shared CE1/CE2 boundary obstruction (`4131`, `4132`)
   - `42XX`: CE1/CE2, $N_+\ge2$
