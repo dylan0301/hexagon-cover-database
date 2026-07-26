@@ -1,143 +1,66 @@
 \section{Strategy 2: Exact Demand Propagation}
 \label{sec:strategy2-reader}
 
-This section presents the reusable mechanism without repeating separate CE1
-and CE2 coordinate systems.  Section~\ref{sec:signed-ce12-reductions}
-develops the signed center model and the local propagation interface; the
-exact admissible-set catalogue and the remaining scalar certificates are in
+The signed center section supplies the exact CE1/CE2 traces, exits, and
+actual-row interface.  Section~\ref{sec:universal-calculus} supplies the
+interval residuals, boundary-path budget, selected-$T_+$ curve, and threshold
+routing.  The present section contains only the branch-level uses of those
+common mechanisms.  Complete contact-cell calculations remain in
 Appendix~\ref{sec:exact-local-demand-calculus}.
 
-We now build on the maps $\mathcal A$, $B_c$, $F_c$, and $G_c$ defined in
-that section.  In particular, every composition below is interpreted through
-the actual-row implication \eqref{eq:reader-actual-propagation}.
+\subsection{The all-Vd0 gap-rank kernel}
 
-\subsection{The universal selected-$T_+$ curve}
-
-The exact capped map has four genuine labels: Full, $L$, $T_-$, and selected
-$T_+$.  Its only nonlinear transition is independent of the row deficit.
-
-\begin{proposition}[Universal selected-$T_+$ curve]
-\label{prop:reader-universal-tplus}
-Fix $0<d<1/2$, put $c=1-d$, and suppose an input $p$ belongs to a selected
-$T_+$ arc of $G_c$.  Write
+Let $g$ be the number of positive center traces that contain a V-gap.  Then
+$g\in\{0,1,2\}$, and $g\le1$ for CE1.  The two all-Vd0 row counts are governed
+by the following single matrix:
 \[
- q=G_c(p),
- \qquad
- \nu=q-p,
- \qquad
- x=\frac{q-d}{1-d}.
+\begin{array}{c|ccc}
+ &g=0&g=1&g=2\\ \hline
+N_+=0&
+\text{open-trace budget}&
+\text{one-side capped loss}&
+\text{paired endpoint loss}\\
+N_+=1&
+\text{nine-point obstruction}&
+\text{five-row transfer}&
+\text{paired endpoint loss}.
+\end{array}
 \]
-Then
-\begin{equation}
- \nu=\psi(x):=1-\sqrt{1-x+x^2},
- \label{eq:reader-psi}
-\end{equation}
-and
-\begin{equation}
- q=d+(1-d)x,
- \qquad
- p=d+(1-d)x-\psi(x).
- \label{eq:reader-tplus-normal}
-\end{equation}
-Consequently $p\mapsto G_{1-d}(p)$ is increasing and strictly concave on
-every selected $T_+$ arc.
+The paired endpoint column is CE2-only.  The $N_+=0$ row is proved in
+Proposition~\ref{prop:nplus-zero-all-vd0}; the $N_+=1$ row is assembled in
+Proposition~\ref{prop:nplus-one-all-vd0}.  The common two-gap application is
+recorded next.
+
+\begin{proposition}[Common CE2 two-gap application]
+\label{prop:reader-common-two-gap}
+Assume both CE2 center traces contain V-gaps and rows $T_1,\ldots,T_5$ are
+nonsupercritical Vd0 rows.  Then the perimeter is not covered.  No hypothesis
+on the criticality of $T_0$ is required.
 \end{proposition}
 
 \begin{proof}
-The selected quadratic is
+Put
 \[
- (1-q)(q-d)=(1-d)^2\nu(2-\nu).
-\]
-Substituting $q=d+(1-d)x$ gives
-\[
- x(1-x)=\nu(2-\nu).
-\]
-The selected component uses the smaller root, which is
-\eqref{eq:reader-psi}.  If $r(x)=1-x+x^2$, then
-\[
- \psi'(x)=\frac{1-2x}{2\sqrt{r(x)}},
+ p=W-\alpha,
  \qquad
- \psi''(x)=-\frac{3}{4r(x)^{3/2}}<0.
+ q=R-\delta.
 \]
-Thus
+Gap containment forces the two endpoint inputs $p,q$, while the exact center
+exits give radial demands $p/W$ and $q/R$.  Hence the endpoint outputs satisfy
 \[
- p_d(x)=d+(1-d)x-\psi(x)
+ B_5\le F_{p/W}(p),
+ \qquad
+ B_1\le F_{q/R}(q).
 \]
-is increasing and strictly convex.  Its inverse is increasing and strictly
-concave, while $q=d+(1-d)x$ is affine in that inverse.
+The exact paired endpoint theorem in
+Appendix~\ref{sec:exact-local-demand-calculus} gives
+\[
+ F_{p/W}(p)+F_{q/R}(q)<1.
+\]
+Thus $B_1+B_5<1$.  Lemma~\ref{lem:reader-boundary-path}, applied to
+$T_2,T_3,T_4$, forces their total boundary contribution above three, contrary
+to their three nonsupercritical caps.
 \end{proof}
-
-With $e(d)$ defined by \eqref{eq:signed-low-root-definition}, the selected
-high-radial arc has endpoints
-$(d,d)$ and $(e(d),d+e(d))$, so concavity gives
-\begin{equation}
- G_{1-d}(p)
- \ge p+\frac{d}{e(d)-d}(p-d).
- \label{eq:reader-high-chord}
-\end{equation}
-In the low-radial range, if $t=h(1-d)$ is the order-transition value, the
-endpoints are $(d,d)$ and $(t,1-t)$, and
-\begin{equation}
- G_{1-d}(p)
- \ge p+\frac{1-2t}{t-d}(p-d).
- \label{eq:reader-low-chord}
-\end{equation}
-
-For algebraic calculations put $z=\psi(x)/x$.  Then
-\begin{equation}
- x=\frac{1-2z}{1-z^2},
- \qquad
- \psi(x)=\frac{z(1-2z)}{1-z^2}.
- \label{eq:reader-tplus-rational}
-\end{equation}
-In the historical notation $x=1-\beta$ and
-$m_\beta=\sqrt{\beta^2-\beta+1}$,
-\begin{equation}
- \beta=\frac{z(2-z)}{1-z^2},
- \qquad
- m_\beta=\frac{1-z+z^2}{1-z^2}.
- \label{eq:reader-beta-rational}
-\end{equation}
-
-\subsection{Threshold routing}
-
-For $0<d<1-\sqrt3/2$, the exact high-demand threshold is
-\begin{equation}
- z>e(d)
- \quad\Longrightarrow\quad
- G_{1-d}(z)\ge1-e(d).
- \label{eq:reader-high-threshold}
-\end{equation}
-
-\begin{lemma}[Threshold routing]
-\label{lem:reader-threshold-routing}
-Let $z_j=G_j(z_{j-1})$, where every $G_j$ is nondecreasing and extensive.
-If $G_k=G_{1-d}$ and $z_{k-1}>e(d)$, then
-\[
- z_j\ge1-e(d)
- \qquad(j\ge k).
-\]
-If a chain contains later occurrences of $G_{1-d_1}$ and $G_{1-d_2}$ and
-\[
- z_0>e(d_1),
- \qquad
- \min\{e(d_1),e(d_2)\}<Q,
-\]
-then one of those two rows forces every subsequent output above $1-Q$.
-\end{lemma}
-
-\begin{proof}
-Equation~\eqref{eq:reader-high-threshold} gives the first triggered output,
-and extensivity preserves it.  For the two-threshold statement, if
-$e(d_1)<Q$, trigger at the first row.  Otherwise
-\[
- z_0>e(d_1)\ge Q>e(d_2),
-\]
-so trigger at the second row.
-\end{proof}
-
-The lemma is used only after Equation~\eqref{eq:reader-actual-propagation} has
-identified each formal input as a lower bound for an actual row.
 
 \subsection{One signed five-row chain}
 
@@ -169,19 +92,21 @@ Proposition~\ref{prop:signed-one-gap-interface} reduces both classes to
 The only remaining distinction is the sign of
 $\Delta_L=P-R\alpha-\delta$.
 
-\begin{proposition}[Simplified CE1 one-gap obstruction]
+\begin{proposition}[CE1 one-gap obstruction]
 \label{prop:reader-ce1-one-gap}
 The CE1, $N_+=1$, all-$\Vdzero$, one-gap state is impossible.
 \end{proposition}
 
 \begin{proof}
 Here $\Delta_L\le0$.  The low-root estimates give $e(\alpha)<X$ and
-$H>\alpha$.  At the row with deficit $\alpha$, the Full labels are impossible.
-The $L$ and $T_-$ labels immediately force an output above $1-X$.
+$H>\alpha$.  At the row with deficit $\alpha$, the two Full ranges are
+impossible.  The $L$ and $T_-$ ranges immediately give an output above
+$1-X$.
 
-On the selected $T_+$ label, the center inequalities force $X>1/2$.  Applying
-\eqref{eq:reader-high-chord} first at deficit $\alpha$ and then the appropriate
-high- or low-radial chord at deficit $m$ gives lower bounds
+On the selected $T_+$ range, the center inequalities force $X>1/2$.
+Applying the universal chords \eqref{eq:reader-high-chord} and
+\eqref{eq:reader-low-chord} first at deficit $\alpha$ and then at deficit $m$
+gives
 \[
  p_1>(2-4\alpha)H-(1-4\alpha)\alpha=:L_1,
 \]
@@ -195,62 +120,54 @@ The exact terminal calculation in Appendix~\ref{sec:cyclic-all-vd0} proves
  p_2>L_2>2\delta+3\delta^2>e(\delta).
  \label{eq:reader-ce1-terminal}
 \end{equation}
-Threshold routing at the row with deficit $\delta$ therefore gives an output
-above $1-X$, proving \eqref{eq:reader-signed-three-map}.  The common actual-row
-interface then yields
-\[
- a_0\ge Z>B_k(k/R)\ge a_0,
-\]
-a contradiction.  All inequalities used in the selected branch, including
-the proof that $X>1/2$ and the terminal estimate
-\eqref{eq:reader-ce1-terminal}, are proved in the cited appendix.
+Threshold routing at the row with deficit $\delta$ therefore produces an
+output above $1-X$, proving \eqref{eq:reader-signed-three-map}.  The common
+actual-row interface gives the terminal contradiction.
 \end{proof}
 
-\begin{proposition}[Simplified CE2 one-gap obstruction]
+\begin{corollary}[CE2 one-gap obstruction]
 \label{prop:reader-ce2-one-gap}
 The CE2, $N_+=1$, all-$\Vdzero$, exactly-one-gap state is impossible in either
 orientation.
-\end{proposition}
+\end{corollary}
 
 \begin{proof}
-Here $\Delta_L>0$.  Proposition~\ref{prop:signed-ce2-one-gap} proves
+This is Proposition~\ref{prop:signed-ce2-one-gap}.  Its two-threshold proof
+uses
 \[
  R-\delta>e(\alpha),
  \qquad
- \min\{e(\alpha),e(\delta)\}<H.
+ \min\{e(\alpha),e(\delta)\}<H,
 \]
-If $e(\alpha)<H$, threshold routing triggers at the row with deficit
-$\alpha$.  Otherwise
-\[
- R-\delta>e(\alpha)\ge H>e(\delta),
-\]
-and it triggers at the row with deficit $\delta$.  In either case the return
-output exceeds $1-H$, contradicting the common supercritical-row bound.
-Reflection exchanges $R$ with $W$, $\alpha$ with $\delta$, and reverses the
-row order, so the second orientation is identical.
+and Lemma~\ref{lem:reader-threshold-routing}.  Reflection exchanges
+$R$ with $W$, $\alpha$ with $\delta$, and reverses the row order.
 \end{proof}
 
 \subsection{The remaining exact-demand branches}
 
-The CE2 two-gap state uses the same endpoint deficits $\alpha/W$ and
-$\delta/R$, but the two gaps share row $T_0$; the paired capped-loss theorem is
-therefore retained.  The $N_+=0$ all-Vd0 proof uses the same one-side loss and
-the common three-row boundary budget.  The T3-like high sheet is the universal
-curve \eqref{eq:reader-psi}, with the rational parameter
-\eqref{eq:reader-beta-rational}; only its branch-specific endpoint estimates
-remain in Appendix~\ref{sec:t3-vd-demand-branches}.
+For $N_+=0$, the all-Vd0 proof combines the open-trace rank-zero budget, the
+one-side capped-loss theorem, and Proposition~\ref{prop:reader-common-two-gap}.
+The T3-like branch first forces and isolates a T3-like row, then applies one
+four-label endpoint loss.  Its selected high sheet is precisely the universal
+curve \eqref{eq:reader-psi}, with rational parameter
+\eqref{eq:reader-beta-rational}.
 
-For the one-Vd1/Vd2 branch, Lemma~\ref{lem:signed-small-slack} first gives
+For the exactly-one-T3-like $N_+=1$ branch, the translated local profile is
+rationalized in Appendix~\ref{sec:short-vd-placements}; it verifies the two
+hypotheses of the common adjacent-rescuer theorem and no longer repeats the
+center-hiding or terminal boundary sum.
+
+For the one-Vd1/Vd2 branch, the preliminary perimeter budget removes CE1 and
+gives
 \[
  \alpha+\delta<\frac1{24},
  \qquad
  \alpha+\delta<\frac{\min\{R,W\}}6.
 \]
-These bounds prove the adjacent and nonadjacent placements in
-Lemmas~\ref{lem:signed-vd-adjacent-placement} and
-\ref{lem:signed-vd-nonadjacent-placement}.  The common hiding argument for a
-T3-like or Vd1 adjacent rescuer is
-Lemma~\ref{lem:signed-adjacent-rescuer}.
+The adjacent placement proves the stronger margin $\delta<H/4$ and uses the
+global quarter radial envelope.  The nonadjacent placements use the interval
+residuals and one Vd corner radial margin.  The remaining Vd1 rescue uses the
+same adjacent-rescuer theorem as the T3-like branch.
 
 \begin{proposition}[Branches closed by exact demand]
 \label{prop:reader-demand-branches}
@@ -269,11 +186,11 @@ Singleton gaps are included.
 \begin{proof}
 The first item is Propositions~\ref{prop:nplus-zero-all-vd0} and
 \ref{prop:nplus-zero-t3}.  For the second, the one-gap states are
-Propositions~\ref{prop:reader-ce1-one-gap} and
-\ref{prop:reader-ce2-one-gap}; the two-gap state and the no-gap transfer are
-assembled in Proposition~\ref{prop:nplus-one-all-vd0}.  The third item is
+Proposition~\ref{prop:reader-ce1-one-gap} and
+Corollary~\ref{prop:reader-ce2-one-gap}; the two-gap state is
+Proposition~\ref{prop:reader-common-two-gap}.  The third item is
 Proposition~\ref{prop:nplus-one-one-t3}.  The fourth is
-Proposition~\ref{prop:signed-ce2-one-vd-placements}.  In every positive-gap
-chain, Equation~\eqref{eq:reader-actual-propagation} supplies the passage from
-scalar maps to actual role reaches.
+Proposition~\ref{prop:signed-ce2-one-vd-placements}.  Every formal transfer is
+connected to actual rows by \eqref{eq:reader-actual-propagation} or
+\eqref{eq:reader-generalized-transfer}.
 \end{proof}
