@@ -231,25 +231,44 @@ Put
 \[
  F(t,c)=\sqrt{t^2+t+1}-1-\frac{3t}{2}+c(t+1).
 \]
-Then $a\le F(t,c)$, and $F$ decreases in $t\ge1$.  Hence
+Then $a\le F(t,c)$.  Since $c\le1/2$,
+\[
+ \frac{\partial F}{\partial t}
+ =\frac{2t+1}{2\sqrt{t^2+t+1}}-\frac32+c
+ \le\frac{2t+1}{2\sqrt{t^2+t+1}}-1<0,
+\]
+where the last inequality follows from
+$(2t+1)^2<4(t^2+t+1)$.  Thus $F$ decreases for $t\ge1$, and
 \[
  a\le F(t,c)\le L(c):=\sqrt3-\frac52+2c.
 \]
 Every feasible row has $L(c)\ge0$.  The inequality
-$2L(c)\le A_{\rm sc}(c)$ follows after squaring from
+$2L(c)\le A_{\rm sc}(c)$ is equivalent to
 \[
- Q(c)=20c^2+(18\sqrt3-52)c+47-24\sqrt3>0
+ \sqrt{c^2-8c+4}\le12-4\sqrt3-9c.
 \]
-on $[0,1/2]$: the polynomial is decreasing there and
-$Q(1/2)=26-15\sqrt3>0$.  Thus $a\le A_{\rm sc}(c)$.
+The right side is positive on $[0,1/2]$.  Squaring is therefore
+legitimate, and the squared difference is $4Q(c)$, where
+\[
+ Q(c)=20c^2+(18\sqrt3-52)c+47-24\sqrt3.
+\]
+The polynomial is decreasing on $[0,1/2]$ and
+$Q(1/2)=26-15\sqrt3>0$.  Hence $2L(c)\le A_{\rm sc}(c)$,
+and therefore $a\le A_{\rm sc}(c)$.
 
 Put $\varepsilon=1-u>0$.  The endpoint formula gives
 \[
  \varepsilon=\varepsilon_0+\frac at,
  \qquad
- \varepsilon_0=\frac{2t+1-c(t+1)-d}{t}>0,
+ \varepsilon_0=\frac{2t+1-c(t+1)-d}{t}.
 \]
-and
+Since $c\le1/2$ and $t\ge1$,
+\[
+ 2t+1-c(t+1)-d\ge\frac{3t+1}{2}-d>0;
+\]
+the last inequality follows after squaring from
+$(3t+1)^2/4-d^2=(5t^2+2t-3)/4>0$.  Thus
+$\varepsilon_0>0$.  Moreover,
 \[
  \varepsilon_0+\frac{F(t,c)}t=\frac12.
 \]
@@ -404,7 +423,9 @@ If $H=W-\alpha$, then
  4\delta+\alpha\le4T<\frac{2W}{3}<W.
 \]
 Suppose $H=1-a_0$.  The other residual cannot be $1-b_0$, since otherwise
-\eqref{eq:signed-adjacent-AH} would give $a_0+b_0>3/2$.  Hence
+\eqref{eq:signed-adjacent-AH} would give $a_0+b_0>3/2$, whereas
+the endpoint-distance inequality gives
+$a_0+b_0\le2/\sqrt3<3/2$.  Hence
 \[
  A=1-(W+\delta),
  \qquad
@@ -496,8 +517,9 @@ Boundary propagation and the Vd cap give
 
 Let $\beta(q)=(-q+\sqrt{4-3q^2})/2$.  The component endpoint $B$ is either
 $b_0$ or $W+\delta$.  In the latter case the center diameter gives
-$B\le\beta(x)$.  In the former case, $a_0<x$ would force
-$a_0+b_0>3/2$, so $a_0\ge x$ and
+$B\le\beta(x)$.  In the former case, if $a_0<x$, then $U=a_0$ and
+$A+H<1/2$ would force $a_0+b_0>3/2$, contrary to
+$a_0+b_0\le2/\sqrt3$.  Hence $a_0\ge x$, and
 $B=b_0\le\beta(a_0)\le\beta(x)$.  Reflection gives $U\le\beta(y)$.
 Consequently
 \[
