@@ -32,6 +32,26 @@ Status: Reference
 - short role: in `2530`, a vertex role that is supercritical or has
   positive-length support on an adjacent radial arm.
 
+## Universal enclosure and interval calculus
+
+- $R_{120}$: rotation through $2\pi/3$ when a distinction from the signed
+  center parameter $R$ is needed.
+- $h_K(n)=\max_{x\in K}\langle x,n\rangle$: support function.
+- $\Lambda(K)$: least side length of a closed equilateral triangle containing
+  $K$; equivalently
+  $$
+  \Lambda(K)=\frac{2}{\sqrt3}
+  \min_{\lVert n\rVert=1}
+  \sum_{j=0}^2h_K(R_{120}^jn).
+  $$
+- $\omega(x)=\sqrt{1-x+x^2}$ and
+  $\sigma(x)=1-\omega(x)$: the universal equilateral radical and its concave
+  deficit.
+- $\mathcal R_J(p)$: far-side residual boundary demand after an initial trace
+  $[0,p]$ and a center interval $J$.
+- $\mathcal G_{c,J}(a)=\mathcal R_J(F_c(a))$: generalized center-assisted
+  actual-row transfer; $\mathcal G_{c,\varnothing}=G_c$.
+
 ## Signed CE1/CE2 center normal form
 
 The common signed variables are defined in `2109`.
@@ -39,8 +59,9 @@ The common signed variables are defined in `2109`.
 - $R\in(0,1)$: normalized side-slope parameter; the historical CE1 variable
   is $\lambda=R$.
 - $W=1-R$.
-- $E=\sqrt{1-RW}=\sqrt{1-R+R^2}$; historical CE1 notation is $\rho=E$.
-- $\eta=1-E$.
+- $E=\sqrt{1-RW}=\sqrt{1-R+R^2}=\omega(R)$; historical CE1 notation is
+  $\rho=E$.
+- $\eta=1-E=\sigma(R)$.
 - $P=E(1-E)$, with $RW=\eta+P$.
 - $\alpha=F_0(O)$ and $\delta=F_2(O)$: the two nontrivial center slacks.
 - $k=\eta+\alpha+\delta$.
@@ -100,8 +121,8 @@ y=\frac{k}{R},
 v=W+\delta.
 $$
 
-In the last display, the far endpoint is the ordinary variable $u$; the source
-notation in mathematical prose is $u=R+\alpha$.
+The far endpoint historically denoted by $u$ is written $\nu$ in shared
+high-sheet calculations when confusion with a local coordinate is possible.
 
 ## Vertex-role local coordinates
 
@@ -110,15 +131,18 @@ notation in mathematical prose is $u=R+\alpha$.
 - $A(T),B(T),C(T)$: actual maximal local reaches of a realizing vertex
   triangle when they must be distinguished from demands.
 - $(a_i,b_i)$: actual selected incoming and outgoing boundary row data for
-  the vertex role $T_i$ in the $N_+$ split.
+  the vertex role $T_i$ in the proof corpus.
 - $c_i$: prescribed or actual radial coordinate, as declared in the local
   file.
-- admissible set $\mathcal A$: feasible local triples $(a,b,c)$.
+- admissible set $\mathcal A$: feasible local triples $(a,b,c)$; equivalently
+  $\Lambda(K(a,b,c))\le1$.
 - $B_c(a)$: maximal outgoing demand $b$ for fixed incoming and radial demands.
 - $F_c(a)=\min\{B_c(a),1-a\}$: safe capped outgoing map.
-- $G_c(a)=1-F_c(a)$: propagated next-row incoming lower bound.
+- $G_c(a)=1-F_c(a)$: propagated next-row incoming lower bound when no center
+  interval intervenes.
 - $e(d)=\ell(1-d)$: low selected root for a high radial demand $1-d$.
-- $\psi(x)=1-\sqrt{1-x+x^2}$: universal selected-$T_+$ increment.
+- $\sigma(x)=1-\sqrt{1-x+x^2}$: universal selected-$T_+$ increment; older
+  files write this function as $\psi(x)$.
 - $\beta(q)=(-q+\sqrt{4-3q^2})/2$: adjacent-edge diameter-transfer curve.
 - $\lambda_\circ(q)=1-\beta(q)$: complementary diameter tail.
 
@@ -127,12 +151,10 @@ notation in mathematical prose is $u=R+\alpha$.
 - $d_0,d_{60},\dots,d_{300}$: historical degree-indexed center ray exits.
 - $1-d_{60i}$: historical complementary radial distance after $T_C$.
 - $K_5$: archived May 25 five-point set $\{P_3,P_5,D_0,D_1,D_2\}$.
-- $\Lambda(K)$: optimized side length of the smallest enclosing equilateral
-  triangle for a finite set $K$.
 - $f(a,b)$: local normalized maximum area inside $H$ for a vertex triangle
   forced to contain the corresponding row data.
-- $G=1-f$: normalized local area loss in the area package; this is unrelated
-  to the capped propagation map $G_c$ unless explicitly stated.
+- $\mathcal L_{\mathrm{area}}=1-f$: normalized local area loss.  Older files
+  use $G=1-f$; that symbol is unrelated to the capped propagation map $G_c$.
 - $F$: historical coverage-coordinate zero-diagonal map.
 - $g_c$: historical defect-coordinate admissible-set map.
 - algorithm 1: failed unimodality route using local diagonal max-$c$ points.
