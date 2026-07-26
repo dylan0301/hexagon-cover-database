@@ -41,14 +41,14 @@ Fix a vertex $V_i$.  Let $P_a$ and $P_b$ be the points at distances $a$ and
 $b$ from $V_i$ on its incoming and outgoing boundary edges.  For a closed
 unit equilateral triangle $T$ containing $V_i,P_a,P_b$, put
 \[
- G(T)=\frac{\operatorname{area}(T\setminus H)}{A_\triangle}.
+ \mathcal L(T)=\frac{\operatorname{area}(T\setminus H)}{A_\triangle}.
 \]
 Equivalently, if
 \[
  f(a,b)=\max_T\frac{\operatorname{area}(T\cap H)}{A_\triangle},
- \qquad G(a,b)=1-f(a,b),
+ \qquad \mathcal L(a,b)=1-f(a,b),
 \]
-then $G(a,b)$ is the least possible normalized loss.  Reflection in the
+then $\mathcal L(a,b)$ is the least possible normalized loss.  Reflection in the
 radial axis interchanges $a$ and $b$, and increasing either demand can only
 decrease $f$.
 
@@ -95,13 +95,13 @@ proves the area assertion.
 For every feasible pair $0\le a,b\le1$ and every realizing closed unit
 equilateral triangle $T$,
 \begin{equation}
- G(T)\ge\min(a,b)^2.                         \label{eq:min-square-loss}
+ \mathcal L(T)\ge\min(a,b)^2.                         \label{eq:min-square-loss}
 \end{equation}
 If $a+b>1$, then
 \begin{equation}
- G(T)\ge\max(a,b)^2.                         \label{eq:max-square-loss}
+ \mathcal L(T)\ge\max(a,b)^2.                         \label{eq:max-square-loss}
 \end{equation}
-Consequently the same inequalities hold for $G(a,b)=1-f(a,b)$.
+Consequently the same inequalities hold for $\mathcal L(a,b)=1-f(a,b)$.
 \end{theorem}
 
 \begin{proof}
@@ -149,15 +149,15 @@ has vertices, in the $(U,V)$-plane,
 \]
 Since the Jacobian of $(x,y)\mapsto(U,V)$ has absolute value $D$,
 \begin{equation}
- G(T)\ge G_{\mathrm I}(a,b;t)
+ \mathcal L(T)\ge \mathcal L_{\mathrm I}(a,b;t)
  =\frac{(1-t)a^2+tb^2+2t(1-t)ab}{D}.          \label{eq:type-I-loss}
 \end{equation}
 If $a\le b$, then
 \[
- D(G_{\mathrm I}-a^2)
+ D(\mathcal L_{\mathrm I}-a^2)
  =t\{b^2-a^2+(1-t)(a^2+2ab)\}\ge0;
 \]
-the reflected factorization proves $G_{\mathrm I}\ge b^2$ when $b\le a$.
+the reflected factorization proves $\mathcal L_{\mathrm I}\ge b^2$ when $b\le a$.
 This proves \eqref{eq:min-square-loss} in Type I.
 
 Suppose now that $a+b>1$ and $a\le b$.  Set
@@ -173,14 +173,14 @@ $0\le t<t_0$: for $0<t<t_0$,
 \]
 so $b+(1-t)a>z$, while $t=0$ would give $a+b\le1$.  Hence $t\ge t_0$, and
 \[
- D(G_{\mathrm I}-b^2)
+ D(\mathcal L_{\mathrm I}-b^2)
  =(1-t)b^2\{r^2-1+t(2r+1)\}\ge0.
 \]
 If $b\le a$, put $r=b/a$ and
 $t_1=(r^2+2r)/(1+2r)$.  The identical reflected calculation excludes
 $t>t_1$ and gives
 \[
- D(G_{\mathrm I}-a^2)
+ D(\mathcal L_{\mathrm I}-a^2)
  =ta^2\{r^2+2r-t(1+2r)\}\ge0.
 \]
 Thus \eqref{eq:max-square-loss} holds in Type I.
@@ -204,7 +204,7 @@ is the quadrilateral with vertices
 \]
 Hence
 \begin{equation}
- G(T)=G_{\mathrm{II}}(A,B;t)
+ \mathcal L(T)=\mathcal L_{\mathrm{II}}(A,B;t)
  =1-\frac{(1-t)A^2+tB^2+2AB}{D}.              \label{eq:type-II-loss}
 \end{equation}
 Let $S=A+B$.  If $A\le B$, write $A=rS$, $B=(1-r)S$ with
@@ -212,12 +212,12 @@ $0\le r\le1/2$.  Since $S^2\le D$, and with
 \[
  C=(1-t)r^2+t(1-r)^2+2r(1-r),
 \]
-we have $G_{\mathrm{II}}\ge1-C$.  The exact factorization
+we have $\mathcal L_{\mathrm{II}}\ge1-C$.  The exact factorization
 \[
  1-C-r^2D=(1-t)(1-2r+tr^2)\ge0
 \]
-gives $G_{\mathrm{II}}\ge r^2D\ge A^2$.  Reflection gives
-$G_{\mathrm{II}}\ge B^2$ when $B\le A$.  Since $A\ge a$ and $B\ge b$,
+gives $\mathcal L_{\mathrm{II}}\ge r^2D\ge A^2$.  Reflection gives
+$\mathcal L_{\mathrm{II}}\ge B^2$ when $B\le A$.  Since $A\ge a$ and $B\ge b$,
 this proves \eqref{eq:min-square-loss}.  The two orientation types are
 exhaustive, so the theorem follows.
 \end{proof}
@@ -240,7 +240,7 @@ Moreover, for $0\le m\le1/2$,
 \begin{equation}
  a,b\ge m
  \quad\Longrightarrow\quad
- G(T)\ge2m-4m^2.                               \label{eq:t3-loss}
+ \mathcal L(T)\ge2m-4m^2.                               \label{eq:t3-loss}
 \end{equation}
 \end{theorem}
 
@@ -251,7 +251,7 @@ Proposition~\ref{prop:t3-translation}.  It gives a translated Type-II
 triangle $\widehat T$ of the same area with
 \[
  T\cap H\subset\widehat T\cap H,
- \qquad G(T)\ge G(\widehat T).
+ \qquad \mathcal L(T)\ge \mathcal L(\widehat T).
 \]
 In the notation of that proposition, $0<t<1$,
 $D=1-t+t^2$, $z=\sqrt D$, and after reflection the translated majorant has
@@ -270,12 +270,12 @@ Thus $z-tA>D$, so
 \end{equation}
 The exact normalized loss is
 \[
- G(\widehat T)
- =G(z,A)=\frac{tA^2+(1-t)(z-A)^2}{D}.
+ \mathcal L(\widehat T)
+ =\mathcal L(z,A)=\frac{tA^2+(1-t)(z-A)^2}{D}.
 \]
 This decreases for $A<L<(1-t)z$, and therefore
 \begin{equation}
- G(T)\ge G(\widehat T)>G(z,L).                  \label{eq:t3-limit-loss}
+ \mathcal L(T)\ge \mathcal L(\widehat T)>\mathcal L(z,L).                  \label{eq:t3-limit-loss}
 \end{equation}
 
 Set $r=(1-z)/t$.  Then $0<r<1/2$, and eliminating $t,z$ gives
@@ -290,19 +290,19 @@ Set $r=(1-z)/t$.  Then $0<r<1/2$, and eliminating $t,z$ gives
 The limiting normalized inside area and loss are
 \[
  F_0(r)=\frac{(r^2-r+1)^2}{1-r^2},
- \qquad G_0(r)=1-F_0(r).
+ \qquad \mathcal L_0(r)=1-F_0(r).
 \]
 Since the exact reach $A$ is at least the required demand $a\ge m$,
 \eqref{eq:t3-A-upper}
 gives $A_0(r)>m$.  Direct simplification yields
 \[
- G_0(r)-\{2A_0(r)-4A_0(r)^2\}
+ \mathcal L_0(r)-\{2A_0(r)-4A_0(r)^2\}
  =\frac{r^2(5r^4-8r^3+13r^2-8r+2)}{(1-r^2)^2}\ge0,
 \]
 because the last polynomial is at least $9r^2-8r+2\ge2/9$ on
 $[0,1/2]$.  Also $A_0(r)\le r$, and
 \[
- G_0(r)-\frac14
+ \mathcal L_0(r)-\frac14
  =\frac{(1-2r)(2r^3-3r^2+6r-1)}{4(1-r^2)}\ge0
  \quad\text{when }A_0(r)\ge\frac14;
 \]
@@ -310,8 +310,8 @@ the cubic is increasing and has value $11/32$ at $r=1/4$.
 
 Finally $\psi(u)=2u-4u^2$ is increasing on $[0,1/4]$ and never exceeds
 $1/4$ on $[0,1/2]$.  If $A_0(r)\le1/4$, then
-$G_0(r)\ge\psi(A_0(r))\ge\psi(m)$; if $A_0(r)\ge1/4$, then
-$G_0(r)\ge1/4\ge\psi(m)$.  Together with \eqref{eq:t3-limit-loss}, this proves
+$\mathcal L_0(r)\ge\psi(A_0(r))\ge\psi(m)$; if $A_0(r)\ge1/4$, then
+$\mathcal L_0(r)\ge1/4\ge\psi(m)$.  Together with \eqref{eq:t3-limit-loss}, this proves
 \eqref{eq:t3-loss}.  The reflected crossing is identical.
 \end{proof}
 

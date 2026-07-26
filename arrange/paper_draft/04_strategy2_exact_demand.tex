@@ -746,64 +746,47 @@ Then the seven roles do not cover $H$.
 \end{proposition}
 
 \begin{proof}
-If the center boundary traces are already covered by the open vertex roles,
-then those six roles cover all of $\partial H$.  Put
-$W_i=U_i\cap\partial H$.  These are relatively open subsets of the
-connected circle $\partial H$, each of length at most one.  At least two are
-nonempty, and a finite relatively open cover of a connected space cannot
-have its nonempty members pairwise disjoint.  Thus two overlap on a
-positive-length relatively open set, whence
+Let $g$ be the number of positive center traces containing an active V-gap.
+Then $g\in\{0,1,2\}$, with $g\le1$ in CE1.
+
+If $g=0$, the six original open vertex traces cover the connected circle
+$\partial H$.  Each has length at most one, and two nonempty members of a
+finite relatively open cover must overlap in positive length.  Hence
 \[
- 6=\Haus(\partial H)<\sum_{i=0}^5\Haus(W_i)
+ 6=\Haus(\partial H)
+ <\sum_{i=0}^5\Haus(U_i\cap\partial H)
  \le\sum_{i=0}^5(A_i+B_i)\le6,
 \]
 a contradiction.
 
-Suppose next that $T_C$ is CE1 and its trace $[s,t]\subset e_{0,1}$
-contains a boundary gap.  Put $u=1-t$ and $w=t-s$.  Boundary coverage gives
-$B_0\ge s$ and $A_1\ge u$.  Since the center has no trace on $e_{5,0}$,
+Suppose $g=1$ and reflect so that the active trace is
 \[
- A_0+B_5\ge1,\qquad A_0+B_0\le1,
+ I_R=\left[\frac{k}{R},W+\delta\right].
 \]
-and hence $B_5\ge B_0\ge s$.  The exact CE1 formulas, after putting
-$R=\lambda$ in the orientation selected there, have the form
+Put
 \[
- c_1=u/R,\qquad
- c_5=1-\left(u-\frac{R}{1+\sqrt{1-R+R^2}}
-                   -\frac{R}{1-R}w\right).
+ s=\frac{k}{R},\qquad q=R-\delta,
+ \qquad \omega=W+\delta-\frac{k}{R}.
 \]
-All hypotheses of Lemma~\ref{lem:one-side-capped-loss} hold.  Therefore the
-outgoing reaches of rows $1$ and $5$ satisfy
-$\widehat b_1+\widehat b_5<1$, where
+Then $s+q+\omega=1$.  Gap containment gives $B_0\ge s$ and $A_1\ge q$.
+The companion edge has no active gap, so $A_0+B_5\ge1$.  Since row $T_0$ is
+nonsupercritical, $A_0+B_0\le1$, and therefore $B_5\ge B_0\ge s$.  The exact
+radial demands at the endpoint rows are
 \[
- \widehat b_1\le F_{c_1}(u),\qquad
- \widehat b_5\le F_{c_5}(s).
+ c_1=1-\frac{\delta}{R},
+ \qquad
+ c_5=1-\frac{\alpha}{W}.
 \]
-Rows $2,3,4$ must then supply boundary length at least
+Lemma~\ref{lem:one-side-capped-loss} gives
 \[
- (1-\widehat b_1)+1+1+(1-\widehat b_5)>3,
+ F_{c_5}(s)+F_{c_1}(q)<1.
 \]
-contrary to their three row caps.
+Thus the two actual endpoint outputs satisfy $B_1+B_5<1$.
+Lemma~\ref{lem:reader-boundary-path}, applied to $T_2,T_3,T_4$, forces their
+total boundary contribution above three, contrary to their three unit caps.
 
-Now let $T_C$ be CE2.  If exactly one of $[x,u]$, $[y,v]$ contains a gap,
-reflect so that it is $[y,v]$.  The interval $[x,u]$ is covered by its
-endpoint roles, so the same endpoint propagation gives inputs $y$ and
-$1-v$.  With
-\[
- R=\frac{x}{x+y},\qquad s=y,\qquad u'=1-v,\qquad w'=v-y,
-\]
-the CE2 coupling and exit formulas are exactly those of
-Lemma~\ref{lem:one-side-capped-loss}.  The preceding three-row contradiction
-applies unchanged.  If both center intervals contain gaps, put
-\[
- p=1-u,\quad q=1-v,\quad r=\frac{x}{x+y},\quad
- w=\frac{y}{x+y}.
-\]
-The far endpoint roles have inputs at least $p$ and $q$, with radial demands
-$p/w$ and $q/r$.  By Lemma~\ref{lem:two-endpoint-capped-loss}, their two
-outgoing reaches sum to less than one, and the same middle three-row budget
-is impossible.  These are the no-, one-, and two-active-interval states,
-and are exhaustive.
+Finally, $g=2$ is CE2-only and is exactly
+Proposition~\ref{prop:reader-common-two-gap}.  These three ranks are exhaustive.
 \end{proof}
 
 We next treat the additional T3-like rows in the $N_+=0$ branch.  The
