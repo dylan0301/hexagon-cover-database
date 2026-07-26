@@ -24,7 +24,10 @@ proof status may support a manuscript theorem.
 | `arrange/paper_draft/06_strategy4_ab_core.tex` | Exact strict $AB$ frontier, forcing signs, Newton placement, ray order, and overlap proofs. |
 | `arrange/paper_draft/appendix_symbols.tex` | Compact table of cross-section symbols. |
 | `arrange/paper_draft/appendix_exact_mixed_overlap.tex` | Mixed-overlap proof, exact Bernstein identities, digest, and replay record. |
-| `arrange/paper_draft/main.pdf` | Derived manuscript; rebuilt after every accepted source change. |
+| `arrange/paper_draft/main.pdf` | Derived manuscript artifact; regenerate and verify it whenever a current PDF is required. |
+
+The present source consolidation does not replace `main.pdf`; the tracked PDF
+therefore remains the previous build.
 
 The historical half-edge $1/3$ envelope remains proved in the proof corpus but
 its former standalone manuscript source was removed.  The active adjacent Vd
