@@ -24,14 +24,32 @@ jobs:
           fetch-depth: 0
 
       - name: Apply asserted final edits
-        run: python arrange/paper_draft/_finalize_unification_sources.py
+        id: apply
+        shell: bash
+        run: |
+          set +e
+          python arrange/paper_draft/_finalize_unification_sources.py > /tmp/finalize.log 2>&1
+          status=$?
+          cat /tmp/finalize.log
+          echo "status=$status" >> "$GITHUB_OUTPUT"
+          if [ "$status" -ne 0 ]; then
+            cp /tmp/finalize.log arrange/paper_draft/finalize_unification_error.log
+          fi
+          exit 0
 
-      - name: Commit finalized sources
+      - name: Commit finalized sources or diagnostic log
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -A
           if ! git diff --cached --quiet; then
-            git commit -m 'Finalize unified manuscript sources'
+            if [ "${{ steps.apply.outputs.status }}" = "0" ]; then
+              git commit -m 'Finalize unified manuscript sources'
+            else
+              git commit -m 'Record source-finalization assertion failure'
+            fi
             git push origin HEAD:agent/manuscript-unification
+          fi
+          if [ "${{ steps.apply.outputs.status }}" != "0" ]; then
+            exit 1
           fi
