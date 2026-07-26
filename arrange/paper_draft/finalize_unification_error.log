@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/home/runner/work/hexagon-cover-database/hexagon-cover-database/arrange/paper_draft/_finalize_unification_sources.py", line 28, in <module>
+    replace_exact(path, r"\qquad \omega=W+\delta-\frac{k}{R}.",
+  File "/home/runner/work/hexagon-cover-database/hexagon-cover-database/arrange/paper_draft/_finalize_unification_sources.py", line 12, in replace_exact
+    raise RuntimeError(f"{path}: expected {count} copies, found {actual}: {old!r}")
+RuntimeError: /home/runner/work/hexagon-cover-database/hexagon-cover-database/proof/4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md: expected 1 copies, found 0: '\\qquad \\omega=W+\\delta-\\frac{k}{R}.'
