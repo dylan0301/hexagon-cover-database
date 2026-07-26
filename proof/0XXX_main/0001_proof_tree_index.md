@@ -77,6 +77,8 @@ non-Vd0 roles when $N_+=0$, or at most one when $N_+=1$.
       calculus, and four-frontier atlas
     - `201b`: proved the global quarter radial envelope
       $c_{\max}(p,h)\le1-h/4$
+    - `201c`: proved the own-radial and supported-arm margins extracted
+      from the Vd1/Vd2 corner normal form
   - `21XX`: C-triangle geometry
     - `2100`: proved CE1/CE2 exactly-one-midpoint lemma with $O$ interior
     - `2101`: maximal C-triangles over the half skeleton
