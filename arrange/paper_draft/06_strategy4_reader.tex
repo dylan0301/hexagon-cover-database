@@ -31,6 +31,10 @@ least $q$.
 
 \subsection{Direct forcing of the disk and three frontier points}
 
+For $(x,y)\in[0,1]^2$, write
+\[
+ c_{\max}(x,y)=\max\{c:(x,y,c)\in\mathcal A\}.
+\]
 Let
 \[
  c_*=c_{\max}(p,q),\qquad h=\frac{\sqrt3}{2},\qquad
@@ -68,78 +72,30 @@ Consequently the center role contains the compact witness set
  \label{eq:reader-witness-set}
 \end{equation}
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=.72\linewidth,keepaspectratio]
+  {figures/strategy4_core_case_example.png}
+\caption{Illustrative Strategy~4 core configuration, not to scale.  It is
+an example only; no exclusion, forcing, or enclosure inequality is inferred
+from the picture.}
+\label{fig:strategy4-core-case}
+\end{figure}
+
 \subsection{Newton inner points}
 
 The exact outer points $Q_-$ and $Q_+$ contain two independent quadratic
-radicals.  We remove them without weakening the obstruction by taking one
-Newton step inward along each frontier line.
-
-Put
+radicals.  The exact construction in
+Lemma~\ref{lem:technical-newton-reduction} takes one Newton step inward on
+each frontier line.  It gives points
 \[
- \rho=a^2+ab+b^2,
- \qquad
- D=\sqrt{4\rho-3},
+ A\in(Q_0,Q_-),\qquad B=Q_0,\qquad C\in(Q_0,Q_+)
 \]
-and define the $V_4$-corner frontier coefficients
-\begin{align*}
- \alpha&=\frac{h(b+2a-bD)}{2\rho},&
- \beta&=\frac{h(b-a+(a+b)D)}{2\rho},\\
- \gamma&=\frac{h(-b+a+(a+b)D)}{2\rho},&
- \delta&=\frac{h(2b+a-aD)}{2\rho}.
-\end{align*}
-The two line pieces meet in the local point
+whose coordinates are rational in $a,b$ and the single radical
 \[
- Q_0^{\mathrm{loc}}
- =\left(\frac{2b+a-aD}{D+3},
-         \frac{b+2a-bD}{D+3}\right).
+ D=\sqrt{4(a^2+ab+b^2)-3}.
 \]
-Normalize
-\[
- \bar\alpha=\alpha/h,\qquad \bar\beta=\beta/h,\qquad
- \bar\gamma=\gamma/h,\qquad \bar\delta=\delta/h,
-\]
-and use the dimensionless line parameters
-\[
- \xi=\lambda/h,\qquad \zeta=\mu/h,\qquad
- \xi_*=\zeta_*=\frac{8\rho}{3(D+3)}.
-\]
-Let $g_-$ and $g_+$ be the rescaled quadratic restrictions of the two
-adjacent-handoff circles to the two frontier lines.  Appendix~\ref{sec:ab-core}
-proves
-\[
- g_-(\xi_*)>0>g_-'(\xi_*),
- \qquad
- g_+(\zeta_*)>0>g_+'(\zeta_*).
-\]
-Define
-\[
- \widehat\xi_-
- =\xi_*-\frac{g_-(\xi_*)}{g_-'(\xi_*)},
- \qquad
- \widehat\zeta_+
- =\zeta_*-\frac{g_+(\zeta_*)}{g_+'(\zeta_*)}.
-\]
-For a strictly convex quadratic that is positive and decreasing before its
-first root, the tangent zero lies strictly between the base point and that
-root.  Hence the local points
-\begin{align*}
- A^{\mathrm{loc}}&=\left(b-\frac34\bar\beta\widehat\xi_-,
-          \frac34\bar\alpha\widehat\xi_-\right),\\
- B^{\mathrm{loc}}&=Q_0^{\mathrm{loc}},\\
- C^{\mathrm{loc}}&=\left(\frac34\bar\delta\widehat\zeta_+,
-          a-\frac34\bar\gamma\widehat\zeta_+\right)
-\end{align*}
-satisfy
-\[
- A^{\mathrm{loc}}\in(Q_0^{\mathrm{loc}},Q_-^{\mathrm{loc}}),
- \qquad
- C^{\mathrm{loc}}\in(Q_0^{\mathrm{loc}},Q_+^{\mathrm{loc}}).
-\]
-Convert a local point $(u,v)$ to the plane by
-\[
- V_4+u(V_5-V_4)+v(V_3-V_4),
-\]
-and denote the resulting points by $A,B,C$.  Then
+The same lemma gives
 \begin{equation}
  \widehat K:=\conv(\mathcal D_\eta\cup\{A,B,C\})
  \subseteq\conv(K_{\mathrm{wit}}),
@@ -147,7 +103,6 @@ and denote the resulting points by $A,B,C$.  Then
  \Lambda(K_{\mathrm{wit}})\ge\Lambda(\widehat K).
  \label{eq:reader-newton-reduction}
 \end{equation}
-All coordinates of $A,B,C$ are rational functions of $a,b,D$.
 
 \subsection{The cap-chain lemma}
 
@@ -230,13 +185,10 @@ cap overlaps in Lemma~\ref{lem:reader-cap-chain} hold.
 \end{proposition}
 
 \begin{proof}
-The exact ray-order, determinant, and radius inequalities are proved in
-Appendix~\ref{sec:ab-core}.  The two equal-radius overlaps are the analytic
-adjacent-line inequalities there.  The two mixed overlaps are reduced to
-rational radial envelopes and exact Gram residuals in
-Subsection~\ref{subsec:exact-mixed-overlap}; the resulting eight polynomial
-signs are proved by the twenty global Bernstein identities recorded in that
-appendix.  These statements are precisely the four overlaps asserted here.
+This is Proposition~\ref{prop:technical-four-overlaps}.  Its proof gives the
+ray order and the two adjacent overlaps analytically, then invokes the exact
+Gram reductions and twenty global Bernstein identities of
+Subsection~\ref{subsec:exact-mixed-overlap} for the two mixed overlaps.
 \end{proof}
 
 \subsection{Enclosure and the center-independent contradiction}

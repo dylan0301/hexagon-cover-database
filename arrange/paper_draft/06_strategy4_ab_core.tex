@@ -184,7 +184,7 @@ order.
 \label{lem:ab-extreme-jump}
 Assume the six vertex roles cover $\partial H$ and exactly one actual row is
 supercritical.  Rotate its index to $4$.  The strict handoffs supplied by
-Theorem~\ref{thm:strict-handoff} satisfy
+Proposition~\ref{prop:strict-handoffs} satisfy
 \[
  x_3<x_2<x_1<x_0<x_5<x_4.                       \label{eq:extreme-chain}
 \]
@@ -592,14 +592,6 @@ Lemmas~\ref{lem:symmetric-core-witness} and
 
 \subsection{Tangent reduction and exact mixed overlaps}
 
-For a compact set $K$, let $\Lambda(K)$ be the least side length of a closed
-equilateral triangle containing $K$.  With $R$ denoting rotation through
-$2\pi/3$,
-\begin{equation}
- \Lambda(K)=\frac1h\min_{\lVert n\rVert=1}
- \sum_{j=0}^2h_K(R^jn).                          \label{eq:lambda-support}
-\end{equation}
-
 For the nontrivial regime $c_*>2/3$, we first remove the square radicals in
 the first-root witnesses.  Normalize
 $\bar\alpha=\alpha/h$, and similarly for the other three coefficients, and
@@ -614,9 +606,7 @@ Let $g_-,g_+$ be the rescaled forms of
  \widehat\xi_-=\xi_*-\frac{g_-(\xi_*)}{g_-'(\xi_*)},\qquad
  \widehat\zeta_+=\zeta_*-\frac{g_+(\zeta_*)}{g_+'(\zeta_*)}.
 \]
-Since each quadratic is strictly convex, positive and decreasing at the
-junction, its tangent zero lies strictly between the junction and the first
-root.  Define, in local coordinates,
+Define, in local coordinates,
 \begin{align*}
  A&=\left(b-\frac34\bar\beta\widehat\xi_-,
           \frac34\bar\alpha\widehat\xi_-\right),\\
@@ -624,29 +614,30 @@ root.  Define, in local coordinates,
  C&=\left(\frac34\bar\delta\widehat\zeta_+,
           a-\frac34\bar\gamma\widehat\zeta_+\right),
 \end{align*}
-and convert them to global vectors.  Then
+and convert them to global vectors.
+
+\begin{lemma}[Newton inner reduction]
+\label{lem:technical-newton-reduction}
+The points above have coordinates rational in $a,b,D$ and satisfy
 \[
  A\in(Q_0,Q_-),\qquad C\in(Q_0,Q_+).
 \]
-Consequently, for
+Consequently
 \[
  \widehat K=\conv(\mathcal D_\eta\cup\{A,B,C\}),
 \]
-we have $\widehat K\subseteq\conv(K_{\rm wit})$ and
-\begin{equation}
- \Lambda(K_{\rm wit})\ge\Lambda(\widehat K).    \label{eq:tangent-reduction}
-\end{equation}
+obeys $\widehat K\subseteq\conv(K_{\rm wit})$.
+\end{lemma}
 
-Put $S=\widehat K+R\widehat K+R^2\widehat K$.  Then
-\[
- h_S(n)=\sum_{j=0}^2h_{\widehat K}(R^jn),
-\]
-and $S$ contains the full $R$-orbits of the four disks
-\begin{equation}
- \mathbb D(A,2\eta),\quad\mathbb D(B,2\eta),
- \quad\mathbb D(C,2\eta),\quad\mathbb D(W,\eta),
- \qquad W=C+RA.                                  \label{eq:four-cap-disks}
-\end{equation}
+\begin{proof}
+Each quadratic $g_-,g_+$ is strictly convex, positive, and decreasing at
+the junction.  Its tangent zero therefore lies strictly between the
+junction and its first root.  This gives the two open-segment inclusions.
+All displayed coefficients and Newton quotients are rational in $a,b,D$,
+and convexity gives the asserted containment.
+\end{proof}
+
+Put $W=C+RA$.
 For a disk $\mathbb D(X,r)$ let
 \[
  I(X,r)=\{n:\lVert n\rVert=1,\ \langle X,n\rangle+r\ge h\}.
@@ -654,26 +645,25 @@ For a disk $\mathbb D(X,r)$ let
 
 \input{appendix_exact_mixed_overlap}
 
-\subsection{The enclosure inequality}
+\subsection{Ray order and four overlaps}
 
-\begin{theorem}[Witness enclosure]
-\label{thm:witness-enclosure}
-For every $(a,b)$ in \eqref{eq:ab-strict-domain},
+\begin{proposition}[Technical four-overlap verification]
+\label{prop:technical-four-overlaps}
+Assume \eqref{eq:ab-strict-domain} and $c_*>2/3$.  Then
 \[
- \Lambda(K_{\rm wit}(a,b))\ge1.
+ \lVert A\rVert,\lVert C\rVert>\eta,
 \]
-\end{theorem}
+the rays $A,B,C,W,RA$ occur in that cyclic order, and the four consecutive
+cap pairs
+\[
+ I(A,2\eta)\leftrightarrow I(B,2\eta)
+ \leftrightarrow I(C,2\eta)\leftrightarrow I(W,\eta)
+ \leftrightarrow I(RA,2\eta)
+\]
+overlap across their intervening short sectors.
+\end{proposition}
 
 \begin{proof}
-The disk alone gives
-$\Lambda(K_{\rm wit})\ge3\eta/h=3(1-c_*)$, so the assertion is automatic
-when $c_*\le2/3$.  Assume henceforth $c_*>2/3$.
-
-The tangent construction above gives \eqref{eq:tangent-reduction}, the
-Minkowski sum $S$, and the four disks in \eqref{eq:four-cap-disks}.
-If the caps of the disks in \eqref{eq:four-cap-disks} cover the unit circle,
-then $h_S(n)\ge h$ for every $n$ and \eqref{eq:lambda-support} proves
-$\Lambda(\widehat K)\ge1$.
 
 Put $\tau=h-2\eta=h(2c_*-1)$.  The rays of
 \begin{equation}
@@ -806,70 +796,4 @@ $\mathbb D(W,\eta)$ with $\mathbb D(RA,2\eta)$.
 
 Thus the four consecutive pairs of caps centered on the rays
 \eqref{eq:cap-ray-order} overlap.
-Every cap is a single arc of half-width less than $\pi/2$, and the positive
-crosses put each overlap in the intervening short sector.  They cover the
-sector from $A$ to $RA$; rotation through $2\pi/3$ covers the circle.  Hence
-$h_S\ge h$, so $\Lambda(\widehat K)\ge1$.  Equation
-\eqref{eq:tangent-reduction} completes the proof.
-\end{proof}
-
-\subsection{The center-independent obstruction}
-
-\begin{theorem}[Center-independent direct nine-point obstruction]
-\label{thm:zero-gap-obstruction}
-There is no cover of $H$ by open unit equilateral triangles
-$U_C,U_0,\ldots,U_5$ such that
-\begin{enumerate}
-\item every $U_i$ is a $\Vdzero$ role at $V_i$;
-\item $U_0,\ldots,U_5$ cover $\partial H$; and
-\item exactly one actual maximal boundary row is supercritical.
-\end{enumerate}
-No center class is assumed for $U_C$.
-\end{theorem}
-
-\begin{proof}
-Lemma~\ref{lem:ab-extreme-jump} gives a parameter pair in
-\eqref{eq:ab-strict-domain}.  Direct radial forcing and direct asymmetric
-forcing give the compact containment $K_{\rm wit}(a,b)\subset U_C$.
-Theorem~\ref{thm:witness-enclosure} says
-$\Lambda(K_{\rm wit})\ge1$.
-
-On the other hand, a compact subset of an open unit equilateral triangle has
-positive clearance from its three sides.  Moving all three sides inward by a
-sufficiently small equal amount gives a closed equilateral triangle of side
-strictly less than one still containing the compact set.  Thus
-$K_{\rm wit}\subset U_C$ would imply $\Lambda(K_{\rm wit})<1$, a
-contradiction.
-\end{proof}
-
-\begin{remark}[Why exact-one is essential]
-\label{rem:exact-one-essential}
-The exact-one handoff theorem identifies the unique selected supercritical
-row and makes every other selected row a strict descent.  Thus
-\eqref{eq:extreme-chain} simultaneously provides the global minimum and
-maximum used in the common radial demands, puts the two actual adjacent
-handoffs in the intervals of Lemma~\ref{lem:fixed-line-signs}, and leaves only
-one strict $AB$-frontier to analyze.  With two or more ascents this single
-chain need not exist.  The $N_+\ge2$ branch is therefore handled by
-Strategy~3 or Strategy~1.
-\end{remark}
-
-\begin{proposition}[Branches closed by direct nine-point forcing]
-\label{prop:ab-core-branches}
-Theorem~\ref{thm:zero-gap-obstruction} closes precisely the following
-rows of the final routing table:
-\begin{enumerate}
-\item $\CEzero$, $N_+=1$, all six vertex roles $\Vdzero$;
-\item $\CEone$ or $\CEtwo$, $N_+=1$, all six vertex roles $\Vdzero$, and
-zero boundary gaps.
-\end{enumerate}
-\end{proposition}
-
-\begin{proof}
-In the first row, a missed boundary point would have to lie in the open
-$\CEzero$ center role, giving a positive-length center trace on an incident
-edge.  Hence the six vertex roles cover $\partial H$.  In the second row,
-zero gaps means by definition that the two adjacent open vertex traces cover
-every boundary edge, including every endpoint.  Thus in both rows all three
-hypotheses of Theorem~\ref{thm:zero-gap-obstruction} hold.
 \end{proof}

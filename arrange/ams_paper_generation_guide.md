@@ -61,44 +61,43 @@ arrange/paper_draft/
 |-- main.tex
 |-- 01_introduction.tex
 |-- 02_structural_reductions.tex
-|-- 03_strategy1_overview.tex
-|-- 04_strategy2_overview.tex
-|-- 05_strategy3_overview.tex
-|-- 06_strategy4_overview.tex
+|-- 04a_signed_center_calculus.tex
 |-- 03_strategy1_length.tex
+|-- 04b_common_CE1_CE2_budgets.tex
 |-- 04_strategy2_reader.tex
 |-- 05_strategy3_area.tex
 |-- 06_strategy4_reader.tex
 |-- 07_exhaustive_assembly.tex
+|-- 04c_short_Vd_placements.tex
 |-- 04_strategy2_exact_demand.tex
 |-- 04a_strategy2_half_edge_envelope.tex
 |-- 06_strategy4_ab_core.tex
 |-- appendix_certificates.tex
 |-- appendix_exact_mixed_overlap.tex
 |-- appendix_symbols.tex
-|-- appendix_certificate_record.tex
 |-- source_ledger.md
 |-- fonts/
 |-- figures/
 `-- main.pdf
 ```
 
-The first five strategy and reduction files form the reader-facing body. The
-complete exact Strategy 2 and Strategy 4 calculations are true technical
-appendices after the final theorem assembly.
+The introduction is the single proof guide.  Structural reduction and the
+common signed center calculus precede the four mechanism sections.  Complete
+exact Strategy 2 and Strategy 4 calculations remain technical appendices
+after the final theorem assembly.
 
 ### 2.1. Body files
 
 - `01_introduction.tex` states the theorem, definitions, routing table, and
-  proof architecture.
-- `03_strategy1_overview.tex`--`06_strategy4_overview.tex` complete the first
-  section, “A Guide to the Proof.”
+  compact proof architecture.
 - `02_structural_reductions.tex` proves the exhaustive role and case
   reductions.
+- `04a_signed_center_calculus.tex` proves the common signed CE1/CE2 model and
+  defines the local propagation interface in the body.
 - `03_strategy1_length.tex` contains the complete length arguments.
-- `04_strategy2_reader.tex` contains the exact propagation interface,
-  universal selected-$T_+$ curve, threshold routing, shortened CE1 one-gap
-  proof, CE2 routing, and reader-facing branch assembly.
+- `04_strategy2_reader.tex` contains the universal selected-$T_+$ curve,
+  threshold routing, shortened CE1 one-gap proof, CE2 routing, and
+  reader-facing branch assembly.
 - `05_strategy3_area.tex` contains the complete area-loss arguments.
 - `06_strategy4_reader.tex` contains only direct witness forcing, Newton
   inner points, the cyclic cap-chain lemma, the four-overlap proposition, and
@@ -113,9 +112,9 @@ After `\appendix`, input:
 - `04_strategy2_exact_demand.tex`: the proof-complete exact admissible-set
   catalogue, full terminal inequalities, and complete Strategy 2 branch audit;
 - `06_strategy4_ab_core.tex`: the proof-complete strict $AB$ frontier,
-  fixed-line signs, Newton reduction, cap overlaps, and enclosure proof;
+  fixed-line signs, Newton reduction, ray order, and four cap overlaps;
 - `appendix_symbols.tex`;
-- `appendix_certificate_record.tex`.
+  the replay record is folded into `appendix_exact_mixed_overlap.tex`.
 
 `06_strategy4_ab_core.tex` owns the nested inputs
 `appendix_certificates.tex` and `appendix_exact_mixed_overlap.tex`. Since its
@@ -134,7 +133,7 @@ The minimum preamble is:
 \documentclass{amsart}
 \usepackage{amsmath,amssymb,amsthm,mathtools,graphicx}
 \usepackage{fontspec}
-\usepackage{booktabs,float,longtable,microtype,tikz}
+\usepackage{booktabs,float,microtype,tikz}
 \usetikzlibrary{arrows.meta,calc,positioning}
 \input{figures/tikz_setup}
 
@@ -157,27 +156,26 @@ assembly order is:
 
 ```latex
 \input{01_introduction}
-\input{03_strategy1_overview}
-\input{04_strategy2_overview}
-\input{05_strategy3_overview}
-\input{06_strategy4_overview}
 \input{02_structural_reductions}
+\input{04a_signed_center_calculus}
 \input{03_strategy1_length}
+\input{04b_common_CE1_CE2_budgets}
 \input{04_strategy2_reader}
 \input{05_strategy3_area}
 \input{06_strategy4_reader}
 \input{07_exhaustive_assembly}
 
 \appendix
+\input{04c_short_Vd_placements}
 \input{04_strategy2_exact_demand}
 \input{06_strategy4_ab_core}
 \input{appendix_symbols}
-\input{appendix_certificate_record}
 ```
 
 Do not input `04a_strategy2_half_edge_envelope.tex`,
-`appendix_certificates.tex`, or `appendix_exact_mixed_overlap.tex` directly
-from `main.tex`; their owning technical sources control their placement.
+`appendix_certificates.tex`, or
+`appendix_exact_mixed_overlap.tex` directly from `main.tex`; their owning
+sources control their placement.
 
 A bibliography is included only when verified external sources are actually
 cited. No bibliography is required for the present proof.
@@ -352,10 +350,10 @@ cross-check only.
 
 ### 5.6. The `4144` branch
 
-The current half-edge rational envelope and outer-ratio proof in `4144` are
-complete and remain active. Do not replace them by the incomplete exact-slack
-route. Any future change must first supply a full proof in `proof/` and must
-preserve the exact half-edge domain.
+The active shortened `4144` proof uses the common signed small-slack bounds
+and the exact adjacent-placement lemma.  The half-edge envelope remains
+available only on its stated domain and is not a substitute outside that
+domain.
 
 ## 6. Strategy 4 Authoring Requirements
 
@@ -426,8 +424,10 @@ The Strategy 4 appendix must retain:
 - all twenty global Bernstein identities;
 - exact replay commands and digests.
 
-The body may cite the four-overlap proposition, but the appendix must prove
-every component needed by that proposition.
+The body owns the cap-chain, enclosure, center-independent contradiction,
+and terminal routing.  The appendix proves the Newton placement and every
+component of the four-overlap proposition without repeating those body
+arguments.
 
 ### 6.4. Optional disk-plus-point lemma
 

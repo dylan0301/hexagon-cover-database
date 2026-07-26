@@ -1,63 +1,43 @@
-\section{Table of Symbols}
+\section{Nonstandard Symbols}
 \label{app:symbols}
 
-This table lists the notation used across more than one proof mechanism.
-Local auxiliary variables are defined where they occur.
+Standard geometric notation is defined at first use.  The following symbols
+recur across proof mechanisms.
 
-\begin{longtable}{@{}p{.19\textwidth}p{.54\textwidth}p{.20\textwidth}@{}}
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{@{}p{.25\textwidth}p{.68\textwidth}@{}}
 \toprule
-symbol&meaning&first formal use\\
+symbol&meaning\\
 \midrule
-\endfirsthead
-\toprule
-symbol&meaning&first formal use\\
-\midrule
-\endhead
-$H$, $H_L$&The regular hexagons of side lengths $1$ and $L$.&
-Section~\ref{subsec:reader-dictionary}\\
-$O$, $V_i$&The center and cyclically indexed vertices of $H$.&
-Section~\ref{subsec:reader-dictionary}\\
-$e_{i,i+1}$, $r_i$, $M_i$&A boundary edge, a radial arm, and the midpoint $V_i/2$.&
-Section~\ref{subsec:reader-dictionary}\\
-$D$, $S$, $S_{1/2}$&The radial target, full skeleton, and half-skeleton.&
-Section~\ref{sec:structural}\\
-$U_C$, $U_i$&The original open center role and vertex roles in a hypothetical cover.&
-Section~\ref{subsec:reader-dictionary}\\
-$T_C$, $T_i$&The closures of $U_C$ and $U_i$.&
-Section~\ref{subsec:reader-dictionary}\\
-$\CEzero$, $\CEone$, $\CEtwo$&The exhaustive center-role boundary-trace classes.&
-Section~\ref{subsec:reader-dictionary}\\
-$\Vdzero$, $\Vdone$, $\Vdtwo$, $\Tlike$&The exhaustive vertex-role classes.&
-Section~\ref{subsec:reader-dictionary}\\
-$(A_i,B_i,C_i)$&Actual maximal incoming boundary, outgoing boundary, and radial reaches of $U_i$.&
-Section~\ref{subsec:reader-dictionary}\\
-$(a_i,b_i,c_i)$&Selected lower bounds on incoming, outgoing, and radial reaches, rather than the actual maxima defining $N_+$.&
-Section~\ref{sec:structural}\\
-$N_+$&The number of actual rows satisfying $A_i+B_i>1$.&
-Section~\ref{subsec:reader-dictionary}\\
-$B_c$, $F_c$, $G_c$&The outgoing feasible envelope, its nonsupercritical cap, and the induced demand map.&
-Section~\ref{sec:strategy2-reader}\\
-$e(d)$&The smaller high-radial Cell-$L$ root $\ell(1-d)$ used as a demand threshold.&
-Section~\ref{sec:strategy2-reader}\\
-$\psi(x)$&The universal selected-$T_+$ increment $1-\sqrt{1-x+x^2}$.&
-Proposition~\ref{prop:reader-universal-tplus}\\
-$z$&The optional rational parameter for the universal selected-$T_+$ curve.&
-Equation~\eqref{eq:reader-tplus-rational}\\
-$f(a,b)$, $G(a,b)$&Normalized maximal retained area and the corresponding local area loss.&
-Section~\ref{sec:area}\\
-$c_*$, $\mathcal D_\eta$&The common radial envelope in the nine-point argument and its forced centered disk.&
-Section~\ref{sec:strategy4-reader}\\
-$Q_-,Q_0,Q_+$&The three exact asymmetric witnesses on the strict supercritical frontier.&
-Section~\ref{sec:strategy4-reader}\\
-$A,B,C$&The Newton inner points used in the rational four-cap reduction.&
-Section~\ref{sec:strategy4-reader}\\
-$\widehat\xi_-$, $\widehat\zeta_+$&The one-step Newton parameters on the two frontier lines.&
-Section~\ref{sec:strategy4-reader}\\
-$K_{\rm wit}$&The compact set consisting of the forced disk and three asymmetric witnesses.&
-Section~\ref{sec:strategy4-reader}\\
-$\Lambda(K)$&The least side length of a closed equilateral triangle containing $K$.&
-Section~\ref{sec:strategy4-reader}\\
-$I(X,r)$&The level-$\sqrt3/2$ support cap of the disk $\mathbb D(X,r)$.&
-Lemma~\ref{lem:reader-cap-chain}\\
+$\CEzero,\CEone,\CEtwo$&
+The three exhaustive center-role boundary-trace classes.\\
+$\Vdzero,\Vdone,\Vdtwo,\Tlike$&
+The four exhaustive vertex-role classes.\\
+$(A_i,B_i,C_i)$&
+Actual maximal incoming boundary, outgoing boundary, and radial reaches.\\
+$(a_i,b_i,c_i)$&
+Selected lower-bound demands; these do not define $N_+$.\\
+$N_+$&
+The number of actual rows with $A_i+B_i>1$.\\
+$B_c,F_c,G_c$&
+The outgoing feasible envelope, its nonsupercritical cap, and the induced
+demand map.\\
+$e(d),\psi(x)$&
+The low-root threshold and the universal selected-$T_+$ increment
+$1-\sqrt{1-x+x^2}$.\\
+$R,W,E,\alpha,\delta,\Delta_R,\Delta_L$&
+The common signed CE1/CE2 center variables and trace surpluses.\\
+$f(a,b),G(a,b)$&
+Normalized maximal retained area and corresponding local area loss.\\
+$c_*,\mathcal D_\eta,Q_-,Q_0,Q_+$&
+The radial envelope, forced disk, and exact asymmetric witnesses in
+Strategy~4.\\
+$A,B,C,\widehat K,K_{\rm wit}$&
+The Newton inner points, inner witness hull, and exact forced witness set.\\
+$\Lambda(K),I(X,r)$&
+The least enclosing equilateral side and the associated support cap.\\
 \bottomrule
-\end{longtable}
+\end{tabular}
+\end{table}

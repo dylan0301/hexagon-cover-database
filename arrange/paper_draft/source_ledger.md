@@ -9,25 +9,21 @@ proof status may support a manuscript theorem.
 | Artifact | Role |
 |---|---|
 | `arrange/paper_draft/main.tex` | AMS preamble, metadata, body assembly, and appendix assembly. |
-| `arrange/paper_draft/01_introduction.tex` | Theorem statement, definitions, routing table, and strategy overview. |
+| `arrange/paper_draft/01_introduction.tex` | Theorem statement, definitions, routing table, and single compact proof guide. |
 | `arrange/paper_draft/02_structural_reductions.tex` | Common geometry and exhaustive structural reductions. |
-| `arrange/paper_draft/03_strategy1_overview.tex` | Reader-facing Strategy 1 overview. |
 | `arrange/paper_draft/03_strategy1_length.tex` | Complete Strategy 1 body proof. |
-| `arrange/paper_draft/04_strategy2_overview.tex` | Signed CE1/CE2 Strategy 2 overview and actual-row interface. |
 | `arrange/paper_draft/04_strategy2_reader.tex` | Reader-facing Strategy 2 proof with one signed five-row chain and two scalar clauses. |
-| `arrange/paper_draft/04a_signed_center_calculus.tex` | Complete signed center model, common one-gap interface, and short CE2 threshold proof. |
+| `arrange/paper_draft/04a_signed_center_calculus.tex` | Body proof of the signed center model, common one-gap interface, and short CE2 threshold result. |
 | `arrange/paper_draft/04b_common_CE1_CE2_budgets.tex` | Common perimeter deficit, small CE2 slack, total slack, and three-short-role theorem. |
 | `arrange/paper_draft/04c_short_Vd_placements.tex` | Complete shortened adjacent and nonadjacent one-Vd1/Vd2 placements and common adjacent rescuer. |
 | `arrange/paper_draft/04_strategy2_exact_demand.tex` | Exact admissible-set catalogue, CE1 terminal algebra, T3-like branches, and retained local replacement lemmas. |
 | `arrange/paper_draft/04a_strategy2_half_edge_envelope.tex` | Half-edge radial envelope, exact domain counterexample, and compatibility reference to the signed adjacent proof. |
-| `arrange/paper_draft/05_strategy3_overview.tex` | Reader-facing Strategy 3 overview. |
-| `arrange/paper_draft/05_strategy3_area.tex` | Complete Strategy 3 proof. |
-| `arrange/paper_draft/06_strategy4_overview.tex` | Reader-facing Strategy 4 overview. |
-| `arrange/paper_draft/06_strategy4_reader.tex` | Concise Strategy 4 body proof. |
-| `arrange/paper_draft/06_strategy4_ab_core.tex` | Complete Strategy 4 technical proof. |
-| `arrange/paper_draft/07_exhaustive_assembly.tex` | Final routing-table assembly. |
-| `arrange/paper_draft/appendix_symbols.tex` | Reader-facing symbol table. |
-| `arrange/paper_draft/appendix_certificate_record.tex` | Exact-certificate audit record. |
+| `arrange/paper_draft/05_strategy3_area.tex` | Complete Strategy 3 proof with one cyclic area-loss certificate. |
+| `arrange/paper_draft/06_strategy4_reader.tex` | Strategy 4 cap-chain, enclosure, contradiction, and terminal routing. |
+| `arrange/paper_draft/06_strategy4_ab_core.tex` | Exact Strategy 4 frontier, forcing, Newton-placement, ray-order, and overlap proofs. |
+| `arrange/paper_draft/07_exhaustive_assembly.tex` | Compact final routing-table assembly. |
+| `arrange/paper_draft/appendix_symbols.tex` | Compact table of nonstandard cross-section symbols. |
+| `arrange/paper_draft/appendix_exact_mixed_overlap.tex` | Mixed-overlap proof, exact Bernstein identities, digest, and replay record. |
 | `arrange/paper_draft/main.pdf` | Derived manuscript; rebuild whenever the LaTeX assembly changes. |
 
 Build from `arrange/paper_draft` with
@@ -57,7 +53,7 @@ on visual inspection.
 |---|---|---|
 | `proof/2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md` | Proven | boundary trace table. |
 | `proof/2XXX_geometric_lemmas/25XX_length_bounds/2510_skeleton_length_bounds.md` | Proven | center, positive-support, no-support, and supercritical skeleton caps. |
-| `proof/2XXX_geometric_lemmas/25XX_length_bounds/2520_diagonal_length_bounds.md` | Proven | diagonal trace table. |
+| `proof/2XXX_geometric_lemmas/25XX_length_bounds/2520_diagonal_length_bounds.md` | Proven | retained historical result; no longer used by the manuscript proof. |
 | `proof/2XXX_geometric_lemmas/25XX_length_bounds/2530_common_CE1_CE2_budget_lemmas.md` | Proven | `lem:signed-perimeter-deficit`, `lem:signed-small-slack`, `lem:signed-endpoints-dominate-slack`, and `thm:three-short-roles`. |
 | `proof/4XXX_CE1CE2/40XX_Nplus0/404X_exists_Vd1_Vd2_obstruction/4040_CE1_Nplus0_exists_Vd1_Vd2_boundary_length_obstruction.md` and `4041_CE2_Nplus0_exists_Vd1_Vd2_boundary_length_obstruction.md` | Proven | common perimeter-budget corollaries. |
 | `proof/4XXX_CE1CE2/41XX_Nplus1/411X_Vd1_Vd2_obstruction/4110_CE1_Nplus1_exists_Vd1_Vd2_boundary_length_obstruction.md` and `4111_CE2_Nplus1_at_least_two_Vd1_Vd2_boundary_length_obstruction.md` | Proven | common perimeter-budget corollaries. |
@@ -111,15 +107,23 @@ on visual inspection.
 
 ## Strategies 3 and 4
 
-The active Strategy 3 sources remain the proven square-loss and T3-like area
-packages under `proof/3XXX_CE0/31XX_Nplus1/317X_T3_like_no_Vd1Vd2/` and
-`proof/3XXX_CE0/32XX_Nplus_ge2/`.
+The proved local square-loss source `3205_unconditional_local_square_loss.md`
+supports `thm:local-square-loss`.  The T3-like translation in `1201` and the
+direct loss source `3175_direct_T3_like_area_loss.md` support
+`thm:t3-direct-loss`.  The proved cyclic certificates `3174` and `3208` are
+presented together as `lem:cyclic-area-loss`, with terminal routing in
+`prop:area-branches`.
 
 The active Strategy 4 source remains the self-contained direct nine-point
 package
 `proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/`,
 with the strict supercritical $AB$ frontier in
 `proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md`.
+The body owns `lem:reader-cap-chain`, `thm:reader-witness-enclosure`,
+`thm:reader-zero-gap-obstruction`, and `prop:reader-ab-core-branches`.
+The technical appendix owns `lem:technical-newton-reduction`,
+`prop:technical-four-overlaps`, and `lem:exact-mixed-cap-overlaps`; the replay
+scripts are exact verification interfaces rather than additional hypotheses.
 The older `3103X` and `3104X` routes remain proven predecessors but are not
 active manuscript dependencies.
 
