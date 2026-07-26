@@ -1,6 +1,7 @@
 name: Finalize unified sources
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - agent/manuscript-unification
