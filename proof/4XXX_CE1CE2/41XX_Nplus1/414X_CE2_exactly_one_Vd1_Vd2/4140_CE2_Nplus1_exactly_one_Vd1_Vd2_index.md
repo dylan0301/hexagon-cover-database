@@ -28,6 +28,14 @@ The local geometry is organized as follows.
   gives the common adjacent-edge diameter curve and the class-independent
   center-hiding and boundary-path argument used by the T3-like and Vd1 rescue
   branches.
+- [`2019`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2019_interval_component_and_path_budget.md)
+  gives the residual boundary-demand operator used uniformly in the adjacent
+  and nonadjacent placements.
+- [`201b`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/201b_quarter_radial_envelope.md)
+  gives the global quarter radial envelope used by `4144`; the historical
+  half-edge $1/3$ envelope is no longer an active dependency.
+- [`201c`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/201c_Vd_corner_radial_margins.md)
+  gives both radial margins used in `4144` and `4146`.
 - [`2530`](../../../2XXX_geometric_lemmas/25XX_length_bounds/2530_common_CE1_CE2_budget_lemmas.md)
   gives the surviving CE2 bounds
   $$
@@ -35,11 +43,6 @@ The local geometry is organized as follows.
   \qquad
   \alpha+\delta<\frac{\min\{R,1-R\}}6.
   $$
-  These replace the former long outer-ratio and nonadjacent CE2 polynomial
-  comparisons in `4144` and `4146`.
-- [`2012`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2012_high_radial_low_root_bounds.md)
-  retains the historical half-edge envelope.  The active adjacent proof is
-  shortened further below using the global quarter envelope `201b`.
 
 ## Files
 
@@ -47,8 +50,8 @@ The local geometry is organized as follows.
 |---|---|---|
 | [`4141_CE2_Nplus1_one_Vd1_S_half_cover_candidate.md`](4141_CE2_Nplus1_one_Vd1_S_half_cover_candidate.md) | Empirical | Historical visual candidate; not used in the proof. |
 | [`4143_CE2_Nplus1_T0_Vd1_M1_T1_supercritical_obstruction.md`](4143_CE2_Nplus1_T0_Vd1_M1_T1_supercritical_obstruction.md) | Proven | Proves only the two Vd1 local profile inequalities, then invokes the common adjacent-rescuer theorem `2018`; no separate hiding or terminal sum remains. |
-| [`4144_CE2_Nplus1_T0_supercritical_T1_Vd1_Vd2_adjacent_obstruction.md`](4144_CE2_Nplus1_T0_supercritical_T1_Vd1_Vd2_adjacent_obstruction.md) | Proven | Adjacent Vd1/Vd2 placement; the common slack bounds control the center exit and a universal radial envelope closes the ordinary-row alternative. |
-| [`4146_CE2_Nplus1_T0_supercritical_nonadjacent_Vd1_Vd2_obstruction.md`](4146_CE2_Nplus1_T0_supercritical_nonadjacent_Vd1_Vd2_obstruction.md) | Proven | Nonadjacent placements; the total center slack and the common diameter curve give every relevant center exit below the propagated boundary minimum. |
+| [`4144_CE2_Nplus1_T0_supercritical_T1_Vd1_Vd2_adjacent_obstruction.md`](4144_CE2_Nplus1_T0_supercritical_T1_Vd1_Vd2_adjacent_obstruction.md) | Proven | Uses the interval residuals, proves the stronger center margin $\delta<H/4$, and closes both radial alternatives with `201b` and `201c`. |
+| [`4146_CE2_Nplus1_T0_supercritical_nonadjacent_Vd1_Vd2_obstruction.md`](4146_CE2_Nplus1_T0_supercritical_nonadjacent_Vd1_Vd2_obstruction.md) | Proven | Uses the interval residuals and diameter transfer to put every center exit below the boundary minimum, then applies the single own-radial margin from `201c`. |
 | [`4147_CE2_Nplus1_Vd1_supercritical_pair_axis_replacement.md`](4147_CE2_Nplus1_Vd1_supercritical_pair_axis_replacement.md) | Proven | Vd1--supercritical pair replacement and radial bridge. |
 | [`4148_CE2_Nplus1_exactly_one_Vd1_Vd2_assembly.md`](4148_CE2_Nplus1_exactly_one_Vd1_Vd2_assembly.md) | Proven | Exhaustive placement assembly. |
 | [`4149_CE2_Nplus1_Vd2_neighbor_midpoint_obstruction.md`](4149_CE2_Nplus1_Vd2_neighbor_midpoint_obstruction.md) | Proven | Vd2 neighbor-midpoint branch, now a direct corollary of the common perimeter budget and the $1/3$ cap. |
