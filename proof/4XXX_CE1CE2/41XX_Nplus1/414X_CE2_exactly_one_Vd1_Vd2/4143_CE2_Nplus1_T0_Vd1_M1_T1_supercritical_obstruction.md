@@ -2,25 +2,21 @@
 
 Status: Proven
 
-This file proves the normalized adjacent-rescue Vd1 subcase in the
-[`4140`](4140_CE2_Nplus1_exactly_one_Vd1_Vd2_index.md) branch.
+This file proves the normalized adjacent-rescue Vd1 subcase in
+[`4140`](4140_CE2_Nplus1_exactly_one_Vd1_Vd2_index.md).  The class-specific
+work is now only the verification of two local Vd1 inequalities.  The center
+hiding argument and the terminal boundary contradiction are supplied by the
+common adjacent-rescuer theorem
+[`2018`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2018_diameter_transfer_and_adjacent_rescuer.md).
 
-The proof uses the Vd1 corner normal form in
-[`../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2014_Vd1_Vd2_corner_normal_form.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2014_Vd1_Vd2_corner_normal_form.md)
-and the free strict-supercritical envelope in
-[`../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2010_free_supercritical_max_b.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2010_free_supercritical_max_b.md).
+## 1. Reduced branch
 
-## Statement
-
-Assume a reduced 414X perimeter-cover candidate has the following normalized
-form:
+Assume
 
 $$
 T_C\text{ is CE2},
-$$
-
-$$
-T_C\cap\{M_0,\dots,M_5\}=\{M_0\},
+\qquad
+T_C\cap\{M_0,\ldots,M_5\}=\{M_0\},
 $$
 
 $$
@@ -33,39 +29,21 @@ $$
 T_1\text{ is the unique supercritical row},
 $$
 
-and
+and $T_2,T_3,T_4,T_5$ are nonsupercritical Vd0 rows.  We prove that the
+perimeter together with $r_1$ cannot be covered.  Reflection gives the
+corresponding $M_5,T_5$ placement.
+
+## 2. Vd1 corner data
+
+Use the corner normal form from
+[`2014`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2014_Vd1_Vd2_corner_normal_form.md).
+Let $a,b$ be the exact boundary reaches of $T_0$.  For a unique $t>0$, put
 
 $$
-T_2,T_3,T_4,T_5
+d=\sqrt{t^2+t+1}.
 $$
 
-are Vd0 rows satisfying
-
-$$
-a_i+b_i\le1,
-\qquad
- i=2,3,4,5.
-$$
-
-Then these seven role triangles cannot cover the hexagon perimeter together
-with the radial arm $r_1$.
-
-By reflection, the same conclusion holds for the branch
-
-$$
-T_0\text{ Vd1},\qquad M_5\in T_0,\qquad T_5\text{ supercritical}.
-$$
-
-## Local Vd1 data
-
-Use the normalized coordinates of `2014`. Let $a,b$ be the exact boundary
-reaches of $T_0$. The normal form gives $t>0$ and
-
-$$
-d=\sqrt{t^2+t+1}
-$$
-
-such that
+Then
 
 $$
 \begin{aligned}
@@ -81,12 +59,14 @@ $$
 T_0\cap r_1=[c,u]
 $$
 
-in the coordinate from $V_1$ toward $O$. Then
+in the coordinate from $V_1$ toward $O$.  The exact endpoints are
 
 $$
+\boxed{
 c=\frac{t(1-b)}{t+1},
 \qquad
 u=\frac{d-a-tb-1}{t}.
+}
 $$
 
 The midpoint condition gives
@@ -103,79 +83,52 @@ tb=t-c(t+1),
 a+tb\le d-1-\frac t2.
 $$
 
-Because $a<1$, the raw lower endpoint on $r_5$ is positive. If $t<1$, the
-last inequality gives
-
-$$
-d-a-tb-t\ge1-\frac t2>\frac1{t+1}>
-\frac{1-a}{t+1},
-$$
-
-forcing positive-length $r_5$ support. This contradicts the Vd1 hypothesis.
-Therefore
+The Vd1 hypothesis forces
 
 $$
 \boxed{t\ge1.}
 $$
 
-## The local comparison functions
-
-For $0\le s\le1/2$, define
+Indeed, if $t<1$, then the raw $r_5$ interval has positive length because
 
 $$
-B(s):=\frac{s+\sqrt{s^2-8s+4}}2,
+d-a-tb-t
+\ge
+1-\frac t2
+>
+\frac1{t+1}
+>
+\frac{1-a}{t+1},
+$$
+
+contrary to one-sided adjacent support.
+
+## 3. The two local rescuer inequalities
+
+For $0\le c\le1/2$, put
+
+$$
+B_{\rm sc}(c)=\frac{c+\sqrt{c^2-8c+4}}2,
 \qquad
-A(s):=1-B(s).
+A_{\rm sc}(c)=1-B_{\rm sc}(c).
 $$
 
-The function $B$ is the nonattained free strict-supercritical outgoing-edge
-supremum on $0\le s<1/2$.
-
-We shall prove
+We prove
 
 $$
-\boxed{a\le A(c)}
+\boxed{
+a\le A_{\rm sc}(c),
+\qquad
+\frac{a}{a+1-u}\le A_{\rm sc}(c).
+}
 $$
 
-and the stronger auxiliary estimate
+### 3.1. Boundary reach
+
+The endpoint inequalities give
 
 $$
-\boxed{\frac{a}{a+1-u}\le A(c)}.
-$$
-
-The latter is the estimate needed when the CE2 boundary interval hides the gap
-after $T_0$ on $e_{5,0}$.
-
-## Proof of $a\le A(c)$
-
-From
-
-$$
-a+tb\le d-1-\frac t2
-$$
-
-and
-
-$$
-tb=t-c(t+1),
-$$
-
-we get
-
-$$
-a\le d-1-\frac{3t}{2}+c(t+1).
-$$
-
-Set
-
-$$
-F(t,c):=\sqrt{t^2+t+1}-1-\frac{3t}{2}+c(t+1).
-$$
-
-Then
-
-$$
-a\le F(t,c).
+a\le d-1-\frac{3t}{2}+c(t+1)=:F(t,c).
 $$
 
 For fixed $c\le1/2$,
@@ -185,54 +138,32 @@ $$
 =
 \frac{2t+1}{2\sqrt{t^2+t+1}}-\frac32+c
 \le
-\frac{2t+1}{2\sqrt{t^2+t+1}}-1.
+\frac{2t+1}{2\sqrt{t^2+t+1}}-1<0.
 $$
 
-Since
+Thus, for $t\ge1$,
 
 $$
-(2t+1)^2<4(t^2+t+1),
+F(t,c)\le F(1,c)=\sqrt3-\frac52+2c=:L(c).
 $$
 
-the last expression is strictly negative.  Thus $F(t,c)$ is decreasing in $t$
-for $t\ge1$, and therefore
+Since $a\ge0$ and $a\le L(c)$, every feasible row has $L(c)\ge0$.  We claim
 
 $$
-F(t,c)\le F(1,c)=\sqrt3-\frac52+2c.
+2L(c)\le A_{\rm sc}(c).
 $$
 
-Write
+This is equivalent to
 
 $$
-L(c):=\sqrt3-\frac52+2c.
+\sqrt{c^2-8c+4}\le12-4\sqrt3-9c.
 $$
 
-Since $a\ge0$ and $a\le F(t,c)\le L(c)$, every feasible row has
-$L(c)\ge0$.
-
-We prove the stronger estimate
+The right side is positive on $[0,1/2]$.  After squaring, the difference of
+the two sides is
 
 $$
-2L(c)\le A(c)
-$$
-
-for $0\le c\le1/2$.  Let
-
-$$
-R(c):=\sqrt{c^2-8c+4}.
-$$
-
-The inequality $2L(c)\le A(c)$ is equivalent to
-
-$$
-R(c)\le12-4\sqrt3-9c.
-$$
-
-The right-hand side is positive on $0\le c\le1/2$, since its minimum there is
-$15/2-4\sqrt3>0$.  Squaring is legitimate.  The squared difference is
-
-$$
-(12-4\sqrt3-9c)^2-(c^2-8c+4)=4Q(c),
+4Q(c),
 $$
 
 where
@@ -241,470 +172,121 @@ $$
 Q(c)=20c^2+(18\sqrt3-52)c+47-24\sqrt3.
 $$
 
-On $0\le c\le1/2$,
+On $[0,1/2]$,
 
 $$
-Q'(c)=40c+18\sqrt3-52\le20+18\sqrt3-52=18\sqrt3-32<0.
-$$
-
-Thus $Q$ is decreasing on this interval.  Its minimum occurs at $c=1/2$, where
-
-$$
-Q\left(\frac12\right)=26-15\sqrt3>0.
-$$
-
-Therefore $Q(c)>0$ throughout $0\le c\le1/2$, so
-
-$$
-2L(c)\le A(c).
-$$
-
-Combining the inequalities gives
-
-$$
-a\le L(c)\le A(c).
-$$
-
-Thus $\boxed{a\le A(c)}$.
-
-## The auxiliary estimate
-
-Set
-
-$$
-\delta:=1-u.
-$$
-
-A Vd1 row in this branch cannot contain $O$.  If it contained both $V_0$ and
-$O$, then the distance-one pair $V_0,O$ would be two vertices of the unit
-triangle.  The third vertex would be $V_1$ or $V_5$, giving no outside vertex
-of $T_0$ and hence not Vd1.  Therefore $u<1$ and $\delta>0$.
-
-The third side gives
-
-$$
-u=\frac{d-a-tb-1}{t}.
-$$
-
-Consequently,
-
-$$
-\delta
-=
-\frac{t+1+a+tb-d}{t}.
-$$
-
-Using $tb=t-c(t+1)$,
-
-$$
-\delta=
-\frac{2t+1+a-c(t+1)-d}{t}
-=
-\delta_0+\frac{a}{t},
-$$
-
-where
-
-$$
-\delta_0:=\frac{2t+1-c(t+1)-d}{t}.
-$$
-
-Because $c\le1/2$,
-
-$$
-2t+1-c(t+1)-d
-\ge
-\frac{3t+1}{2}-d.
-$$
-
-For $t\ge1$,
-
-$$
-\left(\frac{3t+1}{2}\right)^2-(t^2+t+1)=\frac{5t^2+2t-3}{4}>0.
-$$
-
-Hence
-
-$$
-\delta_0>0.
-$$
-
-The function
-
-$$
-z\mapsto \frac{z}{z+\delta_0+z/t}
-$$
-
-is increasing for $z\ge0$. Since $a\le F(t,c)$ and
-$\delta=\delta_0+a/t$, we get
-
-$$
-\frac{a}{a+\delta}
-\le
-\frac{F(t,c)}{F(t,c)+1/2}.
-$$
-
-The denominator is $F(t,c)+1/2$ because
-
-$$
-\delta_0+\frac{F(t,c)}t=\frac12.
-$$
-
-Since $F(t,c)\le L(c)$ and $z\mapsto z/(z+1/2)$ is increasing for $z\ge0$,
-
-$$
-\frac{a}{a+\delta}
-\le
-\frac{L(c)}{L(c)+1/2}.
-$$
-
-Also,
-
-$$
-\frac{L(c)}{L(c)+1/2}\le2L(c),
-$$
-
-because $L(c)+1/2\ge1/2$.  From the previous section,
-
-$$
-2L(c)\le A(c).
-$$
-
-Therefore
-
-$$
-\boxed{\frac{a}{a+\delta}\le A(c).}
-$$
-
-Since $\delta=1-u$, this is
-
-$$
-\boxed{\frac{a}{a+1-u}\le A(c).}
-$$
-
-## CE2 hiding inequality
-
-Write the CE2 center interval on $e_{5,0}$ as
-
-$$
-T_C\cap e_{5,0}=[S,T].
-$$
-
-Let $h$ denote the forced boundary reach of $T_5$ on $e_{5,0}$, measured from
-$V_5$ toward $V_0$.
-
-There are three cases.
-
-### Case 1: $T\le a$
-
-The Vd1 row covers the far endpoint of the CE2 interval.  The remaining tail of
-$e_{5,0}$ forces
-
-$$
-h\ge1-a.
-$$
-
-Since $a\le A(c)$,
-
-$$
-h\ge1-A(c)=B(c).
-$$
-
-### Case 2: $a<S$
-
-The CE2 interval begins after the end of the $T_0$ boundary interval.  The open
-gap after coordinate $a$ again forces
-
-$$
-h\ge1-a\ge B(c).
-$$
-
-### Case 3: $S\le a<T$
-
-This is the only hiding case.  We prove
-
-$$
-T\le A(c).
-$$
-
-Use the CE1/CE2 side model recorded in the proven exactly-one-T3-like
-obstruction
-[`../413X_exactly_one_T3_like/4132_CE1_CE2_exactly_one_T3_like_boundary_obstruction.md`](../413X_exactly_one_T3_like/4132_CE1_CE2_exactly_one_T3_like_boundary_obstruction.md).
-There are parameters
-
-$$
-0<\lambda<1,
-\qquad
-\rho=\sqrt{1-\lambda+\lambda^2},
-$$
-
-and nonnegative slacks
-
-$$
-X\ge0,
-\qquad
-Y\ge0,
-$$
-
-such that
-
-$$
-S=\frac{X+Y+1-\rho}{1-\lambda},
-\qquad
-T=X+\lambda.
-$$
-
-Also, if $d_1$ is the length of $T_C\cap r_1$ measured from $O$ toward $V_1$,
-then
-
-$$
-d_1\le\frac{Y}{\lambda}.
-$$
-
-The first point of $T_0\cap r_1=[c,u]$ measured from $O$ toward $V_1$ is
-
-$$
-\delta=1-u.
-$$
-
-The rows $T_2,T_3,T_4,T_5$ are Vd0 and have no positive-length support on
-$r_1$.  The supercritical row $T_1$ cannot cover $M_1$.  The center triangle
-$T_C$ contains $O$ and excludes $M_1$; by convexity, it cannot cover any point
-strictly on the $V_1$-side of $M_1$, because the segment from such a point to
-$O$ contains $M_1$.  Hence the $O$-side radial gap of length $\delta$ before
-the Vd1 interval must be covered by $T_C$, and so
-
-$$
-d_1\ge\delta.
-$$
-
-Therefore
-
-$$
-Y\ge\lambda\delta.
-$$
-
-From $S\le a$,
-
-$$
-X\le(1-\lambda)a-Y-1+\rho.
-$$
-
-Using $Y\ge\lambda\delta$ gives
-
-$$
-X\le(1-\lambda)a-\lambda\delta-1+\rho.
-$$
-
-Since $X\ge0$ and $\rho\le1$,
-
-$$
-\lambda\delta\le(1-\lambda)a.
-$$
-
-Equivalently,
-
-$$
-\lambda\le\frac{a}{a+\delta}.
-$$
-
-Now
-
-$$
-T=X+\lambda
-\le
-(1-\lambda)a-\lambda\delta-1+\rho+\lambda.
-$$
-
-Since $\delta=1-u$,
-
-$$
-T\le a+\rho-1+\lambda(u-a).
-$$
-
-As $\rho\le1$,
-
-$$
-T\le a+\lambda(u-a).
-$$
-
-In the hiding case $T>a$, the last inequality forces $u>a$.  Hence, using
-$\lambda\le a/(a+\delta)$,
-
-$$
-T\le a+\frac{a}{a+\delta}(u-a).
-$$
-
-Because $\delta=1-u$,
-
-$$
-a+\frac{a}{a+\delta}(u-a)=\frac{a}{a+\delta}.
-$$
-
-Thus
-
-$$
-T\le\frac{a}{a+\delta}.
-$$
-
-The auxiliary estimate gives
-
-$$
-\frac{a}{a+\delta}\le A(c).
-$$
-
-Therefore
-
-$$
-T\le A(c).
-$$
-
-Since in the hiding case $h\ge1-T$, we obtain
-
-$$
-h\ge1-A(c)=B(c).
-$$
-
-Combining all cases,
-
-$$
-\boxed{h\ge B(c).}
-$$
-
-## Supercritical envelope and boundary contradiction
-
-Let $c_1$ be the own-radial coverage coordinate of the supercritical row $T_1$
-on $r_1=[V_1,O]$, measured from $V_1$ toward $O$.
-
-The interval $T_0\cap r_1=[c,u]$ leaves the segment from $V_1$ to coordinate
-$c$ uncovered by $T_0$.  The rows $T_2,T_3,T_4,T_5$ are Vd0 and have no
-positive-length support on $r_1$.  The center triangle $T_C$ cannot cover a
-point of $r_1$ strictly on the $V_1$-side of $M_1$, because $O\in T_C$ and
-convexity would then force $M_1\in T_C$, contrary to the exact-midpoint
-normalization.  Hence perimeter and skeleton coverage force
-
-$$
-c_1\ge c.
-$$
-
-If $c=1/2$, then $c_1\ge1/2$, impossible for a strict supercritical row under
-the free strict supercritical envelope.  Thus in a genuine candidate
-
-$$
-0\le c<\frac12.
-$$
-
-The strict supercritical envelope gives
-
-$$
-b_1<B(c_1).
-$$
-
-The function $B$ is strictly decreasing on $[0,1/2]$.  Indeed,
-
-$$
-B'(s)=\frac12\left(1+\frac{s-4}{\sqrt{s^2-8s+4}}\right)<0,
-$$
-
-because
-
-$$
-(4-s)^2-(s^2-8s+4)=12>0.
-$$
-
-Since $c_1\ge c$,
-
-$$
-\boxed{b_1<B(c).}
-$$
-
-The CE2 hiding analysis proved
-
-$$
-h\ge B(c),
-$$
-
-so
-
-$$
-h-b_1>0.
-$$
-
-Now sum the boundary obligations along the four ordinary Vd0 rows.  The edge
-$e_{1,2}$ gives
-
-$$
-a_2\ge1-b_1.
-$$
-
-The full ordinary edges give
-
-$$
-b_2+a_3\ge1,
-$$
-
-$$
-b_3+a_4\ge1,
+Q'(c)\le18\sqrt3-32<0,
 $$
 
 and
 
 $$
-b_4+a_5\ge1.
+Q\left(\frac12\right)=26-15\sqrt3>0.
 $$
 
-The $e_{5,0}$ analysis gives
+Hence $Q(c)>0$ throughout the interval and
 
 $$
-b_5\ge h.
+2L(c)\le A_{\rm sc}(c).
 $$
 
-Adding,
+Since $L(c)\ge0$,
 
 $$
-\sum_{i=2}^5(a_i+b_i)
+a\le L(c)\le2L(c)\le A_{\rm sc}(c).
+$$
+
+### 3.2. Hiding ratio
+
+Put
+
+$$
+\varepsilon=1-u>0.
+$$
+
+The positivity follows because a Vd1 role containing both $V_0$ and $O$ would
+have the distance-one pair $V_0,O$ as two vertices of its unit triangle, and
+the third vertex would be $V_1$ or $V_5$, contradicting the Vd1 type.
+
+Using the third side and $tb=t-c(t+1)$,
+
+$$
+\varepsilon
 =
-a_2+(b_2+a_3)+(b_3+a_4)+(b_4+a_5)+b_5
+\frac{2t+1+a-c(t+1)-d}{t}
+=
+\varepsilon_0+\frac at,
 $$
 
-satisfies
+where
 
 $$
-\sum_{i=2}^5(a_i+b_i)
+\varepsilon_0
+=
+\frac{2t+1-c(t+1)-d}{t}>0.
+$$
+
+Indeed, $c\le1/2$ gives
+
+$$
+2t+1-c(t+1)-d
 \ge
-(1-b_1)+1+1+1+h
-=
-4+(h-b_1)>4.
+\frac{3t+1}{2}-d>0
 $$
 
-But $T_2,T_3,T_4,T_5$ are nonsupercritical Vd0 rows, hence
+for $t\ge1$.  The function
 
 $$
-a_i+b_i\le1,
-\qquad
- i=2,3,4,5.
+z\longmapsto
+\frac{z}{z+\varepsilon_0+z/t}
 $$
 
-Therefore
+is increasing for $z\ge0$.  Since $a\le F(t,c)$ and
 
 $$
-\sum_{i=2}^5(a_i+b_i)\le4,
+\varepsilon_0+\frac{F(t,c)}t=\frac12,
 $$
 
-a contradiction.  This proves the normalized $T_0$ Vd1, $M_1\in T_0$,
-$T_1$ supercritical obstruction.
+we obtain
 
-## Boundary cases
+$$
+\frac{a}{a+\varepsilon}
+\le
+\frac{F(t,c)}{F(t,c)+1/2}
+\le
+\frac{L(c)}{L(c)+1/2}
+\le
+2L(c)
+\le
+A_{\rm sc}(c).
+$$
 
-The proof is strict at the final step because $T_1$ is strictly
-supercritical, so the free envelope gives $b_1<B(c_1)$ rather than a closed
-inequality.  The case $c=1/2$ is excluded because the strict supercritical
-feasible set is empty at radial coordinate $1/2$.
+Thus
 
-Point-only contacts on $r_5$ do not affect the Vd1 type, because Vd1 excludes
-positive-length $r_5$ intersection only. The exact normal form has $a<1$, so
-the $t\ge1$ argument includes all endpoint configurations relevant to an
-original open role.
+$$
+\boxed{
+\frac{a}{a+1-u}\le A_{\rm sc}(c).
+}
+$$
+
+## 4. Invocation of the common adjacent-rescuer theorem
+
+The interval $[c,u]$ contains $M_1$, so $u\ge1/2$.  The supercritical row
+$T_1$ misses $M_1$ and, since it contains $V_1$, cannot cover any point of
+$r_1$ on the $O$-side of $M_1$.  The rows $T_2,T_3,T_4,T_5$ are Vd0 and
+have no positive-length adjacent support on $r_1$.  Hence radial coverage
+forces the center role to cover the $O$-side gap of length $1-u$ before the
+Vd1 interval begins.
+
+The two boxed inequalities of Section 3 are exactly the remaining local
+hypotheses of the common adjacent-rescuer theorem `2018`.  That theorem gives
+a far-side boundary demand at least $B_{\rm sc}(c)$, while the strict
+supercritical envelope gives the outgoing reach of $T_1$ strictly below
+$B_{\rm sc}(c)$.  Its boundary-path budget then contradicts the four
+nonsupercritical row caps of $T_2,T_3,T_4,T_5$.
+
+Therefore the normalized Vd1 adjacent-rescue placement is impossible.
+Reflection proves the $M_5,T_5$ placement.
 
 $$
 \Box
