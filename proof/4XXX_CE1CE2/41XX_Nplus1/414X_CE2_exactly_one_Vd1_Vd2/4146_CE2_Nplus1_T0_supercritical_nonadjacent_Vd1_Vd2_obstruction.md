@@ -2,7 +2,13 @@
 
 Status: Proven
 
-This file proves the non-adjacent placements in the `414X` branch:
+This file proves all nonadjacent placements in one argument.  The residual
+boundary demands are encoded by the interval operator `2019`, and the final
+radial estimate is the universal Vd corner margin `201c`.
+
+## 1. Setup
+
+Assume
 
 $$
 T_C\text{ is CE2},
@@ -10,35 +16,27 @@ T_C\text{ is CE2},
 T_0\text{ is the unique supercritical row},
 $$
 
+and
+
 $$
 T_\tau\text{ is the unique Vd1/Vd2 row},
 \qquad
 \tau\in\{2,3,4\}.
 $$
 
-Every other vertex row is Vd0 and nonsupercritical.
-
-## 1. Signed CE2 data
-
-Use the common center normal form
-[`2109`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md).
-Put
+Every other vertex row is Vd0 and nonsupercritical.  Use the signed center
+variables from
+[`2109`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md):
 
 $$
 0<R<1,
 \qquad
 W=1-R,
-$$
-
-$$
+\qquad
 E=\sqrt{1-RW},
 \qquad
 \eta=1-E,
-\qquad
-P=E(1-E),
 $$
-
-and let $\alpha,\delta>0$ be the two center slacks. Set
 
 $$
 T=\alpha+\delta,
@@ -46,14 +44,20 @@ T=\alpha+\delta,
 k=\eta+T.
 $$
 
-The two initial boundary endpoints are
+The center intervals are
 
 $$
-\boxed{
+I_L=\left[x,R+\alpha\right],
+\qquad
 x=\frac{k}{W},
+$$
+
+and
+
+$$
+I_R=\left[y,W+\delta\right],
 \qquad
 y=\frac{k}{R}.
-}
 $$
 
 The relevant center exits are
@@ -63,74 +67,51 @@ $$
 d_2^C=\delta,
 \qquad
 d_4^C=\alpha,
+\qquad
+d_3^C=\min\left\{\frac{\alpha}{R},\frac{\delta}{W}\right\}.
 }
 $$
 
-and
-
-$$
-\boxed{
-d_3^C
-=
-\min\left\{\frac{\alpha}{R},\frac{\delta}{W}\right\}.
-}
-$$
-
-The CE2 total-slack lemma in
+The common endpoint-slack lemma in
 [`2530`](../../../2XXX_geometric_lemmas/25XX_length_bounds/2530_common_CE1_CE2_budget_lemmas.md)
 gives
 
 $$
+\boxed{T<\frac12\min\{x,y\}.}
+$$
+
+## 2. Residual demands at the Vd1/Vd2 row
+
+Let $(a_0,b_0)$ be the boundary reaches of the supercritical row.  Then
+
+$$
 \boxed{
-T<\frac12\min\{x,y\}.
+a_0+b_0>1,
+\qquad
+a_0^2+a_0b_0+b_0^2\le1.
 }
 $$
 
-## 2. Boundary demands
-
-Let $(a_0,b_0)$ be the boundary reaches of the supercritical row $T_0$. Then
+Let
 
 $$
-a_0+b_0>1,
-$$
-
-and
-
-$$
-\boxed{a_0^2+a_0b_0+b_0^2\le1.}
-$$
-
-Let $B$ and $U$ be the farthest extents already covered from $V_0$ on the two
-CE2-active boundary edges. Equivalently, define
-
-$$
-A=1-B,
+B=e_{I_R}(b_0),
 \qquad
-H=1-U,
+U=e_{I_L}(a_0)
 $$
 
-where
+be the farthest already-covered extents from $V_0$ on the two active boundary
+edges, in the notation of the interval calculus
+[`2019`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2019_interval_component_and_path_budget.md).
+Put
 
 $$
-B=
-\begin{cases}
-b_0,&b_0<y,\\
-\max\{b_0,W+\delta\},&b_0\ge y,
-\end{cases}
+\boxed{A=1-B,
+\qquad
+H=1-U.}
 $$
 
-and
-
-$$
-U=
-\begin{cases}
-a_0,&a_0<x,\\
-\max\{a_0,R+\alpha\},&a_0\ge x.
-\end{cases}
-$$
-
-Boundary coverage and propagation through the ordinary nonsupercritical rows
-force
+Boundary propagation through the intervening nonsupercritical rows gives
 
 $$
 \boxed{a_\tau\ge A,
@@ -138,22 +119,15 @@ $$
 b_\tau\ge H.}
 $$
 
-The Vd1/Vd2 boundary cap gives
-
-$$
-a_\tau+b_\tau<\frac12,
-$$
-
-so
+The Vd1/Vd2 half-unit cap therefore gives
 
 $$
 \boxed{A+H<\frac12.}
 $$
 
-## 3. Diameter transfer at the two active edges
+## 3. Diameter transfer on the two active edges
 
-Let $\beta$ be the diameter-transfer curve from
-[`2018`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2018_diameter_transfer_and_adjacent_rescuer.md):
+Let
 
 $$
 \beta(q)=\frac{-q+\sqrt{4-3q^2}}2.
@@ -167,54 +141,47 @@ $$
 U\le\beta(y).}
 $$
 
-It is enough to prove the first inequality; the second is its reflection.
+It is enough to prove the first inequality.  By the explicit interval
+component formula, $B$ is either the supercritical endpoint $b_0$ or the far
+center endpoint $W+\delta$.
 
-If $B=W+\delta$, then the center triangle contains the boundary point with
-parameter $x$ on $e_{5,0}$ and the boundary point with parameter $B$ on
-$e_{0,1}$. Their squared distance is
+If
 
 $$
-x^2+xB+B^2.
+B=W+\delta,
 $$
 
-The center triangle has diameter $1$, so this quantity is at most $1$, and
-therefore $B\le\beta(x)$.
+then the center triangle contains points with parameters $x$ and $B$ on the
+two adjacent boundary edges.  Its diameter is one, so
 
-Now suppose $B=b_0$. If $a_0<x$, then $U=a_0$, and $A+H<1/2$ would imply
+$$
+x^2+xB+B^2\le1,
+$$
+
+and hence $B\le\beta(x)$.
+
+Now suppose $B=b_0$.  If $a_0<x$, then the component on the other edge ends at
+$a_0$, so $U=a_0$.  The inequality $A+H<1/2$ would then imply
 
 $$
 a_0+b_0>\frac32,
 $$
 
-contrary to the endpoint-distance inequality, which gives
+contrary to
 
 $$
 a_0+b_0\le\frac2{\sqrt3}<\frac32.
 $$
 
-Hence $a_0\ge x$. The diameter bound gives
+Thus $a_0\ge x$.  The endpoint-distance inequality gives
 
 $$
-b_0\le\beta(a_0).
+b_0\le\beta(a_0)\le\beta(x),
 $$
 
-The function $\beta$ is strictly decreasing, since
+because $\beta$ is decreasing.  Reflection proves $U\le\beta(y)$.
 
-$$
-\beta'(q)
-=
--\frac12-\frac{3q}{2\sqrt{4-3q^2}}<0.
-$$
-
-Thus
-
-$$
-B=b_0\le\beta(a_0)\le\beta(x).
-$$
-
-The reflected argument gives $U\le\beta(y)$.
-
-The complementary form of the diameter-transfer lemma is
+The complementary diameter-transfer inequality from `2018` is
 
 $$
 1-\beta(q)>\frac q2
@@ -224,26 +191,18 @@ $$
 Consequently
 
 $$
-A=1-B
-\ge1-\beta(x)
->\frac x2,
+A=1-B>\frac x2>T,
+\qquad
+H=1-U>\frac y2>T.
 $$
 
-and
-
-$$
-H=1-U
-\ge1-\beta(y)
->\frac y2.
-$$
-
-Together with the total-slack estimate,
+Therefore
 
 $$
 \boxed{T<\min\{A,H\}.}
 $$
 
-## 4. All three non-adjacent center exits are below the boundary minimum
+## 4. Radial separation
 
 For $r_2$ and $r_4$,
 
@@ -253,7 +212,7 @@ d_2^C=\delta<T,
 d_4^C=\alpha<T.
 $$
 
-For $r_3$, the minimum is at most the $R,W$-weighted average:
+For $r_3$,
 
 $$
 \begin{aligned}
@@ -261,79 +220,45 @@ d_3^C
 &=
 \min\left\{\frac{\alpha}{R},\frac{\delta}{W}\right\}\\
 &\le
-R\frac{\alpha}{R}
-+
-W\frac{\delta}{W}\\
+R\frac{\alpha}{R}+W\frac{\delta}{W}\\
 &=
-\alpha+\delta\\
-&=T.
+T.
 \end{aligned}
 $$
 
-Hence
+Thus
 
 $$
 \boxed{
 d_\tau^C<\min\{A,H\},
 \qquad
-\tau=2,3,4.
+\tau\in\{2,3,4\}.
 }
 $$
 
-## 5. Radial contradiction
-
-Orient the Vd1/Vd2 corner normal form
-[`2014`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2014_Vd1_Vd2_corner_normal_form.md)
-at $V_\tau$. For some $t>0$ and
+The Vd corner margin
+[`201c`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/201c_Vd_corner_radial_margins.md),
+applied to $a_\tau\ge A$ and $b_\tau\ge H$, gives
 
 $$
-d=\sqrt{t^2+t+1},
+\boxed{c_\tau<1-\min\{A,H\}.}
 $$
 
-its own-radial reach is
+The center interval on $r_\tau$ begins from the vertex side at
 
 $$
-c_\tau
-=
-\frac{d-a_\tau-tb_\tau}{t+1}.
-$$
-
-Since $d<t+1$,
-
-$$
-\begin{aligned}
-c_\tau
-&<
-1-
-\frac{a_\tau+tb_\tau}{t+1}\\
-&\le
-1-\min\{a_\tau,b_\tau\}\\
-&\le
-1-\min\{A,H\}.
-\end{aligned}
-$$
-
-The center-side exit gives the vertex-side entry point
-
-$$
-q_\tau=1-d_\tau^C.
-$$
-
-Since $d_\tau^C<\min\{A,H\}$,
-
-$$
-q_\tau
+q_\tau=1-d_\tau^C
 >
 1-\min\{A,H\}
 >
 c_\tau.
 $$
 
-Thus the own-radial interval of $T_\tau$ does not meet the center interval on
-$r_\tau$. Every other vertex role is Vd0 and has no positive-length support
-on this arm. Hence $r_\tau$ is not covered, a contradiction.
+Hence the own-radial trace of $T_\tau$ does not meet the center trace.
+Diameter locality and the Vd0 hypotheses exclude every other positive
+interval on $r_\tau$.  Thus the arm is uncovered, a contradiction.
 
-All non-adjacent placements $\tau\in\{2,3,4\}$ are impossible.
+All three nonadjacent placements are impossible.
 
 $$
 \Box
