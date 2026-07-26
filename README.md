@@ -52,6 +52,26 @@ Definitions live in
 `proof/2XXX_geometric_lemmas/`, and the proof tree splits first into the CE0
 branch and the combined CE1/CE2 branch.
 
+## Preview Interactive HTML in GitHub Codespaces
+
+The standalone
+[`Strategy 4 mechanism explorer`](proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105b_strategy4_mechanism_explorer.html)
+is a reference visualization of the proof mechanism. To run it in a GitHub
+Codespace, open a terminal and run:
+
+```bash
+cd proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point
+python3 -m http.server 8000
+```
+
+In the Codespaces editor, open the **Ports** tab, find port `8000`, and select
+**Open in Browser**. If the port does not appear automatically, use
+**Forward a Port** and enter `8000`. In the resulting directory page, select
+`3105b_strategy4_mechanism_explorer.html`.
+
+Keep the terminal command running while using the explorer. Press `Ctrl+C` in
+that terminal to stop the server. The forwarded port is private by default.
+
 ## Proof Corpus Map
 
 - [`proof/0XXX_main/`](proof/0XXX_main): main theorem, proof-tree index, and status table.
