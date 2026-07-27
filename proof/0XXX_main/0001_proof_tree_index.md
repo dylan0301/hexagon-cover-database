@@ -16,14 +16,14 @@ T_C,T_0,\dots,T_5.
 $$
 
 Classify $T_C$ as CE0, CE1, or CE2. The CE1 and CE2 cases are recorded
-together in the combined 4XXX branch. Inside each active branch, define
-perimeter rows $(a_i,b_i)$ and compute
+together in the combined 4XXX branch. Inside each active branch, define the
+actual perimeter reaches $(A_i,B_i)$ and compute
 
 $$
 N_+=
 \left\lvert
 \left\lbrace
-i:a_i+b_i>1
+i:A_i+B_i>1
 \right\rbrace
 \right\rvert.
 $$
@@ -37,6 +37,11 @@ let $q$ be the number of short roles. The proved common-budget package `2530`
 gives $q=N_++m$ and eliminates $q\ge3$; midpoint rescue also eliminates
 $N_+\ge2$. The surviving tree therefore has $N_+\le1$ and at most two
 non-Vd0 roles when $N_+=0$, or at most one when $N_+=1$.
+
+Within the two all-Vd0 CE1/CE2 rows, let $\mathrm{gr}$ be the active-gap rank,
+the number of positive center traces containing a V-gap.  The raw map
+$g_c=1-B_c$ and its relaxations organize the Strategy 2 cells, but the existing
+Strategy 1 branches remain separately routed.
 
 ## Setup
 
@@ -79,6 +84,10 @@ non-Vd0 roles when $N_+=0$, or at most one when $N_+=1$.
       $c_{\max}(p,h)\le1-h/4$
     - `201c`: proved the own-radial and supported-arm margins extracted
       from the Vd1/Vd2 corner normal form
+    - `201d`: proved the raw transfer $g_c=1-B_c$ for every row, the capped
+      relation $G_c=\max\{g_c,\mathrm I\}$, center-assisted and envelope
+      transfers, the raw-graph interpretation of $A_{\rm sc},B_{\rm sc}$,
+      and the relaxed-composition and branch-signature notation
   - `21XX`: C-triangle geometry
     - `2100`: proved CE1/CE2 exactly-one-midpoint lemma with $O$ interior
     - `2101`: maximal C-triangles over the half skeleton
@@ -149,30 +158,46 @@ non-Vd0 roles when $N_+=0$, or at most one when $N_+=1$.
 - `4XXX`: CE1/CE2
   - `40XX`: CE1/CE2, $N_+=0$
     - all Vd0
-      - `401X`: exact CE1 matrix and all CE2 no-gap, one-gap, and two-gap states proved
+      - `401X`: proved active-gap-rank kernel: a strict cyclic identity chain
+        at $\mathrm{gr}=0$ and exact-endpoint/$\mathrm I^3$ chains at
+        $\mathrm{gr}=1,2$
     - at least one Vd1/Vd2
-      - `404X`: CE1 and CE2 boundary-length obstructions
+      - `404X`: CE1 and CE2 boundary-length obstructions; existing Strategy 1
+        routes unchanged
     - at least one T3-like and no Vd1/Vd2
-      - `407X`: proven exact four-label $T_0$-T3-like reassembly; the
-        left-high-sheet package uses the universal `2016` selected-$T_+$ curve
+      - `407X`: proved residual exact-endpoint/$\mathrm I^3$ chain; the
+        irreducible four-label endpoint audit and universal `2016`
+        selected-$T_+$ curve remain active
   - `41XX`: CE1/CE2, $N_+=1$
     - all Vd0
-      - `410X`: all gap states proved; no-gap state closed by the
-        center-independent `31058` direct nine-point obstruction
-      - `4106`: CE1 one-gap proof uses `2016` for selected-$T_+$ concavity and
-        `2017` for the terminal threshold trigger
+      - `410X`: all gap states proved; the one-gap states are two relaxations of
+        one exact five-row chain, the two-gap state is the common paired-endpoint
+        chain, and the no-gap state remains the center-independent `31058`
+        direct nine-point obstruction
+      - `4106`: CE1 uses two affine selected-$T_+$ lower maps followed by the
+        terminal threshold $\Theta_\delta$
+      - `4107`: CE2 uses one decisive threshold slot and identity slots
+        everywhere else
       - `4104-F`: optional older six-point target, still open but not a
         dependency of the branch closure
-      - `9630`: 5 point conjecture counterexample
+      - `9630`: five-point conjecture counterexample
     - Vd1/Vd2 branches
-      - `411X`: CE1 at-least-one and CE2 at-least-two boundary-length obstructions
-      - `414X`: additional positive-support branch closed by `414a`; the complementary branch closes through the now-proved `4013` package
+      - `411X`: CE1 at-least-one and CE2 at-least-two boundary-length
+        obstructions; existing Strategy 1 routes unchanged
+      - `414X`: `4143` shares the $A_{\rm sc}$--$\mathrm I^3$--$B_{\rm sc}$
+        rescuer chain with `413X`; `4144` uses a backward identity chain and the
+        quarter terminal transfer; `4146` retains a Vd-specific terminal
+        envelope; `4147` replaces the exceptional pair and reduces to `4013`;
+        `4149` and `414a` remain Strategy 1
     - at least two T3-like and no Vd1/Vd2
-      - `412X`: shared CE1/CE2 three-short-role skeleton corollary
+      - `412X`: shared CE1/CE2 three-short-role skeleton corollary, unchanged
+        as a Strategy 1 route
     - exactly one T3-like and no Vd1/Vd2
-      - `413X`: shared CE1/CE2 boundary obstruction (`4131`, `4132`)
+      - `413X`: shared CE1/CE2 $A_{\rm sc}$--$\mathrm I^3$--$B_{\rm sc}$
+        boundary chain (`4131`, `4132`)
   - `42XX`: CE1/CE2, $N_+\ge2$
-    - `4200`: proven shared CE1/CE2 skeleton-length obstruction
+    - `4200`: proved shared CE1/CE2 skeleton-length obstruction, unchanged as a
+      Strategy 1 route
 
 ## Failed-Idea Warnings
 
