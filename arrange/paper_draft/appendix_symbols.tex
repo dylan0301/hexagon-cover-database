@@ -7,7 +7,7 @@ recur across proof mechanisms.
 \begin{table}[H]
 \centering
 \small
-\begin{tabular}{@{}p{.27\textwidth}p{.66\textwidth}@{}}
+\begin{tabular}{@{}p{.28\textwidth}p{.65\textwidth}@{}}
 \toprule
 symbol&meaning\\
 \midrule
@@ -22,9 +22,9 @@ Selected lower-bound demands; these do not define $N_+$.\\
 $N_+,m,q$&
 The number of actual supercritical rows, the number of non-Vd0 roles, and the
 number of short roles; in CE1/CE2 one has $q=N_++m$.\\
-$g$&
-The number of positive center traces containing active V-gaps; $g\in\{0,1,2\}$
-and $g\le1$ in CE1.\\
+$\mathrm{gr}$&
+The active-gap rank: the number of positive center traces containing V-gaps;
+$\mathrm{gr}\in\{0,1,2\}$ and $\mathrm{gr}\le1$ in CE1.\\
 $\Lambda(K)$&
 The least side length of a closed equilateral triangle containing the compact
 set $K$.\\
@@ -34,12 +34,27 @@ $1-\sqrt{1-x+x^2}$.\\
 $\mathcal R_J(p)$&
 The far-side residual boundary demand after an initial trace $[0,p]$ and a
 center interval $J$.\\
-$B_c,F_c,G_c$&
-The outgoing feasible envelope, its nonsupercritical cap, and the no-center
-transfer map $G_c=1-F_c$.\\
-$\mathcal G_{c,J}$&
-The generalized center-assisted transfer
-$\mathcal R_J\mathbin{\circ}F_c$; it equals $G_c$ when $J=\varnothing$.\\
+$B_c,g_c$&
+The exact outgoing envelope and the raw transfer
+$g_c=1-B_c$, valid for every row.\\
+$F_c,G_c$&
+The capped outgoing envelope and transfer:
+$F_c(a)=\min\{B_c(a),1-a\}$ and
+$G_c(a)=1-F_c(a)=\max\{g_c(a),a\}$.\\
+$\mathfrak g_{c,J},\mathcal G_{c,J}$&
+The raw and capped center-assisted transfers
+$\mathcal R_J\circ B_c$ and $\mathcal R_J\circ F_c$.\\
+$A_{\rm sc}(c),B_{\rm sc}(c)$&
+The following-demand and outgoing free strict-supercritical envelopes of the
+raw $g_c$ graph.\\
+$\mathrm I,\Theta_d,\mathsf L_{d,\lambda}$&
+The identity, low-root threshold, and affine selected-$T_+$ lower transfers.\\
+$[\Phi_1\mid\cdots\mid\Phi_r]$&
+The composition $\Phi_r\circ\cdots\circ\Phi_1$, with maps listed in geometric
+row order.\\
+$\mathscr C[\mathrm{seed};\,\cdots;\,\mathrm{terminal}]$&
+A branch signature recording its exact seed data, relaxed row slots, and
+terminal certificate.\\
 $e(d)$&
 The high-radial low-root threshold for deficit $d$.\\
 $R,W,E,\alpha,\delta,\Delta_R,\Delta_L$&
