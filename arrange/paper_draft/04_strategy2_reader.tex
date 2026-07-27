@@ -1,35 +1,165 @@
-\section{Strategy 2: Exact Demand Propagation}
+\section{Strategy 2: Relaxations of \(g\)-Composition Chains}
 \label{sec:strategy2-reader}
 
 The signed center section supplies the exact CE1/CE2 traces, exits, and
-actual-row interface.  Section~\ref{sec:universal-calculus} supplies the
-interval residuals, boundary-path budget, selected-$T_+$ curve, and threshold
-routing.  The present section contains only the branch-level uses of those
-common mechanisms.  Complete contact-cell calculations remain in
+actual-row interfaces.  Section~\ref{sec:universal-calculus} supplies the raw
+map $g_c=1-B_c$, the capped map
+\[
+ G_c=\max\{g_c,\mathrm I\},
+\]
+center residuals, affine selected-$T_+$ relaxations, threshold transfers, and
+the free envelopes $A_{\rm sc},B_{\rm sc}$.  Every proof in this section starts
+from an exact row chain and retains only the lower transfers needed for its
+terminal contradiction.  Complete contact-cell calculations remain in
 Appendix~\ref{sec:exact-local-demand-calculus}.
 
-\subsection{The all-Vd0 gap-rank kernel}
+\subsection{The common chain table}
 
-Let $g$ be the number of positive center traces that contain a V-gap.  Then
-$g\in\{0,1,2\}$, and $g\le1$ for CE1.  The two all-Vd0 row counts are governed
-by the following single matrix:
+For maps listed in geometric row order,
+\[
+ [\Phi_1\mid\cdots\mid\Phi_r](x)
+ =
+ (\Phi_r\circ\cdots\circ\Phi_1)(x),
+\]
+and
+\[
+ \mathscr C[
+ \text{seed};\,
+ \Phi_1\mid\cdots\mid\Phi_r;\,
+ \text{terminal}]
+\]
+records a whole branch.  The following table is the reader-level inventory.
+An endpoint-loss row keeps its endpoint $F$-maps exact and replaces only the
+interior rows.
+
+\begin{table}[H]
+\centering
+\scriptsize
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{@{}p{.20\textwidth}p{.27\textwidth}p{.46\textwidth}@{}}
+\toprule
+branch&exact skeleton&relaxation and terminal certificate\\
+\midrule
+$N_+=0$, all $\Vdzero$, $\mathrm{gr}=0$&
+cyclic six-row capped chain&
+$\mathscr C[A_0;\mathrm I^6;A_0>A_0]$ from strict open handoffs\\
+$N_+=0$, all $\Vdzero$, $\mathrm{gr}=1$&
+two exact endpoint maps and three middle rows&
+$\mathscr C[(q,s);\mathrm I^3;
+ F_{c_1}(q)+F_{c_5}(s)<1]$\\
+$\CEtwo$, all $\Vdzero$, $\mathrm{gr}=2$, $N_+=0$ or $1$&
+two exact endpoint maps and three middle rows&
+$\mathscr C[(p,q);\mathrm I^3;
+ F_{p/W}(p)+F_{q/R}(q)<1]$\\
+$N_+=0$, one or more $\Tlike$, no $\Vdone/\Vdtwo$&
+two residual endpoint maps and three middle rows&
+$\mathscr C[(A_1,A_5);\mathrm I^3;
+ F_{C_1}(A_1)+F_{C_5}(A_5)<1]$; the endpoint audit remains exact\\
+$\CEone$, $N_+=1$, all $\Vdzero$, one gap&
+$[G_{c_1}\mid\cdots\mid G_{c_5}](X)$&
+after exact duality,
+$\mathscr C[H;
+ \mathsf L_{\alpha,1-4\alpha}\mid
+ \mathsf L_{m,1-5m}\mid
+ \Theta_\delta;>1-X]$ on the hard branch\\
+$\CEtwo$, $N_+=1$, all $\Vdzero$, one gap&
+the same five-row chain&
+one of
+$\mathscr C[X;\mathrm I\mid\mathrm I\mid\mathrm I\mid
+ \Theta_\alpha\mid\mathrm I;>1-H]$ and
+$\mathscr C[X;\mathrm I\mid\Theta_\delta\mid
+ \mathrm I\mid\mathrm I\mid\mathrm I;>1-H]$\\
+one $\Tlike$ or adjacent $\Vdone$ rescuer&
+free raw-graph envelope and ordinary boundary path&
+$\mathscr C[A_{\rm sc}(c);\mathrm I^3;
+ b_5<B_{\rm sc}(c)\le h]$\\
+adjacent $\Vdone/\Vdtwo$ placement&
+center residuals $A,H$ and backward ordinary chain&
+backward $\mathrm I^4$, followed by
+$G_{1-\delta}(1/2+A)>1-H$\\
+nonadjacent $\Vdone/\Vdtwo$ placement&
+center residuals and intervening ordinary rows&
+identity slots followed by the Vd-specific separation
+$c_\tau<1-\min\{A,H\}<1-d_\tau^C$\\
+Vd1--supercritical replacement&
+one exceptional adjacent pair&
+replace it by two ordinary nonsupercritical $\Vdzero$ rows and invoke the
+appropriate all-$\Vdzero$ chain\\
+\bottomrule
+\end{tabular}
+\caption{All Strategy~2 chain signatures.  The raw map is common to every row;
+the displayed substitutions are the relaxations actually used.}
+\label{tab:strategy2-chain-signatures}
+\end{table}
+
+The exact four-label endpoint calculation in the T3-like $N_+=0$ row is not
+replaced by a weaker unsupported formula.  Likewise, the nonadjacent Vd
+terminal is type-specific rather than a universal $G_c$ inequality.  The
+existing Strategy~1 perimeter and skeleton routes, including the two
+Strategy~1 subcases of the one-Vd1/Vd2 package, retain their present statements
+and routing.
+
+\subsection{The all-\(\Vdzero\) gap-rank kernel}
+
+Let $\mathrm{gr}$ be the number of positive center traces that contain a
+V-gap.  Then
+\[
+ \mathrm{gr}\in\{0,1,2\},
+ \qquad
+ \mathrm{gr}\le1\quad\text{for }\CEone.
+\]
+The two all-$\Vdzero$ row counts are governed by
+{\small
 \[
 \begin{array}{c|ccc}
- &g=0&g=1&g=2\\ \hline
+ &\mathrm{gr}=0&\mathrm{gr}=1&\mathrm{gr}=2\\ \hline
 N_+=0&
-\text{open-trace budget}&
-\text{one-side capped loss}&
-\text{paired endpoint loss}\\
+\text{strict identity cycle}&
+\text{one-side endpoint chain}&
+\text{paired endpoint chain}\\
 N_+=1&
 \text{nine-point obstruction}&
-\text{five-row transfer}&
-\text{paired endpoint loss}.
+\text{five-row relaxed chain}&
+\text{paired endpoint chain}.
 \end{array}
 \]
-The paired endpoint column is CE2-only.  The $N_+=0$ row is proved in
-Proposition~\ref{prop:nplus-zero-all-vd0}; the $N_+=1$ row is assembled in
-Proposition~\ref{prop:nplus-one-all-vd0}.  The common two-gap application is
-recorded next.
+}
+The last column is CE2-only.
+
+For $N_+=0$ and $\mathrm{gr}=0$, the six open vertex traces alone cover each
+boundary edge.  Hence their actual reaches satisfy strictly
+\[
+ A_{i+1}>1-B_i.
+\]
+Since every row is nonsupercritical,
+\[
+ B_i\le F_{C_i}(A_i),
+\]
+and therefore
+\[
+ A_{i+1}
+ >
+ 1-B_i
+ \ge
+ G_{C_i}(A_i)
+ \ge A_i.
+\]
+Iteration gives
+\[
+ A_0<A_1<\cdots<A_5<A_0,
+\]
+the rank-zero identity-cycle contradiction.
+
+For $N_+=0$ and $\mathrm{gr}=1$, the one-side theorem keeps the two endpoint
+maps exact:
+\[
+ F_{c_1}(q)+F_{c_5}(s)<1.
+\]
+The three middle rows contribute only $\mathrm I^3$, or equivalently
+Lemma~\ref{lem:reader-boundary-path} contradicts their three unit caps.  The
+same description applies to the T3-like $N_+=0$ branch after replacing the
+endpoint inputs by the residuals $A_1,A_5$; only its endpoint inequality
+requires the exact four-label audit.
 
 \begin{proposition}[Common CE2 two-gap application]
 \label{prop:reader-common-two-gap}
@@ -46,7 +176,7 @@ Put
  q=R-\delta.
 \]
 Gap containment forces the two endpoint inputs $p,q$, while the exact center
-exits give radial demands $p/W$ and $q/R$.  Hence the endpoint outputs satisfy
+exits give radial demands $p/W$ and $q/R$.  Hence
 \[
  B_5\le F_{p/W}(p),
  \qquad
@@ -57,10 +187,15 @@ Appendix~\ref{sec:exact-local-demand-calculus} gives
 \[
  F_{p/W}(p)+F_{q/R}(q)<1.
 \]
-Thus $B_1+B_5<1$.  Lemma~\ref{lem:reader-boundary-path}, applied to
+Thus $B_1+B_5<1$.  The three middle rows are relaxed to $\mathrm I^3$;
+equivalently Lemma~\ref{lem:reader-boundary-path}, applied to
 $T_2,T_3,T_4$, forces their total boundary contribution above three, contrary
 to their three nonsupercritical caps.
 \end{proof}
+
+For $N_+=1$ and $\mathrm{gr}=0$, the active proof remains the direct
+nine-point obstruction of Strategy~4.  Thus the table records the all-Vd0
+kernel without changing the routing of that cell.
 
 \subsection{One signed five-row chain}
 
@@ -71,22 +206,37 @@ Proposition~\ref{prop:signed-center-normal-form}.  Put
  \qquad
  H=\frac{\eta+\alpha+\delta}{2R},
  \qquad
- m=\min\left\{\frac\alpha R,\frac\delta W\right\}.
+ m=\min\left\{\frac\alpha R,\frac\delta W\right\},
 \]
-The five nonsupercritical demands are
+and
 \[
- 1-\frac\delta R,
- \quad1-\delta,
- \quad1-m,
- \quad1-\alpha,
- \quad1-\frac\alpha W.
+ \begin{aligned}
+ c_1&=1-\frac\delta R,&
+ c_2&=1-\delta,&
+ c_3&=1-m,\\
+ c_4&=1-\alpha,&
+ c_5&=1-\frac\alpha W.
+ \end{aligned}
 \]
-A gap in the normalized right trace starts the same actual chain
-$1\to2\to3\to4\to5\to0$ for CE1 and CE2.  The common interface in
-Proposition~\ref{prop:signed-one-gap-interface} reduces both classes to
+A gap in the normalized right trace starts the same exact chain for CE1 and
+CE2:
 \begin{equation}
- \left(G_{1-\delta}\circ G_{1-m}\circ G_{1-\alpha}\right)(H)
- >W+\delta.
+ Z=[G_{c_1}\mid G_{c_2}\mid G_{c_3}\mid G_{c_4}\mid G_{c_5}](X).
+ \label{eq:reader-exact-five-chain}
+\end{equation}
+The actual-row interface in
+Proposition~\ref{prop:signed-one-gap-interface} gives
+\[
+ a_0\ge Z,
+ \qquad
+ a_0<1-H.
+\]
+The first and fifth slots are relaxed to $\mathrm I$.  Three applications of
+exact capped-map duality reverse the middle chain and reduce both center
+classes to
+\begin{equation}
+ [G_{1-\alpha}\mid G_{1-m}\mid G_{1-\delta}](H)
+ >1-X=W+\delta.
  \label{eq:reader-signed-three-map}
 \end{equation}
 The only remaining distinction is the sign of
@@ -103,15 +253,20 @@ $H>\alpha$.  At the row with deficit $\alpha$, the two Full ranges are
 impossible.  The $L$ and $T_-$ ranges immediately give an output above
 $1-X$.
 
-On the selected $T_+$ range, the center inequalities force $X>1/2$.
-Applying the universal chords \eqref{eq:reader-high-chord} and
-\eqref{eq:reader-low-chord} first at deficit $\alpha$ and then at deficit $m$
-gives
+On the selected $T_+$ range, the center inequalities force $X>1/2$.  The
+universal chords give
 \[
- p_1>(2-4\alpha)H-(1-4\alpha)\alpha=:L_1,
+ p_1>
+ \mathsf L_{\alpha,1-4\alpha}(H)
+ =(2-4\alpha)H-(1-4\alpha)\alpha
+ =:L_1,
 \]
+and then
 \[
- p_2>(2-5m)L_1-(1-5m)m=:L_2.
+ p_2>
+ \mathsf L_{m,1-5m}(L_1)
+ =(2-5m)L_1-(1-5m)m
+ =:L_2.
 \]
 The exact terminal calculation in Appendix~\ref{sec:cyclic-all-vd0} proves
 \begin{equation}
@@ -120,9 +275,9 @@ The exact terminal calculation in Appendix~\ref{sec:cyclic-all-vd0} proves
  p_2>L_2>2\delta+3\delta^2>e(\delta).
  \label{eq:reader-ce1-terminal}
 \end{equation}
-Threshold routing at the row with deficit $\delta$ therefore produces an
-output above $1-X$, proving \eqref{eq:reader-signed-three-map}.  The common
-actual-row interface gives the terminal contradiction.
+Thus the final slot is relaxed to $\Theta_\delta$, which produces an output
+above $1-X$.  This proves \eqref{eq:reader-signed-three-map}, and the common
+actual-row interface gives the contradiction.
 \end{proof}
 
 \begin{corollary}[CE2 one-gap obstruction]
@@ -132,52 +287,109 @@ orientation.
 \end{corollary}
 
 \begin{proof}
-This is Proposition~\ref{prop:signed-ce2-one-gap}.  Its two-threshold proof
-uses
+This is Proposition~\ref{prop:signed-ce2-one-gap}.  Its initial estimate and
+two-threshold estimate are
 \[
- R-\delta>e(\alpha),
+ X=R-\delta>e(\alpha),
  \qquad
- \min\{e(\alpha),e(\delta)\}<H,
+ \min\{e(\alpha),e(\delta)\}<H.
 \]
-and Lemma~\ref{lem:reader-threshold-routing}.  Reflection exchanges
-$R$ with $W$, $\alpha$ with $\delta$, and reverses the row order.
+If $e(\alpha)<H$, the row-$4$ slot is replaced by $\Theta_\alpha$ and every
+other slot by $\mathrm I$:
+\[
+ \mathscr C[
+ X;\,
+ \mathrm I\mid\mathrm I\mid\mathrm I\mid\Theta_\alpha\mid\mathrm I;\,
+ >1-H].
+\]
+If $e(\alpha)\ge H$, then $e(\delta)<H\le e(\alpha)<X$; the row-$2$ slot is
+replaced by $\Theta_\delta$ and all other slots by $\mathrm I$:
+\[
+ \mathscr C[
+ X;\,
+ \mathrm I\mid\Theta_\delta\mid\mathrm I\mid\mathrm I\mid\mathrm I;\,
+ >1-H].
+\]
+Reflection exchanges $R$ with $W$, $\alpha$ with $\delta$, and reverses the
+row order.
 \end{proof}
 
-\subsection{The remaining exact-demand branches}
+\subsection{The special-role terminal chains}
 
-For $N_+=0$, the all-Vd0 proof combines the open-trace rank-zero budget, the
-one-side capped-loss theorem, and Proposition~\ref{prop:reader-common-two-gap}.
-The T3-like branch first forces and isolates a T3-like row, then applies one
-four-label endpoint loss.  Its selected high sheet is precisely the universal
-curve \eqref{eq:reader-psi}, with rational parameter
-\eqref{eq:reader-beta-rational}.
-
-For the exactly-one-T3-like $N_+=1$ branch, the translated local profile is
-rationalized in Appendix~\ref{sec:short-vd-placements}; it verifies the two
-hypotheses of the common adjacent-rescuer theorem and no longer repeats the
-center-hiding or terminal boundary sum.
-
-For the one-Vd1/Vd2 branch, the preliminary perimeter budget removes CE1 and
-gives
+For the exactly-one-T3-like $N_+=1$ branch, and for the Vd1 row that rescues a
+neighboring supercritical row, the two local profiles verify the same pair of
+inequalities:
 \[
- \alpha+\delta<\frac1{24},
+ a\le A_{\rm sc}(c),
  \qquad
- \alpha+\delta<\frac{\min\{R,W\}}6.
+ \frac{a}{a+1-u}\le A_{\rm sc}(c).
 \]
-The adjacent placement proves the stronger margin $\delta<H/4$ and uses the
-global quarter radial envelope.  The nonadjacent placements use the interval
-residuals and one Vd corner radial margin.  The remaining Vd1 rescue uses the
-same adjacent-rescuer theorem as the T3-like branch.
+The common center-hiding theorem then forces a far-side requirement
+$h\ge B_{\rm sc}(c)$, while the free envelope of the raw $g_c$ graph gives
+\[
+ b_1<B_{\rm sc}(c),
+ \qquad
+ a_2>A_{\rm sc}(c).
+\]
+Rows $T_2,T_3,T_4$ contribute only $\mathrm I^3$, so
+$a_5>A_{\rm sc}(c)$ and the terminal cap gives
+\[
+ b_5\le1-a_5<B_{\rm sc}(c)\le h.
+\]
+Thus the T3-like and Vd1 rescuer branches have the identical signature
+\[
+ \mathscr C[
+ A_{\rm sc}(c);\,
+ \mathrm I^3;\,
+ b_5<B_{\rm sc}(c)\le h].
+\]
+Their difference is confined to the local verification in
+Appendix~\ref{sec:short-vd-placements}.
 
-\begin{proposition}[Branches closed by exact demand]
+For the adjacent Vd1/Vd2 placement, let $A,H$ be the two center residuals.
+The four ordinary rows give the backward identity chain
+\[
+ b_5\ge H\Longrightarrow b_4\ge H\Longrightarrow b_3\ge H
+ \Longrightarrow b_2\ge H\Longrightarrow b_1\ge H.
+\]
+The Vd cap supplies $A+H<1/2$.  The stronger center margin
+$\delta<H/4$ and the quarter radial envelope imply
+\[
+ F_{1-\delta}\left(\frac12+A\right)<H,
+\]
+or equivalently
+\[
+ G_{1-\delta}\left(\frac12+A\right)>1-H.
+\]
+This is the terminal relaxed row transfer.
+
+For a nonadjacent Vd1/Vd2 row $T_\tau$, residual and identity propagation give
+incoming and outgoing demands at least $A,H$.  Diameter transfer puts the
+center exit below their minimum:
+\[
+ d_\tau^C<\min\{A,H\}.
+\]
+The Vd corner envelope gives
+\[
+ c_\tau<1-\min\{A,H\}<1-d_\tau^C,
+\]
+so the exceptional row cannot bridge to the center interval.  This terminal
+envelope is Vd-type-specific and is not asserted for the universal map $G_c$.
+
+The remaining Vd1--supercritical adjacent pair is replaced by two ordinary
+nonsupercritical Vd0 rows.  After replacement the corresponding all-Vd0 chain
+applies.  The additional-positive-support and Vd2-neighbor-midpoint subcases
+retain their existing Strategy~1 skeleton and perimeter proofs.
+
+\begin{proposition}[Relaxed-chain branches]
 \label{prop:reader-demand-branches}
-Strategy~2 closes all routing-table rows assigned to exact demand propagation:
+The following routing-table rows are closed by Strategy~2:
 \begin{enumerate}
 \item the $N_+=0$ all-$\Vdzero$ and T3-like-without-Vd1/Vd2 branches for
       $\CEone$ and $\CEtwo$;
 \item every positive-gap $N_+=1$ all-$\Vdzero$ state;
 \item the exactly-one-T3-like $N_+=1$ state with no Vd1/Vd2 role;
-\item the complementary exact placements in the $\CEtwo$, $N_+=1$,
+\item the complementary transfer placements in the $\CEtwo$, $N_+=1$,
       exactly-one-Vd1/Vd2 branch.
 \end{enumerate}
 Singleton gaps are included.
@@ -190,7 +402,8 @@ Proposition~\ref{prop:reader-ce1-one-gap} and
 Corollary~\ref{prop:reader-ce2-one-gap}; the two-gap state is
 Proposition~\ref{prop:reader-common-two-gap}.  The third item is
 Proposition~\ref{prop:nplus-one-one-t3}.  The fourth is
-Proposition~\ref{prop:signed-ce2-one-vd-placements}.  Every formal transfer is
-connected to actual rows by \eqref{eq:reader-actual-propagation} or
-\eqref{eq:reader-generalized-transfer}.
+Proposition~\ref{prop:signed-ce2-one-vd-placements}.  Every formal slot is
+connected to actual rows by Lemma~\ref{lem:reader-raw-capped-transfer},
+\eqref{eq:reader-actual-propagation}, or
+Lemma~\ref{lem:reader-generalized-handoff}.
 \end{proof}
