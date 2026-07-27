@@ -1,12 +1,13 @@
 \section{Universal Enclosure and Transfer Calculus}
 \label{sec:universal-calculus}
 
-This section collects the geometry shared by the exact-demand and direct
-witness arguments.  The same equilateral enclosure functional governs the
-local admissible set of Strategy~2 and the forced witness set of Strategy~4.
-The same radical governs the signed center, all selected $T_+$ arcs, and the
-standard local frontiers.  Finally, one interval-component operator replaces
-all branch-specific endpoint case distinctions.
+This section collects the geometry shared by the transfer and direct-witness
+arguments.  The same equilateral enclosure functional governs the local
+admissible set of Strategy~2 and the forced witness set of Strategy~4.  The
+same radical governs the signed center, all selected $T_+$ arcs, and the
+standard local frontiers.  Finally, one raw row map and one interval-component
+operator place exact, capped, supercritical-envelope, and center-assisted
+transfers in a common calculus.
 
 \subsection{The equilateral enclosure gauge}
 
@@ -98,7 +99,55 @@ For $0<x<1$, put $z=\sigma(x)/x$.  Eliminating the square root gives
 This is the common rational parameter used in the selected high-sheet
 calculations.
 
-\subsection{Interval residuals and actual-row transfer}
+\subsection{Raw, capped, and center-assisted row transfers}
+
+For $a,c\in[0,1]$, recall the exact outgoing envelope
+\[
+ B_c(a)=\max\{b:(a,b,c)\in\mathcal A\}.
+\]
+Define the raw transfer, capped outgoing envelope, and capped transfer by
+\begin{equation}
+ g_c(a)=1-B_c(a),
+ \qquad
+ F_c(a)=\min\{B_c(a),1-a\},
+ \qquad
+ G_c(a)=1-F_c(a).
+ \label{eq:reader-raw-capped-maps}
+\end{equation}
+Coordinatewise down-closedness of $\mathcal A$ makes $B_c$ nonincreasing and
+$g_c$ nondecreasing.  Moreover
+\begin{equation}
+ \boxed{G_c(a)=\max\{g_c(a),a\}.}
+ \label{eq:reader-capped-raw-relation}
+\end{equation}
+Thus the raw map applies to every row, while the nonsupercritical cap adjoins
+the identity lower transfer.
+
+\begin{lemma}[Raw and capped actual-row transfer]
+\label{lem:reader-raw-capped-transfer}
+Suppose an actual row has incoming reach at least $a$, radial reach at least
+$c$, and outgoing reach $B$.  Then
+\[
+ B\le B_c(a).
+\]
+If no center interval intervenes on the next edge, then
+\[
+ A_{\rm next}\ge g_c(a).
+\]
+If the row is nonsupercritical, then
+\[
+ B\le F_c(a),
+ \qquad
+ A_{\rm next}\ge G_c(a)\ge a.
+\]
+\end{lemma}
+
+\begin{proof}
+The same triangle realizes $(a,B,c)$, so $B\le B_c(a)$.  A center-free
+boundary handoff gives $A_{\rm next}\ge1-B\ge g_c(a)$.  Under
+nonsupercriticality one also has $B\le1-a$, hence $B\le F_c(a)$ and the final
+claims follow from \eqref{eq:reader-capped-raw-relation}.
+\end{proof}
 
 Let $J\subseteq[0,1]$ be empty or a closed interval.  For $0\le p\le1$, put
 \[
@@ -126,31 +175,141 @@ a center trace $J$, and a right trace contained in $[1-q,1]$.  Then
 \[
  q\ge\mathcal R_J(p).
 \]
-If an actual nonsupercritical row has incoming reach at least $a$, radial reach
-at least $c$, and outgoing reach $B$, then the next actual incoming reach
-satisfies
+For an actual row as in Lemma~\ref{lem:reader-raw-capped-transfer}, define
+\[
+ \mathfrak g_{c,J}(a)=\mathcal R_J(B_c(a)).
+\]
+Then
 \begin{equation}
  A_{\rm next}
  \ge \mathcal R_J(B)
- \ge \mathcal R_J(F_c(a)).
+ \ge \mathfrak g_{c,J}(a).
+ \label{eq:reader-generalized-raw-transfer}
+\end{equation}
+If the row is nonsupercritical, define
+\[
+ \mathcal G_{c,J}(a)=\mathcal R_J(F_c(a)).
+\]
+Then the stronger bound is
+\begin{equation}
+ A_{\rm next}
+ \ge \mathcal G_{c,J}(a).
  \label{eq:reader-generalized-transfer}
 \end{equation}
+In particular,
+\[
+ \mathfrak g_{c,\varnothing}=g_c,
+ \qquad
+ \mathcal G_{c,\varnothing}=G_c.
+\]
 \end{lemma}
 
 \begin{proof}
 The component of $[0,p]\cup J$ containing $0$ is $[0,e_J(p)]$.  If
 $1-q>e_J(p)$, the intervening open interval is uncovered.  Hence
-$q\ge1-e_J(p)$.  The actual-row bound $B\le F_c(a)$ was proved in
-\eqref{eq:reader-actual-propagation}; monotonicity of $\mathcal R_J$ gives the
-second assertion.
+$q\ge1-e_J(p)$.  The remaining assertions follow from
+$B\le B_c(a)$, from $B\le F_c(a)$ in the capped case, and from the fact that
+$\mathcal R_J$ is nonincreasing.
 \end{proof}
 
-Define
+More generally, if $U$ is any proved upper envelope for the outgoing reach on
+a specified branch, put
+\begin{equation}
+ \mathsf T_{U,J}(a)=\mathcal R_J(U(a)),
+ \qquad
+ \mathsf T_U(a)=1-U(a).
+ \label{eq:reader-envelope-transfer}
+\end{equation}
+If $U\le V$, then
 \[
- \mathcal G_{c,J}(a)=\mathcal R_J(F_c(a)).
+ \mathsf T_{U,J}\ge\mathsf T_{V,J}.
 \]
-Then $\mathcal G_{c,\varnothing}=G_c$.  Thus the usual map $G_c$ is simply the
-no-center-interval member of one transfer family.
+Thus replacing an exact outgoing envelope by a larger, simpler envelope gives
+a smaller proof-safe transfer.
+
+For $0\le c<1/2$, the free strict-supercritical envelope is
+\begin{equation}
+ B_{\rm sc}(c)=\frac{c+\sqrt{c^2-8c+4}}2,
+ \qquad
+ A_{\rm sc}(c)=1-B_{\rm sc}(c).
+ \label{eq:reader-free-supercritical-envelope}
+\end{equation}
+The free-row theorem is equivalently
+\begin{equation}
+ B_{\rm sc}(c)
+ =\sup_{\{a:g_c(a)<a\}}B_c(a),
+ \qquad
+ A_{\rm sc}(c)
+ =\inf_{\{a:g_c(a)<a\}}g_c(a).
+ \label{eq:reader-free-raw-envelope}
+\end{equation}
+Indeed,
+\[
+ g_c(a)<a
+ \quad\Longleftrightarrow\quad
+ B_c(a)>1-a,
+\]
+and the interval-fiber property identifies the right-hand side with the
+existence of a strict-supercritical outgoing demand at input $a$.  Taking the
+free supremum and then complements proves
+\eqref{eq:reader-free-raw-envelope}.  Hence $A_{\rm sc},B_{\rm sc}$ are
+envelopes of the same raw $g_c$ graph, not a separate propagation mechanism.
+
+At $c=0$, however, the exact diameter formula gives
+\[
+ B_0(a)=\frac{-a+\sqrt{4-3a^2}}2\ge1-a,
+\]
+because $4-3a^2-(2-a)^2=4a(1-a)\ge0$.  Therefore $G_0(a)=a$.
+Thus $A_{\rm sc},B_{\rm sc}$ are not literally values of the capped map
+$G_0$.
+
+\subsection{Relaxed composition and path budgets}
+
+For maps listed in geometric row order, write
+\begin{equation}
+ [\Phi_1\mid\cdots\mid\Phi_r](x)
+ =
+ (\Phi_r\circ\cdots\circ\Phi_1)(x).
+ \label{eq:reader-chain-notation}
+\end{equation}
+The leftmost slot acts first.  Write $\mathrm I(x)=x$ and $\mathrm I^k$ for
+$k$ consecutive identity slots.  A branch signature
+\[
+ \mathscr C[
+ \text{seed};\,
+ \Phi_1\mid\cdots\mid\Phi_r;\,
+ \text{terminal}]
+\]
+records the exact seed data, the lower transfers retained in order, and the
+final capacity or separation certificate.
+
+\begin{lemma}[Relaxed composition]
+\label{lem:reader-relaxed-composition}
+Suppose actual demands satisfy
+\[
+ x_j\ge\Phi_j(x_{j-1})
+ \qquad(1\le j\le r),
+\]
+where every $\Phi_j$ is nondecreasing.  If
+$\underline\Phi_j\le\Phi_j$, then
+\[
+ x_r\ge
+ [\underline\Phi_1\mid\cdots\mid\underline\Phi_r](x_0).
+\]
+\end{lemma}
+
+\begin{proof}
+Set $y_0=x_0$ and
+$y_j=\underline\Phi_j(y_{j-1})$.  If $x_{j-1}\ge y_{j-1}$, then
+\[
+ x_j
+ \ge\Phi_j(x_{j-1})
+ \ge\Phi_j(y_{j-1})
+ \ge\underline\Phi_j(y_{j-1})
+ =y_j.
+\]
+Induction proves the claim.
+\end{proof}
 
 \begin{lemma}[Boundary-path budget]
 \label{lem:reader-boundary-path}
@@ -230,6 +389,13 @@ If $t=h(1-d)$ is the low-radial order transition, the corresponding chord is
  \ge p+\frac{1-2t}{t-d}(p-d).
  \label{eq:reader-low-chord}
 \end{equation}
+For any coefficient $\lambda$ proved valid on the selected arc, write
+\begin{equation}
+ \mathsf L_{d,\lambda}(p)
+ =p+\lambda(p-d)
+ \le G_{1-d}(p).
+ \label{eq:reader-affine-relaxation}
+\end{equation}
 The rational form \eqref{eq:universal-rational-radical} gives, in the
 historical notation $x=1-\beta$,
 \begin{equation}
@@ -247,6 +413,17 @@ For $0<d<1-\sqrt3/2$, the exact high-demand threshold is
  \quad\Longrightarrow\quad
  G_{1-d}(z)\ge1-e(d).
  \label{eq:reader-high-threshold}
+\end{equation}
+Define the lower threshold transfer
+\begin{equation}
+ \Theta_d(z)=
+ \begin{cases}
+  z,&z\le e(d),\\
+  1-e(d),&z>e(d).
+ \end{cases}
+ \qquad
+ \Theta_d\le G_{1-d}.
+ \label{eq:reader-threshold-transfer}
 \end{equation}
 
 \begin{lemma}[Threshold routing]
@@ -276,6 +453,7 @@ so trigger at the second row.
 \end{proof}
 
 The lemma is used only after an actual-row induction such as
-\eqref{eq:reader-actual-propagation} or
+\eqref{eq:reader-actual-propagation},
+\eqref{eq:reader-generalized-raw-transfer}, or
 \eqref{eq:reader-generalized-transfer} has identified every formal iterate as
 a lower bound for the corresponding actual row.
