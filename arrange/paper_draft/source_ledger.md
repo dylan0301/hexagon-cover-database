@@ -8,21 +8,21 @@ proof status may support a manuscript theorem.
 
 | Artifact | Role |
 |---|---|
-| `arrange/paper_draft/main.tex` | AMS preamble, metadata, body assembly, and appendix assembly. |
-| `arrange/paper_draft/01_introduction.tex` | Theorem, geometric dictionary, exhaustive routing table, three certificate classes, and the all-Vd0 gap-rank matrix. |
+| `arrange/paper_draft/main.tex` | AMS preamble, metadata, body assembly, appendix assembly, and `mathrsfs` support for the chain-signature symbol $\mathscr C$. |
+| `arrange/paper_draft/01_introduction.tex` | Theorem, geometric dictionary, unchanged exhaustive routing table, four named strategies, active-gap-rank notation $\mathrm{gr}$, and the all-Vd0 $2\times3$ kernel. |
 | `arrange/paper_draft/02_structural_reductions.tex` | Common geometry and exhaustive structural reduction. |
 | `arrange/paper_draft/04a_signed_center_calculus.tex` | Signed CE1/CE2 center model, common actual-row interface, and CE2 threshold clause. |
-| `arrange/paper_draft/02a_universal_calculus.tex` | Enclosure gauge, universal radical, interval residuals, generalized handoffs, boundary-path budget, selected-$T_+$ curve, and threshold routing. |
-| `arrange/paper_draft/03_strategy1_length.tex` | Complete trace-budget proof, using the signed variables directly. |
+| `arrange/paper_draft/02a_universal_calculus.tex` | Enclosure gauge, universal radical, raw map $g_c=1-B_c$, capped map $G_c=\max\{g_c,\mathrm I\}$, center-assisted transfers, free raw-graph envelopes, relaxed composition, path budgets, selected-$T_+$ chords, and threshold maps. |
+| `arrange/paper_draft/03_strategy1_length.tex` | Complete trace-budget proof, using the signed variables directly; its statements and routing are unchanged by the Strategy 2 reformulation. |
 | `arrange/paper_draft/04b_common_CE1_CE2_budgets.tex` | Master perimeter deficit, short-role count, small CE2 slack, and three-short-role theorem. |
-| `arrange/paper_draft/04_strategy2_reader.tex` | Reader-facing gap-rank kernel, common CE2 two-gap application, and the sign-dependent one-gap clauses. |
-| `arrange/paper_draft/05_strategy3_area.tex` | Complete area proof with area loss denoted by $\mathcal L$, disjoint from the propagation maps $G_c$. |
+| `arrange/paper_draft/04_strategy2_reader.tex` | Reader-facing Strategy 2 chain table, strict identity cycle, exact-endpoint/identity-interior chains, common five-row relaxations, free-envelope rescuer chains, and Vd terminal transfers. |
+| `arrange/paper_draft/05_strategy3_area.tex` | Complete area proof with area loss denoted by $\mathcal L$, disjoint from the transfer maps $g_c,G_c$. |
 | `arrange/paper_draft/06_strategy4_reader.tex` | Direct forcing, Newton inner reduction, cap chain, four-overlap certificate, and enclosure contradiction using the universal gauge $\Lambda$. |
-| `arrange/paper_draft/07_exhaustive_assembly.tex` | Final routing-table assembly. |
+| `arrange/paper_draft/07_exhaustive_assembly.tex` | Final routing-table assembly, citing the Strategy 2 chain-signature table while preserving the existing Strategy 1 side of the sole hybrid row. |
 | `arrange/paper_draft/04c_short_Vd_placements.tex` | Quarter radial envelope, rational T3-like profile, Vd1 profile, common adjacent rescuer, and shortened adjacent/nonadjacent Vd placements. |
 | `arrange/paper_draft/04_strategy2_exact_demand.tex` | Exact admissible-set catalogue, CE1 terminal algebra, one-side and paired endpoint certificates, and the irreducible `407X` scalar audit. |
 | `arrange/paper_draft/06_strategy4_ab_core.tex` | Exact strict $AB$ frontier, forcing signs, Newton placement, ray order, and overlap proofs. |
-| `arrange/paper_draft/appendix_symbols.tex` | Compact table of cross-section symbols. |
+| `arrange/paper_draft/appendix_symbols.tex` | Compact table of cross-section symbols, including $\mathrm{gr}$, $g_c$, $G_c$, $\Theta_d$, $\mathsf L_{d,\lambda}$, and $\mathscr C$. |
 | `arrange/paper_draft/appendix_exact_mixed_overlap.tex` | Mixed-overlap proof, exact Bernstein identities, digest, and replay record. |
 | `arrange/paper_draft/main.pdf` | Derived manuscript artifact; regenerate and verify it whenever a current PDF is required. |
 
@@ -52,6 +52,8 @@ visual inspection.
 | `proof/1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md` | Proven | Exhaustive Vd0/Vd1/Vd2/T3-like classification and T3-like translation. |
 | `proof/1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md` | Proven | Strict handoffs and preservation of actual supercritical patterns. |
 | `proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md` | Proven | Exact local gauge sublevel set, contact cells, and radial envelope. |
+| `proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2007_max_b_map.md` | Proven | Exact outgoing envelope $B_c(a)$ and interval fibers underlying the raw transfer. |
+| `proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2010_free_supercritical_max_b.md` | Proven | Free strict-supercritical outgoing envelope $B_{\rm sc}$ and its complementary transfer envelope $A_{\rm sc}$. |
 | `proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md` | Proven | Exact capped map, monotonicity, extensivity, duality, and four labels. |
 | `proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2016_universal_Tplus_normal_form.md` | Proven | Selected-$T_+$ normal form and chord bounds. |
 | `proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2017_threshold_routing.md` | Proven | One-hit and two-threshold routing. |
@@ -60,6 +62,7 @@ visual inspection.
 | `proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201a_equilateral_enclosure_and_radical_calculus.md` | Proven | Common enclosure gauge, radical calculus, and four-frontier atlas. |
 | `proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201b_quarter_radial_envelope.md` | Proven | Global $c_{\max}(p,h)\le1-h/4$ estimate. |
 | `proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201c_Vd_corner_radial_margins.md` | Proven | Own-radial and supported-arm endpoint margins for Vd1/Vd2 roles. |
+| `proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md` | Proven | Raw transfer $g_c=1-B_c$ for every row, identity/capped relation $G_c=\max\{g_c,\mathrm I\}$, center-assisted and envelope transfers, $A_{\rm sc},B_{\rm sc}$ as raw-graph envelopes, chain notation, and relaxed composition. |
 | `proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md` | Proven | Signed center traces, class sign, boundary contribution, and six exits. |
 | `proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2110_common_CE2_two_gap_application.md` | Proven | One geometric application of the paired endpoint theorem for both all-Vd0 two-gap cells. |
 
@@ -72,27 +75,29 @@ visual inspection.
 | `proof/2XXX_geometric_lemmas/25XX_length_bounds/2530_common_CE1_CE2_budget_lemmas.md` | Proven | Master perimeter deficit, small CE2 slack, $q=N_++m$, and three-short-role theorem. |
 | `proof/4XXX_CE1CE2/42XX_Nplus_ge2/4200_CE1_CE2_skeleton_length_route.md` | Proven | Two supercritical rows force a third short rescuer. |
 
-The diagonal package `2520` remains proved but is not an active manuscript
-dependency.
+The Strategy 1 routing and theorem statements are deliberately unchanged.  In
+particular, `4040`, `4041`, `4110`, `4111`, `4123`, `4149`, `414a`, and
+`4200` retain their present perimeter or skeleton proofs.  The diagonal
+package `2520` remains proved but is not an active manuscript dependency.
 
 ## Strategy 2 branch sources
 
 | Source | Status | Principal manuscript use |
 |---|---|---|
-| `proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2107_one_side_capped_loss.md` | Proven | The rank-one $N_+=0$ all-Vd0 endpoint loss. |
-| `proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2108_CE2_two_endpoint_capped_loss.md` | Proven | The coupled scalar certificate underlying `2110`. |
-| `proof/4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md` | Proven | The $N_+=0$ all-Vd0 gap-rank row. |
-| `proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4105_CE1_CE2_one_gap_five_row_interface.md` | Proven | Common five-row actual induction and duality reduction. |
-| `proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4106_CE1_one_gap_five_map_completion.md` | Proven | CE1 selected-$T_+$ scalar clause and terminal algebra. |
-| `proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4107_CE2_one_gap_five_map_completion.md` | Proven | CE2 total-slack and two-threshold clause. |
-| `proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4101_CE1CE2_Nplus1_all_Vd0_strategy.md` | Proven | The $N_+=1$ all-Vd0 gap-rank row. |
-| `proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4070_CE1CE2_Nplus0_T3_like_no_Vd1Vd2_index.md` | Proven | Irreducible four-label T3-like endpoint audit. |
-| `proof/4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like/4132_CE1_CE2_exactly_one_T3_like_boundary_obstruction.md` | Proven | Rational T3-like local profile and common-rescuer invocation. |
-| `proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4143_CE2_Nplus1_T0_Vd1_M1_T1_supercritical_obstruction.md` | Proven | Vd1 local profile and common-rescuer invocation. |
-| `proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4144_CE2_Nplus1_T0_supercritical_T1_Vd1_Vd2_adjacent_obstruction.md` | Proven | Stronger quarter center margin and global radial envelope. |
-| `proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4146_CE2_Nplus1_T0_supercritical_nonadjacent_Vd1_Vd2_obstruction.md` | Proven | Interval residuals, diameter transfer, and one Vd radial margin. |
-| `proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4147_CE2_Nplus1_Vd1_supercritical_pair_axis_replacement.md` | Proven | Vd1 pair replacement. |
-| `proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4148_CE2_Nplus1_exactly_one_Vd1_Vd2_assembly.md` | Proven | Exhaustive one-Vd placement assembly. |
+| `proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2107_one_side_capped_loss.md` | Proven | Exact endpoint inequality for the rank-one $N_+=0$ all-Vd0 chain. |
+| `proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2108_CE2_two_endpoint_capped_loss.md` | Proven | Coupled exact endpoint certificate underlying both two-gap cells. |
+| `proof/4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md` | Proven | The $N_+=0$ all-Vd0 kernel: strict identity cycle at $\mathrm{gr}=0$ and exact-endpoint/$\mathrm I^3$ chains at $\mathrm{gr}=1,2$. |
+| `proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4070_CE1CE2_Nplus0_T3_like_no_Vd1Vd2_index.md` | Proven | Residual exact-endpoint/$\mathrm I^3$ chain with irreducible four-label endpoint audit. |
+| `proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4105_CE1_CE2_one_gap_five_row_interface.md` | Proven | Common exact five-row actual induction, terminal capacity, and duality reduction. |
+| `proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4106_CE1_one_gap_five_map_completion.md` | Proven | CE1 selected-$T_+$ affine relaxations $\mathsf L_{\alpha,1-4\alpha}$ and $\mathsf L_{m,1-5m}$ followed by $\Theta_\delta$. |
+| `proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4107_CE2_one_gap_five_map_completion.md` | Proven | CE2 five-row chain with exactly one decisive threshold slot and identity relaxations elsewhere. |
+| `proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4101_CE1CE2_Nplus1_all_Vd0_strategy.md` | Proven | The $N_+=1$ all-Vd0 active-gap-rank kernel and the common chain signatures. |
+| `proof/4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like/4132_CE1_CE2_exactly_one_T3_like_boundary_obstruction.md` | Proven | T3-like local verification for the common $A_{\rm sc}$--$\mathrm I^3$--$B_{\rm sc}$ rescuer chain. |
+| `proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4143_CE2_Nplus1_T0_Vd1_M1_T1_supercritical_obstruction.md` | Proven | Vd1 local verification for the same free-envelope rescuer chain. |
+| `proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4144_CE2_Nplus1_T0_supercritical_T1_Vd1_Vd2_adjacent_obstruction.md` | Proven | Exact residuals, backward identity chain, stronger quarter center margin, and terminal inequality $G_{1-\delta}(1/2+A)>1-H$. |
+| `proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4146_CE2_Nplus1_T0_supercritical_nonadjacent_Vd1_Vd2_obstruction.md` | Proven | Residual and identity propagation followed by a Vd-type-specific terminal radial separation. |
+| `proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4147_CE2_Nplus1_Vd1_supercritical_pair_axis_replacement.md` | Proven | Geometric preprocessing replacing the exceptional pair by two ordinary nonsupercritical Vd0 rows, after which `4013` applies. |
+| `proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4148_CE2_Nplus1_exactly_one_Vd1_Vd2_assembly.md` | Proven | Exhaustive one-Vd placement assembly, with the Strategy 1 complements retained. |
 
 ## Strategies 3 and 4
 
@@ -114,13 +119,19 @@ placement, adjacent overlaps, Gram reduction, eight core polynomials, and all
 twenty global Bernstein identities.  The replay scripts authenticate those
 exact identities rather than adding hypotheses.
 
-## Deliberate nondependencies
+## Deliberate nondependencies and nonidentifications
 
 No theorem depends on a source recorded as Strategy, Empirical, Experiment,
 Lemma target, or Failed. In particular:
 
+- the literal identification of $A_{\rm sc}$ or $B_{\rm sc}$ with the capped
+  map $G_0$ is not used; in fact $G_0=\mathrm I$;
 - the CE2 two-gap state is not replaced by two independent one-gap calls;
 - the CE1 scalar one-gap proof is not replaced by the CE2 two-threshold lemma;
+- the exact `407X` endpoint audit is not replaced by a weaker unsupported
+  universal envelope;
+- the `4146` terminal margin is recorded as Vd-type-specific, not as a
+  universal $G_c$ inequality;
 - the historical half-edge $1/3$ envelope is not an active manuscript
   dependency and is never used outside its proved domain;
 - the optional reduction `4104` is not used;
