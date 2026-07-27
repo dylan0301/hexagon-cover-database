@@ -8,16 +8,18 @@ Seven open unit equilateral triangles cannot cover the side-one hexagon $H$
 when the center role is CE1 or CE2, all six vertex roles are Vd0, and
 $N_+=1$.
 
-The active proof depends only on the number $g$ of center traces that contain
-an active V-gap.  Together with the $N_+=0$ theorem `4013`, the all-Vd0 kernel
-is
+The active proof depends only on the active-gap rank $\mathrm{gr}$, the number
+of center traces that contain an active V-gap.  Together with the $N_+=0$
+theorem `4013`, the all-Vd0 kernel is
 
-| actual row count | $g=0$ | $g=1$ | $g=2$ |
+| actual row count | $\mathrm{gr}=0$ | $\mathrm{gr}=1$ | $\mathrm{gr}=2$ |
 |---|---|---|---|
-| $N_+=0$ | connected open-trace budget | one-side capped loss | common CE2 paired-endpoint loss |
-| $N_+=1$ | center-independent nine-point obstruction | common five-row transfer with one sign-dependent scalar clause | common CE2 paired-endpoint loss |
+| $N_+=0$ | strict identity cycle | one-side exact-endpoint chain | common CE2 paired-endpoint chain |
+| $N_+=1$ | center-independent nine-point obstruction | common five-row chain with a sign-dependent relaxation | common CE2 paired-endpoint chain |
 
-The column $g=2$ is CE2-only.
+The column $\mathrm{gr}=2$ is CE2-only.  The raw and relaxed chain notation is
+proved in
+[`201d`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md).
 
 ## 1. Unique supercritical row
 
@@ -73,16 +75,16 @@ $$
 Their missed set is
 
 $$
-G_i=
+\Gamma_i=
 \begin{cases}
 [B_i,1-A_{i+1}],&B_i\le1-A_{i+1},\\
 \varnothing,&B_i>1-A_{i+1}.
 \end{cases}
 $$
 
-A nonempty $G_i$ is a V-gap.  Equality gives a singleton gap and is retained
-because the roles are open.  By boundary locality every V-gap lies in a
-positive center trace.
+A nonempty $\Gamma_i$ is a V-gap.  Equality gives a singleton gap and is
+retained because the roles are open.  By boundary locality every V-gap lies
+in a positive center trace.
 
 Use the signed center normal form
 [`2109`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md):
@@ -102,14 +104,14 @@ $$
 $$
 
 The center is CE1 exactly when $\Delta_L\le0$ and CE2 exactly when
-$\Delta_L>0$.  Let $g$ be the number of these positive traces that contain a
-V-gap.  Then
+$\Delta_L>0$.  Let $\mathrm{gr}$ be the number of these positive traces that
+contain a V-gap.  Then
 
 $$
-g\in\{0,1,2\},
+\mathrm{gr}\in\{0,1,2\},
 $$
 
-with $g\le1$ in CE1.
+with $\mathrm{gr}\le1$ in CE1.
 
 ## 3. Rank zero: no active gap
 
@@ -119,19 +121,121 @@ supercritical.  The center-independent direct nine-point obstruction
 [`31058`](../../../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31058_center_independent_direct_nine_point_obstruction.md)
 gives a contradiction.
 
-## 4. Rank one: one active gap
+This is the only all-Vd0 cell in the kernel that is not closed by a relaxed
+$g$-chain.
+
+## 4. Rank one: the common five-row chain
 
 After reflection, assume the active gap lies in $I_R$ and the companion trace
-is absent or gap-free.  The common actual-row theorem
-[`4105`](4105_CE1_CE2_one_gap_five_row_interface.md) performs the five
-nonsupercritical transfers through rows $1,2,3,4,5$, uses exact duality, and
-reduces both center classes to one three-map scalar target.
+is absent or gap-free.  Put
 
-If $\Delta_L\le0$, the center is CE1 and the selected-$T_+$ chord argument
-[`4106`](4106_CE1_one_gap_five_map_completion.md) proves the target.
+$$
+X=R-\delta,
+\qquad
+H=\frac{k}{2R},
+\qquad
+m=\min\left\{\frac{\alpha}{R},\frac{\delta}{W}\right\},
+$$
 
-If $\Delta_L>0$, the center is CE2 and the total-slack two-threshold argument
-[`4107`](4107_CE2_one_gap_five_map_completion.md) proves the same target.
+and
+
+$$
+\begin{aligned}
+c_1&=1-\frac{\delta}{R},&
+c_2&=1-\delta,&
+c_3&=1-m,\\
+c_4&=1-\alpha,&
+c_5&=1-\frac{\alpha}{W}.
+\end{aligned}
+$$
+
+The common actual-row theorem
+[`4105`](4105_CE1_CE2_one_gap_five_row_interface.md) performs the exact chain
+
+$$
+\boxed{
+[G_{c_1}\mid G_{c_2}\mid G_{c_3}\mid G_{c_4}\mid G_{c_5}](X)
+}
+$$
+
+through rows $T_1,\ldots,T_5$.  It connects every formal iterate to the
+corresponding actual row and compares the returning demand with the exact
+capacity of $T_0$.
+
+The first and fifth maps are relaxed to $\mathrm I$.  Exact capped-map
+duality reverses the remaining three slots and reduces both center classes to
+
+$$
+\boxed{
+[G_{1-\alpha}\mid G_{1-m}\mid G_{1-\delta}](H)>1-X.
+}
+$$
+
+The sign of $\Delta_L$ determines only how this common target is relaxed.
+
+### 4.1. CE1 relaxation
+
+If $\Delta_L\le0$, the center is CE1.  On the easy $L$ and $T_-$ labels the
+target is already exceeded.  On the only surviving selected-$T_+$ branch,
+[`4106`](4106_CE1_one_gap_five_map_completion.md) proves
+
+$$
+G_{1-\alpha}
+\ge
+\mathsf L_{\alpha,1-4\alpha},
+\qquad
+G_{1-m}
+\ge
+\mathsf L_{m,1-5m},
+$$
+
+at the two realized inputs, and then proves that the resulting value exceeds
+$e(\delta)$.  The last map is relaxed to the threshold $\Theta_\delta$.
+Thus the hard branch has the signature
+
+$$
+\boxed{
+\mathscr C\!\left[
+H;\,
+\mathsf L_{\alpha,1-4\alpha}
+\mid
+\mathsf L_{m,1-5m}
+\mid
+\Theta_\delta;\,
+>1-X
+\right].
+}
+$$
+
+### 4.2. CE2 relaxation
+
+If $\Delta_L>0$, the center is CE2.  The total-slack two-threshold theorem
+[`4107`](4107_CE2_one_gap_five_map_completion.md) proves that one of the row
+$T_4$ and row $T_2$ thresholds fires, while every other row is needed only
+through extensivity.  In original row order the two possible signatures are
+
+$$
+\boxed{
+\mathscr C\!\left[
+X;\,
+\mathrm I\mid\mathrm I\mid\mathrm I\mid\Theta_\alpha\mid\mathrm I;\,
+>1-H
+\right]
+}
+$$
+
+or
+
+$$
+\boxed{
+\mathscr C\!\left[
+X;\,
+\mathrm I\mid\Theta_\delta\mid\mathrm I\mid\mathrm I\mid\mathrm I;\,
+>1-H
+\right].
+}
+$$
+
 Reflection exchanges
 
 $$
@@ -149,11 +253,12 @@ Thus every rank-one state is impossible, including singleton gaps.
 This state is CE2-only.  Rows $T_1,\ldots,T_5$ are nonsupercritical Vd0
 rows, so the common two-gap theorem
 [`2110`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2110_common_CE2_two_gap_application.md)
-applies directly.  It uses the exact paired endpoint loss `2108` and the
-common three-row boundary-path budget, giving a contradiction.
+applies directly.  It keeps the two endpoint capped maps exact, relaxes the
+three middle rows to $\mathrm I^3$, and invokes the paired endpoint loss
+`2108`.
 
-The ranks $g=0,1,2$ are exhaustive.  Therefore the CE1/CE2, $N_+=1$,
-all-Vd0 branch is impossible.
+The ranks $\mathrm{gr}=0,1,2$ are exhaustive.  Therefore the CE1/CE2,
+$N_+=1$, all-Vd0 branch is impossible.
 
 The older reduction
 [`4104`](4104_all_boundary_transfer_to_310X.md) remains optional and is not an

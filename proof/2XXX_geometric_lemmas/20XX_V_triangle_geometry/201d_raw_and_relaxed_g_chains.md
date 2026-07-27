@@ -229,6 +229,23 @@ $$
 Thus the leftmost slot acts first.  Write $\mathrm I^k$ for $k$ consecutive
 identity slots.
 
+For branch summaries, write
+
+$$
+\boxed{
+\mathscr C[
+\text{seed};\,
+\Phi_1\mid\cdots\mid\Phi_r;\,
+\text{terminal}
+].
+}
+$$
+
+This is a chain signature rather than a new function: it records the exact
+seed data, the proof-safe lower transfers used in geometric order, and the
+final capacity or separation certificate.  The seed and terminal entries may
+be tuples when an endpoint-loss argument retains two exact endpoint maps.
+
 ### Relaxed-composition lemma
 
 Suppose the actual demands satisfy

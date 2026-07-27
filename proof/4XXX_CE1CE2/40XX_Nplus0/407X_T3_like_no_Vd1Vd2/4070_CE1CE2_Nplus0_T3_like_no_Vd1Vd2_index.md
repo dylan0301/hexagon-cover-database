@@ -24,6 +24,45 @@ inequality. Third, `4074`, `4075`, `4078`, `4079`, and `407a` prove the four
 genuine capped-map rows, with detailed estimates in `407c` and the exact
 assembly in `407d`.
 
+## Chain signature
+
+The common chain notation is proved in
+[`201d`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md).
+The center and the translated T3-like row determine residual boundary inputs
+
+$$
+A_1=\mathcal R_{J_1}(p_1),
+\qquad
+A_5=\mathcal R_{J_5}(\alpha),
+$$
+
+and radial demands $C_1,C_5$.  The endpoint rows remain exact, while the three
+ordinary middle rows are relaxed to the identity.  The entire branch is
+therefore reduced to
+
+$$
+\boxed{
+F_{C_5}(A_5)+F_{C_1}(A_1)<1.
+}
+$$
+
+In signature form,
+
+$$
+\mathscr C\!\left[
+(A_1,A_5);\,
+\mathrm I^3;\,
+F_{C_5}(A_5)+F_{C_1}(A_1)<1
+\right].
+$$
+
+If $A_1+A_5>1$, the elementary cap $F_c(a)\le1-a$ proves the endpoint
+inequality immediately.  In the hard region $A_1+A_5\le1$, the endpoint
+maps cannot be replaced by one coarser universal envelope: the proof retains
+their exact four-label audit.  Thus this package is an exact-endpoint,
+identity-interior $g$-chain, not a claim that every slot is replaced by
+$\mathrm I$.
+
 The selected high sheet is normalized by the universal selected-$T_+$ theorem
 [`2016`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2016_universal_Tplus_normal_form.md).
 In particular, the historical local radical
@@ -53,7 +92,7 @@ to the center-transfer lemma.
 |---|---|---|
 | [`4071_CE1CE2_Nplus0_T3_like_forces_V0_T3_like.md`](4071_CE1CE2_Nplus0_T3_like_forces_V0_T3_like.md) | Proven | Simultaneously normalizes the T3-like traces and forces $T_0$ to be T3-like by midpoint matching and the crossed-pair obstruction. |
 | [`4072_support_isolation_after_T0_T3_like.md`](4072_support_isolation_after_T0_T3_like.md) | Proven | Uses the three-short-role theorem to show that at most two roles are T3-like and isolates the two active radial arms. |
-| [`4073_boundary_loss_framework.md`](4073_boundary_loss_framework.md) | Reduction | Derives the center and T3-like demands and reduces the branch to $\widehat B_{C_5}(A_5)+\widehat B_{C_1}(A_1)<1$. |
+| [`4073_boundary_loss_framework.md`](4073_boundary_loss_framework.md) | Reduction | Derives the center and T3-like demands and reduces the branch to $\widehat B_{C_5}(A_5)+\widehat B_{C_1}(A_1)<1$, where $\widehat B=F$. |
 | [`4074_L_Full_branch.md`](4074_L_Full_branch.md) | Proven | Proves the $(L,\mathrm{Full})$ branch. |
 | [`4075_Tminus_low_lower_branch_obligations.md`](4075_Tminus_low_lower_branch_obligations.md) | Proven | Proves the $(L,L)$ and $(L,T_-)$ branches and the entire left-$T_-$ family. |
 | [`4078_left_L_family_completion.md`](4078_left_L_family_completion.md) | Proven | Proves the remaining $(L,T_+^{hi})$ branch. |
