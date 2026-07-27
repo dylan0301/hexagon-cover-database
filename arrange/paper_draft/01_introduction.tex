@@ -4,12 +4,13 @@
 This section gives the reader the entire proof architecture before any long
 calculation.  It introduces the geometric objects and case labels, states the
 exhaustive routing table, and previews the three certificate types, retained
-as four named strategies, that close its rows.  Section~\ref{sec:structural-reductions} proves that the labels and
-reductions are exhaustive, and Section~\ref{sec:signed-ce12-reductions}
-gives the common signed center model.  The reader-facing proofs then appear
-in Sections~\ref{sec:length}--\ref{sec:strategy4-reader}, before the final
-audit in Section~\ref{sec:assembly}; the irreducible exact calculations are
-retained in the appendices.
+as four named strategies, that close its rows.
+Section~\ref{sec:structural-reductions} proves that the labels and reductions
+are exhaustive, and Section~\ref{sec:signed-ce12-reductions} gives the common
+signed center model.  The reader-facing proofs then appear in
+Sections~\ref{sec:length}--\ref{sec:strategy4-reader}, before the final audit in
+Section~\ref{sec:assembly}; the irreducible exact calculations are retained in
+the appendices.
 
 \subsection{The theorem}
 
@@ -234,24 +235,27 @@ for CE1 and the second for CE2; $1+2$ is the single hybrid package.}
 \label{tab:routing}
 \end{table}
 
-
-Within the two all-$\Vdzero$ CE1/CE2 rows, let $g$ be the number of center
-traces containing active V-gaps.  The proof uses one $2\times3$ kernel:
+Within the two all-$\Vdzero$ CE1/CE2 rows, let $\mathrm{gr}$ be the
+active-gap rank, the number of center traces containing V-gaps.  The proof
+uses one $2\times3$ kernel:
 \[
 \begin{array}{c|ccc}
- &g=0&g=1&g=2\\ \hline
-N_+=0&\text{open-trace budget}&\text{one-side loss}&\text{paired loss}\\
-N_+=1&\text{nine-point support}&\text{five-row transfer}&\text{paired loss}.
+ &\mathrm{gr}=0&\mathrm{gr}=1&\mathrm{gr}=2\\ \hline
+N_+=0&\text{strict identity cycle}&\text{one-side endpoint chain}&
+       \text{paired endpoint chain}\\
+N_+=1&\text{nine-point support}&\text{five-row relaxed chain}&
+       \text{paired endpoint chain}.
 \end{array}
 \]
 The last column is CE2-only.  Thus the same paired endpoint theorem closes
 both two-gap cells.
 
-The four named strategies belong to three mathematical certificate classes.
-Strategies~1 and~3 are additive measure deficits, Strategy~2 is an isotone
-transfer certificate, and Strategy~4 is a convex support certificate.  The
-names are retained because they give the clearest geometric route through the
-routing table.
+The four named strategies fall into three certificate classes.
+Strategies~1 and~3 are additive deficits, Strategy~2 is an isotone transfer
+certificate, and Strategy~4 is a convex support certificate.  The names and
+routing assignments are retained because they make the case tree easiest to
+read.
+
 \subsection{Three certificate types and four named strategies}
 
 \paragraph{Strategy 1: one-dimensional trace budgets.}
@@ -262,15 +266,18 @@ strictly less than the target length.  The target, rather than the case
 label, is the organizing idea.  Section~\ref{sec:length} gives the trace
 bounds and terminal contradictions.
 
-\paragraph{Strategy 2: exact demand propagation.}
-A center trace supplies boundary inputs and complementary radial demands.
-For a nonsupercritical vertex row, a monotone capped map converts an incoming
-boundary demand into a lower bound on the next row.  Iterating around the
-hexagon returns to row $0$ with a demand exceeding its exact remaining
-capacity.  Section~\ref{sec:universal-calculus} gives the interval residuals and
-actual-row transfer; Section~\ref{sec:strategy2-reader} applies them to the
-gap-rank kernel.  Appendix~\ref{sec:exact-local-demand-calculus} retains the
-exact piecewise map and branch-specific scalar certificates.
+\paragraph{Strategy 2: relaxations of \(g\)-composition chains.}
+For a row with incoming demand $a$ and radial demand $c$, the raw transfer is
+$g_c(a)=1-B_c(a)$.  The capped map is
+$G_c=\max\{g_c,\mathrm I\}$, while center intervals, free-supercritical
+envelopes, selected-$T_+$ chords, threshold jumps, and Vd radial estimates
+supply other lower transfers in the same chain calculus.  Each branch keeps
+the exact seed and terminal data but replaces as many interior maps as
+possible by $\mathrm I$, an affine chord, or a threshold map.
+Section~\ref{sec:universal-calculus} develops this calculus, and
+Section~\ref{sec:strategy2-reader} tabulates every chain and its relaxations.
+Appendix~\ref{sec:exact-local-demand-calculus} retains the exact piecewise
+maps and irreducible endpoint certificates.
 
 \paragraph{Strategy 3: area loss.}
 Normalize a unit triangle to area one, so $H$ has area six.  Each selected
@@ -287,8 +294,7 @@ that force six radial points and three asymmetric points into $U_C$.
 Their convex hull cannot fit in an open unit equilateral triangle: the same
 enclosure gauge $\Lambda$ used for local demand geometry gives side at
 least one, whereas compact containment in $U_C$ would give side strictly
-below one.  The reader-level
-construction and enclosure argument are in
+below one.  The reader-level construction and enclosure argument are in
 Section~\ref{sec:strategy4-reader}; Appendix~\ref{sec:ab-core} contains the
 exact frontier and overlap certificates.
 
