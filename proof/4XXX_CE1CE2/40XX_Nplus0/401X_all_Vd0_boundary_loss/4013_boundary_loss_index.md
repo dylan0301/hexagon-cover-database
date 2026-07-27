@@ -14,48 +14,83 @@ $$
 Then the seven roles cannot cover the hexagon.  Equivalently, every CE1/CE2
 all-Vd0 cover has at least one supercritical vertex row.
 
-The proof is organized only by the number $g$ of positive center traces that
-contain an active V-gap.  One has
+The proof is organized only by the active-gap rank
 
 $$
-g\in\{0,1,2\},
+\mathrm{gr}\in\{0,1,2\},
 $$
 
-and $g\le1$ in CE1.
+the number of positive center traces that contain a V-gap.  One has
+$\mathrm{gr}\le1$ in CE1.  The common chain notation and the identity
+relaxation are proved in
+[`201d`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md).
 
-## 1. No active center gap
+The three signatures are
+
+| rank | exact data retained | relaxed interior chain | terminal contradiction |
+|---|---|---|---|
+| $\mathrm{gr}=0$ | six strict open handoffs | $\mathrm I^6$ | strict cyclic ascent |
+| $\mathrm{gr}=1$ | two exact endpoint capped maps | $\mathrm I^3$ | one-side endpoint sum $<1$ |
+| $\mathrm{gr}=2$ | two exact endpoint capped maps | $\mathrm I^3$ | paired CE2 endpoint sum $<1$ |
+
+## 1. No active center gap: the strict identity cycle
 
 Suppose every positive center trace is already covered by its endpoint vertex
-roles.  Then the six original open vertex roles alone cover $\partial H$.
+roles.  Then the six original open vertex roles alone cover every boundary
+edge.
 
-For each $i$, let $U_i$ be the trace of the open role at $V_i$ on
-$\partial H$.  It is relatively open and
-
-$$
-\mathcal H^1(U_i)\le a_i+b_i\le1.
-$$
-
-A finite relatively open cover of the connected polygonal circle
-$\partial H$ cannot have all nonempty members pairwise disjoint.  Hence two
-traces overlap in a relatively open set of positive length, and therefore
+Let $c_i$ be the actual own-radial reach of row $T_i$.  Since the two incident
+open traces cover $e_{i,i+1}$, their endpoints overlap strictly:
 
 $$
-\sum_{i=0}^5\mathcal H^1(U_i)
+b_i>1-a_{i+1}.
+$$
+
+Equality would leave their common endpoint uncovered.  Hence
+
+$$
+a_{i+1}>1-b_i.
+$$
+
+Row $T_i$ is nonsupercritical, so the safe capped-map theorem gives
+
+$$
+b_i\le F_{c_i}(a_i).
+$$
+
+Therefore
+
+$$
+a_{i+1}
 >
-\mathcal H^1\left(\bigcup_{i=0}^5U_i\right)
-=6.
+1-b_i
+\ge
+1-F_{c_i}(a_i)
+=
+G_{c_i}(a_i)
+\ge
+a_i.
 $$
 
-But
+The last inequality is the identity relaxation
+$G_{c_i}\ge\mathrm I$.  Iterating around the six rows yields
 
 $$
-\sum_{i=0}^5\mathcal H^1(U_i)
-\le
-\sum_{i=0}^5(a_i+b_i)
-\le6,
+a_0<a_1<a_2<a_3<a_4<a_5<a_0,
 $$
 
-a contradiction.
+a contradiction.  In the chain notation this is
+
+$$
+\mathscr C\!\left[
+a_0;\,
+\mathrm I^6;\,
+a_0>a_0
+\right].
+$$
+
+Thus the rank-zero proof is the strict cyclic identity relaxation of the exact
+six-row capped chain.
 
 ## 2. Exactly one active center gap
 
@@ -145,23 +180,18 @@ F_{c_5}(s)+F_{c_1}(q)<1.
 $$
 
 Let $B_5,B_1$ be the actual outgoing reaches of rows $T_5,T_1$ on the two
-outer edges of the middle boundary path.  The safe capped map gives
+outer edges of the middle boundary path.  The endpoint maps remain exact:
 
 $$
 B_5\le F_{c_5}(s),
 \qquad
-B_1\le F_{c_1}(q),
+B_1\le F_{c_1}(q).
 $$
 
-and hence
-
-$$
-B_1+B_5<1.
-$$
-
-Apply the boundary-path budget
+Thus $B_1+B_5<1$.  The three interior rows $T_2,T_3,T_4$ use only the
+identity relaxation.  Equivalently, the boundary-path budget
 [`2019`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2019_interval_component_and_path_budget.md)
-to $T_2,T_3,T_4$.  Coverage forces
+gives
 
 $$
 \sum_{i=2}^4(a_i+b_i)
@@ -170,7 +200,17 @@ $$
 >3,
 $$
 
-contrary to the three nonsupercritical row caps.
+contrary to their three nonsupercritical caps.
+
+The chain signature is therefore
+
+$$
+\mathscr C\!\left[
+(q,s);\,
+\mathrm I^3;\,
+F_{c_1}(q)+F_{c_5}(s)<1
+\right].
+$$
 
 This proof is identical for CE1 and for the one-active-gap CE2 state.  The only
 difference is whether the companion center trace is absent or merely gap-free.
@@ -180,11 +220,43 @@ difference is whether the companion center trace is absent or merely gap-free.
 This state is possible only in CE2.  Rows $T_1,\ldots,T_5$ are
 nonsupercritical Vd0 rows, so all hypotheses of the common CE2 two-gap theorem
 [`2110`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2110_common_CE2_two_gap_application.md)
-are satisfied.  That theorem applies the exact paired endpoint loss `2108`
-and the same three-row boundary-path budget, giving a contradiction.
+are satisfied.
 
-The cases $g=0,1,2$ are exhaustive.  Therefore the CE1/CE2, $N_+=0$,
-all-Vd0 branch is impossible.
+With
+
+$$
+p=W-\alpha,
+\qquad
+q=R-\delta,
+$$
+
+the exact endpoint inputs and radial demands are
+
+$$
+(p,p/W),
+\qquad
+(q,q/R).
+$$
+
+The paired endpoint theorem `2108` gives
+
+$$
+F_{p/W}(p)+F_{q/R}(q)<1.
+$$
+
+The three middle rows again contribute only $\mathrm I^3$, and the same
+boundary-path budget gives the contradiction.  Its signature is
+
+$$
+\mathscr C\!\left[
+(p,q);\,
+\mathrm I^3;\,
+F_{p/W}(p)+F_{q/R}(q)<1
+\right].
+$$
+
+The cases $\mathrm{gr}=0,1,2$ are exhaustive.  Therefore the CE1/CE2,
+$N_+=0$, all-Vd0 branch is impossible.
 
 $$
 \Box
