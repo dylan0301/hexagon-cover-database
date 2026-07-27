@@ -31,8 +31,12 @@ Status: Reference
   the number of supercritical rows.
 - short role: in `2530`, a vertex role that is supercritical or has
   positive-length support on an adjacent radial arm.
+- $\mathrm{gr}$: active-gap rank, the number of positive center traces
+  containing a V-gap.  One has $\mathrm{gr}\in\{0,1,2\}$ and
+  $\mathrm{gr}\le1$ in CE1.  The symbol replaces the older use of $g$, which
+  is now reserved for the raw transfer maps $g_c$.
 
-## Universal enclosure and interval calculus
+## Universal enclosure and transfer calculus
 
 - $R_{120}$: rotation through $2\pi/3$ when a distinction from the signed
   center parameter $R$ is needed.
@@ -49,8 +53,24 @@ Status: Reference
   deficit.
 - $\mathcal R_J(p)$: far-side residual boundary demand after an initial trace
   $[0,p]$ and a center interval $J$.
-- $\mathcal G_{c,J}(a)=\mathcal R_J(F_c(a))$: generalized center-assisted
-  actual-row transfer; $\mathcal G_{c,\varnothing}=G_c$.
+- $g_c(a)=1-B_c(a)$: raw no-center transfer, valid for every row.
+- $G_c(a)=1-F_c(a)=\max\{g_c(a),a\}$: capped transfer obtained by adjoining
+  the identity lower bound.
+- $\mathfrak g_{c,J}(a)=\mathcal R_J(B_c(a))$: raw center-assisted transfer.
+- $\mathcal G_{c,J}(a)=\mathcal R_J(F_c(a))$: capped center-assisted transfer;
+  $\mathfrak g_{c,\varnothing}=g_c$ and
+  $\mathcal G_{c,\varnothing}=G_c$.
+- $\mathsf T_{U,J}(a)=\mathcal R_J(U(a))$: transfer induced by any proved
+  outgoing upper envelope $U$.
+- $[\Phi_1\mid\cdots\mid\Phi_r](x)$:
+  $(\Phi_r\circ\cdots\circ\Phi_1)(x)$, with the maps listed in row order.
+- $\mathrm I(x)=x$: identity relaxation.
+- $\Theta_d$: low-root threshold relaxation of $G_{1-d}$.
+- $\mathsf L_{d,\lambda}(x)=x+\lambda(x-d)$: an affine selected-$T_+$ chord
+  relaxation on a domain where the corresponding chord estimate is proved.
+- $B_{\rm sc}(c)$ and $A_{\rm sc}(c)=1-B_{\rm sc}(c)$: free
+  strict-supercritical outgoing and following-demand envelopes.  Equivalently,
+  $A_{\rm sc}(c)$ is the infimum of $g_c$ over the region $g_c(a)<a$.
 
 ## Signed CE1/CE2 center normal form
 
@@ -137,9 +157,9 @@ high-sheet calculations when confusion with a local coordinate is possible.
 - admissible set $\mathcal A$: feasible local triples $(a,b,c)$; equivalently
   $\Lambda(K(a,b,c))\le1$.
 - $B_c(a)$: maximal outgoing demand $b$ for fixed incoming and radial demands.
-- $F_c(a)=\min\{B_c(a),1-a\}$: safe capped outgoing map.
-- $G_c(a)=1-F_c(a)$: propagated next-row incoming lower bound when no center
-  interval intervenes.
+- $F_c(a)=\min\{B_c(a),1-a\}$: safe nonsupercritical outgoing cap.
+- $g_c(a)=1-B_c(a)$ and $G_c(a)=1-F_c(a)$: raw and capped propagated
+  next-row incoming lower bounds when no center interval intervenes.
 - $e(d)=\ell(1-d)$: low selected root for a high radial demand $1-d$.
 - $\sigma(x)=1-\sqrt{1-x+x^2}$: universal selected-$T_+$ increment; older
   files write this function as $\psi(x)$.
@@ -156,7 +176,8 @@ high-sheet calculations when confusion with a local coordinate is possible.
 - $\mathcal L_{\mathrm{area}}=1-f$: normalized local area loss.  Older files
   use $G=1-f$; that symbol is unrelated to the capped propagation map $G_c$.
 - $F$: historical coverage-coordinate zero-diagonal map.
-- $g_c$: historical defect-coordinate admissible-set map.
+- $g_c$: historically used for the defect-coordinate admissible-set map and
+  now retained as the canonical raw transfer $1-B_c$.
 - algorithm 1: failed unimodality route using local diagonal max-$c$ points.
 - algorithm 2: diagonal-relaxation route using equality patterns among the
   nonsupercritical rows in the CE0 all-Vd0 $N_+=1$ branch.

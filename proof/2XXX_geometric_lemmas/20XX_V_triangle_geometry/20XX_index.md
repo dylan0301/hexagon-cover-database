@@ -26,3 +26,4 @@ local midpoint targets used by the CE-first proof tree.
 | [`201a_equilateral_enclosure_and_radical_calculus.md`](201a_equilateral_enclosure_and_radical_calculus.md) | Proven | Common equilateral enclosure gauge, universal radical calculus, and four-frontier atlas for the exact local map. |
 | [`201b_quarter_radial_envelope.md`](201b_quarter_radial_envelope.md) | Proven | Global $c_{\max}(p,h)\le1-h/4$ envelope with no half-edge hypothesis; strict on the selected $\mathcal A_T$ cell. |
 | [`201c_Vd_corner_radial_margins.md`](201c_Vd_corner_radial_margins.md) | Proven | Immediate own-radial and supported-arm endpoint margins extracted from the Vd1/Vd2 corner normal form. |
+| [`201d_raw_and_relaxed_g_chains.md`](201d_raw_and_relaxed_g_chains.md) | Proven | Raw transfer $g_c=1-B_c$ for every row, capped and center-assisted relaxations, free-supercritical envelope interpretation, and relaxed-composition notation. |
