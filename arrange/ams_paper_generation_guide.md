@@ -1,429 +1,297 @@
 # AMS-Style Main-Theorem Paper Generation Guide
 
 This file is an authoring specification, not a proof source.  It maintains the
-modular AMS-style manuscript proving
+AMS-style manuscript proving the theorem in
 [`0000_main_theorem.md`](../proof/0XXX_main/0000_main_theorem.md).
 
-The paper retains four named strategies:
-
-1. direct length-sum obstructions;
-2. relaxations of $g$-composition chains;
-3. normalized area loss;
-4. the center-independent direct nine-point obstruction.
-
 The proof corpus is authoritative for hypotheses, theorem statements, and
-status.  The manuscript may reorganize proved material but may not strengthen
-it, suppress strictness, or promote an empirical or failed source.
+status.  The manuscript may reorganize proved material, but it may not
+strengthen a result, erase a strictness condition, confuse actual reaches with
+selected demands, or treat a navigation file as a proof.
 
 ## 1. Required reading and status rules
 
-Before changing the paper, read:
+Before changing the manuscript, read:
 
-- `README.md`;
-- `proof/0XXX_main/0000_main_theorem.md`;
-- `proof/0XXX_main/0001_proof_tree_index.md`;
-- `proof/0XXX_main/0002_status_and_dependencies.md`;
-- `proof/09XX_appendices/0910_notation_dictionary.md`;
-- `proof/1XXX_foundations/10XX_global_conventions/1006_proof_status_conventions.md`;
-- `proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md`;
-- `arrange/paper_draft/source_ledger.md`.
+- [`README.md`](../README.md);
+- [`0000_main_theorem.md`](../proof/0XXX_main/0000_main_theorem.md);
+- [`0001_proof_tree_index.md`](../proof/0XXX_main/0001_proof_tree_index.md);
+- [`0002_status_and_dependencies.md`](../proof/0XXX_main/0002_status_and_dependencies.md);
+- [`0910_notation_dictionary.md`](../proof/09XX_appendices/0910_notation_dictionary.md);
+- [`1006_proof_status_conventions.md`](../proof/1XXX_foundations/10XX_global_conventions/1006_proof_status_conventions.md);
+- [`201d_raw_and_relaxed_g_chains.md`](../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md);
+- [`source_ledger.md`](paper_draft/source_ledger.md).
 
-Apply these rules.
+Apply the following rules.
 
-1. Use a result as established only when its source has a sufficient recorded
-   status.
-2. A `Reference` file supplies navigation, not a proof.
-3. A `Reduction` closes no branch unless every terminal dependency is proved.
-4. Never promote `Strategy`, `Empirical`, `Experiment`, `Lemma target`, or
-   `Failed` material.
-5. Preserve all open/closed, strict/weak, midpoint, center-class, vertex-type,
-   and $N_+$ hypotheses.
-6. Numerical or graphical output is not a proof unless an independently
-   checkable exact certificate is recorded.
-7. Record every reusable mathematical simplification in `proof/` before or
-   together with its manuscript use.
-8. Preserve every present Strategy 1 route, including `4040`, `4041`, `4110`,
-   `4111`, `4123`, `4149`, `414a`, and `4200`.
+1. Use a mathematical result as established only when its source has a
+   sufficient recorded status, normally `Status: Proven`, or is an exact
+   definition from a `Status: Definition` source.
+2. A `Reference` or index file supplies navigation only.  Follow its links to
+   the numbered proof source.
+3. A `Reduction` proves only its stated reduction.  It closes no branch unless
+   every terminal dependency is independently proved.
+4. Never promote `Strategy`, `Empirical`, `Experiment`, `Lemma target`,
+   `Practically proven`, or `Failed` material into the paper proof.
+5. Preserve every hypothesis involving open versus closed triangles, interior
+   membership, strict inequalities, positive-length traces, midpoint coverage,
+   CE type, vertex type, and the actual count `N_+`.
+6. A plot, floating-point run, or script invocation is not a proof.  Exact
+   finite certificates must appear as checkable identities, sign
+   decompositions, or positive-basis expansions.
+7. Record reusable mathematical simplifications in `proof/` before or together
+   with their manuscript use.
+8. Preserve the existing Strategy 1 routing, including the Strategy 1 half of
+   the exceptional CE2 one-Vd1/Vd2 row.
 
-## 2. Active manuscript layout
+## 2. Reader-body contract
 
-```text
-arrange/paper_draft/
-|-- main.tex
-|-- 01_introduction.tex
-|-- 02_structural_reductions.tex
-|-- 02a_universal_calculus.tex
-|-- 04a_signed_center_calculus.tex
-|-- 03_strategy1_length.tex
-|-- 04b_common_CE1_CE2_budgets.tex
-|-- 04_strategy2_reader.tex
-|-- 05_strategy3_area.tex
-|-- 06_strategy4_reader.tex
-|-- 07_exhaustive_assembly.tex
-|-- 04c_short_Vd_placements.tex
-|-- 04_strategy2_exact_demand.tex
-|-- 06_strategy4_ab_core.tex
-|-- appendix_certificates.tex
-|-- appendix_exact_mixed_overlap.tex
-|-- appendix_symbols.tex
-|-- source_ledger.md
-|-- fonts/
-|-- figures/
-`-- main.pdf
-```
+The manuscript is split at `\appendix` into a proof body and technical
+verification modules.
 
-The conceptual transfer calculus precedes the signed center calculus so that
-every later chain uses established notation.
+### 2.1. Page budget
 
-### Reader-facing body
-
-- `01_introduction.tex`: theorem, dictionary, routing table, active-gap kernel,
-  and strategy overview.
-- `02_structural_reductions.tex`: exhaustive structural reduction.
-- `02a_universal_calculus.tex`: enclosure gauge and the canonical decorated
-  $g$-family.
-- `04a_signed_center_calculus.tex`: signed CE1/CE2 model and exact one-gap row
-  interface.
-- `03_strategy1_length.tex`: complete trace budgets.
-- `04b_common_CE1_CE2_budgets.tex`: common perimeter and short-role budgets.
-- `04_strategy2_reader.tex`: one table of all Strategy 2 chains and their
-  relaxations.
-- `05_strategy3_area.tex`: complete area-loss proof.
-- `06_strategy4_reader.tex`: direct witnesses, Newton points, cap chain,
-  overlap proposition, and enclosure.
-- `07_exhaustive_assembly.tex`: final routing audit.
-
-### Technical appendices
-
-After `\appendix`, input:
-
-- `04c_short_Vd_placements.tex`;
-- `04_strategy2_exact_demand.tex`;
-- `06_strategy4_ab_core.tex`;
-- `appendix_symbols.tex`.
-
-`06_strategy4_ab_core.tex` owns the nested certificate inputs.  The exact
-Strategy 2 appendix may retain the technical aliases $B_c,F_c,G_c$, and the
-short Vd appendix may retain $A_{\rm sc},B_{\rm sc}$ only when their alias
-status is explicit.
-
-## 3. Required `main.tex` assembly
-
-The minimum preamble is
+The body, including title, abstract, contents, definitions, figures, and the
+final theorem assembly, must end on or before page 20.  `main.tex` places
 
 ```latex
-\documentclass{amsart}
-\usepackage{amsmath,amssymb,amsthm,mathtools,graphicx}
-\usepackage{fontspec}
-\usepackage{booktabs,float,microtype,tikz}
-\usetikzlibrary{arrows.meta,calc,positioning}
-\input{figures/tikz_setup}
+\label{page:proof-body-end}
 ```
 
-Do not load `mathrsfs`; the branch-signature symbol $\mathscr C$ is no longer
-used.  The body order is
+immediately before `\clearpage\appendix`.  After a complete build, inspect the
+page attached to this label.  A source edit that moves the label beyond page 20
+must be shortened before merge.
+
+### 2.2. Material allowed in the body
+
+The body should contain:
+
+- definitions of every symbol used in the proof flow;
+- the role and case classifications;
+- geometric intuition and explanatory figures;
+- exact calculation outputs, such as the explicit admissible-set description;
+- named inequality or certificate propositions with complete hypotheses;
+- short conceptual proofs, additive sums, monotone-chain logic, and the final
+  exhaustive assembly.
+
+The body should not contain:
+
+- support-line case derivations;
+- polynomial expansions or coefficient lists;
+- root-selection calculations;
+- derivative sign audits;
+- rational parametrization calculations;
+- Gram determinant reductions;
+- Bernstein or other positive-basis coefficient tables;
+- replay scripts or machine logs.
+
+A reader must be able to follow why every routing row is impossible without
+reading an appendix.  The appendix is for checking the displayed interfaces,
+not for discovering the logical structure of the proof.
+
+## 3. Active manuscript architecture
+
+All persistent paper artifacts live under `arrange/paper_draft/`.
+
+### 3.1. Reader-facing body
+
+The required order is:
+
+```text
+01_introduction.tex
+02_reader_framework.tex
+03_strategy1_reader.tex
+04_strategy2_summary.tex
+05_strategy3_reader.tex
+06_strategy4_reader.tex
+07_exhaustive_assembly.tex
+```
+
+Their roles are:
+
+- `01_introduction.tex`: theorem, forced roles, notation dictionary, complete
+  routing table, all-Vd0 active-gap kernel, and the four-strategy diagram.
+- `02_reader_framework.tex`: structural interface, local admissible set,
+  explicit minimum-side description, canonical decorated `g`-family, relaxed
+  composition rule, and signed CE1/CE2 interface.
+- `03_strategy1_reader.tex`: perimeter and skeleton targets, the trace-cap
+  register, the two master sums, and the exact list of Strategy 1 routes.
+- `04_strategy2_summary.tex`: exact row-chain semantics, all-Vd0 kernel,
+  endpoint/threshold/Vd certificate register, and Strategy 2 routes.
+- `05_strategy3_reader.tex`: local area-loss register and the two cyclic sums.
+- `06_strategy4_reader.tex`: direct disk and three-point forcing, Newton inner
+  points, cyclic cap-chain lemma, four-overlap proposition, and enclosure
+  contradiction.  Do not return polynomial or Bernstein calculations to this
+  file.
+- `07_exhaustive_assembly.tex`: one short audit of Table `tab:routing`.
+
+### 3.2. Technical appendices
+
+After `\appendix`, use this order:
+
+```text
+appendix_roadmap.tex
+02_structural_reductions.tex
+02a_universal_calculus.tex
+04a_signed_center_calculus.tex
+03_strategy1_length.tex
+04b_common_CE1_CE2_budgets.tex
+04c_short_Vd_placements.tex
+04_strategy2_reader.tex
+04_strategy2_exact_demand.tex
+05_strategy3_area.tex
+06_strategy4_ab_core.tex
+appendix_symbols.tex
+```
+
+`appendix_roadmap.tex` explains the variable domains and the output verified by
+each module.  Except for the finite geometric classification, the appendices
+should pass as quickly as possible from geometry to inequalities on explicit
+real-variable domains.
+
+`06_strategy4_ab_core.tex` owns its nested certificate inputs.  Do not input
+those nested files directly from `main.tex`.
+
+The existing complete proof files are retained in the appendix so that the
+paper remains proof-complete while the body stays short.  When shortening an
+appendix, never remove the exact component selector, strict endpoint condition,
+or domain restriction that makes a squared or rationalized inequality valid.
+
+## 4. Required `main.tex` assembly
+
+The active body/appendix assembly is:
 
 ```latex
 \input{01_introduction}
+\input{02_reader_framework}
+\input{03_strategy1_reader}
+\input{04_strategy2_summary}
+\input{05_strategy3_reader}
+\input{06_strategy4_reader}
+\input{07_exhaustive_assembly}
+\label{page:proof-body-end}
+
+\clearpage
+\appendix
+\input{appendix_roadmap}
 \input{02_structural_reductions}
 \input{02a_universal_calculus}
 \input{04a_signed_center_calculus}
 \input{03_strategy1_length}
 \input{04b_common_CE1_CE2_budgets}
-\input{04_strategy2_reader}
-\input{05_strategy3_area}
-\input{06_strategy4_reader}
-\input{07_exhaustive_assembly}
-
-\appendix
 \input{04c_short_Vd_placements}
+\input{04_strategy2_reader}
 \input{04_strategy2_exact_demand}
+\input{05_strategy3_area}
 \input{06_strategy4_ab_core}
 \input{appendix_symbols}
 ```
 
-Do not input the nested Strategy 4 certificate files directly.
+Place `\raggedbottom` immediately after `\begin{document}`.  A bibliography is
+included only when verified external sources are actually cited.
 
-## 4. Paper-wide notation
+## 5. Paper-wide notation
 
-Use
+Use the following distinction whenever actual reaches and demands occur
+together:
 
-- $(A_i,B_i,C_i)$ for actual maximal reaches;
-- $(a_i,b_i,c_i)$ for selected lower-bound demands;
-- $\mathrm{gr}$ for active-gap rank;
-- bare $g$ only for transfer maps.
+- `(A_i,B_i,C_i)` are actual maximal reaches of an original open role;
+- `(a_i,b_i,c_i)` are selected or prescribed lower demands.
 
-The actual supercritical count is
-
-$$
-N_+=
-\left\lvert\left\{i:A_i+B_i>1\right\}\right\rvert.
-$$
-
-### Canonical transfer notation
-
-For incoming defect $x=1-a$ and radial demand $c$, define
-
-$$
-g_c(x)=\max\{y:(1-x,y,c)\in\mathcal A\}.
-$$
-
-The nonsupercritical cap is
-
-$$
-\widehat g_c(x)=\min\{g_c(x),x\}.
-$$
-
-For any map $f$, define
-
-$$
-f^\vee(a)=1-f(1-a).
-$$
-
-Therefore
-
-- $g_c^\vee$: raw incoming-reach lower transfer;
-- $\widehat g_c^\vee$: nonsupercritical extensive transfer;
-- $g_{c,J}^\vee$, $\widehat g_{c,J}^\vee$: center-assisted variants;
-- $g_c^{\rm sc}$: free strict-supercritical outgoing envelope;
-- $1-g_c^{\rm sc}$: complementary next-incoming threshold;
-- $\widehat g_{1-d}^{\vee,\lambda}$: affine selected-$T_+$ lower
-  relaxation;
-- $\widehat g_{1-d}^{\vee,\rm th}$: threshold lower relaxation.
-
-At zero radial demand,
-
-$$
-g_0(x)>x\quad(0<x<1),
-\qquad
-\widehat g_0(x)=x.
-$$
-
-The identity belongs to the hatted map.
-
-The technical aliases are
-
-$$
-B_c(a)=g_c(1-a),
-\qquad
-F_c(a)=\widehat g_c(1-a),
-\qquad
-G_c(a)=\widehat g_c^\vee(a),
-$$
-
-$$
-B_{\rm sc}(c)=g_c^{\rm sc},
-\qquad
-A_{\rm sc}(c)=1-g_c^{\rm sc}.
-$$
-
-Use them only when they shorten exact algebra.  Do not reintroduce separate
-permanent letters for affine or threshold relaxations.
-
-## 5. Strategy 2 authoring requirements
-
-### 5.1. Actual-row interface
-
-For an actual row with
-
-$$
-A_i\ge a,
-\qquad
-C_i\ge c,
-$$
-
-the raw outgoing bound is
-
-$$
-B_i\le g_c(1-a).
-$$
-
-A center-free handoff gives
-
-$$
-A_{i+1}\ge g_c^\vee(a).
-$$
-
-If the row is nonsupercritical, then
-
-$$
-B_i\le\widehat g_c(1-a),
-$$
-
-and
-
-$$
-A_{i+1}\ge\widehat g_c^\vee(a)\ge a.
-$$
-
-With a center interval $J$, use the subscripted maps
-$g_{c,J}^\vee$ and $\widehat g_{c,J}^\vee$.  Every formal composition must be
-connected to the actual rows realizing these inequalities.  Singleton gaps
-remain included.
-
-### 5.2. Composition notation
-
-For maps listed in geometric row order,
-
-$$
-[\Phi_1\mid\cdots\mid\Phi_r](x)
-=(\Phi_r\circ\cdots\circ\Phi_1)(x).
-$$
-
-The Strategy 2 master table must list separately:
-
-1. branch and seed data;
-2. exact chain skeleton;
-3. relaxed slots;
-4. terminal capacity or separation inequality.
-
-Do not use a separate branch-signature operator.
-
-### 5.3. All-Vd0 kernel
-
-Use $N_+\in\{0,1\}$ and $\mathrm{gr}\in\{0,1,2\}$.
-
-- $N_+=0$, $\mathrm{gr}=0$: strict cyclic identity relaxation.
-- $N_+=0$, $\mathrm{gr}=1$: two exact hatted endpoint caps and interior
-  $\mathrm I^3$.
-- either $\mathrm{gr}=2$ cell: paired exact endpoint caps and interior
-  $\mathrm I^3$.
-- $N_+=1$, $\mathrm{gr}=1$: one exact five-row $\widehat g^\vee$ chain, then
-  CE1 or CE2 decorated relaxations.
-- $N_+=1$, $\mathrm{gr}=0$: retain Strategy 4.
-
-### 5.4. CE1 one-gap clause
-
-The common exact target is
-
-$$
-[\widehat g_{1-\alpha}^\vee
- \mid\widehat g_{1-m}^\vee
- \mid\widehat g_{1-\delta}^\vee](H)>1-X.
-$$
-
-On the hard selected branch use
-
-$$
-[\widehat g_{1-\alpha}^{\vee,1-4\alpha}
- \mid\widehat g_{1-m}^{\vee,1-5m}
- \mid\widehat g_{1-\delta}^{\vee,\rm th}](H)>1-X.
-$$
-
-Retain the shortened exact terminal estimate in `4106`.  Do not restore the
-superseded high-degree endpoint polynomials.
-
-### 5.5. CE2 one-gap clause
-
-Retain the two-threshold dichotomy exactly.  One threshold-decorated slot is
-decisive and every other slot is replaced by $\mathrm I$.  Do not replace the
-dichotomy by an unsupported symmetric strengthening.
-
-### 5.6. T3-like endpoint package
-
-The three interior rows are identity relaxations, but the hard endpoint sum
-remains the exact four-label audit in `407X`.  Preserve its selected high-sheet,
-center-transfer, and analytic threshold estimates.
-
-### 5.7. Supercritical rescuer chain
-
-The T3-like and adjacent Vd1 profiles both prove
-
-$$
-a\le1-g_c^{\rm sc},
-\qquad
-\frac{a}{a+1-u}\le1-g_c^{\rm sc}.
-$$
-
-The common chain is
-
-$$
-A_2>1-g_c^{\rm sc}
-\quad\xrightarrow{\ \mathrm I^3\ }\quad
-A_5>1-g_c^{\rm sc},
-$$
-
-followed by
-
-$$
-b_5<g_c^{\rm sc}\le h.
-$$
-
-### 5.8. Vd terminal placements
-
-- `4144`: exact residuals, backward identity chain, and
-  $$
-  \widehat g_{1-\delta}^\vee(1/2+A)>1-H.
-  $$
-- `4146`: retain the Vd-specific terminal radial margin; do not call it a
-  universal $\widehat g_c^\vee$ inequality.
-- `4147`: axis replacement is geometric preprocessing, followed by the
-  appropriate all-Vd0 chain.
-- `4149` and `414a`: remain Strategy 1.
-
-## 6. Strategy 4 requirements
-
-The reader-facing proof contains:
-
-1. direct forcing of the disk and $Q_-,Q_0,Q_+$;
-2. Newton inner points;
-3. the cyclic cap-chain lemma;
-4. the four-overlap proposition;
-5. enclosure and the open-triangle contradiction.
-
-The technical appendix retains every exact sign, radial envelope, Gram
-factorization, polynomial, Bernstein identity, and replay record.  The optional
-disk-plus-point lemma remains excluded unless it replaces a complete part of
-the proof.
-
-## 7. Final assembly
-
-`07_exhaustive_assembly.tex` must cite:
-
-- `prop:length-branches`;
-- `prop:reader-demand-branches`;
-- `prop:area-branches`;
-- `prop:reader-ab-core-branches`;
-- `tab:strategy2-chain-signatures` when describing the transfer rows.
-
-Audit every routing-table row.  In the hybrid $1+2$ row, preserve the present
-complementary Strategy 1 and Strategy 2 placements.
-
-## 8. Source ledger and verification
-
-After accepted changes, update `source_ledger.md` with:
-
-- authoritative proof source and status;
-- manuscript label and placement;
-- exact versus reader-facing notation;
-- whether a script is a proof dependency or a cross-check.
-
-Build with
+The supercritical count is always computed from actual reaches:
 
 ```text
+N_+ = |{ i : A_i+B_i>1 }|.
+```
+
+Use these canonical names:
+
+- `CE0`, `CE1`, `CE2`;
+- `Vd0`, `Vd1`, `Vd2`, `T3-like`;
+- `H`, `O`, `V_i`, `e_{i,i+1}`, `r_i`, `M_i`;
+- `gr` for active-gap rank; never use bare `g` for this count;
+- `mathcal A` for the local admissible set;
+- `g_c` for the raw defect-coordinate outgoing map;
+- `widehat g_c` for its nonsupercritical cap;
+- `f^vee(a)=1-f(1-a)` for the incoming-reach dual;
+- center-assisted subscripts for residual maps;
+- `g_c^{sc}` for the free strict-supercritical envelope;
+- `I` for the identity relaxation;
+- `[Phi_1|...|Phi_r]` for maps listed in geometric row order, with the
+  leftmost slot acting first;
+- `Lambda`, `c_*`, `mathcal D_eta`, `Q_-,Q_0,Q_+`, and `A,B,C` for Strategy 4.
+
+Technical aliases `B_c,F_c,G_c` may remain in the exact-demand appendix when
+they shorten contact-cell algebra, but the body uses the canonical decorated
+`g` notation.
+
+## 6. Non-negotiable proof distinctions
+
+The following distinctions must survive every shortening pass.
+
+1. **Actual versus selected criticality.**  `N_+` is never inferred from a
+   selected demand pair unless the strict-handoff theorem explicitly licenses
+   the inference.
+2. **Raw versus capped zero-radial map.**  For `0<x<1`, the raw map has
+   `g_0(x)>x`, while the hatted nonsupercritical map satisfies
+   `widehat g_0(x)=x`.
+3. **Singleton gaps.**  Equality of adjacent open-trace endpoints still leaves
+   an uncovered point.
+4. **Selected algebraic component.**  Squared contact equations must retain the
+   selector excluding the fake high-radial component.
+5. **CE1 and CE2 one-gap endings.**  The common five-row geometry does not
+   authorize replacing the CE1 affine/threshold calculation or the CE2
+   two-threshold dichotomy by a stronger unproved symmetric statement.
+6. **T3-like endpoint audit.**  Retain its exact four-label endpoint theorem;
+   do not replace it by an unsupported universal envelope.
+7. **Nonadjacent Vd terminal.**  Retain the Vd-specific radial margin.
+8. **Hybrid CE2 row.**  Strategy 1 closes only its stated neighboring-midpoint
+   placement; Strategy 2 closes the complementary placements.
+9. **Strategy 4.**  The body may cite the four-overlap proposition, but the
+   appendix must retain the exact ray order, Gram reductions, and positive
+   Bernstein identities proving the mixed overlaps.
+
+## 7. Figures
+
+Figures in the body must explain the proof architecture, not merely decorate
+it.  At minimum retain:
+
+- the center and vertex roles;
+- the perimeter/skeleton targets;
+- the local demand hull `(a,b,c)`;
+- one transfer-chain diagram;
+- the local/global area-loss picture;
+- the Strategy 4 witness configuration.
+
+A schematic caption must say when the drawing is not to scale or is not itself
+an inequality proof.
+
+## 8. Build and verification
+
+Run from `arrange/paper_draft/`:
+
+```bash
 latexmk -xelatex -interaction=nonstopmode -halt-on-error main.tex
 ```
 
-Check:
+A complete verification pass requires:
 
-1. undefined references and duplicate labels;
-2. missing inputs, graphics, and fonts;
-3. overfull boxes, especially the Strategy 2 table;
-4. that all exact technical sections occur after `\appendix`;
-5. that the final assembly cites only proved terminal propositions;
-6. exact replay tools whenever certificate sources change.
+1. successful XeLaTeX build;
+2. no undefined references;
+3. no duplicate labels;
+4. no overfull boxes requiring manuscript repair;
+5. `page:proof-body-end` on page 20 or earlier;
+6. visual inspection of every figure and major table;
+7. a check that all files after `\appendix` are genuine verification material;
+8. comparison of the final routing table against the proof-tree index;
+9. confirmation that `main.pdf` corresponds to the committed sources.
 
-If the full build is unavailable, do not claim that `main.pdf` is current.
-Report precisely which isolated checks were performed.
+If the environment cannot perform the complete build, do not update
+`main.pdf`, and state that limitation in the commit report and source ledger.
+A source-only commit must never describe the tracked PDF as current.
 
 ## 9. Repository hygiene
 
-Follow `AGENTS.md`.
-
-- Keep changes grouped by mathematical purpose.
-- Update indexes, status tables, and the source ledger when notation or
-  dependencies change.
-- Preserve failed-route records.
-- Do not delete complete technical proofs after introducing a concise body
-  statement.
-- Do not alter a complete branch merely to pursue an unproved simplification.
+Keep temporary build outputs, logs, extracted PDFs, test harnesses, and local
+font copies out of the repository.  Commit only persistent manuscript sources,
+figures, exact certificate data, and an actually rebuilt final PDF.
