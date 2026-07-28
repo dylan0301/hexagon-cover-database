@@ -1,0 +1,372 @@
+\section{Exact Computer-Assisted Certificate for the Mixed Cap Overlaps}
+\label{sec:strategy4-exact-certificate}
+
+The two mixed cap overlaps in Strategy~4 are certified by exact symbolic
+arithmetic.  This section states the complete mathematical reduction, explains
+the verification algorithms, and formally incorporates the code and sparse
+integer data listed below as an electronic proof supplement.  No floating-point
+arithmetic, interval arithmetic, adaptive subdivision, branch-and-bound, or
+unrecorded numerical tolerance is used.
+
+\subsection{Certificate manifest}
+
+All paths in this subsection are relative to
+\begin{verbatim}
+proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/
+3105X_self_contained_direct_Vd0_nine_point/3105X_computation/
+\end{verbatim}
+The exact files incorporated in the certificate are
+\begin{center}
+\scriptsize
+\renewcommand{\arraystretch}{1.08}
+\begin{tabular}{p{.53\textwidth}p{.34\textwidth}}
+\toprule
+file&Git blob SHA\\
+\midrule
+\texttt{mixed\_overlap\_core\_data\_00.py}&
+\texttt{359b219f9deda8586217dcbf9ccc10de0ad48578}\\
+\texttt{mixed\_overlap\_core\_data\_01.py}&
+\texttt{bfc807f906359636035634f799d74d552cf847fc}\\
+\texttt{mixed\_overlap\_core\_data\_02.py}&
+\texttt{92887696ef94aeb93f3d95ab9b16a5388406fff4}\\
+\texttt{mixed\_overlap\_core\_data\_03.py}&
+\texttt{c2791a8a6add132ad7a17655cbb13987124cb24e}\\
+\texttt{mixed\_overlap\_core\_data\_04.py}&
+\texttt{7eeabecbbd17543b728130a1f2bc84f79e11a8d2}\\
+\texttt{mixed\_overlap\_core\_data\_05.py}&
+\texttt{d676114292e722b60d1b792f615ee88ad58b6982}\\
+\texttt{mixed\_overlap\_core\_polynomials.py}&
+\texttt{07f57b178cf74980f8d956541842d0c4c4b2faa7}\\
+\texttt{verify\_mixed\_overlap\_core\_derivation.py}&
+\texttt{0a55211ae37f56e1fc461560b0668a01456c7417}\\
+\texttt{verify\_global\_core\_positivity.py}&
+\texttt{821f9a6dc750fbdb80e02e40282b32cc845c3383}\\
+\bottomrule
+\end{tabular}
+\end{center}
+The six data shards decode to one canonical sparse-polynomial transcript with
+SHA--256 digest
+\begin{verbatim}
+dc46aaf263655d5159ecd3a81db72ee82477951d06172f4743b248df37209485
+\end{verbatim}
+The first verifier independently derives the transcript from the witness
+formulas and compares every coefficient with this authenticated object.  The
+second verifier derives all Bernstein coefficients from that same object and
+checks their signs exactly.
+
+\subsection{Rational radial upper envelopes}
+
+Retain the notation of Section~\ref{sec:ab-core}.  Thus
+\[
+ p=1-b,\qquad q=1-a,\qquad s=p+q,\qquad
+ m=\min\{p,q\},\qquad M=\max\{p,q\},
+\]
+\[
+ \chi=s^4-s^2+mM,\qquad h=\frac{\sqrt3}{2},\qquad
+ c_*=c_{\max}(p,q).
+\]
+The strict witness domain gives
+\begin{equation}
+ mM>(1-s)(2-s),\qquad m>1-s,\qquad s>\frac23.
+ \label{eq:certificate-domain}
+\end{equation}
+Put
+\[
+ F_m(x)=x^4-x^2+mx-m^2,\qquad
+ \kappa=F_m'(s)=4s^3-2s+m.
+\]
+Then
+\[
+ \kappa>4s^3-3s+1=(s+1)(2s-1)^2>0.
+\]
+Define
+\begin{equation}
+ \bar c_L=s-\frac{\chi}{\kappa}\quad(\chi\le0),
+ \qquad
+ \bar c_T=s-\frac{\chi}{1-m}\quad(\chi\ge0).
+ \label{eq:certificate-cbar}
+\end{equation}
+
+\begin{lemma}[Branchwise radial upper bounds]
+\label{lem:paper-branchwise-cbar}
+On the corresponding radial cells,
+\[
+ c_*\le\bar c_L<1,\qquad c_*\le\bar c_T<1.
+\]
+At $\chi=0$ both upper bounds equal $s=c_*$.
+\end{lemma}
+
+\begin{proof}
+On the $L$ cell, $F_m(s)=\chi\le0$ and $F_m(c_*)=0$.  For $x\ge s>2/3$,
+$F_m''(x)>0$, so convexity gives
+\[
+ 0\ge F_m(s)+F_m'(s)(c_*-s),
+\]
+and hence $c_*\le\bar c_L$.  If $U=1-s$, then
+\[
+ \chi+U\kappa
+ >U\{m+1-4U+8U^2-3U^3\}>0
+\]
+by \eqref{eq:certificate-domain}; therefore $\bar c_L<1$.
+
+On the $T$ cell put
+\[
+ E=\sqrt{4s^2-3},\qquad
+ m_0=\frac{s(1-E)}2,\qquad M_0=\frac{s(1+E)}2.
+\]
+Then
+\[
+ \chi=(m-m_0)(M_0-m),\qquad
+ s-c_*=\frac{2(m-m_0)}{1+E}.
+\]
+Consequently
+\[
+ \frac{\chi}{s-c_*}
+ =\frac{1+E}{2}(M_0-m)\le1-m,
+\]
+which gives $c_*\le\bar c_T$.  The strict inequality $\chi>0$ gives
+$\bar c_T<s<1$.
+\end{proof}
+
+Reflect so that $z=a-b\ge0$ and put $U=a+b-1$.  Then
+\[
+ s=1-U,\qquad m=\frac{1-U-z}{2},\qquad
+ D^2=z^2+6U+3U^2=:K(U,z),
+\]
+and
+\[
+ \Xi(U,z)=4\chi
+ =1-10U+21U^2-16U^3+4U^4-z^2,
+\]
+\[
+ G(U,z)=2\kappa=5-21U+24U^2-8U^3-z.
+\]
+Thus
+\begin{equation}
+ \bar c_L=1-U-\frac{\Xi(U,z)}{2G(U,z)},
+ \qquad
+ \bar c_T=1-U-\frac{\Xi(U,z)}{2(1+U+z)}.
+ \label{eq:certificate-rational-cbar}
+\end{equation}
+
+\subsection{Gram reduction and the geometric implication}
+
+On the active cell let $\bar c$ denote the corresponding expression in
+\eqref{eq:certificate-rational-cbar}, and put
+\[
+ \bar\eta=h(1-\bar c),\qquad e=1-\bar c,\qquad t=2\bar c-1.
+\]
+Lemma~\ref{lem:paper-branchwise-cbar} gives
+$0<\bar\eta\le\eta=h(1-c_*)$.  It therefore suffices to prove the mixed
+intersections for the smaller disks with radii $2\bar\eta,\bar\eta,2\bar\eta$.
+
+Put $C'=\mathsf R^{-1}C$ and write
+\[
+ N_A=\lVert A\rVert^2,\qquad N_C=\lVert C\rVert^2,\qquad
+ \nu=\langle A,C'\rangle,\qquad
+ \Delta=\operatorname{cross}(C',A)>0.
+\]
+The Gram identity is
+\[
+ \Delta^2=N_AN_C-\nu^2.
+\]
+Define
+\begin{equation}
+ Q_A=\Delta^2-\lVert tA-eC'\rVert^2,\qquad
+ Q_C=\Delta^2-\lVert tC'-eA\rVert^2.
+ \label{eq:certificate-Q}
+\end{equation}
+
+\begin{lemma}[Residual signs imply the mixed cap intersections]
+\label{lem:paper-residual-to-overlap}
+If $Q_A,Q_C\ge0$, then
+\[
+ I(C,2\bar\eta)\cap I(C+\mathsf RA,\bar\eta)\ne\varnothing,
+\]
+and
+\[
+ I(C+\mathsf RA,\bar\eta)\cap I(\mathsf RA,2\bar\eta)\ne\varnothing.
+\]
+Consequently the same intersections hold with $\eta$ in place of
+$\bar\eta$.
+\end{lemma}
+
+\begin{proof}
+Rotate the first pair by $\mathsf R^{-1}$.  Its centers become $C'$ and
+$A+C'$, so their difference is $A$.  An outer common tangent normal $n_A$ is
+chosen with
+\[
+ \langle A,n_A\rangle=\bar\eta.
+\]
+Since $\lVert A\rVert>\bar\eta$ and $\Delta>0$, choose the sign for which
+\[
+ \langle C',n_A\rangle
+ =\frac{\bar\eta\nu+\sqrt{N_A-\bar\eta^2}\,\Delta}{N_A}.
+\]
+The common support of the two disks is then
+\[
+ 2\bar\eta+
+ \frac{\bar\eta\nu+\sqrt{N_A-\bar\eta^2}\,\Delta}{N_A}.
+\]
+Let $\bar\tau=h-2\bar\eta=ht$.  Expanding
+\eqref{eq:certificate-Q} and using the Gram identity gives
+\begin{equation}
+ h^2N_AQ_A
+ =(N_A-\bar\eta^2)\Delta^2
+ -(\bar\tau N_A-\bar\eta\nu)^2.
+ \label{eq:certificate-PA}
+\end{equation}
+Thus $Q_A\ge0$ implies
+\[
+ \sqrt{N_A-\bar\eta^2}\,\Delta
+ \ge\bar\tau N_A-\bar\eta\nu,
+\]
+and the displayed common support is at least
+$2\bar\eta+\bar\tau=h$.  Hence the two level-$h$ caps intersect.
+The same calculation with $A$ and $C'$ exchanged gives
+\begin{equation}
+ h^2N_CQ_C
+ =(N_C-\bar\eta^2)\Delta^2
+ -(\bar\tau N_C-\bar\eta\nu)^2,
+ \label{eq:certificate-PC}
+\end{equation}
+and proves the second intersection.  Enlarging the disk radii from
+$\bar\eta$ to $\eta$ only enlarges the caps.
+\end{proof}
+
+\subsection{Eight exact integer-polynomial signs}
+
+The Newton witnesses $A,C$ are rational functions of $U,z,D$.  Substituting
+\eqref{eq:certificate-rational-cbar} into \eqref{eq:certificate-Q}, clearing
+denominators, and reducing by
+\[
+ D^2-K(U,z)=0
+\]
+gives, for $B\in\{L,T\}$ and $X\in\{A,C\}$,
+\begin{equation}
+ \operatorname{num}(Q_{B,X})
+ =32(K+3)^2
+ \{A_{B,X}(U,z)+D B_{B,X}(U,z)\},
+ \label{eq:certificate-core-reduction}
+\end{equation}
+where all eight core polynomials lie in $\mathbb Z[U,z]$.
+Every omitted denominator is strictly positive on the strict domain: its
+factors are positive constants, $(D+3)^4$, $G(U,z)^2$ or
+$(1+U+z)^2$, and squares of the two Newton-derivative numerators.  Here
+$G=2\kappa>0$, and the fixed-line sign theorem proves both Newton derivatives
+strictly negative.
+
+The derivation verifier constructs $A,C$, both rational envelopes, and all four
+residuals directly in the exact field $\mathbb Q(U,z,D)$.  It performs the
+reduction modulo $D^2-K$, removes the common positive factor, primitive-normalizes
+the eight integer polynomials, and compares their sparse term lists
+coefficient by coefficient with the authenticated transcript.  Thus the data
+are not an independently trusted precomputation; they are checked against the
+geometric formulas.
+
+\subsection{Three global positive-basis certificates}
+
+Set
+\[
+ \mathcal G(U)=1-6U-3U^2,\qquad
+ H(U)=1-10U+21U^2-16U^3+4U^4,
+\]
+\[
+ U_H=1-\frac{\sqrt3}{2},\qquad
+ U_{\max}=\frac2{\sqrt3}-1.
+\]
+The complete reflected domain is the union of the three closed cells
+\[
+\begin{array}{ll}
+T:&0\le U\le U_H,\quad 0\le z^2\le H(U),\\
+L_0:&0\le U\le U_H,\quad H(U)\le z^2\le\mathcal G(U),\\
+L_1:&U_H\le U\le U_{\max},\quad0\le z^2\le\mathcal G(U).
+\end{array}
+\]
+For the $T$ cell use
+\[
+ U=\frac{(x-1)(3-x)}{4x},\qquad
+ z=y\frac{9-x^4}{8x^2},\qquad
+ 1\le x\le\sqrt3,\quad0\le y\le1,
+\]
+and then $x=1+(\sqrt3-1)r$.  This maps $[0,1]^2$ onto the complete cell.
+After multiplication by positive powers of $2$ and $x$, the four transformed
+core polynomials have global tensor Bernstein expansions with data
+\[
+\begin{array}{c|ccc}
+&\text{bidegree}&\text{coefficient count}&\text{zero count}\\ \hline
+A_{T,A}&(88,22)&2047&2\\
+B_{T,A}&(80,20)&1701&0\\
+A_{T,C}&(88,22)&2047&2\\
+B_{T,C}&(80,20)&1701&0.
+\end{array}
+\]
+Every nonzero coefficient is strictly positive.
+
+For an $L$-cell polynomial write
+\[
+ F(U,z)=E_F(U,w)+zO_F(U,w),\qquad w=z^2,
+\]
+and
+\[
+ R_F(U,w)=E_F(U,w)^2-wO_F(U,w)^2.
+\]
+The implications $E_F\ge0$ and $R_F\ge0$ give
+$E_F\ge\sqrt w\,|O_F|$, hence $F\ge0$ for $z\ge0$.
+Use the two exact charts
+\[
+ U=U_Hr,\qquad
+ w=H(U)+s\{\mathcal G(U)-H(U)\}
+\]
+for $L_0$, and
+\[
+ U=U_H+(U_{\max}-U_H)r,\qquad
+ w=s\mathcal G(U)
+\]
+for $L_1$.  The positivity verifier forms one global Bernstein expansion for
+each of $E_F,R_F$ on each square.  The resulting sixteen expansions have the
+bidegrees and coefficient counts recorded in
+Appendix~\ref{subsec:exact-mixed-overlap}; every coefficient is strictly
+positive.
+
+The verifier implements polynomial addition, multiplication, substitution,
+and power-to-Bernstein conversion over exact integers.  Coefficients in
+$\mathbb Q(\sqrt3)$ are represented as rational pairs and signed by exact
+rational comparisons.  In particular, a polynomial
+$\sum a_{ij}r^is^j$ of bidegree $(m,n)$ is converted using
+\[
+ b_{k\ell}
+ =\sum_{i\le k}\sum_{j\le\ell}
+ a_{ij}\frac{\binom{k}{i}}{\binom{m}{i}}
+       \frac{\binom{\ell}{j}}{\binom{n}{j}},
+\]
+which is the exact tensor Bernstein coefficient formula.
+
+\begin{theorem}[Exact mixed-overlap certificate]
+\label{thm:paper-exact-mixed-certificate}
+On the complete strict witness domain with $c_*>2/3$, all eight polynomials in
+\eqref{eq:certificate-core-reduction} are nonnegative.  Hence
+$Q_A,Q_C\ge0$, and the two mixed cap intersections required by
+Proposition~\ref{prop:technical-four-overlaps} hold.
+\end{theorem}
+
+\begin{proof}
+The $T$ chart proves the four $T$-cell core signs by nonnegative Bernstein
+coefficients.  On each $L$ chart the positive Bernstein certificates for
+$E_F$ and $R_F$ prove the four $L$-cell signs.  Since $D\ge0$,
+\eqref{eq:certificate-core-reduction} gives $Q_A,Q_C\ge0$ for $z\ge0$;
+reflection supplies $z\le0$.  Lemma~\ref{lem:paper-residual-to-overlap} then
+gives the two cap intersections.
+\end{proof}
+
+\begin{remark}[Reproduction status]
+The files above constitute the exact certificate used by the proof.  A
+reproduction run should execute
+\begin{verbatim}
+verify_mixed_overlap_core_derivation.py
+verify_global_core_positivity.py
+\end{verbatim}
+from their package directory.  This manuscript revision does not claim that
+those commands were rerun during the present source-only edit; the certificate
+is incorporated by its exact repository objects and authenticated transcript.
+\end{remark}
