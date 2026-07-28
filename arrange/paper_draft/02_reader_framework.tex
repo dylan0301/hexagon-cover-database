@@ -1,0 +1,274 @@
+\section{Geometric Interfaces Used by the Proof}
+\label{sec:reader-framework}
+
+This section records the exact outputs of the structural and local calculations.
+Their derivations are postponed.  The distinction is deliberate: the body uses
+only the statements below, while the appendices verify them in real variables.
+
+\subsection{Structural reduction}
+
+\begin{proposition}[Reader structural reduction]
+\label{prop:body-structural-reduction}
+Every hypothetical cover has the seven distinct roles described in
+Section~\ref{sec:introduction}.  The center has exactly one of the types
+$\CEzero,\CEone,\CEtwo$, every vertex role has exactly one of the types
+$\Vdzero,\Vdone,\Vdtwo,\Tlike$, and the actual reaches determine exactly one
+row of Table~\ref{tab:routing}.  In the CE1/CE2 case the center contains exactly
+one radial midpoint and
+\[
+ q=N_++m.
+\]
+If the vertex roles alone cover the boundary, strict handoffs can be selected
+while preserving whether the actual supercritical pattern has none, exactly
+one, or at least two indices.
+\end{proposition}
+
+\begin{proof}
+Distinctness is Lemma~\ref{lem:distinct-roles}; the center and vertex
+classifications are Propositions~\ref{prop:ce-classification} and
+\ref{prop:vertex-classification}; the unique midpoint is
+Proposition~\ref{prop:unique-center-midpoint}; the short-role identity is
+Lemma~\ref{lem:short-role-count}; strict selection is
+Proposition~\ref{prop:strict-handoffs}; and the disjoint routing assertion is
+Proposition~\ref{prop:exhaustive-structural-reduction}.  Their geometric proofs
+are collected in Appendix~\ref{sec:structural-reductions}.
+\end{proof}
+
+\subsection{The local admissible set}
+
+Take unit vectors
+\[
+ u=\left(\frac12,\frac{\sqrt3}{2}\right),\qquad
+ v=\left(\frac12,-\frac{\sqrt3}{2}\right),
+\]
+so $u$ and $v$ meet at $120^\circ$ and $u+v$ is radial.  For selected demands
+$0\le a,b,c\le1$, put
+\[
+ K(a,b,c)=\conv\{0,au,bv,c(u+v)\}
+\]
+and define
+\[
+ \mathcal A=\{(a,b,c)\in[0,1]^3:K(a,b,c)
+ \text{ lies in a closed unit equilateral triangle}\}.
+\]
+Actual reaches dominate selected demands coordinatewise; they must not be
+substituted for them when $N_+$ is defined.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=3.0,>=Latex]
+\coordinate (O) at (0,0);
+\coordinate (A) at (.36,.62);
+\coordinate (B) at (.52,-.90);
+\coordinate (C) at (.62,0);
+\draw[->] (-.05,0)--(.85,0) node[right] {$u+v$};
+\draw[->] (O)--(.52,.90) node[above] {$u$};
+\draw[->] (O)--(.52,-.90) node[below] {$v$};
+\draw[thick] (O)--(A)--(C)--(B)--cycle;
+\fill (O) circle (.7pt) node[left] {$0$};
+\fill (A) circle (.7pt) node[above left] {$au$};
+\fill (B) circle (.7pt) node[below left] {$bv$};
+\fill (C) circle (.7pt) node[above right] {$c(u+v)$};
+\end{tikzpicture}
+\caption{The local demand hull.  Its least equilateral enclosure side is the
+single scalar controlling both Strategy~2 transfers and Strategy~4 witnesses.}
+\label{fig:local-demand-hull}
+\end{figure}
+
+For a compact set $K$, let $\mathsf R$ be rotation through $2\pi/3$ and define
+\[
+ \Lambda(K)=\frac2{\sqrt3}
+ \min_{\lVert n\rVert=1}\sum_{j=0}^2h_K(\mathsf R^jn),
+ \qquad h_K(n)=\max_{x\in K}\langle x,n\rangle.
+\]
+Proposition~\ref{prop:universal-enclosure-gauge} says that $\Lambda(K)$ is the
+least side length of an enclosing closed equilateral triangle.
+
+The body will use the following explicit calculation result.
+
+\begin{proposition}[Explicit admissible-set description]
+\label{prop:body-admissible-description}
+Set
+\[
+ s=a+b,\qquad D=\sqrt{a^2+ab+b^2},
+\]
+and, when $s>0$ and $cs>ab$, set
+\[
+ R_a=\sqrt{a^2-ac+c^2},\qquad
+ R_b=\sqrt{b^2-bc+c^2}.
+\]
+Define
+\[
+ L_{OA}=b+\max\{a,c\},\qquad
+ L_{BO}=a+\max\{b,c\},
+\]
+\[
+ L_{AC}=
+ \begin{cases}
+ (a^2+bc)/R_a,&a\ge c,\\
+ c(a+b)/R_a,&a<c\le a+b,\\
+ c^2/R_a,&c>a+b,
+ \end{cases}
+\]
+and let $L_{CB}$ be obtained by exchanging $a$ and $b$.  Then the least
+side length of an equilateral triangle containing $K(a,b,c)$ is
+\[
+ L_{\min}(a,b,c)=
+ \begin{cases}
+ c,&a=b=0,\\
+ D,&s>0\text{ and }cs\le ab,\\
+ \min\{L_{OA},L_{BO},L_{AC},L_{CB}\},
+   &s>0\text{ and }cs>ab.
+ \end{cases}
+\]
+Consequently
+\[
+ \boxed{\mathcal A=\{(a,b,c)\in[0,1]^3:L_{\min}(a,b,c)\le1\}.}
+\]
+\end{proposition}
+
+\begin{proof}
+If $cs\le ab$, the radial point lies in $\conv\{0,au,bv\}$ and the diameter
+$D$ is attainable.  Otherwise the hull has four sides.  The finite-caliper
+principle reduces the minimizing orientation to a normal perpendicular to one
+of those sides, producing the four displayed support values.  The full
+support-line derivation and the equivalent three-cell polynomial description
+are in Appendix~\ref{sec:exact-local-demand-calculus}.
+\end{proof}
+
+\subsection{The transfer alphabet and its inequality interface}
+
+For incoming defect $x=1-a$ and radial demand $c$, define
+\[
+ g_c(x)=\max\{y:(1-x,y,c)\in\mathcal A\},
+ \qquad
+ \widehat g_c(x)=\min\{g_c(x),x\}.
+\]
+For a map $f$, set
+\[
+ f^\vee(a)=1-f(1-a).
+\]
+Thus $g_c$ is the historical raw outgoing map, the hat imposes the
+nonsupercritical cap, and $\vee$ returns to incoming-reach coordinates.  At
+zero radial demand,
+\[
+ g_0(x)>x\quad(0<x<1),\qquad \widehat g_0(x)=x.
+\]
+The identity belongs to the hatted map.
+
+If a center interval $J\subseteq[0,1]$ helps cover the handoff edge, let
+$\mathcal R_J(p)$ be the uncovered residual to the right of the component of
+$[0,p]\cup J$ containing $0$, and define
+\[
+ g_{c,J}^\vee(a)=\mathcal R_J(g_c(1-a)),\qquad
+ \widehat g_{c,J}^\vee(a)=\mathcal R_J(\widehat g_c(1-a)).
+\]
+Finally, for $0\le c<1/2$, put
+\[
+ g_c^{\rm sc}=
+ \sup_{\{x:g_c(x)>x\}}g_c(x)
+ =\frac{c+\sqrt{c^2-8c+4}}2.
+\]
+
+\begin{proposition}[Transfer interface]
+\label{prop:body-transfer-interface}
+Suppose an actual row has incoming reach at least $a$, radial reach at least
+$c$, and outgoing reach $B$.
+\begin{enumerate}
+\item Without center assistance,
+\[
+ B\le g_c(1-a),\qquad A_{\rm next}\ge g_c^\vee(a).
+\]
+If the row is nonsupercritical, then
+\[
+ B\le\widehat g_c(1-a),\qquad
+ A_{\rm next}\ge\widehat g_c^\vee(a)\ge a.
+\]
+\item With center interval $J$ on the handoff edge,
+\[
+ A_{\rm next}\ge g_{c,J}^\vee(a),
+\]
+and the hatted version holds for a nonsupercritical row.
+\item If the row is strictly supercritical, then the supremum above is not
+attained and
+\[
+ B<g_c^{\rm sc},\qquad A_{\rm next}>1-g_c^{\rm sc}.
+\]
+\item If nondecreasing maps $\underline\Phi_j$ are pointwise lower bounds for
+the exact row transfers $\Phi_j$, then replacing any slots in a composition by
+$\underline\Phi_j$ preserves a valid lower bound for the returned demand.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Items 1 and 2 are Lemmas~\ref{lem:reader-raw-capped-transfer} and
+\ref{lem:reader-generalized-handoff}.  Item 3 is the free-envelope calculation
+\eqref{eq:reader-free-supercritical-envelope}--\eqref{eq:reader-free-raw-envelope}.
+Item 4 is Lemma~\ref{lem:reader-relaxed-composition}.  Their real-variable
+proofs are in Appendix~\ref{sec:universal-calculus}.
+\end{proof}
+
+\subsection{One signed CE1/CE2 interface}
+
+Normalize a positive center trace to $e_{0,1}$.  The common signed parameters
+are
+\[
+ 0<R<1,\qquad W=1-R,
+\]
+\[
+ E=\sqrt{1-RW},\qquad \eta=1-E,\qquad P=E(1-E),
+\]
+with center slacks $\alpha,\delta\ge0$.  Put
+\[
+ \Delta_R=P-\alpha-W\delta,
+ \qquad
+ \Delta_L=P-R\alpha-\delta.
+\]
+
+\begin{proposition}[Signed center interface]
+\label{prop:body-signed-center-interface}
+The normalization has $\Delta_R>0$.  The normalized trace and its possible
+companion have lengths
+\[
+ \ell_R=\frac{\Delta_R}{R},
+ \qquad
+ \ell_L=\frac{[\Delta_L]_+}{W},
+\]
+and
+\[
+ T_C\text{ is CE1}\iff\Delta_L\le0,
+ \qquad
+ T_C\text{ is CE2}\iff\Delta_L>0.
+\]
+The six radial exits from $O$ are
+\[
+ \begin{array}{c|cccccc}
+ i&0&1&2&3&4&5\\ \hline
+ d_i^C&E-\alpha-\delta&\delta/R&\delta&
+ \min\{\alpha/R,\delta/W\}&\alpha&\alpha/W.
+ \end{array}
+\]
+The full center boundary contribution is
+\[
+ L_{\partial H}(T_C)=\frac{\Delta_R}{R}+
+ \frac{[\Delta_L]_+}{W}.
+\]
+In particular,
+\[
+ L_{\partial H}(T_C)\le P\le\frac{\sqrt3}{2}-\frac34
+ \quad\text{in CE1},
+\]
+whereas
+\[
+ L_{\partial H}(T_C)<\frac12
+ \quad\text{in CE2}.
+\]
+\end{proposition}
+
+\begin{proof}
+This is Proposition~\ref{prop:signed-center-normal-form} and
+Corollary~\ref{cor:signed-center-boundary}.  Appendix
+\ref{sec:signed-ce12-reductions} derives the signed side equations, traces,
+exits, and sign classification.  Later strategies use only the displayed
+outputs.
+\end{proof}
