@@ -3,7 +3,8 @@
 
 This section records the exact outputs of the structural and local calculations.
 Their derivations are postponed.  The distinction is deliberate: the body uses
-only the statements below, while the appendices verify them in real variables.
+only the statements below, while the appendices verify them on explicit
+real-variable domains.
 
 \subsection{Structural reduction}
 
@@ -84,8 +85,6 @@ For a compact set $K$, let $\mathsf R$ be rotation through $2\pi/3$ and define
 Proposition~\ref{prop:universal-enclosure-gauge} says that $\Lambda(K)$ is the
 least side length of an enclosing closed equilateral triangle.
 
-The body will use the following explicit calculation result.
-
 \begin{proposition}[Explicit admissible-set description]
 \label{prop:body-admissible-description}
 Set
@@ -128,12 +127,12 @@ Consequently
 \end{proposition}
 
 \begin{proof}
-If $cs\le ab$, the radial point lies in $\conv\{0,au,bv\}$ and the diameter
-$D$ is attainable.  Otherwise the hull has four sides.  The finite-caliper
-principle reduces the minimizing orientation to a normal perpendicular to one
-of those sides, producing the four displayed support values.  The full
-support-line derivation and the equivalent three-cell polynomial description
-are in Appendix~\ref{sec:exact-local-demand-calculus}.
+If $cs\le ab$, the radial point lies in $\conv\{0,au,bv\}$ and an explicit
+equilateral triangle of side $D$ contains that hull.  Otherwise the hull has
+four sides, and the finite-caliper principle reduces the minimum to the four
+edge-normal support values displayed above.  The complete support calculation,
+the explicit triangular-hull enclosure, and the equivalent three polynomial
+cells are proved in Appendix~\ref{sec:admissible-set-derivation}.
 \end{proof}
 
 \subsection{The transfer alphabet and its inequality interface}
@@ -148,9 +147,8 @@ For a map $f$, set
 \[
  f^\vee(a)=1-f(1-a).
 \]
-Thus $g_c$ is the historical raw outgoing map, the hat imposes the
-nonsupercritical cap, and $\vee$ returns to incoming-reach coordinates.  At
-zero radial demand,
+Thus $g_c$ is the raw outgoing map, the hat imposes the nonsupercritical cap,
+and $\vee$ returns to incoming-reach coordinates.  At zero radial demand,
 \[
  g_0(x)>x\quad(0<x<1),\qquad \widehat g_0(x)=x.
 \]
@@ -165,8 +163,8 @@ $[0,p]\cup J$ containing $0$, and define
 \]
 Finally, for $0\le c<1/2$, put
 \[
- g_c^{\rm sc}=
- \sup_{\{x:g_c(x)>x\}}g_c(x)
+ g_c^{\rm sc}
+ =\sup_{\{x:g_c(x)>x\}}g_c(x)
  =\frac{c+\sqrt{c^2-8c+4}}2.
 \]
 
@@ -175,24 +173,34 @@ Finally, for $0\le c<1/2$, put
 Suppose an actual row has incoming reach at least $a$, radial reach at least
 $c$, and outgoing reach $B$.
 \begin{enumerate}
-\item Without center assistance,
+\item Always,
 \[
- B\le g_c(1-a),\qquad A_{\rm next}\ge g_c^\vee(a).
+ B\le g_c(1-a).
+\]
+If the outgoing edge is center-free, then
+\[
+ A_{\rm next}\ge g_c^\vee(a).
 \]
 If the row is nonsupercritical, then
 \[
- B\le\widehat g_c(1-a),\qquad
+ B\le\widehat g_c(1-a),
+\]
+and on a center-free outgoing edge
+\[
  A_{\rm next}\ge\widehat g_c^\vee(a)\ge a.
 \]
-\item With center interval $J$ on the handoff edge,
+\item With a center interval $J$ on the handoff edge,
 \[
  A_{\rm next}\ge g_{c,J}^\vee(a),
 \]
 and the hatted version holds for a nonsupercritical row.
-\item If the row is strictly supercritical, then the supremum above is not
-attained and
+\item If the row is strictly supercritical, then
 \[
- B<g_c^{\rm sc},\qquad A_{\rm next}>1-g_c^{\rm sc}.
+ B<g_c^{\rm sc}.
+\]
+Only when its outgoing edge is center-free may this be complemented to
+\[
+ A_{\rm next}>1-g_c^{\rm sc}.
 \]
 \item If nondecreasing maps $\underline\Phi_j$ are pointwise lower bounds for
 the exact row transfers $\Phi_j$, then replacing any slots in a composition by
@@ -202,10 +210,10 @@ $\underline\Phi_j$ preserves a valid lower bound for the returned demand.
 
 \begin{proof}
 Items 1 and 2 are Lemmas~\ref{lem:reader-raw-capped-transfer} and
-\ref{lem:reader-generalized-handoff}.  Item 3 is the free-envelope calculation
-\eqref{eq:reader-free-supercritical-envelope}--\eqref{eq:reader-free-raw-envelope}.
-Item 4 is Lemma~\ref{lem:reader-relaxed-composition}.  Their real-variable
-proofs are in Appendix~\ref{sec:universal-calculus}.
+\ref{lem:reader-generalized-handoff}.  Item 3 is
+\eqref{eq:reader-free-outgoing-envelope}, with the additional center-free
+hypothesis used only in \eqref{eq:reader-free-raw-envelope}.  Item 4 is
+Lemma~\ref{lem:reader-relaxed-composition}.
 \end{proof}
 
 \subsection{One signed CE1/CE2 interface}
@@ -268,7 +276,6 @@ whereas
 \begin{proof}
 This is Proposition~\ref{prop:signed-center-normal-form} and
 Corollary~\ref{cor:signed-center-boundary}.  Appendix
-\ref{sec:signed-ce12-reductions} derives the signed side equations, traces,
-exits, and sign classification.  Later strategies use only the displayed
-outputs.
+\ref{sec:signed-ce12-reductions} derives the side equations, traces, exits, and
+sign classification.
 \end{proof}
