@@ -2,9 +2,10 @@
 \label{sec:strategy2-summary}
 
 Strategy~2 turns boundary coverage into lower bounds propagated around the
-six rows.  The only geometric input is Proposition~\ref{prop:body-transfer-interface};
-the remaining work is to choose a small lower relaxation of each exact map and
-prove one terminal inequality.
+six rows.  The geometric input is Proposition~\ref{prop:body-transfer-interface};
+the remaining work is to retain a small number of exact endpoint maps, replace
+other center-free nonsupercritical rows by lower relaxations, and prove one
+terminal inequality.
 
 For maps listed in geometric row order, write
 \[
@@ -29,8 +30,9 @@ The leftmost slot acts first, and $\mathrm I$ denotes the identity map.
 \draw[->] (r5.south) to[out=-35,in=-145]
  node[below,lab] {terminal comparison} (r0.south);
 \end{tikzpicture}
-\caption{An exact row chain may be weakened slot by slot.  Monotonicity makes
-any lower-map composition a valid certificate.}
+\caption{An exact row chain may be weakened slot by slot.  The internal edges
+used by an identity relaxation are center-free; endpoint center intervals are
+first absorbed into residual demands.}
 \label{fig:transfer-chain}
 \end{figure}
 
@@ -48,141 +50,205 @@ N_+=1&\text{nine points}&
        \text{paired endpoints}.
 \end{array}
 \]
-The last column is CE2-only.  For $N_+=0$ and $\mathrm{gr}=0$, openness gives
-$A_{i+1}>1-B_i$, while nonsupercriticality gives
-$A_{i+1}\ge\widehat g_{C_i}^\vee(A_i)\ge A_i$.  Hence
+The last column is CE2-only.  For $N_+=0$ and $\mathrm{gr}=0$, the center has
+no trace on any missed handoff and the six incident vertex traces alone cover
+every edge.  Thus
 \[
- A_0<A_1<\cdots<A_5<A_0,
+ A_{i+1}>1-B_i
+ \ge\widehat g_{C_i}^\vee(A_i)\ge A_i,
 \]
-the strict identity-cycle contradiction.
+which gives the impossible strict cycle
+\[
+ A_0<A_1<\cdots<A_5<A_0.
+\]
 
-All other transfer branches use the following exact outputs.
+\subsection{Exact terminal certificates}
 
-\begin{proposition}[Terminal transfer inequalities]
-\label{prop:body-transfer-terminals}
-The real-variable calculations prove the following statements.  Every symbol
-in the statements is either signed center data from
-Proposition~\ref{prop:body-signed-center-interface} or is defined locally.
+Put $k=\eta+\alpha+\delta$ for the signed center model.
+
+\begin{proposition}[All-Vd0 endpoint certificates]
+\label{prop:body-all-vd0-endpoints}
+The following inequalities hold on the exact signed domains.
 \begin{enumerate}
-\item In a one-gap $N_+=0$ branch, let $(\xi_L,c_L)$ and $(\xi_R,c_R)$ be the
-incoming-defect and radial-demand pairs at the two endpoint rows after the
-center trace has been removed.  Then
+\item Suppose $N_+=0$, all six roles are Vd0, and exactly the normalized right
+center trace contains a V-gap.  Put
 \[
- \widehat g_{c_L}(\xi_L)+\widehat g_{c_R}(\xi_R)<1.
+ s=\frac{k}{R},\qquad q=R-\delta,\qquad
+ c_1=1-\frac\delta R,\qquad c_5=1-\frac\alpha W.
 \]
-The same form applies to a residual endpoint pair; only the formulas defining
-$\xi_L,\xi_R,c_L,c_R$ change.
+Then the two exact hatted outgoing caps satisfy
+\[
+ \widehat g_{c_5}(1-s)+\widehat g_{c_1}(1-q)<1.
+\]
+The companion edge is center-free in CE1 and gap-free in CE2; the three middle
+rows lie on a center-free ordinary path and may be replaced by $\mathrm I^3$.
 
-\item In the CE2 two-gap branch put
+\item Suppose the two CE2 traces both contain V-gaps and rows
+$T_1,\ldots,T_5$ are nonsupercritical Vd0.  Put
 \[
  p=W-\alpha,\qquad q=R-\delta.
 \]
-The two exact endpoint caps satisfy
+Then
 \[
  \widehat g_{p/W}(1-p)+\widehat g_{q/R}(1-q)<1.
 \]
-
-\item In the one-gap $N_+=1$ all-Vd0 branch put
-\[
- X=R-\delta,\qquad
- H_*=\frac{\eta+\alpha+\delta}{2R},\qquad
- m_*=\min\left\{\frac\alpha R,\frac\delta W\right\},
-\]
-and
-\[
- \begin{aligned}
- c_1&=1-\delta/R,&c_2&=1-\delta,&c_3&=1-m_*,\\
- c_4&=1-\alpha,&c_5&=1-\alpha/W.
- \end{aligned}
-\]
-The exact row induction gives
-\[
- Z=[\widehat g_{c_1}^\vee\mid\widehat g_{c_2}^\vee
-       \mid\widehat g_{c_3}^\vee\mid\widehat g_{c_4}^\vee
-       \mid\widehat g_{c_5}^\vee](X),
-\]
-while the closing row has available capacity strictly below $1-H_*$.  The
-appendix proves $Z>1-H_*$ in both center classes.
-
-For the scalar verification, let $e(d)$ denote the low threshold characterized
-by
-\[
- z>e(d)\quad\Longrightarrow\quad
- \widehat g_{1-d}^\vee(z)\ge1-e(d),
-\]
-and put
-\[
- \mathsf L_{d,\lambda}(z)=(1+\lambda)z-\lambda d.
-\]
-In CE1 the two affine lower steps
-\[
- L_1=\mathsf L_{\alpha,1-4\alpha}(H_*),\qquad
- L_2=\mathsf L_{m_*,1-5m_*}(L_1)
-\]
-place the final input above $e(\delta)$, and the last threshold map returns a
-value above $1-X$.  In CE2,
-\[
- X>e(\alpha),\qquad
- \min\{e(\alpha),e(\delta)\}<H_*,
-\]
-so exactly one of the $\alpha$- or $\delta$-slots is decisive; every other slot
-may be replaced by $\mathrm I$.  Reflection reverses the row order and
-exchanges $(R,\alpha)$ with $(W,\delta)$.
-
-\item In the T3-like $N_+=0$ branch, the two residual endpoint caps have sum
-strictly below one after the three interior rows are replaced by
-$\mathrm I^3$.  The endpoint value is the exact minimum of four contact labels;
-none of those labels is replaced by an unsupported common envelope.
-
-\item Let a T3-like or adjacent Vd1 rescuer have endpoint reach $a$ and
-supported radial interval $[c,u]$, measured from the adjacent hexagon vertex
-toward $O$.  Put
-\[
- \varepsilon=1-u,\qquad
- \vartheta=\frac{a}{a+\varepsilon}.
-\]
-The local profile proves
-\[
- a\le1-g_c^{\rm sc},\qquad
- \vartheta\le1-g_c^{\rm sc}.
-\]
-If the center covers the $O$-side interval of length $\varepsilon$, the
-center-hiding lemma forces the opposite endpoint demand
-$h_{\rm opp}\ge g_c^{\rm sc}$.  The unique supercritical outgoing reach is
-strictly below $g_c^{\rm sc}$, and the intervening nonsupercritical rows are
-identity-relaxed.  These two inequalities cannot be joined by the ordinary
-boundary path.
-
-\item In the adjacent one-Vd1/Vd2 placement, let $(a_0,b_0)$ be the unique
-supercritical row and let $I_L,I_R$ be the two signed center intervals.  Define
-\[
- A=\mathcal R_{I_R}(b_0),\qquad
- H_{\rm far}=\mathcal R_{I_L}(a_0).
-\]
-Then
-\[
- A+H_{\rm far}<\frac12,\qquad
- \delta<\frac{H_{\rm far}}4,
-\]
-and, in transfer notation,
-\[
- \widehat g_{1-\delta}^\vee\left(\frac12+A\right)>1-H_{\rm far}.
-\]
-The Vd supported-arm margin and the ordinary quarter envelope therefore leave
-the relevant radial arm uncovered.  The nonadjacent placement uses its stated
-Vd-specific radial margin, and axis replacement reduces the remaining
-exceptional pair to an all-Vd0 chain.
+Again the three middle rows form a center-free ordinary path.
 \end{enumerate}
 Singleton gaps are included.
 \end{proposition}
 
 \begin{proof}
-Items 1--6 are the exact endpoint, five-row, T3-like, free-envelope, and Vd
-certificates proved in Appendices~\ref{sec:strategy2-reader} and
-\ref{sec:exact-local-demand-calculus}.  The appendices first translate the
-geometry into the displayed real variables and then verify the inequalities
-on their explicit domains.  No stronger symmetric replacement is used for
-the T3-like audit, the CE2 threshold dichotomy, or the nonadjacent Vd terminal.
+These are the one-side and paired-endpoint theorems in
+Appendix~\ref{sec:exact-local-demand-calculus}, applied through the corrected
+boundary-path lemma, Lemma~\ref{lem:reader-boundary-path}.  The endpoint
+residuals include every center contribution before the ordinary path is used.
+\end{proof}
+
+\begin{proposition}[Five-row one-gap certificate]
+\label{prop:body-five-row-certificate}
+Assume all six roles are Vd0, $N_+=1$, and the normalized right center trace
+contains a V-gap; in CE2 assume the companion trace is gap-free.  Put
+\[
+ X=R-\delta,\qquad
+ H=\frac{k}{2R},\qquad
+ m=\min\left\{\frac\alpha R,\frac\delta W\right\},
+\]
+\[
+ \begin{aligned}
+ c_1&=1-\delta/R,&c_2&=1-\delta,&c_3&=1-m,\\
+ c_4&=1-\alpha,&c_5&=1-\alpha/W.
+ \end{aligned}
+\]
+The actual rows satisfy
+\[
+ A_0\ge Z,\qquad A_0<1-H,
+\]
+where
+\[
+ Z=[\widehat g_{c_1}^\vee\mid\widehat g_{c_2}^\vee
+       \mid\widehat g_{c_3}^\vee\mid\widehat g_{c_4}^\vee
+       \mid\widehat g_{c_5}^\vee](X).
+\]
+Exact capped-map duality reduces the required contradiction $Z>1-H$ to
+\[
+ [\widehat g_{1-\alpha}^\vee
+  \mid\widehat g_{1-m}^\vee
+  \mid\widehat g_{1-\delta}^\vee](H)>1-X.
+\]
+In CE1 the first two retained slots admit the affine lower bounds with
+coefficients $1-4\alpha$ and $1-5m$; their output lies above $e(\delta)$, and
+the last threshold slot gives the strict target.  In CE2,
+\[
+ X>e(\alpha),\qquad
+ \min\{e(\alpha),e(\delta)\}<H.
+\]
+Therefore at least one of the $\alpha$- or $\delta$-threshold slots may be
+chosen; every other slot is replaced by $\mathrm I$.  Both thresholds may be
+available, and no uniqueness is asserted.  Reflection exchanges
+$(R,\alpha)$ with $(W,\delta)$ and reverses the row order.
+\end{proposition}
+
+\begin{proof}
+The actual-row induction and terminal diameter bound are
+Proposition~\ref{prop:signed-one-gap-interface}.  The CE1 affine calculation is
+Proposition~\ref{prop:reader-ce1-one-gap}; the CE2 alternatives are
+Proposition~\ref{prop:signed-ce2-one-gap}.  Every formal iterate is a lower
+bound for the corresponding actual incoming reach.
+\end{proof}
+
+\begin{definition}[Support-isolated T3-like endpoint state]
+\label{def:body-t3-endpoint-state}
+This is a CE1/CE2 state with $N_+=0$, no Vd1/Vd2 role, and a normalized
+T3-like row $T_0$ supporting $r_1$.  Remove from the two terminal boundary
+edges the connected components already covered by $T_0$ and the center.
+Let $a_1^*,a_5^*$ be the remaining far-side incoming demands, and let
+$c_1^*,c_5^*$ be the radial demands forced on the two endpoint rows by the
+corresponding radial components.  These quantities are determined by the
+residual operator and are written explicitly in
+Appendix~\ref{sec:strategy2-rigor-completion}.
+\end{definition}
+
+\begin{proposition}[T3-like endpoint certificate]
+\label{prop:body-t3-endpoint}
+Every support-isolated T3-like endpoint state satisfies
+\[
+ \widehat g_{c_5^*}(1-a_5^*)+
+ \widehat g_{c_1^*}(1-a_1^*)<1.
+\]
+The exact endpoint function is audited on the four labels
+$\mathrm{Full},L,T_-,T_+^{\rm hi}$; no unsupported common envelope replaces
+that audit.  The three internal nonsupercritical rows lie on a center-free
+ordinary path and are replaced by $\mathrm I^3$.
+\end{proposition}
+
+\begin{proof}
+The complete label audit, including the low sheets, the first-Full exclusion,
+the high-left threshold, and the right-$T_-$ bounds, is
+Theorem~\ref{thm:paper-complete-t3-endpoint}.
+\end{proof}
+
+\begin{proposition}[Adjacent rescuer and Vd terminal certificates]
+\label{prop:body-special-terminal-certificates}
+The following exact geometric terminals hold.
+\begin{enumerate}
+\item Let a T3-like or adjacent Vd1 rescuer have endpoint reach $a$ and
+supported radial interval $[c,u]$, measured from the adjacent vertex toward
+$O$.  Put
+\[
+ \varepsilon=1-u,\qquad \vartheta=\frac{a}{a+\varepsilon}.
+\]
+Its local profile gives
+\[
+ a\le1-g_c^{\rm sc},\qquad
+ \vartheta\le1-g_c^{\rm sc}.
+\]
+If radial isolation makes the center cover the $O$-side interval of length
+$\varepsilon$, the opposite boundary demand is at least $g_c^{\rm sc}$.  The
+unique supercritical row has outgoing reach strictly below $g_c^{\rm sc}$.
+The intervening four-row boundary path is center-free on its internal edges,
+so Lemma~\ref{lem:reader-boundary-path} gives a contradiction.
+
+\item In the adjacent CE2 one-Vd1/Vd2 placement let $(a_0,b_0)$ be the unique
+supercritical row, let
+\[
+ I_L=[k/W,R+\alpha],\qquad I_R=[k/R,W+\delta],
+\]
+and put
+\[
+ A=\mathcal R_{I_R}(b_0),\qquad H=\mathcal R_{I_L}(a_0).
+\]
+Then
+\[
+ A+H<\frac12,\qquad \delta<\frac H4.
+\]
+The Vd row's possible endpoint on the target arm is below $1-H$, while the
+next Vd0 row, which has boundary demands exceeding $1/2+A$ and $H$, has own
+radial reach at most $1-H/4$.  Both are strictly below the center interval,
+which begins at $1-\delta$.  Hence that radial arm is uncovered.
+
+\item In a nonadjacent placement set $T=\alpha+\delta$ and define the two
+center-residual boundary demands $A,H$ as in
+Lemma~\ref{lem:signed-vd-nonadjacent-placement}.  Then
+\[
+ A>T,\qquad H>T,\qquad
+ d_\tau^C<\min\{A,H\},\qquad
+ c_\tau<1-\min\{A,H\}.
+\]
+Thus the Vd radial trace and the center trace are disjoint.
+
+\item In the remaining adjacent Vd1--supercritical placement, the pair can be
+replaced by two open nonsupercritical Vd0 roles while preserving every
+boundary and radial demand used by the all-Vd0 theorem.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Items 1--3 are Corollary~\ref{cor:signed-adjacent-rescuers} and
+Lemmas~\ref{lem:signed-vd-adjacent-placement} and
+\ref{lem:signed-vd-nonadjacent-placement}.  Item 4 is
+Proposition~\ref{prop:paper-vd1-pair-replacement}, whose proof retains the two
+ordered halves of the half-square admissibility lemma and the explicit open
+axis replacements.
 \end{proof}
 
 \begin{table}[H]
@@ -196,14 +262,17 @@ branch&retained transfer data&terminal contradiction\\
 $N_+=0$, all Vd0, $\mathrm{gr}=0$&$\mathrm I^6$&strict cyclic ascent\\
 $N_+=0$, all Vd0, $\mathrm{gr}=1$&two exact endpoints, $\mathrm I^3$&endpoint sum $<1$\\
 CE2, $\mathrm{gr}=2$&paired exact endpoints, $\mathrm I^3$&paired sum $<1$\\
-$N_+=0$, a T3-like role&exact endpoint audit, $\mathrm I^3$&four-label sum $<1$\\
-$N_+=1$, all Vd0, one gap&one five-row hatted chain&returned demand exceeds capacity\\
-one T3-like or adjacent Vd1&$1-g_c^{\rm sc}$, $\mathrm I^3$&outgoing cap $g_c^{\rm sc}$\\
-one Vd1/Vd2&residual chain and Vd margin&terminal separation\\
+$N_+=0$, a T3-like role&exact four-label endpoints, $\mathrm I^3$&endpoint sum $<1$\\
+$N_+=1$, all Vd0, one gap&exact five-row hatted chain&$Z>1-H$\\
+one T3-like or adjacent Vd1&$1-g_c^{\rm sc}$ and ordinary path&outgoing cap $g_c^{\rm sc}$\\
+adjacent Vd1/Vd2&two center residuals and quarter envelope&radial separation\\
+nonadjacent Vd1/Vd2&two residuals and Vd corner margin&radial separation\\
+Vd1--supercritical pair&explicit axis replacements&all-Vd0 contradiction\\
 \bottomrule
 \end{tabular}
-\caption{The reader-facing Strategy~2 certificate register.  The full
-slot-by-slot table is in Appendix~\ref{sec:strategy2-reader}.}
+\caption{The reader-facing Strategy~2 certificate register.  Every identity
+slot lies on an internal edge for which center and nonincident traces have
+already been excluded.}
 \label{tab:body-strategy2-chains}
 \end{table}
 
@@ -211,9 +280,8 @@ slot-by-slot table is in Appendix~\ref{sec:strategy2-reader}.}
 \label{prop:body-demand-branches}
 Strategy~2 closes:
 \begin{enumerate}
-\item the $N_+=0$ all-$\Vdzero$ and T3-like-without-Vd1/Vd2 branches for CE1
-and CE2;
-\item every positive-gap $N_+=1$ all-$\Vdzero$ state;
+\item the $N_+=0$ all-Vd0 and T3-like-without-Vd1/Vd2 branches for CE1 and CE2;
+\item every positive-gap $N_+=1$ all-Vd0 state;
 \item the exactly-one-T3-like $N_+=1$ state with no Vd1/Vd2 role;
 \item the complementary transfer placements in the CE2, $N_+=1$,
 exactly-one-Vd1/Vd2 branch.
@@ -221,9 +289,9 @@ exactly-one-Vd1/Vd2 branch.
 \end{proposition}
 
 \begin{proof}
-Apply Proposition~\ref{prop:body-transfer-interface} along the exact row chain,
-replace only the slots listed in Table~\ref{tab:body-strategy2-chains}, and use
-Proposition~\ref{prop:body-transfer-terminals}.  This is the abstract content
-of Proposition~\ref{prop:reader-demand-branches}; its appendix proof records
-the actual row realizing every formal composition.
+Use Propositions~\ref{prop:body-all-vd0-endpoints},
+\ref{prop:body-five-row-certificate}, \ref{prop:body-t3-endpoint}, and
+\ref{prop:body-special-terminal-certificates}.  The exact placement assembly is
+Proposition~\ref{prop:signed-ce2-one-vd-placements}.  All singleton-gap states
+are included.
 \end{proof}
