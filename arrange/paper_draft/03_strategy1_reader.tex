@@ -20,8 +20,6 @@ uses only the numerical trace caps stated below.}
 \label{fig:strategy1-reader-targets}
 \end{figure}
 
-The technical trace calculations reduce to the following register.
-
 \begin{proposition}[Trace-cap register]
 \label{prop:body-trace-register}
 Under the hypotheses indicated in each row,
@@ -52,9 +50,7 @@ The four skeleton bounds are Lemmas~\ref{lem:center-skeleton-cap},
 \ref{lem:supercritical-skeleton-cap},
 \ref{lem:positive-support-skeleton-cap}, and
 \ref{lem:no-support-skeleton-cap}.  The boundary bounds are the signed center
-formula and the vertex trace atlas in Appendix~\ref{sec:length}.  The displayed
-register contains the outputs only; all orientation splits and polynomial
-checks remain in the appendix.
+formula and the vertex trace atlas in Appendix~\ref{sec:length}.
 \end{proof}
 
 Two abstract sums explain every Strategy~1 route.  First, if there are
@@ -64,18 +60,28 @@ $q\ge3$ short roles, Proposition~\ref{prop:body-trace-register} gives
  <\frac32+q\frac32+(6-q)2
  =\frac{27-q}{2}\le12,
 \]
-contradicting $\Haus(S)=12$.  Second, put
+contradicting $\Haus(S)=12$.
+
+Second, put
 \[
  \theta=\frac2{\sqrt3}-1.
 \]
-If the center contribution is $L_C$, there are $n$ supercritical Vd0 rows, and
-$r\ge1$ distinguished nonsupercritical rows have strict boundary caps
-$q_1,\ldots,q_r<1$, then
+Suppose a perimeter branch has:
+\begin{itemize}
+\item center contribution $L_C$;
+\item $n$ supercritical Vd0 rows, each with contribution at most $2/\sqrt3$;
+\item $r\ge1$ distinguished nonsupercritical rows with strict caps
+$q_1,\ldots,q_r<1$;
+\item every remaining row with contribution at most $1$.
+\end{itemize}
+If
 \[
- L_C+n\theta\le\sum_{j=1}^r(1-q_j)
+ L_C+n\theta\le\sum_{j=1}^r(1-q_j),
 \]
-forces total perimeter trace strictly below six.  This is the master perimeter
-deficit.
+then the total perimeter contribution is strictly below six.  This is the
+master perimeter deficit.  The fourth hypothesis is part of the statement; it
+is supplied in every application by the vertex classification and the actual
+supercritical count.
 
 \begin{proposition}[Branches closed by Strategy 1]
 \label{prop:body-length-branches}
@@ -92,8 +98,8 @@ Strategy~1 closes:
 
 \begin{proof}
 The first row is the cyclic boundary sum.  The third row is the skeleton sum
-above.  The remaining rows are substitutions of the center and distinguished
-vertex caps into the master perimeter deficit.  The exact substitutions,
-including all strictness, are Proposition~\ref{prop:length-branches} in
-Appendix~\ref{sec:length} and the common budgets immediately following it.
+above.  The remaining rows substitute the center and distinguished vertex caps
+into the master perimeter deficit, with all unlisted rows bounded by one.
+The exact substitutions and strictness are Proposition~\ref{prop:length-branches}
+and Corollary~\ref{cor:signed-budget-branches}.
 \end{proof}
