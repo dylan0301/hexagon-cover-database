@@ -114,19 +114,24 @@ the all-Vd0 boundary-loss theorem.
 Use the Vd corner normal form with $t>0$, $d=\sqrt{t^2+t+1}$ and exact Vd1
 boundary reaches $a,b$:
 \[
- x-(t+1)y\le a,\qquad
- ty-(t+1)x\le tb,\qquad
+ x-(t+1)y\le a,
+ \qquad
+ ty-(t+1)x\le tb,
+ \qquad
  tx+y\le d-a-tb.
 \]
 Its own-radial reach and neighboring-arm endpoints are
 \[
- c=\frac{d-a-tb}{t+1},\qquad
- \lambda=\frac{t(1-b)}{t+1},\qquad
+ c=\frac{d-a-tb}{t+1},
+ \qquad
+ \lambda=\frac{t(1-b)}{t+1},
+ \qquad
  \mu=\frac{d-a-tb-1}{t}.
 \]
 Because the original open Vd1 role contains $M_1$,
 \[
- b>\frac{t-1}{2t},\qquad
+ b>\frac{t-1}{2t},
+ \qquad
  a+tb<d-1-\frac t2.
 \]
 If $t<1$, then
@@ -138,8 +143,13 @@ $t\ge1$.
 
 We need four strict margins:
 \begin{equation}
- a+c<1,\qquad a<\lambda\le\frac12,\qquad
- b<\frac12,\qquad \mu<1-a.
+ a+c<1,
+ \qquad
+ a<\lambda\le\frac12,
+ \qquad
+ b<\frac12,
+ \qquad
+ \mu<1-a.
  \label{eq:paper-replacement-margins}
 \end{equation}
 For the first, maximize $a+c$ on the closed midpoint face
@@ -220,12 +230,21 @@ Let $d_1^C$ be the center reach on the rescued arm, measured from $O$, and put
 $c_1^{\rm req}=1-d_1^C$.  Only the center, the supercritical row, and the Vd1
 row have positive intervals on this arm.  Open coverage at the center handoff
 gives
+\[
+ c_1^{\rm req}<\max\{c_1,\mu\}.
+\]
+By the half-square lemma and \eqref{eq:paper-replacement-margins},
+\[
+ \max\{c_1,\mu\}
+ \le\max\{1-b_1,1-a\}.
+\]
+Therefore
 \begin{equation}
- c_1^{\rm req}<\max\{c_1,\mu\}
- <\max\{1-b_1,1-a\}.
+ c_1^{\rm req}<\max\{1-b_1,1-a\}.
  \label{eq:paper-radial-bridge-margin}
 \end{equation}
-Equality would leave the common open exit/entry point uncovered.
+The strictness comes from the first inequality; no strictness is required in
+the second comparison.
 
 Choose
 \[
@@ -233,8 +252,11 @@ Choose
 \]
 within the strict margins so that
 \[
- p_1<\frac12,\qquad 1-p_1>c,
- \qquad \max\{p_2,1-p_2\}>c_1^{\rm req}.
+ p_1<\frac12,
+ \qquad
+ 1-p_1>c,
+ \qquad
+ \max\{p_2,1-p_2\}>c_1^{\rm req}.
 \]
 This is possible by choosing $p_1$ close to $a$ and choosing $p_2$ close to
 $a$ when the right side of \eqref{eq:paper-radial-bridge-margin} is supplied by
