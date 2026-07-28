@@ -1,27 +1,34 @@
 \section{Signed CE1/CE2 Reductions}
 \label{sec:signed-ce12-reductions}
 
-This section gives the common center model and the shared one-gap proof
-interface.  The exact local admissible set and the four-label capped map are
-proved in Appendix~\ref{sec:exact-local-demand-calculus}; only their
-monotonicity, duality, and threshold consequences are used here.
+This section gives one signed center model and the common one-gap row
+interface.  The transfer notation has already been fixed in
+Section~\ref{sec:universal-calculus}: the exact nonsupercritical
+incoming-reach map is $\widehat g_c^\vee$, while $g_c$ itself remains the
+historical boundary-defect map.
 
 \subsection{One signed center normal form}
 
 \begin{proposition}[Signed CE1/CE2 center normal form]
 \label{prop:signed-center-normal-form}
 Let $T_C$ be a closed unit equilateral triangle with
-$O\in\interior(T_C)$ and a positive-length boundary trace.  Normalize such
-a trace to $e_{0,1}$ and use affine coordinates
+$O\in\interior(T_C)$ and a positive-length boundary trace.  Normalize such a
+trace to $e_{0,1}$ and use affine coordinates
 \[
  X=V_0+b(V_1-V_0)+a(V_5-V_0).
 \]
 There are parameters
 \[
- 0<R<1,\qquad W=1-R,
+ 0<R<1,
+ \qquad
+ W=1-R,
 \]
 \[
- E=\sqrt{1-RW},\qquad \eta=1-E,\qquad P=E(1-E),
+ E=\sqrt{1-RW},
+ \qquad
+ \eta=1-E,
+ \qquad
+ P=E(1-E),
 \]
 and nonnegative center slacks $\alpha,\delta$ such that, with
 \[
@@ -90,28 +97,27 @@ For closures of original open center roles one has $\alpha,\delta>0$.
 Write
 \[
  T_C\cap e_{0,1}=[s,t],
- \qquad 0\le s<t\le1.
+ \qquad
+ 0\le s<t\le1.
 \]
 The two sides through these endpoints have a positive slope ratio.  Reflect
 across the perpendicular bisector of $e_{0,1}$ if necessary and call the
 ratio $R\le1$; put $W=1-R$.  Direct equations for the three side lines give
-the unit-equilateral edge-cut slacks
 \[
  F_1=Rb+Wa-Rs,
-\]
-\[
+ \qquad
  F_2=-b+Ra+t,
+ \qquad
+ F_0=Wb-a+E+Rs-t,
 \]
-\[
- F_0=Wb-a+E+Rs-t.
-\]
-Here $E=\sqrt{1-RW}$ is forced by the unit side-length relation.  The case
-$R=1$ would give $F_0(O)=s-t<0$, contrary to
-$O\in\interior(T_C)$.  Thus $0<R<1$.
+where $E=\sqrt{1-RW}$ is forced by the unit side-length relation.  If $R=1$,
+then $F_0(O)=s-t<0$, contrary to $O\in\interior(T_C)$; hence $0<R<1$.
 
 Set
 \[
- \alpha=F_0(O),\qquad \delta=F_2(O).
+ \alpha=F_0(O),
+ \qquad
+ \delta=F_2(O).
 \]
 Then
 \[
@@ -124,7 +130,7 @@ three unit-equilateral side-normal directions and
 \[
  F_0+F_1+F_2=E,
 \]
-so this is the same unit equilateral triangle.
+so the three inequalities define the same unit equilateral triangle.
 
 On $e_{0,1}$ one has $a=0$.  The active inequalities are
 \[
@@ -155,7 +161,7 @@ The positive right trace gives
  \delta<\frac{P}{W}
  =\frac{ER}{1+E}<\frac R2.
 \]
-On $e_{1,2}$, parameterized by $b=1+q$, $a=q$, the slack $F_2$ equals
+On $e_{1,2}$, parameterized by $b=1+q$, $a=q$, the slack $F_2$ is
 \[
  \delta-R-Wq<0.
 \]
@@ -170,62 +176,70 @@ For the radial exits, substitute the six ray parametrizations in
 \eqref{eq:signed-side-slacks}.  On $r_1$ the decreasing slack is
 $\delta-Rq$; on $r_2$ it is $\delta-q$; on $r_3$ the two decreasing slacks
 are $\alpha-Rq$ and $\delta-Wq$.  Reflection gives $r_4,r_5$, and on $r_0$
-the decreasing slack is
-\[
- E-\alpha-\delta-q.
-\]
-This proves \eqref{eq:signed-center-exits}.
+the decreasing slack is $E-\alpha-\delta-q$.  This proves
+\eqref{eq:signed-center-exits}.
 
-Finally, the third center slack is $E-\alpha-\delta$.  Since
+Finally,
 \[
  W(\alpha+\delta)\le\alpha+W\delta<P,
 \]
-we have
+so
 \[
  E-\alpha-\delta
  >E-\frac{P}{W}
- =\frac{E(E-R)}{W}>\frac12;
+ =\frac{E(E-R)}{W}>\frac12,
 \]
-the last inequality follows from
-\[
- 2E(E-R)-W=(E-R)^2>0.
-\]
-Together with
+where the last inequality is equivalent to
+$2E(E-R)-W=(E-R)^2>0$.  Together with
 \[
  \alpha<P<\min\left\{\frac R2,\frac W2\right\},
  \qquad
  \delta<\frac R2,
 \]
-the midpoint tests give the exact midpoint set $\{M_0\}$.  The closures of
-original open center roles have all three center slacks positive, so
-$\alpha,\delta>0$ there.
+the midpoint tests give the exact midpoint set $\{M_0\}$.  For the closure of
+an original open center role, all three center slacks are positive; hence
+$\alpha,\delta>0$.
 \end{proof}
 
 \begin{remark}[Legacy variables]
 \label{rem:signed-legacy-variables}
 For CE1, take
 \[
- \lambda=R,\qquad s=\frac{k}{R},\qquad t=W+\delta,\qquad
- C_0=\alpha,\qquad C_2=\delta.
+ \lambda=R,
+ \qquad
+ s=\frac{k}{R},
+ \qquad
+ t=W+\delta,
+ \qquad
+ C_0=\alpha,
+ \qquad
+ C_2=\delta.
 \]
 For CE2, take
 \[
- x=\frac{k}{W},\qquad u=R+\alpha,\qquad
- y=\frac{k}{R},\qquad v=W+\delta.
+ x=\frac{k}{W},
+ \qquad
+ \nu=R+\alpha,
+ \qquad
+ y=\frac{k}{R},
+ \qquad
+ v=W+\delta.
 \]
 If $S=x+y$ and $D=\sqrt{x^2+xy+y^2}$, then
 \[
- S=\frac{k}{RW},\qquad D=\frac{Ek}{RW},
+ S=\frac{k}{RW},
+ \qquad
+ D=\frac{Ek}{RW},
 \]
-and the old coupling equation is automatic:
+and the old coupling equation is
 \[
- (u+v)S-xy=D.
+ (\nu+v)S-xy=D.
 \]
 Thus the CE1 and CE2 formula lists are two coordinate readings of
 Proposition~\ref{prop:signed-center-normal-form}.
 \end{remark}
 
-\subsection{Boundary contribution and the diameter transfer}
+\subsection{Boundary contribution and diameter transfer}
 
 \begin{corollary}[Common center-boundary formula]
 \label{cor:signed-center-boundary}
@@ -248,16 +262,15 @@ In CE2,
 \end{corollary}
 
 \begin{proof}
-Equation~\eqref{eq:signed-boundary-length} is
-\eqref{eq:signed-right-trace} plus \eqref{eq:signed-left-trace}.
-If $\Delta_L\le0$, then $R\alpha+\delta\ge P$.  Multiplying by $W$ and using
+Equation~\eqref{eq:signed-boundary-length} is the sum of
+\eqref{eq:signed-right-trace} and \eqref{eq:signed-left-trace}.  If
+$\Delta_L\le0$, then $R\alpha+\delta\ge P$.  Multiplying by $W$ and using
 $\alpha\ge RW\alpha$ gives
 \[
  \alpha+W\delta\ge WP.
 \]
-Thus $\Delta_R\le RP$, so the boundary contribution is at most $P$.
-Since $E\ge\sqrt3/2$ and $E(1-E)$ decreases on this interval, the CE1 cap
-follows.
+Thus $\Delta_R\le RP$, so the contribution is at most $P$.  Since
+$E\ge\sqrt3/2$ and $E(1-E)$ decreases on this interval, the CE1 cap follows.
 
 If $\Delta_L>0$, direct addition gives
 \[
@@ -268,17 +281,15 @@ If $\Delta_L>0$, direct addition gives
  &=\frac{P-E^2(\alpha+\delta)}{RW}.
  \end{aligned}
 \]
-Here $W+R^2=W^2+R=E^2$, and $P/(RW)=E/(1+E)$.  The last display is therefore
-strictly less than $1/2$.
+Here $W+R^2=W^2+R=E^2$ and $P/(RW)=E/(1+E)$, so the last expression is
+strictly below $1/2$.
 \end{proof}
 
 \begin{lemma}[Adjacent-edge diameter transfer]
 \label{lem:signed-diameter-transfer}
 For $0\le q\le1$, put
 \[
- \beta(q)=\frac{-q+\sqrt{4-3q^2}}2,
- \qquad
- \lambda_\circ(q)=1-\beta(q).
+ \beta(q)=\frac{-q+\sqrt{4-3q^2}}2.
 \]
 If a unit equilateral triangle reaches parameters $q,b$ on two adjacent
 boundary edges, then
@@ -289,55 +300,30 @@ For $q>0$,
 \[
  \beta(q)<1-\frac q2,
  \qquad
- \lambda_\circ(q)>\frac q2.
+ 1-\beta(q)>\frac q2.
 \]
 \end{lemma}
 
 \begin{proof}
 The squared distance between the two boundary points is
-$q^2+qb+b^2$, so it is at most the squared diameter $1$.  Solving the
-quadratic in $b$ gives $b\le\beta(q)$.  For $q>0$,
-$\sqrt{4-3q^2}<2$, which gives both strict linear comparisons.
+$q^2+qb+b^2$, so it is at most one.  Solving the quadratic in $b$ gives the
+first assertion.  For $q>0$, $\sqrt{4-3q^2}<2$, which gives both strict
+linear comparisons.
 \end{proof}
 
 \subsection{The local propagation interface}
 
-Let
-\[
- u=\left(\frac12,\frac{\sqrt3}{2}\right),
- \qquad
- v=\left(\frac12,-\frac{\sqrt3}{2}\right),
-\]
-and for $0\le a,b,c\le1$ put
-\[
- K(a,b,c)=\conv\{0,au,bv,c(u+v)\}.
-\]
-The local admissible set is
-\[
- \mathcal A
- =\{(a,b,c):K(a,b,c)\text{ lies in a closed unit equilateral triangle}\}.
-\]
-For $a,c\in[0,1]$ define
-\[
- \begin{aligned}
- B_c(a)&=\max\{b:(a,b,c)\in\mathcal A\},&
- F_c(a)&=\min\{B_c(a),1-a\},\\
- G_c(a)&=1-F_c(a).&&
- \end{aligned}
-\]
-Propositions~\ref{prop:exact-admissible-set} and
-\ref{prop:capped-demand-map} prove that $\mathcal A$ is coordinatewise
-down-closed, $F_c$ is nonincreasing, and $G_c$ is nondecreasing and
-extensive:
+The exact nonsupercritical reach transfer is $\widehat g_c^\vee$.  It is
+nondecreasing and extensive:
 \begin{equation}
- G_c(z)\ge z.
+ \widehat g_c^\vee(z)\ge z.
  \label{eq:reader-extensive}
 \end{equation}
-They also prove the exact reflection duality
+The exact reflection duality is
 \begin{equation}
- G_c(a)\le z
+ \widehat g_c^\vee(a)\le z
  \quad\Longleftrightarrow\quad
- G_c(1-z)\le1-a.
+ \widehat g_c^\vee(1-z)\le1-a.
  \label{eq:reader-capped-duality}
 \end{equation}
 
@@ -348,40 +334,22 @@ $(A_i,B_i,C_i)$ and
  \qquad
  C_i\ge c_i.
 \]
-The same role realizes $(z,B_i,c_i)$, so
+Then its outgoing reach satisfies
 \[
- B_i\le F_{c_i}(z).
+ B_i\le\widehat g_{c_i}(1-z).
 \]
 If the next boundary handoff gives $A_{i+1}\ge1-B_i$, then
 \begin{equation}
+ \begin{aligned}
  A_{i+1}
- \ge1-B_i
- \ge1-F_{c_i}(z)
- =G_{c_i}(z).
+ &\ge1-B_i\\
+ &\ge1-\widehat g_{c_i}(1-z)\\
+ &=\widehat g_{c_i}^\vee(z).
+ \end{aligned}
  \label{eq:reader-actual-propagation}
 \end{equation}
 Every composition below is shorthand for repeated applications of this
 inequality to specified actual rows.
-
-For the low-root thresholds used below, put
-\begin{equation}
- e(d)=\frac{1-d}{2}
- \left(1-\sqrt{4(1-d)^2-3}\right)
- \qquad
- \left(0<d<1-\frac{\sqrt3}{2}\right).
- \label{eq:signed-low-root-definition}
-\end{equation}
-For the low-radial order transition, put
-\begin{equation}
- h(c)=\frac{2c}{1+\sqrt{16c^2-3}}
- \qquad\left(\frac12<c\le\frac{\sqrt3}{2}\right).
- \label{eq:signed-order-transition}
-\end{equation}
-The exact map calculation in
-\eqref{eq:low-root-bounds}--\eqref{eq:high-demand-threshold} supplies the
-quoted bounds and threshold implication for $e$; Proposition
-\ref{prop:capped-demand-map} identifies $h$ as the low-radial order
-transition.
 
 \subsection{The common one-gap interface}
 
@@ -391,80 +359,101 @@ Assume every vertex role is Vd0, $N_+=1$, and the normalized right center
 trace contains a V-gap, possibly a singleton.  In the CE2 case assume the
 companion trace contains no V-gap.  Put
 \[
- X=R-\delta,\qquad H=\frac{k}{2R},\qquad
+ X=R-\delta,
+ \qquad
+ H=\frac{k}{2R},
+ \qquad
  m=\min\left\{\frac\alpha R,\frac\delta W\right\},
 \]
 and
 \[
  \begin{aligned}
- c_1&=1-\frac\delta R,& c_2&=1-\delta,& c_3&=1-m,\\
- c_4&=1-\alpha,& c_5&=1-\frac\alpha W,& c_0&=k.
+ c_1&=1-\frac\delta R,&
+ c_2&=1-\delta,&
+ c_3&=1-m,\\
+ c_4&=1-\alpha,&
+ c_5&=1-\frac\alpha W,&
+ c_0&=k.
  \end{aligned}
 \]
 Let
 \[
- z_0=X,\qquad z_i=G_{c_i}(z_{i-1})\quad(1\le i\le5),
+ z_0=X,
+ \qquad
+ z_i=\widehat g_{c_i}^\vee(z_{i-1})
+ \quad(1\le i\le5),
 \]
 and $Z=z_5$.  Then the actual reaches satisfy
 \begin{equation}
- a_0\ge Z,
+ A_0\ge Z,
  \qquad
- a_0\le B_k\left(\frac{k}{R}\right)<1-H.
+ A_0\le g_k\left(1-\frac{k}{R}\right)<1-H.
  \label{eq:signed-one-gap-actual}
 \end{equation}
 Consequently it is enough to prove
 \begin{equation}
- \left(G_{1-\delta}\circ G_{1-m}\circ G_{1-\alpha}\right)(H)
+ [\widehat g_{1-\alpha}^\vee
+  \mid\widehat g_{1-m}^\vee
+  \mid\widehat g_{1-\delta}^\vee](H)
  >W+\delta.
  \label{eq:signed-three-map-target}
 \end{equation}
 \end{proposition}
 
 \begin{proof}
-The exact-midpoint argument makes rows $1,\ldots,5$ nonsupercritical and
-row $0$ uniquely supercritical.  Gap containment gives
+The exact-midpoint argument makes rows $1,\ldots,5$ nonsupercritical and row
+$0$ uniquely supercritical.  Gap containment gives
 \[
- b_0\ge\frac{k}{R},\qquad a_1\ge X.
+ B_0\ge\frac{k}{R},
+ \qquad
+ A_1\ge X.
 \]
-Suppose inductively that $a_i\ge z_{i-1}$.  Radial coverage gives actual
-radial reach at least $c_i$, and the proof-safe capped map gives
+Suppose inductively that $A_i\ge z_{i-1}$.  Radial coverage gives actual
+radial reach at least $c_i$, and the hatted outgoing cap gives
 \[
- b_i\le F_{c_i}(z_{i-1}).
+ B_i\le\widehat g_{c_i}(1-z_{i-1}).
 \]
 The next boundary handoff therefore gives
 \[
- a_{i+1}\ge1-b_i\ge G_{c_i}(z_{i-1})=z_i.
+ A_{i+1}
+ \ge1-B_i
+ \ge\widehat g_{c_i}^\vee(z_{i-1})
+ =z_i.
 \]
 For the final handoff, the CE1 companion trace is empty and the CE2 companion
-trace is gap-free.  Hence
-\[
- a_0\ge z_5=Z.
-\]
+trace is gap-free, so $A_0\ge z_5=Z$.
+
 The same row has boundary reach at least $k/R$ and radial reach at least $k$.
 Reflection and down-closedness of $\mathcal A$ give
 \[
- \left(\frac{k}{R},a_0,k\right)\in\mathcal A,
+ \left(\frac{k}{R},A_0,k\right)\in\mathcal A,
 \]
-so $a_0\le B_k(k/R)$.  Lemma~\ref{lem:signed-diameter-transfer} gives
+so
 \[
- B_k(k/R)\le\beta(k/R)<1-\frac{k}{2R}=1-H,
+ A_0\le g_k\left(1-\frac{k}{R}\right).
+\]
+Lemma~\ref{lem:signed-diameter-transfer} gives
+\[
+ g_k\left(1-\frac{k}{R}\right)
+ \le\beta\left(\frac{k}{R}\right)
+ <1-\frac{k}{2R}
+ =1-H,
 \]
 which proves \eqref{eq:signed-one-gap-actual}.
 
 The first and fifth maps are extensive and the middle maps are nondecreasing,
 so it is enough to prove
 \[
- (G_{c_4}\circ G_{c_3}\circ G_{c_2})(X)>1-H.
+ [\widehat g_{c_2}^\vee
+  \mid\widehat g_{c_3}^\vee
+  \mid\widehat g_{c_4}^\vee](X)>1-H.
 \]
-Three applications of the exact duality
-\[
- G_c(a)\le z\iff G_c(1-z)\le1-a
-\]
-show that its negation is equivalent to the negation of
-\eqref{eq:signed-three-map-target}.  This proves the reduction.
+Three applications of \eqref{eq:reader-capped-duality} show that its negation
+is equivalent to the negation of \eqref{eq:signed-three-map-target}.  This
+proves the reduction.
 \end{proof}
 
-The CE1 sign $\Delta_L\le0$ is completed by the selected-$T_+$ chord proof in
+The CE1 sign $\Delta_L\le0$ is completed by the selected-$T_+$ relaxation in
 Proposition~\ref{prop:reader-ce1-one-gap}.  We now give the shorter CE2 scalar
 clause.
 
@@ -472,7 +461,9 @@ clause.
 \label{lem:signed-ce2-two-threshold}
 Assume $\Delta_R>0$ and $\Delta_L>0$, and put
 \[
- T=\alpha+\delta,\qquad Q=\frac{\eta+T}{2R}.
+ T=\alpha+\delta,
+ \qquad
+ Q=\frac{\eta+T}{2R}.
 \]
 Then
 \begin{equation}
@@ -489,7 +480,9 @@ and
 \begin{proof}
 The CE2 inequalities are
 \[
- \alpha+W\delta<P,\qquad R\alpha+\delta<P.
+ \alpha+W\delta<P,
+ \qquad
+ R\alpha+\delta<P.
 \]
 Multiply the first by $W$, the second by $R$, and add.  Since
 $W+R^2=W^2+R=E^2$, this gives
@@ -520,8 +513,7 @@ $E^2=1-R+R^2$ gives
  \Phi\left(\frac\eta E\right)
  =\frac{R(E-R)^2}{E^2}>0.
 \]
-Thus $\Phi(T)>0$, proving the desired comparison and
-\eqref{eq:signed-two-threshold}.
+Thus $\Phi(T)>0$, proving \eqref{eq:signed-two-threshold}.
 \end{proof}
 
 \begin{proposition}[Short CE2 one-gap completion]
@@ -542,31 +534,36 @@ For
 \]
 one has
 \[
- \pi(0)=\eta>0,\qquad
+ \pi(0)=\eta>0,
+ \qquad
  \pi(P)=\eta(\eta+2ER^2)>0.
 \]
 Concavity therefore gives $\pi(\alpha)>0$, and the low-root bound yields
 \begin{equation}
  z_0>\frac{\eta+\alpha}{W}
- >\frac{2\alpha}{1-2\alpha}>e(\alpha).
+ >\frac{2\alpha}{1-2\alpha}
+ >e(\alpha).
  \label{eq:signed-initial-threshold}
 \end{equation}
 
 If $e(\alpha)<Q$, extensivity carries
-\eqref{eq:signed-initial-threshold} to the row-$4$ map $G_{1-\alpha}$, which
-gives an output at least $1-e(\alpha)>1-Q$.  All later maps preserve it.
-If $e(\alpha)\ge Q$, Lemma~\ref{lem:signed-ce2-two-threshold} gives
+\eqref{eq:signed-initial-threshold} to the row-$4$ map
+$\widehat g_{1-\alpha}^\vee$, which gives an output at least
+$1-e(\alpha)>1-Q$.  All later maps preserve it.  If
+$e(\alpha)\ge Q$, Lemma~\ref{lem:signed-ce2-two-threshold} gives
 $e(\delta)<Q$, and
 \[
  z_0>e(\alpha)\ge Q>e(\delta).
 \]
-The row-$2$ map $G_{1-\delta}$ then gives an output above $1-Q$, again
-preserved by all later maps.  Thus $Z>1-Q=1-H$, contradicting
+The row-$2$ map $\widehat g_{1-\delta}^\vee$ then gives an output above
+$1-Q$, again preserved by all later maps.  Thus $Z>1-Q=1-H$, contradicting
 \eqref{eq:signed-one-gap-actual}.
 
 Reflection exchanges
 \[
- R\leftrightarrow W,\qquad \alpha\leftrightarrow\delta
+ R\leftrightarrow W,
+ \qquad
+ \alpha\leftrightarrow\delta
 \]
 and reverses the row order.  The signed CE2 domain and the proof above are
 invariant under this exchange, so the left-gap orientation is impossible as
@@ -574,9 +571,10 @@ well.
 \end{proof}
 
 \begin{remark}[Why the CE1 scalar clause remains separate]
-The geometric one-gap interface is common, but the CE2 estimate
+The geometric one-gap interface is common, but
 \eqref{eq:signed-two-threshold} is not valid on the full CE1 sign domain.
-Thus the merger stops at Proposition~\ref{prop:signed-one-gap-interface}; the
-CE1 selected-$T_+$ clause and the CE2 threshold clause are genuinely different
-scalar proofs of the same target \eqref{eq:signed-three-map-target}.
+Thus the merger stops at
+Proposition~\ref{prop:signed-one-gap-interface}; the CE1 selected-$T_+$
+clause and the CE2 threshold clause are genuinely different scalar proofs of
+the same target \eqref{eq:signed-three-map-target}.
 \end{remark}
