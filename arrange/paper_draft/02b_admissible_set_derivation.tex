@@ -1,0 +1,193 @@
+\section{Derivation of the Local Admissible Set}
+\label{sec:admissible-set-derivation}
+
+This section proves the explicit description stated in
+Proposition~\ref{prop:body-admissible-description}.  It also derives the three
+polynomial cells used by the exact-demand appendix and records the component
+selectors introduced when a positive support equation is squared.
+
+Let
+\[
+ u=\left(\frac12,\frac{\sqrt3}{2}\right),\qquad
+ v=\left(\frac12,-\frac{\sqrt3}{2}\right),
+\]
+and put
+\[
+ O=0,\qquad A=au,\qquad B=bv,\qquad C=c(u+v),
+ \qquad K=\conv\{O,A,B,C\}.
+\]
+Set
+\[
+ s=a+b,\qquad d=a^2+ab+b^2.
+\]
+
+\subsection{The triangular hull}
+
+Assume first that $s>0$ and $cs\le ab$.  If $a,b>0$, then
+\[
+ \frac ca+\frac cb\le1,
+\]
+so
+\[
+ C=\frac caA+\frac cbB+\left(1-\frac ca-\frac cb\right)O
+ \in\conv\{O,A,B\}.
+\]
+The zero-coordinate cases follow by continuity.  The distance $AB$ equals
+$\sqrt d$ and is the diameter of $\triangle OAB$.  Moreover the equilateral
+triangle with vertices
+\[
+ A,\qquad B,\qquad -bu-av
+\]
+has side $\sqrt d$ and contains $O$.  It therefore contains $C$ as well.
+Every enclosing set has diameter at least $AB$, so
+\[
+ L_{\min}(a,b,c)=\sqrt d.
+\]
+When $a=b=0$, the hull is the segment $[0,c(u+v)]$ and its least enclosing
+equilateral side is $c$.
+
+\subsection{The quadrilateral hull and the four calipers}
+
+Assume now that $s>0$ and $cs>ab$.  The four hull vertices occur in the cyclic
+order
+\[
+ O,\ B,\ C,\ A.
+\]
+By Proposition~\ref{prop:universal-enclosure-gauge}, a minimizing orientation
+has an outward normal perpendicular to one of the four hull edges.
+
+For the edge $OA$, the three supports give
+\[
+ L_{OA}=b+\max\{a,c\};
+\]
+reflection gives
+\[
+ L_{BO}=a+\max\{b,c\}.
+\]
+For the edge $AC$, put
+\[
+ R_a=\sqrt{a^2-ac+c^2}.
+\]
+An outward unit normal is
+\[
+ n_0=\frac1{2R_a}(\sqrt3a,\,2c-a).
+\]
+If $x_+=\max\{x,0\}$, the support values for
+$n_0,\mathsf Rn_0,\mathsf R^2n_0$ are
+\[
+ \frac{\sqrt3ac}{2R_a},\qquad
+ \frac{\sqrt3a(a-c)_+}{2R_a},\qquad
+ \frac{\sqrt3c\max\{b,(c-a)_+\}}{2R_a}.
+\]
+Multiplying their sum by $2/\sqrt3$ gives
+\[
+ L_{AC}=
+ \begin{cases}
+  (a^2+bc)/R_a,&a\ge c,\\
+  c(a+b)/R_a,&a<c\le a+b,\\
+  c^2/R_a,&c>a+b.
+ \end{cases}
+\]
+Reflection exchanges $a$ and $b$ and gives $L_{CB}$.  These four hull edges are
+exhaustive, so
+\[
+ L_{\min}(a,b,c)=\min\{L_{OA},L_{BO},L_{AC},L_{CB}\}.
+\]
+This proves Proposition~\ref{prop:body-admissible-description}, including all
+equality and degenerate cases by continuity.
+
+\subsection{Equivalent polynomial cells}
+
+For the exact transfer calculations put
+\[
+ m=\min\{a,b\},\qquad M=\max\{a,b\},
+ \qquad q=s^4-s^2+ab,
+\]
+and define
+\begin{align*}
+ F_L(a,b,c)&=c^4-c^2+mc-m^2,\\
+ F_T(a,b,c)&=(s^2-1)c^2+Mc-M^2,\\
+ F_S(a,b,c)&=(m^2-1)c^2+(2mM^2+M)c+M^4-M^2.
+\end{align*}
+We prove
+\begin{equation}
+ \mathcal A=\mathcal A_L\cup\mathcal A_T\cup\mathcal A_S,
+ \label{eq:derived-admissible-cells}
+\end{equation}
+where
+\begin{align*}
+ \mathcal A_L&=\{d\le1,\ s\le1,\ q\le0,\ F_L\le0\},\\
+ \mathcal A_T&=\{d\le1,\ s\le1,\ q\ge0,\ F_T\le0,\ c\le2M\},\\
+ \mathcal A_S&=\{d\le1,\ s>1,\ F_S\le0,\ c\le1/2\},
+\end{align*}
+with all variables in $[0,1]$.
+
+Assume by symmetry that $a=m\le b=M$.  Reading the active support points in
+the four-caliper formulas gives the following contact patterns:
+\[
+\begin{array}{c|c|c}
+\text{range}&\text{active supports}&\text{unit-frontier equation}\\ \hline
+s<1,\ q<0&\{O\},\{C\},\{A,C\}&F_L=0\\
+s<1,\ q>0&\{O\},\{B,C\},\{A\}&F_T=0\\
+s=1&\text{preceding pattern with an }O,B\text{ tie}&c=M\\
+s>1&\{B\},\{B,C\},\{A\}&F_S=0.
+\end{array}
+\]
+The inactive-support inequalities reduce respectively to
+$q\le0$, $q\ge0$, and $s>1$.  The side-length equations have positive sides;
+squaring them gives exactly $F_L=0,F_T=0,F_S=0$.  It remains to identify the
+geometric connected component after squaring.
+
+For Cell $T$, $0<s<1$, the roots of $F_T=0$ are
+\[
+ c_- =\frac{2M}{1+\sqrt{4s^2-3}},
+ \qquad
+ c_+ =\frac{2M}{1-\sqrt{4s^2-3}}.
+\]
+The raw inequality $F_T\le0$ holds on both $0\le c\le c_-$ and $c\ge c_+$.
+Only the first interval is connected to the geometric point $c=0$.  Since
+$c_-\le2M<c_+$, the selector
+\[
+ c\le2M
+\]
+keeps exactly that component.  Equivalently one may use
+$M+2(s^2-1)c\ge0$.
+
+For Cell $S$,
+\[
+ F_S(a,b,0)=M^2(M^2-1)<0,
+ \qquad
+ F_S(a,b,M)=M^2(s^2-1)>0.
+\]
+Furthermore $4F_S(a,b,1/2)$ is increasing in $m$, and at $m=1-M$ it equals
+\[
+ M^2(2M-1)^2.
+\]
+Because $s>1$ gives $m>1-M$, one has $F_S(a,b,1/2)>0$.  The quadratic opens
+downward, so $1/2$ lies strictly between its two roots.  Therefore
+$c\le1/2$ selects the smaller-root component containing $c=0$.
+
+For Cell $L$, the fiber from $c=0$ reaches one selected root in
+$[\sqrt3/2,1]$; monotonicity there follows from
+$4c^3-2c+m>0$.  At $q=0$ the $L$ and $T$ formulas meet and both give $c=s$.
+This proves \eqref{eq:derived-admissible-cells} and, in particular, proves that
+$\mathcal A$ is coordinatewise down-closed.
+
+\subsection{The radial envelope}
+
+Solving the selected frontier equations gives
+\[
+ c_{\max}(a,b)=
+ \begin{cases}
+  1,&a=b=0,\\
+  C_L(m),&s\le1,\ q\le0,\ (a,b)\ne(0,0),\\
+  \dfrac{2M}{1+\sqrt{4s^2-3}},&s\le1,\ q>0,\\[2mm]
+  \dfrac{M(2mM+1)-M\sqrt{4d-3}}{2(1-m^2)},&s>1,
+ \end{cases}
+\]
+where $C_L(m)$ is the unique root in $[\sqrt3/2,1]$ of
+\[
+ z^4-z^2+mz-m^2=0.
+\]
+At $q=0$ the two subcritical formulas agree and equal $s$.  These formulas are
+the radial-envelope inputs used later in Strategies~2 and~4.
