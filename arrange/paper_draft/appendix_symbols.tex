@@ -20,48 +20,49 @@ Actual maximal incoming boundary, outgoing boundary, and radial reaches.\\
 $(a_i,b_i,c_i)$&
 Selected lower-bound demands; these do not define $N_+$.\\
 $N_+,m,q$&
-The number of actual supercritical rows, the number of non-Vd0 roles, and the
-number of short roles; in CE1/CE2 one has $q=N_++m$.\\
+The number of actual supercritical rows, non-Vd0 roles, and short roles; in
+CE1/CE2 one has $q=N_++m$.\\
 $\mathrm{gr}$&
-The active-gap rank: the number of positive center traces containing V-gaps;
-$\mathrm{gr}\in\{0,1,2\}$ and $\mathrm{gr}\le1$ in CE1.\\
+The active-gap rank; bare $g$ is reserved for transfer maps.\\
 $\Lambda(K)$&
-The least side length of a closed equilateral triangle containing the compact
-set $K$.\\
+The least side length of a closed equilateral triangle containing $K$.\\
 $\omega(x),\sigma(x)$&
-The universal equilateral radical $\sqrt{1-x+x^2}$ and its deficit
-$1-\sqrt{1-x+x^2}$.\\
+The radical $\sqrt{1-x+x^2}$ and its deficit $1-\sqrt{1-x+x^2}$.\\
+$\mathcal A$&
+The exact local admissible set of boundary--radial demand triples.\\
+$g_c(x)$&
+The historical raw defect map:
+$\max\{y:(1-x,y,c)\in\mathcal A\}$.\\
+$\widehat g_c(x)$&
+The nonsupercritical cap $\min\{g_c(x),x\}$.\\
+$f^\vee(a)$&
+The complement dual $1-f(1-a)$; in particular
+$\widehat g_c^\vee$ is the extensive incoming-reach transfer.\\
 $\mathcal R_J(p)$&
-The far-side residual boundary demand after an initial trace $[0,p]$ and a
-center interval $J$.\\
-$B_c,g_c$&
-The exact outgoing envelope and the raw transfer
-$g_c=1-B_c$, valid for every row.\\
-$F_c,G_c$&
-The capped outgoing envelope and transfer:
-$F_c(a)=\min\{B_c(a),1-a\}$ and
-$G_c(a)=1-F_c(a)=\max\{g_c(a),a\}$.\\
-$\mathfrak g_{c,J},\mathcal G_{c,J}$&
-The raw and capped center-assisted transfers
-$\mathcal R_J\circ B_c$ and $\mathcal R_J\circ F_c$.\\
-$A_{\rm sc}(c),B_{\rm sc}(c)$&
-The following-demand and outgoing free strict-supercritical envelopes of the
-raw $g_c$ graph.\\
-$\mathrm I,\Theta_d,\mathsf L_{d,\lambda}$&
-The identity, low-root threshold, and affine selected-$T_+$ lower transfers.\\
+The far-side residual demand after an initial trace and center interval $J$.\\
+$g_{c,J}^\vee,\widehat g_{c,J}^\vee$&
+The raw and capped center-assisted reach transfers.\\
+$g_c^{\rm sc}$&
+The single free strict-supercritical outgoing envelope
+$\sup_{\{x:g_c(x)>x\}}g_c(x)$.\\
+$\widehat g_{1-d}^{\vee,\lambda}$&
+A certified affine selected-$T_+$ lower relaxation.\\
+$\widehat g_{1-d}^{\vee,\rm th}$&
+The low-root threshold lower relaxation.\\
 $[\Phi_1\mid\cdots\mid\Phi_r]$&
 The composition $\Phi_r\circ\cdots\circ\Phi_1$, with maps listed in geometric
 row order.\\
-$\mathscr C[\mathrm{seed};\,\cdots;\,\mathrm{terminal}]$&
-A branch signature recording its exact seed data, relaxed row slots, and
-terminal certificate.\\
+$B_c,F_c,G_c$&
+Technical appendix aliases:
+$B_c(a)=g_c(1-a)$,
+$F_c(a)=\widehat g_c(1-a)$, and
+$G_c(a)=\widehat g_c^\vee(a)$.\\
 $e(d)$&
 The high-radial low-root threshold for deficit $d$.\\
 $R,W,E,\alpha,\delta,\Delta_R,\Delta_L$&
 The common signed CE1/CE2 center variables and trace surpluses.\\
 $f(a,b),\mathcal L(a,b)$&
-Normalized maximal retained area and the corresponding local area loss
-$1-f(a,b)$.\\
+Normalized maximal retained area and the corresponding local area loss.\\
 $c_*,\mathcal D_\eta,Q_-,Q_0,Q_+$&
 The radial envelope, forced disk, and exact asymmetric witnesses in
 Strategy~4.\\
