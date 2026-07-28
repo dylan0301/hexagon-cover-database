@@ -4,7 +4,12 @@ Status: Proven
 
 This note isolates the geometric and logical part shared by the CE1 and CE2
 one-gap proofs. After this reduction, the two center classes differ only in
-the scalar proof of one three-map inequality.
+the scalar relaxation of one three-map chain.
+
+The canonical notation is from
+[`201d`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md).
+The exact nonsupercritical incoming-reach transfer is
+$\widehat g_c^\vee$. The older symbol $G_c$ is only its technical alias.
 
 ## 1. Signed center data
 
@@ -72,25 +77,19 @@ $$
 c_0=k.
 $$
 
-For $1/2<c<1$, write
-
-$$
-F_c(a)=\min\{B_c(a),1-a\},
-\qquad
-G_c(a)=1-F_c(a).
-$$
-
 The exact capped-map theorem
 [`2011`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md)
-proves that every $G_c$ is nondecreasing and extensive and that
+proves that every $\widehat g_c^\vee$ is nondecreasing and extensive and that
 
 $$
 \boxed{
-G_c(a)\le z
+\widehat g_c^\vee(a)\le z
 \quad\Longleftrightarrow\quad
-G_c(1-z)\le1-a.
+\widehat g_c^\vee(1-z)\le1-a.
 }
 $$
+
+This is the technical $G_c$ duality rewritten in the canonical family.
 
 ## 2. Geometric hypotheses
 
@@ -107,19 +106,19 @@ As proved in
 contain their own midpoints and are nonsupercritical. Thus $T_0$ is the
 unique supercritical row.
 
-Let $a_i,b_i$ be the actual incoming and outgoing boundary reaches and let
-$\widehat c_i$ be the actual own-radial reach. The gap containment gives
+Let $A_i,B_i$ be the actual incoming and outgoing boundary reaches and let
+$C_i$ be the actual own-radial reach. Gap containment gives
 
 $$
-b_0\ge\frac{k}{R},
+B_0\ge\frac{k}{R},
 \qquad
-a_1\ge X.
+A_1\ge X.
 $$
 
 Radial coverage and `2109` give
 
 $$
-\widehat c_i\ge c_i
+C_i\ge c_i
 \qquad(i=0,\ldots,5).
 $$
 
@@ -130,45 +129,59 @@ Define
 $$
 z_0=X,
 \qquad
-z_i=G_{c_i}(z_{i-1})
+z_i=\widehat g_{c_i}^\vee(z_{i-1})
 \quad(1\le i\le5).
 $$
 
 We prove inductively that the actual incoming reach at each row dominates the
-corresponding formal input. The initial inequality is $a_1\ge z_0$. Suppose
-$a_i\ge z_{i-1}$ for some $1\le i\le5$. Since row $T_i$ is
-nonsupercritical and $\widehat c_i\ge c_i$, the proof-safe capped-map bound
-gives
+corresponding formal input. The initial inequality is $A_1\ge z_0$. Suppose
 
 $$
-b_i\le F_{c_i}(z_{i-1}).
+A_i\ge z_{i-1}
+$$
+
+for some $1\le i\le5$. Since row $T_i$ is nonsupercritical and $C_i\ge c_i$,
+the hatted outgoing cap gives
+
+$$
+B_i
+\le
+\widehat g_{c_i}(1-z_{i-1}).
 $$
 
 For $i=1,\ldots,4$, the next edge has no center trace, so boundary coverage
 gives
 
 $$
-a_{i+1}\ge1-b_i
-\ge1-F_{c_i}(z_{i-1})
-=G_{c_i}(z_{i-1})
-=z_i.
+\begin{aligned}
+A_{i+1}
+&\ge1-B_i\\
+&\ge
+1-\widehat g_{c_i}(1-z_{i-1})\\
+&=
+\widehat g_{c_i}^\vee(z_{i-1})\\
+&=
+z_i.
+\end{aligned}
 $$
 
 For $i=5$, the CE1 center has no positive companion trace, while in CE2 the
 companion trace contains no V-gap. The final handoff therefore gives
 
 $$
-a_0\ge1-b_5
-\ge G_{c_5}(z_4)
-=z_5.
+A_0
+\ge
+1-B_5
+\ge
+\widehat g_{c_5}^\vee(z_4)
+=
+z_5.
 $$
 
 Consequently
 
 $$
-\boxed{
-a_0\ge Z,
-}
+\boxed{A_0\ge Z,}
 $$
 
 where
@@ -176,25 +189,34 @@ where
 $$
 \boxed{
 Z=
-\left(
-G_{c_5}\circ G_{c_4}\circ G_{c_3}\circ G_{c_2}\circ G_{c_1}
-\right)(X).
+[\widehat g_{c_1}^\vee
+\mid
+\widehat g_{c_2}^\vee
+\mid
+\widehat g_{c_3}^\vee
+\mid
+\widehat g_{c_4}^\vee
+\mid
+\widehat g_{c_5}^\vee](X).
 }
 $$
 
-The same row $T_0$ has outgoing reach $b_0\ge k/R$ and actual radial reach at
-least $k$. Reflection of the local admissible set and coordinatewise
+The same row $T_0$ has outgoing reach at least $k/R$ and actual radial reach
+at least $k$. Reflection of the admissible set and coordinatewise
 down-closedness give
 
 $$
-\left(\frac{k}{R},a_0,k\right)\in\mathcal A.
+\left(\frac{k}{R},A_0,k\right)\in\mathcal A.
 $$
 
-Therefore
+In the canonical defect notation,
 
 $$
 \boxed{
-a_0\le B_k\left(\frac{k}{R}\right).}
+A_0
+\le
+g_k\left(1-\frac{k}{R}\right).
+}
 $$
 
 The diameter-transfer lemma
@@ -202,12 +224,13 @@ The diameter-transfer lemma
 gives
 
 $$
-B_k\left(\frac{k}{R}\right)
+g_k\left(1-\frac{k}{R}\right)
 \le
 \beta\left(\frac{k}{R}\right)
 <
 1-\frac{k}{2R}
-=1-H.
+=
+1-H.
 $$
 
 Thus the one-gap branch is impossible once
@@ -226,44 +249,58 @@ nondecreasing. Hence
 $$
 Z
 \ge
-\left(G_{c_4}\circ G_{c_3}\circ G_{c_2}\right)(X).
+[\widehat g_{c_2}^\vee
+\mid
+\widehat g_{c_3}^\vee
+\mid
+\widehat g_{c_4}^\vee](X).
 $$
 
 It is therefore enough to prove
 
 $$
-\left(G_{c_4}\circ G_{c_3}\circ G_{c_2}\right)(X)>1-H.
+[\widehat g_{c_2}^\vee
+\mid
+\widehat g_{c_3}^\vee
+\mid
+\widehat g_{c_4}^\vee](X)
+>
+1-H.
 $$
 
 Three applications of capped-map duality show that the negation of this
 inequality is equivalent to
 
 $$
-\left(G_{c_2}\circ G_{c_3}\circ G_{c_4}\right)(H)
-\le1-X.
+[\widehat g_{c_4}^\vee
+\mid
+\widehat g_{c_3}^\vee
+\mid
+\widehat g_{c_2}^\vee](H)
+\le
+1-X.
 $$
 
 Thus the scalar target common to CE1 and CE2 is
 
 $$
 \boxed{
-\left(
-G_{1-\delta}
-\circ
-G_{1-m}
-\circ
-G_{1-\alpha}
-\right)(H)
+[\widehat g_{1-\alpha}^\vee
+\mid
+\widehat g_{1-m}^\vee
+\mid
+\widehat g_{1-\delta}^\vee](H)
 >
 W+\delta.
 }
 $$
 
-The CE1 proof of this target uses the selected-$T_+$ chord argument in
+The CE1 proof uses the two affine superscript relaxations and one threshold
+superscript in
 [`4106`](4106_CE1_one_gap_five_map_completion.md). The CE2 proof uses the
-two-threshold argument in
-[`4107`](4107_CE2_one_gap_five_map_completion.md). No geometric or
-actual-row step is duplicated between those two scalar proofs.
+one-hit/two-threshold argument in
+[`4107`](4107_CE2_one_gap_five_map_completion.md). No geometric or actual-row
+step is duplicated.
 
 ## 5. Reflected orientation
 
@@ -275,12 +312,6 @@ R\longleftrightarrow W,
 \alpha\longleftrightarrow\delta,
 $$
 
-and reverses rows $1,2,3,4,5$. Therefore the left-gap chain is obtained by
-the exact map order
-
-$$
-G_{c_1}\circ G_{c_2}\circ G_{c_3}\circ G_{c_4}\circ G_{c_5},
-$$
-
-starting from the reflected far-end input. The preceding proof applies after
-this explicit substitution.
+and reverses rows $1,2,3,4,5$. Therefore the left-gap chain is obtained by the
+exact reversed row order, starting from the reflected far-end input. The
+preceding proof applies after this explicit substitution.

@@ -3,11 +3,15 @@
 Status: Proven
 
 This file proves the normalized adjacent-rescue Vd1 subcase in
-[`4140`](4140_CE2_Nplus1_exactly_one_Vd1_Vd2_index.md).  The class-specific
-work is now only the verification of two local Vd1 inequalities.  The center
-hiding argument and the terminal boundary contradiction are supplied by the
-common adjacent-rescuer theorem
+[`4140`](4140_CE2_Nplus1_exactly_one_Vd1_Vd2_index.md). The class-specific work
+is only the verification of two local Vd1 inequalities. The center-hiding
+argument and terminal boundary contradiction are supplied by the common
+adjacent-rescuer theorem
 [`2018`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2018_diameter_transfer_and_adjacent_rescuer.md).
+
+The single free strict-supercritical outgoing envelope is denoted by
+$g_c^{\rm sc}$; its complementary following-demand threshold is
+$1-g_c^{\rm sc}$.
 
 ## 1. Reduced branch
 
@@ -29,15 +33,15 @@ $$
 T_1\text{ is the unique supercritical row},
 $$
 
-and $T_2,T_3,T_4,T_5$ are nonsupercritical Vd0 rows.  We prove that the
-perimeter together with $r_1$ cannot be covered.  Reflection gives the
+and $T_2,T_3,T_4,T_5$ are nonsupercritical Vd0 rows. We prove that the
+perimeter together with $r_1$ cannot be covered. Reflection gives the
 corresponding $M_5,T_5$ placement.
 
 ## 2. Vd1 corner data
 
 Use the corner normal form from
 [`2014`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2014_Vd1_Vd2_corner_normal_form.md).
-Let $a,b$ be the exact boundary reaches of $T_0$.  For a unique $t>0$, put
+Let $a,b$ be the exact boundary reaches of $T_0$. For a unique $t>0$, put
 
 $$
 d=\sqrt{t^2+t+1}.
@@ -59,7 +63,7 @@ $$
 T_0\cap r_1=[c,u]
 $$
 
-in the coordinate from $V_1$ toward $O$.  The exact endpoints are
+in the coordinate from $V_1$ toward $O$. The exact endpoints are
 
 $$
 \boxed{
@@ -108,18 +112,18 @@ contrary to one-sided adjacent support.
 For $0\le c\le1/2$, put
 
 $$
-B_{\rm sc}(c)=\frac{c+\sqrt{c^2-8c+4}}2,
-\qquad
-A_{\rm sc}(c)=1-B_{\rm sc}(c).
+g_c^{\rm sc}
+=
+\frac{c+\sqrt{c^2-8c+4}}2.
 $$
 
 We prove
 
 $$
 \boxed{
-a\le A_{\rm sc}(c),
+a\le1-g_c^{\rm sc},
 \qquad
-\frac{a}{a+1-u}\le A_{\rm sc}(c).
+\frac{a}{a+1-u}\le1-g_c^{\rm sc}.
 }
 $$
 
@@ -147,10 +151,10 @@ $$
 F(t,c)\le F(1,c)=\sqrt3-\frac52+2c=:L(c).
 $$
 
-Since $a\ge0$ and $a\le L(c)$, every feasible row has $L(c)\ge0$.  We claim
+Since $a\ge0$ and $a\le L(c)$, every feasible row has $L(c)\ge0$. We claim
 
 $$
-2L(c)\le A_{\rm sc}(c).
+2L(c)\le1-g_c^{\rm sc}.
 $$
 
 This is equivalent to
@@ -159,14 +163,8 @@ $$
 \sqrt{c^2-8c+4}\le12-4\sqrt3-9c.
 $$
 
-The right side is positive on $[0,1/2]$.  After squaring, the difference of
-the two sides is
-
-$$
-4Q(c),
-$$
-
-where
+The right side is positive on $[0,1/2]$. After squaring, the difference of the
+two sides is $4Q(c)$, where
 
 $$
 Q(c)=20c^2+(18\sqrt3-52)c+47-24\sqrt3.
@@ -187,13 +185,13 @@ $$
 Hence $Q(c)>0$ throughout the interval and
 
 $$
-2L(c)\le A_{\rm sc}(c).
+2L(c)\le1-g_c^{\rm sc}.
 $$
 
 Since $L(c)\ge0$,
 
 $$
-a\le L(c)\le2L(c)\le A_{\rm sc}(c).
+a\le L(c)\le2L(c)\le1-g_c^{\rm sc}.
 $$
 
 ### 3.2. Hiding ratio
@@ -234,14 +232,14 @@ $$
 \frac{3t+1}{2}-d>0
 $$
 
-for $t\ge1$.  The function
+for $t\ge1$. The function
 
 $$
 z\longmapsto
 \frac{z}{z+\varepsilon_0+z/t}
 $$
 
-is increasing for $z\ge0$.  Since $a\le F(t,c)$ and
+is increasing for $z\ge0$. Since $a\le F(t,c)$ and
 
 $$
 \varepsilon_0+\frac{F(t,c)}t=\frac12,
@@ -250,40 +248,51 @@ $$
 we obtain
 
 $$
+\begin{aligned}
 \frac{a}{a+\varepsilon}
-\le
-\frac{F(t,c)}{F(t,c)+1/2}
-\le
-\frac{L(c)}{L(c)+1/2}
-\le
-2L(c)
-\le
-A_{\rm sc}(c).
+&\le
+\frac{F(t,c)}{F(t,c)+1/2}\\
+&\le
+\frac{L(c)}{L(c)+1/2}\\
+&\le
+2L(c)\\
+&\le
+1-g_c^{\rm sc}.
+\end{aligned}
 $$
 
 Thus
 
 $$
 \boxed{
-\frac{a}{a+1-u}\le A_{\rm sc}(c).
+\frac{a}{a+1-u}\le1-g_c^{\rm sc}.
 }
 $$
 
 ## 4. Invocation of the common adjacent-rescuer theorem
 
-The interval $[c,u]$ contains $M_1$, so $u\ge1/2$.  The supercritical row
+The interval $[c,u]$ contains $M_1$, so $u\ge1/2$. The supercritical row
 $T_1$ misses $M_1$ and, since it contains $V_1$, cannot cover any point of
-$r_1$ on the $O$-side of $M_1$.  The rows $T_2,T_3,T_4,T_5$ are Vd0 and
-have no positive-length adjacent support on $r_1$.  Hence radial coverage
+$r_1$ on the $O$-side of $M_1$. The rows $T_2,T_3,T_4,T_5$ are Vd0 and
+have no positive-length adjacent support on $r_1$. Hence radial coverage
 forces the center role to cover the $O$-side gap of length $1-u$ before the
 Vd1 interval begins.
 
 The two boxed inequalities of Section 3 are exactly the remaining local
-hypotheses of the common adjacent-rescuer theorem `2018`.  That theorem gives
-a far-side boundary demand at least $B_{\rm sc}(c)$, while the strict
-supercritical envelope gives the outgoing reach of $T_1$ strictly below
-$B_{\rm sc}(c)$.  Its boundary-path budget then contradicts the four
-nonsupercritical row caps of $T_2,T_3,T_4,T_5$.
+hypotheses of the common adjacent-rescuer theorem `2018`. That theorem gives
+
+$$
+h\ge g_c^{\rm sc},
+$$
+
+while the strict-supercritical envelope gives
+
+$$
+b_1<g_c^{\rm sc}.
+$$
+
+Its boundary-path budget then contradicts the four nonsupercritical row caps
+of $T_2,T_3,T_4,T_5$.
 
 Therefore the normalized Vd1 adjacent-rescue placement is impossible.
 Reflection proves the $M_5,T_5$ placement.

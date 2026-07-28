@@ -3,12 +3,16 @@
 Status: Proven
 
 This file completes the branch after the midpoint reduction in
-[`4131`](4131_midpoint_forcing_reduction.md).  The former branch-specific
-center-hiding and terminal boundary sum are replaced by the common
-adjacent-rescuer theorem in
+[`4131`](4131_midpoint_forcing_reduction.md). The branch-specific center-hiding
+and terminal boundary sum are replaced by the common adjacent-rescuer theorem
+in
 [`2018`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2018_diameter_transfer_and_adjacent_rescuer.md).
 The only remaining task is a short local inequality for the T3-like normal
 form.
+
+The free strict-supercritical outgoing envelope is denoted by the single
+scalar $g_c^{\rm sc}$, and its complementary following-demand threshold is
+$1-g_c^{\rm sc}$.
 
 ## 1. Reduced branch
 
@@ -30,8 +34,8 @@ $$
 T_2,T_3,T_4,T_5
 $$
 
-are nonsupercritical Vd0 rows.  It is enough to verify the two local
-rescuer inequalities required by `2018`.
+are nonsupercritical Vd0 rows. It is enough to verify the two local rescuer
+inequalities required by `2018`.
 
 ## 2. T3-like local normal form
 
@@ -42,7 +46,7 @@ X=V_0+x(V_5-V_0)+y(V_1-V_0).
 $$
 
 By the T3-like translation theorem, replace $T_0$ by the same-orientation
-translate that contains its old trace on $H$ and has $V_0$ on a side.  In the
+translate that contains its old trace on $H$ and has $V_0$ on a side. In the
 branch with positive support on $r_1$ and none on $r_5$, the standard normal
 form gives parameters
 
@@ -99,15 +103,15 @@ $$
 We prove
 
 $$
-\boxed{x\le A_{\rm sc}(c),}
+\boxed{x\le1-g_c^{\rm sc},}
 $$
 
 where
 
 $$
-B_{\rm sc}(c)=\frac{c+\sqrt{c^2-8c+4}}2,
-\qquad
-A_{\rm sc}(c)=1-B_{\rm sc}(c).
+g_c^{\rm sc}
+=
+\frac{c+\sqrt{c^2-8c+4}}2.
 $$
 
 ## 3. Rationalized proof of the local inequality
@@ -166,10 +170,10 @@ $$
 \Phi(z)=\frac{z(2-z)}{1+z}.
 $$
 
-The defining equation of the strict-supercritical envelope is
+The defining equation of the free strict-supercritical envelope is
 
 $$
-\Phi(A_{\rm sc}(c))=c,
+\Phi(1-g_c^{\rm sc})=c,
 $$
 
 and
@@ -178,7 +182,7 @@ $$
 \Phi'(z)=\frac{2-2z-z^2}{(1+z)^2}>0
 $$
 
-on $[0,1/2]$.  Hence it is enough to prove
+on $[0,1/2]$. Hence it is enough to prove
 
 $$
 \Phi(x)\le c=x+\theta.
@@ -234,7 +238,7 @@ $11\theta^2-\theta^3=\theta^2(11-\theta)\ge0$.
 
 ### Case 2: $1/5\le\theta\le2-\sqrt3$
 
-Now $x_L\le x_*$.  The upper endpoint
+Now $x_L\le x_*$. The upper endpoint
 
 $$
 x_U=\frac12-\theta
@@ -262,7 +266,7 @@ positive at $\theta=1/5$.
 Both cases prove $\Phi(x)\le c$, and the monotonicity of $\Phi$ gives
 
 $$
-\boxed{x\le A_{\rm sc}(c).}
+\boxed{x\le1-g_c^{\rm sc}.}
 $$
 
 ## 4. Verification of the common rescuer hypotheses
@@ -270,7 +274,7 @@ $$
 Since $D\ge R_{\rm loc}$,
 
 $$
-a\le x\le A_{\rm sc}(c).
+a\le x\le1-g_c^{\rm sc}.
 $$
 
 Moreover,
@@ -287,26 +291,35 @@ $$
 =
 \frac{aD}{R_{\rm loc}}
 =x
-\le A_{\rm sc}(c).
+\le1-g_c^{\rm sc}.
 }
 $$
 
 These are exactly the two local hypotheses of the common adjacent-rescuer
 obstruction `2018`.
 
-It remains only to verify its radial-isolation premise.  The interval
-$T_0\cap r_1=[c,u]$ contains $M_1$, so $u\ge1/2$.  The supercritical row
-$T_1$ cannot contain $M_1$.  Since it contains $V_1$ and is convex, it cannot
-cover any point of $r_1$ on the $O$-side of $M_1$.  The four remaining rows
-are Vd0 and have no positive-length adjacent support on $r_1$.  Hence the
+It remains only to verify its radial-isolation premise. The interval
+$T_0\cap r_1=[c,u]$ contains $M_1$, so $u\ge1/2$. The supercritical row
+$T_1$ cannot contain $M_1$. Since it contains $V_1$ and is convex, it cannot
+cover any point of $r_1$ on the $O$-side of $M_1$. The four remaining rows
+are Vd0 and have no positive-length adjacent support on $r_1$. Hence the
 center role must cover the $O$-side gap of length $1-u$ before the T3-like
 interval begins.
 
-All hypotheses of `2018` are now satisfied.  That theorem gives a far-side
-boundary demand at least $B_{\rm sc}(c)$, while the strict supercritical
-envelope gives the outgoing reach of $T_1$ strictly below
-$B_{\rm sc}(c)$.  Its boundary-path budget then contradicts the four
-nonsupercritical row caps of $T_2,T_3,T_4,T_5$.
+All hypotheses of `2018` are now satisfied. That theorem gives
+
+$$
+h\ge g_c^{\rm sc},
+$$
+
+while the unique supercritical row satisfies
+
+$$
+b_1<g_c^{\rm sc}.
+$$
+
+Its boundary-path budget contradicts the four nonsupercritical row caps of
+$T_2,T_3,T_4,T_5$.
 
 Therefore the CE1/CE2, $N_+=1$, exactly-one-T3-like branch is impossible.
 
