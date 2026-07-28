@@ -124,7 +124,8 @@ The roles of the added verification files are:
 
 - `02b`: complete support derivation, polynomial cells, selectors, radial
   envelope;
-- `04d`: incorporated complete `407X` audit and full Vd1 axis replacement;
+- `04d`: formally incorporated complete `407X` branch audit and full Vd1 axis
+  replacement;
 - `04e`: authoritative CE2 exactly-one-Vd1/Vd2 placement assembly;
 - `04f`: declares the later complete Strategy 2 propositions authoritative for
   the earlier compact summary statements;
@@ -231,10 +232,11 @@ Technical aliases `B_c,F_c,G_c` may remain in exact-demand calculations.
 
 ### 7.1 T3-like endpoint supplement
 
-`04d_strategy2_rigor_completion.tex` records the complete `407X` source paths
-and blob identifiers and reproduces the principal high-sheet lemmas. A
-status-bearing final assembly and every terminal branch file must remain
-present.
+`04d_strategy2_rigor_completion.tex` records the complete `407X` source paths,
+full blob identifiers, and exhaustive branch table. The difficult polynomial
+selectors and high-sheet inequalities remain in those exact proof-package
+objects and are not replaced by a partial TeX derivation. A status-bearing
+final assembly and every terminal branch object must remain present.
 
 ### 7.2 Strategy 4 certificate
 
