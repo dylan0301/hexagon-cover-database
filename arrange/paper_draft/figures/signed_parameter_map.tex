@@ -1,0 +1,22 @@
+\begin{tikzpicture}[x=1cm,y=1cm,>=Latex]
+  \node[panellabel,anchor=west] at (.03,2.12)
+    {(f) signed parameter cascade};
+  \node[figlabel,atlasbox] (R) at (.28,1.25) {$R$};
+  \node[figlabel,atlasbox] (W) at (1.55,1.25) {$W=1-R$};
+  \node[figlabel,atlasbox] (E) at (3.62,1.25) {$E=\sqrt{1-RW}$};
+  \node[figlabel,atlasbox] (eta) at (5.55,1.67) {$\eta=1-E$};
+  \node[figlabel,atlasbox] (P) at (5.55,.84) {$P=E\eta$};
+  \draw[flow] (R)--(W);
+  \draw[flow] (W.east)--(E.west);
+  \draw[flow] (E)--(eta);
+  \draw[flow] (E)--(P);
+
+  \node[figlabel,atlasbox,align=center] (slack) at (1.50,.02)
+    {$\alpha=F_0(O),\ \delta=F_2(O)$\\
+     $k=\eta+\alpha+\delta$};
+  \node[figlabel,atlasbox,align=center] (Delta) at (4.78,-.02)
+    {$\Delta_R=P-\alpha-W\delta$\\
+     $\Delta_L=P-R\alpha-\delta$};
+  \draw[flow] (slack)--(Delta);
+  \draw[flow] (P)--(Delta);
+\end{tikzpicture}

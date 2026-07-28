@@ -1,0 +1,20 @@
+\begin{tikzpicture}[x=1cm,y=1cm,>=Latex]
+  \node[panellabel,anchor=west] at (.03,1.72)
+    {(e) slotwise lower relaxation};
+  \foreach \x/\i in {.55/0,2.15/1,3.75/2,5.35/3}{
+    \node[figlabel,atlasbox] (x\i) at (\x,1.10) {$x_{\i}$};
+    \node[figlabel,atlasbox] (y\i) at (\x,.05) {$y_{\i}$};
+  }
+  \draw[inactive] (y0)--node[right,figlabel] {$=$}(x0);
+  \foreach \i in {1,2,3}{
+    \draw[inactive,->] (y\i)--node[right,figlabel] {$\le$}(x\i);
+  }
+  \foreach \i/\j in {0/1,1/2,2/3}{
+    \draw[flow] (x\i)--node[above,figlabel] {$\Phi_{\j}$}(x\j);
+    \draw[cappedcurve,->] (y\i)--node[below,figlabel]
+      {$\underline\Phi_{\j}$}(y\j);
+  }
+  \node[figlabel,align=center] at (2.95,-.62)
+    {$y_3=[\underline\Phi_1\mid\underline\Phi_2
+    \mid\underline\Phi_3](x_0)\le x_3$;\quad leftmost slot acts first.};
+\end{tikzpicture}

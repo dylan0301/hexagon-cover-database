@@ -1,0 +1,30 @@
+\begin{tikzpicture}[x=1cm,y=1cm,>=Latex]
+  \node[panellabel,anchor=west] at (.02,1.32)
+    {(c) the center-assisted residual $\mathcal R_J(p)$};
+
+  \foreach \sx/\pt/\et/\case/\formula in {
+    .15/.25/.25/{p<L}/{1-p},
+    4.20/.58/.72/{L\le p<U}/{1-U},
+    8.25/.86/.86/{p\ge U}/{1-p}
+  }{
+    \begin{scope}[shift={(\sx,0)},x=3.35cm]
+      \draw[black!55,line width=.55pt] (0,0)--(1,0);
+      \draw[boundcurve] (0,0)--(\pt,0);
+      \draw[centertrace] (.42,0)--(.72,0);
+      \fill (0,0) circle (.7pt);
+      \fill (1,0) circle (.7pt);
+      \draw[black!65,line width=2pt,opacity=.25] (0,.08)--(\et,.08);
+      \draw[dimline] (\et,-.27)--(1,-.27)
+        node[midway,below,figlabel] {$\mathcal R_J(p)=\formula$};
+      \node[figlabel,above] at (.57,.02) {$J=[L,U]$};
+      \node[figlabel,below] at (\pt,-.02) {$p$};
+      \node[figlabel,above] at (.02,.08) {$0$};
+      \node[figlabel,above] at (.98,.08) {$1$};
+      \node[figlabel,align=center] at (.50,-.72) {$\case$};
+    \end{scope}
+  }
+  \node[figlabel,align=center] at (6.05,-1.07)
+    {For a transfer, $p$ may be an outgoing upper bound:\quad
+     $p=g_c(1-a)$ gives $g_{c,J}^{\vee}(a)$;\quad
+      $p=\widehat g_c(1-a)$ gives $\widehat g_{c,J}^{\vee}(a)$.};
+\end{tikzpicture}

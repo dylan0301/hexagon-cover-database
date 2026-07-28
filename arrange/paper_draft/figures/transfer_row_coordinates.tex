@@ -1,0 +1,49 @@
+\begin{tikzpicture}[x=1cm,y=1cm,>=Latex]
+  \node[panellabel,anchor=west] at (.05,1.72)
+    {(a) selected and actual row coordinates};
+  % The two boundary rays meet at the actual regular-hexagon angle \(120^\circ\).
+  \coordinate (V) at (5.30,0);
+  \coordinate (L) at (4.48,1.420);
+  \coordinate (R) at (4.48,-1.420);
+  \coordinate (Orow) at (2.30,0);
+  \coordinate (Amark) at ($(V)!.42!(L)$);
+  \coordinate (Aactual) at ($(V)!.55!(L)$);
+  \coordinate (Bmark) at ($(V)!.38!(R)$);
+  \coordinate (Ymark) at ($(V)!.64!(R)$);
+  \coordinate (Cmark) at ($(V)!.52!(Orow)$);
+
+  \draw[black!45,line width=.65pt] (L)--(V)--(R);
+  \draw[ray] (V)--(Orow);
+  \fill (V) circle (1pt);
+  \node[figlabel,right] at (V) {$V_i$};
+  \node[figlabel,above left] at (L) {$V_{i-1}$};
+  \node[figlabel,below left] at (R) {$V_{i+1}$};
+
+  \draw[actualreach] (V)--(Aactual);
+  \draw[demand] (V)--(Amark);
+  \draw[dimline] ($(V)+(0,.18)$)--($(Amark)+(0,.18)$);
+  \draw[dimline] ($(Amark)+(0,.18)$)--($(L)+(0,.18)$);
+  \node[figlabel,atlasbox,align=left,anchor=east] (topnote) at (4.00,.92)
+    {$a\le A$: selected versus actual\\
+     $x=1-a$: complementary coordinate};
+  \draw[-{Latex[length=1.2mm]},black!45,line width=.45pt]
+    (topnote.east)--($(Amark)+(0,.18)$);
+
+  \draw[actualreach] (V)--(Bmark)
+    node[midway,below right,figlabel] {$B$};
+  \draw[boundcurve,dashed] ($(V)+(0,-.08)$)--($(Ymark)+(0,-.08)$);
+  \node[figlabel,atlasbox,anchor=east] (ynote) at (3.95,-.48)
+    {$B\le y=g_c(x)$};
+  \draw[-{Latex[length=1.2mm]},black!45,line width=.45pt]
+    (ynote.east)--($(Bmark)!.58!(Ymark)$);
+  \draw[actualreach] (R)--(Ymark);
+  \node[figlabel,atlasbox,anchor=east,align=right] (nextnote) at (3.95,-1.13)
+    {$1-y=g_c^\vee(a)$\\[-1pt]$\le A_{\rm next}$\\[-1pt]
+     center-free outgoing edge};
+  \draw[-{Latex[length=1.2mm]},black!45,line width=.45pt]
+    (nextnote.east)--($(R)!.48!(Ymark)$);
+
+  \draw[radialdemand] (V)--(Cmark);
+  \draw[actualreach] (Cmark)--($(V)!.70!(Orow)$);
+  \node[figlabel,above] at ($(V)!.45!(Orow)$) {$c\le C$};
+\end{tikzpicture}

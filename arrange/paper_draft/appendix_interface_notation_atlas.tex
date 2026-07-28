@@ -1,0 +1,83 @@
+\section{Illustrated Notation Atlas}
+\label{sec:interface-notation-atlas}
+
+This appendix supplies examples for the two notation-heavy interfaces in
+Sections~\ref{sec:reader-framework}.  Each panel is a separate TikZ source so
+that it can be retained or removed independently.  The diagrams explain the
+definitions and hypotheses; they are not substitutes for the inequalities in
+Propositions~\ref{prop:body-transfer-interface} and
+\ref{prop:body-signed-center-interface}.
+
+\begin{figure}[H]
+\centering
+\begin{minipage}[t]{.485\textwidth}
+\centering
+\resizebox{\linewidth}{!}{\input{figures/transfer_row_coordinates}}
+\end{minipage}\hfill
+\begin{minipage}[t]{.485\textwidth}
+\centering
+\resizebox{\linewidth}{!}{\input{figures/transfer_raw_hat_dual}}
+\end{minipage}
+
+\medskip
+\resizebox{.985\linewidth}{!}{\input{figures/center_interval_residual}}
+
+\medskip
+\begin{minipage}[t]{.485\textwidth}
+\centering
+\resizebox{\linewidth}{!}{\input{figures/supercritical_envelope}}
+\end{minipage}\hfill
+\begin{minipage}[t]{.485\textwidth}
+\centering
+\resizebox{\linewidth}{!}{\input{figures/relaxed_composition}}
+\end{minipage}
+\caption{Reading the transfer alphabet.  Panel (a) distinguishes selected
+demands from actual reaches: $x=1-a$ is a coordinate defect, and $g_c(x)$ is
+an extremal admissible output rather than the actual $B$.  Panel (b) is the
+exact zero-radial graph and shows that the identity is
+$\widehat g_0$, not raw $g_0$; the right-hand diagram explains $\vee$ by
+complementing both coordinates.  Panel (c) shows that only the component
+attached to $0$ enters $\mathcal R_J$.  Panel (d) is schematic: the
+strict-supercritical supremum is not attained, and its complementary
+next-reach bound needs a center-free edge.  Panel (e) shows where
+nondecreasing lower relaxations enter a composition.}
+\label{fig:transfer-notation-atlas}
+\end{figure}
+
+\clearpage
+
+\begin{figure}[H]
+\centering
+\begin{minipage}[t]{.485\textwidth}
+\centering
+\resizebox{\linewidth}{!}{\input{figures/signed_parameter_map}}
+\end{minipage}\hfill
+\begin{minipage}[t]{.485\textwidth}
+\centering
+\resizebox{\linewidth}{!}{\input{figures/signed_companion_sign}}
+\end{minipage}
+
+\medskip
+\resizebox{.985\linewidth}{!}{\input{figures/signed_center_traces}}
+
+\medskip
+\begin{minipage}[t]{.485\textwidth}
+\centering
+\resizebox{\linewidth}{!}{\input{figures/signed_center_exits}}
+\end{minipage}\hfill
+\begin{minipage}[t]{.485\textwidth}
+\centering
+\resizebox{\linewidth}{!}{\input{figures/signed_center_boundary_budgets}}
+\end{minipage}
+\caption{The signed CE1/CE2 interface.  Panel (f) records which parameters are
+derived and identifies $\alpha,\delta$ as affine side-slack values at $O$.
+Panel (g) explains the positive part $[\Delta_L]_+$ and keeps the
+$\Delta_L=0$ point-contact state in CE1.  Panel (h) uses the valid samples
+$R=3/5$, $W=2/5$, $\alpha=3/100$, with $\delta=1/10$ for CE1 and
+$\delta=1/25$ for CE2; rounded coordinates are used only to draw the exact
+unit triangles.  Panel (i) maps each exit $d_i^C$ to its ray and measures it
+from $O$.  Panel (j) consists of scalar comparison bars: they are not
+locations on $\partial H$, and $L_{\partial H}(T_C)$ is not the perimeter of
+$T_C$.}
+\label{fig:signed-center-notation-atlas}
+\end{figure}

@@ -39,6 +39,7 @@ calculation lemma without the appendices and incorporated supplements.
 | File | Function |
 |---|---|
 | `appendix_roadmap.tex` | verification guide and proof-layer disclaimer |
+| `appendix_interface_notation_atlas.tex` | modular transfer and signed-center notation examples |
 | `02_structural_reductions.tex` | classifications, reaches, gaps, handoffs, routing |
 | `02a_universal_calculus.tex` | corrected transfers, residuals, center-free path budget |
 | `02b_admissible_set_derivation.tex` | support derivation, cells, selectors, radial envelope |
@@ -56,8 +57,12 @@ calculation lemma without the appendices and incorporated supplements.
 | `06a_strategy4_exact_certificate.tex` | mixed reduction, manifest, Bernstein proof, cap geometry |
 | `appendix_symbols.tex` | notation cross-reference |
 
-The body-end label remains immediately before `\appendix`. This source-only
-repair did not compile the manuscript and makes no page-count claim.
+The body-end label remains immediately before `\appendix`.  The current local
+XeLaTeX build places that label on page 19.
+
+The illustrated notation atlas is explanatory only.  Its exact zero-radial
+curve and signed numerical samples agree with the proved interfaces, while
+the generic strict-supercritical panel is explicitly schematic.
 
 ## 3. Repairs made after the validity audit
 
@@ -278,7 +283,17 @@ The final proof retains all of the following.
 
 ## 7. Build and PDF status
 
-No XeLaTeX or PDF compilation was performed. `main.pdf` was not modified and is
-stale relative to this branch. The body-page label remains in the source, but
-the 20-page limit, references, and layout must be checked in a later authorized
-build.
+The manuscript was rebuilt locally with XeLaTeX and the corresponding
+`xdvipdfmx` conversion:
+
+```text
+xelatex -no-pdf -interaction=nonstopmode -halt-on-error main.tex
+xdvipdfmx -E -o main.pdf main.xdv
+```
+
+The resulting `main.pdf` has 120 pages.  The reader-facing body ends on page
+19, the transfer atlas is on page 21, and the signed-center atlas is on page
+22.  The build has no undefined references or duplicate labels.  The two
+pre-existing overfull horizontal boxes in the Strategy 2 register and the
+electronic-supplement manifest remain; the new atlas introduces no overfull
+horizontal box.

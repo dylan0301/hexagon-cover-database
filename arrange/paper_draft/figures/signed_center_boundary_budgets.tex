@@ -1,0 +1,29 @@
+\begin{tikzpicture}[x=1cm,y=1cm,>=Latex]
+  \node[panellabel,anchor=west] at (.03,2.03)
+    {(j) scalar boundary-contribution bounds};
+
+  \node[figlabel,anchor=east] at (1.28,1.19) {$\mathrm{CE1}$};
+  \draw[black!50,line width=.6pt] (1.45,1.19)--(5.35,1.19);
+  \draw[demand] (1.45,1.19)--(3.78,1.19);
+  \draw[black!60] (3.78,1.08)--(3.78,1.30);
+  \draw[black!60] (4.73,1.08)--(4.73,1.30);
+  \draw[black!60] (5.18,1.08)--(5.18,1.30);
+  \node[figlabel,below] at (3.78,1.08) {$L_{\partial H}=\ell_R$};
+  \node[figlabel,above] at (4.73,1.30) {$P$};
+  \node[figlabel,above] at (5.18,1.30)
+    {$\sqrt3/2-3/4$};
+  \node[figlabel,align=center] at (3.40,.62)
+    {$L_{\partial H}(T_C)\le P\le\sqrt3/2-3/4$};
+
+  \node[figlabel,anchor=east] at (1.28,-.05) {$\mathrm{CE2}$};
+  \draw[black!50,line width=.6pt] (1.45,-.05)--(5.35,-.05);
+  \draw[demand] (1.45,-.05)--(2.30,-.05);
+  \draw[centertrace] (2.30,-.05)--(3.34,-.05);
+  \draw[black!60] (5.18,-.16)--(5.18,.06);
+  \node[figlabel,above] at (1.88,.02) {$\ell_R$};
+  \node[figlabel,above] at (2.82,.02) {$\ell_L$};
+  \node[figlabel,below] at (3.34,-.14) {$L_{\partial H}=\ell_R+\ell_L$};
+  \node[figlabel,above] at (5.18,.06) {$1/2$};
+  \node[figlabel,align=center] at (3.40,-.72)
+    {$L_{\partial H}(T_C)<1/2$};
+\end{tikzpicture}

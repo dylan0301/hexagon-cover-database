@@ -1,0 +1,29 @@
+\begin{tikzpicture}[x=1cm,y=1cm,>=Latex]
+  \node[panellabel,anchor=west] at (.62,2.45)
+    {(b) raw, hatted, and complement-dual views};
+
+  \begin{scope}[shift={(.18,-.02)},x=2.15cm,y=2.15cm]
+    \draw[->,black!55] (-.03,0)--(1.08,0) node[right,figlabel] {$x$};
+    \draw[->,black!55] (0,-.03)--(0,1.08) node[above,figlabel] {$y$};
+    \draw[cappedcurve] (0,0)--(1,1);
+    \draw[boundcurve,domain=.015:.985,samples=70,smooth,variable=\x]
+      plot ({\x},{(\x-1+sqrt(1+6*\x-3*\x*\x))/2});
+    \node[figlabel,text=DemandRed] at (.50,.80) {$g_0(x)>x$};
+    \node[figlabel,text=RadialTeal,rotate=38] at (.70,.60)
+      {$\widehat g_0=\mathrm I$};
+    \node[figlabel,below left] at (0,0) {$0$};
+    \node[figlabel,below] at (1,0) {$1$};
+    \node[figlabel,left] at (0,1) {$1$};
+  \end{scope}
+
+  \node[figlabel,atlasbox] (a) at (3.12,1.22) {$a$};
+  \node[figlabel,atlasbox] (x) at (4.18,1.22) {$1-a$};
+  \node[figlabel,atlasbox] (fx) at (5.34,1.22) {$f(1-a)$};
+  \node[figlabel,atlasbox,align=center] (dual) at (5.34,.22)
+    {$f^\vee(a)$\\$=1-f(1-a)$};
+  \draw[flow] (a)--node[above,figlabel] {$1-\cdot$}(x);
+  \draw[flow] (x)--node[above,figlabel] {$f$}(fx);
+  \draw[flow] (fx)--node[left,figlabel] {$1-\cdot$}(dual);
+  \node[figlabel] at (4.05,-.35)
+    {graph half-turn: $(x,y)\mapsto(1-x,1-y)$};
+\end{tikzpicture}

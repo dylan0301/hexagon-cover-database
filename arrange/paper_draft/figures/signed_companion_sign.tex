@@ -1,0 +1,21 @@
+\begin{tikzpicture}[x=1cm,y=1cm,>=Latex]
+  \node[panellabel,anchor=west] at (.03,2.12)
+    {(g) the sign of the companion surplus};
+  \foreach \yy/\leftpt/\rightpt/\name/\desc in {
+    1.15/3.15/2.35/{$\Delta_L<0$}/{reversed: CE1, no trace},
+    .43/2.75/2.75/{$\Delta_L=0$}/{point contact: CE1},
+    -.29/2.10/3.42/{$\Delta_L>0$}/{positive trace: CE2}
+  }{
+    \draw[black!50,line width=.6pt] (.55,\yy)--(4.75,\yy);
+    \draw[inactive] (\leftpt,\yy)--(\rightpt,\yy);
+    \fill[black!60] (\leftpt,\yy) circle (.9pt);
+    \fill[black!60] (\rightpt,\yy) circle (.9pt);
+    \node[figlabel,left] at (.50,\yy) {\name};
+    \node[figlabel,right,align=left] at (4.78,\yy) {\desc};
+  }
+  \draw[centertrace] (2.10,-.29)--(3.42,-.29);
+  \node[figlabel,above] at (2.76,-.27)
+    {$\ell_L=[\Delta_L]_+/W$};
+  \node[figlabel,below] at (2.35,1.13) {$R+\alpha$};
+  \node[figlabel,above] at (3.15,1.17) {$k/W$};
+\end{tikzpicture}

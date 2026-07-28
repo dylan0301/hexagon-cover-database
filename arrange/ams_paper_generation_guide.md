@@ -102,6 +102,7 @@ Use this order after `\appendix`:
 
 ```text
 appendix_roadmap.tex
+appendix_interface_notation_atlas.tex
 02_structural_reductions.tex
 02a_universal_calculus.tex
 02b_admissible_set_derivation.tex
@@ -124,6 +125,9 @@ The roles of the added verification files are:
 
 - `02b`: complete support derivation, polynomial cells, selectors, radial
   envelope;
+- `appendix_interface_notation_atlas`: modular explanatory panels for the
+  transfer alphabet and signed CE1/CE2 notation; these are reader aids, not
+  proof steps;
 - `04d`: formally incorporated complete `407X` branch audit and full Vd1 axis
   replacement;
 - `04e`: authoritative CE2 exactly-one-Vd1/Vd2 placement assembly;
@@ -150,6 +154,7 @@ reduction inputs. Do not input those nested files separately from `main.tex`.
 \clearpage
 \appendix
 \input{appendix_roadmap}
+\input{appendix_interface_notation_atlas}
 \input{02_structural_reductions}
 \input{02a_universal_calculus}
 \input{02b_admissible_set_derivation}
@@ -258,6 +263,9 @@ check.
 
 The body should retain figures for the role geometry, perimeter/skeleton
 targets, local demand hull, transfer chain, area loss, and Strategy 4 witness.
+A modular illustrated notation atlas should remain near the front of the
+appendices and be cited directly from the transfer and signed-center
+interfaces.
 A schematic caption must state when a figure is not to scale or is not itself
 an inequality proof.
 
