@@ -52,7 +52,16 @@ verification modules.
 ### 2.1. Page budget
 
 The body, including title, abstract, contents, definitions, figures, and the
-final theorem assembly, must end on or before page 20.  `main.tex` places
+final theorem assembly, must end on or before page 20.  The contents must be
+section-only:
+
+```latex
+\setcounter{tocdepth}{1}
+\tableofcontents
+```
+
+This prevents the subsection-heavy technical appendices from consuming the
+reader-body page budget.  `main.tex` places
 
 ```latex
 \label{page:proof-body-end}
@@ -159,7 +168,8 @@ or domain restriction that makes a squared or rationalized inequality valid.
 
 ## 4. Required `main.tex` assembly
 
-The active body/appendix assembly is:
+After `\maketitle`, use the section-only contents shown above.  The active
+body/appendix assembly is:
 
 ```latex
 \input{01_introduction}
