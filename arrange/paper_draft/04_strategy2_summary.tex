@@ -1,0 +1,229 @@
+\section{Strategy 2: Monotone Transfer Certificates}
+\label{sec:strategy2-summary}
+
+Strategy~2 turns boundary coverage into lower bounds propagated around the
+six rows.  The only geometric input is Proposition~\ref{prop:body-transfer-interface};
+the remaining work is to choose a small lower relaxation of each exact map and
+prove one terminal inequality.
+
+For maps listed in geometric row order, write
+\[
+ [\Phi_1\mid\cdots\mid\Phi_r](x)
+ = (\Phi_r\circ\cdots\circ\Phi_1)(x).
+\]
+The leftmost slot acts first, and $\mathrm I$ denotes the identity map.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  x=1.42cm,y=1cm,>=Latex,
+  row/.style={draw,rounded corners,minimum width=1.02cm,minimum height=.58cm},
+  lab/.style={font=\scriptsize,align=center}
+]
+\foreach \i/\t in {0/$x_0$,1/$x_1$,2/$x_2$,3/$x_3$,4/$x_4$,5/$x_5$}{
+  \node[row] (r\i) at (\i,0) {\t};
+}
+\foreach \i/\j in {0/1,1/2,2/3,3/4,4/5}{
+  \draw[->] (r\i)--node[above,lab] {$\Phi_{\j}$}(r\j);
+}
+\draw[->] (r5.south) to[out=-35,in=-145]
+ node[below,lab] {terminal comparison} (r0.south);
+\end{tikzpicture}
+\caption{An exact row chain may be weakened slot by slot.  Monotonicity makes
+any lower-map composition a valid certificate.}
+\label{fig:transfer-chain}
+\end{figure}
+
+\subsection{The all-Vd0 kernel}
+
+The two row counts and the active-gap rank form the single kernel
+\[
+\begin{array}{c|ccc}
+ &\mathrm{gr}=0&\mathrm{gr}=1&\mathrm{gr}=2\\ \hline
+N_+=0&\mathrm I^6\text{ cycle}&
+       \text{two endpoints}&
+       \text{paired endpoints}\\
+N_+=1&\text{nine points}&
+       \text{five-row chain}&
+       \text{paired endpoints}.
+\end{array}
+\]
+The last column is CE2-only.  For $N_+=0$ and $\mathrm{gr}=0$, openness gives
+$A_{i+1}>1-B_i$, while nonsupercriticality gives
+$A_{i+1}\ge\widehat g_{C_i}^\vee(A_i)\ge A_i$.  Hence
+\[
+ A_0<A_1<\cdots<A_5<A_0,
+\]
+the strict identity-cycle contradiction.
+
+All other transfer branches use the following exact outputs.
+
+\begin{proposition}[Terminal transfer inequalities]
+\label{prop:body-transfer-terminals}
+The real-variable calculations prove the following statements.  Every symbol
+in the statements is either signed center data from
+Proposition~\ref{prop:body-signed-center-interface} or is defined locally.
+\begin{enumerate}
+\item In a one-gap $N_+=0$ branch, let $(\xi_L,c_L)$ and $(\xi_R,c_R)$ be the
+incoming-defect and radial-demand pairs at the two endpoint rows after the
+center trace has been removed.  Then
+\[
+ \widehat g_{c_L}(\xi_L)+\widehat g_{c_R}(\xi_R)<1.
+\]
+The same form applies to a residual endpoint pair; only the formulas defining
+$\xi_L,\xi_R,c_L,c_R$ change.
+
+\item In the CE2 two-gap branch put
+\[
+ p=W-\alpha,\qquad q=R-\delta.
+\]
+The two exact endpoint caps satisfy
+\[
+ \widehat g_{p/W}(1-p)+\widehat g_{q/R}(1-q)<1.
+\]
+
+\item In the one-gap $N_+=1$ all-Vd0 branch put
+\[
+ X=R-\delta,\qquad
+ H_*=\frac{\eta+\alpha+\delta}{2R},\qquad
+ m_*=\min\left\{\frac\alpha R,\frac\delta W\right\},
+\]
+and
+\[
+ \begin{aligned}
+ c_1&=1-\delta/R,&c_2&=1-\delta,&c_3&=1-m_*,\\
+ c_4&=1-\alpha,&c_5&=1-\alpha/W.
+ \end{aligned}
+\]
+The exact row induction gives
+\[
+ Z=[\widehat g_{c_1}^\vee\mid\widehat g_{c_2}^\vee
+       \mid\widehat g_{c_3}^\vee\mid\widehat g_{c_4}^\vee
+       \mid\widehat g_{c_5}^\vee](X),
+\]
+while the closing row has available capacity strictly below $1-H_*$.  The
+appendix proves $Z>1-H_*$ in both center classes.
+
+For the scalar verification, let $e(d)$ denote the low threshold characterized
+by
+\[
+ z>e(d)\quad\Longrightarrow\quad
+ \widehat g_{1-d}^\vee(z)\ge1-e(d),
+\]
+and put
+\[
+ \mathsf L_{d,\lambda}(z)=(1+\lambda)z-\lambda d.
+\]
+In CE1 the two affine lower steps
+\[
+ L_1=\mathsf L_{\alpha,1-4\alpha}(H_*),\qquad
+ L_2=\mathsf L_{m_*,1-5m_*}(L_1)
+\]
+place the final input above $e(\delta)$, and the last threshold map returns a
+value above $1-X$.  In CE2,
+\[
+ X>e(\alpha),\qquad
+ \min\{e(\alpha),e(\delta)\}<H_*,
+\]
+so exactly one of the $\alpha$- or $\delta$-slots is decisive; every other slot
+may be replaced by $\mathrm I$.  Reflection reverses the row order and
+exchanges $(R,\alpha)$ with $(W,\delta)$.
+
+\item In the T3-like $N_+=0$ branch, the two residual endpoint caps have sum
+strictly below one after the three interior rows are replaced by
+$\mathrm I^3$.  The endpoint value is the exact minimum of four contact labels;
+none of those labels is replaced by an unsupported common envelope.
+
+\item Let a T3-like or adjacent Vd1 rescuer have endpoint reach $a$ and
+supported radial interval $[c,u]$, measured from the adjacent hexagon vertex
+toward $O$.  Put
+\[
+ \varepsilon=1-u,\qquad
+ \vartheta=\frac{a}{a+\varepsilon}.
+\]
+The local profile proves
+\[
+ a\le1-g_c^{\rm sc},\qquad
+ \vartheta\le1-g_c^{\rm sc}.
+\]
+If the center covers the $O$-side interval of length $\varepsilon$, the
+center-hiding lemma forces the opposite endpoint demand
+$h_{\rm opp}\ge g_c^{\rm sc}$.  The unique supercritical outgoing reach is
+strictly below $g_c^{\rm sc}$, and the intervening nonsupercritical rows are
+identity-relaxed.  These two inequalities cannot be joined by the ordinary
+boundary path.
+
+\item In the adjacent one-Vd1/Vd2 placement, let $(a_0,b_0)$ be the unique
+supercritical row and let $I_L,I_R$ be the two signed center intervals.  Define
+\[
+ A=\mathcal R_{I_R}(b_0),\qquad
+ H_{\rm far}=\mathcal R_{I_L}(a_0).
+\]
+Then
+\[
+ A+H_{\rm far}<\frac12,\qquad
+ \delta<\frac{H_{\rm far}}4,
+\]
+and, in transfer notation,
+\[
+ \widehat g_{1-\delta}^\vee\left(\frac12+A\right)>1-H_{\rm far}.
+\]
+The Vd supported-arm margin and the ordinary quarter envelope therefore leave
+the relevant radial arm uncovered.  The nonadjacent placement uses its stated
+Vd-specific radial margin, and axis replacement reduces the remaining
+exceptional pair to an all-Vd0 chain.
+\end{enumerate}
+Singleton gaps are included.
+\end{proposition}
+
+\begin{proof}
+Items 1--6 are the exact endpoint, five-row, T3-like, free-envelope, and Vd
+certificates proved in Appendices~\ref{sec:strategy2-reader} and
+\ref{sec:exact-local-demand-calculus}.  The appendices first translate the
+geometry into the displayed real variables and then verify the inequalities
+on their explicit domains.  No stronger symmetric replacement is used for
+the T3-like audit, the CE2 threshold dichotomy, or the nonadjacent Vd terminal.
+\end{proof}
+
+\begin{table}[H]
+\centering
+\scriptsize
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{@{}p{.27\textwidth}p{.31\textwidth}p{.32\textwidth}@{}}
+\toprule
+branch&retained transfer data&terminal contradiction\\
+\midrule
+$N_+=0$, all Vd0, $\mathrm{gr}=0$&$\mathrm I^6$&strict cyclic ascent\\
+$N_+=0$, all Vd0, $\mathrm{gr}=1$&two exact endpoints, $\mathrm I^3$&endpoint sum $<1$\\
+CE2, $\mathrm{gr}=2$&paired exact endpoints, $\mathrm I^3$&paired sum $<1$\\
+$N_+=0$, a T3-like role&exact endpoint audit, $\mathrm I^3$&four-label sum $<1$\\
+$N_+=1$, all Vd0, one gap&one five-row hatted chain&returned demand exceeds capacity\\
+one T3-like or adjacent Vd1&$1-g_c^{\rm sc}$, $\mathrm I^3$&outgoing cap $g_c^{\rm sc}$\\
+one Vd1/Vd2&residual chain and Vd margin&terminal separation\\
+\bottomrule
+\end{tabular}
+\caption{The reader-facing Strategy~2 certificate register.  The full
+slot-by-slot table is in Appendix~\ref{sec:strategy2-reader}.}
+\label{tab:body-strategy2-chains}
+\end{table}
+
+\begin{proposition}[Branches closed by Strategy 2]
+\label{prop:body-demand-branches}
+Strategy~2 closes:
+\begin{enumerate}
+\item the $N_+=0$ all-$\Vdzero$ and T3-like-without-Vd1/Vd2 branches for CE1
+and CE2;
+\item every positive-gap $N_+=1$ all-$\Vdzero$ state;
+\item the exactly-one-T3-like $N_+=1$ state with no Vd1/Vd2 role;
+\item the complementary transfer placements in the CE2, $N_+=1$,
+exactly-one-Vd1/Vd2 branch.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Apply Proposition~\ref{prop:body-transfer-interface} along the exact row chain,
+replace only the slots listed in Table~\ref{tab:body-strategy2-chains}, and use
+Proposition~\ref{prop:body-transfer-terminals}.  This is the abstract content
+of Proposition~\ref{prop:reader-demand-branches}; its appendix proof records
+the actual row realizing every formal composition.
+\end{proof}
