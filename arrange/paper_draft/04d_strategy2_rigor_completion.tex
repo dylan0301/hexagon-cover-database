@@ -1,0 +1,482 @@
+\section{Strategy 2 Rigor Completion}
+\label{sec:strategy2-rigor-completion}
+
+This section supplies the two pieces that must not be hidden by the concise
+reader presentation: the complete four-label T3-like endpoint audit and the
+explicit Vd1--supercritical axis replacement.  The former is long enough that
+its complete branch algebra is maintained as an electronic supplement in the
+proof package.  The supplement is part of the proof: the paths and Git blob
+identifiers below pin the exact source objects at this manuscript revision.
+
+\subsection{The incorporated \(407X\) endpoint supplement}
+
+The support-isolated T3-like proof is distributed as follows.
+\begin{center}
+\scriptsize
+\renewcommand{\arraystretch}{1.08}
+\begin{tabular}{p{.42\textwidth}p{.18\textwidth}p{.30\textwidth}}
+\toprule
+proof-package file&Git blob&role\\
+\midrule
+\texttt{4073\_boundary\_loss\_framework.md}&
+\texttt{f3f0395748f5}&exact residual reduction\\
+\texttt{4074\_L\_Full\_branch.md}&
+\texttt{880b59ec8d3c}&$(L,\mathrm{Full})$ branch\\
+\texttt{4075\_Tminus\_low\_lower\_branch\_obligations.md}&
+\texttt{ebe2b65f8840}&all first-$T_-$ branches\\
+\texttt{4078\_left\_L\_family\_completion.md}&
+\texttt{f1323325b069}&remaining first-$L$ branches\\
+\texttt{4079\_first\_Full\_branch.md}&
+\texttt{c66eea05277d}&first-Full exclusion\\
+\texttt{407a\_left\_Thigh\_branch\_completion.md}&
+\texttt{aa5cb1a6dc63}&first-$T_+^{\rm hi}$ branches\\
+\texttt{407c\_rigor\_completion\_details.md}&
+\texttt{c80243f67124}&all omitted analytic inequalities\\
+\texttt{407d\_rigor\_final\_assembly.md}&
+\texttt{a6ef81f787c4}&exhaustive reassembly\\
+\bottomrule
+\end{tabular}
+\end{center}
+All paths are relative to
+\begin{verbatim}
+proof/4XXX_CE1CE2/40XX_Nplus0/
+407X_T3_like_no_Vd1Vd2/
+\end{verbatim}
+The exact capped-map theorem used there is
+Proposition~\ref{prop:capped-demand-map}.  Its four labels are precisely
+\[
+ \mathrm{Full},\qquad L,\qquad T_-,\qquad T_+^{\rm hi};
+\]
+there is no fifth formal sheet.
+
+For reference, we reproduce the three non-obvious high-sheet estimates that
+connect the branch files.
+
+\begin{lemma}[High-left envelope]
+\label{lem:paper-high-left-envelope}
+Put
+\[
+ \rho=\sqrt{r^2-r+1},\qquad
+ m=\sqrt{\beta^2-\beta+1},
+\]
+where
+\[
+ 0<r<1,\qquad
+ \beta\ge\max\left\{r,\frac12,\frac{1-r^2}{1+2r}\right\},
+\]
+and assume the selected Cell-$T$ condition
+\[
+ r\ge(1-\beta)(r+\beta)^2.
+\]
+Define
+\[
+ y_*=\frac{r}{1-r}
+ \left(\frac{m}{r+\beta}-\frac12-rac{1-r}{1+\rho}\right),
+ \qquad b=\frac{\beta m}{r+\beta}.
+\]
+Whenever the companion endpoint $S$ satisfies $S<1/2$, the exact center
+identity gives $y<y_*$, and
+\[
+ y_*<\frac1{10},
+ \qquad
+ 3y_*\le1-b.
+\]
+\end{lemma}
+
+\begin{proof}
+The inequality $y<y_*$ is the rearrangement of $S<1/2$.  The function
+$m/(r+\beta)$ decreases in $\beta$, so the first bound is checked at
+\[
+ \beta_0(r)=\max\left\{r,\frac12,\frac{1-r^2}{1+2r}\right\}.
+\]
+Let $r_0=(\sqrt3-1)/2$.  If $0<r\le r_0$, then
+$m/(r+\beta)\le1$ and $(1-r)/(1+\rho)\ge1/3$, whence
+$y_*<1/10$.  If $r_0\le r\le1/2$, use
+\[
+ \frac{m}{r+\beta}\le\frac{\sqrt3}{1+2r},
+ \qquad
+ \frac{1-r}{1+\rho}\ge
+ 2-\sqrt3+\frac{1/2-r}{2}.
+\]
+The latter follows after squaring from
+\[
+ -\frac{(r-1)(2r-1)}{16}
+ \left(2r^2+(8\sqrt3-17)r+56-32\sqrt3\right)\ge0.
+\]
+The resulting difference from $1/10$ has numerator
+\[
+ P(r)=20r^3+(40\sqrt3-96)r^2+(40\sqrt3-57)r-2,
+\]
+which is increasing and negative at $1/2$; the denominator has the opposite
+sign.  Finally, if $1/2\le r<1$, then
+\[
+ y_*\le\frac{\rho+1-3r}{2(1+\rho)}<\frac1{10},
+\]
+because $15r-4\rho-4>0$ and its derivative is positive.
+
+For the second inequality put $E_r(\beta)=1-b-3y_*$.  Exact differentiation
+gives
+\[
+ \frac{\partial E_r}{\partial\beta}
+ =\frac{N_r(\beta)}{2(\beta+r)^2(1-r)m},
+\]
+where
+\[
+ N_r=2\beta^3r-2\beta^3+4\beta^2r^2-5\beta^2r+\beta^2
+      -9\beta r^2+5r^2+4r.
+\]
+Moreover
+\[
+ \partial_\beta N_r
+ =-6\beta^2(1-r)+2\beta(1-r)(1-4r)-9r^2<0.
+\]
+Thus $E_r$ has no interior minimum.  At $\beta=1$,
+\[
+ E_r(1)=\frac{r(6r-\rho+5)}{2(1+r)(1+\rho)}>0.
+\]
+At the lower endpoint, the three ranges
+$r\le r_0$, $r_0\le r\le1/2$, and $r\ge1/2$ give respectively
+\[
+ \frac{r(7+\rho-2r-8r\rho-14r^2-2r^2\rho)}
+ {2(1-r)(1+2r)(1+\rho)}>0,
+\]
+$E_r>1/8$, and
+\[
+ E_r(r)=\frac{10r-r^2-2\rho-2}{2(1+\rho)}>0.
+\]
+Hence $E_r\ge0$.
+\end{proof}
+
+\begin{lemma}[Right \(T_-\) bounds]
+\label{lem:paper-right-tminus}
+Let $C=1-y$, $q=tC$, and suppose the right endpoint has the selected
+$T_-$ label.  If $b_1$ is its capped output, then
+\[
+ q+b_1=\sqrt{t^2-t+1},
+\]
+and
+\[
+ b_1\le\frac{\sqrt{13}-1}{6},
+ \qquad
+ q\le\tau<\frac{93}{200},
+\]
+where $\tau\in(0,1/2)$ is the unique root of
+\[
+ x^4-3x^3+3x^2-3x+1=0.
+\]
+\end{lemma}
+
+\begin{proof}
+The branch condition $b_1\le q$ gives
+$b_1\le\frac12\sqrt{t^2-t+1}$ and
+$\sqrt{t^2-t+1}\le2t$.  Hence
+$3t^2+t-1\ge0$ and
+$t\ge(\sqrt{13}-1)/6$.  Since $y<1/10$ and $q<1/2$, one has $t<5/9$; the
+half-radical is at most $(\sqrt{13}-1)/6$ on this interval.
+
+The selected Cell-$T$ inequality is
+\[
+ -tC^2+\sqrt{t^2-t+1}\,C-(1-t)(t^2-t+1)\ge0.
+\]
+It first forces $t<1/2$.  Its larger $C$-root is
+$\sqrt{t^2-t+1}(1-t)/t$, so
+\[
+ q\le\min\left\{t,(1-t)\sqrt{t^2-t+1}\right\}.
+\]
+The first function increases and the second decreases.  Their intersection is
+the displayed quartic root; direct evaluation at $93/200$ is negative.
+\end{proof}
+
+\begin{lemma}[Analytic high-left threshold]
+\label{lem:paper-high-left-threshold}
+Under the hypotheses of Lemma~\ref{lem:paper-high-left-envelope}, set
+\[
+ S_0=1-\frac{m}{r+\beta}+\frac{1-r}{1+\rho},
+ \qquad B_5=\frac{\beta m}{r+\beta}.
+\]
+Then
+\[
+ S_0<\frac{93}{200}
+ \quad\Longrightarrow\quad
+ B_5<\frac{5657}{10000}.
+\]
+\end{lemma}
+
+\begin{proof}
+The selected Cell-$T$ condition factors as
+\[
+ r-(1-\beta)(r+\beta)^2
+ =(r+\beta-1)(\beta^2+r\beta-r).
+\]
+The second factor is nonnegative, so $s=r+\beta\ge1$.  Since $r\le\beta$,
+\[
+ \rho^2-m^2=(r-\beta)(s-1)\le0.
+\]
+Define
+\[
+ \overline S(\beta)=1-m+\frac\beta{1+m}.
+\]
+Then
+\[
+ S_0\ge\overline S(\beta),
+\]
+because the difference is
+\[
+ (s-1)\left(\frac ms-\frac1{1+m}\right)\ge0;
+\]
+here $s\le2\beta\le m(1+m)$, the latter following from
+\[
+ m^2-(3\beta-\beta^2-1)^2
+ =-\beta(\beta-1)(\beta^2-5\beta+5)\ge0.
+\]
+Put
+\[
+ B_0=\frac{5657}{10000},\qquad T=\frac{93}{200},
+ \qquad \beta_*=\frac{161}{250}.
+\]
+If $B_5\ge B_0$, then $\beta m\ge B_0$.  The function $\beta m$ is increasing,
+and
+\[
+ B_0^2-\beta_*^2m(\beta_*)^2
+ =\frac{22782769}{62500000000}>0,
+\]
+so $\beta>\beta_*$.  On $[\beta_*,1]$ define
+\[
+ F(\beta)=\frac{107}{200}-Tm-(1-\beta)^2.
+\]
+Since $F''=-3T/(4m^3)-2<0$, $F$ is concave.  Its endpoint values are positive:
+$F(1)=7/100$, and, with
+$a_*=51033/125000$,
+\[
+ a_*^2-T^2m(\beta_*)^2
+ =\frac{1693881}{62500000000}>0.
+\]
+Finally
+\[
+ (\overline S(\beta)-T)(1+m)=F(\beta)>0.
+\]
+Thus $B_5\ge B_0$ forces $S_0>T$; the contrapositive proves the lemma.
+\end{proof}
+
+\begin{theorem}[Complete support-isolated T3-like endpoint certificate]
+\label{thm:paper-complete-t3-endpoint}
+For every support-isolated state of
+Definition~\ref{def:body-t3-endpoint-state},
+\[
+ \widehat g_{c_5^*}(1-a_5^*)+
+ \widehat g_{c_1^*}(1-a_1^*)<1.
+\]
+\end{theorem}
+
+\begin{proof}
+The exact residual formulas are those displayed in
+Lemma~\ref{lem:407-four-label-loss}.  If $a_1^*+a_5^*>1$, the two diagonal caps
+already give the strict loss.  In the hard region, the exact capped-map theorem
+leaves the four first-coordinate labels listed above.
+
+For first label $L$, the low-root separation, the CE2-overlap comparison, and
+the center-transfer lemma are proved in the incorporated files
+\texttt{4074}, \texttt{4078}, and the first section of \texttt{407c}.  They
+cover right labels Full, $L$, $T_-$, and $T_+^{\rm hi}$.  For first label
+$T_-$, the exact root-order test and all non-overlap, overlap, and right-high
+subcases are proved in \texttt{4075}; in every genuine case either
+$B_5<a_1^*$ or the two low caps sum to less than one.  The first-Full label is
+excluded in \texttt{4079} separately for the non-overlap input
+$1-\alpha$ and the CE2 overlap input $1-T$.
+
+For first label $T_+^{\rm hi}$, the selected Cell-$T$ condition is the
+hypothesis of Lemma~\ref{lem:paper-high-left-envelope}.  Right Full and right
+high are excluded by $S>3y$ and $A_C>3y$; right $L$ follows from
+$e(y)<3y\le1-B_5$; and the two right-$T_-$ inputs are handled by
+Lemmas~\ref{lem:paper-right-tminus} and
+\ref{lem:paper-high-left-threshold}, together with the exact comparison
+\[
+ \frac{5657}{10000}<\frac{7-\sqrt{13}}6.
+\]
+These are precisely the branches proved in \texttt{407a} and \texttt{407c}.
+The four labels are exhaustive and the exact final assembly is
+\texttt{407d}.  Thus every branch has endpoint-cap sum strictly below one.
+\end{proof}
+
+\subsection{The explicit Vd1--supercritical replacement}
+
+\begin{proposition}[Vd1--supercritical axis replacement]
+\label{prop:paper-vd1-pair-replacement}
+Assume the CE2 exact-$M_0$ branch, with a unique supercritical row at $V_1$ and
+an adjacent Vd1 row at $V_0$ containing $M_1$.  Assume every other vertex row
+is nonsupercritical Vd0, no additional role has positive support on the two
+relevant radial handoffs, and the center has no boundary trace on the shared
+edge $e_{0,1}$.  Then the two special rows can be replaced by two open
+nonsupercritical Vd0 roles preserving all boundary and radial demands used by
+the all-Vd0 boundary-loss theorem.
+\end{proposition}
+
+\begin{proof}
+Use the Vd corner normal form with $t>0$, $d=\sqrt{t^2+t+1}$ and exact Vd1
+boundary reaches $a,b$:
+\[
+ x-(t+1)y\le a,\qquad
+ ty-(t+1)x\le tb,\qquad
+ tx+y\le d-a-tb.
+\]
+Its own-radial reach and neighboring-arm endpoints are
+\[
+ c=\frac{d-a-tb}{t+1},\qquad
+ \lambda=\frac{t(1-b)}{t+1},\qquad
+ \mu=\frac{d-a-tb-1}{t}.
+\]
+Because the original open Vd1 role contains $M_1$,
+\[
+ b>\frac{t-1}{2t},\qquad
+ a+tb<d-1-\frac t2.
+\]
+If $t<1$, then
+\[
+ d-a-tb-t>1-\frac t2>\frac1{t+1}>\frac{1-a}{t+1},
+\]
+which would create positive support on the other adjacent arm.  Hence
+$t\ge1$.
+
+We need four strict margins:
+\begin{equation}
+ a+c<1,\qquad a<\lambda\le\frac12,\qquad
+ b<\frac12,\qquad \mu<1-a.
+ \label{eq:paper-replacement-margins}
+\end{equation}
+For the first, maximize $a+c$ on the closed midpoint face
+$a=d-1-t/2-tb$.  Then
+\[
+ a+c-1=-\frac{2bt^2+2bt-2dt-2d+t^2+4t+2}{2(t+1)}.
+\]
+Using $b\ge(t-1)/(2t)$, the numerator is at least
+$2t^2+4t+1-2(t+1)d$, which is positive because
+\[
+ (2t^2+4t+1)^2-4(t+1)^2d^2
+ =4t^3+4t^2-4t-3>0
+\]
+for $t\ge1$.  The original midpoint inequalities are strict.
+The bound $\lambda\le1/2$ follows from the lower bound for $b$.  The closed
+upper bound for $a$, subtracted from $\lambda$, is minimized at
+$b=(t-1)/(2t)$ and equals $(t+1)-d>0$, so $a<\lambda$.
+Furthermore
+\[
+ b<\frac{d-1-t/2}{t}<\frac12
+\]
+because $d<t+1$.  Finally
+\[
+ t(\mu+a-1)=d-(t+1)-tb+(t-1)a
+ \le t(d-t-1)<0.
+\]
+This proves \eqref{eq:paper-replacement-margins}.
+
+Let $(a_1,b_1,c_1)$ be the actual reaches of the unique supercritical row.
+The center-free shared edge forces
+\[
+ a_1\ge1-b>\frac12,
+\]
+and radial coverage before the Vd1 interval forces $c_1\ge\lambda$.  We use the
+following admissibility consequence.
+
+\emph{Half-square lemma.}
+If $(x,y,z)\in\mathcal A$, $x\ge1/2$, and $0\le z\le1/2$, then
+\[
+ y\le1-z.
+\]
+Indeed, suppose $y>1-z$.  Then $x+y>1$, so the selected supercritical cell
+applies.  In the ordered half $x\le y$, its necessary polynomial is
+\[
+ F(x,y,z)=(x^2-1)z^2+(2xy^2+y)z+y^4-y^2\le0.
+\]
+It is nondecreasing in $x$.  At $x=1/2$ its $y$-derivative is
+$4y^3-2y+2yz+z$, which is increasing for $y\ge1-z$ and is positive at that
+endpoint.  Hence
+\[
+ F(x,y,z)>F\left(\frac12,1-z,z\right)
+ =\frac{z^2(2z-5)(2z-1)}4\ge0,
+\]
+a contradiction.  In the reflected half $y<x$, use $F(y,x,z)$.  Both
+arguments exceed $r=1-z$, and on that quadrant the two partial derivatives are
+nonnegative; the second is bounded below by
+\[
+ 4r^2z+z+4r^3-2r=2-5z+4z^2>0.
+\]
+Thus
+\[
+ F(y,x,z)>F(r,r,z)=z(1-2z)\ge0,
+\]
+again a contradiction.
+
+A supercritical row has selected own-radial coordinate at most $1/2$, so the
+lemma applied to $(a_1,b_1,c_1)$ gives
+\[
+ b_1\le1-c_1\le1-\lambda.
+\]
+Together with $a<\lambda$ this gives
+\begin{equation}
+ a+b_1<1.
+ \label{eq:paper-a-bi-margin}
+\end{equation}
+
+Let $d_1^C$ be the center reach on the rescued arm, measured from $O$, and put
+$c_1^{\rm req}=1-d_1^C$.  Only the center, the supercritical row, and the Vd1
+row have positive intervals on this arm.  Open coverage at the center handoff
+therefore gives
+\[
+ c_1^{\rm req}<\max\{c_1,\mu\}
+ <\max\{1-b_1,1-a\}.
+ \label{eq:paper-radial-bridge-margin}
+\]
+Equality would leave the common open exit/entry point uncovered.
+
+Choose
+\[
+ a<p_1<p_2<1-b_1
+\]
+within the strict margins so that
+\[
+ p_1<\frac12,\qquad 1-p_1>c,
+ \qquad \max\{p_2,1-p_2\}>c_1^{\rm req}.
+\]
+This is possible by choosing $p_1$ close to $a$ and choosing $p_2$ close to
+$a$ when the right side of \eqref{eq:paper-radial-bridge-margin} is supplied by
+$1-a$, or close to $1-b_1$ when it is supplied by $1-b_1$.
+
+In the local metric define
+\[
+ \Delta_p^-=\conv\{(0,1-p),(1,1-p),(0,-p)\}
+ \quad(p\le1/2),
+\]
+\[
+ \Delta_p^+=\conv\{(p,0),(p,1),(p-1,0)\}
+ \quad(p\ge1/2).
+\]
+These are unit equilateral triangles.  Their incident reaches are $p,1-p$;
+their own-radial reaches are respectively $1-p,p$; and they have no positive
+adjacent-arm support.
+
+Translate $\Delta_{p_1}^-$ by $(-\varepsilon,0)$.  Its relevant reaches become
+\[
+ (p_1-\varepsilon,1-p_1,1-p_1).
+\]
+For the second row translate $\Delta_{p_2}^-$ by $(-\varepsilon,0)$ if
+$p_2<1/2$, and translate $\Delta_{p_2}^+$ by $(0,-\varepsilon)$ if
+$p_2\ge1/2$.  Its relevant reaches are respectively
+\[
+ (p_2-\varepsilon,1-p_2,1-p_2)
+\]
+or
+\[
+ (p_2,1-p_2-\varepsilon,p_2).
+\]
+Choose $\varepsilon>0$ smaller than every strict boundary, radial, and
+$p_2-p_1$ margin.  The first replacement still supplies at least $a$ and $c$;
+the second supplies at least $b_1$ and $c_1^{\rm req}$.  The shared open edge
+is covered because
+\[
+ (1-p_1)+(p_2-\varepsilon)>1.
+\]
+Both replacements contain their distinguished vertices in their interiors,
+have zero adjacent support, and have boundary sum strictly below one.  Thus
+they are open nonsupercritical Vd0 roles, and every demand used by the all-Vd0
+boundary-loss theorem is preserved.
+\end{proof}
