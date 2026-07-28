@@ -48,7 +48,7 @@ calculation lemma without the appendices and incorporated supplements.
 | `04c_short_Vd_placements.tex` | quarter envelope, profiles, radial separations |
 | `04_strategy2_reader.tex` | actual row chains and corrected terminal coordinates |
 | `04_strategy2_exact_demand.tex` | contact cells, endpoint inequalities, CE1 scalar proof |
-| `04d_strategy2_rigor_completion.tex` | incorporated `407X` audit and full Vd1 replacement |
+| `04d_strategy2_rigor_completion.tex` | incorporated complete `407X` branch audit and full Vd1 replacement |
 | `04e_strategy2_placement_assembly.tex` | authoritative CE2 one-Vd assembly |
 | `04f_strategy2_cross_reference_closure.tex` | declares later complete proofs authoritative for compact legacy summaries |
 | `05_strategy3_area.tex` | local area inequalities and cyclic certificates |
@@ -125,9 +125,9 @@ numbered source `2530` and is satisfied in every routed application.
 
 ### 3.5 T3-like endpoint audit
 
-The complete `407X` proof is formally incorporated. The paper reproduces the
-principal high-sheet envelope, right-`T_-` bounds, and analytic threshold and
-pins the complete branch objects under
+The complete `407X` proof is formally incorporated. The paper records the
+exhaustive four-label branch table and pins every proof object used by that
+table under
 
 ```text
 proof/4XXX_CE1CE2/40XX_Nplus0/
@@ -144,6 +144,10 @@ proof/4XXX_CE1CE2/40XX_Nplus0/
 | `407a_left_Thigh_branch_completion.md` | `aa5cb1a6dc63` |
 | `407c_rigor_completion_details.md` | `c80243f67124` |
 | `407d_rigor_final_assembly.md` | `a6ef81f787c4` |
+
+The difficult polynomial selectors, high-sheet estimates, and right-$T_-$
+bounds remain in those exact supplementary proof objects rather than being
+partially duplicated in TeX.
 
 ### 3.6 Vd1 replacement and placement assembly
 
@@ -172,8 +176,8 @@ quarter-envelope and Vd-specific terminal arguments.
 - the exact rational-function derivation verifier;
 - the exact global Bernstein verifier;
 - the positive-denominator conditions;
-- the missing implication from residual positivity to common tangent support
-  and cap intersection.
+- the implication from residual positivity to common tangent support and cap
+  intersection.
 
 The certificate uses exact integers, rationals, and `Q(sqrt(3))`. No
 floating-point or interval computation is an active dependency.
