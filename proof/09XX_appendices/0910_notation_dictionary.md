@@ -13,36 +13,33 @@ Status: Reference
 - $M_i$: midpoint $V_i/2$.
 - $S$: full skeleton.
 - $S_{1/2}$: half-skeleton.
-- $T_C$: center triangle, not to be confused with the center point.
+- $T_C$: center triangle.
 - $T_i$: vertex triangle at $V_i$.
 
 ## Role classes
 
-- CE0/CE1/CE2: exhaustive preferred names for center-triangle
-  perimeter-edge types.
+- CE0/CE1/CE2: exhaustive preferred center-triangle perimeter-edge types.
 - Ce0/Ce1/Ce2: historical aliases.
-- Vd0/Vd1/Vd2/T3-like: exhaustive vertex-triangle types for original vertex
-  roles.
-- supercritical row: a row with $a_i+b_i>1$.
+- Vd0/Vd1/Vd2/T3-like: exhaustive original vertex-role types.
+- supercritical row: a row whose actual reaches satisfy $A_i+B_i>1$.
 - $N_+$:
   $$
-  \left\lvert\left\{i:a_i+b_i>1\right\}\right\rvert,
+  \left\lvert\left\{i:A_i+B_i>1\right\}\right\rvert,
   $$
-  the number of supercritical rows.
+  the number of actual supercritical rows.
 - short role: in `2530`, a vertex role that is supercritical or has
   positive-length support on an adjacent radial arm.
 - $\mathrm{gr}$: active-gap rank, the number of positive center traces
-  containing a V-gap.  One has $\mathrm{gr}\in\{0,1,2\}$ and
-  $\mathrm{gr}\le1$ in CE1.  The symbol replaces the older use of $g$, which
-  is now reserved for the raw transfer maps $g_c$.
+  containing a V-gap. One has $\mathrm{gr}\in\{0,1,2\}$ and
+  $\mathrm{gr}\le1$ in CE1. Bare $g$ is reserved for transfer maps.
 
-## Universal enclosure and transfer calculus
+## Universal enclosure calculus
 
 - $R_{120}$: rotation through $2\pi/3$ when a distinction from the signed
   center parameter $R$ is needed.
 - $h_K(n)=\max_{x\in K}\langle x,n\rangle$: support function.
 - $\Lambda(K)$: least side length of a closed equilateral triangle containing
-  $K$; equivalently
+  $K$:
   $$
   \Lambda(K)=\frac{2}{\sqrt3}
   \min_{\lVert n\rVert=1}
@@ -51,26 +48,99 @@ Status: Reference
 - $\omega(x)=\sqrt{1-x+x^2}$ and
   $\sigma(x)=1-\omega(x)$: the universal equilateral radical and its concave
   deficit.
-- $\mathcal R_J(p)$: far-side residual boundary demand after an initial trace
-  $[0,p]$ and a center interval $J$.
-- $g_c(a)=1-B_c(a)$: raw no-center transfer, valid for every row.
-- $G_c(a)=1-F_c(a)=\max\{g_c(a),a\}$: capped transfer obtained by adjoining
-  the identity lower bound.
-- $\mathfrak g_{c,J}(a)=\mathcal R_J(B_c(a))$: raw center-assisted transfer.
-- $\mathcal G_{c,J}(a)=\mathcal R_J(F_c(a))$: capped center-assisted transfer;
-  $\mathfrak g_{c,\varnothing}=g_c$ and
-  $\mathcal G_{c,\varnothing}=G_c$.
-- $\mathsf T_{U,J}(a)=\mathcal R_J(U(a))$: transfer induced by any proved
-  outgoing upper envelope $U$.
+
+## The canonical $g$-family
+
+The paper uses one transfer alphabet. Hats impose the nonsupercritical cap,
+and $\vee$ changes from boundary-defect coordinates to complementary
+incoming-reach coordinates.
+
+- $\mathcal A$: the exact local admissible set of demand triples $(a,b,c)$.
+- $x=1-a$: incoming boundary defect corresponding to incoming reach $a$.
+- $g_c(x)$:
+  $$
+  g_c(x)
+  =
+  \max\left\{
+  y:(1-x,y,c)\in\mathcal A
+  \right\}.
+  $$
+  This is the historical raw defect-coordinate map. Equivalently,
+  $g_c(x)=B_c(1-x)$.
+- $\widehat g_c(x)=\min\{g_c(x),x\}$: nonsupercritical capped defect map.
+- $f^\vee(a)=1-f(1-a)$: complement dual of any map $f$.
+- $g_c^\vee$: raw next-incoming reach lower transfer, valid for every row.
+- $\widehat g_c^\vee$: capped next-incoming reach lower transfer for a
+  nonsupercritical row. It is extensive:
+  $$
+  \widehat g_c^\vee(a)\ge a.
+  $$
+- $\mathcal R_J(p)$: far-side residual demand after an initial trace $[0,p]$
+  and a center interval $J$.
+- $g_{c,J}^\vee(a)=\mathcal R_J(g_c(1-a))$: raw center-assisted reach transfer.
+- $\widehat g_{c,J}^\vee(a)=\mathcal R_J(\widehat g_c(1-a))$: capped
+  center-assisted reach transfer.
+- $g_c^{\rm sc}$:
+  $$
+  g_c^{\rm sc}
+  =
+  \sup_{\{x:g_c(x)>x\}}g_c(x)
+  =
+  \frac{c+\sqrt{c^2-8c+4}}2
+  \quad(0\le c<1/2).
+  $$
+  This single scalar is the free strict-supercritical outgoing envelope.
+  Every such row has outgoing reach $<g_c^{\rm sc}$ and therefore forces
+  following incoming reach $>1-g_c^{\rm sc}$.
 - $[\Phi_1\mid\cdots\mid\Phi_r](x)$:
-  $(\Phi_r\circ\cdots\circ\Phi_1)(x)$, with the maps listed in row order.
-- $\mathrm I(x)=x$: identity relaxation.
-- $\Theta_d$: low-root threshold relaxation of $G_{1-d}$.
-- $\mathsf L_{d,\lambda}(x)=x+\lambda(x-d)$: an affine selected-$T_+$ chord
-  relaxation on a domain where the corresponding chord estimate is proved.
-- $B_{\rm sc}(c)$ and $A_{\rm sc}(c)=1-B_{\rm sc}(c)$: free
-  strict-supercritical outgoing and following-demand envelopes.  Equivalently,
-  $A_{\rm sc}(c)$ is the infimum of $g_c$ over the region $g_c(a)<a$.
+  $(\Phi_r\circ\cdots\circ\Phi_1)(x)$, with maps listed in geometric row order.
+- $\mathrm I(x)=x$: identity lower relaxation.
+- $\widehat g_{1-d}^{\vee,\lambda}(x)=x+\lambda(x-d)$: certified affine
+  selected-$T_+$ lower relaxation on its stated arc.
+- $\widehat g_{1-d}^{\vee,\rm th}$: low-root threshold lower relaxation of
+  $\widehat g_{1-d}^\vee$.
+
+At zero radial demand,
+
+$$
+g_0(x)>x\quad(0<x<1),
+\qquad
+\widehat g_0(x)=x,
+$$
+
+and hence
+
+$$
+g_0^\vee(a)<a,
+\qquad
+\widehat g_0^\vee(a)=a.
+$$
+
+This distinguishes the historical raw $g_0$ from its hatted
+nonsupercritical cap.
+
+### Technical aliases
+
+The exact contact-cell files retain three incoming-reach aliases when they
+shorten formulas:
+
+$$
+B_c(a)=g_c(1-a),
+\qquad
+F_c(a)=\widehat g_c(1-a),
+\qquad
+G_c(a)=\widehat g_c^\vee(a).
+$$
+
+The older free-envelope aliases are
+
+$$
+B_{\rm sc}(c)=g_c^{\rm sc},
+\qquad
+A_{\rm sc}(c)=1-g_c^{\rm sc}.
+$$
+
+Reader-facing files should prefer the canonical $g$-family.
 
 ## Signed CE1/CE2 center normal form
 
@@ -86,8 +156,8 @@ The common signed variables are defined in `2109`.
 - $\alpha=F_0(O)$ and $\delta=F_2(O)$: the two nontrivial center slacks.
 - $k=\eta+\alpha+\delta$.
 - $\Delta_R=P-\alpha-W\delta$: normalized active-trace surplus; always
-  positive in the signed normalization.
-- $\Delta_L=P-R\alpha-\delta$: signed companion-trace surplus.
+  positive.
+- $\Delta_L=P-R\alpha-\delta$: companion-trace surplus.
 - CE1 sign: $\Delta_L\le0$.
 - CE2 sign: $\Delta_L>0$.
 - normalized right trace:
@@ -100,17 +170,13 @@ The common signed variables are defined in `2109`.
   $$
 - common center exits:
   $$
-  d_0^C=E-\alpha-\delta,
-  \quad
-  d_1^C=\frac{\delta}{R},
-  \quad
+  d_0^C=E-\alpha-\delta,\quad
+  d_1^C=\frac{\delta}{R},\quad
   d_2^C=\delta,
   $$
   $$
-  d_3^C=\min\left\{\frac{\alpha}{R},\frac{\delta}{W}\right\},
-  \quad
-  d_4^C=\alpha,
-  \quad
+  d_3^C=\min\left\{\frac{\alpha}{R},\frac{\delta}{W}\right\},\quad
+  d_4^C=\alpha,\quad
   d_5^C=\frac{\alpha}{W}.
   $$
 - complementary row demand: $c_i=1-d_i^C$.
@@ -118,26 +184,19 @@ The common signed variables are defined in `2109`.
 Legacy CE1 variables are
 
 $$
-\lambda=R,
-\qquad
-s=\frac{k}{R},
-\qquad
-t=W+\delta,
-\qquad
-C_0=\alpha,
-\qquad
+\lambda=R,\qquad
+s=\frac{k}{R},\qquad
+t=W+\delta,\qquad
+C_0=\alpha,\qquad
 C_2=\delta.
 $$
 
 Legacy CE2 variables are
 
 $$
-x=\frac{k}{W},
-\qquad
-u=R+\alpha,
-\qquad
-y=\frac{k}{R},
-\qquad
+x=\frac{k}{W},\qquad
+u=R+\alpha,\qquad
+y=\frac{k}{R},\qquad
 v=W+\delta.
 $$
 
@@ -146,40 +205,25 @@ high-sheet calculations when confusion with a local coordinate is possible.
 
 ## Vertex-role local coordinates
 
-- $a,b,c$: local vertex-triangle coordinates; in envelope files these are
-  lower-bound demands.
-- $A(T),B(T),C(T)$: actual maximal local reaches of a realizing vertex
-  triangle when they must be distinguished from demands.
-- $(a_i,b_i)$: actual selected incoming and outgoing boundary row data for
-  the vertex role $T_i$ in the proof corpus.
-- $c_i$: prescribed or actual radial coordinate, as declared in the local
-  file.
-- admissible set $\mathcal A$: feasible local triples $(a,b,c)$; equivalently
-  $\Lambda(K(a,b,c))\le1$.
-- $B_c(a)$: maximal outgoing demand $b$ for fixed incoming and radial demands.
-- $F_c(a)=\min\{B_c(a),1-a\}$: safe nonsupercritical outgoing cap.
-- $g_c(a)=1-B_c(a)$ and $G_c(a)=1-F_c(a)$: raw and capped propagated
-  next-row incoming lower bounds when no center interval intervenes.
-- $e(d)=\ell(1-d)$: low selected root for a high radial demand $1-d$.
+- $a,b,c$: local lower-bound demands.
+- $A(T),B(T),C(T)$: actual maximal local reaches of a realizing role.
+- $(A_i,B_i,C_i)$: actual maximal row reaches in the manuscript.
+- $(a_i,b_i,c_i)$: selected lower-bound demands in the manuscript.
+- $e(d)=\ell(1-d)$: low selected root for radial demand $1-d$.
 - $\sigma(x)=1-\sqrt{1-x+x^2}$: universal selected-$T_+$ increment; older
-  files write this function as $\psi(x)$.
+  files write $\psi(x)$.
 - $\beta(q)=(-q+\sqrt{4-3q^2})/2$: adjacent-edge diameter-transfer curve.
-- $\lambda_\circ(q)=1-\beta(q)$: complementary diameter tail.
 
 ## Historical and auxiliary notation
 
-- $d_0,d_{60},\dots,d_{300}$: historical degree-indexed center ray exits.
+- $d_0,d_{60},\dots,d_{300}$: historical degree-indexed center exits.
 - $1-d_{60i}$: historical complementary radial distance after $T_C$.
-- $K_5$: archived May 25 five-point set $\{P_3,P_5,D_0,D_1,D_2\}$.
-- $f(a,b)$: local normalized maximum area inside $H$ for a vertex triangle
-  forced to contain the corresponding row data.
-- $\mathcal L_{\mathrm{area}}=1-f$: normalized local area loss.  Older files
-  use $G=1-f$; that symbol is unrelated to the capped propagation map $G_c$.
-- $F$: historical coverage-coordinate zero-diagonal map.
-- $g_c$: historically used for the defect-coordinate admissible-set map and
-  now retained as the canonical raw transfer $1-B_c$.
-- algorithm 1: failed unimodality route using local diagonal max-$c$ points.
-- algorithm 2: diagonal-relaxation route using equality patterns among the
-  nonsupercritical rows in the CE0 all-Vd0 $N_+=1$ branch.
+- $K_5$: archived May 25 five-point set.
+- $f(a,b)$: normalized maximal retained area for a forced vertex triangle.
+- $\mathcal L_{\rm area}=1-f$: normalized local area loss.
+- $F$: historical coverage-coordinate zero-diagonal map, unrelated to the
+  technical alias $F_c$ above.
+- algorithm 1: failed unimodality route.
+- algorithm 2: diagonal-relaxation route in the CE0 all-Vd0 branch.
 - 걸거치는: crossing or straddling adjacent structure in the problematic
   T3-like way.

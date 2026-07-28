@@ -1,67 +1,280 @@
-# Raw and Relaxed $g$-Composition Chains
+# Canonical and Relaxed $g$-Composition Chains
 
 Status: Proven
 
-This note gives one notation for the transfer arguments used throughout the
-CE1/CE2 proof.  The raw transfer is defined for every vertex row.  The
-nonsupercritical cap, the free strict-supercritical envelope, center intervals,
-selected-$T_+$ chords, threshold jumps, and Vd radial estimates are then
-proof-safe relaxations or specializations of the same transfer scheme.
+This note fixes one notation for every Strategy 2 transfer.  The historical
+map $g_c$ is kept in its original **boundary-defect coordinate**.  A hat
+imposes the nonsupercritical diagonal cap, and a superscript $\vee$ changes
+from defect coordinates to the complementary incoming-reach coordinates used
+by the paper.  Center intervals, the free strict-supercritical envelope,
+affine selected-$T_+$ bounds, and threshold bounds are decorations of this
+single $g$-family.
 
-The distinction between supercritical and nonsupercritical rows remains useful
-for choosing an envelope, but it is not built into the definition of a
-$g$-composition chain.
+No distinction between supercritical and nonsupercritical rows is built into
+the definition of the raw map $g_c$.
 
-## 1. Raw and capped transfers
+## 1. Local demand coordinates
 
-For $0\le a,c\le1$, let $B_c(a)$ be the exact maximal outgoing demand proved in
-[`2007`](2007_max_b_map.md).  Define
+Let $\mathcal A\subseteq[0,1]^3$ be the exact local admissible set from
+[`2004`](2004_admissible_set.md).  A triple $(a,b,c)\in\mathcal A$ means that
+one closed unit equilateral triangle can realize
 
-$$
-\boxed{g_c(a)=1-B_c(a).}
-$$
+- incoming boundary demand $a$;
+- outgoing boundary demand $b$;
+- own-radial demand $c$.
 
-Coordinatewise down-closedness of the admissible set makes $B_c$ nonincreasing
-in $a$, so $g_c$ is nondecreasing.
-
-Let an actual vertex role have incoming reach at least $a$, radial reach at
-least $c$, and outgoing reach $B$.  The same triangle realizes the demand
-triple $(a,B,c)$, and therefore
+The coordinates are lower-bound demands.  If an actual row has maximal reaches
+$(A,B,C)$, then it realizes every triple with
 
 $$
-B\le B_c(a).
-$$
-
-If no center interval intervenes on the next edge, coverage forces
-
-$$
-\boxed{A_{\mathrm{next}}\ge g_c(a).}
-$$
-
-This statement applies to every row.
-
-If the row is known to be nonsupercritical, then also $B\le1-a$.  With
-
-$$
-F_c(a)=\min\{B_c(a),1-a\},
+0\le a\le A,
 \qquad
-G_c(a)=1-F_c(a),
+0\le b\le B,
+\qquad
+0\le c\le C.
 $$
 
-one has the exact identity
+For an incoming reach $a$, write
 
 $$
-\boxed{G_c(a)=\max\{g_c(a),a\}.}
+x=1-a.
 $$
 
-Thus the usual capped map is obtained from the raw graph by adjoining the
-identity lower bound.  In particular,
+The variable $x$ is the incoming boundary **defect**.
+
+## 2. Raw and capped defect maps
+
+For $0\le x,c\le1$, define
 
 $$
-G_c(a)\ge a.
+\boxed{
+g_c(x)
+=
+\max\left\{
+y\in[0,1]:(1-x,y,c)\in\mathcal A
+\right\}.
+}
 $$
 
-## 2. Center-assisted transfers
+Thus $g_c(x)$ is the largest outgoing reach compatible with incoming defect
+$x$ and radial demand $c$.  In the notation of
+[`2007`](2007_max_b_map.md),
+
+$$
+\boxed{g_c(x)=B_c(1-x).}
+$$
+
+Because the admissible set is coordinatewise down-closed, $g_c$ is
+nondecreasing in $x$ and nonincreasing in $c$.
+
+For a nonsupercritical row the outgoing reach is also at most its incoming
+defect.  Define the capped defect map
+
+$$
+\boxed{
+\widehat g_c(x)=\min\{g_c(x),x\}.
+}
+$$
+
+Hence
+
+$$
+\widehat g_c(x)\le x.
+$$
+
+The hat is the only notation used for the nonsupercritical cap.
+
+## 3. Complement duals
+
+For any map $f:[0,1]\to[0,1]$, define its complement dual by
+
+$$
+\boxed{
+f^\vee(a)=1-f(1-a).
+}
+$$
+
+The involution $a\mapsto1-a$ conjugates defect-coordinate upper bounds to
+incoming-reach lower bounds.  In particular,
+
+$$
+g_c^\vee(a)=1-g_c(1-a),
+$$
+
+and
+
+$$
+\widehat g_c^\vee(a)=1-\widehat g_c(1-a).
+$$
+
+Since $\widehat g_c\le\mathrm I$,
+
+$$
+\boxed{\widehat g_c^\vee\ge\mathrm I.}
+$$
+
+The symbols used in older exact files are aliases:
+
+$$
+\boxed{
+B_c(a)=g_c(1-a),
+\qquad
+F_c(a)=\widehat g_c(1-a),
+\qquad
+G_c(a)=\widehat g_c^\vee(a).
+}
+$$
+
+Thus $B_c,F_c,G_c$ are not a second family of maps.  They are the outgoing,
+capped-outgoing, and capped-dual views of the same $g$-family.  Exact
+contact-cell files may retain these aliases when that keeps their formulas
+short.
+
+## 4. Actual-row transfer
+
+Let an actual row have maximal reaches $(A,B,C)$.
+
+### Raw row
+
+Suppose
+
+$$
+A\ge a,
+\qquad
+C\ge c.
+$$
+
+Then $(a,B,c)\in\mathcal A$, and therefore
+
+$$
+B\le g_c(1-a).
+$$
+
+If no center interval intervenes on the next boundary edge, coverage gives
+
+$$
+A_{\rm next}\ge1-B.
+$$
+
+Consequently
+
+$$
+\boxed{
+A_{\rm next}\ge g_c^\vee(a).
+}
+$$
+
+This statement is valid for every row.
+
+Equivalently, if $x=1-a$ and $x_{\rm next}=1-A_{\rm next}$, then
+
+$$
+\boxed{
+x_{\rm next}\le g_c(x).
+}
+$$
+
+### Nonsupercritical row
+
+If the row is nonsupercritical, then
+
+$$
+A+B\le1.
+$$
+
+The preceding hypotheses give
+
+$$
+B\le1-A\le1-a,
+$$
+
+and hence
+
+$$
+B\le\widehat g_c(1-a).
+$$
+
+Therefore
+
+$$
+\boxed{
+A_{\rm next}\ge\widehat g_c^\vee(a)\ge a.
+}
+$$
+
+Equivalently,
+
+$$
+\boxed{
+x_{\rm next}\le\widehat g_c(x)\le x.
+}
+$$
+
+The increasing reach chain and the decreasing defect chain are the same
+argument in complementary coordinates.
+
+## 5. The zero-radial map
+
+At $c=0$, the exact diameter formula is
+
+$$
+B_0(a)=\frac{-a+\sqrt{4-3a^2}}2.
+$$
+
+Thus
+
+$$
+\boxed{
+g_0(x)
+=
+B_0(1-x)
+=
+\frac{x-1+\sqrt{1+6x-3x^2}}2.
+}
+$$
+
+For $0<x<1$,
+
+$$
+1+6x-3x^2-(1+x)^2
+=
+4x(1-x)>0,
+$$
+
+so
+
+$$
+\boxed{g_0(x)>x.}
+$$
+
+Geometrically, the two demanded boundary points are at distance one and form
+two vertices of the extremal unit equilateral triangle.  The extremal demand is
+strictly supercritical:
+
+$$
+(1-x)+g_0(x)>1.
+$$
+
+After imposing the nonsupercritical cap,
+
+$$
+\boxed{\widehat g_0(x)=x.}
+$$
+
+Taking complement duals gives
+
+$$
+g_0^\vee(a)<a
+\quad(0<a<1),
+\qquad
+\boxed{\widehat g_0^\vee(a)=a.}
+$$
+
+This is the precise resolution of the former notation conflict: the raw
+historical $g_0$ lies above the diagonal, while its hatted nonsupercritical
+version is the identity.
+
+## 6. Center-assisted transfers
 
 Let $\mathcal R_J$ be the residual-demand operator of
 [`2019`](2019_interval_component_and_path_budget.md), where $J$ is empty or a
@@ -69,154 +282,116 @@ closed center interval.  Define
 
 $$
 \boxed{
-\mathfrak g_{c,J}(a)=\mathcal R_J(B_c(a)),
-\qquad
-\mathcal G_{c,J}(a)=\mathcal R_J(F_c(a)).
+g_{c,J}^\vee(a)
+=
+\mathcal R_J\!\left(g_c(1-a)\right),
 }
 $$
 
-The edge-handoff lemma and the fact that $\mathcal R_J$ is nonincreasing give
+and
 
 $$
-A_{\mathrm{next}}\ge\mathfrak g_{c,J}(a)
+\boxed{
+\widehat g_{c,J}^\vee(a)
+=
+\mathcal R_J\!\left(\widehat g_c(1-a)\right).
+}
+$$
+
+The edge-handoff lemma and monotonicity of $\mathcal R_J$ give
+
+$$
+A_{\rm next}\ge g_{c,J}^\vee(a)
 $$
 
 for every row, and
 
 $$
-A_{\mathrm{next}}\ge\mathcal G_{c,J}(a)
+A_{\rm next}\ge\widehat g_{c,J}^\vee(a)
 $$
 
-when the nonsupercritical cap is available.  For $J=\varnothing$,
+when the row is nonsupercritical.  Since
+$\mathcal R_{\varnothing}(p)=1-p$,
 
 $$
-\mathfrak g_{c,\varnothing}=g_c,
+g_{c,\varnothing}^\vee=g_c^\vee,
 \qquad
-\mathcal G_{c,\varnothing}=G_c.
+\widehat g_{c,\varnothing}^\vee=\widehat g_c^\vee.
 $$
 
-## 3. Envelope-transfer form
+No additional alphabet is needed for center-assisted propagation.
 
-Let $U$ be any proved upper envelope for the outgoing reach of a specified row
-on the relevant input domain.  Put
+## 7. The free strict-supercritical envelope
+
+For fixed $0\le c<1/2$, the strict-supercritical defect region is
+
+$$
+\left\{x:g_c(x)>x\right\}.
+$$
+
+Indeed, with incoming reach $1-x$, strict supercriticality is
+
+$$
+(1-x)+b>1
+\quad\Longleftrightarrow\quad
+b>x.
+$$
+
+The interval-fiber property permits such a $b$ exactly when
+$g_c(x)>x$.
+
+Define the single scalar envelope
 
 $$
 \boxed{
-\mathsf T_{U,J}(a)=\mathcal R_J(U(a)),
-\qquad
-\mathsf T_U(a)=\mathsf T_{U,\varnothing}(a)=1-U(a).
+g_c^{\rm sc}
+=
+\sup_{\substack{0\le x\le1\\g_c(x)>x}}g_c(x).
 }
 $$
 
-If $U\le V$, then residual monotonicity gives
+The free strict-supercritical theorem
+[`2010`](2010_free_supercritical_max_b.md) gives
 
 $$
-\boxed{\mathsf T_{U,J}\ge\mathsf T_{V,J}.}
-$$
-
-Hence replacing an exact outgoing envelope by a larger and simpler envelope
-produces a smaller proof-safe transfer.  The basic dictionary is
-
-| outgoing upper envelope | induced transfer | role in a chain |
-|---|---|---|
-| $B_c(a)$ | $g_c(a)$ | raw transfer for every row |
-| $F_c(a)$ | $G_c(a)$ | capped transfer |
-| $1-a$ | $\mathrm I(a)=a$ | identity relaxation |
-| $B_{\rm sc}(c)$ | $\mathsf S_c(a)=A_{\rm sc}(c)$ | free strict-supercritical relaxation |
-
-Here
-
-$$
-B_{\rm sc}(c)
+\boxed{
+g_c^{\rm sc}
 =
 \frac{c+\sqrt{c^2-8c+4}}2,
 \qquad
-A_{\rm sc}(c)=1-B_{\rm sc}(c),
-\qquad
-0\le c<\frac12,
-$$
-
-and the strict outgoing inequality is
-
-$$
-B<B_{\rm sc}(c).
-$$
-
-Consequently a following center-free boundary demand is strictly larger than
-$\mathsf S_c=A_{\rm sc}(c)$.
-
-## 4. $A_{\rm sc}$ and $B_{\rm sc}$ as envelopes of the raw graph
-
-For fixed $0\le c<1/2$, the strict-supercritical region is exactly
-
-$$
-\left\{a:g_c(a)<a\right\}.
-$$
-
-Indeed,
-
-$$
-g_c(a)<a
-\quad\Longleftrightarrow\quad
-B_c(a)>1-a,
-$$
-
-and the interval-fiber property then permits an outgoing demand
-$b>1-a$.
-
-The free strict-supercritical theorem
-[`2010`](2010_free_supercritical_max_b.md) therefore has the equivalent form
-
-$$
-\boxed{
-B_{\rm sc}(c)
-=
-\sup_{\substack{0\le a\le1\\ g_c(a)<a}}B_c(a),
-\qquad
-A_{\rm sc}(c)
-=
-\inf_{\substack{0\le a\le1\\ g_c(a)<a}}g_c(a).
+0\le c<\frac12.
 }
 $$
 
-Thus $A_{\rm sc}$ and $B_{\rm sc}$ are envelopes of the ordinary raw
-$g_c$ graph, rather than a separate transfer mechanism.
-
-At $c=0$, the exact boundary formula is
+The supremum is not attained.  Hence every actual strict-supercritical row
+with radial demand at least $c$ satisfies
 
 $$
-B_0(a)=\frac{-a+\sqrt{4-3a^2}}2,
+\boxed{B<g_c^{\rm sc}.}
+$$
+
+On a center-free next edge,
+
+$$
+\boxed{
+A_{\rm next}>1-g_c^{\rm sc}.
+}
+$$
+
+The old two-symbol notation is only the alias
+
+$$
+B_{\rm sc}(c)=g_c^{\rm sc},
 \qquad
-g_0(a)=1-B_0(a),
+A_{\rm sc}(c)=1-g_c^{\rm sc}.
 $$
 
-and the free envelopes are
+Reader-facing arguments should use the single scalar $g_c^{\rm sc}$ and its
+complement instead of introducing both $A_{\rm sc}$ and $B_{\rm sc}$.
 
-$$
-A_{\rm sc}(0)=0,
-\qquad
-B_{\rm sc}(0)=1.
-$$
+## 8. Composition and lower relaxations
 
-Moreover,
-
-$$
-4-3a^2-(2-a)^2=4a(1-a)\ge0,
-$$
-
-so $B_0(a)\ge1-a$ and hence
-
-$$
-G_0(a)=\max\{g_0(a),a\}=a.
-$$
-
-Therefore the literal identification of $A_{\rm sc}$ or $B_{\rm sc}$ with the
-capped map $G_0$ is false.  The correct unification is the free-envelope
-identity for the raw graph displayed above.
-
-## 5. Relaxed composition
-
-For maps $\Phi_1,\ldots,\Phi_r$, write the chain in row order as
+For maps listed in geometric row order, write
 
 $$
 \boxed{
@@ -229,33 +404,16 @@ $$
 Thus the leftmost slot acts first.  Write $\mathrm I^k$ for $k$ consecutive
 identity slots.
 
-For branch summaries, write
-
-$$
-\boxed{
-\mathscr C[
-\text{seed};\,
-\Phi_1\mid\cdots\mid\Phi_r;\,
-\text{terminal}
-].
-}
-$$
-
-This is a chain signature rather than a new function: it records the exact
-seed data, the proof-safe lower transfers used in geometric order, and the
-final capacity or separation certificate.  The seed and terminal entries may
-be tuples when an endpoint-loss argument retains two exact endpoint maps.
-
 ### Relaxed-composition lemma
 
-Suppose the actual demands satisfy
+Suppose actual incoming demands satisfy
 
 $$
 x_j\ge\Phi_j(x_{j-1})
 \qquad(1\le j\le r),
 $$
 
-where every $\Phi_j$ is nondecreasing.  If proof-safe lower transfers satisfy
+where every $\Phi_j$ is nondecreasing.  If
 
 $$
 \underline\Phi_j\le\Phi_j,
@@ -281,8 +439,7 @@ y_0=x_0,
 y_j=\underline\Phi_j(y_{j-1}).
 $$
 
-If $x_{j-1}\ge y_{j-1}$, then monotonicity and the lower-transfer inequality
-give
+If $x_{j-1}\ge y_{j-1}$, then monotonicity gives
 
 $$
 x_j
@@ -298,14 +455,46 @@ $$
 
 Induction proves the claim.
 
-## 6. Reusable lower transfers
+## 9. Decorated lower relaxations
+
+The exact nonsupercritical reach transfer is
+$\widehat g_{1-d}^\vee$.  To avoid new function letters, its two reusable lower
+relaxations are denoted by superscripts.
+
+### Affine selected-$T_+$ relaxation
+
+On a selected-$T_+$ arc on which the coefficient $\lambda$ has been proved
+valid, write
+
+$$
+\boxed{
+\widehat g_{1-d}^{\vee,\lambda}(x)
+=
+x+\lambda(x-d)
+\le
+\widehat g_{1-d}^\vee(x).
+}
+$$
+
+The CE1 one-gap proof uses
+
+$$
+\widehat g_{1-\alpha}^{\vee,\,1-4\alpha},
+\qquad
+\widehat g_{1-m}^{\vee,\,1-5m}.
+$$
+
+The superscript $\lambda$ denotes a certified lower relaxation, not an
+additional exact map.
+
+### Threshold relaxation
 
 For $0<d<1-\sqrt3/2$, let $e(d)$ be the low-root threshold from
 [`2012`](2012_high_radial_low_root_bounds.md).  Define
 
 $$
 \boxed{
-\Theta_d(x)
+\widehat g_{1-d}^{\vee,\rm th}(x)
 =
 \begin{cases}
 x,&x\le e(d),\\
@@ -317,32 +506,14 @@ $$
 Extensivity and the high-demand threshold give
 
 $$
-\boxed{\Theta_d(x)\le G_{1-d}(x).}
+\boxed{
+\widehat g_{1-d}^{\vee,\rm th}
+\le
+\widehat g_{1-d}^\vee.
+}
 $$
 
-For a selected-$T_+$ chord with deficit $d$ and a proved coefficient
-$\lambda>-1$, put
-
-$$
-\boxed{\mathsf L_{d,\lambda}(x)=x+\lambda(x-d).}
-$$
-
-Whenever the corresponding chord estimate has been verified on the selected
-arc,
-
-$$
-\mathsf L_{d,\lambda}(x)\le G_{1-d}(x).
-$$
-
-The CE1 one-gap proof uses
-
-$$
-\mathsf L_{\alpha,1-4\alpha},
-\qquad
-\mathsf L_{m,1-5m}.
-$$
-
-The quarter-radial and Vd-corner estimates are used in exactly the same way:
-they replace a terminal exact row transfer by a simpler lower transfer on the
-branch-specific domain.  The branch tables record which slots are retained
-and which are replaced.
+Quarter-radial and Vd-corner estimates play the same role at terminal slots:
+they replace an exact row transfer by a simpler branch-specific lower bound.
+The branch tables state those terminal bounds directly rather than assigning
+another permanent function letter.

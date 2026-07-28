@@ -62,11 +62,66 @@ retained as four named strategies for geometric readability:
 
 1. **additive deficits:** boundary or conditional-skeleton length, and
    normalized area loss;
-2. **isotone transfer:** raw $g_c=1-B_c$ chains and proof-safe relaxations,
-   including the capped map $G_c=\max\{g_c,\mathrm I\}$, free
-   strict-supercritical envelopes, center residuals, chords, and thresholds;
+2. **isotone transfer:** compositions of one decorated $g$-family;
 3. **convex support:** the equilateral enclosure gauge applied to the forced
    nine-point witness set.
+
+The canonical transfer notation is:
+
+$$
+g_c(x)
+=
+\max\left\{
+y:(1-x,y,c)\in\mathcal A
+\right\},
+\qquad
+\widehat g_c(x)=\min\{g_c(x),x\}.
+$$
+
+Here $x$ is incoming boundary defect. For any map $f$, put
+
+$$
+f^\vee(a)=1-f(1-a).
+$$
+
+Then $g_c^\vee$ is the raw next-incoming reach lower transfer and
+$\widehat g_c^\vee$ is its nonsupercritical extensive version. Center
+intervals use the subscripted variants $g_{c,J}^\vee$ and
+$\widehat g_{c,J}^\vee$. The free strict-supercritical outgoing envelope is
+the single scalar
+
+$$
+g_c^{\rm sc}
+=
+\sup_{\{x:g_c(x)>x\}}g_c(x).
+$$
+
+Affine selected-$T_+$ and threshold relaxations are written as decorated
+versions of $\widehat g_c^\vee$, rather than introducing new function
+alphabets.
+
+At zero radial demand,
+
+$$
+g_0(x)>x\quad(0<x<1),
+\qquad
+\widehat g_0(x)=x.
+$$
+
+Thus the historical raw $g_0$ is supercritical, while the hatted
+nonsupercritical map is the identity.
+
+The exact contact-cell files may retain the aliases
+
+$$
+B_c(a)=g_c(1-a),
+\qquad
+F_c(a)=\widehat g_c(1-a),
+\qquad
+G_c(a)=\widehat g_c^\vee(a)
+$$
+
+when they shorten branchwise algebra.
 
 The existing Strategy 1 routing remains separate in the paper even when its
 length bounds can be viewed as coarse transfer envelopes.
@@ -74,7 +129,7 @@ length bounds can be viewed as coarse transfer envelopes.
 The universal local layer is:
 
 - [`2019`](proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2019_interval_component_and_path_budget.md): interval residuals, generalized handoffs, and boundary-path budgets;
-- [`201d`](proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md): raw and capped transfer maps, the free-supercritical envelope interpretation, common chain notation, and relaxed composition;
+- [`201d`](proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md): the canonical $g$-family, hats, complement duals, free-supercritical envelope, and relaxed composition;
 - [`201a`](proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201a_equilateral_enclosure_and_radical_calculus.md): one enclosure gauge, one equilateral radical, and the four-frontier atlas;
 - [`201b`](proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201b_quarter_radial_envelope.md): the global quarter radial envelope;
 - [`201c`](proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201c_Vd_corner_radial_margins.md): the two Vd corner radial margins;
@@ -82,7 +137,7 @@ The universal local layer is:
 
 For CE1/CE2 all-Vd0 branches, the active proof is organized by the actual row
 count $N_+\in\{0,1\}$ and the active-gap rank
-$\mathrm{gr}\in\{0,1,2\}$.  The two $\mathrm{gr}=2$ cells share the same
+$\mathrm{gr}\in\{0,1,2\}$. The two $\mathrm{gr}=2$ cells share the same
 paired-endpoint theorem.
 
 ## Preview Interactive HTML in GitHub Codespaces

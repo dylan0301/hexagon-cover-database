@@ -7,6 +7,11 @@ branches: the diameter transfer between adjacent boundary edges and the common
 center-trace argument for a T3-like or Vd1 row rescuing a neighboring
 supercritical row.
 
+The strict-supercritical functions are written with the single canonical
+envelope $g_c^{\rm sc}$ from
+[`201d`](201d_raw_and_relaxed_g_chains.md). Its complementary following-demand
+bound is $1-g_c^{\rm sc}$.
+
 ## 1. The diameter-transfer curve
 
 For $0\le q\le1$, define
@@ -36,15 +41,6 @@ $$
 \boxed{b\le\beta(q).}
 $$
 
-Define the complementary tail
-
-$$
-\boxed{
-\lambda_\circ(q)=1-\beta(q)
-=\frac{2+q-\sqrt{4-3q^2}}2.
-}
-$$
-
 For every $q>0$,
 
 $$
@@ -57,33 +53,39 @@ $$
 \boxed{
 \beta(q)<1-\frac q2,
 \qquad
-\lambda_\circ(q)>\frac q2.
+1-\beta(q)>\frac q2.
 }
 $$
 
 The same curve is the terminal diameter bound in the one-gap proofs and the
 boundary-extent curve in the one-Vd1/Vd2 obstructions.
 
-## 2. Supercritical boundary functions
+## 2. The free supercritical $g$-envelope
 
 For $0\le c\le1/2$, put
 
 $$
-B(c)=\frac{c+\sqrt{c^2-8c+4}}2,
-\qquad
-A(c)=1-B(c).
+\boxed{
+g_c^{\rm sc}
+=
+\frac{c+\sqrt{c^2-8c+4}}2.
+}
 $$
 
 The free strict-supercritical theorem
-[`2010`](2010_free_supercritical_max_b.md) says that a strict supercritical
-row whose own-radial demand is at least $c$ has outgoing boundary reach
-strictly less than $B(c)$. The function $B$ is strictly decreasing on
-$[0,1/2]$, because
+[`2010`](2010_free_supercritical_max_b.md) says that a strict-supercritical row
+whose own-radial demand is at least $c$ has outgoing reach strictly less than
+$g_c^{\rm sc}$.
+
+The function $c\mapsto g_c^{\rm sc}$ is strictly decreasing on $[0,1/2]$,
+because
 
 $$
-B'(c)
+\frac{d}{dc}g_c^{\rm sc}
 =
-\frac12\left(1+\frac{c-4}{\sqrt{c^2-8c+4}}\right)<0,
+\frac12\left(
+1+\frac{c-4}{\sqrt{c^2-8c+4}}
+\right)<0,
 $$
 
 where the sign follows from
@@ -92,7 +94,7 @@ $$
 (4-c)^2-(c^2-8c+4)=12>0.
 $$
 
-## 3. Common center hiding lemma
+## 3. Common center-hiding lemma
 
 Use the signed center variables from
 [`2109`](../21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md).
@@ -116,16 +118,16 @@ adjacent-radial trace $[c,u]$ on $r_1$, measured from $V_1$ toward $O$. Put
 $$
 \varepsilon=1-u>0,
 \qquad
-\Theta=\frac{a}{a+\varepsilon}.
+\theta=\frac{a}{a+\varepsilon}.
 $$
 
 Assume
 
 $$
 \boxed{
-a\le A(c),
+a\le1-g_c^{\rm sc},
 \qquad
-\Theta\le A(c),
+\theta\le1-g_c^{\rm sc},
 }
 $$
 
@@ -140,7 +142,7 @@ Let $h$ be the boundary reach forced on the opposite endpoint role $T_5$ along
 $e_{5,0}$, measured from $V_5$ toward $V_0$. Then
 
 $$
-\boxed{h\ge B(c).}
+\boxed{h\ge g_c^{\rm sc}.}
 $$
 
 ### Proof
@@ -149,7 +151,7 @@ If the center has no positive companion trace, the portion after $[0,a]$
 forces
 
 $$
-h\ge1-a\ge1-A(c)=B(c).
+h\ge1-a\ge g_c^{\rm sc}.
 $$
 
 The same conclusion holds when the companion trace lies completely before or
@@ -189,7 +191,7 @@ $$
 Thus
 
 $$
-\boxed{R\le\Theta.}
+\boxed{R\le\theta.}
 $$
 
 Moreover,
@@ -213,38 +215,44 @@ a+R(u-a).
 $$
 
 Since the hiding case has $R+\alpha>a$, the last inequality forces $u>a$.
-Using $R\le\Theta$,
+Using $R\le\theta$,
 
 $$
 R+\alpha
 \le
-a+\Theta(u-a).
+a+\theta(u-a).
 $$
 
 Because $u=1-\varepsilon$,
 
 $$
-a+\Theta(u-a)
+a+\theta(u-a)
 =
 a+\frac{a}{a+\varepsilon}(1-\varepsilon-a)
 =
 \frac{a}{a+\varepsilon}
 =
-\Theta.
+\theta.
 $$
 
-Consequently
+Consequently,
 
 $$
-R+\alpha\le\Theta\le A(c).
+R+\alpha
+\le
+\theta
+\le
+1-g_c^{\rm sc}.
 $$
 
 In the hiding case $T_5$ must reach the far center endpoint, so
 
 $$
-h\ge1-(R+\alpha)
-\ge1-A(c)
-=B(c).
+h
+\ge
+1-(R+\alpha)
+\ge
+g_c^{\rm sc}.
 $$
 
 This completes all cases.
@@ -253,22 +261,22 @@ This completes all cases.
 
 Assume, in addition to the hypotheses of Section 3, that:
 
-- $T_1$ is the unique strict supercritical row;
+- $T_1$ is the unique strict-supercritical row;
 - coverage of $r_1$ forces its own-radial reach to be at least $c$;
 - $T_2,T_3,T_4,T_5$ are nonsupercritical rows;
 - these four rows must cover the ordinary boundary chain from $e_{1,2}$ to
   $e_{5,0}$.
 
-The strict supercritical theorem and the monotonicity of $B$ give
+The strict-supercritical theorem and monotonicity of $g_c^{\rm sc}$ give
 
 $$
-b_1<B(c).
+b_1<g_c^{\rm sc}.
 $$
 
 Section 3 gives
 
 $$
-h\ge B(c)>b_1.
+h\ge g_c^{\rm sc}>b_1.
 $$
 
 The boundary obligations are
@@ -315,9 +323,9 @@ so the same sum is at most $4$. This contradiction proves the common
 adjacent-rescuer obstruction once the local rescuer inequalities
 
 $$
-a\le A(c),
+a\le1-g_c^{\rm sc},
 \qquad
-\frac{a}{a+1-u}\le A(c)
+\frac{a}{a+1-u}\le1-g_c^{\rm sc}
 $$
 
 have been verified for the relevant T3-like or Vd1 normal form.
