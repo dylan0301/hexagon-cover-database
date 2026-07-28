@@ -1,0 +1,99 @@
+\section{Strategy 3: Area Loss}
+\label{sec:strategy3-summary}
+
+Normalize the area of a unit equilateral triangle to one.  Then $H$ has area
+six.  For a vertex role with selected adjacent boundary reaches $a,b$, let
+$\mathcal L(a,b)$ be the least normalized area forced outside the local
+hexagonal wedge.
+
+\begin{figure}[H]
+\centering
+\begin{minipage}[b]{.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{figures/strategy3_local_area_loss.png}
+\par\smallskip
+\footnotesize (a) local loss
+\end{minipage}\hfill
+\begin{minipage}[b]{.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{figures/strategy3_global_area_loss.png}
+\par\smallskip
+\footnotesize (b) cyclic sum
+\end{minipage}
+\caption{Strategy~3.  The picture supplies intuition only; the proof uses the
+three inequalities in Proposition~\ref{prop:body-area-register}.}
+\label{fig:body-area-loss}
+\end{figure}
+
+\begin{proposition}[Area-loss register]
+\label{prop:body-area-register}
+For every feasible selected pair,
+\[
+ \mathcal L(a,b)\ge\min\{a,b\}^2.
+\]
+If $a+b>1$, then
+\[
+ \mathcal L(a,b)\ge\max\{a,b\}^2.
+\]
+For a $\Tlike$ role, $a+b\le1$, and for $0\le m\le1/2$,
+\[
+ a,b\ge m\quad\Longrightarrow\quad
+ \mathcal L(a,b)\ge2m-4m^2.
+\]
+\end{proposition}
+
+\begin{proof}
+These are Theorems~\ref{thm:local-square-loss} and
+\ref{thm:t3-direct-loss}.  Appendix~\ref{sec:area} reduces every orientation
+to two affine normal forms and proves the inequalities there.  The body uses
+only the three displayed losses.
+\end{proof}
+
+Suppose strict boundary handoffs are selected and encoded by
+\[
+ (a_i,b_i)=(1-x_{i-1},x_i),\qquad 0<x_i<1.
+\]
+Put
+\[
+ \mu=\min_i x_i,\qquad M=\max_i x_i.
+\]
+Reflection and reversal replace $x_i$ by $1-x_{-i-1}$, preserve every row
+loss, and interchange $\mu$ with $1-M$.  Hence assume $\mu\le1-M$; then
+every coordinate $x_i$ and $1-x_i$ is at least $\mu$.
+
+If at least two rows are supercritical, one ascent out of a minimum plateau
+contributes at least $(1-\mu)^2$, a second ascent contributes strictly more
+than $1/4$, and the remaining four rows contribute at least $\mu^2$ each.
+The total loss is strictly larger than
+\[
+ 4\mu^2+(1-\mu)^2+\frac14
+ =5\left(\mu-\frac15\right)^2+\frac{21}{20}>1.
+\]
+If there is exactly one supercritical row, its unique ascent runs from the
+minimum to the maximum.  A distinct $\Tlike$ row then contributes at least
+$2\mu-4\mu^2$, the supercritical row contributes at least
+$(1-\mu)^2$, and the other four contribute at least $\mu^2$ each.  The sum
+is
+\[
+ (1-\mu)^2+(2\mu-4\mu^2)+4\mu^2=1+\mu^2>1.
+\]
+Thus the six vertex triangles have total inside area strictly below five; the
+center triangle adds at most one.
+
+\begin{proposition}[Branches closed by Strategy 3]
+\label{prop:body-area-branches}
+Strategy~3 closes:
+\begin{enumerate}
+\item $T_C$ is $\CEzero$ and $N_+\ge2$, with arbitrary vertex-role types;
+\item $T_C$ is $\CEzero$, $N_+=1$, no role is $\Vdone$ or $\Vdtwo$, and at
+least one role is $\Tlike$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+In CE0 the six vertex roles cover the boundary, so
+Proposition~\ref{prop:body-structural-reduction} supplies strict selected
+handoffs preserving the actual supercritical pattern.  The two cyclic sums
+above apply.  This is Proposition~\ref{prop:area-branches}, whose local
+orientation calculations remain in Appendix~\ref{sec:area}.
+\end{proof}
