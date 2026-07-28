@@ -2,11 +2,11 @@
 \label{sec:strategy4-reader}
 
 This section gives the geometric proof of the direct nine-point obstruction.
-The exact frontier calculations, moving-circle signs, adjacent-overlap
-inequalities, rational radial envelopes, and global Bernstein identities are
-proved in Appendix~\ref{sec:ab-core}.  The body of the proof uses those
-verified inputs only through the forcing lemmas and the four-overlap
-proposition below.
+The exact frontier calculations, moving-circle signs, Newton reduction, and
+adjacent cap overlaps are proved in Appendix~\ref{sec:ab-core}.  The two mixed
+overlaps are completed by the formally incorporated exact certificate in
+Appendix~\ref{sec:strategy4-exact-certificate}.  The body uses those inputs only
+through the forcing lemmas and the four-overlap proposition below.
 
 Assume throughout that all six vertex roles are $\Vdzero$, that they cover
 $\partial H$, and that exactly one actual boundary row is supercritical.
@@ -18,7 +18,10 @@ handoffs
 \end{equation}
 and parameters
 \begin{equation}
- a=1-x_3,\qquad b=x_4,\qquad p=1-b,\qquad q=1-a
+ a=1-x_3,
+ \qquad b=x_4,
+ \qquad p=1-b,
+ \qquad q=1-a
  \label{eq:reader-ab-parameters}
 \end{equation}
 with
@@ -85,7 +88,7 @@ from the picture.}
 \subsection{Newton inner points}
 
 The exact outer points $Q_-$ and $Q_+$ contain two independent quadratic
-radicals.  The exact construction in
+radicals.  The construction in
 Lemma~\ref{lem:technical-newton-reduction} takes one Newton step inward on
 each frontier line.  It gives points
 \[
@@ -109,7 +112,6 @@ The same lemma gives
 Use the enclosure gauge $\Lambda$ from
 Proposition~\ref{prop:universal-enclosure-gauge}, and let $\mathsf R$ denote
 rotation through $2\pi/3$.
-
 For a disk $\mathbb D(X,r)$ define its level-$h$ cap
 \[
  I(X,r)=\{n\in S^1:\langle X,n\rangle+r\ge h\}.
@@ -146,9 +148,10 @@ overlap across their intervening short sectors.  Then $\Lambda(K)\ge1$.
 
 \begin{proof}
 The four overlaps and the cyclic ray order make the five caps cover the
-sector from the ray of $A$ to the ray of $\mathsf R A$.  Their $\mathsf R$-orbits cover the
-unit circle.  For every unit normal $n$, one of the displayed disks therefore
-has support at least $h$ in direction $n$.  Since all those disks lie in $S$,
+sector from the ray of $A$ to the ray of $\mathsf R A$.  Their
+$\mathsf R$-orbits cover the unit circle.  For every unit normal $n$, one of
+the displayed disks therefore has support at least $h$ in direction $n$.
+Since all those disks lie in $S$,
 \[
  h_S(n)\ge h.
 \]
@@ -156,15 +159,16 @@ On the other hand,
 \[
  h_S(n)=\sum_{j=0}^2h_K(\mathsf R^jn).
 \]
-Proposition~\ref{prop:universal-enclosure-gauge} now gives $\Lambda(K)\ge1$.
+Proposition~\ref{prop:universal-enclosure-gauge} now gives
+$\Lambda(K)\ge1$.
 \end{proof}
 
 \subsection{The four verified overlaps}
 
 For $K=\widehat K$, the Minkowski sum in the cap-chain lemma contains the
 four required disk orbits: one witness point and two copies of the centered
-disk give the three radius-$2\eta$ orbits, while $C+\mathsf R A$ and one disk copy give
-the radius-$\eta$ orbit.
+disk give the three radius-$2\eta$ orbits, while
+$C+\mathsf R A$ and one disk copy give the radius-$\eta$ orbit.
 
 \begin{proposition}[Four-overlap certificate]
 \label{prop:reader-four-overlaps}
@@ -173,15 +177,18 @@ satisfy
 \[
  \lVert A\rVert,\lVert C\rVert>\eta,
 \]
-the rays $A,B,C,W,\mathsf R A$ occur in that cyclic order, and all four consecutive
-cap overlaps in Lemma~\ref{lem:reader-cap-chain} hold.
+the rays $A,B,C,W,\mathsf R A$ occur in that cyclic order, and all four
+consecutive cap overlaps in Lemma~\ref{lem:reader-cap-chain} hold.
 \end{proposition}
 
 \begin{proof}
-This is Proposition~\ref{prop:technical-four-overlaps}.  Its proof gives the
-ray order and the two adjacent overlaps analytically, then invokes the exact
-Gram reductions and twenty global Bernstein identities of
-Subsection~\ref{subsec:exact-mixed-overlap} for the two mixed overlaps.
+The ray order, radius bounds, and the two equal-radius adjacent overlaps are
+proved analytically in Proposition~\ref{prop:technical-four-overlaps}.  The
+remaining two mixed overlaps are Theorem~\ref{thm:paper-exact-mixed-certificate};
+its proof derives the exact Gram residuals, verifies the eight reduced integer
+polynomials by global positive-basis certificates, and then converts the
+residual signs back into common tangent support inequalities.  These two parts
+supply precisely the four consecutive overlaps stated here.
 \end{proof}
 
 \subsection{Enclosure and the center-independent contradiction}
