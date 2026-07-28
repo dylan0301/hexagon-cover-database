@@ -33,13 +33,16 @@ so
  \in\conv\{O,A,B\}.
 \]
 The zero-coordinate cases follow by continuity.  The distance $AB$ equals
-$\sqrt d$ and is the diameter of $\triangle OAB$.  Moreover the equilateral
-triangle with vertices
+$\sqrt d$ and is the diameter of $\triangle OAB$.  Put
 \[
- A,\qquad B,\qquad -bu-av
+ T=-bu-av.
 \]
-has side $\sqrt d$ and contains $O$.  It therefore contains $C$ as well.
-Every enclosing set has diameter at least $AB$, so
+The triangle $\conv\{A,B,T\}$ is equilateral of side $\sqrt d$, and
+\[
+ O=\frac{b^2}{d}A+\frac{a^2}{d}B+\frac{ab}{d}T.
+\]
+Thus it contains $O$ and therefore also $C$.  Every enclosing set has diameter
+at least $AB$, so
 \[
  L_{\min}(a,b,c)=\sqrt d.
 \]
@@ -144,13 +147,17 @@ For Cell $T$, $0<s<1$, the roots of $F_T=0$ are
  \qquad
  c_+ =\frac{2M}{1-\sqrt{4s^2-3}}.
 \]
-The raw inequality $F_T\le0$ holds on both $0\le c\le c_-$ and $c\ge c_+$.
-Only the first interval is connected to the geometric point $c=0$.  Since
-$c_-\le2M<c_+$, the selector
+The inequality $F_T\le0$ contains the interval $0\le c\le c_-$ and the formal
+high component $c\ge c_+$.  The geometric component is the one connected to
+$c=0$.  One has
+\[
+ c_-\le2M\le c_+,
+\]
+with equality of all three quantities only when the two roots coalesce.  Hence
 \[
  c\le2M
 \]
-keeps exactly that component.  Equivalently one may use
+selects exactly the component containing $c=0$.  Equivalently one may use
 $M+2(s^2-1)c\ge0$.
 
 For Cell $S$,
