@@ -3,24 +3,22 @@
 
 \begin{proof}[Proof of Theorem~\ref{thm:main}]
 Assume that seven open unit equilateral triangles cover $H$.
-Proposition~\ref{prop:exhaustive-structural-reduction} assigns the cover to
-exactly one row of Table~\ref{tab:routing}, with $N_+$ computed from the
-actual reaches and, in the CE1/CE2 branch, $q=N_++m$.
+Proposition~\ref{prop:body-structural-reduction} assigns the cover to exactly
+one row of Table~\ref{tab:routing}, with $N_+$ computed from the actual reaches
+and, in the CE1/CE2 branch, $q=N_++m$.
 
-The additive trace rows contradict Proposition~\ref{prop:length-branches},
-and the additive area rows contradict Proposition~\ref{prop:area-branches}.
-The isotone transfer rows contradict
-Proposition~\ref{prop:reader-demand-branches}. Their exact seeds, hatted or
-center-assisted row maps, relaxed slots, and terminal certificates are audited
-in Table~\ref{tab:strategy2-chain-signatures}; the two all-Vd0 row counts are
-the $2\times3$ active-gap-rank kernel of
-Section~\ref{sec:strategy2-reader}. The convex support rows contradict
+The trace rows contradict Proposition~\ref{prop:body-length-branches}.  The
+area rows contradict Proposition~\ref{prop:body-area-branches}.  The transfer
+rows contradict Proposition~\ref{prop:body-demand-branches}; their retained
+maps and terminal inequalities are visible in
+Table~\ref{tab:body-strategy2-chains}.  The convex-support rows contradict
 Proposition~\ref{prop:reader-ab-core-branches}.
 
-In the sole hybrid row marked $1+2$, the existing Strategy~1 trace proposition
-and the Strategy~2 transfer proposition cover the complementary placements
-stated in their conclusions. No Strategy~1 routing assignment is absorbed or
-removed by the $g$-chain reformulation. Thus every row is impossible.
+In the sole hybrid row marked $1+2$, Strategy~1 closes the neighboring-midpoint
+placement and Strategy~2 closes the complementary placements.  No routing row
+is omitted and no actual criticality classification is inferred from selected
+demands.  Hence every row of Table~\ref{tab:routing} is impossible, a
+contradiction.
 \end{proof}
 
 Corollary~\ref{cor:expanded-closed} follows from
