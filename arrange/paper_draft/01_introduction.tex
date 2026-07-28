@@ -18,8 +18,8 @@ Let $H$ be the regular hexagon of side length one.
 
 \begin{theorem}[Main theorem]
 \label{thm:main}
-The hexagon $H$ cannot be covered by seven open equilateral triangles of
-side length one.
+The hexagon $H$ cannot be covered by seven open equilateral triangles of side
+length one.
 \end{theorem}
 
 The compactness and scaling argument in
@@ -118,21 +118,20 @@ $i$ is \emph{supercritical} when $A_i+B_i>1$, and
 \[
  N_+=\left\lvert\left\{i:A_i+B_i>1\right\}\right\rvert.
 \]
-Lowercase $(a_i,b_i,c_i)$ will always denote smaller selected demands, never
-the actual maxima used to define $N_+$.
+Lowercase $(a_i,b_i,c_i)$ always denotes smaller selected demands, never the
+actual maxima used to define $N_+$.
 
 For the CE1/CE2 case tree, call a vertex role \emph{short} if it is
 supercritical or has positive-length trace on an adjacent radial arm.  Let
 $m$ be the number of roles of type $\Vdone$, $\Vdtwo$, or $\Tlike$, and let
 $q$ be the number of short roles.  Lemma~\ref{lem:short-role-count} proves
-the identity
 \[
  q=N_++m.
 \]
-Thus the first CE1/CE2 routing row below removes every branch with three
-short roles before any finer split is made.  In particular, the midpoint
-rescuer of Lemma~\ref{lem:positive-support-rescuer} puts every
-$N_+\ge2$ branch in that row.
+Thus the first CE1/CE2 routing row below removes every branch with three short
+roles before any finer split is made.  In particular, the midpoint rescuer of
+Lemma~\ref{lem:positive-support-rescuer} puts every $N_+\ge2$ branch in that
+row.
 
 \begin{figure}[H]
 \centering
@@ -262,22 +261,35 @@ read.
 Choose either $\partial H$ or the conditional skeleton $S$.  Bound the trace
 of each role on that target according to its center class, vertex type, and
 supercritical status.  In every routed branch the seven upper bounds add to
-strictly less than the target length.  The target, rather than the case
-label, is the organizing idea.  Section~\ref{sec:length} gives the trace
-bounds and terminal contradictions.
+strictly less than the target length.  Section~\ref{sec:length} gives the
+trace bounds and terminal contradictions.
 
 \paragraph{Strategy 2: relaxations of \(g\)-composition chains.}
-For a row with incoming demand $a$ and radial demand $c$, the raw transfer is
-$g_c(a)=1-B_c(a)$.  The capped map is
-$G_c=\max\{g_c,\mathrm I\}$, while center intervals, free-supercritical
-envelopes, selected-$T_+$ chords, threshold jumps, and Vd radial estimates
-supply other lower transfers in the same chain calculus.  Each branch keeps
-the exact seed and terminal data but replaces as many interior maps as
-possible by $\mathrm I$, an affine chord, or a threshold map.
-Section~\ref{sec:universal-calculus} develops this calculus, and
-Section~\ref{sec:strategy2-reader} tabulates every chain and its relaxations.
-Appendix~\ref{sec:exact-local-demand-calculus} retains the exact piecewise
-maps and irreducible endpoint certificates.
+For incoming boundary defect $x$ and radial demand $c$, the historical raw map
+is
+\[
+ g_c(x)=\max\{y:(1-x,y,c)\in\mathcal A\}.
+\]
+The nonsupercritical map is
+\[
+ \widehat g_c(x)=\min\{g_c(x),x\},
+\]
+and the complementary reach-coordinate transfer is
+$f^\vee(a)=1-f(1-a)$.  Thus ordinary proof chains use
+$\widehat g_c^\vee$, center intervals add a subscript $J$, and affine or
+threshold relaxations add superscripts.  A strict-supercritical row is
+summarized by the single outgoing envelope $g_c^{\rm sc}$ and its complement
+$1-g_c^{\rm sc}$.  At zero radial demand,
+\[
+ g_0(x)>x\quad(0<x<1),
+ \qquad
+ \widehat g_0(x)=x;
+\]
+the identity belongs to the hatted map, not to the raw historical map.
+Section~\ref{sec:universal-calculus} develops the notation, and
+Section~\ref{sec:strategy2-reader} gives one table of all chain relaxations.
+Appendix~\ref{sec:exact-local-demand-calculus} retains the aliases
+$B_c,F_c,G_c$ only where they shorten the exact contact-cell formulas.
 
 \paragraph{Strategy 3: area loss.}
 Normalize a unit triangle to area one, so $H$ has area six.  Each selected
@@ -292,9 +304,9 @@ In the zero-gap, all-$\Vdzero$, exact-one state, the five nonsupercritical
 handoffs form one strict descent chain.  It produces common lower demands
 that force six radial points and three asymmetric points into $U_C$.
 Their convex hull cannot fit in an open unit equilateral triangle: the same
-enclosure gauge $\Lambda$ used for local demand geometry gives side at
-least one, whereas compact containment in $U_C$ would give side strictly
-below one.  The reader-level construction and enclosure argument are in
+enclosure gauge $\Lambda$ used for local demand geometry gives side at least
+one, whereas compact containment in $U_C$ would give side strictly below one.
+The reader-level construction and enclosure argument are in
 Section~\ref{sec:strategy4-reader}; Appendix~\ref{sec:ab-core} contains the
 exact frontier and overlap certificates.
 
