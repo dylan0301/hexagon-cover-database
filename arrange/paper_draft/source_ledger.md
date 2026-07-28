@@ -1,228 +1,301 @@
 # Paper Source Ledger
 
-This ledger records where each reader-facing claim is proved in the proof
-corpus and how the compact manuscript body is connected to the technical
-appendices.  It is not itself a proof.
+This ledger records the exact relationship between the reader-facing paper,
+the technical TeX appendices, the proof-package sources, and the exact
+electronic certificates. It is a provenance and audit document, not itself a
+proof.
 
-## 1. Active manuscript artifacts
+## 1. What constitutes the paper proof
 
-### Reader-facing body
+The proof consists of three layers.
+
+1. **Reader-facing body.** Definitions, geometric mechanisms, exact terminal
+   statements, and exhaustive case assembly.
+2. **Technical TeX appendices.** Complete structural, analytic, placement, and
+   area arguments needed to establish the terminal statements.
+3. **Formally incorporated electronic supplements.** The complete `407X`
+   four-label branch algebra and the exact Strategy 4 sparse-polynomial
+   certificate, identified by repository path, Git blob, and transcript hash.
+
+The body alone explains the logical flow but is not claimed to prove every
+calculation lemma without the appendices and incorporated supplements.
+
+## 2. Active manuscript artifacts
+
+### 2.1 Reader-facing body
 
 | File | Function |
 |---|---|
 | `main.tex` | AMS assembly and body/appendix split |
-| `01_introduction.tex` | theorem, forced roles, dictionary, routing table, proof-flow figures |
+| `01_introduction.tex` | theorem, roles, definitions, routing table, proof-flow figures |
 | `02_reader_framework.tex` | structural, admissible-set, transfer, and signed-center interfaces |
 | `03_strategy1_reader.tex` | trace-cap register and terminal trace sums |
-| `04_strategy2_summary.tex` | monotone-chain and terminal-inequality register |
+| `04_strategy2_summary.tex` | complete branch hypotheses and terminal certificate register |
 | `05_strategy3_reader.tex` | area-loss register and cyclic sums |
-| `06_strategy4_reader.tex` | geometric nine-point proof |
-| `07_exhaustive_assembly.tex` | final routing audit |
+| `06_strategy4_reader.tex` | geometric nine-point proof and cap-chain reduction |
+| `07_exhaustive_assembly.tex` | final exhaustive audit |
 
-### Technical appendices
+### 2.2 Technical appendices
 
 | File | Function |
 |---|---|
-| `appendix_roadmap.tex` | variable-domain and verification-module guide |
-| `02_structural_reductions.tex` | complete finite role/classification/routing proofs |
-| `02a_universal_calculus.tex` | enclosure gauge, admissible-set transfer maps, residuals, relaxed composition |
-| `04a_signed_center_calculus.tex` | signed CE1/CE2 side equations, traces, exits, and one-gap interface |
-| `03_strategy1_length.tex` | complete perimeter and skeleton trace calculations |
-| `04b_common_CE1_CE2_budgets.tex` | master deficit, short-role count, and common budgets |
-| `04c_short_Vd_placements.tex` | quarter envelope, T3-like/Vd profiles, and shortened Vd placements |
-| `04_strategy2_reader.tex` | proof-complete row chains and branch routing |
-| `04_strategy2_exact_demand.tex` | contact cells, endpoint audits, and scalar certificates |
-| `05_strategy3_area.tex` | affine orientation reduction and area inequalities |
-| `06_strategy4_ab_core.tex` | strict frontier, Newton reduction, cap overlaps, and exact certificates |
+| `appendix_roadmap.tex` | verification-module guide and proof-layer disclaimer |
+| `02_structural_reductions.tex` | role classification, reaches, gaps, strict handoffs, routing |
+| `02a_universal_calculus.tex` | enclosure gauge, corrected transfers, residuals, center-free path budget |
+| `02b_admissible_set_derivation.tex` | full support derivation, polynomial cells, selectors, radial envelope |
+| `04a_signed_center_calculus.tex` | signed CE1/CE2 equations, traces, exits, one-gap interface |
+| `03_strategy1_length.tex` | perimeter and skeleton trace calculations |
+| `04b_common_CE1_CE2_budgets.tex` | master deficit, short-role count, common budgets |
+| `04c_short_Vd_placements.tex` | quarter envelope, local profiles, adjacent and nonadjacent radial separations |
+| `04_strategy2_reader.tex` | proof-complete row chains and corrected terminal coordinates |
+| `04_strategy2_exact_demand.tex` | contact cells, endpoint inequalities, CE1 scalar calculation |
+| `04d_strategy2_rigor_completion.tex` | incorporated `407X` audit and complete Vd1 axis replacement |
+| `04e_strategy2_placement_assembly.tex` | authoritative CE2 exactly-one-Vd placement assembly |
+| `05_strategy3_area.tex` | local area inequalities and cyclic certificates |
+| `06_strategy4_ab_core.tex` | strict frontier, direct forcing, Newton reduction, adjacent overlaps |
+| `06a_strategy4_exact_certificate.tex` | exact mixed-overlap reduction, certificate manifest, geometric implication |
 | `appendix_symbols.tex` | notation cross-reference |
 
-The label `page:proof-body-end` is placed immediately before `\appendix` and is
-used to enforce the 20-page body limit.
+The label `page:proof-body-end` remains immediately before `\appendix`. The
+present source-only repair did not compile the manuscript and makes no new page
+count claim.
 
-## 2. Body interface provenance
+## 3. Corrections made after the validity audit
 
-### 2.1. Structural reduction
+### 3.1 Center-free transfer hypotheses
 
-The proposition `prop:body-structural-reduction` summarizes only proved results:
+The outgoing strict-supercritical bound
 
-- forced distinct center and vertex roles;
-- exhaustive center classes CE0/CE1/CE2;
-- exhaustive vertex classes Vd0/Vd1/Vd2/T3-like;
-- strict boundary-handoff selection preserving the relevant actual
-  supercritical pattern;
+```text
+B < g_c^{sc}
+```
+
+is unconditional, but the complementary following demand
+
+```text
+A_next > 1-g_c^{sc}
+```
+
+is valid only on a center-free outgoing edge. This distinction is now explicit
+in both `02_reader_framework.tex` and `02a_universal_calculus.tex`.
+
+The same correction was made in the authoritative proof-package source
+
+```text
+proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/
+2019_interval_component_and_path_budget.md
+```
+
+for the boundary-path budget: every center or nonincident contribution on an
+internal edge must be excluded, and endpoint contributions must be absorbed
+into the external residual quantities.
+
+### 3.2 CE2 threshold language
+
+The CE2 inequalities prove that **at least one** of the two threshold slots
+fires. They do not prove uniqueness, and both may be available. All body and
+appendix statements now use the correct formulation.
+
+### 3.3 Exact versus reversed one-gap targets
+
+For the exact five-row chain,
+
+```text
+Z = [g_1^vee|...|g_5^vee](X),
+```
+
+the direct contradiction is `Z>1-H`. The inequality `>1-X` belongs to the
+reversed three-map chain after capped-map duality. The Strategy 2 tables and
+proof now distinguish these two statements.
+
+### 3.4 Vd1 replacement
+
+The former short sketch was not used as the final proof. The complete argument
+in `04d_strategy2_rigor_completion.tex` now includes:
+
+- the two ordered halves of the half-square admissibility lemma;
+- all strict local margins;
+- the center-handoff radial inequality;
+- explicit axis triangles;
+- the translations making both replacements open and nonsupercritical;
+- preservation of the shared boundary and both radial demands.
+
+The final assembly uses `prop:paper-vd1-pair-replacement` and the authoritative
+placement proposition `prop:paper-ce2-one-vd-placements`.
+
+### 3.5 T3-like endpoint audit
+
+The complete `407X` proof is formally incorporated. The paper reproduces the
+principal high-sheet envelope, right-`T_-` bounds, and analytic threshold, and
+pins the complete branch files by Git blob. The active supplement is:
+
+```text
+proof/4XXX_CE1CE2/40XX_Nplus0/
+407X_T3_like_no_Vd1Vd2/
+```
+
+with the following exact objects:
+
+| File | Blob prefix |
+|---|---|
+| `4073_boundary_loss_framework.md` | `f3f0395748f5` |
+| `4074_L_Full_branch.md` | `880b59ec8d3c` |
+| `4075_Tminus_low_lower_branch_obligations.md` | `ebe2b65f8840` |
+| `4078_left_L_family_completion.md` | `f1323325b069` |
+| `4079_first_Full_branch.md` | `c66eea05277d` |
+| `407a_left_Thigh_branch_completion.md` | `aa5cb1a6dc63` |
+| `407c_rigor_completion_details.md` | `c80243f67124` |
+| `407d_rigor_final_assembly.md` | `a6ef81f787c4` |
+
+### 3.6 Admissible-set derivation
+
+`02b_admissible_set_derivation.tex` now supplies the omitted calculation:
+
+- the explicit triangular-hull enclosing equilateral triangle;
+- the four edge-normal support values;
+- the active support patterns;
+- derivation of `F_L`, `F_T`, and `F_S`;
+- the selected connected-component conditions `c<=2M` and `c<=1/2`;
+- the exact radial envelope.
+
+### 3.7 Strategy 4 certificate
+
+The mixed-overlap certificate is no longer described as an optional replay.
+`06a_strategy4_exact_certificate.tex` formally incorporates:
+
+- the six sparse-data shards;
+- the canonical transcript hash
+  `dc46aaf263655d5159ecd3a81db72ee82477951d06172f4743b248df37209485`;
+- the exact rational-function derivation verifier;
+- the exact global Bernstein verifier;
+- the denominator nonvanishing conditions;
+- the missing geometric implication from residual positivity to common tangent
+  support and cap intersection.
+
+The certificate uses exact integers, rationals, and `Q(sqrt(3))`. No
+floating-point or interval computation is an active dependency.
+
+## 4. Body-interface provenance
+
+### 4.1 Structural reduction
+
+`prop:body-structural-reduction` summarizes:
+
+- distinct center and vertex roles;
+- exhaustive CE0/CE1/CE2 classification;
+- exhaustive Vd0/Vd1/Vd2/T3-like classification;
+- actual maximal reaches and the definition of `N_+`;
+- singleton-gap convention;
+- strict handoff selection preserving exact-one or at-least-two criticality;
 - unique center midpoint in CE1/CE2;
 - short-role identity `q=N_++m`;
-- exhaustive routing into Table `tab:routing`.
+- the exhaustive routing table.
 
-Principal proof sources include the `11XX` center classification, `12XX`
-vertex/selection files, `2109` signed center normal form, `2510`/`2530` trace
-budgets, and the proof-tree assembly files under `0XXX_main/`.
+These are proved in `02_structural_reductions.tex` and the `1XXX`, `2109`, and
+`2530` proof packages.
 
-### 2.2. Local admissible set
+### 4.2 Local enclosure and transfers
 
-The body defines
+The body’s explicit minimum-side formula is proved in
+`02b_admissible_set_derivation.tex` and agrees with
+`proof/.../2004_admissible_set.md`.
+
+The canonical transfer notation comes from `201d`:
 
 ```text
-K(a,b,c)=conv{0,au,bv,c(u+v)}
+g_c(x)=max{y:(1-x,y,c) in A},
+widehat g_c(x)=min{g_c(x),x},
+f^vee(a)=1-f(1-a).
 ```
 
-and states the exact minimum-side formula for the admissible set.  The complete
-support-line proof and the equivalent selected algebraic cells come from:
+The corrected center-free and center-assisted statements are in `02a` and the
+repaired `2019` source.
 
-- `2004_admissible_set.md`;
-- the enclosure-gauge material in `02a_universal_calculus.tex`;
-- the contact-cell catalogue in `04_strategy2_exact_demand.tex`.
+### 4.3 Signed center
 
-The body deliberately includes the explicit description but not its projection
-algebra, squaring steps, or component-selection proof.
-
-### 2.3. Canonical transfer calculus
-
-The body uses:
-
-- raw `g_c`;
-- hatted nonsupercritical `widehat g_c`;
-- complement dual `f^vee`;
-- center-assisted residual transfers;
-- the free strict-supercritical envelope `g_c^{sc}`;
-- pointwise lower relaxation of nondecreasing compositions.
-
-The relevant proved sources are `2007`, `2010`, `2011`, `2016`, `2017`, `2018`,
-`2019`, and `201d` in the `20XX_V_triangle_geometry` package, together with
-`02a_universal_calculus.tex`.
-
-The raw/capped zero-radial distinction is retained explicitly:
+The variables
 
 ```text
-g_0(x)>x,     widehat g_0(x)=x     (0<x<1).
-```
-
-### 2.4. Signed CE1/CE2 model
-
-The body variables are
-
-```text
-0<R<1,  W=1-R,
-E=sqrt(1-RW),  eta=1-E,  P=E(1-E),
+0<R<1, W=1-R,
+E=sqrt(1-RW), eta=1-E, P=E(1-E),
 Delta_R=P-alpha-W delta,
-Delta_L=P-R alpha-delta.
+Delta_L=P-R alpha-delta
 ```
 
-The exact side equations, trace endpoints, radial exits, center-boundary
-contribution, CE1/CE2 sign test, and legacy-coordinate translations are proved
-in `2109_signed_CE1_CE2_center_normal_form.md` and reproduced in
-`04a_signed_center_calculus.tex`.
+and all trace, exit, midpoint, and boundary-contribution formulas are proved in
+`04a_signed_center_calculus.tex` and proof source `2109`.
 
-## 3. Strategy provenance
+## 5. Strategy provenance and audit status
 
-### 3.1. Strategy 1
+### Strategy 1
 
-The body trace register is sourced from:
+Active sources:
 
-- center skeleton cap;
-- positive-support and no-support vertex caps;
-- supercritical skeleton cap;
-- signed CE1/CE2 perimeter formula;
-- Vd1/Vd2 and T3-like boundary caps;
-- master perimeter deficit and the three-short-role theorem.
+- `2500_boundary_length_bounds.md`;
+- `2510_skeleton_length_bounds.md`;
+- `2530_common_CE1_CE2_budget_lemmas.md`;
+- `03_strategy1_length.tex`;
+- `04b_common_CE1_CE2_budgets.tex`.
 
-The complete proofs remain in `03_strategy1_length.tex` and
-`04b_common_CE1_CE2_budgets.tex`, with proof-package sources under `25XX`.
-No Strategy 1 routing assignment is removed by the transfer reformulation.
+Audit result: the terminal sums are valid. The reader master deficit now states
+the previously omitted hypothesis that every unlisted row has contribution at
+most one.
 
-### 3.2. Strategy 2
+### Strategy 2
 
-`04_strategy2_summary.tex` states only the exact data needed to understand each
-chain:
+Active sources include `2004`, `2010`--`2019`, `2107`--`2110`, `4013`, the
+complete `407X` supplement, `4105`--`4107`, `413X`, and `4143`--`4149`.
 
-- strict identity cycle;
-- one-side endpoint sum;
-- CE2 paired endpoint sum;
-- common one-gap five-row chain;
-- CE1 affine-plus-threshold terminal;
-- CE2 two-threshold dichotomy;
-- exact four-label T3-like endpoint audit;
-- free-envelope adjacent-rescuer chain;
-- adjacent and nonadjacent Vd terminal margins.
+Audit result: the endpoint formulas and scalar inequalities are consistent with
+the proof package. The paper now preserves:
 
-The proof-complete row induction and slot table remain in
-`04_strategy2_reader.tex`; all contact-cell and scalar verification remains in
-`04_strategy2_exact_demand.tex` and `04c_short_Vd_placements.tex`.
+- actual versus selected criticality;
+- center-free path hypotheses;
+- exact endpoint residuals;
+- the CE1 affine/threshold ending;
+- the CE2 at-least-one-threshold dichotomy;
+- all four T3 labels;
+- the Vd-specific radial margin;
+- explicit open replacements.
 
-The body notation `H_*` is the scalar denoted `H` in the exact one-gap appendix.
-The body notation `H_far` is the far-side residual denoted `H` in the adjacent
-Vd appendix.  These decorations prevent collision with the hexagon `H` without
-changing any formula.
+### Strategy 3
 
-### 3.3. Strategy 3
+Active sources: `3175`, `3205`, `3208`, and `05_strategy3_area.tex`.
 
-The body uses only:
+Audit result: the two orientation normal forms, local square losses, reflection
+normalization, and both cyclic sums are complete and valid.
 
-```text
-L(a,b) >= min(a,b)^2,
-L(a,b) >= max(a,b)^2 when a+b>1,
-L_T3(a,b) >= 2m-4m^2 when a,b>=m.
-```
+### Strategy 4
 
-The affine wedge/orientation proof, feasibility exclusions, and exact local
-loss formulas remain in `05_strategy3_area.tex` and the corresponding `32XX`
-proof package.
+Active sources: the `3105X_self_contained_direct_Vd0_nine_point` package,
+`06_strategy4_ab_core.tex`, and `06a_strategy4_exact_certificate.tex`.
 
-### 3.4. Strategy 4
+Audit result: the direct forcing, Newton placement, cap chain, and adjacent
+overlaps are analytic. The two mixed overlaps are exact computer-assisted
+claims with authenticated input and exact verification algorithms. The source
+review found no arithmetic-model or Bernstein-conversion defect. The verifier
+was not executed during this edit, so reproducibility is documented rather
+than newly certified by a run log.
 
-The body remains the previously verified reader proof:
+## 6. Assembly invariants
 
-1. direct forcing of the centered disk and `Q_-,Q_0,Q_+`;
-2. replacement by Newton inner points `A,B,C`;
-3. cyclic cap-chain lemma;
-4. one proposition asserting the four required overlaps;
-5. enclosure and openness contradiction.
-
-All strict frontier equations, moving-circle signs, rational envelopes, Gram
-reductions, and Bernstein identities remain in `06_strategy4_ab_core.tex` and
-its nested exact-certificate inputs.  The principal proof package is the
-`3105X_self_contained_direct_Vd0_nine_point` package.
-
-## 4. Assembly invariants
-
-The final proof must retain all of the following.
+The final proof retains all of the following.
 
 1. `N_+` is computed from actual maximal reaches.
-2. Selected handoffs are lower demands, not replacements for actual maxima.
-3. Singleton gaps count as uncovered gaps.
-4. The CE2 two-gap state is handled by the paired endpoint theorem.
-5. The T3-like endpoint audit keeps all four exact labels.
-6. The CE1 one-gap proof keeps its affine/threshold terminal argument.
-7. The CE2 one-gap proof keeps its two-threshold dichotomy.
-8. The nonadjacent Vd placement keeps its type-specific radial margin.
-9. The hybrid CE2 row is split exactly between the existing Strategy 1 and
-   Strategy 2 results.
-10. The Strategy 4 mixed overlaps retain exact positive certificates.
+2. Selected handoffs are lower demands.
+3. Singleton gaps are retained.
+4. Center-assisted handoffs use residual maps.
+5. Every path-budget internal edge is center-free.
+6. The raw zero-radial map is not confused with its capped identity.
+7. The CE1 and CE2 one-gap scalar endings remain different.
+8. The T3-like endpoint theorem keeps all four exact labels.
+9. The nonadjacent Vd route keeps its own-radial margin.
+10. The CE2 one-Vd branch uses the complete placement assembly.
+11. The Strategy 4 mixed overlaps use the authenticated exact certificate.
 
-## 5. Build status policy
+## 7. Build and PDF status
 
-The canonical build command is:
-
-```bash
-cd arrange/paper_draft
-latexmk -xelatex -interaction=nonstopmode -halt-on-error main.tex
-```
-
-A body-only isolation build may be used to test page count and syntax, but it
-is not a replacement for the complete build.  `main.pdf` is current only after
-the complete source tree has been built and the resulting PDF has been
-committed with the corresponding sources.
-
-At the time of this architecture change, the tracked `main.pdf` is intentionally
-left unchanged unless a complete repository build is performed.  Do not infer
-that a source-only branch contains an updated PDF.
-
-## 6. Deliberate nondependencies
-
-The paper does not use:
-
-- the obsolete half-edge `1/3` envelope as an active dependency;
-- interval arithmetic or branch-and-bound in the all-Vd0 nine-point core;
-- a plot as a proof of a sign inequality;
-- any stronger symmetric replacement for the T3-like endpoint theorem;
-- any route marked only `Strategy`, `Empirical`, `Experiment`, or `Failed`.
+The requested repair was source-only. No XeLaTeX or PDF compilation was
+performed. `main.pdf` was not modified and must be treated as stale relative to
+this branch. The body-page label remains in the source, but the 20-page limit
+must be rechecked in a later authorized build.
