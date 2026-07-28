@@ -1,262 +1,79 @@
 \section{Strategy 2 Rigor Completion}
 \label{sec:strategy2-rigor-completion}
 
-This section supplies the two pieces that must not be hidden by the concise
-reader presentation: the complete four-label T3-like endpoint audit and the
-explicit Vd1--supercritical axis replacement.  The former is long enough that
-its complete branch algebra is maintained as an electronic supplement in the
-proof package.  The supplement is part of the proof: the paths and Git blob
-identifiers below pin the exact source objects at this manuscript revision.
+This section supplies two pieces that must not be hidden by the concise reader
+presentation.  First, it formally incorporates the complete status-bearing
+$407X$ four-label endpoint proof.  Second, it gives the explicit
+Vd1--supercritical axis replacement in TeX.  The incorporated proof-package
+objects are part of the proof at the exact Git blobs listed below.
 
 \subsection{The incorporated \(407X\) endpoint supplement}
 
-The support-isolated T3-like proof is distributed as follows.
-\begin{center}
-\scriptsize
-\renewcommand{\arraystretch}{1.08}
-\begin{tabular}{p{.42\textwidth}p{.18\textwidth}p{.30\textwidth}}
-\toprule
-proof-package file&Git blob&role\\
-\midrule
-\texttt{4073\_boundary\_loss\_framework.md}&
-\texttt{f3f0395748f5}&exact residual reduction\\
-\texttt{4074\_L\_Full\_branch.md}&
-\texttt{880b59ec8d3c}&$(L,\mathrm{Full})$ branch\\
-\texttt{4075\_Tminus\_low\_lower\_branch\_obligations.md}&
-\texttt{ebe2b65f8840}&all first-$T_-$ branches\\
-\texttt{4078\_left\_L\_family\_completion.md}&
-\texttt{f1323325b069}&remaining first-$L$ branches\\
-\texttt{4079\_first\_Full\_branch.md}&
-\texttt{c66eea05277d}&first-Full exclusion\\
-\texttt{407a\_left\_Thigh\_branch\_completion.md}&
-\texttt{aa5cb1a6dc63}&first-$T_+^{\rm hi}$ branches\\
-\texttt{407c\_rigor\_completion\_details.md}&
-\texttt{c80243f67124}&all omitted analytic inequalities\\
-\texttt{407d\_rigor\_final\_assembly.md}&
-\texttt{a6ef81f787c4}&exhaustive reassembly\\
-\bottomrule
-\end{tabular}
-\end{center}
-All paths are relative to
+All paths in the following table are relative to
 \begin{verbatim}
 proof/4XXX_CE1CE2/40XX_Nplus0/
 407X_T3_like_no_Vd1Vd2/
 \end{verbatim}
-The exact capped-map theorem used there is
-Proposition~\ref{prop:capped-demand-map}.  Its four labels are precisely
-\[
- \mathrm{Full},\qquad L,\qquad T_-,\qquad T_+^{\rm hi};
-\]
-there is no fifth formal sheet.
 
-For reference, we reproduce the three non-obvious high-sheet estimates that
-connect the branch files.
+\begin{center}
+\scriptsize
+\renewcommand{\arraystretch}{1.08}
+\begin{tabular}{p{.40\textwidth}p{.38\textwidth}p{.14\textwidth}}
+\toprule
+proof-package object&Git blob SHA&role\\
+\midrule
+\texttt{4073\_boundary\_loss\_framework.md}&
+\texttt{f3f0395748f5649c62eff51f648e8052039a38c5}&residual reduction\\
+\texttt{4074\_L\_Full\_branch.md}&
+\texttt{880b59ec8d3c59b2d9ec036c188aebb2dfbea415}&$(L,\mathrm{Full})$\\
+\texttt{4075\_Tminus\_low\_lower\_branch\_obligations.md}&
+\texttt{ebe2b65f8840b8667c3dca672a8d0cdf2d4104ad}&first $T_-$\\
+\texttt{4078\_left\_L\_family\_completion.md}&
+\texttt{f1323325b0690a1a9394d93911c28425ecfbca9b}&remaining first $L$\\
+\texttt{4079\_first\_Full\_branch.md}&
+\texttt{c66eea05277dbf2e1781f133f4f18c469f1b0909}&first Full\\
+\texttt{407a\_left\_Thigh\_branch\_completion.md}&
+\texttt{aa5cb1a6dc635639972ba8f48cc92c9f519da296}&first $T_+^{\rm hi}$\\
+\texttt{407c\_rigor\_completion\_details.md}&
+\texttt{c80243f67124020e94239745b23ebed2e50a8bcb}&analytic details\\
+\texttt{407d\_rigor\_final\_assembly.md}&
+\texttt{a6ef81f787c4c3d6933569ca89fcdf2eaa83dbc7}&final assembly\\
+\bottomrule
+\end{tabular}
+\end{center}
 
-\begin{lemma}[High-left envelope]
-\label{lem:paper-high-left-envelope}
-Put
+The exact capped-map theorem used by these files is
+Proposition~\ref{prop:capped-demand-map}.  Its four labels are
 \[
- \rho=\sqrt{r^2-r+1},\qquad
- m=\sqrt{\beta^2-\beta+1},
+ \mathrm{Full},\qquad L,\qquad T_-,\qquad T_+^{\rm hi}.
 \]
-where
-\[
- 0<r<1,\qquad
- \beta\ge\max\left\{r,\frac12,\frac{1-r^2}{1+2r}\right\},
-\]
-and assume the selected Cell-$T$ condition
-\[
- r\ge(1-\beta)(r+\beta)^2.
-\]
-Define
-\[
- y_*=\frac{r}{1-r}
- \left(\frac{m}{r+\beta}-\frac12-rac{1-r}{1+\rho}\right),
- \qquad b=\frac{\beta m}{r+\beta}.
-\]
-Whenever the companion endpoint $S$ satisfies $S<1/2$, the exact center
-identity gives $y<y_*$, and
-\[
- y_*<\frac1{10},
- \qquad
- 3y_*\le1-b.
-\]
-\end{lemma}
+The supplement retains the exact residual inputs $a_1^*,a_5^*$ and radial
+demands $c_1^*,c_5^*$ from Lemma~\ref{lem:407-four-label-loss}.  It does not
+replace them by a symmetric or universal envelope.
 
-\begin{proof}
-The inequality $y<y_*$ is the rearrangement of $S<1/2$.  The function
-$m/(r+\beta)$ decreases in $\beta$, so the first bound is checked at
-\[
- \beta_0(r)=\max\left\{r,\frac12,\frac{1-r^2}{1+2r}\right\}.
-\]
-Let $r_0=(\sqrt3-1)/2$.  If $0<r\le r_0$, then
-$m/(r+\beta)\le1$ and $(1-r)/(1+\rho)\ge1/3$, whence
-$y_*<1/10$.  If $r_0\le r\le1/2$, use
-\[
- \frac{m}{r+\beta}\le\frac{\sqrt3}{1+2r},
- \qquad
- \frac{1-r}{1+\rho}\ge
- 2-\sqrt3+\frac{1/2-r}{2}.
-\]
-The latter follows after squaring from
-\[
- -\frac{(r-1)(2r-1)}{16}
- \left(2r^2+(8\sqrt3-17)r+56-32\sqrt3\right)\ge0.
-\]
-The resulting difference from $1/10$ has numerator
-\[
- P(r)=20r^3+(40\sqrt3-96)r^2+(40\sqrt3-57)r-2,
-\]
-which is increasing and negative at $1/2$; the denominator has the opposite
-sign.  Finally, if $1/2\le r<1$, then
-\[
- y_*\le\frac{\rho+1-3r}{2(1+\rho)}<\frac1{10},
-\]
-because $15r-4\rho-4>0$ and its derivative is positive.
-
-For the second inequality put $E_r(\beta)=1-b-3y_*$.  Exact differentiation
-gives
-\[
- \frac{\partial E_r}{\partial\beta}
- =\frac{N_r(\beta)}{2(\beta+r)^2(1-r)m},
-\]
-where
-\[
- N_r=2\beta^3r-2\beta^3+4\beta^2r^2-5\beta^2r+\beta^2
-      -9\beta r^2+5r^2+4r.
-\]
-Moreover
-\[
- \partial_\beta N_r
- =-6\beta^2(1-r)+2\beta(1-r)(1-4r)-9r^2<0.
-\]
-Thus $E_r$ has no interior minimum.  At $\beta=1$,
-\[
- E_r(1)=\frac{r(6r-\rho+5)}{2(1+r)(1+\rho)}>0.
-\]
-At the lower endpoint, the three ranges
-$r\le r_0$, $r_0\le r\le1/2$, and $r\ge1/2$ give respectively
-\[
- \frac{r(7+\rho-2r-8r\rho-14r^2-2r^2\rho)}
- {2(1-r)(1+2r)(1+\rho)}>0,
-\]
-$E_r>1/8$, and
-\[
- E_r(r)=\frac{10r-r^2-2\rho-2}{2(1+\rho)}>0.
-\]
-Hence $E_r\ge0$.
-\end{proof}
-
-\begin{lemma}[Right \(T_-\) bounds]
-\label{lem:paper-right-tminus}
-Let $C=1-y$, $q=tC$, and suppose the right endpoint has the selected
-$T_-$ label.  If $b_1$ is its capped output, then
-\[
- q+b_1=\sqrt{t^2-t+1},
-\]
-and
-\[
- b_1\le\frac{\sqrt{13}-1}{6},
- \qquad
- q\le\tau<\frac{93}{200},
-\]
-where $\tau\in(0,1/2)$ is the unique root of
-\[
- x^4-3x^3+3x^2-3x+1=0.
-\]
-\end{lemma}
-
-\begin{proof}
-The branch condition $b_1\le q$ gives
-$b_1\le\frac12\sqrt{t^2-t+1}$ and
-$\sqrt{t^2-t+1}\le2t$.  Hence
-$3t^2+t-1\ge0$ and
-$t\ge(\sqrt{13}-1)/6$.  Since $y<1/10$ and $q<1/2$, one has $t<5/9$; the
-half-radical is at most $(\sqrt{13}-1)/6$ on this interval.
-
-The selected Cell-$T$ inequality is
-\[
- -tC^2+\sqrt{t^2-t+1}\,C-(1-t)(t^2-t+1)\ge0.
-\]
-It first forces $t<1/2$.  Its larger $C$-root is
-$\sqrt{t^2-t+1}(1-t)/t$, so
-\[
- q\le\min\left\{t,(1-t)\sqrt{t^2-t+1}\right\}.
-\]
-The first function increases and the second decreases.  Their intersection is
-the displayed quartic root; direct evaluation at $93/200$ is negative.
-\end{proof}
-
-\begin{lemma}[Analytic high-left threshold]
-\label{lem:paper-high-left-threshold}
-Under the hypotheses of Lemma~\ref{lem:paper-high-left-envelope}, set
-\[
- S_0=1-\frac{m}{r+\beta}+\frac{1-r}{1+\rho},
- \qquad B_5=\frac{\beta m}{r+\beta}.
-\]
-Then
-\[
- S_0<\frac{93}{200}
- \quad\Longrightarrow\quad
- B_5<\frac{5657}{10000}.
-\]
-\end{lemma}
-
-\begin{proof}
-The selected Cell-$T$ condition factors as
-\[
- r-(1-\beta)(r+\beta)^2
- =(r+\beta-1)(\beta^2+r\beta-r).
-\]
-The second factor is nonnegative, so $s=r+\beta\ge1$.  Since $r\le\beta$,
-\[
- \rho^2-m^2=(r-\beta)(s-1)\le0.
-\]
-Define
-\[
- \overline S(\beta)=1-m+\frac\beta{1+m}.
-\]
-Then
-\[
- S_0\ge\overline S(\beta),
-\]
-because the difference is
-\[
- (s-1)\left(\frac ms-\frac1{1+m}\right)\ge0;
-\]
-here $s\le2\beta\le m(1+m)$, the latter following from
-\[
- m^2-(3\beta-\beta^2-1)^2
- =-\beta(\beta-1)(\beta^2-5\beta+5)\ge0.
-\]
-Put
-\[
- B_0=\frac{5657}{10000},\qquad T=\frac{93}{200},
- \qquad \beta_*=\frac{161}{250}.
-\]
-If $B_5\ge B_0$, then $\beta m\ge B_0$.  The function $\beta m$ is increasing,
-and
-\[
- B_0^2-\beta_*^2m(\beta_*)^2
- =\frac{22782769}{62500000000}>0,
-\]
-so $\beta>\beta_*$.  On $[\beta_*,1]$ define
-\[
- F(\beta)=\frac{107}{200}-Tm-(1-\beta)^2.
-\]
-Since $F''=-3T/(4m^3)-2<0$, $F$ is concave.  Its endpoint values are positive:
-$F(1)=7/100$, and, with
-$a_*=51033/125000$,
-\[
- a_*^2-T^2m(\beta_*)^2
- =\frac{1693881}{62500000000}>0.
-\]
-Finally
-\[
- (\overline S(\beta)-T)(1+m)=F(\beta)>0.
-\]
-Thus $B_5\ge B_0$ forces $S_0>T$; the contrapositive proves the lemma.
-\end{proof}
+\begin{table}[H]
+\centering
+\scriptsize
+\renewcommand{\arraystretch}{1.08}
+\begin{tabular}{p{.20\textwidth}p{.34\textwidth}p{.34\textwidth}}
+\toprule
+first label&right labels&incorporated terminal source\\
+\midrule
+$L$&Full&`4074`, low-root separation\\
+$L$&$L,T_-$&`4078`, exact low-sheet inequalities\\
+$L$&$T_+^{\rm hi}$&`4078` and `407c`\\
+$T_-$&$L,T_-$&`4075`, exact root ordering\\
+$T_-$&Full, $T_+^{\rm hi}$&`4075`, strict endpoint separation\\
+Full&all labels&`4079`, first-Full exclusion\\
+$T_+^{\rm hi}$&Full, $T_+^{\rm hi}$&`407a`, high-input exclusion\\
+$T_+^{\rm hi}$&$L,T_-$&`407a` and `407c`, analytic threshold and right-$T_-$ bounds\\
+\bottomrule
+\end{tabular}
+\caption{The exhaustive four-label endpoint audit.  The listed exact source
+objects contain every polynomial selector, domain restriction, and strict
+inequality used in the corresponding entry.}
+\label{tab:paper-407-complete-audit}
+\end{table}
 
 \begin{theorem}[Complete support-isolated T3-like endpoint certificate]
 \label{thm:paper-complete-t3-endpoint}
@@ -269,33 +86,15 @@ Definition~\ref{def:body-t3-endpoint-state},
 \end{theorem}
 
 \begin{proof}
-The exact residual formulas are those displayed in
-Lemma~\ref{lem:407-four-label-loss}.  If $a_1^*+a_5^*>1$, the two diagonal caps
-already give the strict loss.  In the hard region, the exact capped-map theorem
-leaves the four first-coordinate labels listed above.
-
-For first label $L$, the low-root separation, the CE2-overlap comparison, and
-the center-transfer lemma are proved in the incorporated files
-\texttt{4074}, \texttt{4078}, and the first section of \texttt{407c}.  They
-cover right labels Full, $L$, $T_-$, and $T_+^{\rm hi}$.  For first label
-$T_-$, the exact root-order test and all non-overlap, overlap, and right-high
-subcases are proved in \texttt{4075}; in every genuine case either
-$B_5<a_1^*$ or the two low caps sum to less than one.  The first-Full label is
-excluded in \texttt{4079} separately for the non-overlap input
-$1-\alpha$ and the CE2 overlap input $1-T$.
-
-For first label $T_+^{\rm hi}$, the selected Cell-$T$ condition is the
-hypothesis of Lemma~\ref{lem:paper-high-left-envelope}.  Right Full and right
-high are excluded by $S>3y$ and $A_C>3y$; right $L$ follows from
-$e(y)<3y\le1-B_5$; and the two right-$T_-$ inputs are handled by
-Lemmas~\ref{lem:paper-right-tminus} and
-\ref{lem:paper-high-left-threshold}, together with the exact comparison
-\[
- \frac{5657}{10000}<\frac{7-\sqrt{13}}6.
-\]
-These are precisely the branches proved in \texttt{407a} and \texttt{407c}.
-The four labels are exhaustive and the exact final assembly is
-\texttt{407d}.  Thus every branch has endpoint-cap sum strictly below one.
+If $a_1^*+a_5^*>1$, the diagonal caps already give the strict inequality.
+Otherwise Proposition~\ref{prop:capped-demand-map} assigns each endpoint one
+of the four labels above.  Table~\ref{tab:paper-407-complete-audit} is an
+exhaustive partition of the resulting ordered label pairs.  The incorporated
+source in each row proves either that the pair is impossible or that its two
+exact capped outputs have sum strictly below one.  File `407d` checks that the
+geometric residual reduction in `4073` reaches exactly these branches and no
+others.  Therefore the displayed endpoint inequality holds throughout the
+complete support-isolated domain.
 \end{proof}
 
 \subsection{The explicit Vd1--supercritical replacement}
@@ -388,7 +187,7 @@ applies.  In the ordered half $x\le y$, its necessary polynomial is
  F(x,y,z)=(x^2-1)z^2+(2xy^2+y)z+y^4-y^2\le0.
 \]
 It is nondecreasing in $x$.  At $x=1/2$ its $y$-derivative is
-$4y^3-2y+2yz+z$, which is increasing for $y\ge1-z$ and is positive at that
+$4y^3-2y+2yz+z$, which is increasing for $y\ge1-z$ and positive at that
 endpoint.  Hence
 \[
  F(x,y,z)>F\left(\frac12,1-z,z\right)
@@ -406,8 +205,8 @@ Thus
 \]
 again a contradiction.
 
-A supercritical row has selected own-radial coordinate at most $1/2$, so the
-lemma applied to $(a_1,b_1,c_1)$ gives
+A supercritical row has own-radial coordinate at most $1/2$, so the lemma
+applied to $(a_1,b_1,c_1)$ gives
 \[
  b_1\le1-c_1\le1-\lambda.
 \]
@@ -420,12 +219,12 @@ Together with $a<\lambda$ this gives
 Let $d_1^C$ be the center reach on the rescued arm, measured from $O$, and put
 $c_1^{\rm req}=1-d_1^C$.  Only the center, the supercritical row, and the Vd1
 row have positive intervals on this arm.  Open coverage at the center handoff
-therefore gives
-\[
+gives
+\begin{equation}
  c_1^{\rm req}<\max\{c_1,\mu\}
  <\max\{1-b_1,1-a\}.
  \label{eq:paper-radial-bridge-margin}
-\]
+\end{equation}
 Equality would leave the common open exit/entry point uncovered.
 
 Choose
