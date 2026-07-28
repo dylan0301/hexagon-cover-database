@@ -4,21 +4,26 @@
 \begin{proof}[Proof of Theorem~\ref{thm:main}]
 Assume that seven open unit equilateral triangles cover $H$.
 Proposition~\ref{prop:body-structural-reduction} assigns the cover to exactly
-one row of Table~\ref{tab:routing}, with $N_+$ computed from the actual reaches
-and, in the CE1/CE2 branch, $q=N_++m$.
+one row of Table~\ref{tab:routing}, with $N_+$ computed from actual maximal
+reaches and, in the CE1/CE2 branch, $q=N_++m$.
 
-The trace rows contradict Proposition~\ref{prop:body-length-branches}.  The
-area rows contradict Proposition~\ref{prop:body-area-branches}.  The transfer
-rows contradict Proposition~\ref{prop:body-demand-branches}; their retained
-maps and terminal inequalities are visible in
-Table~\ref{tab:body-strategy2-chains}.  The convex-support rows contradict
-Proposition~\ref{prop:reader-ab-core-branches}.
+The Strategy~1 rows contradict
+Proposition~\ref{prop:body-length-branches}.  The Strategy~3 rows contradict
+Proposition~\ref{prop:body-area-branches}.  The all-Vd0, T3-like, and ordinary
+transfer rows contradict Proposition~\ref{prop:body-demand-branches}; their
+exact retained maps and terminal inequalities are recorded in
+Table~\ref{tab:body-strategy2-chains}.  The complete CE2 exactly-one-Vd1/Vd2
+row, including the neighboring-midpoint length subcase and every complementary
+placement, contradicts Proposition~\ref{prop:paper-ce2-one-vd-placements}.
+The zero-gap all-Vd0 rows contradict
+Proposition~\ref{prop:reader-ab-core-branches}; its two mixed cap overlaps are
+Theorem~\ref{thm:paper-exact-mixed-certificate}.
 
-In the sole hybrid row marked $1+2$, Strategy~1 closes the neighboring-midpoint
-placement and Strategy~2 closes the complementary placements.  No routing row
-is omitted and no actual criticality classification is inferred from selected
-demands.  Hence every row of Table~\ref{tab:routing} is impossible, a
-contradiction.
+No routing row is omitted.  Singleton gaps remain gaps, every center-assisted
+handoff is treated by a residual map, every identity path has center-free
+internal edges, and no actual criticality classification is inferred from a
+selected demand pair.  Hence every row of Table~\ref{tab:routing} is
+impossible, a contradiction.
 \end{proof}
 
 Corollary~\ref{cor:expanded-closed} follows from
