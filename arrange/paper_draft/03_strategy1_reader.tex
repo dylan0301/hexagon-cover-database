@@ -1,0 +1,99 @@
+\section{Strategy 1: Trace Budgets}
+\label{sec:strategy1-summary}
+
+For a closed triangle $T$ and a rectifiable target $E$, write
+\[
+ L_E(T)=\Haus(T\cap E).
+\]
+If the seven open roles cover $E$, closure and subadditivity give
+\[
+ \Haus(E)\le L_E(T_C)+\sum_{i=0}^5L_E(T_i).
+\]
+Strategy~1 contradicts this inequality on either $\partial H$ or the full
+skeleton $S$.
+
+\begin{figure}[H]
+\centering
+\input{figures/strategy1_trace_targets}
+\caption{The perimeter and the conditional full-skeleton target.  The proof
+uses only the numerical trace caps stated below.}
+\label{fig:strategy1-reader-targets}
+\end{figure}
+
+The technical trace calculations reduce to the following register.
+
+\begin{proposition}[Trace-cap register]
+\label{prop:body-trace-register}
+Under the hypotheses indicated in each row,
+\begin{center}
+\small
+\renewcommand{\arraystretch}{1.08}
+\begin{tabular}{p{.58\textwidth}c}
+\toprule
+role and target&upper bound\\
+\midrule
+CE1/CE2 center on $S$&$L_S(T_C)<3/2$\\
+supercritical vertex role on $S$&$L_S(T_i)<3/2$\\
+vertex role with positive adjacent-arm support on $S$&$L_S(T_i)<3/2$\\
+nonsupercritical role with no adjacent-arm support on $S$&$L_S(T_i)\le2$\\
+CE1 center on $\partial H$&$L_{\partial H}(T_C)\le\sqrt3/2-3/4$\\
+CE2 center on $\partial H$&$L_{\partial H}(T_C)<1/2$\\
+supercritical Vd0 role on $\partial H$&$A_i+B_i\le2/\sqrt3$\\
+Vd1 or Vd2 role on $\partial H$&$A_i+B_i<1/2$\\
+nonsupercritical Vd0 role on $\partial H$&$A_i+B_i\le1$\\
+T3-like role on $\partial H$&$A_i+B_i<1$\\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{proposition}
+
+\begin{proof}
+The four skeleton bounds are Lemmas~\ref{lem:center-skeleton-cap},
+\ref{lem:supercritical-skeleton-cap},
+\ref{lem:positive-support-skeleton-cap}, and
+\ref{lem:no-support-skeleton-cap}.  The boundary bounds are the signed center
+formula and the vertex trace atlas in Appendix~\ref{sec:length}.  The displayed
+register contains the outputs only; all orientation splits and polynomial
+checks remain in the appendix.
+\end{proof}
+
+Two abstract sums explain every Strategy~1 route.  First, if there are
+$q\ge3$ short roles, Proposition~\ref{prop:body-trace-register} gives
+\[
+ L_S(T_C)+\sum_iL_S(T_i)
+ <\frac32+q\frac32+(6-q)2
+ =\frac{27-q}{2}\le12,
+\]
+contradicting $\Haus(S)=12$.  Second, put
+\[
+ \theta=\frac2{\sqrt3}-1.
+\]
+If the center contribution is $L_C$, there are $n$ supercritical Vd0 rows, and
+$r\ge1$ distinguished nonsupercritical rows have strict boundary caps
+$q_1,\ldots,q_r<1$, then
+\[
+ L_C+n\theta\le\sum_{j=1}^r(1-q_j)
+\]
+forces total perimeter trace strictly below six.  This is the master perimeter
+deficit.
+
+\begin{proposition}[Branches closed by Strategy 1]
+\label{prop:body-length-branches}
+Strategy~1 closes:
+\begin{enumerate}
+\item $\CEzero$, $N_+=0$;
+\item $\CEzero$, $N_+=1$, with a $\Vdone/\Vdtwo$ role;
+\item CE1/CE2 with $q=N_++m\ge3$;
+\item CE1/CE2, $N_+=0$, with a $\Vdone/\Vdtwo$ role;
+\item CE1, $N_+=1$, with exactly one $\Vdone/\Vdtwo$ role and no $\Tlike$ role;
+\item the Vd2 neighboring-midpoint subcase of the CE2 hybrid row.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+The first row is the cyclic boundary sum.  The third row is the skeleton sum
+above.  The remaining rows are substitutions of the center and distinguished
+vertex caps into the master perimeter deficit.  The exact substitutions,
+including all strictness, are Proposition~\ref{prop:length-branches} in
+Appendix~\ref{sec:length} and the common budgets immediately following it.
+\end{proof}
