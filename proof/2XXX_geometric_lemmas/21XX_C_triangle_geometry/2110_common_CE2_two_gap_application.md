@@ -49,27 +49,28 @@ $$
 p=W-\alpha,\qquad q=R-\delta.
 $$
 
-Both are positive. Since each center trace contains a V-gap, gap containment
-gives
+Both are positive. The far-side boundary demands left by the two center
+intervals are exactly $p$ for row $T_5$ and $q$ for row $T_1$. Since each
+center interval contains a V-gap, the corresponding actual endpoint reaches
+are at least these demands.
+
+The complementary radial demands at the endpoint rows are
 
 $$
-b_5\ge p,\qquad a_1\ge q.
-$$
-
-The exact center exits give the complementary radial demands
-
-$$
-c_5=1-\frac{\alpha}{W}=\frac pW,
+c_5=1-\frac{\alpha}{W}=rac pW,
 \qquad
-c_1=1-\frac{\delta}{R}=\frac qR.
+c_1=1-\frac{\delta}{R}=rac qR.
 $$
 
-Let $B_5$ and $B_1$ denote the outgoing reaches of rows $T_5$ and $T_1$ on
-$e_{4,5}$ and $e_{1,2}$. Since these rows are nonsupercritical, the safe capped
-map gives
+Let $B_5^{\rm far}$ and $B_1^{\rm far}$ denote the reaches of rows $T_5$ and
+$T_1$ on the two edges leading away from the center traces, namely $e_{4,5}$
+and $e_{1,2}$. By reflecting the local coordinates at $T_5$ when necessary,
+the safe capped map gives
 
 $$
-B_5\le F_{p/W}(p),\qquad B_1\le F_{q/R}(q).
+B_5^{\rm far}\le F_{p/W}(p),
+\qquad
+B_1^{\rm far}\le F_{q/R}(q).
 $$
 
 The exact two-endpoint theorem
@@ -82,7 +83,7 @@ $$
 and hence
 
 $$
-\boxed{B_1+B_5<1.}
+\boxed{B_1^{\rm far}+B_5^{\rm far}<1.}
 $$
 
 Apply the corrected boundary-path theorem
@@ -91,12 +92,12 @@ to $T_2,T_3,T_4$. Its hypotheses are explicit here: the center's only
 positive boundary traces are on $e_{5,0}$ and $e_{0,1}$, so the internal path
 edges $e_{2,3}$ and $e_{3,4}$ are center-free; diameter locality excludes all
 nonincident vertex roles; and the complete external contributions on
-$e_{1,2}$ and $e_{4,5}$ are bounded by $B_1$ and $B_5$. Therefore coverage
-forces
+$e_{1,2}$ and $e_{4,5}$ are bounded by
+$B_1^{\rm far}$ and $B_5^{\rm far}$. Therefore coverage forces
 
 $$
 \sum_{i=2}^4(A_i+B_i)
-\ge4-(B_1+B_5)>3.
+\ge4-(B_1^{\rm far}+B_5^{\rm far})>3.
 $$
 
 But the three rows are nonsupercritical, so the same sum is at most three.
