@@ -41,38 +41,43 @@ boundary propagation, area loss, caliper certificate}
 
 \begin{abstract}
 We prove that the regular hexagon of side length one cannot be covered by
-seven open equilateral triangles of side length one. Equivalently, no
-regular hexagon of side length greater than one is covered by seven closed
-unit equilateral triangles. Seven distinguished points force one center
-role and six vertex roles. An exhaustive classification reduces the proof to
-three certificate types: additive trace or area deficits, monotone propagation
-of boundary and radial demands, and a convex support obstruction. The last
-certificate forces six radial and three asymmetric witnesses into the center
-role. A signed normal form treats CE1 and CE2 simultaneously, while one
-universal enclosure and transfer calculus supplies the equilateral gauge,
-interval residuals, boundary-path budgets, and the selected high-sheet curve
-used throughout the proof. The terminal mixed-overlap signs are certified by
-exact rational reductions and computer-verified global Bernstein identities,
-with no interval subdivision or branch-and-bound.
+seven open equilateral triangles of side length one.  Seven distinguished
+points force one center role and six vertex roles.  A finite classification
+then routes every hypothetical cover to one of four geometric mechanisms:
+trace deficit, monotone transfer, area loss, or a nine-point support
+obstruction.  The reader-facing proof states the exact geometric interfaces,
+the resulting inequalities, and the exhaustive routing argument.  All
+support-line derivations, polynomial reductions, monotonicity calculations,
+and exact certificates are isolated in appendices formulated in real
+variables.  In particular, the body uses the local admissible set only through
+its explicit description and uses the CE1/CE2 geometry only through one signed
+normal form.
 \end{abstract}
 
 \maketitle
 \tableofcontents
 
 \input{01_introduction}
+\input{02_reader_framework}
+\input{03_strategy1_reader}
+\input{04_strategy2_summary}
+\input{05_strategy3_reader}
+\input{06_strategy4_reader}
+\input{07_exhaustive_assembly}
+\label{page:proof-body-end}
+
+\clearpage
+\appendix
+\input{appendix_roadmap}
 \input{02_structural_reductions}
 \input{02a_universal_calculus}
 \input{04a_signed_center_calculus}
 \input{03_strategy1_length}
 \input{04b_common_CE1_CE2_budgets}
-\input{04_strategy2_reader}
-\input{05_strategy3_area}
-\input{06_strategy4_reader}
-\input{07_exhaustive_assembly}
-
-\appendix
 \input{04c_short_Vd_placements}
+\input{04_strategy2_reader}
 \input{04_strategy2_exact_demand}
+\input{05_strategy3_area}
 \input{06_strategy4_ab_core}
 \input{appendix_symbols}
 
