@@ -1,0 +1,39 @@
+\section{Technical Verification Roadmap}
+\label{sec:appendix-roadmap}
+
+The body has already completed the logical proof.  The remaining sections
+verify its interfaces.  Except for the finite structural classification, every
+calculation is organized as an inequality problem on explicit real-variable
+domains.
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.10}
+\begin{tabular}{p{.25\textwidth}p{.28\textwidth}p{.36\textwidth}}
+\toprule
+module&principal variables&output used in the body\\
+\midrule
+structural reduction&finite incidence and trace data&role types, strict
+handoffs, exhaustive routing\\
+local enclosure&$a,b,c\in[0,1]$&explicit $\mathcal A$, $g$-maps, monotonicity\\
+signed center&$R,\alpha,\delta$&CE sign, traces, exits, residuals\\
+trace budgets&one- and two-variable caps&perimeter and skeleton deficits\\
+transfer certificates&compact domains in the preceding variables&endpoint,
+composition, and terminal inequalities\\
+area loss&$a,b,t\in[0,1]$&local square losses and cyclic sums\\
+nine-point obstruction&$a,b$ on the strict frontier&Newton placement, cap
+overlaps, exact support certificate\\
+\bottomrule
+\end{tabular}
+\caption{The appendices are verification modules rather than a second proof
+narrative.}
+\label{tab:appendix-roadmap}
+\end{table}
+
+Geometric notation is retained only long enough to define the relevant real
+variables.  Polynomial expansions, root selection, rational parametrizations,
+monotonicity checks, Gram reductions, and Bernstein identities occur only
+below.  Exact scripts are replay tools; the mathematical certificate is the
+stated rational identity or sign decomposition, not the invocation of a
+program.
