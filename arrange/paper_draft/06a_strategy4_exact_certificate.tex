@@ -10,7 +10,7 @@ unrecorded numerical tolerance is used.
 
 \subsection{Certificate manifest}
 
-All paths in this subsection are relative to
+All paths below are relative to
 \begin{verbatim}
 proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/
 3105X_self_contained_direct_Vd0_nine_point/3105X_computation/
@@ -50,7 +50,7 @@ SHA--256 digest
 dc46aaf263655d5159ecd3a81db72ee82477951d06172f4743b248df37209485
 \end{verbatim}
 The first verifier independently derives the transcript from the witness
-formulas and compares every coefficient with this authenticated object.  The
+formulas and compares every coefficient with the authenticated object.  The
 second verifier derives all Bernstein coefficients from that same object and
 checks their signs exactly.
 
@@ -160,20 +160,23 @@ Lemma~\ref{lem:paper-branchwise-cbar} gives
 $0<\bar\eta\le\eta=h(1-c_*)$.  It therefore suffices to prove the mixed
 intersections for the smaller disks with radii $2\bar\eta,\bar\eta,2\bar\eta$.
 
-Put $C'=\mathsf R^{-1}C$ and write
+Represent a global vector as $(x,hy)$ and put $C'=\mathsf R^{-1}C$.  Define
 \[
  N_A=\lVert A\rVert^2,\qquad N_C=\lVert C\rVert^2,\qquad
- \nu=\langle A,C'\rangle,\qquad
- \Delta=\operatorname{cross}(C',A)>0.
+ \nu=\langle A,C'\rangle,
 \]
-The Gram identity is
 \[
- \Delta^2=N_AN_C-\nu^2.
+ \Delta_0=x_Ay_{C'}-y_Ax_{C'}>0.
 \]
+Thus the Euclidean cross product is $h\Delta_0$, and the Gram identity is
+\begin{equation}
+ h^2\Delta_0^2=N_AN_C-\nu^2.
+ \label{eq:certificate-Gram}
+\end{equation}
 Define
 \begin{equation}
- Q_A=\Delta^2-\lVert tA-eC'\rVert^2,\qquad
- Q_C=\Delta^2-\lVert tC'-eA\rVert^2.
+ Q_A=\Delta_0^2-\lVert tA-eC'\rVert^2,\qquad
+ Q_C=\Delta_0^2-\lVert tC'-eA\rVert^2.
  \label{eq:certificate-Q}
 \end{equation}
 
@@ -198,36 +201,39 @@ chosen with
 \[
  \langle A,n_A\rangle=\bar\eta.
 \]
-Since $\lVert A\rVert>\bar\eta$ and $\Delta>0$, choose the sign for which
+Since $\lVert A\rVert>\bar\eta$ and $\Delta_0>0$, choose the tangent side for
+which
 \[
  \langle C',n_A\rangle
- =\frac{\bar\eta\nu+\sqrt{N_A-\bar\eta^2}\,\Delta}{N_A}.
+ =\frac{\bar\eta\nu+\sqrt{N_A-\bar\eta^2}\,h\Delta_0}{N_A}.
 \]
-The common support of the two disks is then
+The common support of the two disks is therefore
 \[
  2\bar\eta+
- \frac{\bar\eta\nu+\sqrt{N_A-\bar\eta^2}\,\Delta}{N_A}.
+ \frac{\bar\eta\nu+\sqrt{N_A-\bar\eta^2}\,h\Delta_0}{N_A}.
 \]
 Let $\bar\tau=h-2\bar\eta=ht$.  Expanding
-\eqref{eq:certificate-Q} and using the Gram identity gives
+\eqref{eq:certificate-Q} and using \eqref{eq:certificate-Gram} gives
 \begin{equation}
- h^2N_AQ_A
- =(N_A-\bar\eta^2)\Delta^2
- -(\bar\tau N_A-\bar\eta\nu)^2.
+ \bar P_A
+ :=(N_A-\bar\eta^2)h^2\Delta_0^2
+   -(\bar\tau N_A-\bar\eta\nu)^2
+ =h^2N_AQ_A.
  \label{eq:certificate-PA}
 \end{equation}
 Thus $Q_A\ge0$ implies
 \[
- \sqrt{N_A-\bar\eta^2}\,\Delta
+ \sqrt{N_A-\bar\eta^2}\,h\Delta_0
  \ge\bar\tau N_A-\bar\eta\nu,
 \]
-and the displayed common support is at least
+and the common support is at least
 $2\bar\eta+\bar\tau=h$.  Hence the two level-$h$ caps intersect.
 The same calculation with $A$ and $C'$ exchanged gives
 \begin{equation}
- h^2N_CQ_C
- =(N_C-\bar\eta^2)\Delta^2
- -(\bar\tau N_C-\bar\eta\nu)^2,
+ \bar P_C
+ :=(N_C-\bar\eta^2)h^2\Delta_0^2
+   -(\bar\tau N_C-\bar\eta\nu)^2
+ =h^2N_CQ_C,
  \label{eq:certificate-PC}
 \end{equation}
 and proves the second intersection.  Enlarging the disk radii from
@@ -258,11 +264,11 @@ strictly negative.
 
 The derivation verifier constructs $A,C$, both rational envelopes, and all four
 residuals directly in the exact field $\mathbb Q(U,z,D)$.  It performs the
-reduction modulo $D^2-K$, removes the common positive factor, primitive-normalizes
-the eight integer polynomials, and compares their sparse term lists
-coefficient by coefficient with the authenticated transcript.  Thus the data
-are not an independently trusted precomputation; they are checked against the
-geometric formulas.
+reduction modulo $D^2-K$, removes the common positive factor,
+primitive-normalizes the eight integer polynomials, and compares their sparse
+term lists coefficient by coefficient with the authenticated transcript.  Thus
+the data are checked against the geometric formulas rather than trusted as an
+independent precomputation.
 
 \subsection{Three global positive-basis certificates}
 
@@ -313,7 +319,7 @@ and
 \]
 The implications $E_F\ge0$ and $R_F\ge0$ give
 $E_F\ge\sqrt w\,|O_F|$, hence $F\ge0$ for $z\ge0$.
-Use the two exact charts
+Use the exact charts
 \[
  U=U_Hr,\qquad
  w=H(U)+s\{\mathcal G(U)-H(U)\}
@@ -332,15 +338,16 @@ positive.
 The verifier implements polynomial addition, multiplication, substitution,
 and power-to-Bernstein conversion over exact integers.  Coefficients in
 $\mathbb Q(\sqrt3)$ are represented as rational pairs and signed by exact
-rational comparisons.  In particular, a polynomial
-$\sum a_{ij}r^is^j$ of bidegree $(m,n)$ is converted using
+rational comparisons.  If
+$P(r,s)=\sum a_{ij}r^is^j$ has bidegree $(m,n)$, its exact tensor Bernstein
+coefficients are
 \[
  b_{k\ell}
  =\sum_{i\le k}\sum_{j\le\ell}
  a_{ij}\frac{\binom{k}{i}}{\binom{m}{i}}
-       \frac{\binom{\ell}{j}}{\binom{n}{j}},
+       \frac{\binom{\ell}{j}}{\binom{n}{j}}.
 \]
-which is the exact tensor Bernstein coefficient formula.
+This is precisely the conversion implemented by the verifier.
 
 \begin{theorem}[Exact mixed-overlap certificate]
 \label{thm:paper-exact-mixed-certificate}
