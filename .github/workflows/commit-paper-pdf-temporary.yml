@@ -1,0 +1,75 @@
+name: Commit compiled body-appendix paper
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pull-requests: read
+
+jobs:
+  compile-and-commit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out the pull request head branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+
+      - name: Avoid rebuilding the generated-PDF commit
+        id: guard
+        run: |
+          message="$(git log -1 --pretty=%s)"
+          if [ "${message}" = "Update compiled paper PDF [skip paper build]" ]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Install XeLaTeX toolchain
+        if: steps.guard.outputs.skip != 'true'
+        run: |
+          sudo apt-get update -qq >/dev/null
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommends \
+            latexmk \
+            texlive-xetex \
+            texlive-latex-extra \
+            texlive-fonts-recommended \
+            poppler-utils >/dev/null
+
+      - name: Compile the complete manuscript
+        if: steps.guard.outputs.skip != 'true'
+        working-directory: arrange/paper_draft
+        run: |
+          latexmk -xelatex -interaction=nonstopmode -halt-on-error main.tex
+          pdfinfo main.pdf
+          grep -F 'newlabel{page:proof-body-end}' main.aux
+          if grep -E 'undefined references|Reference .* undefined|Citation .* undefined' main.log; then
+            exit 1
+          fi
+
+      - name: Upload the exact compiled PDF
+        if: steps.guard.outputs.skip != 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: hexagon-cover-body-appendix-paper-committed
+          path: arrange/paper_draft/main.pdf
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Commit the compiled PDF to the feature branch
+        if: steps.guard.outputs.skip != 'true'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add arrange/paper_draft/main.pdf
+          if git diff --cached --quiet; then
+            echo 'The tracked PDF is already current.'
+          else
+            git commit -m 'Update compiled paper PDF [skip paper build]'
+            git push origin "HEAD:${{ github.event.pull_request.head.ref }}"
+          fi
