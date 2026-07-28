@@ -121,7 +121,9 @@ contains a V-gap; in CE2 assume the companion trace is gap-free.  Put
 \]
 The actual rows satisfy
 \[
- A_0\ge Z,\qquad A_0<1-H,
+ A_0\ge Z,
+ \qquad
+ A_0<1-H,
 \]
 where
 \[
@@ -163,9 +165,9 @@ T3-like row $T_0$ supporting $r_1$.  Remove from the two terminal boundary
 edges the connected components already covered by $T_0$ and the center.
 Let $a_1^*,a_5^*$ be the remaining far-side incoming demands, and let
 $c_1^*,c_5^*$ be the radial demands forced on the two endpoint rows by the
-corresponding radial components.  These quantities are determined by the
-residual operator and are written explicitly in
-Appendix~\ref{sec:strategy2-rigor-completion}.
+corresponding radial components.  Their exact formulas are those in
+Lemma~\ref{lem:407-four-label-loss}; the complete four-label branch proof is
+the incorporated supplement of Appendix~\ref{sec:strategy2-rigor-completion}.
 \end{definition}
 
 \begin{proposition}[T3-like endpoint certificate]
@@ -182,9 +184,7 @@ ordinary path and are replaced by $\mathrm I^3$.
 \end{proposition}
 
 \begin{proof}
-The complete label audit, including the low sheets, the first-Full exclusion,
-the high-left threshold, and the right-$T_-$ bounds, is
-Theorem~\ref{thm:paper-complete-t3-endpoint}.
+This is Theorem~\ref{thm:paper-complete-t3-endpoint}.
 \end{proof}
 
 \begin{proposition}[Adjacent rescuer and Vd terminal certificates]
@@ -246,9 +246,7 @@ boundary and radial demand used by the all-Vd0 theorem.
 Items 1--3 are Corollary~\ref{cor:signed-adjacent-rescuers} and
 Lemmas~\ref{lem:signed-vd-adjacent-placement} and
 \ref{lem:signed-vd-nonadjacent-placement}.  Item 4 is
-Proposition~\ref{prop:paper-vd1-pair-replacement}, whose proof retains the two
-ordered halves of the half-square admissibility lemma and the explicit open
-axis replacements.
+Proposition~\ref{prop:paper-vd1-pair-replacement}.
 \end{proof}
 
 \begin{table}[H]
@@ -291,7 +289,7 @@ exactly-one-Vd1/Vd2 branch.
 \begin{proof}
 Use Propositions~\ref{prop:body-all-vd0-endpoints},
 \ref{prop:body-five-row-certificate}, \ref{prop:body-t3-endpoint}, and
-\ref{prop:body-special-terminal-certificates}.  The exact placement assembly is
-Proposition~\ref{prop:signed-ce2-one-vd-placements}.  All singleton-gap states
-are included.
+\ref{prop:body-special-terminal-certificates}.  The complete CE2 one-Vd
+placement assembly is Proposition~\ref{prop:paper-ce2-one-vd-placements}.
+All singleton-gap states are included.
 \end{proof}
