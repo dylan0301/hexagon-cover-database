@@ -2,210 +2,156 @@
 
 Status: Reference
 
-This is a numbered proof-structure tree. It is navigation only: a branch is not
-proved merely because it appears here, and proof status is inherited from the
-numbered source notes. The exhaustive assembly of the proven terminal branches
-is the main theorem in [`0000_main_theorem.md`](0000_main_theorem.md).
+This is navigation only.  A branch is proved only by a numbered source whose
+recorded status supports the claimed conclusion.  The exhaustive assembly is
+[`0000_main_theorem.md`](0000_main_theorem.md).
 
 ## Spine
 
 Under a hypothetical seven-triangle cover, choose role triangles
 
 $$
-T_C,T_0,\dots,T_5.
+T_C,T_0,\ldots,T_5.
 $$
 
-Classify $T_C$ as CE0, CE1, or CE2. The CE1 and CE2 cases are recorded
-together in the combined 4XXX branch. Inside each active branch, define the
-actual perimeter reaches $(A_i,B_i)$ and compute
+The center role is exactly one of CE0, CE1, and CE2.  Every original vertex
+role is exactly one of Vd0, Vd1, Vd2, and T3-like.  Let
 
 $$
-N_+=
-\left\lvert
-\left\lbrace
-i:A_i+B_i>1
-\right\rbrace
-\right\rvert.
+N_+
+=
+\left\lvert\left\{i:A_i+B_i>1\right\}\right\rvert
 $$
 
-Then split first by CE0 or by the combined CE1/CE2 branch; inside each branch
-split by $N_+=0$, $N_+=1$, or $N_+\ge2$; inside each $N_+$ branch split by
-Vd0, Vd1/Vd2, and T3-like vertex-role patterns.
+be the number of actual supercritical vertex rows.  In CE1/CE2, let $m$ be the
+number of non-Vd0 roles and $q$ the number of short roles.  The common budget
+package `2530` proves
 
-For CE1/CE2, first let $m$ be the number of Vd1, Vd2, or T3-like roles and
-let $q$ be the number of short roles. The proved common-budget package `2530`
-gives $q=N_++m$ and eliminates $q\ge3$; midpoint rescue also eliminates
-$N_+\ge2$. The surviving tree therefore has $N_+\le1$ and at most two
-non-Vd0 roles when $N_+=0$, or at most one when $N_+=1$.
+$$
+q=N_++m
+$$
 
-Within the two all-Vd0 CE1/CE2 rows, let $\mathrm{gr}$ be the active-gap rank,
-the number of positive center traces containing a V-gap.  The raw map
-$g_c=1-B_c$ and its relaxations organize the Strategy 2 cells, but the existing
-Strategy 1 branches remain separately routed.
+and removes every $q\ge3$ state before the finer split.
 
-## Setup
+For the all-Vd0 CE1/CE2 rows, let $\mathrm{gr}$ be the active-gap rank.  Bare
+$g$ is reserved for transfer maps.  The two row counts use the kernel
+
+| actual row count | $\mathrm{gr}=0$ | $\mathrm{gr}=1$ | $\mathrm{gr}=2$ |
+|---|---|---|---|
+| $N_+=0$ | strict identity cycle | one-side endpoint chain | paired CE2 endpoint chain |
+| $N_+=1$ | nine-point obstruction | one five-row chain with CE1/CE2 relaxations | paired CE2 endpoint chain |
+
+## Canonical transfer layer
+
+The authoritative notation is
+[`201d`](../2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md):
+
+$$
+g_c(x)=\max\{y:(1-x,y,c)\in\mathcal A\},
+\qquad
+\widehat g_c(x)=\min\{g_c(x),x\},
+$$
+
+$$
+f^\vee(a)=1-f(1-a).
+$$
+
+Thus $\widehat g_c^\vee$ is the ordinary nonsupercritical incoming-reach
+transfer.  Center intervals use $\widehat g_{c,J}^\vee$, selected affine and
+threshold relaxations use superscripts, and the single free strict-
+supercritical envelope is $g_c^{\rm sc}$.
+
+At zero radial demand,
+
+$$
+g_0(x)>x\quad(0<x<1),
+\qquad
+\widehat g_0(x)=x.
+$$
+
+The exact contact-cell aliases are
+
+$$
+B_c(a)=g_c(1-a),
+\qquad
+F_c(a)=\widehat g_c(1-a),
+\qquad
+G_c(a)=\widehat g_c^\vee(a).
+$$
+
+## Setup and reusable lemmas
 
 - `1XXX`: foundations
-  - `1003`: open-unit and shrunken-closed equivalence
-  - `1101`: proved exhaustive CE0, CE1, CE2 classification
-  - `1201`: proved exhaustive Vd0, Vd1, Vd2, and T3-like classification for
-    original vertex roles, with proved T3-like translation normalization
-  - `1202`: local coordinates $(a,b,c)$
-  - `1214`: proved strict boundary-handoff selection for exact-one and
-    at-least-two actual supercritical patterns
+  - `1003`: open-unit and shrunken-closed equivalence.
+  - `1101`: exhaustive CE0/CE1/CE2 classification.
+  - `1201`: exhaustive Vd0/Vd1/Vd2/T3-like classification and T3-like
+    translation normalization.
+  - `1214`: strict handoff selection preserving the actual supercritical
+    pattern.
 - `2XXX`: geometric lemmas
-  - `20XX`: V-triangle and universal local geometry
-    - `2004`: exact piecewise support-contact admissible set
-    - `2005`: proved midpoint self-cover criterion
-    - `2006`: proved T3-like own-midpoint exclusion
-    - `2007`: exact piecewise $B_c(a)$ map and classified-map semantics
-    - `2008`: neighbor-ray maximum formula
-    - `2009X`: ab-set package; exact finite all-parameter caliper certificate
-      in `20095` and strict $a+b>1$, $R^2<1$ four-piece union in `20091`
-      proved; optional simplified Bands I--III named-curve catalog empirical
-    - `2010`: proved free strict-supercritical outgoing supremum
-    - `2011`: proved exact capped nonsupercritical demand map, four-label
-      partition, and duality
-    - `2012`: proved high-radial low-root bounds and threshold consequence
-    - `2013`: proved T3-like side tradeoff and crossed-pair obstruction
-    - `2014`: proved Vd1/Vd2 corner normal form and half-unit boundary cap
-    - `2015`: proved the one-third Vd2 neighbor-midpoint cap
-    - `2016`: proved the universal selected-$T_+$ normal form, strict
-      concavity, chord bounds, and rational parameter
-    - `2017`: proved one-hit and two-threshold routing for extensive capped-map
-      chains, with the actual-row induction kept explicit
-    - `2018`: proved the diameter-transfer curve and class-independent
-      adjacent-rescuer obstruction
-    - `2019`: proved the interval residual operator, generalized center-assisted
-      handoff, radial component form, and boundary-path budget
-    - `201a`: proved the common equilateral enclosure gauge, universal radical
-      calculus, and four-frontier atlas
-    - `201b`: proved the global quarter radial envelope
-      $c_{\max}(p,h)\le1-h/4$
-    - `201c`: proved the own-radial and supported-arm margins extracted
-      from the Vd1/Vd2 corner normal form
-    - `201d`: proved the raw transfer $g_c=1-B_c$ for every row, the capped
-      relation $G_c=\max\{g_c,\mathrm I\}$, center-assisted and envelope
-      transfers, the raw-graph interpretation of $A_{\rm sc},B_{\rm sc}$,
-      and the relaxed-composition and branch-signature notation
-  - `21XX`: C-triangle geometry
-    - `2100`: proved CE1/CE2 exactly-one-midpoint lemma with $O$ interior
-    - `2101`: maximal C-triangles over the half skeleton
-    - `2102`: CE1 interval certificate
-    - `2103`: CE2 interval-pair certificate
-    - `2104`: CE2 two-gap replacement theorem
-    - `2105`: CE1 exact center and radial formulas
-    - `2106`: CE2 exact center and radial formulas
-    - `2107`: proved one-side capped-loss theorem
-    - `2108`: proved CE2 two-endpoint capped-loss theorem
-    - `2109`: proved one signed CE1/CE2 center normal form
-    - `2110`: proved one common geometric application of the CE2 two-endpoint
-      theorem to both all-Vd0 two-gap branches
-  - `25XX`: length bounds
-    - `2500`: proved boundary length bounds
-    - `2510`: skeleton length bounds
-    - `2520`: proved diagonal length bounds, retained as a historical result
-      but no longer used by the active proof path
-    - `2530`: common perimeter budgets, the three-short-role theorem, and the
-      exact count $q=N_++m$
-  - `26XX`: enclosing-triangle tools
-    - `2607`: minimal enclosing equilateral quadrilateral lemma
+  - `2004`: exact local admissible set.
+  - `2007`: exact outgoing envelope and interval fibers.
+  - `2010`: free strict-supercritical envelope, denoted $g_c^{\rm sc}$ in the
+    canonical notation.
+  - `2011`: exact hatted outgoing map, four labels, and complement duality;
+    the file retains $F_c,G_c$ as technical aliases.
+  - `2016`: universal selected-$T_+$ curve and affine chord bounds.
+  - `2017`: one-hit and two-threshold routing.
+  - `2018`: diameter transfer and common adjacent-rescuer obstruction in the
+    $g_c^{\rm sc}$ notation.
+  - `2019`: residual intervals, center-assisted $g$-transfers, and boundary
+    path budget.
+  - `201a`: enclosure gauge and universal radical calculus.
+  - `201b`: global quarter radial envelope.
+  - `201c`: Vd corner radial margins.
+  - `201d`: canonical and relaxed $g$-composition calculus.
+  - `2107`: one-side exact endpoint loss.
+  - `2108`: paired CE2 endpoint loss.
+  - `2109`: signed CE1/CE2 center normal form.
+  - `2110`: common application of the paired endpoint theorem to both two-gap
+    cells.
+  - `2500`, `2510`, `2530`: boundary, skeleton, and common short-role budgets.
 
-## CE0 Branch
+## CE0 branch
 
-- `3XXX`: CE0
-  - `30XX`: CE0, $N_+=0$
-    - `3010`: boundary-length obstruction
-  - `31XX`: CE0, $N_+=1$
-    - all Vd0
-      - `310X`: all-Vd0 package
-        - `3100X`: existing algorithm-2 five-point route
-        - `3101X`: six-point construction and core graph definitions
-        - `3103X`: proven independent residual-core and forced-disk closure
-          - `31032`: proved uniform symmetric witness and forced-disk construction
-          - `31033`: proved exact asymmetric witnesses and uniform core membership
-          - `31034`: proved terminal cap reduction and analytic adjacent overlaps
-          - `31037`: proved both mixed overlaps by branchwise rational radial envelopes and exact integer Bernstein coefficients, eliminating interval arithmetic
-          - `31035`: proved center-independent all-boundary obstruction
-        - `3104X`: proven predecessor direct all-Vd0 nine-point closure
-          - `31041`: proved direct forcing of six common radial witnesses
-          - `31042`: proved direct forcing of three asymmetric witnesses
-          - `31043`: proved center-independent direct nine-point obstruction
-          - `31044`: proved CE0, $N_+=1$, all-Vd0 completion
-        - `3105X`: canonical self-contained direct all-Vd0 nine-point closure
-          - `31051`--`31053`: direct radial and asymmetric forcing with all
-            fixed-line signs proved locally
-          - `31054`--`31057`: exact cap reduction, rational mixed-overlap
-            reduction, global Bernstein certificate, and terminal enclosure
-          - `31058`: proved center-independent direct nine-point obstruction
-          - `31059`: proved CE0, $N_+=1$, all-Vd0 completion
-          - `3105a`: optional proved disk-plus-one-point enclosure formula;
-            not used by the canonical proof or manuscript
-    - at least one Vd1/Vd2
-      - `314X`: boundary-length obstruction
-    - at least one T3-like and no Vd1/Vd2
-      - `317X`: unconditional direct area-loss route with exact-one handoff transfer
-      - `3172`: failed coordinatewise tangent-envelope conjecture
-      - `3175`: direct T3-like area-loss theorem
-  - `32XX`: CE0, $N_+\ge2$
-    - `3205`: unconditional local square-loss theorem
-    - `3208`: six-row strict area certificate with at-least-two handoff selection
-    - `3201`: proven branch assembly
-  - `33XX`: old CE0 Vd1/Vd2 chain proof
+- `3010`: CE0, $N_+=0$, perimeter obstruction.
+- CE0, $N_+=1$:
+  - all Vd0: canonical direct nine-point package `3105X`, terminal `31059`;
+  - some Vd1/Vd2: `3141` boundary-length obstruction;
+  - no Vd1/Vd2 and some T3-like: `3171` direct area package.
+- CE0, $N_+\ge2$: `3201` square-loss area package.
 
-## CE1/CE2 Branch
+The older `3100X`--`3104X` routes and their failed or optional subroutes remain
+in the corpus with their recorded statuses; they are not promoted by this
+index.
 
-- `4XXX`: CE1/CE2
-  - `40XX`: CE1/CE2, $N_+=0$
-    - all Vd0
-      - `401X`: proved active-gap-rank kernel: a strict cyclic identity chain
-        at $\mathrm{gr}=0$ and exact-endpoint/$\mathrm I^3$ chains at
-        $\mathrm{gr}=1,2$
-    - at least one Vd1/Vd2
-      - `404X`: CE1 and CE2 boundary-length obstructions; existing Strategy 1
-        routes unchanged
-    - at least one T3-like and no Vd1/Vd2
-      - `407X`: proved residual exact-endpoint/$\mathrm I^3$ chain; the
-        irreducible four-label endpoint audit and universal `2016`
-        selected-$T_+$ curve remain active
-  - `41XX`: CE1/CE2, $N_+=1$
-    - all Vd0
-      - `410X`: all gap states proved; the one-gap states are two relaxations of
-        one exact five-row chain, the two-gap state is the common paired-endpoint
-        chain, and the no-gap state remains the center-independent `31058`
-        direct nine-point obstruction
-      - `4106`: CE1 uses two affine selected-$T_+$ lower maps followed by the
-        terminal threshold $\Theta_\delta$
-      - `4107`: CE2 uses one decisive threshold slot and identity slots
-        everywhere else
-      - `4104-F`: optional older six-point target, still open but not a
-        dependency of the branch closure
-      - `9630`: five-point conjecture counterexample
-    - Vd1/Vd2 branches
-      - `411X`: CE1 at-least-one and CE2 at-least-two boundary-length
-        obstructions; existing Strategy 1 routes unchanged
-      - `414X`: `4143` shares the $A_{\rm sc}$--$\mathrm I^3$--$B_{\rm sc}$
-        rescuer chain with `413X`; `4144` uses a backward identity chain and the
-        quarter terminal transfer; `4146` retains a Vd-specific terminal
-        envelope; `4147` replaces the exceptional pair and reduces to `4013`;
-        `4149` and `414a` remain Strategy 1
-    - at least two T3-like and no Vd1/Vd2
-      - `412X`: shared CE1/CE2 three-short-role skeleton corollary, unchanged
-        as a Strategy 1 route
-    - exactly one T3-like and no Vd1/Vd2
-      - `413X`: shared CE1/CE2 $A_{\rm sc}$--$\mathrm I^3$--$B_{\rm sc}$
-        boundary chain (`4131`, `4132`)
-  - `42XX`: CE1/CE2, $N_+\ge2$
-    - `4200`: proved shared CE1/CE2 skeleton-length obstruction, unchanged as a
-      Strategy 1 route
+## CE1/CE2 branch
 
-## Failed-Idea Warnings
+- $N_+=0$:
+  - all Vd0: `4013`, using the three active-gap-rank chains;
+  - some Vd1/Vd2: `4040`, `4041`, unchanged Strategy 1 routes;
+  - T3-like and no Vd1/Vd2: `407X`, exact hatted endpoint audit with
+    identity-relaxed interior rows.
+- $N_+=1$, all Vd0:
+  - `4105` gives one exact five-row $\widehat g^\vee$ interface;
+  - `4106` gives the CE1 affine/threshold relaxation;
+  - `4107` gives the CE2 one-threshold-slot relaxation;
+  - the zero-gap cell remains the Strategy 4 nine-point obstruction.
+- $N_+=1$, special roles:
+  - `4110`, `4111`, `4123`: unchanged Strategy 1 routes;
+  - `413X`: exactly one T3-like, with the common
+    $1-g_c^{\rm sc}$--identity--$g_c^{\rm sc}$ chain;
+  - `414X`: exactly one Vd1/Vd2, with the same rescuer chain, the quarter
+    terminal transfer, the Vd-specific terminal margin, and axis replacement;
+    `4149` and `414a` remain Strategy 1.
+- $N_+\ge2$: `4200`, unchanged Strategy 1 skeleton route.
 
-- `9XXX`: failed ideas and empirical warnings
-  - `908X`: skeleton covering counterexample
-  - `962X`: May 21 four-point route fails for CE0, $N_+=1$, all Vd0
-  - `9630`: May 25 five-point route fails for CE1/CE2 all-Vd0
-  - `964X`: CE1/CE2 area-conjecture route failure
-- `3172`: exact counterexample to the full T3-like coordinatewise tangent
-  envelope; the `317X` branch is closed by the direct area theorem in `3175`
-  instead.
+## Failed-idea warnings
+
+The following remain nondependencies:
+
+- `908X`: counterexample to full-skeleton noncoverage;
+- `962X`: failed four-point route;
+- `963X`: failed five-point route;
+- `964X`: failed CE1/CE2 area route;
+- `3172`: false global T3-like coordinatewise tangent envelope.
