@@ -1,20 +1,31 @@
-\section{A Guide to the Proof}
+\section{Proof Architecture}
 \label{sec:introduction}
 
-This section gives the reader the entire proof architecture before any long
-calculation.  It introduces the geometric objects and case labels, states the
-exhaustive routing table, and previews the three certificate types, retained
-as four named strategies, that close its rows.
-Section~\ref{sec:structural-reductions} proves that the labels and reductions
-are exhaustive, and Section~\ref{sec:signed-ce12-reductions} gives the common
-signed center model.  The reader-facing proofs then appear in
-Sections~\ref{sec:length}--\ref{sec:strategy4-reader}, before the final audit in
-Section~\ref{sec:assembly}; the irreducible exact calculations are retained in
-the appendices.
+This section gives the complete logical map before any technical verification.
+The body defines every object used in the proof, records the exact outputs of
+the calculations, explains the four geometric mechanisms, and performs the
+final case assembly.  The TeX appendices and formally incorporated electronic
+supplements prove the stated formulas and inequalities.  Thus a reader can
+follow the contradiction from the body alone and consult the verification
+modules only to check a calculation or a finite branch certificate.
 
-\subsection{The theorem}
+\subsection{The theorem and the seven forced roles}
 
-Let $H$ be the regular hexagon of side length one.
+Let
+\[
+ O=(0,0),\qquad
+ V_i=\left(\cos\frac{i\pi}{3},\sin\frac{i\pi}{3}\right),\qquad
+ H=\conv\{V_0,\ldots,V_5\},
+\]
+where indices lie in $\mathbb Z/6\mathbb Z$.  Write
+\[
+ e_{i,i+1}=[V_i,V_{i+1}],\qquad r_i=[O,V_i],\qquad M_i=\frac12V_i,
+\]
+and put
+\[
+ D=\bigcup_{i=0}^5r_i,\qquad S=\partial H\cup D.
+\]
+Then $\Haus(\partial H)=\Haus(D)=6$ and $\Haus(S)=12$.
 
 \begin{theorem}[Main theorem]
 \label{thm:main}
@@ -23,81 +34,36 @@ length one.
 \end{theorem}
 
 The compactness and scaling argument in
-Proposition~\ref{prop:open-closed-scaled} gives the equivalent closed form.
+Proposition~\ref{prop:open-closed-scaled} gives the equivalent closed version.
 
 \begin{corollary}[Expanded closed formulation]
 \label{cor:expanded-closed}
-For every $L>1$, the regular hexagon $H_L$ of side length $L$ cannot be
-covered by seven closed unit equilateral triangles.
+For every $L>1$, the regular hexagon $H_L=LH$ cannot be covered by seven closed
+unit equilateral triangles.
 \end{corollary}
 
-\subsection{A geometric dictionary}
-\label{subsec:reader-dictionary}
-
-Indices are taken in $\mathbb Z/6\mathbb Z$.  Put
-\[
- O=(0,0),\qquad
- V_i=\left(\cos\frac{i\pi}{3},\sin\frac{i\pi}{3}\right),\qquad
- H=\conv\{V_0,\ldots,V_5\}.
-\]
-Write $e_{i,i+1}=[V_i,V_{i+1}]$ for a boundary edge,
-$r_i=[O,V_i]$ for a radial arm, and $M_i=V_i/2$.  The radial target and the
-full skeleton are
-\[
- D=\bigcup_{i=0}^5r_i,\qquad S=\partial H\cup D,
-\]
-with lengths $\mathcal H^1(\partial H)=\mathcal H^1(D)=6$ and
-$\mathcal H^1(S)=12$.
-
-Seven distinguished points force seven distinct roles: $U_C$ contains $O$
-and $U_i$ contains $V_i$.  Their closures are denoted by $T_C$ and $T_i$.
-The distinction is essential because closing an open trace may add an
-endpoint or a tangency.
+The seven points $O,V_0,\ldots,V_5$ are pairwise at distance at least one.
+Consequently a hypothetical open cover has seven distinct roles: an open
+triangle $U_C$ containing $O$ and open triangles $U_i$ containing $V_i$.
+Their closures are denoted by $T_C,T_i$.
 
 \begin{figure}[H]
 \centering
 \input{figures/geometry_roles}
-\caption{Exact target geometry in the normalization above.  The labels show
-the seven forced role anchors; they do not prescribe the orientations of the
-covering triangles.}
+\caption{The center anchor, six vertex anchors, boundary edges, and radial
+arms.  The role labels are forced; triangle orientations are not.}
 \label{fig:geometry-roles}
 \end{figure}
 
-The center type records the number of boundary edges on which $T_C$ has a
-positive-length trace.  These numbers are $0,1,2$, giving respectively
+\subsection{The finite dictionary}
+
+The center type is the number of boundary edges on which $T_C$ has a
+positive-length trace.  The only possibilities are $0,1,2$, denoted by
 $\CEzero,\CEone,\CEtwo$.
 
-\begin{figure}[H]
-\centering
-\begin{minipage}[t]{.32\textwidth}
-\vspace{0pt}\centering
-\includegraphics[width=\linewidth,height=.20\textheight,keepaspectratio]
-  {figures/role_examples/center_role_ce0_example.png}
-\par\smallskip
-\footnotesize (a) $\CEzero$
-\end{minipage}\hfill
-\begin{minipage}[t]{.32\textwidth}
-\vspace{0pt}\centering
-\includegraphics[width=\linewidth,height=.20\textheight,keepaspectratio]
-  {figures/role_examples/center_role_ce1_example.png}
-\par\smallskip
-\footnotesize (b) $\CEone$
-\end{minipage}\hfill
-\begin{minipage}[t]{.32\textwidth}
-\vspace{0pt}\centering
-\includegraphics[width=\linewidth,height=.20\textheight,keepaspectratio]
-  {figures/role_examples/center_role_ce2_example.png}
-\par\smallskip
-\footnotesize (c) $\CEtwo$
-\end{minipage}
-\caption{Illustrative examples of the three center-role types.  The
-screenshots are not to scale, and no proof depends on visual inspection.}
-\label{fig:center-role-examples}
-\end{figure}
-
-For a vertex role, let $o$ be the number of its triangle vertices outside
-$H$ and $n$ the number of adjacent arms met in positive length.  The
-exhaustive names are
+For a vertex role, let $o$ be the number of its triangle vertices outside $H$
+and let $n$ be the number of adjacent radial arms met in positive length.  The
+exhaustive types are
 \[
 \begin{array}{c|c}
 \text{type}&(o,n)\\ \hline
@@ -107,101 +73,39 @@ exhaustive names are
 \Tlike&(2,1).
 \end{array}
 \]
-These classifications are mathematical rather than pictorial; the proofs of
-exhaustiveness appear in
-Propositions~\ref{prop:ce-classification} and
-\ref{prop:vertex-classification}.
 
-For an original open vertex role, let $A_i,B_i,C_i$ be its actual maximal
-incoming boundary, outgoing boundary, and inward radial reaches.  Thus row
-$i$ is \emph{supercritical} when $A_i+B_i>1$, and
+For an original vertex role, let $A_i,B_i,C_i$ be its actual maximal incoming
+boundary, outgoing boundary, and own-radial reaches.  The row is
+\emph{supercritical} when $A_i+B_i>1$, and
 \[
  N_+=\left\lvert\left\{i:A_i+B_i>1\right\}\right\rvert.
 \]
-Lowercase $(a_i,b_i,c_i)$ always denotes smaller selected demands, never the
-actual maxima used to define $N_+$.
-
-For the CE1/CE2 case tree, call a vertex role \emph{short} if it is
-supercritical or has positive-length trace on an adjacent radial arm.  Let
-$m$ be the number of roles of type $\Vdone$, $\Vdtwo$, or $\Tlike$, and let
-$q$ be the number of short roles.  Lemma~\ref{lem:short-role-count} proves
-\[
- q=N_++m.
-\]
-Thus the first CE1/CE2 routing row below removes every branch with three short
-roles before any finer split is made.  In particular, the midpoint rescuer of
-Lemma~\ref{lem:positive-support-rescuer} puts every $N_+\ge2$ branch in that
-row.
-
-\begin{figure}[H]
-\centering
-\begin{minipage}[t]{.32\textwidth}
-\vspace{0pt}\centering
-\includegraphics[width=\linewidth,height=.22\textheight,keepaspectratio]
-  {figures/role_examples/vertex_role_vd0_axis_aligned_example.png}
-\par\smallskip
-\footnotesize (a) axis-aligned $\Vdzero$
-\end{minipage}\hfill
-\begin{minipage}[t]{.32\textwidth}
-\vspace{0pt}\centering
-\includegraphics[width=\linewidth,height=.22\textheight,keepaspectratio]
-  {figures/role_examples/vertex_role_vd0_nonsupercritical_example.png}
-\par\smallskip
-\footnotesize (b) nonsupercritical $\Vdzero$
-\end{minipage}\hfill
-\begin{minipage}[t]{.32\textwidth}
-\vspace{0pt}\centering
-\includegraphics[width=\linewidth,height=.22\textheight,keepaspectratio]
-  {figures/role_examples/vertex_role_vd0_supercritical_example.png}
-\par\smallskip
-\footnotesize (c) supercritical $\Vdzero$
-\end{minipage}
-\par\medskip
-\begin{minipage}[t]{.32\textwidth}
-\vspace{0pt}\centering
-\includegraphics[width=\linewidth,height=.22\textheight,keepaspectratio]
-  {figures/role_examples/vertex_role_vd1_example.png}
-\par\smallskip
-\footnotesize (d) $\Vdone$
-\end{minipage}\hfill
-\begin{minipage}[t]{.32\textwidth}
-\vspace{0pt}\centering
-\includegraphics[width=\linewidth,height=.22\textheight,keepaspectratio]
-  {figures/role_examples/vertex_role_vd2_example.png}
-\par\smallskip
-\footnotesize (e) $\Vdtwo$
-\end{minipage}\hfill
-\begin{minipage}[t]{.32\textwidth}
-\vspace{0pt}\centering
-\includegraphics[width=\linewidth,height=.22\textheight,keepaspectratio]
-  {figures/role_examples/vertex_role_t3_like_example.png}
-\par\smallskip
-\footnotesize (f) $\Tlike$
-\end{minipage}
-\caption{Illustrative vertex-role examples.  The top row shows three
-$\Vdzero$ configurations; the bottom row shows the remaining three role
-types.  The screenshots are not to scale, and no proof depends on visual
-inspection.}
-\label{fig:vertex-role-examples}
-\end{figure}
+Lowercase $(a_i,b_i,c_i)$ always denotes selected lower demands and never the
+actual maxima defining $N_+$.
 
 On $e_{i,i+1}$, parametrized from $V_i$ to $V_{i+1}$, the two incident open
-traces are $[0,B_i)$ and $(1-A_{i+1},1]$.  Their nonempty complement
+traces have the form $[0,B_i)$ and $(1-A_{i+1},1]$.  Their complement
 \[
  [B_i,1-A_{i+1}]
 \]
-is a boundary gap.  Equality gives a singleton gap, which remains uncovered
-because both incident traces are open at that point.
+is a boundary gap; equality gives a singleton gap, which is still uncovered.
+For CE1/CE2, let $\mathrm{gr}$ be the number of positive center traces
+containing such a gap.
+
+Call a vertex role \emph{short} if it is supercritical or has positive-length
+trace on an adjacent arm.  Let $m$ count the roles of type
+$\Vdone,\Vdtwo,\Tlike$, and let $q$ count short roles.  The structural
+calculus gives
+\[
+ q=N_++m.
+\]
 
 \subsection{The exhaustive routing table}
 
-Table~\ref{tab:routing} is the logical spine of the proof.  The CE0 rows are
-disjoint as written.  The CE1/CE2 rows are applied from top to bottom: after
-the first row one has $q\le2$, so each later refinement is mutually
-exclusive.  The one row marked $1+2$ is explicitly assigned jointly to
-Strategies~1 and~2.  Exhaustiveness is proved in
-Section~\ref{sec:structural-reductions}, and the final audit appears in
-Section~\ref{sec:assembly}.
+Table~\ref{tab:routing} is read from top to bottom in the CE1/CE2 part.  The
+first applicable row is the unique route for the hypothetical cover.  The
+structural proof is summarized in Proposition~\ref{prop:body-structural-reduction}
+and given in full in Appendix~\ref{sec:structural-reductions}.
 
 \begin{table}[H]
 \centering
@@ -228,90 +132,55 @@ $\CEone/\CEtwo$, $N_+=1$&exactly one $\Vdone/\Vdtwo$, no $\Tlike$&
   $1\;/\;1{+}2$\\
 \bottomrule
 \end{tabular}
-\caption{The complete terminal routing.  The CE1/CE2 rows are read in
-order.  Route $j$ means Strategy $j$.  In the last row the first entry is
-for CE1 and the second for CE2; $1+2$ is the single hybrid package.}
+\caption{The complete terminal routing.  Route $j$ means Strategy $j$.  In the
+last row the first entry is for CE1 and the second for CE2.}
 \label{tab:routing}
 \end{table}
 
-Within the two all-$\Vdzero$ CE1/CE2 rows, let $\mathrm{gr}$ be the
-active-gap rank, the number of center traces containing V-gaps.  The proof
-uses one $2\times3$ kernel:
+For the two all-$\Vdzero$ CE1/CE2 rows, the same six cells are organized by
 \[
 \begin{array}{c|ccc}
  &\mathrm{gr}=0&\mathrm{gr}=1&\mathrm{gr}=2\\ \hline
 N_+=0&\text{strict identity cycle}&\text{one-side endpoint chain}&
        \text{paired endpoint chain}\\
-N_+=1&\text{nine-point support}&\text{five-row relaxed chain}&
+N_+=1&\text{nine-point support}&\text{five-row chain}&
        \text{paired endpoint chain}.
 \end{array}
 \]
-The last column is CE2-only.  Thus the same paired endpoint theorem closes
-both two-gap cells.
+The last column is CE2-only.
 
-The four named strategies fall into three certificate classes.
-Strategies~1 and~3 are additive deficits, Strategy~2 is an isotone transfer
-certificate, and Strategy~4 is a convex support certificate.  The names and
-routing assignments are retained because they make the case tree easiest to
-read.
+\subsection{Four mechanisms}
 
-\subsection{Three certificate types and four named strategies}
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  node distance=7mm and 8mm,
+  box/.style={draw,rounded corners,align=center,inner sep=5pt,text width=.20\textwidth},
+  arr/.style={-{Latex[length=2mm]},thick}
+]
+\node[box] (data) {forced roles\\finite routing};
+\node[box,right=of data] (local) {local geometric\\interfaces};
+\node[box,below left=of local] (add) {additive deficits\\Strategies 1 and 3};
+\node[box,below=of local] (trans) {isotone transfers\\Strategy 2};
+\node[box,below right=of local] (convex) {convex support\\Strategy 4};
+\node[box,below=18mm of trans] (end) {every routing row\\is impossible};
+\draw[arr] (data)--(local);
+\draw[arr] (local)--(add);
+\draw[arr] (local)--(trans);
+\draw[arr] (local)--(convex);
+\draw[arr] (add)--(end);
+\draw[arr] (trans)--(end);
+\draw[arr] (convex)--(end);
+\end{tikzpicture}
+\caption{The proof separates finite geometric structure from three certificate
+classes.  Strategy names are retained because they make the routing table
+readable.}
+\label{fig:proof-flow}
+\end{figure}
 
-\paragraph{Strategy 1: one-dimensional trace budgets.}
-Choose either $\partial H$ or the conditional skeleton $S$.  Bound the trace
-of each role on that target according to its center class, vertex type, and
-supercritical status.  In every routed branch the seven upper bounds add to
-strictly less than the target length.  Section~\ref{sec:length} gives the
-trace bounds and terminal contradictions.
-
-\paragraph{Strategy 2: relaxations of \(g\)-composition chains.}
-For incoming boundary defect $x$ and radial demand $c$, the historical raw map
-is
-\[
- g_c(x)=\max\{y:(1-x,y,c)\in\mathcal A\}.
-\]
-The nonsupercritical map is
-\[
- \widehat g_c(x)=\min\{g_c(x),x\},
-\]
-and the complementary reach-coordinate transfer is
-$f^\vee(a)=1-f(1-a)$.  Thus ordinary proof chains use
-$\widehat g_c^\vee$, center intervals add a subscript $J$, and affine or
-threshold relaxations add superscripts.  A strict-supercritical row is
-summarized by the single outgoing envelope $g_c^{\rm sc}$ and its complement
-$1-g_c^{\rm sc}$.  At zero radial demand,
-\[
- g_0(x)>x\quad(0<x<1),
- \qquad
- \widehat g_0(x)=x;
-\]
-the identity belongs to the hatted map, not to the raw historical map.
-Section~\ref{sec:universal-calculus} develops the notation, and
-Section~\ref{sec:strategy2-reader} gives one table of all chain relaxations.
-Appendix~\ref{sec:exact-local-demand-calculus} retains the aliases
-$B_c,F_c,G_c$ only where they shorten the exact contact-cell formulas.
-
-\paragraph{Strategy 3: area loss.}
-Normalize a unit triangle to area one, so $H$ has area six.  Each selected
-boundary handoff forces a square amount of a vertex triangle outside the
-local hexagonal wedge.  Two ascents, or one ascent together with a
-$\Tlike$ row, force total loss greater than one; after adding the center
-triangle, the available inside area is strictly less than six.
-Section~\ref{sec:area} proves the local inequalities and both cyclic sums.
-
-\paragraph{Strategy 4: a direct nine-point obstruction.}
-In the zero-gap, all-$\Vdzero$, exact-one state, the five nonsupercritical
-handoffs form one strict descent chain.  It produces common lower demands
-that force six radial points and three asymmetric points into $U_C$.
-Their convex hull cannot fit in an open unit equilateral triangle: the same
-enclosure gauge $\Lambda$ used for local demand geometry gives side at least
-one, whereas compact containment in $U_C$ would give side strictly below one.
-The reader-level construction and enclosure argument are in
-Section~\ref{sec:strategy4-reader}; Appendix~\ref{sec:ab-core} contains the
-exact frontier and overlap certificates.
-
-The proof uses no global noncoverage claim for $S$, no interval subdivision,
-and no branch-and-bound.  The last mixed-overlap step is an exact
-computer-verified Bernstein certificate; its precise mathematical input,
-output, and rational reduction are proved in
-Subsection~\ref{subsec:exact-mixed-overlap}.
+Strategy~1 bounds one-dimensional traces on $\partial H$ or $S$.
+Strategy~2 propagates lower reaches with monotone maps obtained from one local
+admissible set.  Strategy~3 sums forced area losses.  Strategy~4 forces nine
+points into the center role and applies an equilateral enclosure obstruction.
+Sections~\ref{sec:strategy1-summary}--\ref{sec:strategy4-reader} contain these
+arguments; Section~\ref{sec:assembly} performs the final audit.

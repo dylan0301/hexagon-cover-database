@@ -14,75 +14,53 @@ $$
 Then the seven roles cannot cover the hexagon. Equivalently, every CE1/CE2
 all-Vd0 cover has at least one supercritical vertex row.
 
-The proof is organized by the active-gap rank
+Let
 
 $$
-\mathrm{gr}\in\{0,1,2\},
+\mathrm{gr}\in\{0,1,2\}
 $$
 
-the number of positive center traces that contain a V-gap. One has
-$\mathrm{gr}\le1$ in CE1. The canonical transfer notation is proved in
-[`201d`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md).
+be the number of positive center traces containing a V-gap. One has
+$\mathrm{gr}\le1$ for CE1. The three ranks are exhaustive.
 
 | rank | exact data retained | relaxed interior chain | terminal contradiction |
 |---|---|---|---|
-| $\mathrm{gr}=0$ | six strict open handoffs | $\mathrm I^6$ | strict cyclic ascent |
-| $\mathrm{gr}=1$ | two exact hatted outgoing endpoint caps | $\mathrm I^3$ | one-side endpoint sum $<1$ |
-| $\mathrm{gr}=2$ | two exact hatted outgoing endpoint caps | $\mathrm I^3$ | paired CE2 endpoint sum $<1$ |
+| $0$ | six strict open handoffs | $\mathrm I^6$ | strict cyclic ascent |
+| $1$ | two exact hatted endpoint caps | center-free $\mathrm I^3$ | one-side endpoint sum $<1$ |
+| $2$ | two exact hatted endpoint caps | center-free $\mathrm I^3$ | paired CE2 endpoint sum $<1$ |
 
-## 1. No active center gap: the strict identity cycle
+## 1. No active center gap
 
-Suppose every positive center trace is already covered by its endpoint vertex
-roles. Then the six original open vertex roles alone cover every boundary
-edge.
-
-Let $C_i$ be the actual own-radial reach of row $T_i$. Since the two incident
-open traces cover $e_{i,i+1}$, their endpoints overlap strictly:
+Suppose every positive center trace is already covered by its two endpoint
+vertex roles. Then the six original open vertex traces alone cover every
+boundary edge. Thus
 
 $$
-B_i>1-A_{i+1}.
+B_i>1-A_{i+1};
 $$
 
-Equality would leave their common endpoint uncovered. Hence
+equality would leave the common endpoint of the two open traces uncovered.
+Since row $T_i$ is nonsupercritical,
 
 $$
-A_{i+1}>1-B_i.
-$$
-
-Row $T_i$ is nonsupercritical. The hatted outgoing cap gives
-
-$$
-B_i
-\le
-\widehat g_{C_i}(1-A_i).
+B_i\le\widehat g_{C_i}(1-A_i).
 $$
 
 Therefore
 
 $$
-\begin{aligned}
-A_{i+1}
-&>
-1-B_i\\
-&\ge
-1-\widehat g_{C_i}(1-A_i)\\
-&=
-\widehat g_{C_i}^\vee(A_i)\\
-&\ge
-A_i.
-\end{aligned}
+A_{i+1}>1-B_i
+\ge\widehat g_{C_i}^{\vee}(A_i)
+\ge A_i.
 $$
 
-The last inequality is the identity relaxation
-$\widehat g_{C_i}^\vee\ge\mathrm I$. Iterating around the six rows yields
+Iterating gives
 
 $$
 A_0<A_1<A_2<A_3<A_4<A_5<A_0,
 $$
 
-a contradiction. Thus the rank-zero proof replaces every slot of the exact
-six-row hatted-dual chain by $\mathrm I$, with strictness supplied by the open
-handoffs.
+a contradiction.
 
 ## 2. Exactly one active center gap
 
@@ -90,165 +68,110 @@ Use the signed center normal form
 [`2109`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md):
 
 $$
-0<R<1,
-\qquad
-W=1-R,
-\qquad
-E=\sqrt{1-RW},
-\qquad
-\eta=1-E,
-$$
-
-$$
-k=\eta+\alpha+\delta.
+0<R<1,\qquad W=1-R,\qquad E=\sqrt{1-RW},\qquad
+\eta=1-E,\qquad k=\eta+\alpha+\delta.
 $$
 
 After reflection, assume the active gap lies in
 
 $$
-I_R=
-\left[\frac{k}{R},W+\delta\right]
-\subset e_{0,1},
+I_R=\left[\frac{k}{R},W+\delta\right]\subset e_{0,1},
 $$
 
-while the companion trace is empty or gap-free. Put
+while the companion trace on $e_{5,0}$ is absent or gap-free. Put
 
 $$
-s=\frac{k}{R},
-\qquad
-q=R-\delta,
-\qquad
+s=\frac{k}{R},\qquad q=R-\delta,\qquad
 \omega=W+\delta-\frac{k}{R}.
 $$
 
-Then
+Then $s+q+\omega=1$. Gap containment gives
 
 $$
-s+q+\omega=1.
+B_0\ge s,\qquad A_1\ge q.
 $$
 
-Gap containment gives
-
-$$
-B_0\ge s,
-\qquad
-A_1\ge q.
-$$
-
-Since the companion edge has no active gap,
-
-$$
-A_0+B_5\ge1.
-$$
-
-Row $T_0$ is nonsupercritical, so
+The companion edge has no active gap, so $A_0+B_5\ge1$. Since $T_0$ is
+nonsupercritical,
 
 $$
 A_0+B_0\le1,
 $$
 
-and consequently
+and hence
 
 $$
 B_5\ge1-A_0\ge B_0\ge s.
 $$
 
-The exact complementary radial demands at the two endpoint rows are
+The complementary endpoint radial demands are
 
 $$
-c_1=1-\frac{\delta}{R},
-\qquad
+c_1=1-\frac{\delta}{R},\qquad
 c_5=1-\frac{\alpha}{W}.
 $$
 
-The variables $R,s,q,\omega$ satisfy the hypotheses of the one-side
-capped-loss theorem
-[`2107`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2107_one_side_capped_loss.md).
-In the canonical notation its conclusion is
+The one-side theorem
+[`2107`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2107_one_side_capped_loss.md)
+applies to the exact signed variables and gives
 
 $$
 \boxed{
-\widehat g_{c_5}(1-s)
-+
-\widehat g_{c_1}(1-q)
-<1.
+\widehat g_{c_5}(1-s)+\widehat g_{c_1}(1-q)<1.
 }
 $$
 
-Indeed, the two terms are the technical aliases
-$F_{c_5}(s)$ and $F_{c_1}(q)$.
-
-Let $B_5',B_1'$ be the actual outgoing reaches of rows $T_5,T_1$ on the two
-outer edges of the middle boundary path. The endpoint maps remain exact:
+Let $B_5',B_1'$ be the actual outgoing reaches of the endpoint rows on
+$e_{4,5}$ and $e_{1,2}$. Then
 
 $$
 B_5'\le\widehat g_{c_5}(1-s),
 \qquad
-B_1'\le\widehat g_{c_1}(1-q).
+B_1'\le\widehat g_{c_1}(1-q),
 $$
 
-Thus
+so $B_1'+B_5'<1$.
 
-$$
-B_1'+B_5'<1.
-$$
-
-The three interior rows $T_2,T_3,T_4$ use only the identity relaxation.
-Equivalently, the boundary-path budget
+Now apply the corrected path theorem
 [`2019`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2019_interval_component_and_path_budget.md)
-gives
+to the three rows $T_2,T_3,T_4$. The center's only possible positive boundary
+traces are on $e_{0,1}$ and $e_{5,0}$, so the internal path edges
+$e_{2,3},e_{3,4}$ are center-free; diameter locality excludes nonincident
+vertex roles; and the full external contributions on the two endpoint edges
+are $B_1',B_5'$. Hence coverage forces
 
 $$
 \sum_{i=2}^4(A_i+B_i)
-\ge
-4-(B_1'+B_5')
->3,
+\ge4-(B_1'+B_5')>3,
 $$
 
-contrary to their three nonsupercritical caps.
+contrary to the three nonsupercritical caps.
 
-This proof is identical for CE1 and for the one-active-gap CE2 state. The only
-difference is whether the companion center trace is absent or merely gap-free.
+This proof is identical for CE1 and for the one-active-gap CE2 state. The
+companion center trace may be nonempty in CE2, but it lies on $e_{5,0}$ and is
+already absorbed into the endpoint residual; it does not occur on an internal
+path edge.
 
 ## 3. Two active center gaps
 
-This state is possible only in CE2. Rows $T_1,\ldots,T_5$ are
-nonsupercritical Vd0 rows, so the common CE2 two-gap theorem
+This state is CE2-only. Rows $T_1,\ldots,T_5$ are nonsupercritical Vd0, so the
+common two-gap theorem
 [`2110`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2110_common_CE2_two_gap_application.md)
-applies.
-
-Put
+applies. In its signed notation
 
 $$
-p=W-\alpha,
-\qquad
-q=R-\delta.
+p=W-\alpha,\qquad q=R-\delta,
 $$
 
-The exact endpoint inputs and radial demands are
+and the exact paired endpoint theorem gives
 
 $$
-(p,p/W),
-\qquad
-(q,q/R).
+\widehat g_{p/W}(1-p)+\widehat g_{q/R}(1-q)<1.
 $$
 
-The paired endpoint theorem `2108` gives
+The same center-free three-row path budget gives the contradiction.
 
-$$
-\boxed{
-\widehat g_{p/W}(1-p)
-+
-\widehat g_{q/R}(1-q)
-<1.
-}
-$$
-
-The three middle rows again contribute only $\mathrm I^3$, and the same
-boundary-path budget gives the contradiction.
-
-The cases $\mathrm{gr}=0,1,2$ are exhaustive. Therefore the CE1/CE2,
-$N_+=0$, all-Vd0 branch is impossible.
+The ranks $0,1,2$ are exhaustive, proving the theorem.
 
 $$
 \Box

@@ -1,0 +1,48 @@
+\section{Technical Verification Roadmap}
+\label{sec:appendix-roadmap}
+
+The body gives the complete geometric routing and identifies the exact
+terminal statement used in every branch.  The following appendices establish
+those interfaces.  The proof is therefore the body together with these
+verification modules and the formally incorporated electronic supplements; the
+body alone is not asserted to prove the calculation lemmas.
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.10}
+\begin{tabular}{p{.24\textwidth}p{.28\textwidth}p{.37\textwidth}}
+\toprule
+module&principal variables&output used in the body\\
+\midrule
+structural reduction&finite incidence and trace data&role types, strict
+handoffs, exhaustive routing\\
+local enclosure&$a,b,c\in[0,1]$&explicit $\mathcal A$, polynomial cells,
+radial envelope\\
+signed center&$R,\alpha,\delta$&CE sign, traces, exits, residuals\\
+trace budgets&one- and two-variable caps&perimeter and skeleton deficits\\
+transfer calculus&monotone maps and residual intervals&actual-row transfers,
+center-free path budgets, relaxed compositions\\
+endpoint certificates&compact signed domains&one-side, paired, five-row, and
+four-label terminal inequalities\\
+special placements&Vd/T3 local parameters&rescuer obstruction, radial
+separation, explicit Vd0 replacement\\
+area loss&$a,b,t\in[0,1]$&local square losses and cyclic sums\\
+nine-point geometry&$a,b$ on the strict frontier&forced witnesses, Newton
+placement, cap chain, adjacent overlaps\\
+mixed-overlap certificate&$U,z,D$ and exact sparse polynomials&two mixed cap
+intersections by exact symbolic verification\\
+\bottomrule
+\end{tabular}
+\caption{Verification modules supporting the reader-facing proof.}
+\label{tab:appendix-roadmap}
+\end{table}
+
+Except for the finite geometric classification and placement reductions, the
+appendices pass from geometry to inequalities on explicit real-variable
+domains.  Polynomial expansions, root selection, rational parametrizations,
+monotonicity checks, Gram reductions, and Bernstein identities occur only
+below or in the exact electronic supplements identified by repository path,
+Git blob, and authenticated transcript.  A machine verifier is used as part of
+the proof only where its exact input and algorithm are formally incorporated;
+a bare script invocation or claimed output is not treated as a proof.

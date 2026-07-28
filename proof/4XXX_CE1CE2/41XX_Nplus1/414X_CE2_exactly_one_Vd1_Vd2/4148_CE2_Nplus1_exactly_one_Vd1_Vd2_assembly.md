@@ -4,7 +4,7 @@ Status: Proven
 
 This file assembles the local obstructions in the complementary branch with
 no additional positive-support row. The exhaustive classification in
-[`../../../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md`](../../../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md)
+[`1201`](../../../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md)
 then says that every row other than the unique Vd1/Vd2 row is Vd0. The mixed
 positive-support branch is proved separately in `414a`.
 
@@ -24,99 +24,94 @@ $$
 
 and exactly one vertex row is Vd1 or Vd2. Under the complementary
 no-additional-positive-support hypothesis, every candidate is contradicted
-directly or by reduction to proved `4013`. This is complementary to the
-mixed-branch obstruction in `414a`.
+directly or by reduction to proved `4013`. Together with `414a`, this proves
+the full branch.
 
 ## Dependencies
 
-The reduction uses the following local files.
+1. [`4149`](4149_CE2_Nplus1_Vd2_neighbor_midpoint_obstruction.md): a Vd2 row
+   covering a neighboring midpoint is impossible by the exact Vd2 cap and
+   boundary length.
+2. [`4143`](4143_CE2_Nplus1_T0_Vd1_M1_T1_supercritical_obstruction.md): the
+   normalized Vd1 neighboring-midpoint rescuer is impossible by the common
+   center-hiding and strict-supercritical envelope argument.
+3. [`4144`](4144_CE2_Nplus1_T0_supercritical_T1_Vd1_Vd2_adjacent_obstruction.md):
+   the adjacent placement with $T_0$ supercritical is impossible by exact
+   center residuals, the center quarter margin, the Vd supported-arm margin,
+   and the global quarter radial envelope `201b`.
+4. [`4146`](4146_CE2_Nplus1_T0_supercritical_nonadjacent_Vd1_Vd2_obstruction.md):
+   the nonadjacent placements are impossible by a Vd-specific own-radial
+   separation.
+5. [`4147`](4147_CE2_Nplus1_Vd1_supercritical_pair_axis_replacement.md): an
+   adjacent Vd1--supercritical rescue pair away from $T_0$ is replaced by two
+   open nonsupercritical Vd0 rows preserving all required boundary and radial
+   data.
+6. [`414a`](414a_CE2_Nplus1_mixed_Vd1_Vd2_T3_like_skeleton_obstruction.md): an
+   additional positive-adjacent-support row gives the three-short-role
+   skeleton contradiction.
+7. [`4013`](../../40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md):
+   the all-Vd0 boundary-loss obstruction used after `4147`.
 
-1. [`4149_CE2_Nplus1_Vd2_neighbor_midpoint_obstruction.md`](4149_CE2_Nplus1_Vd2_neighbor_midpoint_obstruction.md): a Vd2 row covering a neighboring midpoint is impossible by the generic Vd2 cap and boundary length.
-2. [`4143_CE2_Nplus1_T0_Vd1_M1_T1_supercritical_obstruction.md`](4143_CE2_Nplus1_T0_Vd1_M1_T1_supercritical_obstruction.md): the normalized pair $T_0$ Vd1, $M_1\in T_0$, $T_1$ supercritical is impossible, with reflection.
-3. [`4144_CE2_Nplus1_T0_supercritical_T1_Vd1_Vd2_adjacent_obstruction.md`](4144_CE2_Nplus1_T0_supercritical_T1_Vd1_Vd2_adjacent_obstruction.md): the adjacent placement $T_0$ supercritical, $T_1$ Vd1/Vd2 is impossible, with reflection; its radial step invokes the selected-component half-edge theorem in [`2012`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2012_high_radial_low_root_bounds.md).
-4. [`4146_CE2_Nplus1_T0_supercritical_nonadjacent_Vd1_Vd2_obstruction.md`](4146_CE2_Nplus1_T0_supercritical_nonadjacent_Vd1_Vd2_obstruction.md): the non-adjacent placements $T_0$ supercritical, $T_\tau$ Vd1/Vd2 for $\tau\in\{2,3,4\}$ are impossible.
-5. [`4147_CE2_Nplus1_Vd1_supercritical_pair_axis_replacement.md`](4147_CE2_Nplus1_Vd1_supercritical_pair_axis_replacement.md): if a Vd1 row adjacent to a supercritical row rescues that row's midpoint, the pair can be replaced by two open nonsupercritical Vd0 rows preserving the boundary and radial cover.
-6. [`414a_CE2_Nplus1_mixed_Vd1_Vd2_T3_like_skeleton_obstruction.md`](414a_CE2_Nplus1_mixed_Vd1_Vd2_T3_like_skeleton_obstruction.md): any additional positive-adjacent-support row gives a strict skeleton-length contradiction.
-7. [`../../40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md`](../../40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md): the proved all-Vd0 boundary-loss obstruction used after the replacement in `4147`.
-
-The shared Vd1/Vd2 corner normal form is proved in
-[`../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2014_Vd1_Vd2_corner_normal_form.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2014_Vd1_Vd2_corner_normal_form.md).
+The shared Vd corner normal form is [`2014`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2014_Vd1_Vd2_corner_normal_form.md).
+The residual/path mechanism is the corrected [`2019`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2019_interval_component_and_path_budget.md).
 
 ## Midpoint forcing
 
-Let $T_\sigma$ be the unique supercritical row and $T_\tau$ the unique Vd1/Vd2
-row.
+Let $T_\sigma$ be the unique supercritical row and $T_\tau$ the unique
+Vd1/Vd2 row. They are distinct: a Vd1/Vd2 row has boundary sum below $1/2$,
+whereas $T_\sigma$ has boundary sum above one.
 
-These rows are distinct: positive adjacent support implies
-$a_\tau+b_\tau<1/2$, whereas $T_\sigma$ has
-$a_\sigma+b_\sigma>1$.
+A supercritical Vd0 row misses its own local midpoint. Since the center covers
+exactly $M_0$, if $\sigma\ne0$, the point $M_\sigma$ must be covered by a
+neighboring vertex role. Every other ordinary row is Vd0 and has no positive
+adjacent-arm support. Therefore the unique Vd1/Vd2 row must be adjacent to
+$T_\sigma$ and must contain $M_\sigma$.
 
-A supercritical Vd0 row covers none of its local midpoints.  Since $T_C$ covers
-exactly $M_0$, if $\sigma\ne0$, the midpoint $M_\sigma$ must be covered by the
-unique Vd1/Vd2 row.  An ordinary Vd0 row has no positive-length adjacent-ray
-support and cannot rescue a neighboring midpoint.  Therefore, when
-$\sigma\ne0$, the Vd1/Vd2 row must be adjacent to $T_\sigma$ and must contain
-$M_\sigma$.
+If $\sigma=0$, the center already covers the midpoint missed by the
+supercritical row, so no adjacent rescue follows from $M_0$.
 
-If $\sigma=0$, then the missing midpoint $M_0$ of the supercritical row is
-already supplied by $T_C$; no adjacent midpoint rescue is forced by $M_0$.
-
-## Case split
+## Exhaustive case split
 
 ### Case 1: $\sigma=0$
 
 Here $T_0$ is the unique supercritical row.
 
-If $\tau=1$ or $\tau=5$, then the Vd1/Vd2 row is adjacent to $T_0$.  This is
-exactly the adjacent obstruction proved in `4144`, after reflection if needed.
+- If $\tau=1$ or $\tau=5$, the Vd1/Vd2 row is adjacent. This is `4144`, after
+  reflection when necessary.
+- If $\tau\in\{2,3,4\}$, this is the nonadjacent obstruction `4146`.
 
-If $\tau\in\{2,3,4\}$, then the Vd1/Vd2 row is non-adjacent to $T_0$.  This is
-exactly the non-adjacent obstruction proved in `4146`.
-
-Thus no candidate exists with $\sigma=0$.
+Thus no candidate has $\sigma=0$.
 
 ### Case 2: $\tau=0$
 
-Here $T_0$ is the unique Vd1/Vd2 row, and the unique supercritical row is not
-$T_0$.
+Here $T_0$ is the unique Vd1/Vd2 row and $\sigma\ne0$. Midpoint forcing gives
+$\sigma\in\{1,5\}$.
 
-By midpoint forcing, the supercritical row must be adjacent to $T_0$, so
+- If $T_0$ is Vd2, `4149` applies.
+- If $T_0$ is Vd1, the pair is `4143`, after reflection when $\sigma=5$.
 
-$$
-\sigma\in\{1,5\}.
-$$
-
-If $T_0$ is Vd2 and covers the neighboring midpoint $M_\sigma$, then the Vd2
-neighbor-midpoint rescue is eliminated by `4149`.
-
-If $T_0$ is Vd1 and covers the neighboring midpoint $M_\sigma$, then the pair
-is the normalized obstruction of `4143`, after reflection if $\sigma=5$.
-
-Thus no candidate exists with $\tau=0$.
+Thus no candidate has $\tau=0$.
 
 ### Case 3: $\sigma\ne0$ and $\tau\ne0$
 
-If $T_\tau$ is not adjacent to $T_\sigma$, then $M_\sigma$ is uncovered by the
-midpoint forcing observation.  Hence $T_\tau$ must be adjacent to $T_\sigma$ and
-must cover $M_\sigma$.
+Midpoint forcing makes $T_\tau$ adjacent to $T_\sigma$ and forces
+$M_\sigma\in T_\tau$.
 
-If $T_\tau$ is Vd2, then it is a Vd2 row covering a neighboring midpoint.  This
-is eliminated by the Vd2 neighbor-midpoint obstruction in `4149`.
+- If $T_\tau$ is Vd2, `4149` applies.
+- If $T_\tau$ is Vd1, the pair lies away from $T_0$. The two positive center
+  boundary traces are on $e_{5,0}$ and $e_{0,1}$, whereas the shared edge of
+  two adjacent rows neither of which is $T_0$ is center-free. Thus all
+  hypotheses of `4147` hold. Replace the pair by two open nonsupercritical Vd0
+  rows and invoke proved `4013`.
 
-If $T_\tau$ is Vd1, then the adjacent Vd1--supercritical rescue pair is
-contradicted by the axis-replacement argument of `4147` and proved `4013`.
-
-Thus the Vd2 alternative is impossible, and the Vd1 alternative is impossible
-by reduction to proved `4013`.
+Both alternatives are impossible.
 
 ## Conclusion
 
-Every placement of the unique supercritical row and the unique Vd1/Vd2 row
-within the all-other-rows-Vd0 hypothesis falls into one of the three cases
-above. Each case is contradicted directly or reduced by `4147` to proved
-`4013`.
-Together with the positive-support obstruction in `414a` and the exhaustive
-classification in `1201`, the full 414X package is proved.
+Every placement of the unique supercritical row and the unique Vd1/Vd2 row in
+the no-additional-support branch belongs to one of the three cases above.
+Together with `414a` and the exhaustive vertex classification, this proves the
+full exactly-one-Vd1/Vd2 branch.
 
 $$
 \Box

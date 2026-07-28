@@ -4,11 +4,9 @@
 This section collects the geometry shared by the transfer and direct-witness
 arguments.  The same equilateral enclosure functional governs the local
 admissible set of Strategy~2 and the forced witness set of Strategy~4.  The
-same radical governs the signed center, all selected $T_+$ arcs, and the
-standard local frontiers.  Strategy~2 uses one decorated $g$-family: a hat
-imposes the nonsupercritical cap, $\vee$ takes the complementary
-incoming-reach view, and extra subscripts or superscripts record center
-intervals or lower relaxations.
+transfer statements below distinguish three situations that must not be
+conflated: a center-free edge, an edge with a specified center interval, and a
+free strict-supercritical outgoing envelope.
 
 \subsection{The equilateral enclosure gauge}
 
@@ -36,7 +34,7 @@ minimizing normal may be chosen perpendicular to one of its hull edges.
 \begin{proof}
 For a fixed unit normal $n$, the three supporting half-planes with outward
 normals $n,\mathsf Rn,\mathsf R^2n$ form an equilateral triangle.  Its side is
-$2/\sqrt3$ times the sum of the three support numbers, which proves
+$2/\sqrt3$ times the sum of the three support numbers, proving
 \eqref{eq:universal-lambda}.  Monotonicity and homogeneity are immediate, while
 translation invariance follows from
 \[
@@ -60,8 +58,8 @@ the admissible set is
  =\{(a,b,c)\in[0,1]^3:\Lambda(K(a,b,c))\le1\}.
  \label{eq:universal-admissible-gauge}
 \end{equation}
-The exact support cells and radial envelope are proved in
-Appendix~\ref{sec:exact-local-demand-calculus}.
+The complete support calculation is given in
+Appendix~\ref{sec:admissible-set-derivation}.
 
 \subsection{One equilateral radical}
 
@@ -97,23 +95,16 @@ For $0<x<1$, put $z=\sigma(x)/x$.  Eliminating the square root gives
  \qquad 0<z<\frac12.
  \label{eq:universal-rational-radical}
 \end{equation}
-This is the common rational parameter used in the selected high-sheet
-calculations.
 
 \subsection{One \(g\)-family}
 
-For $0\le x,c\le1$, define the historical defect-coordinate map
+For $0\le x,c\le1$, define
 \begin{equation}
- g_c(x)
- =
- \max\{y\in[0,1]:(1-x,y,c)\in\mathcal A\},
+ g_c(x)=\max\{y\in[0,1]:(1-x,y,c)\in\mathcal A\},
  \qquad
  \widehat g_c(x)=\min\{g_c(x),x\}.
  \label{eq:reader-raw-capped-maps}
 \end{equation}
-Thus $x$ is the incoming boundary defect, $g_c(x)$ is the exact maximal
-outgoing reach, and the hat imposes the nonsupercritical diagonal cap.
-
 For any map $f:[0,1]\to[0,1]$, put
 \begin{equation}
  f^\vee(a)=1-f(1-a).
@@ -121,51 +112,45 @@ For any map $f:[0,1]\to[0,1]$, put
 \end{equation}
 Hence
 \begin{equation}
- \widehat g_c^\vee(a)
- =
- 1-\widehat g_c(1-a)
- \ge a.
+ \widehat g_c^\vee(a)=1-\widehat g_c(1-a)\ge a.
  \label{eq:reader-capped-raw-relation}
 \end{equation}
-
 The exact appendix aliases are
 \begin{equation}
  B_c(a)=g_c(1-a),
- \qquad
- F_c(a)=\widehat g_c(1-a),
- \qquad
- G_c(a)=\widehat g_c^\vee(a).
+ \qquad F_c(a)=\widehat g_c(1-a),
+ \qquad G_c(a)=\widehat g_c^\vee(a).
  \label{eq:reader-technical-aliases}
 \end{equation}
-They are retained only where they shorten the contact-cell algebra.
 
 \begin{lemma}[Raw and capped actual-row transfer]
 \label{lem:reader-raw-capped-transfer}
 Suppose an actual row has incoming reach at least $a$, radial reach at least
-$c$, and outgoing reach $B$.  If no center interval intervenes on the next
-edge, then
+$c$, and outgoing reach $B$.  Then
 \[
- B\le g_c(1-a),
- \qquad
+ B\le g_c(1-a).
+\]
+If no center interval intervenes on the next edge, then
+\[
  A_{\rm next}\ge g_c^\vee(a).
 \]
 If the row is nonsupercritical, then
 \[
  B\le\widehat g_c(1-a),
- \qquad
+\]
+and, on a center-free next edge,
+\[
  A_{\rm next}\ge\widehat g_c^\vee(a)\ge a.
 \]
 \end{lemma}
 
 \begin{proof}
-The same triangle realizes $(a,B,c)$, so the definition of $g_c$ gives
-$B\le g_c(1-a)$.  A center-free boundary handoff gives
-\[
- A_{\rm next}\ge1-B\ge1-g_c(1-a)=g_c^\vee(a).
-\]
-Under nonsupercriticality one also has $B\le1-a$, so
-$B\le\min\{g_c(1-a),1-a\}=\widehat g_c(1-a)$.  Taking complements proves the
-last assertion.
+The same triangle realizes $(a,B,c)$, so the definition of $g_c$ gives the
+outgoing bound.  On a center-free edge, coverage gives
+$A_{\rm next}\ge1-B$, and complementation proves the raw transfer.  Under
+nonsupercriticality, $B\le1-A\le1-a$, so
+$B\le\min\{g_c(1-a),1-a\}=\widehat g_c(1-a)$.  The final assertion follows in
+the same way.
 \end{proof}
 
 \begin{proposition}[Zero-radial distinction]
@@ -186,21 +171,15 @@ and therefore
 \end{proposition}
 
 \begin{proof}
-The exact diameter formula is
+The exact diameter formula gives
 \[
- B_0(a)=\frac{-a+\sqrt{4-3a^2}}2.
-\]
-Consequently
-\[
- g_0(x)=B_0(1-x)
- =\frac{x-1+\sqrt{1+6x-3x^2}}2.
+ g_0(x)=\frac{x-1+\sqrt{1+6x-3x^2}}2.
 \]
 Since
 \[
  1+6x-3x^2-(1+x)^2=4x(1-x)>0,
 \]
-one has $g_0(x)>x$.  The hatted identity follows from its definition, and the
-dual statements follow by complementation.
+one has $g_0(x)>x$.  The remaining assertions follow from the definitions.
 \end{proof}
 
 \subsection{Center-assisted transfers and the free envelope}
@@ -231,57 +210,46 @@ a center trace $J$, and a right trace contained in $[1-q,1]$.  Then
 \[
  q\ge\mathcal R_J(p).
 \]
-For an actual row as in Lemma~\ref{lem:reader-raw-capped-transfer}, define
+For an actual row define
 \[
- g_{c,J}^\vee(a)
- =
- \mathcal R_J(g_c(1-a)).
+ g_{c,J}^\vee(a)=\mathcal R_J(g_c(1-a)),
+ \qquad
+ \widehat g_{c,J}^\vee(a)=\mathcal R_J(\widehat g_c(1-a)).
 \]
 Then
 \begin{equation}
- A_{\rm next}
- \ge \mathcal R_J(B)
- \ge g_{c,J}^\vee(a).
+ A_{\rm next}\ge g_{c,J}^\vee(a),
  \label{eq:reader-generalized-raw-transfer}
 \end{equation}
-If the row is nonsupercritical, define
-\[
- \widehat g_{c,J}^\vee(a)
- =
- \mathcal R_J(\widehat g_c(1-a)).
-\]
-Then
+and the hatted version holds when the row is nonsupercritical:
 \begin{equation}
- A_{\rm next}
- \ge \widehat g_{c,J}^\vee(a).
+ A_{\rm next}\ge\widehat g_{c,J}^\vee(a).
  \label{eq:reader-generalized-transfer}
 \end{equation}
-For $J=\varnothing$, these are $g_c^\vee$ and
-$\widehat g_c^\vee$.
 \end{lemma}
 
 \begin{proof}
 The component of $[0,p]\cup J$ containing $0$ is $[0,e_J(p)]$.  If
-$1-q>e_J(p)$, the intervening open interval is uncovered.  Hence
-$q\ge1-e_J(p)$.  The remaining assertions follow from the outgoing bounds in
-Lemma~\ref{lem:reader-raw-capped-transfer} and the fact that $\mathcal R_J$ is
-nonincreasing.
+$1-q>e_J(p)$, the intervening open interval is uncovered.  The transfer
+statements follow from Lemma~\ref{lem:reader-raw-capped-transfer} and the fact
+that $\mathcal R_J$ is nonincreasing.
 \end{proof}
 
-For $0\le c<1/2$, define the single free strict-supercritical envelope
+For $0\le c<1/2$, define
 \begin{equation}
  g_c^{\rm sc}
- =
- \sup_{\{x:g_c(x)>x\}}g_c(x)
- =
- \frac{c+\sqrt{c^2-8c+4}}2.
+ =\sup_{\{x:g_c(x)>x\}}g_c(x)
+ =\frac{c+\sqrt{c^2-8c+4}}2.
  \label{eq:reader-free-supercritical-envelope}
 \end{equation}
-The supremum is not attained.  Therefore an actual strict-supercritical row
-with radial demand at least $c$ satisfies
+The supremum is not attained.  Hence an actual strict-supercritical row with
+radial demand at least $c$ satisfies
 \begin{equation}
- B<g_c^{\rm sc},
- \qquad
+ B<g_c^{\rm sc}.
+ \label{eq:reader-free-outgoing-envelope}
+\end{equation}
+If, in addition, its outgoing edge is center-free, then coverage gives
+\begin{equation}
  A_{\rm next}>1-g_c^{\rm sc}.
  \label{eq:reader-free-raw-envelope}
 \end{equation}
@@ -294,12 +262,10 @@ $A_{\rm sc}(c)=1-g_c^{\rm sc}$.
 For maps listed in geometric row order, write
 \begin{equation}
  [\Phi_1\mid\cdots\mid\Phi_r](x)
- =
- (\Phi_r\circ\cdots\circ\Phi_1)(x).
+ =(\Phi_r\circ\cdots\circ\Phi_1)(x).
  \label{eq:reader-chain-notation}
 \end{equation}
-The leftmost slot acts first.  Write $\mathrm I(x)=x$ and $\mathrm I^k$ for
-$k$ consecutive identity slots.
+The leftmost slot acts first.  Write $\mathrm I(x)=x$.
 
 \begin{lemma}[Relaxed composition]
 \label{lem:reader-relaxed-composition}
@@ -311,29 +277,28 @@ Suppose actual demands satisfy
 where every $\Phi_j$ is nondecreasing.  If
 $\underline\Phi_j\le\Phi_j$, then
 \[
- x_r\ge
- [\underline\Phi_1\mid\cdots\mid\underline\Phi_r](x_0).
+ x_r\ge[\underline\Phi_1\mid\cdots\mid\underline\Phi_r](x_0).
 \]
 \end{lemma}
 
 \begin{proof}
-Set $y_0=x_0$ and
-$y_j=\underline\Phi_j(y_{j-1})$.  If $x_{j-1}\ge y_{j-1}$, then
-\[
- x_j
- \ge\Phi_j(x_{j-1})
- \ge\Phi_j(y_{j-1})
- \ge\underline\Phi_j(y_{j-1})
- =y_j.
-\]
-Induction proves the claim.
+Set $y_0=x_0$ and $y_j=\underline\Phi_j(y_{j-1})$.  Monotonicity gives
+$x_j\ge\Phi_j(x_{j-1})\ge\Phi_j(y_{j-1})\ge y_j$ inductively.
 \end{proof}
 
 \begin{lemma}[Boundary-path budget]
 \label{lem:reader-boundary-path}
-Let $T_1,\ldots,T_k$ be roles on a chain of $k+1$ consecutive unit boundary
-edges.  If the two external endpoint roles contribute at most $u$ and $v$ on
-the first and last edges, then coverage forces
+Let $E_0,\ldots,E_k$ be consecutive boundary edges and let
+$T_1,\ldots,T_k$ be the roles at their intermediate vertices.  Suppose:
+\begin{enumerate}
+\item on $E_0$, the component covered from the endpoint opposite $T_1$ by all
+roles other than $T_1$ has extent at most $u$;
+\item on $E_k$, the analogous component opposite $T_k$ has extent at most $v$;
+\item on every middle edge, no role other than the two incident path roles has
+positive-length trace;
+\item the chain is covered.
+\end{enumerate}
+Then
 \begin{equation}
  \sum_{j=1}^k(A_j+B_j)\ge k+1-u-v.
  \label{eq:reader-path-budget}
@@ -343,41 +308,33 @@ impossible whenever $u+v<1$.
 \end{lemma}
 
 \begin{proof}
-The first and last edges give $A_1\ge1-u$ and $B_k\ge1-v$.  Each middle edge
-gives $B_j+A_{j+1}\ge1$.  Adding these $k+1$ inequalities proves
-\eqref{eq:reader-path-budget}.
+The first and last component hypotheses give $A_1\ge1-u$ and
+$B_k\ge1-v$.  On every middle edge the center and all nonincident roles have
+been excluded, so $B_j+A_{j+1}\ge1$.  Adding proves the formula.
 \end{proof}
 
-\subsection{Low-root and order-transition parameters}
+\subsection{Low roots, selected \(T_+\) curves, and thresholds}
 
-For the high-radial maps used later, define
+For the high-radial maps define
 \begin{equation}
  e(d)=\frac{1-d}{2}
  \left(1-\sqrt{4(1-d)^2-3}\right)
- \qquad
- \left(0<d<1-\frac{\sqrt3}{2}\right).
+ \qquad\left(0<d<1-\frac{\sqrt3}{2}\right),
  \label{eq:signed-low-root-definition}
 \end{equation}
-For the low-radial order transition, put
+and, for the low-radial order transition,
 \begin{equation}
  h(c)=\frac{2c}{1+\sqrt{16c^2-3}}
  \qquad\left(\frac12<c\le\frac{\sqrt3}{2}\right).
  \label{eq:signed-order-transition}
 \end{equation}
-The exact contact-cell calculation in
-Appendix~\ref{sec:exact-local-demand-calculus} proves that $e(d)$ is the low
-selected root for radial demand $1-d$ and that $h(c)$ is the transition
-between the two selected $T$ orders.
-
-\subsection{The universal selected-\(T_+\) curve}
 
 \begin{proposition}[Universal selected-$T_+$ curve]
 \label{prop:reader-universal-tplus}
 Fix $0<d<1/2$, put $c=1-d$, and suppose an input $p$ belongs to a selected
 $T_+$ arc of $\widehat g_c^\vee$.  Write
 \[
- q=\widehat g_c^\vee(p),
- \qquad \nu=q-p,
+ q=\widehat g_c^\vee(p),\qquad \nu=q-p,
  \qquad x=\frac{q-d}{1-d}.
 \]
 Then
@@ -392,8 +349,7 @@ and
  p=d+(1-d)x-\sigma(x).
  \label{eq:reader-tplus-normal}
 \end{equation}
-Consequently $p\mapsto\widehat g_{1-d}^\vee(p)$ is increasing and strictly
-concave on every selected $T_+$ arc.
+Consequently the selected arc is increasing and strictly concave.
 \end{proposition}
 
 \begin{proof}
@@ -401,46 +357,31 @@ The selected quadratic is
 \[
  (1-q)(q-d)=(1-d)^2\nu(2-\nu).
 \]
-Substitution of $q=d+(1-d)x$ gives
-\[
- x(1-x)=\nu(2-\nu).
-\]
-The selected component uses the smaller root, namely $\nu=\sigma(x)$.  For
-fixed $d$, the function
-\[
- p_d(x)=d+(1-d)x-\sigma(x)
-\]
-is increasing and strictly convex by \eqref{eq:universal-sigma-concavity}.
-Its inverse is increasing and strictly concave, and $q=d+(1-d)x$ is affine in
-that inverse.
+Substitution gives $x(1-x)=\nu(2-\nu)$, and the selected component uses the
+smaller root $\nu=\sigma(x)$.  The input function is increasing and strictly
+convex because $\sigma$ is strictly concave; inversion gives the assertion.
 \end{proof}
 
-With the low root in \eqref{eq:signed-low-root-definition}, the high-radial chord
-is
+The corresponding chord bounds are
 \begin{equation}
  \widehat g_{1-d}^\vee(p)
- \ge p+\frac{d}{e(d)-d}(p-d).
+ \ge p+\frac{d}{e(d)-d}(p-d),
  \label{eq:reader-high-chord}
 \end{equation}
-If $t=h(1-d)$ is the low-radial order transition, the corresponding chord is
+and, with $t=h(1-d)$,
 \begin{equation}
  \widehat g_{1-d}^\vee(p)
  \ge p+\frac{1-2t}{t-d}(p-d).
  \label{eq:reader-low-chord}
 \end{equation}
-
-To avoid a new function letter, for every coefficient $\lambda$ proved valid
-on a selected arc write
+For every coefficient $\lambda$ proved valid on the relevant selected arc,
+write
 \begin{equation}
  \widehat g_{1-d}^{\vee,\lambda}(p)
- :=
- p+\lambda(p-d)
- \le
- \widehat g_{1-d}^\vee(p).
+ :=p+\lambda(p-d)
+ \le\widehat g_{1-d}^\vee(p).
  \label{eq:reader-affine-relaxation}
 \end{equation}
-The superscript $\lambda$ denotes a lower relaxation, not a second exact map.
-
 The rational form \eqref{eq:universal-rational-radical} gives, in the
 historical notation $x=1-\beta$,
 \begin{equation}
@@ -450,8 +391,6 @@ historical notation $x=1-\beta$,
  \label{eq:reader-beta-rational}
 \end{equation}
 
-\subsection{Threshold routing}
-
 For $0<d<1-\sqrt3/2$, the exact high-demand threshold is
 \begin{equation}
  z>e(d)
@@ -459,18 +398,15 @@ For $0<d<1-\sqrt3/2$, the exact high-demand threshold is
  \widehat g_{1-d}^\vee(z)\ge1-e(d).
  \label{eq:reader-high-threshold}
 \end{equation}
-Define the decorated lower threshold transfer
+Define
 \begin{equation}
- \widehat g_{1-d}^{\vee,\rm th}(z)
- =
+ \widehat g_{1-d}^{\vee,\rm th}(z)=
  \begin{cases}
   z,&z\le e(d),\\
-  1-e(d),&z>e(d).
+  1-e(d),&z>e(d),
  \end{cases}
  \qquad
- \widehat g_{1-d}^{\vee,\rm th}
- \le
- \widehat g_{1-d}^\vee.
+ \widehat g_{1-d}^{\vee,\rm th}\le\widehat g_{1-d}^\vee.
  \label{eq:reader-threshold-transfer}
 \end{equation}
 
@@ -478,30 +414,20 @@ Define the decorated lower threshold transfer
 \label{lem:reader-threshold-routing}
 Let $z_j=\Phi_j(z_{j-1})$, where every $\Phi_j$ is nondecreasing and extensive.
 If $\Phi_k=\widehat g_{1-d}^\vee$ and $z_{k-1}>e(d)$, then
-\[
- z_j\ge1-e(d)\qquad(j\ge k).
-\]
-If a chain contains later occurrences of
+$z_j\ge1-e(d)$ for all $j\ge k$.  If a chain contains later occurrences of
 $\widehat g_{1-d_1}^\vee$ and $\widehat g_{1-d_2}^\vee$ and
 \[
  z_0>e(d_1),
  \qquad
  \min\{e(d_1),e(d_2)\}<Q,
 \]
-then one of those two rows forces every subsequent output above $1-Q$.
+then at least one of those two rows forces every subsequent output above
+$1-Q$.
 \end{lemma}
 
 \begin{proof}
-Equation~\eqref{eq:reader-high-threshold} gives the first triggered output,
-and extensivity preserves it.  For the two-threshold statement, if
-$e(d_1)<Q$, trigger at the first row.  Otherwise
-\[
- z_0>e(d_1)\ge Q>e(d_2),
-\]
-so trigger at the second row.
+The first assertion is \eqref{eq:reader-high-threshold} followed by
+extensivity.  If $e(d_1)<Q$, use the first threshold.  Otherwise
+$z_0>e(d_1)\ge Q>e(d_2)$, so the second threshold fires.  The conclusion is
+``at least one'', not uniqueness; both thresholds may be available.
 \end{proof}
-
-The lemma is used only after an actual-row induction such as
-\eqref{eq:reader-generalized-raw-transfer} or
-\eqref{eq:reader-generalized-transfer} has identified every formal iterate as
-a lower bound for the corresponding actual row.

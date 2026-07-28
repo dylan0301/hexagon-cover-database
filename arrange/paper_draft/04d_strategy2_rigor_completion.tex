@@ -1,0 +1,303 @@
+\section{Strategy 2 Rigor Completion}
+\label{sec:strategy2-rigor-completion}
+
+This section supplies two pieces that must not be hidden by the concise reader
+presentation.  First, it formally incorporates the complete status-bearing
+$407X$ four-label endpoint proof.  Second, it gives the explicit
+Vd1--supercritical axis replacement in TeX.  The incorporated proof-package
+objects are part of the proof at the exact Git blobs listed below.
+
+\subsection{The incorporated \(407X\) endpoint supplement}
+
+All paths in the following table are relative to
+\begin{verbatim}
+proof/4XXX_CE1CE2/40XX_Nplus0/
+407X_T3_like_no_Vd1Vd2/
+\end{verbatim}
+
+\begin{center}
+\scriptsize
+\renewcommand{\arraystretch}{1.08}
+\begin{tabular}{p{.40\textwidth}p{.38\textwidth}p{.14\textwidth}}
+\toprule
+proof-package object&Git blob SHA&role\\
+\midrule
+\texttt{4073\_boundary\_loss\_framework.md}&
+\texttt{f3f0395748f5649c62eff51f648e8052039a38c5}&residual reduction\\
+\texttt{4074\_L\_Full\_branch.md}&
+\texttt{880b59ec8d3c59b2d9ec036c188aebb2dfbea415}&$(L,\mathrm{Full})$\\
+\texttt{4075\_Tminus\_low\_lower\_branch\_obligations.md}&
+\texttt{ebe2b65f8840b8667c3dca672a8d0cdf2d4104ad}&first $T_-$\\
+\texttt{4078\_left\_L\_family\_completion.md}&
+\texttt{f1323325b0690a1a9394d93911c28425ecfbca9b}&remaining first $L$\\
+\texttt{4079\_first\_Full\_branch.md}&
+\texttt{c66eea05277dbf2e1781f133f4f18c469f1b0909}&first Full\\
+\texttt{407a\_left\_Thigh\_branch\_completion.md}&
+\texttt{aa5cb1a6dc635639972ba8f48cc92c9f519da296}&first $T_+^{\rm hi}$\\
+\texttt{407c\_rigor\_completion\_details.md}&
+\texttt{c80243f67124020e94239745b23ebed2e50a8bcb}&analytic details\\
+\texttt{407d\_rigor\_final\_assembly.md}&
+\texttt{a6ef81f787c4c3d6933569ca89fcdf2eaa83dbc7}&final assembly\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The exact capped-map theorem used by these files is
+Proposition~\ref{prop:capped-demand-map}.  Its four labels are
+\[
+ \mathrm{Full},\qquad L,\qquad T_-,\qquad T_+^{\rm hi}.
+\]
+The supplement retains the exact residual inputs $a_1^*,a_5^*$ and radial
+demands $c_1^*,c_5^*$ from Lemma~\ref{lem:407-four-label-loss}.  It does not
+replace them by a symmetric or universal envelope.
+
+\begin{table}[H]
+\centering
+\scriptsize
+\renewcommand{\arraystretch}{1.08}
+\begin{tabular}{p{.20\textwidth}p{.34\textwidth}p{.34\textwidth}}
+\toprule
+first label&right labels&incorporated terminal source\\
+\midrule
+$L$&Full&`4074`, low-root separation\\
+$L$&$L,T_-$&`4078`, exact low-sheet inequalities\\
+$L$&$T_+^{\rm hi}$&`4078` and `407c`\\
+$T_-$&$L,T_-$&`4075`, exact root ordering\\
+$T_-$&Full, $T_+^{\rm hi}$&`4075`, strict endpoint separation\\
+Full&all labels&`4079`, first-Full exclusion\\
+$T_+^{\rm hi}$&Full, $T_+^{\rm hi}$&`407a`, high-input exclusion\\
+$T_+^{\rm hi}$&$L,T_-$&`407a` and `407c`, analytic threshold and right-$T_-$ bounds\\
+\bottomrule
+\end{tabular}
+\caption{The exhaustive four-label endpoint audit.  The listed exact source
+objects contain every polynomial selector, domain restriction, and strict
+inequality used in the corresponding entry.}
+\label{tab:paper-407-complete-audit}
+\end{table}
+
+\begin{theorem}[Complete support-isolated T3-like endpoint certificate]
+\label{thm:paper-complete-t3-endpoint}
+For every support-isolated state of
+Definition~\ref{def:body-t3-endpoint-state},
+\[
+ \widehat g_{c_5^*}(1-a_5^*)+
+ \widehat g_{c_1^*}(1-a_1^*)<1.
+\]
+\end{theorem}
+
+\begin{proof}
+If $a_1^*+a_5^*>1$, the diagonal caps already give the strict inequality.
+Otherwise Proposition~\ref{prop:capped-demand-map} assigns each endpoint one
+of the four labels above.  Table~\ref{tab:paper-407-complete-audit} is an
+exhaustive partition of the resulting ordered label pairs.  The incorporated
+source in each row proves either that the pair is impossible or that its two
+exact capped outputs have sum strictly below one.  File `407d` checks that the
+geometric residual reduction in `4073` reaches exactly these branches and no
+others.  Therefore the displayed endpoint inequality holds throughout the
+complete support-isolated domain.
+\end{proof}
+
+\subsection{The explicit Vd1--supercritical replacement}
+
+\begin{proposition}[Vd1--supercritical axis replacement]
+\label{prop:paper-vd1-pair-replacement}
+Assume the CE2 exact-$M_0$ branch, with a unique supercritical row at $V_1$ and
+an adjacent Vd1 row at $V_0$ containing $M_1$.  Assume every other vertex row
+is nonsupercritical Vd0, no additional role has positive support on the two
+relevant radial handoffs, and the center has no boundary trace on the shared
+edge $e_{0,1}$.  Then the two special rows can be replaced by two open
+nonsupercritical Vd0 roles preserving all boundary and radial demands used by
+the all-Vd0 boundary-loss theorem.
+\end{proposition}
+
+\begin{proof}
+Use the Vd corner normal form with $t>0$, $d=\sqrt{t^2+t+1}$ and exact Vd1
+boundary reaches $a,b$:
+\[
+ x-(t+1)y\le a,
+ \qquad
+ ty-(t+1)x\le tb,
+ \qquad
+ tx+y\le d-a-tb.
+\]
+Its own-radial reach and neighboring-arm endpoints are
+\[
+ c=\frac{d-a-tb}{t+1},
+ \qquad
+ \lambda=\frac{t(1-b)}{t+1},
+ \qquad
+ \mu=\frac{d-a-tb-1}{t}.
+\]
+Because the original open Vd1 role contains $M_1$,
+\[
+ b>\frac{t-1}{2t},
+ \qquad
+ a+tb<d-1-\frac t2.
+\]
+If $t<1$, then
+\[
+ d-a-tb-t>1-\frac t2>\frac1{t+1}>\frac{1-a}{t+1},
+\]
+which would create positive support on the other adjacent arm.  Hence
+$t\ge1$.
+
+We need four strict margins:
+\begin{equation}
+ a+c<1,
+ \qquad
+ a<\lambda\le\frac12,
+ \qquad
+ b<\frac12,
+ \qquad
+ \mu<1-a.
+ \label{eq:paper-replacement-margins}
+\end{equation}
+For the first, maximize $a+c$ on the closed midpoint face
+$a=d-1-t/2-tb$.  Then
+\[
+ a+c-1=-\frac{2bt^2+2bt-2dt-2d+t^2+4t+2}{2(t+1)}.
+\]
+Using $b\ge(t-1)/(2t)$, the numerator is at least
+$2t^2+4t+1-2(t+1)d$, which is positive because
+\[
+ (2t^2+4t+1)^2-4(t+1)^2d^2
+ =4t^3+4t^2-4t-3>0
+\]
+for $t\ge1$.  The original midpoint inequalities are strict.
+The bound $\lambda\le1/2$ follows from the lower bound for $b$.  The closed
+upper bound for $a$, subtracted from $\lambda$, is minimized at
+$b=(t-1)/(2t)$ and equals $(t+1)-d>0$, so $a<\lambda$.
+Furthermore
+\[
+ b<\frac{d-1-t/2}{t}<\frac12
+\]
+because $d<t+1$.  Finally
+\[
+ t(\mu+a-1)=d-(t+1)-tb+(t-1)a
+ \le t(d-t-1)<0.
+\]
+This proves \eqref{eq:paper-replacement-margins}.
+
+Let $(a_1,b_1,c_1)$ be the actual reaches of the unique supercritical row.
+The center-free shared edge forces
+\[
+ a_1\ge1-b>\frac12,
+\]
+and radial coverage before the Vd1 interval forces $c_1\ge\lambda$.  We use the
+following admissibility consequence.
+
+\emph{Half-square lemma.}
+If $(x,y,z)\in\mathcal A$, $x\ge1/2$, and $0\le z\le1/2$, then
+\[
+ y\le1-z.
+\]
+Indeed, suppose $y>1-z$.  Then $x+y>1$, so the selected supercritical cell
+applies.  In the ordered half $x\le y$, its necessary polynomial is
+\[
+ F(x,y,z)=(x^2-1)z^2+(2xy^2+y)z+y^4-y^2\le0.
+\]
+It is nondecreasing in $x$.  At $x=1/2$ its $y$-derivative is
+$4y^3-2y+2yz+z$, which is increasing for $y\ge1-z$ and positive at that
+endpoint.  Hence
+\[
+ F(x,y,z)>F\left(\frac12,1-z,z\right)
+ =\frac{z^2(2z-5)(2z-1)}4\ge0,
+\]
+a contradiction.  In the reflected half $y<x$, use $F(y,x,z)$.  Both
+arguments exceed $r=1-z$, and on that quadrant the two partial derivatives are
+nonnegative; the second is bounded below by
+\[
+ 4r^2z+z+4r^3-2r=2-5z+4z^2>0.
+\]
+Thus
+\[
+ F(y,x,z)>F(r,r,z)=z(1-2z)\ge0,
+\]
+again a contradiction.
+
+A supercritical row has own-radial coordinate at most $1/2$, so the lemma
+applied to $(a_1,b_1,c_1)$ gives
+\[
+ b_1\le1-c_1\le1-\lambda.
+\]
+Together with $a<\lambda$ this gives
+\begin{equation}
+ a+b_1<1.
+ \label{eq:paper-a-bi-margin}
+\end{equation}
+
+Let $d_1^C$ be the center reach on the rescued arm, measured from $O$, and put
+$c_1^{\rm req}=1-d_1^C$.  Only the center, the supercritical row, and the Vd1
+row have positive intervals on this arm.  Open coverage at the center handoff
+gives
+\[
+ c_1^{\rm req}<\max\{c_1,\mu\}.
+\]
+By the half-square lemma and \eqref{eq:paper-replacement-margins},
+\[
+ \max\{c_1,\mu\}
+ \le\max\{1-b_1,1-a\}.
+\]
+Therefore
+\begin{equation}
+ c_1^{\rm req}<\max\{1-b_1,1-a\}.
+ \label{eq:paper-radial-bridge-margin}
+\end{equation}
+The strictness comes from the first inequality; no strictness is required in
+the second comparison.
+
+Choose
+\[
+ a<p_1<p_2<1-b_1
+\]
+within the strict margins so that
+\[
+ p_1<\frac12,
+ \qquad
+ 1-p_1>c,
+ \qquad
+ \max\{p_2,1-p_2\}>c_1^{\rm req}.
+\]
+This is possible by choosing $p_1$ close to $a$ and choosing $p_2$ close to
+$a$ when the right side of \eqref{eq:paper-radial-bridge-margin} is supplied by
+$1-a$, or close to $1-b_1$ when it is supplied by $1-b_1$.
+
+In the local metric define
+\[
+ \Delta_p^-=\conv\{(0,1-p),(1,1-p),(0,-p)\}
+ \quad(p\le1/2),
+\]
+\[
+ \Delta_p^+=\conv\{(p,0),(p,1),(p-1,0)\}
+ \quad(p\ge1/2).
+\]
+These are unit equilateral triangles.  Their incident reaches are $p,1-p$;
+their own-radial reaches are respectively $1-p,p$; and they have no positive
+adjacent-arm support.
+
+Translate $\Delta_{p_1}^-$ by $(-\varepsilon,0)$.  Its relevant reaches become
+\[
+ (p_1-\varepsilon,1-p_1,1-p_1).
+\]
+For the second row translate $\Delta_{p_2}^-$ by $(-\varepsilon,0)$ if
+$p_2<1/2$, and translate $\Delta_{p_2}^+$ by $(0,-\varepsilon)$ if
+$p_2\ge1/2$.  Its relevant reaches are respectively
+\[
+ (p_2-\varepsilon,1-p_2,1-p_2)
+\]
+or
+\[
+ (p_2,1-p_2-\varepsilon,p_2).
+\]
+Choose $\varepsilon>0$ smaller than every strict boundary, radial, and
+$p_2-p_1$ margin.  The first replacement still supplies at least $a$ and $c$;
+the second supplies at least $b_1$ and $c_1^{\rm req}$.  The shared open edge
+is covered because
+\[
+ (1-p_1)+(p_2-\varepsilon)>1.
+\]
+Both replacements contain their distinguished vertices in their interiors,
+have zero adjacent support, and have boundary sum strictly below one.  Thus
+they are open nonsupercritical Vd0 roles, and every demand used by the all-Vd0
+boundary-loss theorem is preserved.
+\end{proof}

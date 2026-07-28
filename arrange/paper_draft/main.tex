@@ -1,6 +1,7 @@
 \documentclass{amsart}
 \usepackage{amsmath,amssymb,amsthm,mathtools,graphicx}
-\usepackage{fontspec}
+\usepackage[no-math]{fontspec}
+\setmonofont[Scale=0.70]{Latin Modern Mono}
 \usepackage{booktabs,float,microtype,tikz}
 \usetikzlibrary{arrows.meta,calc,positioning}
 \input{figures/tikz_setup}
@@ -33,7 +34,7 @@
 {Seven Open Unit Equilateral Triangles Do Not Cover a Regular Unit Hexagon}
 \author{Jineon Baek, Jeewon Kim}
 \keywords{equilateral triangles, geometric covering, regular hexagon,
-boundary propagation, area loss, caliper certificate}
+boundary propagation, area loss, exact computer-assisted certificate}
 \subjclass[2020]{52C15, 52A40, 51M04}
 
 \begin{document}
@@ -41,39 +42,49 @@ boundary propagation, area loss, caliper certificate}
 
 \begin{abstract}
 We prove that the regular hexagon of side length one cannot be covered by
-seven open equilateral triangles of side length one. Equivalently, no
-regular hexagon of side length greater than one is covered by seven closed
-unit equilateral triangles. Seven distinguished points force one center
-role and six vertex roles. An exhaustive classification reduces the proof to
-three certificate types: additive trace or area deficits, monotone propagation
-of boundary and radial demands, and a convex support obstruction. The last
-certificate forces six radial and three asymmetric witnesses into the center
-role. A signed normal form treats CE1 and CE2 simultaneously, while one
-universal enclosure and transfer calculus supplies the equilateral gauge,
-interval residuals, boundary-path budgets, and the selected high-sheet curve
-used throughout the proof. The terminal mixed-overlap signs are certified by
-exact rational reductions and computer-verified global Bernstein identities,
-with no interval subdivision or branch-and-bound.
+seven open equilateral triangles of side length one.  Seven distinguished
+points force one center role and six vertex roles.  A finite classification
+then routes every hypothetical cover to one of four geometric mechanisms:
+trace deficit, monotone transfer, area loss, or a nine-point support
+obstruction.  The reader-facing proof states the exact geometric interfaces,
+the resulting inequalities, and the exhaustive routing argument.  Support-line
+derivations, polynomial reductions, monotonicity calculations, and exact
+certificates are isolated in technical appendices.  The two final mixed cap
+overlaps are verified by a formally incorporated exact symbolic certificate
+using integer, rational, and $\mathbb Q(\sqrt3)$ arithmetic.
 \end{abstract}
 
 \maketitle
+\setcounter{tocdepth}{1}
 \tableofcontents
 
 \input{01_introduction}
+\input{02_reader_framework}
+\input{03_strategy1_reader}
+\input{04_strategy2_summary}
+\input{05_strategy3_reader}
+\input{06_strategy4_reader}
+\input{07_exhaustive_assembly}
+\label{page:proof-body-end}
+
+\clearpage
+\appendix
+\input{appendix_roadmap}
 \input{02_structural_reductions}
 \input{02a_universal_calculus}
+\input{02b_admissible_set_derivation}
 \input{04a_signed_center_calculus}
 \input{03_strategy1_length}
 \input{04b_common_CE1_CE2_budgets}
-\input{04_strategy2_reader}
-\input{05_strategy3_area}
-\input{06_strategy4_reader}
-\input{07_exhaustive_assembly}
-
-\appendix
 \input{04c_short_Vd_placements}
+\input{04_strategy2_reader}
 \input{04_strategy2_exact_demand}
+\input{04d_strategy2_rigor_completion}
+\input{04e_strategy2_placement_assembly}
+\input{04f_strategy2_cross_reference_closure}
+\input{05_strategy3_area}
 \input{06_strategy4_ab_core}
+\input{06a_strategy4_exact_certificate}
 \input{appendix_symbols}
 
 \end{document}
