@@ -33,7 +33,7 @@
 {Seven Open Unit Equilateral Triangles Do Not Cover a Regular Unit Hexagon}
 \author{Jineon Baek, Jeewon Kim}
 \keywords{equilateral triangles, geometric covering, regular hexagon,
-boundary propagation, area loss, caliper certificate}
+boundary propagation, area loss, exact computer-assisted certificate}
 \subjclass[2020]{52C15, 52A40, 51M04}
 
 \begin{document}
@@ -46,12 +46,11 @@ points force one center role and six vertex roles.  A finite classification
 then routes every hypothetical cover to one of four geometric mechanisms:
 trace deficit, monotone transfer, area loss, or a nine-point support
 obstruction.  The reader-facing proof states the exact geometric interfaces,
-the resulting inequalities, and the exhaustive routing argument.  All
-support-line derivations, polynomial reductions, monotonicity calculations,
-and exact certificates are isolated in appendices formulated in real
-variables.  In particular, the body uses the local admissible set only through
-its explicit description and uses the CE1/CE2 geometry only through one signed
-normal form.
+the resulting inequalities, and the exhaustive routing argument.  Support-line
+derivations, polynomial reductions, monotonicity calculations, and exact
+certificates are isolated in technical appendices.  The two final mixed cap
+overlaps are verified by a formally incorporated exact symbolic certificate
+using integer, rational, and $\mathbb Q(\sqrt3)$ arithmetic.
 \end{abstract}
 
 \maketitle
@@ -72,14 +71,18 @@ normal form.
 \input{appendix_roadmap}
 \input{02_structural_reductions}
 \input{02a_universal_calculus}
+\input{02b_admissible_set_derivation}
 \input{04a_signed_center_calculus}
 \input{03_strategy1_length}
 \input{04b_common_CE1_CE2_budgets}
 \input{04c_short_Vd_placements}
 \input{04_strategy2_reader}
 \input{04_strategy2_exact_demand}
+\input{04d_strategy2_rigor_completion}
+\input{04e_strategy2_placement_assembly}
 \input{05_strategy3_area}
 \input{06_strategy4_ab_core}
+\input{06a_strategy4_exact_certificate}
 \input{appendix_symbols}
 
 \end{document}
