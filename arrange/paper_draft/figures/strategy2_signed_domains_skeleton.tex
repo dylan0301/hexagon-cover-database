@@ -1,0 +1,50 @@
+\begin{tikzpicture}[x=1cm,y=1cm,>=Latex]
+  \node[panellabel,anchor=west] at (.05,3.72)
+    {The signed CE1 and CE2 parameter domains};
+  \node[figlabel,anchor=east,text=black!60] at (13.45,3.42)
+    {right trace positive throughout; the left trace separates the domains};
+
+  \begin{scope}[shift={(2.20,1.35)},scale=1.82]
+    \HexCoords
+    \DrawHexagon
+    \DrawRays
+    \fill[CenterBlue] (O) circle (.9pt);
+    \draw[centertrace] ($(V0)!.18!(V1)$)--($(V0)!.77!(V1)$);
+    \draw[centertrace] ($(V5)!.20!(V0)$)--($(V5)!.78!(V0)$);
+    \draw[gap] ($(V0)!.43!(V1)$)--($(V0)!.57!(V1)$);
+    \draw[gap] ($(V5)!.44!(V0)$)--($(V5)!.57!(V0)$);
+    \node[figlabel,text=CenterBlue,above right]
+      at ($(V0)!.67!(V1)$) {$\Delta_R>0$};
+    \node[figlabel,text=GapPurple,below right]
+      at ($(V5)!.68!(V0)$) {$\Delta_L\gtrless0$};
+    \node[figlabel,align=center] at (0,-1.28)
+      {$\Delta_L\le0:\mathrm{CE1}$\qquad
+       $\Delta_L>0:\mathrm{CE2}$};
+  \end{scope}
+
+  \node[figlabel,atlasbox,align=left,anchor=west] at (4.65,2.72)
+    {$\displaystyle
+      \Delta_R:=P-\alpha-W\delta,\qquad
+      \Delta_L:=P-R\alpha-\delta,$\\[-1pt]
+     $\displaystyle
+      \mathcal D_{\rm sgn}:=
+      \{(R,\alpha,\delta)\in\mathbb R^3:
+      0<R<1,\ \alpha>0,\ \delta>0,\ \Delta_R>0\}$};
+
+  \node[figlabel,atlasbox,align=left,anchor=west] at (4.65,.92)
+    {$\displaystyle
+      \mathcal D_{\rm CE1}:=
+      \left\{(R,\alpha,\delta)\in\mathcal D_{\rm sgn}:
+      \begin{array}{c}
+       \Delta_L\le0,\quad
+       0<\alpha<W/2,\quad0<\delta<R/2,\\
+       R\delta-W\alpha>0
+      \end{array}
+      \right\}$};
+
+  \node[figlabel,atlasbox,align=left,anchor=west] at (4.65,-.72)
+    {$\displaystyle
+      \mathcal D_{\rm CE2}:=
+      \{(R,\alpha,\delta)\in\mathcal D_{\rm sgn}:
+      \Delta_L>0\}$};
+\end{tikzpicture}

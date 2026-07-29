@@ -1,69 +1,65 @@
 \begin{tikzpicture}[x=1cm,y=1cm,>=Latex]
-  \node[panellabel,anchor=west] at (.02,2.02)
-    {(h) two exact signed-center examples};
+  \node[panellabel,anchor=west] at (.02,2.16)
+    {(h) two exact signed-center examples on the full skeleton};
 
-  \begin{scope}[shift={(2.58,.10)},x=1.72cm,y=1.72cm]
-    \coordinate (Oa) at (0,0);
-    \coordinate (V0a) at (1,0);
-    \coordinate (V1a) at (.5,.8660254);
-    \coordinate (V5a) at (.5,-.8660254);
-    \draw[black!48,line width=.65pt] (V5a)--(V0a)--(V1a);
+  \begin{scope}[shift={(2.75,.30)},scale=1.42]
+    \HexCoords
+    \DrawHexagon
+    \DrawRays
     \draw[centerrole]
       (.679270858,-.541343219)--(.793978725,.452056048)--
       (-.123684211,.054696341)--cycle;
-    \draw[GapPurple,line width=.9pt]
-      (.679270858,-.541343219)--(-.123684211,.054696341);
-    \draw[RadialTeal,line width=.9pt]
-      (.793978725,.452056048)--(-.123684211,.054696341);
-    \fill[CenterBlue] (Oa) circle (1pt);
-    \draw[demand] (.784816491,.372708771)--(.75,.433012702);
-    \draw[inactive] (.677224736,-.559063157)--(.685,-.545596004);
-    \fill[black!50] (.677224736,-.559063157) circle (.75pt);
-    \fill[black!50] (.685,-.545596004) circle (.75pt);
-    \node[figlabel,above right] at (.76,.42) {$\ell_R$};
-    \node[figlabel,anchor=east,align=right] at (.54,-.52)
-      {reversed candidate\\endpoints};
-    \node[figlabel,above left,text=GapPurple] at (.24,-.18)
-      {$F_0(O)=\alpha$};
-    \node[figlabel,below left,text=RadialTeal] at (.23,.18)
-      {$F_2(O)=\delta$};
-    \node[figlabel,right] at (V0a) {$V_0$};
-    \node[figlabel,above] at (.63,.73) {$e_{0,1}$};
-    \node[figlabel,below right] at (.72,-.72) {$e_{5,0}$};
-  \end{scope}
-  \node[figlabel,align=center] at (2.60,-1.73)
-    {$\mathrm{CE1}$: $\delta=\frac1{10}$,\quad
-     $\Delta_R>0>\Delta_L$,\\
-     $\ell_R\approx.06963,\ \ell_L=0$};
+    \fill[CenterBlue] (O) circle (1pt);
 
-  \begin{scope}[shift={(8.72,.10)},x=1.72cm,y=1.72cm]
-    \coordinate (Ob) at (0,0);
-    \coordinate (V0b) at (1,0);
-    \coordinate (V1b) at (.5,.8660254);
-    \coordinate (V5b) at (.5,-.8660254);
-    \draw[black!48,line width=.65pt] (V5b)--(V0b)--(V1b);
+    \draw[centertrace]
+      (.784816491,.372708771)--(.75,.433012702);
+    \draw[inactive]
+      (.677224736,-.559063157)--(.685,-.545596004);
+    \fill[black!55] (.677224736,-.559063157) circle (.75pt);
+    \fill[black!55] (.685,-.545596004) circle (.75pt);
+
+    \node[figlabel,above right] at (.765,.414) {$\ell_R$};
+    \node[figlabel,anchor=east,align=right] at (.53,-.56)
+      {reversed candidate\\endpoints};
+    \node[figlabel,right] at (V0) {$V_0$};
+    \node[figlabel,above] at ($(V0)!.55!(V1)$) {$e_{0,1}$};
+    \node[figlabel,below right] at ($(V0)!.55!(V5)$) {$e_{5,0}$};
+  \end{scope}
+  \node[figlabel,align=center] at (2.75,-1.47)
+    {\(\mathrm{CE1}\): \(R=\frac35,\ W=\frac25\),\\
+     \(\alpha=F_0(1,1)=\frac3{100},\quad
+       \delta=F_2(1,1)=\frac1{10}\),\\
+     \(\Delta_R>0>\Delta_L,\quad
+       \ell_R\approx.06963,\quad\ell_L=0\).};
+
+  \begin{scope}[shift={(8.70,.30)},scale=1.42]
+    \HexCoords
+    \DrawHexagon
+    \DrawRays
     \draw[centerrole]
       (.734534016,-.582365475)--(.849241883,.411033792)--
       (-.068421053,.013674085)--cycle;
-    \draw[GapPurple,line width=.9pt]
-      (.734534016,-.582365475)--(-.068421053,.013674085);
-    \draw[RadialTeal,line width=.9pt]
-      (.849241883,.411033792)--(-.068421053,.013674085);
-    \fill[CenterBlue] (Ob) circle (1pt);
-    \draw[demand] (.834816491,.286106231)--(.78,.381051178);
-    \draw[centertrace] (.752224736,-.429159346)--(.685,-.545596004);
+    \fill[CenterBlue] (O) circle (1pt);
+
+    \draw[centertrace]
+      (.834816491,.286106231)--(.78,.381051178);
+    \draw[centertrace]
+      (.752224736,-.429159346)--(.685,-.545596004);
+
     \node[figlabel,above right] at (.80,.35) {$\ell_R$};
     \node[figlabel,below right] at (.71,-.50) {$\ell_L$};
-    \node[figlabel,above left,text=GapPurple] at (.27,-.21)
-      {$F_0(O)=\alpha$};
-    \node[figlabel,below left,text=RadialTeal] at (.27,.15)
-      {$F_2(O)=\delta$};
-    \node[figlabel,right] at (V0b) {$V_0$};
-    \node[figlabel,above] at (.63,.73) {$e_{0,1}$};
-    \node[figlabel,below] at (.63,-.74) {$e_{5,0}$};
+    \node[figlabel,right] at (V0) {$V_0$};
+    \node[figlabel,above] at ($(V0)!.55!(V1)$) {$e_{0,1}$};
+    \node[figlabel,below right] at ($(V0)!.55!(V5)$) {$e_{5,0}$};
   \end{scope}
-  \node[figlabel,align=center] at (8.75,-1.73)
-    {$\mathrm{CE2}$: $\delta=\frac1{25}$,\quad
-     $\Delta_R,\Delta_L>0$,\\
-     $\ell_R\approx.10963,\ \ell_L\approx.13445$};
+  \node[figlabel,align=center] at (8.70,-1.47)
+    {\(\mathrm{CE2}\): \(R=\frac35,\ W=\frac25\),\\
+     \(\alpha=F_0(1,1)=\frac3{100},\quad
+       \delta=F_2(1,1)=\frac1{25}\),\\
+     \(\Delta_R,\Delta_L>0,\quad
+       \ell_R\approx.10963,\quad\ell_L\approx.13445\).};
+
+  \node[figlabel,align=center] at (5.73,-2.25)
+    {\(\alpha,\delta\) are affine side-slack values at \(O\), not drawn lengths;
+     the blue boundary segments are the metric traces.};
 \end{tikzpicture}

@@ -1,0 +1,84 @@
+\begin{tikzpicture}[x=1cm,y=1cm,>=Latex]
+  \node[panellabel,anchor=west] at (.05,3.42)
+    {The three retained relaxation slots};
+  \node[figlabel,anchor=east,text=black!60] at (13.45,3.42)
+    {schematic; only proved lower-map choices are shown};
+
+  % CE1 retained affine slots and final threshold.
+  \begin{scope}[shift={(2.15,1.50)},scale=1.43]
+    \HexCoords
+    \DrawHexagon
+    \DrawRays
+    \foreach \i in {0,...,5}{\fill[black] (V\i) circle (.55pt);}
+    \draw[radialdemand] (V4)--($(V4)!.42!(O)$);
+    \draw[radialdemand] (V3)--($(V3)!.42!(O)$);
+    \draw[radialdemand] (V2)--($(V2)!.42!(O)$);
+    \draw[flow] ($(V4)!.12!(V3)$)--($(V4)!.70!(V3)$);
+    \draw[flow] ($(V3)!.12!(V2)$)--($(V3)!.70!(V2)$);
+    \node[figlabel,text=RadialTeal,below right] at ($(V4)!.28!(O)$)
+      {$1-\alpha$};
+    \node[figlabel,text=RadialTeal,below] at ($(V3)!.28!(O)$)
+      {$1-m_3$};
+    \node[figlabel,text=RadialTeal,below left] at ($(V2)!.28!(O)$)
+      {$1-\delta$};
+    \node[figlabel,fill=white] at ($(V4)!.43!(V3)$)
+      {$\ell_0\mapsto\ell_1$};
+    \node[figlabel,fill=white] at ($(V3)!.43!(V2)$)
+      {$\ell_1\mapsto\ell_2$};
+    \node[figlabel,above] at (V2) {$\ell_2>e(\delta)$};
+    \node[figlabel,below] at (0,-1.27)
+      {CE1 on \(\mathcal D_{\rm aff}\)};
+  \end{scope}
+  \node[figlabel,atlasbox,align=left,anchor=west] at (.05,-1.12)
+    {$\displaystyle
+      \ell_0:=h_{\rm term},\qquad
+      \ell_1:=\widehat g_{1-\alpha}^{\vee,\,1-4\alpha}(\ell_0)$\\
+     $\displaystyle
+      \ell_2:=\widehat g_{1-m_3}^{\vee,\,1-5m_3}(\ell_1)
+      >e(\delta)$\\
+     $\widehat g_{1-\delta}^{\vee,\mathrm{th}}(\ell_2)
+       >1-x_{\rm in}$.};
+
+  % CE2 alternatives: the alpha or delta threshold may fire.
+  \begin{scope}[shift={(7.20,1.50)},scale=1.43]
+    \HexCoords
+    \DrawHexagon
+    \DrawRays
+    \foreach \i in {0,...,5}{\fill[black] (V\i) circle (.55pt);}
+    \draw[radialdemand] (V4)--($(V4)!.42!(O)$);
+    \draw[inactive] (V3)--($(V3)!.42!(O)$);
+    \draw[radialdemand] (V2)--($(V2)!.42!(O)$);
+    \draw[flow] ($(V4)!.12!(V3)$)--($(V4)!.70!(V3)$);
+    \draw[flow] ($(V3)!.12!(V2)$)--($(V3)!.70!(V2)$);
+    \node[figlabel,text=RadialTeal,below right] at ($(V4)!.28!(O)$)
+      {$1-\alpha$};
+    \node[figlabel,text=black!55,below] at ($(V3)!.28!(O)$)
+      {$\mathrm I$};
+    \node[figlabel,text=RadialTeal,below left] at ($(V2)!.28!(O)$)
+      {$1-\delta$};
+    \node[figlabel,fill=white] at ($(V4)!.43!(V3)$)
+      {$\alpha$ threshold};
+    \node[figlabel,fill=white] at ($(V3)!.43!(V2)$)
+      {$\delta$ threshold};
+    \node[figlabel,below] at (0,-1.27) {CE2: at least one slot fires};
+  \end{scope}
+  \node[figlabel,atlasbox,align=left,anchor=west] at (5.05,-1.12)
+    {$\displaystyle
+      x_{\rm in}>e(\alpha),\qquad
+      \min\{e(\alpha),e(\delta)\}<h_{\rm term}$\\
+     $e(\alpha)<h_{\rm term}\Rightarrow$
+       use the row-$4$ $\alpha$ threshold;\\
+     $e(\alpha)\ge h_{\rm term}\Rightarrow
+       e(\delta)<h_{\rm term}$ and use row $2$;\\
+     all unused slots are $\mathrm I$; uniqueness is not asserted.};
+
+  \node[figlabel,atlasbox,align=left,anchor=west] at (10.20,2.35)
+    {$\displaystyle
+      [\,\widehat g_{1-\alpha}^{\vee}\mid
+      \widehat g_{1-d_3^C}^{\vee}\mid
+      \widehat g_{1-\delta}^{\vee}\,](h_{\rm term})
+      >1-x_{\rm in}$};
+  \node[figlabel,align=left,anchor=west,text=black!68] at (10.24,1.35)
+    {left slot acts first;\\
+     the route is $T_4\to T_3\to T_2$.};
+\end{tikzpicture}

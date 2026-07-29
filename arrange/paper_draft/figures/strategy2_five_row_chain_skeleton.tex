@@ -1,0 +1,78 @@
+\begin{tikzpicture}[x=1cm,y=1cm,>=Latex]
+  \node[panellabel,anchor=west] at (.05,3.18)
+    {The exact five-row one-gap chain on the hexagon};
+  \node[figlabel,anchor=east,text=black!60] at (13.40,3.18)
+    {schematic; arrows record transfer order};
+
+  \begin{scope}[shift={(3.18,.84)},scale=2.00]
+    \HexCoords
+    \DrawHexagon
+    \DrawRays
+    \fill[CenterBlue] (O) circle (1pt);
+    \draw[centertrace] ($(V0)!.17!(V1)$)--($(V0)!.79!(V1)$);
+    \draw[gap] ($(V0)!.44!(V1)$)--($(V0)!.57!(V1)$);
+
+    % Radial demands c_0,...,c_5.
+    \foreach \i/\f/\lab in {
+      0/.34/{c_0^{(5)}},
+      1/.43/{c_1^{(5)}},
+      2/.48/{c_2^{(5)}},
+      3/.43/{c_3^{(5)}},
+      4/.48/{c_4^{(5)}},
+      5/.43/{c_5^{(5)}}
+    }{
+      \draw[radialdemand] (V\i)--($(V\i)!\f!(O)$);
+      \node[figlabel,text=RadialTeal,fill=white,inner sep=.5pt]
+        at ($(V\i)!.24!(O)$) {$\lab$};
+    }
+
+    % The five nonsupercritical rows propagate z_0,...,z_5.
+    \foreach \i/\j/\zin/\zout in {
+      1/2/z_0/z_1,
+      2/3/z_1/z_2,
+      3/4/z_2/z_3,
+      4/5/z_3/z_4,
+      5/0/z_4/{z_5=Z}
+    }{
+      \draw[flow] ($(V\i)!.14!(V\j)$)--($(V\i)!.69!(V\j)$);
+      \node[figlabel,fill=white,inner sep=.8pt] at ($(V\i)!.43!(V\j)$)
+        {$\zin\mapsto\zout$};
+    }
+    \foreach \i in {0,...,5}{
+      \fill[black] (V\i) circle (.65pt);
+      \node[figlabel] at ($(V\i)!-.13!(O)$) {$T_{\i}$};
+    }
+    \node[figlabel,text=DemandRed,above left] at ($(V1)!.18!(V0)$)
+      {$z_0=x_{\rm in}$};
+    \node[figlabel,text=GapPurple,anchor=west] at (.88,.49) {$\Gamma_0$};
+    \node[figlabel,atlasbox,align=center] at (0,-1.20)
+      {$T_0$ unique supercritical\\
+       $T_1,\ldots,T_5$ nonsupercritical};
+  \end{scope}
+
+  \node[figlabel,atlasbox,align=left,anchor=west] at (6.42,2.43)
+    {$\displaystyle
+      x_{\rm in}=R-\delta,\qquad
+      h_{\rm term}=\frac{k}{2R},\qquad
+      d_3^C=\min\!\left\{\frac{\alpha}{R},\frac{\delta}{W}\right\}$};
+  \node[figlabel,atlasbox,align=left,anchor=west] at (6.42,1.47)
+    {$\displaystyle
+      (c_0^{(5)},c_1^{(5)},c_2^{(5)},c_3^{(5)},
+       c_4^{(5)},c_5^{(5)})=
+      \left(k,\,
+      1-\frac{\delta}{R},\,1-\delta,\,1-d_3^C,\,
+      1-\alpha,\,1-\frac{\alpha}{W}\right)$};
+  \node[figlabel,atlasbox,align=left,anchor=west] at (6.42,.39)
+    {$\displaystyle z_0=x_{\rm in},\qquad
+      z_i=\widehat g_{c_i^{(5)}}^{\vee}(z_{i-1})\ (1\le i\le5),
+      \qquad Z=z_5$\\
+     $\displaystyle A_0\ge Z,\qquad
+      A_0\le g_k(1-k/R)<1-h_{\rm term}$.};
+  \node[figlabel,atlasbox,align=left,anchor=west] at (6.42,-.85)
+    {$\displaystyle
+      Z>1-h_{\rm term}\ \Longleftarrow\
+      [\,\widehat g_{1-\alpha}^{\vee}\mid
+         \widehat g_{1-d_3^C}^{\vee}\mid
+         \widehat g_{1-\delta}^{\vee}\,](h_{\rm term})
+         >1-x_{\rm in}.$};
+\end{tikzpicture}

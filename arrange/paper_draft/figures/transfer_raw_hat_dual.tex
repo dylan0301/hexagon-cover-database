@@ -1,29 +1,46 @@
 \begin{tikzpicture}[x=1cm,y=1cm,>=Latex]
-  \node[panellabel,anchor=west] at (.62,2.45)
-    {(b) raw, hatted, and complement-dual views};
+  \node[panellabel,anchor=west] at (.03,2.48)
+    {(b) zero-radial cap and complement dual on the skeleton};
 
-  \begin{scope}[shift={(.18,-.02)},x=2.15cm,y=2.15cm]
-    \draw[->,black!55] (-.03,0)--(1.08,0) node[right,figlabel] {$x$};
-    \draw[->,black!55] (0,-.03)--(0,1.08) node[above,figlabel] {$y$};
-    \draw[cappedcurve] (0,0)--(1,1);
-    \draw[boundcurve,domain=.015:.985,samples=70,smooth,variable=\x]
-      plot ({\x},{(\x-1+sqrt(1+6*\x-3*\x*\x))/2});
-    \node[figlabel,text=DemandRed] at (.50,.80) {$g_0(x)>x$};
-    \node[figlabel,text=RadialTeal,rotate=38] at (.70,.60)
-      {$\widehat g_0=\mathrm I$};
-    \node[figlabel,below left] at (0,0) {$0$};
-    \node[figlabel,below] at (1,0) {$1$};
-    \node[figlabel,left] at (0,1) {$1$};
+  \begin{scope}[shift={(1.55,.68)},scale=1.08]
+    \HexCoords
+    \DrawHexagon
+    \DrawRays
+    \coordinate (Pa) at ($(V0)!.34!(V5)$);
+    \coordinate (Px) at ($(V0)!.66!(V1)$);
+    \coordinate (Py) at ($(V0)!.786!(V1)$);
+
+    \draw[demand] (V0)--(Pa);
+    \draw[boundcurve,dashed] (V0)--(Py);
+    \draw[radialdemand] (V0)--(Px);
+    \draw[inactive] (Pa)--(Py);
+    \fill[DemandRed] (Py) circle (.8pt);
+    \fill[RadialTeal] (Px) circle (.8pt);
+    \node[figlabel,below right] at ($(V0)!.43!(V5)$) {$a=1-x$};
+    \node[figlabel,above left,align=left,fill=white,inner sep=.5pt]
+      at ($(V0)!.69!(V1)$)
+      {$g_0(x)>x$\\$\widehat g_0(x)=x$};
+    \node[figlabel,align=center] at (0,-1.55)
+      {\(c=0:\quad g_0(x)>x,\quad\widehat g_0(x)=x\)};
   \end{scope}
 
-  \node[figlabel,atlasbox] (a) at (3.12,1.22) {$a$};
-  \node[figlabel,atlasbox] (x) at (4.18,1.22) {$1-a$};
-  \node[figlabel,atlasbox] (fx) at (5.34,1.22) {$f(1-a)$};
-  \node[figlabel,atlasbox,align=center] (dual) at (5.34,.22)
-    {$f^\vee(a)$\\$=1-f(1-a)$};
-  \draw[flow] (a)--node[above,figlabel] {$1-\cdot$}(x);
-  \draw[flow] (x)--node[above,figlabel] {$f$}(fx);
-  \draw[flow] (fx)--node[left,figlabel] {$1-\cdot$}(dual);
-  \node[figlabel] at (4.05,-.35)
-    {graph half-turn: $(x,y)\mapsto(1-x,1-y)$};
+  \begin{scope}[shift={(5.15,.68)},scale=1.08]
+    \HexCoords
+    \DrawHexagon
+    \DrawRays
+    \coordinate (Pa) at ($(V0)!.42!(V5)$);
+    \coordinate (Pp) at ($(V0)!.62!(V1)$);
+
+    \draw[demand] (V0)--(Pa);
+    \draw[boundcurve,dashed] (V0)--(Pp);
+    \draw[radialdemand] (V1)--(Pp);
+    \fill[DemandRed] (Pp) circle (.8pt);
+    \node[figlabel,below right] at ($(V0)!.44!(V5)$) {$a$};
+    \node[figlabel,above right] at ($(V0)!.42!(Pp)$)
+      {$p=f(1-a)$};
+    \node[figlabel,above left,align=right] at ($(V1)!.50!(Pp)$)
+      {$1-p$\\$=f^\vee(a)$};
+    \node[figlabel,align=center] at (0,-1.55)
+      {\(f^\vee(a)=1-f(1-a)\)};
+  \end{scope}
 \end{tikzpicture}

@@ -37,69 +37,140 @@ are collected in Appendix~\ref{sec:structural-reductions}.
 
 \subsection{The local admissible set}
 
-Take unit vectors
+\begin{definition}[Actual and selected skeleton-row coordinates]
+\label{def:body-row-coordinates}
+All indices lie in $\mathbb Z/6\mathbb Z$.  For the closed vertex role $T_i$,
+define
+\[
+ \begin{aligned}
+ A_i&=\sup\{t\in[0,1]:
+ V_i+t(V_{i-1}-V_i)\in T_i\},\\
+ B_i&=\sup\{t\in[0,1]:
+ V_i+t(V_{i+1}-V_i)\in T_i\},\\
+ C_i&=\sup\{t\in[0,1]:
+ V_i+t(O-V_i)\in T_i\}.
+ \end{aligned}
+\]
+The triple $(A_i,B_i,C_i)$ is the \emph{actual row data}.  A
+\emph{selected demand triple} is any $(a_i,b_i,c_i)\in[0,1]^3$ satisfying
+\[
+ (a_i,b_i,c_i)\le(A_i,B_i,C_i)
+\]
+coordinatewise.  Define
+\[
+ x_i=1-a_i,\qquad y_i=b_i.
+\]
+The actual row is nonsupercritical, critical, or strictly supercritical
+according as
+\[
+ A_i+B_i<1,\qquad A_i+B_i=1,\qquad A_i+B_i>1,
+\]
+respectively.  In particular,
+\[
+ N_+=\left\lvert
+ \left\{i\in\mathbb Z/6\mathbb Z:A_i+B_i>1\right\}
+ \right\rvert
+\]
+is defined from actual data, never from a selected triple.
+\end{definition}
+
+\begin{definition}[Local demand hull and admissible set]
+\label{def:body-local-admissible-set}
+Let
 \[
  u=\left(\frac12,\frac{\sqrt3}{2}\right),\qquad
- v=\left(\frac12,-\frac{\sqrt3}{2}\right),
+ v=\left(\frac12,-\frac{\sqrt3}{2}\right).
 \]
-so $u$ and $v$ meet at $120^\circ$ and $u+v$ is radial.  For selected demands
-$0\le a,b,c\le1$, put
+For $(a,b,c)\in[0,1]^3$, define
 \[
  K(a,b,c)=\conv\{0,au,bv,c(u+v)\}
 \]
-and define
 \[
- \mathcal A=\{(a,b,c)\in[0,1]^3:K(a,b,c)
- \text{ lies in a closed unit equilateral triangle}\}.
+ q_\theta=(\cos\theta,\sin\theta),\qquad
+ r_\theta=
+ \left(\cos\left(\theta+\frac{\pi}{3}\right),
+       \sin\left(\theta+\frac{\pi}{3}\right)\right),
 \]
-Actual reaches dominate selected demands coordinatewise; they must not be
-substituted for them when $N_+$ is defined.
+\[
+ \mathfrak E_1=
+ \left\{
+ \conv\{z,z+q_\theta,z+r_\theta\}:
+ z\in\mathbb R^2,\ 0\le\theta<2\pi
+ \right\}.
+\]
+Define
+\[
+ \mathcal A=
+ \left\{(a,b,c)\in[0,1]^3:
+ \exists\,\Delta\in\mathfrak E_1,\quad K(a,b,c)\subseteq\Delta
+ \right\}.
+\]
+Thus a closed vertex role with actual row data $(A,B,C)$ realizes every
+$(a,b,c)\in\mathcal A$ satisfying
+\[
+ 0\le a\le A,\qquad 0\le b\le B,\qquad 0\le c\le C.
+\]
+\end{definition}
 
 \begin{figure}[H]
 \centering
-\begin{tikzpicture}[scale=3.0,>=Latex]
-\coordinate (O) at (0,0);
-\coordinate (A) at (.36,.62);
-\coordinate (B) at (.52,-.90);
-\coordinate (C) at (.62,0);
-\draw[->] (-.05,0)--(.85,0) node[right] {$u+v$};
-\draw[->] (O)--(.52,.90) node[above] {$u$};
-\draw[->] (O)--(.52,-.90) node[below] {$v$};
-\draw[thick] (O)--(A)--(C)--(B)--cycle;
-\fill (O) circle (.7pt) node[left] {$0$};
-\fill (A) circle (.7pt) node[above left] {$au$};
-\fill (B) circle (.7pt) node[below left] {$bv$};
-\fill (C) circle (.7pt) node[above right] {$c(u+v)$};
-\end{tikzpicture}
-\caption{The local demand hull.  Its least equilateral enclosure side is the
-single scalar controlling both Strategy~2 transfers and Strategy~4 witnesses.}
+\resizebox{.98\linewidth}{!}{%
+\input{figures/strategy2_local_demand_skeleton}}
+\caption{Actual and selected row coordinates on the full hexagon skeleton,
+together with the rigid local demand hull.  The least equilateral enclosure
+side of that hull is the scalar controlling both Strategy~2 transfers and
+Strategy~4 witnesses.}
 \label{fig:local-demand-hull}
 \end{figure}
 
-For a compact set $K$, let $\mathsf R$ be rotation through $2\pi/3$ and define
+\begin{figure}[H]
+\centering
+\resizebox{.98\linewidth}{!}{%
+\input{figures/strategy2_unit_triangle_family_skeleton}}
+\caption{The oriented unit-triangle family $\mathfrak E_1$ and the formal
+containment definition of the local admissible set $\mathcal A$.}
+\label{fig:strategy2-unit-triangle-family-skeleton}
+\end{figure}
+
+\begin{definition}[Equilateral enclosure gauge]
+\label{def:body-enclosure-gauge}
+Define
 \[
- \Lambda(K)=\frac2{\sqrt3}
- \min_{\lVert n\rVert=1}\sum_{j=0}^2h_K(\mathsf R^jn),
- \qquad h_K(n)=\max_{x\in K}\langle x,n\rangle.
+ \mathsf R:\mathbb R^2\to\mathbb R^2,\qquad
+ \mathsf R=
+ \begin{pmatrix}
+ -1/2&-\sqrt3/2\\
+ \sqrt3/2&-1/2
+ \end{pmatrix}.
 \]
+For every nonempty compact $K\subset\mathbb R^2$, define
+\[
+ h_K:\mathbb S^1\to\mathbb R,\qquad
+ h_K(n):=\max_{z\in K}\langle z,n\rangle,
+\]
+\[
+ \Lambda(K):=\frac2{\sqrt3}
+ \min_{\lVert n\rVert=1}\sum_{j=0}^2h_K(\mathsf R^jn).
+\]
+\end{definition}
 Proposition~\ref{prop:universal-enclosure-gauge} says that $\Lambda(K)$ is the
 least side length of an enclosing closed equilateral triangle.
 
 \begin{proposition}[Explicit admissible-set description]
 \label{prop:body-admissible-description}
-Set
+For $(a,b,c)\in[0,1]^3$, set
 \[
  s=a+b,\qquad D=\sqrt{a^2+ab+b^2},
 \]
-and, when $s>0$ and $cs>ab$, set
-\[
- R_a=\sqrt{a^2-ac+c^2},\qquad
- R_b=\sqrt{b^2-bc+c^2}.
-\]
-Define
+and define
 \[
  L_{OA}=b+\max\{a,c\},\qquad
- L_{BO}=a+\max\{b,c\},
+ L_{BO}=a+\max\{b,c\}.
+\]
+When $s>0$ and $cs>ab$, define
+\[
+ R_a=\sqrt{a^2-ac+c^2},\qquad
+ R_b=\sqrt{b^2-bc+c^2},
 \]
 \[
  L_{AC}=
@@ -109,7 +180,16 @@ Define
  c^2/R_a,&c>a+b,
  \end{cases}
 \]
-and let $L_{CB}$ be obtained by exchanging $a$ and $b$.  Then the least
+and
+\[
+ L_{CB}=
+ \begin{cases}
+ (b^2+ac)/R_b,&b\ge c,\\
+ c(a+b)/R_b,&b<c\le a+b,\\
+ c^2/R_b,&c>a+b.
+ \end{cases}
+\]
+Then the least
 side length of an equilateral triangle containing $K(a,b,c)$ is
 \[
  L_{\min}(a,b,c)=
@@ -135,47 +215,159 @@ the explicit triangular-hull enclosure, and the equivalent three polynomial
 cells are proved in Appendix~\ref{sec:admissible-set-derivation}.
 \end{proof}
 
+\begin{figure}[H]
+\centering
+\resizebox{.98\linewidth}{!}{%
+\input{figures/strategy2_enclosure_gauge_skeleton}}
+\caption{The support-function definition of the equilateral enclosure gauge,
+placed in the full skeleton containing the local demand hull.}
+\label{fig:strategy2-enclosure-gauge-skeleton}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\resizebox{.98\linewidth}{!}{%
+\input{figures/strategy2_admissible_scalars_skeleton}}
+\caption{The scalar and caliper-denominator data entering the exact
+admissible-set formula.}
+\label{fig:strategy2-admissible-scalars-skeleton}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\resizebox{.98\linewidth}{!}{%
+\input{figures/strategy2_admissible_minimum_skeleton}}
+\caption{The complete piecewise least-enclosure function
+$L_{\min}$ and its exact relation to $\mathcal A$.}
+\label{fig:strategy2-admissible-minimum-skeleton}
+\end{figure}
+
 \subsection{The transfer alphabet and its inequality interface}
 
-For incoming defect $x=1-a$ and radial demand $c$, define
+\begin{definition}[Raw, capped, and complement-dual transfers]
+\label{def:body-transfer-alphabet}
+For each $c\in[0,1]$, define $g_c,\widehat g_c:[0,1]\to[0,1]$ by
 \[
- g_c(x)=\max\{y:(1-x,y,c)\in\mathcal A\},
+ g_c(x)=
+ \max\left\{y\in[0,1]:(1-x,y,c)\in\mathcal A\right\},
  \qquad
  \widehat g_c(x)=\min\{g_c(x),x\}.
 \]
-For a map $f$, set
+For every map $f:[0,1]\to[0,1]$, define its complement dual
+$f^\vee:[0,1]\to[0,1]$ by
 \[
  f^\vee(a)=1-f(1-a).
 \]
-Thus $g_c$ is the raw outgoing map, the hat imposes the nonsupercritical cap,
-and $\vee$ returns to incoming-reach coordinates.  At zero radial demand,
+Consequently,
 \[
- g_0(x)>x\quad(0<x<1),\qquad \widehat g_0(x)=x.
+ g_c^\vee(a)=1-g_c(1-a),\qquad
+ \widehat g_c^\vee(a)=1-\widehat g_c(1-a).
 \]
-The identity belongs to the hatted map.
+The variable $x=1-a$ is an incoming boundary-defect coordinate,
+$g_c(x)$ is the extremal admissible outgoing demand, the hat imposes the
+nonsupercritical bound $y\le x$, and $\vee$ returns the map to
+incoming-reach coordinates.
+\end{definition}
 
-If a center interval $J\subseteq[0,1]$ helps cover the handoff edge, let
-$\mathcal R_J(p)$ be the uncovered residual to the right of the component of
-$[0,p]\cup J$ containing $0$, and define
+\begin{definition}[Residual and center-assisted transfers]
+\label{def:body-center-assisted-transfer}
+Let
+\[
+ \mathfrak J=
+ \{\varnothing\}\cup
+ \{[L,U]:0\le L\le U\le1\}.
+\]
+For $J\in\mathfrak J$ and $p\in[0,1]$, define
+\[
+ e_J(p)=
+ \sup\{t\in[0,1]:[0,t]\subseteq[0,p]\cup J\},
+ \qquad
+ \mathcal R_J(p)=1-e_J(p).
+\]
+Equivalently,
+\[
+ \mathcal R_\varnothing(p)=1-p,
+\qquad
+ \mathcal R_{[L,U]}(p)=
+ \begin{cases}
+ 1-p,&p<L,\\
+ 1-\max\{p,U\},&p\ge L.
+ \end{cases}
+\]
+For $a,c\in[0,1]$ and $J\in\mathfrak J$, define
 \[
  g_{c,J}^\vee(a)=\mathcal R_J(g_c(1-a)),\qquad
- \widehat g_{c,J}^\vee(a)=\mathcal R_J(\widehat g_c(1-a)).
+ \widehat g_{c,J}^\vee(a)=
+ \mathcal R_J(\widehat g_c(1-a)).
 \]
-Finally, for $0\le c<1/2$, put
+\end{definition}
+
+\begin{definition}[Free strict-supercritical envelope]
+\label{def:body-supercritical-envelope}
+For $0\le c<1/2$, define
 \[
- g_c^{\rm sc}
- =\sup_{\{x:g_c(x)>x\}}g_c(x)
- =\frac{c+\sqrt{c^2-8c+4}}2.
+ \mathcal S_c:=\{x\in[0,1]:g_c(x)>x\}.
 \]
-Panels (a)--(e) of Figure~\ref{fig:transfer-notation-atlas} give a visual
-reading of this alphabet.  In particular, $x$ is a complementary coordinate,
-not necessarily a geometrically uncovered segment, and $g_c(x)$ is an
-extremal admissible output rather than the actual reach $B$.
+Define the continuous envelope function on the closed parameter interval by
+\[
+ g^{\rm sc}:[0,1/2]\to[1/2,1],
+\qquad
+ g_c^{\rm sc}=
+ \frac{c+\sqrt{c^2-8c+4}}2.
+\]
+For $0\le c<1/2$,
+\[
+ g_c^{\rm sc}=\sup_{x\in\mathcal S_c}g_c(x),
+\]
+whereas $g_{1/2}^{\rm sc}=1/2$ is the continuous endpoint value.
+\end{definition}
+
+\begin{definition}[Ordered composition and slotwise lower relaxation]
+\label{def:body-relaxed-composition}
+Let $r\in\mathbb Z_{\ge1}$ and, for $1\le j\le r$, let
+$\Phi_j:[0,1]\to[0,1]$ be listed in geometric row order.  Define
+\[
+ [\Phi_1\mid\cdots\mid\Phi_r]:[0,1]\to[0,1],
+ \qquad
+ [\Phi_1\mid\cdots\mid\Phi_r](x)
+ :=(\Phi_r\circ\cdots\circ\Phi_1)(x),
+\]
+\[
+ \mathrm I:[0,1]\to[0,1],
+ \qquad
+ \mathrm I(x):=x.
+\]
+For maps $\underline\Phi_j:[0,1]\to[0,1]$ with $1\le j\le r$, if every
+$\Phi_j$ is nondecreasing and
+\[
+ \underline\Phi_j(x)\le\Phi_j(x)
+ \qquad(1\le j\le r,\ x\in[0,1]),
+\]
+then
+$[\underline\Phi_1\mid\cdots\mid\underline\Phi_r]$ is called a
+\emph{slotwise lower relaxation} of
+$[\Phi_1\mid\cdots\mid\Phi_r]$.
+\end{definition}
+
+At zero radial demand,
+\[
+ g_0(x)>x\quad(0<x<1),\qquad
+ \widehat g_0(x)=x.
+\]
+Thus the identity belongs to the hatted map, not the raw map.
+Figures~\ref{fig:transfer-row-skeleton}--\ref{fig:relaxed-composition-skeleton}
+give a visual reading of this alphabet.  In particular, $x$ is a
+complementary coordinate, not necessarily a geometrically uncovered segment,
+and $g_c(x)$ is an extremal admissible output rather than the actual reach
+$B$.
 
 \begin{proposition}[Transfer interface]
 \label{prop:body-transfer-interface}
-Suppose an actual row has incoming reach at least $a$, radial reach at least
-$c$, and outgoing reach $B$.
+Fix $a,c,B,A_{\rm next}\in[0,1]$ and $J\in\mathfrak J$.  Suppose an actual
+row has incoming reach at least $a$, radial reach at least $c$, and actual
+outgoing reach $B$.  Let $A_{\rm next}$ be the actual incoming reach of the
+next incident row.  When a center trace assists the handoff, $J$ is its
+scalar parameter interval on that edge.
 \begin{enumerate}
 \item Always,
 \[
@@ -197,8 +389,12 @@ and on a center-free outgoing edge
 \[
  A_{\rm next}\ge g_{c,J}^\vee(a),
 \]
-and the hatted version holds for a nonsupercritical row.
-\item If the row is strictly supercritical, then
+and, for a nonsupercritical row,
+\[
+ A_{\rm next}\ge\widehat g_{c,J}^\vee(a).
+\]
+\item If the row is strictly supercritical, then necessarily
+$0\le c<1/2$, and
 \[
  B<g_c^{\rm sc}.
 \]
@@ -222,29 +418,92 @@ Lemma~\ref{lem:reader-relaxed-composition}.
 
 \subsection{One signed CE1/CE2 interface}
 
-Normalize a positive center trace to $e_{0,1}$.  The common signed parameters
-are
+\begin{definition}[Positive part and center-boundary contribution]
+\label{def:body-positive-part}
+For $t\in\mathbb R$, define
 \[
- 0<R<1,\qquad W=1-R,
+ [t]_+=\max\{t,0\}.
+\]
+For a closed center role $T_C$, define
+\[
+ L_{\partial H}(T_C)=\Haus(T_C\cap\partial H).
+\]
+\end{definition}
+
+\begin{definition}[Signed CE1/CE2 center normal form]
+\label{def:body-signed-center-data}
+Normalize a positive-length center trace to $e_{0,1}$.  For
+$0<R<1$ and $\alpha,\delta>0$, define
+\[
+ W=1-R,\qquad
+ E=\sqrt{1-RW},\qquad
+ \eta=1-E,\qquad
+ P=E(1-E),\qquad
+ k=\eta+\alpha+\delta,
 \]
 \[
- E=\sqrt{1-RW},\qquad \eta=1-E,\qquad P=E(1-E),
-\]
-with center slacks $\alpha,\delta\ge0$.  Put
-\[
- \Delta_R=P-\alpha-W\delta,
- \qquad
+ \Delta_R=P-\alpha-W\delta,\qquad
  \Delta_L=P-R\alpha-\delta.
 \]
+Define the affine chart
+\[
+ \chi:\mathbb R^2\to\mathbb R^2,\qquad
+ \chi(a,b):=V_0+b(V_1-V_0)+a(V_5-V_0),
+\]
+and the affine functions $F_j:\mathbb R^2\to\mathbb R$ for
+$j\in\{0,1,2\}$ by
+\[
+ \begin{aligned}
+ F_0(a,b)&=R+\alpha-a+Wb,\\
+ F_1(a,b)&=Rb+Wa-k,\\
+ F_2(a,b)&=W+\delta-b+Ra,
+ \end{aligned}
+\]
+Define the signed parameter domain
+\[
+ \mathcal D_{\rm sgn}
+ =
+ \left\{(R,\alpha,\delta)\in\mathbb R^3:
+ 0<R<1,\ \alpha>0,\ \delta>0,\ \Delta_R>0\right\}.
+\]
+For $(R,\alpha,\delta)\in\mathcal D_{\rm sgn}$, define
+\[
+ T_C(R,\alpha,\delta):=
+ \left\{\chi(a,b):F_0(a,b)\ge0,\ F_1(a,b)\ge0,\
+ F_2(a,b)\ge0\right\},
+\]
+and define the active geometric trace
+\[
+ \mathcal I_{\mathrm R}:=
+ \left\{\chi(0,b):\frac{k}{R}\le b\le W+\delta\right\}
+ \subseteq e_{0,1},
+\]
+and the companion geometric trace
+\[
+ \mathcal I_{\mathrm L}:=
+ \begin{cases}
+ \varnothing,&\Delta_L<0,\\
+ \{\chi(k/W,0)\},&\Delta_L=0,\\
+ \{\chi(a,0):k/W\le a\le R+\alpha\},&\Delta_L>0.
+ \end{cases}
+\]
+Finally, define the center exit on $r_i=[O,V_i]$ by
+\[
+ d_i^C=
+ \sup\{t\in[0,1]:O+t(V_i-O)\in T_C\},
+\qquad
+ c_i^C:=1-d_i^C.
+\]
+\end{definition}
 
 \begin{proposition}[Signed center interface]
 \label{prop:body-signed-center-interface}
 The normalization has $\Delta_R>0$.  The normalized trace and its possible
 companion have lengths
 \[
- \ell_R=\frac{\Delta_R}{R},
+ \ell_R=\Haus(\mathcal I_{\mathrm R})=\frac{\Delta_R}{R},
  \qquad
- \ell_L=\frac{[\Delta_L]_+}{W},
+ \ell_L=\Haus(\mathcal I_{\mathrm L})=\frac{[\Delta_L]_+}{W},
 \]
 and
 \[
@@ -259,6 +518,10 @@ The six radial exits from $O$ are
  d_i^C&E-\alpha-\delta&\delta/R&\delta&
  \min\{\alpha/R,\delta/W\}&\alpha&\alpha/W.
  \end{array}
+\]
+and the corresponding vertex-side radial demands are
+\[
+ c_i^C=1-d_i^C\qquad(0\le i\le5).
 \]
 The full center boundary contribution is
 \[
@@ -277,11 +540,12 @@ whereas
 \]
 \end{proposition}
 
-Panels (f)--(j) of Figure~\ref{fig:signed-center-notation-atlas} show the
-parameter dependencies and the companion-trace sign test.  They also give two
-valid numerical center triangles, all six radial exits, and the scalar
+Figures~\ref{fig:signed-parameter-skeleton}--%
+\ref{fig:signed-center-budget-skeleton} show the parameter dependencies and
+the companion-trace sign test.  They also give two valid numerical center
+triangles, all six radial exits, all complementary demands $c_i^C$, and the
 boundary budgets.  The quantities $\eta$, $P$, $\Delta_R$, and $\Delta_L$ are
-algebraic parameters; only $\ell_R,\ell_L$ and the $d_i^C$ are drawn as
+algebraic parameters; only $\ell_R,\ell_L,d_i^C$, and $c_i^C$ are drawn as
 geometric lengths.
 
 \begin{proof}
@@ -290,3 +554,5 @@ Corollary~\ref{cor:signed-center-boundary}.  Appendix
 \ref{sec:signed-ce12-reductions} derives the side equations, traces, exits, and
 sign classification.
 \end{proof}
+
+\input{02c_strategy2_skeleton_atlas}

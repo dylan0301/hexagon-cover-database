@@ -28,6 +28,7 @@ calculation lemma without the appendices and incorporated supplements.
 | `main.tex` | AMS assembly and body/appendix split |
 | `01_introduction.tex` | theorem, roles, definitions, routing table, figures |
 | `02_reader_framework.tex` | structural, admissible-set, transfer, signed-center interfaces |
+| `02c_strategy2_skeleton_atlas.tex` | modular full-skeleton dictionary for the transfer and signed-center interfaces |
 | `03_strategy1_reader.tex` | trace-cap register and terminal trace sums |
 | `04_strategy2_summary.tex` | complete branch hypotheses and certificate register |
 | `05_strategy3_reader.tex` | area-loss register and cyclic sums |
@@ -39,7 +40,6 @@ calculation lemma without the appendices and incorporated supplements.
 | File | Function |
 |---|---|
 | `appendix_roadmap.tex` | verification guide and proof-layer disclaimer |
-| `appendix_interface_notation_atlas.tex` | modular transfer and signed-center notation examples |
 | `02_structural_reductions.tex` | classifications, reaches, gaps, handoffs, routing |
 | `02a_universal_calculus.tex` | corrected transfers, residuals, center-free path budget |
 | `02b_admissible_set_derivation.tex` | support derivation, cells, selectors, radial envelope |
@@ -57,12 +57,13 @@ calculation lemma without the appendices and incorporated supplements.
 | `06a_strategy4_exact_certificate.tex` | mixed reduction, manifest, Bernstein proof, cap geometry |
 | `appendix_symbols.tex` | notation cross-reference |
 
-The body-end label remains immediately before `\appendix`.  The current local
-XeLaTeX build places that label on page 19.
+The body-end label remains immediately before `\appendix`.  The body has no
+fixed page cap; its page number is recorded after each complete build.
 
-The illustrated notation atlas is explanatory only.  Its exact zero-radial
-curve and signed numerical samples agree with the proved interfaces, while
-the generic strict-supercritical panel is explicitly schematic.
+The illustrated Strategy 2 atlas is explanatory only.  Its 33 modular panels
+are grounded in the regular hexagon skeleton and occur in the reader-facing
+body beside the corresponding mathematical definitions; any non-metric
+placement is explicitly marked schematic.
 
 ## 3. Repairs made after the validity audit
 
@@ -288,12 +289,13 @@ The manuscript was rebuilt locally with XeLaTeX and the corresponding
 
 ```text
 xelatex -no-pdf -interaction=nonstopmode -halt-on-error main.tex
+xelatex -no-pdf -interaction=nonstopmode -halt-on-error main.tex
 xdvipdfmx -E -o main.pdf main.xdv
 ```
 
-The resulting `main.pdf` has 120 pages.  The reader-facing body ends on page
-19, the transfer atlas is on page 21, and the signed-center atlas is on page
-22.  The build has no undefined references or duplicate labels.  The two
-pre-existing overfull horizontal boxes in the Strategy 2 register and the
-electronic-supplement manifest remain; the new atlas introduces no overfull
-horizontal box.
+The resulting `main.pdf` has 137 pages.  The reader-facing body ends on page
+38.  Strategy 2's 33 full-skeleton panels occur on body pages 6--32: the
+transfer and signed-center dictionary occupies pages 12--16, and the exact
+certificate figures occupy pages 18--32.  The build has no undefined
+references, duplicate labels, or overfull boxes.  Ghostscript decoded every
+page, and `pdfinfo` and `pdftotext` read the complete PDF successfully.

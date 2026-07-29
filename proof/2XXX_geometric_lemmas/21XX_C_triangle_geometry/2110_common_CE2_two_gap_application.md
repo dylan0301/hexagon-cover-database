@@ -57,9 +57,9 @@ are at least these demands.
 The complementary radial demands at the endpoint rows are
 
 $$
-c_5=1-\frac{\alpha}{W}=rac pW,
+c_5=1-\frac{\alpha}{W}=\frac pW,
 \qquad
-c_1=1-\frac{\delta}{R}=rac qR.
+c_1=1-\frac{\delta}{R}=\frac qR.
 $$
 
 Let $B_5^{\rm far}$ and $B_1^{\rm far}$ denote the reaches of rows $T_5$ and

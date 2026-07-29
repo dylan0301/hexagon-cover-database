@@ -1,30 +1,42 @@
 \begin{tikzpicture}[x=1cm,y=1cm,>=Latex]
-  \node[panellabel,anchor=west] at (.02,1.32)
-    {(c) the center-assisted residual $\mathcal R_J(p)$};
+  \node[panellabel,anchor=west] at (.02,2.30)
+    {(c) the center-assisted residual on a skeleton edge};
 
   \foreach \sx/\pt/\et/\case/\formula in {
-    .15/.25/.25/{p<L}/{1-p},
-    4.20/.58/.72/{L\le p<U}/{1-U},
-    8.25/.86/.86/{p\ge U}/{1-p}
+    1.85/.25/.25/{p<L}/{1-p},
+    6.00/.58/.72/{L\le p<U}/{1-U},
+    10.15/.86/.86/{p\ge U}/{1-p}
   }{
-    \begin{scope}[shift={(\sx,0)},x=3.35cm]
-      \draw[black!55,line width=.55pt] (0,0)--(1,0);
-      \draw[boundcurve] (0,0)--(\pt,0);
-      \draw[centertrace] (.42,0)--(.72,0);
-      \fill (0,0) circle (.7pt);
-      \fill (1,0) circle (.7pt);
-      \draw[black!65,line width=2pt,opacity=.25] (0,.08)--(\et,.08);
-      \draw[dimline] (\et,-.27)--(1,-.27)
-        node[midway,below,figlabel] {$\mathcal R_J(p)=\formula$};
-      \node[figlabel,above] at (.57,.02) {$J=[L,U]$};
-      \node[figlabel,below] at (\pt,-.02) {$p$};
-      \node[figlabel,above] at (.02,.08) {$0$};
-      \node[figlabel,above] at (.98,.08) {$1$};
-      \node[figlabel,align=center] at (.50,-.72) {$\case$};
+    \begin{scope}[shift={(\sx,.65)},scale=1.08]
+      \HexCoords
+      \DrawHexagon
+      \DrawRays
+      \coordinate (Pp) at ($(V0)!\pt!(V1)$);
+      \coordinate (PL) at ($(V0)!.42!(V1)$);
+      \coordinate (PU) at ($(V0)!.72!(V1)$);
+      \coordinate (Pe) at ($(V0)!\et!(V1)$);
+
+      \draw[black!28,line width=2.8pt] (V0)--(Pe);
+      \draw[demand] (V0)--(Pp);
+      \draw[centertrace] (PL)--(PU);
+      \draw[radialdemand]
+        ($(V1)+(.05,.03)$)--($(Pe)+(.05,.03)$);
+      \fill[DemandRed] (Pp) circle (.75pt);
+      \fill[black!65] (Pe) circle (.7pt);
+
+      \node[figlabel,above right] at ($(V0)!.52!(Pp)$) {$p$};
+      \node[figlabel,above] at ($(PL)!.50!(PU)$) {$J=[L,U]$};
+      \node[figlabel,anchor=east,align=right] at ($(V1)+(-.06,.25)$)
+        {$A_{\rm next}\ge\mathcal R_J(p)$};
+      \node[figlabel,below] at (0,-1.55)
+        {$\case:\quad\mathcal R_J(p)=\formula$};
     \end{scope}
   }
-  \node[figlabel,align=center] at (6.05,-1.07)
-    {For a transfer, $p$ may be an outgoing upper bound:\quad
-     $p=g_c(1-a)$ gives $g_{c,J}^{\vee}(a)$;\quad
-      $p=\widehat g_c(1-a)$ gives $\widehat g_{c,J}^{\vee}(a)$.};
+
+  \node[figlabel,align=center] at (6.00,-1.78)
+    {Gray is the component of \([0,p]\cup J\) attached to \(V_0\);
+     the teal far-side reach is forced from \(V_1\).\\
+     For \(p=g_c(1-a)\) this gives \(g_{c,J}^{\vee}(a)\);
+     for \(p=\widehat g_c(1-a)\) it gives
+     \(\widehat g_{c,J}^{\vee}(a)\).};
 \end{tikzpicture}

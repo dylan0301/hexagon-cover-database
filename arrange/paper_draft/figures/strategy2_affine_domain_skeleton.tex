@@ -1,0 +1,54 @@
+\begin{tikzpicture}[x=1cm,y=1cm,>=Latex]
+  \node[panellabel,anchor=west] at (.05,4.02)
+    {The certified CE1 affine subdomain};
+  \node[figlabel,anchor=east,text=black!60] at (13.45,3.72)
+    {the retained \(T_4\to T_3\to T_2\) slots are shown on the skeleton};
+
+  \begin{scope}[shift={(2.22,1.65)},scale=1.80]
+    \HexCoords
+    \DrawHexagon
+    \DrawRays
+    \foreach \i in {0,...,5}{\fill[black] (V\i) circle (.55pt);}
+
+    \draw[radialdemand] (V4)--($(V4)!.43!(O)$);
+    \draw[radialdemand] (V3)--($(V3)!.43!(O)$);
+    \draw[radialdemand] (V2)--($(V2)!.43!(O)$);
+    \draw[flow] ($(V4)!.12!(V3)$)--($(V4)!.70!(V3)$);
+    \draw[flow] ($(V3)!.12!(V2)$)--($(V3)!.70!(V2)$);
+    \node[figlabel,text=RadialTeal,below right]
+      at ($(V4)!.29!(O)$) {$1-\alpha$};
+    \node[figlabel,text=RadialTeal,below]
+      at ($(V3)!.29!(O)$) {$1-m_3$};
+    \node[figlabel,text=RadialTeal,below left]
+      at ($(V2)!.29!(O)$) {$1-\delta$};
+    \node[figlabel,fill=white] at ($(V4)!.43!(V3)$)
+      {$h_{\rm term}\mapsto q_1$};
+    \node[figlabel,fill=white] at ($(V3)!.43!(V2)$)
+      {$q_1\mapsto\ell_2$};
+    \node[figlabel,below] at (0,-1.28)
+      {$T_4\longrightarrow T_3\longrightarrow T_2$};
+  \end{scope}
+
+  \node[figlabel,atlasbox,align=left,anchor=west] at (4.65,2.92)
+    {$\displaystyle
+      h_{\rm term}:=\frac{k}{2R},\qquad
+      m_3:=d_3^C=\min\!\left\{\frac{\alpha}{R},\frac{\delta}{W}\right\},$\\[-1pt]
+     $\displaystyle
+      q_1:=
+      h_{\rm term}+
+      (1-4\alpha)(h_{\rm term}-\alpha)$};
+
+  \node[figlabel,atlasbox,align=left,anchor=west] at (4.65,.42)
+    {$\displaystyle
+      \mathcal D_{\rm aff}:=
+      \left\{(R,\alpha,\delta)\in\mathcal D_{\rm CE1}:
+      \begin{array}{c}
+       0<\delta<d_*,\quad0<m_3<1/2,\\
+       h_{\rm term}\in\mathcal T_\alpha,\quad
+       q_1\in\mathcal T_{m_3},\quad
+       x_{\rm in}>e(\delta),\\
+       1-4\alpha\in\mathcal C_\alpha,\quad
+       1-5m_3\in\mathcal C_{m_3}
+      \end{array}
+      \right\}$};
+\end{tikzpicture}

@@ -123,7 +123,8 @@ The complete proof now includes:
 - all four strict Vd1 margins;
 - the center radial-handoff inequality;
 - explicit unit axis triangles;
-- translations producing open nonsupercritical Vd0 roles;
+- interiors of translated unit-axis triangles producing open
+  nonsupercritical Vd0 roles;
 - preservation of the shared boundary and both radial demands.
 
 A final audit found one overstrong comparison in the old `4147` source. It has
@@ -290,7 +291,7 @@ paper's correspondence to that tree after these repairs.
 Two checks were deliberately not performed:
 
 1. **No PDF/LaTeX compilation.** This was explicitly prohibited for the task.
-   Consequently the 20-page body target, references, and layout remain to be
+   Consequently the body pagination, references, and layout remain to be
    checked in a later build.
 2. **No fresh verifier execution.** The exact Strategy 4 code and authenticated
    data were reviewed and formally incorporated, but the scripts were not

@@ -1,0 +1,45 @@
+\begin{tikzpicture}[x=1cm,y=1cm,>=Latex]
+  \node[panellabel,anchor=west] at (.05,3.30)
+    {Scalar data for the explicit admissible-set formula};
+  \node[figlabel,anchor=east,text=black!60] at (13.40,3.02)
+    {representative row lengths are schematic; formulas are exact};
+
+  \begin{scope}[shift={(2.25,1.18)},scale=1.86]
+    \HexCoords
+    \DrawHexagon
+    \DrawRays
+    \draw[demand] (V0)--($(V0)!.34!(V5)$);
+    \draw[demand] (V0)--($(V0)!.30!(V1)$);
+    \draw[radialdemand] (V0)--($(V0)!.44!(O)$);
+    \node[figlabel,text=DemandRed,below right]
+      at ($(V0)!.22!(V5)$) {$a$};
+    \node[figlabel,text=DemandRed,above right]
+      at ($(V0)!.20!(V1)$) {$b$};
+    \node[figlabel,text=RadialTeal,above]
+      at ($(V0)!.30!(O)$) {$c$};
+    \fill[black] (V0) circle (.7pt);
+    \node[figlabel,right] at (V0) {$V_i$};
+    \node[figlabel,align=center] at (0,-1.30)
+      {\(K(a,b,c)=\conv\{0,au,bv,c(u+v)\}\)};
+  \end{scope}
+
+  \node[figlabel,atlasbox,align=left,anchor=west] at (4.55,2.42)
+    {$\displaystyle
+      s:=a+b,\qquad
+      D:=\sqrt{a^2+ab+b^2}$};
+
+  \node[figlabel,atlasbox,align=left,anchor=west] at (4.55,1.34)
+    {When \(s>0\) and \(cs>ab\),\\[-2pt]
+     \(\displaystyle
+      R_a:=\sqrt{a^2-ac+c^2},\qquad
+      R_b:=\sqrt{b^2-bc+c^2}.\)};
+
+  \node[figlabel,atlasbox,align=left,anchor=west] at (4.55,.18)
+    {$\displaystyle
+      L_{OA}:=b+\max\{a,c\},\qquad
+      L_{BO}:=a+\max\{b,c\}$};
+
+  \node[figlabel,align=left,anchor=west,text=black!68] at (4.60,-1.00)
+    {\(D\) is the triangular-hull enclosure value; \(R_a,R_b\)
+     are the two four-sided caliper denominators.};
+\end{tikzpicture}

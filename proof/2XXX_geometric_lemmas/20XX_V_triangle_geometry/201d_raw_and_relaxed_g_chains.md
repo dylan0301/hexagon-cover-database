@@ -476,12 +476,12 @@ x+\lambda(x-d)
 }
 $$
 
-The CE1 one-gap proof uses
+The CE1 one-gap proof sets $m_3:=d_3^C$ and uses
 
 $$
 \widehat g_{1-\alpha}^{\vee,\,1-4\alpha},
 \qquad
-\widehat g_{1-m}^{\vee,\,1-5m}.
+\widehat g_{1-m_3}^{\vee,\,1-5m_3}.
 $$
 
 The superscript $\lambda$ denotes a certified lower relaxation, not an

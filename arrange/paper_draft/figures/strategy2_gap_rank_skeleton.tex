@@ -1,0 +1,67 @@
+\begin{tikzpicture}[x=1cm,y=1cm,>=Latex]
+  \node[panellabel,anchor=west] at (.05,3.18)
+    {Active-gap rank on the full hexagon skeleton};
+  \node[figlabel,anchor=east,text=black!60] at (13.35,2.91)
+    {schematic; positions and lengths are not metric};
+
+  \foreach \x/\rank/\tag in {
+    1.80/0/{no active center gap},
+    6.15/1/{one active center gap},
+    10.50/2/{two active center gaps (CE2 only)}
+  }{
+    \begin{scope}[shift={(\x,1.38)},scale=1.18]
+      \HexCoords
+      \DrawHexagon
+      \DrawRays
+      \fill[CenterBlue] (O) circle (.9pt);
+      \foreach \i in {0,...,5}{
+        \fill[black] (V\i) circle (.55pt);
+      }
+      \node[figlabel,below] at (0,-1.17) {$\mathrm{gr}=\rank$};
+      \node[figlabel,align=center,text=black!65] at (0,-1.48) {\tag};
+    \end{scope}
+  }
+
+  % Rank zero: positive traces may exist, but none contains a V-gap.
+  \begin{scope}[shift={(1.80,1.38)},scale=1.18]
+    \draw[centertrace] ($(V0)!.18!(V1)$)--($(V0)!.36!(V1)$);
+    \draw[centertrace] ($(V5)!.64!(V0)$)--($(V5)!.81!(V0)$);
+    \node[figlabel,text=CenterBlue,anchor=west] at (1.02,.47)
+      {trace, no $\Gamma_i$};
+  \end{scope}
+
+  % Rank one: the normalized right center trace contains Gamma_0.
+  \begin{scope}[shift={(6.15,1.38)},scale=1.18]
+    \draw[centertrace] ($(V0)!.18!(V1)$)--($(V0)!.80!(V1)$);
+    \draw[gap] ($(V0)!.43!(V1)$)--($(V0)!.57!(V1)$);
+    \node[figlabel,text=GapPurple,anchor=west] at (.90,.48) {$\Gamma_0$};
+    \draw[centertrace] ($(V5)!.67!(V0)$)--($(V5)!.82!(V0)$);
+  \end{scope}
+
+  % Rank two: both positive CE2 traces contain a V-gap.
+  \begin{scope}[shift={(10.50,1.38)},scale=1.18]
+    \draw[centertrace] ($(V0)!.18!(V1)$)--($(V0)!.80!(V1)$);
+    \draw[gap] ($(V0)!.43!(V1)$)--($(V0)!.57!(V1)$);
+    \node[figlabel,text=GapPurple,anchor=west] at (.90,.48) {$\Gamma_0$};
+    \draw[centertrace] ($(V5)!.20!(V0)$)--($(V5)!.82!(V0)$);
+    \draw[gap] ($(V5)!.43!(V0)$)--($(V5)!.57!(V0)$);
+    \node[figlabel,text=GapPurple,anchor=west] at (.88,-.50) {$\Gamma_5$};
+  \end{scope}
+
+  \node[figlabel,atlasbox,align=left,anchor=west] at (.10,-1.08)
+    {$\displaystyle
+      \xi_i(t):=V_i+t(V_{i+1}-V_i)\quad(0\le t\le1),$\\[-1pt]
+     $\displaystyle
+      \Gamma_i=
+      \begin{cases}
+        \xi_i([B_i,\,1-A_{i+1}]),&B_i\le1-A_{i+1},\\
+        \varnothing,&B_i>1-A_{i+1},
+      \end{cases}$\quad
+     $\displaystyle
+      N_+=\left\lvert\{\,i:A_i+B_i>1\,\}\right\rvert$};
+  \node[figlabel,atlasbox,align=left,anchor=west] at (.10,-2.02)
+    {$\mathrm{gr}=$ number of positive center traces containing a
+      nonempty $\Gamma_i$;\\
+     $\mathrm{gr}\in\{0,1,2\}$,\qquad
+     $\mathrm{CE1}\Rightarrow\mathrm{gr}\le1$.};
+\end{tikzpicture}

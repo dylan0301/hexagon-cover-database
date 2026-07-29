@@ -1,29 +1,43 @@
 \begin{tikzpicture}[x=1cm,y=1cm,>=Latex]
-  \node[panellabel,anchor=west] at (.03,2.03)
-    {(j) scalar boundary-contribution bounds};
+  \node[panellabel,anchor=west] at (.03,2.12)
+    {(j) boundary-contribution bounds on the skeleton};
 
-  \node[figlabel,anchor=east] at (1.28,1.19) {$\mathrm{CE1}$};
-  \draw[black!50,line width=.6pt] (1.45,1.19)--(5.35,1.19);
-  \draw[demand] (1.45,1.19)--(3.78,1.19);
-  \draw[black!60] (3.78,1.08)--(3.78,1.30);
-  \draw[black!60] (4.73,1.08)--(4.73,1.30);
-  \draw[black!60] (5.18,1.08)--(5.18,1.30);
-  \node[figlabel,below] at (3.78,1.08) {$L_{\partial H}=\ell_R$};
-  \node[figlabel,above] at (4.73,1.30) {$P$};
-  \node[figlabel,above] at (5.18,1.30)
-    {$\sqrt3/2-3/4$};
-  \node[figlabel,align=center] at (3.40,.62)
-    {$L_{\partial H}(T_C)\le P\le\sqrt3/2-3/4$};
+  \begin{scope}[shift={(1.45,.55)},scale=.88]
+    \HexCoords
+    \DrawHexagon
+    \DrawRays
+    \draw[centerrole]
+      (.679270858,-.541343219)--(.793978725,.452056048)--
+      (-.123684211,.054696341)--cycle;
+    \draw[centertrace]
+      (.784816491,.372708771)--(.75,.433012702);
+    \fill[CenterBlue] (O) circle (1pt);
+    \node[figlabel,above right] at (.765,.414) {$\ell_R$};
+  \end{scope}
 
-  \node[figlabel,anchor=east] at (1.28,-.05) {$\mathrm{CE2}$};
-  \draw[black!50,line width=.6pt] (1.45,-.05)--(5.35,-.05);
-  \draw[demand] (1.45,-.05)--(2.30,-.05);
-  \draw[centertrace] (2.30,-.05)--(3.34,-.05);
-  \draw[black!60] (5.18,-.16)--(5.18,.06);
-  \node[figlabel,above] at (1.88,.02) {$\ell_R$};
-  \node[figlabel,above] at (2.82,.02) {$\ell_L$};
-  \node[figlabel,below] at (3.34,-.14) {$L_{\partial H}=\ell_R+\ell_L$};
-  \node[figlabel,above] at (5.18,.06) {$1/2$};
-  \node[figlabel,align=center] at (3.40,-.72)
-    {$L_{\partial H}(T_C)<1/2$};
+  \begin{scope}[shift={(4.45,.55)},scale=.88]
+    \HexCoords
+    \DrawHexagon
+    \DrawRays
+    \draw[centerrole]
+      (.734534016,-.582365475)--(.849241883,.411033792)--
+      (-.068421053,.013674085)--cycle;
+    \draw[centertrace]
+      (.834816491,.286106231)--(.78,.381051178);
+    \draw[centertrace]
+      (.752224736,-.429159346)--(.685,-.545596004);
+    \fill[CenterBlue] (O) circle (1pt);
+    \node[figlabel,above right] at (.80,.35) {$\ell_R$};
+    \node[figlabel,below right] at (.71,-.50) {$\ell_L$};
+  \end{scope}
+
+  \node[figlabel,align=center] at (2.95,-.78)
+    {\(\displaystyle
+      \mathrm{CE1}:\quad
+      L_{\partial H}(T_C)=\ell_R
+      \le P\le\frac{\sqrt3}{2}-\frac34\)};
+  \node[figlabel,align=center] at (2.95,-1.20)
+    {\(\displaystyle
+      \mathrm{CE2}:\quad
+      L_{\partial H}(T_C)=\ell_R+\ell_L<\frac12\)};
 \end{tikzpicture}

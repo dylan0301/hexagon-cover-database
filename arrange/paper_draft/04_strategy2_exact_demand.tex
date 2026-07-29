@@ -316,7 +316,7 @@ Proposition~\ref{prop:signed-center-normal-form}, and put
 The CE1 sign gives
 $D+RA\ge P$ and $RD>wA$, so
 \[
- m=\min\left\{\frac AR,\frac Dw\right\}=\frac AR.
+ m_3=\min\left\{\frac AR,\frac Dw\right\}=\frac AR.
 \]
 The exact strict domain needed below is
 \begin{equation}
@@ -330,7 +330,7 @@ Proposition~\ref{prop:signed-one-gap-interface} contains the five actual-row
 handoffs, the three duality steps, and the terminal diameter comparison.
 It remains only to prove its scalar target
 \begin{equation}
- \left(G_{1-D}\circ G_{1-m}\circ G_{1-A}\right)(H)>1-X.
+ \left(G_{1-D}\circ G_{1-m_3}\circ G_{1-A}\right)(H)>1-X.
  \label{eq:ce1-suffix}
 \end{equation}
 Here $A<P\le\mu$, because $P=E(1-E)$ and $E\ge\sqrt3/2$.  We first prove
@@ -455,11 +455,11 @@ contradiction.  Both ranges are impossible, proving $X>1/2$.
 
 Put $p_1=G_{1-A}(H)$.  If row $3$ is not $T_+^{\rm hi}$, then
 $p_1\le A+e(A)<3A+5A^2<29/64<1/2$, and
-$2R(H-m)=\eta+D-A>\eta-P>0$.  Extensivity gives
-$p_1\ge H>m$, while $p_1<1/2<1-m$; thus both Full ranges are impossible.
-On $L$, $T_-$, or the low-$c$ tie one has $F_{1-m}(p_1)\le p_1$, so
+$2R(H-m_3)=\eta+D-A>\eta-P>0$.  Extensivity gives
+$p_1\ge H>m_3$, while $p_1<1/2<1-m_3$; thus both Full ranges are impossible.
+On $L$, $T_-$, or the low-$c$ tie one has $F_{1-m_3}(p_1)\le p_1$, so
 \[
- G_{1-m}(p_1)\ge1-p_1>1-X.
+ G_{1-m_3}(p_1)\ge1-p_1>1-X.
 \]
 Extensivity of the final reverse map $G_{1-D}$ preserves this strict bound
 and proves \eqref{eq:ce1-suffix}.  It remains to treat the selected row-$3$
@@ -477,7 +477,7 @@ For $0<d\le\mu$, the valid rational low-root bound gives
  \frac{d}{e(d)-d}>\frac{1-2d}{1+2d}>1-4d>1-5d.
 \]
 This covers row $4$, because its parameter is $d=A<P\le\mu$.  For the
-row-$3$ parameter $d=m$, which need not be at most $\mu$, the remaining
+row-$3$ parameter $d=m_3$, which need not be at most $\mu$, the remaining
 high-radial range is handled without the rational estimate.  If
 $\mu<d\le1/8$, then
 \[
@@ -509,11 +509,11 @@ Thus the displayed chord coefficient is greater than $1/3$, while
 $1-5d<1/3$.
 For $d\ge1/5$, extensivity alone is stronger than the row-$3$ estimate.
 
-Applying these chord bounds first with $d=A$ and then with $d=m$ proves,
+Applying these chord bounds first with $d=A$ and then with $d=m_3$ proves,
 without an omitted selected branch,
 \begin{align*}
  p_1&>L_1:=(2-4A)H-(1-4A)A,\\
- p_2:=G_{1-m}(p_1)&>L_2:=(2-5m)L_1-(1-5m)m.
+ p_2:=G_{1-m_3}(p_1)&>L_2:=(2-5m_3)L_1-(1-5m_3)m_3.
 \end{align*}
 
 Finally let
@@ -746,10 +746,11 @@ Then the seven roles do not cover $H$.
 \end{proposition}
 
 \begin{proof}
-Let $g$ be the number of positive center traces containing an active V-gap.
-Then $g\in\{0,1,2\}$, with $g\le1$ in CE1.
+Let $\mathrm{gr}$ be the number of positive center traces containing an active
+V-gap.  Then $\mathrm{gr}\in\{0,1,2\}$, with
+$\mathrm{gr}\le1$ in CE1.
 
-If $g=0$, the six original open vertex traces cover the connected circle
+If $\mathrm{gr}=0$, the six original open vertex traces cover the connected circle
 $\partial H$.  Each has length at most one, and two nonempty members of a
 finite relatively open cover must overlap in positive length.  Hence
 \[
@@ -759,7 +760,7 @@ finite relatively open cover must overlap in positive length.  Hence
 \]
 a contradiction.
 
-Suppose $g=1$ and reflect so that the active trace is
+Suppose $\mathrm{gr}=1$ and reflect so that the active trace is
 \[
  I_R=\left[\frac{k}{R},W+\delta\right].
 \]
@@ -785,7 +786,7 @@ Thus the two actual endpoint outputs satisfy $B_1+B_5<1$.
 Lemma~\ref{lem:reader-boundary-path}, applied to $T_2,T_3,T_4$, forces their
 total boundary contribution above three, contrary to their three unit caps.
 
-Finally, $g=2$ is CE2-only and is exactly
+Finally, $\mathrm{gr}=2$ is CE2-only and is exactly
 Proposition~\ref{prop:reader-common-two-gap}.  These three ranks are exhaustive.
 \end{proof}
 
@@ -1789,8 +1790,8 @@ give the strict consequences
  b<\frac12,\qquad \mu<1-a.
  \label{eq:replacement-margins}
 \end{equation}
-The shared edge forces the supercritical input $a_i\ge1-b>1/2$, and radial
-coverage forces $c_i\ge\lambda$.  A direct consequence of
+The shared edge forces the supercritical input $A_i\ge1-b>1/2$, and radial
+coverage forces $C_i\ge\lambda$.  A direct consequence of
 Proposition~\ref{prop:exact-admissible-set} is
 \[
  (x,y,z)\in\mathcal A,\quad x\ge1/2,\quad z\le1/2
@@ -1798,27 +1799,61 @@ Proposition~\ref{prop:exact-admissible-set} is
 \]
 Indeed, substituting $x=1/2,y=1-z$ in the selected supercritical polynomial
 gives $z^2(2z-5)(2z-1)/4\ge0$, and the polynomial is increasing in both
-relevant coordinates.  Hence $b_i\le1-c_i\le1-\lambda$ and
-$a+b_i<1$.  Open radial handoff further gives
+relevant coordinates.  Hence $B_i\le1-C_i\le1-\lambda$ and
+$a+B_i<1$.  Open radial handoff further gives
 \[
- c_i^{\rm req}<\max\{c_i,\mu\}
- <\max\{1-b_i,1-a\}.
+ c_i^{\rm req}<\max\{C_i,\mu\}
+ \le\max\{1-B_i,1-a\}.
 \]
 
-Choose $a<p_1<p_2<1-b_i$ within these strict margins.  In local coordinates
-use the unit triangles
+Choose $p_1,p_2$ within these margins so that
 \[
- \Delta_p^-=\conv\{(0,1-p),(1,1-p),(0,-p)\},\quad p\le1/2,
+ a<p_1<p_2<1-B_i,\qquad
+ p_1<\frac12,\qquad
+ 1-p_1>c,\qquad
+ \max\{p_2,1-p_2\}>c_i^{\rm req}.
+\]
+In local coordinates define the closed unit-triangle templates
+\[
+ \Delta_p^-=\conv\{(0,1-p),(1,1-p),(0,-p)\},
+ \quad 0\le p\le1/2,
 \]
 and
 \[
- \Delta_p^+=\conv\{(p,0),(p,1),(p-1,0)\},\quad p\ge1/2.
+ \Delta_p^+=\conv\{(p,0),(p,1),(p-1,0)\},
+ \quad 1/2<p\le1.
 \]
 Their incident reaches are $p,1-p$, their own-radial reach is respectively
-$1-p,p$, and they have zero adjacent support.  Small translations, chosen
-below every strict margin above, make the two replacements open Vd0 roles
-with boundary sum $<1$ while preserving the shared boundary and both radial
-handoffs.  Thus the datum reduces to Proposition~\ref{prop:nplus-zero-all-vd0}.
+$1-p,p$, and they have zero adjacent support.  Define
+\[
+ X_{\rm loc}:\mathbb R^2\to\mathbb R^2,\qquad
+ X_{\rm loc}(x,y):=V_0+x(V_5-V_0)+y(V_1-V_0).
+\]
+Choose
+\[
+ 0<\varepsilon<
+ \min\{p_1-a, p_2-p_1, 1-B_i-p_2,
+ 1-p_1-c, \max\{p_2,1-p_2\}-c_i^{\rm req}\}
+\]
+and set
+\[
+ T_0':=
+ X_{\rm loc}\!\left(\interior(\Delta_{p_1}^-)+(-\varepsilon,0)\right),
+\]
+\[
+ T_1':=
+ \begin{cases}
+ X_{\rm loc}\!\left(\interior(\Delta_{p_2}^-)
+ +(-\varepsilon,0)\right),&p_2\le1/2,\\
+ X_{\rm loc}\!\left(\interior(\Delta_{p_2}^+)
+ +(0,-\varepsilon)\right),&p_2>1/2.
+ \end{cases}
+\]
+The closures of $T_0'$ and $T_1'$ have the same supremal reaches as the
+translated templates.  Thus the two replacements are open Vd0 roles with
+boundary sum $<1$, while the chosen strict margins preserve the shared
+boundary and both radial handoffs.  The datum therefore reduces to
+Proposition~\ref{prop:nplus-zero-all-vd0}.
 \end{proof}
 
 \subsection{Exact-demand terminal routing}

@@ -1,0 +1,48 @@
+\begin{tikzpicture}[x=1cm,y=1cm,>=Latex]
+  \node[panellabel,anchor=west] at (.05,3.65)
+    {The affine and threshold decorated maps};
+  \node[figlabel,anchor=east,text=black!60] at (13.45,3.35)
+    {schematic row placement; formulas and certification domains are exact};
+
+  \begin{scope}[shift={(2.20,1.48)},scale=1.72]
+    \HexCoords
+    \DrawHexagon
+    \DrawRays
+    \draw[radialdemand] (V4)--($(V4)!.44!(O)$);
+    \draw[radialdemand] (V2)--($(V2)!.44!(O)$);
+    \draw[flow] ($(V4)!.12!(V3)$)--($(V4)!.70!(V3)$);
+    \draw[flow] ($(V3)!.12!(V2)$)--($(V3)!.70!(V2)$);
+    \node[figlabel,text=RadialTeal,below right]
+      at ($(V4)!.28!(O)$) {$1-d$};
+    \node[figlabel,text=RadialTeal,below left]
+      at ($(V2)!.28!(O)$) {$1-d$};
+    \node[figlabel,fill=white] at ($(V4)!.43!(V3)$) {affine slot};
+    \node[figlabel,fill=white] at ($(V3)!.43!(V2)$) {threshold slot};
+  \end{scope}
+
+  \node[figlabel,atlasbox,align=left,anchor=west] at (4.65,2.55)
+    {For \(0<d<1/2\) and \(\lambda\in\mathcal C_d\),\\[-2pt]
+     \(\displaystyle
+      \widehat g_{1-d}^{\vee,\lambda}:\mathcal T_d\to\mathbb R,\qquad
+      \widehat g_{1-d}^{\vee,\lambda}(z):=
+      z+\lambda(z-d).\)\\
+     \(\displaystyle
+      \widehat g_{1-d}^{\vee,\lambda}(z)
+      \le\widehat g_{1-d}^{\vee}(z)
+      \quad\text{for }z\in\mathcal T_d;\)
+     no assertion is made outside \(\mathcal T_d\).};
+
+  \node[figlabel,atlasbox,align=left,anchor=west] at (4.65,.20)
+    {For \(0<d<d_*\),\\[-2pt]
+     \(\displaystyle
+      \widehat g_{1-d}^{\vee,\mathrm{th}}:[0,1]\to[0,1],\qquad
+      \widehat g_{1-d}^{\vee,\mathrm{th}}(z):=
+      \begin{cases}
+       z,&0\le z\le e(d),\\
+       1-e(d),&e(d)<z\le1,
+      \end{cases}\)\\
+     \(\displaystyle
+      \widehat g_{1-d}^{\vee,\mathrm{th}}(z)
+      \le\widehat g_{1-d}^{\vee}(z)
+      \qquad(0\le z\le1).\)};
+\end{tikzpicture}
