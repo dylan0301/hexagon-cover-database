@@ -130,17 +130,17 @@ This proves (1).
 
 ## 2. The supercritical row and the half-square lemma
 
-Let $a_i,b_i,c_i$ be the actual incoming, outgoing, and own-radial reaches of
+Let $A_i,B_i,C_i$ be the actual incoming, outgoing, and own-radial reaches of
 the supercritical row. The center-free shared edge forces
 
 $$
-a_i\ge1-b>\frac12,
+A_i\ge1-b>\frac12,
 $$
 
 and radial coverage up to the Vd1 interval forces
 
 $$
-c_i\ge\lambda.
+C_i\ge\lambda.
 $$
 
 We use the following consequence of the exact admissible set.
@@ -199,17 +199,18 @@ $$
 
 again a contradiction. This proves the lemma.
 
-For a supercritical admissible row, the selected component has $c_i\le1/2$.
+For a supercritical admissible row, the actual own-radial reach has
+$C_i\le1/2$.
 Applying the lemma gives
 
 $$
-b_i\le1-c_i\le1-\lambda.
+B_i\le1-C_i\le1-\lambda.
 $$
 
 Since $a<\lambda$,
 
 $$
-\boxed{a+b_i<1.}
+\boxed{a+B_i<1.}
 \tag{2}
 $$
 
@@ -226,15 +227,15 @@ Only the center, the supercritical row, and the Vd1 row have positive
 intervals on this arm. Open coverage at the center handoff forces
 
 $$
-c_i^{\rm req}<\max\{c_i,\mu\}.
+c_i^{\rm req}<\max\{C_i,\mu\}.
 $$
 
 By the half-square lemma and (1),
 
 $$
-\max\{c_i,\mu\}
+\max\{C_i,\mu\}
 \le
-\max\{1-b_i,1-a\}.
+\max\{1-B_i,1-a\}.
 $$
 
 The first comparison is strict, so together they give the strict bridge
@@ -242,7 +243,7 @@ margin
 
 $$
 \boxed{
-c_i^{\rm req}<\max\{1-b_i,1-a\}.}
+c_i^{\rm req}<\max\{1-B_i,1-a\}.}
 \tag{3}
 $$
 
@@ -254,14 +255,14 @@ For $0\le p\le1$, define
 
 $$
 \Delta_p^-=\operatorname{conv}\{(0,1-p),(1,1-p),(0,-p)\}
-\qquad(p\le1/2),
+\qquad(0\le p\le1/2),
 $$
 
 and
 
 $$
 \Delta_p^+=\operatorname{conv}\{(p,0),(p,1),(p-1,0)\}
-\qquad(p\ge1/2).
+\qquad(1/2<p\le1).
 $$
 
 In the local metric these are unit equilateral triangles. Their two incident
@@ -271,7 +272,7 @@ they have no positive adjacent-arm support.
 The strict inequalities (1)--(3) allow parameters
 
 $$
-a<p_1<p_2<1-b_i
+a<p_1<p_2<1-B_i
 $$
 
 such that
@@ -285,32 +286,71 @@ p_1<\frac12,
 $$
 
 Choose $p_1$ close to $a$. For $p_2$, choose a point close to $a$ when the
-right side of (3) is supplied by $1-a$, and close to $1-b_i$ when it is
-supplied by $1-b_i$.
+right side of (3) is supplied by $1-a$, and close to $1-B_i$ when it is
+supplied by $1-B_i$.
 
-Translate $\Delta_{p_1}^-$ by $(-\varepsilon,0)$. Its relevant reaches become
+Define the physical-coordinate map
+
+$$
+X_{\mathrm{loc}}:\mathbb R^2\to\mathbb R^2,
+\qquad
+X_{\mathrm{loc}}(x,y)
+:=V_0+x(V_5-V_0)+y(V_1-V_0).
+$$
+
+Choose
+
+$$
+0<\varepsilon<
+\min\left\{
+p_1-a, p_2-p_1, 1-B_i-p_2,
+1-p_1-c, \max\{p_2,1-p_2\}-c_i^{\rm req}
+\right\},
+$$
+
+and define
+
+$$
+T_0'
+:=
+X_{\mathrm{loc}}\left(
+\mathrm{int}(\Delta_{p_1}^-)+(-\varepsilon,0)
+\right),
+$$
+
+$$
+T_1'
+:=
+\begin{cases}
+X_{\mathrm{loc}}\left(
+\mathrm{int}(\Delta_{p_2}^-)+(-\varepsilon,0)
+\right),&p_2\le1/2,\\
+X_{\mathrm{loc}}\left(
+\mathrm{int}(\Delta_{p_2}^+)+(0,-\varepsilon)
+\right),&p_2>1/2.
+\end{cases}
+$$
+
+The closure of $T_0'$ has relevant reaches
 
 $$
 (p_1-\varepsilon,1-p_1,1-p_1).
 $$
 
-For the second row, translate $\Delta_{p_2}^-$ by $(-\varepsilon,0)$ when
-$p_2<1/2$, and translate $\Delta_{p_2}^+$ by $(0,-\varepsilon)$ when
-$p_2\ge1/2$. Its relevant reaches are respectively
+The closure of $T_1'$ has relevant reaches
 
 $$
 (p_2-\varepsilon,1-p_2,1-p_2)
 $$
 
-or
+when $p_2\le1/2$, and
 
 $$
-(p_2,1-p_2-\varepsilon,p_2).
+(p_2,1-p_2-\varepsilon,p_2)
 $$
 
-Choose $\varepsilon>0$ below every strict boundary, radial, and
-$p_2-p_1$ margin. The first replacement still supplies at least $a$ and $c$;
-the second supplies at least $b_i$ and $c_i^{\rm req}$. The shared open edge
+when $p_2>1/2$. The first replacement still supplies at least $a$ and $c$;
+the second supplies at least $B_i$ and $c_i^{\rm req}$. The shared open edge
 is covered because
 
 $$

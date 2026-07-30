@@ -1,0 +1,61 @@
+\begin{tikzpicture}[x=1cm,y=1cm,>=Latex]
+  \node[panellabel,anchor=west] at (.05,3.72)
+    {A center-free ordinary boundary path};
+  \node[figlabel,anchor=east,text=black!60] at (13.45,3.42)
+    {the displayed \(r=3\) path represents the exact cyclic definition};
+
+  \begin{scope}[shift={(2.30,1.30)},scale=1.82]
+    \HexCoords
+    \DrawHexagon
+    \DrawRays
+    \foreach \i in {0,...,5}{\fill[black] (V\i) circle (.55pt);}
+
+    \draw[flow] ($(V5)!.10!(V0)$)--($(V5)!.84!(V0)$);
+    \draw[flow] ($(V0)!.10!(V1)$)--($(V0)!.84!(V1)$);
+    \draw[flow] ($(V1)!.10!(V2)$)--($(V1)!.84!(V2)$);
+    \node[figlabel] at ($(V5)!-.14!(O)$) {$V_{i_0}$};
+    \node[figlabel] at ($(V0)!-.14!(O)$) {$V_{i_1}$};
+    \node[figlabel] at ($(V1)!-.14!(O)$) {$V_{i_2}$};
+    \node[figlabel] at ($(V2)!-.14!(O)$) {$V_{i_3}$};
+    \node[figlabel,fill=white] at ($(V0)!.50!(V1)$) {$E_1$};
+    \node[figlabel,fill=white] at ($(V1)!.50!(V2)$) {$E_2$};
+
+    \draw[inactive,line width=1.1pt]
+      ($(V0)!.26!(V1)$)--($(V0)!.74!(V1)$);
+    \draw[inactive,line width=1.1pt]
+      ($(V1)!.26!(V2)$)--($(V1)!.74!(V2)$);
+    \node[figlabel,align=center] at (0,-1.30)
+      {\(\mathbf i=(i_0,i_1,i_2,i_3)\), \(r=3\)};
+  \end{scope}
+
+  \node[figlabel,atlasbox,align=left,anchor=west] at (4.75,2.60)
+    {$\displaystyle
+      r\in\{1,\ldots,5\},\qquad
+      \mathbf i:=(i_0,\ldots,i_r)
+      \in(\mathbb Z/6\mathbb Z)^{r+1},$\\[-1pt]
+     $\displaystyle
+      i_{j+1}=i_j+1\pmod 6\qquad(0\le j<r)$};
+
+  \node[figlabel,atlasbox,align=left,anchor=west] at (4.75,1.14)
+    {$\displaystyle
+      E_j(\mathbf i):=e_{i_j,i_{j+1}}
+      \qquad(1\le j\le r-1)$};
+
+  \node[figlabel,atlasbox,align=left,anchor=west] at (4.75,-.12)
+    {$\displaystyle
+      \mathfrak P_{\rm cf}(r):=
+      \left\{\mathbf i\in(\mathbb Z/6\mathbb Z)^{r+1}:
+      \begin{array}{l}
+      i_{j+1}=i_j+1
+      \quad\forall j\in\{0,\ldots,r-1\},\\
+      U_C\cap E_j(\mathbf i)=\varnothing
+      \quad\forall j\in\{1,\ldots,r-1\},\\
+      \Haus(U_k\cap E_j(\mathbf i))=0
+      \quad\forall j\in\{1,\ldots,r-1\},\\
+      \hfill
+      \forall k\in(\mathbb Z/6\mathbb Z)
+      \setminus\{i_j,i_{j+1}\}
+      \end{array}\right\}$\\[-1pt]
+     $\displaystyle
+      \mathfrak P_{\rm cf}:=\bigcup_{r=1}^{5}\mathfrak P_{\rm cf}(r)$};
+\end{tikzpicture}

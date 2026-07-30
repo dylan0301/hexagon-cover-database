@@ -1,0 +1,57 @@
+\begin{tikzpicture}[x=1cm,y=1cm,>=Latex]
+  \node[panellabel,anchor=west] at (.03,2.12)
+    {(e) slotwise lower relaxation along skeleton rows};
+
+  \begin{scope}[shift={(1.50,.55)},scale=1.05]
+    \HexCoords
+    \DrawHexagon
+    \DrawRays
+
+    \draw[actualreach,->]
+      ($(V0)!.10!(V1)$)--node[above right,figlabel,fill=white,inner sep=.4pt]
+      {$\Phi_1$}($(V0)!.90!(V1)$);
+    \draw[actualreach,->]
+      ($(V1)!.10!(V2)$)--node[above,figlabel,fill=white,inner sep=.4pt]
+      {$\Phi_2$}($(V1)!.90!(V2)$);
+    \draw[actualreach,->]
+      ($(V2)!.10!(V3)$)--node[above left,figlabel,fill=white,inner sep=.4pt]
+      {$\Phi_3$}($(V2)!.90!(V3)$);
+
+    \node[figlabel,right] at ($(V0)+(.06,0)$) {$x_0$};
+    \node[figlabel,above right] at ($(V1)+(0,.03)$) {$x_1$};
+    \node[figlabel,above left] at ($(V2)+(0,.03)$) {$x_2$};
+    \node[figlabel,left] at ($(V3)+(-.06,0)$) {$x_3$};
+  \end{scope}
+
+  \begin{scope}[shift={(4.90,.55)},scale=1.05]
+    \HexCoords
+    \DrawHexagon
+    \DrawRays
+
+    \draw[cappedcurve,->]
+      ($(V0)!.10!(V1)$)--node[above right,figlabel,fill=white,inner sep=.4pt]
+      {$\underline\Phi_1$}($(V0)!.90!(V1)$);
+    \draw[cappedcurve,->]
+      ($(V1)!.10!(V2)$)--node[above,figlabel,fill=white,inner sep=.4pt]
+      {$\underline\Phi_2$}($(V1)!.90!(V2)$);
+    \draw[cappedcurve,->]
+      ($(V2)!.10!(V3)$)--node[above left,figlabel,fill=white,inner sep=.4pt]
+      {$\underline\Phi_3$}($(V2)!.90!(V3)$);
+
+    \node[figlabel,right] at ($(V0)+(.06,0)$) {$y_0$};
+    \node[figlabel,above right] at ($(V1)+(0,.03)$) {$y_1$};
+    \node[figlabel,above left] at ($(V2)+(0,.03)$) {$y_2$};
+    \node[figlabel,left] at ($(V3)+(-.06,0)$) {$y_3$};
+  \end{scope}
+
+  \node[figlabel,align=center] at (3.20,-.83)
+    {\(\displaystyle
+      x_j\ge\Phi_j(x_{j-1}),\qquad
+      y_0=x_0,\qquad
+      y_j=\underline\Phi_j(y_{j-1}),\qquad
+      \underline\Phi_j\le\Phi_j
+      \quad(1\le j\le3)\).\\[1pt]
+     \(\displaystyle
+      y_3=[\underline\Phi_1\mid\underline\Phi_2
+      \mid\underline\Phi_3](x_0)\le x_3\).};
+\end{tikzpicture}

@@ -1,0 +1,84 @@
+\begin{tikzpicture}[x=1cm,y=1cm,>=Latex]
+  \node[panellabel,anchor=west] at (.05,4.32)
+    {Support-isolated T3-like endpoint residuals};
+  \node[figlabel,anchor=east,text=black!60] at (13.45,4.05)
+    {schematic; residual components are not drawn to scale};
+
+  \begin{scope}[shift={(3.05,1.18)},scale=2.00]
+    \HexCoords
+    \DrawHexagon
+    \DrawRays
+    \fill[CenterBlue] (O) circle (1pt);
+    \foreach \i in {0,...,5}{\fill[black] (V\i) circle (.6pt);}
+
+    % The normalized T3-like row T_0 and its two incident traces.
+    \draw[vertexrole,fill=VertexOrange!13]
+      ($(V0)+(-.10,.26)$)--($(V0)+(-.36,-.02)$)--
+      ($(V0)+(-.10,-.28)$)--cycle;
+    \draw[demand] (V0)--($(V0)!.28!(V1)$);
+    \draw[demand] (V0)--($(V0)!.23!(V5)$);
+    \node[figlabel,text=DemandRed,above] at ($(V0)!.18!(V1)$)
+      {$[0,b_{01}]$};
+    \node[figlabel,text=DemandRed,below] at ($(V0)!.15!(V5)$)
+      {$[0,b_{05}]$};
+
+    % Center intervals already absorbed into the boundary residuals.
+    \draw[centertrace] ($(V0)!.36!(V1)$)--($(V0)!.56!(V1)$);
+    \draw[centertrace] ($(V0)!.38!(V5)$)--($(V0)!.55!(V5)$);
+    \node[figlabel,text=CenterBlue,anchor=west] at (.86,.53) {$J_+$};
+    \node[figlabel,text=CenterBlue,anchor=west] at (.86,-.54) {$J_-$};
+
+    % Far-side boundary residuals and forced radial residuals.
+    \draw[demand] (V1)--($(V1)!.22!(V0)$);
+    \draw[demand] (V5)--($(V5)!.22!(V0)$);
+    \draw[radialdemand] (V1)--($(V1)!.43!(O)$);
+    \draw[radialdemand] (V5)--($(V5)!.43!(O)$);
+    \node[figlabel,text=DemandRed,above left] at ($(V1)!.16!(V0)$) {$a_1^*$};
+    \node[figlabel,text=DemandRed,below left] at ($(V5)!.16!(V0)$) {$a_5^*$};
+    \node[figlabel,text=RadialTeal,left] at ($(V1)!.28!(O)$) {$c_1^*$};
+    \node[figlabel,text=RadialTeal,left] at ($(V5)!.28!(O)$) {$c_5^*$};
+
+    \draw[actualreach] (V1)--($(V1)!.63!(O)$);
+    \node[figlabel,text=VertexOrange,right] at ($(V1)!.53!(O)$)
+      {$[r_{\rm in},r_{\rm out}]$ from $V_1$};
+    \node[figlabel,right,align=left] at (V0)
+      {$\widetilde T_0$\\[-2pt]\scriptsize majorant of \(T_0\)};
+    \node[figlabel,above right] at (V1) {$T_1$};
+    \node[figlabel,below right] at (V5) {$T_5$};
+    \node[figlabel,above left] at ($(V1)!.50!(O)$) {$r_1$};
+  \end{scope}
+
+  \node[figlabel,atlasbox,align=left,anchor=west] at (6.10,3.28)
+    {$\displaystyle
+      \xi_+(t):=V_0+t(V_1-V_0),\qquad
+      \xi_-(t):=V_0+t(V_5-V_0)$\\
+     $\displaystyle
+      \rho_1(t):=V_1+t(O-V_1)\qquad(0\le t\le1)$};
+  \node[figlabel,atlasbox,align=left,anchor=west] at (6.10,2.10)
+    {$\displaystyle
+      \mathcal R_{[L,U]}(p)=
+      \begin{cases}
+        1-p,&p<L,\\
+        1-\max\{p,U\},&p\ge L,
+      \end{cases}
+      \qquad\mathcal R_\varnothing(p)=1-p$};
+  \node[figlabel,atlasbox,align=left,anchor=west] at (6.10,.88)
+    {$\displaystyle
+      a_1^*:=\mathcal R_{J_+}(b_{01}),\qquad
+      a_5^*:=\mathcal R_{J_-}(b_{05})$};
+  \node[figlabel,atlasbox,align=left,anchor=west] at (6.10,-.32)
+    {$\displaystyle
+      c_5^*:=1-d_5^C,\qquad
+      c_1^*:=
+      \begin{cases}
+        r_{\rm in},&
+        r_{\rm in}\le1-d_1^C\le r_{\rm out},\\
+        1-d_1^C,&\text{otherwise}.
+      \end{cases}$};
+  \node[figlabel,atlasbox,align=left,anchor=west] at (6.10,-1.62)
+    {$\displaystyle
+      \widehat g_{c_5^*}(1-a_5^*)+
+      \widehat g_{c_1^*}(1-a_1^*)<1$\\
+     exact labels:
+     $\mathrm{Full},\,L,\,T_-,\,T_+^{\mathrm{hi}}$.};
+\end{tikzpicture}

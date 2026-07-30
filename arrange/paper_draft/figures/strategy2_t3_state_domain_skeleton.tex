@@ -1,0 +1,69 @@
+\begin{tikzpicture}[x=1cm,y=1cm,>=Latex]
+  \node[panellabel,anchor=west] at (.05,6.78)
+    {The support-isolated T3 endpoint-state domain};
+  \node[figlabel,anchor=east,text=black!60] at (13.55,6.46)
+    {the displayed representative is normalized to positive support on \(r_1\)};
+
+  \begin{scope}[shift={(2.30,4.42)},scale=1.62]
+    \HexCoords
+    \DrawHexagon
+    \DrawRays
+    \foreach \i in {0,...,5}{\fill[black] (V\i) circle (.55pt);}
+    \fill[CenterBlue] (O) circle (1pt);
+    \draw[vertexrole,fill=VertexOrange!13]
+      (.964,-.217)--(1.128,.770)--(.191,.418)--cycle;
+    \draw[demand] (V0)--($(V0)!.19!(V5)$);
+    \draw[actualreach] ($(V1)!.49!(O)$)--($(V1)!.55!(O)$);
+    \draw[inactive,line width=1pt] ($(V5)!.40!(O)$)--($(V5)!.72!(O)$);
+    \node[figlabel,right] at (V0) {$\widetilde T_0$};
+    \node[figlabel,left] at ($(V1)!.52!(O)$) {$r_1$};
+    \node[figlabel,left,align=right,text=black!55] at ($(V5)!.55!(O)$)
+      {$\Haus(T_j\cap r_5)=0\ (j\ne5)$};
+  \end{scope}
+
+  \node[figlabel,atlasbox,align=left,anchor=west] at (5.18,5.48)
+    {$\displaystyle
+      o_H(T):=\bigl|\mathrm{Vert}(T)\setminus H\bigr|,$\\[-1pt]
+     $\displaystyle
+      n_i(T):=
+      \left|\{\epsilon\in\{-1,1\}:
+      \Haus(T\cap r_{i+\epsilon})>0\}\right|$};
+
+  \node[figlabel,atlasbox,align=left,anchor=west] at (.05,.72)
+    {$\displaystyle
+      \mathfrak S_{\rm T3}:=
+      \Bigl\{(R,\alpha,\delta,\mathbf T)\in
+      (\mathcal D_{\rm CE1}\cup\mathcal D_{\rm CE2})
+      \times\mathfrak E_1^6:\;
+      \begin{aligned}
+      &V_j\in\interior(T_j) &&\forall j,\\
+      &H\subset\interior(T_C(R,\alpha,\delta))
+        \cup\displaystyle\bigcup_{j=0}^{5}\interior(T_j),\\
+      &A_j+B_j\le1 &&\forall j\in\mathbb Z/6\mathbb Z,\\
+      T_C(R,\alpha,\delta)\cap\{M_0,\ldots,M_5\}=\{M_0\},\\
+      &(o_H(T_0),n_0(T_0))=(2,1),\quad
+      \Haus(T_0\cap r_1)>0,\\
+      &(o_H(T_j),n_j(T_j))
+      \in\{(1,0),(2,0),(3,0),(2,1)\} &&\forall j,\\
+      &\Haus(T_j\cap r_1)>0\Rightarrow j\in\{0,1\} &&\forall j,\\
+      &\Haus(T_j\cap r_5)>0\Rightarrow j=5 &&\forall j
+      \end{aligned}
+      \Bigr\}$};
+
+  \node[figlabel,atlasbox,align=left,anchor=west] at (.05,-2.25)
+    {$\displaystyle
+      \mathfrak M_{\rm T3}(T_0):=
+      \left\{S\in\mathfrak E_1:
+      \begin{array}{c}
+      \exists v\in\mathbb R^2,\ S=T_0+v,\quad
+      V_0\in\partial S\setminus\mathrm{Vert}(S),\\
+      S\cap e_{5,0}=T_0\cap e_{5,0},\\
+      T_0\cap H\subsetneq S\cap H,\quad
+      (o_H(S),n_0(S))=(2,1),\\
+      \interior(T_0)\cap(H\setminus\{V_0\})\subset\interior(S)
+      \end{array}
+      \right\}=\{\widetilde T_0\}$\\[-1pt]
+     $\displaystyle
+      U_C:=\interior(T_C(R,\alpha,\delta)),\qquad
+      \widetilde T_0\in\mathfrak M_{\rm T3}(T_0)$};
+\end{tikzpicture}

@@ -18,7 +18,7 @@ proof/4XXX_CE1CE2/40XX_Nplus0/
 \begin{center}
 \scriptsize
 \renewcommand{\arraystretch}{1.08}
-\begin{tabular}{p{.40\textwidth}p{.38\textwidth}p{.14\textwidth}}
+\begin{tabular}{p{.39\textwidth}p{.38\textwidth}p{.14\textwidth}}
 \toprule
 proof-package object&Git blob SHA&role\\
 \midrule
@@ -178,12 +178,12 @@ because $d<t+1$.  Finally
 \]
 This proves \eqref{eq:paper-replacement-margins}.
 
-Let $(a_1,b_1,c_1)$ be the actual reaches of the unique supercritical row.
+Let $(A_1,B_1,C_1)$ be the actual reaches of the unique supercritical row.
 The center-free shared edge forces
 \[
- a_1\ge1-b>\frac12,
+ A_1\ge1-b>\frac12,
 \]
-and radial coverage before the Vd1 interval forces $c_1\ge\lambda$.  We use the
+and radial coverage before the Vd1 interval forces $C_1\ge\lambda$.  We use the
 following admissibility consequence.
 
 \emph{Half-square lemma.}
@@ -216,13 +216,13 @@ Thus
 again a contradiction.
 
 A supercritical row has own-radial coordinate at most $1/2$, so the lemma
-applied to $(a_1,b_1,c_1)$ gives
+applied to $(A_1,B_1,C_1)$ gives
 \[
- b_1\le1-c_1\le1-\lambda.
+ B_1\le1-C_1\le1-\lambda.
 \]
 Together with $a<\lambda$ this gives
 \begin{equation}
- a+b_1<1.
+ a+B_1<1.
  \label{eq:paper-a-bi-margin}
 \end{equation}
 
@@ -231,16 +231,16 @@ $c_1^{\rm req}=1-d_1^C$.  Only the center, the supercritical row, and the Vd1
 row have positive intervals on this arm.  Open coverage at the center handoff
 gives
 \[
- c_1^{\rm req}<\max\{c_1,\mu\}.
+ c_1^{\rm req}<\max\{C_1,\mu\}.
 \]
 By the half-square lemma and \eqref{eq:paper-replacement-margins},
 \[
- \max\{c_1,\mu\}
- \le\max\{1-b_1,1-a\}.
+ \max\{C_1,\mu\}
+ \le\max\{1-B_1,1-a\}.
 \]
 Therefore
 \begin{equation}
- c_1^{\rm req}<\max\{1-b_1,1-a\}.
+ c_1^{\rm req}<\max\{1-B_1,1-a\}.
  \label{eq:paper-radial-bridge-margin}
 \end{equation}
 The strictness comes from the first inequality; no strictness is required in
@@ -248,7 +248,7 @@ the second comparison.
 
 Choose
 \[
- a<p_1<p_2<1-b_1
+ a<p_1<p_2<1-B_1
 \]
 within the strict margins so that
 \[
@@ -260,38 +260,60 @@ within the strict margins so that
 \]
 This is possible by choosing $p_1$ close to $a$ and choosing $p_2$ close to
 $a$ when the right side of \eqref{eq:paper-radial-bridge-margin} is supplied by
-$1-a$, or close to $1-b_1$ when it is supplied by $1-b_1$.
+$1-a$, or close to $1-B_1$ when it is supplied by $1-B_1$.
 
 In the local metric define
 \[
  \Delta_p^-=\conv\{(0,1-p),(1,1-p),(0,-p)\}
- \quad(p\le1/2),
+ \quad(0\le p\le1/2),
 \]
 \[
  \Delta_p^+=\conv\{(p,0),(p,1),(p-1,0)\}
- \quad(p\ge1/2).
+ \quad(1/2<p\le1).
 \]
 These are unit equilateral triangles.  Their incident reaches are $p,1-p$;
 their own-radial reaches are respectively $1-p,p$; and they have no positive
 adjacent-arm support.
 
-Translate $\Delta_{p_1}^-$ by $(-\varepsilon,0)$.  Its relevant reaches become
+Define the physical-coordinate map
 \[
- (p_1-\varepsilon,1-p_1,1-p_1).
+ X_{\rm loc}:\mathbb R^2\to\mathbb R^2,\qquad
+ X_{\rm loc}(x,y):=V_0+x(V_5-V_0)+y(V_1-V_0).
 \]
-For the second row translate $\Delta_{p_2}^-$ by $(-\varepsilon,0)$ if
-$p_2<1/2$, and translate $\Delta_{p_2}^+$ by $(0,-\varepsilon)$ if
-$p_2\ge1/2$.  Its relevant reaches are respectively
+Choose
+\[
+ 0<\varepsilon<
+ \min\{p_1-a, p_2-p_1, 1-B_1-p_2,
+ 1-p_1-c, \max\{p_2,1-p_2\}-c_1^{\rm req}\},
+\]
+and define the open roles
+\[
+ T_0':=
+ X_{\rm loc}\!\left(\interior(\Delta_{p_1}^-)+(-\varepsilon,0)\right),
+\]
+\[
+ T_1':=
+ \begin{cases}
+ X_{\rm loc}\!\left(\interior(\Delta_{p_2}^-)
+ +(-\varepsilon,0)\right),&p_2\le1/2,\\
+ X_{\rm loc}\!\left(\interior(\Delta_{p_2}^+)
+ +(0,-\varepsilon)\right),&p_2>1/2.
+ \end{cases}
+\]
+The closure of $T_0'$ has relevant reaches
+\[
+ (p_1-\varepsilon,1-p_1,1-p_1),
+\]
+and the closure of $T_1'$ has relevant reaches
 \[
  (p_2-\varepsilon,1-p_2,1-p_2)
 \]
-or
+in the first case and
 \[
- (p_2,1-p_2-\varepsilon,p_2).
+ (p_2,1-p_2-\varepsilon,p_2)
 \]
-Choose $\varepsilon>0$ smaller than every strict boundary, radial, and
-$p_2-p_1$ margin.  The first replacement still supplies at least $a$ and $c$;
-the second supplies at least $b_1$ and $c_1^{\rm req}$.  The shared open edge
+in the second.  The first replacement still supplies at least $a$ and $c$;
+the second supplies at least $B_1$ and $c_1^{\rm req}$.  The shared open edge
 is covered because
 \[
  (1-p_1)+(p_2-\varepsilon)>1.

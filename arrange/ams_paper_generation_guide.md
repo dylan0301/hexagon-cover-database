@@ -36,7 +36,7 @@ Apply these rules.
 8. Record reusable mathematical corrections in `proof/` as well as the paper.
 9. Preserve all existing Strategy 1 assignments.
 
-## 2. Proof layers and page contract
+## 2. Proof layers and body policy
 
 The complete proof consists of:
 
@@ -48,7 +48,10 @@ The complete proof consists of:
 The body should make the whole contradiction understandable but is not
 independently responsible for every long calculation.
 
-The body should end on or before page 20. Use
+There is no fixed page cap for the reader-facing body.  Definitions and
+hexagon-skeleton figures should remain in the body when they materially clarify
+the proof interface; long algebraic verification remains in the appendices.
+Use
 
 ```latex
 \setcounter{tocdepth}{1}
@@ -61,8 +64,8 @@ and place
 \label{page:proof-body-end}
 ```
 
-immediately before `\clearpage\appendix`. A source-only edit does not certify
-the page count; it must be checked after an authorized complete build.
+immediately before `\clearpage\appendix`.  A complete build must still verify
+that the label occurs immediately before the appendix transition.
 
 The body may contain definitions, role classifications, figures, exact
 calculation outputs, fully stated terminal propositions, short conceptual
@@ -77,6 +80,7 @@ Gram reductions, Bernstein data, code listings, or run logs.
 ```text
 01_introduction.tex
 02_reader_framework.tex
+02c_strategy2_skeleton_atlas.tex
 03_strategy1_reader.tex
 04_strategy2_summary.tex
 05_strategy3_reader.tex
@@ -87,6 +91,8 @@ Gram reductions, Bernstein data, code listings, or run logs.
 - `01_introduction.tex`: theorem, roles, notation, routing table, proof flow.
 - `02_reader_framework.tex`: structural interface, explicit admissible set,
   corrected transfer alphabet, signed center interface.
+- `02c_strategy2_skeleton_atlas.tex`: modular full-skeleton figures for every
+  transfer and signed-center definition.
 - `03_strategy1_reader.tex`: trace register, complete master-deficit
   hypotheses, Strategy 1 routes.
 - `04_strategy2_summary.tex`: exact endpoint and five-row certificates,
@@ -192,6 +198,12 @@ Canonical names are:
 - `gr` for active-gap rank;
 - `mathcal A` for the local admissible set;
 - `g_c`, `widehat g_c`, `f^vee`, and `mathcal R_J` for transfers;
+- `d_i^C` for a center exit and `c_i^C=1-d_i^C` for its complementary
+  vertex-side demand; lowercase `c_i` remains a selected row demand;
+- `m_3=d_3^C` for the local CE1 affine-slot scalar; bare `m` remains the
+  paper-wide count of non-Vd0 roles;
+- `mathcal I_R,mathcal I_L` for geometric center traces and `I_R,I_L` for
+  their scalar parameter intervals in residual calculations;
 - `g_c^{sc}` for the strict-supercritical outgoing envelope;
 - `I` for the identity relaxation;
 - `[Phi_1|...|Phi_r]` for geometric row order, leftmost first;
@@ -258,6 +270,10 @@ check.
 
 The body should retain figures for the role geometry, perimeter/skeleton
 targets, local demand hull, transfer chain, area loss, and Strategy 4 witness.
+The modular Strategy 2 notation atlas belongs directly after the transfer and
+signed-center definitions in the body.  Every Strategy 2 notation panel should
+use the full hexagon skeleton as its geometric frame and remain in an
+independent TikZ source so that panels can be removed separately.
 A schematic caption must state when a figure is not to scale or is not itself
 an inequality proof.
 
@@ -275,7 +291,7 @@ and verify:
 1. successful XeLaTeX build;
 2. no undefined references or duplicate labels;
 3. no material overfull boxes;
-4. `page:proof-body-end` on page 20 or earlier;
+4. `page:proof-body-end` immediately before the appendix transition;
 5. all figures and major tables visually;
 6. routing table against the proof-tree index;
 7. both exact certificate scripts in their package environment;

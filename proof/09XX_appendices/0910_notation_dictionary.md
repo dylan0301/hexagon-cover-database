@@ -90,8 +90,8 @@ incoming-reach coordinates.
   \quad(0\le c<1/2).
   $$
   This single scalar is the free strict-supercritical outgoing envelope.
-  Every such row has outgoing reach $<g_c^{\rm sc}$ and therefore forces
-  following incoming reach $>1-g_c^{\rm sc}$.
+  Every such row has outgoing reach $<g_c^{\rm sc}$.  If the outgoing edge is
+  center-free, the following incoming reach is $>1-g_c^{\rm sc}$.
 - $[\Phi_1\mid\cdots\mid\Phi_r](x)$:
   $(\Phi_r\circ\cdots\circ\Phi_1)(x)$, with maps listed in geometric row order.
 - $\mathrm I(x)=x$: identity lower relaxation.
@@ -179,7 +179,12 @@ The common signed variables are defined in `2109`.
   d_4^C=\alpha,\quad
   d_5^C=\frac{\alpha}{W}.
   $$
-- complementary row demand: $c_i=1-d_i^C$.
+- center-complement radial demand: $c_i^C=1-d_i^C$.
+- local CE1 affine-slot scalar:
+  $$
+  m_3=d_3^C,
+  $$
+  distinct from the global non-Vd0 role count $m$.
 
 Legacy CE1 variables are
 

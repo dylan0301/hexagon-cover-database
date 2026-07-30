@@ -133,7 +133,7 @@ X=R-\delta,
 \qquad
 H=\frac{k}{2R},
 \qquad
-m=\min\left\{\frac{\alpha}{R},\frac{\delta}{W}\right\},
+m_3=\min\left\{\frac{\alpha}{R},\frac{\delta}{W}\right\},
 $$
 
 and
@@ -142,7 +142,7 @@ $$
 \begin{aligned}
 c_1&=1-\frac{\delta}{R},&
 c_2&=1-\delta,&
-c_3&=1-m,\\
+c_3&=1-m_3,\\
 c_4&=1-\alpha,&
 c_5&=1-\frac{\alpha}{W}.
 \end{aligned}
@@ -175,7 +175,7 @@ $$
 \boxed{
 [\widehat g_{1-\alpha}^\vee
 \mid
-\widehat g_{1-m}^\vee
+\widehat g_{1-m_3}^\vee
 \mid
 \widehat g_{1-\delta}^\vee](H)
 >
@@ -201,9 +201,9 @@ $$
 and
 
 $$
-\widehat g_{1-m}^{\vee,\,1-5m}
+\widehat g_{1-m_3}^{\vee,\,1-5m_3}
 \le
-\widehat g_{1-m}^\vee
+\widehat g_{1-m_3}^\vee
 $$
 
 at the realized inputs. The resulting value exceeds $e(\delta)$, so the final
@@ -219,7 +219,7 @@ $$
 \boxed{
 [\widehat g_{1-\alpha}^{\vee,\,1-4\alpha}
 \mid
-\widehat g_{1-m}^{\vee,\,1-5m}
+\widehat g_{1-m_3}^{\vee,\,1-5m_3}
 \mid
 \widehat g_{1-\delta}^{\vee,\rm th}](H)
 >

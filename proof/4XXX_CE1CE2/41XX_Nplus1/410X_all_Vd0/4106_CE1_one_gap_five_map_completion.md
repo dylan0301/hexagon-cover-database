@@ -101,13 +101,13 @@ $$
 Consequently, if
 
 $$
-m=\frac AR,
+m_3=\frac AR,
 $$
 
 then
 
 $$
-0<m<\frac w2<\frac12,
+0<m_3<\frac w2<\frac12,
 $$
 
 because $A<P=RwE/(1+E)<Rw/2$. The six complementary radial demands from
@@ -119,7 +119,7 @@ $$
 c_0&=Rs=\eta+A+D,\\
 c_1&=1-\frac DR,\\
 c_2&=1-D,\\
-c_3&=1-\min\left\{\frac AR,\frac Dw\right\}=1-\frac AR=1-m,\\
+c_3&=1-\min\left\{\frac AR,\frac Dw\right\}=1-\frac AR=1-m_3,\\
 c_4&=1-A,\\
 c_5&=1-\frac Aw.
 \end{aligned}
@@ -127,7 +127,7 @@ c_5&=1-\frac Aw.
 $$
 
 Here the formula for $c_3$ uses $RD>wA$. The exact-one-midpoint
-normalization gives $c_0\le1/2$. The bounds $D<R/2$, $A<w/2$, and $m<1/2$
+normalization gives $c_0\le1/2$. The bounds $D<R/2$, $A<w/2$, and $m_3<1/2$
 give
 
 $$
@@ -569,22 +569,22 @@ $$
 Also
 
 $$
-2R(H-m)=\eta+D-A>\eta-P>0,
+2R(H-m_3)=\eta+D-A>\eta-P>0,
 $$
 
-so $p_1\ge H>m$. Since $m<1/2$, both Full branches at row $3$ are
+so $p_1\ge H>m_3$. Since $m_3<1/2$, both Full branches at row $3$ are
 impossible.
 
 If row $3$ is L, $T_-$, or the low-radial tie, the exact catalog gives
 
 $$
-F_{1-m}(p_1)\le p_1.
+F_{1-m_3}(p_1)\le p_1.
 $$
 
 Therefore
 
 $$
-G_{1-m}(p_1)\ge1-p_1>\frac12>1-X.
+G_{1-m_3}(p_1)\ge1-p_1>\frac12>1-X.
 $$
 
 It remains only to analyze the branch in which rows $4$ and $3$ are both
@@ -635,54 +635,54 @@ $$
 Since $X>1/2$, one has $R>1/2$, and therefore
 
 $$
-m<\frac w2<\frac14.
+m_3<\frac w2<\frac14.
 $$
 
 We claim that every selected row-$3$ $T_+$ transition satisfies
 
 $$
-q>p+(1-5m)(p-m).
+q>p+(1-5m_3)(p-m_3).
 $$
 
-This is immediate from $q>p$ when $m\ge1/5$. Suppose $m<1/5$.
+This is immediate from $q>p$ when $m_3\ge1/5$. Suppose $m_3<1/5$.
 
 On the high-radial selected arc, the universal chord coefficient is
 
 $$
-\frac{m}{e(m)-m}.
+\frac{m_3}{e(m_3)-m_3}.
 $$
 
-If $m\le1/8$, then
+If $m_3\le1/8$, then
 
 $$
-\frac{m}{e(m)-m}
-\ge\frac{1}{1+5m}>1-5m.
+\frac{m_3}{e(m_3)-m_3}
+\ge\frac{1}{1+5m_3}>1-5m_3.
 $$
 
-If $1/8<m<1-\sqrt3/2$, then $e(m)<(1-m)/2$, and hence
+If $1/8<m_3<1-\sqrt3/2$, then $e(m_3)<(1-m_3)/2$, and hence
 
 $$
-\frac{m}{e(m)-m}
+\frac{m_3}{e(m_3)-m_3}
 >
-\frac{2m}{1-3m}
+\frac{2m_3}{1-3m_3}
 >
-1-5m.
+1-5m_3.
 $$
 
 The last inequality is equivalent to
 
 $$
-15m^2-10m+1<0,
+15m_3^2-10m_3+1<0,
 $$
 
 which holds because this quadratic is decreasing below $1/3$ and has value
-$-1/64$ at $m=1/8$.
+$-1/64$ at $m_3=1/8$.
 
-On the low-radial selected arc, put $t=h(1-m)$. The universal chord
+On the low-radial selected arc, put $t=h(1-m_3)$. The universal chord
 coefficient is
 
 $$
-\frac{1-2t}{t-m}.
+\frac{1-2t}{t-m_3}.
 $$
 
 On $3/4\le c\le\sqrt3/2$, the exact formula in `2011` shows that $h(c)$ is
@@ -696,19 +696,19 @@ $$
 Here the low-radial range gives
 
 $$
-m\ge1-\frac{\sqrt3}{2}>\frac2{15}>\frac1{16},
+m_3\ge1-\frac{\sqrt3}{2}>\frac2{15}>\frac1{16},
 $$
 
 so
 
 $$
-t=h(1-m)<\frac7{16}<\frac{3+m}{7}.
+t=h(1-m_3)<\frac7{16}<\frac{3+m_3}{7}.
 $$
 
 Thus
 
 $$
-\frac{1-2t}{t-m}>\frac13>1-5m.
+\frac{1-2t}{t-m_3}>\frac13>1-5m_3.
 $$
 
 This proves the row-$3$ claim in every selected $T_+$ regime.
@@ -716,21 +716,21 @@ This proves the row-$3$ claim in every selected $T_+$ regime.
 With
 
 $$
-p_2=G_{1-m}(p_1),
+p_2=G_{1-m_3}(p_1),
 $$
 
 the claim gives
 
 $$
-p_2>(2-5m)p_1-(1-5m)m.
+p_2>(2-5m_3)p_1-(1-5m_3)m_3.
 $$
 
-Because $2-5m>0$, the row-$4$ bound gives
+Because $2-5m_3>0$, the row-$4$ bound gives
 
 $$
 p_2>L_2,
 \qquad
-L_2=(2-5m)L_1-(1-5m)m.
+L_2=(2-5m_3)L_1-(1-5m_3)m_3.
 $$
 
 ## 8. Exact analytic terminal estimate

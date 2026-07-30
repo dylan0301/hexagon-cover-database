@@ -54,7 +54,7 @@ $$
 and
 
 $$
-m=\min\left\{\frac{\alpha}{R},\frac{\delta}{W}\right\}.
+m_3=\min\left\{\frac{\alpha}{R},\frac{\delta}{W}\right\}.
 $$
 
 The five nonsupercritical radial demands are
@@ -64,7 +64,7 @@ $$
 \begin{aligned}
 c_1&=1-\frac{\delta}{R},\\
 c_2&=1-\delta,\\
-c_3&=1-m,\\
+c_3&=1-m_3,\\
 c_4&=1-\alpha,\\
 c_5&=1-\frac{\alpha}{W}.
 \end{aligned}
@@ -287,7 +287,7 @@ $$
 \boxed{
 [\widehat g_{1-\alpha}^\vee
 \mid
-\widehat g_{1-m}^\vee
+\widehat g_{1-m_3}^\vee
 \mid
 \widehat g_{1-\delta}^\vee](H)
 >

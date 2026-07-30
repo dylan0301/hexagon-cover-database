@@ -86,19 +86,20 @@ V-gap.  Then
  \mathrm{gr}\le1\quad\text{for }\CEone.
 \]
 The two all-$\Vdzero$ row counts are governed by
-\[
-\begin{array}{c|ccc}
- &\mathrm{gr}=0&\mathrm{gr}=1&\mathrm{gr}=2\\ \hline
-N_+=0&
-\text{strict identity cycle}&
-\text{one-side endpoint chain}&
-\text{paired endpoint chain}\\
-N_+=1&
-\text{nine-point obstruction}&
-\text{five-row relaxed chain}&
-\text{paired endpoint chain}.
-\end{array}
-\]
+\begin{center}
+\scriptsize
+\begin{tabular}{c|ccc}
+ &$\mathrm{gr}=0$&$\mathrm{gr}=1$&$\mathrm{gr}=2$\\ \hline
+$N_+=0$&
+strict identity cycle&
+one-side endpoint chain&
+paired endpoint chain\\
+$N_+=1$&
+nine-point obstruction&
+five-row relaxed chain&
+paired endpoint chain.
+\end{tabular}
+\end{center}
 The last column is CE2-only.
 
 For $N_+=0$ and $\mathrm{gr}=0$, no center trace contains a missed handoff;
@@ -156,12 +157,12 @@ Proposition~\ref{prop:signed-center-normal-form}.  Put
 \[
  X=R-\delta,\qquad
  H=\frac{\eta+\alpha+\delta}{2R},\qquad
- m=\min\left\{\frac\alpha R,\frac\delta W\right\},
+ m_3=\min\left\{\frac\alpha R,\frac\delta W\right\},
 \]
 and
 \[
  \begin{aligned}
- c_1&=1-\frac\delta R,&c_2&=1-\delta,&c_3&=1-m,\\
+ c_1&=1-\frac\delta R,&c_2&=1-\delta,&c_3&=1-m_3,\\
  c_4&=1-\alpha,&c_5&=1-\frac\alpha W.
  \end{aligned}
 \]
@@ -185,7 +186,7 @@ Thus the exact contradiction is $Z>1-H$.  The first and fifth slots are
 extensive, and three capped-map duality steps reduce this target to
 \begin{equation}
  [\widehat g_{1-\alpha}^\vee
-  \mid\widehat g_{1-m}^\vee
+  \mid\widehat g_{1-m_3}^\vee
   \mid\widehat g_{1-\delta}^\vee](H)
  >1-X=W+\delta.
  \label{eq:reader-signed-three-map}
@@ -206,7 +207,7 @@ universal chord estimates give
 \]
 \[
  p_2>
- \widehat g_{1-m}^{\vee,\,1-5m}(L_1)=:L_2.
+ \widehat g_{1-m_3}^{\vee,\,1-5m_3}(L_1)=:L_2.
 \]
 The exact scalar calculation in Appendix~\ref{sec:cyclic-all-vd0} proves
 \[
