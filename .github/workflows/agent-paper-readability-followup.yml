@@ -1,0 +1,67 @@
+name: Agent paper readability follow-up (one time)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/agent-paper-readability-followup.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  repair-and-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install TeX and audit tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends \
+            latexmk texlive-xetex texlive-latex-extra \
+            texlive-fonts-recommended texlive-pictures \
+            poppler-utils ripgrep
+
+      - name: Apply post-edit proof repairs
+        run: |
+          set -euo pipefail
+          python3 .github/scripts/agent_paper_readability_followup.py
+
+      - name: Compile and inspect the paper
+        run: |
+          set -euo pipefail
+          cd arrange/paper_draft
+          latexmk -xelatex -interaction=nonstopmode -halt-on-error main.tex
+          test -s main.pdf
+          ! grep -E "LaTeX Warning: (Reference|Citation).*undefined|There were undefined references" main.log
+          pdftotext main.pdf /tmp/main.txt
+          if grep -Eiw "row|rows" /tmp/main.txt; then
+            echo "Ambiguous row terminology remains in rendered PDF" >&2
+            exit 1
+          fi
+          cd ../..
+          git diff --check
+
+      - name: Re-run exact certificates and syntax audit
+        run: |
+          set -euo pipefail
+          python3 proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4108_ce1_terminal_verifier.py
+          python3 proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105a_strategy4_exact_certificate/strategy4_exact_certificate.py --canonical
+          python3 -m compileall -q proof
+
+      - name: Commit and push audited repair
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add arrange proof
+          if git diff --cached --quiet; then
+            echo "No repair changes to commit" >&2
+            exit 1
+          fi
+          git commit -m "Repair six-slot transfer register after proof audit"
+          git push origin HEAD:main
