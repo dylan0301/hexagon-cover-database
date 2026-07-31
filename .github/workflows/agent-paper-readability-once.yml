@@ -1,0 +1,112 @@
+name: Agent paper readability revision (one time)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/agent-paper-readability-once.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  revise:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install TeX and audit tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends \
+            latexmk texlive-xetex texlive-latex-extra \
+            texlive-fonts-recommended texlive-pictures \
+            poppler-utils ripgrep
+
+      - name: Patch reader interfaces and proof package
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 .github/scripts/agent_paper_readability.py
+
+      - name: Compile and audit the paper
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd arrange/paper_draft
+          latexmk -xelatex -interaction=nonstopmode -halt-on-error main.tex
+          test -s main.pdf
+          ! grep -E "LaTeX Warning: (Reference|Citation).*undefined|There were undefined references" main.log
+          pdftotext main.pdf /tmp/main.txt
+          if grep -Eiw "row|rows" /tmp/main.txt; then
+            echo "Ambiguous row terminology remains in rendered PDF" >&2
+            exit 1
+          fi
+          cd ../..
+          git diff --check
+
+      - name: Run exact certificate verifiers
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4108_ce1_terminal_verifier.py
+          python3 proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105a_strategy4_exact_certificate/strategy4_exact_certificate.py --canonical
+
+      - name: Audit proof-package paths and Markdown links
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+          import subprocess
+
+          root = Path('.')
+          missing_manifest = []
+          manifest = root / 'proof' / 'MANIFEST.txt'
+          if manifest.exists():
+              for raw in manifest.read_text(encoding='utf-8').splitlines():
+                  item = raw.strip()
+                  if not item or item.startswith('#'):
+                      continue
+                  p = root / item
+                  if not p.exists():
+                      missing_manifest.append(item)
+          if missing_manifest:
+              raise SystemExit('Missing manifest paths: ' + ', '.join(missing_manifest[:20]))
+
+          broken = []
+          link_re = re.compile(r'\[[^\]]*\]\(([^)]+)\)')
+          paths = [root / 'README.md', *sorted((root / 'proof').rglob('*.md')), *sorted((root / 'arrange').glob('*.md'))]
+          for md in paths:
+              text = md.read_text(encoding='utf-8')
+              for target in link_re.findall(text):
+                  target = target.split('#', 1)[0].strip()
+                  if not target or '://' in target or target.startswith('mailto:'):
+                      continue
+                  if not (md.parent / target).resolve().exists():
+                      broken.append(f'{md}:{target}')
+          changed = set(subprocess.check_output(['git', 'diff', '--name-only'], text=True).splitlines())
+          new_broken = [x for x in broken if x.split(':', 1)[0] in changed]
+          if new_broken:
+              raise SystemExit('Broken links in changed files:\n' + '\n'.join(new_broken[:50]))
+          print('PATH_AND_LINK_AUDIT_OK')
+          PY
+
+      - name: Commit and push revised sources and PDF
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md arrange proof
+          if git diff --cached --quiet; then
+            echo "No source changes to commit"
+            exit 1
+          fi
+          git commit -m "Refine V-triangle terminology and appendix interfaces"
+          git push origin HEAD:main
