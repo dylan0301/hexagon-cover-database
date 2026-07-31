@@ -1,0 +1,34 @@
+name: Remove one-time paper revision automation
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/agent-paper-readability-cleanup.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Remove one-time scripts and workflows
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm -f --ignore-unmatch \
+            .github/scripts/agent_paper_readability.py \
+            .github/scripts/agent_paper_readability_followup.py \
+            .github/workflows/agent-paper-readability-once.yml \
+            .github/workflows/agent-paper-readability-followup.yml \
+            .github/workflows/agent-paper-readability-cleanup.yml
+          git commit -m "Remove one-time paper revision automation"
+          git push origin HEAD:main
