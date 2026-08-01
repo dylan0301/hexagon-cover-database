@@ -1,3 +1,4 @@
 Trigger the one-time reader-interface source revision.
 Rerun after repairing the non-mathematical follow-up assertion.
 Rerun after normalizing trailing blank lines.
+Trigger the post-commit terminology audit.
