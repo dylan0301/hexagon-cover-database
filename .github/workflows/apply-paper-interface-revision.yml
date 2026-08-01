@@ -1,5 +1,7 @@
 name: Apply paper interface revision
 
+# This comment intentionally changes the workflow in the merge commit so that
+# the push to main triggers the one-time source revision.
 on:
   push:
     branches: [main]
