@@ -1,4 +1,4 @@
-name: Audit paper interface revision
+name: Repair and validate paper interface revision
 
 on:
   pull_request:
@@ -7,10 +7,10 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  audit:
+  repair-and-validate:
     runs-on: ubuntu-latest
     steps:
       - name: Check out main
@@ -19,7 +19,93 @@ jobs:
           ref: main
           fetch-depth: 0
 
-      - name: Scan terminology and replacement boundaries
+      - name: Install TeX and exact-verifier dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommends \
+            latexmk texlive-xetex texlive-latex-extra texlive-fonts-recommended \
+            texlive-pictures poppler-utils ripgrep python3-pip
+          python3 -m pip install --break-system-packages sympy
+
+      - name: Repair the nine audited terminology defects
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+
+          def replace_once(path: str, old: str, new: str) -> None:
+              file = Path(path)
+              text = file.read_text(encoding='utf-8')
+              count = text.count(old)
+              if count != 1:
+                  raise SystemExit(
+                      f'{path}: expected one occurrence of {old!r}, found {count}'
+                  )
+              file.write_text(text.replace(old, new, 1), encoding='utf-8')
+
+          replace_once(
+              'arrange/paper_draft/01_introduction.tex',
+              'last entry the first entry is for CE1 and the second for CE2.',
+              'last entry, the first alternative is for CE1 and the second for CE2.',
+          )
+          replace_once(
+              'arrange/paper_draft/01_introduction.tex',
+              'For the two all-$\\Vdzero$ CE1/CE2 V triangles, the same six cells are organized by',
+              'For the two all-$\\Vdzero$ CE1/CE2 routing entries, the same six cells are organized by',
+          )
+          replace_once(
+              'arrange/paper_draft/02_reader_framework.tex',
+              '\\subsection{The transfer alphabet and its inequality interface}\\subsection{The transfer alphabet and its inequality interface}',
+              '\\subsection{The transfer alphabet and its inequality interface}',
+          )
+          replace_once(
+              'arrange/paper_draft/02_reader_framework.tex',
+              '\\input{02c_strategy2_skeleton_atlas}\\input{02c_strategy2_skeleton_atlas}',
+              '\\input{02c_strategy2_skeleton_atlas}',
+          )
+          replace_once(
+              'arrange/paper_draft/03_strategy1_length.tex',
+              'the Vd2 neighboring-midpoint subcase of the CE2 hybrid V triangle.',
+              'the Vd2 neighboring-midpoint subcase of the CE2 hybrid routing entry.',
+          )
+          replace_once(
+              'arrange/paper_draft/03_strategy1_reader.tex',
+              'the Vd2 neighboring-midpoint subcase of the CE2 hybrid V triangle.',
+              'the Vd2 neighboring-midpoint subcase of the CE2 hybrid routing entry.',
+          )
+          replace_once(
+              'arrange/paper_draft/03_strategy1_reader.tex',
+              'The first V triangle is the cyclic boundary sum.  The third V triangle is the skeleton sum\nabove.',
+              'The first branch is closed by the cyclic boundary sum.  The third branch is closed by the skeleton sum\nabove.',
+          )
+          replace_once(
+              'proof/0XXX_main/0001_proof_tree_index.md',
+              'For the all-Vd0 CE1/CE2 V triangles, let $\\mathrm{gr}$ be the active-gap rank.',
+              'For the all-Vd0 CE1/CE2 branches, let $\\mathrm{gr}$ be the active-gap rank.',
+          )
+          replace_once(
+              'proof/3XXX_CE0/31XX_Nplus1/317X_T3_like_no_Vd1Vd2/3173_T3_like_loss_from_envelope.md',
+              '## Lemma 652.1: branch V triangles are nonsupercritical',
+              '## Lemma 652.1: the V triangles in the branch are nonsupercritical',
+          )
+
+          for path in [
+              Path('arrange/paper_draft/01_introduction.tex'),
+              Path('arrange/paper_draft/02_reader_framework.tex'),
+              Path('arrange/paper_draft/03_strategy1_length.tex'),
+              Path('arrange/paper_draft/03_strategy1_reader.tex'),
+              Path('proof/0XXX_main/0001_proof_tree_index.md'),
+              Path('proof/3XXX_CE0/31XX_Nplus1/317X_T3_like_no_Vd1Vd2/3173_T3_like_loss_from_envelope.md'),
+          ]:
+              text = path.read_text(encoding='utf-8')
+              path.write_text(text.rstrip() + '\n', encoding='utf-8')
+          PY
+          git diff --check
+
+      - name: Re-run terminology and interface audit
         shell: bash
         run: |
           set -euo pipefail
@@ -27,22 +113,17 @@ jobs:
           from pathlib import Path
           import re
 
-          roots = [Path('arrange/paper_draft'), Path('proof')]
-          paths = []
-          for root in roots:
-              if root.name == 'paper_draft':
-                  paths.extend(sorted(root.glob('*.tex')))
-              else:
-                  for path in sorted(root.rglob('*.md')):
-                      text = path.read_text(encoding='utf-8')
-                      if 'Status: Proven' in text or path.name in {
-                          '0910_notation_dictionary.md',
-                          '0000_main_theorem.md',
-                          '0001_proof_tree_index.md',
-                          '0002_status_and_dependencies.md',
-                          '1212_vertex_rows_and_Nplus.md',
-                      }:
-                          paths.append(path)
+          paths = list(sorted(Path('arrange/paper_draft').glob('*.tex')))
+          for path in sorted(Path('proof').rglob('*.md')):
+              text = path.read_text(encoding='utf-8')
+              if 'Status: Proven' in text or path.name in {
+                  '0910_notation_dictionary.md',
+                  '0000_main_theorem.md',
+                  '0001_proof_tree_index.md',
+                  '0002_status_and_dependencies.md',
+                  '1212_vertex_rows_and_Nplus.md',
+              }:
+                  paths.append(path)
 
           suspicious = [
               re.compile(r'\b(?:first|second|third|fourth|fifth|sixth|seventh|last) V triangles?\b', re.I),
@@ -55,15 +136,71 @@ jobs:
               re.compile(r'\\subsection\{[^{}]+\}\\subsection\{'),
               re.compile(r'\\input\{([^{}]+)\}\\input\{\1\}'),
           ]
-
           hits = []
           for path in paths:
               for number, line in enumerate(path.read_text(encoding='utf-8').splitlines(), 1):
                   if any(pattern.search(line) for pattern in suspicious):
                       hits.append(f'{path}:{number}: {line}')
-
           if hits:
               print('\n'.join(hits))
               raise SystemExit(f'SUSPICIOUS_TERMINOLOGY_COUNT={len(hits)}')
-          print('TERMINOLOGY_AUDIT_OK')
+
+          body = Path('arrange/paper_draft/02_reader_framework.tex').read_text(encoding='utf-8')
+          appendix_b = Path('arrange/paper_draft/02b_admissible_set_derivation.tex').read_text(encoding='utf-8')
+          appendix_d = Path('arrange/paper_draft/04a_signed_center_calculus.tex').read_text(encoding='utf-8')
+          table = Path('arrange/paper_draft/04_strategy2_summary.tex').read_text(encoding='utf-8')
+          assert 'L_{OA}=' not in body
+          assert 'L_{AC}=' not in body
+          assert 'F_0(a,b)&=' not in body
+          assert 'L_{OA}' in appendix_b and 'L_{AC}' in appendix_b
+          assert 'F_0' in appendix_d and '\\Delta_R' in appendix_d
+          assert 'def:body-six-slot-chain' in table
+          for index in range(6):
+              assert f'c_{index},J_{index}^C' in table
+          print('TERMINOLOGY_AND_INTERFACE_AUDIT_OK')
           PY
+
+      - name: Compile the complete manuscript
+        shell: bash
+        working-directory: arrange/paper_draft
+        run: |
+          set -euo pipefail
+          latexmk -xelatex -interaction=nonstopmode -halt-on-error main.tex
+          test -s main.pdf
+          pdfinfo main.pdf
+          if grep -E 'LaTeX Warning: (Reference|Citation).*undefined|There were undefined references|multiply defined|There were multiply-defined labels' main.log; then
+            exit 1
+          fi
+          pdftotext main.pdf /tmp/hexagon-paper.txt
+          if grep -Eiw 'row|rows' /tmp/hexagon-paper.txt; then
+            echo 'Ambiguous row terminology remains in the rendered paper.' >&2
+            exit 1
+          fi
+
+      - name: Run exact certificate verifiers
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4108_ce1_terminal_verifier.py
+          python3 proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105a_strategy4_exact_certificate/strategy4_exact_certificate.py --canonical
+
+      - name: Commit repaired sources and rebuilt PDF
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add \
+            arrange/paper_draft/01_introduction.tex \
+            arrange/paper_draft/02_reader_framework.tex \
+            arrange/paper_draft/03_strategy1_length.tex \
+            arrange/paper_draft/03_strategy1_reader.tex \
+            arrange/paper_draft/main.pdf \
+            proof/0XXX_main/0001_proof_tree_index.md \
+            proof/3XXX_CE0/31XX_Nplus1/317X_T3_like_no_Vd1Vd2/3173_T3_like_loss_from_envelope.md
+          if git diff --cached --quiet; then
+            echo 'No repair or PDF changes to commit.' >&2
+            exit 1
+          fi
+          git commit -m 'Repair terminology substitutions and rebuild paper'
+          git push origin HEAD:main
