@@ -182,7 +182,8 @@ jobs:
         run: |
           set -euo pipefail
           python3 proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4108_ce1_terminal_verifier.py
-          python3 proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105a_strategy4_exact_certificate/strategy4_exact_certificate.py --canonical
+          python3 proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/verify_mixed_overlap_core_derivation.py
+          python3 proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/verify_global_core_positivity.py
 
       - name: Commit repaired sources and rebuilt PDF
         shell: bash
