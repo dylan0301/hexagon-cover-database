@@ -151,33 +151,6 @@ The last column is CE2-only.
 
 \subsection{Four mechanisms}
 
-\begin{figure}[H]
-\centering
-\begin{tikzpicture}[
-  node distance=7mm and 8mm,
-  box/.style={draw,rounded corners,align=center,inner sep=5pt,text width=.20\textwidth},
-  arr/.style={-{Latex[length=2mm]},thick}
-]
-\node[box] (data) {forced roles\\finite routing};
-\node[box,right=of data] (local) {local geometric\\interfaces};
-\node[box,below left=of local] (add) {additive deficits\\Strategies 1 and 3};
-\node[box,below=of local] (trans) {isotone transfers\\Strategy 2};
-\node[box,below right=of local] (convex) {convex support\\Strategy 4};
-\node[box,below=18mm of trans] (end) {every routing entry\\is impossible};
-\draw[arr] (data)--(local);
-\draw[arr] (local)--(add);
-\draw[arr] (local)--(trans);
-\draw[arr] (local)--(convex);
-\draw[arr] (add)--(end);
-\draw[arr] (trans)--(end);
-\draw[arr] (convex)--(end);
-\end{tikzpicture}
-\caption{The proof separates finite geometric structure from three certificate
-classes.  Strategy names are retained because they make the routing table
-readable.}
-\label{fig:proof-flow}
-\end{figure}
-
 Strategy~1 bounds one-dimensional traces on $\partial H$ or $S$.
 Strategy~2 propagates lower reaches with monotone maps obtained from one local
 admissible set.  Strategy~3 sums forced area losses.  Strategy~4 forces nine

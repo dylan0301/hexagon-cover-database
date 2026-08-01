@@ -26,7 +26,7 @@ calculation lemma without the appendices and incorporated supplements.
 | File | Function |
 |---|---|
 | `main.tex` | AMS assembly and body/appendix split |
-| `01_introduction.tex` | theorem, roles, definitions, routing table, figures |
+| `01_introduction.tex` | theorem, roles, definitions, routing table, role figure |
 | `02_reader_framework.tex` | structural, admissible-set, transfer, signed-center interfaces |
 | `02c_strategy2_skeleton_atlas.tex` | modular full-skeleton dictionary for the transfer and signed-center interfaces |
 | `03_strategy1_reader.tex` | trace-cap register and terminal trace sums |
@@ -60,7 +60,7 @@ calculation lemma without the appendices and incorporated supplements.
 The body-end label remains immediately before `\appendix`.  The body has no
 fixed page cap; its page number is recorded after each complete build.
 
-The illustrated Strategy 2 atlas is explanatory only.  Its 33 modular panels
+The illustrated Strategy 2 atlas is explanatory only.  Its 32 modular panels
 are grounded in the regular hexagon skeleton and occur in the reader-facing
 body beside the corresponding mathematical definitions; any non-metric
 placement is explicitly marked schematic.
@@ -293,11 +293,11 @@ xelatex -no-pdf -interaction=nonstopmode -halt-on-error main.tex
 xdvipdfmx -E -o main.pdf main.xdv
 ```
 
-The resulting `main.pdf` has 137 pages.  The reader-facing body ends on page
-38.  Strategy 2's 33 full-skeleton panels occur on body pages 6--32: the
-transfer and signed-center dictionary occupies pages 12--16, and the exact
-certificate figures occupy pages 18--32.  The build has no undefined
-references, duplicate labels, or overfull boxes.  Ghostscript decoded every
+The resulting `main.pdf` has 136 pages.  The reader-facing body ends on page
+35.  Strategy 2's 32 full-skeleton panels occur on body pages 6--28: the
+transfer figures occupy pages 8--11, the signed-center sample is on page 12,
+and the exact certificate figures occupy pages 15--28.  The build has no
+undefined references, duplicate labels, or overfull boxes.  Ghostscript decoded every
 page, and `pdfinfo` and `pdftotext` read the complete PDF successfully.
 
 ## 2026-07-31 reader-interface revision
