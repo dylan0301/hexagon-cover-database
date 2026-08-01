@@ -1,14 +1,14 @@
-# CE1/CE2, $N_+=1$, At Least Two T3-Like Rows
+# CE1/CE2, $N_+=1$, At Least Two T3-Like V triangles
 
 Status: Proven
 
 Assume the center role is CE1 or CE2, $N_+=1$, no vertex role is Vd1 or Vd2,
 and at least two vertex roles are T3-like.
 
-T3-like rows are nonsupercritical, so the unique supercritical row is distinct
-from them.  A supercritical row is a short role in the terminology of
+T3-like V triangles are nonsupercritical, so the unique supercritical V triangle is distinct
+from them.  A supercritical V triangle is a short role in the terminology of
 [`2530`](../../../2XXX_geometric_lemmas/25XX_length_bounds/2530_common_CE1_CE2_budget_lemmas.md),
-and every T3-like row is short because it has positive-length support on an
+and every T3-like V triangle is short because it has positive-length support on an
 adjacent radial arm.  Hence there are at least three short vertex roles.
 
 The three-short-role skeleton theorem in `2530` gives

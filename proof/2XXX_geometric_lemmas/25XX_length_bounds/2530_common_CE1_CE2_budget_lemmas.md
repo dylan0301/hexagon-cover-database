@@ -121,10 +121,10 @@ $$
 Suppose a branch has:
 
 - a center role with boundary contribution $L_C$;
-- $n$ supercritical Vd0 rows, each with contribution at most $2/\sqrt3$;
-- $m\ge1$ distinguished nonsupercritical rows with strict contribution bounds
+- $n$ supercritical Vd0 V triangles, each with contribution at most $2/\sqrt3$;
+- $m\ge1$ distinguished nonsupercritical V triangles with strict contribution bounds
   $q_1,\ldots,q_m<1$;
-- $6-n-m$ remaining nonsupercritical rows, each with contribution at most $1$.
+- $6-n-m$ remaining nonsupercritical V triangles, each with contribution at most $1$.
 
 If
 
@@ -154,20 +154,20 @@ L_C+n\frac2{\sqrt3}
 \end{aligned}
 $$
 
-The strictness follows from $m\ge1$ and the strict distinguished-row bounds.
+The strictness follows from $m\ge1$ and the strict distinguished-V triangle bounds.
 This contradicts subadditivity for a cover of the length-$6$ perimeter.
 
 For example, the CE0, $N_+=1$ branch with a Vd1/Vd2 role follows by taking
 $L_C=0$, $n=1$, and $q_1=1/2$, because
 $2/\sqrt3-1<1/2$.
 
-## 3. One supercritical row and one Vd1/Vd2 row
+## 3. One supercritical V triangle and one Vd1/Vd2 V triangle
 
 Assume a branch has exactly:
 
-- one supercritical Vd0 row;
-- one Vd1 or Vd2 row;
-- four nonsupercritical Vd0 rows.
+- one supercritical Vd0 V triangle;
+- one Vd1 or Vd2 V triangle;
+- four nonsupercritical Vd0 V triangles.
 
 The Vd1/Vd2 boundary cap is strict and equals $1/2$. Perimeter coverage would
 therefore force
@@ -382,7 +382,7 @@ $$
 L_S(T_i)\le2
 $$
 
-for every remaining nonsupercritical row with no adjacent-ray support.
+for every remaining nonsupercritical V triangle with no adjacent-ray support.
 
 If there are $q\ge3$ short vertex roles, then
 

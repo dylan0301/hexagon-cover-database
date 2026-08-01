@@ -210,14 +210,14 @@ The four items map as follows:
 
 | Paper item | Primary source | Supporting sources |
 |---|---|---|
-| raw outgoing map and actual-row bound | [2007_max_b_map.md](../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2007_max_b_map.md) | `2004`, `201d` |
+| raw outgoing map and actual-V triangle bound | [2007_max_b_map.md](../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2007_max_b_map.md) | `2004`, `201d` |
 | capped nonsupercritical map and complement dual | [2011_capped_demand_map.md](../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md) | `2004`, `2007` |
 | center-assisted residual transfer | [2019_interval_component_and_path_budget.md](../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2019_interval_component_and_path_budget.md) | `201d` |
 | strict-supercritical outgoing envelope | [2010_free_supercritical_max_b.md](../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2010_free_supercritical_max_b.md) | `2004`, `2007` |
 | relaxed composition | [201d_raw_and_relaxed_g_chains.md](../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md) | `2019` |
 
 **Critical hypothesis map.** The unconditional statement is
-`B<g_c^{sc}`. The complementary next-row statement requires a center-free
+`B<g_c^{sc}`. The complementary next-V-triangle statement requires a center-free
 outgoing edge. The corrected path hypothesis is carried by `2019`.
 
 ### `prop:body-signed-center-interface`
@@ -239,7 +239,7 @@ outgoing edge. The corrected path hypothesis is carried by `2019`.
 
 ### `prop:body-trace-register`
 
-| Trace-cap row in the paper | Primary proof source |
+| Trace-cap V triangle in the paper | Primary proof source |
 |---|---|
 | CE1/CE2 center on the full skeleton | [2510_skeleton_length_bounds.md](../proof/2XXX_geometric_lemmas/25XX_length_bounds/2510_skeleton_length_bounds.md) |
 | supercritical vertex role on the skeleton | [2510_skeleton_length_bounds.md](../proof/2XXX_geometric_lemmas/25XX_length_bounds/2510_skeleton_length_bounds.md) |
@@ -269,7 +269,7 @@ outgoing edge. The corrected path hypothesis is carried by `2019`.
 | CE1, `N_+=1`, one Vd1/Vd2 | [4110_CE1_Nplus1_exists_Vd1_Vd2_boundary_length_obstruction.md](../proof/4XXX_CE1CE2/41XX_Nplus1/411X_Vd1_Vd2_obstruction/4110_CE1_Nplus1_exists_Vd1_Vd2_boundary_length_obstruction.md) | CE1 is removed before CE2 placement analysis |
 | at least two Vd-type short roles, where routed separately | [4111_CE2_Nplus1_at_least_two_Vd1_Vd2_boundary_length_obstruction.md](../proof/4XXX_CE1CE2/41XX_Nplus1/411X_Vd1_Vd2_obstruction/4111_CE2_Nplus1_at_least_two_Vd1_Vd2_boundary_length_obstruction.md) | compatible with short-role routing |
 | at least two T3-like roles | [4123_CE1_CE2_at_least_two_T3_like_diagonal_obstruction.md](../proof/4XXX_CE1CE2/41XX_Nplus1/412X_at_least_two_T3_like/4123_CE1_CE2_at_least_two_T3_like_diagonal_obstruction.md) | also subsumed by common budget where applicable |
-| CE2 Vd2 neighboring-midpoint subcase | [4149_CE2_Nplus1_Vd2_neighbor_midpoint_obstruction.md](../proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4149_CE2_Nplus1_Vd2_neighbor_midpoint_obstruction.md) | Strategy 1 part of hybrid row |
+| CE2 Vd2 neighboring-midpoint subcase | [4149_CE2_Nplus1_Vd2_neighbor_midpoint_obstruction.md](../proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4149_CE2_Nplus1_Vd2_neighbor_midpoint_obstruction.md) | Strategy 1 part of hybrid V triangle |
 | CE2 additional positive-support subcase | [414a_CE2_Nplus1_mixed_Vd1_Vd2_T3_like_skeleton_obstruction.md](../proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/414a_CE2_Nplus1_mixed_Vd1_Vd2_T3_like_skeleton_obstruction.md) | three-short-role skeleton |
 | CE1/CE2, `N_+>=2` | [4200_CE1_CE2_skeleton_length_route.md](../proof/4XXX_CE1CE2/42XX_Nplus_ge2/4200_CE1_CE2_skeleton_length_route.md) | midpoint rescue creates the extra short role |
 
@@ -304,8 +304,8 @@ The full calculations are reorganized in `03_strategy1_length.tex` and
 
 | Paper component | Proof source |
 |---|---|
-| unique supercritical row and exact gap setup | [4101_CE1CE2_Nplus1_all_Vd0_strategy.md](../proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4101_CE1CE2_Nplus1_all_Vd0_strategy.md) |
-| actual-row five-map propagation and `A_0>=Z`, `A_0<1-H` | [4105_CE1_CE2_one_gap_five_row_interface.md](../proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4105_CE1_CE2_one_gap_five_row_interface.md) |
+| unique supercritical V triangle and exact gap setup | [4101_CE1CE2_Nplus1_all_Vd0_strategy.md](../proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4101_CE1CE2_Nplus1_all_Vd0_strategy.md) |
+| actual-V triangle five-map propagation and `A_0>=Z`, `A_0<1-H` | [4105_CE1_CE2_one_gap_five_row_interface.md](../proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4105_CE1_CE2_one_gap_five_row_interface.md) |
 | CE1 affine/threshold completion | [4106_CE1_one_gap_five_map_completion.md](../proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4106_CE1_one_gap_five_map_completion.md) |
 | CE2 at-least-one-threshold completion | [4107_CE2_one_gap_five_map_completion.md](../proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4107_CE2_one_gap_five_map_completion.md) |
 | selected `T_+` normal form and chords | [2016_universal_Tplus_normal_form.md](../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2016_universal_Tplus_normal_form.md) |
@@ -404,7 +404,7 @@ The full calculations are reorganized in `03_strategy1_length.tex` and
 
 **Branch assembly.** [3201_area_conjecture_index.md](../proof/3XXX_CE0/32XX_Nplus_ge2/3201_area_conjecture_index.md) — **A/N**.
 
-### Global cyclic sum for exactly one supercritical row plus T3-like role
+### Global cyclic sum for exactly one supercritical V triangle plus T3-like role
 
 **Primary global certificate.** [3174_CE0_one_supercritical_T3_certificate.md](../proof/3XXX_CE0/31XX_Nplus1/317X_T3_like_no_Vd1Vd2/3174_CE0_one_supercritical_T3_certificate.md) — **P**.
 
@@ -556,7 +556,7 @@ component selectors, down-closedness, and exact radial envelope.
 
 **Paper results supplied.** Signed `R,W,E,eta,P,alpha,delta` normal form, CE1/CE2
 sign test, exact traces, radial exits, midpoint normalization, center boundary
-length, and exact one-gap actual-row interface.
+length, and exact one-gap actual-V triangle interface.
 
 **Primary sources.**
 
@@ -607,7 +607,7 @@ nonadjacent Vd radial separation, and related Strategy 1 subcases.
 ## 3.9 `paper_draft/04_strategy2_reader.tex`
 
 **Paper results supplied.** Complete `g`-composition presentation of the
-all-Vd0 gap-rank kernel, common two-gap application, exact five-row chain,
+all-Vd0 gap-rank kernel, common two-gap application, exact five-V-triangle chain,
 separate CE1/CE2 endings, and summary of special-role branches.
 
 **Primary sources.** `4013`, `2110`, `4101`, `4105`, `4106`, `4107`, `4130`,
@@ -716,12 +716,12 @@ three global charts, exact Bernstein conversion, and certificate manifest.
 
 ---
 
-# 4. Routing-row crosswalk
+# 4. Routing-V triangle crosswalk
 
 This table is the direct connection between `tab:routing` in the paper and the
 terminal proof sources.
 
-| Routing row in the paper | Reader-facing conclusion | Status-bearing terminal source(s) |
+| Routing V triangle in the paper | Reader-facing conclusion | Status-bearing terminal source(s) |
 |---|---|---|
 | CE0, `N_+=0` | Strategy 1 | `3010_CE0_perimeter_length_obstruction.md` |
 | CE0, `N_+=1`, all Vd0 | Strategy 4 | `31058_center_independent_direct_nine_point_obstruction.md`, `31059_CE0_Nplus1_all_Vd0_completion.md` |
@@ -753,8 +753,8 @@ terminal proof sources.
 | `2004` | explicit admissible set, exact-demand appendix, Strategy 4 radial envelope |
 | `2007` | raw transfer map in `02_reader_framework` and `02a` |
 | `2010` | strict-supercritical envelope in Strategies 2 and rescuer branches |
-| `2011` | capped map, duality, four-label T3 audit, five-row chains |
-| `2016` | CE1 five-row chords, `407X` high sheet, T3 rescuer rationalization |
+| `2011` | capped map, duality, four-label T3 audit, five-V-triangle chains |
+| `2016` | CE1 five-V-triangle chords, `407X` high sheet, T3 rescuer rationalization |
 | `2017` | CE1/CE2 threshold endings |
 | `2018` | one-gap diameter terminal and common T3/Vd1 rescuer |
 | `2019` | residual maps and every center-free path budget |
@@ -777,7 +777,7 @@ terminal proof sources.
 | Terminal package | Reader-facing paper location |
 |---|---|
 | `3010` | `prop:body-length-branches`, CE0 `N_+=0` |
-| `31050`-`31059` | all of `06_strategy4_reader.tex`; zero-gap rows in final assembly |
+| `31050`-`31059` | all of `06_strategy4_reader.tex`; zero-gap V triangles in final assembly |
 | `3141` | `prop:body-length-branches`, CE0 one-Vd branch |
 | `3171`, `3174`, `3175` | `prop:body-area-branches`, CE0 exactly-one-supercritical T3 branch |
 | `3201`, `3205`, `3208` | `prop:body-area-branches`, CE0 `N_+>=2` |
@@ -788,8 +788,8 @@ terminal proof sources.
 | `4110`, `4111` | Strategy 1 Vd branch routing |
 | `4123` | multiple-T3 short-role routing |
 | `4130`, `4131`, `4132` | exactly-one-T3-like Strategy 2 branch |
-| `4140`, `4143`, `4144`, `4146`, `4147`, `4148`, `4149`, `414a` | CE2 exactly-one-Vd hybrid row, `04d`, `04e`, `04f` |
-| `4200` | CE1/CE2 `N_+>=2` Strategy 1 row |
+| `4140`, `4143`, `4144`, `4146`, `4147`, `4148`, `4149`, `414a` | CE2 exactly-one-Vd hybrid V triangle, `04d`, `04e`, `04f` |
+| `4200` | CE1/CE2 `N_+>=2` Strategy 1 V triangle |
 
 ---
 
@@ -902,13 +902,13 @@ When a paper TeX file changes, verify:
 
 1. every body proposition has at least one status-bearing primary source;
 2. every appendix claim agrees with the hypotheses of the Markdown source;
-3. every routing-table row still has exactly one terminal route after the
+3. every routing-table entry still has exactly one terminal route after the
    top-to-bottom precedence rules;
 4. `N_+` remains defined from actual maximal reaches;
 5. singleton gaps remain included;
 6. every identity-relaxed boundary path verifies that its internal edges are
    center-free and free of nonincident positive-length traces;
-7. the exact five-row target remains `Z>1-H`, while the reversed dual target is
+7. the exact five-V-triangle target remains `Z>1-H`, while the reversed dual target is
    `>1-X`;
 8. the CE2 threshold language remains “at least one”, not “exactly one”;
 9. the adjacent CE2 Vd terminal remains the direct quarter radial separation;

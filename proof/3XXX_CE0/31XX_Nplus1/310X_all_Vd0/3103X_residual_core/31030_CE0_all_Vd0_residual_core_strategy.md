@@ -17,7 +17,7 @@ There is no cover of $H$ by seven open unit equilateral triangles for which
 
 - the center role $T_C$ is CE0;
 - all six vertex roles $T_0,\dots,T_5$ are Vd0; and
-- exactly one actual maximal boundary row is supercritical.
+- exactly one actual maximal boundary V triangle is supercritical.
 
 Equivalently, the CE0, $N_+=1$, all-Vd0 branch is impossible.
 
@@ -40,7 +40,7 @@ $$
 $$
 
 The six vertex roles are Vd0 by assumption, and $N_+=1$ says that exactly
-one of their actual rows is supercritical; see
+one of their actual V triangles is supercritical; see
 [`1212_vertex_rows_and_Nplus.md`](../../../../1XXX_foundations/12XX_V_triangle/1212_vertex_rows_and_Nplus.md).
 All hypotheses of `31035` now hold, so that theorem gives a contradiction.
 Therefore this branch is impossible.

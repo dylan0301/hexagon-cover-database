@@ -90,7 +90,7 @@ If $a_1^*+a_5^*>1$, the diagonal caps already give the strict inequality.
 Otherwise Proposition~\ref{prop:capped-demand-map} assigns each endpoint one
 of the four labels above.  Table~\ref{tab:paper-407-complete-audit} is an
 exhaustive partition of the resulting ordered label pairs.  The incorporated
-source in each row proves either that the pair is impossible or that its two
+source in each V triangle proves either that the pair is impossible or that its two
 exact capped outputs have sum strictly below one.  File `407d` checks that the
 geometric residual reduction in `4073` reaches exactly these branches and no
 others.  Therefore the displayed endpoint inequality holds throughout the
@@ -101,11 +101,11 @@ complete support-isolated domain.
 
 \begin{proposition}[Vd1--supercritical axis replacement]
 \label{prop:paper-vd1-pair-replacement}
-Assume the CE2 exact-$M_0$ branch, with a unique supercritical row at $V_1$ and
-an adjacent Vd1 row at $V_0$ containing $M_1$.  Assume every other vertex row
+Assume the CE2 exact-$M_0$ branch, with a unique supercritical V triangle at $V_1$ and
+an adjacent Vd1 V triangle at $V_0$ containing $M_1$.  Assume every other vertex V triangle
 is nonsupercritical Vd0, no additional role has positive support on the two
 relevant radial handoffs, and the center has no boundary trace on the shared
-edge $e_{0,1}$.  Then the two special rows can be replaced by two open
+edge $e_{0,1}$.  Then the two special V triangles can be replaced by two open
 nonsupercritical Vd0 roles preserving all boundary and radial demands used by
 the all-Vd0 boundary-loss theorem.
 \end{proposition}
@@ -178,7 +178,7 @@ because $d<t+1$.  Finally
 \]
 This proves \eqref{eq:paper-replacement-margins}.
 
-Let $(A_1,B_1,C_1)$ be the actual reaches of the unique supercritical row.
+Let $(A_1,B_1,C_1)$ be the actual reaches of the unique supercritical V triangle.
 The center-free shared edge forces
 \[
  A_1\ge1-b>\frac12,
@@ -215,7 +215,7 @@ Thus
 \]
 again a contradiction.
 
-A supercritical row has own-radial coordinate at most $1/2$, so the lemma
+A supercritical V triangle has own-radial coordinate at most $1/2$, so the lemma
 applied to $(A_1,B_1,C_1)$ gives
 \[
  B_1\le1-C_1\le1-\lambda.
@@ -227,8 +227,8 @@ Together with $a<\lambda$ this gives
 \end{equation}
 
 Let $d_1^C$ be the center reach on the rescued arm, measured from $O$, and put
-$c_1^{\rm req}=1-d_1^C$.  Only the center, the supercritical row, and the Vd1
-row have positive intervals on this arm.  Open coverage at the center handoff
+$c_1^{\rm req}=1-d_1^C$.  Only the center, the supercritical V triangle, and the Vd1
+V triangle have positive intervals on this arm.  Open coverage at the center handoff
 gives
 \[
  c_1^{\rm req}<\max\{C_1,\mu\}.

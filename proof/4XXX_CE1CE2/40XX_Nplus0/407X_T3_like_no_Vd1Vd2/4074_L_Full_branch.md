@@ -469,7 +469,7 @@ Contradiction.  Thus the non-overlap hit-low subcase is impossible.
 
 ### Case 2: $p_1\ge t$
 
-If $T_C$ is CE1, then its only positive boundary interval is already covered by $T_0$.  The six vertex roles would have to cover the full perimeter.  But $T_0$ is T3-like with boundary sum $1/D<1$, and all other rows are nonsupercritical, so the total perimeter contribution is strictly less than $6$.  Contradiction.
+If $T_C$ is CE1, then its only positive boundary interval is already covered by $T_0$.  The six vertex roles would have to cover the full perimeter.  But $T_0$ is T3-like with boundary sum $1/D<1$, and all other V triangles are nonsupercritical, so the total perimeter contribution is strictly less than $6$.  Contradiction.
 
 Thus $T_C$ is CE2.  In the hard region, $A_5$ cannot be $1-\alpha$, since then
 

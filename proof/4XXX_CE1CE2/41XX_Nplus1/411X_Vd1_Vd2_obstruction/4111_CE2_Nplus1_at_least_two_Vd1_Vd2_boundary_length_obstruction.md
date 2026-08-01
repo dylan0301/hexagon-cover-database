@@ -3,9 +3,9 @@
 Status: Proven
 
 Assume a hypothetical cover has a CE2 center role, exactly one supercritical
-vertex row, and at least two Vd1 or Vd2 rows.
+vertex V triangle, and at least two Vd1 or Vd2 V triangles.
 
-Vd1/Vd2 and T3-like rows are nonsupercritical, so the unique supercritical row
+Vd1/Vd2 and T3-like V triangles are nonsupercritical, so the unique supercritical V triangle
 is Vd0.  The common center theorem
 [`2530`](../../../2XXX_geometric_lemmas/25XX_length_bounds/2530_common_CE1_CE2_budget_lemmas.md)
 and the boundary caps in
@@ -29,7 +29,7 @@ L_{\partial H}(T_{\mathrm{supercritical}})
 \frac2{\sqrt3}.
 $$
 
-Every remaining row is nonsupercritical and contributes at most $1$ to the
+Every remaining V triangle is nonsupercritical and contributes at most $1$ to the
 boundary.  Thus the total available boundary length is strictly less than
 
 $$

@@ -12,7 +12,7 @@ Let $H$ be the side-$1$ regular hexagon centered at $O=0$, with cyclic
 vertices $V_0,\dots,V_5$. Let $T_i$ be an open unit equilateral triangle
 containing $V_i$, and suppose the six vertex roles cover $\partial H$.
 
-Assume exactly one actual row is supercritical. Rotate its index to $4$ and
+Assume exactly one actual V triangle is supercritical. Rotate its index to $4$ and
 choose the strict handoffs supplied by
 [`1214_strict_boundary_handoff_selection.md`](../../../../1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md):
 
@@ -25,7 +25,7 @@ X_i\in T_i\cap T_{i+1}.
 \tag{1}
 $$
 
-The selected incoming and outgoing demands of row $i$ are
+The selected incoming and outgoing demands of V triangle $i$ are
 
 $$
 a_i=1-x_{i-1},
@@ -34,7 +34,7 @@ b_i=x_i.
 \tag{2}
 $$
 
-Every selected row except row $4$ is strictly nonsupercritical. Therefore
+Every selected V triangle except V triangle $4$ is strictly nonsupercritical. Therefore
 $x_i<x_{i-1}$ for $i\ne4$, and the six handoffs satisfy
 
 $$
@@ -69,7 +69,7 @@ a^2+ab+b^2<1.
 $$
 
 Equation (3) says that every $x_j$ lies in $[x_3,x_4]$. Thus every selected
-row, including row $4$, obeys
+V triangle, including V triangle $4$, obeys
 
 $$
 a_i=1-x_{i-1}\ge1-x_4=p,

@@ -3,7 +3,7 @@
 Status: Proven
 
 Assume the center role is CE1 or CE2, contains $O$ in its interior, and at
-least two vertex rows are supercritical.
+least two vertex V triangles are supercritical.
 
 The midpoint-forcing lemma in
 [`2510`](../../2XXX_geometric_lemmas/25XX_length_bounds/2510_skeleton_length_bounds.md)
@@ -12,7 +12,7 @@ therefore has positive-length support on an adjacent radial arm.  Thus the
 configuration has at least three short vertex roles in the terminology of
 [`2530`](../../2XXX_geometric_lemmas/25XX_length_bounds/2530_common_CE1_CE2_budget_lemmas.md):
 
-- two supercritical rows;
+- two supercritical V triangles;
 - one positive-support rescuer.
 
 The three-short-role theorem in `2530` gives

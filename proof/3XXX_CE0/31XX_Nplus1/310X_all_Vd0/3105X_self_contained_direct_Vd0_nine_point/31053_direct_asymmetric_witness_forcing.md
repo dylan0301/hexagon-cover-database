@@ -4,7 +4,7 @@ Status: Proven
 
 This note defines the three asymmetric witnesses exactly and excludes them
 from all six actual open vertex roles. Only the distinguished supercritical
-row uses a row union; the other five exclusions use actual contained vertices
+V triangle uses a V triangle union; the other five exclusions use actual contained vertices
 or actual handoff points.
 
 ## 1. Handoffs and local coordinates
@@ -37,7 +37,7 @@ b=x_4.
 \tag{3}
 $$
 
-The two row-$4$ anchors belong to $T_4$, so their mutual distance and (2)
+The two V triangle-$4$ anchors belong to $T_4$, so their mutual distance and (2)
 give
 
 $$
@@ -96,7 +96,7 @@ $$
 \tag{9}
 $$
 
-The exact frontier lines for the row-$4$ source union
+The exact frontier lines for the V triangle-$4$ source union
 $\mathcal U_{AB}(b,a)$ are
 
 $$

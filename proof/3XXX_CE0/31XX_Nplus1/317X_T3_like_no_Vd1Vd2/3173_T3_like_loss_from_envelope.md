@@ -36,7 +36,7 @@ $$
 G(s)=1-F(s).
 $$
 
-For a T3-like row with required lower-bound data $(a,b)$, write
+For a T3-like V triangle with required lower-bound data $(a,b)$, write
 
 $$
 G_{\mathrm{T3}}(a,b)=1-f_{\mathrm{T3}}(a,b).
@@ -51,7 +51,7 @@ $$
 
 for $0\le s\le1/2$.
 
-## Lemma 652.1: branch rows are nonsupercritical
+## Lemma 652.1: branch V triangles are nonsupercritical
 
 For every $s\in[0,1/2]$,
 
@@ -59,7 +59,7 @@ $$
 A(s)+B(s)\le1.
 $$
 
-Consequently, under the tangent-envelope conjecture, every T3-like row satisfies
+Consequently, under the tangent-envelope conjecture, every T3-like V triangle satisfies
 
 $$
 a+b\le1.
@@ -98,7 +98,7 @@ This holds exactly for $0\le s\le1/2$.  Hence every point on the upper branch is
 nonsupercritical.  The reflected branch has the same sum, so the same conclusion
 holds for it.
 
-Now assume the tangent-envelope conjecture.  If a T3-like row with lower-bound
+Now assume the tangent-envelope conjecture.  If a T3-like V triangle with lower-bound
 coordinates $(a,b)$ is dominated by the upper branch, then for some
 $s\in[0,1/2]$,
 
@@ -122,7 +122,7 @@ a\le B(s),
 b\le A(s),
 $$
 
-and the same sum bound gives $a+b\le1$.  Therefore every T3-like row is
+and the same sum bound gives $a+b\le1$.  Therefore every T3-like V triangle is
 nonsupercritical.  This proves the lemma.
 
 ## Lemma 652.2: pointwise small-coordinate branch loss bound
@@ -253,7 +253,7 @@ This proves the lemma.
 Assume the full tangent-envelope conjecture from
 [`3172_full_T3_like_tangent_envelope_conjecture.md`](3172_full_T3_like_tangent_envelope_conjecture.md).
 
-Let $0\le m\le1/2$.  If a T3-like row has lower-bound coordinates satisfying
+Let $0\le m\le1/2$.  If a T3-like V triangle has lower-bound coordinates satisfying
 
 $$
 a\ge m,
@@ -344,7 +344,7 @@ This proves the theorem.
 Assume the full tangent-envelope conjecture from
 [`3172_full_T3_like_tangent_envelope_conjecture.md`](3172_full_T3_like_tangent_envelope_conjecture.md).
 
-Let $0\le m\le1/2$.  If a T3-like row has lower-bound coordinates satisfying
+Let $0\le m\le1/2$.  If a T3-like V triangle has lower-bound coordinates satisfying
 
 $$
 a\ge m,

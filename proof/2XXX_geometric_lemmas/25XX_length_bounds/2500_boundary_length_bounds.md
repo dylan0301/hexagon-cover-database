@@ -44,7 +44,7 @@ The relevant definitions are:
   [../../1XXX_foundations/11XX_C_triangle/1101_CE_classification.md](../../1XXX_foundations/11XX_C_triangle/1101_CE_classification.md).
 - V-triangle type:
   [../../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md](../../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md).
-- Local row coordinates:
+- Local V triangle coordinates:
   [../../1XXX_foundations/12XX_V_triangle/1202_local_coordinates_abc.md](../../1XXX_foundations/12XX_V_triangle/1202_local_coordinates_abc.md).
 
 ## Theorem
@@ -276,7 +276,7 @@ $$
 L_{\partial H}(T_i)=a_i+b_i.
 $$
 
-Thus the nonsupercritical cap is immediate. For a supercritical row, let $A$
+Thus the nonsupercritical cap is immediate. For a supercritical V triangle, let $A$
 and $B$ be its two incident-edge endpoints. The angle between the incident
 edge directions is $120^\circ$, so
 

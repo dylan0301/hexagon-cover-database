@@ -34,7 +34,7 @@ $$
 T_2,T_3,T_4,T_5
 $$
 
-are nonsupercritical Vd0 rows. It is enough to verify the two local rescuer
+are nonsupercritical Vd0 V triangles. It is enough to verify the two local rescuer
 inequalities required by `2018`.
 
 ## 2. T3-like local normal form
@@ -299,9 +299,9 @@ These are exactly the two local hypotheses of the common adjacent-rescuer
 obstruction `2018`.
 
 It remains only to verify its radial-isolation premise. The interval
-$T_0\cap r_1=[c,u]$ contains $M_1$, so $u\ge1/2$. The supercritical row
+$T_0\cap r_1=[c,u]$ contains $M_1$, so $u\ge1/2$. The supercritical V triangle
 $T_1$ cannot contain $M_1$. Since it contains $V_1$ and is convex, it cannot
-cover any point of $r_1$ on the $O$-side of $M_1$. The four remaining rows
+cover any point of $r_1$ on the $O$-side of $M_1$. The four remaining V triangles
 are Vd0 and have no positive-length adjacent support on $r_1$. Hence the
 center role must cover the $O$-side gap of length $1-u$ before the T3-like
 interval begins.
@@ -312,13 +312,13 @@ $$
 h\ge g_c^{\rm sc},
 $$
 
-while the unique supercritical row satisfies
+while the unique supercritical V triangle satisfies
 
 $$
 b_1<g_c^{\rm sc}.
 $$
 
-Its boundary-path budget contradicts the four nonsupercritical row caps of
+Its boundary-path budget contradicts the four nonsupercritical V triangle caps of
 $T_2,T_3,T_4,T_5$.
 
 Therefore the CE1/CE2, $N_+=1$, exactly-one-T3-like branch is impossible.

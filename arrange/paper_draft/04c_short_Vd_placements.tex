@@ -18,7 +18,7 @@ For $0\le c<1/2$, put
 At $c=1/2$, the same symbols denote the continuous endpoint values
 $B_{\rm sc}(1/2)=A_{\rm sc}(1/2)=1/2$; this is a convention, not the
 supremum of a nonempty strict-supercritical feasible set.
-The free strict-supercritical envelope says that a strict supercritical row
+The free strict-supercritical envelope says that a strict supercritical V triangle
 with radial demand at least $c$ has outgoing reach strictly below
 $B_{\rm sc}(c)$, and $B_{\rm sc}$ is strictly decreasing.
 
@@ -245,7 +245,7 @@ $(2t+1)^2<4(t^2+t+1)$.  Thus $F$ decreases for $t\ge1$, and
 \[
  a\le F(t,c)\le L(c):=\sqrt3-\frac52+2c.
 \]
-Every feasible row has $L(c)\ge0$.  The inequality
+Every feasible V triangle has $L(c)\ge0$.  The inequality
 $2L(c)\le A_{\rm sc}(c)$ is equivalent to
 \[
  \sqrt{c^2-8c+4}\le12-4\sqrt3-9c.
@@ -304,7 +304,7 @@ Assume
  \label{eq:signed-rescuer-local}
 \end{equation}
 and assume radial isolation forces the center to cover the $O$-side gap of
-length $\varepsilon$.  If $T_1$ is the unique strict supercritical row and
+length $\varepsilon$.  If $T_1$ is the unique strict supercritical V triangle and
 $T_2,T_3,T_4,T_5$ are nonsupercritical, then the perimeter and $r_1$ are not
 covered.
 \end{lemma}
@@ -345,7 +345,7 @@ Thus in every ordering
 \[
  h\ge B_{\rm sc}(c).
 \]
-Coverage of $r_1$ gives the supercritical row radial demand at least $c$, so
+Coverage of $r_1$ gives the supercritical V triangle radial demand at least $c$, so
 its outgoing reach satisfies
 \[
  b_1<B_{\rm sc}(c)\le h.
@@ -360,7 +360,7 @@ contrary to their four nonsupercritical caps.
 \begin{corollary}[T3-like and Vd1 adjacent rescue]
 \label{cor:signed-adjacent-rescuers}
 The common adjacent-rescuer lemma applies both to the exactly-one-T3-like
-branch and to the normalized Vd1 row containing the neighboring midpoint.
+branch and to the normalized Vd1 V triangle containing the neighboring midpoint.
 \end{corollary}
 
 \begin{proof}
@@ -374,8 +374,8 @@ $O$-side radial gap before the rescuer begins.
 
 \begin{lemma}[Adjacent Vd1/Vd2 placement]
 \label{lem:signed-vd-adjacent-placement}
-Assume a reduced CE2 exact-$M_0$ candidate has $N_+=1$, row $T_0$ uniquely
-supercritical, row $T_1$ the unique Vd1/Vd2 row, and rows
+Assume a reduced CE2 exact-$M_0$ candidate has $N_+=1$, V triangle $T_0$ uniquely
+supercritical, V triangle $T_1$ the unique Vd1/Vd2 V triangle, and V triangles
 $T_2,T_3,T_4,T_5$ nonsupercritical Vd0.  Then the perimeter together with
 $r_2$ is not covered.  The reflected $T_5$ placement is also impossible.
 \end{lemma}
@@ -482,7 +482,7 @@ uncovered.
 
 \begin{lemma}[Nonadjacent Vd1/Vd2 placements]
 \label{lem:signed-vd-nonadjacent-placement}
-Under the same reduced CE2 branch, let the unique Vd1/Vd2 row be
+Under the same reduced CE2 branch, let the unique Vd1/Vd2 V triangle be
 $T_\tau$ with $\tau\in\{2,3,4\}$.  Then the perimeter together with
 $r_\tau$ is not covered.
 \end{lemma}
@@ -500,7 +500,7 @@ Lemma~\ref{lem:signed-endpoints-dominate-slack} gives
 \[
  T<\frac12\min\{x,y\}.
 \]
-Let $(a_0,b_0)$ be the reaches of the unique supercritical row.  Then
+Let $(a_0,b_0)$ be the reaches of the unique supercritical V triangle.  Then
 \[
  a_0+b_0>1,\qquad a_0^2+a_0b_0+b_0^2\le1.
 \]
@@ -555,20 +555,20 @@ locality and diameter locality.
 \begin{proposition}[Short one-Vd1/Vd2 placement assembly]
 \label{prop:signed-ce2-one-vd-placements}
 In the CE2, $N_+=1$, exactly-one-Vd1/Vd2 branch with no additional
-positive-support row, every placement is impossible directly or reduces to
+positive-support V triangle, every placement is impossible directly or reduces to
 the all-Vd0 boundary-loss theorem.
 \end{proposition}
 
 \begin{proof}
-If the supercritical row is $T_0$, an adjacent Vd1/Vd2 row is eliminated by
+If the supercritical V triangle is $T_0$, an adjacent Vd1/Vd2 V triangle is eliminated by
 Lemma~\ref{lem:signed-vd-adjacent-placement}, while a nonadjacent one is
 eliminated by Lemma~\ref{lem:signed-vd-nonadjacent-placement}.  If the unique
-Vd1/Vd2 row is $T_0$, midpoint forcing makes the supercritical row adjacent.
+Vd1/Vd2 V triangle is $T_0$, midpoint forcing makes the supercritical V triangle adjacent.
 The Vd2 alternative is excluded by the neighboring-midpoint boundary cap; the
 Vd1 alternative is Corollary~\ref{cor:signed-adjacent-rescuers}.  If neither
-special row is $T_0$, midpoint forcing again makes them adjacent.  A Vd2
+special V triangle is $T_0$, midpoint forcing again makes them adjacent.  A Vd2
 neighbor rescue is impossible, while a Vd1--supercritical pair is replaced by
-two nonsupercritical Vd0 rows as in Lemma~\ref{lem:vd1-pair-replacement}; the
+two nonsupercritical Vd0 V triangles as in Lemma~\ref{lem:vd1-pair-replacement}; the
 resulting configuration is contradicted by
 Proposition~\ref{prop:nplus-zero-all-vd0}.  The positive-support complement is
 already excluded by Theorem~\ref{thm:three-short-roles}.

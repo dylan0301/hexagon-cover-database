@@ -19,7 +19,7 @@ such that
 
 1. $T_i$ is a Vd0 role at $V_i$ for every $i$;
 2. $T_0,\dots,T_5$ cover $\partial H$; and
-3. exactly one actual maximal boundary row is supercritical.
+3. exactly one actual maximal boundary V triangle is supercritical.
 
 No center class is assumed for $T_C$.
 
@@ -36,15 +36,15 @@ X_i=V_i+x_i(V_{i+1}-V_i),
 \qquad 0<x_i<1,
 $$
 
-covered by both endpoint roles, and selected row demands
+covered by both endpoint roles, and selected V triangle demands
 
 $$
 (a_i,b_i)=(1-x_{i-1},x_i).
 $$
 
-Exactly one selected row is supercritical, at the same index as the unique
-supercritical actual row.  Rotate the indices so that this is row $4$.
-Every other selected row is strictly nonsupercritical, and therefore
+Exactly one selected V triangle is supercritical, at the same index as the unique
+supercritical actual V triangle.  Rotate the indices so that this is V triangle $4$.
+Every other selected V triangle is strictly nonsupercritical, and therefore
 
 $$
 x_3<x_2<x_1<x_0<x_5<x_4.
@@ -77,7 +77,7 @@ $$
 \tag{3}
 $$
 
-Moreover, (1) gives for every row
+Moreover, (1) gives for every V triangle
 
 $$
 a_i\ge p,
@@ -129,7 +129,7 @@ $$
 be the exact witnesses from `31033`.  The direct asymmetric-forcing theorem
 [`31042_direct_asymmetric_witness_forcing.md`](31042_direct_asymmetric_witness_forcing.md)
 uses the actual handoffs $X_2,X_5$, direct vertex distances, and only the
-unique strict-row $AB$-frontier to prove
+unique strict-V triangle $AB$-frontier to prove
 
 $$
 Q_-,Q_0,Q_+\in T_C.
@@ -184,7 +184,7 @@ contradicting (9).  This proves the theorem. $\square$
 
 The proof uses all-Vd0 precisely in `31041`, where it excludes a radial
 witness from the two adjacent actual roles.  It uses no $AB$-union for any
-nonsupercritical row.  In particular, the proof does not require the
+nonsupercritical V triangle.  In particular, the proof does not require the
 comparison
 
 $$

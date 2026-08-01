@@ -10,10 +10,10 @@ eliminates CE1 before the local placement analysis.
 
 There are two exhaustive branches.
 
-1. If any row in addition to the unique Vd1/Vd2 row has positive adjacent
+1. If any V triangle in addition to the unique Vd1/Vd2 V triangle has positive adjacent
    support, the three-short-role theorem in `2530`, applied through `414a`,
    gives the Strategy 1 skeleton contradiction.
-2. Otherwise every other row is Vd0. The placement split in `4148` is closed
+2. Otherwise every other V triangle is Vd0. The placement split in `4148` is closed
    by `4143`, `4144`, `4146`, `4147`, `4149`, and the proved `4013` package.
 
 The Strategy 1 files `4149` and `414a` retain their current proofs and routing.
@@ -27,10 +27,10 @@ adjacent route must not be replaced by an unsupported universal transfer map.
 
 | placement | seed or residual data | ordinary propagation | terminal certificate |
 |---|---|---|---|
-| `4143`: Vd1 rescues neighboring supercritical row | $1-g_c^{\rm sc}$ | center-free ordinary path through $T_2,T_3,T_4,T_5$ | $b_1<g_c^{\rm sc}\le h$ |
-| `4144`: supercritical $T_0$, adjacent Vd1/Vd2 $T_1$ | exact center residuals $A,H$ | backward lower reach $H$ through four ordinary Vd0 rows | $\delta<H/4$ and both possible radial bridges end before $1-\delta$ |
+| `4143`: Vd1 rescues neighboring supercritical V triangle | $1-g_c^{\rm sc}$ | center-free ordinary path through $T_2,T_3,T_4,T_5$ | $b_1<g_c^{\rm sc}\le h$ |
+| `4144`: supercritical $T_0$, adjacent Vd1/Vd2 $T_1$ | exact center residuals $A,H$ | backward lower reach $H$ through four ordinary Vd0 V triangles | $\delta<H/4$ and both possible radial bridges end before $1-\delta$ |
 | `4146`: supercritical $T_0$, nonadjacent Vd1/Vd2 $T_\tau$ | exact center residuals $A,H$ | identity propagation through intervening center-free Vd0 edges | $c_\tau<1-\min\{A,H\}<1-d_\tau^C$ |
-| `4147`: neither special row is $T_0$ | adjacent Vd1--supercritical pair | explicit replacement by two open nonsupercritical Vd0 rows | invoke proved `4013` |
+| `4147`: neither special V triangle is $T_0$ | adjacent Vd1--supercritical pair | explicit replacement by two open nonsupercritical Vd0 V triangles | invoke proved `4013` |
 
 For `4143`, the outgoing envelope $B<g_c^{\rm sc}$ is unconditional.  The
 following endpoint demand is obtained only after the proof verifies that the
@@ -49,7 +49,7 @@ $$
 \delta<\frac H4.
 $$
 
-The possible Vd supported-arm endpoint is below $1-H$.  The ordinary row has
+The possible Vd supported-arm endpoint is below $1-H$.  The ordinary V triangle has
 boundary demands exceeding $1/2+A$ and $H$, so the global quarter radial
 envelope gives
 
@@ -65,8 +65,8 @@ For `4146`, the final inequality is deliberately Vd-specific. Its use of the
 Vd1/Vd2 corner normal form is essential.
 
 The axis replacement in `4147` is geometric preprocessing, not a scalar map.
-Once the replacement is made, both exceptional rows become open
-nonsupercritical Vd0 rows and the existing all-Vd0 theorem applies.
+Once the replacement is made, both exceptional V triangles become open
+nonsupercritical Vd0 V triangles and the existing all-Vd0 theorem applies.
 
 ## Local geometry
 

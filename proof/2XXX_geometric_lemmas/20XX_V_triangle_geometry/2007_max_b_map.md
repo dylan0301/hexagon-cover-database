@@ -513,7 +513,7 @@ a\le B_c(b).
 $$
 
 For a unit vertex triangle $T$, let $A(T),B(T),C(T)$ be its actual maximal
-reaches. For a row class $\mathcal R$, the proof-safe classified envelope is
+reaches. For a V triangle class $\mathcal R$, the proof-safe classified envelope is
 
 $$
 B_c^{\mathcal R}(a)=
@@ -540,7 +540,7 @@ $$
 
 The explicit formula above is the unclassified demand map. It does not by
 itself prove that a maximizing realization is Vd0 or belongs to either actual
-row class. In particular,
+V triangle class. In particular,
 
 $$
 \max_{\substack{0\le b\le1\\ {}(a,b,c)\in\mathcal A\\a+b\le1}}b

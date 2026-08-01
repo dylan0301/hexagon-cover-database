@@ -15,7 +15,7 @@ such that
 
 1. $U_i$ is a Vd0 role at $V_i$ for every $i$;
 2. $U_0,\dots,U_5$ cover $\partial H$; and
-3. exactly one actual maximal boundary row is supercritical.
+3. exactly one actual maximal boundary V triangle is supercritical.
 
 No center class is assumed for $U_C$.
 
@@ -38,15 +38,15 @@ $$
 X_i\in U_i\cap U_{i+1},
 $$
 
-and selected row demands
+and selected V triangle demands
 
 $$
 (a_i,b_i)=(1-x_{i-1},x_i).
 $$
 
-Exactly one selected row is supercritical, at the same index as the unique
-supercritical actual row.  Rotate the indices so that this is row $4$.
-Every other selected row is strictly nonsupercritical.  Since
+Exactly one selected V triangle is supercritical, at the same index as the unique
+supercritical actual V triangle.  Rotate the indices so that this is V triangle $4$.
+Every other selected V triangle is strictly nonsupercritical.  Since
 
 $$
 a_i+b_i>1
@@ -96,7 +96,7 @@ a^2+ab+b^2<1.
 $$
 
 Equation (1) also says that every $x_j$ lies in $[x_3,x_4]$.  Therefore every
-selected row satisfies the common lower bounds
+selected V triangle satisfies the common lower bounds
 
 $$
 a_i=1-x_{i-1}\ge1-x_4=p,
@@ -138,7 +138,7 @@ $$
 \tag{6}
 $$
 
-At the unique strict row, let
+At the unique strict V triangle, let
 
 $$
 Q_-(a,b),
@@ -218,7 +218,7 @@ contradicting (9).  This proves the theorem. $\square$
 ## Dependency audit
 
 The Vd0 hypothesis is used to exclude each radial witness from its two
-adjacent actual roles.  Only the unique supercritical row uses an $AB$-union.
+adjacent actual roles.  Only the unique supercritical V triangle uses an $AB$-union.
 No nonsupercritical model union, neighboring-ray maximum, model residual core,
 interval subdivision, branch-and-bound, or optional six-point inequality is
 used.

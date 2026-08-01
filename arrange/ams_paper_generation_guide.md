@@ -95,12 +95,12 @@ Gram reductions, Bernstein data, code listings, or run logs.
   transfer and signed-center definition.
 - `03_strategy1_reader.tex`: trace register, complete master-deficit
   hypotheses, Strategy 1 routes.
-- `04_strategy2_summary.tex`: exact endpoint and five-row certificates,
+- `04_strategy2_summary.tex`: exact endpoint and five-V-triangle certificates,
   center-free path conditions, T3-like and Vd terminals.
 - `05_strategy3_reader.tex`: local area losses and cyclic sums.
 - `06_strategy4_reader.tex`: direct forcing, Newton reduction, cap chain, and
   the exact mixed-overlap certificate interface.
-- `07_exhaustive_assembly.tex`: exhaustive audit of every routing row.
+- `07_exhaustive_assembly.tex`: exhaustive audit of every routing entry.
 
 ### 3.2 Technical appendices
 
@@ -199,14 +199,14 @@ Canonical names are:
 - `mathcal A` for the local admissible set;
 - `g_c`, `widehat g_c`, `f^vee`, and `mathcal R_J` for transfers;
 - `d_i^C` for a center exit and `c_i^C=1-d_i^C` for its complementary
-  vertex-side demand; lowercase `c_i` remains a selected row demand;
+  vertex-side demand; lowercase `c_i` remains a selected V triangle demand;
 - `m_3=d_3^C` for the local CE1 affine-slot scalar; bare `m` remains the
   paper-wide count of non-Vd0 roles;
 - `mathcal I_R,mathcal I_L` for geometric center traces and `I_R,I_L` for
   their scalar parameter intervals in residual calculations;
 - `g_c^{sc}` for the strict-supercritical outgoing envelope;
 - `I` for the identity relaxation;
-- `[Phi_1|...|Phi_r]` for geometric row order, leftmost first;
+- `[Phi_1|...|Phi_r]` for geometric V-triangle order, leftmost first;
 - `Lambda`, `c_*`, `mathcal D_eta`, `Q_-,Q_0,Q_+`, and `A,B,C` for Strategy 4.
 
 Technical aliases `B_c,F_c,G_c` may remain in exact-demand calculations.
@@ -218,7 +218,7 @@ Technical aliases `B_c,F_c,G_c` may remain in exact-demand calculations.
 2. **Raw versus capped zero-radial map.** `g_0(x)>x`, while
    `widehat g_0(x)=x` for `0<x<1`.
 3. **Outgoing versus following demand.** `B<g_c^{sc}` is unconditional for a
-   strict-supercritical row; `A_next>1-g_c^{sc}` additionally requires a
+   strict-supercritical V triangle; `A_next>1-g_c^{sc}` additionally requires a
    center-free outgoing edge.
 4. **Path budgets.** Every internal path edge must exclude center and
    nonincident positive-length traces. Endpoint external components must be
@@ -228,7 +228,7 @@ Technical aliases `B_c,F_c,G_c` may remain in exact-demand calculations.
    components.
 7. **One-gap endings.** Keep the CE1 affine/threshold argument and the CE2
    at-least-one-threshold dichotomy.
-8. **Terminal coordinates.** The exact five-row target is `Z>1-H`; the dual
+8. **Terminal coordinates.** The exact five-V-triangle target is `Z>1-H`; the dual
    three-map target is `>1-X`.
 9. **T3-like audit.** Keep all four labels and the incorporated `407X`
    supplement.

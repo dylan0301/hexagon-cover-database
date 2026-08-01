@@ -15,12 +15,12 @@ Assume
 $$
 T_C\text{ is CE2},
 \qquad
-T_0\text{ is the unique supercritical row},
+T_0\text{ is the unique supercritical V triangle},
 \qquad
-T_1\text{ is the unique Vd1/Vd2 row},
+T_1\text{ is the unique Vd1/Vd2 V triangle},
 $$
 
-and $T_2,T_3,T_4,T_5$ are nonsupercritical Vd0 rows.  Use the signed center
+and $T_2,T_3,T_4,T_5$ are nonsupercritical Vd0 V triangles.  Use the signed center
 variables from
 [`2109`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md):
 
@@ -58,7 +58,7 @@ $$
 \boxed{d_2^C=\delta.}
 $$
 
-Let $(a_0,b_0)$ be the boundary reaches of the supercritical row.  Then
+Let $(a_0,b_0)$ be the boundary reaches of the supercritical V triangle.  Then
 
 $$
 \boxed{
@@ -82,7 +82,7 @@ $$
 
 Thus $A$ is the incoming reach forced on $T_1$, while $H$ is the far-side
 reach forced on $T_5$.  In a genuine reduced candidate $H>0$.  Boundary
-handoffs through the four ordinary nonsupercritical rows give
+handoffs through the four ordinary nonsupercritical V triangles give
 
 $$
 b_5\ge H
@@ -298,7 +298,7 @@ $$
 q_2=1-\delta.
 $$
 
-### The Vd1/Vd2 row
+### The Vd1/Vd2 V triangle
 
 If $T_1$ has no positive-length trace on $r_2$, there is nothing to prove.
 Otherwise orient the corner normal form toward that supported arm.  The
@@ -310,7 +310,7 @@ $$
 
 Thus $T_1$ cannot meet the center interval.
 
-### The ordinary row $T_2$
+### The ordinary V triangle $T_2$
 
 Coverage of $e_{1,2}$ gives
 

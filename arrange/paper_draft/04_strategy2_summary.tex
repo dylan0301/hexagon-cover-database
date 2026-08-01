@@ -2,10 +2,17 @@
 \label{sec:strategy2-summary}
 
 Strategy~2 turns boundary coverage into lower bounds propagated around the
-six rows.  The geometric input is Proposition~\ref{prop:body-transfer-interface};
+six V triangles.  The geometric input is Proposition~\ref{prop:body-transfer-interface};
 the remaining work is to retain a small number of exact endpoint maps, replace
-other center-free nonsupercritical rows by lower relaxations, and prove one
+other center-free nonsupercritical V triangles by lower relaxations, and prove one
 terminal inequality.
+
+\paragraph{Signed-center auxiliaries used by the certificates.}
+Definition~\ref{def:body-signed-center-data} gives the geometric meaning of the
+signed center data.  Appendix~\ref{sec:signed-ce12-reductions} defines the
+associated auxiliary functions $W,E,\eta,P,k,\Delta_R,\Delta_L$ and the exact
+semialgebraic domain $\mathcal D_{\rm sgn}$.  The reader-facing argument uses
+those named functions and domains, but does not repeat their affine equations.
 
 \begin{definition}[Geometric-order composition and identity slots]
 \label{def:body-chain-notation}
@@ -32,7 +39,7 @@ For $X_0=\cdots=X_r=[0,1]$, define
 \begin{figure}[H]
 \centering
 \resizebox{.88\linewidth}{!}{\input{figures/relaxed_composition}}
-\caption{Exact and lower-relaxed states on consecutive hexagon-skeleton rows.
+\caption{Exact and lower-relaxed states on consecutive hexagon-skeleton V triangles.
 The internal edges used by an identity relaxation are center-free; endpoint
 center intervals are first absorbed into residual demands.}
 \label{fig:transfer-chain}
@@ -40,8 +47,8 @@ center intervals are first absorbed into residual demands.}
 
 \begin{definition}[Signed Strategy 2 parameter domains]
 \label{def:body-strategy2-signed-domains}
-With $W,E,P,\Delta_R,\Delta_L$ as in
-Definition~\ref{def:body-signed-center-data}, define
+With the exact signed auxiliary functions and domain from
+Appendix~\ref{sec:signed-ce12-reductions}, define
 \[
  \mathcal D_{\rm CE1}:=
  \left\{(R,\alpha,\delta)\in\mathcal D_{\rm sgn}:
@@ -153,7 +160,7 @@ nonempty V-gap and is counted.}
 \label{fig:strategy2-gap-rank-skeleton}
 \end{figure}
 
-The two row counts and the active-gap rank form the single kernel
+The two V-triangle counts and the active-gap rank form the single kernel
 \[
 \begin{array}{c|ccc}
  &\mathrm{gr}=0&\mathrm{gr}=1&\mathrm{gr}=2\\ \hline
@@ -161,7 +168,7 @@ N_+=0&\mathrm I^6\text{ cycle}&
        \text{two endpoints}&
        \text{paired endpoints}\\
 N_+=1&\text{nine points}&
-       \text{five-row chain}&
+       \text{five-V-triangle chain}&
        \text{paired endpoints}.
 \end{array}
 \]
@@ -235,14 +242,14 @@ Then the two exact hatted outgoing caps satisfy
  +\widehat g_{c_1^{\mathrm{one}}}(1-a_1^{\mathrm{one}})<1.
 \]
 The companion edge is center-free in CE1 and gap-free in CE2; the three middle
-rows satisfy Definition~\ref{def:body-center-free-path} and may be replaced
+V triangles satisfy Definition~\ref{def:body-center-free-path} and may be replaced
 by $\mathrm I^3$.
 
 \item Suppose
 \[
  (R,\alpha,\delta)\in\mathcal D_{\rm CE2}.
 \]
-Assume the two center traces both contain V-gaps, and rows
+Assume the two center traces both contain V-gaps, and V triangles
 $T_1,\ldots,T_5$ are nonsupercritical Vd0.  Use the paired-gap data of
 Definition~\ref{def:body-gap-endpoint-data}.
 Then
@@ -250,7 +257,7 @@ Then
  \widehat g_{c_5^{\mathrm{two}}}(1-a_5^{\mathrm{two}})
  +\widehat g_{c_1^{\mathrm{two}}}(1-a_1^{\mathrm{two}})<1.
 \]
-Again the three middle rows satisfy
+Again the three middle V triangles satisfy
 Definition~\ref{def:body-center-free-path}.
 \end{enumerate}
 Singleton gaps are included.
@@ -342,19 +349,19 @@ $\mathcal C_d$ for the decorated lower relaxations.}
 \resizebox{.98\linewidth}{!}{%
 \input{figures/strategy2_decorated_maps_skeleton}}
 \caption{The general affine and threshold decorated maps, with their
-certification domains, on retained Strategy~2 skeleton rows.}
+certification domains, on retained Strategy~2 skeleton V triangles.}
 \label{fig:strategy2-decorated-maps-skeleton}
 \end{figure}
 
-\begin{definition}[Exact five-row one-gap data]
+\begin{definition}[Exact five-V-triangle one-gap data]
 \label{def:body-five-row-data}
 For
 \[
  (R,\alpha,\delta)\in
  \mathcal D_{\rm CE1}\cup\mathcal D_{\rm CE2},
 \]
-with $W,\eta,k$ as in
-Definition~\ref{def:body-signed-center-data}, define
+with $W,\eta,k$ as defined in
+Appendix~\ref{sec:signed-ce12-reductions}, define
 \[
  x_{\mathrm{in}}:=R-\delta,\qquad
  h_{\mathrm{term}}:=\frac{k}{2R},\qquad
@@ -430,7 +437,7 @@ $\mathcal D_{\rm aff}$ and its two retained affine states.}
 \label{fig:strategy2-affine-domain-skeleton}
 \end{figure}
 
-\begin{proposition}[Five-row one-gap certificate]
+\begin{proposition}[Five-V triangle one-gap certificate]
 \label{prop:body-five-row-certificate}
 Assume
 \[
@@ -441,7 +448,7 @@ all six roles are Vd0, $N_+=1$, and the normalized right center trace
 contains a V-gap.  If $(R,\alpha,\delta)\in\mathcal D_{\rm CE2}$, assume the
 companion trace is gap-free.  Use the data of
 Definition~\ref{def:body-five-row-data}.
-The actual rows satisfy
+The actual V triangles satisfy
 \[
  A_0\ge Z,
  \qquad
@@ -476,11 +483,11 @@ For $(R,\alpha,\delta)\in\mathcal D_{\rm CE2}$,
 Therefore at least one of the $\alpha$- or $\delta$-threshold slots may be
 chosen; every other slot is replaced by $\mathrm I$.  Both thresholds may be
 available, and no uniqueness is asserted.  Reflection exchanges
-$(R,\alpha)$ with $(W,\delta)$ and reverses the row order.
+$(R,\alpha)$ with $(W,\delta)$ and reverses the V-triangle order.
 \end{proposition}
 
 \begin{proof}
-The actual-row induction and terminal diameter bound are
+The actual-V triangle induction and terminal diameter bound are
 Proposition~\ref{prop:signed-one-gap-interface}.  The CE1 affine calculation is
 Proposition~\ref{prop:reader-ce1-one-gap}; the CE2 alternatives are
 Proposition~\ref{prop:signed-ce2-one-gap}.  Every formal iterate is a lower
@@ -490,8 +497,8 @@ bound for the corresponding actual incoming reach.
 \begin{figure}[H]
 \centering
 \resizebox{.99\linewidth}{!}{\input{figures/strategy2_five_row_chain_skeleton}}
-\caption{The exact one-gap five-row chain.  Every $z_j$ is a formal lower
-bound for the incoming reach at the corresponding skeleton row.}
+\caption{The exact one-gap five-V-triangle chain.  Every $z_j$ is a formal lower
+bound for the incoming reach at the corresponding skeleton V triangle.}
 \label{fig:strategy2-five-row-skeleton}
 \end{figure}
 
@@ -657,7 +664,7 @@ $\mathfrak M_{\rm T3}(T_0)=\{\widetilde T_0\}$ satisfy
 \]
 The ordered pair of endpoint labels lies in
 $\mathfrak L_{\rm cap}^2$ and is audited exactly; no unsupported common
-envelope replaces that audit.  The three internal nonsupercritical rows form
+envelope replaces that audit.  The three internal nonsupercritical V triangles form
 a path satisfying Definition~\ref{def:body-center-free-path} and are replaced
 by $\mathrm I^3$.
 \end{proposition}
@@ -669,7 +676,7 @@ This is Theorem~\ref{thm:paper-complete-t3-endpoint}.
 \begin{figure}[H]
 \centering
 \resizebox{.99\linewidth}{!}{\input{figures/strategy2_t3_residual_skeleton}}
-\caption{The support-isolated T3-like row, its two center-assisted boundary
+\caption{The support-isolated T3-like V triangle, its two center-assisted boundary
 residuals, and its two forced endpoint radial demands.}
 \label{fig:strategy2-t3-residual-skeleton}
 \end{figure}
@@ -943,9 +950,9 @@ local profile gives
  \vartheta_{\mathrm{res}}\le1-g_{c_{\mathrm{res}}}^{\rm sc}.
 \]
 Radial isolation forces the opposite boundary demand to be at least
-$g_{c_{\mathrm{res}}}^{\rm sc}$, whereas the unique supercritical row has
+$g_{c_{\mathrm{res}}}^{\rm sc}$, whereas the unique supercritical V triangle has
 outgoing reach strictly below $g_{c_{\mathrm{res}}}^{\rm sc}$.  The
-intervening four-row boundary path is center-free on its internal edges, so
+intervening four-V-triangle boundary path is center-free on its internal edges, so
 Lemma~\ref{lem:reader-boundary-path} gives a contradiction.
 
 \item In the adjacent CE2 one-Vd1/Vd2 placement, use
@@ -998,7 +1005,7 @@ Proposition~\ref{prop:paper-vd1-pair-replacement}.
 \centering
 \resizebox{.99\linewidth}{!}{\input{figures/strategy2_rescuer_skeleton}}
 \caption{The common adjacent-rescuer interface for a T3-like or Vd1 role and
-the unique strict-supercritical row.}
+the unique strict-supercritical V triangle.}
 \label{fig:strategy2-rescuer-skeleton}
 \end{figure}
 
@@ -1019,30 +1026,128 @@ exact; placement is schematic.}
 \label{fig:strategy2-vd-replacement-skeleton}
 \end{figure}
 
+\begin{definition}[Full six-slot V-triangle chain]
+\label{def:body-six-slot-chain}
+For each $i\in\mathbb Z/6\mathbb Z$, let
+\[
+ J_i^C:=\xi_i^{-1}(T_C\cap e_{i,i+1})\in\mathfrak J
+\]
+be the scalar center interval on the outgoing edge of $T_i$.  Define the exact
+raw and nonsupercritical V-triangle transfers
+\[
+ \Phi_i^{\rm raw}:=g_{c_i,J_i^C}^{\vee},
+ \qquad
+ \Phi_i^{\rm ns}:=\widehat g_{c_i,J_i^C}^{\vee}.
+\]
+The full cyclic chain is always written with six explicit slots in geometric
+V-triangle order:
+\[
+ [\Phi_0\mid\Phi_1\mid\Phi_2\mid\Phi_3\mid\Phi_4\mid\Phi_5].
+\]
+If $T_i$ is nonsupercritical and the outgoing edge is an ordinary
+center-free handoff, then $J_i^C=\varnothing$ and
+\[
+ A_{i+1}\ge\widehat g_{c_i}^{\vee}(A_i)\ge A_i.
+\]
+Only under this condition, together with exclusion of nonincident boundary
+traces on that edge, may the $i$th slot be replaced by $\mathrm I$ in a
+certificate word.  Such a replacement means that the exact handoff inequality
+\[
+ A_{i+1}\ge\widehat g_{c_i}^{\vee}(A_i)
+\]
+has been weakened to $A_{i+1}\ge A_i$.  It is a statement about that
+individual handoff; no pointwise order between the two formal compositions is
+being asserted.  The terminal proposition named in the register supplies the
+valid composition/endpoint argument for the whole certificate word.
+\end{definition}
+
 \begin{table}[H]
 \centering
 \scriptsize
-\renewcommand{\arraystretch}{1.12}
-\begin{tabular}{@{}p{.27\textwidth}p{.31\textwidth}p{.32\textwidth}@{}}
+\renewcommand{\arraystretch}{1.18}
+\begin{tabular}{@{}p{.20\textwidth}p{.69\textwidth}@{}}
 \toprule
-branch&retained transfer data&terminal contradiction\\
+branch&six explicitly displayed functions and the certified handoff word\\
 \midrule
-$N_+=0$, all Vd0, $\mathrm{gr}=0$&$\mathrm I^6$&strict cyclic ascent\\
-$N_+=0$, all Vd0, $\mathrm{gr}=1$&two exact endpoints, $\mathrm I^3$&endpoint sum $<1$\\
-CE2, $\mathrm{gr}=2$&paired exact endpoints, $\mathrm I^3$&paired sum $<1$\\
-$N_+=0$, a T3-like role&exact four-label endpoints, $\mathrm I^3$&endpoint sum $<1$\\
-$N_+=1$, all Vd0, one gap&exact five-row hatted chain&$Z>1-h_{\mathrm{term}}$\\
-one T3-like or adjacent Vd1&$1-g_c^{\rm sc}$ and ordinary path&outgoing cap $g_c^{\rm sc}$\\
-adjacent Vd1/Vd2&two center residuals and quarter envelope&radial separation\\
-nonadjacent Vd1/Vd2&two residuals and Vd corner margin&radial separation\\
-Vd1--supercritical pair&explicit axis replacements&all-Vd0 contradiction\\
+$N_+=0$, all Vd0, $\mathrm{gr}=0$
+&The branch exclusions give $J_i^C=\varnothing$ for every $i$.  The exact word
+is
+$\mathcal G_{00}=[\widehat g_{c_0,J_0^C}^{\vee}\mid
+\widehat g_{c_1,J_1^C}^{\vee}\mid\widehat g_{c_2,J_2^C}^{\vee}\mid
+\widehat g_{c_3,J_3^C}^{\vee}\mid\widehat g_{c_4,J_4^C}^{\vee}\mid
+\widehat g_{c_5,J_5^C}^{\vee}]$.
+The certified weaker handoffs are recorded as
+$\mathcal C_{00}=[\mathrm I\mid\mathrm I\mid\mathrm I\mid
+\mathrm I\mid\mathrm I\mid\mathrm I]$; strict cyclic ascent gives the
+contradiction.\\
+\addlinespace
+$N_+=0$, all Vd0, $\mathrm{gr}=1$
+&After cyclic normalization $J_0^C$ is the positive-length center trace; every
+possible point contact remains explicit in
+$\mathcal G_{01}=[\widehat g_{c_0,J_0^C}^{\vee}\mid
+\widehat g_{c_1,J_1^C}^{\vee}\mid\widehat g_{c_2,J_2^C}^{\vee}\mid
+\widehat g_{c_3,J_3^C}^{\vee}\mid\widehat g_{c_4,J_4^C}^{\vee}\mid
+\widehat g_{c_5,J_5^C}^{\vee}]$.
+The certificate word is
+$\mathcal C_{01}=[\widehat g_{c_0,J_0^C}^{\vee}\mid
+\widehat g_{c_1,J_1^C}^{\vee}\mid\mathrm I\mid\mathrm I\mid\mathrm I\mid
+\widehat g_{c_5,J_5^C}^{\vee}]$; the one-gap endpoint sum is $<1$.\\
+\addlinespace
+CE2, $\mathrm{gr}=2$
+&Normalize the two positive-length traces as $J_0^C,J_5^C$ and retain all
+point contacts in
+$\mathcal G_{02}=[\widehat g_{c_0,J_0^C}^{\vee}\mid
+\widehat g_{c_1,J_1^C}^{\vee}\mid\widehat g_{c_2,J_2^C}^{\vee}\mid
+\widehat g_{c_3,J_3^C}^{\vee}\mid\widehat g_{c_4,J_4^C}^{\vee}\mid
+\widehat g_{c_5,J_5^C}^{\vee}]$.
+The certificate word is
+$\mathcal C_{02}=[\widehat g_{c_0,J_0^C}^{\vee}\mid
+\widehat g_{c_1,J_1^C}^{\vee}\mid\mathrm I\mid\mathrm I\mid\mathrm I\mid
+\widehat g_{c_5,J_5^C}^{\vee}]$; the paired endpoint sum is $<1$.\\
+\addlinespace
+$N_+=0$, one T3-like V triangle
+&For support-isolated $T_0$ the exact word is
+$\mathcal G_{\rm T3}=[\widehat g_{c_0,J_0^C}^{\vee}\mid
+\widehat g_{c_1,J_1^C}^{\vee}\mid\widehat g_{c_2,J_2^C}^{\vee}\mid
+\widehat g_{c_3,J_3^C}^{\vee}\mid\widehat g_{c_4,J_4^C}^{\vee}\mid
+\widehat g_{c_5,J_5^C}^{\vee}]$.
+The certificate word is
+$\mathcal C_{\rm T3}=[\widehat g_{c_0,J_0^C}^{\vee}\mid
+\widehat g_{c_1,J_1^C}^{\vee}\mid\mathrm I\mid\mathrm I\mid\mathrm I\mid
+\widehat g_{c_5,J_5^C}^{\vee}]$; the audited four-label endpoint sum is $<1$.\\
+\addlinespace
+$N_+=1$, all Vd0, one gap
+&With $T_0$ the unique strictly supercritical V triangle, the full exact word is
+$\mathcal G_{11}=[g_{c_0,J_0^C}^{\vee}\mid
+\widehat g_{c_1,J_1^C}^{\vee}\mid\widehat g_{c_2,J_2^C}^{\vee}\mid
+\widehat g_{c_3,J_3^C}^{\vee}\mid\widehat g_{c_4,J_4^C}^{\vee}\mid
+\widehat g_{c_5,J_5^C}^{\vee}]$.
+The proof retains the exact five-slot hatted subchain on $T_1,\ldots,T_5$ and
+closes the $T_0$ slot by $A_0<1-h_{\mathrm{term}}<Z$.\\
 \bottomrule
 \end{tabular}
-\caption{The reader-facing Strategy~2 certificate register.  Every identity
-slot lies on an internal edge for which center and nonincident traces have
-already been excluded.}
+\caption{The reader-facing Strategy~2 $g$-composition register.  Every chain
+shows all six functions.  An $\mathrm I$ records the weaker handoff
+$A_{i+1}\ge A_i$ under Definition~\ref{def:body-six-slot-chain}; it is not an
+informal placeholder or an unproved order relation between compositions.}
 \label{tab:body-strategy2-chains}
 \end{table}
+
+\begin{center}
+\small
+\begin{tabular}{p{.36\textwidth}p{.52\textwidth}}
+\toprule
+non-composition terminal&certificate\\
+\midrule
+one T3-like or adjacent Vd1 rescuer&strict-supercritical envelope versus an
+ordinary center-free boundary path\\
+adjacent Vd1/Vd2&two center residuals and the quarter-radial envelope\\
+nonadjacent Vd1/Vd2&two center residuals and the Vd corner margin\\
+Vd1--supercritical pair&two explicit axis replacements followed by the
+all-Vd0 contradiction\\
+\bottomrule
+\end{tabular}
+\end{center}
 
 \begin{proposition}[Branches closed by Strategy 2]
 \label{prop:body-demand-branches}

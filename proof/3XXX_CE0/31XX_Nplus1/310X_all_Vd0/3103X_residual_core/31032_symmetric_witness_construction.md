@@ -42,7 +42,7 @@ P_k=(1-c_*)V_k,
 $$
 
 The comparison demands in the symmetric core are incoming demand $p$ and
-outgoing demand $q$ at every row. We prove
+outgoing demand $q$ at every V triangle. We prove
 
 $$
 \boxed{
@@ -378,7 +378,7 @@ c_*>
 \tag{9}
 $$
 
-## 4. Exclusion from all six row interiors
+## 4. Exclusion from all six V triangle interiors
 
 It is enough to treat
 
@@ -407,7 +407,7 @@ $$
 $$
 
 By the definition of $c_{\max}$ and the exact theorem in `2004`, the point
-$P_0$ belongs to the closed row union $R_0(p,q)$. It is not an interior
+$P_0$ belongs to the closed V triangle union $R_0(p,q)$. It is not an interior
 point of that union. Otherwise a sufficiently small movement farther down
 the same radial segment would put
 
@@ -449,7 +449,7 @@ P_0\notin R_1(p,q)\cup R_5(p,q).
 $$
 
 Equations (10)--(12) show that $P_0$ avoids the interiors of all six
-comparison row unions. By (5), $1-c\in(0,1)$, so $P_0$ lies on the open
+comparison V triangle unions. By (5), $1-c\in(0,1)$, so $P_0$ lies on the open
 segment $(O,V_0)$ and hence in $\mathrm{int}(H)$. Thus
 
 $$

@@ -18,7 +18,7 @@ such that
 
 1. $T_i$ is a Vd0 role at $V_i$ for every $i$;
 2. $T_0,\dots,T_5$ cover $\partial H$; and
-3. exactly one actual maximal boundary row is supercritical.
+3. exactly one actual maximal boundary V triangle is supercritical.
 
 No center class is assumed for $T_C$.
 
@@ -35,15 +35,15 @@ X_i=V_i+x_i(V_{i+1}-V_i),
 \qquad 0<x_i<1,
 $$
 
-covered by both endpoint roles, and selected row demands
+covered by both endpoint roles, and selected V triangle demands
 
 $$
 (a_i,b_i)=(1-x_{i-1},x_i).
 $$
 
-Exactly one selected row is supercritical, at the same index as the unique
-supercritical actual row. Rotate the indices so that this is row $4$.
-Every other selected row is strictly nonsupercritical, so
+Exactly one selected V triangle is supercritical, at the same index as the unique
+supercritical actual V triangle. Rotate the indices so that this is V triangle $4$.
+Every other selected V triangle is strictly nonsupercritical, so
 
 $$
 a_i+b_i<1
@@ -100,7 +100,7 @@ R_i(u',v')\subseteq R_i(u,v).
 \tag{3}
 $$
 
-Define the residual left by the six selected rows:
+Define the residual left by the six selected V triangles:
 
 $$
 \mathcal U_6^\circ

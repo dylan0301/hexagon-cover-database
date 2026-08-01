@@ -2,8 +2,8 @@
 
 Status: Proven
 
-This folder proves the CE0 branch with exactly one supercritical vertex row,
-at least one T3-like vertex row, and no Vd1/Vd2 rows.
+This folder proves the CE0 branch with exactly one supercritical vertex V triangle,
+at least one T3-like vertex V triangle, and no Vd1/Vd2 V triangles.
 
 The branch assumptions are:
 
@@ -19,11 +19,11 @@ i:A_i+B_i>1
 \right\rvert=1,
 $$
 
-and every vertex row is Vd0 or T3-like, with at least one T3-like row.
+and every vertex V triangle is Vd0 or T3-like, with at least one T3-like V triangle.
 Here $A_i,B_i$ are the actual maximal boundary reaches used in the definition
 of $N_+$.
 
-No midpoint condition is imposed on T3-like rows.  The T3-like hypothesis means
+No midpoint condition is imposed on T3-like V triangles.  The T3-like hypothesis means
 
 $$
 (o,n)=(2,1).
@@ -47,16 +47,16 @@ The branch is instead closed by two unconditional area results:
    realized by the actual triangles and proves that their unique selected
    supercritical index is the unique actual one.
 2. [`../../32XX_Nplus_ge2/3205_unconditional_local_square_loss.md`](../../32XX_Nplus_ge2/3205_unconditional_local_square_loss.md)
-   proves for every local row
+   proves for every local V triangle
    $$
    G\ge\min(a,b)^2,
    $$
-   and for every supercritical row
+   and for every supercritical V triangle
    $$
    G\ge\max(a,b)^2.
    $$
 3. [`3175_direct_T3_like_area_loss.md`](3175_direct_T3_like_area_loss.md)
-   proves directly that T3-like rows are nonsupercritical and that
+   proves directly that T3-like V triangles are nonsupercritical and that
    $$
    a,b\ge m
    \quad\Longrightarrow\quad

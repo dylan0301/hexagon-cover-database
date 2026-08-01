@@ -9,7 +9,7 @@ hexagon $H$ when
 
 - the center role $T_C$ is CE0;
 - all six vertex roles $T_0,\dots,T_5$ are Vd0; and
-- exactly one actual maximal boundary row is supercritical.
+- exactly one actual maximal boundary V triangle is supercritical.
 
 ## Proof
 
@@ -30,7 +30,7 @@ $$
 \partial H\subseteq\bigcup_{i=0}^5T_i.
 $$
 
-All six vertex roles are Vd0, and the actual-row hypothesis is exactly the
+All six vertex roles are Vd0, and the actual-V triangle hypothesis is exactly the
 remaining assumption of the center-independent direct theorem
 [`31043_center_independent_direct_nine_point_obstruction.md`](31043_center_independent_direct_nine_point_obstruction.md).
 That theorem gives a contradiction. $\square$

@@ -135,7 +135,7 @@ The universal local layer is:
 - [`201c`](proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201c_Vd_corner_radial_margins.md): the two Vd corner radial margins;
 - [`2110`](proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2110_common_CE2_two_gap_application.md): one common application of the CE2 paired-endpoint theorem.
 
-For CE1/CE2 all-Vd0 branches, the active proof is organized by the actual row
+For CE1/CE2 all-Vd0 branches, the active proof is organized by the actual V triangle
 count $N_+\in\{0,1\}$ and the active-gap rank
 $\mathrm{gr}\in\{0,1,2\}$. The two $\mathrm{gr}=2$ cells share the same
 paired-endpoint theorem.

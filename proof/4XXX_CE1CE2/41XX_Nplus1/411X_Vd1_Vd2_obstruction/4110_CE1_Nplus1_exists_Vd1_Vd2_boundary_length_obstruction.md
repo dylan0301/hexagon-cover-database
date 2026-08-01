@@ -3,10 +3,10 @@
 Status: Proven
 
 Assume a hypothetical cover has a CE1 center role, exactly one supercritical
-vertex row, and at least one Vd1 or Vd2 row.
+vertex V triangle, and at least one Vd1 or Vd2 V triangle.
 
-A Vd1/Vd2 row is nonsupercritical, and T3-like rows are also
-nonsupercritical.  Hence the unique supercritical row is Vd0.  The boundary
+A Vd1/Vd2 V triangle is nonsupercritical, and T3-like V triangles are also
+nonsupercritical.  Hence the unique supercritical V triangle is Vd0.  The boundary
 caps in
 [`2500`](../../../2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md)
 and the signed center theorem
@@ -31,7 +31,7 @@ L_{\partial H}(T_{\mathrm{supercritical}})
 \frac2{\sqrt3}.
 $$
 
-Every remaining row is nonsupercritical and has boundary contribution at most
+Every remaining V triangle is nonsupercritical and has boundary contribution at most
 $1$.  Therefore the total available boundary length is strictly less than
 
 $$

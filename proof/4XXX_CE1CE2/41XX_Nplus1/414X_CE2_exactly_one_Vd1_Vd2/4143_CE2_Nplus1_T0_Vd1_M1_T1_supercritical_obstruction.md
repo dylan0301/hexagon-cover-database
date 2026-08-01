@@ -24,16 +24,16 @@ T_C\cap\{M_0,\ldots,M_5\}=\{M_0\},
 $$
 
 $$
-T_0\text{ is the unique Vd1 row},
+T_0\text{ is the unique Vd1 V triangle},
 \qquad
 M_1\in T_0,
 $$
 
 $$
-T_1\text{ is the unique supercritical row},
+T_1\text{ is the unique supercritical V triangle},
 $$
 
-and $T_2,T_3,T_4,T_5$ are nonsupercritical Vd0 rows. We prove that the
+and $T_2,T_3,T_4,T_5$ are nonsupercritical Vd0 V triangles. We prove that the
 perimeter together with $r_1$ cannot be covered. Reflection gives the
 corresponding $M_5,T_5$ placement.
 
@@ -151,7 +151,7 @@ $$
 F(t,c)\le F(1,c)=\sqrt3-\frac52+2c=:L(c).
 $$
 
-Since $a\ge0$ and $a\le L(c)$, every feasible row has $L(c)\ge0$. We claim
+Since $a\ge0$ and $a\le L(c)$, every feasible V triangle has $L(c)\ge0$. We claim
 
 $$
 2L(c)\le1-g_c^{\rm sc}.
@@ -271,9 +271,9 @@ $$
 
 ## 4. Invocation of the common adjacent-rescuer theorem
 
-The interval $[c,u]$ contains $M_1$, so $u\ge1/2$. The supercritical row
+The interval $[c,u]$ contains $M_1$, so $u\ge1/2$. The supercritical V triangle
 $T_1$ misses $M_1$ and, since it contains $V_1$, cannot cover any point of
-$r_1$ on the $O$-side of $M_1$. The rows $T_2,T_3,T_4,T_5$ are Vd0 and
+$r_1$ on the $O$-side of $M_1$. The V triangles $T_2,T_3,T_4,T_5$ are Vd0 and
 have no positive-length adjacent support on $r_1$. Hence radial coverage
 forces the center role to cover the $O$-side gap of length $1-u$ before the
 Vd1 interval begins.
@@ -291,7 +291,7 @@ $$
 b_1<g_c^{\rm sc}.
 $$
 
-Its boundary-path budget then contradicts the four nonsupercritical row caps
+Its boundary-path budget then contradicts the four nonsupercritical V triangle caps
 of $T_2,T_3,T_4,T_5$.
 
 Therefore the normalized Vd1 adjacent-rescue placement is impossible.

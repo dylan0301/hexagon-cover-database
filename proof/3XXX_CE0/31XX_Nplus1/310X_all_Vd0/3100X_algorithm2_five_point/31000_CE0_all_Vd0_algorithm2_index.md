@@ -19,7 +19,7 @@ $$
 and all six vertex roles are Vd0. The goal of this route is to prove that this
 branch cannot occur.
 
-By cyclic symmetry, take the unique supercritical row to be the $V_4$ row:
+By cyclic symmetry, take the unique supercritical V triangle to be the $V_4$ V triangle:
 
 $$
 a_4+b_4>1.
@@ -93,7 +93,7 @@ The live branch splits into two complementary subtrees:
 ## Reductions
 
 **Reduction Target `31002` (Recorded status: Reference).** The full all-Vd0
-branch still needs a proof reducing the original row data to
+branch still needs a proof reducing the original V-triangle reach data to
 
 $$
 a_3+b_3=1,\qquad a_5+b_5=1.
@@ -114,7 +114,7 @@ the construction selects two fixed $V_4$ obstruction points $P_3,P_5$ and
 three diagonal obstruction points $D_0,D_1,D_2$.
 
 Algorithm 2 chooses $D_0,D_1,D_2$ by forcing two of the three nonsupercritical
-rows among $V_0,V_1,V_2$ to lie on equality lines:
+V triangles among $V_0,V_1,V_2$ to lie on equality lines:
 
 | Point | Equality pattern |
 |---|---|
@@ -420,7 +420,7 @@ argument must combine the following pieces:
 | Close-to-tight subtree | Prove $\Lambda(K_5)>1$ near the vertex-limit corners. | Open |
 | Branch gluing | Show the far and close regions cover the full normalized parameter domain. | Open |
 
-Only after all rows in this assembly table are closed can this route close the
+Only after all V triangles in this assembly table are closed can this route close the
 `310X` branch.
 
 ## Warnings And Failed Routes

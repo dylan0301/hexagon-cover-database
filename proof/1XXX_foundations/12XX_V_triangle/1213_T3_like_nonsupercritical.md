@@ -1,4 +1,4 @@
-# T3-Like Rows Are Nonsupercritical
+# T3-Like V triangles Are Nonsupercritical
 
 Status: Proven
 
@@ -8,13 +8,13 @@ $$
 (o,n)=(2,1),
 $$
 
-the perimeter row is nonsupercritical:
+the perimeter V triangle is nonsupercritical:
 
 $$
 \boxed{a_i+b_i\le1.}
 $$
 
-Equivalently, a T3-like row is never counted by
+Equivalently, a T3-like V triangle is never counted by
 
 $$
 N_+=
@@ -36,7 +36,7 @@ $$
 A+B\le\sqrt{1-t+t^2}\le1.
 $$
 
-Since the required row coordinates satisfy $a_i\le A$ and $b_i\le B$, it
+Since the required V triangle coordinates satisfy $a_i\le A$ and $b_i\le B$, it
 follows that
 
 $$

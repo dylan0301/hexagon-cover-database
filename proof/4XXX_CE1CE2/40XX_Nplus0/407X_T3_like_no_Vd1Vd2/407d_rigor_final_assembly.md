@@ -34,7 +34,7 @@ $$
 
 The fake label $T_+^{lo}$ is absent.  The support count in `4072` now uses
 the common short-role theorem `2530`, and `4073` uses $\widehat B$ for the
-possibly T3-like row $T_1$.
+possibly T3-like V triangle $T_1$.
 
 ## 1. Reduction target
 
@@ -179,7 +179,7 @@ $$
 
 ## 3. Conclusion
 
-The four-label partition in `2011` and the four row cases above exhaust every
+The four-label partition in `2011` and the four V triangle cases above exhaust every
 safe upper-map maximizer. Every genuine branch pair either is impossible or
 satisfies
 
@@ -193,4 +193,4 @@ $$
 T_C\text{ is CE1 or CE2},\qquad N_+=0,
 $$
 
-with no Vd1/Vd2 rows and at least one T3-like row is proved.
+with no Vd1/Vd2 V triangles and at least one T3-like V triangle is proved.

@@ -2,8 +2,8 @@
 
 Status: Proven
 
-This note closes the CE0 branch with exactly one supercritical actual row, at
-least one T3-like row, and no Vd1/Vd2 row. It uses three proved inputs:
+This note closes the CE0 branch with exactly one supercritical actual V triangle, at
+least one T3-like V triangle, and no Vd1/Vd2 V triangle. It uses three proved inputs:
 
 - strict handoff selection in
   [`../../../1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md`](../../../1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md);
@@ -13,7 +13,7 @@ least one T3-like row, and no Vd1/Vd2 row. It uses three proved inputs:
   [`3175_direct_T3_like_area_loss.md`](3175_direct_T3_like_area_loss.md).
 
 The failed tangent-envelope conjecture `3172` and any midpoint condition on a
-T3-like row are not used.
+T3-like V triangle are not used.
 
 ## Theorem
 
@@ -41,10 +41,10 @@ X_i=V_i+x_i(V_{i+1}-V_i),
 $$
 
 with $0<x_i<1$. Each actual vertex triangle realizes its selected pair, and
-the selected rows have the same unique supercritical index as the actual
-rows.
+the selected V triangles have the same unique supercritical index as the actual
+V triangles.
 
-Rotate indices so that the unique supercritical row is $0$. Then
+Rotate indices so that the unique supercritical V triangle is $0$. Then
 
 $$
 x_0>x_5,
@@ -66,7 +66,7 @@ $$
 y_i=1-x_{-i-1}
 $$
 
-and swaps the two coordinates of every row. The local loss estimates and the
+and swaps the two coordinates of every V triangle. The local loss estimates and the
 Vd0/T3-like types are symmetric under this operation. Hence, after reflection
 if necessary, assume
 
@@ -99,15 +99,15 @@ $$
 G_i\ge\min(a_i,b_i)^2
 $$
 
-for every row, and gives $G_i\ge\max(a_i,b_i)^2$ for a supercritical row.
-Row $0$ has pair $(1-m,M)$; by (1),
+for every V triangle, and gives $G_i\ge\max(a_i,b_i)^2$ for a supercritical V triangle.
+V triangle $0$ has pair $(1-m,M)$; by (1),
 
 $$
 G_0\ge(1-m)^2.
 \tag{3}
 $$
 
-Choose a T3-like row $q$. A T3-like row is nonsupercritical, so $q\ne0$.
+Choose a T3-like V triangle $q$. A T3-like V triangle is nonsupercritical, so $q\ne0$.
 By (2) and the direct T3-like theorem,
 
 $$
@@ -115,7 +115,7 @@ G_q\ge2m-4m^2.
 \tag{4}
 $$
 
-Each of the remaining four rows satisfies $G_i\ge m^2$. Combining this with
+Each of the remaining four V triangles satisfies $G_i\ge m^2$. Combining this with
 (3)--(4) gives
 
 $$

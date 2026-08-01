@@ -773,7 +773,7 @@ $$
 Thus $\phi$ first increases and then decreases, and its minimum is at an
 endpoint. In either case $b(z)<s(z)$.
 
-The exact selector factorization from the proof of the Cell-$L$ row in
+The exact selector factorization from the proof of the Cell-$L$ V triangle in
 Section 4 is
 
 $$

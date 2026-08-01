@@ -18,7 +18,7 @@ $$
 
 Then:
 
-1. every T3-like row is nonsupercritical:
+1. every T3-like V triangle is nonsupercritical:
    $$
    \boxed{a+b\le1;}
    $$

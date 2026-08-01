@@ -23,7 +23,7 @@ N_+
 \left\lvert\left\{i:A_i+B_i>1\right\}\right\rvert
 $$
 
-be the number of actual supercritical vertex rows.  In CE1/CE2, let $m$ be the
+be the number of actual supercritical vertex V triangles.  In CE1/CE2, let $m$ be the
 number of non-Vd0 roles and $q$ the number of short roles.  The common budget
 package `2530` proves
 
@@ -33,13 +33,13 @@ $$
 
 and removes every $q\ge3$ state before the finer split.
 
-For the all-Vd0 CE1/CE2 rows, let $\mathrm{gr}$ be the active-gap rank.  Bare
-$g$ is reserved for transfer maps.  The two row counts use the kernel
+For the all-Vd0 CE1/CE2 V triangles, let $\mathrm{gr}$ be the active-gap rank.  Bare
+$g$ is reserved for transfer maps.  The two V-triangle counts use the kernel
 
-| actual row count | $\mathrm{gr}=0$ | $\mathrm{gr}=1$ | $\mathrm{gr}=2$ |
+| actual V-triangle count | $\mathrm{gr}=0$ | $\mathrm{gr}=1$ | $\mathrm{gr}=2$ |
 |---|---|---|---|
 | $N_+=0$ | strict identity cycle | one-side endpoint chain | paired CE2 endpoint chain |
-| $N_+=1$ | nine-point obstruction | one five-row chain with CE1/CE2 relaxations | paired CE2 endpoint chain |
+| $N_+=1$ | nine-point obstruction | one five-V-triangle chain with CE1/CE2 relaxations | paired CE2 endpoint chain |
 
 ## Canonical transfer layer
 
@@ -131,9 +131,9 @@ index.
   - all Vd0: `4013`, using the three active-gap-rank chains;
   - some Vd1/Vd2: `4040`, `4041`, unchanged Strategy 1 routes;
   - T3-like and no Vd1/Vd2: `407X`, exact hatted endpoint audit with
-    identity-relaxed interior rows.
+    identity-relaxed interior V triangles.
 - $N_+=1$, all Vd0:
-  - `4105` gives one exact five-row $\widehat g^\vee$ interface;
+  - `4105` gives one exact five-V-triangle $\widehat g^\vee$ interface;
   - `4106` gives the CE1 affine/threshold relaxation;
   - `4107` gives the CE2 one-threshold-slot relaxation;
   - the zero-gap cell remains the Strategy 4 nine-point obstruction.

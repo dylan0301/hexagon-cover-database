@@ -1,47 +1,43 @@
 \subsection{Hexagon-skeleton atlas for the two interfaces}
 \label{sec:interface-notation-atlas}
 
-Every quantity in the two notation-heavy interfaces is placed on the regular
-hexagon skeleton below.  Each panel is a separate TikZ source and a separate
-figure, so it can be retained or removed independently.  A dashed extremal
-segment is not an actual trace, and a panel marked schematic records incidence
-and order rather than metric placement.  The figures explain definitions and
-hypotheses; they do not replace the inequalities in
-Propositions~\ref{prop:body-transfer-interface} and
-\ref{prop:body-signed-center-interface}.
+The figures below place the reader-facing transfer and signed-center objects on
+the regular hexagon skeleton.  Dashed extremal segments are not actual traces,
+and panels marked schematic record incidence and order rather than metric
+placement.  Exact admissible-set and signed-center equations are intentionally
+kept in Appendices~\ref{sec:admissible-set-derivation} and
+\ref{sec:signed-ce12-reductions}.
 
 \begin{figure}[H]
 \centering
 \resizebox{.92\linewidth}{!}{\input{figures/transfer_row_coordinates}}
-\caption{Selected demands, actual row reaches, incoming defect, raw extremal
-output, and the center-free complementary handoff.}
+\caption{Selected demands, actual V-triangle reaches, incoming defect, raw
+extremal output, and the center-free complementary handoff.}
 \label{fig:transfer-row-skeleton}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \resizebox{.90\linewidth}{!}{\input{figures/transfer_raw_hat_dual}}
-\caption{The exact zero-radial geometry and the complement dual.  The identity
-is $\widehat g_0$, not raw $g_0$.}
+\caption{The zero-radial geometry and the complement dual.  The identity is
+$\widehat g_0$, not raw $g_0$.}
 \label{fig:transfer-zero-dual-skeleton}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \resizebox{.99\linewidth}{!}{\input{figures/center_interval_residual}}
-\caption{The three cases in the exact residual operator
-$\mathcal R_{[L,U]}(p)$, drawn on the handoff edge of three skeletons.}
+\caption{The three geometric cases in the residual operator
+$\mathcal R_{[L,U]}(p)$, drawn on a handoff edge.}
 \label{fig:transfer-residual-skeleton}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \resizebox{.90\linewidth}{!}{\input{figures/supercritical_envelope}}
-\caption{The nonattained strict-supercritical envelope.  The representative
-row has $c=3/10$ and $g_c^{\rm sc}=4/5$; the hollow cap is metric for this
-sample, but no global graph shape is asserted.  Its outgoing bound is
-unconditional; only a center-free edge permits the complementary next-row
-bound.}
+\caption{A representative strict-supercritical envelope configuration.  Its
+outgoing bound is unconditional; only a center-free edge permits the
+complementary next-V-triangle bound.}
 \label{fig:transfer-supercritical-skeleton}
 \end{figure}
 
@@ -49,59 +45,23 @@ bound.}
 \centering
 \resizebox{.96\linewidth}{!}{%
 \input{figures/strategy2_transfer_domains_skeleton}}
-\caption{The exact interval family $\mathfrak J$, strict-supercritical input
-set $\mathcal S_c$, and its supremal output $g_c^{\rm sc}$.}
+\caption{The interval family $\mathfrak J$, strict-supercritical input set, and
+its supremal output, shown on the skeleton.}
 \label{fig:strategy2-transfer-domains-skeleton}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \resizebox{.86\linewidth}{!}{\input{figures/relaxed_composition}}
-\caption{Exact and lower-relaxed iterates placed on successive skeleton rows.}
+\caption{Exact and lower-relaxed iterates placed on successive V triangles.}
 \label{fig:relaxed-composition-skeleton}
-\end{figure}
-
-\clearpage
-
-\begin{figure}[H]
-\centering
-\resizebox{.88\linewidth}{!}{\input{figures/signed_parameter_map}}
-\caption{The affine center chart and the dependency structure of
-$R,W,E,\eta,P,k,\alpha,\delta,\Delta_R,\Delta_L$.  Algebraic parameters are
-displayed in callouts rather than as metric lengths.}
-\label{fig:signed-parameter-skeleton}
-\end{figure}
-
-\begin{figure}[H]
-\centering
-\resizebox{.84\linewidth}{!}{\input{figures/signed_companion_sign}}
-\caption{The sign test for the candidate companion trace on $e_{5,0}$,
-including the CE1 point-contact case $\Delta_L=0$.}
-\label{fig:signed-companion-skeleton}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \resizebox{.99\linewidth}{!}{\input{figures/signed_center_traces}}
-\caption{Two valid exact center triangles on the full skeleton.  The blue
-segments are the metric traces; $\alpha$ and $\delta$ are affine side slacks.}
+\caption{Representative CE1 and CE2 center triangles on the full skeleton.
+The blue segments are the geometric boundary traces; exact parameter equations
+are in Appendix~\ref{sec:signed-ce12-reductions}.}
 \label{fig:signed-center-samples-skeleton}
-\end{figure}
-
-\begin{figure}[H]
-\centering
-\resizebox{.82\linewidth}{!}{\input{figures/signed_center_exits}}
-\caption{All six center exits $d_i^C$ and all six complementary Strategy~2
-radial demands $c_i^C=1-d_i^C$.}
-\label{fig:signed-center-exits-skeleton}
-\end{figure}
-
-\begin{figure}[H]
-\centering
-\resizebox{.82\linewidth}{!}{\input{figures/signed_center_boundary_budgets}}
-\caption{The center-boundary contribution as one CE1 trace or two adjacent
-CE2 traces.  The triangles are exact representative samples and the displayed
-bounds are general.  The contribution is the total blue trace on $\partial H$,
-not the perimeter of $T_C$.}
-\label{fig:signed-center-budget-skeleton}
 \end{figure}

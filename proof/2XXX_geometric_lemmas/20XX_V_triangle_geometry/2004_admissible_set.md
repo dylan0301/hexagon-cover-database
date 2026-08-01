@@ -65,7 +65,7 @@ $$
 0\le c\le C_0.
 $$
 
-Thus demand coordinates must not be substituted for actual reaches when a row
+Thus demand coordinates must not be substituted for actual reaches when a V triangle
 is classified by $A_0+B_0\le1$ or $A_0+B_0>1$.
 
 ## 2. Exact piecewise minimum-side formula

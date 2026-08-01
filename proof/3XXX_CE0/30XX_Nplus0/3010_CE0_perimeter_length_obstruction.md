@@ -70,7 +70,7 @@ $$
 6<\sum_{i=0}^5(b_i+a_{i+1})=\sum_{i=0}^5(a_i+b_i).
 $$
 
-But $N_+=0$ means that every row satisfies
+But $N_+=0$ means that every V triangle satisfies
 
 $$
 a_i+b_i\le1.

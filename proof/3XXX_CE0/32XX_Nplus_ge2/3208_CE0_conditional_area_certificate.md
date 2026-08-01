@@ -1,8 +1,8 @@
-# CE0 Six-Row Area Certificate
+# CE0 Six-V triangle Area Certificate
 
 Status: Proven
 
-This note closes the CE0 branch with at least two supercritical actual rows.
+This note closes the CE0 branch with at least two supercritical actual V triangles.
 It uses the strict handoff theorem
 [`../../1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md`](../../1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md)
 and the local square-loss theorem
@@ -26,7 +26,7 @@ g(a,b)\ge\max(a,b)^2.
 \tag{1}
 $$
 
-## Six-row lemma
+## Six-V triangle lemma
 
 Let $x_0,\dots,x_5\in(0,1)$, with cyclic indices, and set
 
@@ -34,7 +34,7 @@ $$
 (a_i,b_i)=(1-x_{i-1},x_i).
 $$
 
-Assume every pair is feasible and at least two rows are supercritical. Then
+Assume every pair is feasible and at least two V triangles are supercritical. Then
 
 $$
 \boxed{
@@ -55,7 +55,7 @@ m=\min_i x_i,
 M=\max_i x_i.
 $$
 
-Here row $i$ is supercritical exactly when $x_i>x_{i-1}$.
+Here V triangle $i$ is supercritical exactly when $x_i>x_{i-1}$.
 
 The reflection
 
@@ -63,8 +63,8 @@ $$
 y_i=1-x_{-i-1}
 $$
 
-swaps the two coordinates of each row, preserves feasibility, the number of
-supercritical rows, and the sum of the six $f$-values. Hence assume, after
+swaps the two coordinates of each V triangle, preserves feasibility, the number of
+supercritical V triangles, and the sum of the six $f$-values. Hence assume, after
 reflection if necessary, that
 
 $$
@@ -72,7 +72,7 @@ m\le1-M.
 \tag{3}
 $$
 
-Every row coordinate is then at least $m$:
+Every V triangle coordinate is then at least $m$:
 
 $$
 x_i\ge m,
@@ -83,7 +83,7 @@ $$
 Thus (1) gives $G_i\ge m^2$ for all $i$.
 
 The cyclic sequence has a strict ascent out of a minimum plateau. Choose $p$
-with $x_{p-1}=m<x_p$. Row $p$ is supercritical, so
+with $x_{p-1}=m<x_p$. V triangle $p$ is supercritical, so
 
 $$
 G_p\ge\max(1-m,x_p)^2\ge(1-m)^2.
@@ -103,7 +103,7 @@ G_q>\frac14.
 \tag{5}
 $$
 
-The remaining four rows contribute at least $4m^2$. Therefore
+The remaining four V triangles contribute at least $4m^2$. Therefore
 
 $$
 \begin{aligned}
@@ -130,8 +130,8 @@ $$
 for the actual vertex reaches. CE0 forces the six vertex roles to cover
 $\partial H$; otherwise the open center role would cover a positive-length
 edge interval. The at-least-two part of `1214` therefore supplies strict cuts
-whose selected rows have at least two supercritical indices. Each actual
-vertex triangle realizes its selected pair, so the six-row lemma bounds their
+whose selected V triangles have at least two supercritical indices. Each actual
+vertex triangle realizes its selected pair, so the six-V triangle lemma bounds their
 total normalized inside area by less than $99/20$.
 
 The center triangle contributes at most one additional unit-triangle area.

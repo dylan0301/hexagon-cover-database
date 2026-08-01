@@ -6,8 +6,8 @@ Assume the closures of original open-cover roles satisfy:
 
 - the center role is CE1 or CE2 with exact midpoint set $\{M_0\}$;
 - $N_+=1$;
-- exactly one vertex row is Vd1 or Vd2;
-- at least one additional vertex row has positive-length support on an adjacent
+- exactly one vertex V triangle is Vd1 or Vd2;
+- at least one additional vertex V triangle has positive-length support on an adjacent
   radial arm.
 
 The exact short-role count in
@@ -18,9 +18,9 @@ Vd1, Vd2, or T3-like and is nonsupercritical.
 
 Thus there are at least three short vertex roles:
 
-- the unique supercritical row;
-- the Vd1/Vd2 row;
-- one additional positive-support row.
+- the unique supercritical V triangle;
+- the Vd1/Vd2 V triangle;
+- one additional positive-support V triangle.
 
 The three-short-role theorem therefore gives
 
@@ -33,7 +33,7 @@ any optional T3-like translation, so the interior hypotheses of the skeleton
 caps remain valid.  Since the full skeleton has length $12$, subadditivity for
 a cover gives a contradiction.
 
-Thus every mixed one-Vd1/Vd2 branch with an additional positive-support row,
+Thus every mixed one-Vd1/Vd2 branch with an additional positive-support V triangle,
 including every Vd1/Vd2--T3-like mixture, is impossible.  The proof is
 class-independent; the file remains in `414X` only because that assembly uses
 it in the surviving CE2 branch.

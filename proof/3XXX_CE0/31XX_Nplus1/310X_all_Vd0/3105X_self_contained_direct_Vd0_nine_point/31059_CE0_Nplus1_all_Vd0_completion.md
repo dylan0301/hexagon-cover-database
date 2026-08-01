@@ -9,7 +9,7 @@ hexagon $H$ when
 
 - the center role $U_C$ is CE0;
 - all six vertex roles $U_0,\dots,U_5$ are Vd0; and
-- exactly one actual maximal boundary row is supercritical.
+- exactly one actual maximal boundary V triangle is supercritical.
 
 ## Proof
 
@@ -30,7 +30,7 @@ $$
 \partial H\subseteq\bigcup_{i=0}^5U_i.
 $$
 
-The six roles are Vd0, they cover $\partial H$, and exactly one actual row is
+The six roles are Vd0, they cover $\partial H$, and exactly one actual V triangle is
 supercritical.  These are precisely the hypotheses of the center-independent
 direct nine-point theorem
 [`31058_center_independent_direct_nine_point_obstruction.md`](31058_center_independent_direct_nine_point_obstruction.md),

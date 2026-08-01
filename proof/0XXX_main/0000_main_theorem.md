@@ -42,7 +42,7 @@ N_+
 $$
 
 Exactly one of $N_+=0$, $N_+=1$, and $N_+\ge2$ holds. When a branch selects
-smaller strict cut rows, [`1214`](../1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md)
+smaller strict cut V triangles, [`1214`](../1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md)
 rigorously transfers the required supercritical pattern from these actual
 reaches.
 
@@ -50,15 +50,15 @@ It remains only to list the exhaustive terminal cases.
 
 ### CE0
 
-| Actual-row and vertex-type case | Proven contradiction |
+| Actual-V triangle and vertex-type case | Proven contradiction |
 |---|---|
 | $N_+=0$ | Strict perimeter obstruction [`3010`](../3XXX_CE0/30XX_Nplus0/3010_CE0_perimeter_length_obstruction.md) |
 | $N_+=1$, all six roles Vd0 | Self-contained direct all-Vd0 nine-point completion [`31059`](../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31059_CE0_Nplus1_all_Vd0_completion.md) |
 | $N_+=1$, some role Vd1 or Vd2 | Boundary-length obstruction [`3141`](../3XXX_CE0/31XX_Nplus1/314X_exists_Vd1_Vd2/3141_CE0_Nplus1_exists_Vd1_Vd2_boundary_length_obstruction.md) |
 | $N_+=1$, no Vd1/Vd2 role and some T3-like role | Direct area obstruction [`3171`](../3XXX_CE0/31XX_Nplus1/317X_T3_like_no_Vd1Vd2/3171_T3_like_area_certificate_index.md) |
-| $N_+\ge2$ | Six-row square-loss obstruction [`3201`](../3XXX_CE0/32XX_Nplus_ge2/3201_area_conjecture_index.md) |
+| $N_+\ge2$ | Six-V triangle square-loss obstruction [`3201`](../3XXX_CE0/32XX_Nplus_ge2/3201_area_conjecture_index.md) |
 
-For $N_+=1$, the last three rows are exhaustive: either all roles are Vd0;
+For $N_+=1$, the last three V triangles are exhaustive: either all roles are Vd0;
 otherwise a Vd1/Vd2 role occurs; otherwise the exhaustive vertex
 classification forces a T3-like role. Hence CE0 is impossible.
 
@@ -77,7 +77,7 @@ Every case with $q\ge3$ is impossible by the three-short-role skeleton
 theorem. If $N_+\ge2$, midpoint rescue forces a further positive-support
 role, so again $q\ge3$. It remains to consider $N_+\le1$ and $q\le2$.
 
-| Surviving actual-row and vertex-type case | Proven contradiction |
+| Surviving actual-V triangle and vertex-type case | Proven contradiction |
 |---|---|
 | $N_+=0$, all six roles Vd0 | Exact boundary-loss package [`4013`](../4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md) |
 | $N_+=0$, some Vd1/Vd2 role | Boundary-length obstructions [`4040`](../4XXX_CE1CE2/40XX_Nplus0/404X_exists_Vd1_Vd2_obstruction/4040_CE1_Nplus0_exists_Vd1_Vd2_boundary_length_obstruction.md), [`4041`](../4XXX_CE1CE2/40XX_Nplus0/404X_exists_Vd1_Vd2_obstruction/4041_CE2_Nplus0_exists_Vd1_Vd2_boundary_length_obstruction.md) |
@@ -86,8 +86,8 @@ role, so again $q\ge3$. It remains to consider $N_+\le1$ and $q\le2$.
 | $N_+=1$, exactly one T3-like role | Boundary obstruction [`4130`](../4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like/4130_CE1CE2_exactly_one_T3_like_index.md) |
 | $N_+=1$, exactly one Vd1/Vd2 role | CE1 boundary obstruction [`4110`](../4XXX_CE1CE2/41XX_Nplus1/411X_Vd1_Vd2_obstruction/4110_CE1_Nplus1_exists_Vd1_Vd2_boundary_length_obstruction.md), or CE2 mixed-type assembly [`4140`](../4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4140_CE2_Nplus1_exactly_one_Vd1_Vd2_index.md) |
 
-For $N_+=0$, the first three rows are exhaustive. For $N_+=1$, the short-role
-count leaves at most one non-Vd0 role, giving the last three rows. Thus CE1
+For $N_+=0$, the first three V triangles are exhaustive. For $N_+=1$, the short-role
+count leaves at most one non-Vd0 role, giving the last three V triangles. Thus CE1
 and CE2 are impossible.
 
 All three center classes lead to contradictions. Therefore seven open unit

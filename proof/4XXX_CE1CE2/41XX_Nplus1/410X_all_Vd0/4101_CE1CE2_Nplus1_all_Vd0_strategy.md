@@ -12,15 +12,15 @@ The active proof depends only on the active-gap rank $\mathrm{gr}$, the number
 of center traces that contain an active V-gap. Together with the $N_+=0$
 theorem `4013`, the all-Vd0 kernel is
 
-| actual row count | $\mathrm{gr}=0$ | $\mathrm{gr}=1$ | $\mathrm{gr}=2$ |
+| actual V-triangle count | $\mathrm{gr}=0$ | $\mathrm{gr}=1$ | $\mathrm{gr}=2$ |
 |---|---|---|---|
 | $N_+=0$ | strict identity cycle | one-side exact-endpoint chain | common CE2 paired-endpoint chain |
-| $N_+=1$ | center-independent nine-point obstruction | common five-row chain with a sign-dependent relaxation | common CE2 paired-endpoint chain |
+| $N_+=1$ | center-independent nine-point obstruction | common five-V-triangle chain with a sign-dependent relaxation | common CE2 paired-endpoint chain |
 
 The column $\mathrm{gr}=2$ is CE2-only. The canonical $g$-family is proved in
 [`201d`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md).
 
-## 1. Unique supercritical row
+## 1. Unique supercritical V triangle
 
 Suppose such a cover exists. Write $U_C,U_0,\ldots,U_5$ for the open roles and
 put
@@ -54,7 +54,7 @@ A_i+B_i\le1
 \qquad(i=1,\ldots,5).
 $$
 
-Since $N_+=1$, row $T_0$ is uniquely supercritical:
+Since $N_+=1$, V triangle $T_0$ is uniquely supercritical:
 
 $$
 \boxed{A_0+B_0>1.}
@@ -115,7 +115,7 @@ with $\mathrm{gr}\le1$ in CE1.
 ## 3. Rank zero: no active gap
 
 If no center trace contains a V-gap, then no boundary edge has a V-gap. The
-six Vd0 vertex roles alone cover $\partial H$, and exactly one actual row is
+six Vd0 vertex roles alone cover $\partial H$, and exactly one actual V triangle is
 supercritical. The center-independent direct nine-point obstruction
 [`31058`](../../../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31058_center_independent_direct_nine_point_obstruction.md)
 gives a contradiction.
@@ -123,7 +123,7 @@ gives a contradiction.
 This is the only all-Vd0 cell in the kernel that is not closed by a relaxed
 $g$-chain.
 
-## 4. Rank one: the common five-row chain
+## 4. Rank one: the common five-V-triangle chain
 
 After reflection, assume the active gap lies in $I_R$ and the companion trace
 is absent or gap-free. Put
@@ -148,7 +148,7 @@ c_5&=1-\frac{\alpha}{W}.
 \end{aligned}
 $$
 
-The common actual-row theorem
+The common actual-V triangle theorem
 [`4105`](4105_CE1_CE2_one_gap_five_row_interface.md) performs the exact chain
 
 $$
@@ -165,7 +165,7 @@ $$
 }
 $$
 
-It connects every formal iterate to the corresponding actual row and compares
+It connects every formal iterate to the corresponding actual V triangle and compares
 the returning demand with the exact capacity of $T_0$.
 
 The first and fifth maps are relaxed to $\mathrm I$. Exact hatted-map duality
@@ -230,9 +230,9 @@ $$
 ### 4.2. CE2 relaxation
 
 If $\Delta_L>0$, the center is CE2. The total-slack two-threshold theorem
-[`4107`](4107_CE2_one_gap_five_map_completion.md) proves that one of the row
-$T_4$ and row $T_2$ thresholds fires, while every other row is needed only
-through extensivity. In original row order the two possible lower chains are
+[`4107`](4107_CE2_one_gap_five_map_completion.md) proves that one of the V triangle
+$T_4$ and V triangle $T_2$ thresholds fires, while every other V triangle is needed only
+through extensivity. In original V-triangle order the two possible lower chains are
 
 $$
 \boxed{
@@ -276,17 +276,17 @@ R\longleftrightarrow W,
 \alpha\longleftrightarrow\delta
 $$
 
-and reverses the five rows, so the other CE2 orientation is identical.
+and reverses the five V triangles, so the other CE2 orientation is identical.
 
 Thus every rank-one state is impossible, including singleton gaps.
 
 ## 5. Rank two: two active gaps
 
-This state is CE2-only. Rows $T_1,\ldots,T_5$ are nonsupercritical Vd0 rows,
+This state is CE2-only. V triangles $T_1,\ldots,T_5$ are nonsupercritical Vd0 V triangles,
 so the common two-gap theorem
 [`2110`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2110_common_CE2_two_gap_application.md)
 applies directly. It keeps the two endpoint hatted outgoing caps exact,
-relaxes the three middle rows to $\mathrm I^3$, and invokes the paired
+relaxes the three middle V triangles to $\mathrm I^3$, and invokes the paired
 endpoint loss `2108`.
 
 The ranks $\mathrm{gr}=0,1,2$ are exhaustive. Therefore the CE1/CE2,

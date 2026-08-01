@@ -21,12 +21,12 @@ Status: Reference
 - CE0/CE1/CE2: exhaustive preferred center-triangle perimeter-edge types.
 - Ce0/Ce1/Ce2: historical aliases.
 - Vd0/Vd1/Vd2/T3-like: exhaustive original vertex-role types.
-- supercritical row: a row whose actual reaches satisfy $A_i+B_i>1$.
+- supercritical V triangle: a V triangle whose actual reaches satisfy $A_i+B_i>1$.
 - $N_+$:
   $$
   \left\lvert\left\{i:A_i+B_i>1\right\}\right\rvert,
   $$
-  the number of actual supercritical rows.
+  the number of actual supercritical V triangles.
 - short role: in `2530`, a vertex role that is supercritical or has
   positive-length support on an adjacent radial arm.
 - $\mathrm{gr}$: active-gap rank, the number of positive center traces
@@ -69,9 +69,9 @@ incoming-reach coordinates.
   $g_c(x)=B_c(1-x)$.
 - $\widehat g_c(x)=\min\{g_c(x),x\}$: nonsupercritical capped defect map.
 - $f^\vee(a)=1-f(1-a)$: complement dual of any map $f$.
-- $g_c^\vee$: raw next-incoming reach lower transfer, valid for every row.
+- $g_c^\vee$: raw next-incoming reach lower transfer, valid for every V triangle.
 - $\widehat g_c^\vee$: capped next-incoming reach lower transfer for a
-  nonsupercritical row. It is extensive:
+  nonsupercritical V triangle. It is extensive:
   $$
   \widehat g_c^\vee(a)\ge a.
   $$
@@ -90,10 +90,10 @@ incoming-reach coordinates.
   \quad(0\le c<1/2).
   $$
   This single scalar is the free strict-supercritical outgoing envelope.
-  Every such row has outgoing reach $<g_c^{\rm sc}$.  If the outgoing edge is
+  Every such V triangle has outgoing reach $<g_c^{\rm sc}$.  If the outgoing edge is
   center-free, the following incoming reach is $>1-g_c^{\rm sc}$.
 - $[\Phi_1\mid\cdots\mid\Phi_r](x)$:
-  $(\Phi_r\circ\cdots\circ\Phi_1)(x)$, with maps listed in geometric row order.
+  $(\Phi_r\circ\cdots\circ\Phi_1)(x)$, with maps listed in geometric V-triangle order.
 - $\mathrm I(x)=x$: identity lower relaxation.
 - $\widehat g_{1-d}^{\vee,\lambda}(x)=x+\lambda(x-d)$: certified affine
   selected-$T_+$ lower relaxation on its stated arc.
@@ -212,7 +212,7 @@ high-sheet calculations when confusion with a local coordinate is possible.
 
 - $a,b,c$: local lower-bound demands.
 - $A(T),B(T),C(T)$: actual maximal local reaches of a realizing role.
-- $(A_i,B_i,C_i)$: actual maximal row reaches in the manuscript.
+- $(A_i,B_i,C_i)$: actual maximal V triangle reaches in the manuscript.
 - $(a_i,b_i,c_i)$: selected lower-bound demands in the manuscript.
 - $e(d)=\ell(1-d)$: low selected root for radial demand $1-d$.
 - $\sigma(x)=1-\sqrt{1-x+x^2}$: universal selected-$T_+$ increment; older

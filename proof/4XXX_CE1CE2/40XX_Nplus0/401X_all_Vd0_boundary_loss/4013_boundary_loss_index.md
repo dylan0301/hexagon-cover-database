@@ -12,7 +12,7 @@ A_i+B_i\le1
 $$
 
 Then the seven roles cannot cover the hexagon. Equivalently, every CE1/CE2
-all-Vd0 cover has at least one supercritical vertex row.
+all-Vd0 cover has at least one supercritical vertex V triangle.
 
 Let
 
@@ -40,7 +40,7 @@ B_i>1-A_{i+1};
 $$
 
 equality would leave the common endpoint of the two open traces uncovered.
-Since row $T_i$ is nonsupercritical,
+Since V triangle $T_i$ is nonsupercritical,
 
 $$
 B_i\le\widehat g_{C_i}(1-A_i).
@@ -121,7 +121,7 @@ $$
 }
 $$
 
-Let $B_5',B_1'$ be the actual outgoing reaches of the endpoint rows on
+Let $B_5',B_1'$ be the actual outgoing reaches of the endpoint V triangles on
 $e_{4,5}$ and $e_{1,2}$. Then
 
 $$
@@ -134,7 +134,7 @@ so $B_1'+B_5'<1$.
 
 Now apply the corrected path theorem
 [`2019`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2019_interval_component_and_path_budget.md)
-to the three rows $T_2,T_3,T_4$. The center's only possible positive boundary
+to the three V triangles $T_2,T_3,T_4$. The center's only possible positive boundary
 traces are on $e_{0,1}$ and $e_{5,0}$, so the internal path edges
 $e_{2,3},e_{3,4}$ are center-free; diameter locality excludes nonincident
 vertex roles; and the full external contributions on the two endpoint edges
@@ -154,7 +154,7 @@ path edge.
 
 ## 3. Two active center gaps
 
-This state is CE2-only. Rows $T_1,\ldots,T_5$ are nonsupercritical Vd0, so the
+This state is CE2-only. V triangles $T_1,\ldots,T_5$ are nonsupercritical Vd0, so the
 common two-gap theorem
 [`2110`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2110_common_CE2_two_gap_application.md)
 applies. In its signed notation
@@ -169,7 +169,7 @@ $$
 \widehat g_{p/W}(1-p)+\widehat g_{q/R}(1-q)<1.
 $$
 
-The same center-free three-row path budget gives the contradiction.
+The same center-free three-V triangle path budget gives the contradiction.
 
 The ranks $0,1,2$ are exhaustive, proving the theorem.
 

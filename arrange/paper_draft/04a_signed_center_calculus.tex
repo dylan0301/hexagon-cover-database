@@ -1,7 +1,7 @@
 \section{Signed CE1/CE2 Reductions}
 \label{sec:signed-ce12-reductions}
 
-This section gives one signed center model and the common one-gap row
+This section gives one signed center model and the common one-gap V triangle
 interface.  The transfer notation has already been fixed in
 Section~\ref{sec:universal-calculus}: the exact nonsupercritical
 incoming-reach map is $\widehat g_c^\vee$, while $g_c$ itself remains the
@@ -327,7 +327,7 @@ The exact reflection duality is
  \label{eq:reader-capped-duality}
 \end{equation}
 
-Suppose an actual nonsupercritical row has maximal reaches
+Suppose an actual nonsupercritical V triangle has maximal reaches
 $(A_i,B_i,C_i)$ and
 \[
  A_i\ge z,
@@ -349,11 +349,11 @@ If the next boundary handoff gives $A_{i+1}\ge1-B_i$, then
  \label{eq:reader-actual-propagation}
 \end{equation}
 Every composition below is shorthand for repeated applications of this
-inequality to specified actual rows.
+inequality to specified actual V triangles.
 
 \subsection{The common one-gap interface}
 
-\begin{proposition}[Common five-row one-gap reduction]
+\begin{proposition}[Common five-V-triangle one-gap reduction]
 \label{prop:signed-one-gap-interface}
 Assume every vertex role is Vd0, $N_+=1$, and the normalized right center
 trace contains a V-gap, possibly a singleton.  In the CE2 case assume the
@@ -401,7 +401,7 @@ Consequently it is enough to prove
 \end{proposition}
 
 \begin{proof}
-The exact-midpoint argument makes rows $1,\ldots,5$ nonsupercritical and row
+The exact-midpoint argument makes V triangles $1,\ldots,5$ nonsupercritical and V triangle
 $0$ uniquely supercritical.  Gap containment gives
 \[
  B_0\ge\frac{k}{R},
@@ -423,7 +423,7 @@ The next boundary handoff therefore gives
 For the final handoff, the CE1 companion trace is empty and the CE2 companion
 trace is gap-free, so $A_0\ge z_5=Z$.
 
-The same row has boundary reach at least $k/R$ and radial reach at least $k$.
+The same V triangle has boundary reach at least $k/R$ and radial reach at least $k$.
 Reflection and down-closedness of $\mathcal A$ give
 \[
  \left(\frac{k}{R},A_0,k\right)\in\mathcal A,
@@ -547,7 +547,7 @@ Concavity therefore gives $\pi(\alpha)>0$, and the low-root bound yields
 \end{equation}
 
 If $e(\alpha)<Q$, extensivity carries
-\eqref{eq:signed-initial-threshold} to the row-$4$ map
+\eqref{eq:signed-initial-threshold} to the V triangle-$4$ map
 $\widehat g_{1-\alpha}^\vee$, which gives an output at least
 $1-e(\alpha)>1-Q$.  All later maps preserve it.  If
 $e(\alpha)\ge Q$, Lemma~\ref{lem:signed-ce2-two-threshold} gives
@@ -555,7 +555,7 @@ $e(\delta)<Q$, and
 \[
  z_0>e(\alpha)\ge Q>e(\delta).
 \]
-The row-$2$ map $\widehat g_{1-\delta}^\vee$ then gives an output above
+The V triangle-$2$ map $\widehat g_{1-\delta}^\vee$ then gives an output above
 $1-Q$, again preserved by all later maps.  Thus $Z>1-Q=1-H$, contradicting
 \eqref{eq:signed-one-gap-actual}.
 
@@ -565,7 +565,7 @@ Reflection exchanges
  \qquad
  \alpha\leftrightarrow\delta
 \]
-and reverses the row order.  The signed CE2 domain and the proof above are
+and reverses the V-triangle order.  The signed CE2 domain and the proof above are
 invariant under this exchange, so the left-gap orientation is impossible as
 well.
 \end{proof}
@@ -578,3 +578,37 @@ Proposition~\ref{prop:signed-one-gap-interface}; the CE1 selected-$T_+$
 clause and the CE2 threshold clause are genuinely different scalar proofs of
 the same target \eqref{eq:signed-three-map-target}.
 \end{remark}
+
+\subsection{Exact signed-center diagrams}
+
+\begin{figure}[H]
+\centering
+\resizebox{.88\linewidth}{!}{\input{figures/signed_parameter_map}}
+\caption{The affine center chart and the exact dependency structure of the
+signed parameters.}
+\label{fig:signed-parameter-skeleton}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\resizebox{.84\linewidth}{!}{\input{figures/signed_companion_sign}}
+\caption{The exact sign test for the candidate companion trace, including the
+CE1 point-contact case.}
+\label{fig:signed-companion-skeleton}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\resizebox{.82\linewidth}{!}{\input{figures/signed_center_exits}}
+\caption{The six exact center exits $d_i^C$ and complementary radial demands
+$c_i^C=1-d_i^C$.}
+\label{fig:signed-center-exits-skeleton}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\resizebox{.82\linewidth}{!}{\input{figures/signed_center_boundary_budgets}}
+\caption{The exact CE1 and CE2 center-boundary contributions and their general
+bounds.}
+\label{fig:signed-center-budget-skeleton}
+\end{figure}

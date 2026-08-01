@@ -1,4 +1,4 @@
-# Common CE1/CE2 One-Gap Five-Row Interface
+# Common CE1/CE2 One-Gap Five-V triangle Interface
 
 Status: Proven
 
@@ -71,7 +71,7 @@ c_5&=1-\frac{\alpha}{W}.
 }
 $$
 
-The row-$0$ radial demand is
+The V triangle-$0$ radial demand is
 
 $$
 c_0=k.
@@ -102,9 +102,9 @@ Assume the `410X` branch:
 - in the CE2 case, the companion trace contains no V-gap.
 
 As proved in
-[`4101`](4101_CE1CE2_Nplus1_all_Vd0_strategy.md), rows $T_1,\ldots,T_5$
+[`4101`](4101_CE1CE2_Nplus1_all_Vd0_strategy.md), V triangles $T_1,\ldots,T_5$
 contain their own midpoints and are nonsupercritical. Thus $T_0$ is the
-unique supercritical row.
+unique supercritical V triangle.
 
 Let $A_i,B_i$ be the actual incoming and outgoing boundary reaches and let
 $C_i$ be the actual own-radial reach. Gap containment gives
@@ -122,7 +122,7 @@ C_i\ge c_i
 \qquad(i=0,\ldots,5).
 $$
 
-## 3. Actual-row propagation
+## 3. Actual-V triangle propagation
 
 Define
 
@@ -133,14 +133,14 @@ z_i=\widehat g_{c_i}^\vee(z_{i-1})
 \quad(1\le i\le5).
 $$
 
-We prove inductively that the actual incoming reach at each row dominates the
+We prove inductively that the actual incoming reach at each V triangle dominates the
 corresponding formal input. The initial inequality is $A_1\ge z_0$. Suppose
 
 $$
 A_i\ge z_{i-1}
 $$
 
-for some $1\le i\le5$. Since row $T_i$ is nonsupercritical and $C_i\ge c_i$,
+for some $1\le i\le5$. Since V triangle $T_i$ is nonsupercritical and $C_i\ge c_i$,
 the hatted outgoing cap gives
 
 $$
@@ -201,7 +201,7 @@ Z=
 }
 $$
 
-The same row $T_0$ has outgoing reach at least $k/R$ and actual radial reach
+The same V triangle $T_0$ has outgoing reach at least $k/R$ and actual radial reach
 at least $k$. Reflection of the admissible set and coordinatewise
 down-closedness give
 
@@ -299,7 +299,7 @@ The CE1 proof uses the two affine superscript relaxations and one threshold
 superscript in
 [`4106`](4106_CE1_one_gap_five_map_completion.md). The CE2 proof uses the
 one-hit/two-threshold argument in
-[`4107`](4107_CE2_one_gap_five_map_completion.md). No geometric or actual-row
+[`4107`](4107_CE2_one_gap_five_map_completion.md). No geometric or actual-V triangle
 step is duplicated.
 
 ## 5. Reflected orientation
@@ -312,6 +312,6 @@ R\longleftrightarrow W,
 \alpha\longleftrightarrow\delta,
 $$
 
-and reverses rows $1,2,3,4,5$. Therefore the left-gap chain is obtained by the
-exact reversed row order, starting from the reflected far-end input. The
+and reverses V triangles $1,2,3,4,5$. Therefore the left-gap chain is obtained by the
+exact reversed V-triangle order, starting from the reflected far-end input. The
 preceding proof applies after this explicit substitution.

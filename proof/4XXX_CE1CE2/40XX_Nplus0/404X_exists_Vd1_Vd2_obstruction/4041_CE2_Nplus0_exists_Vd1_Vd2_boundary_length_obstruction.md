@@ -3,7 +3,7 @@
 Status: Proven
 
 Assume a hypothetical cover has a CE2 center role, no supercritical vertex
-row, and at least one Vd1 or Vd2 row.
+V triangle, and at least one Vd1 or Vd2 V triangle.
 
 The signed center-budget theorem
 [`2530`](../../../2XXX_geometric_lemmas/25XX_length_bounds/2530_common_CE1_CE2_budget_lemmas.md)
@@ -13,7 +13,7 @@ $$
 L_{\partial H}(T_C)<\frac12.
 $$
 
-Choose one Vd1/Vd2 row.  The boundary cap in
+Choose one Vd1/Vd2 V triangle.  The boundary cap in
 [`2500`](../../../2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md)
 gives
 
@@ -21,7 +21,7 @@ $$
 L_{\partial H}(T_{\mathrm{Vd1/Vd2}})<\frac12.
 $$
 
-Every other vertex row is nonsupercritical.  By the exhaustive type
+Every other vertex V triangle is nonsupercritical.  By the exhaustive type
 classification, each has boundary contribution at most $1$.  Hence the total
 available boundary length is strictly less than
 

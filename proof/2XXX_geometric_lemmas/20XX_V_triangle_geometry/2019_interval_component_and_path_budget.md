@@ -103,10 +103,10 @@ $1-q\le e_J(p)$, which is equivalent to the conclusion.  Equality is retained
 for closed role triangles; strictness for original open traces is supplied
 separately by the strict-handoff theorem. $\square$
 
-## 3. Generalized actual-row transfer
+## 3. Generalized actual-V triangle transfer
 
 Let $g_c$ and $\widehat g_c$ be the raw and capped defect maps of
-[`201d`](201d_raw_and_relaxed_g_chains.md).  Suppose an actual row has incoming
+[`201d`](201d_raw_and_relaxed_g_chains.md).  Suppose an actual V triangle has incoming
 reach at least $a$, radial reach at least $c$, and actual outgoing reach $B$.
 Then
 
@@ -134,7 +134,7 @@ A_{\rm next}
 g_{c,J}^\vee(a).
 $$
 
-If the actual row is nonsupercritical, then
+If the actual V triangle is nonsupercritical, then
 
 $$
 B\le\widehat g_c(1-a).
@@ -288,14 +288,14 @@ $$
 }
 $$
 
-In particular, if every internal row is nonsupercritical, then
+In particular, if every internal V triangle is nonsupercritical, then
 $\kappa_j=1$, and the contradiction condition is
 
 $$
 \boxed{u+v<1.}
 $$
 
-For four nonsupercritical internal rows, if the accounted external component
+For four nonsupercritical internal V triangles, if the accounted external component
 at the left has extent $b$ and the far-side requirement at the right is $h$,
 then the right external component has extent $1-h$, and the path bound becomes
 
@@ -305,7 +305,7 @@ $$
 4+h-b.
 $$
 
-Thus $h>b$ gives an immediate contradiction to the four unit row caps.
+Thus $h>b$ gives an immediate contradiction to the four unit V triangle caps.
 
 Every use of this corollary in the active proof tree verifies the internal-edge
 hypothesis explicitly: the center traces are confined to the normalized one or

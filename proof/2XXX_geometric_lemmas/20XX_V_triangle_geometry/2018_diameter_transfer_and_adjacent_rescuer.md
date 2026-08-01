@@ -4,8 +4,8 @@ Status: Proven
 
 This note isolates two elementary mechanisms used repeatedly in the CE1/CE2
 branches: the diameter transfer between adjacent boundary edges and the common
-center-trace argument for a T3-like or Vd1 row rescuing a neighboring
-supercritical row.
+center-trace argument for a T3-like or Vd1 V triangle rescuing a neighboring
+supercritical V triangle.
 
 The strict-supercritical functions are written with the single canonical
 envelope $g_c^{\rm sc}$ from
@@ -73,7 +73,7 @@ g_c^{\rm sc}
 $$
 
 The free strict-supercritical theorem
-[`2010`](2010_free_supercritical_max_b.md) says that a strict-supercritical row
+[`2010`](2010_free_supercritical_max_b.md) says that a strict-supercritical V triangle
 whose own-radial demand is at least $c$ has outgoing reach strictly less than
 $g_c^{\rm sc}$.
 
@@ -261,10 +261,10 @@ This completes all cases.
 
 Assume, in addition to the hypotheses of Section 3, that:
 
-- $T_1$ is the unique strict-supercritical row;
+- $T_1$ is the unique strict-supercritical V triangle;
 - coverage of $r_1$ forces its own-radial reach to be at least $c$;
-- $T_2,T_3,T_4,T_5$ are nonsupercritical rows;
-- these four rows must cover the ordinary boundary chain from $e_{1,2}$ to
+- $T_2,T_3,T_4,T_5$ are nonsupercritical V triangles;
+- these four V triangles must cover the ordinary boundary chain from $e_{1,2}$ to
   $e_{5,0}$.
 
 The strict-supercritical theorem and monotonicity of $g_c^{\rm sc}$ give

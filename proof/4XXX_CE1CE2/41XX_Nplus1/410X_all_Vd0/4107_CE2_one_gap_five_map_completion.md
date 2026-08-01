@@ -3,7 +3,7 @@
 Status: Proven
 
 This note proves both orientations of the CE2 exactly-one-gap state in `410X`.
-The common center formulas, actual-row propagation, supercritical target, and
+The common center formulas, actual-V triangle propagation, supercritical target, and
 reflection order are isolated in
 [`4105`](4105_CE1_CE2_one_gap_five_row_interface.md). Only the CE2 scalar
 threshold argument is proved here.
@@ -325,7 +325,7 @@ $$
 e(\alpha)<Q,
 $$
 
-then the input at row $4$ is at least $z_0>e(\alpha)$. Since
+then the input at V triangle $4$ is at least $z_0>e(\alpha)$. Since
 $c_4=1-\alpha$, the threshold theorem gives
 
 $$
@@ -356,13 +356,13 @@ $$
 z_1\ge z_0>e(\alpha)\ge Q>e(\delta).
 $$
 
-Since $c_2=1-\delta$, row $2$ gives
+Since $c_2=1-\delta$, V triangle $2$ gives
 
 $$
 z_2\ge1-e(\delta)>1-Q.
 $$
 
-Rows $3,4,5$ preserve the strict inequality. Hence in both alternatives
+V triangles $3,4,5$ preserve the strict inequality. Hence in both alternatives
 
 $$
 \boxed{Z_R>1-Q.}
@@ -394,7 +394,7 @@ R\longleftrightarrow W,
 \alpha\longleftrightarrow\delta,
 $$
 
-and the row order becomes $5,4,3,2,1$. The CE2 domain, the initial-threshold
+and the V-triangle order becomes $5,4,3,2,1$. The CE2 domain, the initial-threshold
 proof, and the two-threshold proof are invariant under this exchange. The
 reflected form of `4105` therefore gives the same contradiction for the
 left-gap orientation.

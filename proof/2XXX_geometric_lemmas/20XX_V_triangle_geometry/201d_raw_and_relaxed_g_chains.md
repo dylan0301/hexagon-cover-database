@@ -10,7 +10,7 @@ by the paper.  Center intervals, the free strict-supercritical envelope,
 affine selected-$T_+$ bounds, and threshold bounds are decorations of this
 single $g$-family.
 
-No distinction between supercritical and nonsupercritical rows is built into
+No distinction between supercritical and nonsupercritical V triangles is built into
 the definition of the raw map $g_c$.
 
 ## 1. Local demand coordinates
@@ -23,7 +23,7 @@ one closed unit equilateral triangle can realize
 - outgoing boundary demand $b$;
 - own-radial demand $c$.
 
-The coordinates are lower-bound demands.  If an actual row has maximal reaches
+The coordinates are lower-bound demands.  If an actual V triangle has maximal reaches
 $(A,B,C)$, then it realizes every triple with
 
 $$
@@ -67,7 +67,7 @@ $$
 Because the admissible set is coordinatewise down-closed, $g_c$ is
 nondecreasing in $x$ and nonincreasing in $c$.
 
-For a nonsupercritical row the outgoing reach is also at most its incoming
+For a nonsupercritical V triangle the outgoing reach is also at most its incoming
 defect.  Define the capped defect map
 
 $$
@@ -130,11 +130,11 @@ capped-outgoing, and capped-dual views of the same $g$-family.  Exact
 contact-cell files may retain these aliases when that keeps their formulas
 short.
 
-## 4. Actual-row transfer
+## 4. Actual-V triangle transfer
 
-Let an actual row have maximal reaches $(A,B,C)$.
+Let an actual V triangle have maximal reaches $(A,B,C)$.
 
-### Raw row
+### Raw V triangle
 
 Suppose
 
@@ -164,7 +164,7 @@ A_{\rm next}\ge g_c^\vee(a).
 }
 $$
 
-This statement is valid for every row.
+This statement is valid for every V triangle.
 
 Equivalently, if $x=1-a$ and $x_{\rm next}=1-A_{\rm next}$, then
 
@@ -174,9 +174,9 @@ x_{\rm next}\le g_c(x).
 }
 $$
 
-### Nonsupercritical row
+### Nonsupercritical V triangle
 
-If the row is nonsupercritical, then
+If the V triangle is nonsupercritical, then
 
 $$
 A+B\le1.
@@ -304,13 +304,13 @@ $$
 A_{\rm next}\ge g_{c,J}^\vee(a)
 $$
 
-for every row, and
+for every V triangle, and
 
 $$
 A_{\rm next}\ge\widehat g_{c,J}^\vee(a)
 $$
 
-when the row is nonsupercritical.  Since
+when the V triangle is nonsupercritical.  Since
 $\mathcal R_{\varnothing}(p)=1-p$,
 
 $$
@@ -363,7 +363,7 @@ g_c^{\rm sc}
 }
 $$
 
-The supremum is not attained.  Hence every actual strict-supercritical row
+The supremum is not attained.  Hence every actual strict-supercritical V triangle
 with radial demand at least $c$ satisfies
 
 $$
@@ -391,7 +391,7 @@ complement instead of introducing both $A_{\rm sc}$ and $B_{\rm sc}$.
 
 ## 8. Composition and lower relaxations
 
-For maps listed in geometric row order, write
+For maps listed in geometric V-triangle order, write
 
 $$
 \boxed{
@@ -514,6 +514,72 @@ $$
 $$
 
 Quarter-radial and Vd-corner estimates play the same role at terminal slots:
-they replace an exact row transfer by a simpler branch-specific lower bound.
+they replace an exact V triangle transfer by a simpler branch-specific lower bound.
 The branch tables state those terminal bounds directly rather than assigning
 another permanent function letter.
+
+## 10. Full six-V-triangle branch register
+
+For each $i\in\mathbb Z/6\mathbb Z$, parametrize the outgoing edge by
+
+$$
+\xi_i(t)=V_i+t(V_{i+1}-V_i),
+\qquad 0\le t\le1,
+$$
+
+and let
+
+$$
+J_i^C=\xi_i^{-1}(T_C\cap e_{i,i+1})
+$$
+
+be the empty or closed scalar center interval.  Point contacts are retained as
+degenerate intervals.  For a selected radial demand $c_i$, define
+
+$$
+\Phi_i^{\rm raw}=g_{c_i,J_i^C}^{\vee},
+\qquad
+\Phi_i^{\rm ns}=\widehat g_{c_i,J_i^C}^{\vee}.
+$$
+
+Use $\Phi_i^{\rm ns}$ when $T_i$ is nonsupercritical and
+$\Phi_i^{\rm raw}$ otherwise.  The complete branch word is always displayed in
+geometric V-triangle order as
+
+$$
+[\Phi_0\mid\Phi_1\mid\Phi_2\mid\Phi_3\mid\Phi_4\mid\Phi_5]
+=\Phi_5\circ\Phi_4\circ\Phi_3\circ\Phi_2\circ\Phi_1\circ\Phi_0.
+$$
+
+The branch proposition determines how this word is used: cyclic composition,
+a cut at a center trace followed by endpoint inequalities, or the exact
+five-V-triangle subchain followed by a terminal cap.  Merely writing the word
+does not assert an additional universal inequality beyond those branch
+propositions.
+
+An identity slot records a weaker *individual handoff*.  It is licensed only
+when
+
+$$
+J_i^C=\varnothing,
+$$
+
+all nonincident boundary traces have been excluded on $e_{i,i+1}$, and $T_i$
+is nonsupercritical.  Under precisely these hypotheses the generalized
+handoff lemma and nonsupercritical extensivity give
+
+$$
+A_{i+1}\ge \widehat g_{c_i}^{\vee}(A_i)\ge A_i.
+$$
+
+Thus replacing the $i$th displayed function by $\mathrm I$ means that this
+one inequality is weakened to $A_{i+1}\ge A_i$.  It is not, by itself, a
+pointwise comparison between the two formal compositions; the corresponding
+terminal proof supplies the valid global argument.
+
+For the $N_+=1$ all-Vd0 one-gap branch, the full word has the raw
+center-assisted slot $g_{c_0,J_0^C}^{\vee}$ followed by the five hatted slots
+$\widehat g_{c_i,J_i^C}^{\vee}$ for $1\le i\le5$.  The one-gap proof retains
+that exact five-V-triangle subchain and closes the remaining $T_0$ slot with
+its independent terminal diameter cap.  Hence the six-slot reader register is
+a faithful expansion of the proved certificate, not a new theorem.

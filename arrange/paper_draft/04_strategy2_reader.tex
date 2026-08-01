@@ -2,21 +2,21 @@
 \label{sec:strategy2-reader}
 
 The signed center section supplies the exact CE1/CE2 traces, exits, and
-actual-row interfaces.  Section~\ref{sec:universal-calculus} supplies the
+actual-V triangle interfaces.  Section~\ref{sec:universal-calculus} supplies the
 canonical maps
 \[
  g_c,\qquad \widehat g_c,\qquad
  g_c^\vee,\qquad \widehat g_c^\vee,
 \]
 together with center-assisted subscripts and certified lower relaxations.
-Every proof below begins with an exact actual-row chain.  A path-budget or
+Every proof below begins with an exact actual-V triangle chain.  A path-budget or
 identity relaxation is used only after all center and nonincident contributions
 on its internal edges have been excluded.  The complete T3-like endpoint audit
 and Vd1 replacement are in Appendix~\ref{sec:strategy2-rigor-completion}.
 
 \subsection{The common chain table}
 
-For maps listed in geometric row order,
+For maps listed in geometric V-triangle order,
 \[
  [\Phi_1\mid\cdots\mid\Phi_r](x)
  =(\Phi_r\circ\cdots\circ\Phi_1)(x).
@@ -31,19 +31,19 @@ For maps listed in geometric row order,
 branch&exact skeleton&relaxations used&terminal certificate\\
 \midrule
 $N_+=0$, all $\Vdzero$, $\mathrm{gr}=0$&
-cyclic six-row $[\widehat g_{C_i}^\vee]$ chain&
+cyclic six-V triangle $[\widehat g_{C_i}^\vee]$ chain&
 $\mathrm I^6$&
 strict cyclic ascent\\
 $N_+=0$, all $\Vdzero$, $\mathrm{gr}=1$&
-two exact hatted endpoint caps and three ordinary rows&
+two exact hatted endpoint caps and three ordinary V triangles&
 center-free middle $\mathrm I^3$&
 endpoint sum $<1$\\
 $\CEtwo$, all $\Vdzero$, $\mathrm{gr}=2$, $N_+=0$ or $1$&
-paired exact endpoint caps and three ordinary rows&
+paired exact endpoint caps and three ordinary V triangles&
 center-free middle $\mathrm I^3$&
 paired sum $<1$\\
 $N_+=0$, one or more $\Tlike$, no $\Vdone/\Vdtwo$&
-two residual endpoint caps and three ordinary rows&
+two residual endpoint caps and three ordinary V triangles&
 center-free middle $\mathrm I^3$&
 exact four-label sum $<1$\\
 $\CEone$, $N_+=1$, all $\Vdzero$, one gap&
@@ -51,11 +51,11 @@ $[\widehat g_{c_1}^\vee\mid\cdots\mid\widehat g_{c_5}^\vee](X)$&
 two affine slots and one threshold slot after duality&
 $Z>1-H$; equivalently reversed output $>1-X$\\
 $\CEtwo$, $N_+=1$, all $\Vdzero$, one gap&
-the same five-row chain&
+the same five-V-triangle chain&
 one available threshold slot and four identity slots&
 $Z>1-H$\\
 one $\Tlike$ or adjacent $\Vdone$ rescuer&
-free supercritical source and an ordinary four-row path&
+free supercritical source and an ordinary four-V-triangle path&
 endpoint envelope plus path budget&
 $b_1<g_c^{\rm sc}\le h$\\
 adjacent $\Vdone/\Vdtwo$ placement&
@@ -85,7 +85,7 @@ V-gap.  Then
  \qquad
  \mathrm{gr}\le1\quad\text{for }\CEone.
 \]
-The two all-$\Vdzero$ row counts are governed by
+The two all-$\Vdzero$ V-triangle counts are governed by
 \begin{center}
 \scriptsize
 \begin{tabular}{c|ccc}
@@ -96,7 +96,7 @@ one-side endpoint chain&
 paired endpoint chain\\
 $N_+=1$&
 nine-point obstruction&
-five-row relaxed chain&
+five-V-triangle relaxed chain&
 paired endpoint chain.
 \end{tabular}
 \end{center}
@@ -119,14 +119,14 @@ For $N_+=0$ and $\mathrm{gr}=1$, Proposition
 \ref{prop:body-all-vd0-endpoints} retains the two endpoint caps exactly.  The
 center trace lies on the endpoint edge, while the three intervening edges are
 center-free; Lemma~\ref{lem:reader-boundary-path} therefore applies to the
-three middle nonsupercritical rows.  The T3-like $N_+=0$ branch has the same
+three middle nonsupercritical V triangles.  The T3-like $N_+=0$ branch has the same
 ordinary path after the endpoint components are replaced by the exact
 residuals of Definition~\ref{def:body-t3-endpoint-state}.
 
 \begin{proposition}[Common CE2 two-gap application]
 \label{prop:reader-common-two-gap}
-Assume both CE2 center traces contain V-gaps and rows $T_1,\ldots,T_5$ are
-nonsupercritical Vd0 rows.  Then the perimeter is not covered.  No hypothesis
+Assume both CE2 center traces contain V-gaps and V triangles $T_1,\ldots,T_5$ are
+nonsupercritical Vd0 V triangles.  Then the perimeter is not covered.  No hypothesis
 on the criticality of $T_0$ is required.
 \end{proposition}
 
@@ -141,7 +141,7 @@ Proposition~\ref{prop:body-all-vd0-endpoints} gives
  B_5+B_1
  \le\widehat g_{p/W}(1-p)+\widehat g_{q/R}(1-q)<1.
 \]
-The center traces lie only on the two endpoint edges.  The three middle rows
+The center traces lie only on the two endpoint edges.  The three middle V triangles
 $T_2,T_3,T_4$ therefore form a center-free path through the four intervening
 edges.  Lemma~\ref{lem:reader-boundary-path} forces their total boundary
 contribution above three, contrary to their three unit caps.
@@ -150,7 +150,7 @@ contribution above three, contrary to their three unit caps.
 For $N_+=1$ and $\mathrm{gr}=0$, the active proof is the direct nine-point
 obstruction of Strategy~4.
 
-\subsection{One signed five-row chain}
+\subsection{One signed five-V-triangle chain}
 
 Use the signed center data of
 Proposition~\ref{prop:signed-center-normal-form}.  Put
@@ -215,7 +215,7 @@ The exact scalar calculation in Appendix~\ref{sec:cyclic-all-vd0} proves
  p_2>L_2>2\delta+3\delta^2>e(\delta).
 \]
 The final threshold map therefore returns a value above $1-X$, proving
-\eqref{eq:reader-signed-three-map}.  The exact-row interface then gives
+\eqref{eq:reader-signed-three-map}.  The exact-V triangle interface then gives
 $Z>1-H$, contradicting $A_0<1-H$.
 \end{proof}
 
@@ -231,11 +231,11 @@ Proposition~\ref{prop:signed-ce2-one-gap} proves
  X>e(\alpha),\qquad
  \min\{e(\alpha),e(\delta)\}<H.
 \]
-If $e(\alpha)<H$, use the row-$4$ threshold slot and replace the other four
+If $e(\alpha)<H$, use the V triangle-$4$ threshold slot and replace the other four
 slots by $\mathrm I$.  Otherwise
-$e(\delta)<H\le e(\alpha)<X$, so use the row-$2$ threshold slot.  At least one
+$e(\delta)<H\le e(\alpha)<X$, so use the V triangle-$2$ threshold slot.  At least one
 slot fires; both may do so.  In either case $Z>1-H$.  Reflection exchanges
-$R,W$, exchanges $\alpha,\delta$, and reverses the row order.
+$R,W$, exchanges $\alpha,\delta$, and reverses the V-triangle order.
 \end{proof}
 
 \subsection{The remaining transfer branches}
@@ -243,7 +243,7 @@ $R,W$, exchanges $\alpha,\delta$, and reverses the row order.
 For $N_+=0$, the all-Vd0 proof is the strict identity cycle, the one-side
 endpoint theorem, and Proposition~\ref{prop:reader-common-two-gap}.  The
 T3-like branch is Theorem~\ref{thm:paper-complete-t3-endpoint} followed by the
-center-free three-row path budget.
+center-free three-V-triangle path budget.
 
 For the exactly-one-T3-like $N_+=1$ branch, the translated local profile gives
 \[
@@ -251,7 +251,7 @@ For the exactly-one-T3-like $N_+=1$ branch, the translated local profile gives
  \frac{a}{a+1-u}\le1-g_c^{\rm sc}.
 \]
 The common center-hiding theorem forces an opposite endpoint reach at least
-$g_c^{\rm sc}$, while the unique supercritical row has outgoing reach strictly
+$g_c^{\rm sc}$, while the unique supercritical V triangle has outgoing reach strictly
 below $g_c^{\rm sc}$.  Its four intervening internal edges form the ordinary
 center-free path specified in Corollary~\ref{cor:signed-adjacent-rescuers}.
 
@@ -290,6 +290,6 @@ Propositions~\ref{prop:reader-ce1-one-gap},
 Proposition~\ref{prop:nplus-one-one-t3}.  The fourth is
 Proposition~\ref{prop:signed-ce2-one-vd-placements}, with its replacement step
 supplied by Proposition~\ref{prop:paper-vd1-pair-replacement}.  Every transfer
-is connected to actual rows by Lemmas~\ref{lem:reader-raw-capped-transfer} and
+is connected to actual V triangles by Lemmas~\ref{lem:reader-raw-capped-transfer} and
 \ref{lem:reader-generalized-handoff}.
 \end{proof}

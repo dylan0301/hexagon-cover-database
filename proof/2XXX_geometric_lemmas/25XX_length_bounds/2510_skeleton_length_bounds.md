@@ -690,7 +690,7 @@ $$
 
 ---
 
-## Lemma 5: A row without adjacent-ray support has skeleton length at most $2$
+## Lemma 5: A V triangle without adjacent-ray support has skeleton length at most $2$
 
 Let $T_i$ have no positive-length intersection with either adjacent radial
 arm, and suppose
@@ -967,7 +967,7 @@ $$
 L_S(T_i)<3/2.
 $$
 
-Every remaining nonsupercritical row contributes at most $2$. If it has
+Every remaining nonsupercritical V triangle contributes at most $2$. If it has
 positive adjacent-ray support, Lemma 4 gives the stronger bound $<3/2$; if it
 has no such support, Lemma 5 gives
 
@@ -985,7 +985,7 @@ The worst possible skeleton-length upper bound occurs when there are exactly:
 
 - two supercritical $V$-triangles;
 - one positive-support rescuer;
-- three other rows, each bounded above by $2$.
+- three other V triangles, each bounded above by $2$.
 
 Therefore
 

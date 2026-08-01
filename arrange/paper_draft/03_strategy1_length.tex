@@ -20,7 +20,7 @@ valid for any assigned measurable subsets of those traces.
 
 The strategy uses only the perimeter $\partial H$ and the full skeleton
 $S$, whose measures were recorded in \eqref{eq:target-lengths}.  Every
-skeleton estimate below is conditional on its stated center and row
+skeleton estimate below is conditional on its stated center and V triangle
 hypotheses; no unconditional noncoverage assertion for $S$ is made.
 
 \begin{figure}[H]
@@ -205,8 +205,8 @@ If $A_i+B_i>1$, then
 \begin{proof}
 By Proposition~\ref{prop:vertex-classification}, a vertex role is Vd0,
 Vd1, Vd2, or T3-like.  Proposition~\ref{prop:vd-corner-normal-form} makes
-every Vd1/Vd2 row nonsupercritical, and
-Lemma~\ref{lem:t3-nonsupercritical} does the same for T3-like rows.  Hence a
+every Vd1/Vd2 V triangle nonsupercritical, and
+Lemma~\ref{lem:t3-nonsupercritical} does the same for T3-like V triangles.  Hence a
 supercritical role is Vd0 and, by definition, has no positive-length trace on
 either adjacent arm.  Thus, after normalizing and writing $a=A_i$, $b=B_i$,
 the skeleton trace has length $a+b+c$, where $c$ is the own-arm reach.
@@ -250,7 +250,7 @@ $P(c)\le0$ forces $c<c_0$.  Thus $a+b+c<3/2$.
 \begin{lemma}[A positive-support rescuer is forced]
 \label{lem:positive-support-rescuer}
 Suppose $T_C$ is CE1 or CE2 and, after symmetry, contains exactly $M_0$.  If
-at least two vertex rows are supercritical, then a vertex role distinct from
+at least two vertex V triangles are supercritical, then a vertex role distinct from
 a chosen supercritical role has positive-length adjacent-arm support.
 \end{lemma}
 
@@ -426,17 +426,17 @@ relative-interior point of any nonincident edge is more than unit distance
 from $V_i$, whereas $V_i$ is interior to the diameter-one triangle $T_i$.
 This excludes any other positive-length boundary trace.
 
-The CE0 row is the definition.  Both remaining center rows are the two class
+The CE0 V triangle is the definition.  Both remaining center V triangles are the two class
 specializations of the common signed formula in
 Corollary~\ref{cor:signed-center-boundary}.
 
-For a nonsupercritical Vd0 row, \eqref{eq:vertex-boundary-locality} is enough.
-For a supercritical row, its incident endpoints are at squared distance
+For a nonsupercritical Vd0 V triangle, \eqref{eq:vertex-boundary-locality} is enough.
+For a supercritical V triangle, its incident endpoints are at squared distance
 $A_i^2+A_iB_i+B_i^2\le1$, and hence
 \[
  \frac34(A_i+B_i)^2\le1.
 \]
-This proves the $2/\sqrt3$ cap.  The Vd1/Vd2 row is
+This proves the $2/\sqrt3$ cap.  The Vd1/Vd2 V triangle is
 \eqref{eq:vd-half-cap}.  Finally, the Type II calculation in
 Proposition~\ref{prop:t3-translation} gives for an original T3-like role
 \[
@@ -490,7 +490,7 @@ Lemma~\ref{lem:vd2-neighbor-midpoint-cap}.
 
 \begin{proposition}[Branches closed by Strategy 1]
 \label{prop:length-branches}
-Direct length-sum obstructions close the following routing rows and hybrid
+Direct length-sum obstructions close the following routing entries and hybrid
 subcase:
 \begin{enumerate}
  \item CE0, $N_+=0$;
@@ -498,7 +498,7 @@ subcase:
  \item CE1/CE2 with $q=N_++m\ge3$;
  \item CE1/CE2, $N_+=0$, with a Vd1/Vd2 role;
  \item CE1, $N_+=1$, with exactly one Vd1/Vd2 role and no T3-like role;
- \item the Vd2 neighboring-midpoint subcase of the CE2 hybrid row.
+ \item the Vd2 neighboring-midpoint subcase of the CE2 hybrid V triangle.
 \end{enumerate}
 \end{proposition}
 
@@ -508,6 +508,6 @@ Proposition~\ref{prop:boundary-length-branches}.  Item (3) is the short-role
 count and the three-short-role theorem in
 Corollary~\ref{cor:signed-budget-branches}.  Item (6) is
 Proposition~\ref{prop:ce2-vd2-midpoint-length}.  This is only the indicated
-subcase of the exceptional CE2 row; its remaining placements are handled by
+subcase of the exceptional CE2 V triangle; its remaining placements are handled by
 the exact-demand strategy.
 \end{proof}

@@ -41,7 +41,7 @@ $$
 $$
 
 The two terms are the exact hatted outgoing caps. The three interior
-nonsupercritical rows are used only through
+nonsupercritical V triangles are used only through
 
 $$
 \mathrm I^3.

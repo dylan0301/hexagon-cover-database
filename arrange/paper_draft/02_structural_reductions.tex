@@ -329,7 +329,7 @@ $\widehat U>0$; the displayed slack relations show that every old interior
 point other than the origin remains interior.
 \end{proof}
 
-\subsection{Reach coordinates, supercritical rows, and gaps}
+\subsection{Reach coordinates, supercritical V triangles, and gaps}
 
 For the original vertex role $U_i$, define its actual maximal incoming,
 outgoing, and radial reaches by
@@ -347,13 +347,13 @@ satisfies
 \[
  A_i\ge a_i,\qquad B_i\ge b_i,\qquad C_i\ge c_i.
 \]
-An actual row is supercritical if $A_i+B_i>1$, and
+An actual V triangle is supercritical if $A_i+B_i>1$, and
 \begin{equation}
  N_+=\left\lvert\left\{i:A_i+B_i>1\right\}\right\rvert.
  \label{eq:N-plus-definition}
 \end{equation}
 This definition never counts a smaller demand pair in place of the actual
-row.
+V triangle.
 
 Parametrize $e_{i,i+1}$ by
 \[
@@ -395,9 +395,9 @@ by $N_E(T_C)$.  Proposition~\ref{prop:ce-classification} gives the three
 stated bounds, including singleton gaps.
 \end{proof}
 
-\begin{lemma}[T3-like rows are nonsupercritical]
+\begin{lemma}[T3-like V triangles are nonsupercritical]
 \label{lem:t3-nonsupercritical}
-Every original T3-like row satisfies
+Every original T3-like V triangle satisfies
 \begin{equation}
  A_i+B_i\le1.
 \label{eq:t3-nonsupercritical}
@@ -415,7 +415,7 @@ role has Type II orientation with
 Thus $A_i+B_i=z-\alpha\le1$.  The same conclusion holds after reflection.
 \end{proof}
 
-We record the precise transfer from actual rows to strict handoff demands.
+We record the precise transfer from actual V triangles to strict handoff demands.
 Its hypothesis that the six vertex roles themselves cover the boundary is
 part of the statement.
 
@@ -435,11 +435,11 @@ Then $0<a_i<A_i$, $0<b_i<B_i$, the two selected anchors lie in $U_i$, and
 \]
 Moreover:
 \begin{enumerate}
- \item if exactly one actual row, indexed by $p$, is supercritical, every
- strict selection has exactly one selected supercritical row, also indexed
+ \item if exactly one actual V triangle, indexed by $p$, is supercritical, every
+ strict selection has exactly one selected supercritical V triangle, also indexed
  by $p$;
- \item if at least two actual rows are supercritical, some simultaneous
- strict selection has at least two selected supercritical rows.
+ \item if at least two actual V triangles are supercritical, some simultaneous
+ strict selection has at least two selected supercritical V triangles.
 \end{enumerate}
 \end{proposition}
 
@@ -463,7 +463,7 @@ Put $\ell_i=1-A_{i+1}$ and $u_i=B_i$.  Then
  a_i+b_i>1\iff x_{i-1}<x_i.
  \label{eq:actual-selected-ascents}
 \end{equation}
-If actual row $i$ is nonsupercritical, then
+If actual V triangle $i$ is nonsupercritical, then
 \[
  x_i<u_i\le\ell_{i-1}<x_{i-1},
 \]
@@ -491,7 +491,7 @@ then choose
 The two pairs of variables are disjoint and give ascents at $p,q$.  Any set
 of at least three indices on a six-cycle contains two nonadjacent indices.
 It remains to consider exactly two adjacent supercritical indices $p,p+1$.
-For the other four nonsupercritical rows, successive inequalities
+For the other four nonsupercritical V triangles, successive inequalities
 $\ell_i<u_i\le\ell_{i-1}$ give
 \[
  \ell_{p-1}<\ell_{p+1}.
@@ -502,7 +502,7 @@ Together with supercriticality at $p,p+1$, this implies
 \]
 Choose $x_p$ between these bounds and then choose
 $x_{p-1}<x_p<x_{p+1}$ in their respective overlap intervals.  By
-\eqref{eq:actual-selected-ascents}, both adjacent rows are selected
+\eqref{eq:actual-selected-ascents}, both adjacent V triangles are selected
 supercritical.
 \end{proof}
 
@@ -597,7 +597,7 @@ overlap and contains both $M_0$ and $M_1$.
 \label{prop:exhaustive-structural-reduction}
 Every hypothetical cover by seven open unit equilateral triangles admits the
 distinct center and vertex roles used in Table~\ref{tab:routing}, and its
-actual reaches determine exactly one row of that table.
+actual reaches determine exactly one V triangle of that table.
 \end{proposition}
 
 \begin{proof}
@@ -606,14 +606,14 @@ Propositions~\ref{prop:ce-classification} and
 \ref{prop:vertex-classification} give the exhaustive and mutually exclusive
 center and vertex types.  The actual reaches determine exactly one of
 $N_+=0$, $N_+=1$, and $N_+\ge2$.  For CE0 these data and the vertex
-classification give the five displayed rows.
+classification give the five displayed V triangles.
 
 Now suppose the center is CE1 or CE2.  It contains exactly one radial
 midpoint by Proposition~\ref{prop:unique-center-midpoint}.  Lemma
 \ref{lem:short-role-count} gives $q=N_++m$, and
 Lemma~\ref{lem:positive-support-rescuer}, together with the disjoint count,
 shows that $N_+\ge2$ forces a third short role.  Hence every such branch
-either enters the first CE1/CE2 row or has $q\le2$ and $N_+\le1$.  If
+either enters the first CE1/CE2 V triangle or has $q\le2$ and $N_+\le1$.  If
 $N_+=0$, the vertex classification gives, in order, all $\Vdzero$, at least
 one $\Vdone/\Vdtwo$, or no such role and at least one $\Tlike$.  If
 $N_+=1$, then $q\le2$ implies $m\le1$: the roles are all $\Vdzero$, exactly

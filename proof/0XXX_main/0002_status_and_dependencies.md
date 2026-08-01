@@ -34,7 +34,7 @@ nine-point obstruction.
 | CE0 terminal packages | [`3010`](../3XXX_CE0/30XX_Nplus0/3010_CE0_perimeter_length_obstruction.md), [`3141`](../3XXX_CE0/31XX_Nplus1/314X_exists_Vd1_Vd2/3141_CE0_Nplus1_exists_Vd1_Vd2_boundary_length_obstruction.md), [`3171`](../3XXX_CE0/31XX_Nplus1/317X_T3_like_no_Vd1Vd2/3171_T3_like_area_certificate_index.md), [`3201`](../3XXX_CE0/32XX_Nplus_ge2/3201_area_conjecture_index.md) | Proven |
 | CE1/CE2, $N_+=0$, all Vd0 | [`4013`](../4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md) | Proven |
 | CE1/CE2, $N_+=0$, T3-like exact four-label package | [`4070`](../4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4070_CE1CE2_Nplus0_T3_like_no_Vd1Vd2_index.md), with terminal files `4074`, `4075`, `4078`, `4079`, `407a`, `407c`, `407d` | Proven |
-| Common exact one-gap five-row interface | [`4105`](../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4105_CE1_CE2_one_gap_five_row_interface.md) | Proven |
+| Common exact one-gap five-V-triangle interface | [`4105`](../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4105_CE1_CE2_one_gap_five_row_interface.md) | Proven |
 | CE1 and CE2 one-gap scalar relaxations | [`4106`](../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4106_CE1_one_gap_five_map_completion.md), [`4107`](../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4107_CE2_one_gap_five_map_completion.md) | Proven |
 | CE1/CE2, $N_+=1$, all Vd0 assembly | [`4101`](../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4101_CE1CE2_Nplus1_all_Vd0_strategy.md) | Proven |
 | Exactly one T3-like | [`4130`](../4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like/4130_CE1CE2_exactly_one_T3_like_index.md) | Proven |
@@ -53,7 +53,7 @@ nine-point obstruction.
   absorbed into residuals.
 - The CE2 threshold theorem says at least one of two slots fires, not exactly
   one.
-- The exact five-row target is $Z>1-H$; the dual three-map target is $>1-X$.
+- The exact five-V-triangle target is $Z>1-H$; the dual three-map target is $>1-X$.
 - The `407X` hard endpoint audit remains a four-label exact proof.
 - The `4146` terminal margin is Vd-type-specific.
 - The Strategy 4 scripts are active proof objects only together with their

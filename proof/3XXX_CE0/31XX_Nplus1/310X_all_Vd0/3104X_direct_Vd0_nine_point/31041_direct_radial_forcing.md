@@ -17,7 +17,7 @@ X_i=V_i+x_i(V_{i+1}-V_i),
 $$
 
 be strict handoff points such that $X_i\in T_i\cap T_{i+1}$.  The selected
-incoming and outgoing demands of row $i$ are
+incoming and outgoing demands of V triangle $i$ are
 
 $$
 (a_i,b_i)=(1-x_{i-1},x_i).
@@ -77,7 +77,7 @@ $$
 ### 1. Common demand domination
 
 Equation (1) says every $x_j$ belongs to $[x_3,x_4]$.  Hence, for every
-row, including row $4$,
+V triangle, including V triangle $4$,
 
 $$
 a_i=1-x_{i-1}\ge1-x_4=p,

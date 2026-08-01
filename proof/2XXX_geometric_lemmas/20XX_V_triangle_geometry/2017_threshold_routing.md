@@ -3,7 +3,7 @@
 Status: Proven
 
 This note isolates the branch-independent routing principle used by the CE1,
-CE2, and T3-like Strategy 2 arguments.  Once an actual-row demand crosses one
+CE2, and T3-like Strategy 2 arguments.  Once an actual-V triangle demand crosses one
 low-root threshold, the corresponding capped map produces a high output and
 all later extensive maps preserve it.  The statement prevents unnecessary
 expansion of a full five-map composition after the decisive threshold has
@@ -142,7 +142,7 @@ $$
 Then one of the following alternatives holds.
 
 1. If $e(d_1)<Q$, extensivity preserves $z>e(d_1)$ until the
-   $G_{1-d_1}$ row, and that row forces every later output above $1-Q$.
+   $G_{1-d_1}$ V triangle, and that V triangle forces every later output above $1-Q$.
 2. If $e(d_1)\ge Q$, then
 
    $$
@@ -150,7 +150,7 @@ Then one of the following alternatives holds.
    $$
 
    so extensivity preserves an input above $e(d_2)$ until the
-   $G_{1-d_2}$ row, and that row forces every later output above $1-Q$.
+   $G_{1-d_2}$ V triangle, and that V triangle forces every later output above $1-Q$.
 
 Hence
 
@@ -162,10 +162,10 @@ $$
 This is a logical routing lemma: it does not require evaluation of the maps
 that precede or follow the first triggered threshold.
 
-## 4. Passage from formal iterates to actual rows
+## 4. Passage from formal iterates to actual V triangles
 
-The routing lemma applies only after the usual actual-row induction has been
-established.  Suppose an actual nonsupercritical row has incoming reach
+The routing lemma applies only after the usual actual-V triangle induction has been
+established.  Suppose an actual nonsupercritical V triangle has incoming reach
 $A_i\ge z$, actual radial reach $C_i\ge c_i$, and outgoing reach $B_i$ with
 
 $$
@@ -186,11 +186,11 @@ A_{i+1}\ge1-F_{c_i}(z)=G_{c_i}(z).
 $$
 
 Thus the formal iterates are lower bounds for actual incoming reaches.  Once
-this induction has been written for the required rows, Sections 1--3 may be
+this induction has been written for the required V triangles, Sections 1--3 may be
 used to discard all maps that are irrelevant after the decisive threshold
 crossing.
 
 The distinction is essential: threshold routing shortens the scalar part of
-the proof, but it does not replace the row-by-row verification that each
+the proof, but it does not replace the V triangle-by-V triangle verification that each
 formal iterate is realized as a lower bound for the corresponding actual
 role.

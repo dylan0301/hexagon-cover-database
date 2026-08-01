@@ -12,7 +12,7 @@ M_i\in T_i
 a_i+b_i\le1.
 $$
 
-For an open triangle when the selected row-demand points are contained with a
+For an open triangle when the selected V triangle-demand points are contained with a
 positive margin, or under a general-position reduction that supplies this
 margin,
 

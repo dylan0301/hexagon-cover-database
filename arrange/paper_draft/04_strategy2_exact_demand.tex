@@ -5,7 +5,7 @@ This section develops the local calculus for configurations in which a coarse
 length sum does not by itself record enough information.  The mechanism is
 always the same.  A center trace fixes boundary inputs and complementary
 radial demands; an exact
-local map propagates these data through nonsupercritical rows; and the
+local map propagates these data through nonsupercritical V triangles; and the
 returning demand exceeds the remaining boundary or radial capacity.
 
 Actual maximal reaches continue to be denoted by $(A_i,B_i,C_i)$, while
@@ -326,7 +326,7 @@ The exact strict domain needed below is
 \end{gathered}
 \label{eq:ce1-normal-domain}
 \end{equation}
-Proposition~\ref{prop:signed-one-gap-interface} contains the five actual-row
+Proposition~\ref{prop:signed-one-gap-interface} contains the five actual-V triangle
 handoffs, the three duality steps, and the terminal diameter comparison.
 It remains only to prove its scalar target
 \begin{equation}
@@ -334,7 +334,7 @@ It remains only to prove its scalar target
  \label{eq:ce1-suffix}
 \end{equation}
 Here $A<P\le\mu$, because $P=E(1-E)$ and $E\ge\sqrt3/2$.  We first prove
-the two input comparisons used at row $4$.  Since $D=R-X$, the inequality
+the two input comparisons used at V triangle $4$.  Since $D=R-X$, the inequality
 $A+wD<P$ and the identity $Rw=\eta+P$ give
 \[
  A<wX-\eta.
@@ -453,7 +453,7 @@ Since $11-3E>0$ and $R>1/2$,
 Thus $f_R(A_0)>0$.  Concavity again gives $f_R(A)>0$ on $(0,A_0)$, a
 contradiction.  Both ranges are impossible, proving $X>1/2$.
 
-Put $p_1=G_{1-A}(H)$.  If row $3$ is not $T_+^{\rm hi}$, then
+Put $p_1=G_{1-A}(H)$.  If V triangle $3$ is not $T_+^{\rm hi}$, then
 $p_1\le A+e(A)<3A+5A^2<29/64<1/2$, and
 $2R(H-m_3)=\eta+D-A>\eta-P>0$.  Extensivity gives
 $p_1\ge H>m_3$, while $p_1<1/2<1-m_3$; thus both Full ranges are impossible.
@@ -462,7 +462,7 @@ On $L$, $T_-$, or the low-$c$ tie one has $F_{1-m_3}(p_1)\le p_1$, so
  G_{1-m_3}(p_1)\ge1-p_1>1-X.
 \]
 Extensivity of the final reverse map $G_{1-D}$ preserves this strict bound
-and proves \eqref{eq:ce1-suffix}.  It remains to treat the selected row-$3$
+and proves \eqref{eq:ce1-suffix}.  It remains to treat the selected V triangle-$3$
 $T_+$ branch.  Proposition~\ref{prop:reader-universal-tplus} proves once
 for all that every selected $T_+$ arc is increasing and strictly concave.
 
@@ -476,8 +476,8 @@ For $0<d\le\mu$, the valid rational low-root bound gives
 \[
  \frac{d}{e(d)-d}>\frac{1-2d}{1+2d}>1-4d>1-5d.
 \]
-This covers row $4$, because its parameter is $d=A<P\le\mu$.  For the
-row-$3$ parameter $d=m_3$, which need not be at most $\mu$, the remaining
+This covers V triangle $4$, because its parameter is $d=A<P\le\mu$.  For the
+V triangle-$3$ parameter $d=m_3$, which need not be at most $\mu$, the remaining
 high-radial range is handled without the rational estimate.  If
 $\mu<d\le1/8$, then
 \[
@@ -489,7 +489,7 @@ $1/8<d<1-\sqrt3/2$, then $e(d)<(1-d)/2$ and hence
  \frac{d}{e(d)-d}>\frac{2d}{1-3d}>1-5d.
 \]
 The last comparison is equivalent to $15d^2-10d+1<0$; its smaller root
-$(5-\sqrt{10})/15$ is less than $1/8$.  In the low-$c$ row-$3$ range
+$(5-\sqrt{10})/15$ is less than $1/8$.  In the low-$c$ V triangle-$3$ range
 $1-\sqrt3/2\le d<1/5$, the other endpoint is
 $(h(1-d),1-h(1-d))$, and the chord coefficient is
 \[
@@ -507,7 +507,7 @@ Here low $c$ gives $d\ge1-\sqrt3/2>2/15>1/16$, and hence
 \]
 Thus the displayed chord coefficient is greater than $1/3$, while
 $1-5d<1/3$.
-For $d\ge1/5$, extensivity alone is stronger than the row-$3$ estimate.
+For $d\ge1/5$, extensivity alone is stronger than the V triangle-$3$ estimate.
 
 Applying these chord bounds first with $d=A$ and then with $d=m_3$ proves,
 without an omitted selected branch,
@@ -661,7 +661,7 @@ The low root $e(D)$ is the smaller root of
 and direct substitution gives
 $H_D(2D+3D^2)=D^2(8D^2+19D-2)<0$.  Hence
 $e(D)<2D+3D^2<p_2$.  The one-hit part of
-Lemma~\ref{lem:reader-threshold-routing}, applied to the row-$2$ map, gives
+Lemma~\ref{lem:reader-threshold-routing}, applied to the V triangle-$2$ map, gives
 \[
  G_{1-D}(p_2)\ge1-e(D)>1-X,
 \]
@@ -669,7 +669,7 @@ because
 \[
  e(D)<2D+3D^2<\frac{23}{100}<\frac12<X.
 \]
-This is \eqref{eq:ce1-suffix}.  The actual-row and terminal inequalities in
+This is \eqref{eq:ce1-suffix}.  The actual-V triangle and terminal inequalities in
 Proposition~\ref{prop:signed-one-gap-interface} now give the contradiction.
 \end{proof}
 
@@ -697,21 +697,21 @@ Strategy~4.
 
 \subsection{The exactly-one-$T3$ branch}
 
-\begin{proposition}[Exactly one T3-like row]
+\begin{proposition}[Exactly one T3-like V triangle]
 \label{prop:nplus-one-one-t3}
 Assume the center role is CE1 or CE2, $N_+=1$, exactly one vertex role is
 T3-like, and no role is Vd1 or Vd2.  Then the roles do not cover $H$.
 \end{proposition}
 
 \begin{proof}
-Normalize the center midpoint to $M_0$.  A T3-like row misses its own
-midpoint, a supercritical row misses its local midpoint, and a Vd0 row cannot
+Normalize the center midpoint to $M_0$.  A T3-like V triangle misses its own
+midpoint, a supercritical V triangle misses its local midpoint, and a Vd0 V triangle cannot
 rescue a neighboring midpoint.  Consequently, after reflection,
 \[
  T_0\text{ is T3-like},\qquad M_1\in T_0,
  \qquad T_1\text{ is uniquely supercritical},
 \]
-and $T_2,\ldots,T_5$ are nonsupercritical Vd0 rows.  The rational local
+and $T_2,\ldots,T_5$ are nonsupercritical Vd0 V triangles.  The rational local
 calculation is Lemma~\ref{lem:short-t3-rescuer-profile}.  It verifies the two
 local inequalities in \eqref{eq:signed-rescuer-local}, while midpoint and
 support isolation force the center to cover the $O$-side radial gap.  The
@@ -770,9 +770,9 @@ Put
  \qquad w_0=W+\delta-\frac{k}{R}.
 \]
 Then $s+q+w_0=1$.  Gap containment gives $B_0\ge s$ and $A_1\ge q$.
-The companion edge has no active gap, so $A_0+B_5\ge1$.  Since row $T_0$ is
+The companion edge has no active gap, so $A_0+B_5\ge1$.  Since V triangle $T_0$ is
 nonsupercritical, $A_0+B_0\le1$, and therefore $B_5\ge B_0\ge s$.  The exact
-radial demands at the endpoint rows are
+radial demands at the endpoint V triangles are
 \[
  c_1=1-\frac{\delta}{R},
  \qquad
@@ -790,7 +790,7 @@ Finally, $\mathrm{gr}=2$ is CE2-only and is exactly
 Proposition~\ref{prop:reader-common-two-gap}.  These three ranks are exhaustive.
 \end{proof}
 
-We next treat the additional T3-like rows in the $N_+=0$ branch.  The
+We next treat the additional T3-like V triangles in the $N_+=0$ branch.  The
 following local facts also reappear later.
 
 \begin{lemma}[T3-like midpoint and side tradeoff]
@@ -873,7 +873,7 @@ $b_i<b_{i+1}$ and $b_{i+1}<b_i$, a contradiction.
 \label{lem:407-four-label-loss}
 Assume $T_C$ is CE1 or CE2, $N_+=0$, no role is Vd1 or Vd2, and, after
 normalization and reflection, $T_0$ is T3-like with selected adjacent
-support on $r_1$.  Then the two endpoint rows in the isolated configuration
+support on $r_1$.  Then the two endpoint V triangles in the isolated configuration
 satisfy
 \begin{equation}
  F_{c_5^\ast}(a_5^\ast)+F_{c_1^\ast}(a_1^\ast)<1,
@@ -1183,7 +1183,7 @@ has positive support only from $T_C,T_0,T_1$, and $r_5$ only from $T_C,T_5$.
 The actual outgoing reaches of $T_1,T_5$ are bounded by the two safe maps in
 Lemma~\ref{lem:407-four-label-loss}; an extra adjacent-ray demand on a
 possible T3-like $T_1$ only shrinks its feasible set.  Thus their sum is
-less than one.  Rows $T_2,T_3,T_4$ must cover more than three units of the
+less than one.  V triangles $T_2,T_3,T_4$ must cover more than three units of the
 four intervening boundary edges, while their three nonsupercritical caps
 sum to at most three.  This contradiction proves the proposition.
 \end{proof}
@@ -1734,7 +1734,7 @@ The exact list \eqref{eq:two-endpoint-pairs} is now exhausted, proving
 
 \subsection{The exactly-one-Vd1/Vd2 placements}
 
-We now assume CE2, $N_+=1$, and exactly one row is Vd1 or Vd2.  The corner
+We now assume CE2, $N_+=1$, and exactly one V triangle is Vd1 or Vd2.  The corner
 normal form of Proposition~\ref{prop:vd-corner-normal-form} will be used in
 the following form: for some $t>0$ and $d=\sqrt{t^2+t+1}$,
 \begin{equation}
@@ -1742,12 +1742,12 @@ the following form: for some $t>0$ and $d=\sqrt{t^2+t+1}$,
  tx+y\le d-a-tb.
  \label{eq:vd-corner-form}
 \end{equation}
-In particular $a+b<1/2$ for a positive-support row.
+In particular $a+b<1/2$ for a positive-support V triangle.
 
 \begin{lemma}[Vd1 adjacent rescue]
 \label{lem:vd1-adjacent-rescue}
 Assume an original open-role skeleton cover in the CE2 exact-$M_0$ branch,
-with $T_0$ the unique Vd1 row, $M_1\in T_0$, $T_1$ uniquely supercritical,
+with $T_0$ the unique Vd1 V triangle, $M_1\in T_0$, $T_1$ uniquely supercritical,
 $T_2,\ldots,T_5$ nonsupercritical Vd0, and no other positive-adjacent-support
 role.  Then the perimeter together with $r_1$ is not covered.
 \end{lemma}
@@ -1765,15 +1765,15 @@ therefore Corollary~\ref{cor:signed-adjacent-rescuers}.
 Assume an original open-role perimeter-and-radial-skeleton cover in the CE2
 exact-$M_0$ branch and the complementary no-additional-positive-support
 case.  Let $T_i$, $i\ne0$, be uniquely supercritical, and let the unique Vd1
-row, distinct from $T_0$ and adjacent to $T_i$, contain $M_i$.  Assume every
-other vertex row is nonsupercritical Vd0 and the center has no boundary trace
+V triangle, distinct from $T_0$ and adjacent to $T_i$, contain $M_i$.  Assume every
+other vertex V triangle is nonsupercritical Vd0 and the center has no boundary trace
 on the shared edge of this pair.  Then the pair can be replaced by two open
 nonsupercritical Vd0 roles preserving all boundary and radial demands used
 by Proposition~\ref{prop:nplus-zero-all-vd0}.
 \end{lemma}
 
 \begin{proof}
-Normalize the Vd1 row at $V_0$ and the supercritical row at $V_1$.
+Normalize the Vd1 V triangle at $V_0$ and the supercritical V triangle at $V_1$.
 By the shared-edge hypothesis, no center trace intervenes on $e_{0,1}$;
 by the no-additional-positive-support hypothesis, no third vertex role has
 positive boundary or radial support in the handoffs used below.

@@ -37,8 +37,8 @@ F_c(a)=
 $$
 
 Thus $F_c$ is the exact demand-coordinate cap. It is the proof-safe upper
-relaxation for a nonsupercritical Vd0 row; no assertion that its maximizing
-triangle belongs to that row class is needed.
+relaxation for a nonsupercritical Vd0 V triangle; no assertion that its maximizing
+triangle belongs to that V triangle class is needed.
 
 More precisely, let $A(T),B(T),C(T)$ be the actual local reaches of any
 vertex-role triangle, and suppose
@@ -63,8 +63,8 @@ $$
 \boxed{B(T)\le F_c(a).}
 $$
 
-Taking suprema proves the same bound for any actual nonsupercritical row
-class. This is the only passage from demand coordinates to classified rows
+Taking suprema proves the same bound for any actual nonsupercritical V triangle
+class. This is the only passage from demand coordinates to classified V triangles
 used downstream.
 
 The exact-cell proof below also gives an exhaustive four-label partition of

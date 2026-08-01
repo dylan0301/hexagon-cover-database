@@ -22,13 +22,19 @@ uses only the numerical trace caps stated below.}
 
 \begin{proposition}[Trace-cap register]
 \label{prop:body-trace-register}
-Under the hypotheses indicated in each row,
+For every classified V triangle $T_i$, the boundary trace is supported on its
+two incident boundary edges, and therefore
+\[
+ L_{\partial H}(T_i)=A_i+B_i.
+\]
+Under the hypotheses indicated in each table entry, the following unified
+trace bounds hold.
 \begin{center}
 \small
 \renewcommand{\arraystretch}{1.08}
 \begin{tabular}{p{.58\textwidth}c}
 \toprule
-role and target&upper bound\\
+triangle role and target&upper bound\\
 \midrule
 CE1/CE2 center on $S$&$L_S(T_C)<3/2$\\
 supercritical vertex role on $S$&$L_S(T_i)<3/2$\\
@@ -36,10 +42,10 @@ vertex role with positive adjacent-arm support on $S$&$L_S(T_i)<3/2$\\
 nonsupercritical role with no adjacent-arm support on $S$&$L_S(T_i)\le2$\\
 CE1 center on $\partial H$&$L_{\partial H}(T_C)\le\sqrt3/2-3/4$\\
 CE2 center on $\partial H$&$L_{\partial H}(T_C)<1/2$\\
-supercritical Vd0 role on $\partial H$&$A_i+B_i\le2/\sqrt3$\\
-Vd1 or Vd2 role on $\partial H$&$A_i+B_i<1/2$\\
-nonsupercritical Vd0 role on $\partial H$&$A_i+B_i\le1$\\
-T3-like role on $\partial H$&$A_i+B_i<1$\\
+supercritical Vd0 V triangle on $\partial H$&$L_{\partial H}(T_i)\le2/\sqrt3$\\
+Vd1 or Vd2 V triangle on $\partial H$&$L_{\partial H}(T_i)<1/2$\\
+nonsupercritical Vd0 V triangle on $\partial H$&$L_{\partial H}(T_i)\le1$\\
+T3-like V triangle on $\partial H$&$L_{\partial H}(T_i)<1$\\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -69,10 +75,10 @@ Second, put
 Suppose a perimeter branch has:
 \begin{itemize}
 \item center contribution $L_C$;
-\item $n$ supercritical Vd0 rows, each with contribution at most $2/\sqrt3$;
-\item $r\ge1$ distinguished nonsupercritical rows with strict caps
+\item $n$ supercritical Vd0 V triangles, each with contribution at most $2/\sqrt3$;
+\item $r\ge1$ distinguished nonsupercritical V triangles with strict caps
 $q_1,\ldots,q_r<1$;
-\item every remaining row with contribution at most $1$.
+\item every remaining V triangle with contribution at most $1$.
 \end{itemize}
 If
 \[
@@ -92,14 +98,14 @@ Strategy~1 closes:
 \item CE1/CE2 with $q=N_++m\ge3$;
 \item CE1/CE2, $N_+=0$, with a $\Vdone/\Vdtwo$ role;
 \item CE1, $N_+=1$, with exactly one $\Vdone/\Vdtwo$ role and no $\Tlike$ role;
-\item the Vd2 neighboring-midpoint subcase of the CE2 hybrid row.
+\item the Vd2 neighboring-midpoint subcase of the CE2 hybrid V triangle.
 \end{enumerate}
 \end{proposition}
 
 \begin{proof}
-The first row is the cyclic boundary sum.  The third row is the skeleton sum
-above.  The remaining rows substitute the center and distinguished vertex caps
-into the master perimeter deficit, with all unlisted rows bounded by one.
+The first V triangle is the cyclic boundary sum.  The third V triangle is the skeleton sum
+above.  The remaining branches substitute the center and distinguished vertex caps
+into the master perimeter deficit, with all unlisted V triangles bounded by one.
 The exact substitutions and strictness are Proposition~\ref{prop:length-branches}
 and Corollary~\ref{cor:signed-budget-branches}.
 \end{proof}

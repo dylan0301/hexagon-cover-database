@@ -4,7 +4,7 @@ Status: Proven
 
 This note extracts from the six-point and residual-core packages exactly the
 three off-axis witnesses needed by the direct proof.  It excludes them from
-the six actual open vertex roles.  No $AB$-union for a nonsupercritical row
+the six actual open vertex roles.  No $AB$-union for a nonsupercritical V triangle
 is used.
 
 ## Setup and exact witnesses
@@ -36,7 +36,7 @@ a=1-x_3,
 \tag{2}
 $$
 
-The strict ascent at row $4$ gives $a+b>1$.  Moreover,
+The strict ascent at V triangle $4$ gives $a+b>1$.  Moreover,
 $X_3,X_4\in T_4$, so the distance between these two points of the open unit
 triangle is strictly less than $1$.  In the local coordinates at $V_4$,
 its square is $a^2+ab+b^2$.  Therefore
@@ -69,7 +69,7 @@ be the exact points defined in Section 1 of
 [`31033_asymmetric_witness_construction.md`](../3103X_residual_core/31033_asymmetric_witness_construction.md).
 Thus $Q_0$ is the junction of the two strict frontier lines, while $Q_-$
 and $Q_+$ are the first intersections with the relaxed left and right unit
-circles.  The row-$4$ source union in these coordinates is
+circles.  The V triangle-$4$ source union in these coordinates is
 
 $$
 \mathcal U_{AB}(b,a),
@@ -115,7 +115,7 @@ $$
 The strict frontier theorem
 [`20091_ab_union_curve_a_plus_b_gt_1.md`](../../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md)
 and equations (5)--(6) of `31033` put all three witnesses on the exact
-non-axis frontier of the cone-clipped row-$4$ union.  Their local coordinates
+non-axis frontier of the cone-clipped V triangle-$4$ union.  Their local coordinates
 satisfy $u,v>0$.
 
 The closed triangle $\overline{T_4}$ is one of the unit triangles represented
@@ -130,7 +130,7 @@ Q_-,Q_0,Q_+\notin T_4.
 \tag{7}
 $$
 
-This is the only row in the proof for which an $AB$-union is used.
+This is the only V triangle in the proof for which an $AB$-union is used.
 
 ### 3. The roles $T_0,T_1,T_2$
 

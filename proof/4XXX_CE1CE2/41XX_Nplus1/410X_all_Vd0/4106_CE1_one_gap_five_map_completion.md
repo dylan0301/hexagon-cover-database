@@ -4,7 +4,7 @@ Status: Proven
 
 This note proves that the CE1 exactly-one-gap state in `410X` is impossible.
 The analytic inequality holds on the full strict CE1 center domain; no
-auxiliary survivor restriction or classified map for the supercritical row
+auxiliary survivor restriction or classified map for the supercritical V triangle
 is needed.
 
 Here a V-gap is the full nonempty set missed by the two adjacent open vertex
@@ -14,7 +14,7 @@ uses only weak endpoint bounds and therefore covers both cases.
 For the geometric application, assume the `410X` hypotheses: all six vertex
 roles are Vd0, $N_+=1$, and the unique center midpoint is $M_0$. Section 1 of
 [`4101_CE1CE2_Nplus1_all_Vd0_strategy.md`](4101_CE1CE2_Nplus1_all_Vd0_strategy.md)
-then proves that $T_0$ is the unique supercritical row.
+then proves that $T_0$ is the unique supercritical V triangle.
 
 The exact capped maps are proved in
 [`2011_capped_demand_map.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md).
@@ -141,7 +141,7 @@ $$
 H=\frac s2=\frac{\eta+A+D}{2R}.
 $$
 
-## 2. Capped-map duality and the three-row suffix
+## 2. Capped-map duality and the three-V triangle suffix
 
 For $1/2<c<1$, write
 
@@ -193,7 +193,7 @@ $$
 
 We prove that the reverse composition is strictly greater than $1-X$.
 
-## 3. Actual-row induction from the boundary gap
+## 3. Actual-V triangle induction from the boundary gap
 
 Use $a_i,b_i$ for the actual boundary reaches as in
 [`1202_local_coordinates_abc.md`](../../../1XXX_foundations/12XX_V_triangle/1202_local_coordinates_abc.md);
@@ -216,7 +216,7 @@ $$
 \qquad j=0,1,\dots,5.
 $$
 
-Rows $T_1,\dots,T_5$ are nonsupercritical. Define
+V triangles $T_1,\dots,T_5$ are nonsupercritical. Define
 
 $$
 z_0=X,
@@ -364,9 +364,9 @@ $$
 \eta\left(1-(2R-1)E\right)>0.
 $$
 
-## 5. The row-4 $T_+$ branch forces $X>1/2$
+## 5. The V triangle-4 $T_+$ branch forces $X>1/2$
 
-At row $4$, the Full branches are impossible because
+At V triangle $4$, the Full branches are impossible because
 
 $$
 H>A,
@@ -552,9 +552,9 @@ $$
 contrary to $f_R(A)<0$. Both ranges are impossible, proving
 $X>1/2$.
 
-## 6. Routing at row 3
+## 6. Routing at V triangle 3
 
-Assume from now on that row $4$ is selected $T_+$, and put
+Assume from now on that V triangle $4$ is selected $T_+$, and put
 
 $$
 p_1=G_{1-A}(H).
@@ -572,10 +572,10 @@ $$
 2R(H-m_3)=\eta+D-A>\eta-P>0,
 $$
 
-so $p_1\ge H>m_3$. Since $m_3<1/2$, both Full branches at row $3$ are
+so $p_1\ge H>m_3$. Since $m_3<1/2$, both Full branches at V triangle $3$ are
 impossible.
 
-If row $3$ is L, $T_-$, or the low-radial tie, the exact catalog gives
+If V triangle $3$ is L, $T_-$, or the low-radial tie, the exact catalog gives
 
 $$
 F_{1-m_3}(p_1)\le p_1.
@@ -587,7 +587,7 @@ $$
 G_{1-m_3}(p_1)\ge1-p_1>\frac12>1-X.
 $$
 
-It remains only to analyze the branch in which rows $4$ and $3$ are both
+It remains only to analyze the branch in which V triangles $4$ and $3$ are both
 selected $T_+$.
 
 ## 7. Universal selected-$T_+$ chord bounds
@@ -596,7 +596,7 @@ The universal normal form in `2016` proves that every selected $T_+$ map is
 increasing and strictly concave. It also gives the two exact chord forms used
 below, so no branch-specific implicit differentiation is required.
 
-### 7.1. Row 4
+### 7.1. V triangle 4
 
 On the high-radial selected arc the endpoints are
 
@@ -612,7 +612,7 @@ $$
 q\ge p+\frac{d}{e(d)-d}(p-d).
 $$
 
-For row $4$, $d=A<P<(1/8)$, and the first low-root bound gives
+For V triangle $4$, $d=A<P<(1/8)$, and the first low-root bound gives
 
 $$
 \frac{d}{e(d)-d}
@@ -630,7 +630,7 @@ p_1>
 =:L_1.
 $$
 
-### 7.2. Row 3
+### 7.2. V triangle 3
 
 Since $X>1/2$, one has $R>1/2$, and therefore
 
@@ -638,7 +638,7 @@ $$
 m_3<\frac w2<\frac14.
 $$
 
-We claim that every selected row-$3$ $T_+$ transition satisfies
+We claim that every selected V triangle-$3$ $T_+$ transition satisfies
 
 $$
 q>p+(1-5m_3)(p-m_3).
@@ -711,7 +711,7 @@ $$
 \frac{1-2t}{t-m_3}>\frac13>1-5m_3.
 $$
 
-This proves the row-$3$ claim in every selected $T_+$ regime.
+This proves the V triangle-$3$ claim in every selected $T_+$ regime.
 
 With
 
@@ -725,7 +725,7 @@ $$
 p_2>(2-5m_3)p_1-(1-5m_3)m_3.
 $$
 
-Because $2-5m_3>0$, the row-$4$ bound gives
+Because $2-5m_3>0$, the V triangle-$4$ bound gives
 
 $$
 p_2>L_2,
@@ -735,7 +735,7 @@ $$
 
 ## 8. Exact analytic terminal estimate
 
-The row-$4$ selector and $e(A)\le2A+5A^2$ give
+The V triangle-$4$ selector and $e(A)\le2A+5A^2$ give
 
 $$
 D\le D_h:=A(4R-1)+10RA^2-\eta.
@@ -963,7 +963,7 @@ p_2>L_2>2D+3D^2>e(D).
 }
 $$
 
-## 9. The row-2 threshold trigger
+## 9. The V triangle-2 threshold trigger
 
 The preceding section gives $D<1/10$ and
 
@@ -971,7 +971,7 @@ $$
 p_2>e(D).
 $$
 
-The one-hit threshold-routing lemma `2017`, applied to the row-$2$ map
+The one-hit threshold-routing lemma `2017`, applied to the V triangle-$2$ map
 $G_{1-D}$, gives directly
 
 $$

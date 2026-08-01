@@ -11,8 +11,8 @@ The Vd2 alternative is eliminated by
 
 Assume the original open roles cover the perimeter and radial skeleton in the
 complementary 414X branch. Let $T_i$, $i\ne0$, be the unique supercritical
-row, and let the unique Vd1 row, distinct from $T_0$ and adjacent to $T_i$,
-contain $M_i$. Assume every other vertex row is nonsupercritical Vd0 and the
+V triangle, and let the unique Vd1 V triangle, distinct from $T_0$ and adjacent to $T_i$,
+contain $M_i$. Assume every other vertex V triangle is nonsupercritical Vd0 and the
 center has no boundary trace on the shared edge of this pair.
 
 Then the Vd1--supercritical pair can be replaced by two open
@@ -22,15 +22,15 @@ placement is identical.
 
 ## 1. Normalization and Vd1 margins
 
-Normalize the Vd1 row at $V_0$, the supercritical row at $V_1$, and the
-rescued midpoint as $M_1$. Let $a,b$ be the Vd1 row's exact incident-edge
+Normalize the Vd1 V triangle at $V_0$, the supercritical V triangle at $V_1$, and the
+rescued midpoint as $M_1$. Let $a,b$ be the Vd1 V triangle's exact incident-edge
 reaches. By the Vd corner normal form, there are $t>0$ and
 
 $$
 d=\sqrt{t^2+t+1}
 $$
 
-such that the row is
+such that the V triangle is
 
 $$
 \begin{aligned}
@@ -61,7 +61,7 @@ b>\frac{t-1}{2t},
 a+tb<d-1-\frac t2.
 $$
 
-The row has no positive-length trace on the other adjacent arm. If $t<1$,
+The V triangle has no positive-length trace on the other adjacent arm. If $t<1$,
 then
 
 $$
@@ -128,10 +128,10 @@ $$
 
 This proves (1).
 
-## 2. The supercritical row and the half-square lemma
+## 2. The supercritical V triangle and the half-square lemma
 
 Let $A_i,B_i,C_i$ be the actual incoming, outgoing, and own-radial reaches of
-the supercritical row. The center-free shared edge forces
+the supercritical V triangle. The center-free shared edge forces
 
 $$
 A_i\ge1-b>\frac12,
@@ -199,7 +199,7 @@ $$
 
 again a contradiction. This proves the lemma.
 
-For a supercritical admissible row, the actual own-radial reach has
+For a supercritical admissible V triangle, the actual own-radial reach has
 $C_i\le1/2$.
 Applying the lemma gives
 
@@ -223,7 +223,7 @@ $$
 c_i^{\rm req}=1-d_i^C.
 $$
 
-Only the center, the supercritical row, and the Vd1 row have positive
+Only the center, the supercritical V triangle, and the Vd1 V triangle have positive
 intervals on this arm. Open coverage at the center handoff forces
 
 $$

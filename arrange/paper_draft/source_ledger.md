@@ -47,7 +47,7 @@ calculation lemma without the appendices and incorporated supplements.
 | `03_strategy1_length.tex` | perimeter and skeleton trace calculations |
 | `04b_common_CE1_CE2_budgets.tex` | master deficit, short-role count, common budgets |
 | `04c_short_Vd_placements.tex` | quarter envelope, profiles, radial separations |
-| `04_strategy2_reader.tex` | actual row chains and corrected terminal coordinates |
+| `04_strategy2_reader.tex` | actual V triangle chains and corrected terminal coordinates |
 | `04_strategy2_exact_demand.tex` | contact cells, endpoint inequalities, CE1 scalar proof |
 | `04d_strategy2_rigor_completion.tex` | incorporated complete `407X` branch audit and full Vd1 replacement |
 | `04e_strategy2_placement_assembly.tex` | authoritative CE2 one-Vd assembly |
@@ -101,7 +101,7 @@ and `2110` were updated to verify these hypotheses explicitly.
 The CE2 argument proves that **at least one** of the two threshold slots fires;
 it does not prove uniqueness. Both may be available.
 
-For the exact five-row chain
+For the exact five-V-triangle chain
 
 ```text
 Z = [g_1^vee|...|g_5^vee](X),
@@ -113,7 +113,7 @@ distinguish these statements.
 
 ### 3.3 Strategy 1 hypothesis
 
-The reader master perimeter deficit now states that every row not assigned a
+The reader master perimeter deficit now states that every V triangle not assigned a
 special cap contributes at most one. This hypothesis was present in the
 numbered source `2530` and is satisfied in every routed application.
 
@@ -299,3 +299,26 @@ transfer and signed-center dictionary occupies pages 12--16, and the exact
 certificate figures occupy pages 18--32.  The build has no undefined
 references, duplicate labels, or overfull boxes.  Ghostscript decoded every
 page, and `pdfinfo` and `pdftotext` read the complete PDF successfully.
+
+## 2026-07-31 reader-interface revision
+
+- Proposition 2.5 now states only the definition-level and qualitative
+  properties of the admissible set; its finite-caliper equations and formula
+  diagrams are in Appendix B.
+- Definition 2.12 now defines the signed center geometry without reproducing
+  its affine equations; the exact chart, traces, exits, sign cells, and diagrams
+  are in Appendix D.
+- Proposition 3.1 uses $L_{\partial H}(T_i)$ uniformly for all four V-triangle
+  boundary roles.
+- Table 2 displays six functions in every $g$-composition chain, retains
+  point-contact center intervals in every exact slot, and states the exact
+  handoff inequality represented by each identity slot.
+- Canonical proved notes use “V triangle” for the geometric object; historical
+  filenames and link targets containing `row` were retained for repository
+  stability.
+
+Post-edit audit repairs: the reader definition now reuses the appendix symbol
+$\Delta_L$ for the signed companion trace; all six-slot words retain degenerate
+center intervals; and identity slots are stated as weakened individual
+handoff inequalities rather than as an unsupported order on formal
+compositions.

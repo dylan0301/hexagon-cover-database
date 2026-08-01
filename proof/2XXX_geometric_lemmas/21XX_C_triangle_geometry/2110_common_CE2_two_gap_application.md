@@ -4,21 +4,21 @@ Status: Proven
 
 This note isolates the geometric application of the exact CE2 two-endpoint
 capped-loss theorem. The argument depends only on nonsupercriticality of the
-five rows away from the normalized midpoint row; it does not depend on whether
-row $T_0$ is nonsupercritical or uniquely supercritical. It therefore applies
+five V triangles away from the normalized midpoint V triangle; it does not depend on whether
+V triangle $T_0$ is nonsupercritical or uniquely supercritical. It therefore applies
 to both the $N_+=0$ and $N_+=1$ all-Vd0 two-gap packages.
 
 ## Theorem
 
 Assume a hypothetical cover has a CE2 center role whose two positive boundary
 traces each contain a V-gap, possibly a singleton. Normalize the unique center
-midpoint to $M_0$. Suppose rows
+midpoint to $M_0$. Suppose V triangles
 
 $$
 T_1,T_2,T_3,T_4,T_5
 $$
 
-are nonsupercritical Vd0 rows. Then the perimeter cannot be covered. No
+are nonsupercritical Vd0 V triangles. Then the perimeter cannot be covered. No
 hypothesis on $A_0+B_0$ is required.
 
 ## Proof
@@ -50,11 +50,11 @@ p=W-\alpha,\qquad q=R-\delta.
 $$
 
 Both are positive. The far-side boundary demands left by the two center
-intervals are exactly $p$ for row $T_5$ and $q$ for row $T_1$. Since each
+intervals are exactly $p$ for V triangle $T_5$ and $q$ for V triangle $T_1$. Since each
 center interval contains a V-gap, the corresponding actual endpoint reaches
 are at least these demands.
 
-The complementary radial demands at the endpoint rows are
+The complementary radial demands at the endpoint V triangles are
 
 $$
 c_5=1-\frac{\alpha}{W}=\frac pW,
@@ -62,7 +62,7 @@ c_5=1-\frac{\alpha}{W}=\frac pW,
 c_1=1-\frac{\delta}{R}=\frac qR.
 $$
 
-Let $B_5^{\rm far}$ and $B_1^{\rm far}$ denote the reaches of rows $T_5$ and
+Let $B_5^{\rm far}$ and $B_1^{\rm far}$ denote the reaches of V triangles $T_5$ and
 $T_1$ on the two edges leading away from the center traces, namely $e_{4,5}$
 and $e_{1,2}$. By reflecting the local coordinates at $T_5$ when necessary,
 the safe capped map gives
@@ -100,5 +100,5 @@ $$
 \ge4-(B_1^{\rm far}+B_5^{\rm far})>3.
 $$
 
-But the three rows are nonsupercritical, so the same sum is at most three.
+But the three V triangles are nonsupercritical, so the same sum is at most three.
 This contradiction proves the theorem.

@@ -75,7 +75,7 @@ exhaustive types are
 \]
 
 For an original vertex role, let $A_i,B_i,C_i$ be its actual maximal incoming
-boundary, outgoing boundary, and own-radial reaches.  The row is
+boundary, outgoing boundary, and own-radial reaches.  The V triangle is
 \emph{supercritical} when $A_i+B_i>1$, and
 \[
  N_+=\left\lvert\left\{i:A_i+B_i>1\right\}\right\rvert.
@@ -103,7 +103,7 @@ calculus gives
 \subsection{The exhaustive routing table}
 
 Table~\ref{tab:routing} is read from top to bottom in the CE1/CE2 part.  The
-first applicable row is the unique route for the hypothetical cover.  The
+first applicable entry is the unique route for the hypothetical cover.  The
 structural proof is summarized in Proposition~\ref{prop:body-structural-reduction}
 and given in full in Appendix~\ref{sec:structural-reductions}.
 
@@ -113,7 +113,7 @@ and given in full in Appendix~\ref{sec:structural-reductions}.
 \renewcommand{\arraystretch}{1.07}
 \begin{tabular}{p{.25\textwidth}p{.55\textwidth}c}
 \toprule
-center and row count&exhaustive refinement&route\\
+center and V-triangle count&exhaustive refinement&route\\
 \midrule
 $\CEzero$, $N_+=0$&all vertex types&1\\
 $\CEzero$, $N_+=1$&all six roles $\Vdzero$&4\\
@@ -133,17 +133,17 @@ $\CEone/\CEtwo$, $N_+=1$&exactly one $\Vdone/\Vdtwo$, no $\Tlike$&
 \bottomrule
 \end{tabular}
 \caption{The complete terminal routing.  Route $j$ means Strategy $j$.  In the
-last row the first entry is for CE1 and the second for CE2.}
+last entry the first entry is for CE1 and the second for CE2.}
 \label{tab:routing}
 \end{table}
 
-For the two all-$\Vdzero$ CE1/CE2 rows, the same six cells are organized by
+For the two all-$\Vdzero$ CE1/CE2 V triangles, the same six cells are organized by
 \[
 \begin{array}{c|ccc}
  &\mathrm{gr}=0&\mathrm{gr}=1&\mathrm{gr}=2\\ \hline
 N_+=0&\text{strict identity cycle}&\text{one-side endpoint chain}&
        \text{paired endpoint chain}\\
-N_+=1&\text{nine-point support}&\text{five-row chain}&
+N_+=1&\text{nine-point support}&\text{five-V-triangle chain}&
        \text{paired endpoint chain}.
 \end{array}
 \]
@@ -163,7 +163,7 @@ The last column is CE2-only.
 \node[box,below left=of local] (add) {additive deficits\\Strategies 1 and 3};
 \node[box,below=of local] (trans) {isotone transfers\\Strategy 2};
 \node[box,below right=of local] (convex) {convex support\\Strategy 4};
-\node[box,below=18mm of trans] (end) {every routing row\\is impossible};
+\node[box,below=18mm of trans] (end) {every routing entry\\is impossible};
 \draw[arr] (data)--(local);
 \draw[arr] (local)--(add);
 \draw[arr] (local)--(trans);

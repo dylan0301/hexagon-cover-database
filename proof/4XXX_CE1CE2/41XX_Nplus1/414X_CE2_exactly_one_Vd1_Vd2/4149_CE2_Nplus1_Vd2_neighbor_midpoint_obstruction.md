@@ -2,8 +2,8 @@
 
 Status: Proven
 
-Assume a reduced CE2, $N_+=1$ candidate has exactly one Vd1/Vd2 row, that row
-is Vd2 and contains a neighboring midpoint, and every other vertex row is
+Assume a reduced CE2, $N_+=1$ candidate has exactly one Vd1/Vd2 V triangle, that V triangle
+is Vd2 and contains a neighboring midpoint, and every other vertex V triangle is
 Vd0.
 
 The Vd2 neighbor-midpoint theorem
@@ -31,7 +31,7 @@ L_{\partial H}(T_{\mathrm{supercritical}})
 $$
 
 and a contribution at most $1$ from each of the other four nonsupercritical
-rows.  Therefore the total available boundary length is strictly less than
+V triangles.  Therefore the total available boundary length is strictly less than
 
 $$
 \frac12+\frac13+\frac2{\sqrt3}+4<6.

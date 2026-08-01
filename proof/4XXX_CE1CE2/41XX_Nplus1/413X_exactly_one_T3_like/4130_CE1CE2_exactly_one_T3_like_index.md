@@ -1,4 +1,4 @@
-# CE1/CE2, $N_+=1$, Exactly One T3-Like Row
+# CE1/CE2, $N_+=1$, Exactly One T3-Like V triangle
 
 Status: Proven
 
@@ -22,7 +22,7 @@ summary.
 
 | File | Recorded status | Role |
 |---|---|---|
-| [`4131_midpoint_forcing_reduction.md`](4131_midpoint_forcing_reduction.md) | Proven | After normalizing $T_C\cap\{M_0,\dots,M_5\}=\{M_0\}$, forces the unique T3-like row to be $T_0$, normalizes $M_1\in T_0$, and forces $T_1$ to be the unique supercritical row. |
+| [`4131_midpoint_forcing_reduction.md`](4131_midpoint_forcing_reduction.md) | Proven | After normalizing $T_C\cap\{M_0,\dots,M_5\}=\{M_0\}$, forces the unique T3-like V triangle to be $T_0$, normalizes $M_1\in T_0$, and forces $T_1$ to be the unique supercritical V triangle. |
 | [`4132_CE1_CE2_exactly_one_T3_like_boundary_obstruction.md`](4132_CE1_CE2_exactly_one_T3_like_boundary_obstruction.md) | Proven | Rationalizes the translated T3-like normal form and proves the two inequalities against $1-g_c^{\rm sc}$. |
 | [`../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2018_diameter_transfer_and_adjacent_rescuer.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2018_diameter_transfer_and_adjacent_rescuer.md) | Proven | Supplies center hiding, the strict bound $b_1<g_c^{\rm sc}$, and the terminal boundary-path contradiction. |
 

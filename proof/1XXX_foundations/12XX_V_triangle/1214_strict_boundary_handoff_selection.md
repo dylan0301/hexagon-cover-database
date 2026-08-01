@@ -5,8 +5,8 @@ Status: Proven
 All indices are modulo $6$. This note transfers the actual maximal boundary
 reaches of the six original vertex roles to strict selected handoff demands.
 It preserves the exact-one supercritical pattern and, when at least two actual
-rows are supercritical, permits one simultaneous selection with at least two
-selected supercritical rows.
+V triangles are supercritical, permits one simultaneous selection with at least two
+selected supercritical V triangles.
 
 ## 1. Actual reaches and handoff intervals
 
@@ -83,7 +83,7 @@ a_i+b_i>1
 x_{i-1}<x_i. \tag{2}
 $$
 
-If actual row $i$ is nonsupercritical, then
+If actual V triangle $i$ is nonsupercritical, then
 
 $$
 x_i<U_i\le\ell_{i-1}<x_{i-1},
@@ -99,10 +99,10 @@ $$
 
 This includes the actual critical case $A_i+B_i=1$.
 
-## 2. Exactly one actual supercritical row
+## 2. Exactly one actual supercritical V triangle
 
 Suppose $p$ is the unique actual supercritical index. By (3), every selected
-row $i\ne p$ is strictly subcritical. Also
+V triangle $i\ne p$ is strictly subcritical. Also
 
 $$
 \sum_{i=0}^5(a_i+b_i)
@@ -113,9 +113,9 @@ $$
 
 The five terms with $i\ne p$ have sum below $5$, so (4) forces
 $a_p+b_p>1$. Thus every strict handoff selection has exactly one selected
-supercritical row, at the same index $p$.
+supercritical V triangle, at the same index $p$.
 
-## 3. At least two actual supercritical rows
+## 3. At least two actual supercritical V triangles
 
 We construct one strict selection with at least two selected ascents.
 
@@ -142,10 +142,10 @@ $\ell_{r-1}<z_r<U_r$. Thus $x_{r-1}<x_r$. For nonadjacent $p,q$, the two
 pairs of variables in (5) are disjoint, so both choices can be made
 simultaneously. Any set of at least three indices on a six-cycle contains two
 nonadjacent indices, so this also covers every pattern with at least three
-supercritical rows.
+supercritical V triangles.
 
-It remains to treat exactly two adjacent supercritical rows $p,p+1$. For the
-other four nonsupercritical rows,
+It remains to treat exactly two adjacent supercritical V triangles $p,p+1$. For the
+other four nonsupercritical V triangles,
 
 $$
 \ell_i<U_i\le\ell_{i-1}.
@@ -179,7 +179,7 @@ $$
 x_{p-1}<x_p<x_{p+1}.
 $$
 
-Then rows $p$ and $p+1$ are both selected supercritical by (2). The remaining
+Then V triangles $p$ and $p+1$ are both selected supercritical by (2). The remaining
 handoffs may be chosen arbitrarily in their nonempty intervals.
 
 ## 4. Consequence

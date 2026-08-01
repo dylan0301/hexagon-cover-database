@@ -2,7 +2,7 @@
 
 Status: Proven
 
-This folder proves the CE0 branch with at least two supercritical vertex rows.
+This folder proves the CE0 branch with at least two supercritical vertex V triangles.
 
 The branch assumptions are
 
@@ -29,7 +29,7 @@ vertex triangle $T_i$.
 The strict boundary-handoff theorem
 [`../../1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md`](../../1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md)
 proves that actual $N_+\ge2$ permits a simultaneous choice of strict handoffs
-whose selected lower-bound rows
+whose selected lower-bound V triangles
 
 $$
 (a_i,b_i)=(1-x_{i-1},x_i)
@@ -59,7 +59,7 @@ $$
 f(a,b)\le1-\min(a,b)^2
 $$
 
-for every feasible row, and
+for every feasible V triangle, and
 
 $$
 a+b>1
@@ -67,7 +67,7 @@ a+b>1
 f(a,b)\le1-\max(a,b)^2.
 $$
 
-The six-row analytic certificate in
+The six-V triangle analytic certificate in
 [`3208_CE0_conditional_area_certificate.md`](3208_CE0_conditional_area_certificate.md)
 proves from exactly these two inequalities that
 
@@ -102,7 +102,7 @@ the branch cannot cover $H$.
 | [`3202_area_function_and_monotonicity.md`](3202_area_function_and_monotonicity.md) | Reference | Defines $f(a,b)$, symmetry, monotonicity, and records the now-unneeded structural-maximizer conjecture as historical context. |
 | [`3204_supercritical_vertex_loss_lemma.md`](3204_supercritical_vertex_loss_lemma.md) | Proven | Earlier supercritical proof under a structural hypothesis; superseded by the unconditional theorem in `3205`. |
 | [`3205_unconditional_local_square_loss.md`](3205_unconditional_local_square_loss.md) | Proven | Proves both local square-loss inequalities for every admissible unit triangle without a structural hypothesis. |
-| [`3208_CE0_conditional_area_certificate.md`](3208_CE0_conditional_area_certificate.md) | Proven | Proves the six-row strict area inequality from the square-loss inequalities; `3205` discharges those hypotheses. |
+| [`3208_CE0_conditional_area_certificate.md`](3208_CE0_conditional_area_certificate.md) | Proven | Proves the six-V triangle strict area inequality from the square-loss inequalities; `3205` discharges those hypotheses. |
 
 ## Conclusion
 

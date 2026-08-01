@@ -1,4 +1,4 @@
-# Vertex Rows And Supercritical Count
+# Vertex V-Triangle Reaches and the Count $N_+$
 
 Status: Definition
 
@@ -18,12 +18,12 @@ $$
 
 for the actual reaches and reserve $(a_i,b_i)$ for the selected demands.
 
-For the $N_+$ split, the row entries are always the actual maximal reaches of
+For the $N_+$ split, the V triangle entries are always the actual maximal reaches of
 $T_i$, not smaller lower-bound demands introduced by a relaxation. If a
 propagation map uses demands $(x,b)$, it must quantify the actual reaches
-separately before imposing a nonsupercritical or supercritical row class.
+separately before imposing a nonsupercritical or supercritical V triangle class.
 
-An actual row is supercritical when its actual reaches have sum greater than
+An actual V triangle is supercritical when its actual reaches have sum greater than
 $1$.  Thus, in mixed notation,
 
 $$
@@ -32,7 +32,7 @@ $$
 
 while in a file where $(a_i,b_i)$ denotes the actual reaches the same
 condition is written $a_i+b_i>1$.  The proof-tree split always counts actual
-rows:
+V triangles:
 
 $$
 N_+
@@ -69,5 +69,5 @@ The strict boundary-overlap construction connecting actual reaches to
 selected handoff demands is proved in
 [`1214_strict_boundary_handoff_selection.md`](1214_strict_boundary_handoff_selection.md).
 That theorem proves exact-one preservation and the existence of a selection
-with at least two selected supercritical rows when the actual count is at
+with at least two selected supercritical V triangles when the actual count is at
 least two.

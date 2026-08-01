@@ -185,7 +185,7 @@ $(r,y)\in[0,1]^2$ have the following exact sign data.
 | $B_{T,C}$ | $(80,20)$ | 1701 | 0 |
 
 Every nonzero coefficient is strictly positive.  Hence all four $T$-cell
-polynomials are nonnegative.  The two zero coefficients in each $A$ row are
+polynomials are nonnegative.  The two zero coefficients in each $A$ V triangle are
 boundary coefficients and cause no difficulty.
 
 ## 4. The $L$ cell

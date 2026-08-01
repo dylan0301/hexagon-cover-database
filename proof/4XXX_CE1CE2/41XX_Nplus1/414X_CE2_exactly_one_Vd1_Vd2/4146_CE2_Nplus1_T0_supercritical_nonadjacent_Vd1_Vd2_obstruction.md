@@ -13,18 +13,18 @@ Assume
 $$
 T_C\text{ is CE2},
 \qquad
-T_0\text{ is the unique supercritical row},
+T_0\text{ is the unique supercritical V triangle},
 $$
 
 and
 
 $$
-T_\tau\text{ is the unique Vd1/Vd2 row},
+T_\tau\text{ is the unique Vd1/Vd2 V triangle},
 \qquad
 \tau\in\{2,3,4\}.
 $$
 
-Every other vertex row is Vd0 and nonsupercritical.  Use the signed center
+Every other vertex V triangle is Vd0 and nonsupercritical.  Use the signed center
 variables from
 [`2109`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md):
 
@@ -80,9 +80,9 @@ $$
 \boxed{T<\frac12\min\{x,y\}.}
 $$
 
-## 2. Residual demands at the Vd1/Vd2 row
+## 2. Residual demands at the Vd1/Vd2 V triangle
 
-Let $(a_0,b_0)$ be the boundary reaches of the supercritical row.  Then
+Let $(a_0,b_0)$ be the boundary reaches of the supercritical V triangle.  Then
 
 $$
 \boxed{
@@ -111,7 +111,7 @@ $$
 H=1-U.}
 $$
 
-Boundary propagation through the intervening nonsupercritical rows gives
+Boundary propagation through the intervening nonsupercritical V triangles gives
 
 $$
 \boxed{a_\tau\ge A,

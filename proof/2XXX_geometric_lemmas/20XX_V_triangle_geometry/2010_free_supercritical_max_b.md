@@ -249,5 +249,5 @@ so it is a supremum rather than a maximum.
 
 The radical above is the closure value of the strict component. It is not the
 closed-demand maximum. Files using it as an upper bound for a genuinely
-supercritical row may keep the radical, but should call it the free strict
+supercritical V triangle may keep the radical, but should call it the free strict
 supercritical supremum.

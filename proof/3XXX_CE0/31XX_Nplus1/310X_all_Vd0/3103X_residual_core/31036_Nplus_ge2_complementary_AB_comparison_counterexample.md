@@ -8,7 +8,7 @@ This note isolates the uniform $AB$-set comparison used in
 [`31035_center_independent_all_boundary_obstruction.md`](31035_center_independent_all_boundary_obstruction.md).
 It answers the following question.
 
-Choose row $4$, put
+Choose V triangle $4$, put
 
 $$
 s=a_4,
@@ -16,7 +16,7 @@ s=a_4,
 t=b_4,
 $$
 
-and replace the other five row unions by the common comparison union with
+and replace the other five V triangle unions by the common comparison union with
 demands
 
 $$
@@ -30,7 +30,7 @@ The answer is:
 
 - this is exactly the comparison used in `31035`;
 - antitonicity proves the five required inclusions precisely when the selected
-  handoff at row $4$ goes from the global minimum cut to the global maximum
+  handoff at V triangle $4$ goes from the global minimum cut to the global maximum
   cut;
 - exact-one guarantees that extreme-jump condition;
 - general $N_+\ge2$ does not guarantee it, even after the strict handoffs are
@@ -40,11 +40,11 @@ The answer is:
 
 This is a limitation of the complementary two-parameter reduction. It is not
 a counterexample to the seven-triangle theorem and does not rule out a new
-four-parameter or multi-row residual-core proof.
+four-parameter or multi-V triangle residual-core proof.
 
 All indices below are modulo $6$.
 
-## 2. Selected rows and the proposed uniformization
+## 2. Selected V triangles and the proposed uniformization
 
 Let
 
@@ -59,7 +59,7 @@ $$
 \tag{1}
 $$
 
-Thus row $i$ is selected supercritical exactly when
+Thus V triangle $i$ is selected supercritical exactly when
 
 $$
 a_i+b_i>1
@@ -87,7 +87,7 @@ R_i(u',v')\subseteq R_i(u,v).
 \tag{3}
 $$
 
-Assume row $4$ is selected supercritical and put
+Assume V triangle $4$ is selected supercritical and put
 
 $$
 s=a_4=1-x_3,
@@ -105,7 +105,7 @@ q_0=1-s=x_3.
 \tag{5}
 $$
 
-The residual defined by the six selected rows is
+The residual defined by the six selected V triangles is
 
 $$
 \begin{aligned}
@@ -118,7 +118,7 @@ $$
 \tag{6}
 $$
 
-The proposed one-distinguished-row model is
+The proposed one-distinguished-V triangle model is
 
 $$
 \begin{aligned}
@@ -244,7 +244,7 @@ This is the comparison chain used by `31032`--`31035`.
 
 ## 4. Why exact-one gives the extreme jump
 
-Suppose row $4$ is the unique selected supercritical row. Every other row is
+Suppose V triangle $4$ is the unique selected supercritical V triangle. Every other V triangle is
 strictly nonsupercritical, so
 
 $$
@@ -293,7 +293,7 @@ $$
 \tag{15}
 $$
 
-Rows $0,1,2,3,4$ are selected supercritical, while row $5$ is selected
+V triangles $0,1,2,3,4$ are selected supercritical, while V triangle $5$ is selected
 nonsupercritical. The selected pairs and their feasibility values are
 
 | $i$ | $(a_i,b_i)$ | $a_i^2+a_ib_i+b_i^2$ |
@@ -305,9 +305,9 @@ nonsupercritical. The selected pairs and their feasibility values are
 | $4$ | $(3/10,39/50)$ | $2331/2500$ |
 | $5$ | $(11/50,1/4)$ | $1659/10000$ |
 
-Every row is strictly feasible.
+Every V triangle is strictly feasible.
 
-Choose row $4$ as the distinguished row. Then
+Choose V triangle $4$ as the distinguished V triangle. Then
 
 $$
 s=\frac3{10},
@@ -330,7 +330,7 @@ $$
 \tag{16}
 $$
 
-But row $5$ has
+But V triangle $5$ has
 
 $$
 \begin{aligned}
@@ -370,7 +370,7 @@ $$
 c=\frac9{10}
 $$
 
-at row $5$, and let
+at V triangle $5$, and let
 
 $$
 P=V_5+c(O-V_5)=\frac1{10}V_5.
@@ -402,7 +402,7 @@ $$
 F_T(c)=(\sigma^2-1)c^2+Mc-M^2.
 $$
 
-For the actual row-$5$ pair
+For the actual V triangle-$5$ pair
 
 $$
 \begin{aligned}
@@ -575,7 +575,7 @@ $$
 
 is below $66/100<7/10$. Substitution into the final branch gives (26).
 
-Consequently $P$ lies outside the two uniform neighboring-row unions. It lies
+Consequently $P$ lies outside the two uniform neighboring-V triangle unions. It lies
 outside the cyclic-distance-two and opposite uniform unions because their
 assigned vertices are at distance greater than $1$ from $P$; explicitly, the
 relevant squared distance is
@@ -606,7 +606,7 @@ R_5(a_5,b_5)
 \tag{28}
 $$
 
-Thus even total-union containment fails. Cross-row coverage cannot rescue the
+Thus even total-union containment fails. Cross-V triangle coverage cannot rescue the
 proposed complementary uniformization.
 
 ## 7. The valid global-floor comparison
@@ -628,7 +628,7 @@ q=m_x.
 \tag{29}
 $$
 
-Every selected row satisfies
+Every selected V triangle satisfies
 
 $$
 a_i=1-x_{i-1}\ge p,
@@ -686,7 +686,7 @@ core.
 
 This mismatch is rigid. Suppose one tries to place a certified complementary
 core with distinguished pair $(A,B)$ inside (31) using coordinatewise
-antitonicity. The distinguished row requires
+antitonicity. The distinguished V triangle requires
 
 $$
 A\le s,
@@ -695,7 +695,7 @@ B\le t,
 \tag{32}
 $$
 
-while the five background rows require
+while the five background V triangles require
 
 $$
 1-B\le p,
@@ -807,7 +807,7 @@ $$
 
 Therefore every possible strict selection $x_i\in I_i$ has its unique global
 minimum at index $0$, its unique global maximum at index $3$, and selected
-ascents exactly at rows $1,3,5$. No ascent joins the global minimum directly
+ascents exactly at V triangles $1,3,5$. No ascent joins the global minimum directly
 to the global maximum.
 
 It remains to verify that (37) consists of actual reaches of genuine unit
@@ -852,7 +852,7 @@ n_C&=(1,0).
 \end{aligned}
 $$
 
-For row $i$, define the open triangle
+For V triangle $i$, define the open triangle
 
 $$
 \begin{aligned}
@@ -934,14 +934,14 @@ Hence $x+y<1$. The triangle meets neither adjacent half-diagonal $x=1$ nor
 $y=1$, so it is Vd0 by
 [`1201_V_triangle_types.md`](../../../../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md).
 
-The actual row sums are
+The actual V triangle sums are
 
 $$
 \frac1{1000}
 (942,1052,962,1062,952,1042).
 $$
 
-Thus the actual supercritical rows are $1,3,5$, and
+Thus the actual supercritical V triangles are $1,3,5$, and
 
 $$
 N_+=3.

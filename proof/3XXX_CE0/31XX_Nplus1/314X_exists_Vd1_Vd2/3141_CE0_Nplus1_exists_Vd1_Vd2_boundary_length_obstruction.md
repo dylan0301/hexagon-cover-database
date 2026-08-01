@@ -45,10 +45,10 @@ Choose one Vd1/Vd2 vertex role. Its full boundary trace is strictly less than
 $\frac12$; see
 [../../../2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md](../../../2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md).
 
-The boundary caps also show that Vd1, Vd2, and T3-like rows are
-nonsupercritical. Hence the unique supercritical row is Vd0 and lies among the
-remaining five rows. Its contribution is at most $\frac2{\sqrt3}$, while each
-of the other four rows contributes at most $1$. Thus the remaining
+The boundary caps also show that Vd1, Vd2, and T3-like V triangles are
+nonsupercritical. Hence the unique supercritical V triangle is Vd0 and lies among the
+remaining five V triangles. Its contribution is at most $\frac2{\sqrt3}$, while each
+of the other four V triangles contributes at most $1$. Thus the remaining
 contribution is bounded by
 
 $$

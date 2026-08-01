@@ -374,13 +374,13 @@ $$
 
 By symmetry, this holds for every original T3-like role.
 
-## CE1/CE2, $N_+=1$, at least two T3-like rows
+## CE1/CE2, $N_+=1$, at least two T3-like V triangles
 
-Assume there are no Vd1/Vd2 rows and let $k\ge2$ be the number of T3-like
-rows. T3-like rows are nonsupercritical by
+Assume there are no Vd1/Vd2 V triangles and let $k\ge2$ be the number of T3-like
+V triangles. T3-like V triangles are nonsupercritical by
 [../../1XXX_foundations/12XX_V_triangle/1213_T3_like_nonsupercritical.md](../../1XXX_foundations/12XX_V_triangle/1213_T3_like_nonsupercritical.md).
-Thus the unique supercritical row is Vd0, $2\le k\le5$, and the remaining
-$5-k$ rows are nonsupercritical Vd0. The caps above give
+Thus the unique supercritical V triangle is Vd0, $2\le k\le5$, and the remaining
+$5-k$ V triangles are nonsupercritical Vd0. The caps above give
 
 $$
 \begin{aligned}

@@ -77,7 +77,7 @@ p=d+(1-d)x-\psi(x).
 }
 $$
 
-All dependence on the row deficit $d$ is affine.  The only nonlinear function
+All dependence on the V triangle deficit $d$ is affine.  The only nonlinear function
 is the single branch-independent curve $\psi$.
 
 ## 2. Monotonicity and strict concavity

@@ -87,14 +87,14 @@ replacement-maximal. More precisely, there are two replacements:
 
 There is also a simultaneous replacement extending both reaches to $u$ and
 $v$. It makes both CE2 center intervals redundant for boundary coverage and,
-after exact unit enlargement, is a supercritical Vd0 row.
+after exact unit enlargement, is a supercritical Vd0 V triangle.
 
 Either replacement preserves the skeleton cover and makes one entire CE2
 center interval redundant for boundary coverage.
 
 The supercritical hypothesis is not needed for this theorem. In the `410X`
 branch, it is used separately to identify $T_0$ as the unique supercritical
-row.
+V triangle.
 
 ## Complementary corner triangle
 
@@ -459,5 +459,5 @@ not a claim about endpoint binding by the original supercritical triangle.
 
 Concentric enlargement can change the V-type or the value of $N_+$. The
 replacement proves the two-gap skeleton normalization, but a branch proof
-must route every changed type or row-sum class to the corresponding proof-tree
+must route every changed type or V triangle-sum class to the corresponding proof-tree
 branch. It may not silently assume that the replacement stays inside `410X`.

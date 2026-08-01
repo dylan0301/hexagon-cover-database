@@ -11,8 +11,8 @@ Put
  \theta=\frac2{\sqrt3}-1.
 \]
 Suppose a branch has a center contribution $L_C$, $n$ supercritical Vd0
-rows, $m\ge1$ distinguished nonsupercritical rows with strict boundary caps
-$q_1,\ldots,q_m<1$, and $6-n-m$ remaining rows whose boundary contributions
+V triangles, $m\ge1$ distinguished nonsupercritical V triangles with strict boundary caps
+$q_1,\ldots,q_m<1$, and $6-n-m$ remaining V triangles whose boundary contributions
 are at most $1$. If
 \begin{equation}
  L_C+n\theta\le\sum_{j=1}^m(1-q_j),
@@ -31,15 +31,15 @@ is strictly less than
  &\le6.
  \end{aligned}
 \]
-The strictness follows from $m\ge1$ and the strict distinguished-row caps. A
+The strictness follows from $m\ge1$ and the strict distinguished-V triangle caps. A
 cover of the perimeter would give the opposite weak inequality by
 subadditivity.
 \end{proof}
 
 \begin{lemma}[Small center slacks in the one-Vd1/Vd2 branch]
 \label{lem:signed-small-slack}
-Assume there is exactly one supercritical Vd0 row, exactly one Vd1/Vd2 row,
-and four nonsupercritical Vd0 rows. Then every candidate surviving the
+Assume there is exactly one supercritical Vd0 V triangle, exactly one Vd1/Vd2 V triangle,
+and four nonsupercritical Vd0 V triangles. Then every candidate surviving the
 perimeter budget is CE2 and satisfies
 \begin{equation}
  \boxed{
@@ -202,11 +202,11 @@ last assertion.
 \label{cor:signed-budget-branches}
 The following branches are impossible.
 \begin{enumerate}
-\item CE0, $N_+=1$, and at least one Vd1/Vd2 row;
-\item $N_+=0$ and at least one Vd1/Vd2 row, for either CE1 or CE2;
-\item CE1, $N_+=1$, and at least one Vd1/Vd2 row;
-\item CE2, $N_+=1$, and at least two Vd1/Vd2 rows;
-\item CE2, $N_+=1$, with a Vd2 row containing a neighboring midpoint;
+\item CE0, $N_+=1$, and at least one Vd1/Vd2 V triangle;
+\item $N_+=0$ and at least one Vd1/Vd2 V triangle, for either CE1 or CE2;
+\item CE1, $N_+=1$, and at least one Vd1/Vd2 V triangle;
+\item CE2, $N_+=1$, and at least two Vd1/Vd2 V triangles;
+\item CE2, $N_+=1$, with a Vd2 V triangle containing a neighboring midpoint;
 \item CE1 or CE2 with $N_++m\ge3$, where $m$ is the number of Vd1, Vd2,
 or T3-like roles;
 \item CE1 or CE2 with $N_+\ge2$.
@@ -222,11 +222,11 @@ inequality is
 \]
 
 For item 2, the center contribution is strictly less than $1/2$ and the
-chosen Vd1/Vd2 row has strict cap $1/2$; the other five rows contribute at
+chosen Vd1/Vd2 V triangle has strict cap $1/2$; the other five V triangles contribute at
 most $1$ each. This is Lemma~\ref{lem:signed-perimeter-deficit} with
 $n=0$ and $q_1=1/2$.
 
-For item 3, the unique supercritical row is Vd0, while the CE1 center cap,
+For item 3, the unique supercritical V triangle is Vd0, while the CE1 center cap,
 the Vd1/Vd2 cap, and the four remaining unit caps give
 \[
  \left(\frac{\sqrt3}{2}-\frac34\right)
@@ -246,11 +246,11 @@ Item 6 is Lemma~\ref{lem:short-role-count} and
 Theorem~\ref{thm:three-short-roles}.
 
 Finally suppose $N_+\ge2$. Choose a supercritical index $s\ne0$. Its own
-midpoint $M_s$ is not covered by that row, and the exact-$M_0$ center does not
-cover it. Diameter locality leaves only rows $s-1,s,s+1$ as possible vertex
-roles containing $M_s$. Thus one of the adjacent rows contains $M_s$ and,
+midpoint $M_s$ is not covered by that V triangle, and the exact-$M_0$ center does not
+cover it. Diameter locality leaves only V triangles $s-1,s,s+1$ as possible vertex
+roles containing $M_s$. Thus one of the adjacent V triangles contains $M_s$ and,
 because it is the closure of an original open role, has positive-length
 support on the adjacent radial arm. By Lemma~\ref{lem:short-role-count}, this
-rescuer is nonsupercritical and distinct from the two supercritical rows.
+rescuer is nonsupercritical and distinct from the two supercritical V triangles.
 Thus there are three short roles, and the theorem applies.
 \end{proof}

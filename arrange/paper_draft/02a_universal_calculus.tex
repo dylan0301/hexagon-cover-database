@@ -123,9 +123,9 @@ The exact appendix aliases are
  \label{eq:reader-technical-aliases}
 \end{equation}
 
-\begin{lemma}[Raw and capped actual-row transfer]
+\begin{lemma}[Raw and capped actual-V triangle transfer]
 \label{lem:reader-raw-capped-transfer}
-Suppose an actual row has incoming reach at least $a$, radial reach at least
+Suppose an actual V triangle has incoming reach at least $a$, radial reach at least
 $c$, and outgoing reach $B$.  Then
 \[
  B\le g_c(1-a).
@@ -134,7 +134,7 @@ If no center interval intervenes on the next edge, then
 \[
  A_{\rm next}\ge g_c^\vee(a).
 \]
-If the row is nonsupercritical, then
+If the V triangle is nonsupercritical, then
 \[
  B\le\widehat g_c(1-a),
 \]
@@ -210,7 +210,7 @@ a center trace $J$, and a right trace contained in $[1-q,1]$.  Then
 \[
  q\ge\mathcal R_J(p).
 \]
-For an actual row define
+For an actual V triangle define
 \[
  g_{c,J}^\vee(a)=\mathcal R_J(g_c(1-a)),
  \qquad
@@ -221,7 +221,7 @@ Then
  A_{\rm next}\ge g_{c,J}^\vee(a),
  \label{eq:reader-generalized-raw-transfer}
 \end{equation}
-and the hatted version holds when the row is nonsupercritical:
+and the hatted version holds when the V triangle is nonsupercritical:
 \begin{equation}
  A_{\rm next}\ge\widehat g_{c,J}^\vee(a).
  \label{eq:reader-generalized-transfer}
@@ -242,7 +242,7 @@ For $0\le c<1/2$, define
  =\frac{c+\sqrt{c^2-8c+4}}2.
  \label{eq:reader-free-supercritical-envelope}
 \end{equation}
-The supremum is not attained.  Hence an actual strict-supercritical row with
+The supremum is not attained.  Hence an actual strict-supercritical V triangle with
 radial demand at least $c$ satisfies
 \begin{equation}
  B<g_c^{\rm sc}.
@@ -259,7 +259,7 @@ $A_{\rm sc}(c)=1-g_c^{\rm sc}$.
 
 \subsection{Relaxed composition and path budgets}
 
-For maps listed in geometric row order, write
+For maps listed in geometric V-triangle order, write
 \begin{equation}
  [\Phi_1\mid\cdots\mid\Phi_r](x)
  =(\Phi_r\circ\cdots\circ\Phi_1)(x).
@@ -303,7 +303,7 @@ Then
  \sum_{j=1}^k(A_j+B_j)\ge k+1-u-v.
  \label{eq:reader-path-budget}
 \end{equation}
-Consequently, if all $k$ internal rows are nonsupercritical, the chain is
+Consequently, if all $k$ internal V triangles are nonsupercritical, the chain is
 impossible whenever $u+v<1$.
 \end{lemma}
 
@@ -421,7 +421,7 @@ $\widehat g_{1-d_1}^\vee$ and $\widehat g_{1-d_2}^\vee$ and
  \qquad
  \min\{e(d_1),e(d_2)\}<Q,
 \]
-then at least one of those two rows forces every subsequent output above
+then at least one of those two V triangles forces every subsequent output above
 $1-Q$.
 \end{lemma}
 

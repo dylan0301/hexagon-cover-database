@@ -286,7 +286,7 @@ Q_-,Q_0,Q_+\in\mathrm{int}(H).
 \tag{11}
 $$
 
-## 3. The five comparison rows
+## 3. The five comparison V triangles
 
 Put
 
@@ -297,9 +297,9 @@ q=1-a.
 $$
 
 In $V_4$-coordinates, the following are mandatory points of the indicated
-comparison row unions:
+comparison V triangle unions:
 
-| Row union | Mandatory point |
+| V triangle union | Mandatory point |
 |---|---:|
 | $R_0(p,q)$ | $V_0=(2,1)$ |
 | $R_1(p,q)$ | $V_1=(2,2)$ |
@@ -307,9 +307,9 @@ comparison row unions:
 | $R_3(p,q)$ | $C_-=(p,1+p)$ |
 | $R_5(p,q)$ | $C_+=(1+q,q)$ |
 
-Every row union is contained in the closed unit disk about each of its
+Every V triangle union is contained in the closed unit disk about each of its
 mandatory points. Distance at least $1$ from one such point therefore proves
-exclusion from the plane interior of that row union.
+exclusion from the plane interior of that V triangle union.
 
 For a point $P=(u,v)$,
 
@@ -404,7 +404,7 @@ opposite-line-exclusion calculations in `31012`, together with their
 reflection. Therefore the three points avoid the interiors of $R_3(p,q)$
 and $R_5(p,q)$.
 
-## 4. The distinguished row and conclusion
+## 4. The distinguished V triangle and conclusion
 
 By (5)--(6), all three witnesses lie on the exact non-axis frontier of
 $R_4(a,b)$ proved in `20091`. Hence none lies in

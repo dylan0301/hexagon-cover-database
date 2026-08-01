@@ -475,5 +475,5 @@ R\longleftrightarrow W,
 \alpha\longleftrightarrow\delta,
 $$
 
-and reverses the row order $1,2,3,4,5$. Every left-oriented statement is
+and reverses the V-triangle order $1,2,3,4,5$. Every left-oriented statement is
 obtained from its right-oriented form by this explicit substitution.

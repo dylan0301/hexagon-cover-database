@@ -14,7 +14,7 @@ Every hypothetical cover has the seven distinct roles described in
 Section~\ref{sec:introduction}.  The center has exactly one of the types
 $\CEzero,\CEone,\CEtwo$, every vertex role has exactly one of the types
 $\Vdzero,\Vdone,\Vdtwo,\Tlike$, and the actual reaches determine exactly one
-row of Table~\ref{tab:routing}.  In the CE1/CE2 case the center contains exactly
+entry of Table~\ref{tab:routing}.  In the CE1/CE2 case the center contains exactly
 one radial midpoint and
 \[
  q=N_++m.
@@ -37,7 +37,7 @@ are collected in Appendix~\ref{sec:structural-reductions}.
 
 \subsection{The local admissible set}
 
-\begin{definition}[Actual and selected skeleton-row coordinates]
+\begin{definition}[Actual and selected skeleton-V-triangle reach coordinates]
 \label{def:body-row-coordinates}
 All indices lie in $\mathbb Z/6\mathbb Z$.  For the closed vertex role $T_i$,
 define
@@ -51,7 +51,7 @@ define
  V_i+t(O-V_i)\in T_i\}.
  \end{aligned}
 \]
-The triple $(A_i,B_i,C_i)$ is the \emph{actual row data}.  A
+The triple $(A_i,B_i,C_i)$ is the \emph{actual V-triangle reach data}.  A
 \emph{selected demand triple} is any $(a_i,b_i,c_i)\in[0,1]^3$ satisfying
 \[
  (a_i,b_i,c_i)\le(A_i,B_i,C_i)
@@ -60,7 +60,7 @@ coordinatewise.  Define
 \[
  x_i=1-a_i,\qquad y_i=b_i.
 \]
-The actual row is nonsupercritical, critical, or strictly supercritical
+The actual V triangle is nonsupercritical, critical, or strictly supercritical
 according as
 \[
  A_i+B_i<1,\qquad A_i+B_i=1,\qquad A_i+B_i>1,
@@ -105,7 +105,7 @@ Define
  \exists\,\Delta\in\mathfrak E_1,\quad K(a,b,c)\subseteq\Delta
  \right\}.
 \]
-Thus a closed vertex role with actual row data $(A,B,C)$ realizes every
+Thus a closed vertex role with actual V-triangle reach data $(A,B,C)$ realizes every
 $(a,b,c)\in\mathcal A$ satisfying
 \[
  0\le a\le A,\qquad 0\le b\le B,\qquad 0\le c\le C.
@@ -116,7 +116,7 @@ $(a,b,c)\in\mathcal A$ satisfying
 \centering
 \resizebox{.98\linewidth}{!}{%
 \input{figures/strategy2_local_demand_skeleton}}
-\caption{Actual and selected row coordinates on the full hexagon skeleton,
+\caption{Actual and selected V-triangle reach coordinates on the full hexagon skeleton,
 together with the rigid local demand hull.  The least equilateral enclosure
 side of that hull is the scalar controlling both Strategy~2 transfers and
 Strategy~4 witnesses.}
@@ -156,63 +156,39 @@ For every nonempty compact $K\subset\mathbb R^2$, define
 Proposition~\ref{prop:universal-enclosure-gauge} says that $\Lambda(K)$ is the
 least side length of an enclosing closed equilateral triangle.
 
-\begin{proposition}[Explicit admissible-set description]
+\begin{proposition}[Geometric structure of the admissible set]
 \label{prop:body-admissible-description}
-For $(a,b,c)\in[0,1]^3$, set
+The local admissible set $\mathcal A$ has the following properties.
+\begin{enumerate}
+\item It is compact, coordinatewise downward closed, and invariant under
+interchanging the two boundary coordinates $a$ and $b$.
+\item Its enclosure-gauge description is
 \[
- s=a+b,\qquad D=\sqrt{a^2+ab+b^2},
+ (a,b,c)\in\mathcal A
+ \quad\Longleftrightarrow\quad
+ \Lambda\bigl(K(a,b,c)\bigr)\le1.
 \]
-and define
-\[
- L_{OA}=b+\max\{a,c\},\qquad
- L_{BO}=a+\max\{b,c\}.
-\]
-When $s>0$ and $cs>ab$, define
-\[
- R_a=\sqrt{a^2-ac+c^2},\qquad
- R_b=\sqrt{b^2-bc+c^2},
-\]
-\[
- L_{AC}=
- \begin{cases}
- (a^2+bc)/R_a,&a\ge c,\\
- c(a+b)/R_a,&a<c\le a+b,\\
- c^2/R_a,&c>a+b,
- \end{cases}
-\]
-and
-\[
- L_{CB}=
- \begin{cases}
- (b^2+ac)/R_b,&b\ge c,\\
- c(a+b)/R_b,&b<c\le a+b,\\
- c^2/R_b,&c>a+b.
- \end{cases}
-\]
-Then the least
-side length of an equilateral triangle containing $K(a,b,c)$ is
-\[
- L_{\min}(a,b,c)=
- \begin{cases}
- c,&a=b=0,\\
- D,&s>0\text{ and }cs\le ab,\\
- \min\{L_{OA},L_{BO},L_{AC},L_{CB}\},
-   &s>0\text{ and }cs>ab.
- \end{cases}
-\]
-Consequently
-\[
- \boxed{\mathcal A=\{(a,b,c)\in[0,1]^3:L_{\min}(a,b,c)\le1\}.}
-\]
+\item Every one-coordinate fiber of $\mathcal A$ is a nonempty compact initial
+interval.  In particular, each maximum used to define a transfer map below is
+attained.
+\item The boundary of $\mathcal A$ is obtained from a finite caliper
+comparison.  Equivalently, the least enclosing-equilateral side is the minimum
+of finitely many continuous support expressions on finitely many geometric
+cells.
+\end{enumerate}
+The exact support expressions, their cell conditions, and the resulting
+piecewise equations for $\mathcal A$ are stated and proved in
+Appendix~\ref{sec:admissible-set-derivation}.
 \end{proposition}
 
 \begin{proof}
-If $cs\le ab$, the radial point lies in $\conv\{0,au,bv\}$ and an explicit
-equilateral triangle of side $D$ contains that hull.  Otherwise the hull has
-four sides, and the finite-caliper principle reduces the minimum to the four
-edge-normal support values displayed above.  The complete support calculation,
-the explicit triangular-hull enclosure, and the equivalent three polynomial
-cells are proved in Appendix~\ref{sec:admissible-set-derivation}.
+Compactness and downward closure follow directly from the containment
+definition and compactness of the oriented unit-triangle family modulo
+translation.  Reflection in the radial axis exchanges $a$ and $b$.  The gauge
+equivalence is Proposition~\ref{prop:universal-enclosure-gauge}.  Convexity of
+containment along each coordinate gives the initial-interval fibers.  The
+finite-caliper assertion and all exact cell formulas are proved in
+Appendix~\ref{sec:admissible-set-derivation}.
 \end{proof}
 
 \begin{figure}[H]
@@ -220,29 +196,12 @@ cells are proved in Appendix~\ref{sec:admissible-set-derivation}.
 \resizebox{.98\linewidth}{!}{%
 \input{figures/strategy2_enclosure_gauge_skeleton}}
 \caption{The support-function definition of the equilateral enclosure gauge,
-placed in the full skeleton containing the local demand hull.}
+placed in the full skeleton containing the local demand hull.  This figure is
+a geometric sketch; the exact caliper equations are in Appendix~\ref{sec:admissible-set-derivation}.}
 \label{fig:strategy2-enclosure-gauge-skeleton}
 \end{figure}
 
-\begin{figure}[H]
-\centering
-\resizebox{.98\linewidth}{!}{%
-\input{figures/strategy2_admissible_scalars_skeleton}}
-\caption{The scalar and caliper-denominator data entering the exact
-admissible-set formula.}
-\label{fig:strategy2-admissible-scalars-skeleton}
-\end{figure}
-
-\begin{figure}[H]
-\centering
-\resizebox{.98\linewidth}{!}{%
-\input{figures/strategy2_admissible_minimum_skeleton}}
-\caption{The complete piecewise least-enclosure function
-$L_{\min}$ and its exact relation to $\mathcal A$.}
-\label{fig:strategy2-admissible-minimum-skeleton}
-\end{figure}
-
-\subsection{The transfer alphabet and its inequality interface}
+\subsection{The transfer alphabet and its inequality interface}\subsection{The transfer alphabet and its inequality interface}
 
 \begin{definition}[Raw, capped, and complement-dual transfers]
 \label{def:body-transfer-alphabet}
@@ -325,7 +284,7 @@ whereas $g_{1/2}^{\rm sc}=1/2$ is the continuous endpoint value.
 \begin{definition}[Ordered composition and slotwise lower relaxation]
 \label{def:body-relaxed-composition}
 Let $r\in\mathbb Z_{\ge1}$ and, for $1\le j\le r$, let
-$\Phi_j:[0,1]\to[0,1]$ be listed in geometric row order.  Define
+$\Phi_j:[0,1]\to[0,1]$ be listed in geometric V-triangle order.  Define
 \[
  [\Phi_1\mid\cdots\mid\Phi_r]:[0,1]\to[0,1],
  \qquad
@@ -364,9 +323,9 @@ $B$.
 \begin{proposition}[Transfer interface]
 \label{prop:body-transfer-interface}
 Fix $a,c,B,A_{\rm next}\in[0,1]$ and $J\in\mathfrak J$.  Suppose an actual
-row has incoming reach at least $a$, radial reach at least $c$, and actual
+V triangle has incoming reach at least $a$, radial reach at least $c$, and actual
 outgoing reach $B$.  Let $A_{\rm next}$ be the actual incoming reach of the
-next incident row.  When a center trace assists the handoff, $J$ is its
+next incident V triangle.  When a center trace assists the handoff, $J$ is its
 scalar parameter interval on that edge.
 \begin{enumerate}
 \item Always,
@@ -377,7 +336,7 @@ If the outgoing edge is center-free, then
 \[
  A_{\rm next}\ge g_c^\vee(a).
 \]
-If the row is nonsupercritical, then
+If the V triangle is nonsupercritical, then
 \[
  B\le\widehat g_c(1-a),
 \]
@@ -389,11 +348,11 @@ and on a center-free outgoing edge
 \[
  A_{\rm next}\ge g_{c,J}^\vee(a),
 \]
-and, for a nonsupercritical row,
+and, for a nonsupercritical V triangle,
 \[
  A_{\rm next}\ge\widehat g_{c,J}^\vee(a).
 \]
-\item If the row is strictly supercritical, then necessarily
+\item If the V triangle is strictly supercritical, then necessarily
 $0\le c<1/2$, and
 \[
  B<g_c^{\rm sc}.
@@ -403,7 +362,7 @@ Only when its outgoing edge is center-free may this be complemented to
  A_{\rm next}>1-g_c^{\rm sc}.
 \]
 \item If nondecreasing maps $\underline\Phi_j$ are pointwise lower bounds for
-the exact row transfers $\Phi_j$, then replacing any slots in a composition by
+the exact V triangle transfers $\Phi_j$, then replacing any slots in a composition by
 $\underline\Phi_j$ preserves a valid lower bound for the returned demand.
 \end{enumerate}
 \end{proposition}
@@ -430,129 +389,66 @@ For a closed center role $T_C$, define
 \]
 \end{definition}
 
-\begin{definition}[Signed CE1/CE2 center normal form]
+\begin{definition}[Geometric signed CE1/CE2 center data]
 \label{def:body-signed-center-data}
-Normalize a positive-length center trace to $e_{0,1}$.  For
-$0<R<1$ and $\alpha,\delta>0$, define
-\[
- W=1-R,\qquad
- E=\sqrt{1-RW},\qquad
- \eta=1-E,\qquad
- P=E(1-E),\qquad
- k=\eta+\alpha+\delta,
-\]
-\[
- \Delta_R=P-\alpha-W\delta,\qquad
- \Delta_L=P-R\alpha-\delta.
-\]
-Define the affine chart
-\[
- \chi:\mathbb R^2\to\mathbb R^2,\qquad
- \chi(a,b):=V_0+b(V_1-V_0)+a(V_5-V_0),
-\]
-and the affine functions $F_j:\mathbb R^2\to\mathbb R$ for
-$j\in\{0,1,2\}$ by
-\[
- \begin{aligned}
- F_0(a,b)&=R+\alpha-a+Wb,\\
- F_1(a,b)&=Rb+Wa-k,\\
- F_2(a,b)&=W+\delta-b+Ra,
- \end{aligned}
-\]
-Define the signed parameter domain
-\[
- \mathcal D_{\rm sgn}
- =
- \left\{(R,\alpha,\delta)\in\mathbb R^3:
- 0<R<1,\ \alpha>0,\ \delta>0,\ \Delta_R>0\right\}.
-\]
-For $(R,\alpha,\delta)\in\mathcal D_{\rm sgn}$, define
-\[
- T_C(R,\alpha,\delta):=
- \left\{\chi(a,b):F_0(a,b)\ge0,\ F_1(a,b)\ge0,\
- F_2(a,b)\ge0\right\},
-\]
-and define the active geometric trace
-\[
- \mathcal I_{\mathrm R}:=
- \left\{\chi(0,b):\frac{k}{R}\le b\le W+\delta\right\}
- \subseteq e_{0,1},
-\]
-and the companion geometric trace
-\[
- \mathcal I_{\mathrm L}:=
- \begin{cases}
- \varnothing,&\Delta_L<0,\\
- \{\chi(k/W,0)\},&\Delta_L=0,\\
- \{\chi(a,0):k/W\le a\le R+\alpha\},&\Delta_L>0.
- \end{cases}
-\]
-Finally, define the center exit on $r_i=[O,V_i]$ by
-\[
- d_i^C=
- \sup\{t\in[0,1]:O+t(V_i-O)\in T_C\},
-\qquad
- c_i^C:=1-d_i^C.
-\]
+Normalize one positive-length center trace to $e_{0,1}$.  The signed affine
+normal form of Appendix~\ref{sec:signed-ce12-reductions} assigns to the
+normalized center triangle a parameter triple $(R,\alpha,\delta)$ in its exact
+signed domain $\mathcal D_{\rm sgn}$; write the resulting closed center
+triangle as $T_C(R,\alpha,\delta)$.
+
+Let $\mathcal I_{\mathrm R}=T_C\cap e_{0,1}$ be the normalized active trace,
+and let $\mathcal I_{\mathrm L}=T_C\cap e_{5,0}$ be the possible companion
+trace.  Denote their lengths by $\ell_R$ and $\ell_L$.  The signed companion
+coordinate $\Delta_L$ is the affine quantity defined in Appendix
+\ref{sec:signed-ce12-reductions}; its sign records whether the companion trace
+has positive length.
+
+For each $i\in\mathbb Z/6\mathbb Z$, let $d_i^C$ denote the farthest parameter
+reached by $T_C$ on the radial arm $r_i$, measured from $O$ toward $V_i$, and
+put $c_i^C=1-d_i^C$.  Thus $d_i^C$ is the center-side radial exit and $c_i^C$
+is the complementary radial demand imposed on the V triangle $T_i$.
 \end{definition}
 
 \begin{proposition}[Signed center interface]
 \label{prop:body-signed-center-interface}
-The normalization has $\Delta_R>0$.  The normalized trace and its possible
-companion have lengths
+For the normalization of Definition~\ref{def:body-signed-center-data}, the
+active trace $\mathcal I_{\mathrm R}$ has positive length.  The center type is
+read from the companion trace:
 \[
- \ell_R=\Haus(\mathcal I_{\mathrm R})=\frac{\Delta_R}{R},
+ T_C\text{ is CE1}
+ \quad\Longleftrightarrow\quad
+ \ell_L=0,
  \qquad
- \ell_L=\Haus(\mathcal I_{\mathrm L})=\frac{[\Delta_L]_+}{W},
+ T_C\text{ is CE2}
+ \quad\Longleftrightarrow\quad
+ \ell_L>0.
 \]
-and
+Equivalently, CE2 is characterized by $\Delta_L>0$, while CE1 has
+$\Delta_L\le0$; the equality case is a single companion contact point.
+Moreover,
 \[
- T_C\text{ is CE1}\iff\Delta_L\le0,
- \qquad
- T_C\text{ is CE2}\iff\Delta_L>0.
+ L_{\partial H}(T_C)=\ell_R+\ell_L,
 \]
-The six radial exits from $O$ are
+and the six exits $d_i^C$ and complementary demands $c_i^C$ are continuous
+piecewise-algebraic functions of the signed parameters.  The bounds needed in
+the reader-facing proof are
 \[
- \begin{array}{c|cccccc}
- i&0&1&2&3&4&5\\ \hline
- d_i^C&E-\alpha-\delta&\delta/R&\delta&
- \min\{\alpha/R,\delta/W\}&\alpha&\alpha/W.
- \end{array}
-\]
-and the corresponding vertex-side radial demands are
-\[
- c_i^C=1-d_i^C\qquad(0\le i\le5).
-\]
-The full center boundary contribution is
-\[
- L_{\partial H}(T_C)=\frac{\Delta_R}{R}+
- \frac{[\Delta_L]_+}{W}.
-\]
-In particular,
-\[
- L_{\partial H}(T_C)\le P\le\frac{\sqrt3}{2}-\frac34
+ L_{\partial H}(T_C)\le \frac{\sqrt3}{2}-\frac34
  \quad\text{in CE1},
-\]
-whereas
-\[
+ \qquad
  L_{\partial H}(T_C)<\frac12
  \quad\text{in CE2}.
 \]
+All exact affine side equations, trace endpoints, exit formulas, and sign-cell
+conditions are collected in Appendix~\ref{sec:signed-ce12-reductions}.
 \end{proposition}
-
-Figures~\ref{fig:signed-parameter-skeleton}--%
-\ref{fig:signed-center-budget-skeleton} show the parameter dependencies and
-the companion-trace sign test.  They also give two valid numerical center
-triangles, all six radial exits, all complementary demands $c_i^C$, and the
-boundary budgets.  The quantities $\eta$, $P$, $\Delta_R$, and $\Delta_L$ are
-algebraic parameters; only $\ell_R,\ell_L,d_i^C$, and $c_i^C$ are drawn as
-geometric lengths.
 
 \begin{proof}
 This is Proposition~\ref{prop:signed-center-normal-form} and
-Corollary~\ref{cor:signed-center-boundary}.  Appendix
-\ref{sec:signed-ce12-reductions} derives the side equations, traces, exits, and
-sign classification.
+Corollary~\ref{cor:signed-center-boundary}.  Their exact calculation is kept in
+Appendix~\ref{sec:signed-ce12-reductions}; only the geometric classification
+and the two boundary bounds are used in the body.
 \end{proof}
 
-\input{02c_strategy2_skeleton_atlas}
+\input{02c_strategy2_skeleton_atlas}\input{02c_strategy2_skeleton_atlas}

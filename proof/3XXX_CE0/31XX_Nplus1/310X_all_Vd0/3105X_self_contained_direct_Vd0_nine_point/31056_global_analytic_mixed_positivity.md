@@ -213,7 +213,7 @@ $(r,y)$ square has the following exact data.
 | $B_{T,C}$ | $(80,20)$ | 1701 | 0 |
 
 Every nonzero coefficient is strictly positive.  The two zero coefficients
-in each $A$ row are boundary coefficients.  Therefore all four $T$-cell
+in each $A$ V triangle are boundary coefficients.  Therefore all four $T$-cell
 polynomials are nonnegative.
 
 ## 4. The two $L$ charts

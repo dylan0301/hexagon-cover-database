@@ -5,10 +5,10 @@ Status: Proven
 This file proves the relaxed-P reduction for an all-boundary, $N_+=1$,
 all-Vd0 six-point system.  The construction is defined in
 [`31011_six_point_construction.md`](31011_six_point_construction.md).
-The theorem uses only the six V-role handoffs and row classes; it does not
+The theorem uses only the six V-role handoffs and V triangle classes; it does not
 assume that the seventh, center role is CE0.
 <!--
-The result proved here is local: after the unique supercritical row is rotated
+The result proved here is local: after the unique supercritical V triangle is rotated
 to $V_4$, the relaxed points
 
 $$
@@ -40,7 +40,7 @@ $$
 (a_i,b_i)=(1-x_{i-1},x_i).
 $$
 
-For each $i$, let $R_i$ be the $V_i$-placed row $AB$-union set determined by
+For each $i$, let $R_i$ be the $V_i$-placed V triangle $AB$-union set determined by
 the three marked points
 
 $$
@@ -60,7 +60,7 @@ $$
 H\setminus\bigcup_{i=0}^5 \mathrm{int}(R_i)
 $$
 
-be the part of $H$ not covered by the interiors of the six row $AB$-union
+be the part of $H$ not covered by the interiors of the six V triangle $AB$-union
 sets.
 
 For a bounded set $A$, write $\Lambda(A)$ for the side length of the smallest
@@ -135,8 +135,8 @@ $$
 (a_i,b_i)=(1-x_{i-1},x_i)
 $$
 
-be the boundary row data of six Vd0 roles covering $\partial H$, with exactly
-one supercritical row, rotated to $V_4$.  No hypothesis is imposed on the
+be the boundary V-triangle reach data of six Vd0 roles covering $\partial H$, with exactly
+one supercritical V triangle, rotated to $V_4$.  No hypothesis is imposed on the
 center role.  Set
 
 $$
@@ -216,7 +216,7 @@ $$
 
 for the strict branch, where $K_6^{\mathrm{act}}$ denotes the corresponding
 actual six-point set with actual centers $E_2(x_2)$ and $E_5(x_5)$.  Since the
-actual six-point set consists of row $AB$-union interior-uncovered obstruction
+actual six-point set consists of V triangle $AB$-union interior-uncovered obstruction
 points, this gives
 
 $$
@@ -239,7 +239,7 @@ $$
 
 ## Chain inequalities
 
-For every nonsupercritical row $i\ne4$,
+For every nonsupercritical V triangle $i\ne4$,
 
 $$
 a_i+b_i\le1.
@@ -257,7 +257,7 @@ $$
 x_i\le x_{i-1}\qquad(i\ne4).
 $$
 
-Applying this to rows $5,0,1,2,3$ gives
+Applying this to V triangles $5,0,1,2,3$ gives
 
 $$
 x_5\le x_4,
@@ -980,9 +980,9 @@ $$
 
 This proves the strict fixed-line monotonicity certificate.
 
-## Red-validity of the relaxed $P$ points for the moving adjacent rows
+## Red-validity of the relaxed $P$ points for the moving adjacent V triangles
 
-The same proof gives the adjacent-row red-validity needed by the relaxed
+The same proof gives the adjacent-V triangle red-validity needed by the relaxed
 construction.  Fix the actual parameter $t=x_5$.  Since
 
 $$
@@ -998,9 +998,9 @@ $$
 
 Thus $P_5^{\mathrm{rel}}$ is not in the interior of any unit equilateral
 triangle containing the actual boundary point $E_5(t)$, and hence is outside
-the interior of the adjacent row $AB$-union set.  It is also on the boundary of
-the preserved row $R_4^{\mathrm{lin}}(a,b)$.  Therefore the relaxed $P_5$ point
-is valid for the two rows whose constraints are involved in the relaxation.
+the interior of the adjacent V triangle $AB$-union set.  It is also on the boundary of
+the preserved V triangle $R_4^{\mathrm{lin}}(a,b)$.  Therefore the relaxed $P_5$ point
+is valid for the two V triangles whose constraints are involved in the relaxation.
 
 The same argument gives
 
@@ -1009,13 +1009,13 @@ Q(P_3^{\mathrm{rel}}-E_2(x_2))\ge1,
 $$
 
 and $P_3^{\mathrm{rel}}$ lies on the boundary of $R_4^{\mathrm{lin}}(a,b)$.
-Thus the relaxed $P_3$ point is outside the interior of its adjacent row
-$AB$-union set and is valid for its adjacent moving row as well.
+Thus the relaxed $P_3$ point is outside the interior of its adjacent V triangle
+$AB$-union set and is valid for its adjacent moving V triangle as well.
 
-The remaining row exclusions are the standard all-Vd0 locality input of this
+The remaining V triangle exclusions are the standard all-Vd0 locality input of this
 branch: the relaxed $P$ points lie on the preserved $V_4$ two-line boundary and
-can interact only with the adjacent rows used above.  No additional
-non-adjacent-row optimization is used in the relaxed-P reduction.
+can interact only with the adjacent V triangles used above.  No additional
+non-adjacent-V triangle optimization is used in the relaxed-P reduction.
 
 ## Diagonal points and two-variable dependence
 
@@ -1025,7 +1025,7 @@ $$
 p=1-b,\qquad q=1-a.
 $$
 
-For rows $0,1,2$, the chain
+For V triangles $0,1,2$, the chain
 
 $$
 x_3\le x_2\le x_1\le x_0\le x_5\le x_4
@@ -1033,7 +1033,7 @@ $$
 
 gives lower bounds by $(p,q)$.
 
-For row $0$,
+For V triangle $0$,
 
 $$
 a_0=1-x_5\ge1-b=p,
@@ -1045,7 +1045,7 @@ $$
 b_0=x_0\ge x_3=q.
 $$
 
-For row $1$,
+For V triangle $1$,
 
 $$
 a_1=1-x_0\ge1-b=p,
@@ -1057,7 +1057,7 @@ $$
 b_1=x_1\ge x_3=q.
 $$
 
-For row $2$,
+For V triangle $2$,
 
 $$
 a_2=1-x_1\ge1-b=p,
@@ -1089,7 +1089,7 @@ $$
 c_*=c(p,q)
 $$
 
-is at least as large as the maximum radial coordinate available to each of rows
+is at least as large as the maximum radial coordinate available to each of V triangles
 $0,1,2$ under their actual lower-bound data.  Hence the diagonal points
 
 $$
@@ -1105,7 +1105,7 @@ a=a_4,\qquad b=b_4.
 $$
 
 Indeed, $P_3^{\mathrm{rel}}$ uses the virtual center $E_2(b)$, $P_5^{\mathrm{rel}}$
-uses the virtual center $E_5(1-a)$, $P_4$ uses only the strict row
+uses the virtual center $E_5(1-a)$, $P_4$ uses only the strict V triangle
 $R_4(a,b)$, and the diagonal points use only
 
 $$
