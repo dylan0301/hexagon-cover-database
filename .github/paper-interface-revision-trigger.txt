@@ -3,3 +3,4 @@ Rerun after repairing the non-mathematical follow-up assertion.
 Rerun after normalizing trailing blank lines.
 Trigger the post-commit terminology audit.
 Trigger the audited repair, full compile, and exact certificate checks.
+Rerun with the current two-part Strategy 4 exact certificate verifiers.
