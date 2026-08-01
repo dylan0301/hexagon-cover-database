@@ -33,7 +33,7 @@ $$
 
 and removes every $q\ge3$ state before the finer split.
 
-For the all-Vd0 CE1/CE2 V triangles, let $\mathrm{gr}$ be the active-gap rank.  Bare
+For the all-Vd0 CE1/CE2 branches, let $\mathrm{gr}$ be the active-gap rank.  Bare
 $g$ is reserved for transfer maps.  The two V-triangle counts use the kernel
 
 | actual V-triangle count | $\mathrm{gr}=0$ | $\mathrm{gr}=1$ | $\mathrm{gr}=2$ |

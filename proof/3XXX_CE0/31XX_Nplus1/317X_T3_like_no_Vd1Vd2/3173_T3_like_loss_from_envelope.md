@@ -51,7 +51,7 @@ $$
 
 for $0\le s\le1/2$.
 
-## Lemma 652.1: branch V triangles are nonsupercritical
+## Lemma 652.1: the V triangles in the branch are nonsupercritical
 
 For every $s\in[0,1/2]$,
 
