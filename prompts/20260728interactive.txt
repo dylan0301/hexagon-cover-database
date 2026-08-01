@@ -1,0 +1,14 @@
+What I want for interactive website is this:
+I don't want any long descrpitions.
+change the strategy2demo.html
+What I want for each case is:
+-hexagon skeleton 
+- CE triangle to be CE1 or CE2 view
+- when reading the proofs, we can interpret it exact geometrically.
+For example, look at strategy2_ce1_ce2_n0_all_vd0.png
+We drew it like it because we use exact geometry of C triangle and place T5 maximally by using admissible sets,
+and place T0 as axis aligend because we will only consider the boundary and don't need to coverage r0. it is a relaxation.
+then we place T1 maximally using admissible set.
+What I want is interactable picture like this for every subcase.
+ask me for details.
+just delete all the long descrpitions and unnecessary parts.

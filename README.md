@@ -140,12 +140,19 @@ count $N_+\in\{0,1\}$ and the active-gap rank
 $\mathrm{gr}\in\{0,1,2\}$. The two $\mathrm{gr}=2$ cells share the same
 paired-endpoint theorem.
 
-## Preview Interactive HTML in GitHub Codespaces
+## Interactive Navigation
 
-The standalone
-[`Strategy 4 mechanism explorer`](interactive/3105b_strategy4_mechanism_explorer.html)
-is a reference visualization of the proof mechanism. To run it in a GitHub
-Codespace, open a terminal at the repository root and run:
+These standalone pages are visual aids; they do not establish or change proof
+status.
+
+| Interactive page | Scope | Status |
+|---|---|---|
+| [`strategy2demo.html`](interactive/strategy2demo.html) | Strategy 2 case explorer covering the five proof families and their geometric subcases | Reference visualization |
+| [`strategy4demo.html`](interactive/strategy4demo.html) | Strategy 4 mechanism explorer for the direct nine-point obstruction | Reference visualization |
+
+### Preview in GitHub Codespaces
+
+From the repository root, run:
 
 ```bash
 python3 -m http.server 8000
@@ -153,8 +160,11 @@ python3 -m http.server 8000
 
 In the Codespaces editor, open the **Ports** tab, find port `8000`, and select
 **Open in Browser**. If the port does not appear automatically, use
-**Forward a Port** and enter `8000`. In the resulting directory page, select
-`interactive/`, then select `3105b_strategy4_mechanism_explorer.html`.
+**Forward a Port** and enter `8000`. From the directory page, open
+`interactive/` and select either demo. Locally, the direct paths are:
+
+- `http://localhost:8000/interactive/strategy2demo.html`
+- `http://localhost:8000/interactive/strategy4demo.html`
 
 Keep the terminal command running while using the explorer. Press `Ctrl+C` in
 that terminal to stop the server. The forwarded port is private by default.
