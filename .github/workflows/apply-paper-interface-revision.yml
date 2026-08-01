@@ -1,4 +1,4 @@
-name: Apply paper interface revision
+name: Audit paper interface revision
 
 on:
   pull_request:
@@ -7,10 +7,10 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  apply:
+  audit:
     runs-on: ubuntu-latest
     steps:
       - name: Check out main
@@ -19,36 +19,51 @@ jobs:
           ref: main
           fetch-depth: 0
 
-      - name: Apply reader-interface revision
+      - name: Scan terminology and replacement boundaries
         shell: bash
         run: |
           set -euo pipefail
-          python3 .github/scripts/agent_paper_readability.py
-          python3 -O .github/scripts/agent_paper_readability_followup.py
           python3 - <<'PY'
           from pathlib import Path
-          import subprocess
+          import re
 
-          for raw in subprocess.check_output(
-              ['git', 'diff', '--name-only'], text=True
-          ).splitlines():
-              path = Path(raw)
-              if path.is_file() and path.suffix in {'.tex', '.md', '.txt'}:
-                  text = path.read_text(encoding='utf-8')
-                  path.write_text(text.rstrip() + '\n', encoding='utf-8')
+          roots = [Path('arrange/paper_draft'), Path('proof')]
+          paths = []
+          for root in roots:
+              if root.name == 'paper_draft':
+                  paths.extend(sorted(root.glob('*.tex')))
+              else:
+                  for path in sorted(root.rglob('*.md')):
+                      text = path.read_text(encoding='utf-8')
+                      if 'Status: Proven' in text or path.name in {
+                          '0910_notation_dictionary.md',
+                          '0000_main_theorem.md',
+                          '0001_proof_tree_index.md',
+                          '0002_status_and_dependencies.md',
+                          '1212_vertex_rows_and_Nplus.md',
+                      }:
+                          paths.append(path)
+
+          suspicious = [
+              re.compile(r'\b(?:first|second|third|fourth|fifth|sixth|seventh|last) V triangles?\b', re.I),
+              re.compile(r'\bhybrid V triangle\b', re.I),
+              re.compile(r'entry the first entry', re.I),
+              re.compile(r'CE1/CE2 V triangles', re.I),
+              re.compile(r'V triangles, the same', re.I),
+              re.compile(r'\b(?:branch|case|route|routing|entry|table|matrix|cell|certificate|argument|proof) V triangles?\b', re.I),
+              re.compile(r'\bV triangles? (?:is|are) (?:the|a|an) (?:cyclic|skeleton|case|branch|route|sum|entry|proof|argument|obstruction|certificate)\b', re.I),
+              re.compile(r'\\subsection\{[^{}]+\}\\subsection\{'),
+              re.compile(r'\\input\{([^{}]+)\}\\input\{\1\}'),
+          ]
+
+          hits = []
+          for path in paths:
+              for number, line in enumerate(path.read_text(encoding='utf-8').splitlines(), 1):
+                  if any(pattern.search(line) for pattern in suspicious):
+                      hits.append(f'{path}:{number}: {line}')
+
+          if hits:
+              print('\n'.join(hits))
+              raise SystemExit(f'SUSPICIOUS_TERMINOLOGY_COUNT={len(hits)}')
+          print('TERMINOLOGY_AUDIT_OK')
           PY
-          git diff --check
-
-      - name: Commit revised mathematical sources
-        shell: bash
-        run: |
-          set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add README.md arrange proof
-          if git diff --cached --quiet; then
-            echo "No mathematical source changes were produced" >&2
-            exit 1
-          fi
-          git commit -m "Refine V-triangle terminology and appendix interfaces"
-          git push origin HEAD:main
