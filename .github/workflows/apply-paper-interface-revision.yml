@@ -1,12 +1,9 @@
 name: Apply paper interface revision
 
-# This comment intentionally changes the workflow in the merge commit so that
-# the push to main triggers the one-time source revision.
 on:
-  push:
+  pull_request:
     branches: [main]
-    paths:
-      - .github/workflows/apply-paper-interface-revision.yml
+    types: [opened, synchronize, reopened]
   workflow_dispatch:
 
 permissions:
