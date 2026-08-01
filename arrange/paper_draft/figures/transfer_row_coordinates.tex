@@ -1,6 +1,6 @@
 \begin{tikzpicture}[x=1cm,y=1cm,>=Latex]
   \node[panellabel,anchor=west] at (.03,3.05)
-    {(a) selected and actual V-triangle reach coordinates on the skeleton};
+    {(a) raw transfer and complement dual on the skeleton};
 
   \begin{scope}[shift={(2.05,.42)},scale=1.65]
     \HexCoords
@@ -10,32 +10,27 @@
     % The paper fixes counterclockwise indexing.  At V_0 the incoming edge is
     % e_{5,0}, the outgoing edge is e_{0,1}, and the own radial arm is r_0.
     \coordinate (Amark) at ($(V0)!.38!(V5)$);
-    \coordinate (Aactual) at ($(V0)!.58!(V5)$);
-    \coordinate (Bmark) at ($(V0)!.34!(V1)$);
     \coordinate (Ymark) at ($(V0)!.622!(V1)$);
     \coordinate (Cmark) at ($(V0)!.44!(O)$);
-    \coordinate (Cactual) at ($(V0)!.68!(O)$);
 
-    \draw[actualreach] (V0)--(Aactual);
     \draw[demand] (V0)--(Amark);
     \draw[dimline]
       ($(Amark)+(.075,-.045)$)--($(V5)+(.075,-.045)$)
-      node[midway,below right,figlabel] {$x=1-a$};
-    \node[figlabel,below right] at ($(V0)!.28!(V5)$) {$a\le A_0$};
+      node[midway,below right,figlabel,text=black!60] {$x=1-a$};
+    \node[figlabel,below right,text=DemandRed]
+      at ($(V0)!.28!(V5)$) {$a$};
 
-    \draw[actualreach] (V0)--(Bmark);
-    \draw[boundcurve,dashed] (V0)--(Ymark);
-    \node[figlabel,above right] at ($(V0)!.30!(V1)$) {$B_0$};
-    \node[figlabel,above right] at ($(Ymark)+(0,.08)$)
-      {$y=g_c(x),\ B_0\le y$};
+    \draw[draw=GapPurple,line width=1.35pt] (V0)--(Ymark);
+    \node[figlabel,above right,text=GapPurple] at ($(Ymark)+(0,.08)$)
+      {$y=g_c(x)$};
 
     \draw[radialdemand] (V1)--(Ymark);
-    \node[figlabel,above left,align=right] at ($(V1)+(-.03,.17)$)
-      {$1-y=g_c^\vee(a)$\\[-1pt]$\le A_1$};
+    \node[figlabel,above left,align=right,text=RadialTeal]
+      at ($(V1)+(-.03,.17)$) {$1-y=g_c^\vee(a)$};
 
-    \draw[actualreach] (V0)--(Cactual);
     \draw[radialdemand] (V0)--(Cmark);
-    \node[figlabel,above] at ($(V0)!.50!(O)$) {$c\le C_0$};
+    \node[figlabel,above,text=RadialTeal]
+      at ($(V0)!.50!(O)$) {$c$};
 
     \fill (V0) circle (.9pt);
     \node[figlabel,right] at (V0) {$V_0$};
@@ -44,9 +39,10 @@
   \end{scope}
 
   \node[figlabel,atlasbox,align=left,anchor=west] at (5.85,1.30)
-    {solid orange: actual reach\\
-     solid red/teal: selected demand\\
-     dashed red: extremal bound, not an actual trace\\
-     \(e_{0,1}\) is center-free for the displayed dual bound\\
-     representative positions; displayed inequalities are exact};
+    {\textcolor{DemandRed}{red}: incoming reach\\
+     \textcolor{GapPurple}{purple}: raw extremal output, not an actual trace\\
+     \textcolor{RadialTeal}{teal}: radial parameter or complement dual\\
+     \textcolor{black!60}{gray}: complementary defect\\
+     \(e_{0,1}\) is center-free for the displayed complement dual\\
+     representative positions; displayed identities are exact};
 \end{tikzpicture}

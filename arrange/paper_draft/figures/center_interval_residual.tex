@@ -24,18 +24,25 @@
       \fill[DemandRed] (Pp) circle (.75pt);
       \fill[black!65] (Pe) circle (.7pt);
 
-      \node[figlabel,above right] at ($(V0)!.52!(Pp)$) {$p$};
-      \node[figlabel,above] at ($(PL)!.50!(PU)$) {$J=[L,U]$};
-      \node[figlabel,anchor=east,align=right] at ($(V1)+(-.06,.25)$)
-        {$A_{\rm next}\ge\mathcal R_J(p)$};
+      \node[figlabel,above right,text=DemandRed]
+        at ($(V0)!.52!(Pp)$) {$p$};
+      \node[figlabel,above,text=CenterBlue]
+        at ($(PL)!.50!(PU)$) {$J=[L,U]$};
+      \node[figlabel,text=black!60,fill=white,inner sep=.35pt]
+        at ($(V0)!.50!(Pe)+(-.22,-.12)$) {$e_J(p)$};
+      \node[figlabel,anchor=east,align=right,text=RadialTeal]
+        at ($(V1)+(-.06,.25)$)
+        {$\mathcal R_J(p)=1-e_J(p)$};
       \node[figlabel,below] at (0,-1.55)
         {$\case:\quad\mathcal R_J(p)=\formula$};
     \end{scope}
   }
 
   \node[figlabel,align=center] at (6.00,-1.78)
-    {Gray is the component of \([0,p]\cup J\) attached to \(V_0\);
-     the teal far-side reach is forced from \(V_1\).\\
+    {\textcolor{DemandRed}{Red is the initial reach \(p\)};
+     \textcolor{CenterBlue}{blue is \(J=[L,U]\)};
+     \textcolor{black!60}{gray is the attached component ending at \(e_J(p)\)};
+     \textcolor{RadialTeal}{teal is the residual length}.\\
      For \(p=g_c(1-a)\) this gives \(g_{c,J}^{\vee}(a)\);
      for \(p=\widehat g_c(1-a)\) it gives
      \(\widehat g_{c,J}^{\vee}(a)\).};
