@@ -24,7 +24,7 @@ jobs:
         run: |
           set -euo pipefail
           python3 .github/scripts/agent_paper_readability.py
-          python3 .github/scripts/agent_paper_readability_followup.py
+          python3 -O .github/scripts/agent_paper_readability_followup.py
           git diff --check
 
       - name: Commit revised mathematical sources
