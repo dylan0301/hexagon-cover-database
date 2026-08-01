@@ -210,9 +210,15 @@ high-sheet calculations when confusion with a local coordinate is possible.
 
 ## Vertex-role local coordinates
 
-- $a,b,c$: local lower-bound demands.
-- $A(T),B(T),C(T)$: actual maximal local reaches of a realizing role.
-- $(A_i,B_i,C_i)$: actual maximal V triangle reaches in the manuscript.
+- $a,b,c$: local lower-bound demands; a closed $V_i$-triangle $T$ realizes
+  them when $(a,b,c)\le(A(T),B(T),C(T))$ coordinatewise. For an open role,
+  the same weak statement applies to its closure.
+- $A(T),B(T),C(T)$: actual maximal reaches of a $V_i$-triangle $T$ toward
+  $V_{i-1}$, $V_{i+1}$, and $O$, respectively. Equivalently, these are the
+  incoming, outgoing, and own-radial reaches. They are unchanged when an
+  original open role is replaced by its closure.
+- $(A_i,B_i,C_i)=(A(T_i),B(T_i),C(T_i))$: compact indexed aliases for the
+  actual maximal V triangle reaches.
 - $(a_i,b_i,c_i)$: selected lower-bound demands in the manuscript.
 - $e(d)=\ell(1-d)$: low selected root for radial demand $1-d$.
 - $\sigma(x)=1-\sqrt{1-x+x^2}$: universal selected-$T_+$ increment; older

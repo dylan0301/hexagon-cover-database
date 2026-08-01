@@ -125,32 +125,33 @@ The exact appendix aliases are
 
 \begin{lemma}[Raw and capped actual-V triangle transfer]
 \label{lem:reader-raw-capped-transfer}
-Suppose an actual V triangle has incoming reach at least $a$, radial reach at least
-$c$, and outgoing reach $B$.  Then
+Let $T$ be an actual V triangle satisfying
+$A(T)\ge a$ and $C(T)\ge c$, and let $T_{\mathrm{next}}$ be the next
+incident actual V triangle. Then
 \[
- B\le g_c(1-a).
+ B(T)\le g_c(1-a).
 \]
 If no center interval intervenes on the next edge, then
 \[
- A_{\rm next}\ge g_c^\vee(a).
+ A(T_{\mathrm{next}})\ge g_c^\vee(a).
 \]
-If the V triangle is nonsupercritical, then
+If $T$ is nonsupercritical, then
 \[
- B\le\widehat g_c(1-a),
+ B(T)\le\widehat g_c(1-a),
 \]
 and, on a center-free next edge,
 \[
- A_{\rm next}\ge\widehat g_c^\vee(a)\ge a.
+ A(T_{\mathrm{next}})\ge\widehat g_c^\vee(a)\ge a.
 \]
 \end{lemma}
 
 \begin{proof}
-The same triangle realizes $(a,B,c)$, so the definition of $g_c$ gives the
-outgoing bound.  On a center-free edge, coverage gives
-$A_{\rm next}\ge1-B$, and complementation proves the raw transfer.  Under
-nonsupercriticality, $B\le1-A\le1-a$, so
-$B\le\min\{g_c(1-a),1-a\}=\widehat g_c(1-a)$.  The final assertion follows in
-the same way.
+The closure of $T$ realizes $(a,B(T),c)$, so the definition of $g_c$ gives
+the outgoing bound. On a center-free edge, coverage gives
+$A(T_{\mathrm{next}})\ge1-B(T)$, and complementation proves the raw transfer.
+Under nonsupercriticality, $B(T)\le1-A(T)\le1-a$, so
+$B(T)\le\min\{g_c(1-a),1-a\}=\widehat g_c(1-a)$. The final assertion follows
+in the same way.
 \end{proof}
 
 \begin{proposition}[Zero-radial distinction]
@@ -210,27 +211,30 @@ a center trace $J$, and a right trace contained in $[1-q,1]$.  Then
 \[
  q\ge\mathcal R_J(p).
 \]
-For an actual V triangle define
+Define
 \[
  g_{c,J}^\vee(a)=\mathcal R_J(g_c(1-a)),
  \qquad
  \widehat g_{c,J}^\vee(a)=\mathcal R_J(\widehat g_c(1-a)).
 \]
+Apply these maps with $p=B(T)$ and $q=A(T_{\mathrm{next}})$, where $T$ is
+an actual V triangle satisfying $A(T)\ge a$ and $C(T)\ge c$, and
+$T_{\mathrm{next}}$ is the next incident actual V triangle.
 Then
 \begin{equation}
- A_{\rm next}\ge g_{c,J}^\vee(a),
+ A(T_{\mathrm{next}})\ge g_{c,J}^\vee(a),
  \label{eq:reader-generalized-raw-transfer}
 \end{equation}
-and the hatted version holds when the V triangle is nonsupercritical:
+and the hatted version holds when $T$ is nonsupercritical:
 \begin{equation}
- A_{\rm next}\ge\widehat g_{c,J}^\vee(a).
+ A(T_{\mathrm{next}})\ge\widehat g_{c,J}^\vee(a).
  \label{eq:reader-generalized-transfer}
 \end{equation}
 \end{lemma}
 
 \begin{proof}
 The component of $[0,p]\cup J$ containing $0$ is $[0,e_J(p)]$.  If
-$1-q>e_J(p)$, the intervening open interval is uncovered.  The transfer
+$1-q>e_J(p)$, the intervening open interval is uncovered. The transfer
 statements follow from Lemma~\ref{lem:reader-raw-capped-transfer} and the fact
 that $\mathcal R_J$ is nonincreasing.
 \end{proof}
@@ -242,15 +246,16 @@ For $0\le c<1/2$, define
  =\frac{c+\sqrt{c^2-8c+4}}2.
  \label{eq:reader-free-supercritical-envelope}
 \end{equation}
-The supremum is not attained.  Hence an actual strict-supercritical V triangle with
-radial demand at least $c$ satisfies
+The supremum is not attained. Hence an actual strict-supercritical V triangle
+$T$ with $C(T)\ge c$ satisfies
 \begin{equation}
- B<g_c^{\rm sc}.
+ B(T)<g_c^{\rm sc}.
  \label{eq:reader-free-outgoing-envelope}
 \end{equation}
-If, in addition, its outgoing edge is center-free, then coverage gives
+If, in addition, its outgoing edge is center-free and $T_{\mathrm{next}}$ is
+the next incident actual V triangle, then coverage gives
 \begin{equation}
- A_{\rm next}>1-g_c^{\rm sc}.
+ A(T_{\mathrm{next}})>1-g_c^{\rm sc}.
  \label{eq:reader-free-raw-envelope}
 \end{equation}
 The former notation was

@@ -335,12 +335,25 @@ For the original vertex role $U_i$, define its actual maximal incoming,
 outgoing, and radial reaches by
 \[
  \begin{aligned}
- A_i&=\sup\{t\in[0,1]:V_i+t(V_{i-1}-V_i)\in U_i\},\\
- B_i&=\sup\{t\in[0,1]:V_i+t(V_{i+1}-V_i)\in U_i\},\\
- C_i&=\sup\{t\in[0,1]:V_i+t(O-V_i)\in U_i\}.
+ A(U_i)&=
+ \sup_{\substack{t\in[0,1]\\V_i+t(V_{i-1}-V_i)\in U_i}}t,\\
+ B(U_i)&=
+ \sup_{\substack{t\in[0,1]\\V_i+t(V_{i+1}-V_i)\in U_i}}t,\\
+ C(U_i)&=
+ \sup_{\substack{t\in[0,1]\\V_i+t(O-V_i)\in U_i}}t.
  \end{aligned}
 \]
-Thus the closure $T_i$ contains the corresponding endpoints.  We reserve
+Closure does not change the suprema, so
+\[
+ A(U_i)=A(T_i),\qquad B(U_i)=B(T_i),\qquad C(U_i)=C(T_i).
+\]
+For compact indexed formulas, put
+\[
+ A_i:=A(U_i)=A(T_i),\qquad
+ B_i:=B(U_i)=B(T_i),\qquad
+ C_i:=C(U_i)=C(T_i).
+\]
+The closure $T_i$ contains the corresponding endpoints. We reserve
 lowercase $(a_i,b_i,c_i)$ for selected or prescribed lower-bound demands
 whenever actual and selected values occur together.  A realizing role then
 satisfies

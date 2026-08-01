@@ -39,22 +39,37 @@ are collected in Appendix~\ref{sec:structural-reductions}.
 
 \begin{definition}[Actual and selected skeleton-V-triangle reach coordinates]
 \label{def:body-row-coordinates}
-All indices lie in $\mathbb Z/6\mathbb Z$.  For the closed vertex role $T_i$,
-define
+All indices lie in $\mathbb Z/6\mathbb Z$. For a tagged open or closed
+$V_i$-triangle, the distinguished vertex $V_i$ is part of the role data and
+the reach functions are given by the following three suprema. At the closed
+vertex role $T_i$, define
 \[
  \begin{aligned}
- A_i&=\sup\{t\in[0,1]:
- V_i+t(V_{i-1}-V_i)\in T_i\},\\
- B_i&=\sup\{t\in[0,1]:
- V_i+t(V_{i+1}-V_i)\in T_i\},\\
- C_i&=\sup\{t\in[0,1]:
- V_i+t(O-V_i)\in T_i\}.
+ A(T_i)&=
+ \sup_{\substack{t\in[0,1]\\
+ V_i+t(V_{i-1}-V_i)\in T_i}}t,\\
+ B(T_i)&=
+ \sup_{\substack{t\in[0,1]\\
+ V_i+t(V_{i+1}-V_i)\in T_i}}t,\\
+ C(T_i)&=
+ \sup_{\substack{t\in[0,1]\\
+ V_i+t(O-V_i)\in T_i}}t.
  \end{aligned}
 \]
-The triple $(A_i,B_i,C_i)$ is the \emph{actual V-triangle reach data}.  A
+The functions give the incoming reach toward $V_{i-1}$, the outgoing reach
+toward $V_{i+1}$, and the own-radial reach toward $O$, respectively. Since
+$T_i=\overline{U_i}$, they satisfy
+\[
+ A(U_i)=A(T_i),\qquad B(U_i)=B(T_i),\qquad C(U_i)=C(T_i).
+\]
+For compact indexed formulas, put
+\[
+ (A_i,B_i,C_i):=(A(T_i),B(T_i),C(T_i)).
+\]
+The triple $(A(T_i),B(T_i),C(T_i))$ is the \emph{actual V-triangle reach data}. A
 \emph{selected demand triple} is any $(a_i,b_i,c_i)\in[0,1]^3$ satisfying
 \[
- (a_i,b_i,c_i)\le(A_i,B_i,C_i)
+ (a_i,b_i,c_i)\le(A(T_i),B(T_i),C(T_i))
 \]
 coordinatewise.  Define
 \[
@@ -63,12 +78,14 @@ coordinatewise.  Define
 The actual V triangle is nonsupercritical, critical, or strictly supercritical
 according as
 \[
- A_i+B_i<1,\qquad A_i+B_i=1,\qquad A_i+B_i>1,
+ A(T_i)+B(T_i)<1,\qquad
+ A(T_i)+B(T_i)=1,\qquad
+ A(T_i)+B(T_i)>1,
 \]
 respectively.  In particular,
 \[
  N_+=\left\lvert
- \left\{i\in\mathbb Z/6\mathbb Z:A_i+B_i>1\right\}
+ \left\lbrace i\in\mathbb Z/6\mathbb Z:A(T_i)+B(T_i)>1\right\rbrace
  \right\rvert
 \]
 is defined from actual data, never from a selected triple.
@@ -334,48 +351,47 @@ Figures~\ref{fig:transfer-row-skeleton}--\ref{fig:relaxed-composition-skeleton}
 give a visual reading of this alphabet.  In particular, $x$ is a
 complementary coordinate, not necessarily a geometrically uncovered segment,
 and $g_c(x)$ is an extremal admissible output rather than the actual reach
-$B$.
+$B(T)$.
 
 \begin{proposition}[Transfer interface]
 \label{prop:body-transfer-interface}
-Fix $a,c,B,A_{\rm next}\in[0,1]$ and $J\in\mathfrak J$.  Suppose an actual
-V triangle has incoming reach at least $a$, radial reach at least $c$, and actual
-outgoing reach $B$.  Let $A_{\rm next}$ be the actual incoming reach of the
-next incident V triangle.  When a center trace assists the handoff, $J$ is its
-scalar parameter interval on that edge.
+Fix $a,c\in[0,1]$ and $J\in\mathfrak J$. Let $T$ be an actual V triangle
+satisfying $A(T)\ge a$ and $C(T)\ge c$, and let $T_{\mathrm{next}}$ be the
+next incident actual V triangle. When a center trace assists the handoff,
+$J$ is its scalar parameter interval on that edge.
 \begin{enumerate}
 \item Always,
 \[
- B\le g_c(1-a).
+ B(T)\le g_c(1-a).
 \]
 If the outgoing edge is center-free, then
 \[
- A_{\rm next}\ge g_c^\vee(a).
+ A(T_{\mathrm{next}})\ge g_c^\vee(a).
 \]
-If the V triangle is nonsupercritical, then
+If $T$ is nonsupercritical, then
 \[
- B\le\widehat g_c(1-a),
+ B(T)\le\widehat g_c(1-a),
 \]
 and on a center-free outgoing edge
 \[
- A_{\rm next}\ge\widehat g_c^\vee(a)\ge a.
+ A(T_{\mathrm{next}})\ge\widehat g_c^\vee(a)\ge a.
 \]
 \item With a center interval $J$ on the handoff edge,
 \[
- A_{\rm next}\ge g_{c,J}^\vee(a),
+ A(T_{\mathrm{next}})\ge g_{c,J}^\vee(a),
 \]
-and, for a nonsupercritical V triangle,
+and, when $T$ is nonsupercritical,
 \[
- A_{\rm next}\ge\widehat g_{c,J}^\vee(a).
+ A(T_{\mathrm{next}})\ge\widehat g_{c,J}^\vee(a).
 \]
-\item If the V triangle is strictly supercritical, then necessarily
+\item If $T$ is strictly supercritical, then necessarily
 $0\le c<1/2$, and
 \[
- B<g_c^{\rm sc}.
+ B(T)<g_c^{\rm sc}.
 \]
 Only when its outgoing edge is center-free may this be complemented to
 \[
- A_{\rm next}>1-g_c^{\rm sc}.
+ A(T_{\mathrm{next}})>1-g_c^{\rm sc}.
 \]
 \item If nondecreasing maps $\underline\Phi_j$ are pointwise lower bounds for
 the exact V triangle transfers $\Phi_j$, then replacing any slots in a composition by

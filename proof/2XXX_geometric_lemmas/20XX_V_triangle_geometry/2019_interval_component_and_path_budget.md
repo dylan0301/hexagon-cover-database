@@ -105,14 +105,28 @@ separately by the strict-handoff theorem. $\square$
 
 ## 3. Generalized actual-V triangle transfer
 
+Use the actual reach functions of
+[`1202`](../../1XXX_foundations/12XX_V_triangle/1202_local_coordinates_abc.md).
 Let $g_c$ and $\widehat g_c$ be the raw and capped defect maps of
-[`201d`](201d_raw_and_relaxed_g_chains.md).  Suppose an actual V triangle has incoming
-reach at least $a$, radial reach at least $c$, and actual outgoing reach $B$.
-Then
+[`201d`](201d_raw_and_relaxed_g_chains.md). Suppose an actual V triangle $T$
+satisfies
 
 $$
-B\le g_c(1-a).
+A(T)\ge a,
+\qquad
+C(T)\ge c.
 $$
+
+The closure of $T$ realizes $(a,B(T),c)$, so
+
+$$
+B(T)\le g_c(1-a).
+$$
+
+Let $T_{\mathrm{next}}$ be the actual V triangle at the far endpoint of
+$T$'s outgoing edge. Let $J$ be the center trace on that edge, and assume the
+outgoing trace of $T$, the trace $J$, and the incoming trace of
+$T_{\mathrm{next}}$ cover the edge.
 
 Define the raw center-assisted reach transfer
 
@@ -127,17 +141,23 @@ $$
 The edge-handoff lemma and the monotonicity of $\mathcal R_J$ give
 
 $$
-A_{\rm next}
+A(T_{\mathrm{next}})
 \ge
-\mathcal R_J(B)
+\mathcal R_J(B(T))
 \ge
 g_{c,J}^\vee(a).
 $$
 
-If the actual V triangle is nonsupercritical, then
+If $T$ is nonsupercritical, then
 
 $$
-B\le\widehat g_c(1-a).
+B(T)\le1-A(T)\le1-a,
+$$
+
+and hence
+
+$$
+B(T)\le\widehat g_c(1-a).
 $$
 
 Define
@@ -154,7 +174,7 @@ Then
 
 $$
 \boxed{
-A_{\rm next}
+A(T_{\mathrm{next}})
 \ge
 \widehat g_{c,J}^\vee(a).
 }

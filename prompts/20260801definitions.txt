@@ -1,0 +1,7 @@
+ SupposeanactualV
+trianglehasincomingreachat leasta,radialreachat leastc,andoutgoingreachB
+these are too long to write every time, the terms.
+define new functions that take input the V triangles, and output the a b c values.
+a is counterclockwise side to the V triangle, and b is clockwise side.
+suggest
+ask me questions for details
