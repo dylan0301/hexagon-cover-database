@@ -1,0 +1,138 @@
+name: Apply 2026-08-02 proof repair
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - tools/repair_source/**
+      - .github/workflows/apply-proof-repair.yml
+
+permissions:
+  contents: write
+
+jobs:
+  repair-and-verify:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Apply, verify, compile, and record result
+        shell: bash
+        run: |
+          set +e
+          exec > >(tee /tmp/repair.log) 2>&1
+
+          cat > /tmp/chunk_checksums <<'EOF'
+          32778e031713177899cf052b48da604f4334ae3f6cd3510baace8f67555e0601  tools/repair_source/part00
+          878f7f08c2aee7b93effbc2f7a3857978d161ee6474cdaac70b9407c069d0275  tools/repair_source/part01
+          321d9a5b06c161a4aa8e15846336345429c64cc37cd36c16c37c0e11a3e81e74  tools/repair_source/part02
+          e5f17a0c1594d6f7eaf4626c73b7aa54b11ed6df14a21b1c1293fd8f8c01cd84  tools/repair_source/part03
+          27803b40658e92b1b78c93ceffb81ee707f423771b71f380d7b6d3e2d8a711c3  tools/repair_source/part04
+          a92db56e2f8ca2885c14d24842095d2cb1e27378ab0764880d865d840a920172  tools/repair_source/part05
+          b2af28891a5c8a1bace5dae1d51cf7229525b34b6fedafbc5c3f94c39c22a512  tools/repair_source/part06
+          ca0449d650ae34e325f5f27816b668ca0cf4c354c0abe58eb48bd9102e19aee7  tools/repair_source/part07
+          07e2192195a24d4e9a4a38d0e920183cdae5967ef488e3b10d11bcd4ce9b363e  tools/repair_source/part08
+          385b37195ac178dc58fa6f7b3a4fd992079267bb49873434c2a0ecda1ea362c1  tools/repair_source/part09
+          EOF
+
+          sha256sum -c /tmp/chunk_checksums
+          status=$?
+
+          if [ "$status" -eq 0 ]; then
+            cat tools/repair_source/part* > tools/apply_20260802_repair.py
+            echo '5d54eccdf96d97d9b5e6cd8bf8691b66599d83b7d53c44975d0c99aa705141fd  tools/apply_20260802_repair.py' | sha256sum -c -
+            status=$?
+          fi
+
+          if [ "$status" -eq 0 ]; then
+            python -m py_compile tools/apply_20260802_repair.py
+            status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python tools/apply_20260802_repair.py
+            status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python tools/proof_lint.py
+            status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            pip install sympy
+            status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            (
+              cd proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation
+              python verify_mixed_overlap_core_derivation.py
+              python verify_global_core_positivity.py
+            )
+            status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            sudo apt-get update
+            sudo apt-get install -y latexmk texlive-xetex texlive-latex-extra texlive-fonts-recommended poppler-utils
+            status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            (
+              cd arrange/paper_draft
+              latexmk -xelatex -interaction=nonstopmode -halt-on-error main.tex
+              pdfinfo main.pdf | tee /tmp/pdfinfo.txt
+              pages=$(awk '/^Pages:/ {print $2}' /tmp/pdfinfo.txt)
+              test -n "$pages"
+              mkdir -p /tmp/rendered
+              pdftoppm -f 1 -singlefile -png -r 96 main.pdf /tmp/rendered/first
+              pdftoppm -f "$pages" -singlefile -png -r 96 main.pdf /tmp/rendered/last
+              test -s /tmp/rendered/first.png
+              test -s /tmp/rendered/last.png
+              python - "$pages" <<'PY'
+          from pathlib import Path
+          import sys
+          pages = sys.argv[1]
+          path = Path('../../arrange/20260802_repair_and_reaudit.md')
+          text = path.read_text(encoding='utf-8').replace('BUILD_PAGE_COUNT', pages)
+          path.write_text(text, encoding='utf-8')
+          PY
+            )
+            status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python tools/proof_lint.py
+            status=$?
+          fi
+
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+
+          if [ "$status" -eq 0 ]; then
+            rm -rf tools/repair_source tools/repair_payload tools/apply_20260802_repair.py
+            rm -f .github/workflows/apply-proof-repair.yml
+            rm -f arrange/repair_failure.log
+            git add -A
+            git commit -m 'repair 4147 and consolidate proof verification'
+            git push origin HEAD:main
+            exit 0
+          fi
+
+          cp /tmp/repair.log arrange/repair_failure.log
+          git add arrange/repair_failure.log
+          git commit -m 'record proof repair workflow failure' || true
+          git push origin HEAD:main || true
+          exit "$status"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: repair-validation-output
+          path: |
+            arrange/paper_draft/main.pdf
+            arrange/repair_failure.log
+            /tmp/repair.log
+            /tmp/rendered/first.png
+            /tmp/rendered/last.png
+          if-no-files-found: warn
