@@ -1,0 +1,4 @@
+Final proof-audit repair failed.
+Source commit: 365d83dbf413b8414e4ae65aae9c5acae258626a
+Run: https://github.com/dylan0301/hexagon-cover-database/actions/runs/30733664141
+Inspect the workflow job log for the failing command.
