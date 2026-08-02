@@ -5,7 +5,7 @@ on:
   push:
     branches: [main]
     paths:
-      - tools/final_cleanup_v2.py.gz.b64
+      - tools/final_cleanup_v3.py
       - .github/workflows/finalize-repair.yml
 
 permissions:
@@ -37,8 +37,7 @@ jobs:
       - name: Apply audited source cleanup
         run: |
           set -euo pipefail
-          base64 --decode tools/final_cleanup_v2.py.gz.b64 | gzip -d > tools/final_cleanup_20260802.py
-          python tools/final_cleanup_20260802.py
+          python tools/final_cleanup_v3.py
 
       - name: Check dependency statuses, notation, source graph, and whitespace
         run: |
@@ -117,8 +116,7 @@ jobs:
       - name: Commit verified source and rebuilt PDF directly to main
         run: |
           set -euo pipefail
-          rm -f tools/final_cleanup_20260802.py
-          rm -f tools/final_cleanup_v2.py.gz.b64
+          rm -f tools/final_cleanup_20260802.py tools/final_cleanup_v3.py tools/final_cleanup_v2.py.gz.b64
           rm -f .github/workflows/finalize-repair.yml
           rm -f arrange/final_cleanup_failure.log arrange/finalization_started.txt
 
