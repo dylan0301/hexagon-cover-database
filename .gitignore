@@ -1,2 +1,12 @@
 __pycache__/
 *.pyc
+
+# Paper build intermediates; the rebuilt PDF remains tracked.
+arrange/paper_draft/main.aux
+arrange/paper_draft/main.fdb_latexmk
+arrange/paper_draft/main.fls
+arrange/paper_draft/main.log
+arrange/paper_draft/main.out
+arrange/paper_draft/main.toc
+arrange/paper_draft/main.xdv
+arrange/paper_draft/main.synctex.gz

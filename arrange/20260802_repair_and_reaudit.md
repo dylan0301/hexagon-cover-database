@@ -48,3 +48,16 @@ terminal is invoked outside its proved domain. The main theorem status remains
 - `verify_global_core_positivity.py`: passed.
 - `latexmk -xelatex -halt-on-error main.tex`: passed.
 - PDF page count: 136.
+
+## Independent post-commit source audit
+
+A second read of the committed tree found and repaired three nonmathematical
+defects: the remaining `\nu_{\rm adj}` transcription in the Markdown source,
+two unexpanded TeX spacing placeholders, and stale duplicated architecture
+documentation. The review also removed accidentally committed LaTeX
+intermediates and strengthened the linter to reject recurrence. No new defect
+was found in the two-chart reach calculation, skeleton preservation, the
+strengthened `4013` rank split, `2110`, or the exhaustive `414b` placement
+audit.
+
+Final rebuilt PDF page count: 129.

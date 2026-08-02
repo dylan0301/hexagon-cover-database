@@ -63,7 +63,7 @@ $$
 are Vd0 V triangles satisfying
 
 $$
-a_i+b_i\le1,\qquad i=2,3,4,5.
+A_i+B_i\le1,\qquad i=2,3,4,5.
 $$
 
 ## Proof
@@ -133,7 +133,7 @@ branch assumption no V triangle is Vd1 or Vd2. Hence they are Vd0 V triangles. S
 are not supercritical,
 
 $$
-a_i+b_i\le1,\qquad i=2,3,4,5.
+A_i+B_i\le1,\qquad i=2,3,4,5.
 $$
 
 This proves the reduction.

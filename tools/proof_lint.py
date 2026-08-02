@@ -94,6 +94,32 @@ for old in [
 if (ROOT / "arrange/paper_draft/appendix_exact_mixed_overlap.tex").exists():
     fail("duplicate Strategy 4 certificate file still exists")
 
+strategy2_text = (ROOT / "arrange/paper_draft/04_strategy2_verification.tex").read_text(encoding="utf-8")
+for stale in [
+    "% ---- formerly 04_strategy2_verification.tex ----",
+    "explicit open Vd0 axis replacements",
+    "preserving every boundary and radial demand used by Proposition~\\ref{prop:nplus-zero-all-vd0}",
+]:
+    if stale in strategy2_text:
+        fail(f"stale consolidated Strategy 2 text: {stale}")
+
+ledger = (ROOT / "arrange/paper_draft/source_ledger.md").read_text(encoding="utf-8")
+technical = ledger.split("### Technical appendices", 1)[1].split("The body-end label", 1)[0]
+if technical.count("`04_strategy2_verification.tex`") != 1:
+    fail("source ledger must list the consolidated Strategy 2 appendix exactly once")
+
+ignore_text = (ROOT / ".gitignore").read_text(encoding="utf-8")
+for ignored in [
+    "arrange/paper_draft/main.aux",
+    "arrange/paper_draft/main.fdb_latexmk",
+    "arrange/paper_draft/main.fls",
+    "arrange/paper_draft/main.log",
+    "arrange/paper_draft/main.toc",
+    "arrange/paper_draft/main.xdv",
+]:
+    if ignored not in ignore_text:
+        fail(f"missing LaTeX-intermediate ignore rule: {ignored}")
+
 # Terminology and notation checks on active proofs and compiled TeX.
 scan_paths = {ROOT / line.split("|", 1)[0] for line in active.read_text(encoding="utf-8").splitlines() if line and not line.startswith("#")}
 scan_paths |= compiled
@@ -124,6 +150,9 @@ known_bad = {
     r"\nu_A<u_B": "31054 coordinate typo nu_A",
     r"T_C\cap e_{5,0}=\[x,u\]": "CE2 endpoint should be Greek nu",
     r"\nu_2<1-H": "4144 local endpoint should be Latin u",
+    r"\nu_{\rm adj}": "4147 adjacent radial endpoint should be Latin u",
+    r"\teq": "unexpanded TeX spacing placeholder \\teq",
+    r"\tep": "unexpanded TeX spacing placeholder \\tep",
 }
 all_active_text = "\n".join(path.read_text(encoding="utf-8") for path in scan_paths if path.is_file())
 for token, desc in known_bad.items():
@@ -139,6 +168,25 @@ proof_4013 = (ROOT / "proof/4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss/4
 for token in ["skeleton-level form", "cover the full hexagon skeleton", "Skeleton coverage supplies the radial demands"]:
     if token not in proof_4013:
         fail(f"4013 missing skeleton strengthening: {token}")
+
+
+additional_bad = {
+    r"\nu=\frac{d-a-tb-1}{t}": "local radial endpoint must use Latin u",
+    r"\nu=1-\frac{R_{\rm loc}}D+a": "T3-like local radial endpoint must use Latin u",
+    r"\nu_2<1-H": "4144 local endpoint must be u_{1\\to2}",
+    r"\nu_A<u_B": "31054 local coordinate must be u_A",
+    r"\nuS": "signed CE2 endpoint product is missing a separator",
+    r"\nu=\frac{\delta}{1-\lambda}": "4075 local endpoint must use Latin u",
+    r"a_i+b_i\le1,\qquad i=2,3,4,5.": "4131 nonsupercritical conclusion must use actual reaches",
+}
+for token, description in additional_bad.items():
+    if token in all_active_text:
+        fail(description)
+
+required_4131 = ROOT / "proof/4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like/4131_midpoint_forcing_reduction.md"
+text_4131 = required_4131.read_text(encoding="utf-8")
+if r"A_i+B_i\le1,\qquad i=2,3,4,5." not in text_4131:
+    fail("4131 is missing the actual-reach nonsupercritical conclusion")
 
 if ERRORS:
     print("proof_lint: FAILED", file=sys.stderr)

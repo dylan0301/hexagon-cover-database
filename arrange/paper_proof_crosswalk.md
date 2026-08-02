@@ -1,9 +1,9 @@
 # Paper-to-Proof Crosswalk
 
-Branch: `agent/body-appendix-separation`  
-Paper root: `arrange/paper_draft/`  
-Proof-package root: `proof/`  
-Last structural audit: 2026-07-28
+Branch: `main`
+Paper root: `arrange/paper_draft/`
+Proof-package root: `proof/`
+Last structural audit: 2026-08-02
 
 ## 0. Purpose and authority
 
@@ -36,6 +36,15 @@ single authenticated certificate together with the mathematical reductions in
 | **X** | Historical, optional, failed, or otherwise inactive source |
 
 All repository links below are relative to this file in `arrange/`.
+
+### 2026-08-02 canonical-source update
+
+All detailed Strategy 2 TeX verification now lives in
+`paper_draft/04_strategy2_verification.tex`. The corrected `4147` proof uses
+separate charts at the two distinguished vertices and preserves the full
+skeleton; the invoked `4013` theorem is stated at skeleton-data strength.
+`06a_strategy4_exact_certificate.tex` is the only mixed-overlap certificate
+source.
 
 ---
 

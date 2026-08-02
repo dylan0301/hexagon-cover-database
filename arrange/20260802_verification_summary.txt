@@ -1,0 +1,8 @@
+Final proof and paper verification
+==================================
+proof_lint.py: PASS
+verify_mixed_overlap_core_derivation.py: PASS
+verify_global_core_positivity.py: PASS
+latexmk -xelatex -halt-on-error main.tex: PASS
+PDF pages rendered: 129
+PDF SHA-256: 0abb43b056c240f60bed5e45d5cfc0f05f13025f914717ca294c3ddf37822d8b

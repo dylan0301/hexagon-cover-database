@@ -104,7 +104,7 @@ Gram reductions, Bernstein data, code listings, or run logs.
 
 ### 3.2 Technical appendices
 
-Use this order after `\appendix`:
+Use this order after `\\appendix`:
 
 ```text
 appendix_roadmap.tex
@@ -116,66 +116,53 @@ appendix_roadmap.tex
 04b_common_CE1_CE2_budgets.tex
 04c_short_Vd_placements.tex
 04_strategy2_verification.tex
-04_strategy2_verification.tex
-04_strategy2_verification.tex
-04_strategy2_verification.tex
-04_strategy2_verification.tex
 05_strategy3_area.tex
 06_strategy4_ab_core.tex
 06a_strategy4_exact_certificate.tex
 appendix_symbols.tex
 ```
 
-The roles of the added verification files are:
+The consolidated `04_strategy2_verification.tex` is the sole detailed
+Strategy 2 appendix source. It contains the chain overview, exact local demand
+calculus, complete incorporated `407X` audit, corrected two-chart Vd1
+replacement, and authoritative CE2 exactly-one-Vd placement assembly.
 
-- `02b`: complete support derivation, polynomial cells, selectors, radial
-  envelope;
-- `04d`: formally incorporated complete `407X` branch audit and full Vd1 axis
-  replacement;
-- `04e`: authoritative CE2 exactly-one-Vd1/Vd2 placement assembly;
-- `04f`: declares the later complete Strategy 2 propositions authoritative for
-  the earlier compact summary statements;
-- `06a`: exact mixed-overlap reduction, certificate manifest, positive-basis
-  verification, and residual-to-cap geometry.
-
-`06_strategy4_ab_core.tex` owns its nested caliper and preliminary mixed
-reduction inputs. Do not input those nested files separately from `main.tex`.
+`06a_strategy4_exact_certificate.tex` is the sole source for the mixed cap
+overlap certificate. `06_strategy4_ab_core.tex` contains the analytic witness
+geometry and cites that certificate; it must not input a duplicate certificate
+file.
 
 ## 4. Required `main.tex` assembly
 
 ```latex
-\input{01_introduction}
-\input{02_reader_framework}
-\input{03_strategy1_reader}
-\input{04_strategy2_summary}
-\input{05_strategy3_reader}
-\input{06_strategy4_reader}
-\input{07_exhaustive_assembly}
-\label{page:proof-body-end}
+\\input{01_introduction}
+\\input{02_reader_framework}
+\\input{03_strategy1_reader}
+\\input{04_strategy2_summary}
+\\input{05_strategy3_reader}
+\\input{06_strategy4_reader}
+\\input{07_exhaustive_assembly}
+\\label{page:proof-body-end}
 
-\clearpage
-\appendix
-\input{appendix_roadmap}
-\input{02_structural_reductions}
-\input{02a_universal_calculus}
-\input{02b_admissible_set_derivation}
-\input{04a_signed_center_calculus}
-\input{03_strategy1_length}
-\input{04b_common_CE1_CE2_budgets}
-\input{04c_short_Vd_placements}
-\input{04_strategy2_reader}
-\input{04_strategy2_exact_demand}
-\input{04d_strategy2_rigor_completion}
-\input{04e_strategy2_placement_assembly}
-\input{04f_strategy2_cross_reference_closure}
-\input{05_strategy3_area}
-\input{06_strategy4_ab_core}
-\input{06a_strategy4_exact_certificate}
-\input{appendix_symbols}
+\\clearpage
+\\appendix
+\\input{appendix_roadmap}
+\\input{02_structural_reductions}
+\\input{02a_universal_calculus}
+\\input{02b_admissible_set_derivation}
+\\input{04a_signed_center_calculus}
+\\input{03_strategy1_length}
+\\input{04b_common_CE1_CE2_budgets}
+\\input{04c_short_Vd_placements}
+\\input{04_strategy2_verification}
+\\input{05_strategy3_area}
+\\input{06_strategy4_ab_core}
+\\input{06a_strategy4_exact_certificate}
+\\input{appendix_symbols}
 ```
 
-Place `\raggedbottom` after `\begin{document}`. Include a bibliography only for
-verified external citations.
+Place `\\raggedbottom` after `\\begin{document}`. Include a bibliography only
+for verified external citations.
 
 ## 5. Paper-wide notation
 

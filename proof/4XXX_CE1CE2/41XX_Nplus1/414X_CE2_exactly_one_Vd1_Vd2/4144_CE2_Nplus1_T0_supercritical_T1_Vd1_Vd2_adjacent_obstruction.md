@@ -305,7 +305,7 @@ Otherwise orient the corner normal form toward that supported arm.  The
 supported-arm margin `201c`, together with $b_1\ge H$, gives
 
 $$
-u_2<1-H<1-\delta=q_2.
+u_{1\to2}<1-H<1-\delta=q_2.
 $$
 
 Here $u_{1\to2}$ denotes the far endpoint of the supported $T_1$ trace on $r_2$. Thus $T_1$ cannot meet the center interval.

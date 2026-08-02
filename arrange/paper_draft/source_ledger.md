@@ -41,20 +41,16 @@ calculation lemma without the appendices and incorporated supplements.
 |---|---|
 | `appendix_roadmap.tex` | verification guide and proof-layer disclaimer |
 | `02_structural_reductions.tex` | classifications, reaches, gaps, handoffs, routing |
-| `02a_universal_calculus.tex` | corrected transfers, residuals, center-free path budget |
+| `02a_universal_calculus.tex` | transfers, residuals, center-free path budget |
 | `02b_admissible_set_derivation.tex` | support derivation, cells, selectors, radial envelope |
 | `04a_signed_center_calculus.tex` | signed CE1/CE2 equations, traces, exits, one-gap interface |
 | `03_strategy1_length.tex` | perimeter and skeleton trace calculations |
 | `04b_common_CE1_CE2_budgets.tex` | master deficit, short-role count, common budgets |
-| `04c_short_Vd_placements.tex` | quarter envelope, profiles, radial separations |
-| `04_strategy2_verification.tex` | actual V triangle chains and corrected terminal coordinates |
-| `04_strategy2_verification.tex` | contact cells, endpoint inequalities, CE1 scalar proof |
-| `04_strategy2_verification.tex` | incorporated complete `407X` branch audit and full Vd1 replacement |
-| `04_strategy2_verification.tex` | authoritative CE2 one-Vd assembly |
-| `04_strategy2_verification.tex` | declares later complete proofs authoritative for compact legacy summaries |
+| `04c_short_Vd_placements.tex` | quarter envelope, rescuer profiles, radial separations |
+| `04_strategy2_verification.tex` | consolidated Strategy 2 chains, exact endpoint calculus, complete `407X` audit, two-chart replacement, and CE2 one-Vd assembly |
 | `05_strategy3_area.tex` | local area inequalities and cyclic certificates |
 | `06_strategy4_ab_core.tex` | frontier, forcing, Newton reduction, adjacent overlaps |
-| `06a_strategy4_exact_certificate.tex` | mixed reduction, manifest, Bernstein proof, cap geometry |
+| `06a_strategy4_exact_certificate.tex` | sole mixed-overlap certificate source: reduction, manifest, Bernstein proof, cap geometry |
 | `appendix_symbols.tex` | notation cross-reference |
 
 The body-end label remains immediately before `\appendix`.  The body has no
