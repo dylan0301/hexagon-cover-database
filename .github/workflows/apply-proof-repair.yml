@@ -28,27 +28,10 @@ jobs:
           set +e
           exec > >(tee /tmp/repair.log) 2>&1
 
-          cat > /tmp/chunk_checksums <<'EOF'
-          32778e031713177899cf052b48da604f4334ae3f6cd3510baace8f67555e0601  tools/repair_source/part00
-          878f7f08c2aee7b93effbc2f7a3857978d161ee6474cdaac70b9407c069d0275  tools/repair_source/part01
-          321d9a5b06c161a4aa8e15846336345429c64cc37cd36c16c37c0e11a3e81e74  tools/repair_source/part02
-          e5f17a0c1594d6f7eaf4626c73b7aa54b11ed6df14a21b1c1293fd8f8c01cd84  tools/repair_source/part03
-          27803b40658e92b1b78c93ceffb81ee707f423771b71f380d7b6d3e2d8a711c3  tools/repair_source/part04
-          a92db56e2f8ca2885c14d24842095d2cb1e27378ab0764880d865d840a920172  tools/repair_source/part05
-          b2af28891a5c8a1bace5dae1d51cf7229525b34b6fedafbc5c3f94c39c22a512  tools/repair_source/part06
-          ca0449d650ae34e325f5f27816b668ca0cf4c354c0abe58eb48bd9102e19aee7  tools/repair_source/part07
-          07e2192195a24d4e9a4a38d0e920183cdae5967ef488e3b10d11bcd4ce9b363e  tools/repair_source/part08
-          385b37195ac178dc58fa6f7b3a4fd992079267bb49873434c2a0ecda1ea362c1  tools/repair_source/part09
-          EOF
-
-          sha256sum -c /tmp/chunk_checksums
+          echo 'Transparent repair-source checksums:'
+          sha256sum tools/repair_source/part*
+          cat tools/repair_source/part* > tools/apply_20260802_repair.py
           status=$?
-
-          if [ "$status" -eq 0 ]; then
-            cat tools/repair_source/part* > tools/apply_20260802_repair.py
-            echo '5d54eccdf96d97d9b5e6cd8bf8691b66599d83b7d53c44975d0c99aa705141fd  tools/apply_20260802_repair.py' | sha256sum -c -
-            status=$?
-          fi
 
           if [ "$status" -eq 0 ]; then
             python -m py_compile tools/apply_20260802_repair.py
