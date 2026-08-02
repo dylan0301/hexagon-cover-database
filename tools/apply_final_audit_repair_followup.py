@@ -20,7 +20,7 @@ def replace_section(text: str, start: str, end: str, replacement: str) -> str:
 
 
 # Remove the legacy convention in which lowercase letters could sometimes mean
-# actual reaches.  Uppercase is now actual everywhere; lowercase is selected.
+# actual reaches. Uppercase is now actual everywhere; lowercase is selected.
 relative = 'proof/1XXX_foundations/12XX_V_triangle/1212_vertex_V_triangles_and_Nplus.md'
 text = read(relative)
 text = replace_section(
@@ -104,10 +104,11 @@ old = '''    compact = re.sub(r"\\s+", "", text)
         fail(f"N_+ is defined from selected lowercase reaches in {relative}")
 '''
 new = '''    compact = re.sub(r"\\s+", "", text)
-    if re.search(
-        r"N_\\+=\\left\\lvert\\left(?:\\lbrace|\\\\\\{)i:a_i\\+b_i>1",
-        compact,
-    ):
+    lowercase_nplus_tokens = (
+        r"N_+=\\left\\lvert\\left\\lbracei:a_i+b_i>1",
+        r"N_+=\\left\\lvert\\left\\{i:a_i+b_i>1",
+    )
+    if any(token in compact for token in lowercase_nplus_tokens):
         fail(f"N_+ is defined from selected lowercase reaches in {relative}")
 '''
 if old not in text:
