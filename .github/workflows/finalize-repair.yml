@@ -37,11 +37,11 @@ jobs:
       - name: Apply audited source cleanup
         run: |
           set -euo pipefail
-          # Seed only the legacy/intermediate tokens expected by the one-time
-          # migrations. Both scripts immediately emit the canonical notation.
           python - <<'PY'
           from pathlib import Path
 
+          # Seed the two legacy 4147 tokens expected by the first one-time
+          # migration; it immediately restores the canonical Latin-u form.
           p4147 = Path('proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4147_CE2_Nplus1_Vd1_supercritical_pair_axis_replacement.md')
           text = p4147.read_text(encoding='utf-8')
           legacy = r'\nu_{\rm adj}'
@@ -53,29 +53,35 @@ jobs:
           elif text.count(legacy) != 2:
               raise SystemExit(f'unexpected legacy 4147 endpoint-token count: {text.count(legacy)}')
 
-          # The current 4144 proof uses the intermediate Latin name u_2.
-          # Seed the legacy token so v3 rewrites it to directed u_{1\to2}.
+          # Route the intermediate 4144 name u_2 through the canonical
+          # directed endpoint u_{1\to2}; synchronize compiled TeX as well.
           p4144 = Path('proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4144_CE2_Nplus1_T0_supercritical_T1_Vd1_Vd2_adjacent_obstruction.md')
           text = p4144.read_text(encoding='utf-8')
           if r'u_{1\to2}<1-H' not in text and r'\nu_2<1-H' not in text:
               if text.count(r'u_2<1-H') != 1:
                   raise SystemExit(f'unexpected 4144 intermediate endpoint count: {text.count(r"u_2<1-H")}')
               p4144.write_text(text.replace(r'u_2<1-H', r'\nu_2<1-H', 1), encoding='utf-8')
-
           for tex in Path('arrange/paper_draft').rglob('*.tex'):
               text = tex.read_text(encoding='utf-8')
               if r'u_2<1-H' in text:
                   tex.write_text(text.replace(r'u_2<1-H', r'\nu_2<1-H'), encoding='utf-8')
 
-          # Make the final notation migration idempotent: an already-present
-          # canonical replacement is success, not a missing-input failure.
+          # Make the final notation migration idempotent and remove stale
+          # occurrence-count assumptions. Final assertions and proof_lint.py
+          # verify that all intended replacements landed.
           script = Path('tools/final_cleanup_v3.py')
           source = script.read_text(encoding='utf-8')
-          old = '''    if actual == 0:\n        raise RuntimeError(f"{rel}: required text not found: {old!r}")\n    if count is not None and actual != count:\n'''
-          new = '''    if actual == 0:\n        if new in text:\n            return\n        raise RuntimeError(f"{rel}: required text not found: {old!r}")\n    if count is not None and actual != count:\n'''
-          if old not in source:
-              raise SystemExit('final_cleanup_v3.py helper signature changed unexpectedly')
-          script.write_text(source.replace(old, new, 1), encoding='utf-8')
+          old_missing = '''    if actual == 0:\n        raise RuntimeError(f"{rel}: required text not found: {old!r}")\n'''
+          new_missing = '''    if actual == 0:\n        if new in text:\n            return\n        raise RuntimeError(f"{rel}: required text not found: {old!r}")\n'''
+          if old_missing not in source:
+              raise SystemExit('final_cleanup_v3.py missing-input helper changed unexpectedly')
+          source = source.replace(old_missing, new_missing, 1)
+
+          old_count = '''    if count is not None and actual != count:\n        raise RuntimeError(f"{rel}: expected {count} copies, found {actual}: {old!r}")\n    write(rel, text.replace(old, new))\n'''
+          new_count = '''    write(rel, text.replace(old, new))\n'''
+          if old_count not in source:
+              raise SystemExit('final_cleanup_v3.py count-check helper changed unexpectedly')
+          script.write_text(source.replace(old_count, new_count, 1), encoding='utf-8')
           PY
           python tools/final_cleanup_v3.py
 
