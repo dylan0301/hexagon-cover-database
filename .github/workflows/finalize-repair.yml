@@ -37,9 +37,8 @@ jobs:
       - name: Apply audited source cleanup
         run: |
           set -euo pipefail
-          # The first cleanup is a one-time migration expecting exactly two
-          # legacy 4147 tokens. Seed exactly two in the working tree; it
-          # immediately restores the canonical Latin-u notation.
+          # Seed only the legacy/intermediate tokens expected by the one-time
+          # migrations. Both scripts immediately emit the canonical notation.
           python - <<'PY'
           from pathlib import Path
 
@@ -53,6 +52,20 @@ jobs:
               p4147.write_text(text.replace(canonical, legacy, 2), encoding='utf-8')
           elif text.count(legacy) != 2:
               raise SystemExit(f'unexpected legacy 4147 endpoint-token count: {text.count(legacy)}')
+
+          # The current 4144 proof uses the intermediate Latin name u_2.
+          # Seed the legacy token so v3 rewrites it to directed u_{1\to2}.
+          p4144 = Path('proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4144_CE2_Nplus1_T0_supercritical_T1_Vd1_Vd2_adjacent_obstruction.md')
+          text = p4144.read_text(encoding='utf-8')
+          if r'u_{1\to2}<1-H' not in text and r'\nu_2<1-H' not in text:
+              if text.count(r'u_2<1-H') != 1:
+                  raise SystemExit(f'unexpected 4144 intermediate endpoint count: {text.count(r"u_2<1-H")}')
+              p4144.write_text(text.replace(r'u_2<1-H', r'\nu_2<1-H', 1), encoding='utf-8')
+
+          for tex in Path('arrange/paper_draft').rglob('*.tex'):
+              text = tex.read_text(encoding='utf-8')
+              if r'u_2<1-H' in text:
+                  tex.write_text(text.replace(r'u_2<1-H', r'\nu_2<1-H'), encoding='utf-8')
 
           # Make the final notation migration idempotent: an already-present
           # canonical replacement is success, not a missing-input failure.
