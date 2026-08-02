@@ -37,6 +37,23 @@ jobs:
       - name: Apply audited source cleanup
         run: |
           set -euo pipefail
+          # The first cleanup was written as a one-time migration. Restore its
+          # expected pre-migration token in the working tree only; the cleanup
+          # immediately rewrites it to the canonical Latin-u notation.
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4147_CE2_Nplus1_Vd1_supercritical_pair_axis_replacement.md')
+          text = path.read_text(encoding='utf-8')
+          old = r'\nu_{\rm adj}'
+          new = r'u_{\rm adj}'
+          if text.count(old) == 0:
+              if text.count(new) != 2:
+                  raise SystemExit(f'unexpected 4147 endpoint-token count: {text.count(new)}')
+              text = text.replace(new, old)
+              path.write_text(text, encoding='utf-8')
+          elif text.count(old) != 2:
+              raise SystemExit(f'unexpected legacy 4147 endpoint-token count: {text.count(old)}')
+          PY
           python tools/final_cleanup_v3.py
 
       - name: Check dependency statuses, notation, source graph, and whitespace
