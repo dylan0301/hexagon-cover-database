@@ -37,22 +37,33 @@ jobs:
       - name: Apply audited source cleanup
         run: |
           set -euo pipefail
-          # The first cleanup was written as a one-time migration expecting
-          # exactly two legacy endpoint tokens. Seed exactly two such tokens
-          # in the working tree; the cleanup immediately restores canonical u.
+          # The cleanup files are one-time migrations. Seed only the exact
+          # legacy tokens they expect in the working tree; both migrations
+          # immediately restore the canonical notation before verification.
           python - <<'PY'
           from pathlib import Path
-          path = Path('proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4147_CE2_Nplus1_Vd1_supercritical_pair_axis_replacement.md')
-          text = path.read_text(encoding='utf-8')
-          old = r'\nu_{\rm adj}'
-          new = r'u_{\rm adj}'
-          if text.count(old) == 0:
-              if text.count(new) < 2:
-                  raise SystemExit(f'insufficient 4147 endpoint tokens: {text.count(new)}')
-              text = text.replace(new, old, 2)
-              path.write_text(text, encoding='utf-8')
-          elif text.count(old) != 2:
-              raise SystemExit(f'unexpected legacy 4147 endpoint-token count: {text.count(old)}')
+
+          p4147 = Path('proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4147_CE2_Nplus1_Vd1_supercritical_pair_axis_replacement.md')
+          text = p4147.read_text(encoding='utf-8')
+          legacy = r'\nu_{\rm adj}'
+          canonical = r'u_{\rm adj}'
+          if text.count(legacy) == 0:
+              if text.count(canonical) < 2:
+                  raise SystemExit(f'insufficient 4147 endpoint tokens: {text.count(canonical)}')
+              p4147.write_text(text.replace(canonical, legacy, 2), encoding='utf-8')
+          elif text.count(legacy) != 2:
+              raise SystemExit(f'unexpected legacy 4147 endpoint-token count: {text.count(legacy)}')
+
+          p4132 = Path('proof/4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like/4132_CE1_CE2_exactly_one_T3_like_boundary_obstruction.md')
+          text = p4132.read_text(encoding='utf-8')
+          legacy = r'\nu=1-'
+          canonical = r'u=1-'
+          if text.count(legacy) == 0:
+              if text.count(canonical) < 1:
+                  raise SystemExit('missing canonical 4132 local endpoint')
+              p4132.write_text(text.replace(canonical, legacy, 1), encoding='utf-8')
+          elif text.count(legacy) != 1:
+              raise SystemExit(f'unexpected legacy 4132 endpoint-token count: {text.count(legacy)}')
           PY
           python tools/final_cleanup_v3.py
 
