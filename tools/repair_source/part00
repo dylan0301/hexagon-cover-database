@@ -34,7 +34,7 @@ def replace_exact(rel: str, old: str, new: str, *, count: int = 1) -> None:
 
 def replace_regex(rel: str, pattern: str, repl: str, *, count: int = 1, flags: int = re.S) -> None:
     text = read(rel)
-    new_text, actual = re.subn(pattern, repl, text, count=count, flags=flags)
+    new_text, actual = re.subn(pattern, lambda _match: repl, text, count=count, flags=flags)
     if actual != count:
         raise RuntimeError(f"{rel}: expected {count} regex replacement(s), found {actual}: {pattern}")
     write(rel, new_text)
