@@ -7,8 +7,9 @@ e5f17a0c1594d6f7eaf4626c73b7aa54b11ed6df14a21b1c1293fd8f8c01cd84  tools/repair_s
 b798afda9058575035570aed391453a386c92825c164e456a30f384699c5aae1  tools/repair_source/part05
 c875fbcdbafd287fcb08adbf64a514eb9a28216945318dfd13730099aa29e097  tools/repair_source/part06
 ca0449d650ae34e325f5f27816b668ca0cf4c354c0abe58eb48bd9102e19aee7  tools/repair_source/part07
-07e2192195a24d4e9a4a38d0e920183cdae5967ef488e3b10d11bcd4ce9b363e  tools/repair_source/part08
+659018dac85e1278c09e26742dbfd61ddbbc3dd2bdf3b4251b3c27af4f654fa6  tools/repair_source/part08
 385b37195ac178dc58fa6f7b3a4fd992079267bb49873434c2a0ecda1ea362c1  tools/repair_source/part09
 2026-08-02 repair patch applied
 proof_lint: FAILED
 - N_+ appears to be defined from selected reaches in proof/3XXX_CE0/30XX_Nplus0/3010_CE0_perimeter_length_obstruction.md
+- N_+ appears to be defined from selected reaches in proof/3XXX_CE0/32XX_Nplus_ge2/3201_area_conjecture_index.md
