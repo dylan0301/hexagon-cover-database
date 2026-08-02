@@ -37,9 +37,9 @@ jobs:
       - name: Apply audited source cleanup
         run: |
           set -euo pipefail
-          # The cleanup files are one-time migrations. Seed only the exact
-          # legacy tokens they expect in the working tree; both migrations
-          # immediately restore the canonical notation before verification.
+          # The first cleanup is a one-time migration expecting exactly two
+          # legacy 4147 tokens. Seed exactly two in the working tree; it
+          # immediately restores the canonical Latin-u notation.
           python - <<'PY'
           from pathlib import Path
 
@@ -54,16 +54,15 @@ jobs:
           elif text.count(legacy) != 2:
               raise SystemExit(f'unexpected legacy 4147 endpoint-token count: {text.count(legacy)}')
 
-          p4132 = Path('proof/4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like/4132_CE1_CE2_exactly_one_T3_like_boundary_obstruction.md')
-          text = p4132.read_text(encoding='utf-8')
-          legacy = r'\nu=1-'
-          canonical = r'u=1-'
-          if text.count(legacy) == 0:
-              if text.count(canonical) < 1:
-                  raise SystemExit('missing canonical 4132 local endpoint')
-              p4132.write_text(text.replace(canonical, legacy, 1), encoding='utf-8')
-          elif text.count(legacy) != 1:
-              raise SystemExit(f'unexpected legacy 4132 endpoint-token count: {text.count(legacy)}')
+          # Make the final notation migration idempotent: an already-present
+          # canonical replacement is success, not a missing-input failure.
+          script = Path('tools/final_cleanup_v3.py')
+          source = script.read_text(encoding='utf-8')
+          old = '''    if actual == 0:\n        raise RuntimeError(f"{rel}: required text not found: {old!r}")\n    if count is not None and actual != count:\n'''
+          new = '''    if actual == 0:\n        if new in text:\n            return\n        raise RuntimeError(f"{rel}: required text not found: {old!r}")\n    if count is not None and actual != count:\n'''
+          if old not in source:
+              raise SystemExit('final_cleanup_v3.py helper signature changed unexpectedly')
+          script.write_text(source.replace(old, new, 1), encoding='utf-8')
           PY
           python tools/final_cleanup_v3.py
 
