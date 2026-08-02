@@ -34,8 +34,10 @@ jobs:
       - name: Apply audited source repairs and generate manifests
         run: |
           set -euo pipefail
+          python tools/apply_final_audit_repair_followup.py
           python tools/apply_final_audit_repairs.py
           rm -f .github/workflows/refresh-proof-provenance.yml
+          rm -f tools/apply_final_audit_repair_followup.py
           rm -f tools/apply_final_audit_repairs.py
           rm -f arrange/provenance_refresh_failure.log arrange/final_audit_repair_failure.log
           python tools/generate_active_dependency_graph.py
