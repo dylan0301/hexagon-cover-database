@@ -99,6 +99,17 @@ text = text.replace(r"T_C\cap e_{5,0}=[x,u]", r"T_C\cap e_{5,0}=[x,\nu]")
 text = text.replace(r"(u+v)S", r"(\nu+v)S")
 write(rel_2109, text)
 
+# Normalize the CE0 perimeter proof to actual maximal reaches.
+rel_3010 = "proof/3XXX_CE0/30XX_Nplus0/3010_CE0_perimeter_length_obstruction.md"
+text = read(rel_3010)
+for old, new in [
+    ("a_{i+1}", "A_{i+1}"),
+    ("b_i", "B_i"),
+    ("a_i", "A_i"),
+]:
+    text = text.replace(old, new)
+write(rel_3010, text)
+
 # ---------------------------------------------------------------------------
 # 5. Terminology: nonempty gaps and explicit V triangles, not geometric rows.
 # ---------------------------------------------------------------------------
