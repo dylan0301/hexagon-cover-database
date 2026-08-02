@@ -20,6 +20,16 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Record workflow start
+        run: |
+          set -euo pipefail
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          printf 'Final proof verification started for source commit %s\n' "$GITHUB_SHA" > arrange/finalization_started.txt
+          git add arrange/finalization_started.txt
+          git commit -m 'mark final proof verification start'
+          git push origin HEAD:main
+
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -110,7 +120,7 @@ jobs:
           rm -f tools/final_cleanup_20260802.py
           rm -f tools/final_cleanup_v2.py.gz.b64
           rm -f .github/workflows/finalize-repair.yml
-          rm -f arrange/final_cleanup_failure.log
+          rm -f arrange/final_cleanup_failure.log arrange/finalization_started.txt
 
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
@@ -118,7 +128,24 @@ jobs:
           git commit -m 'finalize 4147/4013 repair and rebuild paper'
           git push origin HEAD:main
 
+      - name: Record finalization failure
+        if: failure()
+        run: |
+          set +e
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          {
+            echo 'Final proof verification failed.'
+            echo "Source commit: $GITHUB_SHA"
+            echo "Run: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+            echo 'Inspect the workflow job log for the failing command.'
+          } > arrange/final_cleanup_failure.log
+          git add arrange/final_cleanup_failure.log
+          git commit -m 'record final proof verification failure'
+          git push origin HEAD:main
+
       - uses: actions/upload-artifact@v4
+        if: success()
         with:
           name: final-hexagon-cover-paper
           path: |
