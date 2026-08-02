@@ -1,0 +1,11 @@
+tools/repair_source/part00: OK
+tools/repair_source/part01: OK
+tools/repair_source/part02: OK
+tools/repair_source/part03: OK
+tools/repair_source/part04: OK
+tools/repair_source/part05: FAILED
+tools/repair_source/part06: OK
+tools/repair_source/part07: OK
+tools/repair_source/part08: OK
+tools/repair_source/part09: OK
+sha256sum: WARNING: 1 computed checksum did NOT match
