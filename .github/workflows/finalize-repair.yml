@@ -93,6 +93,12 @@ jobs:
           script.write_text(source, encoding='utf-8')
           PY
           python tools/final_cleanup_v3.py
+          python - <<'PY'
+          from pathlib import Path
+          target = Path('arrange/paper_proof_crosswalk.md')
+          lines = target.read_text(encoding='utf-8').splitlines()
+          target.write_text('\n'.join(line.rstrip() for line in lines) + '\n', encoding='utf-8')
+          PY
 
       - name: Check dependency statuses, notation, source graph, and whitespace
         run: |
