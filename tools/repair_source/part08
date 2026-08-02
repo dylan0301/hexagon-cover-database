@@ -75,9 +75,8 @@ for path in sorted(scan_paths):
 
     # N_+ must not be defined with selected lowercase reaches.
     if re.search(
-        r"N_\+\s*=\s*\\left.*?\\left\\lbrace\s*i\s*:\s*a_i\s*\+\s*b_i",
+        r"N_\+\s*=\s*\\left\\lvert\s*\\left(?:\\lbrace|\\\{)\s*i\s*:\s*a_i\s*\+\s*b_i",
         text,
-        re.S,
     ):
         fail(f"N_+ appears to be defined from selected reaches in {rel}")
 
