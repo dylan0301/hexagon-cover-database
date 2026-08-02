@@ -1,0 +1,130 @@
+
+    "proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4140_CE2_Nplus1_exactly_one_Vd1_Vd2_index.md",
+    r'''# CE2, $N_+=1$, Exactly One Vd1/Vd2
+
+Status: Proven
+
+The complete placement assembly is `4148`; the independent post-repair audit
+is `414b`.
+
+## Terminal table
+
+| placement | terminal certificate | source |
+|---|---|---|
+| Vd1 rescues an adjacent supercritical role at the center-midpoint index | free supercritical envelope versus center-free path | `4143` |
+| supercritical $T_0$, adjacent Vd1/Vd2 | exact residuals and two radial-bridge exclusions | `4144` |
+| supercritical $T_0$, nonadjacent Vd1/Vd2 | Vd-specific radial separation | `4146` |
+| neither special role at the center-midpoint index, Vd1 | separate two-chart replacement preserving the full skeleton, then the skeleton-level all-Vd0 theorem | `4147`, `4013` |
+| Vd2 neighboring-midpoint rescue | strict perimeter deficit | `4149` |
+| an additional positive-support role | three-short-role skeleton deficit | `414a` |
+
+The former single-chart formula in `4147` has been removed. The replacement
+at the first distinguished vertex is constructed in its own local chart, and
+the replacement at the adjacent distinguished vertex is constructed in the
+adjacent vertex's chart. `4013` is now stated at the skeleton-data strength
+actually used by the argument.
+
+## Files
+
+| File | Status | Role |
+|---|---|---|
+| `4141_CE2_Nplus1_one_Vd1_S_half_cover_candidate.md` | Empirical | historical visualization only |
+| `4143_CE2_Nplus1_T0_Vd1_M1_T1_supercritical_obstruction.md` | Proven | Vd1 adjacent rescuer |
+| `4144_CE2_Nplus1_T0_supercritical_T1_Vd1_Vd2_adjacent_obstruction.md` | Proven | adjacent residual/radial obstruction |
+| `4146_CE2_Nplus1_T0_supercritical_nonadjacent_Vd1_Vd2_obstruction.md` | Proven | nonadjacent radial obstruction |
+| `4147_CE2_Nplus1_Vd1_supercritical_pair_axis_replacement.md` | Proven | corrected two-chart skeleton-preserving replacement |
+| `4148_CE2_Nplus1_exactly_one_Vd1_Vd2_assembly.md` | Proven | assembly |
+| `4149_CE2_Nplus1_Vd2_neighbor_midpoint_obstruction.md` | Proven | Vd2 perimeter terminal |
+| `414a_CE2_Nplus1_mixed_Vd1_Vd2_T3_like_skeleton_obstruction.md` | Proven | positive-support complement |
+| `414b_complete_placement_reaudit.md` | Proven | exhaustive post-repair audit |
+''',
+)
+
+# ---------------------------------------------------------------------------
+# 4. Normalize actual/selected notation and u/nu conventions.
+# ---------------------------------------------------------------------------
+
+# Actual N_+ in 4131.
+replace_regex(
+    "proof/4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like/4131_midpoint_forcing_reduction.md",
+    r"N_\+=\\left\\lvert \\left\\lbrace i : a_i\+b_i>1 \\right\\rbrace \\right\\rvert=1,",
+    r"N_+=\left\lvert \left\lbrace i : A_i+B_i>1 \right\rbrace \right\rvert=1,",
+)
+
+# Local radial endpoints use Latin u; signed CE2 far boundary endpoint uses Greek nu.
+replace_if_present(
+    "proof/4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like/4132_CE1_CE2_exactly_one_T3_like_boundary_obstruction.md",
+    r"\nu=1-",
+    r"u=1-",
+)
+replace_if_present(
+    "proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4143_CE2_Nplus1_T0_Vd1_M1_T1_supercritical_obstruction.md",
+    r"\nu=\frac{d-a-tb-1}{t}",
+    r"u=\frac{d-a-tb-1}{t}",
+)
+
+replace_if_present(
+    "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4075_Tminus_low_lower_branch_obligations.md",
+    r"$$\nu=\frac{\delta}{1-\lambda}.$$" + "\n",
+    r"$$u=\frac{\delta}{1-\lambda}.$$" + "\n",
+)
+
+# Exact known 31054 transcription mistakes.
+rel_31054 = "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31054_four_cap_enclosure_reduction.md"
+replace_if_present(rel_31054, r"Z_X=\tau\left\lVert X\right\rVert^2-\eta u,", r"Z_X=\tau\left\lVert X\right\rVert^2-\eta\nu,")
+replace_if_present(rel_31054, r"\eta u+", r"\eta\nu+")
+replace_if_present(rel_31054, r"\nu_A<u_B<\frac12", r"u_A<u_B<\frac12")
+
+# 4144 uses a local supported-arm endpoint, not Greek nu.
+rel_4144 = "proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4144_CE2_Nplus1_T0_supercritical_T1_Vd1_Vd2_adjacent_obstruction.md"
+replace_if_present(rel_4144, r"\nu_2<1-H", r"u_{1\to2}<1-H")
+replace_if_present(rel_4144, "Thus $T_1$ cannot meet the center interval.", "Here $u_{1\\to2}$ denotes the far endpoint of the supported $T_1$ trace on $r_2$. Thus $T_1$ cannot meet the center interval.")
+
+# Normalize the CE2 legacy endpoint to Greek nu in 2106 and 2109.
+rel_2106 = "proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2106_CE2_exact_formulas.md"
+text = read(rel_2106)
+text = text.replace(r"T_C\cap e_{5,0}=[x,u]", r"T_C\cap e_{5,0}=[x,\nu]")
+text = text.replace("the final endpoint is the ordinary variable $u$", "the final endpoint is the signed legacy variable $\\nu$")
+text = text.replace(r"(u+v)S", r"(\nu+v)S")
+text = text.replace(r"u+v=", r"\nu+v=")
+text = text.replace(r"uS-x", r"\nu S-x")
+text = text.replace(r"\nuS", r"\nu S")
+text = text.replace(r"\alpha_1=\frac{\sqrt3(uS-x)}", r"\alpha_1=\frac{\sqrt3(\nu S-x)}")
+write(rel_2106, text)
+
+rel_2109 = "proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md"
+text = read(rel_2109)
+text = text.replace("the plain endpoint variable is $u=R+\\alpha$", "the signed endpoint variable is $\\nu=R+\\alpha$")
+text = text.replace(r"T_C\cap e_{5,0}=[x,u]", r"T_C\cap e_{5,0}=[x,\nu]")
+text = text.replace(r"(u+v)S", r"(\nu+v)S")
+write(rel_2109, text)
+
+# ---------------------------------------------------------------------------
+# 5. Terminology: nonempty gaps and explicit V triangles, not geometric rows.
+# ---------------------------------------------------------------------------
+
+# Rename the two active proof files whose filenames used geometric "row".
+renames = {
+    "proof/1XXX_foundations/12XX_V_triangle/1212_vertex_rows_and_Nplus.md":
+        "proof/1XXX_foundations/12XX_V_triangle/1212_vertex_V_triangles_and_Nplus.md",
+    "proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4105_CE1_CE2_one_gap_five_row_interface.md":
+        "proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4105_CE1_CE2_one_gap_five_V_triangle_interface.md",
+    "arrange/paper_draft/figures/transfer_row_coordinates.tex":
+        "arrange/paper_draft/figures/transfer_V_triangle_coordinates.tex",
+}
+for old, new in renames.items():
+    src, dst = p(old), p(new)
+    if src.exists():
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        src.rename(dst)
+
+replace_in_tree(
+    ["proof", "arrange", "README.md"],
+    [
+        ("1212_vertex_rows_and_Nplus.md", "1212_vertex_V_triangles_and_Nplus.md"),
+        ("4105_CE1_CE2_one_gap_five_row_interface.md", "4105_CE1_CE2_one_gap_five_V_triangle_interface.md"),
+        ("transfer_row_coordinates", "transfer_V_triangle_coordinates"),
+        ("def:body-row-coordinates", "def:body-vtriangle-coordinates"),
+        ("fig:transfer-row-skeleton", "fig:transfer-vtriangle-skeleton"),
+        ("five-row", "five-V-triangle"),
+        ("five row", "
