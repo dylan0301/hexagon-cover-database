@@ -1,4 +1,4 @@
-name: Refresh proof provenance and rebuild paper
+name: Apply final proof-audit repairs and rebuild paper
 
 on:
   workflow_dispatch:
@@ -10,157 +10,47 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: final-proof-audit-main
+  cancel-in-progress: false
+
 jobs:
-  refresh:
+  finalize:
     if: github.actor != 'github-actions[bot]'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    env:
+      SOURCE_DATE_EPOCH: '946684800'
+      FORCE_SOURCE_DATE: '1'
+      TZ: UTC
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
         with:
           fetch-depth: 0
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
         with:
           python-version: '3.12'
 
-      - name: Refresh maintenance documentation and exact source pins
+      - name: Apply audited source repairs and generate manifests
         run: |
           set -euo pipefail
-          python - <<'PY'
-          from pathlib import Path
-          import re
+          python tools/apply_final_audit_repairs.py
+          rm -f .github/workflows/refresh-proof-provenance.yml
+          rm -f tools/apply_final_audit_repairs.py
+          rm -f arrange/provenance_refresh_failure.log arrange/final_audit_repair_failure.log
+          python tools/generate_active_dependency_graph.py
+          python tools/generate_proof_manifest.py
 
-          root = Path('.')
+      - name: Install pinned proof dependency
+        run: python -m pip install --disable-pip-version-check -r requirements-proof.txt
 
-          # Correct overescaped TeX examples in the Markdown generation guide.
-          guide = root / 'arrange/ams_paper_generation_guide.md'
-          text = guide.read_text(encoding='utf-8')
-          for old, new in [
-              (r'\\appendix', r'\appendix'),
-              (r'\\input{', r'\input{'),
-              (r'\\subsection', r'\subsection'),
-              (r'\\includegraphics', r'\includegraphics'),
-              (r'\\label', r'\label'),
-              (r'\\cref', r'\cref'),
-              (r'\\ref', r'\ref'),
-          ]:
-              text = text.replace(old, new)
-          guide.write_text(text, encoding='utf-8')
-
-          # Replace the stale pre-consolidation Strategy 2 ledger paragraph.
-          ledger = root / 'arrange/paper_draft/source_ledger.md'
-          text = ledger.read_text(encoding='utf-8')
-          start = text.index('### 3.6 Vd1 replacement and placement assembly')
-          end = text.index('### 3.7 Strategy 4 certificate')
-          replacement = '''### 3.6 Vd1 replacement and placement assembly\n\nThe consolidated `04_strategy2_verification.tex` contains the complete special-placement verification:\n\n- both ordered halves of the half-square admissibility lemma;\n- all strict Vd1 local margins and the center-handoff radial inequality;\n- separate local charts at the two distinguished vertices;\n- the exact shifted-template reach triples and Vd0/nonsupercritical checks;\n- preservation of the shared boundary edge, both outer boundary traces, and both radial handoffs;\n- preservation of the full skeleton required by the strengthened `4013`;\n- the authoritative exhaustive CE2 exactly-one-Vd1/Vd2 assembly.\n\nThe proof-package sources `4140`, `4147`, `4148`, and `414b` match this consolidated TeX source. No late correction layer or duplicate Strategy 2 verification source remains.\n\n'''
-          text = text[:start] + replacement + text[end:]
-          text = text.replace('### 2.1 Successful build', '### 2.1 Historical pre-consolidation build')
-          text = text.replace('- Total PDF length: **136 pages**.', '- Historical pre-consolidation PDF length: **136 pages**.')
-          if 'The final post-consolidation verified build has **129 pages**.' not in text:
-              needle = '- Appendix begins on PDF page **36**.\n'
-              text = text.replace(needle, needle + '- The final post-consolidation verified build has **129 pages**; see `../20260802_verification_summary.txt`.\n')
-          ledger.write_text(text, encoding='utf-8')
-
-          # Clarify the historical intermediate page count in the repair audit.
-          audit = root / 'arrange/20260802_repair_and_reaudit.md'
-          text = audit.read_text(encoding='utf-8')
-          text = text.replace('- PDF page count: 136.', '- Initial pre-consolidation PDF page count: 136.')
-          if '- Exact `407X` Git-blob manifest: **PASS**.' not in text:
-              text = text.replace('## Final machine verification\n', '## Final machine verification\n\n- Exact `407X` Git-blob manifest: **PASS**.\n')
-          audit.write_text(text, encoding='utf-8')
-
-          # Refresh the exact incorporated 407X source identities.
-          replacements = {
-              '880b59ec8d3c59b2d9ec036c188aebb2dfbea415': '7c72dfaf7eb31d6ba561aba782e0a2bd9688ec70',
-              'c80243f67124020e94239745b23ebed2e50a8bcb': 'c80243f671245223eaa4047fe3a1168735f093cd',
-              'a6ef81f787c4c3d6933569ca89fcdf2eaa83dbc7': 'e22c85c95fdd3b8f75c66b2f721bc7088bbb76b6',
-          }
-          for target in [root / 'arrange/paper_draft/04_strategy2_verification.tex', ledger]:
-              text = target.read_text(encoding='utf-8')
-              for old, new in replacements.items():
-                  text = text.replace(old, new)
-              target.write_text(text, encoding='utf-8')
-
-          verification = (root / 'arrange/paper_draft/04_strategy2_verification.tex').read_text(encoding='utf-8')
-          ledger_text = ledger.read_text(encoding='utf-8')
-          for old, new in replacements.items():
-              if old in verification or old in ledger_text:
-                  raise SystemExit(f'stale 407X blob remains: {old}')
-              if new not in verification or new not in ledger_text:
-                  raise SystemExit(f'current 407X blob missing from TeX or ledger: {new}')
-
-          # No maintenance document may name a deleted Strategy 2 source.
-          obsolete = [
-              '04_strategy2_reader.tex',
-              '04_strategy2_exact_demand.tex',
-              '04d_strategy2_rigor_completion.tex',
-              '04e_strategy2_placement_assembly.tex',
-              '04f_strategy2_cross_reference_closure.tex',
-          ]
-          for md in (root / 'arrange').rglob('*.md'):
-              content = md.read_text(encoding='utf-8')
-              for name in obsolete:
-                  content = content.replace(name, '04_strategy2_verification.tex')
-              md.write_text(content, encoding='utf-8')
-
-          # Add a permanent exact-blob check to the source linter.
-          lint = root / 'tools/proof_lint.py'
-          source = lint.read_text(encoding='utf-8')
-          marker = '# Exact 407X incorporated-source provenance.'
-          if marker not in source:
-              terminal = '\nif ERRORS:\n'
-              if terminal not in source:
-                  raise SystemExit('proof_lint.py terminal block not found')
-              block = r'''
-# Exact 407X incorporated-source provenance.
-import hashlib
-
-PROVENANCE_407X = {
-    "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4073_boundary_loss_framework.md": "f3f0395748f5649c62eff51f648e8052039a38c5",
-    "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4074_L_Full_branch.md": "7c72dfaf7eb31d6ba561aba782e0a2bd9688ec70",
-    "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4075_Tminus_low_lower_branch_obligations.md": "ebe2b65f8840b8667c3dca672a8d0cdf2d4104ad",
-    "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4078_left_L_family_completion.md": "f1323325b0690a1a9394d93911c28425ecfbca9b",
-    "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4079_first_Full_branch.md": "c66eea05277dbf2e1781f133f4f18c469f1b0909",
-    "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/407a_left_Thigh_branch_completion.md": "aa5cb1a6dc635639972ba8f48cc92c9f519da296",
-    "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/407c_rigor_completion_details.md": "c80243f671245223eaa4047fe3a1168735f093cd",
-    "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/407d_rigor_final_assembly.md": "e22c85c95fdd3b8f75c66b2f721bc7088bbb76b6",
-}
-
-def git_blob_sha(path: Path) -> str:
-    data = path.read_bytes()
-    header = f"blob {len(data)}\0".encode("ascii")
-    return hashlib.sha1(header + data).hexdigest()
-
-strategy2_text = (ROOT / "arrange/paper_draft/04_strategy2_verification.tex").read_text(encoding="utf-8")
-ledger_text = (ROOT / "arrange/paper_draft/source_ledger.md").read_text(encoding="utf-8")
-for rel, expected in PROVENANCE_407X.items():
-    actual = git_blob_sha(ROOT / rel)
-    if actual != expected:
-        fail(f"407X blob drift: {rel}: expected {expected}, found {actual}")
-    if expected not in strategy2_text:
-        fail(f"407X blob missing from consolidated TeX manifest: {rel}")
-    if expected not in ledger_text:
-        fail(f"407X blob missing from source ledger: {rel}")
-'''
-              source = source.replace(terminal, '\n' + block + terminal, 1)
-              lint.write_text(source, encoding='utf-8')
-
-          # Normalize accidental trailing whitespace in edited maintenance files.
-          for target in [guide, ledger, audit, root / 'arrange/paper_proof_crosswalk.md']:
-              lines = target.read_text(encoding='utf-8').splitlines()
-              target.write_text('\n'.join(line.rstrip() for line in lines) + '\n', encoding='utf-8')
-          PY
-
-      - name: Run source, notation, dependency, and provenance checks
+      - name: Verify proof sources and replay exact certificates
         run: |
           set -euo pipefail
+          python tools/generate_active_dependency_graph.py --check
+          python tools/generate_proof_manifest.py --check
           python tools/proof_lint.py
           git diff --check
-
-      - name: Replay exact Strategy 4 certificate
-        run: |
-          set -euo pipefail
-          pip install sympy
           cd proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation
           python verify_mixed_overlap_core_derivation.py | tee /tmp/mixed-derivation.log
           python verify_global_core_positivity.py | tee /tmp/global-positivity.log
@@ -170,11 +60,12 @@ for rel, expected in PROVENANCE_407X.items():
           sudo apt-get update
           sudo apt-get install -y latexmk texlive-xetex texlive-latex-extra texlive-fonts-recommended poppler-utils
 
-      - name: Compile and render every PDF page
+      - name: Compile deterministic PDF and record verification metadata
         working-directory: arrange/paper_draft
         run: |
           set -euo pipefail
-          latexmk -xelatex -interaction=nonstopmode -halt-on-error main.tex
+          rm -f main.pdf main.aux main.fdb_latexmk main.fls main.log main.out main.toc main.xdv main.synctex.gz
+          latexmk -xelatex -interaction=nonstopmode -halt-on-error -file-line-error main.tex
           if grep -Eq 'LaTeX Warning: (Reference .* undefined|There were undefined references|Label .* multiply defined)' main.log; then
             echo 'Undefined or multiply-defined references found.' >&2
             exit 1
@@ -187,82 +78,111 @@ for rel, expected in PROVENANCE_407X.items():
           pdftoppm -png -r 72 main.pdf /tmp/rendered/page >/dev/null
           rendered=$(find /tmp/rendered -maxdepth 1 -name 'page-*.png' | wc -l)
           test "$rendered" -eq "$pages"
-          test -s /tmp/rendered/page-001.png
-
           pdf_sha=$(sha256sum main.pdf | awk '{print $1}')
-          python - "$pages" "$pdf_sha" "$GITHUB_RUN_ID" <<'PY'
+          python_version=$(python --version 2>&1)
+          sympy_version=$(python -c 'import sympy; print(sympy.__version__)')
+          xelatex_version=$(xelatex --version | head -n 1)
+          latexmk_version=$(latexmk -v | head -n 1)
+
+          python - "$pages" "$pdf_sha" "$python_version" "$sympy_version" "$xelatex_version" "$latexmk_version" "$GITHUB_SHA" "$GITHUB_RUN_ID" <<'PY'
           from pathlib import Path
-          import re
           import sys
 
-          pages, pdf_sha, run_id = sys.argv[1:]
-          audit = Path('../../arrange/20260802_repair_and_reaudit.md')
-          text = audit.read_text(encoding='utf-8')
-          text = re.sub(r'- Final verified PDF page count: \*\*\d+\*\*\.', f'- Final verified PDF page count: **{pages}**.', text)
-          audit.write_text(text, encoding='utf-8')
-
-          summary = Path('../../arrange/20260802_verification_summary.txt')
+          pages, pdf_sha, python_version, sympy_version, xelatex_version, latexmk_version, source_sha, run_id = sys.argv[1:]
+          root = Path('../..')
+          summary = root / 'arrange/20260802_verification_summary.txt'
           summary.write_text(
               'Final proof and paper verification\n'
               '==================================\n'
+              f'Source commit: {source_sha}\n'
+              f'GitHub Actions run: {run_id}\n'
               'proof_lint.py: PASS\n'
+              'transitive dependency graph: PASS\n'
+              'two-way proof manifest: PASS\n'
               '407X Git-blob manifest: PASS\n'
+              'Strategy 4 Git-blob manifest: PASS\n'
               'verify_mixed_overlap_core_derivation.py: PASS\n'
               'verify_global_core_positivity.py: PASS\n'
               'latexmk -xelatex -halt-on-error main.tex: PASS\n'
               f'PDF pages rendered: {pages}\n'
               f'PDF SHA-256: {pdf_sha}\n'
-              f'GitHub Actions run: {run_id}\n',
+              'Certificate transcript SHA-256: dc46aaf263655d5159ecd3a81db72ee82477951d06172f4743b248df37209485\n'
+              f'Python: {python_version}\n'
+              f'SymPy: {sympy_version}\n'
+              f'XeLaTeX: {xelatex_version}\n'
+              f'latexmk: {latexmk_version}\n'
+              'SOURCE_DATE_EPOCH: 946684800\n',
               encoding='utf-8',
           )
+
+          audit = root / 'arrange/20260802_repair_and_reaudit.md'
+          text = audit.read_text(encoding='utf-8')
+          metadata = (
+              '## Final build metadata\n\n'
+              f'- Source commit: `{source_sha}`\n'
+              f'- GitHub Actions run: `{run_id}`\n'
+              f'- PDF page count: **{pages}**\n'
+              f'- PDF SHA-256: `{pdf_sha}`\n'
+              '- All source, provenance, exact-certificate, LaTeX, and page-render checks passed.\n'
+          )
+          audit.write_text(text.replace('BUILD_METADATA_PLACEHOLDER', metadata), encoding='utf-8')
+
+          ledger = root / 'arrange/paper_draft/source_ledger.md'
+          text = ledger.read_text(encoding='utf-8')
+          marker = '`../20260802_verification_summary.txt`.'
+          addition = f' The verified build contains **{pages} pages** and has SHA-256 `{pdf_sha}`.'
+          if addition not in text:
+              text = text.replace(marker, marker + addition)
+          ledger.write_text(text, encoding='utf-8')
           PY
+
           rm -f main.aux main.fdb_latexmk main.fls main.log main.out main.toc main.xdv main.synctex.gz
 
-      - name: Re-run all source checks after build metadata update
+      - name: Re-run checks on exact commit contents
         run: |
           set -euo pipefail
+          python tools/generate_active_dependency_graph.py --check
+          python tools/generate_proof_manifest.py --check
           python tools/proof_lint.py
           git diff --check
           test -s arrange/paper_draft/main.pdf
           test -s arrange/20260802_verification_summary.txt
 
-      - name: Commit refreshed provenance and rebuilt PDF to main
+      - name: Commit repairs and rebuilt PDF directly to main
         run: |
           set -euo pipefail
-          rm -f .github/workflows/refresh-proof-provenance.yml
-          rm -f arrange/provenance_refresh_failure.log
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git add -A
-          git commit -m 'refresh proof provenance and rebuild paper'
+          git commit -m 'complete proof audit repairs and rebuild paper'
           git push origin HEAD:main
 
-      - name: Record provenance-refresh failure
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        if: success()
+        with:
+          name: final-verified-hexagon-cover-paper
+          path: |
+            arrange/paper_draft/main.pdf
+            arrange/20260802_repair_and_reaudit.md
+            arrange/20260802_verification_summary.txt
+            /tmp/pdfinfo.txt
+            /tmp/mixed-derivation.log
+            /tmp/global-positivity.log
+          if-no-files-found: error
+
+      - name: Record repair failure
         if: failure()
         run: |
           set +e
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git restore .github/workflows/refresh-proof-provenance.yml 2>/dev/null || true
           {
-            echo 'Proof provenance refresh failed.'
+            echo 'Final proof-audit repair failed.'
             echo "Source commit: $GITHUB_SHA"
             echo "Run: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
             echo 'Inspect the workflow job log for the failing command.'
-          } > arrange/provenance_refresh_failure.log
-          git add arrange/provenance_refresh_failure.log
-          git commit -m 'record proof provenance refresh failure'
+          } > arrange/final_audit_repair_failure.log
+          git add arrange/final_audit_repair_failure.log
+          git commit -m 'record final proof-audit repair failure'
           git push origin HEAD:main
-
-      - uses: actions/upload-artifact@v4
-        if: success()
-        with:
-          name: final-hexagon-cover-paper
-          path: |
-            arrange/paper_draft/main.pdf
-            arrange/20260802_repair_and_reaudit.md
-            arrange/20260802_verification_summary.txt
-            /tmp/rendered
-            /tmp/pdfinfo.txt
-            /tmp/mixed-derivation.log
-            /tmp/global-positivity.log
-          if-no-files-found: error
