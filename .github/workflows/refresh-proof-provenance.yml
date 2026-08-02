@@ -1,4 +1,5 @@
 name: Apply final proof-audit repairs and rebuild paper
+# Retry after replacing the N_+ regex by a literal canonical-definition check.
 
 on:
   workflow_dispatch:
