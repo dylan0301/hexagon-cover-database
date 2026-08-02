@@ -1,4 +1,4 @@
-name: Proof and paper verification
+name: Proof, certificate, and paper verification
 
 on:
   push:
@@ -9,43 +9,77 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: proof-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  SOURCE_DATE_EPOCH: '946684800'
+  FORCE_SOURCE_DATE: '1'
+  TZ: UTC
+
 jobs:
-  proof-data:
-    runs-on: ubuntu-latest
+  verify:
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
         with:
           python-version: '3.12'
-      - run: python tools/proof_lint.py
-      - run: pip install sympy
-      - name: Replay exact mixed-overlap derivation
-        working-directory: proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation
-        run: python verify_mixed_overlap_core_derivation.py
-      - name: Replay global exact positivity certificate
-        working-directory: proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation
-        run: python verify_global_core_positivity.py
 
-  latex:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Install TeX and PDF tools
+      - name: Install pinned proof dependency
+        run: python -m pip install --disable-pip-version-check -r requirements-proof.txt
+
+      - name: Verify generated manifests, dependency closure, notation, and provenance
+        run: |
+          python tools/generate_active_dependency_graph.py --check
+          python tools/generate_proof_manifest.py --check
+          python tools/proof_lint.py
+          git diff --check
+
+      - name: Replay exact Strategy 4 derivation and positivity certificates
+        working-directory: proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation
+        run: |
+          python verify_mixed_overlap_core_derivation.py
+          python verify_global_core_positivity.py
+
+      - name: Install pinned-platform TeX and PDF tools
         run: |
           sudo apt-get update
           sudo apt-get install -y latexmk texlive-xetex texlive-latex-extra texlive-fonts-recommended poppler-utils
-      - name: Compile paper
-        working-directory: arrange/paper_draft
-        run: latexmk -xelatex -interaction=nonstopmode -halt-on-error main.tex
-      - name: PDF structural check
+
+      - name: Rebuild deterministically and compare with tracked PDF
         working-directory: arrange/paper_draft
         run: |
-          pdfinfo main.pdf
+          set -euo pipefail
+          cp main.pdf /tmp/tracked-main.pdf
+          rm -f main.pdf main.aux main.fdb_latexmk main.fls main.log main.out main.toc main.xdv main.synctex.gz
+          latexmk -xelatex -interaction=nonstopmode -halt-on-error -file-line-error main.tex
+          if grep -Eq 'LaTeX Warning: (Reference .* undefined|There were undefined references|Label .* multiply defined)' main.log; then
+            echo 'Undefined or multiply-defined references found.' >&2
+            exit 1
+          fi
+          cmp /tmp/tracked-main.pdf main.pdf
+          pdfinfo main.pdf | tee /tmp/pdfinfo.txt
+          pages=$(awk '/^Pages:/ {print $2}' /tmp/pdfinfo.txt)
+          test -n "$pages"
+          rm -rf /tmp/rendered
           mkdir -p /tmp/rendered
           pdftoppm -png -r 72 main.pdf /tmp/rendered/page >/dev/null
-          test -s /tmp/rendered/page-001.png
-      - uses: actions/upload-artifact@v4
+          rendered=$(find /tmp/rendered -maxdepth 1 -name 'page-*.png' | wc -l)
+          test "$rendered" -eq "$pages"
+          actual_sha=$(sha256sum main.pdf | awk '{print $1}')
+          recorded_sha=$(awk -F': ' '/^PDF SHA-256:/ {print $2}' ../20260802_verification_summary.txt)
+          test "$actual_sha" = "$recorded_sha"
+
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
-          name: hexagon-cover-paper
-          path: arrange/paper_draft/main.pdf
+          name: verified-hexagon-cover-paper
+          path: |
+            arrange/paper_draft/main.pdf
+            arrange/20260802_verification_summary.txt
+            /tmp/pdfinfo.txt
           if-no-files-found: error
