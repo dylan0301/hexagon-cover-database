@@ -17,7 +17,7 @@ $$
 and
 
 $$
-N_+=\left\lvert \left\lbrace i : a_i+b_i>1 \right\rbrace \right\rvert=0.
+N_+=\left\lvert \left\lbrace i : A_i+B_i>1 \right\rbrace \right\rvert=0.
 $$
 
 Then the cover cannot exist.
@@ -61,25 +61,25 @@ intersection contains a nonempty relatively open subinterval, and hence has
 positive length. Thus
 
 $$
-1=\mathcal H^1(e_{i,i+1}^{\circ})<b_i+a_{i+1}.
+1=\mathcal H^1(e_{i,i+1}^{\circ})<B_i+A_{i+1}.
 $$
 
 Summing over all six sides gives
 
 $$
-6<\sum_{i=0}^5(b_i+a_{i+1})=\sum_{i=0}^5(a_i+b_i).
+6<\sum_{i=0}^5(B_i+A_{i+1})=\sum_{i=0}^5(A_i+B_i).
 $$
 
 But $N_+=0$ means that every V triangle satisfies
 
 $$
-a_i+b_i\le1.
+A_i+B_i\le1.
 $$
 
 Therefore
 
 $$
-\sum_{i=0}^5(a_i+b_i)\le6,
+\sum_{i=0}^5(A_i+B_i)\le6,
 $$
 
 contradicting the strict perimeter inequality above. Hence the CE0,

@@ -155,3 +155,8 @@ The following remain nondependencies:
 - `963X`: failed five-point route;
 - `964X`: failed CE1/CE2 area route;
 - `3172`: false global T3-like coordinatewise tangent envelope.
+
+
+## 2026-08-02 replacement and skeleton-interface audit
+
+The CE2 exactly-one-Vd1/Vd2 terminal was re-audited after correcting `4147` to use separate local charts at the two distinguished vertices. The replacement now proves full skeleton preservation. `4013` is stated at the skeleton-data strength used by that reduction, and `414b` records the exhaustive placement re-audit. The main theorem status remains `Proven` because the corrected branch and all verification checks pass.

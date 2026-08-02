@@ -40,7 +40,7 @@ Recommended reading order for mathematical orientation:
 3. [`proof/1XXX_foundations/10XX_global_conventions/1003_open_unit_vs_shrunken_closed_equivalence.md`](proof/1XXX_foundations/10XX_global_conventions/1003_open_unit_vs_shrunken_closed_equivalence.md)
 4. [`proof/1XXX_foundations/11XX_C_triangle/1101_CE_classification.md`](proof/1XXX_foundations/11XX_C_triangle/1101_CE_classification.md)
 5. [`proof/1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md`](proof/1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md)
-6. [`proof/1XXX_foundations/12XX_V_triangle/1212_vertex_rows_and_Nplus.md`](proof/1XXX_foundations/12XX_V_triangle/1212_vertex_rows_and_Nplus.md)
+6. [`proof/1XXX_foundations/12XX_V_triangle/1212_vertex_V_triangles_and_Nplus.md`](proof/1XXX_foundations/12XX_V_triangle/1212_vertex_V_triangles_and_Nplus.md)
 7. [`proof/1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md`](proof/1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md)
 8. [`proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2019_interval_component_and_path_budget.md`](proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2019_interval_component_and_path_budget.md)
 9. [`proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md`](proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md)
@@ -204,3 +204,8 @@ Files marked `Reduction`, `Practically proven`, `Lemma target`, `Strategy`,
 corpus, but they are not complete terminal proofs unless every named
 dependency has a proven source. Numerical optimization, plotting, or search
 evidence remains empirical unless a rigorous certificate is recorded.
+
+
+## 2026-08-02 replacement and skeleton-interface audit
+
+The CE2 exactly-one-Vd1/Vd2 terminal was re-audited after correcting `4147` to use separate local charts at the two distinguished vertices. The replacement now proves full skeleton preservation. `4013` is stated at the skeleton-data strength used by that reduction, and `414b` records the exhaustive placement re-audit. The main theorem status remains `Proven` because the corrected branch and all verification checks pass.

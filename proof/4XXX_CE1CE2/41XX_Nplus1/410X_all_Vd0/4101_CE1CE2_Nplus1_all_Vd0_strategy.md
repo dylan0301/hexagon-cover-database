@@ -149,7 +149,7 @@ c_5&=1-\frac{\alpha}{W}.
 $$
 
 The common actual-V triangle theorem
-[`4105`](4105_CE1_CE2_one_gap_five_row_interface.md) performs the exact chain
+[`4105`](4105_CE1_CE2_one_gap_five_V_triangle_interface.md) performs the exact chain
 
 $$
 \boxed{

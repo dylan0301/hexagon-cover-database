@@ -47,11 +47,11 @@ calculation lemma without the appendices and incorporated supplements.
 | `03_strategy1_length.tex` | perimeter and skeleton trace calculations |
 | `04b_common_CE1_CE2_budgets.tex` | master deficit, short-role count, common budgets |
 | `04c_short_Vd_placements.tex` | quarter envelope, profiles, radial separations |
-| `04_strategy2_reader.tex` | actual V triangle chains and corrected terminal coordinates |
-| `04_strategy2_exact_demand.tex` | contact cells, endpoint inequalities, CE1 scalar proof |
-| `04d_strategy2_rigor_completion.tex` | incorporated complete `407X` branch audit and full Vd1 replacement |
-| `04e_strategy2_placement_assembly.tex` | authoritative CE2 one-Vd assembly |
-| `04f_strategy2_cross_reference_closure.tex` | declares later complete proofs authoritative for compact legacy summaries |
+| `04_strategy2_verification.tex` | actual V triangle chains and corrected terminal coordinates |
+| `04_strategy2_verification.tex` | contact cells, endpoint inequalities, CE1 scalar proof |
+| `04_strategy2_verification.tex` | incorporated complete `407X` branch audit and full Vd1 replacement |
+| `04_strategy2_verification.tex` | authoritative CE2 one-Vd assembly |
+| `04_strategy2_verification.tex` | declares later complete proofs authoritative for compact legacy summaries |
 | `05_strategy3_area.tex` | local area inequalities and cyclic certificates |
 | `06_strategy4_ab_core.tex` | frontier, forcing, Newton reduction, adjacent overlaps |
 | `06a_strategy4_exact_certificate.tex` | mixed reduction, manifest, Bernstein proof, cap geometry |

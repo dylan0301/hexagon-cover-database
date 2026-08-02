@@ -426,7 +426,7 @@ $$
 and, for $X=A,C$,
 
 $$
-Z_X=\tau\left\lVert X\right\rVert^2-\eta u,
+Z_X=\tau\left\lVert X\right\rVert^2-\eta\nu,
 \tag{23}
 $$
 
@@ -465,7 +465,7 @@ For $X=A$, equation (26) is equivalent to
 $$
 2\eta+
 \frac{
-\eta u+
+\eta\nu+
 \sqrt{\left\lVert A\right\rVert^2-\eta^2}\Delta
 }{\left\lVert A\right\rVert^2}
 \ge h.

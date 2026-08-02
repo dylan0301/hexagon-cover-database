@@ -1,4 +1,42 @@
-oding="utf-8").splitlines():
+#!/usr/bin/env python3
+from __future__ import annotations
+
+import re
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+ERRORS: list[str] = []
+
+
+def fail(msg: str) -> None:
+    ERRORS.append(msg)
+
+
+# Active dependency statuses.
+active = ROOT / "proof/ACTIVE_DEPENDENCIES.txt"
+for raw in active.read_text(encoding="utf-8").splitlines():
+    raw = raw.strip()
+    if not raw or raw.startswith("#"):
+        continue
+    rel, expected = raw.split("|", 1)
+    path = ROOT / rel
+    if not path.is_file():
+        fail(f"missing active dependency: {rel}")
+        continue
+    head = "\n".join(path.read_text(encoding="utf-8").splitlines()[:12])
+    m = re.search(r"^Status:\s*(.+?)\s*$", head, re.M)
+    if not m:
+        fail(f"active dependency lacks status: {rel}")
+    elif m.group(1) != expected:
+        fail(f"status mismatch: {rel}: expected {expected}, found {m.group(1)}")
+    if "/9XXX_" in rel:
+        fail(f"failed/archival source listed as active: {rel}")
+
+# Proof manifest consistency.
+manifest = ROOT / "proof/MANIFEST.txt"
+if manifest.is_file():
+    for raw in manifest.read_text(encoding="utf-8").splitlines():
         raw = raw.strip()
         if not raw or raw.startswith("#") or raw.startswith("Paths are"):
             continue
@@ -108,70 +146,3 @@ if ERRORS:
         print(f"- {error}", file=sys.stderr)
     raise SystemExit(1)
 print(f"proof_lint: OK ({len(scan_paths)} active/compiled files, {len(labels)} TeX labels)")
-''',
-)
-
-write(
-    ".github/workflows/proof-ci.yml",
-    r'''name: Proof and paper verification
-
-on:
-  push:
-    branches: [main]
-  pull_request:
-  workflow_dispatch:
-
-permissions:
-  contents: read
-
-jobs:
-  proof-data:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-      - run: python tools/proof_lint.py
-      - run: pip install sympy
-      - name: Replay exact mixed-overlap derivation
-        working-directory: proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation
-        run: python verify_mixed_overlap_core_derivation.py
-      - name: Replay global exact positivity certificate
-        working-directory: proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation
-        run: python verify_global_core_positivity.py
-
-  latex:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Install TeX and PDF tools
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y latexmk texlive-xetex texlive-latex-extra texlive-fonts-recommended poppler-utils
-      - name: Compile paper
-        working-directory: arrange/paper_draft
-        run: latexmk -xelatex -interaction=nonstopmode -halt-on-error main.tex
-      - name: PDF structural check
-        working-directory: arrange/paper_draft
-        run: |
-          pdfinfo main.pdf
-          mkdir -p /tmp/rendered
-          pdftoppm -png -r 72 main.pdf /tmp/rendered/page >/dev/null
-          test -s /tmp/rendered/page-001.png
-      - uses: actions/upload-artifact@v4
-        with:
-          name: hexagon-cover-paper
-          path: arrange/paper_draft/main.pdf
-          if-no-files-found: error
-''',
-)
-
-# ---------------------------------------------------------------------------
-# 11. Update crosswalk/ledger and add a detailed repair audit.
-# ---------------------------------------------------------------------------
-
-for rel in ["arrange/paper_proof_crosswalk.md", "arrange/paper_draft/source_ledger.md", "arrange/ams_paper_generation_guide.md"]:
-    if p(rel).exists():
-        text = read(rel)
-        t

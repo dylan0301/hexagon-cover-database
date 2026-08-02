@@ -70,7 +70,7 @@ The two positive center traces, both parameterized from $V_0$, are
 
 $$
 \boxed{
-T_C\cap e_{5,0}=[x,u],
+T_C\cap e_{5,0}=[x,\nu],
 \qquad
 x=\frac{k}{W},
 \qquad
@@ -90,7 +90,7 @@ v=W+\delta.
 }
 $$
 
-In the first display, the final endpoint is the ordinary variable $u$; in
+In the first display, the final endpoint is the signed legacy variable $\nu$; in
 expanded form the interval is
 
 $$
@@ -158,7 +158,7 @@ The classical coupling equation follows immediately:
 
 $$
 \begin{aligned}
-(u+v)S-xy
+(\nu+v)S-xy
 &=
 (1+\alpha+\delta)\frac{k}{RW}
 -
@@ -172,13 +172,13 @@ $$
 Thus
 
 $$
-\boxed{(u+v)S-xy=D,}
+\boxed{(\nu+v)S-xy=D,}
 $$
 
 or equivalently
 
 $$
-\boxed{u+v=\frac{D+xy}{x+y}.}
+\boxed{\nu+v=\frac{D+xy}{x+y}.}
 $$
 
 The two intervals are therefore coupled automatically; the coupling is not an
@@ -189,7 +189,7 @@ The old center-containment quantities reduce to
 $$
 vS-y=\delta S,
 \qquad
-uS-x=\alpha S.
+\nu S-x=\alpha S.
 $$
 
 Consequently
@@ -241,7 +241,7 @@ $$
 $$
 \alpha_0=\frac{\sqrt3(vS-y)}{2D},
 \qquad
-\alpha_1=\frac{\sqrt3(uS-x)}{2D}.
+\alpha_1=\frac{\sqrt3(\nu S-x)}{2D}.
 $$
 
 Their sum is $\sqrt3/2$ precisely because the coupling identity holds.
@@ -271,9 +271,9 @@ $$
 d_0^C&=1-\frac{xy}{S},\\
 d_1^C&=\frac{vS-y}{x},\\
 d_2^C&=\frac{vS-y}{S},\\
-d_3^C&=\min\left\{\frac{vS-y}{y},\frac{uS-x}{x}\right\},\\
-d_4^C&=\frac{uS-x}{S},\\
-d_5^C&=\frac{uS-x}{y}.
+d_3^C&=\min\left\{\frac{vS-y}{y},\frac{\nu S-x}{x}\right\},\\
+d_4^C&=\frac{\nu S-x}{S},\\
+d_5^C&=\frac{\nu S-x}{y}.
 \end{aligned}
 }
 $$
@@ -310,4 +310,4 @@ The common formulas do not make the two-gap state into two independent
 one-gap chains. Both gaps share the same supercritical V triangle $T_0$ and the same
 center triangle. The exact paired endpoint loss is the rank-two theorem
 [`2108`](2108_CE2_two_endpoint_capped_loss.md), while the one-gap interface is
-[`4105`](../../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4105_CE1_CE2_one_gap_five_row_interface.md).
+[`4105`](../../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4105_CE1_CE2_one_gap_five_V_triangle_interface.md).

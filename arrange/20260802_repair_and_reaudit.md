@@ -1,11 +1,4 @@
-ext = text.replace("boundary-loss obstruction", "skeleton-data obstruction")
-        text = text.replace("axis replacement", "two-chart replacement")
-        text = text.replace("single local chart", "separate local charts")
-        write(rel, text)
-
-write(
-    "arrange/20260802_repair_and_reaudit.md",
-    r'''# 2026-08-02 Repair, Consolidation, and Full Re-Audit
+# 2026-08-02 Repair, Consolidation, and Full Re-Audit
 
 ## Commit scope
 
@@ -54,20 +47,4 @@ terminal is invoked outside its proved domain. The main theorem status remains
 - `verify_mixed_overlap_core_derivation.py`: passed.
 - `verify_global_core_positivity.py`: passed.
 - `latexmk -xelatex -halt-on-error main.tex`: passed.
-- PDF page count: BUILD_PAGE_COUNT.
-''',
-)
-
-# Regenerate proof manifest after renames/new files.
-proof_root = p("proof")
-manifest_paths = sorted(
-    str(path.relative_to(proof_root)).replace("\\", "/")
-    for path in proof_root.rglob("*")
-    if path.is_file() and path.name != "MANIFEST.txt"
-)
-write(
-    "proof/MANIFEST.txt",
-    "# Proof Manifest\n\nPaths are relative to this `proof/` directory.\n\n" + "\n".join(manifest_paths),
-)
-
-print("2026-08-02 repair patch applied")
+- PDF page count: 136.

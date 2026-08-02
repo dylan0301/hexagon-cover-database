@@ -41,7 +41,7 @@ $$
 
 The six vertex roles are Vd0 by assumption, and $N_+=1$ says that exactly
 one of their actual V triangles is supercritical; see
-[`1212_vertex_rows_and_Nplus.md`](../../../../1XXX_foundations/12XX_V_triangle/1212_vertex_rows_and_Nplus.md).
+[`1212_vertex_V_triangles_and_Nplus.md`](../../../../1XXX_foundations/12XX_V_triangle/1212_vertex_V_triangles_and_Nplus.md).
 All hypotheses of `31035` now hold, so that theorem gives a contradiction.
 Therefore this branch is impossible.
 

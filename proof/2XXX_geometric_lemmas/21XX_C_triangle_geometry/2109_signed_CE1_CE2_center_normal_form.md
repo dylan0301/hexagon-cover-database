@@ -412,10 +412,10 @@ v=W+\delta.
 }
 $$
 
-In the preceding display, the plain endpoint variable is $u=R+\alpha$; hence
+In the preceding display, the signed endpoint variable is $\nu=R+\alpha$; hence
 
 $$
-T_C\cap e_{5,0}=[x,u],
+T_C\cap e_{5,0}=[x,\nu],
 \qquad
 T_C\cap e_{0,1}=[y,v].
 $$
@@ -440,7 +440,7 @@ The CE2 coupling equation follows automatically:
 
 $$
 \begin{aligned}
-(u+v)S-xy
+(\nu+v)S-xy
 &=
 (1+\alpha+\delta)\frac{k}{RW}
 -

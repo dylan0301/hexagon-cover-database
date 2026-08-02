@@ -1342,7 +1342,7 @@ O,V_4,\frac{V_4+V_5}{2},V_5
 $$
 
 which is itself a unit equilateral triangle. Hence the limiting value is
-exactly $1$; no uniform positive gap is possible on the closure. Reflection
+exactly $1$; no uniform nonempty gap is possible on the closure. Reflection
 gives the limit $(a,b)\to(1,0)$.
 
 Finally, the tempting disk-plus-two-point shortcut is rigorously false. At

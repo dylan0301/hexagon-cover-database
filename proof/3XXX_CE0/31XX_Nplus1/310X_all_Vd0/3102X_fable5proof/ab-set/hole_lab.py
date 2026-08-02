@@ -326,7 +326,7 @@ def _rho_diag(thetas, phis, P):
 
 def staircase(level, gaps=None, spread=0.01):
     """convenient admissible parameter vector: a_i ≈ level, descending.
-    gaps: 5 positive gaps (a_i - a_{i+1}); default equal, total = spread."""
+    gaps: 5 nonempty gaps (a_i - a_{i+1}); default equal, total = spread."""
     if gaps is None:
         gaps = np.full(5, spread / 5)
     gaps = np.asarray(gaps, float)

@@ -525,7 +525,7 @@ $$
 w\left(1-\frac{wr}{2}\right)+\frac1{2-w}<1.
 $$
 
-After multiplication by $2(2-w)$, the positive gap is
+After multiplication by $2(2-w)$, the nonempty gap is
 
 $$
 P(w)=w^4-3w^3+4w^2-6w+2.

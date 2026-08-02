@@ -5,7 +5,7 @@ Status: Proven
 This note proves both orientations of the CE2 exactly-one-gap state in `410X`.
 The common center formulas, actual-V triangle propagation, supercritical target, and
 reflection order are isolated in
-[`4105`](4105_CE1_CE2_one_gap_five_row_interface.md). Only the CE2 scalar
+[`4105`](4105_CE1_CE2_one_gap_five_V_triangle_interface.md). Only the CE2 scalar
 threshold argument is proved here.
 
 ## 1. Exact signed CE2 domain

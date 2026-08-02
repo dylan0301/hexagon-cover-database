@@ -1,36 +1,44 @@
-# CE2 Vd1--Supercritical Adjacent-Pair Axis Replacement
+# CE2 Vd1--Supercritical Adjacent-Pair Two-Chart Replacement
 
 Status: Proven
 
-This note proves the Vd1 replacement used in the Case-3 branch of
+This note proves the replacement used in Case 3 of
 [`4148_CE2_Nplus1_exactly_one_Vd1_Vd2_assembly.md`](4148_CE2_Nplus1_exactly_one_Vd1_Vd2_assembly.md).
 The Vd2 alternative is eliminated by
 [`4149_CE2_Nplus1_Vd2_neighbor_midpoint_obstruction.md`](4149_CE2_Nplus1_Vd2_neighbor_midpoint_obstruction.md).
 
-## Statement
+## Theorem
 
-Assume the original open roles cover the perimeter and radial skeleton in the
-complementary 414X branch. Let $T_i$, $i\ne0$, be the unique supercritical
-V triangle, and let the unique Vd1 V triangle, distinct from $T_0$ and adjacent to $T_i$,
-contain $M_i$. Assume every other vertex V triangle is nonsupercritical Vd0 and the
-center has no boundary trace on the shared edge of this pair.
+Assume the complementary `414X` branch in which:
 
-Then the Vd1--supercritical pair can be replaced by two open
-nonsupercritical Vd0 roles while preserving every boundary and radial demand
-used by the proved `4013` all-Vd0 boundary-loss package. The reflected
-placement is identical.
+- the center role is CE2;
+- the full skeleton $S$ is covered;
+- a Vd1 role and the unique supercritical Vd0 role are adjacent;
+- the Vd1 role contains the own midpoint missed by the supercritical role;
+- neither special role is the vertex role at the center's unique midpoint;
+- every other vertex role is nonsupercritical Vd0;
+- no other vertex role has positive adjacent-arm support on the two radial
+  arms used by the pair;
+- the center has no boundary trace on the shared edge of the pair.
 
-## 1. Normalization and Vd1 margins
+After a fresh cyclic renumbering, write the Vd1 role as $U_0$ at $V_0$, the
+supercritical role as $U_1$ at $V_1$, and the rescued midpoint as $M_1$.
+This local renumbering does not assert that the center midpoint is $M_0$.
 
-Normalize the Vd1 V triangle at $V_0$, the supercritical V triangle at $V_1$, and the
-rescued midpoint as $M_1$. Let $a,b$ be the Vd1 V triangle's exact incident-edge
-reaches. By the Vd corner normal form, there are $t>0$ and
+Then $U_0,U_1$ can be replaced by two open nonsupercritical Vd0 roles
+$U_0',U_1'$ such that the modified seven roles still cover the full skeleton.
+The all-Vd0 skeleton theorem `4013` then gives a contradiction.
+
+## 1. Vd1 margins
+
+Let $a,b$ be the exact incident boundary reaches of the Vd1 role $T_0=
+\overline{U_0}$. By the Vd corner normal form, there are $t>0$ and
 
 $$
 d=\sqrt{t^2+t+1}
 $$
 
-such that the V triangle is
+such that, in the $V_0$ chart,
 
 $$
 \begin{aligned}
@@ -47,13 +55,13 @@ c=\frac{d-a-tb}{t+1},
 \qquad
 \lambda=\frac{t(1-b)}{t+1},
 \qquad
-\mu=\frac{d-a-tb-1}{t},
+u_{\rm adj}=\frac{d-a-tb-1}{t},
 $$
 
-where the neighboring-arm coordinate runs from $V_1$ toward $O$.
+where the adjacent-arm coordinate is measured from $V_1$ toward $O$.
 
-Because the original open Vd1 role contains $M_1$, its closure satisfies,
-with strict margin,
+Since the original open Vd1 role contains $M_1$, its closure satisfies with
+strict margin
 
 $$
 b>\frac{t-1}{2t},
@@ -61,20 +69,20 @@ b>\frac{t-1}{2t},
 a+tb<d-1-\frac t2.
 $$
 
-The V triangle has no positive-length trace on the other adjacent arm. If $t<1$,
+The role has no positive-length trace on the other adjacent arm. If $t<1$,
 then
 
 $$
 d-a-tb-t>1-\frac t2>\frac1{t+1}>\frac{1-a}{t+1},
 $$
 
-which would create such a trace. Hence
+which would create such a trace. Therefore
 
 $$
 \boxed{t\ge1.}
 $$
 
-We need the four strict margins
+Exactly as in the Vd corner calculation, one obtains the four strict margins
 
 $$
 \boxed{
@@ -84,12 +92,12 @@ a<\lambda\le\frac12,
 \qquad
 b<\frac12,
 \qquad
-\mu<1-a.}
+u_{\rm adj}<1-a.}
 \tag{1}
 $$
 
-For $a+c<1$, maximize $a+c$ on the closed midpoint face
-$a=d-1-t/2-tb$. There
+For completeness, on the closed midpoint face
+$a=d-1-t/2-tb$ one has
 
 $$
 a+c-1
@@ -99,55 +107,53 @@ $$
 Using $b\ge(t-1)/(2t)$, the numerator is at least
 
 $$
-2t^2+4t+1-2(t+1)d.
+2t^2+4t+1-2(t+1)d>0,
 $$
 
-This is positive for $t\ge1$, because
+because
 
 $$
 (2t^2+4t+1)^2-4(t+1)^2d^2
-=4t^3+4t^2-4t-3>0.
+=4t^3+4t^2-4t-3>0
 $$
 
-The original midpoint inequalities are strict, so $a+c<1$.
-
-The bound $\lambda\le1/2$ follows from the lower bound for $b$. The closed
-upper bound for $a$, subtracted from $\lambda$, is minimized at
-$b=(t-1)/(2t)$ and equals $(t+1)-d>0$, so $a<\lambda$. Also
+for $t\ge1$. Strict midpoint containment gives $a+c<1$. The lower bound for
+$b$ gives $\lambda\le1/2$; the closed upper bound for $a$, subtracted from
+$\lambda$, is minimized at $b=(t-1)/(2t)$ and equals $(t+1)-d>0$; and
 
 $$
-b<\frac{d-1-t/2}{t}<\frac12
-$$
-
-because $d<t+1$. Finally,
-
-$$
-t(\mu+a-1)=d-(t+1)-tb+(t-1)a
+t(u_{\rm adj}+a-1)
+=d-(t+1)-tb+(t-1)a
 \le t(d-t-1)<0.
 $$
 
 This proves (1).
 
-## 2. The supercritical V triangle and the half-square lemma
+## 2. The supercritical role and the bridge margin
 
-Let $A_i,B_i,C_i$ be the actual incoming, outgoing, and own-radial reaches of
-the supercritical V triangle. The center-free shared edge forces
-
-$$
-A_i\ge1-b>\frac12,
-$$
-
-and radial coverage up to the Vd1 interval forces
+Let
 
 $$
-C_i\ge\lambda.
+(A_1,B_1,C_1)
 $$
 
-We use the following consequence of the exact admissible set.
+be the actual reaches of the supercritical role $T_1=\overline{U_1}$, with
+$A_1$ measured on the shared edge from $V_1$ toward $V_0$ and $B_1$ measured
+from $V_1$ toward $V_2$. Since the shared edge is center-free,
+
+$$
+A_1\ge1-b>\frac12.
+$$
+
+Coverage of $r_1$ up to the Vd1 interval gives
+
+$$
+C_1\ge\lambda.
+$$
 
 ### Half-square admissibility lemma
 
-If $(x,y,z)$ is admissible and
+If $(x,y,z)$ belongs to the exact local admissible set and
 
 $$
 x\ge\frac12,
@@ -161,141 +167,148 @@ $$
 \boxed{y\le1-z.}
 $$
 
-Suppose instead that $y>1-z$. Then $x+y>1$, so the selected supercritical
-cell applies. In the ordered half $x\le y$, its necessary inequality is
+Indeed, suppose $y>1-z$. Then $x+y>1$, so the selected supercritical cell
+applies. In the ordered half $x\le y$, its necessary inequality is
 
 $$
-F(x,y,z):=(x^2-1)z^2+(2xy^2+y)z+y^4-y^2\le0.
+F(x,y,z)=(x^2-1)z^2+(2xy^2+y)z+y^4-y^2\le0.
 $$
 
 The function is nondecreasing in $x$. At $x=1/2$, its derivative in $y$ is
 
 $$
-4y^3-2y+2yz+z.
+4y^3-2y+2yz+z,
 $$
 
-This is increasing for $y\ge1-z$ and is positive at $y=1-z$. Hence
+which is increasing and positive for $y\ge1-z$. Hence
 
 $$
 F(x,y,z)>F\left(\frac12,1-z,z\right)
 =\frac{z^2(2z-5)(2z-1)}4\ge0,
 $$
 
-a contradiction.
-
-In the reflected half $y<x$, the necessary inequality is $F(y,x,z)\le0$.
-Both arguments exceed $r=1-z$. On this quadrant $F$ is nondecreasing in both
-arguments; the second partial derivative is bounded below by
+a contradiction. In the reflected half $y<x$, use $F(y,x,z)$. Both
+arguments exceed $r=1-z$. The first partial derivative is nonnegative, and
+the second is minimized at $(r,r)$, where it equals
 
 $$
 4r^2z+z+4r^3-2r=2-5z+4z^2>0.
 $$
 
-Therefore
+Thus
 
 $$
 F(y,x,z)>F(r,r,z)=z(1-2z)\ge0,
 $$
 
-again a contradiction. This proves the lemma.
+again a contradiction.
 
-For a supercritical admissible V triangle, the actual own-radial reach has
-$C_i\le1/2$.
-Applying the lemma gives
+A supercritical admissible V triangle has $C_1\le1/2$ by the selected
+supercritical-cell component condition. Applying the lemma gives
 
 $$
-B_i\le1-C_i\le1-\lambda.
+B_1\le1-C_1\le1-\lambda.
 $$
 
 Since $a<\lambda$,
 
 $$
-\boxed{a+B_i<1.}
+\boxed{a+B_1<1.}
 \tag{2}
 $$
 
-## 3. Center handoff
-
-Let $d_i^C$ be the center reach on the rescued arm, measured from $O$ toward
-$V_i$, and put
+Let $d_1^C$ be the center reach on $r_1$, measured from $O$ toward $V_1$, and
+put
 
 $$
-c_i^{\rm req}=1-d_i^C.
+c_1^{\rm req}=1-d_1^C.
 $$
 
-Only the center, the supercritical V triangle, and the Vd1 V triangle have positive
-intervals on this arm. Open coverage at the center handoff forces
+Only the center, $U_1$, and the adjacent trace of $U_0$ have
+positive-length intervals on $r_1$. Open skeleton coverage at the center
+handoff forces
 
 $$
-c_i^{\rm req}<\max\{C_i,\mu\}.
+c_1^{\rm req}<\max\{C_1,u_{\rm adj}\}.
 $$
 
-By the half-square lemma and (1),
+The half-square lemma and (1) give
 
 $$
-\max\{C_i,\mu\}
-\le
-\max\{1-B_i,1-a\}.
+\max\{C_1,u_{\rm adj}\}
+\le\max\{1-B_1,1-a\}.
 $$
 
-The first comparison is strict, so together they give the strict bridge
-margin
+Therefore
 
 $$
 \boxed{
-c_i^{\rm req}<\max\{1-B_i,1-a\}.}
+c_1^{\rm req}<\max\{1-B_1,1-a\}.}
 \tag{3}
 $$
 
-No unjustified strictness is needed in the second comparison.
+## 3. Existence of the replacement parameters
 
-## 4. Explicit open Vd0 replacements
-
-For $0\le p\le1$, define
+Put
 
 $$
-\Delta_p^-=\operatorname{conv}\{(0,1-p),(1,1-p),(0,-p)\}
-\qquad(0\le p\le1/2),
+L=1-B_1.
 $$
 
-and
+By (2), $a<L$. Consider
 
 $$
-\Delta_p^+=\operatorname{conv}\{(p,0),(p,1),(p-1,0)\}
-\qquad(1/2<p\le1).
+f(p)=\max\{p,1-p\}.
 $$
 
-In the local metric these are unit equilateral triangles. Their two incident
-reaches are $p,1-p$, their own-radial reach is respectively $1-p$ or $p$, and
-they have no positive adjacent-arm support.
-
-The strict inequalities (1)--(3) allow parameters
+On the open interval $(a,L)$,
 
 $$
-a<p_1<p_2<1-B_i
+\sup_{a<p<L}f(p)=\max\{L,1-a\}.
+$$
+
+By (3), this supremum is strictly larger than $c_1^{\rm req}$. Hence there
+exists
+
+$$
+p_2\in(a,L)
 $$
 
 such that
 
 $$
+f(p_2)>c_1^{\rm req}.
+$$
+
+The inequalities $a<1/2$ and $a+c<1$ allow a choice
+
+$$
+a<p_1<p_2
+$$
+
+with
+
+$$
+p_1<\frac12,
+\qquad
+1-p_1>c.
+$$
+
+Thus
+
+$$
+\boxed{
+a<p_1<p_2<1-B_1,}
+$$
+
+$$
+\boxed{
 p_1<\frac12,
 \qquad
 1-p_1>c,
 \qquad
-\max\{p_2,1-p_2\}>c_i^{\rm req}.
-$$
-
-Choose $p_1$ close to $a$. For $p_2$, choose a point close to $a$ when the
-right side of (3) is supplied by $1-a$, and close to $1-B_i$ when it is
-supplied by $1-B_i$.
-
-Define the physical-coordinate map
-
-$$
-X_{\mathrm{loc}}:\mathbb R^2\to\mathbb R^2,
-\qquad
-X_{\mathrm{loc}}(x,y)
-:=V_0+x(V_5-V_0)+y(V_1-V_0).
+\max\{p_2,1-p_2\}>c_1^{\rm req}.}
+\tag{4}
 $$
 
 Choose
@@ -303,64 +316,280 @@ Choose
 $$
 0<\varepsilon<
 \min\left\{
-p_1-a, p_2-p_1, 1-B_i-p_2,
-1-p_1-c, \max\{p_2,1-p_2\}-c_i^{\rm req}
-\right\},
+p_1-a,
+\ p_2-p_1,
+\ 1-B_1-p_2,
+\ 1-p_1-c,
+\ \max\{p_2,1-p_2\}-c_1^{\rm req}
+\right\}.
+\tag{5}
 $$
 
-and define
+Every quantity in the minimum is positive.
+
+## 4. Two separate vertex charts
+
+Define the $V_0$-based chart
 
 $$
-T_0'
-:=
-X_{\mathrm{loc}}\left(
-\mathrm{int}(\Delta_{p_1}^-)+(-\varepsilon,0)
-\right),
+X_0(x,y)
+=V_0+x(V_5-V_0)+y(V_1-V_0)
 $$
 
+and the $V_1$-based chart
+
 $$
-T_1'
-:=
+X_1(x,y)
+=V_1+x(V_0-V_1)+y(V_2-V_1).
+$$
+
+Both charts carry the local metric
+
+$$
+\|(x,y)\|^2=x^2+y^2-xy.
+$$
+
+In the first chart,
+
+$$
+V_0=(0,0),\quad V_5=(1,0),\quad V_1=(0,1),\quad O=(1,1),
+$$
+
+while in the second chart,
+
+$$
+V_1=(0,0),\quad V_0=(1,0),\quad V_2=(0,1),\quad O=(1,1).
+$$
+
+For $0\le p\le1/2$, put
+
+$$
+\Delta_p^-
+=\operatorname{conv}\{(0,1-p),(1,1-p),(0,-p)\},
+$$
+
+and for $1/2<p\le1$, put
+
+$$
+\Delta_p^+
+=\operatorname{conv}\{(p,0),(p,1),(p-1,0)\}.
+$$
+
+Their side vectors have local lengths one, so both are unit equilateral
+triangles.
+
+### Lemma 4.1: shifted minus template
+
+If $0<\varepsilon<p$, then
+
+$$
+D_{p,\varepsilon}^-
+=\operatorname{int}(\Delta_p^-)+(-\varepsilon,0)
+$$
+
+contains the origin in its interior. Its closure has reaches
+
+$$
+\boxed{(p-\varepsilon,1-p,1-p)}
+$$
+
+on the positive $x$-axis, positive $y$-axis, and diagonal $x=y$,
+respectively. It has no positive-length trace on either adjacent arm
+$x=1$ or $y=1$.
+
+### Proof
+
+The shifted triangle is given by
+
+$$
+x>-\varepsilon,
+\qquad
+y<1-p,
+\qquad
+y>x+\varepsilon-p.
+$$
+
+The origin satisfies all three inequalities exactly when
+$\varepsilon<p$. Substitution of $(s,0)$, $(0,s)$, and $(s,s)$ gives the
+three reaches. Moreover $x\le1-\varepsilon<1$ and $y\le1-p<1$ on the
+closure. $\square$
+
+### Lemma 4.2: shifted plus template
+
+If $0<\varepsilon<1-p$, then
+
+$$
+D_{p,\varepsilon}^+
+=\operatorname{int}(\Delta_p^+)+(0,-\varepsilon)
+$$
+
+contains the origin in its interior. Its closure has reaches
+
+$$
+\boxed{(p,1-p-\varepsilon,p)}
+$$
+
+on the positive $x$-axis, positive $y$-axis, and diagonal, respectively. It
+has no positive-length trace on $x=1$ or $y=1$.
+
+### Proof
+
+The shifted triangle is given by
+
+$$
+y>-\varepsilon,
+\qquad
+x<p,
+\qquad
+y<x+1-p-\varepsilon.
+$$
+
+The origin is interior exactly when $\varepsilon<1-p$. The three reaches
+follow by substitution, and $x\le p<1$, $y\le1-\varepsilon<1$. $\square$
+
+The bounds in (5) imply the interior conditions in both lemmas:
+$\varepsilon<p_1$, $\varepsilon<p_2$, and, in the plus case,
+$\varepsilon<1-p_2$.
+
+## 5. Definition and exact reaches of the replacements
+
+Define
+
+$$
+U_0'=X_0(D_{p_1,\varepsilon}^-)
+$$
+
+and
+
+$$
+U_1'=
 \begin{cases}
-X_{\mathrm{loc}}\left(
-\mathrm{int}(\Delta_{p_2}^-)+(-\varepsilon,0)
-\right),&p_2\le1/2,\\
-X_{\mathrm{loc}}\left(
-\mathrm{int}(\Delta_{p_2}^+)+(0,-\varepsilon)
-\right),&p_2>1/2.
+X_1(D_{p_2,\varepsilon}^-),&p_2\le1/2,\\
+X_1(D_{p_2,\varepsilon}^+),&p_2>1/2.
 \end{cases}
 $$
 
-The closure of $T_0'$ has relevant reaches
+Let
 
 $$
-(p_1-\varepsilon,1-p_1,1-p_1).
+T_0'=\overline{U_0'},
+\qquad
+T_1'=\overline{U_1'}.
 $$
 
-The closure of $T_1'$ has relevant reaches
+The first replacement is a role at $V_0$, and
 
 $$
-(p_2-\varepsilon,1-p_2,1-p_2)
+(A(T_0'),B(T_0'),C(T_0'))
+=(p_1-\varepsilon,1-p_1,1-p_1).
+\tag{6}
 $$
 
-when $p_2\le1/2$, and
+The second replacement is a role at $V_1$. If $p_2\le1/2$, then
 
 $$
-(p_2,1-p_2-\varepsilon,p_2)
+(A(T_1'),B(T_1'),C(T_1'))
+=(p_2-\varepsilon,1-p_2,1-p_2),
+\tag{7-}
 $$
 
-when $p_2>1/2$. The first replacement still supplies at least $a$ and $c$;
-the second supplies at least $B_i$ and $c_i^{\rm req}$. The shared open edge
-is covered because
+while if $p_2>1/2$, then
 
 $$
-(1-p_1)+(p_2-\varepsilon)>1.
+(A(T_1'),B(T_1'),C(T_1'))
+=(p_2,1-p_2-\varepsilon,p_2).
+\tag{7+}
 $$
 
-Both replacements contain their distinguished vertices in their interiors,
-have zero adjacent support, and have boundary sum below one. Thus they are
-open nonsupercritical Vd0 roles preserving all boundary and radial demands
-used by `4013`. The resulting all-Vd0 datum is impossible.
+In particular, $V_0\in U_0'$ and $V_1\in U_1'$.
+
+Each boundary sum is exactly
+
+$$
+1-\varepsilon<1.
+$$
+
+The two templates have no positive adjacent-arm support. By the exhaustive
+vertex classification, both are nonsupercritical Vd0 roles.
+
+## 6. Preservation of the full skeleton
+
+The special pair can have positive open trace only on
+
+$$
+e_{5,0},\ e_{0,1},\ e_{1,2},\ r_0,\ r_1.
+$$
+
+All other skeleton components are unchanged.
+
+### Outer boundary edge at $V_0$
+
+By (5) and (6),
+
+$$
+A(T_0')=p_1-\varepsilon>a.
+$$
+
+Hence the new $V_0$ role contains the entire former Vd1 open trace on
+$e_{5,0}$.
+
+### Own radial arm at $V_0$
+
+By (4),
+
+$$
+C(T_0')=1-p_1>c.
+$$
+
+Thus the former own-radial trace on $r_0$ is preserved.
+
+### Shared edge
+
+The $V_0$ replacement reaches $1-p_1$ from $V_0$. The $V_1$ replacement
+reaches at least $p_2-\varepsilon$ from $V_1$. Since
+
+$$
+(1-p_1)+(p_2-\varepsilon)
+=1+(p_2-p_1-\varepsilon)>1,
+$$
+
+the two open traces overlap and cover all of $e_{0,1}$.
+
+### Outer boundary edge at $V_1$
+
+If $p_2\le1/2$, then
+
+$$
+B(T_1')=1-p_2>B_1.
+$$
+
+If $p_2>1/2$, then
+
+$$
+B(T_1')=1-p_2-\varepsilon>B_1
+$$
+
+by (5). Hence the former supercritical open trace on $e_{1,2}$ is preserved.
+
+### Own radial arm at $V_1$
+
+In both cases,
+
+$$
+C(T_1')=\max\{p_2,1-p_2\}>c_1^{\rm req}.
+$$
+
+The new vertex-side radial trace therefore overlaps the center trace, whose
+vertex-side beginning is $c_1^{\rm req}$. Thus all of $r_1$ remains covered.
+
+Consequently the modified seven open roles cover the full skeleton $S$.
+Their center role remains CE2, and all six vertex roles are now
+nonsupercritical Vd0. The skeleton-level all-Vd0 theorem
+[`4013`](../../40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md)
+gives a contradiction.
+
+Reflection and undoing the fresh cyclic renumbering prove every placement
+covered by the theorem.
 
 $$
 \Box

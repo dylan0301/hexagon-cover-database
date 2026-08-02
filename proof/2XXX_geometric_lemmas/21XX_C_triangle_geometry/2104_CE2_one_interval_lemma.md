@@ -396,7 +396,7 @@ limit point. Thus either replacement preserves the full skeleton cover.
 
 Because $J_L$ or $J_R$ has positive length and is newly covered by either
 one-sided replacement, the original two-gap system was not
-replacement-maximal. The simultaneous replacement covers both positive gaps
+replacement-maximal. The simultaneous replacement covers both nonempty gaps
 and gives the stronger exact exit stated above.
 
 ## Why bare monotonicity is insufficient

@@ -136,7 +136,7 @@ the outside-vertex and adjacent-support counts `(o,n)`.
 **Primary sources.**
 
 - [1202_local_coordinates_abc.md](../proof/1XXX_foundations/12XX_V_triangle/1202_local_coordinates_abc.md) — **P/S**;
-- [1212_vertex_rows_and_Nplus.md](../proof/1XXX_foundations/12XX_V_triangle/1212_vertex_rows_and_Nplus.md) — **P/S**;
+- [1212_vertex_V_triangles_and_Nplus.md](../proof/1XXX_foundations/12XX_V_triangle/1212_vertex_V_triangles_and_Nplus.md) — **P/S**;
 - [1214_strict_boundary_handoff_selection.md](../proof/1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md) — **P**.
 
 ### Boundary gaps and singleton gaps
@@ -300,12 +300,12 @@ The full calculations are reorganized in `03_strategy1_length.tex` and
 
 **Geometric application.** [2110_common_CE2_two_gap_application.md](../proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2110_common_CE2_two_gap_application.md) — **P/A**.
 
-### `prop:body-five-row-certificate`
+### `prop:body-five-V-triangle-certificate`
 
 | Paper component | Proof source |
 |---|---|
 | unique supercritical V triangle and exact gap setup | [4101_CE1CE2_Nplus1_all_Vd0_strategy.md](../proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4101_CE1CE2_Nplus1_all_Vd0_strategy.md) |
-| actual-V triangle five-map propagation and `A_0>=Z`, `A_0<1-H` | [4105_CE1_CE2_one_gap_five_row_interface.md](../proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4105_CE1_CE2_one_gap_five_row_interface.md) |
+| actual-V triangle five-map propagation and `A_0>=Z`, `A_0<1-H` | [4105_CE1_CE2_one_gap_five_V_triangle_interface.md](../proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4105_CE1_CE2_one_gap_five_V_triangle_interface.md) |
 | CE1 affine/threshold completion | [4106_CE1_one_gap_five_map_completion.md](../proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4106_CE1_one_gap_five_map_completion.md) |
 | CE2 at-least-one-threshold completion | [4107_CE2_one_gap_five_map_completion.md](../proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4107_CE2_one_gap_five_map_completion.md) |
 | selected `T_+` normal form and chords | [2016_universal_Tplus_normal_form.md](../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2016_universal_Tplus_normal_form.md) |
@@ -362,13 +362,13 @@ The full calculations are reorganized in `03_strategy1_length.tex` and
 
 **Supporting source.** [201c_Vd_corner_radial_margins.md](../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201c_Vd_corner_radial_margins.md) — **S**.
 
-### `prop:body-special-terminal-certificates`, item 4 — Vd1 axis replacement
+### `prop:body-special-terminal-certificates`, item 4 — Vd1 two-chart replacement
 
 **Primary source.** [4147_CE2_Nplus1_Vd1_supercritical_pair_axis_replacement.md](../proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4147_CE2_Nplus1_Vd1_supercritical_pair_axis_replacement.md) — **P**.
 
 **Target after replacement.** [4013_boundary_loss_index.md](../proof/4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md) — **P**.
 
-**TeX authoritative reproduction.** `04d_strategy2_rigor_completion.tex`.
+**TeX authoritative reproduction.** `04_strategy2_verification.tex`.
 
 ### `prop:body-demand-branches`
 
@@ -563,7 +563,7 @@ length, and exact one-gap actual-V triangle interface.
 - `2105_CE1_exact_formulas.md`;
 - `2106_CE2_exact_formulas.md`;
 - `2109_signed_CE1_CE2_center_normal_form.md`;
-- `4105_CE1_CE2_one_gap_five_row_interface.md`.
+- `4105_CE1_CE2_one_gap_five_V_triangle_interface.md`.
 
 **Supporting source.** `2100_CE1_CE2_exactly_one_midpoint_lemma.md`.
 
@@ -604,7 +604,7 @@ nonadjacent Vd radial separation, and related Strategy 1 subcases.
 - `2530_common_CE1_CE2_budget_lemmas.md`;
 - terminal files `4132`, `4143`, `4144`, `4146`, `4149`.
 
-## 3.9 `paper_draft/04_strategy2_reader.tex`
+## 3.9 `paper_draft/04_strategy2_verification.tex`
 
 **Paper results supplied.** Complete `g`-composition presentation of the
 all-Vd0 gap-rank kernel, common two-gap application, exact five-V-triangle chain,
@@ -615,7 +615,7 @@ separate CE1/CE2 endings, and summary of special-role branches.
 
 **Supporting sources.** `2011`, `2016`, `2017`, `2018`, `2019`, `201d`.
 
-## 3.10 `paper_draft/04_strategy2_exact_demand.tex`
+## 3.10 `paper_draft/04_strategy2_verification.tex`
 
 **Paper results supplied.** Exact admissible demand calculus, four-label capped
 map, low-root bounds, endpoint inequalities, and detailed CE1 scalar
@@ -636,7 +636,7 @@ calculation.
 file is superseded by the complete proof in `04d` and the explicit correction
 in `04f`.
 
-## 3.11 `paper_draft/04d_strategy2_rigor_completion.tex`
+## 3.11 `paper_draft/04_strategy2_verification.tex`
 
 **Paper results supplied.** Formal incorporation of the complete `407X`
 four-label endpoint proof and a full TeX proof of the Vd1-supercritical axis
@@ -649,7 +649,7 @@ replacement.
 
 **Supporting sources.** `2011`, `2014`, `4013`.
 
-## 3.12 `paper_draft/04e_strategy2_placement_assembly.tex`
+## 3.12 `paper_draft/04_strategy2_verification.tex`
 
 **Paper result supplied.** `prop:paper-ce2-one-vd-placements`, the authoritative
 exhaustive CE2 exactly-one-Vd1/Vd2 assembly.
@@ -662,7 +662,7 @@ exhaustive CE2 exactly-one-Vd1/Vd2 assembly.
 **Terminal sources.** `4143`, `4144`, `4146`, `4147`, `4149`, `414a`, and
 `4013` after replacement.
 
-## 3.13 `paper_draft/04f_strategy2_cross_reference_closure.tex`
+## 3.13 `paper_draft/04_strategy2_verification.tex`
 
 **Paper function.** Declares `04d` and `04e` authoritative for the compact
 legacy Strategy 2 summaries and records the corrected weak comparison in the
@@ -784,7 +784,7 @@ terminal proof sources.
 | `4013` | all-Vd0 `N_+=0` kernel and post-`4147` replacement target |
 | `4040`, `4041` | Strategy 1 CE1/CE2 `N_+=0` Vd branches |
 | `4070`-`407d` | `def:body-t3-endpoint-state`, `prop:body-t3-endpoint`, `04d` |
-| `4101`, `4105`, `4106`, `4107` | `prop:body-five-row-certificate` and positive-gap all-Vd0 routing |
+| `4101`, `4105`, `4106`, `4107` | `prop:body-five-V-triangle-certificate` and nonempty-gap all-Vd0 routing |
 | `4110`, `4111` | Strategy 1 Vd branch routing |
 | `4123` | multiple-T3 short-role routing |
 | `4130`, `4131`, `4132` | exactly-one-T3-like Strategy 2 branch |
@@ -858,7 +858,7 @@ line-for-line in the TeX appendix. The exact source objects are:
 - `407c_rigor_completion_details.md` — analytic inequalities and thresholds;
 - `407d_rigor_final_assembly.md` — exhaustive reassembly.
 
-`04d_strategy2_rigor_completion.tex` records their exact Git blob identifiers.
+`04_strategy2_verification.tex` records their exact Git blob identifiers.
 The optional script under `407X_computation/` remains an experiment/cross-check,
 not an active proof dependency.
 

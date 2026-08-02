@@ -90,9 +90,8 @@
 
   \node[figlabel,atlasbox,align=left,anchor=west] at (.05,-.92)
     {$\displaystyle
-      X_{\rm loc}:\mathbb R^2\to\mathbb R^2,\qquad
-      X_{\rm loc}(x,y):=
-      V_0+x(V_5-V_0)+y(V_1-V_0),$\\[-1pt]
+      X_0(x,y):=V_0+x(V_5-V_0)+y(V_1-V_0),\qquad
+      X_1(x,y):=V_1+x(V_0-V_1)+y(V_2-V_1),$\\[-1pt]
      $\displaystyle
       T_0^{\rm loc}:=\{(x,y)\in\mathbb R^2:
       x-(t+1)y\le a,\;
@@ -138,13 +137,13 @@
       1-p_1-c,\ \max\{p_2,1-p_2\}-c_1^{\rm req}\}$\\
      $\displaystyle
       T_0':=
-      X_{\rm loc}\!\left(\interior(\Delta_{p_1}^-)+(-\varepsilon,0)\right),
+      X_0\!\left(\interior(\Delta_{p_1}^-)+(-\varepsilon,0)\right),
       \qquad
       T_1':=
       \begin{cases}
-       X_{\rm loc}\!\left(\interior(\Delta_{p_2}^-)
+       X_1\!\left(\interior(\Delta_{p_2}^-)
        +(-\varepsilon,0)\right),&p_2\le1/2,\\
-       X_{\rm loc}\!\left(\interior(\Delta_{p_2}^+)
+       X_1\!\left(\interior(\Delta_{p_2}^+)
        +(0,-\varepsilon)\right),&p_2>1/2.
       \end{cases}$};
 \end{tikzpicture}

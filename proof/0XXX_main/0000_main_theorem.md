@@ -93,3 +93,8 @@ and CE2 are impossible.
 All three center classes lead to contradictions. Therefore seven open unit
 equilateral triangles cannot cover $H$. The equivalence in `1003` gives the
 closed expanded-hexagon formulation. $\square$
+
+
+## 2026-08-02 replacement and skeleton-interface audit
+
+The CE2 exactly-one-Vd1/Vd2 terminal was re-audited after correcting `4147` to use separate local charts at the two distinguished vertices. The replacement now proves full skeleton preservation. `4013` is stated at the skeleton-data strength used by that reduction, and `414b` records the exhaustive placement re-audit. The main theorem status remains `Proven` because the corrected branch and all verification checks pass.

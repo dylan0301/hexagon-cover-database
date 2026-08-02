@@ -75,7 +75,7 @@ does not assert uniqueness; both thresholds may be available.
 
 ### 3.4 Exact one-gap terminal coordinates
 
-The exact five-row chain has terminal target
+The exact five-V-triangle chain has terminal target
 
 ```text
 Z > 1-H.
@@ -207,7 +207,7 @@ Reviewed and accepted after the repairs above:
 - residual transfer and corrected path theorem;
 - one-side endpoint loss;
 - paired CE2 endpoint loss;
-- common five-row one-gap interface;
+- common five-V-triangle one-gap interface;
 - separate CE1 and CE2 scalar completions;
 - complete `407X` endpoint audit;
 - exactly-one-T3-like rescuer proof;
@@ -250,8 +250,8 @@ They are not substitutes for the exact proofs.
 |---|---:|---|
 | explicit radial envelope | 100,000 random feasible pairs | maximum discrepancy about `1.47e-14` |
 | four-label capped map | 100,000 random inputs | maximum discrepancy about `3.89e-15` |
-| CE1 five-row chain | 19,711 accepted samples | no failure |
-| CE2 five-row chain | 30,211 accepted samples | no failure |
+| CE1 five-V-triangle chain | 19,711 accepted samples | no failure |
+| CE2 five-V-triangle chain | 30,211 accepted samples | no failure |
 | one-side endpoint loss | 37,437 accepted samples | no failure |
 | paired CE2 endpoint loss | 302,563 accepted samples | no failure |
 | center skeleton cap | 1,000,000 samples | maximum below `1.5` |
@@ -275,7 +275,7 @@ Every row of the paper routing table now points to an active proved terminal:
 | CE1/CE2, `N_+=0`, a Vd1/Vd2 row | Strategy 1 perimeter deficit |
 | CE1/CE2, `N_+=0`, T3-like | exact `407X` endpoint audit |
 | CE1/CE2, `N_+=1`, all Vd0, zero gaps | Strategy 4 |
-| CE1/CE2, `N_+=1`, all Vd0, positive gap | five-row or paired endpoint certificate |
+| CE1/CE2, `N_+=1`, all Vd0, nonempty gap | five-V-triangle or paired endpoint certificate |
 | CE1/CE2, exactly one T3-like | common adjacent-rescuer obstruction |
 | CE1, exactly one Vd1/Vd2 | Strategy 1 perimeter deficit |
 | CE2, exactly one Vd1/Vd2 | complete `414X` placement assembly |

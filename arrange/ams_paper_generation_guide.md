@@ -115,11 +115,11 @@ appendix_roadmap.tex
 03_strategy1_length.tex
 04b_common_CE1_CE2_budgets.tex
 04c_short_Vd_placements.tex
-04_strategy2_reader.tex
-04_strategy2_exact_demand.tex
-04d_strategy2_rigor_completion.tex
-04e_strategy2_placement_assembly.tex
-04f_strategy2_cross_reference_closure.tex
+04_strategy2_verification.tex
+04_strategy2_verification.tex
+04_strategy2_verification.tex
+04_strategy2_verification.tex
+04_strategy2_verification.tex
 05_strategy3_area.tex
 06_strategy4_ab_core.tex
 06a_strategy4_exact_certificate.tex
@@ -235,7 +235,7 @@ Technical aliases `B_c,F_c,G_c` may remain in exact-demand calculations.
 10. **Vd terminals.** Keep the nonadjacent own-radial margin and the adjacent
     direct quarter separation; do not substitute an unsupported universal map.
 11. **Vd1 replacement.** Keep both ordered halves, all strict margins, and the
-    explicit open axis replacements.
+    explicit open two-chart replacements.
 12. **Strategy 4.** Keep ray order, adjacent overlaps, rational radial
     envelopes, Gram reduction, authenticated sparse data, and exact Bernstein
     verification.
@@ -244,7 +244,7 @@ Technical aliases `B_c,F_c,G_c` may remain in exact-demand calculations.
 
 ### 7.1 T3-like endpoint supplement
 
-`04d_strategy2_rigor_completion.tex` records the complete `407X` source paths,
+`04_strategy2_verification.tex` records the complete `407X` source paths,
 full blob identifiers, and exhaustive branch table. The difficult polynomial
 selectors and high-sheet inequalities remain in those exact proof-package
 objects and are not replaced by a partial TeX derivation. A status-bearing

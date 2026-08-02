@@ -1,25 +1,22 @@
-# Common CE2 Two-Gap Application
+# Common CE2 Two-Gap Skeleton Application
 
 Status: Proven
 
-This note isolates the geometric application of the exact CE2 two-endpoint
-capped-loss theorem. The argument depends only on nonsupercriticality of the
-five V triangles away from the normalized midpoint V triangle; it does not depend on whether
-V triangle $T_0$ is nonsupercritical or uniquely supercritical. It therefore applies
-to both the $N_+=0$ and $N_+=1$ all-Vd0 two-gap packages.
+This note isolates the skeleton-data application of the exact CE2 paired
+endpoint theorem. No point of the two-dimensional interior $H\setminus S$ is
+used.
 
 ## Theorem
 
-Assume a hypothetical cover has a CE2 center role whose two positive boundary
-traces each contain a V-gap, possibly a singleton. Normalize the unique center
-midpoint to $M_0$. Suppose V triangles
+Let the center role be CE2 with both positive boundary traces containing a
+V-gap, possibly a singleton. Normalize its unique center midpoint to $M_0$.
+Assume:
 
-$$
-T_1,T_2,T_3,T_4,T_5
-$$
+1. V triangles $T_1,\ldots,T_5$ are nonsupercritical Vd0 roles;
+2. the perimeter and radial arms $r_1,r_5$ are covered by the seven open
+   roles.
 
-are nonsupercritical Vd0 V triangles. Then the perimeter cannot be covered. No
-hypothesis on $A_0+B_0$ is required.
+Then such data are impossible. No hypothesis on $A_0+B_0$ is required.
 
 ## Proof
 
@@ -27,8 +24,15 @@ Use the signed center variables from
 [`2109`](2109_signed_CE1_CE2_center_normal_form.md):
 
 $$
-0<R<1,\qquad W=1-R,\qquad E=\sqrt{1-RW},\qquad
-\eta=1-E,\qquad k=\eta+\alpha+\delta.
+0<R<1,
+\qquad
+W=1-R,
+\qquad
+E=\sqrt{1-RW},
+\qquad
+\eta=1-E,
+\qquad
+k=\eta+\alpha+\delta.
 $$
 
 The two CE2 traces are
@@ -46,26 +50,35 @@ $$
 Put
 
 $$
-p=W-\alpha,\qquad q=R-\delta.
-$$
-
-Both are positive. The far-side boundary demands left by the two center
-intervals are exactly $p$ for V triangle $T_5$ and $q$ for V triangle $T_1$. Since each
-center interval contains a V-gap, the corresponding actual endpoint reaches
-are at least these demands.
-
-The complementary radial demands at the endpoint V triangles are
-
-$$
-c_5=1-\frac{\alpha}{W}=\frac pW,
+p=W-\alpha,
 \qquad
-c_1=1-\frac{\delta}{R}=\frac qR.
+q=R-\delta.
 $$
 
-Let $B_5^{\rm far}$ and $B_1^{\rm far}$ denote the reaches of V triangles $T_5$ and
-$T_1$ on the two edges leading away from the center traces, namely $e_{4,5}$
-and $e_{1,2}$. By reflecting the local coordinates at $T_5$ when necessary,
-the safe capped map gives
+Both are positive. Since each center interval contains a V-gap, the far-side
+boundary demands at $T_5$ and $T_1$ are at least $p$ and $q$, respectively.
+
+The center exits on the two endpoint radial arms are
+
+$$
+d_5^C=\frac{\alpha}{W},
+\qquad
+d_1^C=\frac{\delta}{R}.
+$$
+
+Because the endpoint roles are Vd0, no adjacent vertex role has a
+positive-length trace on these arms; diameter locality excludes every nonlocal
+role. Coverage of $r_5$ and $r_1$ therefore forces
+
+$$
+C_5\ge c_5:=1-\frac{\alpha}{W}=\frac pW,
+\qquad
+C_1\ge c_1:=1-\frac{\delta}{R}=\frac qR.
+$$
+
+Let $B_5^{\rm far}$ and $B_1^{\rm far}$ denote the reaches of $T_5$ and
+$T_1$ on $e_{4,5}$ and $e_{1,2}$. By reflecting the local coordinates at
+$T_5$ when necessary, the safe capped map gives
 
 $$
 B_5^{\rm far}\le F_{p/W}(p),
@@ -73,7 +86,7 @@ B_5^{\rm far}\le F_{p/W}(p),
 B_1^{\rm far}\le F_{q/R}(q).
 $$
 
-The exact two-endpoint theorem
+The exact paired endpoint theorem
 [`2108`](2108_CE2_two_endpoint_capped_loss.md) gives
 
 $$
@@ -88,17 +101,19 @@ $$
 
 Apply the corrected boundary-path theorem
 [`2019`](../20XX_V_triangle_geometry/2019_interval_component_and_path_budget.md)
-to $T_2,T_3,T_4$. Its hypotheses are explicit here: the center's only
-positive boundary traces are on $e_{5,0}$ and $e_{0,1}$, so the internal path
-edges $e_{2,3}$ and $e_{3,4}$ are center-free; diameter locality excludes all
-nonincident vertex roles; and the complete external contributions on
-$e_{1,2}$ and $e_{4,5}$ are bounded by
-$B_1^{\rm far}$ and $B_5^{\rm far}$. Therefore coverage forces
+to $T_2,T_3,T_4$. The center's only positive boundary traces are on
+$e_{5,0}$ and $e_{0,1}$, so $e_{2,3}$ and $e_{3,4}$ are center-free.
+Diameter locality excludes nonincident vertex roles. Perimeter coverage
+therefore forces
 
 $$
 \sum_{i=2}^4(A_i+B_i)
 \ge4-(B_1^{\rm far}+B_5^{\rm far})>3.
 $$
 
-But the three V triangles are nonsupercritical, so the same sum is at most three.
+The three V triangles are nonsupercritical, so the same sum is at most three.
 This contradiction proves the theorem.
+
+$$
+\Box
+$$

@@ -308,7 +308,7 @@ $$
 u_2<1-H<1-\delta=q_2.
 $$
 
-Thus $T_1$ cannot meet the center interval.
+Here $u_{1\to2}$ denotes the far endpoint of the supported $T_1$ trace on $r_2$. Thus $T_1$ cannot meet the center interval.
 
 ### The ordinary V triangle $T_2$
 

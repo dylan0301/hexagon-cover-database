@@ -34,7 +34,7 @@ nine-point obstruction.
 | CE0 terminal packages | [`3010`](../3XXX_CE0/30XX_Nplus0/3010_CE0_perimeter_length_obstruction.md), [`3141`](../3XXX_CE0/31XX_Nplus1/314X_exists_Vd1_Vd2/3141_CE0_Nplus1_exists_Vd1_Vd2_boundary_length_obstruction.md), [`3171`](../3XXX_CE0/31XX_Nplus1/317X_T3_like_no_Vd1Vd2/3171_T3_like_area_certificate_index.md), [`3201`](../3XXX_CE0/32XX_Nplus_ge2/3201_area_conjecture_index.md) | Proven |
 | CE1/CE2, $N_+=0$, all Vd0 | [`4013`](../4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md) | Proven |
 | CE1/CE2, $N_+=0$, T3-like exact four-label package | [`4070`](../4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4070_CE1CE2_Nplus0_T3_like_no_Vd1Vd2_index.md), with terminal files `4074`, `4075`, `4078`, `4079`, `407a`, `407c`, `407d` | Proven |
-| Common exact one-gap five-V-triangle interface | [`4105`](../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4105_CE1_CE2_one_gap_five_row_interface.md) | Proven |
+| Common exact one-gap five-V-triangle interface | [`4105`](../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4105_CE1_CE2_one_gap_five_V_triangle_interface.md) | Proven |
 | CE1 and CE2 one-gap scalar relaxations | [`4106`](../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4106_CE1_one_gap_five_map_completion.md), [`4107`](../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4107_CE2_one_gap_five_map_completion.md) | Proven |
 | CE1/CE2, $N_+=1$, all Vd0 assembly | [`4101`](../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4101_CE1CE2_Nplus1_all_Vd0_strategy.md) | Proven |
 | Exactly one T3-like | [`4130`](../4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like/4130_CE1CE2_exactly_one_T3_like_index.md) | Proven |
@@ -60,3 +60,8 @@ nine-point obstruction.
   authenticated sparse data and the exact reduction in `31055`--`31056`.
 - Historical failed or optional routes listed in the proof-tree index remain
   nondependencies.
+
+
+## 2026-08-02 replacement and skeleton-interface audit
+
+The CE2 exactly-one-Vd1/Vd2 terminal was re-audited after correcting `4147` to use separate local charts at the two distinguished vertices. The replacement now proves full skeleton preservation. `4013` is stated at the skeleton-data strength used by that reduction, and `414b` records the exhaustive placement re-audit. The main theorem status remains `Proven` because the corrected branch and all verification checks pass.
