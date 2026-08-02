@@ -1,0 +1,302 @@
+from __future__ import annotations
+
+import json
+import re
+import shutil
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def p(rel: str) -> Path:
+    return ROOT / rel
+
+
+def read(rel: str) -> str:
+    return p(rel).read_text(encoding="utf-8")
+
+
+def write(rel: str, text: str) -> None:
+    path = p(rel)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    if text and not text.endswith("\n"):
+        text += "\n"
+    path.write_text(text, encoding="utf-8")
+
+
+def replace_exact(rel: str, old: str, new: str, *, count: int = 1) -> None:
+    text = read(rel)
+    actual = text.count(old)
+    if actual != count:
+        raise RuntimeError(f"{rel}: expected {count} copies of {old!r}, found {actual}")
+    write(rel, text.replace(old, new, count))
+
+
+def replace_regex(rel: str, pattern: str, repl: str, *, count: int = 1, flags: int = re.S) -> None:
+    text = read(rel)
+    new_text, actual = re.subn(pattern, repl, text, count=count, flags=flags)
+    if actual != count:
+        raise RuntimeError(f"{rel}: expected {count} regex replacement(s), found {actual}: {pattern}")
+    write(rel, new_text)
+
+
+def replace_if_present(rel: str, old: str, new: str) -> int:
+    text = read(rel)
+    n = text.count(old)
+    if n:
+        write(rel, text.replace(old, new))
+    return n
+
+
+def replace_in_tree(roots: list[str], replacements: list[tuple[str, str]]) -> None:
+    for root in roots:
+        base = p(root)
+        if not base.exists():
+            continue
+        paths = [base] if base.is_file() else list(base.rglob("*"))
+        for path in paths:
+            if not path.is_file() or path.suffix.lower() not in {".md", ".tex", ".txt", ".py", ".yml", ".yaml"}:
+                continue
+            text = path.read_text(encoding="utf-8")
+            original = text
+            for old, new in replacements:
+                text = text.replace(old, new)
+            if text != original:
+                path.write_text(text, encoding="utf-8")
+
+
+# ---------------------------------------------------------------------------
+# 1. Strengthen 4013 to the exact skeleton-level theorem used by replacement.
+# ---------------------------------------------------------------------------
+
+write(
+    "proof/4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md",
+    r'''# CE1/CE2 All-Vd0 Skeleton-Data Obstruction
+
+Status: Proven
+
+## Theorem: skeleton-level form
+
+Let
+
+$$
+U_C,U_0,\ldots,U_5
+$$
+
+be open unit equilateral triangles with
+
+$$
+O\in U_C,
+\qquad
+V_i\in U_i
+\quad(i=0,\ldots,5),
+$$
+
+and put
+
+$$
+T_C=\overline{U_C},
+\qquad
+T_i=\overline{U_i}.
+$$
+
+Assume:
+
+1. the center role is CE1 or CE2;
+2. every vertex role is Vd0;
+3. every vertex role is nonsupercritical:
+   $$
+   A_i+B_i\le1
+   \qquad(i=0,\ldots,5);
+   $$
+4. the seven open roles cover the full hexagon skeleton
+   $$
+   S=\partial H\cup\bigcup_{i=0}^5r_i.
+   $$
+
+Then no such configuration exists.
+
+Consequently, seven roles satisfying the first three hypotheses cannot cover
+all of $H$. Equivalently, every CE1/CE2 all-Vd0 cover of $H$ has at least one
+supercritical V triangle.
+
+The theorem is deliberately stated at skeleton level. Its proof uses boundary
+traces, radial handoffs, and center-free boundary paths, but no point of
+$H\setminus S$. This is the exact strength needed by geometric replacement
+arguments such as `4147`.
+
+## 1. Skeleton coverage supplies the radial demands
+
+Let $d_i^C$ be the center reach on $r_i$, measured from $O$ toward $V_i$, and
+put
+
+$$
+c_i^C=1-d_i^C.
+$$
+
+### Lemma 1.1
+
+Under the theorem hypotheses,
+
+$$
+\boxed{C_i\ge c_i^C\qquad(i=0,\ldots,5).}
+$$
+
+### Proof
+
+Measure $r_i$ from $V_i$ toward $O$. The center trace, when nonempty, begins
+at coordinate $c_i^C$. A Vd0 role has no positive-length trace on either
+adjacent radial arm. A vertex role based at a nonlocal vertex is excluded from
+a positive interval of $r_i$ by the diameter-one condition. Hence, among the
+six vertex roles, only $U_i$ can cover a positive interval issuing from
+$V_i$ on $r_i$.
+
+If $C_i<c_i^C$, the open interval between the end of the $U_i$ trace and the
+beginning of the center trace is uncovered. This contradicts coverage of
+$S$. Therefore $C_i\ge c_i^C$. $\square$
+
+This lemma is the only radial consequence needed below. It follows from
+skeleton coverage alone.
+
+## 2. Boundary gaps and active-gap rank
+
+On $e_{i,i+1}$, parameterized from $V_i$, the two incident open vertex traces
+are
+
+$$
+[0,B_i)
+\qquad\text{and}\qquad
+(1-A_{i+1},1].
+$$
+
+Their missed set is
+
+$$
+\Gamma_i=
+\begin{cases}
+[B_i,1-A_{i+1}],&B_i\le1-A_{i+1},\\
+\varnothing,&B_i>1-A_{i+1}.
+\end{cases}
+$$
+
+A nonempty $\Gamma_i$ is a V-gap. Equality gives a singleton V-gap and is
+retained because both vertex roles are open.
+
+Boundary locality excludes every nonincident vertex role from a
+positive-length part of $e_{i,i+1}$. Since the skeleton is covered, every
+nonempty V-gap lies in the open center role. Openness then places it in a
+positive center trace, even when the V-gap is a singleton.
+
+Let
+
+$$
+\mathrm{gr}\in\{0,1,2\}
+$$
+
+be the number of positive center traces containing a V-gap. One has
+$\mathrm{gr}\le1$ for CE1. The three ranks are exhaustive.
+
+| rank | exact data retained | relaxed internal chain | terminal contradiction |
+|---|---|---|---|
+| $0$ | six strict open handoffs | $\mathrm I^6$ | strict cyclic ascent |
+| $1$ | two exact hatted endpoint caps | center-free $\mathrm I^3$ | one-side endpoint sum $<1$ |
+| $2$ | two exact hatted endpoint caps | center-free $\mathrm I^3$ | paired CE2 endpoint sum $<1$ |
+
+## 3. Rank zero: strict cyclic ascent
+
+Suppose no positive center trace contains a V-gap. Then there is no V-gap on
+any boundary edge. Hence the six open vertex traces themselves cover every
+boundary edge. Openness gives the strict handoffs
+
+$$
+B_i>1-A_{i+1};
+$$
+
+equality would leave the common endpoint of the two open traces uncovered.
+
+Since $T_i$ is nonsupercritical and realizes its actual radial reach $C_i$,
+
+$$
+B_i\le\widehat g_{C_i}(1-A_i).
+$$
+
+Therefore
+
+$$
+A_{i+1}>1-B_i
+\ge\widehat g_{C_i}^{\vee}(A_i)
+\ge A_i.
+$$
+
+Iteration gives
+
+$$
+A_0<A_1<A_2<A_3<A_4<A_5<A_0,
+$$
+
+a contradiction.
+
+## 4. Rank one: one exact endpoint pair
+
+Use the signed center normal form
+[`2109`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md):
+
+$$
+0<R<1,
+\qquad
+W=1-R,
+\qquad
+E=\sqrt{1-RW},
+\qquad
+\eta=1-E,
+\qquad
+k=\eta+\alpha+\delta.
+$$
+
+After reflection, assume the active V-gap lies in
+
+$$
+I_R=\left[\frac{k}{R},W+\delta\right]\subset e_{0,1},
+$$
+
+while the companion trace on $e_{5,0}$ is absent or contains no V-gap. Put
+
+$$
+s=\frac{k}{R},
+\qquad
+q=R-\delta,
+\qquad
+\omega=W+\delta-\frac{k}{R}.
+$$
+
+Then
+
+$$
+s+q+\omega=1.
+$$
+
+Containment of the V-gap gives the weak endpoint demands
+
+$$
+B_0\ge s,
+\qquad
+A_1\ge q.
+$$
+
+The companion edge contains no V-gap, so its two incident open vertex traces
+cover it and in particular
+
+$$
+A_0+B_5\ge1.
+$$
+
+Since $T_0$ is nonsupercritical,
+
+$$
+A_0+B_0\le1,
+$$
+
+and hence
+
+$$
+B_5\ge1-A_0\ge B_0
