@@ -98,6 +98,12 @@ dup_cert = p("arrange/paper_draft/appendix_exact_mixed_overlap.tex")
 if dup_cert.exists():
     dup_cert.unlink()
 
+replace_if_present(
+    "arrange/paper_draft/06a_strategy4_exact_certificate.tex",
+    r"Appendix~\ref{subsec:exact-mixed-overlap}",
+    "the certificate tables below",
+)
+
 # ---------------------------------------------------------------------------
 # 8. Consolidate Strategy 2 appendix sources into one canonical source.
 # ---------------------------------------------------------------------------
@@ -118,6 +124,17 @@ for rel in strategy2_parts + ["arrange/paper_draft/04f_strategy2_cross_reference
     path = p(rel)
     if path.exists():
         path.unlink()
+
+# Normalize singleton-inclusive gap terminology case-insensitively.
+for base_rel in ["proof", "arrange"]:
+    for path in p(base_rel).rglob("*"):
+        if not path.is_file() or path.suffix.lower() not in {".md", ".tex", ".txt"}:
+            continue
+        text = path.read_text(encoding="utf-8")
+        new_text = re.sub(r"\bpositive[- ]gaps\b", "nonempty gaps", text, flags=re.I)
+        new_text = re.sub(r"\bpositive[- ]gap\b", "nonempty gap", new_text, flags=re.I)
+        if new_text != text:
+            path.write_text(new_text, encoding="utf-8")
 
 main_rel = "arrange/paper_draft/main.tex"
 main = read(main_rel)
