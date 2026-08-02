@@ -22,39 +22,54 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Apply final audited cleanup
-        run: python tools/final_cleanup_20260802.py
-      - name: Check source consistency
+      - name: Apply, verify, compile, and commit only on success
+        shell: bash
         run: |
-          python tools/proof_lint.py
-          git diff --check
-      - name: Replay exact Strategy 4 certificate
-        run: |
-          pip install sympy
-          cd proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation
-          python verify_mixed_overlap_core_derivation.py
-          python verify_global_core_positivity.py
-      - name: Install TeX and PDF tools
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y latexmk texlive-xetex texlive-latex-extra texlive-fonts-recommended poppler-utils
-      - name: Compile and inspect paper
-        working-directory: arrange/paper_draft
-        run: |
-          latexmk -xelatex -interaction=nonstopmode -halt-on-error main.tex
-          if grep -Eq 'LaTeX Warning: (Reference .* undefined|There were undefined references|Label .* multiply defined)' main.log; then
-            echo 'Undefined or multiply-defined references found.' >&2
-            exit 1
+          set +e
+          exec > >(tee /tmp/finalize.log) 2>&1
+          status=0
+
+          python tools/final_cleanup_20260802.py || status=$?
+
+          if [ "$status" -eq 0 ]; then
+            python tools/proof_lint.py || status=$?
           fi
-          pdfinfo main.pdf | tee /tmp/pdfinfo.txt
-          pages=$(awk '/^Pages:/ {print $2}' /tmp/pdfinfo.txt)
-          test -n "$pages"
-          mkdir -p /tmp/rendered
-          pdftoppm -f 1 -singlefile -png -r 110 main.pdf /tmp/rendered/first
-          pdftoppm -f "$pages" -singlefile -png -r 110 main.pdf /tmp/rendered/last
-          test -s /tmp/rendered/first.png
-          test -s /tmp/rendered/last.png
-          python - "$pages" <<'PY'
+          if [ "$status" -eq 0 ]; then
+            git diff --check || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            pip install sympy || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            (
+              cd proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation
+              python verify_mixed_overlap_core_derivation.py
+              python verify_global_core_positivity.py
+            ) || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            sudo apt-get update || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            sudo apt-get install -y latexmk texlive-xetex texlive-latex-extra texlive-fonts-recommended poppler-utils || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            (
+              cd arrange/paper_draft
+              latexmk -xelatex -interaction=nonstopmode -halt-on-error main.tex
+              if grep -Eq 'LaTeX Warning: (Reference .* undefined|There were undefined references|Label .* multiply defined)' main.log; then
+                echo 'Undefined or multiply-defined references found.' >&2
+                exit 1
+              fi
+              pdfinfo main.pdf | tee /tmp/pdfinfo.txt
+              pages=$(awk '/^Pages:/ {print $2}' /tmp/pdfinfo.txt)
+              test -n "$pages"
+              mkdir -p /tmp/rendered
+              pdftoppm -f 1 -singlefile -png -r 110 main.pdf /tmp/rendered/first
+              pdftoppm -f "$pages" -singlefile -png -r 110 main.pdf /tmp/rendered/last
+              test -s /tmp/rendered/first.png
+              test -s /tmp/rendered/last.png
+              python - "$pages" <<'PY'
           from pathlib import Path
           import sys
 
@@ -63,28 +78,46 @@ jobs:
           text = audit.read_text(encoding='utf-8').replace('FINAL_BUILD_PAGE_COUNT', pages)
           audit.write_text(text, encoding='utf-8')
           PY
-          rm -f main.aux main.fdb_latexmk main.fls main.log main.out main.toc main.xdv main.synctex.gz
-      - name: Re-run source checks after build metadata update
-        run: |
-          python tools/proof_lint.py
-          git diff --check
-          test -s arrange/paper_draft/main.pdf
-      - name: Commit the verified final tree and rebuilt PDF
-        run: |
-          rm -f tools/final_cleanup_20260802.py
-          rm -f .github/workflows/finalize-repair.yml
-          rm -f arrange/final_cleanup_failure.log
+              rm -f main.aux main.fdb_latexmk main.fls main.log main.out main.toc main.xdv main.synctex.gz
+            ) || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python tools/proof_lint.py || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            git diff --check || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            test -s arrange/paper_draft/main.pdf || status=$?
+          fi
+
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-          git add -A
-          git commit -m 'finalize proof audit and rebuild paper'
-          git push origin HEAD:main
+
+          if [ "$status" -eq 0 ]; then
+            rm -f tools/final_cleanup_20260802.py
+            rm -f .github/workflows/finalize-repair.yml
+            rm -f arrange/final_cleanup_failure.log
+            git add -A
+            git commit -m 'finalize proof audit and rebuild paper'
+            git push origin HEAD:main
+            exit 0
+          fi
+
+          cp /tmp/finalize.log arrange/final_cleanup_failure.log
+          git add arrange/final_cleanup_failure.log
+          git commit -m 'record final cleanup workflow failure' || true
+          git push origin HEAD:main || true
+          exit "$status"
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: final-hexagon-cover-paper
           path: |
             arrange/paper_draft/main.pdf
             arrange/20260802_repair_and_reaudit.md
+            arrange/final_cleanup_failure.log
+            /tmp/finalize.log
             /tmp/rendered/first.png
             /tmp/rendered/last.png
-          if-no-files-found: error
+          if-no-files-found: warn
