@@ -1,6 +1,4 @@
-Traceback (most recent call last):
-  File "/home/runner/work/hexagon-cover-database/hexagon-cover-database/tools/final_cleanup_20260802.py", line 44, in <module>
-    replace_required(
-  File "/home/runner/work/hexagon-cover-database/hexagon-cover-database/tools/final_cleanup_20260802.py", line 29, in replace_required
-    raise RuntimeError(f"{rel}: required text not found: {old!r}")
-RuntimeError: proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4147_CE2_Nplus1_Vd1_supercritical_pair_axis_replacement.md: required text not found: '\\nu_{\\rm adj}'
+Final proof verification failed.
+Source commit: 1bdb9b0f97a6c12a821a88df36e1b089fecbf18f
+Run: https://github.com/dylan0301/hexagon-cover-database/actions/runs/30728073572
+Inspect the workflow job log for the failing command.
