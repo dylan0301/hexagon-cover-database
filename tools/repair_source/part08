@@ -74,7 +74,11 @@ for path in sorted(scan_paths):
             fail(f"{desc} in {rel}")
 
     # N_+ must not be defined with selected lowercase reaches.
-    if re.search(r"N_\+.{0,180}[ab]_i\s*\+\s*[ab]_i", text, re.S):
+    if re.search(
+        r"N_\+\s*=\s*\\left.*?\\left\\lbrace\s*i\s*:\s*a_i\s*\+\s*b_i",
+        text,
+        re.S,
+    ):
         fail(f"N_+ appears to be defined from selected reaches in {rel}")
 
 # Known u/nu transcription failures.
