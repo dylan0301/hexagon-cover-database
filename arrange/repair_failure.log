@@ -1,11 +1,26 @@
-tools/repair_source/part00: OK
-tools/repair_source/part01: OK
-tools/repair_source/part02: OK
-tools/repair_source/part03: OK
-tools/repair_source/part04: OK
-tools/repair_source/part05: FAILED
-tools/repair_source/part06: OK
-tools/repair_source/part07: OK
-tools/repair_source/part08: OK
-tools/repair_source/part09: OK
-sha256sum: WARNING: 1 computed checksum did NOT match
+Transparent repair-source checksums:
+32778e031713177899cf052b48da604f4334ae3f6cd3510baace8f67555e0601  tools/repair_source/part00
+878f7f08c2aee7b93effbc2f7a3857978d161ee6474cdaac70b9407c069d0275  tools/repair_source/part01
+321d9a5b06c161a4aa8e15846336345429c64cc37cd36c16c37c0e11a3e81e74  tools/repair_source/part02
+e5f17a0c1594d6f7eaf4626c73b7aa54b11ed6df14a21b1c1293fd8f8c01cd84  tools/repair_source/part03
+27803b40658e92b1b78c93ceffb81ee707f423771b71f380d7b6d3e2d8a711c3  tools/repair_source/part04
+b798afda9058575035570aed391453a386c92825c164e456a30f384699c5aae1  tools/repair_source/part05
+b2af28891a5c8a1bace5dae1d51cf7229525b34b6fedafbc5c3f94c39c22a512  tools/repair_source/part06
+ca0449d650ae34e325f5f27816b668ca0cf4c354c0abe58eb48bd9102e19aee7  tools/repair_source/part07
+07e2192195a24d4e9a4a38d0e920183cdae5967ef488e3b10d11bcd4ce9b363e  tools/repair_source/part08
+385b37195ac178dc58fa6f7b3a4fd992079267bb49873434c2a0ecda1ea362c1  tools/repair_source/part09
+Traceback (most recent call last):
+  File "/home/runner/work/hexagon-cover-database/hexagon-cover-database/tools/apply_20260802_repair.py", line 1318, in <module>
+    replace_regex(
+  File "/home/runner/work/hexagon-cover-database/hexagon-cover-database/tools/apply_20260802_repair.py", line 37, in replace_regex
+    new_text, actual = re.subn(pattern, repl, text, count=count, flags=flags)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/re/__init__.py", line 197, in subn
+    return _compile(pattern, flags).subn(repl, string, count)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/re/__init__.py", line 334, in _compile_template
+    return _sre.template(pattern, _parser.parse_template(repl, pattern))
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/re/_parser.py", line 1075, in parse_template
+    raise s.error('bad escape %s' % this, len(this)) from None
+re.error: bad escape \l at position 4
