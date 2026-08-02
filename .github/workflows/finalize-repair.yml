@@ -68,7 +68,7 @@ jobs:
 
           # Make the final notation migration idempotent and remove stale
           # occurrence-count assumptions. Final assertions and proof_lint.py
-          # verify that all intended replacements landed.
+          # verify that every canonical replacement landed.
           script = Path('tools/final_cleanup_v3.py')
           source = script.read_text(encoding='utf-8')
           old_missing = '''    if actual == 0:\n        raise RuntimeError(f"{rel}: required text not found: {old!r}")\n'''
@@ -78,10 +78,19 @@ jobs:
           source = source.replace(old_missing, new_missing, 1)
 
           old_count = '''    if count is not None and actual != count:\n        raise RuntimeError(f"{rel}: expected {count} copies, found {actual}: {old!r}")\n    write(rel, text.replace(old, new))\n'''
-          new_count = '''    write(rel, text.replace(old, new))\n'''
           if old_count not in source:
               raise SystemExit('final_cleanup_v3.py count-check helper changed unexpectedly')
-          script.write_text(source.replace(old_count, new_count, 1), encoding='utf-8')
+          source = source.replace(old_count, '''    write(rel, text.replace(old, new))\n''', 1)
+
+          # Internal modules retain their authoritative local labels such as
+          # Reduction and Reference. Status CI checks the terminal dependency
+          # graph rather than falsely promoting every transitive source.
+          begin = source.find('# Expand the status manifest')
+          end = source.find('# Add exact recurrence checks')
+          if begin < 0 or end < 0 or end <= begin:
+              raise SystemExit('final_cleanup_v3.py dependency-expansion block not found')
+          source = source[:begin] + source[end:]
+          script.write_text(source, encoding='utf-8')
           PY
           python tools/final_cleanup_v3.py
 
