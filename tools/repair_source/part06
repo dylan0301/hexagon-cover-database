@@ -45,7 +45,7 @@ replace_in_tree(
     ],
 )
 
-# The compact duplicate replacement lemma in 04c is no longer authoritative.
+# The compact duplicate replacement lemma in the exact-demand source is no longer authoritative.
 # Replace it with a forwarding lemma rather than retaining a second coordinate proof.
 forwarding_lemma = r'''\begin{lemma}[Vd1-pair replacement interface]
 \label{lem:vd1-pair-replacement}
@@ -60,8 +60,8 @@ local charts at the two distinguished vertices and proves all reach, role, and
 skeleton-preservation claims explicitly.
 \end{proof}'''
 replace_regex(
-    "arrange/paper_draft/04c_short_Vd_placements.tex",
-    r"\\begin\{lemma\}\[Vd1-pair replacement interface\].*?\\end\{proof\}",
+    "arrange/paper_draft/04_strategy2_exact_demand.tex",
+    r"\\begin\{lemma\}\[[^\]]*\]\s*\\label\{lem:vd1-pair-replacement\}.*?\\end\{proof\}",
     forwarding_lemma,
     count=1,
 )
