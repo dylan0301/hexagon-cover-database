@@ -1,0 +1,1340 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="A visual reference for the canonical Strategy 2 g-transfer notation in the hexagon covering proof corpus.">
+<title>Strategy 2 Notation Lab</title>
+<style>
+:root {
+  color-scheme: light;
+  --paper: #f3efe6;
+  --panel: #fffdf8;
+  --ink: #15272d;
+  --muted: #65757a;
+  --line: #d8d4ca;
+  --teal: #167f7a;
+  --teal-soft: #dcefeb;
+  --blue: #2b6f9d;
+  --blue-soft: #e1edf5;
+  --coral: #d86f58;
+  --coral-soft: #f7e4de;
+  --gold: #c89427;
+  --gold-soft: #f5ebce;
+  --violet: #79659b;
+  --violet-soft: #ebe6f2;
+  --green: #4e8461;
+  --danger: #a24d42;
+  --shadow: 0 20px 60px rgba(44, 52, 51, .1);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 8% 0, rgba(255,255,255,.95), transparent 34rem),
+    linear-gradient(180deg, #f6f2e9, var(--paper));
+  color: var(--ink);
+  font: 15px/1.55 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+button, input, select { font: inherit; }
+a { color: #176c98; text-underline-offset: 3px; }
+a:hover { text-decoration-thickness: 2px; }
+button, a, input, select, summary { -webkit-tap-highlight-color: transparent; }
+:focus-visible { outline: 3px solid rgba(22,127,122,.38); outline-offset: 3px; }
+.skip {
+  position: fixed;
+  z-index: 50;
+  left: 1rem;
+  top: -5rem;
+  padding: .65rem .9rem;
+  border-radius: 8px;
+  background: var(--ink);
+  color: white;
+}
+.skip:focus { top: 1rem; }
+.page { width: min(1240px, 100%); margin: 0 auto; padding: clamp(16px, 3vw, 34px); }
+.masthead {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 18px;
+  align-items: end;
+  margin-bottom: 18px;
+}
+.eyebrow, .step-label {
+  margin: 0 0 5px;
+  color: var(--teal);
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+h1, h2, h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 500;
+  letter-spacing: -.025em;
+}
+h1 { margin: 0; font-size: clamp(34px, 6vw, 58px); line-height: .98; }
+h2 { margin: 0; font-size: clamp(25px, 4vw, 38px); line-height: 1.08; }
+h3 { margin: 0; font-size: 20px; line-height: 1.2; }
+.dek { max-width: 760px; margin: 14px 0 0; color: var(--muted); font-size: 16px; }
+.mast-actions { display: flex; flex-direction: column; align-items: flex-end; gap: 9px; }
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 6px 10px;
+  background: rgba(255,255,255,.62);
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+.badge::before { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); content: ""; }
+.primary-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border-radius: 8px;
+  padding: 9px 12px;
+  background: var(--ink);
+  color: white;
+  font-size: 13px;
+  font-weight: 750;
+  text-decoration: none;
+}
+.primary-link:hover { background: #21424a; }
+.notice {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 18px;
+  border: 1px solid #ddcfaa;
+  border-radius: 12px;
+  padding: 12px 14px;
+  background: #fff9e9;
+  color: #66562f;
+}
+.notice strong { color: #51421e; }
+.path {
+  position: sticky;
+  z-index: 20;
+  top: 8px;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0,1fr));
+  overflow: hidden;
+  margin-bottom: 28px;
+  border: 1px solid #ccc8be;
+  border-radius: 13px;
+  background: rgba(255,253,248,.92);
+  box-shadow: 0 8px 30px rgba(30,40,40,.08);
+  backdrop-filter: blur(12px);
+}
+.path a {
+  min-width: 0;
+  padding: 10px 8px;
+  border-right: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 750;
+  text-align: center;
+  text-decoration: none;
+}
+.path a:last-child { border-right: 0; }
+.path a:hover, .path a:focus-visible { background: var(--teal-soft); color: var(--ink); }
+.path b {
+  display: block;
+  margin-bottom: 1px;
+  color: var(--teal);
+  font-size: 9px;
+  letter-spacing: .08em;
+}
+.lesson {
+  scroll-margin-top: 90px;
+  margin-bottom: 36px;
+  border: 1px solid #d2cec4;
+  border-radius: 20px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+.lesson-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, .65fr);
+  gap: 24px;
+  padding: clamp(20px, 4vw, 34px);
+  border-bottom: 1px solid var(--line);
+}
+.lesson-head p { margin: 8px 0 0; color: var(--muted); }
+.formula-lead {
+  align-self: center;
+  border-left: 3px solid var(--teal);
+  padding: 4px 0 4px 16px;
+  color: #31474d;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(17px, 2.2vw, 22px);
+}
+.lesson-body { padding: clamp(18px, 3vw, 28px); }
+.two-col { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(280px, .85fr); gap: 20px; }
+.panel {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fffefa;
+  padding: 16px;
+}
+.panel-title {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.panel-title h3 { font-size: 18px; }
+.micro { color: var(--muted); font-size: 12px; }
+.source-row { margin: 17px 0 0; color: var(--muted); font-size: 12px; }
+.source-row a { font-weight: 700; }
+.toolbar, .toggle-row, .preset-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  align-items: center;
+}
+.toolbar { margin-bottom: 12px; }
+.pill, .preset, .filter-button, .slot-mode {
+  border: 1px solid #c8c6be;
+  border-radius: 999px;
+  padding: 7px 10px;
+  background: white;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 750;
+}
+.pill[aria-pressed="true"], .filter-button[aria-pressed="true"], .slot-mode[data-mode="exact"] {
+  border-color: var(--teal);
+  background: var(--teal-soft);
+  color: #155f5b;
+}
+.preset:hover, .pill:hover, .filter-button:hover, .slot-mode:hover { border-color: var(--teal); color: var(--ink); }
+.math {
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  letter-spacing: .01em;
+}
+.roman { font-style: normal; }
+.equation {
+  overflow-x: auto;
+  margin: 12px 0;
+  border-radius: 9px;
+  padding: 11px 13px;
+  background: #f4f5f1;
+  color: #20343a;
+  font: 17px/1.45 Georgia, "Times New Roman", serif;
+  text-align: center;
+  white-space: nowrap;
+}
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.swatch { width: 22px; height: 4px; border-radius: 999px; background: var(--teal); }
+.swatch.coral { background: var(--coral); }
+.swatch.gold { background: var(--gold); }
+.swatch.dash { height: 0; border-top: 2px dashed var(--blue); background: none; }
+svg { display: block; width: 100%; height: auto; }
+.viz {
+  overflow: hidden;
+  border: 1px solid #dedbd2;
+  border-radius: 12px;
+  background:
+    linear-gradient(rgba(255,255,255,.76), rgba(255,255,255,.76)),
+    repeating-linear-gradient(0deg, transparent 0 29px, rgba(25,77,79,.055) 30px),
+    repeating-linear-gradient(90deg, transparent 0 29px, rgba(25,77,79,.055) 30px),
+    #faf9f4;
+}
+.viz text { font-family: Inter, ui-sans-serif, system-ui, sans-serif; fill: var(--ink); }
+.viz .math-text { font-family: Georgia, "Times New Roman", serif; font-style: italic; }
+.skeleton-layer { transition: opacity .2s ease; }
+.skeleton-layer.is-off { opacity: .09; }
+.control-stack { display: grid; gap: 12px; }
+.range-row {
+  display: grid;
+  grid-template-columns: 104px minmax(110px, 1fr) 52px;
+  align-items: center;
+  gap: 10px;
+}
+.range-row label { color: #41565c; font-size: 13px; font-weight: 700; }
+.range-row output {
+  border-radius: 6px;
+  padding: 3px 5px;
+  background: #f1f0eb;
+  font: 12px ui-monospace, SFMono-Regular, Menlo, monospace;
+  text-align: right;
+}
+input[type="range"] { width: 100%; accent-color: var(--teal); }
+.readout-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 9px;
+  margin-top: 12px;
+}
+.readout {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px;
+  background: white;
+}
+.readout small { display: block; color: var(--muted); font-size: 10px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+.readout strong { display: block; margin-top: 3px; font: 18px Georgia, "Times New Roman", serif; }
+.callout {
+  margin-top: 12px;
+  border-left: 3px solid var(--gold);
+  padding: 8px 11px;
+  background: var(--gold-soft);
+  color: #5f532f;
+  font-size: 13px;
+}
+.status-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 30px;
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.status-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--green); }
+.status-dot.warn { background: var(--danger); }
+.chain {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 10px;
+  margin: 14px 0;
+}
+.chain-slot {
+  position: relative;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 13px;
+  background: white;
+}
+.chain-slot:not(:last-child)::after {
+  position: absolute;
+  z-index: 2;
+  top: 38px;
+  right: -17px;
+  width: 22px;
+  height: 22px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--panel);
+  color: var(--teal);
+  content: "→";
+  line-height: 19px;
+  text-align: center;
+}
+.chain-slot small { color: var(--muted); font-weight: 800; text-transform: uppercase; letter-spacing: .06em; }
+.chain-slot .slot-value { margin: 10px 0; font: 21px Georgia, "Times New Roman", serif; }
+.slot-mode { width: 100%; border-radius: 8px; }
+.relax-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 10px; margin-top: 14px; }
+.relax-card { border-radius: 11px; padding: 12px; background: #f2f4f1; }
+.relax-card b { display: block; margin-bottom: 5px; color: #24444b; }
+.trace-key {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 9px;
+  margin-top: 12px;
+}
+.trace-key div { border-radius: 9px; padding: 9px 11px; background: #f3f2ed; }
+.trace-key small { display: block; color: var(--muted); }
+.trace-key strong { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+.class-badge {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 5px 9px;
+  background: var(--teal-soft);
+  color: #155d59;
+  font-size: 12px;
+  font-weight: 850;
+}
+.class-badge.invalid { background: var(--coral-soft); color: var(--danger); }
+.atlas-filters { margin-bottom: 14px; }
+.atlas {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 12px;
+}
+.route-card {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px;
+  background: white;
+}
+.route-card[hidden] { display: none; }
+.route-top { display: flex; justify-content: space-between; gap: 10px; align-items: flex-start; }
+.route-tag {
+  flex: none;
+  border-radius: 999px;
+  padding: 3px 7px;
+  background: var(--blue-soft);
+  color: #245e83;
+  font-size: 9px;
+  font-weight: 850;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.route-card p { margin: 8px 0; color: var(--muted); font-size: 13px; }
+.route-chain { border-radius: 7px; padding: 8px; background: #f4f5f1; font: 15px Georgia, "Times New Roman", serif; }
+.route-card a { font-size: 12px; font-weight: 750; }
+.outside-route {
+  margin-top: 14px;
+  border: 1px dashed #c9a84e;
+  border-radius: 11px;
+  padding: 11px 13px;
+  background: #fffaf0;
+  color: #66582e;
+  font-size: 13px;
+}
+.glossary-tools {
+  display: grid;
+  grid-template-columns: minmax(220px,1fr) 220px auto;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+.glossary-tools input, .glossary-tools select {
+  min-height: 42px;
+  border: 1px solid #c8c6be;
+  border-radius: 9px;
+  padding: 8px 11px;
+  background: white;
+  color: var(--ink);
+}
+.term-count { align-self: center; color: var(--muted); font-size: 12px; }
+.glossary {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 10px;
+}
+.term {
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  padding: 13px;
+  background: white;
+}
+.term[hidden] { display: none; }
+.term-head { display: flex; justify-content: space-between; gap: 8px; align-items: flex-start; }
+.symbol { color: #173f47; font: 19px Georgia, "Times New Roman", serif; }
+.category { color: var(--teal); font-size: 9px; font-weight: 850; letter-spacing: .08em; text-transform: uppercase; }
+.term p { margin: 7px 0; color: #53666b; font-size: 12px; }
+.term a { font-size: 11px; font-weight: 750; }
+.footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 8px 2px 30px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+@media (max-width: 860px) {
+  .masthead, .lesson-head, .two-col { grid-template-columns: 1fr; }
+  .mast-actions { align-items: flex-start; }
+  .path { position: static; grid-template-columns: repeat(4,minmax(0,1fr)); }
+  .path a:nth-child(4) { border-right: 0; }
+  .path a:nth-child(-n+4) { border-bottom: 1px solid var(--line); }
+  .chain, .relax-grid, .glossary { grid-template-columns: 1fr 1fr; }
+  .atlas { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .path { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .path a:nth-child(odd) { border-right: 1px solid var(--line); }
+  .path a:nth-child(even) { border-right: 0; }
+  .path a { border-bottom: 1px solid var(--line); }
+  .path a:last-child { grid-column: 1 / -1; border-bottom: 0; }
+  .readout-grid, .chain, .relax-grid, .trace-key, .glossary { grid-template-columns: 1fr; }
+  .glossary-tools { grid-template-columns: 1fr; }
+  .range-row { grid-template-columns: 88px minmax(90px,1fr) 48px; }
+  .footer { flex-direction: column; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: .001ms !important; animation-duration: .001ms !important; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to lessons</a>
+<div class="page">
+  <header class="masthead">
+    <div>
+      <p class="eyebrow">Hexagon covering proof corpus · visual notation guide</p>
+      <h1>Strategy 2 Notation Lab</h1>
+      <p class="dek">Build the transfer language from the hexagon outward: roles, demands, one <span class="math">g</span>-map, residuals, composition, signed center data, and the proved branch routes.</p>
+    </div>
+    <div class="mast-actions">
+      <span class="badge">Reference visualization · not a proof</span>
+      <a class="primary-link" href="strategy2demo.html">Open the Strategy 2 explorer <span aria-hidden="true">→</span></a>
+    </div>
+  </header>
+
+  <div class="notice" role="note">
+    <span aria-hidden="true">◎</span>
+    <div><strong>How to read this page.</strong> Solid role geometry is actual; colored inner geometry is a selected lower-bound demand. Interactive decimals are numerical evaluations of exact formulas. Proof status belongs to the linked source files, not to this page.</div>
+  </div>
+
+  <nav class="path" aria-label="Seven-step learning path">
+    <a href="#skeleton"><b>01</b>Skeleton</a>
+    <a href="#demands"><b>02</b>Demands</a>
+    <a href="#one-map"><b>03</b>One map</a>
+    <a href="#residual"><b>04</b>Residual</a>
+    <a href="#composition"><b>05</b>Composition</a>
+    <a href="#center"><b>06</b>Center signs</a>
+    <a href="#atlas"><b>07</b>Branch atlas</a>
+  </nav>
+
+  <main id="main">
+    <section class="lesson" id="skeleton">
+      <div class="lesson-head">
+        <div>
+          <p class="step-label">Step 01 · skeleton and roles</p>
+          <h2>Seven distinguished points give seven roles</h2>
+          <p>The center role <span class="math">T<sub>C</sub></span> owns <span class="math">O</span>; the six vertex roles <span class="math">T<sub>i</sub></span> own <span class="math">V<sub>i</sub></span>. Strategy 2 propagates boundary information around this fixed cyclic order.</p>
+        </div>
+        <div class="formula-lead"><span class="math">S</span> = ∂<span class="math">H</span> ∪ ⋃<sub>i=0</sub><sup>5</sup> <span class="math">r<sub>i</sub></span></div>
+      </div>
+      <div class="lesson-body two-col">
+        <div class="panel">
+          <div class="panel-title"><h3>Highlight the skeleton</h3><span class="micro">Toggle layers</span></div>
+          <div class="toolbar" aria-label="Skeleton layers">
+            <button class="pill skeleton-toggle" data-layer="boundary" aria-pressed="true">Boundary <span class="math">e<sub>i,i+1</sub></span></button>
+            <button class="pill skeleton-toggle" data-layer="radials" aria-pressed="true">Radials <span class="math">r<sub>i</sub></span></button>
+            <button class="pill skeleton-toggle" data-layer="midpoints" aria-pressed="true">Midpoints <span class="math">M<sub>i</sub></span></button>
+            <button class="pill skeleton-toggle" data-layer="roles" aria-pressed="true">Role triangles</button>
+          </div>
+          <svg class="viz" viewBox="0 0 560 430" role="img" aria-labelledby="skeleton-title skeleton-desc">
+            <title id="skeleton-title">Regular hexagon skeleton and seven role triangles</title>
+            <desc id="skeleton-desc">A hexagon with its six radial arms, center and radial midpoints. One center role and six vertex roles are shown schematically.</desc>
+            <g class="skeleton-layer" data-skeleton-layer="radials" stroke="#7b8f94" stroke-width="2">
+              <line x1="280" y1="215" x2="280" y2="48"/><line x1="280" y1="215" x2="425" y2="132"/>
+              <line x1="280" y1="215" x2="425" y2="298"/><line x1="280" y1="215" x2="280" y2="382"/>
+              <line x1="280" y1="215" x2="135" y2="298"/><line x1="280" y1="215" x2="135" y2="132"/>
+            </g>
+            <g class="skeleton-layer" data-skeleton-layer="roles" fill="#dcefeb" stroke="#167f7a" stroke-width="2">
+              <path d="M280 164 L324 240 L236 240 Z" fill="#f5ebce" stroke="#c89427"/>
+              <path d="M280 34 L314 86 L246 86 Z"/><path d="M441 115 L423 174 L389 116 Z"/>
+              <path d="M441 315 L389 314 L423 256 Z"/><path d="M280 396 L246 344 L314 344 Z"/>
+              <path d="M119 315 L137 256 L171 314 Z"/><path d="M119 115 L171 116 L137 174 Z"/>
+            </g>
+            <g class="skeleton-layer" data-skeleton-layer="boundary">
+              <polygon points="280,48 425,132 425,298 280,382 135,298 135,132" fill="none" stroke="#17343b" stroke-width="5" stroke-linejoin="round"/>
+              <g fill="#17343b">
+                <circle cx="280" cy="48" r="5"/><circle cx="425" cy="132" r="5"/><circle cx="425" cy="298" r="5"/>
+                <circle cx="280" cy="382" r="5"/><circle cx="135" cy="298" r="5"/><circle cx="135" cy="132" r="5"/>
+              </g>
+            </g>
+            <g class="skeleton-layer" data-skeleton-layer="midpoints" fill="#fff" stroke="#d86f58" stroke-width="3">
+              <circle cx="280" cy="131.5" r="6"/><circle cx="352.5" cy="173.5" r="6"/><circle cx="352.5" cy="256.5" r="6"/>
+              <circle cx="280" cy="298.5" r="6"/><circle cx="207.5" cy="256.5" r="6"/><circle cx="207.5" cy="173.5" r="6"/>
+            </g>
+            <g font-size="13" font-weight="700">
+              <text x="290" y="42">V₀</text><text x="437" y="131">V₁</text><text x="437" y="305">V₂</text>
+              <text x="289" y="400">V₃</text><text x="104" y="306">V₄</text><text x="104" y="128">V₅</text>
+              <text x="288" y="211">O</text><text x="298" y="191" fill="#a77716">T<tspan baseline-shift="sub" font-size="9">C</tspan></text>
+              <text x="292" y="72" fill="#167f7a">T₀</text>
+            </g>
+          </svg>
+        </div>
+        <div class="panel">
+          <div class="panel-title"><h3>The routing coordinates</h3><span class="micro">indices modulo 6</span></div>
+          <div class="equation"><span class="math">T<sub>i</sub></span>: <span class="math">A<sub>i</sub></span> incoming · <span class="math">B<sub>i</sub></span> outgoing · <span class="math">C<sub>i</sub></span> radial</div>
+          <p><span class="math">A<sub>i</sub>, B<sub>i</sub>, C<sub>i</sub></span> are the actual maximal reaches of one vertex role. On a center-free covered edge, the handoff is</p>
+          <div class="equation"><span class="math">B<sub>i</sub> + A<sub>i+1</sub> ≥ 1</span>.</div>
+          <p>The role is <em>supercritical</em> exactly when <span class="math">A<sub>i</sub>+B<sub>i</sub>&gt;1</span>. The count of such actual roles is <span class="math">N<sub>+</sub></span>.</p>
+          <div class="callout">Role classes—CE1/CE2 at the center and Vd0/Vd1/Vd2/T3-like at the vertices—describe actual triangles, never a smaller selected demand triple.</div>
+          <p class="source-row">Definitions: <a href="../proof/1XXX_foundations/12XX_V_triangle/1202_local_coordinates_abc.md">local reaches 1202</a> · <a href="../proof/09XX_appendices/0910_notation_dictionary.md">notation dictionary 0910</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="lesson" id="demands">
+      <div class="lesson-head">
+        <div>
+          <p class="step-label">Step 02 · actual reaches versus selected demands</p>
+          <h2>Uppercase records the role; lowercase asks less of it</h2>
+          <p>A closed role with actual reaches <span class="math">(A,B,C)</span> realizes every lower-bound demand <span class="math">(a,b,c)</span> with <span class="math">a≤A</span>, <span class="math">b≤B</span>, and <span class="math">c≤C</span>.</p>
+        </div>
+        <div class="formula-lead"><span class="math">K(a,b,c)</span> = conv{0, <span class="math">au</span>, <span class="math">bv</span>, <span class="math">c(u+v)</span>}</div>
+      </div>
+      <div class="lesson-body two-col">
+        <div class="panel">
+          <div class="panel-title"><h3>Local demand chart</h3><span class="micro">local origin 0 = Vᵢ</span></div>
+          <div class="toolbar">
+            <button class="pill demand-toggle" data-demand-layer="actual" aria-pressed="true">Actual limits</button>
+            <button class="pill demand-toggle" data-demand-layer="selected" aria-pressed="true">Selected hull <span class="math">K</span></button>
+          </div>
+          <svg id="demandSvg" class="viz" viewBox="0 0 560 360" role="img" aria-labelledby="demand-title demand-desc">
+            <title id="demand-title">Actual reaches and a selected demand hull</title>
+            <desc id="demand-desc">Three local rays issue from a vertex. Fixed actual reach limits are drawn with dashed blue segments; selected lower demands form a coral convex hull.</desc>
+            <g stroke="#c6cbc8" stroke-width="2">
+              <line x1="120" y1="180" x2="500" y2="180"/>
+              <line x1="120" y1="180" x2="310" y2="22"/>
+              <line x1="120" y1="180" x2="310" y2="338"/>
+            </g>
+            <g id="actualLayer">
+              <line id="actualA" x1="120" y1="180" stroke="#2b6f9d" stroke-width="6" stroke-dasharray="9 6"/>
+              <line id="actualB" x1="120" y1="180" stroke="#2b6f9d" stroke-width="6" stroke-dasharray="9 6"/>
+              <line id="actualC" x1="120" y1="180" stroke="#2b6f9d" stroke-width="6" stroke-dasharray="9 6"/>
+              <g fill="#fff" stroke="#2b6f9d" stroke-width="3"><circle id="actualAPoint" r="6"/><circle id="actualBPoint" r="6"/><circle id="actualCPoint" r="6"/></g>
+            </g>
+            <g id="selectedLayer">
+              <polygon id="demandHull" fill="#f4c9bd" fill-opacity=".65" stroke="#d86f58" stroke-width="3"/>
+              <g fill="#d86f58"><circle id="selectedAPoint" r="6"/><circle id="selectedBPoint" r="6"/><circle id="selectedCPoint" r="6"/></g>
+            </g>
+            <circle cx="120" cy="180" r="6" fill="#17343b"/>
+            <g font-size="13" font-weight="700">
+              <text x="95" y="204">0 = Vᵢ</text><text x="310" y="37">incoming u</text><text x="310" y="335">outgoing v</text><text x="435" y="170">radial u+v</text>
+            </g>
+          </svg>
+          <div class="legend"><span><i class="swatch dash"></i>actual maxima <span class="math">(A,B,C)</span></span><span><i class="swatch coral"></i>selected <span class="math">K(a,b,c)</span></span></div>
+        </div>
+        <div class="panel">
+          <div class="panel-title"><h3>Select a smaller demand</h3><span class="micro">schematic actual reaches fixed at 0.50</span></div>
+          <div class="control-stack">
+            <div class="range-row"><label for="demandA"><span class="math">a</span> incoming</label><input id="demandA" type="range" min="0" max=".5" value=".34" step=".01"><output id="demandAOut">0.34</output></div>
+            <div class="range-row"><label for="demandB"><span class="math">b</span> outgoing</label><input id="demandB" type="range" min="0" max=".5" value=".42" step=".01"><output id="demandBOut">0.42</output></div>
+            <div class="range-row"><label for="demandC"><span class="math">c</span> radial</label><input id="demandC" type="range" min="0" max=".5" value=".30" step=".01"><output id="demandCOut">0.30</output></div>
+          </div>
+          <div class="equation">(<span class="math">a,b,c</span>) ≤ (<span class="math">A,B,C</span>) = (0.50, 0.50, 0.50)</div>
+          <p><span class="math">𝒜</span> is the set of selected triples whose hull <span class="math">K(a,b,c)</span> fits inside a closed unit equilateral triangle. Equivalently, its least enclosure side <span class="math">Λ(K)</span> is at most 1.</p>
+          <div class="callout">The test <span class="math">A+B≤1</span> classifies the actual role. Replacing it by <span class="math">a+b≤1</span> would lose mathematical meaning.</div>
+          <p class="source-row">Exact geometry: <a href="../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md">admissible set 2004</a> · <a href="../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201a_equilateral_enclosure_and_radical_calculus.md">enclosure gauge 201a</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="lesson" id="one-map">
+      <div class="lesson-head">
+        <div>
+          <p class="step-label">Step 03 · one canonical map</p>
+          <h2>Raw, hatted, then complement-dual</h2>
+          <p>Start in boundary-defect coordinate <span class="math">x=1-a</span>. The raw map gives the largest compatible outgoing reach; the hat adds the nonsupercritical diagonal cap; <span class="math">∨</span> converts the result back to a next-incoming lower bound on a center-free edge.</p>
+        </div>
+        <div class="formula-lead"><span class="math">g<sub>c</sub>(x)</span> = max{<span class="math">y</span> : (1−<span class="math">x,y,c</span>)∈<span class="math">𝒜</span>}</div>
+      </div>
+      <div class="lesson-body two-col">
+        <div class="panel">
+          <div class="panel-title"><h3>Exact map, numerically evaluated</h3><span class="micro">drag <span class="math">a</span> and <span class="math">c</span></span></div>
+          <svg id="gPlot" class="viz" viewBox="0 0 560 330" role="img" aria-labelledby="g-title g-desc">
+            <title id="g-title">Graph of the raw and capped defect maps</title>
+            <desc id="g-desc">The raw map g sub c and its hatted diagonal-capped version are plotted against the identity diagonal. A marker shows the current incoming defect.</desc>
+            <g stroke="#d1d3cf" stroke-width="1">
+              <line x1="62" y1="272" x2="518" y2="272"/><line x1="62" y1="222" x2="518" y2="222"/>
+              <line x1="62" y1="172" x2="518" y2="172"/><line x1="62" y1="122" x2="518" y2="122"/><line x1="62" y1="72" x2="518" y2="72"/>
+              <line x1="62" y1="272" x2="62" y2="42"/><line x1="176" y1="272" x2="176" y2="42"/>
+              <line x1="290" y1="272" x2="290" y2="42"/><line x1="404" y1="272" x2="404" y2="42"/><line x1="518" y1="272" x2="518" y2="42"/>
+            </g>
+            <line x1="62" y1="272" x2="518" y2="42" stroke="#9aa3a3" stroke-width="2" stroke-dasharray="7 6"/>
+            <path id="rawPath" fill="none" stroke="#d86f58" stroke-width="4"/>
+            <path id="capPath" fill="none" stroke="#167f7a" stroke-width="4"/>
+            <line id="gCursor" y1="42" y2="272" stroke="#17343b" stroke-width="1.5" stroke-dasharray="3 4"/>
+            <circle id="rawPoint" r="6" fill="#fff" stroke="#d86f58" stroke-width="4"/>
+            <circle id="capPoint" r="6" fill="#fff" stroke="#167f7a" stroke-width="4"/>
+            <g font-size="12" fill="#65757a">
+              <text x="55" y="291">0</text><text x="282" y="291">defect x</text><text x="513" y="291">1</text>
+              <text x="43" y="276">0</text><text x="43" y="48">1</text>
+              <text x="408" y="57" fill="#65757a">identity y=x</text>
+            </g>
+          </svg>
+          <div class="legend"><span><i class="swatch coral"></i>raw <span class="math">g<sub>c</sub></span></span><span><i class="swatch"></i>capped <span class="math">ĝ<sub>c</sub></span></span><span><i class="swatch dash" style="border-color:#8a9595"></i>identity</span></div>
+        </div>
+        <div class="panel">
+          <div class="panel-title"><h3>Follow the coordinate change</h3><button id="zeroPreset" class="preset" type="button">Set <span class="math">c=0</span></button></div>
+          <div class="control-stack">
+            <div class="range-row"><label for="reachInput"><span class="math">a</span> incoming</label><input id="reachInput" type="range" min=".02" max=".98" value=".36" step=".01"><output id="reachOut">0.36</output></div>
+            <div class="range-row"><label for="radialInput"><span class="math">c</span> radial</label><input id="radialInput" type="range" min="0" max=".92" value=".42" step=".01"><output id="radialOut">0.42</output></div>
+          </div>
+          <div class="readout-grid">
+            <div class="readout"><small>defect</small><strong><span class="math">x</span> = <span id="defectValue">0.64</span></strong></div>
+            <div class="readout"><small>raw outgoing cap</small><strong><span class="math">g<sub>c</sub>(x)</span> = <span id="rawValue">—</span></strong></div>
+            <div class="readout"><small>nonsupercritical cap</small><strong><span class="math">ĝ<sub>c</sub>(x)</span> = <span id="capValue">—</span></strong></div>
+            <div class="readout"><small>raw next-incoming transfer</small><strong><span class="math">g<sub>c</sub><sup>∨</sup>(a)</span> = <span id="rawDualValue">—</span></strong></div>
+            <div class="readout"><small>next incoming lower bound</small><strong><span class="math">ĝ<sub>c</sub><sup>∨</sup>(a)</span> = <span id="dualValue">—</span></strong></div>
+          </div>
+          <div class="equation"><span class="math">f<sup>∨</sup>(a)</span> = 1 − <span class="math">f(1−a)</span></div>
+          <div id="zeroNote" class="callout">The hat gives <span class="math">ĝ<sub>c</sub>(x)≤x</span>, so its dual is extensive: <span class="math">ĝ<sub>c</sub><sup>∨</sup>(a)≥a</span>.</div>
+          <p class="micro">If a center interval lies on the next edge, use the center-assisted transfer from Step 04 instead.</p>
+          <p class="source-row">Canonical calculus: <a href="../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md">raw and relaxed chains 201d</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="lesson" id="residual">
+      <div class="lesson-head">
+        <div>
+          <p class="step-label">Step 04 · center interval and residual</p>
+          <h2>A center trace can bridge—or fail to bridge—the handoff</h2>
+          <p>On one boundary edge, the incident left role covers from 0 to <span class="math">p</span>. A center interval <span class="math">J=[L,U]</span> only helps if it meets that connected component.</p>
+        </div>
+        <div class="formula-lead"><span class="math">ℛ<sub>J</sub>(p)</span> = 1 − endpoint of the covered component from 0</div>
+      </div>
+      <div class="lesson-body two-col">
+        <div class="panel">
+          <div class="panel-title"><h3>Boundary component</h3><span class="micro">edge parameter 0 → 1</span></div>
+          <svg id="residualSvg" class="viz" viewBox="0 0 560 230" role="img" aria-labelledby="residual-title residual-desc">
+            <title id="residual-title">Residual demand after a center interval</title>
+            <desc id="residual-desc">An edge from zero to one shows a left role trace, a center interval, the connected component from zero, and the resulting required right trace.</desc>
+            <line x1="60" y1="118" x2="500" y2="118" stroke="#aab3b2" stroke-width="8" stroke-linecap="round"/>
+            <line id="leftTrace" x1="60" y1="118" stroke="#2b6f9d" stroke-width="18" stroke-linecap="round"/>
+            <line id="centerTrace" y1="82" y2="82" stroke="#c89427" stroke-width="18" stroke-linecap="round"/>
+            <line id="componentTrace" x1="60" y1="153" stroke="#167f7a" stroke-width="9" stroke-linecap="round"/>
+            <line id="rightDemand" x2="500" y1="118" y2="118" stroke="#d86f58" stroke-width="18" stroke-linecap="round"/>
+            <g font-size="12" font-weight="700">
+              <text x="53" y="195">0</text><text x="495" y="195">1</text>
+              <text x="64" y="103" fill="#2b6f9d">left trace [0,p]</text>
+              <text id="centerLabel" y="60" fill="#9b741f">center J</text>
+              <text x="64" y="176" fill="#167f7a">connected component from 0</text>
+              <text id="rightLabel" y="103" fill="#b75643">required far-side trace</text>
+            </g>
+          </svg>
+          <div class="legend"><span><i class="swatch" style="background:#2b6f9d"></i>left role</span><span><i class="swatch gold"></i>center <span class="math">J</span></span><span><i class="swatch"></i>connected component</span><span><i class="swatch coral"></i>residual</span></div>
+        </div>
+        <div class="panel">
+          <div class="panel-title"><h3>Move the traces</h3><span id="bridgeState" class="class-badge">bridged</span></div>
+          <div class="control-stack">
+            <div class="range-row"><label for="pInput"><span class="math">p</span> left end</label><input id="pInput" type="range" min="0" max="1" value=".48" step=".01"><output id="pOut">0.48</output></div>
+            <div class="range-row"><label for="lInput"><span class="math">L</span> center start</label><input id="lInput" type="range" min="0" max="1" value=".42" step=".01"><output id="lOut">0.42</output></div>
+            <div class="range-row"><label for="uInput"><span class="math">U</span> center end</label><input id="uInput" type="range" min="0" max="1" value=".68" step=".01"><output id="uOut">0.68</output></div>
+          </div>
+          <div class="readout-grid">
+            <div class="readout"><small>component endpoint</small><strong><span class="math">e<sub>J</sub>(p)</span> = <span id="componentValue">0.68</span></strong></div>
+            <div class="readout"><small>far-side demand</small><strong><span class="math">ℛ<sub>J</sub>(p)</span> = <span id="residualValue">0.32</span></strong></div>
+          </div>
+          <div class="equation"><span class="math">g<sub>c,J</sub><sup>∨</sup>(a)</span> = <span class="math">ℛ<sub>J</sub>(g<sub>c</sub>(1−a))</span></div>
+          <div class="callout">When <span class="math">p&lt;L</span>, the center interval is disconnected and the residual remains <span class="math">1−p</span>. When <span class="math">p≥L</span>, the component reaches <span class="math">max{p,U}</span>.</div>
+          <p class="source-row">Exact handoff: <a href="../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2019_interval_component_and_path_budget.md">interval residuals 2019</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="lesson" id="composition">
+      <div class="lesson-head">
+        <div>
+          <p class="step-label">Step 05 · composition and relaxation</p>
+          <h2>The leftmost geometric slot acts first</h2>
+          <p>Each nonsupercritical role turns a certified incoming lower bound into the next one. Exact maps may be replaced by smaller nondecreasing lower relaxations when the branch proves their hypotheses.</p>
+        </div>
+        <div class="formula-lead">[<span class="math">Φ₁ | Φ₂ | Φ₃</span>](<span class="math">a₀</span>) = <span class="math">Φ₃(Φ₂(Φ₁(a₀)))</span></div>
+      </div>
+      <div class="lesson-body">
+        <div class="panel">
+          <div class="panel-title"><h3>Three-slot stepper</h3><span class="micro">click a slot to retain exact or identity</span></div>
+          <div class="range-row" style="max-width:440px"><label for="chainSeed"><span class="math">a₀</span> seed</label><input id="chainSeed" type="range" min=".05" max=".8" value=".40" step=".01"><output id="chainSeedOut">0.40</output></div>
+          <div class="chain" id="chainSlots">
+            <div class="chain-slot" data-slot="0"><small>slot 1 · c₁=0.75</small><div class="slot-value"><span class="math">a₁</span> = <span class="chain-value">—</span></div><button class="slot-mode" data-mode="exact" type="button">Exact <span class="math">ĝ<sub>c₁</sub><sup>∨</sup></span></button><div class="micro slot-exact">exact output —</div></div>
+            <div class="chain-slot" data-slot="1"><small>slot 2 · c₂=0.85</small><div class="slot-value"><span class="math">a₂</span> = <span class="chain-value">—</span></div><button class="slot-mode" data-mode="exact" type="button">Exact <span class="math">ĝ<sub>c₂</sub><sup>∨</sup></span></button><div class="micro slot-exact">exact output —</div></div>
+            <div class="chain-slot" data-slot="2"><small>slot 3 · c₃=0.92</small><div class="slot-value"><span class="math">a₃</span> = <span class="chain-value">—</span></div><button class="slot-mode" data-mode="exact" type="button">Exact <span class="math">ĝ<sub>c₃</sub><sup>∨</sup></span></button><div class="micro slot-exact">exact output —</div></div>
+          </div>
+          <div class="equation" id="chainEquation">[<span class="math">ĝ<sub>c₁</sub><sup>∨</sup> | ĝ<sub>c₂</sub><sup>∨</sup> | ĝ<sub>c₃</sub><sup>∨</sup></span>](0.40) = —</div>
+          <div class="relax-grid">
+            <div class="relax-card"><b>Identity <span class="math roman">I(x)=x</span></b><span class="micro">Licensed for an individual center-free nonsupercritical handoff; it retains only extensivity.</span></div>
+            <div class="relax-card"><b>Affine <span class="math">ĝ<sub>1−d</sub><sup>∨,λ</sup>(x)</span></b><span class="micro">The certified line <span class="math">x+λ(x−d)</span> on the stated selected-T<sub>+</sub> arc.</span></div>
+            <div class="relax-card"><b>Threshold <span class="math">ĝ<sub>1−d</sub><sup>∨,th</sup></span></b><span class="micro">Identity below <span class="math">e(d)</span>; the lower output <span class="math">1−e(d)</span> after the threshold fires.</span></div>
+          </div>
+          <div class="callout">A relaxation is a certified lower map, not a new exact transfer. Identity slots also require the center-free and locality hypotheses stated by the terminal branch.</div>
+          <p class="source-row">Composition rule and decorated relaxations: <a href="../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md">201d</a> · <a href="../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2017_threshold_routing.md">threshold routing 2017</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="lesson" id="center">
+      <div class="lesson-head">
+        <div>
+          <p class="step-label">Step 06 · signed CE1/CE2 center data</p>
+          <h2>One sign distinguishes the two center classes</h2>
+          <p>The active right trace has positive surplus <span class="math">Δ<sub>R</sub></span>. The companion left trace is absent or a point in CE1 and positive in CE2, exactly according to the sign of <span class="math">Δ<sub>L</sub></span>.</p>
+        </div>
+        <div class="formula-lead">CE1: <span class="math">Δ<sub>L</sub>≤0</span> · CE2: <span class="math">Δ<sub>L</sub>&gt;0</span></div>
+      </div>
+      <div class="lesson-body two-col">
+        <div class="panel">
+          <div class="panel-title"><h3>Two possible boundary traces</h3><span class="micro">plus six radial exits</span></div>
+          <svg id="centerSvg" class="viz" viewBox="0 0 560 360" role="img" aria-labelledby="center-title center-desc">
+            <title id="center-title">Signed center traces and radial exits</title>
+            <desc id="center-desc">Two unit boundary edges display the active and companion trace intervals. A small hexagonal radial diagram shows the six center exits.</desc>
+            <g>
+              <text x="45" y="40" font-size="12" font-weight="800">active right edge I<tspan baseline-shift="sub" font-size="9">R</tspan></text>
+              <line x1="45" y1="74" x2="300" y2="74" stroke="#aab3b2" stroke-width="8" stroke-linecap="round"/>
+              <line id="rightInterval" y1="74" y2="74" stroke="#167f7a" stroke-width="18" stroke-linecap="round"/>
+              <text x="40" y="100" font-size="11">0</text><text x="299" y="100" font-size="11">1</text>
+              <text x="45" y="142" font-size="12" font-weight="800">candidate companion interval I<tspan baseline-shift="sub" font-size="9">L</tspan></text>
+              <line x1="45" y1="176" x2="300" y2="176" stroke="#aab3b2" stroke-width="8" stroke-linecap="round"/>
+              <line id="leftInterval" y1="176" y2="176" stroke="#d86f58" stroke-width="18" stroke-linecap="round"/>
+              <text id="leftAbsent" x="112" y="205" font-size="11" fill="#a24d42">no positive companion trace</text>
+              <text x="40" y="202" font-size="11">0</text><text x="299" y="202" font-size="11">1</text>
+            </g>
+            <g transform="translate(430 177)">
+              <polygon points="0,-104 90,-52 90,52 0,104 -90,52 -90,-52" fill="none" stroke="#c7cbc7" stroke-width="2"/>
+              <g id="exitBase" stroke="#d9dcd7" stroke-width="8" stroke-linecap="round">
+                <line x1="0" y1="0" x2="0" y2="-104"/><line x1="0" y1="0" x2="90" y2="-52"/><line x1="0" y1="0" x2="90" y2="52"/>
+                <line x1="0" y1="0" x2="0" y2="104"/><line x1="0" y1="0" x2="-90" y2="52"/><line x1="0" y1="0" x2="-90" y2="-52"/>
+              </g>
+              <g id="exitLines" stroke="#c89427" stroke-width="8" stroke-linecap="round"></g>
+              <circle r="6" fill="#17343b"/>
+              <g font-size="11" font-weight="700"><text x="7" y="-91">d₀ᶜ</text><text x="70" y="-58">d₁ᶜ</text><text x="72" y="70">d₂ᶜ</text><text x="7" y="100">d₃ᶜ</text><text x="-103" y="70">d₄ᶜ</text><text x="-103" y="-58">d₅ᶜ</text></g>
+            </g>
+          </svg>
+          <div class="trace-key">
+            <div><small>right interval</small><strong id="rightTraceText">[—, —]</strong></div>
+            <div><small>left candidate</small><strong id="leftTraceText">[—, —]</strong></div>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-title"><h3>Explore the signed domain</h3><span id="centerClass" class="class-badge">CE1</span></div>
+          <div class="preset-row" style="margin-bottom:12px"><button id="ce1Preset" class="preset" type="button">CE1 preset</button><button id="ce2Preset" class="preset" type="button">CE2 preset</button></div>
+          <div class="control-stack">
+            <div class="range-row"><label for="rInput"><span class="math">R</span></label><input id="rInput" type="range" min=".2" max=".8" value=".58" step=".01"><output id="rOut">0.58</output></div>
+            <div class="range-row"><label for="alphaInput"><span class="math">α</span> slack</label><input id="alphaInput" type="range" min=".005" max=".15" value=".05" step=".005"><output id="alphaOut">0.050</output></div>
+            <div class="range-row"><label for="deltaInput"><span class="math">δ</span> slack</label><input id="deltaInput" type="range" min=".005" max=".15" value=".09" step=".005"><output id="deltaOut">0.090</output></div>
+          </div>
+          <div class="readout-grid">
+            <div class="readout"><small>complement</small><strong><span class="math">W</span> = <span id="wValue">—</span></strong></div>
+            <div class="readout"><small>equilateral radical</small><strong><span class="math">E</span> = <span id="eValue">—</span></strong></div>
+            <div class="readout"><small>active surplus</small><strong><span class="math">Δ<sub>R</sub></span> = <span id="deltaRValue">—</span></strong></div>
+            <div class="readout"><small>companion surplus</small><strong><span class="math">Δ<sub>L</sub></span> = <span id="deltaLValue">—</span></strong></div>
+          </div>
+          <div class="equation"><span class="math">E=√(1−RW)</span>, <span class="math">P=E(1−E)</span>, <span class="math">k=1−E+α+δ</span></div>
+          <div class="status-line"><span id="domainDot" class="status-dot"></span><span id="domainText">Inside the normalized signed domain.</span></div>
+          <p>The radial demand passed to a vertex role is the complement <span class="math">c<sub>i</sub><sup>C</sup>=1−d<sub>i</sub><sup>C</sup></span> of the center exit.</p>
+          <p class="source-row">Common normal form: <a href="../proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md">signed CE1/CE2 data 2109</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="lesson" id="atlas">
+      <div class="lesson-head">
+        <div>
+          <p class="step-label">Step 07 · branch atlas</p>
+          <h2>The decorations record what each proof keeps</h2>
+          <p>The transfer alphabet stays fixed. Different terminals retain exact endpoint maps, identities, affine or threshold relaxations, a free supercritical envelope, or a geometric replacement.</p>
+        </div>
+        <div class="formula-lead">same <span class="math">g</span>-family · different certified route</div>
+      </div>
+      <div class="lesson-body">
+        <div class="atlas-filters toolbar" aria-label="Filter branch routes">
+          <button class="filter-button atlas-filter" data-filter="all" aria-pressed="true">All routes</button>
+          <button class="filter-button atlas-filter" data-filter="kernel" aria-pressed="false">All-Vd0 kernel</button>
+          <button class="filter-button atlas-filter" data-filter="endpoint" aria-pressed="false">Exact endpoints</button>
+          <button class="filter-button atlas-filter" data-filter="special" aria-pressed="false">Special roles</button>
+        </div>
+        <div class="atlas">
+          <article class="route-card" data-route="kernel">
+            <div class="route-top"><h3><span class="math">N<sub>+</sub>=0</span>, all Vd0, <span class="math roman">gr</span>=0</h3><span class="route-tag">cycle</span></div>
+            <p>In the CE1/CE2 all-Vd0 cell, six strict open handoffs retain only the identity lower chain.</p>
+            <div class="route-chain"><span class="math roman">I⁶</span> · strict cyclic ascent</div>
+            <a href="../proof/4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md">Proven source 4013</a>
+          </article>
+          <article class="route-card" data-route="kernel endpoint">
+            <div class="route-top"><h3><span class="math">N<sub>+</sub>=0</span>, all Vd0, <span class="math roman">gr</span>=1</h3><span class="route-tag">one side</span></div>
+            <p>In the CE1/CE2 all-Vd0 cell, two exact hatted endpoint caps surround three center-free identity rows.</p>
+            <div class="route-chain">exact endpoint · <span class="math roman">I³</span> · exact endpoint</div>
+            <a href="../proof/4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md">Branch application 4013</a> · <a href="../proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2107_one_side_capped_loss.md">exact theorem 2107</a>
+          </article>
+          <article class="route-card" data-route="kernel endpoint">
+            <div class="route-top"><h3>CE2, all Vd0, <span class="math roman">gr</span>=2</h3><span class="route-tag">paired</span></div>
+            <p>The two-gap all-Vd0 cells for <span class="math">N<sub>+</sub>=0</span> and 1 share the paired exact endpoint theorem.</p>
+            <div class="route-chain">paired caps · <span class="math roman">I³</span> · endpoint sum &lt; 1</div>
+            <a href="../proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2110_common_CE2_two_gap_application.md">Branch application 2110</a> · <a href="../proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2108_CE2_two_endpoint_capped_loss.md">paired theorem 2108</a>
+          </article>
+          <article class="route-card" data-route="endpoint special">
+            <div class="route-top"><h3>T3-like, <span class="math">N<sub>+</sub>=0</span>, no Vd1/Vd2</h3><span class="route-tag">four labels</span></div>
+            <p>Residual inputs feed an exact four-label endpoint audit; it is not replaced by generic sampled map values.</p>
+            <div class="route-chain">residual · <span class="math roman">I³</span> · exact audit</div>
+            <a href="../proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4070_CE1CE2_Nplus0_T3_like_no_Vd1Vd2_index.md">Proven package 407X</a>
+          </article>
+          <article class="route-card" data-route="kernel">
+            <div class="route-top"><h3>CE1, <span class="math">N<sub>+</sub>=1</span>, all Vd0, one gap</h3><span class="route-tag">five V triangles</span></div>
+            <p>The exact five-map interface is reduced to two affine slots and one threshold slot.</p>
+            <div class="route-chain">[<span class="math">ĝ<sup>∨,λ</sup> | ĝ<sup>∨,λ</sup> | ĝ<sup>∨,th</sup></span>]</div>
+            <a href="../proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4105_CE1_CE2_one_gap_five_V_triangle_interface.md">Exact interface 4105</a> · <a href="../proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4106_CE1_one_gap_five_map_completion.md">completion 4106</a>
+          </article>
+          <article class="route-card" data-route="kernel">
+            <div class="route-top"><h3>CE2, <span class="math">N<sub>+</sub>=1</span>, all Vd0, one gap</h3><span class="route-tag">one fires</span></div>
+            <p>At least one of two threshold-decorated slots fires; all other retained slots are identities.</p>
+            <div class="route-chain">one <span class="math">ĝ<sup>∨,th</sup></span> slot · remaining <span class="math roman">I</span></div>
+            <a href="../proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4105_CE1_CE2_one_gap_five_V_triangle_interface.md">Exact interface 4105</a> · <a href="../proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4107_CE2_one_gap_five_map_completion.md">completion 4107</a>
+          </article>
+          <article class="route-card" data-route="special">
+            <div class="route-top"><h3><span class="math">N<sub>+</sub>=1</span>: one T3-like or adjacent Vd1 rescuer</h3><span class="route-tag">free envelope</span></div>
+            <p>Under the midpoint-reduced T3-like or CE2 adjacent-Vd1 hypotheses, a strict-supercritical source supplies <span class="math">1−g<sub>c</sub><sup>sc</sup></span>, then an ordinary identity path reaches the terminal cap.</p>
+            <div class="route-chain"><span class="math">1−g<sub>c</sub><sup>sc</sup></span> · <span class="math roman">I³</span> · <span class="math">g<sub>c</sub><sup>sc</sup></span></div>
+            <a href="../proof/4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like/4132_CE1_CE2_exactly_one_T3_like_boundary_obstruction.md">T3-like 4132</a> · <a href="../proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4143_CE2_Nplus1_T0_Vd1_M1_T1_supercritical_obstruction.md">Vd1 4143</a> · <a href="../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2018_diameter_transfer_and_adjacent_rescuer.md">common theorem 2018</a>
+          </article>
+          <article class="route-card" data-route="special">
+            <div class="route-top"><h3>CE2, <span class="math">N<sub>+</sub>=1</span>: adjacent unique Vd1/Vd2</h3><span class="route-tag">two radial margins</span></div>
+            <p>With the unique supercritical role at T₀, exact residuals propagate through four ordinary rows; Vd-corner and quarter-radial margins exclude the two possible bridges.</p>
+            <div class="route-chain">exact residuals · <span class="math roman">I⁴</span> · Vd margin + quarter envelope</div>
+            <a href="../proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4144_CE2_Nplus1_T0_supercritical_T1_Vd1_Vd2_adjacent_obstruction.md">Proven source 4144</a>
+          </article>
+          <article class="route-card" data-route="special">
+            <div class="route-top"><h3>CE2, <span class="math">N<sub>+</sub>=1</span>: nonadjacent unique Vd1/Vd2</h3><span class="route-tag">radial terminal</span></div>
+            <p>With the unique supercritical role at T₀, residual propagation from both sides ends in the Vd-type-specific radial separation certificate.</p>
+            <div class="route-chain">residuals · identity propagation · radial margin</div>
+            <a href="../proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4146_CE2_Nplus1_T0_supercritical_nonadjacent_Vd1_Vd2_obstruction.md">Proven source 4146</a>
+          </article>
+          <article class="route-card" data-route="special">
+            <div class="route-top"><h3>CE2, <span class="math">N<sub>+</sub>=1</span>: adjacent Vd1–supercritical pair</h3><span class="route-tag">replacement</span></div>
+            <p>When neither special role is at the center-midpoint index, two separate local charts replace the unique pair by nonsupercritical Vd0 rows while preserving the full skeleton data.</p>
+            <div class="route-chain">two charts · replacement · invoke 4013</div>
+            <a href="../proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4147_CE2_Nplus1_Vd1_supercritical_pair_axis_replacement.md">Proven source 4147</a>
+          </article>
+        </div>
+        <div class="outside-route"><strong>One deliberate exit.</strong> The all-Vd0 cell <span class="math">N<sub>+</sub>=1</span>, <span class="math roman">gr</span>=0 uses the center-independent nine-point obstruction, not a Strategy 2 chain. See <a href="strategy4demo.html">the Strategy 4 visualization</a>.</div>
+        <p class="source-row">Authoritative registry: <a href="../proof/4XXX_CE1CE2/4000_CE1CE2_index.md">CE1/CE2 branch index 4000</a></p>
+      </div>
+    </section>
+
+    <section class="lesson" id="glossary">
+      <div class="lesson-head">
+        <div>
+          <p class="step-label">Canonical glossary</p>
+          <h2>Find a symbol without changing alphabets</h2>
+          <p>Definitions below cover the core symbols used on this page and in the Strategy 2 chain register. Search by symbol, word, or meaning.</p>
+        </div>
+        <div class="formula-lead">one symbol · one role · linked source</div>
+      </div>
+      <div class="lesson-body">
+        <div class="glossary-tools">
+          <label class="sr-only" for="termSearch">Search glossary</label>
+          <input id="termSearch" type="search" placeholder="Search: residual, ΔL, radial, cap…" autocomplete="off">
+          <label class="sr-only" for="termCategory">Filter glossary category</label>
+          <select id="termCategory">
+            <option value="all">All categories</option>
+            <option value="geometry">Geometry</option>
+            <option value="roles">Roles and reaches</option>
+            <option value="transfer">Transfer maps</option>
+            <option value="center">Signed center</option>
+            <option value="branch">Branch data</option>
+          </select>
+          <span id="termCount" class="term-count" aria-live="polite"></span>
+        </div>
+        <div class="glossary" id="glossaryGrid">
+          <article class="term" data-category="geometry" data-search="H hexagon side one branch scalar"><div class="term-head"><span class="symbol">H</span><span class="category">geometry</span></div><p>The regular side-one hexagon; in the one-gap five-V-triangle interface only, the explicitly local scalar <span class="math">H=k/(2R)</span> is the terminal comparison value.</p><a href="../proof/09XX_appendices/0910_notation_dictionary.md">Hexagon: 0910</a> · <a href="../proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4105_CE1_CE2_one_gap_five_V_triangle_interface.md">local scalar: 4105</a></article>
+          <article class="term" data-category="geometry" data-search="O center V_i vertices"><div class="term-head"><span class="symbol">O, Vᵢ</span><span class="category">geometry</span></div><p>The hexagon center and its six cyclically indexed vertices.</p><a href="../proof/09XX_appendices/0910_notation_dictionary.md">0910</a></article>
+          <article class="term" data-category="geometry" data-search="edge radial midpoint skeleton"><div class="term-head"><span class="symbol">eᵢ,ᵢ₊₁, rᵢ, Mᵢ, S</span><span class="category">geometry</span></div><p>A boundary edge, radial arm [O,Vᵢ], radial midpoint Vᵢ/2, and the full boundary-plus-radials skeleton.</p><a href="../proof/09XX_appendices/0910_notation_dictionary.md">0910</a></article>
+          <article class="term" data-category="roles" data-search="T_C T_i center vertex role"><div class="term-head"><span class="symbol">T<sub>C</sub>, Tᵢ</span><span class="category">roles</span></div><p>The center role containing O and the vertex role based at Vᵢ.</p><a href="../proof/0XXX_main/0000_main_theorem.md">0000</a></article>
+          <article class="term" data-category="roles" data-search="CE1 CE2 center class trace"><div class="term-head"><span class="symbol">CE1, CE2</span><span class="category">roles</span></div><p>Center classes with one or two positive boundary traces; the signed normal form uses Δ<sub>L</sub> to distinguish them.</p><a href="../proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md">2109</a></article>
+          <article class="term" data-category="roles" data-search="Vd0 Vd1 Vd2 T3-like vertex type"><div class="term-head"><span class="symbol">Vd0, Vd1, Vd2, T3-like</span><span class="category">roles</span></div><p>The exhaustive original vertex-role types used by the proof tree.</p><a href="../proof/1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md">1201</a></article>
+          <article class="term" data-category="roles" data-search="A_i B_i C_i actual maximal reaches incoming outgoing radial"><div class="term-head"><span class="symbol">Aᵢ, Bᵢ, Cᵢ</span><span class="category">roles</span></div><p>Actual maximal incoming, outgoing, and own-radial reaches of Tᵢ.</p><a href="../proof/1XXX_foundations/12XX_V_triangle/1202_local_coordinates_abc.md">1202</a></article>
+          <article class="term" data-category="roles" data-search="a b c selected lower demand"><div class="term-head"><span class="symbol">a, b, c</span><span class="category">roles</span></div><p>Selected lower-bound incoming, outgoing, and radial demands; they do not classify the actual role.</p><a href="../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md">201d §1</a></article>
+          <article class="term" data-category="geometry" data-search="K convex hull demand"><div class="term-head"><span class="symbol">K(a,b,c)</span><span class="category">geometry</span></div><p>The convex hull of the local origin and the three selected demand points.</p><a href="../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md">2004</a></article>
+          <article class="term" data-category="geometry" data-search="A admissible set mathcal"><div class="term-head"><span class="symbol">𝒜</span><span class="category">geometry</span></div><p>The exact down-closed set of demand triples whose K(a,b,c) fits in a closed unit equilateral triangle.</p><a href="../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md">2004</a></article>
+          <article class="term" data-category="geometry" data-search="Lambda enclosure gauge least side"><div class="term-head"><span class="symbol">Λ(K)</span><span class="category">geometry</span></div><p>The least side length of a closed equilateral triangle containing K.</p><a href="../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201a_equilateral_enclosure_and_radical_calculus.md">201a</a></article>
+          <article class="term" data-category="transfer" data-search="x defect one minus a"><div class="term-head"><span class="symbol">x = 1−a</span><span class="category">transfer</span></div><p>The incoming boundary defect complementary to incoming reach a.</p><a href="../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md">201d §1</a></article>
+          <article class="term" data-category="transfer" data-search="g_c raw exact outgoing envelope"><div class="term-head"><span class="symbol">g<sub>c</sub>(x)</span><span class="category">transfer</span></div><p>The largest outgoing reach y with (1−x,y,c)∈𝒜; valid as a raw cap for every V triangle.</p><a href="../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md">201d §2</a></article>
+          <article class="term" data-category="transfer" data-search="hat capped nonsupercritical g"><div class="term-head"><span class="symbol">ĝ<sub>c</sub></span><span class="category">transfer</span></div><p>The nonsupercritical defect map min{g<sub>c</sub>(x),x}.</p><a href="../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md">201d §2</a></article>
+          <article class="term" data-category="transfer" data-search="vee complement dual incoming lower"><div class="term-head"><span class="symbol">f<sup>∨</sup>(a)</span><span class="category">transfer</span></div><p>The complement dual 1−f(1−a), converting defect caps to next-incoming lower transfers.</p><a href="../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md">201d §3</a></article>
+          <article class="term" data-category="transfer" data-search="raw g dual every V triangle center free incoming reach"><div class="term-head"><span class="symbol">g<sub>c</sub><sup>∨</sup></span><span class="category">transfer</span></div><p>The raw next-incoming reach transfer 1−g<sub>c</sub>(1−a), valid for every V triangle when the next boundary edge is center-free.</p><a href="../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md">201d §4</a></article>
+          <article class="term" data-category="transfer" data-search="hat g dual extensive nonsupercritical incoming"><div class="term-head"><span class="symbol">ĝ<sub>c</sub><sup>∨</sup></span><span class="category">transfer</span></div><p>The center-free nonsupercritical incoming-reach transfer; it satisfies ĝ<sub>c</sub><sup>∨</sup>(a)≥a. With a center interval J, use ĝ<sub>c,J</sub><sup>∨</sup>.</p><a href="../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md">201d §§4, 6</a></article>
+          <article class="term" data-category="transfer" data-search="J center interval residual R_J e_J"><div class="term-head"><span class="symbol">J, e<sub>J</sub>, ℛ<sub>J</sub></span><span class="category">transfer</span></div><p>A center interval, the endpoint of the covered component from 0, and its complementary far-side demand 1−e<sub>J</sub>(p).</p><a href="../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2019_interval_component_and_path_budget.md">2019 §1</a></article>
+          <article class="term" data-category="transfer" data-search="g c J center assisted transfer"><div class="term-head"><span class="symbol">g<sub>c,J</sub><sup>∨</sup>, ĝ<sub>c,J</sub><sup>∨</sup></span><span class="category">transfer</span></div><p>The raw and nonsupercritical center-assisted reach transfers obtained by applying ℛ<sub>J</sub> to the outgoing cap.</p><a href="../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2019_interval_component_and_path_budget.md">2019 §3</a></article>
+          <article class="term" data-category="transfer" data-search="g supercritical sc free envelope nonattained strict"><div class="term-head"><span class="symbol">g<sub>c</sub><sup>sc</sup></span><span class="category">transfer</span></div><p>For 0≤c&lt;1/2, the nonattained free envelope is (c+√(c²−8c+4))/2. An actual strict-supercritical role has B&lt;g<sub>c</sub><sup>sc</sup>, so a center-free next edge forces A<sub>next</sub>&gt;1−g<sub>c</sub><sup>sc</sup>.</p><a href="../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md">201d §7</a></article>
+          <article class="term" data-category="transfer" data-search="Phi slot chain composition left first"><div class="term-head"><span class="symbol">[Φ₁ | … | Φᵣ]</span><span class="category">transfer</span></div><p>The composition Φᵣ∘…∘Φ₁, with the leftmost slot acting first in geometric role order.</p><a href="../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md">201d §8</a></article>
+          <article class="term" data-category="transfer" data-search="J_i C Phi raw ns six role register center interval"><div class="term-head"><span class="symbol">Jᶜᵢ, Φ<sup>raw</sup>ᵢ, Φ<sup>ns</sup>ᵢ</span><span class="category">transfer</span></div><p>Jᶜᵢ is the center interval on edge eᵢ,ᵢ₊₁. The corresponding full-register slots are g<sub>cᵢ,Jᶜᵢ</sub><sup>∨</sup> for a raw role and ĝ<sub>cᵢ,Jᶜᵢ</sub><sup>∨</sup> for a nonsupercritical role.</p><a href="../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md">201d §10</a></article>
+          <article class="term" data-category="transfer" data-search="I identity relaxation"><div class="term-head"><span class="symbol">I</span><span class="category">transfer</span></div><p>The identity lower relaxation I(x)=x, licensed per handoff under the branch hypotheses.</p><a href="../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md">201d §10</a></article>
+          <article class="term" data-category="transfer" data-search="lambda affine selected T plus relaxation"><div class="term-head"><span class="symbol">ĝ<sub>1−d</sub><sup>∨,λ</sup></span><span class="category">transfer</span></div><p>The certified affine lower relaxation x+λ(x−d) on its proved selected-T<sub>+</sub> arc.</p><a href="../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md">201d §9</a></article>
+          <article class="term" data-category="transfer" data-search="threshold th e d low root"><div class="term-head"><span class="symbol">ĝ<sub>1−d</sub><sup>∨,th</sup>, e(d)</span><span class="category">transfer</span></div><p>The low-root threshold relaxation and its threshold: identity below e(d), lower output 1−e(d) after firing.</p><a href="../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2017_threshold_routing.md">2017</a></article>
+          <article class="term" data-category="center" data-search="R W center slope complement"><div class="term-head"><span class="symbol">R, W</span><span class="category">center</span></div><p>The normalized side-slope parameter 0&lt;R&lt;1 and its complement W=1−R.</p><a href="../proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md">2109</a></article>
+          <article class="term" data-category="center" data-search="E eta P radical deficit product"><div class="term-head"><span class="symbol">E, η, P</span><span class="category">center</span></div><p>E=√(1−RW), η=1−E, and P=E(1−E).</p><a href="../proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md">2109</a></article>
+          <article class="term" data-category="center" data-search="alpha delta k center slack"><div class="term-head"><span class="symbol">α, δ, k</span><span class="category">center</span></div><p>The two nontrivial center slacks and their common sum k=η+α+δ.</p><a href="../proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md">2109</a></article>
+          <article class="term" data-category="center" data-search="Delta_R active trace surplus"><div class="term-head"><span class="symbol">Δ<sub>R</sub></span><span class="category">center</span></div><p>The active-trace surplus P−α−Wδ; the normalized domain requires Δ<sub>R</sub>&gt;0.</p><a href="../proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md">2109</a></article>
+          <article class="term" data-category="center" data-search="Delta_L companion trace surplus CE1 CE2"><div class="term-head"><span class="symbol">Δ<sub>L</sub></span><span class="category">center</span></div><p>The companion surplus P−Rα−δ: nonpositive for CE1 and positive for CE2.</p><a href="../proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md">2109</a></article>
+          <article class="term" data-category="center" data-search="I_R I_L traces intervals"><div class="term-head"><span class="symbol">I<sub>R</sub>, I<sub>L</sub></span><span class="category">center</span></div><p>The active interval [k/R,W+δ] and candidate companion interval [k/W,R+α].</p><a href="../proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md">2109</a></article>
+          <article class="term" data-category="center" data-search="d_i C exit c_i C radial demand"><div class="term-head"><span class="symbol">dᶜᵢ, cᶜᵢ</span><span class="category">center</span></div><p>The center reach along radial arm rᵢ and its complementary vertex-side demand cᶜᵢ=1−dᶜᵢ.</p><a href="../proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md">2109 §4</a></article>
+          <article class="term" data-category="branch" data-search="N plus supercritical count"><div class="term-head"><span class="symbol">N<sub>+</sub></span><span class="category">branch</span></div><p>The number of actual vertex roles satisfying Aᵢ+Bᵢ&gt;1.</p><a href="../proof/09XX_appendices/0910_notation_dictionary.md">0910</a></article>
+          <article class="term" data-category="branch" data-search="Gamma_i V gap boundary"><div class="term-head"><span class="symbol">Γᵢ</span><span class="category">branch</span></div><p>The possibly empty boundary gap [Bᵢ,1−Aᵢ₊₁] left by the two incident open vertex traces.</p><a href="../proof/4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md">4013</a></article>
+          <article class="term" data-category="branch" data-search="gr active gap rank"><div class="term-head"><span class="symbol roman">gr</span><span class="category">branch</span></div><p>The roman gap rank: the number 0, 1, or 2 of positive center traces containing a V-gap; at most 1 in CE1. Bare italic g remains the transfer map.</p><a href="../proof/4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md">4013</a></article>
+          <article class="term" data-category="branch" data-search="X H one gap seed endpoint scalar"><div class="term-head"><span class="symbol">X, H</span><span class="category">branch</span></div><p>In the one-gap five-V-triangle interface, X=R−δ is the seed and H=k/(2R) is the terminal comparison scalar.</p><a href="../proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4105_CE1_CE2_one_gap_five_V_triangle_interface.md">4105</a></article>
+          <article class="term" data-category="branch" data-search="m3 center exit local scalar"><div class="term-head"><span class="symbol">m₃</span><span class="category">branch</span></div><p>The one-gap local scalar min{α/R,δ/W}; it is a center exit, not a role count.</p><a href="../proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4105_CE1_CE2_one_gap_five_V_triangle_interface.md">4105</a></article>
+          <article class="term" data-category="branch" data-search="z_i Z iterates returned demand"><div class="term-head"><span class="symbol">zᵢ, Z</span><span class="category">branch</span></div><p>The formal successive incoming lower bounds in the exact five-V-triangle chain and its returned value Z=z₅.</p><a href="../proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4105_CE1_CE2_one_gap_five_V_triangle_interface.md">4105</a></article>
+          <article class="term" data-category="branch" data-search="L T minus T plus high Full endpoint exact labels audit"><div class="term-head"><span class="symbol">L, T₋, T₊<sup>hi</sup>, Full</span><span class="category">branch</span></div><p>The four exact endpoint labels retained by the 407X audit. They name branches of the exact outgoing cap, not four new transfer maps.</p><a href="../proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4073_boundary_loss_framework.md">4073</a></article>
+          <article class="term" data-category="branch" data-search="T3 local D R loc a c u sheet normal form"><div class="term-head"><span class="symbol">D, R<sub>loc</sub>, a, c, u</span><span class="category">branch</span></div><p>Local T3-like normal-form parameters: D fixes the orientation sheet, a is a boundary reach, and [c,u] is the neighboring-radial trace. The signed center parameter R is separate and is labeled without “loc.”</p><a href="../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2013_T3_like_side_tradeoff.md">2013</a></article>
+          <article class="term" data-category="branch" data-search="Vd corner local t d a b c support normal form"><div class="term-head"><span class="symbol">t, d, a, b, c</span><span class="category">branch</span></div><p>Branch-local Vd corner parameters, with d=√(t²+t+1); a and b are the incident boundary reaches and c the own-radial reach. Context distinguishes them from a selected demand triple.</p><a href="../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2014_Vd1_Vd2_corner_normal_form.md">2014</a></article>
+          <article class="term" data-category="branch" data-search="beta diameter c max quarter radial envelope"><div class="term-head"><span class="symbol">β(q), c<sub>max</sub>(p,h)</span><span class="category">branch</span></div><p>β(q)=(-q+√(4−3q²))/2 is the adjacent-edge diameter-transfer curve. The quarter-radial envelope c<sub>max</sub>(p,h) bounds the ordinary neighbor in the 4144 terminal; neither is a new g-map.</p><a href="../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201b_quarter_radial_envelope.md">201b</a> · <a href="../proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4144_CE2_Nplus1_T0_supercritical_T1_Vd1_Vd2_adjacent_obstruction.md">4144</a></article>
+          <article class="term" data-category="branch" data-search="sigma tau placement unique supercritical Vd index"><div class="term-head"><span class="symbol">σ, τ</span><span class="category">branch</span></div><p>In the 414X placement explorer, σ indexes the unique supercritical role and τ the unique Vd1/Vd2 role; all indices are modulo 6.</p><a href="../proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4140_CE2_Nplus1_exactly_one_Vd1_Vd2_index.md">4140</a></article>
+          <article class="term" data-category="branch" data-search="D plus minus p1 p2 epsilon X_i two chart replacement"><div class="term-head"><span class="symbol">D<sup>−</sup><sub>p,ε</sub>, D<sup>+</sup><sub>p,ε</sub></span><span class="category">branch</span></div><p>The shifted-minus and shifted-plus open unit templates in the 4147 replacement. The first chart always uses D<sup>−</sup><sub>p₁,ε</sub>; the second uses D<sup>−</sup><sub>p₂,ε</sub> for p₂≤1/2 and D<sup>+</sup><sub>p₂,ε</sub> otherwise. Each Xᵢ places its template in its own vertex chart.</p><a href="../proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4147_CE2_Nplus1_Vd1_supercritical_pair_axis_replacement.md">4147 §§4–5</a></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>Standalone, offline, dependency-free.</span>
+    <span>Reference visualization only · <a href="../README.md">return to corpus README</a></span>
+  </footer>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  var byId = function (id) { return document.getElementById(id); };
+  var clamp = function (value, low, high) { return Math.max(low, Math.min(high, value)); };
+  var num = function (value, digits) { return Number(value).toFixed(digits === undefined ? 3 : digits); };
+  var svgNS = "http://www.w3.org/2000/svg";
+
+  document.querySelectorAll(".skeleton-toggle").forEach(function (button) {
+    button.addEventListener("click", function () {
+      var pressed = button.getAttribute("aria-pressed") === "true";
+      button.setAttribute("aria-pressed", String(!pressed));
+      document.querySelectorAll('[data-skeleton-layer="' + button.dataset.layer + '"]').forEach(function (layer) {
+        layer.classList.toggle("is-off", pressed);
+      });
+    });
+  });
+
+  document.querySelectorAll(".demand-toggle").forEach(function (button) {
+    button.addEventListener("click", function () {
+      var pressed = button.getAttribute("aria-pressed") === "true";
+      button.setAttribute("aria-pressed", String(!pressed));
+      var layer = byId(button.dataset.demandLayer === "actual" ? "actualLayer" : "selectedLayer");
+      layer.style.opacity = pressed ? ".08" : "1";
+    });
+  });
+
+  function localPoint(amount, direction) {
+    var origin = { x: 120, y: 180 };
+    var scale = 370;
+    if (direction === "a") return { x: origin.x + amount * scale * .5, y: origin.y - amount * scale * .866 };
+    if (direction === "b") return { x: origin.x + amount * scale * .5, y: origin.y + amount * scale * .866 };
+    return { x: origin.x + amount * scale, y: origin.y };
+  }
+
+  function placePoint(element, point) {
+    element.setAttribute("cx", point.x);
+    element.setAttribute("cy", point.y);
+  }
+
+  function placeLine(element, point) {
+    element.setAttribute("x2", point.x);
+    element.setAttribute("y2", point.y);
+  }
+
+  function convexHullPoints(points) {
+    var unique = [];
+    points.forEach(function (point) {
+      if (!unique.some(function (other) { return Math.abs(other.x - point.x) < 1e-9 && Math.abs(other.y - point.y) < 1e-9; })) unique.push(point);
+    });
+    unique.sort(function (left, right) { return left.x - right.x || left.y - right.y; });
+    if (unique.length <= 2) return unique;
+    var cross = function (origin, left, right) {
+      return (left.x - origin.x) * (right.y - origin.y) - (left.y - origin.y) * (right.x - origin.x);
+    };
+    var lower = [];
+    unique.forEach(function (point) {
+      while (lower.length >= 2 && cross(lower[lower.length - 2], lower[lower.length - 1], point) <= 0) lower.pop();
+      lower.push(point);
+    });
+    var upper = [];
+    unique.slice().reverse().forEach(function (point) {
+      while (upper.length >= 2 && cross(upper[upper.length - 2], upper[upper.length - 1], point) <= 0) upper.pop();
+      upper.push(point);
+    });
+    lower.pop();
+    upper.pop();
+    return lower.concat(upper);
+  }
+
+  function updateDemand() {
+    var a = Number(byId("demandA").value);
+    var b = Number(byId("demandB").value);
+    var c = Number(byId("demandC").value);
+    var selected = [localPoint(a, "a"), localPoint(b, "b"), localPoint(c, "c")];
+    var actual = [localPoint(.5, "a"), localPoint(.5, "b"), localPoint(.5, "c")];
+    ["A", "B", "C"].forEach(function (letter, index) {
+      placeLine(byId("actual" + letter), actual[index]);
+      placePoint(byId("actual" + letter + "Point"), actual[index]);
+      placePoint(byId("selected" + letter + "Point"), selected[index]);
+    });
+    var hull = convexHullPoints([{ x: 120, y: 180 }].concat(selected));
+    byId("demandHull").setAttribute("points", hull.map(function (point) { return point.x + "," + point.y; }).join(" "));
+    byId("demandAOut").value = num(a, 2);
+    byId("demandBOut").value = num(b, 2);
+    byId("demandCOut").value = num(c, 2);
+  }
+  ["demandA", "demandB", "demandC"].forEach(function (id) { byId(id).addEventListener("input", updateDemand); });
+
+  function minimumSide(a, b, c) {
+    var s = a + b;
+    if (s < 1e-12) return c;
+    if (c * s <= a * b + 1e-12) return Math.sqrt(a * a + a * b + b * b);
+    var ra = Math.sqrt(a * a - a * c + c * c);
+    var rb = Math.sqrt(b * b - b * c + c * c);
+    var loa = b + Math.max(a, c);
+    var lbo = a + Math.max(b, c);
+    var lac;
+    var lcb;
+    if (a >= c) lac = (a * a + b * c) / ra;
+    else if (c <= a + b) lac = c * (a + b) / ra;
+    else lac = c * c / ra;
+    if (b >= c) lcb = (b * b + a * c) / rb;
+    else if (c <= a + b) lcb = c * (a + b) / rb;
+    else lcb = c * c / rb;
+    return Math.min(loa, lbo, lac, lcb);
+  }
+
+  function rawG(c, x) {
+    var a = 1 - x;
+    var low = 0;
+    var high = 1;
+    for (var i = 0; i < 48; i += 1) {
+      var mid = (low + high) / 2;
+      if (minimumSide(a, mid, c) <= 1 + 1e-11) low = mid;
+      else high = mid;
+    }
+    return low;
+  }
+
+  function cappedG(c, x) { return Math.min(rawG(c, x), x); }
+  function cappedDual(c, a) { return 1 - cappedG(c, 1 - a); }
+  function plotPoint(x, y) { return { x: 62 + 456 * x, y: 272 - 230 * y }; }
+
+  function updateG() {
+    var a = Number(byId("reachInput").value);
+    var c = Number(byId("radialInput").value);
+    var x = 1 - a;
+    var raw = rawG(c, x);
+    var cap = Math.min(raw, x);
+    var rawDual = 1 - raw;
+    var dual = 1 - cap;
+    var rawD = "";
+    var capD = "";
+    for (var i = 0; i <= 90; i += 1) {
+      var px = i / 90;
+      var pyRaw = rawG(c, px);
+      var pyCap = Math.min(pyRaw, px);
+      var pr = plotPoint(px, pyRaw);
+      var pc = plotPoint(px, pyCap);
+      rawD += (i ? " L " : "M ") + pr.x + " " + pr.y;
+      capD += (i ? " L " : "M ") + pc.x + " " + pc.y;
+    }
+    byId("rawPath").setAttribute("d", rawD);
+    byId("capPath").setAttribute("d", capD);
+    var rawMarker = plotPoint(x, raw);
+    var capMarker = plotPoint(x, cap);
+    byId("gCursor").setAttribute("x1", rawMarker.x);
+    byId("gCursor").setAttribute("x2", rawMarker.x);
+    placePoint(byId("rawPoint"), rawMarker);
+    placePoint(byId("capPoint"), capMarker);
+    byId("reachOut").value = num(a, 2);
+    byId("radialOut").value = num(c, 2);
+    byId("defectValue").textContent = num(x);
+    byId("rawValue").textContent = num(raw);
+    byId("capValue").textContent = num(cap);
+    byId("rawDualValue").textContent = num(rawDual);
+    byId("dualValue").textContent = num(dual);
+    if (c < .0001) {
+      byId("zeroNote").innerHTML = "At <span class=\"math\">c=0</span>, raw <span class=\"math\">g<sub>0</sub>(x)&gt;x</span> and therefore <span class=\"math\">g<sub>0</sub><sup>∨</sup>(a)&lt;a</span> for interior inputs. The hatted map is exactly the identity: <span class=\"math\">ĝ<sub>0</sub>(x)=x</span> and <span class=\"math\">ĝ<sub>0</sub><sup>∨</sup>(a)=a</span>.";
+    } else {
+      byId("zeroNote").innerHTML = "The hat gives <span class=\"math\">ĝ<sub>c</sub>(x)≤x</span>, so its dual is extensive: <span class=\"math\">ĝ<sub>c</sub><sup>∨</sup>(a)≥a</span>.";
+    }
+  }
+  ["reachInput", "radialInput"].forEach(function (id) { byId(id).addEventListener("input", updateG); });
+  byId("zeroPreset").addEventListener("click", function () {
+    byId("radialInput").value = "0";
+    byId("reachInput").value = ".36";
+    updateG();
+  });
+
+  function edgeX(value) { return 60 + 440 * value; }
+  function updateResidual() {
+    var p = Number(byId("pInput").value);
+    var l = Number(byId("lInput").value);
+    var u = Number(byId("uInput").value);
+    if (u < l) {
+      if (document.activeElement === byId("lInput")) u = l;
+      else l = u;
+      byId("lInput").value = l;
+      byId("uInput").value = u;
+    }
+    var bridged = p >= l;
+    var endpoint = bridged ? Math.max(p, u) : p;
+    var residual = 1 - endpoint;
+    byId("leftTrace").setAttribute("x2", edgeX(p));
+    byId("centerTrace").setAttribute("x1", edgeX(l));
+    byId("centerTrace").setAttribute("x2", edgeX(u));
+    byId("componentTrace").setAttribute("x2", edgeX(endpoint));
+    byId("rightDemand").setAttribute("x1", edgeX(endpoint));
+    byId("centerLabel").setAttribute("x", clamp((edgeX(l) + edgeX(u)) / 2 - 24, 65, 455));
+    byId("rightLabel").setAttribute("x", clamp(edgeX(endpoint) + 8, 300, 430));
+    byId("pOut").value = num(p, 2);
+    byId("lOut").value = num(l, 2);
+    byId("uOut").value = num(u, 2);
+    byId("componentValue").textContent = num(endpoint, 2);
+    byId("residualValue").textContent = num(residual, 2);
+    byId("bridgeState").textContent = bridged ? "center connected" : "center disconnected";
+    byId("bridgeState").classList.toggle("invalid", !bridged);
+  }
+  ["pInput", "lInput", "uInput"].forEach(function (id) { byId(id).addEventListener("input", updateResidual); });
+
+  var chainC = [.75, .85, .92];
+  function updateChain() {
+    var value = Number(byId("chainSeed").value);
+    var seed = value;
+    var labels = [];
+    document.querySelectorAll(".chain-slot").forEach(function (slot, index) {
+      var exact = cappedDual(chainC[index], value);
+      var button = slot.querySelector(".slot-mode");
+      var exactMode = button.dataset.mode === "exact";
+      value = exactMode ? exact : value;
+      slot.querySelector(".chain-value").textContent = num(value);
+      slot.querySelector(".slot-exact").textContent = "exact output " + num(exact);
+      labels.push(exactMode
+        ? "<span class=\"math\">ĝ<sub>c" + (index + 1) + "</sub><sup>∨</sup></span>"
+        : "<span class=\"math roman\">I</span>");
+    });
+    byId("chainSeedOut").value = num(seed, 2);
+    byId("chainEquation").innerHTML = "[" + labels.join(" | ") + "](" + num(seed, 2) + ") = " + num(value);
+  }
+  document.querySelectorAll(".slot-mode").forEach(function (button) {
+    button.addEventListener("click", function () {
+      var exact = button.dataset.mode === "exact";
+      button.dataset.mode = exact ? "identity" : "exact";
+      var slotIndex = Number(button.closest(".chain-slot").dataset.slot) + 1;
+      button.innerHTML = exact ? "Identity <span class=\"math roman\">I</span>" : "Exact <span class=\"math\">ĝ<sub>c" + slotIndex + "</sub><sup>∨</sup></span>";
+      updateChain();
+    });
+  });
+  byId("chainSeed").addEventListener("input", updateChain);
+
+  function setCenterPreset(type) {
+    byId("rInput").value = ".58";
+    if (type === "ce1") {
+      byId("alphaInput").value = ".05";
+      byId("deltaInput").value = ".09";
+    } else {
+      byId("alphaInput").value = ".07";
+      byId("deltaInput").value = ".05";
+    }
+    updateCenter();
+  }
+
+  function updateCenter() {
+    var r = Number(byId("rInput").value);
+    var alpha = Number(byId("alphaInput").value);
+    var delta = Number(byId("deltaInput").value);
+    var w = 1 - r;
+    var e = Math.sqrt(1 - r * w);
+    var eta = 1 - e;
+    var p = e * (1 - e);
+    var k = eta + alpha + delta;
+    var deltaR = p - alpha - w * delta;
+    var deltaL = p - r * alpha - delta;
+    var valid = alpha > 0 && delta > 0 && deltaR > 0;
+    var centerClass = deltaL > 0 ? "CE2" : "CE1";
+    var rightStart = k / r;
+    var rightEnd = w + delta;
+    var leftStart = k / w;
+    var leftEnd = r + alpha;
+    var d = [
+      e - alpha - delta,
+      delta / r,
+      delta,
+      Math.min(alpha / r, delta / w),
+      alpha,
+      alpha / w
+    ];
+    var scale = function (v) { return 45 + 255 * clamp(v, 0, 1); };
+    byId("rightInterval").setAttribute("x1", scale(rightStart));
+    byId("rightInterval").setAttribute("x2", scale(rightEnd));
+    byId("rightInterval").style.opacity = valid ? "1" : ".15";
+    byId("leftInterval").setAttribute("x1", scale(leftStart));
+    byId("leftInterval").setAttribute("x2", scale(Math.max(leftStart, leftEnd)));
+    byId("leftInterval").style.opacity = deltaL > 0 && valid ? "1" : "0";
+    byId("leftAbsent").style.opacity = deltaL > 0 && valid ? "0" : "1";
+    byId("leftAbsent").textContent = valid ? "no positive companion trace" : "outside normalized signed domain";
+    byId("rightTraceText").textContent = valid ? "[" + num(rightStart) + ", " + num(rightEnd) + "]" : "outside domain";
+    byId("leftTraceText").textContent = !valid ? "outside domain" : deltaL > 0 ? "[" + num(leftStart) + ", " + num(leftEnd) + "]" : "no positive interval";
+    byId("rOut").value = num(r, 2);
+    byId("alphaOut").value = num(alpha);
+    byId("deltaOut").value = num(delta);
+    byId("wValue").textContent = num(w);
+    byId("eValue").textContent = num(e);
+    byId("deltaRValue").textContent = num(deltaR);
+    byId("deltaLValue").textContent = num(deltaL);
+    byId("centerClass").textContent = valid ? centerClass : "outside domain";
+    byId("centerClass").classList.toggle("invalid", !valid);
+    byId("domainDot").classList.toggle("warn", !valid);
+    byId("domainText").textContent = valid ? "Inside the normalized signed domain; ΔL selects " + centerClass + "." : "ΔR must be positive for the normalized active trace.";
+
+    var vectors = [[0,-104],[90,-52],[90,52],[0,104],[-90,52],[-90,-52]];
+    var exitGroup = byId("exitLines");
+    exitGroup.style.opacity = valid ? "1" : ".15";
+    while (exitGroup.firstChild) exitGroup.removeChild(exitGroup.firstChild);
+    d.forEach(function (amount, index) {
+      var line = document.createElementNS(svgNS, "line");
+      line.setAttribute("x1", "0");
+      line.setAttribute("y1", "0");
+      line.setAttribute("x2", vectors[index][0] * clamp(amount, 0, 1));
+      line.setAttribute("y2", vectors[index][1] * clamp(amount, 0, 1));
+      exitGroup.appendChild(line);
+    });
+  }
+  ["rInput", "alphaInput", "deltaInput"].forEach(function (id) { byId(id).addEventListener("input", updateCenter); });
+  byId("ce1Preset").addEventListener("click", function () { setCenterPreset("ce1"); });
+  byId("ce2Preset").addEventListener("click", function () { setCenterPreset("ce2"); });
+
+  document.querySelectorAll(".atlas-filter").forEach(function (button) {
+    button.addEventListener("click", function () {
+      document.querySelectorAll(".atlas-filter").forEach(function (other) {
+        other.setAttribute("aria-pressed", String(other === button));
+      });
+      var filter = button.dataset.filter;
+      document.querySelectorAll(".route-card").forEach(function (card) {
+        card.hidden = filter !== "all" && card.dataset.route.split(" ").indexOf(filter) === -1;
+      });
+    });
+  });
+
+  function filterGlossary() {
+    var query = byId("termSearch").value.trim().toLocaleLowerCase();
+    var category = byId("termCategory").value;
+    var visible = 0;
+    document.querySelectorAll(".term").forEach(function (term) {
+      var haystack = (term.dataset.search + " " + term.textContent).toLocaleLowerCase();
+      var show = (category === "all" || term.dataset.category === category) && (!query || haystack.indexOf(query) !== -1);
+      term.hidden = !show;
+      if (show) visible += 1;
+    });
+    byId("termCount").textContent = visible + (visible === 1 ? " symbol" : " symbols");
+  }
+  byId("termSearch").addEventListener("input", filterGlossary);
+  byId("termCategory").addEventListener("change", filterGlossary);
+
+  updateDemand();
+  updateG();
+  updateResidual();
+  updateChain();
+  updateCenter();
+  filterGlossary();
+}());
+</script>
+</body>
+</html>

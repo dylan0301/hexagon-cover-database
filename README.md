@@ -142,13 +142,15 @@ paired-endpoint theorem.
 
 ## Interactive Navigation
 
-These standalone pages are visual aids; they do not establish or change proof
-status.
+These standalone pages are `Reference` visual aids. They explain the geometry,
+notation, and proof-certificate structure, but they are not themselves proof
+certificates and do not establish or change proof status.
 
 | Interactive page | Scope | Status |
 |---|---|---|
-| [`strategy2demo.html`](interactive/strategy2demo.html) | Strategy 2 case explorer covering the five proof families and their geometric subcases | Reference visualization |
-| [`strategy4demo.html`](interactive/strategy4demo.html) | Strategy 4 mechanism explorer for the direct nine-point obstruction | Reference visualization |
+| [`strategy2demo.html`](interactive/strategy2demo.html) | Combined Strategy 2 geometry and certificate-overlay explorer, covering the five proof families and their canonical $g$-transfer chains | Reference |
+| [`strategy2notation.html`](interactive/strategy2notation.html) | Interactive Strategy 2 notation lab for roles, reaches, the decorated $g$-family, composition, center data, and branch routing | Reference |
+| [`strategy4demo.html`](interactive/strategy4demo.html) | Strategy 4 mechanism explorer for the direct nine-point obstruction | Reference |
 
 ### Preview in GitHub Codespaces
 
@@ -161,9 +163,10 @@ python3 -m http.server 8000
 In the Codespaces editor, open the **Ports** tab, find port `8000`, and select
 **Open in Browser**. If the port does not appear automatically, use
 **Forward a Port** and enter `8000`. From the directory page, open
-`interactive/` and select either demo. Locally, the direct paths are:
+`interactive/` and select a page. Locally, the direct paths are:
 
 - `http://localhost:8000/interactive/strategy2demo.html`
+- `http://localhost:8000/interactive/strategy2notation.html`
 - `http://localhost:8000/interactive/strategy4demo.html`
 
 Keep the terminal command running while using the explorer. Press `Ctrl+C` in

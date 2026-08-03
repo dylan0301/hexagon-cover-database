@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Strategy 2 Demo — Exact Geometry Explorer</title>
+<title>Strategy 2 Demo — Geometry and Certificate Explorer</title>
 <style>
 :root {
   color-scheme: light;
@@ -89,6 +89,16 @@ h1 {
   letter-spacing: .09em;
   text-transform: uppercase;
 }
+.mast-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+.notation-link {
+  border: 1px solid var(--hair);
+  border-radius: 999px;
+  padding: 6px 10px;
+  background: white;
+  font-size: 10px;
+  font-weight: 800;
+  text-decoration: none;
+}
 .shell {
   overflow: hidden;
   border: 1px solid #d2cfc7;
@@ -123,7 +133,7 @@ h1 {
   text-transform: uppercase;
 }
 .family-tab strong { font-size: 12px; }
-.family-tab[aria-selected="true"] {
+.family-tab[aria-pressed="true"] {
   box-shadow: inset 0 -3px var(--teal);
   background: var(--plot);
   color: var(--ink);
@@ -243,6 +253,18 @@ svg {
   stroke-dasharray: 5 6;
   opacity: .65;
 }
+.role-comparison {
+  fill: rgba(215,164,51,.035);
+  stroke: #8d846f;
+  stroke-width: 1.65;
+  stroke-dasharray: 7 6;
+}
+.demand-hull {
+  fill: rgba(215,164,51,.16);
+  stroke: #b47b0f;
+  stroke-width: 1.75;
+  stroke-linejoin: round;
+}
 .role-label { font-size: 13px; font-weight: 700; }
 .measure-label { fill: var(--muted); font: 10px ui-monospace, SFMono-Regular, monospace; }
 .trace {
@@ -280,6 +302,159 @@ svg {
 .drag-handle[data-kind="vd"] { stroke: var(--teal); }
 .hidden-step { opacity: .055; pointer-events: none; }
 .limit-line { stroke: var(--coral); stroke-width: 1.5; stroke-dasharray: 2 5; }
+.certificate-overlay { transition: opacity 180ms ease; }
+.certificate-muted { opacity: .18; }
+.certificate-active { opacity: 1; }
+.certificate-incoming,
+.certificate-incoming-exact,
+.certificate-radial,
+.certificate-exact,
+.certificate-proof {
+  fill: none;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+.certificate-incoming { stroke: var(--violet); stroke-width: 5; }
+.certificate-incoming-exact { stroke: var(--blue); stroke-width: 2; stroke-dasharray: 4 4; }
+.certificate-radial { stroke: var(--teal); stroke-width: 5; }
+.certificate-exact { stroke: var(--blue); stroke-width: 7; }
+.certificate-proof { stroke: var(--gold); stroke-width: 3.5; }
+.certificate-arrow {
+  fill: none;
+  stroke: var(--blue);
+  stroke-width: 1.8;
+  marker-end: url(#certificateArrow);
+}
+.certificate-arrow.proof-arrow {
+  stroke: var(--gold);
+  marker-end: url(#certificateProofArrow);
+}
+.certificate-gap {
+  fill: url(#certificateHatch);
+  stroke: var(--gold);
+  stroke-width: 1;
+}
+.certificate-ring { fill: var(--plot); stroke: var(--teal); stroke-width: 3; }
+.certificate-note {
+  fill: var(--muted);
+  font: 10px ui-monospace, SFMono-Regular, Menlo, monospace;
+  paint-order: stroke;
+  stroke: var(--plot);
+  stroke-width: 5px;
+}
+.preserved-component { stroke: var(--green); stroke-width: 7; stroke-linecap: round; opacity: .76; }
+.certificate-panel {
+  border-top: 1px solid var(--hair);
+  background: #fbfaf6;
+}
+.certificate-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: center;
+  padding: 11px 14px 8px;
+}
+.certificate-kicker {
+  margin: 0 0 2px;
+  color: var(--teal);
+  font-size: 9px;
+  font-weight: 850;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+.certificate-title { margin: 0; font: 600 16px/1.25 Georgia, "Times New Roman", serif; }
+.mode-switch {
+  display: inline-grid;
+  grid-template-columns: repeat(4, auto);
+  overflow: hidden;
+  border: 1px solid #cbc8c0;
+  border-radius: 9px;
+  background: white;
+}
+.mode-button {
+  min-height: 34px;
+  border: 0;
+  border-right: 1px solid #dedbd4;
+  padding: 5px 9px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 800;
+}
+.mode-button:last-child { border-right: 0; }
+.mode-button[aria-pressed="true"] { background: var(--ink); color: white; }
+.certificate-equation {
+  min-height: 43px;
+  margin: 0 14px;
+  border-block: 1px solid #e2dfd7;
+  padding: 10px 6px;
+  color: #2b343a;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 15px;
+  text-align: center;
+}
+.certificate-nav {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 8px;
+  align-items: center;
+  padding: 9px 14px 5px;
+}
+.certificate-slots { display: flex; justify-content: center; gap: 5px; flex-wrap: wrap; }
+.slot-button {
+  min-width: 48px;
+  min-height: 34px;
+  border: 1px solid #d3d0c8;
+  border-radius: 8px;
+  padding: 5px 8px;
+  background: white;
+  color: var(--muted);
+  cursor: pointer;
+  font: 750 11px/1.15 ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+.slot-button small { display: block; margin-top: 2px; font-size: 8px; font-weight: 650; }
+.slot-button[aria-pressed="true"] { border-color: var(--teal); background: #edf6f3; color: var(--ink); }
+.certificate-state {
+  display: flex;
+  min-height: 35px;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px 16px;
+  padding: 5px 14px 10px;
+  color: var(--muted);
+  font: 10px/1.35 ui-monospace, SFMono-Regular, Menlo, monospace;
+  text-align: center;
+}
+.certificate-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px 13px;
+  padding: 0 14px 10px;
+  color: var(--muted);
+  font-size: 9px;
+}
+.certificate-legend span { display: inline-flex; align-items: center; gap: 5px; }
+.legend-key { display: inline-block; width: 18px; height: 8px; }
+.key-actual { background: rgba(128,103,166,.17); border: 2px solid var(--violet); }
+.key-demand { background: rgba(215,164,51,.16); border: 1px solid #b47b0f; }
+.key-comparison { border: 1px dashed #8d846f; }
+.key-exact { height: 0; border-top: 5px solid var(--blue); }
+.key-proof { height: 0; border-top: 3px solid var(--gold); }
+.key-gap { background: repeating-linear-gradient(35deg, transparent 0 3px, var(--gold) 3px 5px); border: 1px solid var(--gold); }
+.route-note {
+  display: none;
+  margin: 0 14px 10px;
+  border: 1px solid #d8d5cd;
+  border-radius: 8px;
+  padding: 7px 9px;
+  background: white;
+  color: var(--muted);
+  font-size: 10px;
+  text-align: center;
+}
+.route-note.on { display: block; }
 .step-bar {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr) auto auto;
@@ -374,6 +549,8 @@ summary {
   .chips { justify-content: flex-start; }
   svg { height: 58vh; min-height: 410px; }
   .exact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .certificate-head { grid-template-columns: 1fr; }
+  .mode-switch { width: 100%; grid-template-columns: repeat(4, 1fr); }
 }
 @media (max-width: 520px) {
   .masthead { align-items: flex-start; flex-direction: column; }
@@ -385,6 +562,9 @@ summary {
   .below { grid-template-columns: 1fr; }
   .proof-link { width: fit-content; }
   .exact-grid { grid-template-columns: 1fr; }
+  .certificate-nav { grid-template-columns: auto 1fr auto; }
+  .certificate-slots { grid-column: 1 / -1; grid-row: 2; }
+  .slot-button { min-width: 42px; padding-inline: 6px; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
@@ -399,7 +579,10 @@ summary {
       <p class="eyebrow">Hexagon covering · proof geometry</p>
       <h1>Strategy 2 case explorer</h1>
     </div>
-    <span class="reference">Reference visualization</span>
+    <div class="mast-actions">
+      <a class="notation-link" href="strategy2notation.html">Open notation lab ↗</a>
+      <span class="reference">Reference visualization</span>
+    </div>
   </header>
 
   <main id="explorer" class="shell">
@@ -419,13 +602,23 @@ summary {
       </div>
 
       <div class="plot-wrap">
-        <svg id="plot" viewBox="0 0 1000 680" role="img" aria-labelledby="svgTitle svgDesc">
-          <title id="svgTitle">Exact Strategy 2 geometric state</title>
+        <svg id="plot" viewBox="0 0 1000 680" role="group" aria-labelledby="svgTitle svgDesc">
+          <title id="svgTitle">Strategy 2 geometry with certificate overlay</title>
           <desc id="svgDesc">Interactive hexagon diagram. Use Tab to reach a contact handle, then use arrow keys to vary its exact proof parameter.</desc>
           <defs>
             <pattern id="relaxPattern" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
               <line x1="0" y1="0" x2="0" y2="8" stroke="#c89432" stroke-width="2" opacity=".3"></line>
             </pattern>
+            <pattern id="certificateHatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
+              <rect width="8" height="8" fill="#fffefa" opacity=".7"></rect>
+              <line x1="0" y1="0" x2="0" y2="8" stroke="#d7a433" stroke-width="3" opacity=".7"></line>
+            </pattern>
+            <marker id="certificateArrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto" markerUnits="strokeWidth">
+              <path d="M0,0 L7,3.5 L0,7 Z" fill="#2878aa"></path>
+            </marker>
+            <marker id="certificateProofArrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto" markerUnits="strokeWidth">
+              <path d="M0,0 L7,3.5 L0,7 Z" fill="#d7a433"></path>
+            </marker>
             <filter id="handleShadow" x="-80%" y="-80%" width="260%" height="260%">
               <feDropShadow dx="0" dy="1" stdDeviation="1.5" flood-opacity=".24"></feDropShadow>
             </filter>
@@ -433,11 +626,43 @@ summary {
           <g id="skeletonLayer"></g>
           <g id="traceLayer"></g>
           <g id="triangleLayer"></g>
+          <g id="certificateLayer"></g>
           <g id="annotationLayer"></g>
           <g id="handleLayer"></g>
         </svg>
         <p id="dragHint" class="sr-only">Drag a circular contact handle. Arrow keys move it by one proof-parameter step; Shift plus an arrow uses a larger step.</p>
       </div>
+
+      <section class="certificate-panel" aria-labelledby="certificateTitle">
+        <div class="certificate-head">
+          <div>
+            <p class="certificate-kicker">Canonical certificate overlay · leftmost slot acts first</p>
+            <h2 id="certificateTitle" class="certificate-title"></h2>
+          </div>
+          <div id="modeSwitch" class="mode-switch" role="group" aria-label="Certificate overlay layer">
+            <button class="mode-button" type="button" data-mode="geometry" aria-pressed="false">Geometry</button>
+            <button class="mode-button" type="button" data-mode="exact" aria-pressed="false">Exact</button>
+            <button class="mode-button" type="button" data-mode="proof" aria-pressed="true">Proof</button>
+            <button class="mode-button" type="button" data-mode="compare" aria-pressed="false">Compare</button>
+          </div>
+        </div>
+        <div id="certificateEquation" class="certificate-equation" aria-live="polite"></div>
+        <div class="certificate-nav">
+          <button id="certificatePrev" class="step-button" type="button" aria-label="Previous certificate slot">←</button>
+          <div id="certificateSlots" class="certificate-slots" aria-label="Choose transfer slot"></div>
+          <button id="certificateNext" class="step-button" type="button" aria-label="Next certificate slot">→</button>
+        </div>
+        <div id="certificateState" class="certificate-state" aria-live="polite"></div>
+        <div class="certificate-legend" aria-label="Overlay symbols">
+          <span><i class="legend-key key-actual" aria-hidden="true"></i>solid actual role (class color)</span>
+          <span><i class="legend-key key-demand" aria-hidden="true"></i>selected demand hull K(a,b,c)</span>
+          <span><i class="legend-key key-comparison" aria-hidden="true"></i>unit comparison enclosure</span>
+          <span><i class="legend-key key-exact" aria-hidden="true"></i>exact transfer</span>
+          <span><i class="legend-key key-proof" aria-hidden="true"></i>retained certificate</span>
+          <span><i class="legend-key key-gap" aria-hidden="true"></i>discarded interval</span>
+        </div>
+        <p id="strategy4Route" class="route-note">The separate <strong>N₊=1, gap rank 0</strong> cell uses the nine-point obstruction, not a Strategy 2 chain. <a href="strategy4demo.html">Open the Strategy 4 explorer ↗</a></p>
+      </section>
 
       <div class="step-bar" aria-label="Proof construction sequence">
         <span id="stepCount" class="step-count"></span>
@@ -449,7 +674,7 @@ summary {
 
       <div class="below">
         <details>
-          <summary>Exact data</summary>
+          <summary>Illustrative preset and exact-map evaluations</summary>
           <div id="exactData" class="exact-grid"></div>
         </details>
         <a id="proofLink" class="proof-link" href="#">Open canonical proof ↗</a>
@@ -476,14 +701,15 @@ summary {
   const PATHS = {
     center: "../proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md",
     admissible: "../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md",
-    map: "../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md",
+    map: "../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md",
     t3: "../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2013_T3_like_side_tradeoff.md",
     vd: "../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2014_Vd1_Vd2_corner_normal_form.md",
     f1: "../proof/4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md",
     f2: "../proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4070_CE1CE2_Nplus0_T3_like_no_Vd1Vd2_index.md",
     f3ce1: "../proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4106_CE1_one_gap_five_map_completion.md",
     f3ce2: "../proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4107_CE2_one_gap_five_map_completion.md",
-    f3two: "../proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4102_CE2_two_gap_completion.md",
+    f3interface: "../proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4105_CE1_CE2_one_gap_five_V_triangle_interface.md",
+    f3two: "../proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2110_common_CE2_two_gap_application.md",
     f4: "../proof/4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like/4132_CE1_CE2_exactly_one_T3_like_boundary_obstruction.md",
     f5adjacent: "../proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4144_CE2_Nplus1_T0_supercritical_T1_Vd1_Vd2_adjacent_obstruction.md",
     f5nonadjacent: "../proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4146_CE2_Nplus1_T0_supercritical_nonadjacent_Vd1_Vd2_obstruction.md",
@@ -494,7 +720,7 @@ summary {
   const FAMILIES = [
     { id: 1, short: "N₊=0 · all Vd0", title: "Center-gap states" },
     { id: 2, short: "N₊=0 · T3-like", title: "Support isolation" },
-    { id: 3, short: "N₊=1 · all Vd0", title: "Five-row propagation" },
+    { id: 3, short: "N₊=1 · all Vd0", title: "Five-V-triangle propagation" },
     { id: 4, short: "N₊=1 · one T3-like", title: "Forced tail" },
     { id: 5, short: "CE2 · one Vd1/Vd2", title: "Exact placements" }
   ];
@@ -505,6 +731,7 @@ summary {
     skeleton: $("skeletonLayer"),
     trace: $("traceLayer"),
     triangle: $("triangleLayer"),
+    certificate: $("certificateLayer"),
     annotation: $("annotationLayer"),
     handle: $("handleLayer")
   };
@@ -519,6 +746,8 @@ summary {
     family: 1,
     sceneId: "",
     step: 0,
+    overlayMode: "proof",
+    certificateSlot: 0,
     params: {},
     drag: null
   };
@@ -690,11 +919,11 @@ summary {
     return best ?? .58;
   }
 
-  function mapF(a, c) {
+  function cappedOutgoingEnvelope(a, c) {
     const full = 1 - a;
     if (c <= .5 || c >= 1) {
-      const B = maxAdmissibleB(a, c);
-      return { b: Math.min(B, full), label: B >= full - 1e-8 ? "Full" : "exact 2004" };
+      const raw = maxAdmissibleB(a, c);
+      return { b: Math.min(raw, full), label: raw >= full - 1e-8 ? "Full" : "L" };
     }
     const h = 2 * c / (Math.sqrt(16 * c * c - 3) + 1);
     const tm = Math.sqrt(a * a - a * c + c * c) / c - a;
@@ -703,7 +932,7 @@ summary {
     if (c <= SQ3_2) {
       if (a <= 1 - c || a >= c) return { b: full, label: "Full" };
       if (a < h) return { b: tp, label: "T₊" };
-      if (a === h) return { b: h, label: "T₊ = T₋" };
+      if (a === h) return { b: h, label: "T₊" };
       return { b: tm, label: "T₋" };
     }
     const root = Math.sqrt(4 * c * c - 3);
@@ -713,6 +942,37 @@ summary {
     if (a <= ell) return { b: tp, label: "T₊", ell, r };
     if (a < r) return { b: ell, label: "L", ell, r };
     return { b: tm, label: "T₋", ell, r };
+  }
+
+  function rawDefectTransfer(x, c) {
+    return maxAdmissibleB(1 - clamp(x, 0, 1), clamp(c, 0, 1));
+  }
+
+  function cappedDefectTransfer(x, c) {
+    const defect = clamp(x, 0, 1);
+    return Math.min(rawDefectTransfer(defect, c), defect);
+  }
+
+  function complementDual(map, a) {
+    return 1 - map(1 - clamp(a, 0, 1));
+  }
+
+  function rawReachTransfer(a, c) {
+    return complementDual(x => rawDefectTransfer(x, c), a);
+  }
+
+  function cappedReachTransfer(a, c) {
+    return complementDual(x => cappedDefectTransfer(x, c), a);
+  }
+
+  function freeSupercriticalEnvelope(c) {
+    const radial = clamp(c, 0, .5 - 1e-10);
+    return (radial + Math.sqrt(radial * radial - 8 * radial + 4)) / 2;
+  }
+
+  function lowRoot(d) {
+    const c = 1 - clamp(d, 0, 1);
+    return c * (1 - Math.sqrt(Math.max(0, 4 * c * c - 3))) / 2;
   }
 
   function convexHull(points) {
@@ -804,12 +1064,12 @@ summary {
     return t3Data(D, R, a, reflect, { E, frac, amin, amax, sheet, mode: "boundary" });
   }
 
-  function t3ContainsCenterExit(data, gamma) {
-    return 1 - data.radialLast <= gamma && gamma <= 1 - data.radialFirst;
+  function t3ContainsCenterExit(data, centerExit) {
+    return 1 - data.radialLast <= centerExit && centerExit <= 1 - data.radialFirst;
   }
-  function projectT3Fraction(D, sheet, target, gamma, wantHit) {
+  function projectT3Fraction(D, sheet, target, centerExit, wantHit) {
     const clipped = clamp(target, .001, .999);
-    const matches = frac => t3ContainsCenterExit(t3BoundaryTriangle(false, { D, sheet, frac }), gamma) === wantHit;
+    const matches = frac => t3ContainsCenterExit(t3BoundaryTriangle(false, { D, sheet, frac }), centerExit) === wantHit;
     if (matches(clipped)) return clipped;
     let best = null, distance = Infinity;
     for (let i = 0; i <= 500; i++) {
@@ -961,15 +1221,15 @@ summary {
       steps: ["Place exact center", "Place midpoint-rescuing T3-like T₀", "Place the strict supercritical envelope", "Verify center hiding", "Expose the four-row Vd0 path budget"]
     }));
     [
-      ["past", "T≤a"],
-      ["inside", "S≤a<T"],
-      ["before", "a<S"]
+      ["past", "R+α≤a"],
+      ["inside", "k/W≤a<R+α"],
+      ["before", "a<k/W"]
     ].forEach(([regime, regimeLabel]) => {
       ["left", "right"].forEach(side => out.push({
         id: `f4-ce2-${regime}-${side}`, family: 4, ce: "CE2", side, regime,
         regimeLabel,
         label: `CE2 · ${regimeLabel} · ${side} reflection`,
-        title: `CE2: compare the T3-like boundary reach a with the companion trace [S,T].`,
+        title: `CE2: compare the T3-like boundary reach a with the companion interval [k/W,R+α].`,
         source: PATHS.f4,
         reflect: `f4-ce2-${regime}-${side === "left" ? "right" : "left"}`,
         steps: ["Place exact center", "Place midpoint-rescuing T3-like T₀", "Place the strict supercritical envelope", `Verify ${regimeLabel}`, "Verify center hiding", "Expose the four-row Vd0 path budget"]
@@ -1007,7 +1267,7 @@ summary {
       title: `CE2: replace the adjacent Vd1–supercritical rescue pair by two Vd0 rows.`,
       source: PATHS.f5replacement,
       reflect: `f5-s${6 - sigma}-t${6 - tau}-vd1`,
-      steps: ["Place exact center", "Place supercritical row", "Place adjacent Vd1 row", "Verify midpoint rescue", "Show pair before replacement", "Replace by two axis rows", "Reduce to all-Vd0 obstruction"]
+      steps: ["Place exact center", "Place supercritical row", "Place adjacent Vd1 row", "Verify midpoint rescue", "Show pair before replacement", "Replace in the two vertex charts", "Reduce to all-Vd0 obstruction"]
     }));
     return out;
   }
@@ -1018,6 +1278,37 @@ summary {
 
   const SCENES = [...makeFamily1(), ...makeFamily2(), ...makeFamily3(), ...makeFamily4(), ...makeFamily5()];
   const SCENE_BY_ID = new Map(SCENES.map(scene => [scene.id, scene]));
+
+  const CERTIFICATE_PATTERNS = Object.freeze([
+    { id: "4013-gr0", code: "4013 · gap rank 0", title: "Strict identity cycle", source: PATHS.f1 },
+    { id: "4013-gr1", code: "4013 · gap rank 1", title: "One-gap exact endpoint chain", source: PATHS.f1 },
+    { id: "2110-gr2", code: "2110 · gap rank 2", title: "Paired CE2 endpoint chain", source: PATHS.f3two },
+    { id: "407x-audit", code: "407X", title: "Residual four-label endpoint audit", source: PATHS.f2 },
+    { id: "4106-ce1", code: "4105/4106", title: "CE1 five-V-triangle chain and three decorated relaxations", source: PATHS.f3ce1, sources: [PATHS.f3interface, PATHS.f3ce1] },
+    { id: "4107-ce2", code: "4105/4107", title: "CE2 five-V-triangle chain and one certified threshold", source: PATHS.f3ce2, sources: [PATHS.f3interface, PATHS.f3ce2] },
+    { id: "4132-rescuer", code: "4132/4143", title: "Free-supercritical rescuer chain", source: PATHS.f4, sources: [PATHS.f4, PATHS.f5tau0] },
+    { id: "4144-adjacent", code: "4144", title: "Adjacent residual chain and two radial-bridge exclusions", source: PATHS.f5adjacent },
+    { id: "4146-nonadjacent", code: "4146", title: "Nonadjacent Vd radial separation", source: PATHS.f5nonadjacent },
+    { id: "4147-replacement", code: "4147", title: "Two-chart Vd1–supercritical replacement", source: PATHS.f5replacement }
+  ]);
+  const CERTIFICATE_BY_ID = new Map(CERTIFICATE_PATTERNS.map(pattern => [pattern.id, pattern]));
+
+  function certificatePatternId(scene) {
+    if (scene.family === 1) {
+      if (scene.gap === "no") return "4013-gr0";
+      if (scene.gap === "two") return "2110-gr2";
+      return "4013-gr1";
+    }
+    if (scene.family === 2) return "407x-audit";
+    if (scene.family === 3) {
+      if (scene.gap === "two") return "2110-gr2";
+      return scene.ce === "CE1" ? "4106-ce1" : "4107-ce2";
+    }
+    if (scene.family === 4 || scene.category === "tau0") return "4132-rescuer";
+    if (scene.category === "adjacent") return "4144-adjacent";
+    if (scene.category === "nonadjacent") return "4146-nonadjacent";
+    return "4147-replacement";
+  }
 
   function defaultsFor(scene) {
     let center;
@@ -1065,6 +1356,11 @@ summary {
 
   function activeScene() { return SCENE_BY_ID.get(state.sceneId) || SCENES[0]; }
   function reflectsScene(scene) {
+    if (scene.family === 5) {
+      if (scene.sigma === 0) return scene.tau > 3;
+      if (scene.tau === 0) return scene.sigma === 5;
+      return scene.sigma + scene.tau > 6;
+    }
     return (scene.family === 1 && scene.gap === "left")
       || (scene.family === 2 && scene.support === "r5")
       || (scene.family === 3 && scene.gap === "left")
@@ -1076,6 +1372,7 @@ summary {
     state.sceneId = id;
     if (!preserveFamily) state.family = scene.family;
     state.step = 0;
+    state.certificateSlot = 0;
     state.params = defaultsFor(scene);
     syncControls();
     render();
@@ -1087,7 +1384,6 @@ summary {
       button.type = "button";
       button.className = "family-tab";
       button.dataset.family = family.id;
-      button.setAttribute("role", "tab");
       button.innerHTML = `<span>Family ${family.id}</span><strong>${family.short}</strong>`;
       button.addEventListener("click", () => {
         const first = SCENES.find(scene => scene.family === family.id);
@@ -1109,14 +1405,41 @@ summary {
       state.step = state.step >= last ? 0 : state.step + 1;
       render();
     });
+    document.querySelectorAll(".mode-button").forEach(button => {
+      button.addEventListener("click", () => {
+        state.overlayMode = button.dataset.mode;
+        render();
+      });
+    });
+    $("certificatePrev").addEventListener("click", () => {
+      state.certificateSlot = Math.max(0, state.certificateSlot - 1);
+      state.step = Math.max(state.step, Math.min(activeScene().steps.length - 1, state.certificateSlot + 1));
+      render();
+    });
+    $("certificateNext").addEventListener("click", () => {
+      const last = Math.max(0, (state.currentCertificate?.slots.length || 1) - 1);
+      state.certificateSlot = Math.min(last, state.certificateSlot + 1);
+      state.step = Math.max(state.step, Math.min(activeScene().steps.length - 1, state.certificateSlot + 1));
+      render();
+    });
+    $("certificateSlots").addEventListener("keydown", event => {
+      if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+      event.preventDefault();
+      const last = Math.max(0, (state.currentCertificate?.slots.length || 1) - 1);
+      state.certificateSlot = clamp(state.certificateSlot + (event.key === "ArrowRight" ? 1 : -1), 0, last);
+      state.step = Math.max(state.step, Math.min(activeScene().steps.length - 1, state.certificateSlot + 1));
+      render();
+      $("certificateSlots").children[state.certificateSlot]?.focus();
+    });
     window.addEventListener("pointermove", pointerMove);
     window.addEventListener("pointerup", () => { state.drag = null; });
+    window.addEventListener("pointercancel", () => { state.drag = null; });
     $("sceneCount").textContent = `(${SCENES.length})`;
   }
 
   function syncControls() {
     document.querySelectorAll(".family-tab").forEach(button => {
-      button.setAttribute("aria-selected", String(Number(button.dataset.family) === state.family));
+      button.setAttribute("aria-pressed", String(Number(button.dataset.family) === state.family));
     });
     const select = $("sceneSelect");
     clear(select);
@@ -1183,18 +1506,40 @@ summary {
     }
   }
 
+  function demandHull(a, b, c) {
+    return convexHull([
+      { x: 0, y: 0 },
+      { x: a / 2, y: a * SQ3_2 },
+      { x: b / 2, y: -b * SQ3_2 },
+      { x: c, y: 0 }
+    ]);
+  }
+
+  function addSelectedDemand(side, a, b, c, step, reflected = false) {
+    const orient = points => reflected ? points.map(p => ({ x: p.x, y: -p.y })) : points;
+    const hull = orient(demandHull(a, b, c)).map(p => canonicalToScreen(side, p));
+    svgEl("polygon", {
+      points: pointsAttr(hull),
+      class: `demand-hull${step > state.step ? " hidden-step" : ""}`,
+      "data-reveal": step
+    }, layers.triangle);
+    return hull;
+  }
+
   function addHandle(p, binding, step, label) {
+    const revealed = step <= state.step;
     const handle = svgEl("circle", {
       cx: p.x, cy: p.y, r: 7,
       class: `drag-handle${step > state.step ? " hidden-step" : ""}`,
       "data-kind": binding.kind,
       "data-binding": binding.id,
-      tabindex: step <= state.step ? 0 : -1,
-      role: "slider",
-      "aria-label": label,
-      "aria-valuemin": binding.min,
-      "aria-valuemax": binding.max,
-      "aria-valuenow": n(binding.value, 4)
+      tabindex: revealed ? 0 : undefined,
+      role: revealed ? "slider" : undefined,
+      "aria-hidden": revealed ? undefined : "true",
+      "aria-label": revealed ? label : undefined,
+      "aria-valuemin": revealed ? binding.min : undefined,
+      "aria-valuemax": revealed ? binding.max : undefined,
+      "aria-valuenow": revealed ? n(binding.value, 4) : undefined
     }, layers.handle);
     handle.addEventListener("pointerdown", event => {
       event.preventDefault();
@@ -1234,7 +1579,7 @@ summary {
     const polygon = reflected
       ? data.localPolygon.map(p => affineToScreen(0, p.y, p.x))
       : data.screenPolygon;
-    addTriangle(polygon, "c", step, "C", { note: `${scene.ce}${reflected ? " · reflected" : ""}` });
+    addTriangle(polygon, "c", step, "T_C", { note: `${scene.ce}${reflected ? " · reflected" : ""}` });
     const activeA = reflected
       ? affineToScreen(0, data.rightTrace[0], 0)
       : affineToScreen(0, 0, data.rightTrace[0]);
@@ -1283,22 +1628,25 @@ summary {
       : clamp(aBase, .035, .94);
     if (options.supercritical && !options.locked) state.params[paramKey] = a;
     const map = options.supercritical
-      ? { b: maxAdmissibleB(a, c), label: "B₂₀₀₄" }
-      : mapF(a, c);
+      ? { b: maxAdmissibleB(a, c), label: "g_c(1−a)" }
+      : cappedOutgoingEnvelope(a, c);
     const b = map.b;
     const actualA = a;
     const tri = enclosingUnitTriangle(actualA, b, c);
     const localPolygon = options.reflected ? tri.polygon.map(p => ({ x: p.x, y: -p.y })) : tri.polygon;
     const points = localPolygon.map(p => canonicalToScreen(side, p));
-    const role = options.supercritical ? "super" : "vd0";
+    const role = "comparison";
     const label = options.label || `T${subscript(side)}`;
-    addTriangle(points, role, step, label, {
-      note: options.supercritical ? `a+b=${n(actualA + b)} > 1` : `${map.label} comparator`
+    addSelectedDemand(side, actualA, b, c, step, Boolean(options.reflected));
+    addTriangle(points, role, step, `K${subscript(side)} enclosure`, {
+      note: options.supercritical
+        ? `${label} selected supercritical demand · a+b=${n(actualA + b)}`
+        : `${label} selected demand · ĝ_c label ${map.label}`
     });
     if (!options.locked) {
       const contact = options.reflected ? affineToScreen(side, 0, actualA) : affineToScreen(side, actualA, 0);
       addHandle(contact, {
-        id: `${paramKey}-${side}`, kind: role, min: .04, max: options.supercritical ? .76 : .72,
+        id: `${paramKey}-${side}`, kind: options.supercritical ? "super" : "vd0", min: .04, max: options.supercritical ? .76 : .72,
         value: actualA,
         project: p => options.reflected ? screenToAffine(side, p).y : screenToAffine(side, p).x,
         apply: value => {
@@ -1313,10 +1661,11 @@ summary {
     const side = options.reflected ? (6 - index) % 6 : index;
     const tri = enclosingUnitTriangle(options.a, options.b, options.c);
     const polygon = options.localReflect ? tri.polygon.map(p => ({ x: p.x, y: -p.y })) : tri.polygon;
-    addTriangle(polygon.map(p => canonicalToScreen(side, p)), options.role || "relax", step, options.label, {
+    addSelectedDemand(side, options.a, options.b, options.c, step, Boolean(options.localReflect));
+    addTriangle(polygon.map(p => canonicalToScreen(side, p)), "comparison", step, `K${subscript(side)} enclosure`, {
       note: options.note
     });
-    return { ...tri, a: options.a, b: options.b, c: options.c, label: options.mapLabel || "exact 2004", side };
+    return { ...tri, a: options.a, b: options.b, c: options.c, label: options.mapLabel || "exact g_c evaluation", side };
   }
 
   function projectFreeEpsilon(target, c, limit) {
@@ -1336,9 +1685,9 @@ summary {
     return best ?? .00001;
   }
 
-  function freeSuperAt(index, step, reflected, label, c) {
-    const side = reflected ? (6 - index) % 6 : index;
-    const limit = (c + Math.sqrt(c * c - 8 * c + 4)) / 2;
+  function freeSuperAt(index, step, reflected, label, c, preserveIndex = false) {
+    const side = reflected && !preserveIndex ? (6 - index) % 6 : index;
+    const limit = freeSupercriticalEnvelope(c);
     const epsilon = projectFreeEpsilon(state.params.epsilon, c, limit);
     state.params.epsilon = epsilon;
     const a = 1 - limit + epsilon;
@@ -1346,14 +1695,15 @@ summary {
     const ghost = enclosingUnitTriangle(1 - limit, limit, c);
     const actual = enclosingUnitTriangle(a, b, c);
     const orient = polygon => reflected ? polygon.map(p => ({ x: p.x, y: -p.y })) : polygon;
-    addTriangle(orient(ghost.polygon).map(p => canonicalToScreen(side, p)), "ghost", step, "B(c)", { note: "nonattained limit" });
-    addTriangle(orient(actual.polygon).map(p => canonicalToScreen(side, p)), "super", step, label, { note: `strict interior · a+b=${n(a + b)}` });
+    addSelectedDemand(side, a, b, c, step, reflected);
+    addTriangle(orient(ghost.polygon).map(p => canonicalToScreen(side, p)), "ghost", step, "g_c^sc envelope", { note: "nonattained comparison limit" });
+    addTriangle(orient(actual.polygon).map(p => canonicalToScreen(side, p)), "comparison", step, `K${subscript(side)} enclosure`, { note: `${label} strict selected demand · a+b=${n(a + b)}` });
     addHandle(reflected ? affineToScreen(side, 0, a) : affineToScreen(side, a, 0), {
       id: `free-super-${side}`, kind: "super", min: .00001, max: .03, value: epsilon,
       project: p => clamp((reflected ? screenToAffine(side, p).y : screenToAffine(side, p).x) - (1 - limit), .00001, .03),
       apply: value => { state.params.epsilon = projectFreeEpsilon(value, c, limit); }
     }, step, `Strict interior epsilon = ${n(epsilon)}`);
-    return { ...actual, a, b, c, label: "Bfree−ε", side };
+    return { ...actual, a, b, c, label: "g_c^sc−ε", side };
   }
 
   function relaxedAxisAt(index, step, reflected = false, seed = .5) {
@@ -1362,13 +1712,13 @@ summary {
     const canonical = [{ x: -s, y: 0 }, { x: 1 - s, y: 0 }, { x: 1 - s, y: 1 }];
     const local = reflected ? canonical.map(p => ({ x: p.y, y: p.x })) : canonical;
     const points = local.map(q => affineToScreen(side, q.x, q.y));
-    addTriangle(points, "relax", step, `T${subscript(side)}`, { note: `axis relaxation · B₀=s=${n(s)} · r₀ omitted` });
+    addTriangle(points, "relax", step, `T${subscript(side)}`, { note: `axis certificate · outgoing reach=${n(s)} · r₀ omitted` });
   }
 
   function family4Regime(data, center) {
-    const S = center.k / center.W;
-    const T = center.R + center.alpha;
-    return T <= data.a ? "past" : S <= data.a ? "inside" : "before";
+    const companionStart = center.k / center.W;
+    const companionEnd = center.R + center.alpha;
+    return companionEnd <= data.a ? "past" : companionStart <= data.a ? "inside" : "before";
   }
 
   function projectRescuerFraction(D, target, center, regime) {
@@ -1398,7 +1748,7 @@ summary {
         state.params.t3D,
         state.params.t3Sheet,
         state.params.t3Frac,
-        options.gamma,
+        options.centerExit,
         options.hit
       );
     } else if (options.center && options.regime) {
@@ -1432,7 +1782,7 @@ summary {
           ? options.center && options.regime
             ? projectRescuerFraction(state.params.t3D, value, options.center, options.regime)
             : value
-          : projectT3Fraction(state.params.t3D, state.params.t3Sheet, value, options.gamma, options.hit);
+          : projectT3Fraction(state.params.t3D, state.params.t3Sheet, value, options.centerExit, options.hit);
       }
     }, step, `T3-like contact fraction = ${n(data.frac)}`);
     return data;
@@ -1557,22 +1907,22 @@ summary {
   function drawFamily2(scene, center) {
     const reflected = scene.support === "r5";
     const results = [];
-    const gamma1 = center.delta / center.R;
-    const gamma5 = center.alpha / center.W;
-    const t3 = t3At(0, 1, { reflected, mode: "boundary", gamma: gamma1, hit: scene.hit === "hit" });
+    const d1C = center.delta / center.R;
+    const d5C = center.alpha / center.W;
+    const t3 = t3At(0, 1, { reflected, mode: "boundary", centerExit: d1C, hit: scene.hit === "hit" });
     const p1 = t3.edgeSum - t3.a;
     const A1 = thetaRequirement(p1, center.rightTrace);
     const A5 = thetaRequirement(t3.a, scene.ce === "CE2" ? center.leftTrace : null);
-    const C1 = scene.hit === "hit" ? t3.radialFirst : 1 - gamma1;
-    const C5 = 1 - gamma5;
+    const C1 = scene.hit === "hit" ? t3.radialFirst : 1 - d1C;
+    const C5 = 1 - d5C;
     state.lastT3 = {
-      ...t3, gamma: gamma1, contains: t3ContainsCenterExit(t3, gamma1),
+      ...t3, centerExit: d1C, contains: t3ContainsCenterExit(t3, d1C),
       p1, A1, A5, C1, C5
     };
     const supportStep = 2;
     const supportPoint = reflected
-      ? affineToScreen(0, 1, 1 - gamma1)
-      : affineToScreen(0, 1 - gamma1, 1);
+      ? affineToScreen(0, 1, 1 - d1C)
+      : affineToScreen(0, 1 - d1C, 1);
     const traceNear = reflected
       ? affineToScreen(0, 1, t3.radialFirst)
       : affineToScreen(0, t3.radialFirst, 1);
@@ -1582,13 +1932,13 @@ summary {
       class: `constraint-mark${supportStep > state.step ? " hidden-step" : ""}`
     }, layers.annotation);
     if (supportStep <= state.step) {
-      const gammaLabel = svgEl("text", {
+      const centerExitLabel = svgEl("text", {
         x: supportPoint.x + (reflected ? -10 : 10),
         y: supportPoint.y - 11,
         "text-anchor": reflected ? "end" : "start",
         class: "measure-label"
       }, layers.annotation);
-      gammaLabel.textContent = `${reflected ? "γ₅" : "γ₁"}=${n(gamma1)} · ${scene.hit}`;
+      centerExitLabel.textContent = `${reflected ? "d₅ᶜ" : "d₁ᶜ"}=${n(d1C)} · ${scene.hit}`;
     }
     results.push(comparatorAt(5, 3, {
       reflected, locked: true, a: A5, c: C5,
@@ -1608,8 +1958,8 @@ summary {
     const t0Incoming = maxAdmissibleB(s, center.k);
     results.push(demandTriangleAt(0, 1, {
       reflected, localReflect: reflected, a: t0Incoming, b: s, c: center.k,
-      label: "T₀", role: "relax", mapLabel: "exact 2004 capacity",
-      note: `relaxed capacity · A₀=${n(t0Incoming)} · B₀=${n(s)}`
+      label: "T₀", role: "relax", mapLabel: "exact g_k evaluation",
+      note: `selected demand · incoming=${n(t0Incoming)} · outgoing=${n(s)}`
     }));
     if (scene.gap === "two") {
       const p = center.W - center.alpha;
@@ -1640,17 +1990,17 @@ summary {
     results.push(freeSuperAt(1, 2, reflected, `T${subscript(displayedIndex(1, reflected))}`, t3.radialFirst));
     state.lastF4 = {
       regime: family4Regime(t3, center),
-      S: center.k / center.W,
-      T: center.R + center.alpha,
+      companionStart: center.k / center.W,
+      companionEnd: center.R + center.alpha,
       a: t3.a,
       hidden: center.delta / center.R >= 1 - t3.radialLast,
-      gamma: center.delta / center.R,
+      centerExit: center.delta / center.R,
       gap: 1 - t3.radialLast,
       c: t3.radialFirst
     };
     if (scene.ce === "CE2") {
       const toPoint = value => reflected ? affineToScreen(0, 0, value) : affineToScreen(0, value, 0);
-      addPathLine(toPoint(state.lastF4.S), toPoint(state.lastF4.T), "trace trace-center", 3);
+      addPathLine(toPoint(state.lastF4.companionStart), toPoint(state.lastF4.companionEnd), "trace trace-center", 3);
       const mark = toPoint(t3.a);
       svgEl("circle", { cx: mark.x, cy: mark.y, r: 7, class: `constraint-mark${3 > state.step ? " hidden-step" : ""}` }, layers.annotation);
       if (state.step >= 3) {
@@ -1676,11 +2026,12 @@ summary {
   }
 
   function centerRadialExit(center, index) {
-    if (index === 1) return center.delta / center.R;
-    if (index === 2) return center.delta;
-    if (index === 3) return Math.min(center.alpha / center.R, center.delta / center.W);
-    if (index === 4) return center.alpha;
-    if (index === 5) return center.alpha / center.W;
+    const canonicalIndex = center.reflected ? (6 - index) % 6 : index;
+    if (canonicalIndex === 1) return center.delta / center.R;
+    if (canonicalIndex === 2) return center.delta;
+    if (canonicalIndex === 3) return Math.min(center.alpha / center.R, center.delta / center.W);
+    if (canonicalIndex === 4) return center.alpha;
+    if (canonicalIndex === 5) return center.alpha / center.W;
     return 1;
   }
 
@@ -1710,9 +2061,10 @@ summary {
       : null;
     state.lastVd = vd;
     const superResult = needsRescue
-      ? freeSuperAt(scene.sigma, sigmaStep, false, `T${subscript(scene.sigma)}`, targetInterval[0])
+      ? freeSuperAt(scene.sigma, sigmaStep, localReflect, `T${subscript(scene.sigma)}`, targetInterval[0], true)
       : comparatorAt(scene.sigma, sigmaStep, {
-          supercritical: true, a: .58, c: .30, paramKey: "demandA", label: `T${subscript(scene.sigma)}`
+          reflected: reflectsScene(scene), supercritical: true, a: .58, c: .30,
+          paramKey: "demandA", label: `T${subscript(scene.sigma)}`
         });
     results.push(superResult);
     const pairText = scene.category === "replacement" || scene.category === "tau0"
@@ -1720,40 +2072,649 @@ summary {
       : scene.category === "nonadjacent" ? "nonadjacent placement" : "selected adjacent support";
     pairMarker(scene.sigma, scene.tau, 3, pairText, needsRescue ? M[scene.sigma] : null);
     if (scene.category === "replacement") {
-      const beforeStep = 4;
-      const afterStep = 5;
       const dExit = centerRadialExit(center, scene.sigma);
       const room = Math.max(.00003, Math.min((1 - vd.c0 - vd.a) / 4, (dExit - vd.a) / 4, (1 - superResult.b - vd.a) / 4, .02));
       const p1 = vd.a + room;
       const p2 = vd.a + 2 * room;
       const epsilon = room / 3;
-      const deltaMinus = p => [
+      const shiftedMinus = p => [
         { x: -epsilon, y: 1 - p },
         { x: 1 - epsilon, y: 1 - p },
         { x: -epsilon, y: -p }
       ];
-      const orient = polygon => localReflect ? polygon.map(p => ({ x: p.y, y: p.x })) : polygon;
-      addTriangle(
-        vd.polygon.map(p => affineToScreen(scene.tau, p.x, p.y)),
-        "ghost", beforeStep, "before", { note: "conditional antecedent pair" }
-      );
-      addTriangle(
-        orient(deltaMinus(p1)).map(p => affineToScreen(scene.tau, p.x, p.y)),
-        "after", afterStep, "Δp₁−", { note: `p₁=${n(p1)} · ε=${n(epsilon, 5)}` }
-      );
-      addTriangle(
-        orient(deltaMinus(p2)).map(p => affineToScreen(scene.tau, p.x, p.y)),
-        "after", afterStep, "Δp₂−", { note: `p₂=${n(p2)} · same local chart` }
-      );
+      const shiftedPlus = p => [
+        { x: p, y: -epsilon },
+        { x: p, y: 1 - epsilon },
+        { x: p - 1, y: -epsilon }
+      ];
+      const orientTemplate = polygon => localReflect ? polygon.map(p => ({ x: p.y, y: p.x })) : polygon;
+      const secondSign = p2 <= .5 ? "−" : "+";
+      const firstPolygon = orientTemplate(shiftedMinus(p1)).map(p => affineToScreen(scene.tau, p.x, p.y));
+      const secondTemplate = p2 <= .5 ? shiftedMinus(p2) : shiftedPlus(p2);
+      const secondPolygon = orientTemplate(secondTemplate).map(p => affineToScreen(scene.sigma, p.x, p.y));
       const cRequired = 1 - dExit;
       state.lastReplacement = {
         p1, p2, epsilon, dExit,
+        firstPolygon,
+        secondPolygon,
+        secondSign,
+        firstReaches: [p1 - epsilon, 1 - p1, 1 - p1],
+        secondReaches: p2 <= .5
+          ? [p2 - epsilon, 1 - p2, 1 - p2]
+          : [p2, 1 - p2 - epsilon, p2],
+        boundarySum1: 1 - epsilon,
+        boundarySum2: 1 - epsilon,
+        charts: [`V${subscript(scene.tau)}`, `V${subscript(scene.sigma)}`],
         valid: vd.a < p1 && p1 < p2 && p1 < .5
-          && p2 < dExit && p2 < 1 - superResult.b
+          && p2 < 1 - superResult.b
           && 1 - p1 > vd.c0 && Math.max(p2, 1 - p2) > cRequired
+          && epsilon < p1 - vd.a
+          && epsilon < p2 - p1
+          && epsilon < 1 - superResult.b - p2
+          && epsilon < 1 - p1 - vd.c0
+          && epsilon < Math.max(p2, 1 - p2) - cRequired
       };
     }
     return results;
+  }
+
+  function centerExitDemands(center) {
+    const exits = [
+      center.E - center.alpha - center.delta,
+      center.delta / center.R,
+      center.delta,
+      Math.min(center.alpha / center.R, center.delta / center.W),
+      center.alpha,
+      center.alpha / center.W
+    ].map(value => clamp(value, 0, 1));
+    return { exits, demands: exits.map(value => 1 - value) };
+  }
+
+  function residualDemand(p, interval) {
+    const reach = clamp(p, 0, 1);
+    if (!interval) return 1 - reach;
+    const [lower, upper] = interval;
+    return reach < lower ? 1 - reach : 1 - Math.max(reach, upper);
+  }
+
+  function evaluateCertificateSlots(slots, start) {
+    let exactPrior = clamp(start, 0, 1);
+    let retainedPrior = exactPrior;
+    return slots.map(slot => {
+      const exactInput = clamp(slot.inputOverride ?? exactPrior, 0, 1);
+      const input = clamp(slot.inputOverride ?? retainedPrior, 0, 1);
+      let exact = exactInput;
+      let proofExact = input;
+      let retained = input;
+      let outgoing = 1 - exactInput;
+      let proofOutgoing = 1 - input;
+      if (["exact", "identity", "affine", "threshold", "audit"].includes(slot.type)) {
+        exact = cappedReachTransfer(exactInput, slot.c);
+        proofExact = cappedReachTransfer(input, slot.c);
+        outgoing = 1 - exact;
+        proofOutgoing = 1 - proofExact;
+        if (slot.type === "exact" || slot.type === "audit") {
+          retained = proofExact;
+        } else if (slot.type === "identity") {
+          retained = input;
+        } else if (slot.type === "affine") {
+          retained = input + slot.lambda * (input - slot.d);
+        } else if (slot.type === "threshold") {
+          const root = lowRoot(slot.d);
+          retained = input <= root ? input : 1 - root;
+        }
+        retained = clamp(Math.min(proofExact, retained), 0, 1);
+      } else if (["residual", "radial", "vd-bridge", "quarter-bridge", "prerequisite"].includes(slot.type)) {
+        exact = exactInput;
+        proofExact = input;
+        retained = input;
+        outgoing = 1 - exactInput;
+        proofOutgoing = 1 - input;
+      } else if (slot.type === "super-source") {
+        exact = 1 - freeSupercriticalEnvelope(slot.c);
+        proofExact = exact;
+        retained = exact;
+        outgoing = freeSupercriticalEnvelope(slot.c);
+        proofOutgoing = outgoing;
+      } else if (slot.type === "super-terminal") {
+        exact = exactPrior;
+        proofExact = retainedPrior;
+        retained = retainedPrior;
+        outgoing = slot.cap;
+        proofOutgoing = slot.cap;
+      }
+      const evaluated = {
+        ...slot,
+        exactInput,
+        input,
+        exact,
+        proofExact,
+        retained,
+        outgoing,
+        proofOutgoing,
+        gap: Math.max(0, proofExact - retained)
+      };
+      exactPrior = exact;
+      retainedPrior = retained;
+      return evaluated;
+    });
+  }
+
+  function buildCertificate(scene, center, results) {
+    const id = certificatePatternId(scene);
+    const pattern = CERTIFICATE_BY_ID.get(id);
+    const { exits, demands } = centerExitDemands(center);
+    const reflected = reflectsScene(scene);
+    const shown = row => displayedIndex(row, reflected);
+    const radialDemand = row => demands[displayedIndex(row, reflected)];
+    const m3 = Math.min(center.alpha / center.R, center.delta / center.W);
+    const X = center.R - center.delta;
+    const H = center.k / (2 * center.R);
+    let start = X;
+    let slots = [];
+    let equation = "";
+    let note = "";
+
+    if (id === "4013-gr0") {
+      start = .3;
+      slots = Array.from({ length: 6 }, (_, row) => ({
+        row, dir: 1, c: demands[row], type: "identity", symbol: "I", short: "I"
+      }));
+      equation = "[I | I | I | I | I | I](A<sub>0</sub>) = A<sub>0</sub>, while strict handoffs require A<sub>0</sub>&lt;⋯&lt;A<sub>0</sub>.";
+      note = "I is the retained lower relaxation ĝ_c^∨(a)≥a for nonsupercritical rows; at c=0 only the hatted map, not raw g₀, is the identity.";
+    } else if (id === "4013-gr1") {
+      const a5 = center.k / center.R;
+      const a1 = center.R - center.delta;
+      const c5 = 1 - center.alpha / center.W;
+      const c1 = 1 - center.delta / center.R;
+      const direction = reflected ? 1 : -1;
+      start = a5;
+      slots = [
+        { row: shown(5), dir: direction, c: c5, type: "exact", symbol: "ĝc₅∨", short: "ĝ∨" },
+        { row: shown(4), dir: direction, c: demands[4], type: "identity", symbol: "I", short: "I" },
+        { row: shown(3), dir: direction, c: demands[3], type: "identity", symbol: "I", short: "I" },
+        { row: shown(2), dir: direction, c: demands[2], type: "identity", symbol: "I", short: "I" },
+        { row: shown(1), dir: direction, c: c1, inputOverride: a1, type: "exact", symbol: "ĝc₁∨", short: "ĝ∨", breakBefore: true }
+      ];
+      equation = "ĝ<sub>c₅</sub>(1−a₅) + ĝ<sub>c₁</sub>(1−a₁) &lt; 1, with the center-free middle path retained as I³.";
+      note = "The two endpoint caps are exact; only the three intervening nonsupercritical handoffs use identity relaxation.";
+    } else if (id === "2110-gr2") {
+      const p = center.W - center.alpha;
+      const q = center.R - center.delta;
+      start = p;
+      slots = [
+        { row: 5, dir: -1, c: p / center.W, type: "exact", symbol: "ĝp/W∨", short: "ĝ∨" },
+        { row: 4, dir: -1, c: demands[4], type: "identity", symbol: "I", short: "I" },
+        { row: 3, dir: -1, c: demands[3], type: "identity", symbol: "I", short: "I" },
+        { row: 2, dir: -1, c: demands[2], type: "identity", symbol: "I", short: "I" },
+        { row: 1, dir: -1, c: q / center.R, inputOverride: q, type: "exact", symbol: "ĝq/R∨", short: "ĝ∨", breakBefore: true }
+      ];
+      equation = "ĝ<sub>p/W</sub>(1−p) + ĝ<sub>q/R</sub>(1−q) &lt; 1, with the common CE2 paired-endpoint theorem and I³ interior.";
+      note = "This is the same paired theorem for N₊=0 and N₊=1; the displayed decimals are a numerical evaluation of the exact maps.";
+    } else if (id === "407x-audit") {
+      const t3 = state.lastT3 || { A5: .3, A1: .4, C5: .8, C1: .8 };
+      const direction = reflected ? 1 : -1;
+      start = t3.A5;
+      slots = [
+        { row: shown(5), dir: direction, c: t3.C5, type: "audit", symbol: "four labels", short: "audit" },
+        { row: shown(4), dir: direction, c: demands[4], type: "identity", symbol: "I", short: "I" },
+        { row: shown(3), dir: direction, c: demands[3], type: "identity", symbol: "I", short: "I" },
+        { row: shown(2), dir: direction, c: demands[2], type: "identity", symbol: "I", short: "I" },
+        { row: shown(1), dir: direction, c: t3.C1, inputOverride: t3.A1, type: "audit", symbol: "four labels", short: "audit", breakBefore: true }
+      ];
+      equation = "ĝ<sub>C₅</sub>(1−A₅) + ĝ<sub>C₁</sub>(1−A₁) &lt; 1; each endpoint is audited exactly in {L, T₋, T₊<sup>hi</sup>, Full}.";
+      note = "407X is an irreducible four-label endpoint audit, not a generic numerical replacement; the middle rows alone retain I³.";
+    } else if (id === "4106-ce1" || id === "4107-ce2") {
+      const c = [
+        1 - center.delta / center.R,
+        1 - center.delta,
+        1 - m3,
+        1 - center.alpha,
+        1 - center.alpha / center.W
+      ];
+      start = X;
+      const types = Array(5).fill("identity");
+      const decorations = Array(5).fill(null);
+      if (id === "4106-ce1") {
+        types[1] = "threshold";
+        decorations[1] = { d: center.delta };
+        types[2] = "affine";
+        decorations[2] = { d: m3, lambda: 1 - 5 * m3 };
+        types[3] = "affine";
+        decorations[3] = { d: center.alpha, lambda: 1 - 4 * center.alpha };
+      } else {
+        const thresholdIndex = lowRoot(center.alpha) < H ? 3 : 1;
+        types[thresholdIndex] = "threshold";
+        decorations[thresholdIndex] = { d: thresholdIndex === 3 ? center.alpha : center.delta };
+      }
+      slots = c.map((radial, index) => ({
+        row: shown(index + 1),
+        dir: reflected ? -1 : 1,
+        c: radial,
+        type: types[index],
+        symbol: types[index] === "identity" ? "I"
+          : types[index] === "affine" ? "ĝ∨,λ"
+            : "ĝ∨,th",
+        short: types[index] === "identity" ? "I" : types[index] === "affine" ? "aff" : "th",
+        ...(decorations[index] || {})
+      }));
+      equation = id === "4106-ce1"
+        ? "Z=[ĝ<sub>c₁</sub><sup>∨</sup>|⋯|ĝ<sub>c₅</sub><sup>∨</sup>](X)&gt;1−H; retain I | ĝ<sup>∨,th</sup> | ĝ<sup>∨,λ₃</sup> | ĝ<sup>∨,λ₄</sup> | I."
+        : "Z=[ĝ<sub>c₁</sub><sup>∨</sup>|⋯|ĝ<sub>c₅</sub><sup>∨</sup>](X)&gt;1−H; at least one of the α/δ threshold alternatives fires, all other slots retain I.";
+      note = `Exact five-map interface: X=${n(X)}, H=${n(H)}. Proof mode shows certified lower relaxations at the same rows.`;
+    } else if (id === "4132-rescuer") {
+      const sourceRow = scene.family === 4 ? shown(1) : scene.sigma;
+      const direction = sourceRow === 5 ? -1 : 1;
+      const rows = Array.from({ length: 5 }, (_, index) => (sourceRow + direction * index + 6) % 6);
+      const sourceC = state.lastF4?.c ?? results[0]?.c ?? .25;
+      const cap = freeSupercriticalEnvelope(sourceC);
+      start = 1 - cap;
+      slots = [
+        { row: rows[0], dir: direction, c: sourceC, type: "super-source", symbol: "1−g_c^sc(c)", short: "gsc" },
+        ...rows.slice(1, 4).map(row => ({ row, dir: direction, c: radialDemand(row), type: "identity", symbol: "I", short: "I" })),
+        { row: rows[4], dir: direction, c: radialDemand(rows[4]), type: "super-terminal", cap, symbol: "g_c^sc(c)", short: "cap" }
+      ];
+      equation = "1−g<sub>c</sub><sup>sc</sup> → I → I → I → b<sub>tail</sub>&lt;g<sub>c</sub><sup>sc</sup>; the complementary handoff needs a center-free outgoing edge.";
+      note = "The free strict-supercritical envelope supplies the source bound; ordinary nonsupercritical rows propagate only the identity lower bound.";
+    } else if (id === "4144-adjacent") {
+      const direction = scene.tau === 5 ? 1 : -1;
+      const pathRows = scene.tau === 5 ? [1, 2, 3, 4, 5] : [5, 4, 3, 2, 1];
+      const superRow = results[0] || { a: .5, b: .5 };
+      const rightResidual = residualDemand(superRow.b, center.rightTrace);
+      const leftResidual = residualDemand(superRow.a, center.leftTrace);
+      const A = rightResidual;
+      const Hres = leftResidual;
+      const armRow = scene.tau === 1 ? 2 : 4;
+      const slack = scene.tau === 1 ? center.delta : center.alpha;
+      const slackSymbol = scene.tau === 1 ? "δ" : "α";
+      const centerEntry = 1 - slack;
+      const vdLimit = 1 - Hres;
+      const quarterLimit = 1 - Hres / 4;
+      const residualEquation = "A=ℛ<sub>I_R</sub>(b₀), H=ℛ<sub>I_L</sub>(a₀)";
+      const residualSum = A + Hres;
+      if (residualSum >= .5 - EPS) {
+        start = A;
+        slots = [
+          { row: scene.tau, dir: direction, c: 0, inputOverride: A, type: "residual", symbol: "ℛ_IR→A", short: "A" },
+          { row: pathRows[0], dir: direction, c: 0, inputOverride: Hres, type: "residual", symbol: "ℛ_IL→H", short: "H", breakBefore: true },
+          { row: scene.tau, dir: direction, c: 0, inputOverride: residualSum, type: "prerequisite", symbol: "A+H<1/2", short: "cap", sum: residualSum }
+        ];
+        equation = `${residualEquation}; a Vd1/Vd2 role would require A+H&lt;1/2. This preset gives A+H=${n(residualSum)}≥1/2, so it closes at that prerequisite. Under the remaining symbolic subcase, 4144 continues with I⁴ and the Vd/quarter radial margins.`;
+        note = "The later radial inequalities are shown only in the linked symbolic proof; they are not numerically invoked for this preset.";
+      } else {
+        start = Hres;
+        slots = [
+          ...pathRows.slice(0, 4).map(row => ({ row, dir: direction, c: radialDemand(row), type: "identity", symbol: "I", short: "I" })),
+          { row: scene.tau, armRow, dir: direction, c: vdLimit, limit: vdLimit, centerEntry, slack, slackSymbol, inputOverride: Hres, type: "vd-bridge", symbol: `u_${scene.tau}→${armRow}`, short: "Vd" },
+          { row: armRow, armRow, dir: direction, c: quarterLimit, limit: quarterLimit, centerEntry, slack, slackSymbol, A, H: Hres, inputOverride: .5 + A, type: "quarter-bridge", symbol: `c_${armRow},max`, short: "¼" }
+        ];
+        equation = `${residualEquation}; I⁴ propagates H. Then u<sub>${scene.tau}→${armRow}</sub>&lt;1−H&lt;1−${slackSymbol}=q<sub>${armRow}</sub> and c<sub>${armRow}</sub>≤c<sub>max</sub>(1/2+A,H)≤1−H/4&lt;q<sub>${armRow}</sub>.`;
+        note = `Exact residual evaluation of the illustrative preset: A=${n(A)}, H=${n(Hres)}. The last two slots are the Vd bridge margin and the quarter-radial envelope, not ĝ transfers.`;
+      }
+    } else if (id === "4146-nonadjacent") {
+      const direction = scene.tau <= 3 ? 1 : -1;
+      const aRows = direction > 0
+        ? Array.from({ length: Math.max(0, scene.tau - 1) }, (_, index) => index + 1)
+        : Array.from({ length: Math.max(0, 5 - scene.tau) }, (_, index) => 5 - index);
+      const hDirection = -direction;
+      const hRows = direction > 0
+        ? Array.from({ length: Math.max(0, 5 - scene.tau) }, (_, index) => 5 - index)
+        : Array.from({ length: Math.max(0, scene.tau - 1) }, (_, index) => index + 1);
+      const rightResidual = residualDemand(results[0]?.b || 0, center.rightTrace);
+      const leftResidual = residualDemand(results[0]?.a || 0, center.leftTrace);
+      const A = rightResidual;
+      const Hres = leftResidual;
+      const residualSum = A + Hres;
+      start = A;
+      if (residualSum >= .5 - EPS) {
+        slots = [
+          { row: aRows[0] ?? scene.tau, dir: direction, c: 0, inputOverride: A, type: "residual", symbol: "ℛ_IR→A", short: "A" },
+          { row: hRows[0] ?? scene.tau, dir: hDirection, c: 0, inputOverride: Hres, type: "residual", symbol: "ℛ_IL→H", short: "H", breakBefore: true },
+          { row: scene.tau, dir: direction, c: 0, inputOverride: residualSum, type: "prerequisite", symbol: "A+H<1/2", short: "cap", sum: residualSum }
+        ];
+        equation = `A=ℛ<sub>I_R</sub>(b₀), H=ℛ<sub>I_L</sub>(a₀), and a Vd1/Vd2 role would require A+H&lt;1/2. This preset gives A+H=${n(residualSum)}≥1/2, so it closes here. Under the remaining symbolic subcase, 4146 propagates A,H from opposite sides and applies the Vd-specific radial separation.`;
+        note = "The later radial inequality is shown only in the linked symbolic proof; it is not numerically invoked for this preset.";
+      } else {
+        slots = [
+          { row: aRows[0] ?? scene.tau, dir: direction, c: radialDemand(aRows[0] ?? scene.tau), inputOverride: A, type: "residual", symbol: "ℛ_IR→A", short: "A" },
+          ...aRows.map(row => ({ row, dir: direction, c: radialDemand(row), type: "identity", symbol: "I_A", short: "I·A" })),
+          { row: hRows[0] ?? scene.tau, dir: hDirection, c: radialDemand(hRows[0] ?? scene.tau), inputOverride: Hres, type: "residual", symbol: "ℛ_IL→H", short: "H", breakBefore: true },
+          ...hRows.map(row => ({ row, dir: hDirection, c: radialDemand(row), type: "identity", symbol: "I_H", short: "I·H" })),
+          { row: scene.tau, dir: direction, c: radialDemand(scene.tau), inputOverride: Math.min(A, Hres), type: "radial", symbol: "Vd radial", short: "rad" }
+        ];
+        equation = "A=ℛ<sub>I_R</sub>(b₀) and H=ℛ<sub>I_L</sub>(a₀) propagate from opposite sides to a<sub>τ</sub>≥A and b<sub>τ</sub>≥H; then d<sub>τ</sub><sup>C</sup>&lt;min{A,H} and c<sub>τ</sub>&lt;1−min{A,H}.";
+        note = `Exact residual evaluation of the illustrative preset: A=${n(A)}, H=${n(Hres)}. The terminal is the Vd-type-specific radial separation of 4146, not a universal ĝ bound.`;
+      }
+    } else {
+      const replacement = state.lastReplacement;
+      start = replacement?.p1 || 0;
+      slots = [
+        { row: scene.tau, dir: scene.sigma === (scene.tau + 1) % 6 ? 1 : -1, c: replacement?.firstReaches?.[2] || 0, type: "replacement-minus", symbol: "D⁻p₁,ε", short: "D⁻" },
+        { row: scene.sigma, dir: scene.sigma === (scene.tau + 1) % 6 ? 1 : -1, c: replacement?.secondReaches?.[2] || 0, type: "replacement-second", symbol: `D${replacement?.secondSign || "−"}p₂,ε`, short: `D${replacement?.secondSign || "−"}` }
+      ];
+      equation = "At V<sub>τ</sub>: U′<sub>τ</sub>=X<sub>τ</sub>(D<sup>−</sup><sub>p₁,ε</sub>). At V<sub>σ</sub>: U′<sub>σ</sub>=X<sub>σ</sub>(D<sup>−</sup><sub>p₂,ε</sub>) if p₂≤1/2, otherwise X<sub>σ</sub>(D<sup>+</sup><sub>p₂,ε</sub>).";
+      note = "These are two separate vertex charts. Both replacement boundary sums are 1−ε, and the five affected skeleton components are preserved.";
+    }
+
+    const evaluated = evaluateCertificateSlots(slots, start);
+    return { ...pattern, equation, note, start, slots: evaluated };
+  }
+
+  function certificateStrip(a, b, width) {
+    const direction = sub(b, a);
+    const normal = mul(unit({ x: -direction.y, y: direction.x }), width);
+    return [add(a, normal), add(b, normal), sub(b, normal), sub(a, normal)];
+  }
+
+  function drawCertificateSlot(slot, index) {
+    const active = index === state.certificateSlot;
+    const group = svgEl("g", {
+      class: `certificate-overlay ${active ? "certificate-active" : "certificate-muted"}`
+    }, layers.certificate);
+    const row = slot.row;
+    const direction = slot.dir || 1;
+    const incomingRow = (row - direction + 6) % 6;
+    const outgoingRow = (row + direction + 6) % 6;
+    const incomingPoint = add(V[row], mul(sub(V[incomingRow], V[row]), slot.input));
+    const exactIncomingPoint = add(V[row], mul(sub(V[incomingRow], V[row]), slot.exactInput));
+    const radialPoint = add(V[row], mul(sub(CENTER, V[row]), clamp(slot.c, 0, 1)));
+    const exactPoint = add(V[row], mul(sub(V[outgoingRow], V[row]), clamp(slot.outgoing, 0, 1)));
+    const proofExactPoint = add(V[row], mul(sub(V[outgoingRow], V[row]), clamp(slot.proofOutgoing, 0, 1)));
+    const retainedPoint = add(V[row], mul(sub(V[outgoingRow], V[row]), clamp(1 - slot.retained, 0, 1)));
+    const showExact = state.overlayMode === "exact" || state.overlayMode === "compare";
+    const showProof = state.overlayMode === "proof" || state.overlayMode === "compare";
+
+    if (slot.type === "super-source" || slot.type === "super-terminal") {
+      const capPoint = add(V[row], mul(sub(V[outgoingRow], V[row]), clamp(slot.cap ?? slot.outgoing, 0, 1)));
+      if (slot.type === "super-source") {
+        svgEl("line", { x1: V[row].x, y1: V[row].y, x2: incomingPoint.x, y2: incomingPoint.y, class: "certificate-incoming" }, group);
+        svgEl("line", { x1: V[row].x, y1: V[row].y, x2: capPoint.x, y2: capPoint.y, class: "certificate-exact" }, group);
+      } else {
+        svgEl("line", { x1: V[row].x, y1: V[row].y, x2: capPoint.x, y2: capPoint.y, class: "certificate-proof" }, group);
+      }
+      if (active) {
+        svgEl("circle", { cx: V[row].x, cy: V[row].y, r: 10, class: "certificate-ring" }, group);
+        const label = svgEl("text", { x: V[row].x, y: V[row].y - 14, "text-anchor": "middle", class: "certificate-note" }, group);
+        label.textContent = slot.type === "super-source" ? `T${subscript(row)} · 1−g_c^sc seed` : `T${subscript(row)} · b_tail<g_c^sc`;
+      }
+      return;
+    }
+
+    if (slot.type === "prerequisite") {
+      svgEl("circle", { cx: V[row].x, cy: V[row].y, r: active ? 13 : 9, class: "certificate-ring" }, group);
+      const label = svgEl("text", {
+        x: V[row].x, y: V[row].y - 16, "text-anchor": "middle", class: "certificate-note"
+      }, group);
+      label.textContent = `A+H=${n(slot.sum)} ≥ 1/2`;
+      return;
+    }
+
+    if (slot.type === "vd-bridge" || slot.type === "quarter-bridge") {
+      const armRow = slot.armRow;
+      const armStart = V[armRow];
+      const limitPoint = add(armStart, mul(sub(CENTER, armStart), clamp(slot.limit, 0, 1)));
+      const entryPoint = add(armStart, mul(sub(CENTER, armStart), clamp(slot.centerEntry, 0, 1)));
+      svgEl("line", {
+        x1: armStart.x, y1: armStart.y, x2: limitPoint.x, y2: limitPoint.y,
+        class: slot.type === "vd-bridge" ? "certificate-radial" : "certificate-proof"
+      }, group);
+      svgEl("line", {
+        x1: entryPoint.x, y1: entryPoint.y, x2: CENTER.x, y2: CENTER.y,
+        class: "trace trace-center"
+      }, group);
+      if (slot.centerEntry > slot.limit) {
+        svgEl("line", {
+          x1: limitPoint.x, y1: limitPoint.y, x2: entryPoint.x, y2: entryPoint.y,
+          class: "trace trace-gap"
+        }, group);
+      }
+      if (active) {
+        svgEl("circle", { cx: limitPoint.x, cy: limitPoint.y, r: 6, class: "handoff" }, group);
+        svgEl("circle", { cx: V[armRow].x, cy: V[armRow].y, r: 10, class: "certificate-ring" }, group);
+        const label = svgEl("text", { x: V[armRow].x, y: V[armRow].y - 14, "text-anchor": "middle", class: "certificate-note" }, group);
+        label.textContent = slot.type === "vd-bridge"
+          ? `r${subscript(armRow)} · Vd supported-arm bound`
+          : `r${subscript(armRow)} · quarter envelope`;
+      }
+      return;
+    }
+
+    if (slot.type === "residual" || slot.type === "radial") {
+      const target = slot.type === "residual" ? incomingPoint : radialPoint;
+      svgEl("line", {
+        x1: V[row].x, y1: V[row].y, x2: target.x, y2: target.y,
+        class: slot.type === "residual" ? "certificate-incoming" : "certificate-radial"
+      }, group);
+      if (active) {
+        svgEl("circle", { cx: V[row].x, cy: V[row].y, r: 10, class: "certificate-ring" }, group);
+        const label = svgEl("text", { x: V[row].x, y: V[row].y - 14, "text-anchor": "middle", class: "certificate-note" }, group);
+        label.textContent = slot.type === "residual" ? `T${subscript(row)} · ℛ_J seed` : `T${subscript(row)} · Vd radial margin`;
+      }
+      return;
+    }
+
+    if (state.overlayMode !== "exact") {
+      svgEl("line", { x1: V[row].x, y1: V[row].y, x2: incomingPoint.x, y2: incomingPoint.y, class: "certificate-incoming" }, group);
+    }
+    if (showExact) {
+      svgEl("line", { x1: V[row].x, y1: V[row].y, x2: exactIncomingPoint.x, y2: exactIncomingPoint.y, class: state.overlayMode === "compare" ? "certificate-incoming-exact" : "certificate-incoming" }, group);
+    }
+    svgEl("line", { x1: V[row].x, y1: V[row].y, x2: radialPoint.x, y2: radialPoint.y, class: "certificate-radial" }, group);
+    if (showExact) svgEl("line", { x1: V[row].x, y1: V[row].y, x2: exactPoint.x, y2: exactPoint.y, class: "certificate-exact" }, group);
+    if (showProof) svgEl("line", { x1: V[row].x, y1: V[row].y, x2: retainedPoint.x, y2: retainedPoint.y, class: "certificate-proof" }, group);
+    if (state.overlayMode === "compare" && slot.gap > .001) {
+      svgEl("polygon", { points: pointsAttr(certificateStrip(proofExactPoint, retainedPoint, active ? 6 : 4)), class: "certificate-gap" }, group);
+    }
+    if (active) {
+      const handoffPoint = showProof && !showExact ? retainedPoint : exactPoint;
+      svgEl("circle", { cx: handoffPoint.x, cy: handoffPoint.y, r: 6, class: "handoff" }, group);
+      const arrowStart = add(CENTER, mul(sub(V[row], CENTER), 1.13));
+      const arrowEnd = add(CENTER, mul(sub(V[outgoingRow], CENTER), 1.13));
+      svgEl("line", {
+        x1: arrowStart.x, y1: arrowStart.y, x2: arrowEnd.x, y2: arrowEnd.y,
+        class: showProof && !showExact ? "certificate-arrow proof-arrow" : "certificate-arrow"
+      }, group);
+    }
+
+    const hullIncoming = state.overlayMode === "exact" || state.overlayMode === "compare" ? exactIncomingPoint : incomingPoint;
+    const hullOutgoing = state.overlayMode === "exact" || state.overlayMode === "compare"
+      ? exactPoint
+      : add(V[row], mul(sub(V[outgoingRow], V[row]), clamp(slot.proofOutgoing, 0, 1)));
+    const hull = convexHull([V[row], hullIncoming, radialPoint, hullOutgoing]);
+    svgEl("polygon", { points: pointsAttr(hull), class: "demand-hull" }, group);
+    if (active && Number.isFinite(slot.input) && Number.isFinite(slot.outgoing)) {
+      const comparisonInput = state.overlayMode === "proof" ? slot.input : slot.exactInput;
+      const comparisonOutgoing = state.overlayMode === "exact" || state.overlayMode === "compare" ? slot.outgoing : slot.proofOutgoing;
+      const comparison = enclosingUnitTriangle(comparisonInput, comparisonOutgoing, clamp(slot.c, 0, 1));
+      const local = direction < 0 ? comparison.polygon.map(p => ({ x: p.x, y: -p.y })) : comparison.polygon;
+      svgEl("polygon", {
+        points: pointsAttr(local.map(p => canonicalToScreen(row, p))),
+        class: "triangle role-comparison"
+      }, group);
+      svgEl("circle", { cx: V[row].x, cy: V[row].y, r: 10, class: "certificate-ring" }, group);
+      const label = svgEl("text", {
+        x: V[row].x, y: V[row].y - 14, "text-anchor": "middle", class: "certificate-note"
+      }, group);
+      label.textContent = `T${subscript(row)} · ${slot.symbol}`;
+    }
+  }
+
+  function drawReplacementCertificate(scene) {
+    const replacement = state.lastReplacement;
+    if (!replacement || state.overlayMode === "geometry") return;
+    const showOriginal = state.overlayMode === "exact" || state.overlayMode === "compare";
+    const showReplacement = state.overlayMode === "proof" || state.overlayMode === "compare";
+    if (showOriginal) {
+      [scene.tau, scene.sigma].forEach(row => {
+        svgEl("circle", { cx: V[row].x, cy: V[row].y, r: 12, class: "certificate-ring" }, layers.certificate);
+      });
+      const label = svgEl("text", { x: 500, y: 610, "text-anchor": "middle", class: "certificate-note" }, layers.certificate);
+      label.textContent = "exact layer: original Vd1–supercritical adjacent pair";
+    }
+    if (!showReplacement) return;
+
+    const otherTau = [(scene.tau + 5) % 6, (scene.tau + 1) % 6].find(row => row !== scene.sigma);
+    const otherSigma = [(scene.sigma + 5) % 6, (scene.sigma + 1) % 6].find(row => row !== scene.tau);
+    [[V[otherTau], V[scene.tau]], [V[scene.tau], V[scene.sigma]], [V[scene.sigma], V[otherSigma]], [V[scene.tau], CENTER], [V[scene.sigma], CENTER]].forEach(([a, b]) => {
+      svgEl("line", { x1: a.x, y1: a.y, x2: b.x, y2: b.y, class: "preserved-component" }, layers.certificate);
+    });
+
+    const replacements = [
+      { polygon: replacement.firstPolygon, row: scene.tau, label: "D⁻p₁,ε", chart: replacement.charts[0] },
+      { polygon: replacement.secondPolygon, row: scene.sigma, label: `D${replacement.secondSign}p₂,ε`, chart: replacement.charts[1] }
+    ];
+    replacements.forEach((item, index) => {
+      const active = index === state.certificateSlot;
+      svgEl("polygon", {
+        points: pointsAttr(item.polygon),
+        class: `triangle role-after${active ? "" : " certificate-muted"}`
+      }, layers.certificate);
+      const center = polygonCenter(item.polygon);
+      const label = svgEl("text", { x: center.x, y: center.y + 4, "text-anchor": "middle", class: "certificate-note" }, layers.certificate);
+      label.textContent = `${item.label} at ${item.chart}`;
+    });
+    const summary = svgEl("text", { x: 500, y: 646, "text-anchor": "middle", class: "certificate-note" }, layers.certificate);
+    summary.textContent = `two charts · boundary sums ${n(replacement.boundarySum1, 5)} and ${n(replacement.boundarySum2, 5)} · 3 edges + 2 radial arms preserved`;
+  }
+
+  function drawCertificateOverlay(scene, certificate) {
+    clear(layers.certificate);
+    if (state.overlayMode === "geometry") return;
+    if (certificate.id === "4147-replacement") {
+      drawReplacementCertificate(scene);
+      return;
+    }
+    certificate.slots.forEach((slot, index) => drawCertificateSlot(slot, index));
+    if (certificate.id === "4146-nonadjacent" && certificate.slots.some(slot => slot.type === "radial")) {
+      const row = scene.tau;
+      const gapStart = add(V[row], mul(sub(CENTER, V[row]), .48));
+      const gapEnd = add(V[row], mul(sub(CENTER, V[row]), .68));
+      svgEl("line", { x1: gapStart.x, y1: gapStart.y, x2: gapEnd.x, y2: gapEnd.y, class: "trace trace-gap" }, layers.certificate);
+      const label = svgEl("text", { x: midpoint(gapStart, gapEnd).x, y: midpoint(gapStart, gapEnd).y - 10, "text-anchor": "middle", class: "certificate-note" }, layers.certificate);
+      label.textContent = "Vd-specific radial separation";
+    }
+  }
+
+  function auditLabel(slot) {
+    const label = cappedOutgoingEnvelope(slot.input, slot.c).label;
+    return label === "T₊" || label === "T₊ = T₋" ? "T₊ʰⁱ" : label;
+  }
+
+  function updateCertificateControls(scene, certificate) {
+    state.currentCertificate = certificate;
+    state.certificateSlot = clamp(state.certificateSlot, 0, Math.max(0, certificate.slots.length - 1));
+    document.querySelectorAll(".mode-button").forEach(button => {
+      button.setAttribute("aria-pressed", String(button.dataset.mode === state.overlayMode));
+    });
+    $("certificateTitle").textContent = `${certificate.code} — ${certificate.title}`;
+    $("certificateEquation").innerHTML = certificate.equation;
+    clear($("certificateSlots"));
+    certificate.slots.forEach((slot, index) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "slot-button";
+      button.setAttribute("aria-pressed", String(index === state.certificateSlot));
+      button.setAttribute("aria-label", `Certificate slot ${index + 1}, T${slot.row}, ${slot.symbol}`);
+      button.innerHTML = `T${subscript(slot.row)}<small>${slot.short}</small>`;
+      button.addEventListener("click", () => {
+        state.certificateSlot = index;
+        state.step = Math.max(state.step, Math.min(activeScene().steps.length - 1, index + 1));
+        render();
+      });
+      $("certificateSlots").appendChild(button);
+    });
+    $("certificatePrev").disabled = state.certificateSlot === 0;
+    $("certificateNext").disabled = state.certificateSlot === certificate.slots.length - 1;
+    const slot = certificate.slots[state.certificateSlot];
+    let stateParts;
+    if (state.overlayMode === "geometry") {
+      stateParts = ["Certificate overlay hidden; the construction reveal and drag handles remain active."];
+    } else if (certificate.id === "4147-replacement" && state.lastReplacement) {
+      const replacement = state.lastReplacement;
+      stateParts = [
+        `chart ${state.certificateSlot + 1}: ${replacement.charts[state.certificateSlot]}`,
+        `p₁=${n(replacement.p1, 5)}, p₂=${n(replacement.p2, 5)}, ε=${n(replacement.epsilon, 6)}`,
+        `boundary sum=1−ε=${n(1 - replacement.epsilon, 6)}`,
+        replacement.valid ? "illustrative preset: strict replacement margins verified" : "illustrative preset outside a strict margin"
+      ];
+    } else if (certificate.id === "407x-audit" && slot.type === "audit") {
+      stateParts = [
+        `T${subscript(slot.row)} exact audit label: ${auditLabel(slot)}`,
+        `selected K(${n(slot.input)}, ${n(slot.outgoing)}, ${n(slot.c)})`,
+        `exact outgoing cap, numerically evaluated: ĝ_c(1−${n(slot.input)})=${n(slot.outgoing)}`,
+        "inventory: L, T₋, T₊ʰⁱ, Full"
+      ];
+    } else if (slot.type === "residual") {
+      stateParts = [
+        `T${subscript(slot.row)} receives the exact residual seed ℛ_J(p)=${n(slot.input)}`,
+        "This slot is an interval-component handoff, not a ĝ evaluation."
+      ];
+    } else if (slot.type === "radial") {
+      stateParts = [
+        `T${subscript(slot.row)}: d_τ^C<min{A,H} and c_τ<1−min{A,H}`,
+        "This terminal is the Vd-specific radial margin, not a ĝ evaluation."
+      ];
+    } else if (slot.type === "prerequisite") {
+      stateParts = [
+        `exact residual sum for this preset: A+H=${n(slot.sum)}`,
+        "a Vd1/Vd2 role would require A+H<1/2",
+        "the illustrative geometry closes at this earlier half-unit contradiction; no later radial bound is numerically asserted"
+      ];
+    } else if (slot.type === "super-source") {
+      stateParts = [
+        `free envelope: g_c^sc(${n(slot.c)})=${n(slot.outgoing)}`,
+        `strict center-free source seed: A_next>1−g_c^sc=${n(slot.retained)}`,
+        "the supremum is not attained; this is not a ĝ evaluation"
+      ];
+    } else if (slot.type === "super-terminal") {
+      stateParts = [
+        `terminal cap: g_c^sc=${n(slot.cap)}`,
+        "the retained identity path is compared with the strict inequality b_tail<g_c^sc",
+        "this cap is not a ĝ evaluation or a selected-demand enclosure"
+      ];
+    } else if (slot.type === "vd-bridge") {
+      stateParts = [
+        `r${subscript(slot.armRow)}: u_${scene.tau}→${slot.armRow}<1−H=${n(slot.limit)}`,
+        `center begins at q${subscript(slot.armRow)}=1−${slot.slackSymbol}=${n(slot.centerEntry)}`,
+        `certified open gap=${n(slot.centerEntry - slot.limit)}`,
+        "This is the 201c supported-arm margin, not a ĝ evaluation."
+      ];
+    } else if (slot.type === "quarter-bridge") {
+      stateParts = [
+        `r${subscript(slot.armRow)}: c${subscript(slot.armRow)}≤c_max(1/2+A,H)≤1−H/4=${n(slot.limit)}`,
+        `center begins at q${subscript(slot.armRow)}=1−${slot.slackSymbol}=${n(slot.centerEntry)}`,
+        `certified open gap=${n(slot.centerEntry - slot.limit)}`,
+        "This is the 201b quarter radial envelope, not a ĝ evaluation."
+      ];
+    } else {
+      stateParts = state.overlayMode === "exact"
+        ? [
+            `T${subscript(slot.row)}: K(${n(slot.exactInput)}, ${n(slot.outgoing)}, ${n(slot.c)})`,
+            `exact ĝ_c^∨(${n(slot.exactInput)})=${n(slot.exact)}`
+          ]
+        : state.overlayMode === "proof"
+          ? [
+              `T${subscript(slot.row)}: K(${n(slot.input)}, ${n(slot.proofOutgoing)}, ${n(slot.c)})`,
+              `retained ${slot.symbol}(${n(slot.input)})=${n(slot.retained)}`,
+              `local discarded interval=${n(slot.gap)}`
+            ]
+          : [
+              `exact chain: ĝ_c^∨(${n(slot.exactInput)})=${n(slot.exact)}`,
+              `retained chain: ${slot.symbol}(${n(slot.input)})=${n(slot.retained)}`,
+              `local discarded interval=${n(slot.gap)}`
+            ];
+    }
+    if (["exact", "identity", "affine", "threshold", "audit"].includes(slot.type)) {
+      stateParts.push("Inputs are an illustrative preset; transfer outputs shown as exact are exact-map numerical evaluations.");
+    } else if (["super-source", "super-terminal"].includes(slot.type)) {
+      stateParts.push("The displayed envelope value is a formula evaluation; its strict supremum is nonattained.");
+    } else {
+      stateParts.push("Inputs are an illustrative preset; residual values are evaluated from the displayed interval data.");
+    }
+    stateParts.push("Reference visualization only; the linked proof is authoritative.");
+    stateParts.push(certificate.note);
+    $("certificateState").innerHTML = stateParts.map(part => `<span>${part}</span>`).join("");
+    $("strategy4Route").classList.toggle("on", scene.family === 3);
   }
 
   function drawAnnotations(scene, center, results) {
@@ -1768,9 +2729,11 @@ summary {
       } else if (scene.family === 3) {
         label.textContent = `z₅=${n(state.lastChain?.z5)} · T₀ bound=${n(state.lastChain?.bound)}`;
       } else if (scene.family === 4) {
-        label.textContent = `center hiding: ${n(state.lastF4?.gamma)} ≥ ${n(state.lastF4?.gap)}`;
+        label.textContent = `center exit hides gap: ${n(state.lastF4?.centerExit)} ≥ ${n(state.lastF4?.gap)}`;
       } else if (scene.family === 5 && scene.category === "replacement") {
-        label.textContent = `axis replacement margins ${state.lastReplacement?.valid ? "verified" : "not verified"}`;
+        label.textContent = `two-chart replacement margins ${state.lastReplacement?.valid ? "verified" : "not verified"}`;
+      } else if (scene.family === 5 && state.currentCertificate?.slots.some(slot => slot.type === "prerequisite")) {
+        label.textContent = "illustrative preset closes at A+H ≥ 1/2";
       } else if (scene.family === 5) label.textContent = "radial obstruction exposed";
     }
   }
@@ -1778,7 +2741,7 @@ summary {
   function roleClassLabel(scene) {
     if (scene.family === 1) return scene.gap === "no" ? "open-boundary overlap" : "Vd0 endpoint loss";
     if (scene.family === 2) return "T3-like support";
-    if (scene.family === 3) return scene.gap === "two" ? "paired endpoint loss" : "five-row F-chain";
+    if (scene.family === 3) return scene.gap === "two" ? "paired endpoint loss" : "five-V-triangle ĝ∨ chain";
     if (scene.family === 4) return "T3-like + supercritical";
     return `${scene.type} placement`;
   }
@@ -1786,17 +2749,19 @@ summary {
   function updateReadouts(scene, center, results) {
     $("sceneTitle").textContent = scene.title;
     $("svgTitle").textContent = scene.label;
-    $("svgDesc").textContent = `${scene.label}. Exact center and role triangles on the hexagon skeleton. Step ${state.step + 1} of ${scene.steps.length}: ${scene.steps[state.step]}.`;
+    const certificate = CERTIFICATE_BY_ID.get(certificatePatternId(scene));
+    $("svgDesc").textContent = `${scene.label}. Center and role geometry with selected-demand and proof-comparison overlays on the hexagon skeleton. ${certificate.title} overlay mode: ${state.overlayMode}. Construction step ${state.step + 1} of ${scene.steps.length}: ${scene.steps[state.step]}.`;
     const chips = [
       { text: scene.ce, cls: "ok" },
       { text: `ΔR=${n(center.deltaR)}`, cls: center.deltaR > 0 ? "ok" : "" },
       { text: `ΔL=${n(center.deltaL)}`, cls: scene.ce === "CE1" ? (center.deltaL <= 0 ? "ok" : "") : (center.deltaL > 0 ? "ok" : "") },
-      { text: roleClassLabel(scene), cls: "" }
+      { text: roleClassLabel(scene), cls: "" },
+      { text: "illustrative preset", cls: "relax" }
     ];
     if (scene.family === 1 && scene.gap !== "no" && scene.gap !== "two") chips.push({ text: "radial obligation relaxed", cls: "relax" });
     if (scene.family === 2) {
       const expected = scene.hit === "hit";
-      chips.push({ text: `center exit ${state.lastT3?.contains ? "inside" : "outside"} T3 trace`, cls: state.lastT3?.contains === expected ? "ok" : "relax" });
+      chips.push({ text: `center exit ${state.lastT3?.contains ? "inside" : "outside"} T3-like radial trace`, cls: state.lastT3?.contains === expected ? "ok" : "relax" });
       chips.push({ text: `4073 sheet ${state.params.t3Sheet < 0 ? "−" : "+"}`, cls: "" });
       chips.push({ text: "two exact endpoint caps", cls: "" });
     }
@@ -1807,10 +2772,11 @@ summary {
     if (scene.family === 5) {
       if (scene.category === "tau0" || scene.category === "replacement") chips.push({ text: "midpoint rescue", cls: state.lastVd?.rescueValid ? "ok" : "relax" });
       if (scene.category === "tau0") chips.push({ text: "center hides O-side gap", cls: state.lastVd?.centerHides ? "ok" : "relax" });
-      chips.push({ text: "Vd2 neighbor rescue excluded (4149)", cls: "relax" });
+      if (scene.type === "Vd2") chips.push({ text: "Vd2 neighbor rescue excluded (4149)", cls: "relax" });
+      if (state.currentCertificate?.slots.some(slot => slot.type === "prerequisite")) chips.push({ text: "preset closes at A+H≥1/2", cls: "relax" });
     }
     const mapLabels = [...new Set(results.map(result => result?.label).filter(Boolean))];
-    if (mapLabels.length) chips.push({ text: `map${mapLabels.length > 1 ? "s" : ""}: ${mapLabels.join(" / ")}`, cls: "" });
+    if (mapLabels.length) chips.push({ text: `exact ĝ label${mapLabels.length > 1 ? "s" : ""}: ${mapLabels.join(" / ")}`, cls: "" });
     $("chips").innerHTML = chips.map(chip => `<span class="chip ${chip.cls}">${chip.text}</span>`).join("");
 
     $("stepCount").textContent = `${state.step + 1} / ${scene.steps.length}`;
@@ -1835,12 +2801,12 @@ summary {
     ];
     if (first?.a !== undefined) {
       data.push(["demand", `(a,b,c)=(${n(first.a)}, ${n(first.b)}, ${n(first.c)})`]);
-      data.push(["2004 contact", `${first.contact}; Lmin=${n(first.minSide, 6)}`]);
-      data.push(["capped label", first.label]);
+      data.push(["comparison enclosure", `${first.contact}; Λ(K)=${n(first.minSide, 6)}`]);
+      data.push(["exact ĝ label", first.label]);
     }
     if (scene.family === 5) data.push(["placement", `(σ,τ)=(${scene.sigma},${scene.tau}) · ${scene.type}`]);
     if (scene.family === 2 && state.lastT3) {
-      data.push(["center exit", `γ=${n(state.lastT3.gamma)}; [1−u,1−c]=[${n(1 - state.lastT3.radialLast)},${n(1 - state.lastT3.radialFirst)}]`]);
+      data.push(["center exit", `${scene.support === "r5" ? "d₅ᶜ" : "d₁ᶜ"}=${n(state.lastT3.centerExit)}; T3-like interval [1−u,1−c]=[${n(1 - state.lastT3.radialLast)},${n(1 - state.lastT3.radialFirst)}]`]);
       data.push(["boundary inputs", `A₅=${n(state.lastT3.A5)}, A₁=${n(state.lastT3.A1)}`]);
       data.push(["radial inputs", `C₅=${n(state.lastT3.C5)}, C₁=${n(state.lastT3.C1)}`]);
     }
@@ -1849,13 +2815,15 @@ summary {
     }
     if (scene.family === 4 && state.lastF4) {
       data.push(["T3 interface", `c=${n(state.lastF4.c)}, 1−u=${n(state.lastF4.gap)}`]);
-      if (scene.ce === "CE2") data.push(["companion trace", `S=${n(state.lastF4.S)}, a=${n(state.lastF4.a)}, T=${n(state.lastF4.T)}`]);
+      if (scene.ce === "CE2") data.push(["companion interval", `[k/W,R+α]=[${n(state.lastF4.companionStart)},${n(state.lastF4.companionEnd)}]; a=${n(state.lastF4.a)}`]);
     }
     if (scene.family === 5 && state.lastVd) {
       data.push(["Vd supports", `r1=${n(intervalLength(state.lastVd.shownRay1))}; r5=${n(intervalLength(state.lastVd.shownRay5))}`]);
+      const prerequisite = state.currentCertificate?.slots.find(slot => slot.type === "prerequisite");
+      if (prerequisite) data.push(["branch gate", `A+H=${n(prerequisite.sum)} ≥ 1/2; later radial terminal not evaluated`]);
       if (scene.category === "replacement" || scene.category === "tau0") data.push(["rescue predicate", String(state.lastVd.rescueValid)]);
       if (scene.category === "tau0") data.push(["center hiding", String(state.lastVd.centerHides)]);
-      if (scene.category === "replacement" && state.lastReplacement) data.push(["axis replacement", `p₁=${n(state.lastReplacement.p1, 5)}, p₂=${n(state.lastReplacement.p2, 5)}, ε=${n(state.lastReplacement.epsilon, 6)}`]);
+      if (scene.category === "replacement" && state.lastReplacement) data.push(["two-chart replacement", `p₁=${n(state.lastReplacement.p1, 5)}, p₂=${n(state.lastReplacement.p2, 5)}, ε=${n(state.lastReplacement.epsilon, 6)}`]);
     }
     $("exactData").innerHTML = data.map(([key, value]) => `<div class="datum">${key}<strong>${value}</strong></div>`).join("");
     $("proofLink").href = scene.source;
@@ -1863,7 +2831,7 @@ summary {
 
   function render() {
     const scene = activeScene();
-    clear(layers.trace); clear(layers.triangle); clear(layers.annotation); clear(layers.handle);
+    clear(layers.trace); clear(layers.triangle); clear(layers.certificate); clear(layers.annotation); clear(layers.handle);
     drawSkeleton();
     const center = drawCenter(scene, 0);
     let results = [];
@@ -1872,8 +2840,13 @@ summary {
     if (scene.family === 3) results = drawFamily3(scene, center);
     if (scene.family === 4) results = drawFamily4(scene, center);
     if (scene.family === 5) results = drawFamily5(scene, center);
+    const certificate = buildCertificate(scene, center, results);
+    state.currentCertificate = certificate;
+    state.certificateSlot = clamp(state.certificateSlot, 0, Math.max(0, certificate.slots.length - 1));
+    drawCertificateOverlay(scene, certificate);
     drawAnnotations(scene, center, results);
     updateReadouts(scene, center, results);
+    updateCertificateControls(scene, certificate);
   }
 
   buildControls();
@@ -1883,7 +2856,12 @@ summary {
     sceneCount: SCENES.length,
     familyCounts: FAMILIES.map(f => SCENES.filter(s => s.family === f.id).length),
     lMin,
-    mapF,
+    rawDefectTransfer,
+    cappedDefectTransfer,
+    complementDual,
+    rawReachTransfer,
+    cappedReachTransfer,
+    freeSupercriticalEnvelope,
     centerData,
     projectCenterDelta,
     enclosingUnitTriangle,
@@ -1892,7 +2870,9 @@ summary {
     t3ContainsCenterExit,
     vdTriangle,
     vdPredicate,
-    scenes: SCENES.map(({ id, family, label }) => ({ id, family, label }))
+    certificatePatterns: CERTIFICATE_PATTERNS.map(({ id, code, title, source, sources }) => ({ id, code, title, source, sources: sources || [source] })),
+    sceneCertificates: Object.fromEntries(SCENES.map(scene => [scene.id, certificatePatternId(scene)])),
+    scenes: SCENES.map(({ id, family, label, reflect }) => ({ id, family, label, reflect: reflect || null, certificate: certificatePatternId(SCENE_BY_ID.get(id)) }))
   });
 })();
 </script>
