@@ -1,0 +1,437 @@
+\section{Discharging Form of the \(g\)-Calculus}
+\label{sec:strategy2-discharging-calculus}
+
+This appendix proves the additive identities used in
+Section~\ref{sec:strategy2-discharging} and records exactly which parts of
+Strategy~2 become genuine discharging arguments.  It also proves the
+obstructions to a fixed, state-independent diagonal charge.  No theorem below
+changes the exact transfer maps or their geometric domains.
+
+\subsection{Release, subsidy, and actual capacity slack}
+
+Recall
+\[
+ F_c(a)=\widehat g_c(1-a),
+ \qquad
+ G_c(a)=\widehat g_c^\vee(a)=1-F_c(a).
+\]
+
+\begin{definition}[Release and subsidy]
+\label{def:appendix-release-subsidy}
+For \(0\le a,c\le1\), define
+\begin{equation}
+ \mathfrak d_c(a):=G_c(a)-a=1-a-F_c(a).
+ \label{eq:appendix-release}
+\end{equation}
+For an empty or closed interval \(J\subseteq[0,1]\), define
+\begin{equation}
+ \mathfrak t_J(p):=e_J(p)-p.
+ \label{eq:appendix-subsidy}
+\end{equation}
+\end{definition}
+
+Since \(F_c(a)\le1-a\), one has \(\mathfrak d_c(a)\ge0\).  Since
+\([0,p]\) belongs to the component used in the definition of \(e_J(p)\), one
+has \(\mathfrak t_J(p)\ge0\).
+
+\begin{proposition}[Exact local balance law]
+\label{prop:appendix-local-balance}
+For every \(a,c\in[0,1]\) and every allowed interval \(J\),
+\begin{equation}
+ \widehat g_{c,J}^\vee(a)
+ =a+\mathfrak d_c(a)-\mathfrak t_J(F_c(a)).
+ \label{eq:appendix-local-balance}
+\end{equation}
+If an actual nonsupercritical V triangle \(T\) satisfies
+\(A(T)\ge a\), \(C(T)\ge c\), and its outgoing edge is covered through the
+interval \(J\), then
+\begin{equation}
+ A(T_{\rm next})
+ \ge a+\mathfrak d_c(a)-\mathfrak t_J(F_c(a)).
+ \label{eq:appendix-actual-local-balance}
+\end{equation}
+Moreover, with actual capacity slack
+\[
+ s(T):=1-A(T)-B(T),
+\]
+one has
+\begin{equation}
+ s(T)\ge\mathfrak d_c(A(T)).
+ \label{eq:appendix-slack-release}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+By definition,
+\[
+ \widehat g_{c,J}^\vee(a)
+ =\mathcal R_J(F_c(a))
+ =1-e_J(F_c(a)).
+\]
+Insert and subtract \(F_c(a)\):
+\[
+ 1-e_J(F_c(a))
+ =1-F_c(a)-\bigl(e_J(F_c(a))-F_c(a)\bigr),
+\]
+which is \eqref{eq:appendix-local-balance}.  The actual statement is the
+generalized handoff lemma.  Finally, the actual capped-map bound gives
+\[
+ B(T)\le F_c(A(T)),
+\]
+so
+\[
+ s(T)
+ \ge1-A(T)-F_c(A(T))
+ =\mathfrak d_c(A(T)).
+\]
+\end{proof}
+
+For \(J=[L,U]\), the subsidy is explicitly
+\begin{equation}
+ \mathfrak t_{[L,U]}(p)=
+ \begin{cases}
+ 0,&p<L,\\
+ \max\{p,U\}-p,&p\ge L.
+ \end{cases}
+ \label{eq:appendix-subsidy-explicit}
+\end{equation}
+Thus the center is charged only for the extension connected to the incoming
+trace.  Charging the full length \(U-L\) would be incorrect when \(p<L\).
+
+\subsection{Path balance and cyclic balance}
+
+Let \(T_m,\ldots,T_n\) be consecutive actual V triangles.  On the outgoing
+edge of \(T_i\), let \(J_i\) be the external interval and put
+\[
+ \tau_i:=\mathfrak t_{J_i}(B_i).
+\]
+Coverage gives
+\begin{equation}
+ A_{i+1}-A_i
+ \ge s(T_i)-\tau_i.
+ \label{eq:appendix-signed-step}
+\end{equation}
+Indeed,
+\[
+ A_{i+1}\ge1-e_{J_i}(B_i)
+ =1-B_i-\tau_i
+ =A_i+s(T_i)-\tau_i.
+\]
+Summing yields the path balance
+\begin{equation}
+ A_{n+1}-A_m
+ \ge\sum_{i=m}^n s(T_i)-\sum_{i=m}^n\tau_i.
+ \label{eq:appendix-path-balance}
+\end{equation}
+On a full cycle,
+\begin{equation}
+ \sum_{i=0}^5s(T_i)
+ \le\sum_{i=0}^5\tau_i,
+ \label{eq:appendix-cycle-balance}
+\end{equation}
+with a strict inequality when at least one open handoff is strict after the
+external intervals have been accounted for.
+
+For a center-free chain of formal exact transfers
+\[
+ z_i=G_{c_i}(z_{i-1}),
+\]
+Definition~\ref{def:appendix-release-subsidy} gives the exact telescope
+\begin{equation}
+ z_r-z_0
+ =\sum_{i=1}^r\mathfrak d_{c_i}(z_{i-1}).
+ \label{eq:appendix-exact-telescope}
+\end{equation}
+This identity is the additive form of \(g\)-composition.
+
+\begin{corollary}[Rank-zero all-Vd0 discharge]
+\label{cor:appendix-rank-zero-discharge}
+If six open nonsupercritical V triangles cover all six boundary edges without
+an external positive-length trace on any handoff, then no such configuration
+exists.
+\end{corollary}
+
+\begin{proof}
+Every edge gives \(B_i+A_{i+1}>1\).  Summation gives
+\[
+ \sum_i(A_i+B_i)>6,
+\]
+contrary to \(A_i+B_i\le1\) for all \(i\).
+\end{proof}
+
+\subsection{Paired endpoint discharge}
+
+\begin{lemma}[Endpoint release equivalence]
+\label{lem:appendix-endpoint-release}
+For \(a_L,a_R,c_L,c_R\in[0,1]\), put
+\[
+ u_L=F_{c_L}(a_L),
+ \qquad
+ u_R=F_{c_R}(a_R).
+\]
+Then
+\begin{equation}
+ u_L+u_R<1
+ \quad\Longleftrightarrow\quad
+ \mathfrak d_{c_L}(a_L)+\mathfrak d_{c_R}(a_R)
+ >1-a_L-a_R.
+ \label{eq:appendix-endpoint-release}
+\end{equation}
+The same equivalence holds with weak inequalities.
+\end{lemma}
+
+\begin{proof}
+Use
+\[
+ u_L=1-a_L-\mathfrak d_{c_L}(a_L),
+ \qquad
+ u_R=1-a_R-\mathfrak d_{c_R}(a_R),
+\]
+and rearrange.
+\end{proof}
+
+Consequently the one-side theorem, the common CE2 two-endpoint theorem, and
+the exact \(407X\) four-label theorem all have the same global form: two
+endpoint diagonals release more charge than the tax left by their incoming
+boundary obligations.  The strict remainder enters a center-free path and
+exceeds its total nonsupercritical capacity.
+
+\subsection{Affine deposits and threshold reservoirs}
+
+For \(0<d<1-\sqrt3/2\), define the nonnegative threshold deposit
+\begin{equation}
+ \mathfrak q_d^{\rm th}(x)=
+ \begin{cases}
+ 0,&x\le e(d),\\
+ \max\{0,1-e(d)-x\},&x>e(d).
+ \end{cases}
+ \label{eq:appendix-threshold-deposit}
+\end{equation}
+
+\begin{lemma}[Threshold reservoir]
+\label{lem:appendix-threshold-reservoir}
+For all \(x\in[0,1]\),
+\begin{equation}
+ G_{1-d}(x)
+ \ge x+\mathfrak q_d^{\rm th}(x).
+ \label{eq:appendix-threshold-reservoir}
+\end{equation}
+If \(x>e(d)\) and \(e(d)<Q\), then
+\[
+ G_{1-d}(x)>1-Q.
+\]
+\end{lemma}
+
+\begin{proof}
+Extensivity gives \(G_{1-d}(x)\ge x\).  When \(x>e(d)\), the exact threshold
+theorem gives \(G_{1-d}(x)\ge1-e(d)\).  Taking the larger of these two lower
+bounds proves the first assertion.  The second follows from
+\(1-e(d)>1-Q\).
+\end{proof}
+
+Suppose an affine coefficient \(\lambda\) is certified on an interval
+\(I\) by
+\[
+ G_{1-d}(x)\ge x+\lambda(x-d)
+ \qquad(x\in I).
+\]
+Combining this with extensivity gives the nonnegative affine deposit
+\begin{equation}
+ G_{1-d}(x)
+ \ge x+\mathfrak q_{d,\lambda}^{\rm aff}(x),
+ \qquad
+ \mathfrak q_{d,\lambda}^{\rm aff}(x)
+ :=\max\{0,\lambda(x-d)\}.
+ \label{eq:appendix-affine-deposit}
+\end{equation}
+Thus a negative affine expression is never interpreted as negative released
+charge; the identity wire is used in that subrange.
+
+\begin{proposition}[CE2 one-hit discharge]
+\label{prop:appendix-ce2-one-hit-discharge}
+In the CE2 one-gap all-Vd0 state, one of the \(\alpha\)- or
+\(\delta\)-threshold reservoirs raises the five-V-triangle chain above the
+terminal target.
+\end{proposition}
+
+\begin{proof}
+The signed CE2 calculation proves
+\[
+ X>e(\alpha),
+ \qquad
+ \min\{e(\alpha),e(\delta)\}<H.
+\]
+If \(e(\alpha)<H\), extensivity transports an input above \(e(\alpha)\) to
+the \(\alpha\)-slot, and Lemma~\ref{lem:appendix-threshold-reservoir} raises
+the output above \(1-H\).  Otherwise
+\[
+ e(\delta)<H\le e(\alpha)<X,
+\]
+so the same argument applies at the \(\delta\)-slot.  Subsequent extensive
+maps preserve the strict inequality.
+\end{proof}
+
+\begin{proposition}[CE1 deposit cascade]
+\label{prop:appendix-ce1-deposit-cascade}
+In the surviving CE1 selected-\(T_+\) state, the two certified affine deposits
+at deficits \(\alpha\) and \(m_3\) raise the incoming charge above
+\(e(\delta)\); the final \(\delta\)-threshold reservoir then raises the
+output above \(1-X\).
+\end{proposition}
+
+\begin{proof}
+The universal selected-\(T_+\) concavity theorem supplies the two affine lower
+bounds with coefficients \(1-4\alpha\) and \(1-5m_3\) on their certified
+input intervals.  Equation~\eqref{eq:appendix-affine-deposit} converts them to
+nonnegative deposits.  The exact scalar estimate in the CE1 one-gap appendix
+proves that the actual second iterate is greater than \(e(\delta)\).  The
+threshold reservoir and \(e(\delta)<X\) give the terminal inequality.  No
+claim stronger than the certified intervals is used.
+\end{proof}
+
+\subsection{Supercritical sinks and radial conversion}
+
+The common adjacent-rescuer theorem is already an exact discharging argument.
+The rescuer and center geometry force an endpoint demand
+\[
+ h\ge g_c^{\rm sc},
+\]
+while the unique strict-supercritical V triangle has outgoing reach
+\[
+ b<g_c^{\rm sc}.
+\]
+The positive charge \(h-b\) enters a four-V-triangle center-free path.  Its
+required total boundary contribution is \(4+(h-b)>4\), whereas its total
+nonsupercritical capacity is at most four.
+
+The adjacent and nonadjacent Vd terminals use a second kind of local law:
+boundary charge is converted into radial separation.  The adjacent terminal
+uses the quarter envelope
+\[
+ H\longmapsto H/4
+\]
+and the strict center comparison \(\delta<H/4\).  The nonadjacent terminal
+uses
+\[
+ \min\{A,H\}>d_\tau^C
+\]
+and the Vd corner bound on the vertex-side radial endpoint.  These conversion
+laws are type-specific and cannot be obtained from the ordinary
+nonsupercritical \(g\)-map without the Vd hypotheses.
+
+\subsection{Impossibility of a fixed universal diagonal charge}
+
+\begin{proposition}[No positive state-independent charge]
+\label{prop:appendix-no-fixed-charge}
+There is no function \(q:[0,1]\to(0,\infty)\) such that
+\[
+ G_c(a)\ge a+q(c)
+\]
+for every \(a,c\in[0,1]\).  More generally, for any increasing function
+\(\Phi:[0,1]\to\mathbb R\), there is no positive function \(q(c)\) such that
+\[
+ \Phi(G_c(a))-\Phi(a)\ge q(c)
+\]
+throughout the exact domain.
+\end{proposition}
+
+\begin{proof}
+For every \(c\in[0,1]\), the exact capped map has a Full state with
+\(a+b=1\) and \(c\le\max\{a,b\}\).  Concretely, use
+\[
+ (a,b)=(1-c,c)\quad(c\le1/2),
+ \qquad
+ (a,b)=(c,1-c)\quad(c\ge1/2).
+\]
+At that state \(F_c(a)=1-a\), hence \(G_c(a)=a\) and
+\(\mathfrak d_c(a)=0\).  Both asserted positive lower bounds are therefore
+impossible.
+\end{proof}
+
+The same example rules out a fixed positive split of diagonal charge between
+the two incident boundary edges.  The endpoint theorems can force only a
+joint release after both incoming endpoint states have been specified.
+
+\subsection{Why gap length and boundary balance alone are insufficient}
+
+A singleton V-gap is nonempty but has length zero.  It is active because two
+open incident traces do not cover their common endpoint.  Therefore a charge
+system recording only uncovered length cannot distinguish a singleton active
+gap from a genuinely gap-free handoff.  The connected residual operator and
+the active-gap convention are indispensable.
+
+Boundary balance alone also does not eliminate the \(N_+=1\), rank-zero
+all-Vd0 state.  To see the algebraic obstruction, put
+\[
+ \varepsilon=\frac1{200},
+\]
+\[
+ (x_0,x_1,x_2,x_3,x_4,x_5)
+ =\left(\frac{55}{100},\frac{53}{100},\frac{51}{100},
+        \frac{49}{100},\frac{47}{100},\frac{45}{100}\right),
+\]
+and define cyclically
+\[
+ B_i=x_i,
+ \qquad
+ A_i=1-x_{i-1}+\varepsilon.
+\]
+Then every boundary handoff is strict:
+\[
+ B_i+A_{i+1}=1+\varepsilon>1.
+\]
+Exactly one role is supercritical:
+\[
+ A_0+B_0=1+\varepsilon+\frac{10}{100}>1,
+\]
+whereas
+\[
+ A_i+B_i=1+\varepsilon-\frac2{100}<1
+ \qquad(1\le i\le5).
+\]
+The exceptional pair also satisfies the elementary endpoint-distance bound
+\[
+ A_0^2+A_0B_0+B_0^2<1.
+\]
+Thus skeleton handoffs, six capacity signs, and the basic boundary diameter
+constraint admit consistent numerical data.  The active proof must use the
+six radial witnesses and three asymmetric frontier witnesses of the
+nine-point obstruction.
+
+\subsection{Audit of successful and unsuccessful variants}
+
+\begin{table}[H]
+\centering
+\scriptsize
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{@{}p{.30\textwidth}p{.16\textwidth}p{.43\textwidth}@{}}
+\toprule
+variant&status&reason\\
+\midrule
+fixed charge \(q(c)>0\)&fails&Full states have zero release\\
+fixed left/right split&fails&either endpoint may have zero release; only the
+paired release is controlled\\
+constant increment after a potential change&fails&every increasing potential
+has zero increment at a Full state\\
+static order-free charge sum&fails&threshold activation depends on the arriving
+state\\
+state-dependent release \(\mathfrak d_c(a)\)&works&it is exactly the capped
+\(g\)-transfer in additive form\\
+release minus connected center subsidy&works&Proposition
+\ref{prop:appendix-local-balance} is an identity\\
+paired endpoint discharge&works&equivalent to the exact endpoint sum
+inequalities\\
+CE2 one-hit threshold&works&one of two reservoirs must fire\\
+CE1 affine-deposit cascade&works&two certified deposits cross the final
+threshold\\
+adjacent-rescuer surplus&works&the source--sink difference exceeds the
+four-role path capacity\\
+pure boundary discharge for rank-zero \(N_+=1\)&fails&the displayed formal
+boundary data are feasible; interior witnesses are needed\\
+scalar replacement of the two-chart Vd1 pair&fails&orientation, adjacent-arm
+exclusion, and radial preservation are not scalar data\\
+\bottomrule
+\end{tabular}
+\caption{Audit of discharging variants for Strategy~2.}
+\label{tab:appendix-discharging-audit}
+\end{table}

@@ -1,8 +1,11 @@
 Final proof and paper verification
 ==================================
-proof_lint.py: PASS
+targeted discharging source checks: PASS
+transitive dependency graph: PASS
+two-way proof manifest: PASS
 verify_mixed_overlap_core_derivation.py: PASS
 verify_global_core_positivity.py: PASS
 latexmk -xelatex -halt-on-error main.tex: PASS
-PDF pages rendered: 129
-PDF SHA-256: 0abb43b056c240f60bed5e45d5cfc0f05f13025f914717ca294c3ddf37822d8b
+PDF pages rendered: 141
+PDF SHA-256: 38326f5e95f0f3954ac23f68cda1303c9fe3ecfb868335d3a3e2e58200930b81
+proof_lint.py: NOT RUN (inherited main tree lacks proof/407X_PROVENANCE.json)

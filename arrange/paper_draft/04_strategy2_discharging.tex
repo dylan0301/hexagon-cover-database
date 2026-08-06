@@ -1,0 +1,394 @@
+\section{Strategy 2: Diagonal Discharging}
+\label{sec:strategy2-discharging}
+
+Strategy~2 is most naturally read as a discharging argument on the hexagon
+skeleton.  A prescribed diagonal demand reduces the boundary capacity of its
+V triangle.  The resulting loss is discharged to the next boundary edge.  A
+center interval may absorb part of this charge, while a center-free
+nonsupercritical V triangle transports the remaining charge without loss.  The
+exact \(g\)-maps are retained: they are the local constitutive laws that say
+how much charge a given diagonal demand releases at a given incoming boundary
+state.
+
+This viewpoint is not a second proof layered on top of the transfer proof.
+It is an additive form of the same exact inequalities.  It separates the
+proof into three levels:
+\begin{enumerate}
+\item local geometry determines a release function;
+\item the skeleton transports and combines released charge;
+\item a terminal capacity, threshold, or radial-separation inequality yields
+      the contradiction.
+\end{enumerate}
+
+\subsection{The exact local discharge rule}
+
+For \(0\le a,c\le1\), write
+\[
+ F_c(a):=\widehat g_c(1-a),
+ \qquad
+ G_c(a):=\widehat g_c^\vee(a)=1-F_c(a).
+\]
+Thus \(F_c(a)\) is the exact proof-safe outgoing cap for a
+nonsupercritical V triangle with incoming demand at least \(a\) and own-radial
+demand at least \(c\), while \(G_c(a)\) is the following incoming demand on a
+center-free edge.
+
+\begin{definition}[Diagonal release and center subsidy]
+\label{def:body-diagonal-release}
+Define the \emph{diagonal release}
+\begin{equation}
+ \mathfrak d_c(a)
+ :=G_c(a)-a
+ =1-a-F_c(a)
+ \ge0.
+ \label{eq:body-diagonal-release}
+\end{equation}
+For an empty or closed center interval \(J\subseteq[0,1]\), let
+\(e_J(p)\) be the connected covered extent from the left endpoint, as in
+Lemma~\ref{lem:reader-generalized-handoff}, and define the
+\emph{center subsidy}
+\begin{equation}
+ \mathfrak t_J(p):=e_J(p)-p\ge0.
+ \label{eq:body-center-subsidy}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Exact discharging identity]
+\label{prop:body-exact-discharging}
+Let \(T\) be a nonsupercritical actual V triangle with
+\(A(T)\ge a\) and \(C(T)\ge c\).  Let \(J\) be the center interval on its
+outgoing edge, and suppose the outgoing trace of \(T\), the interval \(J\),
+and the incoming trace of the next incident V triangle cover that edge.  Then
+\begin{equation}
+ A(T_{\rm next})
+ \ge
+ a+\mathfrak d_c(a)
+   -\mathfrak t_J\!\left(F_c(a)\right).
+ \label{eq:body-exact-discharging}
+\end{equation}
+For \(J=\varnothing\), this becomes
+\begin{equation}
+ A(T_{\rm next})\ge a+\mathfrak d_c(a)=G_c(a).
+ \label{eq:body-center-free-discharge}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The generalized handoff gives
+\[
+ A(T_{\rm next})
+ \ge \mathcal R_J(F_c(a))
+ =1-e_J(F_c(a)).
+\]
+By Definition~\ref{def:body-diagonal-release},
+\[
+ 1-e_J(F_c(a))
+ =1-F_c(a)-\bigl(e_J(F_c(a))-F_c(a)\bigr)
+ =a+\mathfrak d_c(a)-\mathfrak t_J(F_c(a)).
+\]
+For the empty interval, \(e_\varnothing(p)=p\).
+\end{proof}
+
+If \((A,B,C)\) are the actual reaches of a nonsupercritical V triangle, its
+actual unused boundary capacity is
+\[
+ s(T):=1-A-B\ge0.
+\]
+Whenever \(C\ge c\), the exact outgoing cap gives
+\begin{equation}
+ s(T)\ge1-A-F_c(A)=\mathfrak d_c(A).
+ \label{eq:body-slack-dominates-release}
+\end{equation}
+Thus \(\mathfrak d_c(A)\) is the portion of the actual capacity slack that is
+forced solely by the diagonal demand and the current incoming state.
+
+\subsection{The discharging dictionary}
+
+The transfer alphabet used below has the following additive interpretation.
+\begin{table}[H]
+\centering
+\scriptsize
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{@{}p{.24\textwidth}p{.28\textwidth}p{.37\textwidth}@{}}
+\toprule
+exact or relaxed transfer&discharging operation&mathematical meaning\\
+\midrule
+\(\mathrm I(x)=x\)&wire&transport the current boundary charge unchanged\\
+\(G_c(x)\)&exact diagonal release&deposit \(\mathfrak d_c(x)=G_c(x)-x\)\\
+\(x+\lambda(x-d)\)&affine deposit&deposit the certified amount
+\(\lambda(x-d)\) on its stated selected-\(T_+\) domain\\
+threshold at \(e(d)\)&gated reservoir&after an input crosses \(e(d)\), raise
+it to at least \(1-e(d)\)\\
+\(\mathcal R_J\)&center subsidy&subtract only the connected extension
+\(\mathfrak t_J\), not the full length of \(J\)\\
+\(g_c^{\rm sc}\)&supercritical sink cap&a strict-supercritical V triangle
+with radial demand \(c\) sends out strictly less than \(g_c^{\rm sc}\)\\
+path budget&capacity audit&the internal nonsupercritical V triangles can
+absorb at most one unit each\\
+\bottomrule
+\end{tabular}
+\caption{The additive interpretation of the Strategy~2 transfer alphabet.}
+\label{tab:body-discharging-dictionary}
+\end{table}
+
+For a center-free formal chain
+\[
+ z_j=G_{c_j}(z_{j-1})
+ \qquad(1\le j\le r),
+\]
+there is an exact telescoping identity
+\begin{equation}
+ z_r-z_0
+ =\sum_{j=1}^r\mathfrak d_{c_j}(z_{j-1}).
+ \label{eq:body-discharge-telescope}
+\end{equation}
+The dependence on the arriving state is essential.  A diagonal can release
+zero charge on a Full face and a positive amount after earlier roles have
+raised the incoming state.
+
+\subsection{Center-free paths and paired endpoint release}
+
+Let \(T_1,\ldots,T_k\) be a center-free ordinary boundary path with external
+covered extents \(u\) and \(v\) at its two ends.  Lemma
+\ref{lem:reader-boundary-path} gives
+\[
+ \sum_{j=1}^k(A_j+B_j)\ge k+1-u-v.
+\]
+If all path roles are nonsupercritical, their total capacity is at most
+\(k\).  Hence a positive endpoint surplus
+\begin{equation}
+ 1-u-v>0
+ \label{eq:body-positive-endpoint-surplus}
+\end{equation}
+is enough for a contradiction.
+
+The endpoint certificates have an exact charge form.  Suppose two endpoint
+roles have incoming demands \(a_L,a_R\), diagonal demands \(c_L,c_R\), and
+outgoing caps
+\[
+ u_L=F_{c_L}(a_L),
+ \qquad
+ u_R=F_{c_R}(a_R).
+\]
+Then
+\begin{equation}
+ u_L+u_R<1
+ \quad\Longleftrightarrow\quad
+ \mathfrak d_{c_L}(a_L)+\mathfrak d_{c_R}(a_R)
+ >1-a_L-a_R.
+ \label{eq:body-endpoint-release-equivalence}
+\end{equation}
+Thus the two endpoint diagonals jointly release more charge than the endpoint
+tax \(1-a_L-a_R\).  The positive remainder is discharged into the ordinary
+middle path.
+
+\subsection{The all-\(\Vdzero\) gap-rank kernel}
+
+Let \(\mathrm{gr}\) be the number of positive center traces containing a
+V-gap.  The ranks \(0,1,2\) are exhaustive, with rank two possible only for
+\(\CEtwo\).
+
+\paragraph{Rank zero with \(N_+=0\).}
+No center trace is needed on any boundary handoff.  Since the incident roles
+are open, each edge gives
+\[
+ B_i+A_{i+1}>1.
+\]
+Summing cyclically,
+\[
+ \sum_{i=0}^5(A_i+B_i)
+ =\sum_{i=0}^5(B_i+A_{i+1})>6.
+\]
+But all six V triangles are nonsupercritical, so the left side is at most
+\(6\), a contradiction.  This is the summed discharging form of the former
+strict cyclic ascent.
+
+\paragraph{Rank one.}
+The center subsidy is confined to one endpoint edge.  The one-side endpoint
+theorem proves
+\[
+ F_{c_5}(a_5)+F_{c_1}(a_1)<1.
+\]
+By \eqref{eq:body-endpoint-release-equivalence}, the two forced diagonal
+releases exceed the endpoint tax.  Their positive remainder enters the three
+middle nonsupercritical V triangles, whose total capacity is only three.
+
+\paragraph{Rank two.}
+The common \(\CEtwo\) paired-endpoint theorem gives the same strict endpoint
+sum with both center traces retained.  Again, the two endpoint releases
+jointly exceed the endpoint tax, and the center-free three-V-triangle path
+cannot absorb the remainder.
+
+\subsection{The one-gap state with one supercritical V triangle}
+
+Use the signed center variables
+\[
+ X=R-\delta,
+ \qquad
+ H=\frac{\eta+\alpha+\delta}{2R},
+ \qquad
+ m_3=\min\left\{\frac\alpha R,\frac\delta W\right\},
+\]
+and the five nonsupercritical radial demands
+\[
+ \begin{aligned}
+ c_1&=1-\frac\delta R,&c_2&=1-\delta,&c_3&=1-m_3,\\
+ c_4&=1-\alpha,&c_5&=1-\frac\alpha W.
+ \end{aligned}
+\]
+The exact five-V-triangle discharge starts with charge \(X\) and returns
+\begin{equation}
+ Z=[G_{c_1}\mid G_{c_2}\mid G_{c_3}\mid G_{c_4}\mid G_{c_5}](X).
+ \label{eq:body-five-discharge-chain}
+\end{equation}
+The actual-V-triangle interface gives
+\[
+ A_0\ge Z,
+ \qquad
+ A_0<1-H.
+\]
+Thus the terminal target is \(Z>1-H\).  For \(\CEone\), extensivity of
+the first and fifth slots and exact duality reduce this target to the reversed
+three-reservoir problem
+\begin{equation}
+ [G_{1-\alpha}\mid G_{1-m_3}\mid G_{1-\delta}](H)>1-X.
+ \label{eq:body-three-discharge-chain}
+\end{equation}
+For \(\CEtwo\), the threshold dichotomy is more naturally used in the
+original five-V-triangle order, starting from \(X\) and targeting
+\(1-H\).
+
+\paragraph{The \(\CEone\) deposit cascade.}
+On the only surviving selected-\(T_+\) arcs, the universal concavity theorem
+supplies two certified affine deposits.  Starting from \(y_0=H\), set
+\[
+ y_1^{\rm aff}=y_0+(1-4\alpha)(y_0-\alpha),
+\]
+\[
+ y_2^{\rm aff}
+ =y_1^{\rm aff}+(1-5m_3)(y_1^{\rm aff}-m_3).
+\]
+Whenever an affine coefficient would produce a negative deposit, extensivity
+permits the identity wire instead.  The exact CE1 scalar estimate proves that
+the realized charge after these two slots crosses the final threshold:
+\[
+ y_2>e(\delta).
+\]
+The \(\delta\)-reservoir then returns at least
+\[
+ 1-e(\delta)>1-X,
+\]
+proving \eqref{eq:body-three-discharge-chain}.  The mechanism is therefore
+\[
+ \boxed{\text{deposit at }\alpha
+ \ \longrightarrow\ \text{deposit at }m_3
+ \ \longrightarrow\ \text{trigger at }\delta.}
+\]
+
+\paragraph{The \(\CEtwo\) one-hit rule.}
+The signed CE2 inequalities prove
+\[
+ X>e(\alpha),
+ \qquad
+ \min\{e(\alpha),e(\delta)\}<H.
+\]
+If \(e(\alpha)<H\), transport the initial charge unchanged to the
+\(\alpha\)-slot; that reservoir raises it above \(1-H\).  Otherwise
+\[
+ e(\delta)<H\le e(\alpha)<X,
+\]
+so transport the initial charge to the \(\delta\)-slot; that reservoir raises
+it above \(1-H\).  Every unused slot is an identity wire.  Thus one of the two
+diagonals must fire, although both may fire.
+
+\subsection{The remaining Strategy~2 branches}
+
+\paragraph{The \(N_+=0\) T3-like endpoint branch.}
+After support isolation, the exact four-label audit proves
+\[
+ F_{C_1}(A_1)+F_{C_5}(A_5)<1.
+\]
+By \eqref{eq:body-endpoint-release-equivalence}, the two endpoint diagonals
+release more than the endpoint tax.  The three ordinary internal V triangles
+cannot absorb the positive remainder.  The hard four-label calculation is
+retained; discharging clarifies its global role but does not replace it by an
+unsupported common envelope.
+
+\paragraph{The T3-like and adjacent-\(\Vdone\) rescuers.}
+The local rescuer profile forces an opposite endpoint demand
+\[
+ h\ge g_c^{\rm sc},
+\]
+while the neighboring strict-supercritical V triangle sends out
+\[
+ b<g_c^{\rm sc}.
+\]
+The surplus \(h-b>0\) is discharged through four ordinary
+nonsupercritical V triangles.  Their required total boundary contribution is
+\(4+(h-b)>4\), exceeding their total capacity four.
+
+\paragraph{Adjacent and nonadjacent Vd placements.}
+The residual boundary charges are first transported along ordinary edges.  In
+the adjacent placement, the charge \(H\) yields a quarter radial margin and
+the center exit satisfies \(\delta<H/4\).  In a nonadjacent placement, the
+available charge is \(\min\{A,H\}\), while the center radial reach is strictly
+smaller.  These are boundary-to-radial discharge comparisons, but their
+conversion factors come from the Vd corner geometry and are not consequences
+of the ordinary \(g\)-map alone.
+
+\paragraph{The Vd1--supercritical replacement.}
+The exceptional adjacent pair is replaced in two distinct vertex charts by
+open nonsupercritical Vd0 roles preserving the full skeleton.  The replacement
+step is genuinely geometric: a scalar charge does not encode the required
+orientation, adjacent-arm exclusion, and simultaneous radial coverage.  Once
+the replacement is made, the all-Vd0 discharging obstruction applies.
+
+\subsection{Limits of the universal discharging language}
+
+A positive charge depending only on the diagonal demand cannot exist.  For
+each \(c\), the exact capped map has a Full state with
+\[
+ F_c(a)=1-a,
+ \qquad
+ \mathfrak d_c(a)=0.
+\]
+Consequently neither a fixed rule \(q(c)>0\) nor a change of potential with a
+uniform positive increment can hold on the full exact domain.  The charge must
+depend on the arriving boundary state.
+
+Likewise, the length of a V-gap is not sufficient state data.  A singleton
+V-gap has zero length but remains active because both incident roles are open.
+The residual-component operator and the active-gap convention must therefore
+be retained.
+
+Finally, the \(N_+=1\), rank-zero all-Vd0 state is not closed by boundary
+capacity discharging.  One negative supercritical slack can balance the five
+nonnegative slacks.  Its active proof is the center-independent nine-point
+obstruction, which uses interior witnesses rather than only skeleton charge.
+
+\begin{proposition}[Branches closed by discharging]
+\label{prop:body-discharging-branches}
+The diagonal-discharge framework closes all Strategy~2 branches previously
+closed by relaxed \(g\)-chains:
+\begin{enumerate}
+\item the \(N_+=0\) all-\(\Vdzero\) branches of active-gap rank
+      \(0,1,2\);
+\item the \(N_+=0\) T3-like branch with no Vd1/Vd2 role;
+\item every nonempty-gap \(N_+=1\) all-\(\Vdzero\) state;
+\item the exactly-one-T3-like and adjacent-rescuer states;
+\item the residual and radial-separation terminals in the one-Vd1/Vd2 branch,
+      followed, where necessary, by the two-chart replacement.
+\end{enumerate}
+The exact \(g\)-maps, endpoint label audits, and Vd profiles remain the local
+proofs of the stated release and conversion inequalities.
+\end{proposition}
+
+\begin{proof}
+Items 1 and 2 use the cyclic capacity sum or the paired endpoint release
+\eqref{eq:body-endpoint-release-equivalence} followed by the path budget.
+Item 3 is the CE1 deposit cascade or CE2 one-hit threshold rule.  Item 4 is the
+strict source--sink surplus \(h-b>0\).  Item 5 uses the exact residual and Vd
+radial margins, with the all-Vd0 terminal after replacement.  Every local
+release is connected to an actual V triangle by
+Proposition~\ref{prop:body-exact-discharging}.
+\end{proof}
