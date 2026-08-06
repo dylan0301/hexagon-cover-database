@@ -1,0 +1,156 @@
+\subsection{Branchwise strict optimization}
+
+Because $F$ has different algebraic expressions on different contact cells
+and has a genuine jump at one high-radial boundary, formalization must not
+silently optimize one expression across another expression's domain.
+
+\begin{definition}[Strict branch certificate]
+\label{def:s2-pure-strict-certificate}
+Let $D$ be a bounded domain, let
+\[
+ D=\bigcup_{\lambda\in\Lambda}D_\lambda
+\]
+be a finite disjoint branch decomposition, and let
+$\Psi_\lambda$ be the algebraic-radical expression for the objective on
+$D_\lambda$.  A \emph{strict branch certificate} for $\Psi<0$ consists, for
+every $\lambda\in\Lambda$, of
+\[
+ \max_{z\in\overline{D_\lambda}}\Psi_\lambda(z)\le0
+\]
+together with
+\[
+ D_\lambda\cap\{z:\Psi_\lambda(z)=0\}=\varnothing.
+\]
+The second condition is essential.  On an open feasible domain the supremum
+may equal zero even when the desired pointwise inequality is strict, so a
+claim of a uniform positive margin must not be inserted unless it is proved
+separately.
+\end{definition}
+
+For Problems~\ref{prob:s2-one-gap-endpoint}--\ref{prob:s2-ce2-five-chain},
+the branch index records the selected case of every occurrence of $F$.
+Squaring a radical inequality is allowed only after its sign hypotheses have
+been added to the same branch domain.
+
+For a polynomial-only encoding, replace each radical $\sqrt{P(z)}$ by a fresh
+variable $s$ with
+\[
+ s\ge0,\qquad s^2=P(z).
+\]
+Replace every minimum by its two order branches, retaining equality in one
+specified branch only.  All denominators displayed in
+Definition~\ref{def:s2-pure-map} are positive on their selected domains; that
+positivity should be recorded before clearing denominators.  These steps
+produce a finite semialgebraic problem without changing the feasible
+component.
+
+\subsection{One signed parameter domain}
+
+Use three independent variables
+\[
+ (r,a,d)\in\mathbb R^3
+\]
+and define
+\[
+ w=1-r,\qquad
+ e=\sqrt{1-rw},\qquad
+ \eta=1-e,\qquad
+ p=e(1-e),\qquad
+ k=\eta+a+d,
+\]
+\[
+ \Delta_R=p-a-wd,
+ \qquad
+ \Delta_L=p-ra-d.
+\]
+
+\begin{definition}[Pure signed domains]
+\label{def:s2-pure-signed-domains}
+Define
+\[
+ \mathcal D_{\rm sgn}
+ =
+ \left\{
+ (r,a,d):
+ 0<r<1,\ a>0,\ d>0,\ \Delta_R>0
+ \right\}.
+\]
+Define
+\[
+ \mathcal D_1
+ =
+ \left\{
+ (r,a,d)\in\mathcal D_{\rm sgn}:
+ \Delta_L\le0,\quad
+ a<\frac w2,\quad
+ d<\frac r2,\quad
+ rd-wa>0
+ \right\},
+\]
+and
+\[
+ \mathcal D_2
+ =
+ \left\{
+ (r,a,d)\in\mathcal D_{\rm sgn}:
+ \Delta_L>0
+ \right\}.
+\]
+\end{definition}
+
+\begin{proposition}[Well-definedness on the pure domains]
+\label{prop:s2-pure-domain-bounds}
+Every occurrence of $F$ in
+Problems~\ref{prob:s2-one-gap-endpoint}--\ref{prob:s2-ce2-five-chain} has first argument in $(1/2,1)$ and second
+argument in $[0,1]$.
+\end{proposition}
+
+\begin{proof}
+Since
+\[
+ 1-e=\frac{rw}{1+e},
+ \qquad
+ p=\frac{erw}{1+e}<\frac{rw}{2},
+\]
+the inequality $\Delta_R>0$ gives
+\[
+ 0<a<p<\frac{rw}{2},
+ \qquad
+ 0<d<\frac p w<\frac r2.
+\]
+Consequently
+\[
+ 1-\frac a w>\frac12,\qquad
+ 1-\frac d r>\frac12,\qquad
+ \frac{w-a}{w}>\frac12,\qquad
+ \frac{r-d}{r}>\frac12.
+\]
+Also
+\[
+ w+d-\frac{k}{r}=\frac{\Delta_R}{r}>0,
+\]
+so
+\[
+ 0<\frac{k}{r}<w+d<1.
+\]
+Thus both endpoint problems are well-defined.  For the return problems,
+\[
+ 0<a<\frac12,\qquad
+ 0<d<\frac12,\qquad
+ 0<m=\min\left\{\frac a r,\frac d w\right\}<\frac12,
+\]
+and
+\[
+ 0<Y_0=\frac{k}{2r}<\frac12.
+\]
+The update $T$ maps into $[0,1]$, so the remaining input bounds follow
+inductively.
+\end{proof}
+
+The bridge from the geometric notation is
+\[
+ r=R,\qquad a=\alpha,\qquad d=\delta.
+\]
+This line is the entire geometry-to-analysis dictionary for the four
+formalization-ready problems.
+

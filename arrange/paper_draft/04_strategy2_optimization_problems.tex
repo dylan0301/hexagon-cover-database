@@ -1,0 +1,25 @@
+\section{Strategy 2 as Real-Variable Optimization}
+\label{sec:strategy2-optimization-problems}
+
+This appendix is the formalization interface for the scalar part of
+Strategy~2.  The first four problems below contain no hexagon, triangle,
+boundary edge, role type, or placement variable.  Each consists only of:
+
+\begin{enumerate}
+\item a finite tuple of real input variables;
+\item derived radical functions;
+\item a branchwise semialgebraic domain;
+\item a recurrence built from one explicit bivariate function; and
+\item a strict objective inequality.
+\end{enumerate}
+
+The geometric appendices have the separate obligation of proving that every
+routed configuration produces a point in the stated domain.  Conversely, the
+optimization proofs must not use geometric facts not written among the domain
+constraints.  This separation is intended to be copied directly into a proof
+assistant.
+
+
+\input{04_strategy2_optimization_core}
+\input{04_strategy2_optimization_registered}
+\input{04_strategy2_optimization_remaining}

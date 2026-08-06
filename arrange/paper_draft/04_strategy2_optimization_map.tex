@@ -1,0 +1,86 @@
+\subsection{The only primitive transfer function}
+
+For $1/2<c<1$ and $0\le x\le1$, define
+\[
+ \begin{aligned}
+ L(c)&=\frac c2\left(1-\sqrt{4c^2-3}\right),&
+ U(c)&=c-L(c),\\
+ h(c)&=\frac{2c}{1+\sqrt{16c^2-3}},&
+ Q_-(c,x)&=\frac{\sqrt{x^2-cx+c^2}}{c}-x,
+ \end{aligned}
+\]
+and
+\[
+ Q_+(c,x)=
+ \frac{2(1-x^2)c^2}
+ {2xc^2+c+
+ \sqrt{(2xc^2+c)^2-4(1-c^2)(1-x^2)c^2}}.
+\]
+
+\begin{definition}[Pure capped-output function]
+\label{def:s2-pure-map}
+Define $F:(1/2,1)\times[0,1]\to[0,1]$ as follows.  For
+$1/2<c\le\sqrt3/2$, put
+\[
+ F(c,x)=
+ \begin{cases}
+  1-x,&0\le x\le1-c,\\
+  Q_+(c,x),&1-c<x<h(c),\\
+  h(c),&x=h(c),\\
+  Q_-(c,x),&h(c)<x<c,\\
+  1-x,&c\le x\le1.
+ \end{cases}
+\]
+For $\sqrt3/2<c<1$, put
+\[
+ F(c,x)=
+ \begin{cases}
+  1-x,&0\le x\le1-c,\\
+  Q_+(c,x),&1-c<x\le L(c),\\
+  L(c),&L(c)<x<U(c),\\
+  Q_-(c,x),&U(c)\le x<c,\\
+  1-x,&c\le x\le1.
+ \end{cases}
+\]
+Finally define the incoming-demand update
+\[
+ T(c,x):=1-F(c,x).
+\]
+\end{definition}
+
+The function $F$ is the exact capped outgoing capacity; $T$ is the
+corresponding next-input lower update.  Proposition~\ref{prop:capped-demand-map}
+proves that these branch formulas agree with the geometric transfer
+calculus.  In this appendix they are treated only as explicit real functions.
+
+\begin{definition}[Pure lower relaxations]
+\label{def:s2-pure-relaxations}
+For $0<d<1-\sqrt3/2$, define the low root
+\[
+ E_0(d):=L(1-d).
+\]
+For a coefficient $\lambda\in\mathbb R$, define the affine trial map
+\[
+ A_{d,\lambda}(x):=x+\lambda(x-d).
+\]
+It is licensed on an interval $I$ only after proving
+\[
+ A_{d,\lambda}(x)\le T(1-d,x)
+ \qquad(x\in I).
+\]
+Define the threshold trial map
+\[
+ \Theta_d(x)=
+ \begin{cases}
+ x,&0\le x\le E_0(d),\\
+ 1-E_0(d),&E_0(d)<x\le1.
+ \end{cases}
+\]
+The exact map satisfies
+\[
+ \Theta_d(x)\le T(1-d,x).
+\]
+These are proof devices for Problems~\ref{prob:s2-ce1-five-chain} and~\ref{prob:s2-ce2-five-chain}; they are not additional primitive functions in
+the problem statements.
+\end{definition}
+

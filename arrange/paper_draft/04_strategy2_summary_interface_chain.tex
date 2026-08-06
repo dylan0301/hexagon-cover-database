@@ -1,0 +1,71 @@
+\subsection{One chain interface}
+
+\begin{definition}[Certified transfer chain]
+\label{def:body-chain-notation}
+\label{def:body-six-slot-chain}
+A \emph{certified transfer chain} consists of consecutive V triangles
+$T_{i_0},\ldots,T_{i_m}$, lower bounds
+$x_0,\ldots,x_m$ for their incoming boundary reaches, and one justified
+handoff at each intermediate edge.  Each handoff is one of the following.
+
+\begin{enumerate}
+\item An exact center-free or center-assisted transfer supplied by
+Proposition~\ref{prop:body-transfer-interface}.
+\item The identity relaxation $x_{j+1}\ge x_j$.  This relaxation is permitted
+only when $T_{i_j}$ is nonsupercritical, the handoff edge is center-free, and
+every nonincident role has zero-length trace on that edge.
+\item A branch-specific affine, threshold, quarter-radial, or Vd-corner lower
+bound whose domain and pointwise validity are stated in
+Appendix~\ref{sec:strategy2-optimization-problems}.
+\end{enumerate}
+
+The order of the chain is geometric: the first recorded handoff acts first.
+Writing an identity slot asserts only the individual inequality
+$x_{j+1}\ge x_j$; it does not assert a separate pointwise comparison between
+two formal compositions.
+\end{definition}
+
+\begin{figure}[H]
+\centering
+\resizebox{.88\linewidth}{!}{\input{figures/relaxed_composition}}
+\caption{The geometric content of a relaxed transfer chain.  Endpoint center
+traces are first absorbed into residual demands.  Only the verified
+center-free internal handoffs may then be weakened to identity propagation.}
+\label{fig:transfer-chain}
+\end{figure}
+
+\begin{definition}[Center-free ordinary boundary path]
+\label{def:body-center-free-path}
+A consecutive boundary path is \emph{center-free ordinary} when, on every
+internal edge, the center role has empty trace and every role other than the
+two incident path roles has zero-length trace.  Endpoint contributions from
+roles outside the path must be incorporated into the two endpoint residuals
+before the path is used.
+\end{definition}
+
+\begin{proposition}[Four possible endings of a transfer chain]
+\label{prop:body-strategy2-chain-principle}
+Every Strategy~2 certificate has one of the following endings.
+
+\begin{enumerate}
+\item \emph{Strict cycle:} six center-free nonsupercritical handoffs force
+$A_0<A_1<\cdots<A_5<A_0$.
+\item \emph{Endpoint deficit:} after all external endpoint contributions are
+absorbed, the two endpoint capacities have sum strictly below one; the
+center-free path budget is then impossible.
+\item \emph{Returned-demand excess:} a five-V-triangle chain returns a lower
+bound $Z$ while the remaining role has the strict upper bound
+$A_0<1-H$, and the analytic certificate gives $Z>1-H$.
+\item \emph{Radial separation:} the analytic endpoint bounds leave a
+nonempty interval between the vertex-side and center-side radial traces.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+The handoff induction is Proposition~\ref{prop:body-transfer-interface}.
+The endpoint conclusion is Lemma~\ref{lem:reader-boundary-path}.  The strict
+upper bound in the returned-demand case is the exact one-gap actual-V-triangle
+interface.  The radial cases use the branch-specific terminal statements in
+Proposition~\ref{prop:body-special-terminal-certificates}.
+\end{proof}
+
