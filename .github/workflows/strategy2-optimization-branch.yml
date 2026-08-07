@@ -31,9 +31,11 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Apply Strategy 2 extraction, split, and provenance finalization
+      - name: Apply final audit repairs, Strategy 2 extraction, split, and provenance finalization
         run: |
           set -euo pipefail
+          python tools/apply_final_audit_repair_followup.py
+          python tools/apply_final_audit_repairs.py
           python tools/apply_strategy2_optimization_extraction.py
           python tools/finalize_strategy2_split_provenance.py
           git diff --check
