@@ -38,6 +38,11 @@ jobs:
           python tools/apply_final_audit_repairs.py
           python tools/apply_strategy2_optimization_extraction.py
           python tools/finalize_strategy2_split_provenance.py
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('arrange/paper_draft/04c_short_Vd_placements.tex')
+          path.write_text(path.read_text(encoding='utf-8').rstrip() + '\n', encoding='utf-8')
+          PY
           git diff --check
           test -s formalization/strategy2_optimization/Strategy2OptimizationProblems.lean
           grep -q 'theorem problemS2T3' formalization/strategy2_optimization/Strategy2OptimizationProblems.lean
