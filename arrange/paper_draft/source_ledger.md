@@ -47,7 +47,7 @@ calculation lemma without the appendices and incorporated supplements.
 | `03_strategy1_length.tex` | perimeter and skeleton trace calculations |
 | `04b_common_CE1_CE2_budgets.tex` | master deficit, short-role count, common budgets |
 | `04c_short_Vd_placements.tex` | quarter envelope, rescuer profiles, radial separations |
-| `04_strategy2_verification.tex` | consolidated Strategy 2 chains, exact endpoint calculus, complete `407X` audit, two-chart replacement, and CE2 one-Vd assembly |
+| `04_strategy2_verification.tex` | input-only wrapper for the split Strategy 2 verification modules |
 | `05_strategy3_area.tex` | local area inequalities and cyclic certificates |
 | `06_strategy4_ab_core.tex` | frontier, forcing, Newton reduction, adjacent overlaps |
 | `06a_strategy4_exact_certificate.tex` | sole mixed-overlap certificate source: reduction, manifest, Bernstein proof, cap geometry |
@@ -127,46 +127,39 @@ numbered source `2530` and is satisfied in every routed application.
 
 ### 3.5 T3-like endpoint audit
 
-The complete `407X` proof is formally incorporated. The paper records the
-exhaustive four-label branch table and pins every proof object used by that
-table under
-
-```text
-proof/4XXX_CE1CE2/40XX_Nplus0/
-407X_T3_like_no_Vd1Vd2/
-```
+The complete `407X` proof is formally incorporated from the current
+proof-package objects.  Full Git blob identities are recorded in
+`proof/407X_PROVENANCE.json`; the current prefixes are:
 
 | File | Blob prefix |
 |---|---|
-| `4073_boundary_loss_framework.md` | `f3f0395748f5` |
-| `4074_L_Full_branch.md` | `880b59ec8d3c` |
+| `4073_boundary_loss_framework.md` | `910c7a8a1330` |
+| `4074_L_Full_branch.md` | `7c72dfaf7eb3` |
 | `4075_Tminus_low_lower_branch_obligations.md` | `ebe2b65f8840` |
 | `4078_left_L_family_completion.md` | `f1323325b069` |
 | `4079_first_Full_branch.md` | `c66eea05277d` |
 | `407a_left_Thigh_branch_completion.md` | `aa5cb1a6dc63` |
 | `407c_rigor_completion_details.md` | `c80243f67124` |
-| `407d_rigor_final_assembly.md` | `a6ef81f787c4` |
+| `407d_rigor_final_assembly.md` | `e22c85c95fdd` |
 
-The difficult polynomial selectors, high-sheet estimates, and right-$T_-$
-bounds remain in those exact supplementary proof objects rather than being
-partially duplicated in TeX.
+CI recomputes every Git blob from the exact file bytes and verifies
+both the consolidated TeX manifest and this ledger.
 
 ### 3.6 Vd1 replacement and placement assembly
 
-The complete replacement in `04d` includes:
+The consolidated `04_strategy2_verification.tex` is the sole detailed
+Strategy 2 verification source.  It contains:
 
-- both ordered halves of the half-square admissibility lemma;
-- all strict local margins;
-- the center-handoff radial inequality;
-- explicit axis triangles and translations;
-- proof that the replacements are open nonsupercritical Vd0 roles;
-- preservation of the shared boundary and both radial demands.
+- the complete four-label `407X` endpoint audit;
+- separate local charts at the two distinguished replacement vertices;
+- the exact shifted-template reach triples;
+- the Vd0 and nonsupercritical role checks;
+- preservation of the shared edge, outer boundary traces, and radial handoffs;
+- preservation of the full skeleton required by strengthened `4013`;
+- the single authoritative CE2 exactly-one-Vd1/Vd2 placement assembly.
 
-`04e` gives the authoritative exhaustive CE2 exactly-one-Vd1/Vd2 assembly.
-`04f` records that the earlier compact statements are summaries of these later
-complete propositions, not separate proof dependencies. The proof-package
-index and assembly files `4140` and `4148` were updated to match the actual
-quarter-envelope and Vd-specific terminal arguments.
+`04c_short_Vd_placements.tex` now contains only reusable local lemmas
+and no competing branch assembly.
 
 ### 3.7 Strategy 4 certificate
 
@@ -259,8 +252,7 @@ Active sources are the `3105X_self_contained_direct_Vd0_nine_point` package,
 forcing, Newton placement, cap chain, and adjacent overlaps are analytic. The
 two mixed overlaps are exact computer-assisted claims with authenticated input
 and exact verification algorithms. Source review found no arithmetic-model,
-coordinate-normalization, or Bernstein-conversion defect. The verifiers were
-not executed during this source-only edit.
+coordinate-normalization, or Bernstein-conversion defect. The exact derivation and positivity verifiers are replayed by read-only proof CI on every change.
 
 ## 6. Assembly invariants
 
@@ -280,21 +272,11 @@ The final proof retains all of the following.
 
 ## 7. Build and PDF status
 
-The manuscript was rebuilt locally with XeLaTeX and the corresponding
-`xdvipdfmx` conversion:
-
-```text
-xelatex -no-pdf -interaction=nonstopmode -halt-on-error main.tex
-xelatex -no-pdf -interaction=nonstopmode -halt-on-error main.tex
-xdvipdfmx -E -o main.pdf main.xdv
-```
-
-The resulting `main.pdf` has 136 pages.  The reader-facing body ends on page
-35.  Strategy 2's 32 full-skeleton panels occur on body pages 6--28: the
-transfer figures occupy pages 8--11, the signed-center sample is on page 12,
-and the exact certificate figures occupy pages 15--28.  The build has no
-undefined references, duplicate labels, or overfull boxes.  Ghostscript decoded every
-page, and `pdfinfo` and `pdftotext` read the complete PDF successfully.
+The tracked `main.pdf` is rebuilt with a fixed `SOURCE_DATE_EPOCH` and
+compared byte-for-byte with a clean XeLaTeX rebuild in permanent
+read-only CI.  The current source commit, workflow run, exact verifier
+results, tool versions, page count, and PDF SHA-256 are recorded in
+`../20260802_verification_summary.txt`.
 
 ## 2026-07-31 reader-interface revision
 
@@ -318,3 +300,37 @@ $\Delta_L$ for the signed companion trace; all six-slot words retain degenerate
 center intervals; and identity slots are stated as weakened individual
 handoff inequalities rather than as an unsupported order on formal
 compositions.
+
+## 2026-08-07 Strategy 2 optimization extraction
+
+The Strategy 2 interface now has four layers.
+
+1. `04_strategy2_summary*.tex`: reader-facing geometry and routing.
+2. `04d_strategy2_parameter_bridges.tex`: the sole geometry--parameter dictionary.
+3. `04_strategy2_optimization_*.tex`: explicit real-variable problem domains and objectives.
+4. `04e_strategy2_verification_*.tex`: the application registry and preserved exact calculation sections.
+
+The T3 endpoint domain is a finite union of signed-center, residual-order,
+radial hit/miss, and four-label cells.  The non-symmetry trace-dominating
+translation is represented by exact radical variables; the preceding \(D_6\)
+normalization remains geometric.  The Vd problems use explicit component and
+corner graph functions, with no placement-defined supremum.  The Lean shell in
+`formalization/strategy2_optimization/` contains only problem statements with
+`sorry`.
+
+<!-- BEGIN GENERATED 407X SPLIT PROVENANCE -->
+## Generated 407X split-source provenance
+
+The split verification appendix retains the following exact proof-package objects.
+
+| File | Git blob prefix |
+|---|---|
+| `4073_boundary_loss_framework.md` | `910c7a8a1330` |
+| `4074_L_Full_branch.md` | `7c72dfaf7eb3` |
+| `4075_Tminus_low_lower_branch_obligations.md` | `ebe2b65f8840` |
+| `4078_left_L_family_completion.md` | `f1323325b069` |
+| `4079_first_Full_branch.md` | `c66eea05277d` |
+| `407a_left_Thigh_branch_completion.md` | `aa5cb1a6dc63` |
+| `407c_rigor_completion_details.md` | `c80243f67124` |
+| `407d_rigor_final_assembly.md` | `e22c85c95fdd` |
+<!-- END GENERATED 407X SPLIT PROVENANCE -->

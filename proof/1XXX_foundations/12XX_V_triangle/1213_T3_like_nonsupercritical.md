@@ -11,7 +11,7 @@ $$
 the perimeter V triangle is nonsupercritical:
 
 $$
-\boxed{a_i+b_i\le1.}
+\boxed{A_i+B_i\le1.}
 $$
 
 Equivalently, a T3-like V triangle is never counted by
@@ -20,7 +20,7 @@ $$
 N_+=
 \left\lvert
 \left\lbrace
-i:a_i+b_i>1
+i:A_i+B_i>1
 \right\rbrace
 \right\rvert.
 $$
@@ -36,9 +36,9 @@ $$
 A+B\le\sqrt{1-t+t^2}\le1.
 $$
 
-Since the required V triangle coordinates satisfy $a_i\le A$ and $b_i\le B$, it
+Since the required V triangle coordinates satisfy $A_i\le A$ and $B_i\le B$, it
 follows that
 
 $$
-a_i+b_i\le A+B\le1.
+A_i+B_i\le A+B\le1.
 $$

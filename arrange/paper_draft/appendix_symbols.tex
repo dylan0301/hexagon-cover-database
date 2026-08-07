@@ -61,12 +61,22 @@ $[\Phi_1\mid\cdots\mid\Phi_r]$&
 The composition $\Phi_r\circ\cdots\circ\Phi_1$, with maps listed in geometric
 V-triangle order.\\
 $B_c,F_c,G_c$&
-Technical appendix aliases:
+Technical verification aliases:
 $B_c(a)=g_c(1-a)$,
 $F_c(a)=\widehat g_c(1-a)$, and
 $G_c(a)=\widehat g_c^\vee(a)$.\\
+$F(c,x),T(c,x)$&
+The pure Strategy~2 optimization functions:
+$F(c,x)$ is the explicit capped outgoing capacity and
+$T(c,x)=1-F(c,x)$ is the next-input update.  They occur only in
+Appendix~\ref{sec:strategy2-optimization-problems}.\\
+$\mathcal D_1,\mathcal D_2$&
+The pure CE1 and CE2 signed parameter domains in variables $(r,a,d)$.\\
+$\Psi_{\rm E1},\Psi_{\rm E2},\Psi_{\rm R1},\Psi_{\rm R2}$&
+The four formalization-ready Strategy~2 objective functions.\\
 $e(d)$&
-The high-radial low-root threshold for deficit $d$.\\
+The high-radial low-root threshold for deficit $d$ in the geometric and
+verification notation.\\
 $R,W,E,\alpha,\delta,\Delta_R,\Delta_L$&
 The common signed CE1/CE2 center variables and trace surpluses.\\
 $f(a,b),\mathcal L(a,b)$&
@@ -79,6 +89,20 @@ The Newton inner points, inner witness hull, and exact forced witness set.\\
 $I(X,r)$&
 The level-$\sqrt3/2$ support cap associated with the disk
 $\mathbb D(X,r)$.\\
+
+\(\mathcal D_{\rm C1},\mathcal D_{\rm C2},\mathcal D_1,\mathcal D_2\)&
+The full signed CE1/CE2 cells and the oriented CE1/CE2 one-gap cells in the
+pure Strategy~2 registry.\\
+\(F(c,x),T(c,x)\)&
+The explicit capped-output function and complementary incoming-demand update
+used by every Strategy~2 optimization problem.\\
+\(\Omega_{\rm T3},\Omega_{\rm SC},\Omega_{\rm VD}\)&
+The finite real-variable T3 endpoint, adjacent-rescuer, and Vd radial
+certificate domains.\\
+\(\mathsf E(L,U;x),\mathsf R(L,U;x)\)&
+The explicit initial-component endpoint and complementary residual; these
+replace interval-component suprema in the Vd problems.\\
+
 \bottomrule
 \end{tabular}
 \end{table}

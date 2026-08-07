@@ -11,7 +11,7 @@ The successful CE0 conditional certificate does not use this route.  See
 
 ## Supercritical rows
 
-A vertex row is called supercritical here when
+A vertex V triangle is called supercritical here when
 
 $$
 a_i+b_i>1.
@@ -36,7 +36,7 @@ $$
 \varepsilon>0.
 $$
 
-For a supercritical row with
+For a supercritical V triangle with
 
 $$
 a_i+b_i\ge1+\varepsilon,
@@ -77,7 +77,7 @@ $$
 (a_i,b_i)=(1-x_{i-1},x_i).
 $$
 
-Thus the pointwise threshold bound applies to row $i$ whenever
+Thus the pointwise threshold bound applies to V triangle $i$ whenever
 
 $$
 1-x_{i-1}+x_i\ge1+\varepsilon.
@@ -121,7 +121,7 @@ This application should not be used without a new certified argument.
 
 ## Global replacement formulation
 
-An older formulation of the relaxation was to replace every supercritical row
+An older formulation of the relaxation was to replace every supercritical V triangle
 by a row on the near-threshold line
 
 $$
@@ -129,13 +129,13 @@ a_i+b_i=1+\varepsilon.
 $$
 
 This is not a certified replacement.  Changing one perimeter cut point affects
-adjacent rows, so a simultaneous replacement of all supercritical rows may fail
+adjacent rows, so a simultaneous replacement of all supercritical V triangles may fail
 to define a valid global cut-point configuration or may change neighboring rows
 in an uncontrolled way.
 
 The global replacement formulation would need to prove:
 
-1. keep each designated supercritical row supercritical;
+1. keep each designated supercritical V triangle supercritical;
 2. push each such row down to $a_i+b_i=1+\varepsilon$;
 3. within those constraints, maximize the neighboring subcritical $b$- or
    $a$-coordinates that increase the possible inside-area contribution.

@@ -2,7 +2,7 @@
 
 Status: Strategy
 
-After symmetry and reduction, take the unique supercritical row to be the $V_4$ row. The free data are organized as:
+After symmetry and reduction, take the unique supercritical V triangle to be the $V_4$ row. The free data are organized as:
 
 $$
 a_4,b_4,a_1,b_1.
@@ -39,7 +39,7 @@ calculation; its exact union degeneration is proved separately in `20091`.
 
 ## Algorithm-2 Diagonal Points
 
-Algorithm 2 chooses three diagonal points by forcing two of the three nonsupercritical rows among $V_0,V_1,V_2$ to lie on equality lines.
+Algorithm 2 chooses three diagonal points by forcing two of the three nonsupercritical V triangles among $V_0,V_1,V_2$ to lie on equality lines.
 
 The three equality patterns are:
 

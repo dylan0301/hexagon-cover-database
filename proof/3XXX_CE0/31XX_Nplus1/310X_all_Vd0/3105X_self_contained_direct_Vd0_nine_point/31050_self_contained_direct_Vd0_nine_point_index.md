@@ -41,9 +41,9 @@ are supporting certificate artifacts rather than separate proof-status notes.
 |---|---|---|
 | [`1101_CE_classification.md`](../../../../1XXX_foundations/11XX_C_triangle/1101_CE_classification.md) | Proven | CE0 boundary-edge locality in the terminal branch wrapper. |
 | [`1201_V_triangle_types.md`](../../../../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md) | Proven | Vd0 adjacent-radial locality. |
-| [`1214_strict_boundary_handoff_selection.md`](../../../../1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md) | Proven | Strict exact-one handoffs and preservation of the unique supercritical row. |
+| [`1214_strict_boundary_handoff_selection.md`](../../../../1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md) | Proven | Strict exact-one handoffs and preservation of the unique supercritical V triangle. |
 | [`2004_admissible_set.md`](../../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md) | Proven | Exact radial envelope $c_{\max}$. |
-| [`20091_ab_union_curve_a_plus_b_gt_1.md`](../../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md) | Proven | Exact four-piece frontier of the unique strict supercritical row. |
+| [`20091_ab_union_curve_a_plus_b_gt_1.md`](../../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md) | Proven | Exact four-piece frontier of the unique strict supercritical V triangle. |
 
 ## Provenance from earlier `310X` work
 

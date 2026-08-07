@@ -1,0 +1,47 @@
+\subsection{Finite contact-label cells}
+
+Let
+\[
+ \mathfrak L=\{\mathrm{Full},L,T_-,T_+\}.
+\]
+For \((c,x)\in(1/2,1)\times[0,1]\), define the following four pairwise
+disjoint predicates:
+\[
+ \begin{aligned}
+ \mathcal C_{\mathrm{Full}}
+ &=\{(c,x):x\le1-c\text{ or }c\le x\},\\
+ \mathcal C_L
+ &=\left\{(c,x):
+ \frac12<c\le\frac{\sqrt3}{2},\ x=h(c)\right\}\\
+ &\qquad{}\cup
+ \left\{(c,x):
+ \frac{\sqrt3}{2}<c<1,\ L(c)<x<U(c)\right\},\\
+ \mathcal C_{T_-}
+ &=\left\{(c,x):
+ \frac12<c\le\frac{\sqrt3}{2},\ h(c)<x<c\right\}\\
+ &\qquad{}\cup
+ \left\{(c,x):
+ \frac{\sqrt3}{2}<c<1,\ U(c)\le x<c\right\},\\
+ \mathcal C_{T_+}
+ &=\left\{(c,x):
+ \frac12<c\le\frac{\sqrt3}{2},\ 1-c<x<h(c)\right\}\\
+ &\qquad{}\cup
+ \left\{(c,x):
+ \frac{\sqrt3}{2}<c<1,\ 1-c<x\le L(c)\right\}.
+ \end{aligned}
+\]
+Write
+\[
+ \mathrm{Cell}_{\ell}(c,x)
+ \quad\Longleftrightarrow\quad
+ (c,x)\in\mathcal C_\ell.
+\]
+The equality \(x=h(c)\) is assigned to \(L\), \(x=L(c)\) is assigned to
+\(T_+\), and \(x=U(c)\) is assigned to \(T_-\).  Hence
+\[
+ (1/2,1)\times[0,1]
+ =
+ \bigsqcup_{\ell\in\mathfrak L}\mathcal C_\ell.
+\]
+This is the finite branch index used by the endpoint problems.  No algebraic
+expression is optimized outside its own cell.

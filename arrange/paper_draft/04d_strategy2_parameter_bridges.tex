@@ -1,0 +1,277 @@
+\section{Strategy 2 Geometry--Parameter Bridges}
+\label{sec:strategy2-parameter-bridges}
+
+This appendix is the only place where geometric Strategy~2 records and the
+self-contained optimization variables coexist.  Every proposition below has
+one task: produce a point of an explicitly registered real domain and identify
+the objective with the scalar quantity used in the body.  No optimization
+inequality is proved here.
+
+\subsection{Signed center and the four all-Vd0 problems}
+
+\begin{proposition}[Signed-domain bridge]
+\label{prop:s2-domain-bridge}
+Let \((R,\alpha,\delta)\) be the normalized signed-center record.  Under
+\[
+ r=R,\qquad a=\alpha,\qquad d=\delta,
+\]
+the full geometric CE1 and CE2 center cells are respectively
+\(\mathcal D_{\rm C1}\) and \(\mathcal D_{\rm C2}\).  The additional
+orientation and handoff inequalities in the CE1 all-Vd0 one-gap branch give
+the smaller cell \(\mathcal D_1\), while
+\(\mathcal D_2=\mathcal D_{\rm C2}\).
+\end{proposition}
+
+\begin{proof}
+The signed-center normal form gives
+\[
+ W=1-R,\quad E=\sqrt{1-RW},\quad
+ \eta=1-E,\quad P=E(1-E),
+\]
+\[
+ k=\eta+\alpha+\delta,\quad
+ \Delta_R=P-\alpha-W\delta,\quad
+ \Delta_L=P-R\alpha-\delta.
+\]
+After substitution these are the definitions of
+\(w,e,\eta,p,k,\Delta_R,\Delta_L\).  The CE sign is exactly the sign of
+\(\Delta_L\).  In the oriented CE1 one-gap branch the midpoint and endpoint
+orders additionally give
+\[
+ \alpha<W/2,\qquad \delta<R/2,\qquad
+ R\delta-W\alpha>0,
+\]
+which are precisely the extra inequalities defining \(\mathcal D_1\).
+\end{proof}
+
+For an endpoint record
+\(\mathbf e=(a_-,a_+,c_-,c_+)\), write
+\[
+ \mathrm{Cap}(\mathbf e)
+ =\widehat g_{c_-}(1-a_-)+\widehat g_{c_+}(1-a_+).
+\]
+The exact function dictionary is
+\[
+ F(c,x)=\widehat g_c(1-x),
+ \qquad
+ T(c,x)=\widehat g_c^\vee(x).
+\]
+
+\begin{proposition}[Endpoint bridge]
+\label{prop:s2-endpoint-bridge}
+The normalized one-gap endpoint record is
+\[
+ \left(\frac{k}{r},\ r-d,\ 1-\frac a w,\ 1-\frac d r\right),
+\]
+and
+\[
+ \mathrm{Cap}(\mathbf e_{\rm one})-1
+ =\Psi_{\rm E1}(r,a,d).
+\]
+On \(\mathcal D_2\), the paired record is
+\[
+ \left(w-a,\ r-d,\ \frac{w-a}{w},\ \frac{r-d}{r}\right),
+\]
+and
+\[
+ \mathrm{Cap}(\mathbf e_{\rm two})-1
+ =\Psi_{\rm E2}(r,a,d).
+\]
+\end{proposition}
+
+\begin{proof}
+Substitute the signed trace endpoints and complementary radial exits, then use
+\(F(c,x)=\widehat g_c(1-x)\).
+\end{proof}
+
+\begin{proposition}[Returned-demand bridge]
+\label{prop:s2-return-bridge}
+Put
+\[
+ X=r-d,\qquad H=\frac{k}{2r},\qquad
+ m=\min\left\{\frac ar,\frac dw\right\}.
+\]
+Let \(Y_0=H\) and
+\[
+ Y_1=T(1-a,Y_0),\qquad
+ Y_2=T(1-m,Y_1),\qquad
+ Y_3=T(1-d,Y_2).
+\]
+The objective \(Y_3>w+d=1-X\) in Problem S2-R1 or S2-R2 is the
+complement-dual form of the middle-three exact forward-transfer inequality.
+It implies the body target \(Z>1-H\).
+\end{proposition}
+
+\begin{proof}
+The five radial demands are
+\[
+ 1-\frac dr,\quad 1-d,\quad 1-m,\quad 1-a,\quad 1-\frac aw.
+\]
+The first and fifth transfers are extensive.  Three exact complement-duality
+steps reverse the middle transfers and transform the forward terminal bound
+into \(Y_3>1-X\).
+\end{proof}
+
+\subsection{T3 endpoint domain}
+
+\begin{proposition}[Symmetry and exact T3 source variables]
+\label{prop:s2-t3-source-bridge}
+Normalizing the unique center midpoint to \(M_0\), and then choosing the
+supported adjacent arm \(r_1\), uses only the \(D_6\)-symmetry of the regular
+hexagon.  Those two without-loss-of-generality normalizations are retained.
+
+The later trace-dominating translation is not a \(D_6\)-symmetry.  Its output
+is replaced by the exact real parameters
+\[
+ 0<\tau<1,\qquad
+ z=\sqrt{1-\tau+\tau^2},\qquad
+ 0<\beta<\frac{\tau z}{1+z}.
+\]
+The boundary endpoints and adjacent-radial interval are
+\[
+ b_-=\beta,\qquad b_+=z-\beta,
+\]
+\[
+ q=1-z+\beta,\qquad
+ c_\star=\frac q\tau,\qquad
+ u_\star=1+\beta-\tau.
+\]
+Every support-isolated endpoint record therefore determines a point of one
+cell in Definition~\ref{def:s2-t3-finite-union}.
+\end{proposition}
+
+\begin{proof}
+The first paragraph is the dihedral normalization in the role-forcing and
+support-isolation lemmas.  For the non-symmetry step use the exhaustive
+translated Type-II equations.  With its original orientation parameter
+\(\tau\), one has
+\[
+ D=\frac1z,\qquad R=\frac{\tau}{z}.
+\]
+The translated side offset is \(\beta\), and direct substitution gives the
+four displayed endpoint formulas.  The center residual orders and the radial
+hit/miss orders are precisely the cells
+\(\mathcal R_i,\mathcal L_{\varepsilon,j},\mathcal K_h\).  The exact capped
+map supplies one contact cell for each endpoint in the hard region.
+\end{proof}
+
+\begin{proposition}[T3 objective bridge]
+\label{prop:s2-t3-objective-bridge}
+For the point \(\xi\in\Omega_{\rm T3}\) produced above,
+\[
+ \mathrm{Cap}(\mathbf e_{\rm T3})-1
+ =\Psi_{\rm T3}(\xi).
+\]
+\end{proposition}
+
+\begin{proof}
+The variables \(A_1,A_5\) are the far-side residual boundary demands, while
+\(C_1,C_5\) are the complementary radial demands.  Apply
+\(F(c,x)=\widehat g_c(1-x)\) to both endpoint terms.
+\end{proof}
+
+\subsection{Adjacent-rescuer domains}
+
+\begin{proposition}[First rescuer source bridge]
+\label{prop:s2-sc-t3-bridge}
+The exact rational variables of the T3-like local profile satisfy
+\[
+ 0\le\theta\le2-\sqrt3,\qquad
+ x_L(\theta)\le x\le\frac12-\theta,
+\]
+and produce
+\[
+ a=x\rho(\theta),\qquad
+ c=x+\theta,\qquad
+ u=1-\rho(\theta)+a.
+\]
+Hence the record belongs to \(\Omega_{\rm SC}^{T}\).
+\end{proposition}
+
+\begin{proof}
+Use
+\[
+ \theta=\frac{D-1}{\varrho},
+ \qquad
+ x=\frac{aD}{\varrho}.
+\]
+The exact inverse formulas for \(D,\varrho\) give the graph identities and
+the stated interval bounds.  This replaces the genuine translation reduction;
+it does not alter the preceding \(D_6\)-normalization.
+\end{proof}
+
+\begin{proposition}[Second rescuer source bridge]
+\label{prop:s2-sc-vd1-bridge}
+The Vd1 corner variables satisfy the equations and inequalities of
+\(\Omega_{\rm SC}^{V}\).  In particular, absence of a positive interval on
+the second adjacent arm is exactly
+\[
+ \Delta(t)-a-tb-t\le\frac{1-a}{t+1}.
+\]
+\end{proposition}
+
+\begin{proof}
+The two raw endpoints on that arm are
+\[
+ \lambda_5=\frac{1-a}{t+1},
+ \qquad
+ \mu_5=\Delta(t)-a-tb-t.
+\]
+Since \(\lambda_5>0\), absence of a positive interval is equivalent to
+\(\mu_5\le\lambda_5\).  The remaining equations are the first-arm graph and
+the neighboring-midpoint inequality.
+\end{proof}
+
+\subsection{Vd radial domains}
+
+\begin{proposition}[Explicit residual bridge]
+\label{prop:s2-vd-residual-bridge}
+For a center interval \([L,U]\), the component endpoint and residual used in
+the Vd placement proofs are exactly
+\[
+ \mathsf E(L,U;x),\qquad \mathsf R(L,U;x).
+\]
+Thus every center-assisted boundary residual belongs to one of the three
+explicit order cells in Problem S2-VD.
+\end{proposition}
+
+\begin{proof}
+If \(x<L\), the initial component ends at \(x\).  If \(L\le x\le U\), it
+continues through the interval to \(U\).  If \(U<x\), it already extends to
+\(x\).  The cases are disjoint after assigning equality to the middle cell.
+\end{proof}
+
+\begin{proposition}[Explicit corner-graph bridge]
+\label{prop:s2-vd-corner-bridge}
+Let \(p_1,q_1\) be the exact boundary reaches of an adjacent Vd role and let
+\(t>0\) be its corner parameter.  The far endpoint of a supported adjacent
+interval is
+\[
+ u_+=\frac{\sqrt{t^2+t+1}-p_1-tq_1-1}{t}.
+\]
+For a nonadjacent role with boundary reaches \(p_v,q_v\), its own-radial
+endpoint is
+\[
+ C_v=\frac{\sqrt{t^2+t+1}-p_v-tq_v}{t+1}.
+\]
+Consequently the adjacent and nonadjacent records lie in the cells of
+Definitions~\ref{def:s2-vd-adjacent-domain} and
+\ref{def:s2-vd-nonadjacent-domain}.
+\end{proposition}
+
+\begin{proof}
+Both identities are exact endpoint formulas of the corner normal form.
+Positive support is the explicit order
+\(\lambda_+<u_+\); absence of positive support is \(u_+\le\lambda_+\).
+The center exits for the three nonadjacent indices are
+\[
+ d,\qquad \min\left\{\frac ar,\frac dw\right\},\qquad a,
+\]
+which are exactly the finite order cells in the definition.
+\end{proof}
+
+\begin{remark}
+The Vd1--supercritical two-chart replacement is not represented by a scalar
+problem.  It changes geometric roles while preserving skeleton coverage and
+remains a geometric theorem.
+\end{remark}

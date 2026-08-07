@@ -1,0 +1,15 @@
+{
+  "files": {
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/mixed_overlap_core_data_00.py": "359b219f9deda8586217dcbf9ccc10de0ad48578",
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/mixed_overlap_core_data_01.py": "bfc807f906359636035634f799d74d552cf847fc",
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/mixed_overlap_core_data_02.py": "92887696ef94aeb93f3d95ab9b16a5388406fff4",
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/mixed_overlap_core_data_03.py": "c2791a8a6add132ad7a17655cbb13987124cb24e",
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/mixed_overlap_core_data_04.py": "7eeabecbbd17543b728130a1f2bc84f79e11a8d2",
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/mixed_overlap_core_data_05.py": "d676114292e722b60d1b792f615ee88ad58b6982",
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/mixed_overlap_core_polynomials.py": "07f57b178cf74980f8d956541842d0c4c4b2faa7",
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/verify_global_core_positivity.py": "821f9a6dc750fbdb80e02e40282b32cc845c3383",
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/verify_mixed_overlap_core_derivation.py": "0a55211ae37f56e1fc461560b0668a01456c7417"
+  },
+  "schema": 1,
+  "transcript_sha256": "dc46aaf263655d5159ecd3a81db72ee82477951d06172f4743b248df37209485"
+}

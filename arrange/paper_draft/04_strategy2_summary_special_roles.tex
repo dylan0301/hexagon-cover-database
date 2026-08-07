@@ -1,0 +1,115 @@
+\subsection{Special-role terminals}
+
+\begin{definition}[Adjacent-rescuer record]
+\label{def:body-adjacent-rescuer-data}
+An adjacent T3-like or Vd1 rescuer is reduced to a boundary contribution, an
+adjacent-radial entry, and an uncovered radial tail.  The non-symmetry
+translation used for the T3-like trace is eliminated in
+Definition~\ref{def:s2-sc-t3-domain}; the Vd1 corner record is eliminated in
+Definition~\ref{def:s2-sc-vd1-domain}.  After the bridge, no placement or
+translated-role predicate remains.
+\end{definition}
+
+\begin{definition}[CE2 Vd residual record]
+\label{def:body-vd-residual-data}
+For a CE2 state with exactly one Vd1 or Vd2 role, the placement audit produces
+two center-assisted boundary residuals and one adjacent or nonadjacent radial
+record.  The interval components are the explicit three-cell functions
+\(\mathsf E,\mathsf R\), and the radial endpoints are the exact corner graph
+values in Problem S2-VD.  No supremum remains in the analytic record.
+\end{definition}
+
+\begin{definition}[Vd1--supercritical replacement data]
+\label{def:body-vd-replacement-data}
+The remaining adjacent Vd1--supercritical placement uses two separate local
+vertex charts.  The strict placement margins determine two open,
+nonsupercritical Vd0 replacements preserving full skeleton coverage.  This is
+a geometric reduction, not a function-optimization problem.
+\end{definition}
+
+\begin{proposition}[Adjacent rescuer and Vd terminal certificates]
+\label{prop:body-special-terminal-certificates}
+The special-role branches terminate as follows.
+\begin{enumerate}
+\item Problem S2-SC gives the common strict-supercritical envelope mismatch
+for an adjacent T3-like or Vd1 rescuer.
+\item Problem S2-VD-adjacent proves that every possible radial bridge ends
+strictly before the CE2 center trace begins.
+\item Problem S2-VD-nonadjacent proves strict separation of the Vd and center
+radial intervals.
+\item The remaining adjacent Vd1--supercritical placement reduces by the
+two-chart replacement to the already excluded all-Vd0 skeleton state.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Items 1--3 are Problems~\ref{prob:s2-rescuer},
+\ref{prob:s2-vd-adjacent}, and \ref{prob:s2-vd-nonadjacent}, connected to the
+geometric records by Appendix~\ref{sec:strategy2-parameter-bridges}.  Their
+calculations are Lemmas~\ref{lem:short-t3-rescuer-profile},
+\ref{lem:short-vd1-rescuer-profile},
+\ref{lem:signed-vd-adjacent-placement}, and
+\ref{lem:signed-vd-nonadjacent-placement}.  Item 4 is
+Proposition~\ref{prop:paper-vd1-pair-replacement}.
+\end{proof}
+
+\subsection{Certificate register}
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.14}
+\begin{tabular}{@{}p{.27\textwidth}p{.28\textwidth}p{.31\textwidth}@{}}
+\toprule
+geometric branch&reader-visible ending&analytic record\\
+\midrule
+\(N_+=0\), all Vd0, \(\mathrm{gr}=0\)
+&strict cyclic ascent&no optimization\\
+\(N_+=0\), all Vd0, \(\mathrm{gr}=1\)
+&two-end capacity \(<1\)&Problem~\ref{prob:s2-one-gap-endpoint}\\
+CE2, \(\mathrm{gr}=2\)
+&paired two-end capacity \(<1\)&Problem~\ref{prob:s2-two-gap-endpoint}\\
+\(N_+=0\), T3-like, no Vd1/Vd2
+&finite four-label capacity \(<1\)&Problem~\ref{prob:s2-t3-endpoint}\\
+CE1, \(N_+=1\), all Vd0, one gap
+&returned demand exceeds cap&Problem~\ref{prob:s2-ce1-five-chain}\\
+CE2, \(N_+=1\), all Vd0, one gap
+&inclusive threshold disjunction&Problem~\ref{prob:s2-ce2-five-chain}\\
+one T3-like or adjacent Vd1 rescuer
+&supercritical envelope mismatch&Problem~\ref{prob:s2-rescuer}\\
+adjacent Vd1/Vd2
+&two explicit radial graph signs&Problem~\ref{prob:s2-vd-adjacent}\\
+nonadjacent Vd1/Vd2
+&four explicit separation signs&Problem~\ref{prob:s2-vd-nonadjacent}\\
+Vd1--supercritical adjacent pair
+&two-chart all-Vd0 reduction&geometric proposition\\
+\bottomrule
+\end{tabular}
+\caption{Strategy~2 after separating geometry, parameter extraction, and
+optimization.}
+\label{tab:body-strategy2-chains}
+\end{table}
+
+\begin{proposition}[Branches closed by Strategy 2]
+\label{prop:body-demand-branches}
+Strategy~2 closes:
+\begin{enumerate}
+\item the \(N_+=0\) all-Vd0 and T3-like-without-Vd1/Vd2 branches for CE1 and
+CE2;
+\item every nonempty-gap \(N_+=1\) all-Vd0 state;
+\item the exactly-one-T3-like \(N_+=1\) state with no Vd1/Vd2 role;
+\item the complementary transfer placements in the CE2, \(N_+=1\),
+exactly-one-Vd1/Vd2 branch.
+\end{enumerate}
+Singleton V-gaps are included.
+\end{proposition}
+
+\begin{proof}
+Use Propositions~\ref{prop:body-all-vd0-endpoints},
+\ref{prop:body-five-V-triangle-certificate},
+\ref{prop:body-t3-endpoint}, and
+\ref{prop:body-special-terminal-certificates}.  The complete CE2 one-Vd
+placement assembly is Proposition~\ref{prop:paper-ce2-one-vd-placements}.
+The zero-gap \(N_+=1\) all-Vd0 cell remains the Strategy~4 nine-point
+obstruction.
+\end{proof}

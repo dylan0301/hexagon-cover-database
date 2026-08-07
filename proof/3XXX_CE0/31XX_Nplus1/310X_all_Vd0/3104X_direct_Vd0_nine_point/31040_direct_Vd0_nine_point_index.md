@@ -8,16 +8,16 @@ of the CE0, $N_+=1$, all-Vd0 branch.  It works first at the level of actual
 open vertex roles.  Six common
 radial points are forced directly by the exact radial envelope and the Vd0
 condition, while the three asymmetric points are forced by distances from
-actual handoff points and the frontier of the unique supercritical row.
+actual handoff points and the frontier of the unique supercritical V triangle.
 
-Thus no $AB$-union for a nonsupercritical row is used.  The older
+Thus no $AB$-union for a nonsupercritical V triangle is used.  The older
 [`3103X_residual_core`](../3103X_residual_core/31030_CE0_all_Vd0_residual_core_strategy.md)
 package remains an independent proven route.
 
 | File | Recorded status | Role |
 |---|---|---|
 | [`31041_direct_radial_forcing.md`](31041_direct_radial_forcing.md) | Proven | Forces six common radial witnesses into the center role using $c_{\max}$, openness, Vd0 locality, and diameter. |
-| [`31042_direct_asymmetric_witness_forcing.md`](31042_direct_asymmetric_witness_forcing.md) | Proven | Forces the three asymmetric witnesses into the center role; only the unique supercritical row uses an $AB$-frontier. |
+| [`31042_direct_asymmetric_witness_forcing.md`](31042_direct_asymmetric_witness_forcing.md) | Proven | Forces the three asymmetric witnesses into the center role; only the unique supercritical V triangle uses an $AB$-frontier. |
 | [`31043_center_independent_direct_nine_point_obstruction.md`](31043_center_independent_direct_nine_point_obstruction.md) | Proven | Combines the nine direct witnesses with the terminal enclosure theorem. |
 | [`31044_CE0_Nplus1_all_Vd0_direct_completion.md`](31044_CE0_Nplus1_all_Vd0_direct_completion.md) | Proven | Deduces the CE0, $N_+=1$, all-Vd0 branch from the center-independent theorem. |
 | [`31045_analytic_nine_point_caliper_strategy.md`](31045_analytic_nine_point_caliper_strategy.md) | Strategy | Proposes retaining the full radial hexagon and replacing the mixed-overlap interval certificate by finite analytic caliper inequalities. |

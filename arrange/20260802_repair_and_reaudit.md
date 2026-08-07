@@ -1,63 +1,32 @@
-# 2026-08-02 Repair, Consolidation, and Full Re-Audit
+# 2026-08-02 Final Repair, Consolidation, and Re-Audit
 
-## Commit scope
+## Mathematical repairs
 
-This audit covers the active proof package, the compiled manuscript, the exact
-Strategy 4 supplement, and the new CI checks.
+- `4147` uses separate `V_0`- and `V_1`-charts and proves all open-role,
+  reach, Vd0, nonsupercritical, and skeleton-preservation claims.
+- `4013` is stated and proved at full-skeleton strength; the original
+  full-hexagon statement is its corollary.
+- `2110` uses only skeleton data.
+- `414b` gives the exhaustive CE2 exactly-one-Vd1/Vd2 placement audit.
+- No new mathematical defect was found in the repaired chain.
 
-## Repairs that passed
+## Source and provenance repairs
 
-1. **`4147` two-chart replacement.** The Vd1 replacement is constructed in a
-   chart based at its distinguished vertex, and the adjacent supercritical
-   replacement is constructed in a second chart based at the adjacent
-   distinguished vertex. Both open origins, all three reach coordinates,
-   boundary sums, and adjacent-arm exclusions are proved directly.
-2. **Full skeleton preservation.** The replacement proof checks
-   $e_{5,0},e_{0,1},e_{1,2},r_0,r_1$ separately; every other skeleton
-   component is unchanged.
-3. **`4013` skeleton strengthening.** Its theorem now assumes exactly the
-   boundary and radial data used in its proof. The radial demands are derived
-   from Vd0 locality and skeleton coverage before the gap-rank split.
-4. **Rank-two interface.** `2110` is stated and proved at skeleton-data level.
-5. **`414X` placement audit.** `414b` verifies the positive-support
-   complement and all three relative-position cases.
-6. **Notation.** Actual $N_+$ uses uppercase reaches. Local ray endpoints use
-   Latin $u$; the signed CE2 far boundary endpoint uses Greek $\nu$.
-7. **Terminology.** Singleton-inclusive branches say “nonempty gap.” Geometric
-   objects are called V triangles or transfer slots, not rows.
-8. **Strategy 4 source.** The duplicate mixed-overlap certificate was removed;
-   `06a_strategy4_exact_certificate.tex` is the sole certificate source.
-9. **Strategy 2 source.** The appendix sources were consolidated into
-   `04_strategy2_verification.tex`; the late correction layer was removed.
-10. **Automation.** CI checks active dependency statuses, notation,
-    cross-references, exact certificate replay, LaTeX compilation, PDF
-    rendering, and artifact upload.
+- Actual `N_+` definitions use uppercase actual reaches.
+- Singleton-inclusive branches use “nonempty gap.”
+- Active geometric prose uses “V triangle,” not “row.”
+- `04_strategy2_verification.tex` contains the single CE2 one-Vd assembly.
+- Current `407X` blobs are generated and checked from exact file bytes.
+- Strategy 4 code and data blobs are independently authenticated.
+- The active proof dependency graph is generated transitively from the
+  main theorem and status table.
+- The proof manifest is generated and checked in both directions.
 
-## Mathematical conclusion
+## Reproducible verification
 
-The chart defect and theorem-interface defect identified in the preceding
-audit are repaired. The repaired `4147` hypotheses imply the strengthened
-`4013` hypotheses exactly. The `414X` case split remains exhaustive, and no
-terminal is invoked outside its proved domain. The main theorem status remains
-**Proven**.
+Permanent CI is read-only, pins GitHub Actions and SymPy, replays both
+exact Strategy 4 verifiers, rebuilds the paper with a fixed
+`SOURCE_DATE_EPOCH`, compares the rebuilt PDF byte-for-byte with the
+tracked PDF, renders every page, and uploads the verified artifact.
 
-## Machine verification
-
-- `python tools/proof_lint.py`: passed.
-- `verify_mixed_overlap_core_derivation.py`: passed.
-- `verify_global_core_positivity.py`: passed.
-- `latexmk -xelatex -halt-on-error main.tex`: passed.
-- PDF page count: 136.
-
-## Independent post-commit source audit
-
-A second read of the committed tree found and repaired three nonmathematical
-defects: the remaining `\nu_{\rm adj}` transcription in the Markdown source,
-two unexpanded TeX spacing placeholders, and stale duplicated architecture
-documentation. The review also removed accidentally committed LaTeX
-intermediates and strengthened the linter to reject recurrence. No new defect
-was found in the two-chart reach calculation, skeleton preservation, the
-strengthened `4013` rank split, `2110`, or the exhaustive `414b` placement
-audit.
-
-Final rebuilt PDF page count: 129.
+BUILD_METADATA_PLACEHOLDER

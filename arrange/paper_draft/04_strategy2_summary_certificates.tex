@@ -1,0 +1,166 @@
+\subsection{Endpoint certificates}
+
+\begin{definition}[Signed Strategy 2 domains]
+\label{def:body-strategy2-signed-domains}
+After normalizing one positive center trace, the signed-center lemma produces
+a record \((R,\alpha,\delta)\).  The full CE1 and CE2 center cells correspond
+under
+\[
+ r=R,\qquad a=\alpha,\qquad d=\delta
+\]
+to \(\mathcal D_{\rm C1}\) and \(\mathcal D_{\rm C2}\), respectively.  In
+the oriented CE1 all-Vd0 one-gap branch the additional endpoint order gives
+the smaller cell \(\mathcal D_1\); the CE2 cell is
+\(\mathcal D_2=\mathcal D_{\rm C2}\).
+\end{definition}
+
+\begin{definition}[One-gap and paired-gap endpoint records]
+\label{def:body-gap-endpoint-data}
+The signed-center geometry associates to a normalized one-gap state an
+endpoint record
+\[
+ \mathbf e_{\rm one}=(a_-,a_+,c_-,c_+)\in[0,1]^4.
+\]
+In CE2 it associates to a two-gap state a second record
+$\mathbf e_{\rm two}\in[0,1]^4$.  The entries are, respectively, the two
+incoming boundary demands and the two complementary radial demands at the
+ends of the intervening center-free path.  Their explicit functions of
+$(R,\alpha,\delta)$ are the data of Problems~\ref{prob:s2-one-gap-endpoint} and~\ref{prob:s2-two-gap-endpoint}.
+\end{definition}
+
+For an endpoint record
+$\mathbf e=(a_-,a_+,c_-,c_+)$, define its two-end capacity by
+\[
+ \mathrm{Cap}(\mathbf e)
+ :=
+ \widehat g_{c_-}(1-a_-)+\widehat g_{c_+}(1-a_+).
+\]
+This is the only scalar output of the endpoint calculation used in the body.
+
+\begin{proposition}[All-Vd0 endpoint certificates]
+\label{prop:body-all-vd0-endpoints}
+The following strict inequalities hold.
+
+\begin{enumerate}
+\item For every normalized one-gap state in
+$\mathcal D_{\rm CE1}\cup\mathcal D_{\rm CE2}$,
+\[
+ \mathrm{Cap}(\mathbf e_{\rm one})<1.
+\]
+\item For every normalized two-gap state in $\mathcal D_{\rm CE2}$,
+\[
+ \mathrm{Cap}(\mathbf e_{\rm two})<1.
+\]
+\end{enumerate}
+
+The three V triangles strictly between the endpoint roles form a center-free
+ordinary path.  Singleton V-gaps are included.
+\end{proposition}
+
+\begin{proof}
+The two inequalities are Problems~\ref{prob:s2-one-gap-endpoint} and~\ref{prob:s2-two-gap-endpoint}, proved in
+Appendix~\ref{sec:exact-local-demand-calculus}.  The geometric extraction of
+the endpoint records is the one-side and paired-endpoint interface.  Applying
+Lemma~\ref{lem:reader-boundary-path} to the three internal nonsupercritical
+roles gives the contradiction.
+\end{proof}
+
+\begin{definition}[Support-isolated T3-like endpoint record]
+\label{def:body-t3-endpoint-state}
+In the $N_+=0$ branch with no Vd1 or Vd2 role, choose a T3-like role after the
+support-isolating translation and reflection.  The exact geometric bridge in
+Appendix~\ref{sec:t3-vd-demand-branches} produces one endpoint record
+\[
+ \mathbf e_{\rm T3}
+ =(a_5^\ast,a_1^\ast,c_5^\ast,c_1^\ast).
+\]
+All center intervals are absorbed into $a_5^\ast,a_1^\ast$ before the three
+interior V triangles are declared center-free.  The four possible contact
+labels belong to
+\[
+ \{\mathrm{Full},\mathrm L,T_-,T_+^{\rm hi}\}.
+\]
+\end{definition}
+
+\begin{proposition}[T3-like endpoint certificate]
+\label{prop:body-t3-endpoint}
+Every support-isolated T3-like endpoint record satisfies
+\[
+ \mathrm{Cap}(\mathbf e_{\rm T3})<1.
+\]
+The exact proof audits all feasible pairs of the four contact labels.  No
+single unproved common envelope is substituted for that audit.
+\end{proposition}
+
+\begin{proof}
+This is Theorem~\ref{thm:paper-complete-t3-endpoint}.  The endpoint record is
+formed before Lemma~\ref{lem:reader-boundary-path} is applied, so every center
+and nonincident contribution is already accounted for.
+\end{proof}
+
+\subsection{The five-V-triangle return certificate}
+
+\begin{definition}[Decorated lower relaxations]
+\label{def:body-decorated-relaxations}
+A \emph{decorated lower relaxation} is a nondecreasing function proved
+pointwise below one exact nonsupercritical transfer on an explicitly stated
+input interval.  Strategy~2 uses only three forms: the identity, one affine
+chord on a selected $T_+$ branch, and one low-root threshold.  Their formulas and validity domains are
+Definitions~\ref{def:s2-pure-relaxations} and~\ref{def:s2-pure-strict-certificate}.
+\end{definition}
+
+\begin{definition}[Five-V-triangle analytic record]
+\label{def:body-five-V-triangle-data}
+In the $N_+=1$, all-Vd0, one-gap branch, normalize the uniquely
+supercritical role as $T_0$.  The geometric bridge produces an initial demand
+$X$, a terminal cap $H$, and five radial parameters
+$\mathbf c=(c_1,\ldots,c_5)$.  Starting from $X$, apply the five exact
+nonsupercritical transfers in geometric order and call the returned lower
+bound $Z$.  The exact functions of $(R,\alpha,\delta)$ are recorded in
+Problems~\ref{prob:s2-ce1-five-chain} and~\ref{prob:s2-ce2-five-chain}.
+\end{definition}
+
+\begin{definition}[Certified CE1 affine region]
+\label{def:body-ce1-affine-domain}
+The set $\mathcal D_{\rm aff}\subset\mathcal D_{\rm CE1}$ is the part of the
+CE1 parameter domain on which two selected-$T_+$ affine chords and the final
+threshold are simultaneously licensed.  Its exact inequalities belong to
+the branch decomposition of Problem~\ref{prob:s2-ce1-five-chain}; they are
+not geometric assumptions.
+\end{definition}
+
+\begin{proposition}[Five-V-triangle one-gap certificate]
+\label{prop:body-five-V-triangle-certificate}
+For every geometric state represented by the five-V-triangle analytic record,
+the actual reaches satisfy
+\[
+ A_0\ge Z,
+ \qquad
+ A_0<1-H.
+\]
+Moreover,
+\[
+ Z>1-H.
+\]
+In CE1 the proof uses two affine selected-$T_+$ relaxations followed by one
+threshold after the exact contact-label branches have been removed.  In CE2
+at least one of two threshold locations is available; both may be available,
+and no uniqueness is asserted.
+\end{proposition}
+
+\begin{proof}
+The inequalities connecting $A_0,Z,H$ are the exact actual-V-triangle
+interface.  Problems~\ref{prob:s2-ce1-five-chain} and~\ref{prob:s2-ce2-five-chain}
+prove the complement-dual three-map inequalities.  Extensivity of the first
+and fifth exact transfers then gives $Z>1-H$.  Their verification is given in
+Appendix~\ref{sec:cyclic-all-vd0}.
+\end{proof}
+
+\begin{figure}[H]
+\centering
+\resizebox{.99\linewidth}{!}{\input{figures/strategy2_five_row_chain_skeleton}}
+\caption{The five-V-triangle return mechanism.  Geometry supplies the initial
+demand, five radial parameters, and the terminal cap; the appendix proves the
+single returned-demand inequality.}
+\label{fig:strategy2-five-V-triangle-skeleton}
+\end{figure}

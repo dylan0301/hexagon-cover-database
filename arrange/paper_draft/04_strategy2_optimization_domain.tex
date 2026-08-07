@@ -1,0 +1,150 @@
+\subsection{Branchwise strict optimization}
+
+Because \(F\) has different algebraic expressions on different contact cells
+and has a genuine jump at one high-radial boundary, no expression may be
+optimized outside the cell on which it represents \(F\).
+
+\begin{definition}[Strict branch certificate]
+\label{def:s2-pure-strict-certificate}
+Let
+\[
+ D=\bigsqcup_{\lambda\in\Lambda}D_\lambda
+\]
+be a finite disjoint decomposition of a bounded real domain.  Suppose that,
+for every \(\lambda\), the selected branch expression
+\(\Psi_\lambda\) extends continuously to a compact set
+\(K_\lambda\supseteq D_\lambda\).  A \emph{strict branch certificate} for
+\(\Psi<0\) consists of
+\[
+ \max_{z\in K_\lambda}\Psi_\lambda(z)\le0
+\]
+and
+\[
+ D_\lambda\cap\{z:\Psi_\lambda(z)=0\}=\varnothing
+\]
+for every \(\lambda\in\Lambda\).
+\end{definition}
+
+The compact set \(K_\lambda\) is part of the certificate; it need not be the
+topological closure when the selected radical or rational expression does not
+extend to every closure point.  The equality-exclusion condition is essential:
+on an open feasible cell the supremum may equal zero although the desired
+pointwise inequality is strict.
+
+For a polynomial encoding, replace every radical \(\sqrt{P(z)}\) by a fresh
+variable \(s\) with
+\[
+ s\ge0,\qquad s^2=P(z).
+\]
+Replace every minimum or maximum by finitely many ordered cells, assigning
+each equality to one specified cell.  Record denominator positivity before
+clearing denominators.
+
+\subsection{Signed real parameter domains}
+
+Use independent variables
+\[
+ (r,a,d)\in\mathbb R^3
+\]
+and define
+\[
+ w=1-r,\qquad
+ e=\sqrt{1-rw},\qquad
+ \eta=1-e,\qquad
+ p=e(1-e),\qquad
+ k=\eta+a+d,
+\]
+\[
+ \Delta_R=p-a-wd,
+ \qquad
+ \Delta_L=p-ra-d.
+\]
+
+\begin{definition}[Pure signed domains]
+\label{def:s2-pure-signed-domains}
+Define
+\[
+ \mathcal D_{\rm sgn}
+ =
+ \left\{
+ (r,a,d):
+ 0<r<1,\ a>0,\ d>0,\ \Delta_R>0
+ \right\}.
+\]
+The full signed center cells are
+\[
+ \mathcal D_{\rm C1}
+ =
+ \left\{(r,a,d)\in\mathcal D_{\rm sgn}:\Delta_L\le0\right\},
+\]
+\[
+ \mathcal D_{\rm C2}
+ =
+ \left\{(r,a,d)\in\mathcal D_{\rm sgn}:\Delta_L>0\right\}.
+\]
+The oriented CE1 one-gap cell is
+\[
+ \mathcal D_1
+ =
+ \left\{
+ (r,a,d)\in\mathcal D_{\rm C1}:
+ a<\frac w2,\quad d<\frac r2,\quad rd-wa>0
+ \right\},
+\]
+and put
+\[
+ \mathcal D_2:=\mathcal D_{\rm C2}.
+\]
+\end{definition}
+
+Thus \(\mathcal D_{\rm C1}\sqcup\mathcal D_{\rm C2}
+=\mathcal D_{\rm sgn}\).  The extra order condition in \(\mathcal D_1\) is
+used only by the oriented CE1 one-gap return problem; it is not imposed on the
+T3 endpoint problem.
+
+\begin{proposition}[Basic domain bounds]
+\label{prop:s2-pure-domain-bounds}
+On \(\mathcal D_{\rm sgn}\),
+\[
+ 0<a<\frac w2,\qquad
+ 0<d<\frac r2,
+\]
+\[
+ 0<\frac{k}{r}<w+d<1.
+\]
+On \(\mathcal D_{\rm C2}\), also
+\[
+ 0<\frac{k}{w}<r+a<1.
+\]
+Consequently every occurrence of \(F\) in Problems S2-E1, S2-E2, S2-R1,
+and S2-R2 has first argument in \((1/2,1)\) and second argument in
+\([0,1]\).
+\end{proposition}
+
+\begin{proof}
+The identities
+\[
+ 1-e=\frac{rw}{1+e},
+ \qquad
+ p=\frac{erw}{1+e}<\frac{rw}{2}
+\]
+and \(\Delta_R>0\) give
+\[
+ 0<a<p<\frac{rw}{2},
+ \qquad
+ 0<d<\frac{p-a}{w}<\frac r2.
+\]
+Moreover,
+\[
+ w+d-\frac{k}{r}=\frac{\Delta_R}{r}>0.
+\]
+The upper endpoint \(w+d\) is below one because \(d<r/2<r\).
+On \(\mathcal D_{\rm C2}\),
+\[
+ r+a-\frac{k}{w}=\frac{\Delta_L}{w}>0,
+\]
+and \(r+a<1\) follows from \(a<w/2<w\).
+The claimed \(F\)-argument bounds follow directly.  The return recurrence
+starts at \(k/(2r)\in(0,1/2)\), uses parameters
+\(1-a,1-d,1-\min\{a/r,d/w\}\in(1/2,1)\), and \(T\) maps to \([0,1]\).
+\end{proof}

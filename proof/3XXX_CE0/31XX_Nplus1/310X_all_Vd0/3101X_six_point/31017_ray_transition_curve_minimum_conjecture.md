@@ -221,7 +221,7 @@ $$
 R=1-c_*.
 $$
 
-The supercritical row gap is
+The supercritical V triangle gap is
 
 $$
 \varepsilon=a+b-1=1-p-q=1-S.
@@ -236,7 +236,7 @@ R=\varepsilon.
 $$
 
 The transition curve is therefore the locus where the diagonal radius equals
-the supercritical row gap.
+the supercritical V triangle gap.
 
 ## 4. Constant-difference slices
 

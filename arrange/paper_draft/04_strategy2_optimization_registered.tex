@@ -1,0 +1,105 @@
+\subsection{Four all-Vd0 optimization problems}
+
+\begin{definition}[Problem S2-E1: one-gap endpoint]
+\label{prob:s2-one-gap-endpoint}
+For \((r,a,d)\in\mathcal D_1\cup\mathcal D_2\), define
+\[
+ x_-=\frac{k}{r},
+ \qquad
+ x_+=r-d,
+ \qquad
+ c_-=1-\frac a w,
+ \qquad
+ c_+=1-\frac d r,
+\]
+and
+\[
+ \Psi_{\rm E1}(r,a,d)
+ =
+ F(c_-,x_-)+F(c_+,x_+)-1.
+\]
+The optimization problem is
+\[
+ \boxed{
+ \Psi_{\rm E1}(r,a,d)<0
+ \quad
+ ((r,a,d)\in\mathcal D_1\cup\mathcal D_2).
+ }
+\]
+\end{definition}
+
+\begin{definition}[Problem S2-E2: paired endpoint]
+\label{prob:s2-two-gap-endpoint}
+For \((r,a,d)\in\mathcal D_2\), define
+\[
+ x_-=w-a,
+ \qquad
+ x_+=r-d,
+ \qquad
+ c_-=\frac{x_-}{w},
+ \qquad
+ c_+=\frac{x_+}{r},
+\]
+and
+\[
+ \Psi_{\rm E2}(r,a,d)
+ =
+ F(c_-,x_-)+F(c_+,x_+)-1.
+\]
+The optimization problem is
+\[
+ \boxed{
+ \Psi_{\rm E2}(r,a,d)<0
+ \quad
+ ((r,a,d)\in\mathcal D_2).
+ }
+\]
+\end{definition}
+
+For the return problems define
+\[
+ X=r-d,\qquad
+ Y_0=\frac{k}{2r},\qquad
+ m=\min\left\{\frac ar,\frac dw\right\},
+\]
+and recursively
+\[
+ Y_1=T(1-a,Y_0),\qquad
+ Y_2=T(1-m,Y_1),\qquad
+ Y_3=T(1-d,Y_2).
+\]
+
+\begin{definition}[Problem S2-R1: CE1 returned demand]
+\label{prob:s2-ce1-five-chain}
+For \((r,a,d)\in\mathcal D_1\), define
+\[
+ \Psi_{\rm R1}(r,a,d)=w+d-Y_3.
+\]
+The optimization problem is
+\[
+ \boxed{
+ \Psi_{\rm R1}(r,a,d)<0
+ \quad
+ ((r,a,d)\in\mathcal D_1).
+ }
+\]
+\end{definition}
+
+\begin{definition}[Problem S2-R2: CE2 returned demand]
+\label{prob:s2-ce2-five-chain}
+For \((r,a,d)\in\mathcal D_2\), define
+\[
+ \Psi_{\rm R2}(r,a,d)=w+d-Y_3.
+\]
+The optimization problem is
+\[
+ \boxed{
+ \Psi_{\rm R2}(r,a,d)<0
+ \quad
+ ((r,a,d)\in\mathcal D_2).
+ }
+\]
+The required threshold condition is an inclusive disjunction: at least one
+of the two stated threshold cells holds.  No uniqueness or disjointness
+condition is added.
+\end{definition}

@@ -104,7 +104,7 @@ Gram reductions, Bernstein data, code listings, or run logs.
 
 ### 3.2 Technical appendices
 
-Use this order after `\\appendix`:
+Use this order after `\appendix`:
 
 ```text
 appendix_roadmap.tex
@@ -135,33 +135,33 @@ file.
 ## 4. Required `main.tex` assembly
 
 ```latex
-\\input{01_introduction}
-\\input{02_reader_framework}
-\\input{03_strategy1_reader}
-\\input{04_strategy2_summary}
-\\input{05_strategy3_reader}
-\\input{06_strategy4_reader}
-\\input{07_exhaustive_assembly}
-\\label{page:proof-body-end}
+\input{01_introduction}
+\input{02_reader_framework}
+\input{03_strategy1_reader}
+\input{04_strategy2_summary}
+\input{05_strategy3_reader}
+\input{06_strategy4_reader}
+\input{07_exhaustive_assembly}
+\label{page:proof-body-end}
 
-\\clearpage
-\\appendix
-\\input{appendix_roadmap}
-\\input{02_structural_reductions}
-\\input{02a_universal_calculus}
-\\input{02b_admissible_set_derivation}
-\\input{04a_signed_center_calculus}
-\\input{03_strategy1_length}
-\\input{04b_common_CE1_CE2_budgets}
-\\input{04c_short_Vd_placements}
-\\input{04_strategy2_verification}
-\\input{05_strategy3_area}
-\\input{06_strategy4_ab_core}
-\\input{06a_strategy4_exact_certificate}
-\\input{appendix_symbols}
+\clearpage
+\appendix
+\input{appendix_roadmap}
+\input{02_structural_reductions}
+\input{02a_universal_calculus}
+\input{02b_admissible_set_derivation}
+\input{04a_signed_center_calculus}
+\input{03_strategy1_length}
+\input{04b_common_CE1_CE2_budgets}
+\input{04c_short_Vd_placements}
+\input{04_strategy2_verification}
+\input{05_strategy3_area}
+\input{06_strategy4_ab_core}
+\input{06a_strategy4_exact_certificate}
+\input{appendix_symbols}
 ```
 
-Place `\\raggedbottom` after `\\begin{document}`. Include a bibliography only
+Place `\raggedbottom` after `\begin{document}`. Include a bibliography only
 for verified external citations.
 
 ## 5. Paper-wide notation
