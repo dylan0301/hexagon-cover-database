@@ -5,7 +5,7 @@ on:
     branches: [main]
     paths:
       - .github/workflows/apply-full-repository-repair.yml
-      - tools/full_repository_repair_bundle.tar.gz
+      - 'tools/full_repository_repair_bundle.part*.b64'
   workflow_dispatch:
 
 permissions:
@@ -32,7 +32,11 @@ jobs:
       - name: Apply audited repair bundle and remove obsolete sources
         run: |
           set -euo pipefail
-          tar -xzf tools/full_repository_repair_bundle.tar.gz -C .
+          cat tools/full_repository_repair_bundle.part*.b64 \
+            | base64 --decode > /tmp/full_repository_repair_bundle.tar.gz
+          echo '09f59c0738ef0f391cd2f4f5aa0e4e8e6b8aa30f90aeda230968f0f59500ae12  /tmp/full_repository_repair_bundle.tar.gz' \
+            | sha256sum -c -
+          tar -xzf /tmp/full_repository_repair_bundle.tar.gz -C .
           rm -f \
             .github/workflows/export-repair-snapshot.yml \
             arrange/20260802_verification_summary.txt \
@@ -156,7 +160,8 @@ jobs:
           rm -f \
             .github/workflows/apply-full-repository-repair.yml \
             .github/workflows/export-repair-snapshot.yml \
-            tools/full_repository_repair_bundle.tar.gz
+            tools/full_repository_repair_bundle.tar.gz \
+            tools/full_repository_repair_bundle.part*.b64
           rm -f arrange/paper_draft/main.aux arrange/paper_draft/main.fdb_latexmk \
             arrange/paper_draft/main.fls arrange/paper_draft/main.log \
             arrange/paper_draft/main.out arrange/paper_draft/main.toc \
