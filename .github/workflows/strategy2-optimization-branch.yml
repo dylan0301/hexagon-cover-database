@@ -43,9 +43,11 @@ jobs:
       - name: Install pinned proof dependency
         run: python -m pip install --disable-pip-version-check -r requirements-proof.txt
 
-      - name: Verify repository source invariants
+      - name: Regenerate and verify repository source invariants
         run: |
           set -euo pipefail
+          python tools/generate_active_dependency_graph.py
+          python tools/generate_proof_manifest.py
           python tools/generate_active_dependency_graph.py --check
           python tools/generate_proof_manifest.py --check
           python tools/proof_lint.py
