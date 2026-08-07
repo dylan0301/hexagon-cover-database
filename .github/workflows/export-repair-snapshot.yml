@@ -1,0 +1,34 @@
+name: Export repair snapshot
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/export-repair-snapshot.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  export:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+        with:
+          fetch-depth: 0
+      - name: Pack exact repository snapshot
+        run: |
+          set -euo pipefail
+          tar --exclude=.git -czf /tmp/hexagon-cover-database-source.tar.gz .
+          sha256sum /tmp/hexagon-cover-database-source.tar.gz > /tmp/hexagon-cover-database-source.tar.gz.sha256
+          git rev-parse HEAD > /tmp/source-commit.txt
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: hexagon-cover-database-repair-snapshot
+          path: |
+            /tmp/hexagon-cover-database-source.tar.gz
+            /tmp/hexagon-cover-database-source.tar.gz.sha256
+            /tmp/source-commit.txt
+          if-no-files-found: error
+          retention-days: 1
