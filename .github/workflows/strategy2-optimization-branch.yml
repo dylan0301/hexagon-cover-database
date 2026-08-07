@@ -31,14 +31,17 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Apply Strategy 2 extraction and split
+      - name: Apply Strategy 2 extraction, split, and provenance finalization
         run: |
           set -euo pipefail
           python tools/apply_strategy2_optimization_extraction.py
+          python tools/finalize_strategy2_split_provenance.py
           git diff --check
           test -s formalization/strategy2_optimization/Strategy2OptimizationProblems.lean
           grep -q 'theorem problemS2T3' formalization/strategy2_optimization/Strategy2OptimizationProblems.lean
           test "$(grep -c 'sorry' formalization/strategy2_optimization/Strategy2OptimizationProblems.lean)" -ge 10
+          test -s proof/407X_PROVENANCE.json
+          test -s proof/3105X_CERTIFICATE_PROVENANCE.json
 
       - name: Install pinned proof dependency
         run: python -m pip install --disable-pip-version-check -r requirements-proof.txt
@@ -52,6 +55,13 @@ jobs:
           python tools/generate_proof_manifest.py --check
           python tools/proof_lint.py
           git diff --check
+
+      - name: Replay exact Strategy 4 certificates
+        working-directory: proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation
+        run: |
+          set -euo pipefail
+          python verify_mixed_overlap_core_derivation.py
+          python verify_global_core_positivity.py
 
       - name: Install TeX and PDF tools
         run: |
@@ -89,6 +99,7 @@ jobs:
               "- Source commit that triggered the build: `" + source_sha + "`\n"
               "- GitHub Actions run: `" + run_id + "`\n"
               "- Repository source checks: **PASS**\n"
+              "- Exact Strategy 4 certificate replay: **PASS**\n"
               "- XeLaTeX/latexmk compilation: **PASS**\n"
               "- Undefined or multiply-defined references: **none detected**\n"
               "- Rendered PDF pages: **" + pages + "**\n"
