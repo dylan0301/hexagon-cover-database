@@ -1,26 +1,61 @@
-\subsection{The only primitive transfer function}
+\subsection{The primitive capped-output function}
 
-For $1/2<c<1$ and $0\le x\le1$, define
+For
 \[
- \begin{aligned}
- L(c)&=\frac c2\left(1-\sqrt{4c^2-3}\right),&
- U(c)&=c-L(c),\\
- h(c)&=\frac{2c}{1+\sqrt{16c^2-3}},&
- Q_-(c,x)&=\frac{\sqrt{x^2-cx+c^2}}{c}-x,
- \end{aligned}
+ \frac12<c<1,\qquad 0\le x\le1,
 \]
-and
+define
+\[
+ h(c)=\frac{2c}{1+\sqrt{16c^2-3}},
+ \qquad
+ Q_-(c,x)=\frac{\sqrt{x^2-cx+c^2}}{c}-x.
+\]
+For
+\[
+ \frac{\sqrt3}{2}\le c<1,
+\]
+define
+\[
+ L(c)=\frac c2\left(1-\sqrt{4c^2-3}\right),
+ \qquad
+ U(c)=c-L(c).
+\]
+Finally put
+\[
+ D_+(c,x)
+ =(2xc^2+c)^2-4(1-c^2)(1-x^2)c^2
+\]
+and, whenever \(D_+(c,x)\ge0\), define
 \[
  Q_+(c,x)=
  \frac{2(1-x^2)c^2}
- {2xc^2+c+
- \sqrt{(2xc^2+c)^2-4(1-c^2)(1-x^2)c^2}}.
+ {2xc^2+c+\sqrt{D_+(c,x)}}.
 \]
+
+\begin{lemma}[Radical and denominator domains]
+\label{lem:s2-pure-map-well-defined}
+If \(1/2<c<1\) and \(1-c\le x\le1\), then
+\[
+ D_+(c,x)
+ =c^2\left(4x^2+4cx+4c^2-3\right)
+ \ge c^2(2c-1)^2>0.
+\]
+Every denominator in \(h,Q_-,Q_+\) is positive on the branch on which the
+corresponding expression is used.  The functions \(L,U\) are real-valued on
+their stated domain.
+\end{lemma}
+
+\begin{proof}
+The displayed factorization is direct.  The quadratic
+\(x\mapsto4x^2+4cx+4c^2-3\) is increasing for \(x\ge0\), so its value at
+\(x=1-c\) is \((2c-1)^2\).  The remaining assertions follow from
+\(c>1/2\), positivity of square roots, and \(2xc^2+c>0\).
+\end{proof}
 
 \begin{definition}[Pure capped-output function]
 \label{def:s2-pure-map}
-Define $F:(1/2,1)\times[0,1]\to[0,1]$ as follows.  For
-$1/2<c\le\sqrt3/2$, put
+Define \(F:(1/2,1)\times[0,1]\to[0,1]\) as follows.  For
+\(1/2<c\le\sqrt3/2\), put
 \[
  F(c,x)=
  \begin{cases}
@@ -31,7 +66,7 @@ $1/2<c\le\sqrt3/2$, put
   1-x,&c\le x\le1.
  \end{cases}
 \]
-For $\sqrt3/2<c<1$, put
+For \(\sqrt3/2<c<1\), put
 \[
  F(c,x)=
  \begin{cases}
@@ -42,33 +77,33 @@ For $\sqrt3/2<c<1$, put
   1-x,&c\le x\le1.
  \end{cases}
 \]
-Finally define the incoming-demand update
+Define the complementary update
 \[
  T(c,x):=1-F(c,x).
 \]
 \end{definition}
 
-The function $F$ is the exact capped outgoing capacity; $T$ is the
-corresponding next-input lower update.  Proposition~\ref{prop:capped-demand-map}
-proves that these branch formulas agree with the geometric transfer
-calculus.  In this appendix they are treated only as explicit real functions.
+The equality assignments in Definition~\ref{def:s2-pure-map} are part of the
+problem specification.  In particular, the value at \(x=L(c)\) is the
+selected \(Q_+\) value \(U(c)\), while the open interval immediately to its
+right has value \(L(c)\).
 
 \begin{definition}[Pure lower relaxations]
 \label{def:s2-pure-relaxations}
-For $0<d<1-\sqrt3/2$, define the low root
+For \(0<d<1-\sqrt3/2\), define
 \[
  E_0(d):=L(1-d).
 \]
-For a coefficient $\lambda\in\mathbb R$, define the affine trial map
+For \(\lambda\in\mathbb R\), define
 \[
  A_{d,\lambda}(x):=x+\lambda(x-d).
 \]
-It is licensed on an interval $I$ only after proving
+It is licensed on an interval \(I\) only after proving
 \[
  A_{d,\lambda}(x)\le T(1-d,x)
  \qquad(x\in I).
 \]
-Define the threshold trial map
+Define
 \[
  \Theta_d(x)=
  \begin{cases}
@@ -76,11 +111,11 @@ Define the threshold trial map
  1-E_0(d),&E_0(d)<x\le1.
  \end{cases}
 \]
-The exact map satisfies
+The verification appendix proves
 \[
  \Theta_d(x)\le T(1-d,x).
 \]
-These are proof devices for Problems~\ref{prob:s2-ce1-five-chain} and~\ref{prob:s2-ce2-five-chain}; they are not additional primitive functions in
+These are proof devices for Problems~\ref{prob:s2-ce1-five-chain} and
+\ref{prob:s2-ce2-five-chain}; they are not additional primitive functions in
 the problem statements.
 \end{definition}
-

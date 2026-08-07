@@ -17,3 +17,12 @@ The paper should undergo a **major expository revision without changing the theo
 - The Vd1 replacement remains a geometric reduction and should not be forced into an artificial optimization formulation.
 
 See the two linked reports for the detailed audit.
+
+## 2026-08-07 extraction completion
+
+The previously listed T3, adjacent-rescuer, and Vd interface obligations are
+now resolved in the manuscript source.  The T3 problem is a finite explicit
+cell union, both rescuer source domains are algebraic-radical, and all Vd
+component/radial suprema have been replaced by piecewise or graph functions.
+The verification appendix is physically split.  A Lean file records only the
+problem statements and contains `sorry`; no proof-assistant proof is claimed.

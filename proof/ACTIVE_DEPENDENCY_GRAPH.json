@@ -1,0 +1,908 @@
+{
+  "generated_by": "tools/generate_active_dependency_graph.py",
+  "inactive_links": {
+    "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md": [
+      {
+        "path": "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20092_ab_set_case_catalog.md",
+        "status": "Empirical"
+      }
+    ],
+    "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20095_exact_caliper_certificate.md": [
+      {
+        "path": "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20092_ab_set_case_catalog.md",
+        "status": "Empirical"
+      }
+    ],
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31030_CE0_all_Vd0_residual_core_strategy.md": [
+      {
+        "path": "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31031_original_residual_core_draft.md",
+        "status": "Unstated"
+      }
+    ],
+    "proof/3XXX_CE0/31XX_Nplus1/317X_T3_like_no_Vd1Vd2/3171_T3_like_area_certificate_index.md": [
+      {
+        "path": "proof/3XXX_CE0/31XX_Nplus1/317X_T3_like_no_Vd1Vd2/3172_full_T3_like_tangent_envelope_conjecture.md",
+        "status": "Failed"
+      }
+    ],
+    "proof/3XXX_CE0/31XX_Nplus1/317X_T3_like_no_Vd1Vd2/3173_T3_like_loss_from_envelope.md": [
+      {
+        "path": "proof/3XXX_CE0/31XX_Nplus1/317X_T3_like_no_Vd1Vd2/3172_full_T3_like_tangent_envelope_conjecture.md",
+        "status": "Failed"
+      }
+    ],
+    "proof/3XXX_CE0/31XX_Nplus1/317X_T3_like_no_Vd1Vd2/3175_direct_T3_like_area_loss.md": [
+      {
+        "path": "proof/3XXX_CE0/31XX_Nplus1/317X_T3_like_no_Vd1Vd2/3172_full_T3_like_tangent_envelope_conjecture.md",
+        "status": "Failed"
+      }
+    ]
+  },
+  "nodes": {
+    "proof/0XXX_main/0000_main_theorem.md": {
+      "dependencies": [
+        "proof/1XXX_foundations/10XX_global_conventions/1003_open_unit_vs_shrunken_closed_equivalence.md",
+        "proof/1XXX_foundations/11XX_C_triangle/1101_CE_classification.md",
+        "proof/1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md",
+        "proof/1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md",
+        "proof/2XXX_geometric_lemmas/25XX_length_bounds/2530_common_CE1_CE2_budget_lemmas.md",
+        "proof/3XXX_CE0/30XX_Nplus0/3010_CE0_perimeter_length_obstruction.md",
+        "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31059_CE0_Nplus1_all_Vd0_completion.md",
+        "proof/3XXX_CE0/31XX_Nplus1/314X_exists_Vd1_Vd2/3141_CE0_Nplus1_exists_Vd1_Vd2_boundary_length_obstruction.md",
+        "proof/3XXX_CE0/31XX_Nplus1/317X_T3_like_no_Vd1Vd2/3171_T3_like_area_certificate_index.md",
+        "proof/3XXX_CE0/32XX_Nplus_ge2/3201_area_conjecture_index.md",
+        "proof/4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md",
+        "proof/4XXX_CE1CE2/40XX_Nplus0/404X_exists_Vd1_Vd2_obstruction/4040_CE1_Nplus0_exists_Vd1_Vd2_boundary_length_obstruction.md",
+        "proof/4XXX_CE1CE2/40XX_Nplus0/404X_exists_Vd1_Vd2_obstruction/4041_CE2_Nplus0_exists_Vd1_Vd2_boundary_length_obstruction.md",
+        "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4070_CE1CE2_Nplus0_T3_like_no_Vd1Vd2_index.md",
+        "proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4101_CE1CE2_Nplus1_all_Vd0_strategy.md",
+        "proof/4XXX_CE1CE2/41XX_Nplus1/411X_Vd1_Vd2_obstruction/4110_CE1_Nplus1_exists_Vd1_Vd2_boundary_length_obstruction.md",
+        "proof/4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like/4130_CE1CE2_exactly_one_T3_like_index.md",
+        "proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4140_CE2_Nplus1_exactly_one_Vd1_Vd2_index.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/0XXX_main/0002_status_and_dependencies.md": {
+      "dependencies": [],
+      "kind": "proof-source",
+      "status": "Reference"
+    },
+    "proof/1XXX_foundations/10XX_global_conventions/1003_open_unit_vs_shrunken_closed_equivalence.md": {
+      "dependencies": [],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/1XXX_foundations/11XX_C_triangle/1101_CE_classification.md": {
+      "dependencies": [],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md": {
+      "dependencies": [],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/1XXX_foundations/12XX_V_triangle/1202_local_coordinates_abc.md": {
+      "dependencies": [],
+      "kind": "proof-source",
+      "status": "Definition"
+    },
+    "proof/1XXX_foundations/12XX_V_triangle/1212_vertex_V_triangles_and_Nplus.md": {
+      "dependencies": [],
+      "kind": "proof-source",
+      "status": "Definition"
+    },
+    "proof/1XXX_foundations/12XX_V_triangle/1213_T3_like_nonsupercritical.md": {
+      "dependencies": [
+        "proof/3XXX_CE0/31XX_Nplus1/317X_T3_like_no_Vd1Vd2/3175_direct_T3_like_area_loss.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md": {
+      "dependencies": [],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md": {
+      "dependencies": [],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2006_T3_like_midpoint_lemma.md": {
+      "dependencies": [
+        "proof/1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2007_max_b_map.md": {
+      "dependencies": [
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2008_neighbor_ray_max_c_formula.md": {
+      "dependencies": [
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20090_ab_set_index.md": {
+      "dependencies": [],
+      "kind": "proof-source",
+      "status": "Reference"
+    },
+    "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md": {
+      "dependencies": [
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20095_exact_caliper_certificate.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20095_exact_caliper_certificate.md": {
+      "dependencies": [
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2010_free_supercritical_max_b.md": {
+      "dependencies": [],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md": {
+      "dependencies": [
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md",
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2007_max_b_map.md",
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2012_high_radial_low_root_bounds.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2012_high_radial_low_root_bounds.md": {
+      "dependencies": [
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md",
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md",
+        "proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4144_CE2_Nplus1_T0_supercritical_T1_Vd1_Vd2_adjacent_obstruction.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2013_T3_like_side_tradeoff.md": {
+      "dependencies": [
+        "proof/1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2014_Vd1_Vd2_corner_normal_form.md": {
+      "dependencies": [],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2016_universal_Tplus_normal_form.md": {
+      "dependencies": [
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2017_threshold_routing.md": {
+      "dependencies": [
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md",
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2012_high_radial_low_root_bounds.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2018_diameter_transfer_and_adjacent_rescuer.md": {
+      "dependencies": [
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2010_free_supercritical_max_b.md",
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md",
+        "proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2019_interval_component_and_path_budget.md": {
+      "dependencies": [
+        "proof/1XXX_foundations/12XX_V_triangle/1202_local_coordinates_abc.md",
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201b_quarter_radial_envelope.md": {
+      "dependencies": [
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201c_Vd_corner_radial_margins.md": {
+      "dependencies": [
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2014_Vd1_Vd2_corner_normal_form.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md": {
+      "dependencies": [
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md",
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2007_max_b_map.md",
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2010_free_supercritical_max_b.md",
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2012_high_radial_low_root_bounds.md",
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2019_interval_component_and_path_budget.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2100_CE1_CE2_exactly_one_midpoint_lemma.md": {
+      "dependencies": [],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2102_CE1_M0_e01_maximal_intervals.md": {
+      "dependencies": [],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2103_CE2_M0_e50_e01_maximal_interval_pairs.md": {
+      "dependencies": [],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2105_CE1_exact_formulas.md": {
+      "dependencies": [
+        "proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2100_CE1_CE2_exactly_one_midpoint_lemma.md",
+        "proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2106_CE2_exact_formulas.md": {
+      "dependencies": [
+        "proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2100_CE1_CE2_exactly_one_midpoint_lemma.md",
+        "proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2108_CE2_two_endpoint_capped_loss.md",
+        "proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md",
+        "proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4105_CE1_CE2_one_gap_five_V_triangle_interface.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2107_one_side_capped_loss.md": {
+      "dependencies": [
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2007_max_b_map.md",
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2108_CE2_two_endpoint_capped_loss.md": {
+      "dependencies": [
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md",
+        "proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2106_CE2_exact_formulas.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md": {
+      "dependencies": [
+        "proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2100_CE1_CE2_exactly_one_midpoint_lemma.md",
+        "proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2105_CE1_exact_formulas.md",
+        "proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2106_CE2_exact_formulas.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2110_common_CE2_two_gap_application.md": {
+      "dependencies": [
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2019_interval_component_and_path_budget.md",
+        "proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2108_CE2_two_endpoint_capped_loss.md",
+        "proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md": {
+      "dependencies": [
+        "proof/1XXX_foundations/11XX_C_triangle/1101_CE_classification.md",
+        "proof/1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md",
+        "proof/1XXX_foundations/12XX_V_triangle/1202_local_coordinates_abc.md",
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2014_Vd1_Vd2_corner_normal_form.md",
+        "proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2100_CE1_CE2_exactly_one_midpoint_lemma.md",
+        "proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2102_CE1_M0_e01_maximal_intervals.md",
+        "proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2103_CE2_M0_e50_e01_maximal_interval_pairs.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/2XXX_geometric_lemmas/25XX_length_bounds/2510_skeleton_length_bounds.md": {
+      "dependencies": [
+        "proof/1XXX_foundations/11XX_C_triangle/1101_CE_classification.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/2XXX_geometric_lemmas/25XX_length_bounds/2530_common_CE1_CE2_budget_lemmas.md": {
+      "dependencies": [
+        "proof/1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md",
+        "proof/1XXX_foundations/12XX_V_triangle/1213_T3_like_nonsupercritical.md",
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2014_Vd1_Vd2_corner_normal_form.md",
+        "proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md",
+        "proof/2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md",
+        "proof/2XXX_geometric_lemmas/25XX_length_bounds/2510_skeleton_length_bounds.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/3XXX_CE0/30XX_Nplus0/3010_CE0_perimeter_length_obstruction.md": {
+      "dependencies": [],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3101X_six_point/31011_six_point_construction.md": {
+      "dependencies": [],
+      "kind": "proof-source",
+      "status": "Definition"
+    },
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3101X_six_point/31012_core_graph_two_variable_relaxation.md": {
+      "dependencies": [
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md",
+        "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3101X_six_point/31011_six_point_construction.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31030_CE0_all_Vd0_residual_core_strategy.md": {
+      "dependencies": [
+        "proof/1XXX_foundations/11XX_C_triangle/1101_CE_classification.md",
+        "proof/1XXX_foundations/12XX_V_triangle/1212_vertex_V_triangles_and_Nplus.md",
+        "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31032_symmetric_witness_construction.md",
+        "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31033_asymmetric_witness_construction.md",
+        "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31034_witness_enclosure_inequality.md",
+        "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31035_center_independent_all_boundary_obstruction.md",
+        "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31037_rational_cmax_upper_envelope.md",
+        "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31038_global_analytic_core_positivity.md",
+        "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31059_CE0_Nplus1_all_Vd0_completion.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31032_symmetric_witness_construction.md": {
+      "dependencies": [
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md",
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2008_neighbor_ray_max_c_formula.md",
+        "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31030_CE0_all_Vd0_residual_core_strategy.md",
+        "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31035_center_independent_all_boundary_obstruction.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31033_asymmetric_witness_construction.md": {
+      "dependencies": [
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md",
+        "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3101X_six_point/31012_core_graph_two_variable_relaxation.md",
+        "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31030_CE0_all_Vd0_residual_core_strategy.md",
+        "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31035_center_independent_all_boundary_obstruction.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31034_witness_enclosure_inequality.md": {
+      "dependencies": [
+        "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31032_symmetric_witness_construction.md",
+        "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31033_asymmetric_witness_construction.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31035_center_independent_all_boundary_obstruction.md": {
+      "dependencies": [
+        "proof/1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md",
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20090_ab_set_index.md",
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20095_exact_caliper_certificate.md",
+        "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31032_symmetric_witness_construction.md",
+        "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31033_asymmetric_witness_construction.md",
+        "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31034_witness_enclosure_inequality.md",
+        "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31036_Nplus_ge2_complementary_AB_comparison_counterexample.md",
+        "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31037_rational_cmax_upper_envelope.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31036_Nplus_ge2_complementary_AB_comparison_counterexample.md": {
+      "dependencies": [
+        "proof/1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md",
+        "proof/1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md",
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md",
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2008_neighbor_ray_max_c_formula.md",
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20090_ab_set_index.md",
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20095_exact_caliper_certificate.md",
+        "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31035_center_independent_all_boundary_obstruction.md",
+        "proof/3XXX_CE0/32XX_Nplus_ge2/3205_unconditional_local_square_loss.md",
+        "proof/3XXX_CE0/32XX_Nplus_ge2/3208_CE0_conditional_area_certificate.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31037_rational_cmax_upper_envelope.md": {
+      "dependencies": [
+        "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31038_global_analytic_core_positivity.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31038_global_analytic_core_positivity.md": {
+      "dependencies": [
+        "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31037_rational_cmax_upper_envelope.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31051_direct_radial_forcing.md": {
+      "dependencies": [
+        "proof/1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md",
+        "proof/1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md",
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31052_fixed_line_circle_signs.md": {
+      "dependencies": [
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31053_direct_asymmetric_witness_forcing.md": {
+      "dependencies": [
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md",
+        "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31051_direct_radial_forcing.md",
+        "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31052_fixed_line_circle_signs.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31054_four_cap_enclosure_reduction.md": {
+      "dependencies": [
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md",
+        "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31052_fixed_line_circle_signs.md",
+        "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31053_direct_asymmetric_witness_forcing.md",
+        "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31055_rational_radial_envelopes_and_mixed_reduction.md",
+        "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31056_global_analytic_mixed_positivity.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31055_rational_radial_envelopes_and_mixed_reduction.md": {
+      "dependencies": [
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md",
+        "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31052_fixed_line_circle_signs.md",
+        "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31054_four_cap_enclosure_reduction.md",
+        "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31056_global_analytic_mixed_positivity.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31056_global_analytic_mixed_positivity.md": {
+      "dependencies": [
+        "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31055_rational_radial_envelopes_and_mixed_reduction.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31057_terminal_nine_point_enclosure.md": {
+      "dependencies": [
+        "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31053_direct_asymmetric_witness_forcing.md",
+        "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31054_four_cap_enclosure_reduction.md",
+        "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31055_rational_radial_envelopes_and_mixed_reduction.md",
+        "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31056_global_analytic_mixed_positivity.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31058_center_independent_direct_nine_point_obstruction.md": {
+      "dependencies": [
+        "proof/1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md",
+        "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31051_direct_radial_forcing.md",
+        "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31052_fixed_line_circle_signs.md",
+        "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31053_direct_asymmetric_witness_forcing.md",
+        "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31057_terminal_nine_point_enclosure.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31059_CE0_Nplus1_all_Vd0_completion.md": {
+      "dependencies": [
+        "proof/1XXX_foundations/11XX_C_triangle/1101_CE_classification.md",
+        "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31058_center_independent_direct_nine_point_obstruction.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/mixed_overlap_core_data_00.py": {
+      "dependencies": [],
+      "kind": "electronic-proof-object",
+      "status": "Electronic"
+    },
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/mixed_overlap_core_data_01.py": {
+      "dependencies": [],
+      "kind": "electronic-proof-object",
+      "status": "Electronic"
+    },
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/mixed_overlap_core_data_02.py": {
+      "dependencies": [],
+      "kind": "electronic-proof-object",
+      "status": "Electronic"
+    },
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/mixed_overlap_core_data_03.py": {
+      "dependencies": [],
+      "kind": "electronic-proof-object",
+      "status": "Electronic"
+    },
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/mixed_overlap_core_data_04.py": {
+      "dependencies": [],
+      "kind": "electronic-proof-object",
+      "status": "Electronic"
+    },
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/mixed_overlap_core_data_05.py": {
+      "dependencies": [],
+      "kind": "electronic-proof-object",
+      "status": "Electronic"
+    },
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/mixed_overlap_core_polynomials.py": {
+      "dependencies": [],
+      "kind": "electronic-proof-object",
+      "status": "Electronic"
+    },
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/verify_global_core_positivity.py": {
+      "dependencies": [],
+      "kind": "electronic-proof-object",
+      "status": "Electronic"
+    },
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/verify_mixed_overlap_core_derivation.py": {
+      "dependencies": [],
+      "kind": "electronic-proof-object",
+      "status": "Electronic"
+    },
+    "proof/3XXX_CE0/31XX_Nplus1/314X_exists_Vd1_Vd2/3141_CE0_Nplus1_exists_Vd1_Vd2_boundary_length_obstruction.md": {
+      "dependencies": [
+        "proof/2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/3XXX_CE0/31XX_Nplus1/317X_T3_like_no_Vd1Vd2/3171_T3_like_area_certificate_index.md": {
+      "dependencies": [
+        "proof/1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md",
+        "proof/3XXX_CE0/31XX_Nplus1/317X_T3_like_no_Vd1Vd2/3173_T3_like_loss_from_envelope.md",
+        "proof/3XXX_CE0/31XX_Nplus1/317X_T3_like_no_Vd1Vd2/3174_CE0_one_supercritical_T3_certificate.md",
+        "proof/3XXX_CE0/31XX_Nplus1/317X_T3_like_no_Vd1Vd2/3175_direct_T3_like_area_loss.md",
+        "proof/3XXX_CE0/32XX_Nplus_ge2/3205_unconditional_local_square_loss.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/3XXX_CE0/31XX_Nplus1/317X_T3_like_no_Vd1Vd2/3173_T3_like_loss_from_envelope.md": {
+      "dependencies": [],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/3XXX_CE0/31XX_Nplus1/317X_T3_like_no_Vd1Vd2/3174_CE0_one_supercritical_T3_certificate.md": {
+      "dependencies": [
+        "proof/1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md",
+        "proof/3XXX_CE0/31XX_Nplus1/317X_T3_like_no_Vd1Vd2/3175_direct_T3_like_area_loss.md",
+        "proof/3XXX_CE0/32XX_Nplus_ge2/3205_unconditional_local_square_loss.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/3XXX_CE0/31XX_Nplus1/317X_T3_like_no_Vd1Vd2/3175_direct_T3_like_area_loss.md": {
+      "dependencies": [
+        "proof/3XXX_CE0/32XX_Nplus_ge2/3205_unconditional_local_square_loss.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/3XXX_CE0/32XX_Nplus_ge2/3201_area_conjecture_index.md": {
+      "dependencies": [
+        "proof/1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md",
+        "proof/3XXX_CE0/32XX_Nplus_ge2/3202_area_function_and_monotonicity.md",
+        "proof/3XXX_CE0/32XX_Nplus_ge2/3204_supercritical_vertex_loss_lemma.md",
+        "proof/3XXX_CE0/32XX_Nplus_ge2/3205_unconditional_local_square_loss.md",
+        "proof/3XXX_CE0/32XX_Nplus_ge2/3208_CE0_conditional_area_certificate.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/3XXX_CE0/32XX_Nplus_ge2/3202_area_function_and_monotonicity.md": {
+      "dependencies": [],
+      "kind": "proof-source",
+      "status": "Reference"
+    },
+    "proof/3XXX_CE0/32XX_Nplus_ge2/3204_supercritical_vertex_loss_lemma.md": {
+      "dependencies": [
+        "proof/3XXX_CE0/32XX_Nplus_ge2/3202_area_function_and_monotonicity.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/3XXX_CE0/32XX_Nplus_ge2/3205_unconditional_local_square_loss.md": {
+      "dependencies": [
+        "proof/3XXX_CE0/32XX_Nplus_ge2/3202_area_function_and_monotonicity.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/3XXX_CE0/32XX_Nplus_ge2/3208_CE0_conditional_area_certificate.md": {
+      "dependencies": [
+        "proof/1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md",
+        "proof/3XXX_CE0/32XX_Nplus_ge2/3202_area_function_and_monotonicity.md",
+        "proof/3XXX_CE0/32XX_Nplus_ge2/3205_unconditional_local_square_loss.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md": {
+      "dependencies": [
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2019_interval_component_and_path_budget.md",
+        "proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2107_one_side_capped_loss.md",
+        "proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md",
+        "proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2110_common_CE2_two_gap_application.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/4XXX_CE1CE2/40XX_Nplus0/404X_exists_Vd1_Vd2_obstruction/4040_CE1_Nplus0_exists_Vd1_Vd2_boundary_length_obstruction.md": {
+      "dependencies": [
+        "proof/2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md",
+        "proof/2XXX_geometric_lemmas/25XX_length_bounds/2530_common_CE1_CE2_budget_lemmas.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/4XXX_CE1CE2/40XX_Nplus0/404X_exists_Vd1_Vd2_obstruction/4041_CE2_Nplus0_exists_Vd1_Vd2_boundary_length_obstruction.md": {
+      "dependencies": [
+        "proof/2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md",
+        "proof/2XXX_geometric_lemmas/25XX_length_bounds/2530_common_CE1_CE2_budget_lemmas.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4070_CE1CE2_Nplus0_T3_like_no_Vd1Vd2_index.md": {
+      "dependencies": [
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2016_universal_Tplus_normal_form.md",
+        "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4071_CE1CE2_Nplus0_T3_like_forces_V0_T3_like.md",
+        "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4072_support_isolation_after_T0_T3_like.md",
+        "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4073_boundary_loss_framework.md",
+        "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4074_L_Full_branch.md",
+        "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4075_Tminus_low_lower_branch_obligations.md",
+        "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4078_left_L_family_completion.md",
+        "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4079_first_Full_branch.md",
+        "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/407a_left_Thigh_branch_completion.md",
+        "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/407c_rigor_completion_details.md",
+        "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/407d_rigor_final_assembly.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4071_CE1CE2_Nplus0_T3_like_forces_V0_T3_like.md": {
+      "dependencies": [
+        "proof/1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md",
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2006_T3_like_midpoint_lemma.md",
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2013_T3_like_side_tradeoff.md",
+        "proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2100_CE1_CE2_exactly_one_midpoint_lemma.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4072_support_isolation_after_T0_T3_like.md": {
+      "dependencies": [
+        "proof/2XXX_geometric_lemmas/25XX_length_bounds/2530_common_CE1_CE2_budget_lemmas.md",
+        "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4071_CE1CE2_Nplus0_T3_like_forces_V0_T3_like.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4073_boundary_loss_framework.md": {
+      "dependencies": [
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2007_max_b_map.md",
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md",
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2013_T3_like_side_tradeoff.md",
+        "proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md",
+        "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4072_support_isolation_after_T0_T3_like.md"
+      ],
+      "kind": "proof-source",
+      "status": "Reduction"
+    },
+    "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4074_L_Full_branch.md": {
+      "dependencies": [
+        "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4073_boundary_loss_framework.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4075_Tminus_low_lower_branch_obligations.md": {
+      "dependencies": [
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md",
+        "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4073_boundary_loss_framework.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4078_left_L_family_completion.md": {
+      "dependencies": [
+        "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/407c_rigor_completion_details.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4079_first_Full_branch.md": {
+      "dependencies": [
+        "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4072_support_isolation_after_T0_T3_like.md",
+        "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4073_boundary_loss_framework.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/407a_left_Thigh_branch_completion.md": {
+      "dependencies": [
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2016_universal_Tplus_normal_form.md",
+        "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/407c_rigor_completion_details.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/407c_rigor_completion_details.md": {
+      "dependencies": [
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2016_universal_Tplus_normal_form.md",
+        "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4078_left_L_family_completion.md",
+        "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/407a_left_Thigh_branch_completion.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/407d_rigor_final_assembly.md": {
+      "dependencies": [
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md",
+        "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4071_CE1CE2_Nplus0_T3_like_forces_V0_T3_like.md",
+        "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4072_support_isolation_after_T0_T3_like.md",
+        "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4073_boundary_loss_framework.md",
+        "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4074_L_Full_branch.md",
+        "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4075_Tminus_low_lower_branch_obligations.md",
+        "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4078_left_L_family_completion.md",
+        "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4079_first_Full_branch.md",
+        "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/407a_left_Thigh_branch_completion.md",
+        "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/407c_rigor_completion_details.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4101_CE1CE2_Nplus1_all_Vd0_strategy.md": {
+      "dependencies": [
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md",
+        "proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md",
+        "proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2110_common_CE2_two_gap_application.md",
+        "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31058_center_independent_direct_nine_point_obstruction.md",
+        "proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4104_all_boundary_transfer_to_310X.md",
+        "proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4105_CE1_CE2_one_gap_five_V_triangle_interface.md",
+        "proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4106_CE1_one_gap_five_map_completion.md",
+        "proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4107_CE2_one_gap_five_map_completion.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4104_all_boundary_transfer_to_310X.md": {
+      "dependencies": [
+        "proof/1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md",
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20090_ab_set_index.md",
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md",
+        "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3101X_six_point/31012_core_graph_two_variable_relaxation.md",
+        "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31035_center_independent_all_boundary_obstruction.md"
+      ],
+      "kind": "proof-source",
+      "status": "Reduction"
+    },
+    "proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4105_CE1_CE2_one_gap_five_V_triangle_interface.md": {
+      "dependencies": [
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md",
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2018_diameter_transfer_and_adjacent_rescuer.md",
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md",
+        "proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md",
+        "proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4101_CE1CE2_Nplus1_all_Vd0_strategy.md",
+        "proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4106_CE1_one_gap_five_map_completion.md",
+        "proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4107_CE2_one_gap_five_map_completion.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4106_CE1_one_gap_five_map_completion.md": {
+      "dependencies": [
+        "proof/1XXX_foundations/12XX_V_triangle/1202_local_coordinates_abc.md",
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2007_max_b_map.md",
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md",
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2012_high_radial_low_root_bounds.md",
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2016_universal_Tplus_normal_form.md",
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2017_threshold_routing.md",
+        "proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2105_CE1_exact_formulas.md",
+        "proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4101_CE1CE2_Nplus1_all_Vd0_strategy.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4107_CE2_one_gap_five_map_completion.md": {
+      "dependencies": [
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2012_high_radial_low_root_bounds.md",
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2018_diameter_transfer_and_adjacent_rescuer.md",
+        "proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md",
+        "proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4105_CE1_CE2_one_gap_five_V_triangle_interface.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/4XXX_CE1CE2/41XX_Nplus1/411X_Vd1_Vd2_obstruction/4110_CE1_Nplus1_exists_Vd1_Vd2_boundary_length_obstruction.md": {
+      "dependencies": [
+        "proof/2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md",
+        "proof/2XXX_geometric_lemmas/25XX_length_bounds/2530_common_CE1_CE2_budget_lemmas.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like/4130_CE1CE2_exactly_one_T3_like_index.md": {
+      "dependencies": [
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2018_diameter_transfer_and_adjacent_rescuer.md",
+        "proof/4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like/4131_midpoint_forcing_reduction.md",
+        "proof/4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like/4132_CE1_CE2_exactly_one_T3_like_boundary_obstruction.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like/4131_midpoint_forcing_reduction.md": {
+      "dependencies": [
+        "proof/1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md",
+        "proof/1XXX_foundations/12XX_V_triangle/1213_T3_like_nonsupercritical.md",
+        "proof/4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like/4132_CE1_CE2_exactly_one_T3_like_boundary_obstruction.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like/4132_CE1_CE2_exactly_one_T3_like_boundary_obstruction.md": {
+      "dependencies": [
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2018_diameter_transfer_and_adjacent_rescuer.md",
+        "proof/4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like/4131_midpoint_forcing_reduction.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4140_CE2_Nplus1_exactly_one_Vd1_Vd2_index.md": {
+      "dependencies": [],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4144_CE2_Nplus1_T0_supercritical_T1_Vd1_Vd2_adjacent_obstruction.md": {
+      "dependencies": [
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2019_interval_component_and_path_budget.md",
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201b_quarter_radial_envelope.md",
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201c_Vd_corner_radial_margins.md",
+        "proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md",
+        "proof/2XXX_geometric_lemmas/25XX_length_bounds/2530_common_CE1_CE2_budget_lemmas.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/414b_complete_placement_reaudit.md": {
+      "dependencies": [],
+      "kind": "proof-source",
+      "status": "Proven"
+    }
+  },
+  "root": "proof/0XXX_main/0000_main_theorem.md",
+  "schema": 1
+}

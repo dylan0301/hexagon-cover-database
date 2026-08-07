@@ -15,7 +15,7 @@ closes the same all-boundary hypotheses by a different witness set.
 
 Begin with a cover of the full side-one hexagon $H$ by the open center role
 $T_C$ and six open Vd0 vertex roles $T_0,\dots,T_5$. Assume exactly one
-vertex row is supercritical and that the six vertex roles alone cover
+vertex V triangle is supercritical and that the six vertex roles alone cover
 
 $$
 \partial H.
@@ -55,7 +55,7 @@ $$
 
 The points $V_i,X_{i-1},X_i$ all lie in the open triangle $T_i$.
 
-If row $i$ is nonsupercritical, then
+If V triangle $i$ is nonsupercritical, then
 
 $$
 A_i+B_i\le1.
@@ -73,7 +73,7 @@ $$
 a_i+b_i=1-x_{i-1}+x_i<1.
 $$
 
-The selected row sums telescope:
+The selected V triangle sums telescope:
 
 $$
 \sum_{i=0}^5(a_i+b_i)
@@ -82,8 +82,8 @@ $$
 =6.
 $$
 
-Five selected rows are strictly below one, so the remaining selected row is
-strictly above one. Thus the handoff data have exactly one supercritical row,
+Five selected V triangles are strictly below one, so the remaining selected V triangle is
+strictly above one. Thus the handoff data have exactly one supercritical V triangle,
 at the same normalized index as the original configuration.
 
 Because the two anchors lie in the same open unit equilateral triangle, their
@@ -113,7 +113,7 @@ $$
 
 The union sets are defined abstractly in
 [`../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20090_ab_set_index.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20090_ab_set_index.md).
-The strict supercritical frontier for the unique row with $a_i+b_i>1$ is
+The strict supercritical frontier for the unique V triangle with $a_i+b_i>1$ is
 proved in
 [`../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md).
 No formula for the general empirical catalog is used in the transfer below.
@@ -157,7 +157,7 @@ so an unqualified plane-interior residual on all of $H$ would be too broad.
 
 We record explicitly the strictness needed below.  The three $P$-points in
 the actual six-point construction lie on the non-axis part of the strict
-$AB$-union frontier at the selected row.  In its local corner coordinates
+$AB$-union frontier at the selected V triangle.  In its local corner coordinates
 $(u,v)$ they satisfy
 
 $$
@@ -196,7 +196,7 @@ $$
 
 ## 4. Optional transfer of the six-point reduction
 
-Rotate the unique selected supercritical row to $V_4$ and put
+Rotate the unique selected supercritical V triangle to $V_4$ and put
 
 $$
 a=a_4,

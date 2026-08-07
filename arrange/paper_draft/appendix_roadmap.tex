@@ -67,3 +67,12 @@ by repository path, Git blob, and authenticated transcript.  A machine
 verifier is used as part of the proof only where its exact input and algorithm
 are formally incorporated; a bare script invocation or claimed output is not
 treated as a proof.
+
+\paragraph{Strategy 2 module boundary.}
+Appendix~\ref{sec:strategy2-parameter-bridges} is the sole mixed
+geometry--analysis dictionary.  Appendix~\ref{sec:strategy2-optimization-problems}
+contains the geometry-free problem registry, including the explicit T3,
+rescuer, and Vd cells.  The file \texttt{04\_strategy2\_verification.tex} is
+an input-only wrapper; its numbered \texttt{04e\_strategy2\_verification\_*}
+modules separately own the registered applications and the preserved exact
+calculation sections.

@@ -150,14 +150,17 @@ the outside-vertex and adjacent-support counts `(o,n)`.
 
 ### Boundary gaps and singleton gaps
 
-**Paper content.** The missed set `[B_i,1-A_{i+1}]` is retained when it is a
-singleton because the role triangles are open.
+**Paper content.** The missed set `[B_i,1-A_{i+1}]` is retained when
+it is a singleton because the role triangles are open.
 
-**Primary sources.**
+**Primary proved sources.**
 
-- [1208_boundary_degeneracies.md](../proof/1XXX_foundations/12XX_V_triangle/1208_boundary_degeneracies.md) — **P/S**;
-- [1214_strict_boundary_handoff_selection.md](../proof/1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md) — **S**;
-- [2019_interval_component_and_path_budget.md](../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2019_interval_component_and_path_budget.md) — **S**.
+- [1214_strict_boundary_handoff_selection.md](../proof/1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md) — **P** for strict open handoffs;
+- [2019_interval_component_and_path_budget.md](../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2019_interval_component_and_path_budget.md) — **P/S** for exact residual components and endpoint accounting;
+- [4013_boundary_loss_index.md](../proof/4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md) — **P** for singleton-inclusive skeleton gap rank.
+
+**Definition-only checklist.**
+[1208_boundary_degeneracies.md](../proof/1XXX_foundations/12XX_V_triangle/1208_boundary_degeneracies.md) — **N**.  It lists degeneracies but does not prove the routing statements.
 
 ### Short roles and `q=N_++m`
 

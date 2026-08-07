@@ -260,7 +260,7 @@ $$
 R=1-c_*,
 $$
 
-and with the supercritical row gap
+and with the supercritical V triangle gap
 
 $$
 \varepsilon=a+b-1=1-S,
@@ -275,7 +275,7 @@ R=\varepsilon.
 $$
 
 The transition point is therefore where the diagonal radius equals the
-supercritical row gap.
+supercritical V triangle gap.
 
 ## 5. Finite support-tie reduction
 

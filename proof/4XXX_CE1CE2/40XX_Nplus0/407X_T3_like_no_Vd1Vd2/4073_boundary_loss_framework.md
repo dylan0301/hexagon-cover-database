@@ -15,7 +15,7 @@ $$
 T_C\text{ is CE1 or CE2},\qquad N_+=0,
 $$
 
-with no Vd1/Vd2 rows and at least one T3-like row.  Normalize by the CE1/CE2 midpoint dependency so that
+with no Vd1/Vd2 V triangles and at least one T3-like V triangle.  Normalize by the CE1/CE2 midpoint dependency so that
 
 $$
 T_C\cap\{M_0,\ldots,M_5\}=\{M_0\}.

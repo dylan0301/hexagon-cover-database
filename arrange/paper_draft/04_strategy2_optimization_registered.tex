@@ -1,8 +1,8 @@
-\subsection{Formalization-ready optimization problems}
+\subsection{Four all-Vd0 optimization problems}
 
 \begin{definition}[Problem S2-E1: one-gap endpoint]
 \label{prob:s2-one-gap-endpoint}
-For $(r,a,d)\in\mathcal D_1\cup\mathcal D_2$, define
+For \((r,a,d)\in\mathcal D_1\cup\mathcal D_2\), define
 \[
  x_-=\frac{k}{r},
  \qquad
@@ -20,16 +20,17 @@ and
 \]
 The optimization problem is
 \[
- \boxed{\Psi_{\rm E1}(r,a,d)<0
- \quad\text{for every }(r,a,d)\in\mathcal D_1\cup\mathcal D_2.}
+ \boxed{
+ \Psi_{\rm E1}(r,a,d)<0
+ \quad
+ ((r,a,d)\in\mathcal D_1\cup\mathcal D_2).
+ }
 \]
-Equivalently, prove a strict branch certificate for every pair of contact
-labels of the two occurrences of $F$.
 \end{definition}
 
 \begin{definition}[Problem S2-E2: paired endpoint]
 \label{prob:s2-two-gap-endpoint}
-For $(r,a,d)\in\mathcal D_2$, define
+For \((r,a,d)\in\mathcal D_2\), define
 \[
  x_-=w-a,
  \qquad
@@ -47,8 +48,11 @@ and
 \]
 The optimization problem is
 \[
- \boxed{\Psi_{\rm E2}(r,a,d)<0
- \quad\text{for every }(r,a,d)\in\mathcal D_2.}
+ \boxed{
+ \Psi_{\rm E2}(r,a,d)<0
+ \quad
+ ((r,a,d)\in\mathcal D_2).
+ }
 \]
 \end{definition}
 
@@ -56,7 +60,7 @@ For the return problems define
 \[
  X=r-d,\qquad
  Y_0=\frac{k}{2r},\qquad
- m=\min\left\{\frac a r,\frac d w\right\},
+ m=\min\left\{\frac ar,\frac dw\right\},
 \]
 and recursively
 \[
@@ -64,64 +68,38 @@ and recursively
  Y_2=T(1-m,Y_1),\qquad
  Y_3=T(1-d,Y_2).
 \]
-The target $Y_3>w+d$ is the complement-dual form of the exact
-five-V-triangle inequality.  No geometric variable occurs in this recurrence.
 
 \begin{definition}[Problem S2-R1: CE1 returned demand]
 \label{prob:s2-ce1-five-chain}
-For $(r,a,d)\in\mathcal D_1$, define
+For \((r,a,d)\in\mathcal D_1\), define
 \[
  \Psi_{\rm R1}(r,a,d)=w+d-Y_3.
 \]
 The optimization problem is
 \[
- \boxed{\Psi_{\rm R1}(r,a,d)<0
- \quad\text{for every }(r,a,d)\in\mathcal D_1.}
+ \boxed{
+ \Psi_{\rm R1}(r,a,d)<0
+ \quad
+ ((r,a,d)\in\mathcal D_1).
+ }
 \]
-A direct formalization may split first by the three contact labels selected
-by the recurrence.  The existing human proof uses two affine lower chords on
-the surviving selected-$Q_+$ cells and then a low-root threshold.
 \end{definition}
 
 \begin{definition}[Problem S2-R2: CE2 returned demand]
 \label{prob:s2-ce2-five-chain}
-For $(r,a,d)\in\mathcal D_2$, define
+For \((r,a,d)\in\mathcal D_2\), define
 \[
  \Psi_{\rm R2}(r,a,d)=w+d-Y_3.
 \]
 The optimization problem is
 \[
- \boxed{\Psi_{\rm R2}(r,a,d)<0
- \quad\text{for every }(r,a,d)\in\mathcal D_2.}
+ \boxed{
+ \Psi_{\rm R2}(r,a,d)<0
+ \quad
+ ((r,a,d)\in\mathcal D_2).
+ }
 \]
-The proof establishes that at least one of the two relevant threshold
-conditions holds.  It does not add a disjointness or uniqueness constraint.
+The required threshold condition is an inclusive disjunction: at least one
+of the two stated threshold cells holds.  No uniqueness or disjointness
+condition is added.
 \end{definition}
-
-\begin{proposition}[Relation to the four scalar terminals]
-\label{prop:s2-pure-ready-equivalence}
-Problems~\ref{prob:s2-one-gap-endpoint} and~\ref{prob:s2-two-gap-endpoint}
-are exactly the one-side and paired endpoint inequalities used in
-Proposition~\ref{prop:body-all-vd0-endpoints}.
-Problems~\ref{prob:s2-ce1-five-chain} and~\ref{prob:s2-ce2-five-chain}
-are the complement-dual three-map certificates used to imply the exact
-five-V-triangle terminal inequality in
-Proposition~\ref{prop:body-five-V-triangle-certificate}.
-\end{proposition}
-
-\begin{proof}
-Substitute $r=R$, $a=\alpha$, and $d=\delta$ into the endpoint records and
-use $F(c,x)=\widehat g_c(1-x)$.  For the return records,
-$T(c,x)=\widehat g_c^\vee(x)$.  Three applications of capped-map duality show
-that
-\[
- Y_3>w+d=1-X
-\]
-is equivalent to the forward middle-three-map output being greater than
-$1-k/(2R)$.  The first and fifth maps in the exact five-V-triangle chain are
-extensive, so this middle-three-map inequality implies
-\[
- Z>1-\frac{k}{2R}.
-\]
-\end{proof}
-

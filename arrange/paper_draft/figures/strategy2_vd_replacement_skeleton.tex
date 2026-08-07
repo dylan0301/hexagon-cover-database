@@ -27,7 +27,7 @@
     \coordinate (Mu) at ($(V1)!.68!(O)$);
     \draw[actualreach] (Lam)--(Mu);
     \node[figlabel,text=VertexOrange,above right] at (Lam) {$\lambda$};
-    \node[figlabel,text=VertexOrange,below right] at (Mu) {$\mu$};
+    \node[figlabel,text=VertexOrange,below right] at (Mu) {$u_{\rm adj}$};
 
     \draw[demand] (V1)--($(V1)!.38!(V0)$);
     \draw[demand] (V1)--($(V1)!.30!(V2)$);
@@ -69,8 +69,8 @@
       {$1-p_1$};
     \node[figlabel,text=RadialTeal,left] at ($(V1)!.38!(O)$)
       {$\max\{p_2,1-p_2\}$};
-    \node[figlabel,below right] at (V0) {$T_0'$};
-    \node[figlabel,above right] at (V1) {$T_1'$};
+    \node[figlabel,below right] at (V0) {$U_0'$};
+    \node[figlabel,above right] at (V1) {$U_1'$};
     \node[figlabel,below] at (0,-1.32)
       {two open nonsupercritical Vd0 replacements};
   \end{scope}
@@ -86,7 +86,7 @@
      $\displaystyle
       c:=\frac{d-a-tb}{t+1},\quad
       \lambda:=\frac{t(1-b)}{t+1},\quad
-      \mu:=\frac{d-a-tb-1}{t}$};
+      u_{\rm adj}:=\frac{d-a-tb-1}{t}$};
 
   \node[figlabel,atlasbox,align=left,anchor=west] at (.05,-.92)
     {$\displaystyle
@@ -103,7 +103,7 @@
      $\displaystyle
       A_1\ge1-b,\quad C_1\ge\lambda,\quad
       c_1^{\mathrm{req}}:=1-d_1^C,\qquad
-      c_1^{\mathrm{req}}<\max\{C_1,\mu\}$.};
+      c_1^{\mathrm{req}}<\max\{C_1,u_{\rm adj}\}$.};
 
   \node[figlabel,atlasbox,align=left,anchor=west] at (.05,-3.32)
     {$\displaystyle
@@ -136,10 +136,10 @@
       \min\{p_1-a,\ p_2-p_1,\ 1-B_1-p_2,\
       1-p_1-c,\ \max\{p_2,1-p_2\}-c_1^{\rm req}\}$\\
      $\displaystyle
-      T_0':=
+      U_0':=
       X_0\!\left(\interior(\Delta_{p_1}^-)+(-\varepsilon,0)\right),
       \qquad
-      T_1':=
+      U_1':=
       \begin{cases}
        X_1\!\left(\interior(\Delta_{p_2}^-)
        +(-\varepsilon,0)\right),&p_2\le1/2,\\

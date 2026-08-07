@@ -40,7 +40,7 @@ $$
 s,\quad t,\quad x_1,\quad x_2,\quad x_3,\quad x_4,\quad x_5.
 $$
 
-## Induced vertex rows
+## Induced vertex V triangles
 
 The six vertex-triangle boundary rows are:
 

@@ -1,0 +1,121 @@
+\section{Registered Strategy 2 Applications}
+\label{sec:strategy2-reader}
+
+This section contains only the application layer.  The geometry-to-parameter
+substitutions are in Appendix~\ref{sec:strategy2-parameter-bridges}; the
+optimization problems are in
+Appendix~\ref{sec:strategy2-optimization-problems}; and the calculations are
+split among the verification modules that follow.
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{@{}p{.20\textwidth}p{.28\textwidth}p{.38\textwidth}@{}}
+\toprule
+identifier&objective&verification owner\\
+\midrule
+S2-E1&one-gap endpoint sum \(<1\)&exact one-side capped-loss calculation\\
+S2-E2&paired endpoint sum \(<1\)&exact CE2 paired-endpoint calculation\\
+S2-R1&CE1 returned demand \(>1-X\)&CE1 branchwise chord and threshold module\\
+S2-R2&CE2 returned demand \(>1-X\)&CE2 inclusive threshold-disjunction module\\
+S2-T3&finite four-label endpoint sum \(<1\)&complete \(407X\) label audit\\
+S2-SC&two explicit source cells&short local-profile verification\\
+S2-VD&adjacent and nonadjacent radial signs&quarter and corner-margin modules\\
+\bottomrule
+\end{tabular}
+\caption{Registered Strategy~2 calculations and their verification owners.}
+\label{tab:strategy2-chain-signatures}
+\end{table}
+
+\subsection{All-Vd0 applications}
+
+\begin{proposition}[Common CE2 two-gap application]
+\label{prop:reader-common-two-gap}
+Assume both CE2 center traces contain V-gaps and
+\(T_1,\ldots,T_5\) are nonsupercritical Vd0 roles.  Then the perimeter is not
+covered.  No hypothesis on the criticality of \(T_0\) is required.
+\end{proposition}
+
+\begin{proof}
+The bridge identifies the endpoint record with Problem S2-E2.  Its objective
+is negative, so the two endpoint capacities sum to less than one.  The three
+intervening roles form the center-free path required by
+Lemma~\ref{lem:reader-boundary-path}, giving the contradiction.
+\end{proof}
+
+For the one-gap return, retain the exact forward notation
+\begin{equation}
+ Z=
+ [\widehat g_{c_1}^\vee\mid
+  \widehat g_{c_2}^\vee\mid
+  \widehat g_{c_3}^\vee\mid
+  \widehat g_{c_4}^\vee\mid
+  \widehat g_{c_5}^\vee](X).
+ \label{eq:reader-exact-five-chain}
+\end{equation}
+The bridge gives \(A_0\ge Z\) and \(A_0<1-H\).  The registered reverse
+three-update target is
+\begin{equation}
+ [\widehat g_{1-\alpha}^\vee
+  \mid\widehat g_{1-m_3}^\vee
+  \mid\widehat g_{1-\delta}^\vee](H)
+ >1-X.
+ \label{eq:reader-signed-three-map}
+\end{equation}
+
+\begin{proposition}[CE1 one-gap obstruction]
+\label{prop:reader-ce1-one-gap}
+The CE1, \(N_+=1\), all-Vd0, one-gap state is impossible.
+\end{proposition}
+
+\begin{proof}
+Proposition~\ref{prop:s2-return-bridge} identifies the required scalar sign
+with Problem S2-R1.  Proposition~\ref{prop:ce1-one-gap} proves that problem,
+and the exact forward interface yields \(Z>1-H\).
+\end{proof}
+
+\begin{corollary}[CE2 one-gap obstruction]
+\label{prop:reader-ce2-one-gap}
+The CE2, \(N_+=1\), all-Vd0, exactly-one-gap state is impossible in either
+orientation.
+\end{corollary}
+
+\begin{proof}
+Problem S2-R2 is Proposition~\ref{prop:signed-ce2-one-gap}.  Its threshold
+condition is an inclusive disjunction: at least one of the two locations
+fires, and both may fire.  Reflection reverses the five-role order and
+exchanges the two signed slacks.
+\end{proof}
+
+\subsection{Registered special-role applications}
+
+Problem S2-T3 is identified with the exact support-isolated endpoint sum by
+Proposition~\ref{prop:s2-t3-objective-bridge}; its verification is
+Theorem~\ref{thm:paper-complete-t3-endpoint}.  Problem S2-SC is verified by
+Lemmas~\ref{lem:short-t3-rescuer-profile} and
+\ref{lem:short-vd1-rescuer-profile}.  The adjacent and nonadjacent parts of
+Problem S2-VD are verified by Lemmas~\ref{lem:signed-vd-adjacent-placement}
+and \ref{lem:signed-vd-nonadjacent-placement}.  The remaining two-chart
+replacement is Proposition~\ref{prop:paper-vd1-pair-replacement} and is not
+an optimization problem.
+
+\begin{proposition}[Branches closed by registered Strategy 2 problems]
+\label{prop:reader-demand-branches}
+Strategy~2 closes:
+\begin{enumerate}
+\item the \(N_+=0\) all-Vd0 and T3-like-without-Vd1/Vd2 branches for CE1 and
+CE2;
+\item every nonempty-gap \(N_+=1\) all-Vd0 state;
+\item the exactly-one-T3-like \(N_+=1\) state with no Vd1/Vd2 role;
+\item the complementary transfer placements in the CE2, \(N_+=1\),
+exactly-one-Vd1/Vd2 branch.
+\end{enumerate}
+Singleton V-gaps are included.
+\end{proposition}
+
+\begin{proof}
+Use Problems S2-E1, S2-E2, S2-R1, S2-R2, S2-T3, S2-SC, and S2-VD through the
+bridge propositions above.  The zero-gap \(N_+=1\) all-Vd0 cell remains the
+Strategy~4 nine-point obstruction.
+\end{proof}

@@ -17,7 +17,7 @@ component selectors. The transition part therefore remains Strategy.
 
 ## Two-Variable Reduction
 
-Assume the unique supercritical row is the $V_4$ row. Under
+Assume the unique supercritical V triangle is the $V_4$ row. Under
 
 $$
 a_3+b_3=1,\qquad a_5+b_5=1,

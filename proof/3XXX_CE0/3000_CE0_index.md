@@ -8,7 +8,7 @@ $$
 N_+=
 \left\lvert
 \left\lbrace
-i:a_i+b_i>1
+i:A_i+B_i>1
 \right\rbrace
 \right\rvert.
 $$
@@ -17,7 +17,7 @@ For the original vertex roles in this proof tree,
 [`../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md`](../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md)
 proves that Vd0, Vd1, Vd2, and T3-like are exhaustive. Thus in the $N_+=1$
 branch the all-Vd0, Vd1/Vd2-present, and T3-like-present-with-no-Vd1/Vd2
-rows below form an exhaustive local-type split.
+V-triangle cases below form an exhaustive local-type split.
 
 | File | Recorded status | Branch |
 |---|---|---|

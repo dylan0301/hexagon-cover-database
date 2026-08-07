@@ -145,4 +145,4 @@ The package
 [`3201_area_conjecture_index.md`](3201_area_conjecture_index.md)
 uses the proven square-loss theorem together with
 [`3208_CE0_conditional_area_certificate.md`](3208_CE0_conditional_area_certificate.md)
-to close the case with at least two supercritical rows.
+to close the case with at least two supercritical V triangles.

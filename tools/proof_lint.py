@@ -114,7 +114,12 @@ for obsolete in [
         fail(f"obsolete TeX source remains: {obsolete}.tex")
 
 strategy2_path = ROOT / "arrange/paper_draft/04_strategy2_verification.tex"
-strategy2_text = strategy2_path.read_text(encoding="utf-8")
+strategy2_paths = sorted(
+    path
+    for path in compiled
+    if path.name.startswith(("04_strategy2_", "04d_strategy2_", "04e_strategy2_"))
+)
+strategy2_text = "\n".join(path.read_text(encoding="utf-8") for path in strategy2_paths)
 short_vd_text = (ROOT / "arrange/paper_draft/04c_short_Vd_placements.tex").read_text(encoding="utf-8")
 if "prop:signed-ce2-one-vd-placements" in strategy2_text + short_vd_text:
     fail("duplicate compact CE2 one-Vd assembly remains")
@@ -142,9 +147,10 @@ scan_paths = active_sources | compiled
 terminology_patterns = [
     (r"\bfive[- ]row\b", "geometric five-row terminology"),
     (r"\bsix[- ]row\b", "geometric six-row terminology"),
-    (r"\b(?:Vd1/Vd2|T3-like|vertex|ordinary|remaining) rows?\b", "geometric row terminology"),
+    (r"\b(?:Vd1/Vd2|T3-like|vertex|ordinary|remaining|selected|unique|supercritical) rows?\b", "geometric row terminology"),
     (r"\brows below\b", "geometric row terminology"),
-    (r"\brow (?:interface|propagation|coordinates|map|completion)\b", "geometric row terminology"),
+    (r"\brow \$i\$", "geometric row terminology"),
+    (r"\brow (?:interface|propagation|coordinates|map|completion|sums?)\b", "geometric row terminology"),
     (r"\bpositive[- ]gaps?\b", "singleton-unsafe positive-gap terminology"),
 ]
 for path in sorted(scan_paths):
@@ -156,7 +162,11 @@ for path in sorted(scan_paths):
         if re.search(pattern, text, re.I):
             fail(f"{description} in {relative}")
     compact = re.sub(r"\s+", "", text)
-    if re.search(r"N_\+=.{0,180}a_i\+b_i>1", compact):
+    lowercase_nplus_tokens = (
+        r"N_+=\left\lvert\left\lbracei:a_i+b_i>1",
+        r"N_+=\left\lvert\left\{i:a_i+b_i>1",
+    )
+    if any(token in compact for token in lowercase_nplus_tokens):
         fail(f"N_+ is defined from selected lowercase reaches in {relative}")
 
 all_active_text = "\n".join(

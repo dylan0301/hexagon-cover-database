@@ -2,24 +2,47 @@
 \label{sec:strategy2-optimization-problems}
 
 This appendix is the formalization interface for the scalar part of
-Strategy~2.  The first four problems below contain no hexagon, triangle,
-boundary edge, role type, or placement variable.  Each consists only of:
-
+Strategy~2.  Every registered problem contains only:
 \begin{enumerate}
-\item a finite tuple of real input variables;
-\item derived radical functions;
-\item a branchwise semialgebraic domain;
-\item a recurrence built from one explicit bivariate function; and
-\item a strict objective inequality.
+\item finitely many real input variables;
+\item explicit radical or rational derived functions;
+\item a finite union of branchwise semialgebraic cells;
+\item an objective or recurrence; and
+\item a required strict or weak sign.
 \end{enumerate}
-
-The geometric appendices have the separate obligation of proving that every
-routed configuration produces a point in the stated domain.  Conversely, the
-optimization proofs must not use geometric facts not written among the domain
-constraints.  This separation is intended to be copied directly into a proof
-assistant.
-
+No hexagon, triangle, boundary edge, role type, translated object, placement
+coordinate, or supremum occurs in a problem definition.  The sole dictionary
+back to geometry is Appendix~\ref{sec:strategy2-parameter-bridges}.
 
 \input{04_strategy2_optimization_core}
 \input{04_strategy2_optimization_registered}
-\input{04_strategy2_optimization_remaining}
+\input{04_strategy2_optimization_labels}
+\input{04_strategy2_optimization_t3}
+\input{04_strategy2_optimization_rescuer}
+\input{04_strategy2_optimization_vd}
+
+\subsection{Formalization status}
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{@{}p{.16\textwidth}p{.30\textwidth}p{.18\textwidth}p{.25\textwidth}@{}}
+\toprule
+identifier&input and objective&interface status&proof status\\
+\midrule
+S2-E1&three variables, two evaluations of \(F\)&ready&proved in TeX\\
+S2-E2&three variables, two evaluations of \(F\)&ready&proved in TeX\\
+S2-R1&three variables, three-step recurrence&ready&proved in TeX\\
+S2-R2&three variables, three-step recurrence&ready&proved in TeX\\
+S2-T3&finite residual, radial, and label cells&ready&proved by the \(407X\) audit\\
+S2-SC&two explicit rational-radical source cells&ready&proved by local profiles\\
+S2-VD&explicit residual and corner graph cells&ready&proved by radial margins\\
+replacement&two geometric charts&not an optimization problem&proved geometrically\\
+\bottomrule
+\end{tabular}
+\caption{Strategy~2 optimization-interface status.  ``Ready'' means that the
+problem statement is free of geometric predicates; it does not mean that a
+proof-assistant proof has been completed.}
+\label{tab:s2-formalization-status}
+\end{table}

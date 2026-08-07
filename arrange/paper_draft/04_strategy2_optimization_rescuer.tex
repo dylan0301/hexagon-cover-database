@@ -1,0 +1,116 @@
+\subsection{Problem S2-SC: explicit rescuer domains}
+
+For \(0\le c\le1/2\), define
+\[
+ E_{\rm sc}(c)
+ =\frac{c+\sqrt{c^2-8c+4}}2,
+ \qquad
+ A_{\rm sc}(c)=1-E_{\rm sc}(c).
+\]
+For \(a\ge0\) and \(u<1\) with \(a+1-u>0\), put
+\[
+ \vartheta(a,u)=\frac{a}{a+1-u},
+\]
+and define
+\[
+ \Psi_{\rm SC}(a,c,u)
+ =\max\{a,\vartheta(a,u)\}+E_{\rm sc}(c)-1.
+\]
+
+\begin{definition}[First explicit source cell]
+\label{def:s2-sc-t3-domain}
+For
+\[
+ 0\le\theta\le2-\sqrt3,
+\]
+define
+\[
+ x_L(\theta)
+ =\frac{1-4\theta+\theta^2}{2(1-2\theta)},
+ \qquad
+ \rho(\theta)=\frac{1-2\theta}{1-\theta^2}.
+\]
+Let \(\Omega_{\rm SC}^{T}\) be the set of
+\((\theta,x,a,c,u)\in\mathbb R^5\) satisfying
+\[
+ x_L(\theta)\le x\le\frac12-\theta,
+\]
+\[
+ a=x\rho(\theta),\qquad
+ c=x+\theta,\qquad
+ u=1-\rho(\theta)+a,
+\]
+and
+\[
+ 0<a<1,\qquad
+ 0\le c\le\frac12,\qquad
+ \frac12\le u<1.
+\]
+Every denominator is positive on the displayed \(\theta\)-interval.
+\end{definition}
+
+On this cell,
+\[
+ 1-u=(1-x)\rho(\theta),
+ \qquad
+ \vartheta(a,u)=x.
+\]
+Thus the variables \((\theta,x)\) replace the earlier translated-form
+predicate by an explicit rational domain.
+
+\begin{definition}[Second explicit source cell]
+\label{def:s2-sc-vd1-domain}
+For \(t\ge1\), put
+\[
+ \Delta(t)=\sqrt{t^2+t+1}.
+\]
+Let \(\Omega_{\rm SC}^{V}\) be the set of
+\((t,a,b,c,u)\in\mathbb R^5\) satisfying
+\[
+ 0<a<1,\qquad 0<b<1,\qquad 0\le c\le\frac12,
+\]
+\[
+ c=\frac{t(1-b)}{t+1},
+ \qquad
+ u=\frac{\Delta(t)-a-tb-1}{t},
+\]
+\[
+ 0\le c<u<1,
+ \qquad
+ a+tb\le\Delta(t)-1-\frac t2,
+\]
+and
+\[
+ \Delta(t)-a-tb-t
+ \le\frac{1-a}{t+1}.
+\]
+The last inequality is the exact no-positive-interval condition for the
+second raw interval; it replaces a geometric type predicate.
+\end{definition}
+
+\begin{definition}[Problem S2-SC]
+\label{prob:s2-rescuer}
+The two optimization statements are
+\[
+ \boxed{
+ \Psi_{\rm SC}(a,c,u)\le0
+ \qquad
+ ((\theta,x,a,c,u)\in\Omega_{\rm SC}^{T})
+ }
+\]
+and
+\[
+ \boxed{
+ \Psi_{\rm SC}(a,c,u)\le0
+ \qquad
+ ((t,a,b,c,u)\in\Omega_{\rm SC}^{V}).
+ }
+\]
+Their union is denoted by \(\Omega_{\rm SC}\).
+\end{definition}
+
+The first cell is the exact rational parameter range used in the first local
+profile proof.  The second cell records the corner equations, midpoint
+inequality, positive first interval, and absence of a positive second
+interval.  Neither cell contains a translation, support, or placement
+predicate.

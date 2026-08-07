@@ -1,0 +1,228 @@
+\section{Exact Endpoint and Replacement Verification}
+\label{sec:strategy2-rigor-completion}
+
+This section supplies two pieces that must not be hidden by the concise reader
+presentation.  First, it formally incorporates the complete status-bearing
+$407X$ four-label endpoint proof.  Second, it gives the explicit
+Vd1--supercritical two-chart replacement in TeX.  The incorporated proof-package
+objects are part of the proof at the exact Git blobs listed below.
+
+\subsection{The incorporated \(407X\) endpoint supplement}
+
+All paths in the following table are relative to
+\begin{verbatim}
+proof/4XXX_CE1CE2/40XX_Nplus0/
+407X_T3_like_no_Vd1Vd2/
+\end{verbatim}
+
+\begin{center}
+\scriptsize
+\renewcommand{\arraystretch}{1.08}
+\begin{tabular}{p{.39\textwidth}p{.38\textwidth}p{.14\textwidth}}
+\toprule
+proof-package object&Git blob SHA&role\\
+\midrule
+\texttt{4073\_boundary\_loss\_framework.md}&
+\texttt{910c7a8a13305a807157e31a62499b322d7b3907}&residual reduction\\
+\texttt{4074\_L\_Full\_branch.md}&
+\texttt{7c72dfaf7eb31d6ba561aba782e0a2bd9688ec70}&$(L,\mathrm{Full})$\\
+\texttt{4075\_Tminus\_low\_lower\_branch\_obligations.md}&
+\texttt{ebe2b65f8840b8667c3dca672a8d0cdf2d4104ad}&first $T_-$\\
+\texttt{4078\_left\_L\_family\_completion.md}&
+\texttt{f1323325b0690a1a9394d93911c28425ecfbca9b}&remaining first $L$\\
+\texttt{4079\_first\_Full\_branch.md}&
+\texttt{c66eea05277dbf2e1781f133f4f18c469f1b0909}&first Full\\
+\texttt{407a\_left\_Thigh\_branch\_completion.md}&
+\texttt{aa5cb1a6dc635639972ba8f48cc92c9f519da296}&first $T_+^{\rm hi}$\\
+\texttt{407c\_rigor\_completion\_details.md}&
+\texttt{c80243f671245223eaa4047fe3a1168735f093cd}&analytic details\\
+\texttt{407d\_rigor\_final\_assembly.md}&
+\texttt{e22c85c95fdd3b8f75c66b2f721bc7088bbb76b6}&final assembly\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The exact capped-map theorem used by these files is
+Proposition~\ref{prop:capped-demand-map}.  Its four labels are
+\[
+ \mathrm{Full},\qquad L,\qquad T_-,\qquad T_+^{\rm hi}.
+\]
+The supplement retains the exact residual inputs $a_1^*,a_5^*$ and radial
+demands $c_1^*,c_5^*$ from Lemma~\ref{lem:407-four-label-loss}.  It does not
+replace them by a symmetric or universal envelope.
+
+\begin{table}[H]
+\centering
+\scriptsize
+\renewcommand{\arraystretch}{1.08}
+\begin{tabular}{p{.20\textwidth}p{.34\textwidth}p{.34\textwidth}}
+\toprule
+first label&right labels&incorporated terminal source\\
+\midrule
+$L$&Full&`4074`, low-root separation\\
+$L$&$L,T_-$&`4078`, exact low-sheet inequalities\\
+$L$&$T_+^{\rm hi}$&`4078` and `407c`\\
+$T_-$&$L,T_-$&`4075`, exact root ordering\\
+$T_-$&Full, $T_+^{\rm hi}$&`4075`, strict endpoint separation\\
+Full&all labels&`4079`, first-Full exclusion\\
+$T_+^{\rm hi}$&Full, $T_+^{\rm hi}$&`407a`, high-input exclusion\\
+$T_+^{\rm hi}$&$L,T_-$&`407a` and `407c`, analytic threshold and right-$T_-$ bounds\\
+\bottomrule
+\end{tabular}
+\caption{The exhaustive four-label endpoint audit.  The listed exact source
+objects contain every polynomial selector, domain restriction, and strict
+inequality used in the corresponding entry.}
+\label{tab:paper-407-complete-audit}
+\end{table}
+
+\begin{theorem}[Complete support-isolated T3-like endpoint certificate]
+\label{thm:paper-complete-t3-endpoint}
+For every support-isolated state of
+Definition~\ref{def:body-t3-endpoint-state},
+\[
+ \widehat g_{c_5^*}(1-a_5^*)+
+ \widehat g_{c_1^*}(1-a_1^*)<1.
+\]
+\end{theorem}
+
+\begin{proof}
+If $a_1^*+a_5^*>1$, the diagonal caps already give the strict inequality.
+Otherwise Proposition~\ref{prop:capped-demand-map} assigns each endpoint one
+of the four labels above.  Table~\ref{tab:paper-407-complete-audit} is an
+exhaustive partition of the resulting ordered label pairs.  The incorporated
+source in each V triangle proves either that the pair is impossible or that its two
+exact capped outputs have sum strictly below one.  File `407d` checks that the
+geometric residual reduction in `4073` reaches exactly these branches and no
+others.  Therefore the displayed endpoint inequality holds throughout the
+complete support-isolated domain.
+\end{proof}
+
+\subsection{The explicit Vd1--supercritical replacement}
+
+\begin{proposition}[Vd1--supercritical two-chart replacement]
+\label{prop:paper-vd1-pair-replacement}
+Assume the CE2 branch in which an adjacent Vd1 role and the unique
+supercritical Vd0 role lie away from the vertex role at the center's unique
+midpoint. Assume the shared boundary edge is center-free, all other vertex
+roles are nonsupercritical Vd0, and no additional role has positive support
+on the two radial arms of the pair. Then the pair can be replaced by two open
+nonsupercritical Vd0 roles while preserving coverage of the full skeleton.
+\end{proposition}
+
+\begin{proof}
+After a fresh cyclic renumbering, let the Vd1 role be based at $V_0$, the
+supercritical role at $V_1$, and let the Vd1 role contain $M_1$. Write $a,b$
+for the Vd1 boundary reaches and use the Vd corner parameter $t\ge1$, with
+$d=\sqrt{t^2+t+1}$. Put
+\[
+ c=\frac{d-a-tb}{t+1},\qquad
+ \lambda=\frac{t(1-b)}{t+1},\qquad
+ u_{\rm adj}=\frac{d-a-tb-1}{t}.
+\]
+The strict midpoint and one-sided-support inequalities give
+\[
+ a+c<1,\qquad a<\lambda\le\frac12,
+ \qquad b<\frac12,
+ \qquad u_{\rm adj}<1-a.
+\tag{1}
+\]
+
+Let $(A_1,B_1,C_1)$ be the actual reaches of the supercritical role. The
+center-free shared edge and radial coverage give
+\[
+ A_1\ge1-b>\frac12,
+ \qquad C_1\ge\lambda.
+\]
+The selected supercritical admissible cell has $C_1\le1/2$. The half-square
+lemma
+\[
+ (x,y,z)\in\mathcal A,\qquad x\ge\frac12,\qquad z\le\frac12
+ \quad\Longrightarrow\quad y\le1-z
+\]
+therefore gives $B_1\le1-C_1\le1-\lambda$, and hence
+\[
+ a+B_1<1.
+\tag{2}
+\]
+If $c_1^{\rm req}=1-d_1^C$ is the vertex-side beginning of the center trace
+on $r_1$, open skeleton coverage gives
+\[
+ c_1^{\rm req}<\max\{C_1,u_{\rm adj}\}
+ \le\max\{1-B_1,1-a\}.
+\tag{3}
+\]
+
+Choose $p_2\in(a,1-B_1)$ with
+\[
+ \max\{p_2,1-p_2\}>c_1^{\rm req};
+\]
+such a point exists because the supremum of the left side on that interval is
+$\max\{1-B_1,1-a\}$. Then choose
+\[
+ a<p_1<p_2,
+ \qquad p_1<\frac12,
+ \qquad1-p_1>c.
+\]
+Finally choose $\varepsilon>0$ smaller than
+\[
+ p_1-a,\quad p_2-p_1,\quad1-B_1-p_2,\quad1-p_1-c,
+ \quad\max\{p_2,1-p_2\}-c_1^{\rm req}.
+\tag{4}
+\]
+
+Use two distinct local charts:
+\[
+ X_0(x,y)=V_0+x(V_5-V_0)+y(V_1-V_0),
+\]
+\[
+ X_1(x,y)=V_1+x(V_0-V_1)+y(V_2-V_1).
+\]
+For $p\le1/2$ put
+\[
+ \Delta_p^-=\conv\{(0,1-p),(1,1-p),(0,-p)\},
+\]
+and for $p>1/2$ put
+\[
+ \Delta_p^+=\conv\{(p,0),(p,1),(p-1,0)\}.
+\]
+Define
+\[
+ U_0'=X_0\!\left(\interior(\Delta_{p_1}^-)+(-\varepsilon,0)\right)
+\]
+and
+\[
+ U_1'=\begin{cases}
+ X_1\!\left(\interior(\Delta_{p_2}^-)+(-\varepsilon,0)\right),
+   &p_2\le1/2,\\
+ X_1\!\left(\interior(\Delta_{p_2}^+)+(0,-\varepsilon)\right),
+   &p_2>1/2.
+ \end{cases}
+\]
+
+In its own chart the shifted minus template contains the origin and has reach
+triple
+\[
+ (p-\varepsilon,1-p,1-p),
+\]
+while the shifted plus template contains the origin and has reach triple
+\[
+ (p,1-p-\varepsilon,p).
+\]
+Their closures stay strictly below both adjacent-arm lines $x=1$ and $y=1$.
+Thus $V_0\in U_0'$, $V_1\in U_1'$, both roles are Vd0, and both boundary
+sums equal $1-\varepsilon<1$.
+
+The first replacement reaches beyond $a$ on $e_{5,0}$ and beyond $c$ on
+$r_0$. On the shared edge its reach is $1-p_1$, while the second replacement
+reaches at least $p_2-\varepsilon$ from $V_1$; their sum exceeds one by (4).
+The second replacement reaches beyond $B_1$ on $e_{1,2}$ and has own-radial
+reach $\max\{p_2,1-p_2\}>c_1^{\rm req}$ on $r_1$. Hence every boundary and
+radial component formerly supplied by the special pair remains covered, and
+all other skeleton components are unchanged.
+
+The modified roles therefore cover the full skeleton and have six
+nonsupercritical Vd0 vertex roles. Proposition~\ref{prop:nplus-zero-all-vd0}
+gives the contradiction.
+\end{proof}
+
+% ---- CE2 exactly-one-Vd placement assembly ----

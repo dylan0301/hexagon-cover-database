@@ -2,59 +2,37 @@
 
 Status: Definition
 
-When no smaller handoff demands are present, a branch may write
+Actual maximal incoming and outgoing boundary reaches are always denoted
 
 $$
-(a_i,b_i)
+(A_i,B_i).
 $$
 
-for the actual maximal incoming and outgoing boundary reaches of the vertex
-role $T_i$ at $V_i$.  When actual reaches and smaller selected demands occur
-in the same argument, write
+Selected lower-bound handoff demands are always denoted
 
 $$
-(A_i,B_i)
+(a_i,b_i).
 $$
 
-for the actual reaches and reserve $(a_i,b_i)$ for the selected demands.
-
-For the $N_+$ split, the V triangle entries are always the actual maximal reaches of
-$T_i$, not smaller lower-bound demands introduced by a relaxation. If a
-propagation map uses demands $(x,b)$, it must quantify the actual reaches
-separately before imposing a nonsupercritical or supercritical V triangle class.
-
-An actual V triangle is supercritical when its actual reaches have sum greater than
-$1$.  Thus, in mixed notation,
+The two alphabets are never interchanged. A vertex V triangle is
+supercritical exactly when its actual reaches satisfy
 
 $$
-A_i+B_i>1,
+A_i+B_i>1.
 $$
 
-while in a file where $(a_i,b_i)$ denotes the actual reaches the same
-condition is written $a_i+b_i>1$.  The proof-tree split always counts actual
-V triangles:
+Accordingly the proof-tree count is always
 
 $$
 N_+
 =
 \left\lvert
 \left\lbrace i:A_i+B_i>1\right\rbrace
-\right\rvert
+\right\rvert.
 $$
 
-in mixed notation, or equivalently
-
-$$
-N_+
-=
-\left\lvert
-\left\lbrace i:a_i+b_i>1\right\rbrace
-\right\rvert
-$$
-
-when the lowercase pair denotes actual reaches.  A supercritical selected
-demand pair is useful inside a lower-bound argument, but it does not redefine
-$N_+$.
+A selected demand pair with $a_i+b_i>1$ may witness a selected strict ascent,
+but it never defines or redefines $N_+$.
 
 The main branch folders are:
 

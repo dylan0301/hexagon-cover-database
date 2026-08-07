@@ -550,26 +550,8 @@ The two radial traces are disjoint, and all other roles are excluded by Vd0
 locality and diameter locality.
 \end{proof}
 
-\subsection{Placement assembly}
+\subsection{Placement interfaces}
 
-\begin{proposition}[Short one-Vd1/Vd2 placement assembly]
-\label{prop:signed-ce2-one-vd-placements}
-In the CE2, $N_+=1$, exactly-one-Vd1/Vd2 branch with no additional
-positive-support V triangle, every placement is impossible directly or reduces to
-the all-Vd0 skeleton-data theorem.
-\end{proposition}
-
-\begin{proof}
-If the supercritical V triangle is $T_0$, an adjacent Vd1/Vd2 V triangle is eliminated by
-Lemma~\ref{lem:signed-vd-adjacent-placement}, while a nonadjacent one is
-eliminated by Lemma~\ref{lem:signed-vd-nonadjacent-placement}.  If the unique
-Vd1/Vd2 V triangle is $T_0$, midpoint forcing makes the supercritical V triangle adjacent.
-The Vd2 alternative is excluded by the neighboring-midpoint boundary cap; the
-Vd1 alternative is Corollary~\ref{cor:signed-adjacent-rescuers}.  If neither
-special V triangle is $T_0$, midpoint forcing again makes them adjacent.  A Vd2
-neighbor rescue is impossible, while a Vd1--supercritical pair is replaced by
-two nonsupercritical Vd0 V triangles as in Lemma~\ref{lem:vd1-pair-replacement}; the
-resulting configuration is contradicted by
-Proposition~\ref{prop:nplus-zero-all-vd0}.  The positive-support complement is
-already excluded by Theorem~\ref{thm:three-short-roles}.
-\end{proof}
+The local profile and radial-separation lemmas above are assembled exactly
+once in Section~\ref{sec:strategy2-placement-assembly}.  This appendix
+contains no independent CE2 one-Vd placement assembly.

@@ -1,0 +1,54 @@
+\section{Authoritative CE2 One-Vd Placement Assembly}
+\label{sec:strategy2-placement-assembly}
+
+The following proposition is the sole CE2 exactly-one-Vd placement
+assembly used by the final proof.  It cites only complete placement lemmas and
+the explicit two-chart replacement in
+Appendix~\ref{sec:strategy2-rigor-completion}.
+
+\begin{proposition}[Complete CE2 exactly-one-Vd1/Vd2 assembly]
+\label{prop:paper-ce2-one-vd-placements}
+Assume the center has type CE2, $N_+=1$, exactly one vertex role has type Vd1
+or Vd2, and no T3-like role is present.  Then the seven roles do not cover
+$H$.
+\end{proposition}
+
+\begin{proof}
+Normalize the unique center midpoint to $M_0$.  If an additional vertex role
+has positive adjacent-arm support, then the unique supercritical V triangle, the
+Vd1/Vd2 V triangle, and that additional role are three short roles; the skeleton
+contradiction of Theorem~\ref{thm:three-short-roles} applies.  Hence assume the
+no-additional-positive-support complement.
+
+First suppose the unique supercritical V triangle is $T_0$.  If the Vd1/Vd2 V triangle is
+adjacent, it is eliminated by
+Lemma~\ref{lem:signed-vd-adjacent-placement}; the proof treats both possible
+supported arms and its reflection.  If it is nonadjacent, its index lies in
+$\{2,3,4\}$ after reflection, and
+Lemma~\ref{lem:signed-vd-nonadjacent-placement} gives a strict radial
+separation.
+
+Next suppose the unique Vd1/Vd2 V triangle is $T_0$.  It must rescue the midpoint of
+the unique supercritical V triangle, so midpoint locality makes that V triangle adjacent.
+If $T_0$ is Vd2, the neighboring-midpoint cap
+Lemma~\ref{lem:vd2-neighbor-midpoint-cap}, combined with the center and
+supercritical perimeter caps, is
+Proposition~\ref{prop:ce2-vd2-midpoint-length}.  If $T_0$ is Vd1, the exact
+Vd1 local profile and the common center-hiding theorem give
+Corollary~\ref{cor:signed-adjacent-rescuers}.
+
+Finally suppose neither special V triangle is $T_0$.  Since the exact-$M_0$ center
+covers no other radial midpoint, the Vd1/Vd2 V triangle must rescue the midpoint
+missed by the unique supercritical V triangle.  Diameter locality makes the two V triangles
+adjacent.  A Vd2 rescue is again eliminated by the neighboring-midpoint cap.
+For a Vd1 rescue, the shared edge has no center trace in this placement and the
+no-additional-support hypotheses are exactly those of
+Proposition~\ref{prop:paper-vd1-pair-replacement}.  Replace the pair by two
+open nonsupercritical Vd0 roles while preserving every boundary and radial
+demand used by Proposition~\ref{prop:nplus-zero-all-vd0}.  All other vertex
+roles were already nonsupercritical Vd0, so that all-Vd0 theorem gives the
+contradiction.
+
+These alternatives exhaust the relative positions of the center-midpoint V triangle,
+the unique supercritical V triangle, and the unique Vd1/Vd2 V triangle.
+\end{proof}

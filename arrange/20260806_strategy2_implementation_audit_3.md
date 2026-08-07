@@ -1,3 +1,5 @@
+> **Superseded on 2026-08-07.**  The T3, rescuer, and Vd domain extractions and the verification split described below as remaining work are completed by `20260807_strategy2_optimization_extraction_audit.md`.
+
 # Strategy 2 Implementation Audit: Remaining Work and Conclusion
 
 ## 11. What remains incomplete and why

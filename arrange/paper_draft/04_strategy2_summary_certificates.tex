@@ -3,15 +3,15 @@
 \begin{definition}[Signed Strategy 2 domains]
 \label{def:body-strategy2-signed-domains}
 After normalizing one positive center trace, the signed-center lemma produces
-one record $(R,\alpha,\delta)$ and declares it CE1 or CE2.  Denote the two
-resulting parameter domains by $\mathcal D_{\rm CE1}$ and
-$\mathcal D_{\rm CE2}$.  Under
+a record \((R,\alpha,\delta)\).  The full CE1 and CE2 center cells correspond
+under
 \[
- r=R,\qquad a=\alpha,\qquad d=\delta,
+ r=R,\qquad a=\alpha,\qquad d=\delta
 \]
-they are exactly the pure domains $\mathcal D_1$ and $\mathcal D_2$ of
-Definition~\ref{def:s2-pure-signed-domains}.  The present definition records
-their geometric origin and introduces no additional calculation variables.
+to \(\mathcal D_{\rm C1}\) and \(\mathcal D_{\rm C2}\), respectively.  In
+the oriented CE1 all-Vd0 one-gap branch the additional endpoint order gives
+the smaller cell \(\mathcal D_1\); the CE2 cell is
+\(\mathcal D_2=\mathcal D_{\rm C2}\).
 \end{definition}
 
 \begin{definition}[One-gap and paired-gap endpoint records]
@@ -31,7 +31,7 @@ $(R,\alpha,\delta)$ are the data of Problems~\ref{prob:s2-one-gap-endpoint} and~
 For an endpoint record
 $\mathbf e=(a_-,a_+,c_-,c_+)$, define its two-end capacity by
 \[
- \operatorname{Cap}(\mathbf e)
+ \mathrm{Cap}(\mathbf e)
  :=
  \widehat g_{c_-}(1-a_-)+\widehat g_{c_+}(1-a_+).
 \]
@@ -45,11 +45,11 @@ The following strict inequalities hold.
 \item For every normalized one-gap state in
 $\mathcal D_{\rm CE1}\cup\mathcal D_{\rm CE2}$,
 \[
- \operatorname{Cap}(\mathbf e_{\rm one})<1.
+ \mathrm{Cap}(\mathbf e_{\rm one})<1.
 \]
 \item For every normalized two-gap state in $\mathcal D_{\rm CE2}$,
 \[
- \operatorname{Cap}(\mathbf e_{\rm two})<1.
+ \mathrm{Cap}(\mathbf e_{\rm two})<1.
 \]
 \end{enumerate}
 
@@ -86,7 +86,7 @@ labels belong to
 \label{prop:body-t3-endpoint}
 Every support-isolated T3-like endpoint record satisfies
 \[
- \operatorname{Cap}(\mathbf e_{\rm T3})<1.
+ \mathrm{Cap}(\mathbf e_{\rm T3})<1.
 \]
 The exact proof audits all feasible pairs of the four contact labels.  No
 single unproved common envelope is substituted for that audit.
@@ -164,4 +164,3 @@ demand, five radial parameters, and the terminal cap; the appendix proves the
 single returned-demand inequality.}
 \label{fig:strategy2-five-V-triangle-skeleton}
 \end{figure}
-
