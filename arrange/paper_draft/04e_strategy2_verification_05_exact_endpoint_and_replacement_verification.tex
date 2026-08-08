@@ -9,35 +9,26 @@ objects are part of the proof at the exact Git blobs listed below.
 
 \subsection{The incorporated \(407X\) endpoint supplement}
 
-All paths in the following table are relative to
-\begin{verbatim}
-proof/4XXX_CE1CE2/40XX_Nplus0/
-407X_T3_like_no_Vd1Vd2/
-\end{verbatim}
+All paths in the following table are relative to the numbered
+\texttt{407X\_T3\_like\_no\_Vd1Vd2} proof directory.  Full blob identities
+are stored in \texttt{proof/407X\_PROVENANCE.json}; the paper prints only
+stable proof identifiers and twelve-character prefixes.
 
 \begin{center}
 \scriptsize
 \renewcommand{\arraystretch}{1.08}
-\begin{tabular}{p{.39\textwidth}p{.38\textwidth}p{.14\textwidth}}
+\begin{tabular}{@{}p{.16\textwidth}p{.22\textwidth}p{.48\textwidth}@{}}
 \toprule
-proof-package object&Git blob SHA&role\\
+proof object&blob prefix&role\\
 \midrule
-\texttt{4073\_boundary\_loss\_framework.md}&
-\texttt{910c7a8a13305a807157e31a62499b322d7b3907}&residual reduction\\
-\texttt{4074\_L\_Full\_branch.md}&
-\texttt{7c72dfaf7eb31d6ba561aba782e0a2bd9688ec70}&$(L,\mathrm{Full})$\\
-\texttt{4075\_Tminus\_low\_lower\_branch\_obligations.md}&
-\texttt{ebe2b65f8840b8667c3dca672a8d0cdf2d4104ad}&first $T_-$\\
-\texttt{4078\_left\_L\_family\_completion.md}&
-\texttt{f1323325b0690a1a9394d93911c28425ecfbca9b}&remaining first $L$\\
-\texttt{4079\_first\_Full\_branch.md}&
-\texttt{c66eea05277dbf2e1781f133f4f18c469f1b0909}&first Full\\
-\texttt{407a\_left\_Thigh\_branch\_completion.md}&
-\texttt{aa5cb1a6dc635639972ba8f48cc92c9f519da296}&first $T_+^{\rm hi}$\\
-\texttt{407c\_rigor\_completion\_details.md}&
-\texttt{c80243f671245223eaa4047fe3a1168735f093cd}&analytic details\\
-\texttt{407d\_rigor\_final\_assembly.md}&
-\texttt{e22c85c95fdd3b8f75c66b2f721bc7088bbb76b6}&final assembly\\
+\texttt{4073}&\texttt{910c7a8a1330}&residual reduction\\
+\texttt{4074}&\texttt{7c72dfaf7eb3}&$(L,\mathrm{Full})$\\
+\texttt{4075}&\texttt{ebe2b65f8840}&first $T_-$ family\\
+\texttt{4078}&\texttt{f1323325b069}&remaining first-$L$ family\\
+\texttt{4079}&\texttt{c66eea05277d}&first-Full exclusion\\
+\texttt{407a}&\texttt{aa5cb1a6dc63}&first $T_+^{\rm hi}$ family\\
+\texttt{407c}&\texttt{c80243f67124}&analytic details\\
+\texttt{407d}&\texttt{e22c85c95fdd}&final assembly\\
 \bottomrule
 \end{tabular}
 \end{center}

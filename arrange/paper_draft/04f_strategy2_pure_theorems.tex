@@ -1,0 +1,453 @@
+\section{Universal Strategy 2 Optimization Theorems}
+\label{sec:strategy2-pure-theorems}
+
+This section proves the registered optimization statements with the
+quantifiers written in Appendix~\ref{sec:strategy2-optimization-problems}.
+The geometric bridge is not used to restrict those quantifiers: it is used
+later only to show that a routed geometric configuration supplies a point of
+the corresponding real domain and that the geometric terminal quantity equals
+the registered objective.
+
+\subsection{Primitive capped-output bound}
+
+\begin{lemma}[The pure cap inequality]
+\label{lem:s2-pure-cap}
+For every $1/2<c<1$ and $0\le x\le1$,
+\[
+ 0\le F(c,x)\le1-x.
+\]
+The upper inequality is strict on every non-Full branch.
+\end{lemma}
+
+\begin{proof}
+The lower bound is immediate from Definition~\ref{def:s2-pure-map}.  On a
+Full branch the upper bound is equality.  On a $Q_-$ branch, where $x<c$,
+\[
+ Q_-(c,x)\le1-x
+ \iff
+ \sqrt{x^2-cx+c^2}\le c
+ \iff x(x-c)\le0.
+\]
+On a $Q_+$ branch, $x<1$ and Lemma~\ref{lem:s2-pure-map-well-defined} gives
+\[
+ \sqrt{D_+(c,x)}\ge c(2c-1).
+\]
+After multiplying by the positive denominator in $Q_+$ and dividing by
+$1-x$, this is exactly $Q_+(c,x)\le1-x$; equality can occur only at
+$x=1-c$, which is assigned to Full.  On the low-$c$ tie,
+$h(c)\le1/2=1-1/2\le1-h(c)$; equivalently
+$\sqrt{16c^2-3}\ge4c-1$, whose square is $8c\ge4$.  On the high-$c$
+plateau, $L(c)<x<U(c)=c-L(c)$ gives
+$L(c)<1-c+L(c)<1-x$.  These cases exhaust the definition of $F$.
+\end{proof}
+
+\subsection{The four all-Vd0 problems}
+
+\begin{theorem}[Pure S2-E1]
+\label{thm:s2-pure-e1}
+For every $(r,a,d)\in\mathcal D_1\cup\mathcal D_2$,
+\[
+ \Psi_{\rm E1}(r,a,d)<0.
+\]
+\end{theorem}
+
+\begin{proof}
+Write $w=1-r$, $S=e$, and
+\[
+ s=\frac{k}{r},\qquad u=r-d,\qquad
+ \omega=1-s-u=w+d-\frac{k}{r}=\frac{\Delta_R}{r}>0.
+\]
+Then $0<u<r$, $s,u,\omega>0$, and $s+u+\omega=1$.  Put
+$\delta_0=r/(1+S)$.  Using $S^2=1-rw$ and
+$p=S(1-S)$, direct simplification gives
+\[
+ u-\delta_0-\frac r w\omega=\frac a w>0.
+\]
+Thus the variables $(R,S,s,u,w)$ in
+Lemma~\ref{lem:one-side-capped-loss} may be taken as
+$(r,e,s,u,\omega)$, and its two demands are
+\[
+ c_1=\frac ur=1-\frac dr,
+ \qquad
+ c_5=1-\frac a w.
+\]
+Since the technical notation in that lemma satisfies
+$F_c(x)=F(c,x)$, its conclusion is precisely
+$\Psi_{\rm E1}(r,a,d)<0$.
+\end{proof}
+
+\begin{lemma}[Pure paired-endpoint kernel]
+\label{lem:s2-pure-paired-kernel}
+Let $0<w\le1/2$, $r=1-w$, $K=\sqrt{1-wr}$, and put
+\[
+ z=\frac{w}{1+K},\qquad \zeta=\frac{r}{1+K}.
+\]
+Suppose $1/2<\alpha,\beta<1$, $p=w\alpha$, $q=r\beta$, and
+\[
+ \beta+p>1+z,
+ \qquad
+ \alpha+q>1+\zeta.
+\]
+Then
+\[
+ F(\alpha,p)+F(\beta,q)<1.
+\]
+\end{lemma}
+
+\begin{proof}
+The proof of Lemma~\ref{lem:two-endpoint-capped-loss}, beginning immediately
+after the derivation of \eqref{eq:ce2-strict-endpoints}, is an algebraic
+proof under exactly the hypotheses displayed here.  It first partitions the
+two evaluations of $F$ into the four exact contact labels, obtains the seven
+possible ordered pairs in \eqref{eq:two-endpoint-pairs}, and proves the strict
+loss for each pair.  Every later quantity in that proof is an explicit
+function of $(w,r,K,z,\zeta,\alpha,\beta,p,q)$; no placement, trace, or
+existence assertion is invoked.  Hence the same branchwise calculation proves
+the universal statement above.
+\end{proof}
+
+\begin{theorem}[Pure S2-E2]
+\label{thm:s2-pure-e2}
+For every $(r,a,d)\in\mathcal D_2$,
+\[
+ \Psi_{\rm E2}(r,a,d)<0.
+\]
+\end{theorem}
+
+\begin{proof}
+First assume $w\le r$.  Set
+\[
+ \alpha=\frac{w-a}{w},\quad p=w-a,
+ \qquad
+ \beta=\frac{r-d}{r},\quad q=r-d.
+\]
+Proposition~\ref{prop:s2-pure-domain-bounds} gives
+$1/2<\alpha,\beta<1$.  Since $e^2=1-rw$ and
+$1-e=rw/(1+e)$, the two strict kernel inequalities are equivalent to
+\[
+ \beta+p>1+\frac{w}{1+e}
+ \iff \Delta_L>0,
+\]
+\[
+ \alpha+q>1+\frac{r}{1+e}
+ \iff \Delta_R>0.
+\]
+Lemma~\ref{lem:s2-pure-paired-kernel} therefore applies and gives the claimed
+objective sign.  If $r<w$, interchange
+$(r,d)$ with $(w,a)$.  The signed CE2 domain and the sum defining
+$\Psi_{\rm E2}$ are invariant under this interchange, reducing to the first
+case.
+\end{proof}
+
+\begin{theorem}[Pure S2-R1]
+\label{thm:s2-pure-r1}
+For every $(r,a,d)\in\mathcal D_1$,
+\[
+ \Psi_{\rm R1}(r,a,d)<0.
+\]
+\end{theorem}
+
+\begin{proof}
+On $\mathcal D_1$ one has
+\[
+ d+ra\ge p,\qquad a+wd<p,
+ \qquad rd-wa>0,
+\]
+so $m=a/r$.  Substitute
+\[
+ R=r,\,W=w,\,A=a,\,D=d,\,
+ X=r-d,\,H=\frac{k}{2r}
+\]
+into the scalar calculation in the proof of
+Proposition~\ref{prop:ce1-one-gap}.  From
+\eqref{eq:ce1-normal-domain} through the proof of
+\eqref{eq:ce1-suffix}, every step uses only the displayed real inequalities,
+the identity $e^2=1-rw$, and the explicit branches of $F$ and $T$.
+The calculation proves
+\[
+ [T(1-a,\cdot)\mid T(1-m,\cdot)\mid T(1-d,\cdot)](H)>w+d,
+\]
+which is $Y_3>w+d$, hence $\Psi_{\rm R1}<0$.  The actual-reach handoff and
+geometric contradiction occur only after this scalar inequality and are not
+used here.
+\end{proof}
+
+\begin{theorem}[Pure S2-R2]
+\label{thm:s2-pure-r2}
+For every $(r,a,d)\in\mathcal D_2$,
+\[
+ \Psi_{\rm R2}(r,a,d)<0.
+\]
+\end{theorem}
+
+\begin{proof}
+Put $Q=k/(2r)=Y_0$ and $X=r-d$.  The proof of
+Lemma~\ref{lem:signed-ce2-two-threshold} uses only
+$\Delta_R>0$ and $\Delta_L>0$ and gives the inclusive alternative
+\[
+ e(a)<Q\quad\text{or}\quad e(d)<Q.
+\]
+The scalar part of Proposition~\ref{prop:signed-ce2-one-gap}, before its
+geometric contradiction, uses this alternative and the exact branches of
+$T$ to prove
+\[
+ [T(1-d,\cdot)\mid T(1-m,\cdot)\mid T(1-a,\cdot)](X)>1-Q.
+\]
+No actual-reach or placement assertion occurs in that calculation.  Applying
+the exact reflection duality three times shows that the negation of this
+inequality is equivalent to the negation of
+\[
+ [T(1-a,\cdot)\mid T(1-m,\cdot)\mid T(1-d,\cdot)](Q)>1-X.
+\]
+The left side is $Y_3$ and $1-X=w+d$, so this is exactly
+$\Psi_{\rm R2}<0$.  The threshold alternative is inclusive: the proof
+requires at least one threshold and does not assert uniqueness.
+\end{proof}
+
+\subsection{The finite T3 endpoint problem}
+
+\begin{theorem}[Pure S2-T3]
+\label{thm:s2-pure-t3}
+For every $\xi\in\Omega_{\rm T3}$,
+\[
+ \Psi_{\rm T3}(\xi)<0.
+\]
+\end{theorem}
+
+\begin{proof}
+Fix
+$\xi=(r,a,d,\tau,\beta,A_1,A_5,C_1,C_5)\in\Omega_{\rm T3}$.
+If $A_1+A_5>1$, Lemma~\ref{lem:s2-pure-cap} gives
+\[
+ F(C_5,A_5)+F(C_1,A_1)
+ \le2-A_1-A_5<1.
+\]
+Assume $A_1+A_5\le1$.  The two contact predicates in the definition of the
+hard cell assign a unique pair
+$(\ell_5,\ell_1)\in\mathfrak L^2$.
+
+We verify that the complete $407X$ calculation applies to this arbitrary real
+point, rather than only to a previously realized geometric state.  Use the
+signed-center substitution
+\[
+ R=r,\qquad W=w,\qquad E=e,
+ \qquad \alpha_C=a,\qquad\delta_C=d.
+\]
+For the T3 source put
+\[
+ D_T=\frac1z,
+ \qquad R_T=\frac\tau z,
+ \qquad \alpha_T=\beta,
+ \qquad p_T=z-\beta.
+\]
+Then, directly from $z^2=1-\tau+\tau^2$,
+\[
+ R_T^2-D_TR_T+D_T^2=1,
+ \qquad
+ \alpha_T+p_T=z=\frac1{D_T},
+\]
+and the exact source quantities in Lemma~\ref{lem:407-four-label-loss} become
+\[
+ q_T=1-p_T=q,
+ \qquad
+ \frac{D_Tq_T}{R_T}=c_\star,
+ \qquad
+ q_T+\frac{1-R_T}{D_T}=u_\star.
+\]
+The predicates $\mathcal R_i$, $\mathcal L_{\varepsilon,j}$, and
+$\mathcal K_h$ are exactly the three residual orders and the radial
+hit/miss orders used in that proof.  Finally,
+$\mathrm{Cell}_{\ell_5}(C_5,A_5)$ and
+$\mathrm{Cell}_{\ell_1}(C_1,A_1)$ select the same explicit branch formulas
+of $F$ as its four-label table.
+
+After these substitutions, the hard-region proof of
+Lemma~\ref{lem:407-four-label-loss} is a finite algebraic proof on the
+selected cell: every hypothesis used there is one of the defining equalities
+or inequalities just listed, and its eight table rows exhaust
+$\mathfrak L^2$.  It proves
+\[
+ F(C_5,A_5)+F(C_1,A_1)<1
+\]
+for the present arbitrary $\xi$.  Hence $\Psi_{\rm T3}(\xi)<0$ on every
+hard cell as well.
+\end{proof}
+
+\subsection{The rescuer problems}
+
+\begin{theorem}[Pure S2-SC]
+\label{thm:s2-pure-sc}
+The two inequalities in Problem~\ref{prob:s2-rescuer} hold on
+$\Omega_{\rm SC}^{T}$ and $\Omega_{\rm SC}^{V}$, respectively.
+\end{theorem}
+
+\begin{proof}
+For the first cell, $1-u=(1-x)\rho(\theta)$ and
+$a=x\rho(\theta)$, so $\vartheta(a,u)=x$.  Since
+$0<\rho(\theta)\le1$, also $a\le x$.  Put
+\[
+ \Phi(y)=\frac{y(2-y)}{1+y}.
+\]
+On $[0,1/2]$ this function is increasing and
+$\Phi(A_{\rm sc}(c))=c$.  The exact calculation in
+Lemma~\ref{lem:short-t3-rescuer-profile} proves, on the displayed
+$\theta$-interval and $x$-interval,
+\[
+ Q_\theta(x)=2x^2+(\theta-1)x+\theta\ge0.
+\]
+This is equivalent to $\Phi(x)\le x+\theta=c$, and hence
+$x\le A_{\rm sc}(c)$.  Therefore
+$\max\{a,\vartheta(a,u)\}\le A_{\rm sc}(c)$.
+
+For the second cell put
+\[
+ G(t,c)=\Delta(t)-1-\frac{3t}{2}+c(t+1).
+\]
+The two defining equations and the midpoint inequality give $a\le G(t,c)$.
+For $t\ge1$ and $c\le1/2$,
+\[
+ \partial_tG
+ \le\frac{2t+1}{2\Delta(t)}-1<0,
+\]
+so
+\[
+ a\le G(t,c)\le L(c):=\sqrt3-\frac52+2c.
+\]
+The exact polynomial calculation in
+Lemma~\ref{lem:short-vd1-rescuer-profile} gives
+$2L(c)\le A_{\rm sc}(c)$ on $0\le c\le1/2$.
+Writing $\epsilon=1-u$ gives
+\[
+ \epsilon=\epsilon_0+\frac at,
+ \qquad
+ \epsilon_0=\frac{2t+1-c(t+1)-\Delta(t)}t>0,
+ \qquad
+ \epsilon_0+\frac{G(t,c)}t=\frac12.
+\]
+Monotonicity in $a$ yields
+\[
+ \vartheta(a,u)
+ =\frac a{a+\epsilon}
+ \le\frac{G(t,c)}{G(t,c)+1/2}
+ \le2L(c)
+ \le A_{\rm sc}(c).
+\]
+Thus both terms in the maximum are at most $A_{\rm sc}(c)$, which is
+exactly $\Psi_{\rm SC}\le0$.
+\end{proof}
+
+\subsection{The Vd radial problems}
+
+\begin{lemma}[Pure adjacent quarter margin]
+\label{lem:s2-pure-adjacent-quarter}
+On either adjacent Vd cell,
+\[
+ d<\frac H4.
+\]
+\end{lemma}
+
+\begin{proof}
+By the definition of $\mathsf R$, either $H=w-a$ or $H=1-p_0$.
+If $H=w-a$, then
+\[
+ 4d+a\le4(a+d)<\frac{2w}{3}<w,
+\]
+so $4d<H$.
+
+Suppose $H=1-p_0$.  If also $A=1-q_0$, then $A+H<1/2$ gives
+$p_0+q_0>3/2$, whereas
+$p_0^2+p_0q_0+q_0^2\le1$ gives
+$p_0+q_0\le2/\sqrt3<3/2$.  Hence $A=r-d$ and $q_0\ge k/r$.
+The endpoint-distance inequality gives $1-p_0>q_0/2$, so
+\[
+ H>\frac{k}{2r}>\frac\eta{2r}.
+\]
+Since $A+H<1/2$, also
+\[
+ d>J(r):=r-\frac12+\frac\eta{2r}.
+\]
+The exact derivative calculation from the proof of
+Lemma~\ref{lem:signed-vd-adjacent-placement} gives $J'(r)>0$ and
+$J(3/8)=1/24$.  Since $d<1/24$, it follows that $r<3/8$.  Then
+\[
+ (2-3r)^2-e^2=(3-8r)w>0,
+\]
+which implies $\eta/r>1/3$.  Hence $H>1/6$, while $4d<1/6$, and again
+$4d<H$.
+\end{proof}
+
+\begin{theorem}[Pure S2-VD-adjacent]
+\label{thm:s2-pure-vd-adjacent}
+Both inequalities in Problem~\ref{prob:s2-vd-adjacent} hold on their stated
+cells.
+\end{theorem}
+
+\begin{proof}
+Lemma~\ref{lem:s2-pure-adjacent-quarter} gives the first strict term.  On the
+positive-support cell, $t>0$ and
+$\Delta_t<t+1$, so
+\[
+ u_+
+ <1-q_1-\frac{p_1}{t}
+ \le1-H
+ <1-d.
+\]
+Thus $u_+-1+d<0$, and both entries of
+$\Psi_{\rm VD}^{\rm adj,+}$ are negative.  On the no-support cell the
+objective is only $d-H/4<0$.
+\end{proof}
+
+\begin{theorem}[Pure S2-VD-nonadjacent]
+\label{thm:s2-pure-vd-nonadjacent}
+The inequality in Problem~\ref{prob:s2-vd-nonadjacent} holds on every stated
+cell.
+\end{theorem}
+
+\begin{proof}
+Put $B=1-A$ and $U=1-H$.  The two explicit center-distance constraints in
+Definition~\ref{def:s2-vd-nonadjacent-domain} imply
+\[
+ w+d\le\beta(x),
+ \qquad
+ r+a\le\beta(y),
+ \qquad
+ \beta(q)=\frac{-q+\sqrt{4-3q^2}}2.
+\]
+If $B=q_0$ and $p_0<x$, then $U=p_0$ and $A+H<1/2$ would give
+$p_0+q_0>3/2$, contradicting the endpoint-distance inequality.  Hence
+$p_0\ge x$, and
+$q_0\le\beta(p_0)\le\beta(x)$.  The other possibility is
+$B=w+d\le\beta(x)$.  Therefore
+\[
+ A\ge1-\beta(x)>\frac x2>\sigma.
+\]
+The reflected argument gives $H>y/2>\sigma$.  Hence
+$\sigma-A<0$ and $\sigma-H<0$.
+
+For $j=2,4$ one has $d_j\in\{d,a\}<\sigma$.  For $j=3$, at least one of
+$a/r$ and $d/w$ is at most $a+d=\sigma$; otherwise multiplication by
+$r,w$ and addition would give $a+d>a+d$.  Thus in every case
+$d_j\le\sigma<m=\min\{A,H\}$.
+Finally, $t>0$ gives $\Delta_t<t+1$, and therefore
+\[
+ C_v
+ <1-\frac{p_v+tq_v}{t+1}
+ \le1-\min\{p_v,q_v\}
+ \le1-m.
+\]
+All four entries in $\Psi_{\rm VD}^{\rm non}$ are strictly negative.
+\end{proof}
+
+\begin{corollary}[Universal pure Strategy 2 registry]
+\label{cor:s2-pure-registry}
+Problems S2-E1, S2-E2, S2-R1, S2-R2, S2-T3, S2-SC, and S2-VD all hold with
+the universal quantifiers in their definitions.
+\end{corollary}
+
+\begin{proof}
+Combine Theorems~\ref{thm:s2-pure-e1}, \ref{thm:s2-pure-e2},
+\ref{thm:s2-pure-r1}, \ref{thm:s2-pure-r2},
+\ref{thm:s2-pure-t3}, \ref{thm:s2-pure-sc},
+\ref{thm:s2-pure-vd-adjacent}, and
+\ref{thm:s2-pure-vd-nonadjacent}.
+\end{proof}

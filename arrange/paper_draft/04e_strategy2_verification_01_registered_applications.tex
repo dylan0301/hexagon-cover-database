@@ -15,13 +15,13 @@ split among the verification modules that follow.
 \toprule
 identifier&objective&verification owner\\
 \midrule
-S2-E1&one-gap endpoint sum \(<1\)&exact one-side capped-loss calculation\\
-S2-E2&paired endpoint sum \(<1\)&exact CE2 paired-endpoint calculation\\
-S2-R1&CE1 returned demand \(>1-X\)&CE1 branchwise chord and threshold module\\
-S2-R2&CE2 returned demand \(>1-X\)&CE2 inclusive threshold-disjunction module\\
-S2-T3&finite four-label endpoint sum \(<1\)&complete \(407X\) label audit\\
-S2-SC&two explicit source cells&short local-profile verification\\
-S2-VD&adjacent and nonadjacent radial signs&quarter and corner-margin modules\\
+S2-E1&one-gap endpoint sum \(<1\)&Theorem~\ref{thm:s2-pure-e1}\\
+S2-E2&paired endpoint sum \(<1\)&Theorem~\ref{thm:s2-pure-e2}\\
+S2-R1&CE1 returned demand \(>1-X\)&Theorem~\ref{thm:s2-pure-r1}\\
+S2-R2&CE2 returned demand \(>1-X\)&Theorem~\ref{thm:s2-pure-r2}\\
+S2-T3&finite four-label endpoint sum \(<1\)&Theorem~\ref{thm:s2-pure-t3}\\
+S2-SC&two explicit source cells&Theorem~\ref{thm:s2-pure-sc}\\
+S2-VD&adjacent and nonadjacent radial signs&Theorems~\ref{thm:s2-pure-vd-adjacent} and \ref{thm:s2-pure-vd-nonadjacent}\\
 \bottomrule
 \end{tabular}
 \caption{Registered Strategy~2 calculations and their verification owners.}
@@ -38,8 +38,7 @@ covered.  No hypothesis on the criticality of \(T_0\) is required.
 \end{proposition}
 
 \begin{proof}
-The bridge identifies the endpoint record with Problem S2-E2.  Its objective
-is negative, so the two endpoint capacities sum to less than one.  The three
+The bridge identifies the endpoint record with Problem S2-E2.  Theorem~\ref{thm:s2-pure-e2} makes its objective negative, so the two endpoint capacities sum to less than one.  The three
 intervening roles form the center-free path required by
 Lemma~\ref{lem:reader-boundary-path}, giving the contradiction.
 \end{proof}
@@ -71,7 +70,7 @@ The CE1, \(N_+=1\), all-Vd0, one-gap state is impossible.
 
 \begin{proof}
 Proposition~\ref{prop:s2-return-bridge} identifies the required scalar sign
-with Problem S2-R1.  Proposition~\ref{prop:ce1-one-gap} proves that problem,
+with Problem S2-R1.  Theorem~\ref{thm:s2-pure-r1} proves that problem,
 and the exact forward interface yields \(Z>1-H\).
 \end{proof}
 
@@ -82,7 +81,7 @@ orientation.
 \end{corollary}
 
 \begin{proof}
-Problem S2-R2 is Proposition~\ref{prop:signed-ce2-one-gap}.  Its threshold
+Problem S2-R2 is Theorem~\ref{thm:s2-pure-r2}.  Its threshold
 condition is an inclusive disjunction: at least one of the two locations
 fires, and both may fire.  Reflection reverses the five-role order and
 exchanges the two signed slacks.
@@ -90,15 +89,17 @@ exchanges the two signed slacks.
 
 \subsection{Registered special-role applications}
 
-Problem S2-T3 is identified with the exact support-isolated endpoint sum by
-Proposition~\ref{prop:s2-t3-objective-bridge}; its verification is
-Theorem~\ref{thm:paper-complete-t3-endpoint}.  Problem S2-SC is verified by
-Lemmas~\ref{lem:short-t3-rescuer-profile} and
-\ref{lem:short-vd1-rescuer-profile}.  The adjacent and nonadjacent parts of
-Problem S2-VD are verified by Lemmas~\ref{lem:signed-vd-adjacent-placement}
-and \ref{lem:signed-vd-nonadjacent-placement}.  The remaining two-chart
-replacement is Proposition~\ref{prop:paper-vd1-pair-replacement} and is not
-an optimization problem.
+The universal proof owners are:
+\begin{itemize}
+\item S2-T3: Theorem~\ref{thm:s2-pure-t3}, with objective identification in
+Proposition~\ref{prop:s2-t3-objective-bridge};
+\item S2-SC: Theorem~\ref{thm:s2-pure-sc};
+\item adjacent S2-VD: Theorem~\ref{thm:s2-pure-vd-adjacent};
+\item nonadjacent S2-VD: Theorem~\ref{thm:s2-pure-vd-nonadjacent}.
+\end{itemize}
+The remaining two-chart replacement is
+Proposition~\ref{prop:paper-vd1-pair-replacement}; it is geometric rather
+than an optimization problem.
 
 \begin{proposition}[Branches closed by registered Strategy 2 problems]
 \label{prop:reader-demand-branches}
@@ -115,7 +116,6 @@ Singleton V-gaps are included.
 \end{proposition}
 
 \begin{proof}
-Use Problems S2-E1, S2-E2, S2-R1, S2-R2, S2-T3, S2-SC, and S2-VD through the
-bridge propositions above.  The zero-gap \(N_+=1\) all-Vd0 cell remains the
+Use Corollary~\ref{cor:s2-pure-registry} through the bridge propositions above.  The zero-gap \(N_+=1\) all-Vd0 cell remains the
 Strategy~4 nine-point obstruction.
 \end{proof}

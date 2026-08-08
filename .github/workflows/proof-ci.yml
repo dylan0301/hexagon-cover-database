@@ -1,8 +1,7 @@
-name: Proof, certificate, and paper verification
+name: Proof, certificate, paper, and Lean verification
 
 on:
   push:
-    branches: [main]
   pull_request:
   workflow_dispatch:
 
@@ -19,7 +18,8 @@ env:
   TZ: UTC
 
 jobs:
-  verify:
+  proof:
+    name: Proof sources and exact certificates
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
@@ -30,56 +30,154 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Install pinned proof dependency
+      - name: Install pinned proof dependencies
         run: python -m pip install --disable-pip-version-check -r requirements-proof.txt
 
-      - name: Verify generated manifests, dependency closure, notation, and provenance
+      - name: Verify proof graph, manifests, notation, provenance, and Strategy 2 specifications
         run: |
+          set -euo pipefail
           python tools/generate_active_dependency_graph.py --check
           python tools/generate_proof_manifest.py --check
           python tools/proof_lint.py
+          python tools/verify_strategy2_pure_algebra.py
+          python tools/verify_strategy2_spec_sync.py
           git diff --check
 
       - name: Replay exact Strategy 4 derivation and positivity certificates
         working-directory: proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation
         run: |
+          set -euo pipefail
           python verify_mixed_overlap_core_derivation.py
           python verify_global_core_positivity.py
 
-      - name: Install pinned-platform TeX and PDF tools
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y latexmk texlive-xetex texlive-latex-extra texlive-fonts-recommended poppler-utils
+  lean:
+    name: Lean Strategy 2 statement project
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+        with:
+          fetch-depth: 0
 
-      - name: Rebuild deterministically and compare with tracked PDF
-        working-directory: arrange/paper_draft
+      - uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9
+        with:
+          lake-package-directory: formalization/strategy2_optimization
+          build: 'true'
+          test: 'false'
+          lint: 'false'
+          use-mathlib-cache: 'true'
+          leanchecker: 'false'
+          nanoda: 'false'
+
+      - name: Check that the pinned manifest is current
+        run: git diff --exit-code -- formalization/strategy2_optimization/lake-manifest.json
+
+  paper:
+    name: Pinned paper rebuild and semantic audit
+    needs: proof
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+
+      - name: Install pinned PDF-audit dependencies
+        run: python -m pip install --disable-pip-version-check -r requirements-proof.txt
+
+      - name: Rebuild twice in pinned TeX Live 2025
+        uses: xu-cheng/texlive-action@22c04326a5d855880f9d39bb955138bf11c6df80
+        with:
+          texlive_version: '2025'
+          os: debian
+          run: |
+            set -euo pipefail
+            cd arrange/paper_draft
+            cp main.pdf main.tracked.pdf
+
+            build_pdf() {
+              local output="$1"
+              local log_copy="$2"
+              rm -f main.pdf main.aux main.fdb_latexmk main.fls main.log \
+                main.out main.toc main.xdv main.synctex.gz
+              latexmk -xelatex -interaction=nonstopmode -halt-on-error \
+                -file-line-error main.tex
+              if grep -Eq 'LaTeX Warning: (Reference .* undefined|There were undefined references|Label .* multiply defined)' main.log; then
+                echo 'Undefined or multiply-defined references found.' >&2
+                exit 1
+              fi
+              if grep -Eq 'Overfull \\hbox|Overfull \\vbox' main.log; then
+                echo 'Overfull horizontal or vertical boxes found.' >&2
+                grep -E 'Overfull \\hbox|Overfull \\vbox' main.log >&2
+                exit 1
+              fi
+              cp main.pdf "$output"
+              cp main.log "$log_copy"
+            }
+
+            build_pdf main.rebuilt1.pdf main.rebuilt1.log
+            build_pdf main.rebuilt2.pdf main.rebuilt2.log
+            cp main.tracked.pdf main.pdf
+            cp main.rebuilt2.log main.log
+            rm -f main.aux main.fdb_latexmk main.fls main.out main.toc \
+              main.xdv main.synctex.gz
+
+      - name: Compare stable PDF semantics and verify current metadata
         run: |
           set -euo pipefail
-          cp main.pdf /tmp/tracked-main.pdf
-          rm -f main.pdf main.aux main.fdb_latexmk main.fls main.log main.out main.toc main.xdv main.synctex.gz
-          latexmk -xelatex -interaction=nonstopmode -halt-on-error -file-line-error main.tex
-          if grep -Eq 'LaTeX Warning: (Reference .* undefined|There were undefined references|Label .* multiply defined)' main.log; then
-            echo 'Undefined or multiply-defined references found.' >&2
-            exit 1
-          fi
-          cmp /tmp/tracked-main.pdf main.pdf
-          pdfinfo main.pdf | tee /tmp/pdfinfo.txt
-          pages=$(awk '/^Pages:/ {print $2}' /tmp/pdfinfo.txt)
-          test -n "$pages"
-          rm -rf /tmp/rendered
-          mkdir -p /tmp/rendered
-          pdftoppm -png -r 72 main.pdf /tmp/rendered/page >/dev/null
-          rendered=$(find /tmp/rendered -maxdepth 1 -name 'page-*.png' | wc -l)
-          test "$rendered" -eq "$pages"
-          actual_sha=$(sha256sum main.pdf | awk '{print $1}')
-          recorded_sha=$(awk -F': ' '/^PDF SHA-256:/ {print $2}' ../20260802_verification_summary.txt)
-          test "$actual_sha" = "$recorded_sha"
+          python tools/compare_pdfs_semantically.py \
+            arrange/paper_draft/main.tracked.pdf \
+            arrange/paper_draft/main.rebuilt1.pdf --dpi 144
+          python tools/compare_pdfs_semantically.py \
+            arrange/paper_draft/main.rebuilt1.pdf \
+            arrange/paper_draft/main.rebuilt2.pdf --dpi 144
+          python tools/verify_pdf_render.py arrange/paper_draft/main.pdf
+          python tools/generate_verification_summary.py --check
+          rm -f \
+            arrange/paper_draft/main.tracked.pdf \
+            arrange/paper_draft/main.rebuilt1.pdf \
+            arrange/paper_draft/main.rebuilt2.pdf \
+            arrange/paper_draft/main.rebuilt1.log \
+            arrange/paper_draft/main.rebuilt2.log
+          git diff --check
 
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
           name: verified-hexagon-cover-paper
           path: |
             arrange/paper_draft/main.pdf
-            arrange/20260802_verification_summary.txt
-            /tmp/pdfinfo.txt
+            arrange/CURRENT_VERIFICATION_SUMMARY.txt
+            arrange/paper_draft/main.log
+          if-no-files-found: error
+
+  release:
+    name: Archival release bundle
+    needs: [proof, lean, paper]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+
+      - name: Install pinned bundle dependencies
+        run: python -m pip install --disable-pip-version-check -r requirements-proof.txt
+
+      - name: Build deterministic archival bundle
+        run: |
+          set -euo pipefail
+          python tools/build_release_bundle.py \
+            --output /tmp/hexagon-cover-proof-bundle.zip
+          sha256sum /tmp/hexagon-cover-proof-bundle.zip \
+            | tee /tmp/hexagon-cover-proof-bundle.sha256
+
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: hexagon-cover-proof-release
+          path: |
+            /tmp/hexagon-cover-proof-bundle.zip
+            /tmp/hexagon-cover-proof-bundle.sha256
           if-no-files-found: error

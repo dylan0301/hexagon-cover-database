@@ -10,37 +10,26 @@ unrecorded numerical tolerance is used.
 
 \subsection{Certificate manifest}
 
-All paths below are relative to
-\begin{verbatim}
-proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/
-3105X_self_contained_direct_Vd0_nine_point/3105X_computation/
-\end{verbatim}
-The exact files incorporated in the certificate are
+All paths below are relative to the Strategy~4 computation directory.
+The machine-readable provenance manifest stores the full Git blob identities;
+the paper prints compact identifiers and twelve-character prefixes.
+
 \begin{center}
 \scriptsize
 \renewcommand{\arraystretch}{1.08}
-\begin{tabular}{p{.53\textwidth}p{.34\textwidth}}
+\begin{tabular}{@{}p{.47\textwidth}p{.25\textwidth}@{}}
 \toprule
-file&Git blob SHA\\
+certificate object&blob prefix\\
 \midrule
-\texttt{mixed\_overlap\_core\_data\_00.py}&
-\texttt{359b219f9deda8586217dcbf9ccc10de0ad48578}\\
-\texttt{mixed\_overlap\_core\_data\_01.py}&
-\texttt{bfc807f906359636035634f799d74d552cf847fc}\\
-\texttt{mixed\_overlap\_core\_data\_02.py}&
-\texttt{92887696ef94aeb93f3d95ab9b16a5388406fff4}\\
-\texttt{mixed\_overlap\_core\_data\_03.py}&
-\texttt{c2791a8a6add132ad7a17655cbb13987124cb24e}\\
-\texttt{mixed\_overlap\_core\_data\_04.py}&
-\texttt{7eeabecbbd17543b728130a1f2bc84f79e11a8d2}\\
-\texttt{mixed\_overlap\_core\_data\_05.py}&
-\texttt{d676114292e722b60d1b792f615ee88ad58b6982}\\
-\texttt{mixed\_overlap\_core\_polynomials.py}&
-\texttt{07f57b178cf74980f8d956541842d0c4c4b2faa7}\\
-\texttt{verify\_mixed\_overlap\_core\_derivation.py}&
-\texttt{0a55211ae37f56e1fc461560b0668a01456c7417}\\
-\texttt{verify\_global\_core\_positivity.py}&
-\texttt{821f9a6dc750fbdb80e02e40282b32cc845c3383}\\
+\texttt{core\_data\_00}&\texttt{359b219f9ded}\\
+\texttt{core\_data\_01}&\texttt{bfc807f90635}\\
+\texttt{core\_data\_02}&\texttt{92887696ef94}\\
+\texttt{core\_data\_03}&\texttt{c2791a8a6add}\\
+\texttt{core\_data\_04}&\texttt{7eeabecbbd17}\\
+\texttt{core\_data\_05}&\texttt{d676114292e7}\\
+\texttt{core\_polynomials}&\texttt{07f57b178cf7}\\
+\texttt{derivation verifier}&\texttt{0a55211ae37f}\\
+\texttt{positivity verifier}&\texttt{821f9a6dc750}\\
 \bottomrule
 \end{tabular}
 \end{center}

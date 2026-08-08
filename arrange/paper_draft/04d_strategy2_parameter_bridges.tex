@@ -232,13 +232,25 @@ the Vd placement proofs are exactly
  \mathsf E(L,U;x),\qquad \mathsf R(L,U;x).
 \]
 Thus every center-assisted boundary residual belongs to one of the three
-explicit order cells in Problem S2-VD.
+explicit order cells in Problem S2-VD.  Moreover, with
+\[
+ x=\frac{k}{w},\qquad y=\frac{k}{r},
+\]
+the two center endpoint pairs satisfy
+\[
+ x^2+x(w+d)+(w+d)^2\le1,\qquad
+ y^2+y(r+a)+(r+a)^2\le1.
+\]
+These are the explicit center-distance constraints included in the
+nonadjacent Vd cells.
 \end{proposition}
 
 \begin{proof}
 If \(x<L\), the initial component ends at \(x\).  If \(L\le x\le U\), it
 continues through the interval to \(U\).  If \(U<x\), it already extends to
-\(x\).  The cases are disjoint after assigning equality to the middle cell.
+\(x\).  The cases are disjoint after assigning equality to the middle cell.  The two
+quadratic inequalities are the endpoint-distance inequalities for the two
+normalized center traces, after substituting the signed-center formulas.
 \end{proof}
 
 \begin{proposition}[Explicit corner-graph bridge]

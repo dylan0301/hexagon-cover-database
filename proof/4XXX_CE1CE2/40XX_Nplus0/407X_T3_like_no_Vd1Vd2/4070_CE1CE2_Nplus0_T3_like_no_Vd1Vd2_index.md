@@ -25,6 +25,8 @@ The proof has three stages.
    to one strict endpoint-sum inequality.
 3. `4074`, `4075`, `4078`, `4079`, and `407a` prove the four genuine endpoint
    labels, with details in `407c` and exact assembly in `407d`.
+4. `407e` proves that the same finite audit holds universally on the explicit
+   real-variable cell union used by the optimization registry.
 
 ## Chain interpretation
 
@@ -89,6 +91,7 @@ and Section 2 of `407c`.
 | [`407a_left_Thigh_branch_completion.md`](407a_left_Thigh_branch_completion.md) | Proven | Proves all four first-coordinate $T_+^{hi}$ branches using the universal selected curve. |
 | [`407c_rigor_completion_details.md`](407c_rigor_completion_details.md) | Proven | Supplies the detailed Low, center-transfer, high-sheet, and threshold estimates. |
 | [`407d_rigor_final_assembly.md`](407d_rigor_final_assembly.md) | Proven | Checks the exact four-label inventory and assembles the contradiction. |
+| [`407e_pure_finite_cell_theorem.md`](407e_pure_finite_cell_theorem.md) | Proven | Transfers the exact inventory to every point of the explicit real-variable cell union. |
 | [`407X_computation/407b_T_hi_Tminus_qright_threshold_certificate.py`](407X_computation/407b_T_hi_Tminus_qright_threshold_certificate.py) | Experiment | Optional exact rational cross-check; not a proof dependency. |
 
 ## Exhaustive analytic inventory

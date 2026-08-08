@@ -48,6 +48,7 @@ calculation lemma without the appendices and incorporated supplements.
 | `04b_common_CE1_CE2_budgets.tex` | master deficit, short-role count, common budgets |
 | `04c_short_Vd_placements.tex` | quarter envelope, rescuer profiles, radial separations |
 | `04_strategy2_verification.tex` | input-only wrapper for the split Strategy 2 verification modules |
+| `04f_strategy2_pure_theorems.tex` | universal proof owner for every explicit Strategy 2 optimization problem |
 | `05_strategy3_area.tex` | local area inequalities and cyclic certificates |
 | `06_strategy4_ab_core.tex` | frontier, forcing, Newton reduction, adjacent overlaps |
 | `06a_strategy4_exact_certificate.tex` | sole mixed-overlap certificate source: reduction, manifest, Bernstein proof, cap geometry |
@@ -128,38 +129,27 @@ numbered source `2530` and is satisfied in every routed application.
 ### 3.5 T3-like endpoint audit
 
 The complete `407X` proof is formally incorporated from the current
-proof-package objects.  Full Git blob identities are recorded in
-`proof/407X_PROVENANCE.json`; the current prefixes are:
+proof-package objects. Full Git blob identities are recorded in
+`proof/407X_PROVENANCE.json`; the generated table at the end of this ledger
+records the current prefixes once. CI recomputes every Git blob from the exact
+file bytes.
 
-| File | Blob prefix |
-|---|---|
-| `4073_boundary_loss_framework.md` | `910c7a8a1330` |
-| `4074_L_Full_branch.md` | `7c72dfaf7eb3` |
-| `4075_Tminus_low_lower_branch_obligations.md` | `ebe2b65f8840` |
-| `4078_left_L_family_completion.md` | `f1323325b069` |
-| `4079_first_Full_branch.md` | `c66eea05277d` |
-| `407a_left_Thigh_branch_completion.md` | `aa5cb1a6dc63` |
-| `407c_rigor_completion_details.md` | `c80243f67124` |
-| `407d_rigor_final_assembly.md` | `e22c85c95fdd` |
-
-CI recomputes every Git blob from the exact file bytes and verifies
-both the consolidated TeX manifest and this ledger.
+The universal real-variable theorem is `thm:s2-pure-t3`. Its proof maps an
+arbitrary point of the finite cell union to the exact algebraic variables of
+the four-label audit. The geometric theorem is then obtained only through the
+parameter bridge.
 
 ### 3.6 Vd1 replacement and placement assembly
 
-The consolidated `04_strategy2_verification.tex` is the sole detailed
-Strategy 2 verification source.  It contains:
+`04_strategy2_verification.tex` is an input-only wrapper. Its numbered
+`04e_strategy2_verification_*` modules separately contain the application
+registry, exact local calculus, all-Vd0 propagation, special-role calculations,
+endpoint/replacement verification, and the single authoritative CE2
+exactly-one-Vd1/Vd2 placement assembly.
 
-- the complete four-label `407X` endpoint audit;
-- separate local charts at the two distinguished replacement vertices;
-- the exact shifted-template reach triples;
-- the Vd0 and nonsupercritical role checks;
-- preservation of the shared edge, outer boundary traces, and radial handoffs;
-- preservation of the full skeleton required by strengthened `4013`;
-- the single authoritative CE2 exactly-one-Vd1/Vd2 placement assembly.
-
-`04c_short_Vd_placements.tex` now contains only reusable local lemmas
-and no competing branch assembly.
+`04f_strategy2_pure_theorems.tex` is the universal optimization proof owner.
+`04c_short_Vd_placements.tex` contains reusable local lemmas and no competing
+branch assembly.
 
 ### 3.7 Strategy 4 certificate
 
@@ -272,11 +262,24 @@ The final proof retains all of the following.
 
 ## 7. Build and PDF status
 
-The tracked `main.pdf` is rebuilt with a fixed `SOURCE_DATE_EPOCH` and
-compared byte-for-byte with a clean XeLaTeX rebuild in permanent
-read-only CI.  The current source commit, workflow run, exact verifier
-results, tool versions, page count, and PDF SHA-256 are recorded in
-`../20260802_verification_summary.txt`.
+The tracked `main.pdf` is rebuilt twice in the pinned TeX Live
+environment.  XeTeX/xdvipdfmx does not produce stable raw PDF bytes: consecutive
+clean builds can differ in document identifiers and compressed-object
+serialization while having the same visible and interactive content.  CI
+therefore compares stable semantics instead of serialization bytes.  It
+requires equal page geometry, outlines, page labels, extracted words and
+coordinates, links, annotations, widgets, embedded-file names, and exact RGB
+pixels at 144 DPI.  The canonical tracked artifact still has a recorded raw
+SHA-256.
+
+The current page count, canonical PDF digest, toolchain versions, proof checks,
+Lean statement check, semantic rebuild check, and rendering check are recorded
+in `../CURRENT_VERIFICATION_SUMMARY.txt`.  No dated legacy summary is
+authoritative.
+
+The release artifact contains the paper, the incorporated proof objects,
+provenance manifests, exact certificate code and data, and reproduction
+instructions.
 
 ## 2026-07-31 reader-interface revision
 
@@ -308,15 +311,17 @@ The Strategy 2 interface now has four layers.
 1. `04_strategy2_summary*.tex`: reader-facing geometry and routing.
 2. `04d_strategy2_parameter_bridges.tex`: the sole geometry--parameter dictionary.
 3. `04_strategy2_optimization_*.tex`: explicit real-variable problem domains and objectives.
-4. `04e_strategy2_verification_*.tex`: the application registry and preserved exact calculation sections.
+4. `04f_strategy2_pure_theorems.tex`: universal real-domain theorem ownership.
+5. `04e_strategy2_verification_*.tex`: the application registry and preserved exact calculation sections.
 
 The T3 endpoint domain is a finite union of signed-center, residual-order,
 radial hit/miss, and four-label cells.  The non-symmetry trace-dominating
 translation is represented by exact radical variables; the preceding \(D_6\)
 normalization remains geometric.  The Vd problems use explicit component and
-corner graph functions, with no placement-defined supremum.  The Lean shell in
-`formalization/strategy2_optimization/` contains only problem statements with
-`sorry`.
+corner graph functions, with no placement-defined supremum.  The Lean project in `formalization/strategy2_optimization/` contains only the
+optimization problem statements with `sorry`, but it is version-pinned and
+typechecked in CI. The universal paper proofs remain in
+`04f_strategy2_pure_theorems.tex`; this is not a full Lean formalization.
 
 <!-- BEGIN GENERATED 407X SPLIT PROVENANCE -->
 ## Generated 407X split-source provenance

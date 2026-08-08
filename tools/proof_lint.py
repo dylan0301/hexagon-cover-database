@@ -117,7 +117,7 @@ strategy2_path = ROOT / "arrange/paper_draft/04_strategy2_verification.tex"
 strategy2_paths = sorted(
     path
     for path in compiled
-    if path.name.startswith(("04_strategy2_", "04d_strategy2_", "04e_strategy2_"))
+    if path.name.startswith(("04_strategy2_", "04d_strategy2_", "04e_strategy2_", "04f_strategy2_"))
 )
 strategy2_text = "\n".join(path.read_text(encoding="utf-8") for path in strategy2_paths)
 short_vd_text = (ROOT / "arrange/paper_draft/04c_short_Vd_placements.tex").read_text(encoding="utf-8")
@@ -229,8 +229,56 @@ for relative, expected in provenance_3105["files"].items():
         fail(f"Strategy 4 certificate blob missing from TeX manifest: {relative}")
 
 requirements = (ROOT / "requirements-proof.txt").read_text(encoding="utf-8").splitlines()
-if requirements != ["sympy==1.14.0"]:
-    fail("requirements-proof.txt must pin sympy==1.14.0 exactly")
+if requirements != ["sympy==1.14.0", "PyMuPDF==1.26.7"]:
+    fail("requirements-proof.txt must pin SymPy 1.14.0 and PyMuPDF 1.26.7 exactly")
+
+
+for label in [
+    "thm:s2-pure-e1",
+    "thm:s2-pure-e2",
+    "thm:s2-pure-r1",
+    "thm:s2-pure-r2",
+    "thm:s2-pure-t3",
+    "thm:s2-pure-sc",
+    "thm:s2-pure-vd-adjacent",
+    "thm:s2-pure-vd-nonadjacent",
+]:
+    if label not in labels:
+        fail(f"missing universal Strategy 2 theorem owner: {label}")
+
+lean_root = ROOT / "formalization/strategy2_optimization"
+for relative in [
+    "lakefile.lean",
+    "lean-toolchain",
+    "Strategy2Optimization.lean",
+    "Strategy2Optimization/Problems.lean",
+]:
+    if not (lean_root / relative).is_file():
+        fail(f"missing pinned Lean statement-project file: {relative}")
+if (lean_root / "lean-toolchain").is_file() and (lean_root / "lean-toolchain").read_text(encoding="utf-8").strip() != "leanprover/lean4:v4.32.2":
+    fail("Lean statement project is not pinned to Lean 4.32.2")
+if (lean_root / "lakefile.lean").is_file() and "905b95818eb32af7874a58b427f50c1711a5e96c" not in (lean_root / "lakefile.lean").read_text(encoding="utf-8"):
+    fail("Lean statement project is not pinned to the audited Mathlib commit")
+
+for required_file in [
+    "LICENSE",
+    "CONTRIBUTING.md",
+    "REPRODUCE.md",
+    ".github/CODEOWNERS",
+    ".github/pull_request_template.md",
+    "release/RELEASE_CONTENTS.md",
+    "tools/compare_pdfs_semantically.py",
+]:
+    if not (ROOT / required_file).is_file():
+        fail(f"missing release or review infrastructure: {required_file}")
+
+for stale_file in [
+    ".github/workflows/export-repair-snapshot.yml",
+    "arrange/20260802_verification_summary.txt",
+    "arrange/final_audit_repair_failure.log",
+]:
+    if (ROOT / stale_file).exists():
+        fail(f"stale one-shot or build-status file remains: {stale_file}")
 
 workflow_dir = ROOT / ".github/workflows"
 if (workflow_dir / "refresh-proof-provenance.yml").exists():
@@ -241,6 +289,11 @@ for workflow in workflow_dir.glob("*.yml"):
         fail(f"moving GitHub Action tag in {workflow.relative_to(ROOT)}")
     if re.search(r"contents:\s*write", text):
         fail(f"permanent workflow has contents: write: {workflow.relative_to(ROOT)}")
+    if workflow.name == "proof-ci.yml":
+        if "compare_pdfs_semantically.py" not in text:
+            fail("permanent paper workflow lacks stable semantic PDF comparison")
+        if "cmp main.tracked.pdf main.pdf" in text:
+            fail("permanent paper workflow regressed to unstable raw PDF byte comparison")
 
 if not (ROOT / "arrange/paper_draft/main.pdf").is_file():
     fail("tracked paper PDF is missing")

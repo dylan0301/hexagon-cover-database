@@ -212,3 +212,24 @@ evidence remains empirical unless a rigorous certificate is recorded.
 ## 2026-08-02 replacement and skeleton-interface audit
 
 The CE2 exactly-one-Vd1/Vd2 terminal was re-audited after correcting `4147` to use separate local charts at the two distinguished vertices. The replacement now proves full skeleton preservation. `4013` is stated at the skeleton-data strength used by that reduction, and `414b` records the exhaustive placement re-audit. The main theorem status remains `Proven` because the corrected branch and all verification checks pass.
+
+## Current reproducible verification
+
+The permanent workflow
+[`.github/workflows/proof-ci.yml`](.github/workflows/proof-ci.yml) verifies the
+active proof graph, exact certificate replays, universal Strategy 2
+real-variable theorems, pinned semantic-equivalence paper rebuild, visual
+page-boundary scan, and the pinned Lean statement project. The current
+verification metadata is generated in
+[`arrange/CURRENT_VERIFICATION_SUMMARY.txt`](arrange/CURRENT_VERIFICATION_SUMMARY.txt).
+
+The Strategy 2 formalization milestone is intentionally limited: Lean checks
+that the exact optimization domains and theorem statements elaborate under a
+pinned Lean/Mathlib environment, while the ten theorem proofs still contain
+`sorry`. The complete paper proofs of the universal optimization statements
+are in
+[`arrange/paper_draft/04f_strategy2_pure_theorems.tex`](arrange/paper_draft/04f_strategy2_pure_theorems.tex).
+
+For local and archival reproduction, see [`REPRODUCE.md`](REPRODUCE.md). The
+workflow also publishes a deterministic bundle containing the paper,
+provenance records, exact certificate code/data, and Lean statement project.

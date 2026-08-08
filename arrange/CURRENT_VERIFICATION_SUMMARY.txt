@@ -1,0 +1,27 @@
+Current proof and paper verification
+====================================
+proof_lint.py: PASS
+transitive dependency graph: PASS
+two-way proof manifest: PASS
+407X Git-blob manifest: PASS
+Strategy 4 Git-blob manifest: PASS
+verify_strategy2_pure_algebra.py: PASS
+verify_strategy2_spec_sync.py: PASS
+verify_mixed_overlap_core_derivation.py: PASS
+verify_global_core_positivity.py: PASS
+Lean statement project: PASS (sorry placeholders permitted)
+latexmk -xelatex -halt-on-error main.tex: PASS
+undefined or multiply-defined references: NONE
+overfull horizontal or vertical boxes: NONE
+semantic PDF rebuild equivalence (geometry, words, links, outlines, exact 144-DPI raster): PASS
+rendered media-box border scan: PASS
+PDF pages rendered: 138
+Canonical tracked PDF SHA-256: 511a037a33cdde752b7c028e41e38e86900b1745711a93554982bbcc7da16fb3
+Certificate transcript SHA-256: dc46aaf263655d5159ecd3a81db72ee82477951d06172f4743b248df37209485
+Python: 3.12
+SymPy: 1.14.0
+PyMuPDF: 1.26.7
+TeX Live: 2025
+Lean toolchain: leanprover/lean4:v4.32.2
+Mathlib commit: 905b95818eb32af7874a58b427f50c1711a5e96c
+SOURCE_DATE_EPOCH: 946684800

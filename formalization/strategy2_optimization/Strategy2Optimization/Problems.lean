@@ -4,15 +4,15 @@ import Mathlib
 # Strategy 2 optimization problem statements
 
 This file intentionally contains only the real-variable problem specifications
-for Strategy 2.  Every theorem is closed with `sorry`; no geometric bridge and
-no optimization proof is formalized here.
+for Strategy 2. Every theorem is closed with `sorry`: the current milestone is
+reproducible parsing and elaboration of the exact statements, not formal proofs.
+No geometric bridge is formalized here.
 -/
 
 noncomputable section
 
 namespace HexagonCover.Strategy2Optimization
 
-classical
 
 open Real
 
@@ -145,15 +145,17 @@ def t3A1 (x : T3Input) : ℝ :=
   else if t3BPlus x < tR then x.center.r - x.center.d
   else t3q x
 
-def t3A5 (x : T3Input) : ℝ :=
-  if centerCE2Domain x.center then
-    let sL := k x.center / w x.center
-    let tL := x.center.r + x.center.a
-    if x.beta < sL then 1 - x.beta
-    else if x.beta < tL then 1 - tL
-    else 1 - x.beta
-  else
-    1 - x.beta
+def t3A5 (x : T3Input) : ℝ := by
+  classical
+  exact
+    if centerCE2Domain x.center then
+      let sL := k x.center / w x.center
+      let tL := x.center.r + x.center.a
+      if x.beta < sL then 1 - x.beta
+      else if x.beta < tL then 1 - tL
+      else 1 - x.beta
+    else
+      1 - x.beta
 
 def t3C1 (x : T3Input) : ℝ :=
   let gamma1 := x.center.d / x.center.r
@@ -329,6 +331,9 @@ def vdNonA (v : VdNonadjacentInput) : ℝ :=
 def vdNonH (v : VdNonadjacentInput) : ℝ :=
   residual (k v.center / w v.center) (v.center.r + v.center.a) v.p0
 
+def vdNonX (v : VdNonadjacentInput) : ℝ := k v.center / w v.center
+def vdNonY (v : VdNonadjacentInput) : ℝ := k v.center / v.center.r
+
 def vdNonC (v : VdNonadjacentInput) : ℝ :=
   (cornerDelta v.t - v.pv - v.t * v.qv) / (v.t + 1)
 
@@ -345,8 +350,12 @@ def vdNonDomain (v : VdNonadjacentInput) : Prop :=
     1 < v.p0 + v.q0 ∧
     v.p0^2 + v.p0 * v.q0 + v.q0^2 ≤ 1 ∧
     0 < vdNonA v ∧ 0 < vdNonH v ∧ vdNonA v + vdNonH v < 1 / 2 ∧
-    v.center.a + v.center.d < (k v.center / w v.center) / 2 ∧
-    v.center.a + v.center.d < (k v.center / v.center.r) / 2 ∧
+    v.center.a + v.center.d < vdNonX v / 2 ∧
+    v.center.a + v.center.d < vdNonY v / 2 ∧
+    vdNonX v ^ 2 + vdNonX v * (w v.center + v.center.d) +
+        (w v.center + v.center.d) ^ 2 ≤ 1 ∧
+    vdNonY v ^ 2 + vdNonY v * (v.center.r + v.center.a) +
+        (v.center.r + v.center.a) ^ 2 ≤ 1 ∧
     0 < v.t ∧
     0 < v.pv ∧ v.pv < 1 ∧
     0 < v.qv ∧ v.qv < 1 ∧

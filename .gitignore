@@ -10,3 +10,7 @@ arrange/paper_draft/main.out
 arrange/paper_draft/main.toc
 arrange/paper_draft/main.xdv
 arrange/paper_draft/main.synctex.gz
+
+# Regenerated archival and Lean build outputs.
+release/*.zip
+formalization/strategy2_optimization/.lake/

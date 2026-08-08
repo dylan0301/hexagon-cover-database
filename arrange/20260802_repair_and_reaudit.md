@@ -24,9 +24,12 @@
 
 ## Reproducible verification
 
-Permanent CI is read-only, pins GitHub Actions and SymPy, replays both
-exact Strategy 4 verifiers, rebuilds the paper with a fixed
-`SOURCE_DATE_EPOCH`, compares the rebuilt PDF byte-for-byte with the
-tracked PDF, renders every page, and uploads the verified artifact.
+Permanent CI is read-only, pins GitHub Actions and Python dependencies,
+replays both exact Strategy 4 verifiers, and rebuilds the paper twice in TeX
+Live 2025 with a fixed `SOURCE_DATE_EPOCH`.  Because XeTeX/xdvipdfmx raw object
+bytes are not stable across otherwise identical builds, CI compares page
+geometry, text coordinates, links, outlines, and exact 144-DPI raster pixels.
+It also renders every page, checks the media-box border, and uploads the
+verified artifact.
 
 BUILD_METADATA_PLACEHOLDER
