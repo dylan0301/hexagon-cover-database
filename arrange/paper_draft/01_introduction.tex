@@ -1,13 +1,13 @@
 \section{Proof Architecture}
 \label{sec:introduction}
 
-This section gives the complete logical map before any technical verification.
-The body defines every object used in the proof, records the exact outputs of
-the calculations, explains the four geometric mechanisms, and performs the
-final case assembly.  The TeX appendices and formally incorporated electronic
-supplements prove the stated formulas and inequalities.  Thus a reader can
-follow the contradiction from the body alone and consult the verification
-modules only to check a calculation or a finite branch certificate.
+% This section gives the complete logical map before any technical verification.
+% The body defines every object used in the proof, records the exact outputs of
+% the calculations, explains the four geometric mechanisms, and performs the
+% final case assembly.  The TeX appendices and formally incorporated electronic
+% supplements prove the stated formulas and inequalities.  Thus a reader can
+% follow the contradiction from the body alone and consult the verification
+% modules only to check a calculation or a finite branch certificate.
 
 \subsection{The theorem and the seven forced roles}
 
@@ -33,10 +33,10 @@ The hexagon $H$ cannot be covered by seven open equilateral triangles of side
 length one.
 \end{theorem}
 
-The compactness and scaling argument in
-Proposition~\ref{prop:open-closed-scaled} gives the equivalent closed version.
+% The compactness and scaling argument in
+% Proposition~\ref{prop:open-closed-scaled} gives the equivalent closed version.
 
-\begin{corollary}[Expanded closed formulation]
+\begin{corollary}[Soifer's Hexagon Problem]
 \label{cor:expanded-closed}
 For every $L>1$, the regular hexagon $H_L=LH$ cannot be covered by seven closed
 unit equilateral triangles.
@@ -50,8 +50,7 @@ Their closures are denoted by $T_C,T_i$.
 \begin{figure}[H]
 \centering
 \input{figures/geometry_roles}
-\caption{The center anchor, six vertex anchors, boundary edges, and radial
-arms.  The role labels are forced; triangle orientations are not.}
+\caption{Important points}
 \label{fig:geometry-roles}
 \end{figure}
 
@@ -61,7 +60,7 @@ The center type is the number of boundary edges on which $T_C$ has a
 positive-length trace.  The only possibilities are $0,1,2$, denoted by
 $\CEzero,\CEone,\CEtwo$.
 
-For a vertex role, let $o$ be the number of its triangle vertices outside $H$
+For a vertex triangle, let $o$ be the number of its triangle vertices outside $H$
 and let $n$ be the number of adjacent radial arms met in positive length.  The
 exhaustive types are
 \[
@@ -137,7 +136,7 @@ last entry, the first alternative is for CE1 and the second for CE2.}
 \label{tab:routing}
 \end{table}
 
-For the two all-$\Vdzero$ CE1/CE2 routing entries, the same six cells are organized by
+For the two all-$\Vdzero$ CE1/CE2, the same six cells are organized by
 \[
 \begin{array}{c|ccc}
  &\mathrm{gr}=0&\mathrm{gr}=1&\mathrm{gr}=2\\ \hline

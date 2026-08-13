@@ -1,10 +1,10 @@
 \section{Geometric Interfaces Used by the Proof}
 \label{sec:reader-framework}
 
-This section records the exact outputs of the structural and local calculations.
-Their derivations are postponed.  The distinction is deliberate: the body uses
-only the statements below, while the appendices verify them on explicit
-real-variable domains.
+% This section records the exact outputs of the structural and local calculations.
+% Their derivations are postponed.  The distinction is deliberate: the body uses
+% only the statements below, while the appendices verify them on explicit
+% real-variable domains.
 
 \subsection{Structural reduction}
 
@@ -179,19 +179,26 @@ The local admissible set $\mathcal A$ has the following properties.
 \begin{enumerate}
 \item It is compact, coordinatewise downward closed, and invariant under
 interchanging the two boundary coordinates $a$ and $b$.
-\item Its enclosure-gauge description is
+\item
 \[
  (a,b,c)\in\mathcal A
  \quad\Longleftrightarrow\quad
  \Lambda\bigl(K(a,b,c)\bigr)\le1.
 \]
-\item Every one-coordinate fiber of $\mathcal A$ is a nonempty compact initial
-interval.  In particular, each maximum used to define a transfer map below is
-attained.
-\item The boundary of $\mathcal A$ is obtained from a finite caliper
-comparison.  Equivalently, the least enclosing-equilateral side is the minimum
-of finitely many continuous support expressions on finitely many geometric
-cells.
+\item For $(b,c)$, $(a,c)$, and $(a,b)$ in the corresponding two-coordinate
+projections of $\mathcal A$, respectively, define the one-coordinate fibers
+\[
+ \begin{aligned}
+ \mathcal A_{b,c}^{(1)}
+ &=\left\{a\ge0:(a,b,c)\in\mathcal A\right\},\\
+ \mathcal A_{a,c}^{(2)}
+ &=\left\{b\ge0:(a,b,c)\in\mathcal A\right\},\\
+ \mathcal A_{a,b}^{(3)}
+ &=\left\{c\ge0:(a,b,c)\in\mathcal A\right\}.
+ \end{aligned}
+\]
+Each of these fibers is a nonempty compact initial interval.  In particular,
+each maximum used to define a transfer map below is attained.
 \end{enumerate}
 The exact support expressions, their cell conditions, and the resulting
 piecewise equations for $\mathcal A$ are stated and proved in
@@ -202,11 +209,21 @@ Appendix~\ref{sec:admissible-set-derivation}.
 Compactness and downward closure follow directly from the containment
 definition and compactness of the oriented unit-triangle family modulo
 translation.  Reflection in the radial axis exchanges $a$ and $b$.  The gauge
-equivalence is Proposition~\ref{prop:universal-enclosure-gauge}.  Convexity of
-containment along each coordinate gives the initial-interval fibers.  The
-finite-caliper assertion and all exact cell formulas are proved in
+equivalence is Proposition~\ref{prop:universal-enclosure-gauge}.  For each
+fixed pair in the corresponding projection, compactness and coordinatewise
+downward closure give a nonempty compact initial-interval fiber.  Moreover,
+$K(a,0,c)\subseteq\conv\{0,u,u+v\}$ for $a,c\in[0,1]$, so the fibers used to
+define the transfer maps below are nonempty.  The exact cell formulas used in
+the plan above are proved in
 Appendix~\ref{sec:admissible-set-derivation}.
 \end{proof}
+
+
+Our plan is to split $(a,b,c)$-space into finitely many regions, use one
+explicit formula on each region, compare the finitely many candidate enclosing
+triangles, and declare $(a,b,c)$ admissible exactly when the smallest candidate
+has side at most $1$.
+
 
 \begin{figure}[H]
 \centering
