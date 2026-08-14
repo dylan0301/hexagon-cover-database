@@ -1,5 +1,6 @@
 __pycache__/
 *.pyc
+.venv-paper-audit/
 
 # Paper build intermediates; the rebuilt PDF remains tracked.
 arrange/paper_draft/main.aux

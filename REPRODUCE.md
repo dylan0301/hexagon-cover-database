@@ -22,6 +22,27 @@ python verify_global_core_positivity.py
 
 ## Paper
 
+### One-command canonical update
+
+From a repository checkout, the preferred local workflow is:
+
+```bash
+tools/rebuild_paper_pinned.sh
+```
+
+The first run creates the ignored `.venv-paper-audit/` environment and pulls
+the same TeX Live 2025 Docker image used by the permanent workflow. The helper
+performs two clean builds, rejects unresolved or duplicate references and
+overfull boxes, compares stable PDF semantics, verifies the rendered page
+borders, and refreshes `arrange/CURRENT_VERIFICATION_SUMMARY.txt`. It replaces
+the tracked PDF and summary only after every check succeeds.
+
+In VS Code, run **Tasks: Run Task** and select
+**Paper: Update canonical main.pdf (TeX Live 2025)**. The ordinary LaTeX
+Workshop recipe is a temporary preview and does not update the tracked PDF.
+
+### Manual audit
+
 Use TeX Live 2025 and the fixed environment:
 
 ```bash

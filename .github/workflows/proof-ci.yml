@@ -90,10 +90,13 @@ jobs:
       - name: Rebuild twice in pinned TeX Live 2025
         uses: xu-cheng/texlive-action@22c04326a5d855880f9d39bb955138bf11c6df80
         with:
-          texlive_version: '2025'
-          os: debian
+          docker_image: >-
+            ghcr.io/xu-cheng/texlive-historic-debian:2025@sha256:d3e42adc0c8d84bc913bfc33571feaf7037616260a771bb6f027504661568bf6
           run: |
             set -euo pipefail
+            export SOURCE_DATE_EPOCH=946684800
+            export FORCE_SOURCE_DATE=1
+            export TZ=UTC
             cd arrange/paper_draft
             cp main.pdf main.tracked.pdf
 

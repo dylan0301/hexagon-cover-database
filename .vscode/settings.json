@@ -1,13 +1,12 @@
 {
-  "latex-workshop.latex.recipe.default": "latexmk (xelatex, clean source)",
+  "latex-workshop.latex.recipe.default": "latexmk (xelatex, fast local preview)",
   "latex-workshop.latex.outDir": "%TMPDIR%",
   "latex-workshop.latex.auxDir": "%OUTDIR%",
   "latex-workshop.latex.recipes": [
     {
-      "name": "latexmk (xelatex, clean source)",
+      "name": "latexmk (xelatex, fast local preview)",
       "tools": [
-        "latexmk-xelatex-temp",
-        "copy-built-pdf"
+        "latexmk-xelatex-temp"
       ]
     }
   ],
@@ -24,15 +23,6 @@
         "-xelatex",
         "-outdir=%OUTDIR%",
         "%DOC%"
-      ]
-    },
-    {
-      "name": "copy-built-pdf",
-      "command": "cp",
-      "cwd": "%DIR%",
-      "args": [
-        "%OUTDIR%/%DOCFILE%.pdf",
-        "%DIR%/%DOCFILE%.pdf"
       ]
     }
   ]
