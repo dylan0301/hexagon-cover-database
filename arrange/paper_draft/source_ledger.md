@@ -27,9 +27,10 @@ calculation lemma without the appendices and incorporated supplements.
 |---|---|
 | `main.tex` | AMS assembly and body/appendix split |
 | `01_introduction.tex` | theorem, roles, definitions, routing table, role figure |
-| `02_reader_framework.tex` | structural, admissible-set, transfer, signed-center interfaces |
+| `02_reader_framework.tex` | shared structural, admissible-set, and signed-center interfaces |
 | `03_strategy1_reader.tex` | trace-cap register and terminal trace sums |
 | `04_strategy2_summary.tex` | complete branch hypotheses and certificate register |
+| `04_strategy2_summary_transfer.tex` | reader-facing Strategy 2 transfer contract |
 | `05_strategy3_reader.tex` | area-loss register and cyclic sums |
 | `06_strategy4_reader.tex` | nine-point geometry and cap-chain reduction |
 | `07_exhaustive_assembly.tex` | final exhaustive audit |
@@ -171,21 +172,27 @@ strict handoff selection, unique center midpoint, short-role identity, and
 routing table. These are proved in `02_structural_reductions.tex` and the
 `1XXX`, `2109`, and `2530` packages.
 
-### Local enclosure and transfers
+### Local enclosure
 
 The explicit minimum-side formula is proved in `02b` and agrees with proof
-source `2004`. The transfer notation comes from `201d`:
+source `2004`. This shared admissible-set interface remains in
+`02_reader_framework.tex`.
+
+### Strategy 2 transfer contract
+
+The reader-facing transfer contract is in
+`04_strategy2_summary_transfer.tex`. Its notation comes from `201d`:
 
 ```text
 g_c(x)=max{y:(1-x,y,c) in A},
-f^vee(a)=1-f(1-a).
+g_c^vee(a)=1-g_c(1-a).
 ```
 
 For nonsupercritical roles the paper uses the direct branch split
 `B <= 1-a` when `c <= 1/2`, and `B <= g_c(1-a)` when `c > 1/2`.
 
-The corrected center-free and center-assisted statements are in `02a` and the
-repaired `2019` source.
+The corrected center-free and center-assisted statements are proved in `02a`
+and the repaired `2019` source.
 
 ### Signed center
 

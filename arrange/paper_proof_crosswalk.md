@@ -183,7 +183,7 @@ union of the Strategy 1-4 packages listed below.
 
 ---
 
-## 2.2 `paper_draft/02_reader_framework.tex` — Geometric Interfaces
+## 2.2 `paper_draft/02_reader_framework.tex` — Shared Geometric Interfaces
 
 ### `prop:body-structural-reduction`
 
@@ -215,22 +215,6 @@ The full TeX derivation is in `02_structural_reductions.tex`; see Section 3.2.
 - [2607_minimal_enclosing_equilateral_quadrilateral_lemma.md](../proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2607_minimal_enclosing_equilateral_quadrilateral_lemma.md) — **S**.
 
 **TeX verification.** `02b_admissible_set_derivation.tex`.
-
-### `prop:body-transfer-interface`
-
-The four items map as follows:
-
-| Paper item | Primary source | Supporting sources |
-|---|---|---|
-| raw outgoing map and actual-V triangle bound | [2007_max_b_map.md](../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2007_max_b_map.md) | `2004`, `201d` |
-| branchwise nonsupercritical output and high-radial complement dual | [2011_capped_demand_map.md](../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md) | `2004`, `2007` |
-| center-assisted residual transfer | [2019_interval_component_and_path_budget.md](../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2019_interval_component_and_path_budget.md) | `201d` |
-| strict-supercritical outgoing envelope | [2010_free_supercritical_max_b.md](../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2010_free_supercritical_max_b.md) | `2004`, `2007` |
-| relaxed composition | [201d_raw_and_relaxed_g_chains.md](../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md) | `2019` |
-
-**Critical hypothesis map.** The unconditional statement is
-`B<g_c^{sc}`. The complementary next-V-triangle statement requires a center-free
-outgoing edge. The corrected path hypothesis is carried by `2019`.
 
 ### `prop:body-signed-center-interface`
 
@@ -291,6 +275,25 @@ The full calculations are reorganized in `03_strategy1_length.tex` and
 ---
 
 ## 2.4 `paper_draft/04_strategy2_summary.tex` — Monotone Transfer Certificates
+
+### `prop:body-transfer-interface` in `04_strategy2_summary_transfer.tex`
+
+The four items map as follows:
+
+| Paper item | Primary source | Supporting sources |
+|---|---|---|
+| raw outgoing map and actual-V triangle bound | [2007_max_b_map.md](../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2007_max_b_map.md) | `2004`, `201d` |
+| branchwise nonsupercritical output and high-radial complement dual | [2011_capped_demand_map.md](../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md) | `2004`, `2007` |
+| center-assisted residual transfer | [2019_interval_component_and_path_budget.md](../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2019_interval_component_and_path_budget.md) | `201d` |
+| strict-supercritical outgoing envelope | [2010_free_supercritical_max_b.md](../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2010_free_supercritical_max_b.md) | `2004`, `2007` |
+
+**Critical hypothesis map.** The unconditional statement is
+`B<g_c^{sc}`. The complementary next-V-triangle statement requires a center-free
+outgoing edge. The corrected path hypothesis is carried by `2019`.
+
+The certified-chain definition uses the relaxed-composition lemma from
+[201d_raw_and_relaxed_g_chains.md](../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md),
+with center-free handoff support from `2019`.
 
 ### All-Vd0 rank-zero strict cycle
 
@@ -763,7 +766,7 @@ terminal proof sources.
 | `1201` | vertex dictionary, structural reduction, short-role routing |
 | `1214` | structural reduction, Strategy 3 selected handoffs, Strategy 4 exact-one order |
 | `2004` | explicit admissible set, exact-demand appendix, Strategy 4 radial envelope |
-| `2007` | raw transfer map in `02_reader_framework` and `02a` |
+| `2007` | raw transfer map in Strategy 2 and `02a` |
 | `2010` | strict-supercritical envelope in Strategies 2 and rescuer branches |
 | `2011` | branchwise nonsupercritical output, high-radial duality and four-label audit |
 | `2016` | CE1 five-V-triangle chords, `407X` high sheet, T3 rescuer rationalization |

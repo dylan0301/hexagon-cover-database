@@ -88,12 +88,15 @@ Gram reductions, Bernstein data, code listings, or run logs.
 ```
 
 - `01_introduction.tex`: theorem, roles, notation, routing table, proof flow.
-- `02_reader_framework.tex`: structural interface, explicit admissible set,
-  corrected transfer alphabet, signed center interface.
+- `02_reader_framework.tex`: shared structural interface, explicit admissible
+  set, and signed center interface.
 - `03_strategy1_reader.tex`: trace register, complete master-deficit
   hypotheses, Strategy 1 routes.
-- `04_strategy2_summary.tex`: exact endpoint and five-V-triangle certificates,
-  center-free path conditions, T3-like and Vd terminals.
+- `04_strategy2_summary.tex`: Strategy 2 reader assembly; it inputs
+  `04_strategy2_summary_transfer.tex` for the transfer contract before the
+  chain and all-Vd0 kernel material, followed by the exact endpoint and
+  five-V-triangle certificates, center-free path conditions, and T3-like and
+  Vd terminals.
 - `05_strategy3_reader.tex`: local area losses and cyclic sums.
 - `06_strategy4_reader.tex`: direct forcing, Newton reduction, cap chain, and
   the exact mixed-overlap certificate interface.
@@ -181,7 +184,10 @@ Canonical names are:
 - `H`, `O`, `V_i`, `e_{i,i+1}`, `r_i`, `M_i`;
 - `gr` for active-gap rank;
 - `mathcal A` for the local admissible set;
-- `g_c`, `f^vee`, and `mathcal R_J` for transfers; for a known nonsupercritical role use `B<=1-A` directly when `c<=1/2`, and use the raw `g_c` transfer when `c>1/2`;
+- `g_c`, `g_c^vee`, and `mathcal R_J` for reader-facing transfers; the
+  appendices may use the generic complement dual `f^vee`; for a known
+  nonsupercritical role use `B<=1-A` directly when `c<=1/2`, and use the raw
+  `g_c` transfer when `c>1/2`;
 - `d_i^C` for a center exit and `c_i^C=1-d_i^C` for its complementary
   vertex-side demand; lowercase `c_i` remains a selected V triangle demand;
 - `m_3=d_3^C` for the local CE1 affine-slot scalar; bare `m` remains the

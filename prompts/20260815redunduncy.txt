@@ -1,0 +1,6 @@
+in chapter 2, i see some things that are only used in strategy 4, and even they
+  are redundunt. for example, the defining the transfer alphabet and inequalities,
+  and free strict supercritical envelope, ordered composition and slotwise lower
+  erelaxation, transfer interface. i think these are only used in strategey4.
+  review, and recommend me to reduce redunduncy, i think putting these in only
+  chapter 4 would be better. ask me quesitons

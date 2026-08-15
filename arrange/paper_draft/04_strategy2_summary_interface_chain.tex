@@ -14,12 +14,19 @@ Proposition~\ref{prop:body-transfer-interface}.
 \item The identity relaxation $x_{j+1}\ge x_j$.  This relaxation is permitted
 only when $T_{i_j}$ is nonsupercritical, the handoff edge is center-free, and
 every nonincident role has zero-length trace on that edge.
-\item A branch-specific affine, threshold, quarter-radial, or Vd-corner lower
-bound whose domain and pointwise validity are stated in
-Appendix~\ref{sec:strategy2-optimization-problems}.
+\item A branch-specific affine or threshold map that is nondecreasing and
+proved pointwise below the exact transfer on its stated input interval, or a
+quarter-radial or Vd-corner lower bound.  The domains and pointwise statements
+are recorded in Appendix~\ref{sec:strategy2-optimization-problems}.
 \end{enumerate}
 
 The order of the chain is geometric: the first recorded handoff acts first.
+The only functional relaxations used are the identity, one affine chord on a
+selected $T_+$ branch, and one low-root threshold; their formulas and validity
+domains are Definitions~\ref{def:s2-pure-relaxations}
+and~\ref{def:s2-pure-strict-certificate}.  Lemma~\ref{lem:reader-relaxed-composition}
+shows that replacing exact nondecreasing transfer maps by these certified
+pointwise lower bounds preserves the returned lower bound.
 Writing an identity slot asserts only the individual inequality
 $x_{j+1}\ge x_j$; it does not assert a separate pointwise comparison between
 two formal compositions.
@@ -53,9 +60,10 @@ nonempty interval between the vertex-side and center-side radial traces.
 \end{proposition}
 
 \begin{proof}
-The handoff induction is Proposition~\ref{prop:body-transfer-interface}.
-The endpoint conclusion is Lemma~\ref{lem:reader-boundary-path}.  The strict
-upper bound in the returned-demand case is the exact one-gap actual-V-triangle
-interface.  The radial cases use the branch-specific terminal statements in
-Proposition~\ref{prop:body-special-terminal-certificates}.
+Proposition~\ref{prop:body-transfer-interface} gives the handoff induction,
+and Lemma~\ref{lem:reader-boundary-path} gives the endpoint conclusion.  The
+exact one-gap interface gives the returned-demand upper bound.  The
+branch-specific statements in
+Proposition~\ref{prop:body-special-terminal-certificates} handle the radial
+cases.
 \end{proof}
