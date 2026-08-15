@@ -8,8 +8,9 @@ the scalar relaxation of one three-map chain.
 
 The canonical notation is from
 [`201d`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md).
-The exact nonsupercritical incoming-reach transfer is
-$\widehat g_c^\vee$. The older symbol $G_c$ is only its technical alias.
+All five nonsupercritical radial demands below are strictly above $1/2$.
+The exact incoming-reach transfer is therefore the raw high-radial map
+$g_c^\vee$. The older symbol $G_c$ is only its technical alias.
 
 ## 1. Signed center data
 
@@ -77,15 +78,15 @@ $$
 c_0=k.
 $$
 
-The exact capped-map theorem
+The exact branchwise-output theorem
 [`2011`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md)
-proves that every $\widehat g_c^\vee$ is nondecreasing and extensive and that
+proves that every high-radial $g_c^\vee$ is nondecreasing and extensive and that
 
 $$
 \boxed{
-\widehat g_c^\vee(a)\le z
+g_c^\vee(a)\le z
 \quad\Longleftrightarrow\quad
-\widehat g_c^\vee(1-z)\le1-a.
+g_c^\vee(1-z)\le1-a.
 }
 $$
 
@@ -129,7 +130,7 @@ Define
 $$
 z_0=X,
 \qquad
-z_i=\widehat g_{c_i}^\vee(z_{i-1})
+z_i=g_{c_i}^\vee(z_{i-1})
 \quad(1\le i\le5).
 $$
 
@@ -141,12 +142,12 @@ A_i\ge z_{i-1}
 $$
 
 for some $1\le i\le5$. Since V triangle $T_i$ is nonsupercritical and $C_i\ge c_i$,
-the hatted outgoing cap gives
+the raw high-radial outgoing bound gives
 
 $$
 B_i
 \le
-\widehat g_{c_i}(1-z_{i-1}).
+g_{c_i}(1-z_{i-1}).
 $$
 
 For $i=1,\ldots,4$, the next edge has no center trace, so boundary coverage
@@ -157,9 +158,9 @@ $$
 A_{i+1}
 &\ge1-B_i\\
 &\ge
-1-\widehat g_{c_i}(1-z_{i-1})\\
+1-g_{c_i}(1-z_{i-1})\\
 &=
-\widehat g_{c_i}^\vee(z_{i-1})\\
+g_{c_i}^\vee(z_{i-1})\\
 &=
 z_i.
 \end{aligned}
@@ -173,7 +174,7 @@ A_0
 \ge
 1-B_5
 \ge
-\widehat g_{c_5}^\vee(z_4)
+g_{c_5}^\vee(z_4)
 =
 z_5.
 $$
@@ -189,15 +190,15 @@ where
 $$
 \boxed{
 Z=
-[\widehat g_{c_1}^\vee
+[g_{c_1}^\vee
 \mid
-\widehat g_{c_2}^\vee
+g_{c_2}^\vee
 \mid
-\widehat g_{c_3}^\vee
+g_{c_3}^\vee
 \mid
-\widehat g_{c_4}^\vee
+g_{c_4}^\vee
 \mid
-\widehat g_{c_5}^\vee](X).
+g_{c_5}^\vee](X).
 }
 $$
 
@@ -249,34 +250,34 @@ nondecreasing. Hence
 $$
 Z
 \ge
-[\widehat g_{c_2}^\vee
+[g_{c_2}^\vee
 \mid
-\widehat g_{c_3}^\vee
+g_{c_3}^\vee
 \mid
-\widehat g_{c_4}^\vee](X).
+g_{c_4}^\vee](X).
 $$
 
 It is therefore enough to prove
 
 $$
-[\widehat g_{c_2}^\vee
+[g_{c_2}^\vee
 \mid
-\widehat g_{c_3}^\vee
+g_{c_3}^\vee
 \mid
-\widehat g_{c_4}^\vee](X)
+g_{c_4}^\vee](X)
 >
 1-H.
 $$
 
-Three applications of capped-map duality show that the negation of this
+Three applications of high-radial duality show that the negation of this
 inequality is equivalent to
 
 $$
-[\widehat g_{c_4}^\vee
+[g_{c_4}^\vee
 \mid
-\widehat g_{c_3}^\vee
+g_{c_3}^\vee
 \mid
-\widehat g_{c_2}^\vee](H)
+g_{c_2}^\vee](H)
 \le
 1-X.
 $$
@@ -285,11 +286,11 @@ Thus the scalar target common to CE1 and CE2 is
 
 $$
 \boxed{
-[\widehat g_{1-\alpha}^\vee
+[g_{1-\alpha}^\vee
 \mid
-\widehat g_{1-m_3}^\vee
+g_{1-m_3}^\vee
 \mid
-\widehat g_{1-\delta}^\vee](H)
+g_{1-\delta}^\vee](H)
 >
 W+\delta.
 }

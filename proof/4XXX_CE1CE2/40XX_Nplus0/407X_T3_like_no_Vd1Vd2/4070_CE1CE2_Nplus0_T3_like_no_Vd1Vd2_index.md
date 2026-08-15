@@ -31,18 +31,12 @@ The proof has three stages.
 ## Chain interpretation
 
 Let $A_1,A_5$ be the two residual endpoint inputs and let $C_1,C_5$ be their
-radial demands. In the canonical $g$-notation, the endpoint target is
+radial demands.  At endpoint $j\in\{1,5\}$, use the direct Full value
+$1-A_j$ when $C_j\le1/2$, and use the raw value $g_{C_j}(1-A_j)$ when
+$C_j>1/2$.  The sum of these two branchwise endpoint contributions is
+strictly below one.
 
-$$
-\boxed{
-\widehat g_{C_1}(1-A_1)
-+
-\widehat g_{C_5}(1-A_5)
-<1.
-}
-$$
-
-The two terms are the exact hatted outgoing caps. The three interior
+Thus no additional transfer symbol is needed.  The three interior
 nonsupercritical V triangles are used only through
 
 $$
@@ -83,7 +77,7 @@ and Section 2 of `407c`.
 |---|---|---|
 | [`4071_CE1CE2_Nplus0_T3_like_forces_V0_T3_like.md`](4071_CE1CE2_Nplus0_T3_like_forces_V0_T3_like.md) | Proven | Normalizes the T3-like traces and forces $T_0$ to be T3-like. |
 | [`4072_support_isolation_after_T0_T3_like.md`](4072_support_isolation_after_T0_T3_like.md) | Proven | Uses the three-short-role theorem to isolate the two active radial arms. |
-| [`4073_boundary_loss_framework.md`](4073_boundary_loss_framework.md) | Reduction | Derives the residual endpoint inputs and reduces to the exact hatted endpoint sum. |
+| [`4073_boundary_loss_framework.md`](4073_boundary_loss_framework.md) | Reduction | Derives the residual endpoint inputs and reduces to the exact branchwise endpoint sum. |
 | [`4074_L_Full_branch.md`](4074_L_Full_branch.md) | Proven | Proves the $(L,\mathrm{Full})$ branch. |
 | [`4075_Tminus_low_lower_branch_obligations.md`](4075_Tminus_low_lower_branch_obligations.md) | Proven | Proves the $(L,L)$ and $(L,T_-)$ branches and the left-$T_-$ family. |
 | [`4078_left_L_family_completion.md`](4078_left_L_family_completion.md) | Proven | Proves the remaining $(L,T_+^{hi})$ branch. |
@@ -96,7 +90,7 @@ and Section 2 of `407c`.
 
 ## Exhaustive analytic inventory
 
-The exact hatted outgoing map has the four labels
+The exact branchwise outgoing bound has the four labels
 
 $$
 L,\qquad T_-,\qquad T_+^{hi},\qquad\mathrm{Full}.
@@ -112,6 +106,6 @@ label:
 | $T_+^{hi}$ | `407a`, with details in `407c` and common curvature in `2016` |
 | $\mathrm{Full}$ | Excluded by `4079` |
 
-Thus every genuine label pair is unrealizable or has total hatted outgoing
+Thus every genuine label pair is unrealizable or has total branchwise outgoing
 reach strictly below one. The reduction in `4073` then gives the perimeter
 contradiction. The optional script remains only a redundant exact check.

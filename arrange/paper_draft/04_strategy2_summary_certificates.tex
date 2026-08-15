@@ -29,13 +29,24 @@ $(R,\alpha,\delta)$ are the data of Problems~\ref{prob:s2-one-gap-endpoint} and~
 \end{definition}
 
 For an endpoint record
-$\mathbf e=(a_-,a_+,c_-,c_+)$, define its two-end capacity by
+$\mathbf e=(a_-,a_+,c_-,c_+)$, define its two-end capacity by applying the
+branchwise nonsupercritical bound at each end:
 \[
  \mathrm{Cap}(\mathbf e)
  :=
- \widehat g_{c_-}(1-a_-)+\widehat g_{c_+}(1-a_+).
+ \begin{cases}
+  1-a_-,&0\le c_-\le1/2,\\
+  g_{c_-}(1-a_-),&1/2<c_-\le1
+ \end{cases}
+ +
+ \begin{cases}
+  1-a_+,&0\le c_+\le1/2,\\
+  g_{c_+}(1-a_+),&1/2<c_+\le1.
+ \end{cases}
 \]
 This is the only scalar output of the endpoint calculation used in the body.
+For the one-gap and paired-gap records, both radial demands exceed $1/2$, so
+only the raw $g_c$ branch occurs.
 
 \begin{proposition}[All-Vd0 endpoint certificates]
 \label{prop:body-all-vd0-endpoints}
@@ -88,8 +99,10 @@ Every support-isolated T3-like endpoint record satisfies
 \[
  \mathrm{Cap}(\mathbf e_{\rm T3})<1.
 \]
-The exact proof audits all feasible pairs of the four contact labels.  No
-single unproved common envelope is substituted for that audit.
+If an endpoint radial demand is at most $1/2$, its contribution is the direct
+Full value $1-a$.  Otherwise the raw high-radial map has the four labels above.
+The exact proof audits every feasible pair, so no unproved common envelope is
+substituted for that audit.
 \end{proposition}
 
 \begin{proof}
@@ -103,7 +116,7 @@ and nonincident contribution is already accounted for.
 \begin{definition}[Decorated lower relaxations]
 \label{def:body-decorated-relaxations}
 A \emph{decorated lower relaxation} is a nondecreasing function proved
-pointwise below one exact nonsupercritical transfer on an explicitly stated
+pointwise below one exact high-radial raw transfer on an explicitly stated
 input interval.  Strategy~2 uses only three forms: the identity, one affine
 chord on a selected $T_+$ branch, and one low-root threshold.  Their formulas and validity domains are
 Definitions~\ref{def:s2-pure-relaxations} and~\ref{def:s2-pure-strict-certificate}.
@@ -114,8 +127,8 @@ Definitions~\ref{def:s2-pure-relaxations} and~\ref{def:s2-pure-strict-certificat
 In the $N_+=1$, all-Vd0, one-gap branch, normalize the uniquely
 supercritical role as $T_0$.  The geometric bridge produces an initial demand
 $X$, a terminal cap $H$, and five radial parameters
-$\mathbf c=(c_1,\ldots,c_5)$.  Starting from $X$, apply the five exact
-nonsupercritical transfers in geometric order and call the returned lower
+$\mathbf c=(c_1,\ldots,c_5)$.  All five radial parameters exceed $1/2$.  Starting from $X$, apply the five
+raw transfers $g_{c_i}^\vee$ in geometric order and call the returned lower
 bound $Z$.  The exact functions of $(R,\alpha,\delta)$ are recorded in
 Problems~\ref{prob:s2-ce1-five-chain} and~\ref{prob:s2-ce2-five-chain}.
 \end{definition}

@@ -43,22 +43,22 @@ intervening roles form the center-free path required by
 Lemma~\ref{lem:reader-boundary-path}, giving the contradiction.
 \end{proof}
 
-For the one-gap return, retain the exact forward notation
+For the one-gap return, all five radial demands exceed $1/2$; retain the exact raw forward notation
 \begin{equation}
  Z=
- [\widehat g_{c_1}^\vee\mid
-  \widehat g_{c_2}^\vee\mid
-  \widehat g_{c_3}^\vee\mid
-  \widehat g_{c_4}^\vee\mid
-  \widehat g_{c_5}^\vee](X).
+ [g_{c_1}^\vee\mid
+  g_{c_2}^\vee\mid
+  g_{c_3}^\vee\mid
+  g_{c_4}^\vee\mid
+  g_{c_5}^\vee](X).
  \label{eq:reader-exact-five-chain}
 \end{equation}
 The bridge gives \(A_0\ge Z\) and \(A_0<1-H\).  The registered reverse
 three-update target is
 \begin{equation}
- [\widehat g_{1-\alpha}^\vee
-  \mid\widehat g_{1-m_3}^\vee
-  \mid\widehat g_{1-\delta}^\vee](H)
+ [g_{1-\alpha}^\vee
+  \mid g_{1-m_3}^\vee
+  \mid g_{1-\delta}^\vee](H)
  >1-X.
  \label{eq:reader-signed-three-map}
 \end{equation}
@@ -91,8 +91,10 @@ exchanges the two signed slacks.
 
 The universal proof owners are:
 \begin{itemize}
-\item S2-T3: Theorem~\ref{thm:s2-pure-t3}, with objective identification in
-Proposition~\ref{prop:s2-t3-objective-bridge};
+\item high-radial S2-T3: Theorem~\ref{thm:s2-pure-t3}, with objective
+identification in Proposition~\ref{prop:s2-t3-objective-bridge}; the
+low-radial endpoint is the direct right-Full row of
+Theorem~\ref{thm:paper-complete-t3-endpoint};
 \item S2-SC: Theorem~\ref{thm:s2-pure-sc};
 \item adjacent S2-VD: Theorem~\ref{thm:s2-pure-vd-adjacent};
 \item nonadjacent S2-VD: Theorem~\ref{thm:s2-pure-vd-nonadjacent}.
@@ -116,6 +118,8 @@ Singleton V-gaps are included.
 \end{proposition}
 
 \begin{proof}
-Use Corollary~\ref{cor:s2-pure-registry} through the bridge propositions above.  The zero-gap \(N_+=1\) all-Vd0 cell remains the
-Strategy~4 nine-point obstruction.
+Use Corollary~\ref{cor:s2-pure-registry} through the bridge propositions above,
+and use Theorem~\ref{thm:paper-complete-t3-endpoint} for the direct
+low-radial right-Full T3 endpoint.  The zero-gap \(N_+=1\) all-Vd0 cell
+remains the Strategy~4 nine-point obstruction.
 \end{proof}

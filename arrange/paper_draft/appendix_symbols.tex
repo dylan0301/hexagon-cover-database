@@ -48,23 +48,22 @@ The radical $\sqrt{1-x+x^2}$ and its deficit $1-\sqrt{1-x+x^2}$.\\
 $\mathcal A$&
 The exact local admissible set of boundary--radial demand triples.\\
 $g_c(x)$&
-The historical raw defect map
-$\max\{y:(1-x,y,c)\in\mathcal A\}$.\\
-$\widehat g_c(x)$&
-The nonsupercritical cap $\min\{g_c(x),x\}$.\\
+The raw defect map $\max\{y:(1-x,y,c)\in\mathcal A\}$.  For a known
+nonsupercritical role, use $B\le1-A$ directly when $c\le1/2$ and use $g_c$
+when $c>1/2$; one has $g_{1/2}=\mathrm I$.\\
 $f^\vee(a)$&
-The complement dual $1-f(1-a)$; in particular
-$\widehat g_c^\vee$ is the extensive incoming-reach transfer.\\
+The complement dual $1-f(1-a)$; for $c>1/2$, $g_c^\vee$ is the exact
+incoming-reach transfer.\\
 $\mathcal R_J(p)$&
-The far-side residual demand after an initial trace and center interval $J$.\\
-$g_{c,J}^\vee,\widehat g_{c,J}^\vee$&
-The raw and capped center-assisted reach transfers.\\
+The far-side residual demand after an initial trace and center interval $J$.
+For a nonsupercritical handoff use $\mathcal R_J(1-a)$ when $c\le1/2$ and
+$g_{c,J}^\vee(a)=\mathcal R_J(g_c(1-a))$ when $c>1/2$.\\
 $g_c^{\rm sc}$&
 The free strict-supercritical outgoing envelope
 $\sup_{\{x:g_c(x)>x\}}g_c(x)$.\\
-$\widehat g_{1-d}^{\vee,\lambda}$&
+$g_{1-d}^{\vee,\lambda}$&
 A certified affine selected-$T_+$ lower relaxation.\\
-$\widehat g_{1-d}^{\vee,\rm th}$&
+$g_{1-d}^{\vee,\rm th}$&
 The low-root threshold lower relaxation.\\
 $[\Phi_1\mid\cdots\mid\Phi_r]$&
 The composition $\Phi_r\circ\cdots\circ\Phi_1$, with maps listed in
@@ -72,10 +71,10 @@ geometric V-triangle order.\\
 $B_c,F_c,G_c$&
 Technical verification aliases:
 $B_c(a)=g_c(1-a)$,
-$F_c(a)=\widehat g_c(1-a)$, and
-$G_c(a)=\widehat g_c^\vee(a)$.\\
+$F_c(a)=1-a$ for $c\le1/2$ and $F_c(a)=B_c(a)$ for $c>1/2$, and
+$G_c(a)=1-F_c(a)$.\\
 $F(c,x),T(c,x)$&
-The pure Strategy~2 capped-output function and complementary update
+The pure Strategy~2 high-radial output function and complementary update
 $T(c,x)=1-F(c,x)$.\\
 $\mathcal D_{\rm C1},\mathcal D_{\rm C2}$&
 The full signed CE1 and CE2 real cells.\\

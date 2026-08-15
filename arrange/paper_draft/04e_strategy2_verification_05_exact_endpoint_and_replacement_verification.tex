@@ -33,8 +33,9 @@ proof object&blob prefix&role\\
 \end{tabular}
 \end{center}
 
-The exact capped-map theorem used by these files is
-Proposition~\ref{prop:capped-demand-map}.  Its four labels are
+The branchwise endpoint rule used by these files is
+Proposition~\ref{prop:branchwise-safe-output}; on the high-radial branch its
+four-label formula is Proposition~\ref{prop:capped-demand-map}.  Its four labels are
 \[
  \mathrm{Full},\qquad L,\qquad T_-,\qquad T_+^{\rm hi}.
 \]
@@ -71,21 +72,23 @@ inequality used in the corresponding entry.}
 For every support-isolated state of
 Definition~\ref{def:body-t3-endpoint-state},
 \[
- \widehat g_{c_5^*}(1-a_5^*)+
- \widehat g_{c_1^*}(1-a_1^*)<1.
+ F_{c_5^*}(a_5^*)+F_{c_1^*}(a_1^*)<1.
 \]
 \end{theorem}
 
 \begin{proof}
-If $a_1^*+a_5^*>1$, the diagonal caps already give the strict inequality.
-Otherwise Proposition~\ref{prop:capped-demand-map} assigns each endpoint one
-of the four labels above.  Table~\ref{tab:paper-407-complete-audit} is an
-exhaustive partition of the resulting ordered label pairs.  The incorporated
-source in each V triangle proves either that the pair is impossible or that its two
-exact capped outputs have sum strictly below one.  File `407d` checks that the
-geometric residual reduction in `4073` reaches exactly these branches and no
-others.  Therefore the displayed endpoint inequality holds throughout the
-complete support-isolated domain.
+If $a_1^*+a_5^*>1$, the direct bounds $F_c(a)\le1-a$ already give the strict
+inequality.  Assume $a_1^*+a_5^*\le1$.  If an endpoint radial demand is at
+most $1/2$, Proposition~\ref{prop:branchwise-safe-output} makes that endpoint
+the Full value $1-a$.  If it is larger than $1/2$,
+Proposition~\ref{prop:capped-demand-map} assigns one of the same four labels.
+Thus Table~\ref{tab:paper-407-complete-audit} remains an exhaustive partition
+of the ordered label pairs, including the low-radial right-Full case.  The
+incorporated source in each row proves either that the pair is impossible or
+that its two exact branchwise outputs have sum strictly below one.  File
+`407d` checks that the geometric residual reduction in `4073` reaches exactly
+these branches and no others.  Therefore the displayed endpoint inequality
+holds throughout the complete support-isolated domain.
 \end{proof}
 
 \subsection{The explicit Vd1--supercritical replacement}

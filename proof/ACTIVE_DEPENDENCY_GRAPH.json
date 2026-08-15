@@ -110,6 +110,13 @@
       "kind": "proof-source",
       "status": "Proven"
     },
+    "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2005_midpoint_self_cover_lemma.md": {
+      "dependencies": [
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
     "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2006_T3_like_midpoint_lemma.md": {
       "dependencies": [
         "proof/1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md"
@@ -158,6 +165,7 @@
     "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md": {
       "dependencies": [
         "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md",
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2005_midpoint_self_cover_lemma.md",
         "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2007_max_b_map.md",
         "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2012_high_radial_low_root_bounds.md"
       ],
@@ -212,6 +220,7 @@
     "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2019_interval_component_and_path_budget.md": {
       "dependencies": [
         "proof/1XXX_foundations/12XX_V_triangle/1202_local_coordinates_abc.md",
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md",
         "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md"
       ],
       "kind": "proof-source",
@@ -234,8 +243,10 @@
     "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md": {
       "dependencies": [
         "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md",
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2005_midpoint_self_cover_lemma.md",
         "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2007_max_b_map.md",
         "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2010_free_supercritical_max_b.md",
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md",
         "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2012_high_radial_low_root_bounds.md",
         "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2019_interval_component_and_path_budget.md"
       ],

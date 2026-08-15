@@ -634,8 +634,8 @@ input[type="range"] { width: 100%; accent-color: var(--teal); }
       <div class="lesson-head">
         <div>
           <p class="step-label">Step 03 · one canonical map</p>
-          <h2>Raw, hatted, then complement-dual</h2>
-          <p>Start in boundary-defect coordinate <span class="math">x=1-a</span>. The raw map gives the largest compatible outgoing reach; the hat adds the nonsupercritical diagonal cap; <span class="math">∨</span> converts the result back to a next-incoming lower bound on a center-free edge.</p>
+          <h2>Raw map and branchwise nonsupercritical bound</h2>
+          <p>Start in boundary-defect coordinate <span class="math">x=1-a</span>. The raw map gives the largest compatible outgoing reach. For a nonsupercritical role, use the identity bound when <span class="math">c≤1/2</span> and the raw map when <span class="math">c&gt;1/2</span>; <span class="math">∨</span> converts the high-radial raw bound to a next-incoming lower bound.</p>
         </div>
         <div class="formula-lead"><span class="math">g<sub>c</sub>(x)</span> = max{<span class="math">y</span> : (1−<span class="math">x,y,c</span>)∈<span class="math">𝒜</span>}</div>
       </div>
@@ -643,8 +643,8 @@ input[type="range"] { width: 100%; accent-color: var(--teal); }
         <div class="panel">
           <div class="panel-title"><h3>Exact map, numerically evaluated</h3><span class="micro">drag <span class="math">a</span> and <span class="math">c</span></span></div>
           <svg id="gPlot" class="viz" viewBox="0 0 560 330" role="img" aria-labelledby="g-title g-desc">
-            <title id="g-title">Graph of the raw and capped defect maps</title>
-            <desc id="g-desc">The raw map g sub c and its hatted diagonal-capped version are plotted against the identity diagonal. A marker shows the current incoming defect.</desc>
+            <title id="g-title">Graph of the raw map and branchwise nonsupercritical bound</title>
+            <desc id="g-desc">The raw map g sub c and the branchwise nonsupercritical outgoing bound are plotted against the identity diagonal. A marker shows the current incoming defect.</desc>
             <g stroke="#d1d3cf" stroke-width="1">
               <line x1="62" y1="272" x2="518" y2="272"/><line x1="62" y1="222" x2="518" y2="222"/>
               <line x1="62" y1="172" x2="518" y2="172"/><line x1="62" y1="122" x2="518" y2="122"/><line x1="62" y1="72" x2="518" y2="72"/>
@@ -653,17 +653,17 @@ input[type="range"] { width: 100%; accent-color: var(--teal); }
             </g>
             <line x1="62" y1="272" x2="518" y2="42" stroke="#9aa3a3" stroke-width="2" stroke-dasharray="7 6"/>
             <path id="rawPath" fill="none" stroke="#d86f58" stroke-width="4"/>
-            <path id="capPath" fill="none" stroke="#167f7a" stroke-width="4"/>
+            <path id="safePath" fill="none" stroke="#167f7a" stroke-width="4"/>
             <line id="gCursor" y1="42" y2="272" stroke="#17343b" stroke-width="1.5" stroke-dasharray="3 4"/>
             <circle id="rawPoint" r="6" fill="#fff" stroke="#d86f58" stroke-width="4"/>
-            <circle id="capPoint" r="6" fill="#fff" stroke="#167f7a" stroke-width="4"/>
+            <circle id="safePoint" r="6" fill="#fff" stroke="#167f7a" stroke-width="4"/>
             <g font-size="12" fill="#65757a">
               <text x="55" y="291">0</text><text x="282" y="291">defect x</text><text x="513" y="291">1</text>
               <text x="43" y="276">0</text><text x="43" y="48">1</text>
               <text x="408" y="57" fill="#65757a">identity y=x</text>
             </g>
           </svg>
-          <div class="legend"><span><i class="swatch coral"></i>raw <span class="math">g<sub>c</sub></span></span><span><i class="swatch"></i>capped <span class="math">ĝ<sub>c</sub></span></span><span><i class="swatch dash" style="border-color:#8a9595"></i>identity</span></div>
+          <div class="legend"><span><i class="swatch coral"></i>raw <span class="math">g<sub>c</sub></span></span><span><i class="swatch"></i>nonsupercritical bound</span><span><i class="swatch dash" style="border-color:#8a9595"></i>identity</span></div>
         </div>
         <div class="panel">
           <div class="panel-title"><h3>Follow the coordinate change</h3><button id="zeroPreset" class="preset" type="button">Set <span class="math">c=0</span></button></div>
@@ -674,12 +674,12 @@ input[type="range"] { width: 100%; accent-color: var(--teal); }
           <div class="readout-grid">
             <div class="readout"><small>defect</small><strong><span class="math">x</span> = <span id="defectValue">0.64</span></strong></div>
             <div class="readout"><small>raw outgoing cap</small><strong><span class="math">g<sub>c</sub>(x)</span> = <span id="rawValue">—</span></strong></div>
-            <div class="readout"><small>nonsupercritical cap</small><strong><span class="math">ĝ<sub>c</sub>(x)</span> = <span id="capValue">—</span></strong></div>
+            <div class="readout"><small>branchwise outgoing bound</small><strong><span id="safeValue">—</span></strong></div>
             <div class="readout"><small>raw next-incoming transfer</small><strong><span class="math">g<sub>c</sub><sup>∨</sup>(a)</span> = <span id="rawDualValue">—</span></strong></div>
-            <div class="readout"><small>next incoming lower bound</small><strong><span class="math">ĝ<sub>c</sub><sup>∨</sup>(a)</span> = <span id="dualValue">—</span></strong></div>
+            <div class="readout"><small>next incoming lower bound</small><strong><span id="safeDualValue">—</span></strong></div>
           </div>
           <div class="equation"><span class="math">f<sup>∨</sup>(a)</span> = 1 − <span class="math">f(1−a)</span></div>
-          <div id="zeroNote" class="callout">The hat gives <span class="math">ĝ<sub>c</sub>(x)≤x</span>, so its dual is extensive: <span class="math">ĝ<sub>c</sub><sup>∨</sup>(a)≥a</span>.</div>
+          <div id="zeroNote" class="callout">For <span class="math">c≤1/2</span>, nonsupercriticality gives the identity bound directly. For <span class="math">c&gt;1/2</span>, the midpoint threshold gives <span class="math">g<sub>c</sub>(x)≤x</span> and hence <span class="math">g<sub>c</sub><sup>∨</sup>(a)≥a</span>.</div>
           <p class="micro">If a center interval lies on the next edge, use the center-assisted transfer from Step 04 instead.</p>
           <p class="source-row">Canonical calculus: <a href="../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md">raw and relaxed chains 201d</a></p>
         </div>
@@ -748,15 +748,15 @@ input[type="range"] { width: 100%; accent-color: var(--teal); }
           <div class="panel-title"><h3>Three-slot stepper</h3><span class="micro">click a slot to retain exact or identity</span></div>
           <div class="range-row" style="max-width:440px"><label for="chainSeed"><span class="math">a₀</span> seed</label><input id="chainSeed" type="range" min=".05" max=".8" value=".40" step=".01"><output id="chainSeedOut">0.40</output></div>
           <div class="chain" id="chainSlots">
-            <div class="chain-slot" data-slot="0"><small>slot 1 · c₁=0.75</small><div class="slot-value"><span class="math">a₁</span> = <span class="chain-value">—</span></div><button class="slot-mode" data-mode="exact" type="button">Exact <span class="math">ĝ<sub>c₁</sub><sup>∨</sup></span></button><div class="micro slot-exact">exact output —</div></div>
-            <div class="chain-slot" data-slot="1"><small>slot 2 · c₂=0.85</small><div class="slot-value"><span class="math">a₂</span> = <span class="chain-value">—</span></div><button class="slot-mode" data-mode="exact" type="button">Exact <span class="math">ĝ<sub>c₂</sub><sup>∨</sup></span></button><div class="micro slot-exact">exact output —</div></div>
-            <div class="chain-slot" data-slot="2"><small>slot 3 · c₃=0.92</small><div class="slot-value"><span class="math">a₃</span> = <span class="chain-value">—</span></div><button class="slot-mode" data-mode="exact" type="button">Exact <span class="math">ĝ<sub>c₃</sub><sup>∨</sup></span></button><div class="micro slot-exact">exact output —</div></div>
+            <div class="chain-slot" data-slot="0"><small>slot 1 · c₁=0.75</small><div class="slot-value"><span class="math">a₁</span> = <span class="chain-value">—</span></div><button class="slot-mode" data-mode="exact" type="button">Exact <span class="math">g<sub>c₁</sub><sup>∨</sup></span></button><div class="micro slot-exact">exact output —</div></div>
+            <div class="chain-slot" data-slot="1"><small>slot 2 · c₂=0.85</small><div class="slot-value"><span class="math">a₂</span> = <span class="chain-value">—</span></div><button class="slot-mode" data-mode="exact" type="button">Exact <span class="math">g<sub>c₂</sub><sup>∨</sup></span></button><div class="micro slot-exact">exact output —</div></div>
+            <div class="chain-slot" data-slot="2"><small>slot 3 · c₃=0.92</small><div class="slot-value"><span class="math">a₃</span> = <span class="chain-value">—</span></div><button class="slot-mode" data-mode="exact" type="button">Exact <span class="math">g<sub>c₃</sub><sup>∨</sup></span></button><div class="micro slot-exact">exact output —</div></div>
           </div>
-          <div class="equation" id="chainEquation">[<span class="math">ĝ<sub>c₁</sub><sup>∨</sup> | ĝ<sub>c₂</sub><sup>∨</sup> | ĝ<sub>c₃</sub><sup>∨</sup></span>](0.40) = —</div>
+          <div class="equation" id="chainEquation">[<span class="math">g<sub>c₁</sub><sup>∨</sup> | g<sub>c₂</sub><sup>∨</sup> | g<sub>c₃</sub><sup>∨</sup></span>](0.40) = —</div>
           <div class="relax-grid">
             <div class="relax-card"><b>Identity <span class="math roman">I(x)=x</span></b><span class="micro">Licensed for an individual center-free nonsupercritical handoff; it retains only extensivity.</span></div>
-            <div class="relax-card"><b>Affine <span class="math">ĝ<sub>1−d</sub><sup>∨,λ</sup>(x)</span></b><span class="micro">The certified line <span class="math">x+λ(x−d)</span> on the stated selected-T<sub>+</sub> arc.</span></div>
-            <div class="relax-card"><b>Threshold <span class="math">ĝ<sub>1−d</sub><sup>∨,th</sup></span></b><span class="micro">Identity below <span class="math">e(d)</span>; the lower output <span class="math">1−e(d)</span> after the threshold fires.</span></div>
+            <div class="relax-card"><b>Affine <span class="math">g<sub>1−d</sub><sup>∨,λ</sup>(x)</span></b><span class="micro">The certified line <span class="math">x+λ(x−d)</span> on the stated selected-T<sub>+</sub> arc.</span></div>
+            <div class="relax-card"><b>Threshold <span class="math">g<sub>1−d</sub><sup>∨,th</sup></span></b><span class="micro">Identity below <span class="math">e(d)</span>; the lower output <span class="math">1−e(d)</span> after the threshold fires.</span></div>
           </div>
           <div class="callout">A relaxation is a certified lower map, not a new exact transfer. Identity slots also require the center-free and locality hypotheses stated by the terminal branch.</div>
           <p class="source-row">Composition rule and decorated relaxations: <a href="../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md">201d</a> · <a href="../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2017_threshold_routing.md">threshold routing 2017</a></p>
@@ -853,7 +853,7 @@ input[type="range"] { width: 100%; accent-color: var(--teal); }
           </article>
           <article class="route-card" data-route="kernel endpoint">
             <div class="route-top"><h3><span class="math">N<sub>+</sub>=0</span>, all Vd0, <span class="math roman">gr</span>=1</h3><span class="route-tag">one side</span></div>
-            <p>In the CE1/CE2 all-Vd0 cell, two exact hatted endpoint caps surround three center-free identity rows.</p>
+            <p>In the CE1/CE2 all-Vd0 cell, two exact high-radial raw endpoint bounds surround three center-free identity rows.</p>
             <div class="route-chain">exact endpoint · <span class="math roman">I³</span> · exact endpoint</div>
             <a href="../proof/4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md">Branch application 4013</a> · <a href="../proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2107_one_side_capped_loss.md">exact theorem 2107</a>
           </article>
@@ -872,13 +872,13 @@ input[type="range"] { width: 100%; accent-color: var(--teal); }
           <article class="route-card" data-route="kernel">
             <div class="route-top"><h3>CE1, <span class="math">N<sub>+</sub>=1</span>, all Vd0, one gap</h3><span class="route-tag">five V triangles</span></div>
             <p>The exact five-map interface is reduced to two affine slots and one threshold slot.</p>
-            <div class="route-chain">[<span class="math">ĝ<sup>∨,λ</sup> | ĝ<sup>∨,λ</sup> | ĝ<sup>∨,th</sup></span>]</div>
+            <div class="route-chain">[<span class="math">g<sup>∨,λ</sup> | g<sup>∨,λ</sup> | g<sup>∨,th</sup></span>]</div>
             <a href="../proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4105_CE1_CE2_one_gap_five_V_triangle_interface.md">Exact interface 4105</a> · <a href="../proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4106_CE1_one_gap_five_map_completion.md">completion 4106</a>
           </article>
           <article class="route-card" data-route="kernel">
             <div class="route-top"><h3>CE2, <span class="math">N<sub>+</sub>=1</span>, all Vd0, one gap</h3><span class="route-tag">one fires</span></div>
             <p>At least one of two threshold-decorated slots fires; all other retained slots are identities.</p>
-            <div class="route-chain">one <span class="math">ĝ<sup>∨,th</sup></span> slot · remaining <span class="math roman">I</span></div>
+            <div class="route-chain">one <span class="math">g<sup>∨,th</sup></span> slot · remaining <span class="math roman">I</span></div>
             <a href="../proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4105_CE1_CE2_one_gap_five_V_triangle_interface.md">Exact interface 4105</a> · <a href="../proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4107_CE2_one_gap_five_map_completion.md">completion 4107</a>
           </article>
           <article class="route-card" data-route="special">
@@ -949,18 +949,18 @@ input[type="range"] { width: 100%; accent-color: var(--teal); }
           <article class="term" data-category="geometry" data-search="Lambda enclosure gauge least side"><div class="term-head"><span class="symbol">Λ(K)</span><span class="category">geometry</span></div><p>The least side length of a closed equilateral triangle containing K.</p><a href="../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201a_equilateral_enclosure_and_radical_calculus.md">201a</a></article>
           <article class="term" data-category="transfer" data-search="x defect one minus a"><div class="term-head"><span class="symbol">x = 1−a</span><span class="category">transfer</span></div><p>The incoming boundary defect complementary to incoming reach a.</p><a href="../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md">201d §1</a></article>
           <article class="term" data-category="transfer" data-search="g_c raw exact outgoing envelope"><div class="term-head"><span class="symbol">g<sub>c</sub>(x)</span><span class="category">transfer</span></div><p>The largest outgoing reach y with (1−x,y,c)∈𝒜; valid as a raw cap for every V triangle.</p><a href="../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md">201d §2</a></article>
-          <article class="term" data-category="transfer" data-search="hat capped nonsupercritical g"><div class="term-head"><span class="symbol">ĝ<sub>c</sub></span><span class="category">transfer</span></div><p>The nonsupercritical defect map min{g<sub>c</sub>(x),x}.</p><a href="../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md">201d §2</a></article>
+          <article class="term" data-category="transfer" data-search="branchwise nonsupercritical midpoint threshold"><div class="term-head"><span class="symbol">c≤1/2 or c&gt;1/2</span><span class="category">transfer</span></div><p>For a nonsupercritical role, use the direct identity bound when c≤1/2 and the raw g<sub>c</sub> bound when c&gt;1/2.</p><a href="../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md">201d §§2–4</a></article>
           <article class="term" data-category="transfer" data-search="vee complement dual incoming lower"><div class="term-head"><span class="symbol">f<sup>∨</sup>(a)</span><span class="category">transfer</span></div><p>The complement dual 1−f(1−a), converting defect caps to next-incoming lower transfers.</p><a href="../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md">201d §3</a></article>
           <article class="term" data-category="transfer" data-search="raw g dual every V triangle center free incoming reach"><div class="term-head"><span class="symbol">g<sub>c</sub><sup>∨</sup></span><span class="category">transfer</span></div><p>The raw next-incoming reach transfer 1−g<sub>c</sub>(1−a), valid for every V triangle when the next boundary edge is center-free.</p><a href="../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md">201d §4</a></article>
-          <article class="term" data-category="transfer" data-search="hat g dual extensive nonsupercritical incoming"><div class="term-head"><span class="symbol">ĝ<sub>c</sub><sup>∨</sup></span><span class="category">transfer</span></div><p>The center-free nonsupercritical incoming-reach transfer; it satisfies ĝ<sub>c</sub><sup>∨</sup>(a)≥a. With a center interval J, use ĝ<sub>c,J</sub><sup>∨</sup>.</p><a href="../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md">201d §§4, 6</a></article>
+          <article class="term" data-category="transfer" data-search="raw g dual extensive high radial incoming"><div class="term-head"><span class="symbol">g<sub>c</sub><sup>∨</sup></span><span class="category">transfer</span></div><p>For c&gt;1/2, the raw center-free incoming-reach transfer satisfies g<sub>c</sub><sup>∨</sup>(a)≥a. For c≤1/2, use the direct lower bound a.</p><a href="../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md">201d §§3–4</a></article>
           <article class="term" data-category="transfer" data-search="J center interval residual R_J e_J"><div class="term-head"><span class="symbol">J, e<sub>J</sub>, ℛ<sub>J</sub></span><span class="category">transfer</span></div><p>A center interval, the endpoint of the covered component from 0, and its complementary far-side demand 1−e<sub>J</sub>(p).</p><a href="../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2019_interval_component_and_path_budget.md">2019 §1</a></article>
-          <article class="term" data-category="transfer" data-search="g c J center assisted transfer"><div class="term-head"><span class="symbol">g<sub>c,J</sub><sup>∨</sup>, ĝ<sub>c,J</sub><sup>∨</sup></span><span class="category">transfer</span></div><p>The raw and nonsupercritical center-assisted reach transfers obtained by applying ℛ<sub>J</sub> to the outgoing cap.</p><a href="../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2019_interval_component_and_path_budget.md">2019 §3</a></article>
+          <article class="term" data-category="transfer" data-search="g c J center assisted transfer residual"><div class="term-head"><span class="symbol">g<sub>c,J</sub><sup>∨</sup>, ℛ<sub>J</sub>(1−a)</span><span class="category">transfer</span></div><p>Use g<sub>c,J</sub><sup>∨</sup> in the high-radial branch and the direct residual ℛ<sub>J</sub>(1−a) in the low-radial branch.</p><a href="../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2019_interval_component_and_path_budget.md">2019 §3</a></article>
           <article class="term" data-category="transfer" data-search="g supercritical sc free envelope nonattained strict"><div class="term-head"><span class="symbol">g<sub>c</sub><sup>sc</sup></span><span class="category">transfer</span></div><p>For 0≤c&lt;1/2, the nonattained free envelope is (c+√(c²−8c+4))/2. An actual strict-supercritical role has B&lt;g<sub>c</sub><sup>sc</sup>, so a center-free next edge forces A<sub>next</sub>&gt;1−g<sub>c</sub><sup>sc</sup>.</p><a href="../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md">201d §7</a></article>
           <article class="term" data-category="transfer" data-search="Phi slot chain composition left first"><div class="term-head"><span class="symbol">[Φ₁ | … | Φᵣ]</span><span class="category">transfer</span></div><p>The composition Φᵣ∘…∘Φ₁, with the leftmost slot acting first in geometric role order.</p><a href="../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md">201d §8</a></article>
-          <article class="term" data-category="transfer" data-search="J_i C Phi raw ns six role register center interval"><div class="term-head"><span class="symbol">Jᶜᵢ, Φ<sup>raw</sup>ᵢ, Φ<sup>ns</sup>ᵢ</span><span class="category">transfer</span></div><p>Jᶜᵢ is the center interval on edge eᵢ,ᵢ₊₁. The corresponding full-register slots are g<sub>cᵢ,Jᶜᵢ</sub><sup>∨</sup> for a raw role and ĝ<sub>cᵢ,Jᶜᵢ</sub><sup>∨</sup> for a nonsupercritical role.</p><a href="../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md">201d §10</a></article>
+          <article class="term" data-category="transfer" data-search="J_i C center interval branchwise register"><div class="term-head"><span class="symbol">Jᶜᵢ</span><span class="category">transfer</span></div><p>Jᶜᵢ is the center interval on edge eᵢ,ᵢ₊₁. Use the raw center-assisted slot in the high-radial branch and the direct residual in the low-radial branch.</p><a href="../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md">201d §10</a></article>
           <article class="term" data-category="transfer" data-search="I identity relaxation"><div class="term-head"><span class="symbol">I</span><span class="category">transfer</span></div><p>The identity lower relaxation I(x)=x, licensed per handoff under the branch hypotheses.</p><a href="../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md">201d §10</a></article>
-          <article class="term" data-category="transfer" data-search="lambda affine selected T plus relaxation"><div class="term-head"><span class="symbol">ĝ<sub>1−d</sub><sup>∨,λ</sup></span><span class="category">transfer</span></div><p>The certified affine lower relaxation x+λ(x−d) on its proved selected-T<sub>+</sub> arc.</p><a href="../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md">201d §9</a></article>
-          <article class="term" data-category="transfer" data-search="threshold th e d low root"><div class="term-head"><span class="symbol">ĝ<sub>1−d</sub><sup>∨,th</sup>, e(d)</span><span class="category">transfer</span></div><p>The low-root threshold relaxation and its threshold: identity below e(d), lower output 1−e(d) after firing.</p><a href="../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2017_threshold_routing.md">2017</a></article>
+          <article class="term" data-category="transfer" data-search="lambda affine selected T plus relaxation"><div class="term-head"><span class="symbol">g<sub>1−d</sub><sup>∨,λ</sup></span><span class="category">transfer</span></div><p>The certified affine lower relaxation x+λ(x−d) on its proved selected-T<sub>+</sub> arc.</p><a href="../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md">201d §9</a></article>
+          <article class="term" data-category="transfer" data-search="threshold th e d low root"><div class="term-head"><span class="symbol">g<sub>1−d</sub><sup>∨,th</sup>, e(d)</span><span class="category">transfer</span></div><p>The low-root threshold relaxation and its threshold: identity below e(d), lower output 1−e(d) after firing.</p><a href="../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2017_threshold_routing.md">2017</a></article>
           <article class="term" data-category="center" data-search="R W center slope complement"><div class="term-head"><span class="symbol">R, W</span><span class="category">center</span></div><p>The normalized side-slope parameter 0&lt;R&lt;1 and its complement W=1−R.</p><a href="../proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md">2109</a></article>
           <article class="term" data-category="center" data-search="E eta P radical deficit product"><div class="term-head"><span class="symbol">E, η, P</span><span class="category">center</span></div><p>E=√(1−RW), η=1−E, and P=E(1−E).</p><a href="../proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md">2109</a></article>
           <article class="term" data-category="center" data-search="alpha delta k center slack"><div class="term-head"><span class="symbol">α, δ, k</span><span class="category">center</span></div><p>The two nontrivial center slacks and their common sum k=η+α+δ.</p><a href="../proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md">2109</a></article>
@@ -1112,8 +1112,8 @@ input[type="range"] { width: 100%; accent-color: var(--teal); }
     return low;
   }
 
-  function cappedG(c, x) { return Math.min(rawG(c, x), x); }
-  function cappedDual(c, a) { return 1 - cappedG(c, 1 - a); }
+  function branchwiseG(c, x) { return c <= .5 ? x : rawG(c, x); }
+  function branchwiseDual(c, a) { return 1 - branchwiseG(c, 1 - a); }
   function plotPoint(x, y) { return { x: 62 + 456 * x, y: 272 - 230 * y }; }
 
   function updateG() {
@@ -1121,39 +1121,39 @@ input[type="range"] { width: 100%; accent-color: var(--teal); }
     var c = Number(byId("radialInput").value);
     var x = 1 - a;
     var raw = rawG(c, x);
-    var cap = Math.min(raw, x);
+    var safe = c <= .5 ? x : raw;
     var rawDual = 1 - raw;
-    var dual = 1 - cap;
+    var safeDual = 1 - safe;
     var rawD = "";
-    var capD = "";
+    var safeD = "";
     for (var i = 0; i <= 90; i += 1) {
       var px = i / 90;
       var pyRaw = rawG(c, px);
-      var pyCap = Math.min(pyRaw, px);
+      var pySafe = c <= .5 ? px : pyRaw;
       var pr = plotPoint(px, pyRaw);
-      var pc = plotPoint(px, pyCap);
+      var ps = plotPoint(px, pySafe);
       rawD += (i ? " L " : "M ") + pr.x + " " + pr.y;
-      capD += (i ? " L " : "M ") + pc.x + " " + pc.y;
+      safeD += (i ? " L " : "M ") + ps.x + " " + ps.y;
     }
     byId("rawPath").setAttribute("d", rawD);
-    byId("capPath").setAttribute("d", capD);
+    byId("safePath").setAttribute("d", safeD);
     var rawMarker = plotPoint(x, raw);
-    var capMarker = plotPoint(x, cap);
+    var safeMarker = plotPoint(x, safe);
     byId("gCursor").setAttribute("x1", rawMarker.x);
     byId("gCursor").setAttribute("x2", rawMarker.x);
     placePoint(byId("rawPoint"), rawMarker);
-    placePoint(byId("capPoint"), capMarker);
+    placePoint(byId("safePoint"), safeMarker);
     byId("reachOut").value = num(a, 2);
     byId("radialOut").value = num(c, 2);
     byId("defectValue").textContent = num(x);
     byId("rawValue").textContent = num(raw);
-    byId("capValue").textContent = num(cap);
+    byId("safeValue").textContent = num(safe);
     byId("rawDualValue").textContent = num(rawDual);
-    byId("dualValue").textContent = num(dual);
+    byId("safeDualValue").textContent = num(safeDual);
     if (c < .0001) {
-      byId("zeroNote").innerHTML = "At <span class=\"math\">c=0</span>, raw <span class=\"math\">g<sub>0</sub>(x)&gt;x</span> and therefore <span class=\"math\">g<sub>0</sub><sup>∨</sup>(a)&lt;a</span> for interior inputs. The hatted map is exactly the identity: <span class=\"math\">ĝ<sub>0</sub>(x)=x</span> and <span class=\"math\">ĝ<sub>0</sub><sup>∨</sup>(a)=a</span>.";
+      byId("zeroNote").innerHTML = "At <span class=\"math\">c=0</span>, raw <span class=\"math\">g<sub>0</sub>(x)&gt;x</span> and therefore points in the wrong direction for a nonsupercritical handoff. Use <span class=\"math\">B≤1−a</span> directly, giving next incoming reach at least <span class=\"math\">a</span>.";
     } else {
-      byId("zeroNote").innerHTML = "The hat gives <span class=\"math\">ĝ<sub>c</sub>(x)≤x</span>, so its dual is extensive: <span class=\"math\">ĝ<sub>c</sub><sup>∨</sup>(a)≥a</span>.";
+      byId("zeroNote").innerHTML = c <= .5 ? "For <span class=\"math\">c≤1/2</span>, use the direct nonsupercritical bound <span class=\"math\">B≤1−a</span>." : "For <span class=\"math\">c&gt;1/2</span>, the midpoint threshold gives <span class=\"math\">g<sub>c</sub>(x)≤x</span>, so <span class=\"math\">g<sub>c</sub><sup>∨</sup>(a)≥a</span>.";
     }
   }
   ["reachInput", "radialInput"].forEach(function (id) { byId(id).addEventListener("input", updateG); });
@@ -1200,14 +1200,14 @@ input[type="range"] { width: 100%; accent-color: var(--teal); }
     var seed = value;
     var labels = [];
     document.querySelectorAll(".chain-slot").forEach(function (slot, index) {
-      var exact = cappedDual(chainC[index], value);
+      var exact = branchwiseDual(chainC[index], value);
       var button = slot.querySelector(".slot-mode");
       var exactMode = button.dataset.mode === "exact";
       value = exactMode ? exact : value;
       slot.querySelector(".chain-value").textContent = num(value);
       slot.querySelector(".slot-exact").textContent = "exact output " + num(exact);
       labels.push(exactMode
-        ? "<span class=\"math\">ĝ<sub>c" + (index + 1) + "</sub><sup>∨</sup></span>"
+        ? "<span class=\"math\">g<sub>c" + (index + 1) + "</sub><sup>∨</sup></span>"
         : "<span class=\"math roman\">I</span>");
     });
     byId("chainSeedOut").value = num(seed, 2);
@@ -1218,7 +1218,7 @@ input[type="range"] { width: 100%; accent-color: var(--teal); }
       var exact = button.dataset.mode === "exact";
       button.dataset.mode = exact ? "identity" : "exact";
       var slotIndex = Number(button.closest(".chain-slot").dataset.slot) + 1;
-      button.innerHTML = exact ? "Identity <span class=\"math roman\">I</span>" : "Exact <span class=\"math\">ĝ<sub>c" + slotIndex + "</sub><sup>∨</sup></span>";
+      button.innerHTML = exact ? "Identity <span class=\"math roman\">I</span>" : "Exact <span class=\"math\">g<sub>c" + slotIndex + "</sub><sup>∨</sup></span>";
       updateChain();
     });
   });

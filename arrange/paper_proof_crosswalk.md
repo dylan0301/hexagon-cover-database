@@ -223,7 +223,7 @@ The four items map as follows:
 | Paper item | Primary source | Supporting sources |
 |---|---|---|
 | raw outgoing map and actual-V triangle bound | [2007_max_b_map.md](../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2007_max_b_map.md) | `2004`, `201d` |
-| capped nonsupercritical map and complement dual | [2011_capped_demand_map.md](../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md) | `2004`, `2007` |
+| branchwise nonsupercritical output and high-radial complement dual | [2011_capped_demand_map.md](../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md) | `2004`, `2007` |
 | center-assisted residual transfer | [2019_interval_component_and_path_budget.md](../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2019_interval_component_and_path_budget.md) | `201d` |
 | strict-supercritical outgoing envelope | [2010_free_supercritical_max_b.md](../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2010_free_supercritical_max_b.md) | `2004`, `2007` |
 | relaxed composition | [201d_raw_and_relaxed_g_chains.md](../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md) | `2019` |
@@ -538,7 +538,7 @@ this crosswalk and in `source_ledger.md` — **N**.
 ## 3.3 `paper_draft/02a_universal_calculus.tex`
 
 **Paper results supplied.** Equilateral enclosure gauge, universal radical,
-raw/capped `g` maps, zero-radial distinction, residual handoffs, strict
+one raw `g` family, the direct low/high nonsupercritical split, residual handoffs, strict
 supercritical envelope, relaxed composition, corrected boundary-path budget,
 selected `T_+` normal form, chord relaxations, and threshold routing.
 
@@ -629,7 +629,7 @@ separate CE1/CE2 endings, and summary of special-role branches.
 
 ## 3.10 `paper_draft/04_strategy2_verification.tex`
 
-**Paper results supplied.** Exact admissible demand calculus, four-label capped
+**Paper results supplied.** Exact admissible demand calculus, branchwise nonsupercritical output, the high-radial four-label
 map, low-root bounds, endpoint inequalities, and detailed CE1 scalar
 calculation.
 
@@ -765,7 +765,7 @@ terminal proof sources.
 | `2004` | explicit admissible set, exact-demand appendix, Strategy 4 radial envelope |
 | `2007` | raw transfer map in `02_reader_framework` and `02a` |
 | `2010` | strict-supercritical envelope in Strategies 2 and rescuer branches |
-| `2011` | capped map, duality, four-label T3 audit, five-V-triangle chains |
+| `2011` | branchwise nonsupercritical output, high-radial duality and four-label audit |
 | `2016` | CE1 five-V-triangle chords, `407X` high sheet, T3 rescuer rationalization |
 | `2017` | CE1/CE2 threshold endings |
 | `2018` | one-gap diameter terminal and common T3/Vd1 rescuer |

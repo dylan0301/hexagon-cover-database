@@ -126,8 +126,8 @@ $\mathrm{gr}\le1$ for CE1. The three ranks are exhaustive.
 | rank | exact data retained | relaxed internal chain | terminal contradiction |
 |---|---|---|---|
 | $0$ | six strict open handoffs | $\mathrm I^6$ | strict cyclic ascent |
-| $1$ | two exact hatted endpoint caps | center-free $\mathrm I^3$ | one-side endpoint sum $<1$ |
-| $2$ | two exact hatted endpoint caps | center-free $\mathrm I^3$ | paired CE2 endpoint sum $<1$ |
+| $1$ | two exact high-radial endpoint outputs | center-free $\mathrm I^3$ | one-side endpoint sum $<1$ |
+| $2$ | two exact high-radial endpoint outputs | center-free $\mathrm I^3$ | paired CE2 endpoint sum $<1$ |
 
 ## 3. Rank zero: strict cyclic ascent
 
@@ -141,18 +141,16 @@ $$
 
 equality would leave the common endpoint of the two open traces uncovered.
 
-Since $T_i$ is nonsupercritical and realizes its actual radial reach $C_i$,
+Since $T_i$ is nonsupercritical,
 
 $$
-B_i\le\widehat g_{C_i}(1-A_i).
+1-B_i\ge A_i.
 $$
 
 Therefore
 
 $$
-A_{i+1}>1-B_i
-\ge\widehat g_{C_i}^{\vee}(A_i)
-\ge A_i.
+A_{i+1}>1-B_i\ge A_i.
 $$
 
 Iteration gives
@@ -237,7 +235,7 @@ d_1^C=\frac{\delta}{R},
 d_5^C=\frac{\alpha}{W}.
 $$
 
-Lemma 1.1 therefore supplies the exact lower demands
+Lemma 1.1 therefore supplies the exact high-radial lower demands
 
 $$
 C_1\ge c_1:=1-\frac{\delta}{R},
@@ -251,7 +249,7 @@ applies to these signed endpoint data and gives
 
 $$
 \boxed{
-\widehat g_{c_5}(1-s)+\widehat g_{c_1}(1-q)<1.
+g_{c_5}(1-s)+g_{c_1}(1-q)<1.
 }
 $$
 
@@ -260,9 +258,9 @@ on the two boundary edges leading away from the center traces. Reflection of
 the local admissible set when needed gives
 
 $$
-B_5^{\rm far}\le\widehat g_{c_5}(1-s),
+B_5^{\rm far}\le g_{c_5}(1-s),
 \qquad
-B_1^{\rm far}\le\widehat g_{c_1}(1-q),
+B_1^{\rm far}\le g_{c_1}(1-q),
 $$
 
 and therefore

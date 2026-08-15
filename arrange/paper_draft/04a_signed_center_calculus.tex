@@ -4,8 +4,7 @@
 This section gives one signed center model and the common one-gap V triangle
 interface.  The transfer notation has already been fixed in
 Section~\ref{sec:universal-calculus}: the exact nonsupercritical
-incoming-reach map is $\widehat g_c^\vee$, while $g_c$ itself remains the
-historical boundary-defect map.
+incoming-reach map is $g_c^\vee$ whenever the radial demand exceeds $1/2$; for a lower radial demand the proof uses $B\le1-A$ directly.
 
 \subsection{One signed center normal form}
 
@@ -313,17 +312,17 @@ linear comparisons.
 
 \subsection{The local propagation interface}
 
-The exact nonsupercritical reach transfer is $\widehat g_c^\vee$.  It is
+For the high-radial parameters used below, the exact nonsupercritical reach transfer is the raw map $g_c^\vee$.  It is
 nondecreasing and extensive:
 \begin{equation}
- \widehat g_c^\vee(z)\ge z.
+ g_c^\vee(z)\ge z.
  \label{eq:reader-extensive}
 \end{equation}
 The exact reflection duality is
 \begin{equation}
- \widehat g_c^\vee(a)\le z
+ g_c^\vee(a)\le z
  \quad\Longleftrightarrow\quad
- \widehat g_c^\vee(1-z)\le1-a.
+ g_c^\vee(1-z)\le1-a.
  \label{eq:reader-capped-duality}
 \end{equation}
 
@@ -332,19 +331,19 @@ $(A_i,B_i,C_i)$ and
 \[
  A_i\ge z,
  \qquad
- C_i\ge c_i.
+ C_i\ge c_i>\frac12.
 \]
 Then its outgoing reach satisfies
 \[
- B_i\le\widehat g_{c_i}(1-z).
+ B_i\le g_{c_i}(1-z).
 \]
 If the next boundary handoff gives $A_{i+1}\ge1-B_i$, then
 \begin{equation}
  \begin{aligned}
  A_{i+1}
  &\ge1-B_i\\
- &\ge1-\widehat g_{c_i}(1-z)\\
- &=\widehat g_{c_i}^\vee(z).
+ &\ge1-g_{c_i}(1-z)\\
+ &=g_{c_i}^\vee(z).
  \end{aligned}
  \label{eq:reader-actual-propagation}
 \end{equation}
@@ -380,7 +379,7 @@ Let
 \[
  z_0=X,
  \qquad
- z_i=\widehat g_{c_i}^\vee(z_{i-1})
+ z_i=g_{c_i}^\vee(z_{i-1})
  \quad(1\le i\le5),
 \]
 and $Z=z_5$.  Then the actual reaches satisfy
@@ -392,9 +391,9 @@ and $Z=z_5$.  Then the actual reaches satisfy
 \end{equation}
 Consequently it is enough to prove
 \begin{equation}
- [\widehat g_{1-\alpha}^\vee
-  \mid\widehat g_{1-m_3}^\vee
-  \mid\widehat g_{1-\delta}^\vee](H)
+ [g_{1-\alpha}^\vee
+  \mid g_{1-m_3}^\vee
+  \mid g_{1-\delta}^\vee](H)
  >W+\delta.
  \label{eq:signed-three-map-target}
 \end{equation}
@@ -409,15 +408,15 @@ $0$ uniquely supercritical.  Gap containment gives
  A_1\ge X.
 \]
 Suppose inductively that $A_i\ge z_{i-1}$.  Radial coverage gives actual
-radial reach at least $c_i$, and the hatted outgoing cap gives
+radial reach at least $c_i>1/2$, and the raw high-radial bound gives
 \[
- B_i\le\widehat g_{c_i}(1-z_{i-1}).
+ B_i\le g_{c_i}(1-z_{i-1}).
 \]
 The next boundary handoff therefore gives
 \[
  A_{i+1}
  \ge1-B_i
- \ge\widehat g_{c_i}^\vee(z_{i-1})
+ \ge g_{c_i}^\vee(z_{i-1})
  =z_i.
 \]
 For the final handoff, the CE1 companion trace is empty and the CE2 companion
@@ -444,9 +443,9 @@ which proves \eqref{eq:signed-one-gap-actual}.
 The first and fifth maps are extensive and the middle maps are nondecreasing,
 so it is enough to prove
 \[
- [\widehat g_{c_2}^\vee
-  \mid\widehat g_{c_3}^\vee
-  \mid\widehat g_{c_4}^\vee](X)>1-H.
+ [g_{c_2}^\vee
+  \mid g_{c_3}^\vee
+  \mid g_{c_4}^\vee](X)>1-H.
 \]
 Three applications of \eqref{eq:reader-capped-duality} show that its negation
 is equivalent to the negation of \eqref{eq:signed-three-map-target}.  This
@@ -548,14 +547,14 @@ Concavity therefore gives $\pi(\alpha)>0$, and the low-root bound yields
 
 If $e(\alpha)<Q$, extensivity carries
 \eqref{eq:signed-initial-threshold} to the V triangle-$4$ map
-$\widehat g_{1-\alpha}^\vee$, which gives an output at least
+$g_{1-\alpha}^\vee$, which gives an output at least
 $1-e(\alpha)>1-Q$.  All later maps preserve it.  If
 $e(\alpha)\ge Q$, Lemma~\ref{lem:signed-ce2-two-threshold} gives
 $e(\delta)<Q$, and
 \[
  z_0>e(\alpha)\ge Q>e(\delta).
 \]
-The V triangle-$2$ map $\widehat g_{1-\delta}^\vee$ then gives an output above
+The V triangle-$2$ map $g_{1-\delta}^\vee$ then gives an output above
 $1-Q$, again preserved by all later maps.  Thus $Z>1-Q=1-H$, contradicting
 \eqref{eq:signed-one-gap-actual}.
 

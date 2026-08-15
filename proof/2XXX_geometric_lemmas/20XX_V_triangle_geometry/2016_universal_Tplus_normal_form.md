@@ -3,7 +3,7 @@
 Status: Proven
 
 This note extracts the common nonlinear curve behind every selected $T_+$
-branch of the exact capped demand map in
+branch of the exact high-radial demand map in
 [`2011_capped_demand_map.md`](2011_capped_demand_map.md).  It replaces
 branch-specific implicit differentiation by one normalized equation, proves
 strict concavity of the resulting transition map, and records an optional
@@ -23,7 +23,7 @@ $$
 c=1-d.
 $$
 
-Suppose an input $p$ lies on a genuine selected $T_+$ branch of the capped map
+Suppose an input $p$ lies on a genuine selected $T_+$ branch of the high-radial map
 $G_c=1-F_c$, and write
 
 $$

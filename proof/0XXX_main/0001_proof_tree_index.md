@@ -49,34 +49,52 @@ The authoritative notation is
 $$
 g_c(x)=\max\{y:(1-x,y,c)\in\mathcal A\},
 \qquad
-\widehat g_c(x)=\min\{g_c(x),x\},
-$$
-
-$$
 f^\vee(a)=1-f(1-a).
 $$
 
-Thus $\widehat g_c^\vee$ is the ordinary nonsupercritical incoming-reach
-transfer.  Center intervals use $\widehat g_{c,J}^\vee$, selected affine and
-threshold relaxations use superscripts, and the single free strict-
-supercritical envelope is $g_c^{\rm sc}$.
-
-At zero radial demand,
+For a nonsupercritical actual V triangle with incoming lower bound $a$ and
+radial lower bound $c$, the outgoing estimate is used branchwise:
 
 $$
-g_0(x)>x\quad(0<x<1),
-\qquad
-\widehat g_0(x)=x.
+B\le
+\begin{cases}
+1-a,&c\le1/2,\\
+g_c(1-a),&c>1/2.
+\end{cases}
 $$
+
+The high-radial branch is automatically nonsupercritical because the demanded
+radial segment contains the midpoint.  Hence $g_c(x)\le x$ for $c\ge1/2$,
+and $g_{1/2}=\mathrm I$.  On a center-free edge the corresponding incoming
+transfer is the identity in the low-radial branch and $g_c^\vee$ in the
+high-radial branch. Center intervals use the same two cases after applying the
+residual operator. Selected affine and threshold relaxations are decorated
+versions of the high-radial raw map. The single free strict-supercritical
+envelope is $g_c^{\rm sc}$.
+
+At zero radial demand the raw map satisfies
+
+$$
+g_0(x)>x\qquad(0<x<1),
+$$
+
+so it is not used for a nonsupercritical low-radial handoff; that branch uses
+the direct inequality $B\le1-A$.
 
 The exact contact-cell aliases are
 
 $$
 B_c(a)=g_c(1-a),
+$$
+
+$$
+F_c(a)=
+\begin{cases}
+1-a,&c\le1/2,\\
+B_c(a),&c>1/2,
+\end{cases}
 \qquad
-F_c(a)=\widehat g_c(1-a),
-\qquad
-G_c(a)=\widehat g_c^\vee(a).
+G_c(a)=1-F_c(a).
 $$
 
 ## Setup and reusable lemmas
@@ -93,8 +111,9 @@ $$
   - `2007`: exact outgoing envelope and interval fibers.
   - `2010`: free strict-supercritical envelope, denoted $g_c^{\rm sc}$ in the
     canonical notation.
-  - `2011`: exact hatted outgoing map, four labels, and complement duality;
-    the file retains $F_c,G_c$ as technical aliases.
+  - `2011`: exact branchwise nonsupercritical output, the high-radial four
+    labels, and complement duality; the file retains $F_c,G_c$ as technical
+    aliases.
   - `2016`: universal selected-$T_+$ curve and affine chord bounds.
   - `2017`: one-hit and two-threshold routing.
   - `2018`: diameter transfer and common adjacent-rescuer obstruction in the
@@ -130,10 +149,11 @@ index.
 - $N_+=0$:
   - all Vd0: `4013`, using the three active-gap-rank chains;
   - some Vd1/Vd2: `4040`, `4041`, unchanged Strategy 1 routes;
-  - T3-like and no Vd1/Vd2: `407X`, exact hatted endpoint audit with
-    identity-relaxed interior V triangles.
+  - T3-like and no Vd1/Vd2: `407X`, exact branchwise endpoint audit with
+    identity-relaxed interior V triangles; a low-radial endpoint is the direct
+    Full case.
 - $N_+=1$, all Vd0:
-  - `4105` gives one exact five-V-triangle $\widehat g^\vee$ interface;
+  - `4105` gives one exact five-V-triangle high-radial $g^\vee$ interface;
   - `4106` gives the CE1 affine/threshold relaxation;
   - `4107` gives the CE2 one-threshold-slot relaxation;
   - the zero-gap cell remains the Strategy 4 nine-point obstruction.

@@ -51,9 +51,10 @@ Status: Reference
 
 ## The canonical $g$-family
 
-The paper uses one transfer alphabet. Hats impose the nonsupercritical cap,
-and $\vee$ changes from boundary-defect coordinates to complementary
-incoming-reach coordinates.
+The paper uses one raw transfer family.  Nonsupercritical roles are handled by
+two direct radial branches rather than by defining a second transfer family.
+The superscript $\vee$ changes from boundary-defect coordinates to
+complementary incoming-reach coordinates.
 
 - $\mathcal A$: the exact local admissible set of demand triples $(a,b,c)$.
 - $x=1-a$: incoming boundary defect corresponding to incoming reach $a$.
@@ -67,19 +68,30 @@ incoming-reach coordinates.
   $$
   This is the historical raw defect-coordinate map. Equivalently,
   $g_c(x)=B_c(1-x)$.
-- $\widehat g_c(x)=\min\{g_c(x),x\}$: nonsupercritical capped defect map.
 - $f^\vee(a)=1-f(1-a)$: complement dual of any map $f$.
-- $g_c^\vee$: raw next-incoming reach lower transfer, valid for every V triangle.
-- $\widehat g_c^\vee$: capped next-incoming reach lower transfer for a
-  nonsupercritical V triangle. It is extensive:
+- $g_c^\vee$: raw next-incoming reach lower transfer.
+- midpoint threshold:
   $$
-  \widehat g_c^\vee(a)\ge a.
+  c\ge\frac12\quad\Longrightarrow\quad g_c(x)\le x,
+  \qquad g_{1/2}(x)=x.
   $$
+- nonsupercritical branchwise output: if an actual role has $A+B\le1$,
+  $A\ge a$, and $C\ge c$, then
+  $$
+  B\le
+  \begin{cases}
+  1-a,&c\le1/2,\\
+  g_c(1-a),&c>1/2.
+  \end{cases}
+  $$
+  On a center-free edge the next incoming reach is therefore at least $a$ in
+  the low-radial branch and at least $g_c^\vee(a)\ge a$ in the high-radial
+  branch.
 - $\mathcal R_J(p)$: far-side residual demand after an initial trace $[0,p]$
   and a center interval $J$.
-- $g_{c,J}^\vee(a)=\mathcal R_J(g_c(1-a))$: raw center-assisted reach transfer.
-- $\widehat g_{c,J}^\vee(a)=\mathcal R_J(\widehat g_c(1-a))$: capped
-  center-assisted reach transfer.
+- $g_{c,J}^\vee(a)=\mathcal R_J(g_c(1-a))$: raw center-assisted reach transfer
+  in the high-radial branch.  The low-radial branch applies
+  $\mathcal R_J(1-a)$ directly.
 - $g_c^{\rm sc}$:
   $$
   g_c^{\rm sc}
@@ -90,34 +102,32 @@ incoming-reach coordinates.
   \quad(0\le c<1/2).
   $$
   This single scalar is the free strict-supercritical outgoing envelope.
-  Every such V triangle has outgoing reach $<g_c^{\rm sc}$.  If the outgoing edge is
-  center-free, the following incoming reach is $>1-g_c^{\rm sc}$.
+  Every such V triangle has outgoing reach $<g_c^{\rm sc}$.  If the outgoing
+  edge is center-free, the following incoming reach is
+  $>1-g_c^{\rm sc}$.
 - $[\Phi_1\mid\cdots\mid\Phi_r](x)$:
-  $(\Phi_r\circ\cdots\circ\Phi_1)(x)$, with maps listed in geometric V-triangle order.
+  $(\Phi_r\circ\cdots\circ\Phi_1)(x)$, with maps listed in geometric
+  V-triangle order.
 - $\mathrm I(x)=x$: identity lower relaxation.
-- $\widehat g_{1-d}^{\vee,\lambda}(x)=x+\lambda(x-d)$: certified affine
-  selected-$T_+$ lower relaxation on its stated arc.
-- $\widehat g_{1-d}^{\vee,\rm th}$: low-root threshold lower relaxation of
-  $\widehat g_{1-d}^\vee$.
+- $g_{1-d}^{\vee,\lambda}(x)=x+\lambda(x-d)$: certified affine selected-$T_+$
+  lower relaxation of the high-radial transfer on its stated arc.
+- $g_{1-d}^{\vee,\rm th}$: low-root threshold lower relaxation of the
+  high-radial transfer $g_{1-d}^\vee$.
 
 At zero radial demand,
 
 $$
-g_0(x)>x\quad(0<x<1),
-\qquad
-\widehat g_0(x)=x,
+g_0(x)>x\qquad(0<x<1),
 $$
 
 and hence
 
 $$
-g_0^\vee(a)<a,
-\qquad
-\widehat g_0^\vee(a)=a.
+g_0^\vee(a)<a.
 $$
 
-This distinguishes the historical raw $g_0$ from its hatted
-nonsupercritical cap.
+Thus the raw zero-radial map is not a valid nonsupercritical identity
+handoff.  The low-radial branch uses $B\le1-A$ directly.
 
 ### Technical aliases
 
@@ -126,10 +136,16 @@ shorten formulas:
 
 $$
 B_c(a)=g_c(1-a),
+$$
+
+$$
+F_c(a)=
+\begin{cases}
+1-a,&c\le1/2,\\
+B_c(a),&c>1/2,
+\end{cases}
 \qquad
-F_c(a)=\widehat g_c(1-a),
-\qquad
-G_c(a)=\widehat g_c^\vee(a).
+G_c(a)=1-F_c(a).
 $$
 
 The older free-envelope aliases are
@@ -140,7 +156,8 @@ B_{\rm sc}(c)=g_c^{\rm sc},
 A_{\rm sc}(c)=1-g_c^{\rm sc}.
 $$
 
-Reader-facing files should prefer the canonical $g$-family.
+Reader-facing files should prefer the raw $g$-family and the direct low/high
+branch split.
 
 ## Signed CE1/CE2 center normal form
 

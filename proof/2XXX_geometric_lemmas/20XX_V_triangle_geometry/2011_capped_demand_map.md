@@ -1,30 +1,84 @@
-# Exact Capped Nonsupercritical Demand Map
+# Exact Branchwise Nonsupercritical Demand Map
 
 Status: Proven
 
-This note gives the branch-independent capped demand map used throughout the
-CE1/CE2 boundary-loss arguments. It is a specialization of the exact
-admissible set in [`2004_admissible_set.md`](2004_admissible_set.md), with
-the component selector from that theorem retained throughout.
+This note gives the exact local output bound used after a V triangle has
+already been proved nonsupercritical.  It is a specialization of the exact
+admissible set in
+[`2004_admissible_set.md`](2004_admissible_set.md), with the component
+selector from that theorem retained throughout.
 
-The definition and four-label partition below apply for every
-$0\le a,c\le1$. The closed piecewise catalog is stated only in the
-high-radial range $1/2<c<1$ used by the later five-map arguments. At
-$c\le1/2$ and at the endpoints $c=1/2,1$, the globally exact formula remains
-$F_c(a)=\min\left\{B_c(a),1-a\right\}$ with $B_c$ supplied by `2007`; no
-unstated continuation of the high-radial display is intended.
-
-## 1. Definitions
-
-For $0\le a,c\le1$, let $B_c(a)$ be the exact unclassified map proved in
-[`2007_max_b_map.md`](2007_max_b_map.md).
-Define
+There is no need for a second transfer family.  The exact
+nonsupercritical output has two transparent radial branches:
 
 $$
-F_c(a)=\min\left\{B_c(a),1-a\right\},
+F_c(a)=
+\begin{cases}
+1-a,&0\le c\le1/2,\\
+B_c(a),&1/2<c\le1,
+\end{cases}
+$$
+
+where $B_c(a)$ is the raw maximal outgoing demand.  The four-label catalog is
+needed only in the high-radial branch $c>1/2$.  At low radial demand the
+output is simply the Full value $1-a$.
+
+## 1. Definitions and exact midpoint split
+
+For $0\le a,c\le1$, let $B_c(a)$ be the exact raw map proved in
+[`2007_max_b_map.md`](2007_max_b_map.md):
+
+$$
+B_c(a)=\max\left\{b:(a,b,c)\in\mathcal A\right\}.
+$$
+
+Retain the technical aliases
+
+$$
+F_c(a)=
+\begin{cases}
+1-a,&0\le c\le1/2,\\
+B_c(a),&1/2<c\le1,
+\end{cases}
 \qquad
 G_c(a)=1-F_c(a).
 $$
+
+These satisfy the exact identity
+
+$$
+\boxed{F_c(a)=\min\left\{B_c(a),1-a\right\}.}
+$$
+
+### Proof of the identity
+
+First suppose $c\ge1/2$.  Every triangle realizing $(a,b,c)$ also contains
+the radial midpoint $(u+v)/2$.  The midpoint self-cover theorem
+[`2005`](2005_midpoint_self_cover_lemma.md) gives $a+b\le1$, so
+
+$$
+B_c(a)\le1-a.
+$$
+
+At $c=1/2$, put $b=1-a$.  In the exact Cell-$T$ description of `2004`,
+
+$$
+s=a+b=1,
+\qquad d=a^2+ab+b^2\le1,
+\qquad q=ab\ge0.
+$$
+
+With $M=\max\{a,b\}\ge1/2$,
+
+$$
+F_T(a,b,1/2)=M(1/2-M)\le0,
+\qquad
+1/2\le2M.
+$$
+
+Hence $(a,1-a,1/2)\in\mathcal A$.  Coordinatewise down-closure in the radial
+coordinate gives $B_c(a)\ge1-a$ for every $c\le1/2$.  The two inequalities
+prove the branchwise formula and the minimum identity.
 
 Equivalently, the interval-fiber theorem in `2007` gives
 
@@ -36,9 +90,8 @@ F_c(a)=
 }}b.
 $$
 
-Thus $F_c$ is the exact demand-coordinate cap. It is the proof-safe upper
-relaxation for a nonsupercritical Vd0 V triangle; no assertion that its maximizing
-triangle belongs to that V triangle class is needed.
+Thus $F_c$ is the exact proof-safe upper output for a nonsupercritical
+V triangle, and its definition is the direct low/high branch split above.
 
 More precisely, let $A(T),B(T),C(T)$ be the actual local reaches of any
 vertex-role triangle, and suppose
@@ -51,10 +104,12 @@ C(T)\ge c,
 A(T)+B(T)\le1.
 $$
 
-Then the same triangle realizes the demand triple $(a,B(T),c)$, while
+Then the same triangle realizes $(a,B(T),c)$ and
 
 $$
-B(T)\le1-A(T)\le1-a.
+B(T)\le1-A(T)\le1-a,
+\qquad
+B(T)\le B_c(a).
 $$
 
 Hence
@@ -63,12 +118,11 @@ $$
 \boxed{B(T)\le F_c(a).}
 $$
 
-Taking suprema proves the same bound for any actual nonsupercritical V triangle
-class. This is the only passage from demand coordinates to classified V triangles
-used downstream.
+No assertion that a maximizing triangle belongs to a classified V-triangle
+subclass is needed.
 
-The exact-cell proof below also gives an exhaustive four-label partition of
-every maximizer:
+In the low-radial branch the only label is Full.  In the high-radial branch
+the exact-cell proof below gives the four genuine labels
 
 $$
 \boxed{
@@ -76,12 +130,11 @@ $$
 }
 $$
 
-The genuine selected $T_+$ component is called $T_+^{hi}$ in the older
-branch files. The other formal quadratic component, formerly called
-$T_+^{lo}$, violates the selector
-$c\le2\max\left\{a,b\right\}$ and is not a geometric
-branch. Transition ties may be assigned in the order displayed in the
-piecewise catalog; they do not create a fifth label.
+The selected $T_+$ component is called $T_+^{hi}$ in older branch files.  The
+other formal quadratic component, formerly called $T_+^{lo}$, violates the
+selector $c\le2\max\left\{a,b\right\}$ and is not a geometric branch.
+Transition ties may be assigned in the order displayed below; they do not
+create a fifth label.
 
 For $1/2<c<1$, put
 
@@ -272,7 +325,7 @@ $$
 q=s^4-s^2+ab.
 $$
 
-The cap gives $s\le1$. Hence Cell $S$ of `2004` is absent, and the diameter
+The nonsupercritical diagonal gives $s\le1$. Hence Cell $S$ of `2004` is absent, and the diameter
 condition is automatic because
 
 $$
@@ -297,7 +350,7 @@ F_T=(s^2-1)c^2+Mc-M^2\le0,
 c\le2M.
 $$
 
-First suppose the cap is active, so $b=1-a$ and $s=1$. Then $q=ab\ge0$
+First suppose the diagonal is active, so $b=1-a$ and $s=1$. Then $q=ab\ge0$
 and
 
 $$
@@ -326,7 +379,7 @@ $$
 1-c<a<c.
 $$
 
-The cap is not feasible. A maximizing point must therefore lie on
+The diagonal is not feasible. A maximizing point must therefore lie on
 $F_L=0$ or $F_T=0$. Indeed, at a point strict in every radial inequality,
 $b$ can be increased. The interface $q=0$ is shared by the two cells and is
 not a missing frontier. Nor can $c=2M$ create an additional terminal face:
@@ -459,7 +512,7 @@ $$
 $$
 
 The discriminant is $\Delta(a,c)$, and the selected lower root is
-$T_+(a,c)$. It is the root below the cap: in this ordered central range,
+$T_+(a,c)$. It is the root below the diagonal: in this ordered central range,
 
 $$
 F_T(a,0,c)<0
@@ -471,7 +524,7 @@ $$
 F_T=(1-a)(c-(1-a))>0.
 $$
 
-Thus the cap lies strictly between the two formal quadratic roots, so the
+Thus the diagonal lies strictly between the two formal quadratic roots, so the
 upper root is not selected.
 
 The order boundary $b=a$ gives
@@ -597,14 +650,14 @@ The denominator of the stable $T_+$ formula is positive, so its
 rationalization does not change the selected root.
 
 Coordinatewise down-closure of $\mathcal A$ implies that $B_c(a)$ and
-$F_c(a)$ are nonincreasing in $a$. Therefore $G_c$ is nondecreasing. The cap
+$F_c(a)$ are nonincreasing in $a$. Therefore $G_c$ is nondecreasing. The branchwise definition
 also gives
 
 $$
 G_c(a)\ge a.
 $$
 
-## 7. Exact capped duality
+## 7. Exact branchwise duality
 
 For every $a,z,c\in[0,1]$,
 
@@ -626,7 +679,7 @@ $$
 
 By the interval-fiber property, the latter says exactly that
 $(a,1-z,c)\in\mathcal A$ and $a+1-z\le1$. Reflection of the exact
-admissible set changes this to $(1-z,a,c)\in\mathcal A$ with the same cap,
+admissible set changes this to $(1-z,a,c)\in\mathcal A$ with the same diagonal condition,
 which is equivalent to $F_c(1-z)\ge a$ and hence to the right-hand side.
 
 The scalar low-root and threshold consequences used by the five-map proofs

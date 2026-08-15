@@ -75,10 +75,10 @@ Thus
 \[
  B_i>1-A_{i+1}.
 \]
-Nonsupercriticality and the exact capped transfer give
+Nonsupercriticality gives $1-B_i\ge A_i$, while open boundary coverage
+gives
 \[
- A_{i+1}>1-B_i
- \ge\widehat g_{C_i}^{\vee}(A_i)\ge A_i,
+ A_{i+1}>1-B_i\ge A_i,
 \]
 which produces the impossible strict cycle
 \[
@@ -103,8 +103,8 @@ $B_5\ge s$. By \((*)\),
 \]
 The exact one-side endpoint theorem gives
 \[
- \widehat g_{1-\alpha/W}(1-s)
- +\widehat g_{1-\delta/R}(1-q)<1.
+ g_{1-\alpha/W}(1-s)
+ +g_{1-\delta/R}(1-q)<1.
 \]
 The three internal V triangles $T_2,T_3,T_4$ lie on a center-free boundary
 path. The path budget forces their total boundary contribution above three,
@@ -545,9 +545,9 @@ nonattainment.  Differentiation gives
 since $(4-c)^2-(c^2-8c+4)=12$.
 \end{proof}
 
-\subsection{Two reusable capped-loss inequalities}
+\subsection{Two reusable high-radial endpoint inequalities}
 
-\begin{lemma}[One-side capped loss]
+\begin{lemma}[One-side endpoint loss]
 \label{lem:one-side-capped-loss}
 Let $0<R<1$, $S=\sqrt{1-R+R^2}$, and let $s,u,w>0$ satisfy
 $s+u+w=1$ and $0<u<R$.  Put
@@ -581,7 +581,7 @@ The hypotheses imply $1/2<c_1,c_5<1$: for example
 $u>\delta$ gives $c_1>1/(1+S)>1/2$, and
 $\gamma<u-\delta<R-\delta=RS/(1+S)<1/2$ gives $c_5>1/2$.
 Thus the four high-radial labels of
-Proposition~\ref{prop:capped-demand-map} are exhaustive.
+the four-label high-radial map in Proposition~\ref{prop:capped-demand-map} are exhaustive.
 
 \smallskip\noindent
 \emph{Right low labels.}
@@ -734,7 +734,7 @@ $K_0(z)=(2-3z+4z^2)/(1-2z)$, so the minimum is again at an endpoint.
 Thus $zh(z)<s(z)$.  Applying the already displayed polynomial $P_z$ gives
 the strict Cell-$L$ selector, and
 $s+zh(z)\le X+\ell(c_X)<1$.  Since
-$\partial_bF_L=c(1-2z)>0$ and each feasible fiber is an interval, the capped
+$\partial_bF_L=c(1-2z)>0$ and each feasible fiber is an interval, the nonsupercritical
 maximum is
 \[
  \widehat b_5\le zh(z)\le z_Xh(z_X)=\ell(c_X)<1-X.
@@ -773,7 +773,7 @@ $\widehat b_5+\widehat b_1\le s+u=1-w<1$.  The preceding five paragraphs cover e
 ordered pair of the four labels, proving \eqref{eq:one-side-loss}.
 \end{proof}
 
-\begin{lemma}[CE2 two-endpoint capped loss]
+\begin{lemma}[CE2 two-endpoint loss]
 \label{lem:two-endpoint-capped-loss}
 Let $[x,U]$ and $[y,v]$ be the two exact CE2 traces in the legacy
 coordinates of Remark~\ref{rem:signed-legacy-variables}, where $U$ denotes

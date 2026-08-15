@@ -66,16 +66,14 @@ retained as four named strategies for geometric readability:
 3. **convex support:** the equilateral enclosure gauge applied to the forced
    nine-point witness set.
 
-The canonical transfer notation is:
+The canonical transfer notation uses one raw family:
 
 $$
 g_c(x)
 =
 \max\left\{
 y:(1-x,y,c)\in\mathcal A
-\right\},
-\qquad
-\widehat g_c(x)=\min\{g_c(x),x\}.
+\right\}.
 $$
 
 Here $x$ is incoming boundary defect. For any map $f$, put
@@ -84,11 +82,24 @@ $$
 f^\vee(a)=1-f(1-a).
 $$
 
-Then $g_c^\vee$ is the raw next-incoming reach lower transfer and
-$\widehat g_c^\vee$ is its nonsupercritical extensive version. Center
-intervals use the subscripted variants $g_{c,J}^\vee$ and
-$\widehat g_{c,J}^\vee$. The free strict-supercritical outgoing envelope is
-the single scalar
+For a V triangle already known to be nonsupercritical, the outgoing bound is
+written directly in two radial branches:
+
+$$
+B\le
+\begin{cases}
+1-a,&0\le c\le1/2,\\
+g_c(1-a),&1/2<c\le1.
+\end{cases}
+$$
+
+The midpoint threshold gives $g_c(x)\le x$ for $c\ge1/2$ and
+$g_{1/2}=\mathrm I$.  Thus the low-radial branch uses the elementary
+inequality $B\le1-A$, while the high-radial branch uses the raw transfer
+$g_c^\vee$.  Center intervals use $\mathcal R_J(1-a)$ in the low branch and
+$g_{c,J}^\vee$ in the high branch.  No second transfer family is needed.
+
+The free strict-supercritical outgoing envelope remains
 
 $$
 g_c^{\rm sc}
@@ -96,29 +107,32 @@ g_c^{\rm sc}
 \sup_{\{x:g_c(x)>x\}}g_c(x).
 $$
 
-Affine selected-$T_+$ and threshold relaxations are written as decorated
-versions of $\widehat g_c^\vee$, rather than introducing new function
-alphabets.
+Affine selected-$T_+$ and threshold relaxations are decorated versions of the
+high-radial raw transfer $g_c^\vee$.
 
 At zero radial demand,
 
 $$
-g_0(x)>x\quad(0<x<1),
-\qquad
-\widehat g_0(x)=x.
+g_0(x)>x\quad(0<x<1).
 $$
 
-Thus the historical raw $g_0$ is supercritical, while the hatted
-nonsupercritical map is the identity.
+Therefore a nonsupercritical zero-radial handoff must use $B\le1-A$
+directly; the raw map $g_0$ points in the wrong direction.
 
-The exact contact-cell files may retain the aliases
+The exact contact-cell files may retain the technical aliases
 
 $$
 B_c(a)=g_c(1-a),
+$$
+
+$$
+F_c(a)=
+\begin{cases}
+1-a,&c\le1/2,\\
+B_c(a),&c>1/2,
+\end{cases}
 \qquad
-F_c(a)=\widehat g_c(1-a),
-\qquad
-G_c(a)=\widehat g_c^\vee(a)
+G_c(a)=1-F_c(a),
 $$
 
 when they shorten branchwise algebra.
@@ -129,7 +143,7 @@ length bounds can be viewed as coarse transfer envelopes.
 The universal local layer is:
 
 - [`2019`](proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2019_interval_component_and_path_budget.md): interval residuals, generalized handoffs, and boundary-path budgets;
-- [`201d`](proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md): the canonical $g$-family, hats, complement duals, free-supercritical envelope, and relaxed composition;
+- [`201d`](proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md): the canonical raw $g$-family, branchwise nonsupercritical transfer, complement duals, free-supercritical envelope, and relaxed composition;
 - [`201a`](proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201a_equilateral_enclosure_and_radical_calculus.md): one enclosure gauge, one equilateral radical, and the four-frontier atlas;
 - [`201b`](proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201b_quarter_radial_envelope.md): the global quarter radial envelope;
 - [`201c`](proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201c_Vd_corner_radial_margins.md): the two Vd corner radial margins;

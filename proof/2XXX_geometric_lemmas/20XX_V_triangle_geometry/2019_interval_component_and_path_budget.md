@@ -10,9 +10,10 @@ for.  The latter qualification is essential: a center interval on an internal
 edge cannot be silently discarded.
 
 The generalized transfer notation follows
-[`201d`](201d_raw_and_relaxed_g_chains.md): the historical map $g_c$ is in
-boundary-defect coordinates, a hat imposes nonsupercriticality, and a
-superscript $\vee$ denotes the complementary incoming-reach transfer.
+[`201d`](201d_raw_and_relaxed_g_chains.md): the raw map $g_c$ is in
+boundary-defect coordinates, a superscript $\vee$ denotes the complementary
+incoming-reach transfer, and nonsupercritical roles use the direct low/high
+radial split.
 
 ## 1. Residual demand after a center interval
 
@@ -106,9 +107,9 @@ separately by the strict-handoff theorem. $\square$
 ## 3. Generalized actual-V triangle transfer
 
 Use the actual reach functions of
-[`1202`](../../1XXX_foundations/12XX_V_triangle/1202_local_coordinates_abc.md).
-Let $g_c$ and $\widehat g_c$ be the raw and capped defect maps of
-[`201d`](201d_raw_and_relaxed_g_chains.md). Suppose an actual V triangle $T$
+[`1202`](../../1XXX_foundations/12XX_V_triangle/1202_local_coordinates_abc.md)
+and the raw map $g_c$ of
+[`201d`](201d_raw_and_relaxed_g_chains.md).  Suppose an actual V triangle $T$
 satisfies
 
 $$
@@ -124,11 +125,9 @@ B(T)\le g_c(1-a).
 $$
 
 Let $T_{\mathrm{next}}$ be the actual V triangle at the far endpoint of
-$T$'s outgoing edge. Let $J$ be the center trace on that edge, and assume the
-outgoing trace of $T$, the trace $J$, and the incoming trace of
-$T_{\mathrm{next}}$ cover the edge.
-
-Define the raw center-assisted reach transfer
+$T$'s outgoing edge.  Let $J$ be the center trace on that edge, and assume
+the outgoing trace of $T$, the trace $J$, and the incoming trace of
+$T_{\mathrm{next}}$ cover the edge.  Define the raw center-assisted transfer
 
 $$
 \boxed{
@@ -138,7 +137,7 @@ g_{c,J}^\vee(a)
 }
 $$
 
-The edge-handoff lemma and the monotonicity of $\mathcal R_J$ give
+The edge-handoff lemma and monotonicity of $\mathcal R_J$ give
 
 $$
 A(T_{\mathrm{next}})
@@ -151,60 +150,51 @@ $$
 If $T$ is nonsupercritical, then
 
 $$
-B(T)\le1-A(T)\le1-a,
+B(T)\le1-A(T)\le1-a.
 $$
 
-and hence
-
-$$
-B(T)\le\widehat g_c(1-a).
-$$
-
-Define
-
-$$
-\boxed{
-\widehat g_{c,J}^\vee(a)
-=
-\mathcal R_J\!\left(\widehat g_c(1-a)\right).
-}
-$$
-
-Then
+The exact midpoint split of [`2011`](2011_capped_demand_map.md) therefore
+gives the sharper branchwise handoff
 
 $$
 \boxed{
 A(T_{\mathrm{next}})
 \ge
-\widehat g_{c,J}^\vee(a).
+\begin{cases}
+\mathcal R_J(1-a),&0\le c\le1/2,\\
+g_{c,J}^\vee(a),&1/2<c\le1.
+\end{cases}
 }
 $$
 
-For $J=\varnothing$,
+For $J=\varnothing$, this becomes
 
 $$
-g_{c,\varnothing}^\vee(a)=1-g_c(1-a)=g_c^\vee(a),
+A(T_{\mathrm{next}})
+\ge
+\begin{cases}
+a,&0\le c\le1/2,\\
+g_c^\vee(a)\ge a,&1/2<c\le1.
+\end{cases}
 $$
 
-and
-
-$$
-\widehat g_{c,\varnothing}^\vee(a)
-=1-\widehat g_c(1-a)=\widehat g_c^\vee(a).
-$$
-
-Thus ordinary and center-assisted propagation belong to the same subscripted
-$g$-family.  This formulation includes singleton center contacts and requires
-no separate overlap-order split.
+Thus ordinary and center-assisted propagation use one raw $g$-family, with
+the low-radial nonsupercritical branch written directly.  This formulation
+includes singleton center contacts and requires no separate overlap-order
+split.
 
 The exact appendix aliases are
 
 $$
 B_c(a)=g_c(1-a),
 \qquad
-F_c(a)=\widehat g_c(1-a),
+F_c(a)=
+\begin{cases}
+1-a,&c\le1/2,\\
+B_c(a),&c>1/2,
+\end{cases}
 \qquad
-G_c(a)=\widehat g_c^\vee(a).
+G_c(a)=1-F_c(a).
 $$
 
 ## 4. Radial component form

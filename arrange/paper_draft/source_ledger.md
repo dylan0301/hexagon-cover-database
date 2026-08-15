@@ -105,7 +105,7 @@ Z = [g_1^vee|...|g_5^vee](X),
 ```
 
 the direct target is `Z>1-H`. The target `>1-X` belongs to the reversed
-three-map chain after capped-map duality. The body, tables, and appendix now
+three-map chain after high-radial complement duality. The body, tables, and appendix now
 distinguish these statements.
 
 ### 3.3 Strategy 1 hypothesis
@@ -184,9 +184,11 @@ source `2004`. The transfer notation comes from `201d`:
 
 ```text
 g_c(x)=max{y:(1-x,y,c) in A},
-widehat g_c(x)=min{g_c(x),x},
 f^vee(a)=1-f(1-a).
 ```
+
+For nonsupercritical roles the paper uses the direct branch split
+`B <= 1-a` when `c <= 1/2`, and `B <= g_c(1-a)` when `c > 1/2`.
 
 The corrected center-free and center-assisted statements are in `02a` and the
 repaired `2019` source.
@@ -253,7 +255,7 @@ The final proof retains all of the following.
 3. Singleton gaps remain gaps.
 4. Center-assisted handoffs use residual maps.
 5. Every path-budget internal edge is center-free.
-6. Raw and capped zero-radial maps remain distinct.
+6. The raw zero-radial map is not used for nonsupercritical identity propagation.
 7. CE1 and CE2 one-gap endings remain distinct.
 8. The T3-like theorem retains all four exact labels.
 9. Adjacent and nonadjacent Vd routes retain their correct geometric margins.

@@ -100,9 +100,7 @@ For $0<x<1$, put $z=\sigma(x)/x$.  Eliminating the square root gives
 
 For $0\le x,c\le1$, define
 \begin{equation}
- g_c(x)=\max\{y\in[0,1]:(1-x,y,c)\in\mathcal A\},
- \qquad
- \widehat g_c(x)=\min\{g_c(x),x\}.
+ g_c(x)=\max\{y\in[0,1]:(1-x,y,c)\in\mathcal A\}.
  \label{eq:reader-raw-capped-maps}
 \end{equation}
 For any map $f:[0,1]\to[0,1]$, put
@@ -110,20 +108,52 @@ For any map $f:[0,1]\to[0,1]$, put
  f^\vee(a)=1-f(1-a).
  \label{eq:reader-complement-dual}
 \end{equation}
-Hence
-\begin{equation}
- \widehat g_c^\vee(a)=1-\widehat g_c(1-a)\ge a.
- \label{eq:reader-capped-raw-relation}
-\end{equation}
 The exact appendix aliases are
 \begin{equation}
  B_c(a)=g_c(1-a),
- \qquad F_c(a)=\widehat g_c(1-a),
- \qquad G_c(a)=\widehat g_c^\vee(a).
+ \qquad
+ F_c(a)=
+ \begin{cases}
+ 1-a,&0\le c\le1/2,\\
+ B_c(a),&1/2<c\le1,
+ \end{cases}
+ \qquad
+ G_c(a)=1-F_c(a).
  \label{eq:reader-technical-aliases}
 \end{equation}
+The symbols $F_c,G_c$ are retained only in the exact contact-cell calculations;
+the reader-facing transfer is stated directly in the two radial branches.
 
-\begin{lemma}[Raw and capped actual-V triangle transfer]
+\begin{lemma}[Midpoint threshold for the raw map]
+\label{lem:reader-midpoint-threshold}
+For $0\le x\le1$,
+\[
+ g_c(x)\le x\qquad\left(\frac12\le c\le1\right),
+ \qquad
+ g_{1/2}(x)=x.
+\]
+Consequently $g_c^\vee(a)\ge a$ whenever $c\ge1/2$.
+\end{lemma}
+
+\begin{proof}
+If $(1-x,y,c)\in\mathcal A$ and $c\ge1/2$, the containing triangle also
+contains the radial midpoint $(u+v)/2$.  Lemma~\ref{lem:self-midpoint} gives
+$(1-x)+y\le1$, hence $y\le x$.
+
+For the reverse inequality at $c=1/2$, set $a=1-x$ and $b=x$.  In the exact
+cell description of Proposition~\ref{prop:exact-admissible-set}, one has
+$s=a+b=1$, $d=a^2+ab+b^2\le1$, $q=ab\ge0$, and, with
+$M=\max\{a,b\}\ge1/2$,
+\[
+ F_T(a,b,1/2)=M(1/2-M)\le0,
+ \qquad
+ 1/2\le2M.
+\]
+Thus $(a,b,1/2)\in\mathcal A$, so $g_{1/2}(x)\ge x$.  The preceding upper
+bound gives equality.
+\end{proof}
+
+\begin{lemma}[Raw and branchwise nonsupercritical transfer]
 \label{lem:reader-raw-capped-transfer}
 Let $T$ be an actual V triangle satisfying
 $A(T)\ge a$ and $C(T)\ge c$, and let $T_{\mathrm{next}}$ be the next
@@ -136,39 +166,48 @@ If no center interval intervenes on the next edge, then
  A(T_{\mathrm{next}})\ge g_c^\vee(a).
 \]
 If $T$ is nonsupercritical, then
-\[
- B(T)\le\widehat g_c(1-a),
-\]
+\begin{equation}
+ B(T)\le
+ \begin{cases}
+ 1-a,&0\le c\le1/2,\\
+ g_c(1-a),&1/2<c\le1,
+ \end{cases}
+ \label{eq:reader-branchwise-outgoing}
+\end{equation}
 and, on a center-free next edge,
-\[
- A(T_{\mathrm{next}})\ge\widehat g_c^\vee(a)\ge a.
-\]
+\begin{equation}
+ A(T_{\mathrm{next}})\ge
+ \begin{cases}
+ a,&0\le c\le1/2,\\
+ g_c^\vee(a)\ge a,&1/2<c\le1.
+ \end{cases}
+ \label{eq:reader-branchwise-transfer}
+\end{equation}
 \end{lemma}
 
 \begin{proof}
 The closure of $T$ realizes $(a,B(T),c)$, so the definition of $g_c$ gives
-the outgoing bound. On a center-free edge, coverage gives
+the raw outgoing bound. On a center-free edge, coverage gives
 $A(T_{\mathrm{next}})\ge1-B(T)$, and complementation proves the raw transfer.
-Under nonsupercriticality, $B(T)\le1-A(T)\le1-a$, so
-$B(T)\le\min\{g_c(1-a),1-a\}=\widehat g_c(1-a)$. The final assertion follows
-in the same way.
+Under nonsupercriticality,
+\[
+ B(T)\le1-A(T)\le1-a.
+\]
+This is the low-radial branch.  In the high-radial branch the raw bound is
+already at most $1-a$ by Lemma~\ref{lem:reader-midpoint-threshold}.  Taking
+complements gives \eqref{eq:reader-branchwise-transfer}.
 \end{proof}
 
-\begin{proposition}[Zero-radial distinction]
+\begin{proposition}[Zero-radial warning]
 \label{prop:reader-zero-radial-g}
 For $0<x<1$,
 \[
  g_0(x)>x,
  \qquad
- \widehat g_0(x)=x,
+ g_0^\vee(a)<a\quad(0<a<1).
 \]
-and therefore
-\[
- g_0^\vee(a)<a,
- \qquad
- \widehat g_0^\vee(a)=a
- \quad(0<a<1).
-\]
+Thus a nonsupercritical zero-radial handoff uses the direct inequality
+$B\le1-A$, not the raw map $g_0$.
 \end{proposition}
 
 \begin{proof}
@@ -180,7 +219,7 @@ Since
 \[
  1+6x-3x^2-(1+x)^2=4x(1-x)>0,
 \]
-one has $g_0(x)>x$.  The remaining assertions follow from the definitions.
+one has $g_0(x)>x$.  Complementation gives the second assertion.
 \end{proof}
 
 \subsection{Center-assisted transfers and the free envelope}
@@ -211,32 +250,32 @@ a center trace $J$, and a right trace contained in $[1-q,1]$.  Then
 \[
  q\ge\mathcal R_J(p).
 \]
-Define
+Define only the raw center-assisted transfer
 \[
- g_{c,J}^\vee(a)=\mathcal R_J(g_c(1-a)),
- \qquad
- \widehat g_{c,J}^\vee(a)=\mathcal R_J(\widehat g_c(1-a)).
+ g_{c,J}^\vee(a)=\mathcal R_J(g_c(1-a)).
 \]
-Apply these maps with $p=B(T)$ and $q=A(T_{\mathrm{next}})$, where $T$ is
-an actual V triangle satisfying $A(T)\ge a$ and $C(T)\ge c$, and
-$T_{\mathrm{next}}$ is the next incident actual V triangle.
-Then
+Apply it with $p=B(T)$ and $q=A(T_{\mathrm{next}})$, where $T$ is an actual
+V triangle satisfying $A(T)\ge a$ and $C(T)\ge c$.  Then
 \begin{equation}
- A(T_{\mathrm{next}})\ge g_{c,J}^\vee(a),
+ A(T_{\mathrm{next}})\ge g_{c,J}^\vee(a).
  \label{eq:reader-generalized-raw-transfer}
 \end{equation}
-and the hatted version holds when $T$ is nonsupercritical:
+If $T$ is nonsupercritical, the sharper branchwise statement is
 \begin{equation}
- A(T_{\mathrm{next}})\ge\widehat g_{c,J}^\vee(a).
+ A(T_{\mathrm{next}})\ge
+ \begin{cases}
+ \mathcal R_J(1-a),&0\le c\le1/2,\\
+ g_{c,J}^\vee(a),&1/2<c\le1.
+ \end{cases}
  \label{eq:reader-generalized-transfer}
 \end{equation}
 \end{lemma}
 
 \begin{proof}
 The component of $[0,p]\cup J$ containing $0$ is $[0,e_J(p)]$.  If
-$1-q>e_J(p)$, the intervening open interval is uncovered. The transfer
-statements follow from Lemma~\ref{lem:reader-raw-capped-transfer} and the fact
-that $\mathcal R_J$ is nonincreasing.
+$1-q>e_J(p)$, the intervening open interval is uncovered.  Since
+$\mathcal R_J$ is nonincreasing, the raw and branchwise outgoing bounds from
+Lemma~\ref{lem:reader-raw-capped-transfer} give the two transfer statements.
 \end{proof}
 
 For $0\le c<1/2$, define
@@ -337,9 +376,9 @@ and, for the low-radial order transition,
 \begin{proposition}[Universal selected-$T_+$ curve]
 \label{prop:reader-universal-tplus}
 Fix $0<d<1/2$, put $c=1-d$, and suppose an input $p$ belongs to a selected
-$T_+$ arc of $\widehat g_c^\vee$.  Write
+$T_+$ arc of $g_c^\vee$.  Write
 \[
- q=\widehat g_c^\vee(p),\qquad \nu=q-p,
+ q=g_c^\vee(p),\qquad \nu=q-p,
  \qquad x=\frac{q-d}{1-d}.
 \]
 Then
@@ -369,22 +408,22 @@ convex because $\sigma$ is strictly concave; inversion gives the assertion.
 
 The corresponding chord bounds are
 \begin{equation}
- \widehat g_{1-d}^\vee(p)
+ g_{1-d}^\vee(p)
  \ge p+\frac{d}{e(d)-d}(p-d),
  \label{eq:reader-high-chord}
 \end{equation}
 and, with $t=h(1-d)$,
 \begin{equation}
- \widehat g_{1-d}^\vee(p)
+ g_{1-d}^\vee(p)
  \ge p+\frac{1-2t}{t-d}(p-d).
  \label{eq:reader-low-chord}
 \end{equation}
 For every coefficient $\lambda$ proved valid on the relevant selected arc,
 write
 \begin{equation}
- \widehat g_{1-d}^{\vee,\lambda}(p)
+ g_{1-d}^{\vee,\lambda}(p)
  :=p+\lambda(p-d)
- \le\widehat g_{1-d}^\vee(p).
+ \le g_{1-d}^\vee(p).
  \label{eq:reader-affine-relaxation}
 \end{equation}
 The rational form \eqref{eq:universal-rational-radical} gives, in the
@@ -400,27 +439,27 @@ For $0<d<1-\sqrt3/2$, the exact high-demand threshold is
 \begin{equation}
  z>e(d)
  \quad\Longrightarrow\quad
- \widehat g_{1-d}^\vee(z)\ge1-e(d).
+ g_{1-d}^\vee(z)\ge1-e(d).
  \label{eq:reader-high-threshold}
 \end{equation}
 Define
 \begin{equation}
- \widehat g_{1-d}^{\vee,\rm th}(z)=
+ g_{1-d}^{\vee,\rm th}(z)=
  \begin{cases}
   z,&z\le e(d),\\
   1-e(d),&z>e(d),
  \end{cases}
  \qquad
- \widehat g_{1-d}^{\vee,\rm th}\le\widehat g_{1-d}^\vee.
+ g_{1-d}^{\vee,\rm th}\le g_{1-d}^\vee.
  \label{eq:reader-threshold-transfer}
 \end{equation}
 
 \begin{lemma}[Threshold routing]
 \label{lem:reader-threshold-routing}
 Let $z_j=\Phi_j(z_{j-1})$, where every $\Phi_j$ is nondecreasing and extensive.
-If $\Phi_k=\widehat g_{1-d}^\vee$ and $z_{k-1}>e(d)$, then
+If $\Phi_k=g_{1-d}^\vee$ and $z_{k-1}>e(d)$, then
 $z_j\ge1-e(d)$ for all $j\ge k$.  If a chain contains later occurrences of
-$\widehat g_{1-d_1}^\vee$ and $\widehat g_{1-d_2}^\vee$ and
+$g_{1-d_1}^\vee$ and $g_{1-d_2}^\vee$ and
 \[
  z_0>e(d_1),
  \qquad

@@ -18,7 +18,7 @@ nine-point obstruction.
 | Exact local admissible set | [`../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md`](../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md) | Proven |
 | Exact outgoing envelope | [`../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2007_max_b_map.md`](../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2007_max_b_map.md) | Proven |
 | Free strict-supercritical outgoing envelope $g_c^{\rm sc}$ | [`../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2010_free_supercritical_max_b.md`](../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2010_free_supercritical_max_b.md) | Proven |
-| Exact hatted map, four labels, and duality | [`../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md`](../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md) | Proven |
+| Exact branchwise nonsupercritical output, high-radial four labels, and duality | [`../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md`](../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md) | Proven |
 | Selected-$T_+$ curve and chords | [`../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2016_universal_Tplus_normal_form.md`](../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2016_universal_Tplus_normal_form.md) | Proven |
 | Threshold routing | [`../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2017_threshold_routing.md`](../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2017_threshold_routing.md) | Proven |
 | Diameter transfer and common rescuer | [`../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2018_diameter_transfer_and_adjacent_rescuer.md`](../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2018_diameter_transfer_and_adjacent_rescuer.md) | Proven |
@@ -44,8 +44,9 @@ nine-point obstruction.
 
 ## Interpretive cautions
 
-- The identity at zero radial demand belongs to the capped map
-  $\widehat g_0$, not to raw $g_0$.
+- At zero radial demand the raw map satisfies $g_0(x)>x$ on $(0,1)$.
+  Nonsupercritical low-radial handoffs therefore use the direct inequality
+  $B\le1-A$, not the raw map.
 - The strict-supercritical theorem gives the outgoing bound
   $B<g_c^{\rm sc}$ without a handoff hypothesis. The complementary following
   demand requires a center-free outgoing edge.

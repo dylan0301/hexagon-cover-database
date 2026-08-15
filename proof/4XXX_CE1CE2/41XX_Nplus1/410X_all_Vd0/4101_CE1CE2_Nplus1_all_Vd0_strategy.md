@@ -153,31 +153,31 @@ The common actual-V triangle theorem
 
 $$
 \boxed{
-[\widehat g_{c_1}^\vee
+[g_{c_1}^\vee
 \mid
-\widehat g_{c_2}^\vee
+g_{c_2}^\vee
 \mid
-\widehat g_{c_3}^\vee
+g_{c_3}^\vee
 \mid
-\widehat g_{c_4}^\vee
+g_{c_4}^\vee
 \mid
-\widehat g_{c_5}^\vee](X).
+g_{c_5}^\vee](X).
 }
 $$
 
 It connects every formal iterate to the corresponding actual V triangle and compares
 the returning demand with the exact capacity of $T_0$.
 
-The first and fifth maps are relaxed to $\mathrm I$. Exact hatted-map duality
+The first and fifth maps are relaxed to $\mathrm I$. Exact high-radial duality
 reverses the remaining three slots and reduces both center classes to
 
 $$
 \boxed{
-[\widehat g_{1-\alpha}^\vee
+[g_{1-\alpha}^\vee
 \mid
-\widehat g_{1-m_3}^\vee
+g_{1-m_3}^\vee
 \mid
-\widehat g_{1-\delta}^\vee](H)
+g_{1-\delta}^\vee](H)
 >
 1-X.
 }
@@ -193,35 +193,35 @@ target is already exceeded. On the only surviving selected-$T_+$ branch,
 bounds
 
 $$
-\widehat g_{1-\alpha}^{\vee,\,1-4\alpha}
+g_{1-\alpha}^{\vee,\,1-4\alpha}
 \le
-\widehat g_{1-\alpha}^\vee,
+g_{1-\alpha}^\vee,
 $$
 
 and
 
 $$
-\widehat g_{1-m_3}^{\vee,\,1-5m_3}
+g_{1-m_3}^{\vee,\,1-5m_3}
 \le
-\widehat g_{1-m_3}^\vee
+g_{1-m_3}^\vee
 $$
 
 at the realized inputs. The resulting value exceeds $e(\delta)$, so the final
 slot is relaxed to
 
 $$
-\widehat g_{1-\delta}^{\vee,\rm th}.
+g_{1-\delta}^{\vee,\rm th}.
 $$
 
 Thus the hard branch is summarized by the single decorated chain
 
 $$
 \boxed{
-[\widehat g_{1-\alpha}^{\vee,\,1-4\alpha}
+[g_{1-\alpha}^{\vee,\,1-4\alpha}
 \mid
-\widehat g_{1-m_3}^{\vee,\,1-5m_3}
+g_{1-m_3}^{\vee,\,1-5m_3}
 \mid
-\widehat g_{1-\delta}^{\vee,\rm th}](H)
+g_{1-\delta}^{\vee,\rm th}](H)
 >
 1-X.
 }
@@ -242,7 +242,7 @@ $$
 \mid
 \mathrm I
 \mid
-\widehat g_{1-\alpha}^{\vee,\rm th}
+g_{1-\alpha}^{\vee,\rm th}
 \mid
 \mathrm I](X)
 >
@@ -256,7 +256,7 @@ $$
 \boxed{
 [\mathrm I
 \mid
-\widehat g_{1-\delta}^{\vee,\rm th}
+g_{1-\delta}^{\vee,\rm th}
 \mid
 \mathrm I
 \mid
@@ -285,7 +285,7 @@ Thus every rank-one state is impossible, including singleton gaps.
 This state is CE2-only. V triangles $T_1,\ldots,T_5$ are nonsupercritical Vd0 V triangles,
 so the common two-gap theorem
 [`2110`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2110_common_CE2_two_gap_application.md)
-applies directly. It keeps the two endpoint hatted outgoing caps exact,
+applies directly. It keeps the two endpoint high-radial outgoing bounds exact,
 relaxes the three middle V triangles to $\mathrm I^3$, and invokes the paired
 endpoint loss `2108`.
 

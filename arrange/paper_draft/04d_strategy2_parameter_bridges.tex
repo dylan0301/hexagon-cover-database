@@ -44,17 +44,18 @@ orders additionally give
 which are precisely the extra inequalities defining \(\mathcal D_1\).
 \end{proof}
 
-For an endpoint record
-\(\mathbf e=(a_-,a_+,c_-,c_+)\), write
+Every radial demand in the one-gap, paired-gap, and returned-demand
+problems is strictly larger than $1/2$.  On this high-radial domain the exact
+function dictionary is therefore
+\[
+ F(c,x)=g_c(1-x),
+ \qquad
+ T(c,x)=g_c^\vee(x).
+\]
+For the endpoint records below,
 \[
  \mathrm{Cap}(\mathbf e)
- =\widehat g_{c_-}(1-a_-)+\widehat g_{c_+}(1-a_+).
-\]
-The exact function dictionary is
-\[
- F(c,x)=\widehat g_c(1-x),
- \qquad
- T(c,x)=\widehat g_c^\vee(x).
+ =g_{c_-}(1-a_-)+g_{c_+}(1-a_+).
 \]
 
 \begin{proposition}[Endpoint bridge]
@@ -81,7 +82,7 @@ and
 
 \begin{proof}
 Substitute the signed trace endpoints and complementary radial exits, then use
-\(F(c,x)=\widehat g_c(1-x)\).
+\(F(c,x)=g_c(1-x)\).
 \end{proof}
 
 \begin{proposition}[Returned-demand bridge]
@@ -136,8 +137,10 @@ The boundary endpoints and adjacent-radial interval are
  c_\star=\frac q\tau,\qquad
  u_\star=1+\beta-\tau.
 \]
-Every support-isolated endpoint record therefore determines a point of one
-cell in Definition~\ref{def:s2-t3-finite-union}.
+Every support-isolated endpoint record has $C_5>1/2$.  If
+$C_1\le1/2$, the right endpoint uses the direct Full bound $1-A_1$.  If
+$C_1>1/2$, the record determines a point of one cell in
+Definition~\ref{def:s2-t3-finite-union}.
 \end{proposition}
 
 \begin{proof}
@@ -151,23 +154,33 @@ translated Type-II equations.  With its original orientation parameter
 The translated side offset is \(\beta\), and direct substitution gives the
 four displayed endpoint formulas.  The center residual orders and the radial
 hit/miss orders are precisely the cells
-\(\mathcal R_i,\mathcal L_{\varepsilon,j},\mathcal K_h\).  The exact capped
-map supplies one contact cell for each endpoint in the hard region.
+\(\mathcal R_i,\mathcal L_{\varepsilon,j},\mathcal K_h\).
+
+The left endpoint demand is $C_5=1-a/w>1/2$ by
+Proposition~\ref{prop:s2-pure-domain-bounds}.  For the right endpoint, the
+branchwise transfer interface gives the direct value $1-A_1$ when
+$C_1\le1/2$; this is exactly the existing right-Full row of the complete
+$407X$ audit.  When $C_1>1/2$, the raw high-radial map supplies one of the
+four contact cells, and all defining inequalities of
+$\Omega_{\rm T3}$ are satisfied.
 \end{proof}
 
 \begin{proposition}[T3 objective bridge]
 \label{prop:s2-t3-objective-bridge}
-For the point \(\xi\in\Omega_{\rm T3}\) produced above,
+In the high-radial branch $C_1>1/2$, let
+$\xi\in\Omega_{\rm T3}$ be the point produced above.  Then
 \[
  \mathrm{Cap}(\mathbf e_{\rm T3})-1
  =\Psi_{\rm T3}(\xi).
 \]
+The complementary branch $C_1\le1/2$ is already the direct right-Full case
+and is not part of the optimization domain.
 \end{proposition}
 
 \begin{proof}
 The variables \(A_1,A_5\) are the far-side residual boundary demands, while
-\(C_1,C_5\) are the complementary radial demands.  Apply
-\(F(c,x)=\widehat g_c(1-x)\) to both endpoint terms.
+\(C_1,C_5\) are the complementary radial demands.  On the high-radial branch,
+apply \(F(c,x)=g_c(1-x)\) to both endpoint terms.
 \end{proof}
 
 \subsection{Adjacent-rescuer domains}

@@ -39,22 +39,15 @@ The local admissible set is
 \]
 For $a,c\in[0,1]$ put
 \[
- \begin{aligned}
- B_c(a)&=\max\{b:(a,b,c)\in\mathcal A\},\\
- F_c(a)&=\min\{B_c(a),1-a\},\\
- G_c(a)&=1-F_c(a).
- \end{aligned}
+ B_c(a)=\max\{b:(a,b,c)\in\mathcal A\}.
 \]
 \end{definition}
 
 The distinction between demands and actual reaches is important.  If a role
 has actual reaches $(A,B,C)$ and $A\ge a$, $C\ge c$, then $(a,B,c)$ is a
-demand triple realized by the same role.  If in addition $A+B\le1$, then
-\begin{equation}
- B\le F_c(a).
- \label{eq:safe-capped-bound}
-\end{equation}
-No assertion about the type of a maximizing triangle is required.
+demand triple realized by the same role.  The nonsupercritical restriction
+will be imposed below by two direct radial branches, not by a second
+extremal-map family.
 
 \begin{proposition}[Exact admissible set and radial envelope]
 \label{prop:exact-admissible-set}
@@ -151,7 +144,65 @@ root.  Solving the selected equations gives \eqref{eq:radial-envelope}.
 This also proves that $\mathcal A$ is coordinatewise down-closed.
 \end{proof}
 
-\subsection{The exact capped map}
+\subsection{Branchwise nonsupercritical output}
+
+For later contact-cell calculations retain the technical aliases
+\begin{equation}
+ F_c(a)=
+ \begin{cases}
+  1-a,&0\le c\le1/2,\\
+  B_c(a),&1/2<c\le1,
+ \end{cases}
+ \qquad
+ G_c(a)=1-F_c(a).
+ \label{eq:branchwise-safe-output}
+\end{equation}
+
+\begin{proposition}[Exact midpoint split]
+\label{prop:branchwise-safe-output}
+For every $a,c\in[0,1]$,
+\[
+ F_c(a)=\min\{B_c(a),1-a\}.
+\]
+If an actual role has reaches $(A,B,C)$ with
+\[
+ A\ge a,\qquad C\ge c,\qquad A+B\le1,
+\]
+then
+\begin{equation}
+ B\le F_c(a).
+ \label{eq:safe-capped-bound}
+\end{equation}
+Moreover,
+\[
+ F_c(a)=1-a\quad(c\le1/2),
+ \qquad
+ F_c(a)=B_c(a)\quad(c>1/2).
+\]
+\end{proposition}
+
+\begin{proof}
+First take $c\ge1/2$.  Any triangle realizing $(a,b,c)$ also contains the
+radial midpoint $(u+v)/2$, so Lemma~\ref{lem:self-midpoint} gives
+$a+b\le1$.  Hence $B_c(a)\le1-a$.
+
+At $c=1/2$, put $b=1-a$.  In
+Proposition~\ref{prop:exact-admissible-set}, one has $s=1$, $d\le1$,
+$q=ab\ge0$, and
+\[
+ F_T(a,b,1/2)=M(1/2-M)\le0,
+ \qquad M=\max\{a,b\}\ge1/2.
+\]
+The selector $1/2\le2M$ also holds, so $(a,1-a,1/2)\in\mathcal A$.
+Downward closure in the radial coordinate therefore gives
+$B_c(a)\ge1-a$ for every $c\le1/2$.  This proves the displayed formula for
+$F_c$ and the minimum identity.
+
+Finally, nonsupercriticality gives $B\le1-A\le1-a$, while admissibility gives
+$B\le B_c(a)$.  Thus $B\le F_c(a)$.
+\end{proof}
+
+\subsection{The exact high-radial map}
 
 For $1/2<c<1$ put
 \[
@@ -169,7 +220,7 @@ Also define
  {2ac^2+c+\sqrt{(2ac^2+c)^2-4(1-c^2)(1-a^2)c^2}}.
 \end{align*}
 
-\begin{proposition}[Four-label capped map]
+\begin{proposition}[Four-label high-radial map]
 \label{prop:capped-demand-map}
 For $1/2<c\le\sqrt3/2$,
 \begin{equation}
@@ -214,7 +265,7 @@ and extensive, and
 \end{proposition}
 
 \begin{proof}
-The cap $a+b\le1$ eliminates the $S$ cell of
+Because $c>1/2$, the midpoint threshold forces $a+b\le1$ and eliminates the $S$ cell of
 Proposition~\ref{prop:exact-admissible-set}.  On the cap $b=1-a$, the $T$
 inequality reduces to $M(c-M)\le0$; hence the Full face is feasible exactly
 for $a\le1-c$ or $a\ge c$.  Off that face a maximal point lies on $F_L=0$

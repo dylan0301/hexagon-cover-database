@@ -919,11 +919,12 @@ summary {
     return best ?? .58;
   }
 
-  function cappedOutgoingEnvelope(a, c) {
+  function branchwiseOutgoingEnvelope(a, c) {
     const full = 1 - a;
-    if (c <= .5 || c >= 1) {
+    if (c <= .5) return { b: full, label: "Full" };
+    if (c >= 1) {
       const raw = maxAdmissibleB(a, c);
-      return { b: Math.min(raw, full), label: raw >= full - 1e-8 ? "Full" : "L" };
+      return { b: raw, label: raw >= full - 1e-8 ? "Full" : "L" };
     }
     const h = 2 * c / (Math.sqrt(16 * c * c - 3) + 1);
     const tm = Math.sqrt(a * a - a * c + c * c) / c - a;
@@ -948,9 +949,9 @@ summary {
     return maxAdmissibleB(1 - clamp(x, 0, 1), clamp(c, 0, 1));
   }
 
-  function cappedDefectTransfer(x, c) {
+  function branchwiseDefectBound(x, c) {
     const defect = clamp(x, 0, 1);
-    return Math.min(rawDefectTransfer(defect, c), defect);
+    return c <= .5 ? defect : rawDefectTransfer(defect, c);
   }
 
   function complementDual(map, a) {
@@ -961,8 +962,8 @@ summary {
     return complementDual(x => rawDefectTransfer(x, c), a);
   }
 
-  function cappedReachTransfer(a, c) {
-    return complementDual(x => cappedDefectTransfer(x, c), a);
+  function branchwiseReachTransfer(a, c) {
+    return complementDual(x => branchwiseDefectBound(x, c), a);
   }
 
   function freeSupercriticalEnvelope(c) {
@@ -1187,7 +1188,7 @@ summary {
             title: `${ce}: isolate the ${side} T3-like support and its exact endpoint demand.`,
             source: PATHS.f2,
             reflect: `f2-${ce.toLowerCase()}-${support === "r1" ? "r5" : "r1"}-${hit}`,
-            steps: ["Place exact center", "Translate T₀ to T3-like normal form", "Isolate selected support", "Place universal endpoint comparator", "Apply strict capped output"]
+            steps: ["Place exact center", "Translate T₀ to T3-like normal form", "Isolate selected support", "Place universal endpoint comparator", "Apply strict branchwise output"]
           });
         });
       });
@@ -1629,7 +1630,7 @@ summary {
     if (options.supercritical && !options.locked) state.params[paramKey] = a;
     const map = options.supercritical
       ? { b: maxAdmissibleB(a, c), label: "g_c(1−a)" }
-      : cappedOutgoingEnvelope(a, c);
+      : branchwiseOutgoingEnvelope(a, c);
     const b = map.b;
     const actualA = a;
     const tri = enclosingUnitTriangle(actualA, b, c);
@@ -1641,7 +1642,7 @@ summary {
     addTriangle(points, role, step, `K${subscript(side)} enclosure`, {
       note: options.supercritical
         ? `${label} selected supercritical demand · a+b=${n(actualA + b)}`
-        : `${label} selected demand · ĝ_c label ${map.label}`
+        : `${label} selected demand · branchwise label ${map.label}`
     });
     if (!options.locked) {
       const contact = options.reflected ? affineToScreen(side, 0, actualA) : affineToScreen(side, actualA, 0);
@@ -2149,8 +2150,8 @@ summary {
       let outgoing = 1 - exactInput;
       let proofOutgoing = 1 - input;
       if (["exact", "identity", "affine", "threshold", "audit"].includes(slot.type)) {
-        exact = cappedReachTransfer(exactInput, slot.c);
-        proofExact = cappedReachTransfer(input, slot.c);
+        exact = branchwiseReachTransfer(exactInput, slot.c);
+        proofExact = branchwiseReachTransfer(input, slot.c);
         outgoing = 1 - exact;
         proofOutgoing = 1 - proofExact;
         if (slot.type === "exact" || slot.type === "audit") {
@@ -2221,7 +2222,7 @@ summary {
         row, dir: 1, c: demands[row], type: "identity", symbol: "I", short: "I"
       }));
       equation = "[I | I | I | I | I | I](A<sub>0</sub>) = A<sub>0</sub>, while strict handoffs require A<sub>0</sub>&lt;⋯&lt;A<sub>0</sub>.";
-      note = "I is the retained lower relaxation ĝ_c^∨(a)≥a for nonsupercritical rows; at c=0 only the hatted map, not raw g₀, is the identity.";
+      note = "I is the direct nonsupercritical propagation A_next≥A; no transfer map is needed in this cell.";
     } else if (id === "4013-gr1") {
       const a5 = center.k / center.R;
       const a1 = center.R - center.delta;
@@ -2230,26 +2231,26 @@ summary {
       const direction = reflected ? 1 : -1;
       start = a5;
       slots = [
-        { row: shown(5), dir: direction, c: c5, type: "exact", symbol: "ĝc₅∨", short: "ĝ∨" },
+        { row: shown(5), dir: direction, c: c5, type: "exact", symbol: "gc₅∨", short: "g∨" },
         { row: shown(4), dir: direction, c: demands[4], type: "identity", symbol: "I", short: "I" },
         { row: shown(3), dir: direction, c: demands[3], type: "identity", symbol: "I", short: "I" },
         { row: shown(2), dir: direction, c: demands[2], type: "identity", symbol: "I", short: "I" },
-        { row: shown(1), dir: direction, c: c1, inputOverride: a1, type: "exact", symbol: "ĝc₁∨", short: "ĝ∨", breakBefore: true }
+        { row: shown(1), dir: direction, c: c1, inputOverride: a1, type: "exact", symbol: "gc₁∨", short: "g∨", breakBefore: true }
       ];
-      equation = "ĝ<sub>c₅</sub>(1−a₅) + ĝ<sub>c₁</sub>(1−a₁) &lt; 1, with the center-free middle path retained as I³.";
+      equation = "g<sub>c₅</sub>(1−a₅) + g<sub>c₁</sub>(1−a₁) &lt; 1, with the center-free middle path retained as I³.";
       note = "The two endpoint caps are exact; only the three intervening nonsupercritical handoffs use identity relaxation.";
     } else if (id === "2110-gr2") {
       const p = center.W - center.alpha;
       const q = center.R - center.delta;
       start = p;
       slots = [
-        { row: 5, dir: -1, c: p / center.W, type: "exact", symbol: "ĝp/W∨", short: "ĝ∨" },
+        { row: 5, dir: -1, c: p / center.W, type: "exact", symbol: "gp/W∨", short: "g∨" },
         { row: 4, dir: -1, c: demands[4], type: "identity", symbol: "I", short: "I" },
         { row: 3, dir: -1, c: demands[3], type: "identity", symbol: "I", short: "I" },
         { row: 2, dir: -1, c: demands[2], type: "identity", symbol: "I", short: "I" },
-        { row: 1, dir: -1, c: q / center.R, inputOverride: q, type: "exact", symbol: "ĝq/R∨", short: "ĝ∨", breakBefore: true }
+        { row: 1, dir: -1, c: q / center.R, inputOverride: q, type: "exact", symbol: "gq/R∨", short: "g∨", breakBefore: true }
       ];
-      equation = "ĝ<sub>p/W</sub>(1−p) + ĝ<sub>q/R</sub>(1−q) &lt; 1, with the common CE2 paired-endpoint theorem and I³ interior.";
+      equation = "g<sub>p/W</sub>(1−p) + g<sub>q/R</sub>(1−q) &lt; 1, with the common CE2 paired-endpoint theorem and I³ interior.";
       note = "This is the same paired theorem for N₊=0 and N₊=1; the displayed decimals are a numerical evaluation of the exact maps.";
     } else if (id === "407x-audit") {
       const t3 = state.lastT3 || { A5: .3, A1: .4, C5: .8, C1: .8 };
@@ -2262,7 +2263,7 @@ summary {
         { row: shown(2), dir: direction, c: demands[2], type: "identity", symbol: "I", short: "I" },
         { row: shown(1), dir: direction, c: t3.C1, inputOverride: t3.A1, type: "audit", symbol: "four labels", short: "audit", breakBefore: true }
       ];
-      equation = "ĝ<sub>C₅</sub>(1−A₅) + ĝ<sub>C₁</sub>(1−A₁) &lt; 1; each endpoint is audited exactly in {L, T₋, T₊<sup>hi</sup>, Full}.";
+      equation = "The two branchwise endpoint contributions sum to less than 1; each endpoint is audited in {L, T₋, T₊<sup>hi</sup>, Full}.";
       note = "407X is an irreducible four-label endpoint audit, not a generic numerical replacement; the middle rows alone retain I³.";
     } else if (id === "4106-ce1" || id === "4107-ce2") {
       const c = [
@@ -2293,14 +2294,14 @@ summary {
         c: radial,
         type: types[index],
         symbol: types[index] === "identity" ? "I"
-          : types[index] === "affine" ? "ĝ∨,λ"
-            : "ĝ∨,th",
+          : types[index] === "affine" ? "g∨,λ"
+            : "g∨,th",
         short: types[index] === "identity" ? "I" : types[index] === "affine" ? "aff" : "th",
         ...(decorations[index] || {})
       }));
       equation = id === "4106-ce1"
-        ? "Z=[ĝ<sub>c₁</sub><sup>∨</sup>|⋯|ĝ<sub>c₅</sub><sup>∨</sup>](X)&gt;1−H; retain I | ĝ<sup>∨,th</sup> | ĝ<sup>∨,λ₃</sup> | ĝ<sup>∨,λ₄</sup> | I."
-        : "Z=[ĝ<sub>c₁</sub><sup>∨</sup>|⋯|ĝ<sub>c₅</sub><sup>∨</sup>](X)&gt;1−H; at least one of the α/δ threshold alternatives fires, all other slots retain I.";
+        ? "Z=[g<sub>c₁</sub><sup>∨</sup>|⋯|g<sub>c₅</sub><sup>∨</sup>](X)&gt;1−H; retain I | g<sup>∨,th</sup> | g<sup>∨,λ₃</sup> | g<sup>∨,λ₄</sup> | I."
+        : "Z=[g<sub>c₁</sub><sup>∨</sup>|⋯|g<sub>c₅</sub><sup>∨</sup>](X)&gt;1−H; at least one of the α/δ threshold alternatives fires, all other slots retain I.";
       note = `Exact five-map interface: X=${n(X)}, H=${n(H)}. Proof mode shows certified lower relaxations at the same rows.`;
     } else if (id === "4132-rescuer") {
       const sourceRow = scene.family === 4 ? shown(1) : scene.sigma;
@@ -2349,7 +2350,7 @@ summary {
           { row: armRow, armRow, dir: direction, c: quarterLimit, limit: quarterLimit, centerEntry, slack, slackSymbol, A, H: Hres, inputOverride: .5 + A, type: "quarter-bridge", symbol: `c_${armRow},max`, short: "¼" }
         ];
         equation = `${residualEquation}; I⁴ propagates H. Then u<sub>${scene.tau}→${armRow}</sub>&lt;1−H&lt;1−${slackSymbol}=q<sub>${armRow}</sub> and c<sub>${armRow}</sub>≤c<sub>max</sub>(1/2+A,H)≤1−H/4&lt;q<sub>${armRow}</sub>.`;
-        note = `Exact residual evaluation of the illustrative preset: A=${n(A)}, H=${n(Hres)}. The last two slots are the Vd bridge margin and the quarter-radial envelope, not ĝ transfers.`;
+        note = `Exact residual evaluation of the illustrative preset: A=${n(A)}, H=${n(Hres)}. The last two slots are the Vd bridge margin and the quarter-radial envelope, not g transfers.`;
       }
     } else if (id === "4146-nonadjacent") {
       const direction = scene.tau <= 3 ? 1 : -1;
@@ -2383,7 +2384,7 @@ summary {
           { row: scene.tau, dir: direction, c: radialDemand(scene.tau), inputOverride: Math.min(A, Hres), type: "radial", symbol: "Vd radial", short: "rad" }
         ];
         equation = "A=ℛ<sub>I_R</sub>(b₀) and H=ℛ<sub>I_L</sub>(a₀) propagate from opposite sides to a<sub>τ</sub>≥A and b<sub>τ</sub>≥H; then d<sub>τ</sub><sup>C</sup>&lt;min{A,H} and c<sub>τ</sub>&lt;1−min{A,H}.";
-        note = `Exact residual evaluation of the illustrative preset: A=${n(A)}, H=${n(Hres)}. The terminal is the Vd-type-specific radial separation of 4146, not a universal ĝ bound.`;
+        note = `Exact residual evaluation of the illustrative preset: A=${n(A)}, H=${n(Hres)}. The terminal is the Vd-type-specific radial separation of 4146, not a universal g bound.`;
       }
     } else {
       const replacement = state.lastReplacement;
@@ -2596,7 +2597,7 @@ summary {
   }
 
   function auditLabel(slot) {
-    const label = cappedOutgoingEnvelope(slot.input, slot.c).label;
+    const label = branchwiseOutgoingEnvelope(slot.input, slot.c).label;
     return label === "T₊" || label === "T₊ = T₋" ? "T₊ʰⁱ" : label;
   }
 
@@ -2641,18 +2642,18 @@ summary {
       stateParts = [
         `T${subscript(slot.row)} exact audit label: ${auditLabel(slot)}`,
         `selected K(${n(slot.input)}, ${n(slot.outgoing)}, ${n(slot.c)})`,
-        `exact outgoing cap, numerically evaluated: ĝ_c(1−${n(slot.input)})=${n(slot.outgoing)}`,
+        `exact branchwise output, numerically evaluated: F_c(${n(slot.input)})=${n(slot.outgoing)}`,
         "inventory: L, T₋, T₊ʰⁱ, Full"
       ];
     } else if (slot.type === "residual") {
       stateParts = [
         `T${subscript(slot.row)} receives the exact residual seed ℛ_J(p)=${n(slot.input)}`,
-        "This slot is an interval-component handoff, not a ĝ evaluation."
+        "This slot is an interval-component handoff, not a g evaluation."
       ];
     } else if (slot.type === "radial") {
       stateParts = [
         `T${subscript(slot.row)}: d_τ^C<min{A,H} and c_τ<1−min{A,H}`,
-        "This terminal is the Vd-specific radial margin, not a ĝ evaluation."
+        "This terminal is the Vd-specific radial margin, not a g evaluation."
       ];
     } else if (slot.type === "prerequisite") {
       stateParts = [
@@ -2664,33 +2665,33 @@ summary {
       stateParts = [
         `free envelope: g_c^sc(${n(slot.c)})=${n(slot.outgoing)}`,
         `strict center-free source seed: A_next>1−g_c^sc=${n(slot.retained)}`,
-        "the supremum is not attained; this is not a ĝ evaluation"
+        "the supremum is not attained; this is not a g evaluation"
       ];
     } else if (slot.type === "super-terminal") {
       stateParts = [
         `terminal cap: g_c^sc=${n(slot.cap)}`,
         "the retained identity path is compared with the strict inequality b_tail<g_c^sc",
-        "this cap is not a ĝ evaluation or a selected-demand enclosure"
+        "this cap is not a g evaluation or a selected-demand enclosure"
       ];
     } else if (slot.type === "vd-bridge") {
       stateParts = [
         `r${subscript(slot.armRow)}: u_${scene.tau}→${slot.armRow}<1−H=${n(slot.limit)}`,
         `center begins at q${subscript(slot.armRow)}=1−${slot.slackSymbol}=${n(slot.centerEntry)}`,
         `certified open gap=${n(slot.centerEntry - slot.limit)}`,
-        "This is the 201c supported-arm margin, not a ĝ evaluation."
+        "This is the 201c supported-arm margin, not a g evaluation."
       ];
     } else if (slot.type === "quarter-bridge") {
       stateParts = [
         `r${subscript(slot.armRow)}: c${subscript(slot.armRow)}≤c_max(1/2+A,H)≤1−H/4=${n(slot.limit)}`,
         `center begins at q${subscript(slot.armRow)}=1−${slot.slackSymbol}=${n(slot.centerEntry)}`,
         `certified open gap=${n(slot.centerEntry - slot.limit)}`,
-        "This is the 201b quarter radial envelope, not a ĝ evaluation."
+        "This is the 201b quarter radial envelope, not a g evaluation."
       ];
     } else {
       stateParts = state.overlayMode === "exact"
         ? [
             `T${subscript(slot.row)}: K(${n(slot.exactInput)}, ${n(slot.outgoing)}, ${n(slot.c)})`,
-            `exact ĝ_c^∨(${n(slot.exactInput)})=${n(slot.exact)}`
+            `exact g_c^∨(${n(slot.exactInput)})=${n(slot.exact)}`
           ]
         : state.overlayMode === "proof"
           ? [
@@ -2699,7 +2700,7 @@ summary {
               `local discarded interval=${n(slot.gap)}`
             ]
           : [
-              `exact chain: ĝ_c^∨(${n(slot.exactInput)})=${n(slot.exact)}`,
+              `exact chain: g_c^∨(${n(slot.exactInput)})=${n(slot.exact)}`,
               `retained chain: ${slot.symbol}(${n(slot.input)})=${n(slot.retained)}`,
               `local discarded interval=${n(slot.gap)}`
             ];
@@ -2741,7 +2742,7 @@ summary {
   function roleClassLabel(scene) {
     if (scene.family === 1) return scene.gap === "no" ? "open-boundary overlap" : "Vd0 endpoint loss";
     if (scene.family === 2) return "T3-like support";
-    if (scene.family === 3) return scene.gap === "two" ? "paired endpoint loss" : "five-V-triangle ĝ∨ chain";
+    if (scene.family === 3) return scene.gap === "two" ? "paired endpoint loss" : "five-V-triangle g∨ chain";
     if (scene.family === 4) return "T3-like + supercritical";
     return `${scene.type} placement`;
   }
@@ -2776,7 +2777,7 @@ summary {
       if (state.currentCertificate?.slots.some(slot => slot.type === "prerequisite")) chips.push({ text: "preset closes at A+H≥1/2", cls: "relax" });
     }
     const mapLabels = [...new Set(results.map(result => result?.label).filter(Boolean))];
-    if (mapLabels.length) chips.push({ text: `exact ĝ label${mapLabels.length > 1 ? "s" : ""}: ${mapLabels.join(" / ")}`, cls: "" });
+    if (mapLabels.length) chips.push({ text: `exact branchwise label${mapLabels.length > 1 ? "s" : ""}: ${mapLabels.join(" / ")}`, cls: "" });
     $("chips").innerHTML = chips.map(chip => `<span class="chip ${chip.cls}">${chip.text}</span>`).join("");
 
     $("stepCount").textContent = `${state.step + 1} / ${scene.steps.length}`;
@@ -2802,7 +2803,7 @@ summary {
     if (first?.a !== undefined) {
       data.push(["demand", `(a,b,c)=(${n(first.a)}, ${n(first.b)}, ${n(first.c)})`]);
       data.push(["comparison enclosure", `${first.contact}; Λ(K)=${n(first.minSide, 6)}`]);
-      data.push(["exact ĝ label", first.label]);
+      data.push(["exact branchwise label", first.label]);
     }
     if (scene.family === 5) data.push(["placement", `(σ,τ)=(${scene.sigma},${scene.tau}) · ${scene.type}`]);
     if (scene.family === 2 && state.lastT3) {
@@ -2857,10 +2858,10 @@ summary {
     familyCounts: FAMILIES.map(f => SCENES.filter(s => s.family === f.id).length),
     lMin,
     rawDefectTransfer,
-    cappedDefectTransfer,
+    branchwiseDefectBound,
     complementDual,
     rawReachTransfer,
-    cappedReachTransfer,
+    branchwiseReachTransfer,
     freeSupercriticalEnvelope,
     centerData,
     projectCenterDelta,

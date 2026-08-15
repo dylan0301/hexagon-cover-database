@@ -184,7 +184,7 @@ Canonical names are:
 - `H`, `O`, `V_i`, `e_{i,i+1}`, `r_i`, `M_i`;
 - `gr` for active-gap rank;
 - `mathcal A` for the local admissible set;
-- `g_c`, `widehat g_c`, `f^vee`, and `mathcal R_J` for transfers;
+- `g_c`, `f^vee`, and `mathcal R_J` for transfers; for a known nonsupercritical role use `B<=1-A` directly when `c<=1/2`, and use the raw `g_c` transfer when `c>1/2`;
 - `d_i^C` for a center exit and `c_i^C=1-d_i^C` for its complementary
   vertex-side demand; lowercase `c_i` remains a selected V triangle demand;
 - `m_3=d_3^C` for the local CE1 affine-slot scalar; bare `m` remains the
@@ -202,8 +202,10 @@ Technical aliases `B_c,F_c,G_c` may remain in exact-demand calculations.
 
 1. **Actual versus selected criticality.** Never infer `N_+` from selected
    demands except through strict-handoff selection.
-2. **Raw versus capped zero-radial map.** `g_0(x)>x`, while
-   `widehat g_0(x)=x` for `0<x<1`.
+2. **Branchwise nonsupercritical transfer.** The midpoint threshold gives
+   `g_c(x)<=x` for `c>=1/2` and `g_{1/2}=I`.  At low radial demand use
+   `B<=1-A` directly; in particular `g_0(x)>x` for `0<x<1`, so raw `g_0`
+   must not be used for identity propagation.
 3. **Outgoing versus following demand.** `B<g_c^{sc}` is unconditional for a
    strict-supercritical V triangle; `A_next>1-g_c^{sc}` additionally requires a
    center-free outgoing edge.

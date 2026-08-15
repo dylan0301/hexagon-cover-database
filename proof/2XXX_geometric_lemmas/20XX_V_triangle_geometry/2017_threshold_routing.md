@@ -1,10 +1,10 @@
-# Exact Threshold Routing for Capped Demand Chains
+# Exact Threshold Routing for High-Radial Demand Chains
 
 Status: Proven
 
 This note isolates the branch-independent routing principle used by the CE1,
 CE2, and T3-like Strategy 2 arguments.  Once an actual-V triangle demand crosses one
-low-root threshold, the corresponding capped map produces a high output and
+low-root threshold, the corresponding high-radial map produces a high output and
 all later extensive maps preserve it.  The statement prevents unnecessary
 expansion of a full five-map composition after the decisive threshold has
 already been crossed.
@@ -172,7 +172,7 @@ $$
 A_i+B_i\le1.
 $$
 
-The proof-safe capped-map theorem in
+The proof-safe branchwise-output theorem in
 [`2011_capped_demand_map.md`](2011_capped_demand_map.md) gives
 
 $$
