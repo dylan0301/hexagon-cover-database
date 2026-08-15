@@ -80,7 +80,6 @@ Gram reductions, Bernstein data, code listings, or run logs.
 ```text
 01_introduction.tex
 02_reader_framework.tex
-02c_strategy2_skeleton_atlas.tex
 03_strategy1_reader.tex
 04_strategy2_summary.tex
 05_strategy3_reader.tex
@@ -91,8 +90,6 @@ Gram reductions, Bernstein data, code listings, or run logs.
 - `01_introduction.tex`: theorem, roles, notation, routing table, proof flow.
 - `02_reader_framework.tex`: structural interface, explicit admissible set,
   corrected transfer alphabet, signed center interface.
-- `02c_strategy2_skeleton_atlas.tex`: modular full-skeleton figures for every
-  transfer and signed-center definition.
 - `03_strategy1_reader.tex`: trace register, complete master-deficit
   hypotheses, Strategy 1 routes.
 - `04_strategy2_summary.tex`: exact endpoint and five-V-triangle certificates,
@@ -258,11 +255,7 @@ check.
 ## 8. Figures
 
 The body should retain figures for the role geometry, perimeter/skeleton
-targets, local demand hull, transfer chain, area loss, and Strategy 4 witness.
-The modular Strategy 2 notation atlas belongs directly after the transfer and
-signed-center definitions in the body.  Every Strategy 2 notation panel should
-use the full hexagon skeleton as its geometric frame and remain in an
-independent TikZ source so that panels can be removed separately.
+targets, local demand hull, area loss, and Strategy 4 witness.
 A schematic caption must state when a figure is not to scale or is not itself
 an inequality proof.
 

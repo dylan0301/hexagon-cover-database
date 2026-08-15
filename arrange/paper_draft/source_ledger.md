@@ -28,7 +28,6 @@ calculation lemma without the appendices and incorporated supplements.
 | `main.tex` | AMS assembly and body/appendix split |
 | `01_introduction.tex` | theorem, roles, definitions, routing table, role figure |
 | `02_reader_framework.tex` | structural, admissible-set, transfer, signed-center interfaces |
-| `02c_strategy2_skeleton_atlas.tex` | modular full-skeleton dictionary for the transfer and signed-center interfaces |
 | `03_strategy1_reader.tex` | trace-cap register and terminal trace sums |
 | `04_strategy2_summary.tex` | complete branch hypotheses and certificate register |
 | `05_strategy3_reader.tex` | area-loss register and cyclic sums |
@@ -56,11 +55,6 @@ calculation lemma without the appendices and incorporated supplements.
 
 The body-end label remains immediately before `\appendix`.  The body has no
 fixed page cap; its page number is recorded after each complete build.
-
-The illustrated Strategy 2 atlas is explanatory only.  Its 32 modular panels
-are grounded in the regular hexagon skeleton and occur in the reader-facing
-body beside the corresponding mathematical definitions; any non-metric
-placement is explicitly marked schematic.
 
 ## 3. Repairs made after the validity audit
 
