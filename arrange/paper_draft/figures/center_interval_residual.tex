@@ -3,9 +3,9 @@
     {(b) the center-assisted residual on a skeleton edge};
 
   \foreach \sx/\pt/\et/\case/\formula in {
-    1.85/.25/.25/{p<L}/{1-p},
-    6.00/.58/.72/{L\le p<U}/{1-U},
-    10.15/.86/.86/{p\ge U}/{1-p}
+    1.25/.25/.25/{p<L}/{1-p},
+    4.25/.58/.72/{L\le p<U}/{1-U},
+    7.25/.86/.86/{p\ge U}/{1-p}
   }{
     \begin{scope}[shift={(\sx,.65)},scale=1.08]
       \HexCoords
@@ -24,26 +24,22 @@
       \fill[DemandRed] (Pp) circle (.75pt);
       \fill[black!65] (Pe) circle (.7pt);
 
-      \node[figlabel,above right,text=DemandRed]
-        at ($(V0)!.52!(Pp)$) {$p$};
-      \node[figlabel,above,text=CenterBlue]
-        at ($(PL)!.50!(PU)$) {$J=[L,U]$};
-      \node[figlabel,text=black!60,fill=white,inner sep=.35pt]
-        at ($(V0)!.50!(Pe)+(-.22,-.12)$) {$e_J(p)$};
-      \node[figlabel,anchor=east,align=right,text=RadialTeal]
-        at ($(V1)+(-.06,.25)$)
-        {$\mathcal R_J(p)=1-e_J(p)$};
-      \node[figlabel,below] at (0,-1.55)
-        {$\case:\quad\mathcal R_J(p)=\formula$};
+      \node[figlabel,below,align=center] at (0,-1.42)
+        {$\case$\\[-.15ex]
+         $\mathcal R_J(p)=\formula$};
     \end{scope}
   }
 
-  \node[figlabel,align=center] at (6.00,-1.78)
-    {\textcolor{DemandRed}{Red is the initial reach \(p\)};
-     \textcolor{CenterBlue}{blue is \(J=[L,U]\)};
-     \textcolor{black!60}{gray is the attached component ending at \(e_J(p)\)};
-     \textcolor{RadialTeal}{teal is the residual length}.\\
-     In the low-radial nonsupercritical branch use \(p=1-a\);
+  \node[figlabel,atlasbox,anchor=west] at (8.85,.65)
+    {\begin{tabular}{@{}c@{\quad}l@{}}
+       \textcolor{DemandRed}{\rule{.42cm}{1.35pt}} & initial reach \(p\)\\
+       \textcolor{CenterBlue}{\rule{.42cm}{1.25pt}} & center interval \(J=[L,U]\)\\
+       \textcolor{black!60}{\rule{.42cm}{2.8pt}} & attached component \([0,e_J(p)]\)\\
+       \textcolor{RadialTeal}{\rule{.42cm}{1.35pt}} & residual \(\mathcal R_J(p)=1-e_J(p)\)
+     \end{tabular}};
+
+  \node[figlabel,align=center] at (6.65,-1.78)
+    {In the low-radial nonsupercritical branch use \(p=1-a\);\\
      in the high-radial branch use \(p=g_c(1-a)\), which gives
      \(g_{c,J}^{\vee}(a)\).};
 \end{tikzpicture}
