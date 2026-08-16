@@ -11,16 +11,22 @@ registries are kept in the repository but are not repeated in the printed
 article.
 
 \begingroup
-\let\section\subsection
-\let\subsection\subsubsection
-\let\subsubsection\paragraph
+\let\PrintedSubsection\subsection
+\let\PrintedSubsubsection\subsubsection
+\let\PrintedParagraph\paragraph
+\let\section\PrintedSubsection
+\renewcommand{\subsection}[1]{\PrintedSubsubsection{#1}\leavevmode\par}
+\renewcommand{\subsubsection}[1]{\PrintedParagraph{#1}\leavevmode\par}
 \input{02a_universal_calculus}
 \endgroup
 
 \begingroup
-\let\section\subsection
-\let\subsection\subsubsection
-\let\subsubsection\paragraph
+\let\PrintedSubsection\subsection
+\let\PrintedSubsubsection\subsubsection
+\let\PrintedParagraph\paragraph
+\let\section\PrintedSubsection
+\renewcommand{\subsection}[1]{\PrintedSubsubsection{#1}\leavevmode\par}
+\renewcommand{\subsubsection}[1]{\PrintedParagraph{#1}\leavevmode\par}
 \input{04c_short_Vd_placements}
 \endgroup
 
