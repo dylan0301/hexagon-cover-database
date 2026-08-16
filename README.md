@@ -8,7 +8,7 @@ experiments, empirical notes, and failed approaches.
 The main theorem is proved in
 [`proof/0XXX_main/0000_main_theorem.md`](proof/0XXX_main/0000_main_theorem.md),
 which assembles the exhaustive CE and $N_+$ branches from their numbered
-terminal sources. The corpus also retains unfinished alternative strategies,
+final sources. The corpus also retains unfinished alternative strategies,
 empirical notes, and failed approaches; their local status labels remain
 authoritative and they are not dependencies of the proved assembly.
 
@@ -57,102 +57,81 @@ branch and the combined CE1/CE2 branch.
 
 ## Unified Proof Architecture
 
-The manuscript and active proof packages use three certificate classes,
-retained as four named strategies for geometric readability:
+The manuscript uses four geometric methods:
 
-1. **additive deficits:** boundary or conditional-skeleton length, and
-   normalized area loss;
-2. **isotone transfer:** compositions of one decorated $g$-family;
-3. **convex support:** the equilateral enclosure gauge applied to the forced
-   nine-point witness set.
+1. trace-length bounds on the perimeter or the full skeleton;
+2. propagation of boundary-reach lower bounds;
+3. normalized area-loss estimates;
+4. an equilateral-enclosure obstruction for nine points forced into the
+   center triangle.
 
-The canonical transfer notation uses one raw family:
-
-$$
-g_c(x)
-=
-\max\left\{
-y:(1-x,y,c)\in\mathcal A
-\right\}.
-$$
-
-Here $x$ is incoming boundary defect. For any map $f$, put
+For a vertex triangle, let $A,B,C$ be its maximal backward, forward, and
+radial reaches. The local admissible set $\mathcal A$ determines
 
 $$
-f^\vee(a)=1-f(1-a).
+M_c(a)=\max\{b:(a,b,c)\in\mathcal A\},
 $$
 
-For a V triangle already known to be nonsupercritical, the outgoing bound is
-written directly in two radial branches:
+the maximum possible forward reach when the backward and radial reaches are
+at least $a$ and $c$. For a nonsupercritical triangle, define
 
 $$
-B\le
+\overline M_c(a)=\min\{M_c(a),1-a\},
+\qquad
+\Phi_c(a)=1-\overline M_c(a).
+$$
+
+The midpoint theorem gives the exact branch split
+
+$$
+\overline M_c(a)=
 \begin{cases}
 1-a,&0\le c\le1/2,\\
-g_c(1-a),&1/2<c\le1.
+M_c(a),&1/2<c\le1.
 \end{cases}
 $$
 
-The midpoint threshold gives $g_c(x)\le x$ for $c\ge1/2$ and
-$g_{1/2}=\mathrm I$.  Thus the low-radial branch uses the elementary
-inequality $B\le1-A$, while the high-radial branch uses the raw transfer
-$g_c^\vee$.  Center intervals use $\mathcal R_J(1-a)$ in the low branch and
-$g_{c,J}^\vee$ in the high branch.  No second transfer family is needed.
+Hence a center-free edge propagates the next backward-reach lower bound
+$A_{\mathrm{next}}\ge\Phi_c(a)$. If a center interval occurs on the edge, its
+covered component is included before taking the uncovered suffix. The
+strict-supercritical forward envelope is denoted $M_c^{\rm sup}$.
 
-The free strict-supercritical outgoing envelope remains
-
-$$
-g_c^{\rm sc}
-=
-\sup_{\{x:g_c(x)>x\}}g_c(x).
-$$
-
-Affine selected-$T_+$ and threshold relaxations are decorated versions of the
-high-radial raw transfer $g_c^\vee$.
-
-At zero radial demand,
+The exact calculation files retain the technical aliases
 
 $$
-g_0(x)>x\quad(0<x<1).
-$$
-
-Therefore a nonsupercritical zero-radial handoff must use $B\le1-A$
-directly; the raw map $g_0$ points in the wrong direction.
-
-The exact contact-cell files may retain the technical aliases
-
-$$
-B_c(a)=g_c(1-a),
-$$
-
-$$
-F_c(a)=
-\begin{cases}
-1-a,&c\le1/2,\\
-B_c(a),&c>1/2,
-\end{cases}
+g_c(x)=M_c(1-x),
 \qquad
-G_c(a)=1-F_c(a),
+g_c^\vee(a)=1-M_c(a),
 $$
 
-when they shorten branchwise algebra.
+and
 
-The existing Strategy 1 routing remains separate in the paper even when its
-length bounds can be viewed as coarse transfer envelopes.
+$$
+B_c(a)=M_c(a),
+\qquad
+F_c(a)=\overline M_c(a),
+\qquad
+G_c(a)=1-F_c(a).
+$$
 
-The universal local layer is:
+At zero radial lower bound, $g_0(x)>x$ for $0<x<1$. Therefore the low-radial
+nonsupercritical step uses $B\le1-A$ directly rather than the raw technical
+alias. The high-radial algebraic calculation has four formula branches: the
+linear branch, the selected $Q_+$ branch, the constant branch, and the
+selected $Q_-$ branch.
 
-- [`2019`](proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2019_interval_component_and_path_budget.md): interval residuals, generalized handoffs, and boundary-path budgets;
-- [`201d`](proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md): the canonical raw $g$-family, branchwise nonsupercritical transfer, complement duals, free-supercritical envelope, and relaxed composition;
-- [`201a`](proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201a_equilateral_enclosure_and_radical_calculus.md): one enclosure gauge, one equilateral radical, and the four-frontier atlas;
+The reusable local sources are:
+
+- [`2019`](proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2019_interval_component_and_path_budget.md): center-assisted suffixes and the center-free boundary-path bound;
+- [`201d`](proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md): technical $g$ aliases and relaxed composition;
+- [`201a`](proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201a_equilateral_enclosure_and_radical_calculus.md): the enclosure gauge and universal equilateral radical;
 - [`201b`](proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201b_quarter_radial_envelope.md): the global quarter radial envelope;
-- [`201c`](proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201c_Vd_corner_radial_margins.md): the two Vd corner radial margins;
-- [`2110`](proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2110_common_CE2_two_gap_application.md): one common application of the CE2 paired-endpoint theorem.
+- [`201c`](proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201c_Vd_corner_radial_margins.md): the Vd corner radial inequalities;
+- [`2110`](proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2110_common_CE2_two_gap_application.md): the common CE2 paired-endpoint application.
 
-For CE1/CE2 all-Vd0 branches, the active proof is organized by the actual V triangle
-count $N_+\in\{0,1\}$ and the active-gap rank
-$\mathrm{gr}\in\{0,1,2\}$. The two $\mathrm{gr}=2$ cells share the same
-paired-endpoint theorem.
+For the all-Vd0 CE1/CE2 cases, $N_+$ counts supercritical vertex triangles and
+$N_{\rm gap}$ counts positive center traces containing a boundary gap. The two
+$N_{\rm gap}=2$ cases use the same paired-endpoint inequality.
 
 ## Interactive Navigation
 
@@ -163,7 +142,7 @@ certificates and do not establish or change proof status.
 | Interactive page | Scope | Status |
 |---|---|---|
 | [`strategy2demo.html`](interactive/strategy2demo.html) | Combined Strategy 2 geometry and certificate-overlay explorer, covering the five proof families and their canonical $g$-transfer chains | Reference |
-| [`strategy2notation.html`](interactive/strategy2notation.html) | Interactive Strategy 2 notation lab for roles, reaches, the decorated $g$-family, composition, center data, and branch routing | Reference |
+| [`strategy2notation.html`](interactive/strategy2notation.html) | Interactive Strategy 2 notation lab for the canonical triangle labeling, reaches, propagation functions, signed-center data, and case routing | Reference |
 | [`strategy4demo.html`](interactive/strategy4demo.html) | Strategy 4 mechanism explorer for the direct nine-point obstruction | Reference |
 
 ### Preview in GitHub Codespaces
@@ -218,14 +197,14 @@ when its source file says `Status: Proven`.
 
 Files marked `Reduction`, `Practically proven`, `Lemma target`, `Strategy`,
 `Empirical`, `Experiment`, `Failed`, or `Reference` are part of the working
-corpus, but they are not complete terminal proofs unless every named
+corpus, but they are not complete proofs unless every named
 dependency has a proven source. Numerical optimization, plotting, or search
 evidence remains empirical unless a rigorous certificate is recorded.
 
 
-## 2026-08-02 replacement and skeleton-interface audit
+## 2026-08-02 replacement verification
 
-The CE2 exactly-one-Vd1/Vd2 terminal was re-audited after correcting `4147` to use separate local charts at the two distinguished vertices. The replacement now proves full skeleton preservation. `4013` is stated at the skeleton-data strength used by that reduction, and `414b` records the exhaustive placement re-audit. The main theorem status remains `Proven` because the corrected branch and all verification checks pass.
+The CE2 exactly-one-Vd1/Vd2 case was rechecked after `4147` was corrected to use separate local charts at the two distinguished vertices. The replacement preserves the full skeleton. `4013` has the corresponding skeleton-data strength, and `414b` contains the exhaustive positional case split. The main theorem status remains `Proven` because the corrected branch and all verification checks pass.
 
 ## Current reproducible verification
 
