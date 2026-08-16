@@ -316,11 +316,16 @@ for stale_file in [
 workflow_dir = ROOT / ".github/workflows"
 if (workflow_dir / "refresh-proof-provenance.yml").exists():
     fail("one-shot write workflow remains in the final tree")
+paper_rebuild_workflow = workflow_dir / "paper-rebuild.yml"
 for workflow in workflow_dir.glob("*.yml"):
     text = workflow.read_text(encoding="utf-8")
     if re.search(r"uses:\s+[^\s@]+@(v\d+|main|master)\b", text):
         fail(f"moving GitHub Action tag in {workflow.relative_to(ROOT)}")
-    if re.search(r"contents:\s*write", text):
+    requests_content_write = bool(re.search(r"contents:\s*write", text))
+    if workflow == paper_rebuild_workflow:
+        if not requests_content_write:
+            fail("paper-rebuild workflow must request contents: write")
+    elif requests_content_write:
         fail(f"permanent workflow has contents: write: {workflow.relative_to(ROOT)}")
     if workflow.name == "proof-ci.yml":
         if "compare_pdfs_semantically.py" not in text:
