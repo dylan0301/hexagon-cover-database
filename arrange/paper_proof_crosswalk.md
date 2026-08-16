@@ -1,6 +1,6 @@
 # Paper-to-Proof Crosswalk
 
-Branch: `main`  
+Branch: `agent/notation-proof-package-consolidation`  
 Paper root: `arrange/paper_draft/`  
 Proof-package root: `proof/`
 
@@ -18,6 +18,35 @@ The authority order is:
 
 A `Reference`, `Reduction`, `Strategy`, `Empirical`, `Experiment`, `Lemma
 target`, or `Failed` file does not become a proof because it is listed here.
+
+## Canonical terminology and notation
+
+The paper uses the terms **V triangle** and **C triangle** throughout.  The
+proof package retains the same established terminology.
+
+The shared public notation is
+
+$$
+(A_i,B_i,C_i),\qquad (a_i,b_i,c_i),
+$$
+
+$$
+M_c,\qquad \overline M_c,\qquad \Phi_c,
+$$
+
+and
+
+$$
+N_+,\qquad N_{\rm sp},\qquad N_{\rm gap}.
+$$
+
+The authenticated 407X package retains provenance-preserving compatibility
+aliases listed in `proof/09XX_appendices/0910_notation_dictionary.md`.
+
+The redundant navigation-only files `1100_C_triangle_overview.md` and
+`1200_V_triangle_overview.md` were merged into the substantive classification
+sources `1101` and `1201`, respectively.  No route index, active theorem
+source, historical failed route, or provenance-bound file was deleted.
 
 ## 2. Top-level assembly
 
@@ -52,7 +81,7 @@ target`, or `Failed` file does not become a proof because it is listed here.
 ### Routing table
 
 The authoritative exhaustive assembly is `0000`; `0001` is navigation only.
-The short-triangle identity and preliminary removal of `N_++N_sp>=3` are in
+The direct $N_++N_{\rm sp}\ge3$ skeleton theorem are in
 `2530` together with the trace packages `2500` and `2510`.
 
 ## 4. Section 2: structural and signed-center geometry
@@ -65,13 +94,13 @@ The printed section incorporates:
 The corresponding numbered sources include:
 
 - distinct distinguished triangles and global geometry: `0000`, `1001`;
-- center and vertex classifications: `1101`, `1201`;
+- C-triangle and V-triangle classifications: `1101`, `1201`;
 - T3-like nonsupercriticality and normalization: `1213`, supporting material
   in `1201`;
 - strict boundary handoffs: `1214`;
 - unique center midpoint in CE1/CE2: `2100` and the signed normal form `2109`;
 - exact center traces and exits: `2105`, `2106`, `2109`;
-- short-triangle count and structural routing: `2530`, `0000`.
+- $N_++N_{\rm sp}$ skeleton routing: `2530`, `0000`.
 
 ## 5. Section 3: trace-length proof
 
@@ -84,7 +113,7 @@ Reusable bounds:
 
 - perimeter trace bounds: `2500`;
 - full-skeleton trace bounds: `2510`;
-- common CE1/CE2 budgets and short-triangle theorem: `2530`.
+- common CE1/CE2 budgets and $N_++N_{\rm sp}$ theorem: `2530`.
 
 Terminal branches closed here include:
 
@@ -92,7 +121,7 @@ Terminal branches closed here include:
 - CE0, `N_+=1`, some Vd1/Vd2: `3141`;
 - CE1/CE2, `N_+=0`, some Vd1/Vd2: `4040`, `4041`;
 - CE1, `N_+=1`, exactly one Vd1/Vd2: `4110` and associated length sources;
-- all CE1/CE2 states with at least three short vertex triangles, including the
+- all CE1/CE2 states with $N_++N_{\rm sp}\ge3$, including the
   `N_+>=2` route: `2530`, terminal assembly in `0000`;
 - the neighboring-midpoint Vd2 subcase used inside the CE2 hybrid branch:
   the Vd corner and budget sources cited by `4140`.
