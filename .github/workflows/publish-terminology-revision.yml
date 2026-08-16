@@ -1,0 +1,59 @@
+name: Publish validated terminology revision
+
+on:
+  push:
+    branches:
+      - agent/source-export
+    paths:
+      - .github/workflows/publish-terminology-revision.yml
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Publish the prevalidated Git tree to main
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+          EXPECTED_PARENT: 6515bcad5e7e6f898f372b4386089fa8b6dafa65
+          REVISED_TREE: d255e71899ce33979291ee68af4eab42bdbdc372
+        shell: bash
+        run: |
+          set -euo pipefail
+          api="https://api.github.com/repos/${REPOSITORY}"
+          auth=(-H "Authorization: Bearer ${GH_TOKEN}" -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28")
+
+          current=$(curl -fsSL "${auth[@]}" "${api}/git/ref/heads/main" | python3 -c 'import json,sys; print(json.load(sys.stdin)["object"]["sha"])')
+          if [[ "$current" != "$EXPECTED_PARENT" ]]; then
+            echo "main moved: expected $EXPECTED_PARENT, found $current" >&2
+            exit 1
+          fi
+
+          payload=$(python3 - <<'PY'
+          import json, os
+          print(json.dumps({
+              "message": "Revise paper terminology and notation",
+              "tree": os.environ["REVISED_TREE"],
+              "parents": [os.environ["EXPECTED_PARENT"]],
+          }))
+          PY
+          )
+          commit=$(curl -fsSL -X POST "${auth[@]}" "${api}/git/commits" -d "$payload" | python3 -c 'import json,sys; print(json.load(sys.stdin)["sha"])')
+          echo "created commit $commit"
+
+          ref_payload=$(python3 - "$commit" <<'PY'
+          import json, sys
+          print(json.dumps({"sha": sys.argv[1], "force": False}))
+          PY
+          )
+          curl -fsSL -X PATCH "${auth[@]}" "${api}/git/refs/heads/main" -d "$ref_payload" >/dev/null
+          echo "updated main to $commit"
+
+      - name: Close temporary transport pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh pr close 26 --repo "${{ github.repository }}" --comment "The validated manuscript tree was published directly to main; this transport PR was not merged."
