@@ -1,8 +1,15 @@
 # Reproducing the proof checks
 
-The permanent GitHub Actions workflow is the authoritative reproducible build.
-It pins GitHub Actions by commit, uses TeX Live 2025, pins Python dependencies,
-and pins Lean and Mathlib.
+Two permanent GitHub Actions workflows are authoritative:
+
+- `.github/workflows/paper-rebuild.yml` builds the consolidated manuscript and
+  commits the canonical PDF and verification summary to `main`;
+- `.github/workflows/proof-ci.yml` independently verifies the proof graph,
+  exact certificates, Lean statement project, semantic paper rebuild, and
+  archival bundle.
+
+Both workflows pin GitHub Actions by commit, use TeX Live 2025, pin Python
+dependencies, and pin Lean and Mathlib.
 
 ## Proof-source and certificate checks
 
@@ -22,28 +29,37 @@ python verify_global_core_positivity.py
 
 ## Paper
 
-### One-command canonical update
+### Canonical GitHub Actions update
 
-From a repository checkout, the preferred local workflow is:
+Commit manuscript source changes to `main`. The paper-rebuild workflow:
+
+1. runs the proof and source-interface linter;
+2. replays the exact Strategy 4 certificate;
+3. builds in the pinned TeX Live 2025 image;
+4. rejects unresolved or duplicate references and overfull boxes;
+5. checks rendering and the 84--104 page target interval;
+6. regenerates `arrange/CURRENT_VERIFICATION_SUMMARY.txt`;
+7. commits `arrange/paper_draft/main.pdf` and the summary to `main`.
+
+The generated-artifact commit then triggers the full read-only proof workflow.
+
+### One-command local update
+
+From a repository checkout:
 
 ```bash
 tools/rebuild_paper_pinned.sh
 ```
 
-The first run creates the ignored `.venv-paper-audit/` environment and pulls
-the same TeX Live 2025 Docker image used by the permanent workflow. The helper
-performs two clean builds, rejects unresolved or duplicate references and
-overfull boxes, compares stable PDF semantics, verifies the rendered page
-borders, and refreshes `arrange/CURRENT_VERIFICATION_SUMMARY.txt`. It replaces
-the tracked PDF and summary only after every check succeeds.
+The helper uses the same pinned TeX Live image, performs two clean builds,
+checks stable PDF semantics and rendering, and refreshes the tracked PDF and
+summary only after every check succeeds.
 
 In VS Code, run **Tasks: Run Task** and select
 **Paper: Update canonical main.pdf (TeX Live 2025)**. The ordinary LaTeX
-Workshop recipe is a temporary preview and does not update the tracked PDF.
+Workshop recipe is a preview and does not update the tracked PDF.
 
-### Manual audit
-
-Use TeX Live 2025 and the fixed environment:
+### Manual build
 
 ```bash
 export SOURCE_DATE_EPOCH=946684800
@@ -51,42 +67,31 @@ export FORCE_SOURCE_DATE=1
 export TZ=UTC
 
 cd arrange/paper_draft
-cp main.pdf /tmp/main.tracked.pdf
-
 rm -f main.pdf main.aux main.fdb_latexmk main.fls main.log main.out \
   main.toc main.xdv main.synctex.gz
 latexmk -xelatex -interaction=nonstopmode -halt-on-error \
   -file-line-error main.tex
-cp main.pdf /tmp/main.rebuilt1.pdf
-
-rm -f main.pdf main.aux main.fdb_latexmk main.fls main.log main.out \
-  main.toc main.xdv main.synctex.gz
-latexmk -xelatex -interaction=nonstopmode -halt-on-error \
-  -file-line-error main.tex
-cp main.pdf /tmp/main.rebuilt2.pdf
-cp /tmp/main.tracked.pdf main.pdf
 cd ../..
 
-python tools/compare_pdfs_semantically.py \
-  /tmp/main.tracked.pdf /tmp/main.rebuilt1.pdf --dpi 144
-python tools/compare_pdfs_semantically.py \
-  /tmp/main.rebuilt1.pdf /tmp/main.rebuilt2.pdf --dpi 144
 python tools/verify_pdf_render.py arrange/paper_draft/main.pdf
-python tools/generate_verification_summary.py --check
+python tools/generate_verification_summary.py
 ```
 
-The builds must have no unresolved references and no `Overfull \\hbox` or
-`Overfull \\vbox` diagnostics.
+The build must have no unresolved references and no `Overfull \\hbox` or
+`Overfull \\vbox` diagnostics. The canonical workflow also checks the target
+page interval.
 
-Raw PDF bytes are not compared. XeTeX and xdvipdfmx can vary document IDs and
-compressed-object serialization even between consecutive clean builds. The
-semantic checker instead requires equality of page geometry, outlines, page
-labels, extracted words and coordinates, hyperlinks, annotations, widgets,
+### Semantic rebuild audit
+
+Raw XeTeX/xdvipdfmx bytes can differ in document identifiers and compressed
+object serialization. The proof workflow therefore compares two clean builds
+and the tracked PDF by stable semantics: page geometry, outlines, page labels,
+extracted words and coordinates, hyperlinks, annotations, widgets,
 embedded-file names, and exact RGB raster pixels at 144 DPI.
 
 The raw SHA-256 in `arrange/CURRENT_VERIFICATION_SUMMARY.txt` identifies the
-canonical tracked PDF artifact; it is not asserted to be the byte output of
-every clean rebuild.
+canonical tracked artifact; it is not asserted to equal every clean build's raw
+byte stream.
 
 ## Lean statement project
 
@@ -97,8 +102,9 @@ lake exe cache get
 lake build
 ```
 
-The present Lean milestone checks only the exact optimization statements.
-The ten theorem proofs intentionally contain `sorry`.
+The current Lean milestone checks the exact optimization statements. The
+theorem proofs intentionally contain `sorry`; the complete mathematical proofs
+remain in the paper and numbered proof corpus.
 
 ## Archival bundle
 
@@ -108,5 +114,5 @@ python tools/build_release_bundle.py \
 ```
 
 The bundle contains the paper, current verification metadata, dependency and
-provenance manifests, exact certificate code/data, permanent workflow and
+provenance manifests, exact certificate code and data, permanent workflows and
 verification scripts, and the pinned Lean statement project.

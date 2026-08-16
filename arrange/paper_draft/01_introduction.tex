@@ -149,12 +149,14 @@ for CE1 and the second for CE2.}
 \label{tab:routing}
 \end{table}
 
-\subsection{The four methods}
+\subsection{Organization of the proof}
 
-Method~1 bounds one-dimensional traces on $\partial H$ or $S$.  Method~2
-propagates lower bounds for successive boundary reaches using the local
-admissible set.  Method~3 sums forced area losses.  Method~4 forces nine points
-into the center triangle and proves that they cannot lie in an open unit
-equilateral triangle.  Sections~\ref{sec:strategy1-summary}--
-\ref{sec:strategy4-reader} give these arguments, and
-Section~\ref{sec:assembly} completes the case analysis.
+Section~\ref{sec:structure-common} proves the structural classification,
+strict handoff selection, midpoint facts, and the signed center normal form.
+Section~\ref{sec:trace-length} gives the complete trace-length argument.
+Section~\ref{sec:boundary-propagation} develops the local admissible set and
+all boundary-reach propagation cases.  Section~\ref{sec:area-loss} proves the
+local and cyclic area-loss estimates.  Section~\ref{sec:nine-point} constructs
+the nine forced points and proves the equilateral-enclosure obstruction.
+Section~\ref{sec:assembly} then applies Table~\ref{tab:routing} once and closes
+the proof.

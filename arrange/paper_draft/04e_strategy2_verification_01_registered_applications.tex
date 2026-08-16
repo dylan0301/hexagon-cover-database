@@ -1,125 +1,130 @@
-\subsection{Applications to the geometric cases}
+\subsection{Propagation statements and geometric routing}
 \label{sec:strategy2-reader}
 
-This section contains only the application layer.  The geometry-to-parameter
-substitutions are in Appendix~\ref{sec:strategy2-parameter-bridges}; the
-optimization problems are in
-Appendix~\ref{sec:strategy2-optimization-problems}; and the calculations are
-split among the verification modules that follow.
+The detailed proof below repeatedly uses the same endpoint, return, and radial
+separation conclusions.  We state them once in geometric form.  Their full
+branchwise proofs occupy the subsequent subsections; no independent
+optimization layer is repeated in the printed article.
 
-\begin{table}[H]
-\centering
-\small
-\renewcommand{\arraystretch}{1.12}
-\begin{tabular}{@{}p{.20\textwidth}p{.28\textwidth}p{.38\textwidth}@{}}
-\toprule
-identifier&objective&verification owner\\
-\midrule
-S2-E1&one-gap endpoint sum \(<1\)&Theorem~\ref{thm:s2-pure-e1}\\
-S2-E2&paired endpoint sum \(<1\)&Theorem~\ref{thm:s2-pure-e2}\\
-S2-R1&CE1 propagated lower bound \(>1-X\)&Theorem~\ref{thm:s2-pure-r1}\\
-S2-R2&CE2 propagated lower bound \(>1-X\)&Theorem~\ref{thm:s2-pure-r2}\\
-S2-T3&finite four-branch endpoint sum \(<1\)&Theorem~\ref{thm:s2-pure-t3}\\
-S2-SC&two explicit source cells&Theorem~\ref{thm:s2-pure-sc}\\
-S2-VD&adjacent and nonadjacent radial signs&Theorems~\ref{thm:s2-pure-vd-adjacent} and \ref{thm:s2-pure-vd-nonadjacent}\\
-\bottomrule
-\end{tabular}
-\caption{Registered Method~2 calculations and their verification owners.}
-\label{tab:strategy2-chain-signatures}
-\end{table}
+\begin{theorem}[One-gap endpoint inequality]
+\label{thm:s2-pure-e1}
+For every CE1 or CE2 one-gap endpoint pair
+$(a_L,c_L),(a_R,c_R)$ obtained from the signed center normal form,
+\[
+ F_{c_L}(a_L)+F_{c_R}(a_R)<1.
+\]
+\end{theorem}
 
-\subsubsection{All-Vd0 applications}
+\begin{theorem}[Paired-gap endpoint inequality]
+\label{thm:s2-pure-e2}
+For every CE2 paired-gap endpoint pair obtained from the signed center normal
+form,
+\[
+ F_{c_L}(a_L)+F_{c_R}(a_R)<1.
+\]
+\end{theorem}
+
+\begin{theorem}[CE1 return inequality]
+\label{thm:s2-pure-r1}
+In the CE1, $N_+=1$, all-Vd0 one-gap configuration, the exact five-triangle
+propagation returns a backward-reach lower bound strictly larger than the
+remaining forward capacity of the unique supercritical triangle.
+\end{theorem}
+
+\begin{theorem}[CE2 return inequality]
+\label{thm:s2-pure-r2}
+The same strict return conclusion holds in the CE2 exactly-one-gap
+configuration.  The threshold alternative is inclusive: at least one of the
+two threshold locations fires, and both may fire.
+\end{theorem}
+
+\begin{theorem}[Support-isolated T3-like endpoint inequality]
+\label{thm:s2-pure-t3}
+For every support-isolated T3-like endpoint configuration, including the
+direct low-radial linear case,
+\[
+ F_{c_5^\ast}(a_5^\ast)+F_{c_1^\ast}(a_1^\ast)<1.
+\]
+\end{theorem}
+
+\begin{theorem}[Adjacent exceptional-triangle inequality]
+\label{thm:s2-pure-sc}
+The normalized adjacent T3-like and Vd1 profiles satisfy the two local
+inequalities required by the common center-hiding obstruction.
+\end{theorem}
+
+\begin{theorem}[Adjacent Vd separation]
+\label{thm:s2-pure-vd-adjacent}
+In the reduced CE2 exactly-one-Vd branch, every adjacent Vd1/Vd2 placement
+covered by the radial calculation leaves a strict gap between the possible
+vertex-side radial trace and the center-side radial trace.
+\end{theorem}
+
+\begin{theorem}[Nonadjacent Vd separation]
+\label{thm:s2-pure-vd-nonadjacent}
+The corresponding strict radial separation holds for each nonadjacent
+placement of the unique Vd1/Vd2 triangle.
+\end{theorem}
+
+The first four theorems are proved in the all-Vd0 propagation and endpoint
+subsections below.  The T3-like theorem is the complete four-branch endpoint
+calculation.  The final three theorems are proved by the explicit local-profile
+and Vd-placement calculations immediately preceding and following the
+all-Vd0 analysis.
 
 \begin{proposition}[Common CE2 two-gap application]
 \label{prop:reader-common-two-gap}
-Assume both CE2 center traces contain V-gaps and
-\(T_1,\ldots,T_5\) are nonsupercritical Vd0 triangles.  Then the perimeter is not
-covered.  No hypothesis on the criticality of \(T_0\) is required.
+Assume both CE2 center traces contain boundary gaps and
+$T_1,\ldots,T_5$ are nonsupercritical Vd0 triangles.  Then the perimeter is
+not covered.  No hypothesis on the criticality of $T_0$ is required.
 \end{proposition}
 
 \begin{proof}
-The bridge identifies the endpoint parameters with Problem S2-E2.  Theorem~\ref{thm:s2-pure-e2} makes its objective negative, so the two endpoint capacities sum to less than one.  The three
-intervening triangles form the center-free path required by
-Lemma~\ref{lem:reader-boundary-path}, giving the contradiction.
+Theorem~\ref{thm:s2-pure-e2} makes the two endpoint capacities sum to less
+than one.  The three intervening vertex triangles form the center-free path
+required by Lemma~\ref{lem:reader-boundary-path}, giving the contradiction.
 \end{proof}
-
-For the one-gap return, all five radial lower bounds exceed $1/2$; retain the exact raw forward notation
-\begin{equation}
- Z=
- [g_{c_1}^\vee\mid
-  g_{c_2}^\vee\mid
-  g_{c_3}^\vee\mid
-  g_{c_4}^\vee\mid
-  g_{c_5}^\vee](X).
- \label{eq:reader-exact-five-chain}
-\end{equation}
-The parameter derivation gives \(A_0\ge Z\) and \(A_0<1-H\).  The reverse
-three-update target is
-\begin{equation}
- [g_{1-\alpha}^\vee
-  \mid g_{1-m_3}^\vee
-  \mid g_{1-\delta}^\vee](H)
- >1-X.
- \label{eq:reader-signed-three-map}
-\end{equation}
 
 \begin{proposition}[CE1 one-gap obstruction]
 \label{prop:reader-ce1-one-gap}
-The CE1, \(N_+=1\), all-Vd0, one-gap state is impossible.
+The CE1, $N_+=1$, all-Vd0 one-gap state is impossible.
 \end{proposition}
 
 \begin{proof}
-Proposition~\ref{prop:s2-return-bridge} identifies the required scalar sign
-with Problem S2-R1.  Theorem~\ref{thm:s2-pure-r1} proves that problem,
-and the exact forward interface yields \(Z>1-H\).
+The exact five-triangle interface gives a returning lower bound and a final
+upper capacity.  Theorem~\ref{thm:s2-pure-r1} puts the former strictly above
+the latter.
 \end{proof}
 
 \begin{corollary}[CE2 one-gap obstruction]
 \label{prop:reader-ce2-one-gap}
-The CE2, \(N_+=1\), all-Vd0, exactly-one-gap state is impossible in either
+The CE2, $N_+=1$, all-Vd0 exactly-one-gap state is impossible in either
 orientation.
 \end{corollary}
 
 \begin{proof}
-Problem S2-R2 is Theorem~\ref{thm:s2-pure-r2}.  Its threshold
-condition is an inclusive disjunction: at least one of the two locations
-fires, and both may fire.  Reflection reverses the five-triangle order and
-exchanges the two signed slacks.
+Apply Theorem~\ref{thm:s2-pure-r2}.  Reflection reverses the five-triangle
+order and exchanges the two signed center slacks.
 \end{proof}
 
-\subsubsection{Special-triangle applications}
-
-The universal proof sections are:
-\begin{itemize}
-\item high-radial S2-T3: Theorem~\ref{thm:s2-pure-t3}, with objective
-identification in Proposition~\ref{prop:s2-t3-objective-bridge}; the
-low-radial endpoint is the direct right-linear row of
-Theorem~\ref{thm:paper-complete-t3-endpoint};
-\item S2-SC: Theorem~\ref{thm:s2-pure-sc};
-\item adjacent S2-VD: Theorem~\ref{thm:s2-pure-vd-adjacent};
-\item nonadjacent S2-VD: Theorem~\ref{thm:s2-pure-vd-nonadjacent}.
-\end{itemize}
-The remaining two-chart replacement is
-Proposition~\ref{prop:paper-vd1-pair-replacement}; it is geometric rather
-than an optimization problem.
-
-\begin{proposition}[Cases excluded by Strategy 2]
+\begin{proposition}[Cases excluded by boundary-reach propagation]
 \label{prop:reader-demand-branches}
-Method~2 closes:
+Boundary-reach propagation closes
 \begin{enumerate}
-\item the \(N_+=0\) all-Vd0 and T3-like-without-Vd1/Vd2 branches for CE1 and
+\item the $N_+=0$ all-Vd0 and T3-like-without-Vd1/Vd2 branches for CE1 and
 CE2;
-\item every nonempty-gap \(N_+=1\) all-Vd0 state;
-\item the exactly-one-T3-like \(N_+=1\) state with no Vd1/Vd2 triangle;
-\item the complementary transfer placements in the CE2, \(N_+=1\),
+\item every nonempty-gap $N_+=1$ all-Vd0 state;
+\item the exactly-one-T3-like $N_+=1$ state with no Vd1/Vd2 triangle;
+\item the complementary propagation placements in the CE2, $N_+=1$,
 exactly-one-Vd1/Vd2 branch.
 \end{enumerate}
-Singleton V-gaps are included.
+Singleton boundary gaps are included.
 \end{proposition}
 
 \begin{proof}
-Use Corollary~\ref{cor:s2-pure-registry} together with the parameter derivations above,
-and use Theorem~\ref{thm:paper-complete-t3-endpoint} for the direct
-low-radial right-linear T3 endpoint.  The zero-gap \(N_+=1\) all-Vd0 cell
-remains the Method~4 nine-point obstruction.
+Use Theorems~\ref{thm:s2-pure-e1}--\ref{thm:s2-pure-vd-nonadjacent}, the
+strict-cycle case, and the complete CE2 positional assembly in
+Proposition~\ref{prop:paper-ce2-one-vd-placements}.  The no-gap $N_+=1$
+all-Vd0 cell is reserved for the nine-point obstruction in
+Section~\ref{sec:nine-point}.
 \end{proof}

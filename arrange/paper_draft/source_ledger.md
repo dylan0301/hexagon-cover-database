@@ -1,339 +1,84 @@
 # Paper Source Ledger
 
-This ledger records the relationship between the reader-facing paper, the TeX
-appendices, the numbered proof package, and the exact electronic certificates.
-It is a provenance and audit document, not itself a proof.
+This ledger records the sources assembled into the consolidated manuscript and
+the numbered proof objects supporting them. It is a maintenance document, not
+an additional proof.
 
-## 1. What constitutes the proof
+## 1. Publication architecture
 
-The complete proof consists of three layers.
+The printed proof is a single mathematical narrative rather than a short
+reader summary followed by a second technical manuscript. Its active sections
+are:
 
-1. **Reader-facing body:** definitions, geometric mechanisms, exact final
-   inequalities, and exhaustive assembly.
-2. **Technical TeX appendices:** complete structural, analytic, placement, and
-   area arguments establishing those terminal statements.
-3. **Formally incorporated electronic supplements:** the complete `407X`
-   four-label algebra and the Strategy 4 sparse-polynomial certificate,
-   identified by repository path, Git blob, and transcript hash.
-
-The body explains the complete logical flow but is not claimed to prove every
-calculation lemma without the appendices and incorporated supplements.
-
-## 2. Active manuscript artifacts
-
-### Reader-facing body
-
-| File | Function |
+| File | Printed function |
 |---|---|
-| `main.tex` | AMS assembly and body/appendix split |
-| `01_introduction.tex` | theorem, canonical triangle labeling, classifications, and routing table |
-| `02_global_notation.tex` | global notation used across the four methods |
-| `02_reader_framework.tex` | common reach coordinates, admissible set, and signed-center formulas |
-| `03_strategy1_reader.tex` | trace-length criteria and routed applications |
-| `04_strategy2_summary.tex` | reach-coordinate propagation, endpoint inequalities, and special cases |
-| `05_strategy3_reader.tex` | area-loss register and cyclic sums |
-| `06_strategy4_reader.tex` | nine-point enclosure and cyclic support-arc argument |
-| `07_exhaustive_assembly.tex` | concise final case assembly |
+| `01_introduction.tex` | theorem, canonical labeling, finite types, routing table |
+| `02_structure_and_common_geometry.tex` | structural reduction, handoffs, midpoint facts, signed center geometry |
+| `03_trace_bounds.tex` | complete perimeter and skeleton trace argument |
+| `04_boundary_propagation.tex` | admissible-set calculus and all propagation cases |
+| `05_area_loss_full.tex` | complete local and cyclic area-loss proof |
+| `06_nine_point_full.tex` | complete nine-point construction and enclosure proof |
+| `07_exhaustive_assembly.tex` | final exhaustive application of the routing table |
+
+The exact mixed support-arc certificate remains a printed appendix. Repository
+formalization registries, parameter dictionaries, and provenance manifests are
+retained as source and verification infrastructure but are not separately
+typeset when their mathematical content has already been incorporated.
 
 ### Technical appendices
 
 | File | Function |
 |---|---|
-| `appendix_roadmap.tex` | verification guide and proof-layer disclaimer |
-| `02_structural_reductions.tex` | classifications, reaches, gaps, handoffs, routing |
-| `02a_universal_calculus.tex` | transfers, residuals, center-free path budget |
-| `02b_admissible_set_derivation.tex` | support derivation, cells, selectors, radial envelope |
-| `04a_signed_center_calculus.tex` | signed CE1/CE2 equations, traces, exits, one-gap interface |
-| `03_strategy1_length.tex` | perimeter and skeleton trace calculations |
-| `04b_common_CE1_CE2_budgets.tex` | common perimeter and skeleton inequalities |
-| `04c_short_Vd_placements.tex` | quarter envelope, exceptional local profiles, and radial separations |
-| `04_strategy2_verification.tex` | assembly of the detailed propagation calculations |
-| `04f_strategy2_pure_theorems.tex` | proofs of the finite real-variable inequalities |
-| `05_strategy3_area.tex` | local area inequalities and cyclic certificates |
-| `06_strategy4_ab_core.tex` | frontier, forced points, rational inner approximants, and adjacent support arcs |
-| `06a_strategy4_exact_certificate.tex` | exact unequal-radius support-arc certificate |
-| `appendix_symbols.tex` | notation cross-reference |
+| `04_strategy2_verification.tex` | consolidated detailed propagation proof assembled inside Section 4 |
+| `06a_strategy4_exact_certificate.tex` | exact unequal-radius support-arc certificate printed as Appendix A |
 
-The body-end label remains immediately before `\appendix`.  The body has no
-fixed page cap; its page number is recorded after each complete build.
+The body-end label occurs immediately after the seven proof sections and
+immediately before `\appendix`.
 
-## 3. Repairs made after the validity audit
+## 2. Assembly map
 
-### 3.1 Center-free hypotheses
+`02_structure_and_common_geometry.tex` demotes and incorporates
+`02_structural_reductions.tex` and `04a_signed_center_calculus.tex`.
 
-The strict-supercritical outgoing bound
+`03_trace_bounds.tex` incorporates `03_strategy1_length.tex` and
+`04b_common_CE1_CE2_budgets.tex`.
 
-```text
-B < g_c^{sc}
-```
+`04_boundary_propagation.tex` incorporates `02a_universal_calculus.tex`,
+`04c_short_Vd_placements.tex`, and the consolidated detailed propagation
+modules. The finite optimization specifications and Lean statement project
+remain available for exact verification, but their duplicate prose is not
+printed.
 
-is unconditional. Its complementary following demand
+`05_area_loss_full.tex` incorporates `05_strategy3_area.tex`.
 
-```text
-A_next > 1-g_c^{sc}
-```
+`06_nine_point_full.tex` incorporates `06_strategy4_ab_core.tex` and
+`06_strategy4_completion.tex`; the exact mixed-overlap proof follows as the
+sole appendix.
 
-requires a center-free outgoing edge. This is now explicit in the body and in
-`02a_universal_calculus.tex`.
+## 3. Proof-source authority
 
-The proof-package source
+The authority order is:
 
-```text
-proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/
-2019_interval_component_and_path_budget.md
-```
+1. a numbered `proof/**/*.md` source whose status supports the claim;
+2. the exact electronic objects formally incorporated by the paper;
+3. the consolidated TeX proof faithfully reorganizing those sources;
+4. navigation files, this ledger, and the paper-to-proof crosswalk.
 
-was repaired similarly: every internal path edge must exclude center and
-nonincident positive-length traces, and all endpoint external contributions
-must be absorbed into the endpoint residuals. The active applications `4013`
-and `2110` were updated to verify these hypotheses explicitly.
+The manuscript preserves all proof-critical distinctions: actual maximal
+reaches versus selected lower bounds, the definition of `N_+` from actual
+reaches, singleton boundary gaps, low-radial direct nonsupercritical transfer,
+high-radial component selectors and equality assignments, center-free path
+hypotheses, endpoint external components, the inclusive CE2 threshold
+alternative, every T3-like branch, the Vd placement margins, the two-chart
+replacement, and exact certificate denominator signs.
 
-### 3.2 Threshold and terminal coordinates
+## 4. Exact Strategy 2 provenance
 
-The CE2 argument proves that **at least one** of the two threshold slots fires;
-it does not prove uniqueness. Both may be available.
+The complete support-isolated T3-like endpoint proof is authenticated by
+`proof/407X_PROVENANCE.json`. CI recomputes the Git blob identities from the
+exact bytes. The current objects are:
 
-For the exact five-V-triangle chain
-
-```text
-Z = [g_1^vee|...|g_5^vee](X),
-```
-
-the direct target is `Z>1-H`. The target `>1-X` belongs to the reversed
-three-map chain after high-radial complement duality. The body, tables, and appendix now
-distinguish these statements.
-
-### 3.3 Strategy 1 hypothesis
-
-The reader master perimeter deficit now states that every V triangle not assigned a
-special cap contributes at most one. This hypothesis was present in the
-numbered source `2530` and is satisfied in every routed application.
-
-### 3.4 Admissible-set derivation
-
-`02b_admissible_set_derivation.tex` now contains:
-
-- the explicit triangular-hull enclosing equilateral triangle and barycentric
-  containment of the origin;
-- all four edge-normal support values;
-- the active support patterns;
-- derivation of `F_L`, `F_T`, and `F_S`;
-- the connected-component selectors `c<=2M` and `c<=1/2`;
-- the exact radial envelope.
-
-### 3.5 T3-like endpoint audit
-
-The complete `407X` proof is formally incorporated from the current
-proof-package objects. Full Git blob identities are recorded in
-`proof/407X_PROVENANCE.json`; the generated table at the end of this ledger
-records the current prefixes once. CI recomputes every Git blob from the exact
-file bytes.
-
-The universal real-variable theorem is `thm:s2-pure-t3`. Its proof maps an
-arbitrary point of the finite cell union to the exact algebraic variables of
-the four-label audit. The geometric theorem is then obtained only through the
-parameter bridge.
-
-### 3.6 Vd1 replacement and placement assembly
-
-`04_strategy2_verification.tex` is an input-only wrapper. Its numbered
-`04e_strategy2_verification_*` modules separately contain the application
-registry, exact local calculus, all-Vd0 propagation, special-role calculations,
-endpoint/replacement verification, and the single authoritative CE2
-exactly-one-Vd1/Vd2 placement assembly.
-
-`04f_strategy2_pure_theorems.tex` is the universal optimization proof owner.
-`04c_short_Vd_placements.tex` contains reusable local lemmas and no competing
-branch assembly.
-
-### 3.7 Strategy 4 certificate
-
-`06a_strategy4_exact_certificate.tex` formally incorporates:
-
-- all six sparse-data shards;
-- the canonical transcript digest
-  `dc46aaf263655d5159ecd3a81db72ee82477951d06172f4743b248df37209485`;
-- the exact rational-function derivation verifier;
-- the exact global Bernstein verifier;
-- the positive-denominator conditions;
-- the implication from residual positivity to common tangent support and cap
-  intersection.
-
-The certificate uses exact integers, rationals, and `Q(sqrt(3))`. No
-floating-point or interval computation is an active dependency.
-
-## 4. Body-interface provenance
-
-### Structural reduction
-
-`prop:body-structural-reduction` summarizes the canonical labeling, exhaustive
-center and vertex classifications, maximal reaches, `N_+`, singleton gaps,
-strict handoff selection, unique center midpoint, short-triangle count, and
-routing table. These are proved in `02_structural_reductions.tex` and the
-`1XXX`, `2109`, and `2530` packages.
-
-### Local enclosure
-
-The explicit minimum-side formula is proved in `02b` and agrees with proof
-source `2004`. This shared admissible-set interface remains in
-`02_reader_framework.tex`.
-
-### Strategy 2 propagation contract
-
-The reader-facing propagation functions are defined in
-`04_strategy2_summary.tex` directly in reach coordinates:
-
-```text
-M_c(a)=max{b:(a,b,c) in A},
-Mbar_c(a)=min{M_c(a),1-a},
-Phi_c(a)=1-Mbar_c(a).
-```
-
-For a nonsupercritical vertex triangle, `Mbar_c(a)=1-a` when `c<=1/2`
-and `Mbar_c(a)=M_c(a)` when `c>1/2`.  Center-assisted edges first extend
-the covered initial component through the center interval and then take the
-uncovered suffix.  The technical appendices retain the equivalent historical
-`g` aliases only where they shorten exact algebra.  The center-free and
-center-assisted statements are proved in `02a` and source `2019`.
-
-### Signed center
-
-The variables
-
-```text
-0<R<1, W=1-R,
-E=sqrt(1-RW), eta=1-E, P=E(1-E),
-Delta_R=P-alpha-W delta,
-Delta_L=P-R alpha-delta
-```
-
-and all trace, exit, midpoint, and boundary-contribution formulas are proved in
-`04a_signed_center_calculus.tex` and proof source `2109`.
-
-## 5. Strategy audit status
-
-### Strategy 1
-
-Active sources are `2500`, `2510`, `2530`, `03_strategy1_length.tex`, and
-`04b_common_CE1_CE2_budgets.tex`. The terminal sums are valid, and the reader
-statement now includes every cap hypothesis.
-
-### Strategy 2
-
-Active sources include `2004`, `2010`--`2019`, `2107`--`2110`, `4013`, the
-complete `407X` supplement, `4105`--`4107`, `413X`, and `4143`--`4149`.
-The paper preserves:
-
-- actual versus selected criticality;
-- center-free path hypotheses;
-- exact endpoint residuals;
-- the CE1 affine/threshold ending;
-- the CE2 at-least-one-threshold dichotomy;
-- all four T3 labels;
-- the adjacent quarter and nonadjacent Vd-specific radial margins;
-- explicit open Vd0 replacements;
-- the exhaustive one-Vd placement assembly.
-
-### Strategy 3
-
-Active sources are `3175`, `3205`, `3208`, and `05_strategy3_area.tex`. The two
-orientation normal forms, local square losses, reflection normalization, and
-both cyclic sums are complete and valid.
-
-### Strategy 4
-
-Active sources are the `3105X_self_contained_direct_Vd0_nine_point` package,
-`06_strategy4_ab_core.tex`, and `06a_strategy4_exact_certificate.tex`. Direct
-forcing, Newton placement, cap chain, and adjacent overlaps are analytic. The
-two mixed overlaps are exact computer-assisted claims with authenticated input
-and exact verification algorithms. Source review found no arithmetic-model,
-coordinate-normalization, or Bernstein-conversion defect. The exact derivation and positivity verifiers are replayed by read-only proof CI on every change.
-
-## 6. Assembly invariants
-
-The final proof retains all of the following.
-
-1. `N_+` uses actual maximal reaches.
-2. Selected handoffs remain lower demands.
-3. Singleton gaps remain gaps.
-4. Center-assisted handoffs use residual maps.
-5. Every path-budget internal edge is center-free.
-6. The raw zero-radial map is not used for nonsupercritical identity propagation.
-7. CE1 and CE2 one-gap endings remain distinct.
-8. The T3-like theorem retains all four exact labels.
-9. Adjacent and nonadjacent Vd routes retain their correct geometric margins.
-10. The CE2 one-Vd branch uses the complete placement assembly.
-11. The Strategy 4 mixed overlaps use the authenticated exact certificate.
-
-## 7. Build and PDF status
-
-The tracked `main.pdf` is rebuilt twice in the pinned TeX Live
-environment.  XeTeX/xdvipdfmx does not produce stable raw PDF bytes: consecutive
-clean builds can differ in document identifiers and compressed-object
-serialization while having the same visible and interactive content.  CI
-therefore compares stable semantics instead of serialization bytes.  It
-requires equal page geometry, outlines, page labels, extracted words and
-coordinates, links, annotations, widgets, embedded-file names, and exact RGB
-pixels at 144 DPI.  The canonical tracked artifact still has a recorded raw
-SHA-256.
-
-The current page count, canonical PDF digest, toolchain versions, proof checks,
-Lean statement check, semantic rebuild check, and rendering check are recorded
-in `../CURRENT_VERIFICATION_SUMMARY.txt`.  No dated legacy summary is
-authoritative.
-
-The release artifact contains the paper, the incorporated proof objects,
-provenance manifests, exact certificate code and data, and reproduction
-instructions.
-
-## 2026-07-31 reader-interface revision
-
-- Proposition 2.5 now states only the definition-level and qualitative
-  properties of the admissible set; its finite-caliper equations and formula
-  diagrams are in Appendix B.
-- Definition 2.12 now defines the signed center geometry without reproducing
-  its affine equations; the exact chart, traces, exits, sign cells, and diagrams
-  are in Appendix D.
-- Proposition 3.1 uses $L_{\partial H}(T_i)$ uniformly for all four V-triangle
-  boundary roles.
-- Table 2 displays six functions in every $g$-composition chain, retains
-  point-contact center intervals in every exact slot, and states the exact
-  handoff inequality represented by each identity slot.
-- Canonical proved notes use “V triangle” for the geometric object; historical
-  filenames and link targets containing `row` were retained for repository
-  stability.
-
-Post-edit audit repairs: the reader definition now reuses the appendix symbol
-$\Delta_L$ for the signed companion trace; all six-slot words retain degenerate
-center intervals; and identity slots are stated as weakened individual
-handoff inequalities rather than as an unsupported order on formal
-compositions.
-
-## 2026-08-07 Strategy 2 optimization extraction
-
-The Strategy 2 interface now has four layers.
-
-1. `04_strategy2_summary*.tex`: reader-facing geometry and routing.
-2. `04d_strategy2_parameter_bridges.tex`: the sole geometry--parameter dictionary.
-3. `04_strategy2_optimization_*.tex`: explicit real-variable problem domains and objectives.
-4. `04f_strategy2_pure_theorems.tex`: universal real-domain theorem ownership.
-5. `04e_strategy2_verification_*.tex`: the application registry and preserved exact calculation sections.
-
-The T3 endpoint domain is a finite union of signed-center, residual-order,
-radial hit/miss, and four-label cells.  The non-symmetry trace-dominating
-translation is represented by exact radical variables; the preceding \(D_6\)
-normalization remains geometric.  The Vd problems use explicit component and
-corner graph functions, with no placement-defined supremum.  The Lean project in `formalization/strategy2_optimization/` contains only the
-optimization problem statements with `sorry`, but it is version-pinned and
-typechecked in CI. The universal paper proofs remain in
-`04f_strategy2_pure_theorems.tex`; this is not a full Lean formalization.
-
-<!-- BEGIN GENERATED 407X SPLIT PROVENANCE -->
-## Generated 407X split-source provenance
-
-The split verification appendix retains the following exact proof-package objects.
-
-| File | Git blob prefix |
+| Object | Git blob prefix |
 |---|---|
 | `4073_boundary_loss_framework.md` | `910c7a8a1330` |
 | `4074_L_Full_branch.md` | `7c72dfaf7eb3` |
@@ -343,4 +88,23 @@ The split verification appendix retains the following exact proof-package object
 | `407a_left_Thigh_branch_completion.md` | `aa5cb1a6dc63` |
 | `407c_rigor_completion_details.md` | `c80243f67124` |
 | `407d_rigor_final_assembly.md` | `e22c85c95fdd` |
-<!-- END GENERATED 407X SPLIT PROVENANCE -->
+
+## 5. Exact Strategy 4 certificate
+
+The mixed-overlap appendix incorporates all sparse-data shards, the exact
+derivation and positivity verifiers, and the canonical transcript digest
+
+`dc46aaf263655d5159ecd3a81db72ee82477951d06172f4743b248df37209485`.
+
+The arithmetic model is exact over integers, rationals, and
+`Q(sqrt(3))`; floating-point and interval arithmetic are not proof
+dependencies.
+
+## 6. Build status
+
+The source commit is rebuilt by the write-enabled paper workflow in the pinned
+TeX Live 2025 image. The workflow checks TeX references, overfull boxes,
+rendering, and the target page range, regenerates the verification summary,
+and commits the canonical `main.pdf` and summary back to `main`. The read-only
+proof workflow then replays the proof graph, Strategy 2 specifications, Lean
+statement project, exact Strategy 4 certificate, and deterministic paper audit.

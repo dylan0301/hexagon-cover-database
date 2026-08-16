@@ -18,6 +18,7 @@ def files() -> list[Path]:
         ROOT / "REPRODUCE.md",
         ROOT / "LICENSE",
         ROOT / "requirements-proof.txt",
+        ROOT / ".github/workflows/paper-rebuild.yml",
         ROOT / ".github/workflows/proof-ci.yml",
         ROOT / "arrange/paper_draft/source_ledger.md",
         ROOT / "tools/generate_active_dependency_graph.py",

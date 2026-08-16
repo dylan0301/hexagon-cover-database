@@ -1,0 +1,130 @@
+name: Rebuild and commit consolidated paper
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'arrange/paper_draft/**/*.tex'
+      - 'arrange/paper_draft/figures/**'
+      - 'arrange/ams_paper_generation_guide.md'
+      - 'arrange/paper_proof_crosswalk.md'
+      - 'arrange/paper_draft/source_ledger.md'
+      - '.github/workflows/paper-rebuild.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: paper-rebuild-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  SOURCE_DATE_EPOCH: '946684800'
+  FORCE_SOURCE_DATE: '1'
+  TZ: UTC
+
+jobs:
+  build-and-commit:
+    name: Build, audit, and commit canonical PDF
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+
+      - name: Install pinned audit dependencies
+        run: python -m pip install --disable-pip-version-check -r requirements-proof.txt
+
+      - name: Verify proof graph and manuscript source interfaces
+        run: |
+          set -euo pipefail
+          python tools/proof_lint.py
+          python tools/verify_strategy2_pure_algebra.py
+          python tools/verify_strategy2_spec_sync.py
+          git diff --check
+
+      - name: Replay exact Strategy 4 certificate
+        working-directory: proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation
+        run: |
+          set -euo pipefail
+          python verify_mixed_overlap_core_derivation.py
+          python verify_global_core_positivity.py
+
+      - name: Build consolidated paper in pinned TeX Live 2025
+        uses: xu-cheng/texlive-action@22c04326a5d855880f9d39bb955138bf11c6df80
+        with:
+          docker_image: >-
+            ghcr.io/xu-cheng/texlive-historic-debian:2025@sha256:d3e42adc0c8d84bc913bfc33571feaf7037616260a771bb6f027504661568bf6
+          run: |
+            set -euo pipefail
+            export SOURCE_DATE_EPOCH=946684800
+            export FORCE_SOURCE_DATE=1
+            export TZ=UTC
+            cd arrange/paper_draft
+            rm -f main.pdf main.aux main.fdb_latexmk main.fls main.log \
+              main.out main.toc main.xdv main.synctex.gz
+            latexmk -xelatex -interaction=nonstopmode -halt-on-error \
+              -file-line-error main.tex
+            if grep -Eq 'LaTeX Warning: (Reference .* undefined|There were undefined references|Label .* multiply defined)' main.log; then
+              echo 'Undefined or multiply-defined references found.' >&2
+              exit 1
+            fi
+            if grep -Eq 'Overfull \\hbox|Overfull \\vbox' main.log; then
+              echo 'Overfull horizontal or vertical boxes found.' >&2
+              grep -E 'Overfull \\hbox|Overfull \\vbox' main.log >&2
+              exit 1
+            fi
+
+      - name: Check rendering and target length
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import fitz
+
+          pdf = Path('arrange/paper_draft/main.pdf')
+          pages = fitz.open(pdf).page_count
+          print(f'Consolidated paper pages: {pages}')
+          if not 84 <= pages <= 104:
+              raise SystemExit(
+                  f'Expected an approximately 90-page self-contained paper; got {pages} pages'
+              )
+          PY
+          python tools/verify_pdf_render.py arrange/paper_draft/main.pdf
+          python tools/generate_verification_summary.py
+          git diff --check
+
+      - name: Commit canonical PDF and verification summary to main
+        run: |
+          set -euo pipefail
+          source_sha="$(git rev-parse HEAD)"
+          remote_sha="$(git ls-remote origin refs/heads/main | awk '{print $1}')"
+          if [ "$source_sha" != "$remote_sha" ]; then
+            echo "main advanced during the build; refusing to commit a stale PDF" >&2
+            exit 1
+          fi
+
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add arrange/paper_draft/main.pdf arrange/CURRENT_VERIFICATION_SUMMARY.txt
+          if git diff --cached --quiet; then
+            echo 'Canonical PDF and verification summary are already current.'
+            exit 0
+          fi
+          git commit -m 'Rebuild consolidated self-contained paper'
+          git push origin HEAD:main
+
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: consolidated-hexagon-cover-paper
+          path: |
+            arrange/paper_draft/main.pdf
+            arrange/CURRENT_VERIFICATION_SUMMARY.txt
+            arrange/paper_draft/main.log
+          if-no-files-found: error
