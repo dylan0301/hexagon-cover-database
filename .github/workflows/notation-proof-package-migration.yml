@@ -1,0 +1,172 @@
+name: One-shot notation and proof-package migration
+
+on:
+  push:
+    branches:
+      - agent/notation-proof-package-consolidation
+    paths:
+      - tools/notation_migration_payload/**
+      - .github/workflows/notation-proof-package-migration.yml
+
+permissions:
+  contents: 'write'
+
+env:
+  SOURCE_DATE_EPOCH: '946684800'
+  FORCE_SOURCE_DATE: '1'
+  TZ: UTC
+  BASE_SHA: ee0fdf4410f844e84348b84d0dfe3359035c60ce
+  TARGET_BRANCH: agent/notation-proof-package-consolidation
+
+concurrency:
+  group: notation-proof-package-migration
+  cancel-in-progress: false
+
+jobs:
+  migrate:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+        with:
+          ref: agent/notation-proof-package-consolidation
+          fetch-depth: 0
+
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+
+      - name: Configure migration committer
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Execute phased source migration
+        run: |
+          set -euo pipefail
+          cat tools/notation_migration_payload/part-* \
+            | base64 -d \
+            | gzip -dc > /tmp/notation_proof_package_migration.py
+          python tools/notation_migration_payload/hotfix.py \
+            /tmp/notation_proof_package_migration.py
+          python /tmp/notation_proof_package_migration.py
+          git status --short
+
+      - name: Install pinned proof dependencies
+        run: python -m pip install --disable-pip-version-check -r requirements-proof.txt
+
+      - name: Verify protected sources and conservative deletion scope
+        run: |
+          set -euo pipefail
+          git diff --exit-code "$BASE_SHA" -- \
+            proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2
+          git diff --exit-code "$BASE_SHA" -- \
+            proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation
+          mapfile -t deleted < <(git diff --name-only --diff-filter=D "$BASE_SHA" -- proof | grep '\.md$' || true)
+          printf '%s\n' "${deleted[@]}"
+          test "${#deleted[@]}" -eq 2
+          printf '%s\n' "${deleted[@]}" | grep -Fx \
+            'proof/1XXX_foundations/11XX_C_triangle/1100_C_triangle_overview.md'
+          printf '%s\n' "${deleted[@]}" | grep -Fx \
+            'proof/1XXX_foundations/12XX_V_triangle/1200_V_triangle_overview.md'
+
+      - name: Verify proof graph, notation, provenance, and exact specifications
+        run: |
+          set -euo pipefail
+          python tools/generate_active_dependency_graph.py --check
+          python tools/generate_proof_manifest.py --check
+          python tools/proof_lint.py
+          python tools/verify_strategy2_pure_algebra.py
+          python tools/verify_strategy2_spec_sync.py
+          git diff --check
+
+      - name: Replay exact Strategy 4 certificates
+        working-directory: proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation
+        run: |
+          set -euo pipefail
+          python verify_mixed_overlap_core_derivation.py
+          python verify_global_core_positivity.py
+
+      - uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9
+        with:
+          lake-package-directory: formalization/strategy2_optimization
+          build: 'true'
+          test: 'false'
+          lint: 'false'
+          use-mathlib-cache: 'true'
+          leanchecker: 'false'
+          nanoda: 'false'
+
+      - name: Check pinned Lean manifest
+        run: git diff --exit-code -- formalization/strategy2_optimization/lake-manifest.json
+
+      - name: Rebuild paper twice in pinned TeX Live 2025
+        uses: xu-cheng/texlive-action@22c04326a5d855880f9d39bb955138bf11c6df80
+        with:
+          docker_image: >-
+            ghcr.io/xu-cheng/texlive-historic-debian:2025@sha256:d3e42adc0c8d84bc913bfc33571feaf7037616260a771bb6f027504661568bf6
+          run: |
+            set -euo pipefail
+            export SOURCE_DATE_EPOCH=946684800
+            export FORCE_SOURCE_DATE=1
+            export TZ=UTC
+            cd arrange/paper_draft
+
+            build_pdf() {
+              local output="$1"
+              local log_copy="$2"
+              rm -f main.pdf main.aux main.fdb_latexmk main.fls main.log \
+                main.out main.toc main.xdv main.synctex.gz
+              latexmk -xelatex -interaction=nonstopmode -halt-on-error \
+                -file-line-error main.tex
+              if grep -Eq 'LaTeX Warning: (Reference .* undefined|There were undefined references|Label .* multiply defined)' main.log; then
+                echo 'Undefined or multiply-defined references found.' >&2
+                exit 1
+              fi
+              if grep -Eq 'Overfull \\hbox|Overfull \\vbox' main.log; then
+                echo 'Overfull horizontal or vertical boxes found.' >&2
+                grep -E 'Overfull \\hbox|Overfull \\vbox' main.log >&2
+                exit 1
+              fi
+              cp main.pdf "$output"
+              cp main.log "$log_copy"
+            }
+
+            build_pdf main.rebuilt1.pdf main.rebuilt1.log
+            build_pdf main.rebuilt2.pdf main.rebuilt2.log
+            cp main.rebuilt2.pdf main.pdf
+            cp main.rebuilt2.log main.log
+            rm -f main.aux main.fdb_latexmk main.fls main.out main.toc \
+              main.xdv main.synctex.gz
+
+      - name: Audit rebuilt PDF and commit Phase 6
+        run: |
+          set -euo pipefail
+          python tools/compare_pdfs_semantically.py \
+            arrange/paper_draft/main.rebuilt1.pdf \
+            arrange/paper_draft/main.rebuilt2.pdf --dpi 144
+          python tools/verify_pdf_render.py arrange/paper_draft/main.pdf
+          python tools/generate_verification_summary.py
+          python tools/generate_verification_summary.py --check
+          rm -f \
+            arrange/paper_draft/main.rebuilt1.pdf \
+            arrange/paper_draft/main.rebuilt2.pdf \
+            arrange/paper_draft/main.rebuilt1.log \
+            arrange/paper_draft/main.rebuilt2.log \
+            arrange/paper_draft/main.log
+          git add arrange/paper_draft/main.pdf arrange/CURRENT_VERIFICATION_SUMMARY.txt
+          git commit -m "Phase 6: rebuild canonical paper and verification summary"
+          git diff --check
+          git status --short
+
+      - name: Push phased commits
+        run: |
+          set -euo pipefail
+          git push origin "HEAD:${TARGET_BRANCH}"
+
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: notation-migration-paper
+          path: |
+            arrange/paper_draft/main.pdf
+            arrange/CURRENT_VERIFICATION_SUMMARY.txt
+          if-no-files-found: error
