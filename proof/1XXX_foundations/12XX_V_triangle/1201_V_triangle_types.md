@@ -2,6 +2,16 @@
 
 Status: Proven
 
+## Scope and downstream data
+
+A V triangle is a distinguished triangle containing one hexagon vertex.  The
+classification into Vd0, Vd1, Vd2, and T3-like types is exhaustive.  This file
+also serves as the local navigation entry previously separated into an overview
+shell.
+
+The exact reach coordinates are defined in `1202`; adjacent-radial formulas
+and the $AB$-set package are indexed from `20XX_index.md`.
+
 For a $V_i$-triangle, define
 
 $$

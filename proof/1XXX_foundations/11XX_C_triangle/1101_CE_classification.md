@@ -2,6 +2,17 @@
 
 Status: Proven
 
+## Scope and local data
+
+The C triangle is the distinguished triangle containing $O$.  Its positive
+boundary traces are classified as CE0, CE1, or CE2.  This file is both the
+classification source and the navigation entry previously separated into an
+overview shell; no mathematical content is lost by the merge.
+
+The classification records the C-triangle boundary intervals, the normalized
+unique midpoint in the CE1/CE2 cases, and the signed variables used by the
+later exact formulas.
+
 Let
 
 $$
