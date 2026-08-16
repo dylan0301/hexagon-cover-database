@@ -1,257 +1,208 @@
-# Glossary And Notation Dictionary
+# Canonical Notation Dictionary
 
 Status: Reference
 
-## Global geometry
+This file is the public notation contract for the active proof package.  The
+paper and the numbered proof sources use the same symbols.  The established
+geometric terms are **C triangle** and **V triangle**; those terms are not
+expanded to “center triangle” or “vertex triangle” in the proof package.
 
-- $H$: side-$1$ regular hexagon.
-- $H_L$: side-$L$ regular hexagon.
-- $O$: center of the hexagon. Some older notes use $C$.
-- $V_i$: hexagon vertices.
-- $e_{i,i+1}$: boundary edge.
-- $r_i$: radial segment $[O,V_i]$.
-- $M_i$: midpoint $V_i/2$.
-- $S$: full skeleton.
-- $S_{1/2}$: half-skeleton.
-- $T_C$: center triangle.
-- $T_i$: vertex triangle at $V_i$.
+## 1. Distinguished triangles
 
-## Role classes
+- $T_C$ is the closed C triangle containing the center $O$.
+- $T_i$ is the closed $V_i$ triangle containing the hexagon vertex $V_i$.
+- CE0, CE1, and CE2 are the C-triangle boundary-trace types.
+- Vd0, Vd1, Vd2, and T3-like are the V-triangle types.
 
-- CE0/CE1/CE2: exhaustive preferred center-triangle perimeter-edge types.
-- Ce0/Ce1/Ce2: historical aliases.
-- Vd0/Vd1/Vd2/T3-like: exhaustive original vertex-role types.
-- supercritical V triangle: a V triangle whose actual reaches satisfy $A_i+B_i>1$.
-- $N_+$:
-  $$
-  \left\lvert\left\{i:A_i+B_i>1\right\}\right\rvert,
-  $$
-  the number of actual supercritical V triangles.
-- short role: in `2530`, a vertex role that is supercritical or has
-  positive-length support on an adjacent radial arm.
-- $\mathrm{gr}$: active-gap rank, the number of positive center traces
-  containing a V-gap. One has $\mathrm{gr}\in\{0,1,2\}$ and
-  $\mathrm{gr}\le1$ in CE1. Bare $g$ is reserved for transfer maps.
+## 2. Actual reaches and selected lower bounds
 
-## Universal enclosure calculus
-
-- $R_{120}$: rotation through $2\pi/3$ when a distinction from the signed
-  center parameter $R$ is needed.
-- $h_K(n)=\max_{x\in K}\langle x,n\rangle$: support function.
-- $\Lambda(K)$: least side length of a closed equilateral triangle containing
-  $K$:
-  $$
-  \Lambda(K)=\frac{2}{\sqrt3}
-  \min_{\lVert n\rVert=1}
-  \sum_{j=0}^2h_K(R_{120}^jn).
-  $$
-- $\omega(x)=\sqrt{1-x+x^2}$ and
-  $\sigma(x)=1-\omega(x)$: the universal equilateral radical and its concave
-  deficit.
-
-## The canonical $g$-family
-
-The paper uses one raw transfer family.  Nonsupercritical roles are handled by
-two direct radial branches rather than by defining a second transfer family.
-The superscript $\vee$ changes from boundary-defect coordinates to
-complementary incoming-reach coordinates.
-
-- $\mathcal A$: the exact local admissible set of demand triples $(a,b,c)$.
-- $x=1-a$: incoming boundary defect corresponding to incoming reach $a$.
-- $g_c(x)$:
-  $$
-  g_c(x)
-  =
-  \max\left\{
-  y:(1-x,y,c)\in\mathcal A
-  \right\}.
-  $$
-  This is the historical raw defect-coordinate map. Equivalently,
-  $g_c(x)=B_c(1-x)$.
-- $f^\vee(a)=1-f(1-a)$: complement dual of any map $f$.
-- $g_c^\vee$: raw next-incoming reach lower transfer.
-- midpoint threshold:
-  $$
-  c\ge\frac12\quad\Longrightarrow\quad g_c(x)\le x,
-  \qquad g_{1/2}(x)=x.
-  $$
-- nonsupercritical branchwise output: if an actual role has $A+B\le1$,
-  $A\ge a$, and $C\ge c$, then
-  $$
-  B\le
-  \begin{cases}
-  1-a,&c\le1/2,\\
-  g_c(1-a),&c>1/2.
-  \end{cases}
-  $$
-  On a center-free edge the next incoming reach is therefore at least $a$ in
-  the low-radial branch and at least $g_c^\vee(a)\ge a$ in the high-radial
-  branch.
-- $\mathcal R_J(p)$: far-side residual demand after an initial trace $[0,p]$
-  and a center interval $J$.
-- $g_{c,J}^\vee(a)=\mathcal R_J(g_c(1-a))$: raw center-assisted reach transfer
-  in the high-radial branch.  The low-radial branch applies
-  $\mathcal R_J(1-a)$ directly.
-- $g_c^{\rm sc}$:
-  $$
-  g_c^{\rm sc}
-  =
-  \sup_{\{x:g_c(x)>x\}}g_c(x)
-  =
-  \frac{c+\sqrt{c^2-8c+4}}2
-  \quad(0\le c<1/2).
-  $$
-  This single scalar is the free strict-supercritical outgoing envelope.
-  Every such V triangle has outgoing reach $<g_c^{\rm sc}$.  If the outgoing
-  edge is center-free, the following incoming reach is
-  $>1-g_c^{\rm sc}$.
-- $[\Phi_1\mid\cdots\mid\Phi_r](x)$:
-  $(\Phi_r\circ\cdots\circ\Phi_1)(x)$, with maps listed in geometric
-  V-triangle order.
-- $\mathrm I(x)=x$: identity lower relaxation.
-- $g_{1-d}^{\vee,\lambda}(x)=x+\lambda(x-d)$: certified affine selected-$T_+$
-  lower relaxation of the high-radial transfer on its stated arc.
-- $g_{1-d}^{\vee,\rm th}$: low-root threshold lower relaxation of the
-  high-radial transfer $g_{1-d}^\vee$.
-
-At zero radial demand,
+For an actual $V_i$ triangle $T_i$,
 
 $$
-g_0(x)>x\qquad(0<x<1),
+(A_i,B_i,C_i)
 $$
 
-and hence
+denote its maximal backward-boundary, forward-boundary, and own-radial
+reaches.  Supercriticality and exact trace length always concern these actual
+reaches:
 
 $$
-g_0^\vee(a)<a.
-$$
-
-Thus the raw zero-radial map is not a valid nonsupercritical identity
-handoff.  The low-radial branch uses $B\le1-A$ directly.
-
-### Technical aliases
-
-The exact contact-cell files retain three incoming-reach aliases when they
-shorten formulas:
-
-$$
-B_c(a)=g_c(1-a),
+T_i\text{ is supercritical}
+\quad\Longleftrightarrow\quad
+A_i+B_i>1,
 $$
 
 $$
-F_c(a)=
+L_{\partial H}(T_i)=A_i+B_i.
+$$
+
+Lowercase indexed symbols are selected lower bounds only:
+
+$$
+0\le a_i\le A_i,
+\qquad
+0\le b_i\le B_i,
+\qquad
+0\le c_i\le C_i.
+$$
+
+Unindexed letters such as $a,b,c$ may be used as bound variables inside a
+local theorem when that theorem explicitly declares their meaning.  Indexed
+lowercase reaches are never used for actual maxima.
+
+## 3. Counts
+
+$$
+N_+=\#\{i:A_i+B_i>1\},
+$$
+
+$$
+N_{\rm sp}
+=\#\{i:T_i\text{ is Vd1, Vd2, or T3-like}\},
+$$
+
+and
+
+$$
+N_{\rm gap}
+=\#\{\text{positive C-triangle boundary traces containing a V-uncovered set}\}.
+$$
+
+The skeleton-length route is stated directly as
+
+$$
+N_++N_{\rm sp}\ge3
+\quad\Longrightarrow\quad
+\text{skeleton noncoverage}.
+$$
+
+No additional “short-role” count is part of the canonical interface.
+
+## 4. Local admissible set and propagation
+
+For selected lower bounds $(a,b,c)$,
+
+$$
+\mathcal A
+=\{(a,b,c)\in[0,1]^3:K(a,b,c)\text{ fits in a closed unit equilateral triangle}\}.
+$$
+
+The raw forward envelope is
+
+$$
+M_c(a)=\max\{b:(a,b,c)\in\mathcal A\}.
+$$
+
+The exact nonsupercritical cap and center-free propagation map are
+
+$$
+\overline M_c(a)=
 \begin{cases}
-1-a,&c\le1/2,\\
-B_c(a),&c>1/2,
+1-a,&0\le c\le1/2,\\
+M_c(a),&1/2<c\le1,
 \end{cases}
 \qquad
-G_c(a)=1-F_c(a).
+\Phi_c(a)=1-\overline M_c(a).
 $$
 
-The older free-envelope aliases are
+Thus an actual nonsupercritical V triangle with $A\ge a$ and $C\ge c$
+satisfies
 
 $$
-B_{\rm sc}(c)=g_c^{\rm sc},
+B\le\overline M_c(a),
+$$
+
+and a center-free following edge gives
+
+$$
+A_{\rm next}\ge\Phi_c(a).
+$$
+
+For a C-triangle trace interval $J$, the generalized handoff is written
+without a second map family:
+
+$$
+A_{\rm next}\ge\mathcal R_J(M_c(a))
+$$
+
+in the raw case and
+
+$$
+A_{\rm next}\ge\mathcal R_J(\overline M_c(a))
+$$
+
+in the nonsupercritical case.
+
+For $0\le c<1/2$, the strict-supercritical forward supremum is
+
+$$
+M_c^{\rm sup}
+=\sup\{M_c(a):M_c(a)>1-a\}
+=\frac{c+\sqrt{c^2-8c+4}}2.
+$$
+
+## 5. High-radial branches
+
+The exact branch labels are
+
+$$
+\mathrm{Lin},\qquad
+\mathrm{Const},\qquad
+Q_-,\qquad
+Q_+.
+$$
+
+The admissible-set cell names $\mathcal A_L$, $\mathcal A_T$, and
+$\mathcal A_S$ are different objects and are retained.
+
+## 6. Signed C-triangle variables
+
+The signed normal form uses
+
+$$
+0<R<1,
+\qquad W=1-R,
+\qquad E=\sqrt{1-RW},
+\qquad \eta=1-E,
+$$
+
+$$
+P=E(1-E),
 \qquad
-A_{\rm sc}(c)=1-g_c^{\rm sc}.
+\Delta_R=P-\alpha-W\delta,
+\qquad
+\Delta_L=P-R\alpha-\delta.
 $$
 
-Reader-facing files should prefer the raw $g$-family and the direct low/high
-branch split.
+These symbols are reserved for the C-triangle normal form.  A V-triangle
+radial lower bound is written $c_i$, not $\delta$.
 
-## Signed CE1/CE2 center normal form
+## 7. Legacy crosswalk
 
-The common signed variables are defined in `2109`.
-
-- $R\in(0,1)$: normalized side-slope parameter; the historical CE1 variable
-  is $\lambda=R$.
-- $W=1-R$.
-- $E=\sqrt{1-RW}=\sqrt{1-R+R^2}=\omega(R)$; historical CE1 notation is
-  $\rho=E$.
-- $\eta=1-E=\sigma(R)$.
-- $P=E(1-E)$, with $RW=\eta+P$.
-- $\alpha=F_0(O)$ and $\delta=F_2(O)$: the two nontrivial center slacks.
-- $k=\eta+\alpha+\delta$.
-- $\Delta_R=P-\alpha-W\delta$: normalized active-trace surplus; always
-  positive.
-- $\Delta_L=P-R\alpha-\delta$: companion-trace surplus.
-- CE1 sign: $\Delta_L\le0$.
-- CE2 sign: $\Delta_L>0$.
-- normalized right trace:
-  $$
-  \left[\frac{k}{R},W+\delta\right].
-  $$
-- possible companion trace:
-  $$
-  \left[\frac{k}{W},R+\alpha\right].
-  $$
-- common center exits:
-  $$
-  d_0^C=E-\alpha-\delta,\quad
-  d_1^C=\frac{\delta}{R},\quad
-  d_2^C=\delta,
-  $$
-  $$
-  d_3^C=\min\left\{\frac{\alpha}{R},\frac{\delta}{W}\right\},\quad
-  d_4^C=\alpha,\quad
-  d_5^C=\frac{\alpha}{W}.
-  $$
-- center-complement radial demand: $c_i^C=1-d_i^C$.
-- local CE1 affine-slot scalar:
-  $$
-  m_3=d_3^C,
-  $$
-  distinct from the global non-Vd0 role count $m$.
-
-Legacy CE1 variables are
+The authenticated 407X exact-cell package and historical files retain some
+older symbols because changing them would invalidate recorded Git-blob
+provenance.  In those files only,
 
 $$
-\lambda=R,\qquad
-s=\frac{k}{R},\qquad
-t=W+\delta,\qquad
-C_0=\alpha,\qquad
-C_2=\delta.
+g_c(x)=M_c(1-x),
+\qquad
+B_c=M_c,
+\qquad
+F_c=\overline M_c,
+\qquad
+G_c=\Phi_c,
 $$
 
-Legacy CE2 variables are
+and
 
 $$
-x=\frac{k}{W},\qquad
-u=R+\alpha,\qquad
-y=\frac{k}{R},\qquad
-v=W+\delta.
+\mathrm{Full}=\mathrm{Lin},
+\qquad
+L=\mathrm{Const},
+\qquad
+T_-=Q_-,
+\qquad
+T_+=Q_+.
 $$
 
-The far endpoint historically denoted by $u$ is written $\nu$ in shared
-high-sheet calculations when confusion with a local coordinate is possible.
-
-## Vertex-role local coordinates
-
-- $a,b,c$: local lower-bound demands; a closed $V_i$-triangle $T$ realizes
-  them when $(a,b,c)\le(A(T),B(T),C(T))$ coordinatewise. For an open role,
-  the same weak statement applies to its closure.
-- $A(T),B(T),C(T)$: actual maximal reaches of a $V_i$-triangle $T$ toward
-  $V_{i-1}$, $V_{i+1}$, and $O$, respectively. Equivalently, these are the
-  incoming, outgoing, and own-radial reaches. They are unchanged when an
-  original open role is replaced by its closure.
-- $(A_i,B_i,C_i)=(A(T_i),B(T_i),C(T_i))$: compact indexed aliases for the
-  actual maximal V triangle reaches.
-- $(a_i,b_i,c_i)$: selected lower-bound demands in the manuscript.
-- $e(d)=\ell(1-d)$: low selected root for radial demand $1-d$.
-- $\sigma(x)=1-\sqrt{1-x+x^2}$: universal selected-$T_+$ increment; older
-  files write $\psi(x)$.
-- $\beta(q)=(-q+\sqrt{4-3q^2})/2$: adjacent-edge diameter-transfer curve.
-
-## Historical and auxiliary notation
-
-- $d_0,d_{60},\dots,d_{300}$: historical degree-indexed center exits.
-- $1-d_{60i}$: historical complementary radial distance after $T_C$.
-- $K_5$: archived May 25 five-point set.
-- $f(a,b)$: normalized maximal retained area for a forced vertex triangle.
-- $\mathcal L_{\rm area}=1-f$: normalized local area loss.
-- $F$: historical coverage-coordinate zero-diagonal map, unrelated to the
-  technical alias $F_c$ above.
-- algorithm 1: failed unimodality route.
-- algorithm 2: diagonal-relaxation route in the CE0 all-Vd0 branch.
-- 걸거치는: crossing or straddling adjacent structure in the problematic
-  T3-like way.
+These are compatibility aliases, not a second public notation layer.

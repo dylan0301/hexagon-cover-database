@@ -117,11 +117,11 @@ positive center trace, even when the V-gap is a singleton.
 Let
 
 $$
-\mathrm{gr}\in\{0,1,2\}
+N_{\rm gap}\in\{0,1,2\}
 $$
 
 be the number of positive center traces containing a V-gap. One has
-$\mathrm{gr}\le1$ for CE1. The three ranks are exhaustive.
+$N_{\rm gap}\le1$ for CE1. The three ranks are exhaustive.
 
 | rank | exact data retained | relaxed internal chain | terminal contradiction |
 |---|---|---|---|
@@ -249,7 +249,7 @@ applies to these signed endpoint data and gives
 
 $$
 \boxed{
-g_{c_5}(1-s)+g_{c_1}(1-q)<1.
+M_{c_5}(s)+M_{c_1}(q)<1.
 }
 $$
 
@@ -258,9 +258,9 @@ on the two boundary edges leading away from the center traces. Reflection of
 the local admissible set when needed gives
 
 $$
-B_5^{\rm far}\le g_{c_5}(1-s),
+B_5^{\rm far}\le M_{c_5}(s),
 \qquad
-B_1^{\rm far}\le g_{c_1}(1-q),
+B_1^{\rm far}\le M_{c_1}(q),
 $$
 
 and therefore

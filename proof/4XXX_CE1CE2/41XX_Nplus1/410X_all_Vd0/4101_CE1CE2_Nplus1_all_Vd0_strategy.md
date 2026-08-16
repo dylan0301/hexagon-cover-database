@@ -8,16 +8,16 @@ Seven open unit equilateral triangles cannot cover the side-one hexagon $H$
 when the center role is CE1 or CE2, all six vertex roles are Vd0, and
 $N_+=1$.
 
-The active proof depends only on the active-gap rank $\mathrm{gr}$, the number
+The active proof depends only on the active-gap rank $N_{\rm gap}$, the number
 of center traces that contain an active V-gap. Together with the $N_+=0$
 theorem `4013`, the all-Vd0 kernel is
 
-| actual V-triangle count | $\mathrm{gr}=0$ | $\mathrm{gr}=1$ | $\mathrm{gr}=2$ |
+| actual V-triangle count | $N_{\rm gap}=0$ | $N_{\rm gap}=1$ | $N_{\rm gap}=2$ |
 |---|---|---|---|
 | $N_+=0$ | strict identity cycle | one-side exact-endpoint chain | common CE2 paired-endpoint chain |
 | $N_+=1$ | center-independent nine-point obstruction | common five-V-triangle chain with a sign-dependent relaxation | common CE2 paired-endpoint chain |
 
-The column $\mathrm{gr}=2$ is CE2-only. The canonical $g$-family is proved in
+The column $N_{\rm gap}=2$ is CE2-only. The canonical $g$-family is proved in
 [`201d`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md).
 
 ## 1. Unique supercritical V triangle
@@ -103,14 +103,14 @@ $$
 $$
 
 The center is CE1 exactly when $\Delta_L\le0$ and CE2 exactly when
-$\Delta_L>0$. Let $\mathrm{gr}$ be the number of these positive traces that
+$\Delta_L>0$. Let $N_{\rm gap}$ be the number of these positive traces that
 contain a V-gap. Then
 
 $$
-\mathrm{gr}\in\{0,1,2\},
+N_{\rm gap}\in\{0,1,2\},
 $$
 
-with $\mathrm{gr}\le1$ in CE1.
+with $N_{\rm gap}\le1$ in CE1.
 
 ## 3. Rank zero: no active gap
 
@@ -153,15 +153,15 @@ The common actual-V triangle theorem
 
 $$
 \boxed{
-[g_{c_1}^\vee
+[\Phi_{c_1}
 \mid
-g_{c_2}^\vee
+\Phi_{c_2}
 \mid
-g_{c_3}^\vee
+\Phi_{c_3}
 \mid
-g_{c_4}^\vee
+\Phi_{c_4}
 \mid
-g_{c_5}^\vee](X).
+\Phi_{c_5}](X).
 }
 $$
 
@@ -173,11 +173,11 @@ reverses the remaining three slots and reduces both center classes to
 
 $$
 \boxed{
-[g_{1-\alpha}^\vee
+[\Phi_{1-\alpha}
 \mid
-g_{1-m_3}^\vee
+\Phi_{1-m_3}
 \mid
-g_{1-\delta}^\vee](H)
+\Phi_{1-\delta}](H)
 >
 1-X.
 }
@@ -187,41 +187,41 @@ The sign of $\Delta_L$ determines only how this common target is relaxed.
 
 ### 4.1. CE1 relaxation
 
-If $\Delta_L\le0$, the center is CE1. On the easy $L$ and $T_-$ labels the
-target is already exceeded. On the only surviving selected-$T_+$ branch,
+If $\Delta_L\le0$, the center is CE1. On the easy $L$ and $Q_-$ labels the
+target is already exceeded. On the only surviving selected-$Q_+$ branch,
 [`4106`](4106_CE1_one_gap_five_map_completion.md) proves the two affine lower
 bounds
 
 $$
-g_{1-\alpha}^{\vee,\,1-4\alpha}
+\Phi_{1-\alpha}^{\,1-4\alpha}
 \le
-g_{1-\alpha}^\vee,
+\Phi_{1-\alpha}^{
 $$
 
 and
 
 $$
-g_{1-m_3}^{\vee,\,1-5m_3}
+g_}{1-m_3}^{\vee,\,1-5m_3}
 \le
-g_{1-m_3}^\vee
+\Phi_{1-m_3}
 $$
 
 at the realized inputs. The resulting value exceeds $e(\delta)$, so the final
 slot is relaxed to
 
 $$
-g_{1-\delta}^{\vee,\rm th}.
+\Phi_{1-\delta}^{\rm th}.
 $$
 
 Thus the hard branch is summarized by the single decorated chain
 
 $$
 \boxed{
-[g_{1-\alpha}^{\vee,\,1-4\alpha}
+[\Phi_{1-\alpha}^{\,1-4\alpha}
 \mid
-g_{1-m_3}^{\vee,\,1-5m_3}
+\Phi_{1-m_3}^{\,1-5m_3}
 \mid
-g_{1-\delta}^{\vee,\rm th}](H)
+\Phi_{1-\delta}^{\rm th}](H)
 >
 1-X.
 }
@@ -242,7 +242,7 @@ $$
 \mid
 \mathrm I
 \mid
-g_{1-\alpha}^{\vee,\rm th}
+\Phi_{1-\alpha}^{\rm th}
 \mid
 \mathrm I](X)
 >
@@ -256,7 +256,7 @@ $$
 \boxed{
 [\mathrm I
 \mid
-g_{1-\delta}^{\vee,\rm th}
+\Phi_{1-\delta}^{\rm th}
 \mid
 \mathrm I
 \mid
@@ -289,7 +289,7 @@ applies directly. It keeps the two endpoint high-radial outgoing bounds exact,
 relaxes the three middle V triangles to $\mathrm I^3$, and invokes the paired
 endpoint loss `2108`.
 
-The ranks $\mathrm{gr}=0,1,2$ are exhaustive. Therefore the CE1/CE2,
+The ranks $N_{\rm gap}=0,1,2$ are exhaustive. Therefore the CE1/CE2,
 $N_+=1$, all-Vd0 branch is impossible.
 
 The older reduction

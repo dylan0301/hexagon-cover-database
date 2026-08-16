@@ -17,9 +17,9 @@ nine-point obstruction.
 | Strict boundary handoffs | [`../1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md`](../1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md) | Proven |
 | Exact local admissible set | [`../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md`](../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md) | Proven |
 | Exact outgoing envelope | [`../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2007_max_b_map.md`](../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2007_max_b_map.md) | Proven |
-| Free strict-supercritical outgoing envelope $g_c^{\rm sc}$ | [`../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2010_free_supercritical_max_b.md`](../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2010_free_supercritical_max_b.md) | Proven |
+| Free strict-supercritical outgoing envelope $M_c^{\rm sup}$ | [`../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2010_free_supercritical_max_b.md`](../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2010_free_supercritical_max_b.md) | Proven |
 | Exact branchwise nonsupercritical output, high-radial four labels, and duality | [`../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md`](../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md) | Proven |
-| Selected-$T_+$ curve and chords | [`../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2016_universal_Tplus_normal_form.md`](../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2016_universal_Tplus_normal_form.md) | Proven |
+| Selected-$Q_+$ curve and chords | [`../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2016_universal_Tplus_normal_form.md`](../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2016_universal_Tplus_normal_form.md) | Proven |
 | Threshold routing | [`../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2017_threshold_routing.md`](../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2017_threshold_routing.md) | Proven |
 | Diameter transfer and common rescuer | [`../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2018_diameter_transfer_and_adjacent_rescuer.md`](../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2018_diameter_transfer_and_adjacent_rescuer.md) | Proven |
 | Center-assisted transfers and **center-free** path budget | [`../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2019_interval_component_and_path_budget.md`](../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2019_interval_component_and_path_budget.md) | Proven |
@@ -48,7 +48,7 @@ nine-point obstruction.
   Nonsupercritical low-radial handoffs therefore use the direct inequality
   $B\le1-A$, not the raw map.
 - The strict-supercritical theorem gives the outgoing bound
-  $B<g_c^{\rm sc}$ without a handoff hypothesis. The complementary following
+  $B<M_c^{\rm sup}$ without a handoff hypothesis. The complementary following
   demand requires a center-free outgoing edge.
 - A path budget is used only after all center and nonincident contributions on
   internal edges have been excluded and endpoint contributions have been

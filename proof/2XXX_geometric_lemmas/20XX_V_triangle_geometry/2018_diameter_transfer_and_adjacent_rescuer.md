@@ -8,9 +8,9 @@ center-trace argument for a T3-like or Vd1 V triangle rescuing a neighboring
 supercritical V triangle.
 
 The strict-supercritical functions are written with the single canonical
-envelope $g_c^{\rm sc}$ from
+envelope $M_c^{\rm sup}$ from
 [`201d`](201d_raw_and_relaxed_g_chains.md). Its complementary following-demand
-bound is $1-g_c^{\rm sc}$.
+bound is $1-M_c^{\rm sup}$.
 
 ## 1. The diameter-transfer curve
 
@@ -66,7 +66,7 @@ For $0\le c\le1/2$, put
 
 $$
 \boxed{
-g_c^{\rm sc}
+M_c^{\rm sup}
 =
 \frac{c+\sqrt{c^2-8c+4}}2.
 }
@@ -75,13 +75,13 @@ $$
 The free strict-supercritical theorem
 [`2010`](2010_free_supercritical_max_b.md) says that a strict-supercritical V triangle
 whose own-radial demand is at least $c$ has outgoing reach strictly less than
-$g_c^{\rm sc}$.
+$M_c^{\rm sup}$.
 
-The function $c\mapsto g_c^{\rm sc}$ is strictly decreasing on $[0,1/2]$,
+The function $c\mapsto M_c^{\rm sup}$ is strictly decreasing on $[0,1/2]$,
 because
 
 $$
-\frac{d}{dc}g_c^{\rm sc}
+\frac{d}{dc}M_c^{\rm sup}
 =
 \frac12\left(
 1+\frac{c-4}{\sqrt{c^2-8c+4}}
@@ -125,9 +125,9 @@ Assume
 
 $$
 \boxed{
-a\le1-g_c^{\rm sc},
+a\le1-M_c^{\rm sup},
 \qquad
-\theta\le1-g_c^{\rm sc},
+\theta\le1-M_c^{\rm sup},
 }
 $$
 
@@ -142,7 +142,7 @@ Let $h$ be the boundary reach forced on the opposite endpoint role $T_5$ along
 $e_{5,0}$, measured from $V_5$ toward $V_0$. Then
 
 $$
-\boxed{h\ge g_c^{\rm sc}.}
+\boxed{h\ge M_c^{\rm sup}.}
 $$
 
 ### Proof
@@ -151,7 +151,7 @@ If the center has no positive companion trace, the portion after $[0,a]$
 forces
 
 $$
-h\ge1-a\ge g_c^{\rm sc}.
+h\ge1-a\ge M_c^{\rm sup}.
 $$
 
 The same conclusion holds when the companion trace lies completely before or
@@ -242,7 +242,7 @@ R+\alpha
 \le
 \theta
 \le
-1-g_c^{\rm sc}.
+1-M_c^{\rm sup}.
 $$
 
 In the hiding case $T_5$ must reach the far center endpoint, so
@@ -252,7 +252,7 @@ h
 \ge
 1-(R+\alpha)
 \ge
-g_c^{\rm sc}.
+M_c^{\rm sup}.
 $$
 
 This completes all cases.
@@ -267,16 +267,16 @@ Assume, in addition to the hypotheses of Section 3, that:
 - these four V triangles must cover the ordinary boundary chain from $e_{1,2}$ to
   $e_{5,0}$.
 
-The strict-supercritical theorem and monotonicity of $g_c^{\rm sc}$ give
+The strict-supercritical theorem and monotonicity of $M_c^{\rm sup}$ give
 
 $$
-b_1<g_c^{\rm sc}.
+b_1<M_c^{\rm sup}.
 $$
 
 Section 3 gives
 
 $$
-h\ge g_c^{\rm sc}>b_1.
+h\ge M_c^{\rm sup}>b_1.
 $$
 
 The boundary obligations are
@@ -323,9 +323,9 @@ so the same sum is at most $4$. This contradiction proves the common
 adjacent-rescuer obstruction once the local rescuer inequalities
 
 $$
-a\le1-g_c^{\rm sc},
+a\le1-M_c^{\rm sup},
 \qquad
-\frac{a}{a+1-u}\le1-g_c^{\rm sc}
+\frac{a}{a+1-u}\le1-M_c^{\rm sup}
 $$
 
 have been verified for the relevant T3-like or Vd1 normal form.

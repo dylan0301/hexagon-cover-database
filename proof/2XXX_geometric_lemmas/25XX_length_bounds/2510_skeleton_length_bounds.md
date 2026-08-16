@@ -53,7 +53,7 @@ Assume:
 3. At least two $V_i$-triangles are supercritical:
 
    $$
-   a_i+b_i>1.
+   A_i+B_i>1.
    $$
 
 Then the seven triangles cannot cover $S$.
@@ -65,7 +65,7 @@ Then the seven triangles cannot cover $S$.
 Let $T_i$ be a $V_i$-triangle with
 
 $$
-a_i+b_i>1.
+A_i+B_i>1.
 $$
 
 Then $T_i$ covers none of
@@ -79,7 +79,7 @@ $$
 The self-midpoint lemma gives
 
 $$
-M_i\in T_i\implies a_i+b_i\le1.
+M_i\in T_i\implies A_i+B_i\le1.
 $$
 
 Thus $M_i\notin T_i$.
@@ -103,7 +103,7 @@ $$
 Assume $T_C$ is CE1 or CE2 and covers exactly $M_0$. If at least two $V_i$-triangles satisfy
 
 $$
-a_i+b_i>1,
+A_i+B_i>1,
 $$
 
 then at least one $V_i$-triangle has positive-length intersection with an
@@ -114,7 +114,7 @@ adjacent radial arm.
 Let
 
 $$
-A=\{i:a_i+b_i>1\}.
+A=\{i:A_i+B_i>1\}.
 $$
 
 Since $|A|\ge2$, choose $s\in A$ with $s\ne0$.
@@ -696,7 +696,7 @@ Let $T_i$ have no positive-length intersection with either adjacent radial
 arm, and suppose
 
 $$
-a_i+b_i\le1.
+A_i+B_i\le1.
 $$
 
 Then
@@ -726,7 +726,7 @@ whose length is $1$. Hence the radial contribution is at most $1$.
 The boundary contribution of $T_0$ is the sum of its adjacent boundary coverages:
 
 $$
-a_0+b_0\le1.
+A_0+B_0\le1.
 $$
 
 A unit triangle containing $V_0$ cannot have positive-length intersection with non-adjacent boundary edges, because every non-adjacent boundary point, except isolated vertices, lies at distance $>1$ from $V_0$, while a unit equilateral triangle has diameter $1$.
@@ -734,7 +734,7 @@ A unit triangle containing $V_0$ cannot have positive-length intersection with n
 Therefore
 
 $$
-L_S(T_0)\le (a_0+b_0)+1\le2.
+L_S(T_0)\le (A_0+B_0)+1\le2.
 $$
 
 $$
@@ -748,7 +748,7 @@ $$
 Let $T_i$ be a $V_i$-triangle and suppose
 
 $$
-a_i+b_i>1.
+A_i+B_i>1.
 $$
 
 Then
@@ -762,7 +762,7 @@ $$
 By rotational symmetry, normalize to $i=0$. Write
 
 $$
-a=a_0,\qquad b=b_0.
+a=A_0,\qquad b=B_0.
 $$
 
 Since $a+b>1$, $T_0$ has no adjacent-ray contribution. Thus its skeleton contribution is
@@ -939,7 +939,7 @@ Assume:
 2. At least two $V_i$-triangles satisfy
 
    $$
-   a_i+b_i>1.
+   A_i+B_i>1.
    $$
 
 Then

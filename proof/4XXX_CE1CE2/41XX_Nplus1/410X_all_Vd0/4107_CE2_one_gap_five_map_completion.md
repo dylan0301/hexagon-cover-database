@@ -77,7 +77,7 @@ $$
 Let
 
 $$
-z_i=G_{c_i}(z_{i-1})
+z_i=\Phi_{c_i}(z_{i-1})
 \qquad(1\le i\le5),
 $$
 
@@ -140,7 +140,7 @@ $$
 \boxed{
 x>e(d)
 \quad\Longrightarrow\quad
-G_{1-d}(x)\ge1-e(d).
+\Phi_{1-d}(x)\ge1-e(d).
 }
 $$
 
@@ -371,12 +371,12 @@ $$
 The common interface `4105` now gives
 
 $$
-a_0\ge Z_R
+A_0\ge Z_R
 >
 1-Q
 >
 B_k\left(\frac{k}{R}\right)
-\ge a_0,
+\ge A_0,
 $$
 
 where the middle strict comparison is the diameter-transfer estimate in

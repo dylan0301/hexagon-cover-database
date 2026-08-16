@@ -129,7 +129,7 @@ $$
 For
 
 $$
-\Phi_s(c)=\widehat B_c(sc),
+\Phi_s(c)=\widehat M_c(sc),
 $$
 
 the remaining target is
@@ -150,9 +150,9 @@ $$
 
 The exact four-label theorem in
 [`2011`](../20XX_V_triangle_geometry/2011_capped_demand_map.md)
-has labels $L,T_-,T_+^{hi},\mathrm{Full}$.
+has labels $L,Q_-,Q_+^{hi},\mathrm{Lin}$.
 
-For the small-weight map $\Phi_w$, a $T_-$ selector would require
+For the small-weight map $\Phi_w$, a $Q_-$ selector would require
 $\alpha\le2w\alpha$, so that label is absent when $w<1/2$. For the
 large-weight map, Full would require $\beta\le1/(1+r)$, whereas
 
@@ -166,7 +166,7 @@ $$
 r+z>\frac{1+r}{2}\ge\frac1{1+r}.
 $$
 
-The exact $T_-$ and $T_+^{hi}$ parametrizations verified in Section 3 both
+The exact $Q_-$ and $Q_+^{hi}$ parametrizations verified in Section 3 both
 give $\beta\le K$ on the large side. If small-side Full were paired with
 either, then the first
 endpoint inequality would imply
@@ -189,33 +189,33 @@ w(3-2w-2w^2+w^3)>0.
 $$
 
 Thus small-side Full can pair only with $L$. At $w=r=1/2$, reflect the two
-endpoint roles if necessary so that any single $T_-$ label is second; the
+endpoint roles if necessary so that any single $Q_-$ label is second; the
 low--low estimate below handles two low labels. Therefore the possible
 ordered pairs are
 
 $$
-(\mathrm{Full},L),
+(\mathrm{Lin},L),
 \quad
-(T_+^{hi},L),
+(Q_+^{hi},L),
 \quad
 (L,L),
 \quad
-(L,T_-),
+(L,Q_-),
 \quad
-(L,T_+^{hi}),
+(L,Q_+^{hi}),
 \quad
-(T_+^{hi},T_-),
+(Q_+^{hi},Q_-),
 \quad
-(T_+^{hi},T_+^{hi}).
+(Q_+^{hi},Q_+^{hi}).
 $$
 
 Every low--low pair has sum at most $K<1$. Indeed, Section 3 gives
 $0\le k\le w$ for each $L$ parameter. Since $t h(t)$ increases on
-$[0,1/2]$, an $L$ output is at most $wK$. A large-side $T_-$ output is
-$yK/(r+y)\le rK$, because $y\le r$ and $w\le r$. Thus an $L,T_-$ pair has
+$[0,1/2]$, an $L$ output is at most $wK$. A large-side $Q_-$ output is
+$yK/(r+y)\le rK$, because $y\le r$ and $w\le r$. Thus an $L,Q_-$ pair has
 sum at most $K$, and an $L,L$ pair has sum at most $2wK\le K$. A small-side
-$T_-$ exists only at $w=r=1/2$; its selected parameter is then $1/2$, so a
-$T_-,T_-$ pair also has sum $K$.
+$Q_-$ exists only at $w=r=1/2$; its selected parameter is then $1/2$, so a
+$Q_-,Q_-$ pair also has sum $K$.
 
 To eliminate Full--$L$, write
 
@@ -292,13 +292,13 @@ Full--$L$ loss inequality.
 Consequently only the four pairs
 
 $$
-(T_+^{hi},L),
+(Q_+^{hi},L),
 \qquad
-(L,T_+^{hi}),
+(L,Q_+^{hi}),
 \qquad
-(T_+^{hi},T_-),
+(Q_+^{hi},Q_-),
 \qquad
-(T_+^{hi},T_+^{hi}).
+(Q_+^{hi},Q_+^{hi}).
 $$
 
 remain. We prove all four below.
@@ -360,7 +360,7 @@ $$
 0\le k\le w.
 $$
 
-On the small-side $T_+^{hi}$ frontier, write
+On the small-side $Q_+^{hi}$ frontier, write
 
 $$
 \alpha=\frac{h(x)}{w+x},
@@ -417,7 +417,7 @@ $$
 y^2+ry-r\ge r(2r-1)\ge0.
 $$
 
-Finally, the large-side $T_-$ frontier has
+Finally, the large-side $Q_-$ frontier has
 
 $$
 \beta=\frac{K}{r+y},
@@ -452,7 +452,7 @@ coordinate is $r\beta$ and $r\ge1/2$.
 These are selected geometric components of the exact safe map; no formal
 root from the discarded high sheet is used.
 
-## 4. The pair $(L,T_+^{hi})$
+## 4. The pair $(L,Q_+^{hi})$
 
 Parameterize the small $L$ and large high labels by
 
@@ -603,9 +603,9 @@ $$
 3\sqrt{13}<11.
 $$
 
-This proves $(L,T_+^{hi})$.
+This proves $(L,Q_+^{hi})$.
 
-## 5. The pair $(T_+^{hi},T_-)$
+## 5. The pair $(Q_+^{hi},Q_-)$
 
 Use the parameters $x$ and $y$ from Section 3. Since both
 
@@ -754,7 +754,7 @@ $$
 \Phi_w(\alpha)+\Phi_r(\beta)<1.
 $$
 
-## 6. The pair $(T_+^{hi},T_+^{hi})$
+## 6. The pair $(Q_+^{hi},Q_+^{hi})$
 
 Write
 
@@ -1004,7 +1004,7 @@ $$
 
 The displayed gap is positive, proving the high--high pair.
 
-## 7. The pair $(T_+^{hi},L)$
+## 7. The pair $(Q_+^{hi},L)$
 
 This is the limiting pair as $w\to0^+$ and requires a sharper coupled
 endpoint argument.
@@ -1392,7 +1392,7 @@ $$
 G>0
 $$
 
-and hence the pair $(T_+^{hi},L)$.
+and hence the pair $(Q_+^{hi},L)$.
 
 ## 8. Assembly
 

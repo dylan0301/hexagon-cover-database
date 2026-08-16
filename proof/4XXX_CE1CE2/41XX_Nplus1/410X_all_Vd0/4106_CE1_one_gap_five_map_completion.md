@@ -18,7 +18,7 @@ then proves that $T_0$ is the unique supercritical V triangle.
 
 The exact capped maps are proved in
 [`2011_capped_demand_map.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md).
-The selected-$T_+$ concavity and both chord forms are isolated in
+The selected-$Q_+$ concavity and both chord forms are isolated in
 [`2016_universal_Tplus_normal_form.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2016_universal_Tplus_normal_form.md),
 and the final one-hit threshold step is isolated in
 [`2017_threshold_routing.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2017_threshold_routing.md).
@@ -146,34 +146,34 @@ $$
 For $1/2<c<1$, write
 
 $$
-F_c(a)=\min\left\{B_c(a),1-a\right\},
+\overline M_c(a)=\min\left\{M_c(a),1-a\right\},
 \qquad
-G_c(a)=1-F_c(a).
+\Phi_c(a)=1-\overline M_c(a).
 $$
 
 Reflection of capped feasibility gives the exact duality
 
 $$
 \boxed{
-G_c(a)\le z
+\Phi_c(a)\le z
 \quad\Longleftrightarrow\quad
-G_c(1-z)\le1-a.
+\Phi_c(1-z)\le1-a.
 }
 $$
 
-Every $G_c$ is nondecreasing and extensive. It is therefore enough to prove
+Every $\Phi_c$ is nondecreasing and extensive. It is therefore enough to prove
 
 $$
 \boxed{
-(G_{c_4}\circ G_{c_3}\circ G_{c_2})(X)>1-H.
+(\Phi_{c_4}\circ \Phi_{c_3}\circ \Phi_{c_2})(X)>1-H.
 }
 $$
 
-Indeed, put $\Phi=G_{c_4}\circ G_{c_3}\circ G_{c_2}$. Then
+Indeed, put $\Phi=\Phi_{c_4}\circ \Phi_{c_3}\circ \Phi_{c_2}$. Then
 
 $$
-(G_{c_5}\circ\Phi\circ G_{c_1})(X)
-\ge(\Phi\circ G_{c_1})(X)
+(\Phi_{c_5}\circ\Phi\circ \Phi_{c_1})(X)
+\ge(\Phi\circ \Phi_{c_1})(X)
 \ge\Phi(X).
 $$
 
@@ -181,13 +181,13 @@ Repeated duality gives
 
 $$
 \begin{aligned}
-(G_{c_4}\circ G_{c_3}\circ G_{c_2})(X)\le1-H
+(\Phi_{c_4}\circ \Phi_{c_3}\circ \Phi_{c_2})(X)\le1-H
 &\Longleftrightarrow
-G_{c_4}(H)\le1-(G_{c_3}\circ G_{c_2})(X)\\
+\Phi_{c_4}(H)\le1-(\Phi_{c_3}\circ \Phi_{c_2})(X)\\
 &\Longleftrightarrow
-(G_{c_3}\circ G_{c_4})(H)\le1-G_{c_2}(X)\\
+(\Phi_{c_3}\circ \Phi_{c_4})(H)\le1-\Phi_{c_2}(X)\\
 &\Longleftrightarrow
-(G_{c_2}\circ G_{c_3}\circ G_{c_4})(H)\le1-X.
+(\Phi_{c_2}\circ \Phi_{c_3}\circ \Phi_{c_4})(H)\le1-X.
 \end{aligned}
 $$
 
@@ -195,17 +195,17 @@ We prove that the reverse composition is strictly greater than $1-X$.
 
 ## 3. Actual-V triangle induction from the boundary gap
 
-Use $a_i,b_i$ for the actual boundary reaches as in
+Use $A_i,B_i$ for the actual boundary reaches as in
 [`1202_local_coordinates_abc.md`](../../../1XXX_foundations/12XX_V_triangle/1202_local_coordinates_abc.md);
 the symbols $c_i$ above are prescribed lower-bound radial demands.
 Let $[s,t]\subset e_{0,1}$ be the maximal closed trace associated with the
 open center role. Suppose it contains the vertex-uncovered set
-$[b_0,1-a_1]$, possibly a singleton. Full boundary coverage gives
+$[B_0,1-A_1]$, possibly a singleton. Full boundary coverage gives
 
 $$
-b_0\ge s,
+B_0\ge s,
 \qquad
-a_1\ge X=1-t.
+A_1\ge X=1-t.
 $$
 
 Let $\widehat c_j$ be the actual radial reach of $T_j$. Radial coverage and
@@ -221,60 +221,60 @@ V triangles $T_1,\dots,T_5$ are nonsupercritical. Define
 $$
 z_0=X,
 \qquad
-z_j=G_{c_j}(z_{j-1}),
+z_j=\Phi_{c_j}(z_{j-1}),
 \qquad j=1,2,3,4,5.
 $$
 
 The actual incoming reaches dominate these iterates. The gap gives
-$a_1\ge z_0$. If $a_j\ge z_{j-1}$, the capped-map theorem and monotonicity of
-$F_{c_j}$ give
+$A_1\ge z_0$. If $A_j\ge z_{j-1}$, the capped-map theorem and monotonicity of
+$\overline M_{c_j}$ give
 
 $$
-b_j\le F_{c_j}(a_j)\le F_{c_j}(z_{j-1}).
+B_j\le \overline M_{c_j}(A_j)\le \overline M_{c_j}(z_{j-1}).
 $$
 
 The center has no trace on the other five boundary edges, so
-$a_{j+1}+b_j\ge1$ for $j=1,2,3,4$ and $a_0+b_5\ge1$. Hence
+$a_{j+1}+B_j\ge1$ for $j=1,2,3,4$ and $A_0+B_5\ge1$. Hence
 
 $$
-a_{j+1}\ge1-b_j\ge G_{c_j}(z_{j-1})=z_j
+a_{j+1}\ge1-B_j\ge \Phi_{c_j}(z_{j-1})=z_j
 \qquad(1\le j\le4),
 $$
 
 and
 
 $$
-a_0\ge1-b_5\ge G_{c_5}(z_4)=z_5.
+A_0\ge1-B_5\ge \Phi_{c_5}(z_4)=z_5.
 $$
 
 Thus
 
 $$
-a_0\ge
+A_0\ge
 Z_{\mathrm{CE1}}
 :=
-(G_{c_5}\circ G_{c_4}\circ G_{c_3}\circ G_{c_2}\circ G_{c_1})(X).
+(\Phi_{c_5}\circ \Phi_{c_4}\circ \Phi_{c_3}\circ \Phi_{c_2}\circ \Phi_{c_1})(X).
 $$
 
 For the upper bound, $T_0$ realizes
-$(a_0,b_0,\widehat c_0)$ in the exact admissible set. Since $b_0\ge s$ and
+$(A_0,B_0,\widehat c_0)$ in the exact admissible set. Since $B_0\ge s$ and
 $\widehat c_0\ge c_0$, down-closedness and reflection give
 
 $$
-(s,a_0,c_0)\in\mathcal A.
+(s,A_0,c_0)\in\mathcal A.
 $$
 
 By the exact outgoing envelope in
 [`2007_max_b_map.md`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2007_max_b_map.md),
 
 $$
-a_0\le B_{c_0}(s).
+A_0\le M_{c_0}(s).
 $$
 
 It remains to prove
 
 $$
-Z_{\mathrm{CE1}}>B_{c_0}(s).
+Z_{\mathrm{CE1}}>M_{c_0}(s).
 $$
 
 ## 4. Low-root estimates and the first threshold
@@ -364,7 +364,7 @@ $$
 \eta\left(1-(2R-1)E\right)>0.
 $$
 
-## 5. The V triangle-4 $T_+$ branch forces $X>1/2$
+## 5. The V triangle-4 $Q_+$ branch forces $X>1/2$
 
 At V triangle $4$, the Full branches are impossible because
 
@@ -374,19 +374,19 @@ H>A,
 H<\frac12<1-A.
 $$
 
-If the selected branch is L or $T_-$, then
+If the selected branch is L or $Q_-$, then
 
 $$
-F_{1-A}(H)\le e(A),
+\overline M_{1-A}(H)\le e(A),
 $$
 
 and therefore
 
 $$
-G_{1-A}(H)\ge1-e(A)>1-X.
+\Phi_{1-A}(H)\ge1-e(A)>1-X.
 $$
 
-Only the selected $T_+$ branch remains. Its selector gives
+Only the selected $Q_+$ branch remains. Its selector gives
 
 $$
 H\le e(A)<\frac{2A}{1-2A}.
@@ -410,7 +410,7 @@ $$
 \end{aligned}
 $$
 
-Combining this with the selected-$T_+$ bound yields
+Combining this with the selected-$Q_+$ bound yields
 
 $$
 \frac{w(R+A)}{2R}
@@ -554,10 +554,10 @@ $X>1/2$.
 
 ## 6. Routing at V triangle 3
 
-Assume from now on that V triangle $4$ is selected $T_+$, and put
+Assume from now on that V triangle $4$ is selected $Q_+$, and put
 
 $$
-p_1=G_{1-A}(H).
+p_1=\Phi_{1-A}(H).
 $$
 
 By monotonicity and the catalog value at the end of the selected interval,
@@ -575,24 +575,24 @@ $$
 so $p_1\ge H>m_3$. Since $m_3<1/2$, both Full branches at V triangle $3$ are
 impossible.
 
-If V triangle $3$ is L, $T_-$, or the low-radial tie, the exact catalog gives
+If V triangle $3$ is L, $Q_-$, or the low-radial tie, the exact catalog gives
 
 $$
-F_{1-m_3}(p_1)\le p_1.
+\overline M_{1-m_3}(p_1)\le p_1.
 $$
 
 Therefore
 
 $$
-G_{1-m_3}(p_1)\ge1-p_1>\frac12>1-X.
+\Phi_{1-m_3}(p_1)\ge1-p_1>\frac12>1-X.
 $$
 
 It remains only to analyze the branch in which V triangles $4$ and $3$ are both
-selected $T_+$.
+selected $Q_+$.
 
-## 7. Universal selected-$T_+$ chord bounds
+## 7. Universal selected-$Q_+$ chord bounds
 
-The universal normal form in `2016` proves that every selected $T_+$ map is
+The universal normal form in `2016` proves that every selected $Q_+$ map is
 increasing and strictly concave. It also gives the two exact chord forms used
 below, so no branch-specific implicit differentiation is required.
 
@@ -638,7 +638,7 @@ $$
 m_3<\frac w2<\frac14.
 $$
 
-We claim that every selected V triangle-$3$ $T_+$ transition satisfies
+We claim that every selected V triangle-$3$ $Q_+$ transition satisfies
 
 $$
 q>p+(1-5m_3)(p-m_3).
@@ -711,12 +711,12 @@ $$
 \frac{1-2t}{t-m_3}>\frac13>1-5m_3.
 $$
 
-This proves the V triangle-$3$ claim in every selected $T_+$ regime.
+This proves the V triangle-$3$ claim in every selected $Q_+$ regime.
 
 With
 
 $$
-p_2=G_{1-m_3}(p_1),
+p_2=\Phi_{1-m_3}(p_1),
 $$
 
 the claim gives
@@ -972,10 +972,10 @@ p_2>e(D).
 $$
 
 The one-hit threshold-routing lemma `2017`, applied to the V triangle-$2$ map
-$G_{1-D}$, gives directly
+$\Phi_{1-D}$, gives directly
 
 $$
-G_{1-D}(p_2)\ge1-e(D).
+\Phi_{1-D}(p_2)\ge1-e(D).
 $$
 
 Moreover
@@ -988,20 +988,20 @@ Hence
 
 $$
 \boxed{
-G_{1-D}(p_2)>1-X.
+\Phi_{1-D}(p_2)>1-X.
 }
 $$
 
 Equivalently,
 
 $$
-(G_{c_2}\circ G_{c_3}\circ G_{c_4})(H)>1-X.
+(\Phi_{c_2}\circ \Phi_{c_3}\circ \Phi_{c_4})(H)>1-X.
 $$
 
 By duality,
 
 $$
-(G_{c_4}\circ G_{c_3}\circ G_{c_2})(X)>1-H.
+(\Phi_{c_4}\circ \Phi_{c_3}\circ \Phi_{c_2})(X)>1-H.
 $$
 
 Restoring the extensive first and fifth maps gives
@@ -1022,7 +1022,7 @@ $$
 Consequently
 
 $$
-B_{c_0}(s)\le
+M_{c_0}(s)\le
 \beta(s):=
 \frac{-s+\sqrt{4-3s^2}}2.
 $$
@@ -1037,7 +1037,7 @@ Combining the inequalities gives
 
 $$
 \boxed{
-Z_{\mathrm{CE1}}>B_{c_0}(s).
+Z_{\mathrm{CE1}}>M_{c_0}(s).
 }
 $$
 

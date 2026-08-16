@@ -1,15 +1,15 @@
-# Universal Selected $T_+$ Normal Form
+# Universal Selected $Q_+$ Normal Form
 
 Status: Proven
 
-This note extracts the common nonlinear curve behind every selected $T_+$
+This note extracts the common nonlinear curve behind every selected $Q_+$
 branch of the exact high-radial demand map in
 [`2011_capped_demand_map.md`](2011_capped_demand_map.md).  It replaces
 branch-specific implicit differentiation by one normalized equation, proves
 strict concavity of the resulting transition map, and records an optional
 rational parameter for later algebraic calculations.
 
-## 1. Selected $T_+$ transition equation
+## 1. Selected $Q_+$ transition equation
 
 Fix a deficit
 
@@ -23,11 +23,11 @@ $$
 c=1-d.
 $$
 
-Suppose an input $p$ lies on a genuine selected $T_+$ branch of the high-radial map
-$G_c=1-F_c$, and write
+Suppose an input $p$ lies on a genuine selected $Q_+$ branch of the high-radial map
+$\Phi_c=1-\overline M_c$, and write
 
 $$
-q=G_c(p),
+q=\Phi_c(p),
 \qquad
 \nu=q-p.
 $$
@@ -44,7 +44,7 @@ $$
 x=\frac{q-d}{c}.
 $$
 
-Every genuine selected $T_+$ point has $0\le x\le1$.  Since
+Every genuine selected $Q_+$ point has $0\le x\le1$.  Since
 
 $$
 q=d+cx,
@@ -66,7 +66,7 @@ $$
 }
 $$
 
-Consequently every selected $T_+$ transition, in every high- or low-radial
+Consequently every selected $Q_+$ transition, in every high- or low-radial
 regime in which it occurs, has the universal form
 
 $$
@@ -133,8 +133,8 @@ concave in its input:
 
 $$
 \boxed{
-p\longmapsto G_{1-d}(p)
-\text{ is increasing and strictly concave on every selected }T_+\text{ arc}.
+p\longmapsto \Phi_{1-d}(p)
+\text{ is increasing and strictly concave on every selected }Q_+\text{ arc}.
 }
 $$
 
@@ -153,7 +153,7 @@ $$
 e(d)=\ell(1-d).
 $$
 
-On the high-radial selected $T_+$ arc the endpoint pairs are
+On the high-radial selected $Q_+$ arc the endpoint pairs are
 
 $$
 (p,q)=(d,d)
@@ -165,7 +165,7 @@ Therefore concavity gives, for every point on this arc,
 
 $$
 \boxed{
-G_{1-d}(p)
+\Phi_{1-d}(p)
 \ge
 p+\frac{d}{e(d)-d}(p-d).
 }
@@ -180,7 +180,7 @@ t=h(1-d),
 $$
 
 where $h(c)$ is the order-transition value from `2011`.  On the low-radial
-selected $T_+$ arc the endpoint pairs are
+selected $Q_+$ arc the endpoint pairs are
 
 $$
 (p,q)=(d,d)
@@ -192,7 +192,7 @@ Hence
 
 $$
 \boxed{
-G_{1-d}(p)
+\Phi_{1-d}(p)
 \ge
 p+\frac{1-2t}{t-d}(p-d).
 }
@@ -226,7 +226,7 @@ x=\frac{1-2z}{1-z^2},
 }
 $$
 
-Thus a selected $T_+$ transition can also be written rationally as
+Thus a selected $Q_+$ transition can also be written rationally as
 
 $$
 \boxed{

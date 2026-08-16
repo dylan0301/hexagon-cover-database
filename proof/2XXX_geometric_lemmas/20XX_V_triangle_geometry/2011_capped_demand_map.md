@@ -1,4 +1,4 @@
-# Exact Branchwise Nonsupercritical Demand Map
+# Exact Nonsupercritical Forward Cap
 
 Status: Proven
 
@@ -12,42 +12,42 @@ There is no need for a second transfer family.  The exact
 nonsupercritical output has two transparent radial branches:
 
 $$
-F_c(a)=
+\overline M_c(a)=
 \begin{cases}
 1-a,&0\le c\le1/2,\\
-B_c(a),&1/2<c\le1,
+M_c(a),&1/2<c\le1,
 \end{cases}
 $$
 
-where $B_c(a)$ is the raw maximal outgoing demand.  The four-label catalog is
-needed only in the high-radial branch $c>1/2$.  At low radial demand the
-output is simply the Full value $1-a$.
+where $M_c(a)$ is the raw maximal forward lower bound.  The four-label catalog is
+needed only in the high-radial branch $c>1/2$.  At low radial lower bound the
+output is simply the Lin value $1-a$.
 
 ## 1. Definitions and exact midpoint split
 
-For $0\le a,c\le1$, let $B_c(a)$ be the exact raw map proved in
+For $0\le a,c\le1$, let $M_c(a)$ be the exact raw map proved in
 [`2007_max_b_map.md`](2007_max_b_map.md):
 
 $$
-B_c(a)=\max\left\{b:(a,b,c)\in\mathcal A\right\}.
+M_c(a)=\max\left\{b:(a,b,c)\in\mathcal A\right\}.
 $$
 
-Retain the technical aliases
+Use the canonical notation
 
 $$
-F_c(a)=
+\overline M_c(a)=
 \begin{cases}
 1-a,&0\le c\le1/2,\\
-B_c(a),&1/2<c\le1,
+M_c(a),&1/2<c\le1,
 \end{cases}
 \qquad
-G_c(a)=1-F_c(a).
+\Phi_c(a)=1-\overline M_c(a).
 $$
 
 These satisfy the exact identity
 
 $$
-\boxed{F_c(a)=\min\left\{B_c(a),1-a\right\}.}
+\boxed{\overline M_c(a)=\min\left\{M_c(a),1-a\right\}.}
 $$
 
 ### Proof of the identity
@@ -57,7 +57,7 @@ the radial midpoint $(u+v)/2$.  The midpoint self-cover theorem
 [`2005`](2005_midpoint_self_cover_lemma.md) gives $a+b\le1$, so
 
 $$
-B_c(a)\le1-a.
+M_c(a)\le1-a.
 $$
 
 At $c=1/2$, put $b=1-a$.  In the exact Cell-$T$ description of `2004`,
@@ -77,20 +77,20 @@ F_T(a,b,1/2)=M(1/2-M)\le0,
 $$
 
 Hence $(a,1-a,1/2)\in\mathcal A$.  Coordinatewise down-closure in the radial
-coordinate gives $B_c(a)\ge1-a$ for every $c\le1/2$.  The two inequalities
+coordinate gives $M_c(a)\ge1-a$ for every $c\le1/2$.  The two inequalities
 prove the branchwise formula and the minimum identity.
 
 Equivalently, the interval-fiber theorem in `2007` gives
 
 $$
-F_c(a)=
+\overline M_c(a)=
 \max_{\substack{
 0\le b\le1-a\\
 {}(a,b,c)\in\mathcal A
 }}b.
 $$
 
-Thus $F_c$ is the exact proof-safe upper output for a nonsupercritical
+Thus $\overline M_c$ is the exact proof-safe upper output for a nonsupercritical
 V triangle, and its definition is the direct low/high branch split above.
 
 More precisely, let $A(T),B(T),C(T)$ be the actual local reaches of any
@@ -109,29 +109,29 @@ Then the same triangle realizes $(a,B(T),c)$ and
 $$
 B(T)\le1-A(T)\le1-a,
 \qquad
-B(T)\le B_c(a).
+B(T)\le M_c(a).
 $$
 
 Hence
 
 $$
-\boxed{B(T)\le F_c(a).}
+\boxed{B(T)\le \overline M_c(a).}
 $$
 
 No assertion that a maximizing triangle belongs to a classified V-triangle
 subclass is needed.
 
-In the low-radial branch the only label is Full.  In the high-radial branch
+In the low-radial branch the only label is Lin.  In the high-radial branch
 the exact-cell proof below gives the four genuine labels
 
 $$
 \boxed{
-\mathrm{Full},\qquad L,\qquad T_-,\qquad T_+.
+\mathrm{Lin},\qquad \mathrm{Const},\qquad Q_-,\qquad Q_+.
 }
 $$
 
-The selected $T_+$ component is called $T_+^{hi}$ in older branch files.  The
-other formal quadratic component, formerly called $T_+^{lo}$, violates the
+The selected $Q_+$ component is called $Q_+^{hi}$ in older branch files.  The
+other formal quadratic component, formerly called $Q_+^{lo}$, violates the
 selector $c\le2\max\left\{a,b\right\}$ and is not a geometric branch.
 Transition ties may be assigned in the order displayed below; they do not
 create a fifth label.
@@ -168,14 +168,14 @@ $$
 The two nonconstant contact values are
 
 $$
-T_-(a,c)=
+Q_-(a,c)=
 \frac{\sqrt{a^2-ac+c^2}}c-a
 $$
 
 and
 
 $$
-T_+(a,c)=
+Q_+(a,c)=
 \frac{2(1-a^2)c^2}
 {2ac^2+c+\sqrt{\Delta(a,c)}},
 $$
@@ -188,7 +188,7 @@ $$
 -4(1-c^2)(1-a^2)c^2.
 $$
 
-The formula for $T_+$ is the rationalized lower quadratic root. On its
+The formula for $Q_+$ is the rationalized lower quadratic root. On its
 domain it is equal to
 
 $$
@@ -197,19 +197,19 @@ $$
 
 but the rationalized form remains stable as $c$ approaches $1$.
 
-For later comparisons on a selected $T_-$ branch, define
+For later comparisons on a selected $Q_-$ branch, define
 
 $$
 \Psi^-_{a,c}(x)
 =c^2(a+x)^2-(a^2-ac+c^2).
 $$
 
-For $c>0$ and $a,x\ge0$, the displayed formula for $T_-$ gives the exact
+For $c>0$ and $a,x\ge0$, the displayed formula for $Q_-$ gives the exact
 root-order test
 
 $$
 \boxed{
-T_-(a,c)<x
+Q_-(a,c)<x
 \quad\Longleftrightarrow\quad
 \Psi^-_{a,c}(x)>0.
 }
@@ -234,15 +234,15 @@ For every $0\le a\le1$,
 
 $$
 \boxed{
-F_c(a)=
+\overline M_c(a)=
 \begin{cases}
 1-a,
 & 0\le a\le1-c,\\
-T_+(a,c),
+Q_+(a,c),
 & 1-c<a<h(c),\\
 h(c),
 & a=h(c),\\
-T_-(a,c),
+Q_-(a,c),
 & h(c)<a<c,\\
 1-a,
 & c\le a\le1.
@@ -253,7 +253,7 @@ $$
 At the middle equality,
 
 $$
-T_+(h(c),c)=T_-(h(c),c)=h(c).
+Q_+(h(c),c)=Q_-(h(c),c)=h(c).
 $$
 
 ### 2.2. The range $\sqrt3/2<c<1$
@@ -262,15 +262,15 @@ For every $0\le a\le1$,
 
 $$
 \boxed{
-F_c(a)=
+\overline M_c(a)=
 \begin{cases}
 1-a,
 & 0\le a\le1-c,\\
-T_+(a,c),
+Q_+(a,c),
 & 1-c<a\le\ell(c),\\
 \ell(c),
 & \ell(c)<a<r(c),\\
-T_-(a,c),
+Q_-(a,c),
 & r(c)\le a<c,\\
 1-a,
 & c\le a\le1.
@@ -281,23 +281,23 @@ $$
 The assignment at $a=\ell(c)$ is essential:
 
 $$
-F_c(\ell(c))=T_+(\ell(c),c)=r(c),
+\overline M_c(\ell(c))=Q_+(\ell(c),c)=r(c),
 $$
 
 whereas
 
 $$
-\lim_{a\mathbin{\downarrow}\ell(c)}F_c(a)=\ell(c).
+\lim_{a\mathbin{\downarrow}\ell(c)}\overline M_c(a)=\ell(c).
 $$
 
-Thus $F_c$ has a genuine downward jump immediately to the right of
+Thus $\overline M_c$ has a genuine downward jump immediately to the right of
 $a=\ell(c)$. At the other transition,
 
 $$
-T_-(r(c),c)=\ell(c),
+Q_-(r(c),c)=\ell(c),
 $$
 
-so the $L$ and $T_-$ pieces agree.
+so the $\mathrm{Const}$ and $Q_-$ pieces agree.
 
 When $c=\sqrt3/2$, all three middle contacts meet:
 
@@ -310,7 +310,7 @@ $$
 Write
 
 $$
-b=F_c(a),
+b=\overline M_c(a),
 \qquad
 s=a+b,
 \qquad
@@ -357,7 +357,7 @@ $$
 F_T=M(c-M).
 $$
 
-Thus the Full face is feasible exactly when
+Thus the Lin face is feasible exactly when
 
 $$
 c\le\max\left\{a,1-a\right\}.
@@ -371,7 +371,7 @@ a\le1-c
 a\ge c.
 $$
 
-This proves the two Full ranges in the catalog.
+This proves the two Lin ranges in the catalog.
 
 Now assume
 
@@ -392,7 +392,7 @@ $$
 while $q\ge0$ and $ab\le s^2/4$ imply $s\ge\sqrt3/2$. Hence $F_T\le0$ at
 selector equality only when $F_T=0$ already.
 
-## 4. The $L$ contact
+## 4. The constant contact
 
 The equation $F_L=0$, viewed as an equation in $m$, is
 
@@ -512,7 +512,7 @@ $$
 $$
 
 The discriminant is $\Delta(a,c)$, and the selected lower root is
-$T_+(a,c)$. It is the root below the diagonal: in this ordered central range,
+$Q_+(a,c)$. It is the root below the diagonal: in this ordered central range,
 
 $$
 F_T(a,0,c)<0
@@ -541,7 +541,7 @@ $$
 (a,b)=(\ell(c),r(c)).
 $$
 
-The endpoints occur after the lower Full face and before $a=c$. For
+The endpoints occur after the lower Lin face and before $a=c$. For
 $1/2<c\le\sqrt3/2$, let
 
 $$
@@ -590,7 +590,7 @@ b\ge h(c)\ge\frac c2,
 $$
 
 where the last inequality is equivalent to $c\le\sqrt3/2$; in the second
-regime $b\ge r(c)>c/2$. This proves exactly the two displayed $T_+$ ranges.
+regime $b\ge r(c)>c/2$. This proves exactly the two displayed $Q_+$ ranges.
 
 ### 5.2. The ordered range $b\le a$
 
@@ -603,7 +603,7 @@ $$
 The positive solution is
 
 $$
-b=\frac{\sqrt{a^2-ac+c^2}}c-a=T_-(a,c).
+b=\frac{\sqrt{a^2-ac+c^2}}c-a=Q_-(a,c).
 $$
 
 The same two selectors determine its lower endpoint. When
@@ -617,10 +617,10 @@ $$
 In both cases $c\le2a$. It ends at
 
 $$
-T_-(c,c)=1-c,
+Q_-(c,c)=1-c,
 $$
 
-which is the Full contact at $a=c$. This proves the $T_-$ ranges and
+which is the Full contact at $a=c$. This proves the $Q_-$ ranges and
 completes the catalog.
 
 ## 6. Equality faces and monotonicity
@@ -628,33 +628,33 @@ completes the catalog.
 For later selector arguments, the equality values are
 
 $$
-T_+(1-c,c)=c,
+Q_+(1-c,c)=c,
 \qquad
-T_-(c,c)=1-c,
+Q_-(c,c)=1-c,
 $$
 
 $$
-T_+(h(c),c)=T_-(h(c),c)=h(c),
+Q_+(h(c),c)=Q_-(h(c),c)=h(c),
 $$
 
 and, when $c>\sqrt3/2$,
 
 $$
-T_+(\ell(c),c)=r(c),
+Q_+(\ell(c),c)=r(c),
 \qquad
-T_-(r(c),c)=\ell(c).
+Q_-(r(c),c)=\ell(c).
 $$
 
 All radicals in these identities are nonnegative on the stated domains.
-The denominator of the stable $T_+$ formula is positive, so its
+The denominator of the stable $Q_+$ formula is positive, so its
 rationalization does not change the selected root.
 
-Coordinatewise down-closure of $\mathcal A$ implies that $B_c(a)$ and
-$F_c(a)$ are nonincreasing in $a$. Therefore $G_c$ is nondecreasing. The branchwise definition
+Coordinatewise down-closure of $\mathcal A$ implies that $M_c(a)$ and
+$\overline M_c(a)$ are nonincreasing in $a$. Therefore $\Phi_c$ is nondecreasing. The branchwise definition
 also gives
 
 $$
-G_c(a)\ge a.
+\Phi_c(a)\ge a.
 $$
 
 ## 7. Exact branchwise duality
@@ -663,24 +663,24 @@ For every $a,z,c\in[0,1]$,
 
 $$
 \boxed{
-G_c(a)\le z
+\Phi_c(a)\le z
 \quad\Longleftrightarrow\quad
-G_c(1-z)\le1-a.
+\Phi_c(1-z)\le1-a.
 }
 $$
 
 Indeed,
 
 $$
-G_c(a)\le z
+\Phi_c(a)\le z
 \quad\Longleftrightarrow\quad
-F_c(a)\ge1-z.
+\overline M_c(a)\ge1-z.
 $$
 
 By the interval-fiber property, the latter says exactly that
 $(a,1-z,c)\in\mathcal A$ and $a+1-z\le1$. Reflection of the exact
 admissible set changes this to $(1-z,a,c)\in\mathcal A$ with the same diagonal condition,
-which is equivalent to $F_c(1-z)\ge a$ and hence to the right-hand side.
+which is equivalent to $\overline M_c(1-z)\ge a$ and hence to the right-hand side.
 
 The scalar low-root and threshold consequences used by the five-map proofs
 are isolated in

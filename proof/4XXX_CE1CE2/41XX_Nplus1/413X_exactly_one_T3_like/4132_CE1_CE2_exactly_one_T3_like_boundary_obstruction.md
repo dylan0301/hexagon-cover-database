@@ -11,8 +11,8 @@ The only remaining task is a short local inequality for the T3-like normal
 form.
 
 The free strict-supercritical outgoing envelope is denoted by the single
-scalar $g_c^{\rm sc}$, and its complementary following-demand threshold is
-$1-g_c^{\rm sc}$.
+scalar $M_c^{\rm sup}$, and its complementary following-demand threshold is
+$1-M_c^{\rm sup}$.
 
 ## 1. Reduced branch
 
@@ -103,13 +103,13 @@ $$
 We prove
 
 $$
-\boxed{x\le1-g_c^{\rm sc},}
+\boxed{x\le1-M_c^{\rm sup},}
 $$
 
 where
 
 $$
-g_c^{\rm sc}
+M_c^{\rm sup}
 =
 \frac{c+\sqrt{c^2-8c+4}}2.
 $$
@@ -173,7 +173,7 @@ $$
 The defining equation of the free strict-supercritical envelope is
 
 $$
-\Phi(1-g_c^{\rm sc})=c,
+\Phi(1-M_c^{\rm sup})=c,
 $$
 
 and
@@ -266,7 +266,7 @@ positive at $\theta=1/5$.
 Both cases prove $\Phi(x)\le c$, and the monotonicity of $\Phi$ gives
 
 $$
-\boxed{x\le1-g_c^{\rm sc}.}
+\boxed{x\le1-M_c^{\rm sup}.}
 $$
 
 ## 4. Verification of the common rescuer hypotheses
@@ -274,7 +274,7 @@ $$
 Since $D\ge R_{\rm loc}$,
 
 $$
-a\le x\le1-g_c^{\rm sc}.
+a\le x\le1-M_c^{\rm sup}.
 $$
 
 Moreover,
@@ -291,7 +291,7 @@ $$
 =
 \frac{aD}{R_{\rm loc}}
 =x
-\le1-g_c^{\rm sc}.
+\le1-M_c^{\rm sup}.
 }
 $$
 
@@ -309,13 +309,13 @@ interval begins.
 All hypotheses of `2018` are now satisfied. That theorem gives
 
 $$
-h\ge g_c^{\rm sc},
+h\ge M_c^{\rm sup},
 $$
 
 while the unique supercritical V triangle satisfies
 
 $$
-b_1<g_c^{\rm sc}.
+b_1<M_c^{\rm sup}.
 $$
 
 Its boundary-path budget contradicts the four nonsupercritical V triangle caps of

@@ -10,8 +10,8 @@ for.  The latter qualification is essential: a center interval on an internal
 edge cannot be silently discarded.
 
 The generalized transfer notation follows
-[`201d`](201d_raw_and_relaxed_g_chains.md): the raw map $g_c$ is in
-boundary-defect coordinates, a superscript $\vee$ denotes the complementary
+[`201d`](201d_raw_and_relaxed_g_chains.md): the raw map $M_c$ is in
+selected backward-reach coordinates, a superscript $\vee$ denotes the complementary
 incoming-reach transfer, and nonsupercritical roles use the direct low/high
 radial split.
 
@@ -104,11 +104,11 @@ $1-q\le e_J(p)$, which is equivalent to the conclusion.  Equality is retained
 for closed role triangles; strictness for original open traces is supplied
 separately by the strict-handoff theorem. $\square$
 
-## 3. Generalized actual-V triangle transfer
+## 3. Generalized actual-V triangle handoff
 
 Use the actual reach functions of
 [`1202`](../../1XXX_foundations/12XX_V_triangle/1202_local_coordinates_abc.md)
-and the raw map $g_c$ of
+and the forward envelope $M_c$ of
 [`201d`](201d_raw_and_relaxed_g_chains.md).  Suppose an actual V triangle $T$
 satisfies
 
@@ -121,81 +121,50 @@ $$
 The closure of $T$ realizes $(a,B(T),c)$, so
 
 $$
-B(T)\le g_c(1-a).
+B(T)\le M_c(a).
 $$
 
 Let $T_{\mathrm{next}}$ be the actual V triangle at the far endpoint of
-$T$'s outgoing edge.  Let $J$ be the center trace on that edge, and assume
-the outgoing trace of $T$, the trace $J$, and the incoming trace of
-$T_{\mathrm{next}}$ cover the edge.  Define the raw center-assisted transfer
+$T$'s forward boundary edge.  Let $J$ be the C-triangle trace on that edge,
+and assume the forward trace of $T$, the trace $J$, and the backward trace of
+$T_{\mathrm{next}}$ cover the edge.  The edge-handoff lemma and monotonicity
+of $\mathcal R_J$ give
 
 $$
 \boxed{
-g_{c,J}^\vee(a)
-=
-\mathcal R_J\!\left(g_c(1-a)\right).
-}
-$$
-
-The edge-handoff lemma and monotonicity of $\mathcal R_J$ give
-
-$$
 A(T_{\mathrm{next}})
 \ge
 \mathcal R_J(B(T))
 \ge
-g_{c,J}^\vee(a).
+\mathcal R_J(M_c(a)).
+}
 $$
 
 If $T$ is nonsupercritical, then
 
 $$
-B(T)\le1-A(T)\le1-a.
+B(T)\le\overline M_c(a),
 $$
 
-The exact midpoint split of [`2011`](2011_capped_demand_map.md) therefore
-gives the sharper branchwise handoff
+and therefore
 
 $$
 \boxed{
 A(T_{\mathrm{next}})
 \ge
-\begin{cases}
-\mathcal R_J(1-a),&0\le c\le1/2,\\
-g_{c,J}^\vee(a),&1/2<c\le1.
-\end{cases}
+\mathcal R_J(\overline M_c(a)).
 }
 $$
 
-For $J=\varnothing$, this becomes
+For $J=\varnothing$ this becomes
 
 $$
-A(T_{\mathrm{next}})
-\ge
-\begin{cases}
-a,&0\le c\le1/2,\\
-g_c^\vee(a)\ge a,&1/2<c\le1.
-\end{cases}
+A(T_{\mathrm{next}})\ge\Phi_c(a)\ge a.
 $$
 
-Thus ordinary and center-assisted propagation use one raw $g$-family, with
-the low-radial nonsupercritical branch written directly.  This formulation
-includes singleton center contacts and requires no separate overlap-order
-split.
-
-The exact appendix aliases are
-
-$$
-B_c(a)=g_c(1-a),
-\qquad
-F_c(a)=
-\begin{cases}
-1-a,&c\le1/2,\\
-B_c(a),&c>1/2,
-\end{cases}
-\qquad
-G_c(a)=1-F_c(a).
-$$
+Thus ordinary and C-triangle-assisted propagation use the same raw envelope
+and nonsupercritical cap; a separate center-assisted map family is
+unnecessary.  Singleton C-triangle contacts are included automatically.
 
 ## 4. Radial component form
 

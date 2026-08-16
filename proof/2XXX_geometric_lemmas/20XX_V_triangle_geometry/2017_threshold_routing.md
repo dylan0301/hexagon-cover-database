@@ -30,7 +30,7 @@ proves
 $$
 z>e(d)
 \quad\Longrightarrow\quad
-G_{1-d}(z)\ge1-e(d).
+\Phi_{1-d}(z)\ge1-e(d).
 $$
 
 Let
@@ -49,7 +49,7 @@ $$
 Suppose that, for some index $k$,
 
 $$
-G_k=G_{1-d}
+G_k=\Phi_{1-d}
 $$
 
 and
@@ -103,7 +103,7 @@ $$
 z_0>e(d)
 $$
 
-may be routed to any later occurrence of the map $G_{1-d}$ without estimating
+may be routed to any later occurrence of the map $\Phi_{1-d}$ without estimating
 the intervening maps separately.
 
 More generally, any strict lower bound obtained at one stage persists through
@@ -122,9 +122,9 @@ $$
 and suppose a chain contains later occurrences of both maps
 
 $$
-G_{1-d_1},
+\Phi_{1-d_1},
 \qquad
-G_{1-d_2}.
+\Phi_{1-d_2}.
 $$
 
 Assume
@@ -142,7 +142,7 @@ $$
 Then one of the following alternatives holds.
 
 1. If $e(d_1)<Q$, extensivity preserves $z>e(d_1)$ until the
-   $G_{1-d_1}$ V triangle, and that V triangle forces every later output above $1-Q$.
+   $\Phi_{1-d_1}$ V triangle, and that V triangle forces every later output above $1-Q$.
 2. If $e(d_1)\ge Q$, then
 
    $$
@@ -150,7 +150,7 @@ Then one of the following alternatives holds.
    $$
 
    so extensivity preserves an input above $e(d_2)$ until the
-   $G_{1-d_2}$ V triangle, and that V triangle forces every later output above $1-Q$.
+   $\Phi_{1-d_2}$ V triangle, and that V triangle forces every later output above $1-Q$.
 
 Hence
 
@@ -176,13 +176,13 @@ The proof-safe branchwise-output theorem in
 [`2011_capped_demand_map.md`](2011_capped_demand_map.md) gives
 
 $$
-B_i\le F_{c_i}(z).
+B_i\le \overline M_{c_i}(z).
 $$
 
 If the next boundary handoff gives $A_{i+1}\ge1-B_i$, then
 
 $$
-A_{i+1}\ge1-F_{c_i}(z)=G_{c_i}(z).
+A_{i+1}\ge1-\overline M_{c_i}(z)=\Phi_{c_i}(z).
 $$
 
 Thus the formal iterates are lower bounds for actual incoming reaches.  Once
