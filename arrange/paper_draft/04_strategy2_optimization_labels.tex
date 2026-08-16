@@ -1,47 +1,47 @@
-\subsection{Finite contact-label cells}
+\subsection{The four algebraic branches}
 
 Let
 \[
- \mathfrak L=\{\mathrm{Full},L,T_-,T_+\}.
+ \mathfrak B=\{\mathrm{Lin},\mathrm{Const},Q_-,Q_+\}.
 \]
 For \((c,x)\in(1/2,1)\times[0,1]\), define the following four pairwise
-disjoint predicates:
+disjoint cells:
 \[
  \begin{aligned}
- \mathcal C_{\mathrm{Full}}
+ \mathcal C_{\mathrm{Lin}}
  &=\{(c,x):x\le1-c\text{ or }c\le x\},\\
- \mathcal C_L
+ \mathcal C_{\mathrm{Const}}
  &=\left\{(c,x):
  \frac12<c\le\frac{\sqrt3}{2},\ x=h(c)\right\}\\
  &\qquad{}\cup
  \left\{(c,x):
- \frac{\sqrt3}{2}<c<1,\ L(c)<x<U(c)\right\},\\
- \mathcal C_{T_-}
+ \frac{\sqrt3}{2}<c<1,\ \ell(c)<x<r(c)\right\},\\
+ \mathcal C_{Q_-}
  &=\left\{(c,x):
  \frac12<c\le\frac{\sqrt3}{2},\ h(c)<x<c\right\}\\
  &\qquad{}\cup
  \left\{(c,x):
- \frac{\sqrt3}{2}<c<1,\ U(c)\le x<c\right\},\\
- \mathcal C_{T_+}
+ \frac{\sqrt3}{2}<c<1,\ r(c)\le x<c\right\},\\
+ \mathcal C_{Q_+}
  &=\left\{(c,x):
  \frac12<c\le\frac{\sqrt3}{2},\ 1-c<x<h(c)\right\}\\
  &\qquad{}\cup
  \left\{(c,x):
- \frac{\sqrt3}{2}<c<1,\ 1-c<x\le L(c)\right\}.
+ \frac{\sqrt3}{2}<c<1,\ 1-c<x\le\ell(c)\right\}.
  \end{aligned}
 \]
 Write
 \[
- \mathrm{Cell}_{\ell}(c,x)
+ \mathrm{Cell}_{\beta}(c,x)
  \quad\Longleftrightarrow\quad
- (c,x)\in\mathcal C_\ell.
+ (c,x)\in\mathcal C_\beta.
 \]
-The equality \(x=h(c)\) is assigned to \(L\), \(x=L(c)\) is assigned to
-\(T_+\), and \(x=U(c)\) is assigned to \(T_-\).  Hence
+The equality \(x=h(c)\) is assigned to the constant branch,
+\(x=\ell(c)\) to the \(Q_+\) branch, and \(x=r(c)\) to the \(Q_-\) branch.
+Hence
 \[
  (1/2,1)\times[0,1]
  =
- \bigsqcup_{\ell\in\mathfrak L}\mathcal C_\ell.
+ \bigsqcup_{\beta\in\mathfrak B}\mathcal C_\beta.
 \]
-This is the finite branch index used by the endpoint problems.  No algebraic
-expression is optimized outside its own cell.
+No algebraic expression is optimized outside its own cell.

@@ -1,11 +1,11 @@
 \begin{tikzpicture}[x=1cm,y=1cm,>=Latex]
   \node[panellabel,anchor=west] at (.02,2.30)
-    {(b) the center-assisted residual on a skeleton edge};
+    {(b) propagation across an edge with a center interval};
 
   \foreach \sx/\pt/\et/\case/\formula in {
-    1.25/.25/.25/{p<L}/{1-p},
-    4.25/.58/.72/{L\le p<U}/{1-U},
-    7.25/.86/.86/{p\ge U}/{1-p}
+    1.25/.25/.25/{b<L}/{1-b},
+    4.25/.58/.72/{L\le b<U}/{1-U},
+    7.25/.86/.86/{b\ge U}/{1-b}
   }{
     \begin{scope}[shift={(\sx,.65)},scale=1.08]
       \HexCoords
@@ -26,20 +26,19 @@
 
       \node[figlabel,below,align=center] at (0,-1.42)
         {$\case$\\[-.15ex]
-         $\mathcal R_J(p)=\formula$};
+         $\rho_J(b)=\formula$};
     \end{scope}
   }
 
   \node[figlabel,atlasbox,anchor=west] at (8.85,.65)
     {\begin{tabular}{@{}c@{\quad}l@{}}
-       \textcolor{DemandRed}{\rule{.42cm}{1.35pt}} & initial reach \(p\)\\
+       \textcolor{DemandRed}{\rule{.42cm}{1.35pt}} & forward-reach cap \(b\)\\
        \textcolor{CenterBlue}{\rule{.42cm}{1.25pt}} & center interval \(J=[L,U]\)\\
-       \textcolor{black!60}{\rule{.42cm}{2.8pt}} & attached component \([0,e_J(p)]\)\\
-       \textcolor{RadialTeal}{\rule{.42cm}{1.35pt}} & residual \(\mathcal R_J(p)=1-e_J(p)\)
+       \textcolor{black!60}{\rule{.42cm}{2.8pt}} & attached initial component\\
+       \textcolor{RadialTeal}{\rule{.42cm}{1.35pt}} & uncovered suffix \(\rho_J(b)\)
      \end{tabular}};
 
   \node[figlabel,align=center] at (6.65,-1.78)
-    {In the low-radial nonsupercritical branch use \(p=1-a\);\\
-     in the high-radial branch use \(p=g_c(1-a)\), which gives
-     \(g_{c,J}^{\vee}(a)\).};
+    {For a nonsupercritical triangle use \(b=\overline M_c(a)\);\\
+     the next backward reach is at least \(\Phi_{c,J}(a)=\rho_J(\overline M_c(a))\).};
 \end{tikzpicture}

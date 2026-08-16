@@ -1,313 +1,240 @@
-\section{Geometric Interfaces Used by the Proof}
+\section{Common Definitions and Structural Lemmas}
 \label{sec:reader-framework}
 
-% This section records the exact outputs of the structural and local calculations.
-% Their derivations are postponed.  The distinction is deliberate: the body uses
-% only the statements below, while the appendices verify them on explicit
-% real-variable domains.
+\subsection{Structural classification}
 
-\subsection{Structural reduction}
-
-\begin{proposition}[Reader structural reduction]
+\begin{proposition}[Structural classification]
 \label{prop:body-structural-reduction}
-Every hypothetical cover has the seven distinct roles described in
-Section~\ref{sec:introduction}.  The center has exactly one of the types
-$\CEzero,\CEone,\CEtwo$, every vertex role has exactly one of the types
-$\Vdzero,\Vdone,\Vdtwo,\Tlike$, and the actual reaches determine exactly one
-entry of Table~\ref{tab:routing}.  In the CE1/CE2 case the center contains exactly
-one radial midpoint and
+Every hypothetical cover has the canonical labeling described in
+Section~\ref{sec:introduction}.  The two classification conclusions are
 \[
- q=N_++m.
+ \text{center type}\in\{\CEzero,\CEone,\CEtwo\},
+ \qquad
+ \text{vertex type}\in\{\Vdzero,\Vdone,\Vdtwo,\Tlike\}.
 \]
-If the vertex roles alone cover the boundary, strict handoffs can be selected
-while preserving whether the actual supercritical pattern has none, exactly
-one, or at least two indices.
+These types, the maximal reaches, and the boundary-gap data determine exactly
+one row of Table~\ref{tab:routing}.
+
+In the CE1/CE2 case the center triangle contains exactly one radial midpoint.
+If the six vertex triangles alone cover the boundary, strict handoff points may
+be selected while preserving whether the maximal-reach supercritical pattern
+has none, exactly one, or at least two indices.
 \end{proposition}
 
 \begin{proof}
 Distinctness is Lemma~\ref{lem:distinct-roles}; the center and vertex
 classifications are Propositions~\ref{prop:ce-classification} and
 \ref{prop:vertex-classification}; the unique midpoint is
-Proposition~\ref{prop:unique-center-midpoint}; the short-role identity is
-Lemma~\ref{lem:short-role-count}; strict selection is
-Proposition~\ref{prop:strict-handoffs}; and the disjoint routing assertion is
-Proposition~\ref{prop:exhaustive-structural-reduction}.  Their geometric proofs
-are collected in Appendix~\ref{sec:structural-reductions}.
+Proposition~\ref{prop:unique-center-midpoint}; the count
+$N_++N_{\mathrm{sp}}$ is Lemma~\ref{lem:short-role-count}; strict handoff
+selection is Proposition~\ref{prop:strict-handoffs}; and exhaustiveness is
+Proposition~\ref{prop:exhaustive-structural-reduction}.
 \end{proof}
 
-\subsection{The local admissible set}
+\subsection{Reach coordinates and the local admissible set}
 
-\begin{definition}[Actual and selected skeleton-V-triangle reach coordinates]
+\begin{definition}[Maximal reaches and selected lower bounds]
 \label{def:body-vtriangle-coordinates}
-All indices lie in $\mathbb Z/6\mathbb Z$. For a tagged open or closed
-$V_i$-triangle, the distinguished vertex $V_i$ is part of the role data and
-the reach functions are given by the following three suprema. At the closed
-vertex role $T_i$, define
+All indices lie in $\mathbb Z/6\mathbb Z$.  For the closed vertex triangle
+$T_i$, define
 \[
  \begin{aligned}
- A(T_i)&=
- \sup_{\substack{t\in[0,1]\\
+ A_i&=\sup_{\substack{t\in[0,1]\\
  V_i+t(V_{i-1}-V_i)\in T_i}}t,\\
- B(T_i)&=
- \sup_{\substack{t\in[0,1]\\
+ B_i&=\sup_{\substack{t\in[0,1]\\
  V_i+t(V_{i+1}-V_i)\in T_i}}t,\\
- C(T_i)&=
- \sup_{\substack{t\in[0,1]\\
+ C_i&=\sup_{\substack{t\in[0,1]\\
  V_i+t(O-V_i)\in T_i}}t.
  \end{aligned}
 \]
-The functions give the incoming reach toward $V_{i-1}$, the outgoing reach
-toward $V_{i+1}$, and the own-radial reach toward $O$, respectively. Since
-$T_i=\overline{U_i}$, they satisfy
+Passing from $U_i$ to its closure does not change these suprema.  A
+\emph{selected reach triple} is any $(a_i,b_i,c_i)\in[0,1]^3$ satisfying
 \[
- A(U_i)=A(T_i),\qquad B(U_i)=B(T_i),\qquad C(U_i)=C(T_i).
+ (a_i,b_i,c_i)\le(A_i,B_i,C_i)
 \]
-For compact indexed formulas, put
+coordinatewise.  The vertex triangle $T_i$ is subcritical, critical, or
+strictly supercritical according as
 \[
- (A_i,B_i,C_i):=(A(T_i),B(T_i),C(T_i)).
+ A_i+B_i<1,
+ \qquad
+ A_i+B_i=1,
+ \qquad
+ A_i+B_i>1,
 \]
-The triple $(A(T_i),B(T_i),C(T_i))$ is the \emph{actual V-triangle reach data}. A
-\emph{selected demand triple} is any $(a_i,b_i,c_i)\in[0,1]^3$ satisfying
-\[
- (a_i,b_i,c_i)\le(A(T_i),B(T_i),C(T_i))
-\]
-coordinatewise.  Define
-\[
- x_i=1-a_i,\qquad y_i=b_i.
-\]
-The actual V triangle is nonsupercritical, critical, or strictly supercritical
-according as
-\[
- A(T_i)+B(T_i)<1,\qquad
- A(T_i)+B(T_i)=1,\qquad
- A(T_i)+B(T_i)>1,
-\]
-respectively.  In particular,
+respectively.  Thus
 \[
  N_+=\left\lvert
- \left\lbrace i\in\mathbb Z/6\mathbb Z:A(T_i)+B(T_i)>1\right\rbrace
+ \left\{i\in\mathbb Z/6\mathbb Z:A_i+B_i>1\right\}
  \right\rvert
 \]
-is defined from actual data, never from a selected triple.
+is defined from maximal reaches, never from selected lower bounds.
 \end{definition}
 
-\begin{definition}[Local demand hull and admissible set]
+\begin{definition}[Anchor hull and admissible set]
 \label{def:body-local-admissible-set}
 Let
 \[
- u=\left(\frac12,\frac{\sqrt3}{2}\right),\qquad
+ u=\left(\frac12,\frac{\sqrt3}{2}\right),
+ \qquad
  v=\left(\frac12,-\frac{\sqrt3}{2}\right).
 \]
-For $(a,b,c)\in[0,1]^3$, define
+For $(a,b,c)\in[0,1]^3$, define the \emph{anchor hull}
 \[
- K(a,b,c)=\conv\{0,au,bv,c(u+v)\}
-\]
-\[
- q_\theta=(\cos\theta,\sin\theta),\qquad
- r_\theta=
- \left(\cos\left(\theta+\frac{\pi}{3}\right),
-       \sin\left(\theta+\frac{\pi}{3}\right)\right),
-\]
-\[
- \mathfrak E_1=
- \left\{
- \conv\{z,z+q_\theta,z+r_\theta\}:
- z\in\mathbb R^2,\ 0\le\theta<2\pi
- \right\}.
+ K(a,b,c)=\conv\{0,au,bv,c(u+v)\}.
 \]
 Define
 \[
  \mathcal A=
  \left\{(a,b,c)\in[0,1]^3:
- \exists\,\Delta\in\mathfrak E_1,\quad K(a,b,c)\subseteq\Delta
+ \begin{array}{c}
+ K(a,b,c)\subseteq\Delta\text{ for some closed}\cr
+ \text{unit equilateral triangle }\Delta
+ \end{array}
  \right\}.
 \]
-Thus a closed vertex role with actual V-triangle reach data $(A,B,C)$ realizes every
-$(a,b,c)\in\mathcal A$ satisfying
-\[
- 0\le a\le A,\qquad 0\le b\le B,\qquad 0\le c\le C.
-\]
+Thus every selected reach triple for a vertex triangle belongs to
+$\mathcal A$.
 \end{definition}
 
 \begin{figure}[H]
 \centering
 \resizebox{.98\linewidth}{!}{%
 \input{figures/strategy2_local_demand_skeleton}}
-\caption{Actual and selected V-triangle reach coordinates on the full hexagon skeleton,
-together with the rigid local demand hull.  The least equilateral enclosure
-side of that hull is the scalar controlling both Strategy~2 transfers and
-Strategy~4 witnesses.}
+\caption{The three maximal reaches, selected lower bounds, and the associated
+anchor hull.  The least equilateral enclosure side of this hull controls both
+boundary propagation and the nine-point obstruction.}
 \label{fig:local-demand-hull}
-\end{figure}
-
-\begin{figure}[H]
-\centering
-\resizebox{.98\linewidth}{!}{%
-\input{figures/strategy2_unit_triangle_family_skeleton}}
-\caption{The oriented unit-triangle family $\mathfrak E_1$ and the formal
-containment definition of the local admissible set $\mathcal A$.}
-\label{fig:strategy2-unit-triangle-family-skeleton}
 \end{figure}
 
 \begin{definition}[Equilateral enclosure gauge]
 \label{def:body-enclosure-gauge}
-Define
+Let $\mathsf R$ be counterclockwise rotation through $2\pi/3$.  For every
+nonempty compact $K\subset\mathbb R^2$, define
 \[
- \mathsf R:\mathbb R^2\to\mathbb R^2,\qquad
- \mathsf R=
- \begin{pmatrix}
- -1/2&-\sqrt3/2\\
- \sqrt3/2&-1/2
- \end{pmatrix}.
-\]
-For every nonempty compact $K\subset\mathbb R^2$, define
-\[
- h_K:\mathbb S^1\to\mathbb R,\qquad
- h_K(n):=\max_{z\in K}\langle z,n\rangle,
-\]
-\[
- \Lambda(K):=\frac2{\sqrt3}
+ h_K(n)=\max_{z\in K}\langle z,n\rangle,
+ \qquad
+ \Lambda(K)=\frac2{\sqrt3}
  \min_{\lVert n\rVert=1}\sum_{j=0}^2h_K(\mathsf R^jn).
 \]
 \end{definition}
-Proposition~\ref{prop:universal-enclosure-gauge} says that $\Lambda(K)$ is the
-least side length of an enclosing closed equilateral triangle.
+Proposition~\ref{prop:universal-enclosure-gauge} proves that $\Lambda(K)$ is
+the least side length of a closed equilateral triangle containing $K$.
 
-\begin{proposition}[Geometric structure of the admissible set]
+\begin{proposition}[Structure of the admissible set]
 \label{prop:body-admissible-description}
-The local admissible set $\mathcal A$ has the following properties.
-\begin{enumerate}
-\item It is compact, coordinatewise downward closed, and invariant under
-interchanging the two boundary coordinates $a$ and $b$.
-\item
+The set $\mathcal A$ is compact, coordinatewise downward closed, and invariant
+under interchange of $a$ and $b$.  Moreover,
 \[
  (a,b,c)\in\mathcal A
  \quad\Longleftrightarrow\quad
- \Lambda\bigl(K(a,b,c)\bigr)\le1.
+ \Lambda(K(a,b,c))\le1.
 \]
-\item For $(b,c)$, $(a,c)$, and $(a,b)$ in the corresponding two-coordinate
-projections of $\mathcal A$, respectively, define the one-coordinate fibers
-\[
- \begin{aligned}
- \mathcal A_{b,c}^{(1)}
- &=\left\{a\ge0:(a,b,c)\in\mathcal A\right\},\\
- \mathcal A_{a,c}^{(2)}
- &=\left\{b\ge0:(a,b,c)\in\mathcal A\right\},\\
- \mathcal A_{a,b}^{(3)}
- &=\left\{c\ge0:(a,b,c)\in\mathcal A\right\}.
- \end{aligned}
-\]
-Each of these fibers is a nonempty compact initial interval.  In particular,
-each maximum used for the Strategy~2 transfers in
-Definition~\ref{def:body-transfer-alphabet} is attained.
-\end{enumerate}
-The exact support expressions, their cell conditions, and the resulting
-piecewise equations for $\mathcal A$ are stated and proved in
-Appendix~\ref{sec:admissible-set-derivation}.
+Every one-coordinate fiber of $\mathcal A$ is a nonempty compact initial
+interval.  Consequently every maximum used below is attained.
 \end{proposition}
 
 \begin{proof}
-Compactness and downward closure follow directly from the containment
-definition and compactness of the oriented unit-triangle family modulo
-translation.  Reflection in the radial axis exchanges $a$ and $b$.  The gauge
-equivalence is Proposition~\ref{prop:universal-enclosure-gauge}.  For each
-fixed pair in the corresponding projection, compactness and coordinatewise
-downward closure give a nonempty compact initial-interval fiber.  Moreover,
-$K(a,0,c)\subseteq\conv\{0,u,u+v\}$ for $a,c\in[0,1]$, so the fibers used for
-the later Strategy~2 transfers are nonempty.  The exact cell formulas used in
-the plan above are proved in
+Compactness and downward closure follow from the containment definition and
+compactness of the oriented unit-triangle family modulo translation.
+Reflection in the radial axis exchanges $a$ and $b$.  The gauge equivalence is
+Proposition~\ref{prop:universal-enclosure-gauge}.  Compactness and downward
+closure then give the initial-interval fibers.  The explicit support formulas
+and cell conditions are proved in
 Appendix~\ref{sec:admissible-set-derivation}.
 \end{proof}
 
+\subsection{Signed center coordinates}
 
-Our plan is to split $(a,b,c)$-space into finitely many regions, use one
-explicit formula on each region, compare the finitely many candidate enclosing
-triangles, and declare $(a,b,c)$ admissible exactly when the smallest candidate
-has side at most $1$.
-
-
-\begin{figure}[H]
-\centering
-\resizebox{.98\linewidth}{!}{%
-\input{figures/strategy2_enclosure_gauge_skeleton}}
-\caption{The support-function definition of the equilateral enclosure gauge,
-placed in the full skeleton containing the local demand hull.  This figure is
-a geometric sketch; the exact caliper equations are in Appendix~\ref{sec:admissible-set-derivation}.}
-\label{fig:strategy2-enclosure-gauge-skeleton}
-\end{figure}
-
-\subsection{One signed CE1/CE2 interface}
-
-\begin{definition}[Positive part and center-boundary contribution]
-\label{def:body-positive-part}
-For $t\in\mathbb R$, define
+For $t\in\mathbb R$, write $[t]_+=\max\{t,0\}$, and for a closed triangle $T$
+put
 \[
- [t]_+=\max\{t,0\}.
+ L_{\partial H}(T)=\Haus(T\cap\partial H).
 \]
-For a closed center role $T_C$, define
-\[
- L_{\partial H}(T_C)=\Haus(T_C\cap\partial H).
-\]
-\end{definition}
 
-\begin{definition}[Geometric signed CE1/CE2 center data]
+\begin{definition}[Signed center coordinates]
 \label{def:body-signed-center-data}
-Normalize one positive-length center trace to $e_{0,1}$.  The signed affine
-normal form of Appendix~\ref{sec:signed-ce12-reductions} assigns to the
-normalized center triangle a parameter triple $(R,\alpha,\delta)$ in its exact
-signed domain $\mathcal D_{\rm sgn}$; write the resulting closed center
-triangle as $T_C(R,\alpha,\delta)$.
-
-Let $\mathcal I_{\mathrm R}=T_C\cap e_{0,1}$ be the normalized active trace,
-and let $\mathcal I_{\mathrm L}=T_C\cap e_{5,0}$ be the possible companion
-trace.  Denote their lengths by $\ell_R$ and $\ell_L$.  The signed companion
-coordinate $\Delta_L$ is the affine quantity defined in Appendix
-\ref{sec:signed-ce12-reductions}; its sign records whether the companion trace
-has positive length.
-
-For each $i\in\mathbb Z/6\mathbb Z$, let $d_i^C$ denote the farthest parameter
-reached by $T_C$ on the radial arm $r_i$, measured from $O$ toward $V_i$, and
-put $c_i^C=1-d_i^C$.  Thus $d_i^C$ is the center-side radial exit and $c_i^C$
-is the complementary radial demand imposed on the V triangle $T_i$.
+Normalize a positive center trace to $e_{0,1}$.  There are parameters
+\[
+ 0<R<1,
+ \qquad
+ W=1-R,
+ \qquad
+ E=\sqrt{1-RW},
+ \qquad
+ \eta=1-E,
+ \qquad
+ P=E(1-E),
+\]
+and positive slacks $\alpha,\delta$ such that, with
+\[
+ k=\eta+\alpha+\delta,
+ \qquad
+ \Delta_R=P-\alpha-W\delta>0,
+ \qquad
+ \Delta_L=P-R\alpha-\delta,
+\]
+the normalized center traces are
+\[
+ T_C\cap e_{0,1}=\left[\frac{k}{R},W+\delta\right],
+ \qquad
+ \Haus(T_C\cap e_{0,1})=\frac{\Delta_R}{R},
+\]
+and, when $\Delta_L>0$,
+\[
+ T_C\cap e_{5,0}=\left[\frac{k}{W},R+\alpha\right],
+ \qquad
+ \Haus(T_C\cap e_{5,0})=\frac{\Delta_L}{W}.
+\]
+The six center exits, measured from $O$ toward $V_i$, are
+\[
+ \begin{aligned}
+ d_0^C&=E-\alpha-\delta,&
+ d_1^C&=\frac{\delta}{R},&
+ d_2^C&=\delta,\\
+ d_3^C&=\min\left\{\frac{\alpha}{R},\frac{\delta}{W}\right\},&
+ d_4^C&=\alpha,&
+ d_5^C&=\frac{\alpha}{W}.
+ \end{aligned}
+\]
+The complementary radial lower bound for $T_i$ is
+\[
+ c_i^C=1-d_i^C.
+\]
+The signed parameter domain is
+\[
+ \mathcal D_{\rm sgn}=
+ \left\{(R,\alpha,\delta):0<R<1,\ \alpha>0,\ \delta>0,\ \Delta_R>0\right\}.
+\]
+Its CE1 and CE2 parts are
+\[
+ \mathcal D_{\rm C1}=\{\Delta_L\le0\},
+ \qquad
+ \mathcal D_{\rm C2}=\{\Delta_L>0\},
+\]
+with the ambient condition $(R,\alpha,\delta)\in\mathcal D_{\rm sgn}$
+understood.
 \end{definition}
 
-\begin{proposition}[Signed center interface]
+\begin{proposition}[Center trace and radial data]
 \label{prop:body-signed-center-interface}
-For the normalization of Definition~\ref{def:body-signed-center-data}, the
-active trace $\mathcal I_{\mathrm R}$ has positive length.  The center type is
-read from the companion trace:
+The center triangle is CE1 exactly when $\Delta_L\le0$, and CE2 exactly when
+$\Delta_L>0$; equality is a single contact point and hence belongs to CE1.
+Furthermore,
 \[
- T_C\text{ is CE1}
- \quad\Longleftrightarrow\quad
- \ell_L=0,
- \qquad
- T_C\text{ is CE2}
- \quad\Longleftrightarrow\quad
- \ell_L>0.
+ L_{\partial H}(T_C)
+ =\frac{\Delta_R}{R}+\frac{[\Delta_L]_+}{W},
 \]
-Equivalently, CE2 is characterized by $\Delta_L>0$, while CE1 has
-$\Delta_L\le0$; the equality case is a single companion contact point.
-Moreover,
+and
 \[
- L_{\partial H}(T_C)=\ell_R+\ell_L,
-\]
-and the six exits $d_i^C$ and complementary demands $c_i^C$ are continuous
-piecewise-algebraic functions of the signed parameters.  The bounds needed in
-the reader-facing proof are
-\[
- L_{\partial H}(T_C)\le \frac{\sqrt3}{2}-\frac34
+ L_{\partial H}(T_C)\le\frac{\sqrt3}{2}-\frac34
  \quad\text{in CE1},
  \qquad
  L_{\partial H}(T_C)<\frac12
  \quad\text{in CE2}.
 \]
-All exact affine side equations, trace endpoints, exit formulas, and sign-cell
-conditions are collected in Appendix~\ref{sec:signed-ce12-reductions}.
 \end{proposition}
 
 \begin{proof}
-This is Proposition~\ref{prop:signed-center-normal-form} and
-Corollary~\ref{cor:signed-center-boundary}.  Their exact calculation is kept in
-Appendix~\ref{sec:signed-ce12-reductions}; only the geometric classification
-and the two boundary bounds are used in the body.
+These statements are Proposition~\ref{prop:signed-center-normal-form} and
+Corollary~\ref{cor:signed-center-boundary}.
 \end{proof}

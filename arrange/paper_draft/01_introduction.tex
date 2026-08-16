@@ -1,15 +1,7 @@
-\section{Proof Architecture}
+\section{Introduction and Proof Outline}
 \label{sec:introduction}
 
-% This section gives the complete logical map before any technical verification.
-% The body defines every object used in the proof, records the exact outputs of
-% the calculations, explains the four geometric mechanisms, and performs the
-% final case assembly.  The TeX appendices and formally incorporated electronic
-% supplements prove the stated formulas and inequalities.  Thus a reader can
-% follow the contradiction from the body alone and consult the verification
-% modules only to check a calculation or a finite branch certificate.
-
-\subsection{The theorem and the seven forced roles}
+\subsection{The theorem and the canonical labeling}
 
 Let
 \[
@@ -23,9 +15,16 @@ where indices lie in $\mathbb Z/6\mathbb Z$.  Write
 \]
 and put
 \[
- D=\bigcup_{i=0}^5r_i,\qquad S=\partial H\cup D.
+ S=\partial H\cup\bigcup_{i=0}^5r_i.
 \]
-Then $\Haus(\partial H)=\Haus(D)=6$ and $\Haus(S)=12$.
+Then
+\[
+ \Haus(\partial H)=6,
+ \qquad
+ \Haus\left(\bigcup_{i=0}^5r_i\right)=6,
+ \qquad
+ \Haus(S)=12.
+\]
 
 \begin{theorem}[Main theorem]
 \label{thm:main}
@@ -33,36 +32,47 @@ The hexagon $H$ cannot be covered by seven open equilateral triangles of side
 length one.
 \end{theorem}
 
-% The compactness and scaling argument in
-% Proposition~\ref{prop:open-closed-scaled} gives the equivalent closed version.
-
 \begin{corollary}[Soifer's Hexagon Problem]
 \label{cor:expanded-closed}
 For every $L>1$, the regular hexagon $H_L=LH$ cannot be covered by seven closed
 unit equilateral triangles.
 \end{corollary}
 
-The seven points $O,V_0,\ldots,V_5$ are pairwise at distance at least one.
-Consequently a hypothetical open cover has seven distinct roles: an open
-triangle $U_C$ containing $O$ and open triangles $U_i$ containing $V_i$.
-Their closures are denoted by $T_C,T_i$.
+The seven points $O,V_0,\ldots,V_5$ are pairwise at distance at least one,
+whereas any two points in an open unit equilateral triangle are at distance
+strictly less than one.  Hence the seven covering triangles admit a unique
+labeling
+\[
+ U_C,U_0,\ldots,U_5
+\]
+such that
+\[
+ O\in U_C,
+ \qquad
+ V_i\in U_i.
+\]
+We call $U_C$ the \emph{center triangle} and $U_i$ the \emph{vertex triangle at
+$V_i$}.  Set
+\[
+ T_C=\overline{U_C},\qquad T_i=\overline{U_i}.
+\]
 
 \begin{figure}[H]
 \centering
 \input{figures/geometry_roles}
-\caption{Important points}
+\caption{The center, vertices, radial segments, and radial midpoints of $H$.}
 \label{fig:geometry-roles}
 \end{figure}
 
-\subsection{The finite dictionary}
+\subsection{Finite classifications}
 
 The center type is the number of boundary edges on which $T_C$ has a
 positive-length trace.  The only possibilities are $0,1,2$, denoted by
 $\CEzero,\CEone,\CEtwo$.
 
-For a vertex triangle, let $o$ be the number of its triangle vertices outside $H$
-and let $n$ be the number of adjacent radial arms met in positive length.  The
-exhaustive types are
+For a vertex triangle, let $o$ be the number of its triangle vertices outside
+$H$ and let $n$ be the number of adjacent radial segments met in positive
+length.  The exhaustive types are
 \[
 \begin{array}{c|c}
 \text{type}&(o,n)\\ \hline
@@ -73,38 +83,39 @@ exhaustive types are
 \end{array}
 \]
 
-For an original vertex role, let $A_i,B_i,C_i$ be its actual maximal incoming
-boundary, outgoing boundary, and own-radial reaches.  The V triangle is
+Let $A_i,B_i,C_i$ be the maximal reaches of $T_i$ toward
+$V_{i-1},V_{i+1},O$, respectively.  The vertex triangle $T_i$ is
 \emph{supercritical} when $A_i+B_i>1$, and
 \[
  N_+=\left\lvert\left\{i:A_i+B_i>1\right\}\right\rvert.
 \]
-Lowercase $(a_i,b_i,c_i)$ always denotes selected lower demands and never the
-actual maxima defining $N_+$.
+Lowercase $(a_i,b_i,c_i)$ always denotes selected lower bounds for these
+reaches and never the maxima defining $N_+$.
 
 On $e_{i,i+1}$, parametrized from $V_i$ to $V_{i+1}$, the two incident open
-traces have the form $[0,B_i)$ and $(1-A_{i+1},1]$.  Their complement
+traces have the form $[0,B_i)$ and $(1-A_{i+1},1]$.  Their nonempty complement
 \[
  [B_i,1-A_{i+1}]
 \]
-is a boundary gap; equality gives a singleton gap, which is still uncovered.
-For CE1/CE2, let $\mathrm{gr}$ be the number of positive center traces
-containing such a gap.
+is a \emph{boundary gap}; equality gives a singleton gap, which remains
+uncovered.  Let $N_{\mathrm{gap}}$ be the number of positive center traces
+that contain a boundary gap.
 
-Call a vertex role \emph{short} if it is supercritical or has positive-length
-trace on an adjacent arm.  Let $m$ count the roles of type
-$\Vdone,\Vdtwo,\Tlike$, and let $q$ count short roles.  The structural
-calculus gives
+Let $N_{\mathrm{sp}}$ be the number of vertex triangles of type
+$\Vdone,\Vdtwo,$ or $\Tlike$.  The common trace calculation proves that the
+number of vertex triangles that are either supercritical or meet an adjacent
+radial segment in positive length is
 \[
- q=N_++m.
+ N_++N_{\mathrm{sp}}.
 \]
+In particular, every CE1/CE2 configuration with
+$N_++N_{\mathrm{sp}}\ge3$ is impossible by a trace-length bound on $S$.
 
-\subsection{The exhaustive routing table}
+\subsection{Exhaustive routing}
 
 Table~\ref{tab:routing} is read from top to bottom in the CE1/CE2 part.  The
-first applicable entry is the unique route for the hypothetical cover.  The
-structural proof is summarized in Proposition~\ref{prop:body-structural-reduction}
-and given in full in Appendix~\ref{sec:structural-reductions}.
+first applicable row is the unique method for a hypothetical cover.  The full
+classification proof is Proposition~\ref{prop:exhaustive-structural-reduction}.
 
 \begin{table}[H]
 \centering
@@ -112,47 +123,38 @@ and given in full in Appendix~\ref{sec:structural-reductions}.
 \renewcommand{\arraystretch}{1.07}
 \begin{tabular}{p{.25\textwidth}p{.55\textwidth}c}
 \toprule
-center and V-triangle count&exhaustive refinement&route\\
+center type and $N_+$&exhaustive refinement&method\\
 \midrule
 $\CEzero$, $N_+=0$&all vertex types&1\\
-$\CEzero$, $N_+=1$&all six roles $\Vdzero$&4\\
-$\CEzero$, $N_+=1$&a $\Vdone$ or $\Vdtwo$ role&1\\
-$\CEzero$, $N_+=1$&no $\Vdone/\Vdtwo$ role and a $\Tlike$ role&3\\
+$\CEzero$, $N_+=1$&all six triangles $\Vdzero$&4\\
+$\CEzero$, $N_+=1$&a $\Vdone$ or $\Vdtwo$ triangle&1\\
+$\CEzero$, $N_+=1$&no $\Vdone/\Vdtwo$ triangle and a $\Tlike$ triangle&3\\
 $\CEzero$, $N_+\ge2$&all vertex types&3\\
 \midrule
-$\CEone/\CEtwo$&$q\ge3$&1\\
-$\CEone/\CEtwo$, $N_+=0$&all six roles $\Vdzero$&2\\
-$\CEone/\CEtwo$, $N_+=0$&a $\Vdone$ or $\Vdtwo$ role&1\\
-$\CEone/\CEtwo$, $N_+=0$&no $\Vdone/\Vdtwo$ role and a $\Tlike$ role&2\\
-$\CEone/\CEtwo$, $N_+=1$&all $\Vdzero$, zero gaps&4\\
-$\CEone/\CEtwo$, $N_+=1$&all $\Vdzero$, a nonempty gap&2\\
+$\CEone/\CEtwo$&$N_++N_{\mathrm{sp}}\ge3$&1\\
+$\CEone/\CEtwo$, $N_+=0$&all six triangles $\Vdzero$&2\\
+$\CEone/\CEtwo$, $N_+=0$&a $\Vdone$ or $\Vdtwo$ triangle&1\\
+$\CEone/\CEtwo$, $N_+=0$&no $\Vdone/\Vdtwo$ triangle and a $\Tlike$ triangle&2\\
+$\CEone/\CEtwo$, $N_+=1$&all $\Vdzero$, no boundary gap&4\\
+$\CEone/\CEtwo$, $N_+=1$&all $\Vdzero$, a boundary gap&2\\
 $\CEone/\CEtwo$, $N_+=1$&exactly one $\Tlike$, no $\Vdone/\Vdtwo$&2\\
 $\CEone/\CEtwo$, $N_+=1$&exactly one $\Vdone/\Vdtwo$, no $\Tlike$&
   $1\;/\;1{+}2$\\
 \bottomrule
 \end{tabular}
-\caption{The complete terminal routing.  Route $j$ means Strategy $j$.  In the
-last entry, the first alternative is for CE1 and the second for CE2.}
+\caption{The exhaustive routing.  Method 1 is a trace-length argument, Method
+2 propagates reach bounds, Method 3 sums area loss, and Method 4 uses a
+nine-point enclosure obstruction.  In the last row, the first alternative is
+for CE1 and the second for CE2.}
 \label{tab:routing}
 \end{table}
 
-For the two all-$\Vdzero$ CE1/CE2, the same six cells are organized by
-\[
-\begin{array}{c|ccc}
- &\mathrm{gr}=0&\mathrm{gr}=1&\mathrm{gr}=2\\ \hline
-N_+=0&\text{strict identity cycle}&\text{one-side endpoint chain}&
-       \text{paired endpoint chain}\\
-N_+=1&\text{nine-point support}&\text{five-V-triangle chain}&
-       \text{paired endpoint chain}.
-\end{array}
-\]
-The last column is CE2-only.
+\subsection{The four methods}
 
-\subsection{Four mechanisms}
-
-Strategy~1 bounds one-dimensional traces on $\partial H$ or $S$.
-Strategy~2 propagates lower reaches with monotone maps obtained from one local
-admissible set.  Strategy~3 sums forced area losses.  Strategy~4 forces nine
-points into the center role and applies an equilateral enclosure obstruction.
-Sections~\ref{sec:strategy1-summary}--\ref{sec:strategy4-reader} contain these
-arguments; Section~\ref{sec:assembly} performs the final audit.
+Method~1 bounds one-dimensional traces on $\partial H$ or $S$.  Method~2
+propagates lower bounds for successive boundary reaches using the local
+admissible set.  Method~3 sums forced area losses.  Method~4 forces nine points
+into the center triangle and proves that they cannot lie in an open unit
+equilateral triangle.  Sections~\ref{sec:strategy1-summary}--
+\ref{sec:strategy4-reader} give these arguments, and
+Section~\ref{sec:assembly} completes the case analysis.

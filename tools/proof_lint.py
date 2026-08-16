@@ -143,6 +143,39 @@ technical = ledger.split("### Technical appendices", 1)[1].split("The body-end l
 if technical.count("`04_strategy2_verification.tex`") != 1:
     fail("source ledger must list the consolidated Strategy 2 appendix exactly once")
 
+reader_body_paths = [
+    ROOT / "arrange/paper_draft/01_introduction.tex",
+    ROOT / "arrange/paper_draft/02_global_notation.tex",
+    ROOT / "arrange/paper_draft/02_reader_framework.tex",
+    ROOT / "arrange/paper_draft/03_strategy1_reader.tex",
+    ROOT / "arrange/paper_draft/04_strategy2_summary.tex",
+    ROOT / "arrange/paper_draft/05_strategy3_reader.tex",
+    ROOT / "arrange/paper_draft/06_strategy4_reader.tex",
+    ROOT / "arrange/paper_draft/07_exhaustive_assembly.tex",
+]
+reader_terminology_patterns = [
+    (r"\broles?\b", "reader-facing role terminology"),
+    (r"\bdemands?\b", "reader-facing demand terminology"),
+    (r"\bdefects?\b", "reader-facing defect terminology"),
+    (r"\brescuers?\b", "reader-facing rescuer terminology"),
+    (r"\brecords?\b", "reader-facing record terminology"),
+    (r"\bregistry\b", "reader-facing registry terminology"),
+    (r"\bproof owner\b", "reader-facing proof-owner terminology"),
+    (r"\bnormative\b", "reader-facing normative-interface terminology"),
+    (r"\bterminals?\b", "reader-facing terminal terminology"),
+    (r"\bkernels?\b", "reader-facing kernel terminology"),
+    (r"\baudits?\b", "reader-facing audit terminology"),
+    (r"T_\+\^\{(?:\\rm|\\mathrm)\{?hi\}?\}", "reader-facing historical high T-plus label"),
+    (r"\\mathcal D_\{\\rm CE[12]\}", "noncanonical reader-facing CE domain name"),
+]
+for path in reader_body_paths:
+    text = path.read_text(encoding="utf-8")
+    text = re.sub(r"(?m)(?<!\\)%.*$", "", text)
+    text = re.sub(r"\\(?:label|ref|eqref|pageref|input)\{[^}]*\}", "", text)
+    for pattern, description in reader_terminology_patterns:
+        if re.search(pattern, text, re.I):
+            fail(f"{description} in {path.relative_to(ROOT)}")
+
 scan_paths = active_sources | compiled
 terminology_patterns = [
     (r"\bfive[- ]row\b", "geometric five-row terminology"),

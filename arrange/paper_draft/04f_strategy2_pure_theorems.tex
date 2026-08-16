@@ -1,12 +1,12 @@
-\section{Universal Strategy 2 Optimization Theorems}
+\section{Proofs of the Finite Propagation Inequalities}
 \label{sec:strategy2-pure-theorems}
 
-This section proves the registered optimization statements with the
+This section proves the inequalities stated in Appendix~\ref{sec:strategy2-optimization-problems}, with the
 quantifiers written in Appendix~\ref{sec:strategy2-optimization-problems}.
 The geometric bridge is not used to restrict those quantifiers: it is used
 later only to show that a routed geometric configuration supplies a point of
-the corresponding real domain and that the geometric terminal quantity equals
-the registered objective.
+the corresponding real domain and that the geometric final quantity equals
+the stated objective.
 
 \subsection{Primitive high-radial output bound}
 
@@ -16,12 +16,12 @@ For every $1/2<c<1$ and $0\le x\le1$,
 \[
  0\le F(c,x)\le1-x.
 \]
-The upper inequality is strict on every non-Full branch.
+The upper inequality is strict on every non-linear branch.
 \end{lemma}
 
 \begin{proof}
 The lower bound is immediate from Definition~\ref{def:s2-pure-map}.  On a
-Full branch the upper bound is equality.  On a $Q_-$ branch, where $x<c$,
+linear branch the upper bound is equality.  On a $Q_-$ branch, where $x<c$,
 \[
  Q_-(c,x)\le1-x
  \iff
@@ -34,11 +34,11 @@ On a $Q_+$ branch, $x<1$ and Lemma~\ref{lem:s2-pure-map-well-defined} gives
 \]
 After multiplying by the positive denominator in $Q_+$ and dividing by
 $1-x$, this is exactly $Q_+(c,x)\le1-x$; equality can occur only at
-$x=1-c$, which is assigned to Full.  On the low-$c$ tie,
+$x=1-c$, which is assigned to linear.  On the low-$c$ tie,
 $h(c)\le1/2=1-1/2\le1-h(c)$; equivalently
 $\sqrt{16c^2-3}\ge4c-1$, whose square is $8c\ge4$.  On the high-$c$
-plateau, $L(c)<x<U(c)=c-L(c)$ gives
-$L(c)<1-c+L(c)<1-x$.  These cases exhaust the definition of $F$.
+plateau, $\ell(c)<x<r(c)=c-\ell(c)$ gives
+$\ell(c)<1-c+\ell(c)<1-x$.  These cases exhaust the definition of $F$.
 \end{proof}
 
 \subsection{The four all-Vd0 problems}
@@ -65,7 +65,7 @@ $p=S(1-S)$, direct simplification gives
 \]
 Thus the variables $(R,S,s,u,w)$ in
 Lemma~\ref{lem:one-side-capped-loss} may be taken as
-$(r,e,s,u,\omega)$, and its two demands are
+$(r,e,s,u,\omega)$, and its two reach lower bounds are
 \[
  c_1=\frac ur=1-\frac dr,
  \qquad
@@ -76,7 +76,7 @@ $F_c(x)=F(c,x)$, its conclusion is precisely
 $\Psi_{\rm E1}(r,a,d)<0$.
 \end{proof}
 
-\begin{lemma}[Pure paired-endpoint kernel]
+\begin{lemma}[Pure paired-endpoint subcase]
 \label{lem:s2-pure-paired-kernel}
 Let $0<w\le1/2$, $r=1-w$, $K=\sqrt{1-wr}$, and put
 \[
@@ -98,7 +98,7 @@ Then
 The proof of Lemma~\ref{lem:two-endpoint-capped-loss}, beginning immediately
 after the derivation of \eqref{eq:ce2-strict-endpoints}, is an algebraic
 proof under exactly the hypotheses displayed here.  It first partitions the
-two evaluations of $F$ into the four exact contact labels, obtains the seven
+two evaluations of $F$ into the four exact algebraic branches, obtains the seven
 possible ordered pairs in \eqref{eq:two-endpoint-pairs}, and proves the strict
 loss for each pair.  Every later quantity in that proof is an explicit
 function of $(w,r,K,z,\zeta,\alpha,\beta,p,q)$; no placement, trace, or
@@ -123,7 +123,7 @@ First assume $w\le r$.  Set
 \]
 Proposition~\ref{prop:s2-pure-domain-bounds} gives
 $1/2<\alpha,\beta<1$.  Since $e^2=1-rw$ and
-$1-e=rw/(1+e)$, the two strict kernel inequalities are equivalent to
+$1-e=rw/(1+e)$, the two strict subcase inequalities are equivalent to
 \[
  \beta+p>1+\frac{w}{1+e}
  \iff \Delta_L>0,
@@ -207,7 +207,7 @@ requires at least one threshold and does not assert uniqueness.
 \subsection{The finite high-radial T3 endpoint problem}
 
 The domain $\Omega_{\rm T3}$ includes only $C_1,C_5>1/2$.  The geometric
-branch with $C_1\le1/2$ is the direct right-Full case handled before the
+branch with $C_1\le1/2$ is the direct right-linear case handled before the
 optimization bridge and by Theorem~\ref{thm:paper-complete-t3-endpoint}.
 
 \begin{theorem}[Pure S2-T3]
@@ -228,7 +228,7 @@ If $A_1+A_5>1$, Lemma~\ref{lem:s2-pure-cap} gives
 \]
 Assume $A_1+A_5\le1$.  The two contact predicates in the definition of the
 hard cell assign a unique pair
-$(\ell_5,\ell_1)\in\mathfrak L^2$.
+$(\ell_5,\ell_1)\in\mathfrak B^2$.
 
 We verify that the complete $407X$ calculation applies to this arbitrary real
 point, rather than only to a previously realized geometric state.  Use the
@@ -263,13 +263,13 @@ $\mathcal K_h$ are exactly the three residual orders and the radial
 hit/miss orders used in that proof.  Finally,
 $\mathrm{Cell}_{\ell_5}(C_5,A_5)$ and
 $\mathrm{Cell}_{\ell_1}(C_1,A_1)$ select the same explicit branch formulas
-of $F$ as its four-label table.
+of $F$ as its four-branch table.
 
 After these substitutions, the hard-region proof of
 Lemma~\ref{lem:407-four-label-loss} is a finite algebraic proof on the
 selected cell: every hypothesis used there is one of the defining equalities
 or inequalities just listed, and its eight table rows exhaust
-$\mathfrak L^2$.  It proves
+$\mathfrak B^2$.  It proves
 \[
  F(C_5,A_5)+F(C_1,A_1)<1
 \]
@@ -277,7 +277,7 @@ for the present arbitrary $\xi$.  Hence $\Psi_{\rm T3}(\xi)<0$ on every
 hard cell as well.
 \end{proof}
 
-\subsection{The rescuer problems}
+\subsection{The adjacent exceptional triangle problems}
 
 \begin{theorem}[Pure S2-SC]
 \label{thm:s2-pure-sc}
@@ -315,11 +315,11 @@ For $t\ge1$ and $c\le1/2$,
 \]
 so
 \[
- a\le G(t,c)\le L(c):=\sqrt3-\frac52+2c.
+ a\le G(t,c)\le \ell(c):=\sqrt3-\frac52+2c.
 \]
 The exact polynomial calculation in
 Lemma~\ref{lem:short-vd1-rescuer-profile} gives
-$2L(c)\le A_{\rm sc}(c)$ on $0\le c\le1/2$.
+$2\ell(c)\le A_{\rm sc}(c)$ on $0\le c\le1/2$.
 Writing $\epsilon=1-u$ gives
 \[
  \epsilon=\epsilon_0+\frac at,
@@ -333,7 +333,7 @@ Monotonicity in $a$ yields
  \vartheta(a,u)
  =\frac a{a+\epsilon}
  \le\frac{G(t,c)}{G(t,c)+1/2}
- \le2L(c)
+ \le2\ell(c)
  \le A_{\rm sc}(c).
 \]
 Thus both terms in the maximum are at most $A_{\rm sc}(c)$, which is
@@ -442,7 +442,7 @@ Finally, $t>0$ gives $\Delta_t<t+1$, and therefore
 All four entries in $\Psi_{\rm VD}^{\rm non}$ are strictly negative.
 \end{proof}
 
-\begin{corollary}[Universal pure Strategy 2 registry]
+\begin{corollary}[Universal pure Strategy 2 collection]
 \label{cor:s2-pure-registry}
 Problems S2-E1, S2-E2, S2-R1, S2-R2, S2-T3, S2-SC, and S2-VD all hold with
 the universal quantifiers in their definitions.

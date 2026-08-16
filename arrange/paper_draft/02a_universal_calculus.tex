@@ -3,7 +3,7 @@
 
 This section collects the geometry shared by the transfer and direct-witness
 arguments.  The same equilateral enclosure functional governs the local
-admissible set of Strategy~2 and the forced witness set of Strategy~4.  The
+admissible set of Method~2 and the forced witness set of Method~4.  The
 transfer statements below distinguish three situations that must not be
 conflated: a center-free edge, an edge with a specified center interval, and a
 free strict-supercritical outgoing envelope.
@@ -47,7 +47,7 @@ maximum.  Hence a minimum occurs at a cell boundary, where one support line
 contains a hull edge.
 \end{proof}
 
-For the local demand hull
+For the anchor hull
 \[
  K(a,b,c)=\conv\{0,au,bv,c(u+v)\},
 \]
@@ -155,9 +155,9 @@ bound gives equality.
 
 \begin{lemma}[Raw and branchwise nonsupercritical transfer]
 \label{lem:reader-raw-capped-transfer}
-Let $T$ be an actual V triangle satisfying
+Let $T$ be an actual vertex triangle satisfying
 $A(T)\ge a$ and $C(T)\ge c$, and let $T_{\mathrm{next}}$ be the next
-incident actual V triangle. Then
+incident actual vertex triangle. Then
 \[
  B(T)\le g_c(1-a).
 \]
@@ -255,7 +255,7 @@ Define only the raw center-assisted transfer
  g_{c,J}^\vee(a)=\mathcal R_J(g_c(1-a)).
 \]
 Apply it with $p=B(T)$ and $q=A(T_{\mathrm{next}})$, where $T$ is an actual
-V triangle satisfying $A(T)\ge a$ and $C(T)\ge c$.  Then
+vertex triangle satisfying $A(T)\ge a$ and $C(T)\ge c$.  Then
 \begin{equation}
  A(T_{\mathrm{next}})\ge g_{c,J}^\vee(a).
  \label{eq:reader-generalized-raw-transfer}
@@ -285,14 +285,14 @@ For $0\le c<1/2$, define
  =\frac{c+\sqrt{c^2-8c+4}}2.
  \label{eq:reader-free-supercritical-envelope}
 \end{equation}
-The supremum is not attained. Hence an actual strict-supercritical V triangle
+The supremum is not attained. Hence an actual strict-supercritical vertex triangle
 $T$ with $C(T)\ge c$ satisfies
 \begin{equation}
  B(T)<g_c^{\rm sc}.
  \label{eq:reader-free-outgoing-envelope}
 \end{equation}
 If, in addition, its outgoing edge is center-free and $T_{\mathrm{next}}$ is
-the next incident actual V triangle, then coverage gives
+the next incident actual vertex triangle, then coverage gives
 \begin{equation}
  A(T_{\mathrm{next}})>1-g_c^{\rm sc}.
  \label{eq:reader-free-raw-envelope}
@@ -303,7 +303,7 @@ $A_{\rm sc}(c)=1-g_c^{\rm sc}$.
 
 \subsection{Relaxed composition and path budgets}
 
-For maps listed in geometric V-triangle order, write
+For maps listed in geometric vertex-triangle order, write
 \begin{equation}
  [\Phi_1\mid\cdots\mid\Phi_r](x)
  =(\Phi_r\circ\cdots\circ\Phi_1)(x).
@@ -313,7 +313,7 @@ The leftmost slot acts first.  Write $\mathrm I(x)=x$.
 
 \begin{lemma}[Relaxed composition]
 \label{lem:reader-relaxed-composition}
-Suppose actual demands satisfy
+Suppose actual reach lower bounds satisfy
 \[
  x_j\ge\Phi_j(x_{j-1})
  \qquad(1\le j\le r),
@@ -333,12 +333,12 @@ $x_j\ge\Phi_j(x_{j-1})\ge\Phi_j(y_{j-1})\ge y_j$ inductively.
 \begin{lemma}[Boundary-path budget]
 \label{lem:reader-boundary-path}
 Let $E_0,\ldots,E_k$ be consecutive boundary edges and let
-$T_1,\ldots,T_k$ be the roles at their intermediate vertices.  Suppose:
+$T_1,\ldots,T_k$ be the triangles at their intermediate vertices.  Suppose:
 \begin{enumerate}
 \item on $E_0$, the component covered from the endpoint opposite $T_1$ by all
-roles other than $T_1$ has extent at most $u$;
+triangles other than $T_1$ has extent at most $u$;
 \item on $E_k$, the analogous component opposite $T_k$ has extent at most $v$;
-\item on every middle edge, no role other than the two incident path roles has
+\item on every middle edge, no triangle other than the two incident path triangles has
 positive-length trace;
 \item the chain is covered.
 \end{enumerate}
@@ -347,17 +347,17 @@ Then
  \sum_{j=1}^k(A_j+B_j)\ge k+1-u-v.
  \label{eq:reader-path-budget}
 \end{equation}
-Consequently, if all $k$ internal V triangles are nonsupercritical, the chain is
+Consequently, if all $k$ internal vertex triangles are nonsupercritical, the chain is
 impossible whenever $u+v<1$.
 \end{lemma}
 
 \begin{proof}
 The first and last component hypotheses give $A_1\ge1-u$ and
-$B_k\ge1-v$.  On every middle edge the center and all nonincident roles have
+$B_k\ge1-v$.  On every middle edge the center and all nonincident triangles have
 been excluded, so $B_j+A_{j+1}\ge1$.  Adding proves the formula.
 \end{proof}
 
-\subsection{Low roots, selected \(T_+\) curves, and thresholds}
+\subsection{Low roots, selected \(Q_+\) curves, and thresholds}
 
 For the high-radial maps define
 \begin{equation}
@@ -373,10 +373,10 @@ and, for the low-radial order transition,
  \label{eq:signed-order-transition}
 \end{equation}
 
-\begin{proposition}[Universal selected-$T_+$ curve]
+\begin{proposition}[Universal selected-$Q_+$ curve]
 \label{prop:reader-universal-tplus}
 Fix $0<d<1/2$, put $c=1-d$, and suppose an input $p$ belongs to a selected
-$T_+$ arc of $g_c^\vee$.  Write
+$Q_+$ arc of $g_c^\vee$.  Write
 \[
  q=g_c^\vee(p),\qquad \nu=q-p,
  \qquad x=\frac{q-d}{1-d}.
@@ -435,7 +435,7 @@ historical notation $x=1-\beta$,
  \label{eq:reader-beta-rational}
 \end{equation}
 
-For $0<d<1-\sqrt3/2$, the exact high-demand threshold is
+For $0<d<1-\sqrt3/2$, the exact high-reach lower bound threshold is
 \begin{equation}
  z>e(d)
  \quad\Longrightarrow\quad
@@ -465,7 +465,7 @@ $g_{1-d_1}^\vee$ and $g_{1-d_2}^\vee$ and
  \qquad
  \min\{e(d_1),e(d_2)\}<Q,
 \]
-then at least one of those two V triangles forces every subsequent output above
+then at least one of those two vertex triangles forces every subsequent output above
 $1-Q$.
 \end{lemma}
 

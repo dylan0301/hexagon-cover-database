@@ -1,31 +1,31 @@
-\section{Nonsupercritical, T3-like, and Vd1/Vd2 Demand Branches}
+\subsection{Nonsupercritical, T3-like, and Vd1/Vd2 Reach Branches}
 \label{sec:t3-vd-demand-branches}
 
-\subsection{The exactly-one-$T3$ branch}
+\subsubsection{The exactly-one-$T3$ branch}
 
-\begin{proposition}[Exactly one T3-like V triangle]
+\begin{proposition}[Exactly one T3-like vertex triangle]
 \label{prop:nplus-one-one-t3}
-Assume the center role is CE1 or CE2, $N_+=1$, exactly one vertex role is
-T3-like, and no role is Vd1 or Vd2.  Then the roles do not cover $H$.
+Assume the center triangle is CE1 or CE2, $N_+=1$, exactly one vertex triangle is
+T3-like, and no triangle is Vd1 or Vd2.  Then the triangles do not cover $H$.
 \end{proposition}
 
 \begin{proof}
-Normalize the center midpoint to $M_0$.  A T3-like V triangle misses its own
-midpoint, a supercritical V triangle misses its local midpoint, and a Vd0 V triangle cannot
+Normalize the center midpoint to $M_0$.  A T3-like vertex triangle misses its own
+midpoint, a supercritical vertex triangle misses its local midpoint, and a Vd0 vertex triangle cannot
 rescue a neighboring midpoint.  Consequently, after reflection,
 \[
  T_0\text{ is T3-like},\qquad M_1\in T_0,
  \qquad T_1\text{ is uniquely supercritical},
 \]
-and $T_2,\ldots,T_5$ are nonsupercritical Vd0 V triangles.  The rational local
+and $T_2,\ldots,T_5$ are nonsupercritical Vd0 vertex triangles.  The rational local
 calculation is Lemma~\ref{lem:short-t3-rescuer-profile}.  It verifies the two
 local inequalities in \eqref{eq:signed-rescuer-local}, while midpoint and
 support isolation force the center to cover the $O$-side radial gap.  The
-common adjacent-rescuer obstruction, Corollary~\ref{cor:signed-adjacent-rescuers},
+common adjacent-exception obstruction, Corollary~\ref{cor:signed-adjacent-rescuers},
 therefore gives the contradiction.
 \end{proof}
 
-\subsection{The nonsupercritical CE1/CE2 boundary packages}
+\subsubsection{The nonsupercritical CE1/CE2 boundary packages}
 
 Figure~\ref{fig:ce1-ce2-n0-all-vd0} gives a common schematic for the package
 proved below.
@@ -35,8 +35,8 @@ proved below.
 \includegraphics[width=.78\linewidth]
   {figures/strategy2_ce1_ce2_n0_all_vd0.png}
 \caption{Schematic view of the common CE1/CE2, $N_+=0$, all-Vd0 boundary
-package, not to scale.  The center role and three representative Vd0 vertex
-roles are shown; the remaining three roles are omitted for readability.  The
+package, not to scale.  The center triangle and three representative Vd0 vertex
+triangles are shown; the remaining three triangles are omitted for readability.  The
 simultaneous placement is not a candidate cover, and no proof depends on
 visual inspection.}
 \label{fig:ce1-ce2-n0-all-vd0}
@@ -44,22 +44,22 @@ visual inspection.}
 
 \begin{proposition}[All-Vd0 skeleton-data obstruction]
 \label{prop:nplus-zero-all-vd0}
-Let the center role be CE1 or CE2. Assume all six vertex roles are Vd0,
+Let the center triangle be CE1 or CE2. Assume all six vertex triangles are Vd0,
 \[
  A_i+B_i\le1\qquad(i=0,\ldots,5),
 \]
-and the seven open roles cover the full skeleton
+and the seven open triangles cover the full skeleton
 \[
  S=\partial H\cup\bigcup_{i=0}^5r_i.
 \]
-Then no such configuration exists. Consequently the same role data cannot
+Then no such configuration exists. Consequently the same distinguished-index data cannot
 cover all of $H$.
 \end{proposition}
 
 \begin{proof}
 Let $d_i^C$ be the center reach on $r_i$, measured from $O$, and set
-$c_i^C=1-d_i^C$. Since every vertex role is Vd0, no adjacent vertex role has
-a positive-length trace on $r_i$; diameter locality excludes nonlocal roles.
+$c_i^C=1-d_i^C$. Since every vertex triangle is Vd0, no adjacent vertex triangle has
+a positive-length trace on $r_i$; diameter locality excludes nonlocal triangles.
 Skeleton coverage therefore forces
 \[
  C_i\ge c_i^C\qquad(i=0,\ldots,5).
@@ -106,7 +106,7 @@ The exact one-side endpoint theorem gives
  g_{1-\alpha/W}(1-s)
  +g_{1-\delta/R}(1-q)<1.
 \]
-The three internal V triangles $T_2,T_3,T_4$ lie on a center-free boundary
+The three internal vertex triangles $T_2,T_3,T_4$ lie on a center-free boundary
 path. The path budget forces their total boundary contribution above three,
 contrary to their three nonsupercritical caps.
 
@@ -116,12 +116,12 @@ with \((*)\), gives
  p=W-\alpha,\qquad q=R-\delta,
  \qquad F_{p/W}(p)+F_{q/R}(q)<1.
 \]
-The same center-free three-V-triangle path gives the contradiction.
+The same center-free three-vertex-triangle path gives the contradiction.
 
 The three ranks are exhaustive.
 \end{proof}
 
-We next treat the additional T3-like V triangles in the $N_+=0$ branch.  The
+We next treat the additional T3-like vertex triangles in the $N_+=0$ branch.  The
 following local facts also reappear later.
 
 \begin{lemma}[T3-like midpoint and side tradeoff]
@@ -138,7 +138,7 @@ vertex, then
 \end{equation}
 Consequently two adjacent T3-like traces that cover each other's midpoint,
 whose selected supports point toward one another, cannot cover both outer
-half-arms if no other role has positive support there.
+half-arms if no other triangle has positive support there.
 \end{lemma}
 
 \begin{proof}
@@ -155,7 +155,7 @@ Hence
 \[
  t\beta<z-z^2.
 \]
-The majorant's own-radial exit is $c=\beta/(1-t)$.  Since
+The majorant's radial exit is $c=\beta/(1-t)$.  Since
 \[
  (1-z)(1+z)=t(1-t),
 \]
@@ -165,7 +165,7 @@ we obtain
 \]
 Here $z<1$ because $0<t<1$.  Thus the translated majorant misses $M_0$,
 and its closed-trace domination
-implies that the original T3-like role misses $M_0$ as well.
+implies that the original T3-like triangle misses $M_0$ as well.
 
 For the tradeoff, the translated T3-like trace has the exhaustive Type-II
 form
@@ -200,18 +200,18 @@ inequalities with \eqref{eq:t3-side-tradeoff} gives both
 $b_i<b_{i+1}$ and $b_{i+1}<b_i$, a contradiction.
 \end{proof}
 
-\begin{lemma}[The support-isolated four-label inequality]
+\begin{lemma}[The support-isolated four-branch inequality]
 \label{lem:407-four-label-loss}
-Assume $T_C$ is CE1 or CE2, $N_+=0$, no role is Vd1 or Vd2, and, after
+Assume $T_C$ is CE1 or CE2, $N_+=0$, no triangle is Vd1 or Vd2, and, after
 normalization and reflection, $T_0$ is T3-like with selected adjacent
-support on $r_1$.  Then the two endpoint V triangles in the isolated configuration
+support on $r_1$.  Then the two endpoint vertex triangles in the isolated configuration
 satisfy
 \begin{equation}
  F_{c_5^\ast}(a_5^\ast)+F_{c_1^\ast}(a_1^\ast)<1,
  \label{eq:407-loss}
 \end{equation}
 where $a_1^\ast,a_5^\ast$ are the exact boundary inputs and
-$c_1^\ast,c_5^\ast$ the exact radial demands defined below.
+$c_1^\ast,c_5^\ast$ the exact radial lower bounds defined below.
 \end{lemma}
 
 \begin{proof}
@@ -275,20 +275,20 @@ with the second interval empty in CE1, and
 
 If $a_1^\ast+a_5^\ast>1$, the two caps already imply
 $F_{c_5^\ast}(a_5^\ast)+F_{c_1^\ast}(a_1^\ast)<1$.  Assume the hard region
-$a_1^\ast+a_5^\ast\le1$.  The following table is an exhaustive audit of the four
-possible first labels; the middle column records the exact decisive
+$a_1^\ast+a_5^\ast\le1$.  The following table is an exhaustive case analysis of the four
+possible first branches; the middle column states the exact decisive
 inequality.
 \[
 \begin{array}{c|c|c}
-\text{first label}&\text{right labels}&\text{conclusion}\\ \hline
-L&\mathrm{Full}&e(\gamma_5)<a_1^\ast\\
-L&L,T_-&F_{c_5^\ast}(a_5^\ast)+F_{c_1^\ast}(a_1^\ast)<1\\
-L&T_+^{\mathrm{hi}}&e(\gamma_5)<a_1^\ast\\
-T_-&L,T_-&F_{c_5^\ast}(a_5^\ast)+F_{c_1^\ast}(a_1^\ast)<1\\
-T_-&\mathrm{Full},T_+^{\mathrm{hi}}&F_{c_5^\ast}(a_5^\ast)<a_1^\ast\\
-\mathrm{Full}&\text{all}&\text{impossible}\\
-T_+^{\mathrm{hi}}&\mathrm{Full},T_+^{\mathrm{hi}}&\text{impossible}\\
-T_+^{\mathrm{hi}}&L,T_-&F_{c_5^\ast}(a_5^\ast)+F_{c_1^\ast}(a_1^\ast)<1.
+\text{first branch}&\text{right branches}&\text{conclusion}\\ \hline
+\mathrm{Const}&\mathrm{Lin}&e(\gamma_5)<a_1^\ast\\
+\mathrm{Const}&\mathrm{Const},Q_-&F_{c_5^\ast}(a_5^\ast)+F_{c_1^\ast}(a_1^\ast)<1\\
+\mathrm{Const}&Q_+&e(\gamma_5)<a_1^\ast\\
+Q_-&\mathrm{Const},Q_-&F_{c_5^\ast}(a_5^\ast)+F_{c_1^\ast}(a_1^\ast)<1\\
+Q_-&\mathrm{Lin},Q_+&F_{c_5^\ast}(a_5^\ast)<a_1^\ast\\
+\mathrm{Lin}&\text{all}&\text{impossible}\\
+Q_+&\mathrm{Lin},Q_+&\text{impossible}\\
+Q_+&\mathrm{Const},Q_-&F_{c_5^\ast}(a_5^\ast)+F_{c_1^\ast}(a_1^\ast)<1.
 \end{array}
 \]
 We verify the nonformal entries.  Put
@@ -355,7 +355,7 @@ The low-root estimate \eqref{eq:low-root-bounds} now gives
  \le2\eta+5\eta^2<S,
 \]
 proving \eqref{eq:407-S-estimate} without any polynomial coefficient list.
-The $L$ separation follows from its exact polynomial: if its output is
+The constant-branch separation follows from its exact polynomial: if its output is
 $z=e(\eta)$ at input $1-\beta$, then
 \[
  \beta\ge z+\eta.
@@ -365,20 +365,20 @@ Indeed the selector polynomial
 $P(x,z)=x^4-4x^3+5x^2-(2+z)x+z-z^2$ is strictly decreasing on the low
 range and vanishes at $x=\eta$.  Equations
 \eqref{eq:407-core-estimate}--\eqref{eq:407-L-separation}, with the three
-possibilities for $\Theta$, prove every first-$L$ entry.  For a first $T_-$
-label the exact root test
+possibilities for $\Theta$, prove every first-constant entry.  For a first $Q_-$
+branch the exact root test
 \[
- T_-(a,c)<z\iff c^2(a+z)^2-(a^2-ac+c^2)>0
+ Q_-(a,c)<z\iff c^2(a+z)^2-(a^2-ac+c^2)>0
 \]
 is increasing in $z$.  Substitution of $a_1^\ast$, followed by the center
 inequality, proves $F_{c_5^\ast}(a_5^\ast)<a_1^\ast$ except in the low--low entries, which
-are immediate from $T_-(a,c)\le\min\{a,1-a\}$ and $L<1/2$.
-First-coordinate Full would force either
+are immediate from $Q_-(a,c)\le\min\{a,1-a\}$ and the constant-branch output is below $1/2$.
+First-coordinate linear would force either
 $X\ge(1-\lambda)\alpha$ and $Y\ge\lambda-\alpha$, contradicting
 $s\le p$, or, in the CE2 overlap case, $S\ge1/2$, contradicting
 $S\le\alpha<1/2$.
 
-For a first $T_+^{\mathrm{hi}}$ label put $r=1-\lambda$,
+For a first $Q_+$ branch put $r=1-\lambda$,
 $y=Y/\lambda$ and choose $\beta$ so that
 \[
  m=\sqrt{\beta^2-\beta+1},\quad
@@ -400,10 +400,10 @@ give $y<y_*$ and
 \[
  3y_*\le1-\frac{\beta m}{r+\beta}.
 \]
-This proves the right-$L$ entry by $e(y)<3y$.  It excludes right Full and
-right high by the exact high-input filter.  For right $T_-$ with input
+This proves the right-constant entry by $e(y)<3y$.  It excludes right linear and
+right high by the exact high-input filter.  For right $Q_-$ with input
 $a_C$, direct substitution gives a sum below one.  For input $q$, put
-$c=1-y$, $q=tc$, and let $\widehat b_1=F_{c_1^\ast}(q)$.  The selected $T_-$ equations
+$c=1-y$, $q=tc$, and let $\widehat b_1=F_{c_1^\ast}(q)$.  The selected $Q_-$ equations
 give
 \[
  \widehat b_1\le\kappa:=\frac{\sqrt{13}-1}{6},\qquad
@@ -488,33 +488,33 @@ Thus the final sum is also below one.  The table is exhaustive, proving
 
 \begin{proposition}[The $N_+=0$ T3-like branch]
 \label{prop:nplus-zero-t3}
-Assume that $T_C$ is CE1 or CE2, $N_+=0$, no vertex role is Vd1 or Vd2,
-and at least one vertex role is T3-like.  Then the seven roles do not cover
+Assume that $T_C$ is CE1 or CE2, $N_+=0$, no vertex triangle is Vd1 or Vd2,
+and at least one vertex triangle is T3-like.  Then the seven triangles do not cover
 $H$.
 \end{proposition}
 
 \begin{proof}
 Normalize the unique center midpoint to $M_0$ and simultaneously apply the
 closed-trace domination of Proposition~\ref{prop:t3-translation} to every
-T3-like role.  If $T_0$ were not T3-like, a maximal consecutive block of
-T3-like indices among $1,\ldots,5$ would have to match its roles bijectively
+T3-like triangle.  If $T_0$ were not T3-like, a maximal consecutive block of
+T3-like indices among $1,\ldots,5$ would have to match its triangles bijectively
 to the same block of uncovered midpoints.  The matching uses only adjacent
-indices, because a T3-like role misses its own midpoint and Vd0 roles cannot
-cover adjacent midpoints.  Its first two roles therefore form a crossed pair
+indices, because a T3-like triangle misses its own midpoint and Vd0 triangles cannot
+cover adjacent midpoints.  Its first two triangles therefore form a crossed pair
 forbidden by Lemma~\ref{lem:t3-midpoint-tradeoff}.  Hence $T_0$ is T3-like;
 reflect so that it supports $r_1$.
 
-There are at most two T3-like roles.  Indeed, with $N_+=0$ and no
-Vd1/Vd2 role, the short-role identity gives $q=k$, where $k$ is the number
-of T3-like roles.  If $k\ge3$, Theorem~\ref{thm:three-short-roles} gives an
+There are at most two T3-like triangles.  Indeed, with $N_+=0$ and no
+Vd1/Vd2 triangle, the short-triangle identity gives $q=k$, where $k$ is the number
+of T3-like triangles.  If $k\ge3$, Theorem~\ref{thm:three-short-roles} gives an
 immediate full-skeleton contradiction.
 Midpoint locality then forces $T_2,T_4,T_5$ to be Vd0.  Consequently $r_1$
 has positive support only from $T_C,T_0,T_1$, and $r_5$ only from $T_C,T_5$.
 
-The actual outgoing reaches of $T_1,T_5$ are bounded by the two safe maps in
-Lemma~\ref{lem:407-four-label-loss}; an extra adjacent-ray demand on a
+The actual forward reaches of $T_1,T_5$ are bounded by the two safe maps in
+Lemma~\ref{lem:407-four-label-loss}; an extra adjacent-ray reach lower bound on a
 possible T3-like $T_1$ only shrinks its feasible set.  Thus their sum is
-less than one.  V triangles $T_2,T_3,T_4$ must cover more than three units of the
+less than one.  vertex triangles $T_2,T_3,T_4$ must cover more than three units of the
 four intervening boundary edges, while their three nonsupercritical caps
 sum to at most three.  This contradiction proves the proposition.
 \end{proof}
@@ -545,7 +545,7 @@ nonattainment.  Differentiation gives
 since $(4-c)^2-(c^2-8c+4)=12$.
 \end{proof}
 
-\subsection{Two reusable high-radial endpoint inequalities}
+\subsubsection{Two reusable high-radial endpoint inequalities}
 
 \begin{lemma}[One-side endpoint loss]
 \label{lem:one-side-capped-loss}
@@ -580,15 +580,15 @@ The center identity may be written
 The hypotheses imply $1/2<c_1,c_5<1$: for example
 $u>\delta$ gives $c_1>1/(1+S)>1/2$, and
 $\gamma<u-\delta<R-\delta=RS/(1+S)<1/2$ gives $c_5>1/2$.
-Thus the four high-radial labels of
-the four-label high-radial map in Proposition~\ref{prop:capped-demand-map} are exhaustive.
+Thus the four high-radial branches of
+the four-branch high-radial map in Proposition~\ref{prop:capped-demand-map} are exhaustive.
 
 \smallskip\noindent
-\emph{Right low labels.}
-If the right label is $T_-$, its exact frontier equation gives
-$(u+\widehat b_1)^2=1-R+R^2=S^2$, so $\widehat b_1=S-u$.  For a right $L$ label write
+\emph{Right low branches.}
+If the right branch is $Q_-$, its exact frontier equation gives
+$(u+\widehat b_1)^2=1-R+R^2=S^2$, so $\widehat b_1=S-u$.  For a right constant branch write
 $\widehat b_1=kc_1$, $0\le k\le1/2$, and $C=1-k+k^2=c_1^2$.  With $X_R=R+k$, the
-Cell-$L$ selector factors as
+constant-branch selector factors as
 \[
  q=c_1^2(X_R-1)G_k(X_R),\qquad
  G_k(X)=CX^3+CX^2-k(1-k)X+k^2.
@@ -600,15 +600,15 @@ $h_R=1-X_R$, then
 \[
  S^2-(u+\widehat b_1)^2=h_R(1+2k^2+k(1-k)h_R)\ge0.
 \]
-Consequently either right low label satisfies
+Consequently either right low branch satisfies
 \begin{equation}
  \widehat b_1\le X:=S-u.
  \label{eq:one-side-right-low}
 \end{equation}
 
 \smallskip\noindent
-\emph{A left low label against right high or Full.}
-For left $T_-$ put $z=s/c_5=1-p$ and
+\emph{A left low branch against right high or linear.}
+For left $Q_-$ put $z=s/c_5=1-p$ and
 $h=\sqrt{1-p+p^2}$.  The component selector gives
 $0\le p\le1/2$, the frontier gives $s+\widehat b_5=h$, and its selector gives
 $s\le(1-p)h$.  Equation \eqref{eq:one-side-center-line} becomes
@@ -628,12 +628,12 @@ Substitution in the exact formula
  w=\frac{(1-R)(1-u)p-\eta(1-p)}{1-Rp}
 \]
 now gives $w<1-h$.  A right high output has the form $H-u$, where
-$H=\sqrt{1-\beta+\beta^2}\le1$; for Full take $H=1$.  Hence
+$H=\sqrt{1-\beta+\beta^2}\le1$; for linear take $H=1$.  Hence
 \[
  \widehat b_5+\widehat b_1=h+H-(s+u)=1+w-(1-h)-(1-H)<1.
 \]
 
-For a left $L$ label write
+For a left constant branch write
 \[
  c_5=h(x):=\sqrt{1-x+x^2},\qquad
  \widehat b_5=xh(x),\qquad 0\le x\le\frac12,
@@ -652,41 +652,40 @@ where
  &+(x+2x^2-x^3+3x^4)y+(x^2+x^3+x^5).
 \end{align*}
 Every coefficient is nonnegative on $0\le x\le1/2$, and the polynomial is
-positive at every nondegenerate point.  Thus a selected $L$ point has
+positive at every nondegenerate point.  Thus a selected constant-branch point has
 $s(x)\le(1-x)h(x)$.  The two curves meet once in $(0,1/2)$: at $x=0$ the
 left side is smaller, while at $x=1/2$ it is enough to use
 \[
- u\le\frac{R}{1+R}\quad(\mathrm{Full}),\qquad
- u\le\min\{RS,S/2\}\quad(T_+^{\rm hi}).
+ u\le\frac{R}{1+R}\quad(\mathrm{Lin}),\qquad
+ u\le\min\{RS,S/2\}\quad(Q_+).
 \]
 Writing $e_0=1-\sqrt3/2$, the corresponding endpoint differences are
 \[
  \frac{(1-R)(R^2+2Re_0+2e_0)}{2(1+R)}>0
 \]
-for Full, and respectively
+for linear, and respectively
 $[2e_0(1-R)-R^3]/2\ge0$ for $R\le1/2$ and
 $(1-R)(3R+4e_0-2)/4\ge0$ for $R\ge1/2$ in the high case.
-At the unique transition $x_0$, the $L$ frontier is the $q=0$ endpoint of
-the preceding $T_-$ branch.  Since $xh(x)$ increases, every selected left
-$L$ output is no larger than that transition output.  The preceding strict
-loss therefore also covers $(L,T_+^{\rm hi})$ and $(L,\mathrm{Full})$.
+At the unique transition $x_0$, the constant frontier is the $q=0$ endpoint of
+the preceding $Q_-$ branch.  Since $xh(x)$ increases, every selected left constant-branch output is no larger than that transition output.  The preceding strict
+loss therefore also covers $(\mathrm{Const},Q_+)$ and $(\mathrm{Const},\mathrm{Lin})$.
 
 \smallskip\noindent
-\emph{Full and high exclusions.}
-Left Full forces $s<1/2$ and $\gamma\ge s$.  Right Full or right high gives
+\emph{linear and high exclusions.}
+Left linear forces $s<1/2$ and $\gamma\ge s$.  Right linear or right high gives
 $u\le1/2$, but
 \[
  \gamma-s=2u-1-\delta+\frac{1-2R}{1-R}w<0:
 \]
 for $R\ge1/2$ this is immediate, while for $R<1/2$ use $w<1-u$ to bound it
-by $(u-R)/(1-R)-\delta<0$.  Thus left Full cannot pair with either label.
-If the left label is high and the right one Full, then $s<1/2$ and
+by $(u-R)/(1-R)-\delta<0$.  Thus left linear cannot pair with either branch.
+If the left branch is high and the right one linear, then $s<1/2$ and
 $u\le R/(1+R)$, whereas $\gamma>0$ and $w>1/2-u$ force
 $u>R/2+\eta>R/(1+R)$; the final inequality is equivalent to
 $2(1+R)>1+S$.  This pair is also impossible.
 
 \smallskip\noindent
-\emph{A right low label.}
+\emph{A right low branch.}
 Use \eqref{eq:one-side-right-low}.  If $s>X$, the cap gives
 $\widehat b_5+\widehat b_1<1$.  Suppose $s\le X$ and put
 \[
@@ -732,14 +731,14 @@ For $k_R\le2$ this is nonpositive; for $k_R>2$ its zero is described by the
 strictly increasing function
 $K_0(z)=(2-3z+4z^2)/(1-2z)$, so the minimum is again at an endpoint.
 Thus $zh(z)<s(z)$.  Applying the already displayed polynomial $P_z$ gives
-the strict Cell-$L$ selector, and
+the strict constant-branch selector, and
 $s+zh(z)\le X+\ell(c_X)<1$.  Since
 $\partial_bF_L=c(1-2z)>0$ and each feasible fiber is an interval, the nonsupercritical
 maximum is
 \[
  \widehat b_5\le zh(z)\le z_Xh(z_X)=\ell(c_X)<1-X.
 \]
-Together with $\widehat b_1\le X$, this proves the loss for every right low label.
+Together with $\widehat b_1\le X$, this proves the loss for every right low branch.
 
 \smallskip\noindent
 \emph{High--high.}
@@ -749,7 +748,7 @@ With $D_c=4c^3-2c+z>0$, implicit differentiation gives
  c_L''(z)=
  \frac{2(c^2-cz+z^2)+16c^2z(c-z)}{D_c^3}>0.
 \]
-A selected left high label requires $s<1/2$ and $c_5(s)\le c_L(s)$.
+A selected left high branch requires $s<1/2$ and $c_5(s)\le c_L(s)$.
 Define
 \[
  s_0=\frac{R-u+\eta}{R};
@@ -768,9 +767,9 @@ and $f$ increases in $c$ on this range, so $c_L(1/2)<7/8$ and
 $g(1/2)>0$.  Concavity contradicts $g(s)\le0$.  Thus high--high is
 impossible.
 
-If both labels are low, the cap already gives
+If both branches are low, the cap already gives
 $\widehat b_5+\widehat b_1\le s+u=1-w<1$.  The preceding five paragraphs cover every other
-ordered pair of the four labels, proving \eqref{eq:one-side-loss}.
+ordered pair of the four branches, proving \eqref{eq:one-side-loss}.
 \end{proof}
 
 \begin{lemma}[CE2 two-endpoint loss]
@@ -814,7 +813,7 @@ Thus the desired sum is $\Phi_w(\alpha)+\Phi_r(\beta)$.
 
 \smallskip\noindent
 \emph{Selected branch parametrizations.}
-For a side of weight $\sigma\in\{w,r\}$, every $L$ label has
+For a side of weight $\sigma\in\{w,r\}$, every constant branch has
 \begin{equation}
  c=h(k),\qquad F_c(\sigma c)=kh(k),\qquad0\le k\le w,
  \label{eq:two-endpoint-L-param}
@@ -846,25 +845,28 @@ which gives $a\ge r$; the other two factorizations are
 $(b-w)(b^2+rb-r)$ and $(t-w)(r^2-wt)$, respectively.  These formulas
 specify the selected geometric components, not discarded algebraic roots.
 
-The small-side $T_-$ label is absent for $w<1/2$.  Large-side Full is
+The small-side $Q_-$ branch is absent for $w<1/2$.  Large-side linear is
 incompatible with the first inequality in
-\eqref{eq:ce2-strict-endpoints}.  Small-side Full can pair only with $L$:
-either high or $T_-$ on the large side has $\beta\le K$, which would force
-$p>(1+r)z>w/(1+w)$, contrary to Full.  Thus, up to the symmetric
+\eqref{eq:ce2-strict-endpoints}.  Small-side linear can pair only with the constant branch:
+either high or $Q_-$ on the large side has $\beta\le K$, which would force
+$p>(1+r)z>w/(1+w)$, contrary to linear.  Thus, up to the symmetric
 $w=r=1/2$ tie, the exact list is
 \begin{equation}
- (\mathrm{Full},L),(T_+^{\rm hi},L),(L,L),(L,T_-),
- (L,T_+^{\rm hi}),(T_+^{\rm hi},T_-),(T_+^{\rm hi},T_+^{\rm hi}).
+ \begin{gathered}
+ (\mathrm{Lin},\mathrm{Const}),\ (Q_+,\mathrm{Const}),\
+ (\mathrm{Const},\mathrm{Const}),\ (\mathrm{Const},Q_-),\\
+ (\mathrm{Const},Q_+),\ (Q_+,Q_-),\ (Q_+,Q_+).
+ \end{gathered}
  \label{eq:two-endpoint-pairs}
 \end{equation}
 
-Low--low sums are at most $K<1$: an $L$ output is at most $wK$, while
-\eqref{eq:two-endpoint-large-tminus} is at most $rK$.  For Full--$L$, put
+Low--low sums are at most $K<1$: a constant-branch output is at most $wK$, while
+\eqref{eq:two-endpoint-large-tminus} is at most $rK$.  For linear--constant, put
 \[
  b_{\rm thr}=1+z-\frac{w}{1+w},\qquad
  \kappa=\frac{w}{1+(1+w)z}.
 \]
-Full and \eqref{eq:ce2-strict-endpoints} give $\beta>b_{\rm thr}$ and
+linear and \eqref{eq:ce2-strict-endpoints} give $\beta>b_{\rm thr}$ and
 $(1+\kappa)b_{\rm thr}=1+z$.  Direct reduction yields
 \[
  b_{\rm thr}^2-h(\kappa)^2
@@ -880,13 +882,13 @@ Both numerator polynomials are positive on $[0,1/2]$.  Since $h$ decreases
 and $(1+k)h(k)$ increases there,
 $\beta=h(k)>b_{\rm thr}>h(\kappa)$ implies
 $(1+k)\beta<1+z$; combined with \eqref{eq:ce2-strict-endpoints}, this gives
-$k\beta<p$ and hence the strict Full--$L$ loss.
+$k\beta<p$ and hence the strict linear--constant loss.
 
-It remains to verify the four pairs containing a high label on the small
+It remains to verify the four pairs containing a high branch on the small
 side.
 
 \smallskip\noindent
-\emph{$(L,T_+^{\rm hi})$.}
+\emph{$(\mathrm{Const},Q_+)$.}
 Use parameters $0\le k\le w$ and $r\le t<1$:
 \[
  \alpha=h(k),\quad\Phi_w=kh(k),\qquad
@@ -908,9 +910,9 @@ Therefore
 \]
 
 \smallskip\noindent
-\emph{$(T_+^{\rm hi},T_-)$.}
+\emph{$(Q_+,Q_-)$.}
 Use $a,t$ from \eqref{eq:two-endpoint-small-high} and
-\eqref{eq:two-endpoint-large-tminus}.  Both demands are at most $K$.
+\eqref{eq:two-endpoint-large-tminus}.  Both reach lower bounds are at most $K$.
 The first endpoint inequality gives
 \[
  \alpha>\frac{1+z-K}{w}=\frac{1+r}{1+K}=:a_0.
@@ -936,7 +938,7 @@ $r(3w-w^2-K)$; its squared comparison is
 for $w>1/3$ (value $1/81$ at $1/3$, positive derivative thereafter).
 
 \smallskip\noindent
-\emph{$(T_+^{\rm hi},T_+^{\rm hi})$.}
+\emph{$(Q_+,Q_+)$.}
 Use parameters $a,b$ from \eqref{eq:two-endpoint-small-high}--
 \eqref{eq:two-endpoint-large-high}.  The endpoint inequalities first force
 $w>2/5$: for $w\le2/5$, the asserted contrary inequality
@@ -990,7 +992,7 @@ $71w^2-62w+24\ge743/71$ and the remaining cubic block at least $-11/4$.
 Thus $D$ increases and $D(2/5)=4904/390625>0$, proving the claim.
 
 \smallskip\noindent
-\emph{$(T_+^{\rm hi},L)$.}
+\emph{$(Q_+,\mathrm{Const})$.}
 Use the fully specified parameters
 \[
  \alpha=\frac{h(t)}{w+t},\quad p=w\alpha,\quad b=t\alpha,
@@ -1053,7 +1055,7 @@ $Q_t=8wt^2+4t^2-8wt-13t-w+4<0$,
 \]
 At $P=K$, \eqref{eq:two-endpoint-b0} gives
 $\mathcal D(K)=1-b_0-wK>0$.  At $P=P_1$, set
-$\kappa=w/(1+(1+w)z)$.  The Full--$L$ comparison already proved gives
+$\kappa=w/(1+(1+w)z)$.  The linear--constant comparison already proved gives
 $P_1>h(\kappa)$, hence
 $\ell(P_1)<\kappa P_1=w/(1+w)$, while $b(P_1)=1/(1+w)$.
 Thus $\mathcal D(P_1)>0$, and concavity gives $G>0$ throughout.
@@ -1063,9 +1065,9 @@ The exact list \eqref{eq:two-endpoint-pairs} is now exhausted, proving
 \eqref{eq:two-endpoint-loss}.
 \end{proof}
 
-\subsection{The exactly-one-Vd1/Vd2 placements}
+\subsubsection{The exactly-one-Vd1/Vd2 placements}
 
-We now assume CE2, $N_+=1$, and exactly one V triangle is Vd1 or Vd2.  The corner
+We now assume CE2, $N_+=1$, and exactly one vertex triangle is Vd1 or Vd2.  The corner
 normal form of Proposition~\ref{prop:vd-corner-normal-form} will be used in
 the following form: for some $t>0$ and $d=\sqrt{t^2+t+1}$,
 \begin{equation}
@@ -1073,14 +1075,14 @@ the following form: for some $t>0$ and $d=\sqrt{t^2+t+1}$,
  tx+y\le d-a-tb.
  \label{eq:vd-corner-form}
 \end{equation}
-In particular $a+b<1/2$ for a positive-support V triangle.
+In particular $a+b<1/2$ for a positive-support vertex triangle.
 
 \begin{lemma}[Vd1 adjacent rescue]
 \label{lem:vd1-adjacent-rescue}
-Assume an original open-role skeleton cover in the CE2 exact-$M_0$ branch,
-with $T_0$ the unique Vd1 V triangle, $M_1\in T_0$, $T_1$ uniquely supercritical,
+Assume an original open-triangle skeleton cover in the CE2 exact-$M_0$ branch,
+with $T_0$ the unique Vd1 vertex triangle, $M_1\in T_0$, $T_1$ uniquely supercritical,
 $T_2,\ldots,T_5$ nonsupercritical Vd0, and no other positive-adjacent-support
-role.  Then the perimeter together with $r_1$ is not covered.
+triangle.  Then the perimeter together with $r_1$ is not covered.
 \end{lemma}
 
 \begin{proof}
@@ -1093,27 +1095,27 @@ therefore Corollary~\ref{cor:signed-adjacent-rescuers}.
 \begin{lemma}[Vd1-pair replacement interface]
 \label{lem:vd1-pair-replacement}
 In the remaining adjacent Vd1--supercritical placement, the pair can be
-replaced by two open nonsupercritical Vd0 roles while preserving full skeleton
+replaced by two open nonsupercritical Vd0 triangles while preserving full skeleton
 coverage.
 \end{lemma}
 
 \begin{proof}
 This is Proposition~\ref{prop:paper-vd1-pair-replacement}, which uses separate
-local charts at the two distinguished vertices and proves all reach, role, and
+local charts at the two distinguished vertices and proves all reach, triangle, and
 skeleton-preservation claims explicitly.
 \end{proof}
 
-\subsection{Exact-demand terminal routing}
+\subsubsection{Final boundary-propagation cases}
 
-\begin{proposition}[Exact-demand terminal branches]
+\begin{proposition}[Cases excluded by boundary propagation]
 \label{prop:demand-branches}
-The exact-demand method proves the following terminal exclusions:
+Boundary-reach propagation proves the following exclusions:
 \begin{enumerate}
-\item CE1 or CE2, $N_+=0$, all vertex roles Vd0;
-\item CE1 or CE2, $N_+=0$, with at least one T3-like role and no Vd1/Vd2;
-\item CE1 or CE2, $N_+=1$, all vertex roles Vd0, with at least one boundary
+\item CE1 or CE2, $N_+=0$, all vertex triangles Vd0;
+\item CE1 or CE2, $N_+=0$, with at least one T3-like triangle and no Vd1/Vd2;
+\item CE1 or CE2, $N_+=1$, all vertex triangles Vd0, with at least one boundary
 gap;
-\item CE1 or CE2, $N_+=1$, exactly one T3-like role and no Vd1/Vd2;
+\item CE1 or CE2, $N_+=1$, exactly one T3-like triangle and no Vd1/Vd2;
 \item the CE2, $N_+=1$, exactly-one-Vd1/Vd2 branch.
 \end{enumerate}
 All gap alternatives include singleton gaps.
@@ -1129,4 +1131,4 @@ strict replacement margins; no positive-length assumption is made about a
 V-gap itself.
 \end{proof}
 
-% ---- Complete 407X audit and two-chart replacement ----
+% ---- Complete 407X case analysis and two-chart replacement ----

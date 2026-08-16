@@ -15,8 +15,8 @@ undefined or multiply-defined references: NONE
 overfull horizontal or vertical boxes: NONE
 semantic PDF rebuild equivalence (geometry, words, links, outlines, exact 144-DPI raster): PASS
 rendered media-box border scan: PASS
-PDF pages rendered: 132
-Canonical tracked PDF SHA-256: b72e15dd3e34638958923f4337c92d5327f22e4a663742b78eb24a95699393b1
+PDF pages rendered: 134
+Canonical tracked PDF SHA-256: e0705200ab7fe7d1425b5d139462e3ac08837b4ea7f54308a1a0ce6b6a0846d9
 Certificate transcript SHA-256: dc46aaf263655d5159ecd3a81db72ee82477951d06172f4743b248df37209485
 Python: 3.12
 SymPy: 1.14.0

@@ -8,8 +8,8 @@ It is a provenance and audit document, not itself a proof.
 
 The complete proof consists of three layers.
 
-1. **Reader-facing body:** definitions, geometric mechanisms, exact terminal
-   statements, and exhaustive assembly.
+1. **Reader-facing body:** definitions, geometric mechanisms, exact final
+   inequalities, and exhaustive assembly.
 2. **Technical TeX appendices:** complete structural, analytic, placement, and
    area arguments establishing those terminal statements.
 3. **Formally incorporated electronic supplements:** the complete `407X`
@@ -26,14 +26,14 @@ calculation lemma without the appendices and incorporated supplements.
 | File | Function |
 |---|---|
 | `main.tex` | AMS assembly and body/appendix split |
-| `01_introduction.tex` | theorem, roles, definitions, routing table, role figure |
-| `02_reader_framework.tex` | shared structural, admissible-set, and signed-center interfaces |
-| `03_strategy1_reader.tex` | trace-cap register and terminal trace sums |
-| `04_strategy2_summary.tex` | complete branch hypotheses and certificate register |
-| `04_strategy2_summary_transfer.tex` | reader-facing Strategy 2 transfer contract |
+| `01_introduction.tex` | theorem, canonical triangle labeling, classifications, and routing table |
+| `02_global_notation.tex` | global notation used across the four methods |
+| `02_reader_framework.tex` | common reach coordinates, admissible set, and signed-center formulas |
+| `03_strategy1_reader.tex` | trace-length criteria and routed applications |
+| `04_strategy2_summary.tex` | reach-coordinate propagation, endpoint inequalities, and special cases |
 | `05_strategy3_reader.tex` | area-loss register and cyclic sums |
-| `06_strategy4_reader.tex` | nine-point geometry and cap-chain reduction |
-| `07_exhaustive_assembly.tex` | final exhaustive audit |
+| `06_strategy4_reader.tex` | nine-point enclosure and cyclic support-arc argument |
+| `07_exhaustive_assembly.tex` | concise final case assembly |
 
 ### Technical appendices
 
@@ -45,13 +45,13 @@ calculation lemma without the appendices and incorporated supplements.
 | `02b_admissible_set_derivation.tex` | support derivation, cells, selectors, radial envelope |
 | `04a_signed_center_calculus.tex` | signed CE1/CE2 equations, traces, exits, one-gap interface |
 | `03_strategy1_length.tex` | perimeter and skeleton trace calculations |
-| `04b_common_CE1_CE2_budgets.tex` | master deficit, short-role count, common budgets |
-| `04c_short_Vd_placements.tex` | quarter envelope, rescuer profiles, radial separations |
-| `04_strategy2_verification.tex` | input-only wrapper for the split Strategy 2 verification modules |
-| `04f_strategy2_pure_theorems.tex` | universal proof owner for every explicit Strategy 2 optimization problem |
+| `04b_common_CE1_CE2_budgets.tex` | common perimeter and skeleton inequalities |
+| `04c_short_Vd_placements.tex` | quarter envelope, exceptional local profiles, and radial separations |
+| `04_strategy2_verification.tex` | assembly of the detailed propagation calculations |
+| `04f_strategy2_pure_theorems.tex` | proofs of the finite real-variable inequalities |
 | `05_strategy3_area.tex` | local area inequalities and cyclic certificates |
-| `06_strategy4_ab_core.tex` | frontier, forcing, Newton reduction, adjacent overlaps |
-| `06a_strategy4_exact_certificate.tex` | sole mixed-overlap certificate source: reduction, manifest, Bernstein proof, cap geometry |
+| `06_strategy4_ab_core.tex` | frontier, forced points, rational inner approximants, and adjacent support arcs |
+| `06a_strategy4_exact_certificate.tex` | exact unequal-radius support-arc certificate |
 | `appendix_symbols.tex` | notation cross-reference |
 
 The body-end label remains immediately before `\appendix`.  The body has no
@@ -166,9 +166,9 @@ floating-point or interval computation is an active dependency.
 
 ### Structural reduction
 
-`prop:body-structural-reduction` summarizes the distinct roles, exhaustive
-center and vertex classifications, actual reaches, `N_+`, singleton gaps,
-strict handoff selection, unique center midpoint, short-role identity, and
+`prop:body-structural-reduction` summarizes the canonical labeling, exhaustive
+center and vertex classifications, maximal reaches, `N_+`, singleton gaps,
+strict handoff selection, unique center midpoint, short-triangle count, and
 routing table. These are proved in `02_structural_reductions.tex` and the
 `1XXX`, `2109`, and `2530` packages.
 
@@ -178,21 +178,23 @@ The explicit minimum-side formula is proved in `02b` and agrees with proof
 source `2004`. This shared admissible-set interface remains in
 `02_reader_framework.tex`.
 
-### Strategy 2 transfer contract
+### Strategy 2 propagation contract
 
-The reader-facing transfer contract is in
-`04_strategy2_summary_transfer.tex`. Its notation comes from `201d`:
+The reader-facing propagation functions are defined in
+`04_strategy2_summary.tex` directly in reach coordinates:
 
 ```text
-g_c(x)=max{y:(1-x,y,c) in A},
-g_c^vee(a)=1-g_c(1-a).
+M_c(a)=max{b:(a,b,c) in A},
+Mbar_c(a)=min{M_c(a),1-a},
+Phi_c(a)=1-Mbar_c(a).
 ```
 
-For nonsupercritical roles the paper uses the direct branch split
-`B <= 1-a` when `c <= 1/2`, and `B <= g_c(1-a)` when `c > 1/2`.
-
-The corrected center-free and center-assisted statements are proved in `02a`
-and the repaired `2019` source.
+For a nonsupercritical vertex triangle, `Mbar_c(a)=1-a` when `c<=1/2`
+and `Mbar_c(a)=M_c(a)` when `c>1/2`.  Center-assisted edges first extend
+the covered initial component through the center interval and then take the
+uncovered suffix.  The technical appendices retain the equivalent historical
+`g` aliases only where they shorten exact algebra.  The center-free and
+center-assisted statements are proved in `02a` and source `2019`.
 
 ### Signed center
 

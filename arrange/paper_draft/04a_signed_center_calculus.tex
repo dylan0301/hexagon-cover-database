@@ -1,10 +1,10 @@
 \section{Signed CE1/CE2 Reductions}
 \label{sec:signed-ce12-reductions}
 
-This section gives one signed center model and the common one-gap V triangle
+This section gives one signed center model and the common one-gap vertex triangle
 interface.  The transfer notation has already been fixed in
 Section~\ref{sec:universal-calculus}: the exact nonsupercritical
-incoming-reach map is $g_c^\vee$ whenever the radial demand exceeds $1/2$; for a lower radial demand the proof uses $B\le1-A$ directly.
+backward-reach map is $g_c^\vee$ whenever the radial lower bound exceeds $1/2$; for a lower radial lower bound the proof uses $B\le1-A$ directly.
 
 \subsection{One signed center normal form}
 
@@ -89,7 +89,7 @@ The six center exits, measured from $O$, are
  \end{aligned}}
  \label{eq:signed-center-exits}
 \end{equation}
-For closures of original open center roles one has $\alpha,\delta>0$.
+For closures of original open center triangles one has $\alpha,\delta>0$.
 \end{proposition}
 
 \begin{proof}
@@ -196,7 +196,7 @@ $2E(E-R)-W=(E-R)^2>0$.  Together with
  \delta<\frac R2,
 \]
 the midpoint tests give the exact midpoint set $\{M_0\}$.  For the closure of
-an original open center role, all three center slacks are positive; hence
+an original open center triangle, all three center slacks are positive; hence
 $\alpha,\delta>0$.
 \end{proof}
 
@@ -326,14 +326,14 @@ The exact reflection duality is
  \label{eq:reader-capped-duality}
 \end{equation}
 
-Suppose an actual nonsupercritical V triangle has maximal reaches
-$(A_i,B_i,C_i)$ and
+Let a nonsupercritical vertex triangle have maximal reaches\
+$(A_i,B_i,C_i)$ satisfying
 \[
  A_i\ge z,
  \qquad
  C_i\ge c_i>\frac12.
 \]
-Then its outgoing reach satisfies
+Then its forward reach satisfies
 \[
  B_i\le g_{c_i}(1-z).
 \]
@@ -348,13 +348,13 @@ If the next boundary handoff gives $A_{i+1}\ge1-B_i$, then
  \label{eq:reader-actual-propagation}
 \end{equation}
 Every composition below is shorthand for repeated applications of this
-inequality to specified actual V triangles.
+inequality to specified actual vertex triangles.
 
 \subsection{The common one-gap interface}
 
-\begin{proposition}[Common five-V-triangle one-gap reduction]
+\begin{proposition}[Common five-vertex-triangle one-gap reduction]
 \label{prop:signed-one-gap-interface}
-Assume every vertex role is Vd0, $N_+=1$, and the normalized right center
+Assume every vertex triangle is Vd0, $N_+=1$, and the normalized right center
 trace contains a V-gap, possibly a singleton.  In the CE2 case assume the
 companion trace contains no V-gap.  Put
 \[
@@ -382,7 +382,7 @@ Let
  z_i=g_{c_i}^\vee(z_{i-1})
  \quad(1\le i\le5),
 \]
-and $Z=z_5$.  Then the actual reaches satisfy
+and $Z=z_5$.  Then the maximal reaches satisfy
 \begin{equation}
  A_0\ge Z,
  \qquad
@@ -400,7 +400,7 @@ Consequently it is enough to prove
 \end{proposition}
 
 \begin{proof}
-The exact-midpoint argument makes V triangles $1,\ldots,5$ nonsupercritical and V triangle
+The exact-midpoint argument makes vertex triangles $1,\ldots,5$ nonsupercritical and vertex triangle
 $0$ uniquely supercritical.  Gap containment gives
 \[
  B_0\ge\frac{k}{R},
@@ -422,7 +422,7 @@ The next boundary handoff therefore gives
 For the final handoff, the CE1 companion trace is empty and the CE2 companion
 trace is gap-free, so $A_0\ge z_5=Z$.
 
-The same V triangle has boundary reach at least $k/R$ and radial reach at least $k$.
+The same vertex triangle has boundary reach at least $k/R$ and radial reach at least $k$.
 Reflection and down-closedness of $\mathcal A$ give
 \[
  \left(\frac{k}{R},A_0,k\right)\in\mathcal A,
@@ -452,7 +452,7 @@ is equivalent to the negation of \eqref{eq:signed-three-map-target}.  This
 proves the reduction.
 \end{proof}
 
-The CE1 sign $\Delta_L\le0$ is completed by the selected-$T_+$ relaxation in
+The CE1 sign $\Delta_L\le0$ is completed by the selected-$Q_+$ relaxation in
 Proposition~\ref{prop:reader-ce1-one-gap}.  We now give the shorter CE2 scalar
 clause.
 
@@ -546,7 +546,7 @@ Concavity therefore gives $\pi(\alpha)>0$, and the low-root bound yields
 \end{equation}
 
 If $e(\alpha)<Q$, extensivity carries
-\eqref{eq:signed-initial-threshold} to the V triangle-$4$ map
+\eqref{eq:signed-initial-threshold} to the vertex triangle-$4$ map
 $g_{1-\alpha}^\vee$, which gives an output at least
 $1-e(\alpha)>1-Q$.  All later maps preserve it.  If
 $e(\alpha)\ge Q$, Lemma~\ref{lem:signed-ce2-two-threshold} gives
@@ -554,7 +554,7 @@ $e(\delta)<Q$, and
 \[
  z_0>e(\alpha)\ge Q>e(\delta).
 \]
-The V triangle-$2$ map $g_{1-\delta}^\vee$ then gives an output above
+The vertex triangle-$2$ map $g_{1-\delta}^\vee$ then gives an output above
 $1-Q$, again preserved by all later maps.  Thus $Z>1-Q=1-H$, contradicting
 \eqref{eq:signed-one-gap-actual}.
 
@@ -564,7 +564,7 @@ Reflection exchanges
  \qquad
  \alpha\leftrightarrow\delta
 \]
-and reverses the V-triangle order.  The signed CE2 domain and the proof above are
+and reverses the vertex-triangle order.  The signed CE2 domain and the proof above are
 invariant under this exchange, so the left-gap orientation is impossible as
 well.
 \end{proof}
@@ -573,7 +573,7 @@ well.
 The geometric one-gap interface is common, but
 \eqref{eq:signed-two-threshold} is not valid on the full CE1 sign domain.
 Thus the merger stops at
-Proposition~\ref{prop:signed-one-gap-interface}; the CE1 selected-$T_+$
+Proposition~\ref{prop:signed-one-gap-interface}; the CE1 selected-$Q_+$
 clause and the CE2 threshold clause are genuinely different scalar proofs of
 the same target \eqref{eq:signed-three-map-target}.
 \end{remark}
@@ -599,7 +599,7 @@ CE1 point-contact case.}
 \begin{figure}[H]
 \centering
 \resizebox{.82\linewidth}{!}{\input{figures/signed_center_exits}}
-\caption{The six exact center exits $d_i^C$ and complementary radial demands
+\caption{The six exact center exits $d_i^C$ and complementary radial lower bounds
 $c_i^C=1-d_i^C$.}
 \label{fig:signed-center-exits-skeleton}
 \end{figure}

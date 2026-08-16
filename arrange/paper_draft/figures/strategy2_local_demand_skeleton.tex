@@ -1,6 +1,6 @@
 \begin{tikzpicture}[x=1cm,y=1cm,>=Latex]
   \node[panellabel,anchor=west] at (.05,2.62)
-    {Local demand data inside the regular-hexagon skeleton};
+    {Local reach data inside the regular-hexagon skeleton};
 
   \begin{scope}[shift={(2.30,.25)},scale=2.10]
     \HexCoords
@@ -42,7 +42,8 @@
     \node[figlabel,atlasbox,align=left,anchor=west] at (-1.05,-1.48)
       {$0\le a_i\le A_i,\quad0\le b_i\le B_i,\quad
         0\le c_i\le C_i$\\
-       $x_i=1-a_i,\qquad y_i=b_i$};
+       selected lower bounds: $a_i,b_i,c_i$\
+       maximal reaches: $A_i,B_i,C_i$};
   \end{scope}
 
   \begin{scope}[shift={(8.15,.20)},scale=2.30]

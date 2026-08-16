@@ -1,14 +1,12 @@
 \begin{tikzpicture}[x=1cm,y=1cm,>=Latex]
   \node[panellabel,anchor=west] at (.03,3.05)
-    {(a) raw transfer and complement dual on the skeleton};
+    {Forward-reach cap and propagated lower bound};
 
   \begin{scope}[shift={(2.05,.42)},scale=1.65]
     \HexCoords
     \DrawHexagon
     \DrawRays
 
-    % The paper fixes counterclockwise indexing.  At V_0 the incoming edge is
-    % e_{5,0}, the outgoing edge is e_{0,1}, and the own radial arm is r_0.
     \coordinate (Amark) at ($(V0)!.38!(V5)$);
     \coordinate (Ymark) at ($(V0)!.622!(V1)$);
     \coordinate (Cmark) at ($(V0)!.44!(O)$);
@@ -16,17 +14,17 @@
     \draw[demand] (V0)--(Amark);
     \draw[dimline]
       ($(Amark)+(.075,-.045)$)--($(V5)+(.075,-.045)$)
-      node[midway,below right,figlabel,text=black!60] {$x=1-a$};
+      node[midway,below right,figlabel,text=black!60] {$1-a$};
     \node[figlabel,below right,text=DemandRed]
       at ($(V0)!.28!(V5)$) {$a$};
 
     \draw[draw=GapPurple,line width=1.35pt] (V0)--(Ymark);
     \node[figlabel,above right,text=GapPurple] at ($(Ymark)+(0,.08)$)
-      {$y=g_c(x)$};
+      {$\Mbar_c(a)$};
 
     \draw[radialdemand] (V1)--(Ymark);
     \node[figlabel,above left,align=right,text=RadialTeal]
-      at ($(V1)+(-.03,.17)$) {$1-y=g_c^\vee(a)$};
+      at ($(V1)+(-.03,.17)$) {$\Phi_c(a)=1-\Mbar_c(a)$};
 
     \draw[radialdemand] (V0)--(Cmark);
     \node[figlabel,above,text=RadialTeal]
@@ -39,10 +37,9 @@
   \end{scope}
 
   \node[figlabel,atlasbox,align=left,anchor=west] at (5.85,1.30)
-    {\textcolor{DemandRed}{red}: incoming reach\\
-     \textcolor{GapPurple}{purple}: raw extremal output, not an actual trace\\
-     \textcolor{RadialTeal}{teal}: radial parameter or complement dual\\
-     \textcolor{black!60}{gray}: complementary defect\\
-     \(e_{0,1}\) is center-free for the displayed complement dual\\
-     representative positions; displayed identities are exact};
+    {\textcolor{DemandRed}{red}: selected backward-reach lower bound\\
+     \textcolor{GapPurple}{purple}: nonsupercritical forward-reach cap\\
+     \textcolor{RadialTeal}{teal}: radial lower bound and propagated reach\\
+     \textcolor{black!60}{gray}: complementary length $1-a$\\
+     the displayed handoff edge has no center trace};
 \end{tikzpicture}

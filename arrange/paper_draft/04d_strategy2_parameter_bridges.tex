@@ -1,9 +1,9 @@
-\section{Strategy 2 Geometry--Parameter Bridges}
+\section{Geometric Derivation of the Propagation Parameters}
 \label{sec:strategy2-parameter-bridges}
 
-This appendix is the only place where geometric Strategy~2 records and the
+This appendix derives the real parameters used in the finite Strategy~2 inequalities.  It is the only place where geometric data and the
 self-contained optimization variables coexist.  Every proposition below has
-one task: produce a point of an explicitly registered real domain and identify
+one task: produce a point of an explicitly stated real domain and identify
 the objective with the scalar quantity used in the body.  No optimization
 inequality is proved here.
 
@@ -11,7 +11,7 @@ inequality is proved here.
 
 \begin{proposition}[Signed-domain bridge]
 \label{prop:s2-domain-bridge}
-Let \((R,\alpha,\delta)\) be the normalized signed-center record.  Under
+Let \((R,\alpha,\delta)\) be the normalized signed-center parameter tuple.  Under
 \[
  r=R,\qquad a=\alpha,\qquad d=\delta,
 \]
@@ -44,7 +44,7 @@ orders additionally give
 which are precisely the extra inequalities defining \(\mathcal D_1\).
 \end{proof}
 
-Every radial demand in the one-gap, paired-gap, and returned-demand
+Every radial lower bound in the one-gap, paired-gap, and propagated
 problems is strictly larger than $1/2$.  On this high-radial domain the exact
 function dictionary is therefore
 \[
@@ -52,7 +52,7 @@ function dictionary is therefore
  \qquad
  T(c,x)=g_c^\vee(x).
 \]
-For the endpoint records below,
+For the endpoint parameterss below,
 \[
  \mathrm{Cap}(\mathbf e)
  =g_{c_-}(1-a_-)+g_{c_+}(1-a_+).
@@ -60,7 +60,7 @@ For the endpoint records below,
 
 \begin{proposition}[Endpoint bridge]
 \label{prop:s2-endpoint-bridge}
-The normalized one-gap endpoint record is
+The normalized one-gap endpoint parameters is
 \[
  \left(\frac{k}{r},\ r-d,\ 1-\frac a w,\ 1-\frac d r\right),
 \]
@@ -69,7 +69,7 @@ and
  \mathrm{Cap}(\mathbf e_{\rm one})-1
  =\Psi_{\rm E1}(r,a,d).
 \]
-On \(\mathcal D_2\), the paired record is
+On \(\mathcal D_2\), the paired endpoint data are
 \[
  \left(w-a,\ r-d,\ \frac{w-a}{w},\ \frac{r-d}{r}\right),
 \]
@@ -85,7 +85,7 @@ Substitute the signed trace endpoints and complementary radial exits, then use
 \(F(c,x)=g_c(1-x)\).
 \end{proof}
 
-\begin{proposition}[Returned-demand bridge]
+\begin{proposition}[Returned-reach lower bound bridge]
 \label{prop:s2-return-bridge}
 Put
 \[
@@ -104,12 +104,12 @@ It implies the body target \(Z>1-H\).
 \end{proposition}
 
 \begin{proof}
-The five radial demands are
+The five radial lower bounds are
 \[
  1-\frac dr,\quad 1-d,\quad 1-m,\quad 1-a,\quad 1-\frac aw.
 \]
 The first and fifth transfers are extensive.  Three exact complement-duality
-steps reverse the middle transfers and transform the forward terminal bound
+steps reverse the middle transfers and transform the forward final bound
 into \(Y_3>1-X\).
 \end{proof}
 
@@ -137,14 +137,14 @@ The boundary endpoints and adjacent-radial interval are
  c_\star=\frac q\tau,\qquad
  u_\star=1+\beta-\tau.
 \]
-Every support-isolated endpoint record has $C_5>1/2$.  If
-$C_1\le1/2$, the right endpoint uses the direct Full bound $1-A_1$.  If
-$C_1>1/2$, the record determines a point of one cell in
+Every support-isolated endpoint parameters has $C_5>1/2$.  If
+$C_1\le1/2$, the right endpoint uses the direct linear bound $1-A_1$.  If
+$C_1>1/2$, the parameter tuple determines a point of one cell in
 Definition~\ref{def:s2-t3-finite-union}.
 \end{proposition}
 
 \begin{proof}
-The first paragraph is the dihedral normalization in the role-forcing and
+The first paragraph is the dihedral normalization in the triangle-forcing and
 support-isolation lemmas.  For the non-symmetry step use the exhaustive
 translated Type-II equations.  With its original orientation parameter
 \(\tau\), one has
@@ -156,11 +156,11 @@ four displayed endpoint formulas.  The center residual orders and the radial
 hit/miss orders are precisely the cells
 \(\mathcal R_i,\mathcal L_{\varepsilon,j},\mathcal K_h\).
 
-The left endpoint demand is $C_5=1-a/w>1/2$ by
+The left endpoint reach lower bound is $C_5=1-a/w>1/2$ by
 Proposition~\ref{prop:s2-pure-domain-bounds}.  For the right endpoint, the
 branchwise transfer interface gives the direct value $1-A_1$ when
-$C_1\le1/2$; this is exactly the existing right-Full row of the complete
-$407X$ audit.  When $C_1>1/2$, the raw high-radial map supplies one of the
+$C_1\le1/2$; this is exactly the existing right-linear row of the complete
+$407X$ case analysis.  When $C_1>1/2$, the raw high-radial map supplies one of the
 four contact cells, and all defining inequalities of
 $\Omega_{\rm T3}$ are satisfied.
 \end{proof}
@@ -173,19 +173,19 @@ $\xi\in\Omega_{\rm T3}$ be the point produced above.  Then
  \mathrm{Cap}(\mathbf e_{\rm T3})-1
  =\Psi_{\rm T3}(\xi).
 \]
-The complementary branch $C_1\le1/2$ is already the direct right-Full case
+The complementary branch $C_1\le1/2$ is already the direct right-linear case
 and is not part of the optimization domain.
 \end{proposition}
 
 \begin{proof}
-The variables \(A_1,A_5\) are the far-side residual boundary demands, while
-\(C_1,C_5\) are the complementary radial demands.  On the high-radial branch,
+The variables \(A_1,A_5\) are the far-side uncovered suffix boundary reach lower bounds, while
+\(C_1,C_5\) are the complementary radial lower bounds.  On the high-radial branch,
 apply \(F(c,x)=g_c(1-x)\) to both endpoint terms.
 \end{proof}
 
-\subsection{Adjacent-rescuer domains}
+\subsection{Adjacent-adjacent exceptional triangle domains}
 
-\begin{proposition}[First rescuer source bridge]
+\begin{proposition}[First adjacent exceptional triangle source bridge]
 \label{prop:s2-sc-t3-bridge}
 The exact rational variables of the T3-like local profile satisfy
 \[
@@ -198,7 +198,7 @@ and produce
  c=x+\theta,\qquad
  u=1-\rho(\theta)+a.
 \]
-Hence the record belongs to \(\Omega_{\rm SC}^{T}\).
+Hence the parameter tuple belongs to \(\Omega_{\rm SC}^{T}\).
 \end{proposition}
 
 \begin{proof}
@@ -213,7 +213,7 @@ the stated interval bounds.  This replaces the genuine translation reduction;
 it does not alter the preceding \(D_6\)-normalization.
 \end{proof}
 
-\begin{proposition}[Second rescuer source bridge]
+\begin{proposition}[Second adjacent exceptional triangle source bridge]
 \label{prop:s2-sc-vd1-bridge}
 The Vd1 corner variables satisfy the equations and inequalities of
 \(\Omega_{\rm SC}^{V}\).  In particular, absence of a positive interval on
@@ -268,18 +268,18 @@ normalized center traces, after substituting the signed-center formulas.
 
 \begin{proposition}[Explicit corner-graph bridge]
 \label{prop:s2-vd-corner-bridge}
-Let \(p_1,q_1\) be the exact boundary reaches of an adjacent Vd role and let
+Let \(p_1,q_1\) be the exact boundary reaches of an adjacent Vd triangle and let
 \(t>0\) be its corner parameter.  The far endpoint of a supported adjacent
 interval is
 \[
  u_+=\frac{\sqrt{t^2+t+1}-p_1-tq_1-1}{t}.
 \]
-For a nonadjacent role with boundary reaches \(p_v,q_v\), its own-radial
+For a nonadjacent triangle with boundary reaches \(p_v,q_v\), its radial
 endpoint is
 \[
  C_v=\frac{\sqrt{t^2+t+1}-p_v-tq_v}{t+1}.
 \]
-Consequently the adjacent and nonadjacent records lie in the cells of
+Consequently the adjacent and nonadjacent parameter tuples lie in the cells of
 Definitions~\ref{def:s2-vd-adjacent-domain} and
 \ref{def:s2-vd-nonadjacent-domain}.
 \end{proposition}
@@ -297,6 +297,6 @@ which are exactly the finite order cells in the definition.
 
 \begin{remark}
 The Vd1--supercritical two-chart replacement is not represented by a scalar
-problem.  It changes geometric roles while preserving skeleton coverage and
+problem.  It changes geometric triangles while preserving skeleton coverage and
 remains a geometric theorem.
 \end{remark}

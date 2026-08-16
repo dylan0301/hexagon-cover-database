@@ -1,4 +1,4 @@
-\section{Area-Loss Obstructions}
+\section{Detailed Area-Loss Estimates}
 \label{sec:area}
 
 This section proves the local inequalities and cyclic estimates used in the
@@ -28,9 +28,9 @@ and $H$ has normalized area six.
 \par\smallskip
 \footnotesize (b) global retained areas
 \end{minipage}
-\caption{Schematic views of Strategy~3, not to scale.  The local panel
-shows one vertex role with boundary reaches $a,b$, and the global panel
-shows the six cyclic roles.  Only the darker portions represent area
+\caption{Schematic views of Method~3, not to scale.  The local panel
+shows one vertex triangle with boundary reaches $a,b$, and the global panel
+shows the six cyclic triangles.  Only the darker portions represent area
 retained inside $H$; the proof uses the inequalities below, not the picture.}
 \label{fig:area-loss}
 \end{figure}
@@ -38,7 +38,7 @@ retained inside $H$; the proof uses the inequalities below, not the picture.}
 \subsection{The local square-loss inequalities}
 
 Fix a vertex $V_i$.  Let $P_a$ and $P_b$ be the points at distances $a$ and
-$b$ from $V_i$ on its incoming and outgoing boundary edges.  For a closed
+$b$ from $V_i$ on its incoming and forward boundary edges.  For a closed
 unit equilateral triangle $T$ containing $V_i,P_a,P_b$, put
 \[
  \mathcal L(T)=\frac{\operatorname{area}(T\setminus H)}{A_\triangle}.
@@ -49,7 +49,7 @@ Equivalently, if
  \qquad \mathcal L(a,b)=1-f(a,b),
 \]
 then $\mathcal L(a,b)$ is the least possible normalized loss.  Reflection in the
-radial axis interchanges $a$ and $b$, and increasing either demand can only
+radial axis interchanges $a$ and $b$, and increasing either reach lower bound can only
 decrease $f$.
 
 \begin{lemma}[Local wedge reduction]
@@ -227,7 +227,7 @@ exhaustive, so the theorem follows.
 The next theorem uses the classification data $(o,n)$ from
 Section~\ref{sec:structural-reductions}: $o$ counts triangle vertices outside $H$, and
 $n$ counts adjacent radial arms met in positive length.  Thus a $\Tlike$
-role has $(o,n)=(2,1)$.
+triangle has $(o,n)=(2,1)$.
 
 \begin{theorem}[Direct $\Tlike$ loss]
 \label{thm:t3-direct-loss}
@@ -292,7 +292,7 @@ The limiting normalized inside area and loss are
  F_0(r)=\frac{(r^2-r+1)^2}{1-r^2},
  \qquad \mathcal L_0(r)=1-F_0(r).
 \]
-Since the exact reach $A$ is at least the required demand $a\ge m$,
+Since the exact reach $A$ is at least the required reach lower bound $a\ge m$,
 \eqref{eq:t3-A-upper}
 gives $A_0(r)>m$.  Direct simplification yields
 \[
@@ -319,37 +319,37 @@ $\mathcal L_0(r)\ge1/4\ge\psi(m)$.  Together with \eqref{eq:t3-limit-loss}, this
 
 The selected handoffs of Proposition~\ref{prop:strict-handoffs} have the form
 \[
- (a_i,b_i)=(1-x_{i-1},x_i),\qquad 0<x_i<1,
+ (a_i,b_i)=(1-\xi_{i-1},\xi_i),\qquad 0<\xi_i<1,
 \]
-with cyclic indices.  V triangle $i$ is selected supercritical exactly when
-$x_i>x_{i-1}$.
+with cyclic indices.  Vertex triangle $i$ is selected supercritical exactly when
+$\xi_i>\xi_{i-1}$.
 
 \begin{lemma}[Cyclic area-loss certificate]
 \label{lem:cyclic-area-loss}
 Let the six actual vertex triangles realize selected handoffs
 \[
- (a_i,b_i)=(1-x_{i-1},x_i),\qquad 0<x_i<1.
+ (a_i,b_i)=(1-\xi_{i-1},\xi_i),\qquad 0<\xi_i<1.
 \]
 Their total normalized loss is strictly greater than one if either
 \begin{enumerate}
-\item at least two selected V triangles are supercritical; or
-\item exactly one selected V triangle is supercritical, every role is
-      $\Vdzero$ or $\Tlike$, and at least one role is $\Tlike$.
+\item at least two selected vertex triangles are supercritical; or
+\item exactly one selected vertex triangle is supercritical, every triangle is
+      $\Vdzero$ or $\Tlike$, and at least one triangle is $\Tlike$.
 \end{enumerate}
 \end{lemma}
 
 \begin{proof}
-Put $m=\min_i x_i$ and $M=\max_i x_i$.  The reflection
-$y_i=1-x_{-i-1}$ swaps each V triangle's two coordinates and preserves both
+Put $m=\min_i \xi_i$ and $M=\max_i \xi_i$.  The reflection
+$y_i=1-\xi_{-i-1}$ swaps each vertex triangle's two coordinates and preserves both
 alternatives and the total loss.  Hence assume $m\le1-M$.  Every selected
-V triangle coordinate is then at least $m$, so
-\eqref{eq:min-square-loss} gives loss at least $m^2$ for every V triangle.
+vertex triangle coordinate is then at least $m$, so
+\eqref{eq:min-square-loss} gives loss at least $m^2$ for every vertex triangle.
 
 In case (1), choose an ascent out of a minimum plateau,
-$x_{p-1}=m<x_p$.  Its V triangle contains the coordinate $1-m$ and loses at least
+$\xi_{p-1}=m<\xi_p$.  Its vertex triangle contains the coordinate $1-m$ and loses at least
 $(1-m)^2$ by \eqref{eq:max-square-loss}.  A second ascent has one coordinate
 strictly larger than $1/2$ and hence loses strictly more than $1/4$.  The
-other four V triangles lose at least $m^2$ each, so the total loss is strictly
+other four vertex triangles lose at least $m^2$ each, so the total loss is strictly
 larger than
 \[
  4m^2+(1-m)^2+\frac14
@@ -357,10 +357,10 @@ larger than
 \]
 
 In case (2), rotate so that the unique ascent leaves the minimum:
-$x_5=m<x_0=M$.  The supercritical V triangle loses at least $(1-m)^2$.
-Lemma~\ref{lem:t3-nonsupercritical} shows that a $\Tlike$ V triangle is different
-from it, and Theorem~\ref{thm:t3-direct-loss} gives that V triangle loss at least
-$2m-4m^2$.  The remaining four V triangles lose at least $m^2$ each.  Their total
+$\xi_5=m<\xi_0=M$.  The supercritical vertex triangle loses at least $(1-m)^2$.
+Lemma~\ref{lem:t3-nonsupercritical} shows that a $\Tlike$ vertex triangle is different
+from it, and Theorem~\ref{thm:t3-direct-loss} gives that vertex triangle loss at least
+$2m-4m^2$.  The remaining four vertex triangles lose at least $m^2$ each.  Their total
 loss is at least
 \[
  (1-m)^2+(2m-4m^2)+4m^2=1+m^2>1.
@@ -371,20 +371,20 @@ loss is at least
 \label{prop:area-branches}
 The following branches are impossible:
 \begin{enumerate}
-\item $T_C$ is $\CEzero$, $N_+\ge2$, with arbitrary vertex-role types;
-\item $T_C$ is $\CEzero$, $N_+=1$, no role is $\Vdone$ or $\Vdtwo$, and
-at least one role is $\Tlike$.
+\item $T_C$ is $\CEzero$, $N_+\ge2$, with arbitrary vertex-triangle types;
+\item $T_C$ is $\CEzero$, $N_+=1$, no triangle is $\Vdone$ or $\Vdtwo$, and
+at least one triangle is $\Tlike$.
 \end{enumerate}
 \end{proposition}
 
 \begin{proof}
-In the $\CEzero$ class, the center role has no positive-length boundary
-trace.  If the six vertex roles missed a boundary point, openness of the
-center role would give such a trace.  Hence the vertex roles cover
+In the $\CEzero$ class, the center triangle has no positive-length boundary
+trace.  If the six vertex triangles missed a boundary point, openness of the
+center triangle would give such a trace.  Hence the vertex triangles cover
 $\partial H$, so Proposition~\ref{prop:strict-handoffs} applies.
 
 If $N_+\ge2$, its at-least-two clause selects handoffs with at least two
-supercritical V triangles.  Lemma~\ref{lem:cyclic-area-loss} makes the six vertex
+supercritical vertex triangles.  Lemma~\ref{lem:cyclic-area-loss} makes the six vertex
 triangles' total normalized inside area strictly less than five.  The center
 triangle contributes at most one, so the total is strictly less than six.
 

@@ -16,9 +16,9 @@ For
 \]
 define
 \[
- L(c)=\frac c2\left(1-\sqrt{4c^2-3}\right),
+ \ell(c)=\frac c2\left(1-\sqrt{4c^2-3}\right),
  \qquad
- U(c)=c-L(c).
+ r(c)=c-\ell(c).
 \]
 Finally put
 \[
@@ -41,7 +41,7 @@ If \(1/2<c<1\) and \(1-c\le x\le1\), then
  \ge c^2(2c-1)^2>0.
 \]
 Every denominator in \(h,Q_-,Q_+\) is positive on the branch on which the
-corresponding expression is used.  The functions \(L,U\) are real-valued on
+corresponding expression is used.  The functions \(\ell,r\) are real-valued on
 their stated domain.
 \end{lemma}
 
@@ -71,9 +71,9 @@ For \(\sqrt3/2<c<1\), put
  F(c,x)=
  \begin{cases}
   1-x,&0\le x\le1-c,\\
-  Q_+(c,x),&1-c<x\le L(c),\\
-  L(c),&L(c)<x<U(c),\\
-  Q_-(c,x),&U(c)\le x<c,\\
+  Q_+(c,x),&1-c<x\le \ell(c),\\
+  \ell(c),&\ell(c)<x<r(c),\\
+  Q_-(c,x),&r(c)\le x<c,\\
   1-x,&c\le x\le1.
  \end{cases}
 \]
@@ -87,15 +87,15 @@ By Proposition~\ref{prop:branchwise-safe-output}, this function is exactly
 $F(c,x)=g_c(1-x)$ on its stated high-radial domain.
 
 The equality assignments in Definition~\ref{def:s2-pure-map} are part of the
-problem specification.  In particular, the value at \(x=L(c)\) is the
-selected \(Q_+\) value \(U(c)\), while the open interval immediately to its
-right has value \(L(c)\).
+problem specification.  In particular, the value at \(x=\ell(c)\) is the
+selected \(Q_+\) value \(r(c)\), while the open interval immediately to its
+right has value \(\ell(c)\).
 
 \begin{definition}[Pure lower relaxations]
 \label{def:s2-pure-relaxations}
 For \(0<d<1-\sqrt3/2\), define
 \[
- E_0(d):=L(1-d).
+ E_0(d):=\ell(1-d).
 \]
 For \(\lambda\in\mathbb R\), define
 \[

@@ -53,9 +53,9 @@ for name in required_lean:
 # Boundary ownership in the exact capped map.
 tex_markers = [
     r"0\le x\le1-c",
-    r"1-c<x\le L(c)",
-    r"L(c)<x<U(c)",
-    r"U(c)\le x<c",
+    r"1-c<x\le \ell(c)",
+    r"\ell(c)<x<r(c)",
+    r"r(c)\le x<c",
     r"x=h(c)",
 ]
 lean_markers = [

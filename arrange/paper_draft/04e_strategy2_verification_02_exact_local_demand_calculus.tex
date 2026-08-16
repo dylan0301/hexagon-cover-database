@@ -1,20 +1,20 @@
-\section{Exact Local Demand Calculus}
+\subsection{Detailed Local Reach Calculus}
 \label{sec:exact-local-demand-calculus}
 
 This section develops the local calculus for configurations in which a coarse
-length sum does not by itself record enough information.  The mechanism is
+length sum does not by itself retain enough information.  The mechanism is
 always the same.  A center trace fixes boundary inputs and complementary
-radial demands; an exact
-local map propagates these data through nonsupercritical V triangles; and the
-returning demand exceeds the remaining boundary or radial capacity.
+radial lower bounds; an exact
+local map propagates these data through nonsupercritical vertex triangles; and the
+returning reach lower bound exceeds the remaining boundary or radial capacity.
 
 Actual maximal reaches continue to be denoted by $(A_i,B_i,C_i)$, while
-lowercase letters denote prescribed demands.  Every estimate in this section
+lowercase letters denote prescribed reach lower bounds.  Every estimate in this section
 is proved analytically.  In particular, no empirical branch catalogue,
 machine-assisted certificate, or formal root from a discarded algebraic
 component is used.
 
-\subsection{The exact local feasible set}
+\subsubsection{The exact local feasible set}
 
 Put
 \[
@@ -25,8 +25,8 @@ For $0\le a,b,c\le1$ define
 \[
  K(a,b,c)=\conv\{0,au,bv,c(u+v)\}.
 \]
-Thus $a,b$ are lower demands on the two incident boundary rays and $c$ is a
-lower demand on the inward radial ray.
+Thus $a,b$ are lower bounds on the two incident boundary rays and $c$ is a
+lower reach lower bound on the inward radial ray.
 
 \begin{definition}
 \label{def:admissible-demands}
@@ -43,9 +43,9 @@ For $a,c\in[0,1]$ put
 \]
 \end{definition}
 
-The distinction between demands and actual reaches is important.  If a role
-has actual reaches $(A,B,C)$ and $A\ge a$, $C\ge c$, then $(a,B,c)$ is a
-demand triple realized by the same role.  The nonsupercritical restriction
+The distinction between reach lower bounds and maximal reaches is important.  If a triangle
+has maximal reaches $(A,B,C)$ and $A\ge a$, $C\ge c$, then $(a,B,c)$ is a
+reach triple realized by the same triangle.  The nonsupercritical restriction
 will be imposed below by two direct radial branches, not by a second
 extremal-map family.
 
@@ -75,7 +75,7 @@ Then $\mathcal A=\mathcal A_L\cup\mathcal A_T\cup\mathcal A_S$, where
 \end{align*}
 All variables in these three sets are also constrained to $[0,1]$.
 
-For $d\le1$, the maximal radial demand is
+For $d\le1$, the maximal radial lower bound is
 \begin{equation}
  c_{\max}(a,b)=
  \begin{cases}
@@ -139,12 +139,12 @@ component in each of the last two cells.  In the $T$ cell the two roots are
 \]
 and $c\le2M$ selects the first.  In the $S$ cell the smaller root lies below
 $1/2$ and the other above $1/2$; hence $c\le1/2$ is exactly the geometric
-selector.  The $L$ fiber is the interval from zero to its unique selected
+selector.  The constant-branch fiber is the interval from zero to its unique selected
 root.  Solving the selected equations gives \eqref{eq:radial-envelope}.
 This also proves that $\mathcal A$ is coordinatewise down-closed.
 \end{proof}
 
-\subsection{Branchwise nonsupercritical output}
+\subsubsection{Branchwise nonsupercritical output}
 
 For later contact-cell calculations retain the technical aliases
 \begin{equation}
@@ -164,7 +164,7 @@ For every $a,c\in[0,1]$,
 \[
  F_c(a)=\min\{B_c(a),1-a\}.
 \]
-If an actual role has reaches $(A,B,C)$ with
+If an actual triangle has reaches $(A,B,C)$ with
 \[
  A\ge a,\qquad C\ge c,\qquad A+B\le1,
 \]
@@ -202,7 +202,7 @@ Finally, nonsupercriticality gives $B\le1-A\le1-a$, while admissibility gives
 $B\le B_c(a)$.  Thus $B\le F_c(a)$.
 \end{proof}
 
-\subsection{The exact high-radial map}
+\subsubsection{The exact high-radial map}
 
 For $1/2<c<1$ put
 \[
@@ -214,22 +214,22 @@ use the order-transition function $h(c)$ from
 \eqref{eq:signed-order-transition}.
 Also define
 \begin{align*}
- T_-(a,c)&=\frac{\sqrt{a^2-ac+c^2}}c-a,\\
- T_+(a,c)&=
+ Q_-(a,c)&=\frac{\sqrt{a^2-ac+c^2}}c-a,\\
+ Q_+(a,c)&=
  \frac{2(1-a^2)c^2}
  {2ac^2+c+\sqrt{(2ac^2+c)^2-4(1-c^2)(1-a^2)c^2}}.
 \end{align*}
 
-\begin{proposition}[Four-label high-radial map]
+\begin{proposition}[Four-branch high-radial map]
 \label{prop:capped-demand-map}
 For $1/2<c\le\sqrt3/2$,
 \begin{equation}
  F_c(a)=
  \begin{cases}
   1-a,&0\le a\le1-c,\\
-  T_+(a,c),&1-c<a<h(c),\\
+  Q_+(a,c),&1-c<a<h(c),\\
   h(c),&a=h(c),\\
-  T_-(a,c),&h(c)<a<c,\\
+  Q_-(a,c),&h(c)<a<c,\\
   1-a,&c\le a\le1.
  \end{cases}
  \label{eq:S2-capped-map-low}
@@ -239,20 +239,20 @@ For $\sqrt3/2<c<1$,
  F_c(a)=
  \begin{cases}
   1-a,&0\le a\le1-c,\\
-  T_+(a,c),&1-c<a\le\ell(c),\\
+  Q_+(a,c),&1-c<a\le\ell(c),\\
   \ell(c),&\ell(c)<a<r(c),\\
-  T_-(a,c),&r(c)\le a<c,\\
+  Q_-(a,c),&r(c)\le a<c,\\
   1-a,&c\le a\le1.
  \end{cases}
  \label{eq:S2-capped-map-high}
 \end{equation}
-Thus there are exactly four labels
+Thus there are exactly four branches
 \[
- \mathrm{Full},\qquad L,\qquad T_-,\qquad T_+^{\mathrm{hi}}.
+ \mathrm{Lin},\qquad \mathrm{Const},\qquad Q_-,\qquad Q_+.
 \]
 At $a=\ell(c)$ in \eqref{eq:S2-capped-map-high},
 $F_c(a)=r(c)$; immediately to its right the value is $\ell(c)$.  This
-downward jump is genuine.  The formal other root of the $T_+$ quadratic is
+downward jump is genuine.  The formal other root of the $Q_+$ quadratic is
 not feasible because it violates $c\le2\max\{a,F_c(a)\}$.
 
 The maps $F_c$ are nonincreasing, the maps $G_c=1-F_c$ are nondecreasing
@@ -267,11 +267,11 @@ and extensive, and
 \begin{proof}
 Because $c>1/2$, the midpoint threshold forces $a+b\le1$ and eliminates the $S$ cell of
 Proposition~\ref{prop:exact-admissible-set}.  On the cap $b=1-a$, the $T$
-inequality reduces to $M(c-M)\le0$; hence the Full face is feasible exactly
+inequality reduces to $M(c-M)\le0$; hence the linear face is feasible exactly
 for $a\le1-c$ or $a\ge c$.  Off that face a maximal point lies on $F_L=0$
-or $F_T=0$.  The $L$ equation has roots $\ell(c),r(c)$ and the selector
+or $F_T=0$.  The constant-branch equation has roots $\ell(c),r(c)$ and the selector
 $q\le0$ keeps only the smaller coordinate.  The ordered $T$ halves give
-respectively the displayed lower quadratic root $T_+$ and the root $T_-$.
+respectively the displayed lower quadratic root $Q_+$ and the root $Q_-$.
 Their order boundary is $a=b=h(c)$, while their $q=0$ boundaries are
 $(\ell(c),r(c))$ and $(r(c),\ell(c))$.  These observations give
 \eqref{eq:S2-capped-map-low}--\eqref{eq:S2-capped-map-high}, including all equality

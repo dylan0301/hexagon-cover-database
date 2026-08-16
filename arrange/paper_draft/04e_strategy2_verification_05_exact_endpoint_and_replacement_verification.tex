@@ -1,16 +1,16 @@
-\section{Exact Endpoint and Replacement Verification}
+\subsection{Exact Endpoint and Replacement Verification}
 \label{sec:strategy2-rigor-completion}
 
 This section supplies two pieces that must not be hidden by the concise reader
 presentation.  First, it formally incorporates the complete status-bearing
-$407X$ four-label endpoint proof.  Second, it gives the explicit
+$407X$ four-branch endpoint proof.  Second, it gives the explicit
 Vd1--supercritical two-chart replacement in TeX.  The incorporated proof-package
 objects are part of the proof at the exact Git blobs listed below.
 
-\subsection{The incorporated \(407X\) endpoint supplement}
+\subsubsection{The incorporated \(407X\) endpoint supplement}
 
 All paths in the following table are relative to the numbered
-\texttt{407X\_T3\_like\_no\_Vd1Vd2} proof directory.  Full blob identities
+\texttt{407X\_T3\_like\_no\_Vd1Vd2} proof directory.  linear blob identities
 are stored in \texttt{proof/407X\_PROVENANCE.json}; the paper prints only
 stable proof identifiers and twelve-character prefixes.
 
@@ -19,14 +19,14 @@ stable proof identifiers and twelve-character prefixes.
 \renewcommand{\arraystretch}{1.08}
 \begin{tabular}{@{}p{.16\textwidth}p{.22\textwidth}p{.48\textwidth}@{}}
 \toprule
-proof object&blob prefix&role\\
+proof object&blob prefix&triangle\\
 \midrule
 \texttt{4073}&\texttt{910c7a8a1330}&residual reduction\\
-\texttt{4074}&\texttt{7c72dfaf7eb3}&$(L,\mathrm{Full})$\\
-\texttt{4075}&\texttt{ebe2b65f8840}&first $T_-$ family\\
-\texttt{4078}&\texttt{f1323325b069}&remaining first-$L$ family\\
-\texttt{4079}&\texttt{c66eea05277d}&first-Full exclusion\\
-\texttt{407a}&\texttt{aa5cb1a6dc63}&first $T_+^{\rm hi}$ family\\
+\texttt{4074}&\texttt{7c72dfaf7eb3}&$(\mathrm{Const},\mathrm{Lin})$\\
+\texttt{4075}&\texttt{ebe2b65f8840}&first $Q_-$ family\\
+\texttt{4078}&\texttt{f1323325b069}&remaining first-constant family\\
+\texttt{4079}&\texttt{c66eea05277d}&first-linear exclusion\\
+\texttt{407a}&\texttt{aa5cb1a6dc63}&first $Q_+$ family\\
 \texttt{407c}&\texttt{c80243f67124}&analytic details\\
 \texttt{407d}&\texttt{e22c85c95fdd}&final assembly\\
 \bottomrule
@@ -35,12 +35,12 @@ proof object&blob prefix&role\\
 
 The branchwise endpoint rule used by these files is
 Proposition~\ref{prop:branchwise-safe-output}; on the high-radial branch its
-four-label formula is Proposition~\ref{prop:capped-demand-map}.  Its four labels are
+four-branch formula is Proposition~\ref{prop:capped-demand-map}.  Its four branches are
 \[
- \mathrm{Full},\qquad L,\qquad T_-,\qquad T_+^{\rm hi}.
+ \mathrm{Lin},\qquad \mathrm{Const},\qquad Q_-,\qquad Q_+.
 \]
 The supplement retains the exact residual inputs $a_1^*,a_5^*$ and radial
-demands $c_1^*,c_5^*$ from Lemma~\ref{lem:407-four-label-loss}.  It does not
+reach lower bounds $c_1^*,c_5^*$ from Lemma~\ref{lem:407-four-label-loss}.  It does not
 replace them by a symmetric or universal envelope.
 
 \begin{table}[H]
@@ -49,19 +49,19 @@ replace them by a symmetric or universal envelope.
 \renewcommand{\arraystretch}{1.08}
 \begin{tabular}{p{.20\textwidth}p{.34\textwidth}p{.34\textwidth}}
 \toprule
-first label&right labels&incorporated terminal source\\
+first branch&right branches&incorporated final source\\
 \midrule
-$L$&Full&`4074`, low-root separation\\
-$L$&$L,T_-$&`4078`, exact low-sheet inequalities\\
-$L$&$T_+^{\rm hi}$&`4078` and `407c`\\
-$T_-$&$L,T_-$&`4075`, exact root ordering\\
-$T_-$&Full, $T_+^{\rm hi}$&`4075`, strict endpoint separation\\
-Full&all labels&`4079`, first-Full exclusion\\
-$T_+^{\rm hi}$&Full, $T_+^{\rm hi}$&`407a`, high-input exclusion\\
-$T_+^{\rm hi}$&$L,T_-$&`407a` and `407c`, analytic threshold and right-$T_-$ bounds\\
+$\mathrm{Const}$&linear&`4074`, low-root separation\\
+$\mathrm{Const}$&$\mathrm{Const},Q_-$&`4078`, exact low-sheet inequalities\\
+$\mathrm{Const}$&$Q_+$&`4078` and `407c`\\
+$Q_-$&$\mathrm{Const},Q_-$&`4075`, exact root ordering\\
+$Q_-$&linear, $Q_+$&`4075`, strict endpoint separation\\
+linear&all branches&`4079`, first-linear exclusion\\
+$Q_+$&linear, $Q_+$&`407a`, high-input exclusion\\
+$Q_+$&$\mathrm{Const},Q_-$&`407a` and `407c`, analytic threshold and right-$Q_-$ bounds\\
 \bottomrule
 \end{tabular}
-\caption{The exhaustive four-label endpoint audit.  The listed exact source
+\caption{The exhaustive four-branch endpoint case analysis.  The listed exact source
 objects contain every polynomial selector, domain restriction, and strict
 inequality used in the corresponding entry.}
 \label{tab:paper-407-complete-audit}
@@ -78,12 +78,12 @@ Definition~\ref{def:body-t3-endpoint-state},
 
 \begin{proof}
 If $a_1^*+a_5^*>1$, the direct bounds $F_c(a)\le1-a$ already give the strict
-inequality.  Assume $a_1^*+a_5^*\le1$.  If an endpoint radial demand is at
+inequality.  Assume $a_1^*+a_5^*\le1$.  If an endpoint radial lower bound is at
 most $1/2$, Proposition~\ref{prop:branchwise-safe-output} makes that endpoint
-the Full value $1-a$.  If it is larger than $1/2$,
-Proposition~\ref{prop:capped-demand-map} assigns one of the same four labels.
+the linear value $1-a$.  If it is larger than $1/2$,
+Proposition~\ref{prop:capped-demand-map} assigns one of the same four branches.
 Thus Table~\ref{tab:paper-407-complete-audit} remains an exhaustive partition
-of the ordered label pairs, including the low-radial right-Full case.  The
+of the ordered branch pairs, including the low-radial right-linear case.  The
 incorporated source in each row proves either that the pair is impossible or
 that its two exact branchwise outputs have sum strictly below one.  File
 `407d` checks that the geometric residual reduction in `4073` reaches exactly
@@ -91,21 +91,21 @@ these branches and no others.  Therefore the displayed endpoint inequality
 holds throughout the complete support-isolated domain.
 \end{proof}
 
-\subsection{The explicit Vd1--supercritical replacement}
+\subsubsection{The explicit Vd1--supercritical replacement}
 
 \begin{proposition}[Vd1--supercritical two-chart replacement]
 \label{prop:paper-vd1-pair-replacement}
-Assume the CE2 branch in which an adjacent Vd1 role and the unique
-supercritical Vd0 role lie away from the vertex role at the center's unique
+Assume the CE2 branch in which an adjacent Vd1 triangle and the unique
+supercritical Vd0 triangle lie away from the vertex triangle at the center's unique
 midpoint. Assume the shared boundary edge is center-free, all other vertex
-roles are nonsupercritical Vd0, and no additional role has positive support
+triangles are nonsupercritical Vd0, and no additional triangle has positive support
 on the two radial arms of the pair. Then the pair can be replaced by two open
-nonsupercritical Vd0 roles while preserving coverage of the full skeleton.
+nonsupercritical Vd0 triangles while preserving coverage of the full skeleton.
 \end{proposition}
 
 \begin{proof}
-After a fresh cyclic renumbering, let the Vd1 role be based at $V_0$, the
-supercritical role at $V_1$, and let the Vd1 role contain $M_1$. Write $a,b$
+After a fresh cyclic renumbering, let the Vd1 triangle be based at $V_0$, the
+supercritical triangle at $V_1$, and let the Vd1 triangle contain $M_1$. Write $a,b$
 for the Vd1 boundary reaches and use the Vd corner parameter $t\ge1$, with
 $d=\sqrt{t^2+t+1}$. Put
 \[
@@ -121,7 +121,7 @@ The strict midpoint and one-sided-support inequalities give
 \tag{1}
 \]
 
-Let $(A_1,B_1,C_1)$ be the actual reaches of the supercritical role. The
+Let $(A_1,B_1,C_1)$ be the maximal reaches of the supercritical triangle. The
 center-free shared edge and radial coverage give
 \[
  A_1\ge1-b>\frac12,
@@ -203,19 +203,19 @@ while the shifted plus template contains the origin and has reach triple
  (p,1-p-\varepsilon,p).
 \]
 Their closures stay strictly below both adjacent-arm lines $x=1$ and $y=1$.
-Thus $V_0\in U_0'$, $V_1\in U_1'$, both roles are Vd0, and both boundary
+Thus $V_0\in U_0'$, $V_1\in U_1'$, both triangles are Vd0, and both boundary
 sums equal $1-\varepsilon<1$.
 
 The first replacement reaches beyond $a$ on $e_{5,0}$ and beyond $c$ on
 $r_0$. On the shared edge its reach is $1-p_1$, while the second replacement
 reaches at least $p_2-\varepsilon$ from $V_1$; their sum exceeds one by (4).
-The second replacement reaches beyond $B_1$ on $e_{1,2}$ and has own-radial
+The second replacement reaches beyond $B_1$ on $e_{1,2}$ and has radial
 reach $\max\{p_2,1-p_2\}>c_1^{\rm req}$ on $r_1$. Hence every boundary and
 radial component formerly supplied by the special pair remains covered, and
 all other skeleton components are unchanged.
 
-The modified roles therefore cover the full skeleton and have six
-nonsupercritical Vd0 vertex roles. Proposition~\ref{prop:nplus-zero-all-vd0}
+The modified triangles therefore cover the full skeleton and have six
+nonsupercritical Vd0 vertex triangles. Proposition~\ref{prop:nplus-zero-all-vd0}
 gives the contradiction.
 \end{proof}
 

@@ -274,9 +274,9 @@ The full calculations are reorganized in `03_strategy1_length.tex` and
 
 ---
 
-## 2.4 `paper_draft/04_strategy2_summary.tex` — Monotone Transfer Certificates
+## 2.4 `paper_draft/04_strategy2_summary.tex` — Boundary-Reach Propagation
 
-### `prop:body-transfer-interface` in `04_strategy2_summary_transfer.tex`
+### `prop:body-transfer-interface` in `04_strategy2_summary.tex`
 
 The four items map as follows:
 
@@ -291,7 +291,7 @@ The four items map as follows:
 `B<g_c^{sc}`. The complementary next-V-triangle statement requires a center-free
 outgoing edge. The corrected path hypothesis is carried by `2019`.
 
-The certified-chain definition uses the relaxed-composition lemma from
+The monotone-composition argument uses the relaxed-composition lemma from
 [201d_raw_and_relaxed_g_chains.md](../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md),
 with center-free handoff support from `2019`.
 

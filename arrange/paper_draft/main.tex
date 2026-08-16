@@ -23,6 +23,9 @@
 \newcommand{\Haus}{\mathcal H^1}
 \newcommand{\conv}{\mathrm{conv}}
 \newcommand{\interior}{\mathrm{int}}
+\newcommand{\Nsp}{N_{\mathrm{sp}}}
+\newcommand{\Ngap}{N_{\mathrm{gap}}}
+\newcommand{\Mbar}{\overline M}
 
 \title[Seven triangles do not cover the unit hexagon]
 {Seven Open Unit Equilateral Triangles Do Not Cover a Regular Unit Hexagon}
@@ -35,25 +38,24 @@ boundary propagation, area loss, exact computer-assisted certificate}
 \raggedbottom
 
 \begin{abstract}
-We prove that the regular hexagon of side length one cannot be covered by
-seven open equilateral triangles of side length one.  Seven distinguished
-points force one center role and six vertex roles.  A finite classification
-then routes every hypothetical cover to one of four geometric mechanisms:
-trace deficit, monotone transfer, area loss, or a nine-point support
-obstruction.  The reader-facing proof states the exact geometric interfaces,
-the resulting inequalities, and the exhaustive routing argument.  Support-line
-derivations, polynomial reductions, monotonicity calculations, and exact
-certificates are isolated in technical appendices.  The two final mixed cap
-overlaps are verified by a formally incorporated exact symbolic certificate
-using integer, rational, and $\mathbb Q(\sqrt3)$ arithmetic.
+We prove that a regular hexagon of side length one cannot be covered by seven
+open equilateral triangles of side length one.  The center and the six vertices
+canonically label the seven covering triangles.  We classify the possible
+boundary traces of the center triangle and the possible radial incidences of
+each vertex triangle.  Every resulting case is excluded by one of four
+arguments: a trace-length bound, propagation of boundary-reach lower bounds,
+an area-loss estimate, or an equilateral-enclosure obstruction for nine forced
+points.  The final two algebraic inequalities are verified by an exact symbolic
+certificate over $\mathbb Q(\sqrt3)$.
 \end{abstract}
 
 \maketitle
 \setcounter{tocdepth}{1}
-\enlargethispage{2pt}
+\enlargethispage{6pt}
 \tableofcontents
 
 \input{01_introduction}
+\input{02_global_notation}
 \input{02_reader_framework}
 \input{03_strategy1_reader}
 \input{04_strategy2_summary}

@@ -81,13 +81,13 @@ The distinction between $U_i$ and $T_i$ will be maintained: closure may add
 endpoints or tangencies, although it does not change area or one-dimensional
 trace measure.
 
-\begin{lemma}[Distinct roles]
+\begin{lemma}[Distinct triangles]
 \label{lem:distinct-roles}
 The seven triangles can be labelled so that
 \[
  O\in U_C,\qquad V_i\in U_i\quad(0\le i\le5),
 \]
-and these seven roles are distinct.  Consequently
+and these seven triangles are distinct.  Consequently
 \[
  O\in\mathrm{int}(T_C),\qquad V_i\in\mathrm{int}(T_i).
 \]
@@ -104,7 +104,7 @@ triangles, hence a bijection and the asserted labelling.
 
 \subsection{The center classification}
 
-For a closed center role define
+For a closed center triangle define
 \[
  N_E(T_C)=
  \left\lvert\left\{i:T_C\cap e_{i,i+1}\text{ contains a
@@ -116,7 +116,7 @@ $2$.
 
 \begin{proposition}[Exhaustive center types]
 \label{prop:ce-classification}
-Every center role has exactly one of the types CE0, CE1, and CE2.
+Every center triangle has exactly one of the types CE0, CE1, and CE2.
 Equivalently,
 \[
  N_E(T_C)\le2.
@@ -146,7 +146,7 @@ positive-length edge traces would supply such a pair, a contradiction.
 
 \subsection{Vertex types and the T3-like normalization}
 
-For an original vertex role $T_i$, let
+For an original vertex triangle $T_i$, let
 \[
  o(T_i)=\left\lvert\left\{
  \text{vertices of }T_i\text{ outside }H
@@ -166,7 +166,7 @@ positive-length intersection with $T_i$.  We use the names
 
 \begin{lemma}[Local wedge]
 \label{lem:local-wedge}
-Every original vertex role has $1\le o\le3$.  If it has positive-length
+Every original vertex triangle has $1\le o\le3$.  If it has positive-length
 intersection with one adjacent arm, at least one of its vertices belongs to
 $H$; if it has positive-length intersection with both adjacent arms, at
 least two of its vertices belong to $H$.
@@ -215,7 +215,7 @@ the interior of $T_0$.  Hence $o\ge1$.
 
 \begin{proposition}[Exhaustive vertex types]
 \label{prop:vertex-classification}
-Every original vertex role has exactly one of the four types Vd0, Vd1, Vd2,
+Every original vertex triangle has exactly one of the four types Vd0, Vd1, Vd2,
 and T3-like.
 \end{proposition}
 
@@ -239,7 +239,7 @@ is essential.
 
 \begin{proposition}[T3-like closed-trace domination]
 \label{prop:t3-translation}
-Let $T$ be the closure of an original T3-like $V_i$-role.  There is a
+Let $T$ be the closure of an original T3-like $V_i$-triangle.  There is a
 translate $\widehat T$ of $T$, with the same orientation and side length,
 such that
 \[
@@ -249,7 +249,7 @@ such that
 and $\widehat T$ remains of type $(o,n)=(2,1)$.  Every old open interior
 point in $H\setminus\{V_i\}$ remains an interior point of $\widehat T$.
 The point $V_i$ itself becomes a boundary point, so $\widehat T$ is a
-closed-trace majorant and is not a replacement open role.
+closed-trace majorant and is not a replacement open triangle.
 \end{proposition}
 
 \begin{proof}
@@ -329,9 +329,9 @@ $\widehat U>0$; the displayed slack relations show that every old interior
 point other than the origin remains interior.
 \end{proof}
 
-\subsection{Reach coordinates, supercritical V triangles, and gaps}
+\subsection{Reach coordinates, supercritical vertex triangles, and gaps}
 
-For the original vertex role $U_i$, define its actual maximal incoming,
+For the original vertex triangle $U_i$, define its maximal incoming,
 outgoing, and radial reaches by
 \[
  \begin{aligned}
@@ -354,19 +354,19 @@ For compact indexed formulas, put
  C_i:=C(U_i)=C(T_i).
 \]
 The closure $T_i$ contains the corresponding endpoints. We reserve
-lowercase $(a_i,b_i,c_i)$ for selected or prescribed lower-bound demands
-whenever actual and selected values occur together.  A realizing role then
+lowercase $(a_i,b_i,c_i)$ for selected or prescribed reach lower bounds
+whenever actual and selected values occur together.  A realizing triangle then
 satisfies
 \[
  A_i\ge a_i,\qquad B_i\ge b_i,\qquad C_i\ge c_i.
 \]
-An actual V triangle is supercritical if $A_i+B_i>1$, and
+An actual vertex triangle is supercritical if $A_i+B_i>1$, and
 \begin{equation}
  N_+=\left\lvert\left\{i:A_i+B_i>1\right\}\right\rvert.
  \label{eq:N-plus-definition}
 \end{equation}
-This definition never counts a smaller demand pair in place of the actual
-V triangle.
+This definition never counts a smaller reach pair in place of the actual
+vertex triangle.
 
 Parametrize $e_{i,i+1}$ by
 \[
@@ -383,24 +383,24 @@ closed complement between these two traces,
 \[
  [B_i,1-A_{i+1}]\qquad\text{when }B_i\le1-A_{i+1}.
 \]
-In particular, equality gives a singleton gap.  This convention records the
-actual open traces; a point missing from both open roles is not erased merely
+In particular, equality gives a singleton gap.  This convention retains the
+actual open traces; a point missing from both open triangles is not erased merely
 because both closures contain it.
 
 \begin{lemma}[Exhaustiveness of the gap split]
 \label{lem:gap-exhaustion}
-On each edge the complement of the two incident vertex-role traces is either
+On each edge the complement of the two incident vertex-triangle traces is either
 empty or one closed interval; a singleton interval counts as a gap.  Every
 edge having a gap has positive-length intersection with the open center
-role.  Consequently a $\CEzero$ center permits no gaps, a $\CEone$ center
+triangle.  Consequently a $\CEzero$ center permits no gaps, a $\CEone$ center
 permits at most one, and a $\CEtwo$ center permits at most two.
 \end{lemma}
 
 \begin{proof}
 The two incident traces are intervals issuing from the two endpoints, so
 their complement is exactly the interval displayed above when nonempty.  A
-nonincident vertex role cannot contain a relative-interior point of the edge:
-that point is more than unit distance from the role's distinguished vertex.
+nonincident vertex triangle cannot contain a relative-interior point of the edge:
+that point is more than unit distance from the triangle's distinguished vertex.
 Thus every point of a gap lies in $U_C$.  Because $U_C$ is open, its
 intersection with that edge contains a relative neighborhood and hence has
 positive length.  Different gap edges therefore give different edges counted
@@ -408,9 +408,9 @@ by $N_E(T_C)$.  Proposition~\ref{prop:ce-classification} gives the three
 stated bounds, including singleton gaps.
 \end{proof}
 
-\begin{lemma}[T3-like V triangles are nonsupercritical]
+\begin{lemma}[T3-like vertex triangles are nonsupercritical]
 \label{lem:t3-nonsupercritical}
-Every original T3-like V triangle satisfies
+Every original T3-like vertex triangle satisfies
 \begin{equation}
  A_i+B_i\le1.
 \label{eq:t3-nonsupercritical}
@@ -420,7 +420,7 @@ In particular, it is not counted by $N_+$.
 
 \begin{proof}
 The proof of Proposition~\ref{prop:t3-translation} showed that a T3-like
-role has Type II orientation with
+triangle has Type II orientation with
 \[
  A_i=\beta,\qquad B_i=z-\alpha-\beta,\qquad
  z=\sqrt{1-t+t^2}\le1.
@@ -428,19 +428,19 @@ role has Type II orientation with
 Thus $A_i+B_i=z-\alpha\le1$.  The same conclusion holds after reflection.
 \end{proof}
 
-We record the precise transfer from actual V triangles to strict handoff demands.
-Its hypothesis that the six vertex roles themselves cover the boundary is
+We state the precise passage from maximal reaches to strict handoff lower bounds.
+Its hypothesis that the six vertex triangles themselves cover the boundary is
 part of the statement.
 
 \begin{proposition}[Strict boundary handoffs]
 \label{prop:strict-handoffs}
 Assume that $U_0,\ldots,U_5$ cover $\partial H$.  On each edge choose
 \[
- x_i\in(1-A_{i+1},B_i)
+ \xi_i\in(1-A_{i+1},B_i)
 \]
 and define
 \[
- a_i=1-x_{i-1},\qquad b_i=x_i.
+ a_i=1-\xi_{i-1},\qquad b_i=\xi_i.
 \]
 Then $0<a_i<A_i$, $0<b_i<B_i$, the two selected anchors lie in $U_i$, and
 \[
@@ -448,11 +448,11 @@ Then $0<a_i<A_i$, $0<b_i<B_i$, the two selected anchors lie in $U_i$, and
 \]
 Moreover:
 \begin{enumerate}
- \item if exactly one actual V triangle, indexed by $p$, is supercritical, every
- strict selection has exactly one selected supercritical V triangle, also indexed
+ \item if exactly one actual vertex triangle, indexed by $p$, is supercritical, every
+ strict selection has exactly one selected supercritical vertex triangle, also indexed
  by $p$;
- \item if at least two actual V triangles are supercritical, some simultaneous
- strict selection has at least two selected supercritical V triangles.
+ \item if at least two actual vertex triangles are supercritical, some simultaneous
+ strict selection has at least two selected supercritical vertex triangles.
 \end{enumerate}
 \end{proposition}
 
@@ -461,7 +461,7 @@ Because $V_i$ is interior to a diameter-one closed triangle,
 \[
  0<A_i<1,\qquad 0<B_i<1.
 \]
-No nonincident vertex role contains a relative-interior point of
+No nonincident vertex triangle contains a relative-interior point of
 $e_{i,i+1}$, since such a point is more than unit distance from its
 distinguished vertex.  The two displayed incident traces therefore cover
 the edge and, being relatively open and nonempty, overlap.  Hence each
@@ -473,17 +473,17 @@ Put $\ell_i=1-A_{i+1}$ and $u_i=B_i$.  Then
 \begin{equation}
  A_i+B_i>1\iff \ell_{i-1}<u_i,
  \qquad
- a_i+b_i>1\iff x_{i-1}<x_i.
+ a_i+b_i>1\iff \xi_{i-1}<\xi_i.
  \label{eq:actual-selected-ascents}
 \end{equation}
-If actual V triangle $i$ is nonsupercritical, then
+If actual vertex triangle $i$ is nonsupercritical, then
 \[
- x_i<u_i\le\ell_{i-1}<x_{i-1},
+ \xi_i<u_i\le\ell_{i-1}<\xi_{i-1},
 \]
 so every selected version of it is strictly subcritical.  Also
 \begin{equation}
  \sum_{i=0}^5(a_i+b_i)
- =\sum_{i=0}^5(1-x_{i-1}+x_i)=6.
+ =\sum_{i=0}^5(1-\xi_{i-1}+\xi_i)=6.
  \label{eq:handoff-telescoping}
 \end{equation}
 If $p$ is the sole actual supercritical index, the other five selected sums
@@ -497,14 +497,14 @@ $r\in\{p,q\}$ choose
 \]
 then choose
 \[
- x_{r-1}\in(\ell_{r-1},\min\{u_{r-1},z_r\}),
+ \xi_{r-1}\in(\ell_{r-1},\min\{u_{r-1},z_r\}),
  \quad
- x_r\in(\max\{\ell_r,z_r\},u_r).
+ \xi_r\in(\max\{\ell_r,z_r\},u_r).
 \]
 The two pairs of variables are disjoint and give ascents at $p,q$.  Any set
 of at least three indices on a six-cycle contains two nonadjacent indices.
 It remains to consider exactly two adjacent supercritical indices $p,p+1$.
-For the other four nonsupercritical V triangles, successive inequalities
+For the other four nonsupercritical vertex triangles, successive inequalities
 $\ell_i<u_i\le\ell_{i-1}$ give
 \[
  \ell_{p-1}<\ell_{p+1}.
@@ -513,15 +513,15 @@ Together with supercriticality at $p,p+1$, this implies
 \[
  \max\{\ell_{p-1},\ell_p\}<\min\{u_p,u_{p+1}\}.
 \]
-Choose $x_p$ between these bounds and then choose
-$x_{p-1}<x_p<x_{p+1}$ in their respective overlap intervals.  By
-\eqref{eq:actual-selected-ascents}, both adjacent V triangles are selected
+Choose $\xi_p$ between these bounds and then choose
+$\xi_{p-1}<\xi_p<\xi_{p+1}$ in their respective overlap intervals.  By
+\eqref{eq:actual-selected-ascents}, both adjacent vertex triangles are selected
 supercritical.
 \end{proof}
 
 \subsection{Midpoint forcing}
 
-We first need a local fact for vertex roles.  Take unit vectors
+We first need a local fact for vertex triangles.  Take unit vectors
 \[
  u=\left(\frac12,\frac{\sqrt3}{2}\right),\qquad
  v=\left(\frac12,-\frac{\sqrt3}{2}\right).
@@ -533,7 +533,7 @@ Let a closed unit triangle contain
 \[
  0,\qquad au,\qquad bv,\qquad \frac{u+v}{2}.
 \]
-Then $a+b\le1$.  Consequently, for every vertex role,
+Then $a+b\le1$.  Consequently, for every vertex triangle,
 \[
  M_i\in T_i\quad\Longrightarrow\quad A_i+B_i\le1.
 \]
@@ -578,7 +578,7 @@ so again $S_{AM}>\sqrt3/2$.  The fourth edge is symmetric.  Every enclosing
 equilateral triangle therefore has side greater than one, a contradiction.
 
 If equality $a+b=1$ occurred while all relevant points had positive margin,
-both boundary demands could be increased slightly; the closed conclusion
+both boundary reach lower bounds could be increased slightly; the closed conclusion
 would then be violated.
 \end{proof}
 
@@ -609,27 +609,27 @@ overlap and contains both $M_0$ and $M_1$.
 \begin{proposition}[Exhaustive structural reduction]
 \label{prop:exhaustive-structural-reduction}
 Every hypothetical cover by seven open unit equilateral triangles admits the
-distinct center and vertex roles used in Table~\ref{tab:routing}, and its
-actual reaches determine exactly one V triangle of that table.
+distinct center and vertex triangles used in Table~\ref{tab:routing}, and its
+maximal reaches determine exactly one vertex triangle of that table.
 \end{proposition}
 
 \begin{proof}
-Lemma~\ref{lem:distinct-roles} gives the seven roles.
+Lemma~\ref{lem:distinct-roles} gives the seven triangles.
 Propositions~\ref{prop:ce-classification} and
 \ref{prop:vertex-classification} give the exhaustive and mutually exclusive
-center and vertex types.  The actual reaches determine exactly one of
+center and vertex types.  The maximal reaches determine exactly one of
 $N_+=0$, $N_+=1$, and $N_+\ge2$.  For CE0 these data and the vertex
-classification give the five displayed V triangles.
+classification give the five displayed vertex triangles.
 
 Now suppose the center is CE1 or CE2.  It contains exactly one radial
 midpoint by Proposition~\ref{prop:unique-center-midpoint}.  Lemma
 \ref{lem:short-role-count} gives $q=N_++m$, and
 Lemma~\ref{lem:positive-support-rescuer}, together with the disjoint count,
-shows that $N_+\ge2$ forces a third short role.  Hence every such branch
-either enters the first CE1/CE2 V triangle or has $q\le2$ and $N_+\le1$.  If
+shows that $N_+\ge2$ forces a third short triangle.  Hence every such branch
+either enters the first CE1/CE2 vertex triangle or has $q\le2$ and $N_+\le1$.  If
 $N_+=0$, the vertex classification gives, in order, all $\Vdzero$, at least
-one $\Vdone/\Vdtwo$, or no such role and at least one $\Tlike$.  If
-$N_+=1$, then $q\le2$ implies $m\le1$: the roles are all $\Vdzero$, exactly
+one $\Vdone/\Vdtwo$, or no such triangle and at least one $\Tlike$.  If
+$N_+=1$, then $q\le2$ implies $m\le1$: the triangles are all $\Vdzero$, exactly
 one $\Tlike$, or exactly one $\Vdone/\Vdtwo$.  In the all-$\Vdzero$ case,
 Lemma~\ref{lem:gap-exhaustion} supplies the exhaustive zero-gap/nonempty-gap
 split.  These alternatives are disjoint, proving the claim.

@@ -69,7 +69,7 @@ and recursively
  Y_3=T(1-d,Y_2).
 \]
 
-\begin{definition}[Problem S2-R1: CE1 returned demand]
+\begin{definition}[Problem S2-R1: CE1 propagated lower bound]
 \label{prob:s2-ce1-five-chain}
 For \((r,a,d)\in\mathcal D_1\), define
 \[
@@ -85,7 +85,7 @@ The optimization problem is
 \]
 \end{definition}
 
-\begin{definition}[Problem S2-R2: CE2 returned demand]
+\begin{definition}[Problem S2-R2: CE2 propagated lower bound]
 \label{prob:s2-ce2-five-chain}
 For \((r,a,d)\in\mathcal D_2\), define
 \[
@@ -99,7 +99,9 @@ The optimization problem is
  ((r,a,d)\in\mathcal D_2).
  }
 \]
-The required threshold condition is an inclusive disjunction: at least one
-of the two stated threshold cells holds.  No uniqueness or disjointness
-condition is added.
+The proof uses the inclusive disjunction
+\[
+ e(a)<Y_0\quad\text{or}\quad e(d)<Y_0.
+\]
+Both inequalities may hold; no uniqueness is asserted.
 \end{definition}

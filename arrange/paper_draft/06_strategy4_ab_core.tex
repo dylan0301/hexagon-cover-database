@@ -1,16 +1,16 @@
-\section{The Direct Nine-Point Obstruction}
+\section{Detailed Nine-Point Enclosure Argument}
 \label{sec:ab-core}
 
 This section supplies the exact frontier, witness, sign, and cap-overlap
 calculations for the direct nine-point obstruction.
 
 This section proves a center-class-independent theorem.  Its hypotheses are
-that all six vertex roles are $\Vdzero$, that they cover the full boundary,
-and that exactly one actual boundary V triangle is supercritical.  The theorem will
+that all six vertex triangles are $\Vdzero$, that they cover the full boundary,
+and that exactly one actual boundary vertex triangle is supercritical.  The theorem will
 therefore apply both to the $\CEzero$ branch and to the zero-gap subcases of
 $\CEone$ and $\CEtwo$.  Six common radial points and three asymmetric points
-are excluded directly from all six actual vertex roles and are therefore
-forced into the center role.  Only the unique supercritical V triangle uses an
+are excluded directly from all six actual vertex triangles and are therefore
+forced into the center triangle.  Only the unique supercritical vertex triangle uses an
 $AB$-union; no nonsupercritical model core is introduced.
 
 \input{appendix_certificates}
@@ -178,39 +178,39 @@ $a(4-(1-D)^2)>0$ and $b(4-(1-D)^2)>0$.  This proves the asserted four-piece
 order.
 \end{proof}
 
-\subsection{Exact-one handoffs and common demands}
+\subsection{Exact-one handoffs and common reach bounds}
 
 \begin{lemma}[Exact-one handoff chain]
 \label{lem:ab-extreme-jump}
-Assume the six vertex roles cover $\partial H$ and exactly one actual V triangle is
+Assume the six vertex triangles cover $\partial H$ and exactly one actual vertex triangle is
 supercritical.  Rotate its index to $4$.  The strict handoffs supplied by
 Proposition~\ref{prop:strict-handoffs} satisfy
 \[
- x_3<x_2<x_1<x_0<x_5<x_4.                       \label{eq:extreme-chain}
+ \xi_3<\xi_2<\xi_1<\xi_0<\xi_5<\xi_4.                       \label{eq:extreme-chain}
 \]
 With
 \[
- a=1-x_3,\qquad b=x_4,\qquad p=1-b,\qquad q=1-a,
+ a=1-\xi_3,\qquad b=\xi_4,\qquad p=1-b,\qquad q=1-a,
 \]
 one has
 \begin{equation}
  0<a,b<1,\qquad a+b>1,\qquad a^2+ab+b^2<1,       \label{eq:ab-strict-domain}
 \end{equation}
-and every selected V triangle obeys
+and every selected vertex triangle obeys
 \[
  a_i\ge p,\qquad b_i\ge q.
 \]
 \end{lemma}
 
 \begin{proof}
-Every selected V triangle other than $4$ is strictly nonsupercritical, so
-$x_i<x_{i-1}$ for $i\ne4$, which is precisely
-\eqref{eq:extreme-chain}.  In particular $x_3$ is the global minimum and
-$x_4$ the global maximum.  The two anchors of V triangle $4$ lie in its open role;
+Every selected vertex triangle other than $4$ is strictly nonsupercritical, so
+$\xi_i<\xi_{i-1}$ for $i\ne4$, which is precisely
+\eqref{eq:extreme-chain}.  In particular $\xi_3$ is the global minimum and
+$\xi_4$ the global maximum.  The two anchors of vertex triangle $4$ lie in its open triangle;
 their mutual squared distance is $a^2+ab+b^2$, strictly below the diameter
 squared of the closed unit triangle.  This proves \eqref{eq:ab-strict-domain}.
-Finally every $x_j\in[x_3,x_4]$, so
-$1-x_{i-1}\ge1-x_4=p$ and $x_i\ge x_3=q$.
+Finally every $\xi_j\in[\xi_3,\xi_4]$, so
+$1-\xi_{i-1}\ge1-\xi_4=p$ and $\xi_i\ge \xi_3=q$.
 \end{proof}
 
 \subsection{Six directly forced radial points}
@@ -276,16 +276,16 @@ Thus $A_0>E$ and $c_*>1-m$.  This proves
 
 Fix $i$.  If $D_i\in U_i$, openness supplies $\varepsilon>0$ with
 $c_*+\varepsilon<1$ such that
-$(1-c_*-\varepsilon)V_i\in U_i$.  The same role contains its two selected
-handoff anchors.  Since their incoming and outgoing demands dominate $p$ and
+$(1-c_*-\varepsilon)V_i\in U_i$.  The same triangle contains its two selected
+handoff anchors.  Since their incoming and forward-reach lower bounds dominate $p$ and
 $q$, convexity and passage to the closure give a closed unit triangle
 realizing $(p,q,c_*+\varepsilon)$.  This contradicts the definition of
 $c_*=c_{\max}(p,q)$.  Hence $D_i\notin U_i$.
 
 If $D_i$ belonged to $U_{i-1}$ or $U_{i+1}$, a small plane ball inside that
-open role would meet the adjacent radial arm $r_i$ in a positive-length
+open triangle would meet the adjacent radial arm $r_i$ in a positive-length
 interval.  This contradicts the $\Vdzero$ definition.  For the remaining
-roles put $r=1-c_*>0$.  Directly,
+triangles put $r=1-c_*>0$.  Directly,
 \[
  \lVert rV_i-V_{i\pm2}\rVert^2=1+r+r^2>1,
  \qquad
@@ -293,7 +293,7 @@ roles put $r=1-c_*>0$.  Directly,
 \]
 Since $V_j\in U_j$ and two points of an open unit triangle are at distance
 strictly below $1$, these inequalities exclude $D_i$ from the other three
-vertex roles.  Thus no vertex role contains $D_i$.  The point lies in
+vertex triangles.  Thus no vertex triangle contains $D_i$.  The point lies in
 $\interior(H)$ by \eqref{eq:cstar-bounds}, so the assumed cover forces
 $D_i\in U_C$.
 
@@ -308,7 +308,7 @@ coordinates
  P=V_4+u(V_5-V_4)+v(V_3-V_4),\qquad
  \mathsf q(u,v)=u^2+v^2-uv.
 \]
-The outgoing demand is $b$ and the incoming demand is $a$.  Accordingly,
+The forward-reach lower bound is $b$ and the backward-reach lower bound is $a$.  Accordingly,
 set
 \begin{align*}
  \alpha&=\frac{h(b+2a-bD)}{2\rho},&
@@ -352,7 +352,7 @@ Let $\lambda_-$ and $\mu_+$ be their first roots; explicitly,
  -\frac23\sqrt{9(\delta+a\gamma)^2-9a^2+9a-6}.
 \end{align*}
 
-\begin{lemma}[Moving adjacent-role signs]
+\begin{lemma}[Moving adjacent-triangle signs]
 \label{lem:fixed-line-signs}
 Throughout \eqref{eq:ab-strict-domain},
 \begin{equation}
@@ -540,7 +540,7 @@ a sufficiently small plane ball about it would lie both in $U_4$ and in the
 interior of the corner cone, making the witness an interior point of
 $\mathcal R(b,a)$.  This contradiction excludes $U_4$.
 
-For the roles $U_0,U_1,U_2$, their contained vertices have local coordinates
+For the triangles $U_0,U_1,U_2$, their contained vertices have local coordinates
 \[
  \begin{array}{c|ccc}
  i&0&1&2\\ \hline
@@ -571,12 +571,12 @@ gives
 Since two points in one open unit equilateral triangle have distance strictly
 less than one, these inequalities exclude $U_0,U_1,U_2$.
 
-The actual handoff $X_5=C_5(x_5)$ belongs to $U_5$, and
-$1-a<x_5<b$ by \eqref{eq:extreme-chain}.  The three signs in
+The actual handoff $X_5=C_5(\xi_5)$ belongs to $U_5$, and
+$1-a<\xi_5<b$ by \eqref{eq:extreme-chain}.  The three signs in
 \eqref{eq:moving-right-signs} therefore put every witness at distance at
-least one from $X_5$, excluding $U_5$.  Similarly, if $y=1-x_2$, then
+least one from $X_5$, excluding $U_5$.  Similarly, if $y=1-\xi_2$, then
 $1-b<y<a$, $X_2=C_3(y)\in U_3$, and the reflected signs exclude $U_3$.
-Thus no vertex role contains any witness.  The assumed cover now forces all
+Thus no vertex triangle contains any witness.  The assumed cover now forces all
 three interior witnesses into $U_C$.
 \end{proof}
 
@@ -695,7 +695,7 @@ For the two equal-radius overlaps it is enough to prove
  \qquad
  \frac{\operatorname{cross}(B,C)}{\lVert C-B\rVert}\ge\tau.  \label{eq:adjacent-overlaps}
 \end{equation}
-We record the exact analytic verification.  By reflection take $a\le b$ and
+We now give the exact analytic verification.  By reflection take $a\le b$ and
 set $m=1-b$, $M=1-a$, $U=a+b-1$, $s=m+M$, and $w=M-m$.  The smaller of the
 two normalized left sides in \eqref{eq:adjacent-overlaps} is
 \begin{equation}

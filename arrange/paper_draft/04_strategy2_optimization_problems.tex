@@ -1,18 +1,11 @@
-\section{Strategy 2 as Real-Variable Optimization}
+\section{Finite Inequalities for Boundary-Reach Propagation}
 \label{sec:strategy2-optimization-problems}
 
-This appendix is the formalization interface for the scalar part of
-Strategy~2.  Every registered problem contains only:
-\begin{enumerate}
-\item finitely many real input variables;
-\item explicit radical or rational derived functions;
-\item a finite union of branchwise semialgebraic cells;
-\item an objective or recurrence; and
-\item a required strict or weak sign.
-\end{enumerate}
-No hexagon, triangle, boundary edge, role type, translated object, placement
-coordinate, or supremum occurs in a problem definition.  The sole dictionary
-back to geometry is Appendix~\ref{sec:strategy2-parameter-bridges}.
+This appendix states the finite real-variable inequalities used by Method~2.
+Each statement contains only finitely many real variables, explicit radical or
+rational functions, a finite union of semialgebraic cells, and a required sign.
+The geometric derivation of the variables is given in
+Appendix~\ref{sec:strategy2-parameter-bridges}.
 
 \input{04_strategy2_optimization_core}
 \input{04_strategy2_optimization_registered}
@@ -20,29 +13,3 @@ back to geometry is Appendix~\ref{sec:strategy2-parameter-bridges}.
 \input{04_strategy2_optimization_t3}
 \input{04_strategy2_optimization_rescuer}
 \input{04_strategy2_optimization_vd}
-
-\subsection{Formalization status}
-
-\begin{table}[H]
-\centering
-\small
-\renewcommand{\arraystretch}{1.12}
-\begin{tabular}{@{}p{.16\textwidth}p{.30\textwidth}p{.18\textwidth}p{.25\textwidth}@{}}
-\toprule
-identifier&input and objective&interface status&proof status\\
-\midrule
-S2-E1&three variables, two evaluations of \(F\)&ready&Theorem~\ref{thm:s2-pure-e1}\\
-S2-E2&three variables, two evaluations of \(F\)&ready&Theorem~\ref{thm:s2-pure-e2}\\
-S2-R1&three variables, three-step recurrence&ready&Theorem~\ref{thm:s2-pure-r1}\\
-S2-R2&three variables, three-step recurrence&ready&Theorem~\ref{thm:s2-pure-r2}\\
-S2-T3&finite residual, radial, and label cells&ready&Theorem~\ref{thm:s2-pure-t3}\\
-S2-SC&two explicit rational-radical source cells&ready&Theorem~\ref{thm:s2-pure-sc}\\
-S2-VD&explicit residual and corner graph cells&ready&Theorems~\ref{thm:s2-pure-vd-adjacent}, \ref{thm:s2-pure-vd-nonadjacent}\\
-replacement&two geometric charts&not an optimization problem&proved geometrically\\
-\bottomrule
-\end{tabular}
-\caption{Strategy~2 optimization-interface status.  ``Ready'' means that the
-problem statement is free of geometric predicates; it does not mean that a
-proof-assistant proof has been completed.}
-\label{tab:s2-formalization-status}
-\end{table}

@@ -1,4 +1,4 @@
-\section{Registered Strategy 2 Applications}
+\subsection{Applications to the geometric cases}
 \label{sec:strategy2-reader}
 
 This section contains only the application layer.  The geometry-to-parameter
@@ -17,33 +17,33 @@ identifier&objective&verification owner\\
 \midrule
 S2-E1&one-gap endpoint sum \(<1\)&Theorem~\ref{thm:s2-pure-e1}\\
 S2-E2&paired endpoint sum \(<1\)&Theorem~\ref{thm:s2-pure-e2}\\
-S2-R1&CE1 returned demand \(>1-X\)&Theorem~\ref{thm:s2-pure-r1}\\
-S2-R2&CE2 returned demand \(>1-X\)&Theorem~\ref{thm:s2-pure-r2}\\
-S2-T3&finite four-label endpoint sum \(<1\)&Theorem~\ref{thm:s2-pure-t3}\\
+S2-R1&CE1 propagated lower bound \(>1-X\)&Theorem~\ref{thm:s2-pure-r1}\\
+S2-R2&CE2 propagated lower bound \(>1-X\)&Theorem~\ref{thm:s2-pure-r2}\\
+S2-T3&finite four-branch endpoint sum \(<1\)&Theorem~\ref{thm:s2-pure-t3}\\
 S2-SC&two explicit source cells&Theorem~\ref{thm:s2-pure-sc}\\
 S2-VD&adjacent and nonadjacent radial signs&Theorems~\ref{thm:s2-pure-vd-adjacent} and \ref{thm:s2-pure-vd-nonadjacent}\\
 \bottomrule
 \end{tabular}
-\caption{Registered Strategy~2 calculations and their verification owners.}
+\caption{Registered Method~2 calculations and their verification owners.}
 \label{tab:strategy2-chain-signatures}
 \end{table}
 
-\subsection{All-Vd0 applications}
+\subsubsection{All-Vd0 applications}
 
 \begin{proposition}[Common CE2 two-gap application]
 \label{prop:reader-common-two-gap}
 Assume both CE2 center traces contain V-gaps and
-\(T_1,\ldots,T_5\) are nonsupercritical Vd0 roles.  Then the perimeter is not
+\(T_1,\ldots,T_5\) are nonsupercritical Vd0 triangles.  Then the perimeter is not
 covered.  No hypothesis on the criticality of \(T_0\) is required.
 \end{proposition}
 
 \begin{proof}
-The bridge identifies the endpoint record with Problem S2-E2.  Theorem~\ref{thm:s2-pure-e2} makes its objective negative, so the two endpoint capacities sum to less than one.  The three
-intervening roles form the center-free path required by
+The bridge identifies the endpoint parameters with Problem S2-E2.  Theorem~\ref{thm:s2-pure-e2} makes its objective negative, so the two endpoint capacities sum to less than one.  The three
+intervening triangles form the center-free path required by
 Lemma~\ref{lem:reader-boundary-path}, giving the contradiction.
 \end{proof}
 
-For the one-gap return, all five radial demands exceed $1/2$; retain the exact raw forward notation
+For the one-gap return, all five radial lower bounds exceed $1/2$; retain the exact raw forward notation
 \begin{equation}
  Z=
  [g_{c_1}^\vee\mid
@@ -53,7 +53,7 @@ For the one-gap return, all five radial demands exceed $1/2$; retain the exact r
   g_{c_5}^\vee](X).
  \label{eq:reader-exact-five-chain}
 \end{equation}
-The bridge gives \(A_0\ge Z\) and \(A_0<1-H\).  The registered reverse
+The parameter derivation gives \(A_0\ge Z\) and \(A_0<1-H\).  The reverse
 three-update target is
 \begin{equation}
  [g_{1-\alpha}^\vee
@@ -83,17 +83,17 @@ orientation.
 \begin{proof}
 Problem S2-R2 is Theorem~\ref{thm:s2-pure-r2}.  Its threshold
 condition is an inclusive disjunction: at least one of the two locations
-fires, and both may fire.  Reflection reverses the five-role order and
+fires, and both may fire.  Reflection reverses the five-triangle order and
 exchanges the two signed slacks.
 \end{proof}
 
-\subsection{Registered special-role applications}
+\subsubsection{Special-triangle applications}
 
-The universal proof owners are:
+The universal proof sections are:
 \begin{itemize}
 \item high-radial S2-T3: Theorem~\ref{thm:s2-pure-t3}, with objective
 identification in Proposition~\ref{prop:s2-t3-objective-bridge}; the
-low-radial endpoint is the direct right-Full row of
+low-radial endpoint is the direct right-linear row of
 Theorem~\ref{thm:paper-complete-t3-endpoint};
 \item S2-SC: Theorem~\ref{thm:s2-pure-sc};
 \item adjacent S2-VD: Theorem~\ref{thm:s2-pure-vd-adjacent};
@@ -103,14 +103,14 @@ The remaining two-chart replacement is
 Proposition~\ref{prop:paper-vd1-pair-replacement}; it is geometric rather
 than an optimization problem.
 
-\begin{proposition}[Branches closed by registered Strategy 2 problems]
+\begin{proposition}[Cases excluded by Strategy 2]
 \label{prop:reader-demand-branches}
-Strategy~2 closes:
+Method~2 closes:
 \begin{enumerate}
 \item the \(N_+=0\) all-Vd0 and T3-like-without-Vd1/Vd2 branches for CE1 and
 CE2;
 \item every nonempty-gap \(N_+=1\) all-Vd0 state;
-\item the exactly-one-T3-like \(N_+=1\) state with no Vd1/Vd2 role;
+\item the exactly-one-T3-like \(N_+=1\) state with no Vd1/Vd2 triangle;
 \item the complementary transfer placements in the CE2, \(N_+=1\),
 exactly-one-Vd1/Vd2 branch.
 \end{enumerate}
@@ -118,8 +118,8 @@ Singleton V-gaps are included.
 \end{proposition}
 
 \begin{proof}
-Use Corollary~\ref{cor:s2-pure-registry} through the bridge propositions above,
+Use Corollary~\ref{cor:s2-pure-registry} together with the parameter derivations above,
 and use Theorem~\ref{thm:paper-complete-t3-endpoint} for the direct
-low-radial right-Full T3 endpoint.  The zero-gap \(N_+=1\) all-Vd0 cell
-remains the Strategy~4 nine-point obstruction.
+low-radial right-linear T3 endpoint.  The zero-gap \(N_+=1\) all-Vd0 cell
+remains the Method~4 nine-point obstruction.
 \end{proof}

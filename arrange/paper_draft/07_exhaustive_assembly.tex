@@ -1,31 +1,18 @@
-\section{Exhaustive Assembly}
+\section{Completion of the Proof}
 \label{sec:assembly}
 
 \begin{proof}[Proof of Theorem~\ref{thm:main}]
-Assume that seven open unit equilateral triangles cover $H$.
-Proposition~\ref{prop:body-structural-reduction} assigns the cover to exactly
-one entry of Table~\ref{tab:routing}, with $N_+$ computed from actual maximal
-reaches and, in the CE1/CE2 branch, $q=N_++m$.
-
-The Strategy~1 V triangles contradict
-Proposition~\ref{prop:body-length-branches}.  The Strategy~3 V triangles contradict
-Proposition~\ref{prop:body-area-branches}.  The all-Vd0, T3-like, and ordinary
-transfer V triangles contradict Proposition~\ref{prop:body-demand-branches};
-their certificate types and analytic problem identifiers are recorded in
-Table~\ref{tab:body-strategy2-chains}.  The complete CE2 exactly-one-Vd1/Vd2
-V triangle, including the neighboring-midpoint length subcase and every complementary
-placement, contradicts Proposition~\ref{prop:paper-ce2-one-vd-placements}.
-The zero-gap all-Vd0 V triangles contradict
-Proposition~\ref{prop:reader-ab-core-branches}; its two mixed cap overlaps are
-Theorem~\ref{thm:paper-exact-mixed-certificate}.
-
-No routing entry is omitted.  Singleton gaps remain gaps, every center-assisted
-handoff is treated by a residual map, every identity path has center-free
-internal edges, and no actual criticality classification is inferred from a
-selected demand pair.  Hence every entry of Table~\ref{tab:routing} is
-impossible, a contradiction.
+Assume that seven open unit equilateral triangles cover $H$.  By
+Proposition~\ref{prop:body-structural-reduction}, the cover lies in exactly one
+row of Table~\ref{tab:routing}.  The rows assigned to trace length are excluded
+by Proposition~\ref{prop:body-length-branches}; the rows assigned to area loss
+by Proposition~\ref{prop:body-area-branches}; the boundary-reach propagation
+rows by Proposition~\ref{prop:body-demand-branches} together with the complete
+CE2 one-$\Vdone/\Vdtwo$ positional case split in
+Proposition~\ref{prop:paper-ce2-one-vd-placements}; and the no-gap,
+all-$\Vdzero$ rows by Proposition~\ref{prop:reader-ab-core-branches}.  Hence
+every row is impossible, contradicting the assumed cover.
 \end{proof}
 
-\enlargethispage{\baselineskip}
 Corollary~\ref{cor:expanded-closed} follows from
 Proposition~\ref{prop:open-closed-scaled}.

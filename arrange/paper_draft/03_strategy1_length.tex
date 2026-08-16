@@ -1,4 +1,4 @@
-\section{Trace Budgets and Length Contradictions}
+\section{Detailed Trace-Length Estimates}
 \label{sec:length}
 
 This section develops the boundary and conditional-skeleton trace bounds used
@@ -8,8 +8,8 @@ For a closed triangle $T$ and a rectifiable target $E$, write
 \[
  L_E(T)=\mathcal H^1(T\cap E).
 \]
-The passage from an original open role $U$ to its closure $T=\overline U$
-can only enlarge the trace.  Hence a cover of $E$ by the open roles implies
+The passage from an original open triangle $U$ to its closure $T=\overline U$
+can only enlarge the trace.  Hence a cover of $E$ by the open triangles implies
 \begin{equation}
  \mathcal H^1(E)
  \le L_E(T_C)+\sum_{i=0}^5L_E(T_i).
@@ -20,7 +20,7 @@ valid for any assigned measurable subsets of those traces.
 
 The strategy uses only the perimeter $\partial H$ and the full skeleton
 $S$, whose measures were recorded in \eqref{eq:target-lengths}.  Every
-skeleton estimate below is conditional on its stated center and V triangle
+skeleton estimate below is conditional on its stated center and vertex triangle
 hypotheses; no unconditional noncoverage assertion for $S$ is made.
 
 \begin{figure}[H]
@@ -38,7 +38,7 @@ The first lemma is the center contribution.
 
 \begin{lemma}[Center skeleton cap]
 \label{lem:center-skeleton-cap}
-If $T_C$ is a CE1 or CE2 center role and contains exactly one radial
+If $T_C$ is a CE1 or CE2 center triangle and contains exactly one radial
 midpoint, then
 \[
  L_S(T_C)<\frac32.
@@ -114,7 +114,7 @@ Thus $K_R+P/W<3/2$.
 
 \begin{lemma}[Positive-support skeleton cap]
 \label{lem:positive-support-skeleton-cap}
-Let $T_i$ be the closure of an original open vertex role, so
+Let $T_i$ be the closure of an original open vertex triangle, so
 $V_i\in\mathrm{int}(T_i)$.  If $T_i$ has positive-length intersection with
 an adjacent radial arm, then
 \[
@@ -135,7 +135,7 @@ positive-length trace are
 \]
 All five belong to the skeleton $\widetilde S$ of $\widetilde H$.  Since
 $V_0=\widetilde O$ is interior to $T_0$, the triangle is a legitimate center
-role for $\widetilde H$.  Its positive adjacent-arm trace is a positive
+triangle for $\widetilde H$.  Its positive adjacent-arm trace is a positive
 boundary-edge trace of $\widetilde H$, so it is CE1 or CE2 by
 Proposition~\ref{prop:ce-classification}.  Proposition
 \ref{prop:unique-center-midpoint} and Lemma~\ref{lem:center-skeleton-cap}
@@ -150,7 +150,7 @@ $L_S(T_0)\le L_{\widetilde S}(T_0)$.
 
 \begin{lemma}[No-support skeleton cap]
 \label{lem:no-support-skeleton-cap}
-If a vertex role has $A_i+B_i\le1$ and no positive-length trace on either
+If a vertex triangle has $A_i+B_i\le1$ and no positive-length trace on either
 adjacent radial arm, then
 \[
  L_S(T_i)\le2.
@@ -203,11 +203,11 @@ If $A_i+B_i>1$, then
 \end{lemma}
 
 \begin{proof}
-By Proposition~\ref{prop:vertex-classification}, a vertex role is Vd0,
+By Proposition~\ref{prop:vertex-classification}, a vertex triangle is Vd0,
 Vd1, Vd2, or T3-like.  Proposition~\ref{prop:vd-corner-normal-form} makes
-every Vd1/Vd2 V triangle nonsupercritical, and
-Lemma~\ref{lem:t3-nonsupercritical} does the same for T3-like V triangles.  Hence a
-supercritical role is Vd0 and, by definition, has no positive-length trace on
+every Vd1/Vd2 vertex triangle nonsupercritical, and
+Lemma~\ref{lem:t3-nonsupercritical} does the same for T3-like vertex triangles.  Hence a
+supercritical triangle is Vd0 and, by definition, has no positive-length trace on
 either adjacent arm.  Thus, after normalizing and writing $a=A_i$, $b=B_i$,
 the skeleton trace has length $a+b+c$, where $c$ is the own-arm reach.
 Reflect so that $a\le b$, and put
@@ -247,18 +247,18 @@ equals $88/3-136\sqrt3/9>0$.  Hence $P(c_0)>0$.  Since
 $P(c)\le0$ forces $c<c_0$.  Thus $a+b+c<3/2$.
 \end{proof}
 
-\begin{lemma}[A positive-support rescuer is forced]
+\begin{lemma}[A positive-support adjacent exceptional triangle is forced]
 \label{lem:positive-support-rescuer}
 Suppose $T_C$ is CE1 or CE2 and, after symmetry, contains exactly $M_0$.  If
-at least two vertex V triangles are supercritical, then a vertex role distinct from
-a chosen supercritical role has positive-length adjacent-arm support.
+at least two vertex triangles are supercritical, then a vertex triangle distinct from
+a chosen supercritical triangle has positive-length adjacent-arm support.
 \end{lemma}
 
 \begin{proof}
 Choose a supercritical index $s\ne0$.  Lemma~\ref{lem:self-midpoint} gives
 $M_s\notin T_s$, and $M_s\notin T_C$ by the unique-midpoint property.  In
 the original open cover, $M_s$ is therefore contained by some other open
-vertex role.  Diameter one restricts this role to $U_{s-1}$ or $U_{s+1}$.
+vertex triangle.  Diameter one restricts this triangle to $U_{s-1}$ or $U_{s+1}$.
 Because it contains an interior point of the adjacent arm, its intersection
 with that arm has positive length.
 \end{proof}
@@ -275,7 +275,7 @@ $\lVert(x,y)\rVert^2=x^2+y^2-xy$.
 
 \begin{proposition}[Vd1/Vd2 corner normal form]
 \label{prop:vd-corner-normal-form}
-Let $T$ be the closure of an original Vd1 or Vd2 role at $V_0$, and let
+Let $T$ be the closure of an original Vd1 or Vd2 triangle at $V_0$, and let
 $a,b$ be its exact reaches toward $V_5,V_1$.  There is a unique $t>0$ such
 that, with $d=\sqrt{t^2+t+1}$,
 \[
@@ -344,7 +344,7 @@ Reflection proves the same conclusion when the supported arm is $r_5$.
 
 \begin{lemma}[Vd2 neighboring-midpoint cap]
 \label{lem:vd2-neighbor-midpoint-cap}
-If an original Vd2 role contains either neighboring midpoint, then its exact
+If an original Vd2 triangle contains either neighboring midpoint, then its exact
 boundary reaches satisfy
 \[
  a+b<\frac13.
@@ -399,10 +399,10 @@ one formula; no separate maximal-interval calculation is needed here.
 
 \begin{theorem}[Boundary trace table]
 \label{thm:boundary-trace-table}
-For closures of original open roles, the following bounds hold:
+For closures of original open triangles, the following bounds hold:
 \[
  \begin{array}{c|c|c}
- \text{role}&\text{hypothesis}&L_{\partial H}\\ \hline
+ \text{triangle}&\text{hypothesis}&L_{\partial H}\\ \hline
  T_C&\mathrm{CE0}&0\\
  T_C&\mathrm{CE1}&\le\dfrac{\sqrt3}{2}-\dfrac34\\[3pt]
  T_C&\mathrm{CE2}&<\dfrac12\\[3pt]
@@ -416,7 +416,7 @@ For closures of original open roles, the following bounds hold:
 \end{theorem}
 
 \begin{proof}
-For every vertex role,
+For every vertex triangle,
 \begin{equation}
  L_{\partial H}(T_i)=A_i+B_i.
  \label{eq:vertex-boundary-locality}
@@ -426,42 +426,42 @@ relative-interior point of any nonincident edge is more than unit distance
 from $V_i$, whereas $V_i$ is interior to the diameter-one triangle $T_i$.
 This excludes any other positive-length boundary trace.
 
-The CE0 V triangle is the definition.  Both remaining center V triangles are the two class
+The CE0 vertex triangle is the definition.  Both remaining center vertex triangles are the two class
 specializations of the common signed formula in
 Corollary~\ref{cor:signed-center-boundary}.
 
-For a nonsupercritical Vd0 V triangle, \eqref{eq:vertex-boundary-locality} is enough.
-For a supercritical V triangle, its incident endpoints are at squared distance
+For a nonsupercritical Vd0 vertex triangle, \eqref{eq:vertex-boundary-locality} is enough.
+For a supercritical vertex triangle, its incident endpoints are at squared distance
 $A_i^2+A_iB_i+B_i^2\le1$, and hence
 \[
  \frac34(A_i+B_i)^2\le1.
 \]
-This proves the $2/\sqrt3$ cap.  The Vd1/Vd2 V triangle is
+This proves the $2/\sqrt3$ cap.  The Vd1/Vd2 vertex triangle is
 \eqref{eq:vd-half-cap}.  Finally, the Type II calculation in
-Proposition~\ref{prop:t3-translation} gives for an original T3-like role
+Proposition~\ref{prop:t3-translation} gives for an original T3-like triangle
 \[
  A_i+B_i=z-\alpha<z<1
 \]
 because $0<t<1$ and $\alpha>0$.
 \end{proof}
 
-\subsection{Terminal length contradictions}
+\subsection{Final length contradictions}
 
 \begin{proposition}[Boundary-length branches]
 \label{prop:boundary-length-branches}
 The following branches are impossible:
 \begin{enumerate}
  \item CE0 with $N_+=0$;
- \item CE0 with $N_+=1$ and at least one Vd1/Vd2 role;
- \item CE1 or CE2 with $N_+=0$ and at least one Vd1/Vd2 role;
- \item CE1 with $N_+=1$ and at least one Vd1/Vd2 role;
- \item CE2 with $N_+=1$ and at least two Vd1/Vd2 roles.
+ \item CE0 with $N_+=1$ and at least one Vd1/Vd2 triangle;
+ \item CE1 or CE2 with $N_+=0$ and at least one Vd1/Vd2 triangle;
+ \item CE1 with $N_+=1$ and at least one Vd1/Vd2 triangle;
+ \item CE2 with $N_+=1$ and at least two Vd1/Vd2 triangles.
 \end{enumerate}
 \end{proposition}
 
 \begin{proof}
-In CE0, the center open role contains no relative-interior boundary point.
-No nonincident vertex role can contain such a point either.  Hence on every
+In CE0, the center open triangle contains no relative-interior boundary point.
+No nonincident vertex triangle can contain such a point either.  Hence on every
 edge the two incident open vertex traces form two nonempty relatively open
 sets covering a connected interval; they overlap in positive length.  Thus
 \[
@@ -478,8 +478,8 @@ Vd1/Vd2 caps.
 
 \begin{proposition}[Vd2 neighboring-midpoint branch]
 \label{prop:ce2-vd2-midpoint-length}
-Assume a CE2, $N_+=1$ configuration has exactly one Vd1/Vd2 role, that role
-is Vd2 and contains a neighboring midpoint, and all other vertex roles are
+Assume a CE2, $N_+=1$ configuration has exactly one Vd1/Vd2 triangle, that triangle
+is Vd2 and contains a neighboring midpoint, and all other vertex triangles are
 Vd0.  Then the boundary cannot be covered.
 \end{proposition}
 
@@ -488,26 +488,26 @@ This is item (5) of Corollary~\ref{cor:signed-budget-branches}, using
 Lemma~\ref{lem:vd2-neighbor-midpoint-cap}.
 \end{proof}
 
-\begin{proposition}[Branches closed by Strategy 1]
+\begin{proposition}[Branches closed by Method 1]
 \label{prop:length-branches}
 Direct length-sum obstructions close the following routing entries and hybrid
 subcase:
 \begin{enumerate}
  \item CE0, $N_+=0$;
- \item CE0, $N_+=1$, with a Vd1/Vd2 role;
+ \item CE0, $N_+=1$, with a Vd1/Vd2 triangle;
  \item CE1/CE2 with $q=N_++m\ge3$;
- \item CE1/CE2, $N_+=0$, with a Vd1/Vd2 role;
- \item CE1, $N_+=1$, with exactly one Vd1/Vd2 role and no T3-like role;
+ \item CE1/CE2, $N_+=0$, with a Vd1/Vd2 triangle;
+ \item CE1, $N_+=1$, with exactly one Vd1/Vd2 triangle and no T3-like triangle;
  \item the Vd2 neighboring-midpoint subcase of the CE2 hybrid routing entry.
 \end{enumerate}
 \end{proposition}
 
 \begin{proof}
 Items (1), (2), (4), and (5) are
-Proposition~\ref{prop:boundary-length-branches}.  Item (3) is the short-role
-count and the three-short-role theorem in
+Proposition~\ref{prop:boundary-length-branches}.  Item (3) is the short-triangle
+count and the three-short-triangle theorem in
 Corollary~\ref{cor:signed-budget-branches}.  Item (6) is
 Proposition~\ref{prop:ce2-vd2-midpoint-length}.  This is only the indicated
-subcase of the exceptional CE2 V triangle; its remaining placements are handled by
-the exact-demand strategy.
+subcase of the exceptional CE2 vertex triangle; its remaining placements are handled by
+the boundary-reach argument.
 \end{proof}

@@ -1,10 +1,31 @@
-\section{Strategy 3: Area Loss}
+\section{Area-Loss Estimate}
 \label{sec:strategy3-summary}
 
-Normalize the area of a unit equilateral triangle to one.  Then $H$ has area
-six.  For a vertex role with selected adjacent boundary reaches $a,b$, let
-$\mathcal L(a,b)$ be the least normalized area forced outside the local
-hexagonal wedge.
+Let
+\[
+ A_\triangle=\frac{\sqrt3}{4}
+\]
+be the area of a unit equilateral triangle.  For $a,b\in[0,1]$, let
+$\mathcal T(a,b)$ be the family of closed unit equilateral triangles
+containing
+\[
+ V_0,
+ \qquad
+ V_0+a(V_5-V_0),
+ \qquad
+ V_0+b(V_1-V_0).
+\]
+Define the least normalized area forced outside the hexagon by
+\[
+ \mathcal L(a,b)=
+ \inf_{T\in\mathcal T(a,b)}
+ \frac{\operatorname{area}(T\setminus H)}{A_\triangle}.
+\]
+By reflection in the radial axis,
+\[
+ \mathcal L(a,b)=\mathcal L(b,a).
+\]
+The normalized area of $H$ is six.
 
 \begin{figure}[H]
 \centering
@@ -20,14 +41,14 @@ hexagonal wedge.
 \par\smallskip
 \footnotesize (b) cyclic sum
 \end{minipage}
-\caption{Strategy~3.  The picture supplies intuition only; the proof uses the
-three inequalities in Proposition~\ref{prop:body-area-register}.}
+\caption{Local normalized area loss and its cyclic sum over the six vertex
+triangles.}
 \label{fig:body-area-loss}
 \end{figure}
 
-\begin{proposition}[Area-loss register]
+\begin{proposition}[Local area-loss bounds]
 \label{prop:body-area-register}
-For every feasible selected pair,
+For every feasible selected reach pair,
 \[
  \mathcal L(a,b)\ge\min\{a,b\}^2.
 \]
@@ -35,65 +56,105 @@ If $a+b>1$, then
 \[
  \mathcal L(a,b)\ge\max\{a,b\}^2.
 \]
-For a $\Tlike$ role, $a+b\le1$, and for $0\le m\le1/2$,
+For a $\Tlike$ triangle, $a+b\le1$, and for $0\le\mu\le1/2$,
 \[
- a,b\ge m\quad\Longrightarrow\quad
- \mathcal L(a,b)\ge2m-4m^2.
+ a,b\ge\mu
+ \quad\Longrightarrow\quad
+ \mathcal L(a,b)\ge2\mu-4\mu^2.
 \]
 \end{proposition}
 
 \begin{proof}
 These are Theorems~\ref{thm:local-square-loss} and
-\ref{thm:t3-direct-loss}.  Appendix~\ref{sec:area} reduces every orientation
-to two affine normal forms and proves the inequalities there.  The body uses
-only the three displayed losses.
+\ref{thm:t3-direct-loss}.
 \end{proof}
 
-Suppose strict boundary handoffs are selected and encoded by
+Assume the six vertex triangles cover $\partial H$.  Choose strict handoff
+parameters
 \[
- (a_i,b_i)=(1-x_{i-1},x_i),\qquad 0<x_i<1.
+ \xi_i\in(1-A_{i+1},B_i)
 \]
+and set
+\[
+ (a_i,b_i)=(1-\xi_{i-1},\xi_i).
+\]
+Call index $i$ an \emph{ascent} when
+\[
+ \xi_{i-1}<\xi_i.
+\]
+Equivalently, the selected reaches of $T_i$ satisfy $a_i+b_i>1$.
+
+\begin{lemma}[Ascent structure]
+\label{lem:body-ascent-structure}
+The handoff parameters may be chosen so that:
+\begin{enumerate}
+\item if at least two vertex triangles are supercritical, at least two indices
+are ascents;
+\item if exactly one vertex triangle, indexed by $p$, is supercritical, then
+$p$ is the unique ascent, $\xi_{p-1}$ is the global minimum, and $\xi_p$ is
+the global maximum.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+The first assertion is Proposition~\ref{prop:strict-handoffs}.  In the second
+case every nonsupercritical index is a strict descent, and the same proposition
+makes $p$ the unique ascent.  Traversing the remaining five indices therefore
+gives the stated minimum and maximum.
+\end{proof}
+
 Put
 \[
- \mu=\min_i x_i,\qquad M=\max_i x_i.
+ \mu=\min_i\xi_i,
+ \qquad
+ M=\max_i\xi_i.
 \]
-Reflection and reversal replace $x_i$ by $1-x_{-i-1}$, preserve every V triangle
-loss, and interchange $\mu$ with $1-M$.  Hence assume $\mu\le1-M$; then
-every coordinate $x_i$ and $1-x_i$ is at least $\mu$.
+Reflection and reversal replace $\xi_i$ by $1-\xi_{-i-1}$, preserve every
+local loss, and interchange $\mu$ with $1-M$.  Hence we may assume
+\[
+ \mu\le1-M.
+\]
+Then every $\xi_i$ and $1-\xi_i$ is at least $\mu$.
 
-If at least two V triangles are supercritical, one ascent out of a minimum plateau
-contributes at least $(1-\mu)^2$, a second ascent contributes strictly more
-than $1/4$, and the remaining four V triangles contribute at least $\mu^2$ each.
-The total loss is strictly larger than
+Suppose first that there are at least two supercritical vertex triangles.  By
+Lemma~\ref{lem:body-ascent-structure}, the handoff parameters may be chosen
+with at least two ascents.  At the first ascent leaving a cyclic block on which
+$\xi_i=\mu$, the corresponding triangle has one selected reach equal to
+$1-\mu$ and therefore loses at least $(1-\mu)^2$.  At a second ascent, one of
+the two selected reaches is strictly larger than $1/2$, so its loss is
+strictly larger than $1/4$.  Each of the remaining four triangles loses at
+least $\mu^2$.  Thus the total normalized loss is strictly larger than
 \[
  4\mu^2+(1-\mu)^2+\frac14
  =5\left(\mu-\frac15\right)^2+\frac{21}{20}>1.
 \]
-If there is exactly one supercritical V triangle, its unique ascent runs from the
-minimum to the maximum.  A distinct $\Tlike$ V triangle then contributes at least
-$2\mu-4\mu^2$, the supercritical V triangle contributes at least
-$(1-\mu)^2$, and the other four contribute at least $\mu^2$ each.  The sum
-is
+
+If there is exactly one supercritical vertex triangle,
+Lemma~\ref{lem:body-ascent-structure} shows that its unique ascent runs from
+the global minimum to the global maximum.  A distinct $\Tlike$ triangle loses
+at least $2\mu-4\mu^2$, the supercritical triangle loses at least
+$(1-\mu)^2$, and the other four triangles lose at least $\mu^2$ each.  The
+sum is
 \[
  (1-\mu)^2+(2\mu-4\mu^2)+4\mu^2=1+\mu^2>1.
 \]
-Thus the six vertex triangles have total inside area strictly below five; the
-center triangle adds at most one.
+In either case the six vertex triangles have total area inside $H$ strictly
+below five; the center triangle has area one.
 
-\begin{proposition}[Branches closed by Strategy 3]
+\begin{proposition}[Cases excluded by area loss]
 \label{prop:body-area-branches}
-Strategy~3 closes:
+The area-loss argument excludes:
 \begin{enumerate}
-\item $T_C$ is $\CEzero$ and $N_+\ge2$, with arbitrary vertex-role types;
-\item $T_C$ is $\CEzero$, $N_+=1$, no role is $\Vdone$ or $\Vdtwo$, and at
-least one role is $\Tlike$.
+\item $T_C$ is $\CEzero$ and $N_+\ge2$, for arbitrary vertex types;
+\item $T_C$ is $\CEzero$, $N_+=1$, no triangle is $\Vdone$ or $\Vdtwo$, and
+at least one triangle is $\Tlike$.
 \end{enumerate}
 \end{proposition}
 
 \begin{proof}
-In CE0 the six vertex roles cover the boundary, so
-Proposition~\ref{prop:body-structural-reduction} supplies strict selected
-handoffs preserving the actual supercritical pattern.  The two cyclic sums
-above apply.  This is Proposition~\ref{prop:area-branches}, whose local
-orientation calculations remain in Appendix~\ref{sec:area}.
+For CE0 the six vertex triangles cover $\partial H$, so
+Proposition~\ref{prop:body-structural-reduction} supplies strict handoff
+parameters preserving the maximal-reach supercritical pattern.  The two sums
+above apply.  The detailed local calculations are in
+Appendix~\ref{sec:area}.
 \end{proof}

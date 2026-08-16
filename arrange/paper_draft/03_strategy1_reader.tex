@@ -1,51 +1,55 @@
-\section{Strategy 1: Trace Budgets}
+\section{Method 1: Trace-Length Bounds}
 \label{sec:strategy1-summary}
 
 For a closed triangle $T$ and a rectifiable target $E$, write
 \[
  L_E(T)=\Haus(T\cap E).
 \]
-If the seven open roles cover $E$, closure and subadditivity give
+If the seven open triangles cover $E$, closure and subadditivity give
 \[
  \Haus(E)\le L_E(T_C)+\sum_{i=0}^5L_E(T_i).
 \]
-Strategy~1 contradicts this inequality on either $\partial H$ or the full
-skeleton $S$.
+Method~1 contradicts this inequality on either $\partial H$ or $S$.
 
 \begin{figure}[H]
 \centering
 \input{figures/strategy1_trace_targets}
-\caption{The perimeter and the conditional full-skeleton target.  The proof
-uses only the numerical trace caps stated below.}
+\caption{The perimeter and the full skeleton.  The skeleton is used only
+under the hypotheses of the corresponding trace bound.}
 \label{fig:strategy1-reader-targets}
 \end{figure}
 
-\begin{proposition}[Trace-cap register]
+\begin{proposition}[Trace bounds]
 \label{prop:body-trace-register}
-For every classified V triangle $T_i$, the boundary trace is supported on its
-two incident boundary edges, and therefore
+For every classified vertex triangle $T_i$, its boundary trace is supported on
+its two incident boundary edges, and therefore
 \[
  L_{\partial H}(T_i)=A_i+B_i.
 \]
-Under the hypotheses indicated in each table entry, the following unified
-trace bounds hold.
+Under the indicated hypotheses, the following bounds hold.
 \begin{center}
 \small
 \renewcommand{\arraystretch}{1.08}
-\begin{tabular}{p{.58\textwidth}c}
+\begin{tabular}{p{.64\textwidth}c}
 \toprule
-triangle role and target&upper bound\\
+triangle and target&upper bound\\
 \midrule
-CE1/CE2 center on $S$&$L_S(T_C)<3/2$\\
-supercritical vertex role on $S$&$L_S(T_i)<3/2$\\
-vertex role with positive adjacent-arm support on $S$&$L_S(T_i)<3/2$\\
-nonsupercritical role with no adjacent-arm support on $S$&$L_S(T_i)\le2$\\
-CE1 center on $\partial H$&$L_{\partial H}(T_C)\le\sqrt3/2-3/4$\\
-CE2 center on $\partial H$&$L_{\partial H}(T_C)<1/2$\\
-supercritical Vd0 V triangle on $\partial H$&$L_{\partial H}(T_i)\le2/\sqrt3$\\
-Vd1 or Vd2 V triangle on $\partial H$&$L_{\partial H}(T_i)<1/2$\\
-nonsupercritical Vd0 V triangle on $\partial H$&$L_{\partial H}(T_i)\le1$\\
-T3-like V triangle on $\partial H$&$L_{\partial H}(T_i)<1$\\
+CE1/CE2 center triangle on $S$&$L_S(T_C)<3/2$\\
+supercritical vertex triangle on $S$&$L_S(T_i)<3/2$\\
+vertex triangle meeting an adjacent radial segment in positive length on $S$&
+$L_S(T_i)<3/2$\\
+nonsupercritical vertex triangle with no such radial intersection on $S$&
+$L_S(T_i)\le2$\\
+CE1 center triangle on $\partial H$&
+$L_{\partial H}(T_C)\le\sqrt3/2-3/4$\\
+CE2 center triangle on $\partial H$&$L_{\partial H}(T_C)<1/2$\\
+supercritical $\Vdzero$ triangle on $\partial H$&
+$L_{\partial H}(T_i)\le2/\sqrt3$\\
+$\Vdone$ or $\Vdtwo$ triangle on $\partial H$&
+$L_{\partial H}(T_i)<1/2$\\
+nonsupercritical $\Vdzero$ triangle on $\partial H$&
+$L_{\partial H}(T_i)\le1$\\
+$\Tlike$ triangle on $\partial H$&$L_{\partial H}(T_i)<1$\\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -55,57 +59,74 @@ T3-like V triangle on $\partial H$&$L_{\partial H}(T_i)<1$\\
 The four skeleton bounds are Lemmas~\ref{lem:center-skeleton-cap},
 \ref{lem:supercritical-skeleton-cap},
 \ref{lem:positive-support-skeleton-cap}, and
-\ref{lem:no-support-skeleton-cap}.  The boundary bounds are the signed center
-formula and the vertex trace atlas in Appendix~\ref{sec:length}.
+\ref{lem:no-support-skeleton-cap}.  The boundary bounds are proved in
+Appendix~\ref{sec:length}.
 \end{proof}
 
-Two abstract sums explain every Strategy~1 route.  First, if there are
-$q\ge3$ short roles, Proposition~\ref{prop:body-trace-register} gives
+\begin{lemma}[Skeleton trace criterion]
+\label{lem:body-skeleton-trace-criterion}
+If $N_++N_{\mathrm{sp}}\ge3$, the seven triangles do not cover $S$.
+\end{lemma}
+
+\begin{proof}
+At least three vertex triangles have skeleton trace strictly below $3/2$,
+while every other vertex triangle has trace at most $2$.  Hence
 \[
  L_S(T_C)+\sum_iL_S(T_i)
- <\frac32+q\frac32+(6-q)2
- =\frac{27-q}{2}\le12,
+ <\frac32+(N_++N_{\mathrm{sp}})\frac32
+ +(6-N_+-N_{\mathrm{sp}})2
+ \le12=\Haus(S),
 \]
-contradicting $\Haus(S)=12$.
+contradicting subadditivity for a cover.
+\end{proof}
 
-Second, put
+\begin{lemma}[Perimeter trace criterion]
+\label{lem:body-perimeter-trace-criterion}
+Put
 \[
  \theta=\frac2{\sqrt3}-1.
 \]
-Suppose a perimeter branch has:
-\begin{itemize}
-\item center contribution $L_C$;
-\item $n$ supercritical Vd0 V triangles, each with contribution at most $2/\sqrt3$;
-\item $r\ge1$ distinguished nonsupercritical V triangles with strict caps
-$q_1,\ldots,q_r<1$;
-\item every remaining V triangle with contribution at most $1$.
-\end{itemize}
-If
+Suppose the center trace has length at most $L_C$, there are $n$
+supercritical $\Vdzero$ triangles, there are $s\ge1$ distinguished
+nonsupercritical vertex triangles with strict bounds
+$\lambda_1,\ldots,\lambda_s<1$, and every remaining vertex triangle has
+boundary trace at most one.  If
 \[
- L_C+n\theta\le\sum_{j=1}^r(1-q_j),
+ L_C+n\theta\le\sum_{j=1}^s(1-\lambda_j),
 \]
-then the total perimeter contribution is strictly below six.  This is the
-master perimeter deficit.  The fourth hypothesis is part of the statement; it
-is supplied in every application by the vertex classification and the actual
-supercritical count.
+then the seven triangles do not cover $\partial H$.
+\end{lemma}
 
-\begin{proposition}[Branches closed by Strategy 1]
+\begin{proof}
+The total boundary trace is strictly less than
+\[
+ L_C+n\frac2{\sqrt3}+\sum_{j=1}^s\lambda_j+(6-n-s)
+ =6+L_C+n\theta-\sum_{j=1}^s(1-\lambda_j)
+ \le6,
+\]
+contradicting $\Haus(\partial H)=6$.
+\end{proof}
+
+\begin{proposition}[Cases excluded by trace length]
 \label{prop:body-length-branches}
-Strategy~1 closes:
+Method~1 excludes:
 \begin{enumerate}
 \item $\CEzero$, $N_+=0$;
-\item $\CEzero$, $N_+=1$, with a $\Vdone/\Vdtwo$ role;
-\item CE1/CE2 with $q=N_++m\ge3$;
-\item CE1/CE2, $N_+=0$, with a $\Vdone/\Vdtwo$ role;
-\item CE1, $N_+=1$, with exactly one $\Vdone/\Vdtwo$ role and no $\Tlike$ role;
-\item the Vd2 neighboring-midpoint subcase of the CE2 hybrid routing entry.
+\item $\CEzero$, $N_+=1$, with a $\Vdone/\Vdtwo$ triangle;
+\item CE1/CE2 with $N_++N_{\mathrm{sp}}\ge3$;
+\item CE1/CE2, $N_+=0$, with a $\Vdone/\Vdtwo$ triangle;
+\item CE1, $N_+=1$, with exactly one $\Vdone/\Vdtwo$ triangle and no
+$\Tlike$ triangle;
+\item the CE2 subcase in which the unique $\Vdtwo$ triangle contains one of
+its two neighboring radial midpoints.
 \end{enumerate}
 \end{proposition}
 
 \begin{proof}
-The first branch is closed by the cyclic boundary sum.  The third branch is closed by the skeleton sum
-above.  The remaining branches substitute the center and distinguished vertex caps
-into the master perimeter deficit, with all unlisted V triangles bounded by one.
-The exact substitutions and strictness are Proposition~\ref{prop:length-branches}
-and Corollary~\ref{cor:signed-budget-branches}.
+The first case is the cyclic boundary sum.  The third follows from
+Lemma~\ref{lem:body-skeleton-trace-criterion}.  The remaining cases substitute
+the appropriate center and vertex bounds into
+Lemma~\ref{lem:body-perimeter-trace-criterion}.  The exact substitutions and
+strict inequalities are Proposition~\ref{prop:length-branches} and
+Corollary~\ref{cor:signed-budget-branches}.
 \end{proof}
