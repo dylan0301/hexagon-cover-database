@@ -5,12 +5,12 @@ This section supplies the exact frontier, witness, sign, and cap-overlap
 calculations for the direct nine-point obstruction.
 
 This section proves a center-class-independent theorem.  Its hypotheses are
-that all six vertex triangles are $\Vdzero$, that they cover the full boundary,
-and that exactly one actual boundary vertex triangle is supercritical.  The theorem will
+that all six V triangles are $\Vdzero$, that they cover the full boundary,
+and that exactly one actual boundary V triangle is supercritical.  The theorem will
 therefore apply both to the $\CEzero$ branch and to the zero-gap subcases of
 $\CEone$ and $\CEtwo$.  Six common radial points and three asymmetric points
-are excluded directly from all six actual vertex triangles and are therefore
-forced into the center triangle.  Only the unique supercritical vertex triangle uses an
+are excluded directly from all six actual V triangles and are therefore
+forced into the C triangle.  Only the unique supercritical V triangle uses an
 $AB$-union; no nonsupercritical model core is introduced.
 
 \input{appendix_certificates}
@@ -182,7 +182,7 @@ order.
 
 \begin{lemma}[Exact-one handoff chain]
 \label{lem:ab-extreme-jump}
-Assume the six vertex triangles cover $\partial H$ and exactly one actual vertex triangle is
+Assume the six V triangles cover $\partial H$ and exactly one actual V triangle is
 supercritical.  Rotate its index to $4$.  The strict handoffs supplied by
 Proposition~\ref{prop:strict-handoffs} satisfy
 \[
@@ -196,17 +196,17 @@ one has
 \begin{equation}
  0<a,b<1,\qquad a+b>1,\qquad a^2+ab+b^2<1,       \label{eq:ab-strict-domain}
 \end{equation}
-and every selected vertex triangle obeys
+and every selected V triangle obeys
 \[
  a_i\ge p,\qquad b_i\ge q.
 \]
 \end{lemma}
 
 \begin{proof}
-Every selected vertex triangle other than $4$ is strictly nonsupercritical, so
+Every selected V triangle other than $4$ is strictly nonsupercritical, so
 $\xi_i<\xi_{i-1}$ for $i\ne4$, which is precisely
 \eqref{eq:extreme-chain}.  In particular $\xi_3$ is the global minimum and
-$\xi_4$ the global maximum.  The two anchors of vertex triangle $4$ lie in its open triangle;
+$\xi_4$ the global maximum.  The two anchors of V triangle $4$ lie in its open triangle;
 their mutual squared distance is $a^2+ab+b^2$, strictly below the diameter
 squared of the closed unit triangle.  This proves \eqref{eq:ab-strict-domain}.
 Finally every $\xi_j\in[\xi_3,\xi_4]$, so
@@ -293,7 +293,7 @@ triangles put $r=1-c_*>0$.  Directly,
 \]
 Since $V_j\in U_j$ and two points of an open unit triangle are at distance
 strictly below $1$, these inequalities exclude $D_i$ from the other three
-vertex triangles.  Thus no vertex triangle contains $D_i$.  The point lies in
+V triangles.  Thus no V triangle contains $D_i$.  The point lies in
 $\interior(H)$ by \eqref{eq:cstar-bounds}, so the assumed cover forces
 $D_i\in U_C$.
 
@@ -576,7 +576,7 @@ $1-a<\xi_5<b$ by \eqref{eq:extreme-chain}.  The three signs in
 \eqref{eq:moving-right-signs} therefore put every witness at distance at
 least one from $X_5$, excluding $U_5$.  Similarly, if $y=1-\xi_2$, then
 $1-b<y<a$, $X_2=C_3(y)\in U_3$, and the reflected signs exclude $U_3$.
-Thus no vertex triangle contains any witness.  The assumed cover now forces all
+Thus no V triangle contains any witness.  The assumed cover now forces all
 three interior witnesses into $U_C$.
 \end{proof}
 

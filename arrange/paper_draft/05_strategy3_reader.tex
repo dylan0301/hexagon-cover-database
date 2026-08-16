@@ -69,7 +69,7 @@ These are Theorems~\ref{thm:local-square-loss} and
 \ref{thm:t3-direct-loss}.
 \end{proof}
 
-Assume the six vertex triangles cover $\partial H$.  Choose strict handoff
+Assume the six V triangles cover $\partial H$.  Choose strict handoff
 parameters
 \[
  \xi_i\in(1-A_{i+1},B_i)
@@ -88,9 +88,9 @@ Equivalently, the selected reaches of $T_i$ satisfy $a_i+b_i>1$.
 \label{lem:body-ascent-structure}
 The handoff parameters may be chosen so that:
 \begin{enumerate}
-\item if at least two vertex triangles are supercritical, at least two indices
+\item if at least two V triangles are supercritical, at least two indices
 are ascents;
-\item if exactly one vertex triangle, indexed by $p$, is supercritical, then
+\item if exactly one V triangle, indexed by $p$, is supercritical, then
 $p$ is the unique ascent, $\xi_{p-1}$ is the global minimum, and $\xi_p$ is
 the global maximum.
 \end{enumerate}
@@ -116,7 +116,7 @@ local loss, and interchange $\mu$ with $1-M$.  Hence we may assume
 \]
 Then every $\xi_i$ and $1-\xi_i$ is at least $\mu$.
 
-Suppose first that there are at least two supercritical vertex triangles.  By
+Suppose first that there are at least two supercritical V triangles.  By
 Lemma~\ref{lem:body-ascent-structure}, the handoff parameters may be chosen
 with at least two ascents.  At the first ascent leaving a cyclic block on which
 $\xi_i=\mu$, the corresponding triangle has one selected reach equal to
@@ -129,7 +129,7 @@ least $\mu^2$.  Thus the total normalized loss is strictly larger than
  =5\left(\mu-\frac15\right)^2+\frac{21}{20}>1.
 \]
 
-If there is exactly one supercritical vertex triangle,
+If there is exactly one supercritical V triangle,
 Lemma~\ref{lem:body-ascent-structure} shows that its unique ascent runs from
 the global minimum to the global maximum.  A distinct $\Tlike$ triangle loses
 at least $2\mu-4\mu^2$, the supercritical triangle loses at least
@@ -138,8 +138,8 @@ sum is
 \[
  (1-\mu)^2+(2\mu-4\mu^2)+4\mu^2=1+\mu^2>1.
 \]
-In either case the six vertex triangles have total area inside $H$ strictly
-below five; the center triangle has area one.
+In either case the six V triangles have total area inside $H$ strictly
+below five; the C triangle has area one.
 
 \begin{proposition}[Cases excluded by area loss]
 \label{prop:body-area-branches}
@@ -152,7 +152,7 @@ at least one triangle is $\Tlike$.
 \end{proposition}
 
 \begin{proof}
-For CE0 the six vertex triangles cover $\partial H$, so
+For CE0 the six V triangles cover $\partial H$, so
 Proposition~\ref{prop:body-structural-reduction} supplies strict handoff
 parameters preserving the maximal-reach supercritical pattern.  The two sums
 above apply.  The detailed local calculations are in

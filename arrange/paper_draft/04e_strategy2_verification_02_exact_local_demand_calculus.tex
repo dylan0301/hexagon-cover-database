@@ -6,7 +6,7 @@ This section develops the local calculus for configurations in which a coarse
 length sum does not by itself retain enough information.  The mechanism is
 always the same.  A center trace fixes boundary inputs and complementary
 radial lower bounds; an exact
-local map propagates these data through nonsupercritical vertex triangles; and the
+local map propagates these data through nonsupercritical V triangles; and the
 returning reach lower bound exceeds the remaining boundary or radial capacity.
 
 Actual maximal reaches continue to be denoted by $(A_i,B_i,C_i)$, while
@@ -40,7 +40,7 @@ The local admissible set is
 \]
 For $a,c\in[0,1]$ put
 \[
- B_c(a)=\max\{b:(a,b,c)\in\mathcal A\}.
+ M_c(a)=\max\{b:(a,b,c)\in\mathcal A\}.
 \]
 \end{definition}
 
@@ -149,13 +149,13 @@ This also proves that $\mathcal A$ is coordinatewise down-closed.
 
 For later contact-cell calculations retain the technical aliases
 \begin{equation}
- F_c(a)=
+ \overline M_c(a)=
  \begin{cases}
   1-a,&0\le c\le1/2,\\
-  B_c(a),&1/2<c\le1,
+  M_c(a),&1/2<c\le1,
  \end{cases}
  \qquad
- G_c(a)=1-F_c(a).
+ \Phi_c(a)=1-\overline M_c(a).
  \label{eq:branchwise-safe-output}
 \end{equation}
 
@@ -163,7 +163,7 @@ For later contact-cell calculations retain the technical aliases
 \label{prop:branchwise-safe-output}
 For every $a,c\in[0,1]$,
 \[
- F_c(a)=\min\{B_c(a),1-a\}.
+ \overline M_c(a)=\min\{M_c(a),1-a\}.
 \]
 If an actual triangle has reaches $(A,B,C)$ with
 \[
@@ -171,21 +171,21 @@ If an actual triangle has reaches $(A,B,C)$ with
 \]
 then
 \begin{equation}
- B\le F_c(a).
+ B\le \overline M_c(a).
  \label{eq:safe-capped-bound}
 \end{equation}
 Moreover,
 \[
- F_c(a)=1-a\quad(c\le1/2),
+ \overline M_c(a)=1-a\quad(c\le1/2),
  \qquad
- F_c(a)=B_c(a)\quad(c>1/2).
+ \overline M_c(a)=M_c(a)\quad(c>1/2).
 \]
 \end{proposition}
 
 \begin{proof}
 First take $c\ge1/2$.  Any triangle realizing $(a,b,c)$ also contains the
 radial midpoint $(u+v)/2$, so Lemma~\ref{lem:self-midpoint} gives
-$a+b\le1$.  Hence $B_c(a)\le1-a$.
+$a+b\le1$.  Hence $M_c(a)\le1-a$.
 
 At $c=1/2$, put $b=1-a$.  In
 Proposition~\ref{prop:exact-admissible-set}, one has $s=1$, $d\le1$,
@@ -196,11 +196,11 @@ $q=ab\ge0$, and
 \]
 The selector $1/2\le2M$ also holds, so $(a,1-a,1/2)\in\mathcal A$.
 Downward closure in the radial coordinate therefore gives
-$B_c(a)\ge1-a$ for every $c\le1/2$.  This proves the displayed formula for
-$F_c$ and the minimum identity.
+$M_c(a)\ge1-a$ for every $c\le1/2$.  This proves the displayed formula for
+$\overline M_c$ and the minimum identity.
 
 Finally, nonsupercriticality gives $B\le1-A\le1-a$, while admissibility gives
-$B\le B_c(a)$.  Thus $B\le F_c(a)$.
+$B\le M_c(a)$.  Thus $B\le \overline M_c(a)$.
 \end{proof}
 
 \subsubsection{The exact high-radial map}
@@ -225,7 +225,7 @@ Also define
 \label{prop:capped-demand-map}
 For $1/2<c\le\sqrt3/2$,
 \begin{equation}
- F_c(a)=
+ \overline M_c(a)=
  \begin{cases}
   1-a,&0\le a\le1-c,\\
   Q_+(a,c),&1-c<a<h(c),\\
@@ -237,7 +237,7 @@ For $1/2<c\le\sqrt3/2$,
 \end{equation}
 For $\sqrt3/2<c<1$,
 \begin{equation}
- F_c(a)=
+ \overline M_c(a)=
  \begin{cases}
   1-a,&0\le a\le1-c,\\
   Q_+(a,c),&1-c<a\le\ell(c),\\
@@ -252,15 +252,15 @@ Thus there are exactly four branches
  \mathrm{Lin},\qquad \mathrm{Const},\qquad Q_-,\qquad Q_+.
 \]
 At $a=\ell(c)$ in \eqref{eq:S2-capped-map-high},
-$F_c(a)=r(c)$; immediately to its right the value is $\ell(c)$.  This
+$\overline M_c(a)=r(c)$; immediately to its right the value is $\ell(c)$.  This
 downward jump is genuine.  The formal other root of the $Q_+$ quadratic is
-not feasible because it violates $c\le2\max\{a,F_c(a)\}$.
+not feasible because it violates $c\le2\max\{a,\overline M_c(a)\}$.
 
-The maps $F_c$ are nonincreasing, the maps $G_c=1-F_c$ are nondecreasing
+The maps $\overline M_c$ are nonincreasing, the maps $\Phi_c=1-\overline M_c$ are nondecreasing
 and extensive, and
 \begin{equation}
- G_c(a)\le z\quad\Longleftrightarrow\quad
- G_c(1-z)\le1-a.
+ \Phi_c(a)\le z\quad\Longleftrightarrow\quad
+ \Phi_c(1-z)\le1-a.
  \label{eq:S2-capped-duality}
 \end{equation}
 \end{proposition}
@@ -278,10 +278,10 @@ $(\ell(c),r(c))$ and $(r(c),\ell(c))$.  These observations give
 \eqref{eq:S2-capped-map-low}--\eqref{eq:S2-capped-map-high}, including all equality
 assignments.
 
-Down-closedness gives monotonicity, while $F_c(a)\le1-a$ gives
-$G_c(a)\ge a$.  Finally,
+Down-closedness gives monotonicity, while $\overline M_c(a)\le1-a$ gives
+$\Phi_c(a)\ge a$.  Finally,
 \[
- G_c(a)\le z\iff F_c(a)\ge1-z
+ \Phi_c(a)\le z\iff \overline M_c(a)\ge1-z
  \iff(a,1-z,c)\in\mathcal A,\quad a+1-z\le1.
 \]
 Reflection $a\leftrightarrow b$ gives \eqref{eq:S2-capped-duality}.
@@ -307,7 +307,7 @@ The root equation gives
 Moreover,
 \begin{equation}
  a>e(X)\quad\Longrightarrow\quad
- G_{1-X}(a)\ge1-e(X)
+ \Phi_{1-X}(a)\ge1-e(X)
  \qquad\left(0<X<1-\frac{\sqrt3}{2}\right).
  \label{eq:high-demand-threshold}
 \end{equation}

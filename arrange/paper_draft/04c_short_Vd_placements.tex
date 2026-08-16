@@ -10,17 +10,17 @@ immediate consequences of the corner normal form.
 
 For $0\le c<1/2$, put
 \begin{equation}
- B_{\rm sc}(c)=\frac{c+\sqrt{c^2-8c+4}}2,
+ M_c^{\rm sup}=\frac{c+\sqrt{c^2-8c+4}}2,
  \qquad
- A_{\rm sc}(c)=1-B_{\rm sc}(c).
+ 1-M_c^{\rm sup}=1-M_c^{\rm sup}.
  \label{eq:short-supercritical-envelope}
 \end{equation}
 At $c=1/2$, the same symbols denote the continuous endpoint values
 $B_{\rm sc}(1/2)=A_{\rm sc}(1/2)=1/2$; this is a convention, not the
 supremum of a nonempty strict-supercritical feasible set.
-The free strict-supercritical envelope says that a strict supercritical vertex triangle
+The free strict-supercritical envelope says that a strict supercritical V triangle
 with radial lower bound at least $c$ has forward reach strictly below
-$B_{\rm sc}(c)$, and $B_{\rm sc}$ is strictly decreasing.
+$M_c^{\rm sup}$, and $B_{\rm sc}$ is strictly decreasing.
 
 \subsection{A global quarter radial envelope}
 
@@ -114,9 +114,9 @@ Let a translated T3-like triangle at $V_0$ contain $M_1$, have boundary trace
 $[0,a]$ on $e_{5,0}$, and have adjacent-radial trace $[c,u]$ on $r_1$ measured
 from $V_1$ toward $O$.  Then
 \begin{equation}
- a\le A_{\rm sc}(c),
+ a\le 1-M_c^{\rm sup},
  \qquad
- \frac{a}{a+1-u}\le A_{\rm sc}(c).
+ \frac{a}{a+1-u}\le 1-M_c^{\rm sup}.
  \label{eq:short-t3-profile}
 \end{equation}
 \end{lemma}
@@ -168,7 +168,7 @@ Let
  \Phi(z)=\frac{z(2-z)}{1+z}.
 \]
 It is increasing on $[0,1/2]$ and
-$\Phi(A_{\rm sc}(c))=c$.  Hence it is enough to prove
+$\Phi(1-M_c^{\rm sup})=c$.  Hence it is enough to prove
 $\Phi(x)\le x+\theta$, or equivalently
 \[
  Q_\theta(x)=2x^2+(\theta-1)x+\theta\ge0.
@@ -189,7 +189,7 @@ If $1/5\le\theta\le2-\sqrt3$, the vertex lies in the feasible interval and
  Q_\theta(x)\ge Q_\theta(x_*)
  =\frac{10\theta-1-\theta^2}{8}>0.
 \]
-Thus $x\le A_{\rm sc}(c)$.  Since $D\ge\varrho$, one has $a\le x$, and
+Thus $x\le 1-M_c^{\rm sup}$.  Since $D\ge\varrho$, one has $a\le x$, and
 \[
  \frac{a}{a+1-u}=\frac{aD}{\varrho}=x.
 \]
@@ -204,9 +204,9 @@ Let a Vd1 triangle at $V_0$ contain $M_1$, have boundary trace $[0,a]$ on
 $e_{5,0}$, and have adjacent-radial trace $[c,u]$ on $r_1$.  Assume it has no
 positive support on $r_5$.  Then
 \begin{equation}
- a\le A_{\rm sc}(c),
+ a\le 1-M_c^{\rm sup},
  \qquad
- \frac{a}{a+1-u}\le A_{\rm sc}(c).
+ \frac{a}{a+1-u}\le 1-M_c^{\rm sup}.
  \label{eq:short-vd1-profile}
 \end{equation}
 \end{lemma}
@@ -245,8 +245,8 @@ $(2t+1)^2<4(t^2+t+1)$.  Thus $F$ decreases for $t\ge1$, and
 \[
  a\le F(t,c)\le L(c):=\sqrt3-\frac52+2c.
 \]
-Every feasible vertex triangle has $L(c)\ge0$.  The inequality
-$2L(c)\le A_{\rm sc}(c)$ is equivalent to
+Every feasible V triangle has $L(c)\ge0$.  The inequality
+$2L(c)\le 1-M_c^{\rm sup}$ is equivalent to
 \[
  \sqrt{c^2-8c+4}\le12-4\sqrt3-9c.
 \]
@@ -256,8 +256,8 @@ legitimate, and the squared difference is $4Q(c)$, where
  Q(c)=20c^2+(18\sqrt3-52)c+47-24\sqrt3.
 \]
 The polynomial is decreasing on $[0,1/2]$ and
-$Q(1/2)=26-15\sqrt3>0$.  Hence $2L(c)\le A_{\rm sc}(c)$,
-and therefore $a\le A_{\rm sc}(c)$.
+$Q(1/2)=26-15\sqrt3>0$.  Hence $2L(c)\le 1-M_c^{\rm sup}$,
+and therefore $a\le 1-M_c^{\rm sup}$.
 
 Put $\varepsilon=1-u>0$.  The endpoint formula gives
 \[
@@ -281,7 +281,7 @@ Since $z/(z+\varepsilon_0+z/t)$ increases in $z$,
  \le\frac{F(t,c)}{F(t,c)+1/2}
  \le\frac{L(c)}{L(c)+1/2}
  \le2L(c)
- \le A_{\rm sc}(c).
+ \le 1-M_c^{\rm sup}.
 \]
 \end{proof}
 
@@ -298,13 +298,13 @@ adjacent-radial trace $[c,u]$ on $r_1$, measured from $V_1$ toward $O$.  Put
 \]
 Assume
 \begin{equation}
- a\le A_{\rm sc}(c),
+ a\le 1-M_c^{\rm sup},
  \qquad
- \Theta\le A_{\rm sc}(c),
+ \Theta\le 1-M_c^{\rm sup},
  \label{eq:signed-rescuer-local}
 \end{equation}
 and assume radial isolation forces the center to cover the $O$-side gap of
-length $\varepsilon$.  If $T_1$ is the unique strict supercritical vertex triangle and
+length $\varepsilon$.  If $T_1$ is the unique strict supercritical V triangle and
 $T_2,T_3,T_4,T_5$ are nonsupercritical, then the perimeter and $r_1$ are not
 covered.
 \end{lemma}
@@ -317,7 +317,7 @@ The center exit on $r_1$ is $\delta/R$, so radial isolation gives
 Let $h$ be the reach forced on $T_5$ along $e_{5,0}$.  If the companion center
 trace does not hide the gap after coordinate $a$, then
 \[
- h\ge1-a\ge B_{\rm sc}(c).
+ h\ge1-a\ge M_c^{\rm sup}.
 \]
 In the only hiding order,
 \[
@@ -339,16 +339,16 @@ whence
 \]
 The hiding order forces $u>a$, and therefore
 \[
- R+\alpha\le a+\Theta(u-a)=\Theta\le A_{\rm sc}(c).
+ R+\alpha\le a+\Theta(u-a)=\Theta\le 1-M_c^{\rm sup}.
 \]
 Thus in every ordering
 \[
- h\ge B_{\rm sc}(c).
+ h\ge M_c^{\rm sup}.
 \]
-Coverage of $r_1$ gives the supercritical vertex triangle radial lower bound at least $c$, so
+Coverage of $r_1$ gives the supercritical V triangle radial lower bound at least $c$, so
 its forward reach satisfies
 \[
- b_1<B_{\rm sc}(c)\le h.
+ b_1<M_c^{\rm sup}\le h.
 \]
 Lemma~\ref{lem:reader-boundary-path}, applied to $T_2,T_3,T_4,T_5$, gives
 \[
@@ -360,7 +360,7 @@ contrary to their four nonsupercritical caps.
 \begin{corollary}[T3-like and Vd1 adjacent rescue]
 \label{cor:signed-adjacent-rescuers}
 The common adjacent-adjacent exceptional triangle lemma applies both to the exactly-one-T3-like
-branch and to the normalized Vd1 vertex triangle containing the neighboring midpoint.
+branch and to the normalized Vd1 V triangle containing the neighboring midpoint.
 \end{corollary}
 
 \begin{proof}
@@ -374,8 +374,8 @@ $O$-side radial gap before the adjacent exceptional triangle begins.
 
 \begin{lemma}[Adjacent Vd1/Vd2 placement]
 \label{lem:signed-vd-adjacent-placement}
-Assume a reduced CE2 exact-$M_0$ candidate has $N_+=1$, vertex triangle $T_0$ uniquely
-supercritical, vertex triangle $T_1$ the unique Vd1/Vd2 vertex triangle, and vertex triangles
+Assume a reduced CE2 exact-$M_0$ candidate has $N_+=1$, V triangle $T_0$ uniquely
+supercritical, V triangle $T_1$ the unique Vd1/Vd2 V triangle, and V triangles
 $T_2,T_3,T_4,T_5$ nonsupercritical Vd0.  Then the perimeter together with
 $r_2$ is not covered.  The reflected $T_5$ placement is also impossible.
 \end{lemma}
@@ -482,7 +482,7 @@ uncovered.
 
 \begin{lemma}[Nonadjacent Vd1/Vd2 placements]
 \label{lem:signed-vd-nonadjacent-placement}
-Under the same reduced CE2 branch, let the unique Vd1/Vd2 vertex triangle be
+Under the same reduced CE2 branch, let the unique Vd1/Vd2 V triangle be
 $T_\tau$ with $\tau\in\{2,3,4\}$.  Then the perimeter together with
 $r_\tau$ is not covered.
 \end{lemma}
@@ -500,7 +500,7 @@ Lemma~\ref{lem:signed-endpoints-dominate-slack} gives
 \[
  T<\frac12\min\{x,y\}.
 \]
-Let $(a_0,b_0)$ be the reaches of the unique supercritical vertex triangle.  Then
+Let $(a_0,b_0)$ be the reaches of the unique supercritical V triangle.  Then
 \[
  a_0+b_0>1,\qquad a_0^2+a_0b_0+b_0^2\le1.
 \]

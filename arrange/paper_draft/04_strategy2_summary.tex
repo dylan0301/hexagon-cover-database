@@ -1,10 +1,10 @@
 \section{Method 2: Boundary-Reach Propagation}
 \label{sec:strategy2-summary}
 
-Suppose a vertex triangle has backward reach at least $a$ and radial reach at
+Suppose a V triangle has backward reach at least $a$ and radial reach at
 least $c$.  The local admissible set bounds its forward reach.  Boundary
 coverage converts this forward upper bound into a lower bound for the backward
-reach of the next vertex triangle.  Iteration yields one of four explicit
+reach of the next V triangle.  Iteration yields one of four explicit
 contradictions: a cyclic strict inequality, endpoint caps whose sum is below
 one, a propagated lower bound exceeding a final upper bound, or disjoint radial
 trace intervals.
@@ -19,7 +19,7 @@ For $a,c\in[0,1]$, define
 \]
 Thus $M_c(a)$ is the largest possible forward reach of a unit equilateral
 triangle whose backward and radial reaches are at least $a$ and $c$.  For a
-nonsupercritical vertex triangle define
+nonsupercritical V triangle define
 \[
  \Mbar_c(a)=\min\{M_c(a),1-a\},
  \qquad
@@ -187,7 +187,7 @@ $\Theta_d\le\Phi_{1-d}$.
 \begin{definition}[Center-free boundary path]
 \label{def:body-center-free-path}
 A consecutive boundary path is \emph{center-free} when, on every internal
-edge, the center triangle has empty trace and every nonincident vertex
+edge, the C triangle has empty trace and every nonincident vertex
 triangle has zero-length trace.  Contributions from triangles outside the
 path must be included in the two endpoint suffix lengths before the path
 inequality is applied.

@@ -29,7 +29,7 @@ and $H$ has normalized area six.
 \footnotesize (b) global retained areas
 \end{minipage}
 \caption{Schematic views of Method~3, not to scale.  The local panel
-shows one vertex triangle with boundary reaches $a,b$, and the global panel
+shows one V triangle with boundary reaches $a,b$, and the global panel
 shows the six cyclic triangles.  Only the darker portions represent area
 retained inside $H$; the proof uses the inequalities below, not the picture.}
 \label{fig:area-loss}
@@ -321,35 +321,35 @@ The selected handoffs of Proposition~\ref{prop:strict-handoffs} have the form
 \[
  (a_i,b_i)=(1-\xi_{i-1},\xi_i),\qquad 0<\xi_i<1,
 \]
-with cyclic indices.  Vertex triangle $i$ is selected supercritical exactly when
+with cyclic indices.  V triangle $i$ is selected supercritical exactly when
 $\xi_i>\xi_{i-1}$.
 
 \begin{lemma}[Cyclic area-loss certificate]
 \label{lem:cyclic-area-loss}
-Let the six actual vertex triangles realize selected handoffs
+Let the six actual V triangles realize selected handoffs
 \[
  (a_i,b_i)=(1-\xi_{i-1},\xi_i),\qquad 0<\xi_i<1.
 \]
 Their total normalized loss is strictly greater than one if either
 \begin{enumerate}
-\item at least two selected vertex triangles are supercritical; or
-\item exactly one selected vertex triangle is supercritical, every triangle is
+\item at least two selected V triangles are supercritical; or
+\item exactly one selected V triangle is supercritical, every triangle is
       $\Vdzero$ or $\Tlike$, and at least one triangle is $\Tlike$.
 \end{enumerate}
 \end{lemma}
 
 \begin{proof}
 Put $m=\min_i \xi_i$ and $M=\max_i \xi_i$.  The reflection
-$y_i=1-\xi_{-i-1}$ swaps each vertex triangle's two coordinates and preserves both
+$y_i=1-\xi_{-i-1}$ swaps each V triangle's two coordinates and preserves both
 alternatives and the total loss.  Hence assume $m\le1-M$.  Every selected
-vertex triangle coordinate is then at least $m$, so
-\eqref{eq:min-square-loss} gives loss at least $m^2$ for every vertex triangle.
+V triangle coordinate is then at least $m$, so
+\eqref{eq:min-square-loss} gives loss at least $m^2$ for every V triangle.
 
 In case (1), choose an ascent out of a minimum plateau,
-$\xi_{p-1}=m<\xi_p$.  Its vertex triangle contains the coordinate $1-m$ and loses at least
+$\xi_{p-1}=m<\xi_p$.  Its V triangle contains the coordinate $1-m$ and loses at least
 $(1-m)^2$ by \eqref{eq:max-square-loss}.  A second ascent has one coordinate
 strictly larger than $1/2$ and hence loses strictly more than $1/4$.  The
-other four vertex triangles lose at least $m^2$ each, so the total loss is strictly
+other four V triangles lose at least $m^2$ each, so the total loss is strictly
 larger than
 \[
  4m^2+(1-m)^2+\frac14
@@ -357,10 +357,10 @@ larger than
 \]
 
 In case (2), rotate so that the unique ascent leaves the minimum:
-$\xi_5=m<\xi_0=M$.  The supercritical vertex triangle loses at least $(1-m)^2$.
-Lemma~\ref{lem:t3-nonsupercritical} shows that a $\Tlike$ vertex triangle is different
-from it, and Theorem~\ref{thm:t3-direct-loss} gives that vertex triangle loss at least
-$2m-4m^2$.  The remaining four vertex triangles lose at least $m^2$ each.  Their total
+$\xi_5=m<\xi_0=M$.  The supercritical V triangle loses at least $(1-m)^2$.
+Lemma~\ref{lem:t3-nonsupercritical} shows that a $\Tlike$ V triangle is different
+from it, and Theorem~\ref{thm:t3-direct-loss} gives that V triangle loss at least
+$2m-4m^2$.  The remaining four V triangles lose at least $m^2$ each.  Their total
 loss is at least
 \[
  (1-m)^2+(2m-4m^2)+4m^2=1+m^2>1.
@@ -371,27 +371,27 @@ loss is at least
 \label{prop:area-branches}
 The following branches are impossible:
 \begin{enumerate}
-\item $T_C$ is $\CEzero$, $N_+\ge2$, with arbitrary vertex-triangle types;
+\item $T_C$ is $\CEzero$, $N_+\ge2$, with arbitrary V triangle types;
 \item $T_C$ is $\CEzero$, $N_+=1$, no triangle is $\Vdone$ or $\Vdtwo$, and
 at least one triangle is $\Tlike$.
 \end{enumerate}
 \end{proposition}
 
 \begin{proof}
-In the $\CEzero$ class, the center triangle has no positive-length boundary
-trace.  If the six vertex triangles missed a boundary point, openness of the
-center triangle would give such a trace.  Hence the vertex triangles cover
+In the $\CEzero$ class, the C triangle has no positive-length boundary
+trace.  If the six V triangles missed a boundary point, openness of the
+C triangle would give such a trace.  Hence the V triangles cover
 $\partial H$, so Proposition~\ref{prop:strict-handoffs} applies.
 
 If $N_+\ge2$, its at-least-two clause selects handoffs with at least two
-supercritical vertex triangles.  Lemma~\ref{lem:cyclic-area-loss} makes the six vertex
+supercritical V triangles.  Lemma~\ref{lem:cyclic-area-loss} makes the six vertex
 triangles' total normalized inside area strictly less than five.  The center
 triangle contributes at most one, so the total is strictly less than six.
 
 If $N_+=1$, the exact-one clause preserves the unique actual
 supercritical index for every strict selection.  The exhaustive vertex-type
 hypothesis gives case (2) of Lemma~\ref{lem:cyclic-area-loss}; the
-six vertex triangles contribute less than five normalized area, and the
-center triangle contributes at most one.  Again the sum is strictly below
+six V triangles contribute less than five normalized area, and the
+C triangle contributes at most one.  Again the sum is strictly below
 the normalized area six of $H$.
 \end{proof}
