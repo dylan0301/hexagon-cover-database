@@ -60,6 +60,15 @@ summary, and commits the canonical PDF back to `main`. The existing read-only
 proof workflow then performs the full proof, certificate, Lean, semantic PDF,
 and release audit.
 
+## Canonical build result
+
+GitHub Actions run `31943335628` completed successfully and committed the
+canonical artifact in commit `3c554d611b48f48cea4119580baa271c9e1464e4`.
+The consolidated PDF has 97 pages, no undefined or multiply-defined references,
+no overfull horizontal or vertical boxes, and passes the semantic rebuild and
+rendered-border checks. Its canonical SHA-256 is
+`2859cfc8814f50b54997e2997809bb592411dba0ac688405e9f2a86a6b53418a`.
+
 ## Proof invariants retained
 
 - `N_+` is defined from actual maximal reaches.
