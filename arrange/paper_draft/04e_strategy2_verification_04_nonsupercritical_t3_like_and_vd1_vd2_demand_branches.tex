@@ -10,9 +10,11 @@ T3-like, and no triangle is Vd1 or Vd2.  Then the triangles do not cover $H$.
 \end{proposition}
 
 \begin{proof}
-Normalize the center midpoint to $M_0$.  A T3-like V triangle misses its own
-midpoint, a supercritical V triangle misses its local midpoint, and a Vd0 V triangle cannot
-rescue a neighboring midpoint.  Consequently, after reflection,
+By Proposition~\ref{prop:unique-center-midpoint}, normalize so that
+$T_C\cap\{M_0,\ldots,M_5\}=\{M_0\}$.  A T3-like V triangle misses its own
+midpoint, a supercritical V triangle misses its local midpoint, and an
+original open Vd0 triangle $U_i$ cannot contain $M_{i-1}$ or $M_{i+1}$.
+Consequently, after reflection,
 \[
  T_0\text{ is T3-like},\qquad M_1\in T_0,
  \qquad T_1\text{ is uniquely supercritical},
@@ -58,8 +60,9 @@ cover all of $H$.
 
 \begin{proof}
 Let $d_i^C$ be the center reach on $r_i$, measured from $O$, and set
-$c_i^C=1-d_i^C$. Since every V triangle is Vd0, no adjacent V triangle has
-a positive-length trace on $r_i$; diameter locality excludes nonlocal triangles.
+$c_i^C=1-d_i^C$. Since every V triangle is Vd0,
+$\Haus(T_{i-1}\cap r_i)=\Haus(T_{i+1}\cap r_i)=0$; diameter locality
+excludes every $T_j$ with $j\notin\{i-1,i,i+1\}$.
 Skeleton coverage therefore forces
 \[
  C_i\ge c_i^C\qquad(i=0,\ldots,5).
@@ -127,18 +130,19 @@ following local facts also reappear later.
 \begin{lemma}[T3-like midpoint and side tradeoff]
 \label{lem:t3-midpoint-tradeoff}
 Let $T_i$ be T3-like.  Then $M_i\notin T_i$.  After applying the closed-trace
-domination of Proposition~\ref{prop:t3-translation}, suppose the selected
-adjacent support is on $r_{i+1}$ and $M_{i+1}$ belongs to the dominated
-trace.  If $b$ is its boundary reach toward $V_{i+1}$, $c$ its exit on its
-own arm, and $\ell$ its entry on $r_{i+1}$, all measured from the relevant
+domination of Proposition~\ref{prop:t3-translation}, suppose
+$\Haus(T_i\cap r_{i+1})>0$ and $M_{i+1}$ belongs to the dominated trace.
+If $b$ is its boundary reach toward $V_{i+1}$, $c$ its exit on $r_i$, and
+$\ell$ its entry on $r_{i+1}$, all measured from the relevant
 vertex, then
 \begin{equation}
  b+c<1,\qquad b+\ell>1.
  \label{eq:t3-side-tradeoff}
 \end{equation}
-Consequently two adjacent T3-like traces that cover each other's midpoint,
-whose selected supports point toward one another, cannot cover both outer
-half-arms if no other triangle has positive support there.
+Consequently two T3-like traces $T_i,T_{i+1}$ that cover each other's
+midpoint, with positive traces on $r_{i+1}$ and $r_i$, respectively, cannot
+cover both segments $[V_i,M_i]$ and $[V_{i+1},M_{i+1}]$ if no other triangle
+has positive trace there.
 \end{lemma}
 
 \begin{proof}
@@ -203,8 +207,8 @@ $b_i<b_{i+1}$ and $b_{i+1}<b_i$, a contradiction.
 \begin{lemma}[The support-isolated four-branch inequality]
 \label{lem:407-four-label-loss}
 Assume $T_C$ is CE1 or CE2, $N_+=0$, no triangle is Vd1 or Vd2, and, after
-normalization and reflection, $T_0$ is T3-like with selected adjacent
-support on $r_1$.  Then the two endpoint V triangles in the isolated configuration
+normalization and reflection, $T_0$ is T3-like with
+$\Haus(T_0\cap r_1)>0$.  Then the two endpoint V triangles in the isolated configuration
 satisfy
 \begin{equation}
  \overline M_{c_5^\ast}(a_5^\ast)+\overline M_{c_1^\ast}(a_1^\ast)<1,
@@ -250,20 +254,14 @@ Its interval on $r_1$, measured from $V_1$, is
 \[
  [c,u],\qquad c=Dq/R,\qquad u=q+(1-R)/D.
 \]
-For an initial trace $[0,p]$ and a center interval $J=[L,U]$, define
+Using the residual operator \eqref{eq:reader-residual-operator}, the exact
+boundary inputs are, with $J_1=[s,t]$ and with $J_5=[S,T]$ in CE2 but
+$J_5=\varnothing$ in CE1,
 \[
- \Theta(p,J)=
- \begin{cases}
- 1-p,&J=\varnothing\text{ or }p<L,\\
- 1-\max\{p,U\},&p\ge L.
- \end{cases}
+ a_1^\ast=\mathcal R_{J_1}(p),\qquad
+ a_5^\ast=\mathcal R_{J_5}(\alpha),
 \]
-Then
-\[
- a_1^\ast=\Theta(p,[s,t]),\qquad
- a_5^\ast=\Theta(\alpha,[S,T]),
-\]
-with the second interval empty in CE1, and
+and
 \[
  c_5^\ast=1-\gamma_5,\qquad
  c_1^\ast=
@@ -365,7 +363,7 @@ Indeed the selector polynomial
 $P(x,z)=x^4-4x^3+5x^2-(2+z)x+z-z^2$ is strictly decreasing on the low
 range and vanishes at $x=\eta$.  Equations
 \eqref{eq:407-core-estimate}--\eqref{eq:407-L-separation}, with the three
-possibilities for $\Theta$, prove every first-constant entry.  For a first $Q_-$
+residual cases in $\mathcal R_J$, prove every first-constant entry.  For a first $Q_-$
 branch the exact root test
 \[
  Q_-(a,c)<z\iff c^2(a+z)^2-(a^2-ac+c^2)>0
@@ -494,15 +492,17 @@ $H$.
 \end{proposition}
 
 \begin{proof}
-Normalize the unique center midpoint to $M_0$ and simultaneously apply the
+By Proposition~\ref{prop:unique-center-midpoint}, normalize so that
+$T_C\cap\{M_0,\ldots,M_5\}=\{M_0\}$, and simultaneously apply the
 closed-trace domination of Proposition~\ref{prop:t3-translation} to every
 T3-like triangle.  If $T_0$ were not T3-like, a maximal consecutive block of
 T3-like indices among $1,\ldots,5$ would have to match its triangles bijectively
-to the same block of uncovered midpoints.  The matching uses only adjacent
-indices, because a T3-like triangle misses its own midpoint and Vd0 triangles cannot
-cover adjacent midpoints.  Its first two triangles therefore form a crossed pair
+to the same block of uncovered midpoints.  Each match sends $T_i$ only to
+$M_{i-1}$ or $M_{i+1}$, because a T3-like triangle misses $M_i$ and an
+original open Vd0 triangle $U_i$ cannot contain $M_{i-1}$ or $M_{i+1}$.
+Its first two triangles therefore form a crossed pair
 forbidden by Lemma~\ref{lem:t3-midpoint-tradeoff}.  Hence $T_0$ is T3-like;
-reflect so that it supports $r_1$.
+reflect so that $\Haus(T_0\cap r_1)>0$.
 
 There are at most two T3-like triangles.  Indeed, with $N_+=0$ and no
 Vd1/Vd2 triangle, the short-triangle identity gives $q=k$, where $k$ is the number
@@ -512,8 +512,8 @@ Midpoint locality then forces $T_2,T_4,T_5$ to be Vd0.  Consequently $r_1$
 has positive support only from $T_C,T_0,T_1$, and $r_5$ only from $T_C,T_5$.
 
 The actual forward reaches of $T_1,T_5$ are bounded by the two safe maps in
-Lemma~\ref{lem:407-four-label-loss}; an extra adjacent-ray reach lower bound on a
-possible T3-like $T_1$ only shrinks its feasible set.  Thus their sum is
+Lemma~\ref{lem:407-four-label-loss}; an extra reach lower bound on $r_0$ or
+$r_2$ for a possible T3-like $T_1$ only shrinks its feasible set.  Thus their sum is
 less than one.  V triangles $T_2,T_3,T_4$ must cover more than three units of the
 four intervening boundary edges, while their three nonsupercritical caps
 sum to at most three.  This contradiction proves the proposition.
@@ -1079,10 +1079,15 @@ In particular $a+b<1/2$ for a positive-support V triangle.
 
 \begin{lemma}[Vd1 adjacent rescue]
 \label{lem:vd1-adjacent-rescue}
-Assume an original open-triangle skeleton cover in the CE2 exact-$M_0$ branch,
+Assume an original open-triangle skeleton cover in the CE2 branch with
+$T_C\cap\{M_0,\ldots,M_5\}=\{M_0\}$,
 with $T_0$ the unique Vd1 V triangle, $M_1\in T_0$, $T_1$ uniquely supercritical,
-$T_2,\ldots,T_5$ nonsupercritical Vd0, and no other positive-adjacent-support
-triangle.  Then the perimeter together with $r_1$ is not covered.
+$T_2,\ldots,T_5$ nonsupercritical Vd0, and
+\[
+ \Haus(T_i\cap r_{i-1})=\Haus(T_i\cap r_{i+1})=0
+ \qquad(i=1,\ldots,5).
+\]
+Then the perimeter together with $r_1$ is not covered.
 \end{lemma}
 
 \begin{proof}

@@ -79,10 +79,11 @@ $$
 As $x\to0$,
 
 $$
-M(x,k)\to M_0(k)=\frac{7k^2-10k+7}{8}.
+M(x,k)\to M_{\mathrm{lim}}(k)=\frac{7k^2-10k+7}{8}.
 $$
 
-The minimum of $M_0$ is
+Here $M_{\mathrm{lim}}$ is a branch-local limit, not the canonical
+zero-radial envelope $M_0$.  Its minimum is
 
 $$
 \frac37.

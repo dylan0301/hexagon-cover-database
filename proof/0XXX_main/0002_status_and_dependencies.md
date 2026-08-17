@@ -13,6 +13,7 @@ nine-point obstruction.
 | Exhaustive main-theorem assembly | [`0000_main_theorem.md`](0000_main_theorem.md) | Proven |
 | Open/closed/scaled equivalence | [`../1XXX_foundations/10XX_global_conventions/1003_open_unit_vs_shrunken_closed_equivalence.md`](../1XXX_foundations/10XX_global_conventions/1003_open_unit_vs_shrunken_closed_equivalence.md) | Proven |
 | CE0/CE1/CE2 classification | [`../1XXX_foundations/11XX_C_triangle/1101_CE_classification.md`](../1XXX_foundations/11XX_C_triangle/1101_CE_classification.md) | Proven |
+| CE1/CE2 exactly-one-midpoint theorem | [`../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2100_CE1_CE2_exactly_one_midpoint_lemma.md`](../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2100_CE1_CE2_exactly_one_midpoint_lemma.md) | Proven |
 | Vd0/Vd1/Vd2/T3-like classification | [`../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md`](../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md) | Proven |
 | Strict boundary handoffs | [`../1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md`](../1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md) | Proven |
 | Exact local admissible set | [`../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md`](../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md) | Proven |

@@ -100,8 +100,14 @@ For $0<x<1$, put $z=\sigma(x)/x$.  Eliminating the square root gives
 
 For $0\le a,c\le1$, define the raw forward envelope
 \begin{equation}
- M_c(a)=\max\{b\in[0,1]:(a,b,c)\in\mathcal A\}.
- \label{eq:reader-raw-capped-maps}
+M_c(a)=\max\{b\in[0,1]:(a,b,c)\in\mathcal A\}.
+\label{eq:reader-raw-capped-maps}
+\end{equation}
+Its zero-radial specialization, introduced geometrically in
+Lemma~\ref{lem:signed-diameter-transfer}, is
+\begin{equation}
+ M_0(a)=\frac{-a+\sqrt{4-3a^2}}2.
+ \label{eq:reader-zero-radial-envelope}
 \end{equation}
 The exact nonsupercritical forward cap and the following-edge propagation map
 are
@@ -202,22 +208,20 @@ $\overline M_0(a)=1-a$, not the raw envelope $M_0(a)$.
 \end{proposition}
 
 \begin{proof}
-The exact diameter formula gives
-\[
- M_0(a)=\frac{-a+\sqrt{4-3a^2}}2.
-\]
-The inequality $M_0(a)>1-a$ is equivalent, after squaring positive
+By \eqref{eq:reader-zero-radial-envelope}, the inequality
+$M_0(a)>1-a$ is equivalent, after squaring positive
 quantities, to $4a(1-a)>0$.
 \end{proof}
 
 \subsection{Center-assisted propagation and the free envelope}
 
 Let $J\subseteq[0,1]$ be empty or a closed interval.  For $0\le p\le1$, put
-\[
+\begin{equation}
  e_J(p)=\sup\{x\in[0,1]:[0,x]\subseteq[0,p]\cup J\},
  \qquad
  \mathcal R_J(p)=1-e_J(p).
-\]
+ \label{eq:reader-residual-operator}
+\end{equation}
 If $J=[L,U]$, then
 \begin{equation}
  \mathcal R_{[L,U]}(p)=

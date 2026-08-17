@@ -12,15 +12,19 @@ envelope $M_c^{\rm sup}$ from
 [`201d`](201d_raw_and_relaxed_g_chains.md). Its complementary following-demand
 bound is $1-M_c^{\rm sup}$.
 
-## 1. The diameter-transfer curve
+## 1. The zero-radial diameter-transfer envelope
 
 For $0\le q\le1$, define
 
 $$
 \boxed{
-\beta(q)=\frac{-q+\sqrt{4-3q^2}}2.
+M_0(q)=\frac{-q+\sqrt{4-3q^2}}2.
 }
 $$
+
+This is the $c=0$ specialization of the exact envelope in
+[`2007`](2007_max_b_map.md), using the canonical notation of
+[`201d`](201d_raw_and_relaxed_g_chains.md).
 
 This is the larger nonnegative solution of
 
@@ -38,7 +42,7 @@ $$
 and hence
 
 $$
-\boxed{b\le\beta(q).}
+\boxed{b\le M_0(q).}
 $$
 
 For every $q>0$,
@@ -51,14 +55,20 @@ so
 
 $$
 \boxed{
-\beta(q)<1-\frac q2,
+M_0(q)<1-\frac q2,
 \qquad
-1-\beta(q)>\frac q2.
+1-M_0(q)>\frac q2.
 }
 $$
 
-The same curve is the terminal diameter bound in the one-gap proofs and the
-boundary-extent curve in the one-Vd1/Vd2 obstructions.
+Moreover,
+
+$$
+M_0'(q)=\frac{-1-3q/\sqrt{4-3q^2}}2<0,
+$$
+
+so $M_0$ is strictly decreasing.  It is the terminal diameter bound in the
+one-gap proofs and the boundary-extent curve in the one-Vd1/Vd2 obstructions.
 
 ## 2. The free supercritical $g$-envelope
 

@@ -144,6 +144,9 @@ relative-interior points on two nonadjacent hexagon edges.  Three
 positive-length edge traces would supply such a pair, a contradiction.
 \end{proof}
 
+For the CE1/CE2 types, Proposition~\ref{prop:unique-center-midpoint} below
+records the additional fact that $T_C$ contains exactly one radial midpoint.
+
 \subsection{Vertex types and the T3-like normalization}
 
 For an original V triangle $T_i$, let
@@ -152,8 +155,12 @@ For an original V triangle $T_i$, let
  \text{vertices of }T_i\text{ outside }H
  \right\}\right\rvert
 \]
-and let $n(T_i)$ be the number of adjacent arms $r_{i-1},r_{i+1}$ having
-positive-length intersection with $T_i$.  We use the names
+and put
+\[
+ n(T_i)=\left\lvert\left\{j\in\{i-1,i+1\}:
+ \Haus(T_i\cap r_j)>0\right\}\right\rvert.
+\]
+We use the names
 \[
  \begin{array}{c|c}
  \text{type}&(o,n)\\ \hline
@@ -166,10 +173,10 @@ positive-length intersection with $T_i$.  We use the names
 
 \begin{lemma}[Local wedge]
 \label{lem:local-wedge}
-Every original V triangle has $1\le o\le3$.  If it has positive-length
-intersection with one adjacent arm, at least one of its vertices belongs to
-$H$; if it has positive-length intersection with both adjacent arms, at
-least two of its vertices belong to $H$.
+Every original V triangle has $1\le o\le3$.  If
+$\Haus(T_i\cap r_j)>0$ for some $j\in\{i-1,i+1\}$, at least one of its
+vertices belongs to $H$; if both $\Haus(T_i\cap r_{i-1})>0$ and
+$\Haus(T_i\cap r_{i+1})>0$, at least two of its vertices belong to $H$.
 \end{lemma}
 
 \begin{proof}
@@ -192,7 +199,7 @@ Indeed,
               =(x-y)^2+xy
 \]
 shows that $x,y\ge0$ and norm at most one imply the remaining hexagon
-inequalities.  The adjacent arms are
+inequalities.  The two relevant radial segments are
 \[
  r_1=\{(1,y):0\le y\le1\},
  \qquad r_5=\{(x,1):0\le x\le1\}.
@@ -204,7 +211,7 @@ $(m,y)$ lies in the unit ball and hence satisfies $0<y<1$; it belongs to
 $H$.  If $m=1$, positive-length contact with the supporting line $x=1$
 forces a side of $T_0$ to lie there, and both endpoints satisfy
 $1+y^2-y\le1$, hence belong to $H$.  The same argument applies to $r_5$.
-If both arms are met but only one triangle vertex belonged to $H$, that
+If both $r_1$ and $r_5$ are met but only one triangle vertex belonged to $H$, that
 vertex would have to have both $x>1$ and $y>1$.  This is impossible because
 $(x-y)^2+xy>1$.
 
@@ -284,8 +291,8 @@ For Type II write
  U=\alpha+(1-t)x+ty,\qquad V=\beta+tx-y,
  \qquad T=\{U\ge0,V\ge0,U+V\le z\}.
 \]
-Reflecting in $x=y$ if necessary, assume the supported adjacent arm is
-$r_1$.  The two outside vertices have respectively a negative $x$- and a
+Reflecting in $x=y$ if necessary, assume $\Haus(T_0\cap r_1)>0$.  The two
+outside vertices have respectively a negative $x$- and a
 negative $y$-coordinate, while the unique wedge vertex is
 \[
  Q=\left(
@@ -515,7 +522,7 @@ Together with supercriticality at $p,p+1$, this implies
 \]
 Choose $\xi_p$ between these bounds and then choose
 $\xi_{p-1}<\xi_p<\xi_{p+1}$ in their respective overlap intervals.  By
-\eqref{eq:actual-selected-ascents}, both adjacent V triangles are selected
+\eqref{eq:actual-selected-ascents}, both $T_p$ and $T_{p+1}$ are selected
 supercritical.
 \end{proof}
 
@@ -585,12 +592,14 @@ would then be violated.
 The corresponding center fact is exact and uses the interior condition at
 $O$.
 
-\begin{proposition}[Unique center midpoint]
+\begin{proposition}[CE1/CE2 exactly-one-midpoint property]
 \label{prop:unique-center-midpoint}
 Let $T_C$ be a closed unit equilateral triangle with
-$O\in\mathrm{int}(T_C)$.  If $T_C$ has positive-length intersection with a
-boundary edge of $H$, then it contains exactly one of
-$M_0,\ldots,M_5$.
+$O\in\mathrm{int}(T_C)$.  If $T_C$ is CE1 or CE2, equivalently if it has
+positive-length intersection with a boundary edge of $H$, then
+\[
+ \left\lvert T_C\cap\{M_0,\ldots,M_5\}\right\rvert=1.
+\]
 \end{proposition}
 
 \begin{proof}

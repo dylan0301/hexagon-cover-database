@@ -226,8 +226,12 @@ exhaustive, so the theorem follows.
 
 The next theorem uses the classification data $(o,n)$ from
 Section~\ref{sec:structural-reductions}: $o$ counts triangle vertices outside $H$, and
-$n$ counts adjacent radial arms met in positive length.  Thus a $\Tlike$
-triangle has $(o,n)=(2,1)$.
+$n=n(T_i)$ is
+\[
+ \left\lvert\left\{j\in\{i-1,i+1\}:
+ \Haus(T_i\cap r_j)>0\right\}\right\rvert.
+\]
+Thus a $\Tlike$ triangle has $(o,n)=(2,1)$.
 
 \begin{theorem}[Direct $\Tlike$ loss]
 \label{thm:t3-direct-loss}

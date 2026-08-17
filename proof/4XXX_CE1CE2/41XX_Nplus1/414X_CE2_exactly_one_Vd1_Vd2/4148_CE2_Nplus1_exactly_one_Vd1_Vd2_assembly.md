@@ -8,7 +8,10 @@ This file records the terminal assembly.
 
 ## Statement
 
-Assume
+By the exactly-one-midpoint theorem
+[`2100`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2100_CE1_CE2_exactly_one_midpoint_lemma.md),
+applied to $T_C=\overline{U_C}$ with $O\in U_C\subset\mathrm{int}(T_C)$,
+we may normalize the CE2 role as follows. Assume
 
 $$
 T_C\text{ is CE2},
@@ -23,7 +26,8 @@ cover $H$.
 
 ## Proof
 
-If an additional vertex role has positive adjacent-arm support, `414a` gives
+If an additional $T_i$ satisfies
+$\mathcal H^1(T_i\cap r_j)>0$ for some $j\in\{i-1,i+1\}$, `414a` gives
 the three-short-role skeleton contradiction. Hence assume the complementary
 no-additional-support branch. Every other nonspecial vertex role is then
 nonsupercritical Vd0.

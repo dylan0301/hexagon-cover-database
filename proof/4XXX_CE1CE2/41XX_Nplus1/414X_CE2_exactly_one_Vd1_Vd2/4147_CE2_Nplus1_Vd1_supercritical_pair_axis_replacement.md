@@ -17,13 +17,19 @@ Assume the complementary `414X` branch in which:
 - the Vd1 role contains the own midpoint missed by the supercritical role;
 - neither special role is the vertex role at the center's unique midpoint;
 - every other vertex role is nonsupercritical Vd0;
-- no other vertex role has positive adjacent-arm support on the two radial
-  arms used by the pair;
+- no other vertex role has positive trace on either radial segment based at
+  the two pair vertices;
 - the center has no boundary trace on the shared edge of the pair.
 
 After a fresh cyclic renumbering, write the Vd1 role as $U_0$ at $V_0$, the
 supercritical role as $U_1$ at $V_1$, and the rescued midpoint as $M_1$.
 This local renumbering does not assert that the center midpoint is $M_0$.
+In these indices the preceding no-other-support hypothesis says
+
+$$
+\mathcal H^1(T_j\cap r_0)=\mathcal H^1(T_j\cap r_1)=0
+\qquad(j\notin\{0,1\}).
+$$
 
 Then $U_0,U_1$ can be replaced by two open nonsupercritical Vd0 roles
 $U_0',U_1'$ such that the modified seven roles still cover the full skeleton.
@@ -48,7 +54,7 @@ tx+y&\le d-a-tb.
 \end{aligned}
 $$
 
-Its own-radial reach and its neighboring-arm endpoints are
+Its reach on $r_0$ and the endpoints of $T_0\cap r_1$ are
 
 $$
 c=\frac{d-a-tb}{t+1},
@@ -58,7 +64,7 @@ c=\frac{d-a-tb}{t+1},
 u_{\rm adj}=\frac{d-a-tb-1}{t},
 $$
 
-where the adjacent-arm coordinate is measured from $V_1$ toward $O$.
+where the $r_1$ coordinate is measured from $V_1$ toward $O$.
 
 Since the original open Vd1 role contains $M_1$, its closure satisfies with
 strict margin
@@ -69,7 +75,7 @@ b>\frac{t-1}{2t},
 a+tb<d-1-\frac t2.
 $$
 
-The role has no positive-length trace on the other adjacent arm. If $t<1$,
+The role has no positive-length trace on $r_5$. If $t<1$,
 then
 
 $$
@@ -394,7 +400,7 @@ $$
 $$
 
 on the positive $x$-axis, positive $y$-axis, and diagonal $x=y$,
-respectively. It has no positive-length trace on either adjacent arm
+respectively. It has no positive-length trace on either support line
 $x=1$ or $y=1$.
 
 ### Proof
@@ -509,8 +515,14 @@ $$
 1-\varepsilon<1.
 $$
 
-The two templates have no positive adjacent-arm support. By the exhaustive
-vertex classification, both are nonsupercritical Vd0 roles.
+For $i=0,1$, the two templates satisfy
+
+$$
+\mathcal H^1(\overline{U_i'}\cap r_{i-1})
+=\mathcal H^1(\overline{U_i'}\cap r_{i+1})=0.
+$$
+
+By the exhaustive vertex classification, both are nonsupercritical Vd0 roles.
 
 ## 6. Preservation of the full skeleton
 

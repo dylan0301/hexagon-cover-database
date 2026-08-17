@@ -115,8 +115,12 @@ Thus $K_R+P/W<3/2$.
 \begin{lemma}[Positive-support skeleton cap]
 \label{lem:positive-support-skeleton-cap}
 Let $T_i$ be the closure of an original open V triangle, so
-$V_i\in\mathrm{int}(T_i)$.  If $T_i$ has positive-length intersection with
-an adjacent radial arm, then
+$V_i\in\mathrm{int}(T_i)$.  If
+\[
+ \Haus(T_i\cap r_j)>0
+ \quad\text{for some }j\in\{i-1,i+1\},
+\]
+then
 \[
  L_S(T_i)<\frac32.
 \]
@@ -135,7 +139,7 @@ positive-length trace are
 \]
 All five belong to the skeleton $\widetilde S$ of $\widetilde H$.  Since
 $V_0=\widetilde O$ is interior to $T_0$, the triangle is a legitimate center
-triangle for $\widetilde H$.  Its positive adjacent-arm trace is a positive
+triangle for $\widetilde H$.  Its positive trace on $r_1$ or $r_5$ is a positive
 boundary-edge trace of $\widetilde H$, so it is CE1 or CE2 by
 Proposition~\ref{prop:ce-classification}.  Proposition
 \ref{prop:unique-center-midpoint} and Lemma~\ref{lem:center-skeleton-cap}
@@ -150,8 +154,11 @@ $L_S(T_0)\le L_{\widetilde S}(T_0)$.
 
 \begin{lemma}[No-support skeleton cap]
 \label{lem:no-support-skeleton-cap}
-If a V triangle has $A_i+B_i\le1$ and no positive-length trace on either
-adjacent radial arm, then
+If a V triangle has $A_i+B_i\le1$ and
+\[
+ \Haus(T_i\cap r_{i-1})=\Haus(T_i\cap r_{i+1})=0,
+\]
+then
 \[
  L_S(T_i)\le2.
 \]
@@ -164,8 +171,8 @@ Its boundary contribution is $A_i+B_i\le1$ by
  \lVert V_i-P\rVert^2
  =1+s^2-2s\cos\frac{(j-i)\pi}{3}>1
 \]
-when $j\notin\{i-1,i,i+1\}$.  The two adjacent arms have zero-length trace
-by hypothesis, so only the own unit arm can contribute positive length.
+when $j\notin\{i-1,i,i+1\}$.  The traces on $r_{i-1}$ and $r_{i+1}$ have
+zero length by hypothesis, so only $r_i$ can contribute positive length.
 This adds at most one.
 \end{proof}
 
@@ -207,9 +214,10 @@ By Proposition~\ref{prop:vertex-classification}, a V triangle is Vd0,
 Vd1, Vd2, or T3-like.  Proposition~\ref{prop:vd-corner-normal-form} makes
 every Vd1/Vd2 V triangle nonsupercritical, and
 Lemma~\ref{lem:t3-nonsupercritical} does the same for T3-like V triangles.  Hence a
-supercritical triangle is Vd0 and, by definition, has no positive-length trace on
-either adjacent arm.  Thus, after normalizing and writing $a=A_i$, $b=B_i$,
-the skeleton trace has length $a+b+c$, where $c$ is the own-arm reach.
+supercritical triangle is Vd0 and, by definition,
+$\Haus(T_i\cap r_{i-1})=\Haus(T_i\cap r_{i+1})=0$.  Thus, after normalizing
+and writing $a=A_i$, $b=B_i$, the skeleton trace has length $a+b+c$, where
+$c$ is the reach on $r_i$.
 Reflect so that $a\le b$, and put
 \[
  s=a+b,\qquad \delta=b-a,\qquad c_0=\frac32-s.
@@ -249,18 +257,24 @@ $P(c)\le0$ forces $c<c_0$.  Thus $a+b+c<3/2$.
 
 \begin{lemma}[A positive-support adjacent exceptional triangle is forced]
 \label{lem:positive-support-rescuer}
-Suppose $T_C$ is CE1 or CE2 and, after symmetry, contains exactly $M_0$.  If
-at least two V triangles are supercritical, then a V triangle distinct from
-a chosen supercritical triangle has positive-length adjacent-arm support.
+Suppose $T_C$ is CE1 or CE2 and, after symmetry,
+$T_C\cap\{M_0,\ldots,M_5\}=\{M_0\}$.  If at least two V triangles are
+supercritical, then for a supercritical index $s\ne0$ there is some
+$j\in\{s-1,s+1\}$ such that
+\[
+ M_s\in U_j,
+ \qquad
+ \Haus(T_j\cap r_s)>0.
+\]
 \end{lemma}
 
 \begin{proof}
 Choose a supercritical index $s\ne0$.  Lemma~\ref{lem:self-midpoint} gives
 $M_s\notin T_s$, and $M_s\notin T_C$ by the unique-midpoint property.  In
 the original open cover, $M_s$ is therefore contained by some other open
-V triangle.  Diameter one restricts this triangle to $U_{s-1}$ or $U_{s+1}$.
-Because it contains an interior point of the adjacent arm, its intersection
-with that arm has positive length.
+V triangle $U_j$.  Diameter one restricts $j$ to $\{s-1,s+1\}$.  Because
+$U_j$ is open and $M_s$ is an interior point of $r_s$, one has
+$\Haus(T_j\cap r_s)>0$.
 \end{proof}
 
 \subsection{Vd1/Vd2 corner estimates}
@@ -342,10 +356,10 @@ For the last inequality, both sides are positive and
 Reflection proves the same conclusion when the supported arm is $r_5$.
 \end{proof}
 
-\begin{lemma}[Vd2 neighboring-midpoint cap]
+\begin{lemma}[Vd2 adjacent-midpoint cap]
 \label{lem:vd2-neighbor-midpoint-cap}
-If an original Vd2 triangle contains either neighboring midpoint, then its exact
-boundary reaches satisfy
+If an original Vd2 triangle $T_i$ contains $M_{i-1}$ or $M_{i+1}$, then its
+exact boundary reaches satisfy
 \[
  a+b<\frac13.
 \]
@@ -368,7 +382,7 @@ If $M_1=(1/2,1)$ is contained, the second and third half-planes give
  b\ge\frac{t-1}{2t},\qquad
  a+b\le S(t):=d-t-\frac1{2t}.
 \]
-Positive-length contact with the other adjacent arm $r_5$ gives, by
+Positive-length contact with $r_5$ gives, by
 \eqref{eq:vd-ray-intervals},
 \[
  a+b<R(t):=\frac{2(t+1)d-3t^2-t-2}{2t}.
@@ -476,10 +490,10 @@ master perimeter deficit to the center cap and the indicated strict
 Vd1/Vd2 caps.
 \end{proof}
 
-\begin{proposition}[Vd2 neighboring-midpoint branch]
+\begin{proposition}[Vd2 adjacent-midpoint branch]
 \label{prop:ce2-vd2-midpoint-length}
 Assume a CE2, $N_+=1$ configuration has exactly one Vd1/Vd2 triangle, that triangle
-is Vd2 and contains a neighboring midpoint, and all other V triangles are
+is $T_i$ of type Vd2 and contains $M_{i-1}$ or $M_{i+1}$, and all other V triangles are
 Vd0.  Then the boundary cannot be covered.
 \end{proposition}
 
@@ -498,7 +512,8 @@ subcase:
  \item CE1/CE2 with $q=N_++m\ge3$;
  \item CE1/CE2, $N_+=0$, with a Vd1/Vd2 triangle;
  \item CE1, $N_+=1$, with exactly one Vd1/Vd2 triangle and no T3-like triangle;
- \item the Vd2 neighboring-midpoint subcase of the CE2 hybrid routing entry.
+ \item the CE2 hybrid subcase in which the Vd2 triangle $T_i$ contains
+ $M_{i-1}$ or $M_{i+1}$.
 \end{enumerate}
 \end{proposition}
 

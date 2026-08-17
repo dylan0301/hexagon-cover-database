@@ -121,8 +121,8 @@ $$
 (t+1)(t^3+3t^2-1)>0.
 $$
 
-We also use the second adjacent arm. Since a Vd2 role has positive-length
-intersection with $r_5$, the raw endpoints from `2014` satisfy
+We also use $r_5$. Since the Vd2 role has positive-length intersection with
+$r_5$, the raw endpoints from `2014` satisfy
 
 $$
 d-U-t>\frac{1-a}{t+1}.

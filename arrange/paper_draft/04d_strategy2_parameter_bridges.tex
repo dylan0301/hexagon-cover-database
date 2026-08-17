@@ -117,8 +117,8 @@ into \(Y_3>1-X\).
 
 \begin{proposition}[Symmetry and exact T3 source variables]
 \label{prop:s2-t3-source-bridge}
-Normalizing the unique center midpoint to \(M_0\), and then choosing the
-supported adjacent arm \(r_1\), uses only the \(D_6\)-symmetry of the regular
+Normalizing the unique center midpoint to \(M_0\), and then imposing
+\(\Haus(T_0\cap r_1)>0\), uses only the \(D_6\)-symmetry of the regular
 hexagon.  Those two without-loss-of-generality normalizations are retained.
 
 The later trace-dominating translation is not a \(D_6\)-symmetry.  Its output
@@ -128,7 +128,7 @@ is replaced by the exact real parameters
  z=\sqrt{1-\tau+\tau^2},\qquad
  0<\beta<\frac{\tau z}{1+z}.
 \]
-The boundary endpoints and adjacent-radial interval are
+The boundary endpoints and the $T_0\cap r_1$ interval are
 \[
  b_-=\beta,\qquad b_+=z-\beta,
 \]
@@ -137,7 +137,7 @@ The boundary endpoints and adjacent-radial interval are
  c_\star=\frac q\tau,\qquad
  u_\star=1+\beta-\tau.
 \]
-Every support-isolated endpoint parameters has $C_5>1/2$.  If
+Every support-isolated endpoint parameter tuple has $C_5>1/2$.  If
 $C_1\le1/2$, the right endpoint uses the direct linear bound $1-A_1$.  If
 $C_1>1/2$, the parameter tuple determines a point of one cell in
 Definition~\ref{def:s2-t3-finite-union}.
@@ -216,23 +216,23 @@ it does not alter the preceding \(D_6\)-normalization.
 \begin{proposition}[Second adjacent exceptional triangle source bridge]
 \label{prop:s2-sc-vd1-bridge}
 The Vd1 corner variables satisfy the equations and inequalities of
-\(\Omega_{\rm SC}^{V}\).  In particular, absence of a positive interval on
-the second adjacent arm is exactly
+\(\Omega_{\rm SC}^{V}\).  In particular, the condition
+\(\Haus(T_0\cap r_5)=0\) is exactly
 \[
  \Delta(t)-a-tb-t\le\frac{1-a}{t+1}.
 \]
 \end{proposition}
 
 \begin{proof}
-The two raw endpoints on that arm are
+The two raw endpoints on $r_5$ are
 \[
  \lambda_5=\frac{1-a}{t+1},
  \qquad
  \mu_5=\Delta(t)-a-tb-t.
 \]
 Since \(\lambda_5>0\), absence of a positive interval is equivalent to
-\(\mu_5\le\lambda_5\).  The remaining equations are the first-arm graph and
-the neighboring-midpoint inequality.
+\(\mu_5\le\lambda_5\).  The remaining equations are the $r_1$ graph and
+the inequality expressing $M_1\in T_0$.
 \end{proof}
 
 \subsection{Vd radial domains}
@@ -268,9 +268,9 @@ normalized center traces, after substituting the signed-center formulas.
 
 \begin{proposition}[Explicit corner-graph bridge]
 \label{prop:s2-vd-corner-bridge}
-Let \(p_1,q_1\) be the exact boundary reaches of an adjacent Vd triangle and let
-\(t>0\) be its corner parameter.  The far endpoint of a supported adjacent
-interval is
+Let \(p_1,q_1\) be the exact boundary reaches of a Vd triangle $T_i$, choose
+the orientation with $\Haus(T_i\cap r_{i+1})>0$, and let \(t>0\) be its
+corner parameter.  The far endpoint of $T_i\cap r_{i+1}$ is
 \[
  u_+=\frac{\sqrt{t^2+t+1}-p_1-tq_1-1}{t}.
 \]

@@ -39,7 +39,8 @@ $$
 \Delta_L=P-R\alpha-\delta.
 $$
 
-The closed normalized exact-$M_0$ CE2 domain is
+The closed normalized CE2 domain with
+$T_C\cap\{M_0,\ldots,M_5\}=\{M_0\}$ is
 
 $$
 \boxed{
@@ -121,7 +122,8 @@ T_C\cap\left\{M_0,\ldots,M_5\right\}
 \left\{M_0\right\}.
 $$
 
-Conversely, `2109` proves that every normalized exact-$M_0$ CE2 center role
+Conversely, `2109` proves that every normalized CE2 center role whose unique
+radial midpoint is $M_0$
 yields exactly these signed inequalities. Hence the domain is exact.
 
 ## 2. Legacy interval-pair coupling

@@ -8,17 +8,30 @@ optimization layer is repeated in the printed article.
 
 \begin{theorem}[One-gap endpoint inequality]
 \label{thm:s2-pure-e1}
-For every CE1 or CE2 one-gap endpoint pair
-$(a_L,c_L),(a_R,c_R)$ obtained from the signed center normal form,
+In the normalized CE1 or CE2 one-gap configuration of the signed center
+normal form, put
+\[
+ (a_L,c_L)=\left(\frac{k}{R},1-\frac{\alpha}{W}\right),
+ \qquad
+ (a_R,c_R)=\left(R-\delta,1-\frac{\delta}{R}\right).
+\]
+Then
 \[
  \overline M_{c_L}(a_L)+\overline M_{c_R}(a_R)<1.
 \]
+The reflected orientation is obtained by interchanging
+$R\leftrightarrow W$ and $\alpha\leftrightarrow\delta$.
 \end{theorem}
 
 \begin{theorem}[Paired-gap endpoint inequality]
 \label{thm:s2-pure-e2}
-For every CE2 paired-gap endpoint pair obtained from the signed center normal
-form,
+In the normalized CE2 paired-gap configuration, put
+\[
+ (a_L,c_L)=\left(W-\alpha,\frac{W-\alpha}{W}\right),
+ \qquad
+ (a_R,c_R)=\left(R-\delta,\frac{R-\delta}{R}\right).
+\]
+Then
 \[
  \overline M_{c_L}(a_L)+\overline M_{c_R}(a_R)<1.
 \]
@@ -40,15 +53,54 @@ two threshold locations fires, and both may fire.
 
 \begin{definition}[Support-isolated T3-like endpoint state]
 \label{def:body-t3-endpoint-state}
-Assume $N_+=0$, no V triangle is Vd1 or Vd2, and, after normalization
-and reflection, $T_0$ is T3-like with selected adjacent support on $r_1$.
-Include every center interval and every nonincident positive trace in the two
-endpoint suffixes, and denote the resulting boundary/radial pairs by
+Assume $T_C$ is CE1 or CE2, $N_+=0$, no V triangle is Vd1 or Vd2, and,
+after normalization and reflection, $T_0$ is T3-like with
+$\Haus(T_0\cap r_1)>0$.  Apply the closed-trace domination of
+Proposition~\ref{prop:t3-translation} and retain the symbol $T_0$ for the
+resulting trace-dominating majorant.  The support-isolation hypotheses are
 \[
- (a_5^\ast,c_5^\ast),\qquad (a_1^\ast,c_1^\ast).
+ \Haus(T_j\cap r_1)=0\quad(j\notin\{0,1\}),
+ \qquad
+ \Haus(T_j\cap r_5)=0\quad(j\ne5).
 \]
-For $c_i^\ast>1/2$ the endpoint capacity is $\overline M_{c_i^\ast}(a_i^\ast)$; for
-$c_i^\ast\le1/2$ it is the direct nonsupercritical value $1-a_i^\ast$.
+Parameterize $e_{0,1}$ and $e_{5,0}$ from $V_0$, and $r_1,r_5$ from $O$.
+Write
+\[
+ T_0\cap e_{0,1}=[0,p_1],\qquad
+ T_0\cap e_{5,0}=[0,p_5],
+\]
+\[
+ J_1=T_C\cap e_{0,1},\qquad
+ J_5=
+ \begin{cases}
+ T_C\cap e_{5,0},&T_C\text{ is CE2},\\
+ \varnothing,&T_C\text{ is CE1},
+ \end{cases}
+\]
+where the CE1 definition discards its possible point contact.  Write
+\[
+ T_C\cap r_i=[0,\gamma_i]\quad(i\in\{1,5\}),\qquad
+ T_0\cap r_1=[1-u,1-c].
+\]
+With the residual operator $\mathcal R_J$ of
+\eqref{eq:reader-residual-operator}, define the exact boundary inputs and
+radial lower bounds by
+\[
+ (a_5^\ast,c_5^\ast)
+ =\left(\mathcal R_{J_5}(p_5),1-\gamma_5\right),
+\]
+\[
+ (a_1^\ast,c_1^\ast)=
+ \begin{cases}
+ \left(\mathcal R_{J_1}(p_1),c\right),
+   &1-u\le\gamma_1\le1-c,\\
+ \left(\mathcal R_{J_1}(p_1),1-\gamma_1\right),
+   &\text{otherwise}.
+ \end{cases}
+\]
+For either $i\in\{1,5\}$ the endpoint capacity is
+$\overline M_{c_i^\ast}(a_i^\ast)$; by definition this is the direct
+nonsupercritical value $1-a_i^\ast$ when $c_i^\ast\le1/2$.
 \end{definition}
 
 \begin{theorem}[Support-isolated T3-like endpoint inequality]

@@ -70,12 +70,16 @@ The center type is the number of boundary edges on which $T_C$ has a
 positive-length trace.  The only possibilities are $0,1,2$, denoted by
 $\CEzero,\CEone,\CEtwo$.
 
-For a V triangle, let $o$ be the number of its triangle vertices outside
-$H$ and let $n$ be the number of adjacent radial segments met in positive
-length.  The exhaustive types are
+For the V triangle $T_i$, let $o(T_i)$ be the number of its triangle vertices
+outside $H$ and put
+\[
+ n(T_i)=\left\lvert\left\{j\in\{i-1,i+1\}:
+ \Haus(T_i\cap r_j)>0\right\}\right\rvert,
+\]
+with indices modulo $6$.  The exhaustive types are
 \[
 \begin{array}{c|c}
-\text{type}&(o,n)\\ \hline
+\text{type}&(o(T_i),n(T_i))\\ \hline
 \Vdzero&(1,0),(2,0),(3,0)\\
 \Vdone&(1,1)\\
 \Vdtwo&(1,2)\\

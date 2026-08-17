@@ -375,13 +375,14 @@ $$
 
 The exhaustive V-triangle classification in
 [`1201`](../../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md)
-says that these are exactly the V triangles with positive-length support on
-an adjacent radial arm.  The Vd1/Vd2 half-cap in
+says that these are exactly the $T_i$ for which
+$\mathcal H^1(T_i\cap r_j)>0$ for some $j\in\{i-1,i+1\}$.  The Vd1/Vd2 half-cap in
 [`2014`](../20XX_V_triangle_geometry/2014_Vd1_Vd2_corner_normal_form.md) and
 the T3-like nonsupercritical theorem
 [`1213`](../../1XXX_foundations/12XX_V_triangle/1213_T3_like_nonsupercritical.md)
-show that none is supercritical.  Conversely every supercritical V triangle
-is Vd0 and has no positive adjacent-radial support.  Thus the $N_+$ and
+show that none is supercritical.  Conversely every supercritical $T_i$ is
+Vd0 and satisfies
+$\mathcal H^1(T_i\cap r_{i-1})=\mathcal H^1(T_i\cap r_{i+1})=0$.  Thus the $N_+$ and
 $N_{\rm sp}$ classes are disjoint.
 
 The bounds in [`2510`](2510_skeleton_length_bounds.md) are
@@ -429,10 +430,13 @@ $$
 This is the result formerly described as the three-short-role theorem; the
 auxiliary count is no longer part of the public notation.
 
-Finally, if $N_+\ge2$, normalize the unique C-triangle midpoint to $M_0$ and
+Finally, if $N_+\ge2$, use the exactly-one-midpoint theorem
+[`2100`](../21XX_C_triangle_geometry/2100_CE1_CE2_exactly_one_midpoint_lemma.md)
+for the role closure $T_C=\overline{U_C}$, where $O\in U_C$ and hence
+$O\in\mathrm{int}(T_C)$, to normalize the C-triangle midpoint to $M_0$ and
 choose a supercritical index $s\ne0$.  The self-midpoint obstruction excludes
 $T_s$ from $M_s$, and the C triangle misses $M_s$.  Diameter locality forces
-one adjacent V triangle to contain $M_s$, hence to have positive
-adjacent-radial support.  It belongs to the $N_{\rm sp}$ class and is distinct
+$M_s\in U_j$ for some $j\in\{s-1,s+1\}$; openness then gives
+$\mathcal H^1(T_j\cap r_s)>0$.  Thus $T_j$ belongs to the $N_{\rm sp}$ class and is distinct
 from the two supercritical V triangles.  Consequently
 $N_++N_{\rm sp}\ge3$, closing every CE1/CE2 branch with $N_+\ge2$.

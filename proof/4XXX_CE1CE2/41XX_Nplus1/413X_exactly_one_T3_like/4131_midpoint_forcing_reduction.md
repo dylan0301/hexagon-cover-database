@@ -16,7 +16,9 @@ T_C,\ T_0,\dots,T_5,
 $$
 
 where $T_C$ is CE1 or CE2 and $O\in\mathrm{int}(T_C)$. Normalize by the
-CE1/CE2 exactly-one-midpoint lemma so that
+CE1/CE2 exactly-one-midpoint lemma
+[`2100`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2100_CE1_CE2_exactly_one_midpoint_lemma.md)
+so that
 
 $$
 T_C\cap\{M_0,\dots,M_5\}=\{M_0\}.

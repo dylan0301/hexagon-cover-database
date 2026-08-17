@@ -130,15 +130,15 @@ $$
 Let
 
 $$
-\beta(q)=\frac{-q+\sqrt{4-3q^2}}2.
+M_0(q)=\frac{-q+\sqrt{4-3q^2}}2.
 $$
 
 We prove
 
 $$
-\boxed{B\le\beta(x),
+\boxed{B\le M_0(x),
 \qquad
-U\le\beta(y).}
+U\le M_0(y).}
 $$
 
 It is enough to prove the first inequality.  By the explicit interval
@@ -158,7 +158,7 @@ $$
 x^2+xB+B^2\le1,
 $$
 
-and hence $B\le\beta(x)$.
+and hence $B\le M_0(x)$.
 
 Now suppose $B=B_0$.  If $A_0<x$, then the component on the other edge ends at
 $A_0$, so $U=A_0$.  The inequality $\rho_R+\rho_L<1/2$ would then imply
@@ -176,15 +176,15 @@ $$
 Thus $A_0\ge x$.  The endpoint-distance inequality gives
 
 $$
-B_0\le\beta(A_0)\le\beta(x),
+B_0\le M_0(A_0)\le M_0(x),
 $$
 
-because $\beta$ is decreasing.  Reflection proves $U\le\beta(y)$.
+because $M_0$ is decreasing.  Reflection proves $U\le M_0(y)$.
 
 The complementary diameter-transfer inequality from `2018` is
 
 $$
-1-\beta(q)>\frac q2
+1-M_0(q)>\frac q2
 \qquad(q>0).
 $$
 

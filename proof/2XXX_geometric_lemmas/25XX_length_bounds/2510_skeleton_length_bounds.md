@@ -139,9 +139,10 @@ $$
 
 ---
 
-## Lemma 3: Exact-$M_0$ CE1/CE2 center triangles have skeleton length $<3/2$
+## Lemma 3: CE1/CE2 center triangles with unique midpoint $M_0$ have skeleton length $<3/2$
 
-Let $T_C$ be an exact-$M_0$ CE1 or CE2 center triangle. Then
+Let $T_C$ be a CE1 or CE2 center triangle satisfying
+$T_C\cap\{M_0,\ldots,M_5\}=\{M_0\}$. Then
 
 $$
 L_S(T_C):=\mathcal H^1(T_C\cap S)<3/2.
@@ -201,7 +202,7 @@ $$
 
 They define a unit equilateral triangle because their gradients have the three side-normal directions of a unit equilateral triangle.
 
-The exact-$M_0$ CE geometry forces
+This normalized CE geometry forces
 
 $$
 0<\lambda<1.

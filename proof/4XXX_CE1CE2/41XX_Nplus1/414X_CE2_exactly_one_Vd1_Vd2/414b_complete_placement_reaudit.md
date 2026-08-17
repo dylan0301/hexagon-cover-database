@@ -9,7 +9,10 @@ This file re-audits the placement partition after the two-chart repair of
 
 Assume:
 
-- the center role is CE2 and has unique center midpoint $M_0$;
+- by [`2100`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2100_CE1_CE2_exactly_one_midpoint_lemma.md),
+  applied to $T_C=\overline{U_C}$ with
+  $O\in U_C\subset\mathrm{int}(T_C)$, the CE2 center role is normalized to
+  have unique midpoint $M_0$;
 - $N_+=1$;
 - exactly one vertex role is Vd1 or Vd2;
 - the branch with an additional positive-support vertex role has already been
@@ -64,8 +67,9 @@ $\sigma$.
 
 ## Positive-support complement
 
-If any role in addition to the unique Vd role has positive adjacent-arm
-support, then the unique supercritical role, the Vd role, and that additional
+If an additional role $T_i$ satisfies
+$\mathcal H^1(T_i\cap r_j)>0$ for some $j\in\{i-1,i+1\}$, then the unique
+supercritical role, the Vd role, and that additional
 role are three distinct short roles. The skeleton trace theorem `414a` gives
 the contradiction.
 
