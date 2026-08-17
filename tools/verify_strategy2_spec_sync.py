@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check that the TeX and Lean Strategy 2 problem registries stay synchronized."""
+"""Check that the TeX and Lean Strategy 2 interfaces stay synchronized."""
 
 from __future__ import annotations
 
@@ -50,41 +50,58 @@ for name in required_lean:
     if not re.search(rf"\btheorem\s+{re.escape(name)}\b", lean):
         errors.append(f"missing Lean theorem shell: {name}")
 
-# Boundary ownership in the exact capped map.
-tex_markers = [
-    r"0\le x\le1-c",
-    r"1-c<x\le \ell(c)",
-    r"\ell(c)<x<r(c)",
-    r"r(c)\le x<c",
-    r"x=h(c)",
-]
-lean_markers = [
+for marker in [
+    "structure SignedCenterInput",
+    "alpha : ℝ",
+    "delta : ℝ",
+    "def centerRadical",
+    "def centerEta",
+    "def centerP",
+    "def centerK",
+    "def rightSurplus",
+    "def leftSurplus",
+    "inductive ForwardCapBranch",
+    "| lin",
+    "| const",
+    "| qMinus",
+    "| qPlus",
+    "def forwardCap",
+    "def propagate",
+    "def strictSupercriticalForwardSupremum",
+    "inductive VdPosition",
+]:
+    if marker not in lean:
+        errors.append(f"missing canonical Lean interface marker: {marker}")
+
+lean_branch_markers = [
     "if x ≤ 1 - c then 1 - x",
-    "else if x ≤ lowRoot c then qPlus c x",
-    "else if x < upperRoot c then lowRoot c",
+    "else if x ≤ lowerBreakpoint c then qPlus c x",
+    "else if x < upperBreakpoint c then lowerBreakpoint c",
     "else if x < c then qMinus c x",
-    "else if x = transition c then transition c",
+    "else if x = qPlusTransition c then qPlusTransition c",
 ]
-compact_tex = re.sub(r"\s+", "", tex)
-for marker in tex_markers:
-    compact_marker = re.sub(r"\s+", "", marker)
-    if compact_marker not in compact_tex:
-        errors.append(f"missing TeX branch marker: {marker}")
-for marker in lean_markers:
+for marker in lean_branch_markers:
     if marker not in lean:
         errors.append(f"missing Lean branch marker: {marker}")
 
-# New Vd domain hypotheses must occur in both specifications.
-for marker in ["t>0", "x^2+x(w+d)+(w+d)^2\\le1", "y^2+y(r+a)+(r+a)^2\\le1"]:
-    if marker not in compact_tex:
-        errors.append(f"missing TeX Vd domain marker: {marker}")
+compact_tex = re.sub(r"\s+", "", tex)
+for marker in [
+    r"0\le x\le1-c",
+    r"1-c<x\le\ell(c)",
+    r"\ell(c)<x<r(c)",
+    r"r(c)\le x<c",
+    r"x=h(c)",
+]:
+    if re.sub(r"\s+", "", marker) not in compact_tex:
+        errors.append(f"missing TeX branch marker: {marker}")
+
 for marker in [
     "0 < v.t",
-    "vdNonX v ^ 2 + vdNonX v * (w v.center + v.center.d)",
-    "vdNonY v ^ 2 + vdNonY v * (v.center.r + v.center.a)",
+    "vdNonLeftTraceEnd v ^ 2 + vdNonLeftTraceEnd v * (w v.center + v.center.delta)",
+    "vdNonRightTraceEnd v ^ 2 + vdNonRightTraceEnd v * (v.center.r + v.center.alpha)",
 ]:
     if marker not in lean:
-        errors.append(f"missing Lean Vd domain marker: {marker}")
+        errors.append(f"missing Lean Vd-domain marker: {marker}")
 
 sorry_count = len(re.findall(r":= by\s+sorry\b", lean))
 if sorry_count != len(required_lean):

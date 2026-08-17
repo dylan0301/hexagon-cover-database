@@ -8,7 +8,7 @@ half-edge $1/3$ envelope is replaced by the global quarter radial envelope
 and the two Vd radial substitutions are replaced by the corner margins
 [`201c`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/201c_Vd_corner_radial_margins.md).
 
-## 1. Setup and residual boundary demands
+## 1. Setup and residual boundary lower bounds
 
 Assume
 
@@ -58,13 +58,13 @@ $$
 \boxed{d_2^C=\delta.}
 $$
 
-Let $(a_0,b_0)$ be the boundary reaches of the supercritical V triangle.  Then
+Let $(A_0,B_0)$ be the boundary reaches of the supercritical V triangle.  Then
 
 $$
 \boxed{
-a_0+b_0>1,
+A_0+B_0>1,
 \qquad
-a_0^2+a_0b_0+b_0^2\le1.
+A_0^2+A_0B_0+B_0^2\le1.
 }
 $$
 
@@ -74,40 +74,40 @@ and put
 
 $$
 \boxed{
-A=\mathcal R_{I_R}(b_0),
+\rho_R=\mathcal R_{I_R}(B_0),
 \qquad
-H=\mathcal R_{I_L}(a_0).
+\rho_L=\mathcal R_{I_L}(A_0).
 }
 $$
 
-Thus $A$ is the incoming reach forced on $T_1$, while $H$ is the far-side
-reach forced on $T_5$.  In a genuine reduced candidate $H>0$.  Boundary
+Thus $\rho_R$ is the incoming reach forced on $T_1$, while $\rho_L$ is the far-side
+reach forced on $T_5$.  In a genuine reduced candidate $\rho_L>0$.  Boundary
 handoffs through the four ordinary nonsupercritical V triangles give
 
 $$
-b_5\ge H
+B_5\ge \rho_L
 \Longrightarrow
-b_4\ge H
+B_4\ge \rho_L
 \Longrightarrow
-b_3\ge H
+B_3\ge \rho_L
 \Longrightarrow
-b_2\ge H
+B_2\ge \rho_L
 \Longrightarrow
-b_1\ge H.
+B_1\ge \rho_L.
 $$
 
 Hence
 
 $$
-a_1\ge A,
+A_1\ge \rho_R,
 \qquad
-b_1\ge H.
+B_1\ge \rho_L.
 $$
 
 The Vd1/Vd2 half-unit cap gives
 
 $$
-\boxed{A+H<\frac12.}
+\boxed{\rho_R+\rho_L<\frac12.}
 $$
 
 ## 2. A quarter-margin for the center exit
@@ -130,9 +130,9 @@ $$
 \boxed{\delta<\frac H4.}
 $$
 
-Since $H>0$, the residual formula has two possible positive values.
+Since $\rho_L>0$, the residual formula has two possible positive values.
 
-### Case 1: $H=1-(R+\alpha)=W-\alpha$
+### Case 1: $\rho_L=1-(R+\alpha)=W-\alpha$
 
 Then
 
@@ -148,24 +148,24 @@ $$
 so
 
 $$
-4\delta<W-\alpha=H.
+4\delta<W-\alpha=\rho_L.
 $$
 
-### Case 2: $H=1-a_0$
+### Case 2: $\rho_L=1-A_0$
 
-The other residual $A$ cannot equal $1-b_0$.  Otherwise
-
-$$
-A+H=2-a_0-b_0<\frac12
-$$
-
-would give $a_0+b_0>3/2$, whereas the endpoint-distance inequality gives
+The other residual $\rho_R$ cannot equal $1-B_0$.  Otherwise
 
 $$
-a_0+b_0\le\frac2{\sqrt3}<\frac32.
+\rho_R+\rho_L=2-A_0-B_0<\frac12
 $$
 
-Also $b_0<1$, because $b_0=1$ would force $a_0=0$ in the endpoint-distance
+would give $A_0+B_0>3/2$, whereas the endpoint-distance inequality gives
+
+$$
+A_0+B_0\le\frac2{\sqrt3}<\frac32.
+$$
+
+Also $B_0<1$, because $B_0=1$ would force $A_0=0$ in the endpoint-distance
 inequality, contradicting strict supercriticality.  The signed center domain
 gives
 
@@ -173,21 +173,21 @@ $$
 W+\delta<1.
 $$
 
-Consequently the residual $A$ is positive.  The residual formula therefore
+Consequently the residual $\rho_R$ is positive.  The residual formula therefore
 forces
 
 $$
 \boxed{
-A=1-(W+\delta),
+\rho_R=1-(W+\delta),
 \qquad
-b_0\ge\frac{k}{R}.
+B_0\ge\frac{k}{R}.
 }
 $$
 
-Since $A+H<1/2$,
+Since $\rho_R+\rho_L<1/2$,
 
 $$
-W+\delta>\frac12+H.
+W+\delta>\frac12+\rho_L.
 $$
 
 Put
@@ -196,16 +196,16 @@ $$
 y=\frac{k}{R}.
 $$
 
-Because $a_0=1-H$ and $b_0\ge y$, the endpoint-distance inequality gives
+Because $A_0=1-\rho_L$ and $B_0\ge y$, the endpoint-distance inequality gives
 
 $$
-(1-H)^2+(1-H)y+y^2\le1.
+(1-\rho_L)^2+(1-\rho_L)y+y^2\le1.
 $$
 
 The diameter-transfer lemma `2018` gives
 
 $$
-H>\frac y2>\frac{\eta}{2R}.
+\rho_L>\frac y2>\frac{\eta}{2R}.
 $$
 
 Therefore
@@ -278,13 +278,13 @@ $$
 Thus
 
 $$
-H>\frac{\eta}{2R}>\frac16.
+\rho_L>\frac{\eta}{2R}>\frac16.
 $$
 
 Together with $\delta<1/24$, this gives
 
 $$
-4\delta<\frac16<H.
+4\delta<\frac16<\rho_L.
 $$
 
 Both cases prove the quarter-margin.
@@ -302,10 +302,10 @@ $$
 
 If $T_1$ has no positive-length trace on $r_2$, there is nothing to prove.
 Otherwise orient the corner normal form toward that supported arm.  The
-supported-arm margin `201c`, together with $b_1\ge H$, gives
+supported-arm margin `201c`, together with $B_1\ge \rho_L$, gives
 
 $$
-u_{1\to2}<1-H<1-\delta=q_2.
+u_{1\to2}<1-\rho_L<1-\delta=q_2.
 $$
 
 Here $u_{1\to2}$ denotes the far endpoint of the supported $T_1$ trace on $r_2$. Thus $T_1$ cannot meet the center interval.
@@ -315,36 +315,36 @@ Here $u_{1\to2}$ denotes the far endpoint of the supported $T_1$ trace on $r_2$.
 Coverage of $e_{1,2}$ gives
 
 $$
-a_2\ge1-b_1.
+A_2\ge1-B_1.
 $$
 
-Since $a_1+b_1<1/2$ and $a_1\ge A$,
+Since $A_1+B_1<1/2$ and $A_1\ge \rho_R$,
 
 $$
-a_2>\frac12+A.
+A_2>\frac12+\rho_R.
 $$
 
-Backward propagation gives $b_2\ge H$.  Put
+Backward propagation gives $B_2\ge \rho_L$.  Put
 
 $$
-p=\frac12+A.
+p=\frac12+\rho_R.
 $$
 
-The inequality $A+H<1/2$ gives
+The inequality $\rho_R+\rho_L<1/2$ gives
 
 $$
-0\le H\le p,
+0\le \rho_L\le p,
 \qquad
-p+H<1.
+p+\rho_L<1.
 $$
 
 Coordinatewise down-closedness of the exact admissible set and the quarter
 envelope `201b` give
 
 $$
-c_2
+C_2
 \le
-c_{\max}(p,H)
+c_{\max}(p,\rho_L)
 \le
 1-\frac H4
 <

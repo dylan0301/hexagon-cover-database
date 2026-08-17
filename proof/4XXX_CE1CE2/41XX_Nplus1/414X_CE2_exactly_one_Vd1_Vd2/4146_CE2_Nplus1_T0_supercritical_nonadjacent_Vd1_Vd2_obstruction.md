@@ -80,24 +80,24 @@ $$
 \boxed{T<\frac12\min\{x,y\}.}
 $$
 
-## 2. Residual demands at the Vd1/Vd2 V triangle
+## 2. Residual lower bounds at the Vd1/Vd2 V triangle
 
-Let $(a_0,b_0)$ be the boundary reaches of the supercritical V triangle.  Then
+Let $(A_0,B_0)$ be the boundary reaches of the supercritical V triangle.  Then
 
 $$
 \boxed{
-a_0+b_0>1,
+A_0+B_0>1,
 \qquad
-a_0^2+a_0b_0+b_0^2\le1.
+A_0^2+A_0B_0+B_0^2\le1.
 }
 $$
 
 Let
 
 $$
-B=e_{I_R}(b_0),
+B=e_{I_R}(B_0),
 \qquad
-U=e_{I_L}(a_0)
+U=e_{I_L}(A_0)
 $$
 
 be the farthest already-covered extents from $V_0$ on the two active boundary
@@ -106,23 +106,23 @@ edges, in the notation of the interval calculus
 Put
 
 $$
-\boxed{A=1-B,
+\boxed{\rho_R=1-B,
 \qquad
-H=1-U.}
+\rho_L=1-U.}
 $$
 
 Boundary propagation through the intervening nonsupercritical V triangles gives
 
 $$
-\boxed{a_\tau\ge A,
+\boxed{A_\tau\ge \rho_R,
 \qquad
-b_\tau\ge H.}
+B_\tau\ge \rho_L.}
 $$
 
 The Vd1/Vd2 half-unit cap therefore gives
 
 $$
-\boxed{A+H<\frac12.}
+\boxed{\rho_R+\rho_L<\frac12.}
 $$
 
 ## 3. Diameter transfer on the two active edges
@@ -142,7 +142,7 @@ U\le\beta(y).}
 $$
 
 It is enough to prove the first inequality.  By the explicit interval
-component formula, $B$ is either the supercritical endpoint $b_0$ or the far
+component formula, $B$ is either the supercritical endpoint $B_0$ or the far
 center endpoint $W+\delta$.
 
 If
@@ -160,23 +160,23 @@ $$
 
 and hence $B\le\beta(x)$.
 
-Now suppose $B=b_0$.  If $a_0<x$, then the component on the other edge ends at
-$a_0$, so $U=a_0$.  The inequality $A+H<1/2$ would then imply
+Now suppose $B=B_0$.  If $A_0<x$, then the component on the other edge ends at
+$A_0$, so $U=A_0$.  The inequality $\rho_R+\rho_L<1/2$ would then imply
 
 $$
-a_0+b_0>\frac32,
+A_0+B_0>\frac32,
 $$
 
 contrary to
 
 $$
-a_0+b_0\le\frac2{\sqrt3}<\frac32.
+A_0+B_0\le\frac2{\sqrt3}<\frac32.
 $$
 
-Thus $a_0\ge x$.  The endpoint-distance inequality gives
+Thus $A_0\ge x$.  The endpoint-distance inequality gives
 
 $$
-b_0\le\beta(a_0)\le\beta(x),
+B_0\le\beta(A_0)\le\beta(x),
 $$
 
 because $\beta$ is decreasing.  Reflection proves $U\le\beta(y)$.
@@ -191,15 +191,15 @@ $$
 Consequently
 
 $$
-A=1-B>\frac x2>T,
+\rho_R=1-B>\frac x2>T,
 \qquad
-H=1-U>\frac y2>T.
+\rho_L=1-U>\frac y2>T.
 $$
 
 Therefore
 
 $$
-\boxed{T<\min\{A,H\}.}
+\boxed{T<\min\{\rho_R,\rho_L\}.}
 $$
 
 ## 4. Radial separation
@@ -230,7 +230,7 @@ Thus
 
 $$
 \boxed{
-d_\tau^C<\min\{A,H\},
+d_\tau^C<\min\{\rho_R,\rho_L\},
 \qquad
 \tau\in\{2,3,4\}.
 }
@@ -238,10 +238,10 @@ $$
 
 The Vd corner margin
 [`201c`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/201c_Vd_corner_radial_margins.md),
-applied to $a_\tau\ge A$ and $b_\tau\ge H$, gives
+applied to $A_\tau\ge \rho_R$ and $B_\tau\ge \rho_L$, gives
 
 $$
-\boxed{c_\tau<1-\min\{A,H\}.}
+\boxed{C_\tau<1-\min\{\rho_R,\rho_L\}.}
 $$
 
 The center interval on $r_\tau$ begins from the vertex side at
@@ -249,9 +249,9 @@ The center interval on $r_\tau$ begins from the vertex side at
 $$
 q_\tau=1-d_\tau^C
 >
-1-\min\{A,H\}
+1-\min\{\rho_R,\rho_L\}
 >
-c_\tau.
+C_\tau.
 $$
 
 Hence the own-radial trace of $T_\tau$ does not meet the center trace.

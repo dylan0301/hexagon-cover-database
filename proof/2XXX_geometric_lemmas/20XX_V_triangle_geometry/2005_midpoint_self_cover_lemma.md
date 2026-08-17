@@ -4,15 +4,18 @@ Status: Proven
 
 ## Statement
 
-For a closed unit $V_i$-triangle,
+For a closed unit $V_i$ triangle,
 
 $$
 M_i\in T_i
 \quad\Longrightarrow\quad
-a_i+b_i\le1.
+A_i+B_i\le1.
 $$
 
-For an open triangle when the selected V triangle-demand points are contained with a
+Consequently every selected pair $a_i\le A_i$, $b_i\le B_i$ satisfies
+$a_i+b_i\le1$.
+
+For an open triangle when the selected V-triangle reach points are contained with a
 positive margin, or under a general-position reduction that supplies this
 margin,
 
@@ -32,7 +35,7 @@ u=\left(\frac12,\frac{\sqrt3}{2}\right),
 v=\left(\frac12,-\frac{\sqrt3}{2}\right).
 $$
 
-The prescribed boundary points and radial midpoint are
+For the closed theorem set $a=A_i$ and $b=B_i$.  The prescribed boundary endpoints and radial midpoint are
 
 $$
 A=au,
@@ -185,11 +188,11 @@ contrary to the existence of a closed unit triangle containing
 $0,A,M,B$. Hence
 
 $$
-M_i\in T_i\implies a_i+b_i\le1.
+M_i\in T_i\implies A_i+B_i\le1.
 $$
 
-If the selected demand points are contained with positive margin and equality
-$a_i+b_i=1$ held, both edge demands could be increased slightly while keeping
+If the selected reach points are contained with positive margin and equality
+$a_i+b_i=1$ held, both boundary lower bounds could be increased slightly while keeping
 the four points inside the triangle. The closed result would then be violated.
 This proves the stated strict corollary. The closed theorem itself does not
 silently turn arbitrary supremal reach coordinates into strict inequalities.

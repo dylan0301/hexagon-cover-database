@@ -3,21 +3,21 @@
 
 \subsubsection{The exactly-one-$T3$ branch}
 
-\begin{proposition}[Exactly one T3-like vertex triangle]
+\begin{proposition}[Exactly one T3-like V triangle]
 \label{prop:nplus-one-one-t3}
-Assume the center triangle is CE1 or CE2, $N_+=1$, exactly one vertex triangle is
+Assume the C triangle is CE1 or CE2, $N_+=1$, exactly one V triangle is
 T3-like, and no triangle is Vd1 or Vd2.  Then the triangles do not cover $H$.
 \end{proposition}
 
 \begin{proof}
-Normalize the center midpoint to $M_0$.  A T3-like vertex triangle misses its own
-midpoint, a supercritical vertex triangle misses its local midpoint, and a Vd0 vertex triangle cannot
+Normalize the center midpoint to $M_0$.  A T3-like V triangle misses its own
+midpoint, a supercritical V triangle misses its local midpoint, and a Vd0 V triangle cannot
 rescue a neighboring midpoint.  Consequently, after reflection,
 \[
  T_0\text{ is T3-like},\qquad M_1\in T_0,
  \qquad T_1\text{ is uniquely supercritical},
 \]
-and $T_2,\ldots,T_5$ are nonsupercritical Vd0 vertex triangles.  The rational local
+and $T_2,\ldots,T_5$ are nonsupercritical Vd0 V triangles.  The rational local
 calculation is Lemma~\ref{lem:short-t3-rescuer-profile}.  It verifies the two
 local inequalities in \eqref{eq:signed-rescuer-local}, while midpoint and
 support isolation force the center to cover the $O$-side radial gap.  The
@@ -35,7 +35,7 @@ proved below.
 \includegraphics[width=.78\linewidth]
   {figures/strategy2_ce1_ce2_n0_all_vd0.png}
 \caption{Schematic view of the common CE1/CE2, $N_+=0$, all-Vd0 boundary
-package, not to scale.  The center triangle and three representative Vd0 vertex
+package, not to scale.  The C triangle and three representative Vd0 vertex
 triangles are shown; the remaining three triangles are omitted for readability.  The
 simultaneous placement is not a candidate cover, and no proof depends on
 visual inspection.}
@@ -44,7 +44,7 @@ visual inspection.}
 
 \begin{proposition}[All-Vd0 skeleton-data obstruction]
 \label{prop:nplus-zero-all-vd0}
-Let the center triangle be CE1 or CE2. Assume all six vertex triangles are Vd0,
+Let the C triangle be CE1 or CE2. Assume all six V triangles are Vd0,
 \[
  A_i+B_i\le1\qquad(i=0,\ldots,5),
 \]
@@ -58,7 +58,7 @@ cover all of $H$.
 
 \begin{proof}
 Let $d_i^C$ be the center reach on $r_i$, measured from $O$, and set
-$c_i^C=1-d_i^C$. Since every vertex triangle is Vd0, no adjacent vertex triangle has
+$c_i^C=1-d_i^C$. Since every V triangle is Vd0, no adjacent V triangle has
 a positive-length trace on $r_i$; diameter locality excludes nonlocal triangles.
 Skeleton coverage therefore forces
 \[
@@ -103,10 +103,10 @@ $B_5\ge s$. By \((*)\),
 \]
 The exact one-side endpoint theorem gives
 \[
- g_{1-\alpha/W}(1-s)
- +g_{1-\delta/R}(1-q)<1.
+ M_{1-\alpha/W}(s)
+ +M_{1-\delta/R}(q)<1.
 \]
-The three internal vertex triangles $T_2,T_3,T_4$ lie on a center-free boundary
+The three internal V triangles $T_2,T_3,T_4$ lie on a center-free boundary
 path. The path budget forces their total boundary contribution above three,
 contrary to their three nonsupercritical caps.
 
@@ -116,12 +116,12 @@ with \((*)\), gives
  p=W-\alpha,\qquad q=R-\delta,
  \qquad F_{p/W}(p)+F_{q/R}(q)<1.
 \]
-The same center-free three-vertex-triangle path gives the contradiction.
+The same center-free three-V triangle path gives the contradiction.
 
 The three ranks are exhaustive.
 \end{proof}
 
-We next treat the additional T3-like vertex triangles in the $N_+=0$ branch.  The
+We next treat the additional T3-like V triangles in the $N_+=0$ branch.  The
 following local facts also reappear later.
 
 \begin{lemma}[T3-like midpoint and side tradeoff]
@@ -204,10 +204,10 @@ $b_i<b_{i+1}$ and $b_{i+1}<b_i$, a contradiction.
 \label{lem:407-four-label-loss}
 Assume $T_C$ is CE1 or CE2, $N_+=0$, no triangle is Vd1 or Vd2, and, after
 normalization and reflection, $T_0$ is T3-like with selected adjacent
-support on $r_1$.  Then the two endpoint vertex triangles in the isolated configuration
+support on $r_1$.  Then the two endpoint V triangles in the isolated configuration
 satisfy
 \begin{equation}
- F_{c_5^\ast}(a_5^\ast)+F_{c_1^\ast}(a_1^\ast)<1,
+ \overline M_{c_5^\ast}(a_5^\ast)+\overline M_{c_1^\ast}(a_1^\ast)<1,
  \label{eq:407-loss}
 \end{equation}
 where $a_1^\ast,a_5^\ast$ are the exact boundary inputs and
@@ -274,7 +274,7 @@ with the second interval empty in CE1, and
 \]
 
 If $a_1^\ast+a_5^\ast>1$, the two caps already imply
-$F_{c_5^\ast}(a_5^\ast)+F_{c_1^\ast}(a_1^\ast)<1$.  Assume the hard region
+$\overline M_{c_5^\ast}(a_5^\ast)+\overline M_{c_1^\ast}(a_1^\ast)<1$.  Assume the hard region
 $a_1^\ast+a_5^\ast\le1$.  The following table is an exhaustive case analysis of the four
 possible first branches; the middle column states the exact decisive
 inequality.
@@ -282,13 +282,13 @@ inequality.
 \begin{array}{c|c|c}
 \text{first branch}&\text{right branches}&\text{conclusion}\\ \hline
 \mathrm{Const}&\mathrm{Lin}&e(\gamma_5)<a_1^\ast\\
-\mathrm{Const}&\mathrm{Const},Q_-&F_{c_5^\ast}(a_5^\ast)+F_{c_1^\ast}(a_1^\ast)<1\\
+\mathrm{Const}&\mathrm{Const},Q_-&\overline M_{c_5^\ast}(a_5^\ast)+\overline M_{c_1^\ast}(a_1^\ast)<1\\
 \mathrm{Const}&Q_+&e(\gamma_5)<a_1^\ast\\
-Q_-&\mathrm{Const},Q_-&F_{c_5^\ast}(a_5^\ast)+F_{c_1^\ast}(a_1^\ast)<1\\
-Q_-&\mathrm{Lin},Q_+&F_{c_5^\ast}(a_5^\ast)<a_1^\ast\\
+Q_-&\mathrm{Const},Q_-&\overline M_{c_5^\ast}(a_5^\ast)+\overline M_{c_1^\ast}(a_1^\ast)<1\\
+Q_-&\mathrm{Lin},Q_+&\overline M_{c_5^\ast}(a_5^\ast)<a_1^\ast\\
 \mathrm{Lin}&\text{all}&\text{impossible}\\
 Q_+&\mathrm{Lin},Q_+&\text{impossible}\\
-Q_+&\mathrm{Const},Q_-&F_{c_5^\ast}(a_5^\ast)+F_{c_1^\ast}(a_1^\ast)<1.
+Q_+&\mathrm{Const},Q_-&\overline M_{c_5^\ast}(a_5^\ast)+\overline M_{c_1^\ast}(a_1^\ast)<1.
 \end{array}
 \]
 We verify the nonformal entries.  Put
@@ -371,7 +371,7 @@ branch the exact root test
  Q_-(a,c)<z\iff c^2(a+z)^2-(a^2-ac+c^2)>0
 \]
 is increasing in $z$.  Substitution of $a_1^\ast$, followed by the center
-inequality, proves $F_{c_5^\ast}(a_5^\ast)<a_1^\ast$ except in the low--low entries, which
+inequality, proves $\overline M_{c_5^\ast}(a_5^\ast)<a_1^\ast$ except in the low--low entries, which
 are immediate from $Q_-(a,c)\le\min\{a,1-a\}$ and the constant-branch output is below $1/2$.
 First-coordinate linear would force either
 $X\ge(1-\lambda)\alpha$ and $Y\ge\lambda-\alpha$, contradicting
@@ -383,7 +383,7 @@ $y=Y/\lambda$ and choose $\beta$ so that
 \[
  m=\sqrt{\beta^2-\beta+1},\quad
  1-\gamma_5=\frac m{r+\beta},\quad
- F_{c_5^\ast}(a_5^\ast)=\frac{\beta m}{r+\beta}.
+ \overline M_{c_5^\ast}(a_5^\ast)=\frac{\beta m}{r+\beta}.
 \]
 The exact selector is
 \begin{equation}
@@ -403,7 +403,7 @@ give $y<y_*$ and
 This proves the right-constant entry by $e(y)<3y$.  It excludes right linear and
 right high by the exact high-input filter.  For right $Q_-$ with input
 $a_C$, direct substitution gives a sum below one.  For input $q$, put
-$c=1-y$, $q=tc$, and let $\widehat b_1=F_{c_1^\ast}(q)$.  The selected $Q_-$ equations
+$c=1-y$, $q=tc$, and let $\widehat b_1=\overline M_{c_1^\ast}(q)$.  The selected $Q_-$ equations
 give
 \[
  \widehat b_1\le\kappa:=\frac{\sqrt{13}-1}{6},\qquad
@@ -476,7 +476,7 @@ Thus $H>0$ throughout the interval.  The identity
 shows that $\beta m/s\ge B_0$ would force $S_0>T$, a contradiction.
 Consequently
 \[
- F_{c_5^\ast}(a_5^\ast)<\frac{5657}{10000}
+ \overline M_{c_5^\ast}(a_5^\ast)<\frac{5657}{10000}
  <\frac{7-\sqrt{13}}6.
 \]
 The final strict comparison follows by squaring
@@ -488,8 +488,8 @@ Thus the final sum is also below one.  The table is exhaustive, proving
 
 \begin{proposition}[The $N_+=0$ T3-like branch]
 \label{prop:nplus-zero-t3}
-Assume that $T_C$ is CE1 or CE2, $N_+=0$, no vertex triangle is Vd1 or Vd2,
-and at least one vertex triangle is T3-like.  Then the seven triangles do not cover
+Assume that $T_C$ is CE1 or CE2, $N_+=0$, no V triangle is Vd1 or Vd2,
+and at least one V triangle is T3-like.  Then the seven triangles do not cover
 $H$.
 \end{proposition}
 
@@ -514,7 +514,7 @@ has positive support only from $T_C,T_0,T_1$, and $r_5$ only from $T_C,T_5$.
 The actual forward reaches of $T_1,T_5$ are bounded by the two safe maps in
 Lemma~\ref{lem:407-four-label-loss}; an extra adjacent-ray reach lower bound on a
 possible T3-like $T_1$ only shrinks its feasible set.  Thus their sum is
-less than one.  vertex triangles $T_2,T_3,T_4$ must cover more than three units of the
+less than one.  V triangles $T_2,T_3,T_4$ must cover more than three units of the
 four intervening boundary edges, while their three nonsupercritical caps
 sum to at most three.  This contradiction proves the proposition.
 \end{proof}
@@ -561,7 +561,7 @@ and assume $\gamma>0$.  Set
 \]
 Then
 \begin{equation}
- F_{c_5}(s)+F_{c_1}(u)<1.
+ \overline M_{c_5}(s)+\overline M_{c_1}(u)<1.
  \label{eq:one-side-loss}
 \end{equation}
 \end{lemma}
@@ -569,8 +569,8 @@ Then
 \begin{proof}
 Put $\eta=(1-R)\delta=1-S$ and
 \[
- \widehat b_5=F_{c_5}(s),\qquad
- \widehat b_1=F_{c_1}(u).
+ \widehat b_5=\overline M_{c_5}(s),\qquad
+ \widehat b_1=\overline M_{c_1}(u).
 \]
 The center identity may be written
 \begin{equation}
@@ -815,7 +815,7 @@ Thus the desired sum is $\Phi_w(\alpha)+\Phi_r(\beta)$.
 \emph{Selected branch parametrizations.}
 For a side of weight $\sigma\in\{w,r\}$, every constant branch has
 \begin{equation}
- c=h(k),\qquad F_c(\sigma c)=kh(k),\qquad0\le k\le w,
+ c=h(k),\qquad \overline M_c(\sigma c)=kh(k),\qquad0\le k\le w,
  \label{eq:two-endpoint-L-param}
 \end{equation}
 on either side.  On the large side the range follows from
@@ -950,9 +950,9 @@ which is immediate according as the coefficient of $K$ is nonnegative or,
 using $K\le1$, from the decreasing polynomial
 $2w^4-4w^3+3w^2-5w+2\ge172/625$.
 
-For $F_c(t)=(1+t)h(t)/(c+t)$, the derivative numerator
+For $\overline M_c(t)=(1+t)h(t)/(c+t)$, the derivative numerator
 $2t^3+(4c-1)t^2+(1-c)t+c-2$ is increasing on the present rectangle, so
-$F_c$ has at most one interior minimum.  Endpoint comparison gives
+$\overline M_c$ has at most one interior minimum.  Endpoint comparison gives
 \[
  \Phi_w+\alpha\le\frac2{1+w},\qquad
  \Phi_r+\beta\le\frac2{1+r}.
@@ -1067,7 +1067,7 @@ The exact list \eqref{eq:two-endpoint-pairs} is now exhausted, proving
 
 \subsubsection{The exactly-one-Vd1/Vd2 placements}
 
-We now assume CE2, $N_+=1$, and exactly one vertex triangle is Vd1 or Vd2.  The corner
+We now assume CE2, $N_+=1$, and exactly one V triangle is Vd1 or Vd2.  The corner
 normal form of Proposition~\ref{prop:vd-corner-normal-form} will be used in
 the following form: for some $t>0$ and $d=\sqrt{t^2+t+1}$,
 \begin{equation}
@@ -1075,12 +1075,12 @@ the following form: for some $t>0$ and $d=\sqrt{t^2+t+1}$,
  tx+y\le d-a-tb.
  \label{eq:vd-corner-form}
 \end{equation}
-In particular $a+b<1/2$ for a positive-support vertex triangle.
+In particular $a+b<1/2$ for a positive-support V triangle.
 
 \begin{lemma}[Vd1 adjacent rescue]
 \label{lem:vd1-adjacent-rescue}
 Assume an original open-triangle skeleton cover in the CE2 exact-$M_0$ branch,
-with $T_0$ the unique Vd1 vertex triangle, $M_1\in T_0$, $T_1$ uniquely supercritical,
+with $T_0$ the unique Vd1 V triangle, $M_1\in T_0$, $T_1$ uniquely supercritical,
 $T_2,\ldots,T_5$ nonsupercritical Vd0, and no other positive-adjacent-support
 triangle.  Then the perimeter together with $r_1$ is not covered.
 \end{lemma}
@@ -1111,9 +1111,9 @@ skeleton-preservation claims explicitly.
 \label{prop:demand-branches}
 Boundary-reach propagation proves the following exclusions:
 \begin{enumerate}
-\item CE1 or CE2, $N_+=0$, all vertex triangles Vd0;
+\item CE1 or CE2, $N_+=0$, all V triangles Vd0;
 \item CE1 or CE2, $N_+=0$, with at least one T3-like triangle and no Vd1/Vd2;
-\item CE1 or CE2, $N_+=1$, all vertex triangles Vd0, with at least one boundary
+\item CE1 or CE2, $N_+=1$, all V triangles Vd0, with at least one boundary
 gap;
 \item CE1 or CE2, $N_+=1$, exactly one T3-like triangle and no Vd1/Vd2;
 \item the CE2, $N_+=1$, exactly-one-Vd1/Vd2 branch.

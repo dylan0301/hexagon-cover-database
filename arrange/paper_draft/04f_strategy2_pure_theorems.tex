@@ -72,7 +72,7 @@ $(r,e,s,u,\omega)$, and its two reach lower bounds are
  c_5=1-\frac a w.
 \]
 Since the technical notation in that lemma satisfies
-$F_c(x)=F(c,x)$, its conclusion is precisely
+$\overline M_c(x)=F(c,x)$, its conclusion is precisely
 $\Psi_{\rm E1}(r,a,d)<0$.
 \end{proof}
 
@@ -293,15 +293,15 @@ $0<\rho(\theta)\le1$, also $a\le x$.  Put
  \Phi(y)=\frac{y(2-y)}{1+y}.
 \]
 On $[0,1/2]$ this function is increasing and
-$\Phi(A_{\rm sc}(c))=c$.  The exact calculation in
+$\Phi(1-M_c^{\rm sup})=c$.  The exact calculation in
 Lemma~\ref{lem:short-t3-rescuer-profile} proves, on the displayed
 $\theta$-interval and $x$-interval,
 \[
  Q_\theta(x)=2x^2+(\theta-1)x+\theta\ge0.
 \]
 This is equivalent to $\Phi(x)\le x+\theta=c$, and hence
-$x\le A_{\rm sc}(c)$.  Therefore
-$\max\{a,\vartheta(a,u)\}\le A_{\rm sc}(c)$.
+$x\le 1-M_c^{\rm sup}$.  Therefore
+$\max\{a,\vartheta(a,u)\}\le 1-M_c^{\rm sup}$.
 
 For the second cell put
 \[
@@ -319,7 +319,7 @@ so
 \]
 The exact polynomial calculation in
 Lemma~\ref{lem:short-vd1-rescuer-profile} gives
-$2\ell(c)\le A_{\rm sc}(c)$ on $0\le c\le1/2$.
+$2\ell(c)\le 1-M_c^{\rm sup}$ on $0\le c\le1/2$.
 Writing $\epsilon=1-u$ gives
 \[
  \epsilon=\epsilon_0+\frac at,
@@ -334,9 +334,9 @@ Monotonicity in $a$ yields
  =\frac a{a+\epsilon}
  \le\frac{G(t,c)}{G(t,c)+1/2}
  \le2\ell(c)
- \le A_{\rm sc}(c).
+ \le 1-M_c^{\rm sup}.
 \]
-Thus both terms in the maximum are at most $A_{\rm sc}(c)$, which is
+Thus both terms in the maximum are at most $1-M_c^{\rm sup}$, which is
 exactly $\Psi_{\rm SC}\le0$.
 \end{proof}
 

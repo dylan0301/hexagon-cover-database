@@ -101,27 +101,27 @@ zero("T3 radial near endpoint", d_t * q_t / r_t - c_star)
 zero("T3 radial far endpoint", q_t + (1 - r_t) / d_t - u_star)
 equal_mod_metric("T3 order square gap", z**2 - tau**2 - (1 - tau), z, t3_metric)
 
-# T3-like rescuer rational cell.
+# T3-like adjacent-support rational cell.
 theta, y = sp.symbols("theta y")
 rho = (1 - 2 * theta) / (1 - theta**2)
 a_t = y * rho
 c_t = y + theta
 u_t = 1 - rho + a_t
-zero("T3 rescuer residual", 1 - u_t - (1 - y) * rho)
-zero("T3 rescuer ratio", a_t / (a_t + 1 - u_t) - y)
+zero("T3 adjacent support residual", 1 - u_t - (1 - y) * rho)
+zero("T3 adjacent support ratio", a_t / (a_t + 1 - u_t) - y)
 phi = y * (2 - y) / (1 + y)
 q_theta = 2 * y**2 + (theta - 1) * y + theta
-zero("T3 rescuer envelope polynomial", c_t - phi - q_theta / (1 + y))
+zero("T3 adjacent support envelope polynomial", c_t - phi - q_theta / (1 + y))
 
-# Vd1 rescuer graph.
+# Vd1 adjacent-support graph.
 t, aa, bb, cc, delta = sp.symbols("t aa bb cc delta")
 bb_graph = 1 - cc * (t + 1) / t
 u_v = (delta - aa - t * bb - 1) / t
 epsilon = 1 - sp.factor(u_v.subs(bb, bb_graph))
 epsilon0 = (2 * t + 1 - cc * (t + 1) - delta) / t
 g_fun = delta - 1 - sp.Rational(3, 2) * t + cc * (t + 1)
-zero("Vd1 rescuer epsilon decomposition", epsilon - epsilon0 - aa / t)
-zero("Vd1 rescuer endpoint half", epsilon0 + g_fun / t - sp.Rational(1, 2))
+zero("Vd1 adjacent support epsilon decomposition", epsilon - epsilon0 - aa / t)
+zero("Vd1 adjacent support endpoint half", epsilon0 + g_fun / t - sp.Rational(1, 2))
 zero("corner radical strict gap", (t + 1) ** 2 - (t**2 + t + 1) - t)
 zero("corner derivative strict gap", 4 * (t**2 + t + 1) - (2 * t + 1) ** 2 - 3)
 

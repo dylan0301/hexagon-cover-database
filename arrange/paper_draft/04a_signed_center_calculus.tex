@@ -1,10 +1,10 @@
 \section{Signed CE1/CE2 Reductions}
 \label{sec:signed-ce12-reductions}
 
-This section gives one signed center model and the common one-gap vertex triangle
+This section gives one signed center model and the common one-gap V triangle
 interface.  The transfer notation has already been fixed in
 Section~\ref{sec:universal-calculus}: the exact nonsupercritical
-backward-reach map is $g_c^\vee$ whenever the radial lower bound exceeds $1/2$; for a lower radial lower bound the proof uses $B\le1-A$ directly.
+backward-reach map is $\Phi_c$ whenever the radial lower bound exceeds $1/2$; for a lower radial lower bound the proof uses $B\le1-A$ directly.
 
 \subsection{One signed center normal form}
 
@@ -33,7 +33,7 @@ and nonnegative center slacks $\alpha,\delta$ such that, with
 \[
  k=\eta+\alpha+\delta,
 \]
-the center triangle is
+the C triangle is
 \begin{equation}
  \boxed{
  \begin{aligned}
@@ -89,7 +89,7 @@ The six center exits, measured from $O$, are
  \end{aligned}}
  \label{eq:signed-center-exits}
 \end{equation}
-For closures of original open center triangles one has $\alpha,\delta>0$.
+For closures of original open C triangles one has $\alpha,\delta>0$.
 \end{proposition}
 
 \begin{proof}
@@ -165,7 +165,7 @@ On $e_{1,2}$, parameterized by $b=1+q$, $a=q$, the slack $F_2$ is
  \delta-R-Wq<0.
 \]
 Thus a second positive trace cannot occur on $e_{1,2}$.  The CE
-classification says that a center triangle has at most two positive boundary
+classification says that a C triangle has at most two positive boundary
 traces and that two such traces are adjacent.  Hence $e_{5,0}$ is the only
 possible companion edge, and its signed length proves
 \eqref{eq:signed-classification}.  Equality $\Delta_L=0$ is only a point
@@ -196,7 +196,7 @@ $2E(E-R)-W=(E-R)^2>0$.  Together with
  \delta<\frac R2,
 \]
 the midpoint tests give the exact midpoint set $\{M_0\}$.  For the closure of
-an original open center triangle, all three center slacks are positive; hence
+an original open C triangle, all three center slacks are positive; hence
 $\alpha,\delta>0$.
 \end{proof}
 
@@ -312,21 +312,21 @@ linear comparisons.
 
 \subsection{The local propagation interface}
 
-For the high-radial parameters used below, the exact nonsupercritical reach transfer is the raw map $g_c^\vee$.  It is
+For the high-radial parameters used below, the exact nonsupercritical reach transfer is the raw map $\Phi_c$.  It is
 nondecreasing and extensive:
 \begin{equation}
- g_c^\vee(z)\ge z.
+ \Phi_c(z)\ge z.
  \label{eq:reader-extensive}
 \end{equation}
 The exact reflection duality is
 \begin{equation}
- g_c^\vee(a)\le z
+ \Phi_c(a)\le z
  \quad\Longleftrightarrow\quad
- g_c^\vee(1-z)\le1-a.
+ \Phi_c(1-z)\le1-a.
  \label{eq:reader-capped-duality}
 \end{equation}
 
-Let a nonsupercritical vertex triangle have maximal reaches\
+Let a nonsupercritical V triangle have maximal reaches\
 $(A_i,B_i,C_i)$ satisfying
 \[
  A_i\ge z,
@@ -335,26 +335,26 @@ $(A_i,B_i,C_i)$ satisfying
 \]
 Then its forward reach satisfies
 \[
- B_i\le g_{c_i}(1-z).
+ B_i\le M_{c_i}(z).
 \]
 If the next boundary handoff gives $A_{i+1}\ge1-B_i$, then
 \begin{equation}
  \begin{aligned}
  A_{i+1}
  &\ge1-B_i\\
- &\ge1-g_{c_i}(1-z)\\
- &=g_{c_i}^\vee(z).
+ &\ge1-M_{c_i}(z)\\
+ &=\Phi_{c_i}(z).
  \end{aligned}
  \label{eq:reader-actual-propagation}
 \end{equation}
 Every composition below is shorthand for repeated applications of this
-inequality to specified actual vertex triangles.
+inequality to specified actual V triangles.
 
 \subsection{The common one-gap interface}
 
-\begin{proposition}[Common five-vertex-triangle one-gap reduction]
+\begin{proposition}[Common five-V triangle one-gap reduction]
 \label{prop:signed-one-gap-interface}
-Assume every vertex triangle is Vd0, $N_+=1$, and the normalized right center
+Assume every V triangle is Vd0, $N_+=1$, and the normalized right center
 trace contains a V-gap, possibly a singleton.  In the CE2 case assume the
 companion trace contains no V-gap.  Put
 \[
@@ -379,7 +379,7 @@ Let
 \[
  z_0=X,
  \qquad
- z_i=g_{c_i}^\vee(z_{i-1})
+ z_i=\Phi_{c_i}(z_{i-1})
  \quad(1\le i\le5),
 \]
 and $Z=z_5$.  Then the maximal reaches satisfy
@@ -391,16 +391,16 @@ and $Z=z_5$.  Then the maximal reaches satisfy
 \end{equation}
 Consequently it is enough to prove
 \begin{equation}
- [g_{1-\alpha}^\vee
-  \mid g_{1-m_3}^\vee
-  \mid g_{1-\delta}^\vee](H)
+ [\Phi_{1-\alpha}
+  \mid \Phi_{1-m_3}
+  \mid \Phi_{1-\delta}](H)
  >W+\delta.
  \label{eq:signed-three-map-target}
 \end{equation}
 \end{proposition}
 
 \begin{proof}
-The exact-midpoint argument makes vertex triangles $1,\ldots,5$ nonsupercritical and vertex triangle
+The exact-midpoint argument makes V triangles $1,\ldots,5$ nonsupercritical and V triangle
 $0$ uniquely supercritical.  Gap containment gives
 \[
  B_0\ge\frac{k}{R},
@@ -410,19 +410,19 @@ $0$ uniquely supercritical.  Gap containment gives
 Suppose inductively that $A_i\ge z_{i-1}$.  Radial coverage gives actual
 radial reach at least $c_i>1/2$, and the raw high-radial bound gives
 \[
- B_i\le g_{c_i}(1-z_{i-1}).
+ B_i\le M_{c_i}(z_{i-1}).
 \]
 The next boundary handoff therefore gives
 \[
  A_{i+1}
  \ge1-B_i
- \ge g_{c_i}^\vee(z_{i-1})
+ \ge \Phi_{c_i}(z_{i-1})
  =z_i.
 \]
 For the final handoff, the CE1 companion trace is empty and the CE2 companion
 trace is gap-free, so $A_0\ge z_5=Z$.
 
-The same vertex triangle has boundary reach at least $k/R$ and radial reach at least $k$.
+The same V triangle has boundary reach at least $k/R$ and radial reach at least $k$.
 Reflection and down-closedness of $\mathcal A$ give
 \[
  \left(\frac{k}{R},A_0,k\right)\in\mathcal A,
@@ -443,9 +443,9 @@ which proves \eqref{eq:signed-one-gap-actual}.
 The first and fifth maps are extensive and the middle maps are nondecreasing,
 so it is enough to prove
 \[
- [g_{c_2}^\vee
-  \mid g_{c_3}^\vee
-  \mid g_{c_4}^\vee](X)>1-H.
+ [\Phi_{c_2}
+  \mid \Phi_{c_3}
+  \mid \Phi_{c_4}](X)>1-H.
 \]
 Three applications of \eqref{eq:reader-capped-duality} show that its negation
 is equivalent to the negation of \eqref{eq:signed-three-map-target}.  This
@@ -546,15 +546,15 @@ Concavity therefore gives $\pi(\alpha)>0$, and the low-root bound yields
 \end{equation}
 
 If $e(\alpha)<Q$, extensivity carries
-\eqref{eq:signed-initial-threshold} to the vertex triangle-$4$ map
-$g_{1-\alpha}^\vee$, which gives an output at least
+\eqref{eq:signed-initial-threshold} to the V triangle-$4$ map
+$\Phi_{1-\alpha}$, which gives an output at least
 $1-e(\alpha)>1-Q$.  All later maps preserve it.  If
 $e(\alpha)\ge Q$, Lemma~\ref{lem:signed-ce2-two-threshold} gives
 $e(\delta)<Q$, and
 \[
  z_0>e(\alpha)\ge Q>e(\delta).
 \]
-The vertex triangle-$2$ map $g_{1-\delta}^\vee$ then gives an output above
+The V triangle-$2$ map $\Phi_{1-\delta}$ then gives an output above
 $1-Q$, again preserved by all later maps.  Thus $Z>1-Q=1-H$, contradicting
 \eqref{eq:signed-one-gap-actual}.
 
@@ -564,7 +564,7 @@ Reflection exchanges
  \qquad
  \alpha\leftrightarrow\delta
 \]
-and reverses the vertex-triangle order.  The signed CE2 domain and the proof above are
+and reverses the V triangle order.  The signed CE2 domain and the proof above are
 invariant under this exchange, so the left-gap orientation is impossible as
 well.
 \end{proof}

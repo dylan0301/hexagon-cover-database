@@ -1,8 +1,8 @@
-# Free Strict-Supercritical Outgoing Envelope
+# Strict-Supercritical Forward Supremum
 
 Status: Proven
 
-This note records the free-input outgoing envelope for the strict demand
+This note records the free-input outgoing envelope for the strict-supercritical
 component
 
 $$
@@ -17,7 +17,7 @@ $a+b\ge1$ is a different quantity.
 For $0\le c\le1$, define
 
 $$
-B^{\mathrm{free},+}(c)
+M_c^{\rm sup}
 =
 \sup\left\{
 b:\exists a\in[0,1]
@@ -26,10 +26,10 @@ b:\exists a\in[0,1]
 \right\}.
 $$
 
-The corresponding closed-demand envelope is
+The corresponding closed-supercritical envelope is
 
 $$
-\overline B^{\mathrm{free},+}(c)
+\overline M_c^{\rm sup}
 =
 \max\left\{
 b:\exists a\in[0,1]
@@ -44,7 +44,7 @@ For the strict component,
 
 $$
 \boxed{
-B^{\mathrm{free},+}(c)
+M_c^{\rm sup}
 =
 \frac{c+\sqrt{c^2-8c+4}}2,
 \qquad
@@ -55,11 +55,11 @@ $$
 The strict feasible set is empty for $c\ge1/2$, and the displayed supremum is
 not attained.
 
-For the closed-demand envelope,
+For the closed-supercritical envelope,
 
 $$
 \boxed{
-\overline B^{\mathrm{free},+}(c)=1,
+\overline M_c^{\rm sup}=1,
 \qquad
 0\le c\le1.
 }
@@ -77,14 +77,14 @@ and no boundary coordinate exceeds $1$.
 
 By the midpoint self-cover lemma, $c\ge1/2$ is impossible together with
 $a+b>1$. For $c=0$, downward closure and the positive-$c$ cases proved below
-give outgoing values arbitrarily close to $1$, while $b\le1$. Thus the formula
+give forward reaches arbitrarily close to $1$, while $b\le1$. Thus the formula
 holds at $c=0$. Fix
 
 $$
 0<c<\frac12.
 $$
 
-Only outgoing values $b\ge1/2$ matter for the supremum. Put
+Only forward reaches $b\ge1/2$ matter for the supremum. Put
 
 $$
 a=1-b,
@@ -224,7 +224,7 @@ On the second range it strictly increases the positive-$p$ support
 expressions. At the endpoint $p=0$, the support sum is already strict for
 $b>1/2$ because $b+c>1$. Hence no strict triple with this $b$ exists.
 Consequently the attainable strict
-outgoing values approach exactly the values with
+forward reaches approach exactly the values with
 
 $$
 c<\kappa(b).
@@ -248,6 +248,6 @@ so it is a supremum rather than a maximum.
 ## Use in the proof tree
 
 The radical above is the closure value of the strict component. It is not the
-closed-demand maximum. Files using it as an upper bound for a genuinely
+closed-supercritical maximum. Files using it as an upper bound for a genuinely
 supercritical V triangle may keep the radical, but should call it the free strict
 supercritical supremum.

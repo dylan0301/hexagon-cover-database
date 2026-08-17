@@ -50,9 +50,9 @@ $$
 Let
 
 $$
-B_5=\widehat B_{c_5}(s),
+B_5=\widehat M_{c_5}(s),
 \qquad
-B_1=\widehat B_{c_1}(u),
+B_1=\widehat M_{c_1}(u),
 $$
 
 where $\widehat B$ is the capped safe map of `2011`. Then
@@ -112,7 +112,7 @@ $$
 \boxed{B_1\le S-u.}
 $$
 
-### Right label $T_-$
+### Right label $Q_-$
 
 Write $b=B_1$. The exact Cell-$T$ frontier is
 
@@ -194,9 +194,9 @@ $$
 \boxed{B_1\le S-u.}
 $$
 
-## 3. Left $T_-$ against a right high label or Full
+## 3. Left $Q_-$ against a right high label or Full
 
-Suppose the left label is $T_-$. Put
+Suppose the left label is $Q_-$. Put
 
 $$
 z=\frac{s}{c_5},
@@ -315,7 +315,7 @@ $$
 \boxed{w<A=1-h.}
 $$
 
-If the right label is $T_+^{hi}$, write
+If the right label is $Q_+^{hi}$, write
 
 $$
 H=u+B_1=\sqrt{1-\beta+\beta^2}\le1.
@@ -335,9 +335,9 @@ $$
 This proves both formerly missing or incomplete cells
 
 $$
-(T_-,T_+^{hi})
+(Q_-,Q_+^{hi})
 \qquad\text{and}\qquad
-(T_-,\mathrm{Full}).
+(Q_-,\mathrm{Lin}).
 $$
 
 ## 4. Left $L$ against a right high label or Full
@@ -450,14 +450,14 @@ The exact right-label bounds are
 
 $$
 u\le\frac{R}{1+R}
-\qquad(\mathrm{Full}),
+\qquad(\mathrm{Lin}),
 $$
 
 and
 
 $$
 u\le\min\{RS,\frac S2\}
-\qquad(T_+^{hi}).
+\qquad(Q_+^{hi}).
 $$
 
 For Full, subtracting $R/(1+R)$ from the sufficient lower threshold
@@ -472,7 +472,7 @@ $$
 \frac{(1-R)(R^2+2Re+2e)}{2(1+R)}>0.
 $$
 
-For $T_+^{hi}$, if $R\le1/2$, the remaining difference is
+For $Q_+^{hi}$, if $R\le1/2$, the remaining difference is
 
 $$
 \frac{2e(1-R)-R^3}{2}\ge0;
@@ -485,7 +485,7 @@ $$
 \frac{(1-R)(3R+4e-2)}4\ge0.
 $$
 
-The two right-$T_+^{hi}$ bounds used here are exact. Writing
+The two right-$Q_+^{hi}$ bounds used here are exact. Writing
 
 $$
 \beta=\frac{B_1}{c_1},
@@ -531,7 +531,7 @@ s=(1-x_0)h(x_0),
 B_5=x_0h(x_0),
 $$
 
-so the transition is the $q=0$ endpoint of the $T_-$ case in Section 3.
+so the transition is the $q=0$ endpoint of the $Q_-$ case in Section 3.
 Because $xh(x)$ is increasing, every realized left-$L$ output is no larger
 than its transition output. This comparison point can have $w\le0$ and need
 not itself lie in the positive-$w$ side-model domain. That causes no gap: the
@@ -543,7 +543,7 @@ $$
 B_5+B_1<1
 $$
 
-for $(L,T_+^{hi})$ and $(L,\mathrm{Full})$ as well.
+for $(L,Q_+^{hi})$ and $(L,\mathrm{Lin})$ as well.
 
 ## 5. Full on the left and a high label on the right
 
@@ -556,7 +556,7 @@ $$
 Indeed, $c_5\le\max\{s,1-s\}$, while
 $\gamma_5<u<1-s$ gives $c_5>s$, excluding the $s\ge1/2$ alternative.
 
-Right Full or right $T_+^{hi}$ gives $u\le1/2$. But
+Right Full or right $Q_+^{hi}$ gives $u\le1/2$. But
 
 $$
 \gamma_5-s
@@ -573,14 +573,14 @@ $$
 Both cases contradict $\gamma_5\ge s$. Hence
 
 $$
-(\mathrm{Full},\mathrm{Full})
+(\mathrm{Lin},\mathrm{Lin})
 \quad\text{and}\quad
-(\mathrm{Full},T_+^{hi})
+(\mathrm{Lin},Q_+^{hi})
 $$
 
 are impossible.
 
-## 6. Left $T_+^{hi}$ and right Full
+## 6. Left $Q_+^{hi}$ and right Full
 
 The left high label gives $s<1/2$. Right Full gives
 
@@ -608,7 +608,7 @@ $$
 $$
 
 After division by $R(1-R)>0$, the last inequality is equivalent to
-$2(1+R)>1+S$. Thus $(T_+^{hi},\mathrm{Full})$ is impossible.
+$2(1+R)>1+S$. Thus $(Q_+^{hi},\mathrm{Lin})$ is impossible.
 
 ## 7. A low label on the right
 
@@ -806,7 +806,7 @@ B_5\le zh(z)\le z_Xh(z_X)=\ell(c_X)<1-X.
 $$
 
 Together with $B_1\le X$, this proves $B_5+B_1<1$ whenever the right label
-is $L$ or $T_-$.
+is $L$ or $Q_-$.
 
 ## 8. Exclusion of the high/high pair
 
@@ -833,7 +833,7 @@ c_L''
 \frac{2(c^2-cz+z^2)+16c^2z(c-z)}{D^3}>0.
 $$
 
-A realized left $T_+^{hi}$ point requires
+A realized left $Q_+^{hi}$ point requires
 
 $$
 s<\frac12,
@@ -858,7 +858,7 @@ $$
 The function $g(z)=c_5(z)-c_L(z)$ is concave, and
 $g(s_0)=1-c_L(s_0)>0$.
 
-For a right $T_+^{hi}$ label, Section 4 proved
+For a right $Q_+^{hi}$ label, Section 4 proved
 
 $$
 u\le\min\{RS,S/2\}.
@@ -921,14 +921,14 @@ The four exact safe labels are
 $$
 L,
 \qquad
-T_-,
+Q_-,
 \qquad
-T_+^{hi},
+Q_+^{hi},
 \qquad
-\mathrm{Full}.
+\mathrm{Lin}.
 $$
 
-If both labels lie in $\{L,T_-\}$, then
+If both labels lie in $\{L,Q_-\}$, then
 
 $$
 B_5+B_1\le s+u=1-w<1.

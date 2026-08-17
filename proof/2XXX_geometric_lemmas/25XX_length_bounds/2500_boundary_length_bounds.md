@@ -56,8 +56,8 @@ The closures of the original open roles satisfy the following bounds.
 | CE0 center role | $T_C$ is CE0 | $0$ |
 | CE1 center role | $T_C$ is CE1 | at most $\frac{\sqrt3}{2}-\frac34<\frac12$ |
 | CE2 center role | $T_C$ is CE2 | strictly less than $\frac12$ |
-| Vd0 vertex role | $a_i+b_i\le1$ | at most $1$ |
-| Vd0 vertex role | $a_i+b_i>1$ | at most $\frac{2}{\sqrt3}$ |
+| Vd0 vertex role | $A_i+B_i\le1$ | at most $1$ |
+| Vd0 vertex role | $A_i+B_i>1$ | at most $\frac{2}{\sqrt3}$ |
 | Vd1/Vd2 vertex role | none beyond the type hypothesis | strictly less than $\frac12$ |
 | T3-like vertex role | none beyond the type hypothesis | strictly less than $1$ |
 
@@ -66,7 +66,7 @@ The closures of the original open roles satisfy the following bounds.
 We first prove that for every original vertex role,
 
 $$
-\boxed{L_{\partial H}(T_i)=a_i+b_i.}
+\boxed{L_{\partial H}(T_i)=A_i+B_i.}
 $$
 
 By symmetry, normalize to $i=0$ and use local coordinates
@@ -82,7 +82,7 @@ $$
 $$
 
 Convexity and $V_0\in\mathrm{int}(T_0)$ show that the traces on the two
-incident edges are initial intervals of lengths $b_0$ and $a_0$. It remains
+incident edges are initial intervals of lengths $B_0$ and $A_0$. It remains
 to rule out positive-length trace on the other four edges.
 
 For $0<t<1$, the squared distances from $V_0$ to relative-interior points on
@@ -273,7 +273,7 @@ $$
 By vertex-role boundary locality,
 
 $$
-L_{\partial H}(T_i)=a_i+b_i.
+L_{\partial H}(T_i)=A_i+B_i.
 $$
 
 Thus the nonsupercritical cap is immediate. For a supercritical V triangle, let $A$
@@ -281,22 +281,22 @@ and $B$ be its two incident-edge endpoints. The angle between the incident
 edge directions is $120^\circ$, so
 
 $$
-\lVert A-B\rVert^2=a_i^2+a_ib_i+b_i^2.
+\lVert A-B\rVert^2=A_i^2+A_ib_i+B_i^2.
 $$
 
 Both points lie in a unit equilateral triangle, whose diameter is $1$.
 Consequently,
 
 $$
-1\ge a_i^2+a_ib_i+b_i^2
-=\frac34(a_i+b_i)^2+\frac14(a_i-b_i)^2
-\ge\frac34(a_i+b_i)^2.
+1\ge A_i^2+A_ib_i+B_i^2
+=\frac34(A_i+B_i)^2+\frac14(A_i-B_i)^2
+\ge\frac34(A_i+B_i)^2.
 $$
 
 Hence
 
 $$
-L_{\partial H}(T_i)=a_i+b_i\le\frac{2}{\sqrt3}.
+L_{\partial H}(T_i)=A_i+B_i\le\frac{2}{\sqrt3}.
 $$
 
 The weak inequality is necessary: with $r=1/\sqrt3$, the local unit triangle
@@ -309,19 +309,19 @@ is a Vd0 equality example.
 
 ## Vd1/Vd2 cap
 
-Let $a_i,b_i$ be the exact incident-edge reaches of an original Vd1 or
+Let $A_i,B_i$ be the exact incident-edge reaches of an original Vd1 or
 Vd2 vertex role.  The shared corner-normal-form theorem
 [`2014_Vd1_Vd2_corner_normal_form.md`](../20XX_V_triangle_geometry/2014_Vd1_Vd2_corner_normal_form.md)
 proves directly, including both reflected adjacent-support orientations, that
 
 $$
-a_i+b_i<\frac12.
+A_i+B_i<\frac12.
 $$
 
 Therefore
 
 $$
-L_{\partial H}(T_i)=a_i+b_i<\frac12.
+L_{\partial H}(T_i)=A_i+B_i<\frac12.
 $$
 
 ## T3-like cap

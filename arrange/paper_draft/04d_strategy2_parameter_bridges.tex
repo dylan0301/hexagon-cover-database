@@ -48,14 +48,14 @@ Every radial lower bound in the one-gap, paired-gap, and propagated
 problems is strictly larger than $1/2$.  On this high-radial domain the exact
 function dictionary is therefore
 \[
- F(c,x)=g_c(1-x),
+ F(c,x)=M_c(x),
  \qquad
- T(c,x)=g_c^\vee(x).
+ T(c,x)=\Phi_c(x).
 \]
 For the endpoint parameterss below,
 \[
  \mathrm{Cap}(\mathbf e)
- =g_{c_-}(1-a_-)+g_{c_+}(1-a_+).
+ =M_{c_-}(a_-)+M_{c_+}(a_+).
 \]
 
 \begin{proposition}[Endpoint bridge]
@@ -82,7 +82,7 @@ and
 
 \begin{proof}
 Substitute the signed trace endpoints and complementary radial exits, then use
-\(F(c,x)=g_c(1-x)\).
+\(F(c,x)=M_c(x)\).
 \end{proof}
 
 \begin{proposition}[Returned-reach lower bound bridge]
@@ -180,7 +180,7 @@ and is not part of the optimization domain.
 \begin{proof}
 The variables \(A_1,A_5\) are the far-side uncovered suffix boundary reach lower bounds, while
 \(C_1,C_5\) are the complementary radial lower bounds.  On the high-radial branch,
-apply \(F(c,x)=g_c(1-x)\) to both endpoint terms.
+apply \(F(c,x)=M_c(x)\) to both endpoint terms.
 \end{proof}
 
 \subsection{Adjacent-adjacent exceptional triangle domains}

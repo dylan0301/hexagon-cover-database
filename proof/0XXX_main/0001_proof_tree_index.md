@@ -33,10 +33,10 @@ $$
 
 and removes every $q\ge3$ state before the finer split.
 
-For the all-Vd0 CE1/CE2 branches, let $\mathrm{gr}$ be the active-gap rank.  Bare
+For the all-Vd0 CE1/CE2 branches, let $N_{\rm gap}$ be the active-gap rank.  Bare
 $g$ is reserved for transfer maps.  The two V-triangle counts use the kernel
 
-| actual V-triangle count | $\mathrm{gr}=0$ | $\mathrm{gr}=1$ | $\mathrm{gr}=2$ |
+| actual V-triangle count | $N_{\rm gap}=0$ | $N_{\rm gap}=1$ | $N_{\rm gap}=2$ |
 |---|---|---|---|
 | $N_+=0$ | strict identity cycle | one-side endpoint chain | paired CE2 endpoint chain |
 | $N_+=1$ | nine-point obstruction | one five-V-triangle chain with CE1/CE2 relaxations | paired CE2 endpoint chain |
@@ -47,7 +47,7 @@ The authoritative notation is
 [`201d`](../2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md):
 
 $$
-g_c(x)=\max\{y:(1-x,y,c)\in\mathcal A\},
+M_c(1-x)=\max\{y:(1-x,y,c)\in\mathcal A\},
 \qquad
 f^\vee(a)=1-f(1-a).
 $$
@@ -59,18 +59,18 @@ $$
 B\le
 \begin{cases}
 1-a,&c\le1/2,\\
-g_c(1-a),&c>1/2.
+M_c(a),&c>1/2.
 \end{cases}
 $$
 
 The high-radial branch is automatically nonsupercritical because the demanded
-radial segment contains the midpoint.  Hence $g_c(x)\le x$ for $c\ge1/2$,
+radial segment contains the midpoint.  Hence $M_c(1-x)\le x$ for $c\ge1/2$,
 and $g_{1/2}=\mathrm I$.  On a center-free edge the corresponding incoming
-transfer is the identity in the low-radial branch and $g_c^\vee$ in the
+transfer is the identity in the low-radial branch and $\Phi_c$ in the
 high-radial branch. Center intervals use the same two cases after applying the
 residual operator. Selected affine and threshold relaxations are decorated
 versions of the high-radial raw map. The single free strict-supercritical
-envelope is $g_c^{\rm sc}$.
+envelope is $M_c^{\rm sup}$.
 
 At zero radial demand the raw map satisfies
 
@@ -84,17 +84,17 @@ the direct inequality $B\le1-A$.
 The exact contact-cell aliases are
 
 $$
-B_c(a)=g_c(1-a),
+M_c(a)=M_c(a),
 $$
 
 $$
-F_c(a)=
+\overline M_c(a)=
 \begin{cases}
 1-a,&c\le1/2,\\
-B_c(a),&c>1/2,
+M_c(a),&c>1/2,
 \end{cases}
 \qquad
-G_c(a)=1-F_c(a).
+\Phi_c(a)=1-\overline M_c(a).
 $$
 
 ## Setup and reusable lemmas
@@ -109,15 +109,15 @@ $$
 - `2XXX`: geometric lemmas
   - `2004`: exact local admissible set.
   - `2007`: exact outgoing envelope and interval fibers.
-  - `2010`: free strict-supercritical envelope, denoted $g_c^{\rm sc}$ in the
+  - `2010`: free strict-supercritical envelope, denoted $M_c^{\rm sup}$ in the
     canonical notation.
   - `2011`: exact branchwise nonsupercritical output, the high-radial four
-    labels, and complement duality; the file retains $F_c,G_c$ as technical
+    labels, and complement duality; the file retains $\overline M_c,\Phi_c$ as technical
     aliases.
-  - `2016`: universal selected-$T_+$ curve and affine chord bounds.
+  - `2016`: universal selected-$Q_+$ curve and affine chord bounds.
   - `2017`: one-hit and two-threshold routing.
   - `2018`: diameter transfer and common adjacent-rescuer obstruction in the
-    $g_c^{\rm sc}$ notation.
+    $M_c^{\rm sup}$ notation.
   - `2019`: residual intervals, center-assisted $g$-transfers, and boundary
     path budget.
   - `201a`: enclosure gauge and universal radical calculus.
@@ -160,7 +160,7 @@ index.
 - $N_+=1$, special roles:
   - `4110`, `4111`, `4123`: unchanged Strategy 1 routes;
   - `413X`: exactly one T3-like, with the common
-    $1-g_c^{\rm sc}$--identity--$g_c^{\rm sc}$ chain;
+    $1-M_c^{\rm sup}$--identity--$M_c^{\rm sup}$ chain;
   - `414X`: exactly one Vd1/Vd2, with the same rescuer chain, the quarter
     terminal transfer, the Vd-specific terminal margin, and axis replacement;
     `4149` and `414a` remain Strategy 1.

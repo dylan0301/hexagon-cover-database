@@ -359,99 +359,80 @@ T<\frac12\min\{x,y\}.
 }
 $$
 
-## 5. Three-short-role skeleton theorem
+## 5. Direct $N_++N_{\rm sp}$ skeleton theorem
 
-Call a vertex role **short** when it is either supercritical or has
-positive-length intersection with an adjacent radial arm.
-
-The proved bounds in [`2510`](2510_skeleton_length_bounds.md) are
+Define
 
 $$
-L_S(T_C)<\frac32
+N_{\rm sp}
+=
+\left\lvert
+\left\{
+i:T_i\text{ is Vd1, Vd2, or T3-like}
+\right\}
+\right\rvert.
 $$
 
-for an exact-$M_0$ CE1/CE2 center role;
+The exhaustive V-triangle classification in
+[`1201`](../../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md)
+says that these are exactly the V triangles with positive-length support on
+an adjacent radial arm.  The Vd1/Vd2 half-cap in
+[`2014`](../20XX_V_triangle_geometry/2014_Vd1_Vd2_corner_normal_form.md) and
+the T3-like nonsupercritical theorem
+[`1213`](../../1XXX_foundations/12XX_V_triangle/1213_T3_like_nonsupercritical.md)
+show that none is supercritical.  Conversely every supercritical V triangle
+is Vd0 and has no positive adjacent-radial support.  Thus the $N_+$ and
+$N_{\rm sp}$ classes are disjoint.
+
+The bounds in [`2510`](2510_skeleton_length_bounds.md) are
+
+$$
+L_S(T_C)<\frac32,
+$$
 
 $$
 L_S(T_i)<\frac32
 $$
 
-for every short vertex role; and
+for every V triangle in either counted class, and
 
 $$
 L_S(T_i)\le2
 $$
 
-for every remaining nonsupercritical V triangle with no adjacent-ray support.
-
-If there are $q\ge3$ short vertex roles, then
+for every remaining nonsupercritical V triangle.  Therefore, if
+$N_++N_{\rm sp}\ge3$,
 
 $$
 \begin{aligned}
 L_S(T_C)+\sum_{i=0}^5L_S(T_i)
 &<
-\frac32+q\frac32+(6-q)2\\
+\frac32+(N_++N_{\rm sp})\frac32
+ +(6-N_+-N_{\rm sp})2\\
 &=
-\frac{27-q}{2}\\
+\frac{27-(N_++N_{\rm sp})}{2}\\
 &\le12.
 \end{aligned}
 $$
 
 Since the full skeleton has length $12$, subadditivity gives a contradiction.
-Therefore
+Hence
 
 $$
 \boxed{
-\text{three short vertex roles imply skeleton noncoverage.}
+N_++N_{\rm sp}\ge3
+\quad\Longrightarrow\quad
+\text{skeleton noncoverage.}
 }
 $$
 
-This single count contains the numerical cores of the at-least-two-T3-like,
-mixed-positive-support, and at-least-two-supercritical CE1/CE2 branches.
+This is the result formerly described as the three-short-role theorem; the
+auxiliary count is no longer part of the public notation.
 
-## 6. Exact short-role count and routing
-
-Let
-
-$$
-m=
-\left\lvert
-\left\lbrace
-i:T_i\text{ is Vd1, Vd2, or T3-like}
-\right\rbrace
-\right\rvert.
-$$
-
-The exhaustive vertex classification in
-[`1201`](../../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md)
-says that Vd0 is exactly the class with no positive-length adjacent-ray
-support, while Vd1, Vd2, and T3-like are exactly the three positive-support
-classes. The Vd1/Vd2 half-cap in
-[`2014`](../20XX_V_triangle_geometry/2014_Vd1_Vd2_corner_normal_form.md)
-gives $A_i+B_i<1/2$, and
-[`1213`](../../1XXX_foundations/12XX_V_triangle/1213_T3_like_nonsupercritical.md)
-gives $A_i+B_i\le1$ for T3-like roles. Hence none of the $m$ non-Vd0 roles
-is supercritical. Conversely every supercritical role is Vd0 and therefore
-has no positive adjacent-ray support.
-
-Thus the two disjoint sources of short roles are precisely the $N_+$
-supercritical roles and the $m$ non-Vd0 roles. If $q$ denotes the number of
-short roles, then
-
-$$
-\boxed{q=N_++m.}
-$$
-
-In particular:
-
-- if $N_++m\ge3$, the three-short-role theorem closes the branch;
-- if $N_+=1$, at most one non-Vd0 role survives;
-- if $N_+=0$, at most two non-Vd0 roles survive.
-
-Finally, suppose $N_+\ge2$. Normalize the unique center midpoint to $M_0$ and
-choose a supercritical index $s\ne0$. The self-midpoint obstruction excludes
-$T_s$ from $M_s$, and the center role misses $M_s$. Diameter locality forces
-one of the adjacent vertex roles to contain $M_s$, hence to have positive
-adjacent-ray support. That role is non-Vd0 and therefore nonsupercritical, so
-it is distinct from the two supercritical roles. Consequently $q\ge3$, and
-the three-short-role theorem closes every CE1/CE2 branch with $N_+\ge2$.
+Finally, if $N_+\ge2$, normalize the unique C-triangle midpoint to $M_0$ and
+choose a supercritical index $s\ne0$.  The self-midpoint obstruction excludes
+$T_s$ from $M_s$, and the C triangle misses $M_s$.  Diameter locality forces
+one adjacent V triangle to contain $M_s$, hence to have positive
+adjacent-radial support.  It belongs to the $N_{\rm sp}$ class and is distinct
+from the two supercritical V triangles.  Consequently
+$N_++N_{\rm sp}\ge3$, closing every CE1/CE2 branch with $N_+\ge2$.

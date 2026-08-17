@@ -1,4 +1,5 @@
 # Generated transitive active proof graph: path|expected status
+proof/09XX_appendices/0910_notation_dictionary.md|Reference
 proof/0XXX_main/0000_main_theorem.md|Proven
 proof/0XXX_main/0002_status_and_dependencies.md|Reference
 proof/1XXX_foundations/10XX_global_conventions/1003_open_unit_vs_shrunken_closed_equivalence.md|Proven
@@ -49,7 +50,6 @@ proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31032_symmetric_witn
 proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31033_asymmetric_witness_construction.md|Proven
 proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31034_witness_enclosure_inequality.md|Proven
 proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31035_center_independent_all_boundary_obstruction.md|Proven
-proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31036_Nplus_ge2_complementary_AB_comparison_counterexample.md|Proven
 proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31037_rational_cmax_upper_envelope.md|Proven
 proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31038_global_analytic_core_positivity.md|Proven
 proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31051_direct_radial_forcing.md|Proven

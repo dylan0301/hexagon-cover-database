@@ -135,7 +135,7 @@ $$
 \boxed{
 a>e(X)
 \quad\Longrightarrow\quad
-F_{1-X}(a)\le e(X),
+\overline M_{1-X}(a)\le e(X),
 }
 $$
 
@@ -145,12 +145,12 @@ $$
 \boxed{
 a>e(X)
 \quad\Longrightarrow\quad
-G_{1-X}(a)\ge1-e(X).
+\Phi_{1-X}(a)\ge1-e(X).
 }
 $$
 
 Indeed, the selected high-radial catalog in `2011` gives
-$F_{1-X}(a)=e(X)$ when
+$\overline M_{1-X}(a)=e(X)$ when
 
 $$
 e(X)<a<1-X-e(X).
@@ -160,7 +160,7 @@ At and beyond the right endpoint, monotonicity gives a value at most $e(X)$.
 The strict input inequality is necessary because
 
 $$
-F_{1-X}(e(X))=1-X-e(X)>e(X).
+\overline M_{1-X}(e(X))=1-X-e(X)>e(X).
 $$
 
 ## Half-edge rational radial envelope
@@ -468,6 +468,6 @@ $$
 
 No converse, equality, realizability, contact type, or selected component is
 asserted.  The counterexample above prevents substituting this same envelope
-on the full nonsupercritical fibers underlying $B_c$, $F_c$, and $G_c$.
-Accordingly, no relaxed $\bar F_c$ or $\bar G_c$ map is defined here, and no
+on the full nonsupercritical fibers underlying $M_c$, $\overline M_c$, and $\Phi_c$.
+Accordingly, no relaxed $\bar \overline M_c$ or $\bar \Phi_c$ map is defined here, and no
 strict-supercritical nonattainment argument is replaced.

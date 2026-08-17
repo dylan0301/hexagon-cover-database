@@ -11,8 +11,8 @@ Put
  \theta=\frac2{\sqrt3}-1.
 \]
 Suppose a branch has a center contribution $L_C$, $n$ supercritical Vd0
-vertex triangles, $m\ge1$ distinguished nonsupercritical vertex triangles with strict boundary caps
-$q_1,\ldots,q_m<1$, and $6-n-m$ remaining vertex triangles whose boundary contributions
+V triangles, $m\ge1$ distinguished nonsupercritical V triangles with strict boundary caps
+$q_1,\ldots,q_m<1$, and $6-n-m$ remaining V triangles whose boundary contributions
 are at most $1$. If
 \begin{equation}
  L_C+n\theta\le\sum_{j=1}^m(1-q_j),
@@ -31,15 +31,15 @@ is strictly less than
  &\le6.
  \end{aligned}
 \]
-The strictness follows from $m\ge1$ and the strict distinguished-vertex triangle caps. A
+The strictness follows from $m\ge1$ and the strict distinguished-V triangle caps. A
 cover of the perimeter would give the opposite weak inequality by
 subadditivity.
 \end{proof}
 
 \begin{lemma}[Small center slacks in the one-Vd1/Vd2 branch]
 \label{lem:signed-small-slack}
-Assume there is exactly one supercritical Vd0 vertex triangle, exactly one Vd1/Vd2 vertex triangle,
-and four nonsupercritical Vd0 vertex triangles. Then every candidate surviving the
+Assume there is exactly one supercritical Vd0 V triangle, exactly one Vd1/Vd2 V triangle,
+and four nonsupercritical Vd0 V triangles. Then every candidate surviving the
 perimeter budget is CE2 and satisfies
 \begin{equation}
  \boxed{
@@ -140,11 +140,11 @@ and
 This is \eqref{eq:signed-endpoint-slack}.
 \end{proof}
 
-\begin{theorem}[Three short vertex triangles]
+\begin{theorem}[Three short V triangles]
 \label{thm:three-short-roles}
-Call a vertex triangle short if it is supercritical or has positive-length
+Call a V triangle short if it is supercritical or has positive-length
 intersection with an adjacent radial arm. If an exact-$M_0$ CE1/CE2 branch
-contains at least three short vertex triangles, then the seven triangles do not cover
+contains at least three short V triangles, then the seven triangles do not cover
 the full skeleton $S$.
 \end{theorem}
 
@@ -155,7 +155,7 @@ The center skeleton cap is
 \]
 Every short triangle also has skeleton contribution strictly less than $3/2$:
 this is the supercritical cap for a supercritical triangle and the translated
-center-triangle cap for an original positive-support triangle. Every remaining triangle
+C triangle cap for an original positive-support triangle. Every remaining triangle
 is nonsupercritical and has no adjacent-ray support, so its skeleton
 contribution is at most $2$.
 
@@ -174,8 +174,8 @@ contradiction.
 
 \begin{lemma}[Short-triangle count]
 \label{lem:short-role-count}
-Let $m$ be the number of vertex triangles of type Vd1, Vd2, or T3-like, and let
-$q$ be the number of short vertex triangles.  Then
+Let $m$ be the number of V triangles of type Vd1, Vd2, or T3-like, and let
+$q$ be the number of short V triangles.  Then
 \begin{equation}
  \boxed{q=N_++m.}
  \label{eq:short-role-count}
@@ -202,11 +202,11 @@ last assertion.
 \label{cor:signed-budget-branches}
 The following branches are impossible.
 \begin{enumerate}
-\item CE0, $N_+=1$, and at least one Vd1/Vd2 vertex triangle;
-\item $N_+=0$ and at least one Vd1/Vd2 vertex triangle, for either CE1 or CE2;
-\item CE1, $N_+=1$, and at least one Vd1/Vd2 vertex triangle;
-\item CE2, $N_+=1$, and at least two Vd1/Vd2 vertex triangles;
-\item CE2, $N_+=1$, with a Vd2 vertex triangle containing a neighboring midpoint;
+\item CE0, $N_+=1$, and at least one Vd1/Vd2 V triangle;
+\item $N_+=0$ and at least one Vd1/Vd2 V triangle, for either CE1 or CE2;
+\item CE1, $N_+=1$, and at least one Vd1/Vd2 V triangle;
+\item CE2, $N_+=1$, and at least two Vd1/Vd2 V triangles;
+\item CE2, $N_+=1$, with a Vd2 V triangle containing a neighboring midpoint;
 \item CE1 or CE2 with $N_++m\ge3$, where $m$ is the number of Vd1, Vd2,
 or T3-like triangles;
 \item CE1 or CE2 with $N_+\ge2$.
@@ -222,11 +222,11 @@ inequality is
 \]
 
 For item 2, the center contribution is strictly less than $1/2$ and the
-chosen Vd1/Vd2 vertex triangle has strict cap $1/2$; the other five vertex triangles contribute at
+chosen Vd1/Vd2 V triangle has strict cap $1/2$; the other five V triangles contribute at
 most $1$ each. This is Lemma~\ref{lem:signed-perimeter-deficit} with
 $n=0$ and $q_1=1/2$.
 
-For item 3, the unique supercritical vertex triangle is Vd0, while the CE1 center cap,
+For item 3, the unique supercritical V triangle is Vd0, while the CE1 center cap,
 the Vd1/Vd2 cap, and the four remaining unit caps give
 \[
  \left(\frac{\sqrt3}{2}-\frac34\right)
@@ -246,11 +246,11 @@ Item 6 is Lemma~\ref{lem:short-role-count} and
 Theorem~\ref{thm:three-short-roles}.
 
 Finally suppose $N_+\ge2$. Choose a supercritical index $s\ne0$. Its own
-midpoint $M_s$ is not covered by that vertex triangle, and the exact-$M_0$ center does not
-cover it. Diameter locality leaves only vertex triangles $s-1,s,s+1$ as possible vertex
-triangles containing $M_s$. Thus one of the adjacent vertex triangles contains $M_s$ and,
+midpoint $M_s$ is not covered by that V triangle, and the exact-$M_0$ center does not
+cover it. Diameter locality leaves only V triangles $s-1,s,s+1$ as possible vertex
+triangles containing $M_s$. Thus one of the adjacent V triangles contains $M_s$ and,
 because it is the closure of an original open triangle, has positive-length
 support on the adjacent radial arm. By Lemma~\ref{lem:short-role-count}, this
-adjacent exceptional triangle is nonsupercritical and distinct from the two supercritical vertex triangles.
+adjacent exceptional triangle is nonsupercritical and distinct from the two supercritical V triangles.
 Thus there are three short triangles, and the theorem applies.
 \end{proof}

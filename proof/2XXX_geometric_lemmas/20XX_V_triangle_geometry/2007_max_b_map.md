@@ -1,8 +1,8 @@
-# Exact Piecewise Maximal $B_c(a)$ Map
+# Exact Piecewise Forward Envelope $M_c(a)$
 
 Status: Proven
 
-This note evaluates the outgoing-demand map from
+This note evaluates the forward-reach envelope from
 [`2004_admissible_set.md`](2004_admissible_set.md) by explicit support-contact
 pieces. Every quadratic and quartic root is restricted to its geometric
 contact interval before it can contribute. This is the component selection
@@ -13,7 +13,7 @@ missing from the former candidate-root maximum.
 For $a,c\in[0,1]$, define
 
 $$
-B_c(a)=
+M_c(a)=
 \max_{\substack{0\le b\le1\\ {}(a,b,c)\in\mathcal A}}b.
 $$
 
@@ -31,7 +31,7 @@ $$
 b\in[0,1]:(a,b,c)\in\mathcal A
 \right\}
 =
-[0,B_c(a)].
+[0,M_c(a)].
 $$
 
 Define the diameter cap
@@ -59,7 +59,7 @@ $$
 
 $$
 \boxed{
-B_c(0)=1
+M_c(0)=1
 \qquad
 (0\le c\le1),
 }
@@ -67,7 +67,7 @@ $$
 
 $$
 \boxed{
-B_c(1)=0
+M_c(1)=0
 \qquad
 (0\le c\le1),
 }
@@ -438,7 +438,7 @@ The exact maximal map is
 
 $$
 \boxed{
-B_c(a)=
+M_c(a)=
 \begin{cases}
 \beta(a),
 & c=0,\\
@@ -501,22 +501,22 @@ $$
 then inclusion of demand fibers gives
 
 $$
-B_{c_1}(a_1)\ge B_{c_2}(a_2).
+M_{c_1}(a_1)\ge M_{c_2}(a_2).
 $$
 
 Reflection in the radial line gives
 
 $$
-b\le B_c(a)
+b\le M_c(a)
 \quad\Longleftrightarrow\quad
-a\le B_c(b).
+a\le M_c(b).
 $$
 
 For a unit vertex triangle $T$, let $A(T),B(T),C(T)$ be its actual maximal
 reaches. For a V triangle class $\mathcal R$, the proof-safe classified envelope is
 
 $$
-B_c^{\mathcal R}(a)=
+M_c^{\mathcal R}(a)=
 \sup_{\substack{T\in\mathcal R\\A(T)\ge a\\C(T)\ge c}}B(T),
 $$
 

@@ -10,7 +10,7 @@ The canonical notation is from
 [`201d`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md).
 All five nonsupercritical radial demands below are strictly above $1/2$.
 The exact incoming-reach transfer is therefore the raw high-radial map
-$g_c^\vee$. The older symbol $G_c$ is only its technical alias.
+$\Phi_c$. The older symbol $\Phi_c$ is only its technical alias.
 
 ## 1. Signed center data
 
@@ -80,17 +80,17 @@ $$
 
 The exact branchwise-output theorem
 [`2011`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md)
-proves that every high-radial $g_c^\vee$ is nondecreasing and extensive and that
+proves that every high-radial $\Phi_c$ is nondecreasing and extensive and that
 
 $$
 \boxed{
-g_c^\vee(a)\le z
+\Phi_c(a)\le z
 \quad\Longleftrightarrow\quad
-g_c^\vee(1-z)\le1-a.
+\Phi_c(1-z)\le1-a.
 }
 $$
 
-This is the technical $G_c$ duality rewritten in the canonical family.
+This is the technical $\Phi_c$ duality rewritten in the canonical family.
 
 ## 2. Geometric hypotheses
 
@@ -130,7 +130,7 @@ Define
 $$
 z_0=X,
 \qquad
-z_i=g_{c_i}^\vee(z_{i-1})
+z_i=\Phi_{c_i}(z_{i-1})
 \quad(1\le i\le5).
 $$
 
@@ -147,7 +147,7 @@ the raw high-radial outgoing bound gives
 $$
 B_i
 \le
-g_{c_i}(1-z_{i-1}).
+M_{c_i}(z_{i-1}).
 $$
 
 For $i=1,\ldots,4$, the next edge has no center trace, so boundary coverage
@@ -158,9 +158,9 @@ $$
 A_{i+1}
 &\ge1-B_i\\
 &\ge
-1-g_{c_i}(1-z_{i-1})\\
+1-M_{c_i}(z_{i-1})\\
 &=
-g_{c_i}^\vee(z_{i-1})\\
+\Phi_{c_i}(z_{i-1})\\
 &=
 z_i.
 \end{aligned}
@@ -174,7 +174,7 @@ A_0
 \ge
 1-B_5
 \ge
-g_{c_5}^\vee(z_4)
+\Phi_{c_5}(z_4)
 =
 z_5.
 $$
@@ -190,15 +190,15 @@ where
 $$
 \boxed{
 Z=
-[g_{c_1}^\vee
+[\Phi_{c_1}
 \mid
-g_{c_2}^\vee
+\Phi_{c_2}
 \mid
-g_{c_3}^\vee
+\Phi_{c_3}
 \mid
-g_{c_4}^\vee
+\Phi_{c_4}
 \mid
-g_{c_5}^\vee](X).
+\Phi_{c_5}](X).
 }
 $$
 
@@ -250,21 +250,21 @@ nondecreasing. Hence
 $$
 Z
 \ge
-[g_{c_2}^\vee
+[\Phi_{c_2}
 \mid
-g_{c_3}^\vee
+\Phi_{c_3}
 \mid
-g_{c_4}^\vee](X).
+\Phi_{c_4}](X).
 $$
 
 It is therefore enough to prove
 
 $$
-[g_{c_2}^\vee
+[\Phi_{c_2}
 \mid
-g_{c_3}^\vee
+\Phi_{c_3}
 \mid
-g_{c_4}^\vee](X)
+\Phi_{c_4}](X)
 >
 1-H.
 $$
@@ -273,11 +273,11 @@ Three applications of high-radial duality show that the negation of this
 inequality is equivalent to
 
 $$
-[g_{c_4}^\vee
+[\Phi_{c_4}
 \mid
-g_{c_3}^\vee
+\Phi_{c_3}
 \mid
-g_{c_2}^\vee](H)
+\Phi_{c_2}](H)
 \le
 1-X.
 $$
@@ -286,11 +286,11 @@ Thus the scalar target common to CE1 and CE2 is
 
 $$
 \boxed{
-[g_{1-\alpha}^\vee
+[\Phi_{1-\alpha}
 \mid
-g_{1-m_3}^\vee
+\Phi_{1-m_3}
 \mid
-g_{1-\delta}^\vee](H)
+\Phi_{1-\delta}](H)
 >
 W+\delta.
 }
