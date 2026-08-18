@@ -271,27 +271,27 @@ $$
 It remains to compare the last expression with $Q$. Define
 
 $$
-\Phi(t)=(\eta+t)(1-t)-2Rt.
+\chi_0(t)=(\eta+t)(1-t)-2Rt.
 $$
 
-The function $\Phi$ is strictly concave. Therefore its minimum on
+The function $\chi_0$ is strictly concave. Therefore its minimum on
 $[0,\eta/E]$ occurs at an endpoint. One endpoint gives
 
 $$
-\Phi(0)=\eta>0.
+\chi_0(0)=\eta>0.
 $$
 
 For the other endpoint, direct simplification using
 $E^2=1-R+R^2$ gives
 
 $$
-\Phi\left(\frac{\eta}{E}\right)
+\chi_0\left(\frac{\eta}{E}\right)
 =
 \frac{R(E-R)^2}{E^2}
 >0.
 $$
 
-Thus $\Phi$ is positive at both endpoints and therefore throughout the
+Thus $\chi_0$ is positive at both endpoints and therefore throughout the
 interval. Since $T<\eta/E$,
 
 $$

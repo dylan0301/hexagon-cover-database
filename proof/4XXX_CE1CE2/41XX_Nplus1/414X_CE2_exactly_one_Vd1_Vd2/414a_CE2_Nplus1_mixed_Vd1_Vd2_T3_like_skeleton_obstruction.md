@@ -10,19 +10,20 @@ Assume the closures of original open-cover roles satisfy:
 - at least one additional vertex V triangle has positive-length support on an adjacent
   radial arm.
 
-The exact short-role count in
+The direct budget in
 [`2530`](../../../2XXX_geometric_lemmas/25XX_length_bounds/2530_common_CE1_CE2_budget_lemmas.md)
 shows that supercritical roles and positive-support roles are disjoint:
 every supercritical role is Vd0, while every positive-support role is
 Vd1, Vd2, or T3-like and is nonsupercritical.
 
-Thus there are at least three short vertex roles:
+The Vd1/Vd2 role and the additional positive-support role are distinct
+special roles. Together with $N_+=1$, this gives
 
-- the unique supercritical V triangle;
-- the Vd1/Vd2 V triangle;
-- one additional positive-support V triangle.
+$$
+N_++N_{\rm sp}\ge1+2=3.
+$$
 
-The three-short-role theorem therefore gives
+The direct $N_++N_{\rm sp}$ theorem therefore gives
 
 $$
 L_S(T_C)+\sum_{i=0}^5L_S(T_i)<12.

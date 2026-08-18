@@ -5,10 +5,11 @@ Status: Proven
 ## Theorem
 
 Seven open unit equilateral triangles cannot cover the side-one regular
-hexagon $H$ when
+hexagon $H$ when the original open roles are $U_C,U_0,\ldots,U_5$, their
+closures are $T_C=\overline{U_C}$ and $T_i=\overline{U_i}$, and
 
-- the center role $U_C$ is CE0;
-- all six vertex roles $U_0,\dots,U_5$ are Vd0; and
+- the closed C triangle $T_C$ is CE0;
+- all six closed V triangles $T_0,\dots,T_5$ are Vd0; and
 - exactly one actual maximal boundary V triangle is supercritical.
 
 ## Proof

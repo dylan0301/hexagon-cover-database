@@ -13,10 +13,12 @@ as its terminal source for this branch.
 
 ## Theorem
 
-There is no cover of $H$ by seven open unit equilateral triangles for which
+There is no cover of $H$ by original open unit equilateral roles
+$U_C,U_0,\ldots,U_5$. Put $T_C=\overline{U_C}$ and
+$T_i=\overline{U_i}$. There is no such cover for which
 
 - the center role $T_C$ is CE0;
-- all six vertex roles $T_0,\dots,T_5$ are Vd0; and
+- all six closed V roles $T_0,\dots,T_5$ are Vd0; and
 - exactly one actual maximal boundary V triangle is supercritical.
 
 Equivalently, the CE0, $N_+=1$, all-Vd0 branch is impossible.
@@ -27,16 +29,17 @@ Assume such a cover exists. We first show that the six vertex roles cover
 $\partial H$.
 
 If some $P\in\partial H$ belonged to none of them, the cover would force
-$P\in T_C$. Since $T_C$ is open, it would contain a plane ball about $P$.
+$P\in U_C$. Since $U_C$ is open, it would contain a plane ball about $P$.
 On an edge interior this ball contains a positive-length boundary interval;
 at a vertex it contains such an interval on each incident edge. In either
-case $T_C$ meets a boundary edge of $H$ in positive length, contradicting
+case the closure $T_C=\overline{U_C}$ meets a boundary edge of $H$ in
+positive length, contradicting
 the definition of CE0 in
 [`1101_CE_classification.md`](../../../../1XXX_foundations/11XX_C_triangle/1101_CE_classification.md).
 Hence
 
 $$
-\partial H\subseteq\bigcup_{i=0}^5T_i.
+\partial H\subseteq\bigcup_{i=0}^5U_i.
 $$
 
 The six vertex roles are Vd0 by assumption, and $N_+=1$ says that exactly

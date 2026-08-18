@@ -14,6 +14,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 concurrency:
   group: paper-rebuild-${{ github.ref }}
@@ -41,13 +42,26 @@ jobs:
       - name: Install pinned audit dependencies
         run: python -m pip install --disable-pip-version-check -r requirements-proof.txt
 
-      - name: Verify proof graph and manuscript source interfaces
+      - name: Verify proof-reference graph and manuscript source interfaces
         run: |
           set -euo pipefail
           python tools/proof_lint.py
           python tools/verify_strategy2_pure_algebra.py
           python tools/verify_strategy2_spec_sync.py
           git diff --check
+
+      - uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9
+        with:
+          lake-package-directory: formalization/strategy2_optimization
+          build: 'true'
+          test: 'false'
+          lint: 'false'
+          use-mathlib-cache: 'true'
+          leanchecker: 'false'
+          nanoda: 'false'
+
+      - name: Check that the pinned Lean manifest is current
+        run: git diff --exit-code -- formalization/strategy2_optimization/lake-manifest.json
 
       - name: Replay exact Strategy 4 certificate
         working-directory: proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation
@@ -56,7 +70,7 @@ jobs:
           python verify_mixed_overlap_core_derivation.py
           python verify_global_core_positivity.py
 
-      - name: Build consolidated paper in pinned TeX Live 2025
+      - name: Build consolidated paper twice in pinned TeX Live 2025
         uses: xu-cheng/texlive-action@22c04326a5d855880f9d39bb955138bf11c6df80
         with:
           docker_image: >-
@@ -67,23 +81,40 @@ jobs:
             export FORCE_SOURCE_DATE=1
             export TZ=UTC
             cd arrange/paper_draft
-            rm -f main.pdf main.aux main.fdb_latexmk main.fls main.log \
-              main.out main.toc main.xdv main.synctex.gz
-            latexmk -xelatex -interaction=nonstopmode -halt-on-error \
-              -file-line-error main.tex
-            if grep -Eq 'LaTeX Warning: (Reference .* undefined|There were undefined references|Label .* multiply defined)' main.log; then
-              echo 'Undefined or multiply-defined references found.' >&2
-              exit 1
-            fi
-            if grep -Eq 'Overfull \\hbox|Overfull \\vbox' main.log; then
-              echo 'Overfull horizontal or vertical boxes found.' >&2
-              grep -E 'Overfull \\hbox|Overfull \\vbox' main.log >&2
-              exit 1
-            fi
 
-      - name: Check rendering and target length
+            build_pdf() {
+              local output="$1"
+              local log_copy="$2"
+              rm -f main.pdf main.aux main.fdb_latexmk main.fls main.log \
+                main.out main.toc main.xdv main.synctex.gz
+              latexmk -xelatex -interaction=nonstopmode -halt-on-error \
+                -file-line-error main.tex
+              if grep -Eq 'LaTeX Warning: (Reference .* undefined|There were undefined references|Label .* multiply defined)' main.log; then
+                echo 'Undefined or multiply-defined references found.' >&2
+                exit 1
+              fi
+              if grep -Eq 'Overfull \\hbox|Overfull \\vbox' main.log; then
+                echo 'Overfull horizontal or vertical boxes found.' >&2
+                grep -E 'Overfull \\hbox|Overfull \\vbox' main.log >&2
+                exit 1
+              fi
+              cp main.pdf "$output"
+              cp main.log "$log_copy"
+            }
+
+            build_pdf main.rebuilt1.pdf main.rebuilt1.log
+            build_pdf main.rebuilt2.pdf main.rebuilt2.log
+            cp main.rebuilt2.pdf main.pdf
+            cp main.rebuilt2.log main.log
+            rm -f main.aux main.fdb_latexmk main.fls main.out main.toc \
+              main.xdv main.synctex.gz
+
+      - name: Check stable semantics, rendering, and target length
         run: |
           set -euo pipefail
+          python tools/compare_pdfs_semantically.py \
+            arrange/paper_draft/main.rebuilt1.pdf \
+            arrange/paper_draft/main.rebuilt2.pdf --dpi 144
           python - <<'PY'
           from pathlib import Path
           import fitz
@@ -98,15 +129,29 @@ jobs:
           PY
           python tools/verify_pdf_render.py arrange/paper_draft/main.pdf
           python tools/generate_verification_summary.py
+          rm -f \
+            arrange/paper_draft/main.rebuilt1.pdf \
+            arrange/paper_draft/main.rebuilt2.pdf \
+            arrange/paper_draft/main.rebuilt1.log \
+            arrange/paper_draft/main.rebuilt2.log
           git diff --check
 
-      - name: Commit canonical PDF and verification summary to main
+      - name: Commit canonical PDF and verification summary to triggering branch
         run: |
           set -euo pipefail
+          if [ "$GITHUB_REF_TYPE" != 'branch' ]; then
+            echo 'Canonical artifacts can be committed only from a branch run.' >&2
+            exit 1
+          fi
+          target_branch="$GITHUB_REF_NAME"
           source_sha="$(git rev-parse HEAD)"
-          remote_sha="$(git ls-remote origin refs/heads/main | awk '{print $1}')"
+          remote_sha="$(git ls-remote origin "refs/heads/$target_branch" | awk '{print $1}')"
+          if [ -z "$remote_sha" ]; then
+            echo "remote branch does not exist: $target_branch" >&2
+            exit 1
+          fi
           if [ "$source_sha" != "$remote_sha" ]; then
-            echo "main advanced during the build; refusing to commit a stale PDF" >&2
+            echo "$target_branch advanced during the build; refusing to commit stale artifacts" >&2
             exit 1
           fi
 
@@ -118,7 +163,15 @@ jobs:
             exit 0
           fi
           git commit -m 'Rebuild consolidated self-contained paper'
-          git push origin HEAD:main
+          git push origin "HEAD:refs/heads/$target_branch"
+
+      - name: Dispatch read-only verification on the resulting branch head
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: >-
+          gh workflow run proof-ci.yml
+          --repo "$GITHUB_REPOSITORY"
+          --ref "$GITHUB_REF_NAME"
 
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:

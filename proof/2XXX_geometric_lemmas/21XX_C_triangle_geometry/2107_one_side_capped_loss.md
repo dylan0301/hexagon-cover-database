@@ -50,15 +50,15 @@ $$
 Let
 
 $$
-B_5=\widehat M_{c_5}(s),
+\beta_5=\overline M_{c_5}(s),
 \qquad
-B_1=\widehat M_{c_1}(u),
+\beta_1=\overline M_{c_1}(u),
 $$
 
-where $\widehat B$ is the capped safe map of `2011`. Then
+where $\overline M$ is the canonical nonsupercritical cap of `2011`. Then
 
 $$
-\boxed{B_5+B_1<1.}
+\boxed{\beta_5+\beta_1<1.}
 $$
 
 The identity used in the formula for $c_5$ is
@@ -109,12 +109,12 @@ $$
 We prove that either right low label satisfies
 
 $$
-\boxed{B_1\le S-u.}
+\boxed{\beta_1\le S-u.}
 $$
 
 ### Right label $Q_-$
 
-Write $b=B_1$. The exact Cell-$T$ frontier is
+Write $b=\beta_1$. The exact Cell-$T$ frontier is
 
 $$
 \left((u+b)^2-1\right)c_1^2+uc_1-u^2=0.
@@ -129,10 +129,10 @@ $$
 All quantities are nonnegative, so
 
 $$
-\boxed{B_1=S-u.}
+\boxed{\beta_1=S-u.}
 $$
 
-### Right label $L$
+### Right label $\mathrm{Const}$
 
 Put
 
@@ -191,10 +191,10 @@ $$
 Thus $u+b\le S$, and again
 
 $$
-\boxed{B_1\le S-u.}
+\boxed{\beta_1\le S-u.}
 $$
 
-## 3. Left $Q_-$ against a right high label or Full
+## 3. Left $Q_-$ against a right high label or $\mathrm{Lin}$
 
 Suppose the left label is $Q_-$. Put
 
@@ -208,7 +208,7 @@ $$
 
 The component selector $c_5\le2s$ gives $z\ge1/2$. The upper bound $z\le1$
 follows from the nonsupercritical cap: the frontier identity below gives
-$s+B_5=\sqrt{1-z+z^2}>1$ if $z>1$. Thus
+$s+\beta_5=\sqrt{1-z+z^2}>1$ if $z>1$. Thus
 
 $$
 \frac12\le z\le1,
@@ -219,7 +219,7 @@ $$
 The Cell-$T$ frontier gives
 
 $$
-s+B_5=h.
+s+\beta_5=h.
 $$
 
 Its selector polynomial factors as
@@ -228,7 +228,7 @@ $$
 q=-(s-hz)(s-h(1-z)).
 $$
 
-Since $q\ge0$ and $B_5\le s$, one obtains
+Since $q\ge0$ and $\beta_5\le s$, one obtains
 
 $$
 s\le zh.
@@ -315,17 +315,17 @@ $$
 \boxed{w<A=1-h.}
 $$
 
-If the right label is $Q_+^{hi}$, write
+If the right label is $Q_+$, write
 
 $$
-H=u+B_1=\sqrt{1-\beta+\beta^2}\le1.
+H=u+\beta_1=\sqrt{1-\beta+\beta^2}\le1.
 $$
 
-For the right Full label, use $H=1$. In both cases,
+For the right $\mathrm{Lin}$ label, use $H=1$. In both cases,
 
 $$
 \begin{aligned}
-B_5+B_1
+\beta_5+\beta_1
 &=h+H-(s+u)\\
 &=1+w-(1-h)-(1-H)\\
 &<1.
@@ -335,17 +335,17 @@ $$
 This proves both formerly missing or incomplete cells
 
 $$
-(Q_-,Q_+^{hi})
+(Q_-,Q_+)
 \qquad\text{and}\qquad
 (Q_-,\mathrm{Lin}).
 $$
 
-## 4. Left $L$ against a right high label or Full
+## 4. Left $\mathrm{Const}$ against a right high label or $\mathrm{Lin}$
 
-On a left $L$ frontier, put
+On a left $\mathrm{Const}$ frontier, put
 
 $$
-x=\frac{B_5}{c_5},
+x=\frac{\beta_5}{c_5},
 \qquad
 0\le x\le\frac12,
 \qquad
@@ -357,7 +357,7 @@ Then
 $$
 c_5=h(x),
 \qquad
-B_5=xh(x).
+\beta_5=xh(x).
 $$
 
 For fixed $R,u$, the center equation gives
@@ -397,7 +397,7 @@ All coefficients are nonnegative for $0\le x\le1/2$, and the relevant
 nondegenerate value is positive. Hence $q\le0$ gives $y\le1-x$.
 
 For completeness, the transition lies in $0<x<1/2$ for either right label
-considered here. At the actual point, $\gamma_5>0$ and $w>0$ imply
+considered here. At the realized scalar point, $\gamma_5>0$ and $w>0$ imply
 $u>\delta$. Hence the extrapolated value at $x=0$ has positive $w(0)$ and
 
 $$
@@ -429,7 +429,7 @@ $$
 u\le \frac R2+\eta+(1-R)e.
 $$
 
-For the right Full label, $c_1=u/R>u$. Full feasibility therefore forces
+For the right $\mathrm{Lin}$ label, $c_1=u/R>u$. $\mathrm{Lin}$ feasibility therefore forces
 $u<1/2$ and
 
 $$
@@ -457,10 +457,10 @@ and
 
 $$
 u\le\min\{RS,\frac S2\}
-\qquad(Q_+^{hi}).
+\qquad(Q_+).
 $$
 
-For Full, subtracting $R/(1+R)$ from the sufficient lower threshold
+For $\mathrm{Lin}$, subtracting $R/(1+R)$ from the sufficient lower threshold
 
 $$
 \frac R2+\frac{R(1-R)}2+(1-R)e
@@ -472,7 +472,7 @@ $$
 \frac{(1-R)(R^2+2Re+2e)}{2(1+R)}>0.
 $$
 
-For $Q_+^{hi}$, if $R\le1/2$, the remaining difference is
+For $Q_+$, if $R\le1/2$, the remaining difference is
 
 $$
 \frac{2e(1-R)-R^3}{2}\ge0;
@@ -485,10 +485,10 @@ $$
 \frac{(1-R)(3R+4e-2)}4\ge0.
 $$
 
-The two right-$Q_+^{hi}$ bounds used here are exact. Writing
+The two right-$Q_+$ bounds used here are exact. Writing
 
 $$
-\beta=\frac{B_1}{c_1},
+\beta=\frac{\beta_1}{c_1},
 \qquad
 H=\sqrt{1-\beta+\beta^2},
 $$
@@ -528,11 +528,11 @@ Thus there is a unique shared transition $x_0\in(0,1/2)$. At this point
 $$
 s=(1-x_0)h(x_0),
 \qquad
-B_5=x_0h(x_0),
+\beta_5=x_0h(x_0),
 $$
 
 so the transition is the $q=0$ endpoint of the $Q_-$ case in Section 3.
-Because $xh(x)$ is increasing, every realized left-$L$ output is no larger
+Because $xh(x)$ is increasing, every realized left-$\mathrm{Const}$ output is no larger
 than its transition output. This comparison point can have $w\le0$ and need
 not itself lie in the positive-$w$ side-model domain. That causes no gap: the
 algebra in
@@ -540,14 +540,14 @@ Section 3 uses only $0<R<1$, $u<R$, the center identity, the cap and component
 conditions, and $q\ge0$; it never uses $w>0$. Section 3 therefore proves
 
 $$
-B_5+B_1<1
+\beta_5+\beta_1<1
 $$
 
-for $(L,Q_+^{hi})$ and $(L,\mathrm{Lin})$ as well.
+for $(\mathrm{Const},Q_+)$ and $(\mathrm{Const},\mathrm{Lin})$ as well.
 
-## 5. Full on the left and a high label on the right
+## 5. $\mathrm{Lin}$ on the left and a high label on the right
 
-Left Full feasibility first forces $s<1/2$ and
+Left $\mathrm{Lin}$ feasibility first forces $s<1/2$ and
 
 $$
 \gamma_5\ge s.
@@ -556,7 +556,7 @@ $$
 Indeed, $c_5\le\max\{s,1-s\}$, while
 $\gamma_5<u<1-s$ gives $c_5>s$, excluding the $s\ge1/2$ alternative.
 
-Right Full or right $Q_+^{hi}$ gives $u\le1/2$. But
+Right $\mathrm{Lin}$ or right $Q_+$ gives $u\le1/2$. But
 
 $$
 \gamma_5-s
@@ -575,14 +575,14 @@ Both cases contradict $\gamma_5\ge s$. Hence
 $$
 (\mathrm{Lin},\mathrm{Lin})
 \quad\text{and}\quad
-(\mathrm{Lin},Q_+^{hi})
+(\mathrm{Lin},Q_+)
 $$
 
 are impossible.
 
-## 6. Left $Q_+^{hi}$ and right Full
+## 6. Left $Q_+$ and right $\mathrm{Lin}$
 
-The left high label gives $s<1/2$. Right Full gives
+The left high label gives $s<1/2$. Right $\mathrm{Lin}$ gives
 
 $$
 u\le\frac{R}{1+R}.
@@ -608,7 +608,7 @@ $$
 $$
 
 After division by $R(1-R)>0$, the last inequality is equivalent to
-$2(1+R)>1+S$. Thus $(Q_+^{hi},\mathrm{Lin})$ is impossible.
+$2(1+R)>1+S$. Thus $(Q_+,\mathrm{Lin})$ is impossible.
 
 ## 7. A low label on the right
 
@@ -618,9 +618,9 @@ $$
 X=S-u.
 $$
 
-Section 2 gives $B_1\le X$. Notice that $X>0$, because $S>R>u$.
-If $s>X$, then $B_1<s$, whereas the cap gives $B_5\le1-s$; equality
-in the cap can occur only for the Full label. Thus $B_5+B_1<1$.
+Section 2 gives $\beta_1\le X$. Notice that $X>0$, because $S>R>u$.
+If $s>X$, then $\beta_1<s$, whereas the cap gives $\beta_5\le1-s$; equality
+in the cap can occur only for the $\mathrm{Lin}$ label. Thus $\beta_5+\beta_1<1$.
 It remains to consider $s\le X$.
 
 Set
@@ -711,7 +711,7 @@ c=h(z):=\sqrt{1-z+z^2},
 0\le z\le\frac12.
 $$
 
-Then $\ell(c)=zh(z)$. The actual $c_5(s)\in[c_X,1)$ corresponds to some
+Then $\ell(c)=zh(z)$. The realized demand $c_5(s)\in[c_X,1)$ corresponds to some
 $0<z\le z_X<1/2$. Along the center line, its input is
 
 $$
@@ -802,11 +802,11 @@ re-entry. The uncapped maximum is $zh(z)$, and the cap can only decrease it.
 Consequently
 
 $$
-B_5\le zh(z)\le z_Xh(z_X)=\ell(c_X)<1-X.
+\beta_5\le zh(z)\le z_Xh(z_X)=\ell(c_X)<1-X.
 $$
 
-Together with $B_1\le X$, this proves $B_5+B_1<1$ whenever the right label
-is $L$ or $Q_-$.
+Together with $\beta_1\le X$, this proves $\beta_5+\beta_1<1$ whenever the right label
+is $\mathrm{Const}$ or $Q_-$.
 
 ## 8. Exclusion of the high/high pair
 
@@ -833,7 +833,7 @@ c_L''
 \frac{2(c^2-cz+z^2)+16c^2z(c-z)}{D^3}>0.
 $$
 
-A realized left $Q_+^{hi}$ point requires
+A realized left $Q_+$ point requires
 
 $$
 s<\frac12,
@@ -858,7 +858,7 @@ $$
 The function $g(z)=c_5(z)-c_L(z)$ is concave, and
 $g(s_0)=1-c_L(s_0)>0$.
 
-For a right $Q_+^{hi}$ label, Section 4 proved
+For a right $Q_+$ label, Section 4 proved
 
 $$
 u\le\min\{RS,S/2\}.
@@ -919,29 +919,29 @@ impossible.
 The four exact safe labels are
 
 $$
-L,
+\mathrm{Const},
 \qquad
 Q_-,
 \qquad
-Q_+^{hi},
+Q_+,
 \qquad
 \mathrm{Lin}.
 $$
 
-If both labels lie in $\{L,Q_-\}$, then
+If both labels lie in $\{\mathrm{Const},Q_-\}$, then
 
 $$
-B_5+B_1\le s+u=1-w<1.
+\beta_5+\beta_1\le s+u=1-w<1.
 $$
 
 Section 7 covers the remaining pairs with a low label on the right.
-Sections 3--4 cover a low label on the left against a high label or Full.
-Section 5 excludes Full against a high label or Full, Section 6 excludes a
-high label against Full, and Section 8 excludes high/high. These are all
+Sections 3--4 cover a low label on the left against a high label or $\mathrm{Lin}$.
+Section 5 excludes $\mathrm{Lin}$ against a high label or $\mathrm{Lin}$, Section 6 excludes a
+high label against $\mathrm{Lin}$, and Section 8 excludes high/high. These are all
 ordered pairs, so
 
 $$
-\boxed{B_5+B_1<1}
+\boxed{\beta_5+\beta_1<1}
 $$
 
 under precisely the hypotheses in Section 1.

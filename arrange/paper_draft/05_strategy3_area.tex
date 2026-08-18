@@ -106,7 +106,7 @@ Consequently the same inequalities hold for $\mathcal L(a,b)=1-f(a,b)$.
 
 \begin{proof}
 In the coordinates of Lemma~\ref{lem:area-wedge}, physical rotation through
-$60^\circ$ is $R(x,y)=(x-y,x)$.  Put
+$60^\circ$ is $\mathsf R(x,y)=(x-y,x)$.  Put
 \[
  0\le t\le1,\qquad D=1-t+t^2,\qquad z=\sqrt D.
 \]
@@ -114,7 +114,7 @@ After choosing one of the six directed sides, every orientation has one of
 the following two forms:
 \begin{equation}
  \begin{array}{c|cc}
- &d&Rd\\ \hline
+ &d&\mathsf R d\\ \hline
  \mathrm{I}&z^{-1}(1,t)&z^{-1}(1-t,1)\\[2mm]
  \mathrm{II}&z^{-1}(t,-(1-t))&z^{-1}(1,t).
  \end{array}                                      \label{eq:area-orientation-forms}
@@ -288,8 +288,8 @@ Set $r=(1-z)/t$.  Then $0<r<1/2$, and eliminating $t,z$ gives
  z=\frac{r^2-r+1}{1-r^2},
 \]
 \[
- L=A_0(r):=\frac{r(r^2-r+1)}{1-r^2},\qquad
- z-L=B_0(r):=\frac{r^2-r+1}{1+r}.
+ L=\alpha_{\rm lim}(r):=\frac{r(r^2-r+1)}{1-r^2},\qquad
+ z-L=\beta_{\rm lim}(r):=\frac{r^2-r+1}{1+r}.
 \]
 The limiting normalized inside area and loss are
 \[
@@ -298,23 +298,23 @@ The limiting normalized inside area and loss are
 \]
 Since the exact reach $A$ is at least the required reach lower bound $a\ge m$,
 \eqref{eq:t3-A-upper}
-gives $A_0(r)>m$.  Direct simplification yields
+gives $\alpha_{\rm lim}(r)>m$.  Direct simplification yields
 \[
- \mathcal L_0(r)-\{2A_0(r)-4A_0(r)^2\}
+ \mathcal L_0(r)-\{2\alpha_{\rm lim}(r)-4\alpha_{\rm lim}(r)^2\}
  =\frac{r^2(5r^4-8r^3+13r^2-8r+2)}{(1-r^2)^2}\ge0,
 \]
 because the last polynomial is at least $9r^2-8r+2\ge2/9$ on
-$[0,1/2]$.  Also $A_0(r)\le r$, and
+$[0,1/2]$.  Also $\alpha_{\rm lim}(r)\le r$, and
 \[
  \mathcal L_0(r)-\frac14
  =\frac{(1-2r)(2r^3-3r^2+6r-1)}{4(1-r^2)}\ge0
- \quad\text{when }A_0(r)\ge\frac14;
+ \quad\text{when }\alpha_{\rm lim}(r)\ge\frac14;
 \]
 the cubic is increasing and has value $11/32$ at $r=1/4$.
 
 Finally $\psi(u)=2u-4u^2$ is increasing on $[0,1/4]$ and never exceeds
-$1/4$ on $[0,1/2]$.  If $A_0(r)\le1/4$, then
-$\mathcal L_0(r)\ge\psi(A_0(r))\ge\psi(m)$; if $A_0(r)\ge1/4$, then
+$1/4$ on $[0,1/2]$.  If $\alpha_{\rm lim}(r)\le1/4$, then
+$\mathcal L_0(r)\ge\psi(\alpha_{\rm lim}(r))\ge\psi(m)$; if $\alpha_{\rm lim}(r)\ge1/4$, then
 $\mathcal L_0(r)\ge1/4\ge\psi(m)$.  Together with \eqref{eq:t3-limit-loss}, this proves
 \eqref{eq:t3-loss}.  The reflected crossing is identical.
 \end{proof}
@@ -383,8 +383,8 @@ at least one triangle is $\Tlike$.
 
 \begin{proof}
 In the $\CEzero$ class, the C triangle has no positive-length boundary
-trace.  If the six V triangles missed a boundary point, openness of the
-C triangle would give such a trace.  Hence the V triangles cover
+trace.  If the six V triangles missed a boundary point, openness of $U_C$
+would give such a trace.  Hence the V triangles cover
 $\partial H$, so Proposition~\ref{prop:strict-handoffs} applies.
 
 If $N_+\ge2$, its at-least-two clause selects handoffs with at least two

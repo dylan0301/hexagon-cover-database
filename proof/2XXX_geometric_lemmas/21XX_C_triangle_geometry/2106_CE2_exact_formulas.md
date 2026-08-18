@@ -310,6 +310,6 @@ demand is a valid relaxation by coordinatewise down-closedness.
 
 The common formulas do not make the two-gap state into two independent
 one-gap chains. Both gaps share the same supercritical V triangle $T_0$ and the same
-center triangle. The exact paired endpoint loss is the rank-two theorem
+C triangle. The exact paired endpoint loss is the rank-two theorem
 [`2108`](2108_CE2_two_endpoint_capped_loss.md), while the one-gap interface is
 [`4105`](../../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4105_CE1_CE2_one_gap_five_V_triangle_interface.md).

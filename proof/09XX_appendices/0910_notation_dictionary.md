@@ -9,8 +9,13 @@ expanded to “center triangle” or “vertex triangle” in the proof package.
 
 ## 1. Distinguished triangles
 
+- $U_C,U_0,\ldots,U_5$ are the original open role triangles, with
+  $O\in U_C$ and $V_i\in U_i$.
 - $T_C$ is the closed C triangle containing the center $O$.
 - $T_i$ is the closed $V_i$ triangle containing the hexagon vertex $V_i$.
+- The two layers are related by $T_C=\overline{U_C}$ and
+  $T_i=\overline{U_i}$. Classifications and maximal closed traces use $T$;
+  open membership and every argument using openness use $U$.
 - CE0, CE1, and CE2 are the C-triangle boundary-trace types.
 - Vd0, Vd1, Vd2, and T3-like are the V-triangle types.
 
@@ -53,19 +58,19 @@ lowercase reaches are never used for actual maxima.
 ## 3. Counts
 
 $$
-N_+=\#\{i:A_i+B_i>1\},
+N_+=\left\lvert\{i:A_i+B_i>1\}\right\rvert,
 $$
 
 $$
 N_{\rm sp}
-=\#\{i:T_i\text{ is Vd1, Vd2, or T3-like}\},
+=\left\lvert\{i:T_i\text{ is Vd1, Vd2, or T3-like}\}\right\rvert,
 $$
 
 and
 
 $$
 N_{\rm gap}
-=\#\{\text{positive C-triangle boundary traces containing a V-uncovered set}\}.
+=\left\lvert\{\text{positive C-triangle boundary traces containing a V-uncovered set}\}\right\rvert.
 $$
 
 The skeleton-length route is stated directly as
@@ -186,6 +191,11 @@ $$
 These symbols are reserved for the C-triangle normal form.  A V-triangle
 radial lower bound is written $c_i$, not $\delta$.
 
+The auxiliary side slacks in the affine C-triangle equations are
+$\kappa_j=F_j(O)$. In the CE1 chart, $\alpha=\kappa_0$ and
+$\delta=\kappa_2$. The symbols $C_i$ remain reserved for actual V-triangle
+radial reaches.
+
 ## 7. Legacy crosswalk
 
 The authenticated 407X exact-cell package and historical files retain some
@@ -196,6 +206,8 @@ $$
 g_c(x)=M_c(1-x),
 \qquad
 B_c=M_c,
+\qquad
+\widehat B_c=\overline M_c,
 \qquad
 F_c=\overline M_c,
 \qquad
@@ -214,4 +226,23 @@ T_-=Q_-,
 T_+=Q_+.
 $$
 
-These are compatibility aliases, not a second public notation layer.
+For the endpoint requirements in the authenticated `407X` package, brackets
+mark the legacy alphabet and stars mark the canonical selected lower bounds:
+
+$$
+a_i^*:=[A_i]_{407X}\le A_i,
+\qquad
+c_i^*:=[C_i]_{407X}\le C_i
+\qquad(i=1,5),
+$$
+
+where the unbracketed uppercase symbols on the right are the actual maximal
+reaches. Thus the symbols printed as $A_i,C_i$ in the immutable blobs are not
+additional actual-reach variables.
+
+These are compatibility aliases, not a second public notation layer. The
+letter $q$ inside the authenticated files is a local scalar, never a
+short-role count. Their historical reference to the former short-role theorem
+means the direct $N_++N_{\rm sp}\ge3$ theorem in `2530`. A locally defined
+unsubscripted $\Phi$ in an authenticated calculation is likewise a local
+scalar function, not the public propagation map $\Phi_c$.

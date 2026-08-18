@@ -59,7 +59,7 @@ h_{K_{\mathrm{wit}}}(n)
 \tag{1}
 $$
 
-Writing $R$ for counterclockwise rotation through $2\pi/3$, the terminal
+Writing $\mathsf R$ for counterclockwise rotation through $2\pi/3$, the terminal
 target is
 
 $$
@@ -68,7 +68,7 @@ $$
 =
 \frac1h
 \min_{\lVert n\rVert=1}
-\sum_{j=0}^2 h_{K_{\mathrm{wit}}}(R^j n)
+\sum_{j=0}^2 h_{K_{\mathrm{wit}}}(\mathsf R^j n)
 \ge1.
 }
 \tag{2}
@@ -120,7 +120,7 @@ q_2=Q_0,
 q_3=Q_+,
 $$
 
-and let $J_{90}$ denote counterclockwise rotation through $\pi/2$.
+and let $\mathsf J$ denote counterclockwise rotation through $\pi/2$.
 The strict root inequalities in `31033` put $Q_-$ and $Q_+$ strictly away
 from $Q_0$ on two distinct line pieces, so the three points are pairwise
 distinct.
@@ -132,7 +132,7 @@ point--point tie normals are
 
 $$
 n=\mathbin\pm
-\frac{J_{90}(q_\ell-q_k)}{\lVert q_\ell-q_k\rVert},
+\frac{\mathsf J(q_\ell-q_k)}{\lVert q_\ell-q_k\rVert},
 \qquad
 1\le k<\ell\le3,
 \tag{6}
@@ -145,7 +145,7 @@ n=
 \frac{
 \eta q_k
 \mathbin\pm
-\sqrt{\lVert q_k\rVert^2-\eta^2}J_{90}q_k
+\sqrt{\lVert q_k\rVert^2-\eta^2}\mathsf Jq_k
 }{\lVert q_k\rVert^2},
 \qquad
 \lVert q_k\rVert\ge\eta.
@@ -362,20 +362,20 @@ two vectors.
 Set
 
 $$
-S=\widehat K+R\widehat K+R^2\widehat K.
+S=\widehat K+\mathsf R\widehat K+\mathsf R^2\widehat K.
 $$
 
-Then $S$ is convex and invariant under $R$, and
+Then $S$ is convex and invariant under $\mathsf R$, and
 
 $$
 h_S(n)
 =
-\sum_{j=0}^2h_{\widehat K}(R^j n).
+\sum_{j=0}^2h_{\widehat K}(\mathsf R^j n).
 \tag{17}
 $$
 
 The three summands can independently contribute one witness point or the
-centered disk. Hence $S$ contains the full $R$-orbits of
+centered disk. Hence $S$ contains the full $\mathsf R$-orbits of
 
 $$
 \mathbb{D}(A,2\eta),
@@ -386,7 +386,7 @@ $$
 \quad
 \mathbb{D}(W,\eta),
 \qquad
-W=C+RA.
+W=C+\mathsf R A.
 \tag{18}
 $$
 
@@ -413,11 +413,11 @@ $$
 Suppose the rays of
 
 $$
-A,\ B,\ C,\ W,\ RA
+A,\ B,\ C,\ W,\ \mathsf R A
 \tag{20}
 $$
 
-occur in that cyclic order in the sector from $A$ to $RA$. The equal-radius
+occur in that cyclic order in the sector from $A$ to $\mathsf R A$. The equal-radius
 cap overlaps are ensured by
 
 $$
@@ -452,9 +452,9 @@ identical. Only this sufficient implication is used below.
 For the two mixed overlaps, put
 
 $$
-\Delta=\mathrm{cross}(C,RA),
+\Delta=\mathrm{cross}(C,\mathsf R A),
 \qquad
-u=\langle C,RA\rangle,
+u=\langle C,\mathsf R A\rangle,
 $$
 
 and, for $X=A,C$,
@@ -506,7 +506,7 @@ $$
 This is the common support of $\mathbb{D}(C,2\eta)$ and
 $\mathbb{D}(W,\eta)$ at their outer tangent normal. The $X=C$ instance is the
 corresponding common-support inequality for $\mathbb{D}(W,\eta)$ and
-$\mathbb{D}(RA,2\eta)$.
+$\mathbb{D}(\mathsf R A,2\eta)$.
 
 Thus (21), (22), and (25) give four consecutive cap overlaps along the sector
 in (20):
@@ -520,15 +520,15 @@ I(C,2\eta)
 \leftrightarrow
 I(W,\eta)
 \leftrightarrow
-I(RA,2\eta).
+I(\mathsf R A,2\eta).
 $$
 
 Here $\tau>0$ and $h-\eta=hc_*>0$, so every nonempty cap in the chain is a
 single arc with half-width less than $\pi/2$. The four overlap inequalities
 make all five caps nonempty. Since each consecutive center-ray gap is less
 than $\pi$, their overlap occurs across that intervening short sector.
-Therefore these overlaps cover the whole sector from $A$ to $RA$. Rotation
-by $R$ covers the other two sectors. This proves the following reduction.
+Therefore these overlaps cover the whole sector from $A$ to $\mathsf R A$. Rotation
+by $\mathsf R$ covers the other two sectors. This proves the following reduction.
 
 **Proposition 4.1.** Under the ray order (20), inequalities
 (21), (22), and (25) imply
@@ -606,14 +606,14 @@ E_0=V_5-V_4,
 E_1=V_3-V_4,
 $$
 
-the centered coefficient vectors of $A,C,RA$ are
+the centered coefficient vectors of $A,C,\mathsf R A$ are
 
 $$
 A=(-X,-Y),
 \qquad
 C=(-P,-Q),
 \qquad
-RA=(Y,Y-X).
+\mathsf R A=(Y,Y-X).
 $$
 
 Consequently
@@ -636,8 +636,8 @@ PX-(P-Q)Y
 >0.
 $$
 
-Thus $\Delta>0$. Since $W=C+RA$ is a positive sum of two vectors whose angle
-is less than $\pi$, its ray lies strictly between the rays of $C$ and $RA$.
+Thus $\Delta>0$. Since $W=C+\mathsf R A$ is a positive sum of two vectors whose angle
+is less than $\pi$, its ray lies strictly between the rays of $C$ and $\mathsf R A$.
 This proves (20).
 
 The same centered coordinates give
@@ -1053,7 +1053,7 @@ $$
 Represent a global vector as $(x,hy)$ and put
 
 $$
-C'=R^{-1}C.
+C'=\mathsf R^{-1}C.
 $$
 
 If $A=(x_A,hy_A)$ and $C'=(x',hy')$, define
@@ -1069,7 +1069,7 @@ Then
 $$
 \Delta=-h\Delta_0,
 \qquad
-u=\langle C,RA\rangle.
+u=\langle C,\mathsf R A\rangle.
 $$
 
 For $X=A,C$, put

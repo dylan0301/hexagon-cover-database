@@ -8,8 +8,8 @@ Seven open unit equilateral triangles cannot cover the side-one hexagon $H$
 when the center role is CE1 or CE2, all six vertex roles are Vd0, and
 $N_+=1$.
 
-The active proof depends only on the active-gap rank $N_{\rm gap}$, the number
-of center traces that contain an active V-gap. Together with the $N_+=0$
+The active proof depends only on $N_{\rm gap}\in\{0,1,2\}$, the number
+of positive C-triangle traces that contain a boundary gap. Together with the $N_+=0$
 theorem `4013`, the all-Vd0 kernel is
 
 | actual V-triangle count | $N_{\rm gap}=0$ | $N_{\rm gap}=1$ | $N_{\rm gap}=2$ |
@@ -17,7 +17,8 @@ theorem `4013`, the all-Vd0 kernel is
 | $N_+=0$ | strict identity cycle | one-side exact-endpoint chain | common CE2 paired-endpoint chain |
 | $N_+=1$ | center-independent nine-point obstruction | common five-V-triangle chain with a sign-dependent relaxation | common CE2 paired-endpoint chain |
 
-The column $N_{\rm gap}=2$ is CE2-only. The canonical $g$-family is proved in
+The column $N_{\rm gap}=2$ is CE2-only. The canonical
+$M_c,\overline M_c,\Phi_c$ family is proved in
 [`201d`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md).
 
 ## 1. Unique supercritical V triangle
@@ -62,7 +63,7 @@ $$
 \boxed{A_0+B_0>1.}
 $$
 
-## 2. Gap rank
+## 2. Boundary-gap count
 
 On $e_{i,i+1}$, parametrized from $V_i$, the two incident open vertex traces
 are
@@ -83,8 +84,9 @@ $$
 \end{cases}
 $$
 
-A nonempty $\Gamma_i$ is a V-gap. Equality gives a singleton gap and is
-retained because the roles are open. By boundary locality every V-gap lies in
+A nonempty $\Gamma_i$ is a boundary gap. Equality gives a singleton boundary
+gap and is retained because the roles are open. By boundary locality every
+boundary gap lies in
 a positive center trace.
 
 Use the signed center normal form
@@ -106,7 +108,7 @@ $$
 
 The center is CE1 exactly when $\Delta_L\le0$ and CE2 exactly when
 $\Delta_L>0$. Let $N_{\rm gap}$ be the number of these positive traces that
-contain a V-gap. Then
+contain a boundary gap. Then
 
 $$
 N_{\rm gap}\in\{0,1,2\},
@@ -114,26 +116,27 @@ $$
 
 with $N_{\rm gap}\le1$ in CE1.
 
-## 3. Rank zero: no active gap
+## 3. $N_{\rm gap}=0$: no boundary gap in a C-triangle trace
 
-If no center trace contains a V-gap, then no boundary edge has a V-gap. The
+If no C-triangle trace contains a boundary gap, then no boundary edge has a
+boundary gap. The
 six Vd0 vertex roles alone cover $\partial H$, and exactly one actual V triangle is
 supercritical. The center-independent direct nine-point obstruction
 [`31058`](../../../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31058_center_independent_direct_nine_point_obstruction.md)
 gives a contradiction.
 
 This is the only all-Vd0 cell in the kernel that is not closed by a relaxed
-$g$-chain.
+$\Phi_c$-chain.
 
-## 4. Rank one: the common five-V-triangle chain
+## 4. $N_{\rm gap}=1$: the common five-V-triangle chain
 
-After reflection, assume the active gap lies in $I_R$ and the companion trace
+After reflection, assume the boundary gap lies in $I_R$ and the companion trace
 is absent or gap-free. Put
 
 $$
 X=R-\delta,
 \qquad
-H=\frac{k}{2R},
+h_0=\frac{k}{2R},
 \qquad
 m_3=\min\left\{\frac{\alpha}{R},\frac{\delta}{W}\right\},
 $$
@@ -179,7 +182,7 @@ $$
 \mid
 \Phi_{1-m_3}
 \mid
-\Phi_{1-\delta}](H)
+\Phi_{1-\delta}](h_0)
 >
 1-X.
 }
@@ -189,7 +192,7 @@ The sign of $\Delta_L$ determines only how this common target is relaxed.
 
 ### 4.1. CE1 relaxation
 
-If $\Delta_L\le0$, the center is CE1. On the easy $L$ and $Q_-$ labels the
+If $\Delta_L\le0$, the center is CE1. On the easy $\mathrm{Const}$ and $Q_-$ labels the
 target is already exceeded. On the only surviving selected-$Q_+$ branch,
 [`4106`](4106_CE1_one_gap_five_map_completion.md) proves the two affine lower
 bounds
@@ -197,13 +200,13 @@ bounds
 $$
 \Phi_{1-\alpha}^{\,1-4\alpha}
 \le
-\Phi_{1-\alpha}^{
+\Phi_{1-\alpha}
 $$
 
 and
 
 $$
-g_}{1-m_3}^{\vee,\,1-5m_3}
+\Phi_{1-m_3}^{\,1-5m_3}
 \le
 \Phi_{1-m_3}
 $$
@@ -223,7 +226,7 @@ $$
 \mid
 \Phi_{1-m_3}^{\,1-5m_3}
 \mid
-\Phi_{1-\delta}^{\rm th}](H)
+\Phi_{1-\delta}^{\rm th}](h_0)
 >
 1-X.
 }
@@ -248,7 +251,7 @@ $$
 \mid
 \mathrm I](X)
 >
-1-H
+1-h_0
 }
 $$
 
@@ -266,7 +269,7 @@ $$
 \mid
 \mathrm I](X)
 >
-1-H.
+1-h_0.
 }
 $$
 
@@ -280,9 +283,10 @@ $$
 
 and reverses the five V triangles, so the other CE2 orientation is identical.
 
-Thus every rank-one state is impossible, including singleton gaps.
+Thus every $N_{\rm gap}=1$ state is impossible, including singleton boundary
+gaps.
 
-## 5. Rank two: two active gaps
+## 5. $N_{\rm gap}=2$: two boundary gaps
 
 This state is CE2-only. V triangles $T_1,\ldots,T_5$ are nonsupercritical Vd0 V triangles,
 so the common two-gap theorem
@@ -291,7 +295,7 @@ applies directly. It keeps the two endpoint high-radial outgoing bounds exact,
 relaxes the three middle V triangles to $\mathrm I^3$, and invokes the paired
 endpoint loss `2108`.
 
-The ranks $N_{\rm gap}=0,1,2$ are exhaustive. Therefore the CE1/CE2,
+The values $N_{\rm gap}=0,1,2$ are exhaustive. Therefore the CE1/CE2,
 $N_+=1$, all-Vd0 branch is impossible.
 
 The older reduction

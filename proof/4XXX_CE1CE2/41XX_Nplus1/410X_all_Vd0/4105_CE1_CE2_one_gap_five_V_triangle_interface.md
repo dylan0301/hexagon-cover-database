@@ -9,8 +9,9 @@ the scalar relaxation of one three-map chain.
 The canonical notation is from
 [`201d`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md).
 All five nonsupercritical radial demands below are strictly above $1/2$.
-The exact incoming-reach transfer is therefore the raw high-radial map
-$\Phi_c$. The older symbol $\Phi_c$ is only its technical alias.
+The exact outgoing cap is therefore the raw high-radial envelope $M_c$, and
+the following-edge incoming transfer is the canonical propagation map
+$\Phi_c=1-\overline M_c$. No second transfer family is used.
 
 ## 1. Signed center data
 
@@ -49,7 +50,7 @@ X=1-(W+\delta)=R-\delta,
 $$
 
 $$
-H=\frac{k}{2R},
+h_0=\frac{k}{2R},
 $$
 
 and
@@ -96,11 +97,12 @@ This is the technical $\Phi_c$ duality rewritten in the canonical family.
 
 Assume the `410X` branch:
 
-- the center role is CE1 or CE2 and has exact midpoint set $\{M_0\}$;
-- all six vertex roles are Vd0;
+- the closed C triangle $T_C$ is CE1 or CE2 and has exact midpoint set
+  $\{M_0\}$;
+- all six closed V triangles $T_i$ are Vd0;
 - $N_+=1$;
-- the trace $I_R$ contains a V-gap, possibly a singleton;
-- in the CE2 case, the companion trace contains no V-gap.
+- the trace $I_R$ contains a boundary gap, possibly a singleton;
+- in the CE2 case, the companion trace contains no boundary gap.
 
 As proved in
 [`4101`](4101_CE1CE2_Nplus1_all_Vd0_strategy.md), V triangles $T_1,\ldots,T_5$
@@ -166,8 +168,8 @@ z_i.
 \end{aligned}
 $$
 
-For $i=5$, the CE1 center has no positive companion trace, while in CE2 the
-companion trace contains no V-gap. The final handoff therefore gives
+For $i=5$, the CE1 C triangle has no positive companion trace, while in CE2
+the companion trace contains no boundary gap. The final handoff therefore gives
 
 $$
 A_0
@@ -216,7 +218,7 @@ $$
 \boxed{
 A_0
 \le
-g_k\left(1-\frac{k}{R}\right).
+M_k\left(\frac{k}{R}\right).
 }
 $$
 
@@ -225,19 +227,19 @@ The diameter-transfer lemma
 gives
 
 $$
-g_k\left(1-\frac{k}{R}\right)
+M_k\left(\frac{k}{R}\right)
 \le
 M_0\left(\frac{k}{R}\right)
 <
 1-\frac{k}{2R}
 =
-1-H.
+1-h_0.
 $$
 
 Thus the one-gap branch is impossible once
 
 $$
-\boxed{Z>1-H}
+\boxed{Z>1-h_0}
 $$
 
 is proved.
@@ -266,7 +268,7 @@ $$
 \mid
 \Phi_{c_4}](X)
 >
-1-H.
+1-h_0.
 $$
 
 Three applications of high-radial duality show that the negation of this
@@ -277,7 +279,7 @@ $$
 \mid
 \Phi_{c_3}
 \mid
-\Phi_{c_2}](H)
+\Phi_{c_2}](h_0)
 \le
 1-X.
 $$
@@ -290,7 +292,7 @@ $$
 \mid
 \Phi_{1-m_3}
 \mid
-\Phi_{1-\delta}](H)
+\Phi_{1-\delta}](h_0)
 >
 W+\delta.
 }

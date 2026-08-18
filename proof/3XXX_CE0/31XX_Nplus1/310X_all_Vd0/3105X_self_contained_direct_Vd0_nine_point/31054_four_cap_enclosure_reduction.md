@@ -71,7 +71,7 @@ h_K(n)=\max_{X\in K}\langle X,n\rangle
 $$
 
 and let $\Lambda(K)$ be the least side length of a closed equilateral
-triangle containing $K$.  If $R$ denotes counterclockwise rotation through
+triangle containing $K$.  If $\mathsf R$ denotes counterclockwise rotation through
 $2\pi/3$, then
 
 $$
@@ -80,13 +80,13 @@ $$
 =
 \frac1h
 \min_{\left\lVert n\right\rVert=1}
-\sum_{j=0}^2 h_K(R^j n).
+\sum_{j=0}^2 h_K(\mathsf R^j n).
 }
 \tag{3}
 $$
 
 Indeed, for a fixed unit normal $n$, the three supporting lines with outward
-normals $n,Rn,R^2n$ form an equilateral triangle.  Translating the three
+normals $n,\mathsf Rn,\mathsf R^2n$ form an equilateral triangle.  Translating the three
 lines changes the location but not the sum of their signed support numbers,
 and their side length is that sum divided by the altitude $h$.  The least
 triangle at this orientation uses the three support numbers of $K$.
@@ -325,18 +325,18 @@ $$
 Set
 
 $$
-S=\widehat K+R\widehat K+R^2\widehat K.
+S=\widehat K+\mathsf R\widehat K+\mathsf R^2\widehat K.
 $$
 
-Then $S$ is convex and $R$-invariant, and
+Then $S$ is convex and $\mathsf R$-invariant, and
 
 $$
-h_S(n)=\sum_{j=0}^2h_{\widehat K}(R^j n).
+h_S(n)=\sum_{j=0}^2h_{\widehat K}(\mathsf R^j n).
 \tag{17}
 $$
 
 The three summands can contribute a witness point or the centered disk
-independently.  Hence $S$ contains the full $R$-orbits of
+independently.  Hence $S$ contains the full $\mathsf R$-orbits of
 
 $$
 \mathbb D(A,2\eta),
@@ -347,12 +347,12 @@ $$
 \quad
 \mathbb D(W,\eta),
 \qquad
-W=C+RA.
+W=C+\mathsf R A.
 \tag{18}
 $$
 
-For example, $A+R\mathcal D_\eta+R^2\mathcal D_\eta$ is
-$\mathbb D(A,2\eta)$, while $C+RA+R^2\mathcal D_\eta$ is
+For example, $A+\mathsf R\mathcal D_\eta+\mathsf R^2\mathcal D_\eta$ is
+$\mathbb D(A,2\eta)$, while $C+\mathsf R A+\mathsf R^2\mathcal D_\eta$ is
 $\mathbb D(W,\eta)$.
 
 For a disk $\mathbb D(X,r)$, define its level-$h$ cap of normal directions
@@ -379,7 +379,7 @@ $$
 \tag{20}
 $$
 
-The required chain in the sector from $A$ to $RA$ is
+The required chain in the sector from $A$ to $\mathsf R A$ is
 
 $$
 I(A,2\eta)
@@ -390,7 +390,7 @@ I(C,2\eta)
 \longleftrightarrow
 I(W,\eta)
 \longleftrightarrow
-I(RA,2\eta).
+I(\mathsf R A,2\eta).
 \tag{21}
 $$
 
@@ -418,9 +418,9 @@ so (22) puts that normal in both caps.
 For the two mixed overlaps, define
 
 $$
-\Delta=\mathrm{cross}(C,RA),
+\Delta=\mathrm{cross}(C,\mathsf R A),
 \qquad
-u=\langle C,RA\rangle,
+u=\langle C,\mathsf R A\rangle,
 $$
 
 and, for $X=A,C$,
@@ -475,7 +475,7 @@ $$
 The left side is the common support of $\mathbb D(C,2\eta)$ and
 $\mathbb D(W,\eta)$ at their outer tangent normal.  The instance $X=C$ is
 the corresponding common-support inequality for $\mathbb D(W,\eta)$ and
-$\mathbb D(RA,2\eta)$.  Thus
+$\mathbb D(\mathsf R A,2\eta)$.  Thus
 
 $$
 \boxed{P_A(\eta)\ge0,
@@ -491,7 +491,7 @@ for the equal-radius caps this follows from $h-2\eta=\tau>0$, and for the
 mixed-radius cap it follows from $h-\eta=hc_*>0$.  Once the five center rays
 are in cyclic order and all consecutive crosses are positive, every overlap
 in (21) occurs across the intervening short sector.  Hence the five caps
-cover the sector from $A$ to $RA$, and their $R$-orbits cover the unit circle.
+cover the sector from $A$ to $\mathsf R A$, and their $\mathsf R$-orbits cover the unit circle.
 
 ## 4. Ray order and radius hypotheses
 
@@ -561,7 +561,7 @@ A=(-X,-Y),
 \qquad
 C=(-P,-Q),
 \qquad
-RA=(Y,Y-X).
+\mathsf R A=(Y,Y-X).
 $$
 
 Therefore
@@ -582,16 +582,16 @@ PX-(P-Q)Y
 >0.
 $$
 
-Thus $\Delta>0$.  Since $W=C+RA$ is a positive sum of two nonopposite
-vectors, its ray lies strictly between the rays of $C$ and $RA$.  Hence the
+Thus $\Delta>0$.  Since $W=C+\mathsf R A$ is a positive sum of two nonopposite
+vectors, its ray lies strictly between the rays of $C$ and $\mathsf R A$.  Hence the
 rays
 
 $$
-A, B, C, W, RA
+A, B, C, W, \mathsf R A
 \tag{33}
 $$
 
-occur in this cyclic order from $A$ to $RA$.
+occur in this cyclic order from $A$ to $\mathsf R A$.
 
 The same coordinates give
 

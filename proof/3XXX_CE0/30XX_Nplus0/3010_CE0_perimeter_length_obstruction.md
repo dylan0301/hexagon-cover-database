@@ -2,13 +2,14 @@
 
 Status: Proven
 
-Assume a hypothetical open-triangle cover has role triangles
+Assume a hypothetical open-triangle cover has original roles
 
 $$
-T_C,T_0,\dots,T_5,
+U_C,U_0,\dots,U_5,
 $$
 
-with indices taken modulo $6$. Suppose
+with indices taken modulo $6$, and put $T_C=\overline{U_C}$ and
+$T_i=\overline{U_i}$. Suppose
 
 $$
 T_C\text{ is CE0}
@@ -28,12 +29,12 @@ Write $e_{i,i+1}$ for the side of $H$ from $V_i$ to $V_{i+1}$, and write
 $e_{i,i+1}^{\circ}$ for its relative interior.
 
 Since $T_C$ is CE0, it has no positive-length overlap with any boundary edge of
-$H$. In the open-triangle formulation, if $T_C$ contained any point of
+$H$. If $U_C$ contained any point of
 $e_{i,i+1}^{\circ}$, then openness would give a positive-length interval of
 $e_{i,i+1}$ contained in $T_C$. Hence
 
 $$
-T_C\cap e_{i,i+1}^{\circ}=\varnothing.
+U_C\cap e_{i,i+1}^{\circ}=\varnothing.
 $$
 
 If $j\notin\{i,i+1\}$, then a $V_j$-triangle cannot contain any point of
@@ -45,16 +46,16 @@ Therefore the open interval $e_{i,i+1}^{\circ}$ must be covered by the two
 relatively open sets
 
 $$
-T_i\cap e_{i,i+1}^{\circ}
+U_i\cap e_{i,i+1}^{\circ}
 $$
 
 and
 
 $$
-T_{i+1}\cap e_{i,i+1}^{\circ}.
+U_{i+1}\cap e_{i,i+1}^{\circ}.
 $$
 
-Both are nonempty, because $T_i$ contains $V_i$ and $T_{i+1}$ contains
+Both are nonempty, because $U_i$ contains $V_i$ and $U_{i+1}$ contains
 $V_{i+1}$ as open-cover vertex roles. Since $e_{i,i+1}^{\circ}$ is connected,
 these two nonempty relatively open covering sets cannot be disjoint. Their
 intersection contains a nonempty relatively open subinterval, and hence has

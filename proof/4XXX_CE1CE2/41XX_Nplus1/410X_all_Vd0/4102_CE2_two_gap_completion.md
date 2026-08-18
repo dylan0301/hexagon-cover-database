@@ -14,7 +14,7 @@ Assume a hypothetical cover has
 - a CE2 center role;
 - six Vd0 vertex roles;
 - $N_+=1$;
-- a V-gap, possibly a singleton, in each of the two center traces.
+- a boundary gap, possibly a singleton, in each of the two C-triangle traces.
 
 Then the perimeter cannot be covered.
 
@@ -30,7 +30,7 @@ A_i+B_i\le1
 $$
 
 Thus V triangles $T_1,\ldots,T_5$ are nonsupercritical Vd0 V triangles.  Both center traces
-contain active gaps by hypothesis, so every assumption of `2110` is satisfied.
+contain boundary gaps by hypothesis, so every assumption of `2110` is satisfied.
 That theorem applies the exact paired endpoint loss `2108` and the common
 boundary-path budget `2019`, yielding a contradiction.
 

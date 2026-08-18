@@ -8,7 +8,7 @@ define
 \[
  h(c)=\frac{2c}{1+\sqrt{16c^2-3}},
  \qquad
- Q_-(c,x)=\frac{\sqrt{x^2-cx+c^2}}{c}-x.
+ Q_-(x,c)=\frac{\sqrt{x^2-cx+c^2}}{c}-x.
 \]
 For
 \[
@@ -27,7 +27,7 @@ Finally put
 \]
 and, whenever \(D_+(c,x)\ge0\), define
 \[
- Q_+(c,x)=
+ Q_+(x,c)=
  \frac{2(1-x^2)c^2}
  {2xc^2+c+\sqrt{D_+(c,x)}}.
 \]
@@ -60,9 +60,9 @@ Define \(F:(1/2,1)\times[0,1]\to[0,1]\) as follows.  For
  F(c,x)=
  \begin{cases}
   1-x,&0\le x\le1-c,\\
-  Q_+(c,x),&1-c<x<h(c),\\
+  Q_+(x,c),&1-c<x<h(c),\\
   h(c),&x=h(c),\\
-  Q_-(c,x),&h(c)<x<c,\\
+  Q_-(x,c),&h(c)<x<c,\\
   1-x,&c\le x\le1.
  \end{cases}
 \]
@@ -71,9 +71,9 @@ For \(\sqrt3/2<c<1\), put
  F(c,x)=
  \begin{cases}
   1-x,&0\le x\le1-c,\\
-  Q_+(c,x),&1-c<x\le \ell(c),\\
+  Q_+(x,c),&1-c<x\le \ell(c),\\
   \ell(c),&\ell(c)<x<r(c),\\
-  Q_-(c,x),&r(c)\le x<c,\\
+  Q_-(x,c),&r(c)\le x<c,\\
   1-x,&c\le x\le1.
  \end{cases}
 \]

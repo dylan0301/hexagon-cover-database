@@ -5,13 +5,16 @@ Status: Proven
 Assume the center role is CE1 or CE2, $N_+=1$, no vertex role is Vd1 or Vd2,
 and at least two vertex roles are T3-like.
 
-T3-like V triangles are nonsupercritical, so the unique supercritical V triangle is distinct
-from them.  A supercritical V triangle is a short role in the terminology of
-[`2530`](../../../2XXX_geometric_lemmas/25XX_length_bounds/2530_common_CE1_CE2_budget_lemmas.md),
-and every T3-like V triangle is short because it has positive-length support on an
-adjacent radial arm.  Hence there are at least three short vertex roles.
+T3-like V triangles are nonsupercritical, so the unique supercritical V
+triangle is distinct from them. There are at least two special roles, hence
 
-The three-short-role skeleton theorem in `2530` gives
+$$
+N_++N_{\rm sp}\ge1+2=3.
+$$
+
+The direct skeleton theorem in
+[`2530`](../../../2XXX_geometric_lemmas/25XX_length_bounds/2530_common_CE1_CE2_budget_lemmas.md)
+therefore gives
 
 $$
 L_S(T_C)+\sum_{i=0}^5L_S(T_i)<12.

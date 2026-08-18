@@ -160,25 +160,25 @@ Put
 $$
 E=\sqrt{4s^2-3},
 \qquad
-m_0=\frac{s(1-E)}2,
+m_-=\frac{s(1-E)}2,
 \qquad
-M_0=\frac{s(1+E)}2.
+m_+=\frac{s(1+E)}2.
 $$
 
-Then $m_0+M_0=s$ and $m_0M_0=s^2-s^4$, so
+Then $m_-+m_+=s$ and $m_-m_+=s^2-s^4$, so
 
 $$
 \chi
-=mM-m_0M_0
-=(m-m_0)(M_0-m).
+=mM-m_-m_+
+=(m-m_-)(m_+-m).
 \tag{10}
 $$
 
-Both $m,m_0$ lie in $[0,s/2]$, where $x(s-x)$ is increasing.  Hence
-$\chi>0$ implies $m>m_0$.  Formula (4) gives
+Both $m,m_-$ lie in $[0,s/2]$, where $x(s-x)$ is increasing.  Hence
+$\chi>0$ implies $m>m_-$.  Formula (4) gives
 
 $$
-s-c_*=\frac{2(m-m_0)}{1+E}.
+s-c_*=\frac{2(m-m_-)}{1+E}.
 \tag{11}
 $$
 
@@ -186,11 +186,11 @@ Combining (10)--(11),
 
 $$
 \frac{\chi}{s-c_*}
-=\frac{1+E}{2}(M_0-m)
+=\frac{1+E}{2}(m_+-m)
 \le1-m,
 $$
 
-because $0\le E\le1$ and $M_0\le1$.  Therefore
+because $0\le E\le1$ and $m_+\le1$.  Therefore
 
 $$
 c_*\le s-\frac{\chi}{1-m}=\bar c_T.

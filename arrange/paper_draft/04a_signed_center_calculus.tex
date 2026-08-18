@@ -1,10 +1,9 @@
 \section{Signed CE1/CE2 Reductions}
 \label{sec:signed-ce12-reductions}
 
-This section gives one signed center model and the common one-gap V triangle
-interface.  The transfer notation has already been fixed in
-Section~\ref{sec:universal-calculus}: the exact nonsupercritical
-backward-reach map is $\Phi_c$ whenever the radial lower bound exceeds $1/2$; for a lower radial lower bound the proof uses $B\le1-A$ directly.
+This section gives the signed center model used by both later methods.  The
+propagation interface depending on that model is deferred until after the
+transfer calculus in Section~\ref{sec:universal-calculus}.
 
 \subsection{One signed center normal form}
 
@@ -211,9 +210,10 @@ an original open C triangle, all three center slacks are positive; hence
 $\alpha,\delta>0$.
 \end{proof}
 
-\begin{remark}[Legacy variables]
+\begin{remark}[Affine-chart variables]
 \label{rem:signed-legacy-variables}
-For CE1, take
+If $\kappa_j=F_j(O)$ denotes the auxiliary side slack in the CE1 affine
+chart, take
 \[
  \lambda=R,
  \qquad
@@ -221,9 +221,9 @@ For CE1, take
  \qquad
  t=W+\delta,
  \qquad
- C_0=\alpha,
+ \kappa_0=\alpha,
  \qquad
- C_2=\delta.
+ \kappa_2=\delta.
 \]
 For CE2, take
 \[
@@ -324,10 +324,13 @@ $M_0'(q)=(-1-3q/\sqrt{4-3q^2})/2<0$.  For $q>0$,
 $\sqrt{4-3q^2}<2$, which gives both strict linear comparisons.
 \end{proof}
 
+% Defined here beside the signed variables, but executed from Section 4 only.
+\long\gdef\SignedCenterPropagation{%
 \subsection{The local propagation interface}
 
-For the high-radial parameters used below, the exact nonsupercritical reach transfer is the raw map $\Phi_c$.  It is
-nondecreasing and extensive:
+For the high-radial parameters used below, $M_c$ is the raw outgoing envelope
+and $\Phi_c=1-\overline M_c$ is the following-edge propagation map.  The
+latter is nondecreasing and extensive:
 \begin{equation}
  \Phi_c(z)\ge z.
  \label{eq:reader-extensive}
@@ -340,7 +343,7 @@ The exact reflection duality is
  \label{eq:reader-capped-duality}
 \end{equation}
 
-Let a nonsupercritical V triangle have maximal reaches\
+Let a nonsupercritical V triangle have maximal reaches
 $(A_i,B_i,C_i)$ satisfying
 \[
  A_i\ge z,
@@ -369,12 +372,12 @@ inequality to specified actual V triangles.
 \begin{proposition}[Common five-V triangle one-gap reduction]
 \label{prop:signed-one-gap-interface}
 Assume every V triangle is Vd0, $N_+=1$, and the normalized right center
-trace contains a V-gap, possibly a singleton.  In the CE2 case assume the
-companion trace contains no V-gap.  Put
+trace contains a boundary gap, possibly a singleton.  In the CE2 case assume
+the companion trace contains no boundary gap.  Put
 \[
  X=R-\delta,
  \qquad
- H=\frac{k}{2R},
+ h_0=\frac{k}{2R},
  \qquad
  m_3=\min\left\{\frac\alpha R,\frac\delta W\right\},
 \]
@@ -400,14 +403,14 @@ and $Z=z_5$.  Then the maximal reaches satisfy
 \begin{equation}
  A_0\ge Z,
  \qquad
- A_0\le g_k\left(1-\frac{k}{R}\right)<1-H.
+ A_0\le M_k\left(\frac{k}{R}\right)<1-h_0.
  \label{eq:signed-one-gap-actual}
 \end{equation}
 Consequently it is enough to prove
 \begin{equation}
  [\Phi_{1-\alpha}
   \mid \Phi_{1-m_3}
-  \mid \Phi_{1-\delta}](H)
+  \mid \Phi_{1-\delta}](h_0)
  >W+\delta.
  \label{eq:signed-three-map-target}
 \end{equation}
@@ -445,14 +448,14 @@ Reflection and down-closedness of $\mathcal A$ give
 \]
 so
 \[
- A_0\le g_k\left(1-\frac{k}{R}\right).
+ A_0\le M_k\left(\frac{k}{R}\right).
 \]
 Lemma~\ref{lem:signed-diameter-transfer} gives
 \[
- g_k\left(1-\frac{k}{R}\right)
+ M_k\left(\frac{k}{R}\right)
  \le M_0\left(\frac{k}{R}\right)
  <1-\frac{k}{2R}
- =1-H,
+ =1-h_0,
 \]
 which proves \eqref{eq:signed-one-gap-actual}.
 
@@ -461,7 +464,7 @@ so it is enough to prove
 \[
  [\Phi_{c_2}
   \mid \Phi_{c_3}
-  \mid \Phi_{c_4}](X)>1-H.
+  \mid \Phi_{c_4}](X)>1-h_0.
 \]
 Three applications of \eqref{eq:reader-capped-duality} show that its negation
 is equivalent to the negation of \eqref{eq:signed-three-map-target}.  This
@@ -469,7 +472,7 @@ proves the reduction.
 \end{proof}
 
 The CE1 sign $\Delta_L\le0$ is completed by the selected-$Q_+$ relaxation in
-Proposition~\ref{prop:reader-ce1-one-gap}.  We now give the shorter CE2 scalar
+Proposition~\ref{prop:ce1-one-gap}.  We now give the shorter CE2 scalar
 clause.
 
 \begin{lemma}[CE2 total slack and two thresholds]
@@ -519,20 +522,21 @@ It remains to prove
 \]
 Define
 \[
- \Phi(t)=(\eta+t)(1-t)-2Rt.
+ \chi(t)=(\eta+t)(1-t)-2Rt.
 \]
 This function is concave, so its minimum on $[0,\eta/E]$ is at an endpoint.
-Clearly $\Phi(0)=\eta>0$.  Direct simplification using
+Clearly $\chi(0)=\eta>0$.  Direct simplification using
 $E^2=1-R+R^2$ gives
 \[
- \Phi\left(\frac\eta E\right)
+ \chi\left(\frac\eta E\right)
  =\frac{R(E-R)^2}{E^2}>0.
 \]
-Thus $\Phi(T)>0$, proving \eqref{eq:signed-two-threshold}.
+Thus $\chi(T)>0$, proving \eqref{eq:signed-two-threshold}.
 \end{proof}
 
 \begin{proposition}[Short CE2 one-gap completion]
 \label{prop:signed-ce2-one-gap}
+\label{thm:s2-geom-r2}
 Under the CE2 hypotheses of
 Proposition~\ref{prop:signed-one-gap-interface}, the one-gap state is
 impossible in either orientation.
@@ -571,7 +575,7 @@ $e(\delta)<Q$, and
  z_0>e(\alpha)\ge Q>e(\delta).
 \]
 The V triangle-$2$ map $\Phi_{1-\delta}$ then gives an output above
-$1-Q$, again preserved by all later maps.  Thus $Z>1-Q=1-H$, contradicting
+$1-Q$, again preserved by all later maps.  Thus $Z>1-Q=1-h_0$, contradicting
 \eqref{eq:signed-one-gap-actual}.
 
 Reflection exchanges
@@ -593,6 +597,7 @@ Proposition~\ref{prop:signed-one-gap-interface}; the CE1 selected-$Q_+$
 clause and the CE2 threshold clause are genuinely different scalar proofs of
 the same target \eqref{eq:signed-three-map-target}.
 \end{remark}
+}
 
 \subsection{Exact signed-center diagrams}
 

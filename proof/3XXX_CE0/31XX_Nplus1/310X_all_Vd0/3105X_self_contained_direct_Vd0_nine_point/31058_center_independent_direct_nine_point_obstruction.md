@@ -13,11 +13,12 @@ $$
 
 such that
 
-1. $U_i$ is a Vd0 role at $V_i$ for every $i$;
+1. for $T_i=\overline{U_i}$, the closed V triangle $T_i$ is Vd0 at $V_i$
+   for every $i$;
 2. $U_0,\dots,U_5$ cover $\partial H$; and
 3. exactly one actual maximal boundary V triangle is supercritical.
 
-No center class is assumed for $U_C$.
+No class is assumed for $T_C=\overline{U_C}$.
 
 ## Proof
 

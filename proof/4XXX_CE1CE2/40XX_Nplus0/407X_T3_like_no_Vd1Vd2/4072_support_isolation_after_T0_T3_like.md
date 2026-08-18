@@ -2,7 +2,8 @@
 
 Status: Proven
 
-Assume the branch of
+Retain the notation $U_C,U_i$ for original open roles and
+$T_C=\overline{U_C},T_i=\overline{U_i}$ from the branch of
 [`4071`](4071_CE1CE2_Nplus0_T3_like_forces_V0_T3_like.md):
 
 $$
@@ -22,16 +23,17 @@ positive-length adjacent support of $T_0$ is on $r_1$.
 
 ## At most two T3-like roles
 
-Let $k$ be the number of T3-like vertex roles.  The common budget theorem
+Let $k=N_{\rm sp}$ be the number of T3-like V triangles; there are no Vd1 or
+Vd2 roles in this branch. The common budget theorem
 [`2530`](../../../2XXX_geometric_lemmas/25XX_length_bounds/2530_common_CE1_CE2_budget_lemmas.md)
-gives the exact short-role count
+gives the direct obstruction
 
 $$
-q=N_++m.
+N_++N_{\rm sp}\ge3.
 $$
 
-Here $N_+=0$, there are no Vd1/Vd2 roles, and $m=k$.  Thus $q=k$.  The
-three-short-role theorem in the same source excludes $q\ge3$, and hence
+Here $N_+=0$ and $N_{\rm sp}=k$. Hence the obstruction excludes $k\ge3$,
+and
 
 $$
 \boxed{k\le2.}
@@ -47,10 +49,10 @@ The roles $T_2$ and $T_4$ are Vd0.
 
 Suppose $T_2$ were T3-like.  Then $T_0,T_2$ would be the two allowed
 T3-like roles.  The midpoint exclusion gives $M_2\notin T_2$, while the
-normalization gives $M_2\notin T_C$.  The only remaining local roles that
-could cover $M_2$ in the original open cover are $T_1,T_3$.  They cannot be
-T3-like by the bound $k\le2$, so exhaustiveness makes them Vd0.  An open Vd0
-role cannot contain an adjacent midpoint, because that would give
+normalization gives $M_2\notin T_C$. The only remaining local open roles that
+could cover $M_2$ are $U_1,U_3$. Their closures cannot be
+T3-like by the bound $k\le2$, so exhaustiveness makes them Vd0. An open role
+whose closure is Vd0 cannot contain an adjacent midpoint, because that would give
 positive-length adjacent support.  Thus $M_2$ would be uncovered.  Hence
 $T_2$ is not T3-like and therefore is Vd0.
 
@@ -62,7 +64,7 @@ The role $T_5$ is Vd0.
 
 ### Proof
 
-First note that the original open role $T_0$ cannot cover $M_5$.  If it did,
+First note that the original open role $U_0$ cannot cover $M_5$. If it did,
 its intersection with $r_5$ would contain a relative neighborhood of $M_5$
 and hence have positive length.  This contradicts the fact that the unique
 adjacent support of the T3-like role $T_0$ is on $r_1$.
@@ -70,8 +72,8 @@ adjacent support of the T3-like role $T_0$ is on $r_1$.
 Suppose now that $T_5$ were T3-like.  Then $T_0,T_5$ would be the two allowed
 T3-like roles.  The T3-like midpoint exclusion gives $M_5\notin T_5$, and
 $M_5\notin T_C$ by normalization.  The other local roles are $T_4$ and
-$T_0$.  Lemma 1 makes $T_4$ Vd0, so its original open triangle cannot cover
-the adjacent midpoint; the preceding paragraph excludes $T_0$.  Thus $M_5$
+$U_0$. Lemma 1 makes $T_4$ Vd0, so $U_4$ cannot cover
+the adjacent midpoint; the preceding paragraph excludes $U_0$. Thus $M_5$
 would be uncovered.  Therefore $T_5$ is not T3-like and hence is Vd0.
 
 ## Radial support isolation
@@ -97,5 +99,5 @@ $$
 
 The argument does not force $T_1$ to be Vd0.  If $T_1$ is the possible
 second T3-like role and supports $r_0$, that extra requirement only shrinks
-its realizing set.  The universal nonsupercritical relaxation in `4073`
+its realizing set. The exact nonsupercritical relaxation in `4073`
 therefore remains valid without a separate constrained map.

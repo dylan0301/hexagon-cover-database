@@ -29,9 +29,9 @@ $$
 
 Assume:
 
-1. the center role is CE1 or CE2;
-2. every vertex role is Vd0;
-3. every vertex role is nonsupercritical:
+1. the closed C triangle $T_C$ is CE1 or CE2;
+2. every closed V triangle $T_i$ is Vd0;
+3. every closed V triangle $T_i$ is nonsupercritical:
    $$
    A_i+B_i\le1
    \qquad(i=0,\ldots,5);
@@ -85,7 +85,7 @@ $S$. Therefore $C_i\ge c_i^C$. $\square$
 This lemma is the only radial consequence needed below. It follows from
 skeleton coverage alone.
 
-## 2. Boundary gaps and active-gap rank
+## 2. Boundary gaps and $N_{\rm gap}$
 
 On $e_{i,i+1}$, parameterized from $V_i$, the two incident open vertex traces
 are
@@ -106,13 +106,13 @@ $$
 \end{cases}
 $$
 
-A nonempty $\Gamma_i$ is a V-gap. Equality gives a singleton V-gap and is
+A nonempty $\Gamma_i$ is a boundary gap. Equality gives a singleton boundary gap and is
 retained because both vertex roles are open.
 
 Boundary locality excludes every nonincident vertex role from a
 positive-length part of $e_{i,i+1}$. Since the skeleton is covered, every
-nonempty V-gap lies in the open center role. Openness then places it in a
-positive center trace, even when the V-gap is a singleton.
+nonempty boundary gap lies in the open C triangle $U_C$. Openness then places it in a
+positive C-triangle trace, even when the boundary gap is a singleton.
 
 Let
 
@@ -120,18 +120,18 @@ $$
 N_{\rm gap}\in\{0,1,2\}
 $$
 
-be the number of positive center traces containing a V-gap. One has
-$N_{\rm gap}\le1$ for CE1. The three ranks are exhaustive.
+be the number of positive C-triangle traces containing a boundary gap. One has
+$N_{\rm gap}\le1$ for CE1. The three values are exhaustive.
 
-| rank | exact data retained | relaxed internal chain | terminal contradiction |
+| $N_{\rm gap}$ | exact data retained | relaxed internal chain | terminal contradiction |
 |---|---|---|---|
 | $0$ | six strict open handoffs | $\mathrm I^6$ | strict cyclic ascent |
 | $1$ | two exact high-radial endpoint outputs | center-free $\mathrm I^3$ | one-side endpoint sum $<1$ |
 | $2$ | two exact high-radial endpoint outputs | center-free $\mathrm I^3$ | paired CE2 endpoint sum $<1$ |
 
-## 3. Rank zero: strict cyclic ascent
+## 3. $N_{\rm gap}=0$: strict cyclic ascent
 
-Suppose no positive center trace contains a V-gap. Then there is no V-gap on
+Suppose no positive C-triangle trace contains a boundary gap. Then there is no boundary gap on
 any boundary edge. Hence the six open vertex traces themselves cover every
 boundary edge. Openness gives the strict handoffs
 
@@ -161,7 +161,7 @@ $$
 
 a contradiction.
 
-## 4. Rank one: one exact endpoint pair
+## 4. $N_{\rm gap}=1$: one exact endpoint pair
 
 Use the signed center normal form
 [`2109`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md):
@@ -178,13 +178,13 @@ E=\sqrt{1-RW},
 k=\eta+\alpha+\delta.
 $$
 
-After reflection, assume the active V-gap lies in
+After reflection, assume the boundary gap lies in
 
 $$
 I_R=\left[\frac{k}{R},W+\delta\right]\subset e_{0,1},
 $$
 
-while the companion trace on $e_{5,0}$ is absent or contains no V-gap. Put
+while the companion trace on $e_{5,0}$ is absent or contains no boundary gap. Put
 
 $$
 s=\frac{k}{R},
@@ -200,7 +200,7 @@ $$
 s+q+\omega=1.
 $$
 
-Containment of the V-gap gives the weak endpoint demands
+Containment of the boundary gap gives the weak endpoint demands
 
 $$
 B_0\ge s,
@@ -208,7 +208,7 @@ B_0\ge s,
 A_1\ge q.
 $$
 
-The companion edge contains no V-gap, so its two incident open vertex traces
+The companion edge contains no boundary gap, so its two incident open V-triangle traces
 cover it and in particular
 
 $$
@@ -283,17 +283,17 @@ $$
 
 contrary to the three nonsupercritical caps.
 
-The proof is identical for CE1 and for the rank-one CE2 state. A gap-free
+The proof is identical for CE1 and for the $N_{\rm gap}=1$ CE2 state. A gap-free
 companion trace is absorbed into the endpoint component and never occurs on an
 internal path edge.
 
-## 5. Rank two: paired CE2 endpoints
+## 5. $N_{\rm gap}=2$: paired CE2 endpoints
 
 This state is CE2-only. The skeleton-data version of the common two-gap theorem
 [`2110`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2110_common_CE2_two_gap_application.md)
 applies. Its proof uses only:
 
-- the two boundary V-gaps;
+- the two boundary gaps;
 - the radial lower demands supplied by Lemma 1.1;
 - nonsupercriticality of $T_1,\ldots,T_5$;
 - the center-free three-V-triangle boundary path.

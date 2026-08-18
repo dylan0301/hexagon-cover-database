@@ -22,7 +22,7 @@ N_+
 $$
 
 Here $A_i,B_i$ are the actual maximal incoming and outgoing reaches of the
-vertex triangle $T_i$.
+V triangle $T_i$.
 
 ## Proof route
 
@@ -35,7 +35,7 @@ $$
 (a_i,b_i)=(1-x_{i-1},x_i)
 $$
 
-have at least two supercritical indices.  Each actual vertex triangle realizes
+have at least two supercritical indices.  Each actual V triangle realizes
 its selected pair.
 
 The local area function is defined in
@@ -48,7 +48,7 @@ f(a,b)
 \frac{\mathrm{area}(T\cap H)}{\sqrt3/4},
 $$
 
-where $T$ ranges over closed unit equilateral vertex triangles containing the
+where $T$ ranges over closed unit equilateral V triangles containing the
 two required adjacent boundary points.
 
 The unconditional local theorem in
@@ -82,7 +82,7 @@ $$
 Because the local hypotheses of `3208` are now proved in `3205`, the
 certificate is unconditional.
 
-The CE0 center triangle contributes at most one normalized unit-triangle area.
+The CE0 C triangle contributes at most one normalized unit-triangle area.
 Hence the seven triangles contribute less than
 
 $$

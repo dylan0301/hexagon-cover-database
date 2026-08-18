@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
-"""Exact symbolic checks for the pure Strategy 2 interface.
+"""Exact symbolic checks for the Strategy 2 scalar interface.
 
 This is not a numerical optimizer and does not replace the written inequality
-proofs.  It verifies the algebraic substitutions, radical equations, dual
-records, and polynomial identities used to detach those proofs from geometry.
+proofs. It verifies selected algebraic substitutions, radical equations, dual
+records, and polynomial identities in the calculation layer. It does not
+verify the geometry-to-parameter bridge, any finite-cell completeness claim,
+or the global covering proof.
 """
 
 from __future__ import annotations

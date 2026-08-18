@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
-"""Generate current verification metadata for the tracked paper.
+"""Generate reproducible metadata for the tracked paper.
 
 The raw PDF SHA-256 identifies the canonical tracked artifact. Rebuild
 reproducibility is checked separately by stable semantics because
 XeTeX/xdvipdfmx document IDs and compressed-object bytes are not stable across
-otherwise identical builds.
+otherwise identical builds. This file records artifact facts and pinned
+versions; PASS/FAIL status belongs to the immutable GitHub Actions run rather
+than to a locally regenerable text file.
 """
 
 from __future__ import annotations
@@ -26,23 +28,10 @@ def render(pdf: Path) -> str:
     lakefile = (ROOT / "formalization/strategy2_optimization/lakefile.lean").read_text()
     if MATHLIB_PIN not in lakefile:
         raise SystemExit("pinned Mathlib commit missing from lakefile.lean")
-    return f"""Current proof and paper verification
-====================================
-proof_lint.py: PASS
-transitive dependency graph: PASS
-two-way proof manifest: PASS
-407X Git-blob manifest: PASS
-Strategy 4 Git-blob manifest: PASS
-verify_strategy2_pure_algebra.py: PASS
-verify_strategy2_spec_sync.py: PASS
-verify_mixed_overlap_core_derivation.py: PASS
-verify_global_core_positivity.py: PASS
-Lean statement project: PASS (sorry placeholders permitted)
-latexmk -xelatex -halt-on-error main.tex: PASS
-undefined or multiply-defined references: NONE
-overfull horizontal or vertical boxes: NONE
-semantic PDF rebuild equivalence (geometry, words, links, outlines, exact 144-DPI raster): PASS
-rendered media-box border scan: PASS
+    return f"""Current proof and paper artifact metadata
+=========================================
+Verification status: see the producing Actions run for the parent source commit
+Lean scalar statement admissions: 10 intentional sorry placeholders
 PDF pages rendered: {pages}
 Canonical tracked PDF SHA-256: {digest}
 Certificate transcript SHA-256: dc46aaf263655d5159ecd3a81db72ee82477951d06172f4743b248df37209485

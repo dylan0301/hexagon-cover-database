@@ -29,31 +29,31 @@ $$
 Let the actual adjacent boundary reaches of $T_0$ be
 
 $$
-a_0\text{ on }e_{5,0},
+A_0\text{ on }e_{5,0},
 \qquad
-b_0\text{ on }e_{0,1}.
+B_0\text{ on }e_{0,1}.
 $$
 
-There is a V-gap in each CE2 interval exactly when
+There is a boundary gap in each CE2 interval exactly when
 
 $$
-J_L=(a_0,1-b_5)\subset[x,u]
+J_L=(A_0,1-B_5)\subset[x,u]
 $$
 
 and
 
 $$
-J_R=(b_0,1-a_1)\subset[y,v]
+J_R=(B_0,1-A_1)\subset[y,v]
 $$
 
 are nonempty. In particular,
 
 $$
-x\le a_0<1-b_5\le u,
+x\le A_0<1-B_5\le u,
 $$
 
 $$
-y\le b_0<1-a_1\le v.
+y\le B_0<1-A_1\le v.
 $$
 
 The exact complementary radial demand at $V_0$ is, by
@@ -72,18 +72,18 @@ $T_0$ can do all of the following:
 1. preserve the full skeleton cover;
 2. preserve both boundary reaches already assigned to $T_0$;
 3. preserve the complementary radial coverage required from $V_0$; and
-4. strictly extend one boundary reach through a nonempty V-gap.
+4. strictly extend one boundary reach through a nonempty boundary gap.
 
 This is the $T_C$-relative maximality used in this note. Support that is lost
 only where it is already covered by $T_C$ is not an uncovered loss.
 
 ## Theorem
 
-An all-Vd0 CE2 system with V-gaps in both center intervals is not
+An all-Vd0 CE2 system with boundary gaps in both C-triangle intervals is not
 replacement-maximal. More precisely, there are two replacements:
 
-- a left replacement preserving $b_0$ and extending $a_0$ to $u$;
-- a right replacement preserving $a_0$ and extending $b_0$ to $v$.
+- a left replacement preserving $B_0$ and extending $A_0$ to $u$;
+- a right replacement preserving $A_0$ and extending $B_0$ to $v$.
 
 There is also a simultaneous replacement extending both reaches to $u$ and
 $v$. It makes both CE2 center intervals redundant for boundary coverage and,
@@ -186,7 +186,7 @@ e_{5,0}(u),
 e_{0,1}(v)
 $$
 
-belong to the same unit center triangle $T_C$. Its diameter is one, so
+belong to the same unit C triangle $T_C$. Its diameter is one, so
 
 $$
 L:=\sqrt{u^2+uv+v^2}\le1.
@@ -225,9 +225,9 @@ $$
 Its actual adjacent boundary reaches are
 
 $$
-a_0'=\frac uL,
+A_0'=\frac uL,
 \qquad
-b_0'=\frac vL.
+B_0'=\frac vL.
 $$
 
 Because
@@ -252,7 +252,7 @@ $$
 and hence
 
 $$
-a_0'+b_0'=\frac{u+v}{L}>1.
+A_0'+B_0'=\frac{u+v}{L}>1.
 $$
 
 The simultaneous replacement is exactly supercritical and turns the two-gap
@@ -267,7 +267,7 @@ Use
 $$
 a=u,
 \qquad
-b=b_0.
+b=B_0.
 $$
 
 The two points
@@ -275,23 +275,23 @@ The two points
 $$
 e_{5,0}(u),
 \qquad
-e_{0,1}(b_0)
+e_{0,1}(B_0)
 $$
 
-belong to $T_C$, because $b_0\in[y,v]$. A unit equilateral triangle has
+belong to $T_C$, because $B_0\in[y,v]$. A unit equilateral triangle has
 diameter one, so
 
 $$
-u^2+ub_0+b_0^2
+u^2+uB_0+B_0^2
 =
-\left\lVert e_{5,0}(u)-e_{0,1}(b_0)\right\rVert^2
+\left\lVert e_{5,0}(u)-e_{0,1}(B_0)\right\rVert^2
 \le1.
 $$
 
 Hence
 
 $$
-L(u,b_0)\le1.
+L(u,B_0)\le1.
 $$
 
 The function
@@ -305,13 +305,13 @@ is increasing in both variables on the positive quadrant. Since
 $$
 u\ge x,
 \qquad
-b_0\ge y,
+B_0\ge y,
 $$
 
 we have
 
 $$
-\frac{ub_0}{u+b_0}
+\frac{uB_0}{u+B_0}
 \ge
 \frac{xy}{x+y}
 =c_0.
@@ -320,10 +320,10 @@ $$
 Therefore
 
 $$
-T_0^L=\Delta(u,b_0)
+T_0^L=\Delta(u,B_0)
 $$
 
-has side length at most one, preserves the old outgoing reach $b_0$, covers
+has side length at most one, preserves the old outgoing reach $B_0$, covers
 the required radial segment, and extends the incoming reach through $u$.
 In particular,
 
@@ -339,15 +339,15 @@ concentrically to side one.
 The reflected construction uses
 
 $$
-a=a_0,
+a=A_0,
 \qquad
 b=v.
 $$
 
-Now $a_0\in[x,u]$, so both
+Now $A_0\in[x,u]$, so both
 
 $$
-e_{5,0}(a_0),
+e_{5,0}(A_0),
 \qquad
 e_{0,1}(v)
 $$
@@ -355,13 +355,13 @@ $$
 belong to $T_C$. Therefore
 
 $$
-a_0^2+a_0v+v^2\le1,
+A_0^2+A_0v+v^2\le1,
 $$
 
 and
 
 $$
-\frac{a_0v}{a_0+v}
+\frac{A_0v}{A_0+v}
 \ge
 \frac{xy}{x+y}
 =c_0.
@@ -370,10 +370,10 @@ $$
 Thus
 
 $$
-T_0^R=\Delta(a_0,v)
+T_0^R=\Delta(A_0,v)
 $$
 
-preserves $a_0$, covers the required radial segment, and extends the outgoing
+preserves $A_0$, covers the required radial segment, and extends the outgoing
 reach through $v$. Hence
 
 $$
@@ -433,7 +433,7 @@ $$
 It has
 
 $$
-a_0=b_0=\frac{101}{200},
+A_0=B_0=\frac{101}{200},
 $$
 
 and radial reach
@@ -445,11 +445,11 @@ $$
 Thus
 
 $$
-a_0+b_0>1,
+A_0+B_0>1,
 \qquad
-a_0<u,
+A_0<u,
 \qquad
-b_0<v.
+B_0<v.
 $$
 
 The proved conclusion is therefore an explicit replacement normalization,

@@ -427,9 +427,6 @@ N_++N_{\rm sp}\ge3
 }
 $$
 
-This is the result formerly described as the three-short-role theorem; the
-auxiliary count is no longer part of the public notation.
-
 Finally, if $N_+\ge2$, use the exactly-one-midpoint theorem
 [`2100`](../21XX_C_triangle_geometry/2100_CE1_CE2_exactly_one_midpoint_lemma.md)
 for the role closure $T_C=\overline{U_C}$, where $O\in U_C$ and hence

@@ -13,9 +13,10 @@ closes the same all-boundary hypotheses by a different witness set.
 
 ## 1. Hypotheses
 
-Begin with a cover of the full side-one hexagon $H$ by the open center role
-$T_C$ and six open Vd0 vertex roles $T_0,\dots,T_5$. Assume exactly one
-vertex V triangle is supercritical and that the six vertex roles alone cover
+Begin with a cover of the full side-one hexagon $H$ by original open roles
+$U_C,U_0,\dots,U_5$. Put $T_C=\overline{U_C}$ and
+$T_i=\overline{U_i}$, and assume that every $T_i$ is Vd0. Assume exactly one
+V triangle is supercritical and that the six V roles alone cover
 
 $$
 \partial H.
@@ -53,7 +54,7 @@ a_i=1-x_{i-1},
 b_i=x_i.
 $$
 
-The points $V_i,X_{i-1},X_i$ all lie in the open triangle $T_i$.
+The points $V_i,X_{i-1},X_i$ all lie in the open triangle $U_i$.
 
 If V triangle $i$ is nonsupercritical, then
 
@@ -120,9 +121,9 @@ No formula for the general empirical catalog is used in the transfer below.
 Replacing the abstract strict union by that four-piece frontier is therefore
 rigorous; the separate optimization targets named below remain unchanged.
 
-The closure of the actual $T_i$ is one of the unit triangles in the defining
+The closed role $T_i$ is one of the unit triangles in the defining
 union. If a point $P$ lies in both $\mathrm{int}(H)$ and the open triangle
-$T_i$, a sufficiently small plane ball about $P$ lies in $T_i$ and in the
+$U_i$, a sufficiently small plane ball about $P$ lies in $U_i$ and in the
 interior of the corner cone. Hence
 
 $$
@@ -139,18 +140,18 @@ $$
 \bigcup_{i=0}^5\mathrm{int}(R_i).
 $$
 
-No point of $\mathcal U_6^\circ$ lies in an open vertex role. The original
+No point of $\mathcal U_6^\circ$ lies in an open V role $U_i$. The original
 hypothesis is a cover of the full hexagon, not merely its boundary or
 skeleton, so
 
 $$
 \boxed{
-\mathcal U_6^\circ\subseteq T_C.
+\mathcal U_6^\circ\subseteq U_C.
 }
 $$
 
 This statement deliberately uses $\mathrm{int}(H)$. A boundary point of $H$
-can lie on the boundary of a cone-clipped $R_i$ even when it lies in $T_i$,
+can lie on the boundary of a cone-clipped $R_i$ even when it lies in $U_i$,
 so an unqualified plane-interior residual on all of $H$ would be too broad.
 
 ### The six obstruction points are interior
@@ -227,14 +228,14 @@ $$
 $$
 
 Every point of $K_6^{\mathrm{act}}$ belongs to $\mathcal U_6^\circ$, so the
-full-cover argument above puts it in $T_C$. Convexity gives
+full-cover argument above puts it in $U_C$. Convexity gives
 
 $$
-K_6^{\mathrm{rel}}(a,b)\subseteq T_C.
+K_6^{\mathrm{rel}}(a,b)\subseteq U_C.
 $$
 
-The relaxed set is finite and $T_C$ is an open unit equilateral triangle.
-Moving the three sides of $T_C$ inward by the minimum positive side margin of
+The relaxed set is finite and $U_C$ is an open unit equilateral triangle.
+Moving the three sides of $U_C$ inward by the minimum positive side margin of
 the finite set gives a smaller containing equilateral triangle. Therefore its
 minimum enclosing equilateral side length satisfies
 
@@ -269,7 +270,7 @@ The transfer itself uses no CE0-specific hypothesis. In particular:
 - redundant V-boundary coverage supplies the strict handoffs;
 - the row-sum telescope supplies the exact one-supercritical pattern;
 - the original full-$H$ cover forces every finite interior-uncovered point
-  into $T_C$; and
+  into $U_C$; and
 - the strict anchor distances supply the nondegenerate $AB$-union domain.
 
 The transfer does not prove Target `4104-F`. The constant-difference minimum

@@ -14,7 +14,7 @@ is `414b`.
 | supercritical $T_0$, nonadjacent Vd1/Vd2 | Vd-specific radial separation | `4146` |
 | neither special role at the center-midpoint index, Vd1 | separate two-chart replacement preserving the full skeleton, then the skeleton-level all-Vd0 theorem | `4147`, `4013` |
 | Vd2 neighboring-midpoint rescue | strict perimeter deficit | `4149` |
-| an additional positive-support role | three-short-role skeleton deficit | `414a` |
+| an additional positive-support role | direct $N_++N_{\rm sp}$ skeleton deficit | `414a` |
 
 The former single-chart formula in `4147` has been removed. The replacement
 at the first distinguished vertex is constructed in its own local chart, and

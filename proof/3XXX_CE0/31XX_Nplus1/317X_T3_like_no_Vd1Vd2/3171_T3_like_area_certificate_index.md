@@ -73,8 +73,8 @@ $$
 }
 $$
 
-Therefore the six vertex triangles contribute less than five normalized
-unit-triangle areas inside $H$.  A CE0 center triangle contributes at most one,
+Therefore the six V triangles contribute less than five normalized
+unit-triangle areas inside $H$.  A CE0 C triangle contributes at most one,
 so the seven triangles contribute less than the normalized area $6$ of $H$.
 
 ## Files

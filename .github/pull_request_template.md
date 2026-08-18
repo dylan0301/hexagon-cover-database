@@ -11,7 +11,7 @@
 
 ## Validation
 
-- [ ] Active dependency graph and proof manifest
+- [ ] Active proof-reference graph and proof manifest
 - [ ] `proof_lint.py`
 - [ ] Strategy 2 pure algebra and TeX--Lean synchronization
 - [ ] Exact certificate replay

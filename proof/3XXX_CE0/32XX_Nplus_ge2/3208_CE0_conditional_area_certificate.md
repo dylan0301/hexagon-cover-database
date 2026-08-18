@@ -119,7 +119,8 @@ Since $\sum_i f(a_i,b_i)=6-\sum_iG_i$, equation (2) follows. $\square$
 
 ## CE0 contradiction
 
-Let $T_C$ be CE0 and suppose
+Let $U_C,U_0,\ldots,U_5$ be the original open roles, and put
+$T_C=\overline{U_C}$ and $T_i=\overline{U_i}$. Let $T_C$ be CE0 and suppose
 
 $$
 \left\lvert
@@ -127,14 +128,14 @@ $$
 \right\rvert\ge2
 $$
 
-for the actual vertex reaches. CE0 forces the six vertex roles to cover
-$\partial H$; otherwise the open center role would cover a positive-length
+for the actual V-triangle reaches. CE0 forces the six open V triangles to cover
+$\partial H$; otherwise $U_C$ would cover a positive-length
 edge interval. The at-least-two part of `1214` therefore supplies strict cuts
 whose selected V triangles have at least two supercritical indices. Each actual
-vertex triangle realizes its selected pair, so the six-V triangle lemma bounds their
+V triangle realizes its selected pair, so the six-V triangle lemma bounds their
 total normalized inside area by less than $99/20$.
 
-The center triangle contributes at most one additional unit-triangle area.
+The C triangle contributes at most one additional unit-triangle area.
 Thus all seven triangles contribute less than
 
 $$

@@ -264,14 +264,14 @@ $s\ge\sqrt3/2$ its value at $s$ is $\chi\le0$, so $c_*\ge s>1-m$.
 On the other branch put $E=\sqrt{4s^2-3}$.  The selector gives
 $sE>M-m$, whence $c_*<s<1$.  Moreover, with
 \[
- A_0=\frac{2M}{1-m}-1,
+ A_*=\frac{2M}{1-m}-1,
 \]
 one has
 \[
- A_0^2-E^2=
+ A_*^2-E^2=
  \frac{4(1-s)\{(1-m)(1-2m)+m(2-m)(1-s)\}}{(1-m)^2}>0.
 \]
-Thus $A_0>E$ and $c_*>1-m$.  This proves
+Thus $A_*>E$ and $c_*>1-m$.  This proves
 \eqref{eq:cstar-bounds}.
 
 Fix $i$.  If $D_i\in U_i$, openness supplies $\varepsilon>0$ with
@@ -333,9 +333,9 @@ Put
 \]
 The actual adjacent handoffs have local centers
 \[
- C_5(t)=(1+t,t),\qquad 1-a\le t\le b,
+ Z_5(t)=(1+t,t),\qquad 1-a\le t\le b,
  \quad\text{and}\quad
- C_3(y)=(y,1+y),\qquad 1-b\le y\le a.
+ Z_3(y)=(y,1+y),\qquad 1-b\le y\le a.
 \]
 The restrictions of the two unit-circle equations are
 \begin{align}
@@ -364,7 +364,7 @@ Moreover $J_u,J_v<1/2$.  The point $L_+(\mu_+)$ satisfies
  (L_+(\mu_+))_u+(L_+(\mu_+))_v<3-2a,
 \]
 and the reflected bound holds for $L_-(\lambda_-)$.  Writing
-$F(P,t)=\mathsf q(P-C_5(t))-1$, one has, for every $t\in[1-a,b]$,
+$F(P,t)=\mathsf q(P-Z_5(t))-1$, one has, for every $t\in[1-a,b]$,
 \begin{equation}
  F(L_+(\mu_+),t)\ge0,\qquad F(J,t)>0,\qquad
  F(L_-(\lambda_-),t)>0.                           \label{eq:moving-right-signs}
@@ -372,7 +372,7 @@ $F(P,t)=\mathsf q(P-C_5(t))-1$, one has, for every $t\in[1-a,b]$,
 Under the reflection
 $(u,v,a,b)\leftrightarrow(v,u,b,a)$, the analogous signs hold for every
 $y\in[1-b,a]$: the first-root point $L_-(\lambda_-)$ has nonnegative sign
-against $C_3(y)$, and the other two witnesses have strictly positive sign.
+against $Z_3(y)$, and the other two witnesses have strictly positive sign.
 \end{lemma}
 
 \begin{proof}
@@ -446,7 +446,7 @@ on the opposite line side for any actual adjacent handoff.
 On the correct line $L_+$, the value at its outer endpoint $h^{-1}$ has,
 after multiplication by a positive factor, numerator
 \[
- A_0=P_2-4DU(1+U+z),
+ A_*=P_2-4DU(1+U+z),
 \]
 where
 \[
@@ -466,7 +466,7 @@ There
 \[
  P_2^+(U,\sqrt\Omega)=4U(U+\sqrt\Omega-3)<0.
 \]
-As $1+U+z=2a>0$, this gives $A_0<0$.  The positive junction value and
+As $1+U+z=2a>0$, this gives $A_*<0$.  The positive junction value and
 negative endpoint value force the first root strictly between them, proving
 the $L_+$ half of \eqref{eq:first-root-order}; reflection proves the other
 half.
@@ -505,7 +505,7 @@ line segment, so the same strict bound holds at the first root.  Now
 Since $F(L_+(\mu_+),1-a)=0$, the coordinate-sum bound makes its $t$-derivative
 strictly positive for $t\ge1-a$.  Together with the no-opposite-line result,
 this proves \eqref{eq:moving-right-signs}.  Reflection gives both the bound on
-$L_-$ and the complete $C_3(y)$ statement.
+$L_-$ and the complete $Z_3(y)$ statement.
 \end{proof}
 
 Define the local and global witnesses by
@@ -571,11 +571,11 @@ gives
 Since two points in one open unit equilateral triangle have distance strictly
 less than one, these inequalities exclude $U_0,U_1,U_2$.
 
-The actual handoff $X_5=C_5(\xi_5)$ belongs to $U_5$, and
+The actual handoff $X_5=Z_5(\xi_5)$ belongs to $U_5$, and
 $1-a<\xi_5<b$ by \eqref{eq:extreme-chain}.  The three signs in
 \eqref{eq:moving-right-signs} therefore put every witness at distance at
 least one from $X_5$, excluding $U_5$.  Similarly, if $y=1-\xi_2$, then
-$1-b<y<a$, $X_2=C_3(y)\in U_3$, and the reflected signs exclude $U_3$.
+$1-b<y<a$, $X_2=Z_3(y)\in U_3$, and the reflected signs exclude $U_3$.
 Thus no V triangle contains any witness.  The assumed cover now forces all
 three interior witnesses into $U_C$.
 \end{proof}

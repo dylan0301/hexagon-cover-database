@@ -1,6 +1,5 @@
 # Paper-to-Proof Crosswalk
 
-Branch: `agent/notation-proof-package-consolidation`  
 Paper root: `arrange/paper_draft/`  
 Proof-package root: `proof/`
 
@@ -81,7 +80,7 @@ source, historical failed route, or provenance-bound file was deleted.
 ### Routing table
 
 The authoritative exhaustive assembly is `0000`; `0001` is navigation only.
-The direct $N_++N_{\rm sp}\ge3$ skeleton theorem are in
+The direct $N_++N_{\rm sp}\ge3$ skeleton theorem is in
 `2530` together with the trace packages `2500` and `2510`.
 
 ## 4. Section 2: structural and signed-center geometry
@@ -164,10 +163,11 @@ The printed section incorporates:
 - CE2, `N_+=1`, exactly one Vd1/Vd2: `414X`, including the corrected
   two-chart replacement `4147` and exhaustive placement audit `414b`.
 
-The finite optimization specification and pinned Lean statement project remain
-repository verification interfaces. Their duplicate explanatory prose is not
-printed, but the exact domains and theorem statements continue to be checked by
-CI.
+The finite optimization specifications and pinned Lean statement-elaboration
+project are repository interfaces for the long scalar calculations. Their
+duplicate explanatory prose is not printed. CI checks their complete semantic
+specification; the admitted Lean theorem bodies are not described as a formal
+proof of the geometric bridge or of the global theorem.
 
 ## 7. Section 5: area loss
 
@@ -221,7 +221,8 @@ navigation only.
 pinned TeX Live image, checks the target page range and rendering, regenerates
 the current verification summary, and commits the canonical PDF to `main`.
 
-`.github/workflows/proof-ci.yml` then checks the numbered dependency graph,
+`.github/workflows/proof-ci.yml` then checks the numbered proof-reference graph
+(whose untyped citation edges may be cyclic),
 manifest, proof-source terminology, exact Strategy 2 specifications, pinned
-Lean statement project, exact Strategy 4 certificate, semantic PDF rebuild,
+Lean scalar-statement elaboration, exact Strategy 4 certificate, semantic PDF rebuild,
 and deterministic release bundle.

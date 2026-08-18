@@ -151,7 +151,7 @@ $$
 B=W+\delta,
 $$
 
-then the center triangle contains points with parameters $x$ and $B$ on the
+then the C triangle contains points with parameters $x$ and $B$ on the
 two adjacent boundary edges.  Its diameter is one, so
 
 $$

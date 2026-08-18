@@ -1,4 +1,5 @@
 {
+  "edge_semantics": "untyped Markdown proof citations; cycles are permitted and the graph is not a logical dependency order",
   "generated_by": "tools/generate_active_dependency_graph.py",
   "inactive_links": {
     "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md": [
@@ -322,21 +323,6 @@
       "kind": "proof-source",
       "status": "Proven"
     },
-    "proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2111_strategy2_pure_optimization_registry.md": {
-      "dependencies": [
-        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2014_Vd1_Vd2_corner_normal_form.md",
-        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2018_diameter_transfer_and_adjacent_rescuer.md",
-        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201c_Vd_corner_radial_margins.md",
-        "proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2107_one_side_capped_loss.md",
-        "proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2108_CE2_two_endpoint_capped_loss.md",
-        "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/407e_pure_finite_cell_theorem.md",
-        "proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4105_CE1_CE2_one_gap_five_V_triangle_interface.md",
-        "proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4106_CE1_one_gap_five_map_completion.md",
-        "proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4107_CE2_one_gap_five_map_completion.md"
-      ],
-      "kind": "proof-source",
-      "status": "Proven"
-    },
     "proof/2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md": {
       "dependencies": [
         "proof/1XXX_foundations/11XX_C_triangle/1101_CE_classification.md",
@@ -439,7 +425,23 @@
         "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31032_symmetric_witness_construction.md",
         "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31033_asymmetric_witness_construction.md",
         "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31034_witness_enclosure_inequality.md",
+        "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31036_Nplus_ge2_complementary_AB_comparison_counterexample.md",
         "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31037_rational_cmax_upper_envelope.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31036_Nplus_ge2_complementary_AB_comparison_counterexample.md": {
+      "dependencies": [
+        "proof/1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md",
+        "proof/1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md",
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md",
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2008_neighbor_ray_max_c_formula.md",
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20090_ab_set_index.md",
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20095_exact_caliper_certificate.md",
+        "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31035_center_independent_all_boundary_obstruction.md",
+        "proof/3XXX_CE0/32XX_Nplus_ge2/3205_unconditional_local_square_loss.md",
+        "proof/3XXX_CE0/32XX_Nplus_ge2/3208_CE0_conditional_area_certificate.md"
       ],
       "kind": "proof-source",
       "status": "Proven"
@@ -801,6 +803,9 @@
     },
     "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/407e_pure_finite_cell_theorem.md": {
       "dependencies": [
+        "proof/09XX_appendices/0910_notation_dictionary.md",
+        "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md",
+        "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4071_CE1CE2_Nplus0_T3_like_forces_V0_T3_like.md",
         "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4073_boundary_loss_framework.md",
         "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/407d_rigor_final_assembly.md"
       ],
@@ -854,7 +859,7 @@
         "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2012_high_radial_low_root_bounds.md",
         "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2016_universal_Tplus_normal_form.md",
         "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2017_threshold_routing.md",
-        "proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2105_CE1_exact_formulas.md",
+        "proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md",
         "proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4101_CE1CE2_Nplus1_all_Vd0_strategy.md"
       ],
       "kind": "proof-source",

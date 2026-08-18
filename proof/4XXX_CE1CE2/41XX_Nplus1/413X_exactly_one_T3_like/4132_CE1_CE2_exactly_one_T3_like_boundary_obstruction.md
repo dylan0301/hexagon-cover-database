@@ -167,25 +167,25 @@ In particular, $0\le x,c\le1/2$.
 For $0\le z\le1/2$, put
 
 $$
-\Phi(z)=\frac{z(2-z)}{1+z}.
+\sigma(z)=\frac{z(2-z)}{1+z}.
 $$
 
 The defining equation of the free strict-supercritical envelope is
 
 $$
-\Phi(1-M_c^{\rm sup})=c,
+\sigma(1-M_c^{\rm sup})=c,
 $$
 
 and
 
 $$
-\Phi'(z)=\frac{2-2z-z^2}{(1+z)^2}>0
+\sigma'(z)=\frac{2-2z-z^2}{(1+z)^2}>0
 $$
 
 on $[0,1/2]$. Hence it is enough to prove
 
 $$
-\Phi(x)\le c=x+\theta.
+\sigma(x)\le c=x+\theta.
 $$
 
 After multiplication by $1+x>0$, this is equivalent to
@@ -263,7 +263,7 @@ $$
 The last function is increasing on the present interval and is already
 positive at $\theta=1/5$.
 
-Both cases prove $\Phi(x)\le c$, and the monotonicity of $\Phi$ gives
+Both cases prove $\sigma(x)\le c$, and the monotonicity of $\sigma$ gives
 
 $$
 \boxed{x\le1-M_c^{\rm sup}.}
@@ -315,7 +315,7 @@ $$
 while the unique supercritical V triangle satisfies
 
 $$
-b_1<M_c^{\rm sup}.
+B_1<M_c^{\rm sup}.
 $$
 
 Its boundary-path budget contradicts the four nonsupercritical V triangle caps of

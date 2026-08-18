@@ -10,7 +10,7 @@ from it.
 
 ## 1. The equilateral enclosure gauge
 
-Let $R$ denote counterclockwise rotation through $2\pi/3$.  For a nonempty
+Let $\mathsf R$ denote counterclockwise rotation through $2\pi/3$. For a nonempty
 compact set $K\subset\mathbb R^2$, put
 
 $$
@@ -25,7 +25,7 @@ $$
 =
 \frac{2}{\sqrt3}
 \min_{\lVert n\rVert=1}
-\sum_{j=0}^2 h_K(R^jn).
+\sum_{j=0}^2 h_K(\mathsf R^jn).
 }
 $$
 
@@ -35,11 +35,11 @@ triangle containing $K$.
 ### Proof
 
 For a fixed unit normal $n$, the three supporting half-planes with outward
-normals $n,Rn,R^2n$ form an equilateral triangle.  The sum of their three
+normals $n,\mathsf Rn,\mathsf R^2n$ form an equilateral triangle. The sum of their three
 support numbers is
 
 $$
-\sum_{j=0}^2h_K(R^jn),
+\sum_{j=0}^2h_K(\mathsf R^jn),
 $$
 
 and the corresponding side length is $2/\sqrt3$ times this sum.  Minimizing
@@ -67,7 +67,7 @@ $$
 Translation invariance follows from
 
 $$
-n+Rn+R^2n=0.
+n+\mathsf Rn+\mathsf R^2n=0.
 $$
 
 If $K$ is the convex hull of finitely many points, the minimizing normal may
@@ -162,7 +162,7 @@ E=\omega(R),
 \eta=\sigma(R),
 $$
 
-while the selected-$T_+$ increment is the same function $\sigma$ in a
+while the selected-$Q_+$ increment is the same function $\sigma$ in a
 different normalized coordinate.
 
 For $0<x<1$, put
@@ -196,13 +196,13 @@ selectors and interval domains remain those of
 [`2011`](2011_capped_demand_map.md); this subsection records only the common
 frontier equations.
 
-### Full frontier
+### $\mathrm{Lin}$ frontier
 
 $$
 \boxed{b=1-a.}
 $$
 
-### $L$ frontier
+### $\mathrm{Const}$ frontier
 
 If $m=\min\{a,b\}$ and $t=m/c$, the exact equation
 
@@ -220,7 +220,7 @@ m=t\omega(t).
 }
 $$
 
-### $T_-$ frontier
+### $Q_-$ frontier
 
 If $t=a/c$, then
 
@@ -234,9 +234,9 @@ $$
 
 The reflected formula exchanges $a$ and $b$.
 
-### Selected $T_+$ frontier
+### Selected $Q_+$ frontier
 
-For deficit $d$, input $p$, output $q=G_{1-d}(p)$, and increment
+For deficit $d$, input $p$, output $q=\Phi_{1-d}(p)$, and increment
 $\nu=q-p$, put
 
 $$
@@ -261,7 +261,7 @@ p=d+(1-d)x-\sigma(x).
 }
 $$
 
-Consequently every selected $T_+$ arc is increasing and strictly concave in
+Consequently every selected $Q_+$ arc is increasing and strictly concave in
 its input.  This recovers the theorem in
 [`2016`](2016_universal_Tplus_normal_form.md) while making explicit that the
 same radical also governs the signed center and the other exact frontiers.

@@ -1,94 +1,34 @@
-# Universal Real-Variable Strategy 2 Registry
+# Strategy 2 Scalar-Calculation Crosswalk
 
-Status: Proven
+Status: Reference
 
-This source records the quantifier boundary for the scalar Strategy 2
-problems.  The registered domains contain only real variables, explicit
-radicals and rational functions, finite order cells, and objective signs.
-The geometry-to-parameter bridge is used only after these universal statements
-have been proved.
+This file identifies the long scalar calculations used by the geometric
+Strategy 2 proof. It is a navigation and specification crosswalk, not an
+additional universal theorem and not a proof supplied by the Lean statement
+project. The numbered geometric sources remain the theorem owners.
 
-## Statement
+## Calculation owners
 
-Let the domains and objectives S2-E1, S2-E2, S2-R1, S2-R2, S2-T3, S2-SC,
-and S2-VD be those defined in the manuscript's pure optimization appendix.
-Then each required objective inequality holds for **every** point in its
-stated real domain.
+| Calculation | Geometric hypotheses and proved source |
+|---|---|
+| One-side CE1/CE2 endpoint loss | The signed center variables and endpoint hypotheses of [`2107`](2107_one_side_capped_loss.md). |
+| Paired CE2 endpoint loss | The exact CE2 interval and endpoint hypotheses of [`2108`](2108_CE2_two_endpoint_capped_loss.md), applied geometrically in [`2110`](2110_common_CE2_two_gap_application.md). |
+| CE1 returned demand | The signed domain and realized five-V-triangle chain of [`4105`](../../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4105_CE1_CE2_one_gap_five_V_triangle_interface.md), with the long scalar calculation in [`4106`](../../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4106_CE1_one_gap_five_map_completion.md). |
+| CE2 returned demand | The corresponding realized chain in `4105`, with the scalar threshold calculation in [`4107`](../../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4107_CE2_one_gap_five_map_completion.md). |
+| T3 endpoint audit | The support-isolated geometric branch of [`4071`](../../4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4071_CE1CE2_Nplus0_T3_like_forces_V0_T3_like.md)--[`4073`](../../4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4073_boundary_loss_framework.md), with its exact four-label proof in `4074`--`407d` and canonical wrapper [`407e`](../../4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/407e_pure_finite_cell_theorem.md). |
+| Adjacent rescuer | The realized T3-like or Vd1 normal form and center-hiding hypotheses in [`2018`](../20XX_V_triangle_geometry/2018_diameter_transfer_and_adjacent_rescuer.md), [`4132`](../../4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like/4132_CE1_CE2_exactly_one_T3_like_boundary_obstruction.md), and `4143`. |
+| Adjacent and nonadjacent Vd margins | The Vd1/Vd2 corner graph of [`2014`](../20XX_V_triangle_geometry/2014_Vd1_Vd2_corner_normal_form.md), the radial margins of [`201c`](../20XX_V_triangle_geometry/201c_Vd_corner_radial_margins.md), and their applications `4144` and `4146`. |
 
-Equivalently, the theorem owners are:
+## Scope of the formalization interface
 
-- `thm:s2-pure-e1` and `thm:s2-pure-e2`;
-- `thm:s2-pure-r1` and `thm:s2-pure-r2`;
-- `thm:s2-pure-t3`;
-- `thm:s2-pure-sc`;
-- `thm:s2-pure-vd-adjacent` and `thm:s2-pure-vd-nonadjacent`.
+The source-only TeX and Lean files expose machine-checkable statements for
+the necessary long scalar calculations. Their role is deliberately narrow:
+they do not formalize the open/closed setup, classifications, geometric
+realization of the variables, branch exhaustiveness, or the global covering
+theorem. The ten Lean theorem bodies are intentionally admitted; successful
+elaboration checks the statement interface only.
 
-## Proof decomposition
-
-### Endpoint problems
-
-S2-E1 is exactly the universal one-side capped-loss theorem
-[`2107`](2107_one_side_capped_loss.md) after the substitutions
-
-$$
- s=\frac{k}{r},\qquad u=r-d,\qquad
- \omega=w+d-\frac{k}{r},
-$$
-
-and the identity
-
-$$
- u-\frac{r}{1+e}-\frac{r}{w}\omega=\frac{a}{w}.
-$$
-
-S2-E2 is the universal paired-endpoint calculation of
-[`2108`](2108_CE2_two_endpoint_capped_loss.md).  Its two strict kernel
-inequalities are respectively equivalent to
-
-$$
- \Delta_L>0,\qquad \Delta_R>0.
-$$
-
-### Returned-demand problems
-
-S2-R1 is the scalar inequality proved in
-[`4106`](../../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4106_CE1_one_gap_five_map_completion.md).
-S2-R2 is the scalar inequality proved in
-[`4107`](../../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4107_CE2_one_gap_five_map_completion.md).
-The forward and reverse three-map statements are equivalent by exact capped
-reflection duality.  The actual handoff argument belongs to
-[`4105`](../../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4105_CE1_CE2_one_gap_five_V_triangle_interface.md)
-and is not used to prove the pure inequalities.
-
-### T3 endpoint problem
-
-The finite-cell theorem is recorded separately in
-[`407e`](../../4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/407e_pure_finite_cell_theorem.md).
-It proves the four-label inequality on the full explicit cell union, not only
-on geometrically realized inputs.
-
-### Rescuer and Vd problems
-
-The two rescuer domains are the rational-radical source cells extracted from
-[`2018`](../20XX_V_triangle_geometry/2018_diameter_transfer_and_adjacent_rescuer.md).
-The proof on each cell is purely algebraic.
-
-The adjacent and nonadjacent Vd problems use the exact corner graph formulas
-from [`2014`](../20XX_V_triangle_geometry/2014_Vd1_Vd2_corner_normal_form.md)
-and the radial margin calculations of
-[`201c`](../20XX_V_triangle_geometry/201c_Vd_corner_radial_margins.md).
-The nonadjacent domain explicitly includes the two center endpoint-distance
-inequalities needed to prove the quarter-separation estimates.  Hence no
-placement-defined supremum or unlisted geometric premise remains.
-
-## Logical use
-
-For every geometric branch, the bridge proves only
-
-$$
- \text{geometric state}\Longrightarrow\text{membership in a registered domain}
-$$
-
-and the exact identity between the geometric terminal quantity and the
-registered objective.  The universal theorem above then supplies the sign.
-No converse realization statement is required.
+In particular, this crosswalk makes no claim that an arbitrary point of a
+separately extracted T3 real-variable cell union satisfies every geometric
+hypothesis used in the authenticated `407X` proof. The theorem used by the
+covering argument is the geometric consequence recorded in `407e`.

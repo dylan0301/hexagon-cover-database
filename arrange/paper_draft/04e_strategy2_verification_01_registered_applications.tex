@@ -1,63 +1,24 @@
-\subsection{Propagation statements and geometric routing}
+\subsection{Propagation roadmap and the T3 endpoint state}
 \label{sec:strategy2-reader}
 
-The detailed proof below repeatedly uses the same endpoint, return, and radial
-separation conclusions.  We state them once in geometric form.  Their full
-branchwise proofs occupy the subsequent subsections; no independent
-optimization layer is repeated in the printed article.
-
-\begin{theorem}[One-gap endpoint inequality]
-\label{thm:s2-pure-e1}
-In the normalized CE1 or CE2 one-gap configuration of the signed center
-normal form, put
-\[
- (a_L,c_L)=\left(\frac{k}{R},1-\frac{\alpha}{W}\right),
- \qquad
- (a_R,c_R)=\left(R-\delta,1-\frac{\delta}{R}\right).
-\]
-Then
-\[
- \overline M_{c_L}(a_L)+\overline M_{c_R}(a_R)<1.
-\]
-The reflected orientation is obtained by interchanging
-$R\leftrightarrow W$ and $\alpha\leftrightarrow\delta$.
-\end{theorem}
-
-\begin{theorem}[Paired-gap endpoint inequality]
-\label{thm:s2-pure-e2}
-In the normalized CE2 paired-gap configuration, put
-\[
- (a_L,c_L)=\left(W-\alpha,\frac{W-\alpha}{W}\right),
- \qquad
- (a_R,c_R)=\left(R-\delta,\frac{R-\delta}{R}\right).
-\]
-Then
-\[
- \overline M_{c_L}(a_L)+\overline M_{c_R}(a_R)<1.
-\]
-\end{theorem}
-
-\begin{theorem}[CE1 return inequality]
-\label{thm:s2-pure-r1}
-In the CE1, $N_+=1$, all-Vd0 one-gap configuration, the exact five-triangle
-propagation returns a backward-reach lower bound strictly larger than the
-remaining forward capacity of the unique supercritical triangle.
-\end{theorem}
-
-\begin{theorem}[CE2 return inequality]
-\label{thm:s2-pure-r2}
-The same strict return conclusion holds in the CE2 exactly-one-gap
-configuration.  The threshold alternative is inclusive: at least one of the
-two threshold locations fires, and both may fire.
-\end{theorem}
+The proof below has eight geometric outputs: the one- and two-gap endpoint
+inequalities, the CE1 and CE2 return inequalities, the support-isolated T3
+endpoint inequality, the common adjacent-exception obstruction, and the two
+Vd separation statements. Their proof-bearing locations carry the labels
+\ref{thm:s2-geom-e1}, \ref{thm:s2-geom-e2},
+\ref{thm:s2-geom-r1}, \ref{thm:s2-geom-r2},
+\ref{thm:s2-geom-t3}, \ref{thm:s2-geom-sc},
+\ref{thm:s2-geom-vd-adjacent}, and
+\ref{thm:s2-geom-vd-nonadjacent}, respectively. This roadmap introduces no
+second registry or universal optimization layer.
 
 \begin{definition}[Support-isolated T3-like endpoint state]
 \label{def:body-t3-endpoint-state}
 Assume $T_C$ is CE1 or CE2, $N_+=0$, no V triangle is Vd1 or Vd2, and,
 after normalization and reflection, $T_0$ is T3-like with
-$\Haus(T_0\cap r_1)>0$.  Apply the closed-trace domination of
+$\Haus(T_0\cap r_1)>0$. Apply the closed-trace domination of
 Proposition~\ref{prop:t3-translation} and retain the symbol $T_0$ for the
-resulting trace-dominating majorant.  The support-isolation hypotheses are
+resulting trace-dominating majorant. The support-isolation hypotheses are
 \[
  \Haus(T_j\cap r_1)=0\quad(j\notin\{0,1\}),
  \qquad
@@ -74,17 +35,18 @@ Write
  J_5=
  \begin{cases}
  T_C\cap e_{5,0},&T_C\text{ is CE2},\\
- \varnothing,&T_C\text{ is CE1},
+ \varnothing,&T_C\text{ is CE1}.
  \end{cases}
 \]
-where the CE1 definition discards its possible point contact.  Write
+In CE1 a possible closure-only point contact is discarded: it has zero trace,
+and the original open C triangle supplies neither open coverage nor a
+positive boundary interval there. Write
 \[
  T_C\cap r_i=[0,\gamma_i]\quad(i\in\{1,5\}),\qquad
  T_0\cap r_1=[1-u,1-c].
 \]
 With the residual operator $\mathcal R_J$ of
-\eqref{eq:reader-residual-operator}, define the exact boundary inputs and
-radial lower bounds by
+\eqref{eq:reader-residual-operator}, define
 \[
  (a_5^\ast,c_5^\ast)
  =\left(\mathcal R_{J_5}(p_5),1-\gamma_5\right),
@@ -98,98 +60,27 @@ radial lower bounds by
    &\text{otherwise}.
  \end{cases}
 \]
-For either $i\in\{1,5\}$ the endpoint capacity is
-$\overline M_{c_i^\ast}(a_i^\ast)$; by definition this is the direct
-nonsupercritical value $1-a_i^\ast$ when $c_i^\ast\le1/2$.
-\end{definition}
-
-\begin{theorem}[Support-isolated T3-like endpoint inequality]
-\label{thm:s2-pure-t3}
-For every support-isolated T3-like endpoint configuration, including the
-direct low-radial linear case,
+For $i\in\{1,5\}$ the endpoint capacity is
+$\overline M_{c_i^\ast}(a_i^\ast)$; it is the direct nonsupercritical value
+$1-a_i^\ast$ when $c_i^\ast\le1/2$.
+If $A_i,C_i$ denote the actual maximal boundary and radial reaches of $T_i$,
+then the displayed residual quantities are the selected lower bounds
 \[
- \overline M_{c_5^\ast}(a_5^\ast)+\overline M_{c_1^\ast}(a_1^\ast)<1.
+ a_i^\ast\le A_i,\qquad c_i^\ast\le C_i
+ \qquad(i\in\{1,5\}).
 \]
-\end{theorem}
-
-\begin{theorem}[Adjacent exceptional-triangle inequality]
-\label{thm:s2-pure-sc}
-The normalized adjacent T3-like and Vd1 profiles satisfy the two local
-inequalities required by the common center-hiding obstruction.
-\end{theorem}
-
-\begin{theorem}[Adjacent Vd separation]
-\label{thm:s2-pure-vd-adjacent}
-In the reduced CE2 exactly-one-Vd branch, every adjacent Vd1/Vd2 placement
-covered by the radial calculation leaves a strict gap between the possible
-vertex-side radial trace and the center-side radial trace.
-\end{theorem}
-
-\begin{theorem}[Nonadjacent Vd separation]
-\label{thm:s2-pure-vd-nonadjacent}
-The corresponding strict radial separation holds for each nonadjacent
-placement of the unique Vd1/Vd2 triangle.
-\end{theorem}
-
-The first four theorems are proved in the all-Vd0 propagation and endpoint
-subsections below.  The T3-like theorem is the complete four-branch endpoint
-calculation.  The final three theorems are proved by the explicit local-profile
-and Vd-placement calculations immediately preceding and following the
-all-Vd0 analysis.
+\end{definition}
 
 \begin{proposition}[Common CE2 two-gap application]
 \label{prop:reader-common-two-gap}
 Assume both CE2 center traces contain boundary gaps and
-$T_1,\ldots,T_5$ are nonsupercritical Vd0 triangles.  Then the perimeter is
-not covered.  No hypothesis on the criticality of $T_0$ is required.
+$T_1,\ldots,T_5$ are nonsupercritical Vd0 triangles. Then the perimeter is
+not covered. No hypothesis on the criticality of $T_0$ is required.
 \end{proposition}
 
 \begin{proof}
-Theorem~\ref{thm:s2-pure-e2} makes the two endpoint capacities sum to less
-than one.  The three intervening V triangles form the center-free path
-required by Lemma~\ref{lem:reader-boundary-path}, giving the contradiction.
-\end{proof}
-
-\begin{proposition}[CE1 one-gap obstruction]
-\label{prop:reader-ce1-one-gap}
-The CE1, $N_+=1$, all-Vd0 one-gap state is impossible.
-\end{proposition}
-
-\begin{proof}
-The exact five-triangle interface gives a returning lower bound and a final
-upper capacity.  Theorem~\ref{thm:s2-pure-r1} puts the former strictly above
-the latter.
-\end{proof}
-
-\begin{corollary}[CE2 one-gap obstruction]
-\label{prop:reader-ce2-one-gap}
-The CE2, $N_+=1$, all-Vd0 exactly-one-gap state is impossible in either
-orientation.
-\end{corollary}
-
-\begin{proof}
-Apply Theorem~\ref{thm:s2-pure-r2}.  Reflection reverses the five-triangle
-order and exchanges the two signed center slacks.
-\end{proof}
-
-\begin{proposition}[Cases excluded by boundary-reach propagation]
-\label{prop:reader-demand-branches}
-Boundary-reach propagation closes
-\begin{enumerate}
-\item the $N_+=0$ all-Vd0 and T3-like-without-Vd1/Vd2 branches for CE1 and
-CE2;
-\item every nonempty-gap $N_+=1$ all-Vd0 state;
-\item the exactly-one-T3-like $N_+=1$ state with no Vd1/Vd2 triangle;
-\item the complementary propagation placements in the CE2, $N_+=1$,
-exactly-one-Vd1/Vd2 branch.
-\end{enumerate}
-Singleton boundary gaps are included.
-\end{proposition}
-
-\begin{proof}
-Use Theorems~\ref{thm:s2-pure-e1}--\ref{thm:s2-pure-vd-nonadjacent}, the
-strict-cycle case, and the complete CE2 positional assembly in
-Proposition~\ref{prop:paper-ce2-one-vd-placements}.  The no-gap $N_+=1$
-all-Vd0 cell is reserved for the nine-point obstruction in
-Section~\ref{sec:nine-point}.
+The two-endpoint inequality, Theorem~\ref{thm:s2-geom-e2}, makes the endpoint
+capacities sum to less than one. The three intervening V triangles form the
+center-free path required by Lemma~\ref{lem:reader-boundary-path}, giving the
+contradiction.
 \end{proof}

@@ -1,11 +1,14 @@
 \section{Geometric Derivation of the Propagation Parameters}
 \label{sec:strategy2-parameter-bridges}
 
-This appendix derives the real parameters used in the finite Strategy~2 inequalities.  It is the only place where geometric data and the
-self-contained optimization variables coexist.  Every proposition below has
-one task: produce a point of an explicitly stated real domain and identify
-the objective with the scalar quantity used in the body.  No optimization
-inequality is proved here.
+This source-only bridge derives the real parameters used in the finite
+Strategy~2 inequalities.  It is the only file in this specification layer
+where geometric data and the self-contained optimization variables coexist.
+Every proposition below has one task: produce a point of an explicitly stated
+real domain and identify the objective with the scalar quantity used in the
+body.  No optimization inequality is proved here.  None of these bridge
+propositions is encoded in the Lean scalar-statement project; Lean begins only after
+the scalar input has been supplied.
 
 \subsection{Signed center and the four all-Vd0 problems}
 
@@ -52,7 +55,7 @@ function dictionary is therefore
  \qquad
  T(c,x)=\Phi_c(x).
 \]
-For the endpoint parameterss below,
+For the endpoint parameters below,
 \[
  \mathrm{Cap}(\mathbf e)
  =M_{c_-}(a_-)+M_{c_+}(a_+).
@@ -60,7 +63,7 @@ For the endpoint parameterss below,
 
 \begin{proposition}[Endpoint bridge]
 \label{prop:s2-endpoint-bridge}
-The normalized one-gap endpoint parameters is
+The normalized one-gap endpoint tuple is
 \[
  \left(\frac{k}{r},\ r-d,\ 1-\frac a w,\ 1-\frac d r\right),
 \]
@@ -89,10 +92,10 @@ Substitute the signed trace endpoints and complementary radial exits, then use
 \label{prop:s2-return-bridge}
 Put
 \[
- X=r-d,\qquad H=\frac{k}{2r},\qquad
+ X=r-d,\qquad h_0=\frac{k}{2r},\qquad
  m=\min\left\{\frac ar,\frac dw\right\}.
 \]
-Let \(Y_0=H\) and
+Let \(Y_0=h_0\) and
 \[
  Y_1=T(1-a,Y_0),\qquad
  Y_2=T(1-m,Y_1),\qquad
@@ -100,7 +103,7 @@ Let \(Y_0=H\) and
 \]
 The objective \(Y_3>w+d=1-X\) in Problem S2-R1 or S2-R2 is the
 complement-dual form of the middle-three exact forward-transfer inequality.
-It implies the body target \(Z>1-H\).
+It implies the body target \(Z>1-h_0\).
 \end{proposition}
 
 \begin{proof}
@@ -133,13 +136,19 @@ The boundary endpoints and the $T_0\cap r_1$ interval are
  b_-=\beta,\qquad b_+=z-\beta,
 \]
 \[
- q=1-z+\beta,\qquad
- c_\star=\frac q\tau,\qquad
- u_\star=1+\beta-\tau.
+q=1-z+\beta,\qquad
+c_\star=\frac q\tau,\qquad
+u_\star=1+\beta-\tau.
 \]
-Every support-isolated endpoint parameter tuple has $C_5>1/2$.  If
-$C_1\le1/2$, the right endpoint uses the direct linear bound $1-A_1$.  If
-$C_1>1/2$, the parameter tuple determines a point of one cell in
+Let $A_1,A_5,C_1,C_5$ denote the actual endpoint reaches.  Choose the
+cell-prescribed lower bounds
+\[
+ a_1\le A_1,\qquad a_5\le A_5,\qquad
+ c_1\le C_1,\qquad c_5\le C_5.
+\]
+Every support-isolated endpoint parameter tuple has $c_5>1/2$.  If
+$c_1\le1/2$, the right endpoint uses the direct linear bound $1-a_1$.  If
+$c_1>1/2$, the parameter tuple determines a point of one cell in
 Definition~\ref{def:s2-t3-finite-union}.
 \end{proposition}
 
@@ -156,34 +165,35 @@ four displayed endpoint formulas.  The center residual orders and the radial
 hit/miss orders are precisely the cells
 \(\mathcal R_i,\mathcal L_{\varepsilon,j},\mathcal K_h\).
 
-The left endpoint reach lower bound is $C_5=1-a/w>1/2$ by
+The left endpoint reach lower bound is $c_5=1-a/w>1/2$ by
 Proposition~\ref{prop:s2-pure-domain-bounds}.  For the right endpoint, the
-branchwise transfer interface gives the direct value $1-A_1$ when
-$C_1\le1/2$; this is exactly the existing right-linear row of the complete
-$407X$ case analysis.  When $C_1>1/2$, the raw high-radial map supplies one of the
+branchwise transfer interface gives the direct value $1-a_1$ when
+$c_1\le1/2$; this is exactly the existing right-linear row of the complete
+$407X$ case analysis.  When $c_1>1/2$, the raw high-radial map supplies one of the
 four contact cells, and all defining inequalities of
 $\Omega_{\rm T3}$ are satisfied.
 \end{proof}
 
 \begin{proposition}[T3 objective bridge]
 \label{prop:s2-t3-objective-bridge}
-In the high-radial branch $C_1>1/2$, let
+In the high-radial branch $c_1>1/2$, let
 $\xi\in\Omega_{\rm T3}$ be the point produced above.  Then
 \[
  \mathrm{Cap}(\mathbf e_{\rm T3})-1
  =\Psi_{\rm T3}(\xi).
 \]
-The complementary branch $C_1\le1/2$ is already the direct right-linear case
+The complementary branch $c_1\le1/2$ is already the direct right-linear case
 and is not part of the optimization domain.
 \end{proposition}
 
 \begin{proof}
-The variables \(A_1,A_5\) are the far-side uncovered suffix boundary reach lower bounds, while
-\(C_1,C_5\) are the complementary radial lower bounds.  On the high-radial branch,
+The variables \(a_1,a_5\) are the selected far-side uncovered-suffix
+boundary lower bounds, while \(c_1,c_5\) are the selected complementary
+radial lower bounds.  On the high-radial branch,
 apply \(F(c,x)=M_c(x)\) to both endpoint terms.
 \end{proof}
 
-\subsection{Adjacent-adjacent exceptional triangle domains}
+\subsection{Adjacent exceptional-triangle domains}
 
 \begin{proposition}[First adjacent exceptional triangle source bridge]
 \label{prop:s2-sc-t3-bridge}
@@ -242,7 +252,7 @@ the inequality expressing $M_1\in T_0$.
 For a center interval \([L,U]\), the component endpoint and residual used in
 the Vd placement proofs are exactly
 \[
- \mathsf E(L,U;x),\qquad \mathsf R(L,U;x).
+ \mathsf E(L,U;x),\qquad \mathcal R_{[L,U]}(x).
 \]
 Thus every center-assisted boundary residual belongs to one of the three
 explicit order cells in Problem S2-VD.  Moreover, with

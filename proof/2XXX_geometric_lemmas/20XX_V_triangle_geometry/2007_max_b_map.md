@@ -504,7 +504,7 @@ b\le M_c(a)
 a\le M_c(b).
 $$
 
-For a unit vertex triangle $T$, let $A(T),B(T),C(T)$ be its actual maximal
+For a unit V triangle $T$, let $A(T),B(T),C(T)$ be its actual maximal
 reaches. For a V triangle class $\mathcal R$, the proof-safe classified envelope is
 
 $$

@@ -25,13 +25,9 @@ $$
 P=\rho(1-\rho).
 $$
 
-Let
+Let $\alpha,\delta\ge0$ be the signed endpoint variables and put
 
 $$
-\alpha=C_0,
-\qquad
-\delta=C_2,
-\qquad
 k=\eta+\alpha+\delta.
 $$
 
@@ -124,18 +120,18 @@ Thus $\Delta_L\le0$ is exactly the assertion that the companion edge has no
 positive-length overlap.  Equality permits one point contact, as required by
 the CE1 definition.
 
-The historical center slacks are recovered exactly:
+The auxiliary affine side slacks $\kappa_j=F_j(O)$ are recovered exactly:
 
 $$
-C_0=\rho+\lambda s-t-\lambda=\alpha,
-$$
-
-$$
-C_1=1-\lambda s=\rho-\alpha-\delta,
+\kappa_0=\rho+\lambda s-t-\lambda=\alpha,
 $$
 
 $$
-C_2=t+\lambda-1=\delta.
+\kappa_1=1-\lambda s=\rho-\alpha-\delta,
+$$
+
+$$
+\kappa_2=t+\lambda-1=\delta.
 $$
 
 The inequalities formerly listed separately in this file follow from the

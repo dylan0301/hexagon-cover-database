@@ -3,18 +3,18 @@
   \DrawHexagon
   \DrawRays
   \fill[CenterBlue] (O) circle (.025);
-  \node[figlabel,below left] at (O) {$O$; center triangle $U_C$};
+  \node[figlabel,below left] at (O) {$O$; C triangle $U_C$};
   \foreach \i in {0,...,5}{
     \fill (V\i) circle (.022);
     \fill[white,draw=RadialTeal,line width=.5pt]
       ($(O)!.5!(V\i)$) circle (.019);
   }
-  \node[figlabel,right] at (V0) {$V_0$; triangle $U_0$};
-  \node[figlabel,above right] at (V1) {$V_1$; triangle $U_1$};
-  \node[figlabel,above left] at (V2) {$V_2$; triangle $U_2$};
-  \node[figlabel,left] at (V3) {$V_3$; triangle $U_3$};
-  \node[figlabel,below left] at (V4) {$V_4$; triangle $U_4$};
-  \node[figlabel,below right] at (V5) {$V_5$; triangle $U_5$};
+  \node[figlabel,right] at (V0) {$V_0$; V triangle $U_0$};
+  \node[figlabel,above right] at (V1) {$V_1$; V triangle $U_1$};
+  \node[figlabel,above left] at (V2) {$V_2$; V triangle $U_2$};
+  \node[figlabel,left] at (V3) {$V_3$; V triangle $U_3$};
+  \node[figlabel,below left] at (V4) {$V_4$; V triangle $U_4$};
+  \node[figlabel,below right] at (V5) {$V_5$; V triangle $U_5$};
   \node[figlabel,above] at ($(O)!.5!(V0)$) {$M_0$};
   \node[figlabel,above right] at ($(O)!.68!(V1)$) {$r_1$};
   \node[figlabel,above right] at ($(V0)!.53!(V1)$) {$e_{0,1}$};

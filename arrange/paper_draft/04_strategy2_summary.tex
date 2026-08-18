@@ -21,9 +21,9 @@ Thus $M_c(a)$ is the largest possible forward reach of a unit equilateral
 triangle whose backward and radial reaches are at least $a$ and $c$.  For a
 nonsupercritical V triangle define
 \[
- \Mbar_c(a)=\min\{M_c(a),1-a\},
+ \overline M_c(a)=\min\{M_c(a),1-a\},
  \qquad
- \Phi_c(a)=1-\Mbar_c(a).
+ \Phi_c(a)=1-\overline M_c(a).
 \]
 The midpoint $\frac12(u+v)$ gives
 \begin{equation}
@@ -34,7 +34,7 @@ The midpoint $\frac12(u+v)$ gives
 \end{equation}
 so
 \[
- \Mbar_c(a)=
+ \overline M_c(a)=
  \begin{cases}
  1-a,&0\le c\le1/2,\\
  M_c(a),&1/2<c\le1,
@@ -53,22 +53,20 @@ so
 Let $J$ be either empty or a closed interval $[L,U]\subseteq[0,1]$.  For
 $b\in[0,1]$, define the \emph{uncovered suffix length}
 \[
- \rho_J(b)=1-\sup\left\{t\in[0,1]:[0,t]\subseteq[0,b]\cup J\right\}.
+ \mathcal R_J(b)=1-\sup\left\{t\in[0,1]:[0,t]\subseteq[0,b]\cup J\right\}.
 \]
 Equivalently,
 \[
- \rho_\varnothing(b)=1-b,
+ \mathcal R_\varnothing(b)=1-b,
  \qquad
- \rho_{[L,U]}(b)=
+ \mathcal R_{[L,U]}(b)=
  \begin{cases}
  1-b,&b<L,\\
  1-\max\{b,U\},&b\ge L.
  \end{cases}
 \]
-Define
-\[
- \Phi_{c,J}(a)=\rho_J\bigl(\Mbar_c(a)\bigr).
-\]
+The center-assisted propagated lower bound is
+$\mathcal R_J\bigl(\overline M_c(a)\bigr)$.
 \end{definition}
 
 \begin{figure}[H]
@@ -83,7 +81,7 @@ and the propagated lower bound $\Phi_c(a)$.}
 \centering
 \resizebox{.99\linewidth}{!}{\input{figures/center_interval_residual}}
 \caption{The three cases in the uncovered-suffix function
-$\rho_{[L,U]}(b)$.}
+$\mathcal R_{[L,U]}(b)$.}
 \label{fig:transfer-residual-skeleton}
 \end{figure}
 
@@ -111,7 +109,7 @@ If the outgoing edge is covered only by $U_i$ and $U_{i+1}$, then
 \]
 \item If $T_i$ is nonsupercritical, then
 \[
- B_i\le\Mbar_c(a).
+ B_i\le\overline M_c(a).
 \]
 On a center-free outgoing edge this gives
 \[
@@ -120,7 +118,7 @@ On a center-free outgoing edge this gives
 \item If the center trace on the outgoing edge is $J$, then a
 nonsupercritical $T_i$ gives
 \[
- A_{i+1}\ge\Phi_{c,J}(a).
+ A_{i+1}\ge\mathcal R_J\bigl(\overline M_c(a)\bigr).
 \]
 \item If $T_i$ is strictly supercritical, then $c<1/2$ and
 \[
@@ -163,7 +161,8 @@ Induct on $j$, using monotonicity at every step.  This is
 Lemma~\ref{lem:reader-relaxed-composition}.
 \end{proof}
 
-Each application uses an exact function $\Phi_c$ or $\Phi_{c,J}$, the direct
+Each application uses the exact function $\Phi_c$, a center-assisted update
+$a\mapsto\mathcal R_J(\overline M_c(a))$, the direct
 inequality $a_{j+1}\ge a_j$ under the nonsupercritical center-free
 hypotheses, or one of the following two explicit lower functions.  For
 $0<d<1-\sqrt3/2$, put
@@ -180,7 +179,7 @@ $0<d<1-\sqrt3/2$, put
  1-e_0(d),&e_0(d)<x\le1.
  \end{cases}
 \]
-The appendix states the input intervals on which
+The repository scalar specification lists the input intervals on which
 $A_{d,\lambda}\le\Phi_{1-d}$ and proves
 $\Theta_d\le\Phi_{1-d}$.
 
@@ -224,7 +223,7 @@ Proposition~\ref{prop:body-special-terminal-certificates}.
 \subsection{The all-$\Vdzero$ cases}
 
 \begin{definition}[Boundary gaps and their count]
-\label{def:body-active-gap-rank}
+\label{def:body-boundary-gap-count}
 On the boundary edge $e_{i,i+1}$, let
 \[
  \Gamma_i=
@@ -320,7 +319,7 @@ then gives the contradiction.
 \begin{definition}[$\Tlike$ endpoint parameters]
 \label{def:body-t3-endpoint-state}
 In the $N_+=0$ case with no $\Vdone$ or $\Vdtwo$ triangle, normalize a
-$\Tlike$ triangle as in Appendix~\ref{sec:t3-vd-demand-branches}.  After all
+$\Tlike$ triangle as in Subsection~\ref{sec:t3-vd-demand-branches}.  After all
 center intervals have been included in the endpoint suffixes, the two endpoint
 pairs are
 \[
@@ -336,8 +335,8 @@ branch $1-a$, the $Q_+$ branch, the constant branch, and the $Q_-$ branch.
 \label{prop:body-t3-endpoint}
 Every normalized $\Tlike$ configuration satisfies
 \[
- \Mbar_{c_5^\ast}(a_5^\ast)+
- \Mbar_{c_1^\ast}(a_1^\ast)<1.
+ \overline M_{c_5^\ast}(a_5^\ast)+
+ \overline M_{c_1^\ast}(a_1^\ast)<1.
 \]
 If one radial lower bound is at most $1/2$, the corresponding term is simply
 $1-a$.  Otherwise the proof checks every feasible pair of the four algebraic
@@ -345,7 +344,7 @@ branches above.
 \end{proposition}
 
 \begin{proof}
-This is Theorem~\ref{thm:paper-complete-t3-endpoint}.  All center and
+This is Lemma~\ref{thm:s2-geom-t3}.  All center and
 nonincident contributions are included before
 Lemma~\ref{lem:reader-boundary-path} is applied.
 \end{proof}
@@ -425,8 +424,8 @@ inequalities involving its boundary trace and adjacent radial interval.  In a
 CE2 configuration with exactly one $\Vdone$ or $\Vdtwo$ triangle, the
 positional case split produces two center-assisted boundary suffixes and
 either an adjacent or a nonadjacent radial interval.  The interval endpoints
-and corner functions are displayed in
-Appendix~\ref{sec:strategy2-optimization-problems}.  The remaining adjacent
+and corner functions appear in the repository optimization
+specifications.  The remaining adjacent
 $\Vdone$--supercritical placement is treated by two local replacement charts.
 \end{definition}
 
@@ -434,13 +433,13 @@ $\Vdone$--supercritical placement is treated by two local replacement charts.
 \label{prop:body-special-terminal-certificates}
 The remaining propagation cases end as follows.
 \begin{enumerate}
-\item Theorem~\ref{thm:s2-pure-sc} gives incompatible upper and lower reach
+\item Corollary~\ref{thm:s2-geom-sc} gives incompatible upper and lower reach
 bounds for an adjacent $\Tlike$ or $\Vdone$ triangle next to the unique
 supercritical triangle.
-\item Theorem~\ref{thm:s2-pure-vd-adjacent} proves that every possible
+\item Lemma~\ref{thm:s2-geom-vd-adjacent} proves that every possible
 vertex-side radial interval ends strictly before the CE2 center interval
 begins.
-\item Theorem~\ref{thm:s2-pure-vd-nonadjacent} proves strict separation of the
+\item Lemma~\ref{thm:s2-geom-vd-nonadjacent} proves strict separation of the
 corresponding nonadjacent radial intervals.
 \item The remaining adjacent $\Vdone$--supercritical placement is replaced by
 two open nonsupercritical $\Vdzero$ triangles while preserving the full
@@ -449,8 +448,8 @@ skeleton; the already excluded all-$\Vdzero$ case then applies.
 \end{proposition}
 
 \begin{proof}
-The first three statements follow from the parameterizations of
-Appendix~\ref{sec:strategy2-parameter-bridges} and the cited theorems.  Item~4
+The first three statements follow from the repository parameter bridges and
+the cited theorems.  Item~4
 is Proposition~\ref{prop:paper-vd1-pair-replacement}.
 \end{proof}
 

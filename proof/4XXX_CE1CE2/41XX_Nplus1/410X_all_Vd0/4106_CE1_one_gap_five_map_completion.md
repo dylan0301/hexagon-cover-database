@@ -7,8 +7,8 @@ The analytic inequality holds on the full strict CE1 center domain; no
 auxiliary survivor restriction or classified map for the supercritical V triangle
 is needed.
 
-Here a V-gap is the full nonempty set missed by the two adjacent open vertex
-roles. It may be a positive-length interval or a singleton. The proof below
+Here a boundary gap is the full nonempty set missed by the two adjacent open
+V triangles. It may be a positive-length interval or a singleton. The proof below
 uses only weak endpoint bounds and therefore covers both cases.
 
 For the geometric application, assume the `410X` hypotheses: all six vertex
@@ -25,8 +25,8 @@ and the final one-hit threshold step is isolated in
 
 ## 1. Exact normalized CE1 domain
 
-Use the variables in
-[`2105_CE1_exact_formulas.md`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2105_CE1_exact_formulas.md).
+Use the canonical signed variables in
+[`2109_signed_CE1_CE2_center_normal_form.md`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md).
 Put
 
 $$
@@ -42,9 +42,9 @@ $$
 \qquad
 P=\eta E,
 \qquad
-A=C_0,
+A=\alpha,
 \qquad
-D=C_2.
+D=\delta.
 $$
 
 The elementary identities
@@ -138,7 +138,7 @@ $$
 Finally set
 
 $$
-H=\frac s2=\frac{\eta+A+D}{2R}.
+h_0=\frac s2=\frac{\eta+A+D}{2R}.
 $$
 
 ## 2. Capped-map duality and the three-V triangle suffix
@@ -165,29 +165,29 @@ Every $\Phi_c$ is nondecreasing and extensive. It is therefore enough to prove
 
 $$
 \boxed{
-(\Phi_{c_4}\circ \Phi_{c_3}\circ \Phi_{c_2})(X)>1-H.
+(\Phi_{c_4}\circ \Phi_{c_3}\circ \Phi_{c_2})(X)>1-h_0.
 }
 $$
 
-Indeed, put $\Phi=\Phi_{c_4}\circ \Phi_{c_3}\circ \Phi_{c_2}$. Then
+Indeed, put $\mathcal P=\Phi_{c_4}\circ \Phi_{c_3}\circ \Phi_{c_2}$. Then
 
 $$
-(\Phi_{c_5}\circ\Phi\circ \Phi_{c_1})(X)
-\ge(\Phi\circ \Phi_{c_1})(X)
-\ge\Phi(X).
+(\Phi_{c_5}\circ\mathcal P\circ \Phi_{c_1})(X)
+\ge(\mathcal P\circ \Phi_{c_1})(X)
+\ge\mathcal P(X).
 $$
 
 Repeated duality gives
 
 $$
 \begin{aligned}
-(\Phi_{c_4}\circ \Phi_{c_3}\circ \Phi_{c_2})(X)\le1-H
+(\Phi_{c_4}\circ \Phi_{c_3}\circ \Phi_{c_2})(X)\le1-h_0
 &\Longleftrightarrow
-\Phi_{c_4}(H)\le1-(\Phi_{c_3}\circ \Phi_{c_2})(X)\\
+\Phi_{c_4}(h_0)\le1-(\Phi_{c_3}\circ \Phi_{c_2})(X)\\
 &\Longleftrightarrow
-(\Phi_{c_3}\circ \Phi_{c_4})(H)\le1-\Phi_{c_2}(X)\\
+(\Phi_{c_3}\circ \Phi_{c_4})(h_0)\le1-\Phi_{c_2}(X)\\
 &\Longleftrightarrow
-(\Phi_{c_2}\circ \Phi_{c_3}\circ \Phi_{c_4})(H)\le1-X.
+(\Phi_{c_2}\circ \Phi_{c_3}\circ \Phi_{c_4})(h_0)\le1-X.
 \end{aligned}
 $$
 
@@ -208,11 +208,11 @@ B_0\ge s,
 A_1\ge X=1-t.
 $$
 
-Let $\widehat c_j$ be the actual radial reach of $T_j$. Radial coverage and
+Let $C_j$ be the actual radial reach of $T_j$. Radial coverage and
 the relaxation proved in `2105` give
 
 $$
-\widehat c_j\ge c_j,
+C_j\ge c_j,
 \qquad j=0,1,\dots,5.
 $$
 
@@ -234,10 +234,10 @@ B_j\le \overline M_{c_j}(A_j)\le \overline M_{c_j}(z_{j-1}).
 $$
 
 The center has no trace on the other five boundary edges, so
-$a_{j+1}+B_j\ge1$ for $j=1,2,3,4$ and $A_0+B_5\ge1$. Hence
+$A_{j+1}+B_j\ge1$ for $j=1,2,3,4$ and $A_0+B_5\ge1$. Hence
 
 $$
-a_{j+1}\ge1-B_j\ge \Phi_{c_j}(z_{j-1})=z_j
+A_{j+1}\ge1-B_j\ge \Phi_{c_j}(z_{j-1})=z_j
 \qquad(1\le j\le4),
 $$
 
@@ -257,8 +257,8 @@ Z_{\mathrm{CE1}}
 $$
 
 For the upper bound, $T_0$ realizes
-$(A_0,B_0,\widehat c_0)$ in the exact admissible set. Since $B_0\ge s$ and
-$\widehat c_0\ge c_0$, down-closedness and reflection give
+$(A_0,B_0,C_0)$ in the exact admissible set. Since $B_0\ge s$ and
+$C_0\ge c_0$, down-closedness and reflection give
 
 $$
 (s,A_0,c_0)\in\mathcal A.
@@ -351,45 +351,45 @@ $$
 \boxed{e(A)<X.}
 $$
 
-We also have $H>A$. Indeed,
+We also have $h_0>A$. Indeed,
 
 $$
-2R(H-A)=\eta+D+(1-2R)A.
+2R(h_0-A)=\eta+D+(1-2R)A.
 $$
 
 This is positive when $R\le1/2$. When $R>1/2$, use $A<P=\eta E$ to obtain
 
 $$
-2R(H-A)>
+2R(h_0-A)>
 \eta\left(1-(2R-1)E\right)>0.
 $$
 
 ## 5. The V triangle-4 $Q_+$ branch forces $X>1/2$
 
-At V triangle $4$, the Full branches are impossible because
+At V triangle $4$, the $\mathrm{Lin}$ branches are impossible because
 
 $$
-H>A,
+h_0>A,
 \qquad
-H<\frac12<1-A.
+h_0<\frac12<1-A.
 $$
 
-If the selected branch is L or $Q_-$, then
+If the selected branch is $\mathrm{Const}$ or $Q_-$, then
 
 $$
-\overline M_{1-A}(H)\le e(A),
+\overline M_{1-A}(h_0)\le e(A),
 $$
 
 and therefore
 
 $$
-\Phi_{1-A}(H)\ge1-e(A)>1-X.
+\Phi_{1-A}(h_0)\ge1-e(A)>1-X.
 $$
 
 Only the selected $Q_+$ branch remains. Its selector gives
 
 $$
-H\le e(A)<\frac{2A}{1-2A}.
+h_0\le e(A)<\frac{2A}{1-2A}.
 $$
 
 We prove
@@ -414,7 +414,7 @@ Combining this with the selected-$Q_+$ bound yields
 
 $$
 \frac{w(R+A)}{2R}
-\le H
+\le h_0
 <\frac{2A}{1-2A}.
 $$
 
@@ -517,15 +517,15 @@ $$
 Hence
 
 $$
-0<A<A_0,
+0<A<A_*,
 \qquad
-A_0:=P-w\left(R-\frac12\right)=\frac w2-\eta.
+A_*:=P-w\left(R-\frac12\right)=\frac w2-\eta.
 $$
 
 Using again $E^2=1-R+R^2$, direct simplification gives
 
 $$
-f_R(A_0)
+f_R(A_*)
 =
 \frac{1-E}{2}
 \left(E+11R-3ER-5\right).
@@ -542,11 +542,11 @@ E+11R-3ER-5
 \end{aligned}
 $$
 
-Thus $f_R(A_0)>0$. Concavity again gives
+Thus $f_R(A_*)>0$. Concavity again gives
 
 $$
 f_R(A)>0
-\qquad(0<A<A_0),
+\qquad(0<A<A_*),
 $$
 
 contrary to $f_R(A)<0$. Both ranges are impossible, proving
@@ -557,7 +557,7 @@ $X>1/2$.
 Assume from now on that V triangle $4$ is selected $Q_+$, and put
 
 $$
-p_1=\Phi_{1-A}(H).
+p_1=\Phi_{1-A}(h_0).
 $$
 
 By monotonicity and the catalog value at the end of the selected interval,
@@ -569,13 +569,13 @@ $$
 Also
 
 $$
-2R(H-m_3)=\eta+D-A>\eta-P>0,
+2R(h_0-m_3)=\eta+D-A>\eta-P>0,
 $$
 
-so $p_1\ge H>m_3$. Since $m_3<1/2$, both Full branches at V triangle $3$ are
+so $p_1\ge h_0>m_3$. Since $m_3<1/2$, both $\mathrm{Lin}$ branches at V triangle $3$ are
 impossible.
 
-If V triangle $3$ is L, $Q_-$, or the low-radial tie, the exact catalog gives
+If V triangle $3$ is $\mathrm{Const}$, $Q_-$, or the low-radial tie, the exact catalog gives
 
 $$
 \overline M_{1-m_3}(p_1)\le p_1.
@@ -622,11 +622,11 @@ $$
 1-4d.
 $$
 
-Applied with $d=A$ and $p=H$, this proves
+Applied with $d=A$ and $p=h_0$, this proves
 
 $$
 p_1>
-(2-4A)H-(1-4A)A
+(2-4A)h_0-(1-4A)A
 =:L_1.
 $$
 
@@ -848,7 +848,7 @@ $$
 
 Thus $J$ is strictly decreasing, and $J(D)\ge J(D_h)$.
 
-At $D=D_h$, one has $H=2A+5A^2$. Write the corresponding value of $L_2$ as
+At $D=D_h$, one has $h_0=2A+5A^2$. Write the corresponding value of $L_2$ as
 $L_{2,h}$. Exact expansion gives
 
 $$
@@ -910,13 +910,13 @@ give
 
 $$
 \frac{D_h}{A}
-<C_0:=4R-2+5R^2w-\frac{Rw}{2}.
+<C_*:=4R-2+5R^2w-\frac{Rw}{2}.
 $$
 
 Direct expansion gives
 
 $$
-1+4R-\frac{23}{10}C_0=\frac{h_3(R)}{20},
+1+4R-\frac{23}{10}C_*=\frac{h_3(R)}{20},
 $$
 
 where
@@ -944,7 +944,7 @@ $$
 Consequently
 
 $$
-J(D_h)>A\left(1+4R-\frac{23}{10}C_0\right)>0.
+J(D_h)>A\left(1+4R-\frac{23}{10}C_*\right)>0.
 $$
 
 Combining the estimates proves
@@ -995,19 +995,19 @@ $$
 Equivalently,
 
 $$
-(\Phi_{c_2}\circ \Phi_{c_3}\circ \Phi_{c_4})(H)>1-X.
+(\Phi_{c_2}\circ \Phi_{c_3}\circ \Phi_{c_4})(h_0)>1-X.
 $$
 
 By duality,
 
 $$
-(\Phi_{c_4}\circ \Phi_{c_3}\circ \Phi_{c_2})(X)>1-H.
+(\Phi_{c_4}\circ \Phi_{c_3}\circ \Phi_{c_2})(X)>1-h_0.
 $$
 
 Restoring the extensive first and fifth maps gives
 
 $$
-Z_{\mathrm{CE1}}>1-H=1-\frac s2.
+Z_{\mathrm{CE1}}>1-h_0=1-\frac s2.
 $$
 
 ## 10. Comparison with the supercritical target

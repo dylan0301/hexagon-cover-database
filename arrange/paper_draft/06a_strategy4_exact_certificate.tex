@@ -2,46 +2,25 @@
 \label{sec:strategy4-exact-certificate}
 
 The two mixed cap overlaps in Method~4 are certified by exact symbolic
-arithmetic.  This section states the complete mathematical reduction, explains
-the verification algorithms, and formally incorporates the code and sparse
-integer data listed below as an electronic proof supplement.  No floating-point
-arithmetic, interval arithmetic, adaptive subdivision, branch-and-bound, or
-unrecorded numerical tolerance is used.
+arithmetic.  This section gives the mathematical reduction and verification
+algorithms; the repository provenance manifests identify the accompanying
+code and sparse integer data.  No floating-point arithmetic, interval
+arithmetic, adaptive subdivision, branch-and-bound, or unrecorded numerical
+tolerance is used.
 
 \subsection{Certificate manifest}
 
-All paths below are relative to the Method~4 computation directory.
-The machine-readable provenance manifest stores the full Git blob identities;
-the paper prints compact identifiers and twelve-character prefixes.
-
-\begin{center}
-\scriptsize
-\renewcommand{\arraystretch}{1.08}
-\begin{tabular}{@{}p{.47\textwidth}p{.25\textwidth}@{}}
-\toprule
-certificate object&blob prefix\\
-\midrule
-\texttt{core\_data\_00}&\texttt{359b219f9ded}\\
-\texttt{core\_data\_01}&\texttt{bfc807f90635}\\
-\texttt{core\_data\_02}&\texttt{92887696ef94}\\
-\texttt{core\_data\_03}&\texttt{c2791a8a6add}\\
-\texttt{core\_data\_04}&\texttt{7eeabecbbd17}\\
-\texttt{core\_data\_05}&\texttt{d676114292e7}\\
-\texttt{core\_polynomials}&\texttt{07f57b178cf7}\\
-\texttt{derivation verifier}&\texttt{0a55211ae37f}\\
-\texttt{positivity verifier}&\texttt{821f9a6dc750}\\
-\bottomrule
-\end{tabular}
-\end{center}
-The six data shards decode to one canonical sparse-polynomial transcript with
+The machine-readable provenance manifest identifies the six sparse-data
+shards and both exact verifiers by full Git blob; the source ledger records
+their role.  They decode to one canonical sparse-polynomial transcript with
 SHA--256 digest
 \begin{verbatim}
 dc46aaf263655d5159ecd3a81db72ee82477951d06172f4743b248df37209485
 \end{verbatim}
-The first verifier independently derives the transcript from the witness
-formulas and compares every coefficient with the authenticated object.  The
-second verifier derives all Bernstein coefficients from that same object and
-checks their signs exactly.
+The derivation verifier reconstructs the transcript from the witness formulas
+and compares every coefficient with the authenticated object. The positivity
+verifier derives the Bernstein coefficients from that object and checks their
+signs exactly.
 
 \subsection{Rational radial upper envelopes}
 
@@ -101,17 +80,17 @@ by \eqref{eq:certificate-domain}; therefore $\bar c_L<1$.
 On the $T$ cell put
 \[
  E=\sqrt{4s^2-3},\qquad
- m_0=\frac{s(1-E)}2,\qquad M_0=\frac{s(1+E)}2.
+ m_-=\frac{s(1-E)}2,\qquad m_+=\frac{s(1+E)}2.
 \]
 Then
 \[
- \chi=(m-m_0)(M_0-m),\qquad
- s-c_*=\frac{2(m-m_0)}{1+E}.
+ \chi=(m-m_-)(m_+-m),\qquad
+ s-c_*=\frac{2(m-m_-)}{1+E}.
 \]
 Consequently
 \[
  \frac{\chi}{s-c_*}
- =\frac{1+E}{2}(M_0-m)\le1-m,
+ =\frac{1+E}{2}(m_+-m)\le1-m,
 \]
 which gives $c_*\le\bar c_T$.  The strict inequality $\chi>0$ gives
 $\bar c_T<s<1$.
@@ -264,18 +243,18 @@ independent precomputation.
 Set
 \[
  \mathcal G(U)=1-6U-3U^2,\qquad
- H(U)=1-10U+21U^2-16U^3+4U^4,
+ \mathcal P(U)=1-10U+21U^2-16U^3+4U^4,
 \]
 \[
- U_H=1-\frac{\sqrt3}{2},\qquad
+ U_\triangle=1-\frac{\sqrt3}{2},\qquad
  U_{\max}=\frac2{\sqrt3}-1.
 \]
 The complete reflected domain is the union of the three closed cells
 \[
 \begin{array}{ll}
-T:&0\le U\le U_H,\quad 0\le z^2\le H(U),\\
-L_0:&0\le U\le U_H,\quad H(U)\le z^2\le\mathcal G(U),\\
-L_1:&U_H\le U\le U_{\max},\quad0\le z^2\le\mathcal G(U).
+T:&0\le U\le U_\triangle,\quad 0\le z^2\le\mathcal P(U),\\
+L_0:&0\le U\le U_\triangle,\quad \mathcal P(U)\le z^2\le\mathcal G(U),\\
+L_1:&U_\triangle\le U\le U_{\max},\quad0\le z^2\le\mathcal G(U).
 \end{array}
 \]
 For the $T$ cell use
@@ -310,19 +289,18 @@ The implications $E_F\ge0$ and $R_F\ge0$ give
 $E_F\ge\sqrt w\,|O_F|$, hence $F\ge0$ for $z\ge0$.
 Use the exact charts
 \[
- U=U_Hr,\qquad
- w=H(U)+s\{\mathcal G(U)-H(U)\}
+ U=U_\triangle r,\qquad
+ w=\mathcal P(U)+s\{\mathcal G(U)-\mathcal P(U)\}
 \]
 for $L_0$, and
 \[
- U=U_H+(U_{\max}-U_H)r,\qquad
+ U=U_\triangle+(U_{\max}-U_\triangle)r,\qquad
  w=s\mathcal G(U)
 \]
-for $L_1$.  The positivity verifier forms one global Bernstein expansion for
-each of $E_F,R_F$ on each square.  The resulting sixteen expansions have the
-bidegrees and coefficient counts recorded in
-the certificate tables below; every coefficient is strictly
-positive.
+for $L_1$. The positivity verifier forms one global Bernstein expansion for
+each of $E_F,R_F$ on each square. The authenticated transcript records the
+bidegrees and coefficient counts of all sixteen expansions; every coefficient
+is strictly positive.
 
 The verifier implements polynomial addition, multiplication, substitution,
 and power-to-Bernstein conversion over exact integers.  Coefficients in
@@ -355,16 +333,16 @@ reflection supplies $z\le0$.  Lemma~\ref{lem:paper-residual-to-overlap} then
 gives the two cap intersections.
 \end{proof}
 
-\begin{remark}[Reproduction status]
-The files above constitute the exact certificate used by the proof.  A
-reproduction run should execute
+\begin{remark}[Reproduction]
+The authenticated data and the two verifiers constitute the exact electronic
+certificate used by the proof. Reproduce it from its package directory by
+executing
 \begin{verbatim}
 verify_mixed_overlap_core_derivation.py
 verify_global_core_positivity.py
 \end{verbatim}
-from their package directory.  This manuscript revision does not claim that
-those commands were rerun during the present source-only edit; the certificate
-is incorporated by its exact repository objects and authenticated transcript.
+Both commands use exact arithmetic and must reproduce the transcript digest
+above and the asserted sign checks.
 \end{remark}
 
 % BEGIN GENERATED 3105X PROVENANCE

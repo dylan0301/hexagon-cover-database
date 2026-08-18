@@ -24,7 +24,7 @@ i:M_i\in T_C
 $$
 
 In particular, the conclusion holds for every nondegenerate CE1 or CE2 center
-role obtained by closing an open center triangle that contains $O$.
+role obtained by closing an open C triangle that contains $O$.
 
 The interior hypothesis is necessary. The closed unit triangle
 
@@ -100,41 +100,41 @@ would give $F_0(O)=s-t<0$, so the displayed inequality is strict.
 Define the center slacks
 
 $$
-C_j=F_j(O).
+\kappa_j=F_j(O).
 $$
 
 Explicitly,
 
 $$
-C_0=\rho+\lambda s-t-\lambda,
+\kappa_0=\rho+\lambda s-t-\lambda,
 $$
 
 $$
-C_1=1-\lambda s,
+\kappa_1=1-\lambda s,
 $$
 
 and
 
 $$
-C_2=t+\lambda-1.
+\kappa_2=t+\lambda-1.
 $$
 
 Because $O$ is interior,
 
 $$
-C_0>0,
+\kappa_0>0,
 \qquad
-C_1>0,
+\kappa_1>0,
 \qquad
-C_2>0,
+\kappa_2>0,
 \qquad
-C_0+C_1+C_2=\rho.
+\kappa_0+\kappa_1+\kappa_2=\rho.
 $$
 
 The positive-length condition is
 
 $$
-C_1+\lambda C_2
+\kappa_1+\lambda \kappa_2
 =
 \rho^2+\lambda(t-s)
 >\rho^2.
@@ -143,7 +143,7 @@ $$
 Equivalently,
 
 $$
-C_0+(1-\lambda)C_2<P,
+\kappa_0+(1-\lambda)\kappa_2<P,
 \qquad
 P=\rho(1-\rho).
 $$
@@ -174,12 +174,12 @@ Substitution of the six radial midpoints gives the following exact tests:
 
 | midpoint | necessary and sufficient additional inequalities |
 |---|---|
-| $M_0$ | $C_1\ge1/2$ |
-| $M_1$ | $C_1\ge(1-\lambda)/2$ and $C_2\ge\lambda/2$ |
-| $M_2$ | $C_2\ge1/2$ |
-| $M_3$ | $C_0\ge\lambda/2$ and $C_2\ge(1-\lambda)/2$ |
-| $M_4$ | $C_0\ge1/2$ |
-| $M_5$ | $C_0\ge(1-\lambda)/2$ and $C_1\ge\lambda/2$ |
+| $M_0$ | $\kappa_1\ge1/2$ |
+| $M_1$ | $\kappa_1\ge(1-\lambda)/2$ and $\kappa_2\ge\lambda/2$ |
+| $M_2$ | $\kappa_2\ge1/2$ |
+| $M_3$ | $\kappa_0\ge\lambda/2$ and $\kappa_2\ge(1-\lambda)/2$ |
+| $M_4$ | $\kappa_0\ge1/2$ |
+| $M_5$ | $\kappa_0\ge(1-\lambda)/2$ and $\kappa_1\ge\lambda/2$ |
 
 All omitted side slacks are automatically positive because the corresponding
 slack at $O$ is positive.
@@ -189,7 +189,7 @@ slack at $O$ is positive.
 First,
 
 $$
-C_0+C_2
+\kappa_0+\kappa_2
 <
 \frac{P}{1-\lambda}.
 $$
@@ -197,7 +197,7 @@ $$
 Therefore
 
 $$
-C_1
+\kappa_1
 >
 \rho-\frac{P}{1-\lambda}
 =
@@ -218,7 +218,7 @@ Thus $M_0\in T_C$.
 Next,
 
 $$
-C_2<\frac{P}{1-\lambda}<\frac\lambda2,
+\kappa_2<\frac{P}{1-\lambda}<\frac\lambda2,
 $$
 
 so neither $M_1$ nor $M_2$ lies in $T_C$.
@@ -226,13 +226,13 @@ so neither $M_1$ nor $M_2$ lies in $T_C$.
 Also
 
 $$
-C_0<P<\frac\lambda2,
+\kappa_0<P<\frac\lambda2,
 $$
 
-so $M_3\notin T_C$. Certainly $C_0<1/2$, so $M_4\notin T_C$. Finally,
+so $M_3\notin T_C$. Certainly $\kappa_0<1/2$, so $M_4\notin T_C$. Finally,
 
 $$
-C_0<P<\frac{1-\lambda}{2},
+\kappa_0<P<\frac{1-\lambda}{2},
 $$
 
 so $M_5\notin T_C$.

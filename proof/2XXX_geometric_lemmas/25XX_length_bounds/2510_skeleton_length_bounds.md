@@ -35,7 +35,7 @@ $$
 T_C,T_0,T_1,\dots,T_5,
 $$
 
-where $T_C$ is a center triangle containing $O$ in its interior, and $T_i$ is
+where $T_C$ is a C triangle containing $O$ in its interior, and $T_i$ is
 a $V_i$-triangle containing $V_i$ in its interior. The latter interior
 condition is inherited from the original open role before any optional
 boundary maximalization.
@@ -139,9 +139,9 @@ $$
 
 ---
 
-## Lemma 3: CE1/CE2 center triangles with unique midpoint $M_0$ have skeleton length $<3/2$
+## Lemma 3: CE1/CE2 C triangles with unique midpoint $M_0$ have skeleton length $<3/2$
 
-Let $T_C$ be a CE1 or CE2 center triangle satisfying
+Let $T_C$ be a CE1 or CE2 C triangle satisfying
 $T_C\cap\{M_0,\ldots,M_5\}=\{M_0\}$. Then
 
 $$
@@ -243,35 +243,35 @@ Thus $\lambda\ge1$ is impossible. After possibly relabeling the two cutting side
 Define the center slacks
 
 $$
-C_0:=F_0(O),\qquad C_2:=F_2(O).
+\kappa_0:=F_0(O),\qquad \kappa_2:=F_2(O).
 $$
 
 Since $O\in T_C$,
 
 $$
-C_0\ge0,\qquad C_2\ge0.
+\kappa_0\ge0,\qquad \kappa_2\ge0.
 $$
 
 Direct calculation gives
 
 $$
-C_0=\rho-\lambda(1-s)-t,
+\kappa_0=\rho-\lambda(1-s)-t,
 $$
 
 $$
-C_2=\lambda+t-1.
+\kappa_2=\lambda+t-1.
 $$
 
 Hence
 
 $$
-t=1-\lambda+C_2,
+t=1-\lambda+\kappa_2,
 $$
 
 and
 
 $$
-\lambda s=C_0+C_2+1-\rho.
+\lambda s=\kappa_0+\kappa_2+1-\rho.
 $$
 
 Set
@@ -283,25 +283,25 @@ $$
 The condition $s<t$ becomes
 
 $$
-(C_0+C_2+1-\rho)/\lambda<1-\lambda+C_2.
+(\kappa_0+\kappa_2+1-\rho)/\lambda<1-\lambda+\kappa_2.
 $$
 
 Multiplying by $\lambda$ and using $\rho^2=1-\lambda+\lambda^2$, this is
 
 $$
-C_0+(1-\lambda)C_2<P.
+\kappa_0+(1-\lambda)\kappa_2<P.
 $$
 
 So
 
 $$
-\boxed{C_0+(1-\lambda)C_2<P.}
+\boxed{\kappa_0+(1-\lambda)\kappa_2<P.}
 $$
 
 The $e_{0,1}$ boundary contribution is
 
 $$
-\ell_{01}=t-s=1-\lambda+C_2-(C_0+C_2+1-\rho)/\lambda.
+\ell_{01}=t-s=1-\lambda+\kappa_2-(\kappa_0+\kappa_2+1-\rho)/\lambda.
 $$
 
 Now compute the possible $e_{5,0}$ overlap. On $e_{5,0}$, $b=0$, so
@@ -327,25 +327,25 @@ $$
 where
 
 $$
-a_L=\lambda s/(1-\lambda)=(C_0+C_2+1-\rho)/(1-\lambda)
+a_L=\lambda s/(1-\lambda)=(\kappa_0+\kappa_2+1-\rho)/(1-\lambda)
 $$
 
 and
 
 $$
-a_U=\rho+\lambda s-t=C_0+\lambda.
+a_U=\rho+\lambda s-t=\kappa_0+\lambda.
 $$
 
 Therefore
 
 $$
-(1-\lambda)(a_U-a_L)=P-(\lambda C_0+C_2),
+(1-\lambda)(a_U-a_L)=P-(\lambda \kappa_0+\kappa_2),
 $$
 
 so
 
 $$
-\boxed{\ell_{50}=\left[(P-(\lambda C_0+C_2))/(1-\lambda)\right]_+.}
+\boxed{\ell_{50}=\left[(P-(\lambda \kappa_0+\kappa_2))/(1-\lambda)\right]_+.}
 $$
 
 This term is zero in the CE1 case and positive in the CE2 case.
@@ -353,30 +353,30 @@ This term is zero in the CE1 case and positive in the CE2 case.
 Let $d_i$ be the length of $T_C\cap[O,V_i]$. Parameterize each radial arm by distance $q$ from $O$ toward the corresponding vertex. Direct substitution into $F_0,F_1,F_2$ gives
 
 $$
-d_0=1-\lambda s=\rho-C_0-C_2,
+d_0=1-\lambda s=\rho-\kappa_0-\kappa_2,
 $$
 
 $$
-d_1\le C_2/\lambda,
+d_1\le \kappa_2/\lambda,
 $$
 
 $$
-d_2\le C_2,
+d_2\le \kappa_2,
 $$
 
 $$
-d_3\le\min(C_0/\lambda,C_2/(1-\lambda)),
+d_3\le\min(\kappa_0/\lambda,\kappa_2/(1-\lambda)),
 $$
 
 $$
-d_4\le C_0,
+d_4\le \kappa_0,
 $$
 
 $$
-d_5\le C_0/(1-\lambda).
+d_5\le \kappa_0/(1-\lambda).
 $$
 
-For instance, on $[O,V_1]$ the side $F_2=0$ is reached after distance $C_2/\lambda$, and on $[O,V_3]$ the first exit is bounded by the smaller of the $F_0$ and $F_2$ exits.
+For instance, on $[O,V_1]$ the side $F_2=0$ is reached after distance $\kappa_2/\lambda$, and on $[O,V_3]$ the first exit is bounded by the smaller of the $F_0$ and $F_2$ exits.
 
 Therefore
 
@@ -387,7 +387,7 @@ $$
 Substitution and cancellation give
 
 $$
-L_S(T_C)\le K_\lambda-C_0/\lambda+C_0/(1-\lambda)+C_2+\min(C_0/\lambda,C_2/(1-\lambda))+\left[(P-(\lambda C_0+C_2))/(1-\lambda)\right]_+,
+L_S(T_C)\le K_\lambda-\kappa_0/\lambda+\kappa_0/(1-\lambda)+\kappa_2+\min(\kappa_0/\lambda,\kappa_2/(1-\lambda))+\left[(P-(\lambda \kappa_0+\kappa_2))/(1-\lambda)\right]_+,
 $$
 
 where
@@ -399,7 +399,7 @@ $$
 Set
 
 $$
-X=C_0,\qquad Y=C_2.
+X=\kappa_0,\qquad Y=\kappa_2.
 $$
 
 Then
@@ -642,7 +642,7 @@ $$
 $$
 
 Since $T_0$ contains $V_0=\widetilde O$ in its interior, it is an interior
-center triangle for $\widetilde H$. This is the point at which the original
+C triangle for $\widetilde H$. This is the point at which the original
 open-cover role must be used. An optional T3-like boundary normalization that
 moves $V_0$ onto a side does not satisfy this hypothesis and is not used here.
 
@@ -652,7 +652,7 @@ $$
 [O,V_1]\quad\text{or}\quad[O,V_5].
 $$
 
-These are boundary edges of $\widetilde H$. Hence, viewed as a center triangle for $\widetilde H$, $T_0$ has positive-length overlap with at least one boundary edge of $\widetilde H$.
+These are boundary edges of $\widetilde H$. Hence, viewed as a C triangle for $\widetilde H$, $T_0$ has positive-length overlap with at least one boundary edge of $\widetilde H$.
 
 The exhaustive CE classification in
 [`../../1XXX_foundations/11XX_C_triangle/1101_CE_classification.md`](../../1XXX_foundations/11XX_C_triangle/1101_CE_classification.md)
@@ -976,7 +976,7 @@ $$
 L_S(T_i)\le2.
 $$
 
-The center triangle satisfies, by Lemma 3,
+The C triangle satisfies, by Lemma 3,
 
 $$
 L_S(T_C)<3/2.

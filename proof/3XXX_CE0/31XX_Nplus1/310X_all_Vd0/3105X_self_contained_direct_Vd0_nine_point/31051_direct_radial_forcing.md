@@ -9,8 +9,9 @@ vertex roles.
 ## 1. Exact-one handoffs
 
 Let $H$ be the side-$1$ regular hexagon centered at $O=0$, with cyclic
-vertices $V_0,\dots,V_5$. Let $T_i$ be an open unit equilateral triangle
-containing $V_i$, and suppose the six vertex roles cover $\partial H$.
+vertices $V_0,\dots,V_5$. Let $U_i$ be an open unit equilateral triangle
+containing $V_i$, put $T_i=\overline{U_i}$, and suppose the six open V
+triangles cover $\partial H$.
 
 Assume exactly one actual V triangle is supercritical. Rotate its index to $4$ and
 choose the strict handoffs supplied by
@@ -21,7 +22,7 @@ X_i=V_i+x_i(V_{i+1}-V_i),
 \qquad
 0<x_i<1,
 \qquad
-X_i\in T_i\cap T_{i+1}.
+X_i\in U_i\cap U_{i+1}.
 \tag{1}
 $$
 
@@ -55,7 +56,7 @@ q=1-a=x_3.
 \tag{4}
 $$
 
-The two anchors $X_3,X_4\in T_4$ have $V_4$-local coordinates $(0,a)$ and
+The two anchors $X_3,X_4\in U_4$ have $V_4$-local coordinates $(0,a)$ and
 $(b,0)$. Since two points of an open unit equilateral triangle are at
 distance strictly less than $1$,
 
@@ -215,33 +216,33 @@ $c_*\ge s>1-m$.
 Finally suppose $\chi>0$, retain $E$, put $t=1-s$, and define
 
 $$
-A_0=\frac{2M}{1-m}-1.
+A_*=\frac{2M}{1-m}-1.
 $$
 
-Here $A_0>0$: indeed $2s>2h>1+m$, so
+Here $A_*>0$: indeed $2s>2h>1+m$, so
 $2M=2(s-m)>1-m$. Direct expansion gives
 
 $$
-A_0^2-E^2
+A_*^2-E^2
 =
 \frac{4t\left\{(1-m)(1-2m)+m(2-m)t\right\}}{(1-m)^2}>0.
 $$
 
-Thus $A_0>E$, and
+Thus $A_*>E$, and
 
 $$
 \frac{c_*}{1-m}
 =
 \frac{2M}{(1-m)(1+E)}
 =
-\frac{1+A_0}{1+E}>1.
+\frac{1+A_*}{1+E}>1.
 $$
 
 This completes the proof of (14).
 
 ## 3. Direct radial-forcing theorem
 
-Assume every $T_i$ is Vd0. Define
+Assume every closed role $T_i$ is Vd0. Define
 
 $$
 D_i=(1-c_*)V_i,
@@ -253,7 +254,7 @@ $$
 Then
 
 $$
-D_i\notin\bigcup_{j=0}^5T_j
+D_i\notin\bigcup_{j=0}^5U_j
 \qquad(i=0,\dots,5).
 \tag{16}
 $$
@@ -262,28 +263,28 @@ To prove this, fix $i$. In the local corner coordinates at $V_i$, the sum
 of the incoming and outgoing unit directions points from $V_i$ to $O$.
 Thus radial demand $c$ is the global point $(1-c)V_i$.
 
-Suppose first that $D_i\in T_i$. By (14), $D_i$ lies in the relative
+Suppose first that $D_i\in U_i$. By (14), $D_i$ lies in the relative
 interior of $OV_i$. Openness supplies $\varepsilon>0$, with
 $c_*+\varepsilon<1$, such that
 
 $$
-(1-c_*-\varepsilon)V_i\in T_i.
+(1-c_*-\varepsilon)V_i\in U_i.
 \tag{17}
 $$
 
-The same role contains $V_i,X_{i-1},X_i$. By (6), convexity, and passage to
-the closure, the closed unit triangle $\overline{T_i}$ contains the incoming
+The same open role contains $V_i,X_{i-1},X_i$. By (6), convexity, and passage
+to the closure, the closed unit triangle $T_i$ contains the incoming
 and outgoing demand points at distances $p$ and $q$, together with the
 radial demand point at distance $c_*+\varepsilon$. Hence it realizes the
 local demand triple $(p,q,c_*+\varepsilon)$. This contradicts the definition
 of $c_*=c_{\max}(p,q)$. Therefore
 
 $$
-D_i\notin T_i.
+D_i\notin U_i.
 \tag{18}
 $$
 
-For $T_{i-1}$ and $T_{i+1}$, the arm $OV_i$ is an adjacent radial arm. If
+For $U_{i-1}$ and $U_{i+1}$, the arm $OV_i$ is an adjacent radial arm. If
 one of these open roles contained $D_i$, a small plane ball about $D_i$
 inside that role would meet $OV_i$ in a positive-length interval. This is
 excluded by the Vd0 definition in
@@ -291,7 +292,7 @@ excluded by the Vd0 definition in
 Thus
 
 $$
-D_i\notin T_{i-1}\cup T_{i+1}.
+D_i\notin U_{i-1}\cup U_{i+1}.
 \tag{19}
 $$
 
@@ -309,24 +310,24 @@ $$
 \tag{21}
 $$
 
-Every $T_j$ contains $V_j$, and two points of an open unit equilateral
+Every $U_j$ contains $V_j$, and two points of an open unit equilateral
 triangle have distance strictly below its diameter $1$. Equations
 (20)--(21) therefore exclude $D_i$ from the remaining three vertex roles.
 Together with (18)--(19), this proves (16).
 
 ## 4. Consequence for a seven-role cover
 
-Suppose an additional open unit equilateral triangle $T_C$ and the six
-vertex roles cover $H$. Equation (14) puts every $D_i$ in
-$\mathrm{int}(H)$, while (16) excludes all six vertex roles. Consequently,
+Suppose an additional open unit equilateral triangle $U_C$ and the six open
+V triangles cover $H$. Equation (14) puts every $D_i$ in
+$\mathrm{int}(H)$, while (16) excludes all six open V triangles. Consequently,
 
 $$
-D_0,\dots,D_5\in T_C.
+D_0,\dots,D_5\in U_C.
 \tag{22}
 $$
 
 The six points form a regular hexagon of circumradius $1-c_*$. Its convex
-hull contains the centered closed disk of radius $h(1-c_*)$. Since $T_C$ is
+hull contains the centered closed disk of radius $h(1-c_*)$. Since $U_C$ is
 convex, (22) gives
 
 $$
@@ -334,7 +335,7 @@ $$
 \mathcal D_\eta
 =
 \left\{P:\lVert P\rVert\le\eta\right\}
-\subset T_C,
+\subset U_C,
 \qquad
 \eta=h(1-c_*).
 }

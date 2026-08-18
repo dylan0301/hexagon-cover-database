@@ -4,14 +4,16 @@ Status: Proven
 
 ## Statement
 
-Work with the original open cover and its role closures.  Normalize by the
-CE1/CE2 exactly-one-midpoint lemma and dihedral symmetry so that
+Write the original open roles as $U_C,U_0,\ldots,U_5$ and their closures as
+$T_C=\overline{U_C}$ and $T_i=\overline{U_i}$. Normalize by the CE1/CE2
+exactly-one-midpoint lemma and dihedral symmetry so that
 
 $$
 T_C\cap\left\{M_0,\ldots,M_5\right\}=\left\{M_0\right\}.
 $$
 
-The original center role contains $O$, so its closure satisfies the interior
+The original C triangle satisfies $O\in U_C\subset\operatorname{int}(T_C)$,
+so its closure satisfies the interior
 hypothesis in
 [`2100`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2100_CE1_CE2_exactly_one_midpoint_lemma.md).
 
@@ -29,7 +31,7 @@ $$
 
 ## Normalize all T3-like traces once
 
-For every original T3-like role, apply the translation-normalization theorem
+For every closed T3-like role $T_i$, apply the translation-normalization theorem
 in
 [`1201`](../../../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md)
 once, before defining any side or radial reach.  Denote the resulting closed
@@ -40,8 +42,8 @@ $$
 T_i\cap H\subseteq\widehat T_i\cap H.
 $$
 
-Thus the translated traces retain every midpoint covered by an original open
-role and can only enlarge the covered part of the skeleton.  In particular,
+Thus the translated traces retain every midpoint covered by $U_i$ and can
+only enlarge the covered part of the skeleton. In particular,
 it is enough to prove impossibility after these simultaneous trace
 enlargements.  The side inequalities used below are now applied only to the
 already normalized traces; no triangle is translated in the middle of an
@@ -56,17 +58,17 @@ Assume for contradiction that $T_0$ is not T3-like.  By the exhaustiveness
 theorem in `1201`, every vertex role is then either Vd0 or T3-like.
 
 The midpoints $M_1,\ldots,M_5$ are not in $T_C$ and must be covered by the
-original open vertex roles.  The only vertex roles local to $M_j$ are
+original open V triangles. The only open V triangles local to $M_j$ are
 
 $$
-T_{j-1},
+U_{j-1},
 \qquad
-T_j,
+U_j,
 \qquad
-T_{j+1}.
+U_{j+1}.
 $$
 
-The own role $T_j$ cannot cover $M_j$ when it is T3-like, by
+The own open role $U_j$ cannot cover $M_j$ when its closure $T_j$ is T3-like, by
 [`2006`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2006_T3_like_midpoint_lemma.md).
 A Vd0 role cannot cover an adjacent midpoint: containment by the original
 open triangle would give a positive-length interval on that adjacent ray.
@@ -86,14 +88,14 @@ neither $T_4$ nor $T_0$ is T3-like.  Thus $m<5$.  Since $T_{m-1}$ is outside
 the block, the matching forces
 
 $$
-M_m\in T_{m+1}.
+M_m\in U_{m+1}.
 $$
 
 The role $T_m$ must be matched inside $I$ and cannot be matched to its own
 midpoint, so
 
 $$
-M_{m+1}\in T_m.
+M_{m+1}\in U_m.
 $$
 
 Continuing from left to right shows that the block is paired as

@@ -33,7 +33,7 @@ jobs:
       - name: Install pinned proof dependencies
         run: python -m pip install --disable-pip-version-check -r requirements-proof.txt
 
-      - name: Verify proof graph, manifests, notation, provenance, and Strategy 2 specifications
+      - name: Verify proof-reference graph, manifests, notation, provenance, and Strategy 2 specifications
         run: |
           set -euo pipefail
           python tools/generate_active_dependency_graph.py --check
@@ -51,7 +51,7 @@ jobs:
           python verify_global_core_positivity.py
 
   lean:
-    name: Lean Strategy 2 statement project
+    name: Lean Strategy 2 scalar statement elaboration
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
@@ -73,7 +73,7 @@ jobs:
 
   paper:
     name: Pinned paper rebuild and semantic audit
-    needs: proof
+    needs: [proof, lean]
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
@@ -136,6 +136,18 @@ jobs:
           python tools/compare_pdfs_semantically.py \
             arrange/paper_draft/main.rebuilt1.pdf \
             arrange/paper_draft/main.rebuilt2.pdf --dpi 144
+          python - <<'PY'
+          import fitz
+          from pathlib import Path
+
+          pdf = Path('arrange/paper_draft/main.pdf')
+          pages = fitz.open(pdf).page_count
+          print(f'Consolidated paper pages: {pages}')
+          if not 84 <= pages <= 104:
+              raise SystemExit(
+                  f'Expected an approximately 90-page self-contained paper; got {pages} pages'
+              )
+          PY
           python tools/verify_pdf_render.py arrange/paper_draft/main.pdf
           python tools/generate_verification_summary.py --check
           rm -f \
@@ -172,10 +184,27 @@ jobs:
       - name: Build deterministic archival bundle
         run: |
           set -euo pipefail
+          bundle_root="$(mktemp -d)"
+          trap 'rm -rf "$bundle_root"' EXIT
           python tools/build_release_bundle.py \
-            --output /tmp/hexagon-cover-proof-bundle.zip
+            --output "$bundle_root/bundle-1.zip"
+          python tools/build_release_bundle.py \
+            --output "$bundle_root/bundle-2.zip"
+          cmp "$bundle_root/bundle-1.zip" "$bundle_root/bundle-2.zip"
+          cp "$bundle_root/bundle-1.zip" /tmp/hexagon-cover-proof-bundle.zip
           sha256sum /tmp/hexagon-cover-proof-bundle.zip \
             | tee /tmp/hexagon-cover-proof-bundle.sha256
+
+          mkdir "$bundle_root/extracted"
+          python -m zipfile -e /tmp/hexagon-cover-proof-bundle.zip \
+            "$bundle_root/extracted"
+          cd "$bundle_root/extracted"
+          python tools/generate_active_dependency_graph.py --check
+          python tools/generate_proof_manifest.py --check
+          python tools/proof_lint.py
+          python tools/verify_strategy2_pure_algebra.py
+          python tools/verify_strategy2_spec_sync.py
+          python tools/generate_verification_summary.py --check
 
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
