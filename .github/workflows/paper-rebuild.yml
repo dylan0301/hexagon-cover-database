@@ -2,7 +2,7 @@ name: Rebuild and commit consolidated paper
 
 on:
   push:
-    branches: [main]
+    branches: [main, agent/proof-paper-formalization-alignment]
     paths:
       - 'arrange/paper_draft/**/*.tex'
       - 'arrange/paper_draft/figures/**'
