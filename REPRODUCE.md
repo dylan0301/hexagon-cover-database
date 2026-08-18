@@ -4,8 +4,8 @@ Two permanent GitHub Actions workflows are authoritative:
 
 - `.github/workflows/paper-rebuild.yml` builds the consolidated manuscript and
   commits the canonical PDF and verification summary to `main`;
-- `.github/workflows/proof-ci.yml` independently verifies the proof graph,
-  exact certificates, Lean statement project, semantic paper rebuild, and
+- `.github/workflows/proof-ci.yml` independently verifies the active proof-reference graph,
+  exact certificates, Lean scalar-statement elaboration, semantic paper rebuild, and
   archival bundle.
 
 Both workflows pin GitHub Actions by commit, use TeX Live 2025, pin Python
@@ -41,7 +41,17 @@ Commit manuscript source changes to `main`. The paper-rebuild workflow:
 6. regenerates `arrange/CURRENT_VERIFICATION_SUMMARY.txt`;
 7. commits `arrange/paper_draft/main.pdf` and the summary to `main`.
 
-The generated-artifact commit then triggers the full read-only proof workflow.
+The write-enabled workflow itself runs every check asserted before it commits
+the generated artifacts. GitHub does not recursively trigger the read-only
+push workflow from a commit made with the workflow token; ordinary user pushes
+and pull requests run that independent verifier.
+
+For a review branch, dispatch the same workflow manually with that branch as
+its ref. After checking that the branch has not advanced during the build, the
+workflow commits the pinned PDF and summary back to that branch. It then
+dispatches the read-only proof workflow explicitly on the resulting artifact commit, so the
+post-build verification does not rely on workflow-token pushes recursively
+triggering another workflow.
 
 ### One-command local update
 
@@ -78,7 +88,9 @@ python tools/generate_verification_summary.py
 ```
 
 The build must have no unresolved references and no `Overfull \\hbox` or
-`Overfull \\vbox` diagnostics. The canonical workflow also checks the target
+`Overfull \\vbox` diagnostics. The canonical workflow additionally elaborates
+the pinned Lean scalar statements, performs two clean TeX builds, compares
+their stable PDF semantics and exact rendered pixels, and checks the target
 page interval.
 
 ### Semantic rebuild audit
@@ -93,7 +105,7 @@ The raw SHA-256 in `arrange/CURRENT_VERIFICATION_SUMMARY.txt` identifies the
 canonical tracked artifact; it is not asserted to equal every clean build's raw
 byte stream.
 
-## Lean statement project
+## Lean scalar-statement elaboration
 
 ```bash
 cd formalization/strategy2_optimization
@@ -102,9 +114,11 @@ lake exe cache get
 lake build
 ```
 
-The current Lean milestone checks the exact optimization statements. The
-theorem proofs intentionally contain `sorry`; the complete mathematical proofs
-remain in the paper and numbered proof corpus.
+The current Lean milestone elaborates the scalar statements needed for the
+long calculation layer. Its ten theorem bodies are intentional `sorry`
+admissions. This is a statement check, not a proof or formalization of the
+geometric argument; the complete mathematical proofs remain in the paper and
+numbered proof corpus.
 
 ## Archival bundle
 
@@ -113,6 +127,9 @@ python tools/build_release_bundle.py \
   --output /tmp/hexagon-cover-proof-bundle.zip
 ```
 
-The bundle contains the paper, current verification metadata, dependency and
+The bundle contains the compiled paper and its complete TeX/figure source, the
+complete proof-source tree, current verification metadata, dependency and
 provenance manifests, exact certificate code and data, permanent workflows and
-verification scripts, and the pinned Lean statement project.
+all verification/rebuild scripts, and the pinned Lean scalar-statement
+elaboration project. The permanent workflow extracts the ZIP in a clean
+directory and reruns its source-level checks there.

@@ -11,6 +11,30 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 ERRORS: list[str] = []
 
+EXPECTED_407_FILES = {
+    "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4073_boundary_loss_framework.md",
+    "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4074_L_Full_branch.md",
+    "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4075_Tminus_low_lower_branch_obligations.md",
+    "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4078_left_L_family_completion.md",
+    "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4079_first_Full_branch.md",
+    "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/407a_left_Thigh_branch_completion.md",
+    "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/407c_rigor_completion_details.md",
+    "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/407d_rigor_final_assembly.md",
+}
+COMPUTATION_3105 = (
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/"
+    "3105X_self_contained_direct_Vd0_nine_point/3105X_computation/"
+)
+EXPECTED_3105_FILES = {
+    *(COMPUTATION_3105 + f"mixed_overlap_core_data_{index:02d}.py" for index in range(6)),
+    COMPUTATION_3105 + "mixed_overlap_core_polynomials.py",
+    COMPUTATION_3105 + "verify_mixed_overlap_core_derivation.py",
+    COMPUTATION_3105 + "verify_global_core_positivity.py",
+}
+EXPECTED_3105_TRANSCRIPT = (
+    "dc46aaf263655d5159ecd3a81db72ee82477951d06172f4743b248df37209485"
+)
+
 
 def fail(message: str) -> None:
     ERRORS.append(message)
@@ -24,6 +48,22 @@ def run_generated_check(script: str) -> None:
     )
     if result.returncode:
         fail((result.stdout + result.stderr).strip())
+
+
+def strip_tex_comments(text: str) -> str:
+    """Remove TeX comments while retaining escaped percent signs."""
+    return re.sub(r"(?m)(?<!\\)%.*$", "", text)
+
+
+def active_tex(text: str) -> str:
+    r"""Return material visible to TeX, excluding comments and \iffalse blocks."""
+    text = strip_tex_comments(text)
+    inactive = re.compile(r"\\iffalse\b(?:(?!\\iffalse\b|\\fi\b).)*\\fi\b", re.S)
+    previous = None
+    while text != previous:
+        previous = text
+        text = inactive.sub("", text)
+    return text
 
 
 run_generated_check("tools/generate_active_dependency_graph.py")
@@ -67,7 +107,7 @@ def collect_tex(path: Path, seen: set[Path]) -> None:
         fail(f"missing TeX input: {path.relative_to(ROOT)}")
         return
     seen.add(path)
-    text = path.read_text(encoding="utf-8")
+    text = active_tex(path.read_text(encoding="utf-8"))
     for name in re.findall(r"\\input\{([^}]+)\}", text):
         child = path.parent / name
         if child.suffix == "":
@@ -81,7 +121,7 @@ collect_tex(ROOT / "arrange/paper_draft/main.tex", compiled)
 labels: dict[str, Path] = {}
 references: list[tuple[str, Path]] = []
 for path in compiled:
-    text = path.read_text(encoding="utf-8")
+    text = active_tex(path.read_text(encoding="utf-8"))
     for label in re.findall(r"\\label\{([^}]+)\}", text):
         if label in labels:
             fail(
@@ -97,9 +137,12 @@ for reference, path in references:
     if reference not in labels:
         fail(f"unresolved TeX reference {reference} in {path.relative_to(ROOT)}")
 
-main_text = (ROOT / "arrange/paper_draft/main.tex").read_text(encoding="utf-8")
-if "\\input{04_strategy2_verification}" not in main_text:
-    fail("main.tex does not use the consolidated Strategy 2 source")
+main_text = active_tex(
+    (ROOT / "arrange/paper_draft/main.tex").read_text(encoding="utf-8")
+)
+strategy2_path = (ROOT / "arrange/paper_draft/04_strategy2_verification.tex").resolve()
+if strategy2_path not in compiled:
+    fail("compiled TeX graph does not use the consolidated Strategy 2 source")
 for obsolete in [
     "04_strategy2_reader",
     "04_strategy2_exact_demand",
@@ -113,14 +156,19 @@ for obsolete in [
     if (ROOT / "arrange/paper_draft" / f"{obsolete}.tex").exists():
         fail(f"obsolete TeX source remains: {obsolete}.tex")
 
-strategy2_path = ROOT / "arrange/paper_draft/04_strategy2_verification.tex"
 strategy2_paths = sorted(
     path
     for path in compiled
     if path.name.startswith(("04_strategy2_", "04d_strategy2_", "04e_strategy2_", "04f_strategy2_"))
 )
-strategy2_text = "\n".join(path.read_text(encoding="utf-8") for path in strategy2_paths)
-short_vd_text = (ROOT / "arrange/paper_draft/04c_short_Vd_placements.tex").read_text(encoding="utf-8")
+strategy2_text = "\n".join(
+    active_tex(path.read_text(encoding="utf-8")) for path in strategy2_paths
+)
+short_vd_text = active_tex(
+    (ROOT / "arrange/paper_draft/04c_short_Vd_placements.tex").read_text(
+        encoding="utf-8"
+    )
+)
 if "prop:signed-ce2-one-vd-placements" in strategy2_text + short_vd_text:
     fail("duplicate compact CE2 one-Vd assembly remains")
 if (strategy2_text + short_vd_text).count(r"\label{prop:paper-ce2-one-vd-placements}") != 1:
@@ -130,6 +178,7 @@ if "\\subsection{Placement assembly}" in short_vd_text:
 
 ledger_path = ROOT / "arrange/paper_draft/source_ledger.md"
 ledger = ledger_path.read_text(encoding="utf-8")
+ledger_visible = re.sub(r"<!--.*?-->", "", ledger, flags=re.S)
 for obsolete in [
     "04_strategy2_reader.tex",
     "04_strategy2_exact_demand.tex",
@@ -142,6 +191,16 @@ for obsolete in [
 technical = ledger.split("### Technical appendices", 1)[1].split("The body-end label", 1)[0]
 if technical.count("`04_strategy2_verification.tex`") != 1:
     fail("source ledger must list the consolidated Strategy 2 appendix exactly once")
+
+canonical_407_crosswalk = """
+In the canonical branch crosswalk, first-`Const` followed by
+right-`Const` or right-$Q_-$ is owned by `4075`; `4078` owns the remaining
+first-`Const`, right-$Q_+$ family.
+"""
+if re.sub(r"\s+", " ", canonical_407_crosswalk).strip() not in re.sub(
+    r"\s+", " ", ledger_visible
+):
+    fail("source ledger has regressed the canonical 4075/4078 branch ownership")
 
 reader_body_paths = [
     ROOT / "arrange/paper_draft/01_introduction.tex",
@@ -243,16 +302,26 @@ def git_blob_sha(path: Path) -> str:
 
 
 provenance_407 = json.loads((ROOT / "proof/407X_PROVENANCE.json").read_text(encoding="utf-8"))
+if set(provenance_407.get("files", {})) != EXPECTED_407_FILES:
+    fail("407X provenance manifest must contain exactly the eight authenticated blobs")
+strategy2_manifest = (
+    ROOT
+    / "arrange/paper_draft/04e_strategy2_verification_00_provenance_manifest.tex"
+).read_text(encoding="utf-8")
 for relative, expected in provenance_407["files"].items():
     actual = git_blob_sha(ROOT / relative)
     if actual != expected:
         fail(f"407X blob drift: {relative}: expected {expected}, found {actual}")
-    if expected not in strategy2_text:
+    if expected not in strategy2_manifest:
         fail(f"407X full blob missing from Strategy 2 TeX: {relative}")
     if expected[:12] not in ledger:
         fail(f"407X blob prefix missing from source ledger: {relative}")
 
 provenance_3105 = json.loads((ROOT / "proof/3105X_CERTIFICATE_PROVENANCE.json").read_text(encoding="utf-8"))
+if set(provenance_3105.get("files", {})) != EXPECTED_3105_FILES:
+    fail("Strategy 4 provenance manifest must contain exactly six shards and three verifier files")
+if provenance_3105.get("transcript_sha256") != EXPECTED_3105_TRANSCRIPT:
+    fail("Strategy 4 provenance transcript digest is not the canonical exact digest")
 certificate_tex = (ROOT / "arrange/paper_draft/06a_strategy4_exact_certificate.tex").read_text(encoding="utf-8")
 for relative, expected in provenance_3105["files"].items():
     actual = git_blob_sha(ROOT / relative)
@@ -260,6 +329,12 @@ for relative, expected in provenance_3105["files"].items():
         fail(f"Strategy 4 certificate blob drift: {relative}")
     if expected not in certificate_tex:
         fail(f"Strategy 4 certificate blob missing from TeX manifest: {relative}")
+for path in [
+    ROOT / "arrange/paper_draft/source_ledger.md",
+    ROOT / "tools/generate_verification_summary.py",
+]:
+    if EXPECTED_3105_TRANSCRIPT not in path.read_text(encoding="utf-8"):
+        fail(f"canonical Strategy 4 transcript digest missing from {path.relative_to(ROOT)}")
 
 requirements = (ROOT / "requirements-proof.txt").read_text(encoding="utf-8").splitlines()
 if requirements != ["sympy==1.14.0", "PyMuPDF==1.26.7"]:
@@ -267,17 +342,77 @@ if requirements != ["sympy==1.14.0", "PyMuPDF==1.26.7"]:
 
 
 for label in [
-    "thm:s2-pure-e1",
-    "thm:s2-pure-e2",
-    "thm:s2-pure-r1",
-    "thm:s2-pure-r2",
-    "thm:s2-pure-t3",
-    "thm:s2-pure-sc",
-    "thm:s2-pure-vd-adjacent",
-    "thm:s2-pure-vd-nonadjacent",
+    "thm:s2-geom-e1",
+    "thm:s2-geom-e2",
+    "thm:s2-geom-r1",
+    "thm:s2-geom-r2",
+    "thm:s2-geom-t3",
+    "thm:s2-geom-sc",
+    "thm:s2-geom-vd-adjacent",
+    "thm:s2-geom-vd-nonadjacent",
 ]:
     if label not in labels:
-        fail(f"missing universal Strategy 2 theorem owner: {label}")
+        fail(f"missing active geometric Strategy 2 theorem owner: {label}")
+
+source_only_paths = [
+    ROOT / "arrange/paper_draft/04_strategy2_optimization_problems.tex",
+    ROOT / "arrange/paper_draft/04_strategy2_optimization_core.tex",
+    ROOT / "arrange/paper_draft/04_strategy2_optimization_map.tex",
+    ROOT / "arrange/paper_draft/04_strategy2_optimization_domain.tex",
+    ROOT / "arrange/paper_draft/04_strategy2_optimization_labels.tex",
+    ROOT / "arrange/paper_draft/04_strategy2_optimization_registered.tex",
+    ROOT / "arrange/paper_draft/04_strategy2_optimization_t3.tex",
+    ROOT / "arrange/paper_draft/04_strategy2_optimization_rescuer.tex",
+    ROOT / "arrange/paper_draft/04_strategy2_optimization_vd.tex",
+    ROOT / "arrange/paper_draft/04d_strategy2_parameter_bridges.tex",
+    ROOT / "arrange/paper_draft/04f_strategy2_pure_theorems.tex",
+]
+source_only_labels: dict[str, Path] = {}
+source_only_references: list[tuple[str, Path]] = []
+for path in source_only_paths:
+    text = active_tex(path.read_text(encoding="utf-8"))
+    for label in re.findall(r"\\label\{([^}]+)\}", text):
+        if label in source_only_labels:
+            fail(
+                f"duplicate source-only TeX label {label}: "
+                f"{source_only_labels[label].relative_to(ROOT)} and "
+                f"{path.relative_to(ROOT)}"
+            )
+        if label in labels:
+            fail(
+                f"source-only TeX label collides with compiled label {label}: "
+                f"{path.relative_to(ROOT)} and {labels[label].relative_to(ROOT)}"
+            )
+        source_only_labels[label] = path
+    for reference in re.findall(
+        r"\\(?:eqref|ref|pageref|cref|Cref|autoref)\{([^}]+)\}", text
+    ):
+        source_only_references.append((reference, path))
+for reference, path in source_only_references:
+    if reference not in labels and reference not in source_only_labels:
+        fail(f"unresolved source-only TeX reference {reference} in {path.relative_to(ROOT)}")
+
+for label in [
+    "thm:s2-univ-e1",
+    "thm:s2-univ-e2",
+    "thm:s2-univ-r1",
+    "thm:s2-univ-r2",
+    "thm:s2-source-t3",
+    "thm:s2-univ-sc",
+    "thm:s2-univ-vd-adjacent",
+    "thm:s2-univ-vd-nonadjacent",
+]:
+    if label not in source_only_labels:
+        fail(f"missing source-only Strategy 2 scalar owner: {label}")
+
+registry_path = (
+    ROOT
+    / "proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/"
+    "2111_strategy2_pure_optimization_registry.md"
+)
+registry_head = "\n".join(registry_path.read_text(encoding="utf-8").splitlines()[:20])
+if not re.search(r"(?m)^Status:\s*Reference\s*$", registry_head):
+    fail("2111 scalar-calculation crosswalk must remain Status: Reference")
 
 lean_root = ROOT / "formalization/strategy2_optimization"
 for relative in [
@@ -287,11 +422,11 @@ for relative in [
     "Strategy2Optimization/Problems.lean",
 ]:
     if not (lean_root / relative).is_file():
-        fail(f"missing pinned Lean statement-project file: {relative}")
+        fail(f"missing pinned Lean scalar-statement file: {relative}")
 if (lean_root / "lean-toolchain").is_file() and (lean_root / "lean-toolchain").read_text(encoding="utf-8").strip() != "leanprover/lean4:v4.32.2":
-    fail("Lean statement project is not pinned to Lean 4.32.2")
+    fail("Lean scalar-statement project is not pinned to Lean 4.32.2")
 if (lean_root / "lakefile.lean").is_file() and "905b95818eb32af7874a58b427f50c1711a5e96c" not in (lean_root / "lakefile.lean").read_text(encoding="utf-8"):
-    fail("Lean statement project is not pinned to the audited Mathlib commit")
+    fail("Lean scalar-statement project is not pinned to the audited Mathlib commit")
 
 for required_file in [
     "LICENSE",
@@ -325,6 +460,10 @@ for workflow in workflow_dir.glob("*.yml"):
     if workflow == paper_rebuild_workflow:
         if not requests_content_write:
             fail("paper-rebuild workflow must request contents: write")
+        if not re.search(r"actions:\s*write", text):
+            fail("paper-rebuild workflow must be able to dispatch post-build verification")
+        if "gh workflow run proof-ci.yml" not in text:
+            fail("paper-rebuild workflow must explicitly dispatch proof-ci after artifact commit")
     elif requests_content_write:
         fail(f"permanent workflow has contents: write: {workflow.relative_to(ROOT)}")
     if workflow.name == "proof-ci.yml":

@@ -60,8 +60,9 @@ def links(path: Path) -> list[Path]:
             target.relative_to(PROOF.resolve())
         except ValueError:
             continue
-        if target.is_file():
-            output.append(target)
+        if not target.is_file():
+            raise RuntimeError(f"broken in-proof Markdown link: {rel(path)} -> {href}")
+        output.append(target)
     return sorted(set(output), key=lambda p: rel(p))
 
 
@@ -127,13 +128,20 @@ def render() -> tuple[str, str]:
         "schema": 1,
         "root": rel(ROOT_SOURCE),
         "generated_by": "tools/generate_active_dependency_graph.py",
+        "edge_semantics": (
+            "untyped Markdown proof citations; cycles are permitted and the graph "
+            "is not a logical dependency order"
+        ),
         "nodes": {key: nodes[key] for key in sorted(nodes)},
         "inactive_links": {
             key: inactive_links[key] for key in sorted(inactive_links)
         },
     }
     graph_text = json.dumps(graph, indent=2, sort_keys=True) + "\n"
-    list_text = "# Generated transitive active proof graph: path|expected status\n"
+    list_text = (
+        "# Generated transitive active proof-reference graph: path|expected status\n"
+        "# Edges are untyped Markdown citations; cycles are permitted.\n"
+    )
     list_text += "".join(
         f"{key}|{nodes[key]['status']}\n" for key in sorted(nodes)
     )

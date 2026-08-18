@@ -19,7 +19,7 @@ midpoint targets used by the CE-first proof tree.
 | [`2013_T3_like_side_tradeoff.md`](2013_T3_like_side_tradeoff.md) | Proven | T3-like boundary/ray normal form, one-sided side tradeoff, and crossed-pair obstruction. |
 | [`2014_Vd1_Vd2_corner_normal_form.md`](2014_Vd1_Vd2_corner_normal_form.md) | Proven | Unique Vd1/Vd2 corner normal form, exact adjacent-ray endpoints, and $a+b<1/2$. |
 | [`2015_Vd2_neighbor_midpoint_cap.md`](2015_Vd2_neighbor_midpoint_cap.md) | Proven | A Vd2 role containing either neighboring midpoint satisfies $a+b<1/3$. |
-| [`2016_universal_Tplus_normal_form.md`](2016_universal_Tplus_normal_form.md) | Proven | Universal selected-$T_+$ curve for the high-radial raw transfer, strict concavity, chord bounds, and optional rational parameter. |
+| [`2016_universal_Tplus_normal_form.md`](2016_universal_Tplus_normal_form.md) | Proven | Universal selected-$Q_+$ curve for the high-radial propagation map, strict concavity, chord bounds, and optional rational parameter. |
 | [`2017_threshold_routing.md`](2017_threshold_routing.md) | Proven | One-hit and two-threshold routing through extensive high-radial raw chains, with the actual-row handoff explicit. |
 | [`2018_diameter_transfer_and_adjacent_rescuer.md`](2018_diameter_transfer_and_adjacent_rescuer.md) | Proven | Common diameter curve, center hiding, and the adjacent-support contradiction written with the single envelope $M_c^{\rm sup}$. |
 | [`2019_interval_component_and_path_budget.md`](2019_interval_component_and_path_budget.md) | Proven | Residual interval operator, branchwise center-assisted transfer, radial component form, and one boundary-path budget. |

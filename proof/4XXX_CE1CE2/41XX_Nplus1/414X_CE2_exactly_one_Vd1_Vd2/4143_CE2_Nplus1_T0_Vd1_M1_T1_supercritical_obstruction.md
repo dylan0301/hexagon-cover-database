@@ -10,8 +10,8 @@ adjacent-rescuer theorem
 [`2018`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2018_diameter_transfer_and_adjacent_rescuer.md).
 
 The single free strict-supercritical outgoing envelope is denoted by
-$g_c^{\rm sc}$; its complementary following-demand threshold is
-$1-g_c^{\rm sc}$.
+$M_c^{\rm sup}$; its complementary following-demand threshold is
+$1-M_c^{\rm sup}$.
 
 ## 1. Reduced branch
 
@@ -112,7 +112,7 @@ contrary to one-sided adjacent support.
 For $0\le c\le1/2$, put
 
 $$
-g_c^{\rm sc}
+M_c^{\rm sup}
 =
 \frac{c+\sqrt{c^2-8c+4}}2.
 $$
@@ -121,9 +121,9 @@ We prove
 
 $$
 \boxed{
-a\le1-g_c^{\rm sc},
+a\le1-M_c^{\rm sup},
 \qquad
-\frac{a}{a+1-u}\le1-g_c^{\rm sc}.
+\frac{a}{a+1-u}\le1-M_c^{\rm sup}.
 }
 $$
 
@@ -154,7 +154,7 @@ $$
 Since $a\ge0$ and $a\le L(c)$, every feasible V triangle has $L(c)\ge0$. We claim
 
 $$
-2L(c)\le1-g_c^{\rm sc}.
+2L(c)\le1-M_c^{\rm sup}.
 $$
 
 This is equivalent to
@@ -185,13 +185,13 @@ $$
 Hence $Q(c)>0$ throughout the interval and
 
 $$
-2L(c)\le1-g_c^{\rm sc}.
+2L(c)\le1-M_c^{\rm sup}.
 $$
 
 Since $L(c)\ge0$,
 
 $$
-a\le L(c)\le2L(c)\le1-g_c^{\rm sc}.
+a\le L(c)\le2L(c)\le1-M_c^{\rm sup}.
 $$
 
 ### 3.2. Hiding ratio
@@ -257,7 +257,7 @@ $$
 &\le
 2L(c)\\
 &\le
-1-g_c^{\rm sc}.
+1-M_c^{\rm sup}.
 \end{aligned}
 $$
 
@@ -265,7 +265,7 @@ Thus
 
 $$
 \boxed{
-\frac{a}{a+1-u}\le1-g_c^{\rm sc}.
+\frac{a}{a+1-u}\le1-M_c^{\rm sup}.
 }
 $$
 
@@ -282,13 +282,13 @@ The two boxed inequalities of Section 3 are exactly the remaining local
 hypotheses of the common adjacent-rescuer theorem `2018`. That theorem gives
 
 $$
-h\ge g_c^{\rm sc},
+h\ge M_c^{\rm sup},
 $$
 
 while the strict-supercritical envelope gives
 
 $$
-b_1<g_c^{\rm sc}.
+B_1<M_c^{\rm sup}.
 $$
 
 Its boundary-path budget then contradicts the four nonsupercritical V triangle caps

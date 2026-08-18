@@ -8,14 +8,15 @@ recorded status supports the claimed conclusion.  The exhaustive assembly is
 
 ## Spine
 
-Under a hypothetical seven-triangle cover, choose role triangles
+Under a hypothetical seven-open-triangle cover, write the original roles as
 
 $$
-T_C,T_0,\ldots,T_5.
+U_C,U_0,\ldots,U_5,
 $$
 
-The center role is exactly one of CE0, CE1, and CE2.  Every original vertex
-role is exactly one of Vd0, Vd1, Vd2, and T3-like.  Let
+and put $T_C=\overline{U_C}$ and $T_i=\overline{U_i}$. The closed C triangle
+$T_C$ is exactly one of CE0, CE1, and CE2. Every closed V triangle $T_i$ is
+exactly one of Vd0, Vd1, Vd2, and T3-like. Let
 
 $$
 N_+
@@ -23,18 +24,21 @@ N_+
 \left\lvert\left\{i:A_i+B_i>1\right\}\right\rvert
 $$
 
-be the number of actual supercritical vertex V triangles.  In CE1/CE2, let $m$ be the
-number of non-Vd0 roles and $q$ the number of short roles.  The common budget
-package `2530` proves
+be the number of actual supercritical V triangles, and let
 
 $$
-q=N_++m
+N_{\rm sp}
+=
+\left\lvert\left\{i:T_i\text{ is Vd1, Vd2, or T3-like}\right\}\right\rvert.
 $$
 
-and removes every $q\ge3$ state before the finer split.
+The common budget package `2530` removes every state with
+$N_++N_{\rm sp}\ge3$ before the finer split.
 
-For the all-Vd0 CE1/CE2 branches, let $N_{\rm gap}$ be the active-gap rank.  Bare
-$g$ is reserved for transfer maps.  The two V-triangle counts use the kernel
+For the all-Vd0 CE1/CE2 branches, let $N_{\rm gap}\in\{0,1,2\}$ be the
+number of positive C-triangle boundary traces containing a boundary gap.
+Singleton missed sets count as boundary gaps because the covering roles are
+open. The two V-triangle counts use the kernel
 
 | actual V-triangle count | $N_{\rm gap}=0$ | $N_{\rm gap}=1$ | $N_{\rm gap}=2$ |
 |---|---|---|---|
@@ -47,9 +51,7 @@ The authoritative notation is
 [`201d`](../2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md):
 
 $$
-M_c(1-x)=\max\{y:(1-x,y,c)\in\mathcal A\},
-\qquad
-f^\vee(a)=1-f(1-a).
+M_c(a)=\max\{b:(a,b,c)\in\mathcal A\}.
 $$
 
 For a nonsupercritical actual V triangle with incoming lower bound $a$ and
@@ -65,7 +67,7 @@ $$
 
 The high-radial branch is automatically nonsupercritical because the demanded
 radial segment contains the midpoint.  Hence $M_c(1-x)\le x$ for $c\ge1/2$,
-and $g_{1/2}=\mathrm I$.  On a center-free edge the corresponding incoming
+and the map $x\mapsto M_{1/2}(1-x)$ is $\mathrm I$.  On a center-free edge the corresponding incoming
 transfer is the identity in the low-radial branch and $\Phi_c$ in the
 high-radial branch. Center intervals use the same two cases after applying the
 residual operator. Selected affine and threshold relaxations are decorated
@@ -75,17 +77,13 @@ envelope is $M_c^{\rm sup}$.
 At zero radial demand the raw map satisfies
 
 $$
-g_0(x)>x\qquad(0<x<1),
+M_0(1-x)>x\qquad(0<x<1),
 $$
 
 so it is not used for a nonsupercritical low-radial handoff; that branch uses
 the direct inequality $B\le1-A$.
 
-The exact contact-cell aliases are
-
-$$
-M_c(a)=M_c(a),
-$$
+The exact nonsupercritical cap and propagation map are
 
 $$
 \overline M_c(a)=
@@ -112,25 +110,26 @@ $$
   - `2010`: free strict-supercritical envelope, denoted $M_c^{\rm sup}$ in the
     canonical notation.
   - `2011`: exact branchwise nonsupercritical output, the high-radial four
-    labels, and complement duality; the file retains $\overline M_c,\Phi_c$ as technical
-    aliases.
+    labels, and complement duality; $\overline M_c,\Phi_c$ are the canonical
+    cap and propagation maps.
   - `2016`: universal selected-$Q_+$ curve and affine chord bounds.
   - `2017`: one-hit and two-threshold routing.
   - `2018`: diameter transfer and common adjacent-rescuer obstruction in the
     $M_c^{\rm sup}$ notation.
-  - `2019`: residual intervals, center-assisted $g$-transfers, and boundary
+  - `2019`: residual intervals, center-assisted transfers, and boundary
     path budget.
   - `201a`: enclosure gauge and universal radical calculus.
   - `201b`: global quarter radial envelope.
   - `201c`: Vd corner radial margins.
-  - `201d`: canonical and relaxed $g$-composition calculus.
+  - `201d`: canonical raw, capped, propagation, and relaxed-map calculus.
   - `2100`: CE1/CE2 exactly-one-midpoint theorem, with $O$ in the interior.
   - `2107`: one-side exact endpoint loss.
   - `2108`: paired CE2 endpoint loss.
   - `2109`: signed CE1/CE2 center normal form.
   - `2110`: common application of the paired endpoint theorem to both two-gap
     cells.
-  - `2500`, `2510`, `2530`: boundary, skeleton, and common short-role budgets.
+  - `2500`, `2510`, `2530`: boundary, skeleton, and direct
+    $N_++N_{\rm sp}$ budgets.
 
 ## CE0 branch
 
@@ -148,13 +147,13 @@ index.
 ## CE1/CE2 branch
 
 - $N_+=0$:
-  - all Vd0: `4013`, using the three active-gap-rank chains;
+  - all Vd0: `4013`, using the three boundary-gap-count chains;
   - some Vd1/Vd2: `4040`, `4041`, unchanged Strategy 1 routes;
   - T3-like and no Vd1/Vd2: `407X`, exact branchwise endpoint audit with
     identity-relaxed interior V triangles; a low-radial endpoint is the direct
-    Full case.
+    $\mathrm{Lin}$ case.
 - $N_+=1$, all Vd0:
-  - `4105` gives one exact five-V-triangle high-radial $g^\vee$ interface;
+  - `4105` gives one exact five-V-triangle high-radial $\Phi_c$ interface;
   - `4106` gives the CE1 affine/threshold relaxation;
   - `4107` gives the CE2 one-threshold-slot relaxation;
   - the zero-gap cell remains the Strategy 4 nine-point obstruction.
@@ -176,8 +175,3 @@ The following remain nondependencies:
 - `963X`: failed five-point route;
 - `964X`: failed CE1/CE2 area route;
 - `3172`: false global T3-like coordinatewise tangent envelope.
-
-
-## 2026-08-02 replacement and skeleton-interface audit
-
-The CE2 exactly-one-Vd1/Vd2 terminal was re-audited after correcting `4147` to use separate local charts at the two distinguished vertices. The replacement now proves full skeleton preservation. `4013` is stated at the skeleton-data strength used by that reduction, and `414b` records the exhaustive placement re-audit. The main theorem status remains `Proven` because the corrected branch and all verification checks pass.

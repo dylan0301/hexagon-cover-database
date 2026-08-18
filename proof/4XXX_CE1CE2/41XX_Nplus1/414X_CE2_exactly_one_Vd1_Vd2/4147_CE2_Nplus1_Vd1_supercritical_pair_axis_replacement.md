@@ -9,11 +9,13 @@ The Vd2 alternative is eliminated by
 
 ## Theorem
 
-Assume the complementary `414X` branch in which:
+Let $U_C,U_0,\ldots,U_5$ be the original open roles and put
+$T_C=\overline{U_C}$ and $T_i=\overline{U_i}$. Assume the complementary
+`414X` branch in which:
 
-- the center role is CE2;
+- the closed C triangle $T_C$ is CE2;
 - the full skeleton $S$ is covered;
-- a Vd1 role and the unique supercritical Vd0 role are adjacent;
+- a closed Vd1 role and the unique supercritical closed Vd0 role are adjacent;
 - the Vd1 role contains the own midpoint missed by the supercritical role;
 - neither special role is the vertex role at the center's unique midpoint;
 - every other vertex role is nonsupercritical Vd0;
@@ -21,8 +23,9 @@ Assume the complementary `414X` branch in which:
   the two pair vertices;
 - the center has no boundary trace on the shared edge of the pair.
 
-After a fresh cyclic renumbering, write the Vd1 role as $U_0$ at $V_0$, the
-supercritical role as $U_1$ at $V_1$, and the rescued midpoint as $M_1$.
+After a fresh cyclic renumbering, write the original open roles as $U_0$ at
+$V_0$ and $U_1$ at $V_1$, with $T_0$ Vd1 and $T_1$ supercritical, and write
+the rescued midpoint as $M_1$.
 This local renumbering does not assert that the center midpoint is $M_0$.
 In these indices the preceding no-other-support hypothesis says
 
@@ -31,8 +34,9 @@ $$
 \qquad(j\notin\{0,1\}).
 $$
 
-Then $U_0,U_1$ can be replaced by two open nonsupercritical Vd0 roles
-$U_0',U_1'$ such that the modified seven roles still cover the full skeleton.
+Then $U_0,U_1$ can be replaced by two open roles $U_0',U_1'$ whose closures
+are nonsupercritical Vd0 and such that the modified seven roles still cover
+the full skeleton.
 The all-Vd0 skeleton theorem `4013` then gives a contradiction.
 
 ## 1. Vd1 margins
@@ -66,7 +70,7 @@ $$
 
 where the $r_1$ coordinate is measured from $V_1$ toward $O$.
 
-Since the original open Vd1 role contains $M_1$, its closure satisfies with
+Since the original open role $U_0$ contains $M_1$, its Vd1 closure satisfies with
 strict margin
 
 $$
@@ -595,7 +599,7 @@ The new vertex-side radial trace therefore overlaps the center trace, whose
 vertex-side beginning is $c_1^{\rm req}$. Thus all of $r_1$ remains covered.
 
 Consequently the modified seven open roles cover the full skeleton $S$.
-Their center role remains CE2, and all six vertex roles are now
+Their closed C triangle remains CE2, and all six closed V triangles are now
 nonsupercritical Vd0. The skeleton-level all-Vd0 theorem
 [`4013`](../../40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md)
 gives a contradiction.

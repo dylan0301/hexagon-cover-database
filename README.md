@@ -43,7 +43,7 @@ technical manuscript:
 The target is approximately ninety pages. Mathematical content formerly
 repeated across reader, bridge, optimization-registry, and verification layers
 is stated once in the printed paper. The source-only registries and pinned Lean
-statement project remain active verification interfaces.
+scalar-statement elaboration project remain active verification interfaces.
 
 Paper navigation and provenance:
 
@@ -54,9 +54,10 @@ Paper navigation and provenance:
 
 A source change on `main` triggers the write-enabled paper workflow, which
 builds and audits the manuscript and commits the canonical PDF and verification
-summary back to `main`. The ordinary proof workflow then independently replays
-the proof graph, exact certificates, Lean statement project, semantic PDF
-rebuild, and release bundle.
+summary back to `main`. Before committing, that workflow replays the active
+proof-reference graph, exact certificates, Lean scalar-statement elaboration, and a two-build
+semantic PDF audit. The ordinary read-only proof workflow independently runs
+the same verification families on user pushes and pull requests.
 
 ## Start here
 
@@ -78,9 +79,9 @@ Recommended mathematical reading order:
 
 ## Unified proof architecture
 
-Seven distinguished points force one center triangle and six vertex triangles.
-The center triangle is exactly one of CE0, CE1, CE2. Every vertex triangle is
-exactly one of Vd0, Vd1, Vd2, T3-like. For a vertex triangle let
+Seven distinguished points force one C triangle and six V triangles.
+The C triangle is exactly one of CE0, CE1, CE2. Every V triangle is
+exactly one of Vd0, Vd1, Vd2, T3-like. For a V triangle let
 `(A_i,B_i,C_i)` be its actual maximal backward, forward, and radial reaches,
 and put
 
@@ -104,9 +105,9 @@ The proof uses four mechanisms:
    admissible set;
 3. normalized area-loss estimates;
 4. an equilateral-enclosure obstruction for nine points forced into the center
-   triangle.
+   C triangle.
 
-For a nonsupercritical vertex triangle, low radial lower bounds use
+For a nonsupercritical V triangle, low radial lower bounds use
 `B<=1-A` directly. High radial lower bounds use the raw admissible-set transfer;
 the demanded midpoint then makes the output automatically nonsupercritical.
 The raw zero-radial map is not used as an identity transfer.
@@ -123,7 +124,7 @@ The raw zero-radial map is not used as an identity transfer.
 
 The complete file list is [`proof/MANIFEST.txt`](proof/MANIFEST.txt).
 
-## Exact certificates and formalization
+## Exact certificates and Lean statement elaboration
 
 The Strategy 4 mixed support-arc intersections use exact integer, rational,
 and `Q(sqrt(3))` arithmetic. The authenticated sparse data, derivation
@@ -132,9 +133,10 @@ Floating-point and interval arithmetic are not proof dependencies.
 
 The Strategy 2 Lean project in
 [`formalization/strategy2_optimization/`](formalization/strategy2_optimization/)
-checks the pinned exact problem statements. It deliberately contains `sorry`
-placeholders and is not represented as a complete Lean formalization; the full
-paper proofs remain in the TeX and numbered proof sources.
+elaborates the scalar statements needed for the long calculation layer. Its
+ten theorem bodies are intentional `sorry` admissions. This project is a
+statement check, not a proof or formalization of the geometric argument; the
+complete proofs remain in the TeX and numbered proof sources.
 
 ## Interactive navigation
 

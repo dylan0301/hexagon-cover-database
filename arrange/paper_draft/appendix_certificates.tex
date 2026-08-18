@@ -5,11 +5,11 @@ We first state the finite caliper criterion used below.  It enters
 the proof through the exact statement and verification argument given here;
 neither a plot nor an unrecorded numerical convention is used.
 
-Let $R$ and $J$ denote counterclockwise rotations through $2\pi/3$ and
+Let $\mathsf R$ and $\mathsf J$ denote counterclockwise rotations through $2\pi/3$ and
 $\pi/2$, respectively.  For a nonempty finite set $S\subset\mathbb R^2$ and
 a vector $N$, put
 \begin{equation}
- W_S(N)=\sum_{k=0}^2\max_{z\in S}\langle z,R^kN\rangle .
+ W_S(N)=\sum_{k=0}^2\max_{z\in S}\langle z,\mathsf R^kN\rangle .
  \label{eq:caliper-support-sum}
 \end{equation}
 
@@ -19,7 +19,7 @@ If $S$ has at least two distinct points, then $S$ is contained in a closed
 unit equilateral triangle if and only if there are distinct $p,q\in S$ and
 $\varepsilon\in\{-1,1\}$ for which
 \begin{equation}
- W_S\bigl(\varepsilon J(q-p)\bigr)
+ W_S\bigl(\varepsilon\mathsf J(q-p)\bigr)
  \le \frac{\sqrt3}{2}\lVert p-q\rVert .
  \label{eq:finite-caliper-test}
 \end{equation}
@@ -33,27 +33,16 @@ required, and repeated point labels merely delete zero-length pairs.
 \end{theorem}
 
 \begin{proof}
-For a unit vector $n$, write
-\[
- G_S(n)=\sum_{k=0}^2h_S(R^kn),
- \qquad h_S(n)=\max_{z\in S}\langle z,n\rangle .
-\]
-The three supporting half-planes with normals $n,Rn,R^2n$ form an
-equilateral triangle of side $2G_S(n)/\sqrt3$.  Hence $S$ fits in a closed
-unit equilateral triangle precisely when
-$\min_{\lVert n\rVert=1}G_S(n)\le\sqrt3/2$.
-
-On an open normal-direction cell on which the three support points are
-fixed, $G_S(\theta)=c\cos\theta+d\sin\theta$ and
-$G_S''=-G_S<0$ unless all points coincide.  Thus a minimum occurs at a
-cell boundary, where some support line contains two distinct points $p,q$.
-After a cyclic rotation of the three normals, its normal is
-$\varepsilon J(q-p)/\lVert p-q\rVert$.  Homogeneity yields
-\eqref{eq:finite-caliper-test}.  A nondegenerate segment is checked directly
+Apply the enclosure gauge of
+Proposition~\ref{prop:universal-enclosure-gauge} to the polygonal hull of
+$S$. A minimizing normal is perpendicular to a hull edge $[p,q]$; after a
+cyclic rotation of the three normals it is
+$\varepsilon\mathsf J(q-p)/\lVert p-q\rVert$. Homogeneity gives
+\eqref{eq:finite-caliper-test}. A nondegenerate segment is checked directly
 with its two normals.
 
 For the polynomial expansion fix $(p,q,\varepsilon)$, put
-$N=\varepsilon J(q-p)$ and $N_k=R^kN$, and choose support labels
+$N=\varepsilon\mathsf J(q-p)$ and $N_k=\mathsf R^kN$, and choose support labels
 $z_0,z_1,z_2\in S_x$.  The support cell is
 \begin{equation}
  \langle z_k,N_k\rangle\ge\langle z,N_k\rangle

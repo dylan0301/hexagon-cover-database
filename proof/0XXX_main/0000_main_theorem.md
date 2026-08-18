@@ -13,20 +13,29 @@ The equivalence is proved in
 
 ## Proof
 
-Assume that seven open unit equilateral triangles cover $H$. The center $O$
+Assume that seven open unit equilateral triangles cover $H$. Denote the
+original open triangles by
+
+$$
+U_C,U_0,\dots,U_5,
+$$
+
+where $O\in U_C$ and $V_i\in U_i$, and put
+
+$$
+T_C=\overline{U_C},
+\qquad
+T_i=\overline{U_i}.
+$$
+
+The center $O$
 and vertices $V_0,\dots,V_5$ are pairwise at distance at least $1$, whereas
 two points in one open unit triangle are at distance strictly below $1$.
 Each triangle therefore covers at most one distinguished point. Since seven
-triangles cover all seven points, they have distinct roles
-
-$$
-T_C,T_0,\dots,T_5,
-$$
-
-with $O\in T_C$ and $V_i\in T_i$.
-
-Apply the proved classifications to the associated closed triangles, keeping
-the same symbols. By [`1101`](../1XXX_foundations/11XX_C_triangle/1101_CE_classification.md),
+triangles cover all seven points, the displayed assignment gives their
+distinct roles. Apply the proved classifications to the closed triangles
+$T_C,T_i$, retaining $U_C,U_i$ whenever openness or open membership is used.
+By [`1101`](../1XXX_foundations/11XX_C_triangle/1101_CE_classification.md),
 $T_C$ is exactly one of CE0, CE1, and CE2. By
 [`1201`](../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md), every
 vertex role is exactly one of Vd0, Vd1, Vd2, and T3-like.
@@ -64,18 +73,21 @@ classification forces a T3-like role. Hence CE0 is impossible.
 
 ### CE1 and CE2
 
-Let $m$ be the number of Vd1, Vd2, or T3-like roles, and let $q$ be the
-number of short roles. The exact short-role count in
+Let $N_{\rm sp}$ be the number of Vd1, Vd2, or T3-like roles. The common
+skeleton theorem in
 [`2530`](../2XXX_geometric_lemmas/25XX_length_bounds/2530_common_CE1_CE2_budget_lemmas.md)
-is
+states directly that
 
 $$
-q=N_++m.
+N_++N_{\rm sp}\ge3
+\quad\Longrightarrow\quad
+L_S(T_C)+\sum_{i=0}^5L_S(T_i)<12.
 $$
 
-Every case with $q\ge3$ is impossible by the three-short-role skeleton
-theorem. If $N_+\ge2$, midpoint rescue forces a further positive-support
-role, so again $q\ge3$. It remains to consider $N_+\le1$ and $q\le2$.
+Such a strict deficit is incompatible with covering the length-$12$
+skeleton. If $N_+\ge2$, midpoint rescue forces a further positive-support
+role, so $N_{\rm sp}\ge1$ and the displayed obstruction applies. It remains
+to consider $N_+\le1$ and $N_++N_{\rm sp}\le2$.
 
 | Surviving actual-V triangle and vertex-type case | Proven contradiction |
 |---|---|
@@ -86,15 +98,11 @@ role, so again $q\ge3$. It remains to consider $N_+\le1$ and $q\le2$.
 | $N_+=1$, exactly one T3-like role | Boundary obstruction [`4130`](../4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like/4130_CE1CE2_exactly_one_T3_like_index.md) |
 | $N_+=1$, exactly one Vd1/Vd2 role | CE1 boundary obstruction [`4110`](../4XXX_CE1CE2/41XX_Nplus1/411X_Vd1_Vd2_obstruction/4110_CE1_Nplus1_exists_Vd1_Vd2_boundary_length_obstruction.md), or CE2 mixed-type assembly [`4140`](../4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4140_CE2_Nplus1_exactly_one_Vd1_Vd2_index.md) |
 
-For $N_+=0$, the first three V triangles are exhaustive. For $N_+=1$, the short-role
-count leaves at most one non-Vd0 role, giving the last three V triangles. Thus CE1
+For $N_+=0$, the first three V-triangle cases are exhaustive. For $N_+=1$,
+the inequality $N_++N_{\rm sp}\le2$ leaves at most one non-Vd0 role, giving
+the last three V-triangle cases. Thus CE1
 and CE2 are impossible.
 
 All three center classes lead to contradictions. Therefore seven open unit
 equilateral triangles cannot cover $H$. The equivalence in `1003` gives the
 closed expanded-hexagon formulation. $\square$
-
-
-## 2026-08-02 replacement and skeleton-interface audit
-
-The CE2 exactly-one-Vd1/Vd2 terminal was re-audited after correcting `4147` to use separate local charts at the two distinguished vertices. The replacement now proves full skeleton preservation. `4013` is stated at the skeleton-data strength used by that reduction, and `414b` records the exhaustive placement re-audit. The main theorem status remains `Proven` because the corrected branch and all verification checks pass.

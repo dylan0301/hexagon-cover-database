@@ -44,10 +44,11 @@ immediately before `\appendix`.
 `04b_common_CE1_CE2_budgets.tex`.
 
 `04_boundary_propagation.tex` incorporates `02a_universal_calculus.tex`,
-`04c_short_Vd_placements.tex`, and the consolidated detailed propagation
-modules. The finite optimization specifications and Lean statement project
-remain available for exact verification, but their duplicate prose is not
-printed.
+the signed-center propagation interface, `04c_short_Vd_placements.tex`, and
+the consolidated detailed propagation modules. The finite optimization
+specifications and Lean statement-elaboration project remain repository
+interfaces for the long scalar calculations, but their duplicate prose is not
+printed or described as a manuscript appendix.
 
 `05_area_loss_full.tex` incorporates `05_strategy3_area.tex`.
 
@@ -89,6 +90,12 @@ exact bytes. The current objects are:
 | `407c_rigor_completion_details.md` | `c80243f67124` |
 | `407d_rigor_final_assembly.md` | `e22c85c95fdd` |
 
+In the canonical branch crosswalk, first-`Const` followed by
+right-`Const` or right-$Q_-$ is owned by `4075`; `4078` owns the remaining
+first-`Const`, right-$Q_+$ family. The authenticated files retain their
+legacy symbols; the repository notation dictionary gives their crosswalk to
+the canonical symbols used in print.
+
 ## 5. Exact Strategy 4 certificate
 
 The mixed-overlap appendix incorporates all sparse-data shards, the exact
@@ -102,9 +109,9 @@ dependencies.
 
 ## 6. Build status
 
-The source commit is rebuilt by the write-enabled paper workflow in the pinned
-TeX Live 2025 image. The workflow checks TeX references, overfull boxes,
-rendering, and the target page range, regenerates the verification summary,
-and commits the canonical `main.pdf` and summary back to `main`. The read-only
-proof workflow then replays the proof graph, Strategy 2 specifications, Lean
-statement project, exact Strategy 4 certificate, and deterministic paper audit.
+On `main`, the paper-rebuild workflow replays the active proof-reference graph, Strategy 2
+specifications, exact Strategy 4 certificate, and Lean scalar-statement
+elaboration; it then uses the pinned TeX Live 2025 image for two semantic
+rebuilds, checks references, overfull boxes, and rendering, and commits a
+changed canonical PDF and summary back to `main`. The read-only proof workflow
+independently performs the same checks on user pushes and pull requests.

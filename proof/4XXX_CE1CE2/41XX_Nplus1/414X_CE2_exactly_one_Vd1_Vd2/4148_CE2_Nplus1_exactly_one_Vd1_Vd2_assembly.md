@@ -28,7 +28,7 @@ cover $H$.
 
 If an additional $T_i$ satisfies
 $\mathcal H^1(T_i\cap r_j)>0$ for some $j\in\{i-1,i+1\}$, `414a` gives
-the three-short-role skeleton contradiction. Hence assume the complementary
+the direct $N_++N_{\rm sp}\ge3$ skeleton contradiction. Hence assume the complementary
 no-additional-support branch. Every other nonspecial vertex role is then
 nonsupercritical Vd0.
 

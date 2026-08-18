@@ -129,14 +129,14 @@ $$
 For
 
 $$
-\Phi_s(c)=\widehat M_c(sc),
+\mathcal K_s(c)=\overline M_c(sc),
 $$
 
 the remaining target is
 
 $$
 \boxed{
-\Phi_w(\alpha)+\Phi_r(\beta)<1.
+\mathcal K_w(\alpha)+\mathcal K_r(\beta)<1.
 }
 $$
 
@@ -150,11 +150,11 @@ $$
 
 The exact four-label theorem in
 [`2011`](../20XX_V_triangle_geometry/2011_capped_demand_map.md)
-has labels $L,Q_-,Q_+^{hi},\mathrm{Lin}$.
+has labels $\mathrm{Const},Q_-,Q_+,\mathrm{Lin}$.
 
-For the small-weight map $\Phi_w$, a $Q_-$ selector would require
+For the small-weight map $\mathcal K_w$, a $Q_-$ selector would require
 $\alpha\le2w\alpha$, so that label is absent when $w<1/2$. For the
-large-weight map, Full would require $\beta\le1/(1+r)$, whereas
+large-weight map, Lin would require $\beta\le1/(1+r)$, whereas
 
 $$
 \beta>1+z-p>1+z-w>\frac1{1+r}.
@@ -166,8 +166,8 @@ $$
 r+z>\frac{1+r}{2}\ge\frac1{1+r}.
 $$
 
-The exact $Q_-$ and $Q_+^{hi}$ parametrizations verified in Section 3 both
-give $\beta\le K$ on the large side. If small-side Full were paired with
+The exact $Q_-$ and $Q_+$ parametrizations verified in Section 3 both
+give $\beta\le K$ on the large side. If small-side Lin were paired with
 either, then the first
 endpoint inequality would imply
 
@@ -175,7 +175,7 @@ $$
 p>1+z-K=(1+r)z.
 $$
 
-But Full also gives $p\le w/(1+w)$, while
+But Lin also gives $p\le w/(1+w)$, while
 
 $$
 (1+r)z>\frac{w}{1+w}.
@@ -188,36 +188,37 @@ $$
 w(3-2w-2w^2+w^3)>0.
 $$
 
-Thus small-side Full can pair only with $L$. At $w=r=1/2$, reflect the two
+Thus small-side Lin can pair only with $\mathrm{Const}$. At $w=r=1/2$, reflect the two
 endpoint roles if necessary so that any single $Q_-$ label is second; the
 low--low estimate below handles two low labels. Therefore the possible
 ordered pairs are
 
 $$
-(\mathrm{Lin},L),
+(\mathrm{Lin},\mathrm{Const}),
 \quad
-(Q_+^{hi},L),
+(Q_+,\mathrm{Const}),
 \quad
-(L,L),
+(\mathrm{Const},\mathrm{Const}),
 \quad
-(L,Q_-),
+(\mathrm{Const},Q_-),
 \quad
-(L,Q_+^{hi}),
+(\mathrm{Const},Q_+),
 \quad
-(Q_+^{hi},Q_-),
+(Q_+,Q_-),
 \quad
-(Q_+^{hi},Q_+^{hi}).
+(Q_+,Q_+).
 $$
 
 Every low--low pair has sum at most $K<1$. Indeed, Section 3 gives
-$0\le k\le w$ for each $L$ parameter. Since $t h(t)$ increases on
-$[0,1/2]$, an $L$ output is at most $wK$. A large-side $Q_-$ output is
-$yK/(r+y)\le rK$, because $y\le r$ and $w\le r$. Thus an $L,Q_-$ pair has
-sum at most $K$, and an $L,L$ pair has sum at most $2wK\le K$. A small-side
+$0\le k\le w$ for each $\mathrm{Const}$ parameter. Since $t h(t)$ increases on
+$[0,1/2]$, a $\mathrm{Const}$ output is at most $wK$. A large-side $Q_-$ output is
+$yK/(r+y)\le rK$, because $y\le r$ and $w\le r$. Thus a
+$\mathrm{Const},Q_-$ pair has sum at most $K$, and a
+$\mathrm{Const},\mathrm{Const}$ pair has sum at most $2wK\le K$. A small-side
 $Q_-$ exists only at $w=r=1/2$; its selected parameter is then $1/2$, so a
 $Q_-,Q_-$ pair also has sum $K$.
 
-To eliminate Full--$L$, write
+To eliminate Lin--$\mathrm{Const}$, write
 
 $$
 \beta=h(k):=\sqrt{1-k+k^2},
@@ -228,17 +229,17 @@ $$
 and put
 
 $$
-B_0=1+z-\frac{w}{1+w},
+\beta_*=1+z-\frac{w}{1+w},
 \qquad
 \kappa=\frac{w}{1+(1+w)z}.
 $$
 
-Full feasibility and the first endpoint inequality give $\beta>B_0$, and
-$(1+\kappa)B_0=1+z$. Direct common-denominator reduction, using
+Lin feasibility and the first endpoint inequality give $\beta>\beta_*$, and
+$(1+\kappa)\beta_*=1+z$. Direct common-denominator reduction, using
 $K^2=1-w+w^2$, gives
 
 $$
-B_0^2-h(\kappa)^2
+\beta_*^2-h(\kappa)^2
 =
 \frac{w^2\left(A(w)+KC(w)\right)}{D_0(w,K)},
 $$
@@ -264,7 +265,7 @@ Both numerator polynomials are positive on $0<w\le1/2$: group their only
 negative terms as $8-5w-w^6>0$ and $8-w-2w^4>0$. Hence
 
 $$
-h(\kappa)<B_0<\beta=h(k).
+h(\kappa)<\beta_*<\beta=h(k).
 $$
 
 Since $h$ decreases and $(1+t)h(t)$ increases on $[0,1/2]$, one has
@@ -287,18 +288,18 @@ $$
 $$
 
 The first endpoint inequality then gives $k\beta<p$. This is exactly the
-Full--$L$ loss inequality.
+Lin--$\mathrm{Const}$ loss inequality.
 
 Consequently only the four pairs
 
 $$
-(Q_+^{hi},L),
+(Q_+,\mathrm{Const}),
 \qquad
-(L,Q_+^{hi}),
+(\mathrm{Const},Q_+),
 \qquad
-(Q_+^{hi},Q_-),
+(Q_+,Q_-),
 \qquad
-(Q_+^{hi},Q_+^{hi}).
+(Q_+,Q_+).
 $$
 
 remain. We prove all four below.
@@ -313,7 +314,7 @@ will be used without further comment.
 
 ## 3. Selected branch parametrizations
 
-On an $L$ frontier, if the output-to-radial ratio is $k$, then
+On a $\mathrm{Const}$ frontier, if the output-to-radial ratio is $k$, then
 
 $$
 c=h(k),
@@ -323,7 +324,7 @@ B=kh(k),
 0\le k\le\frac12.
 $$
 
-For the small-side $L$ label, the ordered Cell-$L$ half gives $k\le w$.
+For the small-side $\mathrm{Const}$ label, the ordered Cell-$L$ half gives $k\le w$.
 For the large-side label, put $X=r+k$ and $C=h(k)^2$. The exact transition
 factorization is
 
@@ -354,18 +355,18 @@ $$
 The case $k=0$ is immediate. Thus the Cell-$L$ selector
 $Q_{\mathrm{cell}}\le0$ gives $k\le w$ on the large side as well.
 Consequently both
-remaining $L$ labels satisfy
+remaining $\mathrm{Const}$ labels satisfy
 
 $$
 0\le k\le w.
 $$
 
-On the small-side $Q_+^{hi}$ frontier, write
+On the small-side $Q_+$ frontier, write
 
 $$
 \alpha=\frac{h(x)}{w+x},
 \qquad
-\Phi_w(\alpha)=x\alpha.
+\mathcal K_w(\alpha)=x\alpha.
 $$
 
 The genuine high-component selector gives $x\ge1/2$. The Cell-$T$ selector
@@ -388,7 +389,7 @@ $$
 The second factor is nonnegative when $x\ge1/2$ and $w\le1/2$. Therefore
 $Q_{\mathrm{cell}}\ge0$ gives $x\ge r$. The nonsupercritical cap gives
 $x\le1$, with
-$x=1$ assigned to Full. Thus a non-Full high label has
+$x=1$ assigned to Lin. Thus a non-Lin high label has
 
 $$
 r\le x<1.
@@ -399,7 +400,7 @@ Similarly, the large-side high frontier has
 $$
 \beta=\frac{h(y)}{r+y},
 \qquad
-\Phi_r(\beta)=y\beta,
+\mathcal K_r(\beta)=y\beta,
 \qquad
 r\le y<1.
 $$
@@ -422,7 +423,7 @@ Finally, the large-side $Q_-$ frontier has
 $$
 \beta=\frac{K}{r+y},
 \qquad
-\Phi_r(\beta)=y\beta=K-r\beta.
+\mathcal K_r(\beta)=y\beta=K-r\beta.
 $$
 
 Its selector factors as
@@ -452,14 +453,14 @@ coordinate is $r\beta$ and $r\ge1/2$.
 These are selected geometric components of the exact safe map; no formal
 root from the discarded high sheet is used.
 
-## 4. The pair $(L,Q_+^{hi})$
+## 4. The pair $(\mathrm{Const},Q_+)$
 
-Parameterize the small $L$ and large high labels by
+Parameterize the small $\mathrm{Const}$ and large high labels by
 
 $$
 \alpha=h(k),
 \qquad
-\Phi_w(\alpha)=kh(k),
+\mathcal K_w(\alpha)=kh(k),
 \qquad
 0\le k\le w,
 $$
@@ -469,7 +470,7 @@ and
 $$
 \beta=\frac{h(t)}{r+t},
 \qquad
-\Phi_r(\beta)=\frac{th(t)}{r+t},
+\mathcal K_r(\beta)=\frac{th(t)}{r+t},
 \qquad
 r\le t<1.
 $$
@@ -509,7 +510,7 @@ for $t\ge r\ge1/2$. Thus $f$ and $g_r$ increase, while $d_r$ decreases.
 Monotonicity gives
 
 $$
-\Phi_w(\alpha)+\Phi_r(\beta)
+\mathcal K_w(\alpha)+\mathcal K_r(\beta)
 <wK+\frac1{2-w}.
 $$
 
@@ -587,7 +588,7 @@ $$
 Therefore
 
 $$
-\Phi_w(\alpha)+\Phi_r(\beta)
+\mathcal K_w(\alpha)+\mathcal K_r(\beta)
 <
 \frac{\sqrt3}{4}
 +
@@ -603,9 +604,9 @@ $$
 3\sqrt{13}<11.
 $$
 
-This proves $(L,Q_+^{hi})$.
+This proves $(\mathrm{Const},Q_+)$.
 
-## 5. The pair $(Q_+^{hi},Q_-)$
+## 5. The pair $(Q_+,Q_-)$
 
 Use the parameters $x$ and $y$ from Section 3. Since both
 
@@ -676,7 +677,7 @@ Put
 
 $$
 G(x)=
-\Phi_w(\alpha)+\alpha
+\mathcal K_w(\alpha)+\alpha
 =
 \frac{(1+x)h(x)}{w+x}.
 $$
@@ -703,15 +704,15 @@ $$
 The second strict endpoint inequality and
 
 $$
-\Phi_r(\beta)=K-r\beta
+\mathcal K_r(\beta)=K-r\beta
 $$
 
 now give
 
 $$
 \begin{aligned}
-\Phi_w(\alpha)+\Phi_r(\beta)
-&<\Phi_w(\alpha)+\alpha+K-1-\zeta\\
+\mathcal K_w(\alpha)+\mathcal K_r(\beta)
+&<\mathcal K_w(\alpha)+\alpha+K-1-\zeta\\
 &\le(2+r)K-1-\zeta.
 \end{aligned}
 $$
@@ -751,17 +752,17 @@ $$
 Thus the required difference is positive and
 
 $$
-\Phi_w(\alpha)+\Phi_r(\beta)<1.
+\mathcal K_w(\alpha)+\mathcal K_r(\beta)<1.
 $$
 
-## 6. The pair $(Q_+^{hi},Q_+^{hi})$
+## 6. The pair $(Q_+,Q_+)$
 
 Write
 
 $$
 \alpha=\frac{h(x)}{w+x},
 \qquad
-\Phi_w(\alpha)=x\alpha,
+\mathcal K_w(\alpha)=x\alpha,
 $$
 
 and
@@ -769,7 +770,7 @@ and
 $$
 \beta=\frac{h(y)}{r+y},
 \qquad
-\Phi_r(\beta)=y\beta,
+\mathcal K_r(\beta)=y\beta,
 $$
 
 where $r\le x,y<1$. Then
@@ -857,7 +858,7 @@ Thus $F_a$ has at most one interior minimum, and its maximum on a closed
 interval occurs at an endpoint. Consequently
 
 $$
-\Phi_w(\alpha)+\alpha
+\mathcal K_w(\alpha)+\alpha
 =F_w(x)
 \le\frac2{1+w},
 $$
@@ -865,7 +866,7 @@ $$
 and
 
 $$
-\Phi_r(\beta)+\beta
+\mathcal K_r(\beta)+\beta
 =F_r(y)
 \le\frac2{1+r}.
 $$
@@ -912,7 +913,7 @@ $$
 Therefore
 
 $$
-\Phi_w(\alpha)+\Phi_r(\beta)
+\mathcal K_w(\alpha)+\mathcal K_r(\beta)
 <
 \frac2{1+w}
 +
@@ -1004,12 +1005,12 @@ $$
 
 The displayed gap is positive, proving the high--high pair.
 
-## 7. The pair $(Q_+^{hi},L)$
+## 7. The pair $(Q_+,\mathrm{Const})$
 
 This is the limiting pair as $w\to0^+$ and requires a sharper coupled
 endpoint argument.
 
-Parameterize the small high branch and the large $L$ branch by
+Parameterize the small high branch and the large $\mathrm{Const}$ branch by
 
 $$
 \alpha=\frac{h(t)}{w+t},
@@ -1363,7 +1364,7 @@ $$
 \kappa P_1=\frac{w}{1+w}.
 $$
 
-The Full--$L$ factor proved in Section 2, with the same $\kappa$, gives
+The Lin--$\mathrm{Const}$ factor proved in Section 2, with the same $\kappa$, gives
 
 $$
 P_1>h(\kappa).
@@ -1392,7 +1393,7 @@ $$
 G>0
 $$
 
-and hence the pair $(Q_+^{hi},L)$.
+and hence the pair $(Q_+,\mathrm{Const})$.
 
 ## 8. Assembly
 
@@ -1400,16 +1401,16 @@ Sections 4--7 prove the four pairs left by the exhaustive reduction in
 Section 2. Therefore every genuine selected label pair satisfies
 
 $$
-\Phi_w(\alpha)+\Phi_r(\beta)<1.
+\mathcal K_w(\alpha)+\mathcal K_r(\beta)<1.
 $$
 
 Returning to the original CE2 endpoint variables,
 
 $$
 \boxed{
-\widehat B_{p/w}(p)
+\overline M_{p/w}(p)
 +
-\widehat B_{q/r}(q)
+\overline M_{q/r}(q)
 <1.
 }
 $$

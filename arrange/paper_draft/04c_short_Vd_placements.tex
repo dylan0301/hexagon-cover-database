@@ -1,26 +1,19 @@
 \section{Exceptional Local Profiles and Vd Placements}
 \label{sec:short-vd-placements}
 
-This appendix proves the local profile estimates used by the one-special-triangle
-branches.  A T3-like adjacent exceptional triangle and a Vd1 adjacent exceptional triangle satisfy the same two scalar
+This subsection proves the local profile estimates used by the
+one-special-triangle branches.  A T3-like adjacent exceptional triangle and a
+Vd1 adjacent exceptional triangle satisfy the same two scalar
 inequalities and therefore share one center-hiding theorem.  The remaining
 Vd1/Vd2 placements use the interval residuals from
 Section~\ref{sec:universal-calculus}, one global radial envelope, and two
 immediate consequences of the corner normal form.
 
-For $0\le c<1/2$, put
-\begin{equation}
- M_c^{\rm sup}=\frac{c+\sqrt{c^2-8c+4}}2,
- \qquad
- 1-M_c^{\rm sup}=1-M_c^{\rm sup}.
- \label{eq:short-supercritical-envelope}
-\end{equation}
-At $c=1/2$, the same symbols denote the continuous endpoint values
-$B_{\rm sc}(1/2)=A_{\rm sc}(1/2)=1/2$; this is a convention, not the
-supremum of a nonempty strict-supercritical feasible set.
-The free strict-supercritical envelope says that a strict supercritical V triangle
-with radial lower bound at least $c$ has forward reach strictly below
-$M_c^{\rm sup}$, and $B_{\rm sc}$ is strictly decreasing.
+Use the strict-supercritical envelope $M_c^{\rm sup}$ from
+\eqref{eq:reader-free-supercritical-envelope}; its explicit formula is
+strictly decreasing for $0\le c<1/2$.  At $c=1/2$ we use only the continuous
+extension $M_{1/2}^{\rm sup}=1/2$.  The strict feasible set is empty there,
+so this endpoint value is never described as an attained supremum.
 
 \subsection{A global quarter radial envelope}
 
@@ -165,11 +158,11 @@ with $0\le\theta\le2-\sqrt3$.  Moreover
 
 Let
 \[
- \Phi(z)=\frac{z(2-z)}{1+z}.
+ \psi(z)=\frac{z(2-z)}{1+z}.
 \]
 It is increasing on $[0,1/2]$ and
-$\Phi(1-M_c^{\rm sup})=c$.  Hence it is enough to prove
-$\Phi(x)\le x+\theta$, or equivalently
+$\psi(1-M_c^{\rm sup})=c$.  Hence it is enough to prove
+$\psi(x)\le x+\theta$, or equivalently
 \[
  Q_\theta(x)=2x^2+(\theta-1)x+\theta\ge0.
 \]
@@ -346,20 +339,21 @@ Thus in every ordering
  h\ge M_c^{\rm sup}.
 \]
 Coverage of $r_1$ gives the supercritical V triangle radial lower bound at least $c$, so
-its forward reach satisfies
+its actual forward reach satisfies
 \[
- b_1<M_c^{\rm sup}\le h.
+ B_1<M_c^{\rm sup}\le h.
 \]
 Lemma~\ref{lem:reader-boundary-path}, applied to $T_2,T_3,T_4,T_5$, gives
 \[
- \sum_{i=2}^5(a_i+b_i)\ge4+h-b_1>4,
+ \sum_{i=2}^5(A_i+B_i)\ge4+h-B_1>4,
 \]
 contrary to their four nonsupercritical caps.
 \end{proof}
 
-\begin{corollary}[T3-like and Vd1 adjacent rescue]
+\begin{corollary}[Adjacent T3-like/Vd1 rescue]
 \label{cor:signed-adjacent-rescuers}
-The common adjacent-adjacent exceptional triangle lemma applies both to the exactly-one-T3-like
+\label{thm:s2-geom-sc}
+The common adjacent-exception lemma applies both to the exactly-one-T3-like
 branch and to a normalized Vd1 triangle $T_i$ containing $M_{i-1}$ or
 $M_{i+1}$.
 \end{corollary}
@@ -375,6 +369,7 @@ $O$-side radial gap before the adjacent exceptional triangle begins.
 
 \begin{lemma}[Adjacent Vd1/Vd2 placement]
 \label{lem:signed-vd-adjacent-placement}
+\label{thm:s2-geom-vd-adjacent}
 Assume a reduced CE2 candidate with
 $T_C\cap\{M_0,\ldots,M_5\}=\{M_0\}$ has $N_+=1$, V triangle $T_0$ uniquely
 supercritical, V triangle $T_1$ the unique Vd1/Vd2 V triangle, and V triangles
@@ -389,26 +384,30 @@ Let
  \qquad
  I_R=\left[\frac{k}{R},W+\delta\right].
 \]
-For the supercritical reaches $(a_0,b_0)$, put
+For the actual supercritical reaches $(A_0,B_0)$, put
 \[
- A=\mathcal R_{I_R}(b_0),
+ A=\mathcal R_{I_R}(B_0),
  \qquad
- H=\mathcal R_{I_L}(a_0).
+ h_0=\mathcal R_{I_L}(A_0).
 \]
 The endpoint-distance inequality is
 \[
- a_0^2+a_0b_0+b_0^2\le1.
+ A_0^2+A_0B_0+B_0^2\le1.
 \]
-It implies $a_0,b_0<1$.  The signed center bounds give
-$R+\alpha<1$, so $H>0$.  Boundary propagation gives
+It implies $A_0,B_0<1$.  The signed center bounds give
+$R+\alpha<1$, so $h_0>0$. Choose selected lower bounds
+\[
+ 0\le a_i\le A_i,\qquad 0\le b_i\le B_i\qquad(1\le i\le5)
+\]
+so that boundary propagation gives
 \[
  a_1\ge A,
  \qquad
- b_i\ge H\quad(1\le i\le5).
+ b_i\ge h_0\quad(1\le i\le5).
 \]
 The Vd cap gives
 \begin{equation}
- A+H<\frac12.
+ A+h_0<\frac12.
  \label{eq:signed-adjacent-AH}
 \end{equation}
 
@@ -420,60 +419,60 @@ The common perimeter budget gives
 \]
 We claim
 \begin{equation}
- \delta<\frac H4.
+ \delta<\frac {h_0}4.
  \label{eq:signed-adjacent-quarter}
 \end{equation}
-If $H=W-\alpha$, then
+If $h_0=W-\alpha$, then
 \[
  4\delta+\alpha\le4T<\frac{2W}{3}<W.
 \]
-Suppose $H=1-a_0$.  The other residual cannot be $1-b_0$, since otherwise
-\eqref{eq:signed-adjacent-AH} would give $a_0+b_0>3/2$, whereas
+Suppose $h_0=1-A_0$.  The other residual cannot be $1-B_0$, since otherwise
+\eqref{eq:signed-adjacent-AH} would give $A_0+B_0>3/2$, whereas
 the endpoint-distance inequality gives
-$a_0+b_0\le2/\sqrt3<3/2$.  Hence
+$A_0+B_0\le2/\sqrt3<3/2$.  Hence
 \[
  A=1-(W+\delta),
  \qquad
- b_0\ge y:=\frac{k}{R},
+ B_0\ge y:=\frac{k}{R},
 \]
-and $W+\delta>1/2+H$.  Diameter transfer gives
+and $W+\delta>1/2+h_0$.  Diameter transfer gives
 \[
- H>\frac y2>\frac{\eta}{2R}.
+ h_0>\frac y2>\frac{\eta}{2R}.
 \]
 Thus
 \[
- \delta>J(R):=R-\frac12+\frac{\eta}{2R}.
+ \delta>\vartheta(R):=R-\frac12+\frac{\eta}{2R}.
 \]
 Writing $\eta/R=W/(1+E)$, exact differentiation gives
 \[
- 4E(1+E)^2J'(R)
+ 4E(1+E)^2\vartheta'(R)
  =2E(1+E)(1+2E)-W(2R-1).
 \]
 If $R\le1/2$, the second term is nonnegative after subtraction.  If
 $R\ge1/2$, then $W(2R-1)\le1/8$, while the first term is larger
-than $1/8$.  Thus $J'(R)>0$.  Since $J(3/8)=1/24$, the bound
+than $1/8$.  Thus $\vartheta'(R)>0$.  Since $\vartheta(3/8)=1/24$, the bound
 $\delta<1/24$ forces $R<3/8$.  Then
 \[
  (2-3R)^2-E^2=(3-8R)(1-R)>0,
 \]
-so $\eta/R>1/3$ and $H>1/6$.  Hence $4\delta<1/6<H$, proving
+so $\eta/R>1/3$ and $h_0>1/6$.  Hence $4\delta<1/6<h_0$, proving
 \eqref{eq:signed-adjacent-quarter}.
 
 The center interval on $r_2$ begins from the vertex side at $1-\delta$.  If
 $T_1$ supports $r_2$, its exact endpoint satisfies
 \[
- u_2<1-b_1-\frac{a_1}{t}\le1-H<1-\delta.
+ u_2<1-b_1-\frac{a_1}{t}\le1-h_0<1-\delta.
 \]
 Thus it does not bridge to the center.  For $T_2$, boundary handoff gives
 \[
  a_2>\frac12+A,
- \qquad b_2\ge H.
+ \qquad b_2\ge h_0.
 \]
 Put $p=1/2+A$.  Equation~\eqref{eq:signed-adjacent-AH} gives
-$0\le H\le p$ and $p+H<1$.  Lemma~\ref{lem:quarter-radial-envelope} gives
+$0\le h_0\le p$ and $p+h_0<1$.  Lemma~\ref{lem:quarter-radial-envelope} gives
 \[
- c_2\le c_{\max}(p,H)
- \le1-\frac H4
+ c_2\le c_{\max}(p,h_0)
+ \le1-\frac {h_0}4
  <1-\delta.
 \]
 Thus neither possible radial bridge reaches the center interval, and $r_2$ is
@@ -484,6 +483,7 @@ uncovered.
 
 \begin{lemma}[Nonadjacent Vd1/Vd2 placements]
 \label{lem:signed-vd-nonadjacent-placement}
+\label{thm:s2-geom-vd-nonadjacent}
 Under the same reduced CE2 branch, let the unique Vd1/Vd2 V triangle be
 $T_\tau$ with $\tau\in\{2,3,4\}$.  Then the perimeter together with
 $r_\tau$ is not covered.
@@ -502,41 +502,43 @@ Lemma~\ref{lem:signed-endpoints-dominate-slack} gives
 \[
  T<\frac12\min\{x,y\}.
 \]
-Let $(a_0,b_0)$ be the reaches of the unique supercritical V triangle.  Then
+Let $(A_0,B_0)$ be the actual reaches of the unique supercritical V triangle.
+Then
 \[
- a_0+b_0>1,\qquad a_0^2+a_0b_0+b_0^2\le1.
+ A_0+B_0>1,\qquad A_0^2+A_0B_0+B_0^2\le1.
 \]
 Let
 \[
- B=e_{[y,W+\delta]}(b_0),
- \qquad U=e_{[x,R+\alpha]}(a_0),
+ B=e_{[y,W+\delta]}(B_0),
+ \qquad U=e_{[x,R+\alpha]}(A_0),
  \qquad A=1-B,
- \qquad H=1-U.
+ \qquad h_0=1-U.
 \]
-Boundary propagation and the Vd cap give
+Choose $a_\tau\le A_\tau$ and $b_\tau\le B_\tau$.  Boundary propagation
+and the Vd cap permit the choices
 \[
  a_\tau\ge A,
- \qquad b_\tau\ge H,
- \qquad A+H<\frac12.
+ \qquad b_\tau\ge h_0,
+ \qquad A+h_0<\frac12.
 \]
 
 The component endpoint $B$ is either
-$b_0$ or $W+\delta$.  In the latter case the center diameter gives
+$B_0$ or $W+\delta$.  In the latter case the center diameter gives
 $B\le M_0(x)$ by Lemma~\ref{lem:signed-diameter-transfer}.  In the former
-case, if $a_0<x$, then $U=a_0$ and
-$A+H<1/2$ would force $a_0+b_0>3/2$, contrary to
-$a_0+b_0\le2/\sqrt3$.  Hence $a_0\ge x$, and
-$B=b_0\le M_0(a_0)\le M_0(x)$, using the decreasingness in that lemma.
+case, if $A_0<x$, then $U=A_0$ and
+$A+h_0<1/2$ would force $A_0+B_0>3/2$, contrary to
+$A_0+B_0\le2/\sqrt3$.  Hence $A_0\ge x$, and
+$B=B_0\le M_0(A_0)\le M_0(x)$, using the decreasingness in that lemma.
 Reflection gives $U\le M_0(y)$.
 Consequently
 \[
  A>\frac x2>T,
  \qquad
- H>\frac y2>T.
+ h_0>\frac y2>T.
 \]
 Thus
 \[
- d_\tau^C<\min\{A,H\}
+ d_\tau^C<\min\{A,h_0\}
  \qquad(\tau=2,3,4),
 \]
 because the three exits are $\delta$, $\alpha$, and
@@ -544,11 +546,11 @@ $\min\{\alpha/R,\delta/W\}\le T$.
 
 The Vd corner normal form gives the radial margin
 \[
- c_\tau<1-\min\{A,H\}.
+ c_\tau<1-\min\{A,h_0\}.
 \]
 But the center interval begins from the vertex side at
 \[
- 1-d_\tau^C>1-\min\{A,H\}.
+ 1-d_\tau^C>1-\min\{A,h_0\}.
 \]
 The two radial traces are disjoint, and all other triangles are excluded by Vd0
 locality and diameter locality.
@@ -557,5 +559,5 @@ locality and diameter locality.
 \subsection{Placement interfaces}
 
 The local profile and radial-separation lemmas above are assembled exactly
-once in Section~\ref{sec:strategy2-placement-assembly}.  This appendix
+once in Section~\ref{sec:strategy2-placement-assembly}.  This subsection
 contains no independent CE2 one-Vd placement assembly.

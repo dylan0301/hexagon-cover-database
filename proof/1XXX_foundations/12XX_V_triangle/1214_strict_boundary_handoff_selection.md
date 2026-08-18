@@ -10,13 +10,14 @@ selected supercritical V triangles.
 
 ## 1. Actual reaches and handoff intervals
 
-Let $T_i$ be the original open unit equilateral triangle containing $V_i$ and
-assume that $T_0,\ldots,T_5$ cover $\partial H$. Define
+Let $U_i$ be the original open unit equilateral triangle containing $V_i$,
+put $T_i=\overline{U_i}$, and assume that $U_0,\ldots,U_5$ cover
+$\partial H$. Define
 
 $$
 \begin{aligned}
-A_i&=\sup\{t\in[0,1]:V_i+t(V_{i-1}-V_i)\in T_i\},\\
-B_i&=\sup\{t\in[0,1]:V_i+t(V_{i+1}-V_i)\in T_i\}.
+A_i&=\sup\{t\in[0,1]:V_i+t(V_{i-1}-V_i)\in U_i\},\\
+B_i&=\sup\{t\in[0,1]:V_i+t(V_{i+1}-V_i)\in U_i\}.
 \end{aligned}
 $$
 
@@ -43,9 +44,9 @@ must overlap strictly. Put
 $$
 \ell_i=1-A_{i+1},
 \qquad
-U_i=B_i,
+u_i=B_i,
 \qquad
-I_i=(\ell_i,U_i).
+I_i=(\ell_i,u_i).
 $$
 
 Every $I_i$ is therefore a nonempty subinterval of $(0,1)$. Choose
@@ -76,7 +77,7 @@ The actual and selected supercritical tests are
 $$
 A_i+B_i>1
 \iff
-\ell_{i-1}<U_i,
+\ell_{i-1}<u_i,
 \qquad
 a_i+b_i>1
 \iff
@@ -86,7 +87,7 @@ $$
 If actual V triangle $i$ is nonsupercritical, then
 
 $$
-x_i<U_i\le\ell_{i-1}<x_{i-1},
+x_i<u_i\le\ell_{i-1}<x_{i-1},
 $$
 
 so every strict selection satisfies
@@ -123,7 +124,7 @@ First suppose two supercritical indices $p,q$ are nonadjacent. For a
 supercritical index $r$, (2) gives
 
 $$
-\ell_{r-1}<U_r.
+\ell_{r-1}<u_r.
 $$
 
 Choose $z_r$ in this interval, then choose
@@ -131,14 +132,14 @@ Choose $z_r$ in this interval, then choose
 $$
 \begin{aligned}
 x_{r-1}&\in
-(\ell_{r-1},\min\{U_{r-1},z_r\}),\\
+(\ell_{r-1},\min\{u_{r-1},z_r\}),\\
 x_r&\in
-(\max\{\ell_r,z_r\},U_r).
+(\max\{\ell_r,z_r\},u_r).
 \end{aligned} \tag{5}
 $$
 
 Both intervals are nonempty because $I_{r-1},I_r$ are nonempty and
-$\ell_{r-1}<z_r<U_r$. Thus $x_{r-1}<x_r$. For nonadjacent $p,q$, the two
+$\ell_{r-1}<z_r<u_r$. Thus $x_{r-1}<x_r$. For nonadjacent $p,q$, the two
 pairs of variables in (5) are disjoint, so both choices can be made
 simultaneously. Any set of at least three indices on a six-cycle contains two
 nonadjacent indices, so this also covers every pattern with at least three
@@ -148,7 +149,7 @@ It remains to treat exactly two adjacent supercritical V triangles $p,p+1$. For 
 other four nonsupercritical V triangles,
 
 $$
-\ell_i<U_i\le\ell_{i-1}.
+\ell_i<u_i\le\ell_{i-1}.
 $$
 
 Applying these inequalities successively gives
@@ -162,10 +163,10 @@ Supercriticality at $p,p+1$, strict overlap, and (6) imply
 $$
 \max\{\ell_{p-1},\ell_p\}
 <
-\min\{U_p,U_{p+1}\}. \tag{7}
+\min\{u_p,u_{p+1}\}. \tag{7}
 $$
 
-Choose $x_p$ in (7). Since $x_p>\ell_{p-1}$ and $x_p<U_{p+1}$, choose
+Choose $x_p$ in (7). Since $x_p>\ell_{p-1}$ and $x_p<u_{p+1}$, choose
 
 $$
 x_{p-1}\in I_{p-1},

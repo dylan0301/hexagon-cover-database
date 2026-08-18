@@ -7,15 +7,17 @@ least two vertex V triangles are supercritical.
 
 The midpoint-forcing lemma in
 [`2510`](../../2XXX_geometric_lemmas/25XX_length_bounds/2510_skeleton_length_bounds.md)
-shows that at least one further vertex role must rescue a missing midpoint and
-therefore has positive-length support on an adjacent radial arm.  Thus the
-configuration has at least three short vertex roles in the terminology of
-[`2530`](../../2XXX_geometric_lemmas/25XX_length_bounds/2530_common_CE1_CE2_budget_lemmas.md):
+shows that at least one further V triangle must rescue a missing midpoint and
+therefore has positive-length support on an adjacent radial arm. Thus
+$N_{\rm sp}\ge1$, and
 
-- two supercritical V triangles;
-- one positive-support rescuer.
+$$
+N_++N_{\rm sp}\ge2+1=3.
+$$
 
-The three-short-role theorem in `2530` gives
+The direct skeleton theorem in
+[`2530`](../../2XXX_geometric_lemmas/25XX_length_bounds/2530_common_CE1_CE2_budget_lemmas.md)
+gives
 
 $$
 L_S(T_C)+\sum_{i=0}^5L_S(T_i)<12.

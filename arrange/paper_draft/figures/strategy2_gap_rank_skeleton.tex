@@ -1,13 +1,13 @@
 \begin{tikzpicture}[x=1cm,y=1cm,>=Latex]
   \node[panellabel,anchor=west] at (.05,3.18)
-    {Active-gap rank on the full hexagon skeleton};
+    {Boundary-gap count on the full hexagon skeleton};
   \node[figlabel,anchor=east,text=black!60] at (13.35,2.91)
     {schematic; positions and lengths are not metric};
 
   \foreach \x/\rank/\tag in {
-    1.80/0/{no active center gap},
-    6.15/1/{one active center gap},
-    10.50/2/{two active center gaps (CE2 only)}
+    1.80/0/{no boundary gap in a center trace},
+    6.15/1/{one boundary gap in a center trace},
+    10.50/2/{two boundary gaps in center traces (CE2 only)}
   }{
     \begin{scope}[shift={(\x,1.38)},scale=1.18]
       \HexCoords
@@ -17,12 +17,12 @@
       \foreach \i in {0,...,5}{
         \fill[black] (V\i) circle (.55pt);
       }
-      \node[figlabel,below] at (0,-1.17) {$\mathrm{gr}=\rank$};
+      \node[figlabel,below] at (0,-1.17) {$N_{\mathrm{gap}}=\rank$};
       \node[figlabel,align=center,text=black!65] at (0,-1.48) {\tag};
     \end{scope}
   }
 
-  % Rank zero: positive traces may exist, but none contains a V-gap.
+  % Rank zero: positive traces may exist, but none contains a boundary gap.
   \begin{scope}[shift={(1.80,1.38)},scale=1.18]
     \draw[centertrace] ($(V0)!.18!(V1)$)--($(V0)!.36!(V1)$);
     \draw[centertrace] ($(V5)!.64!(V0)$)--($(V5)!.81!(V0)$);
@@ -38,7 +38,7 @@
     \draw[centertrace] ($(V5)!.67!(V0)$)--($(V5)!.82!(V0)$);
   \end{scope}
 
-  % Rank two: both positive CE2 traces contain a V-gap.
+  % Rank two: both positive CE2 traces contain a boundary gap.
   \begin{scope}[shift={(10.50,1.38)},scale=1.18]
     \draw[centertrace] ($(V0)!.18!(V1)$)--($(V0)!.80!(V1)$);
     \draw[gap] ($(V0)!.43!(V1)$)--($(V0)!.57!(V1)$);
@@ -60,8 +60,8 @@
      $\displaystyle
       N_+=\left\lvert\{\,i:A_i+B_i>1\,\}\right\rvert$};
   \node[figlabel,atlasbox,align=left,anchor=west] at (.10,-2.02)
-    {$\mathrm{gr}=$ number of positive center traces containing a
-      nonempty $\Gamma_i$;\\
-     $\mathrm{gr}\in\{0,1,2\}$,\qquad
-     $\mathrm{CE1}\Rightarrow\mathrm{gr}\le1$.};
+    {$N_{\mathrm{gap}}=$ number of positive center traces containing a
+      boundary gap $\Gamma_i$ (including a singleton);\\
+     $N_{\mathrm{gap}}\in\{0,1,2\}$,\qquad
+     $\mathrm{CE1}\Rightarrow N_{\mathrm{gap}}\le1$.};
 \end{tikzpicture}

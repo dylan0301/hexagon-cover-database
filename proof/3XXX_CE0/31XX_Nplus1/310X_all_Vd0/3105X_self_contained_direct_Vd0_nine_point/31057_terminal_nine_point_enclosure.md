@@ -72,11 +72,11 @@ $$
 =
 \frac1h
 \min_{\left\lVert n\right\rVert=1}
-\sum_{j=0}^2h_K(R^j n),
+\sum_{j=0}^2h_K(\mathsf R^j n),
 \tag{4}
 $$
 
-where $R$ is rotation through $2\pi/3$.  The disk in (2) gives
+where $\mathsf R$ is rotation through $2\pi/3$.  The disk in (2) gives
 
 $$
 \Lambda(K_{\mathrm{wit}})
@@ -119,9 +119,9 @@ $$
 For
 
 $$
-S=\widehat K+R\widehat K+R^2\widehat K,
+S=\widehat K+\mathsf R\widehat K+\mathsf R^2\widehat K,
 \qquad
-W=C+RA,
+W=C+\mathsf R A,
 $$
 
 the same note proves that $S$ contains the full rotational orbits of
@@ -140,7 +140,7 @@ $$
 It also proves that the rays
 
 $$
-A, B, C, W, RA
+A, B, C, W, \mathsf R A
 $$
 
 occur in this cyclic order, that the necessary determinants are positive,
@@ -179,7 +179,7 @@ $$
 \qquad
 \mathbb D(W,\bar\eta),
 \qquad
-\mathbb D(RA,2\bar\eta).
+\mathbb D(\mathsf R A,2\bar\eta).
 \tag{9}
 $$
 
@@ -203,7 +203,7 @@ I(C,2\bar\eta)
 \longleftrightarrow
 I(W,\bar\eta)
 \longleftrightarrow
-I(RA,2\bar\eta).
+I(\mathsf R A,2\bar\eta).
 \tag{10}
 $$
 
@@ -215,13 +215,13 @@ I(C,2\eta)
 \longleftrightarrow
 I(W,\eta)
 \longleftrightarrow
-I(RA,2\eta).
+I(\mathsf R A,2\eta).
 \tag{11}
 $$
 
 Equations (8) and (11) give four consecutive overlaps from the ray of $A$ to
-the ray of $RA$.  The cap-order argument in `31054` shows that these caps
-cover that sector.  Rotating by $R$ covers the unit circle.  Thus
+the ray of $\mathsf R A$.  The cap-order argument in `31054` shows that these caps
+cover that sector.  Rotating by $\mathsf R$ covers the unit circle.  Thus
 $h_S(n)\ge h$ for every unit normal $n$, and (4) gives
 
 $$

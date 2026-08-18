@@ -318,37 +318,36 @@ Then the two half-arms cannot both be covered.
 
 ### Proof
 
-Let $b_i$ be the boundary reach of $T_i$ toward $V_{i+1}$, $c_i$ its exit on
-$r_i$, and $\ell_i$ its entry on $r_{i+1}$.  For $T_{i+1}$ write the
+Write $(b,c,\ell)$ for the first triangle's boundary reach, own-arm exit,
+and opposite-arm entry.  For the reflected second triangle write the
 corresponding quantities, measured from its own vertex, as
-$a_{i+1},c_{i+1},\ell_{i+1}$, with the latter two on $r_{i+1}$ and $r_i$,
-respectively.  The tradeoff and its
-reflection give
+$(\widetilde b,\widetilde c,\widetilde\ell)$.  The tradeoff and its reflection
+give
 
 $$
-b_i+c_i<1,
+b+c<1,
 \qquad
-b_i+\ell_i>1,
+b+\ell>1,
 $$
 
 and
 
 $$
-a_{i+1}+c_{i+1}<1,
+\widetilde b+\widetilde c<1,
 \qquad
-a_{i+1}+\ell_{i+1}>1.
+\widetilde b+\widetilde\ell>1.
 $$
 
 Coverage of the two outer half-arms, with no other positive-length
 supporter, forces
 
 $$
-c_i\ge\ell_{i+1},
+c\ge\widetilde\ell,
 \qquad
-c_{i+1}\ge\ell_i.
+\widetilde c\ge\ell.
 $$
 
-The first inequality gives $a_{i+1}+c_i>1$, and comparison with
-$b_i+c_i<1$ yields $a_{i+1}>b_i$.  The second gives
-$b_i+c_{i+1}>1$, and comparison with $a_{i+1}+c_{i+1}<1$ yields
-$b_i>a_{i+1}$.  This is impossible.
+The first inequality gives $\widetilde b+c>1$, and comparison with
+$b+c<1$ yields $\widetilde b>b$.  The second gives
+$b+\widetilde c>1$, and comparison with
+$\widetilde b+\widetilde c<1$ yields $b>\widetilde b$.  This is impossible.

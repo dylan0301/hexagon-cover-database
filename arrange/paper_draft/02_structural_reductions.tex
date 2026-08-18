@@ -149,7 +149,7 @@ records the additional fact that $T_C$ contains exactly one radial midpoint.
 
 \subsection{Vertex types and the T3-like normalization}
 
-For an original V triangle $T_i$, let
+For the closure $T_i$ of an original open V triangle $U_i$, let
 \[
  o(T_i)=\left\lvert\left\{
  \text{vertices of }T_i\text{ outside }H
@@ -619,7 +619,7 @@ overlap and contains both $M_0$ and $M_1$.
 \label{prop:exhaustive-structural-reduction}
 Every hypothetical cover by seven open unit equilateral triangles admits the
 distinct center and V triangles used in Table~\ref{tab:routing}, and its
-maximal reaches determine exactly one V triangle of that table.
+maximal reaches determine exactly one row of that table.
 \end{proposition}
 
 \begin{proof}
@@ -628,18 +628,19 @@ Propositions~\ref{prop:ce-classification} and
 \ref{prop:vertex-classification} give the exhaustive and mutually exclusive
 center and vertex types.  The maximal reaches determine exactly one of
 $N_+=0$, $N_+=1$, and $N_+\ge2$.  For CE0 these data and the vertex
-classification give the five displayed V triangles.
+classification give the five displayed rows.
 
 Now suppose the center is CE1 or CE2.  It contains exactly one radial
-midpoint by Proposition~\ref{prop:unique-center-midpoint}.  Lemma
-\ref{lem:short-role-count} gives $q=N_++m$, and
-Lemma~\ref{lem:positive-support-rescuer}, together with the disjoint count,
-shows that $N_+\ge2$ forces a third short triangle.  Hence every such branch
-either enters the first CE1/CE2 V triangle or has $q\le2$ and $N_+\le1$.  If
-$N_+=0$, the vertex classification gives, in order, all $\Vdzero$, at least
-one $\Vdone/\Vdtwo$, or no such triangle and at least one $\Tlike$.  If
-$N_+=1$, then $q\le2$ implies $m\le1$: the triangles are all $\Vdzero$, exactly
-one $\Tlike$, or exactly one $\Vdone/\Vdtwo$.  In the all-$\Vdzero$ case,
+midpoint by Proposition~\ref{prop:unique-center-midpoint}.  The direct
+skeleton theorem, Theorem~\ref{thm:common-skeleton-count}, removes every
+state with $N_++N_{\mathrm{sp}}\ge3$.  If $N_+\ge2$, Lemma
+\ref{lem:positive-support-rescuer} supplies a distinct positive-support V
+triangle, so $N_{\mathrm{sp}}\ge1$ and that theorem applies.  Hence every
+surviving branch has $N_+\le1$ and $N_++N_{\mathrm{sp}}\le2$.  If $N_+=0$,
+the vertex classification gives, in order, all $\Vdzero$, at least one
+$\Vdone/\Vdtwo$, or no such triangle and at least one $\Tlike$.  If $N_+=1$,
+then $N_{\mathrm{sp}}\le1$: the triangles are all $\Vdzero$, exactly one
+$\Tlike$, or exactly one $\Vdone/\Vdtwo$.  In the all-$\Vdzero$ case,
 Lemma~\ref{lem:gap-exhaustion} supplies the exhaustive zero-gap/nonempty-gap
 split.  These alternatives are disjoint, proving the claim.
 \end{proof}

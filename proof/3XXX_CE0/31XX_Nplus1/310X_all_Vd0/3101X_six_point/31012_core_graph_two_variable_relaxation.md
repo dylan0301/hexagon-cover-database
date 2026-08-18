@@ -400,13 +400,13 @@ $$
 be the local metric.  For the moving $P_5$ center
 
 $$
-C_5(t)=(1+t,t),
+Z_5(t)=(1+t,t),
 $$
 
 define
 
 $$
-F(P,t)=Q(P-C_5(t))-1.
+F(P,t)=Q(P-Z_5(t))-1.
 $$
 
 On the right and left line sides write
@@ -677,7 +677,7 @@ negativity at the two endpoints.
 At $t=1-s$, after multiplying by the positive denominator, the numerator is
 
 $$
-A_0=P_2-4DU(1+U+z),
+\mathcal N_0=P_2-4DU(1+U+z),
 $$
 
 where
@@ -724,7 +724,7 @@ $$
 At $t=r$, after multiplying by the positive denominator, the numerator is
 
 $$
-A_1=P_3-8DUz,
+\mathcal N_1=P_3-8DUz,
 $$
 
 where
@@ -733,7 +733,7 @@ $$
 P_3=3U^4+24U^3+10U^2z^2+54U^2+24Uz^2+24U+3z^4+6z^2-9.
 $$
 
-If $z\ge0$, then $A_1\le P_3$.  Since $P_3$ is increasing in $z^2$, its maximum
+If $z\ge0$, then $\mathcal N_1\le P_3$.  Since $P_3$ is increasing in $z^2$, its maximum
 on $z^2<A$ occurs at $z^2=A$, where
 
 $$
@@ -743,7 +743,7 @@ $$
 If $z<0$, put $x=-z>0$.  Since $D<1$,
 
 $$
-A_1\le P_3+8Ux.
+\mathcal N_1\le P_3+8Ux.
 $$
 
 The function $P_3(U,x^2)+8Ux$ is increasing in $x\ge0$, and its maximum occurs
@@ -753,7 +753,7 @@ $$
 P_3(U,A)+8U\sqrt A=8U(\sqrt A-U-3)<0.
 $$
 
-Therefore $A_1<0$ for all $z$.  Hence
+Therefore $\mathcal N_1<0$ for all $z$.  Hence
 
 $$
 F_5\left(\frac1h,r\right)<0.
@@ -799,7 +799,7 @@ distances from $V_4$ satisfies
 
 $$
 Q(L_5(\mu_2))-Q(L_5(\mu_1))
-=2(\mu_2-\mu_1)B_Q(C_5(t),w),
+=2(\mu_2-\mu_1)B_Q(Z_5(t),w),
 $$
 
 where $B_Q$ is the symmetric bilinear form associated to $Q$.  Since
@@ -811,7 +811,7 @@ $$
 we have
 
 $$
-B_Q(C_5(t),w)=\delta\left(1+\frac t2\right)+\gamma\left(\frac{1-t}{2}\right)>0.
+B_Q(Z_5(t),w)=\delta\left(1+\frac t2\right)+\gamma\left(\frac{1-t}{2}\right)>0.
 $$
 
 Thus the first right root is the closest right-root to $V_4$.  Since there is

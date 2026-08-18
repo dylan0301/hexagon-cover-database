@@ -50,7 +50,7 @@ $$
 where
 
 $$
-n_i(\theta)=R_\theta n_i(0).
+n_i(\theta)=\mathsf R_\theta n_i(0).
 $$
 
 ## 3. Proof
@@ -96,15 +96,15 @@ There are only finitely many such strict inequalities, so they persist for
 all sufficiently small $|\theta|$. Hence, on a neighborhood of $0$,
 
 $$
-h_Q(R_\theta n_i)=q_i\cdot R_\theta n_i
+h_Q(\mathsf R_\theta n_i)=q_i\cdot \mathsf R_\theta n_i
 $$
 
-for all $i$. If $J$ denotes rotation by $90^\circ$, then
+for all $i$. If $\mathsf J$ denotes rotation by $90^\circ$, then
 
 $$
 \begin{aligned}
 g(\theta)
-&=\sum_{i=0}^2 q_i\cdot R_\theta n_i\\
+&=\sum_{i=0}^2 q_i\cdot \mathsf R_\theta n_i\\
 &=\cos\theta g(0)+\sin\theta g_\perp,
 \end{aligned}
 $$
@@ -112,7 +112,7 @@ $$
 where
 
 $$
-g_\perp=\sum_{i=0}^2 q_i\cdot J n_i.
+g_\perp=\sum_{i=0}^2 q_i\cdot \mathsf J n_i.
 $$
 
 Moreover, $g(0)>0$, because it is $\sqrt3/2$ times the positive side length

@@ -53,10 +53,9 @@ calculation remain in one continuous method chapter.
 
 ## 3. Source incorporation
 
-The wrapper files use `\InputAsSubsections{...}` to incorporate established
-self-contained TeX modules while demoting their heading level by one. This
-changes presentation only; labels, theorem statements, equations, and proof
-content are retained.
+The wrapper files temporarily demote sectioning commands while incorporating
+established self-contained TeX modules. This changes presentation only;
+labels, theorem statements, equations, and proof content are retained.
 
 The active assembly is:
 
@@ -75,10 +74,11 @@ The active assembly is:
 \input{06a_strategy4_exact_certificate}
 ```
 
-The exact Strategy 2 provenance manifest remains part of the linted source
-closure but is not typeset. Formalization-only optimization specifications and
-the Lean statement project remain active repository verification objects; the
-paper does not duplicate their interface prose.
+The exact Strategy 2 provenance manifest remains repository metadata and is
+not typeset. Formalization-only optimization specifications and the Lean
+statement-elaboration project remain repository verification objects; the
+paper does not present them as a manuscript appendix or duplicate their
+interface prose.
 
 ## 4. Content placement rule
 
@@ -113,9 +113,9 @@ article:
 
 ## 5. Paper-wide notation
 
-Use the updated paper terminology:
+Use the paper terminology:
 
-- center triangle and vertex triangle;
+- C triangle and V triangle;
 - maximal reaches `(A_i,B_i,C_i)`;
 - selected lower bounds `(a_i,b_i,c_i)`;
 - `N_+` defined only from `A_i+B_i>1`;
@@ -128,8 +128,10 @@ The reader-facing transfer is branchwise. For a nonsupercritical triangle use
 high-radial admissible-set map above `1/2`. The raw zero-radial map is never
 used as an identity handoff.
 
-Technical aliases may remain in exact calculation modules when they shorten
-formulas. Do not reintroduce a second hatted transfer family.
+Provenance-bound legacy aliases may remain in the authenticated 407X files and
+must be translated by the repository crosswalk. The printed paper uses only
+`M`, `\overline M`, `\Phi`, and `M^{\rm sup}`; do not introduce a second
+transfer family.
 
 ## 6. Non-negotiable distinctions
 
@@ -153,18 +155,27 @@ Every revision must preserve:
 A source commit to `main` triggers
 `.github/workflows/paper-rebuild.yml`. The workflow:
 
-1. runs the proof-source and manuscript linter;
-2. replays the exact Strategy 4 certificate;
-3. compiles with the pinned TeX Live 2025 image;
-4. rejects undefined or duplicate references and overfull boxes;
-5. verifies rendering and an 84--104 page target interval;
-6. regenerates `arrange/CURRENT_VERIFICATION_SUMMARY.txt`;
-7. commits the canonical PDF and summary directly to `main`.
+1. runs the proof-source, manuscript, and Strategy 2 semantic-interface checks;
+2. elaborates the pinned Lean scalar-statement project;
+3. replays the exact Strategy 4 certificate;
+4. performs two clean builds with the pinned TeX Live 2025 image;
+5. rejects undefined or duplicate references and overfull boxes;
+6. compares the two PDFs by stable semantics and exact rendered pixels;
+7. verifies rendering and an 84--104 page target interval;
+8. regenerates `arrange/CURRENT_VERIFICATION_SUMMARY.txt`;
+9. commits the canonical PDF and summary directly to `main`.
 
-The ordinary read-only proof workflow then reruns on the generated-artifact
-commit and verifies the proof graph, Strategy 2 specifications, exact
-certificates, Lean statement project, semantic PDF rebuild, and archival
-bundle.
+The write-enabled workflow runs the active proof-reference graph, Strategy 2 specifications,
+exact certificates, Lean scalar-statement elaboration, and a two-build
+semantic PDF audit before committing. GitHub does not recursively trigger the
+ordinary read-only push workflow from the workflow-token commit; that
+independent verifier runs on user pushes and pull requests and also builds the
+archival bundle.
+
+A manual dispatch may target a review branch; the workflow verifies that the
+remote branch has not advanced and commits the pinned PDF and summary back to
+that same branch. It then explicitly dispatches the read-only workflow on the
+artifact commit; it does not rely on the workflow-token push to trigger it.
 
 For local compilation:
 

@@ -1,12 +1,13 @@
 import Mathlib
 
 /-!
-# Strategy 2 optimization problem statements
+# Strategy 2 scalar-calculation statement shells
 
-This file intentionally contains only the real-variable problem specifications
-for Strategy 2. Every theorem is closed with `sorry`: the current milestone is
-reproducible parsing and elaboration of the exact statements, not formal proofs.
-No geometric bridge is formalized here.
+This file intentionally contains only the real-variable statements for the
+long scalar calculations used by Strategy 2. Every theorem is closed with
+`sorry`: the current milestone is reproducible parsing and elaboration of the
+statements, not formal proofs.  No geometry-to-parameter bridge, finite-cell
+equivalence theorem, or global covering argument is formalized here.
 -/
 
 noncomputable section
@@ -69,19 +70,29 @@ inductive ForwardCapBranch
   | qPlus
   deriving DecidableEq, Repr
 
-def forwardCap (c x : ℝ) : ℝ :=
+def forwardCapBranch (c x : ℝ) : ForwardCapBranch :=
   if c ≤ Real.sqrt 3 / 2 then
-    if x ≤ 1 - c then 1 - x
-    else if x < qPlusTransition c then qPlus c x
-    else if x = qPlusTransition c then qPlusTransition c
-    else if x < c then qMinus c x
-    else 1 - x
+    if x ≤ 1 - c then .lin
+    else if x < qPlusTransition c then .qPlus
+    else if x = qPlusTransition c then .const
+    else if x < c then .qMinus
+    else .lin
   else
-    if x ≤ 1 - c then 1 - x
-    else if x ≤ lowerBreakpoint c then qPlus c x
-    else if x < upperBreakpoint c then lowerBreakpoint c
-    else if x < c then qMinus c x
-    else 1 - x
+    if x ≤ 1 - c then .lin
+    else if x ≤ lowerBreakpoint c then .qPlus
+    else if x < upperBreakpoint c then .const
+    else if x < c then .qMinus
+    else .lin
+
+def forwardCapBranchValue (c x : ℝ) : ForwardCapBranch → ℝ
+  | .lin => 1 - x
+  | .const =>
+      if c ≤ Real.sqrt 3 / 2 then qPlusTransition c else lowerBreakpoint c
+  | .qMinus => qMinus c x
+  | .qPlus => qPlus c x
+
+def forwardCap (c x : ℝ) : ℝ :=
+  forwardCapBranchValue c x (forwardCapBranch c x)
 
 def propagate (c x : ℝ) : ℝ := 1 - forwardCap c x
 
@@ -130,7 +141,7 @@ theorem problemS2R2
     returnSlack s < 0 := by
   sorry
 
-/-! ## S2-T3 -/
+/-! ## S2-T3 compact scalar projection -/
 
 structure T3Input where
   center : SignedCenterInput
@@ -179,6 +190,7 @@ def t3Domain (x : T3Input) : Prop :=
     0 < x.tau ∧ x.tau < 1 ∧
     0 < x.beta ∧
     x.beta < x.tau * t3Radical x / (1 + t3Radical x) ∧
+    0 < t3ForwardEnd x ∧ t3ForwardEnd x < 1 ∧
     0 < t3Q x ∧ t3Q x < 1 / 2 ∧
     0 < t3RadialNear x ∧ t3RadialNear x < t3RadialFar x ∧ t3RadialFar x < 1 ∧
     1 / 2 < t3RadialReq1 x ∧ t3RadialReq1 x < 1 ∧

@@ -358,7 +358,8 @@ Reflection proves the same conclusion when the supported arm is $r_5$.
 
 \begin{lemma}[Vd2 adjacent-midpoint cap]
 \label{lem:vd2-neighbor-midpoint-cap}
-If an original Vd2 triangle $T_i$ contains $M_{i-1}$ or $M_{i+1}$, then its
+If an open role $U_i$ has Vd2 closure $T_i=\overline{U_i}$ and $T_i$
+contains $M_{i-1}$ or $M_{i+1}$, then its
 exact boundary reaches satisfy
 \[
  a+b<\frac13.
@@ -440,8 +441,8 @@ relative-interior point of any nonincident edge is more than unit distance
 from $V_i$, whereas $V_i$ is interior to the diameter-one triangle $T_i$.
 This excludes any other positive-length boundary trace.
 
-The CE0 V triangle is the definition.  Both remaining center V triangles are the two class
-specializations of the common signed formula in
+The CE0 C-triangle row is the definition.  The other two C-triangle rows are
+the class specializations of the common signed formula in
 Corollary~\ref{cor:signed-center-boundary}.
 
 For a nonsupercritical Vd0 V triangle, \eqref{eq:vertex-boundary-locality} is enough.
@@ -460,35 +461,6 @@ because $0<t<1$ and $\alpha>0$.
 \end{proof}
 
 \subsection{Final length contradictions}
-
-\begin{proposition}[Boundary-length branches]
-\label{prop:boundary-length-branches}
-The following branches are impossible:
-\begin{enumerate}
- \item CE0 with $N_+=0$;
- \item CE0 with $N_+=1$ and at least one Vd1/Vd2 triangle;
- \item CE1 or CE2 with $N_+=0$ and at least one Vd1/Vd2 triangle;
- \item CE1 with $N_+=1$ and at least one Vd1/Vd2 triangle;
- \item CE2 with $N_+=1$ and at least two Vd1/Vd2 triangles.
-\end{enumerate}
-\end{proposition}
-
-\begin{proof}
-In CE0, the center open triangle contains no relative-interior boundary point.
-No nonincident V triangle can contain such a point either.  Hence on every
-edge the two incident open vertex traces form two nonempty relatively open
-sets covering a connected interval; they overlap in positive length.  Thus
-\[
- 1<B_i+A_{i+1}
-\]
-on every edge.  Summing gives
-$6<\sum_i(A_i+B_i)$, contradicting $N_+=0$.  This proves (1).
-
-Items (2)--(5) are respectively items (1)--(4) of the common budget
-Corollary~\ref{cor:signed-budget-branches}.  That corollary applies the one
-master perimeter deficit to the center cap and the indicated strict
-Vd1/Vd2 caps.
-\end{proof}
 
 \begin{proposition}[Vd2 adjacent-midpoint branch]
 \label{prop:ce2-vd2-midpoint-length}
@@ -509,7 +481,7 @@ subcase:
 \begin{enumerate}
  \item CE0, $N_+=0$;
  \item CE0, $N_+=1$, with a Vd1/Vd2 triangle;
- \item CE1/CE2 with $q=N_++m\ge3$;
+ \item CE1/CE2 with $N_++N_{\mathrm{sp}}\ge3$;
  \item CE1/CE2, $N_+=0$, with a Vd1/Vd2 triangle;
  \item CE1, $N_+=1$, with exactly one Vd1/Vd2 triangle and no T3-like triangle;
  \item the CE2 hybrid subcase in which the Vd2 triangle $T_i$ contains
@@ -518,10 +490,15 @@ subcase:
 \end{proposition}
 
 \begin{proof}
-Items (1), (2), (4), and (5) are
-Proposition~\ref{prop:boundary-length-branches}.  Item (3) is the short-triangle
-count and the three-short-triangle theorem in
-Corollary~\ref{cor:signed-budget-branches}.  Item (6) is
+For item (1), the CE0 open C triangle and every nonincident V triangle miss
+the relative interior of each boundary edge. The two incident open V traces
+therefore overlap, so $1<B_i+A_{i+1}$ on every edge. Summing contradicts
+$N_+=0$.
+
+Items (2), (4), and (5) are items (1), (2), and (3) of
+Corollary~\ref{cor:signed-budget-branches}; each is one application of the
+master perimeter deficit. Item (3) is Theorem
+\ref{thm:common-skeleton-count}. Item (6) is
 Proposition~\ref{prop:ce2-vd2-midpoint-length}.  This is only the indicated
 subcase of the exceptional CE2 V triangle; its remaining placements are handled by
 the boundary-reach argument.

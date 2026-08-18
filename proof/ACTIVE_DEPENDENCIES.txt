@@ -1,4 +1,5 @@
-# Generated transitive active proof graph: path|expected status
+# Generated transitive active proof-reference graph: path|expected status
+# Edges are untyped Markdown citations; cycles are permitted.
 proof/09XX_appendices/0910_notation_dictionary.md|Reference
 proof/0XXX_main/0000_main_theorem.md|Proven
 proof/0XXX_main/0002_status_and_dependencies.md|Reference
@@ -38,7 +39,6 @@ proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2107_one_side_capped_loss.m
 proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2108_CE2_two_endpoint_capped_loss.md|Proven
 proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md|Proven
 proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2110_common_CE2_two_gap_application.md|Proven
-proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2111_strategy2_pure_optimization_registry.md|Proven
 proof/2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md|Proven
 proof/2XXX_geometric_lemmas/25XX_length_bounds/2510_skeleton_length_bounds.md|Proven
 proof/2XXX_geometric_lemmas/25XX_length_bounds/2530_common_CE1_CE2_budget_lemmas.md|Proven
@@ -50,6 +50,7 @@ proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31032_symmetric_witn
 proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31033_asymmetric_witness_construction.md|Proven
 proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31034_witness_enclosure_inequality.md|Proven
 proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31035_center_independent_all_boundary_obstruction.md|Proven
+proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31036_Nplus_ge2_complementary_AB_comparison_counterexample.md|Proven
 proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31037_rational_cmax_upper_envelope.md|Proven
 proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3103X_residual_core/31038_global_analytic_core_positivity.md|Proven
 proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31051_direct_radial_forcing.md|Proven

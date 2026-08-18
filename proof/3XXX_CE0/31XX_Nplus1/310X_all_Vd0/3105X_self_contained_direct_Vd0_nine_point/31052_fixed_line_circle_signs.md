@@ -101,7 +101,7 @@ will be used below.
 The moving adjacent handoff centers are
 
 $$
-C_5(t)=(1+t,t),
+Z_5(t)=(1+t,t),
 \qquad
 1-a\le t\le b,
 \tag{10}
@@ -110,7 +110,7 @@ $$
 and, after reflection,
 
 $$
-C_3(y)=(y,1+y),
+Z_3(y)=(y,1+y),
 \qquad
 1-b\le y\le a.
 \tag{11}
@@ -119,7 +119,7 @@ $$
 For the first family define
 
 $$
-F(P,t)=\mathsf q(P-C_5(t))-1.
+F(P,t)=\mathsf q(P-Z_5(t))-1.
 \tag{12}
 $$
 
@@ -229,7 +229,7 @@ $$
 If
 
 $$
-G(P,y)=\mathsf q(P-C_3(y))-1,
+G(P,y)=\mathsf q(P-Z_3(y))-1,
 $$
 
 then, for every $y\in[1-b,a]$,
@@ -470,7 +470,7 @@ At the outer endpoint $\mu=h^{-1}$, clearing a positive denominator gives
 the numerator
 
 $$
-A_0=P_2-4DU(1+U+z),
+A_*=P_2-4DU(1+U+z),
 \tag{42}
 $$
 
@@ -506,7 +506,7 @@ P_2^+(U,\sqrt\Omega)
 \tag{45}
 $$
 
-Therefore $A_0<0$, and
+Therefore $A_*<0$, and
 
 $$
 F(L_+(h^{-1}),t_0)<0.
@@ -665,8 +665,8 @@ Equation (34) supplies the strict junction sign, and (40), together with
 $\lambda_->\lambda_*$, supplies the strict sign at $L_-(\lambda_-)$. This
 proves all of (21).
 
-Under the involution (48), the family $C_5(t)$ on $[1-a,b]$ becomes the
-family $C_3(y)$ on $[1-b,a]$. It also exchanges the two first-root points
+Under the involution (48), the family $Z_5(t)$ on $[1-a,b]$ becomes the
+family $Z_3(y)$ on $[1-b,a]$. It also exchanges the two first-root points
 while fixing the junction as the parameter-dependent line intersection.
 Reflecting (21) therefore gives every sign in (22). This completes the
 fixed-line circle proof. $\square$

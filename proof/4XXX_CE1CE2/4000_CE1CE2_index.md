@@ -60,7 +60,7 @@ relaxed slots, and terminal inequality in separate columns.
 | $N_+=0$, T3-like, no Vd1/Vd2 | branchwise residual endpoint inputs and three middle rows | middle $\mathrm I^3$ | low-radial Lin or high-radial four-label sum $<1$ | `407X` |
 | CE1, $N_+=1$, all Vd0, one gap | $[\Phi_{c_1}\mid\cdots\mid \Phi_{c_5}](X)$ | two affine superscript relaxations and one threshold superscript | returned demand $>1-X$ | `4105`, `4106` |
 | CE2, $N_+=1$, all Vd0, one gap | the same high-radial five-V-triangle chain | one threshold-decorated slot; all others $\mathrm I$ | returned demand $>1-H$ | `4105`, `4107` |
-| one T3-like or adjacent Vd1 rescuer | free supercritical source and ordinary path | seed $1-M_c^{\rm sup}$, then $\mathrm I^3$ | $b_5<M_c^{\rm sup}\le h$ | `4132`, `4143`, `2018` |
+| one T3-like or adjacent Vd1 rescuer | free supercritical source and ordinary path | seed $1-M_c^{\rm sup}$, then $\mathrm I^3$ | $B_1<M_c^{\rm sup}\le h$ | `4132`, `4143`, `2018` |
 | CE2 adjacent Vd1/Vd2 placement | exact residuals $A,H$ and backward ordinary chain | backward $\mathrm I^4$ | $\Phi_{1-\delta}(1/2+A)>1-H$ | `4144` |
 | CE2 nonadjacent Vd1/Vd2 placement | exact residuals and intervening ordinary V triangles | identity propagation | Vd-specific terminal radial separation | `4146` |
 | CE2 Vd1--supercritical replacement | exceptional adjacent pair | replace by two nonsupercritical Vd0 rows | invoke the skeleton-level `4013` obstruction | `4147` |

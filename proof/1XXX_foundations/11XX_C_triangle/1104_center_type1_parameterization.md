@@ -9,7 +9,7 @@ $$
 \partial T_C\cap r_\theta=\{d_\theta e_\theta\},
 $$
 
-then the center triangle has six-distance tuple
+then the C triangle has six-distance tuple
 
 $$
 d_0,d_{60},d_{120},d_{180},d_{240},d_{300}.

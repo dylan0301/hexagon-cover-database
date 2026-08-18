@@ -1,8 +1,8 @@
 \subsection{Common perimeter and skeleton budgets}
 
 The signed center formula also removes repeated length arithmetic.  We first
-state a generic perimeter deficit, then count all short triangles before entering
-the CE1/CE2 case tree.
+state a generic perimeter deficit, then give the direct CE1/CE2 skeleton
+count used by the routing table.
 
 \begin{lemma}[Master perimeter deficit]
 \label{lem:signed-perimeter-deficit}
@@ -140,69 +140,39 @@ and
 This is \eqref{eq:signed-endpoint-slack}.
 \end{proof}
 
-\begin{theorem}[Three short V triangles]
-\label{thm:three-short-roles}
-Call $T_i$ short if it is supercritical or if
-\[
- \Haus(T_i\cap r_j)>0
- \quad\text{for some }j\in\{i-1,i+1\}.
-\]
+\begin{theorem}[Direct CE1/CE2 skeleton count]
+\label{thm:common-skeleton-count}
 If a CE1/CE2 branch satisfies
-$T_C\cap\{M_0,\ldots,M_5\}=\{M_0\}$ and contains at least three short V
-triangles, then the seven triangles do not cover the full skeleton $S$.
+$T_C\cap\{M_0,\ldots,M_5\}=\{M_0\}$ and
+\begin{equation}
+ N_++N_{\mathrm{sp}}\ge3,
+ \label{eq:common-skeleton-count}
+\end{equation}
+then the seven triangles do not cover the full skeleton $S$.
 \end{theorem}
 
 \begin{proof}
-The center skeleton cap is
-\[
- L_S(T_C)<\frac32.
-\]
-Every short triangle also has skeleton contribution strictly less than $3/2$:
-this is the supercritical cap for a supercritical triangle and the translated
-C triangle cap for an original positive-support triangle. Every remaining
-$T_i$ is nonsupercritical and satisfies
-$\Haus(T_i\cap r_{i-1})=\Haus(T_i\cap r_{i+1})=0$, so its skeleton
-contribution is at most $2$.
+Every Vd1, Vd2, or T3-like V triangle has positive support on an adjacent
+radial segment and is nonsupercritical: use
+Proposition~\ref{prop:vd-corner-normal-form} and
+Lemma~\ref{lem:t3-nonsupercritical}.  Conversely, every supercritical V
+triangle is Vd0 and has no such support.  The two classes counted by $N_+$
+and $N_{\mathrm{sp}}$ are therefore disjoint.
 
-If there are $q\ge3$ short triangles, then
+The center skeleton cap is strictly below $3/2$.  Each of the
+$N_++N_{\mathrm{sp}}$ distinguished V triangles also contributes strictly
+less than $3/2$, by the supercritical or positive-support cap.  Every
+remaining V triangle is nonsupercritical Vd0 and contributes at most $2$.
+Consequently
 \[
  \begin{aligned}
  L_S(T_C)+\sum_{i=0}^5L_S(T_i)
- &<\frac32+q\frac32+(6-q)2\\
- &=\frac{27-q}{2}\\
- &\le12.
+ &<\frac32+\frac32(N_++N_{\mathrm{sp}})
+   +2(6-N_+-N_{\mathrm{sp}})\\
+ &=\frac{27-N_+-N_{\mathrm{sp}}}{2}\le12.
  \end{aligned}
 \]
-The full skeleton has length $12$, so subadditivity for a cover gives a
-contradiction.
-\end{proof}
-
-\begin{lemma}[Short-triangle count]
-\label{lem:short-role-count}
-Let $m$ be the number of V triangles of type Vd1, Vd2, or T3-like, and let
-$q$ be the number of short V triangles.  Then
-\begin{equation}
- \boxed{q=N_++m.}
- \label{eq:short-role-count}
-\end{equation}
-Consequently, every CE1/CE2 branch with
-$T_C\cap\{M_0,\ldots,M_5\}=\{M_0\}$ and $N_++m\ge3$ is
-impossible.
-\end{lemma}
-
-\begin{proof}
-The exhaustive vertex classification says that Vd0 is exactly the class with
-$\Haus(T_i\cap r_{i-1})=\Haus(T_i\cap r_{i+1})=0$, while Vd1, Vd2, and
-T3-like are exactly the three classes for which at least one of these two
-quantities is positive.  Proposition
-\ref{prop:vd-corner-normal-form} gives $A_i+B_i<1/2$ for Vd1/Vd2, and
-Lemma~\ref{lem:t3-nonsupercritical} gives $A_i+B_i\le1$ for T3-like.
-Thus none of these $m$ triangles is supercritical.  Conversely, every
-supercritical triangle is Vd0, so both displayed traces have zero length.
-The two disjoint sources of short triangles are therefore the $N_+$
-supercritical triangles and the $m$ non-Vd0 triangles.  This proves
-\eqref{eq:short-role-count}; Theorem~\ref{thm:three-short-roles} gives the
-last assertion.
+This contradicts subadditivity for a cover of the length-$12$ skeleton.
 \end{proof}
 
 \begin{corollary}[Length branches closed by the common budgets]
@@ -215,8 +185,7 @@ The following branches are impossible.
 \item CE2, $N_+=1$, and at least two Vd1/Vd2 V triangles;
 \item CE2, $N_+=1$, with a Vd2 triangle $T_i$ containing $M_{i-1}$ or
 $M_{i+1}$;
-\item CE1 or CE2 with $N_++m\ge3$, where $m$ is the number of Vd1, Vd2,
-or T3-like triangles;
+\item CE1 or CE2 with $N_++N_{\mathrm{sp}}\ge3$;
 \item CE1 or CE2 with $N_+\ge2$.
 \end{enumerate}
 \end{corollary}
@@ -250,8 +219,7 @@ strictly less than
  \frac12+\frac13+\frac2{\sqrt3}+4<6.
 \]
 
-Item 6 is Lemma~\ref{lem:short-role-count} and
-Theorem~\ref{thm:three-short-roles}.
+Item 6 is Theorem~\ref{thm:common-skeleton-count}.
 
 Finally suppose $N_+\ge2$. By
 Proposition~\ref{prop:unique-center-midpoint}, normalize so that
@@ -262,7 +230,8 @@ Choose a supercritical index $s\ne0$. Its own midpoint $M_s$ is not covered by $
 covered by $T_C$. Diameter locality leaves only $U_{s-1},U_s,U_{s+1}$ as
 possible V triangles containing $M_s$. Thus $M_s\in U_j$ for some
 $j\in\{s-1,s+1\}$ and, by openness,
-$\Haus(T_j\cap r_s)>0$. By Lemma~\ref{lem:short-role-count}, $T_j$ is
-nonsupercritical and distinct from the two supercritical V triangles.
-Thus there are three short triangles, and the theorem applies.
+$\Haus(T_j\cap r_s)>0$.  Thus $T_j$ is counted by
+$N_{\mathrm{sp}}$ and is distinct from the two supercritical V triangles.
+Hence $N_++N_{\mathrm{sp}}\ge3$, and
+Theorem~\ref{thm:common-skeleton-count} applies.
 \end{proof}

@@ -7,17 +7,17 @@ residual-core argument.
 
 ## Theorem
 
-The side-one regular hexagon $H$ has no cover by open unit equilateral
-triangles
+The side-one regular hexagon $H$ has no cover by original open unit
+equilateral roles
 
 $$
-T_C,T_0,\dots,T_5
+U_C,U_0,\dots,U_5,
 $$
 
-such that
+where $T_C=\overline{U_C}$ and $T_i=\overline{U_i}$, such that
 
 1. $T_i$ is a Vd0 role at $V_i$ for every $i$;
-2. $T_0,\dots,T_5$ cover $\partial H$; and
+2. $U_0,\dots,U_5$ cover $\partial H$; and
 3. exactly one actual maximal boundary V triangle is supercritical.
 
 No center class is assumed for $T_C$.
@@ -67,9 +67,9 @@ a=1-x_3,
 $$
 
 Then $0<a,b<1$, and (1) gives $a+b>1$. The points $X_3,X_4$ lie in the
-open unit triangle $T_4$ and are at distances $a,b$ from $V_4$ along rays
-meeting at $120^\circ$. Its closure has diameter $1$, with equality only
-between two vertices; those vertices are not in the open triangle. Hence
+open unit triangle $U_4$ and are at distances $a,b$ from $V_4$ along rays
+meeting at $120^\circ$. Its closure $T_4$ has diameter $1$, with equality only
+between two vertices; those vertices are not in $U_4$. Hence
 
 $$
 \lVert X_3-X_4\rVert^2=a^2+ab+b^2<1.
@@ -109,15 +109,15 @@ $$
 \tag{4}
 $$
 
-Because $T_i$ contains $V_i,X_{i-1},X_i$, its closure is one of the
+Because $U_i$ contains $V_i,X_{i-1},X_i$, its closure $T_i$ is one of the
 triangles represented in $R_i(a_i,b_i)$. If
-$P\in\mathrm{int}(H)\cap T_i$, then $P$ is interior both to the corner
-cone and to $T_i$; a small plane ball around $P$ therefore lies in
+$P\in\mathrm{int}(H)\cap U_i$, then $P$ is interior both to the corner
+cone and to $U_i$; a small plane ball around $P$ therefore lies in
 $R_i(a_i,b_i)$. Thus $P\in\mathrm{int}R_i(a_i,b_i)$. No point of
 $\mathcal U_6^\circ$ is covered by a vertex role, and the full cover implies
 
 $$
-\mathcal U_6^\circ\subseteq T_C.
+\mathcal U_6^\circ\subseteq U_C.
 \tag{5}
 $$
 
@@ -162,7 +162,7 @@ $$
 \mathcal C_{\mathrm{sym}}(a,b)
 \subseteq\mathcal C_{\mathrm{asym}}(a,b)
 \subseteq\mathcal U_6^\circ
-\subseteq T_C.}
+\subseteq U_C.}
 \tag{8}
 $$
 
@@ -180,7 +180,7 @@ P_k=(1-c_*)V_k\in\mathcal C_{\mathrm{sym}}(a,b)
 \qquad(k=0,\dots,5).
 $$
 
-By (8), all six $P_k$ lie in the convex triangle $T_C$. Their convex hull
+By (8), all six $P_k$ lie in the convex triangle $U_C$. Their convex hull
 contains the closed disk
 
 $$
@@ -189,7 +189,7 @@ $$
 \frac{\sqrt3}{2}(1-c_*)\right\},
 $$
 
-so $\mathcal D(a,b)\subseteq T_C$. The asymmetric-witness theorem
+so $\mathcal D(a,b)\subseteq U_C$. The asymmetric-witness theorem
 [`31033_asymmetric_witness_construction.md`](31033_asymmetric_witness_construction.md)
 also gives exact points
 
@@ -203,7 +203,7 @@ Therefore (8) forces the compact set
 $$
 K_{\mathrm{wit}}(a,b)
 =\mathcal D(a,b)\cup\{Q_-(a,b),Q_0(a,b),Q_+(a,b)\}
-\subseteq T_C.
+\subseteq U_C.
 \tag{9}
 $$
 
@@ -234,4 +234,4 @@ handoff used in (6). It cannot in general be replaced by $N_+\ge2$ and a
 different strict-handoff selection. The exact comparison criterion, an
 $AB$-set noninclusion, and an actual all-Vd0 full-boundary counterexample are
 proved in
-[`31036_Nplus_ge2_complementary_AM_comparison_counterexample.md`](31036_Nplus_ge2_complementary_AM_comparison_counterexample.md).
+[`31036_Nplus_ge2_complementary_AB_comparison_counterexample.md`](31036_Nplus_ge2_complementary_AB_comparison_counterexample.md).

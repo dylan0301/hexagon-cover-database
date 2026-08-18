@@ -3,20 +3,20 @@
 Status: Proven
 
 This note defines the three asymmetric witnesses exactly and excludes them
-from all six actual open vertex roles. Only the distinguished supercritical
+from all six actual open V triangles. Only the distinguished supercritical
 V triangle uses a V triangle union; the other five exclusions use actual contained vertices
 or actual handoff points.
 
 ## 1. Handoffs and local coordinates
 
 Let $H$ be the side-$1$ regular hexagon centered at $O=0$, with cyclic
-vertices $V_0,\dots,V_5$. Let $T_i$ be an open unit equilateral triangle
-containing $V_i$. Choose strict handoffs
+vertices $V_0,\dots,V_5$. Let $U_i$ be an open unit equilateral triangle
+containing $V_i$ and put $T_i=\overline{U_i}$. Choose strict handoffs
 
 $$
 X_i=V_i+x_i(V_{i+1}-V_i),
 \qquad
-X_i\in T_i\cap T_{i+1},
+X_i\in U_i\cap U_{i+1},
 \tag{1}
 $$
 
@@ -37,7 +37,7 @@ b=x_4.
 \tag{3}
 $$
 
-The two V triangle-$4$ anchors belong to $T_4$, so their mutual distance and (2)
+The two V triangle-$4$ anchors belong to $U_4$, so their mutual distance and (2)
 give
 
 $$
@@ -279,20 +279,20 @@ $$
 
 ## 4. Exclusion from the distinguished role
 
-The closure $\overline{T_4}$ is one of the closed unit triangles represented
+The closure $T_4$ is one of the closed unit triangles represented
 in $\mathcal U_{AB}(b,a)$ because it contains $V_4,X_3,X_4$. Suppose one of
-the witnesses belonged to the open triangle $T_4$. Its local coordinates
+the witnesses belonged to the open triangle $U_4$. Its local coordinates
 are positive, so a sufficiently small plane ball about it would lie both in
-$T_4$ and in the interior of the local corner cone. That ball would lie in
+$U_4$ and in the interior of the local corner cone. That ball would lie in
 $\mathcal U_{AB}(b,a)$, making the witness an interior point of the union.
 This contradicts its exact frontier membership. Thus
 
 $$
-Q_-,Q_0,Q_+\notin T_4.
+Q_-,Q_0,Q_+\notin U_4.
 \tag{29}
 $$
 
-## 5. Exclusion from $T_0,T_1,T_2$
+## 5. Exclusion from $U_0,U_1,U_2$
 
 In the $V_4$ chart, the three relevant vertices are
 
@@ -376,9 +376,9 @@ $$
 \tag{37}
 $$
 
-Each $T_j$ contains $V_j$, and two points of an open unit equilateral
+Each $U_j$ contains $V_j$, and two points of an open unit equilateral
 triangle have distance strictly below $1$. Equations (31)--(37) exclude all
-three witnesses from $T_0,T_1,T_2$.
+three witnesses from $U_0,U_1,U_2$.
 
 ## 6. Exclusion using the actual adjacent handoffs
 
@@ -400,7 +400,7 @@ $$
 \tag{39}
 $$
 
-Thus $X_5=C_5(x_5)$ is one of the actual centers covered by the fixed-line
+Thus $X_5=Z_5(x_5)$ is one of the actual centers covered by the fixed-line
 sign theorem. Its three signs give
 
 $$
@@ -412,8 +412,8 @@ $$
 \tag{40}
 $$
 
-Since $X_5\in T_5$, these inequalities exclude all three witnesses from
-$T_5$.
+Since $X_5\in U_5$, these inequalities exclude all three witnesses from
+$U_5$.
 
 For the other adjacent role, put $y=1-x_2$. Then
 
@@ -433,7 +433,7 @@ $$
 \tag{42}
 $$
 
-Thus $X_2=C_3(y)$. The reflected fixed-line signs give
+Thus $X_2=Z_3(y)$. The reflected fixed-line signs give
 
 $$
 \lVert Q_--X_2\rVert\ge1,
@@ -444,7 +444,7 @@ $$
 \tag{43}
 $$
 
-Since $X_2\in T_3$, equation (43) excludes all three witnesses from $T_3$.
+Since $X_2\in U_3$, equation (43) excludes all three witnesses from $U_3$.
 
 Combining (28)--(29), (31)--(37), and (40)--(43) proves
 
@@ -452,11 +452,11 @@ $$
 \boxed{
 Q_-,Q_0,Q_+
 \in
-\mathrm{int}(H)\setminus\bigcup_{i=0}^5T_i.
+\mathrm{int}(H)\setminus\bigcup_{i=0}^5U_i.
 }
 \tag{44}
 $$
 
-If an additional center role $T_C$ and the six vertex roles cover $H$, the
-three interior witnesses in (44) must all belong to $T_C$. This is the
+If an additional center role $U_C$ and the six vertex roles cover $H$, the
+three interior witnesses in (44) must all belong to $U_C$. This is the
 direct asymmetric-witness forcing theorem. $\square$

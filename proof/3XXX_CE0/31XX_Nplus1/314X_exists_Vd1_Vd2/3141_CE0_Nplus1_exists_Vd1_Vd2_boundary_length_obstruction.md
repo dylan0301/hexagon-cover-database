@@ -2,13 +2,13 @@
 
 Status: Proven
 
-Assume a hypothetical seven-open-unit-triangle cover has role triangles
+Assume a hypothetical seven-open-unit-triangle cover has original roles
 
 $$
-T_C,T_0,\dots,T_5,
+U_C,U_0,\dots,U_5,
 $$
 
-with
+and put $T_C=\overline{U_C}$ and $T_i=\overline{U_i}$. Assume
 
 $$
 T_C\text{ is CE0},
@@ -24,8 +24,6 @@ This branch is obstructed by boundary length.
 
 ## Boundary accounting
 
-Pass to the closures of the seven original open roles and write
-
 $$
 L_C=\mathcal H^1(T_C\cap\partial H),
 \qquad
@@ -38,7 +36,7 @@ $$
 6\le L_C+\sum_{i=0}^5L_i.
 $$
 
-The open boundary $\partial H$ has length $6$. Since $T_C$ is CE0, it
+The boundary $\partial H$ has length $6$. Since $T_C$ is CE0, it
 contributes no positive-length boundary interval.
 
 Choose one Vd1/Vd2 vertex role. Its full boundary trace is strictly less than
@@ -63,5 +61,5 @@ L_C+\sum_{i=0}^5L_i
 =\frac92+\frac2{\sqrt3}<6.
 $$
 
-This is incompatible with covering the length-$6$ open boundary. Hence the
+This is incompatible with covering the length-$6$ boundary. Hence the
 CE0, $N_+=1$, exists Vd1/Vd2 branch cannot occur in the open-cover proof tree.

@@ -1,10 +1,10 @@
 \begin{tikzpicture}[x=1cm,y=1cm,>=Latex]
   \node[panellabel,anchor=west] at (.05,3.28)
-    {Exact endpoint data for one and two active center gaps};
+    {Exact endpoint data for one and two boundary gaps};
   \node[figlabel,anchor=east,text=black!60] at (13.45,3.00)
     {schematic; coordinates are named, not drawn to scale};
 
-  % One active gap.
+  % One boundary gap.
   \begin{scope}[shift={(2.05,1.40)},scale=1.43]
     \HexCoords
     \DrawHexagon
@@ -30,7 +30,7 @@
     \node[figlabel,text=RadialTeal,left] at ($(V5)!.32!(O)$)
       {$c_5^{\rm one}$};
     \node[figlabel,text=GapPurple,anchor=west] at (.87,.48) {$\Gamma_0$};
-    \node[figlabel,below] at (0,-1.28) {one active gap};
+    \node[figlabel,below] at (0,-1.28) {one boundary gap};
   \end{scope}
   \node[figlabel,atlasbox,align=left,anchor=west] at (.05,-1.35)
     {$\displaystyle
@@ -42,7 +42,7 @@
       g_{c_5^{\rm one}}(1-a_5^{\rm one})+
       g_{c_1^{\rm one}}(1-a_1^{\rm one})<1$.};
 
-  % Two active gaps.
+  % Two boundary gaps.
   \begin{scope}[shift={(7.20,1.40)},scale=1.43]
     \HexCoords
     \DrawHexagon
@@ -69,7 +69,7 @@
       {$c_1^{\rm two}$};
     \node[figlabel,text=RadialTeal,left] at ($(V5)!.28!(O)$)
       {$c_5^{\rm two}$};
-    \node[figlabel,below] at (0,-1.28) {two active gaps; CE2};
+    \node[figlabel,below] at (0,-1.28) {two boundary gaps; CE2};
   \end{scope}
   \node[figlabel,atlasbox,align=left,anchor=west] at (.05,-2.65)
     {$\displaystyle

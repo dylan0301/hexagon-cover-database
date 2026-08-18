@@ -2,7 +2,7 @@
 
 Status: Reference
 
-This block records reusable geometry for center triangles, including maximal
+This block records reusable C-triangle geometry, including maximal
 C-triangle classifications and CE1/CE2 midpoint or row targets.
 
 | File | Recorded status | Notes |
@@ -19,4 +19,4 @@ C-triangle classifications and CE1/CE2 midpoint or row targets.
 | [`2109_signed_CE1_CE2_center_normal_form.md`](2109_signed_CE1_CE2_center_normal_form.md) | Proven | One signed support-and-trace model for CE1 and CE2; the sign of the companion surplus gives the class, while all six exits and both boundary traces are common. |
 | [`2110_common_CE2_two_gap_application.md`](2110_common_CE2_two_gap_application.md) | Proven | One geometric application of `2108` covering both the $N_+=0$ and $N_+=1$ all-Vd0 two-gap states. |
 
-- [`2111_strategy2_pure_optimization_registry.md`](2111_strategy2_pure_optimization_registry.md): universal real-variable theorem owners for the Strategy 2 optimization registry.
+- [`2111_strategy2_pure_optimization_registry.md`](2111_strategy2_pure_optimization_registry.md): reference crosswalk for the long scalar calculations used by the geometric Strategy 2 proof and exposed by the narrow statement interface.

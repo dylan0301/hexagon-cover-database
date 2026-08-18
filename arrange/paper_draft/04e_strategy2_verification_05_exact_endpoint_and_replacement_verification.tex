@@ -1,97 +1,10 @@
-\subsection{Exact Endpoint and Replacement Verification}
+\subsection{The Vd1--supercritical replacement}
 \label{sec:strategy2-rigor-completion}
 
-This section supplies two pieces that must not be hidden by the concise reader
-presentation.  First, it formally incorporates the complete status-bearing
-$407X$ four-branch endpoint proof.  Second, it gives the explicit
-Vd1--supercritical two-chart replacement in TeX.  The incorporated proof-package
-objects are part of the proof at the exact Git blobs listed below.
-
-\subsubsection{The incorporated \(407X\) endpoint supplement}
-
-All paths in the following table are relative to the numbered
-\texttt{407X\_T3\_like\_no\_Vd1Vd2} proof directory.  linear blob identities
-are stored in \texttt{proof/407X\_PROVENANCE.json}; the paper prints only
-stable proof identifiers and twelve-character prefixes.
-
-\begin{center}
-\scriptsize
-\renewcommand{\arraystretch}{1.08}
-\begin{tabular}{@{}p{.16\textwidth}p{.22\textwidth}p{.48\textwidth}@{}}
-\toprule
-proof object&blob prefix&triangle\\
-\midrule
-\texttt{4073}&\texttt{910c7a8a1330}&residual reduction\\
-\texttt{4074}&\texttt{7c72dfaf7eb3}&$(\mathrm{Const},\mathrm{Lin})$\\
-\texttt{4075}&\texttt{ebe2b65f8840}&first $Q_-$ family\\
-\texttt{4078}&\texttt{f1323325b069}&remaining first-constant family\\
-\texttt{4079}&\texttt{c66eea05277d}&first-linear exclusion\\
-\texttt{407a}&\texttt{aa5cb1a6dc63}&first $Q_+$ family\\
-\texttt{407c}&\texttt{c80243f67124}&analytic details\\
-\texttt{407d}&\texttt{e22c85c95fdd}&final assembly\\
-\bottomrule
-\end{tabular}
-\end{center}
-
-The branchwise endpoint rule used by these files is
-Proposition~\ref{prop:branchwise-safe-output}; on the high-radial branch its
-four-branch formula is Proposition~\ref{prop:capped-demand-map}.  Its four branches are
-\[
- \mathrm{Lin},\qquad \mathrm{Const},\qquad Q_-,\qquad Q_+.
-\]
-The supplement retains the exact residual inputs $a_1^*,a_5^*$ and radial
-reach lower bounds $c_1^*,c_5^*$ from Lemma~\ref{lem:407-four-label-loss}.  It does not
-replace them by a symmetric or universal envelope.
-
-\begin{table}[H]
-\centering
-\scriptsize
-\renewcommand{\arraystretch}{1.08}
-\begin{tabular}{p{.20\textwidth}p{.34\textwidth}p{.34\textwidth}}
-\toprule
-first branch&right branches&incorporated final source\\
-\midrule
-$\mathrm{Const}$&linear&`4074`, low-root separation\\
-$\mathrm{Const}$&$\mathrm{Const},Q_-$&`4078`, exact low-sheet inequalities\\
-$\mathrm{Const}$&$Q_+$&`4078` and `407c`\\
-$Q_-$&$\mathrm{Const},Q_-$&`4075`, exact root ordering\\
-$Q_-$&linear, $Q_+$&`4075`, strict endpoint separation\\
-linear&all branches&`4079`, first-linear exclusion\\
-$Q_+$&linear, $Q_+$&`407a`, high-input exclusion\\
-$Q_+$&$\mathrm{Const},Q_-$&`407a` and `407c`, analytic threshold and right-$Q_-$ bounds\\
-\bottomrule
-\end{tabular}
-\caption{The exhaustive four-branch endpoint case analysis.  The listed exact source
-objects contain every polynomial selector, domain restriction, and strict
-inequality used in the corresponding entry.}
-\label{tab:paper-407-complete-audit}
-\end{table}
-
-\begin{theorem}[Complete support-isolated T3-like endpoint certificate]
-\label{thm:paper-complete-t3-endpoint}
-For every support-isolated state of
-Definition~\ref{def:body-t3-endpoint-state},
-\[
- \overline M_{c_5^*}(a_5^*)+\overline M_{c_1^*}(a_1^*)<1.
-\]
-\end{theorem}
-
-\begin{proof}
-If $a_1^*+a_5^*>1$, the direct bounds $\overline M_c(a)\le1-a$ already give the strict
-inequality.  Assume $a_1^*+a_5^*\le1$.  If an endpoint radial lower bound is at
-most $1/2$, Proposition~\ref{prop:branchwise-safe-output} makes that endpoint
-the linear value $1-a$.  If it is larger than $1/2$,
-Proposition~\ref{prop:capped-demand-map} assigns one of the same four branches.
-Thus Table~\ref{tab:paper-407-complete-audit} remains an exhaustive partition
-of the ordered branch pairs, including the low-radial right-linear case.  The
-incorporated source in each row proves either that the pair is impossible or
-that its two exact branchwise outputs have sum strictly below one.  File
-`407d` checks that the geometric residual reduction in `4073` reaches exactly
-these branches and no others.  Therefore the displayed endpoint inequality
-holds throughout the complete support-isolated domain.
-\end{proof}
-
-\subsubsection{The explicit Vd1--supercritical replacement}
+The complete four-branch T3 endpoint calculation is already
+Lemma~\ref{lem:407-four-label-loss}; its authenticated source crosswalk is
+kept in the paper source ledger rather than printed a second time.  What
+remains here is the unique two-chart replacement needed for the Vd branch.
 
 \begin{proposition}[Vd1--supercritical two-chart replacement]
 \label{prop:paper-vd1-pair-replacement}

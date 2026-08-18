@@ -620,7 +620,7 @@ $$
 Q_-(c,c)=1-c,
 $$
 
-which is the Full contact at $a=c$. This proves the $Q_-$ ranges and
+which is the $\mathrm{Lin}$ contact at $a=c$. This proves the $Q_-$ ranges and
 completes the catalog.
 
 ## 6. Equality faces and monotonicity

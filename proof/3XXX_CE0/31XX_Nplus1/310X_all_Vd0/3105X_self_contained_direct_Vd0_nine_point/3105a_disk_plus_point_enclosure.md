@@ -16,7 +16,7 @@ $$
 h=\frac{\sqrt3}{2},
 $$
 
-and let $R$ denote counterclockwise rotation through $2\pi/3$.  For a compact
+and let $\mathsf R$ denote counterclockwise rotation through $2\pi/3$.  For a compact
 plane set $K$, the least side length of a closed equilateral triangle
 containing $K$ is
 
@@ -25,7 +25,7 @@ $$
 =
 \frac1h
 \min_{\lVert n\rVert=1}
-\sum_{j=0}^2 h_K(R^j n),
+\sum_{j=0}^2 h_K(\mathsf R^j n),
 $$
 
 where
@@ -72,7 +72,7 @@ $$
 For a unit vector $n$, put
 
 $$
-s_j=\langle X,R^j n\rangle
+s_j=\langle X,\mathsf R^j n\rangle
 \qquad(0\le j\le2).
 $$
 

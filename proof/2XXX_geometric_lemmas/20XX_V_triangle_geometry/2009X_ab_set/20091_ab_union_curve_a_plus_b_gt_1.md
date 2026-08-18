@@ -120,11 +120,11 @@ $$
 For a compact set $S$ and a unit vector $n$, write
 
 $$
-G_S(n)=\sum_{k=0}^2h_S(R^kn),\qquad
+G_S(n)=\sum_{k=0}^2h_S(\mathsf R^kn),\qquad
 h_S(n)=\max_{z\in S}\langle z,n\rangle,
 $$
 
-where $R$ is rotation through $120^\circ$.  The supporting triangle with
+where $\mathsf R$ is rotation through $120^\circ$. The supporting triangle with
 these three normals has side $2G_S(n)/\sqrt3$.  The finite caliper theorem
 therefore says that $S$ fits in a closed unit equilateral triangle exactly
 when one of its hull-edge normals has $G_S\le h$.
@@ -172,7 +172,8 @@ p=u-a,\qquad r^2=p^2+v^2-pv=\lVert x-A\rVert^2.
 $$
 
 Assume $r>0$, since $x=A$ was already handled.  Let $n_0$ be the outward
-unit normal to $Ax$, and let $n_1=Rn_0$, $n_2=R^2n_0$.  Translate $A$ to
+unit normal to $Ax$, and let $n_1=\mathsf Rn_0$,
+$n_2=\mathsf R^2n_0$. Translate $A$ to
 the origin.  Direct scalar products give the following supports after the
 common factor $h/r$ is removed:
 

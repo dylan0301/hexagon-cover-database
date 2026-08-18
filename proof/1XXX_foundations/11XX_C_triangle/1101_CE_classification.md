@@ -119,14 +119,14 @@ Now suppose that $N_E(T_C)\ge3$. Choose two nonadjacent positively overlapped
 edges and relative-interior points $x,y$ in the corresponding overlaps. The
 calculation above gives $\lVert x-y\rVert>1$. But a unit equilateral triangle,
 and hence also its open or closed realization, has diameter at most $1$.
-Indeed, if its vertices are $A_0,A_1,A_2$ and
-$p=\sum_i\lambda_iA_i$, $q=\sum_j\mu_jA_j$ are two points in their convex
+Indeed, if its vertices are $P_0,P_1,P_2$ and
+$p=\sum_i\lambda_iP_i$, $q=\sum_j\mu_jP_j$ are two points in their convex
 hull, then
 
 $$
 \lVert p-q\rVert
 \le
-\sum_{i,j}\lambda_i\mu_j\lVert A_i-A_j\rVert
+\sum_{i,j}\lambda_i\mu_j\lVert P_i-P_j\rVert
 \le
 \sum_{i,j}\lambda_i\mu_j
 =1.

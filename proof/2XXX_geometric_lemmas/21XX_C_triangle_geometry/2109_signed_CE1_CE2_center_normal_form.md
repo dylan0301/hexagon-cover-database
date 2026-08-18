@@ -198,7 +198,7 @@ F_2=\delta-R-Wq<0.
 $$
 
 Thus a second positive trace cannot lie on $e_{1,2}$. The exhaustive CE
-classification says that a center triangle has at most two positive boundary
+classification says that a C triangle has at most two positive boundary
 traces and that two such traces are adjacent. Hence $e_{5,0}$ is the only
 possible companion edge.
 
@@ -300,7 +300,7 @@ length $\Delta_R/R>0$, and the midpoint inequalities above hold. The sign of
 $\Delta_L$ then gives exactly CE1 or CE2. Thus the signed domain is both
 necessary and sufficient for closures of original open center roles.
 
-For a merely closed center triangle, replace $\alpha>0$ and $\delta>0$ by the
+For a merely closed C triangle, replace $\alpha>0$ and $\delta>0$ by the
 appropriate weak inequalities; the strict versions are the ones used by the
 open-cover proof tree.
 
@@ -376,11 +376,12 @@ $$
 
 in CE1; no separate CE1 exit calculation is needed.
 
-## 5. Legacy dictionaries
+## 5. Affine-chart dictionaries
 
 ### CE1
 
-The variables of `2105` are
+With $\kappa_j=F_j(O)$ for the auxiliary CE1 side slacks, the variables of
+`2105` are
 
 $$
 \boxed{
@@ -390,9 +391,9 @@ s=\frac{k}{R},
 \qquad
 t=W+\delta,
 \qquad
-C_0=\alpha,
+\kappa_0=\alpha,
 \qquad
-C_2=\delta.
+\kappa_2=\delta.
 }
 $$
 

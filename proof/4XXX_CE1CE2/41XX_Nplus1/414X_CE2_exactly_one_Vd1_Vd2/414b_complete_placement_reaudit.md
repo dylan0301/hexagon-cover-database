@@ -70,7 +70,7 @@ $\sigma$.
 If an additional role $T_i$ satisfies
 $\mathcal H^1(T_i\cap r_j)>0$ for some $j\in\{i-1,i+1\}$, then the unique
 supercritical role, the Vd role, and that additional
-role are three distinct short roles. The skeleton trace theorem `414a` gives
+role give $N_++N_{\rm sp}\ge3$. The skeleton trace theorem `414a` gives
 the contradiction.
 
 ## Audit conclusion
@@ -87,7 +87,7 @@ proved under exactly the hypotheses supplied by its placement:
 | $\tau=0$, Vd1 rescue | `4143` | local Vd1 profile and center-free path budget |
 | neither special role at $0$, Vd2 | `4149` | neighboring-midpoint perimeter cap |
 | neither special role at $0$, Vd1 | `4147` + `4013` | two correct vertex charts, full skeleton preservation, skeleton obstruction |
-| additional positive-support role | `414a` | three-short-role skeleton budget |
+| additional positive-support role | `414a` | direct $N_++N_{\rm sp}$ skeleton budget |
 
 Thus the CE2, $N_+=1$, exactly-one-Vd1/Vd2 branch is closed.
 

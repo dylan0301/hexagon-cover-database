@@ -35,23 +35,23 @@ $a,b\ge0$, including repeated points and collinear degeneracies.
 
 ## 1. Support sums
 
-Let $R$ denote counterclockwise rotation through $120^\circ$, and let $J$
+Let $\mathsf R$ denote counterclockwise rotation through $120^\circ$, and let $\mathsf J$
 denote counterclockwise rotation through $90^\circ$.  For a nonempty finite
 set $S$ and a vector $N$, define
 
 $$
-W_S(N)=\sum_{k=0}^2\max_{z\in S}\left\langle z,R^kN\right\rangle.
+W_S(N)=\sum_{k=0}^2\max_{z\in S}\left\langle z,\mathsf R^kN\right\rangle.
 \tag{1}
 $$
 
-Because $N+RN+R^2N=0$, this quantity is translation-invariant.  It is also
+Because $N+\mathsf RN+\mathsf R^2N=0$, this quantity is translation-invariant. It is also
 nonnegative: for any fixed $z_0\in S$, the three maxima in (1) are at least
 the three scalar products with $z_0$, whose sum is zero.
 
 For two distinct points $p,q\in S$, put
 
 $$
-N_{pq}^{\varepsilon}=\varepsilon J(q-p),\qquad
+N_{pq}^{\varepsilon}=\varepsilon \mathsf J(q-p),\qquad
 \varepsilon\in\left\{-1,1\right\}.
 \tag{2}
 $$
@@ -77,12 +77,13 @@ $$
 *Proof.*  For a unit vector $n$, let
 
 $$
-G_S(n)=\sum_{k=0}^2h_S(R^kn),\qquad
+G_S(n)=\sum_{k=0}^2h_S(\mathsf R^kn),\qquad
 h_S(n)=\max_{z\in S}\langle z,n\rangle.
 $$
 
-The three supporting half-planes with outward normals $n,Rn,R^2n$ and
-support numbers $h_S(n),h_S(Rn),h_S(R^2n)$ enclose an equilateral triangle
+The three supporting half-planes with outward normals
+$n,\mathsf Rn,\mathsf R^2n$ and support numbers
+$h_S(n),h_S(\mathsf Rn),h_S(\mathsf R^2n)$ enclose an equilateral triangle
 of side $2G_S(n)/\sqrt3$.  Indeed, the sum of the support numbers is
 translation-invariant and equals three times the inradius.  Consequently
 a supporting triangle of side at most $1$ may be enlarged concentrically to
@@ -112,8 +113,8 @@ cell contains no local minimum.  A global minimum is
 attained at a cell endpoint, where at least one of the three support faces
 contains two distinct points $p,q\in S$.  One of its three normals is
 therefore $N_{pq}^{\varepsilon}/\lVert p-q\rVert$ for a sign
-$\varepsilon$.  If that normal is $R^kn$ rather than $n$, replace $n$ by
-$R^kn$; cyclic invariance gives $G_S(Rn)=G_S(n)$.  Conversely every normal
+$\varepsilon$. If that normal is $\mathsf R^kn$ rather than $n$, replace $n$ by
+$\mathsf R^kn$; cyclic invariance gives $G_S(\mathsf Rn)=G_S(n)$. Conversely every normal
 in (2) is a legitimate orientation to test.  Since $W_S$ is homogeneous of
 degree one in its normal, (4) is exactly (3).
 
@@ -153,7 +154,8 @@ definition of $K(a,b)$. $\square$
 ## 4. Finite polynomial cells
 
 Formula (5) is also a finite semialgebraic certificate.  Fix a candidate
-$(p,q,\varepsilon)$, write $N=N_{pq}^{\varepsilon}$ and $N_k=R^kN$, and
+$(p,q,\varepsilon)$, write $N=N_{pq}^{\varepsilon}$ and
+$N_k=\mathsf R^kN$, and
 choose labels $z_0,z_1,z_2\in S_x$.  The corresponding support cell is
 defined by the finite linear or quadratic inequalities
 

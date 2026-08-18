@@ -402,7 +402,7 @@ $$
 F_T(c)=(\sigma^2-1)c^2+Mc-M^2.
 $$
 
-For the actual V triangle-$5$ pair
+For the selected V-triangle-$5$ pair
 
 $$
 \begin{aligned}
@@ -852,11 +852,11 @@ n_C&=(1,0).
 \end{aligned}
 $$
 
-For V triangle $i$, define the open triangle
+For V role $i$, define the original open triangle
 
 $$
 \begin{aligned}
-T_i
+U_i
 &=
 \left\{
 z:
@@ -871,16 +871,17 @@ n_C\mathbin{\cdot}z<
 \tag{40}
 $$
 
-The three support numbers in (40) sum to $\sqrt3/2$. For three outward unit
+Put $T_i=\overline{U_i}$.  The three support numbers in (40) sum to
+$\sqrt3/2$. For three outward unit
 normals separated by $120$ degrees, the side length is $2/\sqrt3$ times the
-support sum. Hence $T_i$ is an open unit equilateral triangle. All three
+support sum. Hence $U_i$ is an open unit equilateral triangle. All three
 support numbers are positive because
 
 $$
 0<A_i+B_i\le\frac{1062}{1000}<\sqrt3.
 $$
 
-Thus the local vertex $0$ lies in $T_i$.
+Thus the local vertex $0$ lies in $U_i$.
 
 Along the incoming ray $ru$, the two positive cutoffs in (40) are
 
@@ -915,12 +916,13 @@ A_i+2B_i<2A_i+B_i<\sqrt3.
 $$
 
 Thus both $A_i$ and $B_i$ occur before the third cutoff. They are exactly the
-maximal incoming and outgoing reaches of $T_i$.
+maximal incoming and outgoing reaches of the closure $T_i$ (and the
+corresponding suprema for $U_i$).
 
-In corner-cone coordinates $z=xv+yu$, the third inequality in (40) becomes
+In corner-cone coordinates $z=xv+yu$, every $z\in T_i$ satisfies
 
 $$
-x+y<\sqrt3-A_i-B_i.
+x+y\le\sqrt3-A_i-B_i.
 $$
 
 Also every pair in (37) satisfies
@@ -959,7 +961,7 @@ They overlap strictly on $I_i$, so the six roles cover the entire boundary.
 This is a genuine all-Vd0, full-boundary, actual-$N_+=3$ configuration for
 which no strict handoff selection has the extreme-jump property.
 
-It is not claimed that these six roles, together with a center triangle,
+It is not claimed that these six roles, together with a C triangle,
 cover the whole hexagon.
 
 ## 9. Final scope

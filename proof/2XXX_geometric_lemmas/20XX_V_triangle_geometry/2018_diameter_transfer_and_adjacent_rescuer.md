@@ -70,9 +70,9 @@ $$
 so $M_0$ is strictly decreasing.  It is the terminal diameter bound in the
 one-gap proofs and the boundary-extent curve in the one-Vd1/Vd2 obstructions.
 
-## 2. The free supercritical $g$-envelope
+## 2. The free strict-supercritical envelope
 
-For $0\le c\le1/2$, put
+For $0\le c<1/2$, put
 
 $$
 \boxed{
@@ -87,8 +87,12 @@ The free strict-supercritical theorem
 whose own-radial demand is at least $c$ has outgoing reach strictly less than
 $M_c^{\rm sup}$.
 
-The function $c\mapsto M_c^{\rm sup}$ is strictly decreasing on $[0,1/2]$,
-because
+The strict-supercritical feasible set is empty at $c=1/2$. When an endpoint
+formula uses $M_{1/2}^{\rm sup}=1/2$, this denotes only the continuous
+extension of the displayed expression, not an attained strict supremum.
+
+The displayed expression, continuously extended to $c=1/2$, is strictly
+decreasing on $[0,1/2]$, because
 
 $$
 \frac{d}{dc}M_c^{\rm sup}
@@ -165,7 +169,7 @@ h\ge1-a\ge M_c^{\rm sup}.
 $$
 
 The same conclusion holds when the companion trace lies completely before or
-completely after the endpoint $a$: an open boundary gap begins at $a$, or the
+completely after the endpoint $a$: a boundary gap begins at $a$, or the
 remaining tail begins at $a$.
 
 It remains to consider the only hiding configuration
@@ -277,47 +281,48 @@ Assume, in addition to the hypotheses of Section 3, that:
 - these four V triangles must cover the ordinary boundary chain from $e_{1,2}$ to
   $e_{5,0}$.
 
-The strict-supercritical theorem and monotonicity of $M_c^{\rm sup}$ give
+Let $(A_i,B_i)$ denote the actual boundary reaches in this path. The
+strict-supercritical theorem and monotonicity of $M_c^{\rm sup}$ give
 
 $$
-b_1<M_c^{\rm sup}.
+B_1<M_c^{\rm sup}.
 $$
 
 Section 3 gives
 
 $$
-h\ge M_c^{\rm sup}>b_1.
+h\ge M_c^{\rm sup}>B_1.
 $$
 
 The boundary obligations are
 
 $$
-a_2\ge1-b_1,
+A_2\ge1-B_1,
 $$
 
 $$
-b_2+a_3\ge1,
+B_2+A_3\ge1,
 \qquad
-b_3+a_4\ge1,
+B_3+A_4\ge1,
 \qquad
-b_4+a_5\ge1,
+B_4+A_5\ge1,
 $$
 
 and
 
 $$
-b_5\ge h.
+B_5\ge h.
 $$
 
 Adding them yields
 
 $$
 \begin{aligned}
-\sum_{i=2}^5(a_i+b_i)
+\sum_{i=2}^5(A_i+B_i)
 &\ge
-(1-b_1)+1+1+1+h\\
+(1-B_1)+1+1+1+h\\
 &=
-4+(h-b_1)\\
+4+(h-B_1)\\
 &>4.
 \end{aligned}
 $$
@@ -325,7 +330,7 @@ $$
 But nonsupercriticality gives
 
 $$
-a_i+b_i\le1
+A_i+B_i\le1
 \qquad(i=2,3,4,5),
 $$
 

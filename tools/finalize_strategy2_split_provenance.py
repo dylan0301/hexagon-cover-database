@@ -86,12 +86,8 @@ def write_strategy2_manifest(provenance: dict[str, str]) -> None:
         PAPER / f"{name}.tex",
         rf"""% Generated exact blob identities; checked by tools/proof_lint.py.
 {comments}
-\section{{Exact Strategy 2 Source Provenance}}
-\label{{sec:strategy2-source-provenance}}
-The complete four-label endpoint calculation is tied to exact proof-package
-bytes by \texttt{{proof/407X\_PROVENANCE.json}}.  The full SHA-1 Git blob
-identities are retained in this generated source and checked against every
-referenced file before the paper is built.
+% The public source ledger records the provenance crosswalk; the manifest is
+% intentionally silent in the typeset manuscript.
 """,
     )
     wrapper = PAPER / "04_strategy2_verification.tex"
@@ -105,26 +101,6 @@ referenced file before the paper is built.
         write(wrapper, text)
 
 
-def write_ledger_manifest(provenance: dict[str, str]) -> None:
-    ledger = PAPER / "source_ledger.md"
-    text = ledger.read_text(encoding="utf-8")
-    rows = "\n".join(
-        f"| `{Path(relative).name}` | `{sha[:12]}` |" for relative, sha in provenance.items()
-    )
-    block = (
-        "## Generated 407X split-source provenance\n\n"
-        "The split verification appendix retains the following exact proof-package objects.\n\n"
-        "| File | Git blob prefix |\n|---|---|\n" + rows
-    )
-    text = generated_block(
-        text,
-        "<!-- BEGIN GENERATED 407X SPLIT PROVENANCE -->",
-        "<!-- END GENERATED 407X SPLIT PROVENANCE -->",
-        block,
-    )
-    write(ledger, text)
-
-
 def write_strategy4_manifest(provenance: dict[str, str]) -> None:
     path = PAPER / "06a_strategy4_exact_certificate.tex"
     text = path.read_text(encoding="utf-8")
@@ -135,18 +111,6 @@ def write_strategy4_manifest(provenance: dict[str, str]) -> None:
         "% END GENERATED 3105X PROVENANCE",
         comments,
     )
-    write(path, text)
-
-
-def patch_lint_for_split_tree() -> None:
-    path = ROOT / "tools/proof_lint.py"
-    text = path.read_text(encoding="utf-8")
-    old = '''strategy2_path = ROOT / "arrange/paper_draft/04_strategy2_verification.tex"\nstrategy2_text = strategy2_path.read_text(encoding="utf-8")'''
-    new = '''strategy2_path = ROOT / "arrange/paper_draft/04_strategy2_verification.tex"\nstrategy2_paths = sorted(\n    path\n    for path in compiled\n    if path.name.startswith(("04_strategy2_", "04d_strategy2_", "04e_strategy2_"))\n)\nstrategy2_text = "\\n".join(path.read_text(encoding="utf-8") for path in strategy2_paths)'''
-    if old in text:
-        text = text.replace(old, new, 1)
-    elif new not in text:
-        raise RuntimeError("proof_lint Strategy 2 source assignment has an unknown form")
     write(path, text)
 
 
@@ -163,9 +127,7 @@ def remove_one_shot_workflows() -> None:
 def main() -> None:
     provenance_407, provenance_3105 = generate_provenance()
     write_strategy2_manifest(provenance_407)
-    write_ledger_manifest(provenance_407)
     write_strategy4_manifest(provenance_3105)
-    patch_lint_for_split_tree()
     remove_one_shot_workflows()
 
 

@@ -1,12 +1,15 @@
-\section{Proofs of the Finite Propagation Inequalities}
+\section{Source-only Scalar Calculation Ledger}
 \label{sec:strategy2-pure-theorems}
 
-This section proves the inequalities stated in Appendix~\ref{sec:strategy2-optimization-problems}, with the
-quantifiers written in Appendix~\ref{sec:strategy2-optimization-problems}.
-The geometric bridge is not used to restrict those quantifiers: it is used
-later only to show that a routed geometric configuration supplies a point of
-the corresponding real domain and that the geometric final quantity equals
-the stated objective.
+This uncompiled source records the long scalar calculations associated with
+Appendix~\ref{sec:strategy2-optimization-problems}.  It is a calculation
+ledger, not the proof architecture used in the paper.  Except for the
+explicitly bridge-realized T3 statement below, the labels with prefix
+\texttt{thm:s2-univ-} denote universal real-variable assertions.  The active
+paper uses distinct \texttt{thm:s2-geom-} labels for geometric consequences.
+Nothing in this file formalizes a geometry-to-parameter bridge, a global case
+split, or the final covering contradiction; Lean currently elaborates only
+the corresponding scalar statement shells with intentional admissions.
 
 \subsection{Primitive high-radial output bound}
 
@@ -23,7 +26,7 @@ The upper inequality is strict on every non-linear branch.
 The lower bound is immediate from Definition~\ref{def:s2-pure-map}.  On a
 linear branch the upper bound is equality.  On a $Q_-$ branch, where $x<c$,
 \[
- Q_-(c,x)\le1-x
+ Q_-(x,c)\le1-x
  \iff
  \sqrt{x^2-cx+c^2}\le c
  \iff x(x-c)\le0.
@@ -33,7 +36,7 @@ On a $Q_+$ branch, $x<1$ and Lemma~\ref{lem:s2-pure-map-well-defined} gives
  \sqrt{D_+(c,x)}\ge c(2c-1).
 \]
 After multiplying by the positive denominator in $Q_+$ and dividing by
-$1-x$, this is exactly $Q_+(c,x)\le1-x$; equality can occur only at
+$1-x$, this is exactly $Q_+(x,c)\le1-x$; equality can occur only at
 $x=1-c$, which is assigned to linear.  On the low-$c$ tie,
 $h(c)\le1/2=1-1/2\le1-h(c)$; equivalently
 $\sqrt{16c^2-3}\ge4c-1$, whose square is $8c\ge4$.  On the high-$c$
@@ -44,7 +47,7 @@ $\ell(c)<1-c+\ell(c)<1-x$.  These cases exhaust the definition of $F$.
 \subsection{The four all-Vd0 problems}
 
 \begin{theorem}[Pure S2-E1]
-\label{thm:s2-pure-e1}
+\label{thm:s2-univ-e1}
 For every $(r,a,d)\in\mathcal D_1\cup\mathcal D_2$,
 \[
  \Psi_{\rm E1}(r,a,d)<0.
@@ -107,7 +110,7 @@ the universal statement above.
 \end{proof}
 
 \begin{theorem}[Pure S2-E2]
-\label{thm:s2-pure-e2}
+\label{thm:s2-univ-e2}
 For every $(r,a,d)\in\mathcal D_2$,
 \[
  \Psi_{\rm E2}(r,a,d)<0.
@@ -140,7 +143,7 @@ case.
 \end{proof}
 
 \begin{theorem}[Pure S2-R1]
-\label{thm:s2-pure-r1}
+\label{thm:s2-univ-r1}
 For every $(r,a,d)\in\mathcal D_1$,
 \[
  \Psi_{\rm R1}(r,a,d)<0.
@@ -156,7 +159,7 @@ On $\mathcal D_1$ one has
 so $m=a/r$.  Substitute
 \[
  R=r,\,W=w,\,A=a,\,D=d,\,
- X=r-d,\,H=\frac{k}{2r}
+ X=r-d,\,h_0=\frac{k}{2r}
 \]
 into the scalar calculation in the proof of
 Proposition~\ref{prop:ce1-one-gap}.  From
@@ -165,7 +168,7 @@ Proposition~\ref{prop:ce1-one-gap}.  From
 the identity $e^2=1-rw$, and the explicit branches of $F$ and $T$.
 The calculation proves
 \[
- [T(1-a,\cdot)\mid T(1-m,\cdot)\mid T(1-d,\cdot)](H)>w+d,
+ [T(1-a,\cdot)\mid T(1-m,\cdot)\mid T(1-d,\cdot)](h_0)>w+d,
 \]
 which is $Y_3>w+d$, hence $\Psi_{\rm R1}<0$.  The actual-reach handoff and
 geometric contradiction occur only after this scalar inequality and are not
@@ -173,7 +176,7 @@ used here.
 \end{proof}
 
 \begin{theorem}[Pure S2-R2]
-\label{thm:s2-pure-r2}
+\label{thm:s2-univ-r2}
 For every $(r,a,d)\in\mathcal D_2$,
 \[
  \Psi_{\rm R2}(r,a,d)<0.
@@ -206,13 +209,16 @@ requires at least one threshold and does not assert uniqueness.
 
 \subsection{The finite high-radial T3 endpoint problem}
 
-The domain $\Omega_{\rm T3}$ includes only $C_1,C_5>1/2$.  The geometric
-branch with $C_1\le1/2$ is the direct right-linear case handled before the
-optimization bridge and by Theorem~\ref{thm:paper-complete-t3-endpoint}.
+The domain $\Omega_{\rm T3}$ includes only $c_1,c_5>1/2$.  The geometric
+branch with $c_1\le1/2$ is the direct right-linear case handled before the
+optimization bridge and by Lemma~\ref{thm:s2-geom-t3}.
 
-\begin{theorem}[Pure S2-T3]
-\label{thm:s2-pure-t3}
-For every $\xi\in\Omega_{\rm T3}$,
+\begin{theorem}[Bridge-realized S2-T3 scalar conclusion]
+\label{thm:s2-source-t3}
+Let $\xi\in\Omega_{\rm T3}$ be supplied by
+Proposition~\ref{prop:s2-t3-source-bridge} from a support-isolated geometric
+T3 configuration and classified by the authenticated $407X$ case analysis.
+Then
 \[
  \Psi_{\rm T3}(\xi)<0.
 \]
@@ -220,19 +226,17 @@ For every $\xi\in\Omega_{\rm T3}$,
 
 \begin{proof}
 Fix
-$\xi=(r,a,d,\tau,\beta,A_1,A_5,C_1,C_5)\in\Omega_{\rm T3}$.
-If $A_1+A_5>1$, Lemma~\ref{lem:s2-pure-cap} gives
+$\xi=(r,a,d,\tau,\beta,a_1,a_5,c_1,c_5)\in\Omega_{\rm T3}$.
+If $a_1+a_5>1$, Lemma~\ref{lem:s2-pure-cap} gives
 \[
- F(C_5,A_5)+F(C_1,A_1)
- \le2-A_1-A_5<1.
+ F(c_5,a_5)+F(c_1,a_1)
+ \le2-a_1-a_5<1.
 \]
-Assume $A_1+A_5\le1$.  The two contact predicates in the definition of the
+Assume $a_1+a_5\le1$.  The two contact predicates in the definition of the
 hard cell assign a unique pair
 $(\ell_5,\ell_1)\in\mathfrak B^2$.
 
-We verify that the complete $407X$ calculation applies to this arbitrary real
-point, rather than only to a previously realized geometric state.  Use the
-signed-center substitution
+For a hard cell, use the signed-center substitution
 \[
  R=r,\qquad W=w,\qquad E=e,
  \qquad \alpha_C=a,\qquad\delta_C=d.
@@ -258,29 +262,27 @@ and the exact source quantities in Lemma~\ref{lem:407-four-label-loss} become
  \qquad
  q_T+\frac{1-R_T}{D_T}=u_\star.
 \]
-The predicates $\mathcal R_i$, $\mathcal L_{\varepsilon,j}$, and
-$\mathcal K_h$ are exactly the three residual orders and the radial
-hit/miss orders used in that proof.  Finally,
-$\mathrm{Cell}_{\ell_5}(C_5,A_5)$ and
-$\mathrm{Cell}_{\ell_1}(C_1,A_1)$ select the same explicit branch formulas
+For the bridge-realized point, the predicates $\mathcal R_i$,
+$\mathcal L_{\varepsilon,j}$, and $\mathcal K_h$ are the residual orders and
+radial hit/miss orders supplied by the geometric classification.  Finally,
+$\mathrm{Cell}_{\ell_5}(c_5,a_5)$ and
+$\mathrm{Cell}_{\ell_1}(c_1,a_1)$ select the same explicit branch formulas
 of $F$ as its four-branch table.
 
-After these substitutions, the hard-region proof of
-Lemma~\ref{lem:407-four-label-loss} is a finite algebraic proof on the
-selected cell: every hypothesis used there is one of the defining equalities
-or inequalities just listed, and its eight table rows exhaust
-$\mathfrak B^2$.  It proves
+After these substitutions, the applicable row of the authenticated
+$407X$ geometric calculation proves
 \[
- F(C_5,A_5)+F(C_1,A_1)<1
+ F(c_5,a_5)+F(c_1,a_1)<1
 \]
-for the present arbitrary $\xi$.  Hence $\Psi_{\rm T3}(\xi)<0$ on every
-hard cell as well.
+for the bridge-realized $\xi$.  Hence $\Psi_{\rm T3}(\xi)<0$.  This argument
+does not assert that the $407X$ rows prove the same sign for every abstract
+point of $\Omega_{\rm T3}$.
 \end{proof}
 
 \subsection{The adjacent exceptional triangle problems}
 
 \begin{theorem}[Pure S2-SC]
-\label{thm:s2-pure-sc}
+\label{thm:s2-univ-sc}
 The two inequalities in Problem~\ref{prob:s2-rescuer} hold on
 $\Omega_{\rm SC}^{T}$ and $\Omega_{\rm SC}^{V}$, respectively.
 \end{theorem}
@@ -290,16 +292,16 @@ For the first cell, $1-u=(1-x)\rho(\theta)$ and
 $a=x\rho(\theta)$, so $\vartheta(a,u)=x$.  Since
 $0<\rho(\theta)\le1$, also $a\le x$.  Put
 \[
- \Phi(y)=\frac{y(2-y)}{1+y}.
+ \chi(y)=\frac{y(2-y)}{1+y}.
 \]
 On $[0,1/2]$ this function is increasing and
-$\Phi(1-M_c^{\rm sup})=c$.  The exact calculation in
+$\chi(1-M_c^{\rm sup})=c$.  The exact calculation in
 Lemma~\ref{lem:short-t3-rescuer-profile} proves, on the displayed
 $\theta$-interval and $x$-interval,
 \[
  Q_\theta(x)=2x^2+(\theta-1)x+\theta\ge0.
 \]
-This is equivalent to $\Phi(x)\le x+\theta=c$, and hence
+This is equivalent to $\chi(x)\le x+\theta=c$, and hence
 $x\le 1-M_c^{\rm sup}$.  Therefore
 $\max\{a,\vartheta(a,u)\}\le 1-M_c^{\rm sup}$.
 
@@ -315,11 +317,11 @@ For $t\ge1$ and $c\le1/2$,
 \]
 so
 \[
- a\le G(t,c)\le \ell(c):=\sqrt3-\frac52+2c.
+ a\le G(t,c)\le L_{\rm sc}(c):=\sqrt3-\frac52+2c.
 \]
 The exact polynomial calculation in
 Lemma~\ref{lem:short-vd1-rescuer-profile} gives
-$2\ell(c)\le 1-M_c^{\rm sup}$ on $0\le c\le1/2$.
+$2L_{\rm sc}(c)\le 1-M_c^{\rm sup}$ on $0\le c\le1/2$.
 Writing $\epsilon=1-u$ gives
 \[
  \epsilon=\epsilon_0+\frac at,
@@ -333,7 +335,7 @@ Monotonicity in $a$ yields
  \vartheta(a,u)
  =\frac a{a+\epsilon}
  \le\frac{G(t,c)}{G(t,c)+1/2}
- \le2\ell(c)
+ \le2L_{\rm sc}(c)
  \le 1-M_c^{\rm sup}.
 \]
 Thus both terms in the maximum are at most $1-M_c^{\rm sup}$, which is
@@ -346,27 +348,29 @@ exactly $\Psi_{\rm SC}\le0$.
 \label{lem:s2-pure-adjacent-quarter}
 On either adjacent Vd cell,
 \[
- d<\frac H4.
+ d<\frac{A_L}{4}.
 \]
 \end{lemma}
 
 \begin{proof}
-By the definition of $\mathsf R$, either $H=w-a$ or $H=1-p_0$.
-If $H=w-a$, then
+By the definition of $\mathcal R_{[k/w,r+a]}$, either
+$A_L=w-a$ or $A_L=1-p_0$.
+If $A_L=w-a$, then
 \[
  4d+a\le4(a+d)<\frac{2w}{3}<w,
 \]
-so $4d<H$.
+so $4d<A_L$.
 
-Suppose $H=1-p_0$.  If also $A=1-q_0$, then $A+H<1/2$ gives
+Suppose $A_L=1-p_0$.  If also $A_R=1-q_0$, then
+$A_R+A_L<1/2$ gives
 $p_0+q_0>3/2$, whereas
 $p_0^2+p_0q_0+q_0^2\le1$ gives
-$p_0+q_0\le2/\sqrt3<3/2$.  Hence $A=r-d$ and $q_0\ge k/r$.
+$p_0+q_0\le2/\sqrt3<3/2$.  Hence $A_R=r-d$ and $q_0\ge k/r$.
 The endpoint-distance inequality gives $1-p_0>q_0/2$, so
 \[
- H>\frac{k}{2r}>\frac\eta{2r}.
+ A_L>\frac{k}{2r}>\frac\eta{2r}.
 \]
-Since $A+H<1/2$, also
+Since $A_R+A_L<1/2$, also
 \[
  d>J(r):=r-\frac12+\frac\eta{2r}.
 \]
@@ -376,12 +380,12 @@ $J(3/8)=1/24$.  Since $d<1/24$, it follows that $r<3/8$.  Then
 \[
  (2-3r)^2-e^2=(3-8r)w>0,
 \]
-which implies $\eta/r>1/3$.  Hence $H>1/6$, while $4d<1/6$, and again
-$4d<H$.
+which implies $\eta/r>1/3$.  Hence $A_L>1/6$, while $4d<1/6$, and again
+$4d<A_L$.
 \end{proof}
 
 \begin{theorem}[Pure S2-VD-adjacent]
-\label{thm:s2-pure-vd-adjacent}
+\label{thm:s2-univ-vd-adjacent}
 Both inequalities in Problem~\ref{prob:s2-vd-adjacent} hold on their stated
 cells.
 \end{theorem}
@@ -393,45 +397,45 @@ $\Delta_t<t+1$, so
 \[
  u_+
  <1-q_1-\frac{p_1}{t}
- \le1-H
+ \le1-A_L
  <1-d.
 \]
 Thus $u_+-1+d<0$, and both entries of
 $\Psi_{\rm VD}^{\rm adj,+}$ are negative.  On the no-support cell the
-objective is only $d-H/4<0$.
+objective is only $d-A_L/4<0$.
 \end{proof}
 
 \begin{theorem}[Pure S2-VD-nonadjacent]
-\label{thm:s2-pure-vd-nonadjacent}
+\label{thm:s2-univ-vd-nonadjacent}
 The inequality in Problem~\ref{prob:s2-vd-nonadjacent} holds on every stated
 cell.
 \end{theorem}
 
 \begin{proof}
-Put $B=1-A$ and $U=1-H$.  The two explicit center-distance constraints in
+Put $B_R=1-A_R$ and $B_L=1-A_L$.  The two explicit center-distance constraints in
 Definition~\ref{def:s2-vd-nonadjacent-domain} imply
 \[
  w+d\le M_0(x),
  \qquad
- r+a\le M_0(y),
- \qquad
- M_0(q)=\frac{-q+\sqrt{4-3q^2}}2.
+ r+a\le M_0(y).
 \]
-If $B=q_0$ and $p_0<x$, then $U=p_0$ and $A+H<1/2$ would give
+Here $M_0$ is the canonical zero-radial envelope from the common transfer
+calculus, not a new local transfer map.
+If $B_R=q_0$ and $p_0<x$, then $B_L=p_0$ and $A_R+A_L<1/2$ would give
 $p_0+q_0>3/2$, contradicting the endpoint-distance inequality.  Hence
 $p_0\ge x$, and
 $q_0\le M_0(p_0)\le M_0(x)$.  The other possibility is
-$B=w+d\le M_0(x)$.  Therefore
+$B_R=w+d\le M_0(x)$.  Therefore
 \[
- A\ge1-M_0(x)>\frac x2>\sigma.
+ A_R\ge1-M_0(x)>\frac x2>\sigma.
 \]
-The reflected argument gives $H>y/2>\sigma$.  Hence
-$\sigma-A<0$ and $\sigma-H<0$.
+The reflected argument gives $A_L>y/2>\sigma$.  Hence
+$\sigma-A_R<0$ and $\sigma-A_L<0$.
 
 For $j=2,4$ one has $d_j\in\{d,a\}<\sigma$.  For $j=3$, at least one of
 $a/r$ and $d/w$ is at most $a+d=\sigma$; otherwise multiplication by
 $r,w$ and addition would give $a+d>a+d$.  Thus in every case
-$d_j\le\sigma<m=\min\{A,H\}$.
+$d_j\le\sigma<m=\min\{A_R,A_L\}$.
 Finally, $t>0$ gives $\Delta_t<t+1$, and therefore
 \[
  C_v
@@ -442,16 +446,18 @@ Finally, $t>0$ gives $\Delta_t<t+1$, and therefore
 All four entries in $\Psi_{\rm VD}^{\rm non}$ are strictly negative.
 \end{proof}
 
-\begin{corollary}[Universal pure Strategy 2 collection]
-\label{cor:s2-pure-registry}
-Problems S2-E1, S2-E2, S2-R1, S2-R2, S2-T3, S2-SC, and S2-VD all hold with
-the universal quantifiers in their definitions.
+\begin{corollary}[Source-only scalar collection]
+\label{cor:s2-source-registry}
+Problems S2-E1, S2-E2, S2-R1, S2-R2, S2-SC, and S2-VD hold with the
+universal quantifiers in their definitions.  The S2-T3 conclusion holds for
+the bridge-realized geometric points stated in
+Theorem~\ref{thm:s2-source-t3}; no universal T3 assertion is made here.
 \end{corollary}
 
 \begin{proof}
-Combine Theorems~\ref{thm:s2-pure-e1}, \ref{thm:s2-pure-e2},
-\ref{thm:s2-pure-r1}, \ref{thm:s2-pure-r2},
-\ref{thm:s2-pure-t3}, \ref{thm:s2-pure-sc},
-\ref{thm:s2-pure-vd-adjacent}, and
-\ref{thm:s2-pure-vd-nonadjacent}.
+Combine Theorems~\ref{thm:s2-univ-e1}, \ref{thm:s2-univ-e2},
+\ref{thm:s2-univ-r1}, \ref{thm:s2-univ-r2},
+\ref{thm:s2-source-t3}, \ref{thm:s2-univ-sc},
+\ref{thm:s2-univ-vd-adjacent}, and
+\ref{thm:s2-univ-vd-nonadjacent}.
 \end{proof}

@@ -150,21 +150,21 @@ $$
 Put
 
 $$
-C_j=F_j(O).
+\kappa_j=F_j(O).
 $$
 
 Because $O\in\mathrm{int}(T_C)$,
 
 $$
-C_0,C_1,C_2>0,
+\kappa_0,\kappa_1,\kappa_2>0,
 \qquad
-C_0+C_1+C_2=\rho.
+\kappa_0+\kappa_1+\kappa_2=\rho.
 $$
 
 The positive-length condition $s<t$ gives the exact identity
 
 $$
-C_0+(1-\lambda)C_2
+\kappa_0+(1-\lambda)\kappa_2
 =\rho(1-\rho)-\lambda(t-s)
 <\rho(1-\rho).
 $$
@@ -178,7 +178,7 @@ $$
 i&0&1&2&3&4&5\\
 \hline
 \gamma_i\text{ is at most}
-&C_1&C_2/\lambda&C_2&C_0/\lambda&C_0&C_0/(1-\lambda).
+&\kappa_1&\kappa_2/\lambda&\kappa_2&\kappa_0/\lambda&\kappa_0&\kappa_0/(1-\lambda).
 \end{array}
 $$
 
@@ -189,12 +189,12 @@ $$
 L_D(T_C)
 &=\sum_{i=0}^5\gamma_i\\
 &\le
-\rho+\frac{C_2}{\lambda}
-+\frac{C_0}{\lambda}
-+\frac{C_0}{1-\lambda}\\
+\rho+\frac{\kappa_2}{\lambda}
++\frac{\kappa_0}{\lambda}
++\frac{\kappa_0}{1-\lambda}\\
 &=
 \rho+
-\frac{C_0+(1-\lambda)C_2}{\lambda(1-\lambda)}\\
+\frac{\kappa_0+(1-\lambda)\kappa_2}{\lambda(1-\lambda)}\\
 &<
 \rho+
 \frac{\rho(1-\rho)}{\lambda(1-\lambda)}.

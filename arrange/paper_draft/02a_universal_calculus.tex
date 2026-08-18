@@ -59,7 +59,7 @@ the admissible set is
  \label{eq:universal-admissible-gauge}
 \end{equation}
 The complete support calculation is given in
-Appendix~\ref{sec:admissible-set-derivation}.
+Subsection~\ref{sec:admissible-set-derivation} below.
 
 \subsection{One equilateral radical}
 
@@ -125,16 +125,6 @@ Equivalently,
 \[
  \overline M_c(a)=\min\{M_c(a),1-a\}.
 \]
-The older defect-coordinate notation used in archival branch files is related
-by
-\begin{equation}
- g_c(x)=M_c(1-x),
- \qquad
- g_c^\vee(a)=\Phi_c(a)\quad(c\ge1/2).
- \label{eq:reader-complement-dual}
-\end{equation}
-No subsequent reader-facing argument uses $g_c$ as a primary object.
-
 \begin{lemma}[Midpoint threshold]
 \label{lem:reader-midpoint-threshold}
 For $0\le a\le1$,
@@ -282,6 +272,9 @@ the next incident actual V triangle, then coverage gives
  A(T_{\mathrm{next}})>1-M_c^{\rm sup}.
  \label{eq:reader-free-raw-envelope}
 \end{equation}
+At $c=1/2$ the strict feasible set is empty. When convenient we write
+$M_{1/2}^{\rm sup}=1/2$ only for the continuous extension of the displayed
+formula, never for an attained strict supremum.
 
 \subsection{Relaxed composition and path budgets}
 
@@ -295,7 +288,7 @@ The leftmost slot acts first.  Write $\mathrm I(x)=x$.
 
 \begin{lemma}[Relaxed composition]
 \label{lem:reader-relaxed-composition}
-Suppose actual reach lower bounds satisfy
+Suppose propagated reach lower bounds satisfy
 \[
  x_j\ge\Psi_j(x_{j-1})
  \qquad(1\le j\le r),

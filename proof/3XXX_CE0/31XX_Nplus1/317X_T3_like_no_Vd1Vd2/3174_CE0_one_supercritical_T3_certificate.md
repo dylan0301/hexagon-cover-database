@@ -17,8 +17,10 @@ T3-like V triangle are not used.
 
 ## Theorem
 
-Let $T_C$ be CE0. Suppose the six vertex roles are Vd0 or T3-like, at least
-one is T3-like, and their actual reaches satisfy
+Let $U_C,U_0,\ldots,U_5$ be the original open roles, and put
+$T_C=\overline{U_C}$ and $T_i=\overline{U_i}$. Let $T_C$ be CE0. Suppose the
+six closed V triangles are Vd0 or T3-like, at least one is T3-like, and their
+actual reaches satisfy
 
 $$
 \left\lvert
@@ -30,8 +32,8 @@ Then the seven triangles cannot cover $H$.
 
 ## Proof
 
-Because $T_C$ is CE0, the six vertex roles cover $\partial H$: otherwise an
-open center triangle covering a missed boundary point would contain a
+Because $T_C$ is CE0, the six original open roles $U_i$ cover $\partial H$: otherwise
+$U_C$ covering a missed boundary point would contain a
 positive-length edge interval. Apply `1214`. It gives cuts
 
 $$
@@ -40,7 +42,7 @@ X_i=V_i+x_i(V_{i+1}-V_i),
 (a_i,b_i)=(1-x_{i-1},x_i),
 $$
 
-with $0<x_i<1$. Each actual vertex triangle realizes its selected pair, and
+with $0<x_i<1$. Each actual V triangle realizes its selected pair, and
 the selected V triangles have the same unique supercritical index as the actual
 V triangles.
 
@@ -92,7 +94,7 @@ a_i,b_i\ge m,
 \tag{2}
 $$
 
-Let $G_i$ be the normalized area of the part of the actual role $T_i$ lying
+Let $G_i$ be the normalized area of the part of the closed role $T_i$ lying
 outside $H$. The square-loss theorem gives
 
 $$
@@ -127,12 +129,12 @@ $$
 \tag{5}
 $$
 
-The six vertex triangles therefore contribute normalized inside area
+The six V triangles therefore contribute normalized inside area
 
 $$
 \sum_{i=0}^5(1-G_i)<5.
 $$
 
-The center triangle contributes at most one more normalized unit-triangle
+The C triangle contributes at most one more normalized unit-triangle
 area, while $H$ has normalized area $6$. Thus the seven triangles have total
 inside area strictly below the area of $H$ and cannot cover it. $\square$

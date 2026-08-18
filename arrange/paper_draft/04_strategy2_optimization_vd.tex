@@ -11,7 +11,7 @@ For \(0<L<U<1\) and \(0\le x\le1\), define the initial-component endpoint
 \]
 and the complementary residual
 \[
- \mathsf R(L,U;x)=1-\mathsf E(L,U;x).
+ \mathcal R_{[L,U]}(x)=1-\mathsf E(L,U;x).
 \]
 This is an explicit three-cell function; no supremum or placement operation
 occurs in the definition.
@@ -34,9 +34,9 @@ and the signed quantities
 \]
 Set
 \[
- A=\mathsf R\left(\frac{k}{r},w+d;q_0\right),
+ A_R=\mathcal R_{[k/r,w+d]}(q_0),
  \qquad
- H=\mathsf R\left(\frac{k}{w},r+a;p_0\right),
+ A_L=\mathcal R_{[k/w,r+a]}(p_0),
 \]
 \[
  \lambda_+=\frac{t(1-q_1)}{t+1},
@@ -57,7 +57,7 @@ satisfying
  p_0^2+p_0q_0+q_0^2\le1,
 \]
 \[
- H>0,\qquad A\ge0,\qquad A+H<\frac12,
+ A_L>0,\qquad A_R\ge0,\qquad A_R+A_L<\frac12,
 \]
 \[
  a+d<\frac1{24},\qquad
@@ -66,15 +66,15 @@ satisfying
 \[
  t>0,\qquad
  0<p_1,q_1<1,\qquad
- p_1\ge A,\qquad q_1\ge H,\qquad
+ p_1\ge A_R,\qquad q_1\ge A_L,\qquad
  p_1+q_1<\frac12,
 \]
 and
 \[
  0\le\lambda_+<u_+\le1.
 \]
-Let \(\Omega_{\rm VD}^{\rm adj,0}\) be defined by the same conditions, except
-that
+Let \(\Omega_{\rm VD}^{\rm adj,0}\) satisfy all the conditions above through
+\(p_1+q_1<1/2\), and replace the final positive-interval condition by
 \[
  u_+\le\lambda_+.
 \]
@@ -85,10 +85,10 @@ first raw interval.
 Define
 \[
  \Psi_{\rm VD}^{\rm adj,+}
- =\max\left\{d-\frac H4,\ u_+-1+d\right\},
+ =\max\left\{d-\frac{A_L}{4},\ u_+-1+d\right\},
  \qquad
  \Psi_{\rm VD}^{\rm adj,0}
- =d-\frac H4.
+ =d-\frac{A_L}{4}.
 \]
 
 \begin{definition}[Problem S2-VD-adjacent]
@@ -125,9 +125,9 @@ Define
  x=\frac{k}{w},\qquad y=\frac{k}{r},
 \]
 \[
- A=\mathsf R(y,w+d;q_0),
+ A_R=\mathcal R_{[y,w+d]}(q_0),
  \qquad
- H=\mathsf R(x,r+a;p_0),
+ A_L=\mathcal R_{[x,r+a]}(p_0),
 \]
 and
 \[
@@ -149,11 +149,11 @@ For \(j=3\), use two order cells:
 \[
  \mathcal O_{3,1}:\quad \frac dw<\frac ar,\quad d_3=\frac dw.
 \]
-Similarly split the minimum \(m=\min\{A,H\}\) into
+Similarly split the minimum \(m=\min\{A_R,A_L\}\) into
 \[
- \mathcal M_0:\quad A\le H,\quad m=A,
+ \mathcal M_0:\quad A_R\le A_L,\quad m=A_R,
  \qquad
- \mathcal M_1:\quad H<A,\quad m=H.
+ \mathcal M_1:\quad A_L<A_R,\quad m=A_L.
 \]
 
 \begin{definition}[Nonadjacent Vd cells]
@@ -172,7 +172,7 @@ let \(\Omega_{\rm VD}^{j,\mu}\) be the set of tuples satisfying
  p_0^2+p_0q_0+q_0^2\le1,
 \]
 \[
- A>0,\qquad H>0,\qquad A+H<\frac12,
+ A_R>0,\qquad A_L>0,\qquad A_R+A_L<\frac12,
 \]
 \[
  \sigma<\frac x2,\qquad \sigma<\frac y2,
@@ -184,7 +184,7 @@ let \(\Omega_{\rm VD}^{j,\mu}\) be the set of tuples satisfying
 \[
  t>0,\qquad
  0<p_v,q_v<1,\qquad
- p_v\ge A,\qquad q_v\ge H,
+ p_v\ge A_R,\qquad q_v\ge A_L,
 \]
 \[
  0\le C_v\le1,
@@ -197,7 +197,7 @@ cell by \(\Omega_{\rm VD}^{3,\mu,\nu}\).
 On every nonadjacent cell, define
 \[
  \Psi_{\rm VD}^{\rm non}
- =\max\{\sigma-A,\ \sigma-H,\ d_j-m,\ C_v-1+m\}.
+ =\max\{\sigma-A_R,\ \sigma-A_L,\ d_j-m,\ C_v-1+m\}.
 \]
 
 \begin{definition}[Problem S2-VD-nonadjacent]

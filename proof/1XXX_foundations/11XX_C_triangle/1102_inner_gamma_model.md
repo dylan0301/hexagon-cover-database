@@ -18,7 +18,7 @@ Type 1 and Type 2 are different vertex-cone arrangements for the same kind of
 six-distance data. Their algebraic varieties should be compared through these
 ray-intersection distances, not through special constant tuples.
 
-The local $V_i$-triangle radial coordinate $c_i$ is measured from $V_i$ inward. Since $r_{60i}=[O,V_i]$, the remaining radial length after the center triangle is
+The local $V_i$-triangle radial coordinate $c_i$ is measured from $V_i$ inward. Since $r_{60i}=[O,V_i]$, the remaining radial length after the C triangle is
 
 $$
 1-d_{60i},

@@ -8,8 +8,8 @@ used.
 
 ## Theorem
 
-Let the center role be CE2 with both positive boundary traces containing a
-V-gap, possibly a singleton. Normalize its unique center midpoint to $M_0$.
+Let the closed C triangle be CE2 with both positive boundary traces containing
+a boundary gap, possibly a singleton. Normalize its unique midpoint to $M_0$.
 Assume:
 
 1. V triangles $T_1,\ldots,T_5$ are nonsupercritical Vd0 roles;
@@ -55,7 +55,7 @@ p=W-\alpha,
 q=R-\delta.
 $$
 
-Both are positive. Since each center interval contains a V-gap, the far-side
+Both are positive. Since each C-triangle interval contains a boundary gap, the far-side
 boundary demands at $T_5$ and $T_1$ are at least $p$ and $q$, respectively.
 
 The center exits on the two endpoint radial arms are
