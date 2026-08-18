@@ -1,4 +1,6 @@
+% STATEMENTS-ONLY-REPLACE-BEGIN: introduction-heading
 \section{Introduction and Proof Outline}
+% STATEMENTS-ONLY-REPLACE-END: introduction-heading
 \label{sec:introduction}
 
 \subsection{The theorem and the canonical labeling}
@@ -38,6 +40,7 @@ For every $L>1$, the regular hexagon $H_L=LH$ cannot be covered by seven closed
 unit equilateral triangles.
 \end{corollary}
 
+% STATEMENTS-ONLY-REPLACE-BEGIN: canonical-labeling
 The seven points $O,V_0,\ldots,V_5$ are pairwise at distance at least one,
 whereas any two points in an open unit equilateral triangle are at distance
 strictly less than one.  Hence the seven covering triangles admit a unique
@@ -56,6 +59,7 @@ $V_i$}.  Set
 \[
  T_C=\overline{U_C},\qquad T_i=\overline{U_i}.
 \]
+% STATEMENTS-ONLY-REPLACE-END: canonical-labeling
 
 \begin{figure}[H]
 \centering
@@ -105,6 +109,7 @@ is a \emph{boundary gap}; equality gives a singleton gap, which remains
 uncovered.  Let $N_{\mathrm{gap}}$ be the number of positive center traces
 that contain a boundary gap.
 
+% STATEMENTS-ONLY-REPLACE-BEGIN: common-trace-count
 Let $N_{\mathrm{sp}}$ be the number of V triangles of type
 $\Vdone,\Vdtwo,$ or $\Tlike$.  The common trace calculation proves that the
 number of V triangles that are either supercritical or meet an adjacent
@@ -114,12 +119,15 @@ radial segment in positive length is
 \]
 In particular, every CE1/CE2 configuration with
 $N_++N_{\mathrm{sp}}\ge3$ is impossible by a trace-length bound on $S$.
+% STATEMENTS-ONLY-REPLACE-END: common-trace-count
 
 \subsection{Exhaustive routing}
 
 Table~\ref{tab:routing} is read from top to bottom in the CE1/CE2 part.  The
 first applicable row is the unique method for a hypothetical cover.  The full
+% STATEMENTS-ONLY-REPLACE-BEGIN: routing-classification-reference
 classification proof is Proposition~\ref{prop:exhaustive-structural-reduction}.
+% STATEMENTS-ONLY-REPLACE-END: routing-classification-reference
 
 \begin{table}[H]
 \centering
@@ -153,6 +161,7 @@ for CE1 and the second for CE2.}
 \label{tab:routing}
 \end{table}
 
+% STATEMENTS-ONLY-REPLACE-BEGIN: reading-edition-organization
 \subsection{Organization of the proof}
 
 Section~\ref{sec:structure-common} proves the structural classification,
@@ -164,3 +173,4 @@ local and cyclic area-loss estimates.  Section~\ref{sec:nine-point} constructs
 the nine forced points and proves the equilateral-enclosure obstruction.
 Section~\ref{sec:assembly} then applies Table~\ref{tab:routing} once and closes
 the proof.
+% STATEMENTS-ONLY-REPLACE-END: reading-edition-organization

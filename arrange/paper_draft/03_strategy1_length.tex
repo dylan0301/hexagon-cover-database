@@ -4,6 +4,7 @@
 This section develops the boundary and conditional-skeleton trace bounds used
 by the length mechanism.
 
+% STATEMENTS-ONLY-REPLACE-BEGIN: trace-subadditivity
 For a closed triangle $T$ and a rectifiable target $E$, write
 \[
  L_E(T)=\mathcal H^1(T\cap E).
@@ -17,6 +18,7 @@ can only enlarge the trace.  Hence a cover of $E$ by the open triangles implies
 \end{equation}
 All estimates in this section concern full traces.  They therefore remain
 valid for any assigned measurable subsets of those traces.
+% STATEMENTS-ONLY-REPLACE-END: trace-subadditivity
 
 The strategy uses only the perimeter $\partial H$ and the full skeleton
 $S$, whose measures were recorded in \eqref{eq:target-lengths}.  Every
@@ -176,6 +178,7 @@ zero length by hypothesis, so only $r_i$ can contribute positive length.
 This adds at most one.
 \end{proof}
 
+% STATEMENTS-ONLY-REPLACE-BEGIN: supercritical-cell-statement
 For the remaining cap we use one specialized part of the exact local
 equilateral enclosure criterion.  In local directions $u,v$ meeting at
 $120^\circ$, suppose a closed unit triangle contains
@@ -200,6 +203,7 @@ Hence $c\le1/2$ selects its smaller-root component.  Formula
 \eqref{eq:supercritical-admissible-cell} follows by
 fixing in the support sum the three active contacts $\{B\}$,
 $\{B,c(u+v)\}$, and $\{A\}$, and squaring the positive unit-side equation.
+% STATEMENTS-ONLY-REPLACE-END: supercritical-cell-statement
 
 \begin{lemma}[Supercritical skeleton cap]
 \label{lem:supercritical-skeleton-cap}

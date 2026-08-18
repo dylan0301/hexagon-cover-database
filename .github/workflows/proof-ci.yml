@@ -87,7 +87,10 @@ jobs:
       - name: Install pinned PDF-audit dependencies
         run: python -m pip install --disable-pip-version-check -r requirements-proof.txt
 
-      - name: Rebuild twice in pinned TeX Live 2025
+      - name: Check statements-only reading edition source
+        run: python tools/generate_statements_only_paper.py --check
+
+      - name: Rebuild both papers twice in pinned TeX Live 2025
         uses: xu-cheng/texlive-action@22c04326a5d855880f9d39bb955138bf11c6df80
         with:
           docker_image: >-
@@ -127,6 +130,13 @@ jobs:
             rm -f main.aux main.fdb_latexmk main.fls main.out main.toc \
               main.xdv main.synctex.gz
 
+            cd statements_only
+            build_pdf main.rebuilt1.pdf main.rebuilt1.log
+            build_pdf main.rebuilt2.pdf main.rebuilt2.log
+            cp main.rebuilt2.log main.log
+            rm -f main.aux main.fdb_latexmk main.fls main.out main.toc \
+              main.xdv main.synctex.gz
+
       - name: Compare stable PDF semantics and verify current metadata
         run: |
           set -euo pipefail
@@ -149,13 +159,22 @@ jobs:
               )
           PY
           python tools/verify_pdf_render.py arrange/paper_draft/main.pdf
+          python tools/compare_pdfs_semantically.py \
+            arrange/paper_draft/statements_only/main.rebuilt1.pdf \
+            arrange/paper_draft/statements_only/main.rebuilt2.pdf --dpi 144
+          python tools/verify_pdf_render.py \
+            arrange/paper_draft/statements_only/main.pdf
           python tools/generate_verification_summary.py --check
           rm -f \
             arrange/paper_draft/main.tracked.pdf \
             arrange/paper_draft/main.rebuilt1.pdf \
             arrange/paper_draft/main.rebuilt2.pdf \
             arrange/paper_draft/main.rebuilt1.log \
-            arrange/paper_draft/main.rebuilt2.log
+            arrange/paper_draft/main.rebuilt2.log \
+            arrange/paper_draft/statements_only/main.rebuilt1.pdf \
+            arrange/paper_draft/statements_only/main.rebuilt2.pdf \
+            arrange/paper_draft/statements_only/main.rebuilt1.log \
+            arrange/paper_draft/statements_only/main.rebuilt2.log
           git diff --check
 
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
@@ -165,6 +184,14 @@ jobs:
             arrange/paper_draft/main.pdf
             arrange/CURRENT_VERIFICATION_SUMMARY.txt
             arrange/paper_draft/main.log
+          if-no-files-found: error
+
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: verified-statements-only-hexagon-cover-paper
+          path: |
+            arrange/paper_draft/statements_only/main.pdf
+            arrange/paper_draft/statements_only/main.log
           if-no-files-found: error
 
   release:

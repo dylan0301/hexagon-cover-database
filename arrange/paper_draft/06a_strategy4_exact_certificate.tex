@@ -1,6 +1,7 @@
 \section{Exact Unequal-Radius Support-Arc Intersections}
 \label{sec:strategy4-exact-certificate}
 
+% STATEMENTS-ONLY-REPLACE-BEGIN: strategy4-certificate-introduction
 The two mixed cap overlaps in Method~4 are certified by exact symbolic
 arithmetic.  This section gives the mathematical reduction and verification
 algorithms; the repository provenance manifests identify the accompanying
@@ -21,6 +22,7 @@ The derivation verifier reconstructs the transcript from the witness formulas
 and compares every coefficient with the authenticated object. The positivity
 verifier derives the Bernstein coefficients from that object and checks their
 signs exactly.
+% STATEMENTS-ONLY-REPLACE-END: strategy4-certificate-introduction
 
 \subsection{Rational radial upper envelopes}
 
@@ -38,6 +40,7 @@ The strict witness domain gives
  mM>(1-s)(2-s),\qquad m>1-s,\qquad s>\frac23.
  \label{eq:certificate-domain}
 \end{equation}
+% STATEMENTS-ONLY-REPLACE-BEGIN: strategy4-kappa-definition
 Put
 \[
  F_m(x)=x^4-x^2+mx-m^2,\qquad
@@ -47,6 +50,7 @@ Then
 \[
  \kappa>4s^3-3s+1=(s+1)(2s-1)^2>0.
 \]
+% STATEMENTS-ONLY-REPLACE-END: strategy4-kappa-definition
 Define
 \begin{equation}
  \bar c_L=s-\frac{\chi}{\kappa}\quad(\chi\le0),
@@ -124,9 +128,11 @@ On the active cell let $\bar c$ denote the corresponding expression in
 \[
  \bar\eta=h(1-\bar c),\qquad e=1-\bar c,\qquad t=2\bar c-1.
 \]
+% STATEMENTS-ONLY-REPLACE-BEGIN: strategy4-certificate-target
 Lemma~\ref{lem:paper-branchwise-cbar} gives
 $0<\bar\eta\le\eta=h(1-c_*)$.  It therefore suffices to prove the mixed
 intersections for the smaller disks with radii $2\bar\eta,\bar\eta,2\bar\eta$.
+% STATEMENTS-ONLY-REPLACE-END: strategy4-certificate-target
 
 Represent a global vector as $(x,hy)$ and put $C'=\mathsf R^{-1}C$.  Define
 \[
@@ -208,6 +214,7 @@ and proves the second intersection.  Enlarging the disk radii from
 $\bar\eta$ to $\eta$ only enlarges the caps.
 \end{proof}
 
+% STATEMENTS-ONLY-REPLACE-BEGIN: strategy4-core-reduction-statement
 \subsection{Eight exact integer-polynomial signs}
 
 The Newton witnesses $A,C$ are rational functions of $U,z,D$.  Substituting
@@ -229,7 +236,9 @@ factors are positive constants, $(D+3)^4$, $G(U,z)^2$ or
 $(1+U+z)^2$, and squares of the two Newton-derivative numerators.  Here
 $G=2\kappa>0$, and the fixed-line sign theorem proves both Newton derivatives
 strictly negative.
+% STATEMENTS-ONLY-REPLACE-END: strategy4-core-reduction-statement
 
+% STATEMENTS-ONLY-OMIT-BEGIN: strategy4-verifier-calculations
 The derivation verifier constructs $A,C$, both rational envelopes, and all four
 residuals directly in the exact field $\mathbb Q(U,z,D)$.  It performs the
 reduction modulo $D^2-K$, removes the common positive factor,
@@ -315,6 +324,7 @@ coefficients are
        \frac{\binom{\ell}{j}}{\binom{n}{j}}.
 \]
 This is precisely the conversion implemented by the verifier.
+% STATEMENTS-ONLY-OMIT-END: strategy4-verifier-calculations
 
 \begin{theorem}[Exact mixed-overlap certificate]
 \label{thm:paper-exact-mixed-certificate}
@@ -333,7 +343,10 @@ reflection supplies $z\le0$.  Lemma~\ref{lem:paper-residual-to-overlap} then
 gives the two cap intersections.
 \end{proof}
 
+% STATEMENTS-ONLY-REPLACE-BEGIN: strategy4-certificate-remark-heading
 \begin{remark}[Reproduction]
+% STATEMENTS-ONLY-REPLACE-END: strategy4-certificate-remark-heading
+% STATEMENTS-ONLY-REPLACE-BEGIN: strategy4-certificate-availability
 The authenticated data and the two verifiers constitute the exact electronic
 certificate used by the proof. Reproduce it from its package directory by
 executing
@@ -343,8 +356,10 @@ verify_global_core_positivity.py
 \end{verbatim}
 Both commands use exact arithmetic and must reproduce the transcript digest
 above and the asserted sign checks.
+% STATEMENTS-ONLY-REPLACE-END: strategy4-certificate-availability
 \end{remark}
 
+% STATEMENTS-ONLY-OMIT-BEGIN: strategy4-provenance-comments
 % BEGIN GENERATED 3105X PROVENANCE
 % proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/mixed_overlap_core_data_00.py 359b219f9deda8586217dcbf9ccc10de0ad48578
 % proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/mixed_overlap_core_data_01.py bfc807f906359636035634f799d74d552cf847fc
@@ -356,3 +371,4 @@ above and the asserted sign checks.
 % proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/verify_mixed_overlap_core_derivation.py 0a55211ae37f56e1fc461560b0668a01456c7417
 % proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/verify_global_core_positivity.py 821f9a6dc750fbdb80e02e40282b32cc845c3383
 % END GENERATED 3105X PROVENANCE
+% STATEMENTS-ONLY-OMIT-END: strategy4-provenance-comments

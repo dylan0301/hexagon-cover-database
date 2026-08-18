@@ -12,6 +12,18 @@ arrange/paper_draft/main.toc
 arrange/paper_draft/main.xdv
 arrange/paper_draft/main.synctex.gz
 
+# Statements-only paper build intermediates; its rebuilt PDF remains tracked.
+arrange/paper_draft/statements_only/main.aux
+arrange/paper_draft/statements_only/main.fdb_latexmk
+arrange/paper_draft/statements_only/main.fls
+arrange/paper_draft/statements_only/main.log
+arrange/paper_draft/statements_only/main.out
+arrange/paper_draft/statements_only/main.toc
+arrange/paper_draft/statements_only/main.xdv
+arrange/paper_draft/statements_only/main.synctex.gz
+arrange/paper_draft/statements_only/main.rebuilt*.pdf
+arrange/paper_draft/statements_only/main.rebuilt*.log
+
 # Regenerated archival and Lean build outputs.
 release/*.zip
 formalization/strategy2_optimization/.lake/

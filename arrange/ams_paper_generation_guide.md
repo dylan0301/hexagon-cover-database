@@ -80,6 +80,12 @@ statement-elaboration project remain repository verification objects; the
 paper does not present them as a manuscript appendix or duplicate their
 interface prose.
 
+The derived source under `paper_draft/statements_only/` is a reading edition,
+not a second authority. `tools/generate_statements_only_paper.py` regenerates
+it from the active canonical assembly, retaining explanatory prose,
+definitions, formal statements, and figures while omitting proof bodies and
+calculation-only material. Generated files must not be edited by hand.
+
 ## 4. Content placement rule
 
 Keep in the main mathematical narrative:
@@ -158,12 +164,15 @@ A source commit to `main` triggers
 1. runs the proof-source, manuscript, and Strategy 2 semantic-interface checks;
 2. elaborates the pinned Lean scalar-statement project;
 3. replays the exact Strategy 4 certificate;
-4. performs two clean builds with the pinned TeX Live 2025 image;
-5. rejects undefined or duplicate references and overfull boxes;
-6. compares the two PDFs by stable semantics and exact rendered pixels;
-7. verifies rendering and an 84--104 page target interval;
-8. regenerates `arrange/CURRENT_VERIFICATION_SUMMARY.txt`;
-9. commits the canonical PDF and summary directly to `main`.
+4. regenerates the statements-only reading-edition source;
+5. performs two clean builds of each paper with the pinned TeX Live 2025 image;
+6. rejects undefined or duplicate references and overfull boxes;
+7. compares each pair of PDFs by stable semantics and exact rendered pixels;
+8. verifies both renderings and applies the 84--104 page target interval only
+   to the canonical manuscript;
+9. regenerates `arrange/CURRENT_VERIFICATION_SUMMARY.txt`;
+10. commits the canonical PDF, the generated reading-edition source and PDF,
+    and the summary directly to `main`.
 
 The write-enabled workflow runs the active proof-reference graph, Strategy 2 specifications,
 exact certificates, Lean scalar-statement elaboration, and a two-build
@@ -173,9 +182,10 @@ independent verifier runs on user pushes and pull requests and also builds the
 archival bundle.
 
 A manual dispatch may target a review branch; the workflow verifies that the
-remote branch has not advanced and commits the pinned PDF and summary back to
-that same branch. It then explicitly dispatches the read-only workflow on the
-artifact commit; it does not rely on the workflow-token push to trigger it.
+remote branch has not advanced and commits both paper artifacts and the
+canonical summary back to that same branch. It then explicitly dispatches the
+read-only workflow on the artifact commit; it does not rely on the
+workflow-token push to trigger it.
 
 For local compilation:
 
@@ -186,3 +196,14 @@ latexmk -xelatex -interaction=nonstopmode -halt-on-error main.tex
 
 Do not manually update the tracked PDF without also regenerating the current
 verification summary.
+
+For the generated reading edition:
+
+```bash
+python tools/generate_statements_only_paper.py
+cd arrange/paper_draft/statements_only
+latexmk -xelatex -interaction=nonstopmode -halt-on-error main.tex
+```
+
+The canonical manuscript and proof corpus remain authoritative for every
+omitted proof and calculation.

@@ -9,11 +9,13 @@ radial lower bounds; an exact
 local map propagates these data through nonsupercritical V triangles; and the
 returning reach lower bound exceeds the remaining boundary or radial capacity.
 
+% STATEMENTS-ONLY-REPLACE-BEGIN: strategy2-calculus-introduction
 Actual maximal reaches continue to be denoted by $(A_i,B_i,C_i)$, while
 lowercase letters denote prescribed reach lower bounds.  Every estimate in this section
 is proved analytically.  In particular, no empirical branch catalogue,
 machine-assisted certificate, or formal root from a discarded algebraic
 component is used.
+% STATEMENTS-ONLY-REPLACE-END: strategy2-calculus-introduction
 
 \subsubsection{The exact local feasible set}
 
@@ -256,6 +258,7 @@ Moreover,
  \qquad\left(0<X<1-\frac{\sqrt3}{2}\right).
  \label{eq:high-demand-threshold}
 \end{equation}
+% STATEMENTS-ONLY-OMIT-BEGIN: strategy2-low-root-derivation
 Indeed, for
 \[
  p_X(z)=z^2-(1-X)z+(1-X)^2-(1-X)^4,
@@ -285,3 +288,4 @@ between the two roots, proving the third comparison.  The implication
 $e(X)<2X+3X^2$ for $0<X\le1/10$, obtained from
 $p_X(2X+3X^2)=X^2(8X^2+19X-2)<0$; here too the trial point lies strictly
 between $X$ and $(1-X)/2$.
+% STATEMENTS-ONLY-OMIT-END: strategy2-low-root-derivation

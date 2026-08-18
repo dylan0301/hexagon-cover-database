@@ -35,6 +35,15 @@ typeset when their mathematical content has already been incorporated.
 The body-end label occurs immediately after the seven proof sections and
 immediately before `\appendix`.
 
+### Derived statements-only reading edition
+
+`statements_only/` contains a generated reading edition of the active paper.
+It retains explanatory prose, definitions, formal statements, and figures,
+while omitting proof bodies and calculation-only material. Its files are
+derived by `tools/generate_statements_only_paper.py` and are not edited by
+hand. The canonical TeX, numbered proof corpus, and authenticated certificate
+objects remain authoritative for the omitted arguments.
+
 ## 2. Assembly map
 
 `02_structure_and_common_geometry.tex` demotes and incorporates
@@ -109,9 +118,13 @@ dependencies.
 
 ## 6. Build status
 
-On `main`, the paper-rebuild workflow replays the active proof-reference graph, Strategy 2
-specifications, exact Strategy 4 certificate, and Lean scalar-statement
-elaboration; it then uses the pinned TeX Live 2025 image for two semantic
-rebuilds, checks references, overfull boxes, and rendering, and commits a
-changed canonical PDF and summary back to `main`. The read-only proof workflow
-independently performs the same checks on user pushes and pull requests.
+On `main`, the paper-rebuild workflow replays the active proof-reference graph,
+Strategy 2 specifications, exact Strategy 4 certificate, and Lean
+scalar-statement elaboration. It regenerates the statements-only source, then
+uses the pinned TeX Live 2025 image for two semantic rebuilds of each paper,
+checks references, overfull boxes, and rendering, and commits changed paper
+artifacts and the canonical summary back to `main`. The 84--104 page target
+applies only to the canonical manuscript. The read-only proof workflow checks
+generated-source freshness, compares the tracked canonical PDF with clean
+rebuilds, and checks repeatability of two clean statements-only builds on user
+pushes and pull requests.

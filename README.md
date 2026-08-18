@@ -40,6 +40,15 @@ technical manuscript:
 7. exhaustive completion;
 8. one exact mixed-overlap certificate appendix.
 
+For a shorter first reading, the derived
+[`statements-only edition`](arrange/paper_draft/statements_only/main.pdf)
+retains the explanatory prose, definitions, formal statements, and figures
+while omitting proof bodies and calculation-only material. Its complete
+generated source is in
+[`arrange/paper_draft/statements_only/`](arrange/paper_draft/statements_only/).
+The canonical manuscript remains authoritative for every proof and exact
+certificate.
+
 The target is approximately ninety pages. Mathematical content formerly
 repeated across reader, bridge, optimization-registry, and verification layers
 is stated once in the printed paper. The source-only registries and pinned Lean
@@ -53,11 +62,13 @@ Paper navigation and provenance:
 - [`arrange/CURRENT_VERIFICATION_SUMMARY.txt`](arrange/CURRENT_VERIFICATION_SUMMARY.txt): current page count, PDF digest, and pinned verification metadata.
 
 A source change on `main` triggers the write-enabled paper workflow, which
-builds and audits the manuscript and commits the canonical PDF and verification
-summary back to `main`. Before committing, that workflow replays the active
-proof-reference graph, exact certificates, Lean scalar-statement elaboration, and a two-build
-semantic PDF audit. The ordinary read-only proof workflow independently runs
-the same verification families on user pushes and pull requests.
+regenerates the statements-only source, builds and audits both editions, and
+commits both PDFs, the generated reading-edition source, and the canonical
+verification summary back to `main`. Before committing, that workflow replays
+the active proof-reference graph, exact certificates, Lean scalar-statement
+elaboration, and two-build semantic PDF audits. The ordinary read-only proof
+workflow independently checks that the generated source is current and that
+both editions rebuild reproducibly on user pushes and pull requests.
 
 ## Start here
 
@@ -176,7 +187,7 @@ files do not prove a claim.
 
 The permanent workflows are:
 
-- [`.github/workflows/paper-rebuild.yml`](.github/workflows/paper-rebuild.yml): build and commit the canonical consolidated PDF;
-- [`.github/workflows/proof-ci.yml`](.github/workflows/proof-ci.yml): read-only proof, certificate, Lean, paper, and release verification.
+- [`.github/workflows/paper-rebuild.yml`](.github/workflows/paper-rebuild.yml): regenerate, build, and commit the canonical and statements-only paper artifacts;
+- [`.github/workflows/proof-ci.yml`](.github/workflows/proof-ci.yml): read-only proof, certificate, Lean, both-paper, and release verification.
 
 For local and archival reproduction, see [`REPRODUCE.md`](REPRODUCE.md).

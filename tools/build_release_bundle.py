@@ -52,7 +52,11 @@ def files() -> list[Path]:
         path
         for path in tree_files(paper)
         if path.suffix.lower() in paper_source_suffixes
-        or path == paper / "main.pdf"
+        or path
+        in {
+            paper / "main.pdf",
+            paper / "statements_only" / "main.pdf",
+        }
     )
     return sorted(set(paths), key=lambda path: path.relative_to(ROOT).as_posix())
 
