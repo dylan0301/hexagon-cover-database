@@ -142,10 +142,14 @@ This is \eqref{eq:signed-endpoint-slack}.
 
 \begin{theorem}[Three short V triangles]
 \label{thm:three-short-roles}
-Call a V triangle short if it is supercritical or has positive-length
-intersection with an adjacent radial arm. If an exact-$M_0$ CE1/CE2 branch
-contains at least three short V triangles, then the seven triangles do not cover
-the full skeleton $S$.
+Call $T_i$ short if it is supercritical or if
+\[
+ \Haus(T_i\cap r_j)>0
+ \quad\text{for some }j\in\{i-1,i+1\}.
+\]
+If a CE1/CE2 branch satisfies
+$T_C\cap\{M_0,\ldots,M_5\}=\{M_0\}$ and contains at least three short V
+triangles, then the seven triangles do not cover the full skeleton $S$.
 \end{theorem}
 
 \begin{proof}
@@ -155,8 +159,9 @@ The center skeleton cap is
 \]
 Every short triangle also has skeleton contribution strictly less than $3/2$:
 this is the supercritical cap for a supercritical triangle and the translated
-C triangle cap for an original positive-support triangle. Every remaining triangle
-is nonsupercritical and has no adjacent-ray support, so its skeleton
+C triangle cap for an original positive-support triangle. Every remaining
+$T_i$ is nonsupercritical and satisfies
+$\Haus(T_i\cap r_{i-1})=\Haus(T_i\cap r_{i+1})=0$, so its skeleton
 contribution is at most $2$.
 
 If there are $q\ge3$ short triangles, then
@@ -180,18 +185,20 @@ $q$ be the number of short V triangles.  Then
  \boxed{q=N_++m.}
  \label{eq:short-role-count}
 \end{equation}
-Consequently, every exact-$M_0$ CE1/CE2 branch with $N_++m\ge3$ is
+Consequently, every CE1/CE2 branch with
+$T_C\cap\{M_0,\ldots,M_5\}=\{M_0\}$ and $N_++m\ge3$ is
 impossible.
 \end{lemma}
 
 \begin{proof}
 The exhaustive vertex classification says that Vd0 is exactly the class with
-no positive-length adjacent-arm support, while Vd1, Vd2, and T3-like are
-exactly the three classes with such support.  Proposition
+$\Haus(T_i\cap r_{i-1})=\Haus(T_i\cap r_{i+1})=0$, while Vd1, Vd2, and
+T3-like are exactly the three classes for which at least one of these two
+quantities is positive.  Proposition
 \ref{prop:vd-corner-normal-form} gives $A_i+B_i<1/2$ for Vd1/Vd2, and
 Lemma~\ref{lem:t3-nonsupercritical} gives $A_i+B_i\le1$ for T3-like.
 Thus none of these $m$ triangles is supercritical.  Conversely, every
-supercritical triangle is Vd0, so it has no positive adjacent-arm support.
+supercritical triangle is Vd0, so both displayed traces have zero length.
 The two disjoint sources of short triangles are therefore the $N_+$
 supercritical triangles and the $m$ non-Vd0 triangles.  This proves
 \eqref{eq:short-role-count}; Theorem~\ref{thm:three-short-roles} gives the
@@ -206,7 +213,8 @@ The following branches are impossible.
 \item $N_+=0$ and at least one Vd1/Vd2 V triangle, for either CE1 or CE2;
 \item CE1, $N_+=1$, and at least one Vd1/Vd2 V triangle;
 \item CE2, $N_+=1$, and at least two Vd1/Vd2 V triangles;
-\item CE2, $N_+=1$, with a Vd2 V triangle containing a neighboring midpoint;
+\item CE2, $N_+=1$, with a Vd2 triangle $T_i$ containing $M_{i-1}$ or
+$M_{i+1}$;
 \item CE1 or CE2 with $N_++m\ge3$, where $m$ is the number of Vd1, Vd2,
 or T3-like triangles;
 \item CE1 or CE2 with $N_+\ge2$.
@@ -236,7 +244,7 @@ For item 4, the corresponding CE2 sum is strictly less than
 \[
  \frac12+\frac12+\frac12+\frac2{\sqrt3}+3<6.
 \]
-For item 5, the neighboring-midpoint Vd2 cap is $1/3$, and the total is
+For item 5, the $M_{i-1}$/$M_{i+1}$ Vd2 cap is $1/3$, and the total is
 strictly less than
 \[
  \frac12+\frac13+\frac2{\sqrt3}+4<6.
@@ -245,12 +253,16 @@ strictly less than
 Item 6 is Lemma~\ref{lem:short-role-count} and
 Theorem~\ref{thm:three-short-roles}.
 
-Finally suppose $N_+\ge2$. Choose a supercritical index $s\ne0$. Its own
-midpoint $M_s$ is not covered by that V triangle, and the exact-$M_0$ center does not
-cover it. Diameter locality leaves only V triangles $s-1,s,s+1$ as possible vertex
-triangles containing $M_s$. Thus one of the adjacent V triangles contains $M_s$ and,
-because it is the closure of an original open triangle, has positive-length
-support on the adjacent radial arm. By Lemma~\ref{lem:short-role-count}, this
-adjacent exceptional triangle is nonsupercritical and distinct from the two supercritical V triangles.
+Finally suppose $N_+\ge2$. By
+Proposition~\ref{prop:unique-center-midpoint}, normalize so that
+\[
+ T_C\cap\{M_0,\ldots,M_5\}=\{M_0\}.
+\]
+Choose a supercritical index $s\ne0$. Its own midpoint $M_s$ is not covered by $T_s$, and it is not
+covered by $T_C$. Diameter locality leaves only $U_{s-1},U_s,U_{s+1}$ as
+possible V triangles containing $M_s$. Thus $M_s\in U_j$ for some
+$j\in\{s-1,s+1\}$ and, by openness,
+$\Haus(T_j\cap r_s)>0$. By Lemma~\ref{lem:short-role-count}, $T_j$ is
+nonsupercritical and distinct from the two supercritical V triangles.
 Thus there are three short triangles, and the theorem applies.
 \end{proof}

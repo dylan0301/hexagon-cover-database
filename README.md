@@ -92,6 +92,11 @@ Lowercase `(a_i,b_i,c_i)` always denotes selected lower bounds and never the
 actual maxima defining `N_+`. Singleton boundary gaps remain gaps because the
 covering triangles are open.
 
+For a CE1/CE2 role closure $T_C=\overline{U_C}$ one has
+$O\in U_C\subset\operatorname{int}(T_C)$, and $T_C$ contains exactly one
+radial midpoint.  The precise hypothesis and proof are recorded in
+[`2100`](proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2100_CE1_CE2_exactly_one_midpoint_lemma.md).
+
 The proof uses four mechanisms:
 
 1. trace-length bounds on the perimeter or full skeleton;

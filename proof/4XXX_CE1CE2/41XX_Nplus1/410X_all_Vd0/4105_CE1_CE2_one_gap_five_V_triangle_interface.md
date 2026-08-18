@@ -227,7 +227,7 @@ gives
 $$
 g_k\left(1-\frac{k}{R}\right)
 \le
-\beta\left(\frac{k}{R}\right)
+M_0\left(\frac{k}{R}\right)
 <
 1-\frac{k}{2R}
 =

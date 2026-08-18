@@ -9,8 +9,9 @@ nonadjacent CE2 placement proofs.
 ## Setup
 
 Use the local coordinates of
-[`2014`](2014_Vd1_Vd2_corner_normal_form.md).  Let $a,b$ be the two exact
-boundary reaches.  For the unique parameter $t>0$, put
+[`2014`](2014_Vd1_Vd2_corner_normal_form.md).  Let $T_0$ denote the normalized
+triangle and let $a,b$ be its two exact boundary reaches.  For the unique
+parameter $t>0$, put
 
 $$
 d=\sqrt{t^2+t+1}.
@@ -32,8 +33,7 @@ $$
 c_0=\frac{d-a-tb}{t+1}.
 $$
 
-If the supported adjacent arm is the one corresponding to the second endpoint
-formula in `2014`, its upper endpoint is
+If $\mathcal H^1(T_0\cap r_1)>0$, the upper endpoint on $r_1$ is
 
 $$
 u_+=\frac{d-a-tb-1}{t}.
@@ -97,5 +97,5 @@ $$
 \boxed{u_+<1-H.}
 $$
 
-Reflection supplies the corresponding formulas for the other supported
-adjacent arm.
+Reflection supplies the corresponding formulas on $r_5$ when
+$\mathcal H^1(T_0\cap r_5)>0$.

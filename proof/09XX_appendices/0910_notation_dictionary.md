@@ -93,6 +93,15 @@ $$
 M_c(a)=\max\{b:(a,b,c)\in\mathcal A\}.
 $$
 
+Its zero-radial specialization is
+
+$$
+M_0(a)=\frac{-a+\sqrt{4-3a^2}}2.
+$$
+
+The argument-free symbol $M_0$ denotes the radial midpoint.  The function
+notation $M_0(a)$ denotes this zero-radial envelope.
+
 The exact nonsupercritical cap and center-free propagation map are
 
 $$

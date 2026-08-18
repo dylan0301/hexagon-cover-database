@@ -124,6 +124,7 @@ $$
   - `201b`: global quarter radial envelope.
   - `201c`: Vd corner radial margins.
   - `201d`: canonical and relaxed $g$-composition calculus.
+  - `2100`: CE1/CE2 exactly-one-midpoint theorem, with $O$ in the interior.
   - `2107`: one-side exact endpoint loss.
   - `2108`: paired CE2 endpoint loss.
   - `2109`: signed CE1/CE2 center normal form.

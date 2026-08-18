@@ -31,16 +31,18 @@ T_C=\overline{U_C},
 T_i=\overline{U_i}.
 $$
 
-Normalize the exact center midpoint to
+By the exactly-one-midpoint theorem
+[`2100`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2100_CE1_CE2_exactly_one_midpoint_lemma.md),
+normalize the exact center midpoint to
 
 $$
 T_C\cap\{M_0,\ldots,M_5\}=\{M_0\}.
 $$
 
 Fix $i\ne0$. Since $M_i$ is covered but not in $T_C$, diameter locality leaves
-only $U_{i-1},U_i,U_{i+1}$ as possible vertex roles containing it. If an
-adjacent role contained $M_i$, openness and convexity would give
-positive-length support on the adjacent radial arm, contrary to Vd0.
+only $U_{i-1},U_i,U_{i+1}$ as possible vertex roles containing it. If
+$M_i\in U_j$ for $j\in\{i-1,i+1\}$, openness and convexity would give
+$\mathcal H^1(T_j\cap r_i)>0$, contrary to Vd0.
 Therefore
 
 $$

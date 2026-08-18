@@ -85,8 +85,9 @@ Any point contacts with the other arms have zero measure.
 
 ## Vd0 caps
 
-A Vd0 role has no positive-length trace on either adjacent arm. Vertex-role
-locality therefore leaves only its own unit arm, and
+A Vd0 role $T_i$ satisfies
+$\mathcal H^1(T_i\cap r_{i-1})=\mathcal H^1(T_i\cap r_{i+1})=0$.
+Vertex-role locality therefore leaves only $r_i$, and
 
 $$
 L_D(T_i)\le1.

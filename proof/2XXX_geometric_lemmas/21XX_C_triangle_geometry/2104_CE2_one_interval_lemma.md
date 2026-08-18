@@ -9,7 +9,7 @@ interval endpoint.
 
 ## Normalization and gaps
 
-Use the exact-$M_0$ CE2 normalization from
+Use the CE2 normalization with unique radial midpoint $M_0$ from
 [`2103_CE2_M0_e50_e01_maximal_interval_pairs.md`](2103_CE2_M0_e50_e01_maximal_interval_pairs.md):
 
 $$

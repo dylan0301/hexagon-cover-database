@@ -70,8 +70,8 @@ $$
 \Delta_L=P-\lambda\alpha-\delta.
 $$
 
-The normalized positive center trace is on $e_{0,1}$.  The closed exact-$M_0$
-CE1 domain is
+The normalized positive center trace is on $e_{0,1}$.  The closed CE1 domain
+with $T_C\cap\{M_0,\ldots,M_5\}=\{M_0\}$ is
 
 $$
 \boxed{
@@ -162,7 +162,8 @@ T_C\cap\{M_0,\ldots,M_5\}=\{M_0\}.
 $$
 
 Conversely, the common edge-cut calculation in `2109` shows that every
-normalized exact-$M_0$ CE1 triangle yields precisely these signed inequalities.
+normalized CE1 triangle whose unique radial midpoint is $M_0$ yields precisely
+these signed inequalities.
 Hence the displayed domain is exact.
 
 ## 3. Radial exits and demands

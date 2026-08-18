@@ -97,9 +97,14 @@ holds throughout the complete support-isolated domain.
 \label{prop:paper-vd1-pair-replacement}
 Assume the CE2 branch in which an adjacent Vd1 triangle and the unique
 supercritical Vd0 triangle lie away from the V triangle at the center's unique
-midpoint. Assume the shared boundary edge is center-free, all other vertex
-triangles are nonsupercritical Vd0, and no additional triangle has positive support
-on the two radial arms of the pair. Then the pair can be replaced by two open
+midpoint.  After reflection, write their base vertices as $V_\tau,V_{\tau+1}$.
+Assume the shared boundary edge is center-free, all other V triangles are
+nonsupercritical Vd0, and
+\[
+ \Haus(T_j\cap r_\tau)=\Haus(T_j\cap r_{\tau+1})=0
+ \qquad(j\notin\{\tau,\tau+1\}).
+\]
+Then the pair can be replaced by two open
 nonsupercritical Vd0 triangles while preserving coverage of the full skeleton.
 \end{proposition}
 
@@ -202,7 +207,12 @@ while the shifted plus template contains the origin and has reach triple
 \[
  (p,1-p-\varepsilon,p).
 \]
-Their closures stay strictly below both adjacent-arm lines $x=1$ and $y=1$.
+In the $V_i$ chart, $i=0,1$, each closure stays strictly below the two
+supporting lines of $r_{i-1}$ and $r_{i+1}$; hence
+\[
+ \Haus(\overline{U_i'}\cap r_{i-1})
+ =\Haus(\overline{U_i'}\cap r_{i+1})=0.
+\]
 Thus $V_0\in U_0'$, $V_1\in U_1'$, both triangles are Vd0, and both boundary
 sums equal $1-\varepsilon<1$.
 

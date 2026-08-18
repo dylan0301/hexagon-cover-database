@@ -318,9 +318,11 @@ Then the two half-arms cannot both be covered.
 
 ### Proof
 
-Let $b_i,c_i,\ell_i$ be the boundary reach, own-arm exit, and adjacent-arm
-entry for $T_i$.  For $T_{i+1}$ write the corresponding quantities, measured
-from its own vertex, as $a_{i+1},c_{i+1},\ell_{i+1}$.  The tradeoff and its
+Let $b_i$ be the boundary reach of $T_i$ toward $V_{i+1}$, $c_i$ its exit on
+$r_i$, and $\ell_i$ its entry on $r_{i+1}$.  For $T_{i+1}$ write the
+corresponding quantities, measured from its own vertex, as
+$a_{i+1},c_{i+1},\ell_{i+1}$, with the latter two on $r_{i+1}$ and $r_i$,
+respectively.  The tradeoff and its
 reflection give
 
 $$

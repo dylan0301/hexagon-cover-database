@@ -34,28 +34,20 @@ b\in[0,1]:(a,b,c)\in\mathcal A
 [0,M_c(a)].
 $$
 
-Define the diameter cap
+The zero-radial specialization is the diameter cap
 
 $$
-\beta(a)=
+M_0(a)=
 \frac{-a+\sqrt{4-3a^2}}2.
 $$
 
 It is the nonnegative solution of
 
 $$
-a^2+a\beta+\beta^2=1.
+a^2+aM_0(a)+M_0(a)^2=1.
 $$
 
-The degenerate boundary values are
-
-$$
-\boxed{
-B_0(a)=\beta(a)
-\qquad
-(0\le a\le1),
-}
-$$
+The remaining degenerate boundary values are
 
 $$
 \boxed{
@@ -77,7 +69,7 @@ and
 
 $$
 \boxed{
-B_1(a)=0
+ M_1(a)=0
 \qquad
 (0<a\le1).
 }
@@ -91,7 +83,7 @@ $$
 0<c<1,
 $$
 
-and abbreviates $\beta=\beta(a)$. A branch value is declared empty by
+and abbreviates $\beta=M_0(a)$. A branch value is declared empty by
 assigning it $-\infty$.
 
 ## 2. Inner-triangle and axial-support pieces
@@ -440,7 +432,7 @@ $$
 \boxed{
 M_c(a)=
 \begin{cases}
-\beta(a),
+M_0(a),
 & c=0,\\
 1,
 & a=0\text{ and }0<c\le1,\\

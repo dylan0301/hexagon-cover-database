@@ -14,6 +14,12 @@ $$
 M_c(a)=\max\{b:(a,b,c)\in\mathcal A\}.
 $$
 
+At zero radial demand this is the adjacent-edge diameter envelope
+
+$$
+M_0(a)=\frac{-a+\sqrt{4-3a^2}}2.
+$$
+
 The exact nonsupercritical cap and center-free propagation map are
 
 $$

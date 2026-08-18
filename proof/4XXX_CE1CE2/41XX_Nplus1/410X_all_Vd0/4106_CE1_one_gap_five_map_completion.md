@@ -1023,14 +1023,14 @@ Consequently
 
 $$
 M_{c_0}(s)\le
-\beta(s):=
+M_0(s)=
 \frac{-s+\sqrt{4-3s^2}}2.
 $$
 
 Because $s>0$,
 
 $$
-\beta(s)<1-\frac s2.
+M_0(s)<1-\frac s2.
 $$
 
 Combining the inequalities gives

@@ -111,7 +111,7 @@ Thus $s(9-r)<8$ and $c_{\max}+h/4<1$.
 \begin{lemma}[T3-like adjacent-exception profile]
 \label{lem:short-t3-rescuer-profile}
 Let a translated T3-like triangle at $V_0$ contain $M_1$, have boundary trace
-$[0,a]$ on $e_{5,0}$, and have adjacent-radial trace $[c,u]$ on $r_1$ measured
+$[0,a]$ on $e_{5,0}$, and have trace $[c,u]$ on $r_1$ measured
 from $V_1$ toward $O$.  Then
 \begin{equation}
  a\le 1-M_c^{\rm sup},
@@ -201,7 +201,7 @@ This proves both inequalities.
 \begin{lemma}[Vd1 adjacent-exception profile]
 \label{lem:short-vd1-rescuer-profile}
 Let a Vd1 triangle at $V_0$ contain $M_1$, have boundary trace $[0,a]$ on
-$e_{5,0}$, and have adjacent-radial trace $[c,u]$ on $r_1$.  Assume it has no
+$e_{5,0}$, and have trace $[c,u]$ on $r_1$.  Assume it has no
 positive support on $r_5$.  Then
 \begin{equation}
  a\le 1-M_c^{\rm sup},
@@ -290,7 +290,7 @@ Since $z/(z+\varepsilon_0+z/t)$ increases in $z$,
 \begin{lemma}[Common adjacent-exception obstruction]
 \label{lem:signed-adjacent-rescuer}
 Let a local adjacent exceptional triangle $T_0$ have trace $[0,a]$ on $e_{5,0}$ and
-adjacent-radial trace $[c,u]$ on $r_1$, measured from $V_1$ toward $O$.  Put
+trace $[c,u]$ on $r_1$, measured from $V_1$ toward $O$.  Put
 \[
  \varepsilon=1-u>0,
  \qquad
@@ -360,7 +360,8 @@ contrary to their four nonsupercritical caps.
 \begin{corollary}[T3-like and Vd1 adjacent rescue]
 \label{cor:signed-adjacent-rescuers}
 The common adjacent-adjacent exceptional triangle lemma applies both to the exactly-one-T3-like
-branch and to the normalized Vd1 V triangle containing the neighboring midpoint.
+branch and to a normalized Vd1 triangle $T_i$ containing $M_{i-1}$ or
+$M_{i+1}$.
 \end{corollary}
 
 \begin{proof}
@@ -374,7 +375,8 @@ $O$-side radial gap before the adjacent exceptional triangle begins.
 
 \begin{lemma}[Adjacent Vd1/Vd2 placement]
 \label{lem:signed-vd-adjacent-placement}
-Assume a reduced CE2 exact-$M_0$ candidate has $N_+=1$, V triangle $T_0$ uniquely
+Assume a reduced CE2 candidate with
+$T_C\cap\{M_0,\ldots,M_5\}=\{M_0\}$ has $N_+=1$, V triangle $T_0$ uniquely
 supercritical, V triangle $T_1$ the unique Vd1/Vd2 V triangle, and V triangles
 $T_2,T_3,T_4,T_5$ nonsupercritical Vd0.  Then the perimeter together with
 $r_2$ is not covered.  The reflected $T_5$ placement is also impossible.
@@ -518,12 +520,14 @@ Boundary propagation and the Vd cap give
  \qquad A+H<\frac12.
 \]
 
-Let $\beta(q)=(-q+\sqrt{4-3q^2})/2$.  The component endpoint $B$ is either
+The component endpoint $B$ is either
 $b_0$ or $W+\delta$.  In the latter case the center diameter gives
-$B\le\beta(x)$.  In the former case, if $a_0<x$, then $U=a_0$ and
+$B\le M_0(x)$ by Lemma~\ref{lem:signed-diameter-transfer}.  In the former
+case, if $a_0<x$, then $U=a_0$ and
 $A+H<1/2$ would force $a_0+b_0>3/2$, contrary to
 $a_0+b_0\le2/\sqrt3$.  Hence $a_0\ge x$, and
-$B=b_0\le\beta(a_0)\le\beta(x)$.  Reflection gives $U\le\beta(y)$.
+$B=b_0\le M_0(a_0)\le M_0(x)$, using the decreasingness in that lemma.
+Reflection gives $U\le M_0(y)$.
 Consequently
 \[
  A>\frac x2>T,

@@ -89,6 +89,11 @@ The six center exits, measured from $O$, are
  \end{aligned}}
  \label{eq:signed-center-exits}
 \end{equation}
+Moreover,
+\begin{equation}
+ T_C\cap\{M_0,\ldots,M_5\}=\{M_0\}.
+ \label{eq:signed-unique-center-midpoint}
+\end{equation}
 For closures of original open C triangles one has $\alpha,\delta>0$.
 \end{proposition}
 
@@ -195,7 +200,13 @@ $2E(E-R)-W=(E-R)^2>0$.  Together with
  \qquad
  \delta<\frac R2,
 \]
-the midpoint tests give the exact midpoint set $\{M_0\}$.  For the closure of
+the exits in \eqref{eq:signed-center-exits} satisfy
+\[
+ d_0^C>\frac12,
+ \qquad
+ d_i^C<\frac12\quad(i=1,\ldots,5).
+\]
+Thus the exact midpoint set is $\{M_0\}$.  For the closure of
 an original open C triangle, all three center slacks are positive; hence
 $\alpha,\delta>0$.
 \end{proof}
@@ -286,28 +297,31 @@ strictly below $1/2$.
 
 \begin{lemma}[Adjacent-edge diameter transfer]
 \label{lem:signed-diameter-transfer}
-For $0\le q\le1$, put
+For $0\le q\le1$, the zero-radial forward envelope is
 \[
- \beta(q)=\frac{-q+\sqrt{4-3q^2}}2.
+ M_0(q)=\frac{-q+\sqrt{4-3q^2}}2.
 \]
+Here the argument-free symbol $M_0$ continues to denote the radial midpoint;
+$M_0(q)$ denotes the envelope map.
 If a unit equilateral triangle reaches parameters $q,b$ on two adjacent
 boundary edges, then
 \[
- b\le\beta(q).
+ b\le M_0(q).
 \]
-For $q>0$,
+The map $M_0$ is strictly decreasing.  For $q>0$,
 \[
- \beta(q)<1-\frac q2,
+ M_0(q)<1-\frac q2,
  \qquad
- 1-\beta(q)>\frac q2.
+ 1-M_0(q)>\frac q2.
 \]
 \end{lemma}
 
 \begin{proof}
 The squared distance between the two boundary points is
 $q^2+qb+b^2$, so it is at most one.  Solving the quadratic in $b$ gives the
-first assertion.  For $q>0$, $\sqrt{4-3q^2}<2$, which gives both strict
-linear comparisons.
+first assertion.  Differentiating the displayed formula gives
+$M_0'(q)=(-1-3q/\sqrt{4-3q^2})/2<0$.  For $q>0$,
+$\sqrt{4-3q^2}<2$, which gives both strict linear comparisons.
 \end{proof}
 
 \subsection{The local propagation interface}
@@ -400,8 +414,10 @@ Consequently it is enough to prove
 \end{proposition}
 
 \begin{proof}
-The exact-midpoint argument makes V triangles $1,\ldots,5$ nonsupercritical and V triangle
-$0$ uniquely supercritical.  Gap containment gives
+Equation~\eqref{eq:signed-unique-center-midpoint}, together with
+Lemma~\ref{lem:self-midpoint} and diameter locality, makes V triangles
+$1,\ldots,5$ nonsupercritical and V triangle $0$ uniquely supercritical.
+Gap containment gives
 \[
  B_0\ge\frac{k}{R},
  \qquad
@@ -434,7 +450,7 @@ so
 Lemma~\ref{lem:signed-diameter-transfer} gives
 \[
  g_k\left(1-\frac{k}{R}\right)
- \le\beta\left(\frac{k}{R}\right)
+ \le M_0\left(\frac{k}{R}\right)
  <1-\frac{k}{2R}
  =1-H,
 \]
