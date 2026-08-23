@@ -2,8 +2,8 @@ Current proof and paper artifact metadata
 =========================================
 Verification status: see the producing Actions run for the parent source commit
 Lean scalar statement admissions: 10 intentional sorry placeholders
-PDF pages rendered: 92
-Canonical tracked PDF SHA-256: 04377663a30059592f68ae244e816bd023b66ea6cfbff7917f7b26ec77a67bd1
+PDF pages rendered: 94
+Canonical tracked PDF SHA-256: 5a9dead93215d4edb8eb59c0101db2631359150845f790b26fac033b67f8ede3
 Certificate transcript SHA-256: dc46aaf263655d5159ecd3a81db72ee82477951d06172f4743b248df37209485
 Python: 3.12
 SymPy: 1.14.0

@@ -33,12 +33,18 @@ and vertices $V_0,\dots,V_5$ are pairwise at distance at least $1$, whereas
 two points in one open unit triangle are at distance strictly below $1$.
 Each triangle therefore covers at most one distinguished point. Since seven
 triangles cover all seven points, the displayed assignment gives their
-distinct roles. Apply the proved classifications to the closed triangles
-$T_C,T_i$, retaining $U_C,U_i$ whenever openness or open membership is used.
+distinct roles. Apply the exact-trace normalization in
+[`1201`](../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md) to every
+raw $(o,n)=(3,0)$ vertex role, and relabel the translated open role and its
+closure as $U_i,T_i$. This preserves its intersection with $H$ exactly, keeps
+$V_i$ in the open role, and leaves all actual reaches unchanged. Thus the
+normalized roles still form a cover. Apply the proved classifications to the
+closed triangles $T_C,T_i$, retaining $U_C,U_i$ whenever openness or open
+membership is used.
 By [`1101`](../1XXX_foundations/11XX_C_triangle/1101_CE_classification.md),
 $T_C$ is exactly one of CE0, CE1, and CE2. By
-[`1201`](../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md), every
-vertex role is exactly one of Vd0, Vd1, Vd2, and T3-like.
+the normalized classification in `1201`, every vertex role is exactly one of
+Vd0, Vd1, Vd2, and T3-like.
 
 Let $(A_i,B_i)$ be the actual maximal boundary reaches of $T_i$ and set
 

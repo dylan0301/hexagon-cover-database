@@ -15,8 +15,10 @@ U_C,U_0,\ldots,U_5,
 $$
 
 and put $T_C=\overline{U_C}$ and $T_i=\overline{U_i}$. The closed C triangle
-$T_C$ is exactly one of CE0, CE1, and CE2. Every closed V triangle $T_i$ is
-exactly one of Vd0, Vd1, Vd2, and T3-like. Let
+$T_C$ is exactly one of CE0, CE1, and CE2. Raw $(o,n)=(3,0)$ vertex roles are
+first replaced by the exact-trace translates in `1201`, which leave all actual
+reaches unchanged. Every resulting closed V triangle $T_i$ is exactly one of
+Vd0, Vd1, Vd2, and T3-like. Let
 
 $$
 N_+
@@ -100,8 +102,9 @@ $$
 - `1XXX`: foundations
   - `1003`: open-unit and shrunken-closed equivalence.
   - `1101`: exhaustive CE0/CE1/CE2 classification.
-  - `1201`: exhaustive Vd0/Vd1/Vd2/T3-like classification and T3-like
-    translation normalization.
+  - `1201`: exhaustive normalized Vd0/Vd1/Vd2/T3-like classification,
+    exact-trace normalization of raw $(3,0)$ Vd0 roles, and T3-like
+    closed-trace normalization.
   - `1214`: strict handoff selection preserving the actual supercritical
     pattern.
 - `2XXX`: geometric lemmas

@@ -147,7 +147,7 @@ positive-length edge traces would supply such a pair, a contradiction.
 For the CE1/CE2 types, Proposition~\ref{prop:unique-center-midpoint} below
 records the additional fact that $T_C$ contains exactly one radial midpoint.
 
-\subsection{Vertex types and the T3-like normalization}
+\subsection{Vertex types and exact-trace normalizations}
 
 For the closure $T_i$ of an original open V triangle $U_i$, let
 \[
@@ -159,16 +159,6 @@ and put
 \[
  n(T_i)=\left\lvert\left\{j\in\{i-1,i+1\}:
  \Haus(T_i\cap r_j)>0\right\}\right\rvert.
-\]
-We use the names
-\[
- \begin{array}{c|c}
- \text{type}&(o,n)\\ \hline
- \mathrm{Vd0}&(1,0),(2,0),(3,0)\\
- \mathrm{Vd1}&(1,1)\\
- \mathrm{Vd2}&(1,2)\\
- \text{T3-like}&(2,1).
- \end{array}
 \]
 
 \begin{lemma}[Local wedge]
@@ -220,25 +210,214 @@ $T_0\subset H$.  This is incompatible with the extreme point $V_0$ lying in
 the interior of $T_0$.  Hence $o\ge1$.
 \end{proof}
 
-\begin{proposition}[Exhaustive vertex types]
+We use the following orientation normal forms for both translations below.
+Set
+\[
+ D_t=1-t+t^2,\qquad z=\sqrt{D_t},\qquad 0\le t\le1.
+\]
+After relabelling the vertices of the equilateral triangle, every orientation
+belongs to one of the two families
+\[
+ \begin{array}{c|cc}
+ &\text{first side vector}&\text{second side vector}\\ \hline
+ \mathrm{I}&z^{-1}(1,t)&z^{-1}(1-t,1)\\
+ \mathrm{II}&z^{-1}(t,-(1-t))&z^{-1}(1,t).
+ \end{array}
+\]
+In Type I write
+\begin{equation}
+ U=\alpha+y-tx,\qquad V=\beta+x-(1-t)y,
+ \qquad T=\{U\ge0,V\ge0,U+V\le z\},
+ \label{eq:orientation-type-I}
+\end{equation}
+and in Type II write
+\begin{equation}
+ U=\alpha+(1-t)x+ty,\qquad V=\beta+tx-y,
+ \qquad T=\{U\ge0,V\ge0,U+V\le z\}.
+ \label{eq:orientation-type-II}
+\end{equation}
+In either form, $V_0\in\interior(T)$ is equivalent to
+\begin{equation}
+ \alpha>0,\qquad\beta>0,\qquad\alpha+\beta<z.
+ \label{eq:orientation-interior}
+\end{equation}
+For later use, the Type-II vertex in the wedge is
+\begin{equation}
+ Q=\left(
+ \frac{z-\alpha-t\beta}{D_t},
+ \frac{t(z-\alpha)+(1-t)\beta}{D_t}
+ \right).
+ \label{eq:orientation-type-II-Q}
+\end{equation}
+Both coordinates are positive under \eqref{eq:orientation-interior}.
+
+\begin{proposition}[Exact-trace normalization of raw $(3,0)$ roles]
+\label{prop:vd0-exact-trace-normalization}
+Let $U$ be an original open $V_i$-triangle, put $T=\overline U$, and suppose
+$(o(T),n(T))=(3,0)$.  There is a translate $\widehat U$ of $U$, with closure
+$\widehat T$, the same orientation, and the same side length, such that
+\begin{equation}
+ V_i\in\widehat U,
+ \qquad
+ (o(\widehat T),n(\widehat T))=(2,0),
+ \label{eq:o3-normalized-type}
+\end{equation}
+and both the closed and open traces on the hexagon are unchanged:
+\begin{equation}
+ T\cap H=\widehat T\cap H,
+ \qquad
+ U\cap H=\widehat U\cap H.
+ \label{eq:o3-exact-traces}
+\end{equation}
+Consequently the three maximal reaches on the two incident edges and the own
+radial segment are unchanged.  In the notation introduced below, the values
+$A_i,B_i,C_i$, the inequality $A_i+B_i>1$, and hence $N_+$ are all preserved.
+\end{proposition}
+
+\begin{proof}
+Normalize to $i=0$ and use the common forms above.  A Type-II triangle cannot
+have $o=3$: the point $Q$ in \eqref{eq:orientation-type-II-Q} lies in $W$,
+and because $T$ contains the origin and has diameter one, the local wedge
+lemma puts $Q$ in $H$.  Thus $T$ has Type I form.
+
+The three Type-I vertices are
+\[
+ Q_0=\left(
+ -\frac{(1-t)\alpha+\beta}{D_t},
+ -\frac{\alpha+t\beta}{D_t}
+ \right),
+\]
+\begin{equation}
+ \begin{aligned}
+ Q_1&=\left(
+ \frac{z-(1-t)\alpha-\beta}{D_t},
+ \frac{tz-\alpha-t\beta}{D_t}
+ \right),\\
+ Q_2&=\left(
+ \frac{(1-t)z-(1-t)\alpha-\beta}{D_t},
+ \frac{z-\alpha-t\beta}{D_t}
+ \right).
+ \end{aligned}
+ \label{eq:o3-type-I-vertices}
+\end{equation}
+The vertex $Q_0$ has two negative coordinates, the first coordinate of $Q_1$
+is positive, and the second coordinate of $Q_2$ is positive.  Hence $o=3$
+is equivalent to
+\begin{equation}
+ \alpha+t\beta>tz,
+ \qquad
+ (1-t)\alpha+\beta>(1-t)z.
+ \label{eq:o3-outside-conditions}
+\end{equation}
+These strict inequalities force $0<t<1$.
+
+Put
+\[
+ s=\alpha+\beta,
+ \qquad L=z-s>0.
+\]
+The two inequalities in \eqref{eq:o3-outside-conditions} become
+\begin{equation}
+ \alpha>\frac{tL}{1-t},
+ \qquad
+ \beta>\frac{(1-t)L}{t}.
+ \label{eq:o3-redundancy-conditions}
+\end{equation}
+For every $(x,y)\in W$ satisfying
+\begin{equation}
+ (1-t)x+ty\le L,
+ \label{eq:o3-wedge-cut}
+\end{equation}
+the minimum of $U$ is attained at $(L/(1-t),0)$ and the minimum of $V$ at
+$(0,L/t)$.  Thus \eqref{eq:o3-redundancy-conditions} makes both $U$ and $V$
+strictly positive throughout the triangle in \eqref{eq:o3-wedge-cut}.  It
+follows that
+\begin{equation}
+ T\cap W=\left\{(x,y)\in W:(1-t)x+ty\le L\right\}.
+ \label{eq:o3-wedge-trace}
+\end{equation}
+
+Keep $t$ and $s$ fixed and replace the affine constants by
+\begin{equation}
+ \widehat\alpha=\frac{tL}{1-t},
+ \qquad
+ \widehat\beta=s-\widehat\alpha.
+ \label{eq:o3-normalized-constants}
+\end{equation}
+The first inequality in \eqref{eq:o3-redundancy-conditions} gives
+$0<\widehat\alpha<\alpha$ and
+$\widehat\beta>\beta>0$; also
+$\widehat\alpha+\widehat\beta=s<z$.  Since the linear map defining $U,V$ in
+\eqref{eq:orientation-type-I} is nonsingular, changing only these affine
+constants gives a translate $\widehat T$ of $T$.  In particular,
+\eqref{eq:orientation-interior} shows that the
+origin remains in $\interior(\widehat T)$.
+
+For the translated triangle, the inequality $\widehat U+\widehat V\le z$ is
+still exactly \eqref{eq:o3-wedge-cut}.  On that triangle $\widehat U\ge0$,
+with equality only at $(L/(1-t),0)$, while $\widehat V>0$ by the second
+inequality in \eqref{eq:o3-redundancy-conditions} and
+$\widehat\beta>\beta$.  Therefore
+\[
+ \widehat T\cap W=T\cap W,
+\]
+and their interiors have the same trace on $W$: the only new equality point
+of $\widehat U$ already lies on the common boundary
+$(1-t)x+ty=L$.  Both triangles contain the origin and have diameter one, so
+the local wedge lemma identifies their intersections with $H$ with their
+intersections with $W$.  This proves both equalities in
+\eqref{eq:o3-exact-traces}.
+
+Equation \eqref{eq:o3-normalized-constants} makes the second coordinate of
+$Q_1$ in \eqref{eq:o3-type-I-vertices} zero.  Thus $Q_1\in H$.  The vertex
+$Q_0$ remains outside $H$, and the strict second inequality in
+\eqref{eq:o3-redundancy-conditions}, strengthened by
+$\widehat\beta>\beta$, keeps $Q_2$ outside $H$.  Hence
+$o(\widehat T)=2$.  The local wedge lemma gives $n(T)=0$ from $o(T)=3$, and
+the exact trace equality preserves $n$, so $n(\widehat T)=0$.  Finally, all
+three reach segments lie in $H$, and \eqref{eq:o3-exact-traces} preserves
+their exact open and closed traces.  This proves every assertion.
+\end{proof}
+
+Apply Proposition~\ref{prop:vd0-exact-trace-normalization} simultaneously to
+every raw $(3,0)$ vertex role and then reuse the symbols $U_i,T_i$ for the
+translated roles.  The rolewise equalities \eqref{eq:o3-exact-traces}
+preserve the entire open cover, every closed trace, the condition
+$V_i\in U_i$, all actual reaches, and $N_+$.  This simultaneous exact-trace
+normalization is the convention throughout the rest of the paper.
+
+For the normalized roles, we use the names
+\[
+ \begin{array}{c|c}
+ \text{type}&(o,n)\\ \hline
+ \mathrm{Vd0}&(1,0),(2,0)\\
+ \mathrm{Vd1}&(1,1)\\
+ \mathrm{Vd2}&(1,2)\\
+ \text{T3-like}&(2,1).
+ \end{array}
+\]
+
+\begin{proposition}[Exhaustive normalized vertex types]
 \label{prop:vertex-classification}
-Every original V triangle has exactly one of the four types Vd0, Vd1, Vd2,
+Every normalized V triangle has exactly one of the four types Vd0, Vd1, Vd2,
 and T3-like.
 \end{proposition}
 
 \begin{proof}
 We have $n\in\{0,1,2\}$.  Lemma~\ref{lem:local-wedge} gives $o\le2$ when
 $n\ge1$, and $o\le1$ when $n=2$.  Together with $o\ge1$, the possibilities
-are
+for a raw role are
 \[
  \begin{array}{c|c}
  n&\text{possible }o\\ \hline
  0&1,2,3\\
  1&1,2\\
- 2&1,
+ 2&1.
  \end{array}
 \]
-which are precisely the four named classes.
+The exact-trace normalization replaces the sole extra possibility $(3,0)$ by
+$(2,0)$ and leaves all other pairs unchanged.  The remaining pairs are
+precisely the four named classes.
 \end{proof}
 
 The next normalization is useful for trace estimates, but its final warning
@@ -260,25 +439,8 @@ closed-trace majorant and is not a replacement open triangle.
 \end{proposition}
 
 \begin{proof}
-Use the wedge coordinates of Lemma~\ref{lem:local-wedge}.  Set
-\[
- D_t=1-t+t^2,\qquad z=\sqrt{D_t},\qquad 0\le t\le1.
-\]
-After relabelling triangle vertices, every orientation belongs to one of the
-following two families:
-\[
- \begin{array}{c|cc}
- &\text{first side vector}&\text{second side vector}\\ \hline
- \mathrm{I}&z^{-1}(1,t)&z^{-1}(1-t,1)\\
- \mathrm{II}&z^{-1}(t,-(1-t))&z^{-1}(1,t).
- \end{array}
-\]
-For Type I write
-\[
- U=\alpha+y-tx,\qquad V=\beta+x-(1-t)y,
- \qquad T=\{U\ge0,V\ge0,U+V\le z\}.
-\]
-Here $\alpha,\beta>0$ and $\alpha+\beta<z$.  Direct inversion shows that if
+Use the wedge coordinates of Lemma~\ref{lem:local-wedge} and the common
+orientation normal forms above.  In Type I, direct inversion shows that if
 exactly two triangle vertices are outside $W$, the sole wedge vertex has
 both coordinates strictly below $1$: in the two possible cases its
 coordinates are bounded respectively by $(1-t)/z$ and $t/z$, with the
@@ -286,20 +448,11 @@ endpoint strictness supplied by $\alpha>0$ or $\beta>0$.  The support
 argument in Lemma~\ref{lem:local-wedge} then excludes positive-length contact
 with either $x=1$ or $y=1$.  Thus Type I cannot be T3-like.
 
-For Type II write
-\[
- U=\alpha+(1-t)x+ty,\qquad V=\beta+tx-y,
- \qquad T=\{U\ge0,V\ge0,U+V\le z\}.
-\]
+The triangle therefore has Type II form.
 Reflecting in $x=y$ if necessary, assume $\Haus(T_0\cap r_1)>0$.  The two
 outside vertices have respectively a negative $x$- and a
-negative $y$-coordinate, while the unique wedge vertex is
-\[
- Q=\left(
- \frac{z-\alpha-t\beta}{D_t},
- \frac{t(z-\alpha)+(1-t)\beta}{D_t}
- \right).
-\]
+negative $y$-coordinate, while the unique wedge vertex is the point $Q$ in
+\eqref{eq:orientation-type-II-Q}.
 The endpoint cases $t=0,1$ give no positive adjacent interval, so
 $0<t<1$.  The exact axis reaches are
 \[
@@ -338,8 +491,8 @@ point other than the origin remains interior.
 
 \subsection{Reach coordinates, supercritical V triangles, and gaps}
 
-For the original V triangle $U_i$, define its maximal incoming,
-outgoing, and radial reaches by
+For the V triangle $U_i$ under the simultaneous normalization convention,
+define its maximal incoming, outgoing, and radial reaches by
 \[
  \begin{aligned}
  A(U_i)&=

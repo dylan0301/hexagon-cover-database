@@ -28,10 +28,11 @@ $$
 Midpoint subsets for maximal normalized $V_0$-triangles over $S_{1/2}$:
 
 - Vd0 $n=0$: $\varnothing$ or $\{M_0\}$. The older split assigned these
-  possibilities to $(o,n)=(1,0)$ and $(2,0)$ respectively. The corrected
-  Vd0 definition also includes $(3,0)$; it adds no adjacent-midpoint coverage
-  for an original open role because such coverage would give positive
-  adjacent-ray support.
+  possibilities to $(o,n)=(1,0)$ and $(2,0)$ respectively. A raw $(3,0)$ role
+  is omitted by the exact-trace normalization in
+  [`1201`](1201_V_triangle_types.md), which replaces it by a $(2,0)$ role
+  without changing its trace in $H$. Hence it produces no additional midpoint
+  subset in this normalized inventory.
 - Vd1 $(o,n)=(1,1)$:
   $$
   \varnothing,\ \{M_0\},\ \{M_1\},\ \{M_5\},\ \{M_0,M_1\},\ \{M_0,M_5\}.

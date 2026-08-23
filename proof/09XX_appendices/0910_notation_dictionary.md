@@ -9,8 +9,14 @@ expanded to “center triangle” or “vertex triangle” in the proof package.
 
 ## 1. Distinguished triangles
 
-- $U_C,U_0,\ldots,U_5$ are the original open role triangles, with
-  $O\in U_C$ and $V_i\in U_i$.
+- $U_C$ is the original open C role, with $O\in U_C$. Initially,
+  $U_0,\ldots,U_5$ are the original open V roles, with $V_i\in U_i$.
+- Before the finite V-type classification, every raw $(o,n)=(3,0)$ role is
+  replaced by the exact-trace translate proved in
+  [`1201`](../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md), and
+  the symbols $U_i,T_i$ are reused for the normalized representative and its
+  closure. Thus downstream V-role notation refers to normalized roles, while
+  $U_C$ remains the original open C role.
 - $T_C$ is the closed C triangle containing the center $O$.
 - $T_i$ is the closed $V_i$ triangle containing the hexagon vertex $V_i$.
 - The two layers are related by $T_C=\overline{U_C}$ and

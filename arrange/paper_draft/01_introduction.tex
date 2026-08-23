@@ -76,11 +76,18 @@ outside $H$ and put
  n(T_i)=\left\lvert\left\{j\in\{i-1,i+1\}:
  \Haus(T_i\cap r_j)>0\right\}\right\rvert,
 \]
-with indices modulo $6$.  The exhaustive types are
+with indices modulo $6$.  The raw pair $(3,0)$ says that all three vertices of
+$T_i$ lie outside $H$; it does not say that $T_i$ is disjoint from $H$, since
+$V_i\in\interior(T_i)\cap H$.
+Proposition~\ref{prop:vd0-exact-trace-normalization} replaces every such
+triangle by a same-orientation translate with exactly the same
+trace in $H$, still containing $V_i$ in its interior, and with at most two
+vertices outside $H$.  We make this exact-trace normalization before defining
+any reach.  The normalized exhaustive types used below are
 \[
 \begin{array}{c|c}
 \text{type}&(o(T_i),n(T_i))\\ \hline
-\Vdzero&(1,0),(2,0),(3,0)\\
+\Vdzero&(1,0),(2,0)\\
 \Vdone&(1,1)\\
 \Vdtwo&(1,2)\\
 \Tlike&(2,1).

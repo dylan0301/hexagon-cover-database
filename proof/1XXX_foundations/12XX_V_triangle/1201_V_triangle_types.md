@@ -45,11 +45,15 @@ $$
 }
 $$
 
-or equivalently
+The raw pair $(o,n)=(3,0)$ can occur, but it has no separate role in the
+classified cover.  The exact-trace normalization proved below replaces it by
+$(2,0)$ without changing either the open or closed trace in $H$.  We always
+make this replacement before the finite case split.  Thus, for the normalized
+roles used downstream,
 
 $$
 \mathrm{Vd0}:
-(o,n)=(1,0),(2,0),\text{ or }(3,0).
+(o,n)=(1,0)\text{ or }(2,0).
 $$
 
 The positive-support names are
@@ -156,65 +160,7 @@ $$
 x^2+y^2-xy=(x-y)^2+xy>1.
 $$
 
-## Exhaustiveness theorem
-
-Every original vertex role belongs to exactly one of
-
-$$
-\boxed{\mathrm{Vd0},\quad \mathrm{Vd1},\quad \mathrm{Vd2},\quad
-\mathrm{T3\text{-}like}.}
-$$
-
-Indeed, $n\in\{0,1,2\}$. If $n\ge1$, the local wedge lemma gives at least one
-triangle vertex in $H$, so $o\le2$. If $n=2$, it gives at least two triangle
-vertices in $H$, so $o\le1$. Combining these facts with $1\le o\le3$ leaves
-exactly
-
-$$
-\begin{array}{c|c}
-n&\text{possible values of }o\\
-\hline
-0&1,2,3\\
-1&1,2\\
-2&1.
-\end{array}
-$$
-
-These are precisely the four named classes. In particular,
-
-$$
-(o,n)=(2,2),\ (3,1),\ (3,2)
-$$
-
-are unattainable.
-
-## T3-like translation normalization
-
-We now prove the normalization used in later T3-like arguments.
-
-### Theorem
-
-Let $T$ be the closed unit triangle associated with an original T3-like
-$V_i$-role. There is a translate $T'$ of $T$, with the same side length and
-orientation, such that
-
-$$
-V_i\text{ lies in the relative interior of a side of }T',
-$$
-
-$$
-T\cap H\subsetneq T'\cap H,
-$$
-
-and $T'$ still has type $(o,n)=(2,1)$. Thus replacing $T$ by $T'$ preserves
-the entire old closed trace in $H$ and strictly enlarges that trace.  If the
-original role is viewed as an open triangle, every old interior point in $H$
-other than $V_i$ remains interior to the translate; $V_i$ itself becomes a
-boundary point.  The normalization is therefore a closed-trace domination
-tool, not a literal replacement for the role triangle at $V_i$ in an open
-cover.
-
-### Orientation normal forms
+## Shared orientation normal forms
 
 It is enough to work at $V_0$. Put
 
@@ -295,8 +241,6 @@ $$
 \alpha+\beta<z.
 $$
 
-### Type I is not T3-like
-
 For Type I, the vertices corresponding to $(U,V)=(0,0),(0,z),(z,0)$ are
 
 $$
@@ -316,9 +260,338 @@ Q_2=\left(\frac{(1-t)z-(1-t)\alpha-\beta}{D},
 \frac{z-\alpha-t\beta}{D}\right).
 $$
 
-The vertex $Q_0$ lies outside $W$, the first coordinate of $Q_1$ is
-nonnegative, and the second coordinate of $Q_2$ is nonnegative. Suppose a
-Type I triangle has $o=2$. If $Q_1$ is the second outside vertex, then
+## Exact-trace normalization of raw $o=3$ roles
+
+The condition $o=3$ says that the three vertices of $T$ lie outside $H$; it
+does not say that $T$ is disjoint from $H$.  For an original role,
+$V_i\in\mathrm{int}(T)\cap H$.
+
+### Theorem
+
+Let $T$ be the closure of an original open unit $V_i$-triangle and suppose
+$o(T)=3$. There is a nonzero translate $\widehat T$ of $T$, with the same side
+length and orientation, such that
+
+$$
+V_i\in\mathrm{int}(\widehat T),
+$$
+
+$$
+T\cap H=\widehat T\cap H,
+\qquad
+\mathrm{int}(T)\cap H=\mathrm{int}(\widehat T)\cap H,
+$$
+
+and
+
+$$
+(o(\widehat T),n(\widehat T))=(2,0).
+$$
+
+Consequently, replacing the original open role by
+$\mathrm{int}(\widehat T)$ preserves the cover on $H$ literally. It also
+preserves all three actual reaches $(A_i,B_i,C_i)$, and hence preserves
+supercriticality and $N_+$.
+
+### Proof
+
+Rotate to $i=0$ and use the shared orientation normal forms. In Type II, the
+vertex corresponding to $(U,V)=(z,0)$ is
+
+$$
+Q=
+\left(
+\frac{z-\alpha-t\beta}{D},
+\frac{t(z-\alpha)+(1-t)\beta}{D}
+\right).
+$$
+
+Writing $c=z-\alpha-\beta>0$, its two numerators are
+
+$$
+c+(1-t)\beta>0,
+\qquad
+\beta+tc>0.
+$$
+
+Thus $Q\in W$. Since $V_0\in T$ and $T$ has diameter $1$, the local wedge
+lemma gives $Q\in H$, contrary to $o(T)=3$. Therefore $T$ has Type I form.
+
+In that form, $Q_0$ lies outside $W$, the first coordinate of $Q_1$ is
+positive, and the second coordinate of $Q_2$ is positive. More precisely,
+
+$$
+D(Q_1)_x=c+t\alpha>0,
+\qquad
+D(Q_2)_y=c+(1-t)\beta>0.
+$$
+
+Because all three vertices lie outside $W$, the other two coordinates give
+
+$$
+(1-t)\alpha>tc,
+\qquad
+t\beta>(1-t)c.
+\tag{1}
+$$
+
+In particular, $0<t<1$. Put
+
+$$
+L(x,y)=(1-t)x+ty.
+$$
+
+The upper triangle inequality $U+V\le z$ is exactly $L(x,y)\le c$. For
+$(x,y)\in W$ satisfying this inequality, (1) gives
+
+$$
+U
+\ge
+\alpha-\frac{tc}{1-t}
+>0,
+$$
+
+and
+
+$$
+V
+\ge
+\beta-\frac{(1-t)c}{t}
+>0.
+$$
+
+Hence
+
+$$
+T\cap W
+=
+K
+:=
+\left\{(x,y):x\ge0,\ y\ge0,\ L(x,y)\le c\right\}.
+\tag{2}
+$$
+
+Define
+
+$$
+\widehat\alpha=\frac{tc}{1-t},
+\qquad
+\widehat\beta
+=\alpha+\beta-\widehat\alpha
+=z-\frac{c}{1-t}.
+\tag{3}
+$$
+
+By (1),
+
+$$
+0<\widehat\alpha<\alpha,
+\qquad
+\widehat\beta>\beta>0,
+\qquad
+\widehat\alpha+\widehat\beta=\alpha+\beta<z.
+\tag{4}
+$$
+
+Let $\widehat T$ be the Type I triangle obtained by replacing
+$(\alpha,\beta)$ with $(\widehat\alpha,\widehat\beta)$. The linear parts of
+$U$ and $V$ have determinant $-D\ne0$, so changing their two affine constants
+produces a translate with the same side length and orientation. Explicitly, if
+
+$$
+\delta=\alpha-\widehat\alpha>0,
+$$
+
+then
+
+$$
+\widehat T
+=
+T+
+\left(-\frac{t\delta}{D},\frac{(1-t)\delta}{D}\right).
+\tag{5}
+$$
+
+The inequalities in (4) also show that the origin remains in the interior of
+$\widehat T$.
+
+Let $\widehat U,\widehat V$ denote the two affine coordinates of
+$\widehat T$. Their sum has not changed, so the upper inequality is still
+$L(x,y)\le c$. If $(x,y)\in K$, then
+
+$$
+\begin{aligned}
+\widehat U
+&=\widehat\alpha+y-tx\\
+&\ge
+\widehat\alpha+y-
+\frac{t(c-ty)}{1-t}\\
+&=\frac{D}{1-t}y
+\ge0,
+\end{aligned}
+$$
+
+while
+
+$$
+\widehat V
+\ge
+\widehat\beta-\frac{(1-t)c}{t}
+>
+\beta-\frac{(1-t)c}{t}
+>0.
+$$
+
+Thus $K\subset\widehat T\cap W$. The unchanged upper inequality gives the
+reverse inclusion, and therefore
+
+$$
+\widehat T\cap W=T\cap W=K.
+\tag{6}
+$$
+
+The old $U$ and $V$ are strictly positive throughout $K$. The new
+$\widehat V$ is also strictly positive there, and equality
+$\widehat U=0$ in $K$ occurs only at
+
+$$
+\left(\frac{c}{1-t},0\right),
+$$
+
+which already satisfies $L(x,y)=c$. It follows that
+
+$$
+\mathrm{int}(T)\cap W
+=
+\mathrm{int}(\widehat T)\cap W
+=
+\left\{(x,y):x\ge0,\ y\ge0,\ L(x,y)<c\right\}.
+\tag{7}
+$$
+
+Both triangles contain $V_0$ and have diameter $1$, so the local equivalence
+between $H$ and $W$ applies to every point of either triangle. Equations
+(6)--(7) give the two asserted trace equalities in $H$.
+
+For the new parameters, the vertex $Q_1$ becomes
+
+$$
+\widehat Q_1=
+\left(\frac{c}{1-t},0\right).
+$$
+
+Since $\widehat\beta=z-c/(1-t)>0$, its first coordinate lies strictly between
+$0$ and $z\le1$. Thus $\widehat Q_1$ belongs to the relative interior of the
+hexagon edge $e_{0,1}$. The vertex $\widehat Q_0$ still has both coordinates
+negative, while
+
+$$
+D(\widehat Q_2)_x
+=(1-t)c-t\widehat\beta
+<(1-t)c-t\beta
+<0.
+$$
+
+Hence exactly two vertices of $\widehat T$ lie outside $H$, so
+$o(\widehat T)=2$. The support observation gives $n(T)=0$, and the closed
+trace equality gives $n(\widehat T)=n(T)=0$. Finally, actual reaches depend
+only on the closed trace in $H$, so all three are unchanged. This proves the
+theorem.
+
+The raw possibility is genuine. For example, in Type I take
+
+$$
+t=\frac12,
+\qquad
+z=\frac{\sqrt3}{2},
+\qquad
+\alpha=\beta=\frac{3z}{8},
+\qquad
+c=\frac z4.
+$$
+
+Both inequalities in (1) are strict, so all three triangle vertices lie
+outside $H$, while
+
+$$
+T\cap H
+=
+\left\{(x,y):x\ge0,\ y\ge0,\ x+y\le\frac z2\right\}
+$$
+
+is nonempty and two-dimensional.
+
+## Normalized exhaustiveness theorem
+
+Apply the exact-trace normalization independently to every raw $o=3$ role and
+retain the same names for the replacement roles. The resulting cover has
+exactly the same trace and actual reach data on $H$, and every normalized
+vertex role belongs to exactly one of
+
+$$
+\boxed{\mathrm{Vd0},\quad \mathrm{Vd1},\quad \mathrm{Vd2},\quad
+\mathrm{T3\text{-}like}.}
+$$
+
+Indeed, $n\in\{0,1,2\}$. If $n\ge1$, the local wedge lemma gives at least one
+triangle vertex in $H$, so $o\le2$. If $n=2$, it gives at least two triangle
+vertices in $H$, so $o\le1$. Before normalization, these facts and
+$1\le o\le3$ leave $o\in\{1,2,3\}$ when $n=0$, $o\in\{1,2\}$ when $n=1$,
+and $o=1$ when $n=2$. The normalization replaces the raw value $(3,0)$ by
+$(2,0)$, leaving exactly
+
+$$
+\begin{array}{c|c}
+n&\text{possible normalized values of }o\\
+\hline
+0&1,2\\
+1&1,2\\
+2&1.
+\end{array}
+$$
+
+These are precisely the four named classes. In particular,
+
+$$
+(o,n)=(2,2),\ (3,1),\ (3,2)
+$$
+
+are unattainable, while the raw pair $(3,0)$ is omitted only by the exact-trace
+normalization.
+
+## T3-like translation normalization
+
+We now prove the normalization used in later T3-like arguments, using the
+shared orientation normal forms above.
+
+### Theorem
+
+Let $T$ be the closed unit triangle associated with an original T3-like
+$V_i$-role. There is a translate $T'$ of $T$, with the same side length and
+orientation, such that
+
+$$
+V_i\text{ lies in the relative interior of a side of }T',
+$$
+
+$$
+T\cap H\subsetneq T'\cap H,
+$$
+
+and $T'$ still has type $(o,n)=(2,1)$. Thus replacing $T$ by $T'$ preserves
+the entire old closed trace in $H$ and strictly enlarges that trace.  If the
+original role is viewed as an open triangle, every old interior point in $H$
+other than $V_i$ remains interior to the translate; $V_i$ itself becomes a
+boundary point.  The normalization is therefore a closed-trace domination
+tool, not a literal replacement for the role triangle at $V_i$ in an open
+cover.
+
+### Type I is not T3-like
+
+Use the Type I vertices $Q_0,Q_1,Q_2$ displayed above. The vertex $Q_0$ lies
+outside $W$, the first coordinate of $Q_1$ is nonnegative, and the second
+coordinate of $Q_2$ is nonnegative. Suppose a Type I triangle has $o=2$. If
+$Q_1$ is the second outside vertex, then
 
 $$
 \alpha+t\beta>tz,

@@ -72,7 +72,8 @@ source, historical failed route, or provenance-bound file was deleted.
 
 - Global objects and conventions: `1001`.
 - CE0/CE1/CE2 classification: `1101`.
-- Vd0/Vd1/Vd2/T3-like classification: `1201`.
+- Raw and normalized Vd0/Vd1/Vd2/T3-like classification, including the
+  exact-trace elimination of raw $(3,0)$ roles: `1201`.
 - Maximal reaches and local coordinates: `1202`.
 - Actual `N_+`: `1212`.
 - Strict handoff selection preserving the actual criticality pattern: `1214`.
@@ -94,8 +95,8 @@ The corresponding numbered sources include:
 
 - distinct distinguished triangles and global geometry: `0000`, `1001`;
 - C-triangle and V-triangle classifications: `1101`, `1201`;
-- T3-like nonsupercriticality and normalization: `1213`, supporting material
-  in `1201`;
+- exact-trace Vd0 normalization and T3-like closed-trace normalization:
+  supporting material in `1201`; T3-like nonsupercriticality: `1213`;
 - strict boundary handoffs: `1214`;
 - unique center midpoint in CE1/CE2: `2100` and the signed normal form `2109`;
 - exact center traces and exits: `2105`, `2106`, `2109`;
