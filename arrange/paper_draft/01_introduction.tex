@@ -195,8 +195,13 @@ is a \emph{boundary gap}; equality gives a singleton gap, which remains
 uncovered.  Let $N_{\mathrm{gap}}$ be the number of positive center traces
 that contain a boundary gap.
 
-Let $N_{\mathrm{sp}}$ be the number of V triangles of type
-$\Vdone,\Vdtwo,$ or $\Tlike$.  The common trace calculation proves that the
+For the case tables, put
+\[
+ d=\left\lvert \left\lbrace i:T_i\text{ is }\Vdone\text{ or }\Vdtwo \right\rbrace \right\rvert,
+ \qquad
+ t=\left\lvert \left\lbrace i:T_i\text{ is }\Tlike \right\rbrace \right\rvert,
+\]
+and let $N_{\mathrm{sp}}=d+t$.  The common trace calculation proves that the
 number of V triangles that are either supercritical or meet an adjacent
 radial segment in positive length is
 \[
@@ -207,39 +212,48 @@ $N_++N_{\mathrm{sp}}\ge3$ is impossible by a trace-length bound on $S$.
 
 \subsection{Exhaustive routing}
 
-Table~\ref{tab:routing} is read from top to bottom in the CE1/CE2 part.  The
-first applicable row is the unique method for a hypothetical cover.  The full
-classification proof is Proposition~\ref{prop:exhaustive-structural-reduction}.
+Lemma~\ref{lem:gap-exhaustion} proves the fundamental equivalence
+\[
+ N_{\mathrm{gap}}=0
+ \quad\Longleftrightarrow\quad
+ U_0,\ldots,U_5\text{ cover }\partial H.
+\]
+Thus Table~\ref{tab:routing} first dispatches every zero-gap case without
+reference to the center class.  The nonzero-gap part is read from top to
+bottom; the first applicable row is the unique route for a hypothetical
+cover.  The full classification proof is
+Proposition~\ref{prop:exhaustive-structural-reduction}.
 
 \begin{table}[H]
 \centering
 \scriptsize
 \renewcommand{\arraystretch}{1.07}
-\begin{tabular}{p{.25\textwidth}p{.55\textwidth}c}
+\begin{tabular}{@{}c c p{.31\textwidth}p{.19\textwidth}c@{}}
 \toprule
-center type and $N_+$&exhaustive refinement&method\\
+$N_{\mathrm{gap}}$&$N_+$&vertex-type refinement&center class&method\\
 \midrule
-$\CEzero$, $N_+=0$&all vertex types&1\\
-$\CEzero$, $N_+=1$&all six triangles $\Vdzero$&4\\
-$\CEzero$, $N_+=1$&a $\Vdone$ or $\Vdtwo$ triangle&1\\
-$\CEzero$, $N_+=1$&no $\Vdone/\Vdtwo$ triangle and a $\Tlike$ triangle&3\\
-$\CEzero$, $N_+\ge2$&all vertex types&3\\
+$0$&$0$&all $(d,t)$&$\CEzero/\CEone/\CEtwo$&1\\
+$0$&$1$&$d\ge1$&$\CEzero/\CEone/\CEtwo$&1\\
+$0$&$1$&$d=0$, $t\ge1$&$\CEzero/\CEone/\CEtwo$&3\\
+$0$&$1$&$(d,t)=(0,0)$&$\CEzero/\CEone/\CEtwo$&4\\
+$0$&$\ge2$&all $(d,t)$&$\CEzero/\CEone/\CEtwo$&3\\
 \midrule
-$\CEone/\CEtwo$&$N_++N_{\mathrm{sp}}\ge3$&1\\
-$\CEone/\CEtwo$, $N_+=0$&all six triangles $\Vdzero$&2\\
-$\CEone/\CEtwo$, $N_+=0$&a $\Vdone$ or $\Vdtwo$ triangle&1\\
-$\CEone/\CEtwo$, $N_+=0$&no $\Vdone/\Vdtwo$ triangle and a $\Tlike$ triangle&2\\
-$\CEone/\CEtwo$, $N_+=1$&all $\Vdzero$, no boundary gap&4\\
-$\CEone/\CEtwo$, $N_+=1$&all $\Vdzero$, a boundary gap&2\\
-$\CEone/\CEtwo$, $N_+=1$&exactly one $\Tlike$, no $\Vdone/\Vdtwo$&2\\
-$\CEone/\CEtwo$, $N_+=1$&exactly one $\Vdone/\Vdtwo$, no $\Tlike$&
-  $1\;/\;1{+}2$\\
+$\ge1$&$\ge2$&all $(d,t)$&$\CEone/\CEtwo$&1\\
+$\ge1$&$0$ or $1$&$N_++d+t\ge3$&$\CEone/\CEtwo$&1\\
+$\ge1$&$0$&$(d,t)=(0,0)$&$\CEone/\CEtwo$&2\\
+$\ge1$&$0$&$d\ge1$, $d+t\le2$&$\CEone/\CEtwo$&1\\
+$\ge1$&$0$&$d=0$, $t\in\{1,2\}$&$\CEone/\CEtwo$&2\\
+$\ge1$&$1$&$(d,t)=(0,0)$&$\CEone/\CEtwo$&2\\
+$\ge1$&$1$&$(d,t)=(0,1)$&$\CEone/\CEtwo$&2\\
+$\ge1$&$1$&$(d,t)=(1,0)$&$\CEone$&1\\
+$\ge1$&$1$&$(d,t)=(1,0)$&$\CEtwo$&$1{+}2$\\
 \bottomrule
 \end{tabular}
 \caption{The exhaustive routing.  Method 1 is a trace-length argument, Method
 2 propagates reach bounds, Method 3 sums area loss, and Method 4 uses a
-nine-point enclosure obstruction.  In the last row, the first alternative is
-for CE1 and the second for CE2.}
+nine-point enclosure obstruction.  Nonzero gap count forces center class CE1 or
+CE2.  In that part the high-count rows are applied first; the final two rows
+separate the CE1 length route from the detailed CE2 hybrid placement assembly.}
 \label{tab:routing}
 \end{table}
 
@@ -252,5 +266,5 @@ Section~\ref{sec:boundary-propagation} develops the local admissible set and
 all boundary-reach propagation cases.  Section~\ref{sec:area-loss} proves the
 local and cyclic area-loss estimates.  Section~\ref{sec:nine-point} constructs
 the nine forced points and proves the equilateral-enclosure obstruction.
-Section~\ref{sec:assembly} then applies Table~\ref{tab:routing} once and closes
-the proof.
+Section~\ref{sec:assembly} then applies the zero-gap matrix before the
+nonzero-gap rows of Table~\ref{tab:routing} and closes the proof.

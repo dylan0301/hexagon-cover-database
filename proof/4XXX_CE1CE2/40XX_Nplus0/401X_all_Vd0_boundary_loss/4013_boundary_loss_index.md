@@ -52,6 +52,12 @@ traces, radial handoffs, and center-free boundary paths, but no point of
 $H\setminus S$. This is the exact strength needed by geometric replacement
 arguments such as `4147`.
 
+The theorem combines two routing mechanisms.  The zero-gap strict cycle in
+Section 3 is the common boundary-complete Method 1 argument.  Only the
+nonzero-gap endpoint arguments in Sections 4 and 5 are active Method 2
+branches.  Keeping all three ranks in this skeleton-level theorem does not
+assign the zero-gap rank to Method 2.
+
 ## 1. Skeleton coverage supplies the radial demands
 
 Let $d_i^C$ be the center reach on $r_i$, measured from $O$ toward $V_i$, and
@@ -123,13 +129,13 @@ $$
 be the number of positive C-triangle traces containing a boundary gap. One has
 $N_{\rm gap}\le1$ for CE1. The three values are exhaustive.
 
-| $N_{\rm gap}$ | exact data retained | relaxed internal chain | terminal contradiction |
-|---|---|---|---|
-| $0$ | six strict open handoffs | $\mathrm I^6$ | strict cyclic ascent |
-| $1$ | two exact high-radial endpoint outputs | center-free $\mathrm I^3$ | one-side endpoint sum $<1$ |
-| $2$ | two exact high-radial endpoint outputs | center-free $\mathrm I^3$ | paired CE2 endpoint sum $<1$ |
+| $N_{\rm gap}$ | Method | exact data retained | relaxed internal chain | terminal contradiction |
+|---|---:|---|---|---|
+| $0$ | 1 | six strict open handoffs | none | strict cyclic ascent |
+| $1$ | 2 | two exact high-radial endpoint outputs | center-free $\mathrm I^3$ | one-side endpoint sum $<1$ |
+| $2$ | 2 | two exact high-radial endpoint outputs | center-free $\mathrm I^3$ | paired CE2 endpoint sum $<1$ |
 
-## 3. $N_{\rm gap}=0$: strict cyclic ascent
+## 3. $N_{\rm gap}=0$: Method 1 strict cyclic ascent
 
 Suppose no positive C-triangle trace contains a boundary gap. Then there is no boundary gap on
 any boundary edge. Hence the six open vertex traces themselves cover every
@@ -161,7 +167,11 @@ $$
 
 a contradiction.
 
-## 4. $N_{\rm gap}=1$: one exact endpoint pair
+This is the local all-Vd0 instance of the common boundary-complete
+consequence in
+[`2500`](../../../2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md#boundary-complete-zero-gap-consequences).
+
+## 4. $N_{\rm gap}=1$: Method 2 one exact endpoint pair
 
 Use the signed center normal form
 [`2109`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md):
@@ -287,7 +297,7 @@ The proof is identical for CE1 and for the $N_{\rm gap}=1$ CE2 state. A gap-free
 companion trace is absorbed into the endpoint component and never occurs on an
 internal path edge.
 
-## 5. $N_{\rm gap}=2$: paired CE2 endpoints
+## 5. $N_{\rm gap}=2$: Method 2 paired CE2 endpoints
 
 This state is CE2-only. The skeleton-data version of the common two-gap theorem
 [`2110`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2110_common_CE2_two_gap_application.md)
@@ -300,7 +310,8 @@ applies. Its proof uses only:
 
 It gives the exact paired endpoint loss and the same path contradiction.
 
-The ranks $0,1,2$ are exhaustive, proving the skeleton-level theorem.
+The ranks $0,1,2$ are exhaustive.  Method 1 closes rank $0$, and Method 2
+closes the two nonzero ranks, proving the skeleton-level theorem.
 
 $$
 \Box

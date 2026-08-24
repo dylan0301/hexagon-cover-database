@@ -375,17 +375,18 @@ loss is at least
 \label{prop:area-branches}
 The following branches are impossible:
 \begin{enumerate}
-\item $T_C$ is $\CEzero$, $N_+\ge2$, with arbitrary V triangle types;
-\item $T_C$ is $\CEzero$, $N_+=1$, no triangle is $\Vdone$ or $\Vdtwo$, and
-at least one triangle is $\Tlike$.
+\item $N_{\mathrm{gap}}=0$, $N_+\ge2$, with arbitrary center and V triangle
+types;
+\item $N_{\mathrm{gap}}=0$, $N_+=1$, no triangle is $\Vdone$ or $\Vdtwo$,
+and at least one triangle is $\Tlike$.
 \end{enumerate}
 \end{proposition}
 
 \begin{proof}
-In the $\CEzero$ class, the C triangle has no positive-length boundary
-trace.  If the six V triangles missed a boundary point, openness of $U_C$
-would give such a trace.  Hence the V triangles cover
-$\partial H$, so Proposition~\ref{prop:strict-handoffs} applies.
+By Lemma~\ref{lem:gap-exhaustion}, $N_{\mathrm{gap}}=0$ says exactly that
+the six V triangles cover $\partial H$, so
+Proposition~\ref{prop:strict-handoffs} applies independently of the center
+class.
 
 If $N_+\ge2$, its at-least-two clause selects handoffs with at least two
 supercritical V triangles.  Lemma~\ref{lem:cyclic-area-loss} makes the six vertex

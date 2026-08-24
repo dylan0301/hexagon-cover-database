@@ -9,49 +9,97 @@ Subsection~\ref{sec:strategy2-rigor-completion}.
 \begin{proposition}[Complete CE2 exactly-one-Vd1/Vd2 assembly]
 \label{prop:paper-ce2-one-vd-placements}
 Assume the center has type CE2, $N_+=1$, exactly one V triangle has type Vd1
-or Vd2, and no T3-like triangle is present.  Then the seven triangles do not cover
-$H$.
+or Vd2, no T3-like triangle is present, and
+$N_{\mathrm{gap}}\in\{1,2\}$.  Then the seven triangles do not cover $H$.
 \end{proposition}
 
 \begin{proof}
 By Proposition~\ref{prop:unique-center-midpoint}, normalize so that
-$T_C\cap\{M_0,\ldots,M_5\}=\{M_0\}$.  If, for an additional V triangle
-$T_i$, there is some $j\in\{i-1,i+1\}$ with
-$\Haus(T_i\cap r_j)>0$, then the unique supercritical V triangle, the
-Vd1/Vd2 V triangle, and that additional triangle give
-$N_++N_{\mathrm{sp}}\ge3$; the skeleton contradiction of
-Theorem~\ref{thm:common-skeleton-count} applies. Hence assume the
-no-additional-positive-support complement.
+$T_C\cap\{M_0,\ldots,M_5\}=\{M_0\}$.  Let $T_\sigma$ be the unique
+supercritical V triangle and let $T_\tau$ be the unique Vd1/Vd2 V triangle.
+They are distinct because a Vd1/Vd2 V triangle is nonsupercritical.  The
+complete nonzero-gap partition is displayed in
+Table~\ref{tab:ce2-one-vd-placement-cases}; throughout that table the standing
+hypothesis is $N_{\mathrm{gap}}\in\{1,2\}$.
 
-First suppose the unique supercritical V triangle is $T_0$.  If the Vd1/Vd2 V triangle is
-adjacent, it is eliminated by
-Lemma~\ref{lem:signed-vd-adjacent-placement}; for the $T_1$ placement its
-proof treats $\Haus(T_1\cap r_0)>0$ and $\Haus(T_1\cap r_2)>0$, as well as
-the reflected $T_5$ placement.  If it is nonadjacent, its index lies in
-$\{2,3,4\}$ after reflection, and
-Lemma~\ref{lem:signed-vd-nonadjacent-placement} gives a strict radial
+\begin{table}[H]
+\centering
+\scriptsize
+\renewcommand{\arraystretch}{1.08}
+\begin{tabular}{p{.27\textwidth}p{.39\textwidth}p{.23\textwidth}}
+\toprule
+placement&chain or deficit&closing result\\
+\midrule
+an additional V triangle has positive support
+ &upstream $N_++N_{\mathrm{sp}}\ge3$ skeleton deficit; Method~1
+ &Theorem~\ref{thm:common-skeleton-count}\\
+$\sigma=0$, $\tau\in\{1,5\}$
+ &exact residuals, backward $\mathrm I^4$, and radial-bridge exclusion;
+ Method~2
+ &Lemma~\ref{lem:signed-vd-adjacent-placement}\\
+$\sigma=0$, $\tau\in\{2,3,4\}$
+ &identity propagation and Vd-specific radial separation; Method~2
+ &Lemma~\ref{lem:signed-vd-nonadjacent-placement}\\
+$\tau=0$ and $T_\tau$ is Vd1
+ &$1-M_c^{\rm sup}$, an ordinary center-free path, and the free-envelope
+ comparison; Method~2
+ &Corollary~\ref{cor:signed-adjacent-rescuers}\\
+$\tau=0$ and $T_\tau$ is Vd2
+ &neighboring-midpoint perimeter deficit; Method~1
+ &Proposition~\ref{prop:ce2-vd2-midpoint-length}\\
+$\sigma\ne0$, $\tau\ne0$, and $T_\tau$ is Vd1
+ &two-chart replacement, followed by the $N'_{\mathrm{gap}}=0$ Method~1
+ route or the $N'_{\mathrm{gap}}\ge1$ Method~2 route
+ &Propositions \ref{prop:paper-vd1-pair-replacement},
+ \ref{prop:length-branches}, and \ref{prop:nplus-zero-all-vd0}\\
+$\sigma\ne0$, $\tau\ne0$, and $T_\tau$ is Vd2
+ &neighboring-midpoint perimeter deficit; Method~1
+ &Proposition~\ref{prop:ce2-vd2-midpoint-length}\\
+\bottomrule
+\end{tabular}
+\caption{The complete nonzero-gap CE2 one-Vd placement partition, under the
+standing hypothesis $N_{\mathrm{gap}}\in\{1,2\}$.  The first line is the
+upstream pruning step before the reduced no-additional-support placement
+analysis; the remaining lines are pairwise disjoint.}
+\label{tab:ce2-one-vd-placement-cases}
+\end{table}
+
+For the upstream line, if an additional V triangle $T_i$ has some
+$j\in\{i-1,i+1\}$ with $\Haus(T_i\cap r_j)>0$, then $T_\sigma$,
+$T_\tau$, and $T_i$ give $N_++N_{\mathrm{sp}}\ge3$.  Theorem
+\ref{thm:common-skeleton-count} gives the contradiction.  Hence assume the
+no-additional-positive-support complement.  Every V triangle other than
+$T_\sigma$ and $T_\tau$ is then nonsupercritical Vd0.
+
+\begin{enumerate}
+\item Suppose $\sigma=0$.  Since $\tau\ne0$, either
+$\tau\in\{1,5\}$ or $\tau\in\{2,3,4\}$.  In the adjacent case,
+Lemma~\ref{lem:signed-vd-adjacent-placement} treats both possible radial
+bridges and the reflected placement.  In the nonadjacent case,
+Lemma~\ref{lem:signed-vd-nonadjacent-placement} gives the strict radial
 separation.
 
-Next suppose the unique Vd1/Vd2 V triangle is $T_0$.  It must rescue the midpoint of
-the unique supercritical V triangle, so midpoint locality makes that V triangle adjacent.
-If $T_0$ is Vd2, the $M_1$ or $M_5$ cap
-Lemma~\ref{lem:vd2-neighbor-midpoint-cap}, combined with the center and
-supercritical perimeter caps, is
-Proposition~\ref{prop:ce2-vd2-midpoint-length}.  If $T_0$ is Vd1, the exact
-Vd1 local profile and the common center-hiding theorem give
+\item Suppose $\tau=0$.  The Vd1/Vd2 V triangle must rescue the midpoint
+missed by $T_\sigma$, so midpoint locality gives
+$\sigma\in\{1,5\}$.  If $T_\tau$ is Vd2, the neighboring-midpoint cap and
+the center and supercritical perimeter caps give
+Proposition~\ref{prop:ce2-vd2-midpoint-length}.  If $T_\tau$ is Vd1, the
+exact Vd1 local profile and the common center-hiding theorem give
 Corollary~\ref{cor:signed-adjacent-rescuers}.
 
-Finally suppose neither special V triangle is $T_0$.  Since
-$T_C\cap\{M_0,\ldots,M_5\}=\{M_0\}$, the Vd1/Vd2 V triangle must rescue the midpoint
-missed by the unique supercritical V triangle.  Diameter locality makes the two V triangles
-adjacent.  A Vd2 rescue is again eliminated by the $M_{i-1}$/$M_{i+1}$ cap.
-For a Vd1 rescue, the shared edge has no center trace in this placement and the
-no-additional-support hypotheses are exactly those of
-Proposition~\ref{prop:paper-vd1-pair-replacement}.  Replace the pair by two
-open nonsupercritical Vd0 triangles while preserving every boundary and radial
-reach lower bound used by Proposition~\ref{prop:nplus-zero-all-vd0}.  All other vertex
-triangles were already nonsupercritical Vd0, so that all-Vd0 theorem gives the
-contradiction.
+\item Suppose $\sigma\ne0$ and $\tau\ne0$.  The center and $T_\sigma$
+both miss $M_\sigma$, while every V triangle other than $T_\tau$ is Vd0.
+Thus $T_\tau$ contains $M_\sigma$, and diameter locality makes $T_\tau$
+adjacent to $T_\sigma$.  If $T_\tau$ is Vd2,
+Proposition~\ref{prop:ce2-vd2-midpoint-length} applies.  If $T_\tau$ is
+Vd1, the shared edge is center-free and the no-additional-support hypotheses
+are exactly those of Proposition~\ref{prop:paper-vd1-pair-replacement}.
+That proposition replaces the pair by two open nonsupercritical Vd0
+triangles, recomputes the resulting $N'_{\mathrm{gap}}$, and routes its
+zero-gap outcome to Proposition~\ref{prop:length-branches} and its nonzero-gap
+outcome to Proposition~\ref{prop:nplus-zero-all-vd0}.  It makes no claim that
+the replacement preserves the original gap count.
+\end{enumerate}
 
 These alternatives exhaust the relative positions of the center-midpoint V triangle,
 the unique supercritical V triangle, and the unique Vd1/Vd2 V triangle.

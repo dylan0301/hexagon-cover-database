@@ -19,10 +19,16 @@ T_C\text{ is CE2},
 T_C\cap\{M_0,\dots,M_5\}=\{M_0\},
 \qquad
 N_+=1,
+\qquad
+N_{\rm gap}\in\{1,2\},
 $$
 
 and exactly one vertex role is Vd1 or Vd2. Then the seven open roles cannot
 cover $H$.
+
+The omitted zero-gap state is already closed by the common
+boundary-complete Method 1 consequence
+[`2500`](../../../2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md#boundary-complete-zero-gap-consequences).
 
 ## Proof
 
@@ -43,11 +49,15 @@ Vd1/Vd2 role.
    roles adjacent and forces $M_\sigma\in T_\tau$. The Vd2 case is `4149`.
    In the Vd1 case, corrected `4147` uses separate $V_\tau$- and
    $V_\sigma$-charts to replace the pair by two open nonsupercritical Vd0
-   roles while preserving full skeleton coverage. The strengthened
-   skeleton-data theorem `4013` then gives the contradiction.
+   roles while preserving full skeleton coverage. Recompute the output gap
+   rank $N'_{\rm gap}$. If it is zero, `2500` gives the Method 1
+   contradiction; if it is nonzero, the nonzero-gap part of `4013` gives
+   the Method 2 contradiction. The replacement does not assert that
+   $N'_{\rm gap}=N_{\rm gap}$.
 
-These cases and the positive-support complement are disjoint and exhaustive;
-see `414b` for the hypothesis-by-hypothesis re-audit.
+These cases and the positive-support complement are disjoint and exhaustive
+within the standing nonzero-gap branch; see `414b` for the
+hypothesis-by-hypothesis re-audit.
 
 $$
 \Box

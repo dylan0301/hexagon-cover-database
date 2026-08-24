@@ -6,7 +6,8 @@
 \begin{proposition}[Exactly one T3-like V triangle]
 \label{prop:nplus-one-one-t3}
 Assume the C triangle is CE1 or CE2, $N_+=1$, exactly one V triangle is
-T3-like, and no triangle is Vd1 or Vd2.  Then the triangles do not cover $H$.
+T3-like, no triangle is Vd1 or Vd2, and $N_{\mathrm{gap}}\ge1$.  Then the
+triangles do not cover $H$.
 \end{proposition}
 
 \begin{proof}
@@ -45,18 +46,18 @@ visual inspection.}
 \label{fig:ce1-ce2-n0-all-vd0}
 \end{figure}
 
-\begin{proposition}[All-Vd0 skeleton-data obstruction]
+\begin{proposition}[Nonzero-gap all-Vd0 skeleton-data obstruction]
 \label{prop:nplus-zero-all-vd0}
 Let the C triangle be CE1 or CE2. Assume all six V triangles are Vd0,
 \[
  A_i+B_i\le1\qquad(i=0,\ldots,5),
 \]
-and the seven open triangles cover the full skeleton
+the seven open triangles cover the full skeleton
 \[
- S=\partial H\cup\bigcup_{i=0}^5r_i.
+ S=\partial H\cup\bigcup_{i=0}^5r_i,
 \]
-Then no such configuration exists. Consequently the same distinguished-index data cannot
-cover all of $H$.
+and assume $N_{\mathrm{gap}}\ge1$.  Then no such configuration exists; in
+particular, these data cannot cover all of $H$.
 \end{proposition}
 
 \begin{proof}
@@ -71,23 +72,9 @@ Skeleton coverage therefore forces
 \]
 
 Let $N_{\mathrm{gap}}$ be the number of positive center traces containing a
-boundary gap. Singleton boundary gaps are included. The center classification
-gives $N_{\mathrm{gap}}\in\{0,1,2\}$, with $N_{\mathrm{gap}}\le1$ in CE1.
-
-If $N_{\mathrm{gap}}=0$, the six open vertex traces cover every boundary edge.
-Thus
-\[
- B_i>1-A_{i+1}.
-\]
-Nonsupercriticality gives $1-B_i\ge A_i$, while open boundary coverage
-gives
-\[
- A_{i+1}>1-B_i\ge A_i,
-\]
-which produces the impossible strict cycle
-\[
- A_0<A_1<\cdots<A_5<A_0.
-\]
+boundary gap. Singleton boundary gaps are included. By hypothesis and the
+center classification, $N_{\mathrm{gap}}\in\{1,2\}$, with
+$N_{\mathrm{gap}}=1$ in CE1.
 
 Suppose $N_{\mathrm{gap}}=1$. Normalize the active trace to
 \[
@@ -122,7 +109,7 @@ with \((*)\), gives
 \]
 The same center-free three-V triangle path gives the contradiction.
 
-The three ranks are exhaustive.
+The two nonzero gap ranks are exhaustive.
 \end{proof}
 
 We next treat the additional T3-like V triangles in the $N_+=0$ branch.  The
@@ -495,11 +482,11 @@ Thus the final sum is also below one.  The table is exhaustive, proving
 \eqref{eq:407-loss}.
 \end{proof}
 
-\begin{proposition}[The $N_+=0$ T3-like branch]
+\begin{proposition}[The nonzero-gap $N_+=0$ T3-like branch]
 \label{prop:nplus-zero-t3}
 Assume that $T_C$ is CE1 or CE2, $N_+=0$, no V triangle is Vd1 or Vd2,
-and at least one V triangle is T3-like.  Then the seven triangles do not cover
-$H$.
+at least one V triangle is T3-like, and $N_{\mathrm{gap}}\ge1$.  Then the
+seven triangles do not cover $H$.
 \end{proposition}
 
 \begin{proof}
@@ -1107,12 +1094,12 @@ skeleton-preservation claims explicitly.
 
 \begin{proposition}[Cases excluded by boundary propagation]
 \label{prop:demand-branches}
-Boundary-reach propagation proves the following exclusions:
+Boundary-reach propagation proves the following nonzero-gap exclusions; in
+every item $N_{\mathrm{gap}}\ge1$:
 \begin{enumerate}
 \item CE1 or CE2, $N_+=0$, all V triangles Vd0;
 \item CE1 or CE2, $N_+=0$, with at least one T3-like triangle and no Vd1/Vd2;
-\item CE1 or CE2, $N_+=1$, all V triangles Vd0, with at least one boundary
-gap;
+\item CE1 or CE2, $N_+=1$, all V triangles Vd0;
 \item CE1 or CE2, $N_+=1$, exactly one T3-like triangle and no Vd1/Vd2;
 \item the CE2, $N_+=1$, exactly-one-Vd1/Vd2 branch with no T3-like
 triangle.
@@ -1121,10 +1108,20 @@ All gap alternatives include singleton gaps.
 \end{proposition}
 
 \begin{proof}
-The five items are respectively Propositions
+The first four items are respectively Propositions
 \ref{prop:nplus-zero-all-vd0}, \ref{prop:nplus-zero-t3},
-\ref{prop:nplus-one-all-vd0}, \ref{prop:nplus-one-one-t3}, and
-\ref{prop:paper-ce2-one-vd-placements}.  The strictness at open handoffs appears in
+\ref{prop:nplus-one-all-vd0}, and \ref{prop:nplus-one-one-t3}.
+For item~5, Table~\ref{tab:ce2-one-vd-placement-cases} separates the
+propagation placements from the Method~1 complements.  The propagation
+placements are Lemmas \ref{lem:signed-vd-adjacent-placement} and
+\ref{lem:signed-vd-nonadjacent-placement},
+Corollary~\ref{cor:signed-adjacent-rescuers}, and the replacement in
+Proposition~\ref{prop:paper-vd1-pair-replacement}, whose post-replacement gap
+router uses Proposition~\ref{prop:length-branches} at zero gap and
+Proposition~\ref{prop:nplus-zero-all-vd0} at nonzero gap rank.  The common skeleton count and
+Proposition~\ref{prop:ce2-vd2-midpoint-length} close the two Method~1
+complements, and Proposition~\ref{prop:paper-ce2-one-vd-placements} assembles
+the partition.  The strictness at open handoffs appears in
 the weak endpoint bounds, the nonattained supercritical envelope, and the
 strict replacement margins; no positive-length assumption is made about a
 boundary gap itself.

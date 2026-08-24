@@ -28,17 +28,20 @@ listed only through their active theorem owners.
 | One-side endpoint loss | [`../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2107_one_side_capped_loss.md`](../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2107_one_side_capped_loss.md) | Proven |
 | Paired CE2 endpoint loss and application | [`2108`](../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2108_CE2_two_endpoint_capped_loss.md), [`2110`](../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2110_common_CE2_two_gap_application.md) | Proven |
 | Common CE1/CE2 direct $N_++N_{\rm sp}$ budget | [`../2XXX_geometric_lemmas/25XX_length_bounds/2530_common_CE1_CE2_budget_lemmas.md`](../2XXX_geometric_lemmas/25XX_length_bounds/2530_common_CE1_CE2_budget_lemmas.md) | Proven |
+| Center-independent zero-gap length consequences | [`../2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md`](../2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md) | Proven |
+| Center-independent zero-gap T3-like area consequence | [`../3XXX_CE0/31XX_Nplus1/317X_T3_like_no_Vd1Vd2/3174_CE0_one_supercritical_T3_certificate.md`](../3XXX_CE0/31XX_Nplus1/317X_T3_like_no_Vd1Vd2/3174_CE0_one_supercritical_T3_certificate.md) | Proven |
+| Center-independent zero-gap $N_+\ge2$ area consequence | [`../3XXX_CE0/32XX_Nplus_ge2/3208_CE0_conditional_area_certificate.md`](../3XXX_CE0/32XX_Nplus_ge2/3208_CE0_conditional_area_certificate.md) | Proven |
 | Center-independent nine-point obstruction | [`../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31058_center_independent_direct_nine_point_obstruction.md`](../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31058_center_independent_direct_nine_point_obstruction.md) | Proven |
 | Exact mixed-overlap reduction | [`31055`](../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31055_rational_radial_envelopes_and_mixed_reduction.md) | Proven |
 | Exact global mixed-overlap positivity | [`31056`](../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31056_global_analytic_mixed_positivity.md) and its authenticated exact verifier/data package | Proven |
 | CE0 terminal packages | [`3010`](../3XXX_CE0/30XX_Nplus0/3010_CE0_perimeter_length_obstruction.md), [`3141`](../3XXX_CE0/31XX_Nplus1/314X_exists_Vd1_Vd2/3141_CE0_Nplus1_exists_Vd1_Vd2_boundary_length_obstruction.md), [`3171`](../3XXX_CE0/31XX_Nplus1/317X_T3_like_no_Vd1Vd2/3171_T3_like_area_certificate_index.md), [`3201`](../3XXX_CE0/32XX_Nplus_ge2/3201_area_conjecture_index.md) | Proven |
-| CE1/CE2, $N_+=0$, all Vd0 | [`4013`](../4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md) | Proven |
-| CE1/CE2, $N_+=0$, T3-like exact four-label package | [`4070`](../4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4070_CE1CE2_Nplus0_T3_like_no_Vd1Vd2_index.md), with terminal files `4074`, `4075`, `4078`, `4079`, `407a`, `407c`, `407d` | Proven |
+| Nonzero-gap CE1/CE2, $N_+=0$, all Vd0 Method 2 route | [`4013`](../4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md) | Proven |
+| Nonzero-gap CE1/CE2, $N_+=0$, T3-like exact four-label Method 2 route | [`4070`](../4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4070_CE1CE2_Nplus0_T3_like_no_Vd1Vd2_index.md), with terminal files `4074`, `4075`, `4078`, `4079`, `407a`, `407c`, `407d` | Proven |
 | Common exact one-gap five-V-triangle interface | [`4105`](../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4105_CE1_CE2_one_gap_five_V_triangle_interface.md) | Proven |
 | CE1 and CE2 one-gap scalar relaxations | [`4106`](../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4106_CE1_one_gap_five_map_completion.md), [`4107`](../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4107_CE2_one_gap_five_map_completion.md) | Proven |
 | CE1/CE2, $N_+=1$, all Vd0 assembly | [`4101`](../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4101_CE1CE2_Nplus1_all_Vd0_strategy.md) | Proven |
-| Exactly one T3-like | [`4130`](../4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like/4130_CE1CE2_exactly_one_T3_like_index.md) | Proven |
-| Exactly one Vd1/Vd2 assembly | [`4140`](../4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4140_CE2_Nplus1_exactly_one_Vd1_Vd2_index.md), including full replacement `4147` | Proven |
+| Nonzero-gap exactly-one-T3-like Method 2 route | [`4130`](../4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like/4130_CE1CE2_exactly_one_T3_like_index.md) | Proven |
+| Nonzero-gap exactly-one-Vd1/Vd2 hybrid assembly | [`4140`](../4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4140_CE2_Nplus1_exactly_one_Vd1_Vd2_index.md), including replacement `4147` and its post-replacement Method 1/2 gap router | Proven |
 | CE1/CE2 Strategy 1 terminal routes | `4040`, `4041`, `4110`, `4111`, `4123`, `4200` | Proven |
 
 ## Interpretive cautions

@@ -1,0 +1,29 @@
+in strategy 2 of paper,
+i cannot clearly see which combinatorial case is which chain and which lemma
+by combinatorial case, i mean the one like in the 0001_proof_tree_index.md file. look at the history of commit, there was much more detailed proof tree.
+by dividing cases into how many VD1/2 and T3 like triangles in the CE1/2 case. re tell me that.
+
+. CE2, (N_+=1,\ d=1,\ t=0): 414X
+
+  - supercritical (T_0), adjacent Vd: Lemma 4.19 / 4144;
+  - supercritical (T_0), nonadjacent Vd: Lemma 4.20 / 4146;
+  - Vd1 at (T_0) rescuing an adjacent supercritical triangle: Corollary 4.18 / 4143;
+  - Vd2 neighboring-midpoint rescue: Method 1, Proposition 3.9 / 4149;
+  - neither special triangle at (T_0), Vd1 rescue: two-chart replacement, Proposition 4.38 / 4147, then apply Proposition 4.29 / 4013;
+  - additional positive-support triangle: Method 1 count theorem / 414a.
+
+
+in the proof tree, write all the detailed subcases inside 414X and also other case if necessary. also change the paper to split into cases like this, make sure to change the strategy summary table
+
+Table 2. The CE1/CE2 combinatorial case-to-chain crosswalk
+for Method 2. The N+ = 1, all-Vd0, zero-gap case belongs to
+Method 4; the higher special-type counts and the remaining Vd
+cases belong to Method 1 as specified in Table 1
+
+this table is too crowded. under the combinatorial case column, make 3 subcolumns N+, (d,t), N_gap
+
+also make spaces between rows.
+also, can we just classify with N_gap instead of the CE1/CE2 thing? i think N_gap is more fundamental. for example, I think CE2 with N_gap=1 is fundametally same with CE1 with N_gap=1.
+and CE2,CE1,CE0 with N_gap=0 are all same
+
+if ngap = 1 case has to be distinguished, then distinguish them. maybe add a 4th column in the table. also change the paper structure to follow the ngap first in the proof

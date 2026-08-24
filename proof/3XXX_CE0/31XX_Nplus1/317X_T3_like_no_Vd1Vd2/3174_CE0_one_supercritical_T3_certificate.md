@@ -1,9 +1,11 @@
-# CE0 One-Supercritical T3-Like Area Certificate
+# Boundary-Complete One-Supercritical T3-Like Area Certificate
 
 Status: Proven
 
-This note closes the CE0 branch with exactly one supercritical actual V triangle, at
-least one T3-like V triangle, and no Vd1/Vd2 V triangle. It uses three proved inputs:
+This note proves a center-independent boundary-complete obstruction with exactly
+one supercritical actual V triangle, at least one T3-like V triangle, and no
+Vd1/Vd2 V triangle. The CE0 and zero-gap branches are immediate corollaries.
+It uses three proved inputs:
 
 - strict handoff selection in
   [`../../../1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md`](../../../1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md);
@@ -15,12 +17,13 @@ least one T3-like V triangle, and no Vd1/Vd2 V triangle. It uses three proved in
 The failed tangent-envelope conjecture `3172` and any midpoint condition on a
 T3-like V triangle are not used.
 
-## Theorem
+## Boundary-complete theorem
 
-Let $U_C,U_0,\ldots,U_5$ be the original open roles, and put
-$T_C=\overline{U_C}$ and $T_i=\overline{U_i}$. Let $T_C$ be CE0. Suppose the
-six closed V triangles are Vd0 or T3-like, at least one is T3-like, and their
-actual reaches satisfy
+Let $U_C,U_0,\ldots,U_5$ be the original open roles in a hypothetical cover,
+and put $T_C=\overline{U_C}$ and $T_i=\overline{U_i}$. Suppose
+$U_0,\ldots,U_5$ cover $\partial H$. Suppose also that the six closed V
+triangles are Vd0 or T3-like, at least one is T3-like, and their actual reaches
+satisfy
 
 $$
 \left\lvert
@@ -32,9 +35,7 @@ Then the seven triangles cannot cover $H$.
 
 ## Proof
 
-Because $T_C$ is CE0, the six original open roles $U_i$ cover $\partial H$: otherwise
-$U_C$ covering a missed boundary point would contain a
-positive-length edge interval. Apply `1214`. It gives cuts
+Apply `1214`. It gives cuts
 
 $$
 X_i=V_i+x_i(V_{i+1}-V_i),
@@ -138,3 +139,16 @@ $$
 The C triangle contributes at most one more normalized unit-triangle
 area, while $H$ has normalized area $6$. Thus the seven triangles have total
 inside area strictly below the area of $H$ and cannot cover it. $\square$
+
+## CE0 and zero-gap corollaries
+
+Under the remaining hypotheses of the theorem, a CE0 C role makes the six V
+roles boundary-complete. Indeed, if they missed a boundary point, the open C
+role covering that point would contain a positive-length edge interval,
+contrary to CE0. The theorem therefore recovers the original CE0 branch.
+
+More generally, the boundary-complete equivalence in
+[`2500`](../../../2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md#boundary-complete-zero-gap-consequences)
+shows that $N_{\rm gap}=0$ gives exactly the theorem's boundary hypothesis.
+Hence the same area obstruction closes this combinatorial case for every
+center class when $N_{\rm gap}=0$.

@@ -34,18 +34,46 @@ N_{\rm sp}
 \left\lvert\left\{i:T_i\text{ is Vd1, Vd2, or T3-like}\right\}\right\rvert.
 $$
 
-The common budget package `2530` removes every state with
-$N_++N_{\rm sp}\ge3$ before the finer split.
+For the detailed tables, write
 
-For the all-Vd0 CE1/CE2 branches, let $N_{\rm gap}\in\{0,1,2\}$ be the
-number of positive C-triangle boundary traces containing a boundary gap.
-Singleton missed sets count as boundary gaps because the covering roles are
-open. The two V-triangle counts use the kernel
+$$
+d=
+\left\lvert
+\left\lbrace i:T_i\text{ is Vd1 or Vd2}\right\rbrace
+\right\rvert,
+\qquad
+t=
+\left\lvert
+\left\lbrace i:T_i\text{ is T3-like}\right\rbrace
+\right\rvert,
+$$
 
-| actual V-triangle count | $N_{\rm gap}=0$ | $N_{\rm gap}=1$ | $N_{\rm gap}=2$ |
-|---|---|---|---|
-| $N_+=0$ | strict identity cycle | one-side endpoint chain | paired CE2 endpoint chain |
-| $N_+=1$ | nine-point obstruction | one five-V-triangle chain with CE1/CE2 relaxations | paired CE2 endpoint chain |
+so $N_{\rm sp}=d+t$. Let $N_{\rm gap}\in\{0,1,2\}$ be the number of
+positive C-triangle boundary traces containing a boundary gap. Singleton
+missed sets count as gaps because the covering roles are open. Boundary
+locality gives the fundamental outer split
+
+$$
+N_{\rm gap}=0
+\quad\Longleftrightarrow\quad
+U_0,\ldots,U_5\text{ cover }\partial H.
+$$
+
+The zero-gap tree is therefore center-independent:
+
+| $N_+$ | $(d,t)$ | Terminal route | Method | Recorded status |
+|---:|---|---|---:|---|
+| $0$ | any | V-only strict boundary overlap `2500` | 1 | Proven |
+| $1$ | $d\ge1$ | V-only boundary-length deficit `2500` | 1 | Proven |
+| $1$ | $d=0$, $t\ge1$ | strict handoffs and T3 cyclic area loss `3174` | 3 | Proven |
+| $1$ | $(0,0)$ | center-independent nine-point obstruction `31058` | 4 | Proven |
+| at least $2$ | any | at-least-two-ascent cyclic area loss `3208` | 3 | Proven |
+
+No row of this table belongs to Method 2. For nonzero gap count, the common
+budget package `2530` directly closes every state with
+$N_++N_{\rm sp}\ge3$. The detailed tree below nevertheless retains the
+numbered branch wrappers that apply this budget, so that the Vd1/Vd2 and
+T3-like combinatorial cases remain visible.
 
 ## Canonical transfer layer
 
@@ -136,6 +164,10 @@ $$
 
 ## CE0 branch
 
+Every CE0 cover has $N_{\rm gap}=0$ and is therefore an instance of the
+center-independent zero-gap matrix above. The historical CE0 package names
+record the same specializations:
+
 - `3010`: CE0, $N_+=0$, perimeter obstruction.
 - CE0, $N_+=1$:
   - all Vd0: canonical direct nine-point package `3105X`, terminal `31059`;
@@ -149,25 +181,69 @@ index.
 
 ## CE1/CE2 branch
 
-- $N_+=0$:
-  - all Vd0: `4013`, using the three boundary-gap-count chains;
-  - some Vd1/Vd2: `4040`, `4041`, unchanged Strategy 1 routes;
-  - T3-like and no Vd1/Vd2: `407X`, exact branchwise endpoint audit with
-    identity-relaxed interior V triangles; a low-radial endpoint is the direct
-    $\mathrm{Lin}$ case.
-- $N_+=1$, all Vd0:
-  - `4105` gives one exact five-V-triangle high-radial $\Phi_c$ interface;
-  - `4106` gives the CE1 affine/threshold relaxation;
-  - `4107` gives the CE2 one-threshold-slot relaxation;
-  - the zero-gap cell remains the Strategy 4 nine-point obstruction.
-- $N_+=1$, special roles:
-  - `4110`, `4111`, `4123`: unchanged Strategy 1 routes;
-  - `413X`: exactly one T3-like, with the common
-    $1-M_c^{\rm sup}$--identity--$M_c^{\rm sup}$ chain;
-  - `414X`: exactly one Vd1/Vd2, with the same rescuer chain, the quarter
-    terminal transfer, the Vd-specific terminal margin, and axis replacement;
-    `4149` and `414a` remain Strategy 1.
-- $N_+\ge2$: `4200`, unchanged Strategy 1 skeleton route.
+Only $N_{\rm gap}\ge1$ remains here; zero gap was dispatched before the
+center split. The rows retain the detailed special-type counts underlying the
+shorter condition $N_++N_{\rm sp}\ge3$. Method 1 is the trace-length route
+and Method 2 is boundary-reach propagation.
+
+| $N_{\rm gap}$ | $N_+$ | $(d,t)$ | Center class | Terminal route | Method | Recorded status |
+|---:|---:|---|---|---|---|---|
+| at least $1$ | $0$ | $(0,0)$ | CE1/CE2 | nonzero-gap parts of all-Vd0 package `4013` | 2 | Proven |
+| at least $1$ | $0$ | $(0,1)$ or $(0,2)$ | CE1/CE2 | T3-like exact-endpoint package `407X` | 2 | Proven |
+| at least $1$ | $0$ | $(0,t)$, $t\ge3$ | CE1/CE2 | direct skeleton budget `2530`, used in `4072` | 1 | Proven |
+| at least $1$ | $0$ | $d\ge1$, any $t$ | CE1/CE2 | CE1 `4040`; CE2 `4041` | 1 | Proven |
+| at least $1$ | $1$ | $(0,0)$ | CE1/CE2 | nonzero-gap parts of all-Vd0 package `410X` | 2 | Proven |
+| at least $1$ | $1$ | $(0,1)$ | CE1/CE2 | exactly-one-T3-like package `413X` | 2 | Proven |
+| at least $1$ | $1$ | $(0,t)$, $t\ge2$ | CE1/CE2 | skeleton obstruction `4123` | 1 | Proven |
+| at least $1$ | $1$ | $d\ge1$, any $t$ | CE1 | boundary-length obstruction `4110` | 1 | Proven |
+| at least $1$ | $1$ | $d\ge2$, any $t$ | CE2 | boundary-length obstruction `4111` | 1 | Proven |
+| at least $1$ | $1$ | $d=1$, $t\ge1$ | CE2 | mixed positive-support obstruction `414a` | 1 | Proven |
+| at least $1$ | $1$ | $(1,0)$ | CE2 | nonzero-gap placement package `414X` below | 1 and 2 | Proven |
+| at least $1$ | at least $2$ | any | CE1/CE2 | skeleton-length route `4200` | 1 | Proven |
+
+### Method 2 combinatorial chains
+
+The nonzero-gap Method 2 rows and the CE2 hybrid use exactly the following
+chains. Here $N_{\rm gap}\ge1$ means one gap in CE1 and one or two in CE2.
+
+| $N_{\rm gap}$ | $N_+$ | $(d,t)$ | Center | Chain or terminal inequality | Source | Recorded status |
+|---:|---:|---|---|---|---|---|
+| $1$ | $0$ | $(0,0)$ | CE1/CE2 | two exact endpoint outputs with three identity-relaxed interior roles | `4013`, `2107` | Proven |
+| $1$ | $1$ | $(0,0)$ | CE1 | exact five-role $\Phi_c$ chain with affine and threshold relaxations | `4105`, `4106` | Proven |
+| $1$ | $1$ | $(0,0)$ | CE2 | the same five-role chain with the CE2 threshold alternative | `4105`, `4107` | Proven |
+| $2$ | $0$ or $1$ | $(0,0)$ | CE2 | paired exact endpoints with three identity-relaxed interior roles | `2110`, `2108` | Proven |
+| at least $1$ | $0$ | $(0,1)$ or $(0,2)$ | CE1/CE2 | two exact T3-like endpoint outputs and the middle $\mathrm I^3$ chain | `407X` | Proven |
+| at least $1$ | $1$ | $(0,1)$ | CE1/CE2 | $1-M_c^{\rm sup}$--$\mathrm I^3$--$M_c^{\rm sup}$ adjacent-rescuer chain | `4131`, `4132`, `2018` | Proven |
+| at least $1$ | $1$ | $(1,0)$ | CE2 | detailed placement audit, including Method 1 complements and the replacement gap-rank router | `4148`, `414b` | Proven |
+
+### Detailed `414X` placement audit
+
+The standing branch has $N_{\rm gap}\in\{1,2\}$; its zero-gap counterpart is
+already Method 1. First, `414a` closes the entry branch having an additional
+positive-support V role. This includes every mixed
+exactly-one-Vd1/Vd2--T3-like state. On the complement, normalize the unique
+C-triangle midpoint to $M_0$, let $T_\sigma$ be the unique supercritical role,
+and let $T_\tau$ be the unique Vd1/Vd2 role. They are distinct, and every
+other V role is nonsupercritical Vd0.
+
+| Entry reduction | Terminal route | Method | Recorded status |
+|---|---|---|---|
+| an additional positive-support V role | direct $N_++N_{\rm sp}$ skeleton budget `414a` | 1 | Proven |
+
+The no-additional-support complement has exactly the following six placement
+rows.  Reflections of the displayed index sets are included.
+
+| Placement | Forced refinement | Terminal route | Method | Recorded status |
+|---|---|---|---|---|
+| $\sigma=0$, $\tau\in\{1,5\}$ | the Vd1/Vd2 role is adjacent to the supercritical role | exact residual and radial obstruction `4144` | 2 | Proven |
+| $\sigma=0$, $\tau\in\{2,3,4\}$ | the Vd1/Vd2 role is nonadjacent to the supercritical role | Vd-specific radial separation `4146` | 2 | Proven |
+| $\tau=0$, $T_\tau$ Vd1 | midpoint forcing gives $\sigma\in\{1,5\}$ and $T_\tau$ rescues $M_\sigma$ | adjacent-rescuer chain `4143`, `2018` | 2 | Proven |
+| $\tau=0$, $T_\tau$ Vd2 | midpoint forcing gives $\sigma\in\{1,5\}$ and $T_\tau$ rescues $M_\sigma$ | neighboring-midpoint perimeter obstruction `4149` | 1 | Proven |
+| $\sigma\ne0$, $\tau\ne0$, $T_\tau$ Vd1 | midpoint forcing makes $\sigma$ and $\tau$ adjacent | two-chart replacement `4147`; recompute $N'_{\rm gap}$, then Method 1 if zero and nonzero-gap `4013` otherwise | 1 or 2 | Proven |
+| $\sigma\ne0$, $\tau\ne0$, $T_\tau$ Vd2 | midpoint forcing makes $\sigma$ and $\tau$ adjacent | neighboring-midpoint perimeter obstruction `4149` | 1 | Proven |
+
+The proved assembly is `4148`; the independent exhaustive post-repair audit
+is `414b`.
 
 ## Failed-idea warnings
 

@@ -8,16 +8,17 @@ Seven open unit equilateral triangles cannot cover the side-one hexagon $H$
 when the center role is CE1 or CE2, all six vertex roles are Vd0, and
 $N_+=1$.
 
-The active proof depends only on $N_{\rm gap}\in\{0,1,2\}$, the number
-of positive C-triangle traces that contain a boundary gap. Together with the $N_+=0$
-theorem `4013`, the all-Vd0 kernel is
+The proof is routed first by $N_{\rm gap}\in\{0,1,2\}$, the number of
+positive C-triangle traces that contain a boundary gap. Together with the
+$N_+=0$ theorem `4013`, the all-Vd0 kernel, including method ownership, is
 
-| actual V-triangle count | $N_{\rm gap}=0$ | $N_{\rm gap}=1$ | $N_{\rm gap}=2$ |
+| supercritical count | $N_{\rm gap}=0$ | $N_{\rm gap}=1$ | $N_{\rm gap}=2$ |
 |---|---|---|---|
-| $N_+=0$ | strict identity cycle | one-side exact-endpoint chain | common CE2 paired-endpoint chain |
-| $N_+=1$ | center-independent nine-point obstruction | common five-V-triangle chain with a sign-dependent relaxation | common CE2 paired-endpoint chain |
+| $N_+=0$ | Method 1: strict identity cycle | Method 2: one-side exact-endpoint chain | Method 2: common CE2 paired-endpoint chain |
+| $N_+=1$ | Method 4: center-independent nine-point obstruction | Method 2: common five-V-triangle chain with a sign-dependent relaxation | Method 2: common CE2 paired-endpoint chain |
 
-The column $N_{\rm gap}=2$ is CE2-only. The canonical
+Thus the zero-gap column is not owned by Method 2; Method 2 begins at
+$N_{\rm gap}=1$.  The column $N_{\rm gap}=2$ is CE2-only. The canonical
 $M_c,\overline M_c,\Phi_c$ family is proved in
 [`201d`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md).
 
@@ -116,7 +117,7 @@ $$
 
 with $N_{\rm gap}\le1$ in CE1.
 
-## 3. $N_{\rm gap}=0$: no boundary gap in a C-triangle trace
+## 3. $N_{\rm gap}=0$: Method 4
 
 If no C-triangle trace contains a boundary gap, then no boundary edge has a
 boundary gap. The
@@ -125,10 +126,10 @@ supercritical. The center-independent direct nine-point obstruction
 [`31058`](../../../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31058_center_independent_direct_nine_point_obstruction.md)
 gives a contradiction.
 
-This is the only all-Vd0 cell in the kernel that is not closed by a relaxed
-$\Phi_c$-chain.
+This is the Method 4 cell of the all-Vd0 kernel, not a Method 2 propagation
+cell.
 
-## 4. $N_{\rm gap}=1$: the common five-V-triangle chain
+## 4. $N_{\rm gap}=1$: Method 2 five-V-triangle chain
 
 After reflection, assume the boundary gap lies in $I_R$ and the companion trace
 is absent or gap-free. Put
@@ -286,7 +287,7 @@ and reverses the five V triangles, so the other CE2 orientation is identical.
 Thus every $N_{\rm gap}=1$ state is impossible, including singleton boundary
 gaps.
 
-## 5. $N_{\rm gap}=2$: two boundary gaps
+## 5. $N_{\rm gap}=2$: Method 2 paired-endpoint chain
 
 This state is CE2-only. V triangles $T_1,\ldots,T_5$ are nonsupercritical Vd0 V triangles,
 so the common two-gap theorem
@@ -295,8 +296,9 @@ applies directly. It keeps the two endpoint high-radial outgoing bounds exact,
 relaxes the three middle V triangles to $\mathrm I^3$, and invokes the paired
 endpoint loss `2108`.
 
-The values $N_{\rm gap}=0,1,2$ are exhaustive. Therefore the CE1/CE2,
-$N_+=1$, all-Vd0 branch is impossible.
+The values $N_{\rm gap}=0,1,2$ are exhaustive. Method 4 closes rank $0$, and
+Method 2 closes the nonzero ranks. Therefore the CE1/CE2, $N_+=1$,
+all-Vd0 branch is impossible.
 
 The older reduction
 [`4104`](4104_all_boundary_transfer_to_310X.md) remains optional and is not an

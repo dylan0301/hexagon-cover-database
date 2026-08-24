@@ -4,14 +4,24 @@
 \begin{proof}[Proof of Theorem~\ref{thm:main}]
 Assume that seven open unit equilateral triangles cover $H$.  By
 Proposition~\ref{prop:exhaustive-structural-reduction}, the cover lies in
-exactly one row of Table~\ref{tab:routing}.  The rows assigned to trace length
-are excluded by Proposition~\ref{prop:length-branches}; the rows assigned to
-area loss by Proposition~\ref{prop:area-branches}; the boundary-reach
-propagation rows by Proposition~\ref{prop:demand-branches}, including the
-complete CE2 one-$\Vdone/\Vdtwo$ positional assembly in
-Proposition~\ref{prop:paper-ce2-one-vd-placements}; and the no-gap,
-all-$\Vdzero$ rows by Proposition~\ref{prop:reader-ab-core-branches}.  Hence
-every row is impossible, contradicting the assumed cover.
+exactly one row of Table~\ref{tab:routing}.
+
+First suppose $N_{\mathrm{gap}}=0$.  The $N_+=0$ row and the
+$N_+=1,d\ge1$ row are excluded by
+Proposition~\ref{prop:length-branches}.  The $N_+\ge2$ row and the
+$N_+=1,d=0,t\ge1$ row are excluded by
+Proposition~\ref{prop:area-branches}.  The remaining
+$N_+=1,(d,t)=(0,0)$ row is excluded by
+Proposition~\ref{prop:reader-ab-core-branches}.
+
+Now suppose $N_{\mathrm{gap}}\ge1$.  The rows assigned to trace length are
+excluded by Proposition~\ref{prop:length-branches}, and the nonzero-gap
+boundary-reach rows by Proposition~\ref{prop:demand-branches}.  In the final
+CE2 one-$\Vdone/\Vdtwo$ row, the Method~1 complements and Method~2 placements
+are assembled in Proposition~\ref{prop:paper-ce2-one-vd-placements}; its
+replacement subcase recomputes the gap rank before selecting the closing
+method.  Thus every zero- and nonzero-gap row is impossible, contradicting
+the assumed cover.
 \end{proof}
 
 Corollary~\ref{cor:expanded-closed} follows from

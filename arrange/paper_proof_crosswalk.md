@@ -81,8 +81,11 @@ source, historical failed route, or provenance-bound file was deleted.
 ### Routing table
 
 The authoritative exhaustive assembly is `0000`; `0001` is navigation only.
-The direct $N_++N_{\rm sp}\ge3$ skeleton theorem is in
-`2530` together with the trace packages `2500` and `2510`.
+The outer split is $N_{\rm gap}=0$ versus $N_{\rm gap}\ge1$. The zero-gap
+matrix uses the boundary-complete consequences in `2500`, `3174`, `3208`, and
+the center-independent obstruction `31058`. The nonzero-gap high-count
+pruning is the direct $N_++N_{\rm sp}\ge3$ skeleton theorem in `2530`,
+together with the trace packages `2500` and `2510`.
 
 ## 4. Section 2: structural and signed-center geometry
 
@@ -117,8 +120,10 @@ Reusable bounds:
 
 Terminal branches closed here include:
 
-- CE0, `N_+=0`: `3010`;
-- CE0, `N_+=1`, some Vd1/Vd2: `3141`;
+- every zero-gap, `N_+=0` branch: the boundary-complete consequence in
+  `2500`, specializing historically to `3010` in CE0;
+- every zero-gap, `N_+=1`, some Vd1/Vd2 branch: the boundary-complete
+  consequence in `2500`, specializing historically to `3141` in CE0;
 - CE1/CE2, `N_+=0`, some Vd1/Vd2: `4040`, `4041`;
 - CE1, `N_+=1`, exactly one Vd1/Vd2: `4110` and associated length sources;
 - all CE1/CE2 states with $N_++N_{\rm sp}\ge3$, including the
@@ -157,12 +162,37 @@ The printed section incorporates:
 
 ### Routed terminal families
 
-- `N_+=0`, all Vd0: `4013`;
-- `N_+=0`, T3-like and no Vd1/Vd2: complete `407X` package;
-- `N_+=1`, all Vd0 with a gap: `4105`, `4106`, `4107`, assembled in `4101`;
-- `N_+=1`, exactly one T3-like: `413X`;
-- CE2, `N_+=1`, exactly one Vd1/Vd2: `414X`, including the corrected
-  two-chart replacement `4147` and exhaustive placement audit `414b`.
+| Nonzero-gap Method 2 family | Numbered source | Status | Printed owner |
+|---|---|---|---|
+| CE1/CE2, $N_+=0$, all Vd0, $N_{\rm gap}\ge1$ | [`4013`](../proof/4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md) | Proven | `prop:nplus-zero-all-vd0` |
+| CE1/CE2, $N_+=0$, at least one T3-like, no Vd1/Vd2, $N_{\rm gap}\ge1$ | [`4070`](../proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4070_CE1CE2_Nplus0_T3_like_no_Vd1Vd2_index.md), the complete `407X` package | Proven | `prop:nplus-zero-t3` |
+| CE1/CE2, $N_+=1$, all Vd0 with at least one boundary gap | [`4101`](../proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4101_CE1CE2_Nplus1_all_Vd0_strategy.md), assembling the one-gap sources [`4105`](../proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4105_CE1_CE2_one_gap_five_V_triangle_interface.md), [`4106`](../proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4106_CE1_one_gap_five_map_completion.md), and [`4107`](../proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4107_CE2_one_gap_five_map_completion.md), and the CE2 two-gap source [`4102`](../proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4102_CE2_two_gap_completion.md) | Proven | `prop:nplus-one-all-vd0` |
+| CE1/CE2, $N_+=1$, exactly one T3-like, no Vd1/Vd2, $N_{\rm gap}\ge1$ | [`4130`](../proof/4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like/4130_CE1CE2_exactly_one_T3_like_index.md), the complete `413X` package | Proven | `prop:nplus-one-one-t3` |
+| CE2, $N_+=1$, exactly one Vd1/Vd2, $N_{\rm gap}\ge1$; hybrid Method 1/2 family | [`4140`](../proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4140_CE2_Nplus1_exactly_one_Vd1_Vd2_index.md), the complete `414X` package | Proven | `prop:paper-ce2-one-vd-placements` |
+
+For the last family, the zero-gap branch has already been removed by Method 1,
+so the placement assembly has the standing hypothesis
+$N_{\rm gap}\in\{1,2\}$.  The exact placement partition is retained in the
+detailed proof-tree index [`0001`](../proof/0XXX_main/0001_proof_tree_index.md),
+the proved re-audit
+[`414b`](../proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/414b_complete_placement_reaudit.md),
+and Paper Table 3 (source label `tab:ce2-one-vd-placement-cases` in
+[`04e_strategy2_verification_06_authoritative_ce2_one_vd_placement_assembly.tex`](paper_draft/04e_strategy2_verification_06_authoritative_ce2_one_vd_placement_assembly.tex)).
+The assembly itself is
+[`4148`](../proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4148_CE2_Nplus1_exactly_one_Vd1_Vd2_assembly.md).
+
+| Source | Status | Printed result |
+|---|---|---|
+| [`414a`](../proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/414a_CE2_Nplus1_mixed_Vd1_Vd2_T3_like_skeleton_obstruction.md) | Proven | `thm:common-skeleton-count` |
+| [`4144`](../proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4144_CE2_Nplus1_T0_supercritical_T1_Vd1_Vd2_adjacent_obstruction.md) | Proven | `lem:signed-vd-adjacent-placement` |
+| [`4146`](../proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4146_CE2_Nplus1_T0_supercritical_nonadjacent_Vd1_Vd2_obstruction.md) | Proven | `lem:signed-vd-nonadjacent-placement` |
+| [`4143`](../proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4143_CE2_Nplus1_T0_Vd1_M1_T1_supercritical_obstruction.md) | Proven | `lem:vd1-adjacent-rescue`, then `cor:signed-adjacent-rescuers` |
+| [`4149`](../proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4149_CE2_Nplus1_Vd2_neighbor_midpoint_obstruction.md) | Proven | `prop:ce2-vd2-midpoint-length` in both Vd2 placements |
+| [`4147`](../proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4147_CE2_Nplus1_Vd1_supercritical_pair_axis_replacement.md) and its gap-rank router | Proven | `prop:paper-vd1-pair-replacement`; Method 1 if $N'_{\rm gap}=0$, nonzero-gap `prop:nplus-zero-all-vd0` otherwise |
+
+The `4147` replacement does not preserve the input gap rank: its output rank
+$N'_{\rm gap}$ is recomputed before selecting the zero-gap Method 1 terminal
+or the nonzero-gap Method 2 terminal.
 
 The finite optimization specifications and pinned Lean statement-elaboration
 project are repository interfaces for the long scalar calculations. Their
@@ -174,14 +204,15 @@ proof of the geometric bridge or of the global theorem.
 
 The printed section incorporates `05_strategy3_area.tex`.
 
-- direct T3-like area certificate: `3171`, with local components `3174`, `3175`;
-- `N_+>=2` square-loss area branch: `3201`, with local and cyclic components
+- boundary-complete direct T3-like area certificate: `3171`, with local
+  components `3174`, `3175`;
+- boundary-complete `N_+>=2` square-loss area branch: `3201`, with local and cyclic components
   `3205`, `3208`;
 - strict handoff selection: `1214`.
 
 The section contains the local wedge reduction, both orientation families,
 minimum- and maximum-square loss, the T3-like loss, the cyclic ascent
-structure, and the two CE0 terminal sums.
+structure, and the two center-independent zero-gap terminal sums.
 
 ## 8. Section 6 and Appendix A: nine-point enclosure
 
@@ -211,10 +242,10 @@ a proof.
 
 ## 9. Final assembly
 
-`07_exhaustive_assembly.tex` invokes one terminal result for each row of the
-routing table. The authoritative branch exhaustiveness and conclusion are in
-`0000_main_theorem.md`. The proof-tree index `0001` and this crosswalk are
-navigation only.
+`07_exhaustive_assembly.tex` first invokes the five center-independent
+zero-gap terminals, then the nonzero-gap terminals. The authoritative branch
+exhaustiveness and conclusion are in `0000_main_theorem.md`. The proof-tree
+index `0001` and this crosswalk are navigation only.
 
 ## 10. Verification and generated PDF
 

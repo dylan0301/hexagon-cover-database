@@ -1,13 +1,15 @@
-# CE0, $N_+\ge2$, Area Package
+# Boundary-Complete, $N_+\ge2$, Area Package
 
 Status: Proven
 
-This folder proves the CE0 branch with at least two supercritical vertex V triangles.
+This folder proves the center-independent boundary-complete branch with at
+least two supercritical vertex V triangles. Consequently it closes both the
+original CE0 branch and every center class with $N_{\rm gap}=0$.
 
 The branch assumptions are
 
 $$
-T_C\text{ is CE0},
+\partial H\subset U_0\cup\cdots\cup U_5,
 $$
 
 and
@@ -23,6 +25,12 @@ $$
 
 Here $A_i,B_i$ are the actual maximal incoming and outgoing reaches of the
 V triangle $T_i$.
+
+The boundary-complete equivalence in
+[`2500`](../../2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md#boundary-complete-zero-gap-consequences)
+identifies the first assumption with $N_{\rm gap}=0$. A CE0 C role also forces
+this assumption because it cannot cover a boundary point missed by the V roles
+without producing a positive-length boundary trace.
 
 ## Proof route
 
@@ -67,7 +75,7 @@ a+b>1
 f(a,b)\le1-\max(a,b)^2.
 $$
 
-The six-V triangle analytic certificate in
+The center-independent six-V triangle analytic certificate in
 [`3208_CE0_conditional_area_certificate.md`](3208_CE0_conditional_area_certificate.md)
 proves from exactly these two inequalities that
 
@@ -82,8 +90,8 @@ $$
 Because the local hypotheses of `3208` are now proved in `3205`, the
 certificate is unconditional.
 
-The CE0 C triangle contributes at most one normalized unit-triangle area.
-Hence the seven triangles contribute less than
+The C triangle contributes at most one normalized unit-triangle area. Hence
+the seven triangles contribute less than
 
 $$
 \frac{99}{20}+1
@@ -102,8 +110,9 @@ the branch cannot cover $H$.
 | [`3202_area_function_and_monotonicity.md`](3202_area_function_and_monotonicity.md) | Reference | Defines $f(a,b)$, symmetry, monotonicity, and records the now-unneeded structural-maximizer conjecture as historical context. |
 | [`3204_supercritical_vertex_loss_lemma.md`](3204_supercritical_vertex_loss_lemma.md) | Proven | Earlier supercritical proof under a structural hypothesis; superseded by the unconditional theorem in `3205`. |
 | [`3205_unconditional_local_square_loss.md`](3205_unconditional_local_square_loss.md) | Proven | Proves both local square-loss inequalities for every admissible unit triangle without a structural hypothesis. |
-| [`3208_CE0_conditional_area_certificate.md`](3208_CE0_conditional_area_certificate.md) | Proven | Proves the six-V triangle strict area inequality from the square-loss inequalities; `3205` discharges those hypotheses. |
+| [`3208_CE0_conditional_area_certificate.md`](3208_CE0_conditional_area_certificate.md) | Proven | Proves the boundary-complete six-V triangle strict area inequality from the square-loss inequalities; `3205` discharges those hypotheses. |
 
 ## Conclusion
 
-The CE0, $N_+\ge2$ branch is closed unconditionally.
+The boundary-complete $N_+\ge2$ branch is closed unconditionally, and hence so
+are its CE0 and zero-gap corollaries.

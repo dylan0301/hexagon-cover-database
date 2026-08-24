@@ -479,8 +479,8 @@ Lemma~\ref{lem:vd2-neighbor-midpoint-cap}.
 Direct length-sum obstructions close the following routing entries and hybrid
 subcase:
 \begin{enumerate}
- \item CE0, $N_+=0$;
- \item CE0, $N_+=1$, with a Vd1/Vd2 triangle;
+ \item $N_{\mathrm{gap}}=0$, $N_+=0$, for any center and V triangle types;
+ \item $N_{\mathrm{gap}}=0$, $N_+=1$, with a Vd1/Vd2 triangle;
  \item CE1/CE2 with $N_++N_{\mathrm{sp}}\ge3$;
  \item CE1/CE2, $N_+=0$, with a Vd1/Vd2 triangle;
  \item CE1, $N_+=1$, with exactly one Vd1/Vd2 triangle and no T3-like triangle;
@@ -490,12 +490,21 @@ subcase:
 \end{proposition}
 
 \begin{proof}
-For item (1), the CE0 open C triangle and every nonincident V triangle miss
-the relative interior of each boundary edge. The two incident open V traces
-therefore overlap, so $1<B_i+A_{i+1}$ on every edge. Summing contradicts
-$N_+=0$.
+For item (1), Lemma~\ref{lem:gap-exhaustion} says that the six open V
+triangles cover $\partial H$.  The two incident open V traces therefore
+overlap on every edge, so $1<B_i+A_{i+1}$.  Summing contradicts $N_+=0$.
 
-Items (2), (4), and (5) are items (1), (2), and (3) of
+For item (2), use only those six boundary-complete V triangles.  The unique
+supercritical Vd0 triangle contributes at most $2/\sqrt3$, a Vd1/Vd2
+triangle contributes strictly less than $1/2$, and each of the other four V
+triangles contributes at most $1$.  Their total boundary contribution is
+strictly less than
+\[
+ \frac2{\sqrt3}+\frac12+4<6,
+\]
+contradicting their coverage of the length-$6$ perimeter.
+
+Items (4) and (5) are items (2) and (3) of
 Corollary~\ref{cor:signed-budget-branches}; each is one application of the
 master perimeter deficit. Item (3) is Theorem
 \ref{thm:common-skeleton-count}. Item (6) is

@@ -6,6 +6,10 @@ This note proves the replacement used in Case 3 of
 [`4148_CE2_Nplus1_exactly_one_Vd1_Vd2_assembly.md`](4148_CE2_Nplus1_exactly_one_Vd1_Vd2_assembly.md).
 The Vd2 alternative is eliminated by
 [`4149_CE2_Nplus1_Vd2_neighbor_midpoint_obstruction.md`](4149_CE2_Nplus1_Vd2_neighbor_midpoint_obstruction.md).
+In the gap-first exhaustive assembly this theorem is invoked only after the
+original zero-gap state has been removed, so the input has
+$N_{\rm gap}\in\{1,2\}$.  The replacement construction itself does not use
+that fact and does not claim to preserve the gap rank.
 
 ## Theorem
 
@@ -37,7 +41,11 @@ $$
 Then $U_0,U_1$ can be replaced by two open roles $U_0',U_1'$ whose closures
 are nonsupercritical Vd0 and such that the modified seven roles still cover
 the full skeleton.
-The all-Vd0 skeleton theorem `4013` then gives a contradiction.
+Let $N'_{\rm gap}$ be the gap rank recomputed from the modified boundary
+traces.  If $N'_{\rm gap}=0$, the common boundary-complete Method 1
+consequence `2500` gives a contradiction.  If
+$N'_{\rm gap}\in\{1,2\}$, the nonzero-gap Method 2 part of the all-Vd0
+skeleton theorem `4013` gives a contradiction.
 
 ## 1. Vd1 margins
 
@@ -600,9 +608,18 @@ vertex-side beginning is $c_1^{\rm req}$. Thus all of $r_1$ remains covered.
 
 Consequently the modified seven open roles cover the full skeleton $S$.
 Their closed C triangle remains CE2, and all six closed V triangles are now
-nonsupercritical Vd0. The skeleton-level all-Vd0 theorem
-[`4013`](../../40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md)
-gives a contradiction.
+nonsupercritical Vd0.  Now recompute the modified gap rank
+$N'_{\rm gap}\in\{0,1,2\}$; no equality with the original gap rank has been
+asserted or used.
+
+If $N'_{\rm gap}=0$, the six modified open V roles cover $\partial H$, so the
+common boundary-complete Method 1 consequence
+[`2500`](../../../2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md#boundary-complete-zero-gap-consequences)
+gives a contradiction.  If $N'_{\rm gap}\in\{1,2\}$, apply Sections 4 and 5
+of the skeleton-level all-Vd0 theorem
+[`4013`](../../40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md),
+which are the nonzero-gap Method 2 branches.  These two alternatives are
+exhaustive.
 
 Reflection and undoing the fresh cyclic renumbering prove every placement
 covered by the theorem.

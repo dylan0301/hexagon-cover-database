@@ -2,13 +2,16 @@
 
 Status: Proven
 
-This folder proves the CE0 branch with exactly one supercritical vertex V triangle,
-at least one T3-like vertex V triangle, and no Vd1/Vd2 V triangles.
+This folder proves the center-independent boundary-complete branch with exactly
+one supercritical vertex V triangle, at least one T3-like vertex V triangle,
+and no Vd1/Vd2 V triangles. Consequently it closes both the original CE0
+branch and the same combinatorial case for every center class when
+$N_{\rm gap}=0$.
 
 The branch assumptions are:
 
 $$
-T_C\text{ is CE0},
+\partial H\subset U_0\cup\cdots\cup U_5,
 $$
 
 $$
@@ -22,6 +25,12 @@ $$
 and every vertex V triangle is Vd0 or T3-like, with at least one T3-like V triangle.
 Here $A_i,B_i$ are the actual maximal boundary reaches used in the definition
 of $N_+$.
+
+The boundary-complete equivalence in
+[`2500`](../../../2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md#boundary-complete-zero-gap-consequences)
+identifies the first assumption with $N_{\rm gap}=0$. A CE0 role also forces
+this assumption, because an open C role covering a point missed by the V roles
+would have a positive-length boundary trace.
 
 No midpoint condition is imposed on T3-like V triangles.  The T3-like hypothesis means
 
@@ -63,7 +72,7 @@ The branch is instead closed by two unconditional area results:
    G_{\mathrm{T3}}(a,b)\ge2m-4m^2.
    $$
 
-The global assembly in
+The center-independent global assembly in
 [`3174_CE0_one_supercritical_T3_certificate.md`](3174_CE0_one_supercritical_T3_certificate.md)
 then proves
 
@@ -74,8 +83,8 @@ $$
 $$
 
 Therefore the six V triangles contribute less than five normalized
-unit-triangle areas inside $H$.  A CE0 C triangle contributes at most one,
-so the seven triangles contribute less than the normalized area $6$ of $H$.
+unit-triangle areas inside $H$. The C triangle contributes at most one, so the
+seven triangles contribute less than the normalized area $6$ of $H$.
 
 ## Files
 
@@ -83,10 +92,11 @@ so the seven triangles contribute less than the normalized area $6$ of $H$.
 |---|---|---|
 | [`3172_full_T3_like_tangent_envelope_conjecture.md`](3172_full_T3_like_tangent_envelope_conjecture.md) | Failed | Gives an exact T3-like counterexample to coordinatewise tangent domination and records why that route fails. |
 | [`3173_T3_like_loss_from_envelope.md`](3173_T3_like_loss_from_envelope.md) | Proven | Retains correct one-dimensional tangent-branch algebra and the conditional consequences of the failed envelope assumption; it is not used in the final proof. |
-| [`3174_CE0_one_supercritical_T3_certificate.md`](3174_CE0_one_supercritical_T3_certificate.md) | Proven | Unconditional global CE0 one-supercritical assembly. |
+| [`3174_CE0_one_supercritical_T3_certificate.md`](3174_CE0_one_supercritical_T3_certificate.md) | Proven | Unconditional boundary-complete one-supercritical assembly, with CE0 and zero-gap corollaries. |
 | [`3175_direct_T3_like_area_loss.md`](3175_direct_T3_like_area_loss.md) | Proven | Direct orientation reduction and T3-like area-loss theorem replacing the failed envelope. |
 
 ## Conclusion
 
-The `317X` branch is closed unconditionally.  The failed tangent-envelope
-domination statement is retained as a warning, but no final dependency uses it.
+The boundary-complete `317X` branch is closed unconditionally, and hence so
+are its CE0 and zero-gap corollaries. The failed tangent-envelope domination
+statement is retained as a warning, but no final dependency uses it.

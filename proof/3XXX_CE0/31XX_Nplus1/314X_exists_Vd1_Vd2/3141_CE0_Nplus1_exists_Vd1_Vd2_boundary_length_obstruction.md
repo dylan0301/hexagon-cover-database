@@ -22,44 +22,15 @@ and at least one $V_i$-triangle is Vd1 or Vd2.
 
 This branch is obstructed by boundary length.
 
-## Boundary accounting
+## Proof
 
-$$
-L_C=\mathcal H^1(T_C\cap\partial H),
-\qquad
-L_i=\mathcal H^1(T_i\cap\partial H).
-$$
+Because $T_C$ is CE0, the six open V roles cover $\partial H$. Indeed, a
+boundary point missed by those roles cannot be a vertex, and the hypothetical
+cover would place it in $U_C$. Openness would then give a positive-length
+center trace on its boundary edge, contrary to CE0.
 
-If the open roles covered $\partial H$, subadditivity would give
-
-$$
-6\le L_C+\sum_{i=0}^5L_i.
-$$
-
-The boundary $\partial H$ has length $6$. Since $T_C$ is CE0, it
-contributes no positive-length boundary interval.
-
-Choose one Vd1/Vd2 vertex role. Its full boundary trace is strictly less than
-$\frac12$; see
-[../../../2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md](../../../2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md).
-
-The boundary caps also show that Vd1, Vd2, and T3-like V triangles are
-nonsupercritical. Hence the unique supercritical V triangle is Vd0 and lies among the
-remaining five V triangles. Its contribution is at most $\frac2{\sqrt3}$, while each
-of the other four V triangles contributes at most $1$. Thus the remaining
-contribution is bounded by
-
-$$
-4+\frac2{\sqrt3}.
-$$
-
-Therefore
-
-$$
-L_C+\sum_{i=0}^5L_i
-<\frac12+4+\frac2{\sqrt3}
-=\frac92+\frac2{\sqrt3}<6.
-$$
-
-This is incompatible with covering the length-$6$ boundary. Hence the
-CE0, $N_+=1$, exists Vd1/Vd2 branch cannot occur in the open-cover proof tree.
+The six V roles are therefore boundary-complete. Item 2 of the
+boundary-complete corollary in
+[`2500`](../../../2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md#boundary-complete-zero-gap-consequences)
+excludes $N_+=1$ with a Vd1/Vd2 role. Hence this branch is impossible.
+$\square$

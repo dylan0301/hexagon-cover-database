@@ -1,9 +1,10 @@
-# CE0 Six-V triangle Area Certificate
+# Boundary-Complete Six-V-Triangle Area Certificate
 
 Status: Proven
 
-This note closes the CE0 branch with at least two supercritical actual V triangles.
-It uses the strict handoff theorem
+This note proves a center-independent boundary-complete obstruction with at
+least two supercritical actual V triangles. The CE0 and zero-gap branches are
+immediate corollaries. It uses the strict handoff theorem
 [`../../1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md`](../../1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md)
 and the local square-loss theorem
 [`3205_unconditional_local_square_loss.md`](3205_unconditional_local_square_loss.md).
@@ -117,10 +118,11 @@ $$
 
 Since $\sum_i f(a_i,b_i)=6-\sum_iG_i$, equation (2) follows. $\square$
 
-## CE0 contradiction
+## Boundary-complete contradiction
 
 Let $U_C,U_0,\ldots,U_5$ be the original open roles, and put
-$T_C=\overline{U_C}$ and $T_i=\overline{U_i}$. Let $T_C$ be CE0 and suppose
+$T_C=\overline{U_C}$ and $T_i=\overline{U_i}$. Suppose
+$U_0,\ldots,U_5$ cover $\partial H$ and
 
 $$
 \left\lvert
@@ -128,12 +130,10 @@ $$
 \right\rvert\ge2
 $$
 
-for the actual V-triangle reaches. CE0 forces the six open V triangles to cover
-$\partial H$; otherwise $U_C$ would cover a positive-length
-edge interval. The at-least-two part of `1214` therefore supplies strict cuts
-whose selected V triangles have at least two supercritical indices. Each actual
-V triangle realizes its selected pair, so the six-V triangle lemma bounds their
-total normalized inside area by less than $99/20$.
+for the actual V-triangle reaches. The at-least-two part of `1214` supplies
+strict cuts whose selected V triangles have at least two supercritical
+indices. Each actual V triangle realizes its selected pair, so the six-V
+triangle lemma bounds their total normalized inside area by less than $99/20$.
 
 The C triangle contributes at most one additional unit-triangle area.
 Thus all seven triangles contribute less than
@@ -145,3 +145,16 @@ $$
 $$
 
 whereas the normalized area of $H$ is $6$. Hence they cannot cover $H$.
+
+## CE0 and zero-gap corollaries
+
+If $T_C$ is CE0, the six V roles are boundary-complete: otherwise the open C
+role covering a missed boundary point would contain a positive-length edge
+interval. The boundary-complete contradiction therefore closes the original
+CE0 branch.
+
+More generally, the boundary-complete equivalence in
+[`2500`](../../2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md#boundary-complete-zero-gap-consequences)
+identifies $N_{\rm gap}=0$ with the boundary hypothesis above. Thus the same
+area obstruction closes every center class with $N_{\rm gap}=0$ and
+$N_+\ge2$.

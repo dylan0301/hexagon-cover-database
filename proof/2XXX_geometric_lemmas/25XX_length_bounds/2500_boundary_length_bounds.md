@@ -358,3 +358,68 @@ L_{\partial H}(T_i)=A+B=z-\alpha<z<1.
 $$
 
 This proves every entry in the theorem.
+
+## Boundary-complete (zero-gap) consequences
+
+Call the six V roles **boundary-complete** when
+
+$$
+\partial H\subset U_0\cup\cdots\cup U_5.
+$$
+
+With the canonical gap count in
+[`0910`](../../09XX_appendices/0910_notation_dictionary.md), this is equivalent
+in a hypothetical cover to $N_{\rm gap}=0$. One direction is immediate.
+Conversely, if the V roles miss a boundary point, that point is not a vertex
+because $V_i\in U_i$ for every $i$. The open C role must cover the missed
+point, and openness then gives a positive-length C-triangle trace around it.
+The complement of the two incident V traces is a nonempty closed interval,
+possibly a singleton, and hence is a boundary gap inside that positive C
+trace. Thus the zero-gap branches are exactly the boundary-complete branches.
+
+The following two consequences do not depend on the CE type of $T_C$.
+
+### Corollary
+
+Suppose the six open V roles are boundary-complete. Then neither of the
+following cases can occur:
+
+1. $N_+=0$;
+2. $N_+=1$ and at least one V role is Vd1 or Vd2.
+
+### Proof
+
+On $e_{i,i+1}$ only the two incident V roles can contain a
+relative-interior point. Their relatively open traces cover the edge, so
+connectedness forces a positive-length overlap. Hence
+
+$$
+1<B_i+A_{i+1}.
+$$
+
+Summing cyclically gives the strict boundary requirement
+
+$$
+6<\sum_{i=0}^5(A_i+B_i).
+\tag{1}
+$$
+
+If $N_+=0$, every summand on the right side of (1) is at most $1$, a
+contradiction.
+
+Now suppose $N_+=1$ and choose a Vd1/Vd2 role. Its boundary trace is strictly
+less than $1/2$, so it is not the unique supercritical role. The unique
+supercritical role is therefore Vd0 and contributes at most $2/\sqrt3$. Each
+of the other four nonsupercritical roles contributes at most $1$ by
+vertex-role boundary locality. Boundary coverage would consequently require
+
+$$
+6
+\le
+\sum_{i=0}^5L_{\partial H}(T_i)
+<
+\frac12+\frac2{\sqrt3}+4
+<6,
+$$
+
+again a contradiction. $\square$

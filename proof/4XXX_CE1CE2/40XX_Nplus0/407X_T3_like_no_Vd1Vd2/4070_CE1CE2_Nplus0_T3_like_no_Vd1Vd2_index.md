@@ -8,6 +8,8 @@ $$
 T_C\text{ is CE1 or CE2},
 \qquad
 N_+=0,
+\qquad
+N_{\rm gap}\in\{1,2\},
 $$
 
 with no Vd1/Vd2 vertex role and at least one T3-like vertex role. The midpoint
@@ -16,6 +18,13 @@ normalization is
 $$
 T_C\cap\{M_0,\ldots,M_5\}=\{M_0\}.
 $$
+
+This is the active nonzero-gap Method 2 invocation.  If
+$N_{\rm gap}=0$, the six open V roles cover $\partial H$, and the common
+$N_+=0$ boundary-complete consequence
+[`2500`](../../../2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md#boundary-complete-zero-gap-consequences)
+closes the case by Method 1, independently of the T3-like count.  The
+zero-gap case is therefore not owned by `407X` in the exhaustive routing.
 
 The proof has four stages.
 
@@ -130,4 +139,5 @@ label:
 
 Thus every genuine label pair is unrealizable or has total branchwise outgoing
 reach strictly below one. The reduction in `4073` then gives the perimeter
-contradiction. The optional script remains only a redundant exact check.
+contradiction for the active nonzero-gap branch. The optional script remains
+only a redundant exact check.

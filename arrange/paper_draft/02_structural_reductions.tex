@@ -554,6 +554,12 @@ empty or one closed interval; a singleton interval counts as a gap.  Every
 edge having a gap has positive-length intersection with the open center
 triangle.  Consequently a $\CEzero$ center permits no gaps, a $\CEone$ center
 permits at most one, and a $\CEtwo$ center permits at most two.
+Moreover, under a hypothetical cover,
+\[
+ N_{\mathrm{gap}}=0
+ \quad\Longleftrightarrow\quad
+ U_0,\ldots,U_5\text{ cover }\partial H.
+\]
 \end{lemma}
 
 \begin{proof}
@@ -565,7 +571,10 @@ Thus every point of a gap lies in $U_C$.  Because $U_C$ is open, its
 intersection with that edge contains a relative neighborhood and hence has
 positive length.  Different gap edges therefore give different edges counted
 by $N_E(T_C)$.  Proposition~\ref{prop:ce-classification} gives the three
-stated bounds, including singleton gaps.
+stated bounds, including singleton gaps.  Since every boundary gap lies in a
+positive center trace, $N_{\mathrm{gap}}=0$ is equivalent to the absence of
+all boundary gaps, which is exactly coverage of $\partial H$ by the six open
+V triangle traces.
 \end{proof}
 
 \begin{lemma}[T3-like V triangles are nonsupercritical]
@@ -779,21 +788,27 @@ maximal reaches determine exactly one row of that table.
 Lemma~\ref{lem:distinct-roles} gives the seven triangles.
 Propositions~\ref{prop:ce-classification} and
 \ref{prop:vertex-classification} give the exhaustive and mutually exclusive
-center and vertex types.  The maximal reaches determine exactly one of
-$N_+=0$, $N_+=1$, and $N_+\ge2$.  For CE0 these data and the vertex
-classification give the five displayed rows.
+center and vertex types.  The maximal reaches determine $N_+$, while the
+actual open boundary traces determine $N_{\mathrm{gap}}$.
 
-Now suppose the center is CE1 or CE2.  It contains exactly one radial
-midpoint by Proposition~\ref{prop:unique-center-midpoint}.  The direct
-skeleton theorem, Theorem~\ref{thm:common-skeleton-count}, removes every
-state with $N_++N_{\mathrm{sp}}\ge3$.  If $N_+\ge2$, Lemma
+First suppose $N_{\mathrm{gap}}=0$.  Lemma~\ref{lem:gap-exhaustion} makes
+the six V triangles boundary-complete, independently of the center class.
+If $N_+=0$ or $N_+\ge2$, the first or fifth zero-gap row applies.  If
+$N_+=1$, the vertex classification gives exactly one of $d\ge1$,
+$d=0,t\ge1$, and $(d,t)=(0,0)$.  These are the remaining three zero-gap
+rows.
+
+Now suppose $N_{\mathrm{gap}}\ge1$.  Lemma~\ref{lem:gap-exhaustion} forces
+the center to be CE1 or CE2, and Proposition~\ref{prop:unique-center-midpoint}
+gives its unique radial midpoint.  If $N_+\ge2$, Lemma
 \ref{lem:positive-support-rescuer} supplies a distinct positive-support V
-triangle, so $N_{\mathrm{sp}}\ge1$ and that theorem applies.  Hence every
-surviving branch has $N_+\le1$ and $N_++N_{\mathrm{sp}}\le2$.  If $N_+=0$,
-the vertex classification gives, in order, all $\Vdzero$, at least one
-$\Vdone/\Vdtwo$, or no such triangle and at least one $\Tlike$.  If $N_+=1$,
-then $N_{\mathrm{sp}}\le1$: the triangles are all $\Vdzero$, exactly one
-$\Tlike$, or exactly one $\Vdone/\Vdtwo$.  In the all-$\Vdzero$ case,
-Lemma~\ref{lem:gap-exhaustion} supplies the exhaustive zero-gap/nonempty-gap
-split.  These alternatives are disjoint, proving the claim.
+triangle, so $N_{\mathrm{sp}}\ge1$ and
+Theorem~\ref{thm:common-skeleton-count} applies.  For $N_+\in\{0,1\}$, the
+same theorem removes $N_++d+t\ge3$.  Every survivor therefore has $N_+=0$
+with $d+t\le2$, or $N_+=1$ with $d+t\le1$.  In the former case the exhaustive
+alternatives are $(d,t)=(0,0)$, $d\ge1$, and $d=0$ with
+$t\in\{1,2\}$.  In the latter case they are $(0,0)$, $(0,1)$, and $(1,0)$.
+The final alternative separates by center type: CE1 is the length row and
+CE2 is the hybrid placement row.  These gap-first alternatives are disjoint
+and exhaustive.
 \end{proof}

@@ -14,6 +14,8 @@ Assume:
   $O\in U_C\subset\mathrm{int}(T_C)$, the CE2 center role is normalized to
   have unique midpoint $M_0$;
 - $N_+=1$;
+- $N_{\rm gap}\in\{1,2\}$, because the zero-gap state has already been
+  closed by the common Method 1 boundary-complete consequence `2500`;
 - exactly one vertex role is Vd1 or Vd2;
 - the branch with an additional positive-support vertex role has already been
   removed by `414a`.
@@ -62,8 +64,12 @@ $\sigma$.
   shared edge is center-free. The no-additional-support complement gives all
   remaining hypotheses of the corrected two-chart replacement `4147`.
   That theorem preserves full skeleton coverage and produces six
-  nonsupercritical Vd0 roles. The skeleton-level theorem `4013` gives the
-  contradiction.
+  nonsupercritical Vd0 roles. Recompute their gap rank $N'_{\rm gap}$. If it
+  is zero, the boundary-complete consequence
+  [`2500`](../../../2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md#boundary-complete-zero-gap-consequences)
+  gives the Method 1 contradiction. If it is nonzero, Sections 4 and 5 of
+  the skeleton-level theorem `4013` give the Method 2 contradiction. The
+  replacement makes no gap-preservation claim.
 
 ## Positive-support complement
 
@@ -86,10 +92,11 @@ proved under exactly the hypotheses supplied by its placement:
 | $\tau=0$, Vd2 rescue | `4149` | neighboring-midpoint perimeter cap |
 | $\tau=0$, Vd1 rescue | `4143` | local Vd1 profile and center-free path budget |
 | neither special role at $0$, Vd2 | `4149` | neighboring-midpoint perimeter cap |
-| neither special role at $0$, Vd1 | `4147` + `4013` | two correct vertex charts, full skeleton preservation, skeleton obstruction |
+| neither special role at $0$, Vd1 | `4147`, then `2500` or `4013` according to $N'_{\rm gap}$ | two correct vertex charts, full skeleton preservation, and a recomputed-gap router; no gap-preservation assertion |
 | additional positive-support role | `414a` | direct $N_++N_{\rm sp}$ skeleton budget |
 
-Thus the CE2, $N_+=1$, exactly-one-Vd1/Vd2 branch is closed.
+Thus the nonzero-gap CE2, $N_+=1$, exactly-one-Vd1/Vd2 branch is closed. The
+zero-gap branch was closed before this placement audit.
 
 $$
 \Box

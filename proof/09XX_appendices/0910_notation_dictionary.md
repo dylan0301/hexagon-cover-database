@@ -79,6 +79,15 @@ N_{\rm gap}
 =\left\lvert\{\text{positive C-triangle boundary traces containing a V-uncovered set}\}\right\rvert.
 $$
 
+Under a hypothetical cover, every V-uncovered boundary set lies in a positive
+C-triangle trace. Hence
+
+$$
+N_{\rm gap}=0
+\quad\Longleftrightarrow\quad
+U_0,\ldots,U_5\text{ cover }\partial H.
+$$
+
 The skeleton-length route is stated directly as
 
 $$

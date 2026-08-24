@@ -56,59 +56,75 @@ N_+
 \right\rvert.
 $$
 
-Exactly one of $N_+=0$, $N_+=1$, and $N_+\ge2$ holds. When a branch selects
-smaller strict cut V triangles, [`1214`](../1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md)
-rigorously transfers the required supercritical pattern from these actual
-reaches.
+For the vertex-type refinement, put
 
-It remains only to list the exhaustive terminal cases.
+$$
+d=
+\left\lvert
+\left\lbrace i:T_i\text{ is Vd1 or Vd2}\right\rbrace
+\right\rvert,
+\qquad
+t=
+\left\lvert
+\left\lbrace i:T_i\text{ is T3-like}\right\rbrace
+\right\rvert,
+$$
 
-### CE0
+so $N_{\rm sp}=d+t$. Let $N_{\rm gap}$ be the number of positive
+C-triangle boundary traces containing a boundary set missed by the two
+incident open V triangles; singleton missed sets count as gaps. Boundary
+locality and openness give
 
-| Actual-V triangle and vertex-type case | Proven contradiction |
-|---|---|
-| $N_+=0$ | Strict perimeter obstruction [`3010`](../3XXX_CE0/30XX_Nplus0/3010_CE0_perimeter_length_obstruction.md) |
-| $N_+=1$, all six roles Vd0 | Self-contained direct all-Vd0 nine-point completion [`31059`](../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31059_CE0_Nplus1_all_Vd0_completion.md) |
-| $N_+=1$, some role Vd1 or Vd2 | Boundary-length obstruction [`3141`](../3XXX_CE0/31XX_Nplus1/314X_exists_Vd1_Vd2/3141_CE0_Nplus1_exists_Vd1_Vd2_boundary_length_obstruction.md) |
-| $N_+=1$, no Vd1/Vd2 role and some T3-like role | Direct area obstruction [`3171`](../3XXX_CE0/31XX_Nplus1/317X_T3_like_no_Vd1Vd2/3171_T3_like_area_certificate_index.md) |
-| $N_+\ge2$ | Six-V triangle square-loss obstruction [`3201`](../3XXX_CE0/32XX_Nplus_ge2/3201_area_conjecture_index.md) |
+$$
+N_{\rm gap}=0
+\quad\Longleftrightarrow\quad
+U_0,\ldots,U_5\text{ cover }\partial H.
+\tag{1}
+$$
 
-For $N_+=1$, the last three V triangles are exhaustive: either all roles are Vd0;
-otherwise a Vd1/Vd2 role occurs; otherwise the exhaustive vertex
-classification forces a T3-like role. Hence CE0 is impossible.
+When a branch selects smaller strict handoffs,
+[`1214`](../1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md)
+rigorously transfers the required supercritical pattern from the actual
+reaches. It remains only to list the gap-first terminal cases.
 
-### CE1 and CE2
+### Zero boundary gaps
 
-Let $N_{\rm sp}$ be the number of Vd1, Vd2, or T3-like roles. The common
-skeleton theorem in
+By (1), the six V roles alone cover the perimeter. The center type therefore
+plays no part in this branch.
+
+| $N_+$ | $(d,t)$ | Proven contradiction |
+|---:|---|---|
+| $0$ | any | V-only strict boundary overlap in [`2500`](../2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md) |
+| $1$ | $d\ge1$ | V-only boundary-length deficit in `2500` |
+| $1$ | $d=0$, $t\ge1$ | Boundary-complete T3-like area certificate [`3174`](../3XXX_CE0/31XX_Nplus1/317X_T3_like_no_Vd1Vd2/3174_CE0_one_supercritical_T3_certificate.md) |
+| $1$ | $(d,t)=(0,0)$ | Center-independent nine-point obstruction [`31058`](../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31058_center_independent_direct_nine_point_obstruction.md) |
+| $\ge2$ | any | Boundary-complete cyclic area certificate [`3208`](../3XXX_CE0/32XX_Nplus_ge2/3208_CE0_conditional_area_certificate.md) |
+
+These rows are disjoint and exhaustive. They use Methods 1, 3, and 4; no
+zero-gap row is assigned to boundary-reach propagation.
+
+### Nonzero boundary-gap count
+
+A nonzero gap count forces the center to be CE1 or CE2. The common skeleton theorem
+in
 [`2530`](../2XXX_geometric_lemmas/25XX_length_bounds/2530_common_CE1_CE2_budget_lemmas.md)
-states directly that
-
-$$
-N_++N_{\rm sp}\ge3
-\quad\Longrightarrow\quad
-L_S(T_C)+\sum_{i=0}^5L_S(T_i)<12.
-$$
-
-Such a strict deficit is incompatible with covering the length-$12$
+states that $N_++N_{\rm sp}\ge3$ gives a strict deficit on the length-$12$
 skeleton. If $N_+\ge2$, midpoint rescue forces a further positive-support
-role, so $N_{\rm sp}\ge1$ and the displayed obstruction applies. It remains
-to consider $N_+\le1$ and $N_++N_{\rm sp}\le2$.
+role, so $N_{\rm sp}\ge1$ and that theorem applies. Thus it remains to take
+$N_+\in\{0,1\}$ and, after the same direct pruning,
+$N_++d+t\le2$.
 
-| Surviving actual-V triangle and vertex-type case | Proven contradiction |
-|---|---|
-| $N_+=0$, all six roles Vd0 | Exact boundary-loss package [`4013`](../4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md) |
-| $N_+=0$, some Vd1/Vd2 role | Boundary-length obstructions [`4040`](../4XXX_CE1CE2/40XX_Nplus0/404X_exists_Vd1_Vd2_obstruction/4040_CE1_Nplus0_exists_Vd1_Vd2_boundary_length_obstruction.md), [`4041`](../4XXX_CE1CE2/40XX_Nplus0/404X_exists_Vd1_Vd2_obstruction/4041_CE2_Nplus0_exists_Vd1_Vd2_boundary_length_obstruction.md) |
-| $N_+=0$, no Vd1/Vd2 role and some T3-like role | Four-label obstruction [`4070`](../4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4070_CE1CE2_Nplus0_T3_like_no_Vd1Vd2_index.md) |
-| $N_+=1$, all six roles Vd0 | Exact gap closure [`4101`](../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4101_CE1CE2_Nplus1_all_Vd0_strategy.md) |
-| $N_+=1$, exactly one T3-like role | Boundary obstruction [`4130`](../4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like/4130_CE1CE2_exactly_one_T3_like_index.md) |
-| $N_+=1$, exactly one Vd1/Vd2 role | CE1 boundary obstruction [`4110`](../4XXX_CE1CE2/41XX_Nplus1/411X_Vd1_Vd2_obstruction/4110_CE1_Nplus1_exists_Vd1_Vd2_boundary_length_obstruction.md), or CE2 mixed-type assembly [`4140`](../4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4140_CE2_Nplus1_exactly_one_Vd1_Vd2_index.md) |
+| $N_+$ | $(d,t)$ | Center | Proven contradiction |
+|---:|---|---|---|
+| $0$ | $(0,0)$ | CE1/CE2 | Nonzero-gap endpoint parts of [`4013`](../4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md) |
+| $0$ | $d\ge1$ | CE1/CE2 | Boundary-length obstructions [`4040`](../4XXX_CE1CE2/40XX_Nplus0/404X_exists_Vd1_Vd2_obstruction/4040_CE1_Nplus0_exists_Vd1_Vd2_boundary_length_obstruction.md), [`4041`](../4XXX_CE1CE2/40XX_Nplus0/404X_exists_Vd1_Vd2_obstruction/4041_CE2_Nplus0_exists_Vd1_Vd2_boundary_length_obstruction.md) |
+| $0$ | $(0,1)$ or $(0,2)$ | CE1/CE2 | Nonzero-gap four-label package [`4070`](../4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4070_CE1CE2_Nplus0_T3_like_no_Vd1Vd2_index.md) |
+| $1$ | $(0,0)$ | CE1/CE2 | Nonzero-gap parts of the exact gap closure [`4101`](../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4101_CE1CE2_Nplus1_all_Vd0_strategy.md) |
+| $1$ | $(0,1)$ | CE1/CE2 | Nonzero-gap adjacent-rescuer package [`4130`](../4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like/4130_CE1CE2_exactly_one_T3_like_index.md) |
+| $1$ | $(1,0)$ | CE1 | Boundary obstruction [`4110`](../4XXX_CE1CE2/41XX_Nplus1/411X_Vd1_Vd2_obstruction/4110_CE1_Nplus1_exists_Vd1_Vd2_boundary_length_obstruction.md) |
+| $1$ | $(1,0)$ | CE2 | Nonzero-gap hybrid placement assembly [`4140`](../4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4140_CE2_Nplus1_exactly_one_Vd1_Vd2_index.md) |
 
-For $N_+=0$, the first three V-triangle cases are exhaustive. For $N_+=1$,
-the inequality $N_++N_{\rm sp}\le2$ leaves at most one non-Vd0 role, giving
-the last three V-triangle cases. Thus CE1
-and CE2 are impossible.
-
-All three center classes lead to contradictions. Therefore seven open unit
-equilateral triangles cannot cover $H$. The equivalence in `1003` gives the
-closed expanded-hexagon formulation. $\square$
+The preceding high-count pruning and the displayed rows exhaust the
+nonzero-gap branch. Hence every gap rank leads to a contradiction, so seven
+open unit equilateral triangles cannot cover $H$. The equivalence in `1003`
+gives the closed expanded-hexagon formulation. $\square$
