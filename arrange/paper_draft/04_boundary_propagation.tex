@@ -1,18 +1,16 @@
-\section{Boundary-Reach Propagation}
-\label{sec:boundary-propagation}
+\subsection{Local reach certificates}
+\label{subsec:reach-certificates}
 
-The second mechanism converts a backward boundary reach and a radial reach
-into an upper bound for the forward reach of the same V triangle.
-Coverage of the next edge then produces a lower bound for the next backward
-reach.  The zero-gap cases have already been dispatched to Methods~1, 3, and
-4 in Table~\ref{tab:routing}; every reader-facing application of Method~2 in
-this section therefore has $N_{\mathrm{gap}}\ge1$.  We first distinguish the
-one- and two-gap chains and then refine by $N_+$, $(d,t)$, and center type.
-The section develops the common equilateral-enclosure calculus, the
-center-assisted path budget, the exceptional T3-like and Vd placements, and
-the complete branchwise propagation proof.  Formalization-only optimization
-registries are kept in the repository but are not repeated in the printed
-article.
+For the nonzero-gap finite residuals, noncontainment by a unit C triangle is
+certified through the exact local admissible set.  A backward boundary reach
+and a radial reach bound the forward reach of the same V triangle; the next
+edge then supplies the following backward reach.  These calculations are not
+a separate global strategy.  They prove the inequalities used by
+Proposition~\ref{prop:residual-hull-enclosure} in the five surviving
+nonzero-gap families.  We retain the common equilateral-enclosure calculus,
+the center-assisted path budget, the exceptional T3-like and Vd placements,
+and the complete branchwise certificates.  Formalization-only optimization
+registries remain repository interfaces and are not repeated in print.
 
 \begingroup
 \let\PrintedSubsection\subsection
@@ -24,7 +22,7 @@ article.
 \input{02a_universal_calculus}
 \endgroup
 
-% The signed variables are defined in Section 2; execute their propagation
+% The signed variables are defined in Section 2; execute their local reach
 % interface here, after the canonical maps have been introduced.
 \SignedCenterPropagation
 

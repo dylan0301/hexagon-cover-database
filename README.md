@@ -33,12 +33,12 @@ technical manuscript:
 
 1. introduction, classifications, and routing;
 2. structural reduction and signed center geometry;
-3. trace-length bounds;
-4. boundary-reach propagation;
-5. area loss;
-6. nine-point enclosure;
-7. exhaustive completion;
-8. one exact mixed-overlap certificate appendix.
+3. Strategy 1: trace-length bounds;
+4. Strategy 2: area loss;
+5. Strategy 3: finite-enclosure obstructions, including the explicit
+   nine-point case and all nonzero-gap residual witnesses;
+6. exhaustive completion;
+7. one exact mixed-overlap certificate appendix.
 
 The target is approximately ninety pages. Mathematical content formerly
 repeated across reader, bridge, optimization-registry, and verification layers
@@ -98,14 +98,15 @@ $O\in U_C\subset\operatorname{int}(T_C)$, and $T_C$ contains exactly one
 radial midpoint.  The precise hypothesis and proof are recorded in
 [`2100`](proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2100_CE1_CE2_exactly_one_midpoint_lemma.md).
 
-The proof uses four mechanisms:
+The proof uses three strategies:
 
 1. trace-length bounds on the perimeter or full skeleton;
-2. propagation of boundary-reach lower bounds through the exact local
-   admissible set;
-3. normalized area-loss estimates;
-4. an equilateral-enclosure obstruction for nine points forced into the center
-   C triangle.
+2. normalized area-loss estimates;
+3. finite equilateral-enclosure obstructions for residual points forced into
+   the C triangle.
+
+The exact local reach maps remain subordinate certificates for Strategy 3.
+They are not a separate fourth strategy.
 
 For a nonsupercritical V triangle, low radial lower bounds use
 `B<=1-A` directly. High radial lower bounds use the raw admissible-set transfer;
@@ -126,14 +127,14 @@ The complete file list is [`proof/MANIFEST.txt`](proof/MANIFEST.txt).
 
 ## Exact certificates and Lean statement elaboration
 
-The Strategy 4 mixed support-arc intersections use exact integer, rational,
+The explicit nine-point mixed support-arc intersections use exact integer, rational,
 and `Q(sqrt(3))` arithmetic. The authenticated sparse data, derivation
 verifier, positivity verifier, and transcript digest form one certificate.
 Floating-point and interval arithmetic are not proof dependencies.
 
-The Strategy 2 Lean project in
+The legacy local-reach statement project in
 [`formalization/strategy2_optimization/`](formalization/strategy2_optimization/)
-elaborates the scalar statements needed for the long calculation layer. Its
+retains its historical directory name and elaborates the scalar statements needed for the long finite-enclosure certificate layer. Its
 ten theorem bodies are intentional `sorry` admissions. This project is a
 statement check, not a proof or formalization of the geometric argument; the
 complete proofs remain in the TeX and numbered proof sources.

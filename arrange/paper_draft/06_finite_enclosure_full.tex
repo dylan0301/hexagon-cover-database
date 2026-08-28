@@ -1,0 +1,89 @@
+\section{Finite-Enclosure Obstructions}
+\label{sec:finite-enclosure}
+
+The third strategy associates a finite set to the portion of the hexagon not
+covered by the six V triangles.  Under a hypothetical cover this set is forced
+into the open C triangle.  The contradiction is that its least enclosing
+equilateral triangle has side at least one.  The zero-gap all-$\Vdzero$ case
+admits the explicit nine-point set constructed later in this section.  For the
+nonzero-gap branches, the exact local reach calculations certify the same
+noncontainment statement for the finite residual hull.
+
+\subsection{The finite residual hull}
+
+For a compact plane set $K$, let $\Lambda(K)$ be the least side length of a closed equilateral triangle containing $K$.  For fixed open V roles $U_0,\ldots,U_5$, put
+\[
+ R_V=H\setminus\bigcup_{i=0}^5U_i
+\]
+and let
+\[
+ K_V=\mathrm{vert}(\conv R_V)
+\]
+be the vertex set of the convex hull of the residual.  Since the six roles and
+$H$ are polygonal, $R_V$ is a compact polygonal set and $K_V$ is finite.
+
+\begin{proposition}[Residual-hull enclosure principle]
+\label{prop:residual-hull-enclosure}
+Suppose a specified class of open unit C triangles cannot complete the fixed
+V roles to a cover of $H$, and every open unit triangle containing $R_V$ is in
+that excluded class.  Then
+\[
+ \Lambda(K_V)\ge1.
+\]
+Under a hypothetical cover, one also has $K_V\subset U_C$.
+\end{proposition}
+
+\begin{proof}
+A cover gives $R_V\subset U_C$, and therefore $K_V\subset U_C$.  Conversely,
+suppose $\Lambda(K_V)<1$.  A closed equilateral triangle $T$ of side below
+one contains $K_V$, hence contains
+\[
+ R_V\subseteq\conv K_V\subseteq T.
+\]
+Enlarge $T$ homothetically to an open unit equilateral triangle $U_C'$.  Then
+$R_V\subset U_C'$, so $U_C',U_0,\ldots,U_5$ cover $H$, contrary to the
+specified exclusion theorem.
+\end{proof}
+
+The point $O$ belongs to $R_V$: every $U_i$ contains $V_i$, while
+$\lVert O-V_i\rVert=1$ and two points of one open unit equilateral triangle
+have distance strictly below one.  If the V roles leave a boundary gap, then
+an open unit triangle containing $R_V$ contains a relative interval of
+$\partial H$.  It is therefore CE1 or CE2, including when the V gap is a
+singleton.  Proposition~\ref{prop:residual-hull-enclosure} consequently turns
+every proved nonzero-gap CE1/CE2 exclusion into a finite-enclosure theorem.
+
+\input{04_boundary_propagation}
+
+\subsection{Nonzero-gap finite-enclosure terminals}
+
+\begin{proposition}[Former reach-propagation branches]
+\label{prop:finite-enclosure-nonzero-gap-branches}
+Every nonzero-gap row formerly assigned to boundary-reach propagation is a
+finite-enclosure contradiction.  More precisely, the corresponding residual
+hull $K_V$ has $\Lambda(K_V)\ge1$ in each of the following cases:
+\begin{enumerate}
+ \item $N_+=0$, all V triangles $\Vdzero$;
+ \item $N_+=0$, one or two $\Tlike$ triangles and no $\Vdone/\Vdtwo$ triangle;
+ \item $N_+=1$, all V triangles $\Vdzero$;
+ \item $N_+=1$, exactly one $\Tlike$ triangle and no $\Vdone/\Vdtwo$ triangle;
+ \item $N_+=1$, exactly one $\Vdone/\Vdtwo$ triangle in the surviving CE2
+ placement assembly.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Apply Proposition~\ref{prop:residual-hull-enclosure}.  The exact exclusion
+certificates are respectively
+Propositions~\ref{prop:nplus-zero-all-vd0},
+\ref{prop:nplus-zero-t3},
+\ref{prop:nplus-one-all-vd0},
+\ref{prop:nplus-one-one-t3}, and
+\ref{prop:paper-ce2-one-vd-placements}.  In the last item, a hypothetical
+smaller residual-enclosing C triangle that is CE1 is already excluded by the
+trace-length branch in Proposition~\ref{prop:length-branches}; the CE2 case is
+excluded by Proposition~\ref{prop:paper-ce2-one-vd-placements}.  A boundary
+gap excludes CE0 in every item.
+\end{proof}
+
+\input{06_nine_point_full}

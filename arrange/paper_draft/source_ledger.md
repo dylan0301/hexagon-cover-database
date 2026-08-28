@@ -14,10 +14,9 @@ are:
 |---|---|
 | `01_introduction.tex` | theorem, canonical labeling, finite types, routing table |
 | `02_structure_and_common_geometry.tex` | structural reduction, handoffs, midpoint facts, signed center geometry |
-| `03_trace_bounds.tex` | complete perimeter and skeleton trace argument |
-| `04_boundary_propagation.tex` | admissible-set calculus and all propagation cases |
-| `05_area_loss_full.tex` | complete local and cyclic area-loss proof |
-| `06_nine_point_full.tex` | complete nine-point construction and enclosure proof |
+| `03_trace_bounds.tex` | Strategy 1: complete perimeter and skeleton trace argument |
+| `05_area_loss_full.tex` | Strategy 2: complete local and cyclic area-loss proof |
+| `06_finite_enclosure_full.tex` | Strategy 3: residual-hull principle, exact nonzero-gap reach certificates, and explicit nine-point enclosure |
 | `07_exhaustive_assembly.tex` | final exhaustive application of the routing table |
 
 The exact mixed support-arc certificate remains a printed appendix. Repository
@@ -29,7 +28,7 @@ typeset when their mathematical content has already been incorporated.
 
 | File | Function |
 |---|---|
-| `04_strategy2_verification.tex` | consolidated detailed propagation proof assembled inside Section 4 |
+| `04_strategy2_verification.tex` | legacy-named exact local-reach certificate assembled inside Strategy 3 |
 | `06a_strategy4_exact_certificate.tex` | exact unequal-radius support-arc certificate printed as Appendix A |
 
 The body-end label occurs immediately after the seven proof sections and
@@ -43,18 +42,17 @@ immediately before `\appendix`.
 `03_trace_bounds.tex` incorporates `03_strategy1_length.tex` and
 `04b_common_CE1_CE2_budgets.tex`.
 
-`04_boundary_propagation.tex` incorporates `02a_universal_calculus.tex`,
-the signed-center propagation interface, `04c_short_Vd_placements.tex`, and
-the consolidated detailed propagation modules. The finite optimization
-specifications and Lean statement-elaboration project remain repository
-interfaces for the long scalar calculations, but their duplicate prose is not
-printed or described as a manuscript appendix.
+`05_area_loss_full.tex` incorporates `05_strategy3_area.tex` under the new
+Strategy 2 numbering.
 
-`05_area_loss_full.tex` incorporates `05_strategy3_area.tex`.
-
-`06_nine_point_full.tex` incorporates `06_strategy4_ab_core.tex` and
-`06_strategy4_completion.tex`; the exact mixed-overlap proof follows as the
-sole appendix.
+`06_finite_enclosure_full.tex` incorporates the residual-hull principle,
+`02a_universal_calculus.tex`, the signed-center local-reach interface,
+`04c_short_Vd_placements.tex`, the consolidated exact reach-certificate
+modules, and the explicit nine-point files `06_strategy4_ab_core.tex` and
+`06_strategy4_completion.tex`.  The finite optimization specifications and
+Lean statement-elaboration project remain compatibility interfaces for the
+long scalar certificates.  The exact mixed-overlap proof follows as the sole
+appendix.
 
 ## 3. Proof-source authority
 
@@ -73,7 +71,7 @@ hypotheses, endpoint external components, the inclusive CE2 threshold
 alternative, every T3-like branch, the Vd placement margins, the two-chart
 replacement, and exact certificate denominator signs.
 
-## 4. Exact Strategy 2 provenance
+## 4. Legacy exact reach-certificate provenance
 
 The complete support-isolated T3-like endpoint proof is authenticated by
 `proof/407X_PROVENANCE.json`. CI recomputes the Git blob identities from the
@@ -109,8 +107,8 @@ dependencies.
 
 ## 6. Build status
 
-On `main`, the paper-rebuild workflow replays the active proof-reference graph, Strategy 2
-specifications, exact Strategy 4 certificate, and Lean scalar-statement
+On `main`, the paper-rebuild workflow replays the active proof-reference graph, legacy local-reach
+specifications, the exact nine-point certificate, and Lean scalar-statement
 elaboration; it then uses the pinned TeX Live 2025 image for two semantic
 rebuilds, checks references, overfull boxes, and rendering, and commits a
 changed canonical PDF and summary back to `main`. The read-only proof workflow

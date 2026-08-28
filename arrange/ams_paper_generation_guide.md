@@ -25,9 +25,8 @@ The manuscript uses the following top-level sections:
 01_introduction.tex
 02_structure_and_common_geometry.tex
 03_trace_bounds.tex
-04_boundary_propagation.tex
 05_area_loss_full.tex
-06_nine_point_full.tex
+06_finite_enclosure_full.tex
 07_exhaustive_assembly.tex
 ```
 
@@ -35,11 +34,11 @@ Their functions are:
 
 1. theorem, canonical labeling, finite classifications, and routing table;
 2. complete structural reduction and signed center geometry;
-3. complete trace-length proof;
-4. complete boundary-reach propagation proof;
-5. complete area-loss proof;
-6. complete nine-point enclosure proof;
-7. one final exhaustive assembly.
+3. Strategy 1: complete trace-length proof;
+4. Strategy 2: complete area-loss proof;
+5. Strategy 3: residual-hull finite enclosure, exact local reach certificates,
+   and the explicit nine-point theorem;
+6. one final exhaustive assembly.
 
 After the body-end label, the sole printed appendix is:
 
@@ -47,9 +46,7 @@ After the body-end label, the sole printed appendix is:
 06a_strategy4_exact_certificate.tex
 ```
 
-It contains the exact unequal-radius support-arc certificate. Long Strategy 2
-algebra is retained inside Section 4 so that each geometric case and its
-calculation remain in one continuous method chapter.
+It contains the exact unequal-radius support-arc certificate. Long local-reach certificate algebra is retained inside Strategy 3 so that each finite witness theorem and its exact noncontainment calculation remain together.
 
 ## 3. Source incorporation
 
@@ -63,9 +60,8 @@ The active assembly is:
 \input{01_introduction}
 \input{02_structure_and_common_geometry}
 \input{03_trace_bounds}
-\input{04_boundary_propagation}
 \input{05_area_loss_full}
-\input{06_nine_point_full}
+\input{06_finite_enclosure_full}
 \input{07_exhaustive_assembly}
 \label{page:proof-body-end}
 
@@ -74,7 +70,7 @@ The active assembly is:
 \input{06a_strategy4_exact_certificate}
 ```
 
-The exact Strategy 2 provenance manifest remains repository metadata and is
+The exact legacy reach-certificate provenance manifest remains repository metadata and is
 not typeset. Formalization-only optimization specifications and the Lean
 statement-elaboration project remain repository verification objects; the
 paper does not present them as a manuscript appendix or duplicate their
@@ -90,7 +86,7 @@ Keep in the main mathematical narrative:
 - midpoint statements and signed center geometry;
 - every local geometric reduction;
 - all trace and area proofs;
-- the admissible set and exact propagation calculus;
+- the admissible set and exact local reach calculus;
 - all T3-like and Vd placement arguments;
 - the two-chart replacement;
 - nine-point forcing, Newton reduction, ray order, and support-arc argument;
@@ -155,7 +151,7 @@ Every revision must preserve:
 A source commit to `main` triggers
 `.github/workflows/paper-rebuild.yml`. The workflow:
 
-1. runs the proof-source, manuscript, and Strategy 2 semantic-interface checks;
+1. runs the proof-source, manuscript, and legacy reach-certificate semantic-interface checks;
 2. elaborates the pinned Lean scalar-statement project;
 3. replays the exact Strategy 4 certificate;
 4. performs two clean builds with the pinned TeX Live 2025 image;
@@ -165,7 +161,7 @@ A source commit to `main` triggers
 8. regenerates `arrange/CURRENT_VERIFICATION_SUMMARY.txt`;
 9. commits the canonical PDF and summary directly to `main`.
 
-The write-enabled workflow runs the active proof-reference graph, Strategy 2 specifications,
+The write-enabled workflow runs the active proof-reference graph, legacy reach-certificate specifications,
 exact certificates, Lean scalar-statement elaboration, and a two-build
 semantic PDF audit before committing. GitHub does not recursively trigger the
 ordinary read-only push workflow from the workflow-token commit; that

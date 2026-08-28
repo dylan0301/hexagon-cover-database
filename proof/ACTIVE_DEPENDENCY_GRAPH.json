@@ -56,14 +56,14 @@
         "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31058_center_independent_direct_nine_point_obstruction.md",
         "proof/3XXX_CE0/31XX_Nplus1/317X_T3_like_no_Vd1Vd2/3174_CE0_one_supercritical_T3_certificate.md",
         "proof/3XXX_CE0/32XX_Nplus_ge2/3208_CE0_conditional_area_certificate.md",
-        "proof/4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md",
+        "proof/4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss_new/4013_new_all_Vd0_finite_enclosure.md",
         "proof/4XXX_CE1CE2/40XX_Nplus0/404X_exists_Vd1_Vd2_obstruction/4040_CE1_Nplus0_exists_Vd1_Vd2_boundary_length_obstruction.md",
         "proof/4XXX_CE1CE2/40XX_Nplus0/404X_exists_Vd1_Vd2_obstruction/4041_CE2_Nplus0_exists_Vd1_Vd2_boundary_length_obstruction.md",
-        "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4070_CE1CE2_Nplus0_T3_like_no_Vd1Vd2_index.md",
-        "proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4101_CE1CE2_Nplus1_all_Vd0_strategy.md",
+        "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2_new/4070_new_T3_like_finite_enclosure.md",
+        "proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0_new/4101_new_all_Vd0_finite_enclosure.md",
         "proof/4XXX_CE1CE2/41XX_Nplus1/411X_Vd1_Vd2_obstruction/4110_CE1_Nplus1_exists_Vd1_Vd2_boundary_length_obstruction.md",
-        "proof/4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like/4130_CE1CE2_exactly_one_T3_like_index.md",
-        "proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4140_CE2_Nplus1_exactly_one_Vd1_Vd2_index.md"
+        "proof/4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like_new/4130_new_T3_like_finite_enclosure.md",
+        "proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4140_new_one_Vd_finite_enclosure_assembly.md"
       ],
       "kind": "proof-source",
       "status": "Proven"
@@ -359,6 +359,18 @@
         "proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md",
         "proof/2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md",
         "proof/2XXX_geometric_lemmas/25XX_length_bounds/2510_skeleton_length_bounds.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2600_minimum_enclosing_triangle_tools.md": {
+      "dependencies": [],
+      "kind": "proof-source",
+      "status": "Reference"
+    },
+    "proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2608_residual_hull_finite_enclosure_principle.md": {
+      "dependencies": [
+        "proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2600_minimum_enclosing_triangle_tools.md"
       ],
       "kind": "proof-source",
       "status": "Proven"
@@ -689,6 +701,14 @@
       "kind": "proof-source",
       "status": "Proven"
     },
+    "proof/4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss_new/4013_new_all_Vd0_finite_enclosure.md": {
+      "dependencies": [
+        "proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2608_residual_hull_finite_enclosure_principle.md",
+        "proof/4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
     "proof/4XXX_CE1CE2/40XX_Nplus0/404X_exists_Vd1_Vd2_obstruction/4040_CE1_Nplus0_exists_Vd1_Vd2_boundary_length_obstruction.md": {
       "dependencies": [
         "proof/2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md",
@@ -827,6 +847,14 @@
       "kind": "proof-source",
       "status": "Proven"
     },
+    "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2_new/4070_new_T3_like_finite_enclosure.md": {
+      "dependencies": [
+        "proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2608_residual_hull_finite_enclosure_principle.md",
+        "proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4070_CE1CE2_Nplus0_T3_like_no_Vd1Vd2_index.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
     "proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4101_CE1CE2_Nplus1_all_Vd0_strategy.md": {
       "dependencies": [
         "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md",
@@ -890,6 +918,14 @@
       "kind": "proof-source",
       "status": "Proven"
     },
+    "proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0_new/4101_new_all_Vd0_finite_enclosure.md": {
+      "dependencies": [
+        "proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2608_residual_hull_finite_enclosure_principle.md",
+        "proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4101_CE1CE2_Nplus1_all_Vd0_strategy.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
     "proof/4XXX_CE1CE2/41XX_Nplus1/411X_Vd1_Vd2_obstruction/4110_CE1_Nplus1_exists_Vd1_Vd2_boundary_length_obstruction.md": {
       "dependencies": [
         "proof/2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md",
@@ -922,6 +958,14 @@
       "dependencies": [
         "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2018_diameter_transfer_and_adjacent_rescuer.md",
         "proof/4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like/4131_midpoint_forcing_reduction.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like_new/4130_new_T3_like_finite_enclosure.md": {
+      "dependencies": [
+        "proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2608_residual_hull_finite_enclosure_principle.md",
+        "proof/4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like/4130_CE1CE2_exactly_one_T3_like_index.md"
       ],
       "kind": "proof-source",
       "status": "Proven"
@@ -1010,6 +1054,16 @@
       "dependencies": [
         "proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2100_CE1_CE2_exactly_one_midpoint_lemma.md",
         "proof/2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md"
+      ],
+      "kind": "proof-source",
+      "status": "Proven"
+    },
+    "proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4140_new_one_Vd_finite_enclosure_assembly.md": {
+      "dependencies": [
+        "proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2608_residual_hull_finite_enclosure_principle.md",
+        "proof/4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss_new/4013_new_all_Vd0_finite_enclosure.md",
+        "proof/4XXX_CE1CE2/41XX_Nplus1/411X_Vd1_Vd2_obstruction/4110_CE1_Nplus1_exists_Vd1_Vd2_boundary_length_obstruction.md",
+        "proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4140_CE2_Nplus1_exactly_one_Vd1_Vd2_index.md"
       ],
       "kind": "proof-source",
       "status": "Proven"

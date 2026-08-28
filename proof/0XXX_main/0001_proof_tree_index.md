@@ -65,17 +65,17 @@ The zero-gap tree is therefore center-independent:
 |---:|---|---|---:|---|
 | $0$ | any | V-only strict boundary overlap `2500` | 1 | Proven |
 | $1$ | $d\ge1$ | V-only boundary-length deficit `2500` | 1 | Proven |
-| $1$ | $d=0$, $t\ge1$ | strict handoffs and T3 cyclic area loss `3174` | 3 | Proven |
-| $1$ | $(0,0)$ | center-independent nine-point obstruction `31058` | 4 | Proven |
-| at least $2$ | any | at-least-two-ascent cyclic area loss `3208` | 3 | Proven |
+| $1$ | $d=0$, $t\ge1$ | strict handoffs and T3 cyclic area loss `3174` | 2 | Proven |
+| $1$ | $(0,0)$ | center-independent nine-point obstruction `31058` | 3 | Proven |
+| at least $2$ | any | at-least-two-ascent cyclic area loss `3208` | 2 | Proven |
 
-No row of this table belongs to Method 2. For nonzero gap count, the common
+No row of this table uses the local reach certificates as a separate strategy. For nonzero gap count, the common
 budget package `2530` directly closes every state with
 $N_++N_{\rm sp}\ge3$. The detailed tree below nevertheless retains the
 numbered branch wrappers that apply this budget, so that the Vd1/Vd2 and
 T3-like combinatorial cases remain visible.
 
-## Canonical transfer layer
+## Local reach-certificate layer
 
 The authoritative notation is
 [`201d`](../2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md):
@@ -182,29 +182,29 @@ index.
 ## CE1/CE2 branch
 
 Only $N_{\rm gap}\ge1$ remains here; zero gap was dispatched before the
-center split. The rows retain the detailed special-type counts underlying the
-shorter condition $N_++N_{\rm sp}\ge3$. Method 1 is the trace-length route
-and Method 2 is boundary-reach propagation.
+center split.  The rows retain the detailed special-type counts underlying the
+shorter condition $N_++N_{\rm sp}\ge3$.  Strategy 1 is trace length,
+Strategy 2 is area loss, and Strategy 3 is finite enclosure.  The exact local
+reach maps below are subordinate certificates for Strategy 3.
 
-| $N_{\rm gap}$ | $N_+$ | $(d,t)$ | Center class | Terminal route | Method | Recorded status |
+| $N_{\rm gap}$ | $N_+$ | $(d,t)$ | Center class | Terminal route | Strategy | Recorded status |
 |---:|---:|---|---|---|---|---|
-| at least $1$ | $0$ | $(0,0)$ | CE1/CE2 | nonzero-gap parts of all-Vd0 package `4013` | 2 | Proven |
-| at least $1$ | $0$ | $(0,1)$ or $(0,2)$ | CE1/CE2 | T3-like exact-endpoint package `407X` | 2 | Proven |
+| at least $1$ | $0$ | $(0,0)$ | CE1/CE2 | finite-enclosure package `4013_new` | 3 | Proven |
+| at least $1$ | $0$ | $(0,1)$ or $(0,2)$ | CE1/CE2 | finite-enclosure package `4070_new` | 3 | Proven |
 | at least $1$ | $0$ | $(0,t)$, $t\ge3$ | CE1/CE2 | direct skeleton budget `2530`, used in `4072` | 1 | Proven |
 | at least $1$ | $0$ | $d\ge1$, any $t$ | CE1/CE2 | CE1 `4040`; CE2 `4041` | 1 | Proven |
-| at least $1$ | $1$ | $(0,0)$ | CE1/CE2 | nonzero-gap parts of all-Vd0 package `410X` | 2 | Proven |
-| at least $1$ | $1$ | $(0,1)$ | CE1/CE2 | exactly-one-T3-like package `413X` | 2 | Proven |
+| at least $1$ | $1$ | $(0,0)$ | CE1/CE2 | finite-enclosure package `4101_new` | 3 | Proven |
+| at least $1$ | $1$ | $(0,1)$ | CE1/CE2 | finite-enclosure package `4130_new` | 3 | Proven |
 | at least $1$ | $1$ | $(0,t)$, $t\ge2$ | CE1/CE2 | skeleton obstruction `4123` | 1 | Proven |
 | at least $1$ | $1$ | $d\ge1$, any $t$ | CE1 | boundary-length obstruction `4110` | 1 | Proven |
 | at least $1$ | $1$ | $d\ge2$, any $t$ | CE2 | boundary-length obstruction `4111` | 1 | Proven |
 | at least $1$ | $1$ | $d=1$, $t\ge1$ | CE2 | mixed positive-support obstruction `414a` | 1 | Proven |
-| at least $1$ | $1$ | $(1,0)$ | CE2 | nonzero-gap placement package `414X` below | 1 and 2 | Proven |
+| at least $1$ | $1$ | $(1,0)$ | CE2 | finite-enclosure package `4140_new` below | 1 and 3 | Proven |
 | at least $1$ | at least $2$ | any | CE1/CE2 | skeleton-length route `4200` | 1 | Proven |
 
-### Method 2 combinatorial chains
+### Finite-enclosure reach certificates
 
-The nonzero-gap Method 2 rows and the CE2 hybrid use exactly the following
-chains. Here $N_{\rm gap}\ge1$ means one gap in CE1 and one or two in CE2.
+The nonzero-gap Strategy 3 rows use the following exact reach calculations to certify that the finite residual hull cannot fit in a unit C triangle. Here $N_{\rm gap}\ge1$ means one gap in CE1 and one or two in CE2.
 
 | $N_{\rm gap}$ | $N_+$ | $(d,t)$ | Center | Chain or terminal inequality | Source | Recorded status |
 |---:|---:|---|---|---|---|---|
@@ -233,17 +233,29 @@ other V role is nonsupercritical Vd0.
 The no-additional-support complement has exactly the following six placement
 rows.  Reflections of the displayed index sets are included.
 
-| Placement | Forced refinement | Terminal route | Method | Recorded status |
+| Placement | Forced refinement | Terminal route | Strategy | Recorded status |
 |---|---|---|---|---|
-| $\sigma=0$, $\tau\in\{1,5\}$ | the Vd1/Vd2 role is adjacent to the supercritical role | exact residual and radial obstruction `4144` | 2 | Proven |
-| $\sigma=0$, $\tau\in\{2,3,4\}$ | the Vd1/Vd2 role is nonadjacent to the supercritical role | Vd-specific radial separation `4146` | 2 | Proven |
-| $\tau=0$, $T_\tau$ Vd1 | midpoint forcing gives $\sigma\in\{1,5\}$ and $T_\tau$ rescues $M_\sigma$ | adjacent-rescuer chain `4143`, `2018` | 2 | Proven |
+| $\sigma=0$, $\tau\in\{1,5\}$ | the Vd1/Vd2 role is adjacent to the supercritical role | exact residual and radial obstruction `4144` | 3 | Proven |
+| $\sigma=0$, $\tau\in\{2,3,4\}$ | the Vd1/Vd2 role is nonadjacent to the supercritical role | Vd-specific radial separation `4146` | 3 | Proven |
+| $\tau=0$, $T_\tau$ Vd1 | midpoint forcing gives $\sigma\in\{1,5\}$ and $T_\tau$ rescues $M_\sigma$ | adjacent-rescuer finite-enclosure certificate `4143`, `2018` | 3 | Proven |
 | $\tau=0$, $T_\tau$ Vd2 | midpoint forcing gives $\sigma\in\{1,5\}$ and $T_\tau$ rescues $M_\sigma$ | neighboring-midpoint perimeter obstruction `4149` | 1 | Proven |
 | $\sigma\ne0$, $\tau\ne0$, $T_\tau$ Vd1 | midpoint forcing makes $\sigma$ and $\tau$ adjacent | two-chart replacement `4147`; recompute $N'_{\rm gap}$, then Method 1 if zero and nonzero-gap `4013` otherwise | 1 or 2 | Proven |
 | $\sigma\ne0$, $\tau\ne0$, $T_\tau$ Vd2 | midpoint forcing makes $\sigma$ and $\tau$ adjacent | neighboring-midpoint perimeter obstruction `4149` | 1 | Proven |
 
 The proved assembly is `4148`; the independent exhaustive post-repair audit
 is `414b`.
+
+## Active finite-enclosure package pointers
+
+- `2608`: common residual-hull finite-enclosure principle.
+- `4013_new`: nonzero-gap, $N_+=0$, all-Vd0 wrapper.
+- `4070_new`: nonzero-gap, $N_+=0$, T3-like wrapper.
+- `4101_new`: nonzero-gap, $N_+=1$, all-Vd0 wrapper.
+- `4130_new`: nonzero-gap, $N_+=1$, exactly-one-T3-like wrapper.
+- `4140_new`: nonzero-gap, $N_+=1$, exactly-one-Vd1/Vd2 wrapper.
+
+The original numbered packages remain exact local certificates and provenance
+sources.  They no longer own a fourth strategy.
 
 ## Failed-idea warnings
 

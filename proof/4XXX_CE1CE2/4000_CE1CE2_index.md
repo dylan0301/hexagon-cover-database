@@ -2,115 +2,94 @@
 
 Status: Reference
 
-This branch records CE1 and CE2 together. Their common center geometry is the
+This branch records CE1 and CE2 together.  Their common center geometry is the
 signed normal form
-[`../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md`](../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md):
+[`2109`](../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md):
 one normalized trace has surplus $\Delta_R>0$, while the sign of the companion
-surplus $\Delta_L$ distinguishes CE1 from CE2. All six center exits, one-gap
-actual-V-triangle propagation, perimeter budgets, and skeleton budgets are shared.
+surplus $\Delta_L$ distinguishes CE1 from CE2.  All six center exits,
+perimeter budgets, skeleton budgets, and local reach certificates are shared.
 
-Every terminal branch below is proven. Their exhaustive assembly is
-[`../0XXX_main/0000_main_theorem.md`](../0XXX_main/0000_main_theorem.md).
-The original vertex-role types Vd0, Vd1, Vd2, and T3-like are exhaustive by
-[`../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md`](../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md).
+Every terminal branch below is proven.  Their exhaustive assembly is
+[`0000`](../0XXX_main/0000_main_theorem.md).
 
-## One forward envelope, one cap, and one propagation map
+## Three-strategy routing
 
-The common notation is proved in
-[`../2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md`](../2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md).
-For selected lower bounds,
+The active proof has three global strategies.
+
+1. **Trace length.**  Perimeter, radial, or skeleton contributions have strict
+   total deficit.
+2. **Area loss.**  Local exterior losses sum beyond the available normalized
+   area.
+3. **Finite enclosure.**  A finite subset of the residual left by the six V
+   roles is forced into the C role, but its least enclosing equilateral
+   triangle has side at least one.
+
+The exact functions
 
 $$
-M_c(a)=\max\{b:(a,b,c)\in\mathcal A\},
+M_c(a),\qquad \overline M_c(a),\qquad \Phi_c(a)
 $$
 
+remain the canonical local reach calculus proved in
+[`201d`](../2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md).
+They certify noncontainment of the nonzero-gap finite residuals; they do not
+own a separate strategy.
+
+The common logical conversion is the residual-hull principle
+[`2608`](../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2608_residual_hull_finite_enclosure_principle.md).
+For fixed V roles, let
+
 $$
-\overline M_c(a)=
-\begin{cases}
-1-a,&c\le1/2,\\
-M_c(a),&c>1/2,
-\end{cases}
+R=H\setminus\bigcup_{i=0}^5U_i,
 \qquad
-\Phi_c(a)=1-\overline M_c(a).
+K_R=\mathrm{vert}(\mathrm{conv}R).
 $$
 
-A C-triangle interval is incorporated by applying the residual operator
-$\mathcal R_J$ to $M_c(a)$ or $\overline M_c(a)$.  The strict-supercritical
-source bound is $M_c^{\rm sup}$.  The authenticated 407X package retains its
-older exact-cell aliases, listed in `0910`, solely to preserve blob
-provenance.
+If the relevant CE1/CE2 completion theorem excludes every unit C triangle
+covering $R$, then $\Lambda(K_R)\ge1$.
 
-For maps listed in geometric V-triangle order,
+## Nonzero-gap finite-enclosure terminals
 
-$$
-[\Psi_1\mid\cdots\mid\Psi_r](x)
-=(\Psi_r\circ\cdots\circ\Psi_1)(x).
-$$
+| Active package | Recorded status | Branch | Exact certificate retained |
+|---|---|---|---|
+| [`4013_new`](40XX_Nplus0/401X_all_Vd0_boundary_loss_new/4013_new_all_Vd0_finite_enclosure.md) | Proven | $N_+=0$, all Vd0 | original `4013`, `2107`, `2108`, `2110` |
+| [`4070_new`](40XX_Nplus0/407X_T3_like_no_Vd1Vd2_new/4070_new_T3_like_finite_enclosure.md) | Proven | $N_+=0$, one or two T3-like, no Vd1/Vd2 | authenticated `407X` four-label package |
+| [`4101_new`](41XX_Nplus1/410X_all_Vd0_new/4101_new_all_Vd0_finite_enclosure.md) | Proven | $N_+=1$, all Vd0 | `4105`, `4106`, `4107`, paired two-gap certificate |
+| [`4130_new`](41XX_Nplus1/413X_exactly_one_T3_like_new/4130_new_T3_like_finite_enclosure.md) | Proven | $N_+=1$, exactly one T3-like | `4131`, `4132`, `2018` |
+| [`4140_new`](41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4140_new_one_Vd_finite_enclosure_assembly.md) | Proven | $N_+=1$, exactly one Vd1/Vd2 | CE1 length terminal and complete `414X` placement package |
 
-No separate branch-signature symbol is used. The detailed crosswalk identified
-below states the seed, relaxed slots, and terminal inequality separately.
+A nonzero boundary gap forces any residual-containing unit C triangle to be
+CE1 or CE2.  Singleton gaps remain included because the candidate C triangle
+is open.
 
-## Nonzero-gap Method 2 and hybrid routing
+## Trace-length terminals retained
 
-The gap-first tree removes $N_{\rm gap}=0$ before this routing. At zero gap,
-the common boundary-complete consequences `2500`, `3174`, and `3208` give
-Methods 1 or 3 according to $N_+$ and the V-type counts, while the
-$N_+=1$ all-Vd0 cell uses the center-independent Method 4 result `31058`.
-Consequently every Method 2 invocation here has
-$N_{\rm gap}\in\{1,2\}$.
+The following branches remain shorter under Strategy 1:
 
-The detailed combinatorial case-to-chain crosswalk is retained in the
-`Method 2 combinatorial chains` section of
-`proof/0XXX_main/0001_proof_tree_index.md`.
-Its exact branch owners are `4013` for the all-Vd0 endpoint chains, `4070`
-for the T3-like endpoint package, `4101` for the exactly-one-supercritical
-all-Vd0 chains, and `4130` for the exactly-one-T3-like adjacent-rescuer
-chain. The CE2 one-Vd1/Vd2 hybrid is indexed in
+- `4040`, `4041`: $N_+=0$ with a Vd1/Vd2 role;
+- `4110`, `4111`: CE1 one-Vd and CE2 at-least-two-Vd branches;
+- `4123`: at least two T3-like roles;
+- `4149`: Vd2 neighboring-midpoint perimeter terminal;
+- `414a`: additional positive-support skeleton terminal;
+- `4200`: $N_+\ge2$ skeleton terminal.
+
+## Detailed one-Vd placement pointer
+
+The original zero-gap state is first closed by Strategy 1.  For positive gap
+rank, the proved placement partition remains in
 [`4140`](41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4140_CE2_Nplus1_exactly_one_Vd1_Vd2_index.md),
-assembled in
-[`4148`](41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4148_CE2_Nplus1_exactly_one_Vd1_Vd2_assembly.md),
-and independently audited in
-[`414b`](41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/414b_complete_placement_reaudit.md).
+with assembly `4148` and audit `414b`.  The active branch wrapper is
+[`4140_new`](41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4140_new_one_Vd_finite_enclosure_assembly.md).
 
-The hard `407X` endpoints remain exact; no unsupported universal replacement
-of their four-label audit is asserted. The `4146` terminal estimate remains
-Vd-type-specific rather than a universal raw-transfer bound. In the `4147`
-replacement branch, the output rank $N'_{\rm gap}$ is recomputed: rank $0$
-uses Method 1 `2500`, while ranks $1$ and $2$ use the nonzero-gap Method 2
-part of `4013`. No preservation of the original gap rank is asserted.
+The corrected two-chart replacement `4147` does not preserve gap rank.  Its
+output rank is recomputed.  Rank zero uses Strategy 1; positive rank uses
+`4013_new`.
 
-The nonzero-gap Method 1 routes are unchanged. In particular, `4040`,
-`4041`, `4110`, `4111`, `4123`, `4149`, `414a`, and `4200` retain their
-perimeter or skeleton proofs and their current routing labels. The outer
-zero-gap routing changes ownership, not any of those inequalities.
+## Provenance and cautions
 
-## Detailed `414X` placement pointer
-
-The original zero-gap state is first closed by Method 1, so the placement
-audit has the standing hypothesis $N_{\rm gap}\in\{1,2\}$. The detailed
-entry reduction and six placement rows are retained in the
-`Detailed 414X placement audit` section of
-`proof/0XXX_main/0001_proof_tree_index.md`. The local package entry is `4140`,
-the proved assembly is `4148`, and the hypothesis-by-hypothesis exhaustive
-audit is `414b`. The `4147` output is routed only after recomputing
-$N'_{\rm gap}$; neither the assembly nor the audit claims gap preservation.
-
-## Terminal branch index
-
-| File | Recorded status | Branch |
-|---|---|---|
-| [`40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md`](40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md) | Proven | CE1/CE2, $N_+=0$, all Vd0; Method 1 strict zero-gap cycle and Method 2 nonzero-gap endpoint chains. |
-| [`40XX_Nplus0/404X_exists_Vd1_Vd2_obstruction/4040_CE1_Nplus0_exists_Vd1_Vd2_boundary_length_obstruction.md`](40XX_Nplus0/404X_exists_Vd1_Vd2_obstruction/4040_CE1_Nplus0_exists_Vd1_Vd2_boundary_length_obstruction.md) | Proven | CE1, $N_+=0$, at least one Vd1/Vd2; Method 1. |
-| [`40XX_Nplus0/404X_exists_Vd1_Vd2_obstruction/4041_CE2_Nplus0_exists_Vd1_Vd2_boundary_length_obstruction.md`](40XX_Nplus0/404X_exists_Vd1_Vd2_obstruction/4041_CE2_Nplus0_exists_Vd1_Vd2_boundary_length_obstruction.md) | Proven | CE2, $N_+=0$, at least one Vd1/Vd2; Method 1. |
-| [`40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4070_CE1CE2_Nplus0_T3_like_no_Vd1Vd2_index.md`](40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4070_CE1CE2_Nplus0_T3_like_no_Vd1Vd2_index.md) | Proven | Nonzero-gap residual exact-endpoint chain with an irreducible four-label audit. |
-| [`41XX_Nplus1/410X_all_Vd0/4101_CE1CE2_Nplus1_all_Vd0_strategy.md`](41XX_Nplus1/410X_all_Vd0/4101_CE1CE2_Nplus1_all_Vd0_strategy.md) | Proven | Method 4 at zero gap and Method 2 exact chains at nonzero gap. |
-| [`41XX_Nplus1/411X_Vd1_Vd2_obstruction/4110_CE1_Nplus1_exists_Vd1_Vd2_boundary_length_obstruction.md`](41XX_Nplus1/411X_Vd1_Vd2_obstruction/4110_CE1_Nplus1_exists_Vd1_Vd2_boundary_length_obstruction.md) | Proven | CE1 Vd1/Vd2 Method 1 branch. |
-| [`41XX_Nplus1/411X_Vd1_Vd2_obstruction/4111_CE2_Nplus1_at_least_two_Vd1_Vd2_boundary_length_obstruction.md`](41XX_Nplus1/411X_Vd1_Vd2_obstruction/4111_CE2_Nplus1_at_least_two_Vd1_Vd2_boundary_length_obstruction.md) | Proven | CE2 at-least-two-Vd Method 1 branch. |
-| [`41XX_Nplus1/412X_at_least_two_T3_like/4123_CE1_CE2_at_least_two_T3_like_diagonal_obstruction.md`](41XX_Nplus1/412X_at_least_two_T3_like/4123_CE1_CE2_at_least_two_T3_like_diagonal_obstruction.md) | Proven | At-least-two-T3-like Method 1 branch. |
-| [`41XX_Nplus1/413X_exactly_one_T3_like/4130_CE1CE2_exactly_one_T3_like_index.md`](41XX_Nplus1/413X_exactly_one_T3_like/4130_CE1CE2_exactly_one_T3_like_index.md) | Proven | Nonzero-gap $1-M_c^{\rm sup}$--identity--$M_c^{\rm sup}$ adjacent-rescuer chain. |
-| [`41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4140_CE2_Nplus1_exactly_one_Vd1_Vd2_index.md`](41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4140_CE2_Nplus1_exactly_one_Vd1_Vd2_index.md) | Proven | Nonzero-gap entry reduction `414a` and six placements, including the post-replacement Method 1/2 gap router. |
-| [`42XX_Nplus_ge2/4200_CE1_CE2_skeleton_length_route.md`](42XX_Nplus_ge2/4200_CE1_CE2_skeleton_length_route.md) | Proven | $N_+\ge2$ Method 1 skeleton route. |
-
-The May 25 five-point route is not used; see
-[`../9XXX_failed_ideas/963X_may25_five_point_failure/9630_may25_CE1_CE2_failure.md`](../9XXX_failed_ideas/963X_may25_five_point_failure/9630_may25_CE1_CE2_failure.md)
-(Status: Failed).
+- The original reach packages remain in place with their recorded statuses.
+- The authenticated `407X` files retain their exact bytes and notation
+  crosswalk.
+- The May 25 five-point route remains failed and is not revived.
+- The new finite witness is the complete residual-hull vertex set, so no
+  unproved claim about a smaller ad hoc point selection is required.

@@ -31,17 +31,18 @@ listed only through their active theorem owners.
 | Center-independent zero-gap length consequences | [`../2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md`](../2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md) | Proven |
 | Center-independent zero-gap T3-like area consequence | [`../3XXX_CE0/31XX_Nplus1/317X_T3_like_no_Vd1Vd2/3174_CE0_one_supercritical_T3_certificate.md`](../3XXX_CE0/31XX_Nplus1/317X_T3_like_no_Vd1Vd2/3174_CE0_one_supercritical_T3_certificate.md) | Proven |
 | Center-independent zero-gap $N_+\ge2$ area consequence | [`../3XXX_CE0/32XX_Nplus_ge2/3208_CE0_conditional_area_certificate.md`](../3XXX_CE0/32XX_Nplus_ge2/3208_CE0_conditional_area_certificate.md) | Proven |
+| Residual-hull finite-enclosure principle | [`../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2608_residual_hull_finite_enclosure_principle.md`](../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2608_residual_hull_finite_enclosure_principle.md) | Proven |
 | Center-independent nine-point obstruction | [`../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31058_center_independent_direct_nine_point_obstruction.md`](../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31058_center_independent_direct_nine_point_obstruction.md) | Proven |
 | Exact mixed-overlap reduction | [`31055`](../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31055_rational_radial_envelopes_and_mixed_reduction.md) | Proven |
 | Exact global mixed-overlap positivity | [`31056`](../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31056_global_analytic_mixed_positivity.md) and its authenticated exact verifier/data package | Proven |
 | CE0 terminal packages | [`3010`](../3XXX_CE0/30XX_Nplus0/3010_CE0_perimeter_length_obstruction.md), [`3141`](../3XXX_CE0/31XX_Nplus1/314X_exists_Vd1_Vd2/3141_CE0_Nplus1_exists_Vd1_Vd2_boundary_length_obstruction.md), [`3171`](../3XXX_CE0/31XX_Nplus1/317X_T3_like_no_Vd1Vd2/3171_T3_like_area_certificate_index.md), [`3201`](../3XXX_CE0/32XX_Nplus_ge2/3201_area_conjecture_index.md) | Proven |
-| Nonzero-gap CE1/CE2, $N_+=0$, all Vd0 Method 2 route | [`4013`](../4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md) | Proven |
-| Nonzero-gap CE1/CE2, $N_+=0$, T3-like exact four-label Method 2 route | [`4070`](../4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4070_CE1CE2_Nplus0_T3_like_no_Vd1Vd2_index.md), with terminal files `4074`, `4075`, `4078`, `4079`, `407a`, `407c`, `407d` | Proven |
+| Nonzero-gap CE1/CE2, $N_+=0$, all Vd0 finite-enclosure route | [`4013_new`](../4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss_new/4013_new_all_Vd0_finite_enclosure.md) | Proven |
+| Nonzero-gap CE1/CE2, $N_+=0$, T3-like finite-enclosure route | [`4070_new`](../4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2_new/4070_new_T3_like_finite_enclosure.md), citing the exact `407X` certificate | Proven |
 | Common exact one-gap five-V-triangle interface | [`4105`](../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4105_CE1_CE2_one_gap_five_V_triangle_interface.md) | Proven |
 | CE1 and CE2 one-gap scalar relaxations | [`4106`](../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4106_CE1_one_gap_five_map_completion.md), [`4107`](../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4107_CE2_one_gap_five_map_completion.md) | Proven |
-| CE1/CE2, $N_+=1$, all Vd0 assembly | [`4101`](../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4101_CE1CE2_Nplus1_all_Vd0_strategy.md) | Proven |
-| Nonzero-gap exactly-one-T3-like Method 2 route | [`4130`](../4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like/4130_CE1CE2_exactly_one_T3_like_index.md) | Proven |
-| Nonzero-gap exactly-one-Vd1/Vd2 hybrid assembly | [`4140`](../4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4140_CE2_Nplus1_exactly_one_Vd1_Vd2_index.md), including replacement `4147` and its post-replacement Method 1/2 gap router | Proven |
+| CE1/CE2, $N_+=1$, all Vd0 finite-enclosure assembly | [`4101_new`](../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0_new/4101_new_all_Vd0_finite_enclosure.md) | Proven |
+| Nonzero-gap exactly-one-T3-like finite-enclosure route | [`4130_new`](../4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like_new/4130_new_T3_like_finite_enclosure.md) | Proven |
+| Nonzero-gap exactly-one-Vd1/Vd2 finite-enclosure assembly | [`4140_new`](../4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4140_new_one_Vd_finite_enclosure_assembly.md), citing `4140` and the CE1 length terminal | Proven |
 | CE1/CE2 Strategy 1 terminal routes | `4040`, `4041`, `4110`, `4111`, `4123`, `4200` | Proven |
 
 ## Interpretive cautions
@@ -58,12 +59,12 @@ listed only through their active theorem owners.
 - The CE2 threshold theorem says at least one of two slots fires, not exactly
   one.
 - The exact five-V-triangle target is $Z>1-h_0$; the dual three-map target is $>1-X$.
-- The `407X` hard endpoint audit remains a four-label exact proof.
+- The `407X` hard endpoint audit remains the exact certificate cited by the new finite-enclosure wrapper.
 - `2111` is a reference crosswalk for the long scalar calculations used by
   the geometric proof. The geometric T3 wrapper `407e` does not assert a
   separate theorem on an arbitrary extracted real-variable cell union.
 - The `4146` terminal margin is Vd-type-specific.
-- The Strategy 4 scripts are active proof objects only together with their
+- The explicit nine-point scripts are active proof objects only together with their
   authenticated sparse data and the exact reduction in `31055`--`31056`.
 - Historical failed or optional routes listed in the proof-tree index remain
   nondependencies.
