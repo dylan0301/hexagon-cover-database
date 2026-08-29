@@ -1,0 +1,410 @@
+\subsection{Detailed direct certificates for the nonzero-gap terminals}
+\label{subsec:new-detailed-direct-certificates}
+
+This subsection supplies the calculations suppressed in the preceding case
+proofs.  They are written as inequalities for actual reaches and radial
+witnesses.  There is no formal chain notation.
+
+\subsubsection{The disk--gap support calculation}
+
+Let $c=c_{\max}(p,q)$, $m=\min\{p,q\}$, and
+$d=1-c$.  The regular radial hexagon has inradius $hd$.  Choose the farther
+endpoint $G$ of the complementary gap.  Its norm is
+\[
+ \rho=\sqrt{1-m+m^2}.
+\]
+For a unit normal whose angle from $G$ is $\theta$, the three point supports
+are
+\[
+ \rho\cos\theta,
+ \quad
+ \rho\cos(\theta+2\pi/3),
+ \quad
+ \rho\cos(\theta+4\pi/3).
+\]
+The disk replaces every one of these by at least $hd$.  A minimizing
+orientation is either a disk-only orientation or a tie orientation.  At a tie
+one projection equals $hd$.  The other active projection is
+\[
+ \frac{-hd+\sqrt{3(\rho^2-h^2d^2)}}2.
+\]
+Thus the support sum is at least $h$ exactly when
+\[
+ 3d(1-d)\ge m(1-m).
+ \tag{6.51}
+\]
+Since $d=1-c$, this is (6.29).
+
+We now derive the local inequality used in the high-$c$ part.  Work in a
+support orientation with angular parameter $t\in[0,\pi/3]$ and put
+\[
+ x=\cos\left|t-\frac\pi6\right|.
+\]
+The support inequalities for the local kite
+$\conv\{0,pu,qv,c(u+v)\}$ imply
+\[
+ cx\le h
+ \tag{6.52}
+\]
+and, after taking the smaller boundary demand $m$,
+\[
+ mx+\frac c2
+ \left(x+\sqrt3\sqrt{1-x^2}\right)\le h.
+ \tag{6.53}
+\]
+When $c>h$, the interval is $h\le x\le h/c$.  The left side of (6.53) is
+concave.  If $c>1-m$, its value at $x=h$ is $h(m+c)>h$, so feasibility forces
+its value at the other endpoint to be at most $h$:
+\[
+ \frac mc+\frac12+\sqrt{c^2-\frac34}\le1.
+\]
+Hence
+\[
+ m\le c\left(\frac12-\sqrt{c^2-\frac34}\right).
+ \tag{6.54}
+\]
+Substitution of the right side into (6.51) gives
+\[
+\begin{aligned}
+&3c(1-c)-
+ c\left(\frac12-\sqrt{c^2-\frac34}\right)
+ \left[1-c\left(\frac12-\sqrt{c^2-\frac34}\right)\right]\\
+&\quad=
+\frac{c(1-c)}2
+\left(5-2c-2c^2+2\sqrt{c^2-\frac34}\right)\ge0.
+\end{aligned}
+\]
+This proves the complementary-gap inequality directly from the four local
+support conditions.
+
+\subsubsection{The CE2 one-gap threshold inequalities}
+
+We prove the two inequalities in (6.39).  Put
+\[
+ X=R-\delta,
+ \qquad
+ Q=\frac{\eta+\alpha+\delta}{2R}.
+\]
+The right-trace inequality gives
+\[
+ WX=RW-W\delta=\eta+P-W\delta>\eta+\alpha.
+ \tag{6.55}
+\]
+The selected low root $\epsilon(\alpha)$ is the smaller root of
+\[
+ z^2-(1-\alpha)z+(1-\alpha)^2-(1-\alpha)^4=0.
+ \tag{6.56}
+\]
+It is enough to prove that $X$ lies above that root.  Since
+$0<X<R$ and the quadratic opens upward, substitute the lower estimate in
+(6.55).  Equivalently consider
+\[
+ \pi(q)=(\eta+q)(1-2q)-2qW.
+\]
+This is concave.  At the endpoints of the admissible interval $0\le q\le P$,
+\[
+ \pi(0)=\eta>0,
+\]
+while the identities $RW=\eta+P$ and $P=E\eta$ give
+\[
+ \pi(P)=\eta(\eta+2ER^2)>0.
+\]
+Thus $\pi(\alpha)>0$, which is precisely
+\[
+ \epsilon(\alpha)<X.
+ \tag{6.57}
+\]
+
+For the second inequality put $T=\alpha+\delta$.  Multiply
+\[
+ \alpha+W\delta<P,
+ \qquad
+ R\alpha+\delta<P
+\]
+by $W$ and $R$, respectively, and add.  Since
+$W+R^2=W^2+R=E^2$,
+\[
+ E^2T<P=E\eta,
+ \qquad
+ T<\frac\eta E.
+ \tag{6.58}
+\]
+Let $d=\min\{\alpha,\delta\}$.  Then $d\le T/2$.  By (6.5),
+\[
+ \min\{\epsilon(\alpha),\epsilon(\delta)\}
+ <\frac{2d}{1-2d}
+ \le\frac{T}{1-T}.
+\]
+It remains to prove $T/(1-T)<Q$.  This is equivalent to
+\[
+ 2RT<(\eta+T)(1-T).
+\]
+Define
+\[
+ \chi(T)=(\eta+T)(1-T)-2RT.
+\]
+The function is concave.  At $T=0$, $\chi(0)=\eta>0$.  At
+$T=\eta/E$, direct simplification gives
+\[
+ \chi\left(\frac\eta E\right)
+ =\frac{\eta}{E^2}(E-R)^2>0.
+\]
+By (6.58), $T$ lies strictly between these endpoints.  Hence
+\[
+ \boxed{
+ \min\{\epsilon(\alpha),\epsilon(\delta)\}<Q.
+ }
+ \tag{6.59}
+\]
+This proves the CE2 dichotomy without a composed reach map.
+
+\subsubsection{The CE2 short-ray root separation}
+
+We give the remaining details of Theorem~\ref{thm:new-ce2-short-ray}.  The
+identities
+\[
+ RW=\eta+P,
+ \qquad P=E\eta
+\]
+and the CE2 inequalities imply
+\[
+ Wq=W(R-\delta)>\eta+\alpha,
+\]
+\[
+ Rp=R(W-\alpha)>\eta+\delta.
+\]
+Thus
+\[
+ p,q>\eta+e.
+ \tag{6.60}
+\]
+Let $M=\max\{R,W\}$.  Since $\alpha,\delta\ge e$,
+\[
+ e<\frac{P}{1+M}.
+\]
+Moreover
+\[
+ (1+M)^2-3E^2=(2M-1)(2-M)\ge0,
+\]
+so
+\[
+ \eta>\sqrt3e.
+ \tag{6.61}
+\]
+The universal bound
+\[
+ P\le\frac{2\sqrt3-3}{4},
+ \qquad 1+M\ge\frac32
+\]
+gives
+\[
+ e<\frac{2\sqrt3-3}{6}=e_*.
+\]
+
+For $c=1-e$, the roots of
+$f_c(t)=c^4-c^2+ct-t^2$ are $t_\pm$ from the proof above.  At
+$t_0=(1+\sqrt3)e$,
+\[
+ f_c(t_0)=eB(e),
+\]
+with
+\[
+ B(e)=e^3-4e^2-3\sqrt3e+\sqrt3-1.
+\]
+Since
+\[
+ B'(e)=3e^2-8e-3\sqrt3<0
+\]
+on $[0,e_*]$, one has
+\[
+ B(e)\ge B(e_*)=\frac{302\sqrt3-501}{72}>0.
+\]
+Therefore $t_-<t_0<p,q$.  Also
+\[
+ p+q=1-\alpha-\delta\le1-2e=c-e.
+\]
+If, say, $q\le p$, then $q>t_-$ and
+\[
+ p<c-e-t_-<c-t_-=t_+.
+\]
+The same holds with $p,q$ interchanged.  Hence
+\[
+ t_-<p,q<t_+,
+\]
+which proves $f_c(p),f_c(q)>0$.  In the exact local finite-caliper formula at
+radial demand $c$, the four side candidates are
+\[
+ p+c,
+ \quad q+c,
+ \quad\frac{c^2}{\sqrt{p^2-pc+c^2}},
+ \quad\frac{c^2}{\sqrt{q^2-qc+c^2}}.
+\]
+The first two exceed one because $p,q>e$, and the last two exceed one exactly
+because $f_c(p),f_c(q)>0$.  This completes the direct short-ray proof.
+
+\subsubsection{Detailed adjacent Vd residual estimate}
+
+We justify (6.48).  In the adjacent placement define the residuals
+$\rho_R,\rho_L$ as in Case 1 of Proposition~\ref{prop:new-one-vd-assembly}.
+The signed CE2 domain first gives
+\[
+ \alpha+\delta<\frac16\min\{R,W\}.
+ \tag{6.62}
+\]
+The positive residual $\rho_L$ has one of two forms.
+
+If
+\[
+ \rho_L=W-\alpha,
+\]
+then
+\[
+ 4\delta+\alpha
+ \le4(\alpha+\delta)
+ <\frac{2W}{3}<W,
+\]
+so $4\delta<\rho_L$.
+
+Assume instead
+\[
+ \rho_L=1-A_0.
+\]
+The other residual cannot equal $1-B_0$, since (6.47) would imply
+$A_0+B_0>3/2$, contrary to the endpoint-distance bound
+$A_0+B_0\le2/\sqrt3$.  Hence
+\[
+ \rho_R=1-(W+\delta),
+ \qquad
+ B_0\ge y:=\frac{k}{R}.
+\]
+The two points of $T_0$ with reaches $1-\rho_L$ and $y$ have distance at most
+one.  The diameter-transfer inequality gives
+\[
+ \rho_L>\frac y2>\frac{\eta}{2R}.
+ \tag{6.63}
+\]
+Since $\rho_R+\rho_L<1/2$,
+\[
+ \delta>R-\frac12+\frac{\eta}{2R}=:J(R).
+ \tag{6.64}
+\]
+Using $\eta/R=W/(1+E)$, exact differentiation gives
+\[
+4E(1+E)^2J'(R)
+=2E(1+E)(1+2E)-W(2R-1)>0.
+\]
+Thus $J$ is strictly increasing.  Since $J(3/8)=1/24$ and (6.62) gives
+$\delta<1/24$, equation (6.64) forces $R<3/8$.  Then
+\[
+ (2-3R)^2-E^2=(3-8R)(1-R)>0,
+\]
+so $E<2-3R$ and
+\[
+ \frac{\eta}{R}=\frac{W}{1+E}>\frac13.
+\]
+Together with (6.63),
+\[
+ \rho_L>\frac16>4\delta.
+\]
+This proves (6.48) in both residual cases.
+
+\subsubsection{Detailed nonadjacent Vd separation}
+
+Let $x=k/W$ and $y=k/R$ be the two center near endpoints.  Let $B,U$ be the
+farthest already-covered extents on the corresponding edges.  We prove
+\[
+ B\le M_0(x),
+ \qquad
+ U\le M_0(y).
+ \tag{6.65}
+\]
+By symmetry it is enough to treat $B$.  The residual component formula says
+that $B$ is either $W+\delta$ or the supercritical endpoint $B_0$.
+If $B=W+\delta$, the center contains boundary points with reaches $x,B$, so
+the diameter-one inequality gives $B\le M_0(x)$.  If $B=B_0$ and
+$A_0<x$, then the opposite covered extent is $U=A_0$; equation (6.47) would
+again force $A_0+B_0>3/2$.  Hence $A_0\ge x$, and monotonicity of $M_0$
+gives
+\[
+ B_0\le M_0(A_0)\le M_0(x).
+\]
+This proves (6.65).
+
+The elementary identity
+\[
+ 1-M_0(z)>\frac z2
+ \qquad(z>0)
+\]
+then gives
+\[
+ \rho_R>\frac x2,
+ \qquad
+ \rho_L>\frac y2.
+\]
+The common center endpoint-slack bound is
+\[
+ \alpha+\delta<\frac12\min\{x,y\}.
+\]
+Thus (6.49) follows.  The exact Vd corner form gives the strict own-radial
+bound used in Case 2.
+
+\subsubsection{Detailed Vd1 rescue inequalities}
+
+Use the Vd1 corner parameter $t\ge1$, let
+$d=\sqrt{t^2+t+1}$, and write the supported interval as $[c,u]$.  The endpoint
+relations are
+\[
+ c=\frac{t(1-b)}{t+1},
+ \qquad
+ u=\frac{d-a-tb-1}{t}.
+\]
+The midpoint condition gives
+\[
+ a+tb\le d-1-\frac t2.
+\]
+Eliminating $tb=t-c(t+1)$ gives
+\[
+ a\le F(t,c):=d-1-\frac{3t}{2}+c(t+1).
+\]
+For fixed $c\le1/2$,
+\[
+ \frac{\partial F}{\partial t}
+ =\frac{2t+1}{2\sqrt{t^2+t+1}}-\frac32+c<0,
+\]
+so
+\[
+ a\le F(1,c)=\sqrt3-\frac52+2c=:L(c).
+\]
+The inequality $2L(c)\le1-M_c^{\rm sup}$ is equivalent, after squaring, to
+\[
+ Q(c)=20c^2+(18\sqrt3-52)c+47-24\sqrt3\ge0.
+\]
+The polynomial decreases on $[0,1/2]$ and
+$Q(1/2)=26-15\sqrt3>0$.  Hence
+\[
+ a\le1-M_c^{\rm sup}.
+\]
+
+Put $\varepsilon=1-u$.  Direct substitution gives
+\[
+ \varepsilon=\varepsilon_0+\frac at,
+ \qquad
+ \varepsilon_0=
+ \frac{2t+1-c(t+1)-d}{t}>0.
+\]
+The function
+\[
+ z\longmapsto\frac{z}{z+\varepsilon_0+z/t}
+\]
+is increasing.  Since
+\[
+ \varepsilon_0+\frac{F(t,c)}t=\frac12,
+\]
+we obtain
+\[
+ \frac{a}{a+1-u}
+ \le\frac{F(t,c)}{F(t,c)+1/2}
+ \le2L(c)
+ \le1-M_c^{\rm sup}.
+\]
+This proves the two direct Vd1 rescue inequalities in (6.50).

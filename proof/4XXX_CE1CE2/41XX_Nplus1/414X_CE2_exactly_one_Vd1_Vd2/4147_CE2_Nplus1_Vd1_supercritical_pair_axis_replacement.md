@@ -2,10 +2,9 @@
 
 Status: Proven
 
-This note proves the replacement used in Case 3 of
-[`4148_CE2_Nplus1_exactly_one_Vd1_Vd2_assembly.md`](4148_CE2_Nplus1_exactly_one_Vd1_Vd2_assembly.md).
-The Vd2 alternative is eliminated by
-[`4149_CE2_Nplus1_Vd2_neighbor_midpoint_obstruction.md`](4149_CE2_Nplus1_Vd2_neighbor_midpoint_obstruction.md).
+This note proves the two-chart replacement used by the active direct
+finite-witness assembly `4140_new_one_Vd_finite_enclosure_assembly.md`.  The
+Vd2 alternative is handled there by its direct perimeter deficit.
 In the gap-first exhaustive assembly this theorem is invoked only after the
 original zero-gap state has been removed, so the input has
 $N_{\rm gap}\in\{1,2\}$.  The replacement construction itself does not use
@@ -617,7 +616,7 @@ common boundary-complete Method 1 consequence
 [`2500`](../../../2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md#boundary-complete-zero-gap-consequences)
 gives a contradiction.  If $N'_{\rm gap}\in\{1,2\}$, apply Sections 4 and 5
 of the skeleton-level all-Vd0 theorem
-[`4013`](../../40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md),
+[`4013_new`](../../40XX_Nplus0/401X_all_Vd0_boundary_loss_new/4013_new_all_Vd0_finite_enclosure.md),
 which are the nonzero-gap Method 2 branches.  These two alternatives are
 exhaustive.
 

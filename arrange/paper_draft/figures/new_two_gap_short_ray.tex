@@ -1,0 +1,17 @@
+\begin{tikzpicture}[scale=2.35,line cap=round,line join=round]
+\coordinate (O) at (0,0);
+\foreach \i in {0,...,5}{
+  \coordinate (V\i) at ({cos(60*\i)},{sin(60*\i)});
+}
+\draw[thick] (V0)--(V1)--(V2)--(V3)--(V4)--(V5)--cycle;
+\foreach \i in {0,...,5}{\draw[gray!55] (O)--(V\i);}
+\draw[very thick] ($(V0)!0.22!(V1)$)--($(V0)!0.40!(V1)$);
+\draw[very thick] ($(V5)!0.62!(V0)$)--($(V5)!0.82!(V0)$);
+\fill ($(O)!0.17!(V2)$) circle (0.03) node[left=2pt] {$D_2$};
+\fill ($(O)!0.17!(V4)$) circle (0.03) node[right=2pt] {$D_4$};
+\draw[dashed] ($(O)!0.10!(V2)$)--($(O)!0.22!(V2)$);
+\draw[dashed] ($(O)!0.10!(V4)$)--($(O)!0.22!(V4)$);
+\fill (O) circle (0.018);
+\node[below] at (O) {$O$};
+\node at (0,-1.18) {one of $D_2,D_4$ lies beyond the shorter CE2 exit};
+\end{tikzpicture}

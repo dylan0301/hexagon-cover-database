@@ -1,53 +1,141 @@
-# CE1/CE2, $N_+=0$, T3-Like: Finite-Enclosure Form
+# CE1/CE2, $N_+=0$, T3-Like: Type-Aware Gap-Enclosure Proof
 
 Status: Proven
+
+This file replaces the nonzero-gap four-label endpoint package.  The proof
+uses the exact neighboring-ray capacity only to exclude radial witnesses from
+T3-like adjacent support; the terminal contradiction is the same explicit
+gap-enclosure or CE2 short-ray obstruction as in the all-Vd0 case.  No
+boundary-transfer composition is used.
 
 ## Theorem
 
 Assume:
 
-1. the six open V roles have $N_+=0$;
-2. no V role is Vd1 or Vd2;
-3. at least one V role is T3-like;
-4. the V roles leave at least one boundary gap.
+1. $T_C$ is CE1 or CE2;
+2. $N_+=0$;
+3. no V role is Vd1 or Vd2;
+4. one or two V roles are T3-like and every other V role is Vd0;
+5. the seven open roles cover the full skeleton;
+6. at least one boundary edge contains a V-gap.
+
+Then no such configuration exists.
+
+## 1. One gap
+
+Normalize the gap to
+
+$$
+J=[X(\ell),X(r)]\subset e_{0,1}.
+$$
+
+As in the all-Vd0 proof, strict handoffs on the other five edges and
+nonsupercriticality give
+
+$$
+\ell\le x_5\le x_4\le x_3\le x_2\le x_1\le r.
+\tag{1}
+$$
 
 Put
 
 $$
-R=H\setminus\bigcup_{i=0}^5U_i
+p=1-r,
+\qquad
+q=\ell,
+\qquad
+c_*=c_{\max}(p,q),
+\qquad
+d_*=1-c_*.
+\tag{2}
 $$
 
-and
+Every V role has selected boundary reaches at least $(p,q)$ in its local
+orientation.
+
+Fix a ray $r_i$.  The own-role capacity on $r_i$ is at most $c_*$ by
+coordinatewise antitonicity of $c_{\max}$.  A neighboring Vd0 role contributes
+no positive interval on $r_i$.  If a neighboring role is T3-like and its
+unique supported adjacent ray is $r_i$, its capacity is at most
 
 $$
-K_{407}=\mathrm{vert}(\mathrm{conv}R).
+C_+(p,q)
+\quad\text{or}\quad
+C_-(p,q).
 $$
 
-Then
+The common-pair domination theorem in
+[`2608`, Section 4](../../../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2608_residual_hull_finite_enclosure_principle.md)
+gives
 
 $$
-\boxed{\Lambda(K_{407})\ge1.}
+C_+(p,q),C_-(p,q)\le c_*.
 $$
 
-Consequently no open unit C triangle completes these V roles to a cover of
-$H$.
+Therefore the type-aware radial witness theorem applies with
 
-## Proof
+$$
+D_i=d_*V_i.
+$$
 
-The residual contains $O$ and a boundary-gap point, so every open unit
-triangle containing it is CE1 or CE2.  If $\Lambda(K_{407})<1$, Theorem
-[`2608`](../../../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2608_residual_hull_finite_enclosure_principle.md)
-would produce an open unit CE1/CE2 C role covering the residual.
+All six points $D_i$ lie in $U_C$, and convexity forces
 
-Together with the six fixed V roles this would give a hypothetical cover in
-the branch excluded by the complete T3-like package
-[`4070`](../407X_T3_like_no_Vd1Vd2/4070_CE1CE2_Nplus0_T3_like_no_Vd1Vd2_index.md).
-That package covers one or two T3-like roles and both possible nonzero gap
-ranks.  Hence $\Lambda(K_{407})\ge1$.  $\square$
+$$
+\mathcal D_{hd_*}\subset U_C.
+$$
 
-## Proof ownership
+The gap segment $J$ is also contained in $U_C$.  The complementary-gap
+theorem in `2608` gives
 
-The authenticated four-label endpoint calculation remains unchanged and is
-cited as the exact certificate for the finite-enclosure inequality.  The new
-branch owner is the center-forced finite set $K_{407}$, not a separate
-boundary-propagation strategy.
+$$
+\Lambda(\mathcal D_{hd_*}\cup J)\ge1,
+$$
+
+contradicting containment in an open unit equilateral triangle.
+
+This proof does not distinguish the one-T3-like and two-T3-like placements.
+The support-isolation theorem from the original package is consistent with
+the type-aware capacity argument but is not needed by the terminal proof.
+
+## 2. Two gaps
+
+This state is CE2-only.  Put
+
+$$
+p=W-\alpha,
+\qquad
+q=R-\delta.
+$$
+
+The four center-free handoffs again give the common pair $(p,q)$ on
+$T_1,\ldots,T_5$.  For the rays $r_2$ and $r_4$, every own or T3-like
+neighboring capacity is at most
+
+$$
+c_*=c_{\max}(p,q)
+$$
+
+by common-pair domination.  Hence
+
+$$
+D_2=(1-c_*)V_2,
+\qquad
+D_4=(1-c_*)V_4
+$$
+
+belong to $U_C$.
+
+The CE2 short-ray theorem in `2608` proves
+
+$$
+c_*<1-\min\{\alpha,\delta\}.
+$$
+
+Thus $D_2$ lies beyond the center on $r_2$, or $D_4$ lies beyond the center
+on $r_4$.  This contradiction closes the two-gap state.
+
+The one- and two-gap states are exhaustive, proving the theorem.
+
+$$
+\Box
+$$

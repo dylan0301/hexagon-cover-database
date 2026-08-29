@@ -2,94 +2,62 @@
 
 Status: Reference
 
-This branch records CE1 and CE2 together.  Their common center geometry is the
-signed normal form
-[`2109`](../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md):
-one normalized trace has surplus $\Delta_R>0$, while the sign of the companion
-surplus $\Delta_L$ distinguishes CE1 from CE2.  All six center exits,
-perimeter budgets, skeleton budgets, and local reach certificates are shared.
+The common signed center form is
+[`2109`](../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md).
+One normalized trace has positive surplus $\Delta_R$; the sign of
+$\Delta_L$ distinguishes CE1 from CE2. The active proof has three strategies:
+trace length, area loss, and direct finite enclosure.
 
-Every terminal branch below is proven.  Their exhaustive assembly is
-[`0000`](../0XXX_main/0000_main_theorem.md).
+## 1. Direct finite-enclosure entry
 
-## Three-strategy routing
-
-The active proof has three global strategies.
-
-1. **Trace length.**  Perimeter, radial, or skeleton contributions have strict
-   total deficit.
-2. **Area loss.**  Local exterior losses sum beyond the available normalized
-   area.
-3. **Finite enclosure.**  A finite subset of the residual left by the six V
-   roles is forced into the C role, but its least enclosing equilateral
-   triangle has side at least one.
-
-The exact functions
+For selected boundary reaches $(a_i,b_i)$, the exact own-ray capacity is
+$c_{\max}(a_i,b_i)$. If an adjacent role is actually permitted to have
+positive support on $r_i$, its exact capacity is $C_+$ or $C_-$. The type-aware
+maximum is $\Gamma_i$, and
 
 $$
-M_c(a),\qquad \overline M_c(a),\qquad \Phi_c(a)
+D_i=(1-\Gamma_i)V_i
 $$
 
-remain the canonical local reach calculus proved in
-[`201d`](../2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md).
-They certify noncontainment of the nonzero-gap finite residuals; they do not
-own a separate strategy.
-
-The common logical conversion is the residual-hull principle
+is missed by every open V role. This theorem, the support gauge, the
+complementary-gap theorem, and the CE2 short-ray theorem are proved in
 [`2608`](../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2608_residual_hull_finite_enclosure_principle.md).
-For fixed V roles, let
 
-$$
-R=H\setminus\bigcup_{i=0}^5U_i,
-\qquad
-K_R=\mathrm{vert}(\mathrm{conv}R).
-$$
+No active proof composes boundary-transfer maps.
 
-If the relevant CE1/CE2 completion theorem excludes every unit C triangle
-covering $R$, then $\Lambda(K_R)\ge1$.
+## 2. Nonzero-gap terminals
 
-## Nonzero-gap finite-enclosure terminals
-
-| Active package | Recorded status | Branch | Exact certificate retained |
+| Active package | Branch | Direct terminal | Status |
 |---|---|---|---|
-| [`4013_new`](40XX_Nplus0/401X_all_Vd0_boundary_loss_new/4013_new_all_Vd0_finite_enclosure.md) | Proven | $N_+=0$, all Vd0 | original `4013`, `2107`, `2108`, `2110` |
-| [`4070_new`](40XX_Nplus0/407X_T3_like_no_Vd1Vd2_new/4070_new_T3_like_finite_enclosure.md) | Proven | $N_+=0$, one or two T3-like, no Vd1/Vd2 | authenticated `407X` four-label package |
-| [`4101_new`](41XX_Nplus1/410X_all_Vd0_new/4101_new_all_Vd0_finite_enclosure.md) | Proven | $N_+=1$, all Vd0 | `4105`, `4106`, `4107`, paired two-gap certificate |
-| [`4130_new`](41XX_Nplus1/413X_exactly_one_T3_like_new/4130_new_T3_like_finite_enclosure.md) | Proven | $N_+=1$, exactly one T3-like | `4131`, `4132`, `2018` |
-| [`4140_new`](41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4140_new_one_Vd_finite_enclosure_assembly.md) | Proven | $N_+=1$, exactly one Vd1/Vd2 | CE1 length terminal and complete `414X` placement package |
+| [`4013_new`](40XX_Nplus0/401X_all_Vd0_boundary_loss_new/4013_new_all_Vd0_finite_enclosure.md) | $N_+=0$, all Vd0 | complementary-gap disk or CE2 short ray | Proven |
+| [`4070_new`](40XX_Nplus0/407X_T3_like_no_Vd1Vd2_new/4070_new_T3_like_finite_enclosure.md) | $N_+=0$, one or two T3-like roles | type-aware neighboring support followed by the same gap terminal | Proven |
+| [`4101_new`](41XX_Nplus1/410X_all_Vd0_new/4101_new_all_Vd0_finite_enclosure.md), [`4102_new`](41XX_Nplus1/410X_all_Vd0_new/4102_new_CE1_direct_radial_certificate.md) | $N_+=1$, all Vd0 | anisotropic radial endpoints; direct CE1 reverse path or CE2 threshold dichotomy | Proven |
+| [`4130_new`](41XX_Nplus1/413X_exactly_one_T3_like_new/4130_new_T3_like_finite_enclosure.md) | $N_+=1$, exactly one T3-like role | O-side T3 endpoint and direct path budget | Proven |
+| [`4140_new`](41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4140_new_one_Vd_finite_enclosure_assembly.md) | CE2, $N_+=1$, exactly one Vd1/Vd2 role | radial separation, Vd1 endpoint, length deficit, or replacement to `4013_new` | Proven |
 
-A nonzero boundary gap forces any residual-containing unit C triangle to be
-CE1 or CE2.  Singleton gaps remain included because the candidate C triangle
-is open.
+## 3. Trace-length terminals
 
-## Trace-length terminals retained
-
-The following branches remain shorter under Strategy 1:
+The shorter Strategy 1 closures remain:
 
 - `4040`, `4041`: $N_+=0$ with a Vd1/Vd2 role;
-- `4110`, `4111`: CE1 one-Vd and CE2 at-least-two-Vd branches;
+- `4110`, `4111`: CE1 one-Vd and CE2 at-least-two-Vd cases;
 - `4123`: at least two T3-like roles;
-- `4149`: Vd2 neighboring-midpoint perimeter terminal;
-- `414a`: additional positive-support skeleton terminal;
-- `4200`: $N_+\ge2$ skeleton terminal.
+- `4149`: Vd2 neighboring-midpoint perimeter deficit;
+- `414a`: additional positive-support skeleton deficit;
+- `4200`: $N_+\ge2$ skeleton deficit.
 
-## Detailed one-Vd placement pointer
+## 4. One-Vd placement partition
 
-The original zero-gap state is first closed by Strategy 1.  For positive gap
-rank, the proved placement partition remains in
-[`4140`](41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4140_CE2_Nplus1_exactly_one_Vd1_Vd2_index.md),
-with assembly `4148` and audit `414b`.  The active branch wrapper is
-[`4140_new`](41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4140_new_one_Vd_finite_enclosure_assembly.md).
+The structural placement audit remains in the established `414X` sources.
+Its active mathematical endings are proved in `4140_new`. The corrected
+two-chart replacement `4147` recomputes the output gap count: zero goes to
+Strategy 1, one gap goes to the complementary-gap theorem, and two gaps go to
+the CE2 short-ray theorem.
 
-The corrected two-chart replacement `4147` does not preserve gap rank.  Its
-output rank is recomputed.  Rank zero uses Strategy 1; positive rank uses
-`4013_new`.
+## 5. Provenance
 
-## Provenance and cautions
-
-- The original reach packages remain in place with their recorded statuses.
-- The authenticated `407X` files retain their exact bytes and notation
-  crosswalk.
-- The May 25 five-point route remains failed and is not revived.
-- The new finite witness is the complete residual-hull vertex set, so no
-  unproved claim about a smaller ad hoc point selection is required.
+The old endpoint-propagation packages remain in the corpus with their recorded
+statuses as historical alternative proofs. The authenticated `407X` blobs and
+the pinned scalar statement project remain verification interfaces, not active
+case dependencies. Failed finite-point and unconditional-skeleton routes remain
+in `9XXX_failed_ideas`.

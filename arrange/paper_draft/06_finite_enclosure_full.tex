@@ -1,89 +1,448 @@
 \section{Finite-Enclosure Obstructions}
 \label{sec:finite-enclosure}
 
-The third strategy associates a finite set to the portion of the hexagon not
-covered by the six V triangles.  Under a hypothetical cover this set is forced
-into the open C triangle.  The contradiction is that its least enclosing
-equilateral triangle has side at least one.  The zero-gap all-$\Vdzero$ case
-admits the explicit nine-point set constructed later in this section.  For the
-nonzero-gap branches, the exact local reach calculations certify the same
-noncontainment statement for the finite residual hull.
+The third strategy places explicit points in the part of the hexagon missed by
+the six open V triangles.  These points are therefore forced into the open C
+triangle.  The contradiction is geometric: their least enclosing equilateral
+triangle has side at least one.  No boundary-reach map is iterated in this
+section.
 
-\subsection{The finite residual hull}
+\input{06_direct_local_calculus}
+\input{06a_neighbor_ray_calculus}
 
-For a compact plane set $K$, let $\Lambda(K)$ be the least side length of a closed equilateral triangle containing $K$.  For fixed open V roles $U_0,\ldots,U_5$, put
-\[
- R_V=H\setminus\bigcup_{i=0}^5U_i
-\]
-and let
-\[
- K_V=\mathrm{vert}(\conv R_V)
-\]
-be the vertex set of the convex hull of the residual.  Since the six roles and
-$H$ are polygonal, $R_V$ is a compact polygonal set and $K_V$ is finite.
+\subsection{Radial witnesses}
 
-\begin{proposition}[Residual-hull enclosure principle]
-\label{prop:residual-hull-enclosure}
-Suppose a specified class of open unit C triangles cannot complete the fixed
-V roles to a cover of $H$, and every open unit triangle containing $R_V$ is in
-that excluded class.  Then
+Suppose $T_i=\overline{U_i}$ contains selected boundary anchors at reaches
+$a_i,b_i$.  Its exact own-ray capacity is $c_{\max}(a_i,b_i)$.  If the
+preceding role has positive support on $r_i$, let its exact neighboring-ray
+capacity be $C_+(a_{i-1},b_{i-1})$; define the reflected capacity $C_-$ for
+the following role.  Terms not permitted by the actual V type are omitted.
+Put
 \[
- \Lambda(K_V)\ge1.
+ \Gamma_i=
+ \max\{c_{\max}(a_i,b_i),C_+(a_{i-1},b_{i-1}),
+ C_-(a_{i+1},b_{i+1})\}
 \]
-Under a hypothetical cover, one also has $K_V\subset U_C$.
-\end{proposition}
+and
+\[
+ D_i=(1-\Gamma_i)V_i.
+ \tag{6.25}
+\]
+
+\begin{lemma}[Type-aware radial forcing]
+\label{lem:new-type-aware-radial-forcing}
+Every $D_i$ is missed by all six open V roles.  Hence, under a hypothetical
+cover,
+\[
+ \boxed{D_i\in U_C.}
+\]
+\end{lemma}
 
 \begin{proof}
-A cover gives $R_V\subset U_C$, and therefore $K_V\subset U_C$.  Conversely,
-suppose $\Lambda(K_V)<1$.  A closed equilateral triangle $T$ of side below
-one contains $K_V$, hence contains
+If $D_i\in U_i$, openness increases the own-radial demand beyond
+$c_{\max}(a_i,b_i)$.  If an adjacent role contains $D_i$, openness either
+creates forbidden positive adjacent support or increases the exact neighboring
+capacity beyond $C_+$ or $C_-$.  For the three nonlocal roles, writing
+$D_i=dV_i$ gives
 \[
- R_V\subseteq\conv K_V\subseteq T.
+ \lVert dV_i-V_{i\pm2}\rVert^2=1+d+d^2>1,
+ \qquad
+ \lVert dV_i-V_{i+3}\rVert=1+d>1.
 \]
-Enlarge $T$ homothetically to an open unit equilateral triangle $U_C'$.  Then
-$R_V\subset U_C'$, so $U_C',U_0,\ldots,U_5$ cover $H$, contrary to the
-specified exclusion theorem.
+A unit equilateral triangle has diameter one.  Thus every V role misses
+$D_i$, and coverage forces it into $U_C$.
 \end{proof}
 
-The point $O$ belongs to $R_V$: every $U_i$ contains $V_i$, while
-$\lVert O-V_i\rVert=1$ and two points of one open unit equilateral triangle
-have distance strictly below one.  If the V roles leave a boundary gap, then
-an open unit triangle containing $R_V$ contains a relative interval of
-$\partial H$.  It is therefore CE1 or CE2, including when the V gap is a
-singleton.  Proposition~\ref{prop:residual-hull-enclosure} consequently turns
-every proved nonzero-gap CE1/CE2 exclusion into a finite-enclosure theorem.
+\begin{lemma}[Common-pair domination]
+\label{lem:new-common-pair-domination}
+Let $p,q\ge0$ and $p+q\le1$.  Put
+\[
+ c_*=c_{\max}(p,q),
+ \qquad m=\min\{p,q\}.
+\]
+Then
+\[
+ c_*\ge1-m,
+ \qquad
+ C_+(p,q),C_-(p,q)\le1-m\le c_*.
+ \tag{6.26}
+\]
+Consequently any actual local pair dominating $(p,q)$ has all permitted
+own- and neighboring-ray capacities at most $c_*$.
+\end{lemma}
 
-\input{04_boundary_propagation}
+\begin{proof}
+Assume $q=m\le p$.  The demand $(p,q,1-q)$ has one exact support side of
+length $q+\max\{p,1-q\}=1$, so it is admissible; hence $c_*\ge1-q$.
+The exact neighboring-ray formula has linear value $1-q$, a plateau no
+larger than $1-q$, and a final radical branch no larger than its plateau.
+Thus $C_+(p,q)\le1-q$.  Reflection treats the other order and $C_-$.  The
+last assertion follows from coordinatewise antitonicity.
+\end{proof}
 
-\subsection{Nonzero-gap finite-enclosure terminals}
+\subsection{A disk and one boundary point}
 
-\begin{proposition}[Former reach-propagation branches]
-\label{prop:finite-enclosure-nonzero-gap-branches}
-Every nonzero-gap row formerly assigned to boundary-reach propagation is a
-finite-enclosure contradiction.  More precisely, the corresponding residual
-hull $K_V$ has $\Lambda(K_V)\ge1$ in each of the following cases:
-\begin{enumerate}
- \item $N_+=0$, all V triangles $\Vdzero$;
- \item $N_+=0$, one or two $\Tlike$ triangles and no $\Vdone/\Vdtwo$ triangle;
- \item $N_+=1$, all V triangles $\Vdzero$;
- \item $N_+=1$, exactly one $\Tlike$ triangle and no $\Vdone/\Vdtwo$ triangle;
- \item $N_+=1$, exactly one $\Vdone/\Vdtwo$ triangle in the surviving CE2
- placement assembly.
-\end{enumerate}
+\begin{lemma}[Disk-plus-point formula]
+\label{lem:new-disk-point-formula}
+Let $\mathcal D_\eta$ be the disk of radius $\eta$ about $O$, and let
+$\lVert G\rVert=\rho$.  Then
+\[
+ \Lambda(\mathcal D_\eta\cup\{G\})=
+ \begin{cases}
+  3\eta/h,&\rho\le2\eta,\\[2mm]
+  \dfrac{3\eta+\sqrt{3(\rho^2-\eta^2)}}{2h},&\rho>2\eta.
+ \end{cases}
+ \tag{6.27}
+\]
+\end{lemma}
+
+\begin{proof}
+For a unit normal $n$, write
+$s_j=\langle G,\mathsf R^jn\rangle$.  Then
+$s_0+s_1+s_2=0$ and
+$\sum s_j^2=3\rho^2/2$.  The support sum is
+$\sum\max\{\eta,s_j\}$.  If $\rho\le2\eta$, orient the point projections as
+$\rho/2,\rho/2,-\rho$.  If $\rho>2\eta$, an angular minimum occurs when one
+point projection equals $\eta$.  The other active projection is
+\[
+ \frac{-\eta+\sqrt{3(\rho^2-\eta^2)}}2.
+\]
+Substitution in Proposition~\ref{prop:new-enclosure-gauge} gives (6.27).
+\end{proof}
+
+For $p+q\le1$, let
+\[
+ J(p,q)=[X(q),X(1-p)]\subset e_{0,1},
+ \qquad X(t)=V_0+t(V_1-V_0),
+\]
+and put
+\[
+ c_*=c_{\max}(p,q),
+ \qquad d=1-c_*.
+\]
+
+\begin{theorem}[Complementary-gap enclosure]
+\label{thm:new-complementary-gap}
+\[
+ \boxed{
+ \Lambda\left(\mathcal D_{hd}\cup J(p,q)\right)\ge1.
+ }
+ \tag{6.28}
+\]
+\end{theorem}
+
+\begin{proof}
+Put $m=\min\{p,q\}$.  The farther endpoint of $J(p,q)$ has squared norm
+\[
+ \rho^2=1-m+m^2.
+\]
+By Lemma~\ref{lem:new-disk-point-formula}, it is enough to prove
+\[
+ 3c_*(1-c_*)\ge m(1-m).
+ \tag{6.29}
+\]
+Lemma~\ref{lem:new-common-pair-domination} gives $c_*\ge1-m\ge1/2$.
+If $c_*\le h$, then the left side of (6.29) is at least
+$3h(1-h)>1/4$, while $m(1-m)\le1/4$.
+
+Assume $c_*>h$.  In the exact local support formula, let
+$x=\cos|t-\pi/6|$.  The pure radial support gives $x\le h/c_*$.  The two
+mixed supports imply
+\[
+ mx+\frac{c_*}{2}
+ \left(x+\sqrt3\sqrt{1-x^2}\right)\le h.
+\]
+The left side is concave in $x$.  Its value at $x=h$ is greater than $h$
+unless $c_*=1-m$, in which case (6.29) is immediate.  Hence its value at
+$x=h/c_*$ is at most $h$, giving
+\[
+ m\le \zeta(c_*):=c_*
+ \left(\frac12-\sqrt{c_*^2-\frac34}\right).
+\]
+A direct calculation gives
+\[
+\begin{aligned}
+&3c_*(1-c_*)-\zeta(c_*)(1-\zeta(c_*))\\
+&\quad=
+\frac{c_*(1-c_*)}{2}
+\left(5-2c_*-2c_*^2+2\sqrt{c_*^2-\frac34}\right)\ge0.
+\end{aligned}
+\]
+Since $0\le m\le \zeta(c_*)<1/2$, this proves (6.29).
+\end{proof}
+
+
+\begin{figure}[p]
+\centering
+\resizebox{.72\linewidth}{!}{\input{figures/new_one_gap_radial_witness}}
+\caption{The one-gap $N_+=0$ witness.  The six common radial points force the
+dashed centered disk into $U_C$, while the full complementary gap $J$ is also
+center-forced.}
+\label{fig:new-one-gap-radial-witness}
+\end{figure}
+
+\subsection{The CE2 two-gap short-ray theorem}
+
+\begin{theorem}[CE2 short-ray obstruction]
+\label{thm:new-ce2-short-ray}
+In the strict signed CE2 domain put
+\[
+ p=W-\alpha,
+ \qquad q=R-\delta,
+ \qquad e=\min\{\alpha,\delta\}.
+\]
+Then
+\[
+ \boxed{c_{\max}(p,q)<1-e.}
+ \tag{6.30}
+\]
+Consequently, whenever both CE2 traces contain V-gaps and the five roles
+$T_1,\ldots,T_5$ realize the common pair $(p,q)$, one of the radial witnesses
+on $r_2,r_4$ lies beyond the corresponding center exit.
+\end{theorem}
+
+\begin{proof}
+The CE2 inequalities are
+\[
+ \alpha+W\delta<P,
+ \qquad R\alpha+\delta<P.
+\]
+Using $RW=\eta+P$, they give
+\[
+ p,q>\eta+e.
+ \tag{6.31}
+\]
+If $M=\max\{R,W\}$, then
+\[
+ e<\frac{P}{1+M},
+ \qquad
+ \frac{\eta}{e}>\frac{1+M}{E}\ge\sqrt3.
+\]
+Hence
+\[
+ p,q>(1+\sqrt3)e.
+ \tag{6.32}
+\]
+Moreover
+\[
+ 0<e<e_*:=\frac{2\sqrt3-3}{6}.
+ \tag{6.33}
+\]
+Put $c=1-e$ and
+\[
+ f_c(t)=c^4-c^2+ct-t^2.
+\]
+Its roots are
+\[
+ t_\pm=\frac c2\left(1\pm\sqrt{4c^2-3}\right).
+\]
+At $t_0=(1+\sqrt3)e$,
+\[
+ f_{1-e}(t_0)=eB(e),
+\]
+where
+\[
+ B(e)=e^3-4e^2-3\sqrt3e+\sqrt3-1.
+\]
+The function $B$ decreases on $[0,e_*]$ and
+\[
+ B(e_*)=\frac{302\sqrt3-501}{72}>0.
+\]
+Thus $t_-<(1+\sqrt3)e<p,q$.  Since
+$p+q\le1-2e=c-e$, each of $p,q$ is also below $t_+$.  Therefore
+\[
+ f_c(p)>0,
+ \qquad f_c(q)>0.
+ \tag{6.34}
+\]
+At radial demand $c=1-e$, the four exact support-contact side lengths of
+$K(p,q,c)$ are all greater than one: two are $p+c,q+c$, and the other two
+exceed one exactly by (6.34).  Thus $c$ is not admissible, proving (6.30).
+
+If $e=\delta$, the point $(1-c_{\max}(p,q))V_2$ lies farther than $\delta$
+from $O$, while the center exit on $r_2$ is $\delta$.  If $e=\alpha$, the
+analogous point on $r_4$ lies beyond the exit $\alpha$.
+\end{proof}
+
+
+\begin{figure}[p]
+\centering
+\resizebox{.72\linewidth}{!}{\input{figures/new_two_gap_short_ray}}
+\caption{The CE2 two-gap witness.  The common boundary pair forces $D_2,D_4$;
+one lies beyond the shorter transverse center exit.}
+\label{fig:new-two-gap-short-ray}
+\end{figure}
+
+\subsection{Nonzero-gap cases with $N_+=0$}
+
+\begin{proposition}[All-$\Vdzero$ and T3-like gap closures]
+\label{prop:new-nplus-zero-gap-closures}
+Every nonzero-gap state with $N_+=0$, no Vd1/Vd2 role, and at most two
+T3-like roles is impossible.
 \end{proposition}
 
 \begin{proof}
-Apply Proposition~\ref{prop:residual-hull-enclosure}.  The exact exclusion
-certificates are respectively
-Propositions~\ref{prop:nplus-zero-all-vd0},
-\ref{prop:nplus-zero-t3},
-\ref{prop:nplus-one-all-vd0},
-\ref{prop:nplus-one-one-t3}, and
-\ref{prop:paper-ce2-one-vd-placements}.  In the last item, a hypothetical
-smaller residual-enclosing C triangle that is CE1 is already excluded by the
-trace-length branch in Proposition~\ref{prop:length-branches}; the CE2 case is
-excluded by Proposition~\ref{prop:paper-ce2-one-vd-placements}.  A boundary
-gap excludes CE0 in every item.
+For one gap, normalize it to $[X(\ell),X(r)]$.  Strict handoffs on the other
+five edges and nonsupercriticality give
+\[
+ \ell\le x_5\le x_4\le x_3\le x_2\le x_1\le r.
+\]
+Put $p=1-r$, $q=\ell$, and $c_*=c_{\max}(p,q)$.  Every local boundary pair
+dominates $(p,q)$.  Lemmas~\ref{lem:new-type-aware-radial-forcing} and
+\ref{lem:new-common-pair-domination} force all six points
+$(1-c_*)V_i$ into $U_C$, even when one or two T3-like roles contribute an
+adjacent support term.  Their convex hull contains
+$\mathcal D_{h(1-c_*)}$.  The gap is $J(p,q)$, so Theorem
+\ref{thm:new-complementary-gap} contradicts containment in an open unit
+triangle.
+
+For two gaps, the state is CE2.  The four intervening center-free handoffs
+give the common pair
+\[
+ p=W-\alpha,
+ \qquad q=R-\delta
+\]
+on $T_1,\ldots,T_5$.  Type-aware neighboring capacities remain below the
+common own-ray capacity.  Theorem~\ref{thm:new-ce2-short-ray} forces one of
+the radial witnesses on $r_2,r_4$ beyond the center exit.
+\end{proof}
+
+\subsection{One gap, $N_+=1$, all V triangles $\Vdzero$}
+
+Let the gap be $[X(\ell),X(r)]$, and choose strict handoffs
+\[
+ x_5<x_4<x_3<x_2<x_1<r,
+ \qquad x_5<\ell.
+\]
+The selected pairs are
+\[
+ (a_0,b_0)=(1-x_5,\ell),
+ \qquad
+ (a_1,b_1)=(1-r,x_1),
+\]
+\[
+ (a_i,b_i)=(1-x_{i-1},x_i),
+ \qquad2\le i\le5.
+\]
+Let $C_i$ be the actual own-radial reach of $T_i$ and put
+\[
+ P_i=(1-C_i)V_i.
+ \tag{6.35}
+\]
+Every $P_i$ is missed by all V roles: it is an own-trace endpoint, adjacent
+roles are Vd0, and nonlocal roles are excluded by diameter.  Hence
+$P_i\in U_C$.
+
+\begin{proposition}[Anisotropic one-gap enclosure]
+\label{prop:new-nplus-one-all-vd0}
+The compact set
+\[
+ K_{410}=\{O,M_0,X(\ell),X(r),P_0,\ldots,P_5\}
+\]
+has
+\[
+ \boxed{\Lambda(K_{410})\ge1.}
+ \tag{6.36}
+\]
+\end{proposition}
+
+\begin{proof}
+Suppose an open unit triangle $U_C'$ contains $K_{410}$.  Together with the
+fixed V roles it covers the full skeleton: it covers the gap and, on every
+$r_i$, overlaps the V role at $P_i$.  Give $U_C'$ the signed center variables
+$R,W,E,\eta,P,\alpha,\delta$, and put
+\[
+ k=\eta+\alpha+\delta,
+ \qquad X=R-\delta,
+ \qquad Q=\frac{k}{2R}.
+\]
+The active trace gives
+\[
+ B_0\ge\frac{k}{R},
+ \qquad A_1\ge X.
+ \tag{6.37}
+\]
+Containment of $P_0$ gives $C_0\ge k$.  The adjacent-edge diameter inequality
+therefore gives
+\[
+ \boxed{A_0<1-Q.}
+ \tag{6.38}
+\]
+
+Assume first that $U_C'$ is CE2.  The signed inequalities are
+\[
+ \alpha+W\delta<P,
+ \qquad R\alpha+\delta<P.
+\]
+The low-root estimates give
+\[
+ \boxed{X>\epsilon(\alpha),
+ \qquad
+ \min\{\epsilon(\alpha),\epsilon(\delta)\}<Q.}
+ \tag{6.39}
+\]
+The first follows from
+$WX>\eta+\alpha$ and the selected quadratic; the second follows by adding
+the two signed inequalities after multiplication by $W,R$ and testing the
+same quadratic on $[0,(\alpha+\delta)]$.
+
+The five nonsupercritical roles satisfy the direct monotonicity
+\[
+ A_1\le A_2\le A_3\le A_4\le A_5\le A_0,
+ \tag{6.40}
+\]
+because each center-free edge gives $B_i+A_{i+1}\ge1$ and
+$A_i+B_i\le1$.  If $\epsilon(\alpha)<Q$, then
+$A_4>\epsilon(\alpha)$; Lemma~\ref{lem:new-direct-threshold} at $T_4$ gives
+$B_4\le\epsilon(\alpha)$, hence
+$A_5>1-Q$, contradicting (6.38).  Otherwise (6.39) gives
+$\epsilon(\delta)<Q$, and
+\[
+ A_2\ge X>\epsilon(\alpha)\ge Q>\epsilon(\delta).
+\]
+The threshold at $T_2$ gives $B_2\le\epsilon(\delta)$ and therefore
+$A_3>1-Q$, again contradicting (6.38).
+
+If $U_C'$ is CE1, Proposition~\ref{prop:new-ce1-direct-certificate} gives
+$A_0>1-Q$, contradicting (6.38).  Thus no open unit triangle contains
+$K_{410}$.
+\end{proof}
+
+
+\begin{figure}[p]
+\centering
+\resizebox{.72\linewidth}{!}{\input{figures/new_anisotropic_witness}}
+\caption{The anisotropic one-gap witness for $N_+=1$.  The proof retains all
+six actual radial endpoints $P_i$; replacing them by one common radius loses
+the terminal inequality near a vertex-degenerate gap.}
+\label{fig:new-anisotropic-witness}
+\end{figure}
+
+\input{06b_ce1_direct_certificate}
+
+For two gaps, Theorem~\ref{thm:new-ce2-short-ray} applies exactly as in
+Proposition~\ref{prop:new-nplus-zero-gap-closures}; no condition on the
+criticality of $T_0$ is needed.
+
+\input{06c_exceptional_direct_terminals}
+\input{06d_detailed_direct_certificates}
+\input{06e_direct_local_proof_details}
+\input{06f_casewise_witness_details}
+\input{06g_endpoint_selector_audit}
+
+\begin{proposition}[All nonzero-gap finite-enclosure rows]
+\label{prop:finite-enclosure-nonzero-gap-branches}
+Every nonzero-gap row of Table~\ref{tab:routing} assigned to Strategy~3 is
+impossible.
+\end{proposition}
+
+\begin{proof}
+The $N_+=0$ all-$\Vdzero$ and T3-like cases are Proposition
+\ref{prop:new-nplus-zero-gap-closures}.  The $N_+=1$ all-$\Vdzero$ row is
+Proposition~\ref{prop:new-nplus-one-all-vd0} together with the CE2 short-ray
+theorem for two gaps.  The exactly-one-T3-like and exactly-one-Vd1/Vd2 cases
+are Propositions~\ref{prop:new-one-t3-terminal} and
+\ref{prop:new-one-vd-assembly} below.
 \end{proof}
 
 \input{06_nine_point_full}
