@@ -7,6 +7,121 @@ triangle.  The contradiction is geometric: their least enclosing equilateral
 triangle has side at least one.  No boundary-reach map is iterated in this
 section.
 
+
+\subsection{Finite-enclosure case summary}
+
+Table~\ref{tab:finite-enclosure-subcases} records the complete case
+ownership of the third strategy.  The displayed sets are the finite
+center-forced witnesses retained in each normalized subcase; reflected
+and rotated placements are included.  The Vd2 neighboring-midpoint
+rescue and the additional-positive-support branch are not listed,
+because their shorter terminals belong to the trace-length strategy.
+
+\begingroup
+\scriptsize
+\renewcommand{\arraystretch}{1.08}
+\setlength{\tabcolsep}{3pt}
+\begin{longtable}{@{}p{.20\textwidth}p{.34\textwidth}p{.37\textwidth}@{}}
+\caption{Finite-enclosure subcases.  The first column records
+$(N_{\mathrm{gap}},N_+,(d,t))$ together with any necessary center or
+placement refinement.  Gap endpoints are included whenever a gap is
+displayed.}
+\label{tab:finite-enclosure-subcases}\\
+\toprule
+normalized subcase&center-forced finite set&enclosure terminal\\
+\midrule
+\endfirsthead
+\multicolumn{3}{c}{\tablename\ \thetable\ continued}\\
+\toprule
+normalized subcase&center-forced finite set&enclosure terminal\\
+\midrule
+\endhead
+\midrule
+\multicolumn{3}{r}{continued on the next page}\\
+\endfoot
+\bottomrule
+\endlastfoot
+
+$N_{\mathrm{gap}}=0$, $N_+=1$, $(d,t)=(0,0)$
+&the radial disk $\mathcal D_\eta$ and the three strict-supercritical
+frontier points $Q_-,Q_0,Q_+$
+&the exact nine-point support-cap theorem\\
+
+$N_{\mathrm{gap}}=1$, $N_+=0$, $(d,t)=(0,0)$,
+CE1 or CE2
+&$\mathcal D_{h(1-c_*)}$ and the complementary gap
+$J(p,q)$, where $c_*=c_{\max}(p,q)$
+&common-pair radial forcing followed by the complementary-gap
+enclosure theorem\\
+
+$N_{\mathrm{gap}}=2$, $N_+\in\{0,1\}$, $(d,t)=(0,0)$,
+CE2
+&$D_2,D_4$ and the two center-forced gap segments
+&the CE2 short-ray theorem: one of $D_2,D_4$ lies beyond the
+corresponding transverse center exit\\
+
+$N_{\mathrm{gap}}=1$, $N_+=0$,
+$(d,t)=(0,1)$ or $(0,2)$
+&the type-aware radial hexagon and the complementary gap
+&neighbor capacities are dominated by the common $c_{\max}$;
+apply the complementary-gap theorem\\
+
+$N_{\mathrm{gap}}=2$, $N_+=0$,
+$(d,t)=(0,1)$ or $(0,2)$, CE2
+&$D_2,D_4$ with the permitted T3-like neighbor terms and both gaps
+&common-pair domination followed by the CE2 short-ray theorem\\
+
+$N_{\mathrm{gap}}=1$, $N_+=1$, $(d,t)=(0,0)$, CE1
+&$K_{410}=\{O,M_0,X(\ell),X(r),P_0,\ldots,P_5\}$
+&the direct CE1 reverse actual-reach certificate; no formal transfer
+iterate is introduced\\
+
+$N_{\mathrm{gap}}=1$, $N_+=1$, $(d,t)=(0,0)$, CE2
+&the same anisotropic set $K_{410}$
+&the direct one-site radial-threshold dichotomy at $T_4$ or $T_2$\\
+
+$N_{\mathrm{gap}}=2$, $N_+=1$, $(d,t)=(0,0)$, CE2
+&$D_2,D_4$ and both gaps
+&the CE2 short-ray theorem; the criticality of $T_0$ is irrelevant\\
+
+$N_{\mathrm{gap}}=1$, $N_+=1$, $(d,t)=(0,1)$,
+CE1 or CE2
+&the O-side T3-like endpoint $P_T$, the gap endpoints, and the
+ordinary path radial endpoints
+&the direct adjacent-rescuer inequality and the four-role boundary
+path budget\\
+
+$N_{\mathrm{gap}}=2$, $N_+=1$, $(d,t)=(0,1)$, CE2
+&$D_2,D_4$ with the type-aware T3-like neighbor capacity and both
+gaps
+&the CE2 short-ray theorem\\
+
+$N_+ =1$, $(d,t)=(1,0)$, CE2;
+the Vd role is adjacent to supercritical $T_0$
+&one radial point $D_2$ defined by the maximum of the Vd neighbor
+reach and the following own-ray reach
+&direct separation of $D_2$ from the CE2 exit on $r_2$\\
+
+$N_+ =1$, $(d,t)=(1,0)$, CE2;
+the Vd role is nonadjacent to supercritical $T_0$
+&the Vd-specific radial point $D_\tau$
+&the Vd corner margin places $D_\tau$ beyond the corresponding
+center exit\\
+
+$N_+ =1$, $(d,t)=(1,0)$, CE2;
+$T_0$ is Vd1 and rescues a neighboring midpoint
+&the O-side supported-trace endpoint $P_{\mathrm{Vd1}}$, the gap
+endpoints, and the ordinary path radial endpoints
+&the direct Vd1 adjacent-rescuer inequality and boundary path budget\\
+
+$N_+ =1$, $(d,t)=(1,0)$, CE2;
+the Vd1--supercritical pair is away from $T_0$
+&the recomputed all-Vd0 witness set after the two-chart replacement
+&output gap rank zero uses the trace-length terminal; ranks one and
+two use the complementary-gap and short-ray theorems, respectively\\
+\end{longtable}
+\endgroup
+
 \input{06_direct_local_calculus}
 \input{06a_neighbor_ray_calculus}
 
