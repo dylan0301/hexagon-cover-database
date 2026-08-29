@@ -39,6 +39,7 @@ jobs:
           base64 --decode /tmp/no2-corrected-source.b64 > /tmp/no2-corrected-source.tar.xz
           echo '23b9db08254ed4e80abb75d9bdc77c6857d3c5feaff3bf74564048f439faaab0  /tmp/no2-corrected-source.tar.xz' | sha256sum --check
           tar -xJf /tmp/no2-corrected-source.tar.xz
+          sed -i 's/[[:space:]]\+$//' proof/0XXX_main/0001_proof_tree_index.md
           rm -f tools/.no2_corrected_payload_*.txt
           rm -f .github/workflows/no2-corrected-direct-proofs.yml
 
