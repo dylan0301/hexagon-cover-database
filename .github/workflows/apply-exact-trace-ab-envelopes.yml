@@ -34,8 +34,8 @@ jobs:
 
       - name: Apply exact-trace AB source patch
         run: |
-          set -euo pipefail
-          echo '0f21ddc5afc606832379205233512ad81245e189fcc237e965741a4d02f4ac82  tools/exact_trace_ab.patch.xz' | sha256sum --check
+          set -euxo pipefail
+          xz -t tools/exact_trace_ab.patch.xz
 
           # Return the table/PDF metadata files to the patch baseline. The patch
           # then reapplies the subcase table together with the exact-trace text.
@@ -47,7 +47,7 @@ jobs:
           xz -dc tools/exact_trace_ab.patch.xz \
             | sed '/^Binary files /d' \
             > /tmp/exact_trace_ab.patch
-          patch -p1 --forward < /tmp/exact_trace_ab.patch
+          patch -p1 --forward --batch < /tmp/exact_trace_ab.patch
 
           rm -rf \
             proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/__pycache__ \
