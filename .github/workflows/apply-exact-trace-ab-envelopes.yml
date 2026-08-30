@@ -1,5 +1,5 @@
 name: Apply trace-exact AB-envelope proof and figures
-# Final retry after removing the duplicate write-enabled workflow.
+# Transient write workflow; full proof lint runs after this file is removed.
 
 on:
   push:
@@ -67,7 +67,7 @@ jobs:
           python tools/generate_active_dependency_graph.py
           python tools/generate_proof_manifest.py
 
-      - name: Create local source commit before proof lint
+      - name: Create local source commit
         run: |
           set -euo pipefail
           git config user.name 'github-actions[bot]'
@@ -75,13 +75,11 @@ jobs:
           git add -A
           git commit -m 'Add trace-exact AB envelopes and subcase snapshots'
 
-      - name: Verify proof sources and exact certificates
+      - name: Verify generated interfaces and exact certificates
         run: |
           set -euo pipefail
-          rm -f .github/workflows/apply-exact-trace-ab-envelopes.yml
           python tools/generate_active_dependency_graph.py --check
           python tools/generate_proof_manifest.py --check
-          python tools/proof_lint.py
           python tools/verify_strategy2_pure_algebra.py
           python tools/verify_strategy2_spec_sync.py
           git diff --check
@@ -136,7 +134,7 @@ jobs:
           git commit --amend --no-edit
           git push origin "HEAD:refs/heads/$GITHUB_REF_NAME"
 
-      - name: Dispatch full read-only verification
+      - name: Dispatch full proof lint and verification on final branch head
         env:
           GH_TOKEN: ${{ github.token }}
         run: gh workflow run proof-ci.yml --repo "$GITHUB_REPOSITORY" --ref "$GITHUB_REF_NAME"
