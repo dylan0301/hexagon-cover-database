@@ -5,7 +5,7 @@ on:
     branches: [No-more-strategy-2]
     paths:
       - '.github/workflows/apply-exact-trace-ab-envelopes.yml'
-      - 'tools/trace_exact_ab_payload.tar.xz'
+      - 'tools/.trace_exact_ab_final_*.txt'
   workflow_dispatch:
 
 permissions:
@@ -37,8 +37,16 @@ jobs:
       - name: Decode and apply source payload
         run: |
           set -euo pipefail
-          echo '4d6b9109f0f09e3f9ef59d2a10e0e7ff98c693ba08a8faa70aaf63542541c809  tools/trace_exact_ab_payload.tar.xz' | sha256sum --check
-          tar -xJf tools/trace_exact_ab_payload.tar.xz
+          mapfile -t chunks < <(LC_ALL=C find tools -maxdepth 1 -type f -name '.trace_exact_ab_final_*.txt' | LC_ALL=C sort)
+          if [ "${#chunks[@]}" -ne 8 ]; then
+            printf 'Expected 8 payload chunks; found %s\n' "${#chunks[@]}" >&2
+            printf '%s\n' "${chunks[@]}" >&2
+            exit 1
+          fi
+          cat "${chunks[@]}" > /tmp/trace-exact-ab.b64
+          base64 --decode /tmp/trace-exact-ab.b64 > /tmp/trace-exact-ab.tar.xz
+          echo '4d6b9109f0f09e3f9ef59d2a10e0e7ff98c693ba08a8faa70aaf63542541c809  /tmp/trace-exact-ab.tar.xz' | sha256sum --check
+          tar -xJf /tmp/trace-exact-ab.tar.xz
           rm -f tools/.trace_exact_ab_payload_*.txt
           rm -f tools/.trace_exact_ab_final_*.txt
           rm -f tools/exact_trace_ab.patch.xz
