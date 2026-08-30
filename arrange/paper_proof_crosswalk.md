@@ -49,6 +49,8 @@ It proves:
 These are forward geometric implications. They do not define a residual hull
 and then cite an old case exclusion.
 
+At an actual gap $X_i([\ell,r])$, the endpoint identities are\n$\ell=B_i$ and $r=1-A_{i+1}$.  The local incident roles are represented by\nthe trace-exact AB envelopes proved in [`2009e`](../proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/2009e_trace_exact_ab_envelopes.md).  These are source-conditioned subunions of the ordinary AB-set, so the existing $c_{\max},C_+,C_-$ capacities remain safe, while the edge sections stop at the actual gap endpoints.  The interactive explorer and paper atlas are generated from this same model.
+
 ## 4. Active nonzero-gap proofs
 
 | Branch | Direct proof source | Mathematical terminal |

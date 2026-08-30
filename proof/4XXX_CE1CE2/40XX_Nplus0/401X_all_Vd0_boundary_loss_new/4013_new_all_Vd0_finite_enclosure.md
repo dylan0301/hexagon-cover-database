@@ -42,6 +42,38 @@ X(t)=V_0+t(V_1-V_0),
 0\le\ell\le r\le1.
 $$
 
+Because $J$ is the **actual** V-gap, its endpoints are the actual maximal
+incident reaches:
+
+$$
+\boxed{\ell=B_0,\qquad r=1-A_1.}
+\tag{0}
+$$
+
+Hence
+
+$$
+U_0\cap e_{0,1}=X([0,\ell)),
+\qquad
+U_1\cap e_{0,1}=X((r,1]),
+$$
+
+and every point of $J=X([\ell,r])$ is missed by the six open V roles.  For
+any selected opposite-edge lower bounds, the two incident closed roles are
+contained in the trace-exact AB envelopes
+
+$$
+\mathcal E_0^{\rightarrow}(a_0\mid\ell),
+\qquad
+\mathcal E_1^{\leftarrow}(1-r\mid b_1),
+$$
+
+from [`2009e`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/2009e_trace_exact_ab_envelopes.md).  Their closed sections on the common
+edge stop exactly at $X(\ell)$ and start exactly at $X(r)$.  These envelopes
+are used for the figures and for the exact gap bookkeeping; the radial bounds
+below remain the established ordinary AB capacities because the trace-exact
+envelopes are subunions of the ordinary AB-set.
+
 On the other five edges choose strict handoffs
 
 $$
@@ -107,7 +139,7 @@ $$
 $$
 
 The entire gap segment $J$ also lies in $U_C$.  The complementary-gap theorem
-[`2608`, Theorem 5.1](../../../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2608_residual_hull_finite_enclosure_principle.md)
+[`2608`, complementary-gap theorem](../../../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2608_residual_hull_finite_enclosure_principle.md)
 gives
 
 $$

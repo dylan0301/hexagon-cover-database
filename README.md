@@ -146,6 +146,8 @@ The following pages are visual references, not proof certificates:
 | [`interactive/strategy2demo.html`](interactive/strategy2demo.html) | historical propagation geometry and case overlays |
 | [`interactive/strategy2notation.html`](interactive/strategy2notation.html) | historical transfer notation and center data |
 | [`interactive/strategy4demo.html`](interactive/strategy4demo.html) | nine-point obstruction mechanism |
+| [`interactive/trace_exact_ab_envelope_explorer.html`](interactive/trace_exact_ab_envelope_explorer.html) | trace-exact AB envelopes, actual V-gaps, finite witnesses, and snapshot presets |
+| [`interactive/trace_exact_ab_presets.json`](interactive/trace_exact_ab_presets.json) | deterministic registry for the fifteen normalized visualization presets |
 
 To preview locally from the repository root:
 

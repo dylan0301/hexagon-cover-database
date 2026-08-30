@@ -324,6 +324,27 @@ $$
 But every $T_i$, $2\le i\le5$, is nonsupercritical, so the same sum is at
 most four.  This contradiction proves the theorem.
 
+If the normalized actual gap is $J=[X(\ell),X(r)]\subset e_{0,1}$,
+then
+
+$$
+\boxed{\ell=B_0,\qquad r=1-A_1.}
+$$
+
+For selected opposite-side lower bounds, the incident local closed footprints
+are contained in the trace-exact AB envelopes
+
+$$
+\mathcal E_0^{\rightarrow}(a_0\mid\ell),
+\qquad
+\mathcal E_1^{\leftarrow}(1-r\mid b_1),
+$$
+
+from
+[`2009e`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/2009e_trace_exact_ab_envelopes.md).  The T3-like radial endpoint $P_T$ is
+an additional center-forced witness; it does not replace the actual-gap
+identity.
+
 The finite center witness is the radial endpoint $P_T$, together with the
 actual boundary gap endpoints.  The proof uses only its forced center reach,
 the local T3-like inequality, and one direct boundary-path sum.

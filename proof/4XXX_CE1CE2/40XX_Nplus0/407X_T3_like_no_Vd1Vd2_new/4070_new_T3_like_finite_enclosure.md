@@ -29,6 +29,26 @@ $$
 J=[X(\ell),X(r)]\subset e_{0,1}.
 $$
 
+Here
+
+$$
+\boxed{\ell=B_0,\qquad r=1-A_1,}
+$$
+
+so the incident open traces are $X([0,\ell))$ and $X((r,1])$.  The actual
+roles are locally contained in the trace-exact envelopes
+
+$$
+\mathcal E_0^{\rightarrow}(a_0\mid\ell),
+\qquad
+\mathcal E_1^{\leftarrow}(1-r\mid b_1)
+$$
+
+of [`2009e`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/2009e_trace_exact_ab_envelopes.md).  This endpoint conditioning is compatible
+with a T3-like support direction because it restricts the source family rather
+than clipping its planar union.  In particular the full closed interval
+$J$—including a singleton—is center-forced.
+
 As in the all-Vd0 proof, strict handoffs on the other five edges and
 nonsupercriticality give
 

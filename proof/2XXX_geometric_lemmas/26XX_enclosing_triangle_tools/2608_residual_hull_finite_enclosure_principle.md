@@ -107,7 +107,61 @@ $$
 
 which gives the displayed formula after division by $h$.  $\square$
 
-## 3. Type-aware radial witnesses
+## 3. Trace-exact AB envelopes at an actual gap
+
+Suppose the actual V-gap on $e_{i,i+1}$ is
+
+$$
+J_i=X_i([\ell,r]).
+$$
+
+Then, by definition of the actual maximal reaches,
+
+$$
+\ell=B_i,
+\qquad
+r=1-A_{i+1}.
+\tag{17}
+$$
+
+The exact incident open traces are therefore
+
+$$
+U_i\cap e_{i,i+1}=X_i([0,\ell)),
+\qquad
+U_{i+1}\cap e_{i,i+1}=X_i((r,1]).
+\tag{18}
+$$
+
+The trace-exact AB envelopes from
+[`2009e`](../20XX_V_triangle_geometry/2009X_ab_set/2009e_trace_exact_ab_envelopes.md)
+provide safe local overapproximations of the two incident closed roles:
+
+$$
+T_i\cap\mathcal C_i
+\subseteq
+\mathcal E_i^{\rightarrow}(a_i\mid\ell),
+$$
+
+$$
+T_{i+1}\cap\mathcal C_{i+1}
+\subseteq
+\mathcal E_{i+1}^{\leftarrow}(1-r\mid b_{i+1}).
+\tag{19}
+$$
+
+Their closed sections on the common edge stop exactly at $X_i(\ell)$ and
+start exactly at $X_i(r)$.  The endpoints lie in the closures but not in the
+open V roles.  Hence the full closed interval $J_i$, including a singleton,
+is center-forced.
+
+The trace-exact envelopes are subunions of the ordinary AB-sets.  Therefore
+the ordinary capacities $c_{\max},C_+,C_-$ used below remain valid upper
+bounds.  This is the only interaction between the endpoint conditioning and
+the radial-witness construction.  In particular, no planar half-plane
+truncation of the ordinary AB-set is used.
+
+## 4. Type-aware radial witnesses
 
 Let the closed V role $T_i=\overline{U_i}$ contain selected boundary anchors
 at reaches $a_i,b_i$.  Let
@@ -150,7 +204,7 @@ $$
 D_i=(1-\Gamma_i)V_i.
 $$
 
-### Theorem 3.1
+### Theorem 4.1
 
 For every $i$,
 
@@ -191,7 +245,7 @@ $$
 A unit equilateral triangle has diameter one, so the three nonlocal roles are
 also excluded.  Full coverage forces $D_i\in U_C$.  $\square$
 
-## 4. Common-pair domination
+## 5. Common-pair domination
 
 Let $p,q\ge0$ with $p+q\le1$, and put
 
@@ -238,7 +292,7 @@ $$
 By coordinatewise antitonicity, the same conclusion holds for every actual
 boundary pair that dominates $(p,q)$.
 
-## 5. Complementary-gap obstruction
+## 6. Complementary-gap obstruction
 
 Let
 
@@ -383,7 +437,7 @@ $\rho\le2hd$ implies $d\ge1/2$, so $3d\ge1$.  Thus the conclusion holds in
 both branches.  Since the farther endpoint belongs to $J(p,q)$, the theorem
 follows.  $\square$
 
-## 6. CE2 two-gap short-ray obstruction
+## 7. CE2 two-gap short-ray obstruction
 
 Use the signed CE2 center variables from
 [`2109`](../21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md):

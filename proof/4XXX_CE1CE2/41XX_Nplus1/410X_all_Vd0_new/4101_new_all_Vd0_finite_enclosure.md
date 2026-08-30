@@ -49,6 +49,38 @@ $$
 J=[X(\ell),X(r)].
 $$
 
+By definition of an actual V-gap,
+
+$$
+\boxed{\ell=B_0,\qquad r=1-A_1.}
+\tag{2a}
+$$
+
+Thus
+
+$$
+U_0\cap e_{0,1}=X([0,\ell)),
+\qquad
+U_1\cap e_{0,1}=X((r,1]),
+\tag{2b}
+$$
+
+and the whole closed interval $J$ is center-forced.  If $a_0\le A_0$ and
+$b_1\le B_1$ are the selected opposite-side lower bounds, then the local
+closed footprints of the incident roles lie in
+
+$$
+\mathcal E_0^{\rightarrow}(a_0\mid\ell),
+\qquad
+\mathcal E_1^{\leftarrow}(1-r\mid b_1),
+\tag{2c}
+$$
+
+respectively, by the trace-exact AB-envelope theorem
+[`2009e`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/2009e_trace_exact_ab_envelopes.md).  This is the proof-level model used in
+the accompanying figures.  It is a source-conditioned subunion of the
+ordinary AB-set, not an affine clipping of that set.
+
 When there is one gap, define
 
 $$
@@ -154,7 +186,8 @@ define the selected low root
 
 $$
 e(d)=rac{1-d}{2}
-\left(1-\sqrt{4(1-d)^2-3}ight).
+\left(1-\sqrt{4(1-d)^2-3}
+ight).
 	ag{8a}
 $$
 

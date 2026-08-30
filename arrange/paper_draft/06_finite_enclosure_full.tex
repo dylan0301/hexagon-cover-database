@@ -122,6 +122,87 @@ two use the complementary-gap and short-ray theorems, respectively\\
 \end{longtable}
 \endgroup
 
+
+\subsection{Trace-exact AB envelopes at an actual gap}
+\label{subsec:trace-exact-ab-envelopes}
+
+The endpoints of a displayed V-gap are actual maximal reaches, not selected
+lower bounds.  If the gap on $e_{i,i+1}$ is
+\[
+ J_i=X_i([\ell,r]),
+ \qquad X_i(t)=V_i+t(V_{i+1}-V_i),
+\]
+then
+\[
+ \boxed{\ell=B_i,\qquad r=1-A_{i+1}.}
+ \tag{6.24a}
+\]
+Consequently the two incident open traces are exactly
+\[
+ U_i\cap e_{i,i+1}=X_i([0,\ell)),
+ \qquad
+ U_{i+1}\cap e_{i,i+1}=X_i((r,1]),
+ \tag{6.24b}
+\]
+and the whole closed interval $J_i$, including a singleton, is missed by the
+six open V roles and therefore lies in $U_C$.
+
+For visualization and local overapproximation it is useful to condition the
+ordinary AB-union on this actual endpoint.  If $S$ is a closed unit
+equilateral triangle with $V_i\in\interior S$, let $A_i(S),B_i(S)$ be its
+actual maximal backward and forward reaches.  Define
+\[
+ \mathcal E_i^{\rightarrow}(a\mid b)
+ =\bigcup\left\{S\cap\mathcal C_i:
+ A_i(S)\ge a,\ B_i(S)=b\right\},
+ \tag{6.24c}
+\]
+\[
+ \mathcal E_i^{\leftarrow}(a\mid b)
+ =\bigcup\left\{S\cap\mathcal C_i:
+ A_i(S)=a,\ B_i(S)\ge b\right\},
+ \tag{6.24d}
+\]
+where the union ranges over such closed unit triangles and
+$\mathcal C_i$ is the corner cone at $V_i$.  We call these sets the
+\emph{trace-exact AB envelopes}.  They are source-conditioned subunions of
+the ordinary AB-set, and their relevant closed edge sections are exactly
+\[
+ \mathcal E_i^{\rightarrow}(a\mid b)\cap e_{i,i+1}
+ =X_i([0,b]),
+\]
+\[
+ \mathcal E_{i+1}^{\leftarrow}(1-r\mid b')\cap e_{i,i+1}
+ =X_i([r,1]).
+ \tag{6.24e}
+\]
+Thus the actual incident roles are locally contained in
+\[
+ \mathcal E_i^{\rightarrow}(a_i\mid\ell),
+ \qquad
+ \mathcal E_{i+1}^{\leftarrow}(1-r\mid b_{i+1}),
+ \tag{6.24f}
+\]
+while the interval between the two exact traces is center-forced.
+
+The word ``trace-exact'' is essential.  These sets are not obtained by
+intersecting an ordinary AB-union with an affine half-plane through the gap
+endpoint: a source triangle whose edge trace stops at that endpoint can cross
+such a line elsewhere.  The valid operation restricts the source family to
+triangles having the prescribed actual maximal reach and then takes their
+union.  Since
+\[
+ \mathcal E_i^{\rightarrow}(a\mid b),\quad
+ \mathcal E_i^{\leftarrow}(a\mid b)
+ \subseteq \mathcal K_i(a,b),
+ \tag{6.24g}
+\]
+the already proved capacities $c_{\max},C_+,C_-$ remain valid radial upper
+bounds.  The proof uses these exact set inclusions; the figures below show
+dense samples of valid source triangles only as geometric guides.
+
+\input{06i_trace_exact_ab_atlas}
+
 \input{06_direct_local_calculus}
 \input{06a_neighbor_ray_calculus}
 

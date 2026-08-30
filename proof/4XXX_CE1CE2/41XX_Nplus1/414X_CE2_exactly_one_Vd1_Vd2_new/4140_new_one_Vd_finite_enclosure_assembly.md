@@ -2,6 +2,21 @@
 
 Status: Proven
 
+Every displayed boundary gap uses actual maximal incident reaches.  If
+$J=X_i([\ell,r])\subset e_{i,i+1}$, then
+
+$$
+\boxed{\ell=B_i,\qquad r=1-A_{i+1}.}
+$$
+
+For selected opposite-side lower bounds, the local closed footprints of the
+incident roles lie in the trace-exact AB envelopes
+$\mathcal E_i^{\rightarrow}(a_i\mid\ell)$ and
+$\mathcal E_{i+1}^{\leftarrow}(1-r\mid b_{i+1})$ from
+[`2009e`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/2009e_trace_exact_ab_envelopes.md).  The Vd1/Vd2 support restrictions are
+imposed inside this endpoint-conditioned source family.  No affine clipping
+of an ordinary AB-union is used.
+
 This package closes the nonzero-gap CE2 branch with exactly one Vd1/Vd2
 role without invoking a boundary-transfer composition.  The surviving
 placements are separated by the locations of the unique supercritical role

@@ -29,6 +29,9 @@ The finite-enclosure section is assembled from the following direct sources.
 |---|---|
 | `06_direct_local_calculus.tex` | support gauge, exact local admissibility, own-ray capacity, and selected direct chord estimates |
 | `06a_neighbor_ray_calculus.tex` | exact neighboring-ray capacity and type-aware radial exclusion |
+| `06i_trace_exact_ab_atlas.tex` | grouped snapshot atlas generated from endpoint-conditioned AB source families |
+| `figures/trace_exact_ab/*.png` | deterministic visualizations of ordinary AB-unions, trace-exact envelopes, actual gaps, and finite witnesses |
+| `../../interactive/trace_exact_ab_envelope_explorer.html` | interactive version of the same endpoint-conditioned source-family model |
 | `06b_ce1_direct_certificate.tex` | direct CE1 one-gap reverse boundary path and scalar contradiction, with no composed transfer map |
 | `06c_exceptional_direct_terminals.tex` | T3-like and Vd1 supported-trace endpoints and direct path budgets |
 | `06d_detailed_direct_certificates.tex` | complementary-gap, CE2 one-gap, CE2 short-ray, and Vd separation calculations |
