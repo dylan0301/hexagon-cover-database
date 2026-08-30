@@ -1,0 +1,137 @@
+name: Apply trace-exact AB-envelope proof and figures
+
+on:
+  push:
+    branches: [No-more-strategy-2]
+    paths:
+      - '.github/workflows/apply-trace-exact-ab-envelopes.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: apply-trace-exact-ab-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  SOURCE_DATE_EPOCH: '946684800'
+  FORCE_SOURCE_DATE: '1'
+  TZ: UTC
+
+jobs:
+  apply-build-commit:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+
+      - name: Decode and apply source payload
+        run: |
+          set -euo pipefail
+          LC_ALL=C cat tools/.trace_exact_ab_final_*.txt > /tmp/trace-exact-ab.b64
+          base64 --decode /tmp/trace-exact-ab.b64 > /tmp/trace-exact-ab.tar.xz
+          echo '4d6b9109f0f09e3f9ef59d2a10e0e7ff98c693ba08a8faa70aaf63542541c809  /tmp/trace-exact-ab.tar.xz' | sha256sum --check
+          tar -xJf /tmp/trace-exact-ab.tar.xz
+          rm -f tools/.trace_exact_ab_payload_*.txt
+          rm -f tools/.trace_exact_ab_final_*.txt
+          rm -f tools/exact_trace_ab.patch.xz
+          rm -f .github/workflows/apply-exact-trace-ab-envelopes.yml
+          rm -f .github/workflows/apply-trace-exact-ab-envelopes.yml
+
+      - name: Install proof and visual dependencies
+        run: |
+          python -m pip install --disable-pip-version-check -r requirements-proof.txt
+          python -m pip install --disable-pip-version-check numpy scipy matplotlib shapely
+
+      - name: Generate trace-exact HTML and paper snapshots
+        run: python tools/generate_trace_exact_ab_assets.py
+
+      - name: Regenerate proof graph and manifest
+        run: |
+          python tools/generate_active_dependency_graph.py
+          python tools/generate_proof_manifest.py
+
+      - name: Verify proof sources and exact certificates
+        run: |
+          set -euo pipefail
+          python tools/generate_active_dependency_graph.py --check
+          python tools/generate_proof_manifest.py --check
+          python tools/proof_lint.py
+          python tools/verify_strategy2_pure_algebra.py
+          python tools/verify_strategy2_spec_sync.py
+          git diff --check
+          cd proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation
+          python verify_mixed_overlap_core_derivation.py
+          python verify_global_core_positivity.py
+
+      - name: Build paper twice in pinned TeX Live 2025
+        uses: xu-cheng/texlive-action@22c04326a5d855880f9d39bb955138bf11c6df80
+        with:
+          docker_image: >-
+            ghcr.io/xu-cheng/texlive-historic-debian:2025@sha256:d3e42adc0c8d84bc913bfc33571feaf7037616260a771bb6f027504661568bf6
+          run: |
+            set -euo pipefail
+            export SOURCE_DATE_EPOCH=946684800 FORCE_SOURCE_DATE=1 TZ=UTC
+            cd arrange/paper_draft
+            build_pdf() {
+              local output="$1" log_copy="$2"
+              rm -f main.pdf main.aux main.fdb_latexmk main.fls main.log main.out main.toc main.xdv main.synctex.gz
+              latexmk -xelatex -interaction=nonstopmode -halt-on-error -file-line-error main.tex
+              if grep -Eq 'LaTeX Warning: (Reference .* undefined|There were undefined references|Label .* multiply defined)' main.log; then exit 1; fi
+              if grep -Eq 'Overfull \\hbox|Overfull \\vbox' main.log; then grep -E 'Overfull \\hbox|Overfull \\vbox' main.log; exit 1; fi
+              cp main.pdf "$output"
+              cp main.log "$log_copy"
+            }
+            build_pdf main.rebuilt1.pdf main.rebuilt1.log
+            build_pdf main.rebuilt2.pdf main.rebuilt2.log
+            cp main.rebuilt2.pdf main.pdf
+            cp main.rebuilt2.log main.log
+            rm -f main.aux main.fdb_latexmk main.fls main.out main.toc main.xdv main.synctex.gz
+
+      - name: Audit paper and refresh verification summary
+        run: |
+          set -euo pipefail
+          python tools/compare_pdfs_semantically.py arrange/paper_draft/main.rebuilt1.pdf arrange/paper_draft/main.rebuilt2.pdf --dpi 144
+          python - <<'PY'
+          import fitz
+          pages = fitz.open('arrange/paper_draft/main.pdf').page_count
+          print('pages:', pages)
+          if not 84 <= pages <= 104:
+              raise SystemExit(pages)
+          PY
+          python tools/verify_pdf_render.py arrange/paper_draft/main.pdf
+          python tools/generate_verification_summary.py
+          rm -f arrange/paper_draft/main.rebuilt1.pdf arrange/paper_draft/main.rebuilt2.pdf arrange/paper_draft/main.rebuilt1.log arrange/paper_draft/main.rebuilt2.log
+          git diff --check
+
+      - name: Commit and push actual sources and artifacts
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'Add trace-exact AB envelopes and subcase snapshots'
+          git push origin "HEAD:refs/heads/$GITHUB_REF_NAME"
+
+      - name: Dispatch full read-only verification
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run proof-ci.yml --repo "$GITHUB_REPOSITORY" --ref "$GITHUB_REF_NAME"
+
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: trace-exact-ab-paper
+          path: |
+            arrange/paper_draft/main.pdf
+            arrange/CURRENT_VERIFICATION_SUMMARY.txt
+            interactive/trace_exact_ab_envelope_explorer.html
+            interactive/trace_exact_ab_presets.json
+          if-no-files-found: error
