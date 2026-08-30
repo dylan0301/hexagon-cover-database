@@ -77,6 +77,7 @@ jobs:
       - name: Verify proof sources and exact certificates
         run: |
           set -euo pipefail
+          rm -f .github/workflows/apply-exact-trace-ab-envelopes.yml
           python tools/generate_active_dependency_graph.py --check
           python tools/generate_proof_manifest.py --check
           python tools/proof_lint.py
@@ -129,6 +130,7 @@ jobs:
       - name: Amend local commit with canonical artifacts and push
         run: |
           set -euo pipefail
+          rm -f .github/workflows/apply-exact-trace-ab-envelopes.yml
           git add -A
           git commit --amend --no-edit
           git push origin "HEAD:refs/heads/$GITHUB_REF_NAME"
