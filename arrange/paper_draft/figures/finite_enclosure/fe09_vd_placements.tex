@@ -7,14 +7,14 @@
   \node[panellabel,anchor=west] at (-.02,2.28)
     {(a) adjacent Vd role: an uncovered interval on $r_2$};
   \draw[flow] (0,1.12)--(1,1.12);
-  \fill (0,1.12) circle (.017) node[left=2pt,figlabel] {$O$};
-  \fill (1,1.12) circle (.017) node[right=2pt,figlabel] {$V_2$};
+  \fill (0,1.12) circle (.017) node[left=2pt,figlabel] {$V_2$};
+  \fill (1,1.12) circle (.017) node[right=2pt,figlabel] {$O$};
   \coordinate (U) at (.46,1.12);
   \coordinate (C) at (.58,1.12);
   \coordinate (Q) at (.74,1.12);
-  \draw[VertexOrange,line width=1.1pt] (1,1.19)--(U);
-  \draw[RadialTeal,line width=1.1pt] (1,1.05)--(C);
-  \draw[centertrace] (0,1.12)--(Q);
+  \draw[VertexOrange,line width=1.1pt] (0,1.19)--(U);
+  \draw[RadialTeal,line width=1.1pt] (0,1.05)--(C);
+  \draw[centertrace] (Q)--(1,1.12);
   \fill[VertexOrange] (U) circle (.021) node[above=3pt,figlabel] {$u_{1\to2}$};
   \fill[RadialTeal] (C) circle (.021) node[below=3pt,figlabel] {$C_2$};
   \fill[CenterBlue] (Q) circle (.022) node[above=3pt,figlabel] {$q_2=1-\delta$};
@@ -22,7 +22,8 @@
   \fill[DemandRed] (.66,1.12) circle (.022)
     node[below=3pt,figlabel] {$Z_2$};
   \node[figlabel,align=center] at (.5,.10)
-    {$u_{1\to2},C_2<q_2$; choose any $Z_2$ in the displayed interval};
+    {$u_{1\to2},C_2<q_2$; choose any $Z_2$ in the displayed interval\\
+     coordinate is measured from $V_2$ toward $O$};
 \end{tikzpicture}%
 }
 \end{minipage}\hfill
@@ -100,7 +101,9 @@
 }
 \end{minipage}
 \caption{The four geometric terminals in the one-Vd placement assembly.
-The adjacent placement leaves a literal uncovered interval on $r_2$; the
+In the adjacent placement the radial coordinate is measured from $V_2$
+toward $O$; the two local V endpoints lie before the center interval entry
+$q_2=1-\delta$, leaving a literal uncovered interval on $r_2$.  The
 nonadjacent placement produces the point
 $D_\tau=\min\{\rho_R,\rho_L\}V_\tau$ beyond both the Vd and center traces;
 the Vd1 midpoint rescue uses the same O-side endpoint construction as the
