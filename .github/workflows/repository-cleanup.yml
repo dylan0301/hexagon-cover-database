@@ -107,9 +107,8 @@ jobs:
           PY
           git diff --check
 
-      - name: Create one squashed cleanup commit and force-update the branch
+      - name: Commit and push the validated cleanup
         env:
-          BASE_SHA: 399fdd69f21d7ad1bcf12e4cbd726857395e60d0
           TARGET_BRANCH: cleanup-formalization-and-auxiliary-files
         run: |
           set -euo pipefail
@@ -117,7 +116,5 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -A
           git diff --cached --stat
-          tree_sha="$(git write-tree)"
-          commit_sha="$(printf '%s\n' 'Simplify repository after removing formalization' | git commit-tree "$tree_sha" -p "$BASE_SHA")"
-          git push --force origin "$commit_sha:refs/heads/$TARGET_BRANCH"
-          echo "cleanup_commit=$commit_sha" >> "$GITHUB_OUTPUT"
+          git commit -m 'Simplify repository after removing formalization'
+          git push origin "HEAD:refs/heads/$TARGET_BRANCH"
