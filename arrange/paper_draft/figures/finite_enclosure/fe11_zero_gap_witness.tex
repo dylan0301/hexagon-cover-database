@@ -1,0 +1,55 @@
+\begin{figure}[!htbp]
+\centering
+\resizebox{.76\linewidth}{!}{%
+\begin{tikzpicture}[scale=3.0,>=Latex]
+  \HexCoords
+  \DrawHexagon
+  \DrawRays
+
+  \foreach \i in {0,...,5}{
+    \coordinate (D\i) at ($(O)!.16!(V\i)$);
+    \fill[DemandRed] (D\i) circle (.018);
+  }
+  \draw[DemandRed!65,line width=.65pt]
+    (D0)--(D1)--(D2)--(D3)--(D4)--(D5)--cycle;
+  \draw[CenterBlue,dashed,fill=CenterBlue!7,line width=.75pt]
+    (O) circle ({.16*sqrt(3)/2});
+
+  \coordinate (Qm) at (-.18,-.50);
+  \coordinate (Qz) at (-.02,-.62);
+  \coordinate (Qp) at (.17,-.52);
+  \fill[GapPurple] (Qm)--++(.025,.043)--++(.025,-.043)--cycle;
+  \fill[GapPurple] (Qz)--++(.025,.043)--++(.025,-.043)--cycle;
+  \fill[GapPurple] (Qp)--++(.025,.043)--++(.025,-.043)--cycle;
+  \node[figlabel,left=2pt] at (Qm) {$Q_-$};
+  \node[figlabel,below=2pt] at (Qz) {$Q_0$};
+  \node[figlabel,right=2pt] at (Qp) {$Q_+$};
+  \node[figlabel,right] at (D0) {$D_0$};
+  \node[figlabel,above right] at (D1) {$D_1$};
+  \node[figlabel,below left] at (D4) {$D_4$};
+  \fill (O) circle (.012) node[above left=1pt,figlabel] {$O$};
+
+  \draw[centerrole]
+    (-.49,-.73)--(.50,-.72)--(.02,.24)--cycle;
+  \node[figlabel,text=CenterBlue] at (.43,-.63) {putative $U_C$};
+
+  \node[figlabel,atlasbox,align=left,anchor=west] at (1.20,.55)
+    {six symmetric points: $D_i=(1-c_*)V_i$\\
+     three asymmetric points: $Q_-,Q_0,Q_+$\\
+     $\mathcal D_{h(1-c_*)}\subset\operatorname{conv}\{D_i\}$};
+  \draw[flow] (1.15,.30)--(.34,.05);
+
+  \node[figlabel,align=center] at (0,-1.22)
+    {$K_{\rm wit}=\mathcal D_{h(1-c_*)}\cup\{Q_-,Q_0,Q_+\}
+      \subset U_C$ under a hypothetical cover};
+\end{tikzpicture}%
+}
+\caption{The zero-gap nine-point witness.  The six symmetric radial points
+force a centered disk into the convex C triangle, while the three asymmetric
+frontier points supply the missing directional support.  Marker shapes
+separate the two constructions: circles are radial witnesses and triangles
+are strict-supercritical $AB$-frontier witnesses.  The displayed placement is
+illustrative; the point definitions are the exact ones in the preceding
+lemmas.}
+\label{fig:zero-gap-nine-point-witness}
+\end{figure}

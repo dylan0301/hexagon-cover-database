@@ -1,0 +1,93 @@
+\begin{figure}[!htbp]
+\centering
+\begin{minipage}[t]{.32\linewidth}
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[x=5.2cm,y=1cm,>=Latex]
+  \node[panellabel,anchor=west] at (0,1.35) {(a) actual open traces};
+  \draw[line width=.75pt] (0,0)--(1,0);
+  \draw[actualreach] (0,.06)--(.31,.06);
+  \draw[actualreach] (.72,-.06)--(1,-.06);
+  \draw[gap] (.31,0)--(.72,0);
+  \fill (0,0) circle (.018) node[below=3pt,figlabel] {$V_i$};
+  \fill (1,0) circle (.018) node[below=3pt,figlabel] {$V_{i+1}$};
+  \draw[VertexOrange,fill=white,line width=.7pt] (.31,0) circle (.026);
+  \fill[CenterBlue] (.31,0) circle (.011);
+  \draw[VertexOrange,fill=white,line width=.7pt] (.72,0) circle (.026);
+  \fill[CenterBlue] (.72,0) circle (.011);
+  \node[figlabel,above] at (.31,.12) {$X_i(\ell)$};
+  \node[figlabel,above] at (.72,.12) {$X_i(r)$};
+  \node[figlabel,align=center] at (.5,-.62)
+    {$U_i:\ [0,\ell)$\qquad$U_{i+1}:\ (r,1]$\\
+     $J_i=[X_i(\ell),X_i(r)]\subset U_C$};
+  \draw[flow] (.12,.82)--(.28,.82);
+  \node[figlabel,anchor=west] at (.31,.82) {coordinate $t:0\to1$};
+\end{tikzpicture}%
+}
+\end{minipage}\hfill
+\begin{minipage}[t]{.32\linewidth}
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[x=1cm,y=1cm,>=Latex]
+  \node[panellabel,anchor=west] at (-.15,2.95) {(b) source-conditioned union};
+  \coordinate (V) at (0,0);
+  \draw[black!45,line width=.7pt] (V)--(3.2,0);
+  \draw[black!45,line width=.7pt] (V)--(1.6,2.77);
+  \fill[VertexOrange!14]
+    (0,0)--(2.55,0).. controls (2.05,.65) and (1.68,1.25)..(1.05,1.82)--cycle;
+  \fill[CenterBlue!12]
+    (0,0)--(1.05,1.82).. controls (1.45,1.65) and (2.05,1.15)..(2.55,0)--cycle;
+  \draw[VertexOrange,line width=.95pt]
+    (2.55,0).. controls (2.05,.65) and (1.68,1.25)..(1.05,1.82);
+  \draw[CenterBlue,line width=.95pt]
+    (1.05,1.82).. controls (1.45,1.65) and (2.05,1.15)..(2.55,0);
+  \node[figlabel,text=VertexOrange,align=center] at (2.32,.45)
+    {$\mathcal E_i^{\rightarrow}$\\fixed actual endpoint};
+  \node[figlabel,text=CenterBlue,align=center] at (1.13,1.17)
+    {$\mathcal E_{i+1}^{\leftarrow}$};
+  \begin{scope}[shift={(3.72,.15)},scale=.62]
+    \draw[black!45] (0,0)--(2.4,0)--(1.2,2.08)--cycle;
+    \draw[GapPurple,dashed,line width=1pt] (-.1,.72)--(2.5,.72);
+    \draw[DemandRed,line width=1.3pt] (.25,.3)--(2.15,1.78);
+    \draw[DemandRed,line width=1.2pt] (.3,1.8)--(2.1,.1);
+    \node[DemandRed,font=\Large] at (1.2,1.03) {$\times$};
+    \node[figlabel,align=center] at (1.2,-.45)
+      {not a half-plane clip};
+  \end{scope}
+\end{tikzpicture}%
+}
+\end{minipage}\hfill
+\begin{minipage}[t]{.32\linewidth}
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[x=1cm,y=1cm,>=Latex]
+  \node[panellabel,anchor=west] at (-.25,2.95) {(c) equilateral support gauge};
+  \fill[black!7]
+    (-.35,.05)--(.25,-.35)--(1.1,-.18)--(1.48,.52)--(.75,1.32)--(-.15,1.05)--cycle;
+  \draw[black!65,line width=.8pt]
+    (-.35,.05)--(.25,-.35)--(1.1,-.18)--(1.48,.52)--(.75,1.32)--(-.15,1.05)--cycle;
+  \node[figlabel] at (.55,.48) {$K$};
+  \draw[CenterBlue,line width=1pt]
+    (-1.05,-.85)--(2.08,-.32)--(.06,2.12)--cycle;
+  \draw[flow] (.15,2.25)--(.15,2.75) node[above,figlabel] {$n$};
+  \draw[flow] (2.1,-.42)--(2.55,-.68) node[right,figlabel] {$\mathsf Rn$};
+  \draw[flow] (-1.02,-.95)--(-1.38,-1.28) node[left,figlabel] {$\mathsf R^2n$};
+  \draw[black!35,dashed] (.75,1.32)--(.15,2.25);
+  \draw[black!35,dashed] (1.48,.52)--(2.1,-.42);
+  \draw[black!35,dashed] (-.35,.05)--(-1.02,-.95);
+  \node[figlabel,align=center] at (.5,-1.43)
+    {$\displaystyle \Lambda(K)=\frac1h\min_{\lVert n\rVert=1}
+      \sum_{j=0}^{2}h_K(\mathsf R^jn)$};
+\end{tikzpicture}%
+}
+\end{minipage}
+\caption{Three conventions used throughout the finite-enclosure argument.
+(a) A hollow outer marker records nonmembership in an open V trace, while the
+filled center marker records selection of the same endpoint as a center-forced
+witness.  (b) A trace-exact envelope is obtained by restricting the source
+family to the prescribed actual maximal reach and then taking its union; it is
+not an affine half-plane clipping.  (c) Equilateral enclosure is measured by
+three support directions separated by $120^\circ$.  Incidences and interval
+orders are exact; lengths are schematic.}
+\label{fig:trace-exact-semantics-and-gauge}
+\end{figure}

@@ -1,0 +1,232 @@
+\subsection{Casewise construction of the forced finite sets}
+\label{subsec:new-casewise-witness-details}
+
+We now record the finite set used in each combinatorial row, including the
+open-endpoint issues.  This makes the Strategy~3 ownership independent of the
+former reach-propagation chapter.
+
+\subsubsection{One gap and no supercritical V role}
+
+Normalize the only gap to
+\[
+ J=[B_0,1-A_1]=[\ell,r]\subset e_{0,1}.
+\]
+On every other edge choose an open-overlap point with coordinate $x_i$.
+Because $A_i+B_i\le1$, one has
+\[
+ x_1\le r,
+ \qquad
+ x_i\le x_{i-1}\quad(2\le i\le5),
+ \qquad
+ x_5\ge\ell.
+ \tag{6.72}
+\]
+The endpoint inequalities remain valid when a gap or overlap degenerates to a
+singleton; the strict open choices are obtained by an arbitrarily small
+perturbation and the final enclosure number is continuous.
+
+Put $p=1-r$ and $q=\ell$.  For $T_1$, the two selected lower demands are
+$p$ and $x_1\ge q$.  For $2\le i\le5$, they are
+$1-x_{i-1}\ge p$ and $x_i\ge q$.  At $T_0$, they are
+$1-x_5\ge p$ and $q$.  Thus every local role dominates $(p,q)$.
+
+Let $c_*=c_{\max}(p,q)$.  The own role cannot contain
+$(1-c_*)V_i$ by the definition of $c_{\max}$.  If an adjacent role is Vd0,
+it has no positive interval on $r_i$.  If it is T3-like, its unique adjacent
+capacity is $C_+$ or $C_-$ and is at most $c_*$ by
+Lemma~\ref{lem:new-common-pair-domination}.  The other roles are excluded by
+diameter.  Hence
+\[
+ (1-c_*)V_i\in U_C
+ \qquad(0\le i\le5).
+ \tag{6.73}
+\]
+The six points form a regular hexagon of circumradius $1-c_*$.  The convex
+center role therefore contains its inball
+\[
+ \mathcal D_{h(1-c_*)}.
+\]
+The gap segment is exactly $J(p,q)$.  This proves the hypotheses of
+Theorem~\ref{thm:new-complementary-gap} without any abstract residual-hull
+argument.
+
+\subsubsection{The T3-like neighboring capacity}
+
+We verify directly that the T3-like supported endpoint is the radical branch
+of Proposition~\ref{prop:new-neighbor-ray-formula}.  Use the translated
+T3-like normal form with boundary reaches $a,b$ and shape parameter $D$.
+The support-side relation is
+\[
+ R_0^2-DR_0+D^2=1,
+\]
+and the far endpoint on the forward neighboring ray is
+\[
+ u=1+a-\frac{R_0}{D}.
+\]
+The boundary reaches satisfy
+\[
+ a+b=\frac1D.
+\]
+Solving the quadratic for $R_0/D$ gives
+\[
+ \frac{R_0}{D}
+ =\frac{1+\sqrt{4(a+b)^2-3}}2.
+\]
+Therefore
+\[
+ \boxed{
+ u=a+\frac12-\sqrt{(a+b)^2-\frac34},
+ }
+ \tag{6.74}
+\]
+which is exactly the final radical branch of $C_+(a,b)$.  Thus no additional
+T3-specific radial function occurs in the one-gap proof.
+
+A T3-like role is nonsupercritical.  Hence its boundary sum is at most one,
+and (6.74) is bounded by
+\[
+1-\min\{a,b\}\le c_{\max}(p,q)
+\]
+whenever $(a,b)$ dominates the common pair $(p,q)$.  This is the explicit
+reason why one or two T3-like roles do not shrink the regular radial witness
+hexagon in Proposition~\ref{prop:new-nplus-zero-gap-closures}.
+
+\subsubsection{Two gaps}
+
+For CE2, write the two center intervals as
+\[
+ I_L=\left[\frac{k}{W},R+\alpha\right],
+ \qquad
+ I_R=\left[\frac{k}{R},W+\delta\right].
+\]
+If both contain gaps, then the incident endpoint roles give
+\[
+ A_1\ge R-\delta=q,
+ \qquad
+ B_5\ge W-\alpha=p.
+\]
+Choose handoffs $x_1,\ldots,x_4$ on the four intervening edges.  The five
+nonsupercritical roles give
+\[
+ p<x_4<x_3<x_2<x_1<1-q.
+ \tag{6.75}
+\]
+Every one of $T_1,\ldots,T_5$ therefore dominates $(p,q)$.  In particular,
+the two transverse witnesses
+\[
+ D_2=(1-c_{\max}(p,q))V_2,
+ \qquad
+ D_4=(1-c_{\max}(p,q))V_4
+\]
+are excluded from all V roles.  The center exits at distances
+$\delta$ and $\alpha$ on these two rays.  Theorem
+\ref{thm:new-ce2-short-ray} states that one witness lies strictly beyond its
+exit.  This argument does not inspect $A_0+B_0$, so it simultaneously handles
+$N_+=0$ and $N_+=1$.
+
+\subsubsection{One gap, one supercritical Vd0 role}
+
+In the all-Vd0 branch, define the six actual radial endpoints
+\[
+ P_i=(1-C_i)V_i.
+\]
+Because $U_i$ is open, the endpoint does not belong to $U_i$.  The adjacent
+roles have no positive support on $r_i$, and nonlocal roles are separated by
+distance.  Hence $P_i\in U_C$.
+
+Suppose a second open unit triangle $U'$ contains
+\[
+ O,M_0,X(\ell),X(r),P_0,\ldots,P_5.
+\]
+The fixed six V roles together with $U'$ cover every radial arm: $U'$ contains
+$[O,P_i]$, and $U_i$ contains a relatively open interval from $V_i$ past every
+point short of $P_i$.  They also cover the perimeter, since the unique missing
+boundary component is the gap and $U'$ contains its two endpoints and hence
+its full segment.  Thus all direct midpoint and signed-center conclusions
+apply to $U'$.
+
+If $d_i'$ is the exit of $U'$ on $r_i$, containment of $P_i$ says
+\[
+ d_i'\ge1-C_i,
+ \qquad
+ C_i\ge1-d_i'.
+ \tag{6.76}
+\]
+This is the only connection between the finite set and the local reach
+calculation.  In CE2, (6.76) supplies radial reaches $1-\alpha$ at $T_4$ and
+$1-\delta$ at $T_2$; the direct threshold alternatives of the proof of
+Proposition~\ref{prop:new-nplus-one-all-vd0} contradict the terminal bound at
+$T_0$.  In CE1, (6.76) supplies the reaches used by Proposition
+\ref{prop:new-ce1-direct-certificate}.  No statement about a residual polygon
+is substituted for these actual endpoint facts.
+
+For a singleton gap, replace $r=\ell$ by $r_n>\ell$ with $r_n\downarrow\ell$.
+The diameter inequalities and the unique-supercritical pattern persist for
+large $n$.  The witness sets converge in the Hausdorff metric, and
+$\Lambda$ is continuous by the support formula.  Hence the positive-length
+proof passes to the singleton limit.
+
+\subsubsection{The T3-like rescuer endpoint}
+
+In Proposition~\ref{prop:new-one-t3-terminal}, the finite point
+$P_T=(1-u)V_1$ is forced into the center for a stronger reason than a generic
+radial capacity.  The T3-like open trace begins at the vertex side at $c$ and
+ends at $u$, so its O-side endpoint is not in the open role.  The adjacent
+supercritical role misses $M_1$ and therefore, by convexity, misses the entire
+O-side segment.  All remaining roles are Vd0.  Thus the segment from $O$ to
+$P_T$ is owned by the center.
+
+The two inequalities (6.44) then compare the far boundary tail with the one
+free strict-supercritical envelope.  They do not propagate a numerical state
+through the four middle roles.  Instead, adding the four actual edge-cover
+inequalities gives one path budget:
+\[
+(A_2+B_2)+(A_3+B_3)+(A_4+B_4)+(A_5+B_5)
+\ge4+h_T-B_1>4.
+\]
+This direct sum is the full global contradiction.
+
+\subsubsection{The Vd radial points}
+
+In the adjacent Vd placement, define
+\[
+ q_2=1-\delta.
+\]
+The two roles capable of reaching the center interval on $r_2$ have exact
+far endpoints bounded by
+\[
+ u_{1\to2}<q_2,
+ \qquad
+ C_2<q_2.
+\]
+Therefore any point of $r_2$ between the larger of these two endpoints and
+$q_2$ is missed by all seven roles.  This is a literal one-point obstruction,
+not a perimeter reformulation.
+
+In the nonadjacent placement, the point
+\[
+ D_\tau=\min\{\rho_R,\rho_L\}V_\tau
+\]
+is beyond the Vd own-radial trace by (6.70), and beyond the center trace by
+(6.49).  Its adjacent roles are Vd0 and its nonlocal roles are separated by
+diameter.  This is again a literal uncovered point.
+
+In the Vd1 rescue placement, the O-side endpoint of the supported interval
+plays exactly the same role as $P_T$ in the T3-like case.  Only the local
+normal-form proof of the two inequalities changes; the center-hiding and
+four-role boundary sum are identical.
+
+\subsubsection{The corrected replacement placement}
+
+When neither distinguished role is based at $V_0$ and the exceptional role is
+Vd1, the shared edge is center-free.  The corrected replacement constructs
+one nonsupercritical Vd0 role in each of the two correct vertex charts.  It
+preserves all six boundary and radial skeleton traces needed for coverage but
+does not claim to preserve the number of gaps.  After replacement, recompute
+$N'_{\rm gap}$.
+
+If $N'_{\rm gap}=0$, the six nonsupercritical Vd0 roles cover the perimeter,
+contradicting the strict boundary-overlap sum.  If $N'_{\rm gap}=1$, use the
+common radial disk and complementary gap.  If $N'_{\rm gap}=2$, use the two
+transverse short-ray witnesses.  Hence the replacement terminal has no return
+to a reach-composition argument.

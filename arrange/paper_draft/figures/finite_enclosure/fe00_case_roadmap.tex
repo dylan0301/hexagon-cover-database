@@ -1,0 +1,53 @@
+\begin{figure}[!htbp]
+\centering
+\resizebox{.98\linewidth}{!}{%
+\begin{tikzpicture}[
+  x=1cm,y=1cm,>=Latex,
+  route/.style={draw=black!35,rounded corners=2pt,align=center,
+    minimum height=.78cm,text width=3.15cm,font=\scriptsize,fill=black!2},
+  terminal/.style={draw=RadialTeal,rounded corners=2pt,align=center,
+    minimum height=.78cm,text width=3.15cm,font=\scriptsize,fill=RadialTeal!7},
+  lead/.style={-{Stealth[length=1.8mm]},draw=black!55,line width=.65pt}
+]
+  \node[route,text width=2.75cm,fill=CenterBlue!8,draw=CenterBlue]
+    (root) at (0,0) {finite-enclosure state};
+
+  \node[route] (z)  at (-7.6,-1.65)
+    {$N_{\rm gap}=0$, $N_+=1$\\all V triangles $\Vdzero$};
+  \node[route] (o0) at (-3.8,-1.65)
+    {one gap, $N_+=0$\\common local pair $(p,q)$};
+  \node[route] (t)  at (0,-1.65)
+    {two gaps, CE2\\common pair on $T_1,\ldots,T_5$};
+  \node[route] (o1) at (3.8,-1.65)
+    {one gap, $N_+=1$\\actual reaches $C_i$};
+  \node[route] (ex) at (7.6,-1.65)
+    {T3-like or Vd exceptional role};
+
+  \node[terminal] (zt) at (-7.6,-3.45)
+    {$D_0,\ldots,D_5,Q_-,Q_0,Q_+$\\nine-point support-cap terminal};
+  \node[terminal] (o0t) at (-3.8,-3.45)
+    {$\mathcal D_{h(1-c_*)}$ plus a farther gap endpoint\\disk-plus-point terminal};
+  \node[terminal] (tt) at (0,-3.45)
+    {$D_2$ or $D_4$ beyond the shorter center exit\\one-point terminal};
+  \node[terminal] (o1t) at (3.8,-3.45)
+    {$K_{410}$: $O,M_0$, two gap endpoints,\\and the six actual radial points $P_i$};
+  \node[terminal] (ext) at (7.6,-3.45)
+    {rescuer endpoint, residual-tail point,\\or two-chart replacement};
+
+  \foreach \n in {z,o0,t,o1,ex}{\draw[lead] (root) -- (\n);}
+  \draw[lead] (z)--(zt);
+  \draw[lead] (o0)--(o0t);
+  \draw[lead] (t)--(tt);
+  \draw[lead] (o1)--(o1t);
+  \draw[lead] (ex)--(ext);
+
+  \node[figlabel,align=center,text=black!60] at (0,-4.45)
+    {Every row in the case table terminates in one of five geometric witness mechanisms.};
+\end{tikzpicture}%
+}
+\caption{Roadmap of the finite-enclosure chapter.  The combinatorial case
+parameters determine a finite center-forced witness, and the proof then uses
+one of five geometric terminals.  This diagram records proof routing only;
+it does not replace the hypotheses in the case table.}
+\label{fig:finite-enclosure-roadmap}
+\end{figure}

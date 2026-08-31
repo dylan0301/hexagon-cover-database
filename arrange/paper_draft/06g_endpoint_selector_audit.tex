@@ -1,0 +1,197 @@
+\subsection{Endpoint, openness, and selector audit}
+\label{subsec:new-endpoint-selector-audit}
+
+The arguments above repeatedly pass between open role traces, closed maximal
+reaches, and compact witness sets.  We record the precise endpoint statements
+used in those passages.
+
+\begin{lemma}[Open trace endpoint]
+\label{lem:new-open-trace-endpoint}
+Let $U$ be an open equilateral triangle and $T=\overline U$.  If
+$T\cap[V,O]$ is the closed interval from $V$ to a point $P$, then
+$P\notin U$.  If $Q$ is a noncentral point of a radial arm and $Q\in U$, then
+$U$ has positive-length intersection with that arm.
+\end{lemma}
+
+\begin{proof}
+The first assertion follows because $P$ is a boundary point of the closed
+convex intersection.  For the second, a small Euclidean ball about $Q$ is
+contained in $U$; its intersection with the arm is a relative open interval.
+\end{proof}
+
+\begin{lemma}[Compact set in an open unit triangle]
+\label{lem:new-compact-open-shrink}
+If a compact set $K$ is contained in an open unit equilateral triangle, then
+\[
+ \Lambda(K)<1.
+\]
+\end{lemma}
+
+\begin{proof}
+The distance from $K$ to each of the three side lines is positive.  Move the
+three side lines inward by a common smaller distance.  Their intersection is
+a closed equilateral triangle of side strictly below one and still contains
+$K$.
+\end{proof}
+
+\begin{lemma}[Continuity of the enclosure number]
+\label{lem:new-lambda-continuity}
+For nonempty compact sets $K,L$,
+\[
+ |\Lambda(K)-\Lambda(L)|
+ \le\frac3h d_H(K,L),
+\]
+where $d_H$ is the Hausdorff distance.
+\end{lemma}
+
+\begin{proof}
+For every unit normal,
+\[
+ |h_K(n)-h_L(n)|\le d_H(K,L).
+\]
+Apply the support formula and take the minimum over orientations in both
+directions.
+\end{proof}
+
+These lemmas justify all singleton-gap limits and every use of a radial trace
+endpoint as a center-forced point.
+
+\subsubsection{Branchwise proof of common-pair domination}
+
+We expand the neighboring-capacity comparison in Lemma
+\ref{lem:new-common-pair-domination}.  Assume first that $q\le p$.
+The own-radial demand $1-q$ is admissible because the exact edge-normal
+orientation has side
+\[
+ q+\max\{p,1-q\}=1.
+\]
+Thus
+\[
+ c_{\max}(p,q)\ge1-q.
+ \tag{6.73a}
+\]
+For $C_+(p,q)$ there are three possibilities.
+
+On the linear branch,
+\[
+ C_+(p,q)=1-q.
+\]
+On the plateau branch, $C_+=p(p)$, where the cubic root satisfies
+\[
+ f_p(1-q)
+ =(1-q)^3-(p+2)(1-q)^2+2(p+1)(1-q)-1\ge0
+\]
+throughout the selected interval.  Since the cubic is increasing,
+$p(p)\le1-q$.  On the radical branch, the capacity decreases from its
+selected transition value and therefore is no larger than the plateau.  Hence
+\[
+ C_+(p,q)\le1-q.
+\]
+The reflected calculation gives the same bound for $C_-$ and treats the order
+$p\le q$.  Combining with (6.73a) proves
+\[
+ C_\pm(p,q)\le c_{\max}(p,q).
+\]
+
+The same argument is valid for any actual pair $(a,b)$ with $a\ge p$ and
+$b\ge q$, because the family of triangles containing the larger anchors is a
+subfamily of the one containing the smaller anchors.  Thus the relevant
+capacity is coordinatewise nonincreasing.
+
+\subsubsection{Finite-caliper selector audit}
+
+For a finite point set $K$, Proposition~\ref{prop:new-enclosure-gauge} reduces
+$\Lambda(K)$ to finitely many orientations.  We spell out the reduction used
+for every diagram and for the anisotropic one-gap set.  Let the convex hull
+vertices be $P_0,\ldots,P_{r-1}$ in cyclic order.  On an angular interval on
+which the three support points are fixed, write
+\[
+ H(\theta)=
+ \sum_{j=0}^2
+ \langle Q_j,n_{\theta+2\pi j/3}\rangle.
+\]
+Then
+\[
+ H''(\theta)=-H(\theta).
+\]
+The support sum is positive unless $K$ is a singleton at the origin.  Hence an
+interior critical point is a strict maximum.  A minimum occurs when two
+support points tie in one normal direction.  That normal is perpendicular to
+a hull edge $P_iP_{i+1}$.  Therefore
+\[
+ \Lambda(K)=
+ \min_{0\le i<r}
+ \frac1h
+ \sum_{j=0}^2
+ h_K(\mathsf R^jn_i),
+ \tag{6.73b}
+\]
+where $n_i$ is either unit normal to $P_iP_{i+1}$.
+
+This finite-caliper identity has two consequences.  First, the enclosure
+number is unchanged by replacing a witness set by its convex hull.  Second,
+no numerical angular minimization is hidden in the proof: every terminal can
+be checked at finitely many support contacts.  The complementary-gap theorem
+uses this fact analytically; the zero-gap nine-point theorem uses it through
+the support-arc certificate in the final appendix.
+
+\subsubsection{Terminal upper bound in the one-gap exact-one case}
+
+We give the elementary derivation of (6.38).  The active center trace begins
+at $k/R$, so the unique supercritical role has forward boundary reach
+\[
+ B_0\ge\frac{k}{R}.
+\]
+The center exit on $r_0$ is $1-k$.  Since the finite set contains the actual
+radial endpoint $P_0=(1-C_0)V_0$, containment by the candidate center gives
+\[
+ C_0\ge k.
+\]
+The closure of $T_0$ therefore contains three points based at $V_0$ with
+selected reaches
+\[
+ A_0,
+ \qquad \frac{k}{R},
+ \qquad k.
+\]
+Discarding the radial point only weakens the diameter condition, and gives
+\[
+ A_0\le M_0\left(\frac{k}{R}\right).
+\]
+For $0<z<1$,
+\[
+ M_0(z)<1-\frac z2.
+\]
+Indeed, after moving terms and squaring, this is equivalent to
+$3z^2>0$.  With $z=k/R$,
+\[
+ A_0<1-\frac{k}{2R}=1-Q.
+\]
+This is the terminal capacity contradicted separately by the direct CE1 and
+CE2 reach arguments.
+
+\subsubsection{Strictness at singleton gaps}
+
+Suppose the V-gap on $e_{0,1}$ is the singleton $X(\ell)$.  Although its
+length is zero, neither incident open V trace contains the point.  Boundary
+locality therefore forces $X(\ell)\in U_C$.  Choose
+$r_n>\ell$ decreasing to $\ell$, and reduce the incoming reach at $T_1$ from
+$1-\ell$ to $1-r_n$.  Every local diameter inequality remains feasible, and
+the strict supercritical pattern is unchanged for large $n$.  The non-singleton-gap
+witness sets converge to the singleton witness set.  By Lemma
+\ref{lem:new-lambda-continuity}, the inequality $\Lambda\ge1$ passes to the
+limit.  Thus no proof in this section charges numerical gap length; every one
+uses the actual missing point.
+
+\subsubsection{Why a common disk is insufficient for $N_+=1$}
+
+The one-gap $N_+=1$ finite set retains all six actual radial endpoints rather
+than replacing them by one common radius.  This is necessary.  The boundary
+sequence has two ascents when the gap jump is included: the V-gap jump and the
+unique supercritical V triangle.  They need not join the global minimum to the global
+maximum.  A common lower pair can therefore move several radial witnesses
+toward $O$ and can produce a disk-plus-gap set with enclosure number below
+one.  The anisotropic set $P_0,\ldots,P_5$ preserves the six actual radial
+constraints, and equations (6.76), (6.38), and the direct CE1/CE2 arguments
+use those constraints individually.  This is the precise point at which the
+new proof differs from a relabeling of the former propagation calculation.

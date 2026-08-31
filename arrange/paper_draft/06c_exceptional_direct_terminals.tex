@@ -1,0 +1,259 @@
+\subsection{Exactly one T3-like role}
+
+\begin{proposition}[Direct T3-like rescuer witness]
+\label{prop:new-one-t3-terminal}
+Assume $N_+=1$, exactly one V triangle is T3-like, no V triangle is
+Vd1/Vd2, and at least one V-gap is present.  Then the skeleton is not covered.
+\end{proposition}
+
+\input{figures/finite_enclosure/fe08_t3_rescuer}
+
+\begin{proof}
+Normalize the center midpoint to $M_0$.  Midpoint locality forces, after
+reflection,
+\[
+ T_0\text{ T3-like},
+ \qquad M_1\in T_0,
+ \qquad T_1\text{ uniquely supercritical},
+\]
+while $T_2,T_3,T_4,T_5$ are nonsupercritical Vd0 roles.
+
+Use the translated T3-like normal form at $V_0$.  Let its boundary reach on
+$e_{5,0}$ be $a$, and write its positive interval on $r_1$, measured from
+$V_1$ toward $O$, as
+\[
+ [c,u],
+ \qquad c\le\frac12\le u.
+\]
+The O-side endpoint
+\[
+ P_T=(1-u)V_1
+ \tag{6.41}
+\]
+is not in the open T3-like role.  The adjacent supercritical role contains
+$V_1$ but misses $M_1$, so convexity excludes the O-side of $M_1$.  The four
+other roles are Vd0.  Hence every V role misses $P_T$ and
+\[
+ \boxed{P_T\in U_C.}
+ \tag{6.42}
+\]
+
+The normalized T3-like shape has parameters
+\[
+ 1\le D\le\frac2{\sqrt3},
+ \qquad E_0=\sqrt{4-3D^2},
+ \qquad R_0=\frac{D+E_0}{2},
+\]
+and
+\[
+ c=\frac{D(1+a)-1}{R_0},
+ \qquad
+ u=1-\frac{R_0}{D}+a.
+\]
+Put
+\[
+ x=\frac{aD}{R_0},
+ \qquad
+ \theta=\frac{D-1}{R_0}.
+\]
+Then
+\[
+ c=x+\theta,
+ \qquad
+ 0\le\theta\le2-\sqrt3,
+\]
+and the midpoint constraints are
+\[
+ \frac{1-4\theta+\theta^2}{2(1-2\theta)}
+ \le x\le\frac12-\theta.
+ \tag{6.43}
+\]
+Let $M_c^{\rm sup}$ be (6.8).  We claim
+\[
+ \boxed{
+ a\le1-M_c^{\rm sup},
+ \qquad
+ \frac{a}{a+1-u}\le1-M_c^{\rm sup}.
+ }
+ \tag{6.44}
+\]
+For $0\le z\le1/2$, put
+\[
+ s(z)=\frac{z(2-z)}{1+z}.
+\]
+The defining equation for the supercritical envelope is
+\[
+ s(1-M_c^{\rm sup})=c.
+\]
+Since $s$ is increasing, it is enough to prove $s(x)\le x+\theta$.  After
+multiplication by $1+x$, this becomes
+\[
+ Q_\theta(x):=2x^2+(\theta-1)x+\theta\ge0.
+\]
+For $0\le\theta\le1/5$, the feasible interval (6.43) lies to the right of
+the vertex and substitution of its left endpoint gives
+\[
+ Q_\theta(x)\ge
+ \frac{\theta(1-5\theta+11\theta^2-\theta^3)}
+ {2(1-2\theta)^2}\ge0.
+\]
+For $1/5\le\theta\le2-\sqrt3$, the vertex lies in the feasible interval and
+\[
+ Q_\theta(x)\ge\frac{10\theta-1-\theta^2}{8}>0.
+\]
+Thus $x\le1-M_c^{\rm sup}$.  Since $D\ge R_0$, one has $a\le x$; moreover
+\[
+ \frac{a}{a+1-u}=\frac{aD}{R_0}=x.
+\]
+This proves (6.44).
+
+Let $h_T$ be the boundary reach forced on $T_5$ from $V_5$ toward $V_0$.
+If the companion center trace does not hide the endpoint $a$, then
+\[
+ h_T\ge1-a\ge M_c^{\rm sup}.
+\]
+In the only hiding configuration, the center near endpoint gives $k\le Wa$,
+while (6.42) gives $\delta/R\ge1-u$.  Hence
+\[
+ R(a+1-u)\le a
+\]
+and the far center endpoint satisfies
+\[
+ R+\alpha\le\frac{a}{a+1-u}\le1-M_c^{\rm sup}.
+\]
+Thus in every case
+\[
+ \boxed{h_T\ge M_c^{\rm sup}.}
+ \tag{6.45}
+\]
+
+The adjacent supercritical role has own-radial reach at least $c$, so
+\[
+ \boxed{B_1<M_c^{\rm sup}.}
+ \tag{6.46}
+\]
+The four ordinary roles cover the center-free boundary path from $e_{1,2}$
+to $e_{5,0}$.  Adding the edge-cover inequalities gives
+\[
+ \sum_{i=2}^5(A_i+B_i)
+ \ge4+h_T-B_1>4,
+\]
+contrary to nonsupercriticality of all four roles.  For two gaps, the shorter
+CE2 radial contradiction of Theorem~\ref{thm:new-ce2-short-ray} applies.
+\end{proof}
+
+\subsection{Exactly one Vd1/Vd2 role in CE2}
+
+\begin{proposition}[Direct one-Vd placement assembly]
+\label{prop:new-one-vd-assembly}
+Assume CE2, $N_+=1$, exactly one Vd1/Vd2 role, and at least one V-gap.  Then
+the skeleton is not covered.
+\end{proposition}
+
+\input{figures/finite_enclosure/fe09_vd_placements}
+
+\begin{proof}
+Let $T_\sigma$ be the supercritical role and $T_\tau$ the Vd1/Vd2 role.
+They are distinct.  If a further role has positive adjacent support, then
+$N_++N_{\rm sp}\ge3$ and the skeleton-length theorem gives a contradiction.
+Assume every other role is Vd0.
+
+\smallskip
+\noindent\emph{Case 1: $\sigma=0$ and $\tau$ is adjacent.}
+Reflect to $\tau=1$.  Let $\rho_R,\rho_L$ be the residual boundary reaches
+forced on the Vd role and on the far Vd0 path after removing the supercritical
+trace and the two center intervals.  The Vd half-unit cap gives
+\[
+ \rho_R+\rho_L<\frac12.
+ \tag{6.47}
+\]
+The signed CE2 inequalities and the two possible residual formulas give
+\[
+ \boxed{4\delta<\rho_L.}
+ \tag{6.48}
+\]
+If the Vd role has support on $r_2$, its far endpoint satisfies
+\[
+ u_{1\to2}<1-\rho_L<1-\delta.
+\]
+For the ordinary role $T_2$, boundary coverage gives
+\[
+ A_2>\frac12+\rho_R,
+ \qquad B_2\ge\rho_L.
+\]
+The quarter radial envelope therefore gives
+\[
+ C_2\le1-\frac{\rho_L}{4}<1-\delta.
+\]
+Thus neither local V trace reaches the center interval on $r_2$, whose
+vertex-side entry is $1-\delta$.  All other roles are excluded by Vd0 and
+diameter locality, so $r_2$ is uncovered.
+
+\smallskip
+\noindent\emph{Case 2: $\sigma=0$ and $\tau\in\{2,3,4\}$.}
+Put $T=\alpha+\delta$.  Let $\rho_R,\rho_L$ be the boundary tails forced on
+$T_\tau$.  Diameter transfer from the two center near endpoints gives
+\[
+ T<\min\{\rho_R,\rho_L\}.
+ \tag{6.49}
+\]
+Every relevant center exit is at most $T$, whereas the Vd own-radial margin
+gives
+\[
+ C_\tau<1-\min\{\rho_R,\rho_L\}.
+\]
+Hence the point
+\[
+ D_\tau=\min\{\rho_R,\rho_L\}V_\tau
+\]
+lies beyond both the Vd trace and the center trace.  Neighboring Vd0 and
+nonlocal roles miss it, so it is an uncovered point.
+
+\smallskip
+\noindent\emph{Case 3: $\tau=0$.}
+Midpoint rescue forces $\sigma\in\{1,5\}$; reflect to $\sigma=1$.
+If $T_0$ is Vd2, its perimeter contribution is strictly below $1/3$.
+Together with the center cap $<1/2$, the supercritical cap $2/\sqrt3$, and
+four unit caps, this gives
+\[
+ \frac12+\frac13+\frac2{\sqrt3}+4<6,
+\]
+a Strategy~1 contradiction.
+
+Assume $T_0$ is Vd1.  Write its supported interval on $r_1$ as
+$[c,u]$, with $c\le1/2\le u$, and put $P=(1-u)V_1$.  This point is missed by
+all V roles, hence lies in $U_C$.  The exact Vd1 corner form has parameter
+$t\ge1$ and gives
+\[
+ c=\frac{t(1-b)}{t+1},
+ \qquad
+ u=\frac{\sqrt{t^2+t+1}-a-tb-1}{t}.
+\]
+Direct differentiation and the quadratic
+\[
+20c^2+(18\sqrt3-52)c+47-24\sqrt3
+\]
+prove
+\[
+ a\le1-M_c^{\rm sup},
+ \qquad
+ \frac{a}{a+1-u}\le1-M_c^{\rm sup}.
+ \tag{6.50}
+\]
+Exactly as in the T3-like case, the center cannot hide the far boundary tail;
+thus the terminal reach on $T_5$ is at least $M_c^{\rm sup}$, while the
+adjacent supercritical role has $B_1<M_c^{\rm sup}$.  The four ordinary path
+roles would have boundary-sum total greater than four, a contradiction.
+
+\smallskip
+\noindent\emph{Case 4: $\sigma\ne0$ and $\tau\ne0$.}
+Midpoint rescue makes the two roles adjacent.  If the Vd role is Vd2, use the
+preceding perimeter terminal.  If it is Vd1, the corrected two-chart
+replacement produces six nonsupercritical Vd0 roles while preserving the
+covered skeleton.  Recompute the output gap rank.  Rank zero is excluded by
+the boundary-complete length theorem; rank one or two is excluded by
+Proposition~\ref{prop:new-nplus-zero-gap-closures}.  No preservation of the
+input gap rank is used.
+
+The four cases are exhaustive.
+\end{proof}

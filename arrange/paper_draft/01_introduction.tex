@@ -230,30 +230,31 @@ Proposition~\ref{prop:exhaustive-structural-reduction}.
 \renewcommand{\arraystretch}{1.07}
 \begin{tabular}{@{}c c p{.31\textwidth}p{.19\textwidth}c@{}}
 \toprule
-$N_{\mathrm{gap}}$&$N_+$&vertex-type refinement&center class&method\\
+$N_{\mathrm{gap}}$&$N_+$&vertex-type refinement&center class&strategy\\
 \midrule
 $0$&$0$&all $(d,t)$&$\CEzero/\CEone/\CEtwo$&1\\
 $0$&$1$&$d\ge1$&$\CEzero/\CEone/\CEtwo$&1\\
-$0$&$1$&$d=0$, $t\ge1$&$\CEzero/\CEone/\CEtwo$&3\\
-$0$&$1$&$(d,t)=(0,0)$&$\CEzero/\CEone/\CEtwo$&4\\
-$0$&$\ge2$&all $(d,t)$&$\CEzero/\CEone/\CEtwo$&3\\
+$0$&$1$&$d=0$, $t\ge1$&$\CEzero/\CEone/\CEtwo$&2\\
+$0$&$1$&$(d,t)=(0,0)$&$\CEzero/\CEone/\CEtwo$&3\\
+$0$&$\ge2$&all $(d,t)$&$\CEzero/\CEone/\CEtwo$&2\\
 \midrule
 $\ge1$&$\ge2$&all $(d,t)$&$\CEone/\CEtwo$&1\\
 $\ge1$&$0$ or $1$&$N_++d+t\ge3$&$\CEone/\CEtwo$&1\\
-$\ge1$&$0$&$(d,t)=(0,0)$&$\CEone/\CEtwo$&2\\
+$\ge1$&$0$&$(d,t)=(0,0)$&$\CEone/\CEtwo$&3\\
 $\ge1$&$0$&$d\ge1$, $d+t\le2$&$\CEone/\CEtwo$&1\\
-$\ge1$&$0$&$d=0$, $t\in\{1,2\}$&$\CEone/\CEtwo$&2\\
-$\ge1$&$1$&$(d,t)=(0,0)$&$\CEone/\CEtwo$&2\\
-$\ge1$&$1$&$(d,t)=(0,1)$&$\CEone/\CEtwo$&2\\
+$\ge1$&$0$&$d=0$, $t\in\{1,2\}$&$\CEone/\CEtwo$&3\\
+$\ge1$&$1$&$(d,t)=(0,0)$&$\CEone/\CEtwo$&3\\
+$\ge1$&$1$&$(d,t)=(0,1)$&$\CEone/\CEtwo$&3\\
 $\ge1$&$1$&$(d,t)=(1,0)$&$\CEone$&1\\
-$\ge1$&$1$&$(d,t)=(1,0)$&$\CEtwo$&$1{+}2$\\
+$\ge1$&$1$&$(d,t)=(1,0)$&$\CEtwo$&$1{+}3$\\
 \bottomrule
 \end{tabular}
-\caption{The exhaustive routing.  Method 1 is a trace-length argument, Method
-2 propagates reach bounds, Method 3 sums area loss, and Method 4 uses a
-nine-point enclosure obstruction.  Nonzero gap count forces center class CE1 or
-CE2.  In that part the high-count rows are applied first; the final two rows
-separate the CE1 length route from the detailed CE2 hybrid placement assembly.}
+\caption{The exhaustive routing.  Strategy 1 is a trace-length argument,
+Strategy 2 sums area loss, and Strategy 3 forces a finite residual set into the
+C triangle and proves an equilateral-enclosure obstruction.  Nonzero gap count
+forces center class CE1 or CE2.  In that part the high-count rows are applied
+first; the final two rows separate the CE1 length route from the detailed CE2
+finite-enclosure placement assembly.}
 \label{tab:routing}
 \end{table}
 
@@ -262,9 +263,9 @@ separate the CE1 length route from the detailed CE2 hybrid placement assembly.}
 Section~\ref{sec:structure-common} proves the structural classification,
 strict handoff selection, midpoint facts, and the signed center normal form.
 Section~\ref{sec:trace-length} gives the complete trace-length argument.
-Section~\ref{sec:boundary-propagation} develops the local admissible set and
-all boundary-reach propagation cases.  Section~\ref{sec:area-loss} proves the
-local and cyclic area-loss estimates.  Section~\ref{sec:nine-point} constructs
-the nine forced points and proves the equilateral-enclosure obstruction.
+Section~\ref{sec:area-loss} proves the local and cyclic area-loss estimates.
+Section~\ref{sec:finite-enclosure} develops the finite residual-hull principle,
+the exact local reach certificates for the nonzero-gap witnesses, and the
+explicit zero-gap nine-point obstruction.
 Section~\ref{sec:assembly} then applies the zero-gap matrix before the
 nonzero-gap rows of Table~\ref{tab:routing} and closes the proof.

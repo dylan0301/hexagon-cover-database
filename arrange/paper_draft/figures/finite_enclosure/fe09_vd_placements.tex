@@ -1,0 +1,114 @@
+\begin{figure}[!htbp]
+\centering
+\begin{minipage}[t]{.485\linewidth}
+\centering
+\resizebox{.96\linewidth}{!}{%
+\begin{tikzpicture}[x=6cm,y=1cm,>=Latex]
+  \node[panellabel,anchor=west] at (-.02,2.28)
+    {(a) adjacent Vd role: an uncovered interval on $r_2$};
+  \draw[flow] (0,1.12)--(1,1.12);
+  \fill (0,1.12) circle (.017) node[left=2pt,figlabel] {$V_2$};
+  \fill (1,1.12) circle (.017) node[right=2pt,figlabel] {$O$};
+  \coordinate (U) at (.46,1.12);
+  \coordinate (C) at (.58,1.12);
+  \coordinate (Q) at (.74,1.12);
+  \draw[VertexOrange,line width=1.1pt] (0,1.19)--(U);
+  \draw[RadialTeal,line width=1.1pt] (0,1.05)--(C);
+  \draw[centertrace] (Q)--(1,1.12);
+  \fill[VertexOrange] (U) circle (.021) node[above=3pt,figlabel] {$u_{1\to2}$};
+  \fill[RadialTeal] (C) circle (.021) node[below=3pt,figlabel] {$C_2$};
+  \fill[CenterBlue] (Q) circle (.022) node[above=3pt,figlabel] {$q_2=1-\delta$};
+  \draw[gap] (C)--(Q);
+  \fill[DemandRed] (.66,1.12) circle (.022)
+    node[below=3pt,figlabel] {$Z_2$};
+  \node[figlabel,align=center] at (.5,.10)
+    {$u_{1\to2},C_2<q_2$; choose any $Z_2$ in the displayed interval\\
+     coordinate is measured from $V_2$ toward $O$};
+\end{tikzpicture}%
+}
+\end{minipage}\hfill
+\begin{minipage}[t]{.485\linewidth}
+\centering
+\resizebox{.96\linewidth}{!}{%
+\begin{tikzpicture}[x=6cm,y=1cm,>=Latex]
+  \node[panellabel,anchor=west] at (-.02,2.28)
+    {(b) nonadjacent Vd role: the residual-tail point};
+  \draw[flow] (0,1.12)--(1,1.12);
+  \fill (0,1.12) circle (.017) node[left=2pt,figlabel] {$O$};
+  \fill (1,1.12) circle (.017) node[right=2pt,figlabel] {$V_\tau$};
+  \coordinate (E) at (.23,1.12);
+  \coordinate (Vd) at (.39,1.12);
+  \coordinate (D) at (.56,1.12);
+  \draw[centertrace] (0,1.12)--(E);
+  \draw[actualreach] (1,1.12)--(Vd);
+  \fill[CenterBlue] (E) circle (.022) node[above=3pt,figlabel] {$T=\alpha+\delta$};
+  \fill[VertexOrange] (Vd) circle (.021) node[below=3pt,figlabel] {Vd endpoint};
+  \fill[DemandRed] (D) circle (.024) node[above=3pt,figlabel] {$D_\tau$};
+  \draw[gap] (E)--(D);
+  \node[figlabel,align=center] at (.5,.10)
+    {$T<\min\{\rho_R,\rho_L\}$ and\\
+     $D_\tau=\min\{\rho_R,\rho_L\}V_\tau$ lies beyond both traces};
+\end{tikzpicture}%
+}
+\end{minipage}
+
+\vspace{.4em}
+
+\begin{minipage}[t]{.485\linewidth}
+\centering
+\resizebox{.96\linewidth}{!}{%
+\begin{tikzpicture}[x=6cm,y=1cm,>=Latex]
+  \node[panellabel,anchor=west] at (-.02,2.28)
+    {(c) Vd1 midpoint rescue};
+  \draw[flow] (0,1.12)--(1,1.12);
+  \fill (0,1.12) circle (.017) node[left=2pt,figlabel] {$V_1$};
+  \fill (1,1.12) circle (.017) node[right=2pt,figlabel] {$O$};
+  \coordinate (C) at (.23,1.12);
+  \coordinate (M) at (.50,1.12);
+  \coordinate (U) at (.72,1.12);
+  \draw[actualreach] (C)--(U);
+  \fill[CenterBlue] (M) rectangle +(0.025,0.025);
+  \node[above=3pt,figlabel] at (M) {$M_1$};
+  \draw[VertexOrange,fill=white,line width=.7pt] (U) circle (.025);
+  \fill[DemandRed] (U) circle (.011);
+  \node[above=3pt,figlabel] at (U) {$P_{\mathrm{Vd1}}$};
+  \node[figlabel,align=center] at (.5,.10)
+    {the same O-side endpoint mechanism as in the T3-like case;\\
+     only the local normal-form inequality changes};
+\end{tikzpicture}%
+}
+\end{minipage}\hfill
+\begin{minipage}[t]{.485\linewidth}
+\centering
+\resizebox{.96\linewidth}{!}{%
+\begin{tikzpicture}[x=1cm,y=1cm,>=Latex]
+  \node[panellabel,anchor=west] at (-.05,2.35)
+    {(d) two-chart replacement when both roles are away from $T_0$};
+  \node[atlasbox,align=center,figlabel,text width=2.6cm]
+    (old) at (1.45,1.12)
+    {original Vd1--supercritical\\pair in one vertex chart};
+  \node[atlasbox,align=center,figlabel,text width=2.6cm]
+    (new) at (5.15,1.12)
+    {two nonsupercritical Vd0\\roles in the correct charts};
+  \node[atlasbox,align=center,figlabel,text width=2.6cm]
+    (rank) at (8.85,1.12)
+    {recompute $N'_{\rm gap}$:\\$0$, $1$, or $2$};
+  \draw[flow] (old)--node[above,figlabel] {replace} (new);
+  \draw[flow] (new)--node[above,figlabel] {do not preserve input rank} (rank);
+  \node[figlabel,align=center] at (8.85,.08)
+    {$0$: trace length\qquad$1$: disk--gap\qquad$2$: short ray};
+\end{tikzpicture}%
+}
+\end{minipage}
+\caption{The four geometric terminals in the one-Vd placement assembly.
+In the adjacent placement the radial coordinate is measured from $V_2$
+toward $O$; the two local V endpoints lie before the center interval entry
+$q_2=1-\delta$, leaving a literal uncovered interval on $r_2$.  The
+nonadjacent placement produces the point
+$D_\tau=\min\{\rho_R,\rho_L\}V_\tau$ beyond both the Vd and center traces;
+the Vd1 midpoint rescue uses the same O-side endpoint construction as the
+T3-like case; and the remaining placement is reduced by a two-chart
+replacement followed by recomputation of the output gap rank.  Lengths are
+schematic; all labelled order relations are the proof relations.}
+\label{fig:one-vd-placement-terminals}
+\end{figure}

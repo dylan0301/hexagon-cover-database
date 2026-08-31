@@ -438,36 +438,7 @@ This is an exact counterexample, not numerical evidence.
 
 ## Scope of the rational envelope
 
-The theorem applies to the adjacent complementary placement in
-[`4144_CE2_Nplus1_T0_supercritical_T1_Vd1_Vd2_adjacent_obstruction.md`](../../4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4144_CE2_Nplus1_T0_supercritical_T1_Vd1_Vd2_adjacent_obstruction.md),
-where
-
-$$
-p=\frac12+A,
-\qquad
-h=H,
-\qquad
-0\le H\le\frac12+A,
-\qquad
-\frac12+A+H<1.
-$$
-
-It gives exactly
-
-$$
-c_{\max}\left(\frac12+A,H\right)\le1-\frac H3.
-$$
-
-The implication is only the necessary one
-
-$$
-(p,h,c)\in\mathcal A
-\quad\Longrightarrow\quad
-c\le c_{\max}(p,h)\le1-\frac h3.
-$$
-
-No converse, equality, realizability, contact type, or selected component is
-asserted.  The counterexample above prevents substituting this same envelope
-on the full nonsupercritical fibers underlying $M_c$, $\overline M_c$, and $\Phi_c$.
-Accordingly, no relaxed $\bar \overline M_c$ or $\bar \Phi_c$ map is defined here, and no
-strict-supercritical nonattainment argument is replaced.
+The theorem is a local one-triangle inequality.  Its active applications are
+spelled out directly in `4101_new_all_Vd0_finite_enclosure.md` and
+`4140_new_one_Vd_finite_enclosure_assembly.md`; no downstream case package is
+a dependency of this local note.

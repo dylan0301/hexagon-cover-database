@@ -1,0 +1,64 @@
+\begin{figure}[!htbp]
+\centering
+\begin{minipage}[t]{.485\linewidth}
+\centering
+\resizebox{.96\linewidth}{!}{%
+\begin{tikzpicture}[x=3cm,y=3cm,>=Latex]
+  \node[panellabel,anchor=west] at (-.72,.93) {(a) $\rho\le2\eta$};
+  \coordinate (O) at (0,0);
+  \coordinate (G) at (.55,0);
+  \coordinate (Z) at (.70,0);
+  \draw[CenterBlue!35,fill=CenterBlue!8,line width=.8pt] (O) circle (.35);
+  \draw[black,line width=1pt]
+    (Z)--(-.35,.6062)--(-.35,-.6062)--cycle;
+  \fill (O) circle (.012) node[below left=1pt,figlabel] {$O$};
+  \fill[DemandRed] (G) circle (.018) node[above=2pt,figlabel] {$G$};
+  \fill (Z) circle (.012) node[right=2pt,figlabel] {$Z$};
+  \draw[dimline] (0,-.13)--(.35,-.13)
+    node[midway,below=1pt,figlabel] {$\eta$};
+  \draw[dimline] (0,.13)--(.70,.13)
+    node[midway,above=1pt,figlabel] {$2\eta$};
+  \node[figlabel,align=center] at (0,-.86)
+    {$G\in[O,Z]$ and the disk-only minimizer still contains $G$\\
+     $\displaystyle\Lambda=\frac{3\eta}{h}$};
+\end{tikzpicture}%
+}
+\end{minipage}\hfill
+\begin{minipage}[t]{.485\linewidth}
+\centering
+\resizebox{.96\linewidth}{!}{%
+\begin{tikzpicture}[x=2.55cm,y=2.55cm,>=Latex]
+  \node[panellabel,anchor=west] at (-.78,1.05) {(b) $\rho>2\eta$};
+  \coordinate (O) at (0,0);
+  \coordinate (G) at (1.2,0);
+  \coordinate (T) at (.1021,.3348);
+  \coordinate (A) at (-.4778,.5116);
+  \coordinate (B) at (-.0819,-1.1972);
+  \draw[CenterBlue!35,fill=CenterBlue!8,line width=.8pt] (O) circle (.35);
+  \draw[black,line width=1pt] (A)--(B)--(G)--cycle;
+  \draw[DemandRed,line width=1pt] (O)--(G);
+  \draw[RadialTeal,line width=.9pt] (O)--(T);
+  \draw[GapPurple,line width=.9pt] (T)--(G);
+  \fill (O) circle (.012) node[below left=1pt,figlabel] {$O$};
+  \fill[DemandRed] (G) circle (.018) node[right=2pt,figlabel] {$G$};
+  \fill[RadialTeal] (T) circle (.015) node[above left=1pt,figlabel] {$T$};
+  \draw ($(T)+(-.025,-.008)$)--($(T)+(-.012,-.048)$)--($(T)+(.027,-.036)$);
+  \node[figlabel,rotate=17] at (.05,.19) {$OT=\eta$};
+  \node[figlabel,below] at (.62,-.03) {$OG=\rho$};
+  \node[figlabel,rotate=-18] at (.69,.23)
+    {$GT=\sqrt{\rho^2-\eta^2}$};
+  \node[figlabel,align=center] at (.25,-1.48)
+    {one side through $G$ is tangent to $\mathcal D_\eta$\\
+     $\displaystyle\Lambda=
+       \frac{3\eta+\sqrt{3(\rho^2-\eta^2)}}{2h}$};
+\end{tikzpicture}%
+}
+\end{minipage}
+\caption{The two minimizing configurations in the disk-plus-point formula.
+For $\rho\le2\eta$, the centered equilateral triangle tangent to
+$\mathcal D_\eta$ already contains $G$.  For $\rho>2\eta$, the point $G$
+becomes a vertex of the minimizing triangle and one incident side is tangent
+to the disk.  The tangent length
+$GT=\sqrt{\rho^2-\eta^2}$ is the geometric source of the radical term.}
+\label{fig:disk-plus-point-formula}
+\end{figure}

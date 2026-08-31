@@ -100,8 +100,9 @@ plays no part in this branch.
 | $1$ | $(d,t)=(0,0)$ | Center-independent nine-point obstruction [`31058`](../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31058_center_independent_direct_nine_point_obstruction.md) |
 | $\ge2$ | any | Boundary-complete cyclic area certificate [`3208`](../3XXX_CE0/32XX_Nplus_ge2/3208_CE0_conditional_area_certificate.md) |
 
-These rows are disjoint and exhaustive. They use Methods 1, 3, and 4; no
-zero-gap row is assigned to boundary-reach propagation.
+These rows are disjoint and exhaustive.  In the three-strategy numbering they
+use Strategy 1 for trace length, Strategy 2 for area loss, and Strategy 3 for
+finite enclosure.
 
 ### Nonzero boundary-gap count
 
@@ -116,15 +117,18 @@ $N_++d+t\le2$.
 
 | $N_+$ | $(d,t)$ | Center | Proven contradiction |
 |---:|---|---|---|
-| $0$ | $(0,0)$ | CE1/CE2 | Nonzero-gap endpoint parts of [`4013`](../4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md) |
+| $0$ | $(0,0)$ | CE1/CE2 | Direct finite-enclosure proof [`4013_new`](../4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss_new/4013_new_all_Vd0_finite_enclosure.md) |
 | $0$ | $d\ge1$ | CE1/CE2 | Boundary-length obstructions [`4040`](../4XXX_CE1CE2/40XX_Nplus0/404X_exists_Vd1_Vd2_obstruction/4040_CE1_Nplus0_exists_Vd1_Vd2_boundary_length_obstruction.md), [`4041`](../4XXX_CE1CE2/40XX_Nplus0/404X_exists_Vd1_Vd2_obstruction/4041_CE2_Nplus0_exists_Vd1_Vd2_boundary_length_obstruction.md) |
-| $0$ | $(0,1)$ or $(0,2)$ | CE1/CE2 | Nonzero-gap four-label package [`4070`](../4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4070_CE1CE2_Nplus0_T3_like_no_Vd1Vd2_index.md) |
-| $1$ | $(0,0)$ | CE1/CE2 | Nonzero-gap parts of the exact gap closure [`4101`](../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4101_CE1CE2_Nplus1_all_Vd0_strategy.md) |
-| $1$ | $(0,1)$ | CE1/CE2 | Nonzero-gap adjacent-rescuer package [`4130`](../4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like/4130_CE1CE2_exactly_one_T3_like_index.md) |
+| $0$ | $(0,1)$ or $(0,2)$ | CE1/CE2 | Direct finite-enclosure proof [`4070_new`](../4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2_new/4070_new_T3_like_finite_enclosure.md) |
+| $1$ | $(0,0)$ | CE1/CE2 | Direct finite-enclosure proof [`4101_new`](../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0_new/4101_new_all_Vd0_finite_enclosure.md) |
+| $1$ | $(0,1)$ | CE1/CE2 | Direct finite-enclosure proof [`4130_new`](../4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like_new/4130_new_T3_like_finite_enclosure.md) |
 | $1$ | $(1,0)$ | CE1 | Boundary obstruction [`4110`](../4XXX_CE1CE2/41XX_Nplus1/411X_Vd1_Vd2_obstruction/4110_CE1_Nplus1_exists_Vd1_Vd2_boundary_length_obstruction.md) |
-| $1$ | $(1,0)$ | CE2 | Nonzero-gap hybrid placement assembly [`4140`](../4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4140_CE2_Nplus1_exactly_one_Vd1_Vd2_index.md) |
+| $1$ | $(1,0)$ | CE2 | Direct finite-witness assembly [`4140_new`](../4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4140_new_one_Vd_finite_enclosure_assembly.md) |
 
-The preceding high-count pruning and the displayed rows exhaust the
-nonzero-gap branch. Hence every gap rank leads to a contradiction, so seven
-open unit equilateral triangles cannot cover $H$. The equivalence in `1003`
+The preceding high-count pruning and the displayed cases exhaust the
+nonzero-gap branch.  Each active nonzero-gap proof now constructs explicit
+radial or supported-trace witnesses and proves their noncontainment directly;
+the historical composed-transfer packages are not dependencies. Hence every
+gap rank leads to a contradiction, so seven open unit equilateral triangles
+cannot cover $H$. The equivalence in `1003`
 gives the closed expanded-hexagon formulation. $\square$

@@ -59,6 +59,7 @@ written as an explicit counterclockwise list of the catalog curves, are in
 |---|---|---|
 | [`20095_exact_caliper_certificate.md`](20095_exact_caliper_certificate.md) | Proven | Exact all-parameter finite support-cell certificate, including repeated points, hull degeneracies, tangencies, and a degree-at-most-four semialgebraic boundary rule. |
 | [`20091_ab_union_curve_a_plus_b_gt_1.md`](20091_ab_union_curve_a_plus_b_gt_1.md) | Proven | Exact strict Band IV disk--half-plane union, exhaustive support proof, four-piece frontier order, and the $\rho=1$ degeneration. |
+| [`2009e_trace_exact_ab_envelopes.md`](2009e_trace_exact_ab_envelopes.md) | Proven | Endpoint-conditioned subunions of the ordinary AB-set, exact edge sections, actual-gap representation, and preservation of the existing radial capacity bounds. |
 | [`20092_ab_set_case_catalog.md`](20092_ab_set_case_catalog.md) | Empirical | Optional simplified named-curve catalog, corner points, sub-case predicates, case tables, degenerate parameters, and worked examples. |
 | [`20093_ab_set_proofs.md`](20093_ab_set_proofs.md) | Empirical | Exact preliminary identities for the simplified catalog, followed by an explicit ledger of its missing global comparison and pruning certificates. |
 | [`20094_ab_set_verification.md`](20094_ab_set_verification.md) | Empirical | Verification method, region audit, and per-case machine-verification table. |

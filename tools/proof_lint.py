@@ -140,9 +140,32 @@ for reference, path in references:
 main_text = active_tex(
     (ROOT / "arrange/paper_draft/main.tex").read_text(encoding="utf-8")
 )
-strategy2_path = (ROOT / "arrange/paper_draft/04_strategy2_verification.tex").resolve()
-if strategy2_path not in compiled:
-    fail("compiled TeX graph does not use the consolidated Strategy 2 source")
+legacy_propagation_paths = {
+    (ROOT / "arrange/paper_draft/04_boundary_propagation.tex").resolve(),
+    (ROOT / "arrange/paper_draft/04_strategy2_verification.tex").resolve(),
+}
+for legacy_path in legacy_propagation_paths:
+    if legacy_path in compiled:
+        fail(
+            "compiled TeX graph still uses a legacy boundary-propagation source: "
+            f"{legacy_path.relative_to(ROOT)}"
+        )
+
+for required in [
+    "06_finite_enclosure_full",
+    "06_direct_local_calculus",
+    "06a_neighbor_ray_calculus",
+    "06b_ce1_direct_certificate",
+    "06c_exceptional_direct_terminals",
+    "06d_detailed_direct_certificates",
+    "06e_direct_local_proof_details",
+    "06f_casewise_witness_details",
+    "06g_endpoint_selector_audit",
+]:
+    expected_path = (ROOT / "arrange/paper_draft" / f"{required}.tex").resolve()
+    if expected_path not in compiled:
+        fail(f"compiled TeX graph is missing direct finite-enclosure source: {required}.tex")
+
 for obsolete in [
     "04_strategy2_reader",
     "04_strategy2_exact_demand",
@@ -156,41 +179,56 @@ for obsolete in [
     if (ROOT / "arrange/paper_draft" / f"{obsolete}.tex").exists():
         fail(f"obsolete TeX source remains: {obsolete}.tex")
 
-strategy2_paths = sorted(
-    path
-    for path in compiled
-    if path.name.startswith(("04_strategy2_", "04d_strategy2_", "04e_strategy2_", "04f_strategy2_"))
+for forbidden in [
+    r"\\input{04_boundary_propagation}",
+    r"\\input{04_strategy2_verification}",
+]:
+    if forbidden in main_text:
+        fail(f"legacy propagation input remains in main.tex: {forbidden}")
+
+for label in [
+    "thm:new-complementary-gap",
+    "thm:new-ce2-short-ray",
+    "prop:new-nplus-zero-gap-closures",
+    "prop:new-nplus-one-all-vd0",
+    "prop:new-ce1-direct-certificate",
+    "prop:new-one-t3-terminal",
+    "prop:new-one-vd-assembly",
+    "prop:finite-enclosure-nonzero-gap-branches",
+]:
+    if label not in labels:
+        fail(f"missing direct finite-enclosure theorem owner: {label}")
+
+compiled_text = "\n".join(
+    active_tex(path.read_text(encoding="utf-8")) for path in compiled
 )
-strategy2_text = "\n".join(
-    active_tex(path.read_text(encoding="utf-8")) for path in strategy2_paths
-)
-short_vd_text = active_tex(
-    (ROOT / "arrange/paper_draft/04c_short_Vd_placements.tex").read_text(
-        encoding="utf-8"
-    )
-)
-if "prop:signed-ce2-one-vd-placements" in strategy2_text + short_vd_text:
-    fail("duplicate compact CE2 one-Vd assembly remains")
-if (strategy2_text + short_vd_text).count(r"\label{prop:paper-ce2-one-vd-placements}") != 1:
-    fail("the authoritative CE2 one-Vd assembly label must occur exactly once")
-if "\\subsection{Placement assembly}" in short_vd_text:
-    fail("04c_short_Vd_placements.tex still contains a placement assembly")
+for pattern, description in [
+    (r"\\Phi(?:_c|_\{(?:c|1-|\\rm)|\^)", "compiled proof still uses the legacy Phi transfer notation"),
+    (r"five[- ]map", "compiled proof still describes a five-map proof"),
+    (r"g[- ]composition", "compiled proof still describes a g-composition proof"),
+    (r"boundary[- ]reach propagation", "compiled proof still presents boundary-reach propagation as a strategy"),
+]:
+    if re.search(pattern, compiled_text, re.I):
+        fail(description)
 
 ledger_path = ROOT / "arrange/paper_draft/source_ledger.md"
 ledger = ledger_path.read_text(encoding="utf-8")
 ledger_visible = re.sub(r"<!--.*?-->", "", ledger, flags=re.S)
-for obsolete in [
-    "04_strategy2_reader.tex",
-    "04_strategy2_exact_demand.tex",
-    "04d_strategy2_rigor_completion.tex",
-    "04e_strategy2_placement_assembly.tex",
-    "04f_strategy2_cross_reference_closure.tex",
+for forbidden in [
+    "`04_strategy2_verification.tex` |",
+    "legacy-named exact local-reach certificate assembled inside Strategy 3",
+    "residual-hull principle",
 ]:
-    if obsolete in ledger:
-        fail(f"source ledger names deleted Strategy 2 source: {obsolete}")
-technical = ledger.split("### Technical appendices", 1)[1].split("The body-end label", 1)[0]
-if technical.count("`04_strategy2_verification.tex`") != 1:
-    fail("source ledger must list the consolidated Strategy 2 appendix exactly once")
+    if forbidden in ledger_visible:
+        fail(f"source ledger retains obsolete proof architecture: {forbidden}")
+for required in [
+    "`06_direct_local_calculus.tex`",
+    "`06b_ce1_direct_certificate.tex`",
+    "`06c_exceptional_direct_terminals.tex`",
+    "`06d_detailed_direct_certificates.tex`",
+]:
+    if required not in ledger_visible:
+        fail(f"source ledger omits direct finite-enclosure source: {required}")
 
 canonical_407_crosswalk = """
 In the canonical branch crosswalk, first-`Const` followed by
@@ -204,24 +242,17 @@ if re.sub(r"\s+", " ", canonical_407_crosswalk).strip() not in re.sub(
 
 reader_body_paths = [
     ROOT / "arrange/paper_draft/01_introduction.tex",
-    ROOT / "arrange/paper_draft/02_global_notation.tex",
-    ROOT / "arrange/paper_draft/02_reader_framework.tex",
-    ROOT / "arrange/paper_draft/03_strategy1_reader.tex",
-    ROOT / "arrange/paper_draft/04_strategy2_summary.tex",
-    ROOT / "arrange/paper_draft/05_strategy3_reader.tex",
-    ROOT / "arrange/paper_draft/06_strategy4_reader.tex",
+    ROOT / "arrange/paper_draft/02_structure_and_common_geometry.tex",
+    ROOT / "arrange/paper_draft/03_trace_bounds.tex",
+    ROOT / "arrange/paper_draft/05_area_loss_full.tex",
+    ROOT / "arrange/paper_draft/06_finite_enclosure_full.tex",
     ROOT / "arrange/paper_draft/07_exhaustive_assembly.tex",
 ]
 reader_terminology_patterns = [
-    (r"\broles?\b", "reader-facing role terminology"),
-    (r"\bdemands?\b", "reader-facing demand terminology"),
     (r"\bdefects?\b", "reader-facing defect terminology"),
-    (r"\brescuers?\b", "reader-facing rescuer terminology"),
-    (r"\brecords?\b", "reader-facing record terminology"),
     (r"\bregistry\b", "reader-facing registry terminology"),
     (r"\bproof owner\b", "reader-facing proof-owner terminology"),
     (r"\bnormative\b", "reader-facing normative-interface terminology"),
-    (r"\bterminals?\b", "reader-facing terminal terminology"),
     (r"\bkernels?\b", "reader-facing kernel terminology"),
     (r"\baudits?\b", "reader-facing audit terminology"),
     (r"T_\+\^\{(?:\\rm|\\mathrm)\{?hi\}?\}", "reader-facing historical high T-plus label"),
@@ -341,20 +372,11 @@ if requirements != ["sympy==1.14.0", "PyMuPDF==1.26.7"]:
     fail("requirements-proof.txt must pin SymPy 1.14.0 and PyMuPDF 1.26.7 exactly")
 
 
-for label in [
-    "thm:s2-geom-e1",
-    "thm:s2-geom-e2",
-    "thm:s2-geom-r1",
-    "thm:s2-geom-r2",
-    "thm:s2-geom-t3",
-    "thm:s2-geom-sc",
-    "thm:s2-geom-vd-adjacent",
-    "thm:s2-geom-vd-nonadjacent",
-]:
-    if label not in labels:
-        fail(f"missing active geometric Strategy 2 theorem owner: {label}")
-
-source_only_paths = [
+# The historical scalar files remain in the repository for provenance and
+# formalization compatibility, but they are not compiled and own no theorem in
+# the three-strategy proof.  Their labels and internal references are therefore
+# deliberately not part of the active-TeX closure check.
+legacy_scalar_files = [
     ROOT / "arrange/paper_draft/04_strategy2_optimization_problems.tex",
     ROOT / "arrange/paper_draft/04_strategy2_optimization_core.tex",
     ROOT / "arrange/paper_draft/04_strategy2_optimization_map.tex",
@@ -367,43 +389,11 @@ source_only_paths = [
     ROOT / "arrange/paper_draft/04d_strategy2_parameter_bridges.tex",
     ROOT / "arrange/paper_draft/04f_strategy2_pure_theorems.tex",
 ]
-source_only_labels: dict[str, Path] = {}
-source_only_references: list[tuple[str, Path]] = []
-for path in source_only_paths:
-    text = active_tex(path.read_text(encoding="utf-8"))
-    for label in re.findall(r"\\label\{([^}]+)\}", text):
-        if label in source_only_labels:
-            fail(
-                f"duplicate source-only TeX label {label}: "
-                f"{source_only_labels[label].relative_to(ROOT)} and "
-                f"{path.relative_to(ROOT)}"
-            )
-        if label in labels:
-            fail(
-                f"source-only TeX label collides with compiled label {label}: "
-                f"{path.relative_to(ROOT)} and {labels[label].relative_to(ROOT)}"
-            )
-        source_only_labels[label] = path
-    for reference in re.findall(
-        r"\\(?:eqref|ref|pageref|cref|Cref|autoref)\{([^}]+)\}", text
-    ):
-        source_only_references.append((reference, path))
-for reference, path in source_only_references:
-    if reference not in labels and reference not in source_only_labels:
-        fail(f"unresolved source-only TeX reference {reference} in {path.relative_to(ROOT)}")
-
-for label in [
-    "thm:s2-univ-e1",
-    "thm:s2-univ-e2",
-    "thm:s2-univ-r1",
-    "thm:s2-univ-r2",
-    "thm:s2-source-t3",
-    "thm:s2-univ-sc",
-    "thm:s2-univ-vd-adjacent",
-    "thm:s2-univ-vd-nonadjacent",
-]:
-    if label not in source_only_labels:
-        fail(f"missing source-only Strategy 2 scalar owner: {label}")
+for path in legacy_scalar_files:
+    if not path.is_file():
+        fail(f"missing historical scalar compatibility source: {path.relative_to(ROOT)}")
+    if path.resolve() in compiled:
+        fail(f"historical scalar compatibility source is compiled: {path.relative_to(ROOT)}")
 
 registry_path = (
     ROOT

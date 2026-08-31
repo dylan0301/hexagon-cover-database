@@ -33,12 +33,13 @@ technical manuscript:
 
 1. introduction, classifications, and routing;
 2. structural reduction and signed center geometry;
-3. trace-length bounds;
-4. boundary-reach propagation;
-5. area loss;
-6. nine-point enclosure;
-7. exhaustive completion;
-8. one exact mixed-overlap certificate appendix.
+3. Strategy 1: trace-length bounds;
+4. Strategy 2: area loss;
+5. Strategy 3: direct finite-enclosure obstructions, including the explicit
+   nine-point case, complementary-gap disks, anisotropic radial endpoints,
+   CE2 short-ray witnesses, and supported-trace endpoints;
+6. exhaustive completion;
+7. one exact mixed-overlap certificate appendix.
 
 The target is approximately ninety pages. Mathematical content formerly
 repeated across reader, bridge, optimization-registry, and verification layers
@@ -69,9 +70,9 @@ Recommended mathematical reading order:
 4. [`1101_CE_classification.md`](proof/1XXX_foundations/11XX_C_triangle/1101_CE_classification.md)
 5. [`1201_V_triangle_types.md`](proof/1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md)
 6. [`1214_strict_boundary_handoff_selection.md`](proof/1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md)
-7. [`2019_interval_component_and_path_budget.md`](proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2019_interval_component_and_path_budget.md)
-8. [`201d_raw_and_relaxed_g_chains.md`](proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md)
-9. [`201a_equilateral_enclosure_and_radical_calculus.md`](proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/201a_equilateral_enclosure_and_radical_calculus.md)
+7. [`2004_admissible_set.md`](proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md)
+8. [`2008_neighbor_ray_max_c_formula.md`](proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2008_neighbor_ray_max_c_formula.md)
+9. [`2608_residual_hull_finite_enclosure_principle.md`](proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2608_residual_hull_finite_enclosure_principle.md)
 10. [`2530_common_CE1_CE2_budget_lemmas.md`](proof/2XXX_geometric_lemmas/25XX_length_bounds/2530_common_CE1_CE2_budget_lemmas.md)
 11. [`3000_CE0_index.md`](proof/3XXX_CE0/3000_CE0_index.md)
 12. [`4000_CE1CE2_index.md`](proof/4XXX_CE1CE2/4000_CE1CE2_index.md)
@@ -98,19 +99,17 @@ $O\in U_C\subset\operatorname{int}(T_C)$, and $T_C$ contains exactly one
 radial midpoint.  The precise hypothesis and proof are recorded in
 [`2100`](proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2100_CE1_CE2_exactly_one_midpoint_lemma.md).
 
-The proof uses four mechanisms:
+The proof uses three strategies:
 
 1. trace-length bounds on the perimeter or full skeleton;
-2. propagation of boundary-reach lower bounds through the exact local
-   admissible set;
-3. normalized area-loss estimates;
-4. an equilateral-enclosure obstruction for nine points forced into the center
-   C triangle.
+2. normalized area-loss estimates;
+3. direct equilateral-enclosure obstructions for explicitly constructed
+   points forced into the C triangle.
 
-For a nonsupercritical V triangle, low radial lower bounds use
-`B<=1-A` directly. High radial lower bounds use the raw admissible-set transfer;
-the demanded midpoint then makes the output automatically nonsupercritical.
-The raw zero-radial map is not used as an identity transfer.
+Strategy 3 uses the exact own-ray capacity $c_{\max}$, the exact permitted
+neighbor-ray capacities $C_+,C_-$, support functions, and direct local
+inequalities. The former composed transfer calculus is retained only as
+historical compatibility material and is not used by the printed proof.
 
 ## Proof corpus map
 
@@ -126,14 +125,14 @@ The complete file list is [`proof/MANIFEST.txt`](proof/MANIFEST.txt).
 
 ## Exact certificates and Lean statement elaboration
 
-The Strategy 4 mixed support-arc intersections use exact integer, rational,
+The explicit nine-point mixed support-arc intersections use exact integer, rational,
 and `Q(sqrt(3))` arithmetic. The authenticated sparse data, derivation
 verifier, positivity verifier, and transcript digest form one certificate.
 Floating-point and interval arithmetic are not proof dependencies.
 
-The Strategy 2 Lean project in
+The legacy local-reach statement project in
 [`formalization/strategy2_optimization/`](formalization/strategy2_optimization/)
-elaborates the scalar statements needed for the long calculation layer. Its
+retains its historical directory name and elaborates the former scalar statements for compatibility. Its
 ten theorem bodies are intentional `sorry` admissions. This project is a
 statement check, not a proof or formalization of the geometric argument; the
 complete proofs remain in the TeX and numbered proof sources.
@@ -144,9 +143,11 @@ The following pages are visual references, not proof certificates:
 
 | Page | Scope |
 |---|---|
-| [`interactive/strategy2demo.html`](interactive/strategy2demo.html) | propagation geometry and case overlays |
-| [`interactive/strategy2notation.html`](interactive/strategy2notation.html) | reaches, transfer maps, center data, and routing notation |
+| [`interactive/strategy2demo.html`](interactive/strategy2demo.html) | historical propagation geometry and case overlays |
+| [`interactive/strategy2notation.html`](interactive/strategy2notation.html) | historical transfer notation and center data |
 | [`interactive/strategy4demo.html`](interactive/strategy4demo.html) | nine-point obstruction mechanism |
+| [`interactive/trace_exact_ab_envelope_explorer.html`](interactive/trace_exact_ab_envelope_explorer.html) | trace-exact AB envelopes, actual V-gaps, finite witnesses, and snapshot presets |
+| [`interactive/trace_exact_ab_presets.json`](interactive/trace_exact_ab_presets.json) | deterministic registry for the fifteen normalized visualization presets |
 
 To preview locally from the repository root:
 

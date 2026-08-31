@@ -1,0 +1,26 @@
+\begin{tikzpicture}[scale=2.05]
+  \HexCoords
+  \DrawHexagon
+  \DrawRays
+  \fill[CenterBlue!9] (O) circle (.33);
+  \draw[CenterBlue,dashed,line width=.75pt] (O) circle (.33);
+  \foreach \i in {0,...,5}{
+    \coordinate (D\i) at ($(O)!.43!(V\i)$);
+    \node[witness] at (D\i) {};
+  }
+  \node[figlabel,above] at (D1) {$D_1$};
+  \node[figlabel,below] at (D4) {$D_4$};
+  \coordinate (Qm) at (-.18,.54);
+  \coordinate (Qz) at (.38,.08);
+  \coordinate (Qp) at (-.08,-.51);
+  \node[witness] at (Qm) {};
+  \node[witness] at (Qz) {};
+  \node[witness] at (Qp) {};
+  \node[figlabel,above left] at (Qm) {$Q_-$};
+  \node[figlabel,above right] at (Qz) {$Q_0$};
+  \node[figlabel,below left] at (Qp) {$Q_+$};
+  \draw[DemandRed,dotted,line width=.8pt] (Qm)--(Qz)--(Qp);
+  \node[figlabel,align=left,anchor=west] at (1.18,.52)
+    {six radial witnesses\\three asymmetric witnesses\\all forced into $U_C$};
+  \node[figlabel,below] at (0,-1.15) {$\mathcal D_\eta\subset U_C$ is forced by the sixfold convex hull};
+\end{tikzpicture}

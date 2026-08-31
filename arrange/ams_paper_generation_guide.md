@@ -8,130 +8,105 @@ replace an exact certificate by numerical evidence.
 
 ## 1. Publication objective
 
-The target is a self-contained paper of approximately ninety pages. The page
-target is achieved by removing duplicated reader/appendix layers, not by
-removing mathematical content. Every geometric reduction, case split, local
-lemma, and exact certificate needed by the final theorem remains in the
-published PDF.
-
-The paper is strategy-oriented even though the numbered proof corpus remains
-branch-oriented. `arrange/paper_proof_crosswalk.md` records the correspondence.
+The target is a self-contained paper in the repository's audited 84--104 page
+range. Length is controlled by removing duplicate reader, registry, and
+historical-calculation layers, not by deleting proof obligations.
 
 ## 2. Active printed architecture
 
-The manuscript uses the following top-level sections:
+The body has three strategies:
 
 ```text
 01_introduction.tex
 02_structure_and_common_geometry.tex
 03_trace_bounds.tex
-04_boundary_propagation.tex
 05_area_loss_full.tex
-06_nine_point_full.tex
+06_finite_enclosure_full.tex
 07_exhaustive_assembly.tex
 ```
 
 Their functions are:
 
-1. theorem, canonical labeling, finite classifications, and routing table;
-2. complete structural reduction and signed center geometry;
-3. complete trace-length proof;
-4. complete boundary-reach propagation proof;
-5. complete area-loss proof;
-6. complete nine-point enclosure proof;
-7. one final exhaustive assembly.
+1. theorem, classifications, and exhaustive routing;
+2. structural reduction and signed center geometry;
+3. Strategy 1: trace-length contradictions;
+4. Strategy 2: area-loss contradictions;
+5. Strategy 3: direct finite-point and finite-set enclosure contradictions;
+6. final exhaustive assembly.
 
-After the body-end label, the sole printed appendix is:
+The sole printed appendix is
+`06a_strategy4_exact_certificate.tex`, which contains the authenticated exact
+mixed-overlap certificate for the zero-gap nine-point theorem.
+
+The former files `04_boundary_propagation.tex` and
+`04_strategy2_verification.tex` are not compiled. Historical files with
+`strategy2` in their names may remain for provenance and the pinned Lean
+statement interface, but they must not own a printed theorem or an active case.
+
+## 3. Strategy 3 source incorporation
+
+`06_finite_enclosure_full.tex` incorporates these proof-bearing sources:
 
 ```text
-06a_strategy4_exact_certificate.tex
+06_direct_local_calculus.tex
+06a_neighbor_ray_calculus.tex
+06b_ce1_direct_certificate.tex
+06c_exceptional_direct_terminals.tex
+06d_detailed_direct_certificates.tex
+06e_direct_local_proof_details.tex
+06f_casewise_witness_details.tex
+06g_endpoint_selector_audit.tex
+06_strategy4_ab_core.tex
+06_strategy4_completion.tex
 ```
 
-It contains the exact unequal-radius support-arc certificate. Long Strategy 2
-algebra is retained inside Section 4 so that each geometric case and its
-calculation remain in one continuous method chapter.
+The first eight files contain the actual new nonzero-gap proofs: radial witness
+forcing, complementary-gap enclosure, CE2 short-ray separation, the direct CE1
+reverse path, T3-like and Vd1 O-side endpoints, Vd-specific radial separation,
+and casewise endpoint audits. They may use the exact local admissible set and
+single-triangle capacity functions, but they must not introduce or compose a
+boundary-transfer map.
 
-## 3. Source incorporation
+## 4. Content placement
 
-The wrapper files temporarily demote sectioning commands while incorporating
-established self-contained TeX modules. This changes presentation only;
-labels, theorem statements, equations, and proof content are retained.
-
-The active assembly is:
-
-```latex
-\input{01_introduction}
-\input{02_structure_and_common_geometry}
-\input{03_trace_bounds}
-\input{04_boundary_propagation}
-\input{05_area_loss_full}
-\input{06_nine_point_full}
-\input{07_exhaustive_assembly}
-\label{page:proof-body-end}
-
-\clearpage
-\appendix
-\input{06a_strategy4_exact_certificate}
-```
-
-The exact Strategy 2 provenance manifest remains repository metadata and is
-not typeset. Formalization-only optimization specifications and the Lean
-statement-elaboration project remain repository verification objects; the
-paper does not present them as a manuscript appendix or duplicate their
-interface prose.
-
-## 4. Content placement rule
-
-Keep in the main mathematical narrative:
+Keep in the main proof:
 
 - open/closed/scaled equivalence;
 - center and vertex classifications;
-- maximal reaches, selected lower bounds, gaps, and handoffs;
-- midpoint statements and signed center geometry;
-- every local geometric reduction;
-- all trace and area proofs;
-- the admissible set and exact propagation calculus;
-- all T3-like and Vd placement arguments;
+- actual and selected reaches, gaps, and handoffs;
+- midpoint forcing and signed center geometry;
+- exact own-ray and permitted neighbor-ray capacities;
+- explicit center-forced witness points;
+- support-function enclosure calculations;
+- direct CE1 and CE2 scalar estimates;
+- T3-like and Vd placement arguments;
 - the two-chart replacement;
-- nine-point forcing, Newton reduction, ray order, and support-arc argument;
-- the final exhaustive case assembly.
+- the zero-gap nine-point theorem;
+- the exhaustive completion.
 
-Keep in the exact appendix:
-
-- authenticated sparse polynomial data;
-- rational-envelope and Gram reductions for the two mixed overlaps;
-- denominator checks;
-- exact Bernstein conversion and positivity conclusion.
-
-Keep in repository navigation and verification files rather than the printed
-article:
-
-- Git blob tables and maintenance provenance prose;
-- formalization registries and source-owner tables;
-- run logs and release instructions;
-- historical or failed approaches.
+Keep in the exact appendix only the authenticated sparse polynomial data and
+exact mixed-overlap positivity proof. Keep historical alternative proofs,
+maintenance provenance, and formalization registries outside the printed
+article.
 
 ## 5. Paper-wide notation
 
-Use the paper terminology:
+Use:
 
 - C triangle and V triangle;
-- maximal reaches `(A_i,B_i,C_i)`;
-- selected lower bounds `(a_i,b_i,c_i)`;
-- `N_+` defined only from `A_i+B_i>1`;
-- boundary gap, including singleton gaps;
-- `N_gap` for the number of positive center traces containing a gap;
-- CE0, CE1, CE2 and Vd0, Vd1, Vd2, T3-like.
+- actual reaches $(A_i,B_i,C_i)$;
+- selected lower bounds $(a_i,b_i,c_i)$;
+- $N_+$ defined only from $A_i+B_i>1$;
+- boundary gaps, including singleton gaps;
+- $N_{\rm gap}$ for the number of positive center traces containing a gap;
+- CE0, CE1, CE2 and Vd0, Vd1, Vd2, T3-like;
+- $c_{\max}(a,b)$ for the exact own-ray capacity;
+- $C_+(a,b),C_-(a,b)$ for exact permitted neighboring-ray capacities;
+- $D_i=(1-\Gamma_i)V_i$ for type-aware radial witnesses.
 
-The reader-facing transfer is branchwise. For a nonsupercritical triangle use
-`B<=1-A` directly at radial lower bound at most `1/2`, and use the raw
-high-radial admissible-set map above `1/2`. The raw zero-radial map is never
-used as an identity handoff.
-
-Provenance-bound legacy aliases may remain in the authenticated 407X files and
-must be translated by the repository crosswalk. The printed paper uses only
-`M`, `\overline M`, `\Phi`, and `M^{\rm sup}`; do not introduce a second
-transfer family.
+The printed proof may state a direct one-triangle output inequality, but it
+must not package successive triangles into a composed map. Provenance-bound
+legacy aliases may remain only in authenticated historical files.
 
 ## 6. Non-negotiable distinctions
 
@@ -140,49 +115,37 @@ Every revision must preserve:
 1. actual versus selected criticality;
 2. open traces and singleton gaps;
 3. CE1 point contact versus CE2 positive companion trace;
-4. center-free hypotheses for propagated handoffs and path budgets;
-5. endpoint external components in residuals;
+4. actual V-type restrictions on neighboring radial support;
+5. center-free hypotheses for direct path budgets;
 6. connected-component selectors after squaring;
 7. all branch-boundary equality assignments;
-8. the inclusive CE2 threshold alternative;
-9. the complete T3-like four-branch analysis;
-10. adjacent and nonadjacent Vd-specific radial margins;
+8. the inclusive CE2 threshold dichotomy;
+9. the complete T3-like parameter domain;
+10. adjacent and nonadjacent Vd-specific margins;
 11. both charts and all strict margins in the Vd1 replacement;
-12. the exact Strategy 4 arithmetic model and authenticated input.
+12. the authenticated zero-gap exact arithmetic model.
 
-## 7. Build and direct-main workflow
+## 7. Build and verification
 
-A source commit to `main` triggers
-`.github/workflows/paper-rebuild.yml`. The workflow:
+The permanent workflows:
 
-1. runs the proof-source, manuscript, and Strategy 2 semantic-interface checks;
-2. elaborates the pinned Lean scalar-statement project;
-3. replays the exact Strategy 4 certificate;
-4. performs two clean builds with the pinned TeX Live 2025 image;
-5. rejects undefined or duplicate references and overfull boxes;
-6. compares the two PDFs by stable semantics and exact rendered pixels;
-7. verifies rendering and an 84--104 page target interval;
-8. regenerates `arrange/CURRENT_VERIFICATION_SUMMARY.txt`;
-9. commits the canonical PDF and summary directly to `main`.
+1. regenerate the active proof graph and manifest;
+2. run source linting and historical compatibility checks;
+3. elaborate the pinned Lean statement project;
+4. replay the exact zero-gap Strategy 3 certificate;
+5. build twice in pinned TeX Live 2025;
+6. reject unresolved or duplicate references and overfull boxes;
+7. compare stable PDF semantics and exact rendered pixels;
+8. verify the 84--104 page range and rendering;
+9. regenerate the canonical verification summary;
+10. construct a deterministic release bundle.
 
-The write-enabled workflow runs the active proof-reference graph, Strategy 2 specifications,
-exact certificates, Lean scalar-statement elaboration, and a two-build
-semantic PDF audit before committing. GitHub does not recursively trigger the
-ordinary read-only push workflow from the workflow-token commit; that
-independent verifier runs on user pushes and pull requests and also builds the
-archival bundle.
-
-A manual dispatch may target a review branch; the workflow verifies that the
-remote branch has not advanced and commits the pinned PDF and summary back to
-that same branch. It then explicitly dispatches the read-only workflow on the
-artifact commit; it does not rely on the workflow-token push to trigger it.
-
-For local compilation:
+For a local preview:
 
 ```bash
 cd arrange/paper_draft
 latexmk -xelatex -interaction=nonstopmode -halt-on-error main.tex
 ```
 
-Do not manually update the tracked PDF without also regenerating the current
-verification summary.
+Do not manually update the tracked PDF without regenerating the verification
+summary and running the permanent checks.

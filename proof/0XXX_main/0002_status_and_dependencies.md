@@ -1,69 +1,50 @@
-# Proof Status And Dependencies
+# Status and Active Dependencies
 
 Status: Reference
 
-This table records the proved main assembly and its most direct active sources.
-It does not upgrade a source beyond the status recorded in that source. The
-generic path budget and exact computer-assisted nine-point certificate are
-listed only through their active theorem owners.
+This file records the active three-strategy proof interfaces. It does not
+upgrade the status of any listed source.
 
-| Branch or dependency | Source | Recorded status |
+## Foundations and shared geometry
+
+| Item | Source | Status |
 |---|---|---|
-| Exhaustive main-theorem assembly | [`0000_main_theorem.md`](0000_main_theorem.md) | Proven |
-| Open/closed/scaled equivalence | [`../1XXX_foundations/10XX_global_conventions/1003_open_unit_vs_shrunken_closed_equivalence.md`](../1XXX_foundations/10XX_global_conventions/1003_open_unit_vs_shrunken_closed_equivalence.md) | Proven |
-| CE0/CE1/CE2 classification | [`../1XXX_foundations/11XX_C_triangle/1101_CE_classification.md`](../1XXX_foundations/11XX_C_triangle/1101_CE_classification.md) | Proven |
-| CE1/CE2 exactly-one-midpoint theorem | [`../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2100_CE1_CE2_exactly_one_midpoint_lemma.md`](../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2100_CE1_CE2_exactly_one_midpoint_lemma.md) | Proven |
-| Vd0/Vd1/Vd2/T3-like classification | [`../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md`](../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md) | Proven |
-| Strict boundary handoffs | [`../1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md`](../1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md) | Proven |
-| Exact local admissible set | [`../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md`](../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md) | Proven |
-| Exact outgoing envelope | [`../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2007_max_b_map.md`](../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2007_max_b_map.md) | Proven |
-| Free strict-supercritical outgoing envelope $M_c^{\rm sup}$ | [`../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2010_free_supercritical_max_b.md`](../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2010_free_supercritical_max_b.md) | Proven |
-| Exact branchwise nonsupercritical output, high-radial four labels, and duality | [`../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md`](../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2011_capped_demand_map.md) | Proven |
-| Selected-$Q_+$ curve and chords | [`../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2016_universal_Tplus_normal_form.md`](../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2016_universal_Tplus_normal_form.md) | Proven |
-| Threshold routing | [`../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2017_threshold_routing.md`](../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2017_threshold_routing.md) | Proven |
-| Diameter transfer and common rescuer | [`../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2018_diameter_transfer_and_adjacent_rescuer.md`](../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2018_diameter_transfer_and_adjacent_rescuer.md) | Proven |
-| Center-assisted transfers and **center-free** path budget | [`../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2019_interval_component_and_path_budget.md`](../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2019_interval_component_and_path_budget.md) | Proven |
-| Canonical raw, capped, and propagation-map calculus | [`../2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md`](../2XXX_geometric_lemmas/20XX_V_triangle_geometry/201d_raw_and_relaxed_g_chains.md) | Proven |
-| Signed CE1/CE2 center normal form | [`../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md`](../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md) | Proven |
-| One-side endpoint loss | [`../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2107_one_side_capped_loss.md`](../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2107_one_side_capped_loss.md) | Proven |
-| Paired CE2 endpoint loss and application | [`2108`](../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2108_CE2_two_endpoint_capped_loss.md), [`2110`](../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2110_common_CE2_two_gap_application.md) | Proven |
-| Common CE1/CE2 direct $N_++N_{\rm sp}$ budget | [`../2XXX_geometric_lemmas/25XX_length_bounds/2530_common_CE1_CE2_budget_lemmas.md`](../2XXX_geometric_lemmas/25XX_length_bounds/2530_common_CE1_CE2_budget_lemmas.md) | Proven |
-| Center-independent zero-gap length consequences | [`../2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md`](../2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md) | Proven |
-| Center-independent zero-gap T3-like area consequence | [`../3XXX_CE0/31XX_Nplus1/317X_T3_like_no_Vd1Vd2/3174_CE0_one_supercritical_T3_certificate.md`](../3XXX_CE0/31XX_Nplus1/317X_T3_like_no_Vd1Vd2/3174_CE0_one_supercritical_T3_certificate.md) | Proven |
-| Center-independent zero-gap $N_+\ge2$ area consequence | [`../3XXX_CE0/32XX_Nplus_ge2/3208_CE0_conditional_area_certificate.md`](../3XXX_CE0/32XX_Nplus_ge2/3208_CE0_conditional_area_certificate.md) | Proven |
-| Center-independent nine-point obstruction | [`../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31058_center_independent_direct_nine_point_obstruction.md`](../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31058_center_independent_direct_nine_point_obstruction.md) | Proven |
-| Exact mixed-overlap reduction | [`31055`](../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31055_rational_radial_envelopes_and_mixed_reduction.md) | Proven |
-| Exact global mixed-overlap positivity | [`31056`](../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31056_global_analytic_mixed_positivity.md) and its authenticated exact verifier/data package | Proven |
-| CE0 terminal packages | [`3010`](../3XXX_CE0/30XX_Nplus0/3010_CE0_perimeter_length_obstruction.md), [`3141`](../3XXX_CE0/31XX_Nplus1/314X_exists_Vd1_Vd2/3141_CE0_Nplus1_exists_Vd1_Vd2_boundary_length_obstruction.md), [`3171`](../3XXX_CE0/31XX_Nplus1/317X_T3_like_no_Vd1Vd2/3171_T3_like_area_certificate_index.md), [`3201`](../3XXX_CE0/32XX_Nplus_ge2/3201_area_conjecture_index.md) | Proven |
-| Nonzero-gap CE1/CE2, $N_+=0$, all Vd0 Method 2 route | [`4013`](../4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss/4013_boundary_loss_index.md) | Proven |
-| Nonzero-gap CE1/CE2, $N_+=0$, T3-like exact four-label Method 2 route | [`4070`](../4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2/4070_CE1CE2_Nplus0_T3_like_no_Vd1Vd2_index.md), with terminal files `4074`, `4075`, `4078`, `4079`, `407a`, `407c`, `407d` | Proven |
-| Common exact one-gap five-V-triangle interface | [`4105`](../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4105_CE1_CE2_one_gap_five_V_triangle_interface.md) | Proven |
-| CE1 and CE2 one-gap scalar relaxations | [`4106`](../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4106_CE1_one_gap_five_map_completion.md), [`4107`](../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4107_CE2_one_gap_five_map_completion.md) | Proven |
-| CE1/CE2, $N_+=1$, all Vd0 assembly | [`4101`](../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0/4101_CE1CE2_Nplus1_all_Vd0_strategy.md) | Proven |
-| Nonzero-gap exactly-one-T3-like Method 2 route | [`4130`](../4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like/4130_CE1CE2_exactly_one_T3_like_index.md) | Proven |
-| Nonzero-gap exactly-one-Vd1/Vd2 hybrid assembly | [`4140`](../4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4140_CE2_Nplus1_exactly_one_Vd1_Vd2_index.md), including replacement `4147` and its post-replacement Method 1/2 gap router | Proven |
-| CE1/CE2 Strategy 1 terminal routes | `4040`, `4041`, `4110`, `4111`, `4123`, `4200` | Proven |
+| Open/closed/scaled equivalence | [`1003`](../1XXX_foundations/10XX_global_conventions/1003_open_unit_vs_shrunken_closed_equivalence.md) | Proven |
+| Center classification | [`1101`](../1XXX_foundations/11XX_C_triangle/1101_CE_classification.md) | Proven |
+| Vertex classification | [`1201`](../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md) | Proven |
+| Strict handoff selection | [`1214`](../1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md) | Proven |
+| Exact own-ray admissible set | [`2004`](../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md) | Proven |
+| Exact neighboring-ray capacity | [`2008`](../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2008_neighbor_ray_max_c_formula.md) | Proven |
+| Signed CE1/CE2 normal form | [`2109`](../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md) | Proven |
+| Common trace and skeleton budgets | [`2500`](../2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md), [`2530`](../2XXX_geometric_lemmas/25XX_length_bounds/2530_common_CE1_CE2_budget_lemmas.md) | Proven |
+| Radial-witness and gap-enclosure lemmas | [`2608`](../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2608_residual_hull_finite_enclosure_principle.md) | Proven |
 
-## Interpretive cautions
+## Active branch terminals
 
-- At zero radial demand the raw map satisfies $M_0(1-x)>x$ on $(0,1)$.
-  Nonsupercritical low-radial handoffs therefore use the direct inequality
-  $B\le1-A$, not the raw map.
-- The strict-supercritical theorem gives the outgoing bound
-  $B<M_c^{\rm sup}$ without a handoff hypothesis. The complementary following
-  demand requires a center-free outgoing edge.
-- A path budget is used only after all center and nonincident contributions on
-  internal edges have been excluded and endpoint contributions have been
-  absorbed into residuals.
-- The CE2 threshold theorem says at least one of two slots fires, not exactly
-  one.
-- The exact five-V-triangle target is $Z>1-h_0$; the dual three-map target is $>1-X$.
-- The `407X` hard endpoint audit remains a four-label exact proof.
-- `2111` is a reference crosswalk for the long scalar calculations used by
-  the geometric proof. The geometric T3 wrapper `407e` does not assert a
-  separate theorem on an arbitrary extracted real-variable cell union.
-- The `4146` terminal margin is Vd-type-specific.
-- The Strategy 4 scripts are active proof objects only together with their
-  authenticated sparse data and the exact reduction in `31055`--`31056`.
-- Historical failed or optional routes listed in the proof-tree index remain
-  nondependencies.
+| Branch | Source | Status |
+|---|---|---|
+| Zero-gap all-Vd0 exact-one | [`31058`](../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31058_center_independent_direct_nine_point_obstruction.md) | Proven |
+| Nonzero-gap, $N_+=0$, all Vd0 | [`4013_new`](../4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss_new/4013_new_all_Vd0_finite_enclosure.md) | Proven |
+| Nonzero-gap, $N_+=0$, one or two T3-like roles | [`4070_new`](../4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2_new/4070_new_T3_like_finite_enclosure.md) | Proven |
+| Nonzero-gap, $N_+=1$, all Vd0 | [`4101_new`](../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0_new/4101_new_all_Vd0_finite_enclosure.md), [`4102_new`](../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0_new/4102_new_CE1_direct_radial_certificate.md) | Proven |
+| Nonzero-gap, $N_+=1$, exactly one T3-like role | [`4130_new`](../4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like_new/4130_new_T3_like_finite_enclosure.md) | Proven |
+| CE2 nonzero-gap, $N_+=1$, exactly one Vd1/Vd2 role | [`4140_new`](../4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4140_new_one_Vd_finite_enclosure_assembly.md) | Proven |
+
+Strategy 1 retains the length terminals `4040`, `4041`, `4110`, `4111`,
+`4123`, `4149`, `414a`, and `4200`. Strategy 2 retains the zero-gap area
+certificates `317X` and `320X`.
+
+## Exact certificate and compatibility status
+
+The zero-gap nine-point mixed overlaps are proved by the authenticated exact
+certificate in the `3105X_computation` package. The source files with
+`strategy2` in their names and the Lean project under
+`formalization/strategy2_optimization/` are retained for historical statement
+compatibility. They are not compiled into the paper and are not active proof
+owners.
+
+## Generated interfaces
+
+The active proof graph, dependency text, manifest, canonical PDF, and current
+verification summary are generated files. Their consistency is checked by the
+permanent workflows.

@@ -1,0 +1,68 @@
+\begin{figure}[!htbp]
+\centering
+\begin{minipage}[t]{.47\linewidth}
+\centering
+\resizebox{.95\linewidth}{!}{%
+\begin{tikzpicture}[x=2.3cm,y=2.3cm,>=Latex]
+  \node[panellabel,anchor=west] at (-.20,1.55) {(a) local neighboring-ray demand};
+  \coordinate (V) at (0,0);
+  \coordinate (A) at (-.62,1.074);
+  \coordinate (B) at (.78,0);
+  \coordinate (X) at (.14,.92);
+  \draw[black!45,line width=.75pt] (V)--(-.9,1.559);
+  \draw[black!45,line width=.75pt] (V)--(1.2,0);
+  \draw[ray] (.52,.9)--(-.25,.9);
+  \fill (V) circle (.016) node[below left=1pt,figlabel] {$V_0$};
+  \fill[VertexOrange] (A) circle (.022) node[left=2pt,figlabel] {$A_a$};
+  \fill[VertexOrange] (B) circle (.022) node[below=2pt,figlabel] {$B_b$};
+  \fill[DemandRed] (X) circle (.024) node[right=2pt,figlabel] {$X_c\in r_1$};
+  \draw[actualreach] (V)--(A);
+  \draw[actualreach] (V)--(B);
+  \draw[radialdemand] (.52,.9)--(X);
+
+  \draw[black!45,dashed] (-.20,.15)--(.88,1.10);
+  \draw[black!45,dashed] (-.05,.58)--(.95,.58);
+  \draw[black!45,dashed] (-.40,.98)--(.55,.15);
+  \node[figlabel,align=center] at (.16,-.55)
+    {$C_+(a,b)$ is the largest $c$ for which\\
+     $V_0,A_a,B_b,X_c$ fit in a closed unit triangle};
+\end{tikzpicture}%
+}
+\end{minipage}\hfill
+\begin{minipage}[t]{.47\linewidth}
+\centering
+\resizebox{.95\linewidth}{!}{%
+\begin{tikzpicture}[x=5.2cm,y=3.2cm,>=Latex]
+  \node[panellabel,anchor=west] at (-.02,1.12) {(b) change of active support};
+  \draw[->,line width=.65pt] (0,0)--(1.04,0) node[right,figlabel] {$b$};
+  \draw[->,line width=.65pt] (0,0)--(0,1.02) node[above,figlabel] {$C_+(a,b)$};
+  \draw[DemandRed,line width=1.1pt] plot[smooth] coordinates
+    {(0,.91) (.12,.79) (.25,.66) (.36,.55)};
+  \draw[RadialTeal,line width=1.1pt] (.36,.55)--(.67,.55);
+  \draw[GapPurple,line width=1.1pt] plot[smooth] coordinates
+    {(.67,.55) (.76,.50) (.88,.38) (1,.20)};
+  \draw[black!35,dashed] (.36,0)--(.36,.55);
+  \draw[black!35,dashed] (.67,0)--(.67,.55);
+  \node[figlabel,below] at (.36,0) {$\sigma(a)$};
+  \node[figlabel,below] at (.67,0) {$\tau(a)$};
+  \node[figlabel,text=DemandRed,align=center] at (.18,.93)
+    {linear branch\\$1-b$};
+  \node[figlabel,text=RadialTeal] at (.515,.64) {plateau $p(a)$};
+  \node[figlabel,text=GapPurple,align=center] at (.86,.61)
+    {radical\\branch};
+  \fill[RadialTeal] (.67,.55) circle (.012);
+  \node[figlabel,align=center] at (.52,-.34)
+    {the piecewise formula records changes in active support,\\
+     not an iteration through neighboring roles};
+\end{tikzpicture}%
+}
+\end{minipage}
+\caption{Geometry behind the neighboring-ray capacity $C_+(a,b)$.
+The local problem asks how far a triangle anchored at $V_0$ and the two
+boundary points $A_a,B_b$ can reach on the neighboring arm $r_1$.  As $b$
+varies with $a$ fixed, the active support pattern changes from the linear
+branch to a plateau and then to the radical branch, with transition points
+$\sigma(a)$ and $\tau(a)$.  The graph is schematic; the transition order,
+endpoint selection, and branch labels are exact.}
+\label{fig:neighboring-ray-capacity}
+\end{figure}

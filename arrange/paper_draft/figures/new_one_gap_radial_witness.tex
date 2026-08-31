@@ -1,0 +1,17 @@
+\begin{tikzpicture}[scale=2.35,line cap=round,line join=round]
+\coordinate (O) at (0,0);
+\foreach \i in {0,...,5}{
+  \coordinate (V\i) at ({cos(60*\i)},{sin(60*\i)});
+}
+\draw[thick] (V0)--(V1)--(V2)--(V3)--(V4)--(V5)--cycle;
+\foreach \i in {0,...,5}{\draw[gray!55] (O)--(V\i);}
+\draw[very thick] ($(V0)!0.33!(V1)$)--($(V0)!0.67!(V1)$);
+\foreach \i in {0,...,5}{
+  \fill ($(O)!0.14!(V\i)$) circle (0.025);
+}
+\draw[dashed] (O) circle ({0.14*cos(30)});
+\fill (O) circle (0.018);
+\node[below] at (O) {$O$};
+\node[right] at ($(V0)!0.50!(V1)$) {$J$};
+\node at (0,-1.18) {common radial disk and the complementary boundary gap};
+\end{tikzpicture}
