@@ -1,0 +1,91 @@
+\begin{figure}[!htbp]
+\centering
+\begin{minipage}[t]{.48\linewidth}
+\centering
+\resizebox{.96\linewidth}{!}{%
+\begin{tikzpicture}[x=1.55cm,y=1.55cm,>=Latex]
+  \node[panellabel,anchor=west] at (-1.05,2.18)
+    {(a) exact strict-supercritical $AB$ union};
+  \coordinate (O) at (0,0);
+  \coordinate (A) at (2.25,0);
+  \coordinate (B) at (-1.125,1.949);
+  \coordinate (P1) at (1.78,.33);
+  \coordinate (Qm) at (1.35,.66);
+  \coordinate (Q0) at (.57,1.10);
+  \coordinate (Qp) at (-.08,1.46);
+  \coordinate (P4) at (-.62,1.78);
+  \draw[black!45,line width=.75pt] (O)--(2.55,0);
+  \draw[black!45,line width=.75pt] (O)--(-1.28,2.217);
+
+  \fill[VertexOrange!13]
+    (O)--(A).. controls (2.08,.10) and (1.93,.23)..(P1)--(Qm)--(Q0)--cycle;
+  \fill[CenterBlue!12]
+    (O)--(Q0)--(Qp)--(P4).. controls (-.82,1.88) and (-1.00,1.92)..(B)--cycle;
+
+  \draw[DemandRed,line width=1pt]
+    (A).. controls (2.08,.10) and (1.93,.23)..(P1);
+  \draw[VertexOrange,line width=1pt] (P1)--(Q0);
+  \draw[CenterBlue,line width=1pt] (Q0)--(P4);
+  \draw[GapPurple,line width=1pt]
+    (P4).. controls (-.82,1.88) and (-1.00,1.92)..(B);
+
+  \fill (A) circle (.018) node[below=2pt,figlabel] {$A=ae_A$};
+  \fill (B) circle (.018) node[left=2pt,figlabel] {$B=be_B$};
+  \fill (O) circle (.018) node[below left=1pt,figlabel] {$O$};
+  \node[figlabel,text=DemandRed,rotate=28] at (2.06,.25) {$A$-circle};
+  \node[figlabel,text=VertexOrange,rotate=30] at (1.30,.72) {$A$-line};
+  \node[figlabel,text=CenterBlue,rotate=31] at (.12,1.44) {$B$-line};
+  \node[figlabel,text=GapPurple,rotate=21] at (-.78,1.93) {$B$-circle};
+  \node[figlabel,align=center] at (.45,-.55)
+    {$\mathcal R(a,b)=(C\cap\mathcal D_A\cap\mathcal H_A)
+      \cup(C\cap\mathcal D_B\cap\mathcal H_B)$};
+\end{tikzpicture}%
+}
+\end{minipage}\hfill
+\begin{minipage}[t]{.48\linewidth}
+\centering
+\resizebox{.96\linewidth}{!}{%
+\begin{tikzpicture}[x=1.55cm,y=1.55cm,>=Latex]
+  \node[panellabel,anchor=west] at (-1.05,2.18)
+    {(b) the three asymmetric frontier witnesses};
+  \coordinate (O) at (0,0);
+  \coordinate (A) at (2.25,0);
+  \coordinate (B) at (-1.125,1.949);
+  \coordinate (P1) at (1.78,.33);
+  \coordinate (Qm) at (1.35,.66);
+  \coordinate (Q0) at (.57,1.10);
+  \coordinate (Qp) at (-.08,1.46);
+  \coordinate (P4) at (-.62,1.78);
+  \draw[black!45,line width=.75pt] (O)--(2.55,0);
+  \draw[black!45,line width=.75pt] (O)--(-1.28,2.217);
+  \draw[black!55,line width=.75pt]
+    (A).. controls (2.08,.10) and (1.93,.23)..(P1)--(Q0)--(P4)
+    .. controls (-.82,1.88) and (-1.00,1.92)..(B);
+  \fill[DemandRed] (Qm) circle (.035) node[below right=2pt,figlabel] {$Q_-$};
+  \fill[DemandRed] (Q0) circle (.035) node[right=2pt,figlabel] {$Q_0$};
+  \fill[DemandRed] (Qp) circle (.035) node[above right=2pt,figlabel] {$Q_+$};
+
+  \draw[black!35,dashed] (Qm) circle (.76);
+  \draw[black!35,dashed] (Qp) circle (.76);
+  \draw[flow] (Qm)--($(Qm)!1.42!(O)$);
+  \draw[flow] (Q0)--($(Q0)!1.42!(O)$);
+  \draw[flow] (Qp)--($(Qp)!1.42!(O)$);
+  \node[figlabel,atlasbox,align=left,anchor=west] at (.80,1.57)
+    {frontier excludes the actual supercritical role;\\
+     moving unit-circle signs exclude the two adjacent roles;\\
+     vertex distances exclude the three nonlocal roles};
+  \node[figlabel,align=center] at (.45,-.55)
+    {$Q_-,Q_0,Q_+\in\operatorname{int}(H)
+      \setminus\bigcup_{i=0}^{5}U_i$};
+\end{tikzpicture}%
+}
+\end{minipage}
+\caption{The strict-supercritical $AB$ frontier and the three asymmetric
+witnesses.  The source-conditioned union has, in counterclockwise order, an
+$A$-circle arc, an $A$-line segment, a $B$-line segment, and a $B$-circle
+arc.  The points $Q_-,Q_0,Q_+$ are selected on this exact frontier and are
+then excluded from the six actual V roles by frontier, moving-circle, and
+vertex-distance arguments.  The drawing is schematic; the labelled frontier
+order and witness roles are exact.}
+\label{fig:strict-ab-frontier-witnesses}
+\end{figure}

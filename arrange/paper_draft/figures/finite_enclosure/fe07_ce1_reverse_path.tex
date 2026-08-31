@@ -1,0 +1,51 @@
+\begin{figure}[!htbp]
+\centering
+\resizebox{.92\linewidth}{!}{%
+\begin{tikzpicture}[
+  x=1cm,y=1cm,>=Latex,
+  state/.style={draw=black!38,rounded corners=1.5pt,fill=black!2,
+    minimum height=.78cm,text width=2.35cm,align=center,font=\scriptsize},
+  hard/.style={draw=RadialTeal,rounded corners=1.5pt,fill=RadialTeal!7,
+    minimum height=.78cm,text width=2.35cm,align=center,font=\scriptsize},
+  arr/.style={-{Stealth[length=1.8mm]},draw=black!60,line width=.65pt},
+  harr/.style={-{Stealth[length=1.8mm]},draw=RadialTeal,line width=.85pt}
+]
+  \node[panellabel,anchor=west] at (-.1,2.55)
+    {CE1 reverse path: from a deficient terminal to the final contradiction};
+
+  \node[state] (a0) at (0,1.35) {$A_0\le1-h_0$};
+  \node[state] (b5) at (3.05,1.35) {$B_5\ge h_0$};
+  \node[state] (b4) at (6.10,1.35) {$B_4\ge h_0$};
+  \node[hard]  (b3) at (9.15,1.35) {$B_3>L_1$};
+
+  \node[hard]  (b2) at (0,-.55) {$B_2>L_2>\epsilon(D)$};
+  \node[hard]  (a2) at (3.05,-.55) {$A_2\le\epsilon(D)$};
+  \node[state] (b1) at (6.10,-.55) {$B_1>1-X$};
+  \node[state,draw=DemandRed,fill=DemandRed!7]
+    (contra) at (9.15,-.55)
+    {$A_1\ge X$, $A_1+B_1\le1$\\contradiction};
+
+  \draw[arr] (a0)--node[above=3pt,figlabel,fill=white,inner sep=.6pt] {companion edge} (b5);
+  \draw[arr] (b5)--node[above=3pt,figlabel,fill=white,inner sep=.6pt] {Vd0 monotonicity} (b4);
+  \draw[harr] (b4)--node[above=3pt,figlabel,fill=white,inner sep=.6pt] {selected $Q_+$ at $T_4$} (b3);
+  \draw[harr] (b3.east)--++(.55,0)--++(0,-1.10)--
+    node[right=2pt,figlabel,align=left,fill=white,inner sep=.6pt] {selected $Q_+$ at $T_3$\\and the scalar estimate}
+    ++(-10.25,0)--(b2.west);
+  \draw[harr] (b2)--node[above=3pt,figlabel,fill=white,inner sep=.6pt] {threshold at $T_2$} (a2);
+  \draw[arr] (a2)--node[above=3pt,figlabel,fill=white,inner sep=.6pt] {coverage of $e_{1,2}$} (b1);
+  \draw[arr,draw=DemandRed] (b1)--(contra);
+
+  \node[figlabel,atlasbox,align=left,anchor=west] at (1.15,-1.68)
+    {grey arrows: edge coverage or nonsupercriticality;\qquad
+     teal arrows: the genuinely local high-radial steps};
+  \node[figlabel,align=center] at (5.25,-2.33)
+    {$L_1$ and $L_2$ are direct selected-arc lower bounds; no composed reach map is introduced.};
+\end{tikzpicture}%
+}
+\caption{Logical structure of the CE1 direct reverse-path certificate.  The
+proof starts from the negation of the desired terminal bound at $T_0$, moves
+through the actual boundary reaches, uses two selected-arc estimates and one
+high-radial threshold, and returns to $T_1$ with incompatible incoming and
+outgoing demands.}
+\label{fig:ce1-reverse-path}
+\end{figure}

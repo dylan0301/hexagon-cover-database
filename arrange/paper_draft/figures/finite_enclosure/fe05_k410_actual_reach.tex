@@ -1,0 +1,91 @@
+\begin{figure}[!htbp]
+\centering
+\begin{minipage}[t]{.325\linewidth}
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[scale=2.05,>=Latex]
+  \node[panellabel,anchor=west] at (-1.08,1.18) {(a) the finite set $K_{410}$};
+  \HexCoords
+  \DrawHexagon
+  \DrawRays
+  \draw[gap] ($(V0)!.20!(V1)$)--($(V0)!.34!(V1)$);
+  \def\rr{{.13,.19,.15,.10,.21,.16}}
+  \foreach \i in {0,...,5}{
+    \pgfmathparse{\rr[\i]}
+    \coordinate (P\i) at ($(O)!{\pgfmathresult}!(V\i)$);
+    \draw[VertexOrange,fill=white,line width=.65pt] (P\i) circle (.027);
+    \fill[DemandRed] (P\i) circle (.012);
+  }
+  \fill[CenterBlue] (O) rectangle +(0.035,0.035);
+  \fill[CenterBlue] ($(O)!.5!(V0)$) rectangle +(0.035,0.035);
+  \fill[GapPurple] ($(V0)!.20!(V1)$) -- ++(.03,.02) -- ++(-.03,.02) -- ++(-.03,-.02) -- cycle;
+  \fill[GapPurple] ($(V0)!.34!(V1)$) -- ++(.03,.02) -- ++(-.03,.02) -- ++(-.03,-.02) -- cycle;
+  \node[figlabel,below left] at (O) {$O$};
+  \node[figlabel,above] at ($(O)!.5!(V0)$) {$M_0$};
+  \node[figlabel,right] at (P0) {$P_0=(1-C_0)V_0$};
+  \node[figlabel,align=center] at (0,-1.18)
+    {circles: actual radial endpoints $P_i$\\diamonds: $X(\ell),X(r)$};
+\end{tikzpicture}%
+}
+\end{minipage}\hfill
+\begin{minipage}[t]{.35\linewidth}
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[scale=2.05,>=Latex]
+  \node[panellabel,anchor=west] at (-1.08,1.18) {(b) a candidate center triangle};
+  \HexCoords
+  \DrawHexagon
+  \DrawRays
+  \draw[centerrole]
+    (-.58,-.32)--(.88,-.20)--(-.02,.86)--cycle;
+  \coordinate (P0) at ($(O)!.13!(V0)$);
+  \coordinate (E0) at ($(O)!.30!(V0)$);
+  \draw[CenterBlue,line width=1pt] (O)--(E0);
+  \draw[VertexOrange,line width=1.2pt] (V0)--(P0);
+  \draw[VertexOrange,fill=white,line width=.65pt] (P0) circle (.027);
+  \fill[DemandRed] (P0) circle (.012);
+  \fill[CenterBlue] (E0) circle (.023);
+  \node[figlabel,above] at (P0) {$P_i$};
+  \node[figlabel,below] at (E0) {$E_i'=d_i'V_i$};
+  \draw[dimline] ($(O)+(0,-.13)$)--($(P0)+(0,-.13)$)
+    node[midway,below=1pt,figlabel] {$1-C_i$};
+  \draw[dimline] ($(O)+(0,.13)$)--($(E0)+(0,.13)$)
+    node[midway,above=1pt,figlabel] {$d_i'$};
+  \node[figlabel,align=center] at (0,-1.18)
+    {$P_i\in T_C'\Longrightarrow d_i'\ge1-C_i$\\
+     equivalently $C_i\ge1-d_i'$};
+\end{tikzpicture}%
+}
+\end{minipage}\hfill
+\begin{minipage}[t]{.285\linewidth}
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[x=5cm,y=1cm,>=Latex]
+  \node[panellabel,anchor=west] at (-.03,2.62) {(c) closing a boundary gap};
+  \node[figlabel,anchor=west] at (0,2.14) {before};
+  \draw[line width=.65pt] (0,1.70)--(1,1.70);
+  \draw[actualreach] (0,1.76)--(.38,1.76);
+  \draw[centertrace] (.53,1.64)--(.77,1.64);
+  \draw[gap] (.38,1.70)--(.53,1.70);
+  \node[figlabel,text=GapPurple] at (.455,1.98) {gap};
+  \node[figlabel,anchor=west] at (0,1.08) {after $C_i\ge1-d_i'$};
+  \draw[line width=.65pt] (0,.64)--(1,.64);
+  \draw[actualreach] (0,.70)--(.58,.70);
+  \draw[centertrace] (.53,.58)--(.77,.58);
+  \draw[RadialTeal,line width=1pt] (.53,.64)--(.58,.64);
+  \node[figlabel,text=RadialTeal] at (.555,.91) {overlap};
+  \node[figlabel,align=center] at (.5,-.03)
+    {every candidate gap closes\\$\Rightarrow$ CE1 or CE2 terminal};
+\end{tikzpicture}%
+}
+\end{minipage}
+\caption{The actual-reach mechanism behind the anisotropic set $K_{410}$.
+The six points $P_i=(1-C_i)V_i$ retain the actual own-radial reaches rather
+than a common relaxed radius.  If a candidate center triangle $T_C'$ contains
+$K_{410}$, its exit $d_i'$ on every radial arm satisfies
+$d_i'\ge1-C_i$, equivalently $C_i\ge1-d_i'$.  The corresponding V trace then
+meets the center contribution and closes the associated boundary gap, forcing
+the candidate into the CE1 or CE2 terminal used in the proof.  Lengths are
+schematic; the order relations are exact.}
+\label{fig:k410-actual-reach-certificate}
+\end{figure}

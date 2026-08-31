@@ -1,0 +1,79 @@
+\begin{figure}[!htbp]
+\centering
+\begin{minipage}[t]{.31\linewidth}
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[scale=2.1,>=Latex]
+  \node[panellabel,anchor=west] at (-1.08,1.18) {(a) two CE2 gaps};
+  \HexCoords
+  \DrawHexagon
+  \DrawRays
+  \draw[gap] ($(V0)!.18!(V1)$)--($(V0)!.36!(V1)$);
+  \draw[gap] ($(V5)!.64!(V0)$)--($(V5)!.84!(V0)$);
+  \draw[centerrole]
+    (.07,.03)--(.45,.54)--(.62,-.35)--cycle;
+  \node[figlabel,text=GapPurple] at (.55,.69) {$q=R-\delta$};
+  \node[figlabel,text=GapPurple] at (.78,-.58) {$p=W-\alpha$};
+  \node[figlabel,align=center] at (0,-1.18)
+    {$e=\min\{\alpha,\delta\}$\\
+     $p,q$ are the common boundary demands};
+\end{tikzpicture}%
+}
+\end{minipage}\hfill
+\begin{minipage}[t]{.37\linewidth}
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[x=5cm,y=1cm,>=Latex]
+  \node[panellabel,anchor=west] at (-.02,2.45) {(b) transverse center exits};
+  \draw[flow] (0,1.55)--(1,1.55);
+  \draw[flow] (0,.35)--(1,.35);
+  \fill (0,1.55) circle (.018) node[left=2pt,figlabel] {$O$};
+  \fill (1,1.55) circle (.018) node[right=2pt,figlabel] {$V_2$};
+  \fill (0,.35) circle (.018) node[left=2pt,figlabel] {$O$};
+  \fill (1,.35) circle (.018) node[right=2pt,figlabel] {$V_4$};
+  \coordinate (E2) at (.08,1.55);
+  \coordinate (D2) at (.14,1.55);
+  \coordinate (D4) at (.14,.35);
+  \coordinate (E4) at (.19,.35);
+  \fill[CenterBlue] (E2) circle (.024) node[above=3pt,figlabel] {$E_2=\delta V_2$};
+  \fill[DemandRed] (D2) circle (.024) node[below=3pt,figlabel] {$D_2=dV_2$};
+  \fill[DemandRed] (D4) circle (.024) node[above=3pt,figlabel] {$D_4=dV_4$};
+  \fill[CenterBlue] (E4) circle (.024) node[below=3pt,figlabel] {$E_4=\alpha V_4$};
+  \draw[GapPurple,line width=1.1pt] (E2)--(D2);
+  \draw[black!35,line width=1.1pt] (D4)--(E4);
+  \node[figlabel,align=center] at (.52,-.42)
+    {$d=1-c_{\max}(p,q)>e$; only the shorter exit is decisive};
+\end{tikzpicture}%
+}
+\end{minipage}\hfill
+\begin{minipage}[t]{.28\linewidth}
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[x=4.5cm,y=1cm,>=Latex]
+  \node[panellabel,anchor=west] at (-.04,2.42) {(c) the case split};
+  \node[figlabel,anchor=west] at (0,1.84) {$e=\delta$};
+  \draw[line width=.65pt] (0,1.38)--(1,1.38);
+  \fill (0,1.38) circle (.017) node[left=1pt,figlabel] {$O$};
+  \fill[CenterBlue] (.22,1.38) circle (.023) node[above=2pt,figlabel] {$E_2$};
+  \fill[DemandRed] (.43,1.38) circle (.023) node[below=2pt,figlabel] {$D_2$};
+  \draw[GapPurple,line width=1pt] (.22,1.38)--(.43,1.38);
+  \node[figlabel,anchor=west] at (0,.73) {$e=\alpha$};
+  \draw[line width=.65pt] (0,.27)--(1,.27);
+  \fill (0,.27) circle (.017) node[left=1pt,figlabel] {$O$};
+  \fill[CenterBlue] (.22,.27) circle (.023) node[above=2pt,figlabel] {$E_4$};
+  \fill[DemandRed] (.43,.27) circle (.023) node[below=2pt,figlabel] {$D_4$};
+  \draw[GapPurple,line width=1pt] (.22,.27)--(.43,.27);
+  \node[figlabel,align=center] at (.5,-.36)
+    {the red point lies beyond\\the corresponding center exit};
+\end{tikzpicture}%
+}
+\end{minipage}
+\caption{The CE2 short-ray terminal.  The two boundary gaps determine the
+common pair $(p,q)$ and the shorter center residual
+$e=\min\{\alpha,\delta\}$.  The theorem proves
+$d=1-c_{\max}(p,q)>e$.  Consequently the radial witness on the shorter of
+$r_2$ and $r_4$ lies strictly beyond the corresponding center exit and is
+uncovered.  The displayed numerical ordering is illustrative; the labelled
+case split is exact.}
+\label{fig:ce2-short-ray-certificate}
+\end{figure}

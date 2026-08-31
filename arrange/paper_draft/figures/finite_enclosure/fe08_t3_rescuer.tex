@@ -1,0 +1,64 @@
+\begin{figure}[!htbp]
+\centering
+\begin{minipage}[t]{.47\linewidth}
+\centering
+\resizebox{.96\linewidth}{!}{%
+\begin{tikzpicture}[x=6cm,y=1cm,>=Latex]
+  \node[panellabel,anchor=west] at (-.02,2.30) {(a) the supported interval on $r_1$};
+  \draw[flow] (0,1.15)--(1,1.15);
+  \fill (0,1.15) circle (.017) node[left=2pt,figlabel] {$V_1$};
+  \fill (1,1.15) circle (.017) node[right=2pt,figlabel] {$O$};
+  \coordinate (C) at (.24,1.15);
+  \coordinate (M) at (.50,1.15);
+  \coordinate (U) at (.73,1.15);
+  \draw[actualreach] (C)--(U);
+  \draw[VertexOrange,fill=white,line width=.7pt] (U) circle (.025);
+  \fill[DemandRed] (U) circle (.011);
+  \fill[black] (C) circle (.019) node[above=3pt,figlabel] {$c$};
+  \fill[CenterBlue] (M) rectangle +(0.026,0.026);
+  \node[above=3pt,figlabel] at (M) {$M_1$};
+  \node[above=3pt,figlabel] at (U) {$u$};
+  \draw[dimline] ($(U)+(0,-.22)$)--($(1,1.15)+(0,-.22)$)
+    node[midway,below=1pt,figlabel] {$1-u$};
+  \node[figlabel,align=center] at (.52,.12)
+    {$P_T=(1-u)V_1$ is the O-side endpoint\\
+     coordinate on the top axis is measured from $V_1$ toward $O$};
+\end{tikzpicture}%
+}
+\end{minipage}\hfill
+\begin{minipage}[t]{.47\linewidth}
+\centering
+\resizebox{.96\linewidth}{!}{%
+\begin{tikzpicture}[scale=2.15,>=Latex]
+  \node[panellabel,anchor=west] at (-1.08,1.22) {(b) why $P_T$ is center-forced};
+  \HexCoords
+  \DrawHexagon
+  \DrawRays
+  \coordinate (PT) at ($(O)!.27!(V1)$);
+  \coordinate (M1) at ($(O)!.5!(V1)$);
+  \draw[vertexrole]
+    (V0)--($(V0)!.76!(V1)$)--($(O)!.20!(V1)$)--cycle;
+  \draw[DemandRed,dashed,line width=.9pt]
+    (V1)--($(V1)!.48!(V0)$)--($(O)!.48!(V1)$)--cycle;
+  \draw[actualreach] ($(V1)!.22!(O)$)--($(V1)!.73!(O)$);
+  \fill[DemandRed] (PT) circle (.025) node[left=2pt,figlabel] {$P_T$};
+  \fill[CenterBlue] (M1) rectangle +(0.025,0.025);
+  \node[figlabel,right] at (M1) {$M_1$};
+  \draw[flow] (PT)--($(PT)!1.55!(O)$);
+  \node[figlabel,align=left,anchor=west] at (-.96,-.72)
+    {$T_0$: open endpoint at $P_T$\\
+     $T_1$: misses $M_1$, hence the O-side segment\\
+     other V roles: excluded by type or diameter};
+  \node[figlabel,atlasbox,align=center] at (.48,-1.05)
+    {$P_T\in U_C$};
+\end{tikzpicture}%
+}
+\end{minipage}
+\caption{Construction of the T3-like rescuer endpoint.  The interval
+$[c,u]$ is parametrized from $V_1$ toward $O$, so its O-side endpoint is
+$P_T=(1-u)V_1$.  The T3-like open role omits its endpoint, the adjacent
+supercritical role contains $V_1$ but misses $M_1$ and therefore misses the
+O-side segment by convexity, and all remaining V roles are excluded.  Thus
+$P_T$ is forced into the C triangle.}
+\label{fig:t3-rescuer-endpoint}
+\end{figure}

@@ -1,0 +1,74 @@
+\begin{figure}[!htbp]
+\centering
+\begin{minipage}[t]{.315\linewidth}
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[scale=2.15,>=Latex]
+  \node[panellabel,anchor=west] at (-1.05,1.16) {(a) the complementary gap};
+  \HexCoords
+  \DrawHexagon
+  \draw[ray] (O)--($(V0)!.25!(V1)$);
+  \coordinate (G) at ($(V0)!.25!(V1)$);
+  \coordinate (H) at ($(V0)!.67!(V1)$);
+  \draw[gap] (G)--(H);
+  \fill[DemandRed] (G) circle (.025) node[right=2pt,figlabel] {$G=X(q)$};
+  \fill[GapPurple] (H) circle (.021) node[left=2pt,figlabel] {$X(1-p)$};
+  \draw[DemandRed,line width=.85pt] (O)--(G);
+  \node[figlabel,align=center] at (0,-1.16)
+    {$m=\min\{p,q\}$, choose the farther endpoint $G$\\
+     $\lVert G\rVert^2=1-m+m^2$};
+\end{tikzpicture}%
+}
+\end{minipage}\hfill
+\begin{minipage}[t]{.335\linewidth}
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[scale=2.15,>=Latex]
+  \node[panellabel,anchor=west] at (-1.08,1.16) {(b) six radial witnesses};
+  \HexCoords
+  \DrawHexagon
+  \DrawRays
+  \foreach \i in {0,...,5}{
+    \coordinate (D\i) at ($(O)!.18!(V\i)$);
+    \fill[DemandRed] (D\i) circle (.024);
+  }
+  \draw[DemandRed!65,line width=.75pt]
+    (D0)--(D1)--(D2)--(D3)--(D4)--(D5)--cycle;
+  \draw[CenterBlue,dashed,fill=CenterBlue!7,line width=.8pt]
+    (O) circle ({.18*sqrt(3)/2});
+  \node[figlabel,right] at (D0) {$D_0=dV_0$};
+  \node[figlabel,above right] at (D1) {$D_1$};
+  \node[figlabel,align=center] at (0,-1.16)
+    {$d=1-c_*$, $c_*=c_{\max}(p,q)$\\
+     $\mathcal D_{hd}\subset\operatorname{conv}\{D_0,\ldots,D_5\}$};
+\end{tikzpicture}%
+}
+\end{minipage}\hfill
+\begin{minipage}[t]{.315\linewidth}
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[x=2.25cm,y=2.25cm,>=Latex]
+  \node[panellabel,anchor=west] at (-.72,1.02) {(c) enclosure terminal};
+  \coordinate (O) at (0,0);
+  \coordinate (G) at (1.02,.31);
+  \draw[CenterBlue!35,fill=CenterBlue!8,line width=.8pt] (O) circle (.24);
+  \fill[DemandRed] (G) circle (.023) node[right=2pt,figlabel] {$G$};
+  \draw[black,line width=1pt]
+    (-.42,-.64)--(1.18,-.18)--(.05,1.08)--cycle;
+  \draw[DemandRed,dashed,line width=.75pt] (O)--(G);
+  \node[figlabel] at (.03,-.08) {$\mathcal D_{hd}$};
+  \node[figlabel,align=center] at (.23,-1.03)
+    {$\displaystyle
+      \Lambda\!\left(\mathcal D_{hd}\cup\{G\}\right)\ge1$\\
+     hence $\Lambda(\{D_0,\ldots,D_5,G\})\ge1$};
+\end{tikzpicture}%
+}
+\end{minipage}
+\caption{The complementary-gap enclosure mechanism.  The farther endpoint
+$G$ of $J(p,q)$ is center-forced.  Common-pair domination produces the six
+center-forced points $D_i=(1-c_*)V_i$, whose convex hull contains the disk
+$\mathcal D_{h(1-c_*)}$.  The disk-plus-point formula then forces enclosing
+side length at least one.  The disk is not an additional witness; it is
+contained in the convex hull of the six finite radial witnesses.}
+\label{fig:complementary-gap-certificate}
+\end{figure}
