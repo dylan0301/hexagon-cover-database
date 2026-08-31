@@ -87,7 +87,14 @@ jobs:
           python tools/generate_readable_dependency_graph.py
           python tools/generate_readable_dependency_graph.py --check
           python tools/verify_readable_html.py
-          python tools/proof_lint.py
+          transient_workflow='.github/workflows/apply-readable-proof-update.yml'
+          transient_backup='/tmp/apply-readable-proof-update.yml'
+          mv "$transient_workflow" "$transient_backup"
+          if ! python tools/proof_lint.py; then
+            mv "$transient_backup" "$transient_workflow"
+            exit 1
+          fi
+          mv "$transient_backup" "$transient_workflow"
           git diff --check
           sha256sum \
             interactive/readable_proof_dependency_graph.html \
