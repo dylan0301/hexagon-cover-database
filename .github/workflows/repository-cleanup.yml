@@ -116,33 +116,14 @@ jobs:
           git status --short > "$EXPORT_DIR/status.txt"
           git diff --stat > "$EXPORT_DIR/diff-stat.txt"
           git diff --binary > "$EXPORT_DIR/cleanup.patch"
-          python - "$EXPORT_DIR/final-tree.tar.gz" <<'PY'
-          from __future__ import annotations
-
-          import os
-          import sys
-          import tarfile
-          from pathlib import Path
-
-          root = Path.cwd()
-          output = Path(sys.argv[1])
-          excluded_dirs = {'.git', '__pycache__', '_build'}
-          excluded_suffixes = {'.pyc'}
-
-          with tarfile.open(output, 'w:gz', compresslevel=9) as archive:
-              for path in sorted(root.rglob('*'), key=lambda item: os.fsencode(item.relative_to(root))):
-                  relative = path.relative_to(root)
-                  if any(part in excluded_dirs or part.startswith('.venv') for part in relative.parts):
-                      continue
-                  if path.is_file() and path.suffix in excluded_suffixes:
-                      continue
-                  archive.add(path, arcname=relative.as_posix(), recursive=False)
-          PY
+          tar \
+            --exclude='./.git' \
+            --exclude='*/__pycache__' \
+            --exclude='*.pyc' \
+            --exclude='./arrange/_build' \
+            -czf "$EXPORT_DIR/final-tree.tar.gz" \
+            .
           sha256sum "$EXPORT_DIR/final-tree.tar.gz" > "$EXPORT_DIR/final-tree.tar.gz.sha256"
-          find . -path ./.git -prune -o -type f -print0 \
-            | sort -z \
-            | xargs -0 sha256sum \
-            > "$EXPORT_DIR/file-sha256.txt"
 
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
