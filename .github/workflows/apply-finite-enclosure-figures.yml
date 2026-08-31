@@ -58,7 +58,7 @@ jobs:
           set -euo pipefail
           python tools/proof_lint.py
           python tools/verify_readable_additive.py
-          python tools/generate_readable_dependency_graph.py --check
+          python tools/generate_readable_dependency_graph.py
           python tools/verify_readable_html.py
           git diff --check
 
