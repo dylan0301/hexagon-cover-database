@@ -1,0 +1,105 @@
+\subsection{High-radial output interfaces}
+\label{subsec:high-radial-interfaces}
+
+For a nonsupercritical triangle with incoming reach at least $a$ and radial
+reach at least $c$, let
+\[
+ \mathcal B_c(a)=
+ \max\{b:(a,b,c)\text{ is admissible and }a+b\le1\}.
+\]
+For $1/2<c\le\sqrt3/2$, put
+\[
+ h(c)=\frac{2c}{1+\sqrt{16c^2-3}},
+\]
+and for $\sqrt3/2<c<1$ put
+\[
+ \ell(c)=\frac c2\left(1-\sqrt{4c^2-3}\right),
+ \qquad r(c)=c-\ell(c).
+\]
+Also set
+\[
+ Q_-(a,c)=\frac{\sqrt{a^2-ac+c^2}}c-a,
+\]
+\[
+ Q_+(a,c)=
+ \frac{2(1-a^2)c^2}
+ {2ac^2+c+
+ \sqrt{(2ac^2+c)^2-4(1-c^2)(1-a^2)c^2}}.
+\]
+
+\begin{proposition}[Four direct high-radial outputs]
+\label{prop:new-four-direct-outputs}
+For $1/2<c\le\sqrt3/2$,
+\[
+ \mathcal B_c(a)=
+ \begin{cases}
+  1-a,&0\le a\le1-c,\\
+  Q_+(a,c),&1-c<a<h(c),\\
+  h(c),&a=h(c),\\
+  Q_-(a,c),&h(c)<a<c,\\
+  1-a,&c\le a\le1.
+ \end{cases}
+ \tag{6.66}
+\]
+For $\sqrt3/2<c<1$,
+\[
+ \mathcal B_c(a)=
+ \begin{cases}
+  1-a,&0\le a\le1-c,\\
+  Q_+(a,c),&1-c<a\le\ell(c),\\
+  \ell(c),&\ell(c)<a<r(c),\\
+  Q_-(a,c),&r(c)\le a<c,\\
+  1-a,&c\le a\le1.
+ \end{cases}
+ \tag{6.67}
+\]
+At $a=\ell(c)$, the selected value is $r(c)$; immediately to the right it is
+$\ell(c)$.
+\end{proposition}
+
+\begin{proof}
+The exact support-cell derivation, including the genuine downward jump at
+$a=\ell(c)$, is given in Appendix~\ref{subsec:calc-four-direct-outputs}.
+\end{proof}
+
+\begin{lemma}[Quarter radial envelope]
+\label{lem:new-quarter-radial-envelope}
+If
+\[
+ 0\le h_0\le p,
+ \qquad p+h_0<1,
+\]
+then
+\[
+ \boxed{c_{\max}(p,h_0)\le1-\frac{h_0}{4}.}
+ \tag{6.69}
+\]
+The inequality is strict when $h_0>0$.
+\end{lemma}
+
+\begin{proof}
+See Appendix~\ref{subsec:calc-quarter-envelope}, where the $L$ and $T$ cells
+are checked separately.
+\end{proof}
+
+\begin{lemma}[Vd corner radial margins]
+\label{lem:readable-vd-corner-margins}
+In the exact Vd1/Vd2 corner form, let $a,b$ be the boundary reaches, let
+$t>0$, and put $d=\sqrt{t^2+t+1}$.  The own-radial reach $c_0$ and the far
+endpoint $u_+$ on a supported forward adjacent arm satisfy
+\[
+ c_0=\frac{d-a-tb}{t+1}<1-\min\{a,b\},
+ \qquad
+ u_+=\frac{d-a-tb-1}{t}<1-b.
+\]
+The reflected inequalities hold for the backward adjacent arm.
+\end{lemma}
+
+\begin{proof}
+Since $d<t+1$,
+\[
+ c_0<1-\frac{a+tb}{t+1}\le1-\min\{a,b\},
+ \qquad
+ u_+<1-b-\frac at<1-b.
+\]
+\end{proof}

@@ -1,0 +1,122 @@
+\subsection{Support arcs and the enclosure conclusion}
+\label{subsec:nine-point-conclusion}
+
+Let $\mathsf R$ denote counterclockwise rotation through $2\pi/3$.  Retain
+the points $A,B,C$, the vector $W=C+\mathsf RA$, the forced disk
+$\mathcal D_\eta$, and the exact witness set $K_{\rm wit}$ constructed above.
+For uniform notation put
+\[
+ P_-=A,\qquad P_0=B,\qquad P_+=C,\qquad
+ P_\ast=W,\qquad r_\ast=\eta,
+\]
+and
+\[
+ \widehat K=\conv\bigl(\mathcal D_\eta\cup\{A,B,C\}\bigr).
+\]
+For $X\in\mathbb R^2$ and $r\ge0$, write
+\[
+ \mathbb B(X,r)=\{Y:\lVert Y-X\rVert\le r\},
+\]
+and define the level-$h$, $h=\sqrt3/2$, support arc
+\[
+ \operatorname{Cap}(X,r)
+ =\{n\in\mathbb S^1:\langle X,n\rangle+r\ge h\}.
+\]
+
+\begin{lemma}[Cyclic support-arc covering]
+\label{lem:reader-cap-chain}
+Let $K$ be compact and put
+\[
+ \Sigma_K=K+\mathsf RK+\mathsf R^2K.
+\]
+Suppose $\Sigma_K$ contains the full $\mathsf R$-orbits of
+\[
+ \mathbb B(P_-,2r_\ast),\quad
+ \mathbb B(P_0,2r_\ast),\quad
+ \mathbb B(P_+,2r_\ast),\quad
+ \mathbb B(P_\ast,r_\ast).
+\]
+Assume that the rays
+\[
+ P_-,P_0,P_+,P_\ast,\mathsf RP_-
+\]
+occur in this cyclic order, that every corresponding support arc is connected
+with half-width less than $\pi/2$, and that each consecutive pair of arcs
+intersects across the intervening short angular sector.  Then
+\[
+ \Lambda(K)\ge1.
+\]
+\end{lemma}
+
+\begin{proof}
+The four consecutive intersections and the cyclic order make the five arcs
+cover the sector from the ray of $P_-$ to the ray of $\mathsf RP_-$.  Their
+$\mathsf R$-orbits cover $\mathbb S^1$.  Hence for every unit vector $n$ one
+of the displayed disks has support at least $h$ in direction $n$, and
+therefore
+\[
+ h_{\Sigma_K}(n)\ge h.
+\]
+Since
+\[
+ h_{\Sigma_K}(n)=\sum_{j=0}^2h_K(\mathsf R^jn),
+\]
+Proposition~\ref{prop:universal-enclosure-gauge} gives $\Lambda(K)\ge1$.
+\end{proof}
+
+\begin{theorem}[Witness enclosure]
+\label{thm:reader-witness-enclosure}
+For every exact-one-supercritical parameter pair $(a,b)$ constructed above,
+\[
+ \Lambda(K_{\rm wit}(a,b))\ge1.
+\]
+\end{theorem}
+
+\begin{proof}
+The centered disk alone gives
+\[
+ \Lambda(K_{\rm wit})\ge3(1-c_\ast),
+\]
+so the result follows when $c_\ast\le2/3$.  Assume $c_\ast>2/3$.
+Lemma~\ref{lem:technical-newton-reduction} gives
+$\widehat K\subseteq\conv(K_{\rm wit})$.  The Minkowski sum
+$\widehat K+\mathsf R\widehat K+\mathsf R^2\widehat K$ contains the disk
+orbits listed in Lemma~\ref{lem:reader-cap-chain}.
+Proposition~\ref{prop:technical-four-overlaps} supplies the ray order, radius
+bounds, and equal-radius intersections; Theorem
+\ref{thm:paper-exact-mixed-certificate} supplies the two mixed intersections.
+Lemma~\ref{lem:reader-cap-chain} therefore gives
+$\Lambda(\widehat K)\ge1$, and monotonicity yields
+$\Lambda(K_{\rm wit})\ge1$.
+\end{proof}
+
+\begin{theorem}[Zero-gap obstruction]
+\label{thm:reader-zero-gap-obstruction}
+There is no cover of $H$ by open unit equilateral triangles
+$U_C,U_0,\ldots,U_5$ such that every $U_i$ is $\Vdzero$, the six vertex
+triangles cover $\partial H$, and exactly one V triangle is
+supercritical.
+\end{theorem}
+
+\begin{proof}
+The construction above forces the compact set $K_{\rm wit}$ into the open
+C triangle $U_C$, whereas
+Theorem~\ref{thm:reader-witness-enclosure} gives
+$\Lambda(K_{\rm wit})\ge1$.  Every compact subset of an open unit
+equilateral triangle is contained in a closed equilateral triangle of side
+strictly below one, which would imply $\Lambda(K_{\rm wit})<1$.
+\end{proof}
+
+\begin{proposition}[Cases excluded by the nine-point obstruction]
+\label{prop:reader-ab-core-branches}
+Theorem~\ref{thm:reader-zero-gap-obstruction} excludes every
+$N_{\mathrm{gap}}=0$, $N_+=1$, all-$\Vdzero$ case, independently of the
+center class.
+\end{proposition}
+
+\begin{proof}
+Lemma~\ref{lem:gap-exhaustion} says that $N_{\mathrm{gap}}=0$ is equivalent
+to coverage of $\partial H$ by the six V triangles.  The all-$\Vdzero$ and
+unique-supercritical hypotheses are exactly those of
+Theorem~\ref{thm:reader-zero-gap-obstruction}.
+\end{proof}

@@ -1,0 +1,467 @@
+\subsection{No supercritical V role}
+
+\begin{proposition}[One-gap common-disk closure]
+\label{prop:readable-nplus-zero-one-gap}
+Assume $N_{\mathrm{gap}}=1$, $N_+=0$, no V role is Vd1 or Vd2, and at most
+two V roles are T3-like.  Then the cover is impossible.
+\end{proposition}
+
+\begin{proof}
+Normalize the gap to $J=[X(\ell),X(r)]$ and put
+$p=1-r$, $q=\ell$, $c_*=c_{\max}(p,q)$.  Lemma
+\ref{lem:readable-one-gap-common-pair} gives the common pair.  Type-aware
+radial forcing and common-pair domination put all six points
+$(1-c_*)V_i$ in $U_C$, even when the one or two T3-like roles contribute
+their permitted neighboring term.  Their convex hull contains
+$\mathcal D_{h(1-c_*)}$, while the entire complementary gap is in $U_C$.
+Theorem~\ref{thm:new-complementary-gap} gives $\Lambda\ge1$, contradicting
+Lemma~\ref{lem:new-compact-open-shrink}.
+\end{proof}
+
+\CaseCard{NG0}{${N_{\rm gap}=1}$, $N_+=0$, no Vd1/Vd2, $t\le2$.}
+{$\mathcal D_{h(1-c_*)}\cup J(p,q)$.}
+{Theorem~\ref{thm:new-complementary-gap}.}
+{Routing rows R7 and R9 with one gap.}
+
+\begin{proposition}[Two-gap common-pair closure]
+\label{prop:readable-two-gap-common-closure}
+Assume CE2, both center traces contain V-gaps, and the five intervening roles
+$T_1,\ldots,T_5$ are nonsupercritical Vd0 or T3-like roles.  Then the cover
+is impossible.  The conclusion is independent of the criticality of $T_0$.
+\end{proposition}
+
+\begin{proof}
+Lemma~\ref{lem:readable-two-gap-common-pair} supplies
+$(p,q)=(W-\alpha,R-\delta)$ on $T_1,\ldots,T_5$.
+Common-pair domination controls every permitted T3-like neighboring term.
+The type-aware witnesses $D_2,D_4$ are therefore missed by all V roles, and
+Theorem~\ref{thm:new-ce2-short-ray} puts one strictly beyond the corresponding
+C exit.  That point is uncovered.
+\end{proof}
+
+\CaseCard{NG1}{CE2, two gaps, $N_+\in\{0,1\}$, intervening roles Vd0 or
+T3-like.}{$D_2,D_4$ and the two actual gaps.}
+{Theorem~\ref{thm:new-ce2-short-ray}.}
+{The two-gap portions of routing rows R7, R9, R10, and R11.}
+
+\begin{corollary}[All-Vd0 and T3-like $N_+=0$ gap closures]
+\label{prop:new-nplus-zero-gap-closures}
+Every nonzero-gap state with $N_+=0$, no Vd1/Vd2 role, and at most two
+T3-like roles is impossible.
+\end{corollary}
+
+\begin{proof}
+There is one or two gaps by the CE classification.  Apply
+Proposition~\ref{prop:readable-nplus-zero-one-gap} or
+Proposition~\ref{prop:readable-two-gap-common-closure}.
+\end{proof}
+
+\subsection{One gap, one supercritical role, and all V roles Vd0}
+
+Let the gap be $[X(\ell),X(r)]$, and choose strict handoffs
+\[
+ x_5<x_4<x_3<x_2<x_1<r,
+ \qquad x_5<\ell.
+\]
+The selected pairs are
+\[
+ (a_0,b_0)=(1-x_5,\ell),
+ \qquad (a_1,b_1)=(1-r,x_1),
+\]
+\[
+ (a_i,b_i)=(1-x_{i-1},x_i),
+ \qquad2\le i\le5.
+\]
+Let $C_i$ be the actual own-radial reach of $T_i$ and put
+\[
+ P_i=(1-C_i)V_i.
+\]
+
+\begin{lemma}[The anisotropic set is center-forced]
+\label{lem:readable-k410-forced}
+Every $P_i$ is missed by all six open V roles and lies in $U_C$.  If an open
+unit triangle $U_C'$ contains
+\[
+ K_{410}=\{O,M_0,X(\ell),X(r),P_0,\ldots,P_5\},
+\]
+then $U_C'$ together with the fixed six V roles covers the full skeleton.
+\end{lemma}
+
+\begin{proof}
+The point $P_i$ is the closed own-trace endpoint and is not in $U_i$ by
+Lemma~\ref{lem:new-open-trace-endpoint}.  Adjacent roles are Vd0 and have no
+positive interval on $r_i$; nonlocal roles are excluded by diameter.  Thus
+$P_i\in U_C$.  Convexity of $U_C'$ covers $[O,P_i]$ and the full gap segment,
+while $U_i$ covers every point of $r_i$ short of $P_i$ and the six V roles
+cover the rest of the perimeter.
+\end{proof}
+
+\begin{figure}[H]
+\centering
+\resizebox{.72\linewidth}{!}{\input{figures/new_anisotropic_witness}}
+\caption{The anisotropic one-gap witness.  The six actual radial endpoints
+are retained individually; replacing them by one common radius loses the
+terminal inequality.}
+\label{fig:readable-anisotropic-witness}
+\end{figure}
+
+\begin{lemma}[Common terminal upper bound at the supercritical role]
+\label{lem:readable-k410-upper-bound}
+Give a candidate $U_C'$ containing $K_{410}$ the signed center variables and
+put
+\[
+ k=\eta+\alpha+\delta,
+ \qquad Q=\frac{k}{2R}.
+\]
+Then the unique supercritical role $T_0$ satisfies
+\[
+ \boxed{A_0<1-Q.}
+\]
+\end{lemma}
+
+\begin{proof}
+The active center trace gives $B_0\ge k/R$, and containment of $P_0$ gives
+$C_0\ge k$.  Discarding the radial point only weakens the diameter condition,
+so
+\[
+ A_0\le M_0(k/R)<1-\frac{k}{2R}=1-Q.
+\]
+\end{proof}
+
+\input{05f_ce1_interface}
+
+\begin{proposition}[CE2 anisotropic threshold terminal]
+\label{prop:readable-k410-ce2}
+No CE2 open unit triangle contains $K_{410}$.
+\end{proposition}
+
+\begin{proof}
+Put $X=R-\delta$.  Appendix~\ref{subsec:calc-ce2-one-gap-threshold} proves
+\[
+ X>\epsilon(\alpha),
+ \qquad
+ \min\{\epsilon(\alpha),\epsilon(\delta)\}<Q.
+\]
+The five nonsupercritical roles satisfy
+\[
+ A_1\le A_2\le A_3\le A_4\le A_5\le A_0.
+\]
+If $\epsilon(\alpha)<Q$, the direct threshold at $T_4$ gives
+$B_4\le\epsilon(\alpha)$ and hence $A_5>1-Q$.  Otherwise
+$\epsilon(\delta)<Q$ and the threshold at $T_2$ gives
+$B_2\le\epsilon(\delta)$ and hence $A_3>1-Q$.  Both conclusions contradict
+Lemma~\ref{lem:readable-k410-upper-bound}.
+\end{proof}
+
+\begin{proposition}[CE1 anisotropic reverse-path terminal]
+\label{prop:readable-k410-ce1}
+No CE1 open unit triangle contains $K_{410}$.
+\end{proposition}
+
+\begin{proof}
+Proposition~\ref{prop:new-ce1-direct-certificate} gives $A_0>1-Q$, whereas
+Lemma~\ref{lem:readable-k410-upper-bound} gives $A_0<1-Q$.
+\end{proof}
+
+\begin{proposition}[Anisotropic one-gap enclosure]
+\label{prop:new-nplus-one-all-vd0}
+The compact set $K_{410}$ has
+\[
+ \boxed{\Lambda(K_{410})\ge1.}
+\]
+\end{proposition}
+
+\begin{proof}
+An open unit triangle containing $K_{410}$ has a positive boundary trace and
+is CE1 or CE2.  Propositions~\ref{prop:readable-k410-ce1} and
+\ref{prop:readable-k410-ce2} exclude the two alternatives.  Lemma
+\ref{lem:new-compact-open-shrink} converts this noncontainment into
+$\Lambda(K_{410})\ge1$.
+\end{proof}
+
+\CaseCard{NG2}{One gap, $N_+=1$, all V roles Vd0.}
+{$K_{410}=\{O,M_0,X(\ell),X(r),P_0,\ldots,P_5\}$.}
+{CE1 reverse path or CE2 $T_4/T_2$ threshold dichotomy.}
+{Routing row R10 with one gap.}
+
+\subsection{Exactly one T3-like role}
+
+\begin{lemma}[The T3-like O-side endpoint is center-forced]
+\label{lem:readable-t3-o-side-endpoint}
+Normalize the unique T3-like role to $T_0$, its supported arm to $r_1$, and
+the unique supercritical role to $T_1$.  If the T3-like interval measured
+from $V_1$ toward $O$ is $[c,u]$ with $c\le1/2\le u$, then
+\[
+ P_T=(1-u)V_1\in U_C.
+\]
+\end{lemma}
+
+\begin{proof}
+The O-side endpoint is not in the open T3-like role.  The adjacent
+supercritical role contains $V_1$ but misses $M_1$, so convexity excludes the
+O-side of $M_1$.  The four remaining roles are Vd0; nonlocal roles fail by
+diameter.  Hence every V role misses $P_T$.
+\end{proof}
+
+\begin{proposition}[One-gap T3-like rescuer terminal]
+\label{prop:readable-one-t3-one-gap}
+Assume $N_+=1$, exactly one V role is T3-like, no role is Vd1/Vd2, and there
+is exactly one V-gap.  Then the skeleton is not covered.
+\end{proposition}
+
+\begin{proof}
+Use the normalization of Lemma~\ref{lem:readable-t3-o-side-endpoint}.  Let
+$a$ be the T3-like boundary reach on $e_{5,0}$.  The translated normal form
+has parameters
+\[
+ 1\le D\le\frac2{\sqrt3},\quad
+ E_0=\sqrt{4-3D^2},\quad R_0=\frac{D+E_0}{2},
+\]
+and
+\[
+ c=\frac{D(1+a)-1}{R_0},
+ \qquad u=1-\frac{R_0}{D}+a.
+\]
+Put $x=aD/R_0$ and $\theta=(D-1)/R_0$.  The midpoint constraints give
+\[
+ \frac{1-4\theta+\theta^2}{2(1-2\theta)}
+ \le x\le\frac12-\theta.
+\]
+The elementary quadratic check recorded in
+Appendix~\ref{subsec:calc-t3-rescuer} yields
+\[
+ a\le1-M_c^{\rm sup},
+ \qquad
+ \frac{a}{a+1-u}\le1-M_c^{\rm sup}.
+\]
+Together with the center-forced point $P_T$, these inequalities show that the
+far boundary reach forced on $T_5$ is at least $M_c^{\rm sup}$.  The adjacent
+strictly supercritical role has $B_1<M_c^{\rm sup}$ by
+Lemma~\ref{lem:new-strict-supercritical-envelope}.  Adding the four actual
+edge-cover inequalities gives
+\[
+ \sum_{i=2}^5(A_i+B_i)>4,
+\]
+contrary to nonsupercriticality of the four ordinary roles.
+\end{proof}
+
+\begin{proposition}[Two-gap T3-like terminal]
+\label{prop:readable-one-t3-two-gap}
+Under the same vertex-type hypotheses, a two-gap state is impossible.
+\end{proposition}
+
+\begin{proof}
+Apply Proposition~\ref{prop:readable-two-gap-common-closure}; the T3-like
+neighboring capacity is bounded by the common own-ray capacity.
+\end{proof}
+
+\begin{corollary}[Direct T3-like rescuer witness]
+\label{prop:new-one-t3-terminal}
+Assume $N_+=1$, exactly one V triangle is T3-like, no V triangle is Vd1/Vd2,
+and at least one V-gap is present.  Then the skeleton is not covered.
+\end{corollary}
+
+\begin{proof}
+Use Proposition~\ref{prop:readable-one-t3-one-gap} or
+Proposition~\ref{prop:readable-one-t3-two-gap} according to the gap rank.
+\end{proof}
+
+\begin{figure}[H]
+\centering
+\begin{minipage}[t]{.48\linewidth}\centering
+\includegraphics[width=\linewidth]{figures/trace_exact_ab/one_gap_n1_t3.png}
+\par\footnotesize one-gap T3-like rescuer
+\end{minipage}\hfill
+\begin{minipage}[t]{.48\linewidth}\centering
+\includegraphics[width=\linewidth]{figures/trace_exact_ab/two_gap_n1_t3.png}
+\par\footnotesize two-gap CE2 T3-like terminal
+\end{minipage}
+\caption{The two gap-rank outputs of the exactly-one-T3-like row.}
+\label{fig:readable-t3-cases}
+\end{figure}
+
+\CaseCard{NG3}{$N_+=1$, exactly one T3-like role, no Vd1/Vd2.}
+{$P_T$ plus a four-role path in the one-gap case; $D_2,D_4$ in the two-gap
+case.}{Propositions~\ref{prop:readable-one-t3-one-gap} and
+\ref{prop:readable-one-t3-two-gap}.}{Routing row R11.}
+
+\subsection{Exactly one Vd1/Vd2 role in CE2}
+
+Throughout this subsection let $T_\sigma$ be the unique supercritical role
+and $T_\tau$ the unique Vd1/Vd2 role.  They are distinct.  If a further role
+has positive adjacent support, Method~1 applies through
+Theorem~\ref{thm:common-skeleton-count}; hence the case propositions below
+assume every other role is Vd0.
+
+\begin{proposition}[Adjacent one-Vd radial separation]
+\label{prop:readable-one-vd-adjacent}
+Assume $\sigma=0$ and, after reflection, $\tau=1$.  Then a point of $r_2$ is
+missed by all seven roles.
+\end{proposition}
+
+\begin{proof}
+Let $\rho_R,\rho_L$ be the two residual boundary reaches after removing the
+supercritical trace and the two center intervals.  The Vd cap gives
+$\rho_R+\rho_L<1/2$, and Appendix~\ref{subsec:calc-adjacent-vd} proves
+$4\delta<\rho_L$.  The Vd supported far endpoint satisfies
+$u_{1\to2}<1-\rho_L<1-\delta$.  Boundary coverage at the ordinary role $T_2$
+gives $A_2>1/2+\rho_R$ and $B_2\ge\rho_L$; Lemma
+\ref{lem:new-quarter-radial-envelope} gives
+\[
+ C_2\le1-\rho_L/4<1-\delta.
+\]
+Thus neither local V role reaches the center interval whose vertex-side entry
+on $r_2$ is $1-\delta$.  All other roles are excluded by Vd0 locality and
+diameter.
+\end{proof}
+
+\begin{proposition}[Nonadjacent one-Vd radial separation]
+\label{prop:readable-one-vd-nonadjacent}
+Assume $\sigma=0$ and $\tau\in\{2,3,4\}$.  Then the point
+\[
+ D_\tau=\min\{\rho_R,\rho_L\}V_\tau
+\]
+is missed by all seven roles.
+\end{proposition}
+
+\begin{proof}
+Appendix~\ref{subsec:calc-nonadjacent-vd} proves
+\[
+ \alpha+\delta<\min\{\rho_R,\rho_L\}.
+\]
+Every relevant C exit is at most $\alpha+\delta$, while
+Lemma~\ref{lem:readable-vd-corner-margins} puts the Vd own trace strictly
+short of $D_\tau$.  The neighboring roles are Vd0 and the nonlocal roles fail
+by diameter.
+\end{proof}
+
+\begin{proposition}[Vd1 neighboring-midpoint rescuer]
+\label{prop:readable-vd1-midpoint-rescuer}
+Assume $\tau=0$, $T_0$ is Vd1, and after reflection $\sigma=1$.  Then the
+four ordinary path roles have total boundary demand greater than four, a
+contradiction.
+\end{proposition}
+
+\begin{proof}
+Write the supported interval on $r_1$ as $[c,u]$ and put
+$P=(1-u)V_1$.  Exactly as in Lemma~\ref{lem:readable-t3-o-side-endpoint}, the
+point $P$ is center-forced.  Appendix~\ref{subsec:calc-vd1-rescuer} proves
+\[
+ a\le1-M_c^{\rm sup},
+ \qquad
+ \frac{a}{a+1-u}\le1-M_c^{\rm sup}.
+\]
+The center cannot hide the far boundary tail; its terminal reach on $T_5$ is
+at least $M_c^{\rm sup}$, whereas the adjacent supercritical role has
+$B_1<M_c^{\rm sup}$.  Summing the four actual edge-cover inequalities yields
+a boundary-sum total greater than four.
+\end{proof}
+
+\begin{proposition}[Two-chart replacement and output-gap rerouting]
+\label{prop:readable-one-vd-replacement}
+Assume $\sigma\ne0$, $\tau\ne0$, and the exceptional role is Vd1.  The
+corrected two-chart replacement produces six nonsupercritical Vd0 roles
+preserving the covered skeleton.  After recomputing the output gap rank, every
+possible output is impossible.
+\end{proposition}
+
+\begin{proof}
+Midpoint rescue makes the two distinguished roles adjacent.  Perform the
+replacement in the two correct vertex charts; no preservation of the input
+gap rank is asserted.  If the output has rank zero, six nonsupercritical Vd0
+roles cover the perimeter, contradicting the strict boundary-overlap sum.  If
+its rank is one or two, apply Proposition
+\ref{prop:new-nplus-zero-gap-closures}.
+\end{proof}
+
+\begin{figure}[H]
+\centering
+\begin{minipage}[t]{.48\linewidth}\centering
+\includegraphics[width=\linewidth]{figures/trace_exact_ab/adjacent_vd.png}
+\par\footnotesize adjacent radial separation
+\end{minipage}\hfill
+\begin{minipage}[t]{.48\linewidth}\centering
+\includegraphics[width=\linewidth]{figures/trace_exact_ab/nonadjacent_vd.png}
+\par\footnotesize nonadjacent radial separation
+\end{minipage}
+\par\medskip
+\begin{minipage}[t]{.48\linewidth}\centering
+\includegraphics[width=\linewidth]{figures/trace_exact_ab/vd1_rescuer.png}
+\par\footnotesize Vd1 midpoint rescuer
+\end{minipage}\hfill
+\begin{minipage}[t]{.48\linewidth}\centering
+\includegraphics[width=\linewidth]{figures/trace_exact_ab/replacement_output.png}
+\par\footnotesize replacement output
+\end{minipage}
+\caption{The four one-Vd placement outputs, now stated as separate
+propositions rather than hidden in one proof.}
+\label{fig:readable-one-vd-cases}
+\end{figure}
+
+\begin{corollary}[Direct one-Vd placement assembly]
+\label{prop:new-one-vd-assembly}
+Assume CE2, $N_+=1$, exactly one Vd1/Vd2 role, and at least one V-gap.  Then
+the skeleton is not covered.
+\end{corollary}
+
+\begin{proof}
+If a further role has positive adjacent support, use Method~1.  Otherwise all
+other roles are Vd0.  If $\sigma=0$, apply Proposition
+\ref{prop:readable-one-vd-adjacent} or
+\ref{prop:readable-one-vd-nonadjacent}.  If $\tau=0$, a Vd2 role is closed by
+Proposition~\ref{prop:ce2-vd2-midpoint-length}, while a Vd1 role is closed by
+Proposition~\ref{prop:readable-vd1-midpoint-rescuer}.  If neither index is
+zero, Vd2 again uses the Method~1 terminal and Vd1 uses Proposition
+\ref{prop:readable-one-vd-replacement}.  These placements are exhaustive.
+\end{proof}
+
+\CaseCard{NG4}{CE2, $N_+=1$, exactly one Vd1/Vd2 role.}
+{A literal radial point, a Vd1 O-side endpoint, or a replacement output.}
+{Four placement propositions plus the Vd2 Method~1 terminal.}
+{Routing row R13.}
+
+\subsection{Nonzero-gap case dispatch}
+\label{subsec:nonzero-gap-dispatch}
+
+\begingroup
+\scriptsize
+\renewcommand{\arraystretch}{1.08}
+\setlength{\tabcolsep}{3pt}
+\begin{longtable}{@{}p{.07\textwidth}p{.27\textwidth}p{.27\textwidth}p{.30\textwidth}@{}}
+\caption{Reader-oriented nonzero-gap Method~3 dispatch.  Each row names its
+forced object and one terminal theorem.}
+\label{tab:readable-finite-dispatch}\\
+\toprule
+ID&hypotheses&forced object&terminal\\
+\midrule
+\endfirsthead
+\toprule
+ID&hypotheses&forced object&terminal\\
+\midrule
+\endhead
+NG0&one gap, $N_+=0$, all Vd0/T3-like&common radial disk and actual gap&complementary-gap theorem\\
+NG1&two gaps, $N_+\in\{0,1\}$, all Vd0/T3-like&$D_2,D_4$ and both gaps&CE2 short-ray theorem\\
+NG2&one gap, $N_+=1$, all Vd0&$K_{410}$ with six actual radial endpoints&CE1 reverse path or CE2 threshold dichotomy\\
+NG3&one gap, $N_+=1$, exactly one T3-like&O-side endpoint $P_T$ and four-role path&T3 rescuer path budget\\
+NG4&two gaps, $N_+=1$, exactly one T3-like&$D_2,D_4$ and both gaps&CE2 short-ray theorem\\
+NG5&one-Vd, adjacent to supercritical $T_0$&point on $r_2$ beyond both local traces&adjacent radial separation\\
+NG6&one-Vd, nonadjacent to supercritical $T_0$&$D_\tau$&nonadjacent radial separation\\
+NG7&Vd based at $T_0$ or pair away from $T_0$&Vd1 endpoint or replacement output&rescuer, Method~1, or output-gap rerouting\\
+\bottomrule
+\end{longtable}
+\endgroup
+
+\begin{proposition}[All nonzero-gap finite-enclosure rows]
+\label{prop:finite-enclosure-nonzero-gap-branches}
+Every nonzero-gap row of Table~\ref{tab:routing} assigned to Method~3 is
+impossible.
+\end{proposition}
+
+\begin{proof}
+Rows R7 and R9 are Corollary~\ref{prop:new-nplus-zero-gap-closures}.  Row R10
+uses Proposition~\ref{prop:new-nplus-one-all-vd0} for one gap and
+Proposition~\ref{prop:readable-two-gap-common-closure} for two gaps.  Row R11
+is Corollary~\ref{prop:new-one-t3-terminal}.  The finite-enclosure portion of
+row R13 is Corollary~\ref{prop:new-one-vd-assembly}; its Method~1 exits are
+recorded explicitly there.
+\end{proof}

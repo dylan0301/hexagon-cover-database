@@ -1,0 +1,282 @@
+\section{Introduction and Proof Outline}
+\label{sec:introduction}
+
+\subsection{The theorem and the canonical labeling}
+
+Let
+\[
+ O=(0,0),\qquad
+ V_i=\left(\cos\frac{i\pi}{3},\sin\frac{i\pi}{3}\right),\qquad
+ H=\conv\{V_0,\ldots,V_5\},
+\]
+where indices lie in $\mathbb Z/6\mathbb Z$.  Write
+\[
+ e_{i,i+1}=[V_i,V_{i+1}],\qquad r_i=[O,V_i],\qquad M_i=\frac12V_i,
+\]
+and put
+\[
+ S=\partial H\cup\bigcup_{i=0}^5r_i.
+\]
+Then
+\[
+ \Haus(\partial H)=6,
+ \qquad
+ \Haus\left(\bigcup_{i=0}^5r_i\right)=6,
+ \qquad
+ \Haus(S)=12.
+\]
+
+\begin{theorem}[Main theorem]
+\label{thm:main}
+The hexagon $H$ cannot be covered by seven open equilateral triangles of side
+length one.
+\end{theorem}
+
+\begin{corollary}[Soifer's Hexagon Problem]
+\label{cor:expanded-closed}
+For every $L>1$, the regular hexagon $H_L=LH$ cannot be covered by seven closed
+unit equilateral triangles.
+\end{corollary}
+
+The seven points $O,V_0,\ldots,V_5$ are pairwise at distance at least one,
+whereas any two points in an open unit equilateral triangle are at distance
+strictly less than one.  Hence the seven covering triangles admit a unique
+labeling
+\[
+ U_C,U_0,\ldots,U_5
+\]
+such that
+\[
+ O\in U_C,
+ \qquad
+ V_i\in U_i.
+\]
+We call $U_C$ the \emph{C triangle} and $U_i$ the \emph{V triangle at
+$V_i$}.  Set
+\[
+ T_C=\overline{U_C},\qquad T_i=\overline{U_i}.
+\]
+
+\begin{figure}[H]
+\centering
+\input{figures/geometry_roles}
+\caption{The center, vertices, radial segments, and radial midpoints of $H$.}
+\label{fig:geometry-roles}
+\end{figure}
+
+\subsection{Finite classifications}
+
+The center type is the number of boundary edges on which $T_C$ has a
+positive-length trace.  The only possibilities are $0,1,2$, denoted by
+$\CEzero,\CEone,\CEtwo$.
+
+\begin{figure}[H]
+\centering
+\begin{minipage}[t]{.32\textwidth}
+\vspace{0pt}\centering
+\includegraphics[width=\linewidth,height=.20\textheight,keepaspectratio]
+  {figures/role_examples/center_role_ce0_example.png}
+\par\smallskip
+\footnotesize (a) $\CEzero$
+\end{minipage}\hfill
+\begin{minipage}[t]{.32\textwidth}
+\vspace{0pt}\centering
+\includegraphics[width=\linewidth,height=.20\textheight,keepaspectratio]
+  {figures/role_examples/center_role_ce1_example.png}
+\par\smallskip
+\footnotesize (b) $\CEone$
+\end{minipage}\hfill
+\begin{minipage}[t]{.32\textwidth}
+\vspace{0pt}\centering
+\includegraphics[width=\linewidth,height=.20\textheight,keepaspectratio]
+  {figures/role_examples/center_role_ce2_example.png}
+\par\smallskip
+\footnotesize (c) $\CEtwo$
+\end{minipage}
+\caption{Examples of the three C triangle classes.  From left to right, the
+C triangle has positive-length trace on zero, one, and two edges of
+$\partial H$; point contacts do not count.  The screenshots are illustrative
+and not to scale; no proof depends on visual inspection.}
+\label{fig:center-role-examples}
+\end{figure}
+
+For the V triangle $T_i$, let $o(T_i)$ be the number of its triangle vertices
+outside $H$ and put
+\[
+ n(T_i)=\left\lvert\left\{j\in\{i-1,i+1\}:
+ \Haus(T_i\cap r_j)>0\right\}\right\rvert,
+\]
+with indices modulo $6$.  The raw pair $(3,0)$ says that all three vertices of
+$T_i$ lie outside $H$; it does not say that $T_i$ is disjoint from $H$, since
+$V_i\in\interior(T_i)\cap H$.
+Proposition~\ref{prop:vd0-exact-trace-normalization} replaces every such
+triangle by a same-orientation translate with exactly the same
+trace in $H$, still containing $V_i$ in its interior, and with at most two
+vertices outside $H$.  We make this exact-trace normalization before defining
+any reach.  The normalized exhaustive types used below are
+\[
+\begin{array}{c|c}
+\text{type}&(o(T_i),n(T_i))\\ \hline
+\Vdzero&(1,0),(2,0)\\
+\Vdone&(1,1)\\
+\Vdtwo&(1,2)\\
+\Tlike&(2,1).
+\end{array}
+\]
+
+Let $A_i,B_i,C_i$ be the maximal reaches of $T_i$ toward
+$V_{i-1},V_{i+1},O$, respectively.  The V triangle $T_i$ is
+\emph{supercritical} when $A_i+B_i>1$, and
+\[
+ N_+=\left\lvert\left\{i:A_i+B_i>1\right\}\right\rvert.
+\]
+Lowercase $(a_i,b_i,c_i)$ always denotes selected lower bounds for these
+reaches and never the maxima defining $N_+$.
+
+\begin{figure}[H]
+\centering
+\begin{minipage}[t]{.32\textwidth}
+\vspace{0pt}\centering
+\includegraphics[width=\linewidth,height=.22\textheight,keepaspectratio]
+  {figures/role_examples/vertex_role_vd0_axis_aligned_example.png}
+\par\smallskip
+\footnotesize (a) axis-aligned $\Vdzero$
+\end{minipage}\hfill
+\begin{minipage}[t]{.32\textwidth}
+\vspace{0pt}\centering
+\includegraphics[width=\linewidth,height=.22\textheight,keepaspectratio]
+  {figures/role_examples/vertex_role_vd0_nonsupercritical_example.png}
+\par\smallskip
+\footnotesize (b) nonsupercritical $\Vdzero$
+\end{minipage}\hfill
+\begin{minipage}[t]{.32\textwidth}
+\vspace{0pt}\centering
+\includegraphics[width=\linewidth,height=.22\textheight,keepaspectratio]
+  {figures/role_examples/vertex_role_vd0_supercritical_example.png}
+\par\smallskip
+\footnotesize (c) supercritical $\Vdzero$
+\end{minipage}
+\par\medskip
+\begin{minipage}[t]{.32\textwidth}
+\vspace{0pt}\centering
+\includegraphics[width=\linewidth,height=.22\textheight,keepaspectratio]
+  {figures/role_examples/vertex_role_vd1_example.png}
+\par\smallskip
+\footnotesize (d) $\Vdone$
+\end{minipage}\hfill
+\begin{minipage}[t]{.32\textwidth}
+\vspace{0pt}\centering
+\includegraphics[width=\linewidth,height=.22\textheight,keepaspectratio]
+  {figures/role_examples/vertex_role_vd2_example.png}
+\par\smallskip
+\footnotesize (e) $\Vdtwo$
+\end{minipage}\hfill
+\begin{minipage}[t]{.32\textwidth}
+\vspace{0pt}\centering
+\includegraphics[width=\linewidth,height=.22\textheight,keepaspectratio]
+  {figures/role_examples/vertex_role_t3_like_example.png}
+\par\smallskip
+\footnotesize (f) $\Tlike$
+\end{minipage}
+\caption{Examples of the normalized V triangle types.  The top row shows an
+axis-aligned $\Vdzero$, a nonsupercritical $\Vdzero$ with $A_i+B_i\le1$,
+and a supercritical $\Vdzero$ with $A_i+B_i>1$.  The bottom row shows
+$\Vdone$, $\Vdtwo$, and $\Tlike$.  The screenshots are illustrative and not
+to scale; no proof depends on visual inspection.}
+\label{fig:vertex-role-examples}
+\end{figure}
+
+On $e_{i,i+1}$, parametrized from $V_i$ to $V_{i+1}$, the two incident open
+traces have the form $[0,B_i)$ and $(1-A_{i+1},1]$.  Their nonempty complement
+\[
+ [B_i,1-A_{i+1}]
+\]
+is a \emph{boundary gap}; equality gives a singleton gap, which remains
+uncovered.  Let $N_{\mathrm{gap}}$ be the number of positive center traces
+that contain a boundary gap.
+
+For the case tables, put
+\[
+ d=\left\lvert \left\lbrace i:T_i\text{ is }\Vdone\text{ or }\Vdtwo \right\rbrace \right\rvert,
+ \qquad
+ t=\left\lvert \left\lbrace i:T_i\text{ is }\Tlike \right\rbrace \right\rvert,
+\]
+and let $N_{\mathrm{sp}}=d+t$.  The common trace calculation proves that the
+number of V triangles that are either supercritical or meet an adjacent
+radial segment in positive length is
+\[
+ N_++N_{\mathrm{sp}}.
+\]
+In particular, every CE1/CE2 configuration with
+$N_++N_{\mathrm{sp}}\ge3$ is impossible by a trace-length bound on $S$.
+
+\subsection{Exhaustive routing}
+
+Lemma~\ref{lem:gap-exhaustion} proves the fundamental equivalence
+\[
+ N_{\mathrm{gap}}=0
+ \quad\Longleftrightarrow\quad
+ U_0,\ldots,U_5\text{ cover }\partial H.
+\]
+Thus Table~\ref{tab:routing} first dispatches every zero-gap case without
+reference to the center class.  The nonzero-gap part is read from top to
+bottom; the first applicable row is the unique route for a hypothetical
+cover.  The full classification proof is
+Proposition~\ref{prop:exhaustive-structural-reduction}.
+
+\begin{table}[H]
+\centering
+\scriptsize
+\renewcommand{\arraystretch}{1.07}
+\begin{tabular}{@{}c c c p{.27\textwidth}p{.16\textwidth}c@{}}
+\toprule
+ID&$N_{\mathrm{gap}}$&$N_+$&vertex-type refinement&center class&method\\
+\midrule
+R0&$0$&$0$&all $(d,t)$&$\CEzero/\CEone/\CEtwo$&1\\
+R1&$0$&$1$&$d\ge1$&$\CEzero/\CEone/\CEtwo$&1\\
+R2&$0$&$1$&$d=0$, $t\ge1$&$\CEzero/\CEone/\CEtwo$&2\\
+R3&$0$&$1$&$(d,t)=(0,0)$&$\CEzero/\CEone/\CEtwo$&3\\
+R4&$0$&$\ge2$&all $(d,t)$&$\CEzero/\CEone/\CEtwo$&2\\
+\midrule
+R5&$\ge1$&$\ge2$&all $(d,t)$&$\CEone/\CEtwo$&1\\
+R6&$\ge1$&$0$ or $1$&$N_++d+t\ge3$&$\CEone/\CEtwo$&1\\
+R7&$\ge1$&$0$&$(d,t)=(0,0)$&$\CEone/\CEtwo$&3\\
+R8&$\ge1$&$0$&$d\ge1$, $d+t\le2$&$\CEone/\CEtwo$&1\\
+R9&$\ge1$&$0$&$d=0$, $t\in\{1,2\}$&$\CEone/\CEtwo$&3\\
+R10&$\ge1$&$1$&$(d,t)=(0,0)$&$\CEone/\CEtwo$&3\\
+R11&$\ge1$&$1$&$(d,t)=(0,1)$&$\CEone/\CEtwo$&3\\
+R12&$\ge1$&$1$&$(d,t)=(1,0)$&$\CEone$&1\\
+R13&$\ge1$&$1$&$(d,t)=(1,0)$&$\CEtwo$&$1{+}3$\\
+\bottomrule
+\end{tabular}
+\caption{The exhaustive routing with stable case IDs.  Method~1 is a
+trace-length argument, Method~2 sums area loss, and Method~3 forces a finite
+set into the C triangle and proves an equilateral-enclosure obstruction.
+The nonzero-gap rows are refined into case cards NG0--NG7 in
+Section~\ref{subsec:nonzero-gap-dispatch}; the zero-gap row R3 is handled in
+Section~\ref{sec:zero-gap-nine-point}.}
+\label{tab:routing}
+\end{table}
+
+\subsection{Organization of the proof}
+
+Section~\ref{sec:structure-common} proves the structural classification,
+strict handoff selection, midpoint facts, and the signed center normal form.
+Section~\ref{sec:trace-length} gives Method~1, the trace-length argument.
+Section~\ref{sec:area-loss} gives Method~2, the local and cyclic area-loss
+argument.
+
+Section~\ref{sec:finite-enclosure} begins Method~3 with a reader contract,
+the exact local-capacity interfaces, endpoint and compactness lemmas, and the
+two universal nonzero-gap terminals: complementary gap and CE2 short ray.
+It then treats the all-Vd0, T3-like, and one-Vd placements one case card at a
+time and ends with a nonzero-gap dispatch table.
+Section~\ref{sec:zero-gap-nine-point} is a separate chapter for the
+center-independent nine-point obstruction in routing row R3.
+Section~\ref{sec:assembly} closes the proof from the routing table.
+
+Appendix~\ref{app:finite-calculations} contains the scalar derivations and
+selector audits removed from the main narrative.  Appendix~\ref{app:trace-exact-atlas}
+contains the nonzero-gap trace-exact envelope atlas.  Appendix~\ref{sec:strategy4-exact-certificate}
+contains the exact symbolic certificate for the two mixed support-arc
+intersections in the zero-gap theorem.
