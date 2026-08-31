@@ -1,14 +1,13 @@
 name: Apply reader-oriented proof architecture and dependency graph
-# Transient write workflow. It removes itself and its payload chunks before
-# committing the reader-oriented paper, generated graph, corrected figure,
-# and verification workflow to No-more-strategy-2.
+# Transient write workflow. GitHub Actions pushes only ordinary repository
+# content; the connected GitHub identity installs/removes workflow files after
+# this audited build succeeds.
 
 on:
   push:
     branches: [No-more-strategy-2]
     paths:
       - '.github/workflows/apply-readable-proof-update.yml'
-      - 'tools/.readable_update_payload_*.txt'
   workflow_dispatch:
 
 permissions:
@@ -69,7 +68,11 @@ jobs:
           PY
           tar -xJf /tmp/readable-update.tar.xz
           rm -f tools/.readable_update_payload_*.txt
-          rm -f .github/workflows/apply-readable-proof-update.yml
+          # GITHUB_TOKEN cannot create or update workflow files in this repo.
+          # Keep this transient trigger unchanged during the Actions push and
+          # omit the permanent workflow; the connected GitHub identity performs
+          # those two workflow-file operations after the audited push succeeds.
+          rm -f .github/workflows/readable-paper-rebuild.yml
 
       - name: Install graph and PDF-audit dependencies
         run: |
