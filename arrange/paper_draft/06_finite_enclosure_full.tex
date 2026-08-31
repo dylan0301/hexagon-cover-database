@@ -122,6 +122,7 @@ two use the complementary-gap and short-ray theorems, respectively\\
 \end{longtable}
 \endgroup
 
+\input{figures/finite_enclosure/fe00_case_roadmap}
 
 \subsection{Trace-exact AB envelopes at an actual gap}
 \label{subsec:trace-exact-ab-envelopes}
@@ -201,7 +202,7 @@ the already proved capacities $c_{\max},C_+,C_-$ remain valid radial upper
 bounds.  The proof uses these exact set inclusions; the figures below show
 dense samples of valid source triangles only as geometric guides.
 
-\input{06i_trace_exact_ab_atlas}
+\input{figures/finite_enclosure/fe01_trace_and_gauge}
 
 \input{06_direct_local_calculus}
 \input{06a_neighbor_ray_calculus}
@@ -292,6 +293,8 @@ $\lVert G\rVert=\rho$.  Then
 \]
 \end{lemma}
 
+\input{figures/finite_enclosure/fe02_disk_plus_point}
+
 \begin{proof}
 For a unit normal $n$, write
 $s_j=\langle G,\mathsf R^jn\rangle$.  Then
@@ -326,6 +329,8 @@ and put
  \tag{6.28}
 \]
 \end{theorem}
+
+\input{figures/finite_enclosure/fe03_complementary_gap}
 
 \begin{proof}
 Put $m=\min\{p,q\}$.  The farther endpoint of $J(p,q)$ has squared norm
@@ -367,16 +372,6 @@ A direct calculation gives
 Since $0\le m\le \zeta(c_*)<1/2$, this proves (6.29).
 \end{proof}
 
-
-\begin{figure}[p]
-\centering
-\resizebox{.72\linewidth}{!}{\input{figures/new_one_gap_radial_witness}}
-\caption{The one-gap $N_+=0$ witness.  The six common radial points force the
-dashed centered disk into $U_C$, while the full complementary gap $J$ is also
-center-forced.}
-\label{fig:new-one-gap-radial-witness}
-\end{figure}
-
 \subsection{The CE2 two-gap short-ray theorem}
 
 \begin{theorem}[CE2 short-ray obstruction]
@@ -396,6 +391,8 @@ Consequently, whenever both CE2 traces contain V-gaps and the five roles
 $T_1,\ldots,T_5$ realize the common pair $(p,q)$, one of the radial witnesses
 on $r_2,r_4$ lies beyond the corresponding center exit.
 \end{theorem}
+
+\input{figures/finite_enclosure/fe04_ce2_short_ray}
 
 \begin{proof}
 The CE2 inequalities are
@@ -459,15 +456,6 @@ If $e=\delta$, the point $(1-c_{\max}(p,q))V_2$ lies farther than $\delta$
 from $O$, while the center exit on $r_2$ is $\delta$.  If $e=\alpha$, the
 analogous point on $r_4$ lies beyond the exit $\alpha$.
 \end{proof}
-
-
-\begin{figure}[p]
-\centering
-\resizebox{.72\linewidth}{!}{\input{figures/new_two_gap_short_ray}}
-\caption{The CE2 two-gap witness.  The common boundary pair forces $D_2,D_4$;
-one lies beyond the shorter transverse center exit.}
-\label{fig:new-two-gap-short-ray}
-\end{figure}
 
 \subsection{Nonzero-gap cases with $N_+=0$}
 
@@ -542,6 +530,8 @@ has
 \]
 \end{proposition}
 
+\input{figures/finite_enclosure/fe05_k410_actual_reach}
+
 \begin{proof}
 Suppose an open unit triangle $U_C'$ contains $K_{410}$.  Together with the
 fixed V roles it covers the full skeleton: it covers the gap and, on every
@@ -603,16 +593,6 @@ If $U_C'$ is CE1, Proposition~\ref{prop:new-ce1-direct-certificate} gives
 $A_0>1-Q$, contradicting (6.38).  Thus no open unit triangle contains
 $K_{410}$.
 \end{proof}
-
-
-\begin{figure}[p]
-\centering
-\resizebox{.72\linewidth}{!}{\input{figures/new_anisotropic_witness}}
-\caption{The anisotropic one-gap witness for $N_+=1$.  The proof retains all
-six actual radial endpoints $P_i$; replacing them by one common radius loses
-the terminal inequality near a vertex-degenerate gap.}
-\label{fig:new-anisotropic-witness}
-\end{figure}
 
 \input{06b_ce1_direct_certificate}
 

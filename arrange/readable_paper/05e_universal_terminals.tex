@@ -14,6 +14,8 @@ $\lVert G\rVert=\rho$.  Then
 \]
 \end{lemma}
 
+\input{figures/finite_enclosure/fe02_disk_plus_point}
+
 \begin{proof}
 For a unit normal $n$, write
 $s_j=\langle G,\mathsf R^jn\rangle$.  Then
@@ -48,6 +50,8 @@ and put
  \tag{6.28}
 \]
 \end{theorem}
+
+\input{figures/finite_enclosure/fe03_complementary_gap}
 
 \begin{proof}
 Put $m=\min\{p,q\}$.  The farther endpoint of $J(p,q)$ has squared norm
@@ -89,16 +93,6 @@ A direct calculation gives
 Since $0\le m\le \zeta(c_*)<1/2$, this proves (6.29).
 \end{proof}
 
-
-\begin{figure}[H]
-\centering
-\resizebox{.72\linewidth}{!}{\input{figures/new_one_gap_radial_witness}}
-\caption{The one-gap $N_+=0$ witness.  The six common radial points force the
-dashed centered disk into $U_C$, while the full complementary gap $J$ is also
-center-forced.}
-\label{fig:new-one-gap-radial-witness}
-\end{figure}
-
 \subsection{Universal terminal S: CE2 short ray}
 
 \begin{theorem}[CE2 short-ray obstruction]
@@ -118,6 +112,8 @@ Consequently, whenever both CE2 traces contain V-gaps and the five roles
 $T_1,\ldots,T_5$ realize the common pair $(p,q)$, one of the radial witnesses
 on $r_2,r_4$ lies beyond the corresponding center exit.
 \end{theorem}
+
+\input{figures/finite_enclosure/fe04_ce2_short_ray}
 
 \begin{proof}
 The CE2 inequalities are
@@ -181,16 +177,6 @@ If $e=\delta$, the point $(1-c_{\max}(p,q))V_2$ lies farther than $\delta$
 from $O$, while the center exit on $r_2$ is $\delta$.  If $e=\alpha$, the
 analogous point on $r_4$ lies beyond the exit $\alpha$.
 \end{proof}
-
-
-\begin{figure}[H]
-\centering
-\resizebox{.72\linewidth}{!}{\input{figures/new_two_gap_short_ray}}
-\caption{The CE2 two-gap witness.  The common boundary pair forces $D_2,D_4$;
-one lies beyond the shorter transverse center exit.}
-\label{fig:new-two-gap-short-ray}
-\end{figure}
-
 
 \UsesCloses{Lemmas~\ref{lem:readable-one-gap-common-pair},
 \ref{lem:new-type-aware-radial-forcing}, and

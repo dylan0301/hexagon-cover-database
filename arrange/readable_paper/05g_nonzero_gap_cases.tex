@@ -87,6 +87,8 @@ unit triangle $U_C'$ contains
 then $U_C'$ together with the fixed six V roles covers the full skeleton.
 \end{lemma}
 
+\input{figures/finite_enclosure/fe05_k410_actual_reach}
+
 \begin{proof}
 The point $P_i$ is the closed own-trace endpoint and is not in $U_i$ by
 Lemma~\ref{lem:new-open-trace-endpoint}.  Adjacent roles are Vd0 and have no
@@ -95,15 +97,6 @@ $P_i\in U_C$.  Convexity of $U_C'$ covers $[O,P_i]$ and the full gap segment,
 while $U_i$ covers every point of $r_i$ short of $P_i$ and the six V roles
 cover the rest of the perimeter.
 \end{proof}
-
-\begin{figure}[H]
-\centering
-\resizebox{.72\linewidth}{!}{\input{figures/new_anisotropic_witness}}
-\caption{The anisotropic one-gap witness.  The six actual radial endpoints
-are retained individually; replacing them by one common radius loses the
-terminal inequality.}
-\label{fig:readable-anisotropic-witness}
-\end{figure}
 
 \begin{lemma}[Common terminal upper bound at the supercritical role]
 \label{lem:readable-k410-upper-bound}
@@ -158,6 +151,8 @@ Lemma~\ref{lem:readable-k410-upper-bound}.
 No CE1 open unit triangle contains $K_{410}$.
 \end{proposition}
 
+\input{figures/finite_enclosure/fe07_ce1_reverse_path}
+
 \begin{proof}
 Proposition~\ref{prop:new-ce1-direct-certificate} gives $A_0>1-Q$, whereas
 Lemma~\ref{lem:readable-k410-upper-bound} gives $A_0<1-Q$.
@@ -195,6 +190,8 @@ from $V_1$ toward $O$ is $[c,u]$ with $c\le1/2\le u$, then
  P_T=(1-u)V_1\in U_C.
 \]
 \end{lemma}
+
+\input{figures/finite_enclosure/fe08_t3_rescuer}
 
 \begin{proof}
 The O-side endpoint is not in the open T3-like role.  The adjacent
@@ -265,20 +262,6 @@ and at least one V-gap is present.  Then the skeleton is not covered.
 Use Proposition~\ref{prop:readable-one-t3-one-gap} or
 Proposition~\ref{prop:readable-one-t3-two-gap} according to the gap rank.
 \end{proof}
-
-\begin{figure}[H]
-\centering
-\begin{minipage}[t]{.48\linewidth}\centering
-\includegraphics[width=\linewidth]{figures/trace_exact_ab/one_gap_n1_t3.png}
-\par\footnotesize one-gap T3-like rescuer
-\end{minipage}\hfill
-\begin{minipage}[t]{.48\linewidth}\centering
-\includegraphics[width=\linewidth]{figures/trace_exact_ab/two_gap_n1_t3.png}
-\par\footnotesize two-gap CE2 T3-like terminal
-\end{minipage}
-\caption{The two gap-rank outputs of the exactly-one-T3-like row.}
-\label{fig:readable-t3-cases}
-\end{figure}
 
 \CaseCard{NG3}{$N_+=1$, exactly one T3-like role, no Vd1/Vd2.}
 {$P_T$ plus a four-role path in the one-gap case; $D_2,D_4$ in the two-gap
@@ -374,29 +357,7 @@ its rank is one or two, apply Proposition
 \ref{prop:new-nplus-zero-gap-closures}.
 \end{proof}
 
-\begin{figure}[H]
-\centering
-\begin{minipage}[t]{.48\linewidth}\centering
-\includegraphics[width=\linewidth]{figures/trace_exact_ab/adjacent_vd.png}
-\par\footnotesize adjacent radial separation
-\end{minipage}\hfill
-\begin{minipage}[t]{.48\linewidth}\centering
-\includegraphics[width=\linewidth]{figures/trace_exact_ab/nonadjacent_vd.png}
-\par\footnotesize nonadjacent radial separation
-\end{minipage}
-\par\medskip
-\begin{minipage}[t]{.48\linewidth}\centering
-\includegraphics[width=\linewidth]{figures/trace_exact_ab/vd1_rescuer.png}
-\par\footnotesize Vd1 midpoint rescuer
-\end{minipage}\hfill
-\begin{minipage}[t]{.48\linewidth}\centering
-\includegraphics[width=\linewidth]{figures/trace_exact_ab/replacement_output.png}
-\par\footnotesize replacement output
-\end{minipage}
-\caption{The four one-Vd placement outputs, now stated as separate
-propositions rather than hidden in one proof.}
-\label{fig:readable-one-vd-cases}
-\end{figure}
+\input{figures/finite_enclosure/fe09_vd_placements}
 
 \begin{corollary}[Direct one-Vd placement assembly]
 \label{prop:new-one-vd-assembly}

@@ -5,7 +5,7 @@
     "sourceHeadBeforeAdditiveRewrite": "048320ccade291fc828c1b51fff167ebb7cb29cc",
     "nodeCount": 93,
     "edgeCount": 194,
-    "activeSourceCount": 39,
+    "activeSourceCount": 48,
     "newArchitecture": [
       "Method 3 local toolkit",
       "universal nonzero-gap terminals",
