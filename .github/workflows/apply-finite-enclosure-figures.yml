@@ -47,6 +47,10 @@ jobs:
         run: |
           set -euo pipefail
           python tools/apply_finite_enclosure_figures.py
+          # The repository lint correctly forbids permanent write-enabled workflows.
+          # Delete this one-shot workflow from the working tree before the audit;
+          # the current run continues, and the final commit keeps the deletion.
+          rm -f .github/workflows/apply-finite-enclosure-figures.yml
           git diff --check
 
       - name: Audit proof and reader interfaces
