@@ -1,12 +1,12 @@
 \subsection{The CE1 one-gap reverse-path certificate}
 \label{subsec:new-ce1-direct-certificate}
 
-The all-$\Vdzero$, one-gap, $N_+=1$ case requires one longer direct
-calculation in the CE1 sign range.  We state it separately because the proof
-uses actual boundary reaches throughout and never introduces a formal
-composition.
+The CE1 part of the seven-point enclosure theorem requires one longer
+direct calculation.  We state the exact interface separately: only five
+boundary handoffs and the three transverse radial reaches at $T_4,T_3,T_2$
+are used.
 
-\begin{proposition}[CE1 direct reverse-path certificate]
+\begin{proposition}[CE1 three-transverse return certificate]
 \label{prop:new-ce1-direct-certificate}
 Use the signed CE1 center variables
 \[
@@ -38,12 +38,24 @@ Put
  \qquad h_0=\frac{\eta+A+D}{2R}.
  \tag{6.13}
 \]
-Let $T_0$ be the unique supercritical role and
-$T_1,\ldots,T_5$ nonsupercritical $\Vdzero$ roles in a one-gap skeleton
-cover.  Then
+Let $T_0$ be the unique supercritical role and let
+$T_1,\ldots,T_5$ be nonsupercritical $\Vdzero$ roles.  Assume
+\[
+ A_1\ge X,
+\]
+\[
+ B_i+A_{i+1}\ge1\quad(1\le i\le4),
+ \qquad B_5+A_0\ge1,
+\]
+and
+\[
+ C_4\ge1-A,\qquad C_3\ge1-m,\qquad C_2\ge1-D.
+ \tag{6.14}
+\]
+Then
 \[
  \boxed{A_0>1-h_0.}
- \tag{6.14}
+ \tag{6.15}
 \]
 \end{proposition}
 
@@ -81,23 +93,19 @@ Equation (6.5) yields $\epsilon(A)<X$.  Also
 \]
 when $R>1/2$, use $A<P=\eta E$ for the last sign.
 
-Suppose, contrary to (6.14), that
+Suppose, contrary to (6.15), that
 \[
  A_0\le1-h_0.
  \tag{6.17}
 \]
-The companion edge is V-gap-free.  Thus
-\[
- A_0+B_5\ge1,
-\]
-and (6.17) gives $B_5\ge h_0$.  Nonsupercriticality of $T_5$ and coverage
-of the next center-free edge imply
+The assumed final handoff gives $B_5\ge h_0$.
+Nonsupercriticality of $T_5$ and the handoff $B_4+A_5\ge1$ imply
 \[
  \boxed{B_4\ge B_5\ge h_0.}
  \tag{6.18}
 \]
 
-The center-forced radial reach at $T_4$ is $1-A$.  Apply the exact local
+The assumed transverse radial reach at $T_4$ is at least $1-A$.  Apply the exact local
 catalogue to the reflected boundary pair $(B_4,A_4)$.  If the local point is
 not on the selected $Q_+$ component, the constant, $Q_-$, and linear
 components together with (6.16) give
@@ -152,7 +160,7 @@ Concavity contradicts $f_R(A)<0$ in both cases, proving (6.20).  Thus
 
 If $B_3\ge1/2$, then $B_3>1-X$ and the preceding immediate contradiction
 applies.  Assume $B_3<1/2$.  At $T_3$ the reflected incoming reach is
-$B_3>h_0>m$, while its center-forced radial reach is $1-m$.  If this state is
+$B_3>h_0>m$, while its assumed transverse radial reach is at least $1-m$.  If this state is
 not selected $Q_+$, the exact local catalogue gives
 \[
  B_2\ge1-B_3>\frac12>1-X,
@@ -295,7 +303,7 @@ Thus $J(D_h)>0$, so
 Equation (6.6) gives $\epsilon(D)<2D+3D^2$, and the argument proving
 $\epsilon(A)<X$ also gives $\epsilon(D)<X$.  This proves (6.23).
 
-The center-forced radial reach at $T_2$ is $1-D$.  Since
+The assumed transverse radial reach at $T_2$ is at least $1-D$.  Since
 $B_2>\epsilon(D)$, Lemma~\ref{lem:new-direct-threshold}, applied after
 reflection, gives
 \[

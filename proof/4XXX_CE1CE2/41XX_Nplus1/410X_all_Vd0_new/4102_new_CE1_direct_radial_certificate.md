@@ -1,14 +1,17 @@
-# CE1 One-Gap Direct Radial Certificate
+# CE1 Three-Transverse Return Certificate
 
 Status: Proven
 
-This note proves the CE1 one-gap all-Vd0 terminal without introducing formal
-iterates or composing propagation maps.  It works directly with the actual
-boundary reaches on the backward path
+This note isolates the CE1 return used by the simplified seven-point
+enclosure theorem.  It works directly with the actual boundary reaches on the
+backward path
 
 $$
-T_5,T_4,T_3,T_2,T_1.
+T_5,T_4,T_3,T_2,T_1
 $$
+
+and uses radial information only at $T_4,T_3,T_2$.  No radial hypothesis at
+$T_0,T_1,T_5$, formal iterate, or composed propagation map is used.
 
 All local facts used below are derived from the exact finite-caliper
 admissible set [`2004`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md).
@@ -87,17 +90,14 @@ $$
 For
 
 $$
-0<d<1-
-rac{\sqrt3}{2},
+0<d<1-\frac{\sqrt3}{2},
 $$
 
 put
 
 $$
-e(d)=
-rac{1-d}{2}
-\left(1-\sqrt{4(1-d)^2-3}
-ight).
+e(d)=\frac{1-d}{2}
+\left(1-\sqrt{4(1-d)^2-3}\right).
 $$
 
 This is the selected smaller root of the exact $L$-cell frontier at radial
@@ -116,24 +116,49 @@ $$
 \tag{5}
 $$
 
-## 2. Direct reverse boundary path
+## 2. Three-transverse return statement
 
-Assume a one-gap skeleton cover and suppose the unique supercritical role
-satisfies
+Let $T_0$ be the unique supercritical role and let
+$T_1,\ldots,T_5$ be nonsupercritical Vd0 roles.  Assume that their actual
+reaches satisfy
 
 $$
-A_0\le1-h_0.
+A_1\ge X,
+$$
+
+$$
+B_i+A_{i+1}\ge1\quad(1\le i\le4),
+\qquad
+B_5+A_0\ge1,
+$$
+
+and only the three transverse radial lower bounds
+
+$$
+C_4\ge1-A,
+\qquad
+C_3\ge1-m,
+\qquad
+C_2\ge1-D.
 \tag{6}
 $$
 
-The companion edge is V-gap-free.  Hence
+Then
 
 $$
-A_0+B_5\ge1,
+\boxed{A_0>1-h_0}.
 $$
 
-and (6) gives $B_5\ge h_0$.  Since $T_5$ is nonsupercritical and the edge
-$e_{4,5}$ is center-free,
+Suppose, to the contrary, that
+
+$$
+A_0\le1-h_0.
+\tag{6a}
+$$
+
+The assumed final handoff gives $A_0+B_5\ge1$, so (6a) gives
+$B_5\ge h_0$.  Since $T_5$ is nonsupercritical and
+$B_4+A_5\ge1$,
 
 $$
 A_5+B_5\le1,
@@ -148,7 +173,7 @@ $$
 \tag{7}
 $$
 
-The center-forced radial demand at $T_4$ is $1-A$.  Apply the exact local finite-caliper catalogue of `2004` to the reflected boundary pair $(B_4,A_4)$.
+The assumed transverse radial demand at $T_4$ is at least $1-A$.  Apply the exact local finite-caliper catalogue of `2004` to the reflected boundary pair $(B_4,A_4)$.
 
 If the state is not on the selected $Q_+$ branch, then (4) and the constant,
 $Q_-$, and linear catalogue values give
@@ -224,7 +249,7 @@ e(D)<X.
 \tag{11}
 $$
 
-The center-forced radial demand at $T_2$ is $1-D$.  Since $B_2>e(D)$, the
+The assumed transverse radial demand at $T_2$ is at least $1-D$.  Since $B_2>e(D)$, the
 high-radial threshold theorem, applied after reflection, gives
 
 $$
@@ -239,7 +264,7 @@ $$
 
 contradicting $A_1\ge X$ and nonsupercriticality of $T_1$.
 
-Thus (6) is impossible.  Every one-gap skeleton cover must satisfy
+Thus (6) is impossible.  Every configuration satisfying the displayed boundary and transverse radial hypotheses satisfies
 
 $$
 \boxed{A_0>1-h_0.}
@@ -553,22 +578,15 @@ Section 3.  This proves (11).
 
 ## 7. Conclusion
 
-The direct reverse-path proof gives $A_0>1-h_0$.  On the other hand, the
-unique supercritical role contains a boundary anchor of reach at least
+The contradiction above proves
 
 $$
-\frac{\eta+A+D}{R}
+\boxed{A_0>1-h_0}
 $$
 
-and has own-radial reach at least $\eta+A+D$.  The adjacent-edge diameter
-bound therefore gives
-
-$$
-A_0<1-h_0.
-$$
-
-The contradiction closes the CE1 one-gap all-Vd0 state without a formal map
-composition.
+from the five boundary handoffs and the three radial lower bounds at
+$T_4,T_3,T_2$.  These are exactly the data supplied by the transverse
+seven-point witness.  No reach on $r_0,r_1,r_5$ enters the proof.
 
 $$
 \Box

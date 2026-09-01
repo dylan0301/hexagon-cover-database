@@ -158,6 +158,7 @@ def group_for(node: dict[str, Any]) -> str:
     if source.endswith("05_strategy3_area.tex"):
         return "Method 2: area loss"
     if node_id in {
+        "prop:new-disk-finite-caliper",
         "lem:new-disk-point-formula",
         "thm:new-complementary-gap",
         "thm:new-ce2-short-ray",
@@ -290,13 +291,25 @@ CASE_META: dict[str, dict[str, Any]] = {
         "cases": ["CE2 with both center traces containing gaps"],
         "detail": "The five intervening roles dominate (W-alpha,R-delta).",
     },
+    "prop:new-disk-finite-caliper": {
+        "cases": ["A centered disk plus finitely many forced points"],
+        "detail": "A minimizing side has a point--point contact, a point--disk tangent contact, or a disk-only support regime.",
+    },
+    "lem:new-one-third-radial-envelope": {
+        "cases": ["NG5: adjacent Vd half-edge domain"],
+        "detail": "Strengthens the general quarter envelope to c_max(M,m)<1-m/3 when M>=1/2.",
+    },
+    "lem:readable-rescuer-tail-budget": {
+        "cases": ["NG3 and the Vd1 part of NG7"],
+        "detail": "Factors the common center-hiding and four-role path budget out of the T3-like and Vd1 proofs.",
+    },
     "thm:new-complementary-gap": {
         "cases": ["NG0: one gap, N_+=0, Vd0/T3-like"],
         "detail": "Universal terminal G: a common radial disk plus the complementary gap has enclosure number at least one.",
     },
     "thm:new-ce2-short-ray": {
         "cases": ["NG1/NG4: two gaps, CE2, N_+ in {0,1}"],
-        "detail": "Universal terminal S: D_2 or D_4 lies beyond the shorter transverse C exit.",
+        "detail": "The interval 3e<p,q<1-5e and one concavity check place D_2 or D_4 beyond the C exit.",
     },
     "prop:readable-nplus-zero-one-gap": {
         "cases": ["NG0", "R7/R9 with one gap"],
@@ -312,7 +325,7 @@ CASE_META: dict[str, dict[str, Any]] = {
     },
     "lem:readable-k410-forced": {
         "cases": ["NG2: one gap, N_+=1, all Vd0"],
-        "detail": "Forces O, M_0, both gap endpoints, and all six actual radial endpoints into the candidate C triangle.",
+        "detail": "Forces the seven-point set K_tr: O, M_0, both gap endpoints, and only P_2,P_3,P_4.",
     },
     "prop:readable-k410-ce1": {
         "cases": ["NG2, CE1"],
@@ -324,7 +337,7 @@ CASE_META: dict[str, dict[str, Any]] = {
     },
     "prop:new-nplus-one-all-vd0": {
         "cases": ["NG2: one gap, N_+=1, all Vd0"],
-        "detail": "The anisotropic compact witness K_410 has Lambda>=1.",
+        "detail": "The transverse seven-point witness K_tr has Lambda>=1; the former K_410 follows by inclusion.",
     },
     "lem:readable-t3-o-side-endpoint": {
         "cases": ["NG3/NG4: exactly one T3-like role"],
@@ -332,7 +345,7 @@ CASE_META: dict[str, dict[str, Any]] = {
     },
     "prop:readable-one-t3-one-gap": {
         "cases": ["NG3: one gap, N_+=1, exactly one T3-like"],
-        "detail": "The endpoint comparison and four-role path budget close the one-gap branch.",
+        "detail": "The T3-specific local inequality feeds the common rescuer-tail budget.",
     },
     "prop:readable-one-t3-two-gap": {
         "cases": ["NG4: two gaps, N_+=1, exactly one T3-like"],
@@ -344,7 +357,7 @@ CASE_META: dict[str, dict[str, Any]] = {
     },
     "prop:readable-one-vd-adjacent": {
         "cases": ["NG5: Vd adjacent to supercritical T_0"],
-        "detail": "A literal point of r_2 lies beyond both relevant local traces and before the C interval.",
+        "detail": "The half-edge one-third radial envelope leaves a literal uncovered point on r_2.",
     },
     "prop:readable-one-vd-nonadjacent": {
         "cases": ["NG6: Vd nonadjacent to supercritical T_0"],
@@ -352,7 +365,7 @@ CASE_META: dict[str, dict[str, Any]] = {
     },
     "prop:readable-vd1-midpoint-rescuer": {
         "cases": ["NG7: T_0 is Vd1 and rescues a neighboring midpoint"],
-        "detail": "A Vd1 O-side endpoint and a four-role path budget give the contradiction.",
+        "detail": "The Vd1 local inequalities feed the same rescuer-tail budget as the T3-like case.",
     },
     "prop:readable-one-vd-replacement": {
         "cases": ["NG7: distinguished Vd/supercritical pair away from T_0"],
@@ -472,6 +485,7 @@ MANUAL_DEPS: dict[str, list[str]] = {
     "prop:new-neighbor-ray-formula": ["prop:new-enclosure-gauge"],
     "prop:new-four-direct-outputs": ["prop:new-exact-local-set"],
     "lem:new-quarter-radial-envelope": ["prop:new-exact-local-set"],
+    "lem:new-one-third-radial-envelope": ["prop:new-exact-local-set"],
     "lem:readable-vd-corner-margins": ["prop:vd-corner-normal-form"],
     "lem:new-type-aware-radial-forcing": [
         "prop:new-exact-local-set",
@@ -481,7 +495,8 @@ MANUAL_DEPS: dict[str, list[str]] = {
     "lem:new-common-pair-domination": ["prop:new-exact-local-set", "prop:new-neighbor-ray-formula"],
     "lem:readable-one-gap-common-pair": ["lem:gap-exhaustion", "prop:readable-trace-exact-ab-interface"],
     "lem:readable-two-gap-common-pair": ["prop:signed-center-normal-form", "prop:readable-trace-exact-ab-interface"],
-    "lem:new-disk-point-formula": ["prop:new-enclosure-gauge"],
+    "prop:new-disk-finite-caliper": ["prop:new-enclosure-gauge"],
+    "lem:new-disk-point-formula": ["prop:new-disk-finite-caliper"],
     "thm:new-complementary-gap": [
         "lem:new-disk-point-formula",
         "lem:new-common-pair-domination",
@@ -524,16 +539,20 @@ MANUAL_DEPS: dict[str, list[str]] = {
         "prop:readable-k410-ce2",
         "lem:new-compact-open-shrink",
     ],
+    "lem:readable-rescuer-tail-budget": [
+        "prop:signed-center-normal-form",
+        "lem:new-strict-supercritical-envelope",
+    ],
     "lem:readable-t3-o-side-endpoint": ["prop:t3-translation", "lem:self-midpoint", "lem:new-open-trace-endpoint"],
     "prop:readable-one-t3-one-gap": [
         "lem:readable-t3-o-side-endpoint",
-        "lem:new-strict-supercritical-envelope",
+        "lem:readable-rescuer-tail-budget",
     ],
     "prop:readable-one-t3-two-gap": ["prop:readable-two-gap-common-closure"],
     "prop:new-one-t3-terminal": ["prop:readable-one-t3-one-gap", "prop:readable-one-t3-two-gap"],
     "prop:readable-one-vd-adjacent": [
         "lem:signed-small-slack",
-        "lem:new-quarter-radial-envelope",
+        "lem:new-one-third-radial-envelope",
         "lem:readable-vd-corner-margins",
     ],
     "prop:readable-one-vd-nonadjacent": [
@@ -543,7 +562,7 @@ MANUAL_DEPS: dict[str, list[str]] = {
     ],
     "prop:readable-vd1-midpoint-rescuer": [
         "prop:vd-corner-normal-form",
-        "lem:new-strict-supercritical-envelope",
+        "lem:readable-rescuer-tail-budget",
     ],
     "prop:readable-one-vd-replacement": ["prop:new-nplus-zero-gap-closures", "prop:length-branches"],
     "prop:new-one-vd-assembly": [
@@ -602,7 +621,7 @@ ROUTING_ROWS = [
 FINITE_ROWS = [
     {"id": "NG0", "case": "One gap, N_+=0, no Vd1/Vd2, at most two T3-like roles", "forced": "common radial disk plus the actual complementary gap", "closer": "prop:readable-nplus-zero-one-gap", "figures": ["one_gap_n0"]},
     {"id": "NG1", "case": "CE2 with two gaps, N_+ in {0,1}, intervening roles Vd0/T3-like", "forced": "D_2, D_4 and both actual gaps", "closer": "prop:readable-two-gap-common-closure", "figures": ["two_gap_vd0"]},
-    {"id": "NG2", "case": "One gap, N_+=1, all V roles Vd0", "forced": "K_410 with six actual radial endpoints", "closer": "prop:new-nplus-one-all-vd0", "figures": ["one_gap_n1_ce1", "one_gap_n1_ce2"]},
+    {"id": "NG2", "case": "One gap, N_+=1, all V roles Vd0", "forced": "K_tr with the actual gap endpoints and P_2,P_3,P_4", "closer": "prop:new-nplus-one-all-vd0", "figures": ["one_gap_n1_ce1", "one_gap_n1_ce2"]},
     {"id": "NG3", "case": "One gap, N_+=1, exactly one T3-like role", "forced": "the T3 O-side endpoint P_T and the four-role boundary path", "closer": "prop:readable-one-t3-one-gap", "figures": ["one_gap_n1_t3"]},
     {"id": "NG4", "case": "Two gaps, N_+=1, exactly one T3-like role", "forced": "D_2, D_4 and both gaps", "closer": "prop:readable-one-t3-two-gap", "figures": ["two_gap_n1_t3"]},
     {"id": "NG5", "case": "CE2 one-Vd branch; Vd adjacent to supercritical T_0", "forced": "a literal point on r_2 beyond both local traces", "closer": "prop:readable-one-vd-adjacent", "figures": ["adjacent_vd"]},
@@ -718,6 +737,28 @@ add_proof_ref(
     "2608 reusable finite-enclosure geometry",
     "proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2608_residual_hull_finite_enclosure_principle.md",
 )
+add_proof_ref(
+    {
+        "prop:new-disk-finite-caliper",
+        "lem:new-one-third-radial-envelope",
+        "lem:readable-rescuer-tail-budget",
+        "thm:new-ce2-short-ray",
+    },
+    "2609 simplified finite-enclosure lemmas",
+    "proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2609_simplified_finite_enclosure_lemmas.md",
+)
+add_proof_ref(
+    {
+        "lem:readable-k410-forced",
+        "lem:readable-k410-upper-bound",
+        "prop:readable-k410-ce1",
+        "prop:readable-k410-ce2",
+        "prop:new-nplus-one-all-vd0",
+    },
+    "4103 transverse seven-point enclosure",
+    "proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0_new/4103_transverse_seven_point_enclosure.md",
+)
+
 add_proof_ref(
     {"prop:readable-nplus-zero-one-gap", "prop:readable-two-gap-common-closure", "prop:new-nplus-zero-gap-closures"},
     "4013_new all-Vd0 finite enclosure",

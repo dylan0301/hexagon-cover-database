@@ -1,4 +1,4 @@
-\begin{proposition}[CE1 direct reverse-path certificate]
+\begin{proposition}[CE1 three-transverse return certificate]
 \label{prop:new-ce1-direct-certificate}
 Use the signed CE1 center variables
 \[
@@ -30,18 +30,31 @@ Put
  \qquad h_0=\frac{\eta+A+D}{2R}.
  \tag{6.13}
 \]
-Let $T_0$ be the unique supercritical role and
-$T_1,\ldots,T_5$ nonsupercritical $\Vdzero$ roles in a one-gap skeleton
-cover.  Then
+Let $T_0$ be the unique supercritical role and let
+$T_1,\ldots,T_5$ be nonsupercritical $\Vdzero$ roles.  Assume
+\[
+ A_1\ge X,
+\]
+\[
+ B_i+A_{i+1}\ge1\quad(1\le i\le4),
+ \qquad B_5+A_0\ge1,
+\]
+and only the three transverse radial reaches
+\[
+ C_4\ge1-A,\qquad C_3\ge1-m,\qquad C_2\ge1-D.
+ \tag{6.14}
+\]
+Then
 \[
  \boxed{A_0>1-h_0.}
- \tag{6.14}
+ \tag{6.15}
 \]
 \end{proposition}
 
 \begin{proof}
 The direct path $T_5\to T_4\to T_3\to T_2\to T_1$, its two selected-chord
 steps, and the final low-root contradiction are proved in
-Appendix~\ref{subsec:calc-ce1-reverse-path}.  No reach map is introduced or
-composed.
+Appendix~\ref{subsec:calc-ce1-reverse-path}.  That calculation uses precisely
+the five displayed boundary handoffs and the radial reaches at
+$T_4,T_3,T_2$; no reach on $r_0,r_1,r_5$ and no composed map is used.
 \end{proof}

@@ -1,9 +1,57 @@
+\subsection{Disk--finite-set calipers}
+
+Let $\mathsf J$ denote rotation through $\pi/2$.  For a centered disk
+$\mathcal D_\eta$ and a finite point set $P=\{p_1,\ldots,p_m\}$, put
+\[
+ \Psi_P(n)=
+ \sum_{j=0}^2
+ \max\left\{\eta,\max_i\langle p_i,\mathsf R^j n\rangle\right\}.
+\]
+
+\begin{proposition}[Disk--finite-set caliper theorem]
+\label{prop:new-disk-finite-caliper}
+If an orientation exists in which all point projections in the three support
+directions are at most $\eta$, then
+\[
+ \Lambda(\mathcal D_\eta\cup P)=\frac{3\eta}{h}.
+\]
+Otherwise a minimizing normal may be chosen from the finite list
+\[
+ \pm\frac{\mathsf J(p_k-p_i)}{\|p_k-p_i\|}
+ \quad(p_i\ne p_k)
+\]
+and
+\[
+ \frac{\eta p_i\pm
+ \sqrt{\|p_i\|^2-\eta^2}\,\mathsf Jp_i}{\|p_i\|^2}
+ \quad(\|p_i\|\ge\eta).
+\]
+Equivalently, one side of a least enclosing triangle either contains two
+points, or is tangent to the disk and contains one point.
+\end{proposition}
+
+\begin{proof}
+The tie directions partition the normal circle into open cells with fixed
+support sources.  If $q$ supports come from the disk, then on one cell
+\[
+ \Psi_P(n(\theta))=q\eta+\langle v,n(\theta)\rangle
+\]
+for a fixed vector $v$.  If any point is active, then
+$\langle v,n(\theta)\rangle>0$, and hence
+\[
+ \Psi_P''(n(\theta))=-\langle v,n(\theta)\rangle<0.
+\]
+Thus no such cell has an interior minimum.  A boundary is a point--point or
+point--disk tie.  On a disk-only cell the value is $3\eta$, the global
+minimum.
+\end{proof}
+
 \subsection{Universal terminal G: complementary gap}
 
 \begin{lemma}[Disk-plus-point formula]
 \label{lem:new-disk-point-formula}
 Let $\mathcal D_\eta$ be the disk of radius $\eta$ about $O$, and let
-$\lVert G\rVert=\rho$.  Then
+$\|G\|=\rho$.  Then
 \[
  \Lambda(\mathcal D_\eta\cup\{G\})=
  \begin{cases}
@@ -17,25 +65,21 @@ $\lVert G\rVert=\rho$.  Then
 \input{figures/finite_enclosure/fe02_disk_plus_point}
 
 \begin{proof}
-For a unit normal $n$, write
-$s_j=\langle G,\mathsf R^jn\rangle$.  Then
-$s_0+s_1+s_2=0$ and
-$\sum s_j^2=3\rho^2/2$.  The support sum is
-$\sum\max\{\eta,s_j\}$.  If $\rho\le2\eta$, orient the point projections as
-$\rho/2,\rho/2,-\rho$.  If $\rho>2\eta$, an angular minimum occurs when one
-point projection equals $\eta$.  The other active projection is
+This is the one-point specialization of
+Proposition~\ref{prop:new-disk-finite-caliper}.  If $\rho\le2\eta$, orient
+the three projections as $\rho/2,\rho/2,-\rho$.  Otherwise the minimum is a
+point--disk tie.  The other active projection is
 \[
- \frac{-\eta+\sqrt{3(\rho^2-\eta^2)}}2.
+ \frac{-\eta+\sqrt{3(\rho^2-\eta^2)}}2,
 \]
-Substitution in Proposition~\ref{prop:new-enclosure-gauge} gives (6.27).
+which gives the displayed formula.
 \end{proof}
 
-For $p+q\le1$, let
+For $p+q\le1$, put
 \[
  J(p,q)=[X(q),X(1-p)]\subset e_{0,1},
  \qquad X(t)=V_0+t(V_1-V_0),
 \]
-and put
 \[
  c_*=c_{\max}(p,q),
  \qquad d=1-c_*.
@@ -54,43 +98,31 @@ and put
 \input{figures/finite_enclosure/fe03_complementary_gap}
 
 \begin{proof}
-Put $m=\min\{p,q\}$.  The farther endpoint of $J(p,q)$ has squared norm
-\[
- \rho^2=1-m+m^2.
-\]
-By Lemma~\ref{lem:new-disk-point-formula}, it is enough to prove
+Let $m=\min\{p,q\}$.  The farther endpoint of the gap has squared norm
+$\rho^2=1-m+m^2$.  Lemma~\ref{lem:new-disk-point-formula} reduces the claim
+to
 \[
  3c_*(1-c_*)\ge m(1-m).
  \tag{6.29}
 \]
-Lemma~\ref{lem:new-common-pair-domination} gives $c_*\ge1-m\ge1/2$.
-If $c_*\le h$, then the left side of (6.29) is at least
-$3h(1-h)>1/4$, while $m(1-m)\le1/4$.
-
-Assume $c_*>h$.  In the exact local support formula, let
-$x=\cos|t-\pi/6|$.  The pure radial support gives $x\le h/c_*$.  The two
-mixed supports imply
+Common-pair domination gives $c_*\ge1-m\ge1/2$.  For $c_*\le h$, the left
+side is at least $3h(1-h)>1/4$.  For $c_*>h$, the exact local support
+inequalities give
 \[
- mx+\frac{c_*}{2}
- \left(x+\sqrt3\sqrt{1-x^2}\right)\le h.
+ m\le
+ c_*\left(\frac12-\sqrt{c_*^2-\frac34}\right)=:\zeta(c_*).
 \]
-The left side is concave in $x$.  Its value at $x=h$ is greater than $h$
-unless $c_*=1-m$, in which case (6.29) is immediate.  Hence its value at
-$x=h/c_*$ is at most $h$, giving
-\[
- m\le \zeta(c_*):=c_*
- \left(\frac12-\sqrt{c_*^2-\frac34}\right).
-\]
-A direct calculation gives
+A direct calculation yields
 \[
 \begin{aligned}
 &3c_*(1-c_*)-\zeta(c_*)(1-\zeta(c_*))\\
 &\quad=
 \frac{c_*(1-c_*)}{2}
-\left(5-2c_*-2c_*^2+2\sqrt{c_*^2-\frac34}\right)\ge0.
+\left(5-2c_*-2c_*^2+
+2\sqrt{c_*^2-\frac34}\right)\ge0.
 \end{aligned}
 \]
-Since $0\le m\le \zeta(c_*)<1/2$, this proves (6.29).
+Since $m,\zeta(c_*)<1/2$, this proves (6.29).
 \end{proof}
 
 \subsection{Universal terminal S: CE2 short ray}
@@ -99,83 +131,88 @@ Since $0\le m\le \zeta(c_*)<1/2$, this proves (6.29).
 \label{thm:new-ce2-short-ray}
 In the strict signed CE2 domain put
 \[
- p=W-\alpha,
- \qquad q=R-\delta,
- \qquad e=\min\{\alpha,\delta\}.
+ p=W-\alpha,\qquad q=R-\delta,\qquad
+ e=\min\{\alpha,\delta\}.
 \]
 Then
 \[
  \boxed{c_{\max}(p,q)<1-e.}
  \tag{6.30}
 \]
-Consequently, whenever both CE2 traces contain V-gaps and the five roles
-$T_1,\ldots,T_5$ realize the common pair $(p,q)$, one of the radial witnesses
-on $r_2,r_4$ lies beyond the corresponding center exit.
+Consequently, whenever both CE2 traces contain V-gaps and
+$T_1,\ldots,T_5$ realize the common pair $(p,q)$, one of the radial
+witnesses on $r_2,r_4$ lies beyond the corresponding C exit.
 \end{theorem}
 
 \input{figures/finite_enclosure/fe04_ce2_short_ray}
 
 \begin{proof}
-The CE2 inequalities are
+Let $M=\max\{R,W\}$.  The CE2 inequalities
 \[
- \alpha+W\delta<P,
- \qquad R\alpha+\delta<P.
+ \alpha+W\delta<P,\qquad R\alpha+\delta<P
 \]
-Using $RW=\eta+P$, they give
+imply
 \[
- p,q>\eta+e.
+ P>(1+M)e.
  \tag{6.31}
 \]
-If $M=\max\{R,W\}$, then
+Since $E^2=1-M+M^2$,
 \[
- e<\frac{P}{1+M},
- \qquad
- \frac{\eta}{e}>\frac{1+M}{E}\ge\sqrt3.
+ (1+M)^2-(3M-1)^2E^2
+ =
+ 3M(1-M)(3M^2-2M+3)>0.
 \]
-Hence
+Thus
 \[
- p,q>(1+\sqrt3)e.
+ \eta=P/E>(3M-1)e.
+\]
+Using $RW=\eta+P$ in the two CE2 inequalities gives
+\[
+ Wq>\eta+e>3Me,\qquad Rp>\eta+e>3Me.
+\]
+Because $R,W\le M$,
+\[
+ p,q>3e.
+\]
+Also
+\[
+ p+q=1-\alpha-\delta\le1-2e,
+\]
+so
+\[
+ \boxed{3e<p,q<1-5e.}
  \tag{6.32}
 \]
 Moreover
 \[
- 0<e<e_*:=\frac{2\sqrt3-3}{6}.
+ e<\frac{P}{1+M}
+ \le\frac{2\sqrt3-3}{6}<\frac1{12}.
  \tag{6.33}
 \]
-Put $c=1-e$ and
+
+Put $c=1-e$ and $f_c(t)=c^4-c^2+ct-t^2$.  The function is concave, and
 \[
- f_c(t)=c^4-c^2+ct-t^2.
+ f_c(3e)=e(1-7e-4e^2+e^3)>0,
 \]
-Its roots are
 \[
- t_\pm=\frac c2\left(1\pm\sqrt{4c^2-3}\right).
+ f_c(1-5e)=e(2-15e-4e^2+e^3)>0
 \]
-At $t_0=(1+\sqrt3)e$,
+on the interval (6.33).  Therefore
 \[
- f_{1-e}(t_0)=eB(e),
-\]
-where
-\[
- B(e)=e^3-4e^2-3\sqrt3e+\sqrt3-1.
-\]
-The function $B$ decreases on $[0,e_*]$ and
-\[
- B(e_*)=\frac{302\sqrt3-501}{72}>0.
-\]
-Thus $t_-<(1+\sqrt3)e<p,q$.  Since
-$p+q\le1-2e=c-e$, each of $p,q$ is also below $t_+$.  Therefore
-\[
- f_c(p)>0,
- \qquad f_c(q)>0.
+ f_c(p)>0,\qquad f_c(q)>0.
  \tag{6.34}
 \]
-At radial demand $c=1-e$, the four exact support-contact side lengths of
-$K(p,q,c)$ are all greater than one: two are $p+c,q+c$, and the other two
-exceed one exactly by (6.34).  Thus $c$ is not admissible, proving (6.30).
+Since $p+c,q+c>1$ and $c>p+q$, the four exact support-contact side lengths at
+radial demand $c$ are
+\[
+ p+c,\quad q+c,\quad
+ \frac{c^2}{\sqrt{p^2-pc+c^2}},\quad
+ \frac{c^2}{\sqrt{q^2-qc+c^2}},
+\]
+and all four exceed one.  Hence $c$ is not admissible.
 
-If $e=\delta$, the point $(1-c_{\max}(p,q))V_2$ lies farther than $\delta$
-from $O$, while the center exit on $r_2$ is $\delta$.  If $e=\alpha$, the
-analogous point on $r_4$ lies beyond the exit $\alpha$.
+If $e=\delta$, the point $(1-c_{\max}(p,q))V_2$ lies beyond the C exit
+$\delta$ on $r_2$.  If $e=\alpha$, the reflected conclusion holds on $r_4$.
 \end{proof}
 
 \UsesCloses{Lemmas~\ref{lem:readable-one-gap-common-pair},
