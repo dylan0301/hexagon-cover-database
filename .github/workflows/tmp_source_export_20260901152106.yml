@@ -26,14 +26,15 @@ jobs:
       - name: Create source archive
         run: |
           set -euo pipefail
-          tar --exclude=.git --exclude=source-tree.tar.gz -czf source-tree.tar.gz .
-          sha256sum source-tree.tar.gz > source-tree.tar.gz.sha256
+          archive="$RUNNER_TEMP/source-tree.tar.gz"
+          tar --exclude=.git -czf "$archive" .
+          sha256sum "$archive" > "$RUNNER_TEMP/source-tree.tar.gz.sha256"
 
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
           name: tmp-source-export-20260901152106
           path: |
-            source-tree.tar.gz
-            source-tree.tar.gz.sha256
+            ${{ runner.temp }}/source-tree.tar.gz
+            ${{ runner.temp }}/source-tree.tar.gz.sha256
           if-no-files-found: error
           retention-days: 1
