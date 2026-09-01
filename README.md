@@ -14,8 +14,7 @@ directories:
 
 - [`proof/`](proof/): numbered proof sources, exact certificates, and status
   information;
-- [`arrange/`](arrange/): the canonical manuscript, the reader-oriented
-  manuscript, and publication support;
+- [`arrange/`](arrange/): the canonical manuscript and publication support;
 - [`interactive/`](interactive/): self-contained visual explanations and
   dependency navigation;
 - [`prompts/`](prompts/): research prompts and their dated archive.
@@ -34,8 +33,6 @@ argument and is no longer part of the repository contract.
   [`proof/0XXX_main/0002_status_and_dependencies.md`](proof/0XXX_main/0002_status_and_dependencies.md)
 - Canonical paper:
   [`arrange/paper_draft/main.pdf`](arrange/paper_draft/main.pdf)
-- Reader-oriented paper:
-  [`arrange/readable_paper/main.pdf`](arrange/readable_paper/main.pdf)
 - Interactive proof dependency graph:
   [`interactive/readable_proof_dependency_graph.html`](interactive/readable_proof_dependency_graph.html)
 - Trace-exact \(AB\)-envelope explorer:

@@ -28,7 +28,7 @@ failed approaches are not proof authorities.
 ## Repository layout
 
 - `proof/`: proof sources and certificate code.
-- `arrange/`: canonical and reader-oriented papers.
+- `arrange/`: canonical paper and publication support.
 - `interactive/`: generated and hand-authored visual explanations.
 - `prompts/`: research prompt archive.
 

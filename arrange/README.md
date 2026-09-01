@@ -1,9 +1,5 @@
 
-# Manuscripts and publication support
-
-`arrange/` contains two presentations of the same proof.
-
-## Canonical manuscript
+# Manuscript and publication support
 
 `paper_draft/main.tex` is the self-contained publication source. Its body has
 three proof methods:
@@ -13,18 +9,9 @@ three proof methods:
 3. direct finite enclosure.
 
 The appendix `A_zero_gap_exact_certificate.tex` records the exact
-mixed-overlap certificate required by the zero-gap nine-point theorem.
-
-## Reader-oriented manuscript
-
-`readable_paper/main.tex` reorganizes the same mathematics for navigation. It
-separates the local finite-enclosure toolkit, the universal nonzero-gap
-terminals, the named nonzero-gap cases, and the zero-gap nine-point
-obstruction.
-
-The numbered files under `proof/` remain the authority for theorem status and
-hypotheses. The two manuscripts are publication layers, not competing proof
-owners.
+mixed-overlap certificate required by the zero-gap nine-point theorem. The
+numbered files under `proof/` remain the authority for theorem status and
+hypotheses; the manuscript is the publication layer.
 
 ## Section-to-proof map
 
@@ -43,12 +30,16 @@ owners.
 ```bash
 python -m pip install -r arrange/_support/requirements.txt
 python arrange/build.py --canonical
-python arrange/build.py --readable
 python arrange/build.py --all
 arrange/_support/build_proof_free_paper.sh
 ```
 
-The build command uses a temporary source copy, so LaTeX intermediates do not
-pollute the source directories. The tracked PDFs are publication artifacts.
-CI compares clean rebuilds against them by stable PDF semantics and rendered
-pixels.
+The canonical build is written to `arrange/_build/canonical.pdf`. The
+proof-free command writes `arrange/paper_draft/proof_free.pdf`; it removes
+formal proof environments while retaining prose and calculations outside
+those environments.
+
+Both commands use a temporary source copy, so LaTeX intermediates do not
+pollute the source directory. The tracked canonical PDF is a publication
+artifact. CI compares clean rebuilds against it by stable PDF semantics and
+rendered pixels.

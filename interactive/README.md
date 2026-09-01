@@ -4,7 +4,8 @@
 The files in this directory are explanatory interfaces, not proof
 certificates.
 
-- `readable_proof_dependency_graph.html`: clickable formal-statement graph,
+- `readable_proof_dependency_graph.html`: clickable canonical formal-statement graph
+  (the legacy filename is retained for stable links),
   routing table, case cards, and embedded figures;
 - `trace_exact_ab_envelope_explorer.html`: trace-exact \(AB\)-envelopes,
   actual gaps, and finite witnesses;

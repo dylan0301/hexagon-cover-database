@@ -33,7 +33,6 @@ def resolve_input(source: Path, raw: str) -> Path:
     candidates = [
         source.parent / target,
         ROOT / "arrange/paper_draft" / target,
-        ROOT / "arrange/readable_paper" / target,
     ]
     for candidate in candidates:
         if candidate.is_file():
@@ -73,8 +72,6 @@ for required in [
     ".github/workflows/ci.yml",
     "arrange/paper_draft/main.tex",
     "arrange/paper_draft/main.pdf",
-    "arrange/readable_paper/main.tex",
-    "arrange/readable_paper/main.pdf",
     "interactive/readable_proof_dependency_graph.html",
 ]:
     if not (ROOT / required).is_file():
@@ -85,6 +82,7 @@ for forbidden in [
     "tools",
     "release",
     ".vscode",
+    "arrange/readable_paper",
     "arrange/CURRENT_VERIFICATION_SUMMARY.txt",
     "proof/ACTIVE_DEPENDENCIES.txt",
     "proof/ACTIVE_DEPENDENCY_GRAPH.json",
@@ -105,10 +103,7 @@ for forbidden in [
     if (ROOT / forbidden).exists():
         fail(f"formalization compatibility file remains: {forbidden}")
 
-closures = {
-    "canonical": tex_closure(ROOT / "arrange/paper_draft/main.tex"),
-    "readable": tex_closure(ROOT / "arrange/readable_paper/main.tex"),
-}
+closures = {"canonical": tex_closure(ROOT / "arrange/paper_draft/main.tex")}
 for name, closure in closures.items():
     labels: dict[str, Path] = {}
     references: list[tuple[str, Path]] = []
@@ -215,6 +210,5 @@ if ERRORS:
 
 print(
     "proof/check.py: OK "
-    f"({len(closures['canonical'])} canonical and "
-    f"{len(closures['readable'])} readable TeX sources)"
+    f"({len(closures['canonical'])} canonical TeX sources)"
 )

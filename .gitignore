@@ -17,15 +17,6 @@ arrange/paper_draft/*.xdv
 arrange/paper_draft/*.synctex.gz
 arrange/paper_draft/proof_free.pdf
 
-arrange/readable_paper/*.aux
-arrange/readable_paper/*.fdb_latexmk
-arrange/readable_paper/*.fls
-arrange/readable_paper/*.log
-arrange/readable_paper/*.out
-arrange/readable_paper/*.toc
-arrange/readable_paper/*.xdv
-arrange/readable_paper/*.synctex.gz
-
 # Generated proof navigation.
 proof/ACTIVE_DEPENDENCIES.txt
 proof/ACTIVE_DEPENDENCY_GRAPH.json

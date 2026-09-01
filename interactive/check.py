@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 HTML = ROOT / "interactive/readable_proof_dependency_graph.html"
 
 if not HTML.is_file():
-    raise SystemExit("missing readable proof dependency graph")
+    raise SystemExit("missing canonical proof dependency graph")
 
 text = HTML.read_text(encoding="utf-8")
 for marker in [
@@ -21,12 +21,17 @@ for marker in [
     'id="caseCards"',
     'id="reportBody"',
     'id="indexTable"',
-    "Reader-oriented hexagon-cover proof graph",
+    "Canonical hexagon-cover proof graph",
 ]:
     if marker not in text:
         raise SystemExit(f"missing interactive HTML marker: {marker}")
 
-for stale in ["No-more-strategy-2", "original files untouched", "formalization/strategy2_optimization"]:
+for stale in [
+    "No-more-strategy-2",
+    "original files untouched",
+    "formalization/strategy2_optimization",
+    "arrange/readable_paper",
+]:
     if stale in text:
         raise SystemExit(f"stale interactive metadata remains: {stale}")
 

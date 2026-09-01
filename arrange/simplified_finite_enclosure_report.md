@@ -8,7 +8,7 @@ Base: current `main`
 
 This update incorporates the proof simplifications obtained from the
 enclosing-triangle and numerical audits.  It changes the active proof package
-and both manuscript versions.  The changes are mathematical, not merely
+and canonical manuscript.  The changes are mathematical, not merely
 editorial:
 
 1. the one-gap all-Vd0 witness is reduced from ten points to seven;
@@ -426,12 +426,5 @@ and simpler than a disk compression.
 - `arrange/paper_draft/figures/finite_enclosure/fe00_case_roadmap.tex`
 - `arrange/paper_draft/figures/finite_enclosure/fe05_k410_actual_reach.tex`
 
-### Readable paper
-
-- `arrange/readable_paper/05c_high_radial_interfaces.tex`
-- `arrange/readable_paper/05d_toolkit.tex`
-- `arrange/readable_paper/05e_universal_terminals.tex`
-- `arrange/readable_paper/05g_nonzero_gap_cases.tex`
-
-Generated PDFs and the interactive dependency graph are rebuilt after the
+The canonical PDF and the interactive dependency graph are rebuilt after the
 source commit.

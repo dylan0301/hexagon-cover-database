@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the canonical and reader-oriented manuscripts in temporary copies."""
+"""Build the canonical manuscript in a temporary copy."""
 
 from __future__ import annotations
 
@@ -70,20 +70,16 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     group = parser.add_mutually_exclusive_group()
     group.add_argument("--canonical", action="store_true")
-    group.add_argument("--readable", action="store_true")
     group.add_argument("--all", action="store_true")
     parser.add_argument("--output-dir", type=Path, default=ROOT / "arrange/_build")
     args = parser.parse_args()
 
-    if not (args.canonical or args.readable or args.all):
+    if not (args.canonical or args.all):
         args.all = True
 
     if args.canonical or args.all:
         build_one("paper_draft", args.output_dir / "canonical.pdf")
         print(args.output_dir / "canonical.pdf")
-    if args.readable or args.all:
-        build_one("readable_paper", args.output_dir / "readable.pdf")
-        print(args.output_dir / "readable.pdf")
 
 
 if __name__ == "__main__":
