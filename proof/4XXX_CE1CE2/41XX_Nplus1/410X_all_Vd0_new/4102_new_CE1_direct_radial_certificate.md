@@ -87,14 +87,17 @@ $$
 For
 
 $$
-0<d<1-rac{\sqrt3}{2},
+0<d<1-
+rac{\sqrt3}{2},
 $$
 
 put
 
 $$
-e(d)=rac{1-d}{2}
-\left(1-\sqrt{4(1-d)^2-3}ight).
+e(d)=
+rac{1-d}{2}
+\left(1-\sqrt{4(1-d)^2-3}
+ight).
 $$
 
 This is the selected smaller root of the exact $L$-cell frontier at radial

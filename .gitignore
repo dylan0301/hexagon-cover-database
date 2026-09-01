@@ -1,17 +1,32 @@
+
 __pycache__/
 *.pyc
-.venv-paper-audit/
+.venv/
+.venv-*/
+arrange/_build/
+interactive/readable_proof_dependency_data.json
 
-# Paper build intermediates; the rebuilt PDF remains tracked.
-arrange/paper_draft/main.aux
-arrange/paper_draft/main.fdb_latexmk
-arrange/paper_draft/main.fls
-arrange/paper_draft/main.log
-arrange/paper_draft/main.out
-arrange/paper_draft/main.toc
-arrange/paper_draft/main.xdv
-arrange/paper_draft/main.synctex.gz
+# LaTeX intermediates.
+arrange/paper_draft/*.aux
+arrange/paper_draft/*.fdb_latexmk
+arrange/paper_draft/*.fls
+arrange/paper_draft/*.log
+arrange/paper_draft/*.out
+arrange/paper_draft/*.toc
+arrange/paper_draft/*.xdv
+arrange/paper_draft/*.synctex.gz
+arrange/paper_draft/proof_free.pdf
 
-# Regenerated archival and Lean build outputs.
-release/*.zip
-formalization/strategy2_optimization/.lake/
+arrange/readable_paper/*.aux
+arrange/readable_paper/*.fdb_latexmk
+arrange/readable_paper/*.fls
+arrange/readable_paper/*.log
+arrange/readable_paper/*.out
+arrange/readable_paper/*.toc
+arrange/readable_paper/*.xdv
+arrange/readable_paper/*.synctex.gz
+
+# Generated proof navigation.
+proof/ACTIVE_DEPENDENCIES.txt
+proof/ACTIVE_DEPENDENCY_GRAPH.json
+proof/MANIFEST.txt

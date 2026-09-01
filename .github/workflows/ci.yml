@@ -1,0 +1,128 @@
+name: Proof and publication checks
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: proof-publication-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  SOURCE_DATE_EPOCH: '946684800'
+  FORCE_SOURCE_DATE: '1'
+  TZ: UTC
+
+jobs:
+  source:
+    name: Proof, certificate, and interactive sources
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22'
+
+      - name: Install pinned audit dependencies
+        run: python -m pip install --disable-pip-version-check -r arrange/_support/requirements.txt
+
+      - name: Check proof and manuscript source interfaces
+        run: python proof/check.py
+
+      - name: Replay exact zero-gap derivation and positivity certificates
+        working-directory: proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation
+        run: |
+          python verify_mixed_overlap_core_derivation.py
+          python verify_global_core_positivity.py
+
+      - name: Check generated dependency graph
+        run: python interactive/generate.py --dependency-graph --check
+
+      - name: Audit self-contained interactive pages
+        run: python interactive/check.py
+
+      - name: Check changed-file whitespace
+        env:
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          PUSH_BEFORE_SHA: ${{ github.event.before }}
+        run: |
+          set -euo pipefail
+          zero=0000000000000000000000000000000000000000
+          if [[ "$GITHUB_EVENT_NAME" == "pull_request" ]]; then
+            git diff --check "$PR_BASE_SHA" "$PR_HEAD_SHA"
+          elif [[ "$GITHUB_EVENT_NAME" == "push" && -n "$PUSH_BEFORE_SHA" && "$PUSH_BEFORE_SHA" != "$zero" ]]; then
+            git diff --check "$PUSH_BEFORE_SHA" HEAD
+          elif git rev-parse HEAD^ >/dev/null 2>&1; then
+            git diff --check HEAD^ HEAD
+          else
+            git show --check --format= HEAD
+          fi
+
+  papers:
+    name: Clean manuscript rebuilds
+    needs: source
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+
+      - name: Install pinned PDF-audit dependencies
+        run: python -m pip install --disable-pip-version-check -r arrange/_support/requirements.txt
+
+      - name: Build both papers in pinned TeX Live 2025
+        uses: xu-cheng/texlive-action@22c04326a5d855880f9d39bb955138bf11c6df80
+        with:
+          docker_image: >-
+            ghcr.io/xu-cheng/texlive-historic-debian:2025@sha256:d3e42adc0c8d84bc913bfc33571feaf7037616260a771bb6f027504661568bf6
+          run: |
+            set -euo pipefail
+            python3 arrange/build.py --all --output-dir arrange/_build
+
+      - name: Compare rebuilt papers with tracked publication artifacts
+        run: |
+          python arrange/_support/compare_pdfs_semantically.py \
+            arrange/paper_draft/main.pdf arrange/_build/canonical.pdf --dpi 144
+          python arrange/_support/compare_pdfs_semantically.py \
+            arrange/readable_paper/main.pdf arrange/_build/readable.pdf --dpi 144
+          python arrange/_support/verify_pdf_render.py arrange/_build/canonical.pdf
+          python arrange/_support/verify_pdf_render.py arrange/_build/readable.pdf
+          python - <<'PY'
+          from pathlib import Path
+          import fitz
+
+          bounds = {
+              Path("arrange/_build/canonical.pdf"): (84, 104),
+              Path("arrange/_build/readable.pdf"): (85, 110),
+          }
+          for path, (lower, upper) in bounds.items():
+              pages = fitz.open(path).page_count
+              print(f"{path}: {pages} pages")
+              if not lower <= pages <= upper:
+                  raise SystemExit(
+                      f"unexpected page count for {path}: {pages}; expected {lower}-{upper}"
+                  )
+          PY
+
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: verified-publication-artifacts
+          path: |
+            arrange/_build/canonical.pdf
+            arrange/_build/readable.pdf
+            interactive/readable_proof_dependency_graph.html
+          if-no-files-found: error
