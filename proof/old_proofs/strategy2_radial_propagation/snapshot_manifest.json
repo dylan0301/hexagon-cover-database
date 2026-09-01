@@ -1,0 +1,151 @@
+{
+  "schema": 1,
+  "package": "historical_strategy2_radial_propagation",
+  "status": "historical_not_active",
+  "source_repository": "dylan0301/hexagon-cover-database",
+  "source_commit": "399fdd69f21d7ad1bcf12e4cbd726857395e60d0",
+  "source_tree": "23a6b9cf60e7975f10191a2181f3d0c892b08985",
+  "restored_on": "2026-09-01",
+  "files": [
+    {
+      "source": "arrange/paper_draft/04_boundary_propagation.tex",
+      "archive": "paper_sources/04_boundary_propagation.tex",
+      "blob": "08be29b1492601d1229f74d727782d22433e0654"
+    },
+    {
+      "source": "arrange/paper_draft/04_strategy2_optimization_core.tex",
+      "archive": "paper_sources/04_strategy2_optimization_core.tex",
+      "blob": "9df6d1fe1881ea5a736c50953d0d06daee8d7016"
+    },
+    {
+      "source": "arrange/paper_draft/04_strategy2_optimization_domain.tex",
+      "archive": "paper_sources/04_strategy2_optimization_domain.tex",
+      "blob": "e3d4bfa9ca8f8e66b942caf38e4286c8c0902046"
+    },
+    {
+      "source": "arrange/paper_draft/04_strategy2_optimization_labels.tex",
+      "archive": "paper_sources/04_strategy2_optimization_labels.tex",
+      "blob": "c8fcdb632465b9de21521d30cbd236b0211b8f79"
+    },
+    {
+      "source": "arrange/paper_draft/04_strategy2_optimization_map.tex",
+      "archive": "paper_sources/04_strategy2_optimization_map.tex",
+      "blob": "262b4896a960cb66897444338c007e7472b4b102"
+    },
+    {
+      "source": "arrange/paper_draft/04_strategy2_optimization_problems.tex",
+      "archive": "paper_sources/04_strategy2_optimization_problems.tex",
+      "blob": "992bf33a9b233f16b0b406aaa763f434a944d459"
+    },
+    {
+      "source": "arrange/paper_draft/04_strategy2_optimization_registered.tex",
+      "archive": "paper_sources/04_strategy2_optimization_registered.tex",
+      "blob": "feebdc0e5095a37ffa59b94d221a744764602b29"
+    },
+    {
+      "source": "arrange/paper_draft/04_strategy2_optimization_rescuer.tex",
+      "archive": "paper_sources/04_strategy2_optimization_rescuer.tex",
+      "blob": "23563a921860ab5d3091b6319dee9ac039ce0433"
+    },
+    {
+      "source": "arrange/paper_draft/04_strategy2_optimization_t3.tex",
+      "archive": "paper_sources/04_strategy2_optimization_t3.tex",
+      "blob": "8e8130c42efe73a5205dd4627e288f1d02364d35"
+    },
+    {
+      "source": "arrange/paper_draft/04_strategy2_optimization_vd.tex",
+      "archive": "paper_sources/04_strategy2_optimization_vd.tex",
+      "blob": "d263685f0f902a45670cc7bf12a3e500cbeec11e"
+    },
+    {
+      "source": "arrange/paper_draft/04_strategy2_summary.tex",
+      "archive": "paper_sources/04_strategy2_summary.tex",
+      "blob": "f3d52dbf55bfc842d0da9d48a732addacba2da69"
+    },
+    {
+      "source": "arrange/paper_draft/04_strategy2_verification.tex",
+      "archive": "paper_sources/04_strategy2_verification.tex",
+      "blob": "0599ce8f37a9399e63ab621f46da97935967188b"
+    },
+    {
+      "source": "arrange/paper_draft/04d_strategy2_parameter_bridges.tex",
+      "archive": "paper_sources/04d_strategy2_parameter_bridges.tex",
+      "blob": "734aa6e5d94e53b33a8e5dffdfbd46c7410544c0"
+    },
+    {
+      "source": "arrange/paper_draft/04e_strategy2_verification_00_provenance_manifest.tex",
+      "archive": "paper_sources/04e_strategy2_verification_00_provenance_manifest.tex",
+      "blob": "130849b5cb43bd6367efc47500fd5dcde3c51b05"
+    },
+    {
+      "source": "arrange/paper_draft/04e_strategy2_verification_01_registered_applications.tex",
+      "archive": "paper_sources/04e_strategy2_verification_01_registered_applications.tex",
+      "blob": "d1e2ee03e92f39543704f8936febf065d25a1177"
+    },
+    {
+      "source": "arrange/paper_draft/04e_strategy2_verification_02_exact_local_demand_calculus.tex",
+      "archive": "paper_sources/04e_strategy2_verification_02_exact_local_demand_calculus.tex",
+      "blob": "6b366214436fcf72c7d5e0ce1e78504563f8e8f0"
+    },
+    {
+      "source": "arrange/paper_draft/04e_strategy2_verification_03_cyclic_propagation_in_the_all_vdzero_cases.tex",
+      "archive": "paper_sources/04e_strategy2_verification_03_cyclic_propagation_in_the_all_vdzero_cases.tex",
+      "blob": "55c1f37821705e3901b02761ed0d60075b092778"
+    },
+    {
+      "source": "arrange/paper_draft/04e_strategy2_verification_04_nonsupercritical_t3_like_and_vd1_vd2_demand_branches.tex",
+      "archive": "paper_sources/04e_strategy2_verification_04_nonsupercritical_t3_like_and_vd1_vd2_demand_branches.tex",
+      "blob": "b5466510d87abdc300e3bfde13d764aed4236474"
+    },
+    {
+      "source": "arrange/paper_draft/04e_strategy2_verification_05_exact_endpoint_and_replacement_verification.tex",
+      "archive": "paper_sources/04e_strategy2_verification_05_exact_endpoint_and_replacement_verification.tex",
+      "blob": "0d23247797540f1415466a818ad7312bc8964137"
+    },
+    {
+      "source": "arrange/paper_draft/04e_strategy2_verification_06_authoritative_ce2_one_vd_placement_assembly.tex",
+      "archive": "paper_sources/04e_strategy2_verification_06_authoritative_ce2_one_vd_placement_assembly.tex",
+      "blob": "68f87b9f6c1151f2a036231b1adf8a26c22985c1"
+    },
+    {
+      "source": "arrange/paper_draft/04f_strategy2_pure_theorems.tex",
+      "archive": "paper_sources/04f_strategy2_pure_theorems.tex",
+      "blob": "f3e075221a85290590e6b3bf11d2148e4f1bd628"
+    },
+    {
+      "source": "proof/2XXX_geometric_lemmas/21XX_C_triangle_geometry/2111_strategy2_pure_optimization_registry.md",
+      "archive": "registry/2111_strategy2_pure_optimization_registry.md.txt",
+      "blob": "d76c66463407960f512f4d8f52290b6e0d43c5a9"
+    },
+    {
+      "source": "proof/407X_PROVENANCE.json",
+      "archive": "provenance/407X_PROVENANCE.json",
+      "blob": "f84f9801798bea5e83bbf022b06e19ad90b7b240"
+    },
+    {
+      "source": "tools/verify_strategy2_pure_algebra.py",
+      "archive": "auxiliary_tools/verify_strategy2_pure_algebra.py",
+      "blob": "9a23cb7e868c7702b1e39a4b769f0a20ec1b7df7"
+    },
+    {
+      "source": "tools/verify_strategy2_spec_sync.py",
+      "archive": "auxiliary_tools/verify_strategy2_spec_sync.py",
+      "blob": "085c4187d7bde7ad2e34e15820fa3ad1e3f0f84b"
+    },
+    {
+      "source": "tools/finalize_strategy2_split_provenance.py",
+      "archive": "auxiliary_tools/finalize_strategy2_split_provenance.py",
+      "blob": "be2a05ab41dcf09d01776fb9002f6b3f596c9a7f"
+    },
+    {
+      "source": "interactive/strategy2notation.html",
+      "archive": "interactive/strategy2notation.html",
+      "blob": "d19a3ba31b10cc55ebf80f3a801694c98a7584a8"
+    },
+    {
+      "source": "interactive/strategy2demo.html",
+      "archive": "interactive/strategy2demo.html",
+      "blob": "23027f5a8790cb80d16b230fdf45fb2eaacb8fd5"
+    }
+  ]
+}

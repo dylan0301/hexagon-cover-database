@@ -1,0 +1,261 @@
+\subsection{Problem S2-T3: explicit finite high-radial endpoint cells}
+
+Use independent variables
+\[
+ (r,a,d,\tau,\beta)\in\mathbb R^5.
+\]
+Define
+\[
+ w=1-r,\qquad
+ e=\sqrt{1-rw},\qquad
+ \eta=1-e,\qquad
+ p=e(1-e),\qquad
+ k=\eta+a+d,
+\]
+\[
+ s_R=\frac{k}{r},\qquad
+ t_R=w+d,\qquad
+ s_L=\frac{k}{w},\qquad
+ t_L=r+a,
+\]
+and
+\[
+ z=\sqrt{1-\tau+\tau^2},\qquad
+ b_-=\beta,\qquad
+ b_+=z-\beta,
+\]
+\[
+ q=1-z+\beta,\qquad
+ c_\star=\frac q\tau,\qquad
+ u_\star=1+\beta-\tau,
+\]
+\[
+ \gamma_1=\frac d r,\qquad
+ \gamma_5=\frac a w.
+\]
+
+\begin{definition}[Exact algebraic source domain]
+\label{def:s2-t3-source-domain}
+For \(\varepsilon\in\{1,2\}\), define
+\[
+ \mathcal B_{\rm T3}^{\varepsilon}
+ =
+ \left\{
+ (r,a,d,\tau,\beta):
+ \begin{array}{l}
+ (r,a,d)\in\mathcal D_{\rm C\varepsilon},\\
+ 0<\tau<1,\quad
+ 0<\beta<\dfrac{\tau z}{1+z},\\
+ 0<b_-<1,\quad 0<b_+<1,\\
+ 0<q<\dfrac12,\quad
+ 0<c_\star<u_\star<1
+ \end{array}
+ \right\},
+\]
+where
+\[
+ \mathcal D_{\rm C\varepsilon}
+ =
+ \begin{cases}
+ \mathcal D_{\rm C1},&\varepsilon=1,\\
+ \mathcal D_{\rm C2},&\varepsilon=2.
+ \end{cases}
+\]
+The variables \((\tau,\beta)\) are an exact radical parameterization; no
+translated-set or containment predicate occurs in this domain.
+\end{definition}
+
+Introduce endpoint variables
+\[
+ a_1,a_5,c_1,c_5\in[0,1].
+\]
+They are selected lower bounds for the corresponding actual reaches; the
+geometric bridge below records the inequalities relating the two alphabets.
+The right-end residual cells are
+\[
+ \begin{aligned}
+ \mathcal R_0&:\quad b_+<s_R,\quad a_1=q,\\
+ \mathcal R_1&:\quad s_R\le b_+<t_R,\quad a_1=r-d,\\
+ \mathcal R_2&:\quad t_R\le b_+,\quad a_1=q.
+ \end{aligned}
+\]
+The left-end cells are
+\[
+ \mathcal L_{1,0}:\quad a_5=1-\beta
+\]
+on \(\mathcal D_{\rm C1}\), and on \(\mathcal D_{\rm C2}\),
+\[
+ \begin{aligned}
+ \mathcal L_{2,0}&:\quad \beta<s_L,\quad a_5=1-\beta,\\
+ \mathcal L_{2,1}&:\quad s_L\le\beta<t_L,\quad a_5=1-t_L,\\
+ \mathcal L_{2,2}&:\quad t_L\le\beta,\quad a_5=1-\beta.
+ \end{aligned}
+\]
+The radial cells are
+\[
+ \begin{aligned}
+ \mathcal K_0&:\quad
+ 1-u_\star\le\gamma_1\le1-c_\star,\quad c_1=c_\star,\\
+ \mathcal K_1&:\quad
+ \gamma_1<1-u_\star,\quad c_1=1-\gamma_1,\\
+ \mathcal K_2&:\quad
+ 1-c_\star<\gamma_1,\quad c_1=1-\gamma_1.
+ \end{aligned}
+\]
+In every cell,
+\[
+ c_5=1-\gamma_5.
+\]
+Equality at either endpoint of the hit interval belongs to \(\mathcal K_0\).
+
+For \(\varepsilon=1\), put \(J_\varepsilon=\{0\}\); for
+\(\varepsilon=2\), put \(J_\varepsilon=\{0,1,2\}\).
+
+\begin{definition}[Finite T3 cell union]
+\label{def:s2-t3-finite-union}
+For
+\[
+ \varepsilon\in\{1,2\},\quad
+ i,h\in\{0,1,2\},\quad
+ j\in J_\varepsilon,
+\]
+let \(\Omega_{\rm T3}^{\varepsilon,i,j,h}\) be the set of tuples
+\[
+ \xi=(r,a,d,\tau,\beta,a_1,a_5,c_1,c_5)
+\]
+satisfying
+\[
+ \mathcal B_{\rm T3}^{\varepsilon},
+ \qquad
+ \mathcal R_i,\qquad
+ \mathcal L_{\varepsilon,j},\qquad
+ \mathcal K_h,\qquad
+ c_5=1-\gamma_5,
+\]
+and
+\[
+ \frac12<c_1<1,\qquad
+ \frac12<c_5<1.
+\]
+Define the easy subcell by adding
+\[
+ a_1+a_5>1.
+\]
+For \((\ell_5,\ell_1)\in\mathfrak B^2\), define the hard subcell by adding
+\[
+ a_1+a_5\le1,\qquad
+ \mathrm{Cell}_{\ell_5}(c_5,a_5),\qquad
+ \mathrm{Cell}_{\ell_1}(c_1,a_1).
+\]
+Finally,
+\[
+ \begin{aligned}
+ \Omega_{\rm T3}
+ ={}&
+ \bigcup_{\substack{\varepsilon,i,j,h}}
+ \Omega_{\rm T3,easy}^{\varepsilon,i,j,h}\\
+ &{}\cup
+ \bigcup_{\substack{\varepsilon,i,j,h\\
+                     (\ell_5,\ell_1)\in\mathfrak B^2}}
+ \Omega_{\rm T3,hard}^{\varepsilon,i,j,h,\ell_5,\ell_1}.
+ \end{aligned}
+\]
+Both unions are finite.  Every cell is specified by explicit real equalities,
+strict or weak inequalities, and the displayed radicals.
+\end{definition}
+
+\begin{definition}[Problem S2-T3]
+\label{prob:s2-t3-endpoint}
+For
+\[
+ \xi=(r,a,d,\tau,\beta,a_1,a_5,c_1,c_5)\in\Omega_{\rm T3},
+\]
+define
+\[
+ \Psi_{\rm T3}(\xi)
+ =F(c_5,a_5)+F(c_1,a_1)-1.
+\]
+The optimization problem is
+\[
+ \boxed{
+ \Psi_{\rm T3}(\xi)<0
+ \qquad
+ (\xi\in\Omega_{\rm T3}).
+ }
+\]
+\end{definition}
+
+On the easy cells the sign follows from \(F(c,x)\le1-x\).  The hard cells
+are exactly the finite four-branch inventory on the high-radial branch.  A
+geometric T3 endpoint with \(c_1\le1/2\) is routed before this problem to the
+direct right-linear row.  No contact selector, equality assignment, radical
+sign, residual order, or radial hit/miss alternative is left implicit.
+
+\subsubsection{Compact statement-checker projection}
+
+The Lean scalar-statement project uses the following five-variable projection, whose
+equal-output residual and hit/miss cells are collapsed by piecewise functions.
+Put
+\[
+ \widehat a_1=
+ \begin{cases}
+ q,&b_+<s_R,\\
+ r-d,&s_R\le b_+<t_R,\\
+ q,&t_R\le b_+,
+ \end{cases}
+\]
+and
+\[
+ \widehat a_5=
+ \begin{cases}
+ 1-\beta,&(r,a,d)\in\mathcal D_{\rm C1},\\
+ 1-\beta,&(r,a,d)\in\mathcal D_{\rm C2},\ \beta<s_L,\\
+ 1-t_L,&(r,a,d)\in\mathcal D_{\rm C2},\ s_L\le\beta<t_L,\\
+ 1-\beta,&(r,a,d)\in\mathcal D_{\rm C2},\ t_L\le\beta.
+ \end{cases}
+\]
+With \(\gamma_1=d/r\) and \(\gamma_5=a/w\), put
+\[
+ \widehat c_1=
+ \begin{cases}
+ c_\star,&1-u_\star\le\gamma_1\le1-c_\star,\\
+ 1-\gamma_1,&\text{otherwise},
+ \end{cases}
+ \qquad
+ \widehat c_5=1-\gamma_5.
+\]
+
+\begin{definition}[Compact T3 scalar statement]
+\label{prob:s2-t3-compact-projection}
+Let \(\widehat\Omega_{\rm T3}\) consist of
+\((r,a,d,\tau,\beta)\) satisfying
+\[
+ (r,a,d)\in\mathcal D_{\rm C1}\cup\mathcal D_{\rm C2},
+ \qquad 0<\tau<1,
+ \qquad 0<\beta<\frac{\tau z}{1+z},
+\]
+\[
+ 0<b_+<1,\qquad
+ 0<q<\frac12,\qquad
+ 0<c_\star<u_\star<1,
+\]
+\[
+ \frac12<\widehat c_1<1,
+ \qquad
+ \frac12<\widehat c_5<1.
+\]
+The compact scalar statement is
+\[
+ F(\widehat c_5,\widehat a_5)
+ +F(\widehat c_1,\widehat a_1)-1<0
+ \qquad
+ ((r,a,d,\tau,\beta)\in\widehat\Omega_{\rm T3}).
+\]
+\end{definition}
+
+This definition is the exact repository specification synchronized with the
+Lean T3 shell.  It is a projection target, not an asserted proof that the
+five-variable piecewise interface is equivalent to the preceding
+nine-variable finite-cell union.  The geometric bridge, the completeness of
+the cell routing, and the bridge-realized T3 conclusion remain paper-side
+obligations.

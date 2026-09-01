@@ -1,0 +1,229 @@
+\subsection{Problem S2-VD: explicit radial domains}
+
+For \(0<L<U<1\) and \(0\le x\le1\), define the initial-component endpoint
+\[
+ \mathsf E(L,U;x)=
+ \begin{cases}
+ x,&x<L,\\
+ U,&L\le x\le U,\\
+ x,&U<x,
+ \end{cases}
+\]
+and the complementary residual
+\[
+ \mathcal R_{[L,U]}(x)=1-\mathsf E(L,U;x).
+\]
+This is an explicit three-cell function; no supremum or placement operation
+occurs in the definition.
+
+For \(t>0\), define
+\[
+ \Delta_t=\sqrt{t^2+t+1}.
+\]
+
+\subsubsection{Adjacent domain}
+
+Use independent variables
+\[
+ (r,a,d,p_0,q_0,t,p_1,q_1)\in\mathbb R^8
+\]
+and the signed quantities
+\[
+ w=1-r,\quad e=\sqrt{1-rw},\quad
+ \eta=1-e,\quad k=\eta+a+d.
+\]
+Set
+\[
+ A_R=\mathcal R_{[k/r,w+d]}(q_0),
+ \qquad
+ A_L=\mathcal R_{[k/w,r+a]}(p_0),
+\]
+\[
+ \lambda_+=\frac{t(1-q_1)}{t+1},
+ \qquad
+ u_+=\frac{\Delta_t-p_1-tq_1-1}{t}.
+\]
+
+\begin{definition}[Adjacent Vd cells]
+\label{def:s2-vd-adjacent-domain}
+Let \(\Omega_{\rm VD}^{\rm adj,+}\) be the set of the displayed tuples
+satisfying
+\[
+ (r,a,d)\in\mathcal D_2,
+\]
+\[
+ 0<p_0,q_0<1,\qquad
+ p_0+q_0>1,\qquad
+ p_0^2+p_0q_0+q_0^2\le1,
+\]
+\[
+ A_L>0,\qquad A_R\ge0,\qquad A_R+A_L<\frac12,
+\]
+\[
+ a+d<\frac1{24},\qquad
+ a+d<\frac{\min\{r,w\}}6,
+\]
+\[
+ t>0,\qquad
+ 0<p_1,q_1<1,\qquad
+ p_1\ge A_R,\qquad q_1\ge A_L,\qquad
+ p_1+q_1<\frac12,
+\]
+and
+\[
+ 0\le\lambda_+<u_+\le1.
+\]
+Let \(\Omega_{\rm VD}^{\rm adj,0}\) satisfy all the conditions above through
+\(p_1+q_1<1/2\), and replace the final positive-interval condition by
+\[
+ u_+\le\lambda_+.
+\]
+The two sets respectively encode a positive first raw interval and no positive
+first raw interval.
+\end{definition}
+
+Define
+\[
+ \Psi_{\rm VD}^{\rm adj,+}
+ =\max\left\{d-\frac{A_L}{4},\ u_+-1+d\right\},
+ \qquad
+ \Psi_{\rm VD}^{\rm adj,0}
+ =d-\frac{A_L}{4}.
+\]
+
+\begin{definition}[Problem S2-VD-adjacent]
+\label{prob:s2-vd-adjacent}
+The adjacent optimization statements are
+\[
+ \boxed{
+ \Psi_{\rm VD}^{\rm adj,+}<0
+ \quad\text{on }\Omega_{\rm VD}^{\rm adj,+},
+ }
+\]
+and
+\[
+ \boxed{
+ \Psi_{\rm VD}^{\rm adj,0}<0
+ \quad\text{on }\Omega_{\rm VD}^{\rm adj,0}.
+ }
+\]
+\end{definition}
+
+The quantity \(u_+\) is now the explicit graph value
+\((\Delta_t-p_1-tq_1-1)/t\); it replaces the former placement-defined far
+endpoint.  The second term is the supported-interval target, and the first is
+the quarter-margin target for the other possible bridge.
+
+\subsubsection{Nonadjacent domain}
+
+Use independent variables
+\[
+ (r,a,d,p_0,q_0,t,p_v,q_v)\in\mathbb R^8.
+\]
+Define
+\[
+ x=\frac{k}{w},\qquad y=\frac{k}{r},
+\]
+\[
+ A_R=\mathcal R_{[y,w+d]}(q_0),
+ \qquad
+ A_L=\mathcal R_{[x,r+a]}(p_0),
+\]
+and
+\[
+ C_v=\frac{\Delta_t-p_v-tq_v}{t+1}.
+\]
+Put
+\[
+ \sigma=a+d.
+\]
+
+For \(j\in\{2,4\}\), define
+\[
+ d_2=d,\qquad d_4=a.
+\]
+For \(j=3\), use two order cells:
+\[
+ \mathcal O_{3,0}:\quad \frac ar\le\frac dw,\quad d_3=\frac ar,
+\]
+\[
+ \mathcal O_{3,1}:\quad \frac dw<\frac ar,\quad d_3=\frac dw.
+\]
+Similarly split the minimum \(m=\min\{A_R,A_L\}\) into
+\[
+ \mathcal M_0:\quad A_R\le A_L,\quad m=A_R,
+ \qquad
+ \mathcal M_1:\quad A_L<A_R,\quad m=A_L.
+\]
+
+\begin{definition}[Nonadjacent Vd cells]
+\label{def:s2-vd-nonadjacent-domain}
+For
+\[
+ j\in\{2,4\},\qquad \mu\in\{0,1\},
+\]
+let \(\Omega_{\rm VD}^{j,\mu}\) be the set of tuples satisfying
+\[
+ (r,a,d)\in\mathcal D_2,
+\]
+\[
+ 0<p_0,q_0<1,\qquad
+ p_0+q_0>1,\qquad
+ p_0^2+p_0q_0+q_0^2\le1,
+\]
+\[
+ A_R>0,\qquad A_L>0,\qquad A_R+A_L<\frac12,
+\]
+\[
+ \sigma<\frac x2,\qquad \sigma<\frac y2,
+\]
+\[
+ x^2+x(w+d)+(w+d)^2\le1,\qquad
+ y^2+y(r+a)+(r+a)^2\le1,
+\]
+\[
+ t>0,\qquad
+ 0<p_v,q_v<1,\qquad
+ p_v\ge A_R,\qquad q_v\ge A_L,
+\]
+\[
+ 0\le C_v\le1,
+\]
+together with \(\mathcal M_\mu\).  For \(j=3\), additionally choose
+\(\nu\in\{0,1\}\) and impose \(\mathcal O_{3,\nu}\); denote the resulting
+cell by \(\Omega_{\rm VD}^{3,\mu,\nu}\).
+\end{definition}
+
+On every nonadjacent cell, define
+\[
+ \Psi_{\rm VD}^{\rm non}
+ =\max\{\sigma-A_R,\ \sigma-A_L,\ d_j-m,\ C_v-1+m\}.
+\]
+
+\begin{definition}[Problem S2-VD-nonadjacent]
+\label{prob:s2-vd-nonadjacent}
+The nonadjacent optimization problem is
+\[
+ \boxed{
+ \Psi_{\rm VD}^{\rm non}<0
+ }
+\]
+on every cell
+\[
+ \Omega_{\rm VD}^{2,\mu},\quad
+ \Omega_{\rm VD}^{4,\mu},\quad
+ \Omega_{\rm VD}^{3,\mu,\nu}
+ \qquad(\mu,\nu\in\{0,1\}).
+\]
+\end{definition}
+
+\begin{definition}[Problem S2-VD]
+\label{prob:s2-vd-terminal}
+Problem S2-VD is the finite family consisting of
+Problems~\ref{prob:s2-vd-adjacent} and
+\ref{prob:s2-vd-nonadjacent}.
+\end{definition}
+
+All former interval-component suprema have been replaced by the explicit
+three-cell function \(\mathsf E\), and all former radial placement suprema
+have been replaced by the exact corner graph formulas for \(u_+\) and \(C_v\).

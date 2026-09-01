@@ -1,0 +1,478 @@
+\section{Method 2: Boundary-Reach Propagation}
+\label{sec:strategy2-summary}
+
+Suppose a V triangle has backward reach at least $a$ and radial reach at
+least $c$.  The local admissible set bounds its forward reach.  Boundary
+coverage converts this forward upper bound into a lower bound for the backward
+reach of the next V triangle.  Iteration yields one of four explicit
+contradictions: a cyclic strict inequality, endpoint caps whose sum is below
+one, a propagated lower bound exceeding a final upper bound, or disjoint radial
+trace intervals.
+
+\subsection{The propagation functions}
+
+\begin{definition}[Forward-reach cap and propagated lower bound]
+\label{def:body-transfer-alphabet}
+For $a,c\in[0,1]$, define
+\[
+ M_c(a)=\max\left\{b\in[0,1]:(a,b,c)\in\mathcal A\right\}.
+\]
+Thus $M_c(a)$ is the largest possible forward reach of a unit equilateral
+triangle whose backward and radial reaches are at least $a$ and $c$.  For a
+nonsupercritical V triangle define
+\[
+ \overline M_c(a)=\min\{M_c(a),1-a\},
+ \qquad
+ \Phi_c(a)=1-\overline M_c(a).
+\]
+The midpoint $\frac12(u+v)$ gives
+\begin{equation}
+ M_c(a)\le1-a\quad\left(c\ge\frac12\right),
+ \qquad
+ M_{1/2}(a)=1-a,
+ \label{eq:body-midpoint-threshold}
+\end{equation}
+so
+\[
+ \overline M_c(a)=
+ \begin{cases}
+ 1-a,&0\le c\le1/2,\\
+ M_c(a),&1/2<c\le1,
+ \end{cases}
+ \qquad
+ \Phi_c(a)=
+ \begin{cases}
+ a,&0\le c\le1/2,\\
+ 1-M_c(a)\ge a,&1/2<c\le1.
+ \end{cases}
+\]
+\end{definition}
+
+\begin{definition}[Center-assisted propagation]
+\label{def:body-center-assisted-transfer}
+Let $J$ be either empty or a closed interval $[L,U]\subseteq[0,1]$.  For
+$b\in[0,1]$, define the \emph{uncovered suffix length}
+\[
+ \mathcal R_J(b)=1-\sup\left\{t\in[0,1]:[0,t]\subseteq[0,b]\cup J\right\}.
+\]
+Equivalently,
+\[
+ \mathcal R_\varnothing(b)=1-b,
+ \qquad
+ \mathcal R_{[L,U]}(b)=
+ \begin{cases}
+ 1-b,&b<L,\\
+ 1-\max\{b,U\},&b\ge L.
+ \end{cases}
+\]
+The center-assisted propagated lower bound is
+$\mathcal R_J\bigl(\overline M_c(a)\bigr)$.
+\end{definition}
+
+\begin{figure}[H]
+\centering
+\resizebox{.92\linewidth}{!}{\input{figures/transfer_V_triangle_coordinates}}
+\caption{Backward reach, radial reach, the maximal forward reach $M_c(a)$,
+and the propagated lower bound $\Phi_c(a)$.}
+\label{fig:transfer-vtriangle-skeleton}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\resizebox{.99\linewidth}{!}{\input{figures/center_interval_residual}}
+\caption{The three cases in the uncovered-suffix function
+$\mathcal R_{[L,U]}(b)$.}
+\label{fig:transfer-residual-skeleton}
+\end{figure}
+
+\begin{definition}[Strict-supercritical forward envelope]
+\label{def:body-supercritical-envelope}
+For $0\le c<1/2$, define
+\[
+ M_c^{\rm sup}
+ =\sup_{\substack{a\in[0,1]\\M_c(a)>1-a}}M_c(a)
+ =\frac{c+\sqrt{c^2-8c+4}}2.
+\]
+\end{definition}
+
+\begin{proposition}[Propagation inequalities]
+\label{prop:body-transfer-interface}
+Let $T_i$ satisfy $A_i\ge a$ and $C_i\ge c$.
+\begin{enumerate}
+\item Always,
+\[
+ B_i\le M_c(a).
+\]
+If the outgoing edge is covered only by $U_i$ and $U_{i+1}$, then
+\[
+ A_{i+1}\ge1-M_c(a).
+\]
+\item If $T_i$ is nonsupercritical, then
+\[
+ B_i\le\overline M_c(a).
+\]
+On a center-free outgoing edge this gives
+\[
+ A_{i+1}\ge\Phi_c(a)\ge a.
+\]
+\item If the center trace on the outgoing edge is $J$, then a
+nonsupercritical $T_i$ gives
+\[
+ A_{i+1}\ge\mathcal R_J\bigl(\overline M_c(a)\bigr).
+\]
+\item If $T_i$ is strictly supercritical, then $c<1/2$ and
+\[
+ B_i<M_c^{\rm sup}.
+\]
+If its outgoing edge is center-free, then
+\[
+ A_{i+1}>1-M_c^{\rm sup}.
+\]
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+The first inequality follows from the definition of $M_c$.  The remaining
+statements are Lemmas~\ref{lem:reader-raw-capped-transfer} and
+\ref{lem:reader-generalized-handoff}, together with
+\eqref{eq:reader-free-outgoing-envelope} and
+\eqref{eq:reader-free-raw-envelope}.
+\end{proof}
+
+\subsection{Propagation along a boundary path}
+
+\begin{lemma}[Monotone propagation]
+\label{lem:body-monotone-propagation}
+Let $a_0,\ldots,a_m$ be reach lower bounds and let
+$\Phi_0,\ldots,\Phi_{m-1}:[0,1]\to[0,1]$ be nondecreasing functions such that
+\[
+ a_{j+1}\ge\Phi_j(a_j)\qquad(0\le j<m).
+\]
+If $\underline\Phi_j$ is nondecreasing and
+$\underline\Phi_j\le\Phi_j$ pointwise on the relevant input interval, then
+\[
+ a_m\ge
+ (\underline\Phi_{m-1}\circ\cdots\circ\underline\Phi_0)(a_0).
+\]
+\end{lemma}
+
+\begin{proof}
+Induct on $j$, using monotonicity at every step.  This is
+Lemma~\ref{lem:reader-relaxed-composition}.
+\end{proof}
+
+Each application uses the exact function $\Phi_c$, a center-assisted update
+$a\mapsto\mathcal R_J(\overline M_c(a))$, the direct
+inequality $a_{j+1}\ge a_j$ under the nonsupercritical center-free
+hypotheses, or one of the following two explicit lower functions.  For
+$0<d<1-\sqrt3/2$, put
+\[
+ e_0(d)=\frac{1-d}{2}
+ \left(1-\sqrt{4(1-d)^2-3}\right),
+\]
+\[
+ A_{d,\lambda}(x)=x+\lambda(x-d),
+ \qquad
+ \Theta_d(x)=
+ \begin{cases}
+ x,&0\le x\le e_0(d),\\
+ 1-e_0(d),&e_0(d)<x\le1.
+ \end{cases}
+\]
+The repository scalar specification lists the input intervals on which
+$A_{d,\lambda}\le\Phi_{1-d}$ and proves
+$\Theta_d\le\Phi_{1-d}$.
+
+\begin{definition}[Center-free boundary path]
+\label{def:body-center-free-path}
+A consecutive boundary path is \emph{center-free} when, on every internal
+edge, the C triangle has empty trace and every nonincident vertex
+triangle has zero-length trace.  Contributions from triangles outside the
+path must be included in the two endpoint suffix lengths before the path
+inequality is applied.
+\end{definition}
+
+\begin{proposition}[Four forms of the final contradiction]
+\label{prop:body-strategy2-chain-principle}
+Every propagation argument below proves one of the following statements.
+\begin{enumerate}
+\item
+\[
+ A_0<A_1<\cdots<A_5<A_0.
+\]
+\item The two endpoint suffix bounds $u,v$ satisfy $u+v<1$, contradicting the
+center-free path inequality.
+\item For some propagated lower bound $a_{\rm ret}$ and upper threshold
+$u_{\rm cap}$,
+\[
+ A_0\ge a_{\rm ret}>u_{\rm cap}>A_0.
+\]
+\item The vertex-side radial interval $[u_1,u_2]$ and the center-side radial
+interval $[v_1,v_2]$ satisfy either $u_2<v_1$ or $v_2<u_1$, leaving a
+nonempty uncovered interval.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Proposition~\ref{prop:body-transfer-interface} supplies each propagation step,
+and Lemma~\ref{lem:reader-boundary-path} supplies the endpoint inequality.
+The branch-specific radial inequalities are stated in
+Proposition~\ref{prop:body-special-terminal-certificates}.
+\end{proof}
+
+\subsection{The all-$\Vdzero$ cases}
+
+\begin{definition}[Boundary gaps and their count]
+\label{def:body-boundary-gap-count}
+On the boundary edge $e_{i,i+1}$, let
+\[
+ \Gamma_i=
+ \begin{cases}
+ [B_i,1-A_{i+1}],&B_i\le1-A_{i+1},\\
+ \varnothing,&B_i>1-A_{i+1}.
+ \end{cases}
+\]
+A nonempty $\Gamma_i$ is a boundary gap; equality gives a singleton gap.  In
+a hypothetical cover every boundary gap lies in a center trace.  Let
+$N_{\mathrm{gap}}$ be the number of positive center traces that contain a
+boundary gap.  Then
+\[
+ N_{\mathrm{gap}}\in\{0,1,2\},
+ \qquad
+ N_{\mathrm{gap}}\le1\quad\text{in CE1}.
+\]
+\end{definition}
+
+The all-$\Vdzero$ cases are organized as follows.
+\[
+\begin{array}{c|ccc}
+ &N_{\mathrm{gap}}=0&N_{\mathrm{gap}}=1&N_{\mathrm{gap}}=2\\ \hline
+N_+=0&\text{cyclic contradiction}&\text{one-gap endpoints}&
+       \text{paired endpoints}\\
+N_+=1&\text{nine-point obstruction}&\text{five-step propagation}&
+       \text{paired endpoints}.
+\end{array}
+\]
+The last column is CE2-only.
+
+For $N_+=0$ and $N_{\mathrm{gap}}=0$, the vertex traces alone cover every
+boundary edge.  Nonsupercriticality gives $1-B_i\ge A_i$, while open boundary
+coverage gives $A_{i+1}>1-B_i$.  Hence
+\[
+ A_{i+1}>1-B_i\ge A_i,
+\]
+which is already impossible cyclically.  For $N_+=1$ and
+$N_{\mathrm{gap}}=0$, Method~4 applies.
+
+\subsection{Endpoint bounds}
+
+\begin{definition}[Signed endpoint domains and endpoint pairs]
+\label{def:body-strategy2-signed-domains}
+\label{def:body-gap-endpoint-data}
+Use the signed-center coordinates from Definition~\ref{def:body-signed-center-data}.
+The full CE1 and CE2 parameter sets are $\mathcal D_{\rm C1}$ and
+$\mathcal D_{\rm C2}$.  The oriented CE1 one-gap case has the additional
+condition
+\[
+ R\delta-W\alpha>0
+\]
+and is denoted by $\mathcal D_1$; put
+$\mathcal D_2=\mathcal D_{\rm C2}$.
+
+In the one-gap case the two endpoint pairs are
+\[
+ (a_L,c_L)=\left(\frac{k}{R},1-\frac{\alpha}{W}\right),
+ \qquad
+ (a_R,c_R)=\left(R-\delta,1-\frac{\delta}{R}\right).
+\]
+In the CE2 paired-gap case they are
+\[
+ (a_L,c_L)=\left(W-\alpha,\frac{W-\alpha}{W}\right),
+ \qquad
+ (a_R,c_R)=\left(R-\delta,\frac{R-\delta}{R}\right).
+\]
+All four radial lower bounds in these formulas exceed $1/2$, so their caps
+are $M_c(a)$ without the low-radial branch.
+\end{definition}
+
+\begin{proposition}[All-$\Vdzero$ endpoint inequalities]
+\label{prop:body-all-vd0-endpoints}
+For every one-gap parameter point in $\mathcal D_1\cup\mathcal D_2$,
+\[
+ M_{c_L}(a_L)+M_{c_R}(a_R)<1.
+\]
+For every paired-gap parameter point in $\mathcal D_2$, the same strict
+inequality holds with the paired-gap endpoint pairs above.  The three vertex
+triangles strictly between the endpoints form a center-free path, and
+singleton boundary gaps are included.
+\end{proposition}
+
+\begin{proof}
+These are Problems~\ref{prob:s2-one-gap-endpoint} and
+\ref{prob:s2-two-gap-endpoint}, proved in
+Section~\ref{sec:strategy2-pure-theorems}.  Lemma~\ref{lem:reader-boundary-path}
+then gives the contradiction.
+\end{proof}
+
+\subsection{The $\Tlike$ endpoint inequality}
+
+\begin{definition}[$\Tlike$ endpoint parameters]
+\label{def:body-t3-endpoint-state}
+In the $N_+=0$ case with no $\Vdone$ or $\Vdtwo$ triangle, normalize a
+$\Tlike$ triangle as in Subsection~\ref{sec:t3-vd-demand-branches}.  After all
+center intervals have been included in the endpoint suffixes, the two endpoint
+pairs are
+\[
+ (a_5^\ast,c_5^\ast),
+ \qquad
+ (a_1^\ast,c_1^\ast).
+\]
+On the high-radial domain, $M_c(a)$ has four algebraic branches: the linear
+branch $1-a$, the $Q_+$ branch, the constant branch, and the $Q_-$ branch.
+\end{definition}
+
+\begin{proposition}[$\Tlike$ endpoint inequality]
+\label{prop:body-t3-endpoint}
+Every normalized $\Tlike$ configuration satisfies
+\[
+ \overline M_{c_5^\ast}(a_5^\ast)+
+ \overline M_{c_1^\ast}(a_1^\ast)<1.
+\]
+If one radial lower bound is at most $1/2$, the corresponding term is simply
+$1-a$.  Otherwise the proof checks every feasible pair of the four algebraic
+branches above.
+\end{proposition}
+
+\begin{proof}
+This is Lemma~\ref{thm:s2-geom-t3}.  All center and
+nonincident contributions are included before
+Lemma~\ref{lem:reader-boundary-path} is applied.
+\end{proof}
+
+\subsection{The five-triangle propagation inequality}
+
+\begin{definition}[Five-triangle propagation parameters]
+\label{def:body-five-V-triangle-data}
+In the $N_+=1$, all-$\Vdzero$, one-gap case, normalize the unique
+supercritical triangle as $T_0$.  Put
+\[
+ a_{\rm in}=R-\delta,
+ \qquad
+ u_{\rm cap}=\frac{k}{2R},
+ \qquad
+ \mu_3=\min\left\{\frac{\alpha}{R},\frac{\delta}{W}\right\},
+\]
+\[
+ c_1=1-\frac{\delta}{R},
+ \quad
+ c_2=1-\delta,
+ \quad
+ c_3=1-\mu_3,
+ \quad
+ c_4=1-\alpha,
+ \quad
+ c_5=1-\frac{\alpha}{W}.
+\]
+All five radial lower bounds exceed $1/2$.  Define
+\[
+ a_0=a_{\rm in},
+ \qquad
+ a_i=\Phi_{c_i}(a_{i-1})\quad(1\le i\le5),
+ \qquad
+ a_{\rm ret}=a_5.
+\]
+\end{definition}
+
+\begin{proposition}[Five-triangle propagation inequality]
+\label{prop:body-five-V-triangle-certificate}
+The maximal reaches satisfy
+\[
+ A_0\ge a_{\rm ret},
+ \qquad
+ A_0<1-u_{\rm cap},
+\]
+while the real-variable inequalities prove
+\[
+ a_{\rm ret}>1-u_{\rm cap}.
+\]
+In CE1 the proof uses two affine lower bounds for a $Q_+$ branch followed by
+one threshold inequality.  In CE2 it proves the inclusive alternative
+\[
+ e(\alpha)<u_{\rm cap}
+ \quad\text{or}\quad
+ e(\delta)<u_{\rm cap};
+\]
+both inequalities may hold.
+\end{proposition}
+
+\begin{proof}
+The first two inequalities are Proposition~\ref{prop:signed-one-gap-interface}.
+Problems~\ref{prob:s2-ce1-five-chain} and
+\ref{prob:s2-ce2-five-chain} prove the middle-three propagation inequality;
+monotonicity of the first and fifth exact steps gives the displayed bound for
+$a_{\rm ret}$.
+\end{proof}
+
+\subsection{Exceptional vertex types}
+
+\begin{definition}[Exceptional local parameters]
+\label{def:body-adjacent-rescuer-data}
+\label{def:body-vd-residual-data}
+\label{def:body-vd-replacement-data}
+An adjacent $\Tlike$ or $\Vdone$ triangle is reduced to two explicit local
+inequalities involving its boundary trace and adjacent radial interval.  In a
+CE2 configuration with exactly one $\Vdone$ or $\Vdtwo$ triangle, the
+positional case split produces two center-assisted boundary suffixes and
+either an adjacent or a nonadjacent radial interval.  The interval endpoints
+and corner functions appear in the repository optimization
+specifications.  The remaining adjacent
+$\Vdone$--supercritical placement is treated by two local replacement charts.
+\end{definition}
+
+\begin{proposition}[Exceptional-type contradictions]
+\label{prop:body-special-terminal-certificates}
+The remaining propagation cases end as follows.
+\begin{enumerate}
+\item Corollary~\ref{thm:s2-geom-sc} gives incompatible upper and lower reach
+bounds for an adjacent $\Tlike$ or $\Vdone$ triangle next to the unique
+supercritical triangle.
+\item Lemma~\ref{thm:s2-geom-vd-adjacent} proves that every possible
+vertex-side radial interval ends strictly before the CE2 center interval
+begins.
+\item Lemma~\ref{thm:s2-geom-vd-nonadjacent} proves strict separation of the
+corresponding nonadjacent radial intervals.
+\item The remaining adjacent $\Vdone$--supercritical placement is replaced by
+two open nonsupercritical $\Vdzero$ triangles while preserving the full
+skeleton; the already excluded all-$\Vdzero$ case then applies.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+The first three statements follow from the repository parameter bridges and
+the cited theorems.  Item~4
+is Proposition~\ref{prop:paper-vd1-pair-replacement}.
+\end{proof}
+
+\begin{proposition}[Cases excluded by boundary propagation]
+\label{prop:body-demand-branches}
+Method~2 excludes:
+\begin{enumerate}
+\item the $N_+=0$ all-$\Vdzero$ and
+$\Tlike$-without-$\Vdone/\Vdtwo$ cases for CE1 and CE2;
+\item every $N_+=1$ all-$\Vdzero$ case with a boundary gap;
+\item the $N_+=1$ case with exactly one $\Tlike$ triangle and no
+$\Vdone/\Vdtwo$ triangle;
+\item the propagation subcases in the CE2, $N_+=1$,
+exactly-one-$\Vdone/\Vdtwo$ case.
+\end{enumerate}
+Singleton boundary gaps are included.
+\end{proposition}
+
+\begin{proof}
+Use Propositions~\ref{prop:body-all-vd0-endpoints},
+\ref{prop:body-five-V-triangle-certificate},
+\ref{prop:body-t3-endpoint}, and
+\ref{prop:body-special-terminal-certificates}.  The complete CE2 positional
+case split is Proposition~\ref{prop:paper-ce2-one-vd-placements}.  The no-gap
+$N_+=1$ all-$\Vdzero$ case is handled by Method~4.
+\end{proof}

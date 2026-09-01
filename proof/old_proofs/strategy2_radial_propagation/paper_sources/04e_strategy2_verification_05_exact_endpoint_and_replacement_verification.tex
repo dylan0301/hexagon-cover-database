@@ -1,0 +1,161 @@
+\subsection{The Vd1--supercritical replacement}
+\label{sec:strategy2-rigor-completion}
+
+The complete four-branch T3 endpoint calculation is already
+Lemma~\ref{lem:407-four-label-loss}; its authenticated source crosswalk is
+kept in the paper source ledger rather than printed a second time.  What
+remains here is the unique two-chart replacement needed for the Vd branch.
+
+\begin{proposition}[Vd1--supercritical two-chart replacement]
+\label{prop:paper-vd1-pair-replacement}
+Assume the CE2 branch with $N_{\mathrm{gap}}\in\{1,2\}$ in which an adjacent
+Vd1 triangle and the unique supercritical Vd0 triangle lie away from the V
+triangle at the center's unique midpoint.  After reflection, write their base
+vertices as $V_\tau,V_{\tau+1}$.
+Assume the shared boundary edge is center-free, all other V triangles are
+nonsupercritical Vd0, and
+\[
+ \Haus(T_j\cap r_\tau)=\Haus(T_j\cap r_{\tau+1})=0
+ \qquad(j\notin\{\tau,\tau+1\}).
+\]
+Then the pair can be replaced by two open
+nonsupercritical Vd0 triangles while preserving coverage of the full skeleton.
+Let $N'_{\mathrm{gap}}$ count the positive C-triangle boundary traces that
+contain a gap in the replacement V traces.  If $N'_{\mathrm{gap}}=0$, the
+replacement is closed by Method~1; if $N'_{\mathrm{gap}}\ge1$, it is closed
+by Method~2.  No equality between $N'_{\mathrm{gap}}$ and the original
+$N_{\mathrm{gap}}$ is asserted.
+\end{proposition}
+
+\begin{proof}
+After a fresh cyclic renumbering, let the Vd1 triangle be based at $V_0$, the
+supercritical triangle at $V_1$, and let the Vd1 triangle contain $M_1$. Write $a,b$
+for the Vd1 boundary reaches and use the Vd corner parameter $t\ge1$, with
+$d=\sqrt{t^2+t+1}$. Put
+\[
+ c=\frac{d-a-tb}{t+1},\qquad
+ \lambda=\frac{t(1-b)}{t+1},\qquad
+ u_{\rm adj}=\frac{d-a-tb-1}{t}.
+\]
+The strict midpoint and one-sided-support inequalities give
+\[
+ a+c<1,\qquad a<\lambda\le\frac12,
+ \qquad b<\frac12,
+ \qquad u_{\rm adj}<1-a.
+\tag{1}
+\]
+
+Let $(A_1,B_1,C_1)$ be the maximal reaches of the supercritical triangle. The
+center-free shared edge and radial coverage give
+\[
+ A_1\ge1-b>\frac12,
+ \qquad C_1\ge\lambda.
+\]
+The selected supercritical admissible cell has $C_1\le1/2$. The half-square
+lemma
+\[
+ (x,y,z)\in\mathcal A,\qquad x\ge\frac12,\qquad z\le\frac12
+ \quad\Longrightarrow\quad y\le1-z
+\]
+therefore gives $B_1\le1-C_1\le1-\lambda$, and hence
+\[
+ a+B_1<1.
+\tag{2}
+\]
+If $c_1^{\rm req}=1-d_1^C$ is the vertex-side beginning of the center trace
+on $r_1$, open skeleton coverage gives
+\[
+ c_1^{\rm req}<\max\{C_1,u_{\rm adj}\}
+ \le\max\{1-B_1,1-a\}.
+\tag{3}
+\]
+
+Choose $p_2\in(a,1-B_1)$ with
+\[
+ \max\{p_2,1-p_2\}>c_1^{\rm req};
+\]
+such a point exists because the supremum of the left side on that interval is
+$\max\{1-B_1,1-a\}$. Then choose
+\[
+ a<p_1<p_2,
+ \qquad p_1<\frac12,
+ \qquad1-p_1>c.
+\]
+Finally choose $\varepsilon>0$ smaller than
+\[
+ p_1-a,\quad p_2-p_1,\quad1-B_1-p_2,\quad1-p_1-c,
+ \quad\max\{p_2,1-p_2\}-c_1^{\rm req}.
+\tag{4}
+\]
+
+Use two distinct local charts:
+\[
+ X_0(x,y)=V_0+x(V_5-V_0)+y(V_1-V_0),
+\]
+\[
+ X_1(x,y)=V_1+x(V_0-V_1)+y(V_2-V_1).
+\]
+For $p\le1/2$ put
+\[
+ \Delta_p^-=\conv\{(0,1-p),(1,1-p),(0,-p)\},
+\]
+and for $p>1/2$ put
+\[
+ \Delta_p^+=\conv\{(p,0),(p,1),(p-1,0)\}.
+\]
+Define
+\[
+ U_0'=X_0\!\left(\interior(\Delta_{p_1}^-)+(-\varepsilon,0)\right)
+\]
+and
+\[
+ U_1'=\begin{cases}
+ X_1\!\left(\interior(\Delta_{p_2}^-)+(-\varepsilon,0)\right),
+   &p_2\le1/2,\\
+ X_1\!\left(\interior(\Delta_{p_2}^+)+(0,-\varepsilon)\right),
+   &p_2>1/2.
+ \end{cases}
+\]
+
+In its own chart the shifted minus template contains the origin and has reach
+triple
+\[
+ (p-\varepsilon,1-p,1-p),
+\]
+while the shifted plus template contains the origin and has reach triple
+\[
+ (p,1-p-\varepsilon,p).
+\]
+In the $V_i$ chart, $i=0,1$, each closure stays strictly below the two
+supporting lines of $r_{i-1}$ and $r_{i+1}$; hence
+\[
+ \Haus(\overline{U_i'}\cap r_{i-1})
+ =\Haus(\overline{U_i'}\cap r_{i+1})=0.
+\]
+Thus $V_0\in U_0'$, $V_1\in U_1'$, both triangles are Vd0, and both boundary
+sums equal $1-\varepsilon<1$.
+
+The first replacement reaches beyond $a$ on $e_{5,0}$ and beyond $c$ on
+$r_0$. On the shared edge its reach is $1-p_1$, while the second replacement
+reaches at least $p_2-\varepsilon$ from $V_1$; their sum exceeds one by (4).
+The second replacement reaches beyond $B_1$ on $e_{1,2}$ and has radial
+reach $\max\{p_2,1-p_2\}>c_1^{\rm req}$ on $r_1$. Hence every boundary and
+radial component formerly supplied by the special pair remains covered, and
+all other skeleton components are unchanged.
+
+The modified triangles therefore cover the full skeleton and have six
+nonsupercritical Vd0 V triangles.  Let $N'_{\mathrm{gap}}$ count the positive
+C-triangle boundary traces containing a gap in the modified V traces.  Since
+the unchanged C triangle is CE2,
+\[
+ N'_{\mathrm{gap}}\in\{0,1,2\}.
+\]
+If $N'_{\mathrm{gap}}=0$, the zero-gap, $N_+=0$ row of
+Proposition~\ref{prop:length-branches} gives the Method~1 contradiction.  If
+$N'_{\mathrm{gap}}\in\{1,2\}$,
+Proposition~\ref{prop:nplus-zero-all-vd0} gives the Method~2 contradiction.
+These alternatives are exhaustive.  The construction does not claim that
+the replacement preserves the original gap count.
+\end{proof}
+
+% ---- CE2 exactly-one-Vd placement assembly ----
