@@ -179,13 +179,15 @@ $$
 For
 
 $$
-0<d<1-rac{\sqrt3}{2},
+0<d<1-
+rac{\sqrt3}{2},
 $$
 
 define the selected low root
 
 $$
-e(d)=rac{1-d}{2}
+e(d)=
+rac{1-d}{2}
 \left(1-\sqrt{4(1-d)^2-3}
 ight).
 	ag{8a}

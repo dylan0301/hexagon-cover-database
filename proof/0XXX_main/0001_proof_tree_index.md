@@ -40,7 +40,7 @@ Strict handoffs preserving the actual supercritical pattern are supplied by
 1. **Strategy 1: trace length.** Perimeter, diagonal, or full-skeleton
    contributions have strict total deficit. Principal sources are
    [`2500`](../2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md),
-   [`2510`](../2XXX_geometric_lemmas/25XX_length_bounds/2510_half_skeleton_length_bounds.md), and
+   [`2510`](../2XXX_geometric_lemmas/25XX_length_bounds/2510_skeleton_length_bounds.md), and
    [`2530`](../2XXX_geometric_lemmas/25XX_length_bounds/2530_common_CE1_CE2_budget_lemmas.md).
 2. **Strategy 2: area loss.** Local exterior losses and cyclic handoffs exceed
    the available normalized area. Principal zero-gap sources are `317X` and

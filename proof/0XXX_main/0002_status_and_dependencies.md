@@ -1,8 +1,9 @@
+
 # Status and Active Dependencies
 
 Status: Reference
 
-This file records the active three-strategy proof interfaces. It does not
+This file records the active three-method proof interfaces. It does not
 upgrade the status of any listed source.
 
 ## Foundations and shared geometry
@@ -24,27 +25,22 @@ upgrade the status of any listed source.
 | Branch | Source | Status |
 |---|---|---|
 | Zero-gap all-Vd0 exact-one | [`31058`](../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31058_center_independent_direct_nine_point_obstruction.md) | Proven |
-| Nonzero-gap, $N_+=0$, all Vd0 | [`4013_new`](../4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss_new/4013_new_all_Vd0_finite_enclosure.md) | Proven |
-| Nonzero-gap, $N_+=0$, one or two T3-like roles | [`4070_new`](../4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2_new/4070_new_T3_like_finite_enclosure.md) | Proven |
-| Nonzero-gap, $N_+=1$, all Vd0 | [`4101_new`](../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0_new/4101_new_all_Vd0_finite_enclosure.md), [`4102_new`](../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0_new/4102_new_CE1_direct_radial_certificate.md) | Proven |
-| Nonzero-gap, $N_+=1$, exactly one T3-like role | [`4130_new`](../4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like_new/4130_new_T3_like_finite_enclosure.md) | Proven |
-| CE2 nonzero-gap, $N_+=1$, exactly one Vd1/Vd2 role | [`4140_new`](../4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4140_new_one_Vd_finite_enclosure_assembly.md) | Proven |
+| Nonzero-gap, \(N_+=0\), all Vd0 | [`4013_new`](../4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss_new/4013_new_all_Vd0_finite_enclosure.md) | Proven |
+| Nonzero-gap, \(N_+=0\), one or two T3-like roles | [`4070_new`](../4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2_new/4070_new_T3_like_finite_enclosure.md) | Proven |
+| Nonzero-gap, \(N_+=1\), all Vd0 | [`4101_new`](../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0_new/4101_new_all_Vd0_finite_enclosure.md), [`4102_new`](../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0_new/4102_new_CE1_direct_radial_certificate.md) | Proven |
+| Nonzero-gap, \(N_+=1\), exactly one T3-like role | [`4130_new`](../4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like_new/4130_new_T3_like_finite_enclosure.md) | Proven |
+| CE2 nonzero-gap, \(N_+=1\), exactly one Vd1/Vd2 role | [`4140_new`](../4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4140_new_one_Vd_finite_enclosure_assembly.md) | Proven |
 
-Strategy 1 retains the length terminals `4040`, `4041`, `4110`, `4111`,
-`4123`, `4149`, `414a`, and `4200`. Strategy 2 retains the zero-gap area
-certificates `317X` and `320X`.
+The trace-length method retains the terminals `4040`, `4041`, `4110`,
+`4111`, `4123`, `4149`, `414a`, and `4200`. The area-loss method retains the
+zero-gap certificates `317X` and `320X`.
 
-## Exact certificate and compatibility status
+## Exact certificate
 
-The zero-gap nine-point mixed overlaps are proved by the authenticated exact
-certificate in the `3105X_computation` package. The source files with
-`strategy2` in their names and the Lean project under
-`formalization/strategy2_optimization/` are retained for historical statement
-compatibility. They are not compiled into the paper and are not active proof
-owners.
+The zero-gap nine-point mixed overlaps are established by the exact
+`3105X_computation` package. Its source, sparse data, derivation check,
+positivity check, and provenance record are colocated with the theorem.
 
-## Generated interfaces
-
-The active proof graph, dependency text, manifest, canonical PDF, and current
-verification summary are generated files. Their consistency is checked by the
-permanent workflows.
+No proof-assistant formalization is currently maintained. The complete
+mathematical arguments are the numbered proof sources and the two manuscript
+presentations.
