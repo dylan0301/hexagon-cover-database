@@ -15,7 +15,6 @@ arrange/paper_draft/*.out
 arrange/paper_draft/*.toc
 arrange/paper_draft/*.xdv
 arrange/paper_draft/*.synctex.gz
-arrange/paper_draft/proof_free.pdf
 
 # Generated proof navigation.
 proof/ACTIVE_DEPENDENCIES.txt
