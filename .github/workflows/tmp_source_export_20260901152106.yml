@@ -1,0 +1,39 @@
+name: Temporary branch-scoped source export
+
+on:
+  push:
+    branches:
+      - chatgpt/tmp-source-export-20260901152106
+    paths:
+      - .github/workflows/tmp_source_export_20260901152106.yml
+
+permissions:
+  contents: read
+
+concurrency:
+  group: tmp-source-export-20260901152106
+  cancel-in-progress: true
+
+jobs:
+  export:
+    name: Export exact source snapshot
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+        with:
+          fetch-depth: 1
+
+      - name: Create source archive
+        run: |
+          set -euo pipefail
+          tar --exclude=.git --exclude=source-tree.tar.gz -czf source-tree.tar.gz .
+          sha256sum source-tree.tar.gz > source-tree.tar.gz.sha256
+
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: tmp-source-export-20260901152106
+          path: |
+            source-tree.tar.gz
+            source-tree.tar.gz.sha256
+          if-no-files-found: error
+          retention-days: 1
