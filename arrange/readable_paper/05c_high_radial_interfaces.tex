@@ -82,6 +82,60 @@ See Appendix~\ref{subsec:calc-quarter-envelope}, where the $L$ and $T$ cells
 are checked separately.
 \end{proof}
 
+\begin{lemma}[Half-edge one-third radial envelope]
+\label{lem:new-one-third-radial-envelope}
+Suppose
+\[
+ M\ge\frac12,\qquad 0<m\le M,\qquad M+m<1.
+\]
+Then
+\[
+ \boxed{c_{\max}(M,m)<1-\frac m3.}
+ \tag{6.70}
+\]
+\end{lemma}
+
+\begin{proof}
+Put $s=M+m$ and $c_0=1-m/3$.  Only the $L$ and $T$ cells of
+Proposition~\ref{prop:new-exact-local-set} can occur.
+
+Assume first that $m\le3/8$.  On the $L$ cell, substitution in
+$F_L(c)=c^4-c^2+mc-m^2$ gives
+\[
+ F_L(c_0)=
+ \frac m{81}(m^3-12m^2-63m+27)>0.
+\]
+Indeed, the cubic decreases on $[0,3/8]$ and equals $891/512$ at the right
+endpoint.  Since $F_L(\sqrt3/2)\le0$ and the selected root is unique and
+increasing there, the selected $L$ root is below $c_0$.
+
+At an $L/T$ transition the two selected roots agree and equal $s$.  On the
+$T$ cell,
+\[
+ c_T(s)=\frac{2(s-m)}{1+\sqrt{4s^2-3}}.
+\]
+Writing $r=\sqrt{4s^2-3}$ gives
+\[
+ c_T'(s)=\frac{2(r+4ms-3)}{r(1+r)^2}<0,
+\]
+because $m\le s/2$ and $r+2s^2-3<0$ for $\sqrt3/2\le s<1$.
+Thus the $T$ root decreases after the transition and remains below $c_0$.
+
+Now let $3/8\le m<1/2$.  Since $M\ge1/2$,
+\[
+ s^4-s^2+mM
+ \ge
+ \left(\frac78\right)^4-\left(\frac78\right)^2+\frac3{16}
+ =\frac{33}{4096}>0,
+\]
+so only the $T$ cell occurs.  The derivative calculation shows that its value
+decreases with $M$.  At $M=1/2$ one has $s\ge7/8$ and
+$\sqrt{4s^2-3}\ge1/4$, whence
+\[
+ c_T\le\frac45<\frac56<1-\frac m3.
+\]
+\end{proof}
+
 \begin{lemma}[Vd corner radial margins]
 \label{lem:readable-vd-corner-margins}
 In the exact Vd1/Vd2 corner form, let $a,b$ be the boundary reaches, let

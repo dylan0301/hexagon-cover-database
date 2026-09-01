@@ -140,6 +140,7 @@ for required in [
     "06e_direct_local_proof_details.tex",
     "06f_casewise_witness_details.tex",
     "06g_endpoint_selector_audit.tex",
+    "06i_simplified_finite_enclosure_interfaces.tex",
     "A_zero_gap_exact_certificate.tex",
 ]:
     path = (ROOT / "arrange/paper_draft" / required).resolve()
