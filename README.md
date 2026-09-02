@@ -1,4 +1,3 @@
-
 # Hexagon Covering Proof Corpus
 
 This repository contains the proof that seven open unit equilateral triangles
@@ -29,6 +28,8 @@ argument and is no longer part of the repository contract.
   [`proof/0XXX_main/0000_main_theorem.md`](proof/0XXX_main/0000_main_theorem.md)
 - Proof-tree index:
   [`proof/0XXX_main/0001_proof_tree_index.md`](proof/0XXX_main/0001_proof_tree_index.md)
+- Reusable lemma and terminal catalog:
+  [`proof/0XXX_main/0003_reusable_lemma_catalog.md`](proof/0XXX_main/0003_reusable_lemma_catalog.md)
 - Current status:
   [`proof/0XXX_main/0002_status_and_dependencies.md`](proof/0XXX_main/0002_status_and_dependencies.md)
 - Canonical paper:
@@ -55,6 +56,11 @@ For a V triangle, uppercase \((A_i,B_i,C_i)\) denotes actual maximal reaches.
 Lowercase \((a_i,b_i,c_i)\) denotes selected lower bounds. In particular,
 \(N_+\) is defined from the uppercase actual reaches. Singleton boundary gaps
 remain gaps because the covering triangles are open.
+
+The active proof mechanisms are exposed through three reusable interfaces:
+`2400` for the two zero-gap area rows, `2531` for all length-budget rows, and
+`2610` for the six finite-enclosure terminal families. Detailed case files are
+retained as placement adapters and compatibility paths.
 
 The difficult zero-gap nine-point overlap calculation is an exact certificate
 over integers, rationals, and \(\mathbb Q(\sqrt3)\). Floating-point scans are
