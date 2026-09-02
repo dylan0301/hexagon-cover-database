@@ -4,60 +4,91 @@ Status: Reference
 
 The common signed center form is
 [`2109`](../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md).
-One normalized trace has positive surplus $\Delta_R$; the sign of
-$\Delta_L$ distinguishes CE1 from CE2. The active proof has three strategies:
-trace length, area loss, and direct finite enclosure.
+The active branch is organized by reusable length rows and six
+finite-enclosure terminals, not by the former composed endpoint-propagation
+chains.
 
-## 1. Direct finite-enclosure entry
+## 1. Meaning of the `_new` case directories
 
-For selected boundary reaches $(a_i,b_i)$, the exact own-ray capacity is
-$c_{\max}(a_i,b_i)$. If an adjacent role is actually permitted to have
-positive support on $r_i$, its exact capacity is $C_+$ or $C_-$. The type-aware
-maximum is $\Gamma_i$, and
+The suffix `_new` marks the finite-enclosure replacement of a former
+Strategy 2 package.  It does **not** mean “index only.”  Every such directory
+contains its active `Status: Proven` proof source:
 
-$$
-D_i=(1-\Gamma_i)V_i
-$$
+| Directory | Active proof contents |
+|---|---|
+| `401X_all_Vd0_boundary_loss_new` | complete \(N_+=0\), all-Vd0 one-gap and two-gap finite-enclosure proof |
+| `407X_T3_like_no_Vd1Vd2_new` | complete type-aware T3-like one-gap and two-gap finite-enclosure proof |
+| `410X_all_Vd0_new` | all-Vd0 \(N_+=1\) assembly, CE1 direct certificate, and transverse seven-point enclosure |
+| `413X_exactly_one_T3_like_new` | complete T3-like supported-endpoint and two-gap proof |
+| `414X_CE2_exactly_one_Vd1_Vd2_new` | complete one-Vd placement package: four detailed proofs, replacement, audit, and assembly |
 
-is missed by every open V role. This theorem, the support gauge, the
-complementary-gap theorem, and the CE2 short-ray theorem are proved in
-[`2608`](../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2608_residual_hull_finite_enclosure_principle.md).
+The unsuffixed 401X, 407X, and 410X siblings retain historical Strategy 2
+sources.  They are not copies of the finite-enclosure proofs.  In 414X, the
+active detailed proof bodies have been moved into the `_new` package; the old
+4143, 4144, 4146, 4147, 4148, and 414b paths are now compatibility pointers.
 
-No active proof composes boundary-transfer maps.
+## 2. Common preprocessing
 
-## 2. Nonzero-gap terminals
+The length dispatcher
+[`2531`](../2XXX_geometric_lemmas/25XX_length_bounds/2531_length_budget_corollaries.md)
+removes every state with
 
-| Active package | Branch | Direct terminal | Status |
-|---|---|---|---|
-| [`4013_new`](40XX_Nplus0/401X_all_Vd0_boundary_loss_new/4013_new_all_Vd0_finite_enclosure.md) | $N_+=0$, all Vd0 | complementary-gap disk or CE2 short ray | Proven |
-| [`4070_new`](40XX_Nplus0/407X_T3_like_no_Vd1Vd2_new/4070_new_T3_like_finite_enclosure.md) | $N_+=0$, one or two T3-like roles | type-aware neighboring support followed by the same gap terminal | Proven |
-| [`4101_new`](41XX_Nplus1/410X_all_Vd0_new/4101_new_all_Vd0_finite_enclosure.md), [`4102_new`](41XX_Nplus1/410X_all_Vd0_new/4102_new_CE1_direct_radial_certificate.md) | $N_+=1$, all Vd0 | anisotropic radial endpoints; direct CE1 reverse path or CE2 threshold dichotomy | Proven |
-| [`4130_new`](41XX_Nplus1/413X_exactly_one_T3_like_new/4130_new_T3_like_finite_enclosure.md) | $N_+=1$, exactly one T3-like role | O-side T3 endpoint and direct path budget | Proven |
-| [`4140_new`](41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4140_new_one_Vd_finite_enclosure_assembly.md) | CE2, $N_+=1$, exactly one Vd1/Vd2 role | radial separation, Vd1 endpoint, length deficit, or replacement to `4013_new` | Proven |
+\[
+N_++N_{\rm sp}\ge3
+\]
 
-## 3. Trace-length terminals
+and every nonzero-gap state with \(N_+\ge2\).  The surviving placement rows
+have \(N_+\in\{0,1\}\) and \(N_++d+t\le2\).
 
-The shorter Strategy 1 closures remain:
+## 3. Strategy 1 rows
 
-- `4040`, `4041`: $N_+=0$ with a Vd1/Vd2 role;
-- `4110`, `4111`: CE1 one-Vd and CE2 at-least-two-Vd cases;
-- `4123`: at least two T3-like roles;
-- `4149`: Vd2 neighboring-midpoint perimeter deficit;
-- `414a`: additional positive-support skeleton deficit;
-- `4200`: $N_+\ge2$ skeleton deficit.
+| Row | Branch |
+|---|---|
+| P0 | \(N_+=0\) with at least one Vd1/Vd2 role, CE1 or CE2 |
+| P1 | CE1, \(N_+=1\), at least one Vd1/Vd2 role |
+| P2 | CE2, \(N_+=1\), at least two Vd1/Vd2 roles |
+| P3 | CE2 one-Vd2 neighboring-midpoint hybrid |
+| S0 | \(N_++N_{\rm sp}\ge3\) |
+| S1 | \(N_+\ge2\) |
 
-## 4. One-Vd placement partition
+The historical files `4040`, `4041`, `4110`, `4111`, `4123`, `4149`,
+`414a`, and `4200` are compatibility wrappers around these rows.
 
-The structural placement audit remains in the established `414X` sources.
-Its active mathematical endings are proved in `4140_new`. The corrected
-two-chart replacement `4147` recomputes the output gap count: zero goes to
-Strategy 1, one gap goes to the complementary-gap theorem, and two gaps go to
-the CE2 short-ray theorem.
+## 4. Strategy 3 terminal map
 
-## 5. Provenance
+The terminal-first interface is
+[`2610`](../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2610_finite_enclosure_terminal_interfaces.md).
 
-The old endpoint-propagation packages remain in the corpus with their recorded
-statuses as historical alternative proofs. The authenticated `407X` blobs and
-the pinned scalar statement project remain verification interfaces, not active
-case dependencies. Failed finite-point and unconditional-skeleton routes remain
-in `9XXX_failed_ideas`.
+| Active package | Adapter responsibility | Terminal |
+|---|---|---|
+| [`4013_new`](40XX_Nplus0/401X_all_Vd0_boundary_loss_new/4013_new_all_Vd0_finite_enclosure.md) | all-Vd0 common pair | A or B |
+| [`4070_new`](40XX_Nplus0/407X_T3_like_no_Vd1Vd2_new/4070_new_T3_like_finite_enclosure.md) | T3-like neighboring-capacity domination | A or B |
+| [`4101_new`](41XX_Nplus1/410X_all_Vd0_new/4101_new_all_Vd0_finite_enclosure.md), [`4103`](41XX_Nplus1/410X_all_Vd0_new/4103_transverse_seven_point_enclosure.md) | actual transverse endpoints | C or B |
+| [`4130_new`](41XX_Nplus1/413X_exactly_one_T3_like_new/4130_new_T3_like_finite_enclosure.md) | T3-like supported endpoint | D or B |
+| [`4140_new`](41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4140_new_one_Vd_finite_enclosure_assembly.md) | exhaustive one-Vd placements | D, E, Strategy 1, or replacement routing |
+
+## 5. One-Vd package
+
+The active CE2 one-Vd package is self-contained at
+
+[`414X_CE2_exactly_one_Vd1_Vd2_new`](41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4140_new_one_Vd_finite_enclosure_assembly.md).
+
+Its internal dependency order is
+
+\[
+4141_{\rm new},4142_{\rm new},4143_{\rm new},4144_{\rm new}
+\longrightarrow
+4145_{\rm new}
+\longrightarrow
+4140_{\rm new}.
+\]
+
+The corrected replacement recomputes the output gap rank: zero routes to
+Strategy 1 row Z0, one to Terminal A, and two to Terminal B.  It makes no
+input-gap-rank preservation claim.
+
+## 6. Historical material
+
+The old composed boundary-transfer packages remain for provenance and
+comparison.  They own no active case.  Their status does not substitute for
+the active finite-enclosure sources listed above.

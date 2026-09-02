@@ -1,53 +1,30 @@
-# CE2, $N_+=1$, Exactly One Vd1/Vd2
+# CE2, \(N_+=1\), Exactly One Vd1/Vd2: Compatibility Index
 
-Status: Proven
+Status: Reference
 
-The complete placement assembly is `4148`; the independent post-repair audit
-is `414b`.
+The active finite-enclosure proof package has moved to the adjacent directory
 
-In the gap-first assembly this package has the standing hypothesis
+[`414X_CE2_exactly_one_Vd1_Vd2_new`](../414X_CE2_exactly_one_Vd1_Vd2_new/4140_new_one_Vd_finite_enclosure_assembly.md).
 
-$$
-N_{\rm gap}\in\{1,2\}.
-$$
+The active package contains the complete theorem, all four substantive
+placement proofs, the two-chart replacement, and the exhaustive placement
+audit:
 
-The original zero-gap state is removed before the placement audit: the six
-open V roles cover $\partial H$, and the common $N_+=1$ Vd1/Vd2
-boundary-complete consequence
-[`2500`](../../../2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md#boundary-complete-zero-gap-consequences)
-closes it by Method 1.
+| Active source | Responsibility |
+|---|---|
+| [`4140_new`](../414X_CE2_exactly_one_Vd1_Vd2_new/4140_new_one_Vd_finite_enclosure_assembly.md) | full assembly |
+| [`4141_new`](../414X_CE2_exactly_one_Vd1_Vd2_new/4141_new_adjacent_Vd_finite_enclosure.md) | adjacent Vd placement |
+| [`4142_new`](../414X_CE2_exactly_one_Vd1_Vd2_new/4142_new_nonadjacent_Vd_finite_enclosure.md) | nonadjacent Vd placement |
+| [`4143_new`](../414X_CE2_exactly_one_Vd1_Vd2_new/4143_new_Vd1_rescuer_finite_enclosure.md) | Vd1 supported-endpoint rescuer |
+| [`4144_new`](../414X_CE2_exactly_one_Vd1_Vd2_new/4144_new_two_chart_replacement_and_router.md) | two-chart replacement and recomputed-gap router |
+| [`4145_new`](../414X_CE2_exactly_one_Vd1_Vd2_new/4145_new_complete_placement_audit.md) | exhaustive placement audit |
 
-## Four-part route digest
+The files `4143`, `4144`, `4146`, `4147`, `4148`, and `414b` in this
+directory are retained only as compatibility pointers for existing links.
+They no longer duplicate the active proof bodies.
 
-The detailed placement table is retained in the `Detailed 414X placement
-audit` section of `proof/0XXX_main/0001_proof_tree_index.md`.
-The proved assembly is
-[`4148`](4148_CE2_Nplus1_exactly_one_Vd1_Vd2_assembly.md), and the complete
-hypothesis-by-hypothesis audit is
-[`414b`](414b_complete_placement_reaudit.md). Within the standing nonzero-gap
-branch, `414a` removes the additional-positive-support alternative. On its
-complement, $\sigma=0$ routes to `4144` or `4146`, $\tau=0$ routes to `4143`
-or `4149`, and $\sigma\ne0$, $\tau\ne0$ routes to `4147` or `4149`, according
-to adjacency and the Vd1/Vd2 type recorded in the detailed audit.
-
-The former single-chart formula in `4147` has been removed. The replacement
-at the first distinguished vertex is constructed in its own local chart, and
-the replacement at the adjacent distinguished vertex is constructed in the
-adjacent vertex's chart. `4013` is now stated at the skeleton-data strength
-actually used by the argument.  The replacement does not assert preservation
-of $N_{\rm gap}$: its output rank $N'_{\rm gap}$ is recomputed before choosing
-the Method 1 or Method 2 terminal.
-
-## Files
-
-| File | Status | Role |
-|---|---|---|
-| `4141_CE2_Nplus1_one_Vd1_S_half_cover_candidate.md` | Empirical | historical visualization only |
-| [`4143_CE2_Nplus1_T0_Vd1_M1_T1_supercritical_obstruction.md`](4143_CE2_Nplus1_T0_Vd1_M1_T1_supercritical_obstruction.md) | Proven | Vd1 adjacent rescuer |
-| [`4144_CE2_Nplus1_T0_supercritical_T1_Vd1_Vd2_adjacent_obstruction.md`](4144_CE2_Nplus1_T0_supercritical_T1_Vd1_Vd2_adjacent_obstruction.md) | Proven | adjacent residual/radial obstruction |
-| [`4146_CE2_Nplus1_T0_supercritical_nonadjacent_Vd1_Vd2_obstruction.md`](4146_CE2_Nplus1_T0_supercritical_nonadjacent_Vd1_Vd2_obstruction.md) | Proven | nonadjacent radial obstruction |
-| [`4147_CE2_Nplus1_Vd1_supercritical_pair_axis_replacement.md`](4147_CE2_Nplus1_Vd1_supercritical_pair_axis_replacement.md) | Proven | corrected two-chart skeleton-preserving replacement |
-| [`4148_CE2_Nplus1_exactly_one_Vd1_Vd2_assembly.md`](4148_CE2_Nplus1_exactly_one_Vd1_Vd2_assembly.md) | Proven | assembly |
-| [`4149_CE2_Nplus1_Vd2_neighbor_midpoint_obstruction.md`](4149_CE2_Nplus1_Vd2_neighbor_midpoint_obstruction.md) | Proven | Vd2 perimeter terminal |
-| [`414a_CE2_Nplus1_mixed_Vd1_Vd2_T3_like_skeleton_obstruction.md`](414a_CE2_Nplus1_mixed_Vd1_Vd2_T3_like_skeleton_obstruction.md) | Proven | positive-support complement |
-| [`414b_complete_placement_reaudit.md`](414b_complete_placement_reaudit.md) | Proven | exhaustive post-repair audit |
+The Vd2 neighboring-midpoint length terminal `4149` and the additional
+positive-support skeleton terminal `414a` remain here because they are
+Strategy 1 compatibility sources, not displaced finite-enclosure proofs.
+The empirical file `4141_CE2_Nplus1_one_Vd1_S_half_cover_candidate.md`
+remains historical and is not a proof authority.

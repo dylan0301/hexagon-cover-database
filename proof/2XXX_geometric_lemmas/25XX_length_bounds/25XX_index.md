@@ -2,13 +2,13 @@
 
 Status: Reference
 
-This block records the proved length bounds, the center-independent zero-gap
-consequences, and the direct $N_++N_{\rm sp}$ preprocessing used by the CE
-branches.
+This block records the local caps, generic budgets, and active Strategy 1
+dispatch.
 
-| File | Recorded status | Notes |
+| File | Status | Content |
 |---|---|---|
-| [`2500_boundary_length_bounds.md`](2500_boundary_length_bounds.md) | Proven | Full boundary-trace bounds for C and V triangles, together with the boundary-complete obstructions for $N_+=0$ and for $N_+=1$ with a Vd1/Vd2 role. |
-| [`2510_skeleton_length_bounds.md`](2510_skeleton_length_bounds.md) | Proven | Skeleton length bounds, with the strict Vd1/Vd2/T3-like cap applied to original open-cover roles having the distinguished vertex in their interior. |
-| [`2520_diagonal_length_bounds.md`](2520_diagonal_length_bounds.md) | Proven | Full diagonal-trace bounds, retained as a historical result and no longer used by the active proof path. |
-| [`2530_common_CE1_CE2_budget_lemmas.md`](2530_common_CE1_CE2_budget_lemmas.md) | Proven | Signed common C-triangle boundary formula, master perimeter deficit, small-slack CE2 reduction, total-slack comparison, and the direct $N_++N_{\rm sp}$ skeleton theorem. |
+| [`2500_boundary_length_bounds.md`](2500_boundary_length_bounds.md) | Proven | Complete boundary-trace cap table and the two boundary-complete base rows. |
+| [`2510_skeleton_length_bounds.md`](2510_skeleton_length_bounds.md) | Proven | Center, supercritical, positive-support, and ordinary skeleton caps. |
+| [`2520_diagonal_length_bounds.md`](2520_diagonal_length_bounds.md) | Proven | Historical diagonal-trace bounds; no active routing row depends on them. |
+| [`2530_common_CE1_CE2_budget_lemmas.md`](2530_common_CE1_CE2_budget_lemmas.md) | Proven | Signed center contribution, master perimeter deficit, CE2 slack estimates, and the $N_++N_{\rm sp}$ theorem. |
+| [`2531_length_budget_corollaries.md`](2531_length_budget_corollaries.md) | Proven | Named rows Z0, Z1, P0--P3, S0, S1 dispatching every active Strategy 1 case. |

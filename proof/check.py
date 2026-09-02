@@ -73,6 +73,10 @@ for required in [
     "arrange/paper_draft/main.tex",
     "arrange/paper_draft/main.pdf",
     "interactive/readable_proof_dependency_graph.html",
+    "proof/0XXX_main/0003_reusable_lemma_catalog.md",
+    "proof/2XXX_geometric_lemmas/24XX_area_loss/2400_zero_gap_area_loss_interface.md",
+    "proof/2XXX_geometric_lemmas/25XX_length_bounds/2531_length_budget_corollaries.md",
+    "proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2610_finite_enclosure_terminal_interfaces.md",
 ]:
     if not (ROOT / required).is_file():
         fail(f"missing required file: {required}")
@@ -159,6 +163,44 @@ for path in (ROOT / "proof").rglob("*.md"):
         target = (path.parent / raw).resolve()
         if not target.is_file():
             fail(f"broken proof Markdown link in {path.relative_to(ROOT)}: {raw}")
+
+active_interfaces = {
+    "proof/2XXX_geometric_lemmas/24XX_area_loss/2400_zero_gap_area_loss_interface.md": "Status: Proven",
+    "proof/2XXX_geometric_lemmas/25XX_length_bounds/2531_length_budget_corollaries.md": "Status: Proven",
+    "proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2610_finite_enclosure_terminal_interfaces.md": "Status: Proven",
+}
+for raw, marker in active_interfaces.items():
+    text = (ROOT / raw).read_text(encoding="utf-8", errors="replace")
+    if marker not in text.splitlines()[:6]:
+        fail(f"active interface lacks Proven status: {raw}")
+
+main_text = (ROOT / "proof/0XXX_main/0000_main_theorem.md").read_text(
+    encoding="utf-8", errors="replace"
+)
+for interface in [
+    "2400_zero_gap_area_loss_interface.md",
+    "2531_length_budget_corollaries.md",
+    "2610_finite_enclosure_terminal_interfaces.md",
+]:
+    if interface not in main_text:
+        fail(f"main theorem does not route through active interface: {interface}")
+
+length_wrappers = [
+    "proof/4XXX_CE1CE2/40XX_Nplus0/404X_exists_Vd1_Vd2_obstruction/4040_CE1_Nplus0_exists_Vd1_Vd2_boundary_length_obstruction.md",
+    "proof/4XXX_CE1CE2/40XX_Nplus0/404X_exists_Vd1_Vd2_obstruction/4041_CE2_Nplus0_exists_Vd1_Vd2_boundary_length_obstruction.md",
+    "proof/4XXX_CE1CE2/41XX_Nplus1/411X_Vd1_Vd2_obstruction/4110_CE1_Nplus1_exists_Vd1_Vd2_boundary_length_obstruction.md",
+    "proof/4XXX_CE1CE2/41XX_Nplus1/411X_Vd1_Vd2_obstruction/4111_CE2_Nplus1_at_least_two_Vd1_Vd2_boundary_length_obstruction.md",
+    "proof/4XXX_CE1CE2/41XX_Nplus1/412X_at_least_two_T3_like/4123_CE1_CE2_at_least_two_T3_like_diagonal_obstruction.md",
+    "proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/4149_CE2_Nplus1_Vd2_neighbor_midpoint_obstruction.md",
+    "proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2/414a_CE2_Nplus1_mixed_Vd1_Vd2_T3_like_skeleton_obstruction.md",
+    "proof/4XXX_CE1CE2/42XX_Nplus_ge2/4200_CE1_CE2_skeleton_length_route.md",
+]
+for raw in length_wrappers:
+    text = (ROOT / raw).read_text(encoding="utf-8", errors="replace")
+    if "2531_length_budget_corollaries.md" not in text:
+        fail(f"length compatibility wrapper does not invoke 2531: {raw}")
+    if "Status: Proven" not in text.splitlines()[:6]:
+        fail(f"length compatibility wrapper lost Proven status: {raw}")
 
 provenance = (
     ROOT

@@ -1,186 +1,131 @@
-# CE2, $N_+=1$, Exactly One Vd1/Vd2: Simplified Placement Assembly
+# CE2, \(N_+=1\), Exactly One Vd1/Vd2: Complete Finite-Enclosure Package
 
 Status: Proven
 
-This is the active finite-witness assembly for the exactly-one-Vd1/Vd2
-branch. The exhaustive placement partition is the proved re-audit
-[`414b`](../414X_CE2_exactly_one_Vd1_Vd2/414b_complete_placement_reaudit.md).
-The simplifications are:
+This directory contains the active proof package for the nonzero-gap CE2 row
+with exactly one supercritical V role and exactly one Vd1/Vd2 role.  It is not
+an index-only directory.  The placement calculations, replacement
+construction, exhaustiveness audit, and final assembly are all contained
+here.
 
-- the adjacent placement uses the one-third radial envelope from
-  [`2609`](../../../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2609_simplified_finite_enclosure_lemmas.md);
-- the Vd1 neighboring-midpoint placement uses the common rescuer-tail theorem
-  from the same file;
-- the nonadjacent, Vd2, and replacement placements retain their shorter
-  one-point, perimeter, and rerouting terminals.
+The shared one-triangle and C-triangle interfaces remain in `2XXX`:
+
+- the Vd corner normal form and radial margins in
+  [`2014`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2014_Vd1_Vd2_corner_normal_form.md)
+  and
+  [`201c`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/201c_Vd_corner_radial_margins.md);
+- the signed CE1/CE2 center form in
+  [`2109`](../../../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md);
+- the common length rows in
+  [`2531`](../../../2XXX_geometric_lemmas/25XX_length_bounds/2531_length_budget_corollaries.md);
+- the simplified finite-enclosure lemmas in
+  [`2609`](../../../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2609_simplified_finite_enclosure_lemmas.md).
+
+## Package contents
+
+| File | Active responsibility |
+|---|---|
+| [`4141_new`](4141_new_adjacent_Vd_finite_enclosure.md) | supercritical \(T_0\), adjacent Vd role |
+| [`4142_new`](4142_new_nonadjacent_Vd_finite_enclosure.md) | supercritical \(T_0\), nonadjacent Vd role |
+| [`4143_new`](4143_new_Vd1_rescuer_finite_enclosure.md) | Vd1 role at \(T_0\), neighboring-midpoint rescuer |
+| [`4144_new`](4144_new_two_chart_replacement_and_router.md) | neither special role at \(T_0\): two-chart replacement and recomputed-gap routing |
+| [`4145_new`](4145_new_complete_placement_audit.md) | exhaustive placement audit |
+| this file | theorem statement and final assembly |
 
 ## Theorem
 
-Assume the C triangle is CE2, $N_+=1$, exactly one V role is Vd1 or Vd2,
-and at least one actual V-gap is present. Then the original open roles cannot
-cover the hexagon skeleton.
+Let \(U_C,U_0,\ldots,U_5\) be the original open unit equilateral roles, with
 
-Let $T_\sigma$ be the unique supercritical V role and $T_\tau$ the unique
-Vd1/Vd2 role. They are distinct. If a further V role has positive adjacent
-support, the common skeleton-length theorem gives the contradiction.
-Therefore assume every other V role is Vd0.
-
-## 1. $T_0$ supercritical and the Vd role adjacent
-
-After reflection, let $\sigma=0$ and $\tau=1$. Let
-$\rho_R,\rho_L$ be the two residual boundary reaches of the proved adjacent
-placement. The exact residual calculation in
-[`4144`](../414X_CE2_exactly_one_Vd1_Vd2/4144_CE2_Nplus1_T0_supercritical_T1_Vd1_Vd2_adjacent_obstruction.md)
-gives
-
-$$
-\rho_R+\rho_L<\frac12,
-\qquad
-4\delta<\rho_L.
-\tag{1}
-$$
-
-The Vd supported-arm margin gives
-
-$$
-u_{1\to2}<1-\rho_L<1-\delta.
-\tag{2}
-$$
-
-Boundary coverage at the ordinary role $T_2$ gives
-
-$$
-A_2>\frac12+\rho_R,
-\qquad
-B_2\ge\rho_L.
-$$
-
-Apply Theorem 3.1 of `2609` with
-
-$$
-M=\frac12+\rho_R,
-\qquad
-m=\rho_L.
-$$
-
-The hypotheses follow from (1): $M\ge1/2$, $0<m<M$, and $M+m<1$.
-Coordinatewise antitonicity of $c_{\max}$ gives
-
-$$
-C_2
-\le
-c_{\max}(M,m)
-<
-1-\frac{\rho_L}{3}
-<
-1-\delta.
-\tag{3}
-$$
-
-Equations (2)--(3) show that neither local V role reaches the C interval on
-$r_2$, whose vertex-side entry is $1-\delta$. All other roles are excluded
-by Vd0 locality and diameter. A point of $r_2$ is uncovered.
-
-This improves the former coefficient $1/4$ to $1/3$; the already proved
-residual estimate $4\delta<\rho_L$ is more than sufficient.
-
-## 2. $T_0$ supercritical and the Vd role nonadjacent
-
-Let $\tau\in\{2,3,4\}$. The exact calculation in
-[`4146`](../414X_CE2_exactly_one_Vd1_Vd2/4146_CE2_Nplus1_T0_supercritical_nonadjacent_Vd1_Vd2_obstruction.md)
-gives
-
-$$
-\alpha+\delta<\min\{\rho_R,\rho_L\}.
-$$
-
-Every relevant C exit is at most $\alpha+\delta$, while the Vd own-radial
-margin gives
-
-$$
-C_\tau<1-\min\{\rho_R,\rho_L\}.
-$$
-
-Therefore
-
-$$
-D_\tau=\min\{\rho_R,\rho_L\}V_\tau
-$$
-
-lies beyond both the Vd trace and the C trace. Its adjacent roles are Vd0,
-and the nonlocal roles are excluded by diameter. Thus $D_\tau$ is uncovered.
-
-## 3. The Vd role is $T_0$
-
-Midpoint rescue forces $\sigma\in\{1,5\}$; reflect to $\sigma=1$.
-
-If $T_0$ is Vd2, the neighboring-midpoint perimeter theorem cited in `414b`
-gives the Method 1 contradiction.
-
-Assume $T_0$ is Vd1. Write its supported interval on $r_1$ as
-
-$$
-[c,u],
-\qquad
-c\le\frac12\le u,
-$$
+\[
+O\in U_C,\qquad V_i\in U_i,
+\]
 
 and put
 
-$$
-P_{\rm Vd1}=(1-u)V_1,
-\qquad
-\varepsilon=1-u.
-$$
+\[
+T_C=\overline{U_C},\qquad T_i=\overline{U_i}.
+\]
 
-The endpoint is missed by the open Vd1 role, by the adjacent supercritical
-role, and by all Vd0 or nonlocal roles. Hence
+Assume:
 
-$$
-P_{\rm Vd1}\in U_C.
-\tag{4}
-$$
+1. \(T_C\) is CE2;
+2. \(N_+=1\), defined from the actual reaches \(A_i+B_i>1\);
+3. exactly one V role is Vd1 or Vd2;
+4. at least one actual V-gap is present;
+5. the seven open roles cover the full hexagon skeleton.
 
-The exact Vd1 calculation in
-[`4143`](../414X_CE2_exactly_one_Vd1_Vd2/4143_CE2_Nplus1_T0_Vd1_M1_T1_supercritical_obstruction.md)
-proves, with $M=M_c^{\rm sup}$,
+Then no such configuration exists.
 
-$$
-a\le1-M,
-\qquad
-\frac{a}{a+\varepsilon}\le1-M.
-\tag{5}
-$$
+## Proof
 
-The Vd half-unit cap gives $a<1/2$, while $u\ge1/2$ gives
-$\varepsilon\le1/2$; hence $a+\varepsilon<1$. Equations (4)--(5) meet all
-hypotheses of the common rescuer-tail theorem in `2609`. That theorem forces
-the far boundary demand on $T_5$ to be at least $M$, while the adjacent
-supercritical role has $B_1<M$. The four ordinary path roles would then have
+By the exactly-one-midpoint theorem, rotate and reflect so that
 
-$$
-\sum_{i=2}^5(A_i+B_i)>4,
-$$
+\[
+T_C\cap\{M_0,\ldots,M_5\}=\{M_0\}.
+\tag{1}
+\]
 
-contrary to nonsupercriticality.
+Let \(T_\sigma\) be the unique supercritical role and \(T_\tau\) the unique
+Vd1/Vd2 role.  They are distinct because every Vd1/Vd2 role is
+nonsupercritical.
 
-## 4. Neither distinguished role is $T_0$
+If another V role has positive adjacent support, then the supercritical role,
+the Vd role, and that additional role give
 
-The placement re-audit `414b` shows that $T_\sigma$ and $T_\tau$ are adjacent.
+\[
+N_++N_{\rm sp}\ge3.
+\]
 
-If the exceptional role is Vd2, use the same neighboring-midpoint perimeter
-terminal.
+The skeleton row S0 in `2531` gives a contradiction.  Hence every remaining
+V role is nonsupercritical Vd0.
 
-If it is Vd1, the corrected two-chart replacement
-[`4147`](../414X_CE2_exactly_one_Vd1_Vd2/4147_CE2_Nplus1_Vd1_supercritical_pair_axis_replacement.md)
-preserves the covered skeleton and produces six nonsupercritical Vd0 roles.
-Recompute the output gap rank:
+The exhaustive audit
+[`4145_new`](4145_new_complete_placement_audit.md) leaves three positional
+cases.
 
-- rank zero is excluded by the boundary-complete length theorem;
-- rank one is excluded by the common radial disk and complementary-gap
-  theorem;
-- rank two is excluded by the short CE2 theorem in `2609`.
+### Case 1: \(\sigma=0\)
 
-No preservation of the input gap rank is asserted.
+If \(T_\tau\) is adjacent to \(T_0\), apply
+[`4141_new`](4141_new_adjacent_Vd_finite_enclosure.md).  If it is
+nonadjacent, apply
+[`4142_new`](4142_new_nonadjacent_Vd_finite_enclosure.md).
 
-The placements in Sections 1--4 are exhaustive by `414b`. $\square$
+### Case 2: \(\tau=0\)
+
+Midpoint rescue forces \(\sigma\in\{1,5\}\).  If \(T_0\) is Vd2, the
+neighboring-midpoint perimeter row P3 in `2531` applies.  If \(T_0\) is Vd1,
+reflection reduces to the supported-endpoint proof
+[`4143_new`](4143_new_Vd1_rescuer_finite_enclosure.md).
+
+### Case 3: \(\sigma\ne0\) and \(\tau\ne0\)
+
+Midpoint rescue forces \(T_\sigma,T_\tau\) to be adjacent and
+\(M_\sigma\in T_\tau\).  The Vd2 alternative is again row P3 of `2531`.
+For Vd1, the two-chart theorem
+[`4144_new`](4144_new_two_chart_replacement_and_router.md) replaces the
+special pair by two open nonsupercritical Vd0 roles while preserving the full
+skeleton.  It then recomputes the output gap rank:
+
+\[
+N'_{\rm gap}=0
+\longrightarrow
+\text{Strategy 1 row Z0},
+\]
+
+\[
+N'_{\rm gap}=1
+\longrightarrow
+\text{common disk plus actual gap},
+\]
+
+\[
+N'_{\rm gap}=2
+\longrightarrow
+\text{CE2 short-ray obstruction}.
+\]
+
+No preservation of the input gap rank is assumed.
+
+The positive-support alternative and Cases 1--3 are pairwise disjoint and
+exhaustive.  Every alternative is impossible, proving the theorem.
+\(\square\)
