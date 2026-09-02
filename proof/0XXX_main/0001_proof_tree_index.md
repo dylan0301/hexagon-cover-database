@@ -48,11 +48,11 @@ The active proof is organized by reusable engines, adapters, and terminals.
 | zero-gap area | [`2400`](../2XXX_geometric_lemmas/24XX_area_loss/2400_zero_gap_area_loss_interface.md) | both cyclic area rows |
 | trace length | [`2530`](../2XXX_geometric_lemmas/25XX_length_bounds/2530_common_CE1_CE2_budget_lemmas.md), [`2531`](../2XXX_geometric_lemmas/25XX_length_bounds/2531_length_budget_corollaries.md) | generic budgets and all active substitutions |
 | finite enclosure | [`2608`](../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2608_residual_hull_finite_enclosure_principle.md), [`2609`](../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2609_simplified_finite_enclosure_lemmas.md), [`2610`](../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2610_finite_enclosure_terminal_interfaces.md) | forcing engine, universal inequalities, terminal dispatch |
-| zero-gap exact certificate | [`31058`](../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31058_center_independent_direct_nine_point_obstruction.md) | the asymmetric nine-point terminal |
+| zero-gap exact certificate | [`31058`](../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31058_center_independent_direct_nine_point_obstruction.md) | asymmetric nine-point terminal |
 
-The detailed case packages now serve as adapters: they establish that a
-normalized placement satisfies one of the common terminal interfaces. They do
-not own a second copy of the terminal argument.
+The detailed `*_new` case packages contain the finite-enclosure proofs that
+replace the former Strategy 2 routes. Their unsuffixed siblings are historical
+packages or compatibility locations, not the active proof authorities.
 
 ## 3. Zero-gap routing
 
@@ -88,25 +88,32 @@ $$
 
 ## 5. Nonzero-gap terminal map
 
-| Normalized row | Adapter | Terminal |
+| Normalized row | Active adapter | Terminal |
 |---|---|---|
-| $N_+=0$, all Vd0, one gap | `4013_new` | A: common disk plus actual gap |
-| $N_+=0$, one or two T3-like, one gap | `4070_new` | A, after neighboring-capacity domination |
+| $N_+=0$, all Vd0, one gap | [`4013_new`](../4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss_new/4013_new_all_Vd0_finite_enclosure.md) | A: common disk plus actual gap |
+| $N_+=0$, one or two T3-like, one gap | [`4070_new`](../4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2_new/4070_new_T3_like_finite_enclosure.md) | A, after neighboring-capacity domination |
 | any applicable Vd0/T3-like two-gap row | `4013_new`, `4070_new`, `4101_new`, or `4130_new` | B: CE2 short ray |
-| $N_+=1$, all Vd0, one gap | `4102`, `4103` | C: transverse seven-point return |
-| $N_+=1$, one T3-like, one gap | `4130_new` | D: supported rescuer tail |
-| CE2 one-Vd adjacent/nonadjacent placements | `4144`, `4146` | E: residual radial separation |
-| CE2 Vd1 neighboring-midpoint placement | `4143` | D |
+| $N_+=1$, all Vd0, one gap | [`4102_new`](../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0_new/4102_new_CE1_direct_radial_certificate.md), [`4103`](../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0_new/4103_transverse_seven_point_enclosure.md) | C: transverse seven-point return |
+| $N_+=1$, one T3-like, one gap | [`4130_new`](../4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like_new/4130_new_T3_like_finite_enclosure.md) | D: supported rescuer tail |
+| CE2 one-Vd adjacent placement | [`4141_new`](../4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4141_new_adjacent_Vd_finite_enclosure.md) | E: residual radial separation |
+| CE2 one-Vd nonadjacent placement | [`4142_new`](../4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4142_new_nonadjacent_Vd_finite_enclosure.md) | E: residual radial separation |
+| CE2 Vd1 neighboring-midpoint placement | [`4143_new`](../4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4143_new_Vd1_rescuer_finite_enclosure.md) | D |
 | CE2 Vd2 neighboring-midpoint placement | `4149` compatibility wrapper | Strategy 1 row P3 |
-| corrected Vd1 replacement | `4147` | router: output gap rank $0\to$ length, $1\to$ A, $2\to$ B |
+| corrected Vd1 replacement | [`4144_new`](../4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4144_new_two_chart_replacement_and_router.md) | router: output gap rank $0\to$ length, $1\to$ A, $2\to$ B |
 
+The complete one-Vd assembly is
+[`4140_new`](../4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4140_new_one_Vd_finite_enclosure_assembly.md),
+and its exhaustive placement audit is
+[`4145_new`](../4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4145_new_complete_placement_audit.md).
 The complete terminal statements and their source ownership are in `2610`.
 
 ## 6. Compatibility policy
 
-The established case filenames remain in place so old links, audits, and
-historical notes continue to resolve. The short length terminals `4040`,
-`4041`, `4110`, `4111`, `4123`, `4149`, `414a`, and `4200` are compatibility
-wrappers around `2531`. The old endpoint-propagation packages remain historical
-alternatives and own no active routing row. Failed routes remain under
-`9XXX_failed_ideas`.
+The established case filenames remain where necessary so old links, audits,
+and historical notes continue to resolve. The short length terminals `4040`,
+`4041`, `4110`, `4111`, `4123`, `4149`, `414a`, and `4200` are Proven
+compatibility wrappers around `2531`. The displaced old one-Vd paths `4143`,
+`4144`, `4146`, `4147`, `4148`, and `414b` are Reference-status pointers to
+the active `_new` package and contain no duplicate proof bodies. The former
+endpoint-propagation packages remain historical alternatives and own no active
+routing row. Failed routes remain under `9XXX_failed_ideas`.
