@@ -1,0 +1,351 @@
+name: Final high-precision exact figures
+
+on:
+  push:
+    branches:
+      - chatgpt/tmp-source-export-20260901152106
+    paths:
+      - .github/workflows/final_exact_figures_v3_20260902.yml
+
+permissions: {}
+
+concurrency:
+  group: final-exact-figures-20260902
+  cancel-in-progress: true
+
+env:
+  BASE_SHA: 48ee7c380d1a948bff0f491c3bae421f9a043fcd
+  TARGET_BRANCH: chatgpt/tmp-source-export-20260901152106
+  DELIVERY_TAG: exact-figures-20260902-v3
+  SOURCE_DATE_EPOCH: '946684800'
+  FORCE_SOURCE_DATE: '1'
+  TZ: UTC
+
+jobs:
+  validate:
+    name: Generate high-precision figures and validate final tree
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22'
+      - name: Verify target and install pinned host dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REF_NAME" = "$TARGET_BRANCH"
+          git merge-base --is-ancestor "$BASE_SHA" "$GITHUB_SHA"
+          python -m pip install --disable-pip-version-check -r arrange/_support/requirements.txt
+      - name: Generate exact assets and clean-build in pinned TeX Live 2025
+        uses: xu-cheng/texlive-action@22c04326a5d855880f9d39bb955138bf11c6df80
+        with:
+          docker_image: >-
+            ghcr.io/xu-cheng/texlive-historic-debian:2025@sha256:d3e42adc0c8d84bc913bfc33571feaf7037616260a771bb6f027504661568bf6
+          run: |
+            set -euo pipefail
+            apt-get update
+            DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends python3-venv python3-pip
+            python3 -m venv /tmp/exact-figure-venv
+            /tmp/exact-figure-venv/bin/pip install --disable-pip-version-check -r arrange/_support/requirements.txt
+            for source in \
+              .github/_transient/exact-figures-20260902/apply.py \
+              arrange/paper_draft/figures/exact/generate.py; do
+              if [[ -f "$source" ]]; then
+                sed -i 's/return f"{value:.5f}"/return f"{value:.12f}"/' "$source"
+              fi
+            done
+            if [[ -f arrange/paper_draft/figures/exact/generate.py && -f arrange/paper_draft/figures/exact/manifest.json ]]; then
+              /tmp/exact-figure-venv/bin/python - <<'PY'
+              import importlib.util, json
+              from pathlib import Path
+              path=Path('arrange/paper_draft/figures/exact/generate.py').resolve()
+              spec=importlib.util.spec_from_file_location('exact_figures',path)
+              module=importlib.util.module_from_spec(spec)
+              assert spec and spec.loader
+              spec.loader.exec_module(module)
+              manifest=json.loads(module.MANIFEST.read_text(encoding='utf-8'))
+              module.generate_all(module.EXACT,manifest)
+              module.finalize_manifest(manifest)
+              module.write_report(manifest)
+              module.check()
+              PY
+            elif [[ -f .github/_transient/exact-figures-20260902/apply.py ]]; then
+              /tmp/exact-figure-venv/bin/python .github/_transient/exact-figures-20260902/apply.py --migrate
+            else
+              echo 'Missing both permanent exact generator and migration payload.' >&2
+              exit 1
+            fi
+            /tmp/exact-figure-venv/bin/python arrange/paper_draft/figures/exact/generate.py --check
+            /tmp/exact-figure-venv/bin/python arrange/build.py --all --output-dir arrange/_build
+            cp arrange/_build/canonical.pdf arrange/paper_draft/main.pdf
+            /tmp/exact-figure-venv/bin/python arrange/paper_draft/figures/exact/generate.py --check
+      - name: Run proof, certificate, interactive, and PDF audits
+        shell: bash
+        run: |
+          set -euo pipefail
+          python proof/check.py
+          python arrange/paper_draft/figures/exact/generate.py --check
+          (
+            cd proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation
+            python verify_mixed_overlap_core_derivation.py
+            python verify_global_core_positivity.py
+          )
+          python interactive/generate.py --dependency-graph --check
+          python interactive/check.py
+          python arrange/_support/verify_pdf_render.py arrange/paper_draft/main.pdf
+      - name: Write a machine-readable delivery record
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import datetime, fitz, json, os, re
+          manifest_path=Path('arrange/paper_draft/figures/exact/manifest.json')
+          manifest=json.loads(manifest_path.read_text(encoding='utf-8'))
+          assets=manifest['assets']
+          closure=[]
+          for path in Path('arrange/paper_draft').glob('*.tex'):
+              text=path.read_text(encoding='utf-8')
+              if '\\begin{tikzpicture}' in text:
+                  closure.append(path.as_posix())
+          pages=fitz.open('arrange/paper_draft/main.pdf').page_count
+          if not 84 <= pages <= 104:
+              raise SystemExit(f'unexpected page count: {pages}')
+          record={
+              'schema':1,
+              'repository':'dylan0301/hexagon-cover-database',
+              'branch':os.environ['TARGET_BRANCH'],
+              'delivery_tag':os.environ['DELIVERY_TAG'],
+              'audited_base_sha':os.environ['BASE_SHA'],
+              'workflow_trigger_sha':os.environ['GITHUB_SHA'],
+              'generated_at_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),
+              'paper_pages':pages,
+              'assets_total':len(assets),
+              'metric_exact_assets':sum(a['category']=='metric_exact' for a in assets),
+              'logical_nonmetric_assets':sum(a['category']!='metric_exact' for a in assets),
+              'canonical_top_level_tex_with_inline_tikz':closure,
+              'coordinate_serialization_decimal_places':12,
+              'checks':{
+                  'exact_figure_regeneration':'passed',
+                  'proof_check':'passed',
+                  'mixed_overlap_derivation':'passed',
+                  'global_core_positivity':'passed',
+                  'dependency_graph_check':'passed',
+                  'interactive_audit':'passed',
+                  'canonical_build':'passed',
+                  'pdf_render_audit':'passed',
+              },
+          }
+          Path('arrange/exact_figure_delivery_status.json').write_text(json.dumps(record,indent=2,sort_keys=True)+'\n',encoding='utf-8')
+          print(json.dumps(record,indent=2,sort_keys=True))
+          PY
+      - name: Remove every delivery-only file
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf .github/_transient/exact-figures-20260902
+          rm -f \
+            .github/workflows/tmp_source_export_20260901152106.yml \
+            .github/workflows/exact_figures_recovery_20260902.yml \
+            .github/workflows/exact_figures_publish_20260902.yml \
+            .github/workflows/final_exact_figures_20260902.yml \
+            .github/workflows/final_exact_figures_v2_20260902.yml \
+            .github/workflows/final_exact_figures_v3_20260902.yml
+      - name: Package the exact prospective tree
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/exact-final-v3
+          mkdir -p /tmp/exact-final-v3/files
+          python - <<'PY'
+          from pathlib import Path, PurePosixPath
+          import hashlib, json, os, shutil, stat, subprocess
+          root=Path.cwd(); out=Path('/tmp/exact-final-v3'); base=os.environ['BASE_SHA']
+          opmap={'A':'add','M':'replace','D':'delete'}; entries=[]
+          for row in subprocess.check_output(['git','diff','--name-status','--no-renames',base],text=True).splitlines():
+              code,path=row.split('\t',1); op=opmap.get(code)
+              if op is None: raise SystemExit(f'unsupported status {code}: {path}')
+              rel=PurePosixPath(path)
+              if rel.is_absolute() or '..' in rel.parts or path.startswith('.github/_transient/'):
+                  raise SystemExit(f'unsafe final path: {path}')
+              item={'path':path,'operation':op,'mode':None,'sha256':None}; p=root/path
+              if op!='delete':
+                  if not p.is_file() or p.is_symlink(): raise SystemExit(f'not a regular file: {path}')
+                  item['mode']='100755' if stat.S_IMODE(p.stat().st_mode)&stat.S_IXUSR else '100644'
+                  item['sha256']=hashlib.sha256(p.read_bytes()).hexdigest()
+                  q=out/'files'/path; q.parent.mkdir(parents=True,exist_ok=True); shutil.copyfile(p,q)
+              entries.append(item)
+          paths={x['path'] for x in entries}
+          required={
+              'arrange/exact_figure_migration_report.md',
+              'arrange/exact_figure_delivery_status.json',
+              'arrange/paper_draft/figures/exact/generate.py',
+              'arrange/paper_draft/figures/exact/manifest.json',
+              'arrange/paper_draft/main.pdf',
+              '.github/workflows/tmp_source_export_20260901152106.yml',
+          }
+          missing=required-paths
+          if missing: raise SystemExit('missing required final paths: '+', '.join(sorted(missing)))
+          forbidden={p for p in paths if p.startswith('.github/_transient/') or p.startswith('.github/workflows/final_exact_figures') or p in {
+              '.github/workflows/exact_figures_recovery_20260902.yml',
+              '.github/workflows/exact_figures_publish_20260902.yml',
+          }}
+          if forbidden: raise SystemExit('delivery-only paths survive: '+', '.join(sorted(forbidden)))
+          manifest={'schema':1,'repository':'dylan0301/hexagon-cover-database','branch':os.environ['TARGET_BRANCH'],'base_sha':base,'trigger_sha':os.environ['GITHUB_SHA'],'entries':sorted(entries,key=lambda x:x['path'])}
+          payload=json.dumps(manifest,indent=2,sort_keys=True)+'\n'
+          (out/'manifest.json').write_text(payload,encoding='utf-8')
+          (out/'manifest.sha256').write_text(hashlib.sha256(payload.encode()).hexdigest()+'  manifest.json\n',encoding='ascii')
+          print(f'validated final paths: {len(entries)}')
+          PY
+          git diff --check "$BASE_SHA"
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: exact-final-v3-20260902
+          path: /tmp/exact-final-v3
+          if-no-files-found: error
+          retention-days: 7
+
+  publish:
+    name: Publish byte-identical final tree
+    needs: validate
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    outputs:
+      final_sha: ${{ steps.push.outputs.final_sha }}
+    steps:
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+          ref: ${{ github.sha }}
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: exact-final-v3-20260902
+          path: /tmp/exact-final-v3
+      - name: Remove delivery files and reconstruct validated tree
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf .github/_transient/exact-figures-20260902
+          rm -f \
+            .github/workflows/tmp_source_export_20260901152106.yml \
+            .github/workflows/exact_figures_recovery_20260902.yml \
+            .github/workflows/exact_figures_publish_20260902.yml \
+            .github/workflows/final_exact_figures_20260902.yml \
+            .github/workflows/final_exact_figures_v2_20260902.yml \
+            .github/workflows/final_exact_figures_v3_20260902.yml
+          python - <<'PY'
+          from pathlib import Path, PurePosixPath
+          import hashlib, json, os, shutil, stat, subprocess
+          root=Path.cwd(); out=Path('/tmp/exact-final-v3'); mp=out/'manifest.json'
+          if hashlib.sha256(mp.read_bytes()).hexdigest()!=(out/'manifest.sha256').read_text().split()[0]: raise SystemExit('manifest digest mismatch')
+          m=json.loads(mp.read_text())
+          if (m['branch'],m['base_sha'],m['trigger_sha'])!=(os.environ['TARGET_BRANCH'],os.environ['BASE_SHA'],os.environ['GITHUB_SHA']): raise SystemExit('handoff identity mismatch')
+          allowed={x['path'] for x in m['entries']}
+          for member in (out/'files').rglob('*'):
+              if member.is_dir(): continue
+              if member.is_symlink() or not member.is_file(): raise SystemExit(f'unsafe member: {member}')
+              if member.relative_to(out/'files').as_posix() not in allowed: raise SystemExit(f'unlisted member: {member}')
+          for item in m['entries']:
+              rel=PurePosixPath(item['path'])
+              if rel.is_absolute() or '..' in rel.parts or '\x00' in item['path']: raise SystemExit(f'unsafe path: {item["path"]!r}')
+              target=root/Path(*rel.parts)
+              if item['operation']=='delete':
+                  if target.exists():
+                      if target.is_dir(): raise SystemExit(f'directory deletion refused: {target}')
+                      target.unlink()
+                  continue
+              src=out/'files'/Path(*rel.parts)
+              if not src.is_file() or src.is_symlink(): raise SystemExit(f'missing payload: {src}')
+              if hashlib.sha256(src.read_bytes()).hexdigest()!=item['sha256']: raise SystemExit(f'payload hash mismatch: {src}')
+              target.parent.mkdir(parents=True,exist_ok=True); shutil.copyfile(src,target)
+              target.chmod(0o755 if item['mode']=='100755' else 0o644)
+          opmap={'A':'add','M':'replace','D':'delete'}
+          actual=[]
+          for row in subprocess.check_output(['git','diff','--name-status','--no-renames',os.environ['BASE_SHA']],text=True).splitlines():
+              code,path=row.split('\t',1); actual.append((opmap[code],path))
+          expected=[(x['operation'],x['path']) for x in m['entries']]
+          if sorted(actual)!=sorted(expected): raise SystemExit('changed-path mismatch')
+          for item in m['entries']:
+              if item['operation']=='delete': continue
+              p=root/item['path']
+              if hashlib.sha256(p.read_bytes()).hexdigest()!=item['sha256']: raise SystemExit(f'final byte mismatch: {p}')
+              mode='100755' if stat.S_IMODE(p.stat().st_mode)&stat.S_IXUSR else '100644'
+              if mode!=item['mode']: raise SystemExit(f'final mode mismatch: {p}')
+          subprocess.run(['git','diff','--check',os.environ['BASE_SHA']],check=True)
+          print('validated final tree reconstructed exactly')
+          PY
+      - name: Guard remote branch, commit, push, and tag
+        id: push
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          remote_head=$(git ls-remote origin "refs/heads/$TARGET_BRANCH" | awk '{print $1}')
+          if [[ "$remote_head" != "$GITHUB_SHA" ]]; then
+            echo "remote branch moved: expected $GITHUB_SHA, found $remote_head" >&2
+            exit 1
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'Replace schematic paper geometry with exact generated figures'
+          final_sha=$(git rev-parse HEAD)
+          git tag "$DELIVERY_TAG" "$final_sha"
+          basic=$(printf 'x-access-token:%s' "$GITHUB_TOKEN" | base64 -w0)
+          git -c http.https://github.com/.extraheader="AUTHORIZATION: basic $basic" push origin "HEAD:refs/heads/$TARGET_BRANCH"
+          git -c http.https://github.com/.extraheader="AUTHORIZATION: basic $basic" push origin "refs/tags/$DELIVERY_TAG"
+          echo "final_sha=$final_sha" >> "$GITHUB_OUTPUT"
+          echo "published $final_sha and tag $DELIVERY_TAG"
+
+  deliver:
+    name: Dispatch persistent CI and create or reuse pull request
+    needs: publish
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      actions: write
+      pull-requests: write
+    steps:
+      - name: Dispatch ci.yml and ensure pull request exists
+        env:
+          GH_TOKEN: ${{ github.token }}
+          FINAL_SHA: ${{ needs.publish.outputs.final_sha }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          api='https://api.github.com/repos/dylan0301/hexagon-cover-database'
+          headers=(-H 'Accept: application/vnd.github+json' -H "Authorization: Bearer $GH_TOKEN" -H 'X-GitHub-Api-Version: 2022-11-28')
+          curl --fail-with-body --silent --show-error -X POST "${headers[@]}" \
+            "$api/actions/workflows/ci.yml/dispatches" -d "{\"ref\":\"$TARGET_BRANCH\"}"
+          existing=$(curl --fail-with-body --silent --show-error "${headers[@]}" \
+            "$api/pulls?state=open&base=main&head=dylan0301%3Achatgpt%2Ftmp-source-export-20260901152106")
+          count=$(python -c 'import json,sys; print(len(json.load(sys.stdin)))' <<<"$existing")
+          if [[ "$count" = 0 ]]; then
+            body=$(python - <<'PY'
+          import json
+          print(json.dumps({
+              'title':'Replace schematic paper geometry with exact generated figures',
+              'head':'chatgpt/tmp-source-export-20260901152106',
+              'base':'main',
+              'body':'Replaces canonical inline/schematic geometric figures with externally generated PDF/SVG assets. Metric figures are built from explicit coordinates and formulas, carry a reproducibility manifest, and are checked before every paper build. Logical diagrams are externalized and explicitly classified as nonmetric. See arrange/exact_figure_migration_report.md and arrange/exact_figure_delivery_status.json.',
+              'maintainer_can_modify':True,
+          }))
+          PY
+          )
+            curl --fail-with-body --silent --show-error -X POST "${headers[@]}" "$api/pulls" -d "$body"
+          else
+            echo 'matching open pull request already exists'
+          fi
+          echo "persistent CI dispatched and PR ensured for $FINAL_SHA"
