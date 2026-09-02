@@ -37,15 +37,10 @@ directory. Put support code next to the content it validates.
 
 ## GitHub delivery from ChatGPT and Codex
 
-These rules govern an agent only after it has loaded this file. Codex discovers
-scoped `AGENTS.md` files automatically. The standard GitHub connected app in an
-ordinary ChatGPT chat is read-only; connecting this repository or adding this
-file does not make that app able to push. The connector-native write procedures
-below apply only when the current surface visibly exposes approved write actions
-through a write-enabled custom MCP app, managed GitHub Enterprise app, Codex
-GitHub plugin, or equivalent integration. In ordinary ChatGPT, also supply this
-playbook through project instructions or conversation context if the chat is to
-follow it.
+GitHub capabilities depend on the active ChatGPT or Codex surface. Installing
+the ChatGPT Codex Connector or loading this file does not itself grant write
+access. Use the connector-native procedures below only when the current session
+exposes approved write actions; otherwise report the capability limitation.
 
 An external GitHub write is authorized only when the user explicitly asks to
 push, publish, or open a pull request. A request to edit files does not authorize
