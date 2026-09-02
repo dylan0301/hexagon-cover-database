@@ -1,0 +1,291 @@
+name: Publish exact mathematical paper figures
+
+on:
+  push:
+    branches:
+      - chatgpt/tmp-source-export-20260901152106
+    paths:
+      - .github/workflows/exact_figures_publish_20260902.yml
+
+permissions: {}
+
+concurrency:
+  group: exact-figures-20260902
+  cancel-in-progress: true
+
+env:
+  AUDITED_BASE: 48ee7c380d1a948bff0f491c3bae421f9a043fcd
+  TARGET_BRANCH: chatgpt/tmp-source-export-20260901152106
+  TASK_DIR: .github/_transient/exact-figures-20260902
+  OLD_WORKFLOW: .github/workflows/tmp_source_export_20260901152106.yml
+  RECOVERY_WORKFLOW: .github/workflows/exact_figures_recovery_20260902.yml
+  PUBLISH_WORKFLOW: .github/workflows/exact_figures_publish_20260902.yml
+  SOURCE_DATE_EPOCH: '946684800'
+  FORCE_SOURCE_DATE: '1'
+  TZ: UTC
+
+jobs:
+  validate:
+    name: Generate, prove, build, and package final tree
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Confirm target branch and audited ancestry
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REF_NAME" = "$TARGET_BRANCH"
+          git merge-base --is-ancestor "$AUDITED_BASE" "$GITHUB_SHA"
+          test -f "$TASK_DIR/recover.py"
+
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22'
+
+      - name: Install pinned host dependencies
+        run: python -m pip install --disable-pip-version-check -r arrange/_support/requirements.txt
+
+      - name: Generate exact vector assets and clean-build the paper
+        uses: xu-cheng/texlive-action@22c04326a5d855880f9d39bb955138bf11c6df80
+        with:
+          docker_image: >-
+            ghcr.io/xu-cheng/texlive-historic-debian:2025@sha256:d3e42adc0c8d84bc913bfc33571feaf7037616260a771bb6f027504661568bf6
+          run: |
+            set -euo pipefail
+            if ! python3 -c 'import fitz, sympy' >/dev/null 2>&1; then
+              apt-get update
+              DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends python3-pip
+              python3 -m pip install --break-system-packages --disable-pip-version-check -r arrange/_support/requirements.txt
+            fi
+            python3 "$TASK_DIR/recover.py"
+            python3 arrange/paper_draft/figures/exact/generate.py --check
+            python3 arrange/build.py --all --output-dir arrange/_build
+            cp arrange/_build/canonical.pdf arrange/paper_draft/main.pdf
+            python3 arrange/paper_draft/figures/exact/generate.py --check
+
+      - name: Run all repository-mandated audits
+        shell: bash
+        run: |
+          set -euo pipefail
+          python proof/check.py
+          python arrange/paper_draft/figures/exact/generate.py --check
+          (
+            cd proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation
+            python verify_mixed_overlap_core_derivation.py
+            python verify_global_core_positivity.py
+          )
+          python interactive/generate.py --dependency-graph --check
+          python interactive/check.py
+          python arrange/_support/verify_pdf_render.py arrange/paper_draft/main.pdf
+          python - <<'PY'
+          import fitz
+          p='arrange/paper_draft/main.pdf'
+          n=fitz.open(p).page_count
+          print(f'{p}: {n} pages')
+          if not 84 <= n <= 104:
+              raise SystemExit(f'unexpected page count: {n}')
+          PY
+
+      - name: Remove all branch-scoped delivery mechanisms
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf "$TASK_DIR"
+          rm -f "$OLD_WORKFLOW" "$RECOVERY_WORKFLOW" "$PUBLISH_WORKFLOW"
+          test ! -e "$TASK_DIR"
+          test ! -e "$OLD_WORKFLOW"
+          test ! -e "$RECOVERY_WORKFLOW"
+          test ! -e "$PUBLISH_WORKFLOW"
+
+      - name: Create exact final-tree handoff
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/exact-final-handoff
+          mkdir -p /tmp/exact-final-handoff/files
+          python - <<'PY'
+          from pathlib import Path, PurePosixPath
+          import hashlib, json, os, shutil, stat, subprocess
+
+          root=Path.cwd(); out=Path('/tmp/exact-final-handoff'); base=os.environ['AUDITED_BASE']
+          operations={'A':'add','M':'replace','D':'delete'}
+          entries=[]
+          for row in subprocess.check_output(['git','diff','--name-status','--no-renames',base],text=True).splitlines():
+              code,path=row.split('\t',1)
+              op=operations.get(code)
+              if op is None: raise SystemExit(f'unsupported status {code}: {path}')
+              rel=PurePosixPath(path)
+              if rel.is_absolute() or '..' in rel.parts or path.startswith('.github/_transient/'):
+                  raise SystemExit(f'unsafe final path: {path}')
+              e={'path':path,'operation':op,'mode':None,'sha256':None}
+              target=root/path
+              if op!='delete':
+                  if not target.is_file() or target.is_symlink(): raise SystemExit(f'not a regular file: {path}')
+                  e['mode']='100755' if stat.S_IMODE(target.stat().st_mode)&stat.S_IXUSR else '100644'
+                  e['sha256']=hashlib.sha256(target.read_bytes()).hexdigest()
+                  dest=out/'files'/path; dest.parent.mkdir(parents=True,exist_ok=True); shutil.copyfile(target,dest)
+              entries.append(e)
+          paths={e['path'] for e in entries}
+          required={
+              'arrange/exact_figure_migration_report.md',
+              'arrange/paper_draft/figures/exact/generate.py',
+              'arrange/paper_draft/figures/exact/manifest.json',
+              'arrange/paper_draft/main.pdf',
+              '.github/workflows/tmp_source_export_20260901152106.yml',
+          }
+          missing=required-paths
+          if missing: raise SystemExit('required final changes missing: '+', '.join(sorted(missing)))
+          forbidden={
+              '.github/workflows/exact_figures_recovery_20260902.yml',
+              '.github/workflows/exact_figures_publish_20260902.yml',
+          }
+          leaked=forbidden & paths
+          if leaked: raise SystemExit('recovery files have a nonzero final diff: '+', '.join(sorted(leaked)))
+          manifest={
+              'schema':1,
+              'repository':'dylan0301/hexagon-cover-database',
+              'branch':os.environ['TARGET_BRANCH'],
+              'audited_base':base,
+              'trigger_sha':os.environ['GITHUB_SHA'],
+              'entries':sorted(entries,key=lambda e:e['path']),
+          }
+          payload=json.dumps(manifest,indent=2,sort_keys=True)+'\n'
+          (out/'handoff-manifest.json').write_text(payload,encoding='utf-8')
+          (out/'handoff-manifest.sha256').write_text(hashlib.sha256(payload.encode()).hexdigest()+'  handoff-manifest.json\n',encoding='ascii')
+          print(f'final-tree handoff entries: {len(entries)}')
+          PY
+          git diff --check "$AUDITED_BASE"
+
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: exact-final-handoff-20260902
+          path: /tmp/exact-final-handoff
+          if-no-files-found: error
+          retention-days: 7
+
+  publish:
+    name: Commit and fast-forward validated final tree
+    needs: validate
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+      actions: write
+    outputs:
+      final_sha: ${{ steps.publish.outputs.final_sha }}
+    steps:
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+          ref: ${{ github.sha }}
+
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: exact-final-handoff-20260902
+          path: /tmp/exact-final-handoff
+
+      - name: Verify and reconstruct the validated tree without executing it
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path, PurePosixPath
+          import hashlib, json, os, shutil, stat, subprocess
+
+          root=Path.cwd(); out=Path('/tmp/exact-final-handoff'); mp=out/'handoff-manifest.json'
+          expected_digest=(out/'handoff-manifest.sha256').read_text().split()[0]
+          if hashlib.sha256(mp.read_bytes()).hexdigest()!=expected_digest: raise SystemExit('handoff manifest digest mismatch')
+          m=json.loads(mp.read_text())
+          expected_identity=(os.environ['TARGET_BRANCH'],os.environ['AUDITED_BASE'],os.environ['GITHUB_SHA'])
+          if (m['branch'],m['audited_base'],m['trigger_sha'])!=expected_identity: raise SystemExit('handoff identity mismatch')
+          allowed={e['path'] for e in m['entries']}
+          for p in (out/'files').rglob('*'):
+              if p.is_dir(): continue
+              if p.is_symlink() or not p.is_file(): raise SystemExit(f'unsafe artifact member: {p}')
+              if p.relative_to(out/'files').as_posix() not in allowed: raise SystemExit(f'unlisted artifact member: {p}')
+          for e in m['entries']:
+              rel=PurePosixPath(e['path'])
+              if rel.is_absolute() or '..' in rel.parts or '\x00' in e['path']: raise SystemExit(f'unsafe path: {e["path"]!r}')
+              target=root/Path(*rel.parts)
+              if e['operation']=='delete':
+                  if target.exists():
+                      if target.is_dir(): raise SystemExit(f'directory deletion refused: {target}')
+                      target.unlink()
+                  continue
+              src=out/'files'/Path(*rel.parts)
+              if not src.is_file() or src.is_symlink(): raise SystemExit(f'missing payload: {src}')
+              if hashlib.sha256(src.read_bytes()).hexdigest()!=e['sha256']: raise SystemExit(f'payload hash mismatch: {src}')
+              target.parent.mkdir(parents=True,exist_ok=True); shutil.copyfile(src,target)
+              target.chmod(0o755 if e['mode']=='100755' else 0o644)
+          operations={'A':'add','M':'replace','D':'delete'}
+          actual=[]
+          for row in subprocess.check_output(['git','diff','--name-status','--no-renames',os.environ['AUDITED_BASE']],text=True).splitlines():
+              code,path=row.split('\t',1); actual.append((operations[code],path))
+          expected=[(e['operation'],e['path']) for e in m['entries']]
+          if sorted(actual)!=sorted(expected): raise SystemExit('reconstructed status list mismatch')
+          for e in m['entries']:
+              if e['operation']=='delete': continue
+              p=root/e['path']
+              if hashlib.sha256(p.read_bytes()).hexdigest()!=e['sha256']: raise SystemExit(f'final-byte mismatch: {p}')
+              mode='100755' if stat.S_IMODE(p.stat().st_mode)&stat.S_IXUSR else '100644'
+              if mode!=e['mode']: raise SystemExit(f'final-mode mismatch: {p}')
+          for transient in (os.environ['TASK_DIR'],os.environ['OLD_WORKFLOW'],os.environ['RECOVERY_WORKFLOW'],os.environ['PUBLISH_WORKFLOW']):
+              if (root/transient).exists(): raise SystemExit(f'transient path remains: {transient}')
+          subprocess.run(['git','diff','--check',os.environ['AUDITED_BASE']],check=True)
+          print('validated tree reconstructed exactly')
+          PY
+
+      - name: Guard remote head, commit, and push
+        id: publish
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          remote_head=$(git ls-remote origin "refs/heads/$TARGET_BRANCH" | awk '{print $1}')
+          if [[ "$remote_head" != "$GITHUB_SHA" ]]; then
+            echo "remote branch moved: expected $GITHUB_SHA, found $remote_head" >&2
+            exit 1
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'Replace schematic paper geometry with exact generated figures'
+          final_sha=$(git rev-parse HEAD)
+          basic=$(printf 'x-access-token:%s' "$GITHUB_TOKEN" | base64 -w0)
+          git -c http.https://github.com/.extraheader="AUTHORIZATION: basic $basic" push origin "HEAD:refs/heads/$TARGET_BRANCH"
+          echo "final_sha=$final_sha" >> "$GITHUB_OUTPUT"
+          echo "published $final_sha"
+
+  dispatch:
+    name: Dispatch persistent CI for final SHA
+    needs: publish
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      actions: write
+    steps:
+      - name: Dispatch ci.yml
+        env:
+          GH_TOKEN: ${{ github.token }}
+          FINAL_SHA: ${{ needs.publish.outputs.final_sha }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail-with-body --silent --show-error -X POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/dylan0301/hexagon-cover-database/actions/workflows/ci.yml/dispatches" \
+            -d "{\"ref\":\"$TARGET_BRANCH\"}"
+          echo "persistent CI dispatched for $FINAL_SHA"
