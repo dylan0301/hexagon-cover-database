@@ -1,4 +1,4 @@
-# Editorial Reorganization Report: Exact-Definition Body and Solved Optimization Appendices
+# Editorial Reorganization Report: Readable Geometric Body and Solved Optimization Appendices
 
 Status: Editorial plan — not a proof authority
 
@@ -30,26 +30,35 @@ The main paper will contain:
 - finite witness sets defined by intersection, extremum, union, and convex-hull
   equations;
 - compact formal statements of the final trace, area, and enclosure bounds;
-- one short, plain-language explanation after a definition or result when it
-  helps the reader.
+- established geometric names, brief explanations, roadmap sentences, and
+  informative captions wherever they help the reader understand why a
+  definition or result is present.
 
 The main paper must not replace a mathematical definition with a descriptive
-sentence. When an object admits an exact geometric or set-theoretic
-definition, display that definition, including every feasible set and
-extremum. Use the lemma-linked fallback below only when such a definition
-would itself import the deferred coordinate calculation. A formula is not
-moved merely because it is displayed or spans several lines.
+sentence, but it also must not become an uninterrupted sequence of displays.
+When an object admits an exact geometric or set-theoretic definition, display
+that definition, including every feasible set and extremum, and introduce or
+interpret it in plain language when that improves the exposition. Use the
+lemma-linked fallback below only when such a definition would itself import
+the deferred coordinate calculation. A formula is not moved merely because it
+is displayed or spans several lines, and useful prose is not deleted merely
+because the formula is now stated exactly.
 
 Apply this writing rule throughout the rewrite:
 
 1. Introduce each technical object with its exact mathematical definition.
-2. If an explanation is useful, follow with one short sentence that only names
-   its role, such as “`\(C_i\)` is the radial reach of `\(T_i\)`.”
-3. Do not encode hypotheses, feasible-set restrictions, endpoint conditions,
-   or optimization rules in descriptive prose. Put those conditions in the
-   definition itself.
-4. Omit the explanatory sentence when the displayed definition is already
-   clear.
+2. Retain an established or especially clear geometric name when it gives the
+   reader a useful handle, and place it beside the exact definition rather than
+   using it as a substitute. Terms such as “boundary gap,” “supported tail,”
+   “transverse witness,” and “two-chart replacement” should remain when they
+   accurately describe the displayed object or case.
+3. State hypotheses, feasible-set restrictions, endpoint conditions, and
+   optimization rules symbolically. Prose may summarize their geometric
+   meaning, but it must not be their only specification.
+4. Keep concise prose that explains what an object is, why a case matters, how
+   a normalization is chosen, or what the next lemma accomplishes. Delete or
+   rewrite prose only when it is stale, incorrect, genuinely repetitive, or
+   inseparable from a deferred coordinate calculation.
 5. Prefer incidence, intersection, union, set difference, closure, interior,
    image, preimage, convex hull, metric ball, distance, measure, containment,
    or an extremum over an explicitly displayed feasible set.
@@ -71,19 +80,22 @@ Apply this writing rule throughout the rewrite:
    formula in place unless the fallback rule genuinely requires a new function
    symbol.
 
-Thus the body uses exact geometric set and extremum definitions. It does not
-use a verbal surrogate for a formula. A lemma-linked function is an exceptional
-typed interface, not permission to hide a geometric or set-theoretic
-definition. The appendices evaluate the body definitions in coordinates and
-define and evaluate the exceptional functions when the proof needs a closed
-form or a calculation.
+Thus the body pairs exact geometric set and extremum definitions with readable
+mathematical prose. Words may name and explain a case; equations must define
+it. A lemma-linked function is an exceptional typed interface, not permission
+to hide a geometric or set-theoretic definition. The appendices evaluate the
+body definitions in coordinates and define and evaluate the exceptional
+functions when the proof needs a closed form or a calculation.
 
-The appendices will contain only proof-used, fully solved optimization or
-feasibility problems. Each module will state its feasible family and objective,
-give the exact optimum or required bound, and include the complete derivation
-or exact certificate. The paper must remain self-contained: an appendix may
-cite a numbered `proof/` source for provenance, but it may not omit an argument
-on the ground that the repository contains it elsewhere.
+The appendices will contain the proof-used, fully solved optimization or
+feasibility problems, together with brief introductions, geometric
+orientation, transitions, and statements of how each result is used. Each
+module will state its feasible family and objective, give the exact optimum or
+required bound, and include the complete derivation or exact certificate.
+Exclude unrelated calculations, not useful exposition. The paper must remain
+self-contained: an appendix may cite a numbered `proof/` source for
+provenance, but it may not omit an argument on the ground that the repository
+contains it elsewhere.
 
 In particular, the main paper will not contain:
 
@@ -97,6 +109,12 @@ In particular, the main paper will not contain:
 - case splits used to evaluate an optimization, or connected-component
   selector algebra used to obtain a closed form;
 - numerical atlases or unused compatibility calculations.
+
+Moving any of these evaluations does not require deleting its case name,
+schematic picture, geometric interpretation, or a short sentence stating what
+the calculation proves. Preserve those reader aids in the body when they are
+accurate and useful; place calculation-specific exposition with the
+calculation in the appendix.
 
 The boundary is therefore **definition versus evaluation**, not **formula
 versus prose**:
@@ -197,6 +215,13 @@ must be adapted rather than re-enabled verbatim.
 6. **Completion.** Retain the full zero-gap-first and nonzero-gap routing
    argument.
 
+This outline is not an instruction to rewrite the body as a bare theorem
+ledger. Start from the existing exposition and preserve any paragraph that
+gives correct motivation, geometric intuition, case navigation, or a useful
+transition. When a paragraph contains both explanation and calculation, keep a
+short conceptual version in the body and move the detailed calculation with
+its supporting explanation to the appropriate appendix.
+
 A short appendix guide should close the organization discussion in the body.
 It should not become a separate non-optimization appendix.
 
@@ -234,7 +259,9 @@ later may enter the appendix as a free-standing lemma outside this contract.
 The current trace-exact numerical atlas should remain in the repository and
 interactive material but leave the canonical paper. It is illustrative rather
 than proof-used and therefore does not satisfy the agreed “used solved modules
-only” rule.
+only” rule. Retain in the paper any short introductory explanation or
+simplified schematic from that material that substantially clarifies the trace
+geometry without importing the numerical catalogue.
 
 ## 4. Detailed body/appendix audit
 
@@ -251,21 +278,23 @@ classifications and actual maximal reaches `\((A_i,B_i,C_i)\)` on these
 endpoint coverage matters. Also keep the role figures, `\(N_+\)`, the
 singleton-gap convention, the case counts, and Table `tab:routing`.
 
-In every routing, classification, or terminal-subcase table, the leftmost
-subcase-identifying block must contain formulas only. Split that block into as
-many columns as needed for `\(N_{\mathrm{gap}}\)`, `\(N_+\)`,
-`\(N_E(T_C)\)`, the already defined counts `\(d,t\)`, normalized indices,
-and incidence predicates. Reuse the paper's established notation: in
-particular, use
-`\(N_+\)` directly rather than introducing a new index set for the same
-condition. Do not add a table-only alias when an existing symbol or an exact
-formula already expresses the condition.
+In every routing, classification, or terminal-subcase table, case membership
+must be specified by an exact symbolic block at the left of the row. Split
+that block into as many columns as needed for `\(N_{\mathrm{gap}}\)`,
+`\(N_+\)`, `\(N_E(T_C)\)`, the already defined counts `\(d,t\)`, normalized
+indices, and incidence predicates. This is a local rule for the decision-gate
+columns, not a rule that the entire table or surrounding paper be formula-only.
+Reuse the paper's established notation: in particular, use `\(N_+\)` directly
+rather than introducing a new index set for the same condition. Do not add a
+table-only alias when an existing symbol or an exact formula already expresses
+the condition.
 
-A subcase cell may contain `\((d,t)=(0,0)\)`, `\(d=0\)`, `\(t\le2\)`, or
-`\(\tau\in\{1,5\}\)`, but not a verbal replacement such as “all Vd0,” “at
-most two T3-like roles,” or “an adjacent Vd role.” The symbols `\(\sigma\)`
-and `\(\tau\)` are local to the one-Vd placement register; define them there
-by
+A predicate cell may contain `\((d,t)=(0,0)\)`, `\(d=0\)`, `\(t\le2\)`, or
+`\(\tau\in\{1,5\}\)`. It must not rely on a verbal surrogate such as “all
+Vd0,” “at most two T3-like roles,” or “an adjacent Vd role.” Those phrases may
+and often should appear in a later **geometric name** or **mechanism** column
+once the exact predicate has been stated. The symbols `\(\sigma\)` and
+`\(\tau\)` are local to the one-Vd placement register; define them there by
 
 \[
 \{\sigma\}:=\{i\in\mathbb Z/6\mathbb Z:A_i+B_i>1\},
@@ -284,10 +313,59 @@ A_\sigma+B_\sigma>1,
 A_i+B_i\le1\quad(i\ne\sigma).
 \]
 
-Put logically distinct disjuncts in separate rows. Define any genuinely
-necessary abbreviation immediately before the table. Reserve prose for the
-caption and for columns outside the subcase-identifying block. This rule
-applies to case tables, not to notation or bounds tables.
+Put logically distinct disjuncts that route to different arguments in separate
+rows. Define any genuinely necessary abbreviation immediately before the
+table. Retain concise prose in captions, introductions, geometric-name and
+mechanism columns, and explanations after the table. This rule applies to case
+tables, not to notation or bounds tables.
+
+#### Recommended locations for words and symbolic case data
+
+A useful case-table order is:
+
+`exact gap data | exact reach/type data | exact placement data | geometric name | mechanism | exact conclusion`.
+
+The first three columns determine membership in the row and therefore contain
+equations, inequalities, membership statements, cardinalities, or logical
+combinations. The later columns tell the reader what the geometry is and why
+the row is useful. In particular:
+
+- In `tab:routing`, keep `\(N_{\mathrm{gap}}\)`, `\(N_+\)`, `\((d,t)\)`,
+  and `\(N_E(T_C)\)` in exact gate columns, while retaining “trace length,”
+  “area loss,” and “finite enclosure” as route names.
+- In the C-type and V-type classification tables, retain the established names
+  CE0, CE1, CE2, Vd0, Vd1, Vd2, and T3-like beside their exact definitions.
+  These are a dictionary, not a decision table in which prose is replacing a
+  predicate.
+- In the finite-enclosure table, state the A--F predicates first and then keep
+  the memorable names “complementary gap,” “CE2 short ray,” “transverse
+  seven-point witness,” “T3-like supported tail,” “Vd1 supported tail,”
+  “adjacent radial separation,” “nonadjacent radial separation,” and
+  “zero-gap nine-point obstruction.”
+- In the one-Vd placement register, let the exact `\(\sigma,\tau\)`, type,
+  midpoint, and adjacency predicates choose the row. A later column or the
+  following sentence may call the construction the “Vd1 two-chart
+  replacement” and explain whether it routes to separation, a supported tail,
+  or a replacement.
+- In `07_exhaustive_assembly.tex`, preserve the zero-gap-first/nonzero-gap
+  narrative, transition sentences, and names of the closing methods. They are
+  proof navigation and should not be converted into a wall of implications.
+- In figures and their captions, keep geometric labels and short explanations
+  of what the reader should see. Remove coordinate or computational
+  annotations only when those details move to an appendix.
+
+For example, a finite-enclosure row may begin with
+
+\[
+N_{\mathrm{gap}}=1,\qquad N_+=1,\qquad(d,t)=(0,0),
+\]
+
+and then use “transverse seven-point witness” as its geometric name, followed
+by the exact definition of `\(K_{\mathrm{tr}}\)` and the conclusion
+`\(\Lambda(K_{\mathrm{tr}})\ge1\)`. Similarly,
+`\(\sigma=0,\ \tau\in\{1,5\}\)` may be named “adjacent radial separation”
+after the symbolic placement columns. The name helps the reader remember the
+case; the formula determines the case.
 
 Edit as follows:
 
@@ -332,8 +410,8 @@ Edit as follows:
   `\(\{(1,0),(2,0)\},\{(1,1)\},\{(1,2)\},\{(2,1)\}\)` in the
   established Vd0, Vd1, Vd2, T3-like order.
 - Keep the exact boundary-gap set definition together with the elementary
-  picture; one short sentence should say that a singleton remains uncovered
-  by the two incident open V triangles.
+  picture; retain a short explanation that a singleton remains uncovered by
+  the two incident open V triangles.
 - Rewrite the organization paragraph at lines 261–271 so Sections 2–5
   “give the exact definitions and compact interfaces,” while Appendices A–F
   solve the associated optimizations.
@@ -349,6 +427,12 @@ place only their proof-used calculations in Appendix A modules. Do not import
 all of either `02_structural_reductions.tex` or
 `04a_signed_center_calculus.tex` wholesale in the body or appendix; doing so
 would either lose the body interfaces or duplicate their labels.
+
+While splitting these sources, preserve useful section openings, transition
+sentences, geometric proof ideas, and warnings about how a construction is
+used. Relocate the coordinate calculation, not the reader's map of the
+argument. If a paragraph mixes both, rewrite it into a short body explanation
+and a fuller appendix introduction instead of deleting it wholesale.
 
 Keep compact exact body statements and short proofs for:
 
@@ -383,6 +467,10 @@ X_i(x):=V_i+x(V_{i+1}-V_i),
 J_i:=e_{i,i+1}\setminus
 \bigl((U_i\cap e_{i,i+1})\cup(U_{i+1}\cap e_{i,i+1})\bigr).
 \]
+
+Follow this display with the useful name: `\(J_i\)` is the boundary gap on
+`\(e_{i,i+1}\)`. The sentence helps the reader; the set difference remains
+the definition.
 
 The proposition may then identify
 `\(J_i=X_i([B_i,1-A_{i+1}])\)` when
@@ -424,7 +512,7 @@ optimization from the opening of `06_direct_local_calculus.tex` in Appendix A.
 This module is used by the trace, nonzero-gap, and zero-gap appendices, so it
 must be solved once before all three rather than duplicated in Appendix D.
 
-Do not define a strict handoff in words. Keep its exact selector in the body:
+Give the strict handoff its exact selector in the body:
 
 \[
 \xi_i\in(1-A_{i+1},B_i),\qquad
@@ -435,9 +523,10 @@ a_i:=1-\xi_{i-1},\qquad b_i:=\xi_i,
 a_i^2+a_ib_i+b_i^2<1.
 \]
 
-The only explanatory sentence needed is “Thus every selected handoff is
-strict.” Appendix A proves that the intervals are nonempty and proves the
-clauses preserving one or at least two selected supercritical roles.
+Then explain briefly that `\(\xi_i\)` is selected in the overlap of the two
+adjacent open edge traces, so the resulting demands are strict. Appendix A
+proves that the intervals are nonempty and proves the clauses preserving one
+or at least two selected supercritical roles.
 
 ### 4.3 Signed CE1/CE2 geometry
 
@@ -459,8 +548,8 @@ material but leave the canonical paper. Their labels have no references beyond
 their definitions, and they are not solved optimization steps needed by the
 final argument.
 
-Do not replace these calculations by a qualitative paragraph. Keep the exact
-classification definition in the body:
+Do not rely on a qualitative paragraph alone. Keep the readable CE1/CE2
+explanation and pair it with the exact classification definition in the body:
 
 \[
 N_E(T_C):=
@@ -479,9 +568,11 @@ For CE1 and CE2, retain the compact exact consequence
 \bigl|T_C\cap\{M_0,\ldots,M_5\}\bigr|=1.
 \]
 
-One short sentence suffices: a point contact has zero trace length and hence
-does not create a second positive trace. The signed parameters, exact trace
-endpoints, and radial exits remain in Appendix A.
+Retain the concise geometric explanation that a point contact has zero trace
+length and hence does not create a second positive trace. A simplified
+CE1/CE2 schematic may remain if it makes this distinction immediate. The
+signed parameters, exact trace endpoints, and radial exits remain in Appendix
+A.
 
 The final CE1 and CE2 boundary trace caps may appear in the body trace table.
 
@@ -496,7 +587,7 @@ Keep in the body:
 - the perimeter/skeleton target figure;
 - the final trace-cap table from `thm:boundary-trace-table`;
 - the positive-support rescuer as its exact labeled implication, with symbolic
-  hypotheses and conclusion rather than a verbal paraphrase;
+  hypotheses and conclusion together with its readable mechanism name;
 - `thm:common-skeleton-count`;
 - `prop:ce2-vd2-midpoint-length`;
 - the exact six-item list in `prop:length-branches`.
@@ -523,7 +614,10 @@ center-independent condition `\(N_{\mathrm{gap}}=0\)`.
 
 ### 4.5 Area loss
 
-Use `05_strategy3_reader.tex` only as structural scaffolding. Keep in the body:
+Use `05_strategy3_reader.tex` only as structural scaffolding. Retain the
+readable progression “local area loss,” “T3-like loss,” and “cyclic
+accumulation” around the exact statements below. These mechanism names explain
+the proof architecture without replacing any hypothesis. Keep in the body:
 
 - a simple local/cyclic area figure paired with exact definitions;
 - the canonical feasible family and loss functions, normalized at `\(V_0\)`,
@@ -628,8 +722,10 @@ Change the stale “Method 3” figure caption to “area-loss method” or
 Create a new compact finite-enclosure body source rather than activating the
 old zero-gap-only `06_strategy4_reader.tex`.
 
-Keep the following compact exact definitions and conclusions. Do not replace
-any of them by an English optimization paraphrase.
+Keep the following compact exact definitions and conclusions, and surround
+them with the short geometric names and explanations indicated below. The
+prose accompanies these interfaces; it does not replace them with an informal
+optimization paraphrase.
 
 For every nonempty compact `\(K\)`, display
 
@@ -648,6 +744,9 @@ For every nonempty compact `\(K\)`, display
 [T\text{ is a closed equilateral triangle of side }s
 \land K\subseteq T]\}.
 \]
+
+Follow the definition with a short interpretation: `\(\Lambda(K)\)` is the
+least equilateral enclosure side for `\(K\)`.
 
 Also retain the common contradiction lemma
 
@@ -690,6 +789,10 @@ M_c(a):=\max\{b\in[0,1]:(a,b,c)\in\mathcal A\}
 \qquad(0\le a,c\le1).
 \]
 
+Use “four-anchor hull” for `\(K(a,b,c)\)` when a short name is useful, and
+describe `\(c_{\max}\)` and `\(M_c\)` as its two extremal reach functions.
+The displayed feasible sets remain their definitions.
+
 Appendix A proves the exact projection identity
 
 \[
@@ -716,6 +819,9 @@ C_+(a,b):=
 C_-(a,b):=C_+(b,a),
 \qquad 0\le a,b\le1,\quad a+b\le1.
 \]
+
+The short phrase “neighboring-arm capacities” should stay beside
+`\(C_+,C_-\)`; Appendix D supplies their coordinate evaluation.
 
 Appendix D proves attainment and evaluates `\(C_\pm\)`. Actual V-type
 restrictions enter when a neighboring term is selected, not in the definition
@@ -747,6 +853,10 @@ a_{i+1}+b_{i+1}\le1.
 \Bigr),
 \qquad D_i:=(1-\Gamma_i)V_i.
 \]
+
+Afterward, say that `\(\Gamma_i\)` is the largest applicable capacity and
+`\(D_i\)` is the resulting point on `\(r_i\)`. This is useful interpretation,
+not a replacement for the type-aware maximum above.
 
 Retain the exact forcing interface
 
@@ -796,10 +906,12 @@ S\subseteq U_C\cup\bigcup_{i=0}^5U_i.
 
 Row F retains the stronger hypothetical cover of all of `\(H\)`.
 
-The short names A–F are only cross-references; the displayed formulas are the
-body definitions and interfaces. Write every reflected local orientation as
-the corresponding disjunction; do not give that disjunction a new name. The
-symmetry already established for `\(c_{\max}\)` gives
+Retain the A--F labels and the descriptive headings below as reader-facing
+navigation. They are useful names, while the displayed predicates remain the
+authoritative case definitions. Write every reflected local orientation as the
+corresponding disjunction; explain the symmetry in prose without giving the
+disjunction a new symbolic alias. The symmetry already established for
+`\(c_{\max}\)` gives
 
 \[
 0\le p,q\le1,\quad p^2+pq+q^2\le1
@@ -877,7 +989,8 @@ Appendix D evaluates the signed CE2 problem and proves the final
 noncontainment; the signed parameters do not appear in this body row.
 
 **C. One gap, one supercritical role, and all Vd0.** Rotate the unique
-supercritical role to `\(T_0\)`. The formula-only placement is
+supercritical role to `\(T_0\)`. Keep this descriptive heading, followed by
+the exact placement conditions
 
 \[
 N_{\mathrm{gap}}=1,\qquad N_+=1,\qquad
@@ -914,8 +1027,9 @@ K_{\mathrm{tr}}\subset U_C,\qquad
 Do not add `\(P_0,P_1,P_5\)` to this witness. Appendix D contains the CE1 and
 CE2 calculations establishing the same enclosure interface.
 
-**D. T3-like or Vd1 supported tail.** Give the two normalized adapters
-separate formula-only rows. The T3-like row is
+**D. T3-like or Vd1 supported tail.** Keep “supported tail” as the shared
+geometric name and give the two normalized adapters separate exact hypothesis
+rows. The T3-like row is
 
 \[
 N_{\mathrm{gap}}=1,\quad N_+=1,\quad(d,t)=(0,1),\quad
@@ -945,7 +1059,7 @@ T_C\cap\{M_0,\ldots,M_5\}=\{M_0\},
 \qquad(1\le i\le5).
 \]
 
-The shared formula-only orientation row is
+The shared exact orientation condition is
 
 \[
 \bigl[M_1\in T_0\land A_1+B_1>1\bigr]
@@ -1053,7 +1167,8 @@ c_{\mathrm{loc}}<1-d_C
 S\setminus\left(U_C\cup\bigcup_{j=0}^5U_j\right).
 \]
 
-For the adjacent adapter, the formula-only subcase is
+For the adjacent adapter, retain the name “adjacent radial separation” beside
+the exact subcase condition
 
 \[
 \sigma=0,\qquad\tau\in\{1,5\}.
@@ -1118,8 +1233,9 @@ K_{\mathrm{wit}}(a,b)\subset U_C,\qquad
 \Lambda(K_{\mathrm{wit}}(a,b))\ge1.
 \]
 
-The two-chart Vd1 replacement is a router, not a seventh terminal. Its
-formula-only placement row before the fresh local renumbering is
+The two-chart Vd1 replacement is a router, not a seventh terminal. Keep that
+sentence because it prevents a structural misunderstanding. Its exact
+placement block before the fresh local renumbering is
 
 \[
 N_E(T_C)=2,\qquad N_{\mathrm{gap}}\in\{1,2\},\qquad
@@ -1243,20 +1359,22 @@ The three implications cite, respectively, `prop:length-branches` row Z0,
 Do not assert `\(N'_{\mathrm{gap}}=N_{\mathrm{gap}}\)`. Both replacement charts
 and all strict epsilon inequalities belong in Appendix D.
 
-The final body table may compress this register only by splitting its leftmost
+The final body table may compress this register by splitting its leftmost
 subcase-identifying block into as many symbolic hypothesis columns as needed.
 Every entry in those columns must be an equation, inequality, membership
 statement, quantified predicate, cardinality, or logical combination of them;
-no subcase entry may be a verbal name. Every row must cite the adjacent exact
-definitions and state an exact symbolic conclusion. A family name is not a
-mathematical interface.
+a verbal name must not replace a predicate there. After that block, retain a
+short geometric-name or mechanism column and an exact conclusion column.
+Every row must cite the adjacent exact definitions. A family name is a useful
+reader handle, but it is not by itself a mathematical interface.
 
 Keep schematic versions of the roadmap, complementary-gap, CE2 short-ray,
 transverse-witness, zero-gap witness, and support-arc figures, paired with the
-exact adjacent definitions. Remove only coordinate and computational
-annotations. Move figures whose purpose is to display exact signed parameters,
-evaluated neighbor-capacity branches, disk formulas, or CE1 algebra to the
-appendices.
+exact adjacent definitions. Preserve descriptive arrows, geometric labels, and
+captions that tell the reader what to notice. Remove only coordinate and
+computational annotations from the body. Move figures whose purpose is to
+display exact signed parameters, evaluated neighbor-capacity branches, disk
+formulas, or CE1 algebra to the appendices.
 
 ### 4.7 Nonzero-gap optimization
 
@@ -1292,7 +1410,9 @@ Move to Appendix D:
 
 Consolidate repeated proofs from `06d_detailed_direct_certificates.tex` and
 `06f_casewise_witness_details.tex` so every optimization is solved exactly
-once. Omit the unused quarter-radial lemma from the canonical paper.
+once. Remove the unused quarter-radial derivation from the canonical proof, but
+retain a brief geometric remark or schematic if it genuinely motivates the
+chosen witness.
 
 Resolve the remaining mixed finite-enclosure sources explicitly:
 
@@ -1307,8 +1427,9 @@ Resolve the remaining mixed finite-enclosure sources explicitly:
   `prop:new-one-vd-assembly`, and move their proof-used formulas and proofs to
   Appendix D;
 - move every proof-used calculation from
-  `06e_direct_local_proof_details.tex` to Appendix D, while omitting its unused
-  quarter-radial module and leaving no piecewise/root catalogue in the body;
+  `06e_direct_local_proof_details.tex` to Appendix D, while removing its unused
+  quarter-radial calculation and leaving no piecewise/root catalogue in the
+  body; retain any concise geometric motivation that remains relevant;
   and
 - rewrite the conclusions of
   `06i_simplified_finite_enclosure_interfaces.tex` as compact exact body
@@ -1327,8 +1448,10 @@ The current endpoint audit must not be moved blindly:
 
 Appendix D must incorporate the complete Proven two-chart replacement from
 `proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4144_new_two_chart_replacement_and_router.md`.
-The current paper contains only a prose summary. The self-contained appendix
-must preserve:
+The current paper contains only a prose summary. Keep that summary, revised as
+needed, as the reader's roadmap to the two charts; add the self-contained exact
+appendix calculation rather than replacing the roadmap. The appendix must
+preserve:
 
 - distinct `\(V_0\)` and `\(V_1\)` charts;
 - the shifted minus template for the first replacement;
@@ -1349,8 +1472,8 @@ against those uppercase reaches.
 ### 4.8 Zero-gap optimization and exact certificate
 
 Use the public notation of `06_strategy4_reader.tex`; do not introduce a
-second zero-gap notation layer. Under a hypothetical cover, the formula-only
-body row is
+second zero-gap notation layer. Retain the name “zero-gap nine-point
+obstruction.” Under a hypothetical cover, its exact symbolic body row is
 
 \[
 N_{\mathrm{gap}}=0,\qquad N_+=1,\qquad(d,t)=(0,0).
@@ -1547,24 +1670,28 @@ cases rather than perform local calculation. Preserve:
 
 Every appendix module should use the same reader contract:
 
-1. **Exact interface.** Copy or cite the body's geometric or set-theoretic
+1. **Geometric purpose.** In one or two sentences, name the configuration and
+   explain what the optimization supplies to the body.
+2. **Exact interface.** Copy or cite the body's geometric or set-theoretic
    definition. For a lemma-linked fallback function, cite its typed body
    declaration and give its exact definition in this unique appendix lemma.
-   Never replace either form by a verbal paraphrase.
-2. **Variables and feasible set.** Introduce the evaluation coordinates,
+   Do not replace either form by a verbal paraphrase; use prose alongside it.
+3. **Variables and feasible set.** Introduce the evaluation coordinates,
    inequalities, open versus closed endpoint conventions, type restrictions,
    and selected
    connected component.
-3. **Objective.** State the maximum reach, maximum trace, minimum area loss,
+4. **Objective.** State the maximum reach, maximum trace, minimum area loss,
    minimum enclosure side, or strict feasibility margin being determined.
-4. **Exact result.** State the optimum or sufficient exact bound, with all
+5. **Exact result.** State the optimum or sufficient exact bound, with all
    endpoint strictness.
-5. **Solution.** Give the full support, algebraic, or certificate proof.
-6. **Body consequence.** Name the compact body proposition supplied by the
+6. **Solution.** Give the full support, algebraic, or certificate proof, using
+   short transitions that explain the geometric meaning of major steps.
+7. **Body consequence.** Name the compact body proposition supplied by the
    solved problem.
 
-This format keeps the appendices “pure optimization problems” while leaving
-the complete proof inside the published paper.
+This format keeps the appendices focused solved optimization modules, with
+enough orientation prose to remain readable, while leaving the complete proof
+inside the published paper.
 
 No relocated calculation may be pasted between modules as background algebra.
 It must belong to exactly one named module with an explicit feasible set,
@@ -1671,9 +1798,10 @@ claim-to-source inventory before any manuscript text moves.
 4. Consolidate duplicates, repair the stale transverse-witness passages, and
    incorporate the full two-chart replacement.
 5. Convert hard-coded equation tags, install the `zref-clever` reference
-   convention, rebuild case-table subcase blocks as formula-only columns,
-   resolve all forward references, and update abstract, organization prose,
-   captions, appendix guide, dependency metadata, and closure checks.
+   convention, rebuild case-table subcase blocks as exact symbolic columns
+   paired with separate readable case-name and mechanism columns, resolve all
+   forward references, and update abstract, organization prose, captions,
+   appendix guide, dependency metadata, and closure checks.
 6. Build the paper and inspect both the normal and proof-free renderings. The
    proof-free rendering should preserve a coherent chain of exact definitions,
    hypotheses, and implications rather than disconnected theorem labels or
@@ -1762,8 +1890,14 @@ The reorganization is complete only when:
   uppercase actual reach;
 - in every routing, classification, or terminal-subcase table, the leftmost
   subcase-identifying block contains only exact symbolic predicates, split
-  across multiple columns where needed; no subcase is identified there by
-  prose, and no new alias replaces an established quantity such as `\(N_+\)`;
+  across multiple columns where needed; no verbal surrogate replaces a
+  predicate there, no new alias replaces an established quantity such as
+  `\(N_+\)`, and readable case names and mechanism descriptions remain in
+  separate columns, headings, captions, or adjacent prose;
+- useful section introductions, normalization explanations, theorem names,
+  figure captions, proof-roadmap transitions, and short geometric
+  interpretations have been retained or rewritten rather than deleted merely
+  because an exact display is present;
 - the final trace, area, and enclosure interfaces are visible in the body and
   the exhaustive proof can be followed from the exact definitions and compact
   implications without consulting the coordinate evaluations;
