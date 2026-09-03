@@ -1383,7 +1383,8 @@ the manifest digest, rational upper envelopes, both L/T branch families, all
 three compact cells/charts `\(T,L_0,L_1\)`, Gram reductions, eight exact
 polynomial signs, all twenty exact Bernstein expansions (four on `\(T\)` and
 sixteen on `\(L_0,L_1\)`), and both verifier references remain exact. Correct
-only stale navigation prose:
+the labels `lem:paper-branchwise-cbar`, `lem:paper-residual-to-overlap`, and
+`thm:paper-exact-mixed-certificate`. Correct only stale navigation prose:
 
 - “Method 4” must become the current finite-enclosure method;
 - the deleted “source ledger” reference must point to the actual provenance
