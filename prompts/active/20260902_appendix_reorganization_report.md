@@ -281,7 +281,7 @@ Edit as follows:
   V_i:=\operatorname{Rot}_{O,i\pi/3}(V_0),
   \]
   \[
-  H:=\operatorname{conv}\{V_0,\ldots,V_5\},\qquad
+  H:=\conv\{V_0,\ldots,V_5\},\qquad
   e_{i,i+1}:=[V_i,V_{i+1}],\qquad r_i:=[O,V_i],
   \qquad M_i:=\frac{O+V_i}{2},
   \]
@@ -609,7 +609,7 @@ Normalize at `\(V_0\)` and use the established radial map
 `\(R_i(c):=V_i+c(O-V_i)\)`. Retain the canonical anchor-hull notation
 
 \[
-K(a,b,c):=\operatorname{conv}
+K(a,b,c):=\conv
 \{V_0,X_5(1-a),X_0(b),R_0(c)\},
 \]
 \[
@@ -712,7 +712,7 @@ K_{\mathrm{tr}}:=
 \]
 
 Every other named point must be defined by an exact singleton intersection or
-selected extremum, and every witness hull by `\(\operatorname{conv}\)` of its
+selected extremum, and every witness hull by `\(\conv\)` of its
 displayed generators. If an optimizer is not unique, use set-valued
 `\(\operatorname{Argmin}\)`/`\(\operatorname{Argmax}\)` or give an exact
 tie-breaking selector. Coordinates, radicals, and pointwise verification move
@@ -1274,7 +1274,7 @@ The exact radial-forcing consequence is
 
 \[
 \mathbb B(0,r_\ast)
-\subseteq\operatorname{conv}\{P_0^{\mathrm{rad}},\ldots,
+\subseteq\conv\{P_0^{\mathrm{rad}},\ldots,
 P_5^{\mathrm{rad}}\}\subset U_C.
 \]
 
@@ -1297,11 +1297,11 @@ segments of the interior frontier:
 \left\{
 [X,Y]:
 \begin{array}{l}
-X\ne Y,\quad [X,Y]\subseteq
-\partial\mathcal R_{AB}(a,b)\cap\operatorname{int}(H),\\
+X,Y\in\mathbb R^2,\quad X\ne Y,\quad [X,Y]\subseteq
+\partial\mathcal R_{AB}(a,b)\cap\interior(H),\\
 [X,Y]\cap\mathcal C_-\ne\varnothing,\\
-\nexists X',Y'\;[X,Y]\subsetneq[X',Y']
-\subseteq\partial\mathcal R_{AB}(a,b)\cap\operatorname{int}(H)
+\nexists X',Y'\in\mathbb R^2\;[X,Y]\subsetneq[X',Y']
+\subseteq\partial\mathcal R_{AB}(a,b)\cap\interior(H)
 \end{array}
 \right\},
 \]
@@ -1310,11 +1310,11 @@ X\ne Y,\quad [X,Y]\subseteq
 \left\{
 [X,Y]:
 \begin{array}{l}
-X\ne Y,\quad [X,Y]\subseteq
-\partial\mathcal R_{AB}(a,b)\cap\operatorname{int}(H),\\
+X,Y\in\mathbb R^2,\quad X\ne Y,\quad [X,Y]\subseteq
+\partial\mathcal R_{AB}(a,b)\cap\interior(H),\\
 [X,Y]\cap\mathcal C_+\ne\varnothing,\\
-\nexists X',Y'\;[X,Y]\subsetneq[X',Y']
-\subseteq\partial\mathcal R_{AB}(a,b)\cap\operatorname{int}(H)
+\nexists X',Y'\in\mathbb R^2\;[X,Y]\subsetneq[X',Y']
+\subseteq\partial\mathcal R_{AB}(a,b)\cap\interior(H)
 \end{array}
 \right\}.
 \]
@@ -1335,7 +1335,7 @@ The body retains
 
 \[
 Q_-,Q_0,Q_+\in
-\operatorname{int}(H)\setminus\bigcup_{i=0}^5U_i,
+\interior(H)\setminus\bigcup_{i=0}^5U_i,
 \]
 
 by `\zcref{lem:asymmetric-core-witness}`. Under the hypothetical cover this
@@ -1366,8 +1366,10 @@ Preserve `eq:reader-witness-set`, `thm:reader-witness-enclosure`,
 Move the coordinate evaluation of `\(\mathcal R_{AB}(a,b)\)`, the line and
 circle equations, the roots defining `\((Q_-,Q_+)\)`, all pointwise
 exclusions, the Newton inner points, and the support-arc calculation to
-Appendix E. Retain there the existing labels `thm:strict-ab-union`,
-`lem:fixed-line-signs`, `lem:technical-newton-reduction`,
+Appendix E. Retain there the existing labels `lem:ab-extreme-jump`,
+`thm:strict-ab-union`, `lem:symmetric-core-witness`,
+`lem:fixed-line-signs`, `lem:asymmetric-core-witness`,
+`lem:technical-newton-reduction`, `eq:reader-newton-reduction`,
 `prop:technical-four-overlaps`, and `lem:reader-cap-chain`.
 
 Move the complete `06_zero_gap_ab_core.tex` calculation and the proof-used
