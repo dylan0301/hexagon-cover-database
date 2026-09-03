@@ -2,13 +2,13 @@
 
 Status: Editorial plan — not a proof authority
 
-Date: 2026-09-02  
+Date: 2026-09-02
 Manuscript snapshot audited: `766dce5a90abadc3086839f4e1a6cd922932f1d8`
 
 This report implements the editorial request recorded in
-`20260902appendix.txt`. It does not establish or change any mathematical
-claim. Numbered sources under `proof/` and the exact certificate incorporated
-by the paper remain the mathematical authorities.
+`20260902_appendix_reorganization.txt`. It does not establish or change any
+mathematical claim. Numbered sources under `proof/` and the exact certificate
+incorporated by the paper remain the mathematical authorities.
 
 This task creates the editorial report only. It deliberately leaves the TeX,
 generated paper, proof sources, certificate data, and raw request unchanged;
@@ -24,7 +24,8 @@ The main paper will contain:
   complements, convex hulls, distance, measure, containment, and explicit
   `\(\min/\max/\inf/\sup\)` feasible sets;
 - exact symbolic definitions of every classification, selector, witness, and
-  quantity used later;
+  quantity used later, or the typed lemma-linked declaration allowed by the
+  fallback rule below;
 - exact hypotheses and conclusions for the exhaustive case routing;
 - finite witness sets defined by intersection, extremum, union, and convex-hull
   equations;
@@ -32,10 +33,47 @@ The main paper will contain:
 - one short, plain-language explanation after a definition or result when it
   helps the reader.
 
-The main paper must not replace a mathematical definition by prose such as
-“the greatest radial reach compatible with the boundary requirements.” The
-feasible set and extremum must be displayed. A formula is not moved merely
-because it is displayed or spans several lines.
+The main paper must not replace a mathematical definition with a descriptive
+sentence. When an object admits an exact geometric or set-theoretic
+definition, display that definition, including every feasible set and
+extremum. Use the lemma-linked fallback below only when such a definition
+would itself import the deferred coordinate calculation. A formula is not
+moved merely because it is displayed or spans several lines.
+
+Apply this writing rule throughout the rewrite:
+
+1. Introduce each technical object with its exact mathematical definition.
+2. If an explanation is useful, follow with one short sentence that only names
+   its role, such as “`\(C_i\)` is the radial reach of `\(T_i\)`.”
+3. Do not encode hypotheses, feasible-set restrictions, endpoint conditions,
+   or optimization rules in descriptive prose. Put those conditions in the
+   definition itself.
+4. Omit the explanatory sentence when the displayed definition is already
+   clear.
+5. Prefer incidence, intersection, union, set difference, closure, interior,
+   image, preimage, convex hull, metric ball, distance, measure, containment,
+   or an extremum over an explicitly displayed feasible set.
+6. If no such definition is available without importing the deferred
+   calculation, retain the function symbol already used by the canonical paper
+   or its numbered source and cite the unique supplying appendix lemma
+   immediately with `\zcref`. The body states the domain, codomain, hypotheses,
+   and compact value or inequality it uses. The cited appendix lemma gives the
+   exact definition, all branches and endpoint conventions, and the proof.
+   Only an output that has no established symbol may receive a new semantic
+   subscript matching the supplying lemma. Do not rename an established symbol
+   merely to encode a lemma name, and do not use an unexplained generic
+   function symbol.
+7. Do not redesign the notation during reorganization. Reuse the symbols in
+   `02_global_notation.tex` and the applicable numbered source. If no canonical
+   abbreviation exists, write the exact formula in place unless the fallback
+   rule genuinely requires a new function symbol.
+
+Thus the body uses exact geometric set and extremum definitions. It does not
+use a verbal surrogate for a formula. A lemma-linked function is an exceptional
+typed interface, not permission to hide a geometric or set-theoretic
+definition. The appendices evaluate the body definitions in coordinates and
+define and evaluate the exceptional functions when the proof needs a closed
+form or a calculation.
 
 The appendices will contain only proof-used, fully solved optimization or
 feasibility problems. Each module will state its feasible family and objective,
@@ -61,6 +99,8 @@ The boundary is therefore **definition versus evaluation**, not **formula
 versus prose**:
 
 - keep the exact formula answering “what is this object?”;
+- when the fallback applies, keep its typed function declaration and immediate
+  appendix-lemma reference;
 - keep the compact formula answering “what result is used?”; and
 - move the coordinate evaluation, closed form, and proof calculation.
 
@@ -82,20 +122,20 @@ the open `\(U_i\)`, and should define
 N_+:=\bigl|\{i:A_i+B_i>1\}\bigr|.
 \]
 
-Likewise, if `\(\mathscr E\)` is the set of closed equilateral triangles, the
-body should display
+Likewise, the body should display
 
 \[
-\Lambda(K):=\inf_{Q\in\mathscr E,\ K\subseteq Q}\operatorname{side}(Q).
+\Lambda(K):=
+\inf\{\operatorname{side}(Q):
+Q\text{ is a closed equilateral triangle and }K\subseteq Q\}.
 \]
 
 The support-function expression evaluating `\(\Lambda\)`, the piecewise
 closed forms evaluating `\(c_{\max}\)` or `\(C_\pm\)`, and the calculations
-proving them belong in the appendices. A named point may stay in the body as an exact
-singleton intersection or selected extremum, for example
-`\(\{P\}=\ell\cap\partial\mathbb B(X,r)\cap\mathcal A\)`, with the selecting
-arc or component `\(\mathcal A\)` stated explicitly. Its coordinate tuple and
-root calculation move to the appendix.
+proving them belong in the appendices. A named point may stay in the body as
+an exact singleton intersection or selected extremum. For example, retain the
+established definition `\(\{Q_0\}=\ell_-\cap\ell_+\)`. Its coordinate tuple
+and root calculation move to the appendix.
 
 Short final interfaces such as a trace cap, an area-loss lower bound, or
 `\(\Lambda(K)\ge 1\)` also remain displayed in the body.
@@ -155,12 +195,12 @@ It should not become a separate non-optimization appendix.
 
 ### Appendices
 
-A. **Structural, shared-local, and signed-center optimization**  
-B. **Trace-length optimization**  
-C. **Area-loss optimization**  
-D. **Nonzero-gap finite-enclosure optimization**  
-E. **Zero-gap nine-point optimization**  
-F. **Exact polynomial positivity certificate**
+- **A. Structural, shared-local, and signed-center optimization**
+- **B. Trace-length optimization**
+- **C. Area-loss optimization**
+- **D. Nonzero-gap finite-enclosure optimization**
+- **E. Zero-gap nine-point optimization**
+- **F. Exact polynomial positivity certificate**
 
 Appendix A is not a miscellaneous calculation dump. Its material must be
 partitioned into named solved modules:
@@ -204,22 +244,56 @@ classifications and actual maximal reaches `\((A_i,B_i,C_i)\)` on these
 endpoint coverage matters. Also keep the role figures, `\(N_+\)`, the
 singleton-gap convention, the case counts, and Table `tab:routing`.
 
+In every routing, classification, or terminal-subcase table, the leftmost
+subcase-identifying block must contain formulas only. Split that block into as
+many columns as needed for `\(N_{\mathrm{gap}}\)`, `\(N_+\)`,
+`\(N_E(T_C)\)`, the already defined counts `\(d,t\)`, normalized indices,
+and incidence predicates. Reuse the paper's established notation: in
+particular, use
+`\(N_+\)` directly rather than introducing a new index set for the same
+condition. Do not add a table-only alias when an existing symbol or an exact
+formula already expresses the condition.
+
+A subcase cell may contain `\((d,t)=(0,0)\)`, `\(d=0\)`, `\(t\le2\)`, or
+`\(\tau\in\{1,5\}\)`, but not a verbal replacement such as “all Vd0,” “at
+most two T3-like roles,” or “an adjacent Vd role.” When the identity of an
+index matters, use the established convention that `\(\sigma\)` is the
+unique supercritical index and `\(\tau\)` is the unique Vd1/Vd2 index. Display
+the conditions exactly, for example
+
+\[
+A_\sigma+B_\sigma>1,
+\qquad
+A_i+B_i\le1\quad(i\ne\sigma).
+\]
+
+Put logically distinct disjuncts in separate rows. Define any genuinely
+necessary abbreviation immediately before the table. Reserve prose for the
+caption and for columns outside the subcase-identifying block. This rule
+applies to case tables, not to notation or bounds tables.
+
 Edit as follows:
 
-- Keep an exact intrinsic global definition in the body:
+- Keep the exact global definition in the body:
 
   \[
-  \rho:=\operatorname{Rot}_{O,\pi/3},\qquad
-  d(O,V_0)=1,\qquad V_i:=\rho^i(V_0),
+  \lVert V_0-O\rVert=1,\qquad
+  V_i:=\operatorname{Rot}_{O,i\pi/3}(V_0),
   \]
   \[
   H:=\operatorname{conv}\{V_0,\ldots,V_5\},\qquad
-  e_{i,i+1}:=[V_i,V_{i+1}],\qquad
-  r_i:=[O,V_i],\qquad M_i:=\frac{O+V_i}{2}.
+  e_{i,i+1}:=[V_i,V_{i+1}],\qquad r_i:=[O,V_i],
+  \qquad M_i:=\frac{O+V_i}{2},
+  \]
+  \[
+  S:=\partial H\cup\bigcup_{i=0}^5r_i.
   \]
 
-  Move the cosine–sine coordinate realization to Appendix A, where one global
-  chart can serve all evaluations.
+  Here `\(\operatorname{Rot}_{O,\theta}\)` is ordinary rotation through
+  `\(\theta\)` about `\(O\)`, not a new paper symbol. Move the cosine–sine
+  coordinate realization to Appendix A, where one global chart can serve all
+  evaluations. Reserve the established `\(\mathsf R\)` for counterclockwise
+  rotation through `\(2\pi/3\)` in the enclosure gauge.
 - Keep `\(N_+\)` defined only from actual `\(A_i+B_i>1\)`.
 - Keep the exact boundary-gap set definition together with the elementary
   picture; one short sentence should say that a singleton remains uncovered
@@ -401,43 +475,42 @@ center-independent condition `\(N_{\mathrm{gap}}=0\)`.
 Use `05_strategy3_reader.tex` only as structural scaffolding. Keep in the body:
 
 - a simple local/cyclic area figure paired with exact definitions;
-- the exact boundary anchors
-  `\(P_i^-(a):=V_i+a(V_{i-1}-V_i)\)` and
-  `\(P_i^+(b):=V_i+b(V_{i+1}-V_i)\)`, with
-  `\(a\le A_i\)` and `\(b\le B_i\)`;
-- the exact feasible family and objective
+- the canonical feasible family and loss functions, normalized at `\(V_0\)`,
 
   \[
-  \mathscr T_i(a,b):=
+  \mathcal T(a,b):=
   \{T:T\text{ is a closed unit equilateral triangle and }
-  \{V_i,P_i^-(a),P_i^+(b)\}\subseteq T\},
+  \{V_0,V_0+a(V_5-V_0),V_0+b(V_1-V_0)\}\subseteq T\},
   \]
   \[
-  \ell_H(T):=
+  \mathcal L(T):=
   \frac{\operatorname{area}(T\setminus H)}{A_\triangle},
   \qquad
-  \mathcal L_i(a,b):=
-  \inf_{T\in\mathscr T_i(a,b)}\ell_H(T),
+  \mathcal L(a,b):=
+  \inf_{T\in\mathcal T(a,b)}\mathcal L(T),
   \qquad A_\triangle=\frac{\sqrt3}{4};
   \]
 
-  State `\(\mathscr T_i(a,b)\ne\varnothing\)` on
-  `\(0\le a\le A_i\)`, `\(0\le b\le B_i\)`, since the actual `\(T_i\)` is a
-  member;
+  The corresponding family at `\(V_i\)` is obtained by the already defined
+  hexagon symmetry while retaining the same notation. For selected reaches,
+  display
+  `\(0\le a_i\le A_i\)` and `\(0\le b_i\le B_i\)`; the rotated copy of
+  `\(T_i\)` then belongs to `\(\mathcal T(a_i,b_i)\)`;
 - the compact exact inequalities
 
   \[
-  \mathcal L_i(a,b)\ge\min\{a,b\}^2,
+  \mathcal L(a,b)\ge\min\{a,b\}^2,
   \qquad
   a+b>1\Longrightarrow
-  \mathcal L_i(a,b)\ge\max\{a,b\}^2;
+  \mathcal L(a,b)\ge\max\{a,b\}^2;
   \]
 - the T3-like actual-triangle result
 
   \[
   T_i\text{ is T3-like},\qquad
-  0\le\mu\le\frac12,\qquad a,b\ge\mu
-  \Longrightarrow \ell_H(T_i)\ge2\mu-4\mu^2,
+  0\le a_i\le A_i,\quad0\le b_i\le B_i,\quad
+  0\le\mu\le\frac12,\quad a_i,b_i\ge\mu
+  \Longrightarrow \mathcal L(T_i)\ge2\mu-4\mu^2,
   \]
 
   unless a T3-restricted feasible family is explicitly defined; and
@@ -453,7 +526,7 @@ Use `05_strategy3_reader.tex` only as structural scaffolding. Keep in the body:
   \[
   \#\{i:a_i+b_i>1\}\ge2
   \Longrightarrow
-  \sum_{i=0}^5\ell_H(T_i)>1,
+  \sum_{i=0}^5\mathcal L(T_i)>1,
   \]
   \[
   \begin{gathered}
@@ -462,7 +535,7 @@ Use `05_strategy3_reader.tex` only as structural scaffolding. Keep in the body:
   \exists j\;[T_j\text{ is T3-like}]
   \end{gathered}
   \Longrightarrow
-  \sum_{i=0}^5\ell_H(T_i)>1,
+  \sum_{i=0}^5\mathcal L(T_i)>1,
   \]
 
   followed by `prop:area-branches`.
@@ -482,8 +555,8 @@ Move to Appendix C:
 Correct two defects before using the old reader scaffold:
 
 - its T3-like statement applies a bound to the unrestricted optimized
-  `\(\mathcal L_i(a,b)\)`, while the proved result concerns the actual
-  T3-like triangle `\(\ell_H(T_i)\)` unless a T3-restricted feasible family
+  `\(\mathcal L(a,b)\)`, while the proved result concerns the actual
+  T3-like triangle `\(\mathcal L(T_i)\)` unless a T3-restricted feasible family
   is defined;
 - its excluded branches are stated for CE0, but the current authoritative
   interface applies whenever `\(N_{\mathrm{gap}}=0\)`, independently of the
@@ -503,10 +576,28 @@ any of them by an English optimization paraphrase.
 For every nonempty compact `\(K\)`, display
 
 \[
+\mathbb B(X,r):=\{Y:\lVert Y-X\rVert\le r\}\qquad(r\ge0).
+\]
+
+\[
 \Lambda(K):=
 \inf\{\operatorname{side}(Q):
 Q\text{ is a closed equilateral triangle and }K\subseteq Q\}.
 \]
+
+Also retain the common contradiction lemma
+
+\[
+\left.
+\begin{gathered}
+K\text{ is compact},\qquad K\subset U,\\
+U\text{ is an open unit equilateral triangle}
+\end{gathered}
+\right\}
+\Longrightarrow \Lambda(K)<1.
+\]
+
+Its inward-side compactness proof is short enough to remain in the body.
 
 Use the infimum definition without a blanket attainment claim for every
 compact set; a singleton would require an explicit degenerate-triangle
@@ -514,69 +605,102 @@ convention at side zero. Prove attainment only for the witness families where
 it is needed. The support-function formula that evaluates `\(\Lambda\)`
 belongs in Appendix A.
 
-Fix `\(i\)`; the values below are independent of `\(i\)` by hexagon symmetry.
-For selected lower bounds `\(0\le a\le A_i\)` and
-`\(0\le b\le B_i\)`, and using `\(R_i(c):=V_i+c(O-V_i)\)`, define
+Normalize at `\(V_0\)` and use the established radial map
+`\(R_i(c):=V_i+c(O-V_i)\)`. Retain the canonical anchor-hull notation
 
 \[
-K_i(a,b,c):=\operatorname{conv}
-\{V_i,X_{i-1}(1-a),X_i(b),R_i(c)\},
-\]
-\[
-c_{\max}(a,b):=
-\max\{c\in[0,1]:\Lambda(K_i(a,b,c))\le1\}.
+K(a,b,c):=\operatorname{conv}
+\{V_0,X_5(1-a),X_0(b),R_0(c)\},
 \]
 \[
 \mathcal A:=
-\{(a,b,c)\in[0,1]^3:\Lambda(K_i(a,b,c))\le1\}.
+\{(a,b,c)\in[0,1]^3:\Lambda(K(a,b,c))\le1\}.
+\]
+\[
+c_{\max}(a,b):=
+\max\{c\in[0,1]:(a,b,c)\in\mathcal A\},
+\qquad
+0\le a,b\le1,\quad a^2+ab+b^2\le1.
 \]
 
-The set `\(\mathcal A\)` is independent of `\(i\)` by the same symmetry.
+Appendix A proves the exact projection identity
+
+\[
+\{(a,b)\in[0,1]^2:\exists c\in[0,1]\ (a,b,c)\in\mathcal A\}
+=\{(a,b)\in[0,1]^2:a^2+ab+b^2\le1\},
+\]
+
+as well as attainment and the evaluation of `\(c_{\max}\)`. Rotated and
+reflected copies use the same `\(K,\mathcal A,c_{\max}\)`; do not introduce
+indexed copies or a name for the displayed domain.
 
 For neighboring radial support, define
 
 \[
-K_i^\pm(a,b,c):=\operatorname{conv}
-\{V_i,X_{i-1}(1-a),X_i(b),R_{i\pm1}(c)\},
+C_+(a,b):=
+\max\left\{c\in[0,1]:
+\begin{array}{l}
+\exists\Delta\ [\Delta\text{ is a closed unit equilateral triangle},\\
+\{V_0,X_5(1-a),X_0(b),R_1(c)\}\subseteq\Delta]
+\end{array}
+\right\},
 \]
 \[
-C_\pm(a,b):=
-\max\{c\in[0,1]:\Lambda(K_i^\pm(a,b,c))\le1\},
+C_-(a,b):=C_+(b,a),
+\qquad 0\le a,b\le1,\quad a+b\le1.
 \]
 
-Set `\(C_\pm(a,b)\)` to be undefined when the displayed feasible set is
-empty. Appendix A proves attainment for and evaluates `\(c_{\max}\)`;
-Appendix D proves attainment for and evaluates `\(C_\pm\)`. Actual
-V-type restrictions enter when the neighboring terms are selected, not in the
-definition of `\(C_\pm\)` itself.
+Appendix D proves attainment and evaluates `\(C_\pm\)`. Actual V-type
+restrictions enter when a neighboring term is selected, not in the definition
+of `\(C_\pm\)` itself.
 
-Make that selection exact. Put
-
-\[
-\mathcal N_i:=
-\{j\in\{i-1,i+1\}:\mathcal H^1(T_j\cap r_i)>0\}
-\]
-
-and define
+Make that selection exact without a neighbor-index alias. Retain
 
 \[
 0\le a_j\le A_j,\qquad 0\le b_j\le B_j
 \quad(0\le j\le5),
 \]
+\[
+a_j^2+a_jb_j+b_j^2\le1\quad(0\le j\le5),
+\]
+\[
+\begin{aligned}
+\mathcal H^1(T_{i-1}\cap r_i)>0&\Longrightarrow
+a_{i-1}+b_{i-1}\le1,\\
+\mathcal H^1(T_{i+1}\cap r_i)>0&\Longrightarrow
+a_{i+1}+b_{i+1}\le1.
+\end{aligned}
+\]
 
 \[
 \Gamma_i:=\max\Bigl(
 \{c_{\max}(a_i,b_i)\}
-\cup\{C_+(a_{i-1},b_{i-1}):i-1\in\mathcal N_i\}
-\cup\{C_-(a_{i+1},b_{i+1}):i+1\in\mathcal N_i\}
+\cup\{C_+(a_{i-1},b_{i-1}):\mathcal H^1(T_{i-1}\cap r_i)>0\}
+\cup\{C_-(a_{i+1},b_{i+1}):\mathcal H^1(T_{i+1}\cap r_i)>0\}
 \Bigr),
-\qquad
-D_i:=R_i(\Gamma_i),
+\qquad D_i:=(1-\Gamma_i)V_i.
 \]
 
-Positive support in `\(\mathcal N_i\)` ensures that the corresponding
-neighboring capacity is defined; otherwise omit that term. Endpoint openness
-is part of the forcing lemma for this displayed `\(D_i\)`.
+Retain the exact forcing interface
+
+\[
+D_i\in r_i\subseteq S,\qquad
+D_i\notin\bigcup_{j=0}^5U_j,
+\]
+\[
+S\subseteq
+U_C\cup\bigcup_{j=0}^5U_j
+\Longrightarrow D_i\in U_C.
+\]
+
+Also retain, for `\(p,q\ge0\)` and `\(p+q\le1\)`,
+
+\[
+C_+(p,q),C_-(p,q)
+\le1-\min\{p,q\}\le c_{\max}(p,q).
+\]
+
+The appendices prove these inequalities and endpoint strictness.
 
 The exact gap `\(G_i\)` is the set difference defined in Section 4.2; do not
 replace it by “the closed complement.” Likewise, every finite witness must be
@@ -595,61 +719,60 @@ tie-breaking selector. Coordinates, radicals, and pointwise verification move
 to the appendix.
 
 Rewrite the finite-enclosure case table from the following exact register.
-For A–E and the replacement router, put
+For A–E and the replacement router, assume
 
 \[
-\mathcal S_{\mathrm{skel}}:=\partial H\cup\bigcup_{i=0}^5r_i,
-\qquad
-\mathcal S_{\mathrm{skel}}\subseteq U_C\cup\bigcup_{i=0}^5U_i.
+S\subseteq U_C\cup\bigcup_{i=0}^5U_i.
 \]
 
 Row F retains the stronger hypothetical cover of all of `\(H\)`.
 
 The short names A–F are only cross-references; the displayed formulas are the
-body definitions and interfaces.
-
-For the reflected local orientations used below, define
+body definitions and interfaces. Write every reflected local orientation as
+the corresponding disjunction; do not give that disjunction a new name. The
+symmetry already established for `\(c_{\max}\)` gives
 
 \[
-\operatorname{Dom}_i(p,q)
-\Longleftrightarrow
-\bigl[(p\le A_i\land q\le B_i)\lor(q\le A_i\land p\le B_i)\bigr].
-\]
-\[
-c_{\max}(p,q)=c_{\max}(q,p).
+0\le p,q\le1,\quad p^2+pq+q^2\le1
+\Longrightarrow c_{\max}(p,q)=c_{\max}(q,p).
 \]
 
 **A. One actual gap and `\(N_+=0\)`.** After rotation, set
 
 \[
 N_{\mathrm{gap}}=1,\qquad N_+=0,\qquad
-T_C\text{ is CE1 or CE2},
+N_E(T_C)\in\{1,2\},\qquad d=0,\qquad t\in\{0,1,2\},
 \]
 \[
-G_0=:J=X_0([\ell,r]),\qquad
+J:=G_0=X_0([\ell,r]),\qquad
 \ell:=B_0,\qquad r:=1-A_1,
 \]
 \[
-p:=1-r,\qquad q:=\ell,\qquad c_*:=c_{\max}(p,q),
+p:=1-r,\qquad q:=\ell,
 \]
 \[
-\mathcal D_{\mathrm{gap}}:=
-\left\{x:d(O,x)\le\frac{\sqrt3}{2}(1-c_*)\right\},
-\qquad K_A:=\mathcal D_{\mathrm{gap}}\cup J.
+0\le p,q\le1,\qquad p+q\le1,\qquad
+c_*:=c_{\max}(p,q).
+\]
+\[
+\mathcal D_{(\sqrt3/2)(1-c_*)}:=
+\mathbb B\!\left(O,\frac{\sqrt3}{2}(1-c_*)\right)
+=\left\{x:\lVert x-O\rVert\le\frac{\sqrt3}{2}(1-c_*)\right\}.
 \]
 
 For
 
 \[
-\forall i\quad[T_i\text{ is Vd0 or T3-like}],\qquad
-\bigl|\{i:T_i\text{ is T3-like}\}\bigr|\le2,\qquad
-\operatorname{Dom}_i(p,q)\quad(0\le i\le5),
+\forall i\in\mathbb Z/6\mathbb Z\quad
+[(p\le A_i\land q\le B_i)\lor(q\le A_i\land p\le B_i)],
 \]
 
 retain
 
 \[
-K_A\subset U_C,\qquad \Lambda(K_A)\ge1.
+\mathcal D_{(\sqrt3/2)(1-c_*)}\cup J\subset U_C,
+\qquad
+\Lambda\bigl(\mathcal D_{(\sqrt3/2)(1-c_*)}\cup J\bigr)\ge1.
 \]
 
 The definition of `\(J\)` includes `\(\ell=r\)`, so this row includes a
@@ -663,47 +786,37 @@ p:=\min\{t\in[0,1]:X_5(t)\in T_C\},\qquad
 q:=1-\max\{t\in[0,1]:X_0(t)\in T_C\},
 \]
 \[
-c_*:=c_{\max}(p,q),\qquad
-D_2:=R_2(c_*),\qquad D_4:=R_4(c_*),
-\]
-\[
-s_j^C:=\min\{t\in[0,1]:R_j(t)\in T_C\}
-\quad(j\in\{2,4\}),
-\]
-\[
-j_*:=\min\operatorname{Argmax}_{j\in\{2,4\}}s_j^C.
+0\le p,q\le1,\qquad p+q\le1,\qquad
+c_*:=c_{\max}(p,q),
+\qquad D_2:=(1-c_*)V_2,\quad D_4:=(1-c_*)V_4.
 \]
 
 \[
-T_C\text{ is CE2},\qquad N_{\mathrm{gap}}=2,\qquad
-N_+\in\{0,1\},\qquad
-q\le A_i,\quad p\le B_i\quad(1\le i\le5),
+N_E(T_C)=2,\qquad N_{\mathrm{gap}}=2,\qquad
+N_+\in\{0,1\},\qquad d=0,
 \]
 \[
-\forall i\quad[T_i\text{ is Vd0 or T3-like}],
+\forall i\in\{1,2,3,4,5\}\quad
+[(p\le A_i\land q\le B_i)\lor(q\le A_i\land p\le B_i)],
 \]
 \[
 c_{\max}(q,p)=c_{\max}(p,q)=c_*,\qquad
-D_2,D_4\in U_C,\qquad c_*<s_{j_*}^C,
-\]
-\[
-D_{j_*}\in U_C\subseteq T_C,\qquad D_{j_*}\notin T_C.
+D_2,D_4\in U_C,\qquad \{D_2,D_4\}\nsubseteq T_C.
 \]
 
-Appendix D proves the strict inequality by solving the signed CE2 problem; the
-signed parameters do not appear in this body row.
+Appendix D evaluates the signed CE2 problem and proves the final
+noncontainment; the signed parameters do not appear in this body row.
 
 **C. One gap, one supercritical role, and all Vd0.** Rotate the unique
 supercritical role to `\(T_0\)`, use `\(J=X_0([\ell,r])\)` from row A, and set
 
 \[
 N_{\mathrm{gap}}=1,\qquad N_+=1,\qquad
-T_C\text{ is CE1 or CE2},\qquad
+N_E(T_C)\in\{1,2\},\qquad(d,t)=(0,0),\qquad
 T_C\cap\{M_0,\ldots,M_5\}=\{M_0\},
 \]
 \[
-A_0+B_0>1,\qquad
-\forall i\quad[T_i\text{ is Vd0}],
+\{\sigma\}=\{i:A_i+B_i>1\},\qquad \sigma=0,
 \]
 \[
 P_i:=R_i(C_i),\qquad
@@ -720,148 +833,179 @@ K_{\mathrm{tr}}\subset U_C,\qquad
 Do not add `\(P_0,P_1,P_5\)` to this witness. Appendix D contains the CE1 and
 CE2 calculations establishing the same enclosure interface.
 
-**D. T3-like or Vd1 supported tail.** In the normalized placement, define
+**D. T3-like or Vd1 supported tail.** Give the two normalized adapters
+separate formula-only rows. The T3-like row is
 
 \[
-\begin{aligned}
-&[T_0\text{ is T3-like}\land N_{\mathrm{gap}}=1
-  \land (T_C\text{ is CE1 or CE2})]\\
-&\quad\lor
-[T_0\text{ is Vd1}\land N_{\mathrm{gap}}\in\{1,2\}
-  \land T_C\text{ is CE2}],
-\end{aligned}
-\]
-\[
+N_{\mathrm{gap}}=1,\quad N_+=1,\quad(d,t)=(0,1),\quad
+N_E(T_C)\in\{1,2\},\quad
 T_C\cap\{M_0,\ldots,M_5\}=\{M_0\},
 \]
-
 \[
-I_T:=\{t\in[0,1]:R_1(t)\in T_0\}=[s_T,u_T],\qquad
-P_T:=R_1(u_T),\qquad \varepsilon:=1-u_T.
+(o(T_0),n(T_0))=(2,1),\quad M_1\in T_0,\quad A_1+B_1>1,
 \]
 \[
-0\le s_T<\frac12\le u_T<1,\qquad C_1\ge s_T.
+(o(T_i),n(T_i))\in\{(1,0),(2,0)\}
+\qquad(1\le i\le5).
 \]
 
-For `\(0\le s<\tfrac12\)`, define
+The Vd1 row is
 
 \[
-M_s^{\mathrm{sup}}:=
-\sup\{b\in[0,1]:\exists a\in[0,1]\ 
-((a,b,s)\in\mathcal A\land a+b>1)\}.
+N_{\mathrm{gap}}\in\{1,2\},\quad N_+=1,\quad(d,t)=(1,0),\quad
+N_E(T_C)=2,\quad
+T_C\cap\{M_0,\ldots,M_5\}=\{M_0\},
+\]
+\[
+(o(T_0),n(T_0))=(1,1),\quad M_1\in T_0,\quad A_1+B_1>1,
+\]
+\[
+(o(T_i),n(T_i))\in\{(1,0),(2,0)\}
+\qquad(1\le i\le5).
 \]
 
-Set
+Both adapters use the established interval coordinates
 
 \[
-M:=M_{s_T}^{\mathrm{sup}}.
+T_0\cap r_1=R_1([c,u]),\qquad
+0\le c\le\frac12\le u<1,qquad
+\varepsilon:=1-u,qquad C_1\ge c.
 \]
 
-The normalized T3-like and Vd1 adapters must each prove
+Retain the canonical strict-supercritical envelope
 
 \[
-M_1\in T_0,\qquad
-T_0\text{ is T3-like or Vd1},\qquad
-T_i\text{ is Vd0}\quad(1\le i\le5),
+M_c^{\mathrm{sup}}:=
+\sup\{b\in[0,1]:\exists a\in[0,1]\;
+((a,b,c)\in\mathcal A\land a+b>1)\}
+\qquad\left(0\le c<\frac12\right),
 \]
 \[
-U_C\cap\bigcup_{k=1}^4e_{k,k+1}=\varnothing,
+M_{1/2}^{\mathrm{sup}}:=\frac12,
+\qquad M:=M_c^{\mathrm{sup}}.
+\]
+
+The value at `\(c=1/2\)` is the continuous extension, not the supremum of
+an empty strict feasible set. The adapters prove
+
+\[
+R_1(u)=\varepsilon V_1\in U_C,qquad
+A_0+\varepsilon\le1,qquad A_0\le1-M,qquad
+\frac{A_0}{A_0+\varepsilon}\le1-M,
 \]
 \[
-P_T\in U_C,\qquad A_0+\varepsilon\le1,\qquad A_0\le1-M,
-\qquad \frac{A_0}{A_0+\varepsilon}\le1-M,
-\]
-\[
-A_1+B_1>1,\qquad B_1<M,\qquad
-A_i+B_i\le1\quad(2\le i\le5).
+B_1<M,qquad A_i+B_i\le1\quad(2\le i\le5).
 \]
 
 The shared body conclusion is
 
 \[
-\sum_{i=2}^5(A_i+B_i)\ge4+M-B_1>4,
+\sum_{i=2}^5(A_i+B_i)\ge4+M-B_1>4.
 \]
 
-which contradicts the last line of premises. Appendix D evaluates
-`\(M_s^{\mathrm{sup}}\)`, proves
-
-\[
-(a,b,s)\in\mathcal A,\quad a+b>1
-\Longrightarrow b<M_s^{\mathrm{sup}}
-\qquad(0\le s<\tfrac12),
-\]
-
-and verifies the premises for both adapters.
+Appendix D evaluates `\(M_c^{\mathrm{sup}}\)` and verifies the displayed
+premises separately for the T3-like and Vd1 adapters.
 
 **E. Adjacent or nonadjacent Vd radial separation.** Retain the routing
 hypotheses
 
 \[
-T_C\text{ is CE2},\qquad N_{\mathrm{gap}}\in\{1,2\},\qquad
-N_+=1,\qquad
-T_0\text{ is the unique supercritical role},
+N_E(T_C)=2,\qquad N_{\mathrm{gap}}\in\{1,2\},\qquad
+N_+=1,\qquad(d,t)=(1,0),
 \]
 \[
 T_C\cap\{M_0,\ldots,M_5\}=\{M_0\},
 \]
 \[
-T_\tau\text{ is the unique Vd1/Vd2 role},\qquad
-T_j\text{ is Vd0}\quad(j\notin\{0,\tau\}),
+\{\sigma\}=\{i:A_i+B_i>1\},\qquad
+\{\tau\}=\{i:(o(T_i),n(T_i))\in\{(1,1),(1,2)\}\},
+\]
+\[
+\sigma=0,\qquad\tau\in\{1,2,3,4,5\},\qquad
+(o(T_j),n(T_j))\in\{(1,0),(2,0)\}
+\quad(j\ne\tau).
 \]
 
-and, for the routed index `\(i\)`, define
+For the routed radial arm `\(r_i\)`, use the established separation
+interface with exact extremal definitions
 
 \[
-d_i^C:=\max\{x\in[0,1]:O+x(V_i-O)\in T_C\},\qquad
-s_i^C:=1-d_i^C,
+d_C:=\max\{x\in[0,1]:xV_i\in T_C\},
 \]
 \[
-T_C\cap r_i=R_i([s_i^C,1]),
-\]
-\[
-\sigma_i^V:=
+c_{\mathrm{loc}}:=
 \sup\{t\in[0,1]:R_i(t)\in U_{i-1}\cup U_i\cup U_{i+1}\}.
 \]
-
-When the appropriate adapter proves
-
 \[
-\sigma_i^V<s_i^C,
+T_C\cap r_i=\{xV_i:0\le x\le d_C\},
 \qquad
-R_i((\sigma_i^V,s_i^C))\cap
-\bigcup_{j\notin\{i-1,i,i+1\}}U_j=\varnothing,
+(U_{i-1}\cup U_i\cup U_{i+1})\cap r_i
+\subseteq\{xV_i:1-c_{\mathrm{loc}}\le x\le1\}.
+\]
+\[
+c_{\mathrm{loc}}<1-d_C
+\Longrightarrow
+\varnothing\ne\{xV_i:d_C<x<1-c_{\mathrm{loc}}\}
+\subseteq
+S\setminus\left(U_C\cup\bigcup_{j=0}^5U_j\right).
 \]
 
-set
+For the adjacent adapter, the formula-only subcase is
 
 \[
-Z_i:=R_i\!\left(\frac{\sigma_i^V+s_i^C}{2}\right).
+\sigma=0,\qquad\tau\in\{1,5\}.
 \]
 
-Retain
+After reflection take `\((\sigma,\tau)=(0,1)\)` and apply the displayed
+interface with `\(i=2\)`. Appendix D proves
+`\(c_{\mathrm{loc}}<1-d_C\)` from the exact adjacent residual bounds.
+
+For the nonadjacent adapter, retain
 
 \[
-Z_i\in r_i\subset H,\qquad
-Z_i\notin U_C\cup\bigcup_{j=0}^5U_j.
+\sigma=0,\qquad\tau\in\{2,3,4\}.
 \]
 
-Use the exact index rule
+For a closed interval `\(I\subseteq[0,1]\)` and `\(0\le p\le1\)`, use the
+established residual operator
 
 \[
-\tau\in\{1,5\}\xRightarrow{\text{reflection}}\tau=1,\ i=2,
-\qquad
-\tau\in\{2,3,4\}\Longrightarrow i=\tau.
+\mathcal R_I(p):=
+1-\sup\{x\in[0,1]:[0,x]\subseteq[0,p]\cup I\}.
 \]
 
-Keep `\(Z_i\)` distinct from the common-capacity point `\(D_i\)`. The strict
-radial estimates belong in Appendix D.
+With the normalized C-triangle trace intervals
+
+\[
+I_R:=\{x\in[0,1]:X_0(x)\in T_C\},\qquad
+I_L:=\{x\in[0,1]:X_5(1-x)\in T_C\},
+\]
+
+retain the established residuals and radial point
+
+\[
+\rho_R:=\mathcal R_{I_R}(B_0),\qquad
+\rho_L:=\mathcal R_{I_L}(A_0),\qquad
+\rho:=\min\{\rho_R,\rho_L\},\qquad D_\tau:=\rho V_\tau.
+\]
+\[
+d_\tau^C:=\max\{x\in[0,1]:xV_\tau\in T_C\},\qquad
+d_\tau^C<\rho<1-C_\tau,
+\]
+\[
+D_\tau\in
+S\setminus\left(U_C\cup\bigcup_{j=0}^5U_j\right).
+\]
+
+Appendix D proves the two strict radial estimates and all nonlocal diameter
+exclusions.
 
 **F. No gap, one supercritical role, and all Vd0.** Use the exact definitions
 in Section 4.8 below. Its body row is
 
 \[
 N_{\mathrm{gap}}=0,\qquad N_+=1,\qquad
-\forall i\quad[T_i\text{ is Vd0}],
+(d,t)=(0,0),
 \]
 \[
 H\subseteq U_C\cup\bigcup_{i=0}^5U_i,
@@ -875,20 +1019,15 @@ The two-chart Vd1 replacement is a router, not a seventh terminal. If its
 normalized input is
 
 \[
-T_C\text{ is CE2},\qquad N_{\mathrm{gap}}\in\{1,2\},\qquad
-N_+=1,
+S\subseteq U_C\cup\bigcup_{i=0}^5U_i,\qquad
+N_E(T_C)=2,\qquad N_{\mathrm{gap}}\in\{1,2\},\qquad N_+=1,
 \]
 \[
-T_C\cap\{M_0,\ldots,M_5\}=\{M_\kappa\},\qquad
-\kappa\in\{2,3,4,5\},
-\]
-\[
-T_0\text{ is Vd1},\qquad M_1\in T_0,\qquad
-A_1+B_1>1,
+(o(T_0),n(T_0))=(1,1),\qquad M_1\in T_0,\qquad A_1+B_1>1,
 \]
 \[
 A_i+B_i\le1\quad(i\ne1),\qquad
-T_i\text{ is Vd0}\quad(1\le i\le5),
+(o(T_i),n(T_i))\in\{(1,0),(2,0)\}\quad(1\le i\le5),
 \]
 \[
 U_C\cap e_{0,1}=\varnothing,\qquad
@@ -899,7 +1038,7 @@ U_C\cap e_{0,1}=\varnothing,\qquad
 then the body theorem should state
 
 \[
-\exists\varepsilon_{\mathrm{rep}}>0\ \exists U'_0,U'_1\quad
+\exists\varepsilon>0\ \exists U'_0,U'_1\quad
 \bigl[U'_k\text{ is an open unit equilateral triangle and }V_k\in U'_k
 \quad(k=0,1)\bigr],
 \]
@@ -933,40 +1072,47 @@ C'_i&:=\max\{t\in[0,1]:R_i(t)\in T'_i\}.
 Retain
 
 \[
-\mathcal S_{\mathrm{skel}}\subseteq U_C\cup\bigcup_{i=0}^5U'_i,\qquad
-T_C\text{ is CE2},\qquad
-T'_i\text{ is Vd0}\quad(0\le i\le5),
+S\subseteq U_C\cup\bigcup_{i=0}^5U'_i,\qquad
+N_E(T_C)=2,\qquad
+(o(T'_i),n(T'_i))\in\{(1,0),(2,0)\}\quad(0\le i\le5),
 \]
 \[
 A'_i+B'_i\le1\quad(0\le i\le5),
 \]
 \[
-A'_0+B'_0=A'_1+B'_1=1-\varepsilon_{\mathrm{rep}}<1,
+A'_0+B'_0=A'_1+B'_1=1-\varepsilon<1,
 \]
 \[
 (A'_i,B'_i,C'_i)=(A_i,B_i,C_i)\quad(2\le i\le5),\qquad
-N'_+:=\bigl|\{i:A'_i+B'_i>1\}\bigr|=0.
+\bigl|\{i:A'_i+B'_i>1\}\bigr|=0.
 \]
 
 Route only from the recomputed value:
 
 \[
-N'_{\mathrm{gap}}=0\Rightarrow\text{trace terminal Z0},\qquad
-N'_{\mathrm{gap}}=1\Rightarrow\text{Terminal A},
-\]
-\[
-N'_{\mathrm{gap}}=2\Rightarrow\text{Terminal B}.
+\begin{aligned}
+N'_{\mathrm{gap}}=0&\Longrightarrow
+S\nsubseteq U_C\cup\bigcup_{i=0}^5U'_i,\\
+N'_{\mathrm{gap}}=1&\Longrightarrow
+S\nsubseteq U_C\cup\bigcup_{i=0}^5U'_i,\\
+N'_{\mathrm{gap}}=2&\Longrightarrow
+S\nsubseteq U_C\cup\bigcup_{i=0}^5U'_i.
+\end{aligned}
 \]
 
-These three arrows cite, respectively, `prop:length-branches`,
+The three implications cite, respectively, `prop:length-branches` row Z0,
 `thm:new-complementary-gap`, and `thm:new-ce2-short-ray`.
 
 Do not assert `\(N'_{\mathrm{gap}}=N_{\mathrm{gap}}\)`. Both replacement charts
 and all strict epsilon inequalities belong in Appendix D.
 
-The final body table may compress this register, but every row must cite the
-adjacent displayed definitions and state its exact symbolic hypotheses and
-conclusion. A family name is not a mathematical interface.
+The final body table may compress this register only by splitting its leftmost
+subcase-identifying block into as many symbolic hypothesis columns as needed.
+Every entry in those columns must be an equation, inequality, membership
+statement, quantified predicate, cardinality, or logical combination of them;
+no subcase entry may be a verbal name. Every row must cite the adjacent exact
+definitions and state an exact symbolic conclusion. A family name is not a
+mathematical interface.
 
 Keep schematic versions of the roadmap, complementary-gap, CE2 short-ray,
 transverse-witness, zero-gap witness, and support-arc figures, paired with the
@@ -1065,187 +1211,170 @@ against those uppercase reaches.
 
 ### 4.8 Zero-gap optimization and exact certificate
 
-The body should define the nine-point witness exactly, rather than tell its
-construction only as a story. Under the zero-gap, unique-supercritical,
-all-Vd0 hypotheses, rotate the unique supercritical role to index `\(4\)` and
-retain
+Use the public notation of `06_strategy4_reader.tex`; do not introduce a
+second zero-gap notation layer. Under a hypothetical cover, the formula-only
+body row is
 
 \[
-a:=1-\xi_3,
-\qquad b:=\xi_4,
-\qquad p:=1-b,
-\qquad q:=1-a,
-\]
-\[
-0<a,b<1,
-\qquad a+b>1,
-\qquad a^2+ab+b^2<1,
-\qquad a_i\ge p,
-\qquad b_i\ge q
-\quad(0\le i\le5).
+N_{\mathrm{gap}}=0,\qquad N_+=1,\qquad(d,t)=(0,0).
 \]
 
-Use the common lower-bound pair `\((p,q)\)` in the capacity construction of
-Section 4.6. Because every role is Vd0,
-`\(\mathcal N_i=\varnothing\)`. Define the specialized inputs explicitly:
+Rotate the unique supercritical role to index `\(4\)`. Retain
 
 \[
-c_*:=c_{\max}(p,q),
-\qquad
-\Gamma_i^*:=\max\Bigl(
-\{c_{\max}(p,q)\}
-\cup\{C_+(p,q):i-1\in\mathcal N_i\}
-\cup\{C_-(p,q):i+1\in\mathcal N_i\}
-\Bigr)=c_*,
+\xi_3<\xi_2<\xi_1<\xi_0<\xi_5<\xi_4,
 \]
 \[
-D_i^*:=R_i(\Gamma_i^*),
-\qquad \eta:=\frac{\sqrt3}{2}(1-c_*),
-\qquad \mathcal D_\eta:=\{x:d(O,x)\le\eta\}.
-\]
-
-The superscript distinguishes this common-pair instance from the general
-`\(D_i\)` in Section 4.6.
-Appendix E cites the general `\(c_{\max}\)` solution in Appendix A and records
-only the substitution `\(c_*=c_{\max}(p,q)\)` needed by the zero-gap module.
-
-Retain the exact corner cone and feasible union
-
-\[
-\mathcal W_4:=
-\{V_4+s(V_5-V_4)+t(V_3-V_4):s,t\ge0\},
-\qquad
-P_4^-(a):=X_3(1-a),
-\qquad P_4^+(b):=X_4(b),
+a:=1-\xi_3,\qquad b:=\xi_4,\qquad
+p:=1-b,\qquad q:=1-a,
 \]
 \[
-\mathcal U_{AB,4}(a,b):=
-\mathcal W_4\cap
-\bigcup\{T:T\text{ is a closed unit equilateral triangle and }
-\{V_4,P_4^-(a),P_4^+(b)\}\subseteq T\},
+0<a,b<1,\qquad a=a_4<A_4,\qquad b=b_4<B_4,
+\qquad a+b>1,\qquad a^2+ab+b^2<1,
+\]
+\[
+a_i\ge p,\qquad b_i\ge q\qquad(0\le i\le5).
 \]
 
-Put
+These relations are supplied by `\zcref{lem:ab-extreme-jump}`. Preserve the
+public equation labels `eq:reader-extreme-chain`,
+`eq:reader-ab-parameters`, and `eq:reader-ab-domain`.
+
+Define the two boundary anchors and feasible union geometrically:
 
 \[
-F_4:=\partial\mathcal U_{AB,4}(a,b)
-\cap\operatorname{int}(\mathcal W_4),
+P_A:=V_4+a(V_3-V_4),\qquad
+P_B:=V_4+b(V_5-V_4),
 \]
 \[
-\operatorname{Comp}(S):=
-\{C\subseteq S:C\ne\varnothing,\ C\text{ is connected},\
-\nexists C'\,[C\subsetneq C'\subseteq S\land C'\text{ is connected}]\}.
-\]
-\[
-\{\gamma_-\}:=
-\{C\in\operatorname{Comp}(F_4\cap\partial\mathbb B(P_4^+(b),1)):
-\mathcal H^1(C)>0\},
-\]
-\[
-\{\gamma_+\}:=
-\{C\in\operatorname{Comp}(F_4\cap\partial\mathbb B(P_4^-(a),1)):
-\mathcal H^1(C)>0\}.
-\]
-\[
-\mathfrak L_4:=
-\left\{[x,y]\subseteq F_4:
+\mathcal R_{AB}(a,b):=
+\bigcup\left\{
+T\cap H:
 \begin{array}{l}
-x\ne y,\\
-\nexists x',y'\ [x'\ne y'\land
-[x,y]\subsetneq[x',y']\subseteq F_4]
+T\text{ is a closed unit equilateral triangle},\\
+V_4,P_A,P_B\in T
+\end{array}
+\right\}.
+\]
+
+Use the already defined `\(c_{\max}\)` and retain
+
+\[
+c_\ast:=c_{\max}(p,q),\qquad
+h:=\frac{\sqrt3}{2},\qquad r_\ast:=h(1-c_\ast),
+\]
+\[
+P_i^{\mathrm{rad}}:=(1-c_\ast)V_i\qquad(0\le i\le5),
+\]
+\[
+\mathbb B(0,r_\ast):=\{X:\lVert X\rVert\le r_\ast\}.
+\]
+
+The exact radial-forcing consequence is
+
+\[
+\mathbb B(0,r_\ast)
+\subseteq\operatorname{conv}\{P_0^{\mathrm{rad}},\ldots,
+P_5^{\mathrm{rad}}\}\subset U_C.
+\]
+
+Cite `\zcref{lem:symmetric-core-witness}` and retain
+`eq:reader-forced-disk`.
+
+For the asymmetric points, retain the established symbols
+`\(\ell_-,\ell_+,\mathcal C_-,\mathcal C_+\)`. Define
+
+\[
+\mathcal C_-:=\partial\mathbb B(X_2(b),1),\qquad
+\mathcal C_+:=\partial\mathbb B(X_5(1-a),1).
+\]
+
+Define the line pieces as the corresponding maximal nondegenerate line
+segments of the interior frontier:
+
+\[
+\{\ell_-\}:=
+\left\{
+[X,Y]:
+\begin{array}{l}
+X\ne Y,\quad [X,Y]\subseteq
+\partial\mathcal R_{AB}(a,b)\cap\operatorname{int}(H),\\
+[X,Y]\cap\mathcal C_-\ne\varnothing,\\
+\nexists X',Y'\;[X,Y]\subsetneq[X',Y']
+\subseteq\partial\mathcal R_{AB}(a,b)\cap\operatorname{int}(H)
 \end{array}
 \right\},
 \]
 \[
-\{\ell_-\}:=\{L\in\mathfrak L_4:L\cap\gamma_-\ne\varnothing\},
-\qquad
-\{\ell_+\}:=\{L\in\mathfrak L_4:L\cap\gamma_+\ne\varnothing\}.
+\{\ell_+\}:=
+\left\{
+[X,Y]:
+\begin{array}{l}
+X\ne Y,\quad [X,Y]\subseteq
+\partial\mathcal R_{AB}(a,b)\cap\operatorname{int}(H),\\
+[X,Y]\cap\mathcal C_+\ne\varnothing,\\
+\nexists X',Y'\;[X,Y]\subsetneq[X',Y']
+\subseteq\partial\mathcal R_{AB}(a,b)\cap\operatorname{int}(H)
+\end{array}
+\right\}.
 \]
 
-Then retain the exact frontier result
-
-\[
-F_4=\gamma_-\cup\ell_-\cup\ell_+\cup\gamma_+,
-\]
-
-with disjoint relative interiors in the displayed cyclic order. Appendix E
-proves that all four singleton set-builders are valid and supplies the affine
-coefficients.
-
-Define the junction and first-circle selectors exactly. Set
+Then define only the established three points:
 
 \[
 \{Q_0\}:=\ell_-\cap\ell_+,
-\]
-\[
-E_-:=X_2(b),
-\qquad E_+:=X_5(1-a),
 \qquad
-\mathcal C_-:=\partial\mathbb B(E_-,1),
+\{Q_-\}:=\ell_-\cap\mathcal C_-,
 \qquad
-\mathcal C_+:=\partial\mathbb B(E_+,1),
-\]
-\[
-\{Q_-\}:=
-\operatorname{Argmin}_{Q\in\ell_-\cap\mathcal C_-}
-d(Q,Q_0),
-\qquad
-\{Q_+\}:=
-\operatorname{Argmin}_{Q\in\ell_+\cap\mathcal C_+}
-d(Q,Q_0).
+\{Q_+\}:=\ell_+\cap\mathcal C_+.
 \]
 
-Appendix E proves that the frontier decomposition and these minima exist and
-are unique, then evaluates them. Retain the exact radial-hull relation
-
-\[
-\mathcal D_\eta\subseteq
-\operatorname{conv}\{D_0^*,\ldots,D_5^*\}\subset U_C.
-\]
-
-Also retain the exact forcing statement
+Appendix E proves existence and uniqueness from
+`\zcref{thm:strict-ab-union,lem:fixed-line-signs}` and evaluates the points.
+The body retains
 
 \[
 Q_-,Q_0,Q_+\in
-\operatorname{int}(H)\setminus\bigcup_{i=0}^5U_i.
+\operatorname{int}(H)\setminus\bigcup_{i=0}^5U_i,
 \]
 
-Define the witness separately from the conclusions:
+by `\zcref{lem:asymmetric-core-witness}`. Under the hypothetical cover this
+gives
 
 \[
-K_{\mathrm{wit}}(a,b):=
-\mathcal D_\eta\cup\{Q_-,Q_0,Q_+\}.
+Q_-,Q_0,Q_+\in U_C.
 \]
 
-Under the exact hypotheses
+Retain `eq:reader-forced-asymmetric` and define the public witness exactly by
 
 \[
-H\subseteq U_C\cup\bigcup_{i=0}^5U_i,
-\qquad N_{\mathrm{gap}}=0,
-\qquad N_+=1,
-\qquad T_i\text{ is Vd0 for every }i,
+K_{\rm wit}(a,b):=
+\mathbb B(0,r_\ast)\cup\{Q_-,Q_0,Q_+\}.
 \]
 
-retain the two theorem conclusions
+The body retains
 
 \[
-K_{\mathrm{wit}}(a,b)\subset U_C,
+K_{\rm wit}(a,b)\subset U_C,
 \qquad
-\Lambda(K_{\mathrm{wit}}(a,b))\ge1.
+\Lambda(K_{\rm wit}(a,b))\ge1.
 \]
 
-The affine frontier coefficients, roots giving `\(Q_\pm\)`, pointwise
-exclusions, support-arc calculation, and mixed-overlap certificate stay in
-Appendices E and F.
+Preserve `eq:reader-witness-set`, `thm:reader-witness-enclosure`,
+`thm:reader-zero-gap-obstruction`, and `prop:reader-ab-core-branches`.
 
-Keep the public labels used by the final assembly, including
-`thm:reader-witness-enclosure`, `thm:reader-zero-gap-obstruction`, and
-`prop:reader-ab-core-branches`.
+Move the coordinate evaluation of `\(\mathcal R_{AB}(a,b)\)`, the line and
+circle equations, the roots defining `\((Q_-,Q_+)\)`, all pointwise
+exclusions, the Newton inner points, and the support-arc calculation to
+Appendix E. Retain there the existing labels `thm:strict-ab-union`,
+`lem:fixed-line-signs`, `lem:technical-newton-reduction`,
+`prop:technical-four-overlaps`, and `lem:reader-cap-chain`.
 
 Move the complete `06_zero_gap_ab_core.tex` calculation and the proof-used
 parts of `06_zero_gap_completion.tex` to Appendix E. This appendix must precede
 the exact certificate because the certificate depends on its AB variables,
-frontier points, Newton inner points, and support-overlap proposition.
+frontier points, Newton inner points, and support-overlap proposition. Define
+every retained public label exactly once.
 
 Appendix F retains `A_zero_gap_exact_certificate.tex` substantively intact:
 the manifest digest, rational upper envelopes, both L/T branch families, all
@@ -1278,9 +1407,10 @@ cases rather than perform local calculation. Preserve:
 
 Every appendix module should use the same reader contract:
 
-1. **Exact body definition.** Copy or cite the exact set, incidence,
-   intersection, or variational formula from the body. Never replace it by a
-   verbal paraphrase.
+1. **Exact interface.** Copy or cite the body's geometric or set-theoretic
+   definition. For a lemma-linked fallback function, cite its typed body
+   declaration and give its exact definition in this unique appendix lemma.
+   Never replace either form by a verbal paraphrase.
 2. **Variables and feasible set.** Introduce the evaluation coordinates,
    inequalities, open versus closed endpoint conventions, type restrictions,
    and selected
@@ -1307,10 +1437,21 @@ giving the short exact implication and, if useful, one explanatory sentence.
 Never repeat the public theorem label
 in the appendix.
 
+For every fallback function, retain the symbol used by the canonical paper or
+its numbered source and cite the supplying appendix lemma immediately with
+`\zcref`. Only when no established symbol exists may a new semantic subscript
+be introduced; its stem must match the supplying appendix lemma's title and
+label. Do not place a raw label key, a rendered lemma number, or `\zcref`
+itself inside the function symbol.
+
 ## 6. Labels, numbering, and generated material
 
 - Keep the established public labels on compact body statements used by
   `07_exhaustive_assembly.tex`.
+- The current preamble loads only `hyperref`. Load `zref-clever` after it in
+  the rewritten manuscript and use `\zcref` for the appendix-lemma links
+  described above. Retain the existing ordinary semantic `\label` commands;
+  conversion to `\zlabel` is not required.
 - Give appendix-only lemmas semantic labels. Do not compile duplicate theorem
   statements carrying the same label.
 - Remove every hard-coded `\tag{6.xx}` from relocated material. Use semantic
@@ -1379,16 +1520,18 @@ claim-to-source inventory before any manuscript text moves.
 
 1. Freeze the current theorem/label inventory and map every body conclusion to
    its numbered proof authority.
-2. Build the compact Sections 2–5 under the exact-definition policy, adapting
-   the historical reader sources and creating a new finite-enclosure reader
-   source.
+2. Build the compact Sections 2–5 under the geometric/set-theoretic-definition
+   policy, retaining established function symbols for every `\zcref`-linked
+   fallback, adapting the historical reader sources, and creating a new
+   finite-enclosure reader source.
 3. Extract the exact calculations into Appendices A–F using the common solved
    optimization format.
 4. Consolidate duplicates, repair the stale transverse-witness passages, and
    incorporate the full two-chart replacement.
-5. Convert hard-coded equation tags, resolve all forward references, and
-   update abstract, organization prose, captions, appendix guide, dependency
-   metadata, and closure checks.
+5. Convert hard-coded equation tags, install the `zref-clever` reference
+   convention, rebuild case-table subcase blocks as formula-only columns,
+   resolve all forward references, and update abstract, organization prose,
+   captions, appendix guide, dependency metadata, and closure checks.
 6. Build the paper and inspect both the normal and proof-free renderings. The
    proof-free rendering should preserve a coherent chain of exact definitions,
    hypotheses, and implications rather than disconnected theorem labels or
@@ -1448,10 +1591,13 @@ intended final PDF, and keep it as narrow as the publication policy allows.
 
 The reorganization is complete only when:
 
-- every set, scalar, function, selector, and witness used in the body has an
-  exact mathematical definition at first use; no essential object is defined
-  only by prose such as “the largest compatible reach” or “the point forced
-  by the configuration”;
+- every set, scalar, function, selector, and witness used in the body either
+  has an exact geometric or set-theoretic definition at first use or is an
+  exceptional typed function with an explicit domain, codomain, hypotheses,
+  its established canonical symbol, and an immediate `\zcref` to its unique
+  defining appendix lemma; only a genuinely unnamed output receives a new
+  semantic lemma-matching subscript, and no essential object is defined only
+  by descriptive prose;
 - every `\(\min\)`, `\(\max\)`, `\(\inf\)`, `\(\sup\)`,
   `\(\operatorname{Argmin}\)`, or `\(\operatorname{Argmax}\)` has an explicit
   feasible set and, where relevant, all actual V-type restrictions;
@@ -1467,10 +1613,15 @@ The reorganization is complete only when:
   catalogue, polynomial expansion, exact disk-plus-point evaluation, affine
   point chart, or pointwise distance audit;
 - every named body point is defined by an exact singleton intersection or
-  selected extremum, and every witness is defined by an exact set, union, or
-  convex-hull formula;
+  selected extremum whenever possible; any exception uses the typed
+  lemma-linked fallback, and every witness is defined by an exact set, union,
+  or convex-hull formula;
 - every lowercase reach is introduced by an explicit inequality against an
   uppercase actual reach;
+- in every routing, classification, or terminal-subcase table, the leftmost
+  subcase-identifying block contains only exact symbolic predicates, split
+  across multiple columns where needed; no subcase is identified there by
+  prose, and no new alias replaces an established quantity such as `\(N_+\)`;
 - the final trace, area, and enclosure interfaces are visible in the body and
   the exhaustive proof can be followed from the exact definitions and compact
   implications without consulting the coordinate evaluations;

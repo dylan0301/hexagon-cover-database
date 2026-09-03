@@ -9,9 +9,6 @@ in the active prompts directory
  don't explain in words like “(C_i) is the greatest radial reach compatible with the two boundary requirements and the actual V triangle type.”. these wordings are what makes the paper too hard toread. use exact
   mathematical definitions for these things and just use simple explanations. update the report md file
 
---------------------------------------------------
-not written in the report md
-
 two additional updates needed:
     -when we need to define the equations for some geometric things definition, use geometric or set theoretic definition if possible. if not, then use function symbols with subscript lemma name with zcref or cref then cite it in the appendix
   -when making tables, in the leftmost row when we write the subcases, don't use words. use exact mathematical defniitions and make multiple columns inside subcases if needed. write that in the reorganization report md file
