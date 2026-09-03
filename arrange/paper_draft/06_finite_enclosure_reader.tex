@@ -1,0 +1,859 @@
+\subsection{Enclosure numbers and local capacities}
+
+\begin{definition}[Equilateral enclosure number]
+\label{def:finite-enclosure-number}
+For $X\in\mathbb R^2$ and $r\ge0$, put
+\[
+ \mathbb B(X,r):=\{Y\in\mathbb R^2:\lVert Y-X\rVert\le r\}.
+\]
+For every nonempty compact $K\subset\mathbb R^2$, put
+\[
+ \Lambda(K):=
+ \inf\left\{\operatorname{side}(Q):
+ \begin{array}{l}
+ Q\text{ is a closed equilateral triangle},\\
+ K\subseteq Q
+ \end{array}
+ \right\}.
+\]
+The support-function evaluation of this infimum is
+\zcref{lem:app-shared-enclosure-gauge}.
+\end{definition}
+
+\begin{lemma}[Compact set in an open unit triangle]
+\label{lem:new-compact-open-shrink}
+\[
+ \left.
+ \begin{gathered}
+ K\subset\mathbb R^2\text{ is compact},\qquad K\subset U,\\
+ U\text{ is an open unit equilateral triangle}
+ \end{gathered}
+ \right\}
+ \Longrightarrow \Lambda(K)<1.
+\]
+\end{lemma}
+
+\begin{proof}
+The distance from $K$ to each side line of $U$ is positive.  Moving the three
+side lines inward through a common smaller distance leaves a closed
+equilateral triangle of side strictly below one that still contains $K$.
+\end{proof}
+
+Normalize at $V_0$ and use the established radial map $R_i$.
+
+\begin{definition}[Anchor hull and radial capacity]
+\label{def:finite-anchor-admissible-set}
+For $(a,b,c)\in[0,1]^3$, define
+\[
+ K(a,b,c):=\conv\{V_0,X_5(1-a),X_0(b),R_0(c)\},
+\]
+\[
+ \mathcal A:=\{(a,b,c)\in[0,1]^3:\Lambda(K(a,b,c))\le1\}.
+\]
+For
+\[
+ 0\le a,b\le1,
+ \qquad a^2+ab+b^2\le1,
+\]
+put
+\[
+ c_{\max}(a,b):=\max\{c\in[0,1]:(a,b,c)\in\mathcal A\}.
+\]
+\end{definition}
+
+\begin{proposition}[Projection and symmetry of the anchor capacity]
+\label{prop:finite-anchor-capacity-interface}
+One has
+\[
+ \{(a,b)\in[0,1]^2:\exists c\in[0,1]\ ((a,b,c)\in\mathcal A)\}
+ =\{(a,b)\in[0,1]^2:a^2+ab+b^2\le1\},
+\]
+and the maximum in Definition~\ref{def:finite-anchor-admissible-set} is
+attained.  Moreover,
+\[
+ \left.
+ \begin{gathered}
+ 0\le p,q\le1,\\
+ p^2+pq+q^2\le1
+ \end{gathered}
+ \right\}
+ \Longrightarrow c_{\max}(p,q)=c_{\max}(q,p).
+\]
+\end{proposition}
+
+\begin{proof}
+These statements are proved by the solved local enclosure problem
+\zcref{lem:app-local-admissible-set}.
+\end{proof}
+
+\begin{definition}[Neighboring-radial capacities]
+\label{def:finite-neighbor-capacities}
+For $0\le a,b\le1$ and $a+b\le1$, put
+\[
+ C_+(a,b):=
+ \max\left\{c\in[0,1]:
+ \begin{array}{l}
+ \exists\Delta\ [\Delta\text{ is a closed unit equilateral triangle},\\
+ \{V_0,X_5(1-a),X_0(b),R_1(c)\}\subseteq\Delta]
+ \end{array}
+ \right\},
+\]
+\[
+ C_-(a,b):=C_+(b,a).
+\]
+The maxima are attained and evaluated in
+\zcref{prop:app-neighbor-ray-formula}.
+\end{definition}
+
+\begin{definition}[Type-aware radial witness]
+\label{def:finite-type-aware-witness}
+Fix $i\in\mathbb Z/6\mathbb Z$ and selected reaches satisfying
+\[
+ 0\le a_j\le A_j,
+ \qquad 0\le b_j\le B_j
+ \qquad(0\le j\le5),
+\]
+\[
+ a_j^2+a_jb_j+b_j^2\le1
+ \qquad(0\le j\le5),
+\]
+\[
+ \begin{aligned}
+ \Haus(T_{i-1}\cap r_i)>0&\Longrightarrow a_{i-1}+b_{i-1}\le1,\\
+ \Haus(T_{i+1}\cap r_i)>0&\Longrightarrow a_{i+1}+b_{i+1}\le1.
+ \end{aligned}
+\]
+Define
+\[
+\begin{aligned}
+ \Gamma_i:=\max\Bigl(&\{c_{\max}(a_i,b_i)\}\\
+ &\cup\{C_+(a_{i-1},b_{i-1}):\Haus(T_{i-1}\cap r_i)>0\}\\
+ &\cup\{C_-(a_{i+1},b_{i+1}):\Haus(T_{i+1}\cap r_i)>0\}\Bigr),
+ \qquad D_i:=(1-\Gamma_i)V_i.
+\end{aligned}
+\]
+\end{definition}
+
+\begin{lemma}[Type-aware radial forcing]
+\label{lem:new-type-aware-radial-forcing}
+For the data in Definition~\ref{def:finite-type-aware-witness},
+\[
+ D_i\in r_i\subseteq S,
+ \qquad D_i\notin\bigcup_{j=0}^5U_j.
+\]
+Consequently,
+\[
+ S\subseteq U_C\cup\bigcup_{j=0}^5U_j
+ \Longrightarrow D_i\in U_C.
+\]
+\end{lemma}
+
+\begin{proof}
+This is the endpoint-strict forcing calculation
+\zcref{lem:app-type-aware-radial-forcing}.
+\end{proof}
+
+\begin{lemma}[Common-pair domination]
+\label{lem:new-common-pair-domination}
+For $p,q\ge0$ and $p+q\le1$,
+\[
+ C_+(p,q),C_-(p,q)\le1-\min\{p,q\}\le c_{\max}(p,q).
+\]
+\end{lemma}
+
+\begin{proof}
+See \zcref{lem:app-common-pair-domination}.
+\end{proof}
+
+\subsection{The common nonzero-gap terminals}
+
+For $0\le p,q\le1$ and $p+q\le1$, define
+\[
+ J(p,q):=X_0([q,1-p]),
+ \qquad c_*:=c_{\max}(p,q),
+\]
+\[
+ \mathcal D_{(\sqrt3/2)(1-c_*)}:=
+ \mathbb B\!\left(O,\frac{\sqrt3}{2}(1-c_*)\right)
+ =\left\{x:\lVert x-O\rVert\le\frac{\sqrt3}{2}(1-c_*)\right\}.
+\]
+
+\begin{theorem}[Complementary-gap enclosure]
+\label{thm:new-complementary-gap}
+\[
+ \Lambda\!\left(\mathcal D_{(\sqrt3/2)(1-c_*)}\cup J(p,q)\right)\ge1.
+\]
+\end{theorem}
+
+\begin{proof}
+The disk-plus-point optimization and endpoint comparison are
+\zcref{lem:app-complementary-gap}.
+\end{proof}
+
+\input{figures/finite_enclosure/fe03_complementary_gap}
+
+\begin{proposition}[One-gap common-enclosure terminal]
+\label{prop:finite-one-gap-common-terminal}
+Assume
+\[
+ S\subseteq U_C\cup\bigcup_{i=0}^5U_i,
+ \quad N_{\mathrm{gap}}=1,
+ \quad N_+=0,
+ \quad N_E(T_C)\in\{1,2\},
+ \quad d=0,
+ \quad t\in\{0,1,2\}.
+\]
+After rotation, let
+\[
+ \begin{aligned}
+ J&:=G_0=X_0([\ell,r]),&
+ \ell&:=B_0,&r&:=1-A_1,\\
+ p&:=1-r,&q&:=\ell,&c_*&:=c_{\max}(p,q).
+ \end{aligned}
+\]
+Then
+\[
+ 0\le p,q\le1,
+ \qquad p+q\le1.
+\]
+If
+\[
+ \forall i\in\mathbb Z/6\mathbb Z\quad
+ [(p\le A_i\land q\le B_i)\lor(q\le A_i\land p\le B_i)],
+\]
+then
+\[
+ \mathcal D_{(\sqrt3/2)(1-c_*)}\cup J\subset U_C,
+ \qquad
+ \Lambda\!\left(\mathcal D_{(\sqrt3/2)(1-c_*)}\cup J\right)\ge1.
+\]
+In particular, these hypotheses are inconsistent.
+\end{proposition}
+
+\begin{proof}
+Lemmas~\ref{lem:new-type-aware-radial-forcing} and
+\ref{lem:new-common-pair-domination} force the six vertices of a regular
+radial hexagon into $U_C$; its convex hull contains the displayed disk.  The
+exact gap definition forces $J\subset U_C$, including when $\ell=r$.
+Theorem~\ref{thm:new-complementary-gap} and
+Lemma~\ref{lem:new-compact-open-shrink} give the contradiction.
+\end{proof}
+
+\begin{theorem}[CE2 short-ray obstruction]
+\label{thm:new-ce2-short-ray}
+Assume
+\[
+ S\subseteq U_C\cup\bigcup_{i=0}^5U_i,
+ \quad N_E(T_C)=2,
+ \quad N_{\mathrm{gap}}=2,
+ \quad N_+\in\{0,1\},
+ \quad d=0.
+\]
+Normalize the two positive C-triangle traces to $e_{5,0}$ and $e_{0,1}$, and
+put
+\[
+ p:=\min\{s\in[0,1]:X_5(s)\in T_C\},
+ \qquad
+ q:=1-\max\{s\in[0,1]:X_0(s)\in T_C\},
+\]
+\[
+ c_*:=c_{\max}(p,q),
+ \qquad D_2:=(1-c_*)V_2,
+ \qquad D_4:=(1-c_*)V_4.
+\]
+Then
+\[
+ 0\le p,q\le1,
+ \qquad p+q\le1.
+\]
+If
+\[
+ \forall i\in\{1,2,3,4,5\}\quad
+ [(p\le A_i\land q\le B_i)\lor(q\le A_i\land p\le B_i)],
+\]
+then
+\[
+ c_{\max}(q,p)=c_{\max}(p,q)=c_*,
+ \qquad D_2,D_4\in U_C,
+ \qquad \{D_2,D_4\}\nsubseteq T_C.
+\]
+In particular, these hypotheses are inconsistent.
+\end{theorem}
+
+\begin{proof}
+The exact signed CE2 optimization is \zcref{lem:app-ce2-short-ray}; type-aware
+forcing and Proposition~\ref{prop:finite-anchor-capacity-interface} give the
+stated points and symmetry.
+\end{proof}
+
+\input{figures/finite_enclosure/fe04_ce2_short_ray}
+
+\begin{proposition}[All nonsupercritical nonzero-gap closures]
+\label{prop:new-nplus-zero-gap-closures}
+Every configuration satisfying the hypotheses of
+Proposition~\ref{prop:finite-one-gap-common-terminal} or
+Theorem~\ref{thm:new-ce2-short-ray} is impossible.
+\end{proposition}
+
+\begin{proof}
+This is the final sentence of the two cited results.
+\end{proof}
+
+\subsection{The transverse seven-point terminal}
+
+Suppose
+\[
+ S\subseteq U_C\cup\bigcup_{i=0}^5U_i,
+ \quad N_{\mathrm{gap}}=1,
+ \quad N_+=1,
+ \quad N_E(T_C)\in\{1,2\},
+ \quad(d,t)=(0,0),
+\]
+\[
+ T_C\cap\{M_0,\ldots,M_5\}=\{M_0\},
+ \qquad \{\sigma\}=\{i:A_i+B_i>1\},
+ \qquad \sigma=0.
+\]
+\[
+ (o(T_i),n(T_i))\in\{(1,0),(2,0)\}
+ \qquad(0\le i\le5).
+\]
+Put
+\[
+ J:=G_0=X_0([\ell,r]),
+ \qquad \ell:=B_0,
+ \qquad r:=1-A_1,
+\]
+\[
+ P_j:=R_j(C_j),
+ \qquad
+ K_{\mathrm{tr}}:=
+ \{O,M_0,X_0(\ell),X_0(r),P_2,P_3,P_4\}.
+\]
+
+\begin{lemma}[The transverse witness is center-forced]
+\label{lem:readable-k410-forced}
+\[
+ K_{\mathrm{tr}}\subset U_C.
+\]
+\end{lemma}
+
+\begin{proof}
+The two boundary points belong to the actual gap.  Each $P_j$ for
+$j\in\{2,3,4\}$ is the closed endpoint of the own radial trace, adjacent Vd0
+roles have no positive trace on $r_j$, and the nonincident roles are excluded
+by diameter one.  Hence the six open V roles miss all seven displayed points.
+\end{proof}
+
+\input{figures/finite_enclosure/fe05_k410_actual_reach}
+
+\begin{proposition}[CE2 transverse threshold terminal]
+\label{prop:readable-k410-ce2}
+No CE2 open unit equilateral triangle contains $K_{\mathrm{tr}}$.
+\end{proposition}
+
+\begin{proof}
+See \zcref{lem:app-ce2-transverse-terminal}.
+\end{proof}
+
+\begin{proposition}[CE1 three-transverse return]
+\label{prop:readable-k410-ce1}
+No CE1 open unit equilateral triangle contains $K_{\mathrm{tr}}$.
+\end{proposition}
+
+\begin{proof}
+See \zcref{lem:app-ce1-transverse-terminal}.
+\end{proof}
+
+\begin{proposition}[Transverse seven-point enclosure]
+\label{prop:new-nplus-one-all-vd0}
+\[
+ K_{\mathrm{tr}}\subset U_C,
+ \qquad \Lambda(K_{\mathrm{tr}})\ge1.
+\]
+Consequently the normalized one-gap, one-supercritical all-Vd0 hypotheses
+above are inconsistent.
+\end{proposition}
+
+\begin{proof}
+The first conclusion is Lemma~\ref{lem:readable-k410-forced}.  Every open unit
+triangle containing $O,M_0$ and a positive boundary interval is CE1 or CE2,
+so Propositions~\ref{prop:readable-k410-ce1} and
+\ref{prop:readable-k410-ce2} show that no open unit triangle contains
+$K_{\mathrm{tr}}$.  Lemma~\ref{lem:new-compact-open-shrink} finishes the
+contradiction.
+\end{proof}
+
+\subsection{Supported tails and residual separation}
+
+For $0\le c<1/2$, define
+\[
+ M_c^{\mathrm{sup}}:=
+ \sup\{b\in[0,1]:\exists a\in[0,1]\ ((a,b,c)\in\mathcal A\land a+b>1)\},
+\]
+and set
+\[
+ M_{1/2}^{\mathrm{sup}}:=\frac12.
+\]
+The endpoint value is the continuous extension evaluated in
+\zcref{lem:app-supercritical-envelope}, not the supremum of an empty strict
+feasible set.
+
+\begin{proposition}[T3-like supported-tail terminal]
+\label{prop:new-one-t3-terminal}
+Assume
+\[
+ S\subseteq U_C\cup\bigcup_{i=0}^5U_i,
+ \quad N_{\mathrm{gap}}=1,
+ \quad N_+=1,
+ \quad(d,t)=(0,1),
+ \quad N_E(T_C)\in\{1,2\},
+\]
+\[
+ T_C\cap\{M_0,\ldots,M_5\}=\{M_0\},
+ \quad (o(T_0),n(T_0))=(2,1),
+ \quad M_1\in T_0,
+ \quad A_1+B_1>1,
+\]
+\[
+ (o(T_i),n(T_i))\in\{(1,0),(2,0)\}
+ \qquad(1\le i\le5).
+\]
+If
+\[
+ T_0\cap r_1=R_1([c,u]),
+ \quad 0\le c\le\frac12\le u<1,
+ \quad \varepsilon:=1-u,
+ \quad C_1\ge c,
+ \quad M:=M_c^{\mathrm{sup}},
+\]
+then
+\[
+ R_1(u)=\varepsilon V_1\in U_C,
+ \quad A_0+\varepsilon\le1,
+ \quad A_0\le1-M,
+ \quad \frac{A_0}{A_0+\varepsilon}\le1-M,
+\]
+\[
+ B_1<M,
+ \qquad A_i+B_i\le1\quad(2\le i\le5),
+\]
+and
+\[
+ \sum_{i=2}^5(A_i+B_i)\ge4+M-B_1>4.
+\]
+Thus the hypotheses are inconsistent.
+\end{proposition}
+
+\begin{proof}
+The adapter inequalities are \zcref{lem:app-t3-supported-adapter}, and the
+common terminal is \zcref{lem:app-rescuer-tail-budget}.
+\end{proof}
+
+\begin{proposition}[Vd1 supported-tail terminal]
+\label{prop:finite-vd1-supported-terminal}
+Assume
+\[
+ S\subseteq U_C\cup\bigcup_{i=0}^5U_i,
+ \quad N_{\mathrm{gap}}\in\{1,2\},
+ \quad N_+=1,
+ \quad(d,t)=(1,0),
+ \quad N_E(T_C)=2,
+\]
+\[
+ T_C\cap\{M_0,\ldots,M_5\}=\{M_0\},
+ \quad (o(T_0),n(T_0))=(1,1),
+ \quad M_1\in T_0,
+ \quad A_1+B_1>1,
+\]
+\[
+ (o(T_i),n(T_i))\in\{(1,0),(2,0)\}
+ \qquad(1\le i\le5).
+\]
+If
+\[
+ T_0\cap r_1=R_1([c,u]),
+ \quad 0\le c\le\frac12\le u<1,
+ \quad \varepsilon:=1-u,
+ \quad C_1\ge c,
+ \quad M:=M_c^{\mathrm{sup}},
+\]
+then
+\[
+ R_1(u)=\varepsilon V_1\in U_C,
+ \quad A_0+\varepsilon\le1,
+ \quad A_0\le1-M,
+ \quad \frac{A_0}{A_0+\varepsilon}\le1-M,
+\]
+\[
+ B_1<M,
+ \qquad A_i+B_i\le1\quad(2\le i\le5),
+\]
+and
+\[
+ \sum_{i=2}^5(A_i+B_i)\ge4+M-B_1>4.
+\]
+Thus the hypotheses are inconsistent.
+\end{proposition}
+
+\begin{proof}
+Use \zcref{lem:app-vd1-supported-adapter,lem:app-rescuer-tail-budget}.
+\end{proof}
+
+\begin{lemma}[Radial separation interface]
+\label{lem:finite-radial-separation}
+For a routed arm $r_i$, define
+\[
+ d_C:=\max\{x\in[0,1]:xV_i\in T_C\},
+\]
+\[
+ c_{\mathrm{loc}}:=
+ \sup\{s\in[0,1]:R_i(s)\in U_{i-1}\cup U_i\cup U_{i+1}\}.
+\]
+Then
+\[
+ T_C\cap r_i=\{xV_i:0\le x\le d_C\},
+\]
+\[
+ (U_{i-1}\cup U_i\cup U_{i+1})\cap r_i
+ \subseteq\{xV_i:1-c_{\mathrm{loc}}\le x\le1\}.
+\]
+If $c_{\mathrm{loc}}<1-d_C$, then
+\[
+ \varnothing\ne\{xV_i:d_C<x<1-c_{\mathrm{loc}}\}
+ \subseteq
+ S\setminus\left(U_C\cup\bigcup_{j=0}^5U_j\right).
+\]
+\end{lemma}
+
+\begin{proof}
+The first two displays follow from convexity and the extremal definitions.
+Every nonlocal V role is excluded from the open interval in the last display
+by diameter one.
+\end{proof}
+
+\begin{definition}[Boundary residual]
+\label{def:finite-residual-operator}
+For a closed interval $I\subseteq[0,1]$ and $0\le p\le1$, put
+\[
+ \mathcal R_I(p):=
+ 1-\sup\{x\in[0,1]:[0,x]\subseteq[0,p]\cup I\}.
+\]
+\end{definition}
+
+\begin{proposition}[Adjacent and nonadjacent Vd separation]
+\label{prop:finite-vd-radial-separation}
+Assume
+\[
+ S\subseteq U_C\cup\bigcup_{i=0}^5U_i,
+ \quad N_E(T_C)=2,
+ \quad N_{\mathrm{gap}}\in\{1,2\},
+ \quad N_+=1,
+ \quad(d,t)=(1,0),
+\]
+\[
+ T_C\cap\{M_0,\ldots,M_5\}=\{M_0\},
+\]
+\[
+ \{\sigma\}=\{i:A_i+B_i>1\},
+ \quad
+ \{\tau\}=\{i:(o(T_i),n(T_i))\in\{(1,1),(1,2)\}\},
+\]
+\[
+ \sigma=0,
+ \quad \tau\in\{1,2,3,4,5\},
+ \quad
+ (o(T_j),n(T_j))\in\{(1,0),(2,0)\}\quad(j\ne\tau).
+\]
+If $\tau\in\{1,5\}$, reflect so that $\tau=1$ and apply
+Lemma~\ref{lem:finite-radial-separation} with $i=2$; then
+\[
+ c_{\mathrm{loc}}<1-d_C.
+\]
+If $\tau\in\{2,3,4\}$, define
+\[
+ I_R:=\{x\in[0,1]:X_0(x)\in T_C\},
+ \qquad
+ I_L:=\{x\in[0,1]:X_5(1-x)\in T_C\},
+\]
+\[
+ \rho_R:=\mathcal R_{I_R}(B_0),
+ \quad \rho_L:=\mathcal R_{I_L}(A_0),
+ \quad \rho:=\min\{\rho_R,\rho_L\},
+ \quad D_\tau:=\rho V_\tau,
+\]
+\[
+ d_\tau^C:=\max\{x\in[0,1]:xV_\tau\in T_C\}.
+\]
+Then
+\[
+ d_\tau^C<\rho<1-C_\tau,
+ \qquad
+ D_\tau\in
+ S\setminus\left(U_C\cup\bigcup_{j=0}^5U_j\right).
+\]
+Thus both alternatives contradict the assumed cover of $S$.
+\end{proposition}
+
+\begin{proof}
+The adjacent inequality is \zcref{lem:app-adjacent-vd-separation}; the two
+strict nonadjacent estimates are \zcref{lem:app-nonadjacent-vd-separation}.
+\end{proof}
+
+\subsection{The two-chart replacement router}
+
+\begin{proposition}[Two-chart Vd1 replacement and router]
+\label{prop:finite-two-chart-router}
+Assume
+\[
+ S\subseteq U_C\cup\bigcup_{i=0}^5U_i,
+ \quad N_E(T_C)=2,
+ \quad N_{\mathrm{gap}}\in\{1,2\},
+ \quad N_+=1,
+\]
+\[
+ (o(T_0),n(T_0))=(1,1),
+ \quad M_1\in T_0,
+ \quad A_1+B_1>1,
+ \quad A_i+B_i\le1\quad(i\ne1),
+\]
+\[
+ (o(T_i),n(T_i))\in\{(1,0),(2,0)\}\quad(1\le i\le5),
+ \qquad U_C\cap e_{0,1}=\varnothing,
+\]
+\[
+ \Haus(T_j\cap r_k)=0
+ \qquad(2\le j\le5,\ k\in\{0,1\}).
+\]
+Then
+\[
+ \exists\varepsilon>0\ \exists U'_0,U'_1\quad
+ \bigl[U'_k\text{ is an open unit equilateral triangle and }V_k\in U'_k
+ \quad(k=0,1)\bigr]
+\]
+such that, on setting
+\[
+ U'_i:=U_i\quad(2\le i\le5),
+ \qquad T'_i:=\overline{U'_i}\quad(0\le i\le5),
+\]
+\[
+ G'_i:=e_{i,i+1}\setminus
+ \bigl((U'_i\cap e_{i,i+1})\cup(U'_{i+1}\cap e_{i,i+1})\bigr),
+ \qquad N'_{\mathrm{gap}}:=|\{i:G'_i\ne\varnothing\}|,
+\]
+one has
+\[
+ N'_{\mathrm{gap}}\in\{0,1,2\}.
+\]
+Define
+\[
+ \begin{aligned}
+ A'_i&:=\max\{s\in[0,1]:V_i+s(V_{i-1}-V_i)\in T'_i\},\\
+ B'_i&:=\max\{s\in[0,1]:V_i+s(V_{i+1}-V_i)\in T'_i\},\\
+ C'_i&:=\max\{s\in[0,1]:R_i(s)\in T'_i\}.
+ \end{aligned}
+\]
+Then
+\[
+ S\subseteq U_C\cup\bigcup_{i=0}^5U'_i,
+ \qquad N_E(T_C)=2,
+\]
+\[
+ (o(T'_i),n(T'_i))\in\{(1,0),(2,0)\}\quad(0\le i\le5),
+ \qquad A'_i+B'_i\le1\quad(0\le i\le5),
+\]
+\[
+ A'_0+B'_0=A'_1+B'_1=1-\varepsilon<1,
+\]
+\[
+ (A'_i,B'_i,C'_i)=(A_i,B_i,C_i)\quad(2\le i\le5),
+ \qquad |\{i:A'_i+B'_i>1\}|=0.
+\]
+For the recomputed gap rank,
+\[
+ \begin{aligned}
+ N'_{\mathrm{gap}}=0&\Longrightarrow
+ S\nsubseteq U_C\cup\bigcup_{i=0}^5U'_i,\\
+ N'_{\mathrm{gap}}=1&\Longrightarrow
+ S\nsubseteq U_C\cup\bigcup_{i=0}^5U'_i,\\
+ N'_{\mathrm{gap}}=2&\Longrightarrow
+ S\nsubseteq U_C\cup\bigcup_{i=0}^5U'_i.
+ \end{aligned}
+\]
+The three implications use, respectively,
+Proposition~\ref{prop:length-branches},
+Theorem~\ref{thm:new-complementary-gap}, and
+Theorem~\ref{thm:new-ce2-short-ray}.
+\end{proposition}
+
+\begin{proof}
+The complete two-chart replacement, including every strict margin and the
+output gap-rank recomputation, is
+\zcref{thm:app-two-chart-replacement}.
+\end{proof}
+
+\begin{proposition}[Direct one-Vd placement assembly]
+\label{prop:new-one-vd-assembly}
+If
+\[
+ N_E(T_C)=2,
+ \qquad N_{\mathrm{gap}}\in\{1,2\},
+ \qquad N_+=1,
+ \qquad d=1,
+\]
+then
+\[
+ S\nsubseteq U_C\cup\bigcup_{i=0}^5U_i.
+\]
+\end{proposition}
+
+\begin{proof}
+The exact placement partition and its hypotheses are proved in
+\zcref{lem:app-one-vd-placement-audit}.  Its positive-support alternative is
+\zcref{thm:common-skeleton-count}; its Vd2 alternatives are
+\zcref{prop:ce2-vd2-midpoint-length}; and its remaining alternatives are
+\zcref{prop:finite-vd1-supported-terminal,
+prop:finite-vd-radial-separation,prop:finite-two-chart-router}.
+\end{proof}
+
+\subsection{Finite-enclosure register}
+
+Rows A--E below share the exact hypothesis
+\[
+ S\subseteq U_C\cup\bigcup_{i=0}^5U_i;
+\]
+row F retains the stronger hypothetical cover of $H$.  All entries in the
+subcase-identifying columns are formulas.
+In row F, $a,b$ and $K_{\rm wit}(a,b)$ are the exact objects defined in
+\zcref{eq:reader-ab-parameters,eq:reader-witness-set} in the following
+zero-gap subsection.
+
+\begingroup
+\scriptsize
+\renewcommand{\arraystretch}{1.16}
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{@{}c >{\centering\arraybackslash}p{.16\textwidth}
+ p{.48\textwidth}p{.27\textwidth}@{}}
+\caption{Exact finite-enclosure register.}
+\label{tab:finite-enclosure-subcases}\\
+\toprule
+&rank data&normalized predicates&exact conclusion\\
+\midrule
+\endfirsthead
+\toprule
+&rank data&normalized predicates&exact conclusion\\
+\midrule
+\endhead
+$\mathrm A$&\(\begin{gathered}N_{\rm gap}=1\\N_+=0\\d=0\\t\in\{0,1,2\}\end{gathered}\)
+&\(\begin{gathered}N_E(T_C)\in\{1,2\},\quad
+G_0=X_0([\ell,r]),\\
+\ell=B_0,\ r=1-A_1,\ p=1-r,\ q=\ell,\\
+0\le p,q\le1,\ p+q\le1,\ c_*=c_{\max}(p,q),\\
+\forall i\in\mathbb Z/6\mathbb Z,\\
+\begin{aligned}
+ &(p\le A_i\land q\le B_i)\\[-1mm]
+ &\qquad{}\lor(q\le A_i\land p\le B_i)
+\end{aligned}
+\end{gathered}\)
+&\(\begin{gathered}
+\mathcal D_{(\sqrt3/2)(1-c_*)}\cup G_0\\
+{}\subset U_C,\\
+\begin{aligned}
+\Lambda\bigl(&\mathcal D_{(\sqrt3/2)(1-c_*)}\\[-1mm]
+&{}\cup G_0\bigr)\ge1
+\end{aligned}
+\end{gathered}\)\\
+$\mathrm B$&\(\begin{gathered}N_{\rm gap}=2\\N_+\in\{0,1\}\\d=0\end{gathered}\)
+&\(\begin{gathered}N_E(T_C)=2,\quad
+p=\min\{s\in[0,1]:X_5(s)\in T_C\},\\
+q=1-\max\{s\in[0,1]:X_0(s)\in T_C\},\\
+0\le p,q\le1,\quad p+q\le1,\\
+c_*=c_{\max}(p,q),\quad D_j=(1-c_*)V_j\ (j\in\{2,4\}),\\
+\forall i\in\{1,\ldots,5\},\\
+\begin{aligned}
+ &(p\le A_i\land q\le B_i)\\[-1mm]
+ &\qquad{}\lor(q\le A_i\land p\le B_i)
+\end{aligned}
+\end{gathered}\)
+&\(\begin{gathered}c_{\max}(q,p)=c_*,\\
+D_2,D_4\in U_C,\\
+\{D_2,D_4\}\nsubseteq T_C
+\end{gathered}\)\\
+$\mathrm C$&\(\begin{gathered}N_{\rm gap}=1\\N_+=1\\(d,t)=(0,0)\end{gathered}\)
+&\(\begin{gathered}N_E(T_C)\in\{1,2\},\quad
+T_C\cap\{M_0,\ldots,M_5\}=\{M_0\},\\
+\{i:A_i+B_i>1\}=\{0\},\\
+\forall i\in\mathbb Z/6\mathbb Z\quad
+(o(T_i),n(T_i))\in\{(1,0),(2,0)\}
+\end{gathered}\)
+&\(K_{\rm tr}\subset U_C\land\Lambda(K_{\rm tr})\ge1\)\\
+$\mathrm D_1$&\(\begin{gathered}N_{\rm gap}=1\\N_+=1\\(d,t)=(0,1)\end{gathered}\)
+&\(\begin{gathered}N_E(T_C)\in\{1,2\},\quad
+T_C\cap\{M_0,\ldots,M_5\}=\{M_0\},\\
+(o(T_0),n(T_0))=(2,1),\\
+M_1\in T_0,\quad A_1+B_1>1,\\
+\forall i\in\{1,\ldots,5\}\quad
+(o(T_i),n(T_i))\in\{(1,0),(2,0)\},\\
+T_0\cap r_1=R_1([c,u]),\quad 0\le c\le\tfrac12\le u<1,\\
+\varepsilon=1-u,\quad C_1\ge c,\quad M=M_c^{\rm sup}
+\end{gathered}\)
+&\(\sum_{i=2}^5(A_i+B_i)\ge4+M-B_1>4\)\\
+$\mathrm D_2$&\(\begin{gathered}N_{\rm gap}\in\{1,2\}\\N_+=1\\(d,t)=(1,0)\end{gathered}\)
+&\(\begin{gathered}N_E(T_C)=2,\quad
+T_C\cap\{M_0,\ldots,M_5\}=\{M_0\},\\
+(o(T_0),n(T_0))=(1,1),\\
+M_1\in T_0,\quad A_1+B_1>1,\\
+\forall i\in\{1,\ldots,5\}\quad
+(o(T_i),n(T_i))\in\{(1,0),(2,0)\},\\
+T_0\cap r_1=R_1([c,u]),\quad 0\le c\le\tfrac12\le u<1,\\
+\varepsilon=1-u,\quad C_1\ge c,\quad M=M_c^{\rm sup}
+\end{gathered}\)
+&\(\sum_{i=2}^5(A_i+B_i)\ge4+M-B_1>4\)\\
+$\mathrm E_1$&\(\begin{gathered}N_{\rm gap}\in\{1,2\}\\N_+=1\\(d,t)=(1,0)\end{gathered}\)
+&\(\begin{gathered}N_E(T_C)=2,\quad
+T_C\cap\{M_0,\ldots,M_5\}=\{M_0\},\\
+\{\sigma\}=\{i:A_i+B_i>1\},\\
+\{\tau\}=\left\{i:
+\substack{(o(T_i),n(T_i))\in\\\{(1,1),(1,2)\}}
+\right\},\\
+\sigma=0,\quad\tau\in\{1,5\},\\
+\forall j\ne\tau,\\
+(o(T_j),n(T_j))\in\{(1,0),(2,0)\}
+\end{gathered}\)
+&\(c_{\rm loc}<1-d_C\)\\
+$\mathrm E_2$&\(\begin{gathered}N_{\rm gap}\in\{1,2\}\\N_+=1\\(d,t)=(1,0)\end{gathered}\)
+&\(\begin{gathered}N_E(T_C)=2,\quad
+T_C\cap\{M_0,\ldots,M_5\}=\{M_0\},\\
+\{\sigma\}=\{i:A_i+B_i>1\},\\
+\{\tau\}=\left\{i:
+\substack{(o(T_i),n(T_i))\in\\\{(1,1),(1,2)\}}
+\right\},\\
+\sigma=0,\quad\tau\in\{2,3,4\},\\
+\forall j\ne\tau,\\
+(o(T_j),n(T_j))\in\{(1,0),(2,0)\}
+\end{gathered}\)
+&\(\begin{gathered}d_\tau^C<\rho<1-C_\tau,\\
+D_\tau\in S\setminus(U_C\cup\bigcup_{j=0}^5U_j)
+\end{gathered}\)\\
+$\mathrm F$&\(\begin{gathered}N_{\rm gap}=0\\N_+=1\\(d,t)=(0,0)\end{gathered}\)
+&\(H\subseteq U_C\cup\bigcup_{i=0}^5U_i\)
+&\(K_{\rm wit}(a,b)\subset U_C\land\Lambda(K_{\rm wit}(a,b))\ge1\)\\
+\bottomrule
+\end{longtable}
+\endgroup
+
+\input{figures/finite_enclosure/fe00_case_roadmap}
+
+\begin{proposition}[All nonzero-gap finite-enclosure rows]
+\label{prop:finite-enclosure-nonzero-gap-branches}
+Every nonzero-gap row of Table~\ref{tab:routing} assigned to the
+finite-enclosure strategy is impossible.
+\end{proposition}
+
+\begin{proof}
+Rows A and B are Proposition~\ref{prop:new-nplus-zero-gap-closures}; row C is
+Proposition~\ref{prop:new-nplus-one-all-vd0}; row D is
+Propositions~\ref{prop:new-one-t3-terminal} and
+\ref{prop:finite-vd1-supported-terminal}; and row E is
+Proposition~\ref{prop:new-one-vd-assembly}.
+\end{proof}

@@ -135,40 +135,27 @@ be checked at finitely many support contacts.  The complementary-gap theorem
 uses this fact analytically; the zero-gap nine-point theorem uses it through
 the support-arc certificate in the final appendix.
 
-\subsubsection{Terminal upper bound in the one-gap exact-one case}
+\subsubsection{Current gap-endpoint squeeze for the three-transverse witness}
 
-We give the elementary derivation of (6.38).  The active center trace begins
-at $k/R$, so the unique supercritical role has forward boundary reach
+Give a candidate CE1 or CE2 C triangle its signed variables and put
 \[
- B_0\ge\frac{k}{R}.
+ X=R-\delta,
+ \qquad Q=\frac{\eta+\alpha+\delta}{2R}.
 \]
-The center exit on $r_0$ is $1-k$.  Since the finite set contains the actual
-radial endpoint $P_0=(1-C_0)V_0$, containment by the candidate center gives
+The two actual gap endpoints lie strictly inside its open trace, so
 \[
- C_0\ge k.
+ B_0>2Q,
+ \qquad A_1>X.
 \]
-The closure of $T_0$ therefore contains three points based at $V_0$ with
-selected reaches
+The diameter inequality for the two incident boundary endpoints of $T_0$
+then gives
 \[
- A_0,
- \qquad \frac{k}{R},
- \qquad k.
+ A_0\le M_0(B_0)<M_0(2Q)
+ =-Q+\sqrt{1-3Q^2}<1-Q.
 \]
-Discarding the radial point only weakens the diameter condition, and gives
-\[
- A_0\le M_0\left(\frac{k}{R}\right).
-\]
-For $0<z<1$,
-\[
- M_0(z)<1-\frac z2.
-\]
-Indeed, after moving terms and squaring, this is equivalent to
-$3z^2>0$.  With $z=k/R$,
-\[
- A_0<1-\frac{k}{2R}=1-Q.
-\]
-This is the terminal capacity contradicted separately by the direct CE1 and
-CE2 reach arguments.
+No point on $r_0$ occurs in this argument.  The current transverse witness
+retains exactly $P_2,P_3,P_4$, and the complete calculation is
+\zcref{lem:app-transverse-upper-squeeze}.
 
 \subsubsection{Strictness at singleton gaps}
 
@@ -185,13 +172,14 @@ uses the actual missing point.
 
 \subsubsection{Why a common disk is insufficient for $N_+=1$}
 
-The one-gap $N_+=1$ finite set retains all six actual radial endpoints rather
-than replacing them by one common radius.  This is necessary.  The boundary
-sequence has two ascents when the gap jump is included: the V-gap jump and the
-unique supercritical V triangle.  They need not join the global minimum to the global
-maximum.  A common lower pair can therefore move several radial witnesses
-toward $O$ and can produce a disk-plus-gap set with enclosure number below
-one.  The anisotropic set $P_0,\ldots,P_5$ preserves the six actual radial
-constraints, and equations (6.76), (6.38), and the direct CE1/CE2 arguments
-use those constraints individually.  This is the precise point at which the
-new proof differs from a relabeling of the former propagation calculation.
+The one-gap $N_+=1$ terminal does not retain all six radial endpoints.  Its
+exact witness is
+\[
+ K_{\mathrm{tr}}=
+ \{O,M_0,X_0(B_0),X_0(1-A_1),P_2,P_3,P_4\}.
+\]
+The points $P_2,P_3,P_4$ supply, respectively, the transverse radial demands
+used by the CE1 reverse return, while $P_2,P_4$ suffice for the CE2 threshold
+alternative.  The upper squeeze uses only the two actual gap endpoints.  In
+particular neither $P_0$ nor a nonexistent six-point radial catalogue enters
+the canonical proof.

@@ -1,0 +1,114 @@
+\subsection{Module A.5: strict-handoff feasibility}
+
+\paragraph{Exact interface.}
+Assume the six open V triangles cover $\partial H$.  The body selector is
+\[
+ \xi_i\in(1-A_{i+1},B_i),
+ \qquad
+ a_i:=1-\xi_{i-1}<A_i,
+ \qquad
+ b_i:=\xi_i<B_i.
+\]
+
+\paragraph{Variables and feasible set.}
+Put
+\[
+ \ell_i:=1-A_{i+1},
+ \qquad
+ u_i:=B_i.
+\]
+The exact incident open traces are $X_i([0,u_i))$ and
+$X_i((\ell_i,1])$.  Boundary coverage is therefore equivalent to the six
+strict overlap conditions $\ell_i<u_i$.
+
+\paragraph{Objective.}
+Choose one $\xi_i\in(\ell_i,u_i)$ on every edge, while preserving the unique
+actual supercritical index when $N_+=1$ and producing at least two selected
+supercritical indices when $N_+\ge2$.
+
+\paragraph{Exact result.}
+
+\begin{lemma}[Strict-handoff selector]
+\label{lem:app-strict-handoff-selection}
+The six selector intervals are nonempty.  Every simultaneous choice produces
+$0<a_i<A_i$, $0<b_i<B_i$, and
+\[
+ X_{i-1}(1-a_i),X_i(b_i)\in U_i,
+ \qquad
+ a_i^2+a_ib_i+b_i^2<1.
+\]
+If $N_+=1$, every choice has exactly one index with $a_i+b_i>1$, equal to the
+actual supercritical index.  If $N_+\ge2$, a simultaneous choice exists with
+at least two indices satisfying $a_i+b_i>1$.
+\end{lemma}
+
+\paragraph{Solution.}
+
+\begin{proof}
+Because $V_i$ is interior to a unit-diameter triangle while each other
+distinguished point is at distance at least one,
+\[
+ 0<A_i<1,
+ \qquad
+ 0<B_i<1.
+\]
+By \zcref{lem:app-exact-trace-normalizations}, only the two incident V
+triangles can cover a relative-interior point of $e_{i,i+1}$.  Their traces
+cover the edge and are open at their outer endpoints, so they must overlap:
+$\ell_i<u_i$.  Thus each selector interval is nonempty.  Its choices put the
+two selected anchors in $U_i$; their mutual squared distance is
+$a_i^2+a_ib_i+b_i^2$ and is strictly less than the squared diameter one.
+
+The actual and selected ascent tests are
+\begin{equation}
+ A_i+B_i>1\iff\ell_{i-1}<u_i,
+ \qquad
+ a_i+b_i>1\iff\xi_{i-1}<\xi_i.
+ \label{eq:app-handoff-ascents}
+\end{equation}
+If actual role $i$ is nonsupercritical, then
+\[
+ \xi_i<u_i\le\ell_{i-1}<\xi_{i-1},
+\]
+so every selected version is strictly subcritical.  Also
+\begin{equation}
+ \sum_{i=0}^5(a_i+b_i)
+ =\sum_{i=0}^5(1-\xi_{i-1}+\xi_i)=6.
+ \label{eq:app-handoff-telescoping}
+\end{equation}
+When $p$ is the sole actual supercritical index, the other five selected
+sums are below one, so \eqref{eq:app-handoff-telescoping} forces the $p$th
+sum above one.  This proves the $N_+=1$ assertion.
+
+Suppose next that $p,q$ are nonadjacent actual supercritical indices.  For
+each $r\in\{p,q\}$ choose
+\[
+ \ell_{r-1}<z_r<u_r,
+\]
+and then
+\[
+ \xi_{r-1}\in(\ell_{r-1},\min\{u_{r-1},z_r\}),
+ \qquad
+ \xi_r\in(\max\{\ell_r,z_r\},u_r).
+\]
+The two variable pairs are disjoint and give selected ascents at $p$ and
+$q$.  Any three indices on a six-cycle include a nonadjacent pair, so this
+settles $N_+\ge3$ as well.
+
+It remains that exactly two actual supercritical indices, $p,p+1$, are
+adjacent.  Along the other four nonsupercritical roles the successive
+inequalities $\ell_i<u_i\le\ell_{i-1}$ imply
+$\ell_{p-1}<\ell_{p+1}$.  Combining this with supercriticality at $p,p+1$
+gives
+\[
+ \max\{\ell_{p-1},\ell_p\}<\min\{u_p,u_{p+1}\}.
+\]
+Choose $\xi_p$ between these bounds and then choose
+$\xi_{p-1}<\xi_p<\xi_{p+1}$ in their respective overlap intervals.
+Equation \eqref{eq:app-handoff-ascents} makes both selected roles
+supercritical.
+\end{proof}
+
+\paragraph{Body consequence.}
+This supplies every clause, including endpoint strictness, in
+\zcref{prop:strict-handoffs}.

@@ -10,6 +10,10 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 ERRORS: list[str] = []
+TEX_REFERENCE_RE = re.compile(
+    r"\\(?:eqref|ref|pageref|cref|Cref|autoref|zcref|zcpageref)"
+    r"\*?(?:\[[^\]]*\])?\{([^}]+)\}"
+)
 
 
 def fail(message: str) -> None:
@@ -24,6 +28,13 @@ def active_tex(text: str) -> str:
         previous = text
         text = inactive.sub("", text)
     return text
+
+
+def tex_reference_labels(text: str) -> list[str]:
+    labels: list[str] = []
+    for raw in TEX_REFERENCE_RE.findall(text):
+        labels.extend(label.strip() for label in raw.split(",") if label.strip())
+    return labels
 
 
 def resolve_input(source: Path, raw: str) -> Path:
@@ -120,9 +131,7 @@ for name, closure in closures.items():
                     f"{labels[label].relative_to(ROOT)} and {path.relative_to(ROOT)}"
                 )
             labels[label] = path
-        for reference in re.findall(
-            r"\\(?:eqref|ref|pageref|cref|Cref|autoref)\{([^}]+)\}", text
-        ):
+        for reference in tex_reference_labels(text):
             references.append((reference, path))
     for reference, path in references:
         if reference not in labels:
@@ -130,21 +139,45 @@ for name, closure in closures.items():
 
 canonical = closures["canonical"]
 for required in [
+    "02_structure_and_common_geometry.tex",
+    "02_reader_framework.tex",
+    "03_trace_bounds.tex",
+    "03_strategy1_reader.tex",
+    "05_area_loss_full.tex",
+    "05_strategy3_reader.tex",
     "06_finite_enclosure_full.tex",
-    "06_direct_local_calculus.tex",
-    "06a_neighbor_ray_calculus.tex",
-    "06b_ce1_direct_certificate.tex",
-    "06c_exceptional_direct_terminals.tex",
-    "06d_detailed_direct_certificates.tex",
-    "06e_direct_local_proof_details.tex",
-    "06f_casewise_witness_details.tex",
-    "06g_endpoint_selector_audit.tex",
-    "06i_simplified_finite_enclosure_interfaces.tex",
+    "06_finite_enclosure_reader.tex",
+    "06_zero_gap_reader.tex",
+    "06_strategy4_reader.tex",
+    "07_exhaustive_assembly.tex",
+    "A_structural_shared_signed_optimization.tex",
+    "B_trace_length_optimization.tex",
+    "C_area_loss_optimization.tex",
+    "D_nonzero_gap_finite_enclosure_optimization.tex",
+    "E_zero_gap_nine_point_optimization.tex",
     "A_zero_gap_exact_certificate.tex",
 ]:
     path = (ROOT / "arrange/paper_draft" / required).resolve()
     if path not in canonical:
         fail(f"canonical TeX closure omits required source: {required}")
+
+main_inputs = re.findall(
+    r"\\input\{([^}]+)\}",
+    active_tex((ROOT / "arrange/paper_draft/main.tex").read_text(encoding="utf-8")),
+)
+expected_appendix_inputs = [
+    "A_structural_shared_signed_optimization",
+    "B_trace_length_optimization",
+    "C_area_loss_optimization",
+    "D_nonzero_gap_finite_enclosure_optimization",
+    "E_zero_gap_nine_point_optimization",
+    "A_zero_gap_exact_certificate",
+]
+if main_inputs[-len(expected_appendix_inputs) :] != expected_appendix_inputs:
+    fail(
+        "canonical appendix order must be A structural/shared/signed, B trace, "
+        "C area, D nonzero-gap, E zero-gap, F exact certificate"
+    )
 
 for path in canonical:
     if path.name.startswith("04_strategy2_") or path.name in {
@@ -152,6 +185,19 @@ for path in canonical:
         "04_strategy2_verification.tex",
     }:
         fail(f"canonical manuscript compiles obsolete source: {path.relative_to(ROOT)}")
+    if path.name in {
+        "06h_trace_exact_ab_atlas_appendix.tex",
+        "06i_trace_exact_ab_atlas.tex",
+    }:
+        fail(f"canonical manuscript compiles the illustrative atlas: {path.relative_to(ROOT)}")
+    if re.search(
+        r"\\tag\*?\s*\{6\.",
+        active_tex(path.read_text(encoding="utf-8", errors="replace")),
+    ):
+        fail(
+            "canonical manuscript retains a relocated numeric 6.xx equation tag: "
+            f"{path.relative_to(ROOT)}"
+        )
 
 for path in (ROOT / "proof").rglob("*.md"):
     if "9XXX_failed_ideas" in path.parts:

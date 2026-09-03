@@ -7,11 +7,11 @@
   \DrawRays
 
   \foreach \i in {0,...,5}{
-    \coordinate (D\i) at ($(O)!.16!(V\i)$);
-    \fill[DemandRed] (D\i) circle (.018);
+    \coordinate (Pr\i) at ($(O)!.16!(V\i)$);
+    \fill[DemandRed] (Pr\i) circle (.018);
   }
   \draw[DemandRed!65,line width=.65pt]
-    (D0)--(D1)--(D2)--(D3)--(D4)--(D5)--cycle;
+    (Pr0)--(Pr1)--(Pr2)--(Pr3)--(Pr4)--(Pr5)--cycle;
   \draw[CenterBlue,dashed,fill=CenterBlue!7,line width=.75pt]
     (O) circle ({.16*sqrt(3)/2});
 
@@ -24,9 +24,9 @@
   \node[figlabel,left=2pt] at (Qm) {$Q_-$};
   \node[figlabel,below=2pt] at (Qz) {$Q_0$};
   \node[figlabel,right=2pt] at (Qp) {$Q_+$};
-  \node[figlabel,right] at (D0) {$D_0$};
-  \node[figlabel,above right] at (D1) {$D_1$};
-  \node[figlabel,below left] at (D4) {$D_4$};
+  \node[figlabel,right] at (Pr0) {$P_0^{\rm rad}$};
+  \node[figlabel,above right] at (Pr1) {$P_1^{\rm rad}$};
+  \node[figlabel,below left] at (Pr4) {$P_4^{\rm rad}$};
   \fill (O) circle (.012) node[above left=1pt,figlabel] {$O$};
 
   \draw[centerrole]
@@ -34,13 +34,13 @@
   \node[figlabel,text=CenterBlue] at (.43,-.63) {putative $U_C$};
 
   \node[figlabel,atlasbox,align=left,anchor=west] at (1.20,.55)
-    {six symmetric points: $D_i=(1-c_*)V_i$\\
+    {six symmetric points: $P_i^{\rm rad}=(1-c_*)V_i$\\
      three asymmetric points: $Q_-,Q_0,Q_+$\\
-     $\mathcal D_{h(1-c_*)}\subset\operatorname{conv}\{D_i\}$};
+     $\mathbb B(0,r_*)\subset\operatorname{conv}\{P_i^{\rm rad}\}$};
   \draw[flow] (1.15,.30)--(.34,.05);
 
   \node[figlabel,align=center] at (0,-1.22)
-    {$K_{\rm wit}=\mathcal D_{h(1-c_*)}\cup\{Q_-,Q_0,Q_+\}
+    {$K_{\rm wit}=\mathbb B(0,r_*)\cup\{Q_-,Q_0,Q_+\}
       \subset U_C$ under a hypothetical cover};
 \end{tikzpicture}%
 }

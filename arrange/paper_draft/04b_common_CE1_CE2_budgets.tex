@@ -1,8 +1,27 @@
-\subsection{Common perimeter and skeleton budgets}
+\subsection{Perimeter-budget optimization}
+\label{subsec:app-perimeter-budget-optimization}
 
-The signed center formula also removes repeated length arithmetic.  We first
-state a generic perimeter deficit, then give the direct CE1/CE2 skeleton
-count used by the routing table.
+\paragraph{Exact interface.}
+The center and V-triangle boundary contributions are those of
+Theorem~\ref{thm:boundary-trace-table}.  The public routing consequence is
+Proposition~\ref{prop:length-branches}.
+
+\paragraph{Variables and feasible set.}
+The signed center variables range over the CE1 or CE2 cells of
+\zcref{prop:signed-center-normal-form}.  The remaining variables
+are the numbers and strict caps of the classified V triangles in the stated
+routing branch.
+
+\paragraph{Objective.}
+Maximize the total perimeter trace subject to those caps and compare it with
+$\mathcal H^1(\partial H)=6$.
+
+\paragraph{Exact result.}
+The exact deficit, small-slack, endpoint-slack, and routing conclusions are
+the statements of the four results below.
+
+\paragraph{Solution.}
+Their proofs perform the signed substitutions and strict endpoint checks.
 
 \begin{lemma}[Master perimeter deficit]
 \label{lem:signed-perimeter-deficit}
@@ -61,7 +80,7 @@ Put
  \kappa=\frac12-\theta=\frac32-\frac2{\sqrt3}.
 \]
 Thus $L_C>\kappa$. The CE1 cap in
-Corollary~\ref{cor:signed-center-boundary} gives
+\zcref{cor:signed-center-boundary} gives
 \[
  L_C+\theta
  \le\left(\frac{\sqrt3}{2}-\frac34\right)
@@ -125,7 +144,7 @@ Then
 \end{lemma}
 
 \begin{proof}
-Equation~\eqref{eq:signed-total-slack} gives $T<\eta/E$. Moreover
+\zcref{eq:signed-total-slack} gives $T<\eta/E$. Moreover
 \[
  E^2-(2R-1)^2=3RW>0,
 \]
@@ -140,46 +159,11 @@ and
 This is \eqref{eq:signed-endpoint-slack}.
 \end{proof}
 
-\begin{theorem}[Direct CE1/CE2 skeleton count]
-\label{thm:common-skeleton-count}
-If a CE1/CE2 branch satisfies
-$T_C\cap\{M_0,\ldots,M_5\}=\{M_0\}$ and
-\begin{equation}
- N_++N_{\mathrm{sp}}\ge3,
- \label{eq:common-skeleton-count}
-\end{equation}
-then the seven triangles do not cover the full skeleton $S$.
-\end{theorem}
-
-\begin{proof}
-Every Vd1, Vd2, or T3-like V triangle has positive support on an adjacent
-radial segment and is nonsupercritical: use
-Proposition~\ref{prop:vd-corner-normal-form} and
-Lemma~\ref{lem:t3-nonsupercritical}.  Conversely, every supercritical V
-triangle is Vd0 and has no such support.  The two classes counted by $N_+$
-and $N_{\mathrm{sp}}$ are therefore disjoint.
-
-The center skeleton cap is strictly below $3/2$.  Each of the
-$N_++N_{\mathrm{sp}}$ distinguished V triangles also contributes strictly
-less than $3/2$, by the supercritical or positive-support cap.  Every
-remaining V triangle is nonsupercritical Vd0 and contributes at most $2$.
-Consequently
-\[
- \begin{aligned}
- L_S(T_C)+\sum_{i=0}^5L_S(T_i)
- &<\frac32+\frac32(N_++N_{\mathrm{sp}})
-   +2(6-N_+-N_{\mathrm{sp}})\\
- &=\frac{27-N_+-N_{\mathrm{sp}}}{2}\le12.
- \end{aligned}
-\]
-This contradicts subadditivity for a cover of the length-$12$ skeleton.
-\end{proof}
-
 \begin{corollary}[Length branches closed by the common budgets]
 \label{cor:signed-budget-branches}
 The following branches are impossible.
 \begin{enumerate}
-\item CE0, $N_+=1$, and at least one Vd1/Vd2 V triangle;
+\item $N_{\mathrm{gap}}=0$, $N_+=1$, and at least one Vd1/Vd2 V triangle;
 \item $N_+=0$ and at least one Vd1/Vd2 V triangle, for either CE1 or CE2;
 \item CE1, $N_+=1$, and at least one Vd1/Vd2 V triangle;
 \item CE2, $N_+=1$, and at least two Vd1/Vd2 V triangles;
@@ -191,11 +175,11 @@ $M_{i+1}$;
 \end{corollary}
 
 \begin{proof}
-For item 1, take $L_C=0$, one supercritical cap $2/\sqrt3$, and one strict
-Vd1/Vd2 cap $1/2$ in Lemma~\ref{lem:signed-perimeter-deficit}; the needed
-inequality is
+For item 1, Lemma~\ref{lem:gap-exhaustion} says that the six open V
+triangles cover $\partial H$.  The unique supercritical triangle is Vd0, so
+the supercritical cap, one strict Vd1/Vd2 cap, and four unit caps give
 \[
- \frac2{\sqrt3}-1<\frac12.
+ \frac2{\sqrt3}+\frac12+4<6.
 \]
 
 For item 2, the center contribution is strictly less than $1/2$ and the
@@ -221,17 +205,38 @@ strictly less than
 
 Item 6 is Theorem~\ref{thm:common-skeleton-count}.
 
-Finally suppose $N_+\ge2$. By
-Proposition~\ref{prop:unique-center-midpoint}, normalize so that
-\[
- T_C\cap\{M_0,\ldots,M_5\}=\{M_0\}.
-\]
-Choose a supercritical index $s\ne0$. Its own midpoint $M_s$ is not covered by $T_s$, and it is not
-covered by $T_C$. Diameter locality leaves only $U_{s-1},U_s,U_{s+1}$ as
-possible V triangles containing $M_s$. Thus $M_s\in U_j$ for some
-$j\in\{s-1,s+1\}$ and, by openness,
-$\Haus(T_j\cap r_s)>0$.  Thus $T_j$ is counted by
-$N_{\mathrm{sp}}$ and is distinct from the two supercritical V triangles.
-Hence $N_++N_{\mathrm{sp}}\ge3$, and
+For item 7, Lemma~\ref{lem:positive-support-rescuer} supplies a
+positive-support triangle distinct from two supercritical triangles.  Hence
+$N_++N_{\mathrm{sp}}\ge3$, and
 Theorem~\ref{thm:common-skeleton-count} applies.
 \end{proof}
+
+\begin{lemma}[Exact trace-routing arithmetic]
+\label{lem:app-length-branch-calculation}
+Every configuration satisfying one of the six hypotheses in
+Proposition~\ref{prop:length-branches} has total available trace strictly
+smaller than the target trace required in that proposition.
+\end{lemma}
+
+\begin{proof}
+For item~(1), Lemma~\ref{lem:gap-exhaustion} says that the six open V
+triangles cover $\partial H$.  Their incident open traces overlap on every
+edge, so
+\[
+ 1<B_i+A_{i+1}\qquad(0\le i\le5).
+\]
+Summing gives $6<\sum_i(A_i+B_i)$, whereas $N_+=0$ gives the opposite weak
+inequality.
+
+Item~(2) is item~(1) of Corollary~\ref{cor:signed-budget-branches}.
+
+Item~(3) is Theorem~\ref{thm:common-skeleton-count}.  Items~(4) and~(5) are
+items~(2) and~(3), respectively, of
+Corollary~\ref{cor:signed-budget-branches}.  Item~(6) is item~(5) of that
+corollary, using Lemma~\ref{lem:vd2-neighbor-midpoint-cap}.
+\end{proof}
+
+\paragraph{Body consequence.}
+The preceding solved budget problem supplies
+Proposition~\ref{prop:length-branches}, including its center-independent
+$N_{\mathrm{gap}}=0$ rows.

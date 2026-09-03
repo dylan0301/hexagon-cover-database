@@ -29,7 +29,7 @@
   \node[figlabel,left] at (P3) {$P_3$};
   \node[figlabel,below] at (P4) {$P_4$};
   \node[figlabel,align=center] at (0,-1.18)
-    {diamonds: $X(\ell),X(r)$\\
+    {diamonds: $X_0(\ell),X_0(r)$\\
      circles: the only radial endpoints used};
 \end{tikzpicture}%
 }
@@ -39,7 +39,7 @@
 \resizebox{\linewidth}{!}{%
 \begin{tikzpicture}[scale=2.05,>=Latex]
   \node[panellabel,anchor=west] at (-1.08,1.18)
-    {(b) a candidate C triangle $U'$};
+    {(b) the hypothetical C triangle $U_C$};
   \HexCoords
   \DrawHexagon
   \DrawRays
@@ -56,8 +56,8 @@
   \draw[CenterBlue,line width=1pt] (O)--($(O)!.22!(V3)$);
   \draw[CenterBlue,line width=1pt] (O)--($(O)!.30!(V4)$);
   \node[figlabel,align=center] at (0,-1.18)
-    {$P_2,P_3,P_4\in U'$ force\\
-     $C_2>1-\delta,\ C_3>1-d_3',\ C_4>1-\alpha$};
+    {$P_2,P_3,P_4$ are the three\\
+     retained radial endpoints};
 \end{tikzpicture}%
 }
 \end{minipage}\hfill
@@ -69,10 +69,10 @@
     {(c) the scalar squeeze};
   \node[draw,rounded corners,align=center,inner sep=4pt]
     (gap) at (.5,2.02)
-    {$X(\ell),X(r)\in U'$\\$\Longrightarrow A_0<1-Q$};
+    {the two gap endpoints\\impose an upper demand};
   \node[draw,rounded corners,align=center,inner sep=4pt]
     (rad) at (.5,.92)
-    {$P_2,P_3,P_4\in U'$\\$\Longrightarrow A_0>1-Q$};
+    {the three radial endpoints\\force an incompatible return};
   \draw[-{Latex[length=3mm]},line width=.7pt] (gap)--(rad);
   \node[figlabel,text=DemandRed,align=center] at (.5,.08)
     {contradiction};
@@ -82,7 +82,7 @@
 \caption{The simplified one-gap all-Vd0 enclosure certificate.
 Only the actual gap endpoints and the three transverse radial endpoints are
 needed.  The gap gives the diameter upper squeeze at the supercritical role;
-the three radial endpoints supply the CE1/CE2 transverse return.  The former
-points $P_0,P_1,P_5$ are unnecessary.  Lengths are schematic.}
+the three radial endpoints supply the CE1/CE2 transverse return.  No radial
+point on $r_0$ is used.  Lengths are schematic.}
 \label{fig:k410-actual-reach-certificate}
 \end{figure}

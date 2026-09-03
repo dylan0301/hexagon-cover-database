@@ -12,11 +12,10 @@
   \draw[gap] ($(V5)!.64!(V0)$)--($(V5)!.84!(V0)$);
   \draw[centerrole]
     (.07,.03)--(.45,.54)--(.62,-.35)--cycle;
-  \node[figlabel,text=GapPurple] at (.55,.69) {$q=R-\delta$};
-  \node[figlabel,text=GapPurple] at (.78,-.58) {$p=W-\alpha$};
+  \node[figlabel,text=GapPurple] at (.55,.69) {demand $q$};
+  \node[figlabel,text=GapPurple] at (.78,-.58) {demand $p$};
   \node[figlabel,align=center] at (0,-1.18)
-    {$e=\min\{\alpha,\delta\}$\\
-     $p,q$ are the common boundary demands};
+    {$p,q$ are the common\\boundary demands};
 \end{tikzpicture}%
 }
 \end{minipage}\hfill
@@ -35,14 +34,14 @@
   \coordinate (D2) at (.14,1.55);
   \coordinate (D4) at (.14,.35);
   \coordinate (E4) at (.19,.35);
-  \fill[CenterBlue] (E2) circle (.024) node[above=3pt,figlabel] {$E_2=\delta V_2$};
-  \fill[DemandRed] (D2) circle (.024) node[below=3pt,figlabel] {$D_2=dV_2$};
-  \fill[DemandRed] (D4) circle (.024) node[above=3pt,figlabel] {$D_4=dV_4$};
-  \fill[CenterBlue] (E4) circle (.024) node[below=3pt,figlabel] {$E_4=\alpha V_4$};
+  \fill[CenterBlue] (E2) circle (.024) node[above=3pt,figlabel] {C trace end};
+  \fill[DemandRed] (D2) circle (.024) node[below=3pt,figlabel] {$D_2$};
+  \fill[DemandRed] (D4) circle (.024) node[above=3pt,figlabel] {$D_4$};
+  \fill[CenterBlue] (E4) circle (.024) node[below=3pt,figlabel] {C trace end};
   \draw[GapPurple,line width=1.1pt] (E2)--(D2);
   \draw[black!35,line width=1.1pt] (D4)--(E4);
   \node[figlabel,align=center] at (.52,-.42)
-    {$d=1-c_{\max}(p,q)>e$; only the shorter exit is decisive};
+    {one radial witness lies beyond the corresponding C trace};
 \end{tikzpicture}%
 }
 \end{minipage}\hfill
@@ -51,16 +50,16 @@
 \resizebox{\linewidth}{!}{%
 \begin{tikzpicture}[x=4.5cm,y=1cm,>=Latex]
   \node[panellabel,anchor=west] at (-.04,2.42) {(c) the case split};
-  \node[figlabel,anchor=west] at (0,1.84) {$e=\delta$};
+  \node[figlabel,anchor=west] at (0,1.84) {first radial alternative};
   \draw[line width=.65pt] (0,1.38)--(1,1.38);
   \fill (0,1.38) circle (.017) node[left=1pt,figlabel] {$O$};
-  \fill[CenterBlue] (.22,1.38) circle (.023) node[above=2pt,figlabel] {$E_2$};
+  \fill[CenterBlue] (.22,1.38) circle (.023) node[above=2pt,figlabel] {C trace};
   \fill[DemandRed] (.43,1.38) circle (.023) node[below=2pt,figlabel] {$D_2$};
   \draw[GapPurple,line width=1pt] (.22,1.38)--(.43,1.38);
-  \node[figlabel,anchor=west] at (0,.73) {$e=\alpha$};
+  \node[figlabel,anchor=west] at (0,.73) {second radial alternative};
   \draw[line width=.65pt] (0,.27)--(1,.27);
   \fill (0,.27) circle (.017) node[left=1pt,figlabel] {$O$};
-  \fill[CenterBlue] (.22,.27) circle (.023) node[above=2pt,figlabel] {$E_4$};
+  \fill[CenterBlue] (.22,.27) circle (.023) node[above=2pt,figlabel] {C trace};
   \fill[DemandRed] (.43,.27) circle (.023) node[below=2pt,figlabel] {$D_4$};
   \draw[GapPurple,line width=1pt] (.22,.27)--(.43,.27);
   \node[figlabel,align=center] at (.5,-.36)
@@ -69,11 +68,9 @@
 }
 \end{minipage}
 \caption{The CE2 short-ray terminal.  The two boundary gaps determine the
-common pair $(p,q)$ and the shorter center residual
-$e=\min\{\alpha,\delta\}$.  The theorem proves
-$d=1-c_{\max}(p,q)>e$.  Consequently the radial witness on the shorter of
-$r_2$ and $r_4$ lies strictly beyond the corresponding center exit and is
-uncovered.  The displayed numerical ordering is illustrative; the labelled
-case split is exact.}
+common pair $(p,q)$ and the center-forced radial witnesses $D_2,D_4$.  The
+theorem proves that at least one of these witnesses lies beyond the
+corresponding C-triangle trace and is uncovered.  The displayed ordering is
+schematic.}
 \label{fig:ce2-short-ray-certificate}
 \end{figure}

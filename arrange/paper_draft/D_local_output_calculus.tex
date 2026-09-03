@@ -1,0 +1,495 @@
+\subsection{Module D.3: nonsupercritical high-radial output}
+\label{subsec:app-finite-output-functions}
+
+\paragraph{Exact interface.}
+Use the canonical admissible set $\mathcal A$ and actual reaches of
+\zcref{def:finite-anchor-admissible-set}.  The output function below is the
+attained maximum outgoing reach on its nonsupercritical fiber.
+
+\paragraph{Variables and feasible set.}
+Let $a,b,c\in[0,1]$ satisfy $(a,b,c)\in\mathcal A$ and $a+b\le1$, with
+$c>1/2$ for the high-radial branches.  In the threshold form put $c=1-e$
+with $0<e<1-\sqrt3/2$; closed equality is allowed in the capacity, whereas
+the hypothesis on the actual incoming reach is strict.
+
+For a nonsupercritical V triangle with incoming reach at least $a$ and own
+radial reach at least $c$, define the attained outgoing capacity
+\[
+ \mathcal B_c(a):=
+ \max\{b\in[0,1]:(a,b,c)\in\mathcal A\ \land\ a+b\le1\}.
+\]
+For $0<e<1-\sqrt3/2$, put
+\[
+ \epsilon(e):=\frac{1-e}{2}
+ \left(1-\sqrt{4(1-e)^2-3}\right).
+\]
+Set
+\[
+ \mu:=\frac{2\sqrt3-3}{4}.
+\]
+The selected low root obeys
+\[
+ e<\epsilon(e),
+\]
+\[
+ 0<e\le\mu\Longrightarrow
+ \epsilon(e)<\frac{2e}{1-2e},
+ \qquad
+ 0<e\le\frac18\Longrightarrow\epsilon(e)\le2e+5e^2.
+\]
+
+For $1/2<c\le\sqrt3/2$, put
+\[
+ h(c):=\frac{2c}{1+\sqrt{16c^2-3}},
+\]
+and, for $\sqrt3/2\le c<1$, put
+\[
+ \ell(c):=\frac c2\left(1-\sqrt{4c^2-3}\right),
+ \qquad r(c):=c-\ell(c).
+\]
+Finally set
+\[
+ Q_-(a,c):=\frac{\sqrt{a^2-ac+c^2}}c-a,
+\]
+\[
+ Q_+(a,c):=
+ \frac{2(1-a^2)c^2}
+ {2ac^2+c+
+ \sqrt{(2ac^2+c)^2-4(1-c^2)(1-a^2)c^2}}.
+\]
+
+\paragraph{Objective.}
+Maximize the outgoing reach $b$ on each high-radial nonsupercritical fiber,
+then determine the exact low-root threshold that forces the outgoing actual
+reach below the same root.
+
+\paragraph{Exact result.}
+
+\begin{proposition}[Four direct high-radial outputs]
+\label{prop:app-four-direct-outputs}
+For $1/2<c\le\sqrt3/2$,
+\[
+ \mathcal B_c(a)=
+ \begin{cases}
+  1-a,&0\le a\le1-c,\\
+  Q_+(a,c),&1-c<a<h(c),\\
+  h(c),&a=h(c),\\
+  Q_-(a,c),&h(c)<a<c,\\
+  1-a,&c\le a\le1.
+ \end{cases}
+\]
+For $\sqrt3/2<c<1$,
+\[
+ \mathcal B_c(a)=
+ \begin{cases}
+  1-a,&0\le a\le1-c,\\
+  Q_+(a,c),&1-c<a\le\ell(c),\\
+  \ell(c),&\ell(c)<a<r(c),\\
+  Q_-(a,c),&r(c)\le a<c,\\
+  1-a,&c\le a\le1.
+ \end{cases}
+\]
+At $a=\ell(c)$ the selected value is $r(c)$; immediately to its right it is
+$\ell(c)$.
+\end{proposition}
+
+\begin{lemma}[Direct high-radial threshold]
+\label{lem:app-direct-threshold}
+Let a nonsupercritical V triangle have incoming, outgoing, and own-radial
+reaches $A,B,C$.  If
+\[
+ 0<e<1-\frac{\sqrt3}{2},
+ \qquad C\ge1-e,
+ \qquad A>\epsilon(e),
+\]
+then
+\[
+ B\le\epsilon(e).
+\]
+\end{lemma}
+
+\paragraph{Solution.}
+
+\begin{proof}[Proof of \zcref{prop:app-four-direct-outputs}]
+Because $c>1/2$, the radial midpoint is contained and hence $a+b\le1$.  On
+the cap $b=1-a$, the $T$-cell inequality from
+\zcref{lem:app-local-admissible-set} reduces, with
+$M=\max\{a,b\}$, to $M(c-M)\le0$.  Thus the cap is feasible exactly for
+$a\le1-c$ or $a\ge c$.
+
+Off that cap, a maximal point lies on $F_L=0$ or $F_T=0$.  When
+$1/2<c<\sqrt3/2$, the discriminant $c^2(4c^2-3)$ of the $L$ contact is
+negative, so no $L$-cell root occurs; the two ordered halves of $F_T=0$ give
+$Q_+$ and $Q_-$ and meet at $h(c)$.  When $c\ge\sqrt3/2$, the selected
+$L$ cell has $m=\min\{a,b\}\le\ell(c)$, and its selected radial frontier is
+only $m=\ell(c)$.  Indeed, the algebraic $L$ roots are
+$\ell(c),r(c)$, but the formal alternative $m\ge r(c)$ is
+incompatible with the selector $q\le0$, except at the coalescence point.
+The two ordered $q=0$ contacts are
+$(\ell(c),r(c))$ and $(r(c),\ell(c))$, producing the exceptional left
+endpoint and the constant interval.
+
+In the ordered half $a\le b$, the cap $b\le1-a$ lies strictly between the
+two formal roots of the $F_T$ quadratic, so its lower root is the selected
+$Q_+$ branch and the upper root is excluded.  The remaining geometric
+selector $c\le2\max\{a,b\}=2b$ holds throughout that retained branch: in the
+first regime $b\ge h(c)\ge c/2$, and in the second
+$b\ge r(c)\ge c/2$, with the latter equality only at
+$c=\sqrt3/2$.  Reflection gives the selected $Q_-$ branch, for which
+$c\le2a$.  These selectors give exactly the displayed pieces, including the
+stated downward jump.
+\end{proof}
+
+\begin{proof}[Proof of \zcref{lem:app-direct-threshold}]
+The value $\epsilon(e)=\ell(1-e)$ is the smaller root of
+\[
+ p_e(z):=z^2-(1-e)z+(1-e)^2-(1-e)^4=0.
+\]
+Substitution at $e$ gives
+\[
+ p_e(e)=e(1-3e+4e^2-e^3)>0,
+\]
+and $e<(1-e)/2$, the midpoint of the two roots.  Hence
+$e<\epsilon(e)$ throughout the stated range.  If $0<e\le\mu$, then
+\[
+ p_e\!\left(\frac{2e}{1-2e}\right)
+ =-\frac{e^2}{(1-2e)^2}
+ P(e),
+ \qquad
+ P(e):=4e^4-20e^3+37e^2-28e+3.
+\]
+On $[0,\mu]\subset[0,1/8]$,
+\[
+ P'(e)=16e^3-60e^2+74e-28
+ <\frac{16}{512}+\frac{74}{8}-28<0,
+\]
+whereas
+\[
+ P(\mu)=\frac{8217}{64}-74\sqrt3>0,
+ \qquad
+ \left(\frac{8217}{64}\right)^2-3\cdot74^2
+ =\frac{230001}{4096}>0.
+\]
+Thus the preceding value of $p_e$ is strictly negative,
+which proves the rational upper bound on precisely that range.  If
+$e\le1/8$, then
+\[
+ p_e(2e+5e^2)=e^2(3e+4)(8e-1)\le0,
+\]
+proving the third.  Proposition~\ref{prop:app-four-direct-outputs}, with
+$c=1-e$, shows that after $A>\epsilon(e)$ the selected constant and $Q_-$
+pieces have outgoing coordinate at most $\epsilon(e)$.  The $Q_+$ piece has
+already ended.  The upper linear branch $A\ge c$ remains possible, but there
+$B\le1-A\le e<\epsilon(e)$.  Downward closure handles $C\ge1-e$.
+\end{proof}
+
+\paragraph{Body consequence.}
+The evaluated output catalogue and threshold supply the high-radial steps in
+\zcref{prop:readable-k410-ce2,prop:readable-k410-ce1}; later Appendix D
+modules cite these two exact results rather than re-evaluating the fiber.
+
+\subsection{Module D.4: strict-supercritical envelope}
+
+\paragraph{Exact interface.}
+The body defines $M_c^{\mathrm{sup}}$ as the supremum of outgoing reaches on
+the strict-supercritical part of $\mathcal A$ in the supported-tail interface
+preceding \zcref{prop:new-one-t3-terminal}.
+
+\paragraph{Variables and feasible set.}
+Take $0\le c<1/2$ and pairs $(a,b)\in[0,1]^2$ satisfying
+$(a,b,c)\in\mathcal A$ and $a+b>1$.  For the relevant boundary reaches
+$1/2\le b<1$, put
+\[
+ \kappa(b):=\frac{1-b^2}{2-b}.
+\]
+The support-slack feasibility condition is the strict inequality
+$c<\kappa(b)$; it is not replaced by a blanket closure assertion for the
+whole face $a+b=1$.  At $c=1/2$ use the body's declared continuous endpoint
+value.
+
+\paragraph{Objective.}
+Determine the supremal outgoing reach $b$, decide attainment on the strict
+fiber, and evaluate its one-sided endpoint limit.
+
+\paragraph{Exact result.}
+
+\begin{lemma}[Strict-supercritical envelope]
+\label{lem:app-supercritical-envelope}
+For $0\le c<1/2$ the variational quantity defined in the body is
+\[
+ M_c^{\mathrm{sup}}=\frac{c+\sqrt{c^2-8c+4}}2.
+\]
+It is not attained by a strict-supercritical pair.  Moreover
+\[
+ \lim_{c\uparrow1/2}M_c^{\mathrm{sup}}=\frac12
+ =M_{1/2}^{\mathrm{sup}}.
+\]
+Thus a strict-supercritical V triangle with own-radial reach at least $c$
+has outgoing boundary reach $B<M_c^{\mathrm{sup}}$.
+\end{lemma}
+
+\paragraph{Solution.}
+
+\begin{proof}[Proof of \zcref{lem:app-supercritical-envelope}]
+For $c=0$, downward closure and the positive-$c$ calculation below give
+strict-supercritical outgoing reaches arbitrarily close to $1$, while always
+$b\le1$.  This supremum is not attained: $b=1$ and
+$a^2+ab+b^2\le1$ force $a=0$, contrary to $a+b>1$.
+Fix $0<c<1/2$.  Only $b\ge1/2$ matters for the supremum.  Put
+$a=1-b$, where $1/2\le b<1$, and use the support gauge of
+\zcref{lem:app-shared-enclosure-gauge}.
+
+Let $e_A,e_B$ be the two unit boundary directions from the corner, at angle
+$2\pi/3$, so the boundary anchors are $ae_A$ and $be_B$.  We first prove
+that $(a,b,c)$ has strict support slack, and therefore remains
+feasible after increasing $a$ slightly into $a+b>1$, exactly when
+$c<\kappa(b)$.  Reduce a support normal modulo $2\pi/3$ to the two sectors
+$[-\pi/6,\pi/6]$ and $[\pi/6,\pi/2]$.  On the first sector the three-point
+support sum for $0,ae_A,be_B$ is $\cos\phi\ge\sqrt3/2$.  On the second, put
+\[
+ p=\cos\phi,
+ \qquad q=\cos(2\pi/3-\phi),
+ \qquad t=\frac qp,
+ \qquad p^2+pq+q^2=\frac34.
+\]
+After division by $p$, the four-point support sum is
+\[
+ N(t)=a+bt+\max\{at,b,c(1+t)\}.
+\]
+Set
+\[
+ t_*:=\frac{2b-1}{1-b^2}.
+\]
+When the maximum in $N$ is $b$,
+\[
+ (1+bt)^2-(1+t+t^2)
+ =t\bigl((2b-1)-(1-b^2)t\bigr).
+\]
+Thus strict slack is possible for $t>t_*$.  The two inactive-support
+conditions $at\le b$ and $c(1+t)\le b$ admit such a $t$ exactly when
+\[
+ t_*<\frac bc-1
+ \quad\Longleftrightarrow\quad
+ c<\kappa(b);
+\]
+the bound $t_*<b/a$ is automatic.  Continuity then permits a small strict
+increase of $a$.
+
+Conversely, suppose $c\ge\kappa(b)$.  For $t\le t_*$ the term $b$ gives
+$N(t)\ge\sqrt{1+t+t^2}$.  For $t\ge t_*$, monotonicity reduces to
+$c=\kappa(b)$.  With
+\[
+ A=a+\kappa(b),
+ \qquad B=b+\kappa(b),
+\]
+the quadratic
+\[
+ (A+Bt)^2-(1+t+t^2)
+\]
+has negative constant term, positive leading coefficient, and positive root
+$t=t_*$, because $\kappa(b)(1+t_*)=b$.  It is therefore nonnegative for
+$t\ge t_*$.  Increasing $a$ makes the first-sector support sum strict and
+strictly increases every second-sector expression (the endpoint $p=0$ is
+already strict because $b+c>1$).  Hence no strict-supercritical triple with
+this $b$ is feasible.
+
+The decreasing function $\kappa$ maps $[1/2,1)$ onto $(0,1/2]$.
+Consequently the supremum is the larger root of
+\[
+ b^2-cb+2c-1=0.
+\]
+Equality has no strict support slack, so this value is not attained.  The
+limit at $c=1/2$ follows by direct substitution and equals the body's
+declared continuous value.
+\end{proof}
+
+\paragraph{Body consequence.}
+This formula and its strict nonattainment supply the value $M$ and the bound
+$B_1<M$ in \zcref{prop:new-one-t3-terminal,prop:finite-vd1-supported-terminal}.
+
+\subsection{Module D.5: selected-arc chord bounds}
+
+\paragraph{Exact interface.}
+Use the selected $Q_+$ component of the nonsupercritical output function from
+Module D.3 and the center-free boundary handoffs in
+\zcref{prop:readable-k410-ce1}.
+
+\paragraph{Variables and feasible set.}
+Let $0<e<1/2$, take $x\in[0,1]$, and set
+$q=e+(1-e)x$.  The incoming coordinate $p$ is the smaller-root point on the
+selected $Q_+$ component.  For $e<1-\sqrt3/2$ it is the high-radial arc; for
+$1-\sqrt3/2\le e<1/4$ the CE1 use is the low-radial arc.  These ranges keep
+every occurrence of $\epsilon(e)$ inside its declared domain.
+
+\paragraph{Objective.}
+Parametrize the selected output arc and obtain affine lower bounds for its
+outgoing reach along the two intervals used by the CE1 reverse path.
+
+\paragraph{Exact result.}
+
+\begin{lemma}[Selected-arc chord bounds]
+\label{lem:app-selected-chords}
+Let $0<e<1/2$.  On the selected $Q_+$ component for radial demand $1-e$,
+let $p$ be the incoming reach and let $q$ be the next incoming reach forced
+across a center-free edge.  There is $x\in[0,1]$ with
+\[
+ q=e+(1-e)x,
+ \qquad
+ p=e+(1-e)x-1+\sqrt{1-x+x^2},
+\]
+and hence
+\[
+ q-p=1-\sqrt{1-x+x^2}.
+\]
+This selected arc is increasing and concave.  On each interval used by the
+CE1 reverse path,
+\[
+ q\ge p+\lambda(p-e),
+\]
+with the following fully quantified choices.  On the high-radial arc
+$0<e<1-\sqrt3/2$, take
+\[
+ \lambda_{\mathrm{hi}}(e):=\frac{e}{\epsilon(e)-e};
+\]
+then
+\[
+ 0<e\le\mu\Longrightarrow\lambda_{\mathrm{hi}}(e)>1-4e,
+ \qquad
+ 0<e<1-\frac{\sqrt3}{2}
+ \Longrightarrow\lambda_{\mathrm{hi}}(e)>1-5e.
+\]
+On the low-radial arc $1-\sqrt3/2\le e<1/4$, put
+\[
+ t_e:=h(1-e),
+ \qquad
+ \lambda_{\mathrm{lo}}(e):=\frac{1-2t_e}{t_e-e};
+\]
+then
+\[
+ \lambda_{\mathrm{lo}}(e)>\frac13>1-5e.
+\]
+\end{lemma}
+
+\paragraph{Solution.}
+
+\begin{proof}[Proof of \zcref{lem:app-selected-chords}]
+With $x=(q-e)/(1-e)$ the selected $T$-cell equation is
+\[
+ x(1-x)=(q-p)(2-q+p).
+\]
+The smaller root gives the displayed parametrization.  If
+$\psi(x)=1-\sqrt{1-x+x^2}$, then
+\[
+ \psi''(x)=-\frac3{4(1-x+x^2)^{3/2}}<0.
+\]
+The map $x\mapsto p=e+(1-e)x-\psi(x)$ is strictly increasing and convex;
+its inverse, and therefore $p\mapsto q$, is strictly increasing and concave.
+The graph lies above each endpoint chord.
+
+On the high-radial arc the endpoint pairs are
+\[
+ (p,q)=(e,e),
+ \qquad (p,q)=(\epsilon(e),e+\epsilon(e)),
+\]
+which gives $\lambda_{\mathrm{hi}}(e)$.  For $e\le\mu$, the rational
+low-root bound proved in Module D.3 gives
+\[
+ \lambda_{\mathrm{hi}}(e)
+ >\frac{1-2e}{1+2e}>1-4e.
+\]
+If $e\le1/8$, the bound
+$\epsilon(e)\le2e+5e^2$ gives
+\[
+ \lambda_{\mathrm{hi}}(e)\ge\frac1{1+5e}>1-5e.
+\]
+If $1/8<e<1-\sqrt3/2$, then
+$\epsilon(e)<(1-e)/2$ directly from its defining radical, and hence
+\[
+ \lambda_{\mathrm{hi}}(e)>
+ \frac{2e}{1-3e}>1-5e.
+\]
+
+On the low-radial arc the other endpoint is $(t_e,1-t_e)$, giving
+$\lambda_{\mathrm{lo}}(e)$.  With $c=1-e$ and
+$t_e=2c/(1+\sqrt{16c^2-3})$, the inequality
+$\lambda_{\mathrm{lo}}(e)>1/3$ is equivalent to
+$4-c>7t_e$.  After isolating and squaring its positive radical, the
+difference factors as
+\[
+ 4(2c-1)(2c^3-15c^2-4c+16)>0
+ \qquad\left(\frac12<c\le\frac{\sqrt3}{2}\right);
+\]
+the cubic decreases on this interval and at $c=\sqrt3/2$ equals
+$(19-5\sqrt3)/4>0$.  Finally the low-radial range gives
+$e\ge1-\sqrt3/2>2/15$, and therefore
+$1/3>1-5e$ whenever this comparison is needed.
+\end{proof}
+
+\paragraph{Body consequence.}
+The two strict chord estimates supply the successive return bounds in the
+Appendix D certificate for \zcref{prop:readable-k410-ce1}.
+
+\subsection{Module D.6: Vd corner margins}
+
+\paragraph{Exact interface.}
+Use the Vd1/Vd2 corner-form actual reaches and the radial separation objects
+of \zcref{prop:finite-vd-radial-separation}; selected lower bounds remain
+distinguished from the actual reaches $A,B$.
+
+\paragraph{Variables and feasible set.}
+Take $0<A\le1$ and $0\le B\le1$ from the actual corner traces and
+$\theta>0$, with $\Delta_\theta=\sqrt{\theta^2+\theta+1}$.  The endpoint
+$u_+$ is used only when $\Haus(T_0\cap r_1)>0$.  When selected demands are
+used, write them in lowercase and require $A\ge a_*$ and $B\ge b_*$.
+
+\paragraph{Objective.}
+Evaluate the corner's own-radial reach and far supported endpoint, and prove
+the strict margins needed to place the residual radial point beyond both.
+
+\paragraph{Exact result.}
+
+\begin{lemma}[Vd corner margins]
+\label{lem:app-vd-corner-margins}
+In the Vd1/Vd2 corner form, let the actual boundary reaches satisfy
+$0<A\le1$ and $0\le B\le1$, let $\theta>0$, and put
+$\Delta_\theta=\sqrt{\theta^2+\theta+1}$.  The own-radial reach is
+\[
+ C_0=\frac{\Delta_\theta-A-\theta B}{\theta+1}.
+\]
+If $\Haus(T_0\cap r_1)>0$, the far endpoint of that positive forward
+support is
+\[
+ u_+=\frac{\Delta_\theta-A-\theta B-1}{\theta}.
+\]
+Consequently
+\[
+ C_0<1-\min\{A,B\},
+ \qquad u_+<1-B
+ \quad\text{when }\Haus(T_0\cap r_1)>0.
+\]
+If $A\ge a_*$ and $B\ge b_*$, then
+\[
+ C_0<1-\min\{a_*,b_*\},
+ \qquad u_+<1-b_*
+ \quad\text{when }\Haus(T_0\cap r_1)>0.
+\]
+Reflection supplies the backward-support version.
+\end{lemma}
+
+\paragraph{Solution.}
+
+\begin{proof}[Proof of \zcref{lem:app-vd-corner-margins}]
+Since $\Delta_\theta<\theta+1$,
+\[
+ C_0<1-\frac{A+\theta B}{\theta+1}\le1-\min\{A,B\},
+\]
+while
+\[
+ u_+<1-B-\frac A\theta<1-B.
+\]
+Monotonicity gives the selected-demand version.
+\end{proof}
+
+\paragraph{Body consequence.}
+The strict corner margins are used by the nonadjacent branch of
+\zcref{prop:finite-vd-radial-separation}.

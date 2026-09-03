@@ -1,7 +1,7 @@
-\section{Exact Unequal-Radius Support-Arc Intersections}
+\section{Exact Polynomial Positivity Certificate}
 \label{sec:strategy4-exact-certificate}
 
-The two mixed cap overlaps in Method~4 are certified by exact symbolic
+The two mixed cap overlaps in the finite-enclosure method are certified by exact symbolic
 arithmetic.  This section gives the mathematical reduction and verification
 algorithms; the repository provenance manifests identify the accompanying
 code and sparse integer data.  No floating-point arithmetic, interval
@@ -10,9 +10,11 @@ tolerance is used.
 
 \subsection{Certificate manifest}
 
-The machine-readable provenance manifest identifies the six sparse-data
-shards and both exact verifiers by full Git blob; the source ledger records
-their role.  They decode to one canonical sparse-polynomial transcript with
+The certificate has a machine-readable provenance manifest.  The file
+\nolinkurl{certificate_provenance.json}, in the numbered $3105X$ computation
+directory, identifies the six sparse-data shards and both exact verifiers by
+full Git blob and records their roles.  They decode to one canonical
+sparse-polynomial transcript with
 SHA--256 digest
 \begin{verbatim}
 dc46aaf263655d5159ecd3a81db72ee82477951d06172f4743b248df37209485
@@ -24,7 +26,7 @@ signs exactly.
 
 \subsection{Rational radial upper envelopes}
 
-Retain the notation of Section~\ref{sec:ab-core}.  Thus
+Retain the notation of \zcref{sec:ab-core}.  Thus
 \[
  p=1-b,\qquad q=1-a,\qquad s=p+q,\qquad
  m=\min\{p,q\},\qquad M=\max\{p,q\},
@@ -32,6 +34,11 @@ Retain the notation of Section~\ref{sec:ab-core}.  Thus
 \[
  \chi=s^4-s^2+mM,\qquad h=\frac{\sqrt3}{2},\qquad
  c_*=c_{\max}(p,q).
+\]
+For the certificate formulas only, abbreviate
+\[
+ A:=P_-,\qquad C:=P_+,\qquad \eta:=r_*,
+ \qquad I(X,r):=\operatorname{Cap}(X,r).
 \]
 The strict witness domain gives
 \begin{equation}
@@ -124,7 +131,7 @@ On the active cell let $\bar c$ denote the corresponding expression in
 \[
  \bar\eta=h(1-\bar c),\qquad e=1-\bar c,\qquad t=2\bar c-1.
 \]
-Lemma~\ref{lem:paper-branchwise-cbar} gives
+\zcref{lem:paper-branchwise-cbar} gives
 $0<\bar\eta\le\eta=h(1-c_*)$.  It therefore suffices to prove the mixed
 intersections for the smaller disks with radii $2\bar\eta,\bar\eta,2\bar\eta$.
 
@@ -152,11 +159,11 @@ Define
 \label{lem:paper-residual-to-overlap}
 If $Q_A,Q_C\ge0$, then
 \[
- I(C,2\bar\eta)\cap I(C+\mathsf RA,\bar\eta)\ne\varnothing,
+ I(C,2\bar\eta)\cap I(C+\mathsf R A,\bar\eta)\ne\varnothing,
 \]
 and
 \[
- I(C+\mathsf RA,\bar\eta)\cap I(\mathsf RA,2\bar\eta)\ne\varnothing.
+ I(C+\mathsf R A,\bar\eta)\cap I(\mathsf R A,2\bar\eta)\ne\varnothing.
 \]
 Consequently the same intersections hold with $\eta$ in place of
 $\bar\eta$.
@@ -321,7 +328,7 @@ This is precisely the conversion implemented by the verifier.
 On the complete strict witness domain with $c_*>2/3$, all eight polynomials in
 \eqref{eq:certificate-core-reduction} are nonnegative.  Hence
 $Q_A,Q_C\ge0$, and the two mixed cap intersections required by
-Proposition~\ref{prop:technical-four-overlaps} hold.
+\zcref{prop:technical-four-overlaps} hold.
 \end{theorem}
 
 \begin{proof}
@@ -329,7 +336,7 @@ The $T$ chart proves the four $T$-cell core signs by nonnegative Bernstein
 coefficients.  On each $L$ chart the positive Bernstein certificates for
 $E_F$ and $R_F$ prove the four $L$-cell signs.  Since $D\ge0$,
 \eqref{eq:certificate-core-reduction} gives $Q_A,Q_C\ge0$ for $z\ge0$;
-reflection supplies $z\le0$.  Lemma~\ref{lem:paper-residual-to-overlap} then
+reflection supplies $z\le0$.  \zcref{lem:paper-residual-to-overlap} then
 gives the two cap intersections.
 \end{proof}
 

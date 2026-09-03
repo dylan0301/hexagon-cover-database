@@ -1,9 +1,24 @@
-\medskip
-\noindent\textbf{Simplified finite-enclosure interfaces.}
-\par\smallskip
+\subsection{Module D.7: disk--finite-set calipers}
+
+\paragraph{Exact interface.}
+The enclosure objective is $\Lambda(\mathcal D_\eta\cup P)$ with $\Lambda$
+and the closed centered disk defined in
+\zcref{def:finite-enclosure-number}; here $P$ is the displayed finite set.
+
+\paragraph{Variables and feasible set.}
+Let $\eta\ge0$, let $\mathcal D_\eta=\mathbb B(O,\eta)$, and take
+$P=\{p_1,\ldots,p_m\}$.  The feasible orientation is a unit normal on the
+full normal circle; point--disk ties require $\lVert p_i\rVert\ge\eta$, and
+point--point ties require $p_i\ne p_k$.
+
+\paragraph{Objective.}
+Minimize the three-direction support sum for $\mathcal D_\eta\cup P$ and
+reduce every non-disk-only minimizer to a finite list of tie normals.
+
+\paragraph{Exact result.}
 
 \begin{proposition}[Disk--finite-set calipers]
-\label{prop:new-disk-finite-caliper}
+\label{prop:app-disk-finite-caliper}
 Let $\mathcal D_\eta$ be centered at $O$, let
 $P=\{p_1,\ldots,p_m\}$, and let $\mathsf J$ denote rotation by $\pi/2$.
 Unless the disk is the active support in all three directions at a minimizing
@@ -22,7 +37,9 @@ Thus one side of a least enclosing equilateral triangle either contains two
 points, or is tangent to the disk and contains one point.
 \end{proposition}
 
-\begin{proof}
+\paragraph{Solution.}
+
+\begin{proof}[Proof of \zcref{prop:app-disk-finite-caliper}]
 The tie directions partition the normal circle into cells with fixed support
 sources.  On a cell with $q$ disk supports,
 \[
@@ -36,8 +53,30 @@ A minimum occurs at a point--point or point--disk tie.  On a disk-only cell
 the support sum is $3\eta$, already the global minimum.
 \end{proof}
 
+\paragraph{Body consequence.}
+This finite caliper reduction supplies the disk-plus-point evaluation used
+by \zcref{thm:new-complementary-gap}.
+
+\subsection{Module D.8: half-edge one-third radial envelope}
+
+\paragraph{Exact interface.}
+Use the anchor admissible set and attained radial envelope $c_{\max}$ from
+\zcref{def:finite-anchor-admissible-set}.
+
+\paragraph{Variables and feasible set.}
+The ordered boundary demands satisfy
+$M\ge1/2$, $0<m\le M$, and $M+m<1$.  The candidate radial coordinate is in
+$[0,1]$ and is selected from the $L$ or $T$ cell of
+\zcref{lem:app-local-admissible-set}.
+
+\paragraph{Objective.}
+Give a strict upper bound for the maximum feasible own-radial reach in terms
+of the smaller boundary demand.
+
+\paragraph{Exact result.}
+
 \begin{lemma}[Half-edge one-third radial envelope]
-\label{lem:new-one-third-radial-envelope}
+\label{lem:app-one-third-radial-envelope}
 If
 \[
  M\ge\frac12,\qquad 0<m\le M,\qquad M+m<1,
@@ -45,13 +84,14 @@ If
 then
 \[
  \boxed{c_{\max}(M,m)<1-\frac m3.}
- \tag{6.34a}
 \]
 \end{lemma}
 
-\begin{proof}
+\paragraph{Solution.}
+
+\begin{proof}[Proof of \zcref{lem:app-one-third-radial-envelope}]
 Put $s=M+m$ and $c_0=1-m/3$.  Only the $L$ and $T$ cells of
-Proposition~\ref{prop:new-exact-local-set} can occur.
+\zcref{lem:app-local-admissible-set} can occur.
 
 For $m\le3/8$, substitution into the $L$ polynomial gives
 \[
@@ -60,8 +100,19 @@ For $m\le3/8$, substitution into the $L$ polynomial gives
  \frac m{81}(m^3-12m^2-63m+27)>0;
 \]
 the cubic decreases on $[0,3/8]$ and equals $891/512$ at $3/8$.
-Thus the selected $L$ root is below $c_0$.  At the $L/T$ transition the two
-roots agree.  On the $T$ cell,
+Moreover
+\[
+ F_L\!\left(\frac{\sqrt3}{2}\right)
+ =-\left(m-\frac{\sqrt3}{4}\right)^2\le0,
+\]
+and
+\[
+ F_L'(c)=c(4c^2-2)+m>0
+ \qquad\left(c\ge\frac{\sqrt3}{2}\right).
+\]
+Thus $F_L$ is strictly increasing from its selected sign change on
+$[\sqrt3/2,1]$, and the selected $L$ root is below $c_0$.  At the $L/T$
+transition the two roots agree.  On the $T$ cell,
 \[
  c_T(s)=\frac{2(s-m)}{1+\sqrt{4s^2-3}},
 \]
@@ -83,8 +134,50 @@ so only the $T$ cell occurs.  It decreases with $M$; at $M=1/2$,
 $s\ge7/8$ and its value is at most $4/5<5/6<c_0$.
 \end{proof}
 
+\paragraph{Body consequence.}
+The strict one-third bound supplies the local endpoint estimate in the
+adjacent branch of \zcref{prop:finite-vd-radial-separation}.
+
+\subsection{Module D.9: rescuer endpoint and boundary-tail budget}
+
+\paragraph{Exact interface.}
+Use the supported interval, actual reaches, strict-supercritical envelope,
+and four-edge nonsupercritical path in
+\zcref{prop:new-one-t3-terminal,prop:finite-vd1-supported-terminal}, together
+with the exact signed center traces and exits of
+\zcref{prop:signed-center-normal-form}.
+
+\paragraph{Variables and feasible set.}
+The special role has boundary endpoint $a$ and radial interval
+$[c,u]\subset r_1$ with $\varepsilon=1-u$ and
+$M=M_c^{\mathrm{sup}}$.  The center role is CE1 or CE2 in signed normal form,
+with $0<R<1$, $W=1-R$, $E=\sqrt{1-RW}$,
+$\eta=1-E$, positive slacks $\alpha,\delta$, and
+$k=\eta+\alpha+\delta$.  The four displayed adapter inequalities are
+assumed, $T_1$ is uniquely supercritical with radial reach at least $c$, and
+$T_2,\ldots,T_5$ form the center-free nonsupercritical path.
+
+\paragraph{Objective.}
+Lower-bound the far boundary demand by $M$ in both center-trace alternatives
+and test it against the four nonsupercritical boundary budgets.
+
+\paragraph{Exact result.}
+
 \begin{lemma}[Rescuer endpoint and boundary-tail budget]
-\label{lem:new-rescuer-tail-budget}
+\label{lem:app-rescuer-tail-budget}
+Let $T_C$ be a CE1 or CE2 center role in the signed normal form of
+\zcref{prop:signed-center-normal-form}.  Thus
+\[
+ 0<R<1,
+ \quad W=1-R,
+ \quad E=\sqrt{1-RW},
+ \quad \eta=1-E,
+ \quad \alpha,\delta>0,
+ \quad k=\eta+\alpha+\delta,
+\]
+when its positive companion boundary trace on $e_{5,0}$ is present, that
+trace is $[k/W,R+\alpha]$; it may instead be empty or a point contact.  Its
+exit on $r_1$, measured from $O$, is $\delta/R$.
 Suppose a special role at $V_0$ has boundary endpoint $a$ on $e_{5,0}$ and
 supported interval $[c,u]\subset r_1$, measured from $V_1$ toward $O$.
 Put
@@ -98,14 +191,19 @@ Assume
 \[
  a\le1-M,\qquad
  \frac{a}{a+\varepsilon}\le1-M.
- \tag{6.34b}
+\]
+Assume also
+\[
+ U_C\cap\bigcup_{i=1}^4e_{i,i+1}=\varnothing.
 \]
 If $T_1$ is uniquely supercritical with own-radial reach at least $c$ and
-$T_2,T_3,T_4,T_5$ are nonsupercritical on the center-free four-edge path,
+$T_2,T_3,T_4,T_5$ are nonsupercritical along this four-edge path,
 then the skeleton is not covered.
 \end{lemma}
 
-\begin{proof}
+\paragraph{Solution.}
+
+\begin{proof}[Proof of \zcref{lem:app-rescuer-tail-budget}]
 Let $h_T$ be the far boundary demand on $T_5$.  If the companion C trace
 does not hide $a$, then $h_T\ge1-a\ge M$.
 
@@ -140,3 +238,7 @@ gives
 \]
 contrary to nonsupercriticality.
 \end{proof}
+
+\paragraph{Body consequence.}
+Together with the two branch-specific adapters, this common terminal proves
+\zcref{prop:new-one-t3-terminal,prop:finite-vd1-supported-terminal}.

@@ -1,24 +1,41 @@
-\subsection{Support arcs and the enclosure conclusion}
+\subsection{Support-arc enclosure module}
 \label{subsec:nine-point-conclusion}
 
-Let $\mathsf R$ denote counterclockwise rotation through $2\pi/3$.  Retain
-the points $A,B,C$, the vector $W=C+\mathsf RA$, the forced disk
-$\mathcal D_\eta$, and the exact witness set $K_{\rm wit}$ constructed above.
-For uniform notation put
+\paragraph{Exact interface.}
+The body supplies the compact witness
 \[
- P_-=A,\qquad P_0=B,\qquad P_+=C,\qquad
- P_\ast=W,\qquad r_\ast=\eta,
+ K_{\rm wit}(a,b)=\mathbb B(0,r_*)\cup\{Q_-,Q_0,Q_+\}
 \]
-and
+in \zcref{eq:reader-witness-set}, together with the exact level-$h$ cap
 \[
- \widehat K=\conv\bigl(\mathcal D_\eta\cup\{A,B,C\}\bigr).
+ \operatorname{Cap}(X,r)
+ =\{n\in\mathbb S^1:\langle X,n\rangle+r\ge h\}.
 \]
-For $X\in\mathbb R^2$ and $r\ge0$, write
+
+\paragraph{Variables and feasible set.}
+The parameters satisfy $0<a,b<1$, $a+b>1$, and
+$a^2+ab+b^2<1$.  The disk branch is split exactly at $c_*=2/3$; on the
+strict branch $c_*>2/3$, use the Newton points and cap overlaps from the
+preceding module.  All support directions range over the closed unit circle
+$\mathbb S^1$.
+
+\paragraph{Objective.}
+Determine the enclosure gauge of $K_{\rm wit}(a,b)$ by proving the sharp
+sufficient bound $\Lambda(K_{\rm wit}(a,b))\ge1$ on the entire feasible
+domain.
+
+\paragraph{Exact result.}
+The cyclic cap implication is \zcref{lem:reader-cap-chain}; together with the
+disk branch and the four-overlap module it yields
+\zcref{thm:zero-gap-enclosure-optimization}.
+
+\paragraph{Solution.}
+
+Let $\mathsf R$ denote counterclockwise rotation through $2\pi/3$.  For
+$X\in\mathbb R^2$ and $r\ge0$, recall
 \[
  \mathbb B(X,r)=\{Y:\lVert Y-X\rVert\le r\},
-\]
-and define the level-$h$, $h=\sqrt3/2$, support arc
-\[
+ \qquad
  \operatorname{Cap}(X,r)
  =\{n\in\mathbb S^1:\langle X,n\rangle+r\ge h\}.
 \]
@@ -31,31 +48,48 @@ Let $K$ be compact and put
 \]
 Suppose $\Sigma_K$ contains the full $\mathsf R$-orbits of
 \[
- \mathbb B(P_-,2r_\ast),\quad
- \mathbb B(P_0,2r_\ast),\quad
- \mathbb B(P_+,2r_\ast),\quad
- \mathbb B(P_\ast,r_\ast).
+ \mathbb B(P_-,2r_*),
+ \quad
+ \mathbb B(P_0,2r_*),
+ \quad
+ \mathbb B(P_+,2r_*),
+ \quad
+ \mathbb B(P_*,r_*),
+ \qquad
+ P_*:=P_++\mathsf R P_-.
 \]
-Assume that the rays
+Let $\theta_X$ denote the argument of the ray through $X$.  Assume the rays
 \[
- P_-,P_0,P_+,P_\ast,\mathsf RP_-
+ P_-,P_0,P_+,P_*,\mathsf R P_-
 \]
-occur in this cyclic order, that every corresponding support arc is connected
-with half-width less than $\pi/2$, and that each consecutive pair of arcs
-intersects across the intervening short angular sector.  Then
+occur in this cyclic order, every corresponding support arc is connected
+with half-width less than $\pi/2$, and, for each consecutive pair $(X,r)$,
+$(Y,s)$ in
+\[
+ (P_-,2r_*),
+ (P_0,2r_*),
+ (P_+,2r_*),
+ (P_*,r_*),
+ (\mathsf R P_-,2r_*),
+\]
+one has
+\[
+ \operatorname{Cap}(X,r)\cap\operatorname{Cap}(Y,s)
+ \cap\{n:\arg n\in[\theta_X,\theta_Y]\}\ne\varnothing,
+\]
+where $[\theta_X,\theta_Y]$ is the intervening short angular interval.
+Then
 \[
  \Lambda(K)\ge1.
 \]
 \end{lemma}
 
-\input{figures/finite_enclosure/fe12_support_caps}
-
 \begin{proof}
-The four consecutive intersections and the cyclic order make the five arcs
-cover the sector from the ray of $P_-$ to the ray of $\mathsf RP_-$.  Their
-$\mathsf R$-orbits cover $\mathbb S^1$.  Hence for every unit vector $n$ one
-of the displayed disks has support at least $h$ in direction $n$, and
-therefore
+The four consecutive intersections and the cyclic order make the five
+support arcs cover the sector from the ray of $P_-$ to the ray of
+$\mathsf R P_-$.  Their $\mathsf R$-orbits cover $\mathbb S^1$.  Hence, for
+every unit vector $n$, one of the displayed disks has support at least $h$
+in direction $n$, and therefore
 \[
  h_{\Sigma_K}(n)\ge h.
 \]
@@ -63,62 +97,47 @@ Since
 \[
  h_{\Sigma_K}(n)=\sum_{j=0}^2h_K(\mathsf R^jn),
 \]
-Proposition~\ref{prop:universal-enclosure-gauge} gives $\Lambda(K)\ge1$.
+\zcref{prop:universal-enclosure-gauge} gives $\Lambda(K)\ge1$.
 \end{proof}
 
-\begin{theorem}[Witness enclosure]
-\label{thm:reader-witness-enclosure}
-For every exact-one-supercritical parameter pair $(a,b)$ constructed above,
+\begin{theorem}[Zero-gap nine-point optimization]
+\label{thm:zero-gap-enclosure-optimization}
+For every pair $(a,b)$ in the strict domain
 \[
- \Lambda(K_{\rm wit}(a,b))\ge1.
+ 0<a,b<1,
+ \qquad a+b>1,
+ \qquad a^2+ab+b^2<1,
+\]
+the exact public witness satisfies
+\[
+ \Lambda\bigl(K_{\rm wit}(a,b)\bigr)\ge1.
 \]
 \end{theorem}
 
 \begin{proof}
 The centered disk alone gives
 \[
- \Lambda(K_{\rm wit})\ge3(1-c_\ast),
+ \Lambda(K_{\rm wit})
+ \ge\frac{3r_*}{h}
+ =3(1-c_*),
 \]
-so the result follows when $c_\ast\le2/3$.  Assume $c_\ast>2/3$.
-Lemma~\ref{lem:technical-newton-reduction} gives
-$\widehat K\subseteq\conv(K_{\rm wit})$.  The Minkowski sum
-$\widehat K+\mathsf R\widehat K+\mathsf R^2\widehat K$ contains the disk
-orbits listed in Lemma~\ref{lem:reader-cap-chain}.
-Proposition~\ref{prop:technical-four-overlaps} supplies the ray order, radius
-bounds, and equal-radius intersections; Theorem
-\ref{thm:paper-exact-mixed-certificate} supplies the two mixed intersections.
-Lemma~\ref{lem:reader-cap-chain} therefore gives
-$\Lambda(\widehat K)\ge1$, and monotonicity yields
-$\Lambda(K_{\rm wit})\ge1$.
+so the assertion follows when $c_*\le2/3$.  Assume $c_*>2/3$.
+By \zcref{lem:technical-newton-reduction,eq:reader-newton-reduction},
+$\widehat K\subseteq\conv(K_{\rm wit})$ and
+$\Lambda(K_{\rm wit})\ge\Lambda(\widehat K)$.  The Minkowski sum
+\[
+ \widehat K+\mathsf R\widehat K+\mathsf R^2\widehat K
+\]
+contains the disk orbits listed in \zcref{lem:reader-cap-chain}.
+The ray order, radius bounds, and all four intervening overlaps are
+\zcref{prop:technical-four-overlaps}; the two mixed overlaps there are
+certified exactly by \zcref{thm:paper-exact-mixed-certificate}.
+Thus \zcref{lem:reader-cap-chain} gives $\Lambda(\widehat K)\ge1$, and the
+Newton containment finishes the proof.
 \end{proof}
 
-\begin{theorem}[Zero-gap obstruction]
-\label{thm:reader-zero-gap-obstruction}
-There is no cover of $H$ by open unit equilateral triangles
-$U_C,U_0,\ldots,U_5$ such that every $U_i$ is $\Vdzero$, the six vertex
-triangles cover $\partial H$, and exactly one V triangle is
-supercritical.
-\end{theorem}
-
-\begin{proof}
-The construction above forces the compact set $K_{\rm wit}$ into the open
-C triangle $U_C$, whereas
-Theorem~\ref{thm:reader-witness-enclosure} gives
-$\Lambda(K_{\rm wit})\ge1$.  Every compact subset of an open unit
-equilateral triangle is contained in a closed equilateral triangle of side
-strictly below one, which would imply $\Lambda(K_{\rm wit})<1$.
-\end{proof}
-
-\begin{proposition}[Cases excluded by the nine-point obstruction]
-\label{prop:reader-ab-core-branches}
-Theorem~\ref{thm:reader-zero-gap-obstruction} excludes every
-$N_{\mathrm{gap}}=0$, $N_+=1$, all-$\Vdzero$ case, independently of the
-center class.
-\end{proposition}
-
-\begin{proof}
-Lemma~\ref{lem:gap-exhaustion} says that $N_{\mathrm{gap}}=0$ is equivalent
-to coverage of $\partial H$ by the six V triangles.  The all-$\Vdzero$ and
-unique-supercritical hypotheses are exactly those of
-Theorem~\ref{thm:reader-zero-gap-obstruction}.
-\end{proof}
+\paragraph{Body consequence.}
+This solved optimization supplies \zcref{thm:reader-witness-enclosure}.
+Combined with $K_{\rm wit}(a,b)\subset U_C$, it gives the compact body
+obstruction \zcref{thm:reader-zero-gap-obstruction} and its routing consequence
+\zcref{prop:reader-ab-core-branches}.

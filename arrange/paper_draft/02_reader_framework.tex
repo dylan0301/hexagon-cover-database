@@ -1,240 +1,368 @@
-\section{Common Definitions and Structural Lemmas}
-\label{sec:reader-framework}
+Throughout this section indices lie in $\mathbb Z/6\mathbb Z$, and we use the
+open triangles $U_C,U_0,\ldots,U_5$, their closures $T_C,T_0,\ldots,T_5$,
+and the maps $X_i,R_i$ fixed in \zcref{sec:introduction}.  In particular,
+all classifications and maximal reaches belong to the closed triangles,
+whereas boundary coverage and endpoint strictness belong to the original
+open triangles.
 
-\subsection{Structural classification}
+\subsection{Open covers and the seven distinguished roles}
 
-\begin{proposition}[Structural classification]
-\label{prop:body-structural-reduction}
-Every hypothetical cover has the canonical labeling described in
-Section~\ref{sec:introduction}.  The two classification conclusions are
-\[
- \text{center type}\in\{\CEzero,\CEone,\CEtwo\},
- \qquad
- \text{vertex type}\in\{\Vdzero,\Vdone,\Vdtwo,\Tlike\}.
-\]
-These types, the maximal reaches, and the boundary-gap data determine exactly
-one row of Table~\ref{tab:routing}.
-
-In the CE1/CE2 case the C triangle contains exactly one radial midpoint.
-If the six V triangles alone cover the boundary, strict handoff points may
-be selected while preserving whether the maximal-reach supercritical pattern
-has none, exactly one, or at least two indices.
+\begin{proposition}[Open, closed, and scaled formulations]
+\label{prop:open-closed-scaled}
+The following assertions are equivalent.
+\begin{enumerate}
+ \item $H$ is covered by seven open equilateral triangles of side length $1$.
+ \item For some $\varepsilon>0$, $H$ is covered by seven closed equilateral
+ triangles of side length $1-\varepsilon$.
+ \item For some $L>1$, $H_L:=O+L(H-O)$ is covered by seven closed equilateral
+ triangles of side length $1$.
+\end{enumerate}
 \end{proposition}
 
 \begin{proof}
-Distinctness is Lemma~\ref{lem:distinct-roles}; the center and vertex
-classifications are Propositions~\ref{prop:ce-classification} and
-\ref{prop:vertex-classification}; the unique midpoint is
-Proposition~\ref{prop:unique-center-midpoint}; the direct skeleton count is
-Theorem~\ref{thm:common-skeleton-count}; strict handoff
-selection is Proposition~\ref{prop:strict-handoffs}; and exhaustiveness is
-Proposition~\ref{prop:exhaustive-structural-reduction}.
+The uniform inward margin needed for (1)$\Rightarrow$(2) is supplied by
+\zcref{lem:app-open-closed-scaling}.  Enlarging each closed triangle about
+its incenter proves (2)$\Rightarrow$(1), and dilation by
+$(1-\varepsilon)^{-1}$ identifies (2) and (3).
 \end{proof}
 
-\subsection{Reach coordinates and the local admissible set}
-
-\begin{definition}[Maximal reaches and selected lower bounds]
-\label{def:body-vtriangle-coordinates}
-All indices lie in $\mathbb Z/6\mathbb Z$.  For the closed V triangle
-$T_i$, define
+\begin{lemma}[Distinct center and vertex roles]
+\label{lem:distinct-roles}
+The covering triangles have a unique labeling for which
 \[
- \begin{aligned}
- A_i&=\sup_{\substack{t\in[0,1]\\
- V_i+t(V_{i-1}-V_i)\in T_i}}t,\\
- B_i&=\sup_{\substack{t\in[0,1]\\
- V_i+t(V_{i+1}-V_i)\in T_i}}t,\\
- C_i&=\sup_{\substack{t\in[0,1]\\
- V_i+t(O-V_i)\in T_i}}t.
- \end{aligned}
-\]
-Passing from $U_i$ to its closure does not change these suprema.  A
-\emph{selected reach triple} is any $(a_i,b_i,c_i)\in[0,1]^3$ satisfying
-\[
- (a_i,b_i,c_i)\le(A_i,B_i,C_i)
-\]
-coordinatewise.  The V triangle $T_i$ is subcritical, critical, or
-strictly supercritical according as
-\[
- A_i+B_i<1,
+ O\in U_C,
  \qquad
- A_i+B_i=1,
- \qquad
- A_i+B_i>1,
+ V_i\in U_i\quad(0\le i\le5),
 \]
-respectively.  Thus
-\[
- N_+=\left\lvert
- \left\{i\in\mathbb Z/6\mathbb Z:A_i+B_i>1\right\}
- \right\rvert
-\]
-is defined from maximal reaches, never from selected lower bounds.
-\end{definition}
+and these seven triangles are distinct.  Consequently
+$O\in\interior(T_C)$ and $V_i\in\interior(T_i)$.
+\end{lemma}
 
-\begin{definition}[Anchor hull and admissible set]
-\label{def:body-local-admissible-set}
-Let
-\[
- u=\left(\frac12,\frac{\sqrt3}{2}\right),
- \qquad
- v=\left(\frac12,-\frac{\sqrt3}{2}\right).
-\]
-For $(a,b,c)\in[0,1]^3$, define the \emph{anchor hull}
-\[
- K(a,b,c)=\conv\{0,au,bv,c(u+v)\}.
-\]
-Define
-\[
- \mathcal A=
- \left\{(a,b,c)\in[0,1]^3:
- \begin{array}{c}
- K(a,b,c)\subseteq\Delta\text{ for some closed}\cr
- \text{unit equilateral triangle }\Delta
- \end{array}
- \right\}.
-\]
-Thus every selected reach triple for a V triangle belongs to
-$\mathcal A$.
-\end{definition}
+\begin{proof}
+The seven displayed points are pairwise at distance at least one, while two
+points in an open unit equilateral triangle are at distance strictly less
+than its diameter one.  Thus each covering triangle contains at most one of
+the points, and the asserted labeling is forced.
+\end{proof}
 
-\begin{figure}[H]
-\centering
-\resizebox{.98\linewidth}{!}{%
-\input{figures/strategy2_local_demand_skeleton}}
-\caption{The three maximal reaches, selected lower bounds, and the associated
-anchor hull.  The least equilateral enclosure side of this hull controls both
-boundary propagation and the nine-point obstruction.}
-\label{fig:local-demand-hull}
-\end{figure}
+\subsection{Center and vertex classifications}
 
-\begin{definition}[Equilateral enclosure gauge]
-\label{def:body-enclosure-gauge}
-Let $\mathsf R$ be counterclockwise rotation through $2\pi/3$.  For every
-nonempty compact $K\subset\mathbb R^2$, define
+Recall the exact closed C-triangle count
 \[
- h_K(n)=\max_{z\in K}\langle z,n\rangle,
- \qquad
- \Lambda(K)=\frac2{\sqrt3}
- \min_{\lVert n\rVert=1}\sum_{j=0}^2h_K(\mathsf R^jn).
+ \begin{gathered}
+ N_E(T_C)=
+ \left\lvert\left\{i\in\mathbb Z/6\mathbb Z:
+ \Haus(T_C\cap e_{i,i+1})>0\right\}\right\rvert,\\
+ T_C\text{ is CE}k\iff N_E(T_C)=k
+ \qquad(k\in\{0,1,2\}).
+ \end{gathered}
 \]
-\end{definition}
-Proposition~\ref{prop:universal-enclosure-gauge} proves that $\Lambda(K)$ is
-the least side length of a closed equilateral triangle containing $K$.
+A point contact has zero trace length and therefore does not create a second
+positive trace.
 
-\begin{proposition}[Structure of the admissible set]
-\label{prop:body-admissible-description}
-The set $\mathcal A$ is compact, coordinatewise downward closed, and invariant
-under interchange of $a$ and $b$.  Moreover,
-\[
- (a,b,c)\in\mathcal A
- \quad\Longleftrightarrow\quad
- \Lambda(K(a,b,c))\le1.
-\]
-Every one-coordinate fiber of $\mathcal A$ is a nonempty compact initial
-interval.  Consequently every maximum used below is attained.
+\begin{proposition}[Exhaustive center classes]
+\label{prop:ce-classification}
+Every C triangle has exactly one of the classes $\CEzero,\CEone,\CEtwo$;
+equivalently, $N_E(T_C)\le2$.  If two edge traces are positive, their edges
+are adjacent.
 \end{proposition}
 
 \begin{proof}
-Compactness and downward closure follow from the containment definition and
-compactness of the oriented unit-triangle family modulo translation.
-Reflection in the radial axis exchanges $a$ and $b$.  The gauge equivalence is
-Proposition~\ref{prop:universal-enclosure-gauge}.  Compactness and downward
-closure then give the initial-interval fibers.  The explicit support formulas
-and cell conditions are proved in
-Appendix~\ref{sec:admissible-set-derivation}.
+The two nonadjacent-edge distance calculations in
+\zcref{lem:app-center-v-incidence} show that a unit-diameter triangle cannot
+have positive traces on three hexagon edges.
 \end{proof}
 
-\subsection{Signed center coordinates}
-
-For $t\in\mathbb R$, write $[t]_+=\max\{t,0\}$, and for a closed triangle $T$
-put
+For a closed V triangle put
 \[
- L_{\partial H}(T)=\Haus(T\cap\partial H).
+ o(T_i):=\left\lvert\operatorname{vert}(T_i)\setminus H\right\rvert,
+ \qquad
+ n(T_i):=\left\lvert\left\{j\in\{i-1,i+1\}:
+ \Haus(T_i\cap r_j)>0\right\}\right\rvert.
 \]
 
-\begin{definition}[Signed center coordinates]
-\label{def:body-signed-center-data}
-Normalize a positive center trace to $e_{0,1}$.  There are parameters
-\[
- 0<R<1,
- \qquad
- W=1-R,
- \qquad
- E=\sqrt{1-RW},
- \qquad
- \eta=1-E,
- \qquad
- P=E(1-E),
-\]
-and positive slacks $\alpha,\delta$ such that, with
-\[
- k=\eta+\alpha+\delta,
- \qquad
- \Delta_R=P-\alpha-W\delta>0,
- \qquad
- \Delta_L=P-R\alpha-\delta,
-\]
-the normalized center traces are
-\[
- T_C\cap e_{0,1}=\left[\frac{k}{R},W+\delta\right],
- \qquad
- \Haus(T_C\cap e_{0,1})=\frac{\Delta_R}{R},
-\]
-and, when $\Delta_L>0$,
-\[
- T_C\cap e_{5,0}=\left[\frac{k}{W},R+\alpha\right],
- \qquad
- \Haus(T_C\cap e_{5,0})=\frac{\Delta_L}{W}.
-\]
-The six center exits, measured from $O$ toward $V_i$, are
-\[
- \begin{aligned}
- d_0^C&=E-\alpha-\delta,&
- d_1^C&=\frac{\delta}{R},&
- d_2^C&=\delta,\\
- d_3^C&=\min\left\{\frac{\alpha}{R},\frac{\delta}{W}\right\},&
- d_4^C&=\alpha,&
- d_5^C&=\frac{\alpha}{W}.
- \end{aligned}
-\]
-The complementary radial lower bound for $T_i$ is
-\[
- c_i^C=1-d_i^C.
-\]
-The signed parameter domain is
-\[
- \mathcal D_{\rm sgn}=
- \left\{(R,\alpha,\delta):0<R<1,\ \alpha>0,\ \delta>0,\ \Delta_R>0\right\}.
-\]
-Its CE1 and CE2 parts are
-\[
- \mathcal D_{\rm C1}=\{\Delta_L\le0\},
- \qquad
- \mathcal D_{\rm C2}=\{\Delta_L>0\},
-\]
-with the ambient condition $(R,\alpha,\delta)\in\mathcal D_{\rm sgn}$
-understood.
-\end{definition}
+\begin{lemma}[Local wedge incidence]
+\label{lem:local-wedge}
+Every original V triangle satisfies $1\le o(T_i)\le3$.  If it has
+positive-length intersection with one of $r_{i-1},r_{i+1}$, at least one of
+its vertices lies in $H$; if it has positive-length intersection with both,
+at least two of its vertices lie in $H$.
+\end{lemma}
 
-\begin{proposition}[Center trace and radial data]
-\label{prop:body-signed-center-interface}
-The C triangle is CE1 exactly when $\Delta_L\le0$, and CE2 exactly when
-$\Delta_L>0$; equality is a single contact point and hence belongs to CE1.
-Furthermore,
+\begin{proof}
+This is the wedge-feasibility calculation in
+\zcref{lem:app-center-v-incidence}.
+\end{proof}
+
+\begin{proposition}[Exact-trace normalization of raw $(3,0)$ roles]
+\label{prop:vd0-exact-trace-normalization}
+Let $U$ be an original open $V_i$-triangle, put $T=\overline U$, and suppose
+$(o(T),n(T))=(3,0)$.  There is a translate $\widehat U$ of $U$, with the
+same orientation and side length and with closure $\widehat T$, such that
 \[
- L_{\partial H}(T_C)
- =\frac{\Delta_R}{R}+\frac{[\Delta_L]_+}{W},
+ V_i\in\widehat U,
+ \qquad
+ (o(\widehat T),n(\widehat T))=(2,0),
 \]
 and
 \[
- L_{\partial H}(T_C)\le\frac{\sqrt3}{2}-\frac34
- \quad\text{in CE1},
+ T\cap H=\widehat T\cap H,
  \qquad
- L_{\partial H}(T_C)<\frac12
- \quad\text{in CE2}.
+ U\cap H=\widehat U\cap H.
+\]
+Thus all three actual reaches and the inequality $A_i+B_i>1$ are unchanged.
+The normalization may be performed simultaneously for every raw $(3,0)$
+role.
+\end{proposition}
+
+\begin{proof}
+The same-orientation translation and its exact open- and closed-trace
+verification are supplied by \zcref{lem:app-exact-trace-normalizations}.
+Rolewise equality on $H$ preserves the open cover, so the translations may
+be made simultaneously.
+\end{proof}
+
+After this normalization, the exact type dictionary is
+\[
+ \begin{array}{c|c}
+ (o(T_i),n(T_i))&\text{type}\\ \hline
+ (1,0),(2,0)&\Vdzero\\
+ (1,1)&\Vdone\\
+ (1,2)&\Vdtwo\\
+ (2,1)&\Tlike.
+ \end{array}
+\]
+
+\begin{proposition}[Exhaustive normalized vertex classes]
+\label{prop:vertex-classification}
+Every normalized V triangle has exactly one of the four types
+$\Vdzero,\Vdone,\Vdtwo,\Tlike$.
+\end{proposition}
+
+\begin{proof}
+We have $n(T_i)\in\{0,1,2\}$.  By \zcref{lem:local-wedge}, the possible
+raw pairs are
+\[
+ (1,0),(2,0),(3,0),(1,1),(2,1),(1,2).
+\]
+The normalization removes exactly $(3,0)$ and preserves every other pair.
+\end{proof}
+
+\begin{proposition}[T3-like closed-trace majorant]
+\label{prop:t3-translation}
+Let $T$ be the closure of an original T3-like $V_i$-triangle.  There is a
+translate $\widehat T$ of $T$, with the same orientation and side length,
+such that
+\[
+ V_i\in\operatorname{relint}(\text{a side of }\widehat T),
+ \qquad
+ T\cap H\subsetneq\widehat T\cap H,
+\]
+and $(o(\widehat T),n(\widehat T))=(2,1)$.  Every old open interior point in
+$H\setminus\{V_i\}$ remains interior to $\widehat T$.  Since $V_i$ becomes
+a boundary point, $\widehat T$ is only a closed-trace majorant; it is not a
+replacement open triangle.
+\end{proposition}
+
+\begin{proof}
+The exhaustive Type-I/Type-II calculation and the strict-interior check are
+given in \zcref{lem:app-exact-trace-normalizations}.
+\end{proof}
+
+\subsection{Actual reaches, open traces, and boundary gaps}
+
+The maximal reaches are the closed-triangle maxima
+\[
+ \begin{aligned}
+ A_i&=\max\{s\in[0,1]:X_{i-1}(1-s)\in T_i\},\\
+ B_i&=\max\{s\in[0,1]:X_i(s)\in T_i\},\\
+ C_i&=\max\{s\in[0,1]:R_i(s)\in T_i\},
+ \end{aligned}
+\]
+and are equally the corresponding suprema with $T_i$ replaced by $U_i$.
+Whenever selected demands occur they satisfy, explicitly,
+\[
+ 0\le a_i\le A_i,
+ \qquad
+ 0\le b_i\le B_i,
+ \qquad
+ 0\le c_i\le C_i.
+\]
+In particular,
+\[
+ N_+=\left\lvert\left\{i\in\mathbb Z/6\mathbb Z:
+ A_i+B_i>1\right\}\right\rvert
+\]
+is defined only from actual maximal reaches.
+
+\begin{lemma}[Initial reach segments]
+\label{lem:reach-initial-segments}
+For every normalized V triangle,
+\[
+ \begin{array}{c|c|c}
+ &T_i&U_i\\ \hline
+ e_{i-1,i}&X_{i-1}([1-A_i,1])&X_{i-1}((1-A_i,1])\\
+ e_{i,i+1}&X_i([0,B_i])&X_i([0,B_i))\\
+ r_i&R_i([0,C_i])&R_i([0,C_i)).
+ \end{array}
+\]
+Here each table entry denotes the intersection of the triangle heading its
+column with the segment heading its row.
+\end{lemma}
+
+\begin{proof}
+The convex initial-segment argument, including the open outer endpoint, is
+part of \zcref{lem:app-exact-trace-normalizations}.
+\end{proof}
+
+The exact gap set is
+\[
+ G_i:=e_{i,i+1}\setminus
+ \bigl((U_i\cap e_{i,i+1})\cup(U_{i+1}\cap e_{i,i+1})\bigr),
+ \qquad
+ N_{\mathrm{gap}}:=
+ \left\lvert\{i\in\mathbb Z/6\mathbb Z:G_i\ne\varnothing\}\right\rvert.
+\]
+
+\begin{lemma}[Exhaustiveness of the gap split]
+\label{lem:gap-exhaustion}
+For every edge,
+\[
+ G_i=
+ \begin{cases}
+ X_i([B_i,1-A_{i+1}]),&B_i+A_{i+1}\le1,\\
+ \varnothing,&B_i+A_{i+1}>1.
+ \end{cases}
+\]
+Equality in the first branch is a singleton gap.  Every nonempty $G_i$ lies
+in a positive-length trace of $U_C$.  Hence $\CEzero,\CEone,\CEtwo$ permit,
+respectively, at most $0,1,2$ gap edges, and under a hypothetical cover
+\[
+ N_{\mathrm{gap}}=0
+ \quad\Longleftrightarrow\quad
+ \partial H\subseteq\bigcup_{i=0}^5U_i.
+\]
+\end{lemma}
+
+\begin{proof}
+The exact incident trace identities and exclusion of nonincident V triangles
+are proved in \zcref{lem:app-exact-trace-normalizations}.  Thus the displayed
+set difference is precisely the asserted closed interval, including its
+singleton endpoint case.  A gap point must then lie in the open C triangle;
+openness supplies a positive relative interval on that edge.  Distinct gap
+edges are therefore counted by $N_E(T_C)$, and the conclusions follow from
+\zcref{prop:ce-classification}.
+\end{proof}
+
+\begin{lemma}[T3-like roles are nonsupercritical]
+\label{lem:t3-nonsupercritical}
+Every original T3-like V triangle satisfies
+\begin{equation}
+ A_i+B_i\le1.
+ \label{eq:t3-nonsupercritical}
+\end{equation}
+In particular, it is not counted by $N_+$.
+\end{lemma}
+
+\begin{proof}
+This is the exact Type-II reach consequence of
+\zcref{lem:app-exact-trace-normalizations}.
+\end{proof}
+
+\subsection{Strict handoffs and midpoint forcing}
+
+\begin{proposition}[Strict boundary handoffs]
+\label{prop:strict-handoffs}
+Assume $\partial H\subseteq\bigcup_{i=0}^5U_i$.  There are simultaneous
+choices
+\[
+ \xi_i\in(1-A_{i+1},B_i),
+ \qquad
+ a_i:=1-\xi_{i-1}<A_i,
+ \qquad
+ b_i:=\xi_i<B_i,
+\]
+for which $0<a_i$, $0<b_i$, and
+\[
+ X_{i-1}(1-a_i),X_i(b_i)\in U_i,
+ \qquad
+ a_i^2+a_ib_i+b_i^2<1.
+\]
+Moreover, if $N_+=1$, every such choice satisfies
+\[
+ \left\lvert\{i:a_i+b_i>1\}\right\rvert=1
+\]
+with the same unique index; if $N_+\ge2$, some simultaneous choice satisfies
+\[
+ \left\lvert\{i:a_i+b_i>1\}\right\rvert\ge2.
 \]
 \end{proposition}
 
 \begin{proof}
-These statements are Proposition~\ref{prop:signed-center-normal-form} and
-Corollary~\ref{cor:signed-center-boundary}.
+The interval feasibility, cyclic selector, and preservation assertions are
+proved in \zcref{lem:app-strict-handoff-selection}.  Thus every selected
+handoff is strict.
+\end{proof}
+
+\begin{lemma}[Self-midpoint obstruction]
+\label{lem:self-midpoint}
+For $0\le a,b\le1$, if a closed unit equilateral triangle contains
+\[
+ \left\{V_i,X_{i-1}(1-a),X_i(b),M_i\right\},
+\]
+then $a+b\le1$.  Consequently,
+\[
+ M_i\in T_i\quad\Longrightarrow\quad A_i+B_i\le1.
+\]
+If the four displayed points lie in an open unit equilateral triangle, the
+conclusion is strict.
+\end{lemma}
+
+\begin{proof}
+The four finite calipers and the endpoint-strictness argument are supplied by
+\zcref{lem:app-midpoint-caliper}.
+\end{proof}
+
+\begin{proposition}[CE1/CE2 exactly-one-midpoint property]
+\label{prop:unique-center-midpoint}
+If $O\in\interior(T_C)$ and $N_E(T_C)\in\{1,2\}$, then
+\[
+ \left\lvert T_C\cap\{M_0,\ldots,M_5\}\right\rvert=1.
+\]
+\end{proposition}
+
+\begin{proof}
+After normalizing a positive trace by a hexagon symmetry, the signed-center
+optimization in \zcref{prop:app-signed-center-optimization} gives the midpoint set
+$\{M_0\}$.  Undoing the symmetry proves the assertion.
+\end{proof}
+
+\begin{remark}
+The interior hypothesis is essential: $\conv\{O,V_0,V_1\}$ has a boundary
+edge overlap and contains both $M_0$ and $M_1$.
+\end{remark}
+
+\begin{proposition}[Exhaustive structural reduction]
+\label{prop:exhaustive-structural-reduction}
+Every hypothetical cover by seven open unit equilateral triangles admits the
+distinct center and V triangles used in \zcref{tab:routing}, and its center
+class, normalized V classes, actual $N_+$, and exact gap sets determine
+exactly one row of that table.
+\end{proposition}
+
+\begin{proof}
+The role labeling is \zcref{lem:distinct-roles}; the two classifications are
+\zcref{prop:ce-classification,prop:vertex-classification}.  The actual
+reaches determine $N_+$ and the open traces determine $N_{\mathrm{gap}}$.
+
+If $N_{\mathrm{gap}}=0$, \zcref{lem:gap-exhaustion} gives the five
+zero-gap alternatives in \zcref{tab:routing}, split by $N_+$ and then by
+$(d,t)$.  If $N_{\mathrm{gap}}\ge1$, the same lemma forces
+$N_E(T_C)\in\{1,2\}$, and \zcref{prop:unique-center-midpoint} gives the
+unique radial midpoint.  When $N_+\ge2$,
+\zcref{lem:positive-support-rescuer} gives $N_{\mathrm{sp}}\ge1$, so
+\zcref{thm:common-skeleton-count} applies.  For $N_+\in\{0,1\}$ the same
+theorem removes $N_++d+t\ge3$.  The remaining formula-only alternatives are
+exactly the nonzero-gap rows of \zcref{tab:routing}; they are disjoint and
+exhaustive.
 \end{proof}

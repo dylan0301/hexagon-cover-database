@@ -1,22 +1,24 @@
-\section{Detailed Nine-Point Enclosure Argument}
-\label{sec:ab-core}
+\subsection{Strict $AB$-union and frontier module}
 
-This section supplies the exact frontier, witness, sign, and cap-overlap
-calculations for the direct nine-point obstruction.
+\paragraph{Exact interface.}
+The body fixes
+\[
+ P_A=V_4+a(V_3-V_4),
+ \qquad P_B=V_4+b(V_5-V_4),
+\]
+and the exact geometric family
+\[
+ \mathcal R_{AB}(a,b)=
+ \bigcup\left\{
+ T\cap H:
+ \begin{array}{l}
+ T\text{ is a closed unit equilateral triangle},\\
+ V_4,P_A,P_B\in T
+ \end{array}
+ \right\}.
+\]
 
-This section proves a center-class-independent theorem.  Its hypotheses are
-that all six V triangles are $\Vdzero$, that they cover the full boundary,
-and that exactly one actual boundary V triangle is supercritical.  It therefore
-applies to every $N_{\mathrm{gap}}=0$ case with these V triangle data,
-independently of whether the center is $\CEzero$, $\CEone$, or $\CEtwo$.
-Six common radial points and three asymmetric points
-are excluded directly from all six actual V triangles and are therefore
-forced into the C triangle.  Only the unique supercritical V triangle uses an
-$AB$-union; no nonsupercritical model core is introduced.
-
-\input{appendix_certificates}
-
-\subsection{Corner-clipped $AB$-unions}
+\paragraph{Variables and feasible set.}
 
 Let $e_A,e_B$ be unit vectors with angle $120^\circ$, put
 \[
@@ -24,19 +26,32 @@ Let $e_A,e_B$ be unit vectors with angle $120^\circ$, put
  \qquad
  C=\{ue_A+ve_B:u,v\ge0\},
 \]
-and define
+identifying $O,A,B$ with the images of $V_4,P_A,P_B$, respectively.  In
+this chart the public feasible union is
 \begin{equation}
- \mathcal R(a,b)=
- C\cap\bigcup\{T:T\text{ is a closed unit equilateral triangle and }
- O,A,B\in T\}.                               \label{eq:ab-union}
+ \mathcal R_{AB}(a,b)=
+ H\cap C\cap
+ \bigcup\left\{
+ T:
+ \begin{array}{l}
+ T\text{ is a closed unit equilateral triangle},\\
+ O,A,B\in T
+ \end{array}
+ \right\}.                                   \label{eq:ab-union}
 \end{equation}
-The finite description in Theorem~\ref{thm:cert-caliper} applies to the
+The finite description in \zcref{thm:cert-caliper} applies to the
 four-point set $\{O,A,B,x\}$ and makes membership in \eqref{eq:ab-union} an
 exact finite semialgebraic condition of degree at most four.
 
 The strict supercritical branch admits a simpler closed form.  In the next
 statement write $x=ue_A+ve_B$ and
 $\lVert x\rVert^2=u^2+v^2-uv$.
+
+\paragraph{Objective.}
+Determine the feasible union $\mathcal R_{AB}(a,b)$ exactly and identify the
+cyclic order of its two circular and two linear non-axis frontier pieces.
+
+\paragraph{Exact result.}
 
 \begin{theorem}[Strict supercritical $AB$-union]
 \label{thm:strict-ab-union}
@@ -53,9 +68,10 @@ put $h=\sqrt3/2$, $D=\sqrt{4\rho-3}$, and define
 \end{align*}
 Then all four coefficients are positive and
 \begin{equation}
- \mathcal R(a,b)=
+ \mathcal R_{AB}(a,b)=H\cap\bigl(
  (C\cap\mathcal D_A\cap\mathcal H_A)
- \cup(C\cap\mathcal D_B\cap\mathcal H_B),       \label{eq:strict-ab-identity}
+ \cup(C\cap\mathcal D_B\cap\mathcal H_B)\bigr),
+ \label{eq:strict-ab-identity}
 \end{equation}
 where
 \begin{align*}
@@ -68,6 +84,8 @@ Its non-axis frontier consists, in counterclockwise order, of the
 $A$-circle, the $A$-line, the $B$-line, and the $B$-circle.
 \end{theorem}
 
+\paragraph{Solution.}
+
 \input{figures/finite_enclosure/fe10_ab_frontier}
 
 \begin{proof}
@@ -79,7 +97,7 @@ The identities
 \]
 give $0<D<1$ and positivity of the four coefficients.
 
-We apply the caliper criterion of Theorem~\ref{thm:cert-caliper}.  For a
+We apply the caliper criterion of \zcref{thm:cert-caliper}.  For a
 point $x=(u,v)$ in the relative interior of $C$ but outside
 $\triangle OAB$, the four hull vertices occur in the order $O,B,x,A$.
 The two cone-axis hull edges cannot certify a unit triangle: their support
@@ -181,13 +199,46 @@ $a(4-(1-D)^2)>0$ and $b(4-(1-D)^2)>0$.  This proves the asserted four-piece
 order.
 \end{proof}
 
-\subsection{Exact-one handoffs and common reach bounds}
+\paragraph{Body consequence.}
+This supplies the exact feasible-union and maximal-line-piece evaluation used
+to define $\ell_-,\ell_+$ and $Q_0$ in the body, and is cited there as
+\zcref{thm:strict-ab-union}.
+
+\subsection{Handoff and nine-point frontier-forcing module}
+
+\paragraph{Exact interface.}
+The body interface is the exact chain and parameter domain in
+\zcref{eq:reader-extreme-chain,eq:reader-ab-parameters,eq:reader-ab-domain},
+the forced disk in \zcref{eq:reader-forced-disk}, the three frontier points
+in \zcref{eq:reader-forced-asymmetric}, and the witness set in
+\zcref{eq:reader-witness-set}.
+
+\paragraph{Variables and feasible set.}
+Assume $N_{\mathrm{gap}}=0$, $N_+=1$, and $(d,t)=(0,0)$; rotate the unique
+supercritical role to index~$4$ and use the strict handoffs $\xi_i$ selected
+in the body.  The feasible parameter pair is the strict component
+$0<a,b<1$, $a+b>1$, $a^2+ab+b^2<1$ determined below.
+
+\paragraph{Objective.}
+Determine the common radial envelope and the two line--circle roots, then
+prove that the resulting six radial points and three asymmetric frontier
+points are excluded from every V triangle.
+
+\paragraph{Exact result.}
+The exact outputs are supplied by
+\zcref{lem:ab-extreme-jump,lem:symmetric-core-witness,lem:fixed-line-signs,lem:asymmetric-core-witness}:
+they give the strict endpoint inequalities, the forced centered disk, the
+unique frontier roots, and $K_{\rm wit}(a,b)\subset U_C$.
+
+\paragraph{Solution.}
+
+\subsubsection*{Handoff stage}
 
 \begin{lemma}[Exact-one handoff chain]
 \label{lem:ab-extreme-jump}
 Assume the six V triangles cover $\partial H$ and exactly one actual V triangle is
 supercritical.  Rotate its index to $4$.  The strict handoffs supplied by
-Proposition~\ref{prop:strict-handoffs} satisfy
+\zcref{prop:strict-handoffs} satisfy
 \[
  \xi_3<\xi_2<\xi_1<\xi_0<\xi_5<\xi_4.                       \label{eq:extreme-chain}
 \]
@@ -197,7 +248,14 @@ With
 \]
 one has
 \begin{equation}
- 0<a,b<1,\qquad a+b>1,\qquad a^2+ab+b^2<1,       \label{eq:ab-strict-domain}
+ \begin{gathered}
+ 0<a,b<1,
+ \qquad a=a_4<A_4,
+ \qquad b=b_4<B_4,\\
+ a+b>1,
+ \qquad a^2+ab+b^2<1,
+ \end{gathered}
+ \label{eq:ab-strict-domain}
 \end{equation}
 and every selected V triangle obeys
 \[
@@ -209,14 +267,16 @@ and every selected V triangle obeys
 Every selected V triangle other than $4$ is strictly nonsupercritical, so
 $\xi_i<\xi_{i-1}$ for $i\ne4$, which is precisely
 \eqref{eq:extreme-chain}.  In particular $\xi_3$ is the global minimum and
-$\xi_4$ the global maximum.  The two anchors of V triangle $4$ lie in its open triangle;
+$\xi_4$ the global maximum.  Strictness of the selected handoffs gives
+$a=1-\xi_3=a_4<A_4$ and $b=\xi_4=b_4<B_4$.  The two anchors of V
+triangle $4$ lie in its open triangle;
 their mutual squared distance is $a^2+ab+b^2$, strictly below the diameter
 squared of the closed unit triangle.  This proves \eqref{eq:ab-strict-domain}.
 Finally every $\xi_j\in[\xi_3,\xi_4]$, so
 $1-\xi_{i-1}\ge1-\xi_4=p$ and $\xi_i\ge \xi_3=q$.
 \end{proof}
 
-\subsection{Six directly forced radial points}
+\subsubsection*{Radial stage}
 
 Put $h=\sqrt3/2$ and
 \[
@@ -228,7 +288,7 @@ The strict domain \eqref{eq:ab-strict-domain} gives
  pq>(1-s)(2-s),\qquad m>1-s,\qquad s>1-m.         \label{eq:pq-domain}
 \end{equation}
 Let $c_*=c_{\max}(p,q)$ be the exact radial envelope of
-Proposition~\ref{prop:exact-admissible-set}.  On the present subcritical
+\zcref{prop:exact-admissible-set}.  On the present subcritical
 domain, equation \eqref{eq:radial-envelope} becomes
 \begin{equation}
  c_*=\begin{cases}
@@ -251,12 +311,14 @@ One has
 Assume that every $U_i$ is $\Vdzero$ and that
 $U_C,U_0,\ldots,U_5$ cover $H$.  Then, for every $i$,
 \[
- D_i=(1-c_*)V_i\in U_C.
+ P_i^{\mathrm{rad}}=(1-c_*)V_i\in U_C.
 \]
-Consequently $U_C$ contains the centered closed disk
+Consequently
 \begin{equation}
- \mathcal D_\eta=\{x:\lVert x\rVert\le\eta\},
- \qquad \eta=h(1-c_*).                           \label{eq:forced-disk}
+ \mathbb B(0,r_*)=\{x:\lVert x\rVert\le r_*\}
+ \subseteq\conv\{P_0^{\mathrm{rad}},\ldots,P_5^{\mathrm{rad}}\}
+ \subset U_C,
+ \qquad r_*=h(1-c_*).                           \label{eq:forced-disk}
 \end{equation}
 \end{lemma}
 
@@ -277,15 +339,16 @@ one has
 Thus $A_*>E$ and $c_*>1-m$.  This proves
 \eqref{eq:cstar-bounds}.
 
-Fix $i$.  If $D_i\in U_i$, openness supplies $\varepsilon>0$ with
+Fix $i$.  If $P_i^{\mathrm{rad}}\in U_i$, openness supplies $\varepsilon>0$ with
 $c_*+\varepsilon<1$ such that
 $(1-c_*-\varepsilon)V_i\in U_i$.  The same triangle contains its two selected
 handoff anchors.  Since their incoming and forward-reach lower bounds dominate $p$ and
 $q$, convexity and passage to the closure give a closed unit triangle
 realizing $(p,q,c_*+\varepsilon)$.  This contradicts the definition of
-$c_*=c_{\max}(p,q)$.  Hence $D_i\notin U_i$.
+$c_*=c_{\max}(p,q)$.  Hence $P_i^{\mathrm{rad}}\notin U_i$.
 
-If $D_i$ belonged to $U_{i-1}$ or $U_{i+1}$, a small plane ball inside that
+If $P_i^{\mathrm{rad}}$ belonged to $U_{i-1}$ or $U_{i+1}$, a small plane
+ball inside that
 open triangle would meet $r_i$ in a positive-length
 interval.  This contradicts the $\Vdzero$ definition.  For the remaining
 triangles put $r=1-c_*>0$.  Directly,
@@ -295,21 +358,38 @@ triangles put $r=1-c_*>0$.  Directly,
  \lVert rV_i-V_{i+3}\rVert=1+r>1.
 \]
 Since $V_j\in U_j$ and two points of an open unit triangle are at distance
-strictly below $1$, these inequalities exclude $D_i$ from the other three
-V triangles.  Thus no V triangle contains $D_i$.  The point lies in
+strictly below $1$, these inequalities exclude $P_i^{\mathrm{rad}}$ from the
+other three V triangles.  Thus no V triangle contains
+$P_i^{\mathrm{rad}}$.  The point lies in
 $\interior(H)$ by \eqref{eq:cstar-bounds}, so the assumed cover forces
-$D_i\in U_C$.
+$P_i^{\mathrm{rad}}\in U_C$.
 
-The six points $D_i$ form a regular hexagon of circumradius $1-c_*$.  Their
+The six points $P_i^{\mathrm{rad}}$ form a regular hexagon of circumradius
+$1-c_*$.  Their
 convex hull contains its centered incircle of radius $h(1-c_*)$, and convexity
 of $U_C$ gives \eqref{eq:forced-disk}.
 \end{proof}
 
+\subsubsection*{Asymmetric frontier stage}
+
 We next define the three asymmetric witnesses.  At $V_4$ use local
 coordinates
 \[
- P=V_4+u(V_5-V_4)+v(V_3-V_4),\qquad
+ \Phi(u,v):=V_4+u(V_5-V_4)+v(V_3-V_4),\qquad
  \mathsf q(u,v)=u^2+v^2-uv.
+\]
+In this chart the two public adjacent-handoff circles have centers
+\[
+ \begin{aligned}
+ X_2(b)&=\Phi(E_-),& E_-&=(1-b,2-b),\\
+ X_5(1-a)&=\Phi(E_+),& E_+&=(2-a,1-a),
+ \end{aligned}
+\]
+and hence
+\[
+ \mathcal C_-=\partial\mathbb B(\Phi(E_-),1),
+ \qquad
+ \mathcal C_+=\partial\mathbb B(\Phi(E_+),1).
 \]
 The forward-reach lower bound is $b$ and the backward-reach lower bound is $a$.  Accordingly,
 set
@@ -320,7 +400,7 @@ set
  \delta&=\frac{h(2b+a-aD)}{2\rho},
 \end{align*}
 where now $\rho=a^2+ab+b^2$ and $D=\sqrt{4\rho-3}$.  The two line pieces of
-Theorem~\ref{thm:strict-ab-union} are
+\zcref{thm:strict-ab-union} are
 \[
  L_-(\lambda)=(b-\beta\lambda,\alpha\lambda),\qquad
  L_+(\mu)=(\delta\mu,a-\gamma\mu).
@@ -330,9 +410,11 @@ They meet at $\lambda_* =\mu_*=8h\rho/(3(D+3))$ in
  J=\left(\frac{2b+a-aD}{D+3},
           \frac{b+2a-bD}{D+3}\right).           \label{eq:line-junction}
 \end{equation}
-Put
+Thus the two public line pieces have the coordinate evaluations
 \[
- E_-=(1-b,2-b),\qquad E_+=(2-a,1-a).
+ \ell_-=\{\Phi(L_-(\lambda)):\lambda_*\le\lambda\le h^{-1}\},
+ \qquad
+ \ell_+=\{\Phi(L_+(\mu)):\mu_*\le\mu\le h^{-1}\}.
 \]
 The actual adjacent handoffs have local centers
 \[
@@ -517,7 +599,21 @@ Define the local and global witnesses by
  Q_0^{\rm loc}=J,\qquad
  Q_+^{\rm loc}=L_+(\mu_+),                       \label{eq:asym-witnesses}
 \end{equation}
-and by the displayed conversion from $(u,v)$ to the plane.
+and
+\[
+ Q_-:=\Phi(Q_-^{\rm loc}),
+ \qquad Q_0:=\Phi(Q_0^{\rm loc}),
+ \qquad Q_+:=\Phi(Q_+^{\rm loc}).
+\]
+Thus $J$ is the unique meeting point of the two maximal line pieces, and the
+first-root inequalities in \zcref{lem:fixed-line-signs} give exactly
+\[
+ \{Q_0\}=\ell_-\cap\ell_+,
+ \qquad
+ \{Q_-\}=\ell_-\cap\mathcal C_-,
+ \qquad
+ \{Q_+\}=\ell_+\cap\mathcal C_+.
+\]
 
 \begin{lemma}[Direct asymmetric forcing]
 \label{lem:asymmetric-core-witness}
@@ -531,17 +627,19 @@ and consequently all three witnesses belong to $U_C$.
 
 \begin{proof}
 The root order and positivity of the line coordinates give
-$0<u,v<1$ for all three points.  Each belongs to $\mathcal R(b,a)$ and hence
+$0<u,v<1$ for all three points.  Each belongs to the local representation
+of $\mathcal R_{AB}(a,b)$ obtained from \zcref{thm:strict-ab-union} by
+interchanging the two cone coordinates, and hence
 lies in a closed unit triangle containing $V_4$, so
 $\mathsf q(u,v)\le1$; hence
 $|u-v|<1$ and all three points lie in $\interior(H)$.
 
 The closure of $U_4$ is one of the triangles represented by
-$\mathcal R(b,a)$, since it contains $V_4,X_3,X_4$.  All three witnesses lie
+$\mathcal R_{AB}(a,b)$, since it contains $V_4,X_3,X_4$.  All three witnesses lie
 on its exact non-axis frontier.  If one belonged to the open triangle $U_4$,
 a sufficiently small plane ball about it would lie both in $U_4$ and in the
 interior of the corner cone, making the witness an interior point of
-$\mathcal R(b,a)$.  This contradiction excludes $U_4$.
+$\mathcal R_{AB}(a,b)$.  This contradiction excludes $U_4$.
 
 For the triangles $U_0,U_1,U_2$, their contained vertices have local coordinates
 \[
@@ -559,7 +657,7 @@ For $P=(u,v)$,
 The inequalities $J_u,J_v<1/2$ and the line order give distance greater than
 one from $V_0$ for $Q_-,Q_0$ and from $V_2$ for $Q_0,Q_+$.  For the remaining
 pair, the first-root circle and the sum bound in
-Lemma~\ref{lem:fixed-line-signs} give
+\zcref{lem:fixed-line-signs} give
 \[
  \lVert Q_+-V_0\rVert^2-1
  =a(3-a-(Q_+)_u-(Q_+)_v)>a^2,
@@ -584,18 +682,47 @@ three interior witnesses into $U_C$.
 \end{proof}
 
 The nine directly forced points are
-$D_0,\ldots,D_5,Q_-,Q_0,Q_+$.  Under a putative cover,
-Lemmas~\ref{lem:symmetric-core-witness} and
-\ref{lem:asymmetric-core-witness} therefore force the compact set
+$P_0^{\mathrm{rad}},\ldots,P_5^{\mathrm{rad}},Q_-,Q_0,Q_+$.  Under a
+putative cover, \zcref{lem:symmetric-core-witness,lem:asymmetric-core-witness}
+therefore force the compact set
 \begin{equation}
  K_{\rm wit}(a,b)=
- \mathcal D_\eta\cup\{Q_-,Q_0,Q_+\}
+ \mathbb B(0,r_*)\cup\{Q_-,Q_0,Q_+\}
  \subset U_C.                                    \label{eq:forced-witness-set}
 \end{equation}
 
-\input{figures/finite_enclosure/fe11_zero_gap_witness}
+\paragraph{Body consequence.}
+This is the full calculation supplying the body containments
+\zcref{eq:reader-forced-disk,eq:reader-forced-asymmetric,eq:reader-witness-set}.
 
-\subsection{Tangent reduction and exact mixed overlaps}
+\subsection{Newton reduction and four-overlap module}
+
+\paragraph{Exact interface.}
+Retain the public $K_{\rm wit}(a,b)$ from
+\zcref{eq:reader-witness-set} and the exact support cap
+\[
+ \operatorname{Cap}(X,r)
+ =\{n\in\mathbb S^1:\langle X,n\rangle+r\ge h\}.
+\]
+
+\paragraph{Variables and feasible set.}
+Work on the strict $AB$ domain in \eqref{eq:ab-strict-domain} and its
+nontrivial sheet $c_*>2/3$.  The Newton parameters are taken on the open
+segments from the line junction $Q_0$ to the first circle roots $Q_-$ and
+$Q_+$.
+
+\paragraph{Objective.}
+Replace the two independent first-root radicals by rational inner points and
+verify the ray order, radius bounds, and four consecutive support-cap
+intersections needed for the cyclic enclosure argument.
+
+\paragraph{Exact result.}
+The Newton containment is
+\zcref{lem:technical-newton-reduction,eq:reader-newton-reduction}, and the
+complete four-overlap conclusion is
+\zcref{prop:technical-four-overlaps}.
+
+\paragraph{Solution.}
 
 For the nontrivial regime $c_*>2/3$, we first remove the square radicals in
 the first-root witnesses.  Normalize
@@ -613,10 +740,10 @@ Let $g_-,g_+$ be the rescaled forms of
 \]
 Define, in local coordinates,
 \begin{align*}
- A&=\left(b-\frac34\bar\beta\widehat\xi_-,
+ P_-&=\left(b-\frac34\bar\beta\widehat\xi_-,
           \frac34\bar\alpha\widehat\xi_-\right),\\
- B&=J,\\
- C&=\left(\frac34\bar\delta\widehat\zeta_+,
+ P_0&=J,\\
+ P_+&=\left(\frac34\bar\delta\widehat\zeta_+,
           a-\frac34\bar\gamma\widehat\zeta_+\right),
 \end{align*}
 and convert them to global vectors.
@@ -625,13 +752,19 @@ and convert them to global vectors.
 \label{lem:technical-newton-reduction}
 The points above have coordinates rational in $a,b,D$ and satisfy
 \[
- A\in(Q_0,Q_-),\qquad C\in(Q_0,Q_+).
+ P_-\in(Q_0,Q_-),\qquad P_0=Q_0,\qquad P_+\in(Q_0,Q_+).
 \]
 Consequently
 \[
- \widehat K=\conv(\mathcal D_\eta\cup\{A,B,C\}),
+ \widehat K=\conv\bigl(\mathbb B(0,r_*)\cup\{P_-,P_0,P_+\}\bigr),
 \]
-obeys $\widehat K\subseteq\conv(K_{\rm wit})$.
+and one has
+\begin{equation}
+ \widehat K\subseteq\conv(K_{\rm wit}),
+ \qquad
+ \Lambda(K_{\rm wit})\ge\Lambda(\widehat K).
+ \label{eq:reader-newton-reduction}
+\end{equation}
 \end{lemma}
 
 \begin{proof}
@@ -642,63 +775,75 @@ All displayed coefficients and Newton quotients are rational in $a,b,D$,
 and convexity gives the asserted containment.
 \end{proof}
 
-Put $W=C+RA$.
-For a disk $\mathbb D(X,r)$ let
+Put
 \[
- I(X,r)=\{n:\lVert n\rVert=1,\ \langle X,n\rangle+r\ge h\}.
+ P_*:=P_++\mathsf R P_-.
+\]
+For a disk $\mathbb B(X,r)$ let
+\[
+ \operatorname{Cap}(X,r)
+ :=\{n\in\mathbb S^1:\langle X,n\rangle+r\ge h\}.
 \]
 
 
-\subsection{Ray order and four overlaps}
+\subsubsection*{Ray order and overlap verification}
 
 \begin{proposition}[Technical four-overlap verification]
 \label{prop:technical-four-overlaps}
 Assume \eqref{eq:ab-strict-domain} and $c_*>2/3$.  Then
 \[
- \lVert A\rVert,\lVert C\rVert>\eta,
+ \lVert P_-\rVert,\lVert P_+\rVert>r_*,
 \]
-the rays $A,B,C,W,RA$ occur in that cyclic order, and the four consecutive
+the rays $P_-,P_0,P_+,P_*,\mathsf R P_-$ occur in that cyclic order, and the
+four consecutive
 cap pairs
 \[
- I(A,2\eta)\leftrightarrow I(B,2\eta)
- \leftrightarrow I(C,2\eta)\leftrightarrow I(W,\eta)
- \leftrightarrow I(RA,2\eta)
+ \operatorname{Cap}(P_-,2r_*)
+ \leftrightarrow\operatorname{Cap}(P_0,2r_*)
+ \leftrightarrow\operatorname{Cap}(P_+,2r_*)
+ \leftrightarrow\operatorname{Cap}(P_*,r_*)
+ \leftrightarrow\operatorname{Cap}(\mathsf R P_-,2r_*)
 \]
 overlap across their intervening short sectors.
 \end{proposition}
 
 \begin{proof}
 
-Put $\tau=h-2\eta=h(2c_*-1)$.  The rays of
+Put $\tau=h-2r_*=h(2c_*-1)$.  The rays of
 \begin{equation}
- A,\ B,\ C,\ W,\ RA                              \label{eq:cap-ray-order}
+ P_-,\ P_0,\ P_+,\ P_*,\ \mathsf R P_-          \label{eq:cap-ray-order}
 \end{equation}
-occur in this cyclic order from $A$ to $RA$.  Indeed the two line distances
+occur in this cyclic order from $P_-$ to $\mathsf R P_-$.  Indeed the two
+line distances
 give
 \[
- \frac{\operatorname{cross}(A,B)}{\lVert B-A\rVert}
+ \frac{\operatorname{cross}(P_-,P_0)}{\lVert P_0-P_-\rVert}
  =\alpha(1-b)+\beta>0,
  \quad
- \frac{\operatorname{cross}(B,C)}{\lVert C-B\rVert}
+ \frac{\operatorname{cross}(P_0,P_+)}{\lVert P_+-P_0\rVert}
  =\gamma+\delta(1-a)>0.
 \]
-If $A=(-X,-Y)$ and $C=(-P,-Q)$ in the centered cone basis, then
+If $P_-=(-X,-Y)$ and $P_+=(-P,-Q)$ in the centered cone basis, then
 $0<X,Y,P,Q<1$, $X,Q>1/2$, and
 \[
- \frac{\operatorname{cross}(C,RA)}h=PX+(Q-P)Y>0.
+ \frac{\operatorname{cross}(P_+,\mathsf R P_-)}h
+ =PX+(Q-P)Y>0.
 \]
 The last sign is immediate unless $Q<P$ and $X<Y$, in which case it is
-larger than $Q-P/2>0$.  The ray of $W=C+RA$ lies between those of $C$ and
-$RA$.  The same coordinates give
+larger than $Q-P/2>0$.  The ray of
+$P_*=P_++\mathsf R P_-$ lies between those of $P_+$ and
+$\mathsf R P_-$.  The same coordinates give
 \begin{equation}
- \lVert A\rVert,\lVert C\rVert>h/2>\eta.         \label{eq:outer-radii}
+ \lVert P_-\rVert,\lVert P_+\rVert>h/2>r_*.
+ \label{eq:outer-radii}
 \end{equation}
 
 For the two equal-radius overlaps it is enough to prove
 \begin{equation}
- \frac{\operatorname{cross}(A,B)}{\lVert B-A\rVert}\ge\tau,
+ \frac{\operatorname{cross}(P_-,P_0)}{\lVert P_0-P_-\rVert}\ge\tau,
  \qquad
- \frac{\operatorname{cross}(B,C)}{\lVert C-B\rVert}\ge\tau.  \label{eq:adjacent-overlaps}
+ \frac{\operatorname{cross}(P_0,P_+)}{\lVert P_+-P_0\rVert}\ge\tau.
+ \label{eq:adjacent-overlaps}
 \end{equation}
 We now give the exact analytic verification.  By reflection take $a\le b$ and
 set $m=1-b$, $M=1-a$, $U=a+b-1$, $s=m+M$, and $w=M-m$.  The smaller of the
@@ -791,10 +936,18 @@ increasing and already equals $(7h-5)/4>0$ at $s=h$.  The preceding sheet gives
 $d\ge2s-1$.  Therefore \eqref{eq:adjacent-overlaps} holds on both
 sheets, and reflection supplies the other line.
 
-It remains to check the two mixed overlaps.  The exact rational envelopes, Gram reductions, and global positive-basis identities are recorded once in Appendix~\ref{sec:strategy4-exact-certificate}. Theorem~\ref{thm:paper-exact-mixed-certificate} gives precisely the overlaps for
-$\mathbb D(C,2\eta)$ with $\mathbb D(W,\eta)$ and for
-$\mathbb D(W,\eta)$ with $\mathbb D(RA,2\eta)$.
+It remains to check the two mixed overlaps.  The exact rational envelopes,
+Gram reductions, and global positive-basis identities are recorded once in
+\zcref{sec:strategy4-exact-certificate}.
+\zcref{thm:paper-exact-mixed-certificate} gives precisely the overlaps for
+$\mathbb B(P_+,2r_*)$ with $\mathbb B(P_*,r_*)$ and for
+$\mathbb B(P_*,r_*)$ with $\mathbb B(\mathsf R P_-,2r_*)$.
 
 Thus the four consecutive pairs of caps centered on the rays
 \eqref{eq:cap-ray-order} overlap.
 \end{proof}
+
+\paragraph{Body consequence.}
+These exact Newton and overlap data supply the nontrivial branch of the
+support-arc solution below, and hence the body conclusion
+\zcref{thm:reader-witness-enclosure}.

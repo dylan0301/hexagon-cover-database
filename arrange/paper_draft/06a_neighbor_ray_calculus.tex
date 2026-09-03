@@ -1,151 +1,244 @@
-\subsection{Exact neighboring-ray capacity}
-\label{subsec:new-neighbor-ray-capacity}
+\subsection{Module D.1: neighboring-ray capacity}
+\label{subsec:app-neighbor-ray-capacity}
 
-The T3-like and Vd placements require the exact capacity of a V triangle on a
-neighboring radial arm.  Normalize at $V_0$, let $A_a\in e_{5,0}$ and
-$B_b\in e_{0,1}$ have reaches $a,b$, and let
-\[
- X_c=(1-c)V_1\in r_1.
-\]
-Define $C_+(a,b)$ as the maximal $c$ for which
-$V_0,A_a,B_b,X_c$ lie in a closed unit equilateral triangle.  Put
-$C_-(a,b)=C_+(b,a)$.
+\paragraph{Exact interface.}
+The variational capacities $C_+$ and $C_-$ are the exact closed-triangle
+maxima of \zcref{def:finite-neighbor-capacities}; the anchor comparison uses
+$c_{\max}$ from \zcref{def:finite-anchor-admissible-set}.
 
-For $0\le a\le1/2$, let $p(a)$ be the unique root in $[a,1]$ of
+\paragraph{Variables and feasible set.}
+Take $0\le a,b\le1$ with $a+b\le1$.  The maximizing radial coordinate is
+$c\in[0,1]$, with the closed containment and reflection convention fixed in
+\zcref{def:finite-neighbor-capacities}.  For the nonlinear branches below,
+$0\le a\le1/2$ and the selected cubic root lies in $[a,1]$.
+
+For $0\le a\le1/2$, let $p_*(a)$ be the unique root in $[a,1]$ of
 \[
  p^3-(a+2)p^2+2(a+1)p-1=0,
- \tag{6.24a}
 \]
-and define
+and put
 \[
- \sigma(a)=1-p(a),
+ \sigma(a):=1-p_*(a),
  \qquad
- \tau(a)=1-a-(p(a)-a)(1-p(a)).
+ \tau(a):=1-a-(p_*(a)-a)(1-p_*(a)).
 \]
 
-\begin{proposition}[Neighboring-ray formula]
-\label{prop:new-neighbor-ray-formula}
+\paragraph{Objective.}
+Determine the attained maximum neighboring-ray reach $C_+(a,b)$, its
+reflected value $C_-(a,b)$, and the exact comparison of either neighboring
+capacity with the own-role capacity $c_{\max}(a,b)$.
+
+\paragraph{Exact result.}
+
+\begin{proposition}[Exact neighboring-ray formula]
+\label{prop:app-neighbor-ray-formula}
+For $0\le a,b\le1$ and $a+b\le1$, the maximum in
+Definition~\ref{def:finite-neighbor-capacities} is attained and
 \[
 C_+(a,b)=
 \begin{cases}
-\text{undefined},&a+b>1,\\
-1-b,&a+b\le1,\ a>1/2,\\
+1-b,&a>1/2,\\
 1-b,&0\le a\le1/2,\ 0\le b\le\sigma(a),\\
-p(a),&0\le a\le1/2,\ \sigma(a)\le b\le\tau(a),\\
+p_*(a),&0\le a\le1/2,\ \sigma(a)\le b\le\tau(a),\\
 a+\dfrac12-\sqrt{(a+b)^2-\dfrac34},
  &0\le a\le1/2,\ \tau(a)<b\le1-a.
 \end{cases}
-\tag{6.24b}
 \]
-At $b=\tau(a)$ the plateau value $p(a)$ is selected.
+At $b=\tau(a)$ the selected value is $p_*(a)$, and
+$C_-(a,b)=C_+(b,a)$.
 \end{proposition}
+
+\begin{lemma}[Common-pair domination]
+\label{lem:app-common-pair-domination}
+If $p,q\ge0$ and $p+q\le1$, then
+\[
+ C_+(p,q),C_-(p,q)\le1-\min\{p,q\}\le c_{\max}(p,q).
+\]
+\end{lemma}
 
 \input{figures/finite_enclosure/fe06_neighbor_capacity}
 
-\begin{proof}
-Use the cone basis
-\[
- E_-=V_5-V_0,
- \qquad E_+=V_1-V_0.
-\]
-In these coordinates
-\[
- V_0=(0,0),\quad A=(a,0),\quad B=(0,b),\quad X=(c,1),
-\]
-and the metric is $u^2+v^2-uv$.
+\paragraph{Solution.}
 
-Let $R,S$ satisfy $R^2+S^2-RS=1$, and define the support coordinates
+\begin{proof}[Proof of \zcref{prop:app-neighbor-ray-formula}]
+Use the cone basis $E_-=V_5-V_0$, $E_+=V_1-V_0$.  In these coordinates the
+four points in the definition of $C_+$ are
 \[
- U(u,v)=(R-S)u+Sv,
+ V_0=(0,0),\qquad X_5(1-a)=(a,0),\qquad X_0(b)=(0,b),
+ \qquad R_1(c)=(c,1),
 \]
+and the metric is $u^2+v^2-uv$.  Let $R^2+S^2-RS=1$ and define
 \[
- V(u,v)=Su-Rv,
- \qquad
- W(u,v)=Ru+(S-R)v.
+ \mathsf U(u,v)=(R-S)u+Sv,
+ \quad \mathsf V(u,v)=Su-Rv,
+ \quad \mathsf W(u,v)=Ru+(S-R)v.
 \]
-For this orientation, the least enclosing equilateral side is
+For this orientation the least enclosing side is
 \[
- \max_YW(Y)-\min_YU(Y)-\min_YV(Y),
- \tag{6.24c}
+ \max_Y\mathsf W(Y)-\min_Y\mathsf U(Y)-\min_Y\mathsf V(Y),
 \]
-where $Y$ ranges over $V_0,A,B,X$.  At a maximal feasible $c$, one support
-side contains a hull edge.  The non-dominated possibilities are:
+where $Y$ ranges over the four displayed points.  Compactness of the
+orientation circle and of $[0,1]$ proves attainment.  At a maximal feasible
+$c$, one support side contains a hull edge.  The nondominated contacts are
 \[
 \begin{array}{c|c}
-\text{supported edges or contacts}&\text{candidate}\\
-\hline
-V_0A\text{ and }BX&c=1-b,\\
-AX\text{ supported, }B\text{ inactive}&c=p(a),\\
-AX\text{ supported, }B\text{ active}
+V_0X_5(1-a)\text{ and }X_0(b)R_1(c)&c=1-b,\\
+X_5(1-a)R_1(c)\text{ supported, }X_0(b)\text{ inactive}&c=p_*(a),\\
+X_5(1-a)R_1(c)\text{ supported, }X_0(b)\text{ active}
  &c=a+\dfrac12-\sqrt{(a+b)^2-\dfrac34}.
 \end{array}
-\tag{6.24d}
 \]
-We verify the three patterns and their selectors.
+For the first contact take $R=S=1$.  The containing triangle is
+\[
+ \mathsf U\ge0,\qquad \mathsf V\ge-b,\qquad \mathsf W\le c;
+\]
+its side is $b+c$, and it contains $(a,0)$ precisely when $a\le c$.
 
-For the first pattern take $R=S=1$.  The containing triangle is
+For the second contact put $d=c-a$.  The supported side gives $R=Sd$ and
+$S^2(d^2-d+1)=1$.  Eliminating $S$ from the unit-side condition gives
 \[
- U\ge0,
- \qquad V\ge-b,
- \qquad W\le c,
+(c-a)\bigl(c^3-(a+2)c^2+2(a+1)c-1\bigr)=0.
 \]
-with side $b+c$.  It contains $A$ exactly when $a\le c$.  Hence the unit
-value is $c=1-b$, feasible precisely when $a+b\le1$.
+For $0\le a\le1/2$ the nondegenerate root is unique on $[a,1]$.  The
+remaining containment condition is $b\le\tau(a)$, and this branch dominates
+$1-b$ exactly for $b\ge\sigma(a)$.
 
-For the second pattern put $d=c-a$.  The side through $A,X$ gives $R=Sd$,
-and the unit condition gives $S^2(d^2-d+1)=1$.  With $B$ inactive, the
-opposite support is $W(V_0)=0$ and $W(X)=-1$.  Eliminating $S$ gives
+For the third contact the active supports give
 \[
-(c-a)
-\bigl(c^3-(a+2)c^2+2(a+1)c-1\bigr)=0.
+ S=-\frac1{a+b},\qquad d^2-d+1=(a+b)^2.
 \]
-The nondegenerate root is $c=p(a)$.  For $0\le a\le1/2$ it is unique because
-the cubic is strictly increasing on $[a,1]$.  The remaining containment
-condition is
+The selected root $0\le d\le1/2$ produces the radical in the statement; its
+inactive-support inequalities are exactly
+$0\le a\le1/2$ and $\tau(a)\le b\le1-a$.  This radical is real on that
+range.  Indeed, solving the cubic relation for $a$ in terms of
+$p=p_*(a)$ gives
 \[
- b\le1-p(a)(1+a-p(a))=\tau(a).
+ a+\tau(a)=\frac{p^2-p+1}{p(2-p)}\ge\frac{\sqrt3}{2}
+ \qquad\left(\frac12\le p\le1\right).
 \]
-This branch dominates $1-b$ exactly when $b\ge\sigma(a)$.
+At the transition, the same cubic relation gives
+\[
+ (a+\tau(a))^2-\frac34
+ =\left(a+\frac12-p_*(a)\right)^2,
+\]
+so the radical candidate there is at most $p_*(a)$; hence the plateau value
+is selected at $b=\tau(a)$.  For $b>\tau(a)$ the radical candidate is
+strictly decreasing in $b$.  It dominates the linear candidate because,
+with $s=a+b\in[\sqrt3/2,1]$,
+\[
+ \left(a+\frac12-\sqrt{s^2-\frac34}\right)-(1-b)
+ =s-\frac12-\sqrt{s^2-\frac34}\ge0,
+\]
+the last inequality following from
+$(s-1/2)^2-(s^2-3/4)=1-s\ge0$.
 
-For the third pattern the active supports give
+The selectors are ordered because
 \[
- S=-\frac1{a+b},
- \qquad
- d^2-d+1=(a+b)^2.
+ \tau(a)-\sigma(a)=(p_*(a)-a)p_*(a)\ge0,
+ \qquad \tau(a)\le1-a,
 \]
-The selected root $0\le d\le1/2$ is
+and the same parametrization gives
 \[
- d=\frac{1-\sqrt{4(a+b)^2-3}}2,
+ \tau(a)-a
+ =\frac{(2p_*(a)-1)(p_*(a)^2-p_*(a)+1)}
+ {p_*(a)(2-p_*(a))}\ge0.
 \]
-which gives the radical candidate in (6.24b).  The inactive support
-inequalities reduce to
-\[
-0\le a\le\frac12,
-\qquad
-\tau(a)\le b\le1-a.
-\]
-On this interval the radical candidate dominates $1-b$ because, with
-$s=a+b\le1$,
-\[
- s-\frac12\ge\sqrt{s^2-\frac34}.
-\]
-
-The three selected intervals are ordered since
-\[
- \tau(a)-\sigma(a)=(p(a)-a)p(a)\ge0,
- \qquad
- \tau(a)\le1-a.
-\]
-If $a+b>1$, none of the three support patterns is feasible, including
-$c=0$, so the capacity is undefined.  Reflection gives $C_-$.
+These cases exhaust the support contacts.  Reflection gives $C_-$.
 \end{proof}
 
-A consequence used repeatedly below is
+\begin{proof}[Proof of \zcref{lem:app-common-pair-domination}]
+Assume first $q\le p$.  The edge-normal unit triangle contains
+$K(p,q,1-q)$, so $c_{\max}(p,q)\ge1-q$.  The linear branch of
+\zcref{prop:app-neighbor-ray-formula} equals $1-q$.  If $p>1/2$, this is the
+only branch, so assume $p\le1/2$.  On the plateau branch
+the defining cubic, evaluated at $1-q$, is nonnegative; since the cubic is
+increasing on the selected interval, $p_*(p)\le1-q$.  The radical branch
+does not occur here, because $q\le p\le\tau(p)$.  Hence
+$C_+(p,q)\le1-q$.
+
+Now assume $p\le q$.  The reflected edge-normal construction gives
+$c_{\max}(p,q)\ge1-p$.  Here $p\le1/2$.  The linear branch satisfies
+$1-q\le1-p$, while evaluation of the plateau cubic at $1-p$ gives
 \[
- \boxed{C_+(p,q),C_-(p,q)\le1-\min\{p,q\}}
- \qquad(p+q\le1).
- \tag{6.24e}
+ p^2(1-2p)\ge0,
 \]
-Indeed this is immediate on the linear branch; on the plateau branch the
-cubic gives $p(a)\le1-a$, and the radical branch is no larger than its
-selected plateau at the transition.
+so $p_*(p)\le1-p$.  At its transition the radical value is at most
+$p_*(p)$ by the calculation above, and it then decreases.  Thus
+$C_+(p,q)\le1-p$.  Applying the result just proved to the reflected
+pair and using $C_-(p,q)=C_+(q,p)$ proves the same bound for $C_-$.
+\end{proof}
+
+\paragraph{Body consequence.}
+The attained piecewise evaluation supplies
+\zcref{def:finite-neighbor-capacities}; the final comparison supplies the
+compact body statement \zcref{lem:new-common-pair-domination}.
+
+\subsection{Module D.2: type-aware endpoint forcing}
+
+\paragraph{Exact interface.}
+Use exactly the selected reaches, source-conditioned neighboring terms,
+$\Gamma_i$, and $D_i=(1-\Gamma_i)V_i$ of
+\zcref{def:finite-type-aware-witness}.
+
+\paragraph{Variables and feasible set.}
+The index is $i\in\mathbb Z/6\mathbb Z$; the selected reaches obey
+$0\le a_j\le A_j$, $0\le b_j\le B_j$, and
+$a_j^2+a_jb_j+b_j^2\le1$.  A neighboring capacity is present only under the
+positive-trace implication displayed in the cited definition, which also
+places its pair in the domain $a+b\le1$.
+
+\paragraph{Objective.}
+Show that the largest admissible local closed radial endpoint still lies
+outside every open V role, so any seven-role cover must assign it to the
+center role.
+
+\paragraph{Exact result.}
+
+\begin{lemma}[Type-aware endpoint forcing]
+\label{lem:app-type-aware-radial-forcing}
+The point $D_i$ of Definition~\ref{def:finite-type-aware-witness} satisfies
+\[
+ D_i\in r_i\subseteq S,
+ \qquad D_i\notin\bigcup_{j=0}^5U_j.
+\]
+Consequently, a cover of $S$ by the seven displayed roles forces
+$D_i\in U_C$.
+\end{lemma}
+
+\paragraph{Solution.}
+
+\begin{proof}[Proof of \zcref{lem:app-type-aware-radial-forcing}]
+If $\Gamma_i=1$, then $D_i=O$.  Since
+$\lVert O-V_j\rVert=1$ for every $j$, no open unit equilateral triangle
+$U_j$ containing its indexed vertex $V_j$ can also contain $O$.  Thus assume
+$\Gamma_i<1$.
+
+If $D_i\in U_i$, openness gives a slightly more inward point of $r_i$ in
+$U_i$.  Together with the two selected boundary anchors in the closed role,
+this realizes an own-radial coordinate strictly larger than
+$c_{\max}(a_i,b_i)$, contrary to the definition of $\Gamma_i$.
+
+If $D_i\in U_{i-1}$, openness gives a positive interval of $r_i$ in that
+role.  Thus its $C_+$ term is present in $\Gamma_i$, and the same open
+neighborhood supplies a neighboring-ray coordinate strictly larger than
+$C_+(a_{i-1},b_{i-1})$, a contradiction.  The reflected argument excludes
+$U_{i+1}$.  This also covers a role whose closed intersection with $r_i$
+would otherwise be only an isolated point: hypothetical open membership
+creates positive-length support before the capacity is invoked.
+
+Write $D_i=dV_i$ with $0<d\le1$.  For the vertices at cyclic distance two
+and the opposite vertex,
+\[
+ \lVert dV_i-V_{i\pm2}\rVert^2=1+d+d^2>1,
+ \qquad
+ \lVert dV_i-V_{i+3}\rVert=1+d>1.
+\]
+Each nonlocal open V role contains its indexed vertex, and any two points in
+an open unit equilateral triangle are at distance strictly less than one.
+Hence the three nonlocal roles also miss $D_i$.  Every V role therefore
+misses $D_i$, and the cover forces $D_i\in U_C$.
+\end{proof}
+
+\paragraph{Body consequence.}
+This endpoint-strict calculation is the unique Appendix D supplier for
+\zcref{lem:new-type-aware-radial-forcing}.

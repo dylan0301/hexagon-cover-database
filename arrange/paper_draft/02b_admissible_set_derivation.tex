@@ -1,118 +1,84 @@
-\section{Derivation of the Local Admissible Set}
+\subsection{Module A.6: shared enclosure and local admissibility}
 \label{sec:admissible-set-derivation}
 
-This section proves the explicit description stated in
-Proposition~\ref{prop:body-admissible-description}.  It also derives the three
-polynomial cells used by the exact propagation appendix and states the component
-selectors introduced when a positive support equation is squared.
+\paragraph{Exact interface.}
+The enclosure number $\Lambda$, canonical anchor hull $K(a,b,c)$,
+admissible set $\mathcal A$, and radial envelope $c_{\max}$ are defined in
+\zcref{def:finite-enclosure-number,def:finite-anchor-admissible-set}.  This
+module evaluates those objects once for use by all later appendices.
 
-Let
+\paragraph{Variables and feasible set.}
+Let $\mathsf R$ be counterclockwise rotation through $2\pi/3$.  For every
+nonempty compact $K\subset\mathbb R^2$ put
 \[
- u=\left(\frac12,\frac{\sqrt3}{2}\right),\qquad
- v=\left(\frac12,-\frac{\sqrt3}{2}\right),
+ h_K(n):=\max_{x\in K}\langle x,n\rangle.
 \]
-and put
+Translate the canonical hull's vertex $V_0$ to the origin and apply a rigid
+motion so that
 \[
- O=0,\qquad A=au,\qquad B=bv,\qquad C=c(u+v),
- \qquad K=\conv\{O,A,B,C\}.
+ u=\left(\frac12,\frac{\sqrt3}{2}\right),
+ \qquad
+ v=\left(\frac12,-\frac{\sqrt3}{2}\right).
 \]
-Set
+Thus its generators become
 \[
- s=a+b,\qquad d=a^2+ab+b^2.
+ O'=0,
+ \qquad A=au,
+ \qquad B=bv,
+ \qquad C=c(u+v),
+ \qquad K=\conv\{O',A,B,C\}.
 \]
-
-\subsection{The triangular hull}
-
-Assume first that $s>0$ and $cs\le ab$.  If $a,b>0$, then
+For $a,b,c\in[0,1]$ set
 \[
- \frac ca+\frac cb\le1,
+ \begin{gathered}
+ s:=a+b,
+ \qquad d:=a^2+ab+b^2,
+ \qquad q:=s^4-s^2+ab,\\
+ m:=\min\{a,b\},
+ \qquad M:=\max\{a,b\}.
+ \end{gathered}
 \]
-so
-\[
- C=\frac caA+\frac cbB+\left(1-\frac ca-\frac cb\right)O
- \in\conv\{O,A,B\}.
-\]
-The zero-coordinate cases follow by continuity.  The distance $AB$ equals
-$\sqrt d$ and is the diameter of $\triangle OAB$.  Put
-\[
- T=-bu-av.
-\]
-The triangle $\conv\{A,B,T\}$ is equilateral of side $\sqrt d$, and
-\[
- O=\frac{b^2}{d}A+\frac{a^2}{d}B+\frac{ab}{d}T.
-\]
-Thus it contains $O$ and therefore also $C$.  Every enclosing set has diameter
-at least $AB$, so
-\[
- L_{\min}(a,b,c)=\sqrt d.
-\]
-When $a=b=0$, the hull is the segment $[0,c(u+v)]$ and its least enclosing
-equilateral side is $c$.
-
-\subsection{The quadrilateral hull and the four calipers}
-
-Assume now that $s>0$ and $cs>ab$.  The four hull vertices occur in the cyclic
-order
-\[
- O,\ B,\ C,\ A.
-\]
-By Proposition~\ref{prop:universal-enclosure-gauge}, a minimizing orientation
-has an outward normal perpendicular to one of the four hull edges.
-
-For the edge $OA$, the three supports give
-\[
- L_{OA}=b+\max\{a,c\};
-\]
-reflection gives
-\[
- L_{BO}=a+\max\{b,c\}.
-\]
-For the edge $AC$, put
-\[
- R_a=\sqrt{a^2-ac+c^2}.
-\]
-An outward unit normal is
-\[
- n_0=\frac1{2R_a}(\sqrt3a,\,2c-a).
-\]
-If $x_+=\max\{x,0\}$, the support values for
-$n_0,\mathsf Rn_0,\mathsf R^2n_0$ are
-\[
- \frac{\sqrt3ac}{2R_a},\qquad
- \frac{\sqrt3a(a-c)_+}{2R_a},\qquad
- \frac{\sqrt3c\max\{b,(c-a)_+\}}{2R_a}.
-\]
-Multiplying their sum by $2/\sqrt3$ gives
-\[
- L_{AC}=
- \begin{cases}
-  (a^2+bc)/R_a,&a\ge c,\\
-  c(a+b)/R_a,&a<c\le a+b,\\
-  c^2/R_a,&c>a+b.
- \end{cases}
-\]
-Reflection exchanges $a$ and $b$ and gives $L_{CB}$.  These four hull edges are
-exhaustive, so
-\[
- L_{\min}(a,b,c)=\min\{L_{OA},L_{BO},L_{AC},L_{CB}\}.
-\]
-This proves Proposition~\ref{prop:body-admissible-description}, including all
-equality and degenerate cases by continuity.
-
-\subsection{Equivalent polynomial cells}
-
-For the exact transfer calculations put
-\[
- m=\min\{a,b\},\qquad M=\max\{a,b\},
- \qquad q=s^4-s^2+ab,
-\]
-and define
+and
 \begin{align*}
- F_L(a,b,c)&=c^4-c^2+mc-m^2,\\
- F_T(a,b,c)&=(s^2-1)c^2+Mc-M^2,\\
- F_S(a,b,c)&=(m^2-1)c^2+(2mM^2+M)c+M^4-M^2.
+ F_L(a,b,c)&:=c^4-c^2+mc-m^2,\\
+ F_T(a,b,c)&:=(s^2-1)c^2+Mc-M^2,\\
+ F_S(a,b,c)&:=(m^2-1)c^2+(2mM^2+M)c+M^4-M^2.
 \end{align*}
-We prove
+
+\paragraph{Objective.}
+Evaluate $\Lambda(K)$ by support functions; determine the exact projection of
+$\mathcal A$ to the $(a,b)$-plane; and, on that projection, calculate the
+attained maximum $c_{\max}(a,b)$ with the geometric connected-component
+selectors retained.
+
+\paragraph{Exact result.}
+
+\begin{lemma}[Shared equilateral-enclosure gauge]
+\label{lem:app-shared-enclosure-gauge}
+\label{prop:universal-enclosure-gauge}
+\label{prop:new-enclosure-gauge}
+For every nonempty compact $K$,
+\begin{equation}
+ \Lambda(K)=\frac2{\sqrt3}
+ \min_{\lVert n\rVert=1}
+ \sum_{j=0}^2h_K(\mathsf R^jn).
+ \label{eq:app-enclosure-gauge}
+\end{equation}
+If $K$ is a polygon with at least two distinct points, a minimizing normal
+may be chosen perpendicular to a hull edge.
+\end{lemma}
+
+\begin{lemma}[Exact local admissible set and radial envelope]
+\label{lem:app-local-admissible-set}
+\label{prop:exact-admissible-set}
+\label{prop:new-exact-local-set}
+The exact projection is
+\begin{equation}
+ \{(a,b)\in[0,1]^2:\exists c\in[0,1]\ (a,b,c)\in\mathcal A\}
+ =\{(a,b)\in[0,1]^2:a^2+ab+b^2\le1\}.
+ \label{eq:app-admissible-projection}
+\end{equation}
+On $[0,1]^3$, the admissible set is
 \begin{equation}
  \mathcal A=\mathcal A_L\cup\mathcal A_T\cup\mathcal A_S,
  \label{eq:derived-admissible-cells}
@@ -121,100 +87,164 @@ where
 \begin{align*}
  \mathcal A_L&=\{d\le1,\ s\le1,\ q\le0,\ F_L\le0\},\\
  \mathcal A_T&=\{d\le1,\ s\le1,\ q\ge0,\ F_T\le0,\ c\le2M\},\\
- \mathcal A_S&=\{d\le1,\ s>1,\ F_S\le0,\ c\le1/2\},
+ \mathcal A_S&=\{d\le1,\ s>1,\ F_S\le0,\ c\le1/2\}.
 \end{align*}
-with all variables in $[0,1]$.
+It is compact, coordinatewise downward closed, and invariant under exchange
+of $a,b$.  Every $c$-fiber therefore has an attained maximum, given by
+\begin{equation}
+ c_{\max}(a,b)=
+ \begin{cases}
+  1,&a=b=0,\\
+  C_L(m),&s\le1,\ q\le0,\ (a,b)\ne(0,0),\\
+  \dfrac{2M}{1+\sqrt{4s^2-3}},&s\le1,\ q>0,\\[3mm]
+  \dfrac{M(2mM+1)-M\sqrt{4d-3}}{2(1-m^2)},&s>1,
+ \end{cases}
+ \label{eq:radial-envelope}
+\end{equation}
+where $C_L(m)$ is the unique root in $[\sqrt3/2,1]$ of
+\[
+ z^4-z^2+mz-m^2=0.
+\]
+In particular, $c_{\max}(a,b)=c_{\max}(b,a)$.
+\end{lemma}
 
-Assume by symmetry that $a=m\le b=M$.  Reading the active support points in
-the four-caliper formulas gives the following contact patterns:
+\paragraph{Solution.}
+
+\begin{proof}[Proof of \zcref{lem:app-shared-enclosure-gauge}]
+Fix outward unit normals $n,\mathsf Rn,\mathsf R^2n$.  Translating the three
+supporting lines to the support numbers of $K$ gives the least containing
+triangle with those normals.  Its altitude is the sum of the three support
+numbers, because $n+\mathsf Rn+\mathsf R^2n=0$, and its side is that sum
+divided by $\sqrt3/2$.  Minimizing over the unit circle gives
+\eqref{eq:app-enclosure-gauge}; continuity of the support function gives the
+minimum.
+
+For a polygon, partition the unit circle into angular cells on which the
+three support vertices are fixed.  On each open cell the support sum has the
+form $A\cos\theta+B\sin\theta$ and its second derivative is its negative.
+An interior critical point is therefore a maximum unless the expression is
+constant, so a minimum occurs at a cell endpoint, where a support tie makes
+the normal perpendicular to a hull edge.
+\end{proof}
+
+\begin{proof}[Proof of \zcref{lem:app-local-admissible-set}]
+Assume first $s>0$ and $cs\le ab$.  If $a,b>0$, then
+\[
+ \frac ca+\frac cb\le1,
+\]
+so
+\[
+ C=\frac caA+\frac cbB+\left(1-\frac ca-\frac cb\right)O'
+ \in\conv\{O',A,B\}.
+\]
+The zero-coordinate cases follow directly.  The distance $AB$ is $\sqrt d$.
+With
+\[
+ T:=-bu-av,
+\]
+the triangle $\conv\{A,B,T\}$ is equilateral of side $\sqrt d$, and
+\[
+ O'=\frac{b^2}{d}A+\frac{a^2}{d}B+\frac{ab}{d}T.
+\]
+Thus it contains $K$, while every enclosing triangle has diameter at least
+$AB$.  Hence $\Lambda(K)=\sqrt d$.  When $a=b=0$, the hull is the segment
+$[O',C]$ and its enclosure infimum is $c$.
+
+Now suppose $s>0$ and $cs>ab$.  The hull vertices have cyclic order
+$O',B,C,A$.  By \zcref{lem:app-shared-enclosure-gauge}, it suffices to test
+the four edge normals.  For $O'A$ the three supports give
+\[
+ L_{O'A}=b+\max\{a,c\},
+\]
+and reflection gives $L_{BO'}=a+\max\{b,c\}$.  For $AC$, put
+\[
+ R_a:=\sqrt{a^2-ac+c^2},
+ \qquad
+ n_0:=\frac1{2R_a}(\sqrt3a,2c-a).
+\]
+The supports in the directions $n_0,\mathsf Rn_0,\mathsf R^2n_0$ are
+\[
+ \frac{\sqrt3ac}{2R_a},
+ \qquad
+ \frac{\sqrt3a(a-c)_+}{2R_a},
+ \qquad
+ \frac{\sqrt3c\max\{b,(c-a)_+\}}{2R_a}.
+\]
+Consequently
+\[
+ L_{AC}=
+ \begin{cases}
+ (a^2+bc)/R_a,&a\ge c,\\
+ c(a+b)/R_a,&a<c\le a+b,\\
+ c^2/R_a,&c>a+b,
+ \end{cases}
+\]
+and $L_{CB}$ is obtained by interchanging $a,b$.  Therefore
+\begin{equation}
+ \Lambda(K)=\min\{L_{O'A},L_{BO'},L_{AC},L_{CB}\}.
+ \label{eq:app-four-local-calipers}
+\end{equation}
+
+Assume by symmetry that $a=m\le b=M$.  Reading the active supports in
+\eqref{eq:app-four-local-calipers} gives
 \[
 \begin{array}{c|c|c}
 \text{range}&\text{active supports}&\text{unit-frontier equation}\\ \hline
-s<1,\ q<0&\{O\},\{C\},\{A,C\}&F_L=0\\
-s<1,\ q>0&\{O\},\{B,C\},\{A\}&F_T=0\\
-s=1&\text{preceding pattern with an }O,B\text{ tie}&c=M\\
+s<1,\ q<0&\{O'\},\{C\},\{A,C\}&F_L=0\\
+s<1,\ q>0&\{O'\},\{B,C\},\{A\}&F_T=0\\
+s=1&\text{preceding pattern with an $O',B$ tie}&c=M\\
 s>1&\{B\},\{B,C\},\{A\}&F_S=0.
 \end{array}
 \]
-The inactive-support inequalities reduce respectively to
-$q\le0$, $q\ge0$, and $s>1$.  The side-length equations have positive sides;
-squaring them gives exactly $F_L=0,F_T=0,F_S=0$.  It remains to identify the
-geometric connected component after squaring.
+The inactive-support inequalities reduce, respectively, to $q\le0$,
+$q\ge0$, and $s>1$.  Squaring the positive side-length equations gives
+exactly $F_L=0,F_T=0,F_S=0$.
 
-For Cell $T$, $0<s<1$, the roots of $F_T=0$ are
+For the $T$ cell the roots are
 \[
  c_- =\frac{2M}{1+\sqrt{4s^2-3}},
  \qquad
  c_+ =\frac{2M}{1-\sqrt{4s^2-3}}.
 \]
-The inequality $F_T\le0$ contains the interval $0\le c\le c_-$ and the formal
-high component $c\ge c_+$.  The geometric component is the one connected to
-$c=0$.  One has
+The squared inequality contains $0\le c\le c_-$ and a formal high component
+$c\ge c_+$.  Since
 \[
  c_-\le2M\le c_+,
 \]
-with equality of all three quantities only when the two roots coalesce.  Hence
-\[
- c\le2M
-\]
-selects exactly the component containing $c=0$.  Equivalently one may use
-$M+2(s^2-1)c\ge0$.
+with equality throughout only at root coalescence, $c\le2M$ selects exactly
+the component connected to $c=0$.
 
-For Cell $S$,
+For the $S$ cell,
 \[
  F_S(a,b,0)=M^2(M^2-1)<0,
  \qquad
  F_S(a,b,M)=M^2(s^2-1)>0.
 \]
-Furthermore $4F_S(a,b,1/2)$ is increasing in $m$, and at $m=1-M$ it equals
-\[
- M^2(2M-1)^2.
-\]
-Because $s>1$ gives $m>1-M$, one has $F_S(a,b,1/2)>0$.  The quadratic opens
-downward, so $1/2$ lies strictly between its two roots.  Therefore
-$c\le1/2$ selects the smaller-root component containing $c=0$.
+Moreover, $4F_S(a,b,1/2)$ is increasing in $m$, and at $m=1-M$ equals
+$M^2(2M-1)^2$.  Since $s>1$ gives $m>1-M$, one has
+$F_S(a,b,1/2)>0$.  The quadratic opens downward, so $1/2$ lies strictly
+between its roots and $c\le1/2$ selects the smaller-root component containing
+$c=0$.
 
-For Cell $L$, the fiber from $c=0$ reaches one selected root in
-$[\sqrt3/2,1]$; monotonicity there follows from
+For the $L$ cell, the fiber issuing from $c=0$ reaches one selected root in
+$[\sqrt3/2,1]$; uniqueness there follows from
 $4c^3-2c+m>0$.  At $q=0$ the $L$ and $T$ formulas meet and both give $c=s$.
-This proves \eqref{eq:derived-admissible-cells} and, in particular, proves that
-$\mathcal A$ is coordinatewise down-closed.
+This proves the three exact cells and solving their selected frontier
+equations gives \eqref{eq:radial-envelope}.
 
-\subsection{The radial envelope}
+At $c=0$, the preceding triangular calculation shows admissibility exactly
+when $d\le1$; if $d>1$, the two anchors $A,B$ are more than unit distance
+apart.  This proves \eqref{eq:app-admissible-projection}.  The support formula
+makes $\Lambda(K(a,b,c))$ continuous, hence $\mathcal A$ is compact.
+Reflection exchanges $a,b$.  Reducing any coordinate moves its anchor toward
+the already present point $O'$, so the new hull lies in the old hull; this
+proves coordinatewise downward closure.  Its nonempty $c$-fibers are compact
+initial intervals, proving attainment of $c_{\max}$.
+\end{proof}
 
-Solving the selected frontier equations gives
-\[
- c_{\max}(a,b)=
- \begin{cases}
-  1,&a=b=0,\\
-  C_L(m),&s\le1,\ q\le0,\ (a,b)\ne(0,0),\\
-  \dfrac{2M}{1+\sqrt{4s^2-3}},&s\le1,\ q>0,\\[2mm]
-  \dfrac{M(2mM+1)-M\sqrt{4d-3}}{2(1-m^2)},&s>1,
- \end{cases}
-\]
-where $C_L(m)$ is the unique root in $[\sqrt3/2,1]$ of
-\[
- z^4-z^2+mz-m^2=0.
-\]
-At $q=0$ the two subcritical formulas agree and equal $s$.  These formulas are
-the radial-envelope inputs used later in Strategies~2 and~4.
-
-\subsection{Exact admissible-set diagrams}
-
-\begin{figure}[H]
-\centering
-\resizebox{.98\linewidth}{!}{%
-\input{figures/strategy2_admissible_scalars_skeleton}}
-\caption{The scalar and caliper-denominator data entering the exact
-admissible-set formula.}
-\label{fig:strategy2-admissible-scalars-skeleton}
-\end{figure}
-
-\begin{figure}[H]
-\centering
-\resizebox{.98\linewidth}{!}{%
-\input{figures/strategy2_admissible_minimum_skeleton}}
-\caption{The complete piecewise least-enclosure function and its exact
-relation to $\mathcal A$.}
-\label{fig:strategy2-admissible-minimum-skeleton}
-\end{figure}
+\paragraph{Body consequence.}
+The support formula is the Appendix A supplier for
+\zcref{def:finite-enclosure-number}.  The projection, component selectors,
+attainment, symmetry, and formula \eqref{eq:radial-envelope} supply
+\zcref{def:finite-anchor-admissible-set} and every later use of
+$c_{\max}$.

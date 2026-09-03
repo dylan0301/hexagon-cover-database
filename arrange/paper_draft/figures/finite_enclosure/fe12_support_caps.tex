@@ -6,13 +6,13 @@
 \begin{tikzpicture}[scale=1.55,>=Latex]
   \node[panellabel,anchor=west] at (-1.25,1.65) {(a) one point and its cap};
   \draw[black!45] (0,0) circle (1);
-  \fill[DemandRed] (.48,.32) circle (.032) node[above right=1pt,figlabel] {$P$};
+  \fill[DemandRed] (.48,.32) circle (.032) node[above right=1pt,figlabel] {$X$};
   \draw[flow] (0,0)--(.92,.61) node[right,figlabel] {$n$};
   \draw[DemandRed,line width=2.3pt]
     (18:1.02) arc[start angle=18,end angle=78,radius=1.02];
   \node[figlabel,text=DemandRed,align=center] at (.30,1.30)
-    {$\operatorname{Cap}(P,r)$\\
-     $\langle P,n\rangle+r\ge h$};
+    {$\operatorname{Cap}(X,r)$\\
+     $\langle X,n\rangle+r\ge h$};
   \node[figlabel] at (0,-1.30) {circle of outward normal directions};
 \end{tikzpicture}%
 }
@@ -37,11 +37,11 @@
   \draw[RadialTeal,line width=2.3pt]
     (111:1.02) arc[start angle=111,end angle=128,radius=1.02];
 
-  \node[figlabel,text=DemandRed] at (18:1.28) {$P_-$};
-  \node[figlabel,text=VertexOrange] at (49:1.28) {$P_0$};
-  \node[figlabel,text=CenterBlue] at (78:1.28) {$P_+$};
-  \node[figlabel,text=GapPurple] at (103:1.30) {$P_*$};
-  \node[figlabel,text=RadialTeal] at (123:1.32) {$\mathsf RP_-$};
+  \node[figlabel,text=DemandRed] at (18:1.28) {cap 1};
+  \node[figlabel,text=VertexOrange] at (49:1.28) {cap 2};
+  \node[figlabel,text=CenterBlue] at (78:1.28) {cap 3};
+  \node[figlabel,text=GapPurple] at (103:1.30) {cap 4};
+  \node[figlabel,text=RadialTeal] at (123:1.32) {next sector};
   \node[figlabel,align=center] at (0,-1.30)
     {consecutive overlaps cover the short sector};
 \end{tikzpicture}%
@@ -59,17 +59,17 @@
     \draw[->,\col,line width=.75pt] (0,0)--({\a+60}:.78);
   }
   \node[figlabel,align=center] at (0,0)
-    {$\mathsf R$-orbits\\cover $\mathbb S^1$};
+    {three rotated sectors\\cover $\mathbb S^1$};
   \node[figlabel,align=center] at (0,-1.30)
-    {$h_{K+\mathsf RK+\mathsf R^2K}(n)\ge h$ for every $n$};
+    {the support threshold holds in every direction};
 \end{tikzpicture}%
 }
 \end{minipage}
 \caption{The support-cap conclusion for the zero-gap witness.  A point and a
 disk radius determine an arc of normal directions in which their support is
-at least $h$.  The four consecutive overlap checks cover the sector from the
-ray of $P_-$ to that of $\mathsf RP_-$, and the three $120^\circ$ rotations
-cover the full normal circle.  The arc widths are schematic; the cyclic order
-and overlap pattern are the exact hypotheses of the support-arc lemma.}
+at least $h$.  Four consecutive overlap checks cover one sector, and its three
+$120^\circ$ rotations cover the full normal circle.  The arc widths are
+schematic; the cyclic order and overlap pattern are the exact hypotheses of
+the support-arc lemma.}
 \label{fig:zero-gap-support-cap-cover}
 \end{figure}

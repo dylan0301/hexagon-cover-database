@@ -1,40 +1,33 @@
-\section{Detailed Trace-Length Estimates}
-\label{sec:length}
+\subsection{Skeleton-trace optimization}
+\label{subsec:app-skeleton-trace-optimization}
 
-This section develops the boundary and conditional-skeleton trace bounds used
-by the length mechanism.
+\paragraph{Exact interface.}
+The target is the exact trace functional $L_S$ from
+Definition~\ref{def:trace-length}; the compact body consequence is
+Theorem~\ref{thm:common-skeleton-count}.
 
-For a closed triangle $T$ and a rectifiable target $E$, write
+\paragraph{Variables and feasible set.}
+The C-triangle variables range over the signed CE1/CE2 domain of
+\zcref{prop:signed-center-normal-form}.  A V triangle ranges over
+the closed unit equilateral triangles containing its distinguished vertex,
+with the displayed reach and radial-incidence restrictions in the lemmas
+below.
+
+\paragraph{Objective.}
+For each indicated class, maximize $L_S(T)$.
+
+\paragraph{Exact result.}
+On the four feasible classes below, the exact sufficient caps are,
+respectively,
 \[
- L_E(T)=\mathcal H^1(T\cap E).
+ L_S(T_C)<\frac32,\qquad
+ L_S(T_i)<\frac32,\qquad
+ L_S(T_i)\le2,\qquad
+ L_S(T_i)<\frac32.
 \]
-The passage from an original open triangle $U$ to its closure $T=\overline U$
-can only enlarge the trace.  Hence a cover of $E$ by the open triangles implies
-\begin{equation}
- \mathcal H^1(E)
- \le L_E(T_C)+\sum_{i=0}^5L_E(T_i).
- \label{eq:length-subadditivity}
-\end{equation}
-All estimates in this section concern full traces.  They therefore remain
-valid for any assigned measurable subsets of those traces.
 
-The strategy uses only the perimeter $\partial H$ and the full skeleton
-$S$, whose measures were recorded in \eqref{eq:target-lengths}.  Every
-skeleton estimate below is conditional on its stated center and V triangle
-hypotheses; no unconditional noncoverage assertion for $S$ is made.
-
-\begin{figure}[H]
-\centering
-\input{figures/strategy1_trace_targets}
-\caption{The two one-dimensional targets.  The full skeleton is used only
-under the hypotheses of the corresponding trace budget.}
-\label{fig:strategy1-targets}
-\end{figure}
-
-\subsection{Conditional skeleton trace caps}
-
-We now develop the skeleton estimate used only when the center is CE1 or CE2.
-The first lemma is the center contribution.
+\paragraph{Solution.}
+The following four lemmas give the complete calculations for those caps.
 
 \begin{lemma}[Center skeleton cap]
 \label{lem:center-skeleton-cap}
@@ -48,7 +41,7 @@ midpoint, then
 \begin{proof}
 Normalize the unique midpoint as $M_0$ and the positive boundary trace to
 $e_{0,1}$.  Use the signed variables of
-Proposition~\ref{prop:signed-center-normal-form}; in particular
+\zcref{prop:signed-center-normal-form}; in particular
 \[
  W=1-R,\qquad E=\sqrt{1-RW},\qquad
  \eta=1-E,\qquad P=E(1-E).
@@ -255,64 +248,70 @@ equals $88/3-136\sqrt3/9>0$.  Hence $P(c_0)>0$.  Since
 $P(c)\le0$ forces $c<c_0$.  Thus $a+b+c<3/2$.
 \end{proof}
 
-\begin{lemma}[A positive-support adjacent exceptional triangle is forced]
-\label{lem:positive-support-rescuer}
-Suppose $T_C$ is CE1 or CE2 and, after symmetry,
-$T_C\cap\{M_0,\ldots,M_5\}=\{M_0\}$.  If at least two V triangles are
-supercritical, then for a supercritical index $s\ne0$ there is some
-$j\in\{s-1,s+1\}$ such that
-\[
- M_s\in U_j,
- \qquad
- \Haus(T_j\cap r_s)>0.
-\]
-\end{lemma}
+\paragraph{Body consequence.}
+These four optima supply the four skeleton rows used in
+Theorem~\ref{thm:common-skeleton-count}.
 
-\begin{proof}
-Choose a supercritical index $s\ne0$.  Lemma~\ref{lem:self-midpoint} gives
-$M_s\notin T_s$, and $M_s\notin T_C$ by the unique-midpoint property.  In
-the original open cover, $M_s$ is therefore contained by some other open
-V triangle $U_j$.  Diameter one restricts $j$ to $\{s-1,s+1\}$.  Because
-$U_j$ is open and $M_s$ is an interior point of $r_s$, one has
-$\Haus(T_j\cap r_s)>0$.
-\end{proof}
+\subsection{Vd1/Vd2 corner optimization}
+\label{subsec:app-vd-corner-optimization}
 
-\subsection{Vd1/Vd2 corner estimates}
+\paragraph{Exact interface.}
+The public outputs are the Vd1/Vd2 boundary row of
+Theorem~\ref{thm:boundary-trace-table} and the branch in
+Proposition~\ref{prop:ce2-vd2-midpoint-length}.
 
-We next isolate the much stronger trace loss caused by Vd1 and Vd2 geometry.
-For the following two results use the temporary coordinates
+\paragraph{Variables and feasible set.}
+Let $T$ be the closure of an original Vd1 or Vd2 triangle at $V_0$.
+Use the temporary coordinates
 \[
  X=V_0+x(V_5-V_0)+y(V_1-V_0).
 \]
 Thus $V_0=(0,0)$, $V_5=(1,0)$, $V_1=(0,1)$, $O=(1,1)$, and
 $\lVert(x,y)\rVert^2=x^2+y^2-xy$.
 
+\paragraph{Objective.}
+Determine the exact half-plane family and maximize the boundary sum, first
+without and then with an adjacent-midpoint containment constraint.
+
+\paragraph{Exact result.}
+The exact half-plane and ray descriptions are
+\eqref{eq:vd-normal-form} and \eqref{eq:vd-ray-intervals}.  Their optimized
+consequences are
+\[
+ A+B<\frac12,
+ \qquad
+ M_{i-1}\in T_i\ \text{or}\ M_{i+1}\in T_i
+ \Longrightarrow A_i+B_i<\frac13.
+\]
+
+\paragraph{Solution.}
+
 \begin{proposition}[Vd1/Vd2 corner normal form]
 \label{prop:vd-corner-normal-form}
 Let $T$ be the closure of an original Vd1 or Vd2 triangle at $V_0$, and let
-$a,b$ be its exact reaches toward $V_5,V_1$.  There is a unique $t>0$ such
+$A,B$ be its exact reaches toward $V_5,V_1$.  There is a unique $t>0$ such
 that, with $d=\sqrt{t^2+t+1}$,
 \[
  T=\left\{(x,y):
  \begin{aligned}
- x-(t+1)y&\le a,\\
- ty-(t+1)x&\le tb,\\
- tx+y&\le d-a-tb
+ x-(t+1)y&\le A,\\
+ ty-(t+1)x&\le tB,\\
+ tx+y&\le d-A-tB
  \end{aligned}\right\}.
  \label{eq:vd-normal-form}
 \]
 The raw traces, in coordinates measured from the indicated outer vertex, are
 \[
  \begin{array}{c|c}
- r_0&0\le s\le\dfrac{d-a-tb}{t+1}\\[6pt]
- r_1&\dfrac{t(1-b)}{t+1}\le s\le\dfrac{d-a-tb-1}{t}\\[8pt]
- r_5&\dfrac{1-a}{t+1}\le s\le d-a-tb-t.
+ r_0&0\le s\le\dfrac{d-A-tB}{t+1}\\[6pt]
+ r_1&\dfrac{t(1-B)}{t+1}\le s\le\dfrac{d-A-tB-1}{t}\\[8pt]
+ r_5&\dfrac{1-A}{t+1}\le s\le d-A-tB-t.
  \end{array}
  \label{eq:vd-ray-intervals}
 \]
 Intersecting with $[0,1]$ gives the actual traces.  Moreover,
 \begin{equation}
- a+b<\frac12.
+ A+B<\frac12.
  \label{eq:vd-half-cap}
 \end{equation}
 \end{proposition}
@@ -320,7 +319,7 @@ Intersecting with $[0,1]$ gives the actual traces.  Moreover,
 \begin{proof}
 A Vd1/Vd2 triangle has one vertex $W$ outside $H$ and two vertices $U,Z$
 in $H$.  Since $V_0$ is an interior convex combination of them, both
-coordinates of $W$ are negative.  The two axis endpoints $(a,0),(0,b)$ lie
+coordinates of $W$ are negative.  The two axis endpoints $(A,0),(0,B)$ lie
 on distinct sides incident with $W$.  Put $p=U-W$, $q=Z-W$.  Both vectors
 have positive coordinates and satisfy
 \[
@@ -342,11 +341,11 @@ $(s,s),(s,1),(1,s)$ gives \eqref{eq:vd-ray-intervals}.
 If the $r_1$ trace has positive length, its lower endpoint is smaller than
 its upper endpoint.  Clearing denominators gives
 \[
- (t+1)a+tb<(t+1)(d-1)-t^2.
+ (t+1)A+tB<(t+1)(d-1)-t^2.
 \]
-Since the left side is at least $t(a+b)$,
+Since the left side is at least $t(A+B)$,
 \[
- a+b<\frac{(t+1)(d-1)-t^2}{t}<\frac12.
+ A+B<\frac{(t+1)(d-1)-t^2}{t}<\frac12.
 \]
 For the last inequality, both sides are positive and
 \[
@@ -362,31 +361,32 @@ If an open role $U_i$ has Vd2 closure $T_i=\overline{U_i}$ and $T_i$
 contains $M_{i-1}$ or $M_{i+1}$, then its
 exact boundary reaches satisfy
 \[
- a+b<\frac13.
+ A_i+B_i<\frac13.
 \]
 \end{lemma}
 
 \begin{proof}
-In Proposition~\ref{prop:vd-corner-normal-form}, reflection sends
-$(t,a,b,M_1,M_5)$ to $(1/t,b,a,M_5,M_1)$, so assume $t\ge1$ and put
-$U=a+tb$.
+Normalize to $i=0$ and write $A=A_i$, $B=B_i$.  In
+Proposition~\ref{prop:vd-corner-normal-form}, reflection sends
+$(t,A,B,M_1,M_5)$ to $(1/t,B,A,M_5,M_1)$, so assume $t\ge1$ and put
+$U=A+tB$.
 
 If $M_5=(1,1/2)$ is contained, the third half-plane in
 \eqref{eq:vd-normal-form} gives
 \[
- a+b\le U\le d-t-\frac12\le\sqrt3-\frac32<\frac13;
+ A+B\le U\le d-t-\frac12\le\sqrt3-\frac32<\frac13;
 \]
 the middle expression decreases for $t\ge1$.
 
 If $M_1=(1/2,1)$ is contained, the second and third half-planes give
 \[
- b\ge\frac{t-1}{2t},\qquad
- a+b\le S(t):=d-t-\frac1{2t}.
+ B\ge\frac{t-1}{2t},\qquad
+ A+B\le S(t):=d-t-\frac1{2t}.
 \]
 Positive-length contact with $r_5$ gives, by
 \eqref{eq:vd-ray-intervals},
 \[
- a+b<R(t):=\frac{2(t+1)d-3t^2-t-2}{2t}.
+ A+B<R(t):=\frac{2(t+1)d-3t^2-t-2}{2t}.
 \]
 Direct differentiation shows that $S$ is increasing and $R$ decreasing on
 $[1,\infty)$.  For example, the sign calculation for $S'$ reduces to
@@ -398,22 +398,45 @@ while $R'<0$ follows from $d>t+1/2$.  Splitting at $t=4/3$ yields
 \[
  \begin{aligned}
  1\le t\le\frac43&:\quad
- a+b\le S(4/3)=\frac{8\sqrt{37}-41}{24}<\frac13,\\
+ A+B\le S(4/3)=\frac{8\sqrt{37}-41}{24}<\frac13,\\
  t\ge\frac43&:\quad
- a+b<R(4/3)=\frac{7\sqrt{37}-39}{12}<\frac13.
+ A+B<R(4/3)=\frac{7\sqrt{37}-39}{12}<\frac13.
  \end{aligned}
 \]
 The final inequalities follow respectively from
 $8\sqrt{37}<49$ and $7\sqrt{37}<43$.
 \end{proof}
 
-\subsection{Boundary trace caps}
+\paragraph{Body consequence.}
+The first result supplies the Vd1/Vd2 row of
+Theorem~\ref{thm:boundary-trace-table}; the second supplies
+Proposition~\ref{prop:ce2-vd2-midpoint-length}.
 
-The signed center normal form gives the CE1 and CE2 center contributions from
-one formula; no separate maximal-interval calculation is needed here.
+\subsection{Boundary-trace optimization}
+\label{subsec:app-boundary-trace-optimization}
 
-\begin{theorem}[Boundary trace table]
-\label{thm:boundary-trace-table}
+\paragraph{Exact interface.}
+The objective is the body functional $L_{\partial H}$, and the public result is
+Theorem~\ref{thm:boundary-trace-table}.
+
+\paragraph{Variables and feasible set.}
+The center ranges over the three exact classes determined by $N_E(T_C)$.
+Each V triangle ranges over its exact normalized V type and its actual maximal
+reaches $(A_i,B_i)$.
+
+\paragraph{Objective.}
+Maximize $L_{\partial H}$ separately on every row of the public table.
+
+\paragraph{Exact result.}
+The optimum in each feasible class is the corresponding entry of
+\eqref{eq:boundary-trace-table}.
+
+\paragraph{Solution.}
+The signed center normal form gives both positive center traces from one
+formula, and the remaining rows follow from the exact V-triangle constraints.
+
+\begin{lemma}[Boundary-trace table calculation]
+\label{lem:app-boundary-trace-table-calculation}
 For closures of original open triangles, the following bounds hold:
 \[
  \begin{array}{c|c|c}
@@ -426,9 +449,9 @@ For closures of original open triangles, the following bounds hold:
  T_i&\mathrm{Vd1/Vd2}&<\dfrac12\\
  T_i&\text{T3-like}&<1.
  \end{array}
- \label{eq:boundary-trace-table}
+ \label{eq:app-boundary-trace-table}
 \]
-\end{theorem}
+\end{lemma}
 
 \begin{proof}
 For every V triangle,
@@ -443,7 +466,7 @@ This excludes any other positive-length boundary trace.
 
 The CE0 C-triangle row is the definition.  The other two C-triangle rows are
 the class specializations of the common signed formula in
-Corollary~\ref{cor:signed-center-boundary}.
+\zcref{cor:signed-center-boundary}.
 
 For a nonsupercritical Vd0 V triangle, \eqref{eq:vertex-boundary-locality} is enough.
 For a supercritical V triangle, its incident endpoints are at squared distance
@@ -460,55 +483,6 @@ Proposition~\ref{prop:t3-translation} gives for an original T3-like triangle
 because $0<t<1$ and $\alpha>0$.
 \end{proof}
 
-\subsection{Final length contradictions}
-
-\begin{proposition}[Vd2 adjacent-midpoint branch]
-\label{prop:ce2-vd2-midpoint-length}
-Assume a CE2, $N_+=1$ configuration has exactly one Vd1/Vd2 triangle, that triangle
-is $T_i$ of type Vd2 and contains $M_{i-1}$ or $M_{i+1}$, and all other V triangles are
-Vd0.  Then the boundary cannot be covered.
-\end{proposition}
-
-\begin{proof}
-This is item (5) of Corollary~\ref{cor:signed-budget-branches}, using
-Lemma~\ref{lem:vd2-neighbor-midpoint-cap}.
-\end{proof}
-
-\begin{proposition}[Branches closed by Method 1]
-\label{prop:length-branches}
-Direct length-sum obstructions close the following routing entries and hybrid
-subcase:
-\begin{enumerate}
- \item $N_{\mathrm{gap}}=0$, $N_+=0$, for any center and V triangle types;
- \item $N_{\mathrm{gap}}=0$, $N_+=1$, with a Vd1/Vd2 triangle;
- \item CE1/CE2 with $N_++N_{\mathrm{sp}}\ge3$;
- \item CE1/CE2, $N_+=0$, with a Vd1/Vd2 triangle;
- \item CE1, $N_+=1$, with exactly one Vd1/Vd2 triangle and no T3-like triangle;
- \item the CE2 hybrid subcase in which the Vd2 triangle $T_i$ contains
- $M_{i-1}$ or $M_{i+1}$.
-\end{enumerate}
-\end{proposition}
-
-\begin{proof}
-For item (1), Lemma~\ref{lem:gap-exhaustion} says that the six open V
-triangles cover $\partial H$.  The two incident open V traces therefore
-overlap on every edge, so $1<B_i+A_{i+1}$.  Summing contradicts $N_+=0$.
-
-For item (2), use only those six boundary-complete V triangles.  The unique
-supercritical Vd0 triangle contributes at most $2/\sqrt3$, a Vd1/Vd2
-triangle contributes strictly less than $1/2$, and each of the other four V
-triangles contributes at most $1$.  Their total boundary contribution is
-strictly less than
-\[
- \frac2{\sqrt3}+\frac12+4<6,
-\]
-contradicting their coverage of the length-$6$ perimeter.
-
-Items (4) and (5) are items (2) and (3) of
-Corollary~\ref{cor:signed-budget-branches}; each is one application of the
-master perimeter deficit. Item (3) is Theorem
-\ref{thm:common-skeleton-count}. Item (6) is
-Proposition~\ref{prop:ce2-vd2-midpoint-length}.  This is only the indicated
-subcase of the exceptional CE2 V triangle; its remaining placements are handled by
-the boundary-reach argument.
-\end{proof}
+\paragraph{Body consequence.}
+The seven exact maxima are the rows of
+Theorem~\ref{thm:boundary-trace-table}.

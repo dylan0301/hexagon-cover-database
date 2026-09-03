@@ -1,31 +1,42 @@
-\section{Area-Loss Estimate}
-\label{sec:strategy3-summary}
+Put
+\[
+ A_\triangle:=\frac{\sqrt3}{4}.
+\]
 
-Let
+\begin{definition}[Local feasible family and normalized loss]
+\label{def:area-loss-family}
+For $(a,b)\in[0,1]^2$, define
 \[
- A_\triangle=\frac{\sqrt3}{4}
+ \mathcal T(a,b):=
+ \left\{T:\begin{array}{l}
+ T\text{ is a closed unit equilateral triangle},\\
+ \{V_0,V_0+a(V_5-V_0),V_0+b(V_1-V_0)\}\subseteq T
+ \end{array}\right\}.
 \]
-be the area of a unit equilateral triangle.  For $a,b\in[0,1]$, let
-$\mathcal T(a,b)$ be the family of closed unit equilateral triangles
-containing
+For every closed unit equilateral triangle $T$, define
 \[
- V_0,
+ \mathcal L(T):=
+ \frac{\operatorname{area}(T\setminus H)}{A_\triangle},
  \qquad
- V_0+a(V_5-V_0),
+ \mathcal L(a,b):=
+ \inf_{T\in\mathcal T(a,b)}\mathcal L(T).
+\]
+\end{definition}
+
+The corresponding family at $V_i$ is obtained by the hexagon symmetry already
+fixed in Section~\ref{sec:introduction}.  In particular, if
+\[
+ 0\le a_i\le A_i,
  \qquad
- V_0+b(V_1-V_0).
+ 0\le b_i\le B_i,
 \]
-Define the least normalized area forced outside the hexagon by
+then
 \[
- \mathcal L(a,b)=
- \inf_{T\in\mathcal T(a,b)}
- \frac{\operatorname{area}(T\setminus H)}{A_\triangle}.
+ \operatorname{Rot}_{O,-i\pi/3}(T_i)\in\mathcal T(a_i,b_i),
+ \qquad
+ \mathcal L\bigl(\operatorname{Rot}_{O,-i\pi/3}(T_i)\bigr)
+ =\mathcal L(T_i).
 \]
-By reflection in the radial axis,
-\[
- \mathcal L(a,b)=\mathcal L(b,a).
-\]
-The normalized area of $H$ is six.
 
 \begin{figure}[H]
 \centering
@@ -41,120 +52,116 @@ The normalized area of $H$ is six.
 \par\smallskip
 \footnotesize (b) cyclic sum
 \end{minipage}
-\caption{Local normalized area loss and its cyclic sum over the six vertex
-triangles.}
-\label{fig:body-area-loss}
+\caption{The local and cyclic forms of the area-loss method.  The proof uses
+the exact variational definition above, not measurements from the picture.}
+\label{fig:area-loss}
 \end{figure}
 
-\begin{proposition}[Local area-loss bounds]
-\label{prop:body-area-register}
-For every feasible selected reach pair,
-\[
+\begin{theorem}[Unconditional local square loss]
+\label{thm:local-square-loss}
+For every $(a,b)\in[0,1]^2$ with $\mathcal T(a,b)\ne\varnothing$,
+\begin{equation}
  \mathcal L(a,b)\ge\min\{a,b\}^2.
-\]
+ \label{eq:min-square-loss}
+\end{equation}
 If $a+b>1$, then
-\[
+\begin{equation}
  \mathcal L(a,b)\ge\max\{a,b\}^2.
-\]
-For a $\Tlike$ triangle, $a+b\le1$, and for $0\le\mu\le1/2$,
-\[
- a,b\ge\mu
- \quad\Longrightarrow\quad
- \mathcal L(a,b)\ge2\mu-4\mu^2.
-\]
-\end{proposition}
+ \label{eq:max-square-loss}
+\end{equation}
+\end{theorem}
 
 \begin{proof}
-These are Theorems~\ref{thm:local-square-loss} and
-\ref{thm:t3-direct-loss}.
+This is the exact optimum comparison proved in
+\zcref{lem:app-local-square-loss-calculation}.
 \end{proof}
 
-Assume the six V triangles cover $\partial H$.  Choose strict handoff
-parameters
+\begin{theorem}[Direct T3-like loss]
+\label{thm:t3-direct-loss}
+Let $T_i$ be an actual T3-like V triangle.  Then
+\begin{equation}
+ A_i+B_i\le1.
+ \label{eq:t3-area-nonsupercritical}
+\end{equation}
+Moreover, if
 \[
- \xi_i\in(1-A_{i+1},B_i)
+ 0\le a_i\le A_i,
+ \qquad
+ 0\le b_i\le B_i,
+ \qquad
+ 0\le\mu\le\frac12,
+ \qquad
+ a_i,b_i\ge\mu,
 \]
-and set
-\[
- (a_i,b_i)=(1-\xi_{i-1},\xi_i).
-\]
-Call index $i$ an \emph{ascent} when
-\[
- \xi_{i-1}<\xi_i.
-\]
-Equivalently, the selected reaches of $T_i$ satisfy $a_i+b_i>1$.
+then
+\begin{equation}
+ \mathcal L(T_i)\ge2\mu-4\mu^2.
+ \label{eq:t3-loss}
+\end{equation}
+\end{theorem}
 
-\begin{lemma}[Ascent structure]
-\label{lem:body-ascent-structure}
-The handoff parameters may be chosen so that:
-\begin{enumerate}
-\item if at least two V triangles are supercritical, at least two indices
-are ascents;
-\item if exactly one V triangle, indexed by $p$, is supercritical, then
-$p$ is the unique ascent, $\xi_{p-1}$ is the global minimum, and $\xi_p$ is
-the global maximum.
-\end{enumerate}
+\begin{proof}
+The nonsupercritical conclusion is Lemma~\ref{lem:t3-nonsupercritical}; the
+actual-triangle loss optimization is
+\zcref{lem:app-t3-direct-loss-calculation}.
+\end{proof}
+
+\begin{lemma}[Cyclic area-loss certificate]
+\label{lem:cyclic-area-loss}
+Assume the strict handoff data
+\[
+ \xi_i\in(1-A_{i+1},B_i),
+ \qquad
+ a_i:=1-\xi_{i-1}<A_i,
+ \qquad
+ b_i:=\xi_i<B_i.
+\]
+Then
+\[
+ \#\{i:a_i+b_i>1\}\ge2
+ \quad\Longrightarrow\quad
+ \sum_{i=0}^5\mathcal L(T_i)>1,
+\]
+and
+\[
+ \begin{gathered}
+ \#\{i:a_i+b_i>1\}=1,\\
+ \forall i\;[T_i\text{ is }\Vdzero\text{ or }\Tlike],\\
+ \exists j\;[T_j\text{ is }\Tlike]
+ \end{gathered}
+ \quad\Longrightarrow\quad
+ \sum_{i=0}^5\mathcal L(T_i)>1.
+\]
 \end{lemma}
 
 \begin{proof}
-The first assertion is Proposition~\ref{prop:strict-handoffs}.  In the second
-case every nonsupercritical index is a strict descent, and the same proposition
-makes $p$ the unique ascent.  Traversing the remaining five indices therefore
-gives the stated minimum and maximum.
+Both exact cyclic minima are proved in
+\zcref{lem:app-area-cyclic-calculation}.
 \end{proof}
 
-Put
-\[
- \mu=\min_i\xi_i,
- \qquad
- M=\max_i\xi_i.
-\]
-Reflection and reversal replace $\xi_i$ by $1-\xi_{-i-1}$, preserve every
-local loss, and interchange $\mu$ with $1-M$.  Hence we may assume
-\[
- \mu\le1-M.
-\]
-Then every $\xi_i$ and $1-\xi_i$ is at least $\mu$.
-
-Suppose first that there are at least two supercritical V triangles.  By
-Lemma~\ref{lem:body-ascent-structure}, the handoff parameters may be chosen
-with at least two ascents.  At the first ascent leaving a cyclic block on which
-$\xi_i=\mu$, the corresponding triangle has one selected reach equal to
-$1-\mu$ and therefore loses at least $(1-\mu)^2$.  At a second ascent, one of
-the two selected reaches is strictly larger than $1/2$, so its loss is
-strictly larger than $1/4$.  Each of the remaining four triangles loses at
-least $\mu^2$.  Thus the total normalized loss is strictly larger than
-\[
- 4\mu^2+(1-\mu)^2+\frac14
- =5\left(\mu-\frac15\right)^2+\frac{21}{20}>1.
-\]
-
-If there is exactly one supercritical V triangle,
-Lemma~\ref{lem:body-ascent-structure} shows that its unique ascent runs from
-the global minimum to the global maximum.  A distinct $\Tlike$ triangle loses
-at least $2\mu-4\mu^2$, the supercritical triangle loses at least
-$(1-\mu)^2$, and the other four triangles lose at least $\mu^2$ each.  The
-sum is
-\[
- (1-\mu)^2+(2\mu-4\mu^2)+4\mu^2=1+\mu^2>1.
-\]
-In either case the six V triangles have total area inside $H$ strictly
-below five; the C triangle has area one.
-
-\begin{proposition}[Cases excluded by area loss]
-\label{prop:body-area-branches}
-The area-loss argument excludes:
+\begin{proposition}[Branches closed by area]
+\label{prop:area-branches}
+The area-loss mechanism excludes:
 \begin{enumerate}
-\item $T_C$ is $\CEzero$ and $N_+\ge2$, for arbitrary vertex types;
-\item $T_C$ is $\CEzero$, $N_+=1$, no triangle is $\Vdone$ or $\Vdtwo$, and
-at least one triangle is $\Tlike$.
+\item $N_{\mathrm{gap}}=0$ and $N_+\ge2$;
+\item
+      \[
+       \begin{gathered}
+       N_{\mathrm{gap}}=0,\qquad N_+=1,\\
+       \#\{i:T_i\text{ is }\Vdone\text{ or }\Vdtwo\}=0,\qquad
+       \#\{i:T_i\text{ is }\Tlike\}\ge1.
+       \end{gathered}
+      \]
 \end{enumerate}
 \end{proposition}
 
 \begin{proof}
-For CE0 the six V triangles cover $\partial H$, so
-Proposition~\ref{prop:body-structural-reduction} supplies strict handoff
-parameters preserving the maximal-reach supercritical pattern.  The two sums
-above apply.  The detailed local calculations are in
-Appendix~\ref{sec:area}.
+By Lemma~\ref{lem:gap-exhaustion}, $N_{\mathrm{gap}}=0$ is exactly the
+condition that the six open V triangles cover $\partial H$.  Apply the
+strict selector of Proposition~\ref{prop:strict-handoffs}.  Its at-least-two
+clause and exact-one clause place the two respective cases under the two
+implications of Lemma~\ref{lem:cyclic-area-loss}.  Thus the six V triangles
+have total normalized area inside $H$ strictly below five; the C triangle has
+normalized area one, whereas $H$ has normalized area six.  This contradicts
+area subadditivity for a cover.
 \end{proof}

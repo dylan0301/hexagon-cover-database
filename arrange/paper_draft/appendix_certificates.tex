@@ -1,62 +1,134 @@
-\subsection{The finite caliper criterion}
+\subsection{Module A.7: midpoint caliper optimization}
 \label{subsec:finite-caliper}
 
-We first state the finite caliper criterion used below.  It enters
-the proof through the exact statement and verification argument given here;
-neither a plot nor an unrecorded numerical convention is used.
+\paragraph{Exact interface.}
+The geometric consequence required by \zcref{lem:self-midpoint} is the
+implication
+\[
+ \begin{gathered}
+ \{0,au,bv,(u+v)/2\}\subseteq T,\\
+ T\text{ a closed unit equilateral triangle}
+ \quad\Longrightarrow\quad a+b\le1.
+ \end{gathered}
+\]
 
-Let $\mathsf R$ and $\mathsf J$ denote counterclockwise rotations through $2\pi/3$ and
-$\pi/2$, respectively.  For a nonempty finite set $S\subset\mathbb R^2$ and
-a vector $N$, put
+\paragraph{Variables and feasible set.}
+Let $\mathsf R$ and $\mathsf J$ denote counterclockwise rotations through
+$2\pi/3$ and $\pi/2$, respectively.  For a nonempty finite set
+$S\subset\mathbb R^2$ and a vector $N$, put
 \begin{equation}
- W_S(N)=\sum_{k=0}^2\max_{z\in S}\langle z,\mathsf R^kN\rangle .
+ W_S(N):=\sum_{k=0}^2
+ \max_{z\in S}\langle z,\mathsf R^kN\rangle.
  \label{eq:caliper-support-sum}
 \end{equation}
+For the midpoint instance take
+\[
+ u=\left(\frac12,\frac{\sqrt3}{2}\right),
+ \qquad
+ v=\left(\frac12,-\frac{\sqrt3}{2}\right),
+ \qquad
+ S=\left\{0,au,bv,\frac{u+v}{2}\right\},
+ \qquad a,b\ge0.
+\]
+
+\paragraph{Objective.}
+Reduce the least-equilateral-enclosure test to finitely many hull-edge
+normals and evaluate all four edge calipers when $a+b>1$.
+
+\paragraph{Exact result.}
 
 \begin{theorem}[Finite caliper certificate]
 \label{thm:cert-caliper}
-If $S$ has at least two distinct points, then $S$ is contained in a closed
-unit equilateral triangle if and only if there are distinct $p,q\in S$ and
-$\varepsilon\in\{-1,1\}$ for which
+If a finite set $S$ has at least two distinct points, then $S$ lies in a
+closed unit equilateral triangle if and only if there are distinct $p,q\in S$
+and $\varepsilon\in\{-1,1\}$ such that
 \begin{equation}
  W_S\bigl(\varepsilon\mathsf J(q-p)\bigr)
- \le \frac{\sqrt3}{2}\lVert p-q\rVert .
+ \le\frac{\sqrt3}{2}\lVert p-q\rVert.
  \label{eq:finite-caliper-test}
 \end{equation}
-If $S$ consists of one point, it is contained in equilateral triangles of
-arbitrarily small positive side length.
-
-For $S_x=\{O,A,B,x\}$, every clause of
-\eqref{eq:finite-caliper-test} is a finite polynomial clause of degree at
-most four in the coordinates of $A,B,x$; at most $12\cdot4^3$ clauses are
-required, and repeated point labels merely delete zero-length pairs.
+For $S_x=\{O,A,B,x\}$, every clause is polynomial of degree at most four in
+the coordinates of $A,B,x$, and at most $12\cdot4^3$ clauses are required.
+A singleton lies in equilateral triangles of arbitrarily small positive side.
 \end{theorem}
 
-\begin{proof}
-Apply the enclosure gauge of
-Proposition~\ref{prop:universal-enclosure-gauge} to the polygonal hull of
-$S$. A minimizing normal is perpendicular to a hull edge $[p,q]$; after a
-cyclic rotation of the three normals it is
-$\varepsilon\mathsf J(q-p)/\lVert p-q\rVert$. Homogeneity gives
-\eqref{eq:finite-caliper-test}. A nondegenerate segment is checked directly
-with its two normals.
+\begin{lemma}[Four-point midpoint caliper]
+\label{lem:app-midpoint-caliper}
+If a closed unit equilateral triangle contains
+$0,au,bv,(u+v)/2$, then $a+b\le1$.  If all four points have a positive
+containment margin, then $a+b<1$.
+\end{lemma}
 
-For the polynomial expansion fix $(p,q,\varepsilon)$, put
-$N=\varepsilon\mathsf J(q-p)$ and $N_k=\mathsf R^kN$, and choose support labels
-$z_0,z_1,z_2\in S_x$.  The support cell is
+\paragraph{Solution.}
+
+\begin{proof}[Proof of \zcref{thm:cert-caliper}]
+Apply \zcref{lem:app-shared-enclosure-gauge} to the polygonal hull of $S$.
+A minimizing unit normal is perpendicular to a hull edge $[p,q]$ and, after
+cyclically relabeling the three normal directions, equals
+$\varepsilon\mathsf J(q-p)/\lVert p-q\rVert$.  Homogeneity of $W_S$ gives
+\eqref{eq:finite-caliper-test}.  A nondegenerate segment is checked by its two
+normal directions.
+
+For the polynomial form, fix $(p,q,\varepsilon)$, put
+$N=\varepsilon\mathsf J(q-p)$ and $N_k=\mathsf R^kN$, and choose support
+labels $z_0,z_1,z_2\in S_x$.  The support cell is
 \begin{equation}
  \langle z_k,N_k\rangle\ge\langle z,N_k\rangle
  \quad(z\in S_x,\ k=0,1,2),
  \label{eq:caliper-cell}
 \end{equation}
-with $\lVert p-q\rVert^2>0$.  Since $W_S(N)\ge0$, the remaining test is
+with $\lVert p-q\rVert^2>0$.  Since $W_S(N)\ge0$, the remaining condition is
 \begin{equation}
  4\left(\sum_{k=0}^2\langle z_k,N_k\rangle\right)^2
  \le3\lVert p-q\rVert^2.
  \label{eq:caliper-cell-polynomial}
 \end{equation}
-The points are affine-linear in the parameters, so
-\eqref{eq:caliper-cell}--\eqref{eq:caliper-cell-polynomial} have degree at
-most four.  Six unordered pairs, two signs, and $4^3$ support-label triples
-give the asserted finite exhaustive list.
+The points are affine-linear in the parameters, so these clauses have degree
+at most four.  There are six unordered pairs, two signs, and $4^3$ support
+triples.
 \end{proof}
+
+\begin{proof}[Proof of \zcref{lem:app-midpoint-caliper}]
+Assume $a+b>1$ and set
+\[
+ K:=\conv\left\{0,au,\frac{u+v}{2},bv\right\}.
+\]
+For an outward normal to the edge from $0$ to $au$, direct projection gives
+\[
+ S_{0A}=
+ \max\left\{\frac{\sqrt3}{4},\frac{\sqrt3a}{2}\right\}
+ +\frac{\sqrt3b}{2}>\frac{\sqrt3}{2}.
+\]
+Indeed, for $a\ge1/2$ this equals
+$(\sqrt3/2)(a+b)$, while for $a<1/2$ one has $b>1/2$.  The edge through
+$bv$ is symmetric.
+
+For the edge from $au$ to $(u+v)/2$, put
+\[
+ D_a:=\sqrt{4a^2-2a+1}.
+\]
+Projection gives
+\[
+ S_{AM}=
+ \begin{cases}
+ \dfrac{\sqrt3(a+b)}{2D_a},&a\le1/2,\\[4pt]
+ \dfrac{\sqrt3(2a^2+b)}{2D_a},&a>1/2.
+ \end{cases}
+\]
+In the first case $D_a\le1$ and $a+b>1$.  In the second, $b>1-a$ and
+\[
+ (2a^2-a+1)^2-D_a^2=a^2(2a-1)^2\ge0.
+\]
+Thus $S_{AM}>\sqrt3/2$ in both cases.  The fourth edge is symmetric.  By
+\zcref{thm:cert-caliper}, every enclosing equilateral triangle has side
+strictly greater than one, a contradiction.
+
+If $a+b=1$ while all four points have positive margin, both boundary demands
+may be increased slightly and remain contained.  Their new sum is greater
+than one, contradicting the closed conclusion just proved.
+\end{proof}
+
+\paragraph{Body consequence.}
+The second result, with the local V-triangle chart transported by a hexagon
+symmetry, supplies \zcref{lem:self-midpoint}.  The finite certificate remains
+available to every later finite-witness module.

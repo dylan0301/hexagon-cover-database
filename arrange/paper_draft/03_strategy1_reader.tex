@@ -1,132 +1,158 @@
-\section{Method 1: Trace-Length Bounds}
-\label{sec:strategy1-summary}
+\begin{definition}[Trace length]
+\label{def:trace-length}
+For a closed triangle $T$ and a rectifiable set $E$, define
+\[
+ L_E(T):=\mathcal H^1(T\cap E).
+\]
+If the seven open triangles cover $E$, their closures satisfy
+\begin{equation}
+ \mathcal H^1(E)
+ \le L_E(T_C)+\sum_{i=0}^5L_E(T_i).
+ \label{eq:length-subadditivity}
+\end{equation}
+\end{definition}
 
-For a closed triangle $T$ and a rectifiable target $E$, write
-\[
- L_E(T)=\Haus(T\cap E).
-\]
-If the seven open triangles cover $E$, closure and subadditivity give
-\[
- \Haus(E)\le L_E(T_C)+\sum_{i=0}^5L_E(T_i).
-\]
-Method~1 contradicts this inequality on either $\partial H$ or $S$.
+The two targets are the perimeter $\partial H$ and the full skeleton $S$.
+Their lengths are $6$ and $12$, respectively.
 
 \begin{figure}[H]
 \centering
 \input{figures/strategy1_trace_targets}
 \caption{The perimeter and the full skeleton.  The skeleton is used only
 under the hypotheses of the corresponding trace bound.}
-\label{fig:strategy1-reader-targets}
+\label{fig:strategy1-targets}
 \end{figure}
 
-\begin{proposition}[Trace bounds]
-\label{prop:body-trace-register}
-For every classified V triangle $T_i$, its boundary trace is supported on
-its two incident boundary edges, and therefore
+\begin{theorem}[Boundary trace table]
+\label{thm:boundary-trace-table}
+For the closures of the original open triangles, the following bounds hold:
+\begin{equation}
+\begin{array}{c|c|c}
+\text{triangle}&\text{hypothesis}&L_{\partial H}\\ \hline
+T_C&N_E(T_C)=0&0\\
+T_C&N_E(T_C)=1&\le\dfrac{\sqrt3}{2}-\dfrac34\\[3pt]
+T_C&N_E(T_C)=2&<\dfrac12\\[3pt]
+T_i&(o(T_i),n(T_i))\in\{(1,0),(2,0)\},\ A_i+B_i\le1&\le1\\
+T_i&(o(T_i),n(T_i))\in\{(1,0),(2,0)\},\ A_i+B_i>1&\le\dfrac2{\sqrt3}\\[3pt]
+T_i&(o(T_i),n(T_i))\in\{(1,1),(1,2)\}&<\dfrac12\\
+T_i&(o(T_i),n(T_i))=(2,1)&<1.
+\end{array}
+\label{eq:boundary-trace-table}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+This is the exact output of the boundary-trace optimization in
+\zcref{lem:app-boundary-trace-table-calculation}.
+\end{proof}
+
+\begin{lemma}[A positive-support adjacent exceptional triangle is forced]
+\label{lem:positive-support-rescuer}
+Suppose $N_E(T_C)\in\{1,2\}$ and, after symmetry,
 \[
- L_{\partial H}(T_i)=A_i+B_i.
+ T_C\cap\{M_0,\ldots,M_5\}=\{M_0\}.
 \]
-Under the indicated hypotheses, the following bounds hold.
-\begin{center}
-\small
-\renewcommand{\arraystretch}{1.08}
-\begin{tabular}{p{.64\textwidth}c}
-\toprule
-triangle and target&upper bound\\
-\midrule
-CE1/CE2 C triangle on $S$&$L_S(T_C)<3/2$\\
-supercritical V triangle on $S$&$L_S(T_i)<3/2$\\
-$T_i$ with $\Haus(T_i\cap r_j)>0$ for some $j\in\{i-1,i+1\}$, on $S$&
-$L_S(T_i)<3/2$\\
-nonsupercritical V triangle with no such radial intersection on $S$&
-$L_S(T_i)\le2$\\
-CE1 C triangle on $\partial H$&
-$L_{\partial H}(T_C)\le\sqrt3/2-3/4$\\
-CE2 C triangle on $\partial H$&$L_{\partial H}(T_C)<1/2$\\
-supercritical $\Vdzero$ triangle on $\partial H$&
-$L_{\partial H}(T_i)\le2/\sqrt3$\\
-$\Vdone$ or $\Vdtwo$ triangle on $\partial H$&
-$L_{\partial H}(T_i)<1/2$\\
-nonsupercritical $\Vdzero$ triangle on $\partial H$&
-$L_{\partial H}(T_i)\le1$\\
-$\Tlike$ triangle on $\partial H$&$L_{\partial H}(T_i)<1$\\
-\bottomrule
-\end{tabular}
-\end{center}
+If $N_+\ge2$, then there are a supercritical index
+$s\in\mathbb Z/6\mathbb Z\setminus\{0\}$ and
+$j\in\{s-1,s+1\}$ such that
+\[
+ M_s\in U_j,
+ \qquad
+ \mathcal H^1(T_j\cap r_s)>0.
+\]
+\end{lemma}
+
+\begin{proof}
+Choose a supercritical $s\ne0$.  By Lemma~\ref{lem:self-midpoint},
+$M_s\notin T_s$, and the displayed midpoint hypothesis gives
+$M_s\notin T_C$.  Hence the original open cover puts $M_s$ in some $U_j$.
+The diameter-one restriction gives $j\in\{s-1,s+1\}$, and openness gives
+$\mathcal H^1(T_j\cap r_s)>0$.
+\end{proof}
+
+\begin{theorem}[Direct CE1/CE2 skeleton count]
+\label{thm:common-skeleton-count}
+If
+\[
+ N_E(T_C)\in\{1,2\},
+ \qquad
+ T_C\cap\{M_0,\ldots,M_5\}=\{M_0\},
+ \qquad
+ N_++N_{\mathrm{sp}}\ge3,
+\]
+then the seven triangles do not cover $S$.
+\end{theorem}
+
+\begin{proof}
+The four optimized skeleton caps are
+\zcref{lem:center-skeleton-cap},
+\zcref{lem:supercritical-skeleton-cap},
+\zcref{lem:positive-support-skeleton-cap}, and
+\zcref{lem:no-support-skeleton-cap}.  The classes counted by $N_+$ and
+$N_{\mathrm{sp}}$ are disjoint.  Therefore
+\[
+ L_S(T_C)+\sum_{i=0}^5L_S(T_i)
+ <\frac32+\frac32(N_++N_{\mathrm{sp}})
+   +2(6-N_+-N_{\mathrm{sp}})
+ \le12=\mathcal H^1(S),
+\]
+contradicting \eqref{eq:length-subadditivity}.
+\end{proof}
+
+\begin{proposition}[Vd2 adjacent-midpoint branch]
+\label{prop:ce2-vd2-midpoint-length}
+Assume
+\[
+ N_E(T_C)=2,
+ \qquad N_+=1,
+ \qquad
+ \{j:(o(T_j),n(T_j))\in\{(1,1),(1,2)\}\}=\{i\},
+\]
+\[
+ (o(T_i),n(T_i))=(1,2),
+ \qquad
+ M_{i-1}\in T_i\ \lor\ M_{i+1}\in T_i,
+\]
+and
+\[
+ \forall j\ne i\qquad
+ (o(T_j),n(T_j))\in\{(1,0),(2,0)\}.
+\]
+Then the boundary cannot be covered.
 \end{proposition}
 
 \begin{proof}
-The four skeleton bounds are Lemmas~\ref{lem:center-skeleton-cap},
-\ref{lem:supercritical-skeleton-cap},
-\ref{lem:positive-support-skeleton-cap}, and
-\ref{lem:no-support-skeleton-cap}.  The boundary bounds are proved in
-Appendix~\ref{sec:length}.
+The exact adjacent-midpoint cap is
+\zcref{lem:vd2-neighbor-midpoint-cap}; its substitution in the perimeter
+budget is item~(5) of \zcref{cor:signed-budget-branches}.
 \end{proof}
 
-\begin{lemma}[Skeleton trace criterion]
-\label{lem:body-skeleton-trace-criterion}
-If $N_++N_{\mathrm{sp}}\ge3$, the seven triangles do not cover $S$.
-\end{lemma}
-
-\begin{proof}
-At least three V triangles have skeleton trace strictly below $3/2$,
-while every other V triangle has trace at most $2$.  Hence
-\[
- L_S(T_C)+\sum_iL_S(T_i)
- <\frac32+(N_++N_{\mathrm{sp}})\frac32
- +(6-N_+-N_{\mathrm{sp}})2
- \le12=\Haus(S),
-\]
-contradicting subadditivity for a cover.
-\end{proof}
-
-\begin{lemma}[Perimeter trace criterion]
-\label{lem:body-perimeter-trace-criterion}
-Put
-\[
- \theta=\frac2{\sqrt3}-1.
-\]
-Suppose the center trace has length at most $L_C$, there are $n$
-supercritical $\Vdzero$ triangles, there are $s\ge1$ distinguished
-nonsupercritical V triangles with strict bounds
-$\lambda_1,\ldots,\lambda_s<1$, and every remaining V triangle has
-boundary trace at most one.  If
-\[
- L_C+n\theta\le\sum_{j=1}^s(1-\lambda_j),
-\]
-then the seven triangles do not cover $\partial H$.
-\end{lemma}
-
-\begin{proof}
-The total boundary trace is strictly less than
-\[
- L_C+n\frac2{\sqrt3}+\sum_{j=1}^s\lambda_j+(6-n-s)
- =6+L_C+n\theta-\sum_{j=1}^s(1-\lambda_j)
- \le6,
-\]
-contradicting $\Haus(\partial H)=6$.
-\end{proof}
-
-\begin{proposition}[Cases excluded by trace length]
-\label{prop:body-length-branches}
-Method~1 excludes:
+\begin{proposition}[Branches closed by trace length]
+\label{prop:length-branches}
+The trace-length mechanism excludes exactly the following routing entries
+and hybrid subcase:
 \begin{enumerate}
-\item $\CEzero$, $N_+=0$;
-\item $\CEzero$, $N_+=1$, with a $\Vdone/\Vdtwo$ triangle;
-\item CE1/CE2 with $N_++N_{\mathrm{sp}}\ge3$;
-\item CE1/CE2, $N_+=0$, with a $\Vdone/\Vdtwo$ triangle;
-\item CE1, $N_+=1$, with exactly one $\Vdone/\Vdtwo$ triangle and no
-$\Tlike$ triangle;
-\item the CE2 subcase in which the unique $\Vdtwo$ triangle $T_i$ contains
-$M_{i-1}$ or $M_{i+1}$.
+\item $N_{\mathrm{gap}}=0$ and $N_+=0$;
+\item $N_{\mathrm{gap}}=0$, $N_+=1$, and
+      $\#\{i:T_i\text{ is }\Vdone\text{ or }\Vdtwo\}\ge1$;
+\item $N_E(T_C)\in\{1,2\}$ and $N_++N_{\mathrm{sp}}\ge3$;
+\item $N_E(T_C)\in\{1,2\}$, $N_+=0$, and
+      $\#\{i:T_i\text{ is }\Vdone\text{ or }\Vdtwo\}\ge1$;
+\item
+      \[
+       \begin{gathered}
+       N_E(T_C)=1,\qquad N_+=1,\\
+       \#\{i:T_i\text{ is }\Vdone\text{ or }\Vdtwo\}=1,\qquad
+       \#\{i:T_i\text{ is }\Tlike\}=0;
+       \end{gathered}
+      \]
+\item the subcase in Proposition~\ref{prop:ce2-vd2-midpoint-length}.
 \end{enumerate}
 \end{proposition}
 
 \begin{proof}
-The first case is the cyclic boundary sum.  The third follows from
-Lemma~\ref{lem:body-skeleton-trace-criterion}.  The remaining cases substitute
-the appropriate center and vertex bounds into
-Lemma~\ref{lem:body-perimeter-trace-criterion}.  The exact substitutions and
-strict inequalities are Proposition~\ref{prop:length-branches} and
-Corollary~\ref{cor:signed-budget-branches}.
+The complete exact substitutions, including every strict inequality, are
+given in \zcref{lem:app-length-branch-calculation}.  Item~(3) is also the
+direct consequence of Theorem~\ref{thm:common-skeleton-count}, and item~(6)
+is Proposition~\ref{prop:ce2-vd2-midpoint-length}.
 \end{proof}

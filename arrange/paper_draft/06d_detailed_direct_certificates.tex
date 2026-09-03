@@ -1,304 +1,1044 @@
-\subsection{Detailed direct certificates for the nonzero-gap terminals}
-\label{subsec:new-detailed-direct-certificates}
+\subsection{Module D.10: disk-plus-gap enclosure}
+\label{subsec:app-solved-nonzero-gap-terminals}
 
-This subsection records the calculations suppressed by the case proofs.  The
-new CE2 short-ray calculation replaces the former root-separation argument;
-the remaining residual and local normal-form calculations are unchanged.
+\paragraph{Exact interface.}
+Use the enclosure number and centered disk of
+\zcref{def:finite-enclosure-number}, together with the exact gap interval and
+anchor capacity in \zcref{thm:new-complementary-gap}.
 
-\subsubsection{The disk--gap support calculation}
+\paragraph{Variables and feasible set.}
+For the auxiliary caliper take $\eta\ge0$ and a point $G$ with
+$\lVert G\rVert=\rho$.  For the gap problem take $0\le p,q\le1$,
+$p+q\le1$, $c_*=c_{\max}(p,q)$, $m=\min\{p,q\}$, and the closed interval
+$J(p,q)=X_0([q,1-p])$; the endpoint case $p+q=1$ remains feasible.
 
-Let $c=c_{\max}(p,q)$, $m=\min\{p,q\}$, and $d=1-c$.  The regular radial
-hexagon has inradius $hd$, while the farther endpoint $G$ of the
-complementary gap has
+\paragraph{Objective.}
+Evaluate the minimum enclosing side for a centered disk plus one point, then
+use that value to lower-bound the enclosure number of the disk-plus-gap set.
+
+\paragraph{Exact result.}
+
+\begin{lemma}[Disk plus one point]
+\label{lem:app-disk-point-formula}
+Let $\mathbb B(O,\eta)$ be the centered closed disk and let $\lVert G\rVert=\rho$.
+Then
 \[
- \|G\|^2=1-m+m^2.
+ \Lambda\bigl(\mathbb B(O,\eta)\cup\{G\}\bigr)=
+ \begin{cases}
+  2\sqrt3\,\eta,&\rho\le2\eta,\\[1mm]
+  \dfrac{3\eta+\sqrt{3(\rho^2-\eta^2)}}{\sqrt3},&\rho>2\eta.
+ \end{cases}
 \]
-The disk-plus-point formula shows that
+\end{lemma}
+
+\begin{lemma}[Complementary-gap calculation]
+\label{lem:app-complementary-gap}
+For $0\le p,q\le1$ with $p+q\le1$, set
 \[
- \Lambda(\mathcal D_{hd}\cup\{G\})\ge1
+ c_*:=c_{\max}(p,q),\qquad m:=\min\{p,q\},\qquad d_*:=1-c_*,
 \]
-is equivalent in the nontrivial branch to
 \[
- 3d(1-d)\ge m(1-m).
- \tag{6.51}
+ J(p,q):=X_0([q,1-p]),
+ \qquad \mathcal D:=\mathbb B\!\left(O,\frac{\sqrt3}{2}d_*\right).
 \]
-For $c>h$, the exact local support inequalities imply
+Then
 \[
- m\le c\left(\frac12-\sqrt{c^2-\frac34}\right).
- \tag{6.52}
+ \Lambda\bigl(\mathcal D\cup J(p,q)\bigr)\ge1.
 \]
-Substitution gives
+Under the common-pair hypotheses of the body, the exact same set is contained
+in $U_C$.
+\end{lemma}
+
+\input{figures/finite_enclosure/fe02_disk_plus_point}
+
+\paragraph{Solution.}
+
+\begin{proof}[Proof of \zcref{lem:app-disk-point-formula}]
+For a unit normal $n$, put
+\[
+ s_j=\langle G,\mathsf R^jn\rangle\qquad(0\le j\le2).
+\]
+Then $s_0+s_1+s_2=0$, $\sum_js_j^2=3\rho^2/2$, and the support sum is
+\[
+ \sum_{j=0}^2\max\{\eta,s_j\}.
+\]
+If $\rho\le2\eta$, orient the projections as
+$\rho/2,\rho/2,-\rho$.  All three disk supports are active, and the minimum
+is $3\eta$.
+
+Suppose $\rho>2\eta$.  By \zcref{prop:app-disk-finite-caliper}, a non-disk
+minimizer has a point--disk tie.  If one projection is $\eta$, the sum and
+sum-of-squares identities determine the other active projection as
+\[
+ \frac{-\eta+\sqrt{3(\rho^2-\eta^2)}}2.
+\]
+The minimum support sum is therefore
+$2\eta+(-\eta+\sqrt{3(\rho^2-\eta^2)})/2$.  Multiplication by the
+enclosure-gauge factor $2/\sqrt3$ gives the two displayed branches and shows
+that their selector is exactly $\rho\le2\eta$ versus $\rho>2\eta$.
+\end{proof}
+
+\begin{proof}[Proof of \zcref{lem:app-complementary-gap}]
+The farther endpoint $G$ of $J(p,q)$ satisfies
+\[
+ \lVert G\rVert^2=1-m+m^2.
+\]
+Lemma~\ref{lem:app-disk-point-formula} reduces the nontrivial branch to
+\[
+ 3d_*(1-d_*)\ge m(1-m).
+\]
+By \zcref{lem:app-common-pair-domination}, $c_*\ge1-m\ge1/2$.  If
+$c_*\le\sqrt3/2$, the left side is at least
+$3(\sqrt3/2)(1-\sqrt3/2)>1/4\ge m(1-m)$.  Suppose
+$c_*>\sqrt3/2$, and put
+\[
+ \zeta_\pm(c):=\frac c2\left(1\pm\sqrt{4c^2-3}\right).
+\]
+We claim that every admissible nonsupercritical pair at radial coordinate
+$c$ has $m\le\zeta_-(c)$.  On the $L$ cell,
+\[
+ f_c(m):=c^4-c^2+cm-m^2\le0,
+\]
+whose roots are $\zeta_-(c),\zeta_+(c)$.  The high-root alternative
+$m\ge\zeta_+(c)$ is impossible: $\zeta_+(c)>\sqrt3/4$, and for
+$M\ge m$ the selector $s^4-s^2+mM$ is increasing in $M$ and at least
+$16m^4-3m^2>0$, whereas the $L$ cell requires it to be nonpositive.
+
+On the $T$ cell,
+\[
+ F_T=(s^2-1)c^2+Mc-M^2\le0,
+\]
+and
+\[
+ f_c(m)-F_T
+ =(c-s)(Mc^2-M+c^3+c^2m+m)\le0.
+\]
+Here the selected $T$ value has $c\le s$, while the second factor is
+positive (use $c\ge M$ and
+$c^3\ge c(1-c^2)\ge M(1-c^2)$).  Thus $f_c(m)\le0$, and the same selector
+excludes the high root.  Consequently
+\[
+ m\le\zeta(c_*):=\zeta_-(c_*)
+ =c_*\left(\frac12-\sqrt{c_*^2-\frac34}\right).
+\]
+Here
+\[
+ 0\le m\le\zeta(c_*)<\frac12.
+\]
+Since $z\mapsto z(1-z)$ is increasing on $[0,1/2]$, it follows that
+\[
+ m(1-m)\le\zeta(c_*)\bigl(1-\zeta(c_*)\bigr).
+\]
+Direct substitution gives
 \[
 \begin{aligned}
-&3c(1-c)-
- c\left(\frac12-\sqrt{c^2-\frac34}\right)
- \left[
- 1-c\left(\frac12-\sqrt{c^2-\frac34}\right)
- \right]\\
-&\quad=
-\frac{c(1-c)}2
-\left(5-2c-2c^2+2\sqrt{c^2-\frac34}\right)\ge0.
+3c_*(1-c_*)-\zeta(c_*)\bigl(1-\zeta(c_*)\bigr)
+={}&\frac{c_*(1-c_*)}{2}\\
+&\mathrel{}\cdot
+\left(5-2c_*-2c_*^2+2\sqrt{c_*^2-\frac34}\right)\ge0.
 \end{aligned}
 \]
-This proves the complementary-gap inequality.
+This proves $3d_*(1-d_*)\ge m(1-m)$.  In the non-disk branch of
+\zcref{lem:app-disk-point-formula}, that inequality is exactly
+$\Lambda(\mathcal D\cup\{G\})\ge1$ for the farther gap endpoint $G$.  In
+the disk-only branch, $\rho^2=1-m+m^2\ge3/4$ and
+$\rho\le2(\sqrt3/2)d_*$ imply $d_*\ge1/2$, and hence the enclosure value
+$3d_*$ is at least one.  This proves the enclosure
+inequality in both branches, including $p+q=1$ and hence singleton gaps.
+For containment, type-aware forcing puts the six vertices
+$(1-c_*)V_i$ in $U_C$; convexity contains their incircle $\mathcal D$, and
+the exact set difference defining the gap gives $J(p,q)\subset U_C$.
+\end{proof}
 
-\subsubsection{The CE2 one-gap threshold inequalities}
+\paragraph{Body consequence.}
+The disk-plus-gap bound, including the singleton endpoint, supplies
+\zcref{thm:new-complementary-gap} and the enclosure conclusion of
+\zcref{prop:finite-one-gap-common-terminal}.
 
-Put
+\subsection{Module D.11: CE2 short-ray optimization}
+
+\paragraph{Exact interface.}
+Use the signed CE2 center variables of
+\zcref{prop:signed-center-normal-form} and the exact body points
+$D_2,D_4$ from \zcref{thm:new-ce2-short-ray}.
+
+\paragraph{Variables and feasible set.}
+The selected boundary pair is $p=W-\alpha$, $q=R-\delta$ with
+$e=\min\{\alpha,\delta\}$ and $M=\max\{R,W\}$, subject to the strict CE2
+inequalities in the signed normal form.  The local radial optimization uses
+the compact fiber defining $c_{\max}(p,q)$.
+
+\paragraph{Objective.}
+Prove the strict capacity estimate $c_{\max}(p,q)<1-e$ and identify which of
+the two opposite body points lies beyond the corresponding C-triangle exit.
+
+\paragraph{Exact result.}
+
+\begin{lemma}[CE2 two-gap short-ray calculation]
+\label{lem:app-ce2-short-ray}
+Use the signed CE2 variables of
+\zcref{prop:signed-center-normal-form} and put
+\[
+ p:=W-\alpha,\qquad q:=R-\delta,
+ \qquad e:=\min\{\alpha,\delta\},
+ \qquad M:=\max\{R,W\}.
+\]
+Then
+\[
+ 0\le p,q\le1,\qquad p+q\le1,\qquad
+ c_{\max}(p,q)<1-e.
+\]
+Consequently the body points $D_2,D_4$ cannot both lie in $T_C$.
+\end{lemma}
+
+\paragraph{Solution.}
+
+\begin{proof}[Proof of \zcref{lem:app-ce2-short-ray}]
+The strict CE2 inequalities give $P>(1+M)e$.  Since
+$E^2=1-M+M^2$,
+\[
+ (1+M)^2-(3M-1)^2E^2
+ =3M(1-M)(3M^2-2M+3)>0.
+\]
+Thus $\eta=P/E>(3M-1)e$.  The identities $RW=\eta+P$ give
+\[
+ Wq>\eta+e>3Me,
+ \qquad Rp>\eta+e>3Me,
+\]
+and therefore
+\[
+ 3e<p,q<1-5e.
+\]
+Moreover
+\[
+ e<\frac{P}{1+M}\le\frac{2\sqrt3-3}{6}<\frac1{12}.
+\]
+For $c=1-e$ put $f_c(s)=c^4-c^2+cs-s^2$.  It is concave and
+\[
+ f_c(3e)=e(1-7e-4e^2+e^3)>0,
+ \qquad
+ f_c(1-5e)=e(2-15e-4e^2+e^3)>0.
+\]
+Hence $f_c(p),f_c(q)>0$.  Also $c>p+q$ and $p+c,q+c>1$; the four
+support-contact values in \zcref{lem:app-local-admissible-set} are
+\[
+ p+c,
+ \qquad q+c,
+ \qquad \frac{c^2}{\sqrt{p^2-pc+c^2}},
+ \qquad \frac{c^2}{\sqrt{q^2-qc+c^2}}.
+\]
+The first two exceed one by the preceding inequalities.  The last two exceed
+one exactly when $f_c(p)>0$ and $f_c(q)>0$, respectively.  Thus every exact
+support contact exceeds one, so $c_{\max}(p,q)<c=1-e$.
+
+If $e=\delta$, then $D_2=(1-c_*)V_2$ lies strictly beyond the signed C exit
+$\delta$; if $e=\alpha$, then $D_4$ lies strictly beyond the exit $\alpha$.
+This proves the final noncontainment with strictness in both branches.
+\end{proof}
+
+\paragraph{Body consequence.}
+The strict estimate and signed-exit alternative supply
+\zcref{thm:new-ce2-short-ray}.
+
+\subsection{Module D.12: transverse seven-point exclusion}
+
+\paragraph{Exact interface.}
+Use the exact seven-point set $K_{\mathrm{tr}}$ and the one-gap all-Vd0
+normalization preceding \zcref{lem:readable-k410-forced}.  The CE1 and CE2
+center variables are those of \zcref{prop:signed-center-normal-form}; the
+boundary squeeze uses \zcref{lem:signed-diameter-transfer}.
+
+\paragraph{Variables and feasible set.}
+For either signed center type put
+$X=R-\delta$ and $Q=(\eta+\alpha+\delta)/(2R)$.  The five center-free
+handoffs and the retained radial points are exactly those required by
+\zcref{prop:readable-k410-ce2,prop:readable-k410-ce1}; no point on $r_0$ is
+part of the feasible witness.
+
+\paragraph{Objective.}
+Upper-bound the unique supercritical reach by $1-Q$ from the actual gap
+endpoints, then rule out both possible signed center types for the same
+seven-point witness.
+
+\paragraph{Exact result.}
+
+\begin{lemma}[Current transverse endpoint squeeze]
+\label{lem:app-transverse-upper-squeeze}
+In the one-gap all-Vd0 normalization, suppose an open CE1 or CE2 unit
+triangle contains $K_{\mathrm{tr}}$.  Give that C triangle the signed
+variables of \zcref{prop:signed-center-normal-form} and put
+\[
+ X:=R-\delta,
+ \qquad Q:=\frac{\eta+\alpha+\delta}{2R}.
+\]
+Then the actual reach of the unique supercritical role satisfies
+\[
+ A_0<1-Q.
+\]
+No radial point on $r_0$ is used.
+\end{lemma}
+
+\begin{lemma}[CE2 transverse threshold terminal]
+\label{lem:app-ce2-transverse-terminal}
+No open CE2 unit equilateral triangle contains $K_{\mathrm{tr}}$.
+\end{lemma}
+
+\begin{lemma}[CE1 transverse return terminal]
+\label{lem:app-ce1-transverse-terminal}
+No open CE1 unit equilateral triangle contains $K_{\mathrm{tr}}$.
+\end{lemma}
+
+\paragraph{Solution.}
+
+\begin{proof}[Proof of \zcref{lem:app-transverse-upper-squeeze}]
+The two actual gap endpoints lie in the open C trace.  Thus
+\[
+ B_0>\frac{\eta+\alpha+\delta}{R}=2Q,
+ \qquad A_1>R-\delta=X.
+\]
+The diameter transfer \zcref{lem:signed-diameter-transfer} between the two
+incident boundary endpoints of $T_0$ gives
+\[
+ A_0\le M_0(B_0)<M_0(2Q)
+ =-Q+\sqrt{1-3Q^2}<1-Q.
+\]
+This is the gap-endpoint squeeze; the three radial points retained in
+$K_{\mathrm{tr}}$ are only $P_2,P_3,P_4$.
+\end{proof}
+
+\begin{proof}[Proof of \zcref{lem:app-ce2-transverse-terminal}]
+Suppose one does.  The five gap-free handoffs and nonsupercriticality give
+\[
+ A_1<A_2<A_3<A_4<A_5<A_0.
+\]
+Lemma~\ref{lem:app-transverse-upper-squeeze} then gives
+$B_2,B_4>Q$.  Containment of the retained points $P_2,P_4$ is strict and
+gives
+\[
+ C_2>1-\delta,
+ \qquad C_4>1-\alpha.
+\]
+For completeness, put
 \[
  X=R-\delta,
- \qquad
- Q=\frac{\eta+\alpha+\delta}{2R}.
+ \qquad Q=\frac{\eta+\alpha+\delta}{2R}.
 \]
 The right-trace inequality gives
 \[
  WX=RW-W\delta=\eta+P-W\delta>\eta+\alpha.
- \tag{6.53}
 \]
-The selected low root $\epsilon(\alpha)$ is the smaller root of
+Testing the low-root quadratic at this lower bound is equivalent to
+positivity of the concave function
 \[
- z^2-(1-\alpha)z+(1-\alpha)^2-(1-\alpha)^4=0.
+ \pi(z):=(\eta+z)(1-2z)-2zW,
 \]
-Testing this quadratic at the lower bound in (6.53) is equivalent to the
-positivity of
+whose endpoint values are
+$\pi(0)=\eta>0$ and $\pi(P)=\eta(\eta+2ER^2)>0$.  Hence
 \[
- \pi(q)=(\eta+q)(1-2q)-2qW.
+ \epsilon(\alpha)<X.
 \]
-The function is concave and
-\[
- \pi(0)=\eta>0,
- \qquad
- \pi(P)=\eta(\eta+2ER^2)>0.
-\]
-Thus
-\[
- \boxed{\epsilon(\alpha)<X.}
- \tag{6.54}
-\]
-
-For the second inequality put $T=\alpha+\delta$.  Multiplying the two CE2
-inequalities by $W,R$ and adding gives
+Putting $T=\alpha+\delta$, the CE2 inequalities also give
 \[
  E^2T<P=E\eta,
- \qquad
- T<\frac{\eta}{E}.
- \tag{6.55}
+ \qquad T<\frac\eta E.
 \]
-If $d=\min\{\alpha,\delta\}$, then
+If $e=\min\{\alpha,\delta\}$, then
 \[
  \min\{\epsilon(\alpha),\epsilon(\delta)\}
- <
- \frac{2d}{1-2d}
- \le\frac{T}{1-T}.
+ <\frac{2e}{1-2e}\le\frac{T}{1-T}<Q.
 \]
-The comparison $T/(1-T)<Q$ is equivalent to
+The last comparison is the positivity on $0\le T\le\eta/E$ of
 \[
- \chi(T)=(\eta+T)(1-T)-2RT>0.
+ \chi(T):=(\eta+T)(1-T)-2RT,
 \]
-The function $\chi$ is concave,
+because $\chi(0)=\eta>0$ and
+$\chi(\eta/E)=\eta(E-R)^2/E^2>0$.
+
+If $\epsilon(\alpha)<Q$, apply
+\zcref{lem:app-direct-threshold} at $T_4$ to obtain $B_4\le
+\epsilon(\alpha)<Q$.  Otherwise
+$\epsilon(\delta)<Q$, and its reflected application at $T_2$ gives
+$B_2<Q$.  Both conclusions contradict the preceding strict lower bounds.
+\end{proof}
+
+\begin{proof}[Proof of \zcref{lem:app-ce1-transverse-terminal}]
+Suppose one does.  The signed CE1 relations satisfy the hypotheses of
+\zcref{prop:app-ce1-direct-certificate}.  Containment of exactly the retained
+radial points $P_4,P_3,P_2$ supplies
 \[
- \chi(0)=\eta>0,
+ C_4>1-\alpha,
+ \qquad C_3>1-\frac\alpha R,
+ \qquad C_2>1-\delta.
+\]
+That certificate gives $A_0>1-Q$, whereas
+\zcref{lem:app-transverse-upper-squeeze} gives $A_0<1-Q$.  This
+contradiction proves the claim.
+\end{proof}
+
+\paragraph{Body consequence.}
+The endpoint squeeze and the two signed exclusions supply
+\zcref{prop:readable-k410-ce2,prop:readable-k410-ce1}; together with the
+body's forcing lemma they prove \zcref{prop:new-nplus-one-all-vd0}.
+
+\subsection{Module D.13: T3-like supported-tail adapter}
+
+\paragraph{Exact interface.}
+Use the T3-like supported interval, actual boundary reach, and four adapter
+inequalities displayed in \zcref{prop:new-one-t3-terminal}.
+
+\paragraph{Variables and feasible set.}
+The original T3-like role has actual boundary reach $A_0$ and radial trace
+$[c,u]$.  Its closed-trace majorant has the same $A_0$ and $u$ but a possibly
+smaller near endpoint $\widehat c\le c$.  The majorant normal form has source
+parameter $1\le\omega\le2/\sqrt3$, with $\omega=D$ and
+$\varrho=R_{\mathrm{loc}}$; its rationalized variables $x,\vartheta$ obey
+the exact interval displayed in the solution.  The body fixes
+$0\le c\le1/2\le u<1$ and $M=M_c^{\mathrm{sup}}$.
+
+\paragraph{Objective.}
+Verify the four endpoint and envelope inequalities needed to invoke the
+common rescuer-tail budget for the T3-like branch.
+
+\paragraph{Exact result.}
+
+\begin{lemma}[T3-like supported-tail adapter]
+\label{lem:app-t3-supported-adapter}
+Under the hypotheses of \zcref{prop:new-one-t3-terminal}, all four adapter
+inequalities displayed there hold.
+\end{lemma}
+
+\paragraph{Solution.}
+
+\begin{proof}[Proof of \zcref{lem:app-t3-supported-adapter}]
+The O-side endpoint $R_1(u)=(1-u)V_1$ is missed by the original open
+T3-like role, the adjacent supercritical role, and all Vd0 or nonlocal roles;
+hence it belongs to $U_C$.
+
+Now distinguish the translated closed-trace majorant $\widehat T_0$ of
+\zcref{prop:t3-translation} from the original role.  In the Type-II offsets
+of \zcref{lem:app-exact-trace-normalizations}, the translation sets the
+transverse offset to zero and retains the other offset.  Direct intersection
+with $e_{5,0}$ and $r_1$ therefore gives
+\[
+ \widehat A_0=A_0,
+ \qquad \widehat u=u,
+ \qquad \widehat c\le c.
+\]
+Only the near radial endpoint can move; the two actual quantities used by the
+body remain unchanged.
+
+For the majorant write $\omega=D$ and $\varrho=R_{\mathrm{loc}}$ as in the
+Proven 4132 normal form.  Then $1\le\omega\le2/\sqrt3$; put
+\[
+ \varrho:=\frac{\omega+\sqrt{4-3\omega^2}}2,
+ \qquad x:=\frac{A_0\omega}{\varrho},
+ \qquad \vartheta:=\frac{\omega-1}{\varrho},
+\]
+so that
+\[
+ \widehat c=x+\vartheta,
  \qquad
- \chi\left(\frac{\eta}{E}\right)
- =
- \frac{\eta}{E^2}(E-R)^2>0.
+ \frac{1-4\vartheta+\vartheta^2}{2(1-2\vartheta)}
+ \le x\le\frac12-\vartheta.
 \]
-Hence
+The parameter range gives
 \[
- \boxed{
- \min\{\epsilon(\alpha),\epsilon(\delta)\}<Q.
- }
- \tag{6.56}
+ 0\le\vartheta\le2-\sqrt3.
+\]
+Put
+\[
+ Q_\vartheta(x):=2x^2+(\vartheta-1)x+\vartheta,
+ \qquad x_*:=\frac{1-\vartheta}{4}.
+\]
+If $0\le\vartheta\le1/5$, the lower feasible endpoint
+\[
+ x_L:=\frac{1-4\vartheta+\vartheta^2}{2(1-2\vartheta)}
+\]
+satisfies
+\[
+ x_L-x_*=\frac{1-5\vartheta}{4(1-2\vartheta)}\ge0.
+\]
+Thus $Q_\vartheta$ is increasing on the feasible interval, and
+\[
+ Q_\vartheta(x)\ge Q_\vartheta(x_L)
+ =\frac{\vartheta(1-5\vartheta+11\vartheta^2-\vartheta^3)}
+ {2(1-2\vartheta)^2}\ge0.
+\]
+If $1/5\le\vartheta\le2-\sqrt3$, then $x_*$ lies in the feasible interval
+because
+\[
+ \left(\frac12-\vartheta\right)-x_*
+ =\frac{1-3\vartheta}{4}>0,
+\]
+and hence
+\[
+ Q_\vartheta(x)\ge Q_\vartheta(x_*)
+ =\frac{10\vartheta-1-\vartheta^2}{8}>0.
 \]
 
-\subsubsection{The shortened CE2 two-gap calculation}
-
-Let
+Put $\widehat M=M_{\widehat c}^{\mathrm{sup}}$ and let
+$s(z)=z(2-z)/(1+z)$.  This function is increasing on $[0,1/2]$ and
+$s(1-\widehat M)=\widehat c$.  The inequality
+$Q_\vartheta(x)\ge0$ is exactly
+$s(x)\le x+\vartheta=\widehat c$, so $x\le1-\widehat M$.
+Moreover the explicit formula for $M_c^{\mathrm{sup}}$ is decreasing in
+$c\in[0,1/2]$, since
 \[
- p=W-\alpha,\qquad q=R-\delta,\qquad
- e=\min\{\alpha,\delta\},\qquad M=\max\{R,W\}.
+ \frac{d}{dc}M_c^{\mathrm{sup}}
+ =\frac12-\frac{4-c}{2\sqrt{c^2-8c+4}}<0.
 \]
-The strict CE2 inequalities give
+Thus $\widehat c\le c$ gives $\widehat M\ge M$.  Since
+$\omega\ge\varrho$ and the majorant radial endpoint identity, together with
+$\widehat A_0=A_0$ and $\widehat u=u$, gives
+$A_0+1-u=\varrho/\omega$, we obtain
 \[
- P>(1+M)e.
-\]
-Since $E^2=1-M+M^2$,
-\[
- (1+M)^2-(3M-1)^2E^2
- =
- 3M(1-M)(3M^2-2M+3)>0.
-\]
-Thus $\eta=P/E>(3M-1)e$.  Now
-\[
- Wq>\eta+e>3Me,
+ A_0\le x\le1-\widehat M\le1-M,
  \qquad
- Rp>\eta+e>3Me,
+ \frac{A_0}{A_0+1-u}=x\le1-\widehat M\le1-M.
 \]
-so
-\[
- p,q>3e.
-\]
-Together with $p+q\le1-2e$, this gives
-\[
- \boxed{3e<p,q<1-5e.}
- \tag{6.57}
-\]
-Furthermore
-\[
- e<\frac{P}{1+M}
- \le\frac{2\sqrt3-3}{6}<\frac1{12}.
- \tag{6.58}
-\]
+Also $A_0+1-u=\varrho/\omega\le1$.  These are precisely the four displayed
+adapter inequalities.
+\end{proof}
 
-For $c=1-e$, put $f_c(t)=c^4-c^2+ct-t^2$.  Concavity and
-\[
- f_c(3e)=e(1-7e-4e^2+e^3)>0,
-\]
-\[
- f_c(1-5e)=e(2-15e-4e^2+e^3)>0
-\]
-give $f_c(p),f_c(q)>0$.  Since $c>p+q$ and $p+c,q+c>1$, the exact four
-support-contact side lengths all exceed one.  Hence
-$c_{\max}(p,q)<1-e$.
+\paragraph{Body consequence.}
+Together with \zcref{lem:app-rescuer-tail-budget}, these four inequalities
+supply \zcref{prop:new-one-t3-terminal}.
 
-\subsubsection{Detailed adjacent Vd residual estimate}
+\subsection{Module D.14: Vd1 supported-tail adapter}
 
-In the adjacent placement, the residuals satisfy
-\[
- \rho_R+\rho_L<\frac12.
- \tag{6.59}
-\]
-The signed CE2 domain gives
-\[
- \alpha+\delta<\frac16\min\{R,W\}.
- \tag{6.60}
-\]
-If $\rho_L=W-\alpha$, then
-\[
- 4\delta+\alpha
- \le4(\alpha+\delta)
- <\frac{2W}{3}<W,
-\]
-so $4\delta<\rho_L$.
+\paragraph{Exact interface.}
+Use the Vd1 supported interval, actual boundary reaches, and four adapter
+inequalities displayed in \zcref{prop:finite-vd1-supported-terminal}.
 
-Otherwise $\rho_L=1-A_0$.  The opposite residual must be
+\paragraph{Variables and feasible set.}
+The Vd1 corner parameter satisfies $\theta\ge1$, with
+$\Delta_\theta=\sqrt{\theta^2+\theta+1}$.  The body interval obeys
+$0\le c\le1/2\le u<1$, $\varepsilon=1-u$, and
+$M=M_c^{\mathrm{sup}}$; the midpoint inequality selects the feasible corner
+component used below.
+
+\paragraph{Objective.}
+Bound the actual boundary endpoint and its normalized ratio by $1-M$, and
+verify the endpoint containment and unit boundary-sum inequality required by
+the common rescuer-tail budget.
+
+\paragraph{Exact result.}
+
+\begin{lemma}[Vd1 supported-tail adapter]
+\label{lem:app-vd1-supported-adapter}
+Under the hypotheses of \zcref{prop:finite-vd1-supported-terminal}, all four
+adapter inequalities displayed there hold; in fact
+$A_0+\varepsilon<1$.
+\end{lemma}
+
+\paragraph{Solution.}
+
+\begin{proof}[Proof of \zcref{lem:app-vd1-supported-adapter}]
+In the Vd1 corner form there is initially $\theta>0$ with
+$\Delta_\theta=\sqrt{\theta^2+\theta+1}$ such that
 \[
- \rho_R=1-(W+\delta),
+ c=\frac{\theta(1-B_0)}{\theta+1},
  \qquad
- B_0\ge\frac{k}{R}.
-\]
-The boundary-endpoint diameter inequality gives
-\[
- \rho_L>\frac{k}{2R}>\frac{\eta}{2R}.
- \tag{6.61}
-\]
-Combining this with (6.59) gives
-\[
- \delta>R-\frac12+\frac{\eta}{2R}=:J(R).
-\]
-The function $J$ is increasing, $J(3/8)=1/24$, and (6.60) gives
-$\delta<1/24$.  Thus $R<3/8$.  Then
-\[
- (2-3R)^2-E^2=(3-8R)(1-R)>0,
-\]
-so $\eta/R>1/3$, and (6.61) yields
-\[
- \rho_L>\frac16>4\delta.
- \tag{6.62}
-\]
-This proves the residual estimate used by the adjacent Vd terminal.  The
-new one-third radial envelope then gives
-\[
- C_2<1-\frac{\rho_L}{3}<1-\delta.
-\]
-
-\subsubsection{Detailed nonadjacent Vd separation}
-
-Let $x=k/W$ and $y=k/R$ be the two center near endpoints, and let $B,U$ be
-the farthest already-covered extents.  The endpoint-distance inequality and
-monotonicity of $M_0$ give
-\[
- B\le M_0(x),
- \qquad
- U\le M_0(y).
- \tag{6.63}
-\]
-Since
-\[
- 1-M_0(z)>\frac z2
- \qquad(z>0),
-\]
-the residual tails satisfy
-\[
- \rho_R>\frac x2,
- \qquad
- \rho_L>\frac y2.
-\]
-The signed center-slack estimate
-\[
- \alpha+\delta<\frac12\min\{x,y\}
-\]
-therefore gives
-\[
- \alpha+\delta<\min\{\rho_R,\rho_L\}.
- \tag{6.64}
-\]
-The Vd own-radial margin then places
-$\min\{\rho_R,\rho_L\}V_\tau$ beyond the Vd trace, while (6.64) places it
-beyond the C exit.
-
-\subsubsection{Detailed Vd1 rescue inequalities}
-
-Use the Vd1 corner parameter $t\ge1$, let
-$d=\sqrt{t^2+t+1}$, and write the supported interval as $[c,u]$.  Then
-\[
- c=\frac{t(1-b)}{t+1},
- \qquad
- u=\frac{d-a-tb-1}{t}.
+ u=\frac{\Delta_\theta-A_0-\theta B_0-1}{\theta}.
 \]
 The midpoint condition gives
 \[
- a+tb\le d-1-\frac t2.
+ A_0+\theta B_0\le\Delta_\theta-1-\frac\theta2.
 \]
-Eliminating $tb=t-c(t+1)$ gives
+The actual boundary reach $A_0$ is positive.  If $\theta<1$, the raw
+$r_5$-trace endpoints from the corner form would satisfy
 \[
- a\le F(t,c):=d-1-\frac{3t}{2}+c(t+1).
+ \Delta_\theta-A_0-\theta B_0-\theta
+ \ge1-\frac\theta2
+ >\frac1{\theta+1}
+ >\frac{1-A_0}{\theta+1},
 \]
-For fixed $c\le1/2$, the function $F$ decreases with $t$, so
+giving positive support on both neighboring arms, contrary to the Vd1 type.
+Thus $\theta\ge1$.
+
+Eliminating $\theta B_0=\theta-c(\theta+1)$ yields
 \[
- a\le F(1,c)=\sqrt3-\frac52+2c=:L(c).
+ A_0\le F(\theta,c):=
+ \Delta_\theta-1-\frac{3\theta}{2}+c(\theta+1).
 \]
-The inequality $2L(c)\le1-M_c^{\rm sup}$ reduces to
+For fixed $c\le1/2$, $F$ decreases with $\theta$, so
+\[
+ A_0\le F(1,c)=\sqrt3-\frac52+2c=:L(c).
+\]
+The inequality $2L(c)\le1-M_c^{\mathrm{sup}}$ is equivalent to
 \[
  20c^2+(18\sqrt3-52)c+47-24\sqrt3\ge0,
 \]
-which holds on $[0,1/2]$.  Hence
-\[
- a\le1-M_c^{\rm sup}.
- \tag{6.65}
-\]
+The quadratic is decreasing on $[0,1/2]$ and its value at $1/2$ is
+$26-15\sqrt3>0$, so the inequality holds throughout that interval.  Hence
+$A_0\le1-M_c^{\mathrm{sup}}$.
 
 Put $\varepsilon=1-u$.  Direct substitution gives
 \[
- \varepsilon=\varepsilon_0+\frac at,
+ \varepsilon=\varepsilon_0+\frac{A_0}{\theta},
  \qquad
  \varepsilon_0=
- \frac{2t+1-c(t+1)-d}{t}>0.
+ \frac{2\theta+1-c(\theta+1)-\Delta_\theta}{\theta}>0.
 \]
-The map
+Indeed, $c\le1/2$ makes its numerator at least
+$(3\theta+1)/2-\Delta_\theta>0$, since
 \[
- z\longmapsto
- \frac{z}{z+\varepsilon_0+z/t}
+ (3\theta+1)^2-4\Delta_\theta^2
+ =(5\theta-3)(\theta+1)>0
+ \qquad(\theta\ge1).
 \]
-is increasing, while
-$\varepsilon_0+F(t,c)/t=1/2$.  Therefore
+The map $z\mapsto z/(z+\varepsilon_0+z/\theta)$ is increasing, while
+$\varepsilon_0+F(\theta,c)/\theta=1/2$.  Therefore
 \[
- \frac{a}{a+\varepsilon}
- \le
- \frac{F(t,c)}{F(t,c)+1/2}
- \le2L(c)
- \le1-M_c^{\rm sup}.
- \tag{6.66}
+ \frac{A_0}{A_0+\varepsilon}
+ \le\frac{F(\theta,c)}{F(\theta,c)+1/2}
+ \le2L(c)\le1-M_c^{\mathrm{sup}}.
 \]
-Equations (6.65)--(6.66) are the local hypotheses of the common
-rescuer-tail lemma.
+The strict Vd half-unit cap and $u\ge1/2$ give
+$A_0+\varepsilon<1$.  The O-side
+endpoint $R_1(u)=\varepsilon V_1$ is missed by all open V roles and hence
+belongs to $U_C$.
+\end{proof}
+
+\paragraph{Body consequence.}
+Together with \zcref{lem:app-rescuer-tail-budget}, these four inequalities
+supply \zcref{prop:finite-vd1-supported-terminal}.
+
+\subsection{Module D.15: adjacent Vd radial separation}
+
+\paragraph{Exact interface.}
+Use the adjacent alternative $(\sigma,\tau)=(0,1)$ in
+\zcref{prop:finite-vd-radial-separation}, the exact residual operator
+\zcref{def:finite-residual-operator}, and the radial gap interface
+\zcref{lem:finite-radial-separation} at $i=2$.  The signed small-slack and
+diameter inputs are \zcref{lem:signed-small-slack,lem:signed-diameter-transfer}.
+
+\paragraph{Variables and feasible set.}
+Normalize the CE2 traces as in the body.  With the signed variables of
+\zcref{prop:signed-center-normal-form}, put
+$k=\eta+\alpha+\delta$ and
+\[
+ I_L=\left[\frac{k}{W},R+\alpha\right],
+ \qquad I_R=\left[\frac{k}{R},W+\delta\right],
+\]
+$\rho_R=\mathcal R_{I_R}(B_0)$, and
+$\rho_L=\mathcal R_{I_L}(A_0)>0$ in the reduced candidate.  The center-free handoffs give
+$A_1\ge\rho_R$, $B_1\ge\rho_L$, and $B_2\ge\rho_L$.
+
+\paragraph{Objective.}
+Prove the strict separation margin $c_{\mathrm{loc}}<1-d_C$ by comparing the
+left residual with the C exit and the adjacent Vd0 radial envelope.
+
+\paragraph{Exact result.}
+
+\begin{lemma}[Adjacent Vd radial separation]
+\label{lem:app-adjacent-vd-separation}
+In the adjacent subcase $(\sigma,\tau)=(0,1)$ of
+\zcref{prop:finite-vd-radial-separation}, the radial interface at $i=2$
+satisfies
+\[
+ c_{\mathrm{loc}}<1-d_C.
+\]
+\end{lemma}
+
+\paragraph{Solution.}
+
+\begin{proof}[Proof of \zcref{lem:app-adjacent-vd-separation}]
+With the exact intervals displayed above, set
+\[
+ \rho_R=\mathcal R_{I_R}(B_0),
+ \qquad \rho_L=\mathcal R_{I_L}(A_0).
+\]
+The center-free handoffs give
+\[
+ A_1\ge\rho_R,
+ \qquad B_1\ge\rho_L,
+ \qquad B_2\ge\rho_L.
+\]
+Indeed, the definition of $\mathcal R_{I_R}(B_0)$ makes the first uncovered
+tail of $e_{0,1}$ have length $\rho_R$, so open coverage forces
+$A_1\ge\rho_R$.  On the reflected boundary chain the corresponding tail
+first forces $B_5\ge\rho_L$.  Successively, the center-free handoffs
+$B_4+A_5\ge1$, $B_3+A_4\ge1$, and $B_2+A_3\ge1$, combined with the
+nonsupercritical caps at $T_5,T_4,T_3$, give
+$B_4\ge B_5$, $B_3\ge B_4$, and $B_2\ge B_3$.  Finally
+$B_1+A_2\ge1$ and the cap at $T_2$ give $B_1\ge B_2\ge\rho_L$.
+The Vd half-unit cap at $T_1$ therefore gives
+\[
+ \rho_R+\rho_L<\frac12.
+\]
+The exact CE2 budget \zcref{lem:signed-small-slack} gives both
+\[
+ \alpha+\delta<\frac1{24},
+ \qquad \alpha+\delta<\frac16\min\{R,W\}.
+\]
+If $\rho_L=W-\alpha$, then
+\[
+ 4\delta+\alpha\le4(\alpha+\delta)<\frac{2W}{3}<W,
+\]
+so $4\delta<\rho_L$.  Otherwise
+\[
+ \rho_L=1-A_0.
+\]
+The other residual cannot be $1-B_0$, since then
+$\rho_R+\rho_L<1/2$ would give $A_0+B_0>3/2$, contrary to
+$A_0+B_0\le2/\sqrt3<3/2$ from
+\zcref{thm:boundary-trace-table}.  Hence the exact residual alternatives give
+\[
+ \rho_R=1-(W+\delta)=R-\delta,
+ \qquad B_0\ge\frac{k}{R}.
+\]
+The endpoint diameter bound in \zcref{lem:signed-diameter-transfer} gives
+\[
+ \rho_L>\frac{k}{2R}>\frac\eta{2R}.
+\]
+Together with $\rho_R+\rho_L<1/2$, this implies
+\[
+ \delta>J(R):=R-\frac12+\frac{\eta}{2R}.
+\]
+The function $J$ is strictly increasing: using $E^2=1-RW$,
+\[
+ 4E(1+E)^2J'(R)
+ =2E(1+E)(1+2E)-W(2R-1)>0.
+\]
+For $R\le1/2$ the subtracted term is nonpositive; for $R\ge1/2$ it is at
+most $1/8$, while the first term is greater than $1/8$.
+Since $J(3/8)=1/24$ whereas $\delta<1/24$, one has $R<3/8$.  Now
+\[
+ (2-3R)^2-E^2=(3-8R)(1-R)>0,
+\]
+one gets $\eta/R>1/3$ and again $\rho_L>1/6>4\delta$.
+
+The Vd cap and the handoff $A_1\ge\rho_R$ give
+$B_1<1/2-\rho_R$.  Coverage of the center-free edge $e_{1,2}$ and the third
+handoff therefore give
+\[
+ A_2>1-B_1>\frac12+\rho_R,
+ \qquad B_2\ge\rho_L.
+\]
+Thus
+\zcref{lem:app-one-third-radial-envelope} gives
+\[
+ C_2<1-\frac{\rho_L}{3}<1-\delta.
+\]
+If $T_1$ has positive support on $r_2$, its supported Vd endpoint is below
+$1-\rho_L<1-\delta$ by \zcref{lem:app-vd-corner-margins}; if it has no
+positive support there, no endpoint comparison is needed.  Thus both local V
+traces stop strictly before the C interval on $r_2$.  This is exactly
+$c_{\mathrm{loc}}<1-d_C$.
+\end{proof}
+
+\paragraph{Body consequence.}
+This strict local/C separation supplies the adjacent alternative of
+\zcref{prop:finite-vd-radial-separation}.
+
+\subsection{Module D.16: nonadjacent Vd radial separation}
+
+\paragraph{Exact interface.}
+Use the nonadjacent alternative $\tau\in\{2,3,4\}$ in
+\zcref{prop:finite-vd-radial-separation}, including the intervals $I_R,I_L$,
+the residual operator \zcref{def:finite-residual-operator}, and the body point
+$D_\tau=\rho V_\tau$.  The endpoint comparison uses
+\zcref{lem:signed-diameter-transfer}.
+
+\paragraph{Variables and feasible set.}
+Put $x=k/W$, $y=k/R$ and
+$\rho=\min\{\rho_R,\rho_L\}$ for the two positive residuals of the normalized
+CE2 trace intervals.  The routed C exit is the attained maximum
+$d_\tau^C$, the actual Vd own-radial reach is $C_\tau$, and all other roles
+retain the body type restrictions.  The residual handoffs to the Vd role are
+$A_\tau\ge\rho_R$ and $B_\tau\ge\rho_L$.
+
+\paragraph{Objective.}
+Establish strict inequalities on both sides of $\rho$ and exclude every
+nonlocal unit-diameter role from the selected radial point.
+
+\paragraph{Exact result.}
+
+\begin{lemma}[Nonadjacent Vd radial separation]
+\label{lem:app-nonadjacent-vd-separation}
+In the nonadjacent subcase of
+\zcref{prop:finite-vd-radial-separation},
+\[
+ d_\tau^C<\rho<1-C_\tau,
+\]
+and every nonlocal role misses $D_\tau=\rho V_\tau$.
+\end{lemma}
+
+\paragraph{Solution.}
+
+\begin{proof}[Proof of \zcref{lem:app-nonadjacent-vd-separation}]
+Let
+\[
+ x:=\frac{k}{W},\qquad y:=\frac{k}{R},
+\]
+and define the farthest already-covered boundary extents by
+\[
+ B:=\sup\{s\in[0,1]:[0,s]\subseteq[0,B_0]\cup I_R\}=1-\rho_R,
+\]
+\[
+ U:=\sup\{s\in[0,1]:[0,s]\subseteq[0,A_0]\cup I_L\}=1-\rho_L.
+\]
+The boundary handoffs through the intervening nonsupercritical roles force
+\[
+ A_\tau\ge\rho_R,
+ \qquad B_\tau\ge\rho_L.
+\]
+For the first inequality, the residual definition says that the uncovered
+tail after the component of $[0,B_0]\cup I_R$ has length $\rho_R$; coverage
+forces that demand onto the first role of the right-hand path.  On every
+subsequent center-free edge, $B_j+A_{j+1}\ge1$ and
+$A_j+B_j\le1$, so induction carries the lower bound unchanged to
+$A_\tau$.  The reflected path starting from $[0,A_0]\cup I_L$ proves
+$B_\tau\ge\rho_L$ in the same way.
+The strict Vd half-unit cap then gives
+\[
+ \rho_R+\rho_L<\frac12.
+\]
+
+We claim $B\le M_0(x)$; the reflected argument gives $U\le M_0(y)$.  By the
+exact interval-component definition, $B$ is either
+$B_0$ or the far endpoint of the C interval $I_R$.  In the latter case the
+C triangle contains adjacent boundary endpoints with parameters $x,B$, so
+\zcref{lem:signed-diameter-transfer} gives $B\le M_0(x)$.
+If instead $B=B_0$ and $A_0<x$, then the component on the other active edge
+ends at $A_0$, so $U=A_0$.  The preceding residual cap would imply
+$A_0+B_0>3/2$, contradicting
+$A_0+B_0\le2/\sqrt3<3/2$ from
+\zcref{thm:boundary-trace-table}.  Hence $A_0\ge x$, and the endpoint-distance
+inequality plus monotonicity of $M_0$ gives
+\[
+ B=B_0\le M_0(A_0)\le M_0(x).
+\]
+Reflection proves $U\le M_0(y)$.
+
+Because $1-M_0(z)>z/2$ for $z>0$, the residuals satisfy
+\[
+ \rho_R>\frac x2,
+ \qquad \rho_L>\frac y2.
+\]
+The signed center-slack estimate in
+\zcref{lem:signed-endpoints-dominate-slack} now yields
+\[
+ \alpha+\delta<\min\{\rho_R,\rho_L\}=\rho.
+\]
+Every relevant C exit is at most $\alpha+\delta$, so $d_\tau^C<\rho$.
+Applying \zcref{lem:app-vd-corner-margins} with the selected lower bounds
+$a_*=\rho_R$, $b_*=\rho_L$ gives
+$C_\tau<1-\rho$.  Adjacent Vd0 roles stop no later, and for a nonlocal
+vertex $V_j$ the exact distances
+\[
+ \lVert\rho V_\tau-V_{\tau\pm2}\rVert^2=1+\rho+\rho^2>1,
+ \qquad
+ \lVert\rho V_\tau-V_{\tau+3}\rVert=1+\rho>1
+\]
+exclude its open unit-diameter role.  Hence $D_\tau$ is missed by every V
+role and lies beyond the C exit.
+\end{proof}
+
+\paragraph{Body consequence.}
+These two strict radial estimates and the nonlocal distance audit supply the
+nonadjacent alternative of \zcref{prop:finite-vd-radial-separation}.
+
+\subsection{Module D.17: CE2 one-Vd placement audit}
+
+\paragraph{Exact interface.}
+The body interface is the implication in \zcref{prop:new-one-vd-assembly}:
+\[
+ N_E(T_C)=2,
+ \quad N_{\mathrm{gap}}\in\{1,2\},
+ \quad N_+=1,
+ \quad d=1
+ \quad\Longrightarrow\quad
+ S\nsubseteq U_C\cup\bigcup_{i=0}^5U_i.
+\]
+
+\paragraph{Variables and feasible set.}
+Use the actual reaches $A_i,B_i$, the normalized types
+$(o(T_i),n(T_i))$, and the exact counts
+\[
+ \begin{aligned}
+ d&=\left|\{i:(o(T_i),n(T_i))\in\{(1,1),(1,2)\}\}\right|,\\
+ t&=\left|\{i:(o(T_i),n(T_i))=(2,1)\}\right|,
+ \qquad N_{\mathrm{sp}}=d+t.
+ \end{aligned}
+\]
+All indices lie in $\mathbb Z/6\mathbb Z$.  The only assumed containment in
+the feasibility test is the hypothetical open cover
+$S\subseteq U_C\cup\bigcup_iU_i$.
+
+\paragraph{Objective.}
+Exhaust the relative positions of the unique supercritical role, the unique
+Vd1/Vd2 role, and the center-covered midpoint, while retaining every
+center-free and radial-locality hypothesis needed by the terminal to which a
+placement is routed.
+
+\paragraph{Exact result.}
+
+\begin{lemma}[CE2 one-Vd placement audit]
+\label{lem:app-one-vd-placement-audit}
+Assume
+\[
+ N_E(T_C)=2,
+ \qquad N_{\mathrm{gap}}\in\{1,2\},
+ \qquad N_+=1,
+ \qquad d=1.
+\]
+Under a hypothetical cover of $S$, if $t\ge1$, then
+$N_++N_{\mathrm{sp}}\ge3$.  Otherwise $t=0$, and after a dihedral symmetry
+\[
+ T_C\cap\{M_0,\ldots,M_5\}=\{M_0\}.
+\]
+There are unique indices
+\[
+ \{\sigma\}=\{i:A_i+B_i>1\},
+ \qquad
+ \{\tau\}=\{i:(o(T_i),n(T_i))\in\{(1,1),(1,2)\}\},
+\]
+with $\sigma\ne\tau$ and
+\[
+ (o(T_j),n(T_j))\in\{(1,0),(2,0)\}
+ \qquad(j\ne\tau).
+\]
+Exactly one of the following alternatives holds.
+\begin{enumerate}
+\item $\sigma=0$, with $\tau\in\{1,5\}$ or
+      $\tau\in\{2,3,4\}$; these are respectively the adjacent and
+      nonadjacent hypotheses of
+      \zcref{prop:finite-vd-radial-separation}.
+\item $\tau=0$, $M_\sigma\in T_0$, and $\sigma\in\{1,5\}$.  After
+      reflection take $\sigma=1$.  Type Vd2 satisfies the hypotheses of
+      \zcref{prop:ce2-vd2-midpoint-length}; type Vd1 has
+      \[
+       T_0\cap r_1=R_1([c,u]),
+       \qquad 0\le c\le\frac12\le u<1,
+       \qquad C_1\ge c,
+      \]
+      and satisfies the hypotheses of
+      \zcref{prop:finite-vd1-supported-terminal}.
+\item $\sigma\ne0$ and $\tau\ne0$, with
+      $M_\sigma\in T_\tau$ and
+      $\tau-\sigma\equiv\pm1\pmod6$.  Type Vd2 satisfies the hypotheses of
+      \zcref{prop:ce2-vd2-midpoint-length}.  In type Vd1, rotate and, if
+      necessary, reflect so that $(\tau,\sigma)=(0,1)$.  Then
+      \[
+       (o(T_0),n(T_0))=(1,1),
+       \quad M_1\in T_0,
+       \quad A_1+B_1>1,
+      \]
+      \[
+       A_i+B_i\le1\quad(i\ne1),
+       \qquad
+       (o(T_i),n(T_i))\in\{(1,0),(2,0)\}\quad(1\le i\le5),
+      \]
+      \[
+       U_C\cap e_{0,1}=\varnothing,
+       \qquad
+       \Haus(T_j\cap r_k)=0
+       \quad(2\le j\le5,\ k\in\{0,1\}),
+      \]
+      so every hypothesis of \zcref{prop:finite-two-chart-router} holds.
+\end{enumerate}
+Consequently the hypothetical cover is impossible.
+\end{lemma}
+
+\paragraph{Solution.}
+
+\begin{proof}[Proof of \zcref{lem:app-one-vd-placement-audit}]
+Assume for contradiction that the seven open roles cover $S$.
+By \zcref{prop:unique-center-midpoint}, a dihedral normalization gives
+\[
+ T_C\cap\{M_0,\ldots,M_5\}=\{M_0\}.
+\]
+If $t\ge1$, then $d=1$ gives
+\[
+ N_++N_{\mathrm{sp}}=1+(d+t)\ge3,
+\]
+contradicting \zcref{thm:common-skeleton-count}.  Hence assume $t=0$.
+
+The equality $N_+=1$ defines the unique index $\sigma$, and $d=1$ defines
+the unique index $\tau$.  By the strict half-unit boundary cap in
+\zcref{prop:vd-corner-normal-form}, a Vd1/Vd2 role is nonsupercritical;
+therefore $\sigma\ne\tau$.  The normalized classification
+\zcref{prop:vertex-classification}, together with $t=0$ and $d=1$, gives
+\[
+ (o(T_j),n(T_j))\in\{(1,0),(2,0)\}
+ \qquad(j\ne\tau).
+\]
+
+If $\sigma=0$, the alternatives $\tau\in\{1,5\}$ and
+$\tau\in\{2,3,4\}$ exhaust all possible $\tau\ne0$.  They are exactly the
+adjacent and nonadjacent branches of
+\zcref{prop:finite-vd-radial-separation}, so both contradict the cover.
+
+Suppose next that $\tau=0$.  Then $\sigma\ne0$.  The center misses
+$M_\sigma$ by the normalized midpoint identity, while the supercritical
+role $T_\sigma$ misses its own midpoint by \zcref{lem:self-midpoint}.
+A nonincident V role cannot contain $M_\sigma$ because its indexed vertex is
+more than unit distance away.  If an incident Vd0 role contained the point
+in its open interior, it would have positive-length trace on $r_\sigma$,
+contrary to $n=0$.  Thus the cover forces $M_\sigma\in U_0\subset T_0$, and
+diameter locality gives $\sigma\in\{1,5\}$.  Reflect so that $\sigma=1$.
+For type Vd2, \zcref{prop:ce2-vd2-midpoint-length} contradicts the cover.
+For type Vd1, its exact corner trace gives
+\[
+ T_0\cap r_1=R_1([c,u]),
+ \qquad 0\le c\le\frac12\le u.
+\]
+In fact $u<1$: otherwise $O\in T_0$, impossible because $V_0\in U_0$ and
+$\lVert V_0-O\rVert=1$ while an interior point and a point of the closure of
+an open unit triangle are at distance strictly less than one.
+The signed exit description gives $d_1^C<1/2$, so the center trace on $r_1$
+starts, in the coordinate measured from $V_1$, strictly after $1/2$.
+If $c=0$, the required inequality $C_1\ge c$ is automatic.  If $c>0$, then
+immediately before the near endpoint $c$ the Vd1 role is absent; the adjacent
+Vd0 and nonlocal roles have no positive trace there.  The open cover therefore
+forces the own-radial trace of $U_1$ up to $c$, again giving $C_1\ge c$.
+All remaining roles are Vd0 and only $T_1$ is supercritical.
+These are precisely the hypotheses of
+\zcref{prop:finite-vd1-supported-terminal}, which again contradicts the
+cover.
+
+It remains that $\sigma\ne0$ and $\tau\ne0$.  The same midpoint argument
+shows that the only possible rescuer is $T_\tau$:
+\[
+ M_\sigma\in U_\tau\subset T_\tau,
+ \qquad \tau-\sigma\equiv\pm1\pmod6.
+\]
+The Vd2 alternative is closed by
+\zcref{prop:ce2-vd2-midpoint-length}.  In the Vd1 alternative, rotate and
+reflect so that $(\tau,\sigma)=(0,1)$.  Uniqueness of $\sigma$ and $\tau$
+gives the two displayed reach and type lines in the statement.  The center's
+unique midpoint has an index different from $0,1$ in this fresh
+normalization.  Since the two positive CE2 traces are the adjacent traces at
+that midpoint, the signed trace description in
+\zcref{prop:signed-center-normal-form} gives
+\[
+ U_C\cap e_{0,1}=\varnothing.
+\]
+For $r_0$, the only adjacent role among $T_2,\ldots,T_5$ is $T_5$; for
+$r_1$ it is $T_2$.  Both have $n=0$, so their indicated intersections have
+zero length.  For every remaining pair, write a ray point as $dV_k$ with
+$0\le d\le1$.  If $V_j$ is at cyclic distance two from $V_k$, or is its
+opposite vertex, then respectively
+\[
+ \lVert dV_k-V_j\rVert^2=1+d+d^2,
+ \qquad
+ \lVert dV_k-V_j\rVert=1+d.
+\]
+These distances exceed one for $d>0$; at $d=0$ they permit at most the
+single endpoint $O$.  Hence the three nonlocal roles have zero-length
+intersection with the ray.  Consequently
+\[
+ \Haus(T_j\cap r_k)=0
+ \qquad(2\le j\le5,\ k\in\{0,1\}).
+\]
+Thus \zcref{prop:finite-two-chart-router} applies and contradicts the cover.
+The positive-support branch and the three positional alternatives are
+pairwise disjoint and exhaustive, completing the audit.
+\end{proof}
+
+\paragraph{Body consequence.}
+This exact placement partition, including the Vd2 length exits, both radial
+separation positions, the supported Vd1 position, and the full two-chart
+input hypotheses, supplies \zcref{prop:new-one-vd-assembly}.

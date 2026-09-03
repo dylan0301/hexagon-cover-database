@@ -13,22 +13,23 @@
     (root) at (0,0) {finite-enclosure state};
 
   \node[route] (z)  at (-7.6,-1.65)
-    {$N_{\rm gap}=0$, $N_+=1$\\all V triangles $\Vdzero$};
+    {$N_{\rm gap}=0$, $N_+=1$\\$(d,t)=(0,0)$};
   \node[route] (o0) at (-3.8,-1.65)
-    {one gap, $N_+=0$\\common local pair $(p,q)$};
+    {$N_{\rm gap}=1$, $N_+=0$\\$d=0$};
   \node[route] (t)  at (0,-1.65)
-    {two gaps, CE2\\common pair on $T_1,\ldots,T_5$};
+    {$N_{\rm gap}=2$, $N_E(T_C)=2$\\$N_+\in\{0,1\}$, $d=0$};
   \node[route] (o1) at (3.8,-1.65)
-    {one gap, $N_+=1$\\three transverse actual reaches};
+    {$N_{\rm gap}=1$, $N_+=1$\\$(d,t)=(0,0)$};
   \node[route] (ex) at (7.6,-1.65)
-    {T3-like or Vd exceptional role};
+    {$N_{\rm gap}\in\{1,2\}$, $N_+=1$\\$d+t=1$};
 
   \node[terminal] (zt) at (-7.6,-3.45)
-    {$D_0,\ldots,D_5,Q_-,Q_0,Q_+$\\nine-point support-cap terminal};
+    {nine-point zero-gap\\support-cap terminal};
   \node[terminal] (o0t) at (-3.8,-3.45)
-    {$\mathcal D_{h(1-c_*)}$ plus the actual gap\\disk-plus-point terminal};
+    {$\mathcal D_{(\sqrt3/2)(1-c_*)}$ and $J(p,q)$\\
+     complementary-gap terminal};
   \node[terminal] (tt) at (0,-3.45)
-    {$3e<p,q<1-5e$\\$D_2$ or $D_4$ beyond the C exit};
+    {$D_2$ or $D_4$ lies beyond\\the corresponding C trace};
   \node[terminal] (o1t) at (3.8,-3.45)
     {$K_{\rm tr}$: $O,M_0$, two gap endpoints,\\and only $P_2,P_3,P_4$};
   \node[terminal] (ext) at (7.6,-3.45)
@@ -45,9 +46,9 @@
     {The simplified routes retain only the support data used by their terminal.};
 \end{tikzpicture}%
 }
-\caption{Roadmap of the simplified finite-enclosure chapter.  The one-gap
-all-Vd0 witness uses only three transverse radial endpoints; the two-gap
-terminal uses the interval $3e<p,q<1-5e$; and the T3-like and Vd1 paths share
-one rescuer-tail lemma.}
+\caption{Roadmap of the finite-enclosure mechanism.  The one-gap all-Vd0
+witness uses only three transverse radial endpoints; the two-gap terminal
+uses one of the two displayed radial witnesses; and the T3-like and Vd1 paths
+share one rescuer-tail lemma.}
 \label{fig:finite-enclosure-roadmap}
 \end{figure}

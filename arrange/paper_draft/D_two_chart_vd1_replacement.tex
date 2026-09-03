@@ -1,0 +1,359 @@
+\subsection{Module D.19: two-chart Vd1 replacement}
+\label{subsec:app-two-chart-vd1-replacement}
+
+\paragraph{Exact interface.}
+Use exactly the normalized input roles, output reaches, output open traces,
+and recomputed gap rank of \zcref{prop:finite-two-chart-router}.  The input
+and output gap ranks are distinct objects.
+
+\paragraph{Variables and feasible set.}
+The auxiliary admissible triple $(x,y,z)\in\mathcal A$ has
+$x\ge1/2$ and $0\le z\le1/2$.  For the replacement, the input is CE2 with
+$N_{\mathrm{gap}}\in\{1,2\}$, one supercritical role, the displayed Vd1
+role, and the exact center-free trace hypotheses below.  The chart parameters
+$p_1,p_2,\varepsilon$ are selected by strict inequalities inside their
+nonempty open feasible intervals.
+
+\paragraph{Objective.}
+Construct distinct $V_0$ and $V_1$ replacement charts that preserve the five
+affected skeleton pieces with strict margins, make all six V roles
+nonsupercritical Vd0, and route from the recomputed output gap rank.
+
+\paragraph{Exact result.}
+\begin{lemma}[Half-square admissibility]
+\label{lem:app-half-square-admissibility}
+If $(x,y,z)\in\mathcal A$ satisfies
+\[
+ x\ge\frac12,
+ \qquad 0\le z\le\frac12,
+\]
+then
+\[
+ y\le1-z.
+\]
+\end{lemma}
+
+\begin{theorem}[Two-chart replacement and recomputed-gap router]
+\label{thm:app-two-chart-replacement}
+Assume
+\[
+ S\subseteq U_C\cup\bigcup_{i=0}^5U_i,
+ \quad N_E(T_C)=2,
+ \quad N_{\mathrm{gap}}\in\{1,2\},
+ \quad N_+=1,
+\]
+\[
+ (o(T_0),n(T_0))=(1,1),
+ \quad M_1\in T_0,
+ \quad A_1+B_1>1,
+ \quad A_i+B_i\le1\quad(i\ne1),
+\]
+\[
+ (o(T_i),n(T_i))\in\{(1,0),(2,0)\}\quad(1\le i\le5),
+ \qquad U_C\cap e_{0,1}=\varnothing,
+\]
+\[
+ \Haus(T_j\cap r_k)=0
+ \qquad(2\le j\le5,\ k\in\{0,1\}).
+\]
+Then there are two explicitly constructed open unit equilateral triangles
+$U'_0,U'_1$, each containing its indexed vertex, for which all conclusions
+of \zcref{prop:finite-two-chart-router} hold.  In particular, the output gap
+rank is recomputed from the output open traces and is not identified with the
+input gap rank.
+\end{theorem}
+
+\paragraph{Solution.}
+
+\begin{proof}[Proof of \zcref{lem:app-half-square-admissibility}]
+Suppose $y>1-z$.  Then $x+y>1$, so the selected supercritical cell of
+\zcref{lem:app-local-admissible-set} applies.  In the ordered half $x\le y$
+its necessary polynomial is
+\[
+ F(x,y,z):=(x^2-1)z^2+(2xy^2+y)z+y^4-y^2\le0.
+\]
+It is nondecreasing in $x$; its derivative in $y$, starting at $x=1/2$, is
+positive for $y\ge1-z$; and
+\[
+ F\!\left(\frac12,1-z,z\right)
+ =\frac{z^2(2z-5)(2z-1)}4\ge0.
+\]
+This contradicts the selected-cell inequality, with equality lying only on
+its boundary.  In the reflected half $y<x$, apply the same argument to
+$F(y,x,z)$.  At the corner one has
+\[
+ F(1-z,1-z,z)=z(1-2z)\ge0,
+\]
+which gives the same contradiction.
+\end{proof}
+
+\begin{proof}[Proof of \zcref{thm:app-two-chart-replacement}]
+The normalized Vd1 role is $T_0$, the unique supercritical role is $T_1$,
+and only these two roles have positive trace on $r_0$ or $r_1$.  The exact
+Vd1 corner form supplies $\theta\ge1$ and
+\[
+ \Delta_\theta:=\sqrt{\theta^2+\theta+1}
+\]
+such that the actual own-radial reach of $T_0$, the near endpoint of its
+supported interval on $r_1$, and its far endpoint are respectively
+\[
+ C_0=\frac{\Delta_\theta-A_0-\theta B_0}{\theta+1},
+ \qquad
+ \lambda_0=\frac{\theta(1-B_0)}{\theta+1},
+ \qquad
+ u_{\mathrm{adj}}=
+ \frac{\Delta_\theta-A_0-\theta B_0-1}{\theta}.
+\]
+The strict midpoint and one-sided-support conditions give
+\[
+ A_0+C_0<1,
+ \qquad A_0<\lambda_0\le\frac12,
+ \qquad B_0<\frac12,
+ \qquad u_{\mathrm{adj}}<1-A_0.
+\]
+For the first inequality, the closed midpoint-face comparison reduces to
+\[
+ (2\theta^2+4\theta+1)^2
+ -4(\theta+1)^2(\theta^2+\theta+1)
+ =4\theta^3+4\theta^2-4\theta-3>0
+\]
+for $\theta\ge1$; strictness comes from the original open midpoint
+condition.  The other three follow directly from the endpoint formulas and
+the strict midpoint inequalities.
+
+The center-free shared edge and open coverage imply
+\[
+ A_1\ge1-B_0>\frac12,
+ \qquad C_1\ge\lambda_0.
+\]
+The selected supercritical component has $C_1\le1/2$, so
+\zcref{lem:app-half-square-admissibility} gives
+\[
+ B_1\le1-C_1\le1-\lambda_0.
+\]
+Since $A_0<\lambda_0$,
+\[
+ A_0+B_1<1.
+\]
+
+Let the C-triangle reach on $r_1$, measured from $O$, be
+\[
+ d_1^C:=\max\{x\in[0,1]:xV_1\in T_C\},
+ \qquad c_1^{\mathrm{req}}:=1-d_1^C.
+\]
+Only $U_C,U_1$, and the supported trace of $U_0$ contribute a positive
+interval on $r_1$.  Openness of the skeleton cover gives
+\[
+ c_1^{\mathrm{req}}<\max\{C_1,u_{\mathrm{adj}}\}
+ \le\max\{1-B_1,1-A_0\}.
+\]
+
+Put $L:=1-B_1$.  The strict inequalities just proved permit choices
+\[
+ A_0<p_1<p_2<1-B_1
+\]
+such that
+\[
+ p_1<\frac12,
+ \qquad 1-p_1>C_0,
+ \qquad \max\{p_2,1-p_2\}>c_1^{\mathrm{req}}.
+\]
+Indeed, the supremum of $p\mapsto\max\{p,1-p\}$ on $(A_0,L)$ is
+$\max\{L,1-A_0\}$, and all preceding comparisons are strict.  Choose
+\[
+0<\varepsilon<
+\min\left\{
+p_1-A_0,
+p_2-p_1,
+1-B_1-p_2,
+1-p_1-C_0,
+\max\{p_2,1-p_2\}-c_1^{\mathrm{req}}
+\right\}.
+\]
+Every term in this minimum is positive.
+
+Use distinct affine vertex charts
+\[
+ \Xi_0(x,y):=V_0+x(V_5-V_0)+y(V_1-V_0),
+\]
+\[
+ \Xi_1(x,y):=V_1+x(V_0-V_1)+y(V_2-V_1).
+\]
+Both carry the metric $x^2+y^2-xy$.  For $0\le p\le1/2$ put
+\[
+ \Delta_p^-:=\conv\{(0,1-p),(1,1-p),(0,-p)\},
+ \qquad
+ \Omega_{p,\varepsilon}^-:=
+ \interior(\Delta_p^-)+(-\varepsilon,0),
+\]
+and, for $1/2<p\le1$, put
+\[
+ \Delta_p^+:=\conv\{(p,0),(p,1),(p-1,0)\},
+ \qquad
+ \Omega_{p,\varepsilon}^+:=
+ \interior(\Delta_p^+)+(0,-\varepsilon).
+\]
+Direct substitution in the three half-planes shows that the minus template
+contains $(0,0)$ and has closed reaches
+\[
+ (p-\varepsilon,1-p,1-p),
+\]
+while the plus template contains $(0,0)$ and has closed reaches
+\[
+ (p,1-p-\varepsilon,p).
+\]
+Neither template has positive trace on a neighboring support line.  The
+epsilon bounds imply the needed conditions $\varepsilon<p_1$ and, in the
+plus branch, $\varepsilon<1-p_2$.
+
+Define
+\[
+ U'_0:=\Xi_0(\Omega_{p_1,\varepsilon}^-),
+\]
+and
+\[
+ U'_1:=
+ \begin{cases}
+  \Xi_1(\Omega_{p_2,\varepsilon}^-),&p_2\le1/2,\\
+  \Xi_1(\Omega_{p_2,\varepsilon}^+),&p_2>1/2.
+ \end{cases}
+\]
+These are open unit equilateral triangles and contain $V_0,V_1$.  Their
+exact closed reach triples are
+\[
+ (A'_0,B'_0,C'_0)=(p_1-\varepsilon,1-p_1,1-p_1),
+\]
+and
+\[
+ (A'_1,B'_1,C'_1)=
+ \begin{cases}
+ (p_2-\varepsilon,1-p_2,1-p_2),&p_2\le1/2,\\
+ (p_2,1-p_2-\varepsilon,p_2),&p_2>1/2.
+ \end{cases}
+\]
+Thus
+\[
+ A'_0+B'_0=A'_1+B'_1=1-\varepsilon<1,
+\]
+and both new roles are nonsupercritical Vd0.
+
+Only the following five skeleton pieces can change:
+\[
+ e_{5,0},\qquad e_{0,1},\qquad e_{1,2},\qquad r_0,\qquad r_1.
+\]
+They are all preserved, with strict margins:
+\[
+ A'_0=p_1-\varepsilon>A_0
+ \qquad(e_{5,0}),
+\]
+\[
+ B'_0+A'_1
+ \ge(1-p_1)+(p_2-\varepsilon)
+ =1+(p_2-p_1-\varepsilon)>1
+ \qquad(e_{0,1}),
+\]
+\[
+ B'_1\ge1-p_2-\varepsilon>B_1
+ \qquad(e_{1,2}),
+\]
+\[
+ C'_0=1-p_1>C_0
+ \qquad(r_0),
+\]
+and
+\[
+ C'_1=\max\{p_2,1-p_2\}>c_1^{\mathrm{req}}
+ \qquad(r_1).
+\]
+The last inequality makes the new open trace overlap the open C trace.
+Every other skeleton component is unchanged.  On setting $U'_i=U_i$ for
+$2\le i\le5$, the seven open roles still cover $S$ and $T_C$ remains CE2.
+The unchanged roles were nonsupercritical Vd0, so all six output V roles are
+nonsupercritical Vd0 and
+\[
+ (A'_i,B'_i,C'_i)=(A_i,B_i,C_i)\quad(2\le i\le5),
+ \qquad
+ \bigl|\{i:A'_i+B'_i>1\}\bigr|=0.
+\]
+
+Finally define from the output open traces
+\[
+ G'_i:=e_{i,i+1}\setminus
+ \bigl((U'_i\cap e_{i,i+1})\cup(U'_{i+1}\cap e_{i,i+1})\bigr),
+\]
+\[
+ N'_{\mathrm{gap}}:=\bigl|\{i:G'_i\ne\varnothing\}\bigr|.
+\]
+Since the CE2 role is unchanged and every output gap is center-covered,
+\[
+ N'_{\mathrm{gap}}\in\{0,1,2\}.
+\]
+If it is zero, row Z0 of \zcref{prop:length-branches} contradicts the output
+cover.
+
+Suppose $N'_{\mathrm{gap}}=1$, rotate its unique gap to
+\[
+ G'_0=X_0([\ell',r']),
+ \qquad \ell'=B'_0,
+ \qquad r'=1-A'_1,
+\]
+and put $p'=1-r'=A'_1$, $q'=\ell'=B'_0$.  On each of the other five
+gap-free edges choose a strict handoff
+\[
+ x'_i\in(1-A'_{i+1},B'_i)
+ \qquad(1\le i\le5).
+\]
+The nonsupercritical caps give
+\[
+ q'<x'_5<x'_4<x'_3<x'_2<x'_1<r'.
+\]
+Consequently every output role realizes the same selected pair:
+\[
+ p'\le A'_i,
+ \qquad q'\le B'_i
+ \qquad(0\le i\le5).
+\]
+(At $i=1$ and $i=0$ one inequality is equality; for the other indices use
+$A'_i>1-x'_{i-1}>p'$ and $B'_i>x'_i>q'$.)  Thus the exact hypotheses of
+\zcref{prop:finite-one-gap-common-terminal} hold, and that proposition
+contradicts the output cover.
+
+Finally suppose $N'_{\mathrm{gap}}=2$.  Because every output V-gap is covered
+by the unchanged CE2 role, these are its two active adjacent trace edges.
+In the signed normalization put
+\[
+ p'=W-\alpha,
+ \qquad q'=R-\delta.
+\]
+Gap containment gives $A'_1\ge q'$ and $B'_5\ge p'$.  Choose handoffs on the
+four center-free edges,
+\[
+ x'_i\in(1-A'_{i+1},B'_i)
+ \qquad(1\le i\le4).
+\]
+The signed endpoints, gap containment, and the nonsupercritical caps give
+\[
+ p'<x'_4<x'_3<x'_2<x'_1<1-q'.
+\]
+It follows that
+\[
+ A'_i\ge q',
+ \qquad B'_i\ge p'
+ \qquad(1\le i\le5),
+\]
+with strict inequalities for the internal roles.  Hence all five roles
+realize the reflected common pair $(q',p')$, exactly as required by
+\zcref{thm:new-ce2-short-ray}.  That theorem contradicts the output cover.
+Thus in every case
+\[
+ S\nsubseteq U_C\cup\bigcup_{i=0}^5U'_i.
+\]
+This contradicts the preservation already proved.  The input gap rank was
+never used as the output rank, and no equality between them has been
+asserted.
+\end{proof}
+
+\paragraph{Body consequence.}
+The half-square bound, both affine chart constructions, every strict
+preservation margin, and the three-way recomputed-gap routing supply
+\zcref{prop:finite-two-chart-router}.
