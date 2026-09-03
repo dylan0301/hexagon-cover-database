@@ -79,6 +79,11 @@ Apply this writing rule throughout the rewrite:
    notation dictionary. If no canonical abbreviation exists, write the exact
    formula in place unless the fallback rule genuinely requires a new function
    symbol.
+8. Keep the paper as short as clarity, completeness, and self-containment
+   permit. Relocating a calculation is not a reason to add replacement prose.
+   Add a name or explanation only when it materially helps, state shared setup
+   once, and do not repeat the same definition in body text, a table, and its
+   caption.
 
 Thus the body pairs exact geometric set and extremum definitions with readable
 mathematical prose. Words may name and explain a case; equations must define
@@ -96,6 +101,11 @@ Exclude unrelated calculations, not useful exposition. The paper must remain
 self-contained: an appendix may cite a numbered `proof/` source for
 provenance, but it may not omit an argument on the ground that the repository
 contains it elsewhere.
+
+These ingredients are a content checklist, not a requirement to create a long
+sequence of titled subsections. When a module is short, combine its purpose,
+interface, and result in one compact theorem-and-proof unit. Put shared notation
+and setup once before the modules that use it.
 
 In particular, the main paper will not contain:
 
@@ -222,6 +232,12 @@ transition. When a paragraph contains both explanation and calculation, keep a
 short conceptual version in the body and move the detailed calculation with
 its supporting explanation to the appropriate appendix.
 
+There is no target minimum length. A shorter paper is preferable when it
+remains readable and self-contained. Do not add examples, restatements,
+headings, figures, or prose merely to increase the page count; shorten by
+consolidating repeated setup, repeated case descriptions, and duplicate
+proofs. Let the exact proof requirements determine the appendix length.
+
 A short appendix guide should close the organization discussion in the body.
 It should not become a separate non-optimization appendix.
 
@@ -279,21 +295,36 @@ endpoint coverage matters. Also keep the role figures, `\(N_+\)`, the
 singleton-gap convention, the case counts, and Table `tab:routing`.
 
 In every routing, classification, or terminal-subcase table, case membership
-must be specified by an exact symbolic block at the left of the row. Split
-that block into as many columns as needed for `\(N_{\mathrm{gap}}\)`,
-`\(N_+\)`, `\(N_E(T_C)\)`, the already defined counts `\(d,t\)`, normalized
-indices, and incidence predicates. This is a local rule for the decision-gate
-columns, not a rule that the entire table or surrounding paper be formula-only.
-Reuse the paper's established notation: in particular, use `\(N_+\)` directly
-rather than introducing a new index set for the same condition. Do not add a
-table-only alias when an existing symbol or an exact formula already expresses
-the condition.
+must be specified by an exact symbolic block at the left of the row. Use the
+full available table width and split independent data into columns for
+`\(N_{\mathrm{gap}}\)`, `\(N_+\)`, `\(N_E(T_C)\)`, the already defined
+counts `\(d,t\)`, normalized indices, and incidence predicates when that
+remains readable. If more conditions are needed than fit across the page,
+stack them on separate lines within a cell or continue the case on additional
+table lines. This is a local rule for the decision-gate columns, not a rule
+that the entire table or surrounding paper be formula-only. Reuse the paper's
+established notation: in particular, use `\(N_+\)` directly rather than
+introducing a new index set for the same condition. Do not add a table-only
+alias when an existing symbol or an exact formula already expresses the
+condition.
+
+Each visual line in a mathematical table cell must contain at most one
+equation, inequality, membership statement, cardinality condition, or
+quantified predicate. Do not join independent predicates on one line with a
+comma, semicolon, or `\(\qquad\)`, and keep each individual statement intact
+on one visual line. Give a long statement a wider column or a full-width
+continuation line; if an exact definition is too long for a useful table, state
+it immediately beside the table and cite it from the row. Prefer a full-width
+table or multiline cells to reduced type or crowded math. This is a layout
+rule only: it must not cause new mathematical content, duplicate definitions,
+or extra explanatory paragraphs.
 
 A predicate cell may contain `\((d,t)=(0,0)\)`, `\(d=0\)`, `\(t\le2\)`, or
 `\(\tau\in\{1,5\}\)`. It must not rely on a verbal surrogate such as “all
 Vd0,” “at most two T3-like roles,” or “an adjacent Vd role.” Those phrases may
-and often should appear in a later **geometric name** or **mechanism** column
-once the exact predicate has been stated. The symbols `\(\sigma\)` and
+appear, when useful, in a later **geometric name** or **mechanism** column once
+the exact predicate has been stated. One concise name or mechanism phrase is
+normally enough. The symbols `\(\sigma\)` and
 `\(\tau\)` are local to the one-Vd placement register; define them there by
 
 \[
@@ -308,8 +339,9 @@ once the exact predicate has been stated. The symbols `\(\sigma\)` and
 Display the relations used by each row exactly, for example
 
 \[
-A_\sigma+B_\sigma>1,
-\qquad
+A_\sigma+B_\sigma>1.
+\]
+\[
 A_i+B_i\le1\quad(i\ne\sigma).
 \]
 
@@ -321,9 +353,10 @@ tables, not to notation or bounds tables.
 
 #### Recommended locations for words and symbolic case data
 
-A useful case-table order is:
+A useful case-table order, combining the two prose columns when space is
+tight, is:
 
-`exact gap data | exact reach/type data | exact placement data | geometric name | mechanism | exact conclusion`.
+`exact gap data | exact reach/type data | exact placement data | name/mechanism | exact conclusion`.
 
 The first three columns determine membership in the row and therefore contain
 equations, inequalities, membership statements, cardinalities, or logical
@@ -353,19 +386,26 @@ the row is useful. In particular:
 - In figures and their captions, keep geometric labels and short explanations
   of what the reader should see. Remove coordinate or computational
   annotations only when those details move to an appendix.
+- In `thm:boundary-trace-table` and every other bounds table, put each bound or
+  hypothesis on its own visual line. A descriptive bound name may remain in a
+  separate cell.
 
-For example, a finite-enclosure row may begin with
-
-\[
-N_{\mathrm{gap}}=1,\qquad N_+=1,\qquad(d,t)=(0,0),
-\]
-
-and then use “transverse seven-point witness” as its geometric name, followed
+For example, the first three cells of a finite-enclosure row may be
+`\(N_{\mathrm{gap}}=1\) | \(N_+=1\) | \((d,t)=(0,0)\)`. Each cell contains
+one equation on one line. The row may then use “transverse seven-point
+witness” as its geometric name, followed
 by the exact definition of `\(K_{\mathrm{tr}}\)` and the conclusion
 `\(\Lambda(K_{\mathrm{tr}})\ge1\)`. Similarly,
-`\(\sigma=0,\ \tau\in\{1,5\}\)` may be named “adjacent radial separation”
-after the symbolic placement columns. The name helps the reader remember the
-case; the formula determines the case.
+`\(\sigma=0\)` and `\(\tau\in\{1,5\}\)` occupy separate columns or separate
+lines before the name “adjacent radial separation.” The name helps the reader
+remember the case; the formulas determine the case.
+
+The condensed displays later in this report are mathematical inventories, not
+literal table-cell layouts. When implementing them in the manuscript, unbundle
+every comma- or `\(\qquad\)`-separated condition into its own table line or
+cell. Factor shared assumptions above the table and cite adjacent definitions
+instead of repeating them in every row; this keeps the table legible without
+making the paper longer.
 
 Edit as follows:
 
@@ -898,6 +938,9 @@ selector. Coordinates, radicals, and pointwise verification move to the
 appendix.
 
 Rewrite the finite-enclosure case table from the following exact register.
+The register is compact for auditing; in the typeset A--F table, unbundle its
+packed hypotheses so each equation or predicate occupies its own cell line.
+State common assumptions once above the table rather than repeating them.
 For A–E and the replacement router, assume
 
 \[
@@ -1359,14 +1402,21 @@ The three implications cite, respectively, `prop:length-branches` row Z0,
 Do not assert `\(N'_{\mathrm{gap}}=N_{\mathrm{gap}}\)`. Both replacement charts
 and all strict epsilon inequalities belong in Appendix D.
 
-The final body table may compress this register by splitting its leftmost
-subcase-identifying block into as many symbolic hypothesis columns as needed.
-Every entry in those columns must be an equation, inequality, membership
-statement, quantified predicate, cardinality, or logical combination of them;
-a verbal name must not replace a predicate there. After that block, retain a
-short geometric-name or mechanism column and an exact conclusion column.
-Every row must cite the adjacent exact definitions. A family name is a useful
-reader handle, but it is not by itself a mathematical interface.
+The final body table must split this register into as many symbolic hypothesis
+columns or stacked table lines as needed. Each visual line contains at most one
+equation, inequality, membership statement, quantified predicate, cardinality
+condition, or logical formula; distinct predicates are never packed together
+with commas or `\(\qquad\)`, and each statement stays intact on its own line.
+Use the full text width, or a landscape/full-width table when the publication
+format supports it, before reducing type size. If the row is still too wide,
+use multiline cells for separate statements or give a long statement a
+full-width continuation line. A verbal name must not replace a predicate in
+the identifying block. After that block, retain one short geometric-name or
+mechanism field and an exact conclusion field. Cite the adjacent definitions
+instead of copying them into every row.
+A family name is a useful reader handle, but it is not by itself a
+mathematical interface. These layout choices must organize the existing
+content, not lengthen it.
 
 Keep schematic versions of the roadmap, complementary-gap, CE2 short-ray,
 transverse-witness, zero-gap witness, and support-arc figures, paired with the
@@ -1693,6 +1743,12 @@ This format keeps the appendices focused solved optimization modules, with
 enough orientation prose to remain readable, while leaving the complete proof
 inside the published paper.
 
+The seven items are a checklist, not seven mandatory titled subsections. A
+short module should combine them into a compact introduction, statement, and
+proof. Shared coordinates, notation, and feasible-set setup appear once at the
+start of the relevant appendix and are cited thereafter; do not repeat them to
+make every module artificially stand-alone.
+
 No relocated calculation may be pasted between modules as background algebra.
 It must belong to exactly one named module with an explicit feasible set,
 objective or feasibility question, exact result, and cited body consequence.
@@ -1799,9 +1855,11 @@ claim-to-source inventory before any manuscript text moves.
    incorporate the full two-chart replacement.
 5. Convert hard-coded equation tags, install the `zref-clever` reference
    convention, rebuild case-table subcase blocks as exact symbolic columns
-   paired with separate readable case-name and mechanism columns, resolve all
-   forward references, and update abstract, organization prose, captions,
-   appendix guide, dependency metadata, and closure checks.
+   with at most one predicate per visual line, using full table width or
+   stacked cells as needed. Pair them with one concise case-name/mechanism
+   field, without repeated formulas or redundant prose. Resolve all forward
+   references, and update abstract, organization prose, captions, appendix
+   guide, dependency metadata, and closure checks.
 6. Build the paper and inspect both the normal and proof-free renderings. The
    proof-free rendering should preserve a coherent chain of exact definitions,
    hypotheses, and implications rather than disconnected theorem labels or
@@ -1841,7 +1899,10 @@ arrange/_support/build_proof_free_paper.sh
 
 Then inspect its table of contents, theorem numbering, figure placement,
 appendix dependency order, and the absence of undefined or duplicated
-references.
+references. Inspect every routing and case table at the final page size:
+confirm one mathematical statement per visual cell line, no crowded or
+clipped formulas, readable type, and no repeated setup added solely to fill
+the widened layout.
 
 For the publication artifact, validate the clean build before installing it,
 then confirm that the tracked and rebuilt PDFs agree semantically:
@@ -1856,6 +1917,9 @@ Record the measured page count. Removing the numerical atlas changes that
 count and may cross the hard-coded `84–104` range at
 `.github/workflows/ci.yml:108`; update the bound only after inspecting the
 intended final PDF, and keep it as narrow as the publication policy allows.
+If the correct concise paper falls below the current lower bound, change the
+bound; never add filler, duplicate exposition, or unnecessary figures merely
+to satisfy a page-count floor.
 
 ## 10. Acceptance criteria
 
@@ -1890,14 +1954,26 @@ The reorganization is complete only when:
   uppercase actual reach;
 - in every routing, classification, or terminal-subcase table, the leftmost
   subcase-identifying block contains only exact symbolic predicates, split
-  across multiple columns where needed; no verbal surrogate replaces a
-  predicate there, no new alias replaces an established quantity such as
-  `\(N_+\)`, and readable case names and mechanism descriptions remain in
-  separate columns, headings, captions, or adjacent prose;
+  across multiple columns or stacked table lines where needed; each visual
+  cell line contains at most one equation, inequality, membership statement,
+  cardinality condition, or quantified predicate, each such statement remains
+  intact on that line, and distinct predicates are not joined there by a
+  comma, semicolon, or `\(\qquad\)`; the table uses its available width,
+  separate multiline-cell lines, or full-width continuation rows rather than
+  crowded or reduced-size math;
+  no verbal surrogate replaces a predicate, no new alias replaces an
+  established quantity such as `\(N_+\)`, and readable case names and
+  mechanism descriptions remain in separate columns, headings, captions, or
+  adjacent prose;
 - useful section introductions, normalization explanations, theorem names,
   figure captions, proof-roadmap transitions, and short geometric
   interpretations have been retained or rewritten rather than deleted merely
   because an exact display is present;
+- the rewrite is no longer than clarity, self-containment, and the complete
+  proof require: shared setup is stated once, adjacent definitions are cited
+  rather than copied into every table row, repeated proofs and explanations
+  are consolidated, and no text, example, heading, figure, or page is added
+  merely to make the paper longer;
 - the final trace, area, and enclosure interfaces are visible in the body and
   the exhaustive proof can be followed from the exact definitions and compact
   implications without consulting the coordinate evaluations;
@@ -1911,6 +1987,7 @@ The reorganization is complete only when:
 - `arrange/paper_draft/main.pdf` is the validated canonical output and passes
   the repository’s semantic and render checks;
 - the CI page-count interval contains the measured intentional output and was
-  not broadened speculatively;
+  not broadened speculatively; a concise paper is not padded to meet the old
+  lower bound;
 - all required checks pass and the rebuilt paper has no unresolved references,
   duplicate labels, or false hard-coded section equation numbers.

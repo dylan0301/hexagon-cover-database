@@ -12,3 +12,9 @@ in the active prompts directory
 two additional updates needed:
     -when we need to define the equations for some geometric things definition, use geometric or set theoretic definition if possible. if not, then use function symbols with subscript lemma name with zcref or cref then cite it in the appendix
   -when making tables, in the leftmost row when we write the subcases, don't use words. use exact mathematical defniitions and make multiple columns inside subcases if needed. write that in the reorganization report md file
+  
+don't delete too much text. don't purely make everything math equations. if we have a great word, then use it. suggest me where those case wiill happen
+
+
+  when making tables, i want one equation in one line, so make the table wide or use many lines. also, the paper is good if it is short, so don't make it intentionally
+  long
