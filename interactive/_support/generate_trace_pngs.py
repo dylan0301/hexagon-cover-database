@@ -10,8 +10,19 @@ from collections.abc import Iterable, Iterator
 import math
 import os
 from pathlib import Path
+import platform
 
 os.environ.setdefault("MPLCONFIGDIR", "/tmp/hexagon-cover-matplotlib")
+
+# NumPy's Linux wheels dispatch small linear-algebra operations to different
+# native kernels on AMD and AVX-512 GitHub runners.  Their last-bit differences
+# move antialiased edges enough to change the publication PNG bytes.  Cap the
+# renderer at one common x86 target before importing NumPy so these explanatory
+# assets regenerate identically on every hosted runner.
+if platform.machine().lower() in {"amd64", "x86_64"}:
+    os.environ["OPENBLAS_CORETYPE"] = "Haswell"
+    os.environ["NPY_DISABLE_CPU_FEATURES"] = "X86_V4,AVX512_ICL,AVX512_SPR"
+os.environ["OPENBLAS_NUM_THREADS"] = "1"
 
 import matplotlib
 
