@@ -1,14 +1,177 @@
 \section{Area-Loss Estimate}
 \label{sec:area-loss}
 
-The second strategy measures the normalized area forced outside $H$ by a
-V triangle with prescribed boundary reaches.  The local square-loss and
-T3-like estimates are proved first, then summed around the six-cycle to close
-the two center-independent zero-gap area branches.
+The area-loss method records how much of each V triangle must lie outside
+$H$.  The local estimate applies to every V triangle; the sharper
+$\Tlike$ estimate uses its classified geometry.  A final cyclic argument
+adds these losses without imposing a center type.
 
-\begingroup
-\let\section\subsection
-\let\subsection\subsubsection
-\let\subsubsection\paragraph
-\input{05_strategy3_area}
-\endgroup
+Put $A_\triangle=\sqrt3/4$ and normalize all areas by $A_\triangle$.  At
+$V_0$ define
+\[
+ \mathcal T(a,b):=
+ \left\{T:\begin{array}{l}
+ T\text{ is a closed unit equilateral triangle},\\
+ \{V_0,V_0+a(V_5-V_0),V_0+b(V_1-V_0)\}\subseteq T
+ \end{array}\right\},
+\]
+\[
+ \mathcal L(T):=\frac{\operatorname{area}(T\setminus H)}{A_\triangle},
+ \qquad
+ \mathcal L(a,b):=\inf_{T\in\mathcal T(a,b)}\mathcal L(T),
+\]
+where $a,b\in[0,1]$ and $\mathcal T(a,b)\ne\varnothing$.  Hexagon
+symmetry gives the corresponding family at every $V_i$.  In particular,
+if
+\[
+ 0\le a_i\le A_i,
+ \qquad
+ 0\le b_i\le B_i,
+\]
+then the rotated copy of $T_i$ belongs to $\mathcal T(a_i,b_i)$.
+
+\begin{figure}[H]
+\centering
+\begin{minipage}[b]{.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]
+  {figures/strategy3_local_area_loss.png}
+\par\smallskip
+\footnotesize (a) local retained area
+\end{minipage}\hfill
+\begin{minipage}[b]{.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]
+  {figures/strategy3_global_area_loss.png}
+\par\smallskip
+\footnotesize (b) cyclic retained areas
+\end{minipage}
+\caption{The area-loss method.  The dark regions indicate the portions
+retained in $H$; the exact quantities are $\mathcal L(T)$ and
+$\mathcal L(a,b)$.}
+\label{fig:area-loss}
+\end{figure}
+
+\subsection{Local area loss}
+
+\begin{theorem}[Local square loss]
+\label{thm:local-square-loss}
+For every feasible $(a,b)$,
+\begin{equation}
+ \mathcal L(a,b)\ge\min\{a,b\}^2.               \label{eq:min-square-loss}
+\end{equation}
+If $a+b>1$, then
+\begin{equation}
+ \mathcal L(a,b)\ge\max\{a,b\}^2.               \label{eq:max-square-loss}
+\end{equation}
+The same bounds hold for every $T\in\mathcal T(a,b)$.
+\end{theorem}
+
+\begin{proof}
+The two exhaustive orientation families give these minima.  Their polygon
+areas and the factorizations proving both inequalities are computed in
+\zcref{lem:appendix-local-square-loss}.
+\end{proof}
+
+\subsection{$\Tlike$ loss}
+
+\begin{theorem}[Direct $\Tlike$ loss]
+\label{thm:t3-direct-loss}
+Let $T_i$ be a V triangle with
+\[
+ (o(T_i),n(T_i))=(2,1),
+\]
+and let
+\[
+ 0\le a_i\le A_i,
+ \qquad
+ 0\le b_i\le B_i.
+\]
+Then
+\begin{equation}
+ a_i+b_i\le1.                                  \label{eq:t3-area-nonsupercritical}
+\end{equation}
+Moreover, if
+\[
+ 0\le\mu\le\frac12,
+ \qquad
+ a_i,b_i\ge\mu,
+\]
+then
+\begin{equation}
+ \mathcal L(T_i)\ge2\mu-4\mu^2.                 \label{eq:t3-loss}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+The first assertion is \zcref{lem:t3-nonsupercritical}.  The translated
+closed-trace majorant from \zcref{prop:t3-translation} reduces the second
+assertion to a one-variable loss calculation, carried out in
+\zcref{lem:appendix-t3-loss}.
+\end{proof}
+
+\subsection{Cyclic accumulation}
+
+Use the strict handoffs from \zcref{prop:strict-handoffs}:
+\[
+ \xi_i\in(1-A_{i+1},B_i),
+ \qquad
+ a_i:=1-\xi_{i-1},
+ \qquad
+ b_i:=\xi_i.
+\]
+They satisfy
+\[
+ 0<a_i<A_i,
+ \qquad
+ 0<b_i<B_i,
+ \qquad
+ a_i^2+a_ib_i+b_i^2<1.
+\]
+
+\begin{lemma}[Cyclic area-loss certificate]
+\label{lem:cyclic-area-loss}
+The six actual V triangles satisfy
+\[
+ \left|\{i\in\mathbb Z/6\mathbb Z:a_i+b_i>1\}\right|\ge2
+ \quad\Longrightarrow\quad
+ \sum_{i=0}^5\mathcal L(T_i)>1.
+\]
+They also satisfy
+\[
+ \left.
+ \begin{gathered}
+ \left|\{i\in\mathbb Z/6\mathbb Z:a_i+b_i>1\}\right|=1,\\
+ \forall i\in\mathbb Z/6\mathbb Z,\quad
+ (o(T_i),n(T_i))\in\{(1,0),(2,0),(2,1)\},\\
+ \exists j\in\mathbb Z/6\mathbb Z,\quad
+ (o(T_j),n(T_j))=(2,1)
+ \end{gathered}
+ \right\}
+ \quad\Longrightarrow\quad
+ \sum_{i=0}^5\mathcal L(T_i)>1.
+\]
+\end{lemma}
+
+\begin{proof}
+Apply the local bounds around the six-cycle.  The two exact sums, including
+the strict contribution from the second ascent, are given in
+\zcref{lem:appendix-cyclic-area-loss}.
+\end{proof}
+
+\begin{proposition}[Branches closed by area]
+\label{prop:area-branches}
+The following branches are impossible:
+\begin{enumerate}
+\item $N_{\mathrm{gap}}=0$ and $N_+\ge2$;
+\item $N_{\mathrm{gap}}=0$, $N_+=1$, $d=0$, and $t\ge1$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+By \zcref{lem:gap-exhaustion}, the six V triangles cover $\partial H$.
+The appropriate clause of \zcref{prop:strict-handoffs} supplies the handoffs
+required by \zcref{lem:cyclic-area-loss}.  Thus the V triangles have total
+normalized inside area strictly below five.  The C triangle contributes at
+most one, so seven triangles cannot cover the normalized area six of $H$.
+\end{proof}

@@ -1,22 +1,24 @@
-\section{Detailed Nine-Point Enclosure Argument}
+\section{Zero-Gap Nine-Point Optimization}
+\label{sec:zero-gap-nine-point-optimization}
 \label{sec:ab-core}
 
-This section supplies the exact frontier, witness, sign, and cap-overlap
-calculations for the direct nine-point obstruction.
+This appendix supplies the exact frontier, radial, pointwise, Newton, and
+support-arc calculations for the zero-gap nine-point obstruction.  It uses
+the public parameters and witness \(K_{\rm wit}(a,b)\) from
+\zcref{sec:strategy4-reader}.  The symbols \(A,B,C\) introduced below are
+appendix-only Newton inner points required by the exact certificate; they do
+not replace the public frontier points \(Q_-,Q_0,Q_+\).
 
-This section proves a center-class-independent theorem.  Its hypotheses are
-that all six V triangles are $\Vdzero$, that they cover the full boundary,
-and that exactly one actual boundary V triangle is supercritical.  It therefore
-applies to every $N_{\mathrm{gap}}=0$ case with these V triangle data,
-independently of whether the center is $\CEzero$, $\CEone$, or $\CEtwo$.
-Six common radial points and three asymmetric points
-are excluded directly from all six actual V triangles and are therefore
-forced into the C triangle.  Only the unique supercritical V triangle uses an
-$AB$-union; no nonsupercritical model core is introduced.
-
-\input{appendix_certificates}
+The finite caliper criterion used here is the shared result
+\zcref{thm:cert-caliper} in Appendix A.  It is not rederived in this
+appendix.
 
 \subsection{Corner-clipped $AB$-unions}
+
+Apply the rigid motion that sends the supercritical corner $V_4$ to the
+local origin and its two incident edge directions to $e_A,e_B$.  Within this
+calculation $O,A,B,C$ denote the local origin, anchors, and corner cone; the
+feasible union keeps the public symbol $\mathcal R_{AB}(a,b)$.
 
 Let $e_A,e_B$ be unit vectors with angle $120^\circ$, put
 \[
@@ -26,7 +28,7 @@ Let $e_A,e_B$ be unit vectors with angle $120^\circ$, put
 \]
 and define
 \begin{equation}
- \mathcal R(a,b)=
+ \mathcal R_{AB}(a,b)=
  C\cap\bigcup\{T:T\text{ is a closed unit equilateral triangle and }
  O,A,B\in T\}.                               \label{eq:ab-union}
 \end{equation}
@@ -53,7 +55,7 @@ put $h=\sqrt3/2$, $D=\sqrt{4\rho-3}$, and define
 \end{align*}
 Then all four coefficients are positive and
 \begin{equation}
- \mathcal R(a,b)=
+ \mathcal R_{AB}(a,b)=
  (C\cap\mathcal D_A\cap\mathcal H_A)
  \cup(C\cap\mathcal D_B\cap\mathcal H_B),       \label{eq:strict-ab-identity}
 \end{equation}
@@ -248,7 +250,7 @@ One has
 \begin{equation}
  0<c_*<1,\qquad c_*>1-m.                         \label{eq:cstar-bounds}
 \end{equation}
-Assume that every $U_i$ is $\Vdzero$ and that
+Assume that every $T_i=\overline{U_i}$ is $\Vdzero$ and that
 $U_C,U_0,\ldots,U_5$ cover $H$.  Then, for every $i$,
 \[
  D_i=(1-c_*)V_i\in U_C.
@@ -531,17 +533,17 @@ and consequently all three witnesses belong to $U_C$.
 
 \begin{proof}
 The root order and positivity of the line coordinates give
-$0<u,v<1$ for all three points.  Each belongs to $\mathcal R(b,a)$ and hence
+$0<u,v<1$ for all three points.  Each belongs to $\mathcal R_{AB}(b,a)$ and hence
 lies in a closed unit triangle containing $V_4$, so
 $\mathsf q(u,v)\le1$; hence
 $|u-v|<1$ and all three points lie in $\interior(H)$.
 
 The closure of $U_4$ is one of the triangles represented by
-$\mathcal R(b,a)$, since it contains $V_4,X_3,X_4$.  All three witnesses lie
+$\mathcal R_{AB}(b,a)$, since it contains $V_4,X_3,X_4$.  All three witnesses lie
 on its exact non-axis frontier.  If one belonged to the open triangle $U_4$,
 a sufficiently small plane ball about it would lie both in $U_4$ and in the
 interior of the corner cone, making the witness an interior point of
-$\mathcal R(b,a)$.  This contradiction excludes $U_4$.
+$\mathcal R_{AB}(b,a)$.  This contradiction excludes $U_4$.
 
 For the triangles $U_0,U_1,U_2$, their contained vertices have local coordinates
 \[
@@ -592,8 +594,6 @@ Lemmas~\ref{lem:symmetric-core-witness} and
  \mathcal D_\eta\cup\{Q_-,Q_0,Q_+\}
  \subset U_C.                                    \label{eq:forced-witness-set}
 \end{equation}
-
-\input{figures/finite_enclosure/fe11_zero_gap_witness}
 
 \subsection{Tangent reduction and exact mixed overlaps}
 
@@ -797,4 +797,113 @@ $\mathbb D(W,\eta)$ with $\mathbb D(RA,2\eta)$.
 
 Thus the four consecutive pairs of caps centered on the rays
 \eqref{eq:cap-ray-order} overlap.
+\end{proof}
+
+
+\subsection{Newton reduction in the body notation}
+
+The containment established by
+\zcref{lem:technical-newton-reduction} is recorded under the public routing
+label
+\begin{equation}
+ \widehat K=\conv\bigl(\mathbb B(O,\eta)\cup\{A,B,C\}\bigr)
+ \subseteq\conv(K_{\rm wit}(a,b)),
+ \qquad
+ \Lambda(K_{\rm wit}(a,b))\ge\Lambda(\widehat K).
+ \label{eq:reader-newton-reduction}
+\end{equation}
+
+\subsection{Support arcs and the enclosure conclusion}
+\label{subsec:nine-point-conclusion}
+
+Let $\mathsf R$ denote counterclockwise rotation through $2\pi/3$.  Retain
+the points $A,B,C$, the vector $W=C+\mathsf RA$, the forced disk
+$\mathcal D_\eta$, and the exact witness set $K_{\rm wit}$ constructed above.
+For uniform notation put
+\[
+ P_-=A,\qquad P_0=B,\qquad P_+=C,\qquad
+ P_\ast=W,\qquad r_\ast=\eta,
+\]
+and
+\[
+ \widehat K=\conv\bigl(\mathcal D_\eta\cup\{A,B,C\}\bigr).
+\]
+For $X\in\mathbb R^2$ and $r\ge0$, write
+\[
+ \mathbb B(X,r)=\{Y:\lVert Y-X\rVert\le r\},
+\]
+and define the level-$h$, $h=\sqrt3/2$, support arc
+\[
+ \operatorname{Cap}(X,r)
+ =\{n\in\mathbb S^1:\langle X,n\rangle+r\ge h\}.
+\]
+
+\begin{lemma}[Cyclic support-arc covering]
+\label{lem:reader-cap-chain}
+Let $K$ be compact and put
+\[
+ \Sigma_K=K+\mathsf RK+\mathsf R^2K.
+\]
+Suppose $\Sigma_K$ contains the full $\mathsf R$-orbits of
+\[
+ \mathbb B(P_-,2r_\ast),\quad
+ \mathbb B(P_0,2r_\ast),\quad
+ \mathbb B(P_+,2r_\ast),\quad
+ \mathbb B(P_\ast,r_\ast).
+\]
+Assume that the rays
+\[
+ P_-,P_0,P_+,P_\ast,\mathsf RP_-
+\]
+occur in this cyclic order, that every corresponding support arc is connected
+with half-width less than $\pi/2$, and that each consecutive pair of arcs
+intersects across the intervening short angular sector.  Then
+\[
+ \Lambda(K)\ge1.
+\]
+\end{lemma}
+
+\input{figures/finite_enclosure/fe12_support_caps}
+
+\begin{proof}
+The four consecutive intersections and the cyclic order make the five arcs
+cover the sector from the ray of $P_-$ to the ray of $\mathsf RP_-$.  Their
+$\mathsf R$-orbits cover $\mathbb S^1$.  Hence for every unit vector $n$ one
+of the displayed disks has support at least $h$ in direction $n$, and
+therefore
+\[
+ h_{\Sigma_K}(n)\ge h.
+\]
+Since
+\[
+ h_{\Sigma_K}(n)=\sum_{j=0}^2h_K(\mathsf R^jn),
+\]
+Proposition~\ref{prop:universal-enclosure-gauge} gives $\Lambda(K)\ge1$.
+\end{proof}
+
+\begin{lemma}[Solved witness-enclosure optimization]
+\label{lem:appendix-witness-enclosure-calculation}
+For every parameter pair in \zcref{eq:reader-ab-domain},
+\[
+ \Lambda(K_{\rm wit}(a,b))\ge1.
+\]
+\end{lemma}
+
+\begin{proof}
+The centered disk alone gives
+\[
+ \Lambda(K_{\rm wit}(a,b))\ge3(1-c_*),
+\]
+which proves the claim when \(c_*\le2/3\).  Assume \(c_*>2/3\).
+By \zcref{eq:reader-newton-reduction}, it is enough to enclose
+\(\widehat K\).  The Minkowski sum
+\[
+ \widehat K+\mathsf R\widehat K+\mathsf R^2\widehat K
+\]
+contains the full rotation orbits of the four disks in
+\zcref{lem:reader-cap-chain}.  The ray order, radius bounds, and equal-radius
+intersections are \zcref{prop:technical-four-overlaps}; the two mixed
+intersections are \zcref{thm:paper-exact-mixed-certificate}.  Therefore
+\zcref{lem:reader-cap-chain} gives \(\Lambda(\widehat K)\ge1\), and
+monotonicity gives the result.
 \end{proof}

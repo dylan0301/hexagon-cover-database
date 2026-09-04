@@ -1,468 +1,1035 @@
-\section{Finite-Enclosure Obstructions}
+\section[Finite-Enclosure Method]{Finite-Enclosure Obstructions}
 \label{sec:finite-enclosure}
 
-The finite-enclosure strategy forces explicit points or compact sets into the
-open C triangle.  Global rows end with an enclosing-side inequality
-$\Lambda\ge1$; local rows end when a forced point lies beyond a signed
-C-triangle exit.  The simplified proof uses three recurring forms:
+The finite-enclosure method finds compact sets that the V triangles miss.
+Under a hypothetical cover those sets lie in the open C triangle, while their
+least equilateral enclosure has side at least one.
 
+Put
 \[
- \text{common radial disk}+\text{actual gap},
-\]
-\[
- \text{two transverse radial points in CE2},
-\]
-and
-\[
- K_{\rm tr}
- =
- \{O,M_0,X(\ell),X(r),\allowbreak P_2,P_3,P_4\}
-\]
-for the one-gap, one-supercritical all-Vd0 row.
-
-\subsection{Finite-enclosure case summary}
-
-\begingroup
-\scriptsize
-\renewcommand{\arraystretch}{1.08}
-\setlength{\tabcolsep}{3pt}
-\begin{longtable}{@{}p{.20\textwidth}p{.34\textwidth}p{.37\textwidth}@{}}
-\caption{Finite-enclosure subcases after the simplifications.}
-\label{tab:finite-enclosure-subcases}\\
-\toprule
-normalized subcase&center-forced object&terminal\\
-\midrule
-\endfirsthead
-\toprule
-normalized subcase&center-forced object&terminal\\
-\midrule
-\endhead
-$N_{\mathrm{gap}}=0$, $N_+=1$, all Vd0
-&the radial disk and $Q_-,Q_0,Q_+$
-&the exact nine-point theorem\\
-$N_{\mathrm{gap}}=1$, $N_+=0$, all Vd0 or at most two T3-like roles
-&$\mathcal D_{h(1-c_*)}$ and $J(p,q)$
-&the complementary-gap theorem\\
-$N_{\mathrm{gap}}=2$, $N_+\in\{0,1\}$, all Vd0/T3-like
-&$D_2,D_4$
-&the shortened $3e$--$(1-5e)$ CE2 theorem\\
-$N_{\mathrm{gap}}=1$, $N_+=1$, all Vd0
-&$K_{\rm tr}=\{O,M_0,X(\ell),X(r),\allowbreak P_2,P_3,P_4\}$
-&endpoint upper squeeze versus the three-transverse return\\
-$N_{\mathrm{gap}}=1$, $N_+=1$, exactly one T3-like
-&the O-side endpoint $P_T$
-&the common rescuer-tail budget\\
-one Vd role adjacent to supercritical $T_0$
-&a point on $r_2$
-&the half-edge one-third radial envelope\\
-one Vd role nonadjacent to supercritical $T_0$
-&$D_\tau$
-&direct separation from both Vd and C traces\\
-Vd1 based at $T_0$
-&the O-side Vd1 endpoint
-&the common rescuer-tail budget\\
-Vd1--supercritical pair away from $T_0$
-&the corrected all-Vd0 replacement output
-&rerouting by the recomputed gap rank\\
-\bottomrule
-\end{longtable}
-\endgroup
-
-\input{figures/finite_enclosure/fe00_case_roadmap}
-
-\subsection{Trace-exact AB envelopes at an actual gap}
-\label{subsec:trace-exact-ab-envelopes}
-
-If the actual V-gap on $e_{i,i+1}$ is
-\[
- J_i=X_i([\ell,r]),
- \qquad X_i(t)=V_i+t(V_{i+1}-V_i),
-\]
-then
-\[
- \boxed{\ell=B_i,\qquad r=1-A_{i+1}.}
- \tag{6.24a}
-\]
-Consequently
-\[
- U_i\cap e_{i,i+1}=X_i([0,\ell)),
- \qquad
- U_{i+1}\cap e_{i,i+1}=X_i((r,1]),
- \tag{6.24b}
-\]
-and the entire closed interval $J_i$, including a singleton, is
-center-forced.
-
-For a closed unit V triangle $S$, define the source-conditioned unions
-\[
- \mathcal E_i^{\rightarrow}(a\mid b)
- =
- \bigcup\{S\cap\mathcal C_i:A_i(S)\ge a,\ B_i(S)=b\},
- \tag{6.24c}
-\]
-\[
- \mathcal E_i^{\leftarrow}(a\mid b)
- =
- \bigcup\{S\cap\mathcal C_i:A_i(S)=a,\ B_i(S)\ge b\}.
- \tag{6.24d}
-\]
-Their relevant edge sections stop and start exactly at the actual gap
-endpoints, and
-\[
- \mathcal E_i^{\rightarrow}(a\mid b),\quad
- \mathcal E_i^{\leftarrow}(a\mid b)
- \subseteq\mathcal K_i(a,b).
- \tag{6.24e}
-\]
-Thus the ordinary capacities remain valid while endpoint ownership is exact.
-
-\input{figures/finite_enclosure/fe01_trace_and_gauge}
-
-\input{06_direct_local_calculus}
-\input{06a_neighbor_ray_calculus}
-\input{06i_simplified_finite_enclosure_interfaces}
-
-\subsection{Type-aware radial witnesses}
-
-Suppose $T_i=\overline{U_i}$ contains selected boundary anchors with
-$a_i\le A_i$ and $b_i\le B_i$.  Put
-\[
- \Gamma_i=
- \max\{c_{\max}(a_i,b_i),C_+(a_{i-1},b_{i-1}),
- C_-(a_{i+1},b_{i+1})\},
-\]
-omitting neighboring terms forbidden by the actual V types, and define
-\[
- D_i=(1-\Gamma_i)V_i.
- \tag{6.25}
+ h:=\frac{\sqrt3}{2}.
 \]
 
-\begin{lemma}[Type-aware radial forcing]
-\label{lem:new-type-aware-radial-forcing}
-Every $D_i$ is missed by all six open V roles and therefore lies in $U_C$.
+For \(X\in\mathbb R^2\) and \(r\ge0\), put
+\[
+ \mathbb B(X,r):=\{Y\in\mathbb R^2:\lVert Y-X\rVert\le r\}.
+\]
+For every nonempty compact \(K\subseteq\mathbb R^2\), define
+\[
+ \Lambda(K):=
+ \inf\left\{s>0:
+ \begin{array}{l}
+ \exists T\ [T\text{ is a closed equilateral triangle of side }s,\\
+ K\subseteq T]
+ \end{array}\right\}.
+\]
+Thus \(\Lambda(K)\) is the least equilateral enclosure side for \(K\).
+
+\begin{lemma}[Compact set in an open unit triangle]
+\label{lem:new-compact-open-shrink}
+If \(K\) is compact, \(U\) is an open unit equilateral triangle, and
+\(K\subset U\), then
+\[
+ \Lambda(K)<1.
+\]
 \end{lemma}
 
 \begin{proof}
-Membership in the own role would exceed $c_{\max}$.  Membership in an
-adjacent role would create forbidden support or exceed $C_+$ or $C_-$.
-For $D_i=dV_i$,
+The distance from \(K\) to each side line of \(U\) is positive.  Moving all
+three lines inward by a smaller common distance gives a closed equilateral
+triangle of side below one that still contains \(K\).
+\end{proof}
+
+\subsection{Four-anchor and neighboring-arm capacities}
+
+Normalize at \(V_0\) and define the four-anchor hull
 \[
- \|dV_i-V_{i\pm2}\|^2=1+d+d^2>1,
- \qquad
- \|dV_i-V_{i+3}\|=1+d>1,
+ K(a,b,c):=
+ \conv\{V_0,X_5(1-a),X_0(b),(1-c)V_0\},
 \]
-so nonlocal roles are excluded by diameter one.
+\[
+ \mathcal A:=
+ \{(a,b,c)\in[0,1]^3:\Lambda(K(a,b,c))\le1\}.
+\]
+For
+\[
+ 0\le a,b\le1,
+ \qquad
+ a^2+ab+b^2\le1,
+\]
+put
+\[
+ c_{\max}(a,b):=
+ \max\{c\in[0,1]:(a,b,c)\in\mathcal A\}.
+\]
+For \(0\le a,c\le1\), also put
+\[
+ M_c(a):=\max\{b\in[0,1]:(a,b,c)\in\mathcal A\}.
+\]
+The exact admissible set, attainment, and the evaluation of these extrema are
+proved in \zcref{prop:exact-admissible-set,prop:new-exact-local-set}.
+
+The neighboring-arm capacities are the variational quantities
+\[
+ C_+(a,b):=
+ \max\left\{c\in[0,1]:
+ \begin{array}{l}
+ \exists T\ [T\text{ is a closed unit equilateral triangle},\\
+ \{V_0,X_5(1-a),X_0(b),(1-c)V_1\}\subseteq T]
+ \end{array}\right\},
+\]
+\[
+ C_-(a,b):=C_+(b,a),
+ \qquad
+ 0\le a,b\le1,
+ \qquad
+ a+b\le1.
+\]
+Their coordinate evaluation is deferred to
+\zcref{prop:new-neighbor-ray-formula}.
+
+Let selected lower bounds satisfy
+\[
+ 0\le a_j\le A_j,
+ \qquad
+ 0\le b_j\le B_j
+ \qquad(0\le j\le5),
+\]
+\[
+ a_j^2+a_jb_j+b_j^2\le1
+ \qquad(0\le j\le5).
+\]
+A neighboring term is used only when the actual V triangle has the
+corresponding positive radial trace:
+\[
+ \Haus(T_{i-1}\cap r_i)>0
+ \Longrightarrow a_{i-1}+b_{i-1}\le1,
+\]
+\[
+ \Haus(T_{i+1}\cap r_i)>0
+ \Longrightarrow a_{i+1}+b_{i+1}\le1.
+\]
+Define
+\[
+ \Gamma_i:=\max\Bigl(
+ \{c_{\max}(a_i,b_i)\}
+ \cup\{C_+(a_{i-1},b_{i-1}):\Haus(T_{i-1}\cap r_i)>0\}
+\]
+\[
+ {}\hspace{35mm}\cup
+ \{C_-(a_{i+1},b_{i+1}):\Haus(T_{i+1}\cap r_i)>0\}
+ \Bigr),
+ \qquad
+ D_i:=(1-\Gamma_i)V_i.
+\]
+The points \(D_i\) are the radial witnesses used below.
+
+\begin{lemma}[Type-aware radial forcing]
+\label{lem:new-type-aware-radial-forcing}
+For every \(i\),
+\[
+ D_i\in r_i\subseteq S,
+ \qquad
+ D_i\notin\bigcup_{j=0}^5U_j.
+\]
+Consequently,
+\[
+ S\subseteq U_C\cup\bigcup_{j=0}^5U_j
+ \Longrightarrow D_i\in U_C.
+\]
+\end{lemma}
+
+\begin{proof}
+The own role is excluded by \(c_{\max}\), and an adjacent role is excluded
+only by the capacity allowed by its actual V type.  The other roles are more
+than unit distance from \(D_i\).  The full calculation and the endpoint
+strictness are in \zcref{lem:appendix-type-aware-radial-forcing}.
 \end{proof}
 
 \begin{lemma}[Common-pair domination]
 \label{lem:new-common-pair-domination}
-Let $p,q\ge0$, $p+q\le1$, and put
+If
 \[
- c_*=c_{\max}(p,q),\qquad m=\min\{p,q\}.
+ p,q\ge0,
+ \qquad
+ p+q\le1,
+\]
+then
+\[
+ C_+(p,q),C_-(p,q)
+ \le1-\min\{p,q\}\le c_{\max}(p,q).
+\]
+\end{lemma}
+
+\begin{proof}
+This is the branchwise comparison in
+\zcref{lem:appendix-common-pair-domination}.
+\end{proof}
+
+\begin{lemma}[Open trace endpoint]
+\label{lem:new-open-trace-endpoint}
+Let \(U\) be an open equilateral triangle and \(T=\overline U\).  If
+\(T\cap[V,O]\) is the closed interval from \(V\) to \(P\), then \(P\notin U\).
+If a noncentral point \(Q\in[V,O]\) lies in \(U\), then
+\(\Haus(U\cap[V,O])>0\).
+\end{lemma}
+
+\begin{proof}
+The first point is an endpoint of the closed convex intersection.  For the
+second assertion, intersect a small ball about \(Q\) contained in \(U\) with
+the radial arm.
+\end{proof}
+
+\subsection{Actual gaps and the case register}
+\label{subsec:trace-exact-ab-envelopes}
+
+For an actual gap on \(e_{i,i+1}\), the definition from
+\zcref{lem:gap-exhaustion} gives exactly
+\[
+ J_i=X_i([B_i,1-A_{i+1}]).
+\]
+This remains a closed singleton when \(B_i=1-A_{i+1}\).  Equivalently,
+\[
+ U_i\cap e_{i,i+1}=X_i([0,B_i)),
+ \qquad
+ U_{i+1}\cap e_{i,i+1}=X_i((1-A_{i+1},1]).
+\]
+Thus every point of \(J_i\), including its endpoints, is center-forced under
+the skeleton-cover hypothesis.
+
+\input{figures/finite_enclosure/fe00_case_roadmap}
+\input{figures/finite_enclosure/fe01_trace_and_gauge}
+
+For the one-Vd rows define the normalized indices by
+\[
+ \{\sigma\}:=\{i\in\mathbb Z/6\mathbb Z:A_i+B_i>1\},
+\]
+\[
+ \{\tau\}:=
+ \{i\in\mathbb Z/6\mathbb Z:
+ (o(T_i),n(T_i))\in\{(1,1),(1,2)\}\}.
+\]
+Rows A--E and the replacement router assume
+\(S\subseteq U_C\cup\bigcup_{i=0}^5U_i\); row F assumes the hypothetical
+cover of \(H\).
+
+\begingroup
+\small
+\renewcommand{\arraystretch}{1.12}
+\setlength{\tabcolsep}{1.5pt}
+\begin{longtable}{@{}p{.19\textwidth}p{.17\textwidth}p{.36\textwidth}>{\raggedright\arraybackslash}p{.22\textwidth}@{}}
+\caption{Exact finite-enclosure case register.  The symbolic columns determine
+the row; the final column gives its concise geometric route.}
+\label{tab:finite-enclosure-subcases}\\
+\toprule
+\shortstack[l]{gap\\conditions}&
+\shortstack[l]{actual\\reaches}&
+\shortstack[l]{role and\\placement}&route\\
+\midrule
+\endfirsthead
+\toprule
+\shortstack[l]{gap\\conditions}&
+\shortstack[l]{actual\\reaches}&
+\shortstack[l]{role and\\placement}&route\\
+\midrule
+\endhead
+\(\begin{gathered}
+N_{\rm gap}=1\\
+J=J_0\\
+J_0=X_0([\ell,r])\\
+0<\ell\le r<1
+\end{gathered}\)&
+\(N_+=0\)&
+\(\begin{gathered}
+d=0\\
+t\in\{0,1,2\}\\
+N_E(T_C)\in\{1,2\}
+\end{gathered}\)&
+\textbf{A.} Complementary gap.\\[2pt]
+
+\(N_{\rm gap}=2\)&
+\(\begin{gathered}
+N_+\in\{0,1\}\\
+N_++t\le2\\
+N_+t=0
+\end{gathered}\)&
+\(\begin{gathered}
+d=0\\
+N_E(T_C)=2\\
+T_C\cap\{M_i\}_{i=0}^5=\{M_0\}
+\end{gathered}\)&
+\textbf{B.} CE2 short ray.\\[2pt]
+
+\(\begin{gathered}
+N_{\rm gap}=1\\
+J=J_0\\
+J_0=X_0([\ell,r])\\
+0<\ell\le r<1
+\end{gathered}\)&
+\(\begin{gathered}
+N_+=1\\
+A_0+B_0>1
+\end{gathered}\)&
+\(\begin{gathered}
+(d,t)=(0,0)\\
+N_E(T_C)\in\{1,2\}\\
+T_C\cap\{M_i\}_{i=0}^5=\{M_0\}
+\end{gathered}\)&
+\textbf{C.} Transverse seven-point witness.\\[2pt]
+
+\(N_{\rm gap}\in\{1,2\}\)&
+\(N_+=1\)&
+\(\begin{gathered}
+(d,t)=(0,1)\\
+(o(T_0),n(T_0))=(2,1)\\
+N_E(T_C)\in\{1,2\}\\
+T_C\cap\{M_i\}_{i=0}^5=\{M_0\}
+\end{gathered}\)&
+\textbf{D$_T$.} T3-like supported tail.\\[2pt]
+
+\(N_{\rm gap}\in\{1,2\}\)&
+\(\begin{gathered}
+N_+=1\\
+A_0+B_0<1/2
+\end{gathered}\)&
+\(\begin{gathered}
+(d,t)=(1,0)\\
+(o(T_0),n(T_0))=(1,1)\\
+N_E(T_C)=2\\
+T_C\cap\{M_i\}_{i=0}^5=\{M_0\}
+\end{gathered}\)&
+\textbf{D$_V$.} Vd1 supported tail.\\[2pt]
+
+\(N_{\rm gap}\in\{1,2\}\)&
+\(N_+=1\)&
+\(\begin{gathered}
+(d,t)=(1,0)\\
+\sigma=0\\
+\tau\in\{1,5\}\\
+N_E(T_C)=2\\
+T_C\cap\{M_i\}_{i=0}^5=\{M_0\}
+\end{gathered}\)&
+\textbf{E$_a$.} Adjacent radial separation.\\[2pt]
+
+\(N_{\rm gap}\in\{1,2\}\)&
+\(N_+=1\)&
+\(\begin{gathered}
+(d,t)=(1,0)\\
+\sigma=0\\
+\tau\in\{2,3,4\}\\
+N_E(T_C)=2\\
+T_C\cap\{M_i\}_{i=0}^5=\{M_0\}
+\end{gathered}\)&
+\textbf{E$_n$.} Nonadjacent radial separation.\\[2pt]
+
+\(N_{\rm gap}=0\)&
+\(N_+=1\)&
+\(\begin{gathered}
+(d,t)=(0,0)\\
+H\subseteq U_C\cup\bigcup_{i=0}^5U_i
+\end{gathered}\)&
+\textbf{F.} Zero-gap nine-point obstruction.\\[2pt]
+
+\(N_{\rm gap}\in\{1,2\}\)&
+\(N_+=1\)&
+\(\begin{gathered}
+(d,t)=(1,0)\\
+\sigma\in\{1,2,3,4,5\}\\
+\tau\in\{1,2,3,4,5\}\\
+\sigma\ne\tau\\
+\sigma-\tau\equiv\pm1\pmod6\\
+\bigl(o(T_\tau),n(T_\tau)\bigr)=(1,1)\\
+M_\sigma\in T_\tau\\
+N_E(T_C)=2\\
+T_C\cap\{M_i\}_{i=0}^5=\{M_0\}
+\end{gathered}\)&
+\textbf{R.} Vd1 two-chart replacement; route by \(N'_{\rm gap}\).\\
+\bottomrule
+\end{longtable}
+\endgroup
+
+The short names in the last column are navigation aids.  The exact
+hypotheses and witnesses below are the mathematical interfaces.
+
+\subsection{Complementary gap and CE2 short ray}
+
+\begin{lemma}[One-gap common-pair adapter]
+\label{lem:new-one-gap-common-pair-adapter}
+Under the exact row-A hypotheses, rotate the actual gap to
+\[
+ J_0=X_0([\ell,r]),
+ \qquad
+ \ell=B_0,
+ \qquad
+ r=1-A_1,
+\]
+and put
+\[
+ p:=1-r,
+ \qquad
+ q:=\ell.
 \]
 Then
 \[
- c_*\ge1-m,
- \qquad
- C_+(p,q),C_-(p,q)\le1-m\le c_*.
- \tag{6.26}
-\]
-The same conclusion holds for every actual pair dominating $(p,q)$.
-\end{lemma}
-
-\begin{proof}
-Assume $q=m\le p$.  The demand $(p,q,1-q)$ is admissible because the
-relevant support side has length $q+\max\{p,1-q\}=1$.  Thus
-$c_*\ge1-q$.  Every branch of the exact neighboring formula is at most
-$1-q$.  Reflection and coordinatewise antitonicity complete the proof.
-\end{proof}
-
-\subsection{A disk and one boundary point}
-
-\begin{lemma}[Disk-plus-point formula]
-\label{lem:new-disk-point-formula}
-Let $\mathcal D_\eta$ be centered at $O$, and let $\|G\|=\rho$.  Then
-\[
- \Lambda(\mathcal D_\eta\cup\{G\})=
- \begin{cases}
-  3\eta/h,&\rho\le2\eta,\\[2mm]
-  \dfrac{3\eta+\sqrt{3(\rho^2-\eta^2)}}{2h},&\rho>2\eta.
- \end{cases}
- \tag{6.27}
+ \forall i\in\mathbb Z/6\mathbb Z,
+ \quad
+ (p\le A_i\ \land\ q\le B_i)
+ \ \lor
+ (q\le A_i\ \land\ p\le B_i).
 \]
 \end{lemma}
 
-\input{figures/finite_enclosure/fe02_disk_plus_point}
-
 \begin{proof}
-Apply Proposition~\ref{prop:new-disk-finite-caliper}.  In the disk-only
-regime the support sum is $3\eta$.  Otherwise a point--disk tie gives the
-other active projection
-\[
- \frac{-\eta+\sqrt{3(\rho^2-\eta^2)}}2.
-\]
+The exact five-handoff calculation is
+\zcref{lem:appendix-one-gap-common-pair-adapter}.
 \end{proof}
 
-For $p+q\le1$, put
+Let
 \[
- J(p,q)=[X(q),X(1-p)]\subset e_{0,1},
+ 0<p,q<1,
  \qquad
- c_*=c_{\max}(p,q),\qquad d=1-c_*.
+ p+q\le1,
+ \qquad
+ c_*:=c_{\max}(p,q),
+\]
+and put
+\[
+ J(p,q):=X_0([q,1-p]),
+ \qquad
+ \mathcal D(p,q):=\mathbb B(O,h(1-c_*)).
 \]
 
 \begin{theorem}[Complementary-gap enclosure]
 \label{thm:new-complementary-gap}
 \[
- \boxed{
- \Lambda(\mathcal D_{hd}\cup J(p,q))\ge1.
- }
- \tag{6.28}
+ \Lambda\bigl(\mathcal D(p,q)\cup J(p,q)\bigr)\ge1.
 \]
+The conclusion includes \(p+q=1\), when \(J(p,q)\) is a singleton.
 \end{theorem}
 
 \input{figures/finite_enclosure/fe03_complementary_gap}
 
 \begin{proof}
-Let $m=\min\{p,q\}$.  The farther endpoint of the gap has squared norm
-$1-m+m^2$.  Lemma~\ref{lem:new-disk-point-formula} reduces the claim to
-\[
- 3c_*(1-c_*)\ge m(1-m).
- \tag{6.29}
-\]
-Common-pair domination gives $c_*\ge1-m\ge1/2$.  If $c_*\le h$, the left
-side is at least $3h(1-h)>1/4$.  If $c_*>h$, the exact local support
-inequalities give
-\[
- m\le
- c_*\left(\frac12-\sqrt{c_*^2-\frac34}\right)=:\zeta(c_*),
-\]
-and direct calculation gives
-\[
- 3c_*(1-c_*)-\zeta(c_*)(1-\zeta(c_*))\ge0.
-\]
+The enclosure optimization, including the disk--point transition, is
+\zcref{lem:new-disk-point-formula,lem:appendix-complementary-gap}.
 \end{proof}
 
-\subsection{The shortened CE2 two-gap theorem}
+In the six case figures below, orange marks actual gaps, purple marks sampled
+finite-enclosure points, and the dashed red line is an enclosing triangle.
+The shading and the displayed triangle are illustrative, not proof objects.
+
+\input{figures/finite_enclosure/fe13_case_a_examples}
+\FloatBarrier
+
+In the CE2 two-gap normalization, define the two positive C-trace endpoints
+geometrically by
+\[
+ p:=\min\{x\in[0,1]:X_5(x)\in T_C\},
+\]
+\[
+ q:=1-\max\{x\in[0,1]:X_0(x)\in T_C\},
+\]
+and put
+\[
+ c_*:=c_{\max}(p,q),
+ \qquad
+ D_2:=(1-c_*)V_2,
+ \qquad
+ D_4:=(1-c_*)V_4.
+\]
+
+\begin{lemma}[Two-gap common-pair adapter]
+\label{lem:new-two-gap-common-pair-adapter}
+Under the exact row-B hypotheses,
+\[
+ \forall i\in\{1,2,3,4,5\},
+ \quad
+ (p\le A_i\ \land\ q\le B_i)
+ \ \lor
+ (q\le A_i\ \land\ p\le B_i).
+\]
+For \(j\in\mathbb Z/6\mathbb Z\), if \((o(T_j),n(T_j))=(2,1)\) and
+\(\Haus\bigl(T_j\cap(r_2\cup r_4)\bigr)>0\), then
+\[
+ A_j+B_j\le1,
+ \qquad
+ \max\{C_+(A_j,B_j),C_-(A_j,B_j)\}\le c_*.
+\]
+\end{lemma}
+
+\begin{proof}
+The exact two-gap handoff calculation and the T3-like capacity check are
+\zcref{lem:appendix-two-gap-common-pair-adapter,
+lem:new-common-pair-domination}.
+\end{proof}
 
 \begin{theorem}[CE2 short-ray obstruction]
 \label{thm:new-ce2-short-ray}
-In the strict signed CE2 domain put
+Assume
 \[
- p=W-\alpha,\qquad q=R-\delta,\qquad
- e=\min\{\alpha,\delta\}.
+ N_E(T_C)=2,
+ \qquad
+ N_{\rm gap}=2,
+ \qquad
+ N_+\in\{0,1\},
+ \qquad
+ d=0,
+ \qquad
+ N_++t\le2.
 \]
-Then
+If every \(i\in\{1,2,3,4,5\}\) has either
 \[
- \boxed{c_{\max}(p,q)<1-e.}
- \tag{6.30}
+ p\le A_i,\qquad q\le B_i,
+\]
+or
+\[
+ q\le A_i,\qquad p\le B_i,
+\]
+then
+\[
+ D_2,D_4\in U_C,
+ \qquad
+ \{D_2,D_4\}\nsubseteq T_C.
 \]
 \end{theorem}
 
 \input{figures/finite_enclosure/fe04_ce2_short_ray}
 
 \begin{proof}
-Let $M=\max\{R,W\}$.  The two CE2 inequalities imply
-\[
- P>(1+M)e.
-\]
-Since $E^2=1-M+M^2$,
-\[
- (1+M)^2-(3M-1)^2E^2
- =
- 3M(1-M)(3M^2-2M+3)>0,
-\]
-so $\eta=P/E>(3M-1)e$.  Using $RW=\eta+P$ gives
-\[
- Wq>\eta+e>3Me,\qquad Rp>\eta+e>3Me.
-\]
-Hence
-\[
- 3e<p,q<1-5e.
- \tag{6.31}
-\]
-Also
-\[
- e<\frac{P}{1+M}
- \le\frac{2\sqrt3-3}{6}<\frac1{12}.
- \tag{6.32}
-\]
-
-Set $c=1-e$ and $f_c(t)=c^4-c^2+ct-t^2$.  This function is concave and
-\[
- f_c(3e)=e(1-7e-4e^2+e^3)>0,
-\]
-\[
- f_c(1-5e)=e(2-15e-4e^2+e^3)>0.
-\]
-Thus $f_c(p),f_c(q)>0$.  Since $p+c,q+c>1$ and $c>p+q$, all four exact
-support-contact side lengths at radial demand $c$ exceed one.  Therefore
-$c$ is inadmissible.
-
-If $e=\delta$, the radial witness on $r_2$ lies beyond the exit $\delta$.
-If $e=\alpha$, the witness on $r_4$ lies beyond the exit $\alpha$.
+The first inclusion is type-aware radial forcing.  The signed CE2
+optimization proving the final strict noncontainment is
+\zcref{lem:appendix-ce2-short-ray}.
 \end{proof}
 
-\subsection{Nonzero-gap cases with $N_+=0$}
+\input{figures/finite_enclosure/fe14_case_b_examples}
+\FloatBarrier
 
-\begin{proposition}[All-Vd0 and T3-like gap closures]
+\begin{proposition}[The common-pair nonzero-gap closures]
 \label{prop:new-nplus-zero-gap-closures}
-Every nonzero-gap state with $N_+=0$, no Vd1/Vd2 role, and at most two
-T3-like roles is impossible.
+Every row A or B of \zcref{tab:finite-enclosure-subcases} is impossible.
 \end{proposition}
 
 \begin{proof}
-For one gap, strict handoffs give a common pair $(p,q)$ on all six roles.
-Type-aware forcing puts the regular radial hexagon with radius
-$1-c_{\max}(p,q)$ in $U_C$, hence also its incircle.  The actual gap is
-$J(p,q)$, so Theorem~\ref{thm:new-complementary-gap} applies.
+In row A, \zcref{lem:new-one-gap-common-pair-adapter}, type-aware radial
+forcing, and common-pair domination put the six points
+\((1-c_*)V_i\) in \(U_C\).  Their convex hull contains
+\(\mathcal D(p,q)\), while the actual gap is \(J(p,q)\subset U_C\).
+Now \zcref{thm:new-complementary-gap,lem:new-compact-open-shrink}
+contradict each other.
 
-For two gaps, the state is CE2.  The common pair is
-$(W-\alpha,R-\delta)$ on $T_1,\ldots,T_5$.  Common-pair domination controls
-the permitted T3-like neighboring terms, and
-Theorem~\ref{thm:new-ce2-short-ray} places $D_2$ or $D_4$ beyond the C exit.
+In row B, \zcref{lem:new-two-gap-common-pair-adapter} supplies every
+hypothesis of \zcref{thm:new-ce2-short-ray}.  That theorem puts both
+\(D_2,D_4\) in \(U_C\subseteq T_C\) and at least one outside \(T_C\), a
+contradiction.  This includes \(N_+=1\).
 \end{proof}
 
-\input{06b_ce1_direct_certificate}
+\subsection{The transverse seven-point witness}
 
-\subsection{The one-gap all-Vd0 case}
-
-Let the actual gap be $[X(\ell),X(r)]\subset e_{0,1}$, and let $C_i$ be the
-actual own-radial reach of $T_i$.  Put
+Normalize row C so that
 \[
- P_i=(1-C_i)V_i.
+ J=J_0=X_0([\ell,r]),
+ \qquad
+ \ell:=B_0,
+ \qquad
+ r:=1-A_1,
+ \qquad
+ 0<\ell\le r<1.
+\]
+For the actual radial reaches define
+\[
+ P_i:=(1-C_i)V_i,
+\]
+and define exactly
+\[
+ K_{\rm tr}:=
+ \{O,M_0,X_0(\ell),X_0(r),P_2,P_3,P_4\}.
 \]
 
 \begin{lemma}[The transverse witness is center-forced]
 \label{lem:readable-k410-forced}
-Every $P_i$ is missed by all six open V roles.  In particular,
+Under the exact row-C hypotheses,
 \[
- K_{\rm tr}
- =
- \{O,M_0,X(\ell),X(r),\allowbreak P_2,P_3,P_4\}
- \subset U_C.
- \tag{6.33}
+ K_{\rm tr}\subset U_C.
 \]
 \end{lemma}
 
 \input{figures/finite_enclosure/fe05_k410_actual_reach}
 
 \begin{proof}
-Each $P_i$ is the closed own-trace endpoint.  Adjacent roles are Vd0 and the
-nonlocal roles fail by diameter.  The actual gap is also center-forced.
-\end{proof}
-
-\begin{lemma}[Endpoint upper squeeze]
-\label{lem:readable-k410-upper-bound}
-If an open unit triangle $U'$ contains $K_{\rm tr}$, give it signed center
-variables and put
-\[
- X=R-\delta,\qquad Q=\frac{\eta+\alpha+\delta}{2R}.
-\]
-Then
-\[
- \boxed{A_0<1-Q.}
- \tag{6.34}
-\]
-\end{lemma}
-
-\begin{proof}
-The gap endpoints lie strictly inside the trace of $U'$, so
-\[
- B_0=\ell>2Q,\qquad A_1=1-r>X.
-\]
-The diameter inequality for the two boundary endpoints of $T_0$ gives
-\[
- A_0
- \le M_0(B_0)
- <M_0(2Q)
- =-Q+\sqrt{1-3Q^2}
- <1-Q.
-\]
-No radial point at $r_0$ is used.
+The gap endpoints are missed by both incident open V triangles.  Each
+\(P_i\) is the excluded endpoint of the actual closed radial trace; the Vd0
+restriction excludes adjacent support, and diameter excludes nonlocal roles.
+The midpoint belongs only to the C triangle.
 \end{proof}
 
 \begin{proposition}[CE2 transverse threshold terminal]
 \label{prop:readable-k410-ce2}
-No CE2 open unit triangle contains $K_{\rm tr}$.
+For an open unit equilateral triangle \(U_C\), put
+\(T_C:=\overline{U_C}\).  Then
+\[
+ N_E(T_C)=2\Longrightarrow K_{\rm tr}\nsubseteq U_C.
+\]
 \end{proposition}
 
 \begin{proof}
-Nonsupercriticality and the five V-gap-free edges give
-\[
- A_1<A_2<A_3<A_4<A_5<A_0.
-\]
-The preceding lemma therefore implies $B_2,B_4>Q$.  Containment of
-$P_2,P_4$ gives
-\[
- C_2>1-\delta,\qquad C_4>1-\alpha.
-\]
-The signed CE2 estimates are
-\[
- X>\epsilon(\alpha),\qquad
- \min\{\epsilon(\alpha),\epsilon(\delta)\}<Q.
-\]
-If $\epsilon(\alpha)<Q$, the threshold at $T_4$ gives
-$B_4<Q$.  Otherwise the threshold at $T_2$ gives $B_2<Q$.
-Both alternatives contradict the preceding lower bounds.
+The exact endpoint squeeze and the two transverse thresholds are proved in
+\zcref{lem:readable-k410-upper-bound,lem:appendix-ktr-ce2}.
 \end{proof}
 
 \begin{proposition}[CE1 three-transverse return]
 \label{prop:readable-k410-ce1}
-No CE1 open unit triangle contains $K_{\rm tr}$.
+For an open unit equilateral triangle \(U_C\), put
+\(T_C:=\overline{U_C}\).  Then
+\[
+ N_E(T_C)=1\Longrightarrow K_{\rm tr}\nsubseteq U_C.
+\]
 \end{proposition}
 
-
 \begin{proof}
-Containment of $P_4,P_3,P_2$ supplies, in order,
-\[
- C_4>1-\alpha,\qquad
- C_3>1-\frac{\alpha}{R},\qquad
- C_2>1-\delta.
-\]
-These are exactly the radial hypotheses used by
-Proposition~\ref{prop:new-ce1-direct-certificate}, which proves
-$A_0>1-Q$.  This contradicts Lemma~\ref{lem:readable-k410-upper-bound}.
+The three actual endpoints \(P_2,P_3,P_4\) give the CE1 radial hypotheses;
+the reverse-path calculation is \zcref{prop:new-ce1-direct-certificate}.
+No radial point on \(r_0\) is used.
 \end{proof}
 
 \begin{proposition}[Transverse seven-point enclosure]
 \label{prop:new-nplus-one-all-vd0}
+Under the exact row-C hypotheses,
 \[
- \boxed{\Lambda(K_{\rm tr})\ge1.}
- \tag{6.35}
+ \Lambda(K_{\rm tr})\ge1.
 \]
-Consequently the former ten-point superset $K_{410}$ also has enclosure
-number at least one.
 \end{proposition}
 
 \begin{proof}
-Every candidate open unit triangle is CE1 or CE2, and the preceding two
-propositions exclude both.  A compact subset of an open unit triangle would
-have enclosure number below one.
+By \zcref{prop:ce-classification}, the closure of a candidate C triangle has
+type \(\CEone\) or \(\CEtwo\).
+The preceding two propositions exclude both possibilities, and
+\zcref{lem:new-compact-open-shrink} gives the enclosure conclusion.
 \end{proof}
 
-For two gaps, Theorem~\ref{thm:new-ce2-short-ray} applies independently of
-the criticality of $T_0$.
+\input{figures/finite_enclosure/fe15_case_c_examples}
+\FloatBarrier
 
-\input{06c_exceptional_direct_terminals}
-\input{06d_detailed_direct_certificates}
-\input{06e_direct_local_proof_details}
-\input{06f_casewise_witness_details}
-\input{06g_endpoint_selector_audit}
+\subsection{Supported tails and radial separation}
+
+For \(0\le c<1/2\), define
+\[
+ M_c^{\rm sup}:=
+ \sup\{M_c(a):0\le a\le1,\ M_c(a)>1-a\},
+\]
+and set
+\[
+ M_{1/2}^{\rm sup}:=\frac12.
+\]
+The endpoint value is the continuous extension, not the supremum of an empty
+strict feasible set.
+
+Both supported-tail adapters use an actual interval
+\[
+ T_0\cap r_1=\{V_1+x(O-V_1):c\le x\le u\},
+\]
+\[
+ 0<c\le\frac12\le u<1,
+ \qquad
+ \varepsilon:=1-u,
+ \qquad
+ C_1\ge c.
+\]
+With \(M:=M_c^{\rm sup}\), their common exact conclusion is
+\[
+ \sum_{i=2}^5(A_i+B_i)\ge4+M-B_1>4.
+\]
+
+\begin{proposition}[T3-like supported-tail terminal]
+\label{prop:new-one-t3-terminal}
+Assume
+\[
+ N_{\rm gap}\in\{1,2\},
+ \qquad
+ N_+=1,
+ \qquad
+ (d,t)=(0,1),
+ \qquad
+ N_E(T_C)\in\{1,2\},
+\]
+\[
+ T_C\cap\{M_0,\ldots,M_5\}=\{M_0\},
+ \qquad
+ (o(T_0),n(T_0))=(2,1),
+\]
+\[
+ (o(T_i),n(T_i))\in\{(1,0),(2,0)\}
+ \qquad(1\le i\le5).
+\]
+Then the skeleton is not covered.
+\end{proposition}
+
+\input{figures/finite_enclosure/fe08_t3_rescuer}
+
+\begin{proof}
+Apply the T3-like supported-tail adapter and its tail budget,
+\zcref{lem:appendix-t3-supported-tail,lem:new-rescuer-tail-budget}.
+\end{proof}
+
+\input{figures/finite_enclosure/fe16_case_dt_examples}
+\FloatBarrier
+
+For radial separation along \(r_i\), define
+\[
+ d_i^C:=\max\{x\in[0,1]:xV_i\in T_C\},
+\]
+\[
+ c_{\rm loc}:=
+ \sup\{s\in[0,1]:
+ V_i+s(O-V_i)\in U_{i-1}\cup U_i\cup U_{i+1}\}.
+\]
+Then
+\[
+ T_C\cap r_i=\{xV_i:0\le x\le d_i^C\},
+\]
+\[
+ (U_{i-1}\cup U_i\cup U_{i+1})\cap r_i
+ \subseteq\{xV_i:1-c_{\rm loc}\le x\le1\}.
+\]
+Thus the exact strict inequality
+\[
+ c_{\rm loc}<1-d_i^C
+\]
+leaves the nonempty interval
+\[
+ \{xV_i:d_i^C<x<1-c_{\rm loc}\}
+ \subseteq S\setminus
+ \left(U_C\cup\bigcup_{j=0}^5U_j\right).
+\]
+
+For the nonadjacent adapter, if \(I\subseteq[0,1]\) is empty or a closed
+interval, define
+\[
+ \mathcal R_I(p):=
+ 1-\sup\{x\in[0,1]:[0,x]\subseteq[0,p]\cup I\}.
+\]
+Put
+\[
+ I_R:=\{x\in[0,1]:X_0(x)\in T_C\},
+ \qquad
+ I_L:=\{x\in[0,1]:X_5(1-x)\in T_C\},
+\]
+\[
+ \rho_R:=\mathcal R_{I_R}(B_0),
+ \qquad
+ \rho_L:=\mathcal R_{I_L}(A_0),
+ \qquad
+ \rho:=\min\{\rho_R,\rho_L\},
+ \qquad
+ D_\tau:=\rho V_\tau.
+\]
+Appendix D proves the exact separation inequalities for both adapters.
+
+\subsection{The Vd placement router}
+
+\begin{proposition}[Direct one-Vd placement assembly]
+\label{prop:new-one-vd-assembly}
+Assume
+\[
+ N_E(T_C)=2,
+ \qquad
+ N_{\rm gap}\in\{1,2\},
+ \qquad
+ N_+=1,
+ \qquad
+ (d,t)=(1,0),
+\]
+\[
+ T_C\cap\{M_0,\ldots,M_5\}=\{M_0\}.
+\]
+Then the skeleton is not covered.
+\end{proposition}
+
+\input{figures/finite_enclosure/fe09_vd_placements}
+
+\begin{proof}
+If \(\sigma=0\) and \(\tau\in\{1,5\}\), the adjacent radial-separation
+calculation gives \(c_{\rm loc}<1-d_2^C\) on \(r_2\).  If
+\(\sigma=0\) and \(\tau\in\{2,3,4\}\), the nonadjacent calculation gives
+\[
+ d_\tau^C<\rho<1-C_\tau,
+ \qquad
+ D_\tau\in
+ S\setminus\left(U_C\cup\bigcup_{j=0}^5U_j\right).
+\]
+If the Vd role is based at \(T_0\), Vd2 closes by the trace bound and Vd1
+closes by the supported-tail adapter.  These three calculations are in
+\zcref{lem:appendix-adjacent-vd-separation,
+lem:appendix-nonadjacent-vd-separation,
+lem:appendix-vd1-supported-tail}.
+
+It remains that \(\sigma,\tau\ne0\).  Midpoint rescue makes the two roles
+adjacent.  Vd2 again closes by trace length.  For Vd1, fresh cyclic
+renumbering and reflection give \((\tau,\sigma)=(0,1)\), with
+\[
+ (o(T_0),n(T_0))=(1,1),
+ \qquad
+ A_0+B_0<\frac12,
+ \qquad
+ M_1\in T_0,
+ \qquad
+ A_1+B_1>1,
+\]
+\[
+ A_i+B_i\le1\quad(i\ne1),
+\]
+\[
+ (o(T_i),n(T_i))\in\{(1,0),(2,0)\}
+ \quad(1\le i\le5),
+\]
+\[
+ U_C\cap e_{0,1}=\varnothing,
+ \qquad
+ \Haus(T_j\cap r_k)=0
+ \quad(2\le j\le5,\ k\in\{0,1\}).
+\]
+The two-chart construction in
+\zcref{prop:appendix-vd1-two-chart-replacement} produces
+\(\varepsilon>0\) and open unit triangles \(U'_0,U'_1\), with \(V_k\in U'_k\),
+such that, after
+\[
+ U'_i:=U_i\quad(2\le i\le5),
+ \qquad
+ T'_i:=\overline{U'_i}\quad(0\le i\le5),
+\]
+one has
+\[
+ S\subseteq U_C\cup\bigcup_{i=0}^5U'_i,
+ \qquad
+ (o(T'_i),n(T'_i))\in\{(1,0),(2,0)\}\quad(0\le i\le5),
+\]
+\[
+ A(T'_i)+B(T'_i)\le1\quad(0\le i\le5),
+\]
+\[
+ A(T'_0)+B(T'_0)=A(T'_1)+B(T'_1)=1-\varepsilon<1,
+\]
+where
+\[
+ A(T'_i):=\max\{x\in[0,1]:V_i+x(V_{i-1}-V_i)\in T'_i\},
+\]
+\[
+ B(T'_i):=\max\{x\in[0,1]:V_i+x(V_{i+1}-V_i)\in T'_i\}.
+\]
+\[
+ C(T'_i):=\max\{x\in[0,1]:V_i+x(O-V_i)\in T'_i\}.
+\]
+For the unchanged roles,
+\[
+ \bigl(A(T'_i),B(T'_i),C(T'_i)\bigr)=(A_i,B_i,C_i)
+ \qquad(2\le i\le5).
+\]
+Moreover,
+\[
+ \left|\left\{i\in\mathbb Z/6\mathbb Z:
+ A(T'_i)+B(T'_i)>1\right\}\right|=0.
+\]
+Define, from the output open traces,
+\[
+ N'_{\rm gap}:=
+ \left|\left\{i\in\mathbb Z/6\mathbb Z:
+ e_{i,i+1}\setminus
+ \bigl((U'_i\cap e_{i,i+1})\cup(U'_{i+1}\cap e_{i,i+1})\bigr)
+ \ne\varnothing\right\}\right|.
+\]
+Then \(N'_{\rm gap}\in\{0,1,2\}\).  If it is zero,
+\zcref{prop:length-branches} applies.  If it is one, apply
+\zcref{lem:new-one-gap-common-pair-adapter} to the primed actual reaches and
+then the row-A branch of \zcref{prop:new-nplus-zero-gap-closures}.  If it is
+two, apply
+\zcref{lem:new-two-gap-common-pair-adapter} to the primed actual reaches and
+then the row-B branch of \zcref{prop:new-nplus-zero-gap-closures}.  Thus the
+common-pair hypotheses are rederived after replacement; the input and output
+gap ranks are not asserted to be equal.
+\end{proof}
+
+\input{figures/finite_enclosure/fe17_vd_router_examples}
+\FloatBarrier
 
 \begin{proposition}[All nonzero-gap finite-enclosure rows]
 \label{prop:finite-enclosure-nonzero-gap-branches}
-Every nonzero-gap row of Table~\ref{tab:routing} assigned to Strategy~3 is
+Every nonzero-gap row of \zcref{tab:routing} assigned to finite enclosure is
 impossible.
 \end{proposition}
 
 \begin{proof}
-The $N_+=0$ rows are
-Proposition~\ref{prop:new-nplus-zero-gap-closures}.  The all-Vd0,
-$N_+=1$ one-gap row is
-Proposition~\ref{prop:new-nplus-one-all-vd0}; its two-gap companion is the
-short-ray theorem.  The exceptional rows are
-Propositions~\ref{prop:new-one-t3-terminal} and
-\ref{prop:new-one-vd-assembly}.
+Rows A and B are \zcref{prop:new-nplus-zero-gap-closures}; row C is
+\zcref{prop:new-nplus-one-all-vd0}; and rows D, E, and R are
+\zcref{prop:new-one-t3-terminal,prop:new-one-vd-assembly}.
 \end{proof}
 
-\input{06_nine_point_full}
+\subsection{The zero-gap nine-point obstruction}
+\label{sec:strategy4-reader}
+
+Assume
+\[
+ N_{\rm gap}=0,
+ \qquad
+ N_+=1,
+ \qquad
+ (d,t)=(0,0).
+\]
+Rotate the unique supercritical role to index \(4\).  The exact-one handoff
+calculation \zcref{lem:ab-extreme-jump} gives
+\begin{equation}
+ \xi_3<\xi_2<\xi_1<\xi_0<\xi_5<\xi_4.
+ \label{eq:reader-extreme-chain}
+\end{equation}
+Define
+\begin{equation}
+ a:=1-\xi_3,\qquad
+ b:=\xi_4,\qquad
+ p:=1-b,\qquad
+ q:=1-a.
+ \label{eq:reader-ab-parameters}
+\end{equation}
+Then
+\begin{equation}
+ \begin{gathered}
+ 0<a,b<1,\qquad a=a_4<A_4,\qquad b=b_4<B_4,\\
+ a+b>1,\qquad a^2+ab+b^2<1,\\
+ a_i\ge p,\qquad b_i\ge q\quad(0\le i\le5).
+ \end{gathered}
+ \label{eq:reader-ab-domain}
+\end{equation}
+
+Define the two boundary anchors
+\[
+ P_A:=V_4+a(V_3-V_4),
+ \qquad
+ P_B:=V_4+b(V_5-V_4),
+\]
+and the feasible union
+\[
+ \mathcal R_{AB}(a,b):=
+ \bigcup\left\{T\cap H:
+ \begin{array}{l}
+ T\text{ is a closed unit equilateral triangle},\\
+ V_4,P_A,P_B\in T
+ \end{array}\right\}.
+\]
+Put
+\[
+ c_*:=c_{\max}(p,q),
+ \qquad
+ r_*:=h(1-c_*),
+ \qquad
+ P_i^{\rm rad}:=(1-c_*)V_i\quad(0\le i\le5).
+\]
+The radial forcing calculation gives
+\begin{equation}
+ \mathbb B(O,r_*)
+ \subseteq\conv\{P_0^{\rm rad},\ldots,P_5^{\rm rad}\}
+ \subset U_C.
+ \label{eq:reader-forced-disk}
+\end{equation}
+
+The two circles adjacent to the supercritical frontier are
+\[
+ \mathcal C_-:=\partial\mathbb B(X_2(b),1),
+ \qquad
+ \mathcal C_+:=\partial\mathbb B(X_5(1-a),1).
+\]
+Define \(\ell_-\) and \(\ell_+\) as the corresponding maximal
+nondegenerate line segments of the interior frontier:
+\[
+ \{\ell_-\}:=
+ \left\{[X,Y]:
+ \begin{array}{l}
+ X\ne Y,\quad [X,Y]\subseteq
+ \partial\mathcal R_{AB}(a,b)\cap\interior(H),\\
+ {}[X,Y]\cap\mathcal C_-\ne\varnothing,\\
+ \nexists X',Y'\ [X,Y]\subsetneq[X',Y']
+ \subseteq\partial\mathcal R_{AB}(a,b)\cap\interior(H)
+ \end{array}\right\},
+\]
+\[
+ \{\ell_+\}:=
+ \left\{[X,Y]:
+ \begin{array}{l}
+ X\ne Y,\quad [X,Y]\subseteq
+ \partial\mathcal R_{AB}(a,b)\cap\interior(H),\\
+ {}[X,Y]\cap\mathcal C_+\ne\varnothing,\\
+ \nexists X',Y'\ [X,Y]\subsetneq[X',Y']
+ \subseteq\partial\mathcal R_{AB}(a,b)\cap\interior(H)
+ \end{array}\right\}.
+\]
+The three frontier points are the singleton intersections
+\[
+ \{Q_0\}:=\ell_-\cap\ell_+,
+ \qquad
+ \{Q_-\}:=\ell_-\cap\mathcal C_-,
+ \qquad
+ \{Q_+\}:=\ell_+\cap\mathcal C_+.
+\]
+Their exact construction and exclusions in
+\zcref{thm:strict-ab-union,lem:fixed-line-signs,
+lem:asymmetric-core-witness} give
+\begin{equation}
+ Q_-,Q_0,Q_+\in U_C.
+ \label{eq:reader-forced-asymmetric}
+\end{equation}
+
+Define the public witness set
+\begin{equation}
+ K_{\rm wit}(a,b):=
+ \mathbb B(O,r_*)\cup\{Q_-,Q_0,Q_+\}
+ \subset U_C.
+ \label{eq:reader-witness-set}
+\end{equation}
+
+\input{figures/finite_enclosure/fe11_zero_gap_witness}
+
+\begin{theorem}[Witness enclosure]
+\label{thm:reader-witness-enclosure}
+Every pair \((a,b)\) satisfying \zcref{eq:reader-ab-domain} satisfies
+\[
+ \Lambda(K_{\rm wit}(a,b))\ge1.
+\]
+\end{theorem}
+
+\begin{proof}
+The disk closes the range \(c_*\le2/3\).  For \(c_*>2/3\), the Newton inner
+points and cyclic support arcs reduce the claim to the exact mixed-overlap
+certificate.  The complete calculation is
+\zcref{lem:appendix-witness-enclosure-calculation}.
+\end{proof}
+
+\begin{theorem}[Zero-gap obstruction]
+\label{thm:reader-zero-gap-obstruction}
+There is no hypothetical cover with
+\[
+ N_{\rm gap}=0,
+ \qquad
+ N_+=1,
+ \qquad
+ (d,t)=(0,0).
+\]
+\end{theorem}
+
+\begin{proof}
+The construction gives the compact containment
+\(K_{\rm wit}(a,b)\subset U_C\), while
+\zcref{thm:reader-witness-enclosure} gives
+\(\Lambda(K_{\rm wit}(a,b))\ge1\).  This contradicts
+\zcref{lem:new-compact-open-shrink}.
+\end{proof}
+
+\input{figures/finite_enclosure/fe18_case_f_examples}
+\FloatBarrier
+
+\begin{proposition}[Cases excluded by the nine-point obstruction]
+\label{prop:reader-ab-core-branches}
+Every \(N_{\rm gap}=0\), \(N_+=1\), \((d,t)=(0,0)\) row of
+\zcref{tab:routing} is impossible, independently of the center class.
+\end{proposition}
+
+\begin{proof}
+This is \zcref{thm:reader-zero-gap-obstruction}; the equality
+\(N_{\rm gap}=0\) supplies full boundary coverage by
+\zcref{lem:gap-exhaustion}.
+\end{proof}

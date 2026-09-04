@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import re
 import subprocess
 import sys
@@ -92,6 +93,8 @@ for forbidden in [
     "proof/ACTIVE_DEPENDENCY_GRAPH.json",
     "proof/MANIFEST.txt",
     "interactive/readable_proof_dependency_data.json",
+    "arrange/paper_draft/06h_trace_exact_ab_atlas_appendix.tex",
+    "arrange/paper_draft/06i_trace_exact_ab_atlas.tex",
 ]:
     if (ROOT / forbidden).exists():
         fail(f"obsolete auxiliary path remains: {forbidden}")
@@ -120,38 +123,150 @@ for name, closure in closures.items():
                     f"{labels[label].relative_to(ROOT)} and {path.relative_to(ROOT)}"
                 )
             labels[label] = path
-        for reference in re.findall(
-            r"\\(?:eqref|ref|pageref|cref|Cref|autoref)\{([^}]+)\}", text
+        for reference_list in re.findall(
+            r"\\(?:eqref|ref|pageref|cref|Cref|autoref|zcref|zCref)"
+            r"(?:\[[^\]]*\])?\{([^}]+)\}",
+            text,
         ):
-            references.append((reference, path))
+            for reference in reference_list.split(","):
+                references.append((reference.strip(), path))
     for reference, path in references:
         if reference not in labels:
             fail(f"unresolved {name} TeX reference {reference} in {path.relative_to(ROOT)}")
 
 canonical = closures["canonical"]
-for required in [
+canonical_top_level = {
+    "main.tex",
+    "01_introduction.tex",
+    "02_structure_and_common_geometry.tex",
+    "03_trace_bounds.tex",
+    "05_area_loss_full.tex",
     "06_finite_enclosure_full.tex",
-    "06_direct_local_calculus.tex",
-    "06a_neighbor_ray_calculus.tex",
-    "06b_ce1_direct_certificate.tex",
-    "06c_exceptional_direct_terminals.tex",
-    "06d_detailed_direct_certificates.tex",
-    "06e_direct_local_proof_details.tex",
-    "06f_casewise_witness_details.tex",
-    "06g_endpoint_selector_audit.tex",
-    "06i_simplified_finite_enclosure_interfaces.tex",
+    "07_exhaustive_assembly.tex",
+    "A_structural_shared_local_signed_center_optimization.tex",
+    "B_trace_length_optimization.tex",
+    "C_area_loss_optimization.tex",
+    "D_nonzero_gap_finite_enclosure_optimization.tex",
+    "E_zero_gap_nine_point_optimization.tex",
     "A_zero_gap_exact_certificate.tex",
-]:
+}
+actual_top_level = {
+    path.name for path in (ROOT / "arrange/paper_draft").glob("*.tex")
+}
+if actual_top_level != canonical_top_level:
+    for missing in sorted(canonical_top_level - actual_top_level):
+        fail(f"canonical publication source is missing: {missing}")
+    for obsolete in sorted(actual_top_level - canonical_top_level):
+        fail(f"superseded publication TeX remains: {obsolete}")
+
+for required in sorted(canonical_top_level - {"main.tex"}):
     path = (ROOT / "arrange/paper_draft" / required).resolve()
     if path not in canonical:
         fail(f"canonical TeX closure omits required source: {required}")
 
+figure_root = ROOT / "arrange/paper_draft/figures"
+trace_exact_ab_stems = {
+    "adjacent_vd",
+    "nonadjacent_vd",
+    "one_gap_n0_vd0",
+    "one_gap_n1_t3",
+    "one_gap_n1_vd0_ce1",
+    "one_gap_n1_vd0_ce2",
+    "one_t3_n0",
+    "replacement_output",
+    "two_gap_n1_t3",
+    "two_gap_n1_vd0",
+    "two_gap_t3_n0",
+    "two_gap_vd0",
+    "two_t3_n0",
+    "vd1_rescuer",
+    "zero_gap_n1_vd0",
+}
+expected_figures = {
+    "center_interval_residual.tex",
+    "geometry_roles.tex",
+    "strategy1_trace_targets.tex",
+    "strategy2_ce1_ce2_n0_all_vd0.png",
+    "strategy3_global_area_loss.png",
+    "strategy3_local_area_loss.png",
+    "strategy4_core_case_example.png",
+    "tikz_setup.tex",
+    "transfer_V_triangle_coordinates.tex",
+    *{f"finite_enclosure/fe{i:02d}_{name}.tex" for i, name in enumerate([
+        "case_roadmap",
+        "trace_and_gauge",
+        "disk_plus_point",
+        "complementary_gap",
+        "ce2_short_ray",
+        "k410_actual_reach",
+        "neighbor_capacity",
+        "ce1_reverse_path",
+        "t3_rescuer",
+        "vd_placements",
+        "ab_frontier",
+        "zero_gap_witness",
+        "support_caps",
+    ])},
+    *{
+        f"role_examples/{name}.png"
+        for name in [
+            "center_role_ce0_example",
+            "center_role_ce1_example",
+            "center_role_ce2_example",
+            "vertex_role_t3_like_example",
+            "vertex_role_vd0_axis_aligned_example",
+            "vertex_role_vd0_nonsupercritical_example",
+            "vertex_role_vd0_supercritical_example",
+            "vertex_role_vd1_example",
+            "vertex_role_vd2_example",
+        ]
+    },
+    *{f"trace_exact_ab/{stem}.png" for stem in trace_exact_ab_stems},
+    *{
+        f"finite_enclosure/{name}.tex"
+        for name in [
+            "fe13_case_a_examples",
+            "fe14_case_b_examples",
+            "fe15_case_c_examples",
+            "fe16_case_dt_examples",
+            "fe17_vd_router_examples",
+            "fe18_case_f_examples",
+        ]
+    },
+}
+actual_figures = {
+    str(path.relative_to(figure_root))
+    for path in figure_root.rglob("*")
+    if path.is_file()
+}
+for missing in sorted(expected_figures - actual_figures):
+    fail(f"required publication figure is missing: {missing}")
+for obsolete in sorted(actual_figures - expected_figures):
+    fail(f"obsolete publication figure remains: {obsolete}")
+
+static_strategy4 = figure_root / "strategy4_core_case_example.png"
+static_strategy4_sha256 = (
+    "824e55c3e55dfb1f90334ffb18adbd6954a3b4c289c902e9a32c933784fc1d76"
+)
+if static_strategy4.is_file():
+    actual_sha256 = hashlib.sha256(static_strategy4.read_bytes()).hexdigest()
+    if actual_sha256 != static_strategy4_sha256:
+        fail(
+            "strategy4_core_case_example.png SHA-256 mismatch: "
+            f"expected {static_strategy4_sha256}, got {actual_sha256}"
+        )
+
 for path in canonical:
-    if path.name.startswith("04_strategy2_") or path.name in {
-        "04_boundary_propagation.tex",
-        "04_strategy2_verification.tex",
-    }:
-        fail(f"canonical manuscript compiles obsolete source: {path.relative_to(ROOT)}")
+    text = active_tex(path.read_text(encoding="utf-8", errors="replace"))
+    for stale in [
+        r"\\tag\{",
+        r"I_\+",
+        r"I_\{\+\}",
+        r"06h_trace_exact_ab_atlas",
+        r"06i_trace_exact_ab_atlas",
+    ]:
+        if re.search(stale, text):
+            fail(f"stale publication construct in {path.relative_to(ROOT)}: {stale}")
 
 for path in (ROOT / "proof").rglob("*.md"):
     if "9XXX_failed_ideas" in path.parts:

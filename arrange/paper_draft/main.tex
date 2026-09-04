@@ -1,9 +1,10 @@
 \documentclass{amsart}
 \usepackage{amsmath,amssymb,amsthm,mathtools,graphicx}
-\usepackage{booktabs,float,longtable,array,microtype,tikz}
+\usepackage{booktabs,float,longtable,array,microtype,placeins,tikz}
 \usetikzlibrary{arrows.meta,calc,positioning}
 \input{figures/tikz_setup}
 \usepackage[hidelinks]{hyperref}
+\usepackage{zref-clever}
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
@@ -43,8 +44,8 @@ vertices canonically label the seven covering triangles.  A finite
 classification routes every hypothetical cover to one of three strategies: trace-length
 deficit, area loss, or a finite equilateral-enclosure obstruction.  The
 finite-enclosure strategy includes the explicit zero-gap nine-point theorem
-and the nonzero-gap residual witness sets.  Exact local reach calculations are
-retained only as certificates that the relevant finite sets do not fit in a
+and the nonzero-gap residual witness sets.  Appendices collect the exact local
+reach calculations certifying that the relevant finite sets do not fit in a
 unit C triangle.  The paper is organized as one proof, and the two mixed
 support-arc intersections are verified in a self-contained exact certificate
 appendix over $\mathbb Q(\sqrt3)$.
@@ -64,7 +65,11 @@ appendix over $\mathbb Q(\sqrt3)$.
 
 \clearpage
 \appendix
+\input{A_structural_shared_local_signed_center_optimization}
+\input{B_trace_length_optimization}
+\input{C_area_loss_optimization}
+\input{D_nonzero_gap_finite_enclosure_optimization}
+\input{E_zero_gap_nine_point_optimization}
 \input{A_zero_gap_exact_certificate}
-\input{06h_trace_exact_ab_atlas_appendix}
 
 \end{document}

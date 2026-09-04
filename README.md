@@ -36,8 +36,10 @@ argument and is no longer part of the repository contract.
   [`arrange/paper_draft/main.pdf`](arrange/paper_draft/main.pdf)
 - Interactive proof dependency graph:
   [`interactive/readable_proof_dependency_graph.html`](interactive/readable_proof_dependency_graph.html)
-- Trace-exact \(AB\)-envelope explorer:
+- Standalone trace-exact \(AB\)-envelope explorer:
   [`interactive/trace_exact_ab_envelope_explorer.html`](interactive/trace_exact_ab_envelope_explorer.html)
+- Colocated trace-exact manuscript panels:
+  [`arrange/paper_draft/figures/trace_exact_ab/`](arrange/paper_draft/figures/trace_exact_ab/)
 - Zero-gap nine-point demonstration:
   [`interactive/zero_gap_nine_point_demo.html`](interactive/zero_gap_nine_point_demo.html)
 
@@ -66,11 +68,19 @@ The difficult zero-gap nine-point overlap calculation is an exact certificate
 over integers, rationals, and \(\mathbb Q(\sqrt3)\). Floating-point scans are
 not proof dependencies.
 
+The fifteen trace-exact manuscript panels are generated from the same preset
+registry as the standalone explorer.  The additional
+`strategy4_core_case_example.png` is a SHA-256-pinned static illustration.
+These images explain the geometry but are not proof authorities; theorem
+status comes from the numbered `proof/` sources and the incorporated exact
+certificate.
+
 ## Validation
 
 ```bash
 python -m pip install -r arrange/_support/requirements.txt
 python proof/check.py
+python interactive/generate.py --trace-assets --check
 python interactive/generate.py --dependency-graph --check
 python interactive/check.py
 python arrange/build.py --all

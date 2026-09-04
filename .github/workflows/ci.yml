@@ -51,6 +51,9 @@ jobs:
       - name: Check generated dependency graph
         run: python interactive/generate.py --dependency-graph --check
 
+      - name: Check standalone trace explorer
+        run: python interactive/generate.py --trace-assets --check
+
       - name: Audit self-contained interactive pages
         run: python interactive/check.py
 
@@ -105,7 +108,7 @@ jobs:
           import fitz
 
           bounds = {
-              Path("arrange/_build/canonical.pdf"): (84, 104),
+              Path("arrange/_build/canonical.pdf"): (89, 93),
           }
           for path, (lower, upper) in bounds.items():
               pages = fitz.open(path).page_count

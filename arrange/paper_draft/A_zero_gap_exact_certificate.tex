@@ -1,7 +1,7 @@
 \section{Exact Unequal-Radius Support-Arc Intersections}
 \label{sec:strategy4-exact-certificate}
 
-The two mixed cap overlaps in Method~4 are certified by exact symbolic
+The two mixed cap overlaps in the zero-gap nine-point theorem are certified by exact symbolic
 arithmetic.  This section gives the mathematical reduction and verification
 algorithms; the repository provenance manifests identify the accompanying
 code and sparse integer data.  No floating-point arithmetic, interval
@@ -11,8 +11,8 @@ tolerance is used.
 \subsection{Certificate manifest}
 
 The machine-readable provenance manifest identifies the six sparse-data
-shards and both exact verifiers by full Git blob; the source ledger records
-their role.  They decode to one canonical sparse-polynomial transcript with
+shards and both exact verifiers by full Git blob and records their roles.
+They decode to one canonical sparse-polynomial transcript with
 SHA--256 digest
 \begin{verbatim}
 dc46aaf263655d5159ecd3a81db72ee82477951d06172f4743b248df37209485
@@ -251,10 +251,12 @@ Set
 \]
 The complete reflected domain is the union of the three closed cells
 \[
-\begin{array}{ll}
-T:&0\le U\le U_\triangle,\quad 0\le z^2\le\mathcal P(U),\\
-L_0:&0\le U\le U_\triangle,\quad \mathcal P(U)\le z^2\le\mathcal G(U),\\
-L_1:&U_\triangle\le U\le U_{\max},\quad0\le z^2\le\mathcal G(U).
+\begin{array}{c|c|c}
+\text{cell}&U\text{-range}&z^2\text{-range}\\
+\hline
+T&0\le U\le U_\triangle&0\le z^2\le\mathcal P(U)\\
+L_0&0\le U\le U_\triangle&\mathcal P(U)\le z^2\le\mathcal G(U)\\
+L_1&U_\triangle\le U\le U_{\max}&0\le z^2\le\mathcal G(U)
 \end{array}
 \]
 For the $T$ cell use

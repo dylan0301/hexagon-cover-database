@@ -18,3 +18,7 @@ don't delete too much text. don't purely make everything math equations. if we h
 
   when making tables, i want one equation in one line, so make the table wide or use many lines. also, the paper is good if it is short, so don't make it intentionally
   long
+
+-after paper edit
+
+the images you deleted are the finite point enclosure examples. restore the png files and put them right next to each case they are handeling

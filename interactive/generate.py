@@ -11,6 +11,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DEPENDENCY = ROOT / "interactive/_support/generate_dependency_graph.py"
 TRACE = ROOT / "interactive/_support/generate_trace_assets.py"
+TRACE_PNGS = ROOT / "interactive/_support/generate_trace_pngs.py"
 HTML = ROOT / "interactive/readable_proof_dependency_graph.html"
 JSON_DATA = ROOT / "interactive/readable_proof_dependency_data.json"
 
@@ -22,7 +23,11 @@ def run(script: Path) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--dependency-graph", action="store_true")
-    parser.add_argument("--trace-assets", action="store_true")
+    parser.add_argument(
+        "--trace-assets",
+        action="store_true",
+        help="regenerate the trace-exact explorer, preset data, and PNGs",
+    )
     parser.add_argument("--check", action="store_true")
     args = parser.parse_args()
 
@@ -42,6 +47,7 @@ def main() -> None:
 
     if args.trace_assets:
         run(TRACE)
+        run(TRACE_PNGS)
         if args.check:
             subprocess.run(
                 [
@@ -51,7 +57,6 @@ def main() -> None:
                     "--",
                     "interactive/trace_exact_ab_envelope_explorer.html",
                     "interactive/trace_exact_ab_presets.json",
-                    "arrange/paper_draft/06i_trace_exact_ab_atlas.tex",
                     "arrange/paper_draft/figures/trace_exact_ab",
                 ],
                 cwd=ROOT,

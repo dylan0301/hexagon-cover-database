@@ -1,6 +1,6 @@
 # Editorial Reorganization Report: Readable Geometric Body and Solved Optimization Appendices
 
-Status: Editorial plan — not a proof authority
+Status: Implementation record — not a proof authority
 
 Date: 2026-09-02
 Manuscript snapshot audited: `766dce5a90abadc3086839f4e1a6cd922932f1d8`
@@ -10,9 +10,95 @@ This report implements the editorial request recorded in
 mathematical claim. Numbered sources under `proof/` and the exact certificate
 incorporated by the paper remain the mathematical authorities.
 
-This task creates the editorial report only. It deliberately leaves the TeX,
-generated paper, proof sources, certificate data, and raw request unchanged;
-the manuscript rewrite described below is the subsequent implementation task.
+This report records both the editorial boundary and its implementation
+requirements.  It does not replace any numbered proof source or exact
+certificate.
+
+## 0. Implementation result in the current working tree
+
+The reorganization is implemented.  Sections 1--10 below preserve the
+editorial decision, the diagnosis of the audited 91-page input, the migration
+register, and the acceptance plan.  They are retained as audit history; this
+section records the resulting manuscript rather than another proposal.
+
+The canonical paper now has exactly six body sources: introduction and
+routing, common geometry, trace bounds, area loss, finite enclosure, and
+exhaustive assembly.  Its appendices are, in order:
+
+- A, structural, shared-local, and signed-center optimization;
+- B, trace-length optimization;
+- C, area-loss optimization;
+- D, nonzero-gap finite-enclosure optimization;
+- E, zero-gap nine-point optimization; and
+- F, the exact polynomial positivity certificate (retaining the stable source
+  filename `A_zero_gap_exact_certificate.tex`).
+
+The body now keeps the exact geometric or set-theoretic definitions, compact
+interfaces, routing predicates, and useful short explanations.  Coordinate
+charts, CE1/CE2 radial and interval evaluations, disk--point evaluation,
+pointwise audits, selectors, roots, and polynomial calculations are supplied
+by the appropriate appendix.  The established notation is unchanged:
+`\(N_+\)` is defined only by actual `\(A_i+B_i>1\)`, no alias replaces
+`\(N_+\)`, uppercase reaches are actual, and every selected lowercase
+reach is explicitly bounded by its uppercase reach.  Decision-table
+rows use exact predicates in their identifying columns, with one mathematical
+statement on each visual line; concise geometric names and mechanisms remain
+in separate prose fields where they help navigation.
+
+The nonzero-gap closure now has explicit one-gap and two-gap common-pair
+adapters in the body (`lem:new-one-gap-common-pair-adapter` and
+`lem:new-two-gap-common-pair-adapter`), supplied by separately labeled
+calculations in Appendix D.  For the CE2 two-gap normalization the implemented
+endpoints are
+
+\[
+p:=\min\{x\in[0,1]:X_5(x)\in T_C\}.
+\]
+\[
+q:=1-\max\{x\in[0,1]:X_0(x)\in T_C\}.
+\]
+
+The common-pair closure eliminates row A and the row-B cases
+`\(N_+=0\)` or `\((N_+,t)=(1,0)\)`.  The former row-B subcase
+`\((N_+,t)=(1,1)\)` is instead covered, for either nonzero gap rank, by the
+gap-rank-independent T3-like supported-tail terminal proved from `2018` and
+`4132`.  The Vd1 replacement recomputes
+`\(N'_{\mathrm{gap}}\)` from the output open traces.  Rank zero returns to the
+trace-length closure; ranks one and two first rederive the corresponding
+common-pair adapter from the primed actual reaches and then invoke the row-A
+or row-B closure.  No equality between input and output gap ranks is assumed.
+
+The exact top-level TeX keep set in Section 3 is realized.  Superseded
+top-level paper sources, the two trace-atlas wrapper sources, and the
+identified unused historical publication figures have been deleted.  The
+fifteen trace-exact PNG panels are restored under the manuscript figure tree
+and generated from the same deterministic registry as the standalone
+interactive explorer.  The separately retained
+`strategy4_core_case_example.png` is an exact-byte static asset protected by
+SHA-256.  These sixteen images are explanatory and have no proof-authority
+status.
+
+Verification state recorded on 2026-09-04:
+
+- dependency installation from `arrange/_support/requirements.txt` completed;
+- a clean-snapshot `python proof/check.py` passed for all 35 canonical TeX
+  sources;
+- the dependency-graph and trace-asset generators both passed in `--check`
+  mode, and `python interactive/check.py` passed;
+- `python arrange/build.py --all` completed successfully, producing the
+  reorganized 91-page canonical PDF, and the proof-free build completed at 51
+  pages;
+- canonical and proof-free render validation passed, and the installed
+  `main.pdf` agrees semantically with the rebuilt canonical PDF at 144 dpi;
+- both exact zero-gap certificate programs passed with exact arithmetic and
+  the expected core-polynomial SHA-256
+  `dc46aaf263655d5159ecd3a81db72ee82477951d06172f4743b248df37209485`;
+  and
+- the inspected reorganized 91-page canonical output is enforced by the
+  narrowed CI interval `89--93`.
+
+Thus the implementation and the complete acceptance suite recorded in
+Section 9 are finished in the current working tree.
 
 ## 1. Editorial decision
 
@@ -175,9 +261,10 @@ and root calculation move to the appendix.
 Short final interfaces such as a trace cap, an area-loss lower bound, or
 `\(\Lambda(K)\ge 1\)` also remain displayed in the body.
 
-## 2. Current-paper diagnosis
+## 2. Historical diagnosis of the audited input
 
-The canonical PDF has 91 pages. The technical material is concentrated in the
+The audited canonical PDF had 91 pages. The technical material was
+concentrated in the
 body rather than the appendices:
 
 - common geometry occupies approximately pages 5–20;
@@ -196,13 +283,14 @@ certificates, output formulas, pointwise witness catalogue, endpoint audit,
 and the full zero-gap computation. This is the opposite of the requested
 reader hierarchy.
 
-The repository already contains historical reader-facing sources
+The repository initially contained historical reader-facing sources
 (`02_reader_framework.tex`, `03_strategy1_reader.tex`, and
 `05_strategy3_reader.tex`) and an old appendix roadmap. They demonstrate that
-a compact-body/technical-appendix layout is feasible, but they are stale and
-must be adapted rather than re-enabled verbatim.
+a compact-body/technical-appendix layout is feasible.  Their useful text is to
+be adapted into the new closure; the superseded files are then deleted rather
+than kept beside the canonical paper.
 
-## 3. Proposed canonical organization
+## 3. Canonical organization proposed in the audit
 
 ### Main paper
 
@@ -272,12 +360,43 @@ Each module must state its feasible set or feasibility question, objective,
 exact result, proof, and body consequence. None of the raw calculations listed
 later may enter the appendix as a free-standing lemma outside this contract.
 
-The current trace-exact numerical atlas should remain in the repository and
-interactive material but leave the canonical paper. It is illustrative rather
-than proof-used and therefore does not satisfy the agreed “used solved modules
-only” rule. Retain in the paper any short introductory explanation or
-simplified schematic from that material that substantially clarifies the trace
-geometry without importing the numerical catalogue.
+Delete the two trace-exact paper-atlas TeX wrapper files.  Retain the fifteen
+PNG panels, colocated under `figures/trace_exact_ab/`, and generate them from
+the same deterministic preset registry as the standalone interactive
+explorer.  Place selected panels directly beside the corresponding geometric
+cases instead of restoring an atlas appendix.  Also retain the exact-byte
+static `strategy4_core_case_example.png` and verify its SHA-256.  The generated
+and static images are illustrative rather than proof-used; a geometric
+explanation may use them, but no claim depends on raster inspection.
+
+### Canonical source cleanup
+
+After content migration, the top-level TeX keep set under
+`arrange/paper_draft/` is exactly:
+
+- `main.tex` and the six body sources `01_introduction.tex`,
+  `02_structure_and_common_geometry.tex`, `03_trace_bounds.tex`,
+  `05_area_loss_full.tex`, `06_finite_enclosure_full.tex`, and
+  `07_exhaustive_assembly.tex`;
+- `A_structural_shared_local_signed_center_optimization.tex`,
+  `B_trace_length_optimization.tex`, `C_area_loss_optimization.tex`,
+  `D_nonzero_gap_finite_enclosure_optimization.tex`, and
+  `E_zero_gap_nine_point_optimization.tex`; and
+- `A_zero_gap_exact_certificate.tex`, whose stable filename is retained while
+  its input position makes it Appendix F.
+
+Delete every other current top-level paper TeX source after its proof-used
+content and labels have been transferred.  Under `figures/`, retain the role
+examples, `geometry_roles.tex`, `strategy1_trace_targets.tex`, the two
+area-loss images, `tikz_setup.tex`, and `finite_enclosure/fe00` through `fe18`.
+Also retain `center_interval_residual.tex`,
+`transfer_V_triangle_coordinates.tex`, and
+`strategy2_ce1_ce2_n0_all_vd0.png`, which archived proof-paper sources still
+reference.  Retain the fifteen generated `trace_exact_ab/*.png` panels and the
+SHA-256-pinned static `strategy4_core_case_example.png`.  Delete every other
+historical publication figure, including the twenty-one
+`strategy2_*_skeleton.tex` files, four `signed_*.tex` diagrams, and three
+unused `new_*` diagrams.
 
 ## 4. Detailed body/appendix audit
 
@@ -583,10 +702,9 @@ body:
 - total-slack, boundary-contribution, and diameter-transfer calculations;
 
 The compatibility-only chart-conversion remark at lines 213–250 and the four
-exact formula diagrams at lines 349–381 remain available as repository source
-material but leave the canonical paper. Their labels have no references beyond
-their definitions, and they are not solved optimization steps needed by the
-final argument.
+exact formula diagrams at lines 349–381 leave the canonical paper.  After the
+proof-used calculation has been incorporated into Appendix A, delete these
+unreferenced publication diagrams rather than retaining a second source form.
 
 Do not rely on a qualitative paragraph alone. Keep the readable CE1/CE2
 explanation and pair it with the exact classification definition in the body:
@@ -1000,7 +1118,9 @@ retain
 \]
 
 The definition of `\(J\)` includes `\(\ell=r\)`, so this row includes a
-singleton gap. Appendix D proves the two displayed conclusions.
+singleton gap.  The body closure derives the containment from the one-gap
+adapter, type-aware radial forcing, and common-pair domination, and then uses
+the enclosure calculation supplied by Appendix D.
 
 **B. Two actual gaps in CE2.** Normalize the two positive C-triangle traces to
 `\(e_{5,0}\)` and `\(e_{0,1}\)`, and define
@@ -1020,6 +1140,9 @@ N_E(T_C)=2,\qquad N_{\mathrm{gap}}=2,\qquad
 N_+\in\{0,1\},\qquad d=0,\qquad N_++t\le2,
 \]
 \[
+N_+t=0,
+\]
+\[
 \forall i\in\{1,2,3,4,5\}\quad
 [(p\le A_i\land q\le B_i)\lor(q\le A_i\land p\le B_i)],
 \]
@@ -1028,8 +1151,9 @@ c_{\max}(q,p)=c_{\max}(p,q)=c_*,\qquad
 D_2,D_4\in U_C,\qquad \{D_2,D_4\}\nsubseteq T_C.
 \]
 
-Appendix D evaluates the signed CE2 problem and proves the final
-noncontainment; the signed parameters do not appear in this body row.
+Appendix D supplies the two-gap common-pair adapter, evaluates the signed CE2
+problem, and proves the final noncontainment; the signed parameters do not
+appear in this body row.
 
 **C. One gap, one supercritical role, and all Vd0.** Rotate the unique
 supercritical role to `\(T_0\)`. Keep this descriptive heading, followed by
@@ -1396,8 +1520,14 @@ S\nsubseteq U_C\cup\bigcup_{i=0}^5U'_i.
 \end{aligned}
 \]
 
-The three implications cite, respectively, `prop:length-branches` row Z0,
-`thm:new-complementary-gap`, and `thm:new-ce2-short-ray`.
+For `\(N'_{\mathrm{gap}}=0\)`, invoke `prop:length-branches` row Z0.  For
+`\(N'_{\mathrm{gap}}=1\)`, reapply the one-gap common-pair adapter to the
+primed actual reaches and then invoke the row-A branch of
+`prop:new-nplus-zero-gap-closures`.  For
+`\(N'_{\mathrm{gap}}=2\)`, reapply the two-gap common-pair adapter and then
+invoke the row-B branch of that proposition.  Thus the hypotheses used after
+replacement are rederived from the output configuration rather than carried
+over from the input.
 
 Do not assert `\(N'_{\mathrm{gap}}=N_{\mathrm{gap}}\)`. Both replacement charts
 and all strict epsilon inequalities belong in Appendix D.
@@ -1829,8 +1959,8 @@ inventory must anchor the rewritten modules as follows:
 - trace interfaces: `2500`, `2510`, `2530`, and `2531` (Proven);
 - area interfaces: `2400`, `3175`, and `3205` (Proven);
 - finite-enclosure interfaces: `2608`, `2609`, and `2610` (Proven);
-- current nonzero-gap terminals: `4013_new`, `4101_new`, `4102_new`, `4103`,
-  `4130_new`, and `4140_new` (Proven);
+- current nonzero-gap terminals: `2018`, `4013_new`, `4101_new`, `4102_new`,
+  `4103`, `4132`, and `4140_new` (Proven);
 - two-chart replacement and routing: `4144_new` (Proven);
 - zero-gap package: `31050` is a Reference index, while `31051` through
   `31059` are the Proven authorities; and
@@ -1860,16 +1990,29 @@ claim-to-source inventory before any manuscript text moves.
    field, without repeated formulas or redundant prose. Resolve all forward
    references, and update abstract, organization prose, captions, appendix
    guide, dependency metadata, and closure checks.
-6. Build the paper and inspect both the normal and proof-free renderings. The
+6. Once every needed statement, proof, label, and figure reference is present
+   in the new closure, delete every superseded top-level paper TeX source, the
+   two paper-atlas TeX wrappers, and the unreferenced historical publication
+   figures.  Do not delete anything under `proof/`; retain the three figure
+   assets still referenced by archived proof-paper sources, the fifteen
+   trace-exact panels, and the pinned static core-case image.
+7. Refactor the trace-asset generator so one registry produces the standalone
+   explorer, preset JSON, and fifteen colocated PNG panels.  Remove references
+   to the deleted atlas wrappers from interactive checks and the dependency
+   graph, while mechanically checking case identifiers, actual-reach
+   supercritical counts, singleton-inclusive gaps, and role counts.
+8. Build the paper and inspect both the normal and proof-free renderings. The
    proof-free rendering should preserve a coherent chain of exact definitions,
    hypotheses, and implications rather than disconnected theorem labels or
    prose substitutes for definitions.
-7. Run every required repository check and the exact certificate programs,
+9. Run every required repository check and the exact certificate programs,
    then regenerate publication artifacts only after all checks pass.
-8. Validate the rebuilt canonical PDF, replace the tracked publication PDF
+10. Validate the rebuilt canonical PDF, replace the tracked publication PDF
    with those exact validated bytes, and rerun the semantic/render checks.
-   Measure the final page count; review and change CI’s current `84–104` bound
-   only if the intentional measured output requires it.
+   Measure the final page count; review and change the audited CI's then-current
+   `84–104` bound only if the intentional measured output requires it.  The
+   resulting reorganized 91-page publication uses the tight expected interval
+   `89--93`.
 
 ## 9. Verification commands
 
@@ -1878,10 +2021,16 @@ Run the repository-required checks:
 ```bash
 python -m pip install -r arrange/_support/requirements.txt
 python proof/check.py
+python interactive/generate.py --trace-assets --check
 python interactive/generate.py --dependency-graph --check
 python interactive/check.py
 python arrange/build.py --all
 ```
+
+If the working checkout contains environment-owned top-level directories such
+as `.agents`, `.codex`, or an audit virtual environment, run the structural
+check in a clean temporary snapshot of the tracked tree.  Do not delete those
+environment directories and do not weaken the repository allowlist for them.
 
 Because the dependent zero-gap theorem and its placement in the manuscript
 will change, also run:
@@ -1913,10 +2062,13 @@ cp arrange/_build/canonical.pdf arrange/paper_draft/main.pdf
 python arrange/_support/compare_pdfs_semantically.py arrange/paper_draft/main.pdf arrange/_build/canonical.pdf --dpi 144
 ```
 
-Record the measured page count. Removing the numerical atlas changes that
-count and may cross the hard-coded `84–104` range at
-`.github/workflows/ci.yml:108`; update the bound only after inspecting the
-intended final PDF, and keep it as narrow as the publication policy allows.
+Record the measured page count. Removing the atlas wrappers while placing
+selected explanatory panels beside their cases changes that count and could
+cross the audited workflow's former hard-coded `84–104` range; update the
+bound only after inspecting the intended final PDF, and keep it as narrow as
+the publication policy allows.  The final reorganized canonical paper is 91
+pages, the proof-free paper is 51 pages, and the corresponding expected CI
+interval is `89--93`.
 If the correct concise paper falls below the current lower bound, change the
 bound; never add filler, duplicate exposition, or unnecessary figures merely
 to satisfy a page-count floor.
@@ -1984,6 +2136,16 @@ The reorganization is complete only when:
 - the exact zero-gap certificate remains mathematically unchanged and both
   verifiers pass;
 - the canonical closure contains no duplicate or stale optimization proof;
+- the only top-level TeX sources under `arrange/paper_draft` are `main.tex`,
+  the six body sources, the five solved optimization appendices, and the exact
+  certificate source rendered as Appendix F;
+- the two paper-atlas wrappers are absent; the standalone explorer, preset
+  JSON, and exactly fifteen colocated `figures/trace_exact_ab/*.png` panels are
+  reproducible from one registry; the pinned static core-case image has the
+  required SHA-256; and none of these explanatory images is treated as a proof
+  authority;
+- every remaining publication figure is used either by the new paper closure
+  or by an archived proof-paper source;
 - `arrange/paper_draft/main.pdf` is the validated canonical output and passes
   the repository’s semantic and render checks;
 - the CI page-count interval contains the measured intentional output and was

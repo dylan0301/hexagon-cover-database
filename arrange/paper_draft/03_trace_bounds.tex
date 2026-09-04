@@ -1,17 +1,283 @@
-\section{Trace-Length Bounds}
+\section{Trace-Length Mechanism}
 \label{sec:trace-length}
+\label{sec:length}
 
-The first mechanism compares the total one-dimensional trace available from
-the seven triangles with the length of either the perimeter $\partial H$ or
-the full skeleton $S$.  The local trace estimates, the master perimeter
-deficit, the conditional skeleton theorem, and every routed application are
-proved in this section.
+For a closed triangle $T$ and a rectifiable target $E$, define
+\[
+ L_E(T):=\Haus(T\cap E).
+\]
+Passing from an original open triangle to its closure can only enlarge its
+trace.  Hence an open cover of $E$ implies
+\begin{equation}
+ \Haus(E)\le L_E(T_C)+\sum_{i=0}^5L_E(T_i).
+ \label{eq:length-subadditivity}
+\end{equation}
+The mechanism applies this inequality only to the perimeter $\partial H$ or
+the full skeleton $S$, under the hypotheses stated below.
 
+\begin{figure}[H]
+\centering
+\input{figures/strategy1_trace_targets}
+\caption{The perimeter and full-skeleton targets.  The skeleton is used only
+under the hypotheses of the corresponding trace budget.}
+\label{fig:strategy1-targets}
+\end{figure}
+
+\subsection{Skeleton interfaces}
+
+\begin{lemma}[Center skeleton cap]
+\label{lem:center-skeleton-cap}
+If $N_E(T_C)\in\{1,2\}$ and
+\[
+ \left|T_C\cap\{M_0,\ldots,M_5\}\right|=1,
+\]
+then
+\[
+ L_S(T_C)<\frac32.
+\]
+\end{lemma}
+
+\begin{proof}
+This is the signed-center trace optimization
+\zcref{lem:app-center-skeleton-cap-calculation}.
+\end{proof}
+
+\begin{lemma}[Positive-support skeleton cap]
+\label{lem:positive-support-skeleton-cap}
+Let $T_i$ be the closure of an original open V triangle.  If
+\[
+ \exists j\in\{i-1,i+1\}\quad\Haus(T_i\cap r_j)>0,
+\]
+then
+\[
+ L_S(T_i)<\frac32.
+\]
+\end{lemma}
+
+\begin{proof}
+Normalize to $i=0$ and translate the hexagon by $V_0$.  The five components
+of $S$ on which a unit triangle containing $V_0$ can have positive trace
+become the corresponding local components of the translated skeleton.  The
+positive adjacent-radial trace becomes a positive boundary trace there.
+Proposition~\ref{prop:unique-center-midpoint} and
+Lemma~\ref{lem:center-skeleton-cap} give the bound; every nonlocal component
+is more than unit distance from $V_0$, apart from zero-measure endpoints.
+\end{proof}
+
+\begin{lemma}[No-support skeleton cap]
+\label{lem:no-support-skeleton-cap}
+If
+\[
+ A_i+B_i\le1,
+\]
+\[
+ \Haus(T_i\cap r_{i-1})=0,
+ \qquad \Haus(T_i\cap r_{i+1})=0,
+\]
+then
+\[
+ L_S(T_i)\le2.
+\]
+\end{lemma}
+
+\begin{proof}
+See \zcref{lem:app-no-support-skeleton-calculation}; geometrically, the two
+incident boundary traces and the own radial trace are the only components
+that can contribute positive length.
+\end{proof}
+
+\begin{lemma}[Supercritical skeleton cap]
+\label{lem:supercritical-skeleton-cap}
+If $A_i+B_i>1$, then
+\[
+ L_S(T_i)<\frac32.
+\]
+\end{lemma}
+
+\begin{proof}
+The exact admissible-cell and polynomial-sign calculation is
+\zcref{lem:app-supercritical-skeleton-calculation}.
+\end{proof}
+
+\begin{lemma}[Positive-support rescuer]
+\label{lem:positive-support-rescuer}
+Suppose $N_E(T_C)\in\{1,2\}$ and, after symmetry,
+\[
+ T_C\cap\{M_0,\ldots,M_5\}=\{M_0\}.
+\]
+If $N_+\ge2$, then for a supercritical index $s\ne0$ there is
+$j\in\{s-1,s+1\}$ such that
+\[
+ M_s\in U_j,
+ \qquad \Haus(T_j\cap r_s)>0.
+\]
+\end{lemma}
+
+\begin{proof}
+Choose a supercritical $s\ne0$.  Lemma~\ref{lem:self-midpoint} gives
+$M_s\notin T_s$, and the displayed midpoint identity gives
+$M_s\notin T_C$.  The open cover therefore puts $M_s$ in another $U_j$.
+Diameter locality restricts $j$ to $s-1$ or $s+1$, and openness makes its
+trace on $r_s$ have positive length.
+\end{proof}
+
+\begin{theorem}[Direct CE1/CE2 skeleton count]
+\label{thm:common-skeleton-count}
+If
+\[
+ N_E(T_C)\in\{1,2\},
+\]
+\[
+ \left|T_C\cap\{M_0,\ldots,M_5\}\right|=1,
+\]
+and
+\begin{equation}
+ N_++N_{\mathrm{sp}}\ge3,
+ \label{eq:common-skeleton-count}
+\end{equation}
+then the seven triangles do not cover $S$.
+\end{theorem}
+
+\begin{proof}
+The three geometric caps above make the total trace strictly smaller than
+$\Haus(S)=12$; the exact budget is
+\zcref{lem:app-common-skeleton-count-calculation}.  This contradicts
+\eqref{eq:length-subadditivity}.
+\end{proof}
+
+\subsection{Boundary trace register}
+
+The exact evaluation is in Appendix~\ref{app:trace-length-optimization}; the
+following table is the complete interface used by the routing argument.
+
+\begin{theorem}[Boundary trace table]
+\label{thm:boundary-trace-table}
+For closures of original open triangles, the following bounds hold.
 \begingroup
-\let\section\subsection
-\let\subsection\subsubsection
-\let\subsubsection\paragraph
-\input{03_strategy1_length}
+\setlength{\arraycolsep}{5pt}
+\renewcommand{\arraystretch}{1.18}
+\begin{equation}
+\begin{array}{c|c|c}
+\text{exact hypothesis}&\text{established class}&\text{exact bound}\\ \hline
+N_E(T_C)=0&\CEzero&L_{\partial H}(T_C)=0\\
+N_E(T_C)=1&\CEone&
+ L_{\partial H}(T_C)\le\dfrac{\sqrt3}{2}-\dfrac34\\[3pt]
+N_E(T_C)=2&\CEtwo&L_{\partial H}(T_C)<\dfrac12\\[3pt]
+\begin{gathered}
+ (o(T_i),n(T_i))\in\{(1,0),(2,0)\}\\
+ A_i+B_i\le1
+\end{gathered}
+ &\Vdzero&L_{\partial H}(T_i)\le1\\[8pt]
+\begin{gathered}
+ (o(T_i),n(T_i))\in\{(1,0),(2,0)\}\\
+ A_i+B_i>1
+\end{gathered}
+ &\Vdzero&L_{\partial H}(T_i)\le\dfrac2{\sqrt3}\\[8pt]
+(o(T_i),n(T_i))\in\{(1,1),(1,2)\}
+ &\Vdone\text{ or }\Vdtwo&L_{\partial H}(T_i)<\dfrac12\\
+(o(T_i),n(T_i))=(2,1)&\Tlike&L_{\partial H}(T_i)<1.
+\end{array}
+\label{eq:boundary-trace-table}
+\end{equation}
 \endgroup
+For every V triangle,
+\begin{equation}
+ L_{\partial H}(T_i)=A_i+B_i.
+ \label{eq:vertex-boundary-locality}
+\end{equation}
+\end{theorem}
 
-\input{04b_common_CE1_CE2_budgets}
+\begin{proof}
+The locality identity and every row are proved in
+\zcref{lem:app-boundary-trace-table-calculation}.
+\end{proof}
+
+\begin{corollary}[Branches closed by the common budgets]
+\label{cor:signed-budget-branches}
+The following exact alternatives are impossible.
+\begin{enumerate}
+\item $N_E(T_C)=0$, $N_+=1$, and $d\ge1$;
+\item $N_E(T_C)\in\{1,2\}$, $N_+=0$, and $d\ge1$;
+\item $N_E(T_C)=1$, $N_+=1$, and $d\ge1$;
+\item $N_E(T_C)=2$, $N_+=1$, and $d\ge2$;
+\item $N_E(T_C)=2$, $N_+=1$, and there is an index $i$ such that
+\[
+ (o(T_i),n(T_i))=(1,2)
+\]
+and
+\[
+ \{M_{i-1},M_{i+1}\}\cap T_i\ne\varnothing;
+\]
+\item $N_E(T_C)\in\{1,2\}$ and $N_++N_{\mathrm{sp}}\ge3$;
+\item $N_E(T_C)\in\{1,2\}$ and $N_+\ge2$.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+The perimeter sums for items (1)--(5) are
+\zcref{lem:app-signed-budget-calculation}.  Item (6) is
+Theorem~\ref{thm:common-skeleton-count}.  For item (7), normalize the unique
+C triangle midpoint and apply Lemma~\ref{lem:positive-support-rescuer}; its
+rescuer is distinct from the two supercritical triangles, so item (6)
+applies.
+\end{proof}
+
+\begin{proposition}[Vd2 adjacent-midpoint branch]
+\label{prop:ce2-vd2-midpoint-length}
+Assume
+\[
+ N_E(T_C)=2,
+ \qquad N_+=1,
+ \qquad(d,t)=(1,0).
+\]
+If the unique non-$\Vdzero$ triangle $T_i$ satisfies
+\[
+ (o(T_i),n(T_i))=(1,2)
+\]
+and
+\[
+ \{M_{i-1},M_{i+1}\}\cap T_i\ne\varnothing,
+\]
+then $\partial H$ cannot be covered.
+\end{proposition}
+
+\begin{proof}
+The strict one-third cap is
+\zcref{lem:vd2-neighbor-midpoint-cap}; item (5) of
+Corollary~\ref{cor:signed-budget-branches} then applies.
+\end{proof}
+
+\subsection{Routing conclusion}
+
+\begin{proposition}[Branches closed by the trace-length mechanism]
+\label{prop:length-branches}
+The following routing entries and hybrid subcase are impossible.
+\begin{enumerate}
+ \item $N_{\mathrm{gap}}=0$ and $N_+=0$;
+ \item $N_{\mathrm{gap}}=0$, $N_+=1$, and $d\ge1$;
+ \item $N_E(T_C)\in\{1,2\}$ and $N_++N_{\mathrm{sp}}\ge3$;
+ \item $N_E(T_C)\in\{1,2\}$, $N_+=0$, and $d\ge1$;
+ \item $N_E(T_C)=1$, $N_+=1$, and $(d,t)=(1,0)$;
+ \item the subcase of $N_E(T_C)=2$, $N_+=1$, and $(d,t)=(1,0)$ in which
+ the unique non-$\Vdzero$ triangle $T_i$ satisfies
+ \[
+  (o(T_i),n(T_i))=(1,2)
+ \]
+ and
+ \[
+  \{M_{i-1},M_{i+1}\}\cap T_i\ne\varnothing.
+ \]
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+For item (1), Lemma~\ref{lem:gap-exhaustion} makes the incident open V
+traces overlap on every edge, so
+\[
+ B_i+A_{i+1}>1\qquad(0\le i\le5).
+\]
+Summing contradicts $N_+=0$.  Items (2)--(5) are clauses (1), (6), (2), and
+(3), respectively, of Corollary~\ref{cor:signed-budget-branches}; their
+numerical budgets are evaluated in Appendix~\ref{app:trace-length-optimization}.
+Item (6) is Proposition~\ref{prop:ce2-vd2-midpoint-length}.
+\end{proof}

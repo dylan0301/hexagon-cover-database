@@ -1,56 +1,12 @@
-\section{Detailed Area-Loss Estimates}
-\label{sec:area}
+\section{Area-Loss Optimization}
+\label{sec:area-loss-optimization}
 
-This section proves the local inequalities and cyclic estimates used in the
-area-loss argument.
+This appendix evaluates the three area optimizations used in
+\zcref{sec:area-loss}.  The body fixes the feasible triangles, the loss
+functional, and the strict cyclic handoffs; here we introduce coordinates only
+to solve those problems.
 
-Let
-\[
- A_\triangle=\frac{\sqrt3}{4}
-\]
-be the area of a unit equilateral triangle.  Throughout this section areas
-are divided by $A_\triangle$.  Thus a unit triangle has normalized area one
-and $H$ has normalized area six.
-
-\begin{figure}[H]
-\centering
-\begin{minipage}[b]{.48\textwidth}
-\centering
-\includegraphics[width=\linewidth]
-  {figures/strategy3_local_area_loss.png}
-\par\smallskip
-\footnotesize (a) local retained area
-\end{minipage}\hfill
-\begin{minipage}[b]{.48\textwidth}
-\centering
-\includegraphics[width=\linewidth]
-  {figures/strategy3_global_area_loss.png}
-\par\smallskip
-\footnotesize (b) global retained areas
-\end{minipage}
-\caption{Schematic views of Method~3, not to scale.  The local panel
-shows one V triangle with boundary reaches $a,b$, and the global panel
-shows the six cyclic triangles.  Only the darker portions represent area
-retained inside $H$; the proof uses the inequalities below, not the picture.}
-\label{fig:area-loss}
-\end{figure}
-
-\subsection{The local square-loss inequalities}
-
-Fix a vertex $V_i$.  Let $P_a$ and $P_b$ be the points at distances $a$ and
-$b$ from $V_i$ on its incoming and forward boundary edges.  For a closed
-unit equilateral triangle $T$ containing $V_i,P_a,P_b$, put
-\[
- \mathcal L(T)=\frac{\operatorname{area}(T\setminus H)}{A_\triangle}.
-\]
-Equivalently, if
-\[
- f(a,b)=\max_T\frac{\operatorname{area}(T\cap H)}{A_\triangle},
- \qquad \mathcal L(a,b)=1-f(a,b),
-\]
-then $\mathcal L(a,b)$ is the least possible normalized loss.  Reflection in the
-radial axis interchanges $a$ and $b$, and increasing either reach lower bound can only
-decrease $f$.
+\subsection{Wedge chart}
 
 \begin{lemma}[Local wedge reduction]
 \label{lem:area-wedge}
@@ -90,19 +46,14 @@ $0\le x,y\le2/\sqrt3<2$, proving $(x,y)\in H$.  The determinant identity
 proves the area assertion.
 \end{proof}
 
-\begin{theorem}[Unconditional local square loss]
-\label{thm:local-square-loss}
-For every feasible pair $0\le a,b\le1$ and every realizing closed unit
-equilateral triangle $T$,
-\begin{equation}
- \mathcal L(T)\ge\min(a,b)^2.                         \label{eq:min-square-loss}
-\end{equation}
-If $a+b>1$, then
-\begin{equation}
- \mathcal L(T)\ge\max(a,b)^2.                         \label{eq:max-square-loss}
-\end{equation}
-Consequently the same inequalities hold for $\mathcal L(a,b)=1-f(a,b)$.
-\end{theorem}
+\subsection{Local square-loss optimization}
+
+\begin{lemma}[Solved local square-loss optimization]
+\label{lem:appendix-local-square-loss}
+For the feasible family $\mathcal T(a,b)$ of
+\zcref{sec:area-loss}, the minimum loss satisfies
+\zcref{eq:min-square-loss,eq:max-square-loss}.
+\end{lemma}
 
 \begin{proof}
 In the coordinates of Lemma~\ref{lem:area-wedge}, physical rotation through
@@ -222,31 +173,13 @@ this proves \eqref{eq:min-square-loss}.  The two orientation types are
 exhaustive, so the theorem follows.
 \end{proof}
 
-\subsection{The direct $\Tlike$ loss}
+\subsection{$\Tlike$ limiting optimization}
 
-The next theorem uses the classification data $(o,n)$ from
-Section~\ref{sec:structural-reductions}: $o$ counts triangle vertices outside $H$, and
-$n=n(T_i)$ is
-\[
- \left\lvert\left\{j\in\{i-1,i+1\}:
- \Haus(T_i\cap r_j)>0\right\}\right\rvert.
-\]
-Thus a $\Tlike$ triangle has $(o,n)=(2,1)$.
-
-\begin{theorem}[Direct $\Tlike$ loss]
-\label{thm:t3-direct-loss}
-Let $T$ be a closed unit $V_i$-triangle of $\Tlike$ type, and let $a,b$ be
-lower bounds for its adjacent boundary reaches.  Then
-\begin{equation}
- a+b\le1.                                 \label{eq:t3-area-nonsupercritical}
-\end{equation}
-Moreover, for $0\le m\le1/2$,
-\begin{equation}
- a,b\ge m
- \quad\Longrightarrow\quad
- \mathcal L(T)\ge2m-4m^2.                               \label{eq:t3-loss}
-\end{equation}
-\end{theorem}
+\begin{lemma}[Solved $\Tlike$ loss optimization]
+\label{lem:appendix-t3-loss}
+Under the hypotheses of \zcref{thm:t3-direct-loss}, the actual V triangle
+satisfies \zcref{eq:t3-loss}.
+\end{lemma}
 
 \begin{proof}
 The first assertion is Lemma~\ref{lem:t3-nonsupercritical}.  For the loss
@@ -319,27 +252,14 @@ $\mathcal L_0(r)\ge1/4\ge\psi(m)$.  Together with \eqref{eq:t3-limit-loss}, this
 \eqref{eq:t3-loss}.  The reflected crossing is identical.
 \end{proof}
 
-\subsection{The cyclic area certificates}
+\subsection{Cyclic loss optimization}
 
-The selected handoffs of Proposition~\ref{prop:strict-handoffs} have the form
-\[
- (a_i,b_i)=(1-\xi_{i-1},\xi_i),\qquad 0<\xi_i<1,
-\]
-with cyclic indices.  V triangle $i$ is selected supercritical exactly when
-$\xi_i>\xi_{i-1}$.
+The variables $\xi_i,a_i,b_i$ are the strict handoffs already fixed in
+\zcref{sec:area-loss}; in particular, no endpoint selection is relaxed here.
 
-\begin{lemma}[Cyclic area-loss certificate]
-\label{lem:cyclic-area-loss}
-Let the six actual V triangles realize selected handoffs
-\[
- (a_i,b_i)=(1-\xi_{i-1},\xi_i),\qquad 0<\xi_i<1.
-\]
-Their total normalized loss is strictly greater than one if either
-\begin{enumerate}
-\item at least two selected V triangles are supercritical; or
-\item exactly one selected V triangle is supercritical, every triangle is
-      $\Vdzero$ or $\Tlike$, and at least one triangle is $\Tlike$.
-\end{enumerate}
+\begin{lemma}[Solved cyclic area-loss optimization]
+\label{lem:appendix-cyclic-area-loss}
+Both implications in \zcref{lem:cyclic-area-loss} hold.
 \end{lemma}
 
 \begin{proof}
@@ -371,32 +291,3 @@ loss is at least
 \]
 \end{proof}
 
-\begin{proposition}[Branches closed by area]
-\label{prop:area-branches}
-The following branches are impossible:
-\begin{enumerate}
-\item $N_{\mathrm{gap}}=0$, $N_+\ge2$, with arbitrary center and V triangle
-types;
-\item $N_{\mathrm{gap}}=0$, $N_+=1$, no triangle is $\Vdone$ or $\Vdtwo$,
-and at least one triangle is $\Tlike$.
-\end{enumerate}
-\end{proposition}
-
-\begin{proof}
-By Lemma~\ref{lem:gap-exhaustion}, $N_{\mathrm{gap}}=0$ says exactly that
-the six V triangles cover $\partial H$, so
-Proposition~\ref{prop:strict-handoffs} applies independently of the center
-class.
-
-If $N_+\ge2$, its at-least-two clause selects handoffs with at least two
-supercritical V triangles.  Lemma~\ref{lem:cyclic-area-loss} makes the six vertex
-triangles' total normalized inside area strictly less than five.  The center
-triangle contributes at most one, so the total is strictly less than six.
-
-If $N_+=1$, the exact-one clause preserves the unique actual
-supercritical index for every strict selection.  The exhaustive vertex-type
-hypothesis gives case (2) of Lemma~\ref{lem:cyclic-area-loss}; the
-six V triangles contribute less than five normalized area, and the
-C triangle contributes at most one.  Again the sum is strictly below
-the normalized area six of $H$.
-\end{proof}

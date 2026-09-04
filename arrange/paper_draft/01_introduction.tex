@@ -18,13 +18,14 @@ and put
  S=\partial H\cup\bigcup_{i=0}^5r_i.
 \]
 Then
-\[
- \Haus(\partial H)=6,
- \qquad
- \Haus\left(\bigcup_{i=0}^5r_i\right)=6,
- \qquad
+\begin{equation}
+\begin{gathered}
+ \Haus(\partial H)=6,\\
+ \Haus\left(\bigcup_{i=0}^5r_i\right)=6,\\
  \Haus(S)=12.
-\]
+\end{gathered}
+\label{eq:target-lengths}
+\end{equation}
 
 \begin{theorem}[Main theorem]
 \label{thm:main}
@@ -66,9 +67,23 @@ $V_i$}.  Set
 
 \subsection{Finite classifications}
 
-The center type is the number of boundary edges on which $T_C$ has a
-positive-length trace.  The only possibilities are $0,1,2$, denoted by
-$\CEzero,\CEone,\CEtwo$.
+Set
+\[
+ N_E(T_C):=
+ \left\lvert\left\{i\in\mathbb Z/6\mathbb Z:
+ \Haus(T_C\cap e_{i,i+1})>0\right\}\right\rvert.
+\]
+The only possible values are $0,1,2$.  We call the corresponding C triangle
+types $\CEzero,\CEone,\CEtwo$; thus
+\[
+ T_C\text{ has type }\CEzero\iff N_E(T_C)=0,
+\]
+\[
+ T_C\text{ has type }\CEone\iff N_E(T_C)=1,
+\]
+\[
+ T_C\text{ has type }\CEtwo\iff N_E(T_C)=2.
+\]
 
 \begin{figure}[H]
 \centering
@@ -116,22 +131,44 @@ vertices outside $H$.  We make this exact-trace normalization before defining
 any reach.  The normalized exhaustive types used below are
 \[
 \begin{array}{c|c}
-\text{type}&(o(T_i),n(T_i))\\ \hline
-\Vdzero&(1,0),(2,0)\\
-\Vdone&(1,1)\\
-\Vdtwo&(1,2)\\
-\Tlike&(2,1).
+(o(T_i),n(T_i))&\text{established type}\\ \hline
+(1,0)&\Vdzero\\
+(2,0)&\Vdzero\\
+(1,1)&\Vdone\\
+(1,2)&\Vdtwo\\
+(2,1)&\Tlike.
 \end{array}
 \]
 
-Let $A_i,B_i,C_i$ be the maximal reaches of $T_i$ toward
-$V_{i-1},V_{i+1},O$, respectively.  The V triangle $T_i$ is
-\emph{supercritical} when $A_i+B_i>1$, and
+The actual maximal reaches are
 \[
- N_+=\left\lvert\left\{i:A_i+B_i>1\right\}\right\rvert.
+ A_i:=\max\{x\in[0,1]:V_i+x(V_{i-1}-V_i)\in T_i\},
 \]
-Lowercase $(a_i,b_i,c_i)$ always denotes selected lower bounds for these
-reaches and never the maxima defining $N_+$.
+\[
+ B_i:=\max\{x\in[0,1]:V_i+x(V_{i+1}-V_i)\in T_i\},
+\]
+\[
+ C_i:=\max\{x\in[0,1]:V_i+x(O-V_i)\in T_i\}.
+\]
+The same numbers are the suprema of the corresponding reaches in the open
+triangle $U_i$.  The V triangle $T_i$ is \emph{supercritical} when
+$A_i+B_i>1$, and
+\begin{equation}
+ N_+:=\left\lvert\left\{i\in\mathbb Z/6\mathbb Z:
+ A_i+B_i>1\right\}\right\rvert.
+ \label{eq:N-plus-definition}
+\end{equation}
+Lowercase reaches are used only after a selection satisfying
+\[
+ 0\le a_i\le A_i,
+\]
+\[
+ 0\le b_i\le B_i,
+\]
+\[
+ 0\le c_i\le C_i.
+\]
+They never define $N_+$.
 
 \begin{figure}[H]
 \centering
@@ -186,22 +223,49 @@ to scale; no proof depends on visual inspection.}
 \label{fig:vertex-role-examples}
 \end{figure}
 
-On $e_{i,i+1}$, parametrized from $V_i$ to $V_{i+1}$, the two incident open
-traces have the form $[0,B_i)$ and $(1-A_{i+1},1]$.  Their nonempty complement
+Parametrize $e_{i,i+1}$ from $V_i$ to $V_{i+1}$ by
 \[
- [B_i,1-A_{i+1}]
+ X_i(x):=V_i+x(V_{i+1}-V_i),\qquad 0\le x\le1.
 \]
-is a \emph{boundary gap}; equality gives a singleton gap, which remains
-uncovered.  Let $N_{\mathrm{gap}}$ be the number of positive center traces
-that contain a boundary gap.
+The incident open traces are
+\[
+ U_i\cap e_{i,i+1}=X_i([0,B_i)),
+\]
+\[
+ U_{i+1}\cap e_{i,i+1}=X_i((1-A_{i+1},1]).
+\]
+Define the \emph{boundary gap}
+\[
+ J_i:=e_{i,i+1}\setminus
+ \bigl((U_i\cap e_{i,i+1})\cup(U_{i+1}\cap e_{i,i+1})\bigr).
+\]
+The displayed trace identities give
+\[
+ J_i\ne\varnothing\iff B_i+A_{i+1}\le1.
+\]
+Equality gives a singleton gap, which remains uncovered.  Put
+\[
+ N_{\mathrm{gap}}:=
+ \left\lvert\left\{i\in\mathbb Z/6\mathbb Z:J_i\ne\varnothing
+ \right\}\right\rvert.
+\]
 
 For the case tables, put
 \[
- d=\left\lvert \left\lbrace i:T_i\text{ is }\Vdone\text{ or }\Vdtwo \right\rbrace \right\rvert,
- \qquad
- t=\left\lvert \left\lbrace i:T_i\text{ is }\Tlike \right\rbrace \right\rvert,
+ d:=\left\lvert\left\{i\in\mathbb Z/6\mathbb Z:
+ (o(T_i),n(T_i))\in\{(1,1),(1,2)\}\right\}\right\rvert,
 \]
-and let $N_{\mathrm{sp}}=d+t$.  The common trace calculation proves that the
+\[
+ t:=\left\lvert\left\{i\in\mathbb Z/6\mathbb Z:
+ (o(T_i),n(T_i))=(2,1)\right\}\right\rvert,
+\]
+and
+\[
+ N_{\mathrm{sp}}:=
+ \left\lvert\left\{i\in\mathbb Z/6\mathbb Z:n(T_i)>0\right\}\right\rvert
+ =d+t.
+\]
+The common trace calculation proves that the
 number of V triangles that are either supercritical or meet an adjacent
 radial segment in positive length is
 \[
@@ -226,27 +290,28 @@ Proposition~\ref{prop:exhaustive-structural-reduction}.
 
 \begin{table}[H]
 \centering
-\scriptsize
-\renewcommand{\arraystretch}{1.07}
-\begin{tabular}{@{}c c p{.31\textwidth}p{.19\textwidth}c@{}}
+\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.18}
+\begin{tabular}{@{}ccccc p{.20\textwidth}@{}}
 \toprule
-$N_{\mathrm{gap}}$&$N_+$&vertex-type refinement&center class&strategy\\
+$N_{\mathrm{gap}}$&$N_+$&$d$&$t$&$N_E(T_C)$&mechanism\\
 \midrule
-$0$&$0$&all $(d,t)$&$\CEzero/\CEone/\CEtwo$&1\\
-$0$&$1$&$d\ge1$&$\CEzero/\CEone/\CEtwo$&1\\
-$0$&$1$&$d=0$, $t\ge1$&$\CEzero/\CEone/\CEtwo$&2\\
-$0$&$1$&$(d,t)=(0,0)$&$\CEzero/\CEone/\CEtwo$&3\\
-$0$&$\ge2$&all $(d,t)$&$\CEzero/\CEone/\CEtwo$&2\\
+$0$&$0$&\multicolumn{2}{c}{$d+t\le6$}&$N_E(T_C)\in\{0,1,2\}$&Trace length\\
+$0$&$1$&$d\ge1$&$t\ge0$&$N_E(T_C)\in\{0,1,2\}$&Trace length\\
+$0$&$1$&$d=0$&$t\ge1$&$N_E(T_C)\in\{0,1,2\}$&Area loss\\
+$0$&$1$&$d=0$&$t=0$&$N_E(T_C)\in\{0,1,2\}$&Finite enclosure\\
+$0$&$N_+\ge2$&\multicolumn{2}{c}{$d+t\le6$}&$N_E(T_C)\in\{0,1,2\}$&Area loss\\
 \midrule
-$\ge1$&$\ge2$&all $(d,t)$&$\CEone/\CEtwo$&1\\
-$\ge1$&$0$ or $1$&$N_++d+t\ge3$&$\CEone/\CEtwo$&1\\
-$\ge1$&$0$&$(d,t)=(0,0)$&$\CEone/\CEtwo$&3\\
-$\ge1$&$0$&$d\ge1$, $d+t\le2$&$\CEone/\CEtwo$&1\\
-$\ge1$&$0$&$d=0$, $t\in\{1,2\}$&$\CEone/\CEtwo$&3\\
-$\ge1$&$1$&$(d,t)=(0,0)$&$\CEone/\CEtwo$&3\\
-$\ge1$&$1$&$(d,t)=(0,1)$&$\CEone/\CEtwo$&3\\
-$\ge1$&$1$&$(d,t)=(1,0)$&$\CEone$&1\\
-$\ge1$&$1$&$(d,t)=(1,0)$&$\CEtwo$&$1{+}3$\\
+$N_{\mathrm{gap}}\ge1$&$N_+\ge2$&\multicolumn{2}{c}{$d+t\le6$}&$N_E(T_C)\in\{1,2\}$&Trace length\\
+$N_{\mathrm{gap}}\ge1$&$N_+\in\{0,1\}$&\multicolumn{2}{c}{$N_++d+t\ge3$}&$N_E(T_C)\in\{1,2\}$&Trace length\\
+$N_{\mathrm{gap}}\ge1$&$0$&$d=0$&$t=0$&$N_E(T_C)\in\{1,2\}$&Finite enclosure\\
+$N_{\mathrm{gap}}\ge1$&$0$&$d\ge1$&$d+t\le2$&$N_E(T_C)\in\{1,2\}$&Trace length\\
+$N_{\mathrm{gap}}\ge1$&$0$&$d=0$&$t\in\{1,2\}$&$N_E(T_C)\in\{1,2\}$&Finite enclosure\\
+$N_{\mathrm{gap}}\ge1$&$1$&$d=0$&$t=0$&$N_E(T_C)\in\{1,2\}$&Finite enclosure\\
+$N_{\mathrm{gap}}\ge1$&$1$&$d=0$&$t=1$&$N_E(T_C)\in\{1,2\}$&Finite enclosure\\
+$N_{\mathrm{gap}}\ge1$&$1$&$d=1$&$t=0$&$N_E(T_C)=1$&Trace length\\
+$N_{\mathrm{gap}}\ge1$&$1$&$d=1$&$t=0$&$N_E(T_C)=2$&Trace and finite enclosure\\
 \bottomrule
 \end{tabular}
 \caption{The exhaustive routing.  Strategy 1 is a trace-length argument,
@@ -261,11 +326,13 @@ finite-enclosure placement assembly.}
 \subsection{Organization of the proof}
 
 Section~\ref{sec:structure-common} proves the structural classification,
-strict handoff selection, midpoint facts, and the signed center normal form.
+strict handoff selection, and midpoint facts.  Appendix~\ref{app:structural-shared-local-signed-center}
+proves the signed-center normal form used by the later arguments.
 Section~\ref{sec:trace-length} gives the complete trace-length argument.
 Section~\ref{sec:area-loss} proves the local and cyclic area-loss estimates.
-Section~\ref{sec:finite-enclosure} develops the finite residual-hull principle,
-the exact local reach certificates for the nonzero-gap witnesses, and the
-explicit zero-gap nine-point obstruction.
+Section~\ref{sec:finite-enclosure} gives the finite residual-hull principle
+and the nonzero-gap and zero-gap enclosure obstructions.
 Section~\ref{sec:assembly} then applies the zero-gap matrix before the
 nonzero-gap rows of Table~\ref{tab:routing} and closes the proof.
+Appendices A--E supply the corresponding solved optimizations; Appendix F is
+the exact polynomial certificate for the two mixed zero-gap intersections.

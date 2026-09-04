@@ -1,0 +1,491 @@
+\section{Trace-Length Optimization}
+\label{app:trace-length-optimization}
+
+This appendix evaluates the trace quantities whose exact interfaces appear in
+Section~\ref{sec:trace-length}.  The center and V triangle coordinates are
+used only here; the body retains the geometric hypotheses and final bounds.
+
+\subsection{Conditional skeleton caps}
+
+\begin{lemma}[Center-skeleton calculation]
+\label{lem:app-center-skeleton-cap-calculation}
+Under the hypotheses of Lemma~\ref{lem:center-skeleton-cap}, one has
+$L_S(T_C)<3/2$.
+\end{lemma}
+
+\begin{proof}
+Normalize the unique midpoint as $M_0$ and a positive boundary trace to
+$e_{0,1}$.  Use Proposition~\ref{prop:signed-center-normal-form}; thus
+\[
+ W=1-R,\qquad E=\sqrt{1-RW},\qquad
+ \eta=1-E,\qquad P=E(1-E),
+\]
+and the positive trace condition is
+\begin{equation}
+ \alpha+W\delta<P.
+ \label{eq:center-skeleton-domain}
+\end{equation}
+The two possible boundary contributions are
+\[
+ \ell_{01}=W+\delta-\frac{\eta+\alpha+\delta}{R},
+ \qquad
+ \ell_{50}=\frac{[P-(R\alpha+\delta)]_+}{W}.
+\]
+The six radial contributions are bounded by
+\[
+\begin{array}{c|cccccc}
+i&0&1&2&3&4&5\\ \hline
+\Haus(T_C\cap r_i)&
+E-\alpha-\delta&\delta/R&\delta&
+\min\{\alpha/R,\delta/W\}&\alpha&\alpha/W.
+\end{array}
+\]
+Hence
+\[
+ L_S(T_C)\le K_R+\mathcal E(\alpha,\delta),
+ \qquad K_R:=W+E-\frac\eta R,
+\]
+where
+\[
+ \mathcal E(\alpha,\delta)
+ :=-\frac\alpha R+\frac\alpha W+\delta
+ +\min\left\{\frac\alpha R,\frac\delta W\right\}
+ +\frac{[P-(R\alpha+\delta)]_+}{W}.
+\]
+Splitting according to the minimum and positive part gives
+\begin{equation}
+ \mathcal E(\alpha,\delta)\le\frac PW.
+ \label{eq:center-skeleton-E-bound}
+\end{equation}
+If $\alpha/R\le\delta/W$, the expression without the positive part is
+$\alpha/W+\delta$; when that part is active, the excess over $P/W$ is
+$\alpha-R\delta/W\le0$.  The reflected order gives
+$\delta-W\alpha/R\le0$.  If the positive part vanishes,
+\eqref{eq:center-skeleton-domain} gives the same bound strictly.
+
+Put $A:=1+R-R^2$.  Then
+\[
+ \frac32-K_R-\frac PW=\frac{1+A-2EA}{2RW}.
+\]
+Both sides of $1+A>2EA$ are positive, and
+\[
+ (1+A)^2-4A^2E^2=R^2W^2(5+4R-4R^2)>0.
+\]
+Therefore $K_R+P/W<3/2$, as required.
+\end{proof}
+
+\begin{lemma}[No-support skeleton calculation]
+\label{lem:app-no-support-skeleton-calculation}
+The hypotheses of Lemma~\ref{lem:no-support-skeleton-cap} imply
+$L_S(T_i)\le2$.
+\end{lemma}
+
+\begin{proof}
+The boundary contribution is $A_i+B_i\le1$ by
+\eqref{eq:vertex-boundary-locality}.  If
+$P=sV_j\in r_j\setminus\{O\}$ and $j\notin\{i-1,i,i+1\}$, then
+\[
+ \lVert V_i-P\rVert^2
+ =1+s^2-2s\cos\frac{(j-i)\pi}{3}>1.
+\]
+The adjacent radial traces have zero length by hypothesis, so only $r_i$ can
+add positive trace, of length at most one.
+\end{proof}
+
+For the remaining cap, reflect the local directions if necessary so that
+$0\le A_i\le B_i\le1$.  The actual reach triple of a supercritical V
+triangle lies in the selected cell
+\begin{equation}
+\begin{aligned}
+ A_i^2+A_iB_i+B_i^2&\le1,\\
+ C_i&\le\frac12,\\
+ (A_i^2-1)C_i^2+(2A_iB_i^2+B_i)C_i+(B_i^4-B_i^2)&\le0,
+\end{aligned}
+\label{eq:supercritical-admissible-cell}
+\end{equation}
+where $C_i$ belongs to the connected component containing $0$ in the
+corresponding one-dimensional fiber.  This is Cell $S$ of
+Proposition~\ref{prop:exact-admissible-set}.  The selector is essential: the
+quadratic is negative at $C_i=0$, positive at $C_i=1/2$, and opens downward.
+
+\begin{lemma}[Supercritical skeleton calculation]
+\label{lem:app-supercritical-skeleton-calculation}
+Every V triangle with $A_i+B_i>1$ has $L_S(T_i)<3/2$.
+\end{lemma}
+
+\begin{proof}
+The corner normal form, Proposition~\ref{prop:vd-corner-normal-form}, makes
+$\Vdone$ and $\Vdtwo$ triangles nonsupercritical.  Lemma
+\ref{lem:t3-nonsupercritical} gives the same conclusion for $\Tlike$
+triangles.  Hence a supercritical triangle is $\Vdzero$ and has no positive
+adjacent-radial support.  Reflect so that $A_i\le B_i$.
+Then
+\[
+ L_S(T_i)=A_i+B_i+C_i.
+\]
+
+Set
+\[
+ s:=A_i+B_i,\qquad \delta:=B_i-A_i,
+ \qquad \gamma_0:=\frac32-s.
+\]
+The diameter constraint gives
+\[
+ 1<s\le\frac2{\sqrt3},
+ \qquad0\le\delta\le\sqrt{4-3s^2}.
+\]
+Let $P(\gamma)$ be the quadratic in
+\eqref{eq:supercritical-admissible-cell}.  Substitution and multiplication by
+$16$ yield
+\[
+\begin{aligned}
+16P(\gamma_0)=Q(s,\delta)
+&=\delta^4+8\delta^3s-6\delta^3
+ +14\delta^2s^2-18\delta^2s+5\delta^2\\
+&\quad-8\delta s^3+30\delta s^2-34\delta s+12\delta\\
+&\quad+s^4-6s^3-19s^2+60s-36.
+\end{aligned}
+\]
+Its derivative factors as
+\[
+ \frac{\partial Q}{\partial\delta}
+ =2(2\delta+4s-3)
+ \bigl(\delta^2+\delta(4s-3)+(s-1)(2-s)\bigr)\ge0.
+\]
+Therefore
+\[
+ Q(s,\delta)\ge Q(s,0)
+ =(s-1)(s^3-5s^2-24s+36)>0.
+\]
+The cubic decreases on $[1,2/\sqrt3]$ and at the right endpoint equals
+$88/3-136\sqrt3/9>0$.  Hence $P(\gamma_0)>0$.  The selected smaller-root
+component in \eqref{eq:supercritical-admissible-cell} forces
+$C_i<\gamma_0$, so $A_i+B_i+C_i<3/2$.
+\end{proof}
+
+\begin{lemma}[Common skeleton-budget calculation]
+\label{lem:app-common-skeleton-count-calculation}
+Under the hypotheses of Theorem~\ref{thm:common-skeleton-count}, the total
+skeleton trace of the seven triangles is strictly less than $12$.
+\end{lemma}
+
+\begin{proof}
+The center cap and the three V triangle caps give
+\[
+ \begin{aligned}
+ L_S(T_C)+\sum_{i=0}^5L_S(T_i)
+ &<\frac32+\frac32(N_++N_{\mathrm{sp}})
+   +2(6-N_+-N_{\mathrm{sp}})\\
+ &=\frac{27-N_+-N_{\mathrm{sp}}}{2}\le12.
+ \end{aligned}
+\]
+The two classes counted by $N_+$ and $N_{\mathrm{sp}}$ are disjoint: every
+$\Vdone$, $\Vdtwo$, or $\Tlike$ triangle has positive adjacent-radial support
+and is nonsupercritical, while every supercritical triangle is $\Vdzero$.
+\end{proof}
+
+\subsection{Vd1 and Vd2 corner optimization}
+
+Use temporary coordinates
+\[
+ X=V_0+x(V_5-V_0)+y(V_1-V_0),
+\]
+so $V_0=(0,0)$, $V_5=(1,0)$, $V_1=(0,1)$, $O=(1,1)$, and
+$\lVert(x,y)\rVert^2=x^2+y^2-xy$.
+
+\begin{proposition}[Vd1/Vd2 corner normal form]
+\label{prop:vd-corner-normal-form}
+Let $T$ be the closure of an original $\Vdone$ or $\Vdtwo$ triangle at
+$V_0$, and let $A_0,B_0$ be its exact reaches toward $V_5,V_1$.  There is a
+unique $t>0$ such that, with $d=\sqrt{t^2+t+1}$,
+\begin{equation}
+ T=\left\{(x,y):
+ \begin{aligned}
+ x-(t+1)y&\le A_0,\\
+ ty-(t+1)x&\le tB_0,\\
+ tx+y&\le d-A_0-tB_0
+ \end{aligned}\right\}.
+ \label{eq:vd-normal-form}
+\end{equation}
+The raw traces, parametrized from the indicated outer vertex, are
+\begin{equation}
+\begin{array}{c|c}
+r_0&0\le s\le\dfrac{d-A_0-tB_0}{t+1}\\[6pt]
+r_1&\dfrac{t(1-B_0)}{t+1}\le s\le\dfrac{d-A_0-tB_0-1}{t}\\[8pt]
+r_5&\dfrac{1-A_0}{t+1}\le s\le d-A_0-tB_0-t.
+\end{array}
+\label{eq:vd-ray-intervals}
+\end{equation}
+Intersecting with $[0,1]$ gives the actual traces, and
+\begin{equation}
+ A_0+B_0<\frac12.
+ \label{eq:vd-half-cap}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The triangle has one vertex $W$ outside $H$ and two vertices $U,Z$ in $H$.
+Because $V_0$ is an interior convex combination, both coordinates of $W$ are
+negative.  The axis endpoints $(A_0,0),(0,B_0)$ lie on the two sides through
+$W$.  Put $p=U-W$ and $q=Z-W$.  Their order selects
+\[
+ q=(p_x-p_y,p_x),\qquad p_x>p_y>0.
+\]
+Writing $t=(p_x-p_y)/p_y$ gives uniquely
+\[
+ p=\frac{(t+1,1)}d,\qquad q=\frac{(t,t+1)}d,
+\]
+which yields \eqref{eq:vd-normal-form}; substitution of
+$(s,s),(s,1),(1,s)$ yields \eqref{eq:vd-ray-intervals}.
+
+If $r_1$ has positive trace, clearing its endpoint inequality gives
+\[
+ (t+1)A_0+tB_0<(t+1)(d-1)-t^2.
+\]
+Since the left side is at least $t(A_0+B_0)$,
+\[
+ A_0+B_0<\frac{(t+1)(d-1)-t^2}{t}<\frac12.
+\]
+The last inequality follows from
+\[
+ \left(t^2+\frac{3t}{2}+1\right)^2
+ -(t+1)^2(t^2+t+1)=\frac{t^2}{4}>0.
+\]
+Reflection treats support on $r_5$.
+\end{proof}
+
+\begin{lemma}[Vd2 adjacent-midpoint cap]
+\label{lem:vd2-neighbor-midpoint-cap}
+If an original open V triangle has $\Vdtwo$ closure $T_i$ and
+\[
+ \{M_{i-1},M_{i+1}\}\cap T_i\ne\varnothing,
+\]
+then its exact boundary reaches satisfy
+\[
+ A_i+B_i<\frac13.
+\]
+\end{lemma}
+
+\begin{proof}
+In Proposition~\ref{prop:vd-corner-normal-form}, reflection sends
+\[
+ (t,A_0,B_0,M_1,M_5)
+ \longmapsto(1/t,B_0,A_0,M_5,M_1).
+\]
+Thus assume $t\ge1$ and use $A_0+B_0\le A_0+tB_0$.
+
+If $M_5=(1,1/2)$ lies in $T$, the third half-plane gives
+\[
+ A_0+B_0\le A_0+tB_0
+ \le d-t-\frac12\le\sqrt3-\frac32<\frac13.
+\]
+If $M_1=(1/2,1)$ lies in $T$, the second and third half-planes give
+\[
+ B_0\ge\frac{t-1}{2t},
+ \qquad A_0+B_0\le S(t):=d-t-\frac1{2t}.
+\]
+Positive-length contact with $r_5$ gives
+\[
+ A_0+B_0<R(t):=\frac{2(t+1)d-3t^2-t-2}{2t}.
+\]
+Direct differentiation shows $S$ increasing and $R$ decreasing on
+$[1,\infty)$.  For $S'$, the sign reduces to
+\[
+ (2t+1)^2t^4-(t^2+t+1)(2t^2-1)^2
+ =(t+1)(t^3+3t^2-1)>0,
+\]
+while $R'<0$ follows from $d>t+1/2$.  Splitting at $t=4/3$ gives
+\[
+\begin{aligned}
+1\le t\le\frac43&:\quad
+A_0+B_0\le\frac{8\sqrt{37}-41}{24}<\frac13,\\
+t\ge\frac43&:\quad
+A_0+B_0<\frac{7\sqrt{37}-39}{12}<\frac13.
+\end{aligned}
+\]
+The final comparisons are $8\sqrt{37}<49$ and $7\sqrt{37}<43$.
+\end{proof}
+
+\subsection{Boundary contributions}
+
+\begin{lemma}[Boundary-trace table calculation]
+\label{lem:app-boundary-trace-table-calculation}
+All identities and bounds in Theorem~\ref{thm:boundary-trace-table} hold.
+\end{lemma}
+
+\begin{proof}
+The two incident traces of a V triangle are initial intervals of lengths
+$A_i,B_i$.  A relative-interior point of a nonincident edge is more than unit
+distance from $V_i$, while $V_i\in\interior(T_i)$.  Hence no other edge has
+positive-length trace and
+\[
+ L_{\partial H}(T_i)=A_i+B_i.
+\]
+
+The $N_E(T_C)=0$ row is the definition.  The other C triangle rows are
+Corollary~\ref{cor:signed-center-boundary}.  If a $\Vdzero$ triangle is
+nonsupercritical, its boundary trace is at most $1$.  If it is
+supercritical, its two incident endpoints have squared distance
+\[
+ A_i^2+A_iB_i+B_i^2\le1,
+\]
+and therefore
+\[
+ \frac34(A_i+B_i)^2\le1.
+\]
+This gives $A_i+B_i\le2/\sqrt3$.  The $\Vdone/\Vdtwo$ row is
+\eqref{eq:vd-half-cap}.  For an original $\Tlike$ triangle, the Type-II
+calculation in \zcref{lem:app-t3-translation-calculation} gives
+$A_i+B_i=z-\alpha<z<1$ because $0<t<1$ and $\alpha>0$.
+\end{proof}
+
+\subsection{Common perimeter budgets}
+
+\begin{lemma}[Master perimeter deficit]
+\label{lem:signed-perimeter-deficit}
+Put
+\[
+ \theta:=\frac2{\sqrt3}-1.
+\]
+Suppose a branch has center contribution
+$L_C:=L_{\partial H}(T_C)$, exactly $n$ supercritical $\Vdzero$ triangles,
+and $m\ge1$ distinct nonsupercritical V triangles $T_{i_1},\ldots,T_{i_m}$
+such that
+\[
+ L_{\partial H}(T_{i_j})<q_j<1\qquad(1\le j\le m).
+\]
+Suppose also that each of the remaining $6-n-m$ V triangles contributes at
+most $1$.  If
+\begin{equation}
+ L_C+n\theta\le\sum_{j=1}^m(1-q_j),
+ \label{eq:signed-perimeter-deficit}
+\end{equation}
+then the seven triangles do not cover $\partial H$.
+\end{lemma}
+
+\begin{proof}
+The supercritical $\Vdzero$ cap is $2/\sqrt3$, so the total contribution is
+strictly less than
+\[
+\begin{aligned}
+ L_C+n\frac2{\sqrt3}+\sum_{j=1}^m q_j+(6-n-m)
+ &=6+L_C+n\theta-\sum_{j=1}^m(1-q_j)\\
+ &\le6.
+\end{aligned}
+\]
+The strictness comes from $m\ge1$ and the distinguished strict caps, in
+contradiction with perimeter subadditivity.
+\end{proof}
+
+\begin{lemma}[Small center slacks in the one-Vd branch]
+\label{lem:signed-small-slack}
+Assume there is exactly one supercritical $\Vdzero$ triangle, exactly one
+$\Vdone$ or $\Vdtwo$ triangle, and four nonsupercritical $\Vdzero$
+triangles.  Every candidate surviving the perimeter budget is CE2 and
+satisfies
+\begin{equation}
+ \alpha+\delta<\frac1{24},
+ \qquad
+ \alpha+\delta<\frac{\min\{R,W\}}6.
+ \label{eq:signed-small-slacks}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+The exceptional V triangle has strict cap $1/2$.  Perimeter coverage and
+Lemma~\ref{lem:signed-perimeter-deficit} force
+\[
+ L_C+\theta>\frac12.
+\]
+Put $\kappa:=1/2-\theta=3/2-2/\sqrt3$.  The CE1 cap gives
+\[
+ L_C+\theta
+ \le\left(\frac{\sqrt3}{2}-\frac34\right)
+   +\left(\frac2{\sqrt3}-1\right)<\frac12,
+\]
+so every survivor is CE2.
+
+Set $T:=\alpha+\delta$.  The CE2 formula gives
+\[
+ T<M(E):=\frac{RW}{E^2}\left(\frac{E}{1+E}-\kappa\right)
+ =\frac{1-E}{E^2}\bigl(E-\kappa(1+E)\bigr).
+\]
+Since
+\[
+ M'(E)=-\frac{E-2\kappa}{E^3}<0
+ \qquad\left(\frac{\sqrt3}{2}\le E<1\right),
+\]
+where $2\kappa<\sqrt3/2$, one has
+\[
+ T<M(\sqrt3/2)=\frac{8\sqrt3}{9}-\frac32<\frac1{24}.
+\]
+The last comparison follows from $64\sqrt3<111$.
+
+Also $E/(1+E)<1/2$ gives
+\[
+ T<\frac{RW}{E^2}\theta.
+\]
+Because $E^2=W+R^2=R+W^2$, the factor $RW/E^2$ is at most both $R$ and
+$W$; and $\theta<1/6$.  This proves \eqref{eq:signed-small-slacks}.
+\end{proof}
+
+\begin{lemma}[CE2 endpoints dominate total slack]
+\label{lem:signed-endpoints-dominate-slack}
+Assume $\Delta_R>0$ and $\Delta_L>0$.  Put
+\[
+ T:=\alpha+\delta,
+ \qquad x:=\frac{\eta+T}{W},
+ \qquad y:=\frac{\eta+T}{R}.
+\]
+Then
+\begin{equation}
+ T<\frac12\min\{x,y\}.
+ \label{eq:signed-endpoint-slack}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Equation~\eqref{eq:signed-total-slack} gives $T<\eta/E$.  Since
+\[
+ E^2-(2R-1)^2=3RW>0,
+\]
+one has $|2R-1|T<\eta$.  Therefore
+\[
+ x-2T=\frac{\eta-(1-2R)T}{W}>0,
+ \qquad
+ y-2T=\frac{\eta-(2R-1)T}{R}>0.
+\]
+\end{proof}
+
+\begin{lemma}[Perimeter-budget substitutions]
+\label{lem:app-signed-budget-calculation}
+Items (1)--(5) of Corollary~\ref{cor:signed-budget-branches} are impossible.
+\end{lemma}
+
+\begin{proof}
+For item (1), use $L_C=0$, one supercritical cap $2/\sqrt3$, and one strict
+$\Vdone/\Vdtwo$ cap $1/2$ in
+Lemma~\ref{lem:signed-perimeter-deficit}; the required comparison is
+\[
+ \frac2{\sqrt3}-1<\frac12.
+\]
+For item (2), $L_C<1/2$, the distinguished V triangle has strict cap $1/2$,
+and the remaining five contribute at most $1$.
+
+For item (3), the CE1 cap, the exceptional cap, the supercritical cap, and
+four unit caps give
+\[
+ \left(\frac{\sqrt3}{2}-\frac34\right)
+ +\frac12+\frac2{\sqrt3}+4<6.
+\]
+For item (4), the CE2 sum is strictly less than
+\[
+ \frac12+\frac12+\frac12+\frac2{\sqrt3}+3<6.
+\]
+For item (5), Lemma~\ref{lem:vd2-neighbor-midpoint-cap} gives the strict
+$1/3$ cap, and the total is strictly less than
+\[
+ \frac12+\frac13+\frac2{\sqrt3}+4<6.
+\]
+Each inequality contradicts the length-$6$ perimeter requirement.
+\end{proof}
