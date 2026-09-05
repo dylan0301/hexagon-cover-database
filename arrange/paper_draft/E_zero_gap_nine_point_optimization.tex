@@ -3,7 +3,9 @@
 \label{sec:ab-core}
 
 This appendix supplies the exact frontier, radial, pointwise, Newton, and
-support-arc calculations for the zero-gap nine-point obstruction.  It uses
+support-arc calculations for the type-independent zero-gap nine-point
+obstruction. The radial step reuses the common $C_+,C_-$ forcing interface;
+the three asymmetric witnesses and the exact certificate are unchanged.  It uses
 the public parameters and witness \(K_{\rm wit}(a,b)\) from
 \zcref{sec:strategy4-reader}.  The symbols \(A,B,C\) introduced below are
 appendix-only Newton inner points required by the exact certificate; they do
@@ -250,8 +252,8 @@ One has
 \begin{equation}
  0<c_*<1,\qquad c_*>1-m.                         \label{eq:cstar-bounds}
 \end{equation}
-Assume that every $T_i=\overline{U_i}$ is $\Vdzero$ and that
-$U_C,U_0,\ldots,U_5$ cover $H$.  Then, for every $i$,
+Assume that $U_C,U_0,\ldots,U_5$ cover $H$, with no restriction on the
+normalized V types. Then, for every $i$,
 \[
  D_i=(1-c_*)V_i\in U_C.
 \]
@@ -279,28 +281,21 @@ one has
 Thus $A_*>E$ and $c_*>1-m$.  This proves
 \eqref{eq:cstar-bounds}.
 
-Fix $i$.  If $D_i\in U_i$, openness supplies $\varepsilon>0$ with
-$c_*+\varepsilon<1$ such that
-$(1-c_*-\varepsilon)V_i\in U_i$.  The same triangle contains its two selected
-handoff anchors.  Since their incoming and forward-reach lower bounds dominate $p$ and
-$q$, convexity and passage to the closure give a closed unit triangle
-realizing $(p,q,c_*+\varepsilon)$.  This contradicts the definition of
-$c_*=c_{\max}(p,q)$.  Hence $D_i\notin U_i$.
-
-If $D_i$ belonged to $U_{i-1}$ or $U_{i+1}$, a small plane ball inside that
-open triangle would meet $r_i$ in a positive-length
-interval.  This contradicts the $\Vdzero$ definition.  For the remaining
-triangles put $r=1-c_*>0$.  Directly,
+By \zcref{lem:ab-extreme-jump}, every selected pair dominates $(p,q)$.
+The common-pair forcing corollary
+\zcref{cor:new-uniform-common-pair-forcing} therefore forces the same
+$D_i=(1-c_*)V_i$ for every V-type pattern. To make the adjacent-role step
+explicit, \zcref{lem:new-common-pair-domination} and
+\eqref{eq:cstar-bounds} give
 \[
- \lVert rV_i-V_{i\pm2}\rVert^2=1+r+r^2>1,
- \qquad
- \lVert rV_i-V_{i+3}\rVert=1+r>1.
+ C_+(p,q),C_-(p,q)\le1-m<c_*.
 \]
-Since $V_j\in U_j$ and two points of an open unit triangle are at distance
-strictly below $1$, these inequalities exclude $D_i$ from the other three
-V triangles.  Thus no V triangle contains $D_i$.  The point lies in
-$\interior(H)$ by \eqref{eq:cstar-bounds}, so the assumed cover forces
-$D_i\in U_C$.
+A neighboring open V triangle containing $D_i$ would have positive trace
+on $r_i$ and its closure would realize neighboring coordinate $c_*$ with
+the common anchors, contradicting this inequality. If its type forbids
+that trace, openness already gives a contradiction. The own-role and
+nonlocal exclusions are the shared type-aware forcing lemma. Thus no
+V triangle contains $D_i$, and full coverage puts it in $U_C$.
 
 The six points $D_i$ form a regular hexagon of circumradius $1-c_*$.  Their
 convex hull contains its centered incircle of radius $h(1-c_*)$, and convexity

@@ -86,13 +86,18 @@ not merely indexes.  In particular, the complete one-Vd package is
 | C | \(K_{\rm tr}=\{O,M_0,X(\ell),X(r),P_2,P_3,P_4\}\) | `4102_new`, `4103` |
 | D | O-side endpoint of a supported special role | `4130_new`, [`4143_new`](../4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4143_new_Vd1_rescuer_finite_enclosure.md) |
 | E | a residual point or interval between all local V traces and the C exit | [`4141_new`](../4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4141_new_adjacent_Vd_finite_enclosure.md), [`4142_new`](../4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4142_new_nonadjacent_Vd_finite_enclosure.md) |
-| F | radial disk plus \(Q_-,Q_0,Q_+\) | `3105X` exact nine-point package |
+| F | radial disk plus \(Q_-,Q_0,Q_+\) | `3105X` exact nine-point package; every zero-gap \(N_+=1\) V-type pattern |
 
 The corrected Vd1 replacement
 [`4144_new`](../4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4144_new_two_chart_replacement_and_router.md)
 is a router, not a seventh terminal.  It produces six nonsupercritical Vd0
 roles and recomputes the output gap rank: rank zero routes to Strategy 1,
 rank one to A, and rank two to B.
+
+Terminal F uses the same uniform common-pair radial corollary in `2608`
+as the gap cases. Its asymmetric witnesses and polynomial certificate are
+unchanged. The one-ascent T3-like area theorem and the Vd1/Vd2 zero-gap
+length theorem remain independent alternative proofs.
 
 ## 7. Case-source ownership
 

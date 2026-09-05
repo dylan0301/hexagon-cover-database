@@ -86,12 +86,12 @@ The following disjoint rows are exhaustive.
 | $N_+$ | Vertex refinement | Closing interface |
 |---:|---|---|
 | $0$ | arbitrary | `2531`, row Z0 |
-| $1$ | $d\ge1$ | `2531`, row Z1 |
-| $1$ | $d=0$, $t\ge1$ | `2400`, one-ascent exceptional-loss row |
-| $1$ | $(d,t)=(0,0)$ | `2610`, Terminal F |
+| $1$ | arbitrary | `2610`, type-independent Terminal F |
 | at least $2$ | arbitrary | `2400`, multiple-ascent row |
 
-Thus every zero-gap state is impossible.
+Thus every zero-gap state is impossible. The Vd1/Vd2 length row Z1
+and the T3-like one-ascent area theorem remain independent alternative
+proofs of their subclasses; neither is required to dispatch $N_+=1$.
 
 ### Nonzero boundary gaps
 

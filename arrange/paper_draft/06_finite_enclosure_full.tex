@@ -166,6 +166,32 @@ This is the branchwise comparison in
 \zcref{lem:appendix-common-pair-domination}.
 \end{proof}
 
+\begin{corollary}[Uniform common-pair radial forcing]
+\label{cor:new-uniform-common-pair-forcing}
+Suppose $p,q\ge0$, $p+q\le1$, and
+\[
+ p\le a_i\le A_i,\qquad q\le b_i\le B_i\quad(0\le i\le5),
+ \qquad 0<c_*:=c_{\max}(p,q)<1.
+\]
+Then $(1-c_*)V_i\notin\bigcup_{j=0}^5U_j$ for every $i$, without a
+restriction on the normalized V types. Under a hypothetical cover of $H$,
+\[
+ (1-c_*)V_i\in U_C\quad(0\le i\le5),
+ \qquad \mathbb B(O,h(1-c_*))\subset U_C.
+\]
+\end{corollary}
+
+\begin{proof}
+Convexity permits reselecting every boundary pair as $(p,q)$. Apply
+\zcref{lem:new-type-aware-radial-forcing} to these common lower bounds,
+including only the actual positive neighboring traces.
+By \zcref{lem:new-common-pair-domination}, every included $C_+$ or $C_-$
+term is at most $c_*$, while the own-ray term equals $c_*$. Hence each
+maximum is exactly $c_*$ and the forced points are the stated symmetric
+ones. Their convex hull contains the displayed disk. In particular, a
+Vd1, Vd2, or T3-like crossing does not change any witness coordinate.
+\end{proof}
+
 \begin{lemma}[Open trace endpoint]
 \label{lem:new-open-trace-endpoint}
 Let \(U\) be an open equilateral triangle and \(T=\overline U\).  If
@@ -325,7 +351,7 @@ T_C\cap\{M_i\}_{i=0}^5=\{M_0\}
 \(N_{\rm gap}=0\)&
 \(N_+=1\)&
 \(\begin{gathered}
-(d,t)=(0,0)\\
+d+t\le6\\
 H\subseteq U_C\cup\bigcup_{i=0}^5U_i
 \end{gathered}\)&
 \textbf{F.} Zero-gap nine-point obstruction.\\[2pt]
@@ -869,10 +895,10 @@ Assume
 \[
  N_{\rm gap}=0,
  \qquad
- N_+=1,
- \qquad
- (d,t)=(0,0).
+ N_+=1.
 \]
+No normalized V-type restriction is imposed. The same nine points work
+when Vd1, Vd2, or T3-like roles meet adjacent radial segments.
 Rotate the unique supercritical role to index \(4\).  The exact-one handoff
 calculation \zcref{lem:ab-extreme-jump} gives
 \begin{equation}
@@ -920,7 +946,8 @@ Put
  \qquad
  P_i^{\rm rad}:=(1-c_*)V_i\quad(0\le i\le5).
 \]
-The radial forcing calculation gives
+The bounds in \zcref{lem:symmetric-core-witness} give $0<c_*<1$.
+Applying \zcref{cor:new-uniform-common-pair-forcing} to the common pair gives
 \begin{equation}
  \mathbb B(O,r_*)
  \subseteq\conv\{P_0^{\rm rad},\ldots,P_5^{\rm rad}\}
@@ -968,7 +995,8 @@ The three frontier points are the singleton intersections
 \]
 Their exact construction and exclusions in
 \zcref{thm:strict-ab-union,lem:fixed-line-signs,
-lem:asymmetric-core-witness} give
+lem:asymmetric-core-witness} use contained vertices and actual handoffs, not
+Vd0 locality, and give
 \begin{equation}
  Q_-,Q_0,Q_+\in U_C.
  \label{eq:reader-forced-asymmetric}
@@ -1005,9 +1033,7 @@ There is no hypothetical cover with
 \[
  N_{\rm gap}=0,
  \qquad
- N_+=1,
- \qquad
- (d,t)=(0,0).
+ N_+=1.
 \]
 \end{theorem}
 
@@ -1024,8 +1050,9 @@ The construction gives the compact containment
 
 \begin{proposition}[Cases excluded by the nine-point obstruction]
 \label{prop:reader-ab-core-branches}
-Every \(N_{\rm gap}=0\), \(N_+=1\), \((d,t)=(0,0)\) row of
-\zcref{tab:routing} is impossible, independently of the center class.
+The entire \(N_{\rm gap}=0\), \(N_+=1\) row of
+\zcref{tab:routing} is impossible, independently of the center class and
+normalized V-type pattern.
 \end{proposition}
 
 \begin{proof}

@@ -62,10 +62,11 @@ is irrelevant.
 | $N_+$ | Refinement | Engine or terminal | Strategy |
 |---:|---|---|---:|
 | $0$ | any | `2531` row Z0 | 1 |
-| $1$ | $d\ge1$ | `2531` row Z1 | 1 |
-| $1$ | $d=0$, $t\ge1$ | `2400` one-ascent exceptional profile | 2 |
-| $1$ | $(d,t)=(0,0)$ | `2610` Terminal F / `31058` | 3 |
+| $1$ | any normalized V types | `2610` Terminal F / `31058` | 3 |
 | at least $2$ | any | `2400` multiple-ascent profile | 2 |
+
+The former Vd1/Vd2 length row and T3-like area row are retained as
+independent alternative proofs, not separate active zero-gap routes.
 
 ## 4. Nonzero-gap preprocessing
 

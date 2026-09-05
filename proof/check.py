@@ -300,6 +300,38 @@ for interface in [
     if interface not in main_text:
         fail(f"main theorem does not route through active interface: {interface}")
 
+# Keep the unified zero-gap theorem, the public case register, and its shared
+# radial interface synchronized. These are source checks, not proof verification.
+finite_source = (ROOT / "arrange/paper_draft/06_finite_enclosure_full.tex").read_text(
+    encoding="utf-8"
+)
+zero_gap_statement = re.search(
+    r"\\begin\{theorem\}\[Zero-gap obstruction\](.*?)\\end\{theorem\}",
+    active_tex(finite_source), re.S,
+)
+if zero_gap_statement is None:
+    fail("missing public zero-gap obstruction statement")
+else:
+    statement = zero_gap_statement.group(1)
+    if "N_+=1" not in statement or "N_{\\rm gap}=0" not in statement:
+        fail("zero-gap terminal lost its exact N_gap=0, N_+=1 scope")
+    if "(d,t)" in statement or "Vdzero" in statement:
+        fail("zero-gap terminal reintroduced a V-type restriction")
+
+uniform_label = "cor:new-uniform-common-pair-forcing"
+if finite_source.count("\\label{" + uniform_label + "}") != 1:
+    fail("uniform common-pair forcing must have one public proof owner")
+zero_gap_calculation = (
+    ROOT / "arrange/paper_draft/E_zero_gap_nine_point_optimization.tex"
+).read_text(encoding="utf-8")
+if "\\zcref{" + uniform_label + "}" not in zero_gap_calculation:
+    fail("zero-gap radial calculation does not use the shared forcing interface")
+routing_text = (ROOT / "arrange/paper_draft/01_introduction.tex").read_text(
+    encoding="utf-8"
+)
+if routing_text.count("$0$&$1$&") != 1:
+    fail("zero-gap N_+=1 must have exactly one routing-table row")
+
 length_wrappers = [
     "proof/4XXX_CE1CE2/40XX_Nplus0/404X_exists_Vd1_Vd2_obstruction/4040_CE1_Nplus0_exists_Vd1_Vd2_boundary_length_obstruction.md",
     "proof/4XXX_CE1CE2/40XX_Nplus0/404X_exists_Vd1_Vd2_obstruction/4041_CE2_Nplus0_exists_Vd1_Vd2_boundary_length_obstruction.md",

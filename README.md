@@ -60,9 +60,14 @@ Lowercase \((a_i,b_i,c_i)\) denotes selected lower bounds. In particular,
 remain gaps because the covering triangles are open.
 
 The active proof mechanisms are exposed through three reusable interfaces:
-`2400` for the two zero-gap area rows, `2531` for all length-budget rows, and
+`2400` for the multiple-ascent area route and the retained T3-like alternative,
+`2531` for the length-budget rows, and
 `2610` for the six finite-enclosure terminal families. Detailed case files are
 retained as placement adapters and compatibility paths.
+
+The zero-gap $N_+=1$ row now uses one type-independent nine-point theorem:
+the common $c_{\max},C_+,C_-$ engine handles all permitted adjacent supports
+without changing the six radial or three asymmetric points.
 
 The difficult zero-gap nine-point overlap calculation is an exact certificate
 over integers, rationals, and \(\mathbb Q(\sqrt3)\). Floating-point scans are

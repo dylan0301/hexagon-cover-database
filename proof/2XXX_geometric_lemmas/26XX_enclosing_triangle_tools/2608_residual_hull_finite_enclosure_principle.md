@@ -2,8 +2,8 @@
 
 Status: Proven
 
-This note contains the finite-point geometry used by the nonzero-gap proof
-packages.  It does not infer an enclosure inequality from a previously proved
+This note contains the common finite-point geometry used by the zero-gap
+and nonzero-gap proof packages.  It does not infer an enclosure inequality from a previously proved
 case exclusion.  Every witness is explicitly excluded from the six open V
 roles, and every terminal inequality is proved from support functions and the
 exact local admissible set.
@@ -291,6 +291,57 @@ $$
 
 By coordinatewise antitonicity, the same conclusion holds for every actual
 boundary pair that dominates $(p,q)$.
+
+### Corollary 5.1: uniform common-pair radial forcing
+
+Let $U_i$ be open unit equilateral triangles containing $V_i$, and put
+$T_i=\overline{U_i}$. Suppose selected lower bounds satisfy
+
+$$
+0\le p\le a_i\le A_i,\qquad
+0\le q\le b_i\le B_i\qquad(i=0,\ldots,5),
+$$
+
+where $p+q\le1$ and $0<c_*:=c_{\max}(p,q)<1$. Then the same six points
+
+$$
+D_i^*=(1-c_*)V_i\qquad(i=0,\ldots,5)
+$$
+
+are outside every open V role, with no Vd0 assumption. Under a seven-role
+cover they belong to $U_C$, and
+
+$$
+\mathcal D_{h(1-c_*)}\subset U_C.
+$$
+
+#### Proof
+
+Convexity allows us to reselect the boundary lower bounds of every role as
+$(p,q)$. Apply Theorem 4.1 to these common data, retaining exactly the
+neighboring terms permitted by the actual positive traces. Each maximum
+contains the own-ray term $c_*$, while Section 5 bounds each included
+$C_+(p,q)$ or $C_-(p,q)$ by $c_*$. Thus every maximum equals $c_*$, and
+Theorem 4.1 forces precisely $D_i^*$, not a different anisotropic witness.
+The strict inequality $c_*<1$ keeps the points away from $O$ and permits
+the open-endpoint argument in Theorem 4.1. The six points form a regular
+hexagon whose convex hull contains $\mathcal D_{h(1-c_*)}$; convexity of
+$U_C$ finishes the proof. $\square$
+
+For comparison, applying Theorem 4.1 to the original selected pairs gives
+possibly smaller maxima $\Gamma_i\le c_*$. Its points
+$\widehat D_i=(1-\Gamma_i)V_i$ then also imply $D_i^*\in U_C$ because
+$O\in U_C$ and
+
+$$
+D_i^*=\frac{1-c_*}{1-\Gamma_i}\widehat D_i+
+\left(1-\frac{1-c_*}{1-\Gamma_i}\right)O.
+$$
+
+Both coefficients lie in $[0,1]$. Reselecting the common data is the more
+direct formulation and also proves exclusion from every V role. The result
+covers Vd1, Vd2, and T3-like supports, including both supports of a Vd2 role;
+no boundary-gap or center-class hypothesis is used in this corollary.
 
 ## 6. Complementary-gap obstruction
 
