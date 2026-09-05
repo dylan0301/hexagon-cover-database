@@ -210,9 +210,9 @@ CASE_TERMINALS = {
 CERTIFICATE_NODES = {
     "thm:cert-caliper",
     "lem:paper-branchwise-cbar",
-    "lem:paper-residual-to-overlap",
+    "lem:paper-residual-to-tangency",
     "thm:paper-exact-mixed-certificate",
-    "prop:technical-four-overlaps",
+    "prop:technical-four-contact-geometry",
 }
 
 
@@ -339,12 +339,12 @@ CASE_META: dict[str, dict[str, Any]] = {
         "detail": "Forces the three parameter-dependent frontier witnesses Q_-,Q_0,Q_+ into U_C.",
     },
     "thm:paper-exact-mixed-certificate": {
-        "cases": ["Row F, c_*>2/3, two mixed unequal-radius cap overlaps"],
+        "cases": ["Row F, c_*>2/3, paired disk-tangent residuals"],
         "detail": "Exact integer/Bernstein certificate; no floating-point or interval arithmetic.",
     },
-    "prop:technical-four-overlaps": {
+    "prop:technical-four-contact-geometry": {
         "cases": ["Row F, c_*>2/3"],
-        "detail": "Combines two analytic equal-radius overlaps with the two exact mixed overlaps.",
+        "detail": "Proves the convex chain, ray order, and two analytic supporting-line bounds.",
     },
     "thm:reader-witness-enclosure": {
         "cases": ["Row F: zero gap, N_+=1, arbitrary V types; any CE0/CE1/CE2"],
@@ -510,16 +510,18 @@ MANUAL_DEPS: dict[str, list[str]] = {
     "lem:asymmetric-core-witness": ["thm:strict-ab-union", "lem:fixed-line-signs", "lem:new-open-trace-endpoint"],
     "lem:technical-newton-reduction": ["lem:fixed-line-signs", "lem:asymmetric-core-witness"],
     "lem:paper-branchwise-cbar": ["prop:new-exact-local-set", "lem:ab-extreme-jump"],
-    "lem:paper-residual-to-overlap": ["lem:paper-branchwise-cbar", "lem:technical-newton-reduction"],
-    "thm:paper-exact-mixed-certificate": ["lem:paper-branchwise-cbar", "lem:paper-residual-to-overlap"],
-    "prop:technical-four-overlaps": ["lem:technical-newton-reduction", "thm:paper-exact-mixed-certificate"],
-    "lem:reader-cap-chain": ["prop:new-enclosure-gauge"],
+    "lem:paper-residual-to-tangency": ["lem:paper-branchwise-cbar", "lem:technical-newton-reduction", "lem:paired-radius-transfer"],
+    "thm:paper-exact-mixed-certificate": ["lem:paper-branchwise-cbar", "lem:paper-residual-to-tangency"],
+    "prop:technical-four-contact-geometry": ["lem:technical-newton-reduction", "prop:new-exact-local-set"],
+    "lem:four-contact-formula": ["prop:new-disk-finite-caliper", "prop:technical-four-contact-geometry"],
+    "lem:paired-radius-transfer": [],
     "thm:reader-witness-enclosure": [
         "lem:symmetric-core-witness",
         "lem:asymmetric-core-witness",
         "lem:technical-newton-reduction",
-        "prop:technical-four-overlaps",
-        "lem:reader-cap-chain",
+        "prop:technical-four-contact-geometry",
+        "lem:four-contact-formula",
+        "thm:paper-exact-mixed-certificate",
     ],
     "thm:reader-zero-gap-obstruction": ["thm:reader-witness-enclosure", "lem:new-compact-open-shrink"],
     "prop:reader-ab-core-branches": ["thm:reader-zero-gap-obstruction", "lem:gap-exhaustion"],
@@ -750,6 +752,11 @@ add_proof_ref(
     "4144_new two-chart replacement and router",
     "proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4144_new_two_chart_replacement_and_router.md",
 )
+add_proof_ref(
+    {"lem:four-contact-formula", "lem:paired-radius-transfer", "lem:paper-residual-to-tangency"},
+    "2611 four-contact enclosure and paired radius transfer",
+    "proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2611_four_contact_disk_enclosure.md",
+)
 for zero_id in {
     "lem:ab-extreme-jump",
     "thm:strict-ab-union",
@@ -757,13 +764,13 @@ for zero_id in {
     "lem:fixed-line-signs",
     "lem:asymmetric-core-witness",
     "lem:technical-newton-reduction",
-    "prop:technical-four-overlaps",
-    "lem:reader-cap-chain",
+    "prop:technical-four-contact-geometry",
+    "lem:four-contact-formula",
     "thm:reader-witness-enclosure",
     "thm:reader-zero-gap-obstruction",
     "prop:reader-ab-core-branches",
     "lem:paper-branchwise-cbar",
-    "lem:paper-residual-to-overlap",
+    "lem:paper-residual-to-tangency",
     "thm:paper-exact-mixed-certificate",
 }:
     PROOF_REFS[zero_id].append(

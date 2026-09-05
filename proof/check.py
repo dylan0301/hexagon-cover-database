@@ -391,6 +391,25 @@ result = subprocess.run(["git", "diff", "--check"], cwd=ROOT, text=True, capture
 if result.returncode:
     fail(result.stdout + result.stderr)
 
+# The paired transfer and determinant orientation must match the preserved
+# certificate algebra. This is an exact identity check, not numerical evidence.
+four_contact_checker = provenance.parent / "verify_four_contact_identities.py"
+if not four_contact_checker.is_file():
+    fail("missing four-contact identity checker")
+else:
+    result = subprocess.run([sys.executable, str(four_contact_checker)], cwd=ROOT,
+                            text=True, capture_output=True)
+    if result.returncode:
+        fail(result.stdout + result.stderr)
+    else:
+        print(result.stdout.strip())
+for label in ["lem:four-contact-formula", "lem:paired-radius-transfer"]:
+    if "\\label{" + label + "}" not in zero_gap_calculation:
+        fail(f"missing four-contact paper interface: {label}")
+for stale in ["\\label{lem:reader-cap-chain}", "Put $W=C+RA$."]:
+    if stale in zero_gap_calculation:
+        fail(f"obsolete cap terminal remains active: {stale}")
+
 if ERRORS:
     print("proof/check.py: FAILED", file=sys.stderr)
     for error in ERRORS:

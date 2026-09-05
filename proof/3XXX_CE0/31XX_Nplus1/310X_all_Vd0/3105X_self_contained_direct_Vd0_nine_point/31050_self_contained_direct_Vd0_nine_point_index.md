@@ -7,7 +7,7 @@ branch, independently of the C class and normalized V types. It treats six
 open V roles that cover the full boundary and have exactly one supercritical
 actual row. Historical Vd0 filenames and directory names are retained for
 citation and certificate stability.  Six radial witnesses and three asymmetric
-witnesses are forced directly into the center role, and an exact finite cap
+witnesses are forced directly into the center role, and an exact four-contact
 certificate proves that no open unit equilateral triangle can contain them.
 
 The proof notes below are self-contained relative to the earlier `310X`
@@ -23,8 +23,8 @@ this index.
 | [`31051_direct_radial_forcing.md`](31051_direct_radial_forcing.md) | Proven | Forces the six common radial witnesses out of every actual vertex role. |
 | [`31052_fixed_line_circle_signs.md`](31052_fixed_line_circle_signs.md) | Proven | Proves the exact first-root, moving-circle, coordinate, and reflected sign inequalities. |
 | [`31053_direct_asymmetric_witness_forcing.md`](31053_direct_asymmetric_witness_forcing.md) | Proven | Defines the three asymmetric witnesses and excludes them from all six actual vertex roles. |
-| [`31054_four_cap_enclosure_reduction.md`](31054_four_cap_enclosure_reduction.md) | Proven | Reduces enclosure to a cyclic cap chain and proves the two adjacent overlaps analytically. |
-| [`31055_rational_radial_envelopes_and_mixed_reduction.md`](31055_rational_radial_envelopes_and_mixed_reduction.md) | Proven | Replaces the exact radial value by rational envelopes and reduces the mixed overlaps to eight integer-polynomial signs. |
+| [`31054_four_cap_enclosure_reduction.md`](31054_four_cap_enclosure_reduction.md) | Proven | Reduces enclosure to four supporting contacts and proves the two adjacent line bounds analytically. |
+| [`31055_rational_radial_envelopes_and_mixed_reduction.md`](31055_rational_radial_envelopes_and_mixed_reduction.md) | Proven | Replaces the exact radial value by rational envelopes and reduces paired tangent residuals to eight integer-polynomial signs. |
 | [`31056_global_analytic_mixed_positivity.md`](31056_global_analytic_mixed_positivity.md) | Proven | Proves the eight signs on three fixed charts by twenty global Bernstein identities. |
 | [`31057_terminal_nine_point_enclosure.md`](31057_terminal_nine_point_enclosure.md) | Proven | Assembles the exact terminal inequality $\Lambda(K_{\mathrm{wit}})\ge1$. |
 | [`31058_center_independent_direct_nine_point_obstruction.md`](31058_center_independent_direct_nine_point_obstruction.md) | Proven | Gives the reusable center-class-independent all-boundary contradiction. |
@@ -47,6 +47,8 @@ are supporting certificate artifacts rather than separate proof-status notes.
 | [`20091_ab_union_curve_a_plus_b_gt_1.md`](../../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md) | Proven | Exact four-piece frontier of the unique strict supercritical V triangle. |
 | [`2008`](../../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2008_neighbor_ray_max_c_formula.md) | Proven | Exact neighboring capacities $C_+,C_-$. |
 | [`2608`](../../../../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2608_residual_hull_finite_enclosure_principle.md) | Proven | Common-pair domination and type-independent uniform radial forcing. |
+
+The active terminal also uses [`2611`](../../../../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2611_four_contact_disk_enclosure.md) for four-contact minimization and simultaneous radius transfer.
 
 ## Provenance from earlier `310X` work
 

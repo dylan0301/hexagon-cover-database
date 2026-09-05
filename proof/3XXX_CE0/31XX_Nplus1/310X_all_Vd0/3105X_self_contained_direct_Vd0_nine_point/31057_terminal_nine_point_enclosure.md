@@ -63,177 +63,70 @@ containing the compact set $K$.
 
 ## Proof
 
-The support formula proved in
-[`31054_four_cap_enclosure_reduction.md`](31054_four_cap_enclosure_reduction.md)
-is
+The forced disk gives $\Lambda(K_{\mathrm{wit}})\ge3(1-c_*)$, so the
+claim is immediate if $c_*\le2/3$. Assume $c_*>2/3$ and hence
+$0<\eta<h/3$.
+
+The exact Newton construction in
+[`31054`](31054_four_cap_enclosure_reduction.md) gives
 
 $$
-\Lambda(K)
-=
-\frac1h
-\min_{\left\lVert n\right\rVert=1}
-\sum_{j=0}^2h_K(\mathsf R^j n),
-\tag{4}
+A\in(Q_0,Q_-),\qquad B=Q_0,\qquad C\in(Q_0,Q_+),
 $$
 
-where $\mathsf R$ is rotation through $2\pi/3$.  The disk in (2) gives
+$$
+\widehat K=\operatorname{conv}(\mathcal D_\eta\cup\{A,B,C\})
+\subseteq\operatorname{conv}(K_{\mathrm{wit}}).
+$$
+
+The same note verifies the ordered convex chain in an open $120$-degree
+cone and the supporting-line distances
+
+$$
+d_{AB},d_{BC}\ge h-2\eta>\eta.
+$$
+
+By the four-contact theorem in [`2611`](../../../../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2611_four_contact_disk_enclosure.md), a minimizing enclosing triangle
+has one of four relevant side contacts: $AB$, $BC$, or an exposed disk
+tangent through $A$ or $C$. At either point--point contact the support sum
+is at least $d+2\eta\ge h$.
+
+For the two tangencies let
+
+$$
+\Delta=\operatorname{cross}(C,\mathsf RA)>0,
+\quad \nu=\langle C,\mathsf RA\rangle,
+$$
+
+$$
+P_X(\eta)=(\|X\|^2-\eta^2)\Delta^2-
+\bigl((h-2\eta)\|X\|^2-\eta\nu\bigr)^2
+\quad(X=A,C).
+$$
+
+The rational-envelope and Gram calculation in
+[`31055`](31055_rational_radial_envelopes_and_mixed_reduction.md) reduces the
+paired residual signs at $\bar\eta=h(1-\bar c)\le\eta$ to the unchanged
+eight integer-polynomial signs. The exact three-chart proof in
+[`31056`](31056_global_analytic_mixed_positivity.md) establishes those signs
+by twenty global Bernstein identities. Paired radius transfer in `2611`
+then gives $P_A(\eta),P_C(\eta)\ge0$ at the actual radius.
+
+The two tangent support sums are consequently at least $h$ by Corollary 2.1
+of `2611`. All four contacts have support sum at least $h$, so
 
 $$
 \Lambda(K_{\mathrm{wit}})
-\ge3(1-c_*).
+\ge\Lambda(\widehat K)\ge1.
 $$
 
-Thus (3) is immediate when $c_*\le2/3$.
-
-Assume $c_*>2/3$.  The Newton construction in `31054` gives points
-
-$$
-A\in(Q_0,Q_-),
-\qquad
-B=Q_0,
-\qquad
-C\in(Q_0,Q_+),
-$$
-
-and the inner compact convex set
-
-$$
-\widehat K
-=
-\mathrm{conv}
-\left(
-\mathcal D_\eta\mathbin\cup\{A,B,C\}
-\right)
-\subseteq
-\mathrm{conv}(K_{\mathrm{wit}}).
-\tag{5}
-$$
-
-Consequently
-
-$$
-\Lambda(K_{\mathrm{wit}})\ge\Lambda(\widehat K).
-\tag{6}
-$$
-
-For
-
-$$
-S=\widehat K+\mathsf R\widehat K+\mathsf R^2\widehat K,
-\qquad
-W=C+\mathsf R A,
-$$
-
-the same note proves that $S$ contains the full rotational orbits of
-
-$$
-\mathbb D(A,2\eta),
-\quad
-\mathbb D(B,2\eta),
-\quad
-\mathbb D(C,2\eta),
-\quad
-\mathbb D(W,\eta).
-\tag{7}
-$$
-
-It also proves that the rays
-
-$$
-A, B, C, W, \mathsf R A
-$$
-
-occur in this cyclic order, that the necessary determinants are positive,
-that $\left\lVert A\right\rVert,\left\lVert C\right\rVert>\eta$, and that
-the first two consecutive cap overlaps hold:
-
-$$
-I(A,2\eta)
-\longleftrightarrow
-I(B,2\eta)
-\longleftrightarrow
-I(C,2\eta).
-\tag{8}
-$$
-
-It remains to prove the mixed overlaps ending the chain.
-
-By
-[`31055_rational_radial_envelopes_and_mixed_reduction.md`](31055_rational_radial_envelopes_and_mixed_reduction.md),
-the active radial cell has a rational upper envelope $\bar c$ satisfying
-
-$$
-c_*\le\bar c<1.
-$$
-
-Hence
-
-$$
-0<\bar\eta=h(1-\bar c)\le\eta,
-$$
-
-and the three relevant disks in (7) contain
-
-$$
-\mathbb D(C,2\bar\eta),
-\qquad
-\mathbb D(W,\bar\eta),
-\qquad
-\mathbb D(\mathsf R A,2\bar\eta).
-\tag{9}
-$$
-
-The exact Gram calculation in `31055` reduces the two smaller-disk mixed
-residuals to
-
-$$
-Q_A\ge0,
-\qquad
-Q_C\ge0,
-$$
-
-and then to eight integer-polynomial signs with strictly positive omitted
-denominators.  The three-chart theorem
-[`31056_global_analytic_mixed_positivity.md`](31056_global_analytic_mixed_positivity.md)
-proves all eight signs by twenty global Bernstein identities.  Therefore the
-two smaller-disk caps overlap:
-
-$$
-I(C,2\bar\eta)
-\longleftrightarrow
-I(W,\bar\eta)
-\longleftrightarrow
-I(\mathsf R A,2\bar\eta).
-\tag{10}
-$$
-
-Increasing the radii from $\bar\eta$ to $\eta$ only enlarges the caps, so
-(10) proves
-
-$$
-I(C,2\eta)
-\longleftrightarrow
-I(W,\eta)
-\longleftrightarrow
-I(\mathsf R A,2\eta).
-\tag{11}
-$$
-
-Equations (8) and (11) give four consecutive overlaps from the ray of $A$ to
-the ray of $\mathsf R A$.  The cap-order argument in `31054` shows that these caps
-cover that sector.  Rotating by $\mathsf R$ covers the unit circle.  Thus
-$h_S(n)\ge h$ for every unit normal $n$, and (4) gives
-
-$$
-\Lambda(\widehat K)\ge1.
-$$
-
-Equation (6) proves (3). $\square$
+This proves (3). $\square$
 
 ## Certificate character
 
-The two adjacent overlaps are proved by explicit analytic inequalities.  The
-mixed overlaps use rational upper envelopes, exact symbolic elimination, and
-twenty global positive-basis identities on three fixed charts.  No interval
-arithmetic, adaptive subdivision, pruning, or branch-and-bound enters the
-proof.
+The two supporting-line bounds are analytic. The two paired tangent
+residuals use the existing rational upper envelopes, exact elimination, and
+twenty global positive-basis identities on three fixed charts. The Newton
+points and authenticated polynomial data are unchanged. No numerical
+sampling, interval subdivision, or branch-and-bound replaces the certificate.
+The terminal geometry no longer uses a Minkowski sum or support-cap covering.

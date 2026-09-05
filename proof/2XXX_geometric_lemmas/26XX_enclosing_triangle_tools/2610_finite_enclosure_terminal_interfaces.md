@@ -337,8 +337,8 @@ common-pair forcing engine as Terminal A: reselecting \((p,q)\) makes
 every permitted maximum equal to \(c_*\). The asymmetric-point exclusions
 use actual handoffs and distances, not Vd0 locality. Since no actual gap is available,
 the three asymmetric frontier witnesses replace the missing gap segment.
-The two mixed support-cap overlaps are verified by the exact colocated
-certificate.  Equation (5) gives the contradiction. \(\square\)
+The two disk-tangent contacts are verified by the exact colocated
+certificate and paired radius transfer in [`2611`](2611_four_contact_disk_enclosure.md).  Equation (5) gives the contradiction. \(\square\)
 
 The polynomial certificate remains specific to this terminal.
 
@@ -396,7 +396,7 @@ whose placement audit is
 | `4143_new` | Vd1 endpoint inequalities | D |
 | `4144_new` | two-chart replacement | router |
 | `4145_new` | placement exhaustiveness | final one-Vd assembly |
-| `3105X` | asymmetric witnesses and exact support-cap certificate | F |
+| `3105X` | asymmetric witnesses and exact four-contact certificate | F |
 
 The old 4143, 4144, 4146, 4147, 4148, and 414b paths are
 Reference-status compatibility pointers and contain no second proof body.

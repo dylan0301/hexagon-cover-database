@@ -125,3 +125,7 @@ The following calculations should not be merged into a generic theorem:
   certificates inside Terminal F.
 
 These are adapters or exact certificates, not duplicated global endings.
+
+## Four-contact zero-gap enclosure
+
+[`2611`](../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2611_four_contact_disk_enclosure.md) specializes disk--finite-set calipers to the ordered three-point chain and transfers the paired tangent residuals from a smaller disk to the actual disk. The zero-gap forcing and exact polynomial transcript are unchanged.
