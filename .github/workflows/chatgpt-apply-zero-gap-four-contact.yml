@@ -1,0 +1,163 @@
+name: Temporary four-contact validation
+on:
+  push:
+    branches: ['chatgpt/zero-gap-four-contact-20260905120108']
+    paths: ['.github/workflows/chatgpt-apply-zero-gap-four-contact.yml']
+permissions: {}
+concurrency:
+  group: chatgpt-zero-gap-four-contact-20260905120108
+  cancel-in-progress: false
+env:
+  SOURCE_DATE_EPOCH: '946684800'
+  FORCE_SOURCE_DATE: '1'
+  TZ: UTC
+  AUDITED_BASE: a1c9ccb569a5549044498984490b24d36417de8e
+  TASK_BRANCH: chatgpt/zero-gap-four-contact-20260905120108
+  SOURCE_MANIFEST_SHA: a714cf38aaf9a4b225142889fd1bfd1ff20163e6db3d8c80c2cf4150d60c3641
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22'
+      - name: Verify allowlist and construct prospective source tree
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import base64, hashlib, json, lzma, os, stat, subprocess
+          from pathlib import Path, PurePosixPath
+          base=os.environ['AUDITED_BASE']; branch=os.environ['TASK_BRANCH']
+          task=Path('.github/_transient/zero-gap-four-contact-20260905120108')
+          wf='.github/workflows/chatgpt-apply-zero-gap-four-contact.yml'
+          parts=[task/f'source.patch.part{i}' for i in range(4)]
+          transient={wf,str(task/'source-manifest.json'),*(str(p) for p in parts)}
+          assert os.environ['GITHUB_REF_NAME']==branch
+          subprocess.run(['git','merge-base','--is-ancestor',base,'HEAD'],check=True)
+          changed=set(subprocess.check_output(['git','diff','--name-only',base,'HEAD'],text=True).splitlines())
+          assert changed==transient,(changed,transient)
+          for p in [Path(x) for x in transient]:
+              st=p.lstat(); assert stat.S_ISREG(st.st_mode) and st.st_nlink==1
+          raw=(task/'source-manifest.json').read_bytes()
+          assert hashlib.sha256(raw).hexdigest()==os.environ['SOURCE_MANIFEST_SHA']
+          m=json.loads(raw); assert m['base']==base and m['branch']==branch
+          assert len(m['files'])==18 and len({f['path'] for f in m['files']})==18
+          for f in m['files']:
+              p=PurePosixPath(f['path'])
+              assert not p.is_absolute() and '..' not in p.parts and '\x00' not in str(p)
+              assert str(p)==f['path'] and p.parts[0] in {'proof','arrange','interactive'}
+              assert f['operation'] in {'add','replace'} and f['mode'] in {'100644','100755'}
+          encoded=''.join(p.read_text().strip() for p in parts)
+          compressed=base64.b64decode(encoded,validate=True)
+          dec=lzma.LZMADecompressor(memlimit=134217728)
+          patch=dec.decompress(compressed,max_length=1000000)
+          assert dec.eof and not dec.unused_data and len(patch)==79253
+          assert hashlib.sha256(patch).hexdigest()==m['patch_sha256']
+          temp=Path(os.environ['RUNNER_TEMP'])
+          (temp/'source-manifest.json').write_bytes(raw)
+          (temp/'source.patch').write_bytes(patch)
+          subprocess.run(['git','apply','--index',str(temp/'source.patch')],check=True)
+          subprocess.run(['git','rm','--',*sorted(transient)],check=True)
+          observed={}
+          for row in subprocess.check_output(['git','diff','--cached','--name-status','--no-renames',base],text=True).splitlines():
+              status,path=row.split('\t'); observed[path]=status
+          assert observed=={f['path']:('A' if f['operation']=='add' else 'M') for f in m['files']}
+          for f in m['files']:
+              p=Path(f['path']); st=p.lstat()
+              assert stat.S_ISREG(st.st_mode) and st.st_nlink==1
+              assert hashlib.sha256(p.read_bytes()).hexdigest()==f['sha256'],f['path']
+              mode=subprocess.check_output(['git','ls-files','-s','--',f['path']],text=True).split()[0]
+              assert mode==f['mode']
+          print('PASS: 18 exact source files; transient paths removed from prospective tree')
+          PY
+      - name: Install pinned dependencies
+        run: |
+          set -euo pipefail
+          python -m pip install --disable-pip-version-check -r arrange/_support/requirements.txt
+      - name: Check sources and replay both exact certificates
+        run: |
+          set -euo pipefail
+          python proof/check.py
+          cd proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation
+          python verify_mixed_overlap_core_derivation.py
+          python verify_global_core_positivity.py
+      - name: Regenerate and check interactive assets
+        run: |
+          set -euo pipefail
+          python interactive/generate.py --dependency-graph
+          git add interactive/readable_proof_dependency_graph.html
+          python interactive/generate.py --dependency-graph --check
+          python interactive/generate.py --trace-assets --check
+          python interactive/check.py
+      - name: Build in pinned TeX Live 2025
+        uses: xu-cheng/texlive-action@22c04326a5d855880f9d39bb955138bf11c6df80
+        with:
+          docker_image: ghcr.io/xu-cheng/texlive-historic-debian:2025@sha256:d3e42adc0c8d84bc913bfc33571feaf7037616260a771bb6f027504661568bf6
+          run: |
+            set -euo pipefail
+            python3 arrange/build.py --all --output-dir arrange/_build
+      - name: Validate generated artifacts and export exact prospective tree
+        run: |
+          set -euo pipefail
+          cp arrange/_build/canonical.pdf arrange/paper_draft/main.pdf
+          git add arrange/paper_draft/main.pdf
+          python proof/check.py
+          python arrange/_support/compare_pdfs_semantically.py arrange/paper_draft/main.pdf arrange/_build/canonical.pdf --dpi 144
+          python arrange/_support/verify_pdf_render.py arrange/_build/canonical.pdf
+          git diff --cached --check "$AUDITED_BASE"
+          python - <<'PY'
+          import hashlib, json, os, shutil, stat, subprocess
+          from pathlib import Path
+          import fitz
+          base=os.environ['AUDITED_BASE']; temp=Path(os.environ['RUNNER_TEMP'])
+          m=json.loads((temp/'source-manifest.json').read_bytes())
+          pages=fitz.open('arrange/paper_draft/main.pdf').page_count
+          assert 89<=pages<=93,pages
+          print('Canonical pages:',pages)
+          sources={f['path']:f for f in m['files']}
+          expected=set(sources)|set(m['generated'])
+          rows=subprocess.check_output(['git','diff','--cached','--name-status','--no-renames',base],text=True).splitlines()
+          changes=dict((p,s) for s,p in (r.split('\t') for r in rows))
+          assert set(changes)==expected,(set(changes)^expected)
+          out=temp/'validated-four-contact'; (out/'tree').mkdir(parents=True)
+          files=[]
+          for path in sorted(expected):
+              p=Path(path); st=p.lstat()
+              assert stat.S_ISREG(st.st_mode) and st.st_nlink==1
+              mode,blob,stage=subprocess.check_output(['git','ls-files','-s','--',path],text=True).split('\t')[0].split()
+              assert mode in {'100644','100755'} and stage=='0'
+              data=p.read_bytes(); digest=hashlib.sha256(data).hexdigest()
+              assert subprocess.check_output(['git','show',':'+path])==data
+              if path in sources:
+                  f=sources[path]
+                  assert digest==f['sha256'] and mode==f['mode']
+                  assert changes[path]==('A' if f['operation']=='add' else 'M')
+              else:
+                  assert mode=='100644' and changes[path]=='M'
+              f={'path':path,'operation':'add' if changes[path]=='A' else 'replace','mode':mode,'sha256':digest,'git_blob':blob}
+              files.append(f)
+              dest=out/'tree'/path; dest.parent.mkdir(parents=True,exist_ok=True); dest.write_bytes(data)
+          manifest={'base':base,'branch':m['branch'],'files':files,'pages':pages}
+          raw=(json.dumps(manifest,sort_keys=True,separators=(',',':'))+'\n').encode()
+          (out/'final-manifest.json').write_bytes(raw)
+          patch=subprocess.check_output(['git','diff','--cached','--binary','--full-index',base])
+          (out/'final.patch').write_bytes(patch)
+          print('FINAL_MANIFEST_SHA256',hashlib.sha256(raw).hexdigest())
+          print('FINAL_PATCH_SHA256',hashlib.sha256(patch).hexdigest())
+          print(raw.decode())
+          PY
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: validated-four-contact
+          path: ${{ runner.temp }}/validated-four-contact/
+          if-no-files-found: error
+          retention-days: 3
