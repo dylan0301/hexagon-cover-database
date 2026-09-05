@@ -62,7 +62,9 @@ C_+(p,q),C_-(p,q)\le1-m\le c_*.
 \]
 
 Thus one radial capacity controls the own traces and every permitted
-T3-like neighboring trace.
+neighboring trace, whether supplied by a Vd1, Vd2, or T3-like role.
+Corollary 5.1 of `2608` reselects the common pair in every role and
+forces the unchanged symmetric points $(1-c_*)V_i$ when $0<c_*<1$.
 
 If a compact set \(K\) lies in the open unit C triangle, moving its three
 side lines inward gives
@@ -313,9 +315,9 @@ The active placement proofs are now both contained in the new one-Vd package:
 
 ### Theorem 7.1
 
-If all six V roles are Vd0, cover \(\partial H\), and exactly one actual role
-is supercritical, the configuration is impossible independently of the
-C-triangle class.
+If the six original open V roles cover \(\partial H\) and exactly one
+actual role is supercritical, a seven-role cover of \(H\) is impossible,
+independently of the C-triangle class and the normalized V-type pattern.
 
 ### Proof
 
@@ -331,7 +333,9 @@ K_{\rm wit}
 \]
 
 and proves \(\Lambda(K_{\rm wit})\ge1\).  The six radial points use the same
-common-pair forcing engine as Terminal A.  Since no actual gap is available,
+common-pair forcing engine as Terminal A: reselecting \((p,q)\) makes
+every permitted maximum equal to \(c_*\). The asymmetric-point exclusions
+use actual handoffs and distances, not Vd0 locality. Since no actual gap is available,
 the three asymmetric frontier witnesses replace the missing gap segment.
 The two mixed support-cap overlaps are verified by the exact colocated
 certificate.  Equation (5) gives the contradiction. \(\square\)
@@ -365,7 +369,7 @@ Every routing row assigned wholly or partly to Strategy 3 is impossible.
 
 | Normalized row | Terminal |
 |---|---|
-| \(N_{\rm gap}=0,\ N_+=1\), all Vd0 | F |
+| \(N_{\rm gap}=0,\ N_+=1\), arbitrary V types | F |
 | one gap, \(N_+=0\), all Vd0 or at most two T3-like roles | A |
 | two gaps, \(N_+\in\{0,1\}\), all Vd0/T3-like | B |
 | one gap, \(N_+=1\), all Vd0 | C |

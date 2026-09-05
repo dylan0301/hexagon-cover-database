@@ -2,8 +2,10 @@
 
 Status: Proven
 
-This source owns both active Strategy 2 rows. It separates the local loss
-profiles from the single cyclic aggregation used globally.
+This source owns the multiple-ascent Strategy 2 route and the retained
+one-ascent T3-like alternative proof. The active zero-gap $N_+=1$ route
+is the type-independent nine-point terminal in `2610`. This source separates
+the local loss profiles from the single cyclic aggregation used globally.
 
 ## 1. Inputs
 

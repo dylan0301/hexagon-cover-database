@@ -1,11 +1,12 @@
-# Self-Contained Direct Vd0 Nine-Point Package
+# Self-Contained Type-Independent Nine-Point Package
 
 Status: Reference
 
-This package is the canonical direct proof of the CE0, $N_+=1$, all-Vd0
-branch.  It first proves a center-class-independent obstruction for six open
-Vd0 vertex roles that cover the full boundary and have exactly one
-supercritical actual row.  Six radial witnesses and three asymmetric
+This package is the canonical direct proof of the full zero-gap, $N_+=1$
+branch, independently of the C class and normalized V types. It treats six
+open V roles that cover the full boundary and have exactly one supercritical
+actual row. Historical Vd0 filenames and directory names are retained for
+citation and certificate stability.  Six radial witnesses and three asymmetric
 witnesses are forced directly into the center role, and an exact finite cap
 certificate proves that no open unit equilateral triangle can contain them.
 
@@ -27,7 +28,7 @@ this index.
 | [`31056_global_analytic_mixed_positivity.md`](31056_global_analytic_mixed_positivity.md) | Proven | Proves the eight signs on three fixed charts by twenty global Bernstein identities. |
 | [`31057_terminal_nine_point_enclosure.md`](31057_terminal_nine_point_enclosure.md) | Proven | Assembles the exact terminal inequality $\Lambda(K_{\mathrm{wit}})\ge1$. |
 | [`31058_center_independent_direct_nine_point_obstruction.md`](31058_center_independent_direct_nine_point_obstruction.md) | Proven | Gives the reusable center-class-independent all-boundary contradiction. |
-| [`31059_CE0_Nplus1_all_Vd0_completion.md`](31059_CE0_Nplus1_all_Vd0_completion.md) | Proven | Closes the CE0, $N_+=1$, all-Vd0 branch. |
+| [`31059_CE0_Nplus1_all_Vd0_completion.md`](31059_CE0_Nplus1_all_Vd0_completion.md) | Proven | Closes the CE0, $N_+=1$ branch for arbitrary V types. |
 | [`3105a_disk_plus_point_enclosure.md`](3105a_disk_plus_point_enclosure.md) | Proven | Optional exact formula for a centered disk plus one point; closes a subregion but is not used by the canonical proof or paper. |
 
 The package-local directory [`3105X_computation/`](3105X_computation/)
@@ -40,10 +41,12 @@ are supporting certificate artifacts rather than separate proof-status notes.
 | Source | Recorded status | Use in this package |
 |---|---|---|
 | [`1101_CE_classification.md`](../../../../1XXX_foundations/11XX_C_triangle/1101_CE_classification.md) | Proven | CE0 boundary-edge locality in the terminal branch wrapper. |
-| [`1201_V_triangle_types.md`](../../../../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md) | Proven | Vd0 adjacent-radial locality. |
+| [`1201_V_triangle_types.md`](../../../../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md) | Proven | Actual V-type restrictions on adjacent support. |
 | [`1214_strict_boundary_handoff_selection.md`](../../../../1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md) | Proven | Strict exact-one handoffs and preservation of the unique supercritical V triangle. |
 | [`2004_admissible_set.md`](../../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md) | Proven | Exact radial envelope $c_{\max}$. |
 | [`20091_ab_union_curve_a_plus_b_gt_1.md`](../../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2009X_ab_set/20091_ab_union_curve_a_plus_b_gt_1.md) | Proven | Exact four-piece frontier of the unique strict supercritical V triangle. |
+| [`2008`](../../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2008_neighbor_ray_max_c_formula.md) | Proven | Exact neighboring capacities $C_+,C_-$. |
+| [`2608`](../../../../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2608_residual_hull_finite_enclosure_principle.md) | Proven | Common-pair domination and type-independent uniform radial forcing. |
 
 ## Provenance from earlier `310X` work
 
@@ -77,6 +80,7 @@ dc46aaf263655d5159ecd3a81db72ee82477951d06172f4743b248df37209485
 
 The older model residual-core proof remains independently Proven.  The new
 canonical route does not use nonsupercritical $AB$-unions, their model-core
-comparison, the neighboring-ray maximum theorem, the optional six-point
-inequality, interval subdivision, or branch-and-bound.  The optional `3105a`
+comparison, the optional six-point inequality, interval subdivision, or
+branch-and-bound. Unlike the historical Vd0-only proof, the unified route
+uses the neighboring-ray maximum theorem through common-pair domination.  The optional `3105a`
 disk-plus-point lemma is likewise not a dependency of the canonical route.

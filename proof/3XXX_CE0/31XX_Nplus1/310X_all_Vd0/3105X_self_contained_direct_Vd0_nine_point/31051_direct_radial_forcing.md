@@ -1,4 +1,4 @@
-# Direct Vd0 Radial Forcing
+# Direct Type-Independent Radial Forcing
 
 Status: Proven
 
@@ -242,7 +242,7 @@ This completes the proof of (14).
 
 ## 3. Direct radial-forcing theorem
 
-Assume every closed role $T_i$ is Vd0. Define
+No restriction is imposed on the normalized V types. Define
 
 $$
 D_i=(1-c_*)V_i,
@@ -284,12 +284,22 @@ D_i\notin U_i.
 \tag{18}
 $$
 
-For $U_{i-1}$ and $U_{i+1}$, the arm $OV_i$ is an adjacent radial arm. If
-one of these open roles contained $D_i$, a small plane ball about $D_i$
-inside that role would meet $OV_i$ in a positive-length interval. This is
-excluded by the Vd0 definition in
-[`1201_V_triangle_types.md`](../../../../1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md).
-Thus
+For $U_{i-1}$ and $U_{i+1}$, the arm $OV_i$ is an adjacent radial arm.
+The common-pair domination and uniform forcing corollary in
+[`2608`](../../../../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2608_residual_hull_finite_enclosure_principle.md)
+apply to (6) and (14). Explicitly,
+
+$$
+C_+(p,q),C_-(p,q)\le1-m<c_*.
+$$
+
+If $D_i\in U_{i-1}$, openness creates positive support on $r_i$. If the
+actual role has no such support this is already a contradiction; otherwise
+its closure, together with the common anchors supplied by (6), realizes
+neighboring coordinate $c_*$, contradicting $C_+(p,q)<c_*$. The reflected
+argument uses $C_-(p,q)$ for $U_{i+1}$. This also covers Vd1, Vd2, and
+T3-like roles; each neighboring term is used only for its actual supported
+ray. Thus
 
 $$
 D_i\notin U_{i-1}\cup U_{i+1}.

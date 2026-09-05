@@ -1,4 +1,4 @@
-# Center-Independent Direct Nine-Point Obstruction
+# Type-Independent Zero-Gap Nine-Point Obstruction
 
 Status: Proven
 
@@ -13,12 +13,14 @@ $$
 
 such that
 
-1. for $T_i=\overline{U_i}$, the closed V triangle $T_i$ is Vd0 at $V_i$
-   for every $i$;
+1. $O\in U_C$ and $V_i\in U_i$ for every $i$, with
+   $T_C=\overline{U_C}$ and $T_i=\overline{U_i}$;
 2. $U_0,\dots,U_5$ cover $\partial H$; and
 3. exactly one actual maximal boundary V triangle is supercritical.
 
-No class is assumed for $T_C=\overline{U_C}$.
+No C-triangle class or normalized V-triangle type pattern is assumed.
+Thus this theorem closes the entire $N_{\rm gap}=0$, $N_+=1$ row, including
+arbitrary mixtures of Vd0, Vd1, Vd2, and T3-like roles.
 
 ## Proof
 
@@ -218,8 +220,14 @@ contradicting (9).  This proves the theorem. $\square$
 
 ## Dependency audit
 
-The Vd0 hypothesis is used to exclude each radial witness from its two
-adjacent actual roles.  Only the unique supercritical V triangle uses an $AB$-union.
-No nonsupercritical model union, neighboring-ray maximum, model residual core,
-interval subdivision, branch-and-bound, or optional six-point inequality is
-used.
+The exact-one handoff theorem is independent of V type. The six radial
+points use the same $c_{\max},C_+,C_-$ common-pair forcing engine as the
+nonzero-gap cases, through `31051` and the uniform corollary in
+[`2608`](../../../../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2608_residual_hull_finite_enclosure_principle.md).
+The `31053` exclusions use only the strict supercritical frontier, contained
+vertices, and actual handoff points; none requires Vd0. The unchanged
+`31057` enclosure theorem depends only on the strict two-parameter domain.
+Only the unique supercritical V triangle uses an $AB$-union. No
+nonsupercritical model union, model residual core, interval subdivision,
+branch-and-bound, or optional six-point inequality is used. The historical
+all-Vd0 direct proof remains in the `3104X` package.

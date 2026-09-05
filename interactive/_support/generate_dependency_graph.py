@@ -230,7 +230,7 @@ def role_for(node_id: str) -> str:
 
 CASE_META: dict[str, dict[str, Any]] = {
     "thm:main": {
-        "cases": ["All routing rows R0-R13"],
+        "cases": ["All routing rows R0-R11"],
         "detail": "The trace-length, area-loss, and finite-enclosure arguments dispatch every routing row.",
     },
     "cor:expanded-closed": {
@@ -250,22 +250,22 @@ CASE_META: dict[str, dict[str, Any]] = {
         "detail": "Relates actual open boundary traces to the complete gap split, including singleton gaps.",
     },
     "prop:exhaustive-structural-reduction": {
-        "cases": ["Every row R0-R13"],
+        "cases": ["Every row R0-R11"],
         "detail": "The unique routing assignment for a hypothetical cover.",
     },
     "prop:length-branches": {
         "cases": [
             "R0: N_gap=0, N_+=0",
-            "R1: N_gap=0, N_+=1 with Vd1/Vd2",
-            "R5/R6 high skeleton count",
-            "R8 and R12 Vd length rows",
+            "Alternative: zero-gap N_+=1 with Vd1/Vd2",
+            "R3/R4 high skeleton count",
+            "R6 and R10 Vd length rows",
             "Vd2 neighboring-midpoint hybrid",
         ],
         "detail": "Collects every row closed by perimeter or skeleton length.",
     },
     "prop:area-branches": {
-        "cases": ["R2: zero gap, unique supercritical and T3-like", "R4: zero gap, N_+>=2"],
-        "detail": "The two center-independent cyclic area-loss rows.",
+        "cases": ["Alternative: zero gap, unique supercritical and T3-like", "R2: zero gap, N_+>=2"],
+        "detail": "The multiple-ascent route and the retained one-ascent T3-like alternative.",
     },
     "prop:new-disk-finite-caliper": {
         "cases": ["A centered disk plus finitely many forced points"],
@@ -290,7 +290,7 @@ CASE_META: dict[str, dict[str, Any]] = {
     "prop:new-nplus-zero-gap-closures": {
         "cases": [
             "Rows A and B, including the all-Vd0 N_+=1 two-gap branch",
-            "R7/R9 and the two-gap portion of R10",
+            "R5/R7 and the two-gap portion of R8",
         ],
         "detail": "The one-gap and two-gap common-pair adapters supply the exact hypotheses of the two universal terminals.",
     },
@@ -311,11 +311,11 @@ CASE_META: dict[str, dict[str, Any]] = {
         "detail": "The transverse seven-point witness K_tr has Lambda>=1; the former K_410 follows by inclusion.",
     },
     "prop:new-one-t3-terminal": {
-        "cases": ["R11 / row D_T"],
+        "cases": ["R9 / row D_T"],
         "detail": "The T3-like supported-tail terminal for both nonzero gap ranks.",
     },
     "prop:new-one-vd-assembly": {
-        "cases": ["R13 / rows D_V, E_a, E_n, and R"],
+        "cases": ["R11 / rows D_V, E_a, E_n, and R"],
         "detail": "Assembly of the Vd placements, the two-chart replacement, and the Vd2 trace-length exit.",
     },
     "prop:finite-enclosure-nonzero-gap-branches": {
@@ -323,7 +323,7 @@ CASE_META: dict[str, dict[str, Any]] = {
         "detail": "Canonical nonzero-gap assembly after the exact case register.",
     },
     "lem:ab-extreme-jump": {
-        "cases": ["Row F: zero gap, exactly one supercritical Vd0 role"],
+        "cases": ["Row F: zero gap, exactly one supercritical role; arbitrary V types"],
         "detail": "Identifies the strict handoff minimum and maximum and the common boundary pair.",
     },
     "thm:strict-ab-union": {
@@ -332,7 +332,7 @@ CASE_META: dict[str, dict[str, Any]] = {
     },
     "lem:symmetric-core-witness": {
         "cases": ["Row F"],
-        "detail": "Six radial points force a centered disk into U_C.",
+        "detail": "Common c_max/C_+/C_- domination forces the same six radial points for arbitrary V types.",
     },
     "lem:asymmetric-core-witness": {
         "cases": ["Row F"],
@@ -347,16 +347,16 @@ CASE_META: dict[str, dict[str, Any]] = {
         "detail": "Combines two analytic equal-radius overlaps with the two exact mixed overlaps.",
     },
     "thm:reader-witness-enclosure": {
-        "cases": ["Row F: zero gap, N_+=1, all Vd0; any CE0/CE1/CE2"],
+        "cases": ["Row F: zero gap, N_+=1, arbitrary V types; any CE0/CE1/CE2"],
         "detail": "The exact nine-point witness set has enclosure number at least one.",
     },
     "thm:reader-zero-gap-obstruction": {
-        "cases": ["Row F / routing row R3"],
+        "cases": ["Row F / routing row R1"],
         "detail": "The nine forced points cannot be contained in the open unit C triangle.",
     },
     "prop:reader-ab-core-branches": {
-        "cases": ["R3: zero gap, N_+=1, all Vd0"],
-        "detail": "Routes the unique remaining zero-gap row to the separate nine-point chapter.",
+        "cases": ["R1: zero gap, N_+=1, arbitrary V types"],
+        "detail": "Routes the entire zero-gap N_+=1 row through the common radial-capacity engine and unchanged nine-point certificate.",
     },
 }
 
@@ -428,6 +428,10 @@ MANUAL_DEPS: dict[str, list[str]] = {
         "lem:new-open-trace-endpoint",
     ],
     "lem:new-common-pair-domination": ["prop:new-exact-local-set", "prop:new-neighbor-ray-formula"],
+    "cor:new-uniform-common-pair-forcing": [
+        "lem:new-type-aware-radial-forcing",
+        "lem:new-common-pair-domination",
+    ],
     "prop:new-disk-finite-caliper": ["prop:new-enclosure-gauge"],
     "lem:new-disk-point-formula": ["prop:new-disk-finite-caliper"],
     "thm:new-complementary-gap": [
@@ -443,6 +447,7 @@ MANUAL_DEPS: dict[str, list[str]] = {
         "prop:signed-center-normal-form",
         "lem:new-type-aware-radial-forcing",
         "lem:new-common-pair-domination",
+        "cor:new-uniform-common-pair-forcing",
         "thm:new-complementary-gap",
         "lem:new-compact-open-shrink",
         "thm:new-ce2-short-ray",
@@ -497,7 +502,10 @@ MANUAL_DEPS: dict[str, list[str]] = {
     ],
     "lem:ab-extreme-jump": ["prop:strict-handoffs"],
     "thm:strict-ab-union": ["thm:cert-caliper", "lem:ab-extreme-jump"],
-    "lem:symmetric-core-witness": ["lem:ab-extreme-jump", "prop:new-exact-local-set"],
+    "lem:symmetric-core-witness": [
+        "lem:ab-extreme-jump", "prop:new-exact-local-set",
+        "cor:new-uniform-common-pair-forcing",
+    ],
     "lem:fixed-line-signs": ["thm:strict-ab-union", "lem:ab-extreme-jump"],
     "lem:asymmetric-core-witness": ["thm:strict-ab-union", "lem:fixed-line-signs", "lem:new-open-trace-endpoint"],
     "lem:technical-newton-reduction": ["lem:fixed-line-signs", "lem:asymmetric-core-witness"],
@@ -540,19 +548,17 @@ CONSUMER_BACKLINKS = {
 
 ROUTING_ROWS = [
     ["R0", "0", "0", "all", "all", ["prop:length-branches"], "boundary overlap/length"],
-    ["R1", "0", "1", "d>=1", "all", ["prop:length-branches"], "Vd boundary deficit"],
-    ["R2", "0", "1", "d=0, t>=1", "all", ["prop:area-branches"], "cyclic area loss"],
-    ["R3", "0", "1", "(d,t)=(0,0)", "CE0/CE1/CE2", ["prop:reader-ab-core-branches"], "separate nine-point chapter"],
-    ["R4", "0", ">=2", "all", "all", ["prop:area-branches"], "cyclic area loss"],
-    ["R5", ">=1", ">=2", "all", "CE1/CE2", ["prop:length-branches"], "positive-support rescuer"],
-    ["R6", ">=1", "0 or 1", "N_+ + d + t >=3", "CE1/CE2", ["prop:length-branches"], "skeleton count"],
-    ["R7", ">=1", "0", "(d,t)=(0,0)", "CE1/CE2", ["prop:new-nplus-zero-gap-closures"], "universal terminals G/S"],
-    ["R8", ">=1", "0", "d>=1, d+t<=2", "CE1/CE2", ["prop:length-branches"], "Vd deficit"],
-    ["R9", ">=1", "0", "d=0, t=1 or 2", "CE1/CE2", ["prop:new-nplus-zero-gap-closures"], "type-aware common pair"],
-    ["R10", ">=1", "1", "(d,t)=(0,0)", "CE1/CE2", ["prop:new-nplus-one-all-vd0", "prop:new-nplus-zero-gap-closures"], "anisotropic/short ray"],
-    ["R11", ">=1", "1", "(d,t)=(0,1)", "CE1/CE2", ["prop:new-one-t3-terminal"], "T3-like supported tail"],
-    ["R12", ">=1", "1", "(d,t)=(1,0)", "CE1", ["prop:length-branches"], "CE1 length exit"],
-    ["R13", ">=1", "1", "(d,t)=(1,0)", "CE2", ["prop:new-one-vd-assembly"], "four named placements"],
+    ["R1", "0", "1", "arbitrary normalized V types", "CE0/CE1/CE2", ["prop:reader-ab-core-branches"], "type-independent nine-point enclosure"],
+    ["R2", "0", ">=2", "all", "all", ["prop:area-branches"], "cyclic area loss"],
+    ["R3", ">=1", ">=2", "all", "CE1/CE2", ["prop:length-branches"], "positive-support rescuer"],
+    ["R4", ">=1", "0 or 1", "N_+ + d + t >=3", "CE1/CE2", ["prop:length-branches"], "skeleton count"],
+    ["R5", ">=1", "0", "(d,t)=(0,0)", "CE1/CE2", ["prop:new-nplus-zero-gap-closures"], "universal terminals G/S"],
+    ["R6", ">=1", "0", "d>=1, d+t<=2", "CE1/CE2", ["prop:length-branches"], "Vd deficit"],
+    ["R7", ">=1", "0", "d=0, t=1 or 2", "CE1/CE2", ["prop:new-nplus-zero-gap-closures"], "type-aware common pair"],
+    ["R8", ">=1", "1", "(d,t)=(0,0)", "CE1/CE2", ["prop:new-nplus-one-all-vd0", "prop:new-nplus-zero-gap-closures"], "anisotropic/short ray"],
+    ["R9", ">=1", "1", "(d,t)=(0,1)", "CE1/CE2", ["prop:new-one-t3-terminal"], "T3-like supported tail"],
+    ["R10", ">=1", "1", "(d,t)=(1,0)", "CE1", ["prop:length-branches"], "CE1 length exit"],
+    ["R11", ">=1", "1", "(d,t)=(1,0)", "CE2", ["prop:new-one-vd-assembly"], "four named placements"],
 ]
 
 FINITE_ROWS = [
@@ -563,7 +569,7 @@ FINITE_ROWS = [
     {"id": "D_V", "name": "Vd1 supported tail", "case": "N_gap in {1,2}; N_+=1; (d,t)=(1,0); (o(T_0),n(T_0))=(1,1); A_0+B_0<1/2", "forced": "the Vd1 O-side endpoint and the strict boundary tail", "closer": "prop:new-one-vd-assembly", "figures": []},
     {"id": "E_a", "name": "Adjacent radial separation", "case": "N_gap in {1,2}; N_E(T_C)=2; N_+=1; (d,t)=(1,0); sigma=0; tau in {1,5}", "forced": "a nonempty open subinterval of r_2", "closer": "prop:new-one-vd-assembly", "figures": []},
     {"id": "E_n", "name": "Nonadjacent radial separation", "case": "N_gap in {1,2}; N_E(T_C)=2; N_+=1; (d,t)=(1,0); sigma=0; tau in {2,3,4}", "forced": "D_tau=min(rho_R,rho_L)V_tau", "closer": "prop:new-one-vd-assembly", "figures": []},
-    {"id": "F", "name": "Zero-gap nine-point obstruction", "case": "N_gap=0; N_+=1; (d,t)=(0,0)", "forced": "six radial points D_i and the parameter-dependent Q_-,Q_0,Q_+", "closer": "thm:reader-zero-gap-obstruction", "figures": ["zero_gap_original"]},
+    {"id": "F", "name": "Zero-gap nine-point obstruction", "case": "N_gap=0; N_+=1; arbitrary normalized V types", "forced": "six radial points D_i and the parameter-dependent Q_-,Q_0,Q_+", "closer": "thm:reader-zero-gap-obstruction", "figures": ["zero_gap_original"]},
     {"id": "R", "name": "Vd1 two-chart replacement", "case": "N_gap in {1,2}; N_E(T_C)=2; N_+=1; (d,t)=(1,0); sigma,tau in {1,...,5}; sigma!=tau; sigma-tau=+/-1 mod 6; (o(T_tau),n(T_tau))=(1,1); M_sigma in T_tau", "forced": "a replacement all-Vd0 cover routed by recomputed N'_gap", "closer": "prop:new-one-vd-assembly", "figures": []},
 ]
 
@@ -661,6 +667,7 @@ add_proof_ref(
     {
         "lem:new-type-aware-radial-forcing",
         "lem:new-common-pair-domination",
+        "cor:new-uniform-common-pair-forcing",
         "thm:new-complementary-gap",
         "thm:new-ce2-short-ray",
         "prop:new-nplus-zero-gap-closures",
@@ -929,9 +936,9 @@ table{width:100%;border-collapse:collapse;background:#10182a}th,td{padding:9px 1
 </head>
 <body>
 <header><div class="header-row"><div><h1>Canonical hexagon-cover proof graph</h1><div class="subtitle">The graph follows <code>arrange/paper_draft/main.tex</code>: six compact body sections, five calculation appendices, and the exact certificate in Appendix F. Click a node for its exact TeX statement and case scope.</div><div class="stats" id="stats"></div></div><div class="actions"><a class="btn" href="trace_exact_ab_envelope_explorer.html">Open trace explorer</a><button class="btn" id="downloadJson">Download JSON</button><button class="btn" id="downloadReport">Download report</button><a class="btn" id="branchLink" target="_blank" rel="noreferrer">Open branch</a></div></div></header>
-<div class="tabs"><button class="tab-btn active" data-tab="graph">Dependency graph</button><button class="tab-btn" data-tab="spine">Finite-enclosure spine</button><button class="tab-btn" data-tab="routing">Routing R0-R13</button><button class="tab-btn" data-tab="cases">Finite-enclosure cases</button><button class="tab-btn" data-tab="report">Implementation report</button><button class="tab-btn" data-tab="index">Statement index</button></div>
+<div class="tabs"><button class="tab-btn active" data-tab="graph">Dependency graph</button><button class="tab-btn" data-tab="spine">Finite-enclosure spine</button><button class="tab-btn" data-tab="routing">Routing R0-R11</button><button class="tab-btn" data-tab="cases">Finite-enclosure cases</button><button class="tab-btn" data-tab="report">Implementation report</button><button class="tab-btn" data-tab="index">Statement index</button></div>
 <section class="tab active" id="tab-graph"><div class="toolbar"><input id="search" placeholder="Search title, label, statement, or case..."><select id="groupFilter"><option value="">All architecture groups</option></select><select id="kindFilter"><option value="">All statement types</option><option>theorem</option><option>proposition</option><option>lemma</option><option>corollary</option></select><label class="chip"><input type="checkbox" id="caseOnly"> terminals/assemblies only</label><button class="btn" id="finiteOnly">Finite enclosure only</button><button class="btn" id="showAll">Show all</button><button class="btn" id="fit">Fit</button><button class="btn" id="clearFocus">Clear focus</button><div class="legend" id="legend"></div></div><div class="graph-shell"><div id="graphViewport"><svg id="graphSvg"></svg></div><aside id="detail"><div class="empty">Select a theorem, proposition, lemma, or corollary.</div></aside></div></section>
-<section class="tab" id="tab-spine"><div class="content"><div class="card"><h2>Public finite-enclosure spine</h2><img class="spine-image" id="spineImage" alt="Finite-enclosure dependency spine"><p>The paper presents the mechanism before the cases, then places the detailed calculations in the corresponding optimization appendices. Appendix F contains the exact polynomial positivity certificate.</p></div><div class="card"><div class="flow"><div class="flow-step"><b>1. Normalize</b><br><span class="small">N_gap, N_+, (d,t), actual reaches.</span></div><div class="flow-step"><b>2. Bound local capacity</b><br><span class="small">c_max, C_±, high-radial outputs.</span></div><div class="flow-step"><b>3. Force a witness</b><br><span class="small">Radial endpoints, gaps, or O-side endpoints.</span></div><div class="flow-step"><b>4. Invoke one terminal</b><br><span class="small">G, S, K_tr, rescuer, Vd point, or nine-point enclosure.</span></div><div class="flow-step"><b>5. Close one case</b><br><span class="small">Finite-enclosure Cases A--F, then R0--R13.</span></div></div></div></div></section>
+<section class="tab" id="tab-spine"><div class="content"><div class="card"><h2>Public finite-enclosure spine</h2><img class="spine-image" id="spineImage" alt="Finite-enclosure dependency spine"><p>The paper presents the mechanism before the cases, then places the detailed calculations in the corresponding optimization appendices. Appendix F contains the exact polynomial positivity certificate.</p></div><div class="card"><div class="flow"><div class="flow-step"><b>1. Normalize</b><br><span class="small">N_gap, N_+, (d,t), actual reaches.</span></div><div class="flow-step"><b>2. Bound local capacity</b><br><span class="small">c_max, C_±, high-radial outputs.</span></div><div class="flow-step"><b>3. Force a witness</b><br><span class="small">Radial endpoints, gaps, or O-side endpoints.</span></div><div class="flow-step"><b>4. Invoke one terminal</b><br><span class="small">G, S, K_tr, rescuer, Vd point, or nine-point enclosure.</span></div><div class="flow-step"><b>5. Close one case</b><br><span class="small">Finite-enclosure Cases A--F, then R0--R11.</span></div></div></div></div></section>
 <section class="tab" id="tab-routing"><div class="content"><div class="card"><h2>Exhaustive routing ownership</h2><div class="table-wrap"><table id="routingTable"></table></div></div></div></section>
 <section class="tab" id="tab-cases"><div class="content"><div class="card"><h2>Finite-enclosure case cards</h2><p>Use the standalone trace explorer for sampled envelope geometry. The zero-gap card retains the exact nine-point schematic.</p><div class="case-grid" id="caseCards"></div></div></div></section>
 <section class="tab" id="tab-report"><div class="content"><article class="report" id="reportBody"></article></div></section>

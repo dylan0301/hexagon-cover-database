@@ -1,4 +1,4 @@
-# CE0, $N_+=1$, All-Vd0 Completion
+# CE0, $N_+=1$, Type-Independent Completion
 
 Status: Proven
 
@@ -6,10 +6,10 @@ Status: Proven
 
 Seven open unit equilateral triangles cannot cover the side-one regular
 hexagon $H$ when the original open roles are $U_C,U_0,\ldots,U_5$, their
-closures are $T_C=\overline{U_C}$ and $T_i=\overline{U_i}$, and
+closures are $T_C=\overline{U_C}$ and $T_i=\overline{U_i}$,
+$O\in U_C$, $V_i\in U_i$, and
 
-- the closed C triangle $T_C$ is CE0;
-- all six closed V triangles $T_0,\dots,T_5$ are Vd0; and
+- the closed C triangle $T_C$ is CE0; and
 - exactly one actual maximal boundary V triangle is supercritical.
 
 ## Proof
@@ -31,7 +31,7 @@ $$
 \partial H\subseteq\bigcup_{i=0}^5U_i.
 $$
 
-The six roles are Vd0, they cover $\partial H$, and exactly one actual V triangle is
+The six roles cover $\partial H$, and exactly one actual V triangle is
 supercritical.  These are precisely the hypotheses of the center-independent
 direct nine-point theorem
 [`31058_center_independent_direct_nine_point_obstruction.md`](31058_center_independent_direct_nine_point_obstruction.md),
@@ -39,4 +39,5 @@ which gives a contradiction. $\square$
 
 The CE0 assumption is used only to obtain full boundary coverage by the six
 vertex roles.  The nine-point obstruction itself makes no assumption on the
-center class.
+center class or the V-type pattern. The historical filename is retained
+so existing citations continue to resolve.
