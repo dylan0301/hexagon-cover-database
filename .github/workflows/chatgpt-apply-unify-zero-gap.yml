@@ -1,4 +1,4 @@
-name: Validate unified zero-gap proof
+name: Validate and publish unified zero-gap proof
 
 on:
   push:
@@ -17,6 +17,8 @@ env:
 
 jobs:
   validate:
+    outputs:
+      bundle_sha256: ${{ steps.seal.outputs.bundle_sha256 }}
     permissions:
       contents: read
     runs-on: ubuntu-24.04
@@ -44,11 +46,14 @@ jobs:
           WF='.github/workflows/chatgpt-apply-unify-zero-gap.yml'
           assert os.environ['GITHUB_REF_NAME']==BRANCH
           subprocess.run(['git','merge-base','--is-ancestor',BASE,os.environ['GITHUB_SHA']],check=True)
-          allowed={WF,PREFIX+'source-manifest.json',*(PREFIX+f'payload-{i}.txt' for i in range(3))}
+          allowed={WF,PREFIX+'source-manifest.json',PREFIX+'final-manifest.json',*(PREFIX+f'payload-{i}.txt' for i in range(3))}
           delta=set(subprocess.check_output(['git','diff','--name-only',BASE,os.environ['GITHUB_SHA']],text=True).splitlines())
           assert delta==allowed,(delta,allowed)
           for p in allowed:
-              assert stat.S_ISREG(pathlib.Path(p).lstat().st_mode),p
+              assert stat.S_ISREG(pathlib.Path(p).lstat().st_mode) and pathlib.Path(p).stat().st_nlink==1,p
+          sealed=pathlib.Path(PREFIX+'final-manifest.json').read_bytes()
+          assert hashlib.sha256(sealed).hexdigest()=='b83540430901cbf06b37219386a78a48be44311051d9936d1cc638571ae120ae'
+          pathlib.Path('/tmp/zero-gap-sealed-manifest.json').write_bytes(sealed)
           raw=pathlib.Path(PREFIX+'source-manifest.json').read_bytes()
           assert hashlib.sha256(raw).hexdigest()=='45c6a8db4c55c409b11747340995090c4e3c4c0f7bc56e34e5b4d8dd285c7780'
           manifest=json.loads(raw)
@@ -118,7 +123,7 @@ jobs:
           python arrange/_support/verify_pdf_render.py arrange/_build/canonical.pdf | tee /tmp/zero-gap-validated/logs/pdf-render.log
           cp arrange/_build/canonical.pdf arrange/paper_draft/main.pdf
           python - <<'PY'
-          import hashlib,json,pathlib,stat,subprocess
+          import hashlib,json,os,pathlib,stat,subprocess
           import fitz
           BASE='cc4aa455b1aa174accdfd891b0691ff9c26e721d'
           m=json.loads(pathlib.Path('/tmp/zero-gap-source-manifest.json').read_text())
@@ -141,16 +146,21 @@ jobs:
                   assert delta[p]==('A' if expected['operation']=='add' else 'M'),p
               else:
                   assert delta[p]=='M' and mode=='100644',p
-              files[p]={'status':delta[p],'mode':mode,'blob':blob,'sha256':digest}
+              files[p]={'status':delta[p],'operation':'add' if delta[p]=='A' else 'replace','mode':mode,'blob':blob,'sha256':digest}
           assert not any(p.startswith('.github/_transient/') or p=='.github/workflows/chatgpt-apply-unify-zero-gap.yml' for p in subprocess.check_output(['git','ls-tree','-r','--name-only',tree],text=True).splitlines())
           result={'base':BASE,'branch':m['branch'],'tree':tree,'files':files}
           out=pathlib.Path('/tmp/zero-gap-validated/final-manifest.json')
           out.write_text(json.dumps(result,indent=2,sort_keys=True)+'\n')
+          assert tree=='744b609d6e1a3e2744fc60b362ca37ee691a9b54'
+          assert out.read_bytes()==pathlib.Path('/tmp/zero-gap-sealed-manifest.json').read_bytes()
+          assert hashlib.sha256(out.read_bytes()).hexdigest()=='b83540430901cbf06b37219386a78a48be44311051d9936d1cc638571ae120ae'
           print('TREE',tree)
           print('FINAL_MANIFEST_SHA256',hashlib.sha256(out.read_bytes()).hexdigest())
           print('PDF_PAGES',len(fitz.open('arrange/paper_draft/main.pdf')))
           subprocess.run(['git','commit','-m','Validate pinned unified zero-gap publication'],check=True)
           subprocess.run(['git','bundle','create','/tmp/zero-gap-validated/validated.bundle','HEAD','^'+BASE],check=True)
+          with open(os.environ['GITHUB_OUTPUT'],'a') as f:
+              f.write('bundle_sha256='+hashlib.sha256(pathlib.Path('/tmp/zero-gap-validated/validated.bundle').read_bytes()).hexdigest()+'\n')
           pathlib.Path('/tmp/zero-gap-validated/canonical.pdf').write_bytes(pathlib.Path('arrange/paper_draft/main.pdf').read_bytes())
           pathlib.Path('/tmp/zero-gap-validated/implementation-report.md').write_bytes(pathlib.Path('arrange/zero_gap_unification_report.md').read_bytes())
           PY
@@ -162,3 +172,101 @@ jobs:
           path: /tmp/zero-gap-validated/
           retention-days: 3
           if-no-files-found: error
+
+  publish:
+    needs: validate
+    if: github.repository == 'dylan0301/hexagon-cover-database' && github.ref == 'refs/heads/chatgpt/unify-zero-gap-20260905080358'
+    permissions:
+      contents: write
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    outputs:
+      commit: ${{ steps.prepare.outputs.commit }}
+    steps:
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: zero-gap-validated-tree
+          path: ${{ runner.temp }}/zero-gap-handoff
+      - name: Revalidate the independently sealed tree without executing its code
+        id: prepare
+        run: |
+          set -euo pipefail
+          git config core.hooksPath /dev/null
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          python3 - <<'PY'
+          import hashlib,json,os,pathlib,stat,subprocess
+          BASE='cc4aa455b1aa174accdfd891b0691ff9c26e721d'
+          BRANCH='chatgpt/unify-zero-gap-20260905080358'
+          TREE='744b609d6e1a3e2744fc60b362ca37ee691a9b54'
+          MANIFEST='b83540430901cbf06b37219386a78a48be44311051d9936d1cc638571ae120ae'
+          root=pathlib.Path(os.environ['RUNNER_TEMP'])/'zero-gap-handoff'
+          expected={'validated.bundle','final-manifest.json','canonical.pdf','implementation-report.md',*(f'logs/{p}.log' for p in ['proof-check','graph-check','trace-check','interactive-check','exact-derivation','exact-positivity','pdf-render'])}
+          actual=set()
+          for f in root.rglob('*'):
+              mode=f.lstat().st_mode
+              assert stat.S_ISDIR(mode) or (stat.S_ISREG(mode) and f.stat().st_nlink==1),str(f)
+              if f.is_file():actual.add(f.relative_to(root).as_posix())
+          assert actual==expected,(actual,expected)
+          raw=(root/'final-manifest.json').read_bytes()
+          assert hashlib.sha256(raw).hexdigest()==MANIFEST
+          m=json.loads(raw)
+          assert m['tree']==TREE and m['base']==BASE and m['branch']==BRANCH
+          assert hashlib.sha256((root/'validated.bundle').read_bytes()).hexdigest()=='${{ needs.validate.outputs.bundle_sha256 }}'
+          subprocess.run(['git','bundle','verify',str(root/'validated.bundle')],check=True)
+          subprocess.run(['git','fetch',str(root/'validated.bundle'),'HEAD'],check=True)
+          assert subprocess.check_output(['git','rev-parse','FETCH_HEAD^{tree}'],text=True).strip()==TREE
+          delta=dict(line.split('\t',1)[::-1] for line in subprocess.check_output(['git','diff','--name-status',BASE,TREE],text=True).splitlines())
+          assert set(delta)==set(m['files'])
+          for p,e in m['files'].items():
+              path=pathlib.PurePosixPath(p)
+              assert not path.is_absolute() and '..' not in path.parts and str(path)==p and '\0' not in p
+              assert e['operation'] in ('add','replace')
+              assert delta[p]==e['status']==('A' if e['operation']=='add' else 'M')
+              mode,kind,blob=subprocess.check_output(['git','ls-tree',TREE,'--',p],text=True).split()[:3]
+              assert kind=='blob' and mode==e['mode'] and mode in ('100644','100755') and blob==e['blob']
+              assert hashlib.sha256(subprocess.check_output(['git','show',f'{TREE}:{p}'])).hexdigest()==e['sha256'],p
+          paths=subprocess.check_output(['git','ls-tree','-r','--name-only',TREE],text=True).splitlines()
+          assert not any(p.startswith('.github/_transient/') or p=='.github/workflows/chatgpt-apply-unify-zero-gap.yml' for p in paths)
+          remote=subprocess.check_output(['git','ls-remote','origin','refs/heads/'+BRANCH],text=True).split()[0]
+          assert remote==os.environ['GITHUB_SHA'],(remote,os.environ['GITHUB_SHA'])
+          assert subprocess.check_output(['git','rev-parse',os.environ['GITHUB_SHA']+'^{tree}'],text=True).strip()!=TREE
+          message='Unify zero-gap nine-point proof across V types and rebuild paper\n\nPreserve all witness coordinates and exact certificates.\nSealed manifest SHA-256: '+MANIFEST
+          commit=subprocess.check_output(['git','commit-tree',TREE,'-p',os.environ['GITHUB_SHA'],'-m',message],text=True).strip()
+          assert subprocess.check_output(['git','rev-parse',commit+'^{tree}'],text=True).strip()==TREE
+          pathlib.Path('/tmp/zero-gap-publish-commit').write_text(commit+'\n')
+          with open(os.environ['GITHUB_OUTPUT'],'a') as f:f.write('commit='+commit+'\n')
+          print('Verified final commit',commit,'tree',TREE,'with',len(m['files']),'changed paths.')
+          PY
+      - name: Guard and fast-forward only the authorized feature branch
+        run: |
+          set -euo pipefail
+          branch='chatgpt/unify-zero-gap-20260905080358'
+          commit="$(cat /tmp/zero-gap-publish-commit)"
+          test "$(git ls-remote origin "refs/heads/$branch" | cut -f1)" = "$GITHUB_SHA"
+          git -c http.extraheader="AUTHORIZATION: basic $(printf 'x-access-token:%s' '${{ github.token }}' | base64 -w0)" push origin "$commit:refs/heads/$branch"
+          test "$(git ls-remote origin "refs/heads/$branch" | cut -f1)" = "$commit"
+          echo "Published $commit; temporary workflow and payload are absent from its tree."
+
+  dispatch:
+    needs: publish
+    permissions:
+      contents: read
+      actions: write
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Dispatch permanent read-only CI on the final cleaned head
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EXPECTED_HEAD: ${{ needs.publish.outputs.commit }}
+        run: |
+          set -euo pipefail
+          repo='dylan0301/hexagon-cover-database'
+          branch='chatgpt/unify-zero-gap-20260905080358'
+          test "$(gh api "repos/$repo/git/ref/heads/$branch" --jq '.object.sha')" = "$EXPECTED_HEAD"
+          gh workflow run ci.yml --repo "$repo" --ref "$branch"
