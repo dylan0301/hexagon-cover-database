@@ -1,0 +1,36 @@
+name: Zero-gap baseline export
+
+on:
+  push:
+    branches: [chatgpt/unify-zero-gap-20260905080358]
+    paths: [.github/workflows/chatgpt-apply-unify-zero-gap.yml]
+
+permissions: {}
+
+concurrency:
+  group: chatgpt-unify-zero-gap-20260905080358
+  cancel-in-progress: false
+
+jobs:
+  export:
+    permissions:
+      contents: read
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+        with:
+          ref: cc4aa455b1aa174accdfd891b0691ff9c26e721d
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Export exact audited baseline without credentials
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = cc4aa455b1aa174accdfd891b0691ff9c26e721d
+          git bundle create /tmp/hexagon-baseline.bundle HEAD
+          sha256sum /tmp/hexagon-baseline.bundle
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: zero-gap-audited-baseline
+          path: /tmp/hexagon-baseline.bundle
+          retention-days: 3
+          if-no-files-found: error
