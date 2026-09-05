@@ -1,16 +1,14 @@
-# Four-Cap Enclosure Reduction and Adjacent Overlaps
+# Four-Contact Enclosure Reduction and Adjacent Supporting Lines
 
 Status: Proven
 
-This note proves the geometric part of the terminal nine-point enclosure
-argument.  It handles the automatic disk region, replaces the two outer
-frontier witnesses by exact Newton inner witnesses, reduces the remaining
-problem to four consecutive cap overlaps, proves the ray and radius
-hypotheses, and proves both adjacent overlaps analytically.  The two exact
-mixed targets left by the reduction are treated in
-[`31055_rational_radial_envelopes_and_mixed_reduction.md`](31055_rational_radial_envelopes_and_mixed_reduction.md)
-and
-[`31056_global_analytic_mixed_positivity.md`](31056_global_analytic_mixed_positivity.md).
+This note retains the exact Newton inner witnesses and the analytic
+adjacent-line bounds, but replaces the former Minkowski/cap construction by
+four ordinary supporting contacts. The general contact and radius-transfer
+lemmas are in [`2611`](../../../../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2611_four_contact_disk_enclosure.md). The two remaining tangent residuals are reduced in
+[`31055`](31055_rational_radial_envelopes_and_mixed_reduction.md) and certified in
+[`31056`](31056_global_analytic_mixed_positivity.md).
+The historical filename is retained to preserve incoming links.
 
 ## 1. Domain and support formula
 
@@ -312,186 +310,99 @@ $$
 
 All coordinates in (10)--(12) are rational functions of $a,b,D$.
 
-## 3. Four-cap Minkowski reduction
+## 3. Four supporting contacts and the exact tangent targets
 
-For a point $X$ and $r\ge0$, put
-
-$$
-\mathbb D(X,r)
-=
-\left\{Y:\left\lVert Y-X\right\rVert\le r\right\}.
-$$
-
-Set
+For the inner set $\widehat K$ in (15), put
 
 $$
-S=\widehat K+\mathsf R\widehat K+\mathsf R^2\widehat K.
+H(n)=\max\{\eta,\langle A,n\rangle,\langle B,n\rangle,\langle C,n\rangle\},
+\qquad \Psi(n)=\sum_{j=0}^2 H(\mathsf R^j n).
 $$
 
-Then $S$ is convex and $\mathsf R$-invariant, and
+Section 4 verifies the convex three-point chain required by `2611`.
+The straight supporting contacts are the lines $AB,BC$ and the exposed disk
+tangents through $A,C$. Thus the enclosing side is
 
 $$
-h_S(n)=\sum_{j=0}^2h_{\widehat K}(\mathsf R^j n).
+\Lambda(\widehat K)=\frac1h
+\min\{\Psi(n_{AB}),\Psi(n_{BC}),\Psi(t_A),\Psi(t_C)\},
 \tag{17}
 $$
 
-The three summands can contribute a witness point or the centered disk
-independently.  Hence $S$ contains the full $\mathsf R$-orbits of
+where, with $\mathsf J$ denoting rotation through $\pi/2$,
 
 $$
-\mathbb D(A,2\eta),
-\quad
-\mathbb D(B,2\eta),
-\quad
-\mathbb D(C,2\eta),
-\quad
-\mathbb D(W,\eta),
-\qquad
-W=C+\mathsf R A.
+n_{AB}=-\frac{\mathsf J(B-A)}{\|B-A\|},\qquad
+n_{BC}=-\frac{\mathsf J(C-B)}{\|C-B\|},
 \tag{18}
 $$
 
-For example, $A+\mathsf R\mathcal D_\eta+\mathsf R^2\mathcal D_\eta$ is
-$\mathbb D(A,2\eta)$, while $C+\mathsf R A+\mathsf R^2\mathcal D_\eta$ is
-$\mathbb D(W,\eta)$.
-
-For a disk $\mathbb D(X,r)$, define its level-$h$ cap of normal directions
-by
-
 $$
-I(X,r)
-=
-\left\{
-n:\left\lVert n\right\rVert=1,
-\ \langle X,n\rangle+r\ge h
-\right\}.
+t_A=\frac{\eta A-\sqrt{\|A\|^2-\eta^2}\,\mathsf JA}{\|A\|^2},
+\qquad
+t_C=\frac{\eta C+\sqrt{\|C\|^2-\eta^2}\,\mathsf JC}{\|C\|^2}.
 \tag{19}
 $$
-
-If the caps belonging to the disks in (18) cover the unit circle, then
-$h_S(n)\ge h$ for every unit $n$.  Equations (3) and (17) then give
-$\Lambda(\widehat K)\ge1$.
 
 Put
 
 $$
-\tau=h-2\eta=h(2c_*-1)>0.
+\tau=h-2\eta=h(2c_*-1)>\eta.
 \tag{20}
 $$
 
-The required chain in the sector from $A$ to $\mathsf R A$ is
+The analytic calculation in Section 5 gives
 
 $$
-I(A,2\eta)
-\longleftrightarrow
-I(B,2\eta)
-\longleftrightarrow
-I(C,2\eta)
-\longleftrightarrow
-I(W,\eta)
-\longleftrightarrow
-I(\mathsf R A,2\eta).
-\tag{21}
-$$
-
-The first two overlaps follow from
-
-$$
-\frac{\mathrm{cross}(A,B)}{\left\lVert B-A\right\rVert}
-\ge\tau,
+\frac{\operatorname{cross}(A,B)}{\|B-A\|}\ge\tau,
 \qquad
-\frac{\mathrm{cross}(B,C)}{\left\lVert C-B\right\rVert}
-\ge\tau,
+\frac{\operatorname{cross}(B,C)}{\|C-B\|}\ge\tau.
 \tag{22}
 $$
 
-provided both crosses are positive.  At the common outer normal of the first
-two center points, for example, both equal-radius disks have support
+At either point--point contact the other two supports are at least $\eta$;
+therefore these two contact sums are at least $\tau+2\eta=h$.
+For the two tangencies put
 
 $$
-2\eta+
-\frac{\mathrm{cross}(A,B)}{\left\lVert B-A\right\rVert},
-$$
-
-so (22) puts that normal in both caps.
-
-For the two mixed overlaps, define
-
-$$
-\Delta=\mathrm{cross}(C,\mathsf R A),
-\qquad
-u=\langle C,\mathsf R A\rangle,
-$$
-
-and, for $X=A,C$,
-
-$$
-Z_X=\tau\left\lVert X\right\rVert^2-\eta\nu,
+\Delta=\operatorname{cross}(C,\mathsf RA)>0,
+\qquad \nu=\langle C,\mathsf RA\rangle,
+\qquad Z_X=\tau\|X\|^2-\eta\nu\quad(X=A,C),
 \tag{23}
 $$
 
 $$
-P_X(\eta)
-=
-\left(\left\lVert X\right\rVert^2-\eta^2\right)\Delta^2
--Z_X^2.
+P_X(\eta)=(\|X\|^2-\eta^2)\Delta^2-Z_X^2.
 \tag{24}
 $$
 
-If
+Direct substitution in (19), using the disk twice and the opposite outer
+point once, gives
 
 $$
-\left\lVert A\right\rVert,
-\left\lVert C\right\rVert>\eta,
-\qquad
-\Delta>0,
-\qquad
-P_A(\eta),P_C(\eta)\ge0,
-\tag{25}
-$$
-
-then
-
-$$
-\sqrt{\left\lVert X\right\rVert^2-\eta^2}\Delta
-\ge
-\left\lvert Z_X\right\rvert
-\ge Z_X.
+\Psi(t_A)\ge2\eta+
+\frac{\eta\nu+\Delta\sqrt{\|A\|^2-\eta^2}}{\|A\|^2},
 \tag{26}
 $$
 
-For $X=A$, equation (26) is equivalent to
-
 $$
-2\eta+
-\frac{
-\eta\nu+
-\sqrt{\left\lVert A\right\rVert^2-\eta^2}\Delta
-}{\left\lVert A\right\rVert^2}
-\ge h.
+\Psi(t_C)\ge2\eta+
+\frac{\eta\nu+\Delta\sqrt{\|C\|^2-\eta^2}}{\|C\|^2}.
 \tag{27}
 $$
 
-The left side is the common support of $\mathbb D(C,2\eta)$ and
-$\mathbb D(W,\eta)$ at their outer tangent normal.  The instance $X=C$ is
-the corresponding common-support inequality for $\mathbb D(W,\eta)$ and
-$\mathbb D(\mathsf R A,2\eta)$.  Thus
+Consequently it is sufficient to prove the paired signs
 
 $$
-\boxed{P_A(\eta)\ge0,
-\qquad
-P_C(\eta)\ge0}
+P_A(\eta)\ge0,\qquad P_C(\eta)\ge0.
 \tag{28}
 $$
 
-are the exact two mixed targets.
-
-Every nonempty cap in (21) is a single arc of half-width less than $\pi/2$:
-for the equal-radius caps this follows from $h-2\eta=\tau>0$, and for the
-mixed-radius cap it follows from $h-\eta=hc_*>0$.  Once the five center rays
-are in cyclic order and all consecutive crosses are positive, every overlap
-in (21) occurs across the intervening short sector.  Hence the five caps
-cover the sector from $A$ to $\mathsf R A$, and their $\mathsf R$-orbits cover the unit circle.
+Indeed, the sign of $\Delta$ gives
+$\Delta\sqrt{\|X\|^2-\eta^2}\ge|Z_X|\ge Z_X$, including the case
+$Z_X<0$ without any unjustified squaring. These are the same squared
+residuals as in the historical mixed-overlap certificate, now interpreted
+as tangent contact tests. No auxiliary point $C+\mathsf RA$ is constructed.
 
 ## 4. Ray order and radius hypotheses
 
@@ -531,91 +442,51 @@ $$
 \tag{31}
 $$
 
-All three points have negative global second coordinate by (29), so
-(30)--(31) put their rays in the order $A,B,C$ in the lower half-plane.
+Centering a local point $(u,v)$ at the hexagon center gives coefficient
+vector $(u-1,v-1)$ in the basis
+$E_0=V_5-V_4$, $E_1=V_3-V_4$. Both coefficients are negative. Thus all
+three rays lie in one open cone of aperture $120$ degrees. The positive
+crosses in (30)--(31) give their lifted order $A,B,C$.
 
-For the remaining order, put
-
-$$
-X=1-u_A,
-\qquad
-Y=1-v_A,
-\qquad
-P=1-u_C,
-\qquad
-Q=1-v_C.
-$$
-
-Then $0<X,Y,P,Q<1$, while $X>1/2$ and $Q>1/2$.  In the basis
+Write $s_A=\widehat\lambda_- -\lambda_*>0$ and
+$s_C=\widehat\mu_+ -\mu_*>0$, where
+$\widehat\lambda_-=h\widehat\xi_-$ and
+$\widehat\mu_+=h\widehat\zeta_+$. The two line directions show that
 
 $$
-E_0=V_5-V_4,
-\qquad
-E_1=V_3-V_4,
+\operatorname{cross}(B-A,C-B)
+=h s_A s_C(\alpha\delta-\beta\gamma)>0,
 $$
 
-the centered coefficient vectors are
+because the strict frontier formula gives
 
 $$
-A=(-X,-Y),
-\qquad
-C=(-P,-Q),
-\qquad
-\mathsf R A=(Y,Y-X).
+\alpha\delta-\beta\gamma
+=\frac{3(1-D)(D+3)}{16\rho}>0.
 $$
 
-Therefore
+Also $0<\arg(A)+2\pi/3-\arg(C)<2\pi/3$, so
+$\Delta=\operatorname{cross}(C,\mathsf RA)>0$.
+This fixes the determinant orientation used in (23).
+
+For completeness, put $X=1-u_A$ and $Y=1-v_A$. Then $X>1/2$ and
 
 $$
-\frac{\Delta}{h}=PX+(Q-P)Y.
-\tag{32}
+\|A\|^2=X^2+Y^2-XY
+=\left(Y-\frac X2\right)^2+\frac34X^2>\frac3{16}.
 $$
 
-If $Q\ge P$, the right side is positive.  If $Q<P$ and $X\ge Y$, it is
-again positive.  In the only remaining case, $Q<P$ and $X<Y$,
+Reflection gives the same estimate for $C$, so
 
 $$
-PX-(P-Q)Y
->
-\frac P2-(P-Q)
-=Q-\frac P2
->0.
-$$
-
-Thus $\Delta>0$.  Since $W=C+\mathsf R A$ is a positive sum of two nonopposite
-vectors, its ray lies strictly between the rays of $C$ and $\mathsf R A$.  Hence the
-rays
-
-$$
-A, B, C, W, \mathsf R A
-\tag{33}
-$$
-
-occur in this cyclic order from $A$ to $\mathsf R A$.
-
-The same coordinates give
-
-$$
-\left\lVert A\right\rVert^2
-=X^2+Y^2-XY
-=\left(Y-\frac X2\right)^2+\frac34X^2
->\frac3{16}
-=\left(\frac h2\right)^2.
-$$
-
-The reflected calculation using $Q>1/2$ gives
-$\left\lVert C\right\rVert>h/2$.  By (5),
-
-$$
-\left\lVert A\right\rVert,
-\left\lVert C\right\rVert
->\frac h2>\eta.
+\|A\|,\|C\|>h/2>\eta.
 \tag{34}
 $$
 
-This proves every order, determinant, and radius condition in (25).
+After the bounds (22) are proved below, the line distances exceed $\eta$
+and all hypotheses of the four-contact theorem in `2611` hold.
 
-## 5. Analytic proof of both adjacent overlaps
+## 5. Analytic proof of both adjacent supporting-line bounds
 
 By reflection, assume $a\le b$ and put
 
@@ -950,25 +821,25 @@ $$
 \tag{49}
 $$
 
-By (20), (30), and (31), these are exactly the two adjacent overlaps in
-(22).
+By (20), (30), and (31), these are exactly the two supporting-line bounds
+in (22).
 
 ## 6. Reduction theorem
 
-For every $(a,b)$ in (1), the enclosure inequality is automatic when
-$c_*\le2/3$.  When $c_*>2/3$, equations (15)--(16) give an inner set
-$\widehat K$; equations (33)--(34) give the required ray order and radii; and
-(49) gives both adjacent cap overlaps.  It remains only to prove the two exact
-mixed residual signs (28), or the corresponding signs for concentric smaller
-disks.  Once those signs hold, the cap chain (21) and its rotations cover the
-unit circle, so
+For every $(a,b)$ in (1), the disk closes $c_*\le2/3$. In the remaining
+range, (15)--(16) give $\widehat K\subseteq\operatorname{conv}(K_{\rm wit})$;
+Section 4 gives the ordered convex chain and positive determinant; and
+Section 5 gives the two point--point contact bounds. It remains only to
+verify the paired tangent residual signs (28).
+
+The certificate in `31055`--`31056` proves those signs at
+$0<\bar\eta\le\eta<h/3$. Corollary 3.2 of `2611` transfers both signs
+together to $\eta$. All four support sums in (17) are therefore at least
+$h$, and
 
 $$
-\Lambda(K_{\mathrm{wit}})
-\ge
-\Lambda(\widehat K)
-\ge1.
+\Lambda(K_{\mathrm{wit}})\ge\Lambda(\widehat K)\ge1.
 $$
 
-This proves the stated four-cap reduction and every non-mixed geometric
-inequality used by it. $\square$
+This proves the four-contact reduction, conditional only on the same exact
+paired residual certificate used by the former cap proof. $\square$

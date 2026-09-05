@@ -1,75 +1,64 @@
+% Historical file path retained; the active figure is now the four-contact hull.
 \begin{figure}[!htbp]
 \centering
-\begin{minipage}[t]{.28\linewidth}
+\begin{minipage}[t]{.50\linewidth}
+\vspace{0pt}
 \centering
 \resizebox{\linewidth}{!}{%
-\begin{tikzpicture}[scale=1.55,>=Latex]
-  \node[panellabel,anchor=west] at (-1.25,1.65) {(a) one point and its cap};
-  \draw[black!45] (0,0) circle (1);
-  \fill[DemandRed] (.48,.32) circle (.032) node[above right=1pt,figlabel] {$P$};
-  \draw[flow] (0,0)--(.92,.61) node[right,figlabel] {$n$};
-  \draw[DemandRed,line width=2.3pt]
-    (18:1.02) arc[start angle=18,end angle=78,radius=1.02];
-  \node[figlabel,text=DemandRed,align=center] at (.30,1.30)
-    {$\operatorname{Cap}(P,r)$\\
-     $\langle P,n\rangle+r\ge h$};
-  \node[figlabel] at (0,-1.30) {circle of outward normal directions};
+\begin{tikzpicture}[scale=2.4,>=Latex]
+  \node[panellabel,anchor=west] at (-1.02,.72) {(a) the four exposed contacts};
+  \fill[CenterBlue!9] (0,0) circle (.19);
+  \draw[CenterBlue,line width=.8pt] (0,0) circle (.19);
+  \coordinate (A) at (-.70,-.50);
+  \coordinate (B) at (0,-.72);
+  \coordinate (C) at (.70,-.50);
+  \coordinate (L) at (-.14312,.12478);
+  \coordinate (T) at (.14312,.12478);
+  \draw[GapPurple,line width=1.4pt] (L)--(A)--(B)--(C)--(T);
+  \draw[black!35,dashed] (A)--(C);
+  \fill (0,0) circle (.012) node[below=2pt,figlabel] {$O$};
+  \node[figlabel,text=CenterBlue] at (0,.32) {$\mathcal D_\eta$};
+  \foreach \p in {A,B,C}{\fill[GapPurple] (\p) circle (.018);}
+  \node[figlabel,below left=2pt] at (A) {$A$};
+  \node[figlabel,below=2pt] at (B) {$B$};
+  \node[figlabel,below right=2pt] at (C) {$C$};
+  \draw[->,DemandRed] (-.35,-.61)--(-.48,-1.03)
+    node[below,figlabel] {$n_{AB}$};
+  \draw[->,DemandRed] (.35,-.61)--(.48,-1.03)
+    node[below,figlabel] {$n_{BC}$};
+  \draw[->,RadialTeal] (-.42156,-.18761)--(-.81,.15)
+    node[left,figlabel] {$t_A$};
+  \draw[->,RadialTeal] (.42156,-.18761)--(.81,.15)
+    node[right,figlabel] {$t_C$};
 \end{tikzpicture}%
 }
 \end{minipage}\hfill
-\begin{minipage}[t]{.36\linewidth}
+\begin{minipage}[t]{.45\linewidth}
+\vspace{0pt}
 \centering
-\resizebox{\linewidth}{!}{%
-\begin{tikzpicture}[scale=1.55,>=Latex]
-  \node[panellabel,anchor=west] at (-1.28,1.65) {(b) one $120^\circ$ sector};
-  \draw[black!45] (0,0) circle (1);
-  \draw[black!30,dashed] (0,0)--(5:1.15);
-  \draw[black!30,dashed] (0,0)--(125:1.15);
-
-  \draw[DemandRed,line width=2.3pt]
-    (2:1.02) arc[start angle=2,end angle=39,radius=1.02];
-  \draw[VertexOrange,line width=2.3pt]
-    (31:1.02) arc[start angle=31,end angle=67,radius=1.02];
-  \draw[CenterBlue,line width=2.3pt]
-    (59:1.02) arc[start angle=59,end angle=94,radius=1.02];
-  \draw[GapPurple,line width=2.3pt]
-    (86:1.02) arc[start angle=86,end angle=119,radius=1.02];
-  \draw[RadialTeal,line width=2.3pt]
-    (111:1.02) arc[start angle=111,end angle=128,radius=1.02];
-
-  \node[figlabel,text=DemandRed] at (18:1.28) {$P_-$};
-  \node[figlabel,text=VertexOrange] at (49:1.28) {$P_0$};
-  \node[figlabel,text=CenterBlue] at (78:1.28) {$P_+$};
-  \node[figlabel,text=GapPurple] at (103:1.30) {$P_*$};
-  \node[figlabel,text=RadialTeal] at (123:1.32) {$\mathsf RP_-$};
-  \node[figlabel,align=center] at (0,-1.30)
-    {consecutive overlaps cover the short sector};
-\end{tikzpicture}%
-}
-\end{minipage}\hfill
-\begin{minipage}[t]{.31\linewidth}
-\centering
-\resizebox{\linewidth}{!}{%
-\begin{tikzpicture}[scale=1.55,>=Latex]
-  \node[panellabel,anchor=west] at (-1.25,1.65) {(c) the three rotated sectors};
-  \draw[black!45] (0,0) circle (1);
-  \foreach \a/\col in {0/DemandRed,120/CenterBlue,240/RadialTeal}{
-    \draw[\col,line width=4.0pt,opacity=.72]
-      (\a:1.02) arc[start angle=\a,end angle={\a+120},radius=1.02];
-    \draw[->,\col,line width=.75pt] (0,0)--({\a+60}:.78);
-  }
-  \node[figlabel,align=center] at (0,0)
-    {$\mathsf R$-orbits\\cover $\mathbb S^1$};
-  \node[figlabel,align=center] at (0,-1.30)
-    {$h_{K+\mathsf RK+\mathsf R^2K}(n)\ge h$ for every $n$};
-\end{tikzpicture}%
-}
+\textbf{(b) four support sums}\par\medskip
+\small
+Two consecutive-point contacts:
+\[
+ \Psi(n_{AB})\ge d_{AB}+2\eta\ge h,
+\]
+\[
+ \Psi(n_{BC})\ge d_{BC}+2\eta\ge h.
+\]
+Two exposed disk tangencies:
+\[
+ P_A(\eta),P_C(\eta)\ge0
+\]
+\[
+ \Longrightarrow\quad\Psi(t_A),\Psi(t_C)\ge h.
+\]
+Hence $\Lambda(\widehat K)\ge1$.
 \end{minipage}
-\caption{The support-cap conclusion for the zero-gap witness.  A point and a
-disk radius determine an arc of normal directions in which their support is
-at least $h$.  The four consecutive overlap checks cover the sector from the
-ray of $P_-$ to that of $\mathsf RP_-$, and the three $120^\circ$ rotations
-cover the full normal circle.  The arc widths are schematic; the cyclic order
-and overlap pattern are the exact hypotheses of the support-arc lemma.}
-\label{fig:zero-gap-support-cap-cover}
+\caption{The four-contact terminal for the zero-gap witness. The supporting
+lines through $AB$ and $BC$ and the two outer disk tangencies exhaust the
+active changes of support source. The dashed segment $AC$ is not exposed:
+$B$ and the disk center lie on opposite sides. The drawing is schematic;
+the exact witness geometry and the paired tangent residuals are proved in
+the text. No auxiliary Minkowski sum or cap covering is needed.}
+\label{fig:zero-gap-four-contacts}
 \end{figure}

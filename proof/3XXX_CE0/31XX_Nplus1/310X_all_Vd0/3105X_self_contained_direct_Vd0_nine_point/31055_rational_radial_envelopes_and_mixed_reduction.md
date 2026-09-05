@@ -1,13 +1,15 @@
-# Rational Radial Envelopes and Exact Mixed-Overlap Reduction
+# Rational Radial Envelopes and Exact Tangent-Residual Reduction
 
 Status: Proven
 
-This note replaces the exact radial value in the two mixed cap overlaps from
-[`31054_four_cap_enclosure_reduction.md`](31054_four_cap_enclosure_reduction.md)
-by branchwise rational upper envelopes.  It then factors the mixed Gram
-residuals and reduces them exactly to eight integer-polynomial signs.  The
-eight signs are proved in
-[`31056_global_analytic_mixed_positivity.md`](31056_global_analytic_mixed_positivity.md).
+This note replaces the exact radial value in the paired tangent residuals
+from [`31054`](31054_four_cap_enclosure_reduction.md) by rational upper
+envelopes. It retains the exact Gram factors, eight integer-polynomial
+signs, and authenticated transcript. The historical filename and verifier
+names are retained; the geometric conclusion now uses
+[`2611`](../../../../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2611_four_contact_disk_enclosure.md) rather than support caps.
+The eight signs are proved in
+[`31056`](31056_global_analytic_mixed_positivity.md).
 
 ## 1. Domain and exact radial cells
 
@@ -305,18 +307,9 @@ $$
 \tag{20}
 $$
 
-Thus the Minkowski sum from `31054` contains the three concentric subdisks
-
-$$
-\mathbb D(C,2\bar\eta),
-\qquad
-\mathbb D(W,\bar\eta),
-\qquad
-\mathbb D(RA,2\bar\eta).
-\tag{21}
-$$
-
-It is enough to prove both mixed cap overlaps for these smaller disks.
+The quantities below are the squared tangent residuals (24) of `31054`
+at the smaller radius $\bar\eta$. Paired radius transfer in `2611`,
+not a claim of separate monotonicity, will supply the actual-radius signs.
 
 Represent a global vector as $(x,hy)$ and put
 
@@ -331,9 +324,14 @@ $$
 $$
 \nu=\langle A,C'\rangle,
 \qquad
-\Delta_0=x_Ay_{C'}-y_Ax_{C'}.
+\Delta_0=x_{C'}y_A-y_{C'}x_A>0.
 \tag{22}
 $$
+
+Here $h\Delta_0=\operatorname{cross}(C',A)
+=\operatorname{cross}(C,\mathsf RA)>0$. The authenticated derivation
+code uses the opposite signed determinant; only its square occurs in every
+residual and polynomial, so that convention produces exactly the same data.
 
 The Gram identity is
 
@@ -403,8 +401,18 @@ Q_C\ge0.
 \tag{26}
 $$
 
-The radius and determinant proof in `31054` applies a fortiori to the
-smaller radius $\bar\eta$.  Hence (26) gives the two mixed overlaps in (21).
+The radius and determinant proof in `31054` applies also to
+$\bar\eta\le\eta$. With $e_0=\bar\eta/h$, (26) says
+
+$$
+\|(1-2e_0)A-e_0C'\|\le\Delta_0,
+\qquad
+\|(1-2e_0)C'-e_0A\|\le\Delta_0.
+$$
+
+Lemma 3.1 of `2611` transfers these inequalities to $e=\eta/h<1/3$.
+The Gram factors then give $P_A(\eta),P_C(\eta)\ge0$, exactly the
+actual-radius tangent tests needed by the four-contact formula.
 
 ## 5. Exact eight-polynomial reduction
 

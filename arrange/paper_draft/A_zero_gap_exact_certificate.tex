@@ -1,8 +1,8 @@
-\section{Exact Unequal-Radius Support-Arc Intersections}
+\section{Exact Disk-Tangent Residual Certificate}
 \label{sec:strategy4-exact-certificate}
 
-The two mixed cap overlaps in the zero-gap nine-point theorem are certified by exact symbolic
-arithmetic.  This section gives the mathematical reduction and verification
+The two disk-tangent contact bounds in the zero-gap nine-point theorem are
+certified by exact symbolic arithmetic.  This section gives the mathematical reduction and verification
 algorithms; the repository provenance manifests identify the accompanying
 code and sparse integer data.  No floating-point arithmetic, interval
 arithmetic, adaptive subdivision, branch-and-bound, or unrecorded numerical
@@ -125,8 +125,9 @@ On the active cell let $\bar c$ denote the corresponding expression in
  \bar\eta=h(1-\bar c),\qquad e=1-\bar c,\qquad t=2\bar c-1.
 \]
 Lemma~\ref{lem:paper-branchwise-cbar} gives
-$0<\bar\eta\le\eta=h(1-c_*)$.  It therefore suffices to prove the mixed
-intersections for the smaller disks with radii $2\bar\eta,\bar\eta,2\bar\eta$.
+$0<\bar\eta\le\eta=h(1-c_*)$.  The algebra below is evaluated at $\bar\eta$;
+\zcref{lem:paired-radius-transfer} will transfer both residual signs to
+the actual radius $\eta$.
 
 Represent a global vector as $(x,hy)$ and put $C'=\mathsf R^{-1}C$.  Define
 \[
@@ -134,9 +135,12 @@ Represent a global vector as $(x,hy)$ and put $C'=\mathsf R^{-1}C$.  Define
  \nu=\langle A,C'\rangle,
 \]
 \[
- \Delta_0=x_Ay_{C'}-y_Ax_{C'}>0.
+ \Delta_0=x_{C'}y_A-y_{C'}x_A>0.
 \]
-Thus the Euclidean cross product is $h\Delta_0$, and the Gram identity is
+Thus $h\Delta_0=\operatorname{cross}(C',A)
+=\operatorname{cross}(C,\mathsf RA)>0$. The authenticated code uses the
+opposite signed determinant, but every occurrence is squared; its integer
+polynomials and digest are unchanged. The Gram identity is
 \begin{equation}
  h^2\Delta_0^2=N_AN_C-\nu^2.
  \label{eq:certificate-Gram}
@@ -148,64 +152,39 @@ Define
  \label{eq:certificate-Q}
 \end{equation}
 
-\begin{lemma}[Residual signs imply the mixed cap intersections]
-\label{lem:paper-residual-to-overlap}
-If $Q_A,Q_C\ge0$, then
-\[
- I(C,2\bar\eta)\cap I(C+\mathsf RA,\bar\eta)\ne\varnothing,
-\]
-and
-\[
- I(C+\mathsf RA,\bar\eta)\cap I(\mathsf RA,2\bar\eta)\ne\varnothing.
-\]
-Consequently the same intersections hold with $\eta$ in place of
-$\bar\eta$.
+\begin{lemma}[Residual signs imply the actual-radius tangent bounds]
+\label{lem:paper-residual-to-tangency}
+If $Q_A,Q_C\ge0$, then the two actual-radius residuals
+$P_A(\eta),P_C(\eta)$ in \zcref{eq:four-contact-residuals} are nonnegative.
+Consequently both tangent contact sums in
+\zcref{eq:four-contact-tangent-tests} are at least $h$.
 \end{lemma}
 
 \begin{proof}
-Rotate the first pair by $\mathsf R^{-1}$.  Its centers become $C'$ and
-$A+C'$, so their difference is $A$.  An outer common tangent normal $n_A$ is
-chosen with
-\[
- \langle A,n_A\rangle=\bar\eta.
-\]
-Since $\lVert A\rVert>\bar\eta$ and $\Delta_0>0$, choose the tangent side for
-which
-\[
- \langle C',n_A\rangle
- =\frac{\bar\eta\nu+\sqrt{N_A-\bar\eta^2}\,h\Delta_0}{N_A}.
-\]
-The common support of the two disks is therefore
-\[
- 2\bar\eta+
- \frac{\bar\eta\nu+\sqrt{N_A-\bar\eta^2}\,h\Delta_0}{N_A}.
-\]
-Let $\bar\tau=h-2\bar\eta=ht$.  Expanding
+Let $\bar\tau=h-2\bar\eta=ht$. Expanding
 \eqref{eq:certificate-Q} and using \eqref{eq:certificate-Gram} gives
 \begin{equation}
- \bar P_A
- :=(N_A-\bar\eta^2)h^2\Delta_0^2
-   -(\bar\tau N_A-\bar\eta\nu)^2
- =h^2N_AQ_A.
+ \bar P_A:=(N_A-\bar\eta^2)h^2\Delta_0^2
+ -(\bar\tau N_A-\bar\eta\nu)^2=h^2N_AQ_A,
  \label{eq:certificate-PA}
 \end{equation}
-Thus $Q_A\ge0$ implies
-\[
- \sqrt{N_A-\bar\eta^2}\,h\Delta_0
- \ge\bar\tau N_A-\bar\eta\nu,
-\]
-and the common support is at least
-$2\bar\eta+\bar\tau=h$.  Hence the two level-$h$ caps intersect.
-The same calculation with $A$ and $C'$ exchanged gives
 \begin{equation}
- \bar P_C
- :=(N_C-\bar\eta^2)h^2\Delta_0^2
-   -(\bar\tau N_C-\bar\eta\nu)^2
- =h^2N_CQ_C,
+ \bar P_C:=(N_C-\bar\eta^2)h^2\Delta_0^2
+ -(\bar\tau N_C-\bar\eta\nu)^2=h^2N_CQ_C.
  \label{eq:certificate-PC}
 \end{equation}
-and proves the second intersection.  Enlarging the disk radii from
-$\bar\eta$ to $\eta$ only enlarges the caps.
+The signs $Q_A,Q_C\ge0$ are exactly
+\[
+ \|(1-2e)A-eC'\|\le\Delta_0,\qquad
+ \|(1-2e)C'-eA\|\le\Delta_0.
+\]
+Since $0<e=\bar\eta/h\le\eta/h<1/3$,
+\zcref{lem:paired-radius-transfer} gives the same inequalities at
+$\eta/h$. The identical Gram factors at that radius prove
+$P_A(\eta),P_C(\eta)\ge0$. Since $h\Delta_0>0$, the unsquared bounds
+following \zcref{eq:four-contact-residuals} show that both tangent contact
+sums are at least $h$. Transferring the pair avoids any assumption that a
+single squared residual is monotone in the disk radius.
 \end{proof}
 
 \subsection{Eight exact integer-polynomial signs}
@@ -318,12 +297,12 @@ coefficients are
 \]
 This is precisely the conversion implemented by the verifier.
 
-\begin{theorem}[Exact mixed-overlap certificate]
+\begin{theorem}[Exact tangent-residual certificate]
 \label{thm:paper-exact-mixed-certificate}
 On the complete strict witness domain with $c_*>2/3$, all eight polynomials in
 \eqref{eq:certificate-core-reduction} are nonnegative.  Hence
-$Q_A,Q_C\ge0$, and the two mixed cap intersections required by
-Proposition~\ref{prop:technical-four-overlaps} hold.
+$Q_A,Q_C\ge0$, and the two actual-radius tangent contact bounds in
+\zcref{eq:four-contact-tangent-tests} hold.
 \end{theorem}
 
 \begin{proof}
@@ -331,8 +310,8 @@ The $T$ chart proves the four $T$-cell core signs by nonnegative Bernstein
 coefficients.  On each $L$ chart the positive Bernstein certificates for
 $E_F$ and $R_F$ prove the four $L$-cell signs.  Since $D\ge0$,
 \eqref{eq:certificate-core-reduction} gives $Q_A,Q_C\ge0$ for $z\ge0$;
-reflection supplies $z\le0$.  Lemma~\ref{lem:paper-residual-to-overlap} then
-gives the two cap intersections.
+reflection supplies $z\le0$.  Lemma~\ref{lem:paper-residual-to-tangency} then
+gives the two tangent contact bounds.
 \end{proof}
 
 \begin{remark}[Reproduction]
