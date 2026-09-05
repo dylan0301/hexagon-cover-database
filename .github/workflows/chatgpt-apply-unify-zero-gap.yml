@@ -1,4 +1,4 @@
-name: Zero-gap baseline export
+name: Validate unified zero-gap proof
 
 on:
   push:
@@ -6,31 +6,159 @@ on:
     paths: [.github/workflows/chatgpt-apply-unify-zero-gap.yml]
 
 permissions: {}
-
 concurrency:
   group: chatgpt-unify-zero-gap-20260905080358
   cancel-in-progress: false
 
+env:
+  SOURCE_DATE_EPOCH: '946684800'
+  FORCE_SOURCE_DATE: '1'
+  TZ: UTC
+
 jobs:
-  export:
+  validate:
     permissions:
       contents: read
     runs-on: ubuntu-24.04
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
         with:
-          ref: cc4aa455b1aa174accdfd891b0691ff9c26e721d
           fetch-depth: 0
           persist-credentials: false
-      - name: Export exact audited baseline without credentials
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22'
+      - name: Authenticate the exact reviewed patch and paths
         run: |
           set -euo pipefail
-          test "$(git rev-parse HEAD)" = cc4aa455b1aa174accdfd891b0691ff9c26e721d
-          git bundle create /tmp/hexagon-baseline.bundle HEAD
-          sha256sum /tmp/hexagon-baseline.bundle
+          mkdir -p /tmp/zero-gap-validated/logs
+          python - <<'PY'
+          import base64, hashlib, json, os, pathlib, stat, subprocess, zlib
+          BASE='cc4aa455b1aa174accdfd891b0691ff9c26e721d'
+          BRANCH='chatgpt/unify-zero-gap-20260905080358'
+          PREFIX='.github/_transient/unify-zero-gap-20260905080358/'
+          WF='.github/workflows/chatgpt-apply-unify-zero-gap.yml'
+          assert os.environ['GITHUB_REF_NAME']==BRANCH
+          subprocess.run(['git','merge-base','--is-ancestor',BASE,os.environ['GITHUB_SHA']],check=True)
+          allowed={WF,PREFIX+'source-manifest.json',*(PREFIX+f'payload-{i}.txt' for i in range(3))}
+          delta=set(subprocess.check_output(['git','diff','--name-only',BASE,os.environ['GITHUB_SHA']],text=True).splitlines())
+          assert delta==allowed,(delta,allowed)
+          for p in allowed:
+              assert stat.S_ISREG(pathlib.Path(p).lstat().st_mode),p
+          raw=pathlib.Path(PREFIX+'source-manifest.json').read_bytes()
+          assert hashlib.sha256(raw).hexdigest()=='45c6a8db4c55c409b11747340995090c4e3c4c0f7bc56e34e5b4d8dd285c7780'
+          manifest=json.loads(raw)
+          assert manifest['base']==BASE and manifest['branch']==BRANCH
+          for p,entry in manifest['files'].items():
+              path=pathlib.PurePosixPath(p)
+              assert not path.is_absolute() and '..' not in path.parts and str(path)==p and '\0' not in p
+              assert entry['mode'] in ('100644','100755')
+              assert entry['operation'] in ('add','replace')
+          payload=''.join(pathlib.Path(PREFIX+f'payload-{i}.txt').read_text().strip() for i in range(3))
+          patch=zlib.decompress(base64.b64decode(payload,validate=True))
+          assert len(patch)==62116
+          assert hashlib.sha256(patch).hexdigest()==manifest['patch_sha256']=='b5aa62e2d73b9c9f63aace8334ac11eea3fa538e74b8ebd737e04c687cb2b4c9'
+          pathlib.Path('/tmp/zero-gap-source-manifest.json').write_bytes(raw)
+          pathlib.Path('/tmp/zero-gap.patch').write_bytes(patch)
+          subprocess.run(['git','checkout','--detach',BASE],check=True)
+          subprocess.run(['git','apply','--check','/tmp/zero-gap.patch'],check=True)
+          subprocess.run(['git','apply','/tmp/zero-gap.patch'],check=True)
+          for p,entry in manifest['files'].items():
+              f=pathlib.Path(p)
+              assert stat.S_ISREG(f.lstat().st_mode),p
+              assert hashlib.sha256(f.read_bytes()).hexdigest()==entry['sha256'],p
+          subprocess.run(['git','add','--all'],check=True)
+          delta=dict(line.split('\t',1)[::-1] for line in subprocess.check_output(['git','diff','--cached','--name-status',BASE],text=True).splitlines())
+          assert set(delta)==set(manifest['files']),delta
+          for p,entry in manifest['files'].items():
+              assert delta[p]==('A' if entry['operation']=='add' else 'M'),p
+              mode=subprocess.check_output(['git','ls-files','-s','--',p],text=True).split()[0]
+              assert mode==entry['mode'],(p,mode)
+          print('Exact patch, source bytes, path statuses, and modes verified.')
+          PY
+      - name: Install pinned audit dependencies
+        run: |
+          set -euo pipefail
+          python -m pip install --disable-pip-version-check -r arrange/_support/requirements.txt
+      - name: Verify sources and regenerate only the dependency graph
+        run: |
+          set -euo pipefail
+          python interactive/generate.py --dependency-graph
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add --all
+          git commit -m 'Validate unified zero-gap sources and graph'
+          python proof/check.py | tee /tmp/zero-gap-validated/logs/proof-check.log
+          python interactive/generate.py --dependency-graph --check | tee /tmp/zero-gap-validated/logs/graph-check.log
+          python interactive/generate.py --trace-assets --check | tee /tmp/zero-gap-validated/logs/trace-check.log
+          python interactive/check.py | tee /tmp/zero-gap-validated/logs/interactive-check.log
+          git diff --check cc4aa455b1aa174accdfd891b0691ff9c26e721d HEAD
+      - name: Replay both unchanged exact certificates
+        working-directory: proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation
+        run: |
+          set -euo pipefail
+          python -u verify_mixed_overlap_core_derivation.py | tee /tmp/zero-gap-validated/logs/exact-derivation.log
+          python -u verify_global_core_positivity.py | tee /tmp/zero-gap-validated/logs/exact-positivity.log
+      - name: Rebuild in pinned TeX Live 2025
+        uses: xu-cheng/texlive-action@22c04326a5d855880f9d39bb955138bf11c6df80
+        with:
+          docker_image: >-
+            ghcr.io/xu-cheng/texlive-historic-debian:2025@sha256:d3e42adc0c8d84bc913bfc33571feaf7037616260a771bb6f027504661568bf6
+          run: |
+            set -euo pipefail
+            python3 arrange/build.py --all --output-dir arrange/_build
+      - name: Verify complete prospective tree and export it without publishing
+        id: seal
+        run: |
+          set -euo pipefail
+          python arrange/_support/verify_pdf_render.py arrange/_build/canonical.pdf | tee /tmp/zero-gap-validated/logs/pdf-render.log
+          cp arrange/_build/canonical.pdf arrange/paper_draft/main.pdf
+          python - <<'PY'
+          import hashlib,json,pathlib,stat,subprocess
+          import fitz
+          BASE='cc4aa455b1aa174accdfd891b0691ff9c26e721d'
+          m=json.loads(pathlib.Path('/tmp/zero-gap-source-manifest.json').read_text())
+          assert 89<=len(fitz.open('arrange/paper_draft/main.pdf'))<=93
+          allowed=set(m['files'])|set(m['generated'])
+          subprocess.run(['git','add','--all'],check=True)
+          tree=subprocess.check_output(['git','write-tree'],text=True).strip()
+          delta=dict(line.split('\t',1)[::-1] for line in subprocess.check_output(['git','diff','--name-status',BASE,tree],text=True).splitlines())
+          assert set(delta)==allowed,(set(delta)-allowed,allowed-set(delta))
+          files={}
+          for p in sorted(allowed):
+              f=pathlib.Path(p)
+              assert stat.S_ISREG(f.lstat().st_mode),p
+              mode,kind,blob=subprocess.check_output(['git','ls-tree',tree,'--',p],text=True).split()[:3]
+              assert kind=='blob' and mode in ('100644','100755')
+              digest=hashlib.sha256(f.read_bytes()).hexdigest()
+              expected=m['files'].get(p)
+              if expected:
+                  assert digest==expected['sha256'] and mode==expected['mode'],p
+                  assert delta[p]==('A' if expected['operation']=='add' else 'M'),p
+              else:
+                  assert delta[p]=='M' and mode=='100644',p
+              files[p]={'status':delta[p],'mode':mode,'blob':blob,'sha256':digest}
+          assert not any(p.startswith('.github/_transient/') or p=='.github/workflows/chatgpt-apply-unify-zero-gap.yml' for p in subprocess.check_output(['git','ls-tree','-r','--name-only',tree],text=True).splitlines())
+          result={'base':BASE,'branch':m['branch'],'tree':tree,'files':files}
+          out=pathlib.Path('/tmp/zero-gap-validated/final-manifest.json')
+          out.write_text(json.dumps(result,indent=2,sort_keys=True)+'\n')
+          print('TREE',tree)
+          print('FINAL_MANIFEST_SHA256',hashlib.sha256(out.read_bytes()).hexdigest())
+          print('PDF_PAGES',len(fitz.open('arrange/paper_draft/main.pdf')))
+          subprocess.run(['git','commit','-m','Validate pinned unified zero-gap publication'],check=True)
+          subprocess.run(['git','bundle','create','/tmp/zero-gap-validated/validated.bundle','HEAD','^'+BASE],check=True)
+          pathlib.Path('/tmp/zero-gap-validated/canonical.pdf').write_bytes(pathlib.Path('arrange/paper_draft/main.pdf').read_bytes())
+          pathlib.Path('/tmp/zero-gap-validated/implementation-report.md').write_bytes(pathlib.Path('arrange/zero_gap_unification_report.md').read_bytes())
+          PY
+          sha256sum /tmp/zero-gap-validated/validated.bundle /tmp/zero-gap-validated/final-manifest.json
+          git diff --check cc4aa455b1aa174accdfd891b0691ff9c26e721d HEAD
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
-          name: zero-gap-audited-baseline
-          path: /tmp/hexagon-baseline.bundle
+          name: zero-gap-validated-tree
+          path: /tmp/zero-gap-validated/
           retention-days: 3
           if-no-files-found: error
