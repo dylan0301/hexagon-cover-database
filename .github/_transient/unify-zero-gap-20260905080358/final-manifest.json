@@ -1,0 +1,175 @@
+{
+  "base": "cc4aa455b1aa174accdfd891b0691ff9c26e721d",
+  "branch": "chatgpt/unify-zero-gap-20260905080358",
+  "files": {
+    "README.md": {
+      "blob": "be1f50b4da29c0e40c55979c494c722ccbaf191d",
+      "mode": "100644",
+      "operation": "replace",
+      "sha256": "b01c3bd0c0f82332d44862e45efda59ec2b446f93632875af2a14e3b80dd39ec",
+      "status": "M"
+    },
+    "arrange/paper_draft/01_introduction.tex": {
+      "blob": "4024569849102795a2d661ca15c2d5bae9f7b5dd",
+      "mode": "100644",
+      "operation": "replace",
+      "sha256": "e15b1117e6c2837fcf1d1e96e23385bb4abed7f46d0f5a0bb57735f28e747a24",
+      "status": "M"
+    },
+    "arrange/paper_draft/03_trace_bounds.tex": {
+      "blob": "86070d85dc4d6d74b5364875951e6129907337b8",
+      "mode": "100644",
+      "operation": "replace",
+      "sha256": "584f8ab4b5be3f3dca4cf1a1e62cdf21f7a304afadb23f6e9d4a9ff67ea7d4e2",
+      "status": "M"
+    },
+    "arrange/paper_draft/05_area_loss_full.tex": {
+      "blob": "009a96535105eead94c2571b188ca76d5699db92",
+      "mode": "100644",
+      "operation": "replace",
+      "sha256": "559d801b6194a1a30ef5e165aba3418da6fab19f54c349dd090eea2bd5c4232c",
+      "status": "M"
+    },
+    "arrange/paper_draft/06_finite_enclosure_full.tex": {
+      "blob": "6a7773cd039194c549236a87426596634be1eb9a",
+      "mode": "100644",
+      "operation": "replace",
+      "sha256": "4ba915794a38b25c8ca070acac8f2fac805077afbd4892f8fd54353aa79e3a88",
+      "status": "M"
+    },
+    "arrange/paper_draft/07_exhaustive_assembly.tex": {
+      "blob": "be21e93ddd715540b952802b957ba90dae301641",
+      "mode": "100644",
+      "operation": "replace",
+      "sha256": "10d5ed6242d5a798ded97ce50a53cf9420d4a951bcae26d3a5c21c7ef02f9b02",
+      "status": "M"
+    },
+    "arrange/paper_draft/E_zero_gap_nine_point_optimization.tex": {
+      "blob": "a6787947c36e753560d807f400804235d840ed21",
+      "mode": "100644",
+      "operation": "replace",
+      "sha256": "ac5aad7fd3ab26e085d530190c25c43cfa46592acc2984c34d5a12e248f7c201",
+      "status": "M"
+    },
+    "arrange/paper_draft/figures/finite_enclosure/fe00_case_roadmap.tex": {
+      "blob": "3b5327536eced00fa7ca37167fad05ffdc09b3c1",
+      "mode": "100644",
+      "operation": "replace",
+      "sha256": "0419981c0006ca19091c9feff65aa171910a00d781d6bf831a75b6cb18261a7e",
+      "status": "M"
+    },
+    "arrange/paper_draft/figures/finite_enclosure/fe11_zero_gap_witness.tex": {
+      "blob": "93e02e4f369b61d733b7c7297ea93ea42fdc7a26",
+      "mode": "100644",
+      "operation": "replace",
+      "sha256": "e32542e7b89f0775a1116de87c96e405587052343f5fcf67bdb026890dcef069",
+      "status": "M"
+    },
+    "arrange/paper_draft/main.pdf": {
+      "blob": "1fa900140803e2c52784db0d6703009149441207",
+      "mode": "100644",
+      "operation": "replace",
+      "sha256": "8d861ec601ded51cd1451784a95894a84b4454e881f33dc2f896bca528b682fe",
+      "status": "M"
+    },
+    "arrange/zero_gap_unification_report.md": {
+      "blob": "f3d6f3fada4bea4d31f355e861df551967253bb0",
+      "mode": "100644",
+      "operation": "add",
+      "sha256": "c183d3ca3d9aad604fe815604deb5fd66dcbed27d2bd62feecd05abdbe024bc3",
+      "status": "A"
+    },
+    "interactive/_support/generate_dependency_graph.py": {
+      "blob": "b98c860de12a3db9a3716c633b63a3b7a272ff55",
+      "mode": "100755",
+      "operation": "replace",
+      "sha256": "c08346b6b82aed00ff9aa6e21a8d15150ba98c88763cbca598757c857dac2aae",
+      "status": "M"
+    },
+    "interactive/readable_proof_dependency_graph.html": {
+      "blob": "39e4373b7ef0f8906d4eaa6da1a8fd7e2f239f0e",
+      "mode": "100644",
+      "operation": "replace",
+      "sha256": "e3ef488f2db1edcbd91ba0bfa9ac04d7053b7304569e8fa88f5aa0b5cba43fda",
+      "status": "M"
+    },
+    "proof/0XXX_main/0000_main_theorem.md": {
+      "blob": "0003b6d32ac4f41ded6514f19fd3955101579cbf",
+      "mode": "100644",
+      "operation": "replace",
+      "sha256": "c99769230954fff7b89fa778378d60748e22d00cdd63f04c4d6fc46a4c866345",
+      "status": "M"
+    },
+    "proof/0XXX_main/0001_proof_tree_index.md": {
+      "blob": "a2c8af0716b85edcd744c6e19ddf06b18e056048",
+      "mode": "100644",
+      "operation": "replace",
+      "sha256": "f1142503a21a89613cce8ad4462ddea80889bd6ae060419ef644f2efa5ce6805",
+      "status": "M"
+    },
+    "proof/0XXX_main/0003_reusable_lemma_catalog.md": {
+      "blob": "d44bcb6cdaa76340f70f9e49ee46ca0310f33542",
+      "mode": "100644",
+      "operation": "replace",
+      "sha256": "024a6402e06299ef9e4445678809b4f32d8e8ec96cd7522bbc696cc3f28e8949",
+      "status": "M"
+    },
+    "proof/2XXX_geometric_lemmas/24XX_area_loss/2400_zero_gap_area_loss_interface.md": {
+      "blob": "fa76688130552673fe62841244bc5c4d4b1b2df2",
+      "mode": "100644",
+      "operation": "replace",
+      "sha256": "2fa777e314ca07eb3a3e91ab95111c84198e0fbd5ae61987b6b032a1054d8447",
+      "status": "M"
+    },
+    "proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2608_residual_hull_finite_enclosure_principle.md": {
+      "blob": "788df8e17acf25f1aa2e89acae0b3c97f36e25ea",
+      "mode": "100644",
+      "operation": "replace",
+      "sha256": "3e459ce207683e21713b45dedb63b37e5e65a822d2d176e979119e3faf5144bb",
+      "status": "M"
+    },
+    "proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2610_finite_enclosure_terminal_interfaces.md": {
+      "blob": "d86156e6d0eaa666e2d769e300406b8a91736d41",
+      "mode": "100644",
+      "operation": "replace",
+      "sha256": "311ff76c0161ec9d8845797f2eca319dc88c1b8af8acd756296210d47bcd63bc",
+      "status": "M"
+    },
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31050_self_contained_direct_Vd0_nine_point_index.md": {
+      "blob": "df9d5fe750e8711514d45051e7b40897d4c73745",
+      "mode": "100644",
+      "operation": "replace",
+      "sha256": "b5f575ec2f12f5953746b3edf6f2b29d0ccfc5f5548c48db99a269c808dd0091",
+      "status": "M"
+    },
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31051_direct_radial_forcing.md": {
+      "blob": "4b7b8db3421699cb708ff4b632072ff72b22d702",
+      "mode": "100644",
+      "operation": "replace",
+      "sha256": "0969a7ac5f9bae2c51aa2c19de5cbfafc04bf951f0a56d28ca3559c1db49702d",
+      "status": "M"
+    },
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31058_center_independent_direct_nine_point_obstruction.md": {
+      "blob": "4a56aedf7f48f41d059417e2e691cbdd932785d9",
+      "mode": "100644",
+      "operation": "replace",
+      "sha256": "55cb1de88b557db13b6f4765bb38d0ec04c72ec9daa8d960b51e3267dc84e8cc",
+      "status": "M"
+    },
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31059_CE0_Nplus1_all_Vd0_completion.md": {
+      "blob": "8f13e0a3a4893ae00add6eb861ad76064f9450fc",
+      "mode": "100644",
+      "operation": "replace",
+      "sha256": "37aa107fbf187fa6659a3a9806e23ad9f51efe7cb0646bb6a524ee98f70b96b1",
+      "status": "M"
+    },
+    "proof/check.py": {
+      "blob": "c78824f8236acb7c35f59af108d829cf9fc75852",
+      "mode": "100755",
+      "operation": "replace",
+      "sha256": "4c2c48d2bc3dbb4f155b3488587f544746df1584aa27c7c5be4deac800ea548e",
+      "status": "M"
+    }
+  },
+  "tree": "744b609d6e1a3e2744fc60b362ca37ee691a9b54"
+}
