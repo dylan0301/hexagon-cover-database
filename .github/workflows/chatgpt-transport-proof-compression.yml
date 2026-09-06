@@ -1,0 +1,130 @@
+name: Temporary isolated proof-compression blob transport
+on:
+  push:
+    branches: ['chatgpt/proof-compression-20260906142930']
+    paths: ['.github/workflows/chatgpt-transport-proof-compression.yml']
+permissions: {}
+concurrency:
+  group: transport-proof-compression-20260906142930
+  cancel-in-progress: false
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      actions: read
+    steps:
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: proof-compression-validated
+          run-id: 34041379147
+          github-token: ${{ github.token }}
+          path: incoming
+      - name: Recheck the exact reviewed artifact without executing its content
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import hashlib,json,pathlib,stat,zipfile
+          root=pathlib.Path('incoming')
+          raw=(root/'manifest.json').read_bytes()
+          assert hashlib.sha256(raw).hexdigest()=='caf25c099b0e7636d3d1c063388f0956d83c6a01637a55855f3ccdaace420524'
+          archive=(root/'delivery.zip').read_bytes()
+          assert hashlib.sha256(archive).hexdigest()=='2d18bd68c40ca95f61647cd1911336022d93493ac5c85b07ec587cfbc3a5b064'
+          manifest=json.loads(raw)
+          assert manifest['base']=='83d6f08ccdfdee464f51d7e621897b55cf49d9fa'
+          assert manifest['branch']=='chatgpt/proof-compression-20260906142930'
+          assert manifest['pages']==88 and len(manifest['files'])==44
+          expected={'manifest.json'}|{'files/'+e['path'] for e in manifest['files']}
+          with zipfile.ZipFile(root/'delivery.zip') as z:
+              assert len(z.infolist())==len(expected) and set(z.namelist())==expected
+              assert z.read('manifest.json')==raw
+              for e in manifest['files']:
+                  p=pathlib.PurePosixPath(e['path'])
+                  assert str(p)==e['path'] and not p.is_absolute() and '..' not in p.parts and '\x00' not in e['path']
+                  assert e['mode'] in ('100644','100755')
+                  info=z.getinfo('files/'+e['path'])
+                  assert stat.S_IFMT(info.external_attr>>16) in (0,stat.S_IFREG)
+                  assert info.file_size==e['size'] and 0<info.file_size<10000000
+                  data=z.read(info)
+                  assert hashlib.sha256(data).hexdigest()==e['sha256']
+                  assert hashlib.sha1(b'blob '+str(len(data)).encode()+b'\0'+data).hexdigest()==e['blob_sha']
+          print('All 44 reviewed file paths, modes and byte digests verified; no artifact code executed.')
+          PY
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: proof-compression-blob-handoff
+          path: incoming/
+          if-no-files-found: error
+          retention-days: 7
+  upload_blobs:
+    needs: verify
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: proof-compression-blob-handoff
+          path: incoming
+      - name: Store and refetch only reviewed immutable blobs; do not move any Git ref
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import base64,hashlib,json,os,pathlib,stat,urllib.request,zipfile
+          assert os.environ['GITHUB_REF']=='refs/heads/chatgpt/proof-compression-20260906142930'
+          assert os.environ['GITHUB_REPOSITORY']=='dylan0301/hexagon-cover-database'
+          root=pathlib.Path('incoming'); raw=(root/'manifest.json').read_bytes()
+          assert hashlib.sha256(raw).hexdigest()=='caf25c099b0e7636d3d1c063388f0956d83c6a01637a55855f3ccdaace420524'
+          assert hashlib.sha256((root/'delivery.zip').read_bytes()).hexdigest()=='2d18bd68c40ca95f61647cd1911336022d93493ac5c85b07ec587cfbc3a5b064'
+          manifest=json.loads(raw)
+          assert manifest['base']=='83d6f08ccdfdee464f51d7e621897b55cf49d9fa'
+          assert manifest['branch']=='chatgpt/proof-compression-20260906142930'
+          assert len(manifest['files'])==44
+          api='https://api.github.com/repos/dylan0301/hexagon-cover-database/'
+          def request(path,payload=None):
+              assert path=='git/blobs' or path.startswith('git/blobs/') or path=='git/ref/heads/chatgpt/proof-compression-20260906142930'
+              body=None if payload is None else json.dumps(payload).encode()
+              req=urllib.request.Request(api+path,data=body,headers={'Authorization':'Bearer ${{ github.token }}','Accept':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28','Content-Type':'application/json'})
+              with urllib.request.urlopen(req,timeout=60) as response: return json.load(response)
+          ref='git/ref/heads/chatgpt/proof-compression-20260906142930'
+          assert request(ref)['object']['sha']==os.environ['GITHUB_SHA'],'stale feature branch'
+          expected={'manifest.json'}|{'files/'+e['path'] for e in manifest['files']}
+          checked=[]
+          with zipfile.ZipFile(root/'delivery.zip') as z:
+              assert len(z.infolist())==len(expected) and set(z.namelist())==expected
+              assert z.read('manifest.json')==raw
+              verified=[]
+              for e in manifest['files']:
+                  p=pathlib.PurePosixPath(e['path'])
+                  assert str(p)==e['path'] and not p.is_absolute() and '..' not in p.parts and '\x00' not in e['path']
+                  assert e['mode'] in ('100644','100755')
+                  info=z.getinfo('files/'+e['path'])
+                  assert stat.S_IFMT(info.external_attr>>16) in (0,stat.S_IFREG)
+                  assert info.file_size==e['size'] and 0<info.file_size<10000000
+                  data=z.read(info)
+                  assert hashlib.sha256(data).hexdigest()==e['sha256']
+                  assert hashlib.sha1(b'blob '+str(len(data)).encode()+b'\0'+data).hexdigest()==e['blob_sha']
+                  verified.append((e,data))
+              for e,data in verified:
+                  result=request('git/blobs',{'content':base64.b64encode(data).decode(),'encoding':'base64'})
+                  assert result['sha']==e['blob_sha'],e['path']
+                  remote=request('git/blobs/'+result['sha'])
+                  assert remote['encoding']=='base64'
+                  retrieved=base64.b64decode(remote['content'])
+                  assert retrieved==data and hashlib.sha256(retrieved).hexdigest()==e['sha256']
+                  checked.append(e)
+                  print('REFETCHED_SHA256',e['sha256'],e['path'])
+          assert request(ref)['object']['sha']==os.environ['GITHUB_SHA'],'feature branch changed; refuse handoff'
+          out=pathlib.Path('receipts');out.mkdir()
+          receipt={'branch':manifest['branch'],'parent':os.environ['GITHUB_SHA'],'base':manifest['base'],'tree_sha':manifest['tree_sha'],'manifest_sha256':hashlib.sha256(raw).hexdigest(),'files':checked,'all_remote_bytes_refetched':True,'git_refs_modified':False}
+          (out/'blob-receipt.json').write_text(json.dumps(receipt,indent=2)+'\n')
+          print('44 immutable blobs stored and refetched. Final commit/ref publication remains connector-native.')
+          PY
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: proof-compression-blob-receipt
+          path: receipts/
+          if-no-files-found: error
+          retention-days: 7
