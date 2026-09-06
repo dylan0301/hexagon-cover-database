@@ -77,6 +77,15 @@ jobs:
               assert hashlib.sha256(final).hexdigest()==new_sha, name
               dest.parent.mkdir(parents=True,exist_ok=True)
               dest.write_bytes(final); dest.chmod(mode)
+          eof_fixes={'arrange/paper_draft/alternatives/06_legacy_nonzero_gap_body.tex': ['96e3e0bb98b0c6ca0da6ecfb1e91cc892a4041af812389dfb53d41144611396b', '2e6da625539002a354c37867948263f8ac942be825d3c839b43241729699232d'], 'arrange/paper_draft/fixed_witness/06_fixed_witness_body.tex': ['f67e2eb4359d494c1e5f61d4a9e62d680255aab73289216bac3c940b46fa7f4a', '2c625a9bf83e3318f3555bd1e9caacbcc2a0502f90ba15f7596535efc78f3207'], 'arrange/paper_draft/fixed_witness/06_fixed_zero_gap_coordinates.tex': ['208a4f84b738b90145058c1f2c5a801484211f3b3f02f147b37e5d73b1f963db', 'ad9f752e63b05ad7e971dc7904110510ae04a7cd601c052e366b459d992d6a37']}
+          for op in ops:
+              if op[0] in eof_fixes:
+                  before,after=eof_fixes[op[0]]
+                  assert op[2]==before
+                  target=root/op[0]; final=target.read_bytes().rstrip(b"\n")+b"\n"
+                  assert hashlib.sha256(final).hexdigest()==after
+                  target.write_bytes(final); op[2]=after
+          pathlib.Path(os.environ["RUNNER_TEMP"],"audited-delta.json").write_text(json.dumps(ops))
           subprocess.run(['git','add','--',*sorted(seen)],check=True)
           print('Applied exactly 35 hash-checked source changes; transient files absent from prospective tree.')
           PYAPPLY
