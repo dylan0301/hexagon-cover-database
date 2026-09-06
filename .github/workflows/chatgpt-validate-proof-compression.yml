@@ -1,0 +1,161 @@
+name: Temporary pinned proof-compression validation
+on:
+  push:
+    branches: ['chatgpt/proof-compression-20260906142930']
+    paths: ['.github/workflows/chatgpt-validate-proof-compression.yml']
+permissions: {}
+concurrency:
+  group: validate-proof-compression-20260906142930
+  cancel-in-progress: false
+env:
+  SOURCE_DATE_EPOCH: '946684800'
+  FORCE_SOURCE_DATE: '1'
+  TZ: UTC
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Verify and reconstruct the reviewed source delta
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import base64, hashlib, json, os, pathlib, re, subprocess, zlib
+          base='83d6f08ccdfdee464f51d7e621897b55cf49d9fa'
+          branch='refs/heads/chatgpt/proof-compression-20260906142930'
+          assert os.environ['GITHUB_REF']==branch
+          subprocess.run(['git','merge-base','--is-ancestor',base,'HEAD'],check=True)
+          prefix='.github/_transient/proof-compression-20260906142930/'
+          wf='.github/workflows/chatgpt-validate-proof-compression.yml'
+          paths=subprocess.check_output(['git','diff','--name-only',base,'HEAD'],text=True).splitlines()
+          assert all(p==wf or re.fullmatch(re.escape(prefix)+r'delta-[0-9a-z-]+\.b64',p) for p in paths),paths
+          root=pathlib.Path(prefix)
+          def part(name):
+              p=root/(name+'.b64')
+              assert p.is_file() and not p.is_symlink()
+              return p.read_text(encoding='ascii').strip()
+          parts=[part('delta-00'),part('delta-01'),part('delta-02'),
+                 part('delta-03')[:5000]+part('delta-03-tail')]
+          parts += [part('delta-'+str(i).zfill(2)+j) for i in (4,5,6) for j in ('a','b')]
+          transport=(''.join(parts)+'\n').encode('ascii')
+          assert hashlib.sha256(transport).hexdigest()=='6ff95d5eb4af7c595e373bf2621fbc200d0fe3aaac2132b66545e7a3fc603d41'
+          encoded=base64.b64decode(transport.strip(),validate=True)
+          dec=zlib.decompressobj(); raw=dec.decompress(encoded,1000000)
+          assert dec.eof and not dec.unused_data and not dec.unconsumed_tail
+          assert hashlib.sha256(raw).hexdigest()=='5826e7444b74564c16423216e741b12664f80e1e412fe4cf449396e2f70f0691'
+          entries=json.loads(raw); assert len(entries)==42
+          saved=pathlib.Path(os.environ['RUNNER_TEMP'])/'compression-delta.json'
+          saved.write_bytes(raw)
+          subprocess.run(['git','reset','--hard',base],check=True)
+          seen=set()
+          for entry in entries:
+              path=entry['path']; p=pathlib.PurePosixPath(path)
+              assert str(p)==path and not p.is_absolute() and '..' not in p.parts and '\x00' not in path
+              assert path not in seen; seen.add(path)
+              assert entry['mode'] in ('100644','100755')
+              target=pathlib.Path(path)
+              assert not any(x.is_symlink() for x in [target,*target.parents])
+              if entry['op']=='replace':
+                  old=target.read_bytes()
+                  assert hashlib.sha256(old).hexdigest()==entry['base_sha256'],path
+              else:
+                  assert entry['op']=='add' and not target.exists() and entry['base_sha256']==''
+                  old=b''
+              lines=old.decode('utf-8').splitlines(keepends=True); cursor=0; out=[]
+              for start,end,text in entry['edits']:
+                  assert 0<=cursor<=start<=end<=len(lines)
+                  out.extend(lines[cursor:start]); out.append(text); cursor=end
+              out.extend(lines[cursor:]); result=''.join(out).encode('utf-8')
+              assert hashlib.sha256(result).hexdigest()==entry['sha256'],path
+              target.parent.mkdir(parents=True,exist_ok=True); target.write_bytes(result)
+              target.chmod(int(entry['mode'],8)&0o777)
+          assert not pathlib.Path('.github/_transient').exists()
+          subprocess.run(['git','add','--',*sorted(seen)],check=True)
+          print('Verified and reconstructed all 42 reviewed source files.')
+          PY
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22'
+      - name: Install pinned dependencies and audit sources
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install --disable-pip-version-check -r arrange/_support/requirements.txt
+          python interactive/generate.py --dependency-graph
+          git add interactive/readable_proof_dependency_graph.html
+          python proof/check.py
+          python interactive/generate.py --dependency-graph --check
+          python interactive/generate.py --trace-assets --check
+          python interactive/check.py
+          git diff --cached --check
+      - name: Replay both exact zero-gap certificates
+        working-directory: proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation
+        shell: bash
+        run: |
+          set -euo pipefail
+          python verify_mixed_overlap_core_derivation.py
+          python verify_global_core_positivity.py
+      - name: Build in the persistent CI TeX environment
+        uses: xu-cheng/texlive-action@22c04326a5d855880f9d39bb955138bf11c6df80
+        with:
+          docker_image: >-
+            ghcr.io/xu-cheng/texlive-historic-debian:2025@sha256:d3e42adc0c8d84bc913bfc33571feaf7037616260a771bb6f027504661568bf6
+          run: |
+            set -euo pipefail
+            python3 arrange/build.py --all --output-dir arrange/_build
+      - name: Audit and package the exact prospective final tree
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp arrange/_build/canonical.pdf arrange/paper_draft/main.pdf
+          python arrange/_support/verify_pdf_render.py arrange/paper_draft/main.pdf
+          python - <<'PY'
+          import hashlib,json,os,pathlib,subprocess,zipfile
+          import fitz
+          base='83d6f08ccdfdee464f51d7e621897b55cf49d9fa'
+          temp=pathlib.Path(os.environ['RUNNER_TEMP'])
+          entries=json.loads((temp/'compression-delta.json').read_text())
+          for e in entries:
+              assert hashlib.sha256(pathlib.Path(e['path']).read_bytes()).hexdigest()==e['sha256'],e['path']
+          modes={e['path']:e['mode'] for e in entries}
+          modes.update({'arrange/paper_draft/main.pdf':'100644','interactive/readable_proof_dependency_graph.html':'100644'})
+          subprocess.run(['git','add','--',*sorted(modes)],check=True)
+          changes=subprocess.check_output(['git','diff','--cached','--name-only',base],text=True).splitlines()
+          assert set(changes)==set(modes),(set(changes)-set(modes),set(modes)-set(changes))
+          subprocess.run(['git','diff','--cached','--check'],check=True)
+          records=[]
+          for path,mode in sorted(modes.items()):
+              p=pathlib.Path(path); assert p.is_file() and not p.is_symlink()
+              data=p.read_bytes()
+              actual_mode,sha,*_=subprocess.check_output(['git','ls-files','-s','--',path],text=True).split()
+              assert actual_mode==mode
+              assert sha==hashlib.sha1(b'blob '+str(len(data)).encode()+b'\0'+data).hexdigest()
+              records.append({'path':path,'mode':mode,'sha256':hashlib.sha256(data).hexdigest(),'blob_sha':sha,'size':len(data)})
+          pages=fitz.open('arrange/paper_draft/main.pdf').page_count
+          assert pages==88,pages
+          manifest={'base':base,'branch':'chatgpt/proof-compression-20260906142930','tree_sha':subprocess.check_output(['git','write-tree'],text=True).strip(),'pages':pages,'files':records}
+          raw=(json.dumps(manifest,sort_keys=True,separators=(',',':'))+'\n').encode()
+          out=temp/'compression-validated'; out.mkdir(exist_ok=True)
+          (out/'manifest.json').write_bytes(raw)
+          with zipfile.ZipFile(out/'delivery.zip','w',zipfile.ZIP_DEFLATED) as z:
+              z.writestr('manifest.json',raw)
+              for r in records: z.write(r['path'],'files/'+r['path'])
+          print('FINAL_MANIFEST_SHA256',hashlib.sha256(raw).hexdigest())
+          print('DELIVERY_SHA256',hashlib.sha256((out/'delivery.zip').read_bytes()).hexdigest())
+          print('FINAL_TREE',manifest['tree_sha'],'FILES',len(records),'PAGES',pages)
+          PY
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: proof-compression-validated
+          path: ${{ runner.temp }}/compression-validated/
+          if-no-files-found: error
+          retention-days: 7
