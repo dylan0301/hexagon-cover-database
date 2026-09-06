@@ -65,7 +65,8 @@ jobs:
                   old=target.read_bytes()
                   assert hashlib.sha256(old).hexdigest()==entry['base_sha256'],path
               else:
-                  assert entry['op']=='add' and not target.exists() and entry['base_sha256']==''
+                  assert entry['op']=='add' and not target.exists()
+                  assert entry['base_sha256']==hashlib.sha256(b'').hexdigest(),path
                   old=b''
               lines=old.decode('utf-8').splitlines(keepends=True); cursor=0; out=[]
               for start,end,text in entry['edits']:
