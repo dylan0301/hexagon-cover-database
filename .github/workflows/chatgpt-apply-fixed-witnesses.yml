@@ -13,6 +13,8 @@ env:
   TZ: UTC
   AUDITED_BASE: 'a47b162e233e961e8e6e746a4ab987c14638b429'
   DELIVERY_BRANCH: 'chatgpt/fixed-finite-witnesses-20260906020437'
+  EXPECTED_MANIFEST: 'def94ba564256a3870455516e2896a814b92fb025b0a715593c8f4591c767ced'
+  EXPECTED_ARCHIVE: '11733f3207a97dd6a5c441b31c275a6ddf20d8e70313caf8a23bed024c45f06c'
 jobs:
   validate:
     permissions:
@@ -162,6 +164,8 @@ jobs:
                   z.writestr(info,(root/e['path']).read_bytes())
           digests=''.join(hashlib.sha256((out/n).read_bytes()).hexdigest()+'  '+n+'\n' for n in ['manifest.json','files.zip'])
           (out/'digests.txt').write_text(digests)
+          assert hashlib.sha256(raw).hexdigest()==os.environ['EXPECTED_MANIFEST'], 'rebuilt manifest differs from reviewed tree'
+          assert hashlib.sha256((out/'files.zip').read_bytes()).hexdigest()==os.environ['EXPECTED_ARCHIVE'], 'rebuilt archive differs from reviewed bytes'
           print(digests); print('Validated manifest:',manifest['tree'],pages,'pages,',len(entries),'files')
           PYPACK
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
@@ -170,3 +174,121 @@ jobs:
           path: ${{ runner.temp }}/validated/
           if-no-files-found: error
           retention-days: 3
+  publish:
+    needs: validate
+    permissions:
+      contents: write
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: fixed-witness-validated-20260906020437
+          path: ${{ runner.temp }}/handoff
+      - name: Reconstruct only the independently verified tree
+        run: |
+          set -euo pipefail
+          python3 - <<'PYVERIFY'
+          import hashlib,json,os,pathlib,stat,subprocess,zipfile
+          base=os.environ['AUDITED_BASE'];branch=os.environ['DELIVERY_BRANCH'];trigger=os.environ['GITHUB_SHA']
+          root=pathlib.Path.cwd(); bundle=pathlib.Path(os.environ['RUNNER_TEMP'],'handoff')
+          manifest_raw=(bundle/'manifest.json').read_bytes()
+          assert hashlib.sha256(manifest_raw).hexdigest()==os.environ['EXPECTED_MANIFEST']
+          assert hashlib.sha256((bundle/'files.zip').read_bytes()).hexdigest()==os.environ['EXPECTED_ARCHIVE']
+          m=json.loads(manifest_raw)
+          assert m['base']==base and m['branch']==branch and len(m['entries'])==37
+          assert 89<=m['pages']<=93
+          allow=set(['README.md', 'arrange/README.md', 'arrange/paper_draft/06_finite_enclosure_full.tex', 'arrange/paper_draft/D_nonzero_gap_finite_enclosure_optimization.tex', 'arrange/paper_draft/alternatives/06_legacy_nonzero_gap_body.tex', 'arrange/paper_draft/alternatives/D_legacy_replacement_router.tex', 'arrange/paper_draft/alternatives/D_legacy_rescuer_tail_budget.tex', 'arrange/paper_draft/alternatives/D_legacy_two_gap_adapter.tex', 'arrange/paper_draft/fixed_witness/06_fixed_witness_body.tex', 'arrange/paper_draft/fixed_witness/06_fixed_zero_gap_coordinates.tex', 'arrange/paper_draft/fixed_witness/D_fixed_witness_extensions.tex', 'arrange/paper_draft/main.pdf', 'arrange/paper_draft/main.tex', 'interactive/_support/generate_dependency_graph.py', 'interactive/check.py', 'interactive/readable_proof_dependency_graph.html', 'proof/0XXX_main/0000_main_theorem.md', 'proof/0XXX_main/0001_proof_tree_index.md', 'proof/0XXX_main/0002_status_and_dependencies.md', 'proof/0XXX_main/0003_reusable_lemma_catalog.md', 'proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2608_residual_hull_finite_enclosure_principle.md', 'proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2609_simplified_finite_enclosure_lemmas.md', 'proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2610_finite_enclosure_terminal_interfaces.md', 'proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2612_fixed_witness_unification.md', 'proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/verify_fixed_witness_identities.py', 'proof/4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss_new/4013_new_all_Vd0_finite_enclosure.md', 'proof/4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2_new/4070_new_T3_like_finite_enclosure.md', 'proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0_new/4102_new_CE1_direct_radial_certificate.md', 'proof/4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0_new/4103_transverse_seven_point_enclosure.md', 'proof/4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like_new/4130_new_T3_like_finite_enclosure.md', 'proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4140_new_one_Vd_finite_enclosure_assembly.md', 'proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4141_new_adjacent_Vd_finite_enclosure.md', 'proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4142_new_nonadjacent_Vd_finite_enclosure.md', 'proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4143_new_Vd1_rescuer_finite_enclosure.md', 'proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4144_new_two_chart_replacement_and_router.md', 'proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4145_new_complete_placement_audit.md', 'proof/check.py'])
+          assert {e['path'] for e in m['entries']}==allow
+          assert os.environ['GITHUB_REF']=='refs/heads/'+branch
+          subprocess.run(['git','merge-base','--is-ancestor',base,trigger],check=True)
+          transport={'.github/workflows/chatgpt-apply-fixed-witnesses.yml'}|{
+              f'.github/_transient/20260906020437/delta-{i}.b64' for i in range(4)}
+          changed=set(subprocess.check_output(['git','diff','--name-only',base,trigger]).decode().splitlines())
+          assert changed==transport
+          subprocess.run(['git','checkout','--detach','--force',base],check=True)
+          with zipfile.ZipFile(bundle/'files.zip') as z:
+              assert len(z.infolist())==37 and set(z.namelist())==allow
+              byname={e['path']:e for e in m['entries']}
+              for info in z.infolist():
+                  name=info.filename;e=byname[name];p=pathlib.PurePosixPath(name)
+                  assert name==str(p) and not p.is_absolute() and '..' not in p.parts and '\\' not in name and '\x00' not in name
+                  assert not name.startswith(('.git/','.github/')) and not info.is_dir()
+                  assert stat.S_ISREG(info.external_attr>>16)
+                  assert e['mode'] in ('100644','100755') and info.file_size==e['size']<20_000_000
+                  data=z.read(info)
+                  assert hashlib.sha256(data).hexdigest()==e['sha256'],name
+                  blob=hashlib.sha1(b'blob '+str(len(data)).encode()+b'\0'+data).hexdigest()
+                  assert blob==e['blob'],name
+                  dest=root/name
+                  assert all(not q.is_symlink() for q in [dest,*dest.parents])
+                  original=subprocess.check_output(['git','ls-tree',base,'--',name]).decode().split()
+                  assert e['operation']==('replace' if original else 'add')
+                  assert e['mode']==(original[0] if original else '100644')
+                  dest.parent.mkdir(parents=True,exist_ok=True);dest.write_bytes(data)
+                  dest.chmod(int(e['mode'][-3:],8))
+          subprocess.run(['git','add','--',*sorted(allow)],check=True)
+          assert not subprocess.check_output(['git','diff','--name-only']).strip()
+          assert not subprocess.check_output(['git','ls-files','--others','--exclude-standard']).strip()
+          actual=set(subprocess.check_output(['git','diff','--cached','--name-only',base]).decode().splitlines())
+          assert actual==allow
+          for e in m['entries']:
+              stage=subprocess.check_output(['git','ls-files','-s','--',e['path']]).decode().split()
+              assert stage[0]==e['mode'] and stage[1]==e['blob']
+              assert hashlib.sha256((root/e['path']).read_bytes()).hexdigest()==e['sha256']
+          assert all(not (root/p).exists() for p in transport)
+          tree=subprocess.check_output(['git','write-tree']).decode().strip()
+          assert tree==m['tree']
+          subprocess.run(['git','diff','--cached','--check'],check=True)
+          pathlib.Path(os.environ['RUNNER_TEMP'],'approved-tree.txt').write_text(tree+'\n')
+          print('Reconstructed approved tree',tree,'with 37 exact reviewed files; no repository code executed.')
+          PYVERIFY
+      - name: Publish one guarded fast-forward commit and remove transients
+        env:
+          DELIVERY_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          set +x
+          branch="$DELIVERY_BRANCH"
+          base="$AUDITED_BASE"
+          tree="$(cat "$RUNNER_TEMP/approved-tree.txt")"
+          test "$(git write-tree)" = "$tree"
+          git fetch --no-tags origin "refs/heads/$branch"
+          test "$(git rev-parse FETCH_HEAD)" = "$GITHUB_SHA"
+          test "$(git write-tree)" = "$tree"
+          commit="$(git -c core.hooksPath=/dev/null -c commit.gpgsign=false \
+            -c user.name='github-actions[bot]' \
+            -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+            commit-tree "$tree" -p "$GITHUB_SHA" \
+            -m 'Unify fixed finite-witness proofs and rebuild the canonical manuscript' \
+            -m 'Publish the exact independently validated 37-file tree. Preserve the zero-gap certificate and both replacement charts. Remove all temporary delivery files.')"
+          test "$(git rev-parse "$commit^{tree}")" = "$tree"
+          header="$(printf 'x-access-token:%s' "$DELIVERY_TOKEN" | base64 -w0)"
+          git -c core.hooksPath=/dev/null -c "http.https://github.com/.extraheader=AUTHORIZATION: basic $header" \
+            push origin "$commit:refs/heads/$branch"
+          unset header DELIVERY_TOKEN
+          printf 'FINAL_COMMIT=%s\nFINAL_TREE=%s\n' "$commit" "$tree"
+          git diff --name-status "$base" "$commit"
+  dispatch:
+    needs: publish
+    permissions:
+      contents: read
+      actions: write
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Dispatch persistent CI on the cleaned branch
+        env:
+          DISPATCH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          python3 - <<'PYDISPATCH'
+          import json,os,urllib.request
+          url='https://api.github.com/repos/dylan0301/hexagon-cover-database/actions/workflows/ci.yml/dispatches'
+          request=urllib.request.Request(url,data=json.dumps({'ref':os.environ['DELIVERY_BRANCH']}).encode(),method='POST',headers={'Authorization':'Bearer '+os.environ['DISPATCH_TOKEN'],'Accept':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28','Content-Type':'application/json'})
+          with urllib.request.urlopen(request,timeout=30) as response:
+              assert response.status==204
+          print('Persistent ci.yml explicitly dispatched on the cleaned feature branch.')
+          PYDISPATCH
