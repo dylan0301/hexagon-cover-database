@@ -5,6 +5,8 @@ This appendix solves the point, radial, disk, and interval calculations used
 by the nonzero-gap rows of \zcref{tab:finite-enclosure-subcases}.  The
 geometric witnesses and their case predicates remain in the body.
 
+\input{fixed_witness/D_fixed_witness_extensions}
+
 \subsection{Exact gap endpoints}
 
 \begin{lemma}[Actual open-trace endpoints]
@@ -56,90 +58,31 @@ This is stronger than the alternative asserted in the body and retains the
 singleton case \(\ell=r\).
 \end{proof}
 
-\begin{lemma}[Solved two-gap common-pair adapter]
+\begin{lemma}[Two-gap common-pair adapter]
 \label{lem:appendix-two-gap-common-pair-adapter}
-The reaches defined from row B in
-\zcref{lem:new-two-gap-common-pair-adapter} satisfy its displayed
-coordinatewise alternatives.
+In the B configuration, $T_1,\ldots,T_5$ are nonsupercritical by hypothesis.
+For any candidate containing the fixed $K_B$, its signed CE2 pair
+$p=W-\alpha$, $q=R-\delta$ satisfies
+\[
+ A_i>q,\qquad B_i>p\qquad(1\le i\le5).
+\]
+Every local contribution on $r_2$ or $r_4$ is at most $c_{\max}(p,q)$.
 \end{lemma}
-
 \begin{proof}
-In the signed CE2 chart of Appendix A, the complementary far endpoints of
-the two positive C traces are
-\[
- p=1-(R+\alpha)=W-\alpha,
- \qquad
- q=1-(W+\delta)=R-\delta.
-\]
-The row predicates leave exactly
-\[
- (N_+,t)\in
- \{(0,0),(0,1),(0,2),(1,0)\}.
-\]
-Normalize the gap edges to \(e_{5,0}\) and \(e_{0,1}\).  On the four
-intervening edges choose
-\[
- x_i\in(1-A_{i+1},B_i)
- \qquad(1\le i\le4).
-\]
-If \(N_+=0\), then \(T_1,\ldots,T_5\) are nonsupercritical immediately.
-In the remaining case \((N_+,t)=(1,0)\), let \(T_s\) be supercritical.  If
-\(s\ne0\), then \zcref{lem:self-midpoint} and the unique-center-midpoint
-identity give
-\[
- M_s\notin T_s\cup T_C.
-\]
-Any other open V triangle covering \(M_s\) would be adjacent and would have
-positive-length trace on \(r_s\), contrary to \(d=t=0\).  Thus \(s=0\), and
-\(T_1,\ldots,T_5\) are again nonsupercritical.  Gap containment and the
-displayed handoffs now give
-\[
- p<B_5\le1-A_5<x_4,
-\]
-\[
- x_4<B_4\le1-A_4<x_3,
-\]
-\[
- x_3<B_3\le1-A_3<x_2,
-\]
-\[
- x_2<B_2\le1-A_2<x_1,
-\]
-\[
- x_1<B_1\le1-A_1<1-q.
-\]
-Thus
-\[
- p<x_4<x_3<x_2<x_1<1-q,
-\]
-and, including the two roles incident to the gap edges,
-\[
- q\le A_i,
- \qquad
- p\le B_i
- \qquad(1\le i\le5).
-\]
-
-Finally, if \(T_j\) is T3-like and supports \(r_{j-1}\) or \(r_{j+1}\),
-then \(t\ge1\).  The row-B identity \(N_+t=0\) gives \(N_+=0\), and hence
-\[
- A_j+B_j\le1.
-\]
-Coordinatewise antitonicity and reflection give
-\[
- C_\pm(A_j,B_j)
- \le
- \max\{C_+(p,q),C_-(p,q)\}
- \le c_{\max}(p,q)
-\]
-by \zcref{lem:appendix-common-pair-domination}.  This proves both assertions.
+The origin-hull identity and the two boundary anchors normalize the
+candidate as CE2. Their strict containment gives $A_1>q$ and $B_5>p$.
+The four intervening gap-free edges, combined with nonsupercriticality,
+give $A_i\ge A_1$ and $B_i\ge B_5$ on this path. Coordinatewise
+antitonicity and common-pair domination bound the own and both possible
+neighboring capacities. No T3-like count identity is used and no
+nonsupercriticality is assumed at $T_0$.
 \end{proof}
 
 \subsection{Vd1 two-chart replacement}
 
 The replacement below uses two different vertex charts.  It preserves the
-five skeleton pieces that can change, then recomputes the output gap rank
-from the new open traces.
+five skeleton pieces that can change, then invokes the all-nonsupercritical
+obstruction without assuming preservation of the input gap rank.
 
 \begin{lemma}[Half-square admissibility]
 \label{lem:appendix-half-square-admissibility}
@@ -388,23 +331,12 @@ For \(2\le i\le5\), the original actual triples are unchanged:
  \bigl(A(T'_i),B(T'_i),C(T'_i)\bigr)=(A_i,B_i,C_i).
 \]
 
-Finally recompute the output gap rank from the modified open traces:
-\[
- N'_{\rm gap}:=
- \left|\left\{i\in\mathbb Z/6\mathbb Z:
- e_{i,i+1}\setminus
- \bigl((U'_i\cap e_{i,i+1})\cup(U'_{i+1}\cap e_{i,i+1})\bigr)
- \ne\varnothing\right\}\right|.
-\]
-Then \(N'_{\rm gap}\in\{0,1,2\}\).  No equality with the input gap rank is
-used.  If \(N'_{\rm gap}=0\), apply the boundary-complete length
-row of \zcref{prop:length-branches}.  If \(N'_{\rm gap}=1\), the primed
-actual reaches satisfy
-\zcref{lem:new-one-gap-common-pair-adapter}, so the row-A branch of
-\zcref{prop:new-nplus-zero-gap-closures} applies.  If
-\(N'_{\rm gap}=2\), the primed actual reaches satisfy
-\zcref{lem:new-two-gap-common-pair-adapter}, so the row-B branch of the same
-proposition applies.  These alternatives are exhaustive.
+The output consists of six actual nonsupercritical V triangles and
+still covers the skeleton with the original C triangle fixed. It therefore
+contradicts \zcref{thm:fixed-nzero}. That theorem handles all three possible
+output gap ranks internally; no equality with the input rank is asserted.
+The two vertex charts and every strict preservation inequality above are
+unchanged.
 \end{proof}
 
 \subsection{Neighboring-arm optimization}
@@ -1006,8 +938,10 @@ Put
  \qquad h_0=\frac{\eta+A+D}{2R}.
  \label{eq:ce1-auxiliary-parameters}
 \end{equation}
-Let $T_0$ be the unique supercritical role and let
-$T_1,\ldots,T_5$ be nonsupercritical $\Vdzero$ roles.  Assume
+Let $T_0$ be a V triangle and let $T_1,\ldots,T_5$ be
+nonsupercritical V triangles of arbitrary types. All reaches below are
+actual reaches. No supercriticality hypothesis on $T_0$ is used in this
+local return implication. Assume
 \[
  A_1\ge X,
 \]
@@ -1094,6 +1028,13 @@ Hence the $T_4$ state is selected $Q_+$.  The selected-chord estimate
  L_1=(2-4A)h_0-(1-4A)A.
  \label{eq:ce1-first-chord}
 \end{equation}
+
+At this point the argument has used only the boundary handoffs, the
+upper-squeeze assumption, and the radial demand at $T_4$. In particular,
+neither $C_2\ge1-D$ nor $C_3\ge1-m$ was used to obtain this first
+step. The fixed-witness proof uses this fact before recovering its
+third radial demand; the full return is invoked only afterwards.
+
 The selected-state condition also forces
 \begin{equation}
  \boxed{X>\frac12.}
@@ -1294,6 +1235,17 @@ contradicting $A_1\ge X$ and $A_1+B_1\le1$.  Hence
 
 \subsection{Transverse seven-point calculation}
 
+\paragraph{Notation for retained own-endpoint calculations.}
+In the older all-Vd0 specialization below put $\ell=B_0$, $r=1-A_1$,
+$P_i=(1-C_i)V_i$, and
+\[
+ K_{\rm tr}=\{O,M_0,X_0(\ell),X_0(r),P_2,P_3,P_4\}.
+\]
+These auxiliary own endpoints are distinct from the total endpoints
+$\widehat P_i$ of the active B/C theorems. Their Vd0-specific forcing is
+retained only for that specialization; the conditional local return below
+uses no V-type assumption once its own-radial demands are supplied.
+
 \begin{lemma}[Endpoint upper squeeze]
 \label{lem:readable-k410-upper-bound}
 If an open unit triangle \(U'\) contains \(K_{\rm tr}\), use its local
@@ -1441,67 +1393,40 @@ so only the $T$ cell occurs.  It decreases with $M$; at $M=1/2$,
 $s\ge7/8$ and its value is at most $4/5<5/6<c_0$.
 \end{proof}
 
-\begin{lemma}[Rescuer endpoint and boundary-tail budget]
+\begin{lemma}[Supported endpoint to four-point enclosure]
 \label{lem:new-rescuer-tail-budget}
-Suppose a special role at $V_0$ has boundary endpoint $a$ on $e_{5,0}$ and
-supported interval $[c,u]\subset r_1$, measured from $V_1$ toward $O$.
-Put
+Suppose $T_0$ has actual boundary endpoint $a=A_0$ toward $V_5$ and
+supported interval $[c,u]$ on $r_1$, measured from $V_1$ toward $O$.
+Put $\varepsilon=1-u>0$ and $M=M_c^{\rm sup}$. Assume
 \[
- \varepsilon=1-u,
- \qquad M=M_c^{\rm sup}.
-\]
-Assume
-\[
- \varepsilon V_1\in U_C,
- \qquad a+\varepsilon\le1,
+ \varepsilon V_1\in U_C,\qquad A_0+\varepsilon\le1,
+ \qquad \frac{A_0}{A_0+\varepsilon}\le1-M.
 \]
 \begin{equation}
- a\le1-M,
- \qquad
- \frac{a}{a+\varepsilon}\le1-M.
+ A_0\le1-M,\qquad
+ \frac{A_0}{A_0+\varepsilon}\le1-M.
  \label{eq:rescuer-tail-hypotheses}
 \end{equation}
-If $T_1$ is uniquely supercritical with own-radial reach at least $c$ and
-$T_2,T_3,T_4,T_5$ are nonsupercritical on the center-free four-edge path,
-then the skeleton is not covered.
+The first inequality in the last display is a consequence, not an extra
+hypothesis. If $T_1$ is uniquely supercritical with $C_1\ge c$, and the
+four center-free edges from $e_{1,2}$ through $e_{4,5}$ join nonsupercritical
+$T_2,T_3,T_4,T_5$, then the skeleton is not covered. The conclusion applies
+to both possible nonzero gap ranks.
 \end{lemma}
-
 \begin{proof}
-Let $h_T$ be the far boundary demand on $T_5$.  If the companion C trace
-does not hide $a$, then $h_T\ge1-a\ge M$.
-
-In the hiding configuration, $k/W\le a$, while
-$\varepsilon V_1\in U_C$ gives $\delta/R\ge\varepsilon$.  Therefore
+The strict-supercritical envelope gives $B_1<M$, and the four handoffs give
+$B_5\le B_4\le B_3\le B_2\le B_1$. Thus $B_5<1-A_0$, so the left-edge
+actual gap has endpoints $Y(A_0),Y(1-B_5)$, with $Y(t)=(1-t)V_0+tV_5$.
+Under coverage these endpoints and $O,\varepsilon V_1$ belong to $U_C$.
+Since $M\ge1/2$, the hypotheses imply
 \[
- Wa\ge k=\eta+\alpha+\delta>\alpha+R\varepsilon,
+ A_0\le\varepsilon,\qquad
+ B_5<M\le\frac{\varepsilon}{A_0+\varepsilon}.
 \]
-so
-\[
- a-R(a+\varepsilon)>\alpha.
-\]
-Also $Wa>\delta\ge R\varepsilon$, so
-$R<a/(a+\varepsilon)$.  Since $a+\varepsilon\le1$,
-\[
- R+\alpha
- <a+R(1-a-\varepsilon)
- <\frac{a}{a+\varepsilon}
- \le1-M.
-\]
-Thus again $h_T\ge M$.
-
-The strict-supercritical envelope gives $B_1<M$.  Adding
-\[
- A_2\ge1-B_1,
- \quad B_2+A_3\ge1,
- \quad B_3+A_4\ge1,
- \quad B_4+A_5\ge1,
- \quad B_5\ge h_T
-\]
-gives
-\[
- \sum_{i=2}^5(A_i+B_i)>4,
-\]
-contrary to nonsupercriticality.
+Apply \zcref{thm:fixed-four-point-rescuer} with geometric parameters
+$a=A_0$, $\beta=B_5$. The fixed set has enclosure number at least one,
+contrary to compact containment in $U_C$. No sum greater than four or
+propagation through the supercritical role is used.
 \end{proof}
 
 \subsection{T3-like supported-tail adapter}
@@ -1550,7 +1475,65 @@ Finally \(A_0+1-u=R_0/D\le1\).  These are exactly the hypotheses of
 \zcref{lem:new-rescuer-tail-budget}.
 \end{proof}
 
-\subsection{One-Vd radial-separation calculations}
+\subsection{Alternative one-Vd radial-separation calculations}
+The calculations in this subsection are retained quantitative alternatives.
+They assume the original reduced CE2 one-Vd placement, its boundary-cover
+and strict Vd-cap hypotheses, and all the corresponding residual selectors.
+They are not deductions from the bare CE2 signed domain, and are not used
+by the active B/C fixed-point route.
+
+For radial separation along \(r_i\), define
+\[
+ d_i^C:=\max\{x\in[0,1]:xV_i\in T_C\},
+\]
+\[
+ c_{\rm loc}:=
+ \sup\{s\in[0,1]:
+ V_i+s(O-V_i)\in U_{i-1}\cup U_i\cup U_{i+1}\}.
+\]
+Then
+\[
+ T_C\cap r_i=\{xV_i:0\le x\le d_i^C\},
+\]
+\[
+ (U_{i-1}\cup U_i\cup U_{i+1})\cap r_i
+ \subseteq\{xV_i:1-c_{\rm loc}\le x\le1\}.
+\]
+Thus the exact strict inequality
+\[
+ c_{\rm loc}<1-d_i^C
+\]
+leaves the nonempty interval
+\[
+ \{xV_i:d_i^C<x<1-c_{\rm loc}\}
+ \subseteq S\setminus
+ \left(U_C\cup\bigcup_{j=0}^5U_j\right).
+\]
+
+For the nonadjacent adapter, if \(I\subseteq[0,1]\) is empty or a closed
+interval, define
+\[
+ \mathcal R_I(p):=
+ 1-\sup\{x\in[0,1]:[0,x]\subseteq[0,p]\cup I\}.
+\]
+Put
+\[
+ I_R:=\{x\in[0,1]:X_0(x)\in T_C\},
+ \qquad
+ I_L:=\{x\in[0,1]:X_5(1-x)\in T_C\},
+\]
+\[
+ \rho_R:=\mathcal R_{I_R}(B_0),
+ \qquad
+ \rho_L:=\mathcal R_{I_L}(A_0),
+ \qquad
+ \rho:=\min\{\rho_R,\rho_L\},
+ \qquad
+ D_\tau:=\rho V_\tau.
+\]
+Appendix D proves the exact separation inequalities for both adapters.
+
+
 
 \begin{lemma}[Solved adjacent Vd separation]
 \label{lem:appendix-adjacent-vd-separation}

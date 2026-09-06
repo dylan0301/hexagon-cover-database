@@ -2,6 +2,16 @@
 
 Status: Proven
 
+## Active fixed-witness route
+
+The active nonsupercritical T3-like rows use exactly the same A and B
+witnesses as the ordinary rows. No separate neighboring-support ending
+is needed once common-pair domination is used. See [`2612`](../../../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2612_fixed_witness_unification.md) for the fixed-set construction and the
+arbitrary-candidate proof. The detailed argument below is retained as
+an alternative specialization, not as an additional active case.
+
+## Retained specialized argument
+
 This file replaces the nonzero-gap four-label endpoint package.  The proof
 uses the exact neighboring-ray capacity only to exclude radial witnesses from
 T3-like adjacent support; the terminal contradiction is the same explicit

@@ -25,10 +25,10 @@ The shared one-triangle and C-triangle interfaces remain in `2XXX`:
 
 | File | Active responsibility |
 |---|---|
-| [`4141_new`](4141_new_adjacent_Vd_finite_enclosure.md) | supercritical \(T_0\), adjacent Vd role |
-| [`4142_new`](4142_new_nonadjacent_Vd_finite_enclosure.md) | supercritical \(T_0\), nonadjacent Vd role |
+| [`4141_new`](4141_new_adjacent_Vd_finite_enclosure.md) | retained adjacent alternative; active B/C route |
+| [`4142_new`](4142_new_nonadjacent_Vd_finite_enclosure.md) | retained nonadjacent alternative; active B/C route |
 | [`4143_new`](4143_new_Vd1_rescuer_finite_enclosure.md) | Vd1 role at \(T_0\), neighboring-midpoint rescuer |
-| [`4144_new`](4144_new_two_chart_replacement_and_router.md) | neither special role at \(T_0\): two-chart replacement and recomputed-gap routing |
+| [`4144_new`](4144_new_two_chart_replacement_and_router.md) | neither special role at \(T_0\): two-chart replacement followed by N0 |
 | [`4145_new`](4145_new_complete_placement_audit.md) | exhaustive placement audit |
 | this file | theorem statement and final assembly |
 
@@ -85,10 +85,11 @@ cases.
 
 ### Case 1: \(\sigma=0\)
 
-If \(T_\tau\) is adjacent to \(T_0\), apply
-[`4141_new`](4141_new_adjacent_Vd_finite_enclosure.md).  If it is
-nonadjacent, apply
-[`4142_new`](4142_new_nonadjacent_Vd_finite_enclosure.md).
+All five remaining roles are nonsupercritical. With one actual gap use the
+fixed six-point theorem C; with two actual gaps use the fixed four-point
+theorem B. Both are proved in [2612](../../../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2612_fixed_witness_unification.md). Neither distinguishes adjacent
+from nonadjacent Vd locations. The sources `4141_new` and `4142_new` retain
+the former residual estimates as alternatives.
 
 ### Case 2: \(\tau=0\)
 
@@ -104,27 +105,9 @@ Midpoint rescue forces \(T_\sigma,T_\tau\) to be adjacent and
 For Vd1, the two-chart theorem
 [`4144_new`](4144_new_two_chart_replacement_and_router.md) replaces the
 special pair by two open nonsupercritical Vd0 roles while preserving the full
-skeleton.  It then recomputes the output gap rank:
-
-\[
-N'_{\rm gap}=0
-\longrightarrow
-\text{Strategy 1 row Z0},
-\]
-
-\[
-N'_{\rm gap}=1
-\longrightarrow
-\text{common disk plus actual gap},
-\]
-
-\[
-N'_{\rm gap}=2
-\longrightarrow
-\text{CE2 short-ray obstruction}.
-\]
-
-No preservation of the input gap rank is assumed.
+skeleton.  The type-independent N0 theorem in [2612](../../../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2612_fixed_witness_unification.md) now gives the contradiction.
+The input and output gap ranks need not coincide; N0 includes all
+three output ranks in its own proof.
 
 The positive-support alternative and Cases 1--3 are pairwise disjoint and
 exhaustive.  Every alternative is impossible, proving the theorem.

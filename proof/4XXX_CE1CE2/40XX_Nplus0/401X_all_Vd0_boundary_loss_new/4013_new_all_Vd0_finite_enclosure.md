@@ -2,6 +2,16 @@
 
 Status: Proven
 
+## Active fixed-witness route
+
+The active one-gap proof is the type-independent seven-point A theorem;
+the active two-gap proof is the fixed four-point B theorem. Both are
+covered by the global all-nonsupercritical obstruction N0. See [`2612`](../../../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2612_fixed_witness_unification.md) for the fixed-set construction and the
+arbitrary-candidate proof. The detailed argument below is retained as
+an alternative specialization, not as an additional active case.
+
+## Retained specialized argument
+
 This file replaces the nonzero-gap portions of the former endpoint-propagation
 package.  The proof uses only explicit radial witnesses, convexity, the exact
 local radial envelope, and equilateral support functions.  It does not invoke

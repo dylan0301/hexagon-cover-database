@@ -23,7 +23,7 @@ upgrade the status of any listed source.
 |---|---|---|---|
 | 1: trace length | [`2531`](../2XXX_geometric_lemmas/25XX_length_bounds/2531_length_budget_corollaries.md) | Proven | `2500`, `2510`, `2530`, and the placement adapters |
 | 2: area loss | [`2400`](../2XXX_geometric_lemmas/24XX_area_loss/2400_zero_gap_area_loss_interface.md) | Proven | `3174`, `3175`, `3205`, `3208` |
-| 3: finite enclosure | [`2610`](../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2610_finite_enclosure_terminal_interfaces.md) | Proven | `2608`, `2609`, `4013_new`, `4070_new`, `4102_new`, `4103`, `4130_new`, `4140_new`--`4145_new`, `3105X` |
+| 3: finite enclosure | [`2610`](../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2610_finite_enclosure_terminal_interfaces.md) | Proven | `2612`, `2608`, `2609`, `4013_new`, `4070_new`, `4102_new`, `4103`, `4130_new`, `4140_new`--`4145_new`, `3105X` |
 
 The reader-facing cross-strategy catalog is
 [`0003`](0003_reusable_lemma_catalog.md) and has Reference status.
@@ -37,10 +37,9 @@ The reader-facing cross-strategy catalog is
 | high-count skeleton rows | `2531` | `2510`, `2530` |
 | both zero-gap area rows | `2400` | `3174`, `3208` |
 | common disk plus actual gap | `2610` Terminal A | `2608`, `4013_new`, `4070_new` |
-| common CE2 two-gap short ray | `2610` Terminal B | `2609` |
-| transverse one-gap return | `2610` Terminal C | `4102_new`, `4103` |
-| supported rescuer tail | `2610` Terminal D | `2609`, `4130_new`, [`4143_new`](../4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4143_new_Vd1_rescuer_finite_enclosure.md) |
-| residual radial separation | `2610` Terminal E | [`4141_new`](../4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4141_new_adjacent_Vd_finite_enclosure.md), [`4142_new`](../4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4142_new_nonadjacent_Vd_finite_enclosure.md) |
+| fixed four-point two-gap enclosure | `2610` Terminal B | `2612`, using the local CE2 inequality in `2609` |
+| fixed six-point transverse enclosure | `2610` Terminal C | `2612`, conditional first step and return in `4102_new` |
+| four-point supported rescuer | `2610` Terminal D | `2612`, `4130_new`, [`4143_new`](../4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4143_new_Vd1_rescuer_finite_enclosure.md) |
 | zero-gap asymmetric support | `2610` Terminal F | `31058` and the colocated exact certificate |
 
 The complete CE2 one-Vd theorem is
@@ -49,6 +48,11 @@ its two-chart replacement is
 [`4144_new`](../4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4144_new_two_chart_replacement_and_router.md),
 and its placement audit is
 [`4145_new`](../4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4145_new_complete_placement_audit.md).
+
+The former adjacent/nonadjacent Vd E calculations are retained alternatives.
+Their active placements now use B or C, without a V-type split along the
+five-role nonsupercritical path. Replacement invokes N0; both charts and
+all strict margins remain in the original source.
 
 ## Compatibility sources
 

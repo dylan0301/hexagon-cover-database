@@ -2,6 +2,16 @@
 
 Status: Proven
 
+## Active fixed-witness route
+
+The active placement with supercritical $T_0$ uses C for one gap and B
+for two gaps. The nonadjacent residual estimates below are retained
+alternatives, not a separate active E family. See [`2612`](../../../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2612_fixed_witness_unification.md) for the fixed-set construction and the
+arbitrary-candidate proof. The detailed argument below is retained as
+an alternative specialization, not as an additional active case.
+
+## Retained specialized argument
+
 This is the active finite-enclosure proof for the placement in which \(T_0\)
 is the unique supercritical V triangle and the unique Vd1/Vd2 role
 \(T_\tau\) is nonadjacent:

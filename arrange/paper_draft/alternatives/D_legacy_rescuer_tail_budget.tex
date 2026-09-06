@@ -1,0 +1,63 @@
+% Historical text retained outside the canonical input closure.
+\begin{lemma}[Rescuer endpoint and boundary-tail budget]
+\label{lem:new-rescuer-tail-budget}
+Suppose a special role at $V_0$ has boundary endpoint $a$ on $e_{5,0}$ and
+supported interval $[c,u]\subset r_1$, measured from $V_1$ toward $O$.
+Put
+\[
+ \varepsilon=1-u,
+ \qquad M=M_c^{\rm sup}.
+\]
+Assume
+\[
+ \varepsilon V_1\in U_C,
+ \qquad a+\varepsilon\le1,
+\]
+\begin{equation}
+ a\le1-M,
+ \qquad
+ \frac{a}{a+\varepsilon}\le1-M.
+ \label{eq:rescuer-tail-hypotheses}
+\end{equation}
+If $T_1$ is uniquely supercritical with own-radial reach at least $c$ and
+$T_2,T_3,T_4,T_5$ are nonsupercritical on the center-free four-edge path,
+then the skeleton is not covered.
+\end{lemma}
+
+\begin{proof}
+Let $h_T$ be the far boundary demand on $T_5$.  If the companion C trace
+does not hide $a$, then $h_T\ge1-a\ge M$.
+
+In the hiding configuration, $k/W\le a$, while
+$\varepsilon V_1\in U_C$ gives $\delta/R\ge\varepsilon$.  Therefore
+\[
+ Wa\ge k=\eta+\alpha+\delta>\alpha+R\varepsilon,
+\]
+so
+\[
+ a-R(a+\varepsilon)>\alpha.
+\]
+Also $Wa>\delta\ge R\varepsilon$, so
+$R<a/(a+\varepsilon)$.  Since $a+\varepsilon\le1$,
+\[
+ R+\alpha
+ <a+R(1-a-\varepsilon)
+ <\frac{a}{a+\varepsilon}
+ \le1-M.
+\]
+Thus again $h_T\ge M$.
+
+The strict-supercritical envelope gives $B_1<M$.  Adding
+\[
+ A_2\ge1-B_1,
+ \quad B_2+A_3\ge1,
+ \quad B_3+A_4\ge1,
+ \quad B_4+A_5\ge1,
+ \quad B_5\ge h_T
+\]
+gives
+\[
+ \sum_{i=2}^5(A_i+B_i)>4,
+\]
+contrary to nonsupercriticality.
+\end{proof}

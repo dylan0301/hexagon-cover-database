@@ -74,6 +74,9 @@ The reusable proof interfaces are:
 - the terminal-first finite-enclosure interface
   [`2610`](../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2610_finite_enclosure_terminal_interfaces.md).
 
+The fixed sets, candidate-independent endpoints, and N0 theorem are proved in
+[`2612`](../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2612_fixed_witness_unification.md).
+
 The reader catalog
 [`0003`](0003_reusable_lemma_catalog.md) records their detailed source
 ownership but is not itself a proof dependency.
@@ -116,9 +119,9 @@ exactly the following.
 | $0$ | $d\ge1$ | CE1/CE2 | `2531`, row P0 |
 | $0$ | $(0,1)$ or $(0,2)$ | CE1/CE2 | `2610`, Terminal A or B |
 | $1$ | $(0,0)$ | CE1/CE2 | `2610`, Terminal C for one gap and B for two gaps |
-| $1$ | $(0,1)$ | CE1/CE2 | `2610`, Terminal D for one gap and B for two gaps |
+| $1$ | $(0,1)$ | CE1/CE2 | `2610`, Terminal D for both gap ranks |
 | $1$ | $(1,0)$ | CE1 | `2531`, row P1 |
-| $1$ | $(1,0)$ | CE2 | `2610`, one-Vd assembly, using D, E, a length row, or the replacement router |
+| $1$ | $(1,0)$ | CE2 | `2610`, one-Vd assembly: B/C when center-aligned, D for a Vd1 rescuer, a length row, or replacement followed by N0 |
 
 The rows are mutually exclusive and exhaustive after the two preceding count
 reductions. Every row is impossible, contradicting the assumed cover. The

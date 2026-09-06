@@ -34,7 +34,7 @@ publication assets, not proof authorities.
 | Common geometry | `1001`-`1214`, `2004`, `2008`, `2100`, `2109` |
 | Trace-length method | `2500`, `2510`, `2520`, `2530` and routed terminals |
 | Area-loss method | `317X`, `320X` |
-| Nonzero-gap finite enclosure | `2018`, `2608`, `4013_new`, `4070_new`, `4101_new`, `4102_new`, `4132`, `4140_new` |
+| Nonzero-gap finite enclosure | `2612`, `2608`, `2609`, `4102_new`, `4130_new`, `4143_new`, `4144_new` |
 | Zero-gap nine-point theorem | `31050`-`31059` and `3105X_computation` |
 | Exhaustive completion | `0000` |
 
@@ -53,8 +53,8 @@ proof-free command writes `arrange/paper_draft/proof_free.pdf`; it removes
 formal proof environments while retaining prose and calculations outside
 those environments.
 
-The current reorganized canonical paper is 91 pages, and the proof-free
-rendering is 51 pages.  The tight expected CI page-count interval is 89--93;
+The fixed-witness canonical paper is 91 pages. The proof-free rendering
+is generated on demand; its former page count is not a fixed contract.  The tight expected CI page-count interval is 89--93;
 the paper is not padded to meet that interval.
 
 Both commands use a temporary source copy, so LaTeX intermediates do not

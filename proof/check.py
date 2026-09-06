@@ -410,6 +410,19 @@ for stale in ["\\label{lem:reader-cap-chain}", "Put $W=C+RA$."]:
     if stale in zero_gap_calculation:
         fail(f"obsolete cap terminal remains active: {stale}")
 
+# Regression checks for the fixed-witness identities. These do not certify
+# the inherited geometric lemmas; those remain written proof dependencies.
+fixed_checker = ROOT / "proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/verify_fixed_witness_identities.py"
+if not fixed_checker.is_file():
+    fail("missing fixed-witness identity checker")
+else:
+    result = subprocess.run([sys.executable, str(fixed_checker)], cwd=ROOT,
+                            text=True, capture_output=True)
+    if result.returncode:
+        fail(result.stdout + result.stderr)
+    else:
+        print("fixed-witness identities: OK (6 exact checks)")
+
 if ERRORS:
     print("proof/check.py: FAILED", file=sys.stderr)
     for error in ERRORS:

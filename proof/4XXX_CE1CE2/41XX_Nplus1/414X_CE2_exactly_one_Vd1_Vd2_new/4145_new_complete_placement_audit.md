@@ -35,14 +35,11 @@ nonsupercritical Vd0.
 
 ## Case 1: \(\sigma=0\)
 
-The unique supercritical role is based at the center-covered midpoint.
-
-- If \(\tau\in\{1,5\}\), reflection gives the adjacent placement proved in
-  [`4141_new`](4141_new_adjacent_Vd_finite_enclosure.md).
-- If \(\tau\in\{2,3,4\}\), the placement is proved in
-  [`4142_new`](4142_new_nonadjacent_Vd_finite_enclosure.md).
-
-These are all possible indices.
+The unique supercritical role is based at the center-covered midpoint, so
+$T_1,\ldots,T_5$ are nonsupercritical. Their V types are irrelevant to the
+path enclosure theorem. With one gap apply C (six fixed points); with two
+gaps apply B (four fixed points), both in [2612](../../../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2612_fixed_witness_unification.md).
+The adjacent/nonadjacent distinction does not split the active construction.
 
 ## Case 2: \(\tau=0\)
 
@@ -78,8 +75,8 @@ and diameter locality makes \(T_\tau\) adjacent to \(T_\sigma\).
 - If \(T_\tau\) is Vd1, the shared edge is center-free on the reduced
   placement and the two-chart replacement
   [`4144_new`](4144_new_two_chart_replacement_and_router.md) applies.  It
-  recomputes the output gap rank and routes to Z0, the common disk-plus-gap
-  proof, or the CE2 short-ray proof.
+  preserves the skeleton with six nonsupercritical roles and invokes N0.
+  No input/output gap-rank equality is assumed.
 
 ## Conclusion
 
@@ -89,11 +86,11 @@ are:
 
 | Placement | Active ending |
 |---|---|
-| \(\sigma=0\), adjacent Vd | `4141_new` |
-| \(\sigma=0\), nonadjacent Vd | `4142_new` |
+| \(\sigma=0\), one gap, any Vd location | fixed six-point C |
+| \(\sigma=0\), two gaps, any Vd location | fixed four-point B |
 | \(\tau=0\), Vd1 rescue | `4143_new` |
 | \(\tau=0\), Vd2 rescue | `2531`, row P3 |
-| neither special role at \(0\), Vd1 | `4144_new` |
+| neither special role at \(0\), Vd1 | `4144_new`, then N0 |
 | neither special role at \(0\), Vd2 | `2531`, row P3 |
 | additional positive-support role | `2531`, row S0 |
 

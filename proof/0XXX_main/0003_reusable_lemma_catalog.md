@@ -63,69 +63,45 @@ After reflection, every selected coordinate is at least
 strictly above \(1/4\); with one ascent and a T3-like role it is
 \(2m-4m^2\).  The remaining global calculation is the same.
 
-## 5. Strategy 3: local capacity engines
+## 5. Fixed finite-witness interfaces
 
-| Engine | Exact output |
-|---|---|
-| [`2004`](../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md) | exact down-closed admissible set and \(c_{\max}(a,b)\) |
-| [`2008`](../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2008_neighbor_ray_max_c_formula.md) | permitted neighboring capacities \(C_+,C_-\) |
-| [`2608`](../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2608_residual_hull_finite_enclosure_principle.md) | support gauge, type-aware radial forcing, common-pair domination, disk-plus-point and complementary-gap results |
-| [`2609`](../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2609_simplified_finite_enclosure_lemmas.md) | finite calipers, CE2 short ray, one-third radial envelope, rescuer-tail budget |
-| [`2610`](../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2610_finite_enclosure_terminal_interfaces.md) | six terminal families A--F and replacement routing |
+The active finite-enclosure interface is [2610](../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2610_finite_enclosure_terminal_interfaces.md).
+The fixed-endpoint forcing, arbitrary-candidate proofs and N0 theorem are
+owned by [2612](../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2612_fixed_witness_unification.md).
+The exact own and adjacent capacities remain in `2004`, `2008`, and `2608`.
 
-The `*_new` case directories contain the replacement finite-enclosure proofs,
-not merely indexes.  In particular, the complete one-Vd package is
-[`4140_new`--`4145_new`](../4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4140_new_one_Vd_finite_enclosure_assembly.md).
+| Family | Fixed set | Count | Disk |
+|---|---|---:|---|
+| A | six common radial points and farther actual gap endpoint | at most 7 | radius $h(1-c_A)$ |
+| B | two boundary endpoints, total endpoints on $r_2,r_4$ | at most 4 | none |
+| C | $M_0$, both gap endpoints, total endpoints on $r_2,r_3,r_4$ | at most 6 | none |
+| D | $O$, supported endpoint, two actual left-gap endpoints | at most 4 | none |
+| F | six common radial points and the three exact asymmetric points | at most 9 | radius $h(1-c_F)$ |
 
-## 6. Strategy 3 terminal families
+B/C depend on a five-role nonsupercritical path, not its V-type pattern.
+Both formerly separate E placements with supercritical $T_0$ use C for one
+gap and B for two gaps. Their residual estimates remain alternative sources.
+The T3-like and Vd1 chart calculations verify D's endpoint/ratio interface;
+both gap ranks have one four-point ending. The bare CE1 signed domain is
+not a substitute for the selected-branch assumptions in `4102`.
 
-| Terminal | Center-forced object | Active adapters |
-|---|---|---|
-| A | common radial disk plus the actual one-edge gap | `4013_new`, `4070_new` |
-| B | \(D_2,D_4\) from the common CE2 pair | all applicable two-gap rows and replacement output |
-| C | \(K_{\rm tr}=\{O,M_0,X(\ell),X(r),P_2,P_3,P_4\}\) | `4102_new`, `4103` |
-| D | O-side endpoint of a supported special role | `4130_new`, [`4143_new`](../4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4143_new_Vd1_rescuer_finite_enclosure.md) |
-| E | a residual point or interval between all local V traces and the C exit | [`4141_new`](../4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4141_new_adjacent_Vd_finite_enclosure.md), [`4142_new`](../4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4142_new_nonadjacent_Vd_finite_enclosure.md) |
-| F | radial disk plus \(Q_-,Q_0,Q_+\) | `3105X` exact nine-point package; every zero-gap \(N_+=1\) V-type pattern |
+The two-chart Vd1 replacement is not a sixth enclosure recipe. It preserves
+the skeleton with the original C triangle fixed and produces $N_+'=0$,
+contradicting the type-independent N0 theorem. Its two charts and strict
+margins remain unchanged; its output gap rank need not equal the input rank.
 
-The corrected Vd1 replacement
-[`4144_new`](../4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4144_new_two_chart_replacement_and_router.md)
-is a router, not a seventh terminal.  It produces six nonsupercritical Vd0
-roles and recomputes the output gap rank: rank zero routes to Strategy 1,
-rank one to A, and rank two to B.
+## 6. Source ownership and retained calculations
 
-Terminal F uses the same uniform common-pair radial corollary in `2608`
-as the gap cases. Its asymmetric witnesses and polynomial certificate are
-unchanged. The one-ascent T3-like area theorem and the Vd1/Vd2 zero-gap
-length theorem remain independent alternative proofs.
+`4013_new` and `4070_new` invoke the same nonsupercritical A/B route.
+`4103` points to the six-point C theorem while retaining its original
+all-Vd0 seven-point proof as an alternative. `4102` owns the conditional
+local first step and full CE1 return. `4130_new` and `4143_new` own only
+their distinct rescuer chart calculations before the common D theorem.
+`4140_new` and `4145_new` assemble the placements without splitting the
+active E families. `4141_new` and `4142_new` retain their residual estimates.
+`4144_new` owns both replacement charts and ends through N0.
 
-## 7. Case-source ownership
-
-| Active case package | Proofs actually contained there |
-|---|---|
-| `401X_all_Vd0_boundary_loss_new` | all-Vd0 \(N_+=0\) one-gap and two-gap finite enclosure |
-| `407X_T3_like_no_Vd1Vd2_new` | T3-like type-aware versions of the same two terminals |
-| `410X_all_Vd0_new` | all-Vd0 \(N_+=1\), CE1 reverse return, CE2 threshold, transverse seven-point theorem |
-| `413X_exactly_one_T3_like_new` | T3-specific endpoint adapter, rescuer-tail terminal, two-gap terminal |
-| `414X_CE2_exactly_one_Vd1_Vd2_new` | adjacent and nonadjacent Vd proofs, Vd1 rescuer, two-chart replacement, placement audit, assembly |
-
-The unsuffixed 401X, 407X, and 410X siblings contain the former Strategy 2
-proofs and remain only for historical comparison.  The displaced active 414X
-proof bodies were removed from the unsuffixed sibling; its old paths are
-Reference-status compatibility pointers.
-
-## 8. What remains case-specific
-
-The following calculations should not be merged into a generic theorem:
-
-- the T3-like and Vd1 inequalities verifying Terminal D;
-- the adjacent and nonadjacent Vd residual estimates verifying Terminal E;
-- the scalar CE1 reverse-return inequalities inside Terminal C;
-- the eight exact mixed-overlap polynomial signs and their Bernstein
-  certificates inside Terminal F.
-
-These are adapters or exact certificates, not duplicated global endings.
-
-## Four-contact zero-gap enclosure
-
-[`2611`](../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2611_four_contact_disk_enclosure.md) specializes disk--finite-set calipers to the ordered three-point chain and transfers the paired tangent residuals from a smaller disk to the actual disk. The zero-gap forcing and exact polynomial transcript are unchanged.
+The exact zero-gap sources `3105X` and their authenticated certificate are
+unchanged. `2611` is a four-contact caliper theorem for disk plus three-point
+geometry; it is not the four-point rescuer theorem D. Length filters and the
+zero-gap multiple-ascent area theorem remain explicitly different methods.
