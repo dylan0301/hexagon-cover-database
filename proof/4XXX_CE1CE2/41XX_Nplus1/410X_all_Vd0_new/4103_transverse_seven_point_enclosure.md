@@ -2,6 +2,17 @@
 
 Status: Proven
 
+## Active fixed-witness route
+
+The active transverse theorem uses the fixed six-point set with total
+radial endpoints on $r_2,r_3,r_4$. It allows arbitrary nonsupercritical
+V types on $T_1,\ldots,T_5$. The older seven-point own-endpoint theorem
+below remains its all-Vd0 specialization. See [`2612`](../../../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2612_fixed_witness_unification.md) for the fixed-set construction and the
+arbitrary-candidate proof. The detailed argument below is retained as
+an alternative specialization, not as an additional active case.
+
+## Retained specialized argument
+
 This note strengthens the one-gap part of
 [`4101`](4101_new_all_Vd0_finite_enclosure.md).  The former witness retained
 all six actual own-radial endpoints.  The proof below needs only the three
@@ -469,7 +480,8 @@ L_2=
 \tag{16}
 $$
 
-Sections 3--6 of `4102` prove, solely from the strict CE1 signed domain,
+Sections 3--6 of `4102` prove, under the surviving selected-branch
+conditions together with the strict CE1 signed domain,
 
 $$
 \delta<\frac1{10},

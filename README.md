@@ -62,7 +62,7 @@ remain gaps because the covering triangles are open.
 The active proof mechanisms are exposed through three reusable interfaces:
 `2400` for the multiple-ascent area route and the retained T3-like alternative,
 `2531` for the length-budget rows, and
-`2610` for the six finite-enclosure terminal families. Detailed case files are
+`2610` for the five fixed finite-enclosure witness families. Detailed case files are
 retained as placement adapters and compatibility paths.
 
 The zero-gap $N_+=1$ row now uses one type-independent nine-point theorem:
@@ -95,3 +95,7 @@ GitHub Actions runs the same source, exact-certificate, interactive, and paper
 checks on every branch and pull request. Generated verification summaries,
 release ZIP files, dependency manifests, and LaTeX intermediates are not
 tracked.
+
+## Fixed finite witnesses
+
+The active fixed-witness source is `proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2612_fixed_witness_unification.md`. Its A/B/C/D/F constructions use at most 7/4/6/4/9 points. Only A and F use centered disks. Nonsupercritical path roles are not split by V type; total radial endpoints account for all permitted adjacent traces. The supported-rescuer ending is a four-point enclosure, and the two-chart replacement ends through the type-independent N0 theorem.

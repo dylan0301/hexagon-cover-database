@@ -1,0 +1,232 @@
+% Fixed-candidate proofs, included inside Appendix D after its section heading.
+\subsection{Fixed endpoints and arbitrary candidates}
+
+The new enclosure theorems use actual trace endpoints, fixed before an
+arbitrary candidate is chosen. This subsection supplies the new arguments;
+the subsequent local capacity and selected-return calculations are retained.
+In particular, the two-gap comparison pair belongs to the candidate, but
+the four-point set being tested belongs to the original configuration.
+
+\begin{lemma}[Total radial endpoint and maximum-to-own-demand]
+\label{lem:appendix-fixed-total-endpoint}
+The assertions of \zcref{lem:fixed-total-radial-forcing} hold for arbitrary
+V types.
+\end{lemma}
+\begin{proof}
+No closed V triangle contains $O$: its distinguished vertex is interior
+and at distance one from $O$, so moving that vertex slightly away from $O$
+inside the open triangle would contradict diameter one. Each own trace has
+positive length. Hence $0<\gamma_i<1$ and $0<d_i<1$.
+
+If a local open role contained $Z_i(\gamma_i)$, openness would give a point
+$Z_i(c)$ with $c>\gamma_i$ in that role. A role with no positive neighboring
+trace would acquire one; otherwise its maximal endpoint would increase.
+Both contradict the definition of $\gamma_i$. The nonlocal roles are
+excluded by
+\[
+ \|d_iV_i-V_{i\pm2}\|^2=1+d_i+d_i^2>1,
+ \qquad \|d_iV_i-V_{i+3}\|=1+d_i>1.
+\]
+Thus every total endpoint is missed by all open V roles.
+
+Now let an arbitrary open unit candidate contain $O$ and $\widehat P_i$.
+If its radial exit is $d_i'$, open containment gives $d_i<d_i'$ and hence
+$\gamma_i>1-d_i'$. If both neighboring endpoints are at most $1-d_i'$,
+the own term must realize this strict demand. For a nonsupercritical
+neighbor with both actual boundary reaches above $d_i'$, the bound
+$C_\pm(A_j,B_j)\le1-\min\{A_j,B_j\}<1-d_i'$ excludes its contribution.
+No skeleton-cover hypothesis for this new candidate is used.
+\end{proof}
+
+\begin{lemma}[Fixed four-point two-gap enclosure]
+\label{lem:appendix-fixed-two-gap}
+The fixed set $K_B$ in \zcref{thm:new-ce2-short-ray} has
+$\Lambda(K_B)\ge1$.
+\end{lemma}
+\begin{proof}
+Suppose an open unit candidate $U'$ contains $K_B$. The origin-hull identity
+puts $O$ in it, and its two boundary anchors give positive traces on both
+$e_{5,0}$ and $e_{0,1}$. Thus the candidate is CE2 in the common-vertex
+normalization. Recompute $R,W,E,\eta,P,\alpha,\delta$ from this candidate
+and put
+\[
+ p=W-\alpha,\qquad q=R-\delta,\qquad c_*=c_{\max}(p,q).
+\]
+Strict containment of the two anchors yields $B_5>p$, $A_1>q$.
+The four intervening gap-free edges and nonsupercriticality give
+\[
+ A_i>q,\qquad B_i>p\qquad(1\le i\le5).
+\]
+Every local contributor on $r_2$ or $r_4$ belongs to this path, and common-pair
+comparison gives $\gamma_2,\gamma_4\le c_*$. The exact signed CE2
+inequality proved below in \zcref{lem:appendix-ce2-short-ray} is
+\[
+ c_*<1-\min\{\alpha,\delta\}.
+\]
+If $\delta\le\alpha$, then $\|\widehat P_2\|>\delta$, although the
+candidate exit on $r_2$ is $\delta$. Otherwise $\|\widehat P_4\|>\alpha$
+contradicts its exit on $r_4$. The same fixed points exclude every candidate.
+\end{proof}
+
+\begin{lemma}[Fixed six-point transverse enclosure]
+\label{lem:appendix-fixed-transverse}
+The set $K_C$ in \zcref{prop:new-nplus-one-all-vd0} has
+$\Lambda(K_C)\ge1$ for arbitrary V types on the nonsupercritical path.
+\end{lemma}
+\begin{proof}
+Suppose an open unit candidate $U'$ contains $K_C$. Its origin is implicit
+in the witness hull, and $M_0$ fixes the unique-midpoint normalization.
+Write its signed parameters as $R,W,E,\eta,P,\alpha,\delta$ and put
+\[
+ X=R-\delta,\qquad Q=\frac{\eta+\alpha+\delta}{2R}.
+\]
+The two gap endpoints give $B_0>2Q$ and $A_1>X$. Endpoint diameter yields
+\[
+ A_0\le M_0(B_0)<M_0(2Q)<1-Q.
+\]
+The five gap-free edges and nonsupercriticality imply
+\begin{equation}
+ A_1<A_2<A_3<A_4<A_5<A_0,\qquad
+ A_i>X,\quad B_i>Q\quad(1\le i\le5).
+\label{eq:fixed-path-boundary}
+\end{equation}
+The pair $(X,Q)$ is positive and has sum below one because it is strictly
+dominated by a nonsupercritical actual pair.
+
+\emph{CE2 candidates.} Use the selected high-radial root
+\[
+ e(d)=\frac{1-d}{2}\left(1-\sqrt{4(1-d)^2-3}\right).
+\]
+The strict CE2 center inequalities give
+\begin{equation}
+ X>e(\alpha),\qquad \min\{e(\alpha),e(\delta)\}<Q.
+\label{eq:fixed-ce2-thresholds}
+\end{equation}
+For completeness, $WX>\eta+\alpha$, and testing the low-root equation at
+this bound reduces the first assertion to
+\[
+ \pi(t)=(\eta+t)(1-2t)-2Wt>0\qquad(0\le t\le P).
+\]
+The polynomial is concave, $\pi(0)=\eta>0$, and
+$\pi(P)=\eta(\eta+2ER^2)>0$. For the second assertion put
+$T=\alpha+\delta$. The weighted sum of the two strict center inequalities
+gives $T<\eta/E$. With $d=\min\{\alpha,\delta\}$,
+\[
+ \min\{e(\alpha),e(\delta)\}
+ <\frac{2d}{1-2d}\le\frac{T}{1-T}<Q.
+\]
+The final comparison follows from concavity of
+$\chi(T)=(\eta+T)(1-T)-2RT$, positive at zero and at $\eta/E$, where it
+has value $\eta(E-R)^2/E^2$.
+
+If $e(\alpha)<Q$, both coordinates of $(X,Q)$ exceed $e(\alpha)$.
+The high-radial threshold therefore gives
+$c_{\max}(X,Q)<1-\alpha$. Otherwise
+$e(\delta)<Q\le e(\alpha)<X$ and it gives
+$c_{\max}(X,Q)<1-\delta$. Common-pair domination and \zcref{eq:fixed-path-boundary} bound all local
+contributors on $r_4$ in the first case and $r_2$ in the second. Thus the
+candidate misses the corresponding fixed total endpoint.
+
+\emph{CE1 candidates.} Now $R\alpha+\delta\ge P$ and
+$\alpha+W\delta<P$. Set $m=\alpha/R$; the transverse exits are
+$\alpha,m,\delta$ on $r_4,r_3,r_2$. Combining the two signed inequalities
+gives $E^2\alpha<RP$, so $m<\eta/E$. Also
+\[
+ X>\frac{R}{1+E}>\frac{\eta}{E}>m,
+ \qquad 2R(Q-m)=\eta+\delta-\alpha>0.
+\]
+Here $E>W$ proves the middle inequality, and $\alpha<P=E\eta<\eta$
+proves the last sign. Consequently
+\begin{equation}
+ \min\{X,Q\}>m>\alpha.
+\label{eq:fixed-ce1-neighbor-floor}
+\end{equation}
+The neighboring capacities on $r_4,r_3$ are therefore below the candidate's
+required demands. Fixed-endpoint containment and
+\zcref{lem:appendix-fixed-total-endpoint} recover
+\begin{equation}
+ C_4>1-\alpha,\qquad C_3>1-m.
+\label{eq:fixed-ce1-first-demands}
+\end{equation}
+
+Invoke only the first $T_4$ step of the return proof, through
+\zcref{eq:ce1-first-chord}. This step uses \zcref{eq:fixed-path-boundary}, the upper squeeze, and
+$C_4>1-\alpha$, but not a radial hypothesis at $T_2$. A nonselected branch
+already contradicts the boundary inequalities at $T_1$. On the surviving
+selected branch,
+\[
+ B_3>L_1,\qquad L_1=(2-4\alpha)Q-(1-4\alpha)\alpha.
+\]
+The identity
+\begin{equation}
+ R(L_1-\delta)
+ =(1-2\alpha)\eta+(W-2\alpha)(\alpha+\delta)+4R\alpha^2>0
+\label{eq:fixed-ce1-bridge}
+\end{equation}
+follows by expansion, with every sign justified by
+$0<\alpha<P<\min\{1/2,W/2\}$. Hence $B_3>\delta$.
+Backward path monotonicity gives $B_1>B_3>\delta$, and
+$A_1,A_3>X>\delta$. Both neighbors of $r_2$ have capacities below
+$1-\delta$. Candidate containment now recovers
+\begin{equation}
+ C_2>1-\delta.
+\label{eq:fixed-ce1-third-demand}
+\end{equation}
+All three own-radial hypotheses of
+\zcref{prop:new-ce1-direct-certificate} have been established before the
+full return is used. That return gives $A_0>1-Q$, contradicting the upper
+squeeze. Its selected-component conditions remain in force; in particular,
+$\delta<1/10$ is not asserted on the bare CE1 signed domain. Both candidate
+classes are excluded.
+\end{proof}
+
+\begin{lemma}[Fixed four-point supported-rescuer proof]
+\label{lem:appendix-fixed-four-point}
+The geometric statement of \zcref{thm:fixed-four-point-rescuer} holds.
+\end{lemma}
+\begin{proof}
+If $a=0$ or $\beta=0$, the set contains $O$ and a hexagon vertex at distance
+one, so it cannot lie in an open unit equilateral triangle. Otherwise
+suppose a candidate contains the four points. The convex combination in
+the theorem's body proof puts $(\varepsilon/s)V_0$ in it, and
+$\varepsilon/s\ge1/2$ puts $M_0$ in it by convexity with $O$.
+The candidate has a positive boundary trace and unique midpoint $M_0$.
+Use the left-active reflected signed normal form when needed; a positive
+right-edge trace is not an extra hypothesis. The left trace has endpoints
+$k/W,R+\alpha$, and the exit on $r_1$ is $\delta/R$, with
+$k=\eta+\alpha+\delta$ and $\eta,\alpha,\delta>0$.
+Containment of $Y(a)$ and $\varepsilon V_1$ gives
+\[
+ Wa>k,\qquad \delta>R\varepsilon,
+\]
+so $\alpha<a-Rs$ and $R<a/s$. Since $s\le1$,
+\[
+ R+\alpha<a+R(1-s)\le a/s.
+\]
+Containment of $Y(1-\beta)$ would require $1-\beta<R+\alpha$, whereas
+$\beta\le\varepsilon/s$ gives $1-\beta\ge a/s$. This is impossible.
+\end{proof}
+
+\paragraph{Using the geometric lemma on an actual supported trace.}
+Set the lemma's parameters to $a=A_0$, $\beta=B_5$ and
+$\varepsilon=1-u$. The local T3-like or Vd1 certificate gives
+\[
+ A_0+\varepsilon\le1,
+ \qquad \frac{A_0}{A_0+\varepsilon}\le1-M_c^{\rm sup}.
+\]
+The strict-supercritical envelope and path monotonicity give
+$B_5\le B_1<M_c^{\rm sup}$. Since $M_c^{\rm sup}\ge1/2$, these imply
+$A_0\le\varepsilon$ and $B_5<\varepsilon/(A_0+\varepsilon)$.
+They also imply $A_0\le1-M_c^{\rm sup}$ and hence $B_5<1-A_0$.
+Thus the two boundary points are actual left-gap endpoints, and the other
+noncentral point is the already forced supported endpoint. This constructs
+$K_D\subset U_C$ for both gap ranks; the four-point lemma is its universal
+candidate obstruction.
+
+\paragraph{Scope of the retained calculations below.}
+The local admissible cells, CE1 selected-return calculations, and the two
+rescuer chart certificates below remain inputs to the fixed-witness proof.
+The older one-Vd radial-separation estimates and the boundary-tail budget
+are retained as alternative quantitative results, not as additional active
+finite-enclosure cases. In particular, an actual-center separation is not
+itself renamed as an unrestricted enclosure inequality.

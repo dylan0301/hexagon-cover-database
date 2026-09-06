@@ -118,8 +118,9 @@ $$
 
 ## 2. Three-transverse return statement
 
-Let $T_0$ be the unique supercritical role and let
-$T_1,\ldots,T_5$ be nonsupercritical Vd0 roles.  Assume that their actual
+Let $T_0$ be a V triangle and let $T_1,\ldots,T_5$ be
+nonsupercritical V triangles of arbitrary types. No criticality assumption
+on $T_0$ is needed for this local implication. Assume that their actual
 reaches satisfy
 
 $$
@@ -270,6 +271,25 @@ $$
 \boxed{A_0>1-h_0.}
 \tag{12}
 $$
+
+## 2a. First-step interface (before the third radial demand)
+
+Under the boundary and upper-squeeze assumptions of Section 2, the radial
+hypothesis at $T_4$ alone has the following consequence: either the
+nonselected local branches immediately contradict $A_1\ge X$ and
+nonsupercriticality, or the selected branch gives
+
+$$
+B_3>L_1,\qquad L_1=(2-4A)h_0-(1-4A)A.
+$$
+
+This is exactly the argument in Section 2 through equation (8). It uses
+neither the radial demand at $T_2$ nor the radial demand at $T_3$.
+All selected-component conditions of the retained proof still apply.
+The fixed-witness theorem uses this first step to recover its $T_2$ demand,
+and invokes the full three-transverse return only after all three demands
+have been established. The later bound $D<1/10$ is conditional on the
+surviving selected state, not a consequence of the bare CE1 signed domain.
 
 ## 3. Preliminary estimates
 

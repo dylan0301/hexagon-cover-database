@@ -87,26 +87,33 @@ N_+\in\{0,1\},
 N_++d+t\le2.
 $$
 
-## 5. Nonzero-gap terminal map
+## 5. Nonzero-gap fixed-witness map
 
-| Normalized row | Active adapter | Terminal |
+The fixed-set proofs and the type-independent N0 theorem are in
+[`2612`](../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2612_fixed_witness_unification.md).
+All reaches below are actual reaches. Normalize the center midpoint to $M_0$;
+B has gaps on $e_{5,0},e_{0,1}$ and C has its single gap on $e_{0,1}$.
+
+| Normalized row | Active construction | Terminal |
 |---|---|---|
-| $N_+=0$, all Vd0, one gap | [`4013_new`](../4XXX_CE1CE2/40XX_Nplus0/401X_all_Vd0_boundary_loss_new/4013_new_all_Vd0_finite_enclosure.md) | A: common disk plus actual gap |
-| $N_+=0$, one or two T3-like, one gap | [`4070_new`](../4XXX_CE1CE2/40XX_Nplus0/407X_T3_like_no_Vd1Vd2_new/4070_new_T3_like_finite_enclosure.md) | A, after neighboring-capacity domination |
-| any applicable Vd0/T3-like two-gap row | `4013_new`, `4070_new`, `4101_new`, or `4130_new` | B: CE2 short ray |
-| $N_+=1$, all Vd0, one gap | [`4102_new`](../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0_new/4102_new_CE1_direct_radial_certificate.md), [`4103`](../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0_new/4103_transverse_seven_point_enclosure.md) | C: transverse seven-point return |
-| $N_+=1$, one T3-like, one gap | [`4130_new`](../4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like_new/4130_new_T3_like_finite_enclosure.md) | D: supported rescuer tail |
-| CE2 one-Vd adjacent placement | [`4141_new`](../4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4141_new_adjacent_Vd_finite_enclosure.md) | E: residual radial separation |
-| CE2 one-Vd nonadjacent placement | [`4142_new`](../4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4142_new_nonadjacent_Vd_finite_enclosure.md) | E: residual radial separation |
-| CE2 Vd1 neighboring-midpoint placement | [`4143_new`](../4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4143_new_Vd1_rescuer_finite_enclosure.md) | D |
-| CE2 Vd2 neighboring-midpoint placement | `4149` compatibility wrapper | Strategy 1 row P3 |
-| corrected Vd1 replacement | [`4144_new`](../4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4144_new_two_chart_replacement_and_router.md) | router: output gap rank $0\to$ length, $1\to$ A, $2\to$ B |
+| $N_+=0$, one gap, arbitrary V types | six common radial points and farther gap endpoint | A: at most seven points and their explicit disk |
+| $T_1,\ldots,T_5$ nonsupercritical, two gaps | two boundary anchors and total endpoints on $r_2,r_4$ | B: at most four fixed points |
+| $T_1,\ldots,T_5$ nonsupercritical, one gap | $M_0$, both gap endpoints, total endpoints on $r_2,r_3,r_4$ | C: at most six fixed points |
+| center-based T3-like or Vd1 role rescues a supercritical neighbor | origin, supported O-side endpoint, both left-gap endpoints | D: at most four fixed points, both gap ranks |
+| Vd2 neighboring-midpoint placement | retained perimeter bound | `2531` row P3 |
+| Vd1--supercritical pair away from $M_0$ | both replacement charts preserved | `4144_new`, then N0 |
 
-The complete one-Vd assembly is
-[`4140_new`](../4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4140_new_one_Vd_finite_enclosure_assembly.md),
-and its exhaustive placement audit is
-[`4145_new`](../4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4145_new_complete_placement_audit.md).
-The complete terminal statements and their source ownership are in `2610`.
+When the supercritical role is $T_0$, every nonsupercritical V-type pattern
+uses C for one gap and B for two gaps. The old adjacent/nonadjacent Vd
+residual estimates remain alternatives, not active E families. The T3-like
+and Vd1 local endpoint calculations remain in `4130_new` and `4143_new`.
+The CE1 local first step and full conditional return remain in `4102_new`.
+
+The complete one-Vd assembly and positional exhaustiveness are still owned
+by `4140_new` and `4145_new`. Replacement preserves the skeleton with the
+original C triangle fixed and produces six nonsupercritical roles. N0
+handles its output gaps internally; no equality of input/output gap ranks
+is asserted.
 
 ## 6. Compatibility policy
 

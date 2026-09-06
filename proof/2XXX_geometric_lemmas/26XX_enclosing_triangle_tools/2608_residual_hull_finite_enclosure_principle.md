@@ -662,3 +662,12 @@ $$
 If $e=\delta$, the point $(1-c_{\max})V_2$ lies farther than $\delta$ from
 $O$, while the center reaches exactly $\delta$ on $r_2$.  If $e=\alpha$, the
 same conclusion holds on $r_4$.  $\square$
+
+## Fixed-witness public interface
+
+The active arbitrary-candidate finite-set theorems are now collected
+in [`2612`](2612_fixed_witness_unification.md). This source retains
+the local capacity/disk or short-ray calculations used there. Its
+older actual-center separation and boundary-tail formulations are
+alternative local results, not additional active finite-enclosure
+families. In particular, D now ends with a fixed four-point theorem.

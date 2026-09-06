@@ -6,8 +6,8 @@ This is the active replacement proof for the placement in which the unique
 Vd1 role and the unique supercritical Vd0 role are adjacent, neither is based
 at the center's unique midpoint, and every other V role is nonsupercritical
 Vd0.  The replacement uses separate vertex charts.  It preserves the full
-skeleton, produces six nonsupercritical Vd0 roles, and then routes according
-to the **recomputed** output gap rank.
+skeleton, produces six nonsupercritical Vd0 roles, and then invokes the type-independent N0 theorem. The input and
+output gap ranks need not coincide.
 
 ## 1. Normalized pair and Vd1 margins
 
@@ -316,20 +316,15 @@ All other skeleton components are unchanged.  Thus the modified seven open
 roles still cover the full skeleton, the C triangle remains CE2, and all six
 V roles are now nonsupercritical Vd0.
 
-## 6. Recompute the output gap rank
+## 6. One all-nonsupercritical destination
 
-Let \(N'_{\rm gap}\) be computed from the modified **open** boundary traces.
-No equality with the input gap rank is asserted.
+The construction above keeps the original C triangle fixed and preserves
+the full skeleton while producing six actual nonsupercritical V triangles.
+It contradicts the type-independent N0 theorem, [2612](../../../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2612_fixed_witness_unification.md), Theorem 7.1.
 
-- If \(N'_{\rm gap}=0\), the boundary-complete length row Z0 in
-  [`2531`](../../../2XXX_geometric_lemmas/25XX_length_bounds/2531_length_budget_corollaries.md)
-  gives a contradiction.
-- If \(N'_{\rm gap}=1\), the all-Vd0 common-disk-plus-gap proof
-  [`4013_new`](../../40XX_Nplus0/401X_all_Vd0_boundary_loss_new/4013_new_all_Vd0_finite_enclosure.md)
-  applies.
-- If \(N'_{\rm gap}=2\), the CE2 two-gap short-ray theorem in
-  [`2609`](../../../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2609_simplified_finite_enclosure_lemmas.md)
-  applies.
-
-These alternatives are exhaustive.  Undoing the local renumbering and
-reflection proves every replacement placement. \(\square\)
+No equality between the input and output gap ranks is asserted. N0 handles
+all three possible output ranks internally: zero gaps by strict boundary
+overlap, one gap by A, and two gaps by B. Thus the replacement proof does
+not need a second exposed three-way router. Both vertex charts and every
+strict margin in Sections 1--5 are unchanged. Undoing the local renumbering
+and reflection proves the claimed replacement placement. $\square$

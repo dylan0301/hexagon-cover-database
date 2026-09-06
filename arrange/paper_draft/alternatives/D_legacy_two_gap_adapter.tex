@@ -1,0 +1,79 @@
+% Historical text retained outside the canonical input closure.
+\begin{lemma}[Solved two-gap common-pair adapter]
+\label{lem:appendix-two-gap-common-pair-adapter}
+The reaches defined from row B in
+\zcref{lem:new-two-gap-common-pair-adapter} satisfy its displayed
+coordinatewise alternatives.
+\end{lemma}
+
+\begin{proof}
+In the signed CE2 chart of Appendix A, the complementary far endpoints of
+the two positive C traces are
+\[
+ p=1-(R+\alpha)=W-\alpha,
+ \qquad
+ q=1-(W+\delta)=R-\delta.
+\]
+The row predicates leave exactly
+\[
+ (N_+,t)\in
+ \{(0,0),(0,1),(0,2),(1,0)\}.
+\]
+Normalize the gap edges to \(e_{5,0}\) and \(e_{0,1}\).  On the four
+intervening edges choose
+\[
+ x_i\in(1-A_{i+1},B_i)
+ \qquad(1\le i\le4).
+\]
+If \(N_+=0\), then \(T_1,\ldots,T_5\) are nonsupercritical immediately.
+In the remaining case \((N_+,t)=(1,0)\), let \(T_s\) be supercritical.  If
+\(s\ne0\), then \zcref{lem:self-midpoint} and the unique-center-midpoint
+identity give
+\[
+ M_s\notin T_s\cup T_C.
+\]
+Any other open V triangle covering \(M_s\) would be adjacent and would have
+positive-length trace on \(r_s\), contrary to \(d=t=0\).  Thus \(s=0\), and
+\(T_1,\ldots,T_5\) are again nonsupercritical.  Gap containment and the
+displayed handoffs now give
+\[
+ p<B_5\le1-A_5<x_4,
+\]
+\[
+ x_4<B_4\le1-A_4<x_3,
+\]
+\[
+ x_3<B_3\le1-A_3<x_2,
+\]
+\[
+ x_2<B_2\le1-A_2<x_1,
+\]
+\[
+ x_1<B_1\le1-A_1<1-q.
+\]
+Thus
+\[
+ p<x_4<x_3<x_2<x_1<1-q,
+\]
+and, including the two roles incident to the gap edges,
+\[
+ q\le A_i,
+ \qquad
+ p\le B_i
+ \qquad(1\le i\le5).
+\]
+
+Finally, if \(T_j\) is T3-like and supports \(r_{j-1}\) or \(r_{j+1}\),
+then \(t\ge1\).  The row-B identity \(N_+t=0\) gives \(N_+=0\), and hence
+\[
+ A_j+B_j\le1.
+\]
+Coordinatewise antitonicity and reflection give
+\[
+ C_\pm(A_j,B_j)
+ \le
+ \max\{C_+(p,q),C_-(p,q)\}
+ \le c_{\max}(p,q)
+\]
+by \zcref{lem:appendix-common-pair-domination}.  This proves both assertions.
+\end{proof}

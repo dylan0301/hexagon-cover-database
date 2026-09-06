@@ -233,29 +233,32 @@ a+\varepsilon<1.
 \tag{14}
 \]
 
-## 3. Common rescuer-tail terminal
+## 3. One four-point terminal for both gap ranks
 
-Equations (5), (9), and (14) are exactly the local hypotheses of the
-rescuer-tail theorem in `2609`.  That theorem proves that the far boundary
-demand on \(T_5\) is at least \(M\), whether or not the companion C trace
-tries to hide the endpoint \(a\).
+The local calculations above establish the endpoint and ratio conditions.
+Use actual $A_0$ for the rescuer's left boundary reach (the local chart
+symbol $a$ above equals $A_0$), and put $\varepsilon=1-u$.
+The strict-supercritical envelope gives $B_1<M$, and the four ordinary
+center-free handoffs give
 
-On the other hand, the strict-supercritical envelope gives
+$$
+B_5\le B_4\le B_3\le B_2\le B_1<M.
+$$
 
-\[
-B_1<M.
-\]
+Since $A_0+\varepsilon\le1$ and
+$A_0/(A_0+\varepsilon)\le1-M$, one has $A_0\le1-M$ and hence
+$B_5<1-A_0$. Thus the actual left-edge gap endpoints are
+$Y(A_0)$ and $Y(1-B_5)$, where $Y(t)=(1-t)V_0+tV_5$.
+Together with the already forced supported endpoint and $O$ they give
 
-Adding the four center-free handoffs through
-\(T_2,T_3,T_4,T_5\) yields
+$$
+K_D=\{O,\varepsilon V_1,Y(A_0),Y(1-B_5)\}\subset U_C.
+$$
 
-\[
-\sum_{i=2}^5(A_i+B_i)
-\ge4+M-B_1
->4,
-\]
-
-contrary to nonsupercriticality of those four roles.  Reflection proves the
-corresponding \(M_5,T_5\) placement.
-
-Therefore the Vd1 supported-endpoint placement is impossible. \(\square\)
+The same inequalities, with $M\ge1/2$, give
+$A_0\le\varepsilon$ and $B_5<\varepsilon/(A_0+\varepsilon)$.
+The four-point rescuer theorem in [2612](../../../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2612_fixed_witness_unification.md), Section 6, proves
+$\Lambda(K_D)\ge1$, contrary to compact containment in the open unit
+C triangle. There is no disk. The argument treats both one and two gaps
+without a sum greater than four and without propagating a common pair
+through the supercritical role. $\square$

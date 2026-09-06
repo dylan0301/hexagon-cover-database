@@ -5,7 +5,7 @@ Status: Proven
 This proof separates the only T3-specific calculation from the common
 rescuer-tail budget proved in
 [`2609`](../../../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2609_simplified_finite_enclosure_lemmas.md).
-The two-gap branch uses the same short CE2 theorem as the all-Vd0 case.
+Both gap ranks use the same fixed four-point enclosure ending.
 
 ## Theorem
 
@@ -179,47 +179,32 @@ $$
 Equations (1) and (3) are exactly the hypotheses of the common rescuer-tail
 theorem in `2609`.
 
-## 3. One gap
+## 3. One four-point terminal for both gap ranks
 
-In the one-gap branch, Theorem 4.1 of `2609` shows that the far boundary
-demand on $T_5$ is at least $M$, while the adjacent supercritical role has
-
-$$
-B_1<M.
-$$
-
-The four ordinary roles then satisfy
+The local calculations above establish the endpoint and ratio conditions.
+Use actual $A_0$ for the rescuer's left boundary reach (the local chart
+symbol $a$ above equals $A_0$), and put $\varepsilon=1-u$.
+The strict-supercritical envelope gives $B_1<M$, and the four ordinary
+center-free handoffs give
 
 $$
-\sum_{i=2}^5(A_i+B_i)>4,
+B_5\le B_4\le B_3\le B_2\le B_1<M.
 $$
 
-contrary to nonsupercriticality. This closes both CE1 and CE2 one-gap
-placements without repeating the center-hiding calculation.
-
-## 4. Two gaps
-
-In the two-gap branch the center is CE2. The four intervening center-free
-handoffs give the common pair
+Since $A_0+\varepsilon\le1$ and
+$A_0/(A_0+\varepsilon)\le1-M$, one has $A_0\le1-M$ and hence
+$B_5<1-A_0$. Thus the actual left-edge gap endpoints are
+$Y(A_0)$ and $Y(1-B_5)$, where $Y(t)=(1-t)V_0+tV_5$.
+Together with the already forced supported endpoint and $O$ they give
 
 $$
-p=W-\alpha,
-\qquad
-q=R-\delta
+K_D=\{O,\varepsilon V_1,Y(A_0),Y(1-B_5)\}\subset U_C.
 $$
 
-on $T_1,\ldots,T_5$. The neighboring-ray formula and common-pair domination
-in
-[`2608`](../../../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2608_residual_hull_finite_enclosure_principle.md)
-show that the permitted T3-like support does not exceed
-$c_{\max}(p,q)$. Hence the type-aware points
-
-$$
-D_2=(1-c_{\max}(p,q))V_2,
-\qquad
-D_4=(1-c_{\max}(p,q))V_4
-$$
-
-belong to $U_C$. Theorem 2.1 of `2609` places one of them beyond its C exit.
-
-The one- and two-gap cases are exhaustive. $\square$
+The same inequalities, with $M\ge1/2$, give
+$A_0\le\varepsilon$ and $B_5<\varepsilon/(A_0+\varepsilon)$.
+The four-point rescuer theorem in [2612](../../../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2612_fixed_witness_unification.md), Section 6, proves
+$\Lambda(K_D)\ge1$, contrary to compact containment in the open unit
+C triangle. There is no disk. The argument treats both one and two gaps
+without a sum greater than four and without propagating a common pair
+through the supercritical role. $\square$

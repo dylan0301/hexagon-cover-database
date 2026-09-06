@@ -16,6 +16,9 @@ TRACE_HTML = ROOT / "interactive/trace_exact_ab_envelope_explorer.html"
 TRACE_PRESETS = ROOT / "interactive/trace_exact_ab_presets.json"
 TRACE_PNG_DIR = ROOT / "arrange/paper_draft/figures/trace_exact_ab"
 
+# Preset IDs are retained historical placement examples. E_a/E_n in this
+# registry are not additional active terminal cards; the active graph
+# below routes those center-aligned placements through B/C.
 EXPECTED_TRACE_CASES = {
     "zero_gap_n1_vd0": "F",
     "one_gap_n0_vd0": "A",
@@ -220,24 +223,35 @@ expected_groups = [
 if graph.get("groups") != expected_groups:
     raise SystemExit("dependency graph does not use the six-body/Appendix A--F architecture")
 if [row.get("id") for row in graph.get("finiteRows", [])] != [
-    "A", "B", "C", "D_T", "D_V", "E_a", "E_n", "F", "R"
+    "A", "B", "C", "D_T", "D_V", "F", "R"
 ]:
     raise SystemExit("dependency graph finite-enclosure cards do not match the case register")
 
-canonical_statement_sources = {
-    "01_introduction.tex",
-    "02_structure_and_common_geometry.tex",
-    "03_trace_bounds.tex",
-    "05_area_loss_full.tex",
-    "06_finite_enclosure_full.tex",
-    "07_exhaustive_assembly.tex",
-    "A_structural_shared_local_signed_center_optimization.tex",
-    "B_trace_length_optimization.tex",
-    "C_area_loss_optimization.tex",
-    "D_nonzero_gap_finite_enclosure_optimization.tex",
-    "E_zero_gap_nine_point_optimization.tex",
-    "A_zero_gap_exact_certificate.tex",
+# New active families must have their fixed-point proof owners in the graph.
+fixed_required = {
+    "lem:fixed-total-radial-forcing", "lem:fixed-origin-in-hull",
+    "thm:fixed-four-point-rescuer", "lem:appendix-fixed-two-gap",
+    "lem:appendix-fixed-transverse", "lem:appendix-fixed-four-point",
 }
+actual_node_ids = {node["id"] for node in graph.get("nodes", [])}
+if not fixed_required <= actual_node_ids:
+    raise SystemExit("dependency graph omits fixed-witness proof owners")
+
+canonical_statement_sources = {'01_introduction.tex',
+ '02_structure_and_common_geometry.tex',
+ '03_trace_bounds.tex',
+ '05_area_loss_full.tex',
+ '06_finite_enclosure_full.tex',
+ '06_fixed_witness_body.tex',
+ '06_fixed_zero_gap_coordinates.tex',
+ '07_exhaustive_assembly.tex',
+ 'A_structural_shared_local_signed_center_optimization.tex',
+ 'A_zero_gap_exact_certificate.tex',
+ 'B_trace_length_optimization.tex',
+ 'C_area_loss_optimization.tex',
+ 'D_fixed_witness_extensions.tex',
+ 'D_nonzero_gap_finite_enclosure_optimization.tex',
+ 'E_zero_gap_nine_point_optimization.tex'}
 statement_sources = {
     Path(node["source"]).name for node in graph.get("nodes", [])
 }
