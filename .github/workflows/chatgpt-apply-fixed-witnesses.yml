@@ -11,8 +11,10 @@ env:
   SOURCE_DATE_EPOCH: '946684800'
   FORCE_SOURCE_DATE: '1'
   TZ: UTC
+  AUDITED_BASE: 'a47b162e233e961e8e6e746a4ab987c14638b429'
+  DELIVERY_BRANCH: 'chatgpt/fixed-finite-witnesses-20260906020437'
 jobs:
-  export:
+  validate:
     permissions:
       contents: read
     runs-on: ubuntu-24.04
@@ -21,22 +23,141 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
-      - name: Export exact audited base without credentials
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22'
+      - name: Verify transport and apply exact source delta
         run: |
           set -euo pipefail
-          base=a47b162e233e961e8e6e746a4ab987c14638b429
-          git merge-base --is-ancestor "$base" "$GITHUB_SHA"
-          test "$(git diff --name-only "$base" "$GITHUB_SHA")" = '.github/workflows/chatgpt-apply-fixed-witnesses.yml'
-          git update-ref refs/heads/export-fixed-witness-base "$base"
-          git bundle create "$RUNNER_TEMP/fixed-witness-base.bundle" refs/heads/export-fixed-witness-base
-          git archive --format=zip --output="$RUNNER_TEMP/fixed-witness-base.zip" "$base"
-          sha256sum "$RUNNER_TEMP/fixed-witness-base.bundle" "$RUNNER_TEMP/fixed-witness-base.zip" > "$RUNNER_TEMP/base-digests.txt"
+          python - <<'PYAPPLY'
+          import base64, hashlib, json, lzma, os, pathlib, stat, subprocess
+          root=pathlib.Path.cwd()
+          base=os.environ['AUDITED_BASE']; branch=os.environ['DELIVERY_BRANCH']
+          def git(*args):
+              return subprocess.check_output(['git',*args])
+          assert os.environ['GITHUB_REF']=='refs/heads/'+branch
+          subprocess.run(['git','merge-base','--is-ancestor',base,os.environ['GITHUB_SHA']],check=True)
+          transport=['.github/workflows/chatgpt-apply-fixed-witnesses.yml']+[
+              f'.github/_transient/20260906020437/delta-{i}.b64' for i in range(4)]
+          changed=git('diff','--name-only',base,os.environ['GITHUB_SHA']).decode().splitlines()
+          assert set(changed)==set(transport), changed
+          encoded=''.join((root/p).read_text().strip() for p in transport[1:])
+          assert hashlib.sha256(encoded.encode()).hexdigest()=='d066eb90483430413283671a92761ed41e30f1b07c2e8d4247fd044fee890060'
+          raw=lzma.decompress(base64.b64decode(encoded,validate=True))
+          assert len(raw)==143416
+          assert hashlib.sha256(raw).hexdigest()=='2bfaf9e88d8c0ef7b647d9a4693d5c199d03840dd02c2a5a6ab81a9486c4a965'
+          ops=json.loads(raw); assert len(ops)==35
+          pathlib.Path(os.environ['RUNNER_TEMP'],'audited-delta.json').write_bytes(raw)
+          subprocess.run(['git','checkout','--detach','--force',base],check=True)
+          seen=set()
+          for name,old_sha,new_sha,edits in ops:
+              p=pathlib.PurePosixPath(name)
+              assert name==str(p) and not p.is_absolute() and '..' not in p.parts
+              assert name not in seen and '\x00' not in name and not name.startswith('.github/')
+              seen.add(name); dest=root/name
+              assert all(not q.is_symlink() for q in [dest,*dest.parents])
+              old=dest.read_bytes() if dest.exists() else b''
+              if old_sha is None:
+                  assert not dest.exists(); mode=0o644
+              else:
+                  assert dest.is_file() and hashlib.sha256(old).hexdigest()==old_sha, name
+                  mode=stat.S_IMODE(dest.stat().st_mode)
+                  assert mode in (0o644,0o755)
+              lines=old.decode('utf-8').splitlines(keepends=True)
+              previous=0
+              for i,j,replacement in edits:
+                  assert isinstance(i,int) and isinstance(j,int) and previous<=i<=j<=len(lines)
+                  assert isinstance(replacement,str); previous=j
+              for i,j,replacement in reversed(edits):
+                  lines[i:j]=[replacement]
+              final=''.join(lines).encode('utf-8')
+              assert hashlib.sha256(final).hexdigest()==new_sha, name
+              dest.parent.mkdir(parents=True,exist_ok=True)
+              dest.write_bytes(final); dest.chmod(mode)
+          subprocess.run(['git','add','--',*sorted(seen)],check=True)
+          print('Applied exactly 35 hash-checked source changes; transient files absent from prospective tree.')
+          PYAPPLY
+      - name: Run all source and exact-certificate checks
+        run: |
+          set -euo pipefail
+          python -m pip install --disable-pip-version-check -r arrange/_support/requirements.txt
+          python interactive/generate.py --dependency-graph
+          git add interactive/readable_proof_dependency_graph.html
+          python proof/check.py
+          python proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/verify_fixed_witness_identities.py
+          cert=proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation
+          python "$cert/verify_mixed_overlap_core_derivation.py"
+          python "$cert/verify_global_core_positivity.py"
+          python interactive/generate.py --dependency-graph --check
+          python interactive/generate.py --trace-assets --check
+          python interactive/check.py
+          git diff --cached --check
+      - name: Rebuild canonical manuscript in pinned TeX Live 2025
+        uses: xu-cheng/texlive-action@22c04326a5d855880f9d39bb955138bf11c6df80
+        with:
+          docker_image: >-
+            ghcr.io/xu-cheng/texlive-historic-debian:2025@sha256:d3e42adc0c8d84bc913bfc33571feaf7037616260a771bb6f027504661568bf6
+          run: |
+            set -euo pipefail
+            python3 arrange/build.py --all --output-dir arrange/_build
+      - name: Validate exact prospective tree and package reviewed artifacts
+        run: |
+          set -euo pipefail
+          cp arrange/_build/canonical.pdf arrange/paper_draft/main.pdf
+          chmod 644 arrange/paper_draft/main.pdf
+          git add arrange/paper_draft/main.pdf
+          python proof/check.py
+          python interactive/generate.py --dependency-graph --check
+          python interactive/check.py
+          python arrange/_support/verify_pdf_render.py arrange/paper_draft/main.pdf
+          git diff --cached --check
+          python - <<'PYPACK'
+          import hashlib,json,os,pathlib,stat,subprocess,zipfile
+          import fitz
+          root=pathlib.Path.cwd(); base=os.environ['AUDITED_BASE']
+          ops=json.loads(pathlib.Path(os.environ['RUNNER_TEMP'],'audited-delta.json').read_bytes())
+          expected={x[0]:x[2] for x in ops}
+          for name in ['interactive/readable_proof_dependency_graph.html','arrange/paper_draft/main.pdf']:
+              expected[name]=None
+          changed=subprocess.check_output(['git','diff','--cached','--name-only',base]).decode().splitlines()
+          assert set(changed)==set(expected), (changed,sorted(expected))
+          assert not subprocess.check_output(['git','diff','--name-only']).strip(), 'unexpected unstaged changes'
+          assert not subprocess.check_output(['git','ls-files','--others','--exclude-standard']).strip(), 'unexpected untracked files'
+          entries=[]
+          for name in sorted(expected):
+              p=root/name
+              assert p.is_file() and not p.is_symlink()
+              content=p.read_bytes(); digest=hashlib.sha256(content).hexdigest()
+              if expected[name] is not None: assert digest==expected[name],name
+              stage=subprocess.check_output(['git','ls-files','-s','--',name]).decode().split()
+              mode,blob=stage[0:2]; assert mode in ('100644','100755')
+              base_entry=subprocess.check_output(['git','ls-tree',base,'--',name]).decode().split()
+              if base_entry: assert mode==base_entry[0],name
+              else: assert mode=='100644',name
+              entries.append(dict(path=name,operation='replace' if base_entry else 'add',mode=mode,sha256=digest,blob=blob,size=len(content)))
+          assert len(entries)==37
+          pages=fitz.open(root/'arrange/paper_draft/main.pdf').page_count
+          assert 89<=pages<=93,pages
+          manifest=dict(base=base,branch=os.environ['DELIVERY_BRANCH'],tree=subprocess.check_output(['git','write-tree']).decode().strip(),pages=pages,entries=entries)
+          raw=(json.dumps(manifest,sort_keys=True,indent=2)+'\n').encode()
+          out=pathlib.Path(os.environ['RUNNER_TEMP'],'validated');out.mkdir()
+          (out/'manifest.json').write_bytes(raw)
+          with zipfile.ZipFile(out/'files.zip','w',compression=zipfile.ZIP_DEFLATED,compresslevel=9) as z:
+              for e in entries:
+                  info=zipfile.ZipInfo(e['path'],date_time=(2000,1,1,0,0,0))
+                  info.create_system=3;info.external_attr=(stat.S_IFREG | int(e['mode'][-3:],8))<<16
+                  info.compress_type=zipfile.ZIP_DEFLATED
+                  z.writestr(info,(root/e['path']).read_bytes())
+          digests=''.join(hashlib.sha256((out/n).read_bytes()).hexdigest()+'  '+n+'\n' for n in ['manifest.json','files.zip'])
+          (out/'digests.txt').write_text(digests)
+          print(digests); print('Validated manifest:',manifest['tree'],pages,'pages,',len(entries),'files')
+          PYPACK
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
-          name: fixed-witness-base-20260906020437
-          path: |
-            ${{ runner.temp }}/fixed-witness-base.bundle
-            ${{ runner.temp }}/fixed-witness-base.zip
-            ${{ runner.temp }}/base-digests.txt
+          name: fixed-witness-validated-20260906020437
+          path: ${{ runner.temp }}/validated/
           if-no-files-found: error
           retention-days: 3
