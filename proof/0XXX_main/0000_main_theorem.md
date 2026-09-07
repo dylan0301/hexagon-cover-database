@@ -65,65 +65,52 @@ passes from the actual reaches to strict selected lower bounds without changing
 the exact-one supercritical index and, when $N_+\ge2$, permits a selection with
 at least two selected supercritical roles.
 
-The reusable proof interfaces are:
+The proof uses the area interface
+[`2400`](../2XXX_geometric_lemmas/24XX_area_loss/2400_zero_gap_area_loss_interface.md),
+the length interface
+[`2531`](../2XXX_geometric_lemmas/25XX_length_bounds/2531_length_budget_corollaries.md),
+and the finite-witness interface
+[`2610`](../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2610_finite_enclosure_terminal_interfaces.md).
+The shared neighboring bound has the direct proof `2008b`; the conditional
+CE1 return and exact zero-gap certificate remain local dependencies.
 
-- the zero-gap cyclic area interface
-  [`2400`](../2XXX_geometric_lemmas/24XX_area_loss/2400_zero_gap_area_loss_interface.md);
-- the complete length dispatcher
-  [`2531`](../2XXX_geometric_lemmas/25XX_length_bounds/2531_length_budget_corollaries.md);
-- the terminal-first finite-enclosure interface
-  [`2610`](../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2610_finite_enclosure_terminal_interfaces.md).
-
-The fixed sets, candidate-independent endpoints, and N0 theorem are proved in
-[`2612`](../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2612_fixed_witness_unification.md).
-
-The reader catalog
-[`0003`](0003_reusable_lemma_catalog.md) records their detailed source
-ownership but is not itself a proof dependency.
+By N0 in
+[`2612`](../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2612_fixed_witness_unification.md),
+Theorem 7.1, every skeleton cover has $N_+\ge1$. N0 uses B/C and does not
+use the alternative complementary-gap family A.
 
 ### Zero boundary gaps
 
-By (1), the six V roles cover the perimeter and the center type is irrelevant.
-The following disjoint rows are exhaustive.
-
-| $N_+$ | Vertex refinement | Closing interface |
-|---:|---|---|
-| $0$ | arbitrary | `2531`, row Z0 |
-| $1$ | arbitrary | `2610`, type-independent Terminal F |
-| at least $2$ | arbitrary | `2400`, multiple-ascent row |
-
-Thus every zero-gap state is impossible. The Vd1/Vd2 length row Z1
-and the T3-like one-ascent area theorem remain independent alternative
-proofs of their subclasses; neither is required to dispatch $N_+=1$.
+The six V roles cover the perimeter by (1). If $N_+=1$, the type-independent
+nine-point terminal F in `2610` applies. If $N_+\ge2$, the multiple-ascent
+area theorem `2400` applies. Neither route requires a center-type or V-type
+split. Both exclude coverage of the full hexagon.
 
 ### Nonzero boundary gaps
 
-A nonzero gap forces CE1 or CE2. The signed normal form
-[`2109`](../2XXX_geometric_lemmas/21XX_C_triangle_geometry/2109_signed_CE1_CE2_center_normal_form.md)
-shows that the C role contains exactly one radial midpoint. If $N_+\ge2$, a
-supercritical role away from that midpoint misses its own midpoint; diameter
-locality forces a distinct adjacent positive-support rescuer. Hence
-$N_{\rm sp}\ge1$, and `2531`, row S1, applies. More generally `2531`, row S0,
-removes every state with
+Normalize the C triangle's unique midpoint to $M_k$. The count and
+midpoint-supplier reduction in
+[`2613`](../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2613_midpoint_supplier_reduction.md)
+uses N0 and the skeleton budget to give $N_+=1$ and $N_{\rm sp}\le1$.
+Write $\sigma$ for the unique supercritical index.
 
-$$
-N_++N_{\rm sp}\ge3.
-$$
+If $\sigma=k$, apply the center-aligned path theorem in `2612`, Theorem 7.0:
+C for one gap and B for two. Its five nonsupercritical path roles need no
+V-type refinement.
 
-It remains that $N_+\in\{0,1\}$ and $N_++d+t\le2$. The surviving rows are
-exactly the following.
+Otherwise `2613` gives a unique adjacent positive-support supplier $T_\tau$
+of $M_\sigma$. A T3-like supplier must have $\tau=k$ and is excluded by
+the local ratio adapter
+[`4130_new`](../4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like_new/4130_new_T3_like_finite_enclosure.md)
+followed by D. A Vd2 supplier is excluded by the common CE1/CE2 perimeter
+row P3 in `2531`. A Vd1 supplier at $k$ uses
+[`4143_new`](../4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4143_new_Vd1_rescuer_finite_enclosure.md)
+and the same D theorem. A Vd1 supplier away from $k$ has a center-free
+shared edge; its local margins in
+[`4144_new`](../4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4144_new_two_chart_replacement_and_router.md)
+permit the two-vertex replacement, preserving the skeleton and producing
+actual $N_+'=0$, contrary to N0.
 
-| $N_+$ | $(d,t)$ | Center | Closing interface |
-|---:|---:|---|---|
-| $0$ | $(0,0)$ | CE1/CE2 | `2610`, Terminal A or B according to the gap rank |
-| $0$ | $d\ge1$ | CE1/CE2 | `2531`, row P0 |
-| $0$ | $(0,1)$ or $(0,2)$ | CE1/CE2 | `2610`, Terminal A or B |
-| $1$ | $(0,0)$ | CE1/CE2 | `2610`, Terminal C for one gap and B for two gaps |
-| $1$ | $(0,1)$ | CE1/CE2 | `2610`, Terminal D for both gap ranks |
-| $1$ | $(1,0)$ | CE1 | `2531`, row P1 |
-| $1$ | $(1,0)$ | CE2 | `2610`, one-Vd assembly: B/C when center-aligned, D for a Vd1 rescuer, a length row, or replacement followed by N0 |
-
-The rows are mutually exclusive and exhaustive after the two preceding count
-reductions. Every row is impossible, contradicting the assumed cover. The
-open--closed scaling equivalence in `1003` gives the expanded closed
-formulation. $\square$
+These cases exhaust the unique supplier's classified type and position.
+All hypothetical covers are impossible. The scaling equivalence in `1003`
+gives the expanded closed formulation. $\square$

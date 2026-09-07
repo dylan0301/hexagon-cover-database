@@ -223,7 +223,7 @@ expected_groups = [
 if graph.get("groups") != expected_groups:
     raise SystemExit("dependency graph does not use the six-body/Appendix A--F architecture")
 if [row.get("id") for row in graph.get("finiteRows", [])] != [
-    "A", "B", "C", "D_T", "D_V", "F", "R"
+    "B", "C", "D", "F"
 ]:
     raise SystemExit("dependency graph finite-enclosure cards do not match the case register")
 
@@ -232,8 +232,25 @@ fixed_required = {
     "lem:fixed-total-radial-forcing", "lem:fixed-origin-in-hull",
     "thm:fixed-four-point-rescuer", "lem:appendix-fixed-two-gap",
     "lem:appendix-fixed-transverse", "lem:appendix-fixed-four-point",
+    "lem:direct-neighbor-diagonal", "lem:support-cell-rotation",
+    "thm:center-aligned-path", "lem:midpoint-supplier",
+    "lem:two-vertex-replacement", "lem:open-cover-budget",
 }
 actual_node_ids = {node["id"] for node in graph.get("nodes", [])}
+if [row.get("id") for row in graph.get("routingRows", [])] != [f"R{i}" for i in range(6)]:
+    raise SystemExit("compressed routing must have six disjoint rows")
+by_id = {node["id"]: node for node in graph.get("nodes", [])}
+seen, todo = set(), ["prop:new-nplus-zero-gap-closures"]
+while todo:
+    current = todo.pop()
+    if current in seen:
+        continue
+    seen.add(current)
+    todo.extend(by_id[current].get("deps", []))
+if "thm:new-complementary-gap" in seen:
+    raise SystemExit("N0 must not depend on optional alternative A")
+if "prop:new-neighbor-ray-formula" in actual_node_ids or "thm:t3-direct-loss" in actual_node_ids:
+    raise SystemExit("optional capacity/area derivation remains in the minimum paper")
 if not fixed_required <= actual_node_ids:
     raise SystemExit("dependency graph omits fixed-witness proof owners")
 

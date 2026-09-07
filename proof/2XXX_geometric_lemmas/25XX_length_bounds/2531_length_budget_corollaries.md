@@ -95,7 +95,7 @@ $n=1$, $q_1=q_2=1/2$; indeed $L_C+\theta<1$.
 
 ### Row P3
 
-CE2, $N_+=1$, with a Vd2 role containing $M_{i-1}$ or $M_{i+1}$ is
+CE1 or CE2, $N_+=1$, with a Vd2 role containing $M_{i-1}$ or $M_{i+1}$ is
 impossible. Use (2) with $n=1$, $q_1=1/3$; the required inequality is
 
 $$
@@ -142,11 +142,15 @@ Diameter locality forces $M_s$ into an adjacent open V role, which then has
 positive support on $r_s$. This rescuer is distinct from the supercritical
 roles, so $N_{\rm sp}\ge1$ and (3) applies.
 
+Rows P0/P1/P2 and Z1 remain short independent alternatives. The compressed
+main proof needs Z0, S0/S1, and the CE1/CE2 supplier row P3; N0 and the
+midpoint-supplier interface absorb the other count/type routing splits.
+
 ## 5. Dispatch theorem
 
 ### Theorem 5.1
 
-Rows Z0, Z1, P0--P3, S0, and S1 close every routing entry assigned wholly to
+Rows Z0, Z1, P0--P3, S0, and S1 include all active and retained alternative entries of
 Strategy 1.
 
 ### Proof

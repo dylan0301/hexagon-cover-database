@@ -1,4 +1,4 @@
-# CE2 Vd1--Supercritical Pair: Two-Chart Replacement and Finite-Enclosure Router
+# CE1/CE2 Vd1--Supercritical Pair: Local Replacement Input
 
 Status: Proven
 
@@ -157,174 +157,22 @@ c_1^{\rm req}
 \tag{5}
 \]
 
-## 3. Replacement parameters
+## 3. One application of the two-vertex replacement
 
-Put \(L=1-B_1\).  Equation (4) gives \(a<L\).  Since the supremum of
-\(p\mapsto\max\{p,1-p\}\) on \((a,L)\) is
-\(\max\{L,1-a\}\), equation (5) permits choices
+The local Vd1 inequalities give $a<1/2$, $a+c<1$, $a+B_1<1$ and
 
-\[
-a<p_1<p_2<1-B_1
-\tag{6}
-\]
+$$c_1^{\rm req}<\max\{1-a,1-B_1\}.$$
 
-such that
+These are precisely the scalar inputs $(a,c,B,r)=(a,c,B_1,c_1^{\rm req})$
+of [2614](../../../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2614_two_vertex_replacement.md).
+That lemma owns the separate $V_0,V_1$ charts, both minus/plus templates,
+all strict margins, and preservation of the five affected skeleton pieces.
+The four untouched roles are nonsupercritical, so its output has actual
+$N_+'=0$, contrary to N0 in
+[2612](../../../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2612_fixed_witness_unification.md).
 
-\[
-p_1<\frac12,
-\qquad
-1-p_1>c,
-\qquad
-\max\{p_2,1-p_2\}>c_1^{\rm req}.
-\tag{7}
-\]
-
-Choose
-
-\[
-0<\varepsilon<
-\min\left\{
-p_1-a,\,
-p_2-p_1,\,
-1-B_1-p_2,\,
-1-p_1-c,\,
-\max\{p_2,1-p_2\}-c_1^{\rm req}
-\right\}.
-\tag{8}
-\]
-
-Every term is positive.
-
-## 4. Two separate vertex charts
-
-Use the \(V_0\)-chart
-
-\[
-X_0(x,y)
-=
-V_0+x(V_5-V_0)+y(V_1-V_0)
-\]
-
-and the \(V_1\)-chart
-
-\[
-X_1(x,y)
-=
-V_1+x(V_0-V_1)+y(V_2-V_1).
-\]
-
-Both carry the metric \(x^2+y^2-xy\).  For \(0\le p\le1/2\), set
-
-\[
-\Delta_p^-
-=
-\operatorname{conv}\{(0,1-p),(1,1-p),(0,-p)\},
-\]
-
-and, for \(1/2<p\le1\), set
-
-\[
-\Delta_p^+
-=
-\operatorname{conv}\{(p,0),(p,1),(p-1,0)\}.
-\]
-
-For \(0<\varepsilon<p\), the shifted open triangle
-
-\[
-D_{p,\varepsilon}^-
-=
-\operatorname{int}(\Delta_p^-)+(-\varepsilon,0)
-\]
-
-contains the origin and has closed reaches
-
-\[
-(p-\varepsilon,\,1-p,\,1-p)
-\tag{9}
-\]
-
-on the two positive axes and the diagonal.  It has no positive trace on
-either neighboring support line.  For \(0<\varepsilon<1-p\),
-
-\[
-D_{p,\varepsilon}^+
-=
-\operatorname{int}(\Delta_p^+)+(0,-\varepsilon)
-\]
-
-contains the origin and has reaches
-
-\[
-(p,\,1-p-\varepsilon,\,p).
-\tag{10}
-\]
-
-It likewise has no positive neighboring support.  These formulas follow by
-substitution in the three defining half-planes.
-
-Define
-
-\[
-U_0'=X_0(D_{p_1,\varepsilon}^-)
-\]
-
-and
-
-\[
-U_1'
-=
-\begin{cases}
-X_1(D_{p_2,\varepsilon}^-),&p_2\le1/2,\\
-X_1(D_{p_2,\varepsilon}^+),&p_2>1/2.
-\end{cases}
-\tag{11}
-\]
-
-Their closures contain \(V_0,V_1\) in their interiors.  By (9)--(10), each
-boundary sum equals \(1-\varepsilon<1\), and neither has positive adjacent
-support.  Hence both are nonsupercritical Vd0 roles.
-
-## 5. Preservation of the full skeleton
-
-Only
-
-\[
-e_{5,0},\quad e_{0,1},\quad e_{1,2},\quad r_0,\quad r_1
-\]
-
-can be affected.
-
-- By (6)--(8), the \(V_0\) replacement reaches
-  \(p_1-\varepsilon>a\) on \(e_{5,0}\), so it contains the former Vd1
-  boundary trace.
-- Its own-radial reach is \(1-p_1>c\), so it contains the former trace on
-  \(r_0\).
-- On the shared edge, the two new reaches satisfy
-  \[
-  (1-p_1)+(p_2-\varepsilon)
-  =
-  1+(p_2-p_1-\varepsilon)>1,
-  \]
-  so their open traces overlap and cover \(e_{0,1}\).
-- The \(V_1\) replacement reaches more than \(B_1\) on \(e_{1,2}\) by
-  (6)--(8).
-- Its own-radial reach is \(\max\{p_2,1-p_2\}>c_1^{\rm req}\), so it
-  overlaps the center trace and preserves all of \(r_1\).
-
-All other skeleton components are unchanged.  Thus the modified seven open
-roles still cover the full skeleton, the C triangle remains CE2, and all six
-V roles are now nonsupercritical Vd0.
-
-## 6. One all-nonsupercritical destination
-
-The construction above keeps the original C triangle fixed and preserves
-the full skeleton while producing six actual nonsupercritical V triangles.
-It contradicts the type-independent N0 theorem, [2612](../../../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2612_fixed_witness_unification.md), Theorem 7.1.
-
-No equality between the input and output gap ranks is asserted. N0 handles
-all three possible output ranks internally: zero gaps by strict boundary
-overlap, one gap by A, and two gaps by B. Thus the replacement proof does
-not need a second exposed three-way router. Both vertex charts and every
-strict margin in Sections 1--5 are unchanged. Undoing the local renumbering
-and reflection proves the claimed replacement placement. $\square$
+The input uses only the center-free shared edge and the C radial exit; no
+CE2-only inequality occurred. Thus the reduced replacement is valid for CE1
+as well as CE2. The original C triangle is unchanged, and no equality of
+input and output gap ranks or preservation of the full hexagon is asserted.
+$\square$

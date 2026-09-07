@@ -53,6 +53,26 @@ $$
 n_i(\theta)=\mathsf R_\theta n_i(0).
 $$
 
+## 2a. Common support-cell rotation lemma
+
+For a nondegenerate polygon, on any open orientation cell with fixed support
+vertices, the three-term support sum is $g(\theta)=a\cos\theta+b\sin\theta>0$.
+Thus $g''=-g<0$ and it has no interior minimum. A minimizing orientation
+has a support tie, so one triangle side contains a polygon edge.
+
+For a centered disk of radius $\rho\ge0$ together with finitely many points,
+a fixed-source cell instead has
+
+$$g(\theta)=q\rho+\langle v,n(\theta)\rangle,$$
+
+where $q$ supports come from the disk. If a point is active, each active
+point projection exceeds $\rho$, so $\langle v,n\rangle>0$ and again
+$g''<0$. A disk-only cell has the constant global minimum $3\rho$.
+Therefore only point--point and point--disk ties, or the disk-only value,
+need be checked. Rotation by $120$ degrees identifies the three directions.
+This is the common minimization step; every application must still prove
+which ties are exposed on its particular convex hull.
+
 ## 3. Proof
 
 Let $T=f(Q)$ be a smallest enclosing equilateral triangle. Let its outward normals be $n_0,n_1,n_2$, and let its support values be
@@ -83,53 +103,9 @@ contrary to minimality. Thus $c_i=h_i$ for every $i$. In particular, every
 edge of $T$ is a supporting line of $Q$ and contains at least one vertex of
 $Q$.
 
-We first record the rotation fact that will be used in both cases below.
-Suppose that, for each $i$, the support in direction $n_i$ is attained at a
-unique vertex $q_i$ of $Q$; the vertices $q_i$ need not be distinct. For every
-other vertex $p$ of $Q$,
-
-$$
-(q_i-p)\cdot n_i>0.
-$$
-
-There are only finitely many such strict inequalities, so they persist for
-all sufficiently small $|\theta|$. Hence, on a neighborhood of $0$,
-
-$$
-h_Q(\mathsf R_\theta n_i)=q_i\cdot \mathsf R_\theta n_i
-$$
-
-for all $i$. If $\mathsf J$ denotes rotation by $90^\circ$, then
-
-$$
-\begin{aligned}
-g(\theta)
-&=\sum_{i=0}^2 q_i\cdot \mathsf R_\theta n_i\\
-&=\cos\theta g(0)+\sin\theta g_\perp,
-\end{aligned}
-$$
-
-where
-
-$$
-g_\perp=\sum_{i=0}^2 q_i\cdot \mathsf J n_i.
-$$
-
-Moreover, $g(0)>0$, because it is $\sqrt3/2$ times the positive side length
-of $T$. If $g_\perp>0$, a sufficiently small negative $\theta$ makes
-$g(\theta)<g(0)$; if $g_\perp<0$, a sufficiently small positive $\theta$
-does so; and if $g_\perp=0$, then every sufficiently small nonzero $\theta$
-satisfies
-
-$$
-g(\theta)=\cos\theta g(0)<g(0).
-$$
-
-Each alternative contradicts the minimality of $T$. We have therefore proved:
-
-$$
-\boxed{\text{At a minimizing orientation, the three supports cannot all be unique.}}
-$$
+By the common support-cell rotation lemma, the three supports cannot all
+be unique at a minimizing orientation. We use only this fact in the contact
+counting below.
 
 Now suppose that some vertex $q$ of $Q$ is a vertex of $T$. Label the two
 edges through $q$ as edges $0$ and $1$. The third edge contains a vertex
@@ -139,7 +115,7 @@ vertex of $Q\setminus\{q\}$ on the boundary of $T$. If $p$ were also on edge
 $0$ or edge $1$, then, being already on the third edge, it would be a second
 vertex of $T$; this is pattern 3. Otherwise $q$ is the unique support vertex
 on edges $0$ and $1$, while $p$ is the unique support vertex on edge $2$.
-This contradicts the boxed rotation fact. Consequently pattern 1 or pattern 3
+This contradicts the support-cell rotation lemma. Consequently pattern 1 or pattern 3
 must hold whenever a vertex of $Q$ is a vertex of $T$.
 
 It remains to consider the case where no vertex of $Q$ is a vertex of $T$.

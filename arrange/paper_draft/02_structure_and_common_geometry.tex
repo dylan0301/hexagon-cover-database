@@ -249,6 +249,24 @@ in the overlap of two adjacent open edge traces, which makes both associated
 reach demands strict.
 \end{proof}
 
+\begin{lemma}[Boundary deficit and overlap identities]
+\label{lem:boundary-deficit-identities}
+For the actual reaches put $s_i=1-A_i-B_i$ and
+$\omega_i=B_i+A_{i+1}-1$. Then
+\[
+ A_{i+1}-A_i=s_i+\omega_i,\qquad
+ B_i-B_{i+1}=s_{i+1}+\omega_i.
+\]
+On a nonsupercritical gap-free path the $A_i$ increase and the $B_i$
+decrease strictly. Weak handoffs give the weak version. Around the full
+cycle, $\sum_i\omega_i=-\sum_i s_i$.
+\end{lemma}
+\begin{proof}
+Expand the definitions and telescope. Nonsupercriticality gives $s_i\ge0$,
+and a gap-free edge has $\omega_i>0$ because its incident traces are open.
+A supercritical role has $s_i<0$; propagation through it is not licensed.
+\end{proof}
+
 \begin{lemma}[Self-midpoint obstruction]
 \label{lem:self-midpoint}
 Let $u,v$ be unit vectors meeting at $120^\circ$.  If a closed unit
@@ -302,25 +320,11 @@ Propositions~\ref{prop:ce-classification} and
 roles.  The actual reaches determine $N_+$, while the open traces determine
 $N_{\mathrm{gap}}$.
 
-If $N_{\mathrm{gap}}=0$, Lemma~\ref{lem:gap-exhaustion} makes the six V
-triangles boundary-complete, independently of the center class.  The cases
-$N_+=0$ and $N_+\ge2$ are single routes.  For $N_+=1$, exactly one of
-$d\ge1$, $d=0$ with $t\ge1$, and $(d,t)=(0,0)$ holds.
-
-If $N_{\mathrm{gap}}\ge1$, the closed C triangle $T_C$ is $\CEone$ or
-$\CEtwo$ and has one radial midpoint.  When $N_+\ge2$,
-Lemma~\ref{lem:positive-support-rescuer} and
-Theorem~\ref{thm:common-skeleton-count} close the high-count route.  The same
-theorem closes $N_++d+t\ge3$ for $N_+\in\{0,1\}$.  The survivors have
-$N_+=0,d+t\le2$ or $N_+=1,d+t\le1$.  Their exact alternatives are
-\[
- (d,t)=(0,0),\qquad d\ge1,
- \qquad d=0\ \land\ t\in\{1,2\}
-\]
-and
-\[
- (d,t)=(0,0),\qquad(d,t)=(0,1),\qquad(d,t)=(1,0),
-\]
-respectively.  The final alternative splits by $\CEone$ and $\CEtwo$.
-These predicates are disjoint and exhaust Table~\ref{tab:routing}.
+For zero gaps, boundary completeness holds independently of center type;
+the three possibilities $N_+=0,1,\ge2$ are disjoint. For a nonzero gap,
+the C triangle is CE1 or CE2. First separate $N_+=0$, then the high-count
+states $N_+\ge2$ or $N_++N_{\rm sp}\ge3$. Every survivor has
+$N_+=1,N_{\rm sp}\le1$. Thus the rows of \zcref{tab:routing} are
+disjoint and exhaustive. The later midpoint-supplier lemma resolves the
+last row by relative placement, rather than by a list of V-type patterns.
 \end{proof}

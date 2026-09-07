@@ -83,18 +83,10 @@ counterclockwise selects the minus sign at $A$ and the plus sign at $C$,
 which gives the displayed tangent normals. In particular $\|A\|,\|C\|>\eta$.
 
 The only changes of the active source of $H$ occur at these four normals.
-Their $\mathsf R$-orbits partition the circle of orientations for $\Psi$.
-On an open cell with $k$ disk sources,
-
-$$
-\Psi(n(\theta))=k\eta+\langle v,n(\theta)\rangle.
-$$
-
-If a point source is active, its projection is greater than $\eta>0$;
-therefore $\Psi''=-\langle v,n(\theta)\rangle<0$. No interior minimum
-occurs. On a disk-only cell $\Psi=3\eta$, and its minimum is also attained
-at a cell boundary. Such a boundary exists because $\|A\|>\eta$, so the
-disk is not the sole source in every direction. The support formula in
+The support-cell rotation lemma of `2609` places the minimum at one of
+these ties or on a disk-only cell. In the latter case the same value is
+attained at a boundary tie; such a boundary exists since $\|A\|>\eta$.
+The support formula in
 `2609` and $\Psi(\mathsf Rn)=\Psi(n)$ reduce all boundary directions to
 the four in the statement. $\square$
 

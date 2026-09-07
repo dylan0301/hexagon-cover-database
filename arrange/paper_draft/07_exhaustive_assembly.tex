@@ -2,28 +2,27 @@
 \label{sec:assembly}
 
 \begin{proof}[Proof of Theorem~\ref{thm:main}]
-Assume that seven open unit equilateral triangles cover $H$.  By
-Proposition~\ref{prop:exhaustive-structural-reduction}, the cover lies in
-exactly one row of Table~\ref{tab:routing}.
+Suppose seven open unit equilateral triangles cover $H$. Their center and
+vertex roles are distinct. By \zcref{thm:fixed-nzero}, $N_+\ge1$.
 
-First suppose $N_{\mathrm{gap}}=0$. The $N_+=0$ row is excluded by
-Proposition~\ref{prop:length-branches}, and the $N_+\ge2$ row by
-Proposition~\ref{prop:area-branches}. The entire $N_+=1$ row, without
-any V-type restriction, is excluded by the type-independent nine-point
-Proposition~\ref{prop:reader-ab-core-branches}. Its common-pair radial
-forcing accounts for every permitted adjacent crossing; its three
-asymmetric witnesses and exact terminal certificate are unchanged.
+If there are no actual gaps, the V triangles cover the perimeter.
+Exactly one supercritical role is excluded by the type-independent
+nine-point theorem \zcref{thm:reader-zero-gap-obstruction}; at least two
+are excluded by \zcref{prop:area-branches}.
 
-Now suppose $N_{\mathrm{gap}}\ge1$.  The rows assigned to trace length are
-excluded by Proposition~\ref{prop:length-branches}.  Every nonzero-gap row
-assigned to finite enclosure is excluded by the finite residual-hull theorem
-Proposition~\ref{prop:finite-enclosure-nonzero-gap-branches}.  In the final
-CE2 one-$\Vdone/\Vdtwo$ row, the trace-length complements and the
-finite-enclosure placements are assembled in
-Proposition~\ref{prop:new-one-vd-assembly}; its replacement subcase
-recomputes the gap rank before selecting the closing strategy.  Thus every
-zero- and nonzero-gap row is impossible, contradicting the assumed cover.
+If there is a gap, \zcref{lem:midpoint-supplier} reduces the cover to
+$N_+=1,N_{\rm sp}\le1$. Let $M_k$ be the C midpoint and $\sigma$ the
+supercritical index. If $\sigma=k$, apply \zcref{thm:center-aligned-path}.
+Otherwise $M_\sigma$ has a unique adjacent positive-support supplier.
+A T3-like supplier must be based at $V_k$ and is excluded by
+\zcref{prop:new-one-t3-terminal}. A Vd2 supplier is excluded by
+\zcref{prop:ce2-vd2-midpoint-length}. A center-based Vd1 supplier uses D;
+an away Vd1 supplier admits the two-vertex replacement and contradicts N0.
+These last alternatives are assembled in \zcref{prop:new-one-vd-assembly}.
+Thus every possibility contradicts the cover.
 \end{proof}
 
+The zero-gap certificate uses coverage of all of $H$. Replacement needs
+only skeleton coverage and is never used to invoke that certificate.
 Corollary~\ref{cor:expanded-closed} follows from
 Proposition~\ref{prop:open-closed-scaled}.

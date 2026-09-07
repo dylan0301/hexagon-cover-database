@@ -119,37 +119,12 @@ point of $P$.
 
 ### Proof
 
-Parameterize $n=n(\theta)$. The finitely many point--point and point--disk
-ties partition the normal circle into open cells on which the support source
-in each of the three directions is fixed. Suppose that $q$ of the three
-sources are the disk. On such a cell,
-
-$$
-\Psi_P(n(\theta))
-=
-q\eta+\langle v,n(\theta)\rangle
-$$
-
-for one fixed vector $v$, obtained by rotating the active point supports back
-to the first normal direction.
-
-If at least one point is active, every active point projection is strictly
-larger than $\eta\ge0$. Hence
-
-$$
-\langle v,n(\theta)\rangle>0
-$$
-
-throughout the cell, and
-
-$$
-\frac{d^2}{d\theta^2}\Psi_P(n(\theta))
-=
--\langle v,n(\theta)\rangle<0.
-$$
-
-The support sum is strictly concave and has no interior minimum. A minimum
-therefore occurs at a cell boundary. Such a boundary is either a point--point
+The common support-cell rotation lemma in
+[`2607`](2607_minimal_enclosing_equilateral_quadrilateral_lemma.md) says that
+a nonconstant fixed-source cell has no interior minimum. If a disk-only
+orientation exists, all three supports equal $\eta$, giving $3\eta$.
+Otherwise a minimum occurs at a point--point or point--disk tie.
+Such a boundary is either a point--point
 tie
 
 $$

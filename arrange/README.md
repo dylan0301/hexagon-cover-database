@@ -31,10 +31,10 @@ publication assets, not proof authorities.
 | Manuscript component | Principal proof material |
 |---|---|
 | Introduction and routing | `0000`, `1003`, `1101`, `1201`, `1214`, `2530` |
-| Common geometry | `1001`-`1214`, `2004`, `2008`, `2100`, `2109` |
-| Trace-length method | `2500`, `2510`, `2520`, `2530` and routed terminals |
-| Area-loss method | `317X`, `320X` |
-| Nonzero-gap finite enclosure | `2612`, `2608`, `2609`, `4102_new`, `4130_new`, `4143_new`, `4144_new` |
+| Common geometry | `1001`-`1214`, `2004`, `2008b`, `2100`, `2109` |
+| Trace-length method | `2500`, `2510`, `2530`--`2532` and routed terminals |
+| Area-loss method | `3205`, `2400` (T3-like alternative retained outside the paper) |
+| Nonzero-gap finite enclosure | `2008b`, `2612`--`2614`, `2609`, `4102_new`, `4130_new`, `4143_new`, `4144_new` |
 | Zero-gap nine-point theorem | `31050`-`31059` and `3105X_computation` |
 | Exhaustive completion | `0000` |
 
@@ -53,11 +53,26 @@ proof-free command writes `arrange/paper_draft/proof_free.pdf`; it removes
 formal proof environments while retaining prose and calculations outside
 those environments.
 
-The fixed-witness canonical paper is 91 pages. The proof-free rendering
-is generated on demand; its former page count is not a fixed contract.  The tight expected CI page-count interval is 89--93;
+The compressed canonical paper is 88 pages (formerly 91). The proof-free rendering
+is generated on demand; its former page count is not a fixed contract.  The tight expected CI page-count interval is 86--90;
 the paper is not padded to meet that interval.
 
 Both commands use a temporary source copy, so LaTeX intermediates do not
 pollute the source directory. The tracked canonical PDF is a publication
 artifact. CI compares clean rebuilds against it by stable PDF semantics and
 rendered pixels.
+
+## Compressed proof architecture
+
+The body has six disjoint routing rows and four finite-witness recipes
+B/C/D/F. The seven-point complementary-gap proof A remains an optional
+appendix alternative, not a dependency of N0. The direct neighboring
+bound replaces the full cubic-capacity evaluation in the paper. The
+midpoint supplier and the two-vertex scalar replacement work in both CE1
+and CE2, while their genuinely different local calculations remain explicit.
+The three-page reduction removes repeated derivations rather than prose
+explaining why a witness is fixed or why a strict endpoint is required.
+
+The CI page-count contract is translated from 91 +/- 2 to 88 +/- 2 pages;
+its width is unchanged. Clean PDF comparison, render audit, both exact
+zero-gap programs, and all source checks remain mandatory.

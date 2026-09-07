@@ -9,8 +9,9 @@ are not subdivided by V type in the path theorems. The local admissibility
 formulas, connected-component selectors, and conditional CE1 return estimates
 remain the inherited lemmas stated below; no numerical test replaces them.
 
-The active witness families are A (seven points), B (four points), C (six
-points), D (four points), and the unchanged zero-gap F (nine points). The
+The active witness families are B (four points), C (six points), D (four
+points), and the unchanged zero-gap F (nine points). A (seven points) is
+retained as an independent alternative, not a dependency of N0. The
 counts are upper bounds, not assertions of minimality. A and F use disks
 contained in the convex hull of six forced radial points. B, C, and D use no
 disk. Replacement and length/area exits are not enclosure theorems.
@@ -29,8 +30,9 @@ on a selected pair.
 The exact capacities are those of
 [`2004`](../20XX_V_triangle_geometry/2004_admissible_set.md) and
 [`2008`](../20XX_V_triangle_geometry/2008_neighbor_ray_max_c_formula.md).
-Their common-pair comparison, proved in
-[`2608`](2608_residual_hull_finite_enclosure_principle.md), is
+Their common-pair comparison has the direct proof in
+[`2008b`](../20XX_V_triangle_geometry/2008b_direct_neighbor_domination.md),
+independent of the full neighboring capacity formula:
 
 $$
 C_+(p,q),C_-(p,q)\le1-\min\{p,q\}\le c_{\max}(p,q),
@@ -111,6 +113,22 @@ $$
 
 Hence no nonlocal role contains the point either. $\square$
 
+### Corollary 2.2a. One actual-or-bounded radial frontier
+
+For any $\gamma_i\le\Gamma_i\le1$, the point $(1-\Gamma_i)V_i$ is missed
+by every open V role. Under skeleton coverage it belongs to $U_C$.
+
+**Proof.** For $\Gamma_i<1$, repeat the local endpoint and nonlocal diameter
+argument of Lemma 2.2 with $d=1-\Gamma_i>0$. For $\Gamma_i=1$ the point
+is $O$, already excluded from every closed V role in that proof. $\square$
+
+Thus actual total endpoints, uniform common-pair points, and supported
+rescuer endpoints are instances of one forcing lemma. In a reduced rescuer
+placement the supporting interval reaches the midpoint, the supercritical
+own role stops before it, and every other contributor is absent; hence its
+O-side endpoint is the actual total frontier. This does not assert that
+arbitrary interior points of an inscribed disk are V-excluded.
+
 ### Lemma 2.3. Candidate containment recovers an own demand
 
 Let $U'$ be an arbitrary open unit equilateral triangle containing $O$ and
@@ -146,12 +164,19 @@ dividing by their sum proves the convex-hull statement. $\square$
 
 ### Lemma 2.5. Nonsupercritical path monotonicity
 
-On a gap-free edge $B_i+A_{i+1}>1$. If both incident roles are
-nonsupercritical, then $A_i<A_{i+1}$ and $B_i>B_{i+1}$. A chain of these
-inequalities uses no V-type information. The weak handoff version gives
-weak monotonicity and suffices for the rescuer adapter.
+Define actual boundary deficits $s_i=1-A_i-B_i$ and overlap surpluses
+$\omega_i=B_i+A_{i+1}-1$. Identically,
 
-## 3. Family A: one gap and no supercritical role
+$$A_{i+1}-A_i=s_i+\omega_i,\qquad
+B_i-B_{i+1}=s_{i+1}+\omega_i.$$
+
+On a gap-free nonsupercritical path, $s_i\ge0$ and $\omega_i>0$;
+therefore $A$ increases and $B$ decreases. Weak handoffs give weak
+monotonicity. On the full cycle $\sum_i\omega_i=-\sum_i s_i$.
+A supercritical role has negative $s_i$ and must not be silently included
+in an ordinary monotonicity chain.
+
+## 3. Alternative family A: one gap and no supercritical role
 
 ### Theorem 3.1. Seven-point complementary-gap enclosure
 
@@ -451,6 +476,18 @@ $$
 Containment of the other boundary point requires $1-\beta<R+\alpha$,
 whereas the hypothesis gives $1-\beta\ge a/s$. Contradiction. $\square$
 
+### Lemma 6.1a. Common scalar ratio test
+
+For $0\le x,c\le1/2$ and $M=(c+\sqrt{c^2-8c+4})/2$,
+
+$$x\le1-M\quad\Longleftrightarrow\quad x^2+(c-2)x+c\ge0.$$
+
+**Proof.** The function $x(2-x)/(1+x)$ is increasing on $[0,1/2]$
+and takes value $c$ at $x=1-M$. Multiplication by $1+x$ proves the claim.
+In the T3-like chart $c=x+\theta$, the polynomial becomes
+$2x^2+(\theta-1)x+\theta$. The Vd1 chart must verify its own parameter
+inequalities; only the final ratio test is common. $\square$
+
 ### Corollary 6.2. Common rescuer adapter, both gap ranks
 
 Suppose the reduced placement has distinguished C midpoint $M_0$, a
@@ -497,15 +534,28 @@ this finite-enclosure theorem.
 
 ## 7. The all-nonsupercritical assembly and replacement output
 
+### Theorem 7.0. Center-aligned path obstruction
+
+Suppose the original open roles cover the skeleton, there is a nonzero gap,
+the C triangle's unique midpoint is $M_k$, and all roles except possibly
+$T_k$ are nonsupercritical. Then the configuration is impossible.
+
+**Proof.** Normalize $k=0$. The signed center form puts all possible gaps
+on $e_{5,0},e_{0,1}$ and contains $M_0$ openly. Two gaps give Theorem 4.1
+(B). For one gap reflect if necessary and apply Theorem 5.1 (C). That
+theorem does not require $T_0$ to be supercritical. $\square$
+
 ### Theorem 7.1. N0
 
 There is no cover of the full hexagon skeleton by the seven original open
 roles with $N_+=0$.
 
-**Proof.** With zero actual gaps, strict overlaps on all six edges give
-$6<\sum_i(A_i+B_i)\le6$. With nonzero gaps the C triangle is CE1 or CE2,
-so there are at most two actual gap edges. One gap is Theorem 3.1; two
-gaps are Theorem 4.1 after the common-vertex normalization. $\square$
+**Proof.** With zero gaps the six positive $\omega_i$ contradict
+$\sum_i\omega_i=-\sum_i s_i\le0$. With a nonzero gap, every role is
+nonsupercritical, so Theorem 7.0 applies. $\square$
+
+N0 uses B/C, not A. This is acyclic: the C proof uses the conditional CE1
+local return and demand recovery, not N0, replacement, or a placement theorem.
 
 A replacement that preserves the skeleton and produces six nonsupercritical
 roles can therefore finish by N0. Its input gap count need not equal its

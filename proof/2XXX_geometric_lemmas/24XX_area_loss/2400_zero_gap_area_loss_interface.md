@@ -176,7 +176,9 @@ selection, so Theorem 4.1 applies.
 
 In either row the six V roles have total normalized inside area strictly below
 five. The C role has normalized area one, while $H$ has normalized area six.
-Thus the seven roles cannot cover $H$. $\square$
+The common open-cover budget in
+[`2532`](../25XX_length_bounds/2532_open_cover_budget.md) therefore excludes
+coverage of $H$. $\square$
 
 The earlier detailed assemblies
 [`3208`](../../3XXX_CE0/32XX_Nplus_ge2/3208_CE0_conditional_area_certificate.md)

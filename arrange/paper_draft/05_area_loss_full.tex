@@ -2,8 +2,7 @@
 \label{sec:area-loss}
 
 The area-loss method records how much of each V triangle must lie outside
-$H$.  The local estimate applies to every V triangle; the sharper
-$\Tlike$ estimate uses its classified geometry.  A final cyclic argument
+$H$.  The local estimate applies to every V triangle. A final cyclic argument
 adds these losses without imposing a center type.
 
 Put $A_\triangle=\sqrt3/4$ and normalize all areas by $A_\triangle$.  At
@@ -73,43 +72,6 @@ areas and the factorizations proving both inequalities are computed in
 \zcref{lem:appendix-local-square-loss}.
 \end{proof}
 
-\subsection{$\Tlike$ loss}
-
-\begin{theorem}[Direct $\Tlike$ loss]
-\label{thm:t3-direct-loss}
-Let $T_i$ be a V triangle with
-\[
- (o(T_i),n(T_i))=(2,1),
-\]
-and let
-\[
- 0\le a_i\le A_i,
- \qquad
- 0\le b_i\le B_i.
-\]
-Then
-\begin{equation}
- a_i+b_i\le1.                                  \label{eq:t3-area-nonsupercritical}
-\end{equation}
-Moreover, if
-\[
- 0\le\mu\le\frac12,
- \qquad
- a_i,b_i\ge\mu,
-\]
-then
-\begin{equation}
- \mathcal L(T_i)\ge2\mu-4\mu^2.                 \label{eq:t3-loss}
-\end{equation}
-\end{theorem}
-
-\begin{proof}
-The first assertion is \zcref{lem:t3-nonsupercritical}.  The translated
-closed-trace majorant from \zcref{prop:t3-translation} reduces the second
-assertion to a one-variable loss calculation, carried out in
-\zcref{lem:appendix-t3-loss}.
-\end{proof}
-
 \subsection{Cyclic accumulation}
 
 Use the strict handoffs from \zcref{prop:strict-handoffs}:
@@ -137,45 +99,22 @@ The six actual V triangles satisfy
  \quad\Longrightarrow\quad
  \sum_{i=0}^5\mathcal L(T_i)>1.
 \]
-They also satisfy
-\[
- \left.
- \begin{gathered}
- \left|\{i\in\mathbb Z/6\mathbb Z:a_i+b_i>1\}\right|=1,\\
- \forall i\in\mathbb Z/6\mathbb Z,\quad
- (o(T_i),n(T_i))\in\{(1,0),(2,0),(2,1)\},\\
- \exists j\in\mathbb Z/6\mathbb Z,\quad
- (o(T_j),n(T_j))=(2,1)
- \end{gathered}
- \right\}
- \quad\Longrightarrow\quad
- \sum_{i=0}^5\mathcal L(T_i)>1.
-\]
 \end{lemma}
 
 \begin{proof}
-Apply the local bounds around the six-cycle.  The two exact sums, including
+Apply the local bounds around the six-cycle.  The exact sum, including
 the strict contribution from the second ascent, are given in
 \zcref{lem:appendix-cyclic-area-loss}.
 \end{proof}
 
-The second clause below is retained as an independent alternative to
-\zcref{thm:reader-zero-gap-obstruction}; only the multiple-ascent clause
-is needed by the unified routing table.
-
-\begin{proposition}[Branches closed by area]
+\begin{proposition}[Branch closed by area]
 \label{prop:area-branches}
-The following branches are impossible:
-\begin{enumerate}
-\item $N_{\mathrm{gap}}=0$ and $N_+\ge2$;
-\item $N_{\mathrm{gap}}=0$, $N_+=1$, $d=0$, and $t\ge1$.
-\end{enumerate}
+The branch $N_{\rm gap}=0$, $N_+\ge2$ is impossible.
 \end{proposition}
-
 \begin{proof}
-By \zcref{lem:gap-exhaustion}, the six V triangles cover $\partial H$.
-The appropriate clause of \zcref{prop:strict-handoffs} supplies the handoffs
-required by \zcref{lem:cyclic-area-loss}.  Thus the V triangles have total
-normalized inside area strictly below five.  The C triangle contributes at
-most one, so seven triangles cannot cover the normalized area six of $H$.
+The six V triangles cover $\partial H$. The at-least-two clause of
+\zcref{prop:strict-handoffs} supplies the selection for
+\zcref{lem:cyclic-area-loss}. Thus the V triangles have total normalized
+inside area below five. The C triangle contributes at most one, whereas
+$H$ has normalized area six. Apply \zcref{lem:open-cover-budget} with area.
 \end{proof}

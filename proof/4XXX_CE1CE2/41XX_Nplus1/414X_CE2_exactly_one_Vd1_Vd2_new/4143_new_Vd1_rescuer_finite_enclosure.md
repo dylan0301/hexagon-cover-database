@@ -1,19 +1,19 @@
-# CE2, \(N_+=1\): Vd1 Supported-Endpoint Rescuer Obstruction
+# CE1/CE2, \(N_+=1\): Vd1 Supported-Endpoint Rescuer Obstruction
 
 Status: Proven
 
 This is the active finite-enclosure proof for the placement in which the
 unique Vd1 role is \(T_0\), it contains the neighboring midpoint \(M_1\), and
 \(T_1\) is the unique supercritical role.  The Vd1 calculation below verifies
-the hypotheses of the common rescuer-tail theorem in
-[`2609`](../../../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2609_simplified_finite_enclosure_lemmas.md).
+the hypotheses of the common fixed four-point interface in
+[`2612`](../../../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2612_fixed_witness_unification.md).
 
 ## 1. Reduced placement and the forced endpoint
 
 Assume
 
 \[
-T_C\text{ is CE2},
+T_C\text{ is CE1 or CE2},
 \qquad
 T_C\cap\{M_0,\ldots,M_5\}=\{M_0\},
 \]
@@ -69,21 +69,16 @@ c\le\frac12\le u.
 \tag{3}
 \]
 
-The O-side endpoint
+The radial-frontier corollary in `2612` gives
 
 \[
-P_{\rm Vd1}=(1-u)V_1
-\tag{4}
-\]
-
-does not belong to the open Vd1 role.  The supercritical role \(T_1\) misses
-\(M_1\); since it contains \(V_1\), convexity excludes every point of \(r_1\)
-on the O-side of \(M_1\).  The remaining roles are Vd0 or nonlocal.  Hence
-
-\[
-\boxed{P_{\rm Vd1}\in U_C.}
+\boxed{P_{\rm Vd1}=(1-u)V_1\in U_C.}
 \tag{5}
 \]
+
+Indeed the supercritical own role stops before $M_1$, the supported interval
+reaches $M_1$, and all other possible neighboring contributions are absent.
+This forcing and the chart calculation below use no CE2-only inequality.
 
 Put
 
@@ -233,32 +228,13 @@ a+\varepsilon<1.
 \tag{14}
 \]
 
-## 3. One four-point terminal for both gap ranks
+## 3. Apply the common fixed-witness interface
 
-The local calculations above establish the endpoint and ratio conditions.
-Use actual $A_0$ for the rescuer's left boundary reach (the local chart
-symbol $a$ above equals $A_0$), and put $\varepsilon=1-u$.
-The strict-supercritical envelope gives $B_1<M$, and the four ordinary
-center-free handoffs give
-
-$$
-B_5\le B_4\le B_3\le B_2\le B_1<M.
-$$
-
-Since $A_0+\varepsilon\le1$ and
-$A_0/(A_0+\varepsilon)\le1-M$, one has $A_0\le1-M$ and hence
-$B_5<1-A_0$. Thus the actual left-edge gap endpoints are
-$Y(A_0)$ and $Y(1-B_5)$, where $Y(t)=(1-t)V_0+tV_5$.
-Together with the already forced supported endpoint and $O$ they give
-
-$$
-K_D=\{O,\varepsilon V_1,Y(A_0),Y(1-B_5)\}\subset U_C.
-$$
-
-The same inequalities, with $M\ge1/2$, give
-$A_0\le\varepsilon$ and $B_5<\varepsilon/(A_0+\varepsilon)$.
-The four-point rescuer theorem in [2612](../../../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2612_fixed_witness_unification.md), Section 6, proves
-$\Lambda(K_D)\ge1$, contrary to compact containment in the open unit
-C triangle. There is no disk. The argument treats both one and two gaps
-without a sum greater than four and without propagating a common pair
-through the supercritical role. $\square$
+The local chart has verified $A_0+\varepsilon\le1$ and
+$A_0/(A_0+\varepsilon)\le1-M$. The supported endpoint is the total radial
+frontier from [2612](../../../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2612_fixed_witness_unification.md),
+Corollary 2.2a. Skeleton coverage from $V_1$ to the start $c$ of the
+rescuer's interval gives $C_1\ge c$: the center misses $M_1$ and the
+other V roles have no positive trace on this ray. Corollary 6.2 of `2612`
+therefore supplies the same four actual points and contradiction for either
+gap rank. No repeated boundary-tail proof and no disk are needed. $\square$
