@@ -85,8 +85,50 @@ The neighboring-arm capacities are the variational quantities
  \qquad
  a+b\le1.
 \]
-Their coordinate evaluation is deferred to
-\zcref{prop:new-neighbor-ray-formula}.
+Only a bound, not the full piecewise neighboring capacity, is needed below.
+The direct four-caliper proof is \zcref{lem:direct-neighbor-diagonal}.
+
+\begin{definition}[Fixed total radial endpoint]
+\label{def:fixed-total-radial-endpoint}
+Parametrize $r_i$ by $Z_i(c)=(1-c)V_i$, measured from $V_i$ toward $O$.
+Let $u_{j\to i}$ be the largest parameter in the actual positive trace of
+$T_j$ on $r_i$ for $j=i-1,i+1$, with value zero when no such positive trace
+exists. Put
+\[
+ \gamma_i:=\max\{C_i,u_{i-1\to i},u_{i+1\to i}\},\qquad
+ d_i:=1-\gamma_i,\qquad \widehat P_i:=d_iV_i.
+\]
+\end{definition}
+
+Thus $\widehat P_i$ is the innermost endpoint reached by any local V
+triangle on $r_i$, rather than just the endpoint of the own V triangle.
+This distinction is essential when a nonsupercritical V triangle supports
+an adjacent radial segment.
+
+\begin{lemma}[Fixed radial forcing and demand recovery]
+\label{lem:fixed-total-radial-forcing}
+One has $0<d_i<1$ and $\widehat P_i\notin\bigcup_jU_j$. Under skeleton
+coverage, $\widehat P_i\in U_C$. More generally, for every
+$\gamma_i\le\Gamma\le1$, the point $(1-\Gamma)V_i$ is missed by every
+open V triangle and is center-forced under skeleton coverage.
+If an arbitrary open unit candidate $U'$
+contains $O$ and $\widehat P_i$, and its exit on $r_i$ is $d_i'$ measured
+from $O$, then $\gamma_i>1-d_i'$. If both neighboring endpoints are at most
+$1-d_i'$, it follows that
+\[
+ C_i>1-d_i'.
+\]
+It is sufficient that each neighboring V triangle be nonsupercritical with
+both actual boundary reaches greater than $d_i'$.
+\end{lemma}
+
+\begin{proof}
+A local open triangle containing the total endpoint would extend its trace
+farther toward $O$. Nonlocal triangles are excluded by diameter. The last
+assertion follows from common-pair domination, which bounds a neighboring
+endpoint by $1-\min\{A_j,B_j\}$. The full endpoint and strictness argument
+is in \zcref{lem:appendix-fixed-total-endpoint}.
+\end{proof}
 
 Let selected lower bounds satisfy
 \[
@@ -140,10 +182,10 @@ Consequently,
 \end{lemma}
 
 \begin{proof}
-The own role is excluded by \(c_{\max}\), and an adjacent role is excluded
-only by the capacity allowed by its actual V type.  The other roles are more
-than unit distance from \(D_i\).  The full calculation and the endpoint
-strictness are in \zcref{lem:appendix-type-aware-radial-forcing}.
+The variational capacities give $\gamma_i\le\Gamma_i\le1$, including
+only actual positive adjacent traces. Apply
+\zcref{lem:fixed-total-radial-forcing}. The point $O$ when $\Gamma_i=1$
+is handled by that lemma as well; no positive-distance claim is made there.
 \end{proof}
 
 \begin{lemma}[Common-pair domination]
@@ -162,7 +204,7 @@ then
 \end{lemma}
 
 \begin{proof}
-This is the branchwise comparison in
+This is the direct diagonal-capacity comparison in
 \zcref{lem:appendix-common-pair-domination}.
 \end{proof}
 

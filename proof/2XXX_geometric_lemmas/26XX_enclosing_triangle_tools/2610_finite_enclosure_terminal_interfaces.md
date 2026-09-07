@@ -44,7 +44,7 @@ on the maximum. If both neighboring terms are below it, the own role must
 supply that demand. This is the type-independent demand-recovery interface
 of `2612`, Lemma 2.3.
 
-## 2. A: complementary gap, at most seven points
+## 2. Optional A: complementary gap, at most seven points
 
 For one gap and $N_+=0$, normalize the gap to $J_0$, set
 $p=A_1$, $q=B_0$, $c_A=c_{\max}(p,q)$, and select its farther endpoint
@@ -63,7 +63,7 @@ $$
 Theorem 3.1 of `2612` proves $K_A\subset U_C$ under skeleton coverage and
 $\Lambda(K_A)\ge1$, for arbitrary V types. The disk is contained in the
 hull of the six radial points; it is not an independent set of pointwise
-V-excluded witnesses. The all-Vd0 and T3-like one-gap cases share this proof.
+V-excluded witnesses. This independent alternative is retained for geometric intuition; N0 uses B/C.
 
 ## 3. B: two-gap path, at most four points
 
@@ -161,8 +161,8 @@ The four-contact caliper theorem `2611` is distinct from D's four-point lemma.
 ## 7. N0 and the replacement exit
 
 Theorem 7.1 of `2612` states that a skeleton cover has $N_+\ge1$.
-Its proof treats zero gaps by strict boundary overlap, one gap by A, and
-two gaps by B. It does not restrict the nonsupercritical V types.
+Its proof treats zero gaps by strict boundary overlap and nonzero gaps by
+the center-aligned B/C theorem, Theorem 7.0 of `2612`. It does not restrict the nonsupercritical V types.
 
 The two-chart Vd1 replacement
 [`4144_new`](../../4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4144_new_two_chart_replacement_and_router.md)
@@ -171,29 +171,27 @@ six nonsupercritical V roles. It therefore ends directly by N0. Input and
 output gap ranks are not identified; the gap split is internal to N0.
 Replacement is not an additional enclosure theorem for the original set.
 
-## 8. Exhaustive assembly and source ownership
+## 8. One midpoint-supplier assembly
 
-The structural placement audit still supplies the finite reduced placements.
-Length and area exits remain explicitly distinct:
+The four active finite-witness families are B, C, D, and F. A is an
+independent optional proof. For every nonzero-gap skeleton cover,
+[`2613`](2613_midpoint_supplier_reduction.md) first leaves $N_+=1$ and
+$N_{\rm sp}\le1$. If the supercritical role
+is at the C midpoint, Theorem 7.0 of `2612` applies B/C. Otherwise its
+midpoint has one adjacent positive-support supplier:
 
-| Reduced input | Active route |
+| Supplier | Local input and ending |
 |---|---|
-| zero gaps, $N_+=0$ | strict boundary-overlap contradiction |
-| zero gaps, $N_+=1$ | F |
-| zero gaps, $N_+\ge2$ | retained area route |
-| nonzero gaps, $N_+=0$ | N0 (A or B) |
-| one gap, $N_+=1$, supercritical at $M_0$ | C, arbitrary path V types |
-| two gaps, $N_+=1$, supercritical at $M_0$ | B, arbitrary path V types |
-| center-based T3-like or Vd1 rescuer | D, either gap rank |
-| away Vd1--supercritical pair | replacement then N0 |
-| Vd2 rescuer or excess positive support | retained length filters |
-| nonzero gaps, $N_+\ge2$ | retained skeleton-length route |
+| T3-like | necessarily center-based; `4130_new` verifies D |
+| Vd1 at the center midpoint | `4143_new` verifies D in CE1/CE2 |
+| Vd1 away from the center midpoint | `4144_new` verifies the scalar inputs of `2614`, then N0 |
+| Vd2 | `2531`, row P3, in CE1/CE2 |
 
-The complete one-Vd placement audit remains
-[`4145_new`](../../4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4145_new_complete_placement_audit.md).
-It no longer dispatches adjacent and nonadjacent Vd placements to separate
-active enclosure recipes. The sources `4141_new` and `4142_new` preserve
-those former quantitative arguments as alternatives. The independent
-conditional CE1 algebra, the two rescuer charts, and the exact zero-gap
-certificate remain local proof responsibilities rather than duplicated
-terminal endings.
+The new scalar replacement is
+[`2614`](2614_two_vertex_replacement.md). Its two vertex charts, template
+split, and all five strict preservation margins are explicit. The
+CE1 three-transverse return, the CE2 short-ray estimate, the separate
+rescuer chart inequalities, and the exact zero-gap certificate remain
+independent local responsibilities. The old one-Vd audit is a compatibility
+assembly, not a second placement proof. Length and area are still different
+obstruction methods, not additional finite-witness recipes.

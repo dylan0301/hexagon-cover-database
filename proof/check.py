@@ -271,6 +271,9 @@ for path in canonical:
 for path in (ROOT / "proof").rglob("*.md"):
     if "9XXX_failed_ideas" in path.parts:
         continue
+    raw_bytes = path.read_bytes()
+    if any(byte < 32 and byte not in (9, 10) for byte in raw_bytes):
+        fail(f"control character in proof Markdown: {path.relative_to(ROOT)}")
     text = path.read_text(encoding="utf-8", errors="replace")
     for raw in re.findall(r"\[[^\]]*\]\(([^)]+\.md)(?:#[^)]+)?\)", text):
         if "://" in raw:
@@ -422,6 +425,15 @@ else:
         fail(result.stdout + result.stderr)
     else:
         print("fixed-witness identities: OK (6 exact checks)")
+
+# Exact algebraic regressions for the direct diagonal-capacity and replacement lemmas.
+compression_checker = ROOT / "proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/verify_compression_identities.py"
+result = subprocess.run([sys.executable, str(compression_checker)], cwd=ROOT,
+                        text=True, capture_output=True)
+if result.returncode:
+    fail(result.stdout + result.stderr)
+else:
+    print(result.stdout.strip())
 
 if ERRORS:
     print("proof/check.py: FAILED", file=sys.stderr)

@@ -261,36 +261,12 @@ $$
 \boxed{c_*\ge1-m.}
 $$
 
-Indeed, assume $q=m\le p$.  In the exact minimum-side formula of `2004`, the
-radial demand $c=1-q$ gives
-
-$$
-L_{OA}=q+\max\{p,1-q\}=1,
-$$
-
-because $p+q\le1$.  Thus $(p,q,1-q)$ is admissible.  The reflected argument
-handles $p=m$.
-
-Moreover,
-
-$$
-\boxed{C_+(p,q)\le1-m,
-\qquad C_-(p,q)\le1-m.}
-$$
-
-This follows directly from the exact formula in `2008`.  If $q\le p$, every
-branch of $C_+(p,q)$ is at most $1-q$.  If $p\le q$, the plateau root
-satisfies $p(a)\le1-a$, while the linear and radical branches are no larger;
-thus $C_+(p,q)\le1-p$.  Reflection gives the second inequality.
-
-Consequently
-
-$$
-\boxed{C_+(p,q),C_-(p,q)\le c_{\max}(p,q).}
-$$
-
-By coordinatewise antitonicity, the same conclusion holds for every actual
-boundary pair that dominates $(p,q)$.
+Both assertions, and coordinatewise antitonicity, follow from the direct
+diagonal-capacity proof in
+[`2008b`](../20XX_V_triangle_geometry/2008b_direct_neighbor_domination.md).
+The full neighboring capacity formula is not used for this comparison.
+Consequently each permitted neighboring contribution for a pair dominating
+$(p,q)$ is also at most $c_*$. An absent trace requires no contribution.
 
 ### Corollary 5.1: uniform common-pair radial forcing
 

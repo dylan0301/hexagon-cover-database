@@ -276,53 +276,40 @@ $N_++N_{\mathrm{sp}}\ge3$ is impossible by a trace-length bound on $S$.
 
 \subsection{Exhaustive routing}
 
-Lemma~\ref{lem:gap-exhaustion} proves the fundamental equivalence
-\[
- N_{\mathrm{gap}}=0
- \quad\Longleftrightarrow\quad
- U_0,\ldots,U_5\text{ cover }\partial H.
-\]
-Thus Table~\ref{tab:routing} first dispatches every zero-gap case without
-reference to the center class. The entire zero-gap $N_+=1$ row uses one
-nine-point theorem, with arbitrary normalized V types. The former Vd1/Vd2
-length and T3-like area arguments remain independent alternative proofs.
-The nonzero-gap part is read from top to
-bottom; the first applicable row is the unique route for a hypothetical
-cover.  The full classification proof is
-Proposition~\ref{prop:exhaustive-structural-reduction}.
+Zero actual gaps mean that the six open V triangles cover $\partial H$.
+The zero-gap route depends only on $N_+$, not the C or V types. For nonzero
+gaps, N0 and the skeleton budget first reduce to one supercritical role and
+at most one positive-support role. The remaining distinction is whether the
+supercritical role or its midpoint supplier is based at the C midpoint.
+This replaces a separate case tree for each V-type count and each CE class.
 
 \begin{table}[H]
-\centering
-\small
-\setlength{\tabcolsep}{4pt}
-\renewcommand{\arraystretch}{1.18}
-\begin{tabular}{@{}ccccc p{.20\textwidth}@{}}
+\centering\small
+\setlength{\tabcolsep}{5pt}\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{@{}ccp{.34\textwidth}p{.28\textwidth}@{}}
 \toprule
-$N_{\mathrm{gap}}$&$N_+$&$d$&$t$&$N_E(T_C)$&mechanism\\
+$N_{\rm gap}$&$N_+$&Additional condition&Closing mechanism\\
 \midrule
-$0$&$0$&\multicolumn{2}{c}{$d+t\le6$}&$N_E(T_C)\in\{0,1,2\}$&Trace length\\
-$0$&$1$&\multicolumn{2}{c}{$d+t\le6$}&$N_E(T_C)\in\{0,1,2\}$&Finite enclosure\\
-$0$&$N_+\ge2$&\multicolumn{2}{c}{$d+t\le6$}&$N_E(T_C)\in\{0,1,2\}$&Area loss\\
+$0$&$0$&Arbitrary V types&Strict overlap\\
+$0$&$1$&Arbitrary V types&Nine-point F\\
+$0$&$\ge2$&Arbitrary V types&Cyclic area loss\\
 \midrule
-$N_{\mathrm{gap}}\ge1$&$N_+\ge2$&\multicolumn{2}{c}{$d+t\le6$}&$N_E(T_C)\in\{1,2\}$&Trace length\\
-$N_{\mathrm{gap}}\ge1$&$N_+\in\{0,1\}$&\multicolumn{2}{c}{$N_++d+t\ge3$}&$N_E(T_C)\in\{1,2\}$&Trace length\\
-$N_{\mathrm{gap}}\ge1$&$0$&$d=0$&$t=0$&$N_E(T_C)\in\{1,2\}$&Finite enclosure\\
-$N_{\mathrm{gap}}\ge1$&$0$&$d\ge1$&$d+t\le2$&$N_E(T_C)\in\{1,2\}$&Trace length\\
-$N_{\mathrm{gap}}\ge1$&$0$&$d=0$&$t\in\{1,2\}$&$N_E(T_C)\in\{1,2\}$&Finite enclosure\\
-$N_{\mathrm{gap}}\ge1$&$1$&$d=0$&$t=0$&$N_E(T_C)\in\{1,2\}$&Finite enclosure\\
-$N_{\mathrm{gap}}\ge1$&$1$&$d=0$&$t=1$&$N_E(T_C)\in\{1,2\}$&Finite enclosure\\
-$N_{\mathrm{gap}}\ge1$&$1$&$d=1$&$t=0$&$N_E(T_C)=1$&Trace length\\
-$N_{\mathrm{gap}}\ge1$&$1$&$d=1$&$t=0$&$N_E(T_C)=2$&Trace and finite enclosure\\
+$\ge1$&$0$&Arbitrary V types&N0, through B/C\\
+$\ge1$&$\ge1$&$N_+\ge2$ or $N_++N_{\rm sp}\ge3$&Skeleton budget\\
+$\ge1$&$1$&$N_{\rm sp}\le1$&Midpoint supplier: B/C, D, replacement, or Vd2 length\\
 \bottomrule
 \end{tabular}
-\caption{The exhaustive routing.  Strategy 1 is a trace-length argument,
-Strategy 2 sums area loss, and Strategy 3 forces a finite residual set into the
-C triangle and proves an equilateral-enclosure obstruction.  Nonzero gap count
-forces center class CE1 or CE2.  In that part the high-count rows are applied
-first; the final two rows separate the CE1 length route from the detailed CE2
-finite-enclosure placement assembly.}
+\caption{Disjoint routes for the original open cover. Nonzero gaps force
+CE1 or CE2; both classes share the same placement reduction. Replacement
+preserves the skeleton and ends at N0, without preserving gap rank.}
 \label{tab:routing}
 \end{table}
+
+The exact structural normalization is
+\zcref{prop:exhaustive-structural-reduction}. The last row is resolved by
+\zcref{lem:midpoint-supplier}; the local CE1 and CE2 calculations remain
+separate inside the B/C path theorem. The independent complementary-gap
+construction A is retained in Appendix D, outside the minimum proof route.
 
 \subsection{Organization of the proof}
 
@@ -333,7 +320,7 @@ Section~\ref{sec:trace-length} gives the complete trace-length argument.
 Section~\ref{sec:area-loss} proves the local and cyclic area-loss estimates.
 Section~\ref{sec:finite-enclosure} gives the finite residual-hull principle
 and the nonzero-gap and zero-gap enclosure obstructions.
-Section~\ref{sec:assembly} then applies the zero-gap matrix before the
-nonzero-gap rows of Table~\ref{tab:routing} and closes the proof.
+Section~\ref{sec:assembly} then applies the zero-gap alternatives before the
+nonzero-gap midpoint-supplier reduction of Table~\ref{tab:routing} and closes the proof.
 Appendices A--E supply the corresponding solved optimizations; Appendix F is
 the exact polynomial certificate for the two mixed zero-gap intersections.

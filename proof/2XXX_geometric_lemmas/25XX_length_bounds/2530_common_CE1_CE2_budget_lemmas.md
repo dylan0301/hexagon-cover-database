@@ -155,7 +155,9 @@ L_C+n\frac2{\sqrt3}
 $$
 
 The strictness follows from $m\ge1$ and the strict distinguished-V triangle bounds.
-This contradicts subadditivity for a cover of the length-$6$ perimeter.
+The common open-cover budget in
+[`2532`](2532_open_cover_budget.md) excludes such a perimeter cover.
+The retained strict local bounds are stronger than this closing step needs.
 
 For example, the CE0, $N_+=1$ branch with a Vd1/Vd2 role follows by taking
 $L_C=0$, $n=1$, and $q_1=1/2$, because
@@ -416,7 +418,8 @@ L_S(T_C)+\sum_{i=0}^5L_S(T_i)
 \end{aligned}
 $$
 
-Since the full skeleton has length $12$, subadditivity gives a contradiction.
+Since the full skeleton has length $12$, the same open-cover budget in
+`2532` gives a contradiction.
 Hence
 
 $$

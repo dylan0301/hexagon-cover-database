@@ -843,18 +843,12 @@ tangents through $A$ and $C$. There is no exposed disk tangent through $B$.
 The indicated signs select the tangent before $A$ and the tangent after $C$
 in the counterclockwise boundary traversal.
 
-These four normals and their $120^\circ$ rotations partition the orientation
-circle into cells with fixed support sources. On each open cell,
-\[
- \Psi(n(\theta))=k\eta+\langle v,n(\theta)\rangle.
-\]
-If a point is active, its projection exceeds $\eta$, so
-$\Psi''=-\langle v,n(\theta)\rangle<0$. A minimum is attained on a cell
-boundary. On a disk-only cell the sum is constant, and its minimum is also
-attained at a boundary; such a boundary exists since $\|A\|>\eta$.
-This is the disk--finite-set caliper argument of
-\zcref{prop:new-disk-finite-caliper}, with inactive ties removed by the hull
-geometry. Rotation invariance leaves just the four displayed normals.
+The support-cell rotation lemma \zcref{lem:support-cell-rotation} places
+a minimum at these exposed ties or on a disk-only cell. In the latter case
+the same value occurs at a boundary tie, since $\|A\|>\eta$.
+Rotation through $120^\circ$ leaves just the four displayed normals.
+The exposed-hull argument, rather than the general caliper theorem alone,
+is what discards the other point and disk ties.
 \end{proof}
 
 \input{figures/finite_enclosure/fe12_support_caps}

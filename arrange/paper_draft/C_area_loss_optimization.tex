@@ -173,85 +173,6 @@ this proves \eqref{eq:min-square-loss}.  The two orientation types are
 exhaustive, so the theorem follows.
 \end{proof}
 
-\subsection{$\Tlike$ limiting optimization}
-
-\begin{lemma}[Solved $\Tlike$ loss optimization]
-\label{lem:appendix-t3-loss}
-Under the hypotheses of \zcref{thm:t3-direct-loss}, the actual V triangle
-satisfies \zcref{eq:t3-loss}.
-\end{lemma}
-
-\begin{proof}
-The first assertion is Lemma~\ref{lem:t3-nonsupercritical}.  For the loss
-bound apply the closed-trace domination in
-Proposition~\ref{prop:t3-translation}.  It gives a translated Type-II
-triangle $\widehat T$ of the same area with
-\[
- T\cap H\subset\widehat T\cap H,
- \qquad \mathcal L(T)\ge \mathcal L(\widehat T).
-\]
-In the notation of that proposition, $0<t<1$,
-$D=1-t+t^2$, $z=\sqrt D$, and after reflection the translated majorant has
-exact reaches
-\[
- A=\beta,\qquad B=z-\beta
-\]
-and unique wedge vertex
-\[
- Q=\left(\frac{B+(1-t)A}{D},\frac{A+tB}{D}\right),
- \qquad Q_x>1,\quad Q_y\le1.
-\]
-Thus $z-tA>D$, so
-\begin{equation}
- A<L:=\frac{z-D}{t}=\frac{z(1-z)}t.            \label{eq:t3-A-upper}
-\end{equation}
-The exact normalized loss is
-\[
- \mathcal L(\widehat T)
- =\mathcal L(z,A)=\frac{tA^2+(1-t)(z-A)^2}{D}.
-\]
-This decreases for $A<L<(1-t)z$, and therefore
-\begin{equation}
- \mathcal L(T)\ge \mathcal L(\widehat T)>\mathcal L(z,L).                  \label{eq:t3-limit-loss}
-\end{equation}
-
-Set $r=(1-z)/t$.  Then $0<r<1/2$, and eliminating $t,z$ gives
-\[
- t=\frac{1-2r}{1-r^2},\qquad
- z=\frac{r^2-r+1}{1-r^2},
-\]
-\[
- L=\alpha_{\rm lim}(r):=\frac{r(r^2-r+1)}{1-r^2},\qquad
- z-L=\beta_{\rm lim}(r):=\frac{r^2-r+1}{1+r}.
-\]
-The limiting normalized inside area and loss are
-\[
- F_0(r)=\frac{(r^2-r+1)^2}{1-r^2},
- \qquad \mathcal L_0(r)=1-F_0(r).
-\]
-Since the exact reach $A$ is at least the required reach lower bound $a\ge m$,
-\eqref{eq:t3-A-upper}
-gives $\alpha_{\rm lim}(r)>m$.  Direct simplification yields
-\[
- \mathcal L_0(r)-\{2\alpha_{\rm lim}(r)-4\alpha_{\rm lim}(r)^2\}
- =\frac{r^2(5r^4-8r^3+13r^2-8r+2)}{(1-r^2)^2}\ge0,
-\]
-because the last polynomial is at least $9r^2-8r+2\ge2/9$ on
-$[0,1/2]$.  Also $\alpha_{\rm lim}(r)\le r$, and
-\[
- \mathcal L_0(r)-\frac14
- =\frac{(1-2r)(2r^3-3r^2+6r-1)}{4(1-r^2)}\ge0
- \quad\text{when }\alpha_{\rm lim}(r)\ge\frac14;
-\]
-the cubic is increasing and has value $11/32$ at $r=1/4$.
-
-Finally $\psi(u)=2u-4u^2$ is increasing on $[0,1/4]$ and never exceeds
-$1/4$ on $[0,1/2]$.  If $\alpha_{\rm lim}(r)\le1/4$, then
-$\mathcal L_0(r)\ge\psi(\alpha_{\rm lim}(r))\ge\psi(m)$; if $\alpha_{\rm lim}(r)\ge1/4$, then
-$\mathcal L_0(r)\ge1/4\ge\psi(m)$.  Together with \eqref{eq:t3-limit-loss}, this proves
-\eqref{eq:t3-loss}.  The reflected crossing is identical.
-\end{proof}
-
 \subsection{Cyclic loss optimization}
 
 The variables $\xi_i,a_i,b_i$ are the strict handoffs already fixed in
@@ -259,17 +180,16 @@ The variables $\xi_i,a_i,b_i$ are the strict handoffs already fixed in
 
 \begin{lemma}[Solved cyclic area-loss optimization]
 \label{lem:appendix-cyclic-area-loss}
-Both implications in \zcref{lem:cyclic-area-loss} hold.
+The implication in \zcref{lem:cyclic-area-loss} hold.
 \end{lemma}
 
 \begin{proof}
 Put $m=\min_i \xi_i$ and $M=\max_i \xi_i$.  The reflection
-$y_i=1-\xi_{-i-1}$ swaps each V triangle's two coordinates and preserves both
-alternatives and the total loss.  Hence assume $m\le1-M$.  Every selected
+$y_i=1-\xi_{-i-1}$ swaps each V triangle's two coordinates and preserves the number of ascents and the total loss.  Hence assume $m\le1-M$.  Every selected
 V triangle coordinate is then at least $m$, so
 \eqref{eq:min-square-loss} gives loss at least $m^2$ for every V triangle.
 
-In case (1), choose an ascent out of a minimum plateau,
+Choose an ascent out of a minimum plateau,
 $\xi_{p-1}=m<\xi_p$.  Its V triangle contains the coordinate $1-m$ and loses at least
 $(1-m)^2$ by \eqref{eq:max-square-loss}.  A second ascent has one coordinate
 strictly larger than $1/2$ and hence loses strictly more than $1/4$.  The
@@ -280,13 +200,4 @@ larger than
  =5\left(m-\frac15\right)^2+\frac{21}{20}>1.
 \]
 
-In case (2), rotate so that the unique ascent leaves the minimum:
-$\xi_5=m<\xi_0=M$.  The supercritical V triangle loses at least $(1-m)^2$.
-Lemma~\ref{lem:t3-nonsupercritical} shows that a $\Tlike$ V triangle is different
-from it, and Theorem~\ref{thm:t3-direct-loss} gives that V triangle loss at least
-$2m-4m^2$.  The remaining four V triangles lose at least $m^2$ each.  Their total
-loss is at least
-\[
- (1-m)^2+(2m-4m^2)+4m^2=1+m^2>1.
-\]
 \end{proof}

@@ -120,15 +120,84 @@ argument to \(F(y,x,z)\).  At the joining corner,
 so no selected feasible point is lost at equality.
 \end{proof}
 
-\begin{proposition}[Vd1 two-chart replacement and router]
+\begin{lemma}[Two-vertex replacement from scalar margins]
+\label{lem:two-vertex-replacement}
+Consider two adjacent V roles. Only the five pieces
+\[
+ e_{5,0},\quad e_{0,1},\quad e_{1,2},\quad r_0,\quad r_1
+\]
+may be affected by their replacement, and the shared edge is center-free.
+Let $a,c,B,r\in[0,1)$ be the boundary reach on $e_{5,0}$, the own-radial
+reach on $r_0$, the boundary reach on $e_{1,2}$, and the radial demand
+on $r_1$ needed to overlap the unchanged center interval. If
+\[
+ a<\tfrac12,\qquad a+c<1,\qquad a+B<1,\qquad
+ r<\max\{1-a,1-B\},
+\]
+there are two open unit equilateral replacements preserving these five
+skeleton pieces, with actual boundary sums below one and no positive
+adjacent support. No center-class formula is assumed.
+\end{lemma}
+\begin{proof}
+Choose first $p_2\in(a,1-B)$ with $\max\{p_2,1-p_2\}>r$. This is
+possible because the supremum on that interval is $\max\{1-a,1-B\}$.
+Next choose $a<p_1<\min\{p_2,1/2,1-c\}$ and
+\[
+ 0<\varepsilon<\min\{p_1-a,p_2-p_1,1-B-p_2,
+                         1-p_1-c,\max(p_2,1-p_2)-r\}.
+\]
+All five margins are positive. Use the separate vertex charts
+\[
+ X_0(x,y)=V_0+x(V_5-V_0)+y(V_1-V_0),\qquad
+ X_1(x,y)=V_1+x(V_0-V_1)+y(V_2-V_1).
+\]
+Both have metric $x^2+y^2-xy$. Define
+\[
+ \Delta_p^-=\conv\{(0,1-p),(1,1-p),(0,-p)\},\quad
+ D^-_{p,\varepsilon}=\interior(\Delta_p^-)+(-\varepsilon,0)
+ \quad(p\le1/2),
+\]
+\[
+ \Delta_p^+=\conv\{(p,0),(p,1),(p-1,0)\},\quad
+ D^+_{p,\varepsilon}=\interior(\Delta_p^+)+(0,-\varepsilon)
+ \quad(p>1/2).
+\]
+Their edges have unit length. The minus half-planes are
+$x>-\varepsilon$, $y<1-p$, $y>x+\varepsilon-p$; the plus half-planes
+are $y>-\varepsilon$, $x<p$, $x>y+\varepsilon+p-1$.
+Substitution on the axes and diagonal gives their actual reaches:
+\[
+\begin{array}{c|ccc}
+ &A&B&C\\\hline
+ D^-_{p,\varepsilon}&p-\varepsilon&1-p&1-p\\
+ D^+_{p,\varepsilon}&p&1-p-\varepsilon&p
+\end{array}
+\]
+Both contain the chart origin. On the adjacent support lines $(z,1)$ and
+$(1,z)$ the half-planes are incompatible for $0\le z\le1$, so neither
+has positive adjacent support.
+Set $U'_0=X_0(D^-_{p_1,\varepsilon})$ and use
+$U'_1=X_1(D^-_{p_2,\varepsilon})$ for $p_2\le1/2$, or
+$U'_1=X_1(D^+_{p_2,\varepsilon})$ otherwise. The two charts and this
+split cannot be identified. Both actual boundary sums are $1-\varepsilon$.
+
+The first replacement reaches $p_1-\varepsilon>a$ on $e_{5,0}$ and
+$1-p_1>c$ on $r_0$. On the shared edge the reaches sum to at least
+\[
+ (1-p_1)+(p_2-\varepsilon)>1,
+\]
+so the open traces overlap. The second reaches more than $B$ on
+$e_{1,2}$ and $\max(p_2,1-p_2)>r$ on $r_1$. Thus all five pieces
+remain covered; all other pieces are unchanged.
+\end{proof}
+
+\begin{proposition}[Vd1 input to the two-vertex replacement]
 \label{prop:appendix-vd1-two-chart-replacement}
-Assume the normalized replacement hypotheses in the proof of
-\zcref{prop:new-one-vd-assembly}: \(T_0\) is Vd1, \(T_1\) is the unique
-supercritical Vd0 role, \(M_1\in T_0\), and only \(T_0,T_1\) have positive
-trace on \(r_0\) or \(r_1\).  Then there are two open unit equilateral
-triangles \(U'_0,U'_1\) that preserve the covered skeleton, make all six V
-roles nonsupercritical Vd0, and route by the recomputed
-\(N'_{\rm gap}\in\{0,1,2\}\).
+Assume a skeleton cover has a unique Vd1 role $T_0$ supplying $M_1$, a
+unique supercritical role $T_1$, and all other V roles are nonsupercritical
+Vd0. Suppose $e_{0,1}$ is center-free and no other V role has positive
+trace on $r_0$ or $r_1$. The scalar replacement applies in CE1 and CE2
+and yields a skeleton cover with $N'_+=0$.
 \end{proposition}
 
 \begin{proof}
@@ -196,310 +265,85 @@ Only \(U_C,U_1\), and the adjacent trace of \(U_0\) can contribute a
 positive interval to \(r_1\).  Open skeleton coverage gives
 \[
  c_1^{\rm req}<\max\{C_1,u_{\rm adj}\}
- <\max\{1-B_1,1-A_0\}.
+ \le\max\{1-B_1,1-A_0\}.
 \]
 
-Put \(L:=1-B_1\).  Since \(A_0<L\), choose
+Apply \zcref{lem:two-vertex-replacement} with
 \[
- A_0<p_1<p_2<1-B_1
+ (a,c,B,r)=(A_0,C_0,B_1,c_1^{\rm req}).
 \]
-so that
-\[
- p_1<\frac12,
- \qquad
- 1-p_1>C_0,
-\]
-\[
- \max\{p_2,1-p_2\}>c_1^{\rm req}.
-\]
-This is possible because the supremum of
-\(p\mapsto\max\{p,1-p\}\) on \((A_0,L)\) is
-\(\max\{L,1-A_0\}\).  Choose
-\[
- 0<\varepsilon<
- \min\left\{
- p_1-A_0,\,
- p_2-p_1,\,
- 1-B_1-p_2,\,
- 1-p_1-C_0,\,
- \max\{p_2,1-p_2\}-c_1^{\rm req}
- \right\}.
-\]
-Every margin is strictly positive.
-
-Use the distinct charts
-\[
- X_0(x,y)=V_0+x(V_5-V_0)+y(V_1-V_0),
-\]
-\[
- X_1(x,y)=V_1+x(V_0-V_1)+y(V_2-V_1).
-\]
-Both have metric \(x^2+y^2-xy\).  For \(0\le p\le1/2\), set
-\[
- \Delta_p^-=
- \conv\{(0,1-p),(1,1-p),(0,-p)\},
-\]
-and for \(1/2<p\le1\), set
-\[
- \Delta_p^+=
- \conv\{(p,0),(p,1),(p-1,0)\}.
-\]
-For \(0<\varepsilon<p\), the shifted open minus template
-\[
- D_{p,\varepsilon}^-:=
- \interior(\Delta_p^-)+(-\varepsilon,0)
-\]
-has actual reaches
-\[
- (p-\varepsilon,\,1-p,\,1-p)
-\]
-on the two positive axes and the radial diagonal.  For
-\(0<\varepsilon<1-p\), the shifted open plus template
-\[
- D_{p,\varepsilon}^+:=
- \interior(\Delta_p^+)+(0,-\varepsilon)
-\]
-has reaches
-\[
- (p,\,1-p-\varepsilon,\,p).
-\]
-Substitution in their three side half-planes also shows that both contain
-the chart origin and have no positive neighboring support.
-
-Now define
-\[
- U'_0:=X_0(D_{p_1,\varepsilon}^-),
-\]
-\[
- U'_1:=
- \begin{cases}
- X_1(D_{p_2,\varepsilon}^-),&p_2\le1/2,\\
- X_1(D_{p_2,\varepsilon}^+),&p_2>1/2.
- \end{cases}
-\]
-These are the two required charts; the split at \(p_2=1/2\) is part of the
-construction.  Each new boundary-reach sum is
-\(1-\varepsilon<1\), and neither triangle has positive neighboring
-support.  Hence both outputs are nonsupercritical Vd0.
-
-Only
-\[
- e_{5,0},\quad e_{0,1},\quad e_{1,2},\quad r_0,\quad r_1
-\]
-can change.  On \(e_{5,0}\), the new reach
-\(p_1-\varepsilon>A_0\) contains the former trace.  On \(r_0\),
-\(1-p_1>C_0\).  On the shared edge,
-\[
- (1-p_1)+(p_2-\varepsilon)
- =1+(p_2-p_1-\varepsilon)>1,
-\]
-so the two new open traces overlap.  On \(e_{1,2}\), the \(V_1\)-chart
-reach is greater than \(B_1\) in both the minus and plus branches.  On
-\(r_1\), its reach
-\(\max\{p_2,1-p_2\}\) is greater than \(c_1^{\rm req}\).
-Thus all five affected pieces, and hence the full skeleton, remain covered.
-
-Set \(U'_i:=U_i\) for \(2\le i\le5\) and
-\(T'_i:=\overline{U'_i}\) for \(0\le i\le5\).  Then
-\[
- A(T'_i):=\max\{x\in[0,1]:V_i+x(V_{i-1}-V_i)\in T'_i\},
-\]
-\[
- B(T'_i):=\max\{x\in[0,1]:V_i+x(V_{i+1}-V_i)\in T'_i\},
-\]
-\[
- C(T'_i):=\max\{x\in[0,1]:V_i+x(O-V_i)\in T'_i\}.
-\]
-\[
- (o(T'_i),n(T'_i))\in\{(1,0),(2,0)\}
- \qquad(0\le i\le5),
-\]
-\[
- A(T'_i)+B(T'_i)\le1
- \qquad(0\le i\le5),
-\]
-\[
- A(T'_0)+B(T'_0)
- =A(T'_1)+B(T'_1)=1-\varepsilon<1.
-\]
-\[
- \left|\left\{i\in\mathbb Z/6\mathbb Z:
- A(T'_i)+B(T'_i)>1\right\}\right|=0.
-\]
-For \(2\le i\le5\), the original actual triples are unchanged:
-\[
- \bigl(A(T'_i),B(T'_i),C(T'_i)\bigr)=(A_i,B_i,C_i).
-\]
-
-The output consists of six actual nonsupercritical V triangles and
-still covers the skeleton with the original C triangle fixed. It therefore
-contradicts \zcref{thm:fixed-nzero}. That theorem handles all three possible
-output gap ranks internally; no equality with the input rank is asserted.
-The two vertex charts and every strict preservation inequality above are
-unchanged.
+All four scalar conditions were proved above. The four untouched roles
+remain nonsupercritical Vd0, while the two new actual boundary sums are
+$1-\varepsilon<1$. The resulting skeleton cover contradicts N0.
+The original C triangle is fixed; its class and the input gap rank were
+not used in the construction. This operation does not claim to preserve
+coverage of the interior of $H$.
 \end{proof}
 
-\subsection{Neighboring-arm optimization}
-
+\subsection{Direct neighboring-ray domination}
 \label{subsec:new-neighbor-ray-capacity}
 
-Normalize at $V_0$.  Let $A_a\in e_{5,0}$ and $B_b\in e_{0,1}$ have
-reaches $a,b$, and put
-\[
- X_c=(1-c)V_1\in r_1.
-\]
-Thus $C_+(a,b)$ is the maximal $c$ for which
-$V_0,A_a,B_b,X_c$ lie in a closed unit equilateral triangle, and
-$C_-(a,b)=C_+(b,a)$.
+The capacities keep their variational definitions. The following proof
+establishes the bound needed by all active witnesses without evaluating
+the cubic plateau and radical branches of the full function.
 
-For $0\le a\le1/2$, let $p(a)$ be the unique root in $[a,1]$ of
-\begin{equation}
- p^3-(a+2)p^2+2(a+1)p-1=0,
- \label{eq:neighbor-capacity-cubic}
-\end{equation}
-and define
-\[
- \sigma(a)=1-p(a),
- \qquad
- \tau(a)=1-a-(p(a)-a)(1-p(a)).
-\]
-
-\begin{proposition}[Neighboring-ray formula]
-\label{prop:new-neighbor-ray-formula}
-\begin{equation}
-C_+(a,b)=
-\begin{cases}
-\text{undefined},&a+b>1,\\
-1-b,&a+b\le1,\ a>1/2,\\
-1-b,&0\le a\le1/2,\ 0\le b\le\sigma(a),\\
-p(a),&0\le a\le1/2,\ \sigma(a)\le b\le\tau(a),\\
-a+\dfrac12-\sqrt{(a+b)^2-\dfrac34},
- &0\le a\le1/2,\ \tau(a)<b\le1-a.
-\end{cases}
-\label{eq:neighbor-capacity-formula}
-\end{equation}
-At $b=\tau(a)$ the plateau value $p(a)$ is selected.
-\end{proposition}
-
-\input{figures/finite_enclosure/fe06_neighbor_capacity}
-
+\begin{lemma}[Support-cell rotation]
+\label{lem:support-cell-rotation}
+A least equilateral enclosure of a nondegenerate polygon can be chosen
+with one side containing a polygon edge. For a centered disk together
+with finitely many points, it suffices to test point--point and point--disk
+ties, or a disk-only orientation.
+\end{lemma}
 \begin{proof}
-Use the cone basis
-\[
- E_-=V_5-V_0,
- \qquad E_+=V_1-V_0.
-\]
-In these coordinates
-\[
- V_0=(0,0),\quad A=(a,0),\quad B=(0,b),\quad X=(c,1),
-\]
-and the metric is $u^2+v^2-uv$.
-
-Let $R,S$ satisfy $R^2+S^2-RS=1$, and define the support coordinates
-\[
- U(u,v)=(R-S)u+Sv,
-\]
-\[
- V(u,v)=Su-Rv,
- \qquad
- W(u,v)=Ru+(S-R)v.
-\]
-For this orientation, the least enclosing equilateral side is
-\[
- \max_YW(Y)-\min_YU(Y)-\min_YV(Y),
-\]
-where $Y$ ranges over $V_0,A,B,X$.  At a maximal feasible $c$, one support
-side contains a hull edge.  Put \(\mathcal Y:=\{V_0,A,B,X\}\).  The
-non-dominated possibilities are
-\[
-\begin{array}{c|c}
-\text{support predicate}&\text{candidate}\\
-\hline
-\begin{gathered}
- \{V_0,A\}\subseteq\underset{Y\in\mathcal Y}{\operatorname{argmin}}U(Y)\\
- \{B,X\}\subseteq\underset{Y\in\mathcal Y}{\operatorname{argmin}}V(Y)
-\end{gathered}
- &c=1-b\\[2mm]
-\begin{gathered}
- \{A,X\}\subseteq\underset{Y\in\mathcal Y}{\operatorname{argmin}}V(Y)\\
- B\notin\underset{Y\in\mathcal Y}{\operatorname{argmin}}U(Y)
-\end{gathered}
- &c=p(a)\\[2mm]
-\begin{gathered}
- \{A,X\}\subseteq\underset{Y\in\mathcal Y}{\operatorname{argmin}}V(Y)\\
- B\in\underset{Y\in\mathcal Y}{\operatorname{argmin}}U(Y)
-\end{gathered}
- &c=a+\dfrac12-\sqrt{(a+b)^2-\dfrac34}
-\end{array}
-\]
-We verify the three patterns and their selectors.
-
-For the first pattern take $R=S=1$.  The containing triangle is
-\[
- U\ge0,
- \qquad V\ge-b,
- \qquad W\le c,
-\]
-with side $b+c$.  It contains $A$ exactly when $a\le c$.  Hence the unit
-value is $c=1-b$, feasible precisely when $a+b\le1$.
-
-For the second pattern put $d=c-a$.  The side through $A,X$ gives $R=Sd$,
-and the unit condition gives $S^2(d^2-d+1)=1$.  With $B$ inactive, the
-opposite support is $W(V_0)=0$ and $W(X)=-1$.  Eliminating $S$ gives
-\[
-(c-a)
-\bigl(c^3-(a+2)c^2+2(a+1)c-1\bigr)=0.
-\]
-The nondegenerate root is $c=p(a)$.  For $0\le a\le1/2$ it is unique because
-the cubic is strictly increasing on $[a,1]$.  The remaining containment
-condition is
-\[
- b\le1-p(a)(1+a-p(a))=\tau(a).
-\]
-This branch dominates $1-b$ exactly when $b\ge\sigma(a)$.
-
-For the third pattern the active supports give
-\[
- S=-\frac1{a+b},
- \qquad
- d^2-d+1=(a+b)^2.
-\]
-The selected root $0\le d\le1/2$ is
-\[
- d=\frac{1-\sqrt{4(a+b)^2-3}}2,
-\]
-which gives the radical branch of
-\zcref{eq:neighbor-capacity-formula}.  The inactive support inequalities
-reduce to
-\[
- 0\le a\le\frac12,
- \qquad
- \tau(a)\le b\le1-a.
-\]
-On this interval the radical candidate dominates $1-b$ because, with
-$s=a+b\le1$,
-\[
- s-\frac12\ge\sqrt{s^2-\frac34}.
-\]
-
-The three selected intervals are ordered since
-\[
- \tau(a)-\sigma(a)=(p(a)-a)p(a)\ge0,
- \qquad
- \tau(a)\le1-a.
-\]
-If $a+b>1$, none of the three support patterns is feasible, including
-$c=0$, so the capacity is undefined.  Reflection gives $C_-$.
+By \zcref{prop:new-enclosure-gauge}, the side is the three-term support
+sum divided by $h$. On a polygon cell with fixed support vertices the sum
+is $g(\theta)=a\cos\theta+b\sin\theta>0$, so $g''=-g<0$ and no
+interior minimum occurs. In the disk case a cell with $q$ disk supports
+has sum $q\rho+\langle v,n(\theta)\rangle$. If a point is active its
+projection exceeds $\rho\ge0$, and the inner product is positive, again
+giving a negative second derivative. A disk-only cell has the constant
+global minimum $3\rho$. Each application must still identify its exposed ties.
 \end{proof}
 
-A consequence used repeatedly below is
+\begin{lemma}[Sharp diagonal neighboring capacity]
+\label{lem:direct-neighbor-diagonal}
+For $0\le m\le1/2$, one has $C_+(m,m)=C_-(m,m)=1-m$.
+\end{lemma}
+\begin{proof}
+Use oblique coordinates with metric $x^2+y^2-xy$. The four points are
+$P=(0,0)$, $A=(m,0)$, $B=(0,m)$, and $Z=(c,1)$. The case $m=0$
+is immediate. If $0<m\le1/2$ and $c>1-m$, their hull has cyclic order
+$P,A,Z,B$. The preceding lemma reduces the enclosure to its four outward
+edge normals. At $PA$ and $BP$, the side lengths are $c+m$ and $1+m$,
+both greater than one.
+
+Embed $(x,y)$ as $(x-y/2,hy)$. At the other two edges take unnormalized
+normals $n_A=(h,1/2-c+m)$ and $n_B=(h(m-1),m/2+c-1/2)$. Put
 \[
- \boxed{C_+(p,q),C_-(p,q)\le1-\min\{p,q\}}
- \qquad(p+q\le1).
+\begin{aligned}
+ D_A&=(c-m)^2-(c-m)+1,&N_A&=m+c^2-cm-c+1,\\
+ D_B&=c^2+cm-c+m^2-2m+1,&N_B&=cm+c^2-c-m+1.
+\end{aligned}
 \]
-Indeed this is immediate on the linear branch; on the plateau branch the
-cubic gives $p(a)\le1-a$, and the radical branch is no larger than its
-selected plateau at the transition.
+Selecting the contained points $(A,Z,P)$ in the three normal directions
+at $n_A$, and $(B,P,Z)$ at $n_B$, gives support lower bounds
+$L_{AZ}\ge N_A/\sqrt{D_A}$ and $L_{ZB}\ge N_B/\sqrt{D_B}$.
+No active-support selector is assumed. With $q=c+m-1>0$,
+\[
+\begin{aligned}
+ N_A^2-D_A={}&q^2\big((q+1-3m)^2+4m^2-2m+1\big)\\
+ &+q(1-2m)(6m^2-2m+1)+m^2(1-2m)^2>0,\\
+ N_B^2-D_B={}&q^4+(2-2m)q^3+(m^2-4m+2)q^2\\
+ &+(1-m)(1-2m)q>0.
+\end{aligned}
+\]
+Here $4m^2-2m+1\ge3/4$, $6m^2-2m+1>0$, and
+$m^2-4m+2\ge1/4$. The numerators are positive:
+$N_A\ge(1+m)(3-m)/4$ and $N_B=1-m+(1-m)q+q^2$.
+Thus every caliper requires side greater than one.
+Equality is realized by the unit triangle
+$\conv\{(-m,0),(1-m,0),(1-m,1)\}$. Reflection gives $C_-$.
+\end{proof}
 
 \begin{lemma}[Type-aware radial calculation]
 \label{lem:appendix-type-aware-radial-forcing}
@@ -508,22 +352,10 @@ The points \(D_i=(1-\Gamma_i)V_i\) of
 \end{lemma}
 
 \begin{proof}
-Put \(D_i=dV_i\), so \(1-d=\Gamma_i\).  If \(D_i\in U_i\), openness of
-the radial trace makes the actual radial reach strictly larger than
-\(c_{\max}(a_i,b_i)\), contradicting the defining maximum.  If
-\(D_i\in U_{i-1}\) or \(D_i\in U_{i+1}\), that role must have positive
-trace on \(r_i\); the applicable term \(C_+\) or \(C_-\) is therefore present
-in \(\Gamma_i\), and the same open-endpoint argument is a contradiction.
-The actual-type condition is essential here: no neighboring capacity is used
-when the corresponding positive trace is forbidden.
-
-For the remaining roles, rotation reduces the distances to
-\[
- \lVert dV_i-V_{i\pm2}\rVert^2=1+d+d^2>1,
- \qquad
- \lVert dV_i-V_{i+3}\rVert=1+d>1.
-\]
-Their diameter is one, so they cannot contain \(D_i\).
+The definitions of the variational capacities give $\gamma_i\le\Gamma_i$.
+Apply the actual-or-bounded frontier in
+\zcref{lem:appendix-fixed-total-endpoint}, including its $\Gamma_i=1$
+endpoint. The actual support restrictions determine which terms may occur.
 \end{proof}
 
 \begin{lemma}[Solved common-pair comparison]
@@ -532,20 +364,80 @@ The inequalities in \zcref{lem:new-common-pair-domination} hold.
 \end{lemma}
 
 \begin{proof}
-Assume first that \(q=\min\{p,q\}\).  The demand
-\((p,q,1-q)\) is admissible: in the edge-normal realization the active side
-has length
-\[
- q+\max\{p,1-q\}=1.
-\]
-Thus \(c_{\max}(p,q)\ge1-q\).  In the three selected branches of
-\zcref{prop:new-neighbor-ray-formula}, the linear value is \(1-q\); the
-selected cubic value is at most \(1-q\); and the radical branch decreases
-from that cubic transition.  Hence \(C_+(p,q)\le1-q\).
-Reflection gives \(C_-(p,q)\le1-q\) and treats \(p\le q\).
-Coordinatewise antitonicity follows because increasing either anchor replaces
-the feasible family by a subfamily.
+Put $m=\min(p,q)$. By convexity, any triangle containing the $p,q$
+boundary anchors also contains the shorter $m,m$ anchors. Hence
+\zcref{lem:direct-neighbor-diagonal} gives $C_\pm(p,q)\le1-m$.
+If $q=m$, the unit triangle used for equality contains
+$(p,0)$, $(0,q)$, and $(1-q,1-q)$ because $p\le1-q$.
+The last point is on the
+own ray, so $c_{\max}(p,q)\ge1-q$. Reflect for $p=m$.
+Increasing an anchor shrinks the feasible family, giving antitonicity.
 \end{proof}
+
+\subsection{Optional alternative A: the complementary-gap disk}
+
+\begin{lemma}[One-gap common-pair adapter]
+\label{lem:new-one-gap-common-pair-adapter}
+Suppose $N_+=0$ and the unique actual gap is
+$J_0=X_0([B_0,1-A_1])$. Put $p=A_1$, $q=B_0$. Then $p,q>0$,
+$p+q\le1$, and $A_i\ge p$, $B_i\ge q$ for all $i$, without a V-type
+restriction.
+\end{lemma}
+
+\begin{proof}
+The five gap-free edges give $B_i+A_{i+1}>1$, while
+$A_i+B_i\le1$. Thus
+\[
+ A_1<A_2<A_3<A_4<A_5<A_0,\qquad
+ B_0<B_5<B_4<B_3<B_2<B_1.
+\]
+The actual gap gives $p+q\le1$. These inequalities prove the assertion.
+\end{proof}
+
+Put
+\[
+ c_A:=c_{\max}(A_1,B_0),\qquad D_i^A:=(1-c_A)V_i,
+\]
+\[
+ G_A:=
+ \begin{cases}X_0(B_0),& B_0\le A_1,\\
+ X_0(1-A_1),& A_1<B_0,
+ \end{cases}
+ \qquad K_A:=\{D_0^A,\ldots,D_5^A,G_A\}.
+\]
+The disk used in this recipe is exactly
+\[
+ \mathcal D_A:=\left\{x\in\mathbb R^2:
+ \|x\|\le\frac{\sqrt3}{2}\bigl(1-c_{\max}(A_1,B_0)\bigr)\right\}.
+\]
+It is the inscribed disk of the regular hexagon formed by the six radial
+points. It need not itself be missed pointwise by the V triangles: its
+containment in $U_C$ follows from convexity of the six forced points.
+
+\begin{theorem}[Complementary-gap finite enclosure]
+\label{thm:new-complementary-gap}
+For $p,q>0$, $p+q\le1$, $c_*=c_{\max}(p,q)$, and
+$J(p,q)=X_0([q,1-p])$, let $G$ be its farther endpoint from $O$. Then
+\[
+ \Lambda\bigl(\mathbb B(O,h(1-c_*))\cup\{G\}\bigr)\ge1.
+\]
+Consequently the all-nonsupercritical one-gap configuration forces
+$K_A\subset U_C$ and satisfies $\Lambda(K_A)\ge1$.
+\end{theorem}
+
+\begin{proof}
+The disk--point calculation in
+\zcref{lem:new-disk-point-formula,lem:appendix-complementary-gap}
+uses only the farther endpoint of the actual gap. Common-pair forcing puts
+the six $D_i^A$ in $U_C$, and their hull contains the stated disk. The gap
+endpoint is center-forced. Monotonicity of $\Lambda$ under convex hulls
+therefore proves the finite-set assertion.
+\end{proof}
+
+\input{figures/finite_enclosure/fe03_complementary_gap}
+\input{figures/finite_enclosure/fe13_case_a_examples}
+\FloatBarrier
+
 
 \subsection{Disk and complementary-gap optimization}
 
@@ -1333,16 +1225,11 @@ points, or is tangent to the disk and contains one point.
 \end{proposition}
 
 \begin{proof}
-The tie directions partition the normal circle into cells with fixed support
-sources.  On a cell with $q$ disk supports,
-\[
- \sum_{j=0}^2h_{\mathcal D_\eta\cup P}(\mathsf R^jn(\theta))
- =q\eta+\langle v,n(\theta)\rangle.
-\]
-If any point is active, the last inner product is positive and the second
-derivative is its negative.  Hence an interior critical point is a maximum.
-A minimum occurs at a point--point or point--disk tie.  On a disk-only cell
-the support sum is $3\eta$, already the global minimum.
+Apply \zcref{lem:support-cell-rotation}. A point--point tie has normal
+perpendicular to $p_k-p_i$; solving $\langle p_i,n\rangle=\eta$ with
+$\|n\|=1$ gives the displayed point--disk normals. Rotation through
+$120$ degrees identifies the three supporting directions. A disk-only
+cell contributes $3\eta$ and is the only additional alternative.
 \end{proof}
 
 \begin{lemma}[Half-edge one-third radial envelope]

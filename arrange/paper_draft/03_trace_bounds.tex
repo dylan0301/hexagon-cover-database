@@ -6,14 +6,34 @@ For a closed triangle $T$ and a rectifiable target $E$, define
 \[
  L_E(T):=\Haus(T\cap E).
 \]
-Passing from an original open triangle to its closure can only enlarge its
-trace.  Hence an open cover of $E$ implies
+\begin{lemma}[Connected open-cover budget]
+\label{lem:open-cover-budget}
+Let $X$ be compact and connected, with a finite Borel measure $\mu$
+positive on every nonempty relatively open subset. For a finite open cover
+with at least two nonempty relative pieces,
+\[
+ \mu(X)<\sum_j\mu(U_j\cap X)\le\sum_j\mu(T_j\cap X).
+\]
+Consequently closed-piece upper bounds whose sum is at most $\mu(X)$
+already contradict the open cover.
+\end{lemma}
+\begin{proof}
+If the nonempty relative pieces were pairwise disjoint, one and the union
+of the others would disconnect $X$. Some pair therefore overlaps in a
+nonempty relatively open set, of positive measure. Integrating the covering
+multiplicity gives strict inequality. Closure only enlarges each piece.
+\end{proof}
+
+For $X=\partial H$ or $S$, use length; for $X=H$, use area. Each measure
+has the stated full-support property, and the seven distinguished roles
+meet the corresponding targets in positive measure. In particular,
 \begin{equation}
- \Haus(E)\le L_E(T_C)+\sum_{i=0}^5L_E(T_i).
+ \Haus(E)<L_E(T_C)+\sum_{i=0}^5L_E(T_i),\qquad E\in\{\partial H,S\},
  \label{eq:length-subadditivity}
 \end{equation}
-The mechanism applies this inequality only to the perimeter $\partial H$ or
-the full skeleton $S$, under the hypotheses stated below.
+whenever these targets are covered. Empty center boundary traces are simply
+omitted from the collection. The local geometric caps remain separate from
+this common final budget argument.
 
 \begin{figure}[H]
 \centering
@@ -224,27 +244,17 @@ applies.
 
 \begin{proposition}[Vd2 adjacent-midpoint branch]
 \label{prop:ce2-vd2-midpoint-length}
-Assume
-\[
- N_E(T_C)=2,
- \qquad N_+=1,
- \qquad(d,t)=(1,0).
-\]
-If the unique non-$\Vdzero$ triangle $T_i$ satisfies
-\[
- (o(T_i),n(T_i))=(1,2)
-\]
-and
-\[
- \{M_{i-1},M_{i+1}\}\cap T_i\ne\varnothing,
-\]
-then $\partial H$ cannot be covered.
+Suppose the C triangle is CE1 or CE2 and $N_+=1$. If a Vd2 role contains
+an adjacent midpoint, the perimeter is not covered.
 \end{proposition}
-
 \begin{proof}
-The strict one-third cap is
-\zcref{lem:vd2-neighbor-midpoint-cap}; item (5) of
-Corollary~\ref{cor:signed-budget-branches} then applies.
+By \zcref{lem:vd2-neighbor-midpoint-cap}, that role contributes strictly
+less than $1/3$. The common boundary caps give
+\[
+ L_{\partial H}(T_C)+\sum_iL_{\partial H}(T_i)
+ <\frac12+\frac2{\sqrt3}+\frac13+4<6.
+\]
+Apply \zcref{lem:open-cover-budget}. The argument needs no CE2-only formula.
 \end{proof}
 
 \subsection{Routing conclusion}

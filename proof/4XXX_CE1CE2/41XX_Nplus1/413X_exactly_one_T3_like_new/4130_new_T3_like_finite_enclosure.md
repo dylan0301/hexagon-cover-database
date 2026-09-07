@@ -3,8 +3,8 @@
 Status: Proven
 
 This proof separates the only T3-specific calculation from the common
-rescuer-tail budget proved in
-[`2609`](../../../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2609_simplified_finite_enclosure_lemmas.md).
+fixed four-point interface proved in
+[`2612`](../../../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2612_fixed_witness_unification.md).
 Both gap ranks use the same fixed four-point enclosure ending.
 
 ## Theorem
@@ -16,21 +16,14 @@ V-gap. Then no such configuration exists.
 
 ## 1. Midpoint reduction
 
-Normalize the unique center midpoint to $M_0$. A T3-like role cannot cover
-its own midpoint, a supercritical role covers none of its three local
-midpoints, and a Vd0 role cannot rescue an adjacent midpoint. After reflection,
-
-$$
-T_0\text{ is T3-like},
-\qquad
-M_1\in T_0,
-$$
-
-$$
-T_1\text{ is uniquely supercritical},
-$$
-
-and $T_2,T_3,T_4,T_5$ are nonsupercritical Vd0 roles.
+Normalize the C midpoint to $M_0$. If the supercritical role is $T_0$,
+apply the center-aligned theorem in
+[`2612`](../../../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2612_fixed_witness_unification.md).
+Otherwise the common midpoint-supplier lemma
+[`2613`](../../../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2613_midpoint_supplier_reduction.md)
+forces the T3-like role to be $T_0$ and, after reflection, the supercritical
+role to be $T_1$, with $M_1\in U_0$. The remaining four roles are
+nonsupercritical Vd0. This is the only placement-specific reduction.
 
 Use the translated T3-like chart at $V_0$. Let
 
@@ -47,20 +40,11 @@ $$
 c\le\frac12\le u.
 $$
 
-The O-side endpoint
+By the radial-frontier corollary in `2612`, the supported O-side
+endpoint is missed by all V roles: its own supercritical role stops before
+$M_1$ and all other possible contributions are absent. Thus
 
-$$
-P_T=(1-u)V_1
-$$
-
-does not belong to the open T3-like role. The adjacent supercritical role
-contains $V_1$ but misses $M_1$, so convexity excludes the O-side of $M_1$.
-All remaining roles are Vd0 or nonlocal. Thus
-
-$$
-\boxed{P_T\in U_C.}
-\tag{1}
-$$
+$$\boxed{P_T=(1-u)V_1\in U_C.}\tag{1}$$
 
 Put
 
@@ -176,35 +160,16 @@ a+\varepsilon=\frac{R_0}{D}\le1,
 \tag{3}
 $$
 
-Equations (1) and (3) are exactly the hypotheses of the common rescuer-tail
-theorem in `2609`.
+Equations (1) and (3) are exactly the hypotheses of the common four-point
+interface in `2612`.
 
-## 3. One four-point terminal for both gap ranks
+## 3. Apply the common fixed-witness interface
 
-The local calculations above establish the endpoint and ratio conditions.
-Use actual $A_0$ for the rescuer's left boundary reach (the local chart
-symbol $a$ above equals $A_0$), and put $\varepsilon=1-u$.
-The strict-supercritical envelope gives $B_1<M$, and the four ordinary
-center-free handoffs give
-
-$$
-B_5\le B_4\le B_3\le B_2\le B_1<M.
-$$
-
-Since $A_0+\varepsilon\le1$ and
-$A_0/(A_0+\varepsilon)\le1-M$, one has $A_0\le1-M$ and hence
-$B_5<1-A_0$. Thus the actual left-edge gap endpoints are
-$Y(A_0)$ and $Y(1-B_5)$, where $Y(t)=(1-t)V_0+tV_5$.
-Together with the already forced supported endpoint and $O$ they give
-
-$$
-K_D=\{O,\varepsilon V_1,Y(A_0),Y(1-B_5)\}\subset U_C.
-$$
-
-The same inequalities, with $M\ge1/2$, give
-$A_0\le\varepsilon$ and $B_5<\varepsilon/(A_0+\varepsilon)$.
-The four-point rescuer theorem in [2612](../../../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2612_fixed_witness_unification.md), Section 6, proves
-$\Lambda(K_D)\ge1$, contrary to compact containment in the open unit
-C triangle. There is no disk. The argument treats both one and two gaps
-without a sum greater than four and without propagating a common pair
-through the supercritical role. $\square$
+The local chart has verified $A_0+\varepsilon\le1$ and
+$A_0/(A_0+\varepsilon)\le1-M$. The supported endpoint is the total radial
+frontier from [2612](../../../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2612_fixed_witness_unification.md),
+Corollary 2.2a. Skeleton coverage from $V_1$ to the start $c$ of the
+rescuer's interval gives $C_1\ge c$: the center misses $M_1$ and the
+other V roles have no positive trace on this ray. Corollary 6.2 of `2612`
+therefore supplies the same four actual points and contradiction for either
+gap rank. No repeated boundary-tail proof and no disk are needed. $\square$

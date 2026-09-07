@@ -230,56 +230,62 @@ def role_for(node_id: str) -> str:
 
 
 CASE_META = {'cor:expanded-closed': {'cases': ['Every L>1 in the scaled closed formulation'],
-                         'detail': 'Compactness and scaling transfer the main open-triangle '
-                                   'theorem.'},
- 'lem:ab-extreme-jump': {'cases': ['Row F: zero gap, exactly one supercritical role; arbitrary V '
-                                   'types'],
-                         'detail': 'Identifies the strict handoff minimum and maximum and the '
-                                   'common boundary pair.'},
+                         'detail': 'Compactness and scaling transfer the main open-triangle theorem.'},
+ 'lem:ab-extreme-jump': {'cases': ['Row F: zero gap, exactly one supercritical role; arbitrary V types'],
+                         'detail': 'Identifies the strict handoff minimum and maximum and the common '
+                                   'boundary pair.'},
  'lem:asymmetric-core-witness': {'cases': ['Row F'],
-                                 'detail': 'Forces the three parameter-dependent frontier '
-                                           'witnesses Q_-,Q_0,Q_+ into U_C.'},
+                                 'detail': 'Forces the three parameter-dependent frontier witnesses '
+                                           'Q_-,Q_0,Q_+ into U_C.'},
+ 'lem:direct-neighbor-diagonal': {'cases': ['0<=m<=1/2'],
+                                  'detail': 'C_+(m,m)=C_-(m,m)=1-m by four calipers; no cubic capacity '
+                                            'formula.'},
  'lem:fixed-origin-in-hull': {'cases': ['B/C'],
-                              'detail': 'A boundary point and two total radial endpoints contain O '
-                                        'in their convex hull.'},
+                              'detail': 'A boundary point and two total radial endpoints contain O in '
+                                        'their convex hull.'},
  'lem:fixed-total-radial-forcing': {'cases': ['B/C, arbitrary V types'],
-                                    'detail': 'Fixed actual total endpoints and '
-                                              'maximum-to-own-demand recovery.'},
+                                    'detail': 'Fixed actual total endpoints and maximum-to-own-demand '
+                                              'recovery.'},
  'lem:gap-exhaustion': {'cases': ['N_gap=0', 'N_gap=1', 'N_gap=2'],
                         'detail': 'Relates actual open boundary traces to the complete gap split, '
                                   'including singleton gaps.'},
+ 'lem:midpoint-supplier': {'cases': ['Nonzero gaps after N0 and skeleton count'],
+                           'detail': 'One supercritical role and at most one positive-support supplier; '
+                                     'shared CE1/CE2 placement proof.'},
  'lem:new-one-third-radial-envelope': {'cases': ['Retained adjacent-Vd alternative'],
-                                       'detail': 'Not an active B/C dependency; preserves the '
-                                                 'former quantitative estimate.'},
+                                       'detail': 'Not an active B/C dependency; preserves the former '
+                                                 'quantitative estimate.'},
  'lem:new-rescuer-tail-budget': {'cases': ['D adapter, either gap rank'],
-                                 'detail': 'Endpoint ratio and ordinary-path monotonicity force '
-                                           'the four-point set.'},
+                                 'detail': 'Endpoint ratio and ordinary-path monotonicity force the '
+                                           'four-point set.'},
  'lem:readable-k410-forced': {'cases': ['C: one-gap nonsupercritical path'],
-                              'detail': 'M_0, both actual gap endpoints and three fixed total '
-                                        'radial endpoints.'},
+                              'detail': 'M_0, both actual gap endpoints and three fixed total radial '
+                                        'endpoints.'},
  'lem:symmetric-core-witness': {'cases': ['Row F'],
-                                'detail': 'Common c_max/C_+/C_- domination forces the same six '
-                                          'radial points for arbitrary V types.'},
- 'prop:area-branches': {'cases': ['Alternative: zero gap, unique supercritical and T3-like',
-                                  'R2: zero gap, N_+>=2'],
-                        'detail': 'The multiple-ascent route and the retained one-ascent T3-like '
-                                  'alternative.'},
+                                'detail': 'Common c_max/C_+/C_- domination forces the same six radial '
+                                          'points for arbitrary V types.'},
+ 'lem:two-vertex-replacement': {'cases': ['Center-free adjacent pair with four scalar inequalities'],
+                                'detail': 'Two separate vertex charts and five strict preservation '
+                                          'margins; skeleton only.'},
+ 'prop:area-branches': {'cases': ['R2: zero gap, N_+>=2'],
+                        'detail': 'Only the unconditional square loss and multiple-ascent cyclic sum '
+                                  'are active.'},
  'prop:ce-classification': {'cases': ['CE0', 'CE1', 'CE2'],
                             'detail': 'Classifies the C triangle by the number of positive '
                                       'boundary-edge traces.'},
- 'prop:exhaustive-structural-reduction': {'cases': ['Every row R0-R11'],
-                                          'detail': 'The unique routing assignment for a '
-                                                    'hypothetical cover.'},
- 'prop:finite-enclosure-nonzero-gap-branches': {'cases': ['Every nonzero-gap row assigned to '
-                                                          'finite enclosure'],
-                                                'detail': 'Canonical nonzero-gap assembly after '
-                                                          'the exact case register.'},
- 'prop:length-branches': {'cases': ['R0: N_gap=0, N_+=0',
-                                    'Alternative: zero-gap N_+=1 with Vd1/Vd2',
-                                    'R3/R4 high skeleton count',
-                                    'R6 and R10 Vd length rows',
-                                    'Vd2 neighboring-midpoint hybrid'],
-                          'detail': 'Collects every row closed by perimeter or skeleton length.'},
+ 'prop:exhaustive-structural-reduction': {'cases': ['Every row R0-R5'],
+                                          'detail': 'Actual gaps and counts give six disjoint routes; '
+                                                    'the last uses a midpoint supplier.'},
+ 'prop:finite-enclosure-nonzero-gap-branches': {'cases': ['Every nonzero-gap row assigned to finite '
+                                                          'enclosure'],
+                                                'detail': 'Canonical nonzero-gap assembly after the '
+                                                          'exact case register.'},
+ 'prop:length-branches': {'cases': ['R0 strict overlap',
+                                    'R4 high counts',
+                                    'Vd2 rescuer',
+                                    'Retained alternative perimeter rows'],
+                          'detail': 'The count and Vd2 exits are active; other perimeter corollaries '
+                                    'remain alternatives.'},
  'prop:new-disk-finite-caliper': {'cases': ['A centered disk plus finitely many forced points'],
                                   'detail': 'A minimizing side has a point--point contact, a '
                                             'point--disk tangent contact, or a disk-only support '
@@ -288,55 +294,55 @@ CASE_META = {'cor:expanded-closed': {'cases': ['Every L>1 in the scaled closed f
                                 'detail': 'Six fixed points; CE1 own-demand recovery precedes the '
                                           'conditional return.'},
  'prop:new-nplus-zero-gap-closures': {'cases': ['N0: every skeleton cover'],
-                                      'detail': 'A skeleton cover must have an actual '
-                                                'supercritical V triangle; internal gap ranks '
-                                                '0/1/2.'},
- 'prop:new-one-t3-terminal': {'cases': ['R9 / row D_T'],
-                              'detail': 'The T3-like supported-tail terminal for both nonzero gap '
-                                        'ranks.'},
- 'prop:new-one-vd-assembly': {'cases': ['CE2 one-Vd placement'],
-                              'detail': 'Center-aligned roles use B/C, center-based Vd1 rescue '
-                                        'uses D, away Vd1 pair uses replacement then N0.'},
+                                      'detail': 'Zero gaps by strict overlaps; nonzero gaps by the '
+                                                'center-aligned B/C theorem. A is not a dependency.'},
+ 'prop:new-one-t3-terminal': {'cases': ['R5; center-aligned or center-based T3-like supplier'],
+                              'detail': 'Center-aligned B/C or the common D adapter.'},
+ 'prop:new-one-vd-assembly': {'cases': ['R5; CE1/CE2 one-Vd supplier'],
+                              'detail': 'B/C, center-based D, away replacement then N0, or Vd2 '
+                                        'perimeter exit.'},
  'prop:readable-k410-ce1': {'cases': ['Row C, CE1'],
-                            'detail': 'The reverse-path certificate contradicts the common '
-                                      'terminal upper bound at T_0.'},
+                            'detail': 'The reverse-path certificate contradicts the common terminal '
+                                      'upper bound at T_0.'},
  'prop:readable-k410-ce2': {'cases': ['Row C, CE2'],
-                            'detail': 'A T_4/T_2 high-radial threshold dichotomy contradicts the '
-                                      'same upper bound.'},
+                            'detail': 'A T_4/T_2 high-radial threshold dichotomy contradicts the same '
+                                      'upper bound.'},
  'prop:reader-ab-core-branches': {'cases': ['R1: zero gap, N_+=1, arbitrary V types'],
-                                  'detail': 'Routes the entire zero-gap N_+=1 row through the '
-                                            'common radial-capacity engine and unchanged '
-                                            'nine-point certificate.'},
+                                  'detail': 'Routes the entire zero-gap N_+=1 row through the common '
+                                            'radial-capacity engine and unchanged nine-point '
+                                            'certificate.'},
  'prop:technical-four-contact-geometry': {'cases': ['Row F, c_*>2/3'],
                                           'detail': 'Proves the convex chain, ray order, and two '
                                                     'analytic supporting-line bounds.'},
  'prop:vertex-classification': {'cases': ['Vd0', 'Vd1', 'Vd2', 'T3-like'],
                                 'detail': 'The normalized exhaustive V-role classification.'},
+ 'thm:center-aligned-path': {'cases': ['Nonzero gaps; all V roles except the center-index role '
+                                       'nonsupercritical'],
+                             'detail': 'B with two gaps, C with one gap; no supercriticality assumption '
+                                       'at the center-index role.'},
  'thm:fixed-four-point-rescuer': {'cases': ['D: T3-like or Vd1 rescuer, both gap ranks'],
                                   'detail': 'One geometric four-point enclosure; no center-hiding '
                                             'budget is the terminal.'},
- 'thm:main': {'cases': ['All routing rows R0-R11'],
-              'detail': 'The trace-length, area-loss, and finite-enclosure arguments dispatch '
-                        'every routing row.'},
+ 'thm:main': {'cases': ['All routing rows R0-R5'],
+              'detail': 'N0; zero-gap F/area; nonzero-gap midpoint supplier.'},
  'thm:new-ce2-short-ray': {'cases': ['B: two gaps, five-role nonsupercritical path'],
-                           'detail': 'Four fixed points; compare candidate-dependent capacities '
-                                     'without moving the witnesses.'},
- 'thm:new-complementary-gap': {'cases': ['A: one gap, N_+=0, arbitrary V types'],
-                               'detail': 'Seven finite points; disk radius h(1-c_A) and farther '
-                                         'actual gap endpoint.'},
+                           'detail': 'Four fixed points; compare candidate-dependent capacities without '
+                                     'moving the witnesses.'},
+ 'thm:new-complementary-gap': {'cases': ['Optional A: one gap and N_+=0'],
+                               'detail': 'Independent seven-point disk proof retained outside the '
+                                         'minimal dependency route.'},
  'thm:paper-exact-mixed-certificate': {'cases': ['Row F, c_*>2/3, paired disk-tangent residuals'],
                                        'detail': 'Exact integer/Bernstein certificate; no '
                                                  'floating-point or interval arithmetic.'},
  'thm:reader-witness-enclosure': {'cases': ['Row F: zero gap, N_+=1, arbitrary V types; any '
                                             'CE0/CE1/CE2'],
-                                  'detail': 'The exact nine-point witness set has enclosure number '
-                                            'at least one.'},
+                                  'detail': 'The exact nine-point witness set has enclosure number at '
+                                            'least one.'},
  'thm:reader-zero-gap-obstruction': {'cases': ['Row F / routing row R1'],
-                                     'detail': 'The nine forced points cannot be contained in the '
-                                               'open unit C triangle.'},
+                                     'detail': 'The nine forced points cannot be contained in the open '
+                                               'unit C triangle.'},
  'thm:strict-ab-union': {'cases': ['Row F: unique strict supercritical role'],
-                         'detail': 'Exact disk/half-plane description of the strict AB-union '
-                                   'frontier.'}}
+                         'detail': 'Exact disk/half-plane description of the strict AB-union frontier.'}}
 
 
 MANUAL_DEPS = {'cor:expanded-closed': ['thm:main', 'prop:open-closed-scaled'],
@@ -346,32 +352,39 @@ MANUAL_DEPS = {'cor:expanded-closed': ['thm:main', 'prop:open-closed-scaled'],
                                 'thm:common-skeleton-count',
                                 'lem:vd2-neighbor-midpoint-cap'],
  'lem:ab-extreme-jump': ['prop:strict-handoffs'],
+ 'lem:appendix-common-pair-domination': ['lem:direct-neighbor-diagonal'],
  'lem:area-wedge': ['lem:local-wedge'],
  'lem:asymmetric-core-witness': ['thm:strict-ab-union',
                                  'lem:fixed-line-signs',
                                  'lem:new-open-trace-endpoint'],
  'lem:center-skeleton-cap': ['prop:unique-center-midpoint', 'prop:signed-center-normal-form'],
- 'lem:cyclic-area-loss': ['thm:local-square-loss', 'thm:t3-direct-loss'],
+ 'lem:cyclic-area-loss': ['thm:local-square-loss'],
+ 'lem:direct-neighbor-diagonal': ['lem:support-cell-rotation'],
  'lem:fixed-line-signs': ['thm:strict-ab-union', 'lem:ab-extreme-jump'],
  'lem:fixed-origin-in-hull': [],
  'lem:fixed-total-radial-forcing': ['lem:appendix-fixed-total-endpoint',
                                     'lem:new-common-pair-domination'],
- 'lem:four-contact-formula': ['prop:new-disk-finite-caliper',
-                              'prop:technical-four-contact-geometry'],
+ 'lem:four-contact-formula': ['prop:new-disk-finite-caliper', 'prop:technical-four-contact-geometry'],
  'lem:gap-exhaustion': ['lem:distinct-roles', 'prop:ce-classification'],
- 'lem:new-common-pair-domination': ['prop:new-exact-local-set', 'prop:new-neighbor-ray-formula'],
+ 'lem:midpoint-supplier': ['prop:new-nplus-zero-gap-closures',
+                           'thm:common-skeleton-count',
+                           'lem:positive-support-rescuer',
+                           'lem:self-midpoint',
+                           'prop:vertex-classification',
+                           'prop:signed-center-normal-form'],
+ 'lem:new-common-pair-domination': ['lem:appendix-common-pair-domination'],
  'lem:new-compact-open-shrink': ['prop:new-enclosure-gauge'],
  'lem:new-direct-threshold': ['prop:new-exact-local-set', 'prop:new-four-direct-outputs'],
  'lem:new-disk-point-formula': ['prop:new-disk-finite-caliper'],
  'lem:new-one-third-radial-envelope': ['prop:new-exact-local-set'],
- 'lem:new-rescuer-tail-budget': ['thm:fixed-four-point-rescuer', 'prop:new-exact-local-set'],
+ 'lem:new-rescuer-tail-budget': ['thm:fixed-four-point-rescuer',
+                                 'prop:new-exact-local-set',
+                                 'lem:boundary-deficit-identities'],
  'lem:new-selected-chords': ['prop:new-exact-local-set', 'prop:new-four-direct-outputs'],
  'lem:new-two-gap-common-pair-adapter': ['lem:fixed-origin-in-hull',
                                          'lem:new-common-pair-domination',
                                          'prop:signed-center-normal-form'],
- 'lem:new-type-aware-radial-forcing': ['prop:new-exact-local-set',
-                                       'prop:new-neighbor-ray-formula',
-                                       'lem:new-open-trace-endpoint'],
+ 'lem:new-type-aware-radial-forcing': ['lem:fixed-total-radial-forcing'],
  'lem:no-support-skeleton-cap': ['thm:boundary-trace-table'],
  'lem:paired-radius-transfer': [],
  'lem:paper-branchwise-cbar': ['prop:new-exact-local-set', 'lem:ab-extreme-jump'],
@@ -383,18 +396,23 @@ MANUAL_DEPS = {'cor:expanded-closed': ['thm:main', 'prop:open-closed-scaled'],
  'lem:readable-k410-forced': ['lem:fixed-total-radial-forcing',
                               'lem:gap-exhaustion',
                               'prop:unique-center-midpoint'],
- 'lem:readable-k410-upper-bound': ['prop:signed-center-normal-form',
-                                   'lem:signed-diameter-transfer'],
+ 'lem:readable-k410-upper-bound': ['prop:signed-center-normal-form', 'lem:signed-diameter-transfer'],
  'lem:signed-perimeter-deficit': ['thm:boundary-trace-table'],
  'lem:supercritical-skeleton-cap': ['prop:new-exact-local-set'],
+ 'lem:support-cell-rotation': ['prop:new-enclosure-gauge'],
  'lem:symmetric-core-witness': ['lem:ab-extreme-jump',
                                 'prop:new-exact-local-set',
                                 'cor:new-uniform-common-pair-forcing'],
  'lem:t3-nonsupercritical': ['prop:t3-translation'],
  'lem:technical-newton-reduction': ['lem:fixed-line-signs', 'lem:asymmetric-core-witness'],
  'lem:vd2-neighbor-midpoint-cap': ['prop:vd-corner-normal-form'],
+ 'prop:appendix-vd1-two-chart-replacement': ['lem:two-vertex-replacement',
+                                             'lem:appendix-half-square-admissibility'],
  'prop:area-branches': ['prop:strict-handoffs', 'lem:cyclic-area-loss'],
  'prop:ce-classification': ['lem:distinct-roles'],
+ 'prop:ce2-vd2-midpoint-length': ['lem:vd2-neighbor-midpoint-cap',
+                                  'thm:boundary-trace-table',
+                                  'lem:open-cover-budget'],
  'prop:exhaustive-structural-reduction': ['prop:ce-classification',
                                           'prop:vertex-classification',
                                           'lem:gap-exhaustion',
@@ -407,36 +425,34 @@ MANUAL_DEPS = {'cor:expanded-closed': ['thm:main', 'prop:open-closed-scaled'],
  'prop:new-ce1-direct-certificate': ['prop:signed-center-normal-form',
                                      'lem:new-selected-chords',
                                      'lem:new-direct-threshold'],
- 'prop:new-disk-finite-caliper': ['prop:new-enclosure-gauge'],
+ 'prop:new-disk-finite-caliper': ['lem:support-cell-rotation'],
  'prop:new-enclosure-gauge': [],
  'prop:new-exact-local-set': ['prop:new-enclosure-gauge'],
  'prop:new-four-direct-outputs': ['prop:new-exact-local-set'],
- 'prop:new-neighbor-ray-formula': ['prop:new-enclosure-gauge'],
  'prop:new-nplus-one-all-vd0': ['lem:readable-k410-forced',
                                 'prop:readable-k410-ce1',
                                 'prop:readable-k410-ce2',
                                 'lem:new-compact-open-shrink'],
  'prop:new-nplus-zero-gap-closures': ['lem:gap-exhaustion',
-                                      'thm:new-complementary-gap',
-                                      'thm:new-ce2-short-ray'],
- 'prop:new-one-t3-terminal': ['lem:appendix-t3-supported-tail',
-                              'thm:fixed-four-point-rescuer',
-                              'lem:self-midpoint'],
- 'prop:new-one-vd-assembly': ['prop:new-nplus-one-all-vd0',
-                              'thm:new-ce2-short-ray',
-                              'thm:fixed-four-point-rescuer',
+                                      'thm:center-aligned-path',
+                                      'lem:boundary-deficit-identities'],
+ 'prop:new-one-t3-terminal': ['lem:midpoint-supplier',
+                              'thm:center-aligned-path',
+                              'lem:appendix-t3-supported-tail',
+                              'lem:new-rescuer-tail-budget',
+                              'lem:fixed-total-radial-forcing'],
+ 'prop:new-one-vd-assembly': ['lem:midpoint-supplier',
+                              'thm:center-aligned-path',
                               'lem:appendix-vd1-supported-tail',
+                              'lem:new-rescuer-tail-budget',
                               'prop:appendix-vd1-two-chart-replacement',
-                              'prop:new-nplus-zero-gap-closures',
-                              'prop:ce2-vd2-midpoint-length',
-                              'prop:length-branches'],
+                              'prop:ce2-vd2-midpoint-length'],
  'prop:readable-k410-ce1': ['lem:appendix-fixed-transverse', 'prop:new-ce1-direct-certificate'],
  'prop:readable-k410-ce2': ['lem:appendix-fixed-transverse', 'lem:new-common-pair-domination'],
  'prop:reader-ab-core-branches': ['thm:reader-zero-gap-obstruction', 'lem:gap-exhaustion'],
  'prop:signed-center-normal-form': ['prop:ce-classification'],
  'prop:strict-handoffs': ['lem:gap-exhaustion'],
- 'prop:technical-four-contact-geometry': ['lem:technical-newton-reduction',
-                                          'prop:new-exact-local-set'],
+ 'prop:technical-four-contact-geometry': ['lem:technical-newton-reduction', 'prop:new-exact-local-set'],
  'prop:unique-center-midpoint': ['prop:signed-center-normal-form'],
  'prop:vd-corner-normal-form': ['prop:vertex-classification'],
  'prop:vd0-exact-trace-normalization': ['lem:local-wedge'],
@@ -444,6 +460,9 @@ MANUAL_DEPS = {'cor:expanded-closed': ['thm:main', 'prop:open-closed-scaled'],
  'thm:boundary-trace-table': ['cor:signed-center-boundary',
                               'prop:vd-corner-normal-form',
                               'lem:t3-nonsupercritical'],
+ 'thm:center-aligned-path': ['thm:new-ce2-short-ray',
+                             'prop:new-nplus-one-all-vd0',
+                             'prop:signed-center-normal-form'],
  'thm:common-skeleton-count': ['lem:center-skeleton-cap',
                                'lem:positive-support-skeleton-cap',
                                'lem:no-support-skeleton-cap',
@@ -451,11 +470,14 @@ MANUAL_DEPS = {'cor:expanded-closed': ['thm:main', 'prop:open-closed-scaled'],
  'thm:fixed-four-point-rescuer': ['lem:appendix-fixed-four-point'],
  'thm:local-square-loss': ['lem:area-wedge'],
  'thm:main': ['prop:exhaustive-structural-reduction',
-              'prop:length-branches',
+              'prop:new-nplus-zero-gap-closures',
               'prop:area-branches',
-              'prop:finite-enclosure-nonzero-gap-branches',
+              'thm:reader-zero-gap-obstruction',
+              'lem:midpoint-supplier',
+              'thm:center-aligned-path',
+              'prop:new-one-t3-terminal',
               'prop:new-one-vd-assembly',
-              'prop:reader-ab-core-branches'],
+              'prop:ce2-vd2-midpoint-length'],
  'thm:new-ce2-short-ray': ['lem:new-two-gap-common-pair-adapter',
                            'lem:appendix-fixed-two-gap',
                            'lem:fixed-total-radial-forcing'],
@@ -463,8 +485,7 @@ MANUAL_DEPS = {'cor:expanded-closed': ['thm:main', 'prop:open-closed-scaled'],
                                'cor:new-uniform-common-pair-forcing',
                                'lem:new-disk-point-formula',
                                'lem:appendix-complementary-gap'],
- 'thm:paper-exact-mixed-certificate': ['lem:paper-branchwise-cbar',
-                                       'lem:paper-residual-to-tangency'],
+ 'thm:paper-exact-mixed-certificate': ['lem:paper-branchwise-cbar', 'lem:paper-residual-to-tangency'],
  'thm:reader-witness-enclosure': ['lem:symmetric-core-witness',
                                   'lem:asymmetric-core-witness',
                                   'lem:technical-newton-reduction',
@@ -472,8 +493,7 @@ MANUAL_DEPS = {'cor:expanded-closed': ['thm:main', 'prop:open-closed-scaled'],
                                   'lem:four-contact-formula',
                                   'thm:paper-exact-mixed-certificate'],
  'thm:reader-zero-gap-obstruction': ['thm:reader-witness-enclosure', 'lem:new-compact-open-shrink'],
- 'thm:strict-ab-union': ['thm:cert-caliper', 'lem:ab-extreme-jump'],
- 'thm:t3-direct-loss': ['lem:t3-nonsupercritical', 'prop:t3-translation']}
+ 'thm:strict-ab-union': ['thm:cert-caliper', 'lem:ab-extreme-jump']}
 
 # These appendix references identify the body interface supplied by the
 # calculation; they point to a consumer rather than a logical prerequisite.
@@ -481,74 +501,44 @@ MANUAL_DEPS = {'cor:expanded-closed': ['thm:main', 'prop:open-closed-scaled'],
 # those equation citations require the same treatment.
 CONSUMER_BACKLINKS = {('lem:app-center-edge-separation', 'prop:ce-classification'),
  ('lem:app-open-closed-shrinking', 'prop:open-closed-scaled'),
+ ('lem:appendix-common-pair-domination', 'lem:new-common-pair-domination'),
  ('lem:appendix-fixed-four-point', 'thm:fixed-four-point-rescuer'),
  ('lem:appendix-fixed-total-endpoint', 'lem:fixed-total-radial-forcing'),
  ('lem:appendix-fixed-transverse', 'prop:new-nplus-one-all-vd0'),
  ('lem:appendix-fixed-two-gap', 'thm:new-ce2-short-ray'),
  ('lem:appendix-local-square-loss', 'thm:local-square-loss'),
  ('lem:appendix-one-gap-common-pair-adapter', 'lem:new-one-gap-common-pair-adapter'),
- ('lem:appendix-t3-loss', 'thm:t3-direct-loss'),
  ('lem:appendix-t3-supported-tail', 'prop:new-one-t3-terminal'),
  ('lem:appendix-two-gap-common-pair-adapter', 'lem:new-two-gap-common-pair-adapter'),
  ('prop:appendix-vd1-two-chart-replacement', 'prop:new-one-vd-assembly')}
 
 
-ROUTING_ROWS = [['R0', '0', '0', 'all', 'all', ['prop:length-branches'], 'boundary overlap/length'],
- ['R1',
+ROUTING_ROWS = [['R0', '0', '0', 'arbitrary V types', 'all', ['prop:length-branches'], 'strict boundary overlap'],
+ ['R1', '0', '1', 'arbitrary V types', 'all', ['prop:reader-ab-core-branches'], 'nine-point F'],
+ ['R2', '0', '>=2', 'arbitrary V types', 'all', ['prop:area-branches'], 'cyclic area loss'],
+ ['R3',
+  '>=1',
   '0',
-  '1',
-  'arbitrary normalized V types',
-  'CE0/CE1/CE2',
-  ['prop:reader-ab-core-branches'],
-  'type-independent nine-point enclosure'],
- ['R2', '0', '>=2', 'all', 'all', ['prop:area-branches'], 'cyclic area loss'],
- ['R3', '>=1', '>=2', 'all', 'CE1/CE2', ['prop:length-branches'], 'positive-support rescuer'],
- ['R4', '>=1', '0 or 1', 'N_+ + d + t >=3', 'CE1/CE2', ['prop:length-branches'], 'skeleton count'],
+  'arbitrary V types',
+  'CE1/CE2',
+  ['prop:new-nplus-zero-gap-closures'],
+  'N0 through B/C'],
+ ['R4',
+  '>=1',
+  '>=1',
+  'N_+>=2 or N_+ + N_sp>=3',
+  'CE1/CE2',
+  ['cor:signed-budget-branches'],
+  'skeleton budget'],
  ['R5',
   '>=1',
-  '0',
-  '(d,t)=(0,0)',
-  'CE1/CE2',
-  ['prop:new-nplus-zero-gap-closures'],
-  'type-independent N0, internally A/B'],
- ['R6', '>=1', '0', 'd>=1, d+t<=2', 'CE1/CE2', ['prop:length-branches'], 'Vd deficit'],
- ['R7',
-  '>=1',
-  '0',
-  'd=0, t=1 or 2',
-  'CE1/CE2',
-  ['prop:new-nplus-zero-gap-closures'],
-  'type-independent N0, internally A/B'],
- ['R8',
-  '>=1',
   '1',
-  '(d,t)=(0,0)',
+  'N_sp<=1',
   'CE1/CE2',
-  ['prop:new-nplus-one-all-vd0', 'thm:new-ce2-short-ray'],
-  'fixed six-point C / four-point B'],
- ['R9',
-  '>=1',
-  '1',
-  '(d,t)=(0,1)',
-  'CE1/CE2',
-  ['prop:new-one-t3-terminal'],
-  'fixed four-point rescuer D'],
- ['R10', '>=1', '1', '(d,t)=(1,0)', 'CE1', ['prop:length-branches'], 'CE1 length exit'],
- ['R11',
-  '>=1',
-  '1',
-  '(d,t)=(1,0)',
-  'CE2',
-  ['prop:new-one-vd-assembly'],
-  'B/C or D or replacement then N0; Vd2 length exit']]
+  ['prop:finite-enclosure-nonzero-gap-branches'],
+  'midpoint supplier: B/C, D, replacement or Vd2 length']]
 
-FINITE_ROWS = [{'case': 'N_gap=1; N_+=0; arbitrary V types',
-  'closer': 'thm:new-complementary-gap',
-  'figures': [],
-  'forced': 'six common radial points and farther gap endpoint; disk radius h(1-c_A)',
-  'id': 'A',
-  'name': 'Seven-point complementary gap'},
- {'case': 'N_gap=2; T_1,...,T_5 nonsupercritical',
+FINITE_ROWS = [{'case': 'N_gap=2; T_1,...,T_5 nonsupercritical',
   'closer': 'thm:new-ce2-short-ray',
   'figures': [],
   'forced': 'X_5(B_5), X_0(1-A_1), P_hat_2, P_hat_4; no disk',
@@ -560,30 +550,18 @@ FINITE_ROWS = [{'case': 'N_gap=1; N_+=0; arbitrary V types',
   'forced': 'M_0, both gap endpoints, P_hat_2,P_hat_3,P_hat_4; no disk',
   'id': 'C',
   'name': 'Six-point transverse path'},
- {'case': 'center-based T3-like rescue; either gap rank',
-  'closer': 'prop:new-one-t3-terminal',
+ {'case': 'center-based T3-like or Vd1 supplier; CE1/CE2; either gap rank',
+  'closer': 'lem:new-rescuer-tail-budget',
   'figures': [],
   'forced': 'O, epsilon V_1, Y(A_0), Y(1-B_5); no disk',
-  'id': 'D_T',
-  'name': 'Four-point T3-like rescuer'},
- {'case': 'center-based Vd1 rescue; either gap rank',
-  'closer': 'thm:fixed-four-point-rescuer',
-  'figures': [],
-  'forced': 'the identical four-point recipe with the Vd1 endpoint formula',
-  'id': 'D_V',
-  'name': 'Four-point Vd1 rescuer'},
+  'id': 'D',
+  'name': 'Four-point supported rescuer'},
  {'case': 'N_gap=0; N_+=1; arbitrary V types',
   'closer': 'thm:reader-zero-gap-obstruction',
   'figures': ['zero_gap_original'],
   'forced': 'six common radial points and Q_-,Q_0,Q_+; disk radius h(1-c_F)',
   'id': 'F',
-  'name': 'Zero-gap nine-point obstruction'},
- {'case': 'CE2 away Vd1-supercritical pair',
-  'closer': 'prop:new-one-vd-assembly',
-  'figures': [],
-  'forced': 'skeleton preserved with all actual boundary sums at most one',
-  'id': 'R',
-  'name': 'Two-chart replacement then N0'}]
+  'name': 'Zero-gap nine-point obstruction'}]
 
 
 def data_uri(path: Path) -> str:
@@ -788,6 +766,29 @@ for zero_id in {
         }
     )
 
+
+add_proof_ref(
+    {"lem:direct-neighbor-diagonal", "lem:new-common-pair-domination", "lem:appendix-common-pair-domination"},
+    "2008b direct neighboring domination",
+    "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2008b_direct_neighbor_domination.md",
+)
+add_proof_ref(
+    {"thm:center-aligned-path", "prop:new-nplus-zero-gap-closures", "lem:fixed-total-radial-forcing", "lem:boundary-deficit-identities", "lem:rescuer-ratio-test"},
+    "2612 fixed frontiers, B/C, D and N0",
+    "proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2612_fixed_witness_unification.md",
+)
+add_proof_ref(
+    {"lem:midpoint-supplier"}, "2613 unique midpoint supplier",
+    "proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2613_midpoint_supplier_reduction.md",
+)
+add_proof_ref(
+    {"lem:two-vertex-replacement"}, "2614 scalar replacement",
+    "proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2614_two_vertex_replacement.md",
+)
+add_proof_ref(
+    {"lem:open-cover-budget"}, "2532 connected open-cover budget",
+    "proof/2XXX_geometric_lemmas/25XX_length_bounds/2532_open_cover_budget.md",
+)
 
 def build_data() -> dict[str, Any]:
     sources = active_sources()
