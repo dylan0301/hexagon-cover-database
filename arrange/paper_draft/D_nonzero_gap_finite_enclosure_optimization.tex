@@ -5,6 +5,7 @@ This appendix solves the point, radial, disk, and interval calculations used
 by the nonzero-gap rows of \zcref{tab:finite-enclosure-subcases}.  The
 geometric witnesses and their case predicates remain in the body.
 
+\input{fixed_witness/optional_B}
 \input{fixed_witness/D_fixed_witness_extensions}
 
 \subsection{Exact gap endpoints}
@@ -795,10 +796,11 @@ placement proof.
 
 \label{subsec:new-ce1-direct-certificate}
 
-The CE1 part of the seven-point enclosure theorem uses five boundary
-handoffs and the three transverse radial reaches at $T_4,T_3,T_2$.
+The CE1 part of BC uses a boundary tail floor at $T_4$, three middle
+handoffs, and the transverse radial reaches at $T_4,T_3,T_2$. The old
+five-handoff return is a corollary, not an input to BC.
 
-\begin{proposition}[CE1 three-transverse return certificate]
+\begin{proposition}[CE1 tail-input three-transverse obstruction]
 \label{prop:new-ce1-direct-certificate}
 Use the signed CE1 center variables
 \[
@@ -830,16 +832,11 @@ Put
  \qquad h_0=\frac{\eta+A+D}{2R}.
  \label{eq:ce1-auxiliary-parameters}
 \end{equation}
-Let $T_0$ be a V triangle and let $T_1,\ldots,T_5$ be
-nonsupercritical V triangles of arbitrary types. All reaches below are
-actual reaches. No supercriticality hypothesis on $T_0$ is used in this
-local return implication. Assume
+Let $T_1,\ldots,T_4$ be nonsupercritical V triangles of arbitrary types.
+All reaches below are actual. Assume
 \[
- A_1\ge X,
-\]
-\[
- B_i+A_{i+1}\ge1\quad(1\le i\le4),
- \qquad B_5+A_0\ge1,
+ A_1\ge X,\qquad B_i+A_{i+1}\ge1\quad(1\le i\le3),
+ \qquad B_4\ge h_0,
 \]
 and
 \begin{equation}
@@ -848,11 +845,8 @@ and
  \qquad C_2\ge1-D.
  \label{eq:ce1-radial-hypotheses}
 \end{equation}
-Then
-\begin{equation}
- \boxed{A_0>1-h_0.}
- \label{eq:ce1-return-bound}
-\end{equation}
+These hypotheses are incompatible. Neither a fifth handoff nor a bound
+on $A_0$ is part of this local statement.
 \end{proposition}
 
 \input{figures/finite_enclosure/fe07_ce1_reverse_path}
@@ -890,17 +884,14 @@ The selected-root bound
 \]
 when $R>1/2$, use $A<P=\eta E$ for the last sign.
 
-Suppose, contrary to \zcref{eq:ce1-return-bound}, that
+Start directly from the supplied tail floor
 \begin{equation}
- A_0\le1-h_0.
- \label{eq:ce1-return-negation}
-\end{equation}
-The assumed final handoff gives $B_5\ge h_0$.
-Nonsupercriticality of $T_5$ and the handoff $B_4+A_5\ge1$ imply
-\begin{equation}
- \boxed{B_4\ge B_5\ge h_0.}
+ \boxed{B_4\ge h_0.}
  \label{eq:ce1-b4-floor}
 \end{equation}
+The first step below uses only this floor, the boundary handoffs, and the
+radial hypothesis at $T_4$, so it remains available before recovering the
+third radial demand.
 
 The assumed transverse radial reach at $T_4$ is at least $1-A$.  Apply the
 exact local catalogue to the reflected boundary pair $(B_4,A_4)$.  If the
@@ -1121,8 +1112,29 @@ Coverage of $e_{1,2}$ therefore forces
 \[
  B_1\ge1-A_2\ge1-\epsilon(D)>1-X,
 \]
-contradicting $A_1\ge X$ and $A_1+B_1\le1$.  Hence
-\zcref{eq:ce1-return-negation} is impossible.
+contradicting $A_1\ge X$ and $A_1+B_1\le1$. Thus the tail-input
+boundary and radial hypotheses are incompatible.
+\end{proof}
+
+\begin{corollary}[Retained five-handoff return]
+\label{cor:ce1-five-handoff-return}
+Under the same signed CE1 domain, let $T_0$ be a V triangle and let
+$T_1,\ldots,T_5$ be nonsupercritical. Assume $A_1\ge X$,
+$B_i+A_{i+1}\ge1$ for $1\le i\le4$, $B_5+A_0\ge1$, and all three
+radial hypotheses of \zcref{eq:ce1-radial-hypotheses}. Then
+\begin{equation}
+ \boxed{A_0>1-h_0.}\label{eq:ce1-return-bound}
+\end{equation}
+\end{corollary}
+\begin{proof}
+Otherwise
+\begin{equation}
+ A_0\le1-h_0.\label{eq:ce1-return-negation}
+\end{equation}
+The final handoff gives $B_5\ge h_0$. Nonsupercriticality of $T_5$
+and the preceding handoff imply $B_4\ge B_5\ge h_0$, so
+\zcref{prop:new-ce1-direct-certificate} gives a contradiction. Only
+this optional corollary retains the fifth handoff.
 \end{proof}
 
 \subsection{Transverse seven-point calculation}
@@ -1134,7 +1146,7 @@ $P_i=(1-C_i)V_i$, and
  K_{\rm tr}=\{O,M_0,X_0(\ell),X_0(r),P_2,P_3,P_4\}.
 \]
 These auxiliary own endpoints are distinct from the total endpoints
-$\widehat P_i$ of the active B/C theorems. Their Vd0-specific forcing is
+$\widehat P_i$ of the active BC theorem. Their Vd0-specific forcing is
 retained only for that specialization; the conditional local return below
 uses no V-type assumption once its own-radial demands are supplied.
 

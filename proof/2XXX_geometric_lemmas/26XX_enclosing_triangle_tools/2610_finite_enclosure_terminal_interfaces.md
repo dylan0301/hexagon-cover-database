@@ -63,9 +63,9 @@ $$
 Theorem 3.1 of `2612` proves $K_A\subset U_C$ under skeleton coverage and
 $\Lambda(K_A)\ge1$, for arbitrary V types. The disk is contained in the
 hull of the six radial points; it is not an independent set of pointwise
-V-excluded witnesses. This independent alternative is retained for geometric intuition; N0 uses B/C.
+V-excluded witnesses. This independent alternative is retained for geometric intuition; N0 uses BC, not A or B.
 
-## 3. B: two-gap path, at most four points
+## 3. Optional B: two-gap path, at most four points
 
 Suppose the only gaps are on $e_{5,0},e_{0,1}$ and
 $A_i+B_i\le1$ for $1\le i\le5$. Use
@@ -79,25 +79,31 @@ $K_B\subset U_C$. The origin is implicit in the convex hull, and no disk
 is used. This includes $N_+=0$ and $N_+=1$ with supercritical $T_0$,
 without a V-type split on the five-role path.
 
-## 4. C: one-gap path, at most six points
+## 4. BC: one selected incident gap, at most six points
 
-Suppose the only gap is $J_0$ and $A_i+B_i\le1$ for $1\le i\le5$. Use
+Suppose $J_0$ is an actual gap, $T_1,\ldots,T_5$ are nonsupercritical,
+and the four middle edges $e_{1,2},\ldots,e_{4,5}$ are gap-free. Set
 
 $$
-K_C=\{M_0,X_0(B_0),X_0(1-A_1),
+K_{BC}=\{M_0,X_0(B_0),X_0(1-A_1),
 \widehat P_2,\widehat P_3,\widehat P_4\}.
 $$
 
-Theorem 5.1 of `2612` proves $\Lambda(K_C)\ge1$. Under skeleton coverage
-with distinguished C midpoint $M_0$, this set lies in $U_C$. No disk or
-separate own-ray endpoints are used. The theorem does not require $T_0$ to
-be supercritical. Its proof keeps the CE1 selected-branch conditions from
-[`4102`](../../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0_new/4102_new_CE1_direct_radial_certificate.md)
-and recovers the three own demands before invoking the full return.
+The pure enclosure theorem `2612`, Theorem 5.1, assumes explicitly
+$B_5\ge B_0/2$ and proves $\Lambda(K_{BC})\ge1$. Original perimeter
+coverage supplies the stronger $B_5>1-M_0(B_0)>B_0/2$ by
+[`2018b`](../20XX_V_triangle_geometry/2018b_shared_gap_anchor_transfer.md).
+Under skeleton coverage with distinguished C midpoint $M_0$, the same
+fixed set lies in $U_C$. No disk is used. With two gaps either gap may
+be selected and reflected to $J_0$; no boundary point from the other gap
+is placed in the witness set.
 
-Both the adjacent and nonadjacent one-Vd placements with supercritical
-$T_0$ now use C with one gap and B with two gaps. The old residual-separation
-estimates are retained as alternatives, not active E families.
+The tail floor replaces the fifth handoff in the old C proof. The CE1
+first-step and full-return interfaces in `4102` now take $B_4\ge Q$
+directly; all selected-branch conditions and own-demand recovery remain.
+CE2 uses the transverse thresholds of `2612`, not the separate optional
+B short-ray theorem. Nonsupercritical V types do not split the construction.
+The name $K_C$ remains a compatibility alias for this six-point set.
 
 ## 5. D: supported rescuer, at most four points
 
@@ -162,22 +168,22 @@ The four-contact caliper theorem `2611` is distinct from D's four-point lemma.
 
 Theorem 7.1 of `2612` states that a skeleton cover has $N_+\ge1$.
 Its proof treats zero gaps by strict boundary overlap and nonzero gaps by
-the center-aligned B/C theorem, Theorem 7.0 of `2612`. It does not restrict the nonsupercritical V types.
+the center-aligned BC theorem, Theorem 7.0 of `2612`. It does not restrict the nonsupercritical V types.
 
 The two-chart Vd1 replacement
 [`4144_new`](../../4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4144_new_two_chart_replacement_and_router.md)
 keeps the original C triangle fixed, preserves the skeleton, and produces
 six nonsupercritical V roles. It therefore ends directly by N0. Input and
-output gap ranks are not identified; the gap split is internal to N0.
+output gap ranks are not identified; N0 handles any resulting gap rank with its unified selected-gap route.
 Replacement is not an additional enclosure theorem for the original set.
 
 ## 8. One midpoint-supplier assembly
 
-The four active finite-witness families are B, C, D, and F. A is an
-independent optional proof. For every nonzero-gap skeleton cover,
+The three active finite-witness families are BC, D, and F. A and B are
+independent optional proofs. For every nonzero-gap skeleton cover,
 [`2613`](2613_midpoint_supplier_reduction.md) first leaves $N_+=1$ and
 $N_{\rm sp}\le1$. If the supercritical role
-is at the C midpoint, Theorem 7.0 of `2612` applies B/C. Otherwise its
+is at the C midpoint, Theorem 7.0 of `2612` applies BC. Otherwise its
 midpoint has one adjacent positive-support supplier:
 
 | Supplier | Local input and ending |
@@ -190,7 +196,7 @@ midpoint has one adjacent positive-support supplier:
 The new scalar replacement is
 [`2614`](2614_two_vertex_replacement.md). Its two vertex charts, template
 split, and all five strict preservation margins are explicit. The
-CE1 three-transverse return, the CE2 short-ray estimate, the separate
+CE1 three-transverse return, the CE2 transverse thresholds, the separate
 rescuer chart inequalities, and the exact zero-gap certificate remain
 independent local responsibilities. The old one-Vd audit is a compatibility
 assembly, not a second placement proof. Length and area are still different

@@ -435,6 +435,15 @@ if result.returncode:
 else:
     print(result.stdout.strip())
 
+# Selected-gap BC: exact identities and preservation of the D source interfaces.
+bc_checker = ROOT / "proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/verify_bc_unification.py"
+result = subprocess.run([sys.executable, str(bc_checker)], cwd=ROOT,
+                        text=True, capture_output=True)
+if result.returncode:
+    fail(result.stdout + result.stderr)
+else:
+    print(result.stdout.strip())
+
 if ERRORS:
     print("proof/check.py: FAILED", file=sys.stderr)
     for error in ERRORS:

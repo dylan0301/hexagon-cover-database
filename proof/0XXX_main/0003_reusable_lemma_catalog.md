@@ -13,19 +13,20 @@ role uses the type-independent nine-point theorem and at least two use
 cyclic area loss. With a gap, the skeleton count and midpoint-supplier
 lemma leave one supercritical role and at most one positive-support role.
 The relative position of this role and its supplier, not the complete
-V-type pattern, selects B/C, D, replacement, or the Vd2 perimeter exit.
+V-type pattern, selects BC, D, replacement, or the Vd2 perimeter exit.
 
 ## Shared owners
 
 | Interface | Responsibility |
 |---|---|
 | `2008b` | direct sharp diagonal neighboring bound; full `2008` formula is optional |
+| `2018b` | shared-gap-anchor transfer; establishes the BC tail premise from perimeter coverage |
 | `2109` | signed CE1/CE2 geometry, midpoint, and radial exits |
 | `2400` | multiple-ascent cyclic area; T3-like one-ascent proof retained as an alternative |
 | `2530`, `2531` | geometric perimeter and skeleton budgets |
 | `2532` | strict connected open-cover budget for length or area |
 | `2607`, `2609`, `2611` | one support-cell rotation lemma; exposed contacts and paired radius transfer |
-| `2612` | actual/bounded frontier, boundary identities, B/C, D, and B/C-based N0 |
+| `2612` | actual/bounded frontier, boundary identities, BC, D, and BC-based N0 |
 | `2613` | unique midpoint supplier and center-free away edge, CE1/CE2 |
 | `2614` | two-vertex scalar replacement, separate charts, five strict margins |
 | `4102` | conditional CE1 return; first step precedes third-demand recovery |
@@ -33,10 +34,11 @@ V-type pattern, selects B/C, D, replacement, or the Vd2 perimeter exit.
 | `4144_new` | Vd1 scalar inputs to `2614`, then N0 |
 | `31050`--`31059` | unchanged asymmetric witnesses and exact zero-gap certificate |
 
-## Four active witness sets
+## Three active witness sets
 
-B has at most four points, C at most six, D at most four, and F at most
-nine. Only F uses a disk in the minimal route. A, with at most seven
+BC has at most six points, D at most four, and F at most nine.
+The same selected-gap BC set is used for one or two gaps. Optional B
+retains the former four-point refinement but is not a dependency of N0. Only F uses a disk in the minimal route. A, with at most seven
 points and a disk, remains an independent complementary-gap alternative.
 The actual total endpoints include every permitted neighboring trace;
 an own endpoint is not substituted for a total endpoint. Witness sets are

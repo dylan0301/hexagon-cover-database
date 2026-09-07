@@ -2,16 +2,12 @@
 
 Status: Proven
 
-This note isolates the CE1 return used by the simplified seven-point
-enclosure theorem.  It works directly with the actual boundary reaches on the
-backward path
-
-$$
-T_5,T_4,T_3,T_2,T_1
-$$
-
-and uses radial information only at $T_4,T_3,T_2$.  No radial hypothesis at
-$T_0,T_1,T_5$, formal iterate, or composed propagation map is used.
+This note isolates the CE1 tail-input return used by the unified six-point
+BC theorem. It works with actual reaches on $T_4,T_3,T_2,T_1$, a supplied
+boundary floor at $T_4$, and radial information only at $T_4,T_3,T_2$.
+The older five-handoff conclusion is retained as a corollary in Section 2b.
+No radial hypothesis at $T_0,T_1,T_5$, formal iterate, or composed
+propagation map is used.
 
 All local facts used below are derived from the exact finite-caliper
 admissible set [`2004`](../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2004_admissible_set.md).
@@ -116,62 +112,28 @@ $$
 \tag{5}
 $$
 
-## 2. Three-transverse return statement
+## 2. Tail-input three-transverse obstruction
 
-Let $T_0$ be a V triangle and let $T_1,\ldots,T_5$ be
-nonsupercritical V triangles of arbitrary types. No criticality assumption
-on $T_0$ is needed for this local implication. Assume that their actual
-reaches satisfy
+Let $T_1,\ldots,T_4$ be nonsupercritical V triangles of arbitrary types.
+Assume their actual reaches satisfy
 
 $$
-A_1\ge X,
+A_1\ge X,\qquad B_i+A_{i+1}\ge1\quad(1\le i\le3),\qquad B_4\ge h_0,
 $$
 
-$$
-B_i+A_{i+1}\ge1\quad(1\le i\le4),
-\qquad
-B_5+A_0\ge1,
-$$
-
-and only the three transverse radial lower bounds
+and the three transverse radial lower bounds
 
 $$
-C_4\ge1-A,
-\qquad
-C_3\ge1-m,
-\qquad
-C_2\ge1-D.
-\tag{6}
+C_4\ge1-A,\qquad C_3\ge1-m,\qquad C_2\ge1-D. \tag{6}
 $$
 
-Then
+These hypotheses are incompatible. Neither a role $T_0$, a role $T_5$,
+nor a handoff on $e_{5,0}$ is needed by this local statement.
+
+Start with the supplied tail floor
 
 $$
-\boxed{A_0>1-h_0}.
-$$
-
-Suppose, to the contrary, that
-
-$$
-A_0\le1-h_0.
-\tag{6a}
-$$
-
-The assumed final handoff gives $A_0+B_5\ge1$, so (6a) gives
-$B_5\ge h_0$.  Since $T_5$ is nonsupercritical and
-$B_4+A_5\ge1$,
-
-$$
-A_5+B_5\le1,
-\qquad
-B_4+A_5\ge1,
-$$
-
-so
-
-$$
-\boxed{B_4\ge B_5\ge h_0.}
-\tag{7}
+\boxed{B_4\ge h_0.} \tag{7}
 $$
 
 The assumed transverse radial demand at $T_4$ is at least $1-A$.  Apply the exact local finite-caliper catalogue of `2004` to the reflected boundary pair $(B_4,A_4)$.
@@ -265,17 +227,13 @@ $$
 
 contradicting $A_1\ge X$ and nonsupercriticality of $T_1$.
 
-Thus (6) is impossible.  Every configuration satisfying the displayed boundary and transverse radial hypotheses satisfies
+Thus the tail-input boundary and radial hypotheses are incompatible.
+All selected-component conditions used in the calculation remain required.
 
-$$
-\boxed{A_0>1-h_0.}
-\tag{12}
-$$
+## 2a. Tail-input first step (before the third radial demand)
 
-## 2a. First-step interface (before the third radial demand)
-
-Under the boundary and upper-squeeze assumptions of Section 2, the radial
-hypothesis at $T_4$ alone has the following consequence: either the
+Under the boundary hypotheses of Section 2, including $B_4\ge h_0$,
+the radial hypothesis at $T_4$ alone has this consequence: either the
 nonselected local branches immediately contradict $A_1\ge X$ and
 nonsupercriticality, or the selected branch gives
 
@@ -283,13 +241,24 @@ $$
 B_3>L_1,\qquad L_1=(2-4A)h_0-(1-4A)A.
 $$
 
-This is exactly the argument in Section 2 through equation (8). It uses
-neither the radial demand at $T_2$ nor the radial demand at $T_3$.
-All selected-component conditions of the retained proof still apply.
-The fixed-witness theorem uses this first step to recover its $T_2$ demand,
-and invokes the full three-transverse return only after all three demands
-have been established. The later bound $D<1/10$ is conditional on the
-surviving selected state, not a consequence of the bare CE1 signed domain.
+This is Section 2 through equation (8); it uses neither the radial demand
+at $T_2$ nor that at $T_3$. The BC theorem invokes this first step to
+recover the $T_2$ demand, and invokes the full obstruction only after all
+three demands have been recovered. The later $D<1/10$ is conditional on
+the surviving selected state, not on the bare CE1 signed domain.
+
+## 2b. Retained five-handoff return corollary
+
+Let $T_0$ be a V triangle, and $T_1,\ldots,T_5$ be nonsupercritical.
+Assume $A_1\ge X$, $B_i+A_{i+1}\ge1$ for $1\le i\le4$,
+$B_5+A_0\ge1$, and all three radial hypotheses (6). Then
+
+$$\boxed{A_0>1-h_0.} \tag{12}$$
+
+**Proof.** Otherwise $B_5\ge1-A_0\ge h_0$. Nonsupercriticality of
+$T_5$ and the handoff on $e_{4,5}$ give $B_4\ge B_5\ge h_0$.
+Section 2 now gives a contradiction. This corollary, but not the active
+BC theorem, retains the fifth boundary handoff. $\square$
 
 ## 3. Preliminary estimates
 
