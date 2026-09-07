@@ -304,3 +304,59 @@ python arrange/build.py --all
 
 Run the two exact zero-gap certificate programs whenever their source,
 provenance, or dependent theorem changes.
+
+### Verified delivery recovery: 2026-09-07
+
+The proof-compression delivery on
+`chatgpt/proof-compression-20260906142930` succeeded through native Git
+objects, without a shell push or a forced ref update. The successful proof
+commit is `bc8e3f7630bd2c0b4c35d8ac28386a567baba9dd`; its tree is
+`7d4f1f65b9fc5a5774f61a09181a673102b2cbb1`. These are historical recovery
+identifiers, not substitutes for refetching the current branch head.
+
+The previously successful validation run `34041379147` produced a 44-file
+manifest (42 source files plus the PDF and generated dependency graph).
+Transport run `34041756513` uploaded and refetched all 44 immutable blobs,
+but deliberately did not create the final tree, commit, or branch update.
+The missing operation was tree creation, not another complete blob upload.
+
+**Working recovery sequence.** Retrieve the validated artifact and its blob
+receipt; verify the archive and manifest digests and every file path, mode,
+size, Git blob SHA, and SHA-256. Remove stale delivery workflows and payloads
+before resuming publication. In this recovery, native tree creation removed
+all 13 transient files, and cleanup commit
+`2a9a56fa32849a601773834f330cd9b8445e396c` advanced the existing branch
+without changing any baseline proof file. Then call `create_tree` with the
+clean current tree as `base_tree_sha` and all 44 verified blob entries.
+GitHub returned the exact validated tree SHA above. Call `create_commit`
+with the current feature-branch head as parent, then call `update_ref` with
+`force: false`. Refetch the branch reference and compare the published tree
+and bytes, remove all temporary delivery files, and run final CI before
+reporting delivery. Documentation added after the proof commit requires its
+own child commit and verification of the new final head.
+
+**Failure warnings.**
+
+- `422 Tree SHA does not exist` means the requested tree object is not stored
+  in that repository. A locally computed tree hash or an artifact manifest
+  is not proof that the GitHub tree exists. Create the tree first. This error
+  does not establish that the blobs are missing; check the upload receipt
+  and actual Git objects before uploading them again.
+- A successful validation or blob-transport workflow is not a push. In this
+  incident the receipt explicitly recorded `git_refs_modified: false`.
+  Publication requires an advanced branch reference containing the intended
+  files, not just a green transport run or an ahead-of-main commit count.
+- Never parent the final commit at the original main SHA when the existing
+  feature branch has advanced through transport or cleanup commits. That
+  creates a sibling history rather than a fast-forward. Parent the current
+  feature-branch head; never force-update to hide the mistake.
+- A sandbox read failed with `[Errno -3] Temporary failure in name
+  resolution` during this recovery. This is a shell/network limitation,
+  not a failure of the connected GitHub identity. Native connector writes
+  and refetches succeeded; do not infer connector permissions from it.
+- For an added file, the empty-byte baseline digest is
+  `hashlib.sha256(b'').hexdigest()`, not an empty string. The earlier
+  temporary validator failed at this comparison and was corrected before
+  the successful validation run. Do not remove digest verification.
+- Keep the delivery record in `AGENTS.md`; do not create the misspelled
+  `AGNETS.md`. Preserve the safety rules and the mathematical checks above.
