@@ -24,7 +24,7 @@ $$\boxed{N_+=1,\qquad N_{\rm sp}\le1.}$$
 ## The midpoint-supplier lemma
 
 Write $\sigma$ for the unique supercritical index. If $\sigma=k$, the
-center-aligned B/C theorem in `2612`, Theorem 7.0, already gives a contradiction.
+center-aligned BC theorem in `2612`, Theorem 7.0, already gives a contradiction.
 Otherwise there is exactly one positive-support role $T_\tau$, and
 
 $$\tau\in\{\sigma-1,\sigma+1\},\qquad M_\sigma\in U_\tau.$$
@@ -47,7 +47,7 @@ Vd0, so the stated endpoint exclusions do not assume absent support silently.
 
 | Placement | Required local input |
 |---|---|
-| $\sigma=k$ | Center-aligned B/C theorem, arbitrary path types |
+| $\sigma=k$ | Center-aligned BC theorem, arbitrary path types |
 | $\sigma\ne k$, T3-like supplier | $\tau=k$ and the common D ratio interface |
 | $\sigma\ne k$, Vd1 supplier at $k$ | The same D ratio interface |
 | $\sigma,\tau\ne k$, Vd1 supplier | Two-vertex replacement, followed by N0 |
@@ -56,5 +56,6 @@ Vd0, so the stated endpoint exclusions do not assume absent support silently.
 For the away supplier, the shared edge $e_{\tau,\sigma}$ is not incident
 with $k$. Both possible positive C traces are incident with $k$, so that
 shared edge is center-free. This proves the replacement input in both CE1
-and CE2. The two center classes are not identified: B and the CE2 part of C
-use the CE2 domain, while the CE1 part of C retains its selected-branch return.
+and CE2. The two center classes are not identified: BC has one witness set and
+two internal sign-domain verifications, using the CE2 transverse thresholds
+and the CE1 tail-input selected return.

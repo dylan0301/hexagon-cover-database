@@ -1,0 +1,49 @@
+% Optional four-point refinement; not a dependency of the BC theorem or N0.
+\subsection{Optional B: the four-point two-gap refinement}
+
+The former B construction is stronger in point count, but is no longer
+needed by the active routing. Its separate short-ray calculation is retained
+for comparison. The active BC construction below takes both boundary
+points from one selected gap instead.
+
+\begin{lemma}[Two-gap common-pair adapter for a candidate]
+\label{lem:new-two-gap-common-pair-adapter}
+In the two-gap path configuration, let an open unit candidate $U'$ contain
+$X_5(B_5),X_0(1-A_1),\widehat P_2,\widehat P_4$. Then $O\in U'$ and the
+candidate is CE2 with common midpoint $M_0$. For its own signed variables
+put $p=W-\alpha$, $q=R-\delta$. In the two-gap path configuration,
+\[
+ A_i>q,\qquad B_i>p\qquad(1\le i\le5).
+\]
+Thus every own or permitted neighboring contribution on $r_2,r_4$ is at
+most $c_{\max}(p,q)$.
+\end{lemma}
+
+\begin{proof}
+Use \zcref{lem:fixed-origin-in-hull}. The two boundary anchors force positive
+traces on both adjacent edges, hence CE2. Their strict containment gives
+$B_5>p$, $A_1>q$. The four gap-free edges propagate these inequalities
+along the nonsupercritical path. Common-pair domination also bounds both
+possible neighboring contributions.
+\end{proof}
+
+\begin{theorem}[Four-point two-gap enclosure]
+\label{thm:new-ce2-short-ray}
+Suppose the actual gaps are on $e_{5,0},e_{0,1}$, the four middle edges
+are gap-free, and $T_1,\ldots,T_5$ are nonsupercritical. Then the fixed set
+\[
+ K_B:=\{X_5(B_5),X_0(1-A_1),\widehat P_2,\widehat P_4\}
+\]
+satisfies $\Lambda(K_B)\ge1$. Skeleton coverage forces $K_B\subset U_C$.
+There is no disk in this recipe.
+\end{theorem}
+
+\begin{proof}
+Forcing uses actual gap endpoints and total radial endpoints. For any
+candidate containing $K_B$, the preceding adapter and the signed CE2
+inequality $c_{\max}(p,q)<1-\min\{\alpha,\delta\}$ place
+$\widehat P_2$ beyond exit $\delta$ or $\widehat P_4$ beyond exit $\alpha$.
+The full arbitrary-candidate argument is
+\zcref{lem:appendix-fixed-two-gap}. Neither point is recomputed from the
+candidate center.
+\end{proof}

@@ -53,7 +53,7 @@ proof-free command writes `arrange/paper_draft/proof_free.pdf`; it removes
 formal proof environments while retaining prose and calculations outside
 those environments.
 
-The compressed canonical paper is 88 pages (formerly 91). The proof-free rendering
+The unified BC paper is 89 pages (previous compressed version: 88). The proof-free rendering
 is generated on demand; its former page count is not a fixed contract.  The tight expected CI page-count interval is 86--90;
 the paper is not padded to meet that interval.
 
@@ -64,15 +64,15 @@ rendered pixels.
 
 ## Compressed proof architecture
 
-The body has six disjoint routing rows and four finite-witness recipes
-B/C/D/F. The seven-point complementary-gap proof A remains an optional
+The body has six disjoint routing rows and three finite-witness recipes
+BC/D/F. The seven-point complementary-gap proof A remains an optional
 appendix alternative, not a dependency of N0. The direct neighboring
 bound replaces the full cubic-capacity evaluation in the paper. The
 midpoint supplier and the two-vertex scalar replacement work in both CE1
 and CE2, while their genuinely different local calculations remain explicit.
-The three-page reduction removes repeated derivations rather than prose
-explaining why a witness is fixed or why a strict endpoint is required.
+The selected-gap unification removes the active B/C case split. Its explicit
+boundary-transfer premise and retained optional B refinement add one page;
+D and the explanatory prose supporting its strict endpoints are unchanged.
 
-The CI page-count contract is translated from 91 +/- 2 to 88 +/- 2 pages;
-its width is unchanged. Clean PDF comparison, render audit, both exact
+The existing CI page-count interval of 86--90 pages is unchanged. Clean PDF comparison, render audit, both exact
 zero-gap programs, and all source checks remain mandatory.

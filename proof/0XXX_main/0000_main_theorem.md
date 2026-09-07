@@ -76,7 +76,7 @@ CE1 return and exact zero-gap certificate remain local dependencies.
 
 By N0 in
 [`2612`](../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2612_fixed_witness_unification.md),
-Theorem 7.1, every skeleton cover has $N_+\ge1$. N0 uses B/C and does not
+Theorem 7.1, every skeleton cover has $N_+\ge1$. N0 uses BC and does not
 use the alternative complementary-gap family A.
 
 ### Zero boundary gaps
@@ -95,7 +95,8 @@ uses N0 and the skeleton budget to give $N_+=1$ and $N_{\rm sp}\le1$.
 Write $\sigma$ for the unique supercritical index.
 
 If $\sigma=k$, apply the center-aligned path theorem in `2612`, Theorem 7.0:
-C for one gap and B for two. Its five nonsupercritical path roles need no
+one six-point construction using either selected actual gap. Its five
+nonsupercritical path roles need no
 V-type refinement.
 
 Otherwise `2613` gives a unique adjacent positive-support supplier $T_\tau$

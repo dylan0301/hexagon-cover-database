@@ -4,8 +4,9 @@
 The new enclosure theorems use actual trace endpoints, fixed before an
 arbitrary candidate is chosen. This subsection supplies the new arguments;
 the subsequent local capacity and selected-return calculations are retained.
-In particular, the two-gap comparison pair belongs to the candidate, but
-the four-point set being tested belongs to the original configuration.
+The BC tail bound belongs to the original configuration; candidate
+parameters do not alter its six witness points. The optional B comparison
+pair likewise belongs to the candidate, while its four witnesses stay fixed.
 
 \begin{lemma}[Total radial endpoint and maximum-to-own-demand]
 \label{lem:appendix-fixed-total-endpoint}
@@ -74,23 +75,21 @@ contradicts its exit on $r_4$. The same fixed points exclude every candidate.
 
 \begin{lemma}[Fixed six-point transverse enclosure]
 \label{lem:appendix-fixed-transverse}
-The set $K_C$ in \zcref{prop:new-nplus-one-all-vd0} has
-$\Lambda(K_C)\ge1$ for arbitrary V types on the nonsupercritical path.
+The set $K_{BC}$ in \zcref{prop:new-nplus-one-all-vd0} has
+$\Lambda(K_{BC})\ge1$ for arbitrary V types on the nonsupercritical path.
 \end{lemma}
 \begin{proof}
-Suppose an open unit candidate $U'$ contains $K_C$. Its origin is implicit
+Suppose an open unit candidate $U'$ contains $K_{BC}$. Its origin is implicit
 in the witness hull, and $M_0$ fixes the unique-midpoint normalization.
 Write its signed parameters as $R,W,E,\eta,P,\alpha,\delta$ and put
 \[
  X=R-\delta,\qquad Q=\frac{\eta+\alpha+\delta}{2R}.
 \]
-The two gap endpoints give $B_0>2Q$ and $A_1>X$. Endpoint diameter yields
-\[
- A_0\le M_0(B_0)<M_0(2Q)<1-Q.
-\]
-The five gap-free edges and nonsupercriticality imply
+The two selected gap endpoints give $B_0>2Q$ and $A_1>X$.
+The explicit tail premise gives $B_5\ge B_0/2>Q$.
+The four middle gap-free edges and nonsupercriticality imply
 \begin{equation}
- A_1<A_2<A_3<A_4<A_5<A_0,\qquad
+ A_1<A_2<A_3<A_4<A_5,\qquad
  A_i>X,\quad B_i>Q\quad(1\le i\le5).
 \label{eq:fixed-path-boundary}
 \end{equation}
@@ -154,8 +153,9 @@ required demands. Fixed-endpoint containment and
 \end{equation}
 
 Invoke only the first $T_4$ step of the return proof, through
-\zcref{eq:ce1-first-chord}. This step uses \zcref{eq:fixed-path-boundary}, the upper squeeze, and
-$C_4>1-\alpha$, but not a radial hypothesis at $T_2$. A nonselected branch
+\zcref{eq:ce1-first-chord}. Its tail floor is $B_4>Q$, supplied by
+\zcref{eq:fixed-path-boundary}; it uses $C_4>1-\alpha$, but neither
+the radial hypothesis at $T_2$ nor that at $T_3$. A nonselected branch
 already contradicts the boundary inequalities at $T_1$. On the surviving
 selected branch,
 \[
@@ -178,8 +178,9 @@ $1-\delta$. Candidate containment now recovers
 \end{equation}
 All three own-radial hypotheses of
 \zcref{prop:new-ce1-direct-certificate} have been established before the
-full return is used. That return gives $A_0>1-Q$, contradicting the upper
-squeeze. Its selected-component conditions remain in force; in particular,
+full tail-input obstruction is used. It gives $B_1>1-X$, contradicting
+$A_1>X$ and nonsupercriticality. Its selected-component conditions remain
+in force; in particular,
 $\delta<1/10$ is not asserted on the bare CE1 signed domain. Both candidate
 classes are excluded.
 \end{proof}

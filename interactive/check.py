@@ -223,7 +223,7 @@ expected_groups = [
 if graph.get("groups") != expected_groups:
     raise SystemExit("dependency graph does not use the six-body/Appendix A--F architecture")
 if [row.get("id") for row in graph.get("finiteRows", [])] != [
-    "B", "C", "D", "F"
+    "BC", "D", "F"
 ]:
     raise SystemExit("dependency graph finite-enclosure cards do not match the case register")
 
@@ -235,6 +235,7 @@ fixed_required = {
     "lem:direct-neighbor-diagonal", "lem:support-cell-rotation",
     "thm:center-aligned-path", "lem:midpoint-supplier",
     "lem:two-vertex-replacement", "lem:open-cover-budget",
+    "lem:shared-gap-anchor-transfer",
 }
 actual_node_ids = {node["id"] for node in graph.get("nodes", [])}
 if [row.get("id") for row in graph.get("routingRows", [])] != [f"R{i}" for i in range(6)]:
@@ -247,14 +248,16 @@ while todo:
         continue
     seen.add(current)
     todo.extend(by_id[current].get("deps", []))
-if "thm:new-complementary-gap" in seen:
-    raise SystemExit("N0 must not depend on optional alternative A")
+if {"thm:new-complementary-gap", "thm:new-ce2-short-ray"} & seen:
+    raise SystemExit("N0 must not depend on optional alternatives A or B")
+if "lem:shared-gap-anchor-transfer" not in seen:
+    raise SystemExit("N0 omits the selected-gap boundary-transfer input")
 if "prop:new-neighbor-ray-formula" in actual_node_ids or "thm:t3-direct-loss" in actual_node_ids:
     raise SystemExit("optional capacity/area derivation remains in the minimum paper")
 if not fixed_required <= actual_node_ids:
     raise SystemExit("dependency graph omits fixed-witness proof owners")
 
-canonical_statement_sources = {'01_introduction.tex',
+canonical_statement_sources = {'optional_B.tex', '01_introduction.tex',
  '02_structure_and_common_geometry.tex',
  '03_trace_bounds.tex',
  '05_area_loss_full.tex',

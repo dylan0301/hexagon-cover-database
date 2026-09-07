@@ -9,11 +9,11 @@ are not subdivided by V type in the path theorems. The local admissibility
 formulas, connected-component selectors, and conditional CE1 return estimates
 remain the inherited lemmas stated below; no numerical test replaces them.
 
-The active witness families are B (four points), C (six points), D (four
-points), and the unchanged zero-gap F (nine points). A (seven points) is
-retained as an independent alternative, not a dependency of N0. The
+The active witness families are BC (six points), D (four points), and
+the unchanged zero-gap F (nine points). A (seven points) and B (four
+points) are retained as independent alternatives, not dependencies of N0. The
 counts are upper bounds, not assertions of minimality. A and F use disks
-contained in the convex hull of six forced radial points. B, C, and D use no
+contained in the convex hull of six forced radial points. BC, optional B, and D use no
 disk. Replacement and length/area exits are not enclosure theorems.
 
 ## 1. Conventions and inherited local interfaces
@@ -218,7 +218,7 @@ This includes singleton gaps as a statement; strict handoffs may already
 exclude a particular equality configuration. No positive gap length is
 assumed in the enclosure step.
 
-## 4. Family B: two gaps and a five-role nonsupercritical path
+## 4. Optional family B: two gaps and a five-role nonsupercritical path
 
 ### Theorem 4.1. Four-point two-gap enclosure
 
@@ -277,23 +277,35 @@ $\|\widehat P_4\|>\alpha$, contradicting its exit on $r_4$. The witnesses
 have stayed fixed; only the comparison pair $(p,q)$ came from the candidate.
 Thus every open unit candidate is excluded. $\square$
 
-## 5. Family C: one gap and a five-role nonsupercritical path
+## 5. Family BC: one selected gap and a five-role nonsupercritical path
 
-### Theorem 5.1. Six-point transverse enclosure
+### Theorem 5.1. Unified six-point selected-gap enclosure
 
-Suppose $J_0$ is the only actual gap and $A_i+B_i\le1$ for $1\le i\le5$.
+Assume $J_0$ is an actual gap, $A_i+B_i\le1$ for $1\le i\le5$, and
+
+$$
+B_i+A_{i+1}>1\quad(1\le i\le4),\qquad B_5\ge B_0/2.
+$$
+
+There is no assumption on the gap status of $e_{5,0}$. The scalar tail
+inequality is an explicit hypothesis of this pure enclosure theorem.
 Define
 
 $$
-K_C=\{M_0,X_0(B_0),X_0(1-A_1),
+K_{BC}=\{M_0,X_0(B_0),X_0(1-A_1),
              \widehat P_2,\widehat P_3,\widehat P_4\}. \tag{12}
 $$
 
-Then $\Lambda(K_C)\ge1$. Under skeleton coverage with the C triangle's
-distinguished midpoint $M_0$, one has $K_C\subset U_C$. The five path roles
+Then $\Lambda(K_{BC})\ge1$. Under skeleton coverage with the C triangle's
+distinguished midpoint $M_0$, one has $K_{BC}\subset U_C$. The five path roles
 may have arbitrary V types; $T_0$ need not be supercritical. No disk is used.
+The former name $K_C$ denotes this same six-point set in compatibility
+sources. For original perimeter covers the shared-anchor lemma
+[`2018b`](../20XX_V_triangle_geometry/2018b_shared_gap_anchor_transfer.md)
+supplies $B_5>B_0/2$, even with a second gap. For the old pure one-gap
+hypothesis it follows from $B_5+A_0>1$ and $A_0\le M_0(B_0)$.
 
-### 5.1 Candidate normalization and boundary squeeze
+### 5.1 Candidate normalization and the scalar tail input
 
 Forcing follows from Lemmas 2.1--2.2 and the structural C midpoint. Suppose
 an arbitrary open unit triangle $U'$ contains (12). Lemma 2.4 implies
@@ -304,20 +316,21 @@ $$
 X=R-\delta,\qquad Q=\frac{\eta+\alpha+\delta}{2R}. \tag{13}
 $$
 
-The gap endpoints give $B_0>2Q$ and $A_1>X$. The diameter inequality
-$A_0^2+A_0B_0+B_0^2\le1$ gives
+The gap endpoints give $B_0>2Q$ and $A_1>X$. The explicit scalar input
+therefore gives
 
 $$
-A_0\le M_0(B_0)<M_0(2Q)<1-Q,\qquad
-M_0(z)=\frac{-z+\sqrt{4-3z^2}}2. \tag{14}
+B_5\ge B_0/2>Q. \tag{14}
 $$
 
-Here $M_0(z)$ is the scalar diameter envelope, not the point $M_0$.
-The five gap-free edges and nonsupercriticality give
+The four middle gap-free edges and nonsupercriticality imply
 
 $$
-A_1<A_2<A_3<A_4<A_5<A_0,
-\qquad A_i>X,\quad B_i>Q\quad(1\le i\le5). \tag{15}
+A_1<A_2<A_3<A_4<A_5,\qquad B_1>B_2>B_3>B_4>B_5,
+$$
+
+$$
+A_i>X,\qquad B_i>Q\qquad(1\le i\le5). \tag{15}
 $$
 
 Only these boundary inequalities are used below.
@@ -387,8 +400,8 @@ $$
 
 Use only the first $T_4$ step of the local CE1 return in
 [`4102`](../../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0_new/4102_new_CE1_direct_radial_certificate.md).
-This step assumes the boundary inequalities in (15), the upper squeeze
-$A_0\le1-Q$, and the radial bound at $T_4$, but not the bounds at $T_3,T_2$.
+Use its tail-input first step with $B_4>Q$, the middle handoffs, and
+the radial bound at $T_4$, but not the bounds at $T_3,T_2$.
 A nonselected local branch immediately gives the boundary contradiction at
 $T_1$. On the surviving selected branch it gives
 
@@ -413,11 +426,11 @@ $$
 C_2>1-\delta. \tag{22}
 $$
 
-We have now proved all three own-radial hypotheses of the full `4102`
-return. Its algebra uses the actual boundary pairs, nonsupercriticality,
-local admissibility, and these three radial demands, not Vd0 locality.
-It concludes $A_0>1-Q$, contradicting (14). This excludes CE1 and proves
-Theorem 5.1. $\square$
+We have now proved all three own-radial hypotheses of the full tail-input
+`4102` return. Its algebra uses the actual boundary pairs,
+nonsupercriticality, $B_4\ge Q$, and these radial demands, not Vd0
+locality or a fifth handoff. It gives $B_1>1-X$, contradicting
+$A_1>X$ and $A_1+B_1\le1$. This excludes CE1 and proves Theorem 5.1. $\square$
 
 The conditional selected-branch hypotheses in `4102` must be retained.
 In particular, $\delta<1/10$ is used only after the surviving selected
@@ -534,16 +547,20 @@ this finite-enclosure theorem.
 
 ## 7. The all-nonsupercritical assembly and replacement output
 
-### Theorem 7.0. Center-aligned path obstruction
+### Theorem 7.0. Center-aligned selected-gap path obstruction
 
-Suppose the original open roles cover the skeleton, there is a nonzero gap,
-the C triangle's unique midpoint is $M_k$, and all roles except possibly
-$T_k$ are nonsupercritical. Then the configuration is impossible.
+Suppose the original roles cover the skeleton, there is at least one
+actual gap, the C triangle's unique midpoint is $M_k$, and every V role
+except possibly $T_k$ is nonsupercritical. Then the configuration is
+impossible.
 
-**Proof.** Normalize $k=0$. The signed center form puts all possible gaps
-on $e_{5,0},e_{0,1}$ and contains $M_0$ openly. Two gaps give Theorem 4.1
-(B). For one gap reflect if necessary and apply Theorem 5.1 (C). That
-theorem does not require $T_0$ to be supercritical. $\square$
+**Proof.** Normalize $k=0$. The signed center form confines all possible
+gap edges to $e_{5,0},e_{0,1}$. Select either actual gap and reflect if
+necessary so that it is $J_0$; the four middle edges are gap-free. Original
+perimeter coverage and `2018b` give $B_5>B_0/2$. Theorem 5.1 therefore
+applies with the same six-point set, whether or not the other incident
+edge is also a gap. All six points belong to $U_C$, contradicting
+$\Lambda(K_{BC})\ge1$ and compact-open containment. $\square$
 
 ### Theorem 7.1. N0
 
@@ -554,7 +571,7 @@ roles with $N_+=0$.
 $\sum_i\omega_i=-\sum_i s_i\le0$. With a nonzero gap, every role is
 nonsupercritical, so Theorem 7.0 applies. $\square$
 
-N0 uses B/C, not A. This is acyclic: the C proof uses the conditional CE1
+N0 uses BC, not optional A or B. This is acyclic: the BC proof uses the conditional CE1
 local return and demand recovery, not N0, replacement, or a placement theorem.
 
 A replacement that preserves the skeleton and produces six nonsupercritical

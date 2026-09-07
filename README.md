@@ -62,7 +62,7 @@ remain gaps because the covering triangles are open.
 The active proof mechanisms are exposed through three reusable interfaces:
 `2400` for the multiple-ascent area route and the retained T3-like alternative,
 `2531` for the length-budget rows, and
-`2610` for the four active finite-enclosure witness families. Detailed case files are
+`2610` for the three active finite-enclosure witness families. Detailed case files are
 retained as placement adapters and compatibility paths.
 
 The zero-gap $N_+=1$ row now uses one type-independent nine-point theorem:
@@ -98,10 +98,10 @@ tracked.
 
 ## Compressed proof route
 
-The four active finite-witness families B/C/D/F use at most 4/6/4/9 points.
+The three active finite-witness families BC/D/F use at most 6/4/9 points.
 Only F uses a disk in the minimal route. The seven-point complementary-gap
 construction A is retained as an optional independent proof. N0 now uses the
-center-aligned B/C theorem, not A. Nonsupercritical path roles are never
+center-aligned BC theorem, not A. Nonsupercritical path roles are never
 split by V type.
 
 `2008b` proves the required neighboring domination directly, without the
@@ -112,3 +112,12 @@ replacement with both charts and all strict margins. The two rescuer charts
 supply only local inputs to D. `2532` separates the common open-cover budget
 from the distinct length and area estimates. The CE1 selected return and
 exact zero-gap certificate remain intact.
+
+## Unified selected-gap BC proof
+
+`2018b` proves the shared-anchor boundary transfer
+$B_5>1-M_0(B_0)>B_0/2$. `2612`, Theorem 5.1, uses this scalar input
+and four middle handoffs to exclude the same six-point set for either gap
+rank. The pure enclosure theorem explicitly retains the tail premise;
+original perimeter coverage supplies it before a candidate is introduced.
+The D construction, local rescuer proofs, and zero-gap certificate are unchanged.
