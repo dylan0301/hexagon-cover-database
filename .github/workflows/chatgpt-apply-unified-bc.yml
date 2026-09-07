@@ -54,6 +54,16 @@ jobs:
           assert dec.eof and not dec.unused_data and not dec.unconsumed_tail
           assert hashlib.sha256(raw).hexdigest()=='df3f8ff12000afb15fed5cd2fc0c2c09889ca4fe30513b3d2ba12e2ca0d8d583'
           entries=json.loads(raw); assert len(entries)==24
+          for e in entries:
+              if e['path']=='arrange/paper_draft/fixed_witness/optional_B.tex':
+                  assert len(e['edits'])==1
+                  text=e['edits'][0][2]
+                  assert text.endswith('\n\n')
+                  assert hashlib.sha256(text.encode()).hexdigest()=='a7d140623445a151771d5caca5b751265ad73c33e2dc379e6387c85df8bcf5f8'
+                  e['edits'][0][2]=text[:-1]
+                  e['sha256']='4c52b606d40ef1298c92a008dd94d107ae0084f83f6dd3a5f0898aef3b48c4b1'
+          raw=(json.dumps(entries,ensure_ascii=False,indent=2)+'\n').encode()
+          assert hashlib.sha256(raw).hexdigest()=='b57d7ef2dbe80935daa5d144a07bca3982b8c48603fbdc6edc7bbadbb576ab88'
           (pathlib.Path(os.environ['RUNNER_TEMP'])/'bc-source-delta.json').write_bytes(raw)
           subprocess.run(['git','reset','--hard',base],check=True)
           seen=set()
@@ -128,7 +138,7 @@ jobs:
           base='c9e8269a7989cab1cb108af70801240113b3e51b'
           branch='chatgpt/unified-bc-selected-gap-20260907073324'
           raw=(pathlib.Path(os.environ['RUNNER_TEMP'])/'bc-source-delta.json').read_bytes()
-          assert hashlib.sha256(raw).hexdigest()=='df3f8ff12000afb15fed5cd2fc0c2c09889ca4fe30513b3d2ba12e2ca0d8d583'
+          assert hashlib.sha256(raw).hexdigest()=='b57d7ef2dbe80935daa5d144a07bca3982b8c48603fbdc6edc7bbadbb576ab88'
           entries=json.loads(raw)
           for e in entries:
               assert hashlib.sha256(pathlib.Path(e['path']).read_bytes()).hexdigest()==e['sha256'],e['path']
