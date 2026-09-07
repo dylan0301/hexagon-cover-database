@@ -1,0 +1,128 @@
+name: Temporary isolated BC blob transport
+on:
+  push:
+    branches: ['chatgpt/unified-bc-selected-gap-20260907073324']
+    paths: ['.github/workflows/chatgpt-transport-unified-bc.yml']
+permissions: {}
+concurrency:
+  group: unified-bc-20260907073324-blobs
+  cancel-in-progress: false
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      actions: read
+    steps:
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: unified-bc-validated
+          run-id: 34097245652
+          github-token: ${{ github.token }}
+          path: incoming
+      - name: Validate only reviewed regular files, without executing artifact code
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import hashlib,json,pathlib,stat,zipfile
+          root=pathlib.Path('incoming');raw=(root/'manifest.json').read_bytes()
+          assert hashlib.sha256(raw).hexdigest()=='819f54e6aa9ee7ea106343dc9f195bcb5c626dbe5800bb7f5e34256b653668b1'
+          assert hashlib.sha256((root/'delivery.zip').read_bytes()).hexdigest()=='2e1b79d9d59b1dcc68ad3711b90b9851fe344f4373cfce9ebc47837737355d42'
+          m=json.loads(raw)
+          assert m['base']=='c9e8269a7989cab1cb108af70801240113b3e51b'
+          assert m['branch']=='chatgpt/unified-bc-selected-gap-20260907073324'
+          assert m['pages']==89 and len(m['files'])==26
+          expected={'manifest.json'}|{'files/'+e['path'] for e in m['files']}
+          with zipfile.ZipFile(root/'delivery.zip') as z:
+              assert len(z.infolist())==len(expected) and set(z.namelist())==expected
+              assert z.read('manifest.json')==raw
+              for e in m['files']:
+                  p=pathlib.PurePosixPath(e['path'])
+                  assert str(p)==e['path'] and not p.is_absolute() and '..' not in p.parts and '\x00' not in e['path']
+                  assert not e['path'].startswith('.github/') and e['mode'] in ('100644','100755')
+                  assert e['op'] in ('add','replace')
+                  info=z.getinfo('files/'+e['path'])
+                  assert stat.S_IFMT(info.external_attr>>16) in (0,stat.S_IFREG)
+                  assert info.file_size==e['size'] and 0<info.file_size<10000000
+                  data=z.read(info)
+                  assert hashlib.sha256(data).hexdigest()==e['sha256']
+                  assert hashlib.sha1(b'blob '+str(len(data)).encode()+b'\0'+data).hexdigest()==e['blob_sha']
+          print('26 immutable files verified; no artifact code executed.')
+          PY
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: unified-bc-blob-handoff
+          path: incoming/
+          if-no-files-found: error
+          retention-days: 7
+  upload_blobs:
+    needs: verify
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: unified-bc-blob-handoff
+          path: incoming
+      - name: Upload and refetch verified immutable blobs, with no ref modification
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import base64,hashlib,json,os,pathlib,stat,urllib.request,zipfile
+          branch='chatgpt/unified-bc-selected-gap-20260907073324'
+          assert os.environ['GITHUB_REF']=='refs/heads/'+branch
+          assert os.environ['GITHUB_REPOSITORY']=='dylan0301/hexagon-cover-database'
+          root=pathlib.Path('incoming');raw=(root/'manifest.json').read_bytes()
+          assert hashlib.sha256(raw).hexdigest()=='819f54e6aa9ee7ea106343dc9f195bcb5c626dbe5800bb7f5e34256b653668b1'
+          assert hashlib.sha256((root/'delivery.zip').read_bytes()).hexdigest()=='2e1b79d9d59b1dcc68ad3711b90b9851fe344f4373cfce9ebc47837737355d42'
+          m=json.loads(raw)
+          assert m['base']=='c9e8269a7989cab1cb108af70801240113b3e51b' and m['branch']==branch
+          assert len(m['files'])==26 and m['pages']==89
+          api='https://api.github.com/repos/dylan0301/hexagon-cover-database/'
+          ref='git/ref/heads/'+branch
+          def request(path,payload=None):
+              assert path=='git/blobs' or path.startswith('git/blobs/') or path==ref
+              assert payload is None or path=='git/blobs'
+              body=None if payload is None else json.dumps(payload).encode()
+              req=urllib.request.Request(api+path,data=body,headers={'Authorization':'Bearer ${{ github.token }}','Accept':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28','Content-Type':'application/json'})
+              with urllib.request.urlopen(req,timeout=60) as response:return json.load(response)
+          assert request(ref)['object']['sha']==os.environ['GITHUB_SHA'],'stale feature branch'
+          expected={'manifest.json'}|{'files/'+e['path'] for e in m['files']}
+          verified=[]
+          with zipfile.ZipFile(root/'delivery.zip') as z:
+              assert len(z.infolist())==len(expected) and set(z.namelist())==expected
+              assert z.read('manifest.json')==raw
+              for e in m['files']:
+                  p=pathlib.PurePosixPath(e['path'])
+                  assert str(p)==e['path'] and not p.is_absolute() and '..' not in p.parts and '\x00' not in e['path']
+                  assert not e['path'].startswith('.github/') and e['mode'] in ('100644','100755')
+                  assert e['op'] in ('add','replace')
+                  info=z.getinfo('files/'+e['path'])
+                  assert stat.S_IFMT(info.external_attr>>16) in (0,stat.S_IFREG)
+                  assert info.file_size==e['size'] and 0<info.file_size<10000000
+                  data=z.read(info)
+                  assert hashlib.sha256(data).hexdigest()==e['sha256']
+                  assert hashlib.sha1(b'blob '+str(len(data)).encode()+b'\0'+data).hexdigest()==e['blob_sha']
+                  verified.append((e,data))
+          for e,data in verified:
+              result=request('git/blobs',{'content':base64.b64encode(data).decode(),'encoding':'base64'})
+              assert result['sha']==e['blob_sha'],e['path']
+              remote=request('git/blobs/'+result['sha']);assert remote['encoding']=='base64'
+              retrieved=base64.b64decode(remote['content'])
+              assert retrieved==data and hashlib.sha256(retrieved).hexdigest()==e['sha256']
+              print('REFETCHED_SHA256',e['sha256'],e['path'])
+          assert request(ref)['object']['sha']==os.environ['GITHUB_SHA'],'feature branch changed'
+          receipt={'base':m['base'],'branch':branch,'parent':os.environ['GITHUB_SHA'],'tree_sha':m['tree_sha'],'manifest_sha256':hashlib.sha256(raw).hexdigest(),'files':m['files'],'all_remote_bytes_refetched':True,'git_refs_modified':False}
+          out=pathlib.Path('receipts');out.mkdir()
+          (out/'blob-receipt.json').write_text(json.dumps(receipt,indent=2)+'\n')
+          print('26 immutable blobs stored and refetched; final tree/commit/ref must be published natively.')
+          PY
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: unified-bc-blob-receipt
+          path: receipts/
+          if-no-files-found: error
+          retention-days: 7
