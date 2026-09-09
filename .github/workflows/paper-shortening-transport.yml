@@ -1,0 +1,27 @@
+name: Temporary paper shortening transport
+on:
+  push:
+    branches: [chatgpt/paper-shortening-20260909141118]
+    paths: [.github/workflows/paper-shortening-transport.yml]
+permissions:
+  contents: read
+jobs:
+  snapshot:
+    if: github.ref == 'refs/heads/chatgpt/paper-shortening-20260909141118'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Export the audited base revision
+        run: |
+          mkdir -p /tmp/paper-shortening-snapshot
+          git archive --format=zip 908f81032cbf582b3be22f18a61f51746ef0196c -o /tmp/paper-shortening-snapshot/source.zip
+          sha256sum /tmp/paper-shortening-snapshot/source.zip > /tmp/paper-shortening-snapshot/SHA256SUMS
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: paper-shortening-base
+          path: /tmp/paper-shortening-snapshot/
+          if-no-files-found: error
+          retention-days: 1
