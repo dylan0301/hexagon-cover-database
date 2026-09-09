@@ -101,9 +101,10 @@ then
 \end{lemma}
 
 \begin{proof}
-See \zcref{lem:app-no-support-skeleton-calculation}; geometrically, the two
-incident boundary traces and the own radial trace are the only components
-that can contribute positive length.
+For $s>0$ and $j\notin\{i-1,i,i+1\}$,
+$\|V_i-sV_j\|^2=1+s^2-2s\cos((j-i)\pi/3)>1$.
+Thus only the incident boundary traces and own radial trace contribute;
+their total is $A_i+B_i+C_i\le2$.
 \end{proof}
 
 \begin{lemma}[Supercritical skeleton cap]
@@ -159,87 +160,41 @@ then the seven triangles do not cover $S$.
 \end{theorem}
 
 \begin{proof}
-The three geometric caps above make the total trace strictly smaller than
-$\Haus(S)=12$; the exact budget is
-\zcref{lem:app-common-skeleton-count-calculation}.  This contradicts
-\eqref{eq:length-subadditivity}.
+Positive-support roles are nonsupercritical by
+\zcref{prop:vd-corner-normal-form,lem:t3-nonsupercritical}, so their indices
+are disjoint from the supercritical indices. With $k=N_++N_{\mathrm{sp}}$,
+the preceding caps give
+\[
+ L_S(T_C)+\sum_iL_S(T_i)
+ <\frac32+\frac32k+2(6-k)=\frac{27-k}{2}\le12,
+\]
+contrary to \eqref{eq:length-subadditivity}.
 \end{proof}
 
 \subsection{Boundary trace register}
 
-The exact evaluation is in Appendix~\ref{app:trace-length-optimization}; the
-following table is the complete interface used by the routing argument.
+The following bounds suffice for the perimeter exit.
 
-\begin{theorem}[Boundary trace table]
+\begin{theorem}[Boundary trace bounds]
 \label{thm:boundary-trace-table}
-For closures of original open triangles, the following bounds hold.
-\begingroup
-\setlength{\arraycolsep}{5pt}
-\renewcommand{\arraystretch}{1.18}
-\begin{equation}
-\begin{array}{c|c|c}
-\text{exact hypothesis}&\text{established class}&\text{exact bound}\\ \hline
-N_E(T_C)=0&\CEzero&L_{\partial H}(T_C)=0\\
-N_E(T_C)=1&\CEone&
- L_{\partial H}(T_C)\le\dfrac{\sqrt3}{2}-\dfrac34\\[3pt]
-N_E(T_C)=2&\CEtwo&L_{\partial H}(T_C)<\dfrac12\\[3pt]
-\begin{gathered}
- (o(T_i),n(T_i))\in\{(1,0),(2,0)\}\\
- A_i+B_i\le1
-\end{gathered}
- &\Vdzero&L_{\partial H}(T_i)\le1\\[8pt]
-\begin{gathered}
- (o(T_i),n(T_i))\in\{(1,0),(2,0)\}\\
- A_i+B_i>1
-\end{gathered}
- &\Vdzero&L_{\partial H}(T_i)\le\dfrac2{\sqrt3}\\[8pt]
-(o(T_i),n(T_i))\in\{(1,1),(1,2)\}
- &\Vdone\text{ or }\Vdtwo&L_{\partial H}(T_i)<\dfrac12\\
-(o(T_i),n(T_i))=(2,1)&\Tlike&L_{\partial H}(T_i)<1.
-\end{array}
-\label{eq:boundary-trace-table}
-\end{equation}
-\endgroup
-For every V triangle,
-\begin{equation}
- L_{\partial H}(T_i)=A_i+B_i.
- \label{eq:vertex-boundary-locality}
-\end{equation}
-\end{theorem}
-
-\begin{proof}
-The locality identity and every row are proved in
-\zcref{lem:app-boundary-trace-table-calculation}.
-\end{proof}
-
-\begin{corollary}[Branches closed by the common budgets]
-\label{cor:signed-budget-branches}
-The following exact alternatives are impossible.
-\begin{enumerate}
-\item $N_E(T_C)=0$, $N_+=1$, and $d\ge1$;
-\item $N_E(T_C)\in\{1,2\}$, $N_+=0$, and $d\ge1$;
-\item $N_E(T_C)=1$, $N_+=1$, and $d\ge1$;
-\item $N_E(T_C)=2$, $N_+=1$, and $d\ge2$;
-\item $N_E(T_C)=2$, $N_+=1$, and there is an index $i$ such that
+For closures of the original open roles,
 \[
- (o(T_i),n(T_i))=(1,2)
+ L_{\partial H}(T_C)=0\quad(\CEzero),\qquad
+ L_{\partial H}(T_C)<\tfrac12\quad(\CEone\text{ or }\CEtwo),
 \]
 and
-\[
- \{M_{i-1},M_{i+1}\}\cap T_i\ne\varnothing;
-\]
-\item $N_E(T_C)\in\{1,2\}$ and $N_++N_{\mathrm{sp}}\ge3$;
-\item $N_E(T_C)\in\{1,2\}$ and $N_+\ge2$.
-\end{enumerate}
-\end{corollary}
-
+\begin{equation}
+ L_{\partial H}(T_i)=A_i+B_i\le\frac2{\sqrt3}.
+ \label{eq:vertex-boundary-locality}
+\end{equation}
+A nonsupercritical role contributes at most $1$; a Vd1 or Vd2 role
+contributes less than $1/2$.
+\end{theorem}
 \begin{proof}
-The perimeter sums for items (1)--(5) are
-\zcref{lem:app-signed-budget-calculation}.  Item (6) is
-Theorem~\ref{thm:common-skeleton-count}.  For item (7), normalize the unique
-C triangle midpoint and apply Lemma~\ref{lem:positive-support-rescuer}; its
-rescuer is distinct from the two supercritical triangles, so item (6)
-applies.
+Boundary locality and the diameter bound give
+$A_i^2+A_iB_i+B_i^2\le1$, hence
+$3(A_i+B_i)^2/4\le1$. The remaining caps are
+\zcref{cor:signed-center-boundary,prop:vd-corner-normal-form}.
 \end{proof}
 
 \begin{proposition}[Vd2 adjacent-midpoint branch]
@@ -254,44 +209,5 @@ less than $1/3$. The common boundary caps give
  L_{\partial H}(T_C)+\sum_iL_{\partial H}(T_i)
  <\frac12+\frac2{\sqrt3}+\frac13+4<6.
 \]
-Apply \zcref{lem:open-cover-budget}. The argument needs no CE2-only formula.
-\end{proof}
-
-\subsection{Routing conclusion}
-
-The zero-gap $N_+=1$, $d\ge1$ clause is retained as an independent
-alternative; the routing table now sends every zero-gap $N_+=1$ state to
-\zcref{thm:reader-zero-gap-obstruction}.
-
-\begin{proposition}[Branches closed by the trace-length mechanism]
-\label{prop:length-branches}
-The following routing entries and hybrid subcase are impossible.
-\begin{enumerate}
- \item $N_{\mathrm{gap}}=0$ and $N_+=0$;
- \item $N_{\mathrm{gap}}=0$, $N_+=1$, and $d\ge1$;
- \item $N_E(T_C)\in\{1,2\}$ and $N_++N_{\mathrm{sp}}\ge3$;
- \item $N_E(T_C)\in\{1,2\}$, $N_+=0$, and $d\ge1$;
- \item $N_E(T_C)=1$, $N_+=1$, and $(d,t)=(1,0)$;
- \item the subcase of $N_E(T_C)=2$, $N_+=1$, and $(d,t)=(1,0)$ in which
- the unique non-$\Vdzero$ triangle $T_i$ satisfies
- \[
-  (o(T_i),n(T_i))=(1,2)
- \]
- and
- \[
-  \{M_{i-1},M_{i+1}\}\cap T_i\ne\varnothing.
- \]
-\end{enumerate}
-\end{proposition}
-
-\begin{proof}
-For item (1), Lemma~\ref{lem:gap-exhaustion} makes the incident open V
-traces overlap on every edge, so
-\[
- B_i+A_{i+1}>1\qquad(0\le i\le5).
-\]
-Summing contradicts $N_+=0$.  Items (2)--(5) are clauses (1), (6), (2), and
-(3), respectively, of Corollary~\ref{cor:signed-budget-branches}; their
-numerical budgets are evaluated in Appendix~\ref{app:trace-length-optimization}.
-Item (6) is Proposition~\ref{prop:ce2-vd2-midpoint-length}.
+Apply \zcref{lem:open-cover-budget}.
 \end{proof}

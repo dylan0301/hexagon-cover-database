@@ -25,22 +25,8 @@ For every nonempty compact \(K\subseteq\mathbb R^2\), define
 \]
 Thus \(\Lambda(K)\) is the least equilateral enclosure side for \(K\).
 
-\begin{lemma}[Compact set in an open unit triangle]
-\label{lem:new-compact-open-shrink}
-If \(K\) is compact, \(U\) is an open unit equilateral triangle, and
-\(K\subset U\), then
-\[
- \Lambda(K)<1.
-\]
-\end{lemma}
 
-\begin{proof}
-The distance from \(K\) to each side line of \(U\) is positive.  Moving all
-three lines inward by a smaller common distance gives a closed equilateral
-triangle of side below one that still contains \(K\).
-\end{proof}
-
-\subsection{Four-anchor and neighboring-arm capacities}
+\subsection{Local capacities and radial witnesses}
 
 Normalize at \(V_0\) and define the four-anchor hull
 \[
@@ -66,8 +52,8 @@ For \(0\le a,c\le1\), also put
 \[
  M_c(a):=\max\{b\in[0,1]:(a,b,c)\in\mathcal A\}.
 \]
-The exact admissible set, attainment, and the evaluation of these extrema are
-proved in \zcref{prop:exact-admissible-set,prop:new-exact-local-set}.
+The exact admissible set and radial envelope are proved in
+\zcref{prop:exact-admissible-set}.
 
 The neighboring-arm capacities are the variational quantities
 \[
@@ -234,19 +220,6 @@ ones. Their convex hull contains the displayed disk. In particular, a
 Vd1, Vd2, or T3-like crossing does not change any witness coordinate.
 \end{proof}
 
-\begin{lemma}[Open trace endpoint]
-\label{lem:new-open-trace-endpoint}
-Let \(U\) be an open equilateral triangle and \(T=\overline U\).  If
-\(T\cap[V,O]\) is the closed interval from \(V\) to \(P\), then \(P\notin U\).
-If a noncentral point \(Q\in[V,O]\) lies in \(U\), then
-\(\Haus(U\cap[V,O])>0\).
-\end{lemma}
-
-\begin{proof}
-The first point is an endpoint of the closed convex intersection.  For the
-second assertion, intersect a small ball about \(Q\) contained in \(U\) with
-the radial arm.
-\end{proof}
 
 \input{fixed_witness/06_fixed_witness_body}
 
@@ -259,8 +232,6 @@ Assume
  \qquad
  N_+=1.
 \]
-No normalized V-type restriction is imposed. The same nine points work
-when Vd1, Vd2, or T3-like roles meet adjacent radial segments.
 Rotate the unique supercritical role to index \(4\).  The exact-one handoff
 calculation \zcref{lem:ab-extreme-jump} gives
 \begin{equation}
@@ -323,39 +294,22 @@ The two circles adjacent to the supercritical frontier are
  \qquad
  \mathcal C_+:=\partial\mathbb B(X_5(1-a),1).
 \]
-Define \(\ell_-\) and \(\ell_+\) as the corresponding maximal
-nondegenerate line segments of the interior frontier:
+Let $\ell_-,\ell_+$ be the two straight pieces of the interior frontier
+of $\mathcal R_{AB}(a,b)$, in the order of
+\zcref{thm:strict-ab-union}. Define
 \[
- \{\ell_-\}:=
- \left\{[X,Y]:
- \begin{array}{l}
- X\ne Y,\quad [X,Y]\subseteq
- \partial\mathcal R_{AB}(a,b)\cap\interior(H),\\
- {}[X,Y]\cap\mathcal C_-\ne\varnothing,\\
- \nexists X',Y'\ [X,Y]\subsetneq[X',Y']
- \subseteq\partial\mathcal R_{AB}(a,b)\cap\interior(H)
- \end{array}\right\},
+ \{Q_0\}=\ell_-\cap\ell_+,\qquad
+ \{Q_-\}=\ell_-\cap\mathcal C_-,\qquad
+ \{Q_+\}=\ell_+\cap\mathcal C_+.
 \]
+The coordinate formulas and selected first roots are given in
+Appendix~\ref{sec:zero-gap-nine-point-optimization},
+\zcref{eq:line-junction,eq:asym-witnesses}. Lemma~\ref{lem:fixed-line-signs}
+proves that these intersections are singletons on the indicated pieces.
+The nine-point set is
 \[
- \{\ell_+\}:=
- \left\{[X,Y]:
- \begin{array}{l}
- X\ne Y,\quad [X,Y]\subseteq
- \partial\mathcal R_{AB}(a,b)\cap\interior(H),\\
- {}[X,Y]\cap\mathcal C_+\ne\varnothing,\\
- \nexists X',Y'\ [X,Y]\subsetneq[X',Y']
- \subseteq\partial\mathcal R_{AB}(a,b)\cap\interior(H)
- \end{array}\right\}.
+ K_F:=\{P_i^{\rm rad}:0\le i\le5\}\cup\{Q_-,Q_0,Q_+\}.
 \]
-The three frontier points are the singleton intersections
-\[
- \{Q_0\}:=\ell_-\cap\ell_+,
- \qquad
- \{Q_-\}:=\ell_-\cap\mathcal C_-,
- \qquad
- \{Q_+\}:=\ell_+\cap\mathcal C_+.
-\]
-\input{fixed_witness/06_fixed_zero_gap_coordinates}
 
 Their exact construction and exclusions in
 \zcref{thm:strict-ab-union,lem:fixed-line-signs,
@@ -366,7 +320,7 @@ Vd0 locality, and give
  \label{eq:reader-forced-asymmetric}
 \end{equation}
 
-Define the public witness set
+For the enclosure calculation use the compact comparison set
 \begin{equation}
  K_{\rm wit}(a,b):=
  \mathbb B(O,r_*)\cup\{Q_-,Q_0,Q_+\}
@@ -408,21 +362,5 @@ The construction gives the compact containment
 \(K_{\rm wit}(a,b)\subset U_C\), while
 \zcref{thm:reader-witness-enclosure} gives
 \(\Lambda(K_{\rm wit}(a,b))\ge1\).  This contradicts
-\zcref{lem:new-compact-open-shrink}.
-\end{proof}
-
-\input{figures/finite_enclosure/fe18_case_f_examples}
-\FloatBarrier
-
-\begin{proposition}[Cases excluded by the nine-point obstruction]
-\label{prop:reader-ab-core-branches}
-The entire \(N_{\rm gap}=0\), \(N_+=1\) row of
-\zcref{tab:routing} is impossible, independently of the center class and
-normalized V-type pattern.
-\end{proposition}
-
-\begin{proof}
-This is \zcref{thm:reader-zero-gap-obstruction}; the equality
-\(N_{\rm gap}=0\) supplies full boundary coverage by
-\zcref{lem:gap-exhaustion}.
+\zcref{lem:compact-cover-margin}.
 \end{proof}

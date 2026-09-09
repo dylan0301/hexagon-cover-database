@@ -16,15 +16,10 @@ zero-gap nine-point theorem. The numbered files under `proof/` remain the
 authority for theorem status and hypotheses; the manuscript is the
 publication layer.
 
-The two former trace-exact atlas wrapper sources were removed.  Their fifteen
-generated PNG panels are instead colocated under
-[`paper_draft/figures/trace_exact_ab/`](paper_draft/figures/trace_exact_ab/)
-and placed directly where the corresponding finite-enclosure cases are read.
-The same preset registry drives the standalone
-[`trace_exact_ab_envelope_explorer.html`](../interactive/trace_exact_ab_envelope_explorer.html).
-One additional static illustration, `strategy4_core_case_example.png`, is
-protected by an exact SHA-256 check.  All sixteen images are explanatory
-publication assets, not proof authorities.
+The trace-exact panels remain available under
+`paper_draft/figures/trace_exact_ab/` and in the standalone explorer.
+The canonical paper includes only the illustrations needed for its active
+arguments. These assets explain the geometry; they are not proof authorities.
 
 ## Section-to-proof map
 
@@ -53,26 +48,32 @@ proof-free command writes `arrange/paper_draft/proof_free.pdf`; it removes
 formal proof environments while retaining prose and calculations outside
 those environments.
 
-The unified BC paper is 89 pages (previous compressed version: 88). The proof-free rendering
-is generated on demand; its former page count is not a fixed contract.  The tight expected CI page-count interval is 86--90;
-the paper is not padded to meet that interval.
+The shortened canonical paper has 66 pages, compared with 89 in the audited
+base revision; its proof-free version has 36 pages, compared with 50.
+The CI page-count guard is 64--68. No font-size or margin reduction is used.
 
 Both commands use a temporary source copy, so LaTeX intermediates do not
 pollute the source directory. The tracked canonical PDF is a publication
 artifact. CI compares clean rebuilds against it by stable PDF semantics and
 rendered pixels.
 
-## Compressed proof architecture
+## Active proof architecture
 
-The body has six disjoint routing rows and three finite-witness recipes
-BC/D/F. The seven-point complementary-gap proof A remains an optional
-appendix alternative, not a dependency of N0. The direct neighboring
-bound replaces the full cubic-capacity evaluation in the paper. The
-midpoint supplier and the two-vertex scalar replacement work in both CE1
-and CE2, while their genuinely different local calculations remain explicit.
-The selected-gap unification removes the active B/C case split. Its explicit
-boundary-transfer premise and retained optional B refinement add one page;
-D and the explanatory prose supporting its strict endpoints are unchanged.
+The body has six routing rows and three witness recipes BC/D/F.
+Optional A and B, the own-endpoint seven-point specialization, the older
+one-Vd radial-separation arguments, and the fifth-handoff corollary are not
+compiled. Their numbered proof sources remain available in `proof/`.
 
-The existing CI page-count interval of 86--90 pages is unchanged. Clean PDF comparison, render audit, both exact
-zero-gap programs, and all source checks remain mandatory.
+The raw `(3,0)` exact-trace normalization is retained, including its complete
+calculation. All actual reaches are defined after that normalization.
+The self-midpoint obstruction is a corollary of the exact admissible set.
+A shared corner chart supplies both incidence geometry and area loss.
+
+The first CE1 return step is stated independently of the T2/T3 own-radial
+demands. BC uses it to recover the final demand before invoking the full
+return. The supported-rescuer calculation has one common four-point ending,
+and both replacement charts and their strict margins remain intact.
+
+See `20260909_paper_shortening_implementation_report.md` for the removal
+packages, preservation contracts, and validation record. Clean PDF comparison,
+render audit, both exact zero-gap programs, and source checks remain mandatory.

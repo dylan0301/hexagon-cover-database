@@ -2,18 +2,10 @@
 \label{sec:zero-gap-nine-point-optimization}
 \label{sec:ab-core}
 
-This appendix supplies exact frontier and radial calculations, point
-exclusions, Newton reduction, and the four-contact enclosure proof for the
-type-independent zero-gap obstruction. The radial step reuses the common $C_+,C_-$ forcing interface;
-the three asymmetric witnesses and the exact certificate are unchanged.  It uses
-the public parameters and witness \(K_{\rm wit}(a,b)\) from
-\zcref{sec:strategy4-reader}.  The symbols \(A,B,C\) introduced below are
-appendix-only Newton inner points required by the exact certificate; they do
-not replace the public frontier points \(Q_-,Q_0,Q_+\).
-
-The finite caliper criterion used here is the shared result
-\zcref{thm:cert-caliper} in Appendix A.  It is not rederived in this
-appendix.
+This appendix proves the frontier construction, witness exclusions, and
+four-contact enclosure bound for the zero-gap obstruction. The Newton
+points $A,B,C$ are inner comparison points for the exact certificate;
+they do not replace the three frontier witnesses $Q_-,Q_0,Q_+$.
 
 \subsection{Corner-clipped $AB$-unions}
 
@@ -34,10 +26,6 @@ and define
  C\cap\bigcup\{T:T\text{ is a closed unit equilateral triangle and }
  O,A,B\in T\}.                               \label{eq:ab-union}
 \end{equation}
-The finite description in Theorem~\ref{thm:cert-caliper} applies to the
-four-point set $\{O,A,B,x\}$ and makes membership in \eqref{eq:ab-union} an
-exact finite semialgebraic condition of degree at most four.
-
 The strict supercritical branch admits a simpler closed form.  In the next
 statement write $x=ue_A+ve_B$ and
 $\lVert x\rVert^2=u^2+v^2-uv$.
@@ -281,25 +269,10 @@ one has
 Thus $A_*>E$ and $c_*>1-m$.  This proves
 \eqref{eq:cstar-bounds}.
 
-By \zcref{lem:ab-extreme-jump}, every selected pair dominates $(p,q)$.
-The common-pair forcing corollary
-\zcref{cor:new-uniform-common-pair-forcing} therefore forces the same
-$D_i=(1-c_*)V_i$ for every V-type pattern. To make the adjacent-role step
-explicit, \zcref{lem:new-common-pair-domination} and
-\eqref{eq:cstar-bounds} give
-\[
- C_+(p,q),C_-(p,q)\le1-m<c_*.
-\]
-A neighboring open V triangle containing $D_i$ would have positive trace
-on $r_i$ and its closure would realize neighboring coordinate $c_*$ with
-the common anchors, contradicting this inequality. If its type forbids
-that trace, openness already gives a contradiction. The own-role and
-nonlocal exclusions are the shared type-aware forcing lemma. Thus no
-V triangle contains $D_i$, and full coverage puts it in $U_C$.
-
-The six points $D_i$ form a regular hexagon of circumradius $1-c_*$.  Their
-convex hull contains its centered incircle of radius $h(1-c_*)$, and convexity
-of $U_C$ gives \eqref{eq:forced-disk}.
+Every selected pair dominates $(p,q)$ by
+\zcref{lem:ab-extreme-jump}. Apply
+\zcref{cor:new-uniform-common-pair-forcing} to obtain the six forced
+points and their inscribed disk.
 \end{proof}
 
 We next define the three asymmetric witnesses.  At $V_4$ use local
@@ -580,15 +553,8 @@ Thus no V triangle contains any witness.  The assumed cover now forces all
 three interior witnesses into $U_C$.
 \end{proof}
 
-The nine directly forced points are
-$D_0,\ldots,D_5,Q_-,Q_0,Q_+$.  Under a putative cover,
-Lemmas~\ref{lem:symmetric-core-witness} and
-\ref{lem:asymmetric-core-witness} therefore force the compact set
-\begin{equation}
- K_{\rm wit}(a,b)=
- \mathcal D_\eta\cup\{Q_-,Q_0,Q_+\}
- \subset U_C.                                    \label{eq:forced-witness-set}
-\end{equation}
+Together with \zcref{lem:symmetric-core-witness}, this proves the
+containment $K_{\rm wit}(a,b)\subset U_C$ used in the body.
 
 \subsection{Newton inner reduction}
 
@@ -626,7 +592,12 @@ Consequently
 \[
  \widehat K=\conv(\mathcal D_\eta\cup\{A,B,C\}),
 \]
-obeys $\widehat K\subseteq\conv(K_{\rm wit})$.
+satisfies
+\begin{equation}
+ \widehat K\subseteq\conv(K_{\rm wit}(a,b)),\qquad
+ \Lambda(K_{\rm wit}(a,b))\ge\Lambda(\widehat K).
+ \label{eq:reader-newton-reduction}
+\end{equation}
 \end{lemma}
 
 \begin{proof}
@@ -780,19 +751,6 @@ for the exposed-edge geometry used below.
 \end{proof}
 
 
-\subsection{Newton reduction in the body notation}
-
-The containment established by
-\zcref{lem:technical-newton-reduction} is recorded under the public routing
-label
-\begin{equation}
- \widehat K=\conv\bigl(\mathbb B(O,\eta)\cup\{A,B,C\}\bigr)
- \subseteq\conv(K_{\rm wit}(a,b)),
- \qquad
- \Lambda(K_{\rm wit}(a,b))\ge\Lambda(\widehat K).
- \label{eq:reader-newton-reduction}
-\end{equation}
-
 \subsection{Four supporting contacts and paired radius transfer}
 \label{subsec:nine-point-conclusion}
 
@@ -936,6 +894,4 @@ least $h$. Therefore
 \[
  \Lambda(K_{\rm wit})\ge\Lambda(\widehat K)\ge1.
 \]
-The Newton inner points and exact algebraic certificate are retained;
-only the terminal geometry has been replaced by supporting contacts.
 \end{proof}

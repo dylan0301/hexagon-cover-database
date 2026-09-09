@@ -15,32 +15,13 @@ $L_S(T_C)<3/2$.
 
 \begin{proof}
 Normalize the unique midpoint as $M_0$ and a positive boundary trace to
-$e_{0,1}$.  Use Proposition~\ref{prop:signed-center-normal-form}; thus
-\[
- W=1-R,\qquad E=\sqrt{1-RW},\qquad
- \eta=1-E,\qquad P=E(1-E),
-\]
-and the positive trace condition is
+$e_{0,1}$.  Use the signed parameters and six radial exits of
+\zcref{prop:signed-center-normal-form}. The positive trace condition is
 \begin{equation}
  \alpha+W\delta<P.
  \label{eq:center-skeleton-domain}
 \end{equation}
-The two possible boundary contributions are
-\[
- \ell_{01}=W+\delta-\frac{\eta+\alpha+\delta}{R},
- \qquad
- \ell_{50}=\frac{[P-(R\alpha+\delta)]_+}{W}.
-\]
-The six radial contributions are bounded by
-\[
-\begin{array}{c|cccccc}
-i&0&1&2&3&4&5\\ \hline
-\Haus(T_C\cap r_i)&
-E-\alpha-\delta&\delta/R&\delta&
-\min\{\alpha/R,\delta/W\}&\alpha&\alpha/W.
-\end{array}
-\]
-Hence
+Summing the boundary and radial contributions gives
 \[
  L_S(T_C)\le K_R+\mathcal E(\alpha,\delta),
  \qquad K_R:=W+E-\frac\eta R,
@@ -74,23 +55,6 @@ Both sides of $1+A>2EA$ are positive, and
 Therefore $K_R+P/W<3/2$, as required.
 \end{proof}
 
-\begin{lemma}[No-support skeleton calculation]
-\label{lem:app-no-support-skeleton-calculation}
-The hypotheses of Lemma~\ref{lem:no-support-skeleton-cap} imply
-$L_S(T_i)\le2$.
-\end{lemma}
-
-\begin{proof}
-The boundary contribution is $A_i+B_i\le1$ by
-\eqref{eq:vertex-boundary-locality}.  If
-$P=sV_j\in r_j\setminus\{O\}$ and $j\notin\{i-1,i,i+1\}$, then
-\[
- \lVert V_i-P\rVert^2
- =1+s^2-2s\cos\frac{(j-i)\pi}{3}>1.
-\]
-The adjacent radial traces have zero length by hypothesis, so only $r_i$ can
-add positive trace, of length at most one.
-\end{proof}
 
 For the remaining cap, reflect the local directions if necessary so that
 $0\le A_i\le B_i\le1$.  The actual reach triple of a supercritical V
@@ -163,26 +127,6 @@ component in \eqref{eq:supercritical-admissible-cell} forces
 $C_i<\gamma_0$, so $A_i+B_i+C_i<3/2$.
 \end{proof}
 
-\begin{lemma}[Common skeleton-budget calculation]
-\label{lem:app-common-skeleton-count-calculation}
-Under the hypotheses of Theorem~\ref{thm:common-skeleton-count}, the total
-skeleton trace of the seven triangles is strictly less than $12$.
-\end{lemma}
-
-\begin{proof}
-The center cap and the three V triangle caps give
-\[
- \begin{aligned}
- L_S(T_C)+\sum_{i=0}^5L_S(T_i)
- &<\frac32+\frac32(N_++N_{\mathrm{sp}})
-   +2(6-N_+-N_{\mathrm{sp}})\\
- &=\frac{27-N_+-N_{\mathrm{sp}}}{2}\le12.
- \end{aligned}
-\]
-The two classes counted by $N_+$ and $N_{\mathrm{sp}}$ are disjoint: every
-$\Vdone$, $\Vdtwo$, or $\Tlike$ triangle has positive adjacent-radial support
-and is nonsupercritical, while every supercritical triangle is $\Vdzero$.
-\end{proof}
 
 \subsection{Vd1 and Vd2 corner optimization}
 
@@ -304,188 +248,4 @@ A_0+B_0<\frac{7\sqrt{37}-39}{12}<\frac13.
 \end{aligned}
 \]
 The final comparisons are $8\sqrt{37}<49$ and $7\sqrt{37}<43$.
-\end{proof}
-
-\subsection{Boundary contributions}
-
-\begin{lemma}[Boundary-trace table calculation]
-\label{lem:app-boundary-trace-table-calculation}
-All identities and bounds in Theorem~\ref{thm:boundary-trace-table} hold.
-\end{lemma}
-
-\begin{proof}
-The two incident traces of a V triangle are initial intervals of lengths
-$A_i,B_i$.  A relative-interior point of a nonincident edge is more than unit
-distance from $V_i$, while $V_i\in\interior(T_i)$.  Hence no other edge has
-positive-length trace and
-\[
- L_{\partial H}(T_i)=A_i+B_i.
-\]
-
-The $N_E(T_C)=0$ row is the definition.  The other C triangle rows are
-Corollary~\ref{cor:signed-center-boundary}.  If a $\Vdzero$ triangle is
-nonsupercritical, its boundary trace is at most $1$.  If it is
-supercritical, its two incident endpoints have squared distance
-\[
- A_i^2+A_iB_i+B_i^2\le1,
-\]
-and therefore
-\[
- \frac34(A_i+B_i)^2\le1.
-\]
-This gives $A_i+B_i\le2/\sqrt3$.  The $\Vdone/\Vdtwo$ row is
-\eqref{eq:vd-half-cap}.  For an original $\Tlike$ triangle, the Type-II
-calculation in \zcref{lem:app-t3-translation-calculation} gives
-$A_i+B_i=z-\alpha<z<1$ because $0<t<1$ and $\alpha>0$.
-\end{proof}
-
-\subsection{Common perimeter budgets}
-
-\begin{lemma}[Master perimeter deficit]
-\label{lem:signed-perimeter-deficit}
-Put
-\[
- \theta:=\frac2{\sqrt3}-1.
-\]
-Suppose a branch has center contribution
-$L_C:=L_{\partial H}(T_C)$, exactly $n$ supercritical $\Vdzero$ triangles,
-and $m\ge1$ distinct nonsupercritical V triangles $T_{i_1},\ldots,T_{i_m}$
-such that
-\[
- L_{\partial H}(T_{i_j})<q_j<1\qquad(1\le j\le m).
-\]
-Suppose also that each of the remaining $6-n-m$ V triangles contributes at
-most $1$.  If
-\begin{equation}
- L_C+n\theta\le\sum_{j=1}^m(1-q_j),
- \label{eq:signed-perimeter-deficit}
-\end{equation}
-then the seven triangles do not cover $\partial H$.
-\end{lemma}
-
-\begin{proof}
-The supercritical $\Vdzero$ cap is $2/\sqrt3$, so the total contribution is
-strictly less than
-\[
-\begin{aligned}
- L_C+n\frac2{\sqrt3}+\sum_{j=1}^m q_j+(6-n-m)
- &=6+L_C+n\theta-\sum_{j=1}^m(1-q_j)\\
- &\le6.
-\end{aligned}
-\]
-The strictness comes from $m\ge1$ and the distinguished strict caps, in
-contradiction with perimeter subadditivity.
-\end{proof}
-
-\begin{lemma}[Small center slacks in the one-Vd branch]
-\label{lem:signed-small-slack}
-Assume there is exactly one supercritical $\Vdzero$ triangle, exactly one
-$\Vdone$ or $\Vdtwo$ triangle, and four nonsupercritical $\Vdzero$
-triangles.  Every candidate surviving the perimeter budget is CE2 and
-satisfies
-\begin{equation}
- \alpha+\delta<\frac1{24},
- \qquad
- \alpha+\delta<\frac{\min\{R,W\}}6.
- \label{eq:signed-small-slacks}
-\end{equation}
-\end{lemma}
-
-\begin{proof}
-The exceptional V triangle has strict cap $1/2$.  Perimeter coverage and
-Lemma~\ref{lem:signed-perimeter-deficit} force
-\[
- L_C+\theta>\frac12.
-\]
-Put $\kappa:=1/2-\theta=3/2-2/\sqrt3$.  The CE1 cap gives
-\[
- L_C+\theta
- \le\left(\frac{\sqrt3}{2}-\frac34\right)
-   +\left(\frac2{\sqrt3}-1\right)<\frac12,
-\]
-so every survivor is CE2.
-
-Set $T:=\alpha+\delta$.  The CE2 formula gives
-\[
- T<M(E):=\frac{RW}{E^2}\left(\frac{E}{1+E}-\kappa\right)
- =\frac{1-E}{E^2}\bigl(E-\kappa(1+E)\bigr).
-\]
-Since
-\[
- M'(E)=-\frac{E-2\kappa}{E^3}<0
- \qquad\left(\frac{\sqrt3}{2}\le E<1\right),
-\]
-where $2\kappa<\sqrt3/2$, one has
-\[
- T<M(\sqrt3/2)=\frac{8\sqrt3}{9}-\frac32<\frac1{24}.
-\]
-The last comparison follows from $64\sqrt3<111$.
-
-Also $E/(1+E)<1/2$ gives
-\[
- T<\frac{RW}{E^2}\theta.
-\]
-Because $E^2=W+R^2=R+W^2$, the factor $RW/E^2$ is at most both $R$ and
-$W$; and $\theta<1/6$.  This proves \eqref{eq:signed-small-slacks}.
-\end{proof}
-
-\begin{lemma}[CE2 endpoints dominate total slack]
-\label{lem:signed-endpoints-dominate-slack}
-Assume $\Delta_R>0$ and $\Delta_L>0$.  Put
-\[
- T:=\alpha+\delta,
- \qquad x:=\frac{\eta+T}{W},
- \qquad y:=\frac{\eta+T}{R}.
-\]
-Then
-\begin{equation}
- T<\frac12\min\{x,y\}.
- \label{eq:signed-endpoint-slack}
-\end{equation}
-\end{lemma}
-
-\begin{proof}
-Equation~\eqref{eq:signed-total-slack} gives $T<\eta/E$.  Since
-\[
- E^2-(2R-1)^2=3RW>0,
-\]
-one has $|2R-1|T<\eta$.  Therefore
-\[
- x-2T=\frac{\eta-(1-2R)T}{W}>0,
- \qquad
- y-2T=\frac{\eta-(2R-1)T}{R}>0.
-\]
-\end{proof}
-
-\begin{lemma}[Perimeter-budget substitutions]
-\label{lem:app-signed-budget-calculation}
-Items (1)--(5) of Corollary~\ref{cor:signed-budget-branches} are impossible.
-\end{lemma}
-
-\begin{proof}
-For item (1), use $L_C=0$, one supercritical cap $2/\sqrt3$, and one strict
-$\Vdone/\Vdtwo$ cap $1/2$ in
-Lemma~\ref{lem:signed-perimeter-deficit}; the required comparison is
-\[
- \frac2{\sqrt3}-1<\frac12.
-\]
-For item (2), $L_C<1/2$, the distinguished V triangle has strict cap $1/2$,
-and the remaining five contribute at most $1$.
-
-For item (3), the CE1 cap, the exceptional cap, the supercritical cap, and
-four unit caps give
-\[
- \left(\frac{\sqrt3}{2}-\frac34\right)
- +\frac12+\frac2{\sqrt3}+4<6.
-\]
-For item (4), the CE2 sum is strictly less than
-\[
- \frac12+\frac12+\frac12+\frac2{\sqrt3}+3<6.
-\]
-For item (5), Lemma~\ref{lem:vd2-neighbor-midpoint-cap} gives the strict
-$1/3$ cap, and the total is strictly less than
-\[
- \frac12+\frac13+\frac2{\sqrt3}+4<6.
-\]
-Each inequality contradicts the length-$6$ perimeter requirement.
 \end{proof}
