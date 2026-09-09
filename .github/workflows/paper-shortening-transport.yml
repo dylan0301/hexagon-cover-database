@@ -1,27 +1,239 @@
-name: Temporary paper shortening transport
+name: Temporary validated paper shortening
 on:
   push:
     branches: [chatgpt/paper-shortening-20260909141118]
     paths: [.github/workflows/paper-shortening-transport.yml]
 permissions:
   contents: read
+concurrency:
+  group: paper-shortening-20260909141118
+  cancel-in-progress: false
+env:
+  SOURCE_DATE_EPOCH: '946684800'
+  FORCE_SOURCE_DATE: '1'
+  TZ: UTC
+  DELIVERY_BRANCH: chatgpt/paper-shortening-20260909141118
+  AUDITED_BASE: 908f81032cbf582b3be22f18a61f51746ef0196c
+  PAYLOAD_SHA256: 91e7d850789e7b70dc0ce11b3e098a19fc7cc4ef9c26bca3e2f860d6878dec19
 jobs:
-  snapshot:
+  validate:
     if: github.ref == 'refs/heads/chatgpt/paper-shortening-20260909141118'
     runs-on: ubuntu-24.04
+    outputs:
+      manifest_sha: ${{ steps.package.outputs.manifest_sha }}
     steps:
       - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
         with:
           fetch-depth: 0
           persist-credentials: false
-      - name: Export the audited base revision
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22'
+      - name: Apply only the authenticated source edits
         run: |
-          mkdir -p /tmp/paper-shortening-snapshot
-          git archive --format=zip 908f81032cbf582b3be22f18a61f51746ef0196c -o /tmp/paper-shortening-snapshot/source.zip
-          sha256sum /tmp/paper-shortening-snapshot/source.zip > /tmp/paper-shortening-snapshot/SHA256SUMS
+          set -euo pipefail
+          git merge-base --is-ancestor "$AUDITED_BASE" HEAD
+          mkdir -p /tmp/shortening-delivery
+          python - <<'PY'
+          import base64, gzip, hashlib, json, os
+          from pathlib import Path
+          chunks = [Path(f'arrange/_support/.paper_shortening_payload_{i:02}.b64') for i in range(5)]
+          text = ''.join(p.read_text().strip() for p in chunks)
+          # Correct two transcription insertions before the mandatory digest check.
+          text = text.replace('xQvebVdQ3S0', 'xQvebVQ3S0').replace('rF8UoLXTQQxf', 'rF8UoLXTQxf')
+          packed = base64.b64decode(text, validate=True)
+          assert hashlib.sha256(packed).hexdigest() == os.environ['PAYLOAD_SHA256'], 'payload digest mismatch'
+          Path('/tmp/shortening-delivery/payload.gz').write_bytes(packed)
+          data = json.loads(gzip.decompress(packed))
+          assert data['version'] == 1 and data['base'] == os.environ['AUDITED_BASE']
+          assert len(data['changes']) == 23
+          seen = set()
+          for item in data['changes']:
+              p = Path(item['path'])
+              assert not p.is_absolute() and '..' not in p.parts and str(p) not in seen
+              assert not p.is_symlink() and all(not a.is_symlink() for a in p.parents)
+              assert str(p).startswith(('arrange/', 'interactive/', 'proof/')) or str(p) == '.github/workflows/ci.yml'
+              seen.add(str(p))
+              old = p.read_bytes() if p.exists() else None
+              assert (hashlib.sha256(old).hexdigest() if old is not None else None) == item['before'], str(p)
+              if item['after'] is None:
+                  p.unlink()
+                  continue
+              lines = (old or b'').decode().splitlines(keepends=True)
+              for lo, hi, replacement in reversed(item['edits']):
+                  lines[lo:hi] = replacement.splitlines(keepends=True)
+              new = ''.join(lines).encode()
+              assert hashlib.sha256(new).hexdigest() == item['after'], str(p)
+              assert item['mode'] in ('100644', '100755')
+              p.parent.mkdir(parents=True, exist_ok=True)
+              p.write_bytes(new)
+              p.chmod(int(item['mode'], 8) & 0o777)
+          print('Authenticated source edits applied:', len(seen))
+          PY
+      - name: Install the repository pinned dependencies
+        run: python -m pip install --disable-pip-version-check -r arrange/_support/requirements.txt
+      - name: Verify proof interfaces and replay both exact certificates
+        run: |
+          set -euo pipefail
+          python proof/check.py
+          cd proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation
+          python verify_mixed_overlap_core_derivation.py
+          python verify_global_core_positivity.py
+      - name: Regenerate and verify navigation and trace assets
+        run: |
+          set -euo pipefail
+          python interactive/generate.py --dependency-graph
+          git add interactive/readable_proof_dependency_graph.html
+          python interactive/generate.py --dependency-graph --check
+          python interactive/generate.py --trace-assets --check
+          python interactive/check.py
+          git diff --check
+          git diff --cached --check
+      - name: Build both manuscripts in pinned TeX Live 2025
+        uses: xu-cheng/texlive-action@22c04326a5d855880f9d39bb955138bf11c6df80
+        with:
+          docker_image: >-
+            ghcr.io/xu-cheng/texlive-historic-debian:2025@sha256:d3e42adc0c8d84bc913bfc33571feaf7037616260a771bb6f027504661568bf6
+          run: |
+            set -euo pipefail
+            python3 arrange/build.py --all --output-dir arrange/_build
+            cp arrange/_build/canonical.pdf arrange/paper_draft/main.pdf
+            bash arrange/_support/build_proof_free_paper.sh
+      - name: Audit all PDF pages
+        run: |
+          set -euo pipefail
+          python arrange/_support/verify_pdf_render.py arrange/paper_draft/main.pdf
+          python arrange/_support/verify_pdf_render.py arrange/paper_draft/proof_free.pdf
+          python - <<'PY'
+          import fitz
+          for name, expected in [('main.pdf', 66), ('proof_free.pdf', 36)]:
+              doc = fitz.open('arrange/paper_draft/' + name)
+              print(name, doc.page_count)
+              assert doc.page_count == expected
+          PY
+      - name: Package exact validated bytes and path manifest
+        id: package
+        run: |
+          python - <<'PY'
+          import gzip, hashlib, json, os, subprocess, zipfile
+          from pathlib import Path
+          out = Path('/tmp/shortening-delivery')
+          data = json.loads(gzip.decompress((out/'payload.gz').read_bytes()))
+          paths = {x['path'] for x in data['changes']}
+          paths.update(['arrange/paper_draft/main.pdf', 'arrange/paper_draft/proof_free.pdf', 'interactive/readable_proof_dependency_graph.html'])
+          temporary = {f'arrange/_support/.paper_shortening_payload_{i:02}.b64' for i in range(5)}
+          # Workflow changes are subsequently published through the connected GitHub App.
+          workflow = '.github/workflows/paper-shortening-transport.yml'
+          entries = []
+          with zipfile.ZipFile(out/'delivery.zip', 'w', zipfile.ZIP_DEFLATED) as z:
+              for name in sorted(paths | temporary):
+                  p = Path(name)
+                  old = subprocess.run(['git', 'show', 'HEAD:'+name], capture_output=True)
+                  before = hashlib.sha256(old.stdout).hexdigest() if old.returncode == 0 else None
+                  content = p.read_bytes() if p.exists() and name not in temporary else None
+                  entry = {'path': name, 'before': before, 'after': hashlib.sha256(content).hexdigest() if content is not None else None, 'mode': oct(p.stat().st_mode & 0o777) if p.exists() else '0o644'}
+                  if content is not None:
+                      z.writestr(name, content)
+                  entries.append(entry)
+          manifest = {'source_sha': os.environ['GITHUB_SHA'], 'base': data['base'], 'entries': entries, 'workflow': workflow}
+          raw = json.dumps(manifest, indent=2, sort_keys=True).encode()
+          (out/'manifest.json').write_bytes(raw)
+          sha = hashlib.sha256(raw).hexdigest()
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
+              print('manifest_sha='+sha, file=f)
+          print('Validated manifest SHA256:', sha)
+          tracked = set(subprocess.check_output(['git','ls-files','-z']).decode().split('\0')) - {''}
+          with zipfile.ZipFile(out/'source.zip','w',zipfile.ZIP_DEFLATED) as z:
+              for name in sorted((tracked | paths) - temporary - {workflow}):
+                  if Path(name).is_file():
+                      z.write(name, name)
+          PY
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
-          name: paper-shortening-base
-          path: /tmp/paper-shortening-snapshot/
+          name: paper-shortening-validated
+          path: /tmp/shortening-delivery/
           if-no-files-found: error
+          retention-days: 7
+      - name: Preserve transport diagnostics on failure
+        if: failure()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: paper-shortening-diagnostics
+          path: arrange/_support/.paper_shortening_payload_*.b64
+          include-hidden-files: true
           retention-days: 1
+  publish:
+    needs: validate
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+        with:
+          ref: chatgpt/paper-shortening-20260909141118
+          fetch-depth: 0
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: paper-shortening-validated
+          path: /tmp/shortening-delivery
+      - name: Publish exactly the validated files on the delivery branch
+        env:
+          MANIFEST_SHA: ${{ needs.validate.outputs.manifest_sha }}
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          python - <<'PY'
+          import gzip, hashlib, json, os, subprocess, zipfile
+          from pathlib import Path
+          out = Path('/tmp/shortening-delivery')
+          raw = (out/'manifest.json').read_bytes()
+          assert hashlib.sha256(raw).hexdigest() == os.environ['MANIFEST_SHA']
+          packed = (out/'payload.gz').read_bytes()
+          assert hashlib.sha256(packed).hexdigest() == os.environ['PAYLOAD_SHA256']
+          data = json.loads(gzip.decompress(packed))
+          manifest = json.loads(raw)
+          assert manifest['source_sha'] == os.environ['GITHUB_SHA'] and manifest['base'] == os.environ['AUDITED_BASE']
+          expected = {x['path'] for x in data['changes']} | {'arrange/paper_draft/main.pdf', 'arrange/paper_draft/proof_free.pdf', 'interactive/readable_proof_dependency_graph.html'} | {f'arrange/_support/.paper_shortening_payload_{i:02}.b64' for i in range(5)}
+          assert {x['path'] for x in manifest['entries']} == expected
+          changed = []
+          with zipfile.ZipFile(out/'delivery.zip') as z:
+              for item in manifest['entries']:
+                  name = item['path']
+                  if name == '.github/workflows/ci.yml':
+                      continue
+                  p = Path(name)
+                  assert not p.is_absolute() and '..' not in p.parts and not p.is_symlink()
+                  assert all(not a.is_symlink() for a in p.parents)
+                  old = p.read_bytes() if p.exists() else None
+                  assert (hashlib.sha256(old).hexdigest() if old is not None else None) == item['before'], name
+                  if item['after'] is None:
+                      p.unlink()
+                  else:
+                      content = z.read(name)
+                      assert hashlib.sha256(content).hexdigest() == item['after'], name
+                      assert item['mode'] in ('0o644', '0o755')
+                      p.parent.mkdir(parents=True, exist_ok=True)
+                      p.write_bytes(content)
+                      p.chmod(int(item['mode'], 8))
+                  changed.append(name)
+          subprocess.run(['git','add','--',*changed],check=True)
+          actual = set(subprocess.check_output(['git','diff','--cached','--name-only']).decode().splitlines())
+          assert actual <= set(changed) and actual
+          PY
+          git diff --cached --check
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Shorten canonical proof: remove alternatives and consolidate shared arguments'
+          git push origin "HEAD:refs/heads/$DELIVERY_BRANCH"
+          git rev-parse HEAD | tee /tmp/shortening-delivery/PUBLISHED_SHA
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: paper-shortening-publication
+          path: |
+            /tmp/shortening-delivery/PUBLISHED_SHA
+            /tmp/shortening-delivery/manifest.json
+          if-no-files-found: error
+          retention-days: 7
