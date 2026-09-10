@@ -1,0 +1,312 @@
+\section{Trace-Length Mechanism}
+\label{sec:trace-length}
+\label{sec:length}
+\label{app:trace-length-optimization}
+
+
+\begin{lemma}[Connected open-cover budget]
+\label{lem:open-cover-budget}
+Let $X$ be compact and connected, with a finite Borel measure $\mu$
+positive on every nonempty relatively open subset. Let $U_1,\ldots,U_m$
+be open sets covering $X$, put $T_j=\overline{U_j}$, and assume at least
+two of the relative pieces $U_j\cap X$ are nonempty. Then
+\[
+ \mu(X)<\sum_j\mu(U_j\cap X)\le\sum_j\mu(T_j\cap X).
+\]
+Consequently closed-piece upper bounds whose sum is at most $\mu(X)$
+already contradict the open cover.
+\end{lemma}
+\begin{proof}
+If the nonempty relative pieces were pairwise disjoint, one and the union
+of the others would disconnect $X$. Some pair therefore overlaps in a
+nonempty relatively open set, of positive measure. Integrating the covering
+multiplicity gives strict inequality. Closure only enlarges each piece.
+\end{proof}
+
+For $X=\partial H$ or $S$, use length; for $X=H$, use area. Each measure
+has the stated full-support property. The six V roles meet each target
+in positive measure; the C role does so on $H$ and $S$, but need not meet
+$\partial H$. In particular,
+\begin{equation}
+ \Haus(E)<L_E(T_C)+\sum_{i=0}^5L_E(T_i),\qquad E\in\{\partial H,S\},
+ \label{eq:length-subadditivity}
+\end{equation}
+whenever these targets are covered. Empty center boundary traces are simply
+omitted from the collection. The local geometric caps remain separate from
+this common final budget argument.
+
+\begin{figure}[H]
+\centering
+\input{figures/strategy1_trace_targets}
+\caption{The perimeter and full-skeleton targets.  The skeleton is used only
+under the hypotheses of the corresponding trace budget.}
+\label{fig:strategy1-targets}
+\end{figure}
+
+\subsection{Skeleton bounds}
+
+\begin{lemma}[Center skeleton cap]
+\label{lem:center-skeleton-cap}
+\label{lem:app-center-skeleton-cap-calculation}
+
+If $N_E(T_C)\in\{1,2\}$ and
+\[
+ \left|T_C\cap\{M_0,\ldots,M_5\}\right|=1,
+\]
+then
+\[
+ L_S(T_C)<\frac32.
+\]
+\end{lemma}
+\begin{proof}
+Normalize the unique midpoint as $M_0$ and a positive boundary trace to
+$e_{0,1}$.  Use the signed parameters and six radial exits of
+\zcref{prop:signed-center-normal-form}. The positive trace condition is
+\begin{equation}
+ \alpha+W\delta<P.
+ \label{eq:center-skeleton-domain}
+\end{equation}
+Summing the boundary and radial contributions gives
+\[
+ L_S(T_C)\le K_R+\mathcal E(\alpha,\delta),
+ \qquad K_R:=W+E-\frac\eta R,
+\]
+where
+\[
+ \mathcal E(\alpha,\delta)
+ :=-\frac\alpha R+\frac\alpha W+\delta
+ +\min\left\{\frac\alpha R,\frac\delta W\right\}
+ +\frac{[P-(R\alpha+\delta)]_+}{W}.
+\]
+Splitting according to the minimum and positive part gives
+\begin{equation}
+ \mathcal E(\alpha,\delta)\le\frac PW.
+ \label{eq:center-skeleton-E-bound}
+\end{equation}
+If $\alpha/R\le\delta/W$, the expression without the positive part is
+$\alpha/W+\delta$; when that part is active, the excess over $P/W$ is
+$\alpha-R\delta/W\le0$.  The reflected order gives
+$\delta-W\alpha/R\le0$.  If the positive part vanishes,
+\eqref{eq:center-skeleton-domain} gives the same bound strictly.
+
+Put $A:=1+R-R^2$.  Then
+\[
+ \frac32-K_R-\frac PW=\frac{1+A-2EA}{2RW}.
+\]
+Both sides of $1+A>2EA$ are positive, and
+\[
+ (1+A)^2-4A^2E^2=R^2W^2(5+4R-4R^2)>0.
+\]
+Therefore $K_R+P/W<3/2$, as required.
+\end{proof}
+
+\begin{lemma}[Positive-support skeleton cap]
+\label{lem:positive-support-skeleton-cap}
+Let $T_i$ be the closure of an original open V triangle.  If
+\[
+ \exists j\in\{i-1,i+1\}\quad\Haus(T_i\cap r_j)>0,
+\]
+then
+\[
+ L_S(T_i)<\frac32.
+\]
+\end{lemma}
+
+\begin{proof}
+Normalize to $i=0$ and translate the hexagon by $V_0$.  The five components
+of $S$ on which a unit triangle containing $V_0$ can have positive trace
+become the corresponding local components of the translated skeleton.  The
+positive adjacent-radial trace becomes a positive boundary trace there.
+\zcref[S]{prop:unique-center-midpoint} and
+\zcref{lem:center-skeleton-cap} give the bound; every nonlocal component
+is more than unit distance from $V_0$, apart from zero-measure endpoints.
+\end{proof}
+
+\begin{lemma}[No-support skeleton cap]
+\label{lem:no-support-skeleton-cap}
+If
+\[
+ A_i+B_i\le1,
+\]
+\[
+ \Haus(T_i\cap r_{i-1})=0,
+ \qquad \Haus(T_i\cap r_{i+1})=0,
+\]
+then
+\[
+ L_S(T_i)\le2.
+\]
+\end{lemma}
+
+\begin{proof}
+For $s>0$ and $j\notin\{i-1,i,i+1\}$,
+$\|V_i-sV_j\|^2=1+s^2-2s\cos((j-i)\pi/3)>1$.
+Thus only the incident boundary traces and own radial trace contribute;
+their total is $A_i+B_i+C_i\le2$.
+\end{proof}
+
+For the remaining cap, reflect the local directions if necessary so that
+$0\le A_i\le B_i\le1$.  The actual reach triple of a supercritical V
+triangle lies in the selected cell
+\begin{equation}
+\begin{aligned}
+ A_i^2+A_iB_i+B_i^2&\le1,\\
+ C_i&\le\frac12,\\
+ (A_i^2-1)C_i^2+(2A_iB_i^2+B_i)C_i+(B_i^4-B_i^2)&\le0,
+\end{aligned}
+\label{eq:supercritical-admissible-cell}
+\end{equation}
+where $C_i$ belongs to the connected component containing $0$ in the
+corresponding one-dimensional fiber.  This is Cell $S$ of
+\zcref{prop:exact-admissible-set}.  The selector is essential: the
+quadratic is negative at $C_i=0$, positive at $C_i=1/2$, and opens downward.
+
+\begin{lemma}[Supercritical skeleton cap]
+\label{lem:supercritical-skeleton-cap}
+\label{lem:app-supercritical-skeleton-calculation}
+
+If $A_i+B_i>1$, then
+\[
+ L_S(T_i)<\frac32.
+\]
+\end{lemma}
+\begin{proof}
+The corner normal form, \zcref{prop:vd-corner-normal-form}, makes
+$\Vdone$ and $\Vdtwo$ triangles nonsupercritical.  \zcref[S]{lem:t3-nonsupercritical} gives the same conclusion for $\Tlike$
+triangles.  Hence a supercritical triangle is $\Vdzero$ and has no positive
+adjacent-radial support.  Reflect so that $A_i\le B_i$.
+Then
+\[
+ L_S(T_i)=A_i+B_i+C_i.
+\]
+
+Set
+\[
+ s:=A_i+B_i,\qquad \delta:=B_i-A_i,
+ \qquad \gamma_0:=\frac32-s.
+\]
+The diameter constraint gives
+\[
+ 1<s\le\frac2{\sqrt3},
+ \qquad0\le\delta\le\sqrt{4-3s^2}.
+\]
+Let $P(\gamma)$ be the quadratic in
+\eqref{eq:supercritical-admissible-cell}.  Substitution and multiplication by
+$16$ yield
+\[
+\begin{aligned}
+16P(\gamma_0)=Q(s,\delta)
+&=\delta^4+8\delta^3s-6\delta^3
+ +14\delta^2s^2-18\delta^2s+5\delta^2\\
+&\quad-8\delta s^3+30\delta s^2-34\delta s+12\delta\\
+&\quad+s^4-6s^3-19s^2+60s-36.
+\end{aligned}
+\]
+Its derivative factors as
+\[
+ \frac{\partial Q}{\partial\delta}
+ =2(2\delta+4s-3)
+ \bigl(\delta^2+\delta(4s-3)+(s-1)(2-s)\bigr)\ge0.
+\]
+Therefore
+\[
+ Q(s,\delta)\ge Q(s,0)
+ =(s-1)(s^3-5s^2-24s+36)>0.
+\]
+The cubic decreases on $[1,2/\sqrt3]$ and at the right endpoint equals
+$88/3-136\sqrt3/9>0$.  Hence $P(\gamma_0)>0$.  The selected smaller-root
+component in \eqref{eq:supercritical-admissible-cell} forces
+$C_i<\gamma_0$, so $A_i+B_i+C_i<3/2$.
+\end{proof}
+
+\begin{lemma}[Positive-support rescuer]
+\label{lem:positive-support-rescuer}
+Assume that the open roles cover $S$, that $N_E(T_C)\in\{1,2\}$, and,
+after symmetry,
+\[
+ T_C\cap\{M_0,\ldots,M_5\}=\{M_0\}.
+\]
+If $N_+\ge2$, then for a supercritical index $s\ne0$ there is
+$j\in\{s-1,s+1\}$ such that
+\[
+ M_s\in U_j,
+ \qquad \Haus(T_j\cap r_s)>0.
+\]
+\end{lemma}
+
+\begin{proof}
+Choose a supercritical $s\ne0$.  \zcref[S]{lem:self-midpoint} gives
+$M_s\notin T_s$, and the displayed midpoint identity gives
+$M_s\notin T_C$.  The open cover therefore puts $M_s$ in another $U_j$.
+Diameter locality restricts $j$ to $s-1$ or $s+1$, and openness makes its
+trace on $r_s$ have positive length.
+\end{proof}
+
+\begin{theorem}[Direct CE1/CE2 skeleton count]
+\label{thm:common-skeleton-count}
+If
+\[
+ N_E(T_C)\in\{1,2\},
+\]
+\[
+ \left|T_C\cap\{M_0,\ldots,M_5\}\right|=1,
+\]
+and
+\begin{equation}
+ N_++N_{\mathrm{sp}}\ge3,
+ \label{eq:common-skeleton-count}
+\end{equation}
+then the seven triangles do not cover $S$.
+\end{theorem}
+
+\begin{proof}
+By \zcref{prop:vd-corner-normal-form,lem:t3-nonsupercritical}, every
+positive-support role is nonsupercritical. Hence the two index sets are disjoint. With $k=N_++N_{\mathrm{sp}}$,
+the preceding caps give
+\[
+ L_S(T_C)+\sum_iL_S(T_i)
+ <\frac32+\frac32k+2(6-k)=\frac{27-k}{2}\le12,
+\]
+contrary to \eqref{eq:length-subadditivity}.
+\end{proof}
+
+\subsection{Boundary trace bounds}
+
+The following bounds suffice for the perimeter exit.
+
+\begin{theorem}[Boundary trace bounds]
+\label{thm:boundary-trace-table}
+For closures of the original open roles,
+\[
+ L_{\partial H}(T_C)=0\quad(\CEzero),\qquad
+ L_{\partial H}(T_C)<\tfrac12\quad(\CEone\text{ or }\CEtwo),
+\]
+and
+\begin{equation}
+ L_{\partial H}(T_i)=A_i+B_i\le\frac2{\sqrt3}.
+ \label{eq:vertex-boundary-locality}
+\end{equation}
+A nonsupercritical role contributes at most $1$; a Vd1 or Vd2 role
+contributes less than $1/2$.
+\end{theorem}
+\begin{proof}
+Boundary locality and the diameter bound give
+$A_i^2+A_iB_i+B_i^2\le1$, hence
+$3(A_i+B_i)^2/4\le1$. The remaining caps are
+\zcref{cor:signed-center-boundary,prop:vd-corner-normal-form}.
+\end{proof}
+
+\begin{proposition}[Vd2 adjacent-midpoint branch]
+\label{prop:ce2-vd2-midpoint-length}
+Suppose the C triangle is CE1 or CE2 and $N_+=1$. If a Vd2 role contains
+an adjacent midpoint, the perimeter is not covered.
+\end{proposition}
+\begin{proof}
+By \zcref{lem:vd2-neighbor-midpoint-cap}, that role contributes strictly
+less than $1/3$. The common boundary caps give
+\[
+ L_{\partial H}(T_C)+\sum_iL_{\partial H}(T_i)
+ <\frac12+\frac2{\sqrt3}+\frac13+4<6.
+\]
+Apply \zcref{lem:open-cover-budget}.
+\end{proof}

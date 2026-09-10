@@ -1,0 +1,14 @@
+% Keep the end of each statement with the beginning of its proof.
+% The standard amsthm environments otherwise permit a break at this boundary.
+\makeatletter
+\AddToHook{env/theorem/end}{\@endparpenalty\@M}
+\AddToHook{env/lemma/end}{\@endparpenalty\@M}
+\AddToHook{env/proposition/end}{\@endparpenalty\@M}
+\AddToHook{env/corollary/end}{\@endparpenalty\@M}
+\AddToHook{env/proof/begin}{\@beginparpenalty\@M}
+\makeatother
+
+% Reuse the shared figure sources, but place them at their source positions.
+% This keeps a figure from floating between a statement and its proof.
+\let\inlinefigure\figure
+\renewcommand{\figure}[1][]{\inlinefigure[H]}

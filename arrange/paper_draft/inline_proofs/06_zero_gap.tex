@@ -1,0 +1,1355 @@
+\section{Zero-Gap Nine-Point Enclosure}
+\label{sec:strategy4-reader}
+\label{sec:zero-gap-nine-point-optimization}
+\label{sec:ab-core}
+
+We first compute the local frontier, then construct the forced witnesses.
+The enclosure argument reduces to four supporting contacts, including two
+exact disk-tangent certificate bounds.
+
+\subsection{Corner-clipped $AB$-unions}
+
+In this subsection the corner is the local origin $O_{\rm loc}$, not the
+hexagon center $O$. The local anchors $A,B$ used here are also distinct
+from the Newton comparison points introduced later. The corner chart
+\[
+ \Psi_4(u,v)=V_4+u(V_5-V_4)+v(V_3-V_4)
+\]
+has coordinate axes corresponding to the forward and backward edge
+directions. We identify a local vector $ue_A+ve_B$ with its pair $(u,v)$
+when applying this chart.
+
+Let $e_A,e_B$ be unit vectors with angle $120^\circ$, put
+\[
+ O_{\rm loc}=0,\qquad A=ae_A,\qquad B=be_B,
+ \qquad
+ \mathcal C_{\rm loc}=\{ue_A+ve_B:u,v\ge0\},
+\]
+and define
+\begin{equation}
+ \mathcal R_{AB}^{\rm loc}(a,b)=
+ \mathcal C_{\rm loc}\cap\bigcup\left\{T:
+ \begin{array}{l}
+ T\text{ is a closed unit equilateral triangle},\\
+ O_{\rm loc},A,B\in T
+ \end{array}\right\}.
+ \label{eq:ab-union}
+\end{equation}
+The chart sends the forward and backward parameters to the hexagon.
+In the covering application below, their local order is $(b,a)$.
+
+The strict supercritical branch admits a simpler closed form.  In the next
+statement write $x=ue_A+ve_B$ and
+$\lVert x\rVert^2=u^2+v^2-uv$.
+
+\begin{theorem}[Strict supercritical $AB$-union]
+\label{thm:strict-ab-union}
+Assume $a,b>0$ and
+\[
+ a+b>1,\qquad \rho=a^2+ab+b^2<1,
+\]
+put $h=\sqrt3/2$, $D=\sqrt{4\rho-3}$, and define
+\begin{align*}
+ \alpha&=\frac{h(a+2b-aD)}{2\rho},&
+ \beta&=\frac{h(a-b+(a+b)D)}{2\rho},\\
+ \gamma&=\frac{h(-a+b+(a+b)D)}{2\rho},&
+ \delta&=\frac{h(2a+b-bD)}{2\rho}.
+\end{align*}
+Then all four coefficients are positive and
+\begin{equation}
+ \mathcal R_{AB}^{\rm loc}(a,b)=
+ (\mathcal C_{\rm loc}\cap\mathcal D_A\cap\mathcal H_A)
+ \cup(\mathcal C_{\rm loc}\cap\mathcal D_B\cap\mathcal H_B),       \label{eq:strict-ab-identity}
+\end{equation}
+where
+\begin{align*}
+ \mathcal D_A&=\{(u,v):(u-a)^2+v^2-(u-a)v\le1\},\\
+ \mathcal D_B&=\{(u,v):u^2+(v-b)^2-u(v-b)\le1\},\\
+ \mathcal H_A&=\{(u,v):\alpha(u-a)+\beta v\le0\},\\
+ \mathcal H_B&=\{(u,v):\gamma u+\delta(v-b)\le0\}.
+\end{align*}
+Its non-axis frontier consists, in counterclockwise order, of the
+$A$-circle, the $A$-line, the $B$-line, and the $B$-circle.
+\end{theorem}
+
+\begin{proof}
+The identities
+\[
+ 4\rho-3(a+b)^2=(a-b)^2,
+ \qquad
+ (a+b)^2D^2-(a-b)^2=4\rho((a+b)^2-1)
+\]
+give $0<D<1$ and positivity of the four coefficients.
+
+We apply the caliper criterion of \zcref{thm:cert-caliper}.  For a
+point $x=(u,v)$ in the relative interior of $\mathcal C_{\rm loc}$ but outside
+$\triangle O_{\rm loc}AB$, the four hull vertices occur in the order $O_{\rm loc},B,x,A$.
+The two cone-axis hull edges cannot certify a unit triangle: their support
+sums, divided by $h$, are respectively
+\[
+ \max\{a,u\}+\max\{b,v-u\},\qquad
+ \max\{b,v\}+\max\{a,u-v\},
+\]
+and are at least $a+b>1$.  It remains to test the $Ax$ and $Bx$ calipers.
+
+For the $Ax$ caliper put $p=u-a$ and
+$r^2=p^2+v^2-pv$.  Exact evaluation of the three supports gives
+\begin{equation}
+ \frac{G_A}{h}=
+ \frac{\max\{r^2,-ap+(a+b)v\}+N_A}{r},
+ \quad
+ N_A=\begin{cases}
+ 0,&p\le0,\\
+ ap,&0\le p\le v,\\
+ (a+b)p-bv,&p\ge v.
+ \end{cases}                                      \label{eq:Ax-caliper}
+\end{equation}
+No support label is omitted in these three sectors.  If $p\le0$,
+$G_A\le h$ is equivalent to
+\[
+ r\le1,\qquad -ap+(a+b)v\le r.
+\]
+The second inequality is the half-plane condition in
+\eqref{eq:strict-ab-identity}, because
+\[
+ r^2-(-ap+(a+b)v)^2
+ =\frac{(cp+dv)(c'p+d'v)}{4\rho},
+\]
+where
+\[
+ c=a+2b-aD,\quad d=a-b+(a+b)D,
+ \quad c'=a+2b+aD,\quad d'=a-b-(a+b)D,
+\]
+and $c,c',d>0>d'$.  Thus the low sector is exactly
+$\mathcal D_A\cap\mathcal H_A$.  In the middle sector $0<p\le v$ one has
+$r\le v$, whereas the numerator in \eqref{eq:Ax-caliper} is at least
+$(a+b)v>r$, so no fit is possible.
+
+In the high sector $p\ge v$, the inequalities $G_A\le h$ imply
+\begin{equation}
+ r^2+(a+b)p-bv\le r,\qquad bp+av\le r.          \label{eq:Ax-high}
+\end{equation}
+Write $x-A=ry(\theta)$, $0\le\theta\le60^\circ$, with cone coordinates
+\[
+ y(\theta)=te_A+we_B,\quad
+ t=\frac2{\sqrt3}\cos(\theta-30^\circ),\quad
+ w=\frac2{\sqrt3}\sin\theta.
+\]
+Then \eqref{eq:Ax-high} gives
+\[
+ r\le f(\theta)=1-(a+b)t+bw,\qquad S(\theta)=bt+aw\le1.
+\]
+Let $n_B$ be the unit vector with dual coordinates $(\gamma,\delta)$.
+The identities
+\[
+ b\gamma+(a+b)\delta=h,\quad
+ (a+b)\gamma+a\delta=\frac h2(1+D),\quad
+ b\delta-a\gamma=\frac h2(1-D)
+\]
+show that the unique angle $\theta_B$ of this normal satisfies
+$S(\theta_B)=1$ and $f(\theta_B)=(1-D)/2$.  The function $S$ has at most
+one critical point, a maximum, so $S(\theta)\le1$ implies
+$\theta\le\theta_B$.  On the feasible part $f,f'\ge0$; hence
+$f(\theta)\cos(\theta_B-\theta)$ is increasing.  Consequently
+\[
+ \langle n_B,x-B\rangle
+ \le a\gamma-b\delta+\frac h2(1-D)=0.
+\]
+The diameter bound also gives $\lVert x-B\rVert\le1$.  Thus every high
+sector fit belongs to $\mathcal D_B\cap\mathcal H_B$.  Reflection exchanges
+$a,u$ with $b,v$ and supplies the corresponding result for the $Bx$
+caliper.  This proves \eqref{eq:strict-ab-identity} in the cone interior;
+the axes follow by taking limits, since both sides are closed.
+
+For completeness, the line--circle junctions are obtained by solving the
+two displayed line and circle equations.  The line normals satisfy
+\[
+ \alpha^2+\alpha\beta+\beta^2=h^2,\qquad
+ \gamma^2+\gamma\delta+\delta^2=h^2,
+\]
+and the line determinant is
+\[
+ \alpha\delta-\gamma\beta
+ =\frac{3(1-D)(D+3)}{16\rho}>0.
+\]
+The successive cone slopes are
+\[
+ +\infty,\quad \frac2{1-D},\quad
+ \frac{a(1-D)+2b}{2a+b(1-D)},\quad
+ \frac{1-D}{2},\quad0;
+\]
+the two middle comparisons reduce to
+$a(4-(1-D)^2)>0$ and $b(4-(1-D)^2)>0$.  This proves the asserted four-piece
+order.
+\end{proof}
+
+\input{figures/finite_enclosure/fe10_ab_frontier}
+
+\subsection{Exact-one handoffs and common reach bounds}
+
+\begin{lemma}[Exact-one handoff chain]
+\label{lem:ab-extreme-jump}
+Assume the six V triangles cover $\partial H$ and exactly one actual V triangle is
+supercritical.  Rotate its index to $4$.  The strict handoffs supplied by
+\zcref{prop:strict-handoffs} satisfy
+\begin{equation}
+ \xi_3<\xi_2<\xi_1<\xi_0<\xi_5<\xi_4.
+ \label{eq:extreme-chain}
+\end{equation}
+With
+\begin{equation}
+ a=1-\xi_3,\qquad b=\xi_4,\qquad p=1-b,\qquad q=1-a,
+ \label{eq:reader-ab-parameters}
+\end{equation}
+one has
+\begin{equation}
+ 0<a,b<1,\qquad a+b>1,\qquad a^2+ab+b^2<1,       \label{eq:ab-strict-domain}
+\end{equation}
+Moreover $a=a_4<A_4$ and $b=b_4<B_4$, and every selected V triangle obeys
+\[
+ a_i\ge p,\qquad b_i\ge q.
+\]
+\end{lemma}
+
+\begin{proof}
+Every selected V triangle other than $4$ is strictly nonsupercritical, so
+$\xi_i<\xi_{i-1}$ for $i\ne4$, which is precisely
+\eqref{eq:extreme-chain}.  In particular $\xi_3$ is the global minimum and
+$\xi_4$ the global maximum.  The two anchors of V triangle $4$ lie in its open triangle;
+their mutual squared distance is $a^2+ab+b^2$, strictly below the diameter
+squared of the closed unit triangle.  This proves \eqref{eq:ab-strict-domain}.
+Finally every $\xi_j\in[\xi_3,\xi_4]$, so
+$1-\xi_{i-1}\ge1-\xi_4=p$ and $\xi_i\ge \xi_3=q$.
+\end{proof}
+
+Define the two boundary anchors
+\[
+ P_A:=V_4+a(V_3-V_4),
+ \qquad
+ P_B:=V_4+b(V_5-V_4),
+\]
+and the feasible union
+\[
+ \mathcal R_{AB}(a,b):=
+ \bigcup\left\{T\cap H:
+ \begin{array}{l}
+ T\text{ is a closed unit equilateral triangle},\\
+ V_4,P_A,P_B\in T
+ \end{array}\right\}.
+\]
+
+By the wedge reduction, this union equals
+$\Psi_4(\mathcal R_{AB}^{\rm loc}(b,a))$.
+
+\subsection{Six directly forced radial points}
+
+Put $h=\sqrt3/2$ and
+\[
+ s=p+q,\qquad m=\min(p,q),\qquad M=\max(p,q),
+ \qquad \chi=s^4-s^2+pq.
+\]
+The strict domain \eqref{eq:ab-strict-domain} gives
+\begin{equation}
+ pq>(1-s)(2-s),\qquad m>1-s,\qquad s>1-m.         \label{eq:pq-domain}
+\end{equation}
+Let $c_*=c_{\max}(p,q)$ be the exact radial envelope of
+\zcref{prop:exact-admissible-set}.  On the present subcritical
+domain, equation \eqref{eq:radial-envelope} becomes
+\begin{equation}
+ c_*=\begin{cases}
+ C_L(m),&\chi\le0,\\[1mm]
+ \displaystyle\frac{2M}{1+\sqrt{4s^2-3}},&\chi>0,
+ \end{cases}                                    \label{eq:core-cstar}
+\end{equation}
+where $C_L(m)$ is the unique root in $[\sqrt3/2,1]$ of
+\[
+ z^4-z^2+mz-m^2=0.
+\]
+At $\chi=0$ the two expressions agree and equal $s$.
+
+\begin{lemma}[Direct radial forcing]
+\label{lem:symmetric-core-witness}
+One has
+\begin{equation}
+ 0<c_*<1,\qquad c_*>1-m.                         \label{eq:cstar-bounds}
+\end{equation}
+Assume that $U_C,U_0,\ldots,U_5$ cover $H$, with no restriction on the
+normalized V types. Then, for every $i$,
+\[
+ D_i=(1-c_*)V_i\in U_C.
+\]
+Consequently $U_C$ contains the centered closed disk
+\begin{equation}
+ \mathcal D_\eta=\{x:\lVert x\rVert\le\eta\},
+ \qquad \eta=h(1-c_*).                           \label{eq:forced-disk}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+On the $C_L$ branch, $C_L(m)<1$ because the defining polynomial is positive
+at $1$; if $s<\sqrt3/2$, then $c_*\ge\sqrt3/2>s>1-m$, while if
+$s\ge\sqrt3/2$ its value at $s$ is $\chi\le0$, so $c_*\ge s>1-m$.
+On the other branch put $E=\sqrt{4s^2-3}$.  The selector gives
+$sE>M-m$, whence $c_*<s<1$.  Moreover, with
+\[
+ A_*=\frac{2M}{1-m}-1,
+\]
+one has
+\[
+ A_*^2-E^2=
+ \frac{4(1-s)\{(1-m)(1-2m)+m(2-m)(1-s)\}}{(1-m)^2}>0.
+\]
+Thus $A_*>E$ and $c_*>1-m$.  This proves
+\eqref{eq:cstar-bounds}.
+
+Every selected pair dominates $(p,q)$ by
+\zcref{lem:ab-extreme-jump}. Apply
+\zcref{cor:new-uniform-common-pair-forcing} to obtain the six forced
+points and their inscribed disk.
+\end{proof}
+
+We next define the three asymmetric witnesses.  At $V_4$ use local
+coordinates
+\[
+ P=\Psi_4(u,v),\qquad
+ \mathsf q(u,v)=u^2+v^2-uv.
+\]
+The forward-reach lower bound is $b$ and the backward-reach lower bound is $a$.  Accordingly,
+set
+\begin{align*}
+ \alpha&=\frac{h(b+2a-bD)}{2\rho},&
+ \beta&=\frac{h(b-a+(a+b)D)}{2\rho},\\
+ \gamma&=\frac{h(-b+a+(a+b)D)}{2\rho},&
+ \delta&=\frac{h(2b+a-aD)}{2\rho},
+\end{align*}
+where now $\rho=a^2+ab+b^2$ and $D=\sqrt{4\rho-3}$.  The frontier coefficients here are not the signed-center slacks.
+Applying \zcref{thm:strict-ab-union} with the exchanged pair $(b,a)$,
+the two local line pieces are
+\[
+ L_-(\lambda)=(b-\beta\lambda,\alpha\lambda),\qquad
+ L_+(\mu)=(\delta\mu,a-\gamma\mu).
+\]
+They meet at $\lambda_* =\mu_*=8h\rho/(3(D+3))$ in
+\begin{equation}
+ J=\left(\frac{2b+a-aD}{D+3},
+          \frac{b+2a-bD}{D+3}\right).           \label{eq:line-junction}
+\end{equation}
+Put
+\[
+ E_-=(1-b,2-b),\qquad E_+=(2-a,1-a).
+\]
+The actual adjacent handoffs have local centers
+\[
+ Z_5(t)=(1+t,t),\qquad 1-a\le t\le b,
+ \quad\text{and}\quad
+ Z_3(y)=(y,1+y),\qquad 1-b\le y\le a.
+\]
+The restrictions of the two unit-circle equations are
+\begin{align}
+ g_-(\lambda)&=\frac34\lambda^2
+ -3(\alpha+b\beta)\lambda+3b^2-3b+2,\notag\\
+ g_+(\mu)&=\frac34\mu^2
+ -3(\delta+a\gamma)\mu+3a^2-3a+2.              \label{eq:witness-quadratics}
+\end{align}
+Let $\lambda_-$ and $\mu_+$ be their first roots; explicitly,
+\begin{align*}
+ \lambda_-&=2(\alpha+b\beta)
+ -\frac23\sqrt{9(\alpha+b\beta)^2-9b^2+9b-6},\\
+ \mu_+&=2(\delta+a\gamma)
+ -\frac23\sqrt{9(\delta+a\gamma)^2-9a^2+9a-6}.
+\end{align*}
+
+\begin{lemma}[Moving adjacent-triangle signs]
+\label{lem:fixed-line-signs}
+Throughout \eqref{eq:ab-strict-domain},
+\begin{equation}
+ \lambda_*<\lambda_-<h^{-1},\qquad
+ \mu_*<\mu_+<h^{-1}.                            \label{eq:first-root-order}
+\end{equation}
+Moreover $J_u,J_v<1/2$.  The point $L_+(\mu_+)$ satisfies
+\[
+ (L_+(\mu_+))_u+(L_+(\mu_+))_v<3-2a,
+\]
+and the reflected bound holds for $L_-(\lambda_-)$.  Writing
+$F(P,t)=\mathsf q(P-Z_5(t))-1$, one has, for every $t\in[1-a,b]$,
+\begin{equation}
+ F(L_+(\mu_+),t)\ge0,\qquad F(J,t)>0,\qquad
+ F(L_-(\lambda_-),t)>0.                           \label{eq:moving-right-signs}
+\end{equation}
+Under the reflection
+$(u,v,a,b)\leftrightarrow(v,u,b,a)$, the analogous signs hold for every
+$y\in[1-b,a]$: the first-root point $L_-(\lambda_-)$ has nonnegative sign
+against $Z_3(y)$, and the other two witnesses have strictly positive sign.
+\end{lemma}
+
+\begin{proof}
+Put
+\[
+ U=a+b-1,\qquad z=a-b,\qquad
+ D^2=z^2+6U+3U^2.
+\]
+Then $0<U<1/6$ and $z^2<\Omega:=1-6U-3U^2$.  We give the
+fixed-line calculation for the circle centered at
+$E_+=(2-a,1-a)$; reflection gives the calculation for $E_-$.  Put
+\[
+ F(P,t)=\mathsf q(P-(1+t,t))-1,\qquad t_0=1-a,
+\]
+so this circle is $F(P,t_0)=0$.  At the junction, exact expansion gives
+\[
+ (D+3)^2F(J,t_0)=3D(z^2+Uz+1-3U)+P_J,
+\]
+where
+\[
+ P_J=z^4+5z^2+6Uz^2+3U^2z^2+9Uz+3U+15U^2>0;
+\]
+indeed $z^2+Uz+1-3U\ge1-3U-U^2/4>0$, and
+$5z^2+9Uz+15U^2$ is positive definite.  Thus $F(J,t_0)>0$.
+Also
+\[
+ J_u+J_v=\frac{(1+U)(3-D)}{3+D}<1.
+\]
+Indeed this inequality is $3U<D(2+U)$, which follows from
+$D^2\ge3U(2+U)$ and $(2+U)^3>3U$.  Since
+\[
+ \frac{\partial F}{\partial t}(P,t)=1+2t-P_u-P_v,
+\]
+$F(J,t)$ is strictly increasing for $t\ge0$, and therefore is positive
+throughout $[1-a,b]$.
+
+On the opposite line $L_-$, the derivative at the junction, after
+multiplication by a positive factor, has at $t=1-a$ the numerator
+\[
+ N_0=D(9+3z^2+6Uz-9U^2)+P_0,
+\]
+where
+\[
+\begin{aligned}
+ P_0={}&18U^3+6U^2z^2+63U^2+18Uz^2+18Uz+54U\\
+      &+2z^4+9z^2+9.
+\end{aligned}
+\]
+The coefficient of $D$ is at least $9-6U-9U^2>0$, while
+$P_0\ge9+54U-18U>0$.  Hence $N_0>0$.  At the other endpoint $t=b$, the
+corresponding numerator is
+\[
+ N_1=D(9+3z^2+6U-3U^2)+P_1,
+\]
+where
+\[
+\begin{aligned}
+ P_1={}&9U^4-3U^3z+45U^3+9U^2z^2-6U^2z+72U^2\\
+      &-Uz^3+21Uz^2+9Uz+45U+2z^4+9z^2+9.
+\end{aligned}
+\]
+Its $D$-coefficient is positive and, using $|z|<1$,
+\[
+ P_1\ge9+45U-9U-U-6U^2-3U^3>0.
+\]
+The junction derivative is affine in $t$, so it is positive throughout
+$[1-a,b]$.  Since the restriction of $F$ to $L_-$ is a convex quadratic,
+is positive at the junction, and is increasing there, it has no intersection
+on the opposite line side for any actual adjacent handoff.
+
+On the correct line $L_+$, the value at its outer endpoint $h^{-1}$ has,
+after multiplication by a positive factor, numerator
+\[
+ A_*=P_2-4DU(1+U+z),
+\]
+where
+\[
+\begin{aligned}
+ P_2={}&3U^4+6U^3z+6U^3+4U^2z^2+12U^2z+12U^2\\
+      &+2Uz^3+6Uz^2+2Uz+6U+z^4+2z^2-3.
+\end{aligned}
+\]
+For fixed $U$, replace the odd powers of $z$ by $x=|z|$.  The resulting
+polynomial $P_2^+(U,x)$ satisfies
+\[
+ \partial_xP_2^+
+ =2(3U^3+4U^2x+6U^2+3Ux^2+6Ux+U+2x^3+2x)>0,
+\]
+and therefore its supremum for $z^2<\Omega$ occurs at $x=\sqrt\Omega$.
+There
+\[
+ P_2^+(U,\sqrt\Omega)=4U(U+\sqrt\Omega-3)<0.
+\]
+As $1+U+z=2a>0$, this gives $A_*<0$.  The positive junction value and
+negative endpoint value force the first root strictly between them, proving
+the $L_+$ half of \eqref{eq:first-root-order}; reflection proves the other
+half.
+
+For the coordinate bounds, the exact identities
+\[
+ D^2-(3U-z)^2=6U(1+z-U),\qquad
+ D^2-(3U+z)^2=6U(1-z-U)
+\]
+give $J_u,J_v<1/2$.  It remains to control the coordinate sum along $L_+$.
+For $E=L_+(h^{-1})$, the sign of $3-2a-E_u-E_v$ is the sign of
+\[
+ D(6U+2z+6)+B(U,z),
+\]
+where
+\[
+\begin{aligned}
+ B(U,z)={}&-9U^3-9U^2z-9U^2-3Uz^2-18Uz+3U\\
+          &-3z^3+3z^2-3z+3.
+\end{aligned}
+\]
+Here
+\[
+ B_z=-3(3z^2+2Uz+6U-2z+3U^2+1)<0,
+\]
+because the quadratic in parentheses has discriminant
+$-32U^2-80U-8<0$.  Hence its minimum on $z^2<\Omega$ is at
+$z=\sqrt\Omega$, where
+$B(U,\sqrt\Omega)=6(1-3U-\sqrt\Omega)>0$ because
+$(1-3U)^2-\Omega=12U^2$.  Thus $E_u+E_v<3-2a$.
+Also $J_u+J_v<1<3-2a$, and the coordinate sum is affine on the
+line segment, so the same strict bound holds at the first root.  Now
+\[
+ \frac{\partial F}{\partial t}(P,t)=1+2t-P_u-P_v.
+\]
+Since $F(L_+(\mu_+),1-a)=0$, the coordinate-sum bound makes its $t$-derivative
+strictly positive for $t\ge1-a$.  Together with the no-opposite-line result,
+this proves \eqref{eq:moving-right-signs}.  Reflection gives both the bound on
+$L_-$ and the complete $Z_3(y)$ statement.
+\end{proof}
+
+Define the local and global witnesses by
+\begin{equation}
+ Q_-^{\rm loc}=L_-(\lambda_-),\qquad
+ Q_0^{\rm loc}=J,\qquad
+ Q_+^{\rm loc}=L_+(\mu_+),                       \label{eq:asym-witnesses}
+\end{equation}
+and put $Q_j=\Psi_4(Q_j^{\rm loc})$ for $j\in\{-,0,+\}$.
+
+\begin{lemma}[Direct asymmetric forcing]
+\label{lem:asymmetric-core-witness}
+Assume that $U_C,U_0,\ldots,U_5$ cover $H$.  Then
+\[
+ Q_-,Q_0,Q_+
+ \in\interior(H)\setminus\bigcup_{i=0}^5U_i,
+\]
+and consequently all three witnesses belong to $U_C$.
+\end{lemma}
+
+\begin{proof}
+The root order and positivity of the line coordinates give
+$0<u,v<1$ for all three points.  Each point has local coordinates in $\mathcal R_{AB}^{\rm loc}(b,a)$ and hence
+lies in a closed unit triangle containing $V_4$, so
+$\mathsf q(u,v)\le1$; hence
+$|u-v|<1$ and all three points lie in $\interior(H)$.
+
+In local coordinates the closure of $U_4$ is represented in
+$\mathcal R_{AB}^{\rm loc}(b,a)$, since $U_4$ contains the actual handoffs
+$X_3(\xi_3),X_4(\xi_4)$ and its distinguished vertex $V_4$.  All three witnesses lie
+on its exact non-axis frontier.  If one belonged to the open triangle $U_4$,
+a sufficiently small plane ball about it would lie both in $U_4$ and in the
+interior of the corner cone, making the witness an interior point of
+$\mathcal R_{AB}^{\rm loc}(b,a)$. This contradiction excludes $U_4$.
+
+For the triangles $U_0,U_1,U_2$, their contained vertices have local coordinates
+\[
+ \begin{array}{c|ccc}
+ i&0&1&2\\ \hline
+ V_i&(2,1)&(2,2)&(1,2).
+ \end{array}
+\]
+For $P=(u,v)$,
+\[
+ \lVert P-(2,1)\rVert^2-1=\mathsf q(u,v)+2-3u,
+ \quad
+ \lVert P-(1,2)\rVert^2-1=\mathsf q(u,v)+2-3v.
+\]
+The inequalities $J_u,J_v<1/2$ and the line order give distance greater than
+one from $V_0$ for $Q_-,Q_0$ and from $V_2$ for $Q_0,Q_+$.  For the remaining
+pair, the first-root circle and the sum bound in
+\zcref{lem:fixed-line-signs} give
+\[
+ \lVert Q_+-V_0\rVert^2-1
+ =a(3-a-(Q_+)_u-(Q_+)_v)>a^2,
+\]
+and, by reflection, $\lVert Q_--V_2\rVert^2-1>b^2$.  All three points are
+farther than one from $V_1=(2,2)$, because writing $u=1-\xi$, $v=1-\eta$
+gives
+\[
+ \lVert P-V_1\rVert^2
+ =1+\xi+\eta+\xi^2+\eta^2-\xi\eta>1.
+\]
+Since two points in one open unit equilateral triangle have distance strictly
+less than one, these inequalities exclude $U_0,U_1,U_2$.
+
+The actual handoff $X_5(\xi_5)\in U_5$ has local coordinates
+$Z_5(\xi_5)$, and
+$1-a<\xi_5<b$ by \eqref{eq:extreme-chain}.  The three signs in
+\eqref{eq:moving-right-signs} therefore put every witness at distance at
+least one from $X_5(\xi_5)$, excluding $U_5$.  Similarly, if $y=1-\xi_2$, then
+$1-b<y<a$ and $X_2(\xi_2)\in U_3$ has local coordinates $Z_3(y)$;
+the reflected signs exclude $U_3$.
+Thus no V triangle contains any witness.  The assumed cover now forces all
+three interior witnesses into $U_C$.
+\end{proof}
+
+Set $r_*:=\eta=h(1-c_*)$ and $P_i^{\rm rad}:=(1-c_*)V_i$. Then
+\begin{equation}
+ \mathbb B(O,r_*)\subseteq\conv\{P_0^{\rm rad},\ldots,P_5^{\rm rad}\}
+ \subset U_C.
+ \label{eq:reader-forced-disk}
+\end{equation}
+The three additional witnesses satisfy
+\begin{equation}
+ Q_-,Q_0,Q_+\in U_C.
+ \label{eq:reader-forced-asymmetric}
+\end{equation}
+The nine-point set and its compact comparison set are
+\[
+ K_F:=\{P_i^{\rm rad}:0\le i\le5\}\cup\{Q_-,Q_0,Q_+\},
+\]
+\begin{equation}
+ K_{\rm wit}(a,b):=\mathbb B(O,r_*)\cup\{Q_-,Q_0,Q_+\}\subset U_C.
+ \label{eq:reader-witness-set}
+\end{equation}
+These containments follow from \zcref{lem:symmetric-core-witness,lem:asymmetric-core-witness}.
+
+\input{figures/finite_enclosure/fe11_zero_gap_witness}
+
+\subsection{Newton inner reduction}
+
+For the nontrivial regime $c_*>2/3$, we first remove the square radicals in
+the first-root witnesses.  Normalize
+$\bar\alpha=\alpha/h$, and similarly for the other three coefficients, and
+put
+\[
+ \xi=\lambda/h,\quad \zeta=\mu/h,\quad
+ \xi_*=\zeta_*=\frac{8\rho}{3(D+3)}.
+\]
+Define $\widetilde g_-(x)=g_-(hx)$ and
+$\widetilde g_+(x)=g_+(hx)$ from \eqref{eq:witness-quadratics}.
+Take one Newton step at the junction:
+\[
+ \widehat\xi_-=\xi_*-\frac{\widetilde g_-(\xi_*)}{\widetilde g_-'(\xi_*)},\qquad
+ \widehat\zeta_+=\zeta_*-\frac{\widetilde g_+(\zeta_*)}{\widetilde g_+'(\zeta_*)}.
+\]
+Define the global Newton vectors by
+\begin{align*}
+ A&=\Psi_4\left(b-\frac34\bar\beta\widehat\xi_-,
+          \frac34\bar\alpha\widehat\xi_-\right),\\
+ B&=\Psi_4(J),\\
+ C&=\Psi_4\left(\frac34\bar\delta\widehat\zeta_+,
+          a-\frac34\bar\gamma\widehat\zeta_+\right),
+\end{align*}
+All norms and cross products below are taken in these global vectors.
+
+\begin{lemma}[Newton inner reduction]
+\label{lem:technical-newton-reduction}
+Their local coordinates are rational in $a,b,D$, and their global
+coordinates are rational over $\mathbb Q(\sqrt3)$ in those variables. They satisfy
+\[
+ A\in(Q_0,Q_-),\qquad C\in(Q_0,Q_+).
+\]
+Consequently
+\[
+ \widehat K=\conv(\mathcal D_\eta\cup\{A,B,C\}),
+\]
+satisfies
+\begin{equation}
+ \widehat K\subseteq\conv(K_{\rm wit}(a,b)),\qquad
+ \Lambda(K_{\rm wit}(a,b))\ge\Lambda(\widehat K).
+ \label{eq:reader-newton-reduction}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Each rescaled quadratic $\widetilde g_-,\widetilde g_+$ is strictly convex,
+positive, and decreasing at
+the junction.  Its tangent zero therefore lies strictly between the
+junction and its first root.  This gives the two open-segment inclusions.
+The normalized coefficients and Newton quotients are rational in $a,b,D$;
+applying $\Psi_4$ gives the stated global field. Convexity proves the containment.
+\end{proof}
+
+\subsection{Ordered convex chain and supporting-line bounds}
+
+\begin{proposition}[Four-contact witness geometry]
+\label{prop:technical-four-contact-geometry}
+Assume \eqref{eq:ab-strict-domain} and $c_*>2/3$. The rays $A,B,C$ occur
+in that order in one open $120^\circ$ cone, and
+\[
+ \operatorname{cross}(B-A,C-B)>0,\qquad
+ \|A\|,\|C\|>\eta.
+\]
+Moreover the outward distances of the lines $AB,BC$ satisfy
+\begin{equation}
+ d_{AB}:=\frac{\operatorname{cross}(A,B)}{\|B-A\|}\ge h-2\eta,\qquad
+ d_{BC}:=\frac{\operatorname{cross}(B,C)}{\|C-B\|}\ge h-2\eta.
+ \label{eq:adjacent-overlaps}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The local coordinates of all three Newton points lie in $(0,1)^2$.
+Centering at $O$ gives coefficient vectors $(u-1,v-1)$ in the two incident
+edge directions, so their rays lie in one open $120^\circ$ cone. The two
+line identities
+\[
+ d_{AB}=\alpha(1-b)+\beta>0,\qquad
+ d_{BC}=\gamma+\delta(1-a)>0
+\]
+give their order $A,B,C$. Put
+$s_A=h\widehat\xi_- -\lambda_*>0$ and
+$s_C=h\widehat\zeta_+ -\mu_*>0$. The frontier directions give
+\[
+ \operatorname{cross}(B-A,C-B)
+ =h s_A s_C(\alpha\delta-\beta\gamma)>0,
+\]
+since
+$\alpha\delta-\beta\gamma=3(1-D)(D+3)/(16\rho)>0$.
+For $A=(-X,-Y)$ in the centered cone basis, $X>1/2$, and
+\[
+ \|A\|^2=(Y-X/2)^2+3X^2/4>3/16.
+\]
+The reflected calculation gives
+\begin{equation}
+ \|A\|,\|C\|>h/2>\eta.\label{eq:outer-radii}
+\end{equation}
+It remains to prove the two supporting-line bounds. Put
+$\tau=h-2\eta=h(2c_*-1)$.
+We now give the exact analytic verification.  By reflection take $a\le b$ and
+set $m=1-b$, $M=1-a$, $U=a+b-1$, $s=m+M$, and $w=M-m$.  The smaller of the
+two normalized left sides in \eqref{eq:adjacent-overlaps} is
+\begin{equation}
+ d=\frac{\mathcal A+U(2m-1)+D(\mathcal A+U)}{2\rho},
+ \qquad \mathcal A=1-m+m^2.                      \label{eq:adjacent-d}
+\end{equation}
+On the $C_L$ sheet, write $F_L(z)=z^4-z^2+mz-m^2$.  This defining
+polynomial evaluated at
+$r=1-m/2+m^2/2$ is
+\[
+ F_L(r)=\frac{m^2(m-1)}{16}
+ (m^5-3m^4+11m^3-17m^2+28m-12)>0.
+\]
+Indeed the polynomial in parentheses is increasing on $(0,1/2)$ and has
+value $-33/32$ at $1/2$; its derivative is
+$28-34m+m^2(5m^2-12m+33)>0$.  Since
+$F_L(h)=-(m-h/2)^2\le0$ and the selected
+root is unique, $2c_*-1\le\mathcal A$.  Put
+\[
+ X_0=\mathcal A+U,
+ \qquad
+ Y_0=2\rho\mathcal A-\mathcal A-U(2m-1).
+\]
+Then
+\[
+ d-\mathcal A=\frac{D(\mathcal A+U)-Y_0}{2\rho},
+\]
+and exact expansion gives
+\[
+\begin{aligned}
+ Y_0={}&2(m^2-m+1)U^2+(2m^3-2m+3)U\\
+      &+(m^2-m+1)(2m^2-2m+1)>0.
+\end{aligned}
+\]
+Furthermore
+\[
+ D^2X_0^2-Y_0^2=4m\rho\Phi(U,m),
+\]
+where
+\[
+\begin{aligned}
+ \Phi(U,m)={}&(1-m)(m^2-m+2)U^2\\
+ &+(2-m^2)(m^2-m+1)U\\
+ &-m(1-m)^2(m^2-m+1).
+\end{aligned}
+\]
+In these variables
+\[
+ \chi=U^4-4U^3+5U^2-(m+2)U+m(1-m).
+\]
+Since $U^2(U^2-4U+5)>0$, the selector $\chi\le0$ implies
+$U>m(1-m)/(m+2)$; $\Phi$ is increasing in $U$ and at that lower endpoint is
+\[
+ \frac{m^2(1-m)(m^4-2m^3+6m^2-6m+4)}{(m+2)^2}>0.
+\]
+The last quartic equals $(m^2-m)^2+5m^2-6m+4>0$.
+Thus $d>\mathcal A\ge2c_*-1$.
+
+On the other radial sheet let $E=\sqrt{4s^2-3}$.  Then
+$0\le w<sE$ and $c_*=(s+w)/(1+E)$.  At fixed $U$, differentiation of
+\eqref{eq:adjacent-d} can be checked without an implicit estimate.  Namely,
+\[
+ d=\frac{1+D}{2}-UB(D,w),\qquad
+ B(D,w)=\frac{(1+U)(3+D)+w(1-D)}{D^2+3}.
+\]
+Here $D^2=w^2+6U+3U^2$, so $0\le D'=w/D\le1$, and
+\[
+ B_w=\frac{1-D}{D^2+3}\ge0.
+\]
+Writing $N=(1+U)(3+D)+w(1-D)$, direct differentiation gives
+\[
+ B_D=\frac{(1+U-w)(D^2+3)-2DN}{(D^2+3)^2}>-\frac{34}{27}.
+\]
+Indeed the first term in the numerator is positive, while
+$1+U-w=2a>0$, $N<(7/6)4+1=17/3$, $D<1$, and $D^2+3\ge3$.  If $B_D<0$, then
+$B_DD'\ge B_D$; otherwise $B_DD'\ge0$.  Hence
+$B'=B_w+B_DD'>-34/27$, and $U<1/6$ yields
+\[
+ d'<\frac12+\frac16\frac{34}{27}=\frac{115}{162}<1,
+\]
+whereas
+$(2c_*-1)'=2/(1+E)\ge1$.  Hence their difference decreases with $w$.
+At the boundary $w=sE$, where $\chi=0$ and $c_*=s$, the preceding sheet
+applies: this is an admissible point because $h<s<1$ and
+$D^2=4s^4-12s+9<1$.  Indeed
+$s^4-3s+2=(s-1)(s^3+s^2+s-2)<0$ on this interval; the second factor is
+increasing and already equals $(7h-5)/4>0$ at $s=h$.  The preceding sheet gives
+$d\ge2s-1$.  Therefore \eqref{eq:adjacent-overlaps} holds on both
+sheets, and reflection supplies the other line.
+
+This proves both supporting-line bounds. Since $0<\eta<h/3$, their
+common lower bound $h-2\eta$ is strictly greater than $\eta$, as required
+for the exposed-edge geometry used below.
+\end{proof}
+
+
+\subsection{Four supporting contacts and paired radius transfer}
+\label{subsec:nine-point-conclusion}
+
+Let $\mathsf R$ and $\mathsf J$ denote counterclockwise rotations through
+$2\pi/3$ and $\pi/2$, respectively. For the inner witness define
+\[
+ H(n)=\max\{\eta,\langle A,n\rangle,\langle B,n\rangle,
+                  \langle C,n\rangle\},
+ \qquad \Psi(n)=\sum_{j=0}^2H(\mathsf R^jn).
+\]
+The support formula gives
+$\Lambda(\widehat K)=h^{-1}\min_{\|n\|=1}\Psi(n)$.
+The minimum can be located without introducing another convex body.
+
+\begin{lemma}[Four-contact enclosure formula]
+\label{lem:four-contact-formula}
+For the Newton inner witness in the range $c_*>2/3$, put
+\[
+ n_{AB}=-\frac{\mathsf J(B-A)}{\|B-A\|},\qquad
+ n_{BC}=-\frac{\mathsf J(C-B)}{\|C-B\|},
+\]
+\[
+ t_A=\frac{\eta A-\sqrt{\|A\|^2-\eta^2}\,\mathsf JA}{\|A\|^2},
+ \qquad
+ t_C=\frac{\eta C+\sqrt{\|C\|^2-\eta^2}\,\mathsf JC}{\|C\|^2}.
+\]
+Then
+\begin{equation}
+ \Lambda(\widehat K)=\frac1h
+ \min\{\Psi(n_{AB}),\Psi(n_{BC}),\Psi(t_A),\Psi(t_C)\}.
+ \label{eq:four-contact-minimum}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+By \zcref{prop:technical-four-contact-geometry}, the rays $A,B,C$ are
+ordered in one open $120^\circ$ cone, the chain turns strictly
+counterclockwise, and the supporting-line distances exceed $\eta$.
+The third point and the disk are strictly on the inward side of each of
+$AB,BC$, so both segments are exposed edges. Moreover
+\[
+ \operatorname{cross}(C-A,B-A)<0,
+ \qquad \operatorname{cross}(C-A,-A)>0.
+\]
+Thus $B$ and the origin are on opposite sides of $AC$, which is not an
+exposed edge. The other two straight boundary pieces are the exposed disk
+tangents through $A$ and $C$. There is no exposed disk tangent through $B$.
+The indicated signs select the tangent before $A$ and the tangent after $C$
+in the counterclockwise boundary traversal.
+
+The support-cell rotation lemma \zcref{lem:support-cell-rotation} places
+a minimum at these exposed ties or on a disk-only cell. In the latter case
+the same value occurs at a boundary tie, since $\|A\|>\eta$.
+Rotation through $120^\circ$ leaves just the four displayed normals.
+The exposed-hull argument, rather than the general caliper theorem alone,
+is what discards the other point and disk ties.
+\end{proof}
+
+
+At the first two contacts the disk supplies the other two supports, so
+\begin{equation}
+ \Psi(n_{AB})\ge d_{AB}+2\eta\ge h,\qquad
+ \Psi(n_{BC})\ge d_{BC}+2\eta\ge h.
+ \label{eq:four-contact-line-tests}
+\end{equation}
+For the two tangencies, put
+\[
+ \Delta=\operatorname{cross}(C,\mathsf RA)>0,\quad
+ \nu=\langle C,\mathsf RA\rangle,\quad N_X=\|X\|^2\quad(X=A,C).
+\]
+Choosing $C$ as a support source at $\mathsf Rt_A$ and $A$ at
+$\mathsf R^2t_C$, with the disk in the other directions, gives
+\begin{equation}
+ \Psi(t_A)\ge2\eta+
+ \frac{\eta\nu+\Delta\sqrt{N_A-\eta^2}}{N_A},\qquad
+ \Psi(t_C)\ge2\eta+
+ \frac{\eta\nu+\Delta\sqrt{N_C-\eta^2}}{N_C}.
+ \label{eq:four-contact-tangent-tests}
+\end{equation}
+Consequently the only remaining targets are the paired residual signs
+\begin{equation}
+ P_X(\eta):=(N_X-\eta^2)\Delta^2-
+ ((h-2\eta)N_X-\eta\nu)^2\ge0\quad(X=A,C).
+ \label{eq:four-contact-residuals}
+\end{equation}
+
+\input{figures/finite_enclosure/fe12_support_caps}
+Indeed $P_X(\eta)\ge0$ gives
+$\Delta\sqrt{N_X-\eta^2}\ge|(h-2\eta)N_X-\eta\nu|$, which implies the
+required lower bound even when the expression inside the absolute value is
+negative. No sign is lost by squaring.
+
+The exact certificate uses a smaller rationally specified radius. The
+following elementary transfer is the reason those existing signs suffice
+for the actual-radius tangencies.
+
+\begin{lemma}[Simultaneous radius transfer]
+\label{lem:paired-radius-transfer}
+Let $X,Y$ be vectors, $d\ge0$, and $0\le e_0\le1/3$. If
+\[
+ \|(1-2e_0)X-e_0Y\|\le d,\qquad
+ \|(1-2e_0)Y-e_0X\|\le d,
+\]
+then both inequalities hold at every $e\in[e_0,1/3]$.
+\end{lemma}
+
+\begin{proof}
+The difference of the two vectors at $e_0$ is $(1-e_0)(X-Y)$, so
+\[
+ \|X-Y\|\le\frac{2d}{1-e_0}\le3d.
+\]
+At $e=1/3$ the vectors become $(X-Y)/3$ and $(Y-X)/3$, both in the
+closed radius-$d$ ball. Each vector depends affinely on $e$, and the ball
+is convex. Interpolation proves both inequalities, including the endpoint
+case. This transfers the pair together; it does not assert monotonicity of
+either squared residual separately.
+\end{proof}
+
+\subsection{Exact disk-tangent residual certificate}
+\label{sec:strategy4-exact-certificate}
+
+The two disk-tangent contact bounds in the zero-gap nine-point theorem are
+certified by exact symbolic arithmetic.  This calculation gives the mathematical reduction and verification
+algorithms. The finite sparse data and the two exact programs form the
+\href{https://github.com/dylan0301/hexagon-cover-database/tree/56be06718a674bda1779ee6ed30d8571217f06cd/proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation}{accompanying certificate files at an immutable revision};
+they are included in the accompanying source package. The PDF prints the
+certificate construction and checking rules, not every machine coefficient.  No floating-point arithmetic, interval
+arithmetic, adaptive subdivision, branch-and-bound, or unrecorded numerical
+tolerance is used.
+
+\subsubsection{Certificate manifest}
+
+The machine-readable provenance manifest identifies the six sparse-data
+shards and both exact verifiers by full Git blob and records their roles.
+They decode to one canonical sparse-polynomial transcript with
+SHA--256 digest
+\begin{verbatim}
+dc46aaf263655d5159ecd3a81db72ee82477951d06172f4743b248df37209485
+\end{verbatim}
+The derivation verifier reconstructs the transcript from the witness formulas
+and compares every coefficient with the authenticated object. The positivity
+verifier derives the Bernstein coefficients from that object and checks their
+signs exactly.
+
+\subsubsection{Rational radial upper envelopes}
+
+Retain the notation of Section~\ref{sec:ab-core}.  Thus
+\[
+ p=1-b,\qquad q=1-a,\qquad s=p+q,\qquad
+ m=\min\{p,q\},\qquad M=\max\{p,q\},
+\]
+\[
+ \chi=s^4-s^2+mM,\qquad h=\frac{\sqrt3}{2},\qquad
+ c_*=c_{\max}(p,q).
+\]
+The strict witness domain gives
+\begin{equation}
+ mM>(1-s)(2-s),\qquad m>1-s,\qquad s>\frac23.
+ \label{eq:certificate-domain}
+\end{equation}
+Put
+\[
+ F_m(x)=x^4-x^2+mx-m^2,\qquad
+ \kappa=F_m'(s)=4s^3-2s+m.
+\]
+Then
+\[
+ \kappa>4s^3-3s+1=(s+1)(2s-1)^2>0.
+\]
+Define
+\begin{equation}
+ \bar c_L=s-\frac{\chi}{\kappa}\quad(\chi\le0),
+ \qquad
+ \bar c_T=s-\frac{\chi}{1-m}\quad(\chi\ge0).
+ \label{eq:certificate-cbar}
+\end{equation}
+
+\begin{lemma}[Branchwise radial upper bounds]
+\label{lem:paper-branchwise-cbar}
+On the corresponding radial cells,
+\[
+ c_*\le\bar c_L<1,\qquad c_*\le\bar c_T<1.
+\]
+At $\chi=0$ both upper bounds equal $s=c_*$.
+\end{lemma}
+
+\begin{proof}
+On the $L$ cell, $F_m(s)=\chi\le0$ and $F_m(c_*)=0$.  For $x\ge s>2/3$,
+$F_m''(x)>0$, so convexity gives
+\[
+ 0\ge F_m(s)+F_m'(s)(c_*-s),
+\]
+and hence $c_*\le\bar c_L$.  If $U=1-s$, then
+\[
+ \chi+U\kappa
+ >U\{m+1-4U+8U^2-3U^3\}>0
+\]
+by \eqref{eq:certificate-domain}; therefore $\bar c_L<1$.
+
+On the $T$ cell put
+\[
+ E=\sqrt{4s^2-3},\qquad
+ m_-=\frac{s(1-E)}2,\qquad m_+=\frac{s(1+E)}2.
+\]
+Then
+\[
+ \chi=(m-m_-)(m_+-m),\qquad
+ s-c_*=\frac{2(m-m_-)}{1+E}.
+\]
+Consequently
+\[
+ \frac{\chi}{s-c_*}
+ =\frac{1+E}{2}(m_+-m)\le1-m,
+\]
+which gives $c_*\le\bar c_T$.  The strict inequality $\chi>0$ gives
+$\bar c_T<s<1$.
+\end{proof}
+
+Reflect so that $z=a-b\ge0$ and put $U=a+b-1$.  Then
+\[
+ s=1-U,\qquad m=\frac{1-U-z}{2},\qquad
+ D^2=z^2+6U+3U^2=:K(U,z),
+\]
+and
+\[
+ \Xi(U,z)=4\chi
+ =1-10U+21U^2-16U^3+4U^4-z^2,
+\]
+\[
+ G(U,z)=2\kappa=5-21U+24U^2-8U^3-z.
+\]
+Thus
+\begin{equation}
+ \bar c_L=1-U-\frac{\Xi(U,z)}{2G(U,z)},
+ \qquad
+ \bar c_T=1-U-\frac{\Xi(U,z)}{2(1+U+z)}.
+ \label{eq:certificate-rational-cbar}
+\end{equation}
+
+\subsubsection{Gram reduction and the geometric implication}
+
+On the active cell let $\bar c$ denote the corresponding expression in
+\eqref{eq:certificate-rational-cbar}, and put
+\[
+ \bar\eta=h(1-\bar c),\qquad e=1-\bar c,\qquad t=2\bar c-1.
+\]
+\zcref{lem:paper-branchwise-cbar} gives
+$0<\bar\eta\le\eta=h(1-c_*)$.  The algebra below is evaluated at $\bar\eta$;
+\zcref{lem:paired-radius-transfer} will transfer both residual signs to
+the actual radius $\eta$.
+
+Represent a global vector as $(x,hy)$ and put $C'=\mathsf R^{-1}C$.  Define
+\[
+ N_A=\lVert A\rVert^2,\qquad N_C=\lVert C\rVert^2,\qquad
+ \nu=\langle A,C'\rangle,
+\]
+\[
+ \Delta_0=x_{C'}y_A-y_{C'}x_A>0.
+\]
+Thus $h\Delta_0=\operatorname{cross}(C',A)
+=\operatorname{cross}(C,\mathsf RA)>0$. The authenticated code uses the
+opposite signed determinant, but every occurrence is squared; its integer
+polynomials and digest are unchanged. The Gram identity is
+\begin{equation}
+ h^2\Delta_0^2=N_AN_C-\nu^2.
+ \label{eq:certificate-Gram}
+\end{equation}
+Define
+\begin{equation}
+ Q_A=\Delta_0^2-\lVert tA-eC'\rVert^2,\qquad
+ Q_C=\Delta_0^2-\lVert tC'-eA\rVert^2.
+ \label{eq:certificate-Q}
+\end{equation}
+
+\begin{lemma}[Residual signs and actual-radius tangency]
+\label{lem:paper-residual-to-tangency}
+If $Q_A,Q_C\ge0$, then the two actual-radius residuals
+$P_A(\eta),P_C(\eta)$ in \zcref{eq:four-contact-residuals} are nonnegative.
+Consequently both tangent contact sums in
+\zcref{eq:four-contact-tangent-tests} are at least $h$.
+\end{lemma}
+
+\begin{proof}
+Let $\bar\tau=h-2\bar\eta=ht$. Expanding
+\eqref{eq:certificate-Q} and using \eqref{eq:certificate-Gram} gives
+\begin{equation}
+ \bar P_A:=(N_A-\bar\eta^2)h^2\Delta_0^2
+ -(\bar\tau N_A-\bar\eta\nu)^2=h^2N_AQ_A,
+ \label{eq:certificate-PA}
+\end{equation}
+\begin{equation}
+ \bar P_C:=(N_C-\bar\eta^2)h^2\Delta_0^2
+ -(\bar\tau N_C-\bar\eta\nu)^2=h^2N_CQ_C.
+ \label{eq:certificate-PC}
+\end{equation}
+The signs $Q_A,Q_C\ge0$ are exactly
+\[
+ \|(1-2e)A-eC'\|\le\Delta_0,\qquad
+ \|(1-2e)C'-eA\|\le\Delta_0.
+\]
+Since $0<e=\bar\eta/h\le\eta/h<1/3$,
+\zcref{lem:paired-radius-transfer} gives the same inequalities at
+$\eta/h$. The identical Gram factors at that radius prove
+$P_A(\eta),P_C(\eta)\ge0$. Since $h\Delta_0>0$, the unsquared bounds
+following \zcref{eq:four-contact-residuals} show that both tangent contact
+sums are at least $h$. Transferring the pair avoids any assumption that a
+single squared residual is monotone in the disk radius.
+\end{proof}
+
+\subsubsection{Eight exact integer-polynomial signs}
+
+The Newton witnesses $A,C$ are rational functions of $U,z,D$.  Substituting
+\eqref{eq:certificate-rational-cbar} into \eqref{eq:certificate-Q}, clearing
+denominators, and reducing by
+\[
+ D^2-K(U,z)=0
+\]
+gives, for $B\in\{L,T\}$ and $X\in\{A,C\}$,
+\begin{equation}
+ \operatorname{num}(Q_{B,X})
+ =32(K+3)^2
+ \{A_{B,X}(U,z)+D B_{B,X}(U,z)\},
+ \label{eq:certificate-core-reduction}
+\end{equation}
+where all eight core polynomials lie in $\mathbb Z[U,z]$.
+Every omitted denominator is strictly positive on the strict domain: its
+factors are positive constants, $(D+3)^4$, $G(U,z)^2$ or
+$(1+U+z)^2$, and squares of the two Newton-derivative numerators.  Here
+$G=2\kappa>0$, and the fixed-line sign theorem proves both Newton derivatives
+strictly negative.
+
+The derivation verifier constructs $A,C$, both rational envelopes, and all four
+residuals directly in the exact field $\mathbb Q(U,z,D)$.  It performs the
+reduction modulo $D^2-K$, removes the common positive factor,
+primitive-normalizes the eight integer polynomials, and compares their sparse
+term lists coefficient by coefficient with the authenticated transcript.  Thus
+the data are checked against the geometric formulas rather than trusted as an
+independent precomputation.
+
+\subsubsection{Three global positive-basis certificates}
+
+For integers $0\le i\le m$, the Bernstein basis polynomial is
+$B_i^m(r)=\binom mi r^i(1-r)^{m-i}$.
+A tensor Bernstein expansion on $[0,1]^2$ has the form
+\[
+ P(r,s)=\sum_{i=0}^m\sum_{j=0}^n b_{ij}B_i^m(r)B_j^n(s).
+\]
+Every basis term is nonnegative, and their sum is one. Therefore
+nonnegative coefficients certify $P\ge0$ on the whole square; strictly
+positive coefficients certify strict positivity. The exact coefficient
+conversion formula is given below.
+
+Set
+\[
+ \mathcal G(U)=1-6U-3U^2,\qquad
+ \mathcal P(U)=1-10U+21U^2-16U^3+4U^4,
+\]
+\[
+ U_\triangle=1-\frac{\sqrt3}{2},\qquad
+ U_{\max}=\frac2{\sqrt3}-1.
+\]
+The complete reflected domain is the union of the three closed cells
+\[
+\begin{array}{c|c|c}
+\text{cell}&U\text{-range}&z^2\text{-range}\\
+\hline
+T&0\le U\le U_\triangle&0\le z^2\le\mathcal P(U)\\
+L_0&0\le U\le U_\triangle&\mathcal P(U)\le z^2\le\mathcal G(U)\\
+L_1&U_\triangle\le U\le U_{\max}&0\le z^2\le\mathcal G(U)
+\end{array}
+\]
+For the $T$ cell use
+\[
+ U=\frac{(x-1)(3-x)}{4x},\qquad
+ z=y\frac{9-x^4}{8x^2},\qquad
+ 1\le x\le\sqrt3,\quad0\le y\le1,
+\]
+and then $x=1+(\sqrt3-1)r$.  This maps $[0,1]^2$ onto the complete cell.
+After multiplication by positive powers of $2$ and $x$, the four transformed
+core polynomials have global tensor Bernstein expansions with data
+\[
+\begin{array}{c|ccc}
+&\text{bidegree}&\text{coefficient count}&\text{zero count}\\ \hline
+A_{T,A}&(88,22)&2047&2\\
+B_{T,A}&(80,20)&1701&0\\
+A_{T,C}&(88,22)&2047&2\\
+B_{T,C}&(80,20)&1701&0.
+\end{array}
+\]
+Every nonzero coefficient is strictly positive.
+
+For an $L$-cell polynomial write
+\[
+ F(U,z)=E_F(U,w)+zO_F(U,w),\qquad w=z^2,
+\]
+and
+\[
+ R_F(U,w)=E_F(U,w)^2-wO_F(U,w)^2.
+\]
+The implications $E_F\ge0$ and $R_F\ge0$ give
+$E_F\ge\sqrt w\,|O_F|$, hence $F\ge0$ for $z\ge0$.
+Use the exact charts
+\[
+ U=U_\triangle r,\qquad
+ w=\mathcal P(U)+s\{\mathcal G(U)-\mathcal P(U)\}
+\]
+for $L_0$, and
+\[
+ U=U_\triangle+(U_{\max}-U_\triangle)r,\qquad
+ w=s\mathcal G(U)
+\]
+for $L_1$. The positivity verifier forms one global Bernstein expansion for
+each of $E_F,R_F$ on each square. The authenticated transcript records the
+bidegrees and coefficient counts of all sixteen expansions; every coefficient
+is strictly positive.
+
+The verifier implements polynomial addition, multiplication, substitution,
+and power-to-Bernstein conversion over exact integers.  Coefficients in
+$\mathbb Q(\sqrt3)$ are represented as rational pairs and signed by exact
+rational comparisons. For $x+y\sqrt3$ with rational $x,y$, equal signs
+are immediate. When $x>0>y$, its sign is that of $x^2-3y^2$;
+when $y>0>x$, it is that of $3y^2-x^2$. Zero components are handled
+directly. Thus no numerical approximation to $\sqrt3$ is needed. If
+$P(r,s)=\sum a_{ij}r^is^j$ has bidegree $(m,n)$, its exact tensor Bernstein
+coefficients are
+\[
+ b_{k\ell}
+ =\sum_{i\le k}\sum_{j\le\ell}
+ a_{ij}\frac{\binom{k}{i}}{\binom{m}{i}}
+       \frac{\binom{\ell}{j}}{\binom{n}{j}}.
+\]
+This is precisely the conversion implemented by the verifier.
+
+\begin{theorem}[Exact tangent-residual certificate]
+\label{thm:paper-exact-mixed-certificate}
+On the complete strict witness domain with $c_*>2/3$, all eight polynomials in
+\eqref{eq:certificate-core-reduction} are nonnegative.  Hence
+$Q_A,Q_C\ge0$, and the two actual-radius tangent contact bounds in
+\zcref{eq:four-contact-tangent-tests} hold.
+\end{theorem}
+
+\begin{proof}
+The $T$ chart proves the four $T$-cell core signs by nonnegative Bernstein
+coefficients.  On each $L$ chart the positive Bernstein certificates for
+$E_F$ and $R_F$ prove the four $L$-cell signs.  Since $D\ge0$,
+\eqref{eq:certificate-core-reduction} gives $Q_A,Q_C\ge0$ for $z\ge0$;
+reflection supplies $z\le0$.  \zcref[S]{lem:paper-residual-to-tangency} then
+gives the two tangent contact bounds.
+\end{proof}
+
+\begin{remark}[Reproduction]
+The authenticated data and the two verifiers constitute the exact electronic
+certificate used by the proof. Reproduce it from its package directory by
+executing
+\begin{verbatim}
+python verify_mixed_overlap_core_derivation.py
+python verify_global_core_positivity.py
+\end{verbatim}
+Both commands use exact arithmetic and must reproduce the transcript digest
+above and the asserted sign checks.
+\end{remark}
+
+% BEGIN GENERATED 3105X PROVENANCE
+% proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/mixed_overlap_core_data_00.py 359b219f9deda8586217dcbf9ccc10de0ad48578
+% proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/mixed_overlap_core_data_01.py bfc807f906359636035634f799d74d552cf847fc
+% proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/mixed_overlap_core_data_02.py 92887696ef94aeb93f3d95ab9b16a5388406fff4
+% proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/mixed_overlap_core_data_03.py c2791a8a6add132ad7a17655cbb13987124cb24e
+% proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/mixed_overlap_core_data_04.py 7eeabecbbd17543b728130a1f2bc84f79e11a8d2
+% proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/mixed_overlap_core_data_05.py d676114292e722b60d1b792f615ee88ad58b6982
+% proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/mixed_overlap_core_polynomials.py 07f57b178cf74980f8d956541842d0c4c4b2faa7
+% proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/verify_mixed_overlap_core_derivation.py 0a55211ae37f56e1fc461560b0668a01456c7417
+% proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/verify_global_core_positivity.py 821f9a6dc750fbdb80e02e40282b32cc845c3383
+% END GENERATED 3105X PROVENANCE
+
+\subsection{Witness enclosure and zero-gap obstruction}
+
+\begin{theorem}[Witness enclosure]
+\label{thm:reader-witness-enclosure}
+\label{lem:appendix-witness-enclosure-calculation}
+
+For $0<a,b<1$, $a+b>1$, and $a^2+ab+b^2<1$, the comparison set
+$K_{\rm wit}(a,b)$ satisfies
+\[
+ \Lambda(K_{\rm wit}(a,b))\ge1.
+\]
+\end{theorem}
+\begin{proof}
+If $c_*\le2/3$, the centered disk gives
+$\Lambda(K_{\rm wit})\ge3(1-c_*)\ge1$. Otherwise
+$0<\eta<h/3$, and it suffices to enclose $\widehat K$ by
+\zcref{eq:reader-newton-reduction}. The line contacts satisfy
+\zcref{eq:four-contact-line-tests}.
+
+\zcref[S]{thm:paper-exact-mixed-certificate} proves the unchanged eight
+integer-polynomial signs at the rational radius
+$0<\bar\eta=h(1-\bar c)\le\eta$. The Gram factors and paired transfer in
+\zcref{lem:paper-residual-to-tangency} turn those signs into
+$P_A(\eta),P_C(\eta)\ge0$. Thus both tangent sums in
+\zcref{eq:four-contact-tangent-tests} are at least $h$ as well.
+All four contacts in \zcref{eq:four-contact-minimum} have support sum at
+least $h$. Therefore
+\[
+ \Lambda(K_{\rm wit})\ge\Lambda(\widehat K)\ge1.
+\]
+\end{proof}
+
+\begin{theorem}[Zero-gap obstruction]
+\label{thm:reader-zero-gap-obstruction}
+There is no hypothetical cover with
+\[
+ N_{\rm gap}=0,
+ \qquad
+ N_+=1.
+\]
+\end{theorem}
+
+\begin{proof}
+The construction gives the compact containment
+\(K_{\rm wit}(a,b)\subset U_C\), while
+\zcref{thm:reader-witness-enclosure} gives
+\(\Lambda(K_{\rm wit}(a,b))\ge1\).  This contradicts
+\zcref{lem:compact-cover-margin}.
+\end{proof}
+
+\begin{table}[H]
+\centering\small
+\renewcommand{\arraystretch}{1.18}
+\setlength{\tabcolsep}{3pt}
+\caption{Fixed finite-enclosure recipes. Ordinary nonsupercritical V triangles
+are not subdivided by type.}\label{tab:finite-enclosure-subcases}
+\begin{tabular}{@{}p{.29\textwidth}p{.44\textwidth}p{.18\textwidth}@{}}
+\toprule
+Conditions & Fixed witness set & Disk and count\\
+\midrule
+BC: at least one incident gap; $T_1,\ldots,T_5$ nonsupercritical &
+$\{M_0,X_0(B_0),X_0(1-A_1),\widehat P_2,\widehat P_3,\widehat P_4\}$ & No disk; at most 6\\
+D: center-based T3-like or Vd1 rescuer; one or two gaps &
+$\{O,\varepsilon V_1,Y(A_0),Y(1-B_5)\}$ & No disk; at most 4\\
+F: zero gaps, $N_+=1$ & The nine-point set $K_F$ & Disk; at most 9\\
+\bottomrule
+\end{tabular}
+\end{table}
