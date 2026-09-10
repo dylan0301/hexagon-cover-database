@@ -17,6 +17,16 @@ zero-gap nine-point theorem. The numbered files under `proof/` remain the
 authority for theorem status and hypotheses; the manuscript is the
 publication layer.
 
+`paper_draft/inline_proofs/main.tex` is an additional edition with no
+appendices. It has 64 pages. Each of its 83 theorem, lemma, proposition, and corollary
+statements is immediately followed by its proof. It integrates all the
+canonical proof calculations, consolidates 14 repeated statement entries,
+and places the main theorem and scaling corollary at the end. The certificate
+explanation is part of the zero-gap argument; the authenticated data and
+verifiers remain accompanying files. See
+[`inline_proofs/README.md`](paper_draft/inline_proofs/README.md) for the source map
+and preservation audit. The canonical edition is unchanged.
+
 The trace-exact panels remain available under
 `paper_draft/figures/trace_exact_ab/` and in the standalone explorer.
 The canonical paper includes only the illustrations needed for its active
@@ -40,11 +50,16 @@ arguments. These assets explain the geometry; they are not proof authorities.
 python -m pip install -r arrange/_support/requirements.txt
 python interactive/generate.py --trace-assets --check
 python arrange/build.py --canonical
+python arrange/build.py --inline-proofs
 python arrange/build.py --all
+python arrange/_support/verify_inline_proofs.py
 arrange/_support/build_proof_free_paper.sh
 ```
 
 The canonical build is written to `arrange/_build/canonical.pdf`. The
+additional edition is written to `arrange/_build/inline_proofs.pdf`; `--all`
+builds both. Its tracked publication artifact is
+`arrange/paper_draft/inline_proofs/main.pdf`. The
 proof-free command writes `arrange/paper_draft/proof_free.pdf`; it removes
 formal proof environments while retaining prose and calculations outside
 those environments.
@@ -54,10 +69,10 @@ before this editorial repair); the proof-free version has 37 pages
 (previously 50 and 36). The CI page-count guard is 67--71. Fonts, page
 dimensions, and margins are unchanged.
 
-Both commands use a temporary source copy, so LaTeX intermediates do not
-pollute the source directory. The tracked canonical PDF is a publication
-artifact. CI compares clean rebuilds against it by stable PDF semantics and
-rendered pixels.
+The build commands use a temporary source copy, so LaTeX intermediates do not
+pollute the source directory. Both tracked edition PDFs are publication
+artifacts. CI compares clean rebuilds against them by stable PDF semantics and
+rendered pixels. The additional edition has no page-count target.
 
 ## Active proof architecture
 

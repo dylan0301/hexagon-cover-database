@@ -1,0 +1,1491 @@
+\section{Common Geometry and Structural Reductions}
+\label{sec:structure-common}
+\label{sec:structural-reductions}
+\label{app:structural-shared-local-signed-center}
+
+\subsection{Open covers and distinguished roles}
+For a hypothetical cover by seven open unit triangles, write $T=\overline U$
+for the closure of each open triangle $U$.
+
+\begin{lemma}[Distinct triangles]
+\label{lem:distinct-roles}
+The seven triangles can be labelled so that
+\[
+ O\in U_C,\qquad V_i\in U_i\quad(0\le i\le5),
+\]
+and these seven triangles are distinct.  Consequently
+\[
+ O\in\interior(T_C),\qquad V_i\in\interior(T_i).
+\]
+\end{lemma}
+
+\begin{proof}
+The seven points $O,V_0,\ldots,V_5$ are pairwise at distance at least $1$,
+whereas two points of an open unit equilateral triangle are at distance
+strictly less than its diameter $1$.  Selecting a covering triangle for each
+point therefore gives a bijection.
+\end{proof}
+
+We call $U_C$ the \emph{C triangle} and $U_i$ the \emph{V triangle at
+$V_i$}.  Set
+\[
+ T_C=\overline{U_C},\qquad T_i=\overline{U_i}.
+\]
+A \emph{role} means one of these labeled triangles. Statements about an
+arrangement of roles assume $O\in U_C$ and $V_i\in U_i$; coverage of
+$H$, $S$, or $\partial H$ is an additional hypothesis, stated when needed.
+A \emph{skeleton cover} covers $S$, not necessarily all of $H$.
+An edge is \emph{center-free} when it is disjoint from $U_C$.
+
+
+
+\begin{lemma}[Compact covering margin]
+\label{lem:compact-cover-margin}
+If a nonempty compact set $K$ is covered by finitely many open unit equilateral
+triangles $U_\nu$, then moving every side line inward by the same sufficiently
+small positive distance gives a cover by closed equilateral triangles of
+side less than one. In particular, $K\subset U$ implies $\Lambda(K)<1$,
+with $\Lambda$ defined in \eqref{eq:enclosure-definition}.
+\end{lemma}
+\begin{proof}
+The continuous function
+$m(x)=\max_\nu\operatorname{dist}(x,\mathbb R^2\setminus U_\nu)$
+has positive minimum $\eta$ on $K$. Move every side line inward by
+$0<\rho<\min\{\eta,\sqrt3/6\}$. The resulting closed triangles have
+side $1-2\sqrt3\rho$, and each $x\in K$ remains in a triangle realizing
+$m(x)\ge\eta>\rho$. Conversely, if $\Lambda(K)<1$, choose a closed
+enclosure of side below one and enlarge it about its incenter to side one.
+The smaller closed triangle lies in the interior of the enlarged triangle.
+\end{proof}
+
+\begin{proposition}[Compactness and scaling equivalence]
+\label{prop:open-closed-scaled}
+The following assertions are equivalent.
+\begin{enumerate}
+ \item $H$ is covered by seven open equilateral triangles of side $1$.
+ \item For some $\varepsilon>0$, $H$ is covered by seven closed equilateral
+ triangles of side $1-\varepsilon$.
+ \item For some $L>1$, $H_L:=LH$ is covered by seven closed equilateral
+ triangles of side $1$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Apply \zcref{lem:compact-cover-margin} to obtain (1)$\Rightarrow$(2).
+Enlarging the smaller closed triangles about their incenters gives
+(2)$\Rightarrow$(1); dilation by $(1-\varepsilon)^{-1}$ identifies
+(2) and (3).
+\end{proof}
+
+\subsection{C triangle and V triangle incidence}
+
+Set
+\[
+ N_E(T_C):=
+ \left\lvert\left\{i\in\mathbb Z/6\mathbb Z:
+ \Haus(T_C\cap e_{i,i+1})>0\right\}\right\rvert.
+\]
+The values $0,1,2$ define the types $\CEzero,\CEone,\CEtwo$, respectively.
+
+\begin{lemma}[Separation of nonadjacent boundary edges]
+\label{lem:app-center-edge-separation}
+Relative-interior points on two nonadjacent edges of $H$ are more than unit
+distance apart.
+\end{lemma}
+
+\begin{proof}
+Up to symmetry take
+\[
+ x=(1-t)V_0+tV_1,\qquad 0<t<1.
+\]
+For $y=(1-s)V_2+sV_3$, $0<s<1$, direct expansion gives
+\[
+ \lVert x-y\rVert^2-1=(1-t)(2-t)+s(s+t)>0.
+\]
+For the other orbit, $y=(1-s)V_3+sV_4$, put $u=t+s$ and obtain
+\[
+ \lVert x-y\rVert^2-1=(u-1)^2+2>0.
+\]
+These are the two nonadjacent-edge configurations.  The distance comparison is strict for both relative-interior parameters.
+\end{proof}
+
+\begin{proposition}[Exhaustive center types]
+\label{prop:ce-classification}
+The closed C triangle $T_C$ has exactly one of the types
+$\CEzero,\CEone,\CEtwo$;
+equivalently,
+\[
+ N_E(T_C)\le2.
+\]
+\end{proposition}
+
+\begin{proof}
+If $N_E(T_C)\ge3$, two of the traced edges are nonadjacent in the boundary
+six-cycle.  Choose a relative-interior point from each positive-length trace.
+By \zcref{lem:app-center-edge-separation}, those points are more than unit
+distance apart, so a unit equilateral triangle cannot contain both.
+\end{proof}
+
+\begin{figure}[H]
+\centering
+\begin{minipage}[t]{.32\textwidth}
+\vspace{0pt}\centering
+\includegraphics[width=\linewidth,height=.20\textheight,keepaspectratio]
+  {figures/role_examples/center_role_ce0_example.png}
+\par\smallskip
+\footnotesize (a) $\CEzero$
+\end{minipage}\hfill
+\begin{minipage}[t]{.32\textwidth}
+\vspace{0pt}\centering
+\includegraphics[width=\linewidth,height=.20\textheight,keepaspectratio]
+  {figures/role_examples/center_role_ce1_example.png}
+\par\smallskip
+\footnotesize (b) $\CEone$
+\end{minipage}\hfill
+\begin{minipage}[t]{.32\textwidth}
+\vspace{0pt}\centering
+\includegraphics[width=\linewidth,height=.20\textheight,keepaspectratio]
+  {figures/role_examples/center_role_ce2_example.png}
+\par\smallskip
+\footnotesize (c) $\CEtwo$
+\end{minipage}
+\caption{Examples of the three C triangle classes.  From left to right, the
+C triangle has positive-length trace on zero, one, and two edges of
+$\partial H$; point contacts do not count.  The panels illustrate the classification.}
+\label{fig:center-role-examples}
+\end{figure}
+
+For the V triangle $T_i$, let $o(T_i)$ be the number of its triangle vertices
+outside $H$ and put
+\[
+ n(T_i)=\left\lvert\left\{j\in\{i-1,i+1\}:
+ \Haus(T_i\cap r_j)>0\right\}\right\rvert,
+\]
+with indices modulo $6$.  The raw pair $(3,0)$ says that all three vertices of
+$T_i$ lie outside $H$; it does not say that $T_i$ is disjoint from $H$, since
+$V_i\in\interior(T_i)\cap H$.
+
+\begin{lemma}[Shared corner chart and wedge reduction]
+\label{lem:shared-corner-chart}
+After rotating indices to $i=0$, write
+\[
+ X=V_0+x(V_1-V_0)+y(V_5-V_0),
+ \qquad W=\{(x,y):x\ge0,\ y\ge0\}.
+\]
+If a closed unit equilateral triangle $T$ contains $V_0$, then
+\[
+ T\cap H=T\cap W.
+\]
+Normalized Euclidean area is twice the corresponding $(x,y)$-coordinate
+area.
+\end{lemma}
+
+\begin{proof}
+The two basis vectors have length one and angle $120^\circ$, so
+\[
+ \lVert(x,y)\rVert^2=x^2+y^2-xy,
+ \qquad
+ \left\lvert\det(V_1-V_0,V_5-V_0)\right\rvert=\frac{\sqrt3}{2}.
+\]
+The hexagon is
+\[
+ H=\{0\le x,y\le2,\ |x-y|\le1\}\subset W.
+\]
+Conversely, if $(x,y)\in T\cap W$, then the diameter-one condition gives
+$x^2+y^2-xy\le1$.  Hence
+\[
+ |x-y|^2\le x^2+y^2-xy\le1,
+ \qquad
+ \frac34x^2\le x^2+y^2-xy,
+\]
+and the same estimate holds for $y$.  Thus $|x-y|\le1$ and
+$0\le x,y\le2/\sqrt3<2$, proving $(x,y)\in H$.  The determinant identity
+proves the area assertion.
+\end{proof}
+
+\begin{lemma}[Local wedge]
+\label{lem:local-wedge}
+\label{lem:app-local-wedge-calculation}
+
+Every original V triangle has $1\le o(T_i)\le3$.  If
+$\Haus(T_i\cap r_j)>0$ for some $j\in\{i-1,i+1\}$, at least one vertex of
+$T_i$ belongs to $H$; if both adjacent radial traces have positive length,
+at least two vertices belong to $H$.
+\end{lemma}
+\begin{proof}
+Use \zcref{lem:shared-corner-chart} at $V_0$. In the unit ball,
+\[
+ x^2+y^2-xy=(y-x/2)^2+3x^2/4=(x-y)^2+xy.
+\]
+The adjacent radial segments are
+\[
+ r_1=\{(1,y):0\le y\le1\},\qquad
+ r_5=\{(x,1):0\le x\le1\}.
+\]
+Suppose $T_0\cap r_1$ has positive length and let $m$ be the largest
+$x$-coordinate of a vertex of $T_0$.  If $m>1$, a maximizing vertex $(m,y)$
+lies in the unit ball and has $0<y<1$, so it lies in $H$.  If $m=1$,
+positive-length contact with the support line $x=1$ forces a side there, and
+both endpoints satisfy $1+y^2-y\le1$ and lie in $H$.  The argument for
+$r_5$ is symmetric.  If both arms are met but only one vertex lies in $H$,
+that vertex would have $x>1$ and $y>1$, contradicting
+$(x-y)^2+xy>1$.
+
+Finally, if all three vertices lay in convex $H$, then $T_0\subset H$,
+contrary to the extreme point $V_0$ lying in $\interior(T_0)$.  Hence
+$o(T_0)\ge1$, completing the calculation.
+\end{proof}
+
+\subsection{Shared orientation charts and exact-trace normalization}
+\label{subsec:app-exact-trace-normalization}
+
+Set
+\[
+ D_t:=1-t+t^2,\qquad z:=\sqrt{D_t},\qquad0\le t\le1.
+\]
+In the shared corner chart, physical rotation through $60^\circ$ is
+$(x,y)\mapsto(x-y,x)$. After relabelling the vertices, every orientation
+belongs to one of the two families
+\[
+\begin{array}{c|cc}
+ &\text{first side vector}&\text{second side vector}\\ \hline
+\mathrm I&z^{-1}(1,t)&z^{-1}(1-t,1)\\
+\mathrm {II}&z^{-1}(t,-(1-t))&z^{-1}(1,t).
+\end{array}
+\]
+They cover successive $60^\circ$ direction sectors, including their
+common endpoints. The following half-plane descriptions allow closed
+containment of the corner; strict interior containment is recorded separately.
+Here $U,V$ are affine slack functions, not the open triangles $U_i$.
+In Type I write
+\begin{equation}
+ U=\alpha+y-tx,\qquad V=\beta+x-(1-t)y,\qquad
+ T=\{U\ge0,V\ge0,U+V\le z\},
+ \label{eq:orientation-type-I}
+\end{equation}
+and in Type II write
+\begin{equation}
+ U=\alpha+(1-t)x+ty,\qquad V=\beta+tx-y,\qquad
+ T=\{U\ge0,V\ge0,U+V\le z\}.
+ \label{eq:orientation-type-II}
+\end{equation}
+In both charts
+\begin{equation}
+ V_0\in\interior(T)\iff
+ \alpha>0,\quad\beta>0,\quad\alpha+\beta<z.
+ \label{eq:orientation-interior}
+\end{equation}
+The Type-II vertex in the wedge is
+\begin{equation}
+ Q=\left(
+ \frac{z-\alpha-t\beta}{D_t},
+ \frac{t(z-\alpha)+(1-t)\beta}{D_t}
+ \right).
+ \label{eq:orientation-type-II-Q}
+\end{equation}
+
+\begin{proposition}[Exact-trace normalization of raw $(3,0)$ roles]
+\label{prop:vd0-exact-trace-normalization}
+\label{lem:app-vd0-trace-normalization-calculation}
+
+Let $U$ be an original open V triangle at $V_i$, put $T=\overline U$, and
+suppose $(o(T),n(T))=(3,0)$.  There is a same-orientation translate
+$\widehat U$, with closure $\widehat T$, such that
+\begin{equation}
+ V_i\in\widehat U,\qquad (o(\widehat T),n(\widehat T))=(2,0),
+ \label{eq:o3-normalized-type}
+\end{equation}
+and
+\begin{equation}
+ T\cap H=\widehat T\cap H,\qquad
+ U\cap H=\widehat U\cap H.
+ \label{eq:o3-exact-traces}
+\end{equation}
+In particular, all three actual maximal reaches, and whether the two boundary reaches
+have sum greater than one, are unchanged.
+\end{proposition}
+\begin{proof}
+Normalize to $i=0$.  A Type-II triangle cannot have $o=3$, because the point
+$Q$ in \eqref{eq:orientation-type-II-Q} lies in the wedge; together with the
+diameter-one condition, \zcref{lem:local-wedge} puts it in $H$.  Hence
+$T$ has Type-I form.  Its vertices are
+\[
+ Q_0=\left(-\frac{(1-t)\alpha+\beta}{D_t},
+           -\frac{\alpha+t\beta}{D_t}\right),
+\]
+\begin{equation}
+\begin{aligned}
+ Q_1&=\left(\frac{z-(1-t)\alpha-\beta}{D_t},
+             \frac{tz-\alpha-t\beta}{D_t}\right),\\
+ Q_2&=\left(\frac{(1-t)z-(1-t)\alpha-\beta}{D_t},
+             \frac{z-\alpha-t\beta}{D_t}\right).
+\end{aligned}
+\label{eq:o3-type-I-vertices}
+\end{equation}
+Thus $o=3$ is equivalent to
+\begin{equation}
+ \alpha+t\beta>tz,\qquad
+ (1-t)\alpha+\beta>(1-t)z,
+ \label{eq:o3-outside-conditions}
+\end{equation}
+which forces $0<t<1$.  Put $s=\alpha+\beta$ and $L=z-s>0$.  Then
+\begin{equation}
+ \alpha>\frac{tL}{1-t},\qquad
+ \beta>\frac{(1-t)L}{t}.
+ \label{eq:o3-redundancy-conditions}
+\end{equation}
+For $(x,y)\in W$ satisfying
+\begin{equation}
+ (1-t)x+ty\le L,
+ \label{eq:o3-wedge-cut}
+\end{equation}
+the minimum of $U$ is attained at $(L/(1-t),0)$ and that of $V$ at
+$(0,L/t)$.  Hence
+\begin{equation}
+ T\cap W=\{(x,y)\in W:(1-t)x+ty\le L\}.
+ \label{eq:o3-wedge-trace}
+\end{equation}
+
+Keep $t,s$ fixed and set
+\begin{equation}
+ \widehat\alpha:=\frac{tL}{1-t},\qquad
+ \widehat\beta:=s-\widehat\alpha.
+ \label{eq:o3-normalized-constants}
+\end{equation}
+Then $0<\widehat\alpha<\alpha$, $\widehat\beta>\beta>0$, and
+$\widehat\alpha+\widehat\beta=s<z$.  Changing these affine constants is a
+translation and preserves $V_0\in\interior(\widehat T)$.  Its third
+inequality remains \eqref{eq:o3-wedge-cut}; $\widehat U=0$ only at the
+endpoint $(L/(1-t),0)$ of that common boundary and $\widehat V>0$.  Therefore
+\[
+ \widehat T\cap W=T\cap W,
+\]
+and their interiors have the same trace on $W$.  The local wedge calculation
+identifies these with the closed and open traces in $H$.
+
+Equation~\eqref{eq:o3-normalized-constants} places $Q_1$ on the boundary of
+$H$; $Q_0$ remains outside and the second strict inequality in
+\eqref{eq:o3-redundancy-conditions} keeps $Q_2$ outside.  Hence
+$(o(\widehat T),n(\widehat T))=(2,0)$.  Since the three reach segments lie in
+$H$, their open and closed traces, and therefore their maximal reaches, are
+unchanged. In particular, the sum of the two boundary reaches is unchanged.
+\end{proof}
+
+We apply this translation simultaneously and reuse $U_i,T_i$ for the normalized triangles.
+
+The normalized exhaustive types used below are
+\[
+\begin{array}{c|c}
+(o(T_i),n(T_i))&\text{established type}\\ \hline
+(1,0)&\Vdzero\\
+(2,0)&\Vdzero\\
+(1,1)&\Vdone\\
+(1,2)&\Vdtwo\\
+(2,1)&\Tlike.
+\end{array}
+\]
+
+\begin{proposition}[Exhaustive normalized vertex types]
+\label{prop:vertex-classification}
+Every normalized V triangle has exactly one of the four types
+$\Vdzero,\Vdone,\Vdtwo,\Tlike$ in the displayed type dictionary.
+\end{proposition}
+
+\begin{proof}
+\zcref[S]{lem:local-wedge} gives $o\le2$ when $n\ge1$ and $o\le1$ when
+$n=2$, while $o\ge1$.  \zcref[S]{prop:vd0-exact-trace-normalization} replaces the only additional raw
+pair, $(3,0)$, by $(2,0)$.
+\end{proof}
+
+\subsection{Actual reaches and boundary gaps}
+
+The actual maximal reaches are
+\[
+ A_i:=\max\{x\in[0,1]:V_i+x(V_{i-1}-V_i)\in T_i\},
+\]
+\[
+ B_i:=\max\{x\in[0,1]:V_i+x(V_{i+1}-V_i)\in T_i\},
+\]
+\[
+ C_i:=\max\{x\in[0,1]:V_i+x(O-V_i)\in T_i\}.
+\]
+The same numbers are the suprema of the corresponding reaches in the open
+triangle $U_i$. The V triangle $T_i$ is \emph{supercritical} when
+$A_i+B_i>1$, and \emph{nonsupercritical} when $A_i+B_i\le1$. Put
+\begin{equation}
+ N_+:=\left\lvert\left\{i\in\mathbb Z/6\mathbb Z:
+ A_i+B_i>1\right\}\right\rvert.
+ \label{eq:N-plus-definition}
+\end{equation}
+Lowercase reaches are used only after a selection satisfying
+\[
+ 0\le a_i\le A_i,\qquad 0\le b_i\le B_i,\qquad 0\le c_i\le C_i.
+\]
+They never define $N_+$.
+
+\begin{lemma}[Initial reach segments]
+\label{lem:reach-initial-segments}
+On the three segments from $V_i$ toward $V_{i-1},V_{i+1},O$, the closed
+parameter sets are respectively
+\[
+ [0,A_i],\qquad[0,B_i],\qquad[0,C_i],
+\]
+and the open parameter sets are
+\[
+ [0,A_i),\qquad[0,B_i),\qquad[0,C_i).
+\]
+Thus the closed maxima equal the corresponding open-triangle suprema.
+\end{lemma}
+
+\begin{proof}
+The other endpoint of each segment is a distinguished point at distance
+one from $V_i$, and is not even in $T_i$: otherwise moving $V_i$
+slightly away from it inside $U_i$ would exceed diameter one.
+Thus $0<A_i,B_i,C_i<1$. Each intersection with a segment issuing from
+$V_i$ is convex.  Closedness of $T_i$, openness of $U_i$, and
+$T_i=\overline{U_i}$ give the stated endpoints.
+\end{proof}
+
+Parametrize $e_{i,i+1}$ from $V_i$ to $V_{i+1}$ by
+\[
+ X_i(x):=V_i+x(V_{i+1}-V_i),\qquad 0\le x\le1.
+\]
+Define the \emph{boundary gap}
+\[
+ J_i:=e_{i,i+1}\setminus(U_i\cup U_{i+1}),\qquad
+ N_{\mathrm{gap}}:=|\{i:J_i\ne\varnothing\}|.
+\]
+
+\begin{lemma}[Exhaustiveness of the gap split]
+\label{lem:gap-exhaustion}
+One has
+\[
+ J_i=\begin{cases}
+ X_i([B_i,1-A_{i+1}]),&B_i+A_{i+1}\le1,\\
+ \varnothing,&B_i+A_{i+1}>1.
+ \end{cases}
+\]
+Every nonempty gap, including a singleton, is missed by all open V triangles.
+Under a hypothetical cover it lies in $U_C$ and creates a positive-length
+C triangle trace.
+Consequently a closed C triangle $T_C$ of type
+$\CEzero,\CEone,\CEtwo$ permits respectively at most $0,1,2$ gaps, and
+\[
+ N_{\mathrm{gap}}=0
+ \iff U_0,\ldots,U_5\text{ cover }\partial H.
+\]
+\end{lemma}
+
+\begin{proof}
+By \zcref{lem:reach-initial-segments}, the incident open traces have
+parameters $[0,B_i)$ and $(1-A_{i+1},1]$. Their complement is the stated
+closed interval.
+A nonincident V triangle cannot contain a relative-interior point of the edge:
+that point is more than unit distance from its distinguished vertex.  Hence a
+gap lies in $U_C$; openness turns even a singleton V-gap into a
+positive-length C trace.  \zcref[S]{prop:ce-classification} gives the
+count and the final equivalence.
+\end{proof}
+
+\subsection{T3-like trace majorants and midpoint exclusion}
+
+\begin{proposition}[T3-like closed-trace domination]
+\label{prop:t3-translation}
+\label{lem:app-t3-translation-calculation}
+
+Let $T$ be the closure of an original $\Tlike$ V triangle at $V_i$.  There is
+a same-orientation translate $\widehat T$ such that
+\[
+ V_i\in\operatorname{relint}(\text{a side of }\widehat T),
+ \qquad T\cap H\subsetneq\widehat T\cap H,
+\]
+and $(o(\widehat T),n(\widehat T))=(2,1)$, while
+\[
+ \interior(T)\cap(H\setminus\{V_i\})\subseteq\interior(\widehat T).
+\]
+Since $V_i$ becomes a boundary point, $\widehat T$ is only a closed-trace
+majorant.
+\label{lem:t3-nonsupercritical}
+Every original $\Tlike$ V triangle satisfies
+\begin{equation}
+ A_i+B_i\le1.
+ \label{eq:t3-nonsupercritical}
+\end{equation}
+Moreover $M_i\notin T_i$. In particular, a T3-like role is not counted
+by $N_+$ and cannot supply its own midpoint.
+
+\end{proposition}
+\begin{proof}
+Use the wedge chart of \zcref{lem:app-local-wedge-calculation} and the
+orientation forms \eqref{eq:orientation-type-I}--
+\eqref{eq:orientation-type-II} in
+Subsection~\ref{subsec:app-exact-trace-normalization}.  In Type I,
+direct inversion shows that when exactly two vertices lie outside $W$, the
+sole wedge vertex has both coordinates strictly below $1$: the relevant
+bounds are $(1-t)/z$ and $t/z$, with strictness from $\alpha>0$ or
+$\beta>0$.  The support argument in
+\zcref{lem:app-local-wedge-calculation} then excludes positive-length contact
+with either adjacent radial line.  Thus a $\Tlike$ triangle has Type II.
+
+Reflect in $x=y$ if necessary so that $T_0\cap r_1$ has positive length.
+The endpoint cases $t=0,1$ give no such interval, hence $0<t<1$.  The exact
+axis reaches are
+\[
+ A_0=\beta,\qquad B_0=z-\alpha-\beta,
+\]
+and the support condition is
+\[
+ Q_x>1,\qquad Q_y\le1,
+\]
+where $Q$ is \eqref{eq:orientation-type-II-Q}.  In particular
+\[
+ A_0+B_0=z-\alpha<z\le1.
+\]
+The same support inequality gives
+\[
+ \beta<\frac{z-D_t}{t}<\frac{1-t}{2},
+\]
+where the second comparison is equivalent to $(1-z)^2>0$.
+At $M_0=(1/2,1/2)$ the affine coordinate $V$ equals
+$\beta-(1-t)/2<0$, so $M_0\notin T_0$.
+
+Define $\widehat T$ by replacing $\alpha$ with $0$ and retaining $t,\beta$.
+This changes only the translation.  At the origin,
+$\widehat U=0$ and $0<\widehat V=\beta<z$, so $V_0$ lies in the relative
+interior of a side.  For $(x,y)\in W$,
+\[
+ \widehat U=(1-t)x+ty\ge0,
+ \qquad\widehat V=V,
+ \qquad\widehat U+\widehat V=U+V-\alpha.
+\]
+Thus $T\cap W\subset\widehat T\cap W$.  The old $x$-axis reach is $B_0$ and
+the new reach is $B_0+\alpha$, so the inclusion is strict in $H$.
+
+The two outside vertices remain outside, while $V_0$ and the new wedge vertex
+lie in $H$.  Moreover $\widehat Q_x>Q_x>1$, and $Q_x>1$ gives
+\[
+ tD_t(1-\widehat Q_y)
+ >D_t(1-z)+(1-t)\alpha>0.
+\]
+Hence $\widehat Q_y<1$ and $(o(\widehat T),n(\widehat T))=(2,1)$.  At every
+nonzero point of $W$, $\widehat U>0$; the other two displayed slack relations
+show that old interior points other than $V_0$ remain interior.  Reflection
+proves the other supported-arm case.
+\end{proof}
+
+\subsection{Vd1 and Vd2 corner optimization}
+
+Use temporary coordinates
+\[
+ X=V_0+x(V_5-V_0)+y(V_1-V_0),
+\]
+so $V_0=(0,0)$, $V_5=(1,0)$, $V_1=(0,1)$, $O=(1,1)$, and
+$\lVert(x,y)\rVert^2=x^2+y^2-xy$.
+
+\begin{proposition}[Vd1/Vd2 corner normal form]
+\label{prop:vd-corner-normal-form}
+Let $T$ be the closure of an original $\Vdone$ or $\Vdtwo$ triangle at
+$V_0$, and let $A_0,B_0$ be its exact reaches toward $V_5,V_1$.  There is a
+unique $t>0$ such that, with $d=\sqrt{t^2+t+1}$,
+\begin{equation}
+ T=\left\{(x,y):
+ \begin{aligned}
+ x-(t+1)y&\le A_0,\\
+ ty-(t+1)x&\le tB_0,\\
+ tx+y&\le d-A_0-tB_0
+ \end{aligned}\right\}.
+ \label{eq:vd-normal-form}
+\end{equation}
+The raw traces, parametrized from the indicated outer vertex, are
+\begin{equation}
+\begin{array}{c|c}
+r_0&0\le s\le\dfrac{d-A_0-tB_0}{t+1}\\[6pt]
+r_1&\dfrac{t(1-B_0)}{t+1}\le s\le\dfrac{d-A_0-tB_0-1}{t}\\[8pt]
+r_5&\dfrac{1-A_0}{t+1}\le s\le d-A_0-tB_0-t.
+\end{array}
+\label{eq:vd-ray-intervals}
+\end{equation}
+Intersecting with $[0,1]$ gives the actual traces, and
+\begin{equation}
+ A_0+B_0<\frac12.
+ \label{eq:vd-half-cap}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The triangle has one vertex $W$ outside $H$ and two vertices $U,Z$ in $H$.
+Because $V_0$ is an interior convex combination, both coordinates of $W$ are
+negative.  The axis endpoints $(A_0,0),(0,B_0)$ lie on the two sides through
+$W$.  Put $p=U-W$ and $q=Z-W$.  Their order selects
+\[
+ q=(p_x-p_y,p_x),\qquad p_x>p_y>0.
+\]
+Writing $t=(p_x-p_y)/p_y$ gives uniquely
+\[
+ p=\frac{(t+1,1)}d,\qquad q=\frac{(t,t+1)}d,
+\]
+which yields \eqref{eq:vd-normal-form}; substitution of
+$(s,s),(s,1),(1,s)$ yields \eqref{eq:vd-ray-intervals}.
+
+If $r_1$ has positive trace, clearing its endpoint inequality gives
+\[
+ (t+1)A_0+tB_0<(t+1)(d-1)-t^2.
+\]
+Since the left side is at least $t(A_0+B_0)$,
+\[
+ A_0+B_0<\frac{(t+1)(d-1)-t^2}{t}<\frac12.
+\]
+The last inequality follows from
+\[
+ \left(t^2+\frac{3t}{2}+1\right)^2
+ -(t+1)^2(t^2+t+1)=\frac{t^2}{4}>0.
+\]
+Reflection treats support on $r_5$.
+\end{proof}
+
+\begin{lemma}[Orientation of a forward Vd1 supplier]
+\label{lem:vd1-forward-orientation}
+In \zcref{prop:vd-corner-normal-form}, if a Vd1 role contains $M_1$
+openly, then $t\ge1$.
+\end{lemma}
+\begin{proof}
+Suppose $t<1$. Open containment of $M_1=(1/2,1)$ gives
+$A_0+tB_0<d-1-t/2$. The backward radial interval has endpoints
+$\ell_5=(1-A_0)/(t+1)$ and $u_5=d-A_0-tB_0-t$, so
+\[
+ u_5>1-t/2>\frac1{t+1}>\ell_5,
+ \qquad 0<\ell_5<1.
+\]
+Here $1-t/2-1/(t+1)=t(1-t)/(2(t+1))>0$.
+Thus $r_5$ has positive trace as well as $r_1$, contradicting Vd1.
+\end{proof}
+
+\begin{lemma}[Vd2 adjacent-midpoint cap]
+\label{lem:vd2-neighbor-midpoint-cap}
+If an original open V triangle has $\Vdtwo$ closure $T_i$ and
+\[
+ \{M_{i-1},M_{i+1}\}\cap T_i\ne\varnothing,
+\]
+then its exact boundary reaches satisfy
+\[
+ A_i+B_i<\frac13.
+\]
+\end{lemma}
+
+\begin{proof}
+In \zcref{prop:vd-corner-normal-form}, reflection sends
+\[
+ (t,A_0,B_0,M_1,M_5)
+ \longmapsto(1/t,B_0,A_0,M_5,M_1).
+\]
+Thus assume $t\ge1$ and use $A_0+B_0\le A_0+tB_0$.
+
+If $M_5=(1,1/2)$ lies in $T$, the third half-plane gives
+\[
+ A_0+B_0\le A_0+tB_0
+ \le d-t-\frac12\le\sqrt3-\frac32<\frac13.
+\]
+If $M_1=(1/2,1)$ lies in $T$, the second and third half-planes give
+\[
+ B_0\ge\frac{t-1}{2t},
+ \qquad A_0+B_0\le S(t):=d-t-\frac1{2t}.
+\]
+Positive-length contact with $r_5$ gives
+\[
+ A_0+B_0<R(t):=\frac{2(t+1)d-3t^2-t-2}{2t}.
+\]
+Direct differentiation shows $S$ increasing and $R$ decreasing on
+$[1,\infty)$.  For $S'$, the sign reduces to
+\[
+ (2t+1)^2t^4-(t^2+t+1)(2t^2-1)^2
+ =(t+1)(t^3+3t^2-1)>0,
+\]
+while $R'<0$ follows from $d>t+1/2$.  Splitting at $t=4/3$ gives
+\[
+\begin{aligned}
+1\le t\le\frac43&:\quad
+A_0+B_0\le\frac{8\sqrt{37}-41}{24}<\frac13,\\
+t\ge\frac43&:\quad
+A_0+B_0<\frac{7\sqrt{37}-39}{12}<\frac13.
+\end{aligned}
+\]
+The final comparisons are $8\sqrt{37}<49$ and $7\sqrt{37}<43$.
+\end{proof}
+
+A V role has \emph{positive adjacent-radial support}, or simply
+\emph{positive support}, when $n(T_i)>0$. Put
+\[
+ N_{\mathrm{sp}}:=|\{i:n(T_i)>0\}|.
+\]
+Positive-support roles are nonsupercritical, so the number of roles that
+are supercritical or have positive adjacent-radial support is
+$N_++N_{\mathrm{sp}}$.
+
+\begin{figure}[H]
+\centering
+\begin{minipage}[t]{.32\textwidth}
+\vspace{0pt}\centering
+\includegraphics[width=\linewidth,height=.22\textheight,keepaspectratio]
+  {figures/role_examples/vertex_role_vd0_axis_aligned_example.png}
+\par\smallskip
+\footnotesize (a) axis-aligned $\Vdzero$
+\end{minipage}\hfill
+\begin{minipage}[t]{.32\textwidth}
+\vspace{0pt}\centering
+\includegraphics[width=\linewidth,height=.22\textheight,keepaspectratio]
+  {figures/role_examples/vertex_role_vd0_nonsupercritical_example.png}
+\par\smallskip
+\footnotesize (b) nonsupercritical $\Vdzero$
+\end{minipage}\hfill
+\begin{minipage}[t]{.32\textwidth}
+\vspace{0pt}\centering
+\includegraphics[width=\linewidth,height=.22\textheight,keepaspectratio]
+  {figures/role_examples/vertex_role_vd0_supercritical_example.png}
+\par\smallskip
+\footnotesize (c) supercritical $\Vdzero$
+\end{minipage}
+\par\medskip
+\begin{minipage}[t]{.32\textwidth}
+\vspace{0pt}\centering
+\includegraphics[width=\linewidth,height=.22\textheight,keepaspectratio]
+  {figures/role_examples/vertex_role_vd1_example.png}
+\par\smallskip
+\footnotesize (d) $\Vdone$
+\end{minipage}\hfill
+\begin{minipage}[t]{.32\textwidth}
+\vspace{0pt}\centering
+\includegraphics[width=\linewidth,height=.22\textheight,keepaspectratio]
+  {figures/role_examples/vertex_role_vd2_example.png}
+\par\smallskip
+\footnotesize (e) $\Vdtwo$
+\end{minipage}\hfill
+\begin{minipage}[t]{.32\textwidth}
+\vspace{0pt}\centering
+\includegraphics[width=\linewidth,height=.22\textheight,keepaspectratio]
+  {figures/role_examples/vertex_role_t3_like_example.png}
+\par\smallskip
+\footnotesize (f) $\Tlike$
+\end{minipage}
+\caption{Examples of the normalized V triangle types.  The top row shows an
+axis-aligned $\Vdzero$, a nonsupercritical $\Vdzero$ with $A_i+B_i\le1$,
+and a supercritical $\Vdzero$ with $A_i+B_i>1$.  The bottom row shows
+$\Vdone$, $\Vdtwo$, and $\Tlike$.  The panels illustrate the classification.}
+\label{fig:vertex-role-examples}
+\end{figure}
+
+\subsection{Strict handoffs}
+
+\begin{proposition}[Strict boundary handoffs]
+\label{prop:strict-handoffs}
+\label{lem:app-strict-handoff-selection}
+
+Assume that $U_0,\ldots,U_5$ cover $\partial H$.  There are choices
+\[
+ \xi_i\in(1-A_{i+1},B_i),\qquad
+ a_i:=1-\xi_{i-1},\qquad b_i:=\xi_i,
+\]
+such that
+\[
+ 0<a_i<A_i,\qquad0<b_i<B_i,\qquad
+ a_i^2+a_ib_i+b_i^2<1.
+\]
+The selected anchors lie in $U_i$.  If exactly one actual V triangle is
+supercritical, every strict selection has that same unique selected
+supercritical index.  If at least two actual V triangles are supercritical,
+some simultaneous strict selection retains at least two.
+\end{proposition}
+\begin{proof}
+Since $V_i$ is interior to a diameter-one triangle,
+$0<A_i<1$ and $0<B_i<1$.  No nonincident V triangle contains a
+relative-interior point of $e_{i,i+1}$.  Thus the relatively open incident
+traces cover the edge and overlap, so
+\[
+ (1-A_{i+1},B_i)\ne\varnothing.
+\]
+Choosing $\xi_i$ in this interval places both selected anchors in $U_i$.
+Their squared distance is $a_i^2+a_ib_i+b_i^2$, which is strictly below $1$
+because both are interior points of the same open unit triangle.
+
+Put $\ell_i:=1-A_{i+1}$ and $u_i:=B_i$.  Then
+\begin{equation}
+ A_i+B_i>1\iff\ell_{i-1}<u_i,
+ \qquad a_i+b_i>1\iff\xi_{i-1}<\xi_i.
+ \label{eq:actual-selected-ascents}
+\end{equation}
+If $i$ is actually nonsupercritical, then
+\[
+ \xi_i<u_i\le\ell_{i-1}<\xi_{i-1},
+\]
+so no selection makes it supercritical.  Also
+\begin{equation}
+ \sum_{i=0}^5(a_i+b_i)
+ =\sum_{i=0}^5(1-\xi_{i-1}+\xi_i)=6.
+ \label{eq:handoff-telescoping}
+\end{equation}
+If $p$ is the sole actual supercritical index, the other five selected sums
+are below $1$, and \eqref{eq:handoff-telescoping} forces the $p$th sum above
+$1$.
+
+For two nonadjacent supercritical indices $p,q$, choose
+\[
+ \ell_{r-1}<z_r<u_r\qquad(r\in\{p,q\}),
+\]
+and then
+\[
+ \xi_{r-1}\in(\ell_{r-1},\min\{u_{r-1},z_r\}),
+ \qquad
+ \xi_r\in(\max\{\ell_r,z_r\},u_r).
+\]
+The pairs are disjoint and create ascents at $p,q$.  Any three indices on a
+six-cycle contain two nonadjacent indices.  If the only two supercritical
+indices are adjacent, say $p,p+1$, the remaining inequalities give
+\[
+ \ell_{p-1}<\ell_{p+1},
+ \qquad
+ \max\{\ell_{p-1},\ell_p\}<\min\{u_p,u_{p+1}\}.
+\]
+Choose $\xi_p$ between the latter bounds and choose
+$\xi_{p-1}<\xi_p<\xi_{p+1}$ in their overlap intervals.  By
+\eqref{eq:actual-selected-ascents}, both selected indices remain
+supercritical.
+\end{proof}
+
+\begin{lemma}[Boundary deficit and overlap identities]
+\label{lem:boundary-deficit-identities}
+For the actual reaches put $s_i=1-A_i-B_i$ and
+$\omega_i=B_i+A_{i+1}-1$. Then
+\[
+ A_{i+1}-A_i=s_i+\omega_i,\qquad
+ B_i-B_{i+1}=s_{i+1}+\omega_i.
+\]
+On a nonsupercritical gap-free path the $A_i$ increase and the $B_i$
+decrease strictly. Weak handoffs give the weak version. Around the full
+cycle, $\sum_i\omega_i=-\sum_i s_i$.
+\end{lemma}
+\begin{proof}
+Expand the definitions and telescope. Nonsupercriticality gives $s_i\ge0$,
+and a gap-free edge has $\omega_i>0$ because its incident traces are open.
+A supercritical role has $s_i<0$; propagation through it is not licensed.
+\end{proof}
+
+\subsection{Shared equilateral-enclosure optimization}
+\label{sec:universal-calculus}
+
+Let $\mathsf R$ denote counterclockwise rotation through $2\pi/3$.  For a
+nonempty compact $K\subset\mathbb R^2$, put
+\[
+ h_K(n):=\max_{x\in K}\langle x,n\rangle.
+\]
+
+\begin{proposition}[Equilateral enclosure gauge]
+\label{prop:new-enclosure-gauge}
+\label{prop:universal-enclosure-gauge}
+The least side length $\Lambda(K)$ of a closed equilateral triangle containing
+$K$ is
+\begin{equation}
+ \Lambda(K)=\frac2{\sqrt3}
+ \min_{\lVert n\rVert=1}\sum_{j=0}^2h_K(\mathsf R^jn).
+ \label{eq:universal-lambda}
+\end{equation}
+It is monotone under inclusion, translation invariant, and positively
+homogeneous.
+\end{proposition}
+
+\begin{proof}
+For fixed outward normals $n,\mathsf Rn,\mathsf R^2n$, the least containing
+triangle has the corresponding three support numbers, and its side is
+$2/\sqrt3$ times their sum.  Translation invariance follows from
+\[
+ n+\mathsf Rn+\mathsf R^2n=0,
+\]
+while monotonicity and homogeneity are immediate.
+\end{proof}
+
+\begin{lemma}[Support-cell rotation]
+\label{lem:support-cell-rotation}
+A least equilateral enclosure of a nondegenerate polygon can be chosen
+with one side containing a polygon edge. For a centered disk together
+with finitely many points, it suffices to test point--point and point--disk
+ties, or a disk-only orientation. Here a \emph{support cell} is an open
+angular interval on which the maximizing point or disk is fixed in each
+of the three support directions; a \emph{tie} is an endpoint where a
+maximizer changes.
+\end{lemma}
+\begin{proof}
+By \zcref{prop:new-enclosure-gauge}, the side is the three-term support
+sum divided by $h=\sqrt3/2$. Parametrize unit normals by
+$n(\theta)=(\cos\theta,\sin\theta)$. For a disk of radius $\rho>0$, its
+support value is $\rho$ in every unit direction. On a polygon cell with fixed support vertices the sum
+is $g(\theta)=a\cos\theta+b\sin\theta>0$, so $g''=-g<0$ and no
+interior minimum occurs. In the disk case a cell with $q$ disk supports
+has sum $q\rho+\langle v,n(\theta)\rangle$, where $v$ is the sum
+of the active point vectors rotated back by their respective multiples
+of $120^\circ$. If a point is active its
+projection exceeds $\rho\ge0$, and the inner product is positive, again
+giving a negative second derivative. A disk-only cell has constant support sum $3\rho$. Each application must still identify its exposed ties.
+\end{proof}
+
+\subsubsection{Finite caliper criterion}
+\label{subsec:finite-caliper}
+
+Let $\mathsf J$ denote counterclockwise rotation through $\pi/2$.  For a
+nonempty finite set $F$ define
+\begin{equation}
+ W_F(N):=\sum_{k=0}^2\max_{z\in F}
+ \langle z,\mathsf R^kN\rangle.
+ \label{eq:caliper-support-sum}
+\end{equation}
+
+\begin{theorem}[Finite caliper certificate]
+\label{thm:cert-caliper}
+If $F$ has at least two distinct points, then $F$ is contained in a closed
+unit equilateral triangle if and only if there are distinct $p,q\in F$ and
+$\varepsilon\in\{-1,1\}$ such that
+\begin{equation}
+ W_F\bigl(\varepsilon\mathsf J(q-p)\bigr)
+ \le\frac{\sqrt3}{2}\lVert p-q\rVert.
+ \label{eq:finite-caliper-test}
+\end{equation}
+A singleton is contained in equilateral triangles of arbitrarily small
+positive side length.
+\end{theorem}
+
+\begin{proof}
+Apply \zcref{prop:universal-enclosure-gauge,lem:support-cell-rotation}
+to $\conv F$. A minimizing normal is perpendicular to a hull edge
+$[p,q]$ and, after cyclic
+rotation, equals
+$\varepsilon\mathsf J(q-p)/\lVert p-q\rVert$.  Homogeneity gives
+\eqref{eq:finite-caliper-test}; a nondegenerate segment follows by checking
+its two normals.
+
+\end{proof}
+
+\begin{proposition}[Disk--finite-set calipers]
+\label{prop:new-disk-finite-caliper}
+Let $\rho>0$, $P=\{p_1,\ldots,p_m\}\subset\mathbb R^2$, and
+$K=\conv(\mathbb B(O,\rho)\cup P)$. Use the rotation $\mathsf J$
+defined above. Unless the disk is the active support in all three directions at a minimizing
+orientation, a minimizing normal belongs to the finite list
+\[
+ \pm\frac{\mathsf J(p_k-p_i)}{\|p_k-p_i\|}
+ \quad(p_i\ne p_k)
+\]
+or
+\[
+ \frac{\rho p_i\pm
+ \sqrt{\|p_i\|^2-\rho^2}\,\mathsf Jp_i}{\|p_i\|^2}
+ \quad(\|p_i\|\ge\rho).
+\]
+Thus one side of a least enclosing equilateral triangle either contains two
+points, or is tangent to the disk and contains one point.
+\end{proposition}
+
+\begin{proof}
+Apply \zcref{lem:support-cell-rotation}. A point--point tie has normal
+perpendicular to $p_k-p_i$; solving $\langle p_i,n\rangle=\rho$ with
+$\|n\|=1$ gives the displayed point--disk normals. Rotation through
+$120$ degrees identifies the three supporting directions. A disk-only
+cell contributes $3\rho$ and is the only additional alternative.
+\end{proof}
+
+\subsection{The local admissible set and radial envelope}
+\label{sec:admissible-set-derivation}
+
+Let $u,v$ be unit vectors meeting at $120^\circ$ and define
+\[
+ K(a,b,c):=\conv\{0,au,bv,c(u+v)\}.
+\]
+At $V_0$, take $u=V_5-V_0$ and $v=V_1-V_0$; translating the
+hull by $V_0$ gives the corresponding anchors in the hexagon.
+The exact local admissible set is
+\begin{equation}
+ \mathcal A:=
+ \{(a,b,c)\in[0,1]^3:\Lambda(K(a,b,c))\le1\}.
+ \label{eq:universal-admissible-gauge}
+\end{equation}
+This set records the three reach lower bounds that a closed unit V triangle
+can realize.
+
+\begin{proposition}[Exact local admissible set]
+\label{prop:new-exact-local-set}
+\label{prop:exact-admissible-set}
+Put
+\[
+ s:=a+b,\qquad d:=a^2+ab+b^2,\qquad
+ m:=\min\{a,b\},\qquad M:=\max\{a,b\},
+\]
+\[
+ q:=s^4-s^2+ab,
+\]
+and
+\begin{align*}
+ F_L&:=c^4-c^2+mc-m^2,\\
+ F_T&:=(s^2-1)c^2+Mc-M^2,\\
+ F_S&:=(m^2-1)c^2+(2mM^2+M)c+M^4-M^2.
+\end{align*}
+Then
+\begin{equation}
+ \mathcal A=\mathcal A_L\cup\mathcal A_T\cup\mathcal A_S,
+ \label{eq:derived-admissible-cells}
+\end{equation}
+where all variables lie in $[0,1]$ and
+\begin{align*}
+ \mathcal A_L&:=\{d\le1,\ s\le1,\ q\le0,\ F_L\le0\},\\
+ \mathcal A_T&:=\{d\le1,\ s\le1,\ q\ge0,\ F_T\le0,\ c\le2M\},\\
+ \mathcal A_S&:=\{d\le1,\ s>1,\ F_S\le0,\ c\le1/2\}.
+\end{align*}
+The set is coordinatewise down-closed.  Define its maximal radial demand by
+\[
+ c_{\max}(a,b):=\max\{c\in[0,1]:(a,b,c)\in\mathcal A\}.
+\]
+Then
+\begin{equation}
+ c_{\max}(a,b)=
+ \begin{cases}
+ 1,&a=b=0,\\
+ C_L(m),&s\le1,\ q\le0,\ (a,b)\ne(0,0),\\
+ \dfrac{2M}{1+\sqrt{4s^2-3}},&s\le1,\ q>0,\\[3mm]
+ \dfrac{M(2mM+1)-M\sqrt{4d-3}}{2(1-m^2)},&s>1,
+ \end{cases}
+ \label{eq:radial-envelope}
+\end{equation}
+where $C_L(m)$ is the unique root in $[\sqrt3/2,1]$ of
+\[
+ z^4-z^2+mz-m^2=0.
+\]
+\end{proposition}
+
+\begin{proof}
+First assume $s>0$ and $cs\le ab$.  When $a,b>0$,
+\[
+ c(u+v)=\frac ca(au)+\frac cb(bv)
+       +\left(1-\frac ca-\frac cb\right)0
+ \in\conv\{0,au,bv\};
+\]
+the zero-coordinate cases follow by continuity.  The distance from $au$ to
+$bv$ is $\sqrt d$.  With $T=-bu-av$, the triangle
+$\conv\{au,bv,T\}$ is equilateral of side $\sqrt d$ and
+\[
+ 0=\frac{b^2}{d}(au)+\frac{a^2}{d}(bv)+\frac{ab}{d}T.
+\]
+Thus the least enclosure side is $\sqrt d$.  When $a=b=0$, it is $c$.
+
+Now assume $cs>ab$.  The hull has cyclic vertices $0,bv,c(u+v),au$.
+\zcref[S]{lem:support-cell-rotation} reduces its least enclosure side
+to its four edge normals.  For the edges through $0$ one obtains
+\[
+ L_{0A}=b+\max\{a,c\},
+ \qquad L_{B0}=a+\max\{b,c\}.
+\]
+For the edge from $au$ to $c(u+v)$ put
+\[
+ R_a:=\sqrt{a^2-ac+c^2},
+ \qquad n_0:=\frac1{2R_a}(\sqrt3a,2c-a).
+\]
+The three support values in the rotated directions are
+\[
+ \frac{\sqrt3ac}{2R_a},\qquad
+ \frac{\sqrt3a(a-c)_+}{2R_a},\qquad
+ \frac{\sqrt3c\max\{b,(c-a)_+\}}{2R_a}.
+\]
+Consequently
+\[
+ L_{AC}=
+ \begin{cases}
+ (a^2+bc)/R_a,&a\ge c,\\
+ c(a+b)/R_a,&a<c\le a+b,\\
+ c^2/R_a,&c>a+b,
+ \end{cases}
+\]
+and $L_{CB}$ is obtained by interchanging $a,b$.  Hence
+\[
+ \Lambda(K(a,b,c))
+ =\min\{L_{0A},L_{B0},L_{AC},L_{CB}\}.
+\]
+
+Assume by symmetry that $a=m\le b=M$.  Reading the active support points in
+these four formulas gives
+\[
+\begin{array}{cc|ccc|c}
+\multicolumn{2}{c|}{\text{range}}
+ &\multicolumn{3}{c|}{\text{active supports in cyclic order}}
+ &\text{unit frontier}\\
+s&q&\text{first}&\text{second}&\text{third}&\text{equation}\\
+\hline
+s<1&q<0&\{0\}&\{c(u+v)\}&\{au,c(u+v)\}&F_L=0\\
+s<1&q>0&\{0\}&\{bv,c(u+v)\}&\{au\}&F_T=0\\
+\multicolumn{2}{c|}{s=1}&\{0,bv\}&\{bv,c(u+v)\}&\{au\}&c=M\\
+\multicolumn{2}{c|}{s>1}&\{bv\}&\{bv,c(u+v)\}&\{au\}&F_S=0
+\end{array}
+\]
+The inactive-support inequalities reduce to $q\le0$, $q\ge0$, and $s>1$.
+The positive unit-frontier equations square to $F_L=0,F_T=0,F_S=0$.
+
+It remains to select the geometric components introduced by squaring.  In
+Cell $T$ the roots are
+\[
+ c_-:=\frac{2M}{1+\sqrt{4s^2-3}},
+ \qquad
+ c_+:=\frac{2M}{1-\sqrt{4s^2-3}}.
+\]
+The polynomial inequality also has a formal high component, while the
+geometric fiber is the component joined to $c=0$.  Since
+\[
+ c_-\le2M\le c_+,
+\]
+the exact selector is $c\le2M$.
+
+In Cell $S$,
+\[
+ F_S(a,b,0)=M^2(M^2-1)<0,
+ \qquad F_S(a,b,M)=M^2(s^2-1)>0.
+\]
+Moreover $4F_S(a,b,1/2)$ increases with $m$, and at $m=1-M$ equals
+$M^2(2M-1)^2$.  Because $s>1$, one has $F_S(a,b,1/2)>0$.  The quadratic
+opens downward, so $c\le1/2$ selects exactly the smaller-root component
+containing $0$.
+
+In Cell $L$, the fiber from $c=0$ reaches one root in
+$[\sqrt3/2,1]$; uniqueness there follows from
+$4c^3-2c+m>0$.  At $q=0$ the $L$ and $T$ formulas meet at $c=s$.
+This proves \eqref{eq:derived-admissible-cells}, including all equality and
+degenerate cases by continuity.  Convexity of any containing triangle proves
+coordinatewise down-closedness.  Solving the three selected frontier
+equations gives \eqref{eq:radial-envelope}.
+\end{proof}
+
+For later variational use, the raw forward envelope retains its established
+notation
+\[
+ M_c(a):=\max\{b\in[0,1]:(a,b,c)\in\mathcal A\}.
+\]
+The outgoing envelopes needed below will be evaluated on their stated domains.
+
+\subsection{Self-midpoint obstruction and outgoing envelopes}
+
+\begin{lemma}[Self-midpoint obstruction]
+\label{lem:self-midpoint}
+\label{lem:app-self-midpoint-caliper}
+
+Let $u,v$ be unit vectors meeting at $120^\circ$, and let $a,b\in[0,1]$.
+If a closed unit
+equilateral triangle contains
+\[
+ 0,\qquad au,\qquad bv,\qquad\frac{u+v}{2},
+\]
+then $a+b\le1$.  Consequently
+\[
+ M_i\in T_i\Longrightarrow A_i+B_i\le1.
+\]
+If the boundary points and midpoint are contained with positive margin, the
+conclusion is strict.
+\end{lemma}
+\begin{proof}
+Put $m=\min\{a,b\}$ and $M=\max\{a,b\}$. If the four-point hull
+were admissible with $a+b>1$, Cell $S$ of
+\zcref{prop:exact-admissible-set} would require $F_S(m,M,1/2)\le0$.
+However,
+\[
+\begin{aligned}
+ 4F_S(1-M,M,1/2)&=M^2(2M-1)^2\ge0,\\
+ \frac{\partial}{\partial m}\bigl(4F_S(m,M,1/2)\bigr)&=2m+4M^2>0.
+\end{aligned}
+\]
+Since $m>1-M$, this is impossible. If $a+b=1$ and the four points
+have positive margin, increase the two boundary demands slightly to
+obtain the same contradiction.
+\end{proof}
+
+In particular, the \emph{diameter envelope} is
+\begin{equation}
+ M_0(x)=\frac{-x+\sqrt{4-3x^2}}2\qquad(0\le x\le1).
+ \label{eq:diameter-envelope-definition}
+\end{equation}
+Here $M_0$ without an argument denotes the radial midpoint, whereas
+$M_0(x)$ denotes this scalar function. For later rescuer estimates define
+\begin{equation}
+ M_c^{\rm sup}:=\frac{c+\sqrt{c^2-8c+4}}2\qquad(0\le c\le1/2).
+ \label{eq:supercritical-envelope-definition}
+\end{equation}
+The value at $c=1/2$ is a continuous endpoint convention; no
+supercritical triangle has that radial demand.
+
+\begin{lemma}[Strict-supercritical outgoing envelope]
+\label{lem:strict-supercritical-envelope}
+If a V triangle is supercritical and has own-radial reach at least
+$c\in[0,1/2)$, then both boundary reaches are strictly below
+$M_c^{\rm sup}$ from \eqref{eq:supercritical-envelope-definition}.
+No supercritical triangle has own-radial reach at least $1/2$.
+\end{lemma}
+\begin{proof}
+Let $m$ and $M$ be the smaller and larger actual boundary reaches.
+For $c>0$, the selected supercritical cell gives $F_S(m,M,c)\le0$,
+whereas $m>1-M$ and
+\[
+ \partial_m F_S=2c(M^2+cm)>0,
+\]
+\[
+ F_S(1-M,M,c)=M(c-M)(1-2c+cM-M^2).
+\]
+Since $M>1/2>c$, these identities imply
+$1-2c+cM-M^2>0$. Solving the quadratic gives
+$M<(c+\sqrt{c^2-8c+4})/2$.
+For $c=0$, each boundary reach is strictly less than one because its
+opposite distinguished vertex is excluded from the closed V triangle.
+The endpoint $c=1/2$ is excluded by the self-midpoint obstruction.
+\end{proof}
+
+For a closed triangle $T$ and a rectifiable target $E$, write
+\[
+ L_E(T):=\Haus(T\cap E).
+\]
+
+\subsection{Signed-center optimization}
+\label{sec:signed-ce12-reductions}
+
+The CE1 and CE2 cases share one signed cell. These coordinates give
+the midpoint property, trace bounds, and later enclosure calculations.
+
+\begin{proposition}[Signed CE1/CE2 center normal form]
+\label{prop:signed-center-normal-form}
+Let $T_C$ be a closed unit equilateral triangle with
+$O\in\interior(T_C)$ and a positive-length boundary trace.  Normalize such a
+trace to $e_{0,1}$ and use affine coordinates
+\[
+ X=V_0+b(V_1-V_0)+a(V_5-V_0).
+\]
+There are parameters
+\[
+ \begin{gathered}
+  0<R<1,\qquad W:=1-R,\qquad E:=\sqrt{1-RW},\\
+  \eta:=1-E,\qquad P:=E(1-E),
+ \end{gathered}
+\]
+and nonnegative slacks $\alpha,\delta$, with
+$k:=\eta+\alpha+\delta$, such that
+\begin{equation}
+\begin{aligned}
+ F_0&=R+\alpha-a+Wb,\\
+ F_1&=Rb+Wa-k,\\
+ F_2&=W+\delta-b+Ra,
+\end{aligned}
+\qquad T_C=\{F_0,F_1,F_2\ge0\}.
+\label{eq:signed-side-slacks}
+\end{equation}
+Define
+\begin{equation}
+ \Delta_R:=P-\alpha-W\delta,
+ \qquad \Delta_L:=P-R\alpha-\delta.
+ \label{eq:signed-surpluses}
+\end{equation}
+Then
+\begin{equation}
+ T_C\cap e_{0,1}=\left[\frac{k}{R},W+\delta\right],
+ \qquad
+ \Haus(T_C\cap e_{0,1})=\frac{\Delta_R}{R},
+ \label{eq:signed-right-trace}
+\end{equation}
+and the possible companion trace is
+\begin{equation}
+ T_C\cap e_{5,0}=\left[\frac{k}{W},R+\alpha\right]
+ \quad\text{when }\Delta_L>0,
+ \qquad
+ \Haus(T_C\cap e_{5,0})=\frac{[\Delta_L]_+}{W}.
+ \label{eq:signed-left-trace}
+\end{equation}
+The normalized trace requires $\Delta_R>0$, and
+\begin{equation}
+ T_C\text{ is }\CEone\iff\Delta_L\le0,
+ \qquad
+ T_C\text{ is }\CEtwo\iff\Delta_L>0.
+ \label{eq:signed-classification}
+\end{equation}
+The six radial exits from $O$ are
+\begin{equation}
+\begin{aligned}
+ d_0^C&=E-\alpha-\delta,&
+ d_1^C&=\frac{\delta}{R},&
+ d_2^C&=\delta,\\
+ d_3^C&=\min\left\{\frac{\alpha}{R},\frac{\delta}{W}\right\},&
+ d_4^C&=\alpha,&
+ d_5^C&=\frac{\alpha}{W}.
+\end{aligned}
+\label{eq:signed-center-exits}
+\end{equation}
+Moreover,
+\begin{equation}
+ T_C\cap\{M_0,\ldots,M_5\}=\{M_0\}.
+ \label{eq:signed-unique-center-midpoint}
+\end{equation}
+For the closure of an original open C triangle, $\alpha,\delta>0$.
+\end{proposition}
+
+\begin{proof}
+Write $T_C\cap e_{0,1}=[s,t]$ with $0\le s<t\le1$.  The two sides through
+the endpoints have a positive slope ratio.  Reflect across the perpendicular
+bisector if necessary, call the ratio $R\le1$, and put $W=1-R$.  The three
+side equations are
+\[
+ F_1=Rb+Wa-Rs,\qquad
+ F_2=-b+Ra+t,\qquad
+ F_0=Wb-a+E+Rs-t,
+\]
+where $E=\sqrt{1-RW}$ is the unit-side relation.  If $R=1$, then
+$F_0(O)=s-t<0$, so $0<R<1$.
+
+Set $\alpha:=F_0(O)$ and $\delta:=F_2(O)$.  Then
+\[
+ t=W+\delta,\qquad Rs=\eta+\alpha+\delta=k,
+\]
+which gives \eqref{eq:signed-side-slacks}.  The gradients are the three
+equilateral side-normal directions and $F_0+F_1+F_2=E$.
+
+On $e_{0,1}$, $a=0$ and the active inequalities are
+$Rb\ge k$ and $b\le W+\delta$.  Thus its length is
+\[
+ W+\delta-\frac{k}{R}
+ =\frac{P-\alpha-W\delta}{R}.
+\]
+On $e_{5,0}$, $b=0$ and the active inequalities are
+$Wa\ge k$ and $a\le R+\alpha$, giving signed length
+\[
+ R+\alpha-\frac{k}{W}
+ =\frac{P-R\alpha-\delta}{W}.
+\]
+This proves the two trace formulas.
+
+The positive right trace implies
+\[
+ \delta<\frac{P}{W}=\frac{ER}{1+E}<\frac R2.
+\]
+On $e_{1,2}$, parametrized by $b=1+q,a=q$, one has
+$F_2=\delta-R-Wq<0$.  The center classification leaves $e_{5,0}$ as the only
+possible companion edge, and its signed length proves
+\eqref{eq:signed-classification}; $\Delta_L=0$ is only point contact.
+
+Substituting the six ray parametrizations into
+\eqref{eq:signed-side-slacks} gives \eqref{eq:signed-center-exits}.  Finally,
+\[
+ W(\alpha+\delta)\le\alpha+W\delta<P
+\]
+implies
+\[
+ E-\alpha-\delta>E-\frac PW
+ =\frac{E(E-R)}W>\frac12,
+\]
+where the last inequality is equivalent to $(E-R)^2>0$.  Also
+\[
+ \alpha<P<\min\left\{\frac R2,\frac W2\right\},
+ \qquad\delta<\frac R2.
+\]
+Therefore $d_0^C>1/2$ and $d_i^C<1/2$ for $i=1,\ldots,5$, proving the
+midpoint formula.  Interior containment of $O$ in the original open triangle
+makes all three side slacks positive, so $\alpha,\delta>0$.
+\end{proof}
+
+\begin{lemma}[CE2 total slack]
+\label{lem:new-signed-ce2-total-slack}
+In the CE2 sign range, with $T:=\alpha+\delta$,
+\begin{equation}
+ T<\frac{\eta}{E}.
+ \label{eq:signed-total-slack}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+The CE2 inequalities are
+$\alpha+W\delta<P$ and $R\alpha+\delta<P$.  Multiply them by $W$ and $R$
+and add.  Since $W+R^2=W^2+R=E^2$, this gives
+$E^2T<P=E\eta$.
+\end{proof}
+
+\begin{corollary}[Common center-boundary formula]
+\label{cor:signed-center-boundary}
+The full center-boundary contribution is
+\begin{equation}
+ L_{\partial H}(T_C)
+ =\frac{\Delta_R}{R}+\frac{[\Delta_L]_+}{W}.
+ \label{eq:signed-boundary-length}
+\end{equation}
+In CE1,
+\[
+ L_{\partial H}(T_C)\le P\le\frac{\sqrt3}{2}-\frac34,
+\]
+and in CE2,
+\[
+ L_{\partial H}(T_C)
+ =\frac{E}{1+E}-\frac{E^2(\alpha+\delta)}{RW}<\frac12.
+\]
+\end{corollary}
+
+\begin{proof}
+The first formula sums \eqref{eq:signed-right-trace} and
+\eqref{eq:signed-left-trace}.  In CE1,
+$R\alpha+\delta\ge P$; multiplication by $W$, together with
+$\alpha\ge RW\alpha$, gives $\alpha+W\delta\ge WP$.  Thus
+$\Delta_R\le RP$ and the contribution is at most $P$.  Since
+$E\ge\sqrt3/2$ and $E(1-E)$ decreases there, the stated cap follows.
+
+In CE2, direct addition gives
+\[
+ L_{\partial H}(T_C)
+ =\frac{P-E^2(\alpha+\delta)}{RW}
+ =\frac{E}{1+E}-\frac{E^2(\alpha+\delta)}{RW}<\frac12.
+\]
+\end{proof}
+
+\begin{lemma}[Adjacent-edge diameter transfer]
+\label{lem:signed-diameter-transfer}
+For $0\le q\le1$, the zero-radial forward envelope is
+\[
+ M_0(q)=\frac{-q+\sqrt{4-3q^2}}2.
+\]
+Here $M_0$ without an argument remains the radial midpoint.  If a unit
+equilateral triangle reaches parameters $q,b$ on adjacent boundary edges,
+then $b\le M_0(q)$.  The function is strictly decreasing and, for $q>0$,
+\[
+ M_0(q)<1-\frac q2,
+ \qquad 1-M_0(q)>\frac q2.
+\]
+\end{lemma}
+
+\begin{proof}
+The squared distance between the boundary points is $q^2+qb+b^2\le1$.
+Solving the quadratic in $b$ gives the formula.  Differentiation gives
+\[
+ M_0'(q)=\frac{-1-3q/\sqrt{4-3q^2}}2<0.
+\]
+For $q>0$, $\sqrt{4-3q^2}<2$, which gives both strict comparisons.
+\end{proof}
+
+\begin{proposition}[CE1/CE2 exactly-one-midpoint property]
+\label{prop:unique-center-midpoint}
+If $O\in\interior(T_C)$ and $T_C$ is $\CEone$ or $\CEtwo$, then
+\[
+ \left|T_C\cap\{M_0,\ldots,M_5\}\right|=1.
+\]
+This midpoint belongs to $U_C$. Both possible positive boundary traces
+are on the two hexagon edges incident to the same vertex.
+\end{proposition}
+
+\begin{proof}
+Normalize one positive boundary trace.  The signed-center optimization
+\zcref{prop:signed-center-normal-form} gives the exact midpoint set
+$\{M_0\}$, with radial exit $d_0^C>1/2$ and positive side slacks at
+$M_0$. Its boundary traces are confined to $e_{5,0},e_{0,1}$.
+Undoing the symmetry proves the assertions.
+\end{proof}
+
+The interior hypothesis is essential: $\conv\{O,V_0,V_1\}$ has a boundary
+edge overlap and contains both $M_0$ and $M_1$, but $O$ is not interior to it.
+
+When the C triangle has type CE1 or CE2, \zcref{prop:unique-center-midpoint}
+shows that it contains exactly one of $M_0,\ldots,M_5$; this is the
+\emph{C midpoint}. If it is $M_k$, the role at $V_k$ is called
+\emph{center-based}; a supercritical role there is \emph{center-aligned},
+and a role at another vertex is \emph{away} or \emph{off-center}.
+A V role that contains an adjacent midpoint openly is
+called its \emph{supplier} or \emph{rescuer}. A \emph{gap-free
+nonsupercritical path} is a consecutive sequence of nonsupercritical V
+roles whose shared edges have empty gaps.

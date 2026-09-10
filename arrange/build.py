@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the canonical manuscript in a temporary copy."""
+"""Build the canonical and inline-proof manuscripts in temporary copies."""
 
 from __future__ import annotations
 
@@ -37,7 +37,7 @@ def check_log(log: Path) -> None:
         raise SystemExit("overfull boxes found:\n" + "\n".join(overfull))
 
 
-def build_one(source_name: str, output: Path) -> None:
+def build_one(source_name: str, output: Path, entry: str = "main.tex") -> None:
     with tempfile.TemporaryDirectory(prefix=f"hexagon-cover-{source_name}-") as td:
         workspace = Path(td) / "arrange"
         shutil.copytree(ARRANGE, workspace, ignore=ignore_source)
@@ -51,7 +51,7 @@ def build_one(source_name: str, output: Path) -> None:
                 "-interaction=nonstopmode",
                 "-halt-on-error",
                 "-file-line-error",
-                "main.tex",
+                entry,
             ],
             cwd=source,
             env=env,
@@ -70,16 +70,21 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     group = parser.add_mutually_exclusive_group()
     group.add_argument("--canonical", action="store_true")
+    group.add_argument("--inline-proofs", action="store_true")
     group.add_argument("--all", action="store_true")
     parser.add_argument("--output-dir", type=Path, default=ROOT / "arrange/_build")
     args = parser.parse_args()
 
-    if not (args.canonical or args.all):
+    if not (args.canonical or args.inline_proofs or args.all):
         args.all = True
 
     if args.canonical or args.all:
         build_one("paper_draft", args.output_dir / "canonical.pdf")
         print(args.output_dir / "canonical.pdf")
+
+    if args.inline_proofs or args.all:
+        build_one("paper_draft", args.output_dir / "inline_proofs.pdf", "inline_proofs/main.tex")
+        print(args.output_dir / "inline_proofs.pdf")
 
 
 if __name__ == "__main__":

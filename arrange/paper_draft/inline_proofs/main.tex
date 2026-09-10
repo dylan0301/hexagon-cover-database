@@ -1,0 +1,76 @@
+\documentclass{amsart}
+\usepackage{amsmath,amssymb,amsthm,mathtools,graphicx}
+\usepackage{booktabs,float,longtable,array,microtype,placeins,tikz}
+\usetikzlibrary{arrows.meta,calc,positioning}
+\input{figures/tikz_setup}
+\usepackage[hidelinks]{hyperref}
+\usepackage{aliascnt}
+\usepackage{zref-clever}
+
+\newtheorem{theorem}{Theorem}[section]
+\newaliascnt{lemma}{theorem}
+\newtheorem{lemma}[lemma]{Lemma}
+\aliascntresetthe{lemma}
+\newaliascnt{proposition}{theorem}
+\newtheorem{proposition}[proposition]{Proposition}
+\aliascntresetthe{proposition}
+\newaliascnt{corollary}{theorem}
+\newtheorem{corollary}[corollary]{Corollary}
+\aliascntresetthe{corollary}
+\theoremstyle{definition}
+\newaliascnt{definition}{theorem}
+\newtheorem{definition}[definition]{Definition}
+\aliascntresetthe{definition}
+\theoremstyle{remark}
+\newaliascnt{remark}{theorem}
+\newtheorem{remark}[remark]{Remark}
+\aliascntresetthe{remark}
+
+\newcommand{\CEzero}{\mathrm{CE0}}
+\newcommand{\CEone}{\mathrm{CE1}}
+\newcommand{\CEtwo}{\mathrm{CE2}}
+\newcommand{\Vdzero}{\mathrm{Vd0}}
+\newcommand{\Vdone}{\mathrm{Vd1}}
+\newcommand{\Vdtwo}{\mathrm{Vd2}}
+\newcommand{\Tlike}{\mathrm{T3\text{-}like}}
+\newcommand{\Haus}{\mathcal H^1}
+\newcommand{\conv}{\mathrm{conv}}
+\newcommand{\interior}{\mathrm{int}}
+
+\title[Seven triangles do not cover the unit hexagon]
+{Seven Open Unit Equilateral Triangles Do Not Cover a Regular Unit Hexagon}
+\author{Jineon Baek, Jeewon Kim}
+\keywords{equilateral triangles, geometric covering, regular hexagon,
+area loss, finite enclosure, exact computer-assisted certificate}
+\subjclass[2020]{52C15, 52A40, 51M04}
+
+\begin{document}
+\raggedbottom
+\setcounter{secnumdepth}{3}
+
+\begin{abstract}
+We prove that seven open unit equilateral triangles cannot cover a regular
+unit hexagon. The center and vertices distinguish the covering triangles.
+Boundary gaps and midpoint coverage reduce the proof to trace-length,
+area-loss, and finite-enclosure obstructions. The enclosure arguments use
+six points for a selected boundary gap, four points for a supported
+midpoint, and nine points when the vertex triangles cover the boundary.
+A neighboring-ray bound avoids type distinctions along nonsupercritical
+paths. The two remaining disk-tangent inequalities are verified by an
+exact polynomial certificate over $\mathbb Q(\sqrt3)$.
+\end{abstract}
+
+\maketitle
+\setcounter{tocdepth}{1}
+\tableofcontents
+
+\input{inline_proofs/layout}
+\input{inline_proofs/01_introduction}
+\input{inline_proofs/02_common_geometry}
+\input{inline_proofs/03_trace_bounds}
+\input{inline_proofs/04_area_loss}
+\input{inline_proofs/05_nonzero_gap}
+\input{inline_proofs/06_zero_gap}
+\input{inline_proofs/07_main_theorem}
+\label{page:proof-body-end}
+\end{document}

@@ -110,7 +110,10 @@ for forbidden in [
     if (ROOT / forbidden).exists():
         fail(f"formalization compatibility file remains: {forbidden}")
 
-closures = {"canonical": tex_closure(ROOT / "arrange/paper_draft/main.tex")}
+closures = {
+    "canonical": tex_closure(ROOT / "arrange/paper_draft/main.tex"),
+    "inline proofs": tex_closure(ROOT / "arrange/paper_draft/inline_proofs/main.tex"),
+}
 for name, closure in closures.items():
     labels: dict[str, Path] = {}
     references: list[tuple[str, Path]] = []

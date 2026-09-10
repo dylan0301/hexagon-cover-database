@@ -1,0 +1,65 @@
+\section{Introduction and Proof Outline}
+\label{sec:introduction}
+
+\subsection{Notation and main result}
+
+All distances, angles, and areas are Euclidean. A unit equilateral triangle
+has side length one; its open version is its interior. We write $[x,y]$
+for the closed segment, $\conv K$ for the convex hull, and $\interior K$
+and $\partial K$ for the interior and boundary. The relative interior
+$\operatorname{relint}K$ is its interior within its affine span. The measure $\Haus$ is
+one-dimensional Hausdorff measure, which agrees with length on segments.
+We use $[t]_+=\max\{t,0\}$ and
+$\operatorname{cross}(x,y)=x_1y_2-x_2y_1$ for vectors in $\mathbb R^2$.
+A \emph{trace} on a set $E$ means its intersection with $E$.
+
+Let
+\[
+ O=(0,0),\qquad
+ V_i=\left(\cos\frac{i\pi}{3},\sin\frac{i\pi}{3}\right),\qquad
+ H=\conv\{V_0,\ldots,V_5\},
+\]
+where indices lie in $\mathbb Z/6\mathbb Z$.  Write
+\[
+ e_{i,i+1}=[V_i,V_{i+1}],\qquad r_i=[O,V_i],\qquad M_i=\frac12V_i,
+\]
+and put
+\[
+ S=\partial H\cup\bigcup_{i=0}^5r_i.
+\]
+We call $S$ the \emph{hexagon skeleton}. For $X\in\mathbb R^2$ and $r\ge0$,
+write $\mathbb B(X,r)=\{Y:\|Y-X\|\le r\}$ for the closed disk.
+\begin{figure}[H]
+\centering
+\input{figures/geometry_roles}
+\caption{The center, vertices, radial segments, and radial midpoints of $H$.}
+\label{fig:geometry-roles}
+\end{figure}
+
+For a nonempty compact set $K\subset\mathbb R^2$, define its
+\emph{equilateral enclosure side} by
+\begin{equation}
+ \Lambda(K):=\inf\{s>0:K\subset T\text{ for a closed equilateral
+ triangle }T\text{ of side }s\}.
+ \label{eq:enclosure-definition}
+\end{equation}
+Then
+\begin{equation}
+ \Haus(\partial H)=6,\qquad
+ \Haus\left(\bigcup_{i=0}^5r_i\right)=6,\qquad \Haus(S)=12.
+\label{eq:target-lengths}
+\end{equation}
+
+We prove that seven open unit equilateral triangles cannot cover $H$.
+Equivalently, seven closed unit equilateral triangles cannot cover $LH$
+for any $L>1$. The formal statements and their proofs conclude
+Section~\ref{sec:assembly}.
+
+The argument first develops the geometry of the C triangle and V triangles.
+It then uses trace length (Section~\ref{sec:trace-length}), area loss
+(Section~\ref{sec:area-loss}), selected-gap and supported-midpoint enclosures
+(Section~\ref{sec:finite-enclosure}), and a zero-gap nine-point enclosure
+(Section~\ref{sec:strategy4-reader}). Supporting calculations are included
+with their statements. The exact disk-tangent certificate is proved within
+the zero-gap argument; its authenticated machine data and verifiers accompany
+the manuscript.

@@ -1,0 +1,75 @@
+\section{Completion of the Proof}\label{sec:assembly}
+
+We use BC for the selected-gap six-point construction, D for the supported-
+midpoint four-point construction, and F for the zero-gap nine-point
+construction, defined in Sections~\ref{sec:finite-enclosure} and
+\ref{sec:strategy4-reader}.
+N0 denotes \zcref{thm:fixed-nzero}, the assertion that every skeleton
+cover has a supercritical V role.
+
+Zero gaps mean that the V triangles cover $\partial H$, and the proof
+splits according to $N_+$. With a gap, the C triangle is CE1 or CE2;
+N0 and the skeleton budget leave one supercritical role and at most one
+positive-support role. Its position relative to the C midpoint determines
+the remaining obstruction.
+
+\begin{table}[H]
+\centering\small
+\setlength{\tabcolsep}{5pt}\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{@{}ccp{.34\textwidth}p{.28\textwidth}@{}}
+\toprule
+$N_{\rm gap}$&$N_+$&Additional condition&Closing mechanism\\
+\midrule
+$0$&$0$&Arbitrary V types&Strict overlap\\
+$0$&$1$&Arbitrary V types&Nine-point F\\
+$0$&$\ge2$&Arbitrary V types&Cyclic area loss\\
+\midrule
+$\ge1$&$0$&Arbitrary V types&N0, through BC\\
+$\ge1$&$\ge1$&$N_+\ge2$ or $N_++N_{\rm sp}\ge3$&Skeleton budget\\
+$\ge1$&$1$&$N_{\rm sp}\le1$&Midpoint supplier: BC, D, replacement, or Vd2 length\\
+\bottomrule
+\end{tabular}
+\caption{Disjoint routes for the original open cover. Nonzero gaps force
+CE1 or CE2; both classes share the same placement reduction. Replacement
+preserves the skeleton and ends at N0, without preserving number of gaps.}
+\label{tab:routing}
+\end{table}
+
+The rows are disjoint and exhaustive: separate zero from nonzero gaps,
+then $N_+=0$, and finally the displayed high-count condition.
+Lemma~\ref{lem:midpoint-supplier} resolves the last row. BC uses the same
+selected-gap witness in CE1 and CE2, with separate candidate calculations.
+
+\begin{theorem}[Main theorem]
+\label{thm:main}
+The hexagon $H$ cannot be covered by seven open equilateral triangles of side
+length one.
+\end{theorem}
+\begin{proof}
+Suppose seven open unit equilateral triangles cover $H$.
+By \zcref{thm:fixed-nzero}, $N_+\ge1$.
+With no gaps, the nine-point obstruction \zcref{thm:reader-zero-gap-obstruction}
+excludes $N_+=1$, and \zcref{prop:area-branches} excludes $N_+\ge2$.
+
+With a gap, \zcref{lem:midpoint-supplier} gives
+$N_+=1,N_{\rm sp}\le1$. Let $M_k$ be the C midpoint and $\sigma$
+the supercritical index. The case $\sigma=k$ is excluded by
+\zcref{thm:center-aligned-path}. Otherwise $M_\sigma$ has a unique
+adjacent positive-support supplier. A T3-like supplier is center-based
+and is excluded by \zcref{prop:new-one-t3-terminal}; a Vd2 supplier
+is excluded by \zcref{prop:ce2-vd2-midpoint-length}. For Vd1, a
+center-based supplier uses D, whereas an away supplier admits replacement
+followed by N0, as proved in \zcref{prop:new-one-vd-assembly}.
+Thus no cover exists.
+\end{proof}
+
+\begin{corollary}[Soifer's Hexagon Problem]
+\label{cor:expanded-closed}
+For every $L>1$, the regular hexagon $H_L=LH$ cannot be covered by seven closed
+unit equilateral triangles.
+\end{corollary}
+\begin{proof}
+The scaling equivalence \zcref{prop:open-closed-scaled} turns a cover of $H_L$
+by seven closed unit triangles into an open unit cover of $H$, contradicting
+\zcref{thm:main}.
+\end{proof}

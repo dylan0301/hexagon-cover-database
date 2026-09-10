@@ -1,0 +1,69 @@
+{
+  "canonical_revision": "9447b27ae5b5feefefb2209fd45cd7c1a4de4292",
+  "statement_merges": {
+    "prop:vd0-exact-trace-normalization": "lem:app-vd0-trace-normalization-calculation",
+    "prop:t3-translation": "lem:app-t3-translation-calculation",
+    "lem:t3-nonsupercritical": "lem:app-t3-translation-calculation",
+    "lem:local-wedge": "lem:app-local-wedge-calculation",
+    "prop:strict-handoffs": "lem:app-strict-handoff-selection",
+    "lem:self-midpoint": "lem:app-self-midpoint-caliper",
+    "lem:center-skeleton-cap": "lem:app-center-skeleton-cap-calculation",
+    "lem:supercritical-skeleton-cap": "lem:app-supercritical-skeleton-calculation",
+    "thm:local-square-loss": "lem:appendix-local-square-loss",
+    "lem:fixed-total-radial-forcing": "lem:appendix-fixed-total-endpoint",
+    "prop:new-nplus-one-all-vd0": "lem:appendix-fixed-transverse",
+    "thm:fixed-four-point-rescuer": "lem:appendix-fixed-four-point",
+    "lem:new-common-pair-domination": "lem:appendix-common-pair-domination",
+    "thm:reader-witness-enclosure": "lem:appendix-witness-enclosure-calculation"
+  },
+  "editorial_proof_replacements": {
+    "lem:app-center-edge-separation": [
+      [
+        "Since the diameter of a\nunit equilateral triangle is $1$, the result supplies\nProposition~\\ref{prop:ce-classification}.",
+        "The distance comparison is strict for both relative-interior parameters."
+      ]
+    ],
+    "lem:app-vd0-trace-normalization-calculation": [
+      [
+        "their open and closed traces, and therefore $A_i,B_i,C_i$ and\n$A_i+B_i>1$, are unchanged.",
+        "their open and closed traces, and therefore their maximal reaches, are\nunchanged. In particular, the sum of the two boundary reaches is unchanged."
+      ]
+    ],
+    "lem:appendix-fixed-four-point": [
+      [
+        "The convex combination in\nthe theorem's body proof puts",
+        "The identity\n\\[\n \\frac{\\varepsilon}{s}Y(a)+\\frac a s(\\varepsilon V_1)\n =\\frac{\\varepsilon}{s}V_0\n\\]\nputs"
+      ]
+    ]
+  },
+  "equation_aliases": {
+    "eq:reader-extreme-chain": "eq:extreme-chain",
+    "eq:reader-ab-domain": "eq:ab-strict-domain"
+  },
+  "editorial_statement_replacements": {
+    "prop:vd0-exact-trace-normalization": [
+      [
+        "all three actual maximal reaches and the inequality\n$A_i+B_i>1$ are unchanged.",
+        "all three actual maximal reaches, and whether the two boundary reaches\nhave sum greater than one, are unchanged."
+      ]
+    ],
+    "prop:vertex-classification": [
+      [
+        "in the exact dictionary of the introduction.",
+        "in the displayed type dictionary."
+      ]
+    ],
+    "lem:appendix-t3-supported-tail": [
+      [
+        "Under the off-center supplier placement of\n\\zcref{prop:new-one-t3-terminal}, the actual supported interval satisfies\nthe hypotheses of \\zcref{lem:new-rescuer-tail-budget}.",
+        "Assume a nonzero-gap skeleton cover has center midpoint $M_0$, a T3-like\nrole $T_0$ supplying $M_1$, uniquely supercritical $T_1$, and nonsupercritical\nVd0 roles at the other four vertices. The actual supported interval\nsatisfies the hypotheses of \\zcref{lem:new-rescuer-tail-budget}."
+      ]
+    ],
+    "lem:ab-extreme-jump": [
+      [
+        "and every selected V triangle obeys",
+        "Moreover $a=a_4<A_4$ and $b=b_4<B_4$, and every selected V triangle obeys"
+      ]
+    ]
+  }
+}
