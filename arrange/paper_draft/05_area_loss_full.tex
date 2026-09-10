@@ -52,15 +52,17 @@ and, if $a+b>1$,
 \end{theorem}
 
 \begin{proof}
-The two exhaustive orientation families give these minima.  Their polygon
+The two exhaustive orientation families give these lower bounds.  Their polygon
 areas and the factorizations proving both inequalities are computed in
 \zcref{lem:appendix-local-square-loss}.
 \end{proof}
 
 \subsection{Cyclic accumulation}
 
-Use the strict handoffs $\xi_i,a_i,b_i$ of
-\zcref{prop:strict-handoffs}.
+Assume here that the six V triangles cover $\partial H$, and choose
+strict handoffs $\xi_i,a_i,b_i$ as in \zcref{prop:strict-handoffs}.
+An \emph{ascent} at index $i$ means $\xi_{i-1}<\xi_i$, equivalently
+$a_i+b_i>1$.
 
 \begin{lemma}[Cyclic area-loss certificate]
 \label{lem:cyclic-area-loss}

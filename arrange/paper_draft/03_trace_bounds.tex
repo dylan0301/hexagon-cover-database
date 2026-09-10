@@ -9,8 +9,9 @@ For a closed triangle $T$ and a rectifiable target $E$, define
 \begin{lemma}[Connected open-cover budget]
 \label{lem:open-cover-budget}
 Let $X$ be compact and connected, with a finite Borel measure $\mu$
-positive on every nonempty relatively open subset. For a finite open cover
-with at least two nonempty relative pieces,
+positive on every nonempty relatively open subset. Let $U_1,\ldots,U_m$
+be open sets covering $X$, put $T_j=\overline{U_j}$, and assume at least
+two of the relative pieces $U_j\cap X$ are nonempty. Then
 \[
  \mu(X)<\sum_j\mu(U_j\cap X)\le\sum_j\mu(T_j\cap X).
 \]
@@ -25,8 +26,9 @@ multiplicity gives strict inequality. Closure only enlarges each piece.
 \end{proof}
 
 For $X=\partial H$ or $S$, use length; for $X=H$, use area. Each measure
-has the stated full-support property, and the seven distinguished roles
-meet the corresponding targets in positive measure. In particular,
+has the stated full-support property. The six V roles meet each target
+in positive measure; the C role does so on $H$ and $S$, but need not meet
+$\partial H$. In particular,
 \begin{equation}
  \Haus(E)<L_E(T_C)+\sum_{i=0}^5L_E(T_i),\qquad E\in\{\partial H,S\},
  \label{eq:length-subadditivity}
@@ -43,7 +45,7 @@ under the hypotheses of the corresponding trace budget.}
 \label{fig:strategy1-targets}
 \end{figure}
 
-\subsection{Skeleton interfaces}
+\subsection{Skeleton bounds}
 
 \begin{lemma}[Center skeleton cap]
 \label{lem:center-skeleton-cap}
@@ -122,7 +124,8 @@ The exact admissible-cell and polynomial-sign calculation is
 
 \begin{lemma}[Positive-support rescuer]
 \label{lem:positive-support-rescuer}
-Suppose $N_E(T_C)\in\{1,2\}$ and, after symmetry,
+Assume that the open roles cover $S$, that $N_E(T_C)\in\{1,2\}$, and,
+after symmetry,
 \[
  T_C\cap\{M_0,\ldots,M_5\}=\{M_0\}.
 \]
@@ -160,9 +163,8 @@ then the seven triangles do not cover $S$.
 \end{theorem}
 
 \begin{proof}
-Positive-support roles are nonsupercritical by
-\zcref{prop:vd-corner-normal-form,lem:t3-nonsupercritical}, so their indices
-are disjoint from the supercritical indices. With $k=N_++N_{\mathrm{sp}}$,
+By \zcref{prop:vd-corner-normal-form,lem:t3-nonsupercritical}, every
+positive-support role is nonsupercritical. Hence the two index sets are disjoint. With $k=N_++N_{\mathrm{sp}}$,
 the preceding caps give
 \[
  L_S(T_C)+\sum_iL_S(T_i)
@@ -171,7 +173,7 @@ the preceding caps give
 contrary to \eqref{eq:length-subadditivity}.
 \end{proof}
 
-\subsection{Boundary trace register}
+\subsection{Boundary trace bounds}
 
 The following bounds suffice for the perimeter exit.
 

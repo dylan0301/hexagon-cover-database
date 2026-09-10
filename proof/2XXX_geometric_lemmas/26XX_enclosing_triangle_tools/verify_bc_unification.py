@@ -143,7 +143,9 @@ for name in checked:
     print('PASS', name)
 print(f'ALL {len(checked)} EXACT CHECKS PASSED')
 
-# The numbered D sources and the geometric D theorem/proof are immutable.
+# D geometry is preserved. The body sketch and repaired original-interval
+# T3-like adapter are separately pinned; verify_editorial_order.py checks the
+# new local algebra independently. Other inherited pins are unchanged.
 # Historical prose around them is not a mathematical preservation contract.
 from pathlib import Path
 import hashlib
@@ -163,7 +165,7 @@ PRESERVED_SECTIONS = [('proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tool
  ('arrange/paper_draft/fixed_witness/06_fixed_witness_body.tex',
   '\\begin{theorem}[Four-point rescuer geometry]',
   '\\end{proof}',
-  'ef28d870cb5155b81d74187b7f0a11113b12d0810d218fc117a57b7d0a6bafde')]
+  'b97ac11a9da8d6ce24b4adc3cf19844ff62f3cc58805520d3693e7efe03122d3')]
 for path, start, end, digest in PRESERVED_SECTIONS:
     text = (ROOT / path).read_text(encoding="utf-8")
     section = text[text.index(start):text.index(end, text.index(start))]
@@ -173,7 +175,7 @@ PRESERVED_FILES = [('proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_
  ('proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4143_new_Vd1_rescuer_finite_enclosure.md',
   'c1dfec8125ff4e0dc94fccb90f60b2a79d4f5c07d61853762b74dacc17913696'),
  ('proof/4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like_new/4130_new_T3_like_finite_enclosure.md',
-  '09f5668ce99ba850a03c41f41487e20bbdcdd340b72f663d843d248c8d9acf47')]
+  '9c07b83683d951e82faed7235aba49ce9da298f67afbed2fd4d14220df7f8215')]
 for path, digest in PRESERVED_FILES:
     assert hashlib.sha256((ROOT / path).read_bytes()).hexdigest() == digest, path
 core = (ROOT / "proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2612_fixed_witness_unification.md").read_text()

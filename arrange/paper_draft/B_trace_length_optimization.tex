@@ -5,6 +5,146 @@ This appendix evaluates the trace quantities whose exact interfaces appear in
 Section~\ref{sec:trace-length}.  The center and V triangle coordinates are
 used only here; the body retains the geometric hypotheses and final bounds.
 
+\subsection{Vd1 and Vd2 corner optimization}
+
+Use temporary coordinates
+\[
+ X=V_0+x(V_5-V_0)+y(V_1-V_0),
+\]
+so $V_0=(0,0)$, $V_5=(1,0)$, $V_1=(0,1)$, $O=(1,1)$, and
+$\lVert(x,y)\rVert^2=x^2+y^2-xy$.
+
+\begin{proposition}[Vd1/Vd2 corner normal form]
+\label{prop:vd-corner-normal-form}
+Let $T$ be the closure of an original $\Vdone$ or $\Vdtwo$ triangle at
+$V_0$, and let $A_0,B_0$ be its exact reaches toward $V_5,V_1$.  There is a
+unique $t>0$ such that, with $d=\sqrt{t^2+t+1}$,
+\begin{equation}
+ T=\left\{(x,y):
+ \begin{aligned}
+ x-(t+1)y&\le A_0,\\
+ ty-(t+1)x&\le tB_0,\\
+ tx+y&\le d-A_0-tB_0
+ \end{aligned}\right\}.
+ \label{eq:vd-normal-form}
+\end{equation}
+The raw traces, parametrized from the indicated outer vertex, are
+\begin{equation}
+\begin{array}{c|c}
+r_0&0\le s\le\dfrac{d-A_0-tB_0}{t+1}\\[6pt]
+r_1&\dfrac{t(1-B_0)}{t+1}\le s\le\dfrac{d-A_0-tB_0-1}{t}\\[8pt]
+r_5&\dfrac{1-A_0}{t+1}\le s\le d-A_0-tB_0-t.
+\end{array}
+\label{eq:vd-ray-intervals}
+\end{equation}
+Intersecting with $[0,1]$ gives the actual traces, and
+\begin{equation}
+ A_0+B_0<\frac12.
+ \label{eq:vd-half-cap}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The triangle has one vertex $W$ outside $H$ and two vertices $U,Z$ in $H$.
+Because $V_0$ is an interior convex combination, both coordinates of $W$ are
+negative.  The axis endpoints $(A_0,0),(0,B_0)$ lie on the two sides through
+$W$.  Put $p=U-W$ and $q=Z-W$.  Their order selects
+\[
+ q=(p_x-p_y,p_x),\qquad p_x>p_y>0.
+\]
+Writing $t=(p_x-p_y)/p_y$ gives uniquely
+\[
+ p=\frac{(t+1,1)}d,\qquad q=\frac{(t,t+1)}d,
+\]
+which yields \eqref{eq:vd-normal-form}; substitution of
+$(s,s),(s,1),(1,s)$ yields \eqref{eq:vd-ray-intervals}.
+
+If $r_1$ has positive trace, clearing its endpoint inequality gives
+\[
+ (t+1)A_0+tB_0<(t+1)(d-1)-t^2.
+\]
+Since the left side is at least $t(A_0+B_0)$,
+\[
+ A_0+B_0<\frac{(t+1)(d-1)-t^2}{t}<\frac12.
+\]
+The last inequality follows from
+\[
+ \left(t^2+\frac{3t}{2}+1\right)^2
+ -(t+1)^2(t^2+t+1)=\frac{t^2}{4}>0.
+\]
+Reflection treats support on $r_5$.
+\end{proof}
+
+\begin{lemma}[Orientation of a forward Vd1 supplier]
+\label{lem:vd1-forward-orientation}
+In \zcref{prop:vd-corner-normal-form}, if a Vd1 role contains $M_1$
+openly, then $t\ge1$.
+\end{lemma}
+\begin{proof}
+Suppose $t<1$. Open containment of $M_1=(1/2,1)$ gives
+$A_0+tB_0<d-1-t/2$. The backward radial interval has endpoints
+$\ell_5=(1-A_0)/(t+1)$ and $u_5=d-A_0-tB_0-t$, so
+\[
+ u_5>1-t/2>\frac1{t+1}>\ell_5,
+ \qquad 0<\ell_5<1.
+\]
+Here $1-t/2-1/(t+1)=t(1-t)/(2(t+1))>0$.
+Thus $r_5$ has positive trace as well as $r_1$, contradicting Vd1.
+\end{proof}
+
+\begin{lemma}[Vd2 adjacent-midpoint cap]
+\label{lem:vd2-neighbor-midpoint-cap}
+If an original open V triangle has $\Vdtwo$ closure $T_i$ and
+\[
+ \{M_{i-1},M_{i+1}\}\cap T_i\ne\varnothing,
+\]
+then its exact boundary reaches satisfy
+\[
+ A_i+B_i<\frac13.
+\]
+\end{lemma}
+
+\begin{proof}
+In Proposition~\ref{prop:vd-corner-normal-form}, reflection sends
+\[
+ (t,A_0,B_0,M_1,M_5)
+ \longmapsto(1/t,B_0,A_0,M_5,M_1).
+\]
+Thus assume $t\ge1$ and use $A_0+B_0\le A_0+tB_0$.
+
+If $M_5=(1,1/2)$ lies in $T$, the third half-plane gives
+\[
+ A_0+B_0\le A_0+tB_0
+ \le d-t-\frac12\le\sqrt3-\frac32<\frac13.
+\]
+If $M_1=(1/2,1)$ lies in $T$, the second and third half-planes give
+\[
+ B_0\ge\frac{t-1}{2t},
+ \qquad A_0+B_0\le S(t):=d-t-\frac1{2t}.
+\]
+Positive-length contact with $r_5$ gives
+\[
+ A_0+B_0<R(t):=\frac{2(t+1)d-3t^2-t-2}{2t}.
+\]
+Direct differentiation shows $S$ increasing and $R$ decreasing on
+$[1,\infty)$.  For $S'$, the sign reduces to
+\[
+ (2t+1)^2t^4-(t^2+t+1)(2t^2-1)^2
+ =(t+1)(t^3+3t^2-1)>0,
+\]
+while $R'<0$ follows from $d>t+1/2$.  Splitting at $t=4/3$ gives
+\[
+\begin{aligned}
+1\le t\le\frac43&:\quad
+A_0+B_0\le\frac{8\sqrt{37}-41}{24}<\frac13,\\
+t\ge\frac43&:\quad
+A_0+B_0<\frac{7\sqrt{37}-39}{12}<\frac13.
+\end{aligned}
+\]
+The final comparisons are $8\sqrt{37}<49$ and $7\sqrt{37}<43$.
+\end{proof}
+
+
 \subsection{Conditional skeleton caps}
 
 \begin{lemma}[Center-skeleton calculation]
@@ -125,127 +265,4 @@ The cubic decreases on $[1,2/\sqrt3]$ and at the right endpoint equals
 $88/3-136\sqrt3/9>0$.  Hence $P(\gamma_0)>0$.  The selected smaller-root
 component in \eqref{eq:supercritical-admissible-cell} forces
 $C_i<\gamma_0$, so $A_i+B_i+C_i<3/2$.
-\end{proof}
-
-
-\subsection{Vd1 and Vd2 corner optimization}
-
-Use temporary coordinates
-\[
- X=V_0+x(V_5-V_0)+y(V_1-V_0),
-\]
-so $V_0=(0,0)$, $V_5=(1,0)$, $V_1=(0,1)$, $O=(1,1)$, and
-$\lVert(x,y)\rVert^2=x^2+y^2-xy$.
-
-\begin{proposition}[Vd1/Vd2 corner normal form]
-\label{prop:vd-corner-normal-form}
-Let $T$ be the closure of an original $\Vdone$ or $\Vdtwo$ triangle at
-$V_0$, and let $A_0,B_0$ be its exact reaches toward $V_5,V_1$.  There is a
-unique $t>0$ such that, with $d=\sqrt{t^2+t+1}$,
-\begin{equation}
- T=\left\{(x,y):
- \begin{aligned}
- x-(t+1)y&\le A_0,\\
- ty-(t+1)x&\le tB_0,\\
- tx+y&\le d-A_0-tB_0
- \end{aligned}\right\}.
- \label{eq:vd-normal-form}
-\end{equation}
-The raw traces, parametrized from the indicated outer vertex, are
-\begin{equation}
-\begin{array}{c|c}
-r_0&0\le s\le\dfrac{d-A_0-tB_0}{t+1}\\[6pt]
-r_1&\dfrac{t(1-B_0)}{t+1}\le s\le\dfrac{d-A_0-tB_0-1}{t}\\[8pt]
-r_5&\dfrac{1-A_0}{t+1}\le s\le d-A_0-tB_0-t.
-\end{array}
-\label{eq:vd-ray-intervals}
-\end{equation}
-Intersecting with $[0,1]$ gives the actual traces, and
-\begin{equation}
- A_0+B_0<\frac12.
- \label{eq:vd-half-cap}
-\end{equation}
-\end{proposition}
-
-\begin{proof}
-The triangle has one vertex $W$ outside $H$ and two vertices $U,Z$ in $H$.
-Because $V_0$ is an interior convex combination, both coordinates of $W$ are
-negative.  The axis endpoints $(A_0,0),(0,B_0)$ lie on the two sides through
-$W$.  Put $p=U-W$ and $q=Z-W$.  Their order selects
-\[
- q=(p_x-p_y,p_x),\qquad p_x>p_y>0.
-\]
-Writing $t=(p_x-p_y)/p_y$ gives uniquely
-\[
- p=\frac{(t+1,1)}d,\qquad q=\frac{(t,t+1)}d,
-\]
-which yields \eqref{eq:vd-normal-form}; substitution of
-$(s,s),(s,1),(1,s)$ yields \eqref{eq:vd-ray-intervals}.
-
-If $r_1$ has positive trace, clearing its endpoint inequality gives
-\[
- (t+1)A_0+tB_0<(t+1)(d-1)-t^2.
-\]
-Since the left side is at least $t(A_0+B_0)$,
-\[
- A_0+B_0<\frac{(t+1)(d-1)-t^2}{t}<\frac12.
-\]
-The last inequality follows from
-\[
- \left(t^2+\frac{3t}{2}+1\right)^2
- -(t+1)^2(t^2+t+1)=\frac{t^2}{4}>0.
-\]
-Reflection treats support on $r_5$.
-\end{proof}
-
-\begin{lemma}[Vd2 adjacent-midpoint cap]
-\label{lem:vd2-neighbor-midpoint-cap}
-If an original open V triangle has $\Vdtwo$ closure $T_i$ and
-\[
- \{M_{i-1},M_{i+1}\}\cap T_i\ne\varnothing,
-\]
-then its exact boundary reaches satisfy
-\[
- A_i+B_i<\frac13.
-\]
-\end{lemma}
-
-\begin{proof}
-In Proposition~\ref{prop:vd-corner-normal-form}, reflection sends
-\[
- (t,A_0,B_0,M_1,M_5)
- \longmapsto(1/t,B_0,A_0,M_5,M_1).
-\]
-Thus assume $t\ge1$ and use $A_0+B_0\le A_0+tB_0$.
-
-If $M_5=(1,1/2)$ lies in $T$, the third half-plane gives
-\[
- A_0+B_0\le A_0+tB_0
- \le d-t-\frac12\le\sqrt3-\frac32<\frac13.
-\]
-If $M_1=(1/2,1)$ lies in $T$, the second and third half-planes give
-\[
- B_0\ge\frac{t-1}{2t},
- \qquad A_0+B_0\le S(t):=d-t-\frac1{2t}.
-\]
-Positive-length contact with $r_5$ gives
-\[
- A_0+B_0<R(t):=\frac{2(t+1)d-3t^2-t-2}{2t}.
-\]
-Direct differentiation shows $S$ increasing and $R$ decreasing on
-$[1,\infty)$.  For $S'$, the sign reduces to
-\[
- (2t+1)^2t^4-(t^2+t+1)(2t^2-1)^2
- =(t+1)(t^3+3t^2-1)>0,
-\]
-while $R'<0$ follows from $d>t+1/2$.  Splitting at $t=4/3$ gives
-\[
-\begin{aligned}
-1\le t\le\frac43&:\quad
-A_0+B_0\le\frac{8\sqrt{37}-41}{24}<\frac13,\\
-t\ge\frac43&:\quad
-A_0+B_0<\frac{7\sqrt{37}-39}{12}<\frac13.
-\end{aligned}
-\]
-The final comparisons are $8\sqrt{37}<49$ and $7\sqrt{37}<43$.
 \end{proof}

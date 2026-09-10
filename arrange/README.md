@@ -1,7 +1,8 @@
 
 # Manuscript and publication support
 
-`paper_draft/main.tex` is the self-contained publication source. Its concise
+`paper_draft/main.tex` is the publication source; the exact electronic
+certificate identified in Appendix F accompanies the manuscript. Its concise
 body gives the geometric definitions and three proof methods:
 
 1. trace length;
@@ -48,9 +49,10 @@ proof-free command writes `arrange/paper_draft/proof_free.pdf`; it removes
 formal proof environments while retaining prose and calculations outside
 those environments.
 
-The shortened canonical paper has 66 pages, compared with 89 in the audited
-base revision; its proof-free version has 36 pages, compared with 50.
-The CI page-count guard is 64--68. No font-size or margin reduction is used.
+The self-containment revision has 69 pages (89 before shortening and 66
+before this editorial repair); the proof-free version has 37 pages
+(previously 50 and 36). The CI page-count guard is 67--71. Fonts, page
+dimensions, and margins are unchanged.
 
 Both commands use a temporary source copy, so LaTeX intermediates do not
 pollute the source directory. The tracked canonical PDF is a publication
@@ -75,5 +77,6 @@ return. The supported-rescuer calculation has one common four-point ending,
 and both replacement charts and their strict margins remain intact.
 
 See `20260909_paper_shortening_implementation_report.md` for the removal
-packages, preservation contracts, and validation record. Clean PDF comparison,
+packages and preservation contracts. The subsequent reading-order repair
+is documented in `20260910_self_containment_editorial_report.md`. Clean PDF comparison,
 render audit, both exact zero-gap programs, and source checks remain mandatory.

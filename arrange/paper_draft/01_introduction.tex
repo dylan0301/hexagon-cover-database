@@ -1,7 +1,17 @@
 \section{Introduction and Proof Outline}
 \label{sec:introduction}
 
-\subsection{The theorem and the canonical labeling}
+\subsection{Notation, theorem, and canonical labeling}
+
+All distances, angles, and areas are Euclidean. A unit equilateral triangle
+has side length one; its open version is its interior. We write $[x,y]$
+for the closed segment, $\conv K$ for the convex hull, and $\interior K$
+and $\partial K$ for the interior and boundary. The relative interior
+$\operatorname{relint}K$ is its interior within its affine span. The measure $\Haus$ is
+one-dimensional Hausdorff measure, which agrees with length on segments.
+We use $[t]_+=\max\{t,0\}$ and
+$\operatorname{cross}(x,y)=x_1y_2-x_2y_1$ for vectors in $\mathbb R^2$.
+A \emph{trace} on a set $E$ means its intersection with $E$.
 
 Let
 \[
@@ -17,6 +27,22 @@ and put
 \[
  S=\partial H\cup\bigcup_{i=0}^5r_i.
 \]
+We call $S$ the \emph{hexagon skeleton}. For $X\in\mathbb R^2$ and $r\ge0$,
+write $\mathbb B(X,r)=\{Y:\|Y-X\|\le r\}$ for the closed disk.
+\begin{figure}[H]
+\centering
+\input{figures/geometry_roles}
+\caption{The center, vertices, radial segments, and radial midpoints of $H$.}
+\label{fig:geometry-roles}
+\end{figure}
+
+For a nonempty compact set $K\subset\mathbb R^2$, define its
+\emph{equilateral enclosure side} by
+\begin{equation}
+ \Lambda(K):=\inf\{s>0:K\subset T\text{ for a closed equilateral
+ triangle }T\text{ of side }s\}.
+ \label{eq:enclosure-definition}
+\end{equation}
 Then
 \begin{equation}
  \Haus(\partial H)=6,\qquad
@@ -52,13 +78,13 @@ $V_i$}.  Set
 \[
  T_C=\overline{U_C},\qquad T_i=\overline{U_i}.
 \]
+A \emph{role} means one of these labeled triangles. Statements about an
+arrangement of roles assume $O\in U_C$ and $V_i\in U_i$; coverage of
+$H$, $S$, or $\partial H$ is an additional hypothesis, stated when needed.
+A \emph{skeleton cover} covers $S$, not necessarily all of $H$.
+An edge is \emph{center-free} when it is disjoint from $U_C$.
 
-\begin{figure}[H]
-\centering
-\input{figures/geometry_roles}
-\caption{The center, vertices, radial segments, and radial midpoints of $H$.}
-\label{fig:geometry-roles}
-\end{figure}
+
 
 \subsection{Finite classifications}
 
@@ -136,8 +162,8 @@ The actual maximal reaches are
  C_i:=\max\{x\in[0,1]:V_i+x(O-V_i)\in T_i\}.
 \]
 The same numbers are the suprema of the corresponding reaches in the open
-triangle $U_i$.  The V triangle $T_i$ is \emph{supercritical} when
-$A_i+B_i>1$, and
+triangle $U_i$. The V triangle $T_i$ is \emph{supercritical} when
+$A_i+B_i>1$, and \emph{nonsupercritical} when $A_i+B_i\le1$. Put
 \begin{equation}
  N_+:=\left\lvert\left\{i\in\mathbb Z/6\mathbb Z:
  A_i+B_i>1\right\}\right\rvert.
@@ -148,6 +174,31 @@ Lowercase reaches are used only after a selection satisfying
  0\le a_i\le A_i,\qquad 0\le b_i\le B_i,\qquad 0\le c_i\le C_i.
 \]
 They never define $N_+$.
+
+
+
+Parametrize $e_{i,i+1}$ from $V_i$ to $V_{i+1}$ by
+\[
+ X_i(x):=V_i+x(V_{i+1}-V_i),\qquad 0\le x\le1.
+\]
+Define the \emph{boundary gap}
+\[
+ J_i:=e_{i,i+1}\setminus(U_i\cup U_{i+1}),\qquad
+ N_{\mathrm{gap}}:=|\{i:J_i\ne\varnothing\}|.
+\]
+Lemma~\ref{lem:gap-exhaustion} gives
+$J_i=X_i([B_i,1-A_{i+1}])$ when $B_i+A_{i+1}\le1$, and $J_i=\varnothing$
+otherwise. Equality is a singleton gap, not an overlap.
+
+A V role has \emph{positive adjacent-radial support}, or simply
+\emph{positive support}, when $n(T_i)>0$. Put
+\[
+ N_{\mathrm{sp}}:=|\{i:n(T_i)>0\}|.
+\]
+Positive-support roles are nonsupercritical, so the number of roles that
+are supercritical or have positive adjacent-radial support is
+$N_++N_{\mathrm{sp}}$. The skeleton budget excludes nonzero-gap covers
+with $N_++N_{\mathrm{sp}}\ge3$.
 
 \begin{figure}[H]
 \centering
@@ -201,29 +252,23 @@ $\Vdone$, $\Vdtwo$, and $\Tlike$.  The panels illustrate the classification.}
 \label{fig:vertex-role-examples}
 \end{figure}
 
-Parametrize $e_{i,i+1}$ from $V_i$ to $V_{i+1}$ by
-\[
- X_i(x):=V_i+x(V_{i+1}-V_i),\qquad 0\le x\le1.
-\]
-Define the \emph{boundary gap}
-\[
- J_i:=e_{i,i+1}\setminus(U_i\cup U_{i+1}),\qquad
- N_{\mathrm{gap}}:=|\{i:J_i\ne\varnothing\}|.
-\]
-Lemma~\ref{lem:gap-exhaustion} gives
-$J_i=X_i([B_i,1-A_{i+1}])$ when $B_i+A_{i+1}\le1$, and $J_i=\varnothing$
-otherwise. Equality is a singleton gap, not an overlap.
-
-Put
-\[
- N_{\mathrm{sp}}:=|\{i:n(T_i)>0\}|.
-\]
-Positive-support roles are nonsupercritical, so the number of roles that
-are supercritical or have positive adjacent-radial support is
-$N_++N_{\mathrm{sp}}$. The skeleton budget excludes nonzero-gap covers
-with $N_++N_{\mathrm{sp}}\ge3$.
-
 \subsection{Exhaustive routing}
+
+When the C triangle has type CE1 or CE2, \zcref{prop:unique-center-midpoint}
+will show that it contains exactly one of $M_0,\ldots,M_5$; this is the
+\emph{C midpoint}. If it is $M_k$, the role at $V_k$ is called
+\emph{center-based}; a supercritical role there is \emph{center-aligned},
+and a role at another vertex is \emph{away} or \emph{off-center}.
+A V role that contains an adjacent midpoint openly is
+called its \emph{supplier} or \emph{rescuer}. A \emph{gap-free
+nonsupercritical path} is a consecutive sequence of nonsupercritical V
+roles whose shared edges have empty gaps.
+
+We use BC for the selected-gap six-point construction, D for the supported-
+midpoint four-point construction, and F for the zero-gap nine-point
+construction, all defined in Section~\ref{sec:finite-enclosure}.
+N0 denotes \zcref{thm:fixed-nzero}, the assertion that every skeleton
+cover has a supercritical V role.
 
 Zero gaps mean that the V triangles cover $\partial H$, and the proof
 splits according to $N_+$. With a gap, the C triangle is CE1 or CE2;
@@ -249,7 +294,7 @@ $\ge1$&$1$&$N_{\rm sp}\le1$&Midpoint supplier: BC, D, replacement, or Vd2 length
 \end{tabular}
 \caption{Disjoint routes for the original open cover. Nonzero gaps force
 CE1 or CE2; both classes share the same placement reduction. Replacement
-preserves the skeleton and ends at N0, without preserving gap rank.}
+preserves the skeleton and ends at N0, without preserving number of gaps.}
 \label{tab:routing}
 \end{table}
 

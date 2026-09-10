@@ -10,21 +10,12 @@ Put
  h:=\frac{\sqrt3}{2}.
 \]
 
-For \(X\in\mathbb R^2\) and \(r\ge0\), put
-\[
- \mathbb B(X,r):=\{Y\in\mathbb R^2:\lVert Y-X\rVert\le r\}.
-\]
-For every nonempty compact \(K\subseteq\mathbb R^2\), define
-\[
- \Lambda(K):=
- \inf\left\{s>0:
- \begin{array}{l}
- \exists T\ [T\text{ is a closed equilateral triangle of side }s,\\
- K\subseteq T]
- \end{array}\right\}.
-\]
-Thus \(\Lambda(K)\) is the least equilateral enclosure side for \(K\).
-
+The closed-disk notation and $\Lambda$ are defined in
+Section~\ref{sec:introduction}. By \zcref{lem:compact-cover-margin}, a
+compact set contained in an open unit triangle has enclosure side below
+one. Conversely, $\Lambda(K)<1$ gives such an open unit enclosure by
+slightly enlarging a smaller closed enclosure. Thus it is enough to
+exclude every open unit candidate containing the same fixed set $K$.
 
 \subsection{Local capacities and radial witnesses}
 
@@ -52,6 +43,20 @@ For \(0\le a,c\le1\), also put
 \[
  M_c(a):=\max\{b\in[0,1]:(a,b,c)\in\mathcal A\}.
 \]
+In particular, the \emph{diameter envelope} is
+\begin{equation}
+ M_0(x)=\frac{-x+\sqrt{4-3x^2}}2\qquad(0\le x\le1).
+ \label{eq:diameter-envelope-definition}
+\end{equation}
+Here $M_0$ without an argument denotes the radial midpoint, whereas
+$M_0(x)$ denotes this scalar function. For later rescuer estimates define
+\begin{equation}
+ M_c^{\rm sup}:=\frac{c+\sqrt{c^2-8c+4}}2\qquad(0\le c\le1/2).
+ \label{eq:supercritical-envelope-definition}
+\end{equation}
+The value at $c=1/2$ is a continuous endpoint convention; no
+supercritical triangle has that radial demand. The bound associated with
+this envelope is proved in \zcref{lem:strict-supercritical-envelope}.
 The exact admissible set and radial envelope are proved in
 \zcref{prop:exact-admissible-set}.
 
@@ -73,6 +78,26 @@ The neighboring-arm capacities are the variational quantities
 \]
 Only a bound, not the full piecewise neighboring capacity, is needed below.
 The direct four-caliper proof is \zcref{lem:direct-neighbor-diagonal}.
+
+\begin{lemma}[Common-pair domination]
+\label{lem:new-common-pair-domination}
+If
+\[
+ p,q\ge0,
+ \qquad
+ p+q\le1,
+\]
+then
+\[
+ C_+(p,q),C_-(p,q)
+ \le1-\min\{p,q\}\le c_{\max}(p,q).
+\]
+\end{lemma}
+
+\begin{proof}
+This is the direct diagonal-capacity comparison in
+\zcref{lem:appendix-common-pair-domination}.
+\end{proof}
 
 \begin{definition}[Fixed total radial endpoint]
 \label{def:fixed-total-radial-endpoint}
@@ -174,25 +199,7 @@ only actual positive adjacent traces. Apply
 is handled by that lemma as well; no positive-distance claim is made there.
 \end{proof}
 
-\begin{lemma}[Common-pair domination]
-\label{lem:new-common-pair-domination}
-If
-\[
- p,q\ge0,
- \qquad
- p+q\le1,
-\]
-then
-\[
- C_+(p,q),C_-(p,q)
- \le1-\min\{p,q\}\le c_{\max}(p,q).
-\]
-\end{lemma}
 
-\begin{proof}
-This is the direct diagonal-capacity comparison in
-\zcref{lem:appendix-common-pair-domination}.
-\end{proof}
 
 \begin{corollary}[Uniform common-pair radial forcing]
 \label{cor:new-uniform-common-pair-forcing}
@@ -210,8 +217,8 @@ restriction on the normalized V types. Under a hypothetical cover of $H$,
 \end{corollary}
 
 \begin{proof}
-Convexity permits reselecting every boundary pair as $(p,q)$. Apply
-\zcref{lem:new-type-aware-radial-forcing} to these common lower bounds,
+Reselect each boundary pair as $(p,q)$, using convexity.
+Lemma~\ref{lem:new-type-aware-radial-forcing} applies to these common bounds,
 including only the actual positive neighboring traces.
 By \zcref{lem:new-common-pair-domination}, every included $C_+$ or $C_-$
 term is at most $c_*$, while the own-ray term equals $c_*$. Hence each
@@ -332,7 +339,8 @@ For the enclosure calculation use the compact comparison set
 
 \begin{theorem}[Witness enclosure]
 \label{thm:reader-witness-enclosure}
-Every pair \((a,b)\) satisfying \zcref{eq:reader-ab-domain} satisfies
+For $0<a,b<1$, $a+b>1$, and $a^2+ab+b^2<1$, the comparison set
+$K_{\rm wit}(a,b)$ satisfies
 \[
  \Lambda(K_{\rm wit}(a,b))\ge1.
 \]
@@ -364,3 +372,27 @@ The construction gives the compact containment
 \(\Lambda(K_{\rm wit}(a,b))\ge1\).  This contradicts
 \zcref{lem:compact-cover-margin}.
 \end{proof}
+
+\subsection{Summary of the fixed witnesses}
+
+\begingroup
+\small
+\renewcommand{\arraystretch}{1.18}
+\setlength{\tabcolsep}{3pt}
+\begin{longtable}{@{}p{.29\textwidth}p{.44\textwidth}p{.18\textwidth}@{}}
+\caption{Fixed finite-enclosure recipes. Ordinary nonsupercritical V triangles
+are not subdivided by type.}\label{tab:finite-enclosure-subcases}\\
+\toprule
+Conditions & Fixed witness set & Disk and count\\
+\midrule
+\endfirsthead
+\toprule Conditions & Fixed witness set & Disk and count\\\midrule
+\endhead
+BC: at least one incident gap; $T_1,\ldots,T_5$ nonsupercritical &
+$\{M_0,X_0(B_0),X_0(1-A_1),\widehat P_2,\widehat P_3,\widehat P_4\}$ & No disk; at most 6\\
+D: center-based T3-like or Vd1 rescuer; one or two gaps &
+$\{O,\varepsilon V_1,Y(A_0),Y(1-B_5)\}$ & No disk; at most 4\\
+F: zero gaps, $N_+=1$ & The nine-point set $K_F$ & Disk; at most 9\\
+\bottomrule
+\end{longtable}
+\endgroup

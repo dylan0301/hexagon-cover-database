@@ -4,16 +4,27 @@
 \usetikzlibrary{arrows.meta,calc,positioning}
 \input{figures/tikz_setup}
 \usepackage[hidelinks]{hyperref}
+\usepackage{aliascnt}
 \usepackage{zref-clever}
 
 \newtheorem{theorem}{Theorem}[section]
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{corollary}[theorem]{Corollary}
+\newaliascnt{lemma}{theorem}
+\newtheorem{lemma}[lemma]{Lemma}
+\aliascntresetthe{lemma}
+\newaliascnt{proposition}{theorem}
+\newtheorem{proposition}[proposition]{Proposition}
+\aliascntresetthe{proposition}
+\newaliascnt{corollary}{theorem}
+\newtheorem{corollary}[corollary]{Corollary}
+\aliascntresetthe{corollary}
 \theoremstyle{definition}
-\newtheorem{definition}[theorem]{Definition}
+\newaliascnt{definition}{theorem}
+\newtheorem{definition}[definition]{Definition}
+\aliascntresetthe{definition}
 \theoremstyle{remark}
-\newtheorem{remark}[theorem]{Remark}
+\newaliascnt{remark}{theorem}
+\newtheorem{remark}[remark]{Remark}
+\aliascntresetthe{remark}
 
 \newcommand{\CEzero}{\mathrm{CE0}}
 \newcommand{\CEone}{\mathrm{CE1}}

@@ -1,175 +1,108 @@
-# CE1/CE2, $N_+=1$, Exactly One T3-Like: Simplified Rescuer Proof
+# T3-like supported rescuer: actual-interval proof
 
 Status: Proven
 
-This proof separates the only T3-specific calculation from the common
-fixed four-point interface proved in
-[`2612`](../../../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2612_fixed_witness_unification.md).
-Both gap ranks use the same fixed four-point enclosure ending.
+## Theorem and placement
 
-## Theorem
-
-Assume the center is CE1 or CE2, exactly one actual V role is supercritical,
-exactly one V role is T3-like, no V role is Vd1 or Vd2, the original open
-roles cover the hexagon skeleton, and at least one boundary edge contains a
-V-gap. Then no such configuration exists.
-
-## 1. Midpoint reduction
-
-Normalize the C midpoint to $M_0$. If the supercritical role is $T_0$,
-apply the center-aligned theorem in
-[`2612`](../../../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2612_fixed_witness_unification.md).
-Otherwise the common midpoint-supplier lemma
+Assume a skeleton cover with a nonzero actual gap, exactly one supercritical
+V role, one T3-like role, and no Vd1 or Vd2 role. If the supercritical role is
+center-aligned, the BC theorem in
+[`2612`](../../../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2612_fixed_witness_unification.md)
+excludes the cover. Otherwise the supplier lemma in
 [`2613`](../../../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2613_midpoint_supplier_reduction.md)
-forces the T3-like role to be $T_0$ and, after reflection, the supercritical
-role to be $T_1$, with $M_1\in U_0$. The remaining four roles are
-nonsupercritical Vd0. This is the only placement-specific reduction.
+places the T3-like role at the C midpoint. Rotate and reflect so it is $T_0$,
+$M_1\in U_0$, and $T_1$ is uniquely supercritical. The other four roles are
+nonsupercritical Vd0.
 
-Use the translated T3-like chart at $V_0$. Let
+All quantities below belong to the original triangles. We do not replace
+the T3-like role by its translated closed-trace majorant.
 
-$$
-T_0\cap e_{5,0}=[0,a]
-$$
+## 1. Actual supported endpoints
 
-and write its supported interval on $r_1$, measured from $V_1$ toward $O$,
-as
+Use the Type-II chart of `1201`,
 
 $$
-[c,u],
-\qquad
-c\le\frac12\le u.
+X=V_0+x(V_1-V_0)+y(V_5-V_0),\quad
+U=\alpha_T+(1-t)x+ty,\quad V=a+tx-y,
 $$
 
-By the radial-frontier corollary in `2612`, the supported O-side
-endpoint is missed by all V roles: its own supercritical role stops before
-$M_1$ and all other possible contributions are absent. Thus
-
-$$\boxed{P_T=(1-u)V_1\in U_C.}\tag{1}$$
-
-Put
+where $0<t<1$, $z=\sqrt{1-t+t^2}$, $\alpha_T>0$, and
+$a=A_0>0$. The triangle is $U,V\ge0$, $U+V\le z$.
+On $r_1$, whose coordinates are $(1,s)$, these give exactly
 
 $$
-\varepsilon=1-u.
+c=\frac{1+\alpha_T+a-z}{1-t},\qquad u=a+t.
 $$
 
-## 2. The only T3-specific inequality
+Since $M_1\in U_0$, one has $0<c<1/2<u<1$.
+Put $\varepsilon=1-u$. The supercritical own role stops before the midpoint;
+all other neighboring contributions are absent. Thus $u$ is the actual total
+radial endpoint, and the frontier lemma of `2612` forces
+$P_T=\varepsilon V_1\in U_C$.
+The near endpoint $c<1/2$ is not supplied by $U_0$, the C triangle, or a
+nonlocal role; skeleton coverage gives $C_1\ge c$.
 
-The translated normal form has parameters
+## 2. Ratio inequality for the original triangle
 
-$$
-1\le D\le\frac2{\sqrt3},
-\qquad
-E_0=\sqrt{4-3D^2},
-\qquad
-R_0=\frac{D+E_0}{2},
-$$
-
-and
+Put $x=a/(1-t)$ and $\theta=t/(1+z)$. Then $0<\theta<1/2$, and
 
 $$
-c=\frac{D(1+a)-1}{R_0},
-\qquad
-u=1-\frac{R_0}{D}+a.
+a+\varepsilon=1-t<1,\qquad
+\frac a{a+\varepsilon}=x,\qquad
+c=x+\theta+\frac{\alpha_T}{1-t}>x+\theta.
 $$
 
-Put
+The midpoint inequalities imply
 
 $$
-x=\frac{aD}{R_0},
-\qquad
-\theta=\frac{D-1}{R_0}.
+\frac{1-4\theta+\theta^2}{2(1-2\theta)}<x<1/2-\theta.
 $$
 
-Then
+For the lower endpoint use $t=\theta(2-\theta)/(1-\theta^2)$.
+Let $Q_\theta(x)=2x^2+(\theta-1)x+\theta$.
+When $0<\theta\le1/5$, the lower endpoint is to the right of the vertex,
+and substitution gives
 
 $$
-c=x+\theta,
-\qquad
-0\le\theta\le2-\sqrt3,
+Q_\theta(x)\ge
+\frac{\theta(1-5\theta+11\theta^2-\theta^3)}{2(1-2\theta)^2}\ge0.
 $$
 
-and the midpoint condition is equivalent to
+For $1/5\le\theta<1/2$, its unrestricted minimum is
+$(10\theta-1-\theta^2)/8>0$. Hence
 
 $$
-\frac{1-4\theta+\theta^2}{2(1-2\theta)}
-\le x\le\frac12-\theta.
-\tag{2}
+x^2+(c-2)x+c
+=Q_\theta(x)+\frac{\alpha_T}{1-t}(x+1)>0.
 $$
 
-Let
+Here $0<x,c<1/2$. By the scalar ratio test of `2612`,
 
 $$
-M=M_c^{\rm sup}
-=
-\frac{c+\sqrt{c^2-8c+4}}2.
+x\le1-M_c^{\rm sup},\qquad
+M_c^{\rm sup}=\frac{c+\sqrt{c^2-8c+4}}2.
 $$
 
-For $0\le z\le1/2$, put
+This proves the size and ratio requirements using the actual near endpoint.
+Setting $\alpha_T=0$ would only give a lower bound on that endpoint. The full
+range $0<t<1$ is included; no smaller orientation range is imposed.
+
+## 3. Common four-point conclusion
+
+The hypotheses now proved are
 
 $$
-s(z)=\frac{z(2-z)}{1+z}.
+\varepsilon V_1\in U_C,\quad C_1\ge c,\quad
+a+\varepsilon\le1,\quad a/(a+\varepsilon)\le1-M_c^{\rm sup}.
 $$
 
-The defining relation for the strict-supercritical envelope is
+The common adapter in `2612`, Corollary 6.2, gives the fixed four-point set
 
 $$
-s(1-M)=c.
+K_D=\{O,\varepsilon V_1,Y(a),Y(1-B_5)\},\qquad
+Y(s)=(1-s)V_0+sV_5,
 $$
 
-Since $s$ is increasing, it is enough to prove $s(x)\le x+\theta$. After
-multiplication by $1+x$, this becomes
-
-$$
-Q_\theta(x)=2x^2+(\theta-1)x+\theta\ge0.
-$$
-
-For $0\le\theta\le1/5$, the interval (2) lies to the right of the vertex of
-$Q_\theta$, and substitution of its left endpoint gives
-
-$$
-Q_\theta(x)
-\ge
-\frac{\theta(1-5\theta+11\theta^2-\theta^3)}
-{2(1-2\theta)^2}
-\ge0.
-$$
-
-For $1/5\le\theta\le2-\sqrt3$, the vertex lies in the interval and
-
-$$
-Q_\theta(x)
-\ge
-\frac{10\theta-1-\theta^2}{8}>0.
-$$
-
-Thus $x\le1-M$. Since $D\ge R_0$,
-
-$$
-a\le x\le1-M.
-$$
-
-Moreover,
-
-$$
-a+\varepsilon=\frac{R_0}{D}\le1,
-\qquad
-\frac{a}{a+\varepsilon}
-=
-\frac{aD}{R_0}
-=x\le1-M.
-\tag{3}
-$$
-
-Equations (1) and (3) are exactly the hypotheses of the common four-point
-interface in `2612`.
-
-## 3. Apply the common fixed-witness interface
-
-The local chart has verified $A_0+\varepsilon\le1$ and
-$A_0/(A_0+\varepsilon)\le1-M$. The supported endpoint is the total radial
-frontier from [2612](../../../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2612_fixed_witness_unification.md),
-Corollary 2.2a. Skeleton coverage from $V_1$ to the start $c$ of the
-rescuer's interval gives $C_1\ge c$: the center misses $M_1$ and the
-other V roles have no positive trace on this ray. Corollary 6.2 of `2612`
-therefore supplies the same four actual points and contradiction for either
-gap rank. No repeated boundary-tail proof and no disk are needed. $\square$
+with $K_D\subset U_C$ and $\Lambda(K_D)\ge1$, a contradiction to compact
+containment in an open unit triangle. Both nonzero gap ranks use this same
+argument. The witness and its pure geometric theorem are unchanged.

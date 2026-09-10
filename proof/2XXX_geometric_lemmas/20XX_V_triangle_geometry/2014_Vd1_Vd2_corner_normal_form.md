@@ -268,3 +268,24 @@ Therefore every Vd1 or Vd2 original role has $a+b<1/2$.
 $$
 \Box
 $$
+
+## Orientation of a forward Vd1 midpoint supplier
+
+If the original open Vd1 role contains $M_1=(1/2,1)$, its parameter
+satisfies $t\ge1$. Indeed, if $0<t<1$, the third strict half-plane gives
+$a+tb<d-1-t/2$. The backward radial interval then satisfies
+
+$$
+\mu_5>1-t/2>1/(t+1)>\lambda_5,
+\qquad 0<\lambda_5=(1-a)/(t+1)<1.
+$$
+
+The middle comparison is
+$1-t/2-1/(t+1)=t(1-t)/(2(t+1))>0$. Thus the clipped backward interval has
+positive length, contradicting Vd1. This proves the orientation restriction
+without reflecting away the prescribed forward supplier placement.
+
+Positive forward support also gives
+$(t+1)a+tb<(t+1)(d-1)-t^2<d-1$, because $d<t+1$.
+Consequently $\mu_1>a$ and $a+(1-\mu_1)<1$, the size condition needed by
+the supported-rescuer interface.

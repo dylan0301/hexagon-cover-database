@@ -3,8 +3,10 @@
 
 The two disk-tangent contact bounds in the zero-gap nine-point theorem are
 certified by exact symbolic arithmetic.  This section gives the mathematical reduction and verification
-algorithms; the repository provenance manifests identify the accompanying
-code and sparse integer data.  No floating-point arithmetic, interval
+algorithms. The finite sparse data and the two exact programs form the
+\href{https://github.com/dylan0301/hexagon-cover-database/tree/56be06718a674bda1779ee6ed30d8571217f06cd/proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation}{electronic appendix at an immutable revision};
+they are included in the accompanying source package. The PDF prints the
+certificate construction and checking rules, not every machine coefficient.  No floating-point arithmetic, interval
 arithmetic, adaptive subdivision, branch-and-bound, or unrecorded numerical
 tolerance is used.
 
@@ -219,6 +221,17 @@ independent precomputation.
 
 \subsection{Three global positive-basis certificates}
 
+For integers $0\le i\le m$, the Bernstein basis polynomial is
+$B_i^m(r)=\binom mi r^i(1-r)^{m-i}$.
+A tensor Bernstein expansion on $[0,1]^2$ has the form
+\[
+ P(r,s)=\sum_{i=0}^m\sum_{j=0}^n b_{ij}B_i^m(r)B_j^n(s).
+\]
+Every basis term is nonnegative, and their sum is one. Therefore
+nonnegative coefficients certify $P\ge0$ on the whole square; strictly
+positive coefficients certify strict positivity. The exact coefficient
+conversion formula is given below.
+
 Set
 \[
  \mathcal G(U)=1-6U-3U^2,\qquad
@@ -286,7 +299,10 @@ is strictly positive.
 The verifier implements polynomial addition, multiplication, substitution,
 and power-to-Bernstein conversion over exact integers.  Coefficients in
 $\mathbb Q(\sqrt3)$ are represented as rational pairs and signed by exact
-rational comparisons.  If
+rational comparisons. For $x+y\sqrt3$ with rational $x,y$, equal signs
+are immediate. When $x>0>y$, its sign is that of $x^2-3y^2$;
+when $y>0>x$, it is that of $3y^2-x^2$. Zero components are handled
+directly. Thus no numerical approximation to $\sqrt3$ is needed. If
 $P(r,s)=\sum a_{ij}r^is^j$ has bidegree $(m,n)$, its exact tensor Bernstein
 coefficients are
 \[
@@ -319,8 +335,8 @@ The authenticated data and the two verifiers constitute the exact electronic
 certificate used by the proof. Reproduce it from its package directory by
 executing
 \begin{verbatim}
-verify_mixed_overlap_core_derivation.py
-verify_global_core_positivity.py
+python verify_mixed_overlap_core_derivation.py
+python verify_global_core_positivity.py
 \end{verbatim}
 Both commands use exact arithmetic and must reproduce the transcript digest
 above and the asserted sign checks.

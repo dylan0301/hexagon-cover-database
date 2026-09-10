@@ -13,7 +13,7 @@ If a nonempty compact set $K$ is covered by finitely many open unit equilateral
 triangles $U_\nu$, then moving every side line inward by the same sufficiently
 small positive distance gives a cover by closed equilateral triangles of
 side less than one. In particular, $K\subset U$ implies $\Lambda(K)<1$,
-where $\Lambda$ denotes the least equilateral enclosure side.
+with $\Lambda$ defined in \eqref{eq:enclosure-definition}.
 \end{lemma}
 \begin{proof}
 The continuous function
@@ -21,7 +21,9 @@ $m(x)=\max_\nu\operatorname{dist}(x,\mathbb R^2\setminus U_\nu)$
 has positive minimum $\eta$ on $K$. Move every side line inward by
 $0<\rho<\min\{\eta,\sqrt3/6\}$. The resulting closed triangles have
 side $1-2\sqrt3\rho$, and each $x\in K$ remains in a triangle realizing
-$m(x)\ge\eta>\rho$.
+$m(x)\ge\eta>\rho$. Conversely, if $\Lambda(K)<1$, choose a closed
+enclosure of side below one and enlarge it about its incenter to side one.
+The smaller closed triangle lies in the interior of the enlarged triangle.
 \end{proof}
 
 \begin{proposition}[Compactness and scaling equivalence]
@@ -94,8 +96,8 @@ at least two vertices belong to $H$.
 
 \begin{proof}
 This is the wedge-incidence calculation in
-\zcref{lem:app-local-wedge-calculation}.  It is stated for the closed
-$T_i$ because closure may add a tangency, although it adds no trace length.
+\zcref{lem:app-local-wedge-calculation}.  The incidence statement concerns the closures; openness is used separately
+when forcing points.
 \end{proof}
 
 Raw roles with $(o(T_i),n(T_i))=(3,0)$ admit an exact-trace normalization.
@@ -180,8 +182,11 @@ Thus the closed maxima equal the corresponding open-triangle suprema.
 \end{lemma}
 
 \begin{proof}
-Each intersection with a segment issuing from the interior point $V_i$ is
-convex.  Closedness of $T_i$, openness of $U_i$, and
+The other endpoint of each segment is a distinguished point at distance
+one from $V_i$, and is not even in $T_i$: otherwise moving $V_i$
+slightly away from it inside $U_i$ would exceed diameter one.
+Thus $0<A_i,B_i,C_i<1$. Each intersection with a segment issuing from
+$V_i$ is convex.  Closedness of $T_i$, openness of $U_i$, and
 $T_i=\overline{U_i}$ give the stated endpoints.
 \end{proof}
 
@@ -223,11 +228,12 @@ Every original $\Tlike$ V triangle satisfies
  A_i+B_i\le1.
  \label{eq:t3-nonsupercritical}
 \end{equation}
-It is therefore not counted by $N_+$.
+Moreover $M_i\notin T_i$. In particular, a T3-like role is not counted
+by $N_+$ and cannot supply its own midpoint.
 \end{lemma}
 
 \begin{proof}
-This is the second assertion of
+Both assertions follow from the Type-II calculation in
 \zcref{lem:app-t3-translation-calculation}.
 \end{proof}
 
@@ -278,7 +284,8 @@ A supercritical role has $s_i<0$; propagation through it is not licensed.
 
 \begin{lemma}[Self-midpoint obstruction]
 \label{lem:self-midpoint}
-Let $u,v$ be unit vectors meeting at $120^\circ$.  If a closed unit
+Let $u,v$ be unit vectors meeting at $120^\circ$, and let $a,b\in[0,1]$.
+If a closed unit
 equilateral triangle contains
 \[
  0,\qquad au,\qquad bv,\qquad\frac{u+v}{2},
@@ -302,12 +309,16 @@ If $O\in\interior(T_C)$ and $T_C$ is $\CEone$ or $\CEtwo$, then
 \[
  \left|T_C\cap\{M_0,\ldots,M_5\}\right|=1.
 \]
+This midpoint belongs to $U_C$. Both possible positive boundary traces
+are on the two hexagon edges incident to the same vertex.
 \end{proposition}
 
 \begin{proof}
 Normalize one positive boundary trace.  The signed-center optimization
 \zcref{prop:signed-center-normal-form} gives the exact midpoint set
-$\{M_0\}$; undoing the symmetry proves the assertion.
+$\{M_0\}$, with radial exit $d_0^C>1/2$ and positive side slacks at
+$M_0$. Its boundary traces are confined to $e_{5,0},e_{0,1}$.
+Undoing the symmetry proves the assertions.
 \end{proof}
 
 The interior hypothesis is essential: $\conv\{O,V_0,V_1\}$ has a boundary

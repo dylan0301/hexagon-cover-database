@@ -1,6 +1,6 @@
 % Active nonzero-gap body. Included by 06_finite_enclosure_full.tex.
 % Witness sets are fixed before any enclosing candidate is introduced.
-\subsection{Fixed witnesses and the case register}
+\subsection{Fixed witnesses and candidate enclosures}
 \label{subsec:trace-exact-ab-envelopes}
 
 Each witness set is fixed from the original V triangles before an
@@ -23,32 +23,12 @@ Use $V_2=V_1-V_0$ and $V_4=-V_1$, and normalize the three positive
 coefficients to sum to one.
 \end{proof}
 
-The three constructions are listed below. Normalize the C midpoint to
+The three constructions are summarized after they have been defined. Normalize the C midpoint to
 $M_0$ in the nonzero-gap cases, and write $\sigma$ for the unique
 supercritical index when $N_+=1$. Counts are upper bounds, allowing
 coincident gap endpoints.
 
-\begingroup
-\small
-\renewcommand{\arraystretch}{1.18}
-\setlength{\tabcolsep}{3pt}
-\begin{longtable}{@{}p{.29\textwidth}p{.44\textwidth}p{.18\textwidth}@{}}
-\caption{Fixed finite-enclosure recipes. Ordinary nonsupercritical V triangles
-are not subdivided by type.}\label{tab:finite-enclosure-subcases}\\
-\toprule
-Conditions & Fixed witness set & Disk and count\\
-\midrule
-\endfirsthead
-\toprule Conditions & Fixed witness set & Disk and count\\\midrule
-\endhead
-BC: at least one incident gap; $T_1,\ldots,T_5$ nonsupercritical &
-$\{M_0,X_0(B_0),X_0(1-A_1),\widehat P_2,\widehat P_3,\widehat P_4\}$ & No disk; at most 6\\
-D: center-based T3-like or Vd1 rescuer; one or two gaps &
-$\{O,\varepsilon V_1,Y(A_0),Y(1-B_5)\}$ & No disk; at most 4\\
-F: zero gaps, $N_+=1$ & Six common radial points and $Q_-,Q_0,Q_+$ & Disk; at most 9\\
-\bottomrule
-\end{longtable}
-\endgroup
+
 
 Replacement is a separate skeleton-preserving operation, not a fourth
 witness construction. BC handles the center-aligned case. For an off-center
@@ -172,7 +152,7 @@ If $\sigma\ne k$, neither the C triangle nor $T_\sigma$ contains
 $M_\sigma$. Diameter excludes nonlocal roles; a Vd0 role has no positive
 adjacent trace and cannot contain that point openly. Hence its unique
 supplier is an adjacent positive-support role. A T3-like supplier also
-misses its own midpoint. Unless $\tau=k$, neither the center nor the
+misses its own midpoint by \zcref{lem:t3-nonsupercritical}. Unless $\tau=k$, neither the center nor the
 other roles could cover this second midpoint: all other roles are Vd0.
 Finally, when $k\notin\{\tau,\sigma\}$, the shared edge is not incident
 to $V_k$, whereas every open center boundary trace is incident to $V_k$
@@ -202,10 +182,11 @@ The convex combination
  \frac{\varepsilon}{s}Y(a)+\frac a s(\varepsilon V_1)
  =\frac{\varepsilon}{s}V_0
 \]
-forces $M_0$ into any candidate containing the four points. Its left boundary
-trace and exit on $r_1$ then give the incompatible inequalities
-$1-\beta<R+\alpha<a/s\le1-\beta$.
-The reflected one-edge normal form and the endpoint cases are checked in
+forces $M_0$ into any open unit candidate containing the four points.
+The signed-center calculation then places the far endpoint of its left
+boundary trace strictly below $a/s$, whereas containment of $Y(1-\beta)$
+requires that endpoint to exceed $1-\beta\ge a/s$.
+The signed parameters and endpoint cases are given in
 \zcref{lem:appendix-fixed-four-point}.
 \end{proof}
 
@@ -223,11 +204,13 @@ The quadratic is nonnegative on $[0,1/2]$ exactly before its smaller root.
 
 For the covering application, let $T_0$ supply $M_1$, with supported
 interval $[c,u]$ on $r_1$, measured from $V_1$ toward $O$, and put
-$\varepsilon=1-u$. The local T3-like and Vd1 calculations establish
+$\varepsilon=1-u$ and $P_T=\varepsilon V_1$. All interval endpoints here
+belong to the original triangle, not to its translated majorant.
+The local T3-like and Vd1 calculations establish
 \[
  A_0+\varepsilon\le1,\qquad
  \frac{A_0}{A_0+\varepsilon}\le1-M_c^{\rm sup},
- \qquad M_c^{\rm sup}=\frac{c+\sqrt{c^2-8c+4}}2.
+.
 \]
 Together with $C_1\ge c$, the boundary path, and the forced endpoint,
 \zcref{lem:new-rescuer-tail-budget} gives the single fixed witness
@@ -245,8 +228,8 @@ Suppose $N_+=1$, there is exactly one T3-like role and no Vd1/Vd2 role,
 and there is at least one actual gap. Then the skeleton is not covered.
 \end{proposition}
 \begin{proof}
-If the supercritical role is center-aligned, use
-\zcref{thm:center-aligned-path}. Otherwise \zcref{lem:midpoint-supplier}
+The center-aligned case is excluded by \zcref{thm:center-aligned-path}.
+In the remaining case, \zcref{lem:midpoint-supplier}
 puts the T3-like supplier at the center midpoint and, after reflection,
 the supercritical role at $T_1$. The actual-or-bounded frontier forces
 $\varepsilon V_1$ into $U_C$, and radial coverage gives $C_1\ge c$.

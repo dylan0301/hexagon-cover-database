@@ -6,209 +6,6 @@ statements and the two-vertex replacement. The witnesses are fixed in
 Section~\ref{sec:finite-enclosure}; candidate parameters vary only in
 their enclosure proofs.
 
-\input{fixed_witness/D_fixed_witness_extensions}
-
-\subsection{Vd1 two-chart replacement}
-
-The replacement below uses two different vertex charts.  It preserves the
-five skeleton pieces that can change, then invokes the all-nonsupercritical
-obstruction without assuming preservation of the input gap rank.
-
-\begin{lemma}[Half-square admissibility]
-\label{lem:appendix-half-square-admissibility}
-If \((x,y,z)\in\mathcal A\) satisfies
-\[
- x\ge\frac12,
- \qquad
- 0\le z\le\frac12,
-\]
-then
-\[
- y\le1-z.
-\]
-\end{lemma}
-
-\begin{proof}
-Suppose \(y>1-z\).  Then \(x+y>1\), so the selected supercritical cell of
-\zcref{prop:new-exact-local-set} applies.  In the ordered half \(x\le y\)
-its necessary polynomial is
-\[
- F(x,y,z)=
- (x^2-1)z^2+(2xy^2+y)z+y^4-y^2\le0.
-\]
-It is nondecreasing in \(x\), its derivative in \(y\) is positive for
-\(y\ge1-z\), and
-\[
- F\left(\frac12,1-z,z\right)
- =\frac{z^2(2z-5)(2z-1)}4\ge0.
-\]
-This is a contradiction.  In the reflected half \(y<x\), apply the same
-argument to \(F(y,x,z)\).  At the joining corner,
-\[
- F(1-z,1-z,z)=z(1-2z)\ge0,
-\]
-so no selected feasible point is lost at equality.
-\end{proof}
-
-\begin{lemma}[Two-vertex replacement from scalar margins]
-\label{lem:two-vertex-replacement}
-Consider two adjacent V roles. Only the five pieces
-\[
- e_{5,0},\quad e_{0,1},\quad e_{1,2},\quad r_0,\quad r_1
-\]
-may be affected by their replacement, and the shared edge is center-free.
-Let $a,c,B,r\in[0,1)$ be the boundary reach on $e_{5,0}$, the own-radial
-reach on $r_0$, the boundary reach on $e_{1,2}$, and the radial demand
-on $r_1$ needed to overlap the unchanged center interval. If
-\[
- a<\tfrac12,\qquad a+c<1,\qquad a+B<1,\qquad
- r<\max\{1-a,1-B\},
-\]
-there are two open unit equilateral replacements preserving these five
-skeleton pieces, with actual boundary sums below one and no positive
-adjacent support. No center-class formula is assumed.
-\end{lemma}
-\begin{proof}
-Choose first $p_2\in(a,1-B)$ with $\max\{p_2,1-p_2\}>r$. This is
-possible because the supremum on that interval is $\max\{1-a,1-B\}$.
-Next choose $a<p_1<\min\{p_2,1/2,1-c\}$ and
-\[
- 0<\varepsilon<\min\{p_1-a,p_2-p_1,1-B-p_2,
-                         1-p_1-c,\max(p_2,1-p_2)-r\}.
-\]
-All five margins are positive. Use the separate vertex charts
-\[
- X_0(x,y)=V_0+x(V_5-V_0)+y(V_1-V_0),\qquad
- X_1(x,y)=V_1+x(V_0-V_1)+y(V_2-V_1).
-\]
-Both have metric $x^2+y^2-xy$. Define
-\[
- \Delta_p^-=\conv\{(0,1-p),(1,1-p),(0,-p)\},\quad
- D^-_{p,\varepsilon}=\interior(\Delta_p^-)+(-\varepsilon,0)
- \quad(p\le1/2),
-\]
-\[
- \Delta_p^+=\conv\{(p,0),(p,1),(p-1,0)\},\quad
- D^+_{p,\varepsilon}=\interior(\Delta_p^+)+(0,-\varepsilon)
- \quad(p>1/2).
-\]
-Their edges have unit length. The minus half-planes are
-$x>-\varepsilon$, $y<1-p$, $y>x+\varepsilon-p$; the plus half-planes
-are $y>-\varepsilon$, $x<p$, $x>y+\varepsilon+p-1$.
-Substitution on the axes and diagonal gives their actual reaches:
-\[
-\begin{array}{c|ccc}
- &A&B&C\\\hline
- D^-_{p,\varepsilon}&p-\varepsilon&1-p&1-p\\
- D^+_{p,\varepsilon}&p&1-p-\varepsilon&p
-\end{array}
-\]
-Both contain the chart origin. On the adjacent support lines $(z,1)$ and
-$(1,z)$ the half-planes are incompatible for $0\le z\le1$, so neither
-has positive adjacent support.
-Set $U'_0=X_0(D^-_{p_1,\varepsilon})$ and use
-$U'_1=X_1(D^-_{p_2,\varepsilon})$ for $p_2\le1/2$, or
-$U'_1=X_1(D^+_{p_2,\varepsilon})$ otherwise. The two charts and this
-split cannot be identified. Both actual boundary sums are $1-\varepsilon$.
-
-The first replacement reaches $p_1-\varepsilon>a$ on $e_{5,0}$ and
-$1-p_1>c$ on $r_0$. On the shared edge the reaches sum to at least
-\[
- (1-p_1)+(p_2-\varepsilon)>1,
-\]
-so the open traces overlap. The second reaches more than $B$ on
-$e_{1,2}$ and $\max(p_2,1-p_2)>r$ on $r_1$. Thus all five pieces
-remain covered; all other pieces are unchanged.
-\end{proof}
-
-\begin{proposition}[Vd1 input to the two-vertex replacement]
-\label{prop:appendix-vd1-two-chart-replacement}
-Assume a skeleton cover has a unique Vd1 role $T_0$ supplying $M_1$, a
-unique supercritical role $T_1$, and all other V roles are nonsupercritical
-Vd0. Suppose $e_{0,1}$ is center-free and no other V role has positive
-trace on $r_0$ or $r_1$. The scalar replacement applies in CE1 and CE2
-and yields a skeleton cover with $N'_+=0$.
-\end{proposition}
-
-\begin{proof}
-Let \(A_0,B_0,C_0\) be the actual incoming, outgoing, and own-radial
-reaches of the Vd1 role.  Its corner normal form supplies
-\(\vartheta\ge1\) and
-\[
- \omega:=\sqrt{\vartheta^2+\vartheta+1}
-\]
-such that
-\[
- C_0=\frac{\omega-A_0-\vartheta B_0}{\vartheta+1},
- \qquad
- \lambda=\frac{\vartheta(1-B_0)}{\vartheta+1},
-\]
-\[
- u_{\rm adj}
- =\frac{\omega-A_0-\vartheta B_0-1}{\vartheta}.
-\]
-The strict midpoint and one-sided-support conditions give
-\[
- A_0+C_0<1,
- \qquad
- A_0<\lambda\le\frac12,
-\]
-\[
- B_0<\frac12,
- \qquad
- u_{\rm adj}<1-A_0.
-\]
-For the first inequality, evaluation on the closed midpoint face reduces
-strictness to
-\[
- (2\vartheta^2+4\vartheta+1)^2
- -4(\vartheta+1)^2(\vartheta^2+\vartheta+1)
- =4\vartheta^3+4\vartheta^2-4\vartheta-3>0.
-\]
-The remaining inequalities follow directly from the displayed endpoint
-formulas and the strict midpoint inequalities.
-
-The center-free shared edge and the supported interval give
-\[
- A_1\ge1-B_0>\frac12,
- \qquad
- C_1\ge\lambda
-\]
-for the actual reaches of \(T_1\).  The selected supercritical component
-has \(C_1\le1/2\), so
-\zcref{lem:appendix-half-square-admissibility} yields
-\[
- B_1\le1-C_1\le1-\lambda.
-\]
-Since \(A_0<\lambda\),
-\[
- A_0+B_1<1.
-\]
-
-Define the C-triangle reach on \(r_1\), measured from \(O\), by
-\[
- d_1^C:=\max\{x\in[0,1]:xV_1\in T_C\},
- \qquad
- c_1^{\rm req}:=1-d_1^C.
-\]
-Only \(U_C,U_1\), and the adjacent trace of \(U_0\) can contribute a
-positive interval to \(r_1\).  Open skeleton coverage gives
-\[
- c_1^{\rm req}<\max\{C_1,u_{\rm adj}\}
- \le\max\{1-B_1,1-A_0\}.
-\]
-
-Apply \zcref{lem:two-vertex-replacement} with
-\[
- (a,c,B,r)=(A_0,C_0,B_1,c_1^{\rm req}).
-\]
-All four scalar conditions were proved above. The four untouched roles
-remain nonsupercritical Vd0, while the two new actual boundary sums are
-$1-\varepsilon<1$. The resulting skeleton cover contradicts N0.
-The original C triangle is fixed; its class and the input gap rank were
-not used in the construction. This operation does not claim to preserve
-coverage of the interior of $H$.
-\end{proof}
 
 \subsection{Direct neighboring-ray domination}
 \label{subsec:new-neighbor-ray-capacity}
@@ -226,7 +23,7 @@ For $0\le m\le1/2$, one has $C_+(m,m)=C_-(m,m)=1-m$.
 Use oblique coordinates with metric $x^2+y^2-xy$. The four points are
 $P=(0,0)$, $A=(m,0)$, $B=(0,m)$, and $Z=(c,1)$. The case $m=0$
 is immediate. If $0<m\le1/2$ and $c>1-m$, their hull has cyclic order
-$P,A,Z,B$. The preceding lemma reduces the enclosure to its four outward
+$P,A,Z,B$. \zcref{lem:support-cell-rotation} reduces the enclosure to its four outward
 edge normals. At $PA$ and $BP$, the side lengths are $c+m$ and $1+m$,
 both greater than one.
 
@@ -275,6 +72,94 @@ own ray, so $c_{\max}(p,q)\ge1-q$. Reflect for $p=m$.
 Increasing an anchor shrinks the feasible family, giving antitonicity.
 \end{proof}
 
+\subsection{Exact direct output formulas}
+\label{subsec:new-direct-output-formulas}
+
+The following outgoing capacities follow from
+Proposition~\ref{prop:new-exact-local-set} and supply the CE1 return.
+
+For a nonsupercritical triangle with incoming reach at least $a$ and radial
+reach at least $c$, let
+\[
+ \mathcal B_c(a)=
+ \max\{b:(a,b,c)\text{ is admissible and }a+b\le1\}.
+\]
+This is the outgoing capacity of a single triangle.
+
+For $1/2<c\le\sqrt3/2$, put
+\[
+ h_c=\frac{2c}{1+\sqrt{16c^2-3}}.
+\]
+For $\sqrt3/2<c<1$, put
+\[
+ \ell(c)=\frac c2\left(1-\sqrt{4c^2-3}\right),
+ \qquad r(c)=c-\ell(c).
+\]
+Also set
+\[
+ \mathcal Q_-(a,c)=\frac{\sqrt{a^2-ac+c^2}}c-a,
+\]
+\[
+ \mathcal Q_+(a,c)=
+ \frac{2(1-a^2)c^2}
+ {2ac^2+c+
+ \sqrt{(2ac^2+c)^2-4(1-c^2)(1-a^2)c^2}}.
+\]
+
+\begin{proposition}[Four direct high-radial outputs]
+\label{prop:new-four-direct-outputs}
+For $1/2<c\le\sqrt3/2$,
+\[
+ \mathcal B_c(a)=
+ \begin{cases}
+  1-a,&0\le a\le1-c,\\
+  \mathcal Q_+(a,c),&1-c<a<h_c,\\
+  h_c,&a=h_c,\\
+  \mathcal Q_-(a,c),&h_c<a<c,\\
+  1-a,&c\le a\le1.
+ \end{cases}
+\]
+For $\sqrt3/2<c<1$,
+\[
+ \mathcal B_c(a)=
+ \begin{cases}
+  1-a,&0\le a\le1-c,\\
+  \mathcal Q_+(a,c),&1-c<a\le\ell(c),\\
+  \ell(c),&\ell(c)<a<r(c),\\
+  \mathcal Q_-(a,c),&r(c)\le a<c,\\
+  1-a,&c\le a\le1.
+ \end{cases}
+\]
+At $a=\ell(c)$, the selected value is $r(c)$; immediately to the right it is
+$\ell(c)$.
+\end{proposition}
+
+\begin{proof}
+Since $c>1/2$, any containing V triangle contains the radial midpoint.
+Therefore $a+b\le1$, and the supercritical cell of Proposition
+\ref{prop:new-exact-local-set} is absent.  On the cap $b=1-a$, the $T$-cell
+inequality becomes
+\[
+ M(c-M)\le0,
+\]
+where $M=\max\{a,b\}$.  Thus the linear cap is feasible exactly when
+$a\le1-c$ or $a\ge c$.
+
+Off the linear cap, a maximal point lies on $F_L=0$ or $F_T=0$.  The selected
+$L$-cell equation has the two ordered roots $\ell(c),r(c)$; the selector
+$q\le0$ retains the smaller coordinate.  The ordered halves of $F_T=0$ give
+$\mathcal Q_+$ and $\mathcal Q_-$.  Their equality boundary $a=b$ is $h_c$ in the low-radial
+range, while their $q=0$ boundaries are
+$(\ell(c),r(c))$ and $(r(c),\ell(c))$ in the high range.  These conditions
+produce the two displayed formulas.
+
+The formal other root in the $\mathcal Q_+$ quadratic violates the geometric selector
+$c\le2\max\{a,b\}$ and is discarded.  At the high-range junction, the
+selected $T$-cell point has value $r(c)$, whereas the adjacent selected
+$L$-cell point has value $\ell(c)$; this is the genuine downward jump stated
+above.
+\end{proof}
+
 \subsection{High-radial and selected-chord calculations}
 
 For
@@ -303,7 +188,7 @@ quadratic and checking its sign.
 
 \begin{lemma}[Direct high-radial threshold]
 \label{lem:new-direct-threshold}
-Let a nonsupercritical V triangle have incoming boundary reach $A$ and
+Let $0<e<1-\sqrt3/2$. A nonsupercritical V triangle has incoming boundary reach $A$ and
 outgoing boundary reach $B$.  If
 \[
  C\ge1-e,
@@ -324,149 +209,61 @@ selected $T$-cell quadratic separate the feasible fiber.  The selector
 $c\le2\max\{A,B\}$ removes the formal high root.
 \end{proof}
 
-For $0\le c\le1/2$, the strict-supercritical outgoing supremum is
-\[
- M_c^{\rm sup}
- =\frac{c+\sqrt{c^2-8c+4}}2.
-\]
-It is not attained.  Thus an actual strict-supercritical V triangle with
-own-radial reach at least $c$ has outgoing boundary reach strictly below
-$M_c^{\rm sup}$.
-
 \begin{lemma}[Selected-arc chord bounds]
 \label{lem:new-selected-chords}
-Let $0<e<1/2$.  On the selected $Q_+$ component for radial demand $1-e$,
-let $p$ be the incoming boundary reach and let $q$ be the following incoming
-reach forced across a center-free edge.  Then
+Put $c=1-e$, with $0<e<1/4$, and define
+$q_*(p)=1-\mathcal Q_+(p,c)$ on the selected branch. Its right endpoint is
 \[
- q-p=1-\sqrt{1-x+x^2},
+ (p_e,q_e)=
+ \begin{cases}
+ (\epsilon(e),e+\epsilon(e)),&c>h,\\
+ (h_c,1-h_c),&c\le h,
+ \end{cases}
+ \qquad h=\sqrt3/2.
 \]
-where
+The function $q_*$ is increasing and concave on $[e,p_e]$, with
+$q_*(e)=e$. Thus, for $e<p\le p_e$,
 \[
- q=e+(1-e)x,
- \qquad
- p=e+(1-e)x-1+\sqrt{1-x+x^2}.
+ q_*(p)\ge p+\lambda_e(p-e),\qquad
+ \lambda_e=\frac{q_e-p_e}{p_e-e}.
 \]
-The selected arc is increasing and concave.  In particular, on every interval
-used below,
-\[
- q\ge p+\lambda(p-e)
-\]
-for the chord slope $\lambda$ joining the appropriate selected endpoints.
-The CE1 applications may take
-\[
- \lambda>1-4e
- \quad(e=\alpha),
- \qquad
- \lambda>1-5e
- \quad(e=\alpha/R).
-\]
+One has $\lambda_e>1-4e$ when $0<e<1-h$, and
+$\lambda_e>1-5e$ throughout $0<e<1/4$.
+A following actual incoming reach $q$, forced by a weak boundary handoff,
+satisfies $q\ge q_*(p)$; equality is not assumed for actual reaches.
 \end{lemma}
-
 \begin{proof}
-The selected $T$-cell equation reduces, after putting
-$x=(q-e)/(1-e)$, to
+The selected boundary is parametrized by
 \[
- x(1-x)=(q-p)(2-q+p).
+ q_*=e+cx,\qquad p=e+cx-1+\sqrt{1-x+x^2}.
 \]
-The selected component takes the smaller root, giving the displayed
-parameterization.  Strict
-concavity follows by differentiation.  A concave graph lies above its chords.
-For the first slope, \zcref{eq:selected-low-root-basic-bounds} gives
+Indeed its selected quadratic gives
+$x(1-x)=(q_*-p)(2-q_*+p)$. If $p=p(x)$, then
 \[
- \frac{e}{\epsilon(e)-e}>1-4e.
+ p'(x)=c+\frac{2x-1}{2\sqrt{1-x+x^2}}\ge c-\frac12>0,
+ \qquad p''(x)=\frac3{4(1-x+x^2)^{3/2}}>0
 \]
-For the second, use \zcref{eq:selected-low-root-small-bound} when $e\le1/8$ and
-$\epsilon(e)<(1-e)/2$ otherwise; the resulting slope is greater than
-$1-5e$ throughout $0<e<1-\sqrt3/2$.
-\end{proof}
-
-\subsection{Exact direct output formulas}
-\label{subsec:new-direct-output-formulas}
-
-The following outgoing capacities follow from
-Proposition~\ref{prop:new-exact-local-set} and supply the CE1 return.
-
-For a nonsupercritical triangle with incoming reach at least $a$ and radial
-reach at least $c$, let
+on the selected interval $0\le x\le1$.
+Hence $dq_*/dp>0$ and $d^2q_*/dp^2=-cp''/(p')^3<0$.
+The endpoint formulas follow from \zcref{prop:new-four-direct-outputs},
+and concavity places the graph above its endpoint chord.
+For $c>h$,
 \[
- \mathcal B_c(a)=
- \max\{b:(a,b,c)\text{ is admissible and }a+b\le1\}.
+ \lambda_e=\frac e{\epsilon(e)-e}
+ >\frac{1-2e}{1+2e}>1-4e,
 \]
-This is the outgoing capacity of a single triangle.
-
-For $1/2<c\le\sqrt3/2$, put
+using \eqref{eq:selected-low-root-basic-bounds}.
+For $3/4<c\le h$, the formula for $h_c$ gives
 \[
- h(c)=\frac{2c}{1+\sqrt{16c^2-3}}.
+ h_c\le\frac3{2(1+\sqrt6)}<\frac7{16},\qquad
+ \lambda_e>\frac2{7-16e}>1-5e.
 \]
-For $\sqrt3/2<c<1$, put
-\[
- \ell(c)=\frac c2\left(1-\sqrt{4c^2-3}\right),
- \qquad r(c)=c-\ell(c).
-\]
-Also set
-\[
- Q_-(a,c)=\frac{\sqrt{a^2-ac+c^2}}c-a,
-\]
-\[
- Q_+(a,c)=
- \frac{2(1-a^2)c^2}
- {2ac^2+c+
- \sqrt{(2ac^2+c)^2-4(1-c^2)(1-a^2)c^2}}.
-\]
-
-\begin{proposition}[Four direct high-radial outputs]
-\label{prop:new-four-direct-outputs}
-For $1/2<c\le\sqrt3/2$,
-\[
- \mathcal B_c(a)=
- \begin{cases}
-  1-a,&0\le a\le1-c,\\
-  Q_+(a,c),&1-c<a<h(c),\\
-  h(c),&a=h(c),\\
-  Q_-(a,c),&h(c)<a<c,\\
-  1-a,&c\le a\le1.
- \end{cases}
-\]
-For $\sqrt3/2<c<1$,
-\[
- \mathcal B_c(a)=
- \begin{cases}
-  1-a,&0\le a\le1-c,\\
-  Q_+(a,c),&1-c<a\le\ell(c),\\
-  \ell(c),&\ell(c)<a<r(c),\\
-  Q_-(a,c),&r(c)\le a<c,\\
-  1-a,&c\le a\le1.
- \end{cases}
-\]
-At $a=\ell(c)$, the selected value is $r(c)$; immediately to the right it is
-$\ell(c)$.
-\end{proposition}
-
-\begin{proof}
-Since $c>1/2$, any containing V triangle contains the radial midpoint.
-Therefore $a+b\le1$, and the supercritical cell of Proposition
-\ref{prop:new-exact-local-set} is absent.  On the cap $b=1-a$, the $T$-cell
-inequality becomes
-\[
- M(c-M)\le0,
-\]
-where $M=\max\{a,b\}$.  Thus the linear cap is feasible exactly when
-$a\le1-c$ or $a\ge c$.
-
-Off the linear cap, a maximal point lies on $F_L=0$ or $F_T=0$.  The selected
-$L$-cell equation has the two ordered roots $\ell(c),r(c)$; the selector
-$q\le0$ retains the smaller coordinate.  The ordered halves of $F_T=0$ give
-$Q_+$ and $Q_-$.  Their equality boundary $a=b$ is $h(c)$ in the low-radial
-range, while their $q=0$ boundaries are
-$(\ell(c),r(c))$ and $(r(c),\ell(c))$ in the high range.  These conditions
-produce the two displayed formulas.
-
-The formal other root in the $Q_+$ quadratic violates the geometric selector
-$c\le2\max\{a,b\}$ and is discarded.  At the high-range junction, the
-selected $T$-cell point has value $r(c)$, whereas the adjacent selected
-$L$-cell point has value $\ell(c)$; this is the genuine downward jump stated
-above.
+For the first bound, $h_c$ decreases with $c$ on this interval and
+$17^2<49\cdot6$. For the second, $e\ge1-h>1/8$, and
+$80e^2-51e+5<0$ on $[1/8,1/4]$: it decreases there and has value
+$-1/8$ at $1/8$.
+Finally the preceding outgoing reach is at most $\mathcal Q_+(p,c)$;
+a weak handoff therefore gives $q\ge1-\mathcal Q_+(p,c)$.
 \end{proof}
 
 \subsection{CE1 reverse-path calculation}
@@ -504,7 +301,7 @@ with actual reaches satisfying
  \label{eq:ce1-b4-floor}
 \end{equation}
 If $C_4\ge1-A$, then the reflected $T_4$ state lies on the selected
-$Q_+$ component and
+$\mathcal Q_+$ component and
 \begin{equation}
  B_3>L_1,\qquad L_1=(2-4A)h_0-(1-4A)A.
  \label{eq:ce1-first-chord}
@@ -547,7 +344,7 @@ when $R>1/2$, use $A<P=\eta E$ for the last sign.
 
 The assumed transverse radial reach at $T_4$ is at least $1-A$.  Apply the
 exact local catalogue to the reflected boundary pair $(B_4,A_4)$.  If the
-local point is not on the selected $Q_+$ component, the constant, $Q_-$,
+local point is not on the selected $\mathcal Q_+$ component, the constant, $\mathcal Q_-$,
 and linear components together with \zcref{eq:ce1-root-height} give
 \[
  1-A_4\ge1-\epsilon(A)>1-X.
@@ -555,7 +352,7 @@ and linear components together with \zcref{eq:ce1-root-height} give
 The center-free edges then carry this lower bound backward to
 $B_1>1-X$, contradicting $A_1\ge X$ and $A_1+B_1\le1$.
 
-Hence the $T_4$ state is selected $Q_+$. The selected-chord estimate
+Hence the $T_4$ state is selected $\mathcal Q_+$. The selected-chord estimate
 \zcref{lem:new-selected-chords} and the supplied floor $B_4\ge h_0$
 give \zcref{eq:ce1-first-chord}.
 \end{proof}
@@ -571,7 +368,6 @@ Under the domain, path, and tail hypotheses of
 are incompatible.
 \end{proposition}
 
-\input{figures/finite_enclosure/fe07_ce1_reverse_path}
 
 \begin{proof}
 Apply \zcref{lem:ce1-first-return-step}. The selected-state condition forces
@@ -612,13 +408,13 @@ Concavity contradicts $f_R(A)<0$ in both cases, proving
 If $B_3\ge1/2$, then $B_3>1-X$ and the preceding immediate contradiction
 applies.  Assume $B_3<1/2$.  At $T_3$ the reflected incoming reach is
 $B_3>h_0>m$, while its assumed transverse radial reach is at least $1-m$.
-If this state is not selected $Q_+$, the exact local catalogue gives
+If this state is not selected $\mathcal Q_+$, the exact local catalogue gives
 \[
  B_2\ge1-B_3>\frac12>1-X,
 \]
 and the remaining center-free edge again contradicts $T_1$.
 
-Thus both $T_4$ and $T_3$ are selected $Q_+$.  A second use of
+Thus both $T_4$ and $T_3$ are selected $\mathcal Q_+$.  A second use of
 \zcref{lem:new-selected-chords} gives
 \[
  B_2>(2-5m)B_3-(1-5m)m.
@@ -632,6 +428,8 @@ Since $2-5m>0$, \zcref{eq:ce1-first-chord} yields
  }
  \label{eq:ce1-second-chord}
 \end{equation}
+
+\input{figures/finite_enclosure/fe07_ce1_reverse_path}
 
 We now prove the scalar estimate
 \begin{equation}
@@ -772,35 +570,11 @@ contradicting $A_1\ge X$ and $A_1+B_1\le1$. Thus the tail-input
 boundary and radial hypotheses are incompatible.
 \end{proof}
 
-\subsection{Disk calipers and the supported-rescuer adapter}
 
-\begin{proposition}[Disk--finite-set calipers]
-\label{prop:new-disk-finite-caliper}
-Let $P=\{p_1,\ldots,p_m\}$, and let $\mathsf J$ denote rotation by
-$\pi/2$.
-Unless the disk is the active support in all three directions at a minimizing
-orientation, a minimizing normal belongs to the finite list
-\[
- \pm\frac{\mathsf J(p_k-p_i)}{\|p_k-p_i\|}
- \quad(p_i\ne p_k)
-\]
-or
-\[
- \frac{\eta p_i\pm
- \sqrt{\|p_i\|^2-\eta^2}\,\mathsf Jp_i}{\|p_i\|^2}
- \quad(\|p_i\|\ge\eta).
-\]
-Thus one side of a least enclosing equilateral triangle either contains two
-points, or is tangent to the disk and contains one point.
-\end{proposition}
+\input{fixed_witness/D_fixed_witness_extensions}
 
-\begin{proof}
-Apply \zcref{lem:support-cell-rotation}. A point--point tie has normal
-perpendicular to $p_k-p_i$; solving $\langle p_i,n\rangle=\eta$ with
-$\|n\|=1$ gives the displayed point--disk normals. Rotation through
-$120$ degrees identifies the three supporting directions. A disk-only
-cell contributes $3\eta$ and is the only additional alternative.
-\end{proof}
+\subsection{The supported-rescuer adapter}
+
 
 
 \begin{lemma}[Supported endpoint to four-point enclosure]
@@ -836,58 +610,80 @@ contrary to compact containment in $U_C$.
 
 \begin{lemma}[Solved T3-like supported-tail adapter]
 \label{lem:appendix-t3-supported-tail}
-The exact hypotheses of \zcref{prop:new-one-t3-terminal} imply the
-rescuer-tail hypotheses in \zcref{lem:new-rescuer-tail-budget}.
+Under the off-center supplier placement of
+\zcref{prop:new-one-t3-terminal}, the actual supported interval satisfies
+the hypotheses of \zcref{lem:new-rescuer-tail-budget}.
 \end{lemma}
-
 \begin{proof}
-Normalize the center midpoint to \(M_0\) and reflect so that \(T_0\) is
-T3-like, \(M_1\in T_0\), and \(T_1\) is uniquely supercritical.  Write the
-T3-like interval on \(r_1\), measured from \(V_1\) toward \(O\), as
-\([c,u]\), with \(c\le1/2\le u\).  Its O-side endpoint is
-\[
- P_T=(1-u)V_1.
-\]
-The open endpoint and the V-type restrictions exclude every V role from
-\(P_T\), so \(P_T\in U_C\).
+Normalize $T_0$ as the T3-like supplier of $M_1$, with uniquely
+supercritical $T_1$ and all remaining roles nonsupercritical Vd0.
+Use the original Type-II chart \eqref{eq:orientation-type-II}, writing
+its positive first slack as $\alpha_T$ and its actual reach $\beta$ as
+$a=A_0$. Thus $0<t<1$ and $z=\sqrt{1-t+t^2}$.
+On $r_1$, whose coordinates are $(1,s)$, direct substitution gives the
+actual interval $c\le s\le u$, where
+\begin{equation}
+ c=\frac{1+\alpha_T+a-z}{1-t},\qquad
+ u=a+t,\qquad \varepsilon=1-u.
+ \label{eq:t3-actual-supported-interval}
+\end{equation}
+Open midpoint containment gives $0<c<1/2<u<1$.
+The supercritical own role ends before the midpoint and the other roles
+have no positive trace on $r_1$. Hence $u$ is its total radial frontier:
+$P_T=\varepsilon V_1\in U_C$ by
+\zcref{lem:fixed-total-radial-forcing}. Coverage of the near endpoint $c$
+gives $C_1\ge c$, since the center exits before $M_1$.
 
-Let \(A_0\) be the actual boundary reach of \(T_0\) on \(e_{5,0}\).
-The translated T3-like normal form has
+Put
 \[
- R_0=\frac{D+\sqrt{4-3D^2}}2,\qquad
- x=\frac{A_0D}{R_0},\qquad
- \theta=\frac{D-1}{R_0},
+ x=\frac a{1-t},\qquad \theta=\frac t{1+z}.
 \]
+Then $0<\theta<1/2$, because $z>t$, and
+\begin{equation}
+ a+\varepsilon=1-t<1,\qquad
+ c=x+\theta+\frac{\alpha_T}{1-t}>x+\theta,
+ \qquad \frac a{a+\varepsilon}=x.
+ \label{eq:t3-actual-ratio}
+\end{equation}
+The midpoint bounds imply
 \[
- c=x+\theta,\qquad
- \frac{1-4\theta+\theta^2}{2(1-2\theta)}
- \le x\le\frac12-\theta.
+ \frac{1-4\theta+\theta^2}{2(1-2\theta)}<x<\frac12-\theta,
 \]
-Let \(M=M_c^{\rm sup}\).  The equation
-\(s(1-M)=c\), where \(s(z)=z(2-z)/(1+z)\), and
+using $t=\theta(2-\theta)/(1-\theta^2)$ for the lower endpoint.
+For $0<\theta\le1/5$, this interval lies to the right of the vertex of
+$Q_\theta(x)=2x^2+(\theta-1)x+\theta$, and
 \[
- 2x^2+(\theta-1)x+\theta\ge0
+ Q_\theta(x)\ge
+ \frac{\theta(1-5\theta+11\theta^2-\theta^3)}
+ {2(1-2\theta)^2}\ge0.
 \]
-give
+For $1/5\le\theta<1/2$, its unrestricted minimum is
+$(10\theta-1-\theta^2)/8>0$.
+Consequently
 \[
- A_0\le x\le1-M,
- \qquad
- \frac{A_0}{A_0+1-u}=x\le1-M.
+ x^2+(c-2)x+c
+ =Q_\theta(x)+\frac{\alpha_T}{1-t}(x+1)>0.
 \]
-Finally \(A_0+1-u=R_0/D\le1\).  These are exactly the hypotheses of
-\zcref{lem:new-rescuer-tail-budget}.
+Here $0<x,c<1/2$, so \zcref{lem:rescuer-ratio-test} gives
+$x\le1-M_c^{\rm sup}$. Together with \eqref{eq:t3-actual-ratio} and
+the forced endpoint, these are the common D hypotheses.
+Setting $\alpha_T=0$ would give only a lower bound on the actual near
+endpoint; that translation is not made in this argument.
 \end{proof}
 
 \begin{lemma}[Solved Vd1 supported-tail adapter]
 \label{lem:appendix-vd1-supported-tail}
-When the unique Vd1 role is based at \(T_0\), its actual corner data imply
-the two strict-supercritical envelope inequalities required by
+In the center-based Vd1 supplier placement, with $M_1\in U_0$ and
+$T_1$ uniquely supercritical, the actual corner data imply the size and
+ratio inequalities required by
 \zcref{lem:new-rescuer-tail-budget}.
 \end{lemma}
 
 \begin{proof}
-Use the Vd1 corner parameter $t\ge1$, let
-$d=\sqrt{t^2+t+1}$, and write the supported interval as $[c,u]$.  Then
+Set $a=A_0$, $b=B_0$. By \zcref{lem:vd1-forward-orientation}, the
+original Vd1 corner parameter satisfies $t\ge1$. Let
+$d=\sqrt{t^2+t+1}$ and write the actual supported interval as $[c,u]$.
+Open midpoint containment gives $0<c<1/2<u<1$. Then
 \[
  c=\frac{t(1-b)}{t+1},
  \qquad
@@ -909,7 +705,10 @@ The inequality $2L(c)\le1-M_c^{\rm sup}$ reduces to
 \[
  20c^2+(18\sqrt3-52)c+47-24\sqrt3\ge0,
 \]
-which holds on $[0,1/2]$.  Hence
+whose derivative is negative on $[0,1/2]$ and whose value at $1/2$ is
+$26-15\sqrt3>0$. The unsquared right side
+$12-4\sqrt3-9c$ is positive there, so this squaring preserves the
+inequality. Hence
 \[
  a\le1-M_c^{\rm sup}.
 \]
@@ -935,6 +734,215 @@ $\varepsilon_0+F(t,c)/t=1/2$.  Therefore
  \le2L(c)
  \le1-M_c^{\rm sup}.
 \]
-The last two estimates are the local hypotheses of the common
-rescuer-tail lemma.
+Positive forward support also gives
+\[
+ (t+1)a+tb<(t+1)(d-1)-t^2<d-1,
+\]
+because $d<t+1$. Thus $u>a$ and $a+\varepsilon=1+a-u<1$.
+As in the T3-like placement, $u$ is the total frontier and the near
+endpoint is supplied by $T_1$, so $\varepsilon V_1\in U_C$ and
+$C_1\ge c$. The size and ratio requirements of the common rescuer
+lemma have now all been verified.
+\end{proof}
+
+\subsection{Vd1 two-chart replacement}
+
+The replacement below uses two different vertex charts.  It preserves the
+five skeleton pieces that can change, then invokes the all-nonsupercritical
+obstruction without assuming preservation of the input gap rank.
+
+\begin{lemma}[Half-square admissibility]
+\label{lem:appendix-half-square-admissibility}
+If \((x,y,z)\in\mathcal A\) satisfies
+\[
+ x\ge\frac12,
+ \qquad
+ 0\le z\le\frac12,
+\]
+then
+\[
+ y\le1-z.
+\]
+\end{lemma}
+
+\begin{proof}
+Suppose \(y>1-z\).  Then \(x+y>1\), so the selected supercritical cell of
+\zcref{prop:new-exact-local-set} applies.  In the ordered half \(x\le y\)
+its necessary polynomial is
+\[
+ F(x,y,z)=
+ (x^2-1)z^2+(2xy^2+y)z+y^4-y^2\le0.
+\]
+It is nondecreasing in \(x\), its derivative in \(y\) is positive for
+\(y\ge1-z\), and
+\[
+ F\left(\frac12,1-z,z\right)
+ =\frac{z^2(2z-5)(2z-1)}4\ge0.
+\]
+This is a contradiction.  In the reflected half \(y<x\), apply the same
+argument to \(F(y,x,z)\).  At the joining corner,
+\[
+ F(1-z,1-z,z)=z(1-2z)\ge0,
+\]
+so no selected feasible point is lost at equality.
+\end{proof}
+
+\begin{lemma}[Two-vertex replacement from scalar margins]
+\label{lem:two-vertex-replacement}
+Consider two adjacent V roles. Only the five pieces
+\[
+ e_{5,0},\quad e_{0,1},\quad e_{1,2},\quad r_0,\quad r_1
+\]
+may be affected by their replacement, and the shared edge is center-free.
+Let $a,c,B,r\in[0,1)$ be the boundary reach on $e_{5,0}$, the own-radial
+reach on $r_0$, the boundary reach on $e_{1,2}$, and the radial demand
+on $r_1$ needed to overlap the unchanged center interval. If
+\[
+ a<\tfrac12,\qquad a+c<1,\qquad a+B<1,\qquad
+ r<\max\{1-a,1-B\},
+\]
+there are two open unit equilateral replacements preserving these five
+skeleton pieces, with actual boundary sums below one and no positive
+adjacent support. No center-class formula is assumed.
+\end{lemma}
+\begin{proof}
+Choose first $p_2\in(a,1-B)$ with $\max\{p_2,1-p_2\}>r$. This is
+possible because the supremum on that interval is $\max\{1-a,1-B\}$.
+Next choose $a<p_1<\min\{p_2,1/2,1-c\}$ and
+\[
+ 0<\varepsilon<\min\{p_1-a,p_2-p_1,1-B-p_2,
+                         1-p_1-c,\max(p_2,1-p_2)-r\}.
+\]
+All five margins are positive. Use the separate vertex charts
+\[
+ X_0(x,y)=V_0+x(V_5-V_0)+y(V_1-V_0),\qquad
+ X_1(x,y)=V_1+x(V_0-V_1)+y(V_2-V_1).
+\]
+Both have metric $x^2+y^2-xy$. Define
+\[
+ \Delta_p^-=\conv\{(0,1-p),(1,1-p),(0,-p)\},\quad
+ D^-_{p,\varepsilon}=\interior(\Delta_p^-)+(-\varepsilon,0)
+ \quad(p\le1/2),
+\]
+\[
+ \Delta_p^+=\conv\{(p,0),(p,1),(p-1,0)\},\quad
+ D^+_{p,\varepsilon}=\interior(\Delta_p^+)+(0,-\varepsilon)
+ \quad(p>1/2).
+\]
+Their edges have unit length. The minus half-planes are
+$x>-\varepsilon$, $y<1-p$, $y>x+\varepsilon-p$; the plus half-planes
+are $y>-\varepsilon$, $x<p$, $x>y+\varepsilon+p-1$.
+Substitution on the axes and diagonal gives their actual reaches:
+\[
+\begin{array}{c|ccc}
+ &A&B&C\\\hline
+ D^-_{p,\varepsilon}&p-\varepsilon&1-p&1-p\\
+ D^+_{p,\varepsilon}&p&1-p-\varepsilon&p
+\end{array}
+\]
+Both contain the chart origin. On the adjacent support lines $(z,1)$ and
+$(1,z)$ the half-planes are incompatible for $0\le z\le1$, so neither
+has positive adjacent support.
+Set $U'_0=X_0(D^-_{p_1,\varepsilon})$ and use
+$U'_1=X_1(D^-_{p_2,\varepsilon})$ for $p_2\le1/2$, or
+$U'_1=X_1(D^+_{p_2,\varepsilon})$ otherwise. The two charts and this
+split cannot be identified. Both actual boundary sums are $1-\varepsilon$.
+
+The first replacement reaches $p_1-\varepsilon>a$ on $e_{5,0}$ and
+$1-p_1>c$ on $r_0$. On the shared edge the reaches sum to at least
+\[
+ (1-p_1)+(p_2-\varepsilon)>1,
+\]
+so the open traces overlap. The second reaches more than $B$ on
+$e_{1,2}$ and $\max(p_2,1-p_2)>r$ on $r_1$. Thus all five pieces
+remain covered; all other pieces are unchanged.
+\end{proof}
+
+\begin{proposition}[Vd1 input to the two-vertex replacement]
+\label{prop:appendix-vd1-two-chart-replacement}
+Assume a skeleton cover has a unique Vd1 role $T_0$ supplying $M_1$, a
+unique supercritical role $T_1$, and all other V roles are nonsupercritical
+Vd0. Suppose $e_{0,1}$ is center-free and no other V role has positive
+trace on $r_0$ or $r_1$. The scalar replacement applies in CE1 and CE2
+and yields a skeleton cover with $N'_+=0$.
+\end{proposition}
+
+\begin{proof}
+Let \(A_0,B_0,C_0\) be the actual incoming, outgoing, and own-radial
+reaches of the Vd1 role.  Its corner normal form and \zcref{lem:vd1-forward-orientation} supply
+\(\vartheta\ge1\) and
+\[
+ \omega:=\sqrt{\vartheta^2+\vartheta+1}
+\]
+such that
+\[
+ C_0=\frac{\omega-A_0-\vartheta B_0}{\vartheta+1},
+ \qquad
+ \lambda=\frac{\vartheta(1-B_0)}{\vartheta+1},
+\]
+\[
+ u_{\rm adj}
+ =\frac{\omega-A_0-\vartheta B_0-1}{\vartheta}.
+\]
+The strict midpoint and one-sided-support conditions give
+\[
+ A_0+C_0<1,
+ \qquad
+ A_0<\lambda\le\frac12,
+\]
+\[
+ B_0<\frac12,
+ \qquad
+ u_{\rm adj}<1-A_0.
+\]
+For the first inequality, evaluation on the closed midpoint face reduces
+strictness to
+\[
+ (2\vartheta^2+4\vartheta+1)^2
+ -4(\vartheta+1)^2(\vartheta^2+\vartheta+1)
+ =4\vartheta^3+4\vartheta^2-4\vartheta-3>0.
+\]
+The remaining inequalities follow directly from the displayed endpoint
+formulas and the strict midpoint inequalities.
+
+The center-free shared edge and the supported interval give
+\[
+ A_1\ge1-B_0>\frac12,
+ \qquad
+ C_1\ge\lambda
+\]
+for the actual reaches of \(T_1\).  The selected supercritical component
+has \(C_1\le1/2\), so
+\zcref{lem:appendix-half-square-admissibility} yields
+\[
+ B_1\le1-C_1\le1-\lambda.
+\]
+Since \(A_0<\lambda\),
+\[
+ A_0+B_1<1.
+\]
+
+Define the C-triangle reach on \(r_1\), measured from \(O\), by
+\[
+ d_1^C:=\max\{x\in[0,1]:xV_1\in T_C\},
+ \qquad
+ c_1^{\rm req}:=1-d_1^C.
+\]
+Only \(U_C,U_1\), and the adjacent trace of \(U_0\) can contribute a
+positive interval to \(r_1\).  Open skeleton coverage gives
+\[
+ c_1^{\rm req}<\max\{C_1,u_{\rm adj}\}
+ \le\max\{1-B_1,1-A_0\}.
+\]
+
+Apply \zcref{lem:two-vertex-replacement} with
+\[
+ (a,c,B,r)=(A_0,C_0,B_1,c_1^{\rm req}).
+\]
+All four scalar conditions were proved above. The four untouched roles
+remain nonsupercritical Vd0, while the two new actual boundary sums are
+$1-\varepsilon<1$. The resulting skeleton cover contradicts N0.
+The original C triangle is fixed; its class and the input gap rank were
+not used in the construction. This operation does not claim to preserve
+coverage of the interior of $H$.
 \end{proof}

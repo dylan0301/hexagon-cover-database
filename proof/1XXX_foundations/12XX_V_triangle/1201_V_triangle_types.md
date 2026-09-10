@@ -754,3 +754,22 @@ $$
 
 Thus $Q'_y<1$, so $T'$ supports $r_1$ in positive length and does not support
 $r_5$ in positive length. Hence $n=1$, completing the normalization proof.
+
+## Own-midpoint exclusion for an original T3-like role
+
+In the Type-II chart above, reflect so the positive adjacent support is on
+$r_1$. Write $z=\sqrt{1-t+t^2}$ and $D=z^2$, where $0<t<1$.
+The wedge vertex has first coordinate $(z-\alpha-t\beta)/D>1$.
+Therefore
+
+$$
+\beta<\frac{z-\alpha-D}{t}<\frac{z-D}{t}<\frac{1-t}{2}.
+$$
+
+The last comparison follows from
+$t(1-t)-2(z-z^2)=(1-z)^2>0$.
+At the own midpoint $(x,y)=(1/2,1/2)$ the affine slack
+$V=\beta+tx-y$ is negative. Thus $M_0\notin T_0$, including its boundary.
+Rotation gives $M_i\notin T_i$ for every original T3-like role. This is the
+own-midpoint exclusion used in the supplier reduction; it does not require
+translating the role or replacing its actual reaches.
