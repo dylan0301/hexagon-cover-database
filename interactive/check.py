@@ -230,7 +230,8 @@ if [row.get("id") for row in graph.get("finiteRows", [])] != [
 # New active families must have their fixed-point proof owners in the graph.
 fixed_required = {
     "lem:fixed-total-radial-forcing", "lem:fixed-origin-in-hull",
-    "thm:fixed-four-point-rescuer", "lem:appendix-fixed-two-gap",
+    "thm:fixed-four-point-rescuer", "lem:ce1-first-return-step",
+    "lem:shared-corner-chart", "lem:compact-cover-margin",
     "lem:appendix-fixed-transverse", "lem:appendix-fixed-four-point",
     "lem:direct-neighbor-diagonal", "lem:support-cell-rotation",
     "thm:center-aligned-path", "lem:midpoint-supplier",
@@ -254,16 +255,23 @@ if "lem:shared-gap-anchor-transfer" not in seen:
     raise SystemExit("N0 omits the selected-gap boundary-transfer input")
 if "prop:new-neighbor-ray-formula" in actual_node_ids or "thm:t3-direct-loss" in actual_node_ids:
     raise SystemExit("optional capacity/area derivation remains in the minimum paper")
+retired_nodes = {"thm:new-complementary-gap", "thm:new-ce2-short-ray",
+                 "cor:ce1-five-handoff-return", "lem:appendix-ktr-ce2",
+                 "lem:appendix-adjacent-vd-separation"}
+if retired_nodes & actual_node_ids:
+    raise SystemExit("retired alternatives remain in the canonical graph")
+first_deps = set(by_id["lem:ce1-first-return-step"].get("deps", []))
+if "prop:new-ce1-direct-certificate" in first_deps:
+    raise SystemExit("the first CE1 step must not depend on the full return")
 if not fixed_required <= actual_node_ids:
     raise SystemExit("dependency graph omits fixed-witness proof owners")
 
-canonical_statement_sources = {'optional_B.tex', '01_introduction.tex',
+canonical_statement_sources = {'01_introduction.tex',
  '02_structure_and_common_geometry.tex',
  '03_trace_bounds.tex',
  '05_area_loss_full.tex',
  '06_finite_enclosure_full.tex',
  '06_fixed_witness_body.tex',
- '06_fixed_zero_gap_coordinates.tex',
  '07_exhaustive_assembly.tex',
  'A_structural_shared_local_signed_center_optimization.tex',
  'A_zero_gap_exact_certificate.tex',

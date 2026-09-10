@@ -2,54 +2,236 @@
 {Structural, Shared-Local, and Signed-Center Optimization}
 \label{app:structural-shared-local-signed-center}
 
-This appendix solves the coordinate and compactness problems used by the
+This appendix solves the coordinate problems used by the
 geometric interfaces in Section~\ref{sec:structure-common}.  It also proves
 the shared equilateral-enclosure calculus used by the later optimization
 appendices.  Each calculation is attached to the body statement it supplies.
 
-\subsection{Open--closed shrinking feasibility}
+\subsection{Center and V triangle incidence feasibility}
 
-\begin{lemma}[Uniform shrinking margin]
-\label{lem:app-open-closed-shrinking}
-If seven open unit equilateral triangles cover $H$, then, for some
-$\varepsilon>0$, seven closed equilateral triangles of side
-$1-\varepsilon$ also cover $H$.
+\begin{lemma}[Separation of nonadjacent boundary edges]
+\label{lem:app-center-edge-separation}
+Relative-interior points on two nonadjacent edges of $H$ are more than unit
+distance apart.
 \end{lemma}
 
 \begin{proof}
-For $p\in H$ put
+Up to symmetry take
 \[
- m_\nu(p):=\operatorname{dist}(p,\mathbb R^2\setminus U_\nu)
- \quad\bigl(\nu\in\{C,0,\ldots,5\}\bigr),
+ x=(1-t)V_0+tV_1,\qquad 0<t<1.
+\]
+For $y=(1-s)V_2+sV_3$, $0<s<1$, direct expansion gives
+\[
+ \lVert x-y\rVert^2-1=(1-t)(2-t)+s(s+t)>0.
+\]
+For the other orbit, $y=(1-s)V_3+sV_4$, put $u=t+s$ and obtain
+\[
+ \lVert x-y\rVert^2-1=(u-1)^2+2>0.
+\]
+These are the two nonadjacent-edge configurations.  Since the diameter of a
+unit equilateral triangle is $1$, the result supplies
+Proposition~\ref{prop:ce-classification}.
+\end{proof}
+
+\begin{lemma}[Shared corner chart and wedge reduction]
+\label{lem:shared-corner-chart}
+After rotating indices to $i=0$, write
+\[
+ X=V_0+x(V_1-V_0)+y(V_5-V_0),
+ \qquad W=\{(x,y):x\ge0,\ y\ge0\}.
+\]
+If a closed unit equilateral triangle $T$ contains $V_0$, then
+\[
+ T\cap H=T\cap W.
+\]
+Normalized Euclidean area is twice the corresponding $(x,y)$-coordinate
+area.
+\end{lemma}
+
+\begin{proof}
+The two basis vectors have length one and angle $120^\circ$, so
+\[
+ \lVert(x,y)\rVert^2=x^2+y^2-xy,
  \qquad
- m(p):=\max_{\nu\in\{C,0,\ldots,5\}}m_\nu(p).
+ \left\lvert\det(V_1-V_0,V_5-V_0)\right\rvert=\frac{\sqrt3}{2}.
 \]
-The continuous function $m$ is positive on compact $H$, hence
+The hexagon is
 \[
- \eta:=\min_{p\in H}m(p)>0.
+ H=\{0\le x,y\le2,\ |x-y|\le1\}\subset W.
 \]
-Choose
+Conversely, if $(x,y)\in T\cap W$, then the diameter-one condition gives
+$x^2+y^2-xy\le1$.  Hence
 \[
- 0<\rho<\min\left\{\eta,\frac{\sqrt3}{6}\right\}.
+ |x-y|^2\le x^2+y^2-xy\le1,
+ \qquad
+ \frac34x^2\le x^2+y^2-xy,
 \]
-Moving every side of $U_\nu$ inward by $\rho$ gives a closed equilateral
-triangle $K_\nu$ of side $1-2\sqrt3\rho$.  For each $p\in H$, some
-$m_\nu(p)\ge\eta>\rho$, so $p\in K_\nu$.  Thus
-$\varepsilon=2\sqrt3\rho$ is feasible.  This supplies the only quantitative
-step in Proposition~\ref{prop:open-closed-scaled}.
+and the same estimate holds for $y$.  Thus $|x-y|\le1$ and
+$0\le x,y\le2/\sqrt3<2$, proving $(x,y)\in H$.  The determinant identity
+proves the area assertion.
+\end{proof}
+
+\begin{lemma}[Local wedge calculation]
+\label{lem:app-local-wedge-calculation}
+The incidence conclusions of Lemma~\ref{lem:local-wedge} hold.
+\end{lemma}
+
+\begin{proof}
+Use \zcref{lem:shared-corner-chart} at $V_0$. In the unit ball,
+\[
+ x^2+y^2-xy=(y-x/2)^2+3x^2/4=(x-y)^2+xy.
+\]
+The adjacent radial segments are
+\[
+ r_1=\{(1,y):0\le y\le1\},\qquad
+ r_5=\{(x,1):0\le x\le1\}.
+\]
+Suppose $T_0\cap r_1$ has positive length and let $m$ be the largest
+$x$-coordinate of a vertex of $T_0$.  If $m>1$, a maximizing vertex $(m,y)$
+lies in the unit ball and has $0<y<1$, so it lies in $H$.  If $m=1$,
+positive-length contact with the support line $x=1$ forces a side there, and
+both endpoints satisfy $1+y^2-y\le1$ and lie in $H$.  The argument for
+$r_5$ is symmetric.  If both arms are met but only one vertex lies in $H$,
+that vertex would have $x>1$ and $y>1$, contradicting
+$(x-y)^2+xy>1$.
+
+Finally, if all three vertices lay in convex $H$, then $T_0\subset H$,
+contrary to the extreme point $V_0$ lying in $\interior(T_0)$.  Hence
+$o(T_0)\ge1$, completing the calculation.
+\end{proof}
+
+\subsection{Shared orientation charts and exact-trace normalization}
+\label{subsec:app-exact-trace-normalization}
+
+Set
+\[
+ D_t:=1-t+t^2,\qquad z:=\sqrt{D_t},\qquad0\le t\le1.
+\]
+In the shared corner chart, physical rotation through $60^\circ$ is
+$(x,y)\mapsto(x-y,x)$. After relabelling the vertices, every orientation
+belongs to one of the two families
+\[
+\begin{array}{c|cc}
+ &\text{first side vector}&\text{second side vector}\\ \hline
+\mathrm I&z^{-1}(1,t)&z^{-1}(1-t,1)\\
+\mathrm {II}&z^{-1}(t,-(1-t))&z^{-1}(1,t).
+\end{array}
+\]
+They cover successive $60^\circ$ direction sectors, including their
+common endpoints. The following half-plane descriptions allow closed
+containment of the corner; strict interior containment is recorded separately.
+Here $U,V$ are affine slack functions, not the open triangles $U_i$.
+In Type I write
+\begin{equation}
+ U=\alpha+y-tx,\qquad V=\beta+x-(1-t)y,\qquad
+ T=\{U\ge0,V\ge0,U+V\le z\},
+ \label{eq:orientation-type-I}
+\end{equation}
+and in Type II write
+\begin{equation}
+ U=\alpha+(1-t)x+ty,\qquad V=\beta+tx-y,\qquad
+ T=\{U\ge0,V\ge0,U+V\le z\}.
+ \label{eq:orientation-type-II}
+\end{equation}
+In both charts
+\begin{equation}
+ V_0\in\interior(T)\iff
+ \alpha>0,\quad\beta>0,\quad\alpha+\beta<z.
+ \label{eq:orientation-interior}
+\end{equation}
+The Type-II vertex in the wedge is
+\begin{equation}
+ Q=\left(
+ \frac{z-\alpha-t\beta}{D_t},
+ \frac{t(z-\alpha)+(1-t)\beta}{D_t}
+ \right).
+ \label{eq:orientation-type-II-Q}
+\end{equation}
+
+\begin{lemma}[Raw $(3,0)$ trace-normalization calculation]
+\label{lem:app-vd0-trace-normalization-calculation}
+The translation asserted in
+Proposition~\ref{prop:vd0-exact-trace-normalization} exists and preserves both
+the open and closed traces in $H$.
+\end{lemma}
+
+\begin{proof}
+Normalize to $i=0$.  A Type-II triangle cannot have $o=3$, because the point
+$Q$ in \eqref{eq:orientation-type-II-Q} lies in the wedge; together with the
+diameter-one condition, Lemma~\ref{lem:local-wedge} puts it in $H$.  Hence
+$T$ has Type-I form.  Its vertices are
+\[
+ Q_0=\left(-\frac{(1-t)\alpha+\beta}{D_t},
+           -\frac{\alpha+t\beta}{D_t}\right),
+\]
+\begin{equation}
+\begin{aligned}
+ Q_1&=\left(\frac{z-(1-t)\alpha-\beta}{D_t},
+             \frac{tz-\alpha-t\beta}{D_t}\right),\\
+ Q_2&=\left(\frac{(1-t)z-(1-t)\alpha-\beta}{D_t},
+             \frac{z-\alpha-t\beta}{D_t}\right).
+\end{aligned}
+\label{eq:o3-type-I-vertices}
+\end{equation}
+Thus $o=3$ is equivalent to
+\begin{equation}
+ \alpha+t\beta>tz,\qquad
+ (1-t)\alpha+\beta>(1-t)z,
+ \label{eq:o3-outside-conditions}
+\end{equation}
+which forces $0<t<1$.  Put $s=\alpha+\beta$ and $L=z-s>0$.  Then
+\begin{equation}
+ \alpha>\frac{tL}{1-t},\qquad
+ \beta>\frac{(1-t)L}{t}.
+ \label{eq:o3-redundancy-conditions}
+\end{equation}
+For $(x,y)\in W$ satisfying
+\begin{equation}
+ (1-t)x+ty\le L,
+ \label{eq:o3-wedge-cut}
+\end{equation}
+the minimum of $U$ is attained at $(L/(1-t),0)$ and that of $V$ at
+$(0,L/t)$.  Hence
+\begin{equation}
+ T\cap W=\{(x,y)\in W:(1-t)x+ty\le L\}.
+ \label{eq:o3-wedge-trace}
+\end{equation}
+
+Keep $t,s$ fixed and set
+\begin{equation}
+ \widehat\alpha:=\frac{tL}{1-t},\qquad
+ \widehat\beta:=s-\widehat\alpha.
+ \label{eq:o3-normalized-constants}
+\end{equation}
+Then $0<\widehat\alpha<\alpha$, $\widehat\beta>\beta>0$, and
+$\widehat\alpha+\widehat\beta=s<z$.  Changing these affine constants is a
+translation and preserves $V_0\in\interior(\widehat T)$.  Its third
+inequality remains \eqref{eq:o3-wedge-cut}; $\widehat U=0$ only at the
+endpoint $(L/(1-t),0)$ of that common boundary and $\widehat V>0$.  Therefore
+\[
+ \widehat T\cap W=T\cap W,
+\]
+and their interiors have the same trace on $W$.  The local wedge calculation
+identifies these with the closed and open traces in $H$.
+
+Equation~\eqref{eq:o3-normalized-constants} places $Q_1$ on the boundary of
+$H$; $Q_0$ remains outside and the second strict inequality in
+\eqref{eq:o3-redundancy-conditions} keeps $Q_2$ outside.  Hence
+$(o(\widehat T),n(\widehat T))=(2,0)$.  Since the three reach segments lie in
+$H$, their open and closed traces, and therefore $A_i,B_i,C_i$ and
+$A_i+B_i>1$, are unchanged.
 \end{proof}
 
 \subsection{T3-like trace-majorant feasibility}
 
-The calculation uses the local wedge and the two orientation charts developed
-in the exact-trace module below.  It is placed here beside the body warning
-that the output is a closed majorant, not a replacement open triangle.
+The calculation uses the local wedge and the two orientation charts just
+introduced.  Its output is a closed majorant, not a replacement open triangle.
 
 \begin{lemma}[T3-like translation calculation]
 \label{lem:app-t3-translation-calculation}
 The closed-trace majorant in Proposition~\ref{prop:t3-translation} exists.
 In the calculation chart, every original $\Tlike$ triangle also satisfies
-$A_i+B_i\le1$.
+$A_i+B_i\le1$ and $M_i\notin T_i$.
 \end{lemma}
 
 \begin{proof}
@@ -78,6 +260,13 @@ where $Q$ is \eqref{eq:orientation-type-II-Q}.  In particular
 \[
  A_0+B_0=z-\alpha<z\le1.
 \]
+The same support inequality gives
+\[
+ \beta<\frac{z-D_t}{t}<\frac{1-t}{2},
+\]
+where the second comparison is equivalent to $(1-z)^2>0$.
+At $M_0=(1/2,1/2)$ the affine coordinate $V$ equals
+$\beta-(1-t)/2<0$, so $M_0\notin T_0$.
 
 Define $\widehat T$ by replacing $\alpha$ with $0$ and retaining $t,\beta$.
 This changes only the translation.  At the origin,
@@ -188,8 +377,7 @@ $K$ is
  \label{eq:universal-lambda}
 \end{equation}
 It is monotone under inclusion, translation invariant, and positively
-homogeneous.  If $K$ is a polygonal hull with at least two distinct points, a
-minimizing normal can be chosen perpendicular to a hull edge.
+homogeneous.
 \end{proposition}
 
 \begin{proof}
@@ -199,11 +387,31 @@ $2/\sqrt3$ times their sum.  Translation invariance follows from
 \[
  n+\mathsf Rn+\mathsf R^2n=0,
 \]
-while monotonicity and homogeneity are immediate.  On an open angular cell
-with fixed support points, the support sum is
-$A\cos\theta+B\sin\theta$ and its second derivative is its negative.  For a
-nonsingleton the support sum is positive, so an interior critical point is a
-maximum; a minimum occurs at a support tie, hence at a hull-edge normal.
+while monotonicity and homogeneity are immediate.
+\end{proof}
+
+\begin{lemma}[Support-cell rotation]
+\label{lem:support-cell-rotation}
+A least equilateral enclosure of a nondegenerate polygon can be chosen
+with one side containing a polygon edge. For a centered disk together
+with finitely many points, it suffices to test point--point and point--disk
+ties, or a disk-only orientation. Here a \emph{support cell} is an open
+angular interval on which the maximizing point or disk is fixed in each
+of the three support directions; a \emph{tie} is an endpoint where a
+maximizer changes.
+\end{lemma}
+\begin{proof}
+By \zcref{prop:new-enclosure-gauge}, the side is the three-term support
+sum divided by $h=\sqrt3/2$. Parametrize unit normals by
+$n(\theta)=(\cos\theta,\sin\theta)$. For a disk of radius $\rho>0$, its
+support value is $\rho$ in every unit direction. On a polygon cell with fixed support vertices the sum
+is $g(\theta)=a\cos\theta+b\sin\theta>0$, so $g''=-g<0$ and no
+interior minimum occurs. In the disk case a cell with $q$ disk supports
+has sum $q\rho+\langle v,n(\theta)\rangle$, where $v$ is the sum
+of the active point vectors rotated back by their respective multiples
+of $120^\circ$. If a point is active its
+projection exceeds $\rho\ge0$, and the inner product is positive, again
+giving a negative second derivative. A disk-only cell has constant support sum $3\rho$. Each application must still identify its exposed ties.
 \end{proof}
 
 \subsubsection{Finite caliper criterion}
@@ -228,226 +436,46 @@ $\varepsilon\in\{-1,1\}$ such that
  \label{eq:finite-caliper-test}
 \end{equation}
 A singleton is contained in equilateral triangles of arbitrarily small
-positive side length.  For $F_x=\{O,A,B,x\}$, every clause is a finite
-polynomial clause of degree at most four in the coordinates of $A,B,x$; at
-most $12\cdot4^3$ clauses are needed.
+positive side length.
 \end{theorem}
 
 \begin{proof}
-Apply Proposition~\ref{prop:universal-enclosure-gauge} to $\conv F$.  A
-minimizing normal is perpendicular to a hull edge $[p,q]$ and, after cyclic
+Apply \zcref{prop:universal-enclosure-gauge,lem:support-cell-rotation}
+to $\conv F$. A minimizing normal is perpendicular to a hull edge
+$[p,q]$ and, after cyclic
 rotation, equals
 $\varepsilon\mathsf J(q-p)/\lVert p-q\rVert$.  Homogeneity gives
 \eqref{eq:finite-caliper-test}; a nondegenerate segment follows by checking
 its two normals.
 
-For the polynomial assertion fix $(p,q,\varepsilon)$, put
-$N=\varepsilon\mathsf J(q-p)$ and $N_k=\mathsf R^kN$, and select support
-labels $s_k\in F_x$.  Retain the strict condition
-\[
- \lVert p-q\rVert^2>0.
-\]
-On the cell
-\begin{equation}
- \langle s_k-y,N_k\rangle\ge0
- \qquad(y\in F_x,\ k=0,1,2),
- \label{eq:caliper-cell}
-\end{equation}
-the test becomes
-\begin{equation}
- \sum_{k=0}^2\langle s_k,N_k\rangle
- \le\frac{\sqrt3}{2}\lVert p-q\rVert.
- \label{eq:caliper-cell-polynomial}
-\end{equation}
-The left side is polynomial of degree at most two.  Both sides are
-nonnegative on an active cell, so one squaring gives degree at most four.
-There are at most six unordered pairs, two normal signs for each pair, and
-$4^3$ support triples for each pair-normal candidate.
 \end{proof}
 
-\subsection{Center and V triangle incidence feasibility}
-
-\begin{lemma}[Separation of nonadjacent boundary edges]
-\label{lem:app-center-edge-separation}
-Relative-interior points on two nonadjacent edges of $H$ are more than unit
-distance apart.
-\end{lemma}
-
-\begin{proof}
-Up to symmetry take
+\begin{proposition}[Disk--finite-set calipers]
+\label{prop:new-disk-finite-caliper}
+Let $\rho>0$, $P=\{p_1,\ldots,p_m\}\subset\mathbb R^2$, and
+$K=\conv(\mathbb B(O,\rho)\cup P)$. Use the rotation $\mathsf J$
+defined above. Unless the disk is the active support in all three directions at a minimizing
+orientation, a minimizing normal belongs to the finite list
 \[
- x=(1-t)V_0+tV_1,\qquad 0<t<1.
+ \pm\frac{\mathsf J(p_k-p_i)}{\|p_k-p_i\|}
+ \quad(p_i\ne p_k)
 \]
-For $y=(1-s)V_2+sV_3$, $0<s<1$, direct expansion gives
+or
 \[
- \lVert x-y\rVert^2-1=(1-t)(2-t)+s(s+t)>0.
+ \frac{\rho p_i\pm
+ \sqrt{\|p_i\|^2-\rho^2}\,\mathsf Jp_i}{\|p_i\|^2}
+ \quad(\|p_i\|\ge\rho).
 \]
-For the other orbit, $y=(1-s)V_3+sV_4$, put $u=t+s$ and obtain
-\[
- \lVert x-y\rVert^2-1=(u-1)^2+2>0.
-\]
-These are the two nonadjacent-edge configurations.  Since the diameter of a
-unit equilateral triangle is $1$, the result supplies
-Proposition~\ref{prop:ce-classification}.
-\end{proof}
-
-\begin{lemma}[Local wedge calculation]
-\label{lem:app-local-wedge-calculation}
-The incidence conclusions of Lemma~\ref{lem:local-wedge} hold.
-\end{lemma}
+Thus one side of a least enclosing equilateral triangle either contains two
+points, or is tangent to the disk and contains one point.
+\end{proposition}
 
 \begin{proof}
-Normalize to $i=0$ and use the affine chart
-\[
- X=V_0+x(V_1-V_0)+y(V_5-V_0).
-\]
-Then $V_0=(0,0)$,
-\[
- \lVert(x,y)\rVert^2=x^2+y^2-xy,
-\]
-and, in the closed unit ball about $V_0$, membership in $H$ is membership in
-\[
- W:=\{(x,y):x\ge0,\ y\ge0\}.
-\]
-Indeed,
-\[
- x^2+y^2-xy=\left(y-\frac x2\right)^2+\frac{3x^2}{4}
-             =(x-y)^2+xy.
-\]
-The adjacent radial segments are
-\[
- r_1=\{(1,y):0\le y\le1\},\qquad
- r_5=\{(x,1):0\le x\le1\}.
-\]
-Suppose $T_0\cap r_1$ has positive length and let $m$ be the largest
-$x$-coordinate of a vertex of $T_0$.  If $m>1$, a maximizing vertex $(m,y)$
-lies in the unit ball and has $0<y<1$, so it lies in $H$.  If $m=1$,
-positive-length contact with the support line $x=1$ forces a side there, and
-both endpoints satisfy $1+y^2-y\le1$ and lie in $H$.  The argument for
-$r_5$ is symmetric.  If both arms are met but only one vertex lies in $H$,
-that vertex would have $x>1$ and $y>1$, contradicting
-$(x-y)^2+xy>1$.
-
-Finally, if all three vertices lay in convex $H$, then $T_0\subset H$,
-contrary to the extreme point $V_0$ lying in $\interior(T_0)$.  Hence
-$o(T_0)\ge1$, completing the calculation.
-\end{proof}
-
-\subsection{Exact-trace normalization}
-\label{subsec:app-exact-trace-normalization}
-
-Set
-\[
- D_t:=1-t+t^2,\qquad z:=\sqrt{D_t},\qquad0\le t\le1.
-\]
-After relabelling the vertices, every orientation belongs to one of the two
-families
-\[
-\begin{array}{c|cc}
- &\text{first side vector}&\text{second side vector}\\ \hline
-\mathrm I&z^{-1}(1,t)&z^{-1}(1-t,1)\\
-\mathrm {II}&z^{-1}(t,-(1-t))&z^{-1}(1,t).
-\end{array}
-\]
-In Type I write
-\begin{equation}
- U=\alpha+y-tx,\qquad V=\beta+x-(1-t)y,\qquad
- T=\{U\ge0,V\ge0,U+V\le z\},
- \label{eq:orientation-type-I}
-\end{equation}
-and in Type II write
-\begin{equation}
- U=\alpha+(1-t)x+ty,\qquad V=\beta+tx-y,\qquad
- T=\{U\ge0,V\ge0,U+V\le z\}.
- \label{eq:orientation-type-II}
-\end{equation}
-In both charts
-\begin{equation}
- V_0\in\interior(T)\iff
- \alpha>0,\quad\beta>0,\quad\alpha+\beta<z.
- \label{eq:orientation-interior}
-\end{equation}
-The Type-II vertex in the wedge is
-\begin{equation}
- Q=\left(
- \frac{z-\alpha-t\beta}{D_t},
- \frac{t(z-\alpha)+(1-t)\beta}{D_t}
- \right).
- \label{eq:orientation-type-II-Q}
-\end{equation}
-
-\begin{lemma}[Raw $(3,0)$ trace-normalization calculation]
-\label{lem:app-vd0-trace-normalization-calculation}
-The translation asserted in
-Proposition~\ref{prop:vd0-exact-trace-normalization} exists and preserves both
-the open and closed traces in $H$.
-\end{lemma}
-
-\begin{proof}
-Normalize to $i=0$.  A Type-II triangle cannot have $o=3$, because the point
-$Q$ in \eqref{eq:orientation-type-II-Q} lies in the wedge; together with the
-diameter-one condition, Lemma~\ref{lem:local-wedge} puts it in $H$.  Hence
-$T$ has Type-I form.  Its vertices are
-\[
- Q_0=\left(-\frac{(1-t)\alpha+\beta}{D_t},
-           -\frac{\alpha+t\beta}{D_t}\right),
-\]
-\begin{equation}
-\begin{aligned}
- Q_1&=\left(\frac{z-(1-t)\alpha-\beta}{D_t},
-             \frac{tz-\alpha-t\beta}{D_t}\right),\\
- Q_2&=\left(\frac{(1-t)z-(1-t)\alpha-\beta}{D_t},
-             \frac{z-\alpha-t\beta}{D_t}\right).
-\end{aligned}
-\label{eq:o3-type-I-vertices}
-\end{equation}
-Thus $o=3$ is equivalent to
-\begin{equation}
- \alpha+t\beta>tz,\qquad
- (1-t)\alpha+\beta>(1-t)z,
- \label{eq:o3-outside-conditions}
-\end{equation}
-which forces $0<t<1$.  Put $s=\alpha+\beta$ and $L=z-s>0$.  Then
-\begin{equation}
- \alpha>\frac{tL}{1-t},\qquad
- \beta>\frac{(1-t)L}{t}.
- \label{eq:o3-redundancy-conditions}
-\end{equation}
-For $(x,y)\in W$ satisfying
-\begin{equation}
- (1-t)x+ty\le L,
- \label{eq:o3-wedge-cut}
-\end{equation}
-the minimum of $U$ is attained at $(L/(1-t),0)$ and that of $V$ at
-$(0,L/t)$.  Hence
-\begin{equation}
- T\cap W=\{(x,y)\in W:(1-t)x+ty\le L\}.
- \label{eq:o3-wedge-trace}
-\end{equation}
-
-Keep $t,s$ fixed and set
-\begin{equation}
- \widehat\alpha:=\frac{tL}{1-t},\qquad
- \widehat\beta:=s-\widehat\alpha.
- \label{eq:o3-normalized-constants}
-\end{equation}
-Then $0<\widehat\alpha<\alpha$, $\widehat\beta>\beta>0$, and
-$\widehat\alpha+\widehat\beta=s<z$.  Changing these affine constants is a
-translation and preserves $V_0\in\interior(\widehat T)$.  Its third
-inequality remains \eqref{eq:o3-wedge-cut}; $\widehat U=0$ only at the
-endpoint $(L/(1-t),0)$ of that common boundary and $\widehat V>0$.  Therefore
-\[
- \widehat T\cap W=T\cap W,
-\]
-and their interiors have the same trace on $W$.  The local wedge calculation
-identifies these with the closed and open traces in $H$.
-
-Equation~\eqref{eq:o3-normalized-constants} places $Q_1$ on the boundary of
-$H$; $Q_0$ remains outside and the second strict inequality in
-\eqref{eq:o3-redundancy-conditions} keeps $Q_2$ outside.  Hence
-$(o(\widehat T),n(\widehat T))=(2,0)$.  Since the three reach segments lie in
-$H$, their open and closed traces, and therefore $A_i,B_i,C_i$ and
-$A_i+B_i>1$, are unchanged.
+Apply \zcref{lem:support-cell-rotation}. A point--point tie has normal
+perpendicular to $p_k-p_i$; solving $\langle p_i,n\rangle=\rho$ with
+$\|n\|=1$ gives the displayed point--disk normals. Rotation through
+$120$ degrees identifies the three supporting directions. A disk-only
+cell contributes $3\rho$ and is the only additional alternative.
 \end{proof}
 
 \subsection{The local admissible set and radial envelope}
@@ -533,8 +561,8 @@ $\conv\{au,bv,T\}$ is equilateral of side $\sqrt d$ and
 Thus the least enclosure side is $\sqrt d$.  When $a=b=0$, it is $c$.
 
 Now assume $cs>ab$.  The hull has cyclic vertices $0,bv,c(u+v),au$.
-Proposition~\ref{prop:universal-enclosure-gauge} reduces its least enclosure
-side to its four edge normals.  For the edges through $0$ one obtains
+Lemma~\ref{lem:support-cell-rotation} reduces its least enclosure side
+to its four edge normals.  For the edges through $0$ one obtains
 \[
  L_{0A}=b+\max\{a,c\},
  \qquad L_{B0}=a+\max\{b,c\}.
@@ -623,9 +651,9 @@ notation
 \]
 No closed-form evaluation of $M_c$ is needed in the geometric body.
 
-\subsection{Midpoint caliper optimization}
+\subsection{Self-midpoint corollary}
 
-\begin{lemma}[Four-point self-midpoint caliper]
+\begin{lemma}[Self-midpoint admissibility corollary]
 \label{lem:app-self-midpoint-caliper}
 If $a+b>1$, then
 \[
@@ -635,40 +663,44 @@ This supplies Lemma~\ref{lem:self-midpoint}.
 \end{lemma}
 
 \begin{proof}
-Put
+Put $m=\min\{a,b\}$ and $M=\max\{a,b\}$. If the four-point hull
+were admissible with $a+b>1$, Cell $S$ of
+\zcref{prop:exact-admissible-set} would require $F_S(m,M,1/2)\le0$.
+However,
 \[
- K:=\conv\left\{0,au,\frac{u+v}{2},bv\right\}.
+\begin{aligned}
+ 4F_S(1-M,M,1/2)&=M^2(2M-1)^2\ge0,\\
+ \frac{\partial}{\partial m}\bigl(4F_S(m,M,1/2)\bigr)&=2m+4M^2>0.
+\end{aligned}
 \]
-By Theorem~\ref{thm:cert-caliper}, it suffices to check a normal to each of
-the four hull edges.  For the edge from $0$ to $au$, the sum of the three
-supports is
-\[
- S_{0A}=\max\left\{\frac{\sqrt3}{4},\frac{\sqrt3a}{2}\right\}
-          +\frac{\sqrt3b}{2}>\frac{\sqrt3}{2}.
-\]
-If $a\ge1/2$, this is $(\sqrt3/2)(a+b)$; if $a<1/2$, then $b>1/2$.
-The edge through $bv$ is symmetric.
+Since $m>1-M$, this is impossible. If $a+b=1$ and the four points
+have positive margin, increase the two boundary demands slightly to
+obtain the same contradiction.
+\end{proof}
 
-For the edge from $au$ to $(u+v)/2$, put
-$D_a:=\sqrt{4a^2-2a+1}$.  Projection gives
+\begin{lemma}[Strict-supercritical outgoing envelope]
+\label{lem:strict-supercritical-envelope}
+If a V triangle is supercritical and has own-radial reach at least
+$c\in[0,1/2)$, then both boundary reaches are strictly below
+$M_c^{\rm sup}$ from \eqref{eq:supercritical-envelope-definition}.
+No supercritical triangle has own-radial reach at least $1/2$.
+\end{lemma}
+\begin{proof}
+Let $m$ and $M$ be the smaller and larger actual boundary reaches.
+For $c>0$, the selected supercritical cell gives $F_S(m,M,c)\le0$,
+whereas $m>1-M$ and
 \[
- S_{AM}=
- \begin{cases}
- \dfrac{\sqrt3(a+b)}{2D_a},&a\le1/2,\\[4pt]
- \dfrac{\sqrt3(2a^2+b)}{2D_a},&a>1/2.
- \end{cases}
+ \partial_m F_S=2c(M^2+cm)>0,
 \]
-The first value exceeds $\sqrt3/2$ because $D_a\le1$.  In the second case,
-$b>1-a$ and
 \[
- (2a^2-a+1)^2-D_a^2=a^2(2a-1)^2\ge0,
+ F_S(1-M,M,c)=M(c-M)(1-2c+cM-M^2).
 \]
-so it again exceeds $\sqrt3/2$.  The remaining edge is symmetric.  Formula
-\eqref{eq:universal-lambda} now gives $\Lambda(K)>1$.
-
-If $a+b=1$ while all four points are contained with positive margin, both
-boundary reach demands can be increased slightly, contradicting the strict
-case just proved.
+Since $M>1/2>c$, these identities imply
+$1-2c+cM-M^2>0$. Solving the quadratic gives
+$M<(c+\sqrt{c^2-8c+4})/2$.
+For $c=0$, each boundary reach is strictly less than one because its
+opposite distinguished vertex is excluded from the closed V triangle.
+The endpoint $c=1/2$ is excluded by the self-midpoint obstruction.
 \end{proof}
 
 \subsection{Signed-center optimization}

@@ -4,16 +4,27 @@
 \usetikzlibrary{arrows.meta,calc,positioning}
 \input{figures/tikz_setup}
 \usepackage[hidelinks]{hyperref}
+\usepackage{aliascnt}
 \usepackage{zref-clever}
 
 \newtheorem{theorem}{Theorem}[section]
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{corollary}[theorem]{Corollary}
+\newaliascnt{lemma}{theorem}
+\newtheorem{lemma}[lemma]{Lemma}
+\aliascntresetthe{lemma}
+\newaliascnt{proposition}{theorem}
+\newtheorem{proposition}[proposition]{Proposition}
+\aliascntresetthe{proposition}
+\newaliascnt{corollary}{theorem}
+\newtheorem{corollary}[corollary]{Corollary}
+\aliascntresetthe{corollary}
 \theoremstyle{definition}
-\newtheorem{definition}[theorem]{Definition}
+\newaliascnt{definition}{theorem}
+\newtheorem{definition}[definition]{Definition}
+\aliascntresetthe{definition}
 \theoremstyle{remark}
-\newtheorem{remark}[theorem]{Remark}
+\newaliascnt{remark}{theorem}
+\newtheorem{remark}[remark]{Remark}
+\aliascntresetthe{remark}
 
 \newcommand{\CEzero}{\mathrm{CE0}}
 \newcommand{\CEone}{\mathrm{CE1}}
@@ -38,19 +49,15 @@ area loss, finite enclosure, exact computer-assisted certificate}
 \setcounter{secnumdepth}{3}
 
 \begin{abstract}
-We prove that the regular hexagon of side length one cannot be covered by
-seven open equilateral triangles of side length one.  The center and the six
-vertices canonically label the seven covering triangles.  A midpoint-supplier reduction routes every hypothetical cover to one of three strategies: trace-length
-deficit, area loss, or a finite equilateral-enclosure obstruction.  The
-finite-enclosure strategy uses a fixed six-point selected-gap witness
-for either nonzero gap rank, an unchanged four-point supported-rescuer
-witness, and
-the explicit zero-gap nine-point theorem. A direct neighboring-ray bound
-removes V-type splits along nonsupercritical paths.  Appendices collect the exact local
-reach calculations certifying that the relevant finite sets do not fit in a
-unit C triangle.  The paper is organized as one proof, and the two disk-tangent
-contact bounds are verified in a self-contained exact certificate
-appendix over $\mathbb Q(\sqrt3)$.
+We prove that seven open unit equilateral triangles cannot cover a regular
+unit hexagon. The center and vertices distinguish the covering triangles.
+Boundary gaps and midpoint coverage reduce the proof to trace-length,
+area-loss, and finite-enclosure obstructions. The enclosure arguments use
+six points for a selected boundary gap, four points for a supported
+midpoint, and nine points when the vertex triangles cover the boundary.
+A neighboring-ray bound avoids type distinctions along nonsupercritical
+paths. The two remaining disk-tangent inequalities are verified by an
+exact polynomial certificate over $\mathbb Q(\sqrt3)$.
 \end{abstract}
 
 \maketitle

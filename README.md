@@ -121,3 +121,11 @@ and four middle handoffs to exclude the same six-point set for either gap
 rank. The pure enclosure theorem explicitly retains the tail premise;
 original perimeter coverage supplies it before a candidate is introduced.
 The D construction, local rescuer proofs, and zero-gap certificate are unchanged.
+
+## Reading-order and self-containment review
+
+The follow-up audit in
+`arrange/20260910_self_containment_editorial_report.md` records the definition-order
+review, notation crosswalks, and repaired local proof inputs. The `(3,0)`
+normalization remains intact. The paper's exact computational appendix is
+supplied with its finite data and both replay programs in the source package.

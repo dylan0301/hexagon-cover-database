@@ -2,27 +2,20 @@
 \label{sec:assembly}
 
 \begin{proof}[Proof of Theorem~\ref{thm:main}]
-Suppose seven open unit equilateral triangles cover $H$. Their center and
-vertex roles are distinct. By \zcref{thm:fixed-nzero}, $N_+\ge1$.
+Suppose seven open unit equilateral triangles cover $H$.
+By \zcref{thm:fixed-nzero}, $N_+\ge1$.
+With no gaps, the nine-point obstruction \zcref{thm:reader-zero-gap-obstruction}
+excludes $N_+=1$, and \zcref{prop:area-branches} excludes $N_+\ge2$.
 
-If there are no actual gaps, the V triangles cover the perimeter.
-Exactly one supercritical role is excluded by the type-independent
-nine-point theorem \zcref{thm:reader-zero-gap-obstruction}; at least two
-are excluded by \zcref{prop:area-branches}.
-
-If there is a gap, \zcref{lem:midpoint-supplier} reduces the cover to
-$N_+=1,N_{\rm sp}\le1$. Let $M_k$ be the C midpoint and $\sigma$ the
-supercritical index. If $\sigma=k$, apply \zcref{thm:center-aligned-path}.
-Otherwise $M_\sigma$ has a unique adjacent positive-support supplier.
-A T3-like supplier must be based at $V_k$ and is excluded by
-\zcref{prop:new-one-t3-terminal}. A Vd2 supplier is excluded by
-\zcref{prop:ce2-vd2-midpoint-length}. A center-based Vd1 supplier uses D;
-an away Vd1 supplier admits the two-vertex replacement and contradicts N0.
-These last alternatives are assembled in \zcref{prop:new-one-vd-assembly}.
-Thus every possibility contradicts the cover.
+With a gap, \zcref{lem:midpoint-supplier} gives
+$N_+=1,N_{\rm sp}\le1$. Let $M_k$ be the C midpoint and $\sigma$
+the supercritical index. The case $\sigma=k$ is excluded by
+\zcref{thm:center-aligned-path}. Otherwise $M_\sigma$ has a unique
+adjacent positive-support supplier. A T3-like supplier is center-based
+and is excluded by \zcref{prop:new-one-t3-terminal}; a Vd2 supplier
+is excluded by \zcref{prop:ce2-vd2-midpoint-length}. For Vd1, a
+center-based supplier uses D, whereas an away supplier admits replacement
+followed by N0, as proved in \zcref{prop:new-one-vd-assembly}.
+Thus no cover exists. The scaling equivalence
+\zcref{prop:open-closed-scaled} gives \zcref{cor:expanded-closed}.
 \end{proof}
-
-The zero-gap certificate uses coverage of all of $H$. Replacement needs
-only skeleton coverage and is never used to invoke that certificate.
-Corollary~\ref{cor:expanded-closed} follows from
-Proposition~\ref{prop:open-closed-scaled}.

@@ -143,23 +143,43 @@ for name in checked:
     print('PASS', name)
 print(f'ALL {len(checked)} EXACT CHECKS PASSED')
 
-# D is deliberately unchanged by this refactor.
+# D geometry is preserved. The body sketch and repaired original-interval
+# T3-like adapter are separately pinned; verify_editorial_order.py checks the
+# new local algebra independently. Other inherited pins are unchanged.
+# Historical prose around them is not a mathematical preservation contract.
 from pathlib import Path
 import hashlib
 ROOT = Path(__file__).resolve().parents[3]
-for path, start, end, digest in [('proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2612_fixed_witness_unification.md', '## 6. Family D:', '## 7.', 'dad6e3e829e8730f1973f20c5950cd2874078e0fbdeb39aa3239ed367d5d9946'), ('proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2610_finite_enclosure_terminal_interfaces.md', '## 5. D:', '## 6. F:', 'e6b126f12ae4a5965d2f2b2824ab1303d6257631ea623d25576d827103af9236'), ('arrange/paper_draft/fixed_witness/D_fixed_witness_extensions.tex', '\\begin{lemma}[Fixed four-point supported-rescuer proof]', '\\paragraph{Scope of the retained calculations below.}', 'e375fe2a182786904fe1e20ef64f966839e5df1338cd691e417e72a6db496460')]:
+PRESERVED_SECTIONS = [('proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2612_fixed_witness_unification.md',
+  '## 6. Family D:',
+  '## 7.',
+  'dad6e3e829e8730f1973f20c5950cd2874078e0fbdeb39aa3239ed367d5d9946'),
+ ('proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2610_finite_enclosure_terminal_interfaces.md',
+  '## 5. D:',
+  '## 6. F:',
+  'e6b126f12ae4a5965d2f2b2824ab1303d6257631ea623d25576d827103af9236'),
+ ('arrange/paper_draft/fixed_witness/D_fixed_witness_extensions.tex',
+  '\\begin{lemma}[Fixed four-point supported-rescuer proof]',
+  '\\end{proof}',
+  '1374d2f084fba4548299c1d7d1f886a67cd1884828b1f700dadf726eb34a0c99'),
+ ('arrange/paper_draft/fixed_witness/06_fixed_witness_body.tex',
+  '\\begin{theorem}[Four-point rescuer geometry]',
+  '\\end{proof}',
+  'b97ac11a9da8d6ce24b4adc3cf19844ff62f3cc58805520d3693e7efe03122d3')]
+for path, start, end, digest in PRESERVED_SECTIONS:
     text = (ROOT / path).read_text(encoding="utf-8")
     section = text[text.index(start):text.index(end, text.index(start))]
     assert hashlib.sha256(section.encode()).hexdigest() == digest, path
-for path, digest in [('proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4144_new_two_chart_replacement_and_router.md', '4e2ad6e6f6e63427695193cff07ccd228e7dc0b5ec80086f5fb8b52dc2d16821'), ('proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4143_new_Vd1_rescuer_finite_enclosure.md', 'c1dfec8125ff4e0dc94fccb90f60b2a79d4f5c07d61853762b74dacc17913696'), ('proof/4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like_new/4130_new_T3_like_finite_enclosure.md', '09f5668ce99ba850a03c41f41487e20bbdcdd340b72f663d843d248c8d9acf47')]:
+PRESERVED_FILES = [('proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4144_new_two_chart_replacement_and_router.md',
+  '4e2ad6e6f6e63427695193cff07ccd228e7dc0b5ec80086f5fb8b52dc2d16821'),
+ ('proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4143_new_Vd1_rescuer_finite_enclosure.md',
+  'c1dfec8125ff4e0dc94fccb90f60b2a79d4f5c07d61853762b74dacc17913696'),
+ ('proof/4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like_new/4130_new_T3_like_finite_enclosure.md',
+  '9c07b83683d951e82faed7235aba49ce9da298f67afbed2fd4d14220df7f8215')]
+for path, digest in PRESERVED_FILES:
     assert hashlib.sha256((ROOT / path).read_bytes()).hexdigest() == digest, path
 core = (ROOT / "proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2612_fixed_witness_unification.md").read_text()
 assert "B_5\\ge B_0/2" in core
 assert "B_i+A_{i+1}>1\\quad(1\\le i\\le4)" in core
 assert "## 4. Optional family B:" in core
-print("BC source hypotheses and unchanged-D regressions: OK")
-
-text = (ROOT / 'arrange/paper_draft/fixed_witness/06_fixed_witness_body.tex').read_text()
-section = text[text.index('\\subsection{D:'):text.index('\\subsection{The remaining placement router}')]
-assert hashlib.sha256(section.encode()).hexdigest() == '1b1f9c877022e2e6691e3aae1af91d217c7c1f45a387a5b0754d3614576f8137'
-print("D manuscript statements and proofs: byte-identical")
+print("BC source hypotheses, numbered D sources, and D geometry: OK")

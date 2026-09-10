@@ -27,9 +27,9 @@
 
   \draw[arr] (a0)--node[above=3pt,figlabel,fill=white,inner sep=.6pt] {shared gap anchor} (b5);
   \draw[arr] (b5)--node[above=3pt,figlabel,fill=white,inner sep=.6pt] {path monotonicity} (b4);
-  \draw[harr] (b4)--node[above=3pt,figlabel,fill=white,inner sep=.6pt] {selected $Q_+$ at $T_4$} (b3);
+  \draw[harr] (b4)--node[above=3pt,figlabel,fill=white,inner sep=.6pt] {selected $\mathcal Q_+$ at $T_4$} (b3);
   \draw[harr] (b3.east)--++(.55,0)--++(0,-1.10)--
-    node[right=2pt,figlabel,align=left,fill=white,inner sep=.6pt] {selected $Q_+$ at $T_3$\\and the scalar estimate}
+    node[right=2pt,figlabel,align=left,fill=white,inner sep=.6pt] {selected $\mathcal Q_+$ at $T_3$\\and the scalar estimate}
     ++(-10.25,0)--(b2.west);
   \draw[harr] (b2)--node[above=3pt,figlabel,fill=white,inner sep=.6pt] {threshold at $T_2$} (a2);
   \draw[arr] (a2)--node[above=3pt,figlabel,fill=white,inner sep=.6pt] {coverage of $e_{1,2}$} (b1);
@@ -43,7 +43,7 @@
 \end{tikzpicture}%
 }
 \caption{Logical structure of the CE1 direct reverse-path certificate.  The
-proof starts from the BC tail input (with $h_0=Q$), moves through the
+proof starts from the BC tail input, moves through the
 actual boundary reaches, uses two selected-arc estimates and one
 high-radial threshold, and returns to $T_1$ with incompatible incoming and
 outgoing demands.}

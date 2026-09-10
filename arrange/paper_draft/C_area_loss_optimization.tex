@@ -1,84 +1,22 @@
 \section{Area-Loss Optimization}
 \label{sec:area-loss-optimization}
 
-This appendix evaluates the three area optimizations used in
-\zcref{sec:area-loss}.  The body fixes the feasible triangles, the loss
-functional, and the strict cyclic handoffs; here we introduce coordinates only
-to solve those problems.
-
-\subsection{Wedge chart}
-
-\begin{lemma}[Local wedge reduction]
-\label{lem:area-wedge}
-After rotating indices to $i=0$, write
-\[
- X=V_0+x(V_1-V_0)+y(V_5-V_0),
- \qquad W=\{(x,y):x\ge0,\ y\ge0\}.
-\]
-If a closed unit equilateral triangle $T$ contains $V_0$, then
-\[
- T\cap H=T\cap W.
-\]
-Normalized Euclidean area is twice the corresponding $(x,y)$-coordinate
-area.
-\end{lemma}
-
-\begin{proof}
-The two basis vectors have length one and angle $120^\circ$, so
-\[
- \lVert(x,y)\rVert^2=x^2+y^2-xy,
- \qquad
- \left\lvert\det(V_1-V_0,V_5-V_0)\right\rvert=\frac{\sqrt3}{2}.
-\]
-The hexagon is
-\[
- H=\{0\le x,y\le2,\ |x-y|\le1\}\subset W.
-\]
-Conversely, if $(x,y)\in T\cap W$, then the diameter-one condition gives
-$x^2+y^2-xy\le1$.  Hence
-\[
- |x-y|^2\le x^2+y^2-xy\le1,
- \qquad
- \frac34x^2\le x^2+y^2-xy,
-\]
-and the same estimate holds for $y$.  Thus $|x-y|\le1$ and
-$0\le x,y\le2/\sqrt3<2$, proving $(x,y)\in H$.  The determinant identity
-proves the area assertion.
-\end{proof}
+This appendix proves the pointwise local loss bound of
+\zcref{thm:local-square-loss}. The cyclic accumulation is proved in the body.
 
 \subsection{Local square-loss optimization}
 
 \begin{lemma}[Solved local square-loss optimization]
 \label{lem:appendix-local-square-loss}
-For the feasible family $\mathcal T(a,b)$ of
-\zcref{sec:area-loss}, the minimum loss satisfies
-\zcref{eq:min-square-loss,eq:max-square-loss}.
+Every triangle satisfying the hypotheses of \zcref{thm:local-square-loss}
+obeys \zcref{eq:min-square-loss,eq:max-square-loss}.
 \end{lemma}
 
 \begin{proof}
-In the coordinates of Lemma~\ref{lem:area-wedge}, physical rotation through
-$60^\circ$ is $\mathsf R(x,y)=(x-y,x)$.  Put
-\[
- 0\le t\le1,\qquad D=1-t+t^2,\qquad z=\sqrt D.
-\]
-After choosing one of the six directed sides, every orientation has one of
-the following two forms:
-\begin{equation}
- \begin{array}{c|cc}
- &d&\mathsf R d\\ \hline
- \mathrm{I}&z^{-1}(1,t)&z^{-1}(1-t,1)\\[2mm]
- \mathrm{II}&z^{-1}(t,-(1-t))&z^{-1}(1,t).
- \end{array}                                      \label{eq:area-orientation-forms}
-\end{equation}
-Indeed these forms cover, respectively, the physical direction sectors
-$[120^\circ,180^\circ]$ and $[60^\circ,120^\circ]$; their endpoints cover
-the common boundary orientations.
-
-For Type I introduce
-\[
- U=\alpha+y-tx,\qquad V=\beta+x-(1-t)y.
-\]
-Then $T$ is the simplex $U,V\ge0$, $U+V\le z$.  Containment of
+Use the shared corner chart of \zcref{lem:shared-corner-chart} and the
+orientation forms \zcref{eq:orientation-type-I,eq:orientation-type-II}.
+Write $D=1-t+t^2$, $z=\sqrt D$, with $0\le t\le1$.
+In Type I, containment of
 $(0,0),(0,a),(b,0)$ gives
 \begin{equation}
  \alpha\ge tb,\quad \beta\ge(1-t)a,
@@ -136,12 +74,8 @@ $t>t_1$ and gives
 \]
 Thus \eqref{eq:max-square-loss} holds in Type I.
 
-For Type II put
-\[
- U=\alpha+(1-t)x+ty,\qquad V=\beta+tx-y.
-\]
-Again $T$ is the simplex $U,V\ge0$, $U+V\le z$.  Its exact reaches on the
-positive $y$- and $x$-axes are
+In Type II, substituting the axes in \zcref{eq:orientation-type-II} gives
+the exact positive $y$- and $x$-axis reaches
 \begin{equation}
  A=\beta,\qquad B=z-\alpha-\beta,\qquad A+B\le z\le1.
  \label{eq:area-type-II-reaches}
@@ -171,33 +105,4 @@ gives $\mathcal L_{\mathrm{II}}\ge r^2D\ge A^2$.  Reflection gives
 $\mathcal L_{\mathrm{II}}\ge B^2$ when $B\le A$.  Since $A\ge a$ and $B\ge b$,
 this proves \eqref{eq:min-square-loss}.  The two orientation types are
 exhaustive, so the theorem follows.
-\end{proof}
-
-\subsection{Cyclic loss optimization}
-
-The variables $\xi_i,a_i,b_i$ are the strict handoffs already fixed in
-\zcref{sec:area-loss}; in particular, no endpoint selection is relaxed here.
-
-\begin{lemma}[Solved cyclic area-loss optimization]
-\label{lem:appendix-cyclic-area-loss}
-The implication in \zcref{lem:cyclic-area-loss} hold.
-\end{lemma}
-
-\begin{proof}
-Put $m=\min_i \xi_i$ and $M=\max_i \xi_i$.  The reflection
-$y_i=1-\xi_{-i-1}$ swaps each V triangle's two coordinates and preserves the number of ascents and the total loss.  Hence assume $m\le1-M$.  Every selected
-V triangle coordinate is then at least $m$, so
-\eqref{eq:min-square-loss} gives loss at least $m^2$ for every V triangle.
-
-Choose an ascent out of a minimum plateau,
-$\xi_{p-1}=m<\xi_p$.  Its V triangle contains the coordinate $1-m$ and loses at least
-$(1-m)^2$ by \eqref{eq:max-square-loss}.  A second ascent has one coordinate
-strictly larger than $1/2$ and hence loses strictly more than $1/4$.  The
-other four V triangles lose at least $m^2$ each, so the total loss is strictly
-larger than
-\[
- 4m^2+(1-m)^2+\frac14
- =5\left(m-\frac15\right)^2+\frac{21}{20}>1.
-\]
-
 \end{proof}

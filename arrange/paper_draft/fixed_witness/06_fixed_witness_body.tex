@@ -1,26 +1,13 @@
 % Active nonzero-gap body. Included by 06_finite_enclosure_full.tex.
-% The original common-capacity definitions precede this file; the unchanged
-% zero-gap chapter follows it. All witness sets below are fixed before a
-% candidate enclosing triangle is introduced.
-\subsection{Fixed witnesses and the case register}
+% Witness sets are fixed before any enclosing candidate is introduced.
+\subsection{Fixed witnesses and candidate enclosures}
 \label{subsec:trace-exact-ab-envelopes}
 
-An obstruction for the original C triangle is not, by itself, an enclosure
-inequality. We therefore separate two assertions: the original cover forces
-one fixed finite set into $U_C$, and every open unit equilateral candidate
-fails to contain that same set. Candidate center parameters are recomputed
-in the second assertion; the witness points are never recomputed.
-
-The actual gap on $e_{i,i+1}$ is
-\[
- J_i=X_i([B_i,1-A_{i+1}]).
-\]
-Both endpoints are missed by the incident open V triangles and by all
-nonincident V triangles. Equality $B_i=1-A_{i+1}$ is a singleton gap.
-Convexity fills a gap from its endpoints, so a candidate containing the
-endpoints of all actual gaps completes the boundary with the original
-six V triangles. This observation does not assert that it completes the
-whole skeleton.
+Each witness set is fixed from the original V triangles before an
+arbitrary enclosing candidate is chosen. The candidate's center parameters
+are recomputed, but its witness points are not. Gap endpoints are supplied
+by \zcref{lem:gap-exhaustion}; radial witnesses use the total endpoints,
+including all permitted neighboring traces.
 
 \begin{lemma}[The origin is implicit in the path witnesses]
 \label{lem:fixed-origin-in-hull}
@@ -36,54 +23,24 @@ Use $V_2=V_1-V_0$ and $V_4=-V_1$, and normalize the three positive
 coefficients to sum to one.
 \end{proof}
 
-There are three active witness recipes and three principal mechanisms:
-a nonsupercritical boundary path, a supported rescuer, and the zero-gap
-asymmetric construction. The complementary-gap disk is retained in Appendix D as an independent
-alternative A; the former four-point B proof is also retained there as
-an optional refinement. Neither is a dependency of the all-nonsupercritical theorem. In the nonzero-gap rows normalize
-the C triangle's distinguished radial midpoint to $M_0$. When $N_+=1$, let
-$\sigma$ be the unique supercritical index. All point counts below are upper
-bounds; coincident gap endpoints can reduce them.
+The three constructions are summarized after they have been defined. Normalize the C midpoint to
+$M_0$ in the nonzero-gap cases, and write $\sigma$ for the unique
+supercritical index when $N_+=1$. Counts are upper bounds, allowing
+coincident gap endpoints.
 
-\begingroup
-\small
-\renewcommand{\arraystretch}{1.18}
-\setlength{\tabcolsep}{3pt}
-\begin{longtable}{@{}p{.29\textwidth}p{.44\textwidth}p{.18\textwidth}@{}}
-\caption{Fixed finite-enclosure recipes. Ordinary nonsupercritical V triangles
-are not subdivided by type.}\label{tab:finite-enclosure-subcases}\\
-\toprule
-Conditions & Fixed witness set & Disk and count\\
-\midrule
-\endfirsthead
-\toprule Conditions & Fixed witness set & Disk and count\\\midrule
-\endhead
-BC: at least one incident gap; $T_1,\ldots,T_5$ nonsupercritical &
-$\{M_0,X_0(B_0),X_0(1-A_1),\widehat P_2,\widehat P_3,\widehat P_4\}$ & No disk; at most 6\\
-D: center-based T3-like or Vd1 rescuer; one or two gaps &
-$\{O,\varepsilon V_1,Y(A_0),Y(1-B_5)\}$ & No disk; at most 4\\
-F: zero gaps, $N_+=1$ & Six common radial points and $Q_-,Q_0,Q_+$ & Disk; at most 9\\
-\bottomrule
-\end{longtable}
-\endgroup
 
-Replacement is a skeleton-preserving operation, not a fourth witness recipe.
-For $N_+=1$ and $\sigma=0$, select either actual gap and use BC.
-The two boundary witnesses come only from that selected gap.
-This includes both adjacent and nonadjacent Vd placements: their location
-no longer changes the active point construction. When $\sigma\ne0$,
-midpoint rescue and the retained length filters give the D or R placements
-specified below. A Vd2 rescuer retains its perimeter exit; the four-point
-D theorem does not assume endpoint inequalities that have only been proved
-for T3-like and Vd1 triangles.
+
+Replacement is a separate skeleton-preserving operation, not a fourth
+witness construction. BC handles the center-aligned case. For an off-center
+supercritical role, its midpoint supplier leads to D, replacement, or the
+Vd2 perimeter obstruction.
 
 \subsection{BC: one selected gap and one six-point construction}
 
 Normalize the center midpoint to $M_0$ and choose any actual gap, reflected
 to $J_0$. The other incident edge $e_{5,0}$ may or may not contain a gap.
 Only the four middle edges $e_{1,2},\ldots,e_{4,5}$ must be gap-free.
-The following boundary transfer supplies precisely the input that the old
-one-gap proof obtained from its fifth handoff.
+The following transfer supplies the tail bound needed by the path argument.
 
 \begin{lemma}[Shared-gap-anchor boundary transfer]
 \label{lem:shared-gap-anchor-transfer}
@@ -125,48 +82,6 @@ triangle. The other points are missed by the V triangles. The origin is
 implicit by \zcref{lem:fixed-origin-in-hull}; the construction uses at most
 six points even though a candidate must also contain $O$.
 
-\begin{lemma}[The fixed transverse witness is center-forced]
-\label{lem:readable-k410-forced}
-Under the selected-gap hypotheses, with the original C triangle's distinguished midpoint
-$M_0$, skeleton coverage implies $K_{BC}\subset U_C$.
-\end{lemma}
-\begin{proof}
-Use the two actual gap endpoints, total radial forcing on $r_2,r_3,r_4$,
-and the distinguished midpoint. No Vd0 locality is assumed.
-\end{proof}
-
-\begin{proposition}[CE2 transverse threshold terminal]
-\label{prop:readable-k410-ce2}
-Under the BC path hypotheses below, no open unit CE2 candidate contains
-$K_{BC}$.
-\end{proposition}
-\begin{proof}
-The fixed midpoint and implicit origin normalize every candidate. Its
-boundary witnesses and the tail bound give a common path pair $(X,Q)$, where
-$X=R-\delta$ and $Q=(\eta+\alpha+\delta)/(2R)$. The two thresholds in
-\zcref{lem:appendix-fixed-transverse} exclude the total endpoint on $r_2$
-or $r_4$ using common-pair domination.
-\end{proof}
-
-\begin{proposition}[CE1 transverse return with neighboring support]
-\label{prop:readable-k410-ce1}
-Under the BC path hypotheses below, no open unit CE1 candidate contains
-$K_{BC}$.
-\end{proposition}
-\begin{proof}
-In the candidate's signed domain, both boundary reaches of every relevant
-path role exceed $\min\{X,Q\}>\alpha/R>\alpha$. Neighbor estimates and
-fixed-endpoint containment first recover the own demands at $T_4,T_3$.
-The first selected return step gives $B_3>L_1$, and the positive identity
-\[
- R(L_1-\delta)
- =(1-2\alpha)\eta+(W-2\alpha)(\alpha+\delta)+4R\alpha^2
-\]
-excludes both neighboring contributions on $r_2$. This recovers the third
-own demand before the full return is invoked. The exact argument is
-\zcref{lem:appendix-fixed-transverse}; the conditional local return remains
-\zcref{prop:new-ce1-direct-certificate}.
-\end{proof}
 
 \begin{theorem}[Unified six-point selected-gap enclosure]
 \label{prop:new-nplus-one-all-vd0}
@@ -174,20 +89,18 @@ Suppose $J_0$ is an actual gap, $A_i+B_i\le1$ for $1\le i\le5$, and
 \[
  B_i+A_{i+1}>1\quad(1\le i\le4),\qquad B_5\ge B_0/2.
 \]
-Then $\Lambda(K_{BC})\ge1$. There is no condition on the gap status of
-$e_{5,0}$ and no supercriticality requirement on $T_0$. Nonsupercritical
-path roles are not subdivided by V type. No disk is used.
+Then $\Lambda(K_{BC})\ge1$. Under skeleton coverage with distinguished
+C midpoint $M_0$, the fixed set $K_{BC}$ lies in $U_C$.
+There is no condition on the gap status of $e_{5,0}$ or supercriticality
+of $T_0$, and no type restriction on the nonsupercritical path.
 \end{theorem}
 \begin{proof}
-Every candidate contains $O,M_0$ and a boundary point openly, hence is CE1
-or CE2. The gap endpoints give $B_0>2Q$ and $A_1>X$ in its signed
-coordinates. The explicit tail bound gives $B_5>Q$, and four middle
-handoffs give $A_i>X$, $B_i>Q$ throughout the nonsupercritical path.
-The preceding propositions, detailed in
-\zcref{lem:appendix-fixed-transverse}, exclude both candidate classes.
-In the old pure one-gap setting, the tail premise follows from
-$B_5>1-A_0\ge1-M_0(B_0)>B_0/2$, so that theorem is retained as a
-specialization, with $K_C$ an alternative name for the same set.
+Forcing uses the two actual gap endpoints, the three total radial
+endpoints, and the C midpoint. The origin-hull identity then puts $O$ in
+any open candidate containing $K_{BC}$. Its signed parameters turn the
+gap anchors and tail bound into a common pair of strict boundary lower
+bounds along the path. The CE2 threshold and CE1 return calculations in
+\zcref{lem:appendix-fixed-transverse} exclude both candidate classes.
 \end{proof}
 
 \begin{theorem}[Center-aligned path obstruction]
@@ -214,9 +127,7 @@ A skeleton cover by the seven original open roles satisfies $N_+\ge1$.
 \begin{proof}
 If $N_+=0$ and there are no gaps, strict overlaps give
 $6<\sum_i(A_i+B_i)\le6$. If a gap is present, all six roles are
-nonsupercritical, so \zcref{thm:center-aligned-path} applies. Thus N0
-uses BC, not optional A or B. The local transverse return does not use N0,
-so the later replacement argument introduces no circular dependency.
+nonsupercritical, so \zcref{thm:center-aligned-path} applies. This proof uses only BC; replacement will invoke N0, not conversely.
 \end{proof}
 
 \begin{lemma}[A unique midpoint supplier]
@@ -241,7 +152,7 @@ If $\sigma\ne k$, neither the C triangle nor $T_\sigma$ contains
 $M_\sigma$. Diameter excludes nonlocal roles; a Vd0 role has no positive
 adjacent trace and cannot contain that point openly. Hence its unique
 supplier is an adjacent positive-support role. A T3-like supplier also
-misses its own midpoint. Unless $\tau=k$, neither the center nor the
+misses its own midpoint by \zcref{lem:t3-nonsupercritical}. Unless $\tau=k$, neither the center nor the
 other roles could cover this second midpoint: all other roles are Vd0.
 Finally, when $k\notin\{\tau,\sigma\}$, the shared edge is not incident
 to $V_k$, whereas every open center boundary trace is incident to $V_k$
@@ -271,10 +182,11 @@ The convex combination
  \frac{\varepsilon}{s}Y(a)+\frac a s(\varepsilon V_1)
  =\frac{\varepsilon}{s}V_0
 \]
-forces $M_0$ into any candidate containing the four points. Its left boundary
-trace and exit on $r_1$ then give the incompatible inequalities
-$1-\beta<R+\alpha<a/s\le1-\beta$.
-The reflected one-edge normal form and the endpoint cases are checked in
+forces $M_0$ into any open unit candidate containing the four points.
+The signed-center calculation then places the far endpoint of its left
+boundary trace strictly below $a/s$, whereas containment of $Y(1-\beta)$
+requires that endpoint to exceed $1-\beta\ge a/s$.
+The signed parameters and endpoint cases are given in
 \zcref{lem:appendix-fixed-four-point}.
 \end{proof}
 
@@ -290,61 +202,25 @@ The smaller root is $1-M$, while the other root is at least one.
 The quadratic is nonnegative on $[0,1/2]$ exactly before its smaller root.
 \end{proof}
 
-For the two actual adapters normalize $T_0$ as the rescuer of $M_1$,
-$T_1$ as uniquely supercritical, and $T_2,\ldots,T_5$ as nonsupercritical
-ordinary roles on the four center-free edges. Write
+For the covering application, let $T_0$ supply $M_1$, with supported
+interval $[c,u]$ on $r_1$, measured from $V_1$ toward $O$, and put
+$\varepsilon=1-u$ and $P_T=\varepsilon V_1$. All interval endpoints here
+belong to the original triangle, not to its translated majorant.
+The local T3-like and Vd1 calculations establish
 \[
- T_0\cap r_1=\{(1-t)V_1:c\le t\le u\},\qquad
- 0<c\le\tfrac12\le u<1,\qquad \varepsilon=1-u.
+ A_0+\varepsilon\le1,\qquad
+ \frac{A_0}{A_0+\varepsilon}\le1-M_c^{\rm sup},
+.
 \]
-Let $M=M_c^{\rm sup}=(c+\sqrt{c^2-8c+4})/2$, with the value $1/2$ at
-$c=1/2$ understood as the continuous endpoint convention. The local
-requirements are
+Together with $C_1\ge c$, the boundary path, and the forced endpoint,
+\zcref{lem:new-rescuer-tail-budget} gives the single fixed witness
 \[
- \varepsilon V_1\in U_C,\quad C_1\ge c,\quad
- A_0+\varepsilon\le1,\quad
- \frac{A_0}{A_0+\varepsilon}\le1-M.
+ K_D=\{O,\varepsilon V_1,Y(A_0),Y(1-B_5)\}\subset U_C,
+ \qquad \Lambda(K_D)\ge1.
 \]
-The separate inequality $A_0\le1-M$ follows from the last two and is not
-an additional hypothesis.
-
-The strict-supercritical envelope gives $B_1<M$; the four ordinary handoffs
-give $B_5\le B_1$. Thus $B_5<1-A_0$, and the two left-gap endpoints are
-$Y(A_0)$ and $Y(1-B_5)$. The fixed set is
-\[
- \boxed{K_D=\{O,\varepsilon V_1,Y(A_0),Y(1-B_5)\}.}
-\]
-It lies in $U_C$ and satisfies the four-point theorem with geometric
-parameters $a=A_0$, $\beta=B_5$. No sum greater than four is needed.
-There is no disk, and no distinction between one and two actual gaps in
-this enclosure step.
-
-\paragraph{T3-like local input.}
-In its translated chart put
-\[
- 1\le D_T\le2/\sqrt3,\qquad
- R_T=(D_T+\sqrt{4-3D_T^2})/2.
-\]
-The actual supported endpoints are
-\[
- c=\frac{D_T(1+A_0)-1}{R_T},\qquad
- u=1-\frac{R_T}{D_T}+A_0,\qquad
- \varepsilon=\frac{R_T}{D_T}-A_0.
-\]
-The T3-like chart calculation verifies the local requirements. In particular,
-with $x=A_0D_T/R_T$ and $c=x+\theta$, the ratio test becomes the single
-quadratic $2x^2+(\theta-1)x+\theta\ge0$.
-
-\paragraph{Vd1 local input.}
-With $t\ge1$ and $d_t=\sqrt{t^2+t+1}$, the actual corner data give
-\[
- c=\frac{t(1-B_0)}{t+1},\qquad
- u=\frac{d_t-A_0-tB_0-1}{t},\qquad
- \varepsilon=\frac{t+1-d_t+A_0+tB_0}{t}.
-\]
-The Vd1 chart calculation verifies the same requirements for CE1 and CE2;
-it uses no CE2-only center inequality. These two chart
-calculations remain in Appendix D; their global ending is identical.
+The two local verifications are
+\zcref{lem:appendix-t3-supported-tail,lem:appendix-vd1-supported-tail};
+the enclosure step does not distinguish one from two gaps.
 
 \begin{proposition}[T3-like supported-rescuer terminal]
 \label{prop:new-one-t3-terminal}
@@ -352,15 +228,14 @@ Suppose $N_+=1$, there is exactly one T3-like role and no Vd1/Vd2 role,
 and there is at least one actual gap. Then the skeleton is not covered.
 \end{proposition}
 \begin{proof}
-If the supercritical role is center-aligned, use
-\zcref{thm:center-aligned-path}. Otherwise \zcref{lem:midpoint-supplier}
+The center-aligned case is excluded by \zcref{thm:center-aligned-path}.
+In the remaining case, \zcref{lem:midpoint-supplier}
 puts the T3-like supplier at the center midpoint and, after reflection,
 the supercritical role at $T_1$. The actual-or-bounded frontier forces
 $\varepsilon V_1$ into $U_C$, and radial coverage gives $C_1\ge c$.
 The local calculation \zcref{lem:appendix-t3-supported-tail} gives the
 remaining ratio and size bounds. Apply the common adapter
-\zcref{lem:new-rescuer-tail-budget}. It handles either gap rank without
-propagating a common pair through the supercritical role.
+\zcref{lem:new-rescuer-tail-budget}.
 \end{proof}
 
 \input{figures/finite_enclosure/fe08_t3_rescuer}
@@ -384,17 +259,4 @@ endpoint forced by the common frontier and $C_1\ge c$ by radial coverage;
 then give D. An away Vd1 supplier has a center-free shared edge, so
 \zcref{prop:appendix-vd1-two-chart-replacement} applies and contradicts N0.
 The latter preserves only the skeleton, not all of $H$ or the input gap rank.
-\end{proof}
-
-\begin{proposition}[All nonzero-gap finite-enclosure rows]
-\label{prop:finite-enclosure-nonzero-gap-branches}
-Every nonzero-gap row of \zcref{tab:routing} assigned to finite enclosure
-is impossible.
-\end{proposition}
-\begin{proof}
-Use N0 for $N_+=0$, the common skeleton budget for the high-count
-states, and \zcref{lem:midpoint-supplier} for the remaining placements.
-The center-aligned case is BC; a T3-like supplier uses
-\zcref{prop:new-one-t3-terminal}; the Vd1/Vd2 cases use
-\zcref{prop:new-one-vd-assembly}, with its explicit Vd2 length exit.
 \end{proof}

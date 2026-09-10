@@ -444,6 +444,24 @@ if result.returncode:
 else:
     print(result.stdout.strip())
 
+# Refactor regressions: preservation and exact identities, not formal verification.
+shortening_checker = ROOT / "proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/verify_paper_shortening.py"
+result = subprocess.run([sys.executable, str(shortening_checker)], cwd=ROOT,
+                        text=True, capture_output=True)
+if result.returncode:
+    fail(result.stdout + result.stderr)
+else:
+    print(result.stdout.strip())
+
+# Targeted editorial reading-order and exact local-algebra checks.
+editorial_checker = ROOT / "proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/verify_editorial_order.py"
+result = subprocess.run([sys.executable, str(editorial_checker)], cwd=ROOT,
+                        text=True, capture_output=True)
+if result.returncode:
+    fail(result.stdout + result.stderr)
+else:
+    print(result.stdout.strip())
+
 if ERRORS:
     print("proof/check.py: FAILED", file=sys.stderr)
     for error in ERRORS:
