@@ -1,0 +1,29 @@
+name: Temporary editorial source recovery
+on:
+  push:
+    branches: [chatgpt/paper-shortening-20260909141118]
+    paths: [.github/workflows/editorial-recovery.yml]
+permissions:
+  contents: read
+jobs:
+  recover:
+    if: github.ref == 'refs/heads/chatgpt/paper-shortening-20260909141118'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Export previous uncommitted editorial data without executing it
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/editorial-recovery
+          cat arrange/_support/.editorial_recovery_00.b64 arrange/_support/.editorial_recovery_01.b64 > /tmp/editorial-recovery/payload.b64
+          git bundle create /tmp/editorial-recovery/branch.bundle refs/heads/chatgpt/paper-shortening-20260909141118
+          sha256sum /tmp/editorial-recovery/* > /tmp/editorial-recovery/SHA256SUMS
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: editorial-recovery
+          path: /tmp/editorial-recovery/
+          if-no-files-found: error
+          retention-days: 3
