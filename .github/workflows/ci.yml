@@ -45,6 +45,9 @@ jobs:
       - name: Check inline proof order and preservation
         run: python arrange/_support/verify_inline_proofs.py
 
+      - name: Preserve pre-review statements and complete proof calculations
+        run: python arrange/_support/verify_readability_preservation.py
+
       - name: Replay exact zero-gap derivation and positivity certificates
         working-directory: proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation
         run: |
@@ -115,7 +118,7 @@ jobs:
           import fitz
 
           bounds = {
-              Path("arrange/_build/canonical.pdf"): (67, 71),
+              Path("arrange/_build/canonical.pdf"): (73, 78),
           }
           for path, (lower, upper) in bounds.items():
               pages = fitz.open(path).page_count
