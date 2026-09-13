@@ -1,0 +1,28 @@
+name: Temporary readability source transport
+on:
+  push:
+    branches: [chatgpt/human-readable-paper-20260913145427]
+    paths: [.github/workflows/readability-delivery.yml]
+permissions:
+  contents: read
+jobs:
+  export:
+    if: github.ref == 'refs/heads/chatgpt/human-readable-paper-20260913145427'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+        with:
+          persist-credentials: false
+      - name: Export exact tracked source without Git credentials
+        run: |
+          git archive --format=tar HEAD > /tmp/hexagon-source.tar
+          git rev-parse HEAD > /tmp/source-head.txt
+          sha256sum /tmp/hexagon-source.tar
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: readability-source
+          path: |
+            /tmp/hexagon-source.tar
+            /tmp/source-head.txt
+          if-no-files-found: error
+          retention-days: 3
