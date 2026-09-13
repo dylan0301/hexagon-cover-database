@@ -1,0 +1,29 @@
+The remaining zero-gap case has one supercritical V triangle. There is no
+boundary gap to use as a witness, so the obstruction must be built inside
+$H$. The construction and its verification have three stages.
+
+\readerheading{Force the points.}
+Strict boundary handoffs give common lower bounds for the boundary reaches.
+These force six radial points into the C triangle. Three further points are
+chosen on the exact frontier of the feasible union of the supercritical
+triangle; separate diameter and handoff arguments exclude every other V
+triangle. Exclusion from the supercritical triangle alone would not be enough.
+A frontier point may belong to a closed feasible triangle while being missed
+by its open interior.
+
+\readerheading{Simplify the set to be enclosed.}
+The convex hull of the six radial points contains a disk. Replacing those
+six points by this disk gives a smaller comparison set. In the nontrivial
+range, the two outer frontier points are then moved inward by a single
+Newton step. Convexity keeps these comparison points inside any candidate
+containing the original witnesses. These are exact inner comparisons,
+not numerical approximations to a covering configuration.
+
+\readerheading{Bound the enclosing triangle.}
+The inner comparison reduces the enclosure problem to four supporting
+contacts: two contacts along consecutive-point lines and two disk-tangent
+contacts. The line estimates are analytic. The remaining paired tangent
+inequalities are reduced to the exact polynomial certificate. At the end,
+the comparison set requires side at least one, contradicting its containment
+in the open C triangle. The calculations below justify each of these stages;
+the certificate enters only at the last one.

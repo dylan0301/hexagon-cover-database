@@ -1,0 +1,42 @@
+We prove that seven open equilateral triangles of side one cannot cover a
+regular hexagon of side one. The obstruction is not a shortage of total
+area: the hexagon has the area of six unit triangles. Instead, the same
+triangles must cover both the boundary and the interior, and these two
+obligations compete.
+
+\readerheading{Seven triangles, seven prescribed points.}
+The center and the six vertices of the hexagon are pairwise at distance at
+least one. An open unit triangle cannot contain two of them. Thus any
+hypothetical cover assigns one triangle to the center and one to each
+vertex. We call these the C triangle and the six V triangles. This elementary
+observation is the starting point of the proof, not merely a labeling
+convention; its precise statement is \zcref{lem:distinct-roles}.
+
+\readerheading{Boundary reach has an interior cost.}
+Call a V triangle \emph{supercritical} when the sum of the lengths it covers
+on its two incident hexagon edges is greater than one. If the V triangles
+cover the entire boundary, neighboring open traces must overlap. Their total
+length is therefore greater than six, so at least one V triangle is
+supercritical. The crucial local fact is that a supercritical V triangle
+misses the midpoint of the segment from its vertex to the center
+(\zcref{lem:self-midpoint}). Extra boundary reach creates an interior
+obligation for another triangle.
+
+\readerheading{Two branches of the argument.}
+If the V triangles cover the entire boundary, two or more supercritical
+triangles waste too much area outside the hexagon. Exactly one leads instead
+to nine points that the C triangle must contain, but that cannot fit inside
+an open unit triangle. If the V triangles leave a boundary gap, the C triangle
+must cover it. Reaching the boundary restricts the C triangle to exactly one
+radial midpoint. Length budgets then leave only a small number of ways to
+cover the other necessary midpoints. These are excluded by six-point or
+four-point enclosures, a perimeter estimate, or a replacement that preserves
+the boundary and radial segments. The detailed hypotheses are given in
+Table~\ref{tab:routing}; this paragraph describes the logic before introducing
+the classification notation.
+
+The proof therefore has three geometric measurements: length on a fixed
+network, area lost outside the hexagon, and the least equilateral triangle
+containing a fixed set of points. The local calculations serve these three
+measurements. The exact computer-assisted step is confined to the final
+zero-gap enclosure argument; it is not a numerical search over covers.

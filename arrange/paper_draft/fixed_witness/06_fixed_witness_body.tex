@@ -35,7 +35,7 @@ witness construction. BC handles the center-aligned case. For an off-center
 supercritical role, its midpoint supplier leads to D, replacement, or the
 Vd2 perimeter obstruction.
 
-\subsection{BC: one selected gap and one six-point construction}
+\subsection{A selected gap forces six points (BC)}
 
 Normalize the center midpoint to $M_0$ and choose any actual gap, reflected
 to $J_0$. The other incident edge $e_{5,0}$ may or may not contain a gap.
@@ -82,6 +82,8 @@ triangle. The other points are missed by the V triangles. The origin is
 implicit by \zcref{lem:fixed-origin-in-hull}; the construction uses at most
 six points even though a candidate must also contain $O$.
 
+
+\input{reading_guide/selected_gap_walkthrough}
 
 \begin{theorem}[Unified six-point selected-gap enclosure]
 \label{prop:new-nplus-one-all-vd0}
@@ -159,7 +161,7 @@ to $V_k$, whereas every open center boundary trace is incident to $V_k$
 by the signed normal form.
 \end{proof}
 
-\subsection{D: a four-point supported-rescuer enclosure}
+\subsection{A supported midpoint forces four points (D)}
 
 Let $Y(t)=(1-t)V_0+tV_5=X_5(1-t)$. The geometric lemma below is stated
 independently of any V type or covering configuration.
@@ -190,6 +192,8 @@ The signed parameters and endpoint cases are given in
 \zcref{lem:appendix-fixed-four-point}.
 \end{proof}
 
+\input{reading_guide/four_point_explanation}
+
 \begin{lemma}[Scalar rescuer ratio test]
 \label{lem:rescuer-ratio-test}
 For $0\le x,c\le1/2$ and $M=(c+\sqrt{c^2-8c+4})/2$,
@@ -209,8 +213,7 @@ belong to the original triangle, not to its translated majorant.
 The local T3-like and Vd1 calculations establish
 \[
  A_0+\varepsilon\le1,\qquad
- \frac{A_0}{A_0+\varepsilon}\le1-M_c^{\rm sup},
-.
+ \frac{A_0}{A_0+\varepsilon}\le1-M_c^{\rm sup}.
 \]
 Together with $C_1\ge c$, the boundary path, and the forced endpoint,
 \zcref{lem:new-rescuer-tail-budget} gives the single fixed witness
@@ -241,7 +244,9 @@ remaining ratio and size bounds. Apply the common adapter
 \input{figures/finite_enclosure/fe08_t3_rescuer}
 \FloatBarrier
 
-\subsection{The remaining placement router}
+\input{reading_guide/replacement_scope}
+
+\subsection{Completing the nonzero-gap cases}
 
 \begin{proposition}[One-Vd placement assembly]
 \label{prop:new-one-vd-assembly}

@@ -332,7 +332,8 @@ zero_gap_calculation = (
 ).read_text(encoding="utf-8")
 if "\\zcref{" + uniform_label + "}" not in zero_gap_calculation:
     fail("zero-gap radial calculation does not use the shared forcing interface")
-routing_text = (ROOT / "arrange/paper_draft/01_introduction.tex").read_text(
+# The detailed route table follows the definitions in the structural section.
+routing_text = (ROOT / "arrange/paper_draft/02_structure_and_common_geometry.tex").read_text(
     encoding="utf-8"
 )
 if routing_text.count("$0$&$1$&") != 1:

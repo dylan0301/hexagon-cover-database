@@ -1,15 +1,16 @@
 # Paper with proofs following statements
 
-This 64-page additional edition has no appendices. Its 83 formal results each have
+This 73-page additional edition has no appendices. Its 83 formal results each have
 an immediate proof. The introduction announces the main result; the formal
-main theorem and scaling corollary conclude the paper. The canonical edition
-and all numbered mathematical sources are unchanged.
+main theorem and scaling corollary conclude the paper. Both editions share the new geometric overview and witness explanations.
+The numbered mathematical sources and exact certificate data are unchanged.
 
 From the repository root:
 
 ```bash
 python arrange/build.py --inline-proofs
 python arrange/_support/verify_inline_proofs.py
+python arrange/_support/verify_readability_preservation.py
 ```
 
 The clean build is `arrange/_build/inline_proofs.pdf`; the tracked publication
@@ -61,3 +62,8 @@ The edition-specific layout keeps the end of each statement with the start
 of its proof and places shared figures at their source positions. Run
 `python arrange/_support/verify_inline_proofs.py --pdf arrange/_build/inline_proofs.pdf`
 to check the rendered proof count, appendix referrals, and separated proof starts.
+
+The readability review preserves all 83 proof environments against the
+pre-review baseline. Its layout also prevents a final displayed equation from
+separating a statement from the start of its proof. The 73-page count includes
+that protection; no proof was removed to achieve a page target.

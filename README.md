@@ -129,3 +129,13 @@ The follow-up audit in
 review, notation crosswalks, and repaired local proof inputs. The `(3,0)`
 normalization remains intact. The paper's exact computational appendix is
 supplied with its finite data and both replay programs in the source package.
+
+## Human-readable manuscript revision
+
+Both paper editions now begin with the boundary/interior tradeoff and include
+a worked selected-gap witness, explicit original/candidate/replacement scopes,
+and a staged explanation of the zero-gap enclosure. The reviewer report is
+[`arrange/20260913_readability_review_report.md`](arrange/20260913_readability_review_report.md).
+Run `python arrange/_support/verify_readability_preservation.py` to compare the
+formal statements, complete proof environments, and proof/certificate corpus
+with the pre-review baseline.

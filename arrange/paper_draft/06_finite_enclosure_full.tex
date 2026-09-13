@@ -1,9 +1,9 @@
 \section[Finite-Enclosure Method]{Finite-Enclosure Obstructions}
 \label{sec:finite-enclosure}
 
-The finite-enclosure method finds compact sets that the V triangles miss.
-Under a hypothetical cover those sets lie in the open C triangle, while their
-least equilateral enclosure has side at least one.
+The finite-enclosure method identifies a compact set that the C triangle
+must contain, then proves that this set does not fit inside any open unit
+equilateral triangle.
 
 Put
 \[
@@ -17,7 +17,16 @@ one. Conversely, $\Lambda(K)<1$ gives such an open unit enclosure by
 slightly enlarging a smaller closed enclosure. Thus it is enough to
 exclude every open unit candidate containing the same fixed set $K$.
 
+\input{reading_guide/fixed_witness_logic}
+
 \subsection{Local capacities and radial witnesses}
+
+The following capacities answer a local question: after boundary anchors
+have been prescribed, how far toward the center can a unit triangle reach?
+They are maxima over a family of triangles, not the actual reaches of the
+original triangle. A larger prescribed anchor shrinks the feasible family.
+The neighboring capacities are needed because a point on one radial segment
+may be covered by the V triangle at either adjacent vertex.
 
 Normalize at \(V_0\) and define the four-anchor hull
 \[
@@ -177,6 +186,8 @@ Define
 \]
 The points \(D_i\) are the radial witnesses used below.
 
+\input{reading_guide/actual_and_bounded_frontiers}
+
 \begin{lemma}[Type-aware radial forcing]
 \label{lem:new-type-aware-radial-forcing}
 For every \(i\),
@@ -232,6 +243,8 @@ Vd1, Vd2, or T3-like crossing does not change any witness coordinate.
 
 \subsection{The zero-gap nine-point obstruction}
 \label{sec:strategy4-reader}
+
+\input{reading_guide/zero_gap_reading_path}
 
 Assume
 \[
@@ -336,6 +349,8 @@ For the enclosure calculation use the compact comparison set
 \end{equation}
 
 \input{figures/finite_enclosure/fe11_zero_gap_witness}
+
+\input{reading_guide/nine_points_and_comparison_set}
 
 \begin{theorem}[Witness enclosure]
 \label{thm:reader-witness-enclosure}

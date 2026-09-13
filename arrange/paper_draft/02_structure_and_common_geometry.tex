@@ -66,6 +66,44 @@ point therefore gives a bijection.
 
 \subsection{C triangle and V triangle classifications}
 
+Set
+\[
+ N_E(T_C):=
+ \left\lvert\left\{i\in\mathbb Z/6\mathbb Z:
+ \Haus(T_C\cap e_{i,i+1})>0\right\}\right\rvert.
+\]
+Proposition~\ref{prop:ce-classification} gives $N_E(T_C)\in\{0,1,2\}$;
+we call these types $\CEzero,\CEone,\CEtwo$, respectively.
+
+\begin{figure}[H]
+\centering
+\begin{minipage}[t]{.32\textwidth}
+\vspace{0pt}\centering
+\includegraphics[width=\linewidth,height=.20\textheight,keepaspectratio]
+  {figures/role_examples/center_role_ce0_example.png}
+\par\smallskip
+\footnotesize (a) $\CEzero$
+\end{minipage}\hfill
+\begin{minipage}[t]{.32\textwidth}
+\vspace{0pt}\centering
+\includegraphics[width=\linewidth,height=.20\textheight,keepaspectratio]
+  {figures/role_examples/center_role_ce1_example.png}
+\par\smallskip
+\footnotesize (b) $\CEone$
+\end{minipage}\hfill
+\begin{minipage}[t]{.32\textwidth}
+\vspace{0pt}\centering
+\includegraphics[width=\linewidth,height=.20\textheight,keepaspectratio]
+  {figures/role_examples/center_role_ce2_example.png}
+\par\smallskip
+\footnotesize (c) $\CEtwo$
+\end{minipage}
+\caption{Examples of the three C triangle classes.  From left to right, the
+C triangle has positive-length trace on zero, one, and two edges of
+$\partial H$; point contacts do not count.  The panels illustrate the classification.}
+\label{fig:center-role-examples}
+\end{figure}
+
 Point contacts have zero trace length, so they do not create an additional
 positive boundary trace in the definition of $N_E(T_C)$.
 
@@ -86,6 +124,16 @@ By \zcref{lem:app-center-edge-separation}, those points are more than unit
 distance apart, so a unit equilateral triangle cannot contain both.
 \end{proof}
 
+For the V triangle $T_i$, let $o(T_i)$ be the number of its triangle vertices
+outside $H$ and put
+\[
+ n(T_i)=\left\lvert\left\{j\in\{i-1,i+1\}:
+ \Haus(T_i\cap r_j)>0\right\}\right\rvert,
+\]
+with indices modulo $6$.  The raw pair $(3,0)$ says that all three vertices of
+$T_i$ lie outside $H$; it does not say that $T_i$ is disjoint from $H$, since
+$V_i\in\interior(T_i)\cap H$.
+
 \begin{lemma}[Local wedge]
 \label{lem:local-wedge}
 Every original V triangle has $1\le o(T_i)\le3$.  If
@@ -102,6 +150,14 @@ when forcing points.
 
 Raw roles with $(o(T_i),n(T_i))=(3,0)$ admit an exact-trace normalization.
 
+\readerheading{Why normalize before measuring reaches?}
+The raw case with all three triangle vertices outside $H$ is an incidence
+artifact: a translation can leave both its open and closed traces in $H$
+unchanged. The next normalization removes that extra case before any actual
+reach is defined. It neither enlarges the covered part of $H$ nor changes
+which boundary points are covered. This differs from the trace majorant
+introduced later, which is not a new open covering triangle.
+
 \begin{proposition}[Exact-trace normalization of raw $(3,0)$ roles]
 \label{prop:vd0-exact-trace-normalization}
 Let $U$ be an original open V triangle at $V_i$, put $T=\overline U$, and
@@ -117,8 +173,8 @@ and
  U\cap H=\widehat U\cap H.
  \label{eq:o3-exact-traces}
 \end{equation}
-In particular, all three actual maximal reaches and the inequality
-$A_i+B_i>1$ are unchanged.
+In particular, all three actual maximal reaches, and whether the two boundary reaches
+have sum greater than one, are unchanged.
 \end{proposition}
 
 \begin{proof}
@@ -129,10 +185,22 @@ are given in \zcref{lem:app-vd0-trace-normalization-calculation}.
 We apply this translation simultaneously and reuse $U_i,T_i$ for the
 normalized triangles.
 
+The normalized exhaustive types used below are
+\[
+\begin{array}{c|c}
+(o(T_i),n(T_i))&\text{established type}\\ \hline
+(1,0)&\Vdzero\\
+(2,0)&\Vdzero\\
+(1,1)&\Vdone\\
+(1,2)&\Vdtwo\\
+(2,1)&\Tlike.
+\end{array}
+\]
+
 \begin{proposition}[Exhaustive normalized vertex types]
 \label{prop:vertex-classification}
 Every normalized V triangle has exactly one of the four types
-$\Vdzero,\Vdone,\Vdtwo,\Tlike$ in the exact dictionary of the introduction.
+$\Vdzero,\Vdone,\Vdtwo,\Tlike$ in the displayed type dictionary.
 \end{proposition}
 
 \begin{proof}
@@ -167,6 +235,30 @@ See the two-orientation feasibility calculation in
 
 \subsection{Initial reaches and boundary gaps}
 
+The actual maximal reaches are
+\[
+ A_i:=\max\{x\in[0,1]:V_i+x(V_{i-1}-V_i)\in T_i\},
+\]
+\[
+ B_i:=\max\{x\in[0,1]:V_i+x(V_{i+1}-V_i)\in T_i\},
+\]
+\[
+ C_i:=\max\{x\in[0,1]:V_i+x(O-V_i)\in T_i\}.
+\]
+The same numbers are the suprema of the corresponding reaches in the open
+triangle $U_i$. The V triangle $T_i$ is \emph{supercritical} when
+$A_i+B_i>1$, and \emph{nonsupercritical} when $A_i+B_i\le1$. Put
+\begin{equation}
+ N_+:=\left\lvert\left\{i\in\mathbb Z/6\mathbb Z:
+ A_i+B_i>1\right\}\right\rvert.
+ \label{eq:N-plus-definition}
+\end{equation}
+Lowercase reaches are used only after a selection satisfying
+\[
+ 0\le a_i\le A_i,\qquad 0\le b_i\le B_i,\qquad 0\le c_i\le C_i.
+\]
+They never define $N_+$.
+
 \begin{lemma}[Initial reach segments]
 \label{lem:reach-initial-segments}
 On the three segments from $V_i$ toward $V_{i-1},V_{i+1},O$, the closed
@@ -189,6 +281,19 @@ Thus $0<A_i,B_i,C_i<1$. Each intersection with a segment issuing from
 $V_i$ is convex.  Closedness of $T_i$, openness of $U_i$, and
 $T_i=\overline{U_i}$ give the stated endpoints.
 \end{proof}
+
+Parametrize $e_{i,i+1}$ from $V_i$ to $V_{i+1}$ by
+\[
+ X_i(x):=V_i+x(V_{i+1}-V_i),\qquad 0\le x\le1.
+\]
+Define the \emph{boundary gap}
+\[
+ J_i:=e_{i,i+1}\setminus(U_i\cup U_{i+1}),\qquad
+ N_{\mathrm{gap}}:=|\{i:J_i\ne\varnothing\}|.
+\]
+Lemma~\ref{lem:gap-exhaustion} gives
+$J_i=X_i([B_i,1-A_{i+1}])$ when $B_i+A_{i+1}\le1$, and $J_i=\varnothing$
+otherwise. Equality is a singleton gap, not an overlap.
 
 \begin{lemma}[Exhaustiveness of the gap split]
 \label{lem:gap-exhaustion}
@@ -221,6 +326,8 @@ positive-length C trace.  Proposition~\ref{prop:ce-classification} gives the
 count and the final equivalence.
 \end{proof}
 
+\input{reading_guide/boundary_tradeoff}
+
 \begin{lemma}[T3-like V triangles are nonsupercritical]
 \label{lem:t3-nonsupercritical}
 Every original $\Tlike$ V triangle satisfies
@@ -236,6 +343,68 @@ by $N_+$ and cannot supply its own midpoint.
 Both assertions follow from the Type-II calculation in
 \zcref{lem:app-t3-translation-calculation}.
 \end{proof}
+
+A V role has \emph{positive adjacent-radial support}, or simply
+\emph{positive support}, when $n(T_i)>0$. Put
+\[
+ N_{\mathrm{sp}}:=|\{i:n(T_i)>0\}|.
+\]
+Positive-support roles are nonsupercritical, so the number of roles that
+are supercritical or have positive adjacent-radial support is
+$N_++N_{\mathrm{sp}}$. The skeleton budget excludes nonzero-gap covers
+with $N_++N_{\mathrm{sp}}\ge3$.
+
+\begin{figure}[H]
+\centering
+\begin{minipage}[t]{.32\textwidth}
+\vspace{0pt}\centering
+\includegraphics[width=\linewidth,height=.22\textheight,keepaspectratio]
+  {figures/role_examples/vertex_role_vd0_axis_aligned_example.png}
+\par\smallskip
+\footnotesize (a) axis-aligned $\Vdzero$
+\end{minipage}\hfill
+\begin{minipage}[t]{.32\textwidth}
+\vspace{0pt}\centering
+\includegraphics[width=\linewidth,height=.22\textheight,keepaspectratio]
+  {figures/role_examples/vertex_role_vd0_nonsupercritical_example.png}
+\par\smallskip
+\footnotesize (b) nonsupercritical $\Vdzero$
+\end{minipage}\hfill
+\begin{minipage}[t]{.32\textwidth}
+\vspace{0pt}\centering
+\includegraphics[width=\linewidth,height=.22\textheight,keepaspectratio]
+  {figures/role_examples/vertex_role_vd0_supercritical_example.png}
+\par\smallskip
+\footnotesize (c) supercritical $\Vdzero$
+\end{minipage}
+\par\medskip
+\begin{minipage}[t]{.32\textwidth}
+\vspace{0pt}\centering
+\includegraphics[width=\linewidth,height=.22\textheight,keepaspectratio]
+  {figures/role_examples/vertex_role_vd1_example.png}
+\par\smallskip
+\footnotesize (d) $\Vdone$
+\end{minipage}\hfill
+\begin{minipage}[t]{.32\textwidth}
+\vspace{0pt}\centering
+\includegraphics[width=\linewidth,height=.22\textheight,keepaspectratio]
+  {figures/role_examples/vertex_role_vd2_example.png}
+\par\smallskip
+\footnotesize (e) $\Vdtwo$
+\end{minipage}\hfill
+\begin{minipage}[t]{.32\textwidth}
+\vspace{0pt}\centering
+\includegraphics[width=\linewidth,height=.22\textheight,keepaspectratio]
+  {figures/role_examples/vertex_role_t3_like_example.png}
+\par\smallskip
+\footnotesize (f) $\Tlike$
+\end{minipage}
+\caption{Examples of the normalized V triangle types.  The top row shows an
+axis-aligned $\Vdzero$, a nonsupercritical $\Vdzero$ with $A_i+B_i\le1$,
+and a supercritical $\Vdzero$ with $A_i+B_i>1$.  The bottom row shows
+$\Vdone$, $\Vdtwo$, and $\Tlike$.  The panels illustrate the classification.}
+\label{fig:vertex-role-examples}
+\end{figure}
 
 \subsection{Strict handoffs and midpoint forcing}
 
@@ -323,3 +492,54 @@ Undoing the symmetry proves the assertions.
 
 The interior hypothesis is essential: $\conv\{O,V_0,V_1\}$ has a boundary
 edge overlap and contains both $M_0$ and $M_1$, but $O$ is not interior to it.
+
+\subsection{Exhaustive routing}
+
+When the C triangle has type CE1 or CE2, \zcref{prop:unique-center-midpoint}
+shows that it contains exactly one of $M_0,\ldots,M_5$; this is the
+\emph{C midpoint}. If it is $M_k$, the role at $V_k$ is called
+\emph{center-based}; a supercritical role there is \emph{center-aligned},
+and a role at another vertex is \emph{away} or \emph{off-center}.
+A V role that contains an adjacent midpoint openly is
+called its \emph{supplier} or \emph{rescuer}. A \emph{gap-free
+nonsupercritical path} is a consecutive sequence of nonsupercritical V
+roles whose shared edges have empty gaps.
+
+We use BC for the selected-gap six-point construction, D for the supported-
+midpoint four-point construction, and F for the zero-gap nine-point
+construction, all defined in Section~\ref{sec:finite-enclosure}.
+N0 denotes \zcref{thm:fixed-nzero}, the assertion that every skeleton
+cover has a supercritical V role.
+
+Zero gaps mean that the V triangles cover $\partial H$, and the proof
+splits according to $N_+$. With a gap, the C triangle is CE1 or CE2;
+N0 and the skeleton budget leave one supercritical role and at most one
+positive-support role. Its position relative to the C midpoint determines
+the remaining obstruction.
+
+\begin{table}[H]
+\centering\small
+\setlength{\tabcolsep}{5pt}\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{@{}ccp{.34\textwidth}p{.28\textwidth}@{}}
+\toprule
+$N_{\rm gap}$&$N_+$&Additional condition&Closing mechanism\\
+\midrule
+$0$&$0$&Arbitrary V types&Strict overlap\\
+$0$&$1$&Arbitrary V types&Nine-point F\\
+$0$&$\ge2$&Arbitrary V types&Cyclic area loss\\
+\midrule
+$\ge1$&$0$&Arbitrary V types&N0, through BC\\
+$\ge1$&$\ge1$&$N_+\ge2$ or $N_++N_{\rm sp}\ge3$&Skeleton budget\\
+$\ge1$&$1$&$N_{\rm sp}\le1$&Midpoint supplier: BC, D, replacement, or Vd2 length\\
+\bottomrule
+\end{tabular}
+\caption{Disjoint routes for the original open cover. Nonzero gaps force
+CE1 or CE2; both classes share the same placement reduction. Replacement
+preserves the skeleton and ends at N0, without preserving number of gaps.}
+\label{tab:routing}
+\end{table}
+
+The rows are disjoint and exhaustive: separate zero from nonzero gaps,
+then $N_+=0$, and finally the displayed high-count condition.
+Lemma~\ref{lem:midpoint-supplier} resolves the last row. BC uses the same
+selected-gap witness in CE1 and CE2, with separate candidate calculations.

@@ -1,0 +1,18 @@
+{
+  "base_commit": "a98c71c12f1b521a1e58353e56b11474e1ec4f9b",
+  "canonical": {
+    "proof_environments": 96,
+    "sha256": "a0bfe8a65a61dd20d36cfc3dccb2e2232c570396c9cd60756a026346f5392d1e",
+    "statements": 97
+  },
+  "explanation": "Original mathematical inventory; only the two explicit wording substitutions in the verifier are allowed. These hashes are regression checks, not formal proof certificates.",
+  "inline": {
+    "proof_environments": 83,
+    "sha256": "f8a21fa5e5c856051eb484ad4b356547b0bef53ffff3c14428a9f4bf8c9e480d",
+    "statements": 83
+  },
+  "proof_corpus": {
+    "files": 365,
+    "sha256": "40914cba949c794d6a2006c1627aada2860b53f457380c019c4b14bb8dc8f48d"
+  }
+}

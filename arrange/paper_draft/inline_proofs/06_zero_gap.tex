@@ -7,6 +7,8 @@ We first compute the local frontier, then construct the forced witnesses.
 The enclosure argument reduces to four supporting contacts, including two
 exact disk-tangent certificate bounds.
 
+\input{reading_guide/zero_gap_reading_path}
+
 \subsection{Corner-clipped $AB$-unions}
 
 In this subsection the corner is the local origin $O_{\rm loc}$, not the
@@ -613,7 +615,15 @@ These containments follow from \zcref{lem:symmetric-core-witness,lem:asymmetric-
 
 \input{figures/finite_enclosure/fe11_zero_gap_witness}
 
+\input{reading_guide/nine_points_and_comparison_set}
+
 \subsection{Newton inner reduction}
+
+Here the frontier points have already been forced. The next step makes
+only the enclosure lower bound easier to verify: it moves the two outer
+points toward the middle point, so the candidate's containment is preserved
+by convexity. The tangent intercept from one Newton step gives exact
+rational expressions while remaining on the inner side of the first root.
 
 For the nontrivial regime $c_*>2/3$, we first remove the square radicals in
 the first-root witnesses.  Normalize
@@ -931,6 +941,8 @@ either squared residual separately.
 
 \subsection{Exact disk-tangent residual certificate}
 \label{sec:strategy4-exact-certificate}
+
+\input{reading_guide/certificate_scope}
 
 The two disk-tangent contact bounds in the zero-gap nine-point theorem are
 certified by exact symbolic arithmetic.  This calculation gives the mathematical reduction and verification

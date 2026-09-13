@@ -1,0 +1,46 @@
+\subsection{The two tasks in a finite-enclosure proof}
+Fix the original seven triangles and call their arrangement $\mathcal U$.
+A nonempty compact witness set $K=K(\mathcal U)$ is then chosen once and for all. There are
+two separate tasks:
+\[
+ \underbrace{K\subset U_C}_{\text{forced containment}}
+ \qquad\hbox{and}\qquad
+ \underbrace{\Lambda(K)\ge1}_{\text{enclosure obstruction}}.
+\]
+The first makes $\Lambda(K)<1$ by the compact covering margin, contradicting
+the second. Most witnesses are points missed by all open V triangles.
+A structural anchor, such as the C midpoint, may instead be included because
+it is already known to belong to $U_C$; such an anchor need not be missed
+by every V triangle.
+
+To prove the second task, suppose an \emph{arbitrary} open unit triangle
+$U'$ contains the fixed $K$. Its orientation, offsets, and radial exits may
+vary. The original reaches and the witness coordinates do not. In particular,
+$U'$ need not cover the original boundary gaps or complete the original
+skeleton cover. Any inequality obtained from original coverage must be
+established before $U'$ is introduced and retained as a fixed input.
+
+\begin{center}
+\small
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{@{}p{.27\linewidth}p{.65\linewidth}@{}}
+\toprule
+Object & What is fixed or required \\
+\midrule
+Original arrangement $\mathcal U$ & Its actual reaches and all coverage
+hypotheses of the current case. \\
+Witness set $K(\mathcal U)$ & Chosen from the original arrangement; never
+recomputed from the candidate. \\
+Candidate $U'$ & Required only to contain $K$; its own geometric parameters
+are recomputed. \\
+Replacement arrangement & A different operation, used later to preserve
+skeleton coverage, not an enclosure candidate. \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The six-point construction uses actual gap endpoints and total radial
+endpoints. The four-point construction uses a supported radial endpoint
+and boundary anchors. The zero-gap construction instead uses uniform
+capacity bounds to choose six radial points and three frontier points.
+Their common feature is fixed containment, not a common coordinate formula.

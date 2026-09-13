@@ -3,6 +3,13 @@
 \label{sec:structural-reductions}
 \label{app:structural-shared-local-signed-center}
 
+This section supplies three inputs to the later obstructions. First it
+identifies and normalizes the triangles without changing their covered
+traces. Next it relates boundary reach to radial reach. Finally it shows
+how a C triangle reaching the boundary is constrained by the radial
+midpoints. The orientation charts support these calculations; they are
+not additional cases of the final covering argument.
+
 \subsection{Open covers and distinguished roles}
 For a hypothetical cover by seven open unit triangles, write $T=\overline U$
 for the closure of each open triangle $U$.
@@ -36,6 +43,8 @@ arrangement of roles assume $O\in U_C$ and $V_i\in U_i$; coverage of
 $H$, $S$, or $\partial H$ is an additional hypothesis, stated when needed.
 A \emph{skeleton cover} covers $S$, not necessarily all of $H$.
 An edge is \emph{center-free} when it is disjoint from $U_C$.
+
+\input{reading_guide/coverage_scope}
 
 
 
@@ -284,6 +293,14 @@ The Type-II vertex in the wedge is
  \label{eq:orientation-type-II-Q}
 \end{equation}
 
+\readerheading{Why normalize before measuring reaches?}
+The raw case with all three triangle vertices outside $H$ is an incidence
+artifact: a translation can leave both its open and closed traces in $H$
+unchanged. The next normalization removes that extra case before any actual
+reach is defined. It neither enlarges the covered part of $H$ nor changes
+which boundary points are covered. This differs from the trace majorant
+introduced later, which is not a new open covering triangle.
+
 \begin{proposition}[Exact-trace normalization of raw $(3,0)$ roles]
 \label{prop:vd0-exact-trace-normalization}
 \label{lem:app-vd0-trace-normalization-calculation}
@@ -486,6 +503,8 @@ gap lies in $U_C$; openness turns even a singleton V-gap into a
 positive-length C trace.  \zcref[S]{prop:ce-classification} gives the
 count and the final equivalence.
 \end{proof}
+
+\input{reading_guide/boundary_tradeoff}
 
 \subsection{T3-like trace majorants and midpoint exclusion}
 
@@ -1242,6 +1261,14 @@ For a closed triangle $T$ and a rectifiable target $E$, write
 \]
 
 \subsection{Signed-center optimization}
+
+The signed-center coordinates describe a triangle that contains $O$ in
+its interior and has a positive-length boundary trace. Their purpose is to relate its boundary endpoints to
+its radial exits, not to classify a new covering configuration. The same
+formulas will be applied later to an arbitrary enclosing candidate, with
+its parameters recomputed. The midpoint identity and the boundary-length
+cap are the geometric conclusions to retain from this calculation.
+
 \label{sec:signed-ce12-reductions}
 
 The CE1 and CE2 cases share one signed cell. These coordinates give

@@ -2,9 +2,9 @@
 \label{sec:nonzero-gap-finite-enclosure-optimization}
 \label{sec:finite-enclosure}
 
-The finite-enclosure method finds compact sets that the V triangles miss.
-Under a hypothetical cover those sets lie in the open C triangle, while their
-least equilateral enclosure has side at least one.
+The finite-enclosure method identifies a compact set that the C triangle
+must contain, then proves that this set does not fit inside any open unit
+equilateral triangle.
 
 Put
 \[
@@ -18,8 +18,17 @@ one. Conversely, $\Lambda(K)<1$ gives such an open unit enclosure by
 slightly enlarging a smaller closed enclosure. Thus it is enough to
 exclude every open unit candidate containing the same fixed set $K$.
 
+\input{reading_guide/fixed_witness_logic}
+
 \subsection{Neighboring capacities and fixed radial endpoints}
 \label{subsec:new-neighbor-ray-capacity}
+
+The following capacities answer a local question: after boundary anchors
+have been prescribed, how far toward the center can a unit triangle reach?
+They are maxima over a family of triangles, not the actual reaches of the
+original triangle. A larger prescribed anchor shrinks the feasible family.
+The neighboring capacities are needed because a point on one radial segment
+may be covered by the V triangle at either adjacent vertex.
 
 The neighboring-arm capacities are the variational quantities
 \[
@@ -208,6 +217,8 @@ Define
 \]
 The points \(D_i\) are the radial witnesses used below.
 
+\input{reading_guide/actual_and_bounded_frontiers}
+
 \begin{lemma}[Type-aware radial forcing]
 \label{lem:new-type-aware-radial-forcing}
 For every \(i\),
@@ -298,6 +309,12 @@ Vd2 perimeter obstruction.
 
 The following outgoing capacities follow from
 \zcref{prop:new-exact-local-set} and supply the CE1 return.
+
+The next formulas quantify the boundary--interior tradeoff along a path.
+A large radial demand can make a large incoming boundary reach incompatible
+with a large outgoing one. Only the selected admissible branch may be used:
+a formal root of a quadratic is not automatically the boundary capacity.
+The threshold and return arguments that follow use precisely these outputs.
 
 For a nonsupercritical triangle with incoming reach at least $a$ and radial
 reach at least $c$, let
@@ -790,7 +807,7 @@ contradicting $A_1\ge X$ and $A_1+B_1\le1$. Thus the tail-input
 boundary and radial hypotheses are incompatible.
 \end{proof}
 
-\subsection{BC: one selected gap and one six-point construction}
+\subsection{A selected gap forces six points (BC)}
 
 Normalize the center midpoint to $M_0$ and choose any actual gap, reflected
 to $J_0$. The other incident edge $e_{5,0}$ may or may not contain a gap.
@@ -837,6 +854,8 @@ triangle. The other points are missed by the V triangles. The origin is
 implicit by \zcref{lem:fixed-origin-in-hull}; the construction uses at most
 six points even though a candidate must also contain $O$.
 
+
+\input{reading_guide/selected_gap_walkthrough}
 
 \begin{theorem}[Unified six-point selected-gap enclosure]
 \label{prop:new-nplus-one-all-vd0}
@@ -1012,7 +1031,7 @@ by the signed normal form.
 \end{proof}
 
 \begin{samepage}
-\subsection{D: a four-point supported-rescuer enclosure}
+\subsection{A supported midpoint forces four points (D)}
 
 Let $Y(t)=(1-t)V_0+tV_5=X_5(1-t)$. The geometric lemma below is stated
 independently of any V type or covering configuration.
@@ -1057,6 +1076,8 @@ so $\alpha<a-Rs$ and $R<a/s$. Since $s\le1$,
 Containment of $Y(1-\beta)$ would require $1-\beta<R+\alpha$, whereas
 $\beta\le\varepsilon/s$ gives $1-\beta\ge a/s$. This is impossible.
 \end{proof}
+
+\input{reading_guide/four_point_explanation}
 
 \end{samepage}
 
@@ -1283,6 +1304,8 @@ remaining ratio and size bounds. Apply the common adapter
 \input{figures/finite_enclosure/fe08_t3_rescuer}
 \FloatBarrier
 
+\input{reading_guide/replacement_scope}
+
 \subsection{Vd1 two-chart replacement}
 
 The replacement below uses two different vertex charts.  It preserves the
@@ -1485,7 +1508,7 @@ not used in the construction. This operation does not claim to preserve
 coverage of the interior of $H$.
 \end{proof}
 
-\subsection{The remaining placement router}
+\subsection{Completing the nonzero-gap cases}
 
 \begin{proposition}[One-Vd placement assembly]
 \label{prop:new-one-vd-assembly}
