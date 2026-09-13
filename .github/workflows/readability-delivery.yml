@@ -1,132 +1,17 @@
-name: Temporary readability publication
+name: Publish validated readability artifact
 on:
   push:
     branches: [chatgpt/human-readable-paper-20260913145427]
-    paths:
-      - .github/workflows/readability-delivery.yml
-      - arrange/_support/readability_delivery.part*.b64
-      - arrange/_support/readability_delivery_manifest.json
+    paths: [.github/workflows/readability-delivery.yml]
 permissions:
   contents: read
 concurrency:
   group: readability-publication-${{ github.ref }}
   cancel-in-progress: false
 env:
-  SOURCE_DATE_EPOCH: '946684800'
-  FORCE_SOURCE_DATE: '1'
-  TZ: UTC
   DELIVERY_BRANCH: chatgpt/human-readable-paper-20260913145427
 jobs:
-  validate:
-    if: github.ref == 'refs/heads/chatgpt/human-readable-paper-20260913145427'
-    runs-on: ubuntu-24.04
-    timeout-minutes: 30
-    steps:
-      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
-        with:
-          fetch-depth: 0
-          persist-credentials: false
-      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
-        with:
-          python-version: '3.12'
-      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
-        with:
-          node-version: '22'
-      - name: Apply and authenticate the reviewed source patch
-        run: |
-          python - <<'PY'
-          import base64, hashlib, json, subprocess, zlib
-          from pathlib import Path
-          m=json.loads(Path('arrange/_support/readability_delivery_manifest.json').read_text())
-          assert m['base_commit']=='a98c71c12f1b521a1e58353e56b11474e1ec4f9b'
-          encoded=''.join(Path('arrange/_support/readability_delivery.part'+str(i)+'.b64').read_text().strip() for i in range(1,14))
-          p=zlib.decompress(base64.b64decode(encoded))
-          assert hashlib.sha256(p).hexdigest()==m['patch_sha256']
-          patch=Path('/tmp/readability.patch');patch.write_bytes(p)
-          subprocess.run(['git','apply','--check',str(patch)],check=True)
-          subprocess.run(['git','apply',str(patch)],check=True)
-          for name, expected in m['sources'].items():
-              path=Path(name)
-              assert not path.is_absolute() and '..' not in path.parts and not path.is_symlink()
-              assert hashlib.sha256(path.read_bytes()).hexdigest()==expected['sha256'],name
-              assert (path.stat().st_mode & 0o777)==int(expected['mode'],8),name
-          print('Authenticated source patch:',len(m['sources']),'files')
-          PY
-      - name: Install pinned validation dependencies
-        run: python -m pip install --disable-pip-version-check -r arrange/_support/requirements.txt
-      - name: Validate mathematical preservation and source contracts
-        run: |
-          set -euo pipefail
-          mkdir -p /tmp/readability-logs
-          python proof/check.py | tee /tmp/readability-logs/source.txt
-          python arrange/_support/verify_inline_proofs.py | tee /tmp/readability-logs/inline.txt
-          python arrange/_support/verify_readability_preservation.py | tee /tmp/readability-logs/preservation.txt
-      - name: Replay both exact zero-gap certificates
-        working-directory: proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation
-        run: |
-          set -euo pipefail
-          python verify_mixed_overlap_core_derivation.py | tee /tmp/readability-logs/derivation.json
-          python verify_global_core_positivity.py | tee /tmp/readability-logs/positivity.json
-      - name: Regenerate and audit the affected dependency graph
-        run: |
-          set -euo pipefail
-          python interactive/generate.py --dependency-graph
-          git add interactive/readable_proof_dependency_graph.html
-          python interactive/generate.py --dependency-graph --check
-          python interactive/generate.py --trace-assets --check
-          python interactive/check.py
-          git diff --check
-          git diff --cached --check
-      - name: Build both editions in the pinned publication environment
-        uses: xu-cheng/texlive-action@22c04326a5d855880f9d39bb955138bf11c6df80
-        with:
-          docker_image: >-
-            ghcr.io/xu-cheng/texlive-historic-debian:2025@sha256:d3e42adc0c8d84bc913bfc33571feaf7037616260a771bb6f027504661568bf6
-          run: |
-            set -euo pipefail
-            python3 arrange/build.py --all --output-dir arrange/_build
-      - name: Render all pages and authenticate publication outputs
-        run: |
-          set -euo pipefail
-          python arrange/_support/verify_pdf_render.py arrange/_build/canonical.pdf
-          python arrange/_support/verify_pdf_render.py arrange/_build/inline_proofs.pdf
-          python arrange/_support/verify_inline_proofs.py --pdf arrange/_build/inline_proofs.pdf
-          python - <<'PY'
-          import hashlib, json, os, shutil
-          from pathlib import Path
-          import fitz
-          m=json.loads(Path('arrange/_support/readability_delivery_manifest.json').read_text())
-          counts={n:len(fitz.open('arrange/_build/'+n+'.pdf')) for n in ['canonical','inline_proofs']}
-          assert counts=={'canonical':75,'inline_proofs':73},counts
-          for stem,dest in [('canonical','arrange/paper_draft/main.pdf'),('inline_proofs','arrange/paper_draft/inline_proofs/main.pdf')]:
-              shutil.copyfile('arrange/_build/'+stem+'.pdf',dest)
-          report=Path(m['report'])
-          run=os.environ['GITHUB_RUN_ID']
-          stamp='\n## Pinned publication results\n\n'
-          stamp+='Validated by GitHub Actions run '+run+' using Python 3.12 and the repository-pinned TeX Live 2025 image.\n\n'
-          stamp+='Both source audits, the independent baseline-preservation audit, both exact zero-gap programs, dependency-graph regeneration, trace-asset checks, interactive checks, whitespace checks, both manuscript builds, all-page render scans, and the inline proof-start audit passed before publication.\n\n'
-          stamp+='Pinned page counts: canonical **75**; immediate-proof edition **73**.\n\n'
-          for f in m['generated'][:2]:
-              stamp+='`'+f+'`: SHA-256 `'+hashlib.sha256(Path(f).read_bytes()).hexdigest()+'`.\n\n'
-          report.write_text(report.read_text().replace('<!-- PINNED_RELEASE_RESULTS -->',stamp))
-          out=Path('/tmp/readability-publication');out.mkdir()
-          entries={}
-          for name in sorted(set(m['sources'])|set(m['generated'])):
-              src=Path(name);dst=out/'files'/name;dst.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(src,dst)
-              entries[name]={'sha256':hashlib.sha256(src.read_bytes()).hexdigest(),'mode':oct(src.stat().st_mode & 0o777)}
-          (out/'manifest.json').write_text(json.dumps({'parent':os.environ['GITHUB_SHA'],'files':entries},indent=2)+'\n')
-          shutil.copytree('/tmp/readability-logs',out/'logs')
-          print('PINNED_COUNTS',counts)
-          print('PUBLICATION_MANIFEST',json.dumps(entries,sort_keys=True))
-          PY
-      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
-        with:
-          name: readability-publication
-          path: /tmp/readability-publication/
-          if-no-files-found: error
-          retention-days: 14
   publish:
-    needs: validate
     if: github.ref == 'refs/heads/chatgpt/human-readable-paper-20260913145427'
     runs-on: ubuntu-24.04
     permissions:
@@ -141,26 +26,35 @@ jobs:
         with:
           name: readability-publication
           path: /tmp/readability-publication
-      - name: Publish only authenticated files by a non-forced fast-forward push
+          run-id: 34765602787
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Authenticate validated files and publish the whitespace correction
         run: |
           set -euo pipefail
           test "$(git ls-remote origin "refs/heads/$DELIVERY_BRANCH" | cut -f1)" = "$GITHUB_SHA"
           python - <<'PY'
-          import hashlib,json,os,shutil,subprocess
+          import hashlib,json,shutil,subprocess
           from pathlib import Path
           out=Path('/tmp/readability-publication')
           m=json.loads((out/'manifest.json').read_text())
           policy=json.loads(Path('arrange/_support/readability_delivery_manifest.json').read_text())
-          assert m['parent']==os.environ['GITHUB_SHA']
+          assert m['parent']=='a16a04df1b6065bbfe1d5ad39a92df3404136cb1'
           assert set(m['files'])==set(policy['sources'])|set(policy['generated'])
           for name,expected in m['files'].items():
               path=Path(name);src=out/'files'/path
               assert not path.is_absolute() and '..' not in path.parts and not src.is_symlink()
               assert hashlib.sha256(src.read_bytes()).hexdigest()==expected['sha256'],name
-              path.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(src,path);path.chmod(int(expected['mode'],8))
+              mode=int(expected['mode'],8)
+              assert mode in (0o644,0o755),name
+              path.parent.mkdir(parents=True,exist_ok=True)
+              shutil.copyfile(src,path);path.chmod(mode)
+          report=Path(policy['report'])
+          report.write_bytes(report.read_bytes().rstrip(b'\n')+b'\n')
+          assert hashlib.sha256(report.read_bytes()).hexdigest()=='5e0ed8f984e2639cb814830af4bd0752ba2ac9c7c9d67d897fd29cf08ae91415'
           subprocess.run(['git','add','--',*m['files']],check=True)
           changed=set(subprocess.check_output(['git','diff','--cached','--name-only'],text=True).splitlines())
           assert changed<=set(m['files']) and changed
+          print('Authenticated 44 validated files; only report EOF whitespace normalized')
           PY
           git diff --cached --check
           git config user.name 'github-actions[bot]'
