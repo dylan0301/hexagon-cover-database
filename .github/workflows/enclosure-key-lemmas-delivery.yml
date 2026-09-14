@@ -50,18 +50,10 @@ jobs:
           p=Path('arrange/20260914_enclosure_key_lemmas_report.md')
           p.write_text(p.read_text().replace('only two short gauge formulas','only short gauge formulas'))
           PY
-      - name: Regenerate and audit sources
+      - name: Check preservation before the publication build
         run: |
-          set -euo pipefail
-          python interactive/generate.py --dependency-graph
-          python proof/check.py
-          python arrange/_support/verify_inline_proofs.py
           python arrange/_support/verify_readability_preservation.py
-          python interactive/generate.py --dependency-graph --check
-          python interactive/generate.py --trace-assets --check
-          python interactive/check.py
-          python proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/verify_mixed_overlap_core_derivation.py
-          python proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/verify_global_core_positivity.py
+          python arrange/_support/verify_inline_proofs.py
           git diff --check
       - name: Rebuild both editions in pinned TeX Live 2025
         uses: xu-cheng/texlive-action@22c04326a5d855880f9d39bb955138bf11c6df80
@@ -70,7 +62,7 @@ jobs:
           run: |
             set -euo pipefail
             python3 arrange/build.py --all --output-dir arrange/_build
-      - name: Verify PDFs and unchanged inline edition
+      - name: Verify PDFs and synchronize the canonical publication
         run: |
           set -euo pipefail
           python arrange/_support/verify_pdf_render.py arrange/_build/canonical.pdf
@@ -84,8 +76,19 @@ jobs:
           print('Canonical pages:',n);assert 73<=n<=78,n
           Path('arrange/paper_draft/main.pdf').write_bytes(p.read_bytes())
           PY
+      - name: Regenerate and audit sources against the rebuilt PDF
+        run: |
+          set -euo pipefail
           python interactive/generate.py --dependency-graph
+          python proof/check.py
+          python arrange/_support/verify_inline_proofs.py
+          python arrange/_support/verify_readability_preservation.py
           python interactive/generate.py --dependency-graph --check
+          python interactive/generate.py --trace-assets --check
+          python interactive/check.py
+          python proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/verify_mixed_overlap_core_derivation.py
+          python proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/verify_global_core_positivity.py
+          git diff --check
       - name: Package allowlisted byte-hashed delivery
         id: package
         run: |
