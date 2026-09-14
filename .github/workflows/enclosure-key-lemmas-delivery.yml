@@ -45,11 +45,11 @@ jobs:
           start = a.index(r'\subsection{Shared equilateral-enclosure optimization}')
           end = a.index(r'\subsection{The local admissible set and radial envelope}', start)
           moved = a[start:end]
-          assert moved.count(r'\begin{proof}') == 5
+          assert moved.count(r'\begin{proof}') == 4
           core = moved.replace(r'\subsection{Shared equilateral-enclosure optimization}',
                                r'\subsection{The enclosure calculus: finitely many orientations}', 1)
           intro = r'''
-          The next five results are the general enclosure tools, rather than
+          The next four results are the general enclosure tools, rather than
           case-specific estimates. The gauge removes translation and scale; the
           support-cell argument reduces the remaining orientation variable to a
           finite list. They do not construct the witnesses or prove that those
@@ -159,8 +159,8 @@ jobs:
 
           ## Implemented relocation
 
-          The complete five-statement block was moved from Appendix A into the
-          beginning of the canonical finite-enclosure chapter:
+          The complete four-result block, with all four proofs, was moved from
+          Appendix A into the beginning of the canonical finite-enclosure chapter:
 
           1. Equilateral enclosure gauge (`prop:new-enclosure-gauge`, also
              `prop:universal-enclosure-gauge`).
@@ -168,8 +168,6 @@ jobs:
           3. Finite caliper certificate (`thm:cert-caliper`).
           4. Disk--finite-set calipers (`prop:new-disk-finite-caliper`).
 
-          The block contains four formal results and five proof environments only
-          if the source inventory says so; the source audit is authoritative.
           All mathematical statements, proofs, and established labels are retained.
           The appendix now points to the main-text tools before applying them to
           the exact local admissible set. The alternative inline-proofs edition
@@ -189,7 +187,7 @@ jobs:
           support triangle is then determined. It is not a list of all optimal
           triangles. On each fixed-support angular cell, a positive sinusoidal
           part has negative second derivative, excluding an interior minimum;
-          an all-disk cell is constant. This is the real reason finitely many
+          an all-disk cell is constant. This is the reason finitely many
           support changes suffice.
 
           The disk-only value is valid only when an orientation actually realizes
@@ -200,7 +198,7 @@ jobs:
 
           Checking each disk-plus-one-point set separately is insufficient for
           several points. For example, each of the two points at distance 2r on
-          opposite sides of a radius has individual enclosure side 2sqrt(3)r,
+          opposite sides of a diameter has individual enclosure side 2sqrt(3)r,
           while their union has diameter 4r > 2sqrt(3)r.
 
           ## Other key structure already in the chapter
@@ -236,7 +234,7 @@ jobs:
           removes this temporary workflow. Final remote CI status must be read
           from GitHub rather than inferred from this report.
           '''.replace('\n          ','\n'))
-          print('Relocated enclosure calculus and added structural explanations.')
+          print('Relocated four results with their complete proofs.')
           PY
       - name: Regenerate and audit sources
         run: |
