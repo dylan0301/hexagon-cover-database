@@ -11,7 +11,6 @@ env:
   TZ: UTC
 jobs:
   validate:
-    if: github.ref == 'refs/heads/chatgpt/enclosure-key-lemmas-20260914140239'
     runs-on: ubuntu-24.04
     outputs:
       manifest: ${{ steps.package.outputs.manifest }}
@@ -28,225 +27,28 @@ jobs:
           node-version: '22'
       - name: Install pinned dependencies
         run: python -m pip install --disable-pip-version-check -r arrange/_support/requirements.txt
-      - name: Relocate the unchanged theorem and proof block
+      - name: Apply reviewed relocation and complete formula reminders
         run: |
           python - <<'PY'
+          import subprocess,textwrap
           from pathlib import Path
-          import hashlib
-          root = Path('arrange/paper_draft')
-          ap = root/'A_structural_shared_local_signed_center_optimization.tex'
-          bp = root/'06_finite_enclosure_full.tex'
-          def blob(path):
-              data = path.read_bytes()
-              return hashlib.sha1(b'blob '+str(len(data)).encode()+b'\0'+data).hexdigest()
-          assert blob(ap) == '24e1b79f661b28185edb4b4fe22e95dbb6cd3f63'
-          assert blob(bp) == 'e8d4454eba596f7dc1aac22a7e82c58fb9aecba9'
-          a, b = ap.read_text(), bp.read_text()
-          start = a.index(r'\subsection{Shared equilateral-enclosure optimization}')
-          end = a.index(r'\subsection{The local admissible set and radial envelope}', start)
-          moved = a[start:end]
-          assert moved.count(r'\begin{proof}') == 4
-          core = moved.replace(r'\subsection{Shared equilateral-enclosure optimization}',
-                               r'\subsection{The enclosure calculus: finitely many orientations}', 1)
-          intro = r'''
-          The next four results are the general enclosure tools, rather than
-          case-specific estimates. The gauge removes translation and scale; the
-          support-cell argument reduces the remaining orientation variable to a
-          finite list. They do not construct the witnesses or prove that those
-          witnesses are forced into the C triangle.
-
-          '''
-          core = core.replace(r'\label{sec:universal-calculus}',
-                              r'\label{sec:universal-calculus}'+'\n'+intro, 1)
-          example = r'''
-          \readerheading{How to use the finite list.}
-          For points, evaluate the three-support sum at the listed pair normals.
-          For a disk and points, also test the point--disk ties. Nonexposed ties
-          may be discarded, but their completeness must first be justified.
-          The disk-only alternative contributes $3\rho$ only at an orientation
-          where all three disk supports dominate every point; it is not an
-          unconditional candidate value. Equivalently, adjoining one arbitrary
-          reference normal to the complete tie list and evaluating the actual
-          support sum at every listed normal gives a finite test, including the
-          case with no ties. The final contact description in the proposition
-          applies to its non-disk-only alternative.
-
-          \readerheading{One disk and one point.}
-          A useful explicit specialization, with $r>0$ and $d=\|q\|$, is
+          old=subprocess.check_output(['git','show','eb1f53147e5e2f2a0b4c626c83ccfeb7e966644f:.github/workflows/enclosure-key-lemmas-delivery.yml'],text=True)
+          start=old.index("          python - <<'PY'\n")+len("          python - <<'PY'\n")
+          end=old.index('          PY\n',start)
+          exec(compile(textwrap.dedent(old[start:end]),'reviewed-relocation','exec'))
+          p=Path('arrange/paper_draft/A_structural_shared_local_signed_center_optimization.tex')
+          s=p.read_text();marker='These recall the main-text proposition, whose proof is not repeated.'
+          assert s.count(marker)==1
+          reminder=r'''For the disk--finite-set applications, use the same inverse scaling:
           \[
-          \Lambda(\mathbb B(O,r)\cup\{q\})=
-          \begin{cases}
-          2\sqrt3\,r,&d\le2r,\\
-          \sqrt3\,r+\sqrt{d^2-r^2},&d>2r.
-          \end{cases}
+           \Lambda(K)=\frac{2}{\sqrt3}\min_{\|n\|=1}W_K(n),
+           \qquad K=\mathbb B(O,\rho)\cup\{w_1,\ldots,w_s\}.
           \]
-          Indeed, when $d\le2r$, orient the point projections as
-          $d/2,d/2,-d$, so all three disk supports suffice. When $d>2r$,
-          the support-cell argument puts a minimum at a point--disk tie.
-          If one projection equals $r$, the other two are
-          $(-r\pm\sqrt{3(d^2-r^2)})/2$; substitution in the support sum
-          gives the second formula. A circle gives the same enclosure problem
-          as its closed disk, since triangles are convex.
-          This example explains the transition but does not replace the
-          disk--finite-set proposition: several points can impose a joint
-          obstruction that none imposes alone.
-
-          \readerheading{The other structural step.}
-          The fixed radial-forcing lemma and common-pair domination below
-          turn local reach bounds into points missed by every open V triangle.
-          The uniform common-pair corollary then supplies a symmetric inner
-          hexagon and its inscribed disk. These are witness-construction results,
-          not consequences of the finite caliper criterion. BC and D subsequently
-          use fixed point sets with no disk; F uses nine fixed points and a
-          disk-plus-three-point comparison set.
-
           '''
-          marker = r'\subsection{Local capacities and radial witnesses}'
-          assert b.count(marker) == 1
-          b = b.replace(marker, core+example+marker, 1)
-          pointer = r'''The enclosure gauge, support-cell rotation, and finite calipers are
-          stated and proved in Subsection~\ref{sec:universal-calculus} of the
-          finite-enclosure chapter. The local optimization below applies those
-          general results. For reference, the two formulas used here are
-          \[
-           \Lambda(K):=\frac{2}{\sqrt3}\min_{\|n\|=1}W_K(n),
-          \]
-          \[
-           K\text{ is contained in a unit C triangle}
-           \iff
-           \min_{\|n\|=1}W_K(n)\le\frac{\sqrt3}{2}.
-          \]
-          These recall the main-text proposition, whose proof is not repeated.
-
-          '''
-          a = a[:start]+pointer+a[end:]
-          old = ('It also proves\nthe shared equilateral-enclosure calculus used by the later optimization\n'
-                 'appendices.  Each calculation is attached to the body statement it supplies.')
-          new = ('The shared equilateral-enclosure calculus is proved in the main text,\n'
-                 'Subsection~\\ref{sec:universal-calculus}. Each calculation here is attached\n'
-                 'to the body statement it supplies.')
-          assert old in a
-          a = a.replace(old,new,1)
-          marker = r'\input{reading_guide/nine_points_and_comparison_set}'
-          assert b.count(marker) == 1
-          bridge = r'''
-
-          \readerheading{Why four contacts suffice in the hard range.}
-          The additional geometric step is not another general enclosure
-          formula. The Newton inner reduction moves the two outer frontier
-          witnesses inward, preserving the candidate's containment by convexity.
-          Their convex hull with the disk has an exposed three-point chain;
-          its two successive point--point lines and two outer disk tangencies
-          supply the four contacts. The support-cell lemma then makes that
-          contact list exhaustive. The inner inclusion, contact geometry, and
-          tangent inequalities must still be proved; their calculations are in
-          \zcref{lem:technical-newton-reduction,prop:technical-four-contact-geometry,
-          lem:appendix-witness-enclosure-calculation}. Four contacts are not four
-          witness points, and the exact tangent certificate is not replaced by
-          the finite-candidate theorem.
-          '''
-          b = b.replace(marker,marker+bridge,1)
-          ap.write_text(a)
-          bp.write_text(b)
-          report = Path('arrange/20260914_enclosure_key_lemmas_report.md')
-          report.write_text('''# Enclosure key lemmas: editorial and mathematical report
-
-          Base: `1d603a69ad97b6a9c32cb0dc4aa6e6747632f3a1` (main, 14 September 2026).
-          Branch: `chatgpt/enclosure-key-lemmas-20260914140239`.
-
-          ## Assessment
-
-          The finite-candidate minimum-equilateral-enclosure theorem is the central
-          general tool of this strategy. It belongs in the main text, together
-          with the support-function gauge and the support-cell argument that
-          explains why the continuous orientation search is finite. However,
-          witness forcing and case-specific structural reductions are not merely
-          auxiliary algebra. The three logically distinct obligations are:
-          construct one fixed set from the original configuration; prove that
-          every hypothetical C triangle contains it; and exclude every unit
-          enclosure of that same set.
-
-          ## Implemented relocation
-
-          The complete four-result block, with all four proofs, was moved from
-          Appendix A into the beginning of the canonical finite-enclosure chapter:
-
-          1. Equilateral enclosure gauge (`prop:new-enclosure-gauge`, also
-             `prop:universal-enclosure-gauge`).
-          2. Support-cell rotation (`lem:support-cell-rotation`).
-          3. Finite caliper certificate (`thm:cert-caliper`).
-          4. Disk--finite-set calipers (`prop:new-disk-finite-caliper`).
-
-          All mathematical statements, proofs, and established labels are retained.
-          The appendix now points to the main-text tools before applying them to
-          the exact local admissible set. It retains only two short gauge formulas
-          as a local reminder and for the existing source-interface check. No
-          validation script or preservation baseline is relaxed. The alternative
-          inline-proofs edition already has no appendices and is left
-          mathematically unchanged.
-
-          An explicit disk-plus-one-point example and its elementary derivation
-          were added in prose from the proved source `2608`, Section 2. This
-          specialization was not an active named theorem of the current canonical
-          manuscript, so it is not described as a relocated existing theorem.
-          BC and D remain the current six-point and four-point constructions;
-          no discarded seven-point specialization or disk-based nonzero-gap
-          argument has been restored.
-
-          ## Important qualifications
-
-          The finite list consists of orientations (normal triples); the tight
-          support triangle is then determined. It is not a list of all optimal
-          triangles. On each fixed-support angular cell, a positive sinusoidal
-          part has negative second derivative, excluding an interior minimum;
-          an all-disk cell is constant. This is the reason finitely many
-          support changes suffice.
-
-          The disk-only value is valid only when an orientation actually realizes
-          three disk supports. It cannot be inserted as an unconditional lower
-          candidate. The new explanatory paragraph makes this qualification
-          explicit without changing the preserved proposition. Including one
-          reference normal along with all tie normals is a complete finite test.
-
-          Checking each disk-plus-one-point set separately is insufficient for
-          several points. For example, each of the two points at distance 2r on
-          opposite sides of a diameter has individual enclosure side 2sqrt(3)r,
-          while their union has diameter 4r > 2sqrt(3)r.
-
-          ## Other key structure already in the chapter
-
-          Fixed radial forcing and demand recovery, common-pair domination, and
-          uniform common-pair forcing are the main construction interfaces. They
-          account for actual adjacent V traces, openness, and strict endpoint
-          demand recovery. They must remain visible in the main text.
-
-          BC's selected-gap enclosure and shared-gap-anchor transfer preserve
-          the quantifier order: original V data are fixed before a new candidate
-          is chosen. D's four-point rescuer theorem is a reusable geometric
-          obstruction, not merely an algebraic bound. F additionally needs the
-          Newton inner inclusion and four-contact hull geometry. The new main-text
-          explanation distinguishes that reduction from the finite-candidate
-          theorem and preserves the exact tangent certificate's role.
-
-          The polynomial selectors for the local admissible set, detailed CE1/CE2
-          return calculations, first-root coordinates, supporting-line residuals,
-          and exact tangent-certificate algebra remain in the appendices.
-          Moving general tools forward is not a claim that these calculations
-          are optional, routine, or automatically implied by the caliper theorem.
-
-          ## Validation policy
-
-          The existing formal-statement/proof preservation inventories and numbered
-          proof-corpus fingerprint are not reset. The delivery runs the repository
-          proof, inline-order, preservation, exact-certificate, dependency-graph,
-          trace, interactive, PDF-render, and pinned-publication checks. Updated
-          generated dependencies and the canonical PDF are included only after
-          validation. Read-only validation and branch-limited publication are
-          separate jobs; publication checks an allowlist and byte hashes and
-          removes this temporary workflow. Final remote CI status must be read
-          from GitHub rather than inferred from this report.
-          '''.replace('\n          ','\n'))
-          print('Relocated four results with their complete proofs.')
+          s=s.replace('the two formulas used here are','the gauge formulas used here are',1)
+          p.write_text(s.replace(marker,textwrap.dedent(reminder)+marker,1))
+          p=Path('arrange/20260914_enclosure_key_lemmas_report.md')
+          p.write_text(p.read_text().replace('only two short gauge formulas','only short gauge formulas'))
           PY
       - name: Regenerate and audit sources
         run: |
@@ -268,7 +70,7 @@ jobs:
           run: |
             set -euo pipefail
             python3 arrange/build.py --all --output-dir arrange/_build
-      - name: Verify PDF output and unchanged inline edition
+      - name: Verify PDFs and unchanged inline edition
         run: |
           set -euo pipefail
           python arrange/_support/verify_pdf_render.py arrange/_build/canonical.pdf
@@ -278,43 +80,29 @@ jobs:
           python - <<'PY'
           import fitz
           from pathlib import Path
-          p = Path('arrange/_build/canonical.pdf')
-          n = fitz.open(p).page_count
-          print('Canonical pages:', n)
-          assert 73 <= n <= 78, n
+          p=Path('arrange/_build/canonical.pdf');n=fitz.open(p).page_count
+          print('Canonical pages:',n);assert 73<=n<=78,n
           Path('arrange/paper_draft/main.pdf').write_bytes(p.read_bytes())
           PY
           python interactive/generate.py --dependency-graph
           python interactive/generate.py --dependency-graph --check
-      - name: Package allowlisted, byte-hashed delivery
+      - name: Package allowlisted byte-hashed delivery
         id: package
         run: |
           python - <<'PY'
-          import hashlib, json, os, shutil, subprocess
+          import hashlib,json,os,shutil,subprocess
           from pathlib import Path
-          paths = [
-              'arrange/paper_draft/06_finite_enclosure_full.tex',
-              'arrange/paper_draft/A_structural_shared_local_signed_center_optimization.tex',
-              'arrange/paper_draft/main.pdf',
-              'interactive/readable_proof_dependency_graph.html',
-              'interactive/readable_proof_dependency_data.json',
-              'arrange/README.md',
-              'arrange/20260914_enclosure_key_lemmas_report.md',
-          ]
-          changed = set(subprocess.check_output(['git','diff','--name-only'],text=True).splitlines())
-          untracked = set(subprocess.check_output(['git','ls-files','--others','--exclude-standard'],text=True).splitlines())
-          assert changed | untracked <= set(paths), (changed,untracked)
-          out = Path('/tmp/enclosure-delivery'); out.mkdir()
-          manifest = {'base': subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),
-                      'files': {}, 'delete': ['.github/workflows/enclosure-key-lemmas-delivery.yml']}
-          for name in sorted(changed | untracked):
-              p = Path(name); dest=out/'files'/name; dest.parent.mkdir(parents=True,exist_ok=True)
-              shutil.copyfile(p,dest)
-              manifest['files'][name] = hashlib.sha256(p.read_bytes()).hexdigest()
-          data = json.dumps(manifest,sort_keys=True,indent=2).encode()
-          (out/'manifest.json').write_bytes(data)
-          with open(os.environ['GITHUB_OUTPUT'],'a') as f:
-              f.write('manifest='+hashlib.sha256(data).hexdigest()+'\n')
+          allowed={'arrange/paper_draft/06_finite_enclosure_full.tex','arrange/paper_draft/A_structural_shared_local_signed_center_optimization.tex','arrange/paper_draft/main.pdf','interactive/readable_proof_dependency_graph.html','interactive/readable_proof_dependency_data.json','arrange/README.md','arrange/20260914_enclosure_key_lemmas_report.md'}
+          changed=set(subprocess.check_output(['git','diff','--name-only'],text=True).splitlines())
+          changed.update(subprocess.check_output(['git','ls-files','--others','--exclude-standard'],text=True).splitlines())
+          assert changed<=allowed,changed-allowed
+          out=Path('/tmp/enclosure-delivery');out.mkdir()
+          m={'base':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'files':{},'delete':['.github/workflows/enclosure-key-lemmas-delivery.yml']}
+          for name in sorted(changed):
+              p=Path(name);dest=out/'files'/name;dest.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(p,dest)
+              m['files'][name]=hashlib.sha256(p.read_bytes()).hexdigest()
+          data=json.dumps(m,sort_keys=True,indent=2).encode();(out/'manifest.json').write_bytes(data)
+          with open(os.environ['GITHUB_OUTPUT'],'a') as f:f.write('manifest='+hashlib.sha256(data).hexdigest()+'\n')
           print(data.decode())
           PY
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
@@ -337,35 +125,23 @@ jobs:
         with:
           name: enclosure-key-lemmas-validated
           path: /tmp/enclosure-delivery
-      - name: Verify exact manifest and publish only this branch
+      - name: Verify manifest and publish only the task branch
         env:
           EXPECTED_MANIFEST: ${{ needs.validate.outputs.manifest }}
         run: |
           python - <<'PY'
           import hashlib,json,os,subprocess
           from pathlib import Path
-          root=Path('/tmp/enclosure-delivery')
-          raw=(root/'manifest.json').read_bytes()
+          root=Path('/tmp/enclosure-delivery');raw=(root/'manifest.json').read_bytes()
           assert hashlib.sha256(raw).hexdigest()==os.environ['EXPECTED_MANIFEST']
-          m=json.loads(raw)
-          assert subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()==m['base']
-          allowed={
-              'arrange/paper_draft/06_finite_enclosure_full.tex',
-              'arrange/paper_draft/A_structural_shared_local_signed_center_optimization.tex',
-              'arrange/paper_draft/main.pdf',
-              'interactive/readable_proof_dependency_graph.html',
-              'interactive/readable_proof_dependency_data.json',
-              'arrange/README.md',
-              'arrange/20260914_enclosure_key_lemmas_report.md',
-          }
+          m=json.loads(raw);assert subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()==m['base']
+          allowed={'arrange/paper_draft/06_finite_enclosure_full.tex','arrange/paper_draft/A_structural_shared_local_signed_center_optimization.tex','arrange/paper_draft/main.pdf','interactive/readable_proof_dependency_graph.html','interactive/readable_proof_dependency_data.json','arrange/README.md','arrange/20260914_enclosure_key_lemmas_report.md'}
           assert set(m['files'])<=allowed
           assert m['delete']==['.github/workflows/enclosure-key-lemmas-delivery.yml']
           for name,sha in m['files'].items():
-              data=(root/'files'/name).read_bytes()
-              assert hashlib.sha256(data).hexdigest()==sha,name
-              p=Path(name); p.parent.mkdir(parents=True,exist_ok=True); p.write_bytes(data)
-          for name in m['delete']:
-              Path(name).unlink()
+              data=(root/'files'/name).read_bytes();assert hashlib.sha256(data).hexdigest()==sha,name
+              p=Path(name);p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(data)
+          for name in m['delete']:Path(name).unlink()
           subprocess.run(['git','add','--',*m['files'],*m['delete']],check=True)
           subprocess.run(['git','diff','--cached','--check'],check=True)
           subprocess.run(['git','config','user.name','github-actions[bot]'],check=True)
