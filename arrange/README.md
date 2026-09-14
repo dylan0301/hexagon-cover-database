@@ -18,14 +18,14 @@ authority for theorem status and hypotheses; the manuscript is the
 publication layer.
 
 `paper_draft/inline_proofs/main.tex` is an additional edition with no
-appendices. It has 64 pages. Each of its 83 theorem, lemma, proposition, and corollary
+appendices. The readability revision has 73 pages. Each of its 83 theorem, lemma, proposition, and corollary
 statements is immediately followed by its proof. It integrates all the
 canonical proof calculations, consolidates 14 repeated statement entries,
 and places the main theorem and scaling corollary at the end. The certificate
 explanation is part of the zero-gap argument; the authenticated data and
 verifiers remain accompanying files. See
 [`inline_proofs/README.md`](paper_draft/inline_proofs/README.md) for the source map
-and preservation audit. The canonical edition is unchanged.
+and preservation audit. Both editions now share the human-readable overview and witness explanations.
 
 The trace-exact panels remain available under
 `paper_draft/figures/trace_exact_ab/` and in the standalone explorer.
@@ -53,6 +53,7 @@ python arrange/build.py --canonical
 python arrange/build.py --inline-proofs
 python arrange/build.py --all
 python arrange/_support/verify_inline_proofs.py
+python arrange/_support/verify_readability_preservation.py
 arrange/_support/build_proof_free_paper.sh
 ```
 
@@ -64,10 +65,11 @@ proof-free command writes `arrange/paper_draft/proof_free.pdf`; it removes
 formal proof environments while retaining prose and calculations outside
 those environments.
 
-The self-containment revision has 69 pages (89 before shortening and 66
-before this editorial repair); the proof-free version has 37 pages
-(previously 50 and 36). The CI page-count guard is 67--71. Fonts, page
-dimensions, and margins are unchanged.
+The readability revision has 75 canonical pages and 73 inline-proof pages
+(previously 69 and 64). The canonical CI guard is 73--78 pages. Page dimensions,
+font family, and margins are unchanged; reader headings and proof-start page
+break protection are improved. The older proof-free export is not the
+reader-facing publication artifact for this revision.
 
 The build commands use a temporary source copy, so LaTeX intermediates do not
 pollute the source directory. Both tracked edition PDFs are publication
@@ -95,3 +97,12 @@ See `20260909_paper_shortening_implementation_report.md` for the removal
 packages and preservation contracts. The subsequent reading-order repair
 is documented in `20260910_self_containment_editorial_report.md`. Clean PDF comparison,
 render audit, both exact zero-gap programs, and source checks remain mandatory.
+
+## Human-readability revision
+
+See [the reviewer report](20260913_readability_review_report.md). The canonical
+introduction explains the boundary/interior tradeoff before the detailed
+classifications, which now appear in common geometry. Shared passages in
+`paper_draft/reading_guide/` explain coverage scope, fixed witnesses, candidate
+enclosures, replacement, and the zero-gap comparison sets. The original
+mathematical inventory is protected by the new readability-preservation audit.

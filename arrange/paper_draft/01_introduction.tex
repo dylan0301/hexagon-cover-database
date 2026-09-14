@@ -1,6 +1,10 @@
 \section{Introduction and Proof Outline}
 \label{sec:introduction}
 
+\subsection{The geometric obstruction}
+
+\input{reading_guide/geometric_overview}
+
 \subsection{Notation, theorem, and canonical labeling}
 
 All distances, angles, and areas are Euclidean. A unit equilateral triangle
@@ -84,234 +88,23 @@ $H$, $S$, or $\partial H$ is an additional hypothesis, stated when needed.
 A \emph{skeleton cover} covers $S$, not necessarily all of $H$.
 An edge is \emph{center-free} when it is disjoint from $U_C$.
 
-
-
-\subsection{Finite classifications}
-
-Set
-\[
- N_E(T_C):=
- \left\lvert\left\{i\in\mathbb Z/6\mathbb Z:
- \Haus(T_C\cap e_{i,i+1})>0\right\}\right\rvert.
-\]
-Proposition~\ref{prop:ce-classification} gives $N_E(T_C)\in\{0,1,2\}$;
-we call these types $\CEzero,\CEone,\CEtwo$, respectively.
-
-\begin{figure}[H]
-\centering
-\begin{minipage}[t]{.32\textwidth}
-\vspace{0pt}\centering
-\includegraphics[width=\linewidth,height=.20\textheight,keepaspectratio]
-  {figures/role_examples/center_role_ce0_example.png}
-\par\smallskip
-\footnotesize (a) $\CEzero$
-\end{minipage}\hfill
-\begin{minipage}[t]{.32\textwidth}
-\vspace{0pt}\centering
-\includegraphics[width=\linewidth,height=.20\textheight,keepaspectratio]
-  {figures/role_examples/center_role_ce1_example.png}
-\par\smallskip
-\footnotesize (b) $\CEone$
-\end{minipage}\hfill
-\begin{minipage}[t]{.32\textwidth}
-\vspace{0pt}\centering
-\includegraphics[width=\linewidth,height=.20\textheight,keepaspectratio]
-  {figures/role_examples/center_role_ce2_example.png}
-\par\smallskip
-\footnotesize (c) $\CEtwo$
-\end{minipage}
-\caption{Examples of the three C triangle classes.  From left to right, the
-C triangle has positive-length trace on zero, one, and two edges of
-$\partial H$; point contacts do not count.  The panels illustrate the classification.}
-\label{fig:center-role-examples}
-\end{figure}
-
-For the V triangle $T_i$, let $o(T_i)$ be the number of its triangle vertices
-outside $H$ and put
-\[
- n(T_i)=\left\lvert\left\{j\in\{i-1,i+1\}:
- \Haus(T_i\cap r_j)>0\right\}\right\rvert,
-\]
-with indices modulo $6$.  The raw pair $(3,0)$ says that all three vertices of
-$T_i$ lie outside $H$; it does not say that $T_i$ is disjoint from $H$, since
-$V_i\in\interior(T_i)\cap H$.
-Proposition~\ref{prop:vd0-exact-trace-normalization} replaces every such
-triangle by a same-orientation translate with exactly the same
-trace in $H$, still containing $V_i$ in its interior, and with at most two
-vertices outside $H$.  We make this exact-trace normalization before defining
-any reach.  The normalized exhaustive types used below are
-\[
-\begin{array}{c|c}
-(o(T_i),n(T_i))&\text{established type}\\ \hline
-(1,0)&\Vdzero\\
-(2,0)&\Vdzero\\
-(1,1)&\Vdone\\
-(1,2)&\Vdtwo\\
-(2,1)&\Tlike.
-\end{array}
-\]
-
-The actual maximal reaches are
-\[
- A_i:=\max\{x\in[0,1]:V_i+x(V_{i-1}-V_i)\in T_i\},
-\]
-\[
- B_i:=\max\{x\in[0,1]:V_i+x(V_{i+1}-V_i)\in T_i\},
-\]
-\[
- C_i:=\max\{x\in[0,1]:V_i+x(O-V_i)\in T_i\}.
-\]
-The same numbers are the suprema of the corresponding reaches in the open
-triangle $U_i$. The V triangle $T_i$ is \emph{supercritical} when
-$A_i+B_i>1$, and \emph{nonsupercritical} when $A_i+B_i\le1$. Put
-\begin{equation}
- N_+:=\left\lvert\left\{i\in\mathbb Z/6\mathbb Z:
- A_i+B_i>1\right\}\right\rvert.
- \label{eq:N-plus-definition}
-\end{equation}
-Lowercase reaches are used only after a selection satisfying
-\[
- 0\le a_i\le A_i,\qquad 0\le b_i\le B_i,\qquad 0\le c_i\le C_i.
-\]
-They never define $N_+$.
+\input{reading_guide/coverage_scope}
 
 
 
-Parametrize $e_{i,i+1}$ from $V_i$ to $V_{i+1}$ by
-\[
- X_i(x):=V_i+x(V_{i+1}-V_i),\qquad 0\le x\le1.
-\]
-Define the \emph{boundary gap}
-\[
- J_i:=e_{i,i+1}\setminus(U_i\cup U_{i+1}),\qquad
- N_{\mathrm{gap}}:=|\{i:J_i\ne\varnothing\}|.
-\]
-Lemma~\ref{lem:gap-exhaustion} gives
-$J_i=X_i([B_i,1-A_{i+1}])$ when $B_i+A_{i+1}\le1$, and $J_i=\varnothing$
-otherwise. Equality is a singleton gap, not an overlap.
+\subsection{How to read the proof}
+Section~\ref{sec:structure-common} introduces the incidence classes, actual
+reaches, gaps, and midpoint restrictions, in that order. Its final routing
+table gives the exhaustive split after the relevant notation is available.
+Sections~\ref{sec:trace-length} and \ref{sec:area-loss} establish the length
+and area budgets. Section~\ref{sec:finite-enclosure} explains how to fix
+witnesses before testing an arbitrary enclosing triangle; the selected-gap
+construction is worked through point by point. Section~\ref{sec:assembly}
+assembles the obstructions.
 
-A V role has \emph{positive adjacent-radial support}, or simply
-\emph{positive support}, when $n(T_i)>0$. Put
-\[
- N_{\mathrm{sp}}:=|\{i:n(T_i)>0\}|.
-\]
-Positive-support roles are nonsupercritical, so the number of roles that
-are supercritical or have positive adjacent-radial support is
-$N_++N_{\mathrm{sp}}$. The skeleton budget excludes nonzero-gap covers
-with $N_++N_{\mathrm{sp}}\ge3$.
-
-\begin{figure}[H]
-\centering
-\begin{minipage}[t]{.32\textwidth}
-\vspace{0pt}\centering
-\includegraphics[width=\linewidth,height=.22\textheight,keepaspectratio]
-  {figures/role_examples/vertex_role_vd0_axis_aligned_example.png}
-\par\smallskip
-\footnotesize (a) axis-aligned $\Vdzero$
-\end{minipage}\hfill
-\begin{minipage}[t]{.32\textwidth}
-\vspace{0pt}\centering
-\includegraphics[width=\linewidth,height=.22\textheight,keepaspectratio]
-  {figures/role_examples/vertex_role_vd0_nonsupercritical_example.png}
-\par\smallskip
-\footnotesize (b) nonsupercritical $\Vdzero$
-\end{minipage}\hfill
-\begin{minipage}[t]{.32\textwidth}
-\vspace{0pt}\centering
-\includegraphics[width=\linewidth,height=.22\textheight,keepaspectratio]
-  {figures/role_examples/vertex_role_vd0_supercritical_example.png}
-\par\smallskip
-\footnotesize (c) supercritical $\Vdzero$
-\end{minipage}
-\par\medskip
-\begin{minipage}[t]{.32\textwidth}
-\vspace{0pt}\centering
-\includegraphics[width=\linewidth,height=.22\textheight,keepaspectratio]
-  {figures/role_examples/vertex_role_vd1_example.png}
-\par\smallskip
-\footnotesize (d) $\Vdone$
-\end{minipage}\hfill
-\begin{minipage}[t]{.32\textwidth}
-\vspace{0pt}\centering
-\includegraphics[width=\linewidth,height=.22\textheight,keepaspectratio]
-  {figures/role_examples/vertex_role_vd2_example.png}
-\par\smallskip
-\footnotesize (e) $\Vdtwo$
-\end{minipage}\hfill
-\begin{minipage}[t]{.32\textwidth}
-\vspace{0pt}\centering
-\includegraphics[width=\linewidth,height=.22\textheight,keepaspectratio]
-  {figures/role_examples/vertex_role_t3_like_example.png}
-\par\smallskip
-\footnotesize (f) $\Tlike$
-\end{minipage}
-\caption{Examples of the normalized V triangle types.  The top row shows an
-axis-aligned $\Vdzero$, a nonsupercritical $\Vdzero$ with $A_i+B_i\le1$,
-and a supercritical $\Vdzero$ with $A_i+B_i>1$.  The bottom row shows
-$\Vdone$, $\Vdtwo$, and $\Tlike$.  The panels illustrate the classification.}
-\label{fig:vertex-role-examples}
-\end{figure}
-
-\subsection{Exhaustive routing}
-
-When the C triangle has type CE1 or CE2, \zcref{prop:unique-center-midpoint}
-will show that it contains exactly one of $M_0,\ldots,M_5$; this is the
-\emph{C midpoint}. If it is $M_k$, the role at $V_k$ is called
-\emph{center-based}; a supercritical role there is \emph{center-aligned},
-and a role at another vertex is \emph{away} or \emph{off-center}.
-A V role that contains an adjacent midpoint openly is
-called its \emph{supplier} or \emph{rescuer}. A \emph{gap-free
-nonsupercritical path} is a consecutive sequence of nonsupercritical V
-roles whose shared edges have empty gaps.
-
-We use BC for the selected-gap six-point construction, D for the supported-
-midpoint four-point construction, and F for the zero-gap nine-point
-construction, all defined in Section~\ref{sec:finite-enclosure}.
-N0 denotes \zcref{thm:fixed-nzero}, the assertion that every skeleton
-cover has a supercritical V role.
-
-Zero gaps mean that the V triangles cover $\partial H$, and the proof
-splits according to $N_+$. With a gap, the C triangle is CE1 or CE2;
-N0 and the skeleton budget leave one supercritical role and at most one
-positive-support role. Its position relative to the C midpoint determines
-the remaining obstruction.
-
-\begin{table}[H]
-\centering\small
-\setlength{\tabcolsep}{5pt}\renewcommand{\arraystretch}{1.15}
-\begin{tabular}{@{}ccp{.34\textwidth}p{.28\textwidth}@{}}
-\toprule
-$N_{\rm gap}$&$N_+$&Additional condition&Closing mechanism\\
-\midrule
-$0$&$0$&Arbitrary V types&Strict overlap\\
-$0$&$1$&Arbitrary V types&Nine-point F\\
-$0$&$\ge2$&Arbitrary V types&Cyclic area loss\\
-\midrule
-$\ge1$&$0$&Arbitrary V types&N0, through BC\\
-$\ge1$&$\ge1$&$N_+\ge2$ or $N_++N_{\rm sp}\ge3$&Skeleton budget\\
-$\ge1$&$1$&$N_{\rm sp}\le1$&Midpoint supplier: BC, D, replacement, or Vd2 length\\
-\bottomrule
-\end{tabular}
-\caption{Disjoint routes for the original open cover. Nonzero gaps force
-CE1 or CE2; both classes share the same placement reduction. Replacement
-preserves the skeleton and ends at N0, without preserving number of gaps.}
-\label{tab:routing}
-\end{table}
-
-The rows are disjoint and exhaustive: separate zero from nonzero gaps,
-then $N_+=0$, and finally the displayed high-count condition.
-Lemma~\ref{lem:midpoint-supplier} resolves the last row. BC uses the same
-selected-gap witness in CE1 and CE2, with separate candidate calculations.
-
-\subsection{Organization of the proof}
-
-Section~\ref{sec:structure-common} proves the structural classification,
-strict handoff selection, and midpoint facts.  Appendix~\ref{app:structural-shared-local-signed-center}
-proves the signed-center normal form used by the later arguments.
-Section~\ref{sec:trace-length} gives the complete trace-length argument.
-Section~\ref{sec:area-loss} proves the local and cyclic area-loss estimates.
-Section~\ref{sec:finite-enclosure} gives the nonzero-gap and zero-gap enclosure obstructions.
-Section~\ref{sec:assembly} then applies the zero-gap alternatives before the
-nonzero-gap midpoint-supplier reduction of Table~\ref{tab:routing} and closes the proof.
-Appendices A--E supply the corresponding solved optimizations; Appendix F is
-the exact polynomial certificate for the two mixed zero-gap intersections.
+The main text states the geometric inputs and explains their use.
+Appendices A--E retain the complete local calculations, including both
+replacement charts. Appendix F contains the exact tangent-residual
+certificate and identifies its accompanying finite data and replay programs.
+Reading a calculation can be postponed, but none is being replaced by an
+illustration or an experimental assertion.

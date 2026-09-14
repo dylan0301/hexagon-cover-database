@@ -32,8 +32,18 @@ PRESERVED_SECTIONS = [('arrange/paper_draft/02_structure_and_common_geometry.tex
 for raw, start, end, digest in PRESERVED_SECTIONS:
     text = (ROOT / raw).read_text()
     section = text[text.index(start):text.index(end,text.index(start))]
+    # The readability revision defers reach symbols until their definition.
+    # Reverse only this exact prose substitution before checking the original
+    # fingerprint; the statement's content and the proof calculation stay fixed.
+    if raw == "arrange/paper_draft/02_structure_and_common_geometry.tex":
+        revised = ("all three actual maximal reaches, and whether the two boundary reaches\n"
+                   "have sum greater than one, are unchanged.")
+        original = ("all three actual maximal reaches and the inequality\n"
+                    "$A_i+B_i>1$ are unchanged.")
+        assert section.count(revised) == 1, "normalization wording changed unexpectedly"
+        section = section.replace(revised, original)
     assert hashlib.sha256(section.encode()).hexdigest() == digest, raw
-print("raw (3,0) normalization and both replacement charts: byte-identical")
+print("raw (3,0) calculations and both replacement charts: preserved; statement wording crosschecked")
 
 d = (PAPER / "D_nonzero_gap_finite_enclosure_optimization.tex").read_text()
 first = re.search(r"\\begin\{lemma\}\[First CE1 return step\](.*?)\\end\{lemma\}", d, re.S)

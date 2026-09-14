@@ -1,10 +1,18 @@
 % Keep the end of each statement with the beginning of its proof.
 % The standard amsthm environments otherwise permit a break at this boundary.
 \makeatletter
+% A final display must not provide an earlier legal page break that bypasses
+% the no-break penalty at the statement/proof boundary.
+\AddToHook{env/theorem/begin}{\postdisplaypenalty\@M}
+\AddToHook{env/lemma/begin}{\postdisplaypenalty\@M}
+\AddToHook{env/proposition/begin}{\postdisplaypenalty\@M}
+\AddToHook{env/corollary/begin}{\postdisplaypenalty\@M}
 \AddToHook{env/theorem/end}{\@endparpenalty\@M}
 \AddToHook{env/lemma/end}{\@endparpenalty\@M}
 \AddToHook{env/proposition/end}{\@endparpenalty\@M}
 \AddToHook{env/corollary/end}{\@endparpenalty\@M}
+% Insert the no-break penalty before amsthm opens its proof trivlist.
+\AddToHook{env/proof/before}{\par\nopagebreak[4]}
 \AddToHook{env/proof/begin}{\@beginparpenalty\@M}
 \makeatother
 
