@@ -50,8 +50,10 @@ jobs:
           p=Path('arrange/20260914_enclosure_key_lemmas_report.md')
           p.write_text(p.read_text().replace('only two short gauge formulas','only short gauge formulas'))
           PY
-      - name: Check preservation before the publication build
+      - name: Prepare dependencies and verify preservation before build
         run: |
+          set -euo pipefail
+          python interactive/generate.py --dependency-graph
           python arrange/_support/verify_readability_preservation.py
           python arrange/_support/verify_inline_proofs.py
           git diff --check
