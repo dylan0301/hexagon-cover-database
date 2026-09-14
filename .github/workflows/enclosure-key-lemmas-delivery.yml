@@ -107,7 +107,16 @@ jobs:
           pointer = r'''The enclosure gauge, support-cell rotation, and finite calipers are
           stated and proved in Subsection~\ref{sec:universal-calculus} of the
           finite-enclosure chapter. The local optimization below applies those
-          general results.
+          general results. For reference, the two formulas used here are
+          \[
+           \Lambda(K):=\frac{2}{\sqrt3}\min_{\|n\|=1}W_K(n),
+          \]
+          \[
+           K\text{ is contained in a unit C triangle}
+           \iff
+           \min_{\|n\|=1}W_K(n)\le\frac{\sqrt3}{2}.
+          \]
+          These recall the main-text proposition, whose proof is not repeated.
 
           '''
           a = a[:start]+pointer+a[end:]
@@ -170,8 +179,11 @@ jobs:
 
           All mathematical statements, proofs, and established labels are retained.
           The appendix now points to the main-text tools before applying them to
-          the exact local admissible set. The alternative inline-proofs edition
-          already has no appendices and is left mathematically unchanged.
+          the exact local admissible set. It retains only two short gauge formulas
+          as a local reminder and for the existing source-interface check. No
+          validation script or preservation baseline is relaxed. The alternative
+          inline-proofs edition already has no appendices and is left
+          mathematically unchanged.
 
           An explicit disk-plus-one-point example and its elementary derivation
           were added in prose from the proved source `2608`, Section 2. This
@@ -272,6 +284,8 @@ jobs:
           assert 73 <= n <= 78, n
           Path('arrange/paper_draft/main.pdf').write_bytes(p.read_bytes())
           PY
+          python interactive/generate.py --dependency-graph
+          python interactive/generate.py --dependency-graph --check
       - name: Package allowlisted, byte-hashed delivery
         id: package
         run: |
