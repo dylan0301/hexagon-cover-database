@@ -98,3 +98,9 @@ from GitHub rather than inferred from this report.
 ## Completed validation
 
 All validation steps preceding packaging passed: the pinned builds of both editions; PDF render checks; identical inline-edition text and 144-dpi pixels; all 186 canonical statements and 184 proof groups preserved; the 446-file numbered proof/support fingerprint; exact-certificate checks; and dependency/trace regeneration and static checks. The dependency graph is staged before its freshness check, and packaging compares against HEAD so this staged generated file cannot be omitted. No check script or mathematical baseline was weakened. Remote publication is still separately gated by the hashed manifest and branch-head check.
+
+## Final notation review
+
+The appendix reminder now explicitly defines W_K as the three-direction support sum before using it. This is a notation clarification outside the preserved formal statements and proofs. The main-text four-result relocation is unchanged. Both editions and the final checks are rerun after this clarification.
+
+All final validation steps passed after the notation clarification. The canonical PDF has 76 pages. No formal statement, proof, numbered proof/support file, checker, or preservation baseline was changed.
