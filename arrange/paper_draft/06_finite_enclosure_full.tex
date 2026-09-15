@@ -19,6 +19,177 @@ exclude every open unit candidate containing the same fixed set $K$.
 
 \input{reading_guide/fixed_witness_logic}
 
+\subsection{The enclosure calculus: finitely many orientations}
+\label{sec:universal-calculus}
+
+The next four results are the general enclosure tools, rather than
+case-specific estimates. The gauge removes translation and scale; the
+support-cell argument reduces the remaining orientation variable to a
+finite list. They do not construct the witnesses or prove that those
+witnesses are forced into the C triangle.
+
+
+
+Let $\mathsf R$ denote counterclockwise rotation through $2\pi/3$.  For a
+nonempty compact $K\subset\mathbb R^2$, put
+\[
+ h_K(n):=\max_{x\in K}\langle x,n\rangle.
+\]
+
+\begin{proposition}[Equilateral enclosure gauge]
+\label{prop:new-enclosure-gauge}
+\label{prop:universal-enclosure-gauge}
+The least side length $\Lambda(K)$ of a closed equilateral triangle containing
+$K$ is
+\begin{equation}
+ \Lambda(K)=\frac2{\sqrt3}
+ \min_{\lVert n\rVert=1}\sum_{j=0}^2h_K(\mathsf R^jn).
+ \label{eq:universal-lambda}
+\end{equation}
+It is monotone under inclusion, translation invariant, and positively
+homogeneous.
+\end{proposition}
+
+\begin{proof}
+For fixed outward normals $n,\mathsf Rn,\mathsf R^2n$, the least containing
+triangle has the corresponding three support numbers, and its side is
+$2/\sqrt3$ times their sum.  Translation invariance follows from
+\[
+ n+\mathsf Rn+\mathsf R^2n=0,
+\]
+while monotonicity and homogeneity are immediate.
+\end{proof}
+
+\begin{lemma}[Support-cell rotation]
+\label{lem:support-cell-rotation}
+A least equilateral enclosure of a nondegenerate polygon can be chosen
+with one side containing a polygon edge. For a centered disk together
+with finitely many points, it suffices to test point--point and point--disk
+ties, or a disk-only orientation. Here a \emph{support cell} is an open
+angular interval on which the maximizing point or disk is fixed in each
+of the three support directions; a \emph{tie} is an endpoint where a
+maximizer changes.
+\end{lemma}
+\begin{proof}
+By \zcref{prop:new-enclosure-gauge}, the side is the three-term support
+sum divided by $h=\sqrt3/2$. Parametrize unit normals by
+$n(\theta)=(\cos\theta,\sin\theta)$. For a disk of radius $\rho>0$, its
+support value is $\rho$ in every unit direction. On a polygon cell with fixed support vertices the sum
+is $g(\theta)=a\cos\theta+b\sin\theta>0$, so $g''=-g<0$ and no
+interior minimum occurs. In the disk case a cell with $q$ disk supports
+has sum $q\rho+\langle v,n(\theta)\rangle$, where $v$ is the sum
+of the active point vectors rotated back by their respective multiples
+of $120^\circ$. If a point is active its
+projection exceeds $\rho\ge0$, and the inner product is positive, again
+giving a negative second derivative. A disk-only cell has constant support sum $3\rho$. Each application must still identify its exposed ties.
+\end{proof}
+
+\subsubsection{Finite caliper criterion}
+\label{subsec:finite-caliper}
+
+Let $\mathsf J$ denote counterclockwise rotation through $\pi/2$.  For a
+nonempty finite set $F$ define
+\begin{equation}
+ W_F(N):=\sum_{k=0}^2\max_{z\in F}
+ \langle z,\mathsf R^kN\rangle.
+ \label{eq:caliper-support-sum}
+\end{equation}
+
+\begin{theorem}[Finite caliper certificate]
+\label{thm:cert-caliper}
+If $F$ has at least two distinct points, then $F$ is contained in a closed
+unit equilateral triangle if and only if there are distinct $p,q\in F$ and
+$\varepsilon\in\{-1,1\}$ such that
+\begin{equation}
+ W_F\bigl(\varepsilon\mathsf J(q-p)\bigr)
+ \le\frac{\sqrt3}{2}\lVert p-q\rVert.
+ \label{eq:finite-caliper-test}
+\end{equation}
+A singleton is contained in equilateral triangles of arbitrarily small
+positive side length.
+\end{theorem}
+
+\begin{proof}
+Apply \zcref{prop:universal-enclosure-gauge,lem:support-cell-rotation}
+to $\conv F$. A minimizing normal is perpendicular to a hull edge
+$[p,q]$ and, after cyclic
+rotation, equals
+$\varepsilon\mathsf J(q-p)/\lVert p-q\rVert$.  Homogeneity gives
+\eqref{eq:finite-caliper-test}; a nondegenerate segment follows by checking
+its two normals.
+
+\end{proof}
+
+\begin{proposition}[Disk--finite-set calipers]
+\label{prop:new-disk-finite-caliper}
+Let $\rho>0$, $P=\{p_1,\ldots,p_m\}\subset\mathbb R^2$, and
+$K=\conv(\mathbb B(O,\rho)\cup P)$. Use the rotation $\mathsf J$
+defined above. Unless the disk is the active support in all three directions at a minimizing
+orientation, a minimizing normal belongs to the finite list
+\[
+ \pm\frac{\mathsf J(p_k-p_i)}{\|p_k-p_i\|}
+ \quad(p_i\ne p_k)
+\]
+or
+\[
+ \frac{\rho p_i\pm
+ \sqrt{\|p_i\|^2-\rho^2}\,\mathsf Jp_i}{\|p_i\|^2}
+ \quad(\|p_i\|\ge\rho).
+\]
+Thus one side of a least enclosing equilateral triangle either contains two
+points, or is tangent to the disk and contains one point.
+\end{proposition}
+
+\begin{proof}
+Apply \zcref{lem:support-cell-rotation}. A point--point tie has normal
+perpendicular to $p_k-p_i$; solving $\langle p_i,n\rangle=\rho$ with
+$\|n\|=1$ gives the displayed point--disk normals. Rotation through
+$120$ degrees identifies the three supporting directions. A disk-only
+cell contributes $3\rho$ and is the only additional alternative.
+\end{proof}
+
+
+\readerheading{How to use the finite list.}
+For points, evaluate the three-support sum at the listed pair normals.
+For a disk and points, also test the point--disk ties. Nonexposed ties
+may be discarded, but their completeness must first be justified.
+The disk-only alternative contributes $3\rho$ only at an orientation
+where all three disk supports dominate every point; it is not an
+unconditional candidate value. Equivalently, adjoining one arbitrary
+reference normal to the complete tie list and evaluating the actual
+support sum at every listed normal gives a finite test, including the
+case with no ties. The final contact description in the proposition
+applies to its non-disk-only alternative.
+
+\readerheading{One disk and one point.}
+A useful explicit specialization, with $r>0$ and $d=\|q\|$, is
+\[
+\Lambda(\mathbb B(O,r)\cup\{q\})=
+\begin{cases}
+2\sqrt3\,r,&d\le2r,\\
+\sqrt3\,r+\sqrt{d^2-r^2},&d>2r.
+\end{cases}
+\]
+Indeed, when $d\le2r$, orient the point projections as
+$d/2,d/2,-d$, so all three disk supports suffice. When $d>2r$,
+the support-cell argument puts a minimum at a point--disk tie.
+If one projection equals $r$, the other two are
+$(-r\pm\sqrt{3(d^2-r^2)})/2$; substitution in the support sum
+gives the second formula. A circle gives the same enclosure problem
+as its closed disk, since triangles are convex.
+This example explains the transition but does not replace the
+disk--finite-set proposition: several points can impose a joint
+obstruction that none imposes alone.
+
+\readerheading{The other structural step.}
+The fixed radial-forcing lemma and common-pair domination below
+turn local reach bounds into points missed by every open V triangle.
+The uniform common-pair corollary then supplies a symmetric inner
+hexagon and its inscribed disk. These are witness-construction results,
+not consequences of the finite caliper criterion. BC and D subsequently
+use fixed point sets with no disk; F uses nine fixed points and a
+disk-plus-three-point comparison set.
+
 \subsection{Local capacities and radial witnesses}
 
 The following capacities answer a local question: after boundary anchors
@@ -351,6 +522,21 @@ For the enclosure calculation use the compact comparison set
 \input{figures/finite_enclosure/fe11_zero_gap_witness}
 
 \input{reading_guide/nine_points_and_comparison_set}
+
+\readerheading{Why four contacts suffice in the hard range.}
+The additional geometric step is not another general enclosure
+formula. The Newton inner reduction moves the two outer frontier
+witnesses inward, preserving the candidate's containment by convexity.
+Their convex hull with the disk has an exposed three-point chain;
+its two successive point--point lines and two outer disk tangencies
+supply the four contacts. The support-cell lemma then makes that
+contact list exhaustive. The inner inclusion, contact geometry, and
+tangent inequalities must still be proved; their calculations are in
+\zcref{lem:technical-newton-reduction,prop:technical-four-contact-geometry,
+lem:appendix-witness-enclosure-calculation}. Four contacts are not four
+witness points, and the exact tangent certificate is not replaced by
+the finite-candidate theorem.
+
 
 \begin{theorem}[Witness enclosure]
 \label{thm:reader-witness-enclosure}

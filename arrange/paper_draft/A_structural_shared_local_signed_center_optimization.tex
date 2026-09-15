@@ -3,9 +3,9 @@
 \label{app:structural-shared-local-signed-center}
 
 This appendix solves the coordinate problems used by the
-geometric interfaces in Section~\ref{sec:structure-common}.  It also proves
-the shared equilateral-enclosure calculus used by the later optimization
-appendices.  Each calculation is attached to the body statement it supplies.
+geometric interfaces in Section~\ref{sec:structure-common}.  The shared equilateral-enclosure calculus is proved in the main text,
+Subsection~\ref{sec:universal-calculus}. Each calculation here is attached
+to the body statement it supplies.
 
 \subsection{Center and V triangle incidence feasibility}
 
@@ -357,126 +357,24 @@ $\xi_{p-1}<\xi_p<\xi_{p+1}$ in their overlap intervals.  By
 supercritical.
 \end{proof}
 
-\subsection{Shared equilateral-enclosure optimization}
-\label{sec:universal-calculus}
-
-Let $\mathsf R$ denote counterclockwise rotation through $2\pi/3$.  For a
-nonempty compact $K\subset\mathbb R^2$, put
+The enclosure gauge, support-cell rotation, and finite calipers are
+stated and proved in Subsection~\ref{sec:universal-calculus} of the
+finite-enclosure chapter. The local optimization below applies those
+general results. For reference, the gauge formulas used here are
 \[
- h_K(n):=\max_{x\in K}\langle x,n\rangle.
+ \Lambda(K):=\frac{2}{\sqrt3}\min_{\|n\|=1}W_K(n),
 \]
-
-\begin{proposition}[Equilateral enclosure gauge]
-\label{prop:new-enclosure-gauge}
-\label{prop:universal-enclosure-gauge}
-The least side length $\Lambda(K)$ of a closed equilateral triangle containing
-$K$ is
-\begin{equation}
- \Lambda(K)=\frac2{\sqrt3}
- \min_{\lVert n\rVert=1}\sum_{j=0}^2h_K(\mathsf R^jn).
- \label{eq:universal-lambda}
-\end{equation}
-It is monotone under inclusion, translation invariant, and positively
-homogeneous.
-\end{proposition}
-
-\begin{proof}
-For fixed outward normals $n,\mathsf Rn,\mathsf R^2n$, the least containing
-triangle has the corresponding three support numbers, and its side is
-$2/\sqrt3$ times their sum.  Translation invariance follows from
 \[
- n+\mathsf Rn+\mathsf R^2n=0,
+ K\text{ is contained in a unit C triangle}
+ \iff
+ \min_{\|n\|=1}W_K(n)\le\frac{\sqrt3}{2}.
 \]
-while monotonicity and homogeneity are immediate.
-\end{proof}
-
-\begin{lemma}[Support-cell rotation]
-\label{lem:support-cell-rotation}
-A least equilateral enclosure of a nondegenerate polygon can be chosen
-with one side containing a polygon edge. For a centered disk together
-with finitely many points, it suffices to test point--point and point--disk
-ties, or a disk-only orientation. Here a \emph{support cell} is an open
-angular interval on which the maximizing point or disk is fixed in each
-of the three support directions; a \emph{tie} is an endpoint where a
-maximizer changes.
-\end{lemma}
-\begin{proof}
-By \zcref{prop:new-enclosure-gauge}, the side is the three-term support
-sum divided by $h=\sqrt3/2$. Parametrize unit normals by
-$n(\theta)=(\cos\theta,\sin\theta)$. For a disk of radius $\rho>0$, its
-support value is $\rho$ in every unit direction. On a polygon cell with fixed support vertices the sum
-is $g(\theta)=a\cos\theta+b\sin\theta>0$, so $g''=-g<0$ and no
-interior minimum occurs. In the disk case a cell with $q$ disk supports
-has sum $q\rho+\langle v,n(\theta)\rangle$, where $v$ is the sum
-of the active point vectors rotated back by their respective multiples
-of $120^\circ$. If a point is active its
-projection exceeds $\rho\ge0$, and the inner product is positive, again
-giving a negative second derivative. A disk-only cell has constant support sum $3\rho$. Each application must still identify its exposed ties.
-\end{proof}
-
-\subsubsection{Finite caliper criterion}
-\label{subsec:finite-caliper}
-
-Let $\mathsf J$ denote counterclockwise rotation through $\pi/2$.  For a
-nonempty finite set $F$ define
-\begin{equation}
- W_F(N):=\sum_{k=0}^2\max_{z\in F}
- \langle z,\mathsf R^kN\rangle.
- \label{eq:caliper-support-sum}
-\end{equation}
-
-\begin{theorem}[Finite caliper certificate]
-\label{thm:cert-caliper}
-If $F$ has at least two distinct points, then $F$ is contained in a closed
-unit equilateral triangle if and only if there are distinct $p,q\in F$ and
-$\varepsilon\in\{-1,1\}$ such that
-\begin{equation}
- W_F\bigl(\varepsilon\mathsf J(q-p)\bigr)
- \le\frac{\sqrt3}{2}\lVert p-q\rVert.
- \label{eq:finite-caliper-test}
-\end{equation}
-A singleton is contained in equilateral triangles of arbitrarily small
-positive side length.
-\end{theorem}
-
-\begin{proof}
-Apply \zcref{prop:universal-enclosure-gauge,lem:support-cell-rotation}
-to $\conv F$. A minimizing normal is perpendicular to a hull edge
-$[p,q]$ and, after cyclic
-rotation, equals
-$\varepsilon\mathsf J(q-p)/\lVert p-q\rVert$.  Homogeneity gives
-\eqref{eq:finite-caliper-test}; a nondegenerate segment follows by checking
-its two normals.
-
-\end{proof}
-
-\begin{proposition}[Disk--finite-set calipers]
-\label{prop:new-disk-finite-caliper}
-Let $\rho>0$, $P=\{p_1,\ldots,p_m\}\subset\mathbb R^2$, and
-$K=\conv(\mathbb B(O,\rho)\cup P)$. Use the rotation $\mathsf J$
-defined above. Unless the disk is the active support in all three directions at a minimizing
-orientation, a minimizing normal belongs to the finite list
+For the disk--finite-set applications, use the same inverse scaling:
 \[
- \pm\frac{\mathsf J(p_k-p_i)}{\|p_k-p_i\|}
- \quad(p_i\ne p_k)
+ \Lambda(K)=\frac{2}{\sqrt3}\min_{\|n\|=1}W_K(n),
+ \qquad K=\mathbb B(O,\rho)\cup\{w_1,\ldots,w_s\}.
 \]
-or
-\[
- \frac{\rho p_i\pm
- \sqrt{\|p_i\|^2-\rho^2}\,\mathsf Jp_i}{\|p_i\|^2}
- \quad(\|p_i\|\ge\rho).
-\]
-Thus one side of a least enclosing equilateral triangle either contains two
-points, or is tangent to the disk and contains one point.
-\end{proposition}
-
-\begin{proof}
-Apply \zcref{lem:support-cell-rotation}. A point--point tie has normal
-perpendicular to $p_k-p_i$; solving $\langle p_i,n\rangle=\rho$ with
-$\|n\|=1$ gives the displayed point--disk normals. Rotation through
-$120$ degrees identifies the three supporting directions. A disk-only
-cell contributes $3\rho$ and is the only additional alternative.
-\end{proof}
+These recall the main-text proposition, whose proof is not repeated.
 
 \subsection{The local admissible set and radial envelope}
 \label{sec:admissible-set-derivation}
