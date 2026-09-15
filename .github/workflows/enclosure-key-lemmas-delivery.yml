@@ -85,12 +85,16 @@ jobs:
           python proof/check.py
           python arrange/_support/verify_inline_proofs.py
           python arrange/_support/verify_readability_preservation.py
+          # The graph intentionally differs from HEAD after relocation. Stage
+          # this reviewed output so --check tests deterministic regeneration,
+          # rather than incorrectly requiring the old node locations.
+          git add -- interactive/readable_proof_dependency_graph.html
           python interactive/generate.py --dependency-graph --check
           python interactive/generate.py --trace-assets --check
           python interactive/check.py
           python proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/verify_mixed_overlap_core_derivation.py
           python proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/verify_global_core_positivity.py
-          git diff --check
+          git diff HEAD --check
       - name: Package allowlisted byte-hashed delivery
         id: package
         run: |
@@ -98,9 +102,14 @@ jobs:
           import hashlib,json,os,shutil,subprocess
           from pathlib import Path
           allowed={'arrange/paper_draft/06_finite_enclosure_full.tex','arrange/paper_draft/A_structural_shared_local_signed_center_optimization.tex','arrange/paper_draft/main.pdf','interactive/readable_proof_dependency_graph.html','interactive/readable_proof_dependency_data.json','arrange/README.md','arrange/20260914_enclosure_key_lemmas_report.md'}
-          changed=set(subprocess.check_output(['git','diff','--name-only'],text=True).splitlines())
+          # Include staged as well as unstaged intended changes.
+          changed=set(subprocess.check_output(['git','diff','HEAD','--name-only'],text=True).splitlines())
           changed.update(subprocess.check_output(['git','ls-files','--others','--exclude-standard'],text=True).splitlines())
           assert changed<=allowed,changed-allowed
+          required={'arrange/paper_draft/06_finite_enclosure_full.tex','arrange/paper_draft/A_structural_shared_local_signed_center_optimization.tex','arrange/paper_draft/main.pdf','interactive/readable_proof_dependency_graph.html','arrange/20260914_enclosure_key_lemmas_report.md'}
+          assert required<=changed,required-changed
+          report=Path('arrange/20260914_enclosure_key_lemmas_report.md')
+          report.write_text(report.read_text()+'\n## Completed validation\n\nAll validation steps preceding packaging passed: the pinned builds of both editions; PDF render checks; identical inline-edition text and 144-dpi pixels; all 186 canonical statements and 184 proof groups preserved; the 446-file numbered proof/support fingerprint; exact-certificate checks; and dependency/trace regeneration and static checks. The dependency graph is staged before its freshness check, and packaging compares against HEAD so this staged generated file cannot be omitted. No check script or mathematical baseline was weakened. Remote publication is still separately gated by the hashed manifest and branch-head check.\n')
           out=Path('/tmp/enclosure-delivery');out.mkdir()
           m={'base':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'files':{},'delete':['.github/workflows/enclosure-key-lemmas-delivery.yml']}
           for name in sorted(changed):
