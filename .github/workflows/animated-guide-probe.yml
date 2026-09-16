@@ -1,0 +1,54 @@
+name: Animated guide source probe
+on:
+  push:
+    branches: [chatgpt/animated-proof-guide-20260916132528]
+    paths: [.github/workflows/animated-guide-probe.yml]
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - run: |
+          python -m pip install playwright==1.55.0
+          python -m playwright install --with-deps chromium
+      - name: Retrieve pinned sources and inspect the deployed application
+        run: |
+          mkdir -p /tmp/guide-probe
+          git clone -q https://github.com/jcpaik/hexagon-cover-visual.git /tmp/guide-probe/visualizer
+          git -C /tmp/guide-probe/visualizer checkout 1cd468b26aed30d5ddcf1ffa501805bf9720482c
+          git archive HEAD | tar -x -C /tmp/guide-probe
+          rm -rf /tmp/guide-probe/visualizer/.git
+          python - <<'PY'
+          import json, pathlib, traceback
+          from playwright.sync_api import sync_playwright
+          out=pathlib.Path('/tmp/guide-probe')
+          with sync_playwright() as p:
+              browser=p.chromium.launch()
+              page=browser.new_page(viewport={'width':1500,'height':1000},device_scale_factor=1)
+              errors=[]
+              page.on('pageerror', lambda e: errors.append(str(e)))
+              try:
+                  response=page.goto('https://hexagon-cover-visual.surge.sh/',wait_until='networkidle',timeout=90000)
+                  page.wait_for_timeout(3000)
+                  (out/'live.html').write_text(page.content())
+                  (out/'live.txt').write_text(page.locator('body').inner_text())
+                  (out/'live-probe.json').write_text(json.dumps({'status':response.status,'url':page.url,'errors':errors,'scripts':page.locator('script[src]').evaluate_all('(xs)=>xs.map(x=>x.src)'),'controls':page.locator('input,select,button,textarea').evaluate_all('(xs)=>xs.map(x=>({tag:x.tagName,id:x.id,type:x.type,value:x.value,text:x.textContent?.slice(0,200)}))')},indent=2))
+                  page.screenshot(path=str(out/'live.png'),full_page=True)
+              except Exception:
+                  (out/'live-error.txt').write_text(traceback.format_exc())
+              browser.close()
+          PY
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: animated-guide-source-probe
+          path: /tmp/guide-probe
+          include-hidden-files: true
+          if-no-files-found: error
