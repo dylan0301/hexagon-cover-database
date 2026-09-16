@@ -1,0 +1,136 @@
+name: Validate construction-focused animated guide
+on:
+  push:
+    branches: [chatgpt/animated-proof-guide-20260916132528]
+    paths:
+      - .github/workflows/animated-guide-revision-capture.yml
+      - interactive/animated_proof_guide/.revision-*
+permissions:
+  contents: read
+jobs:
+  capture:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22'
+      - name: Verify reviewed patch bytes and restore only allowlisted sources
+        run: |
+          python - <<'PY'
+          import base64,gzip,hashlib,json,pathlib,shutil,subprocess
+          root=pathlib.Path('interactive/animated_proof_guide')
+          audit=pathlib.Path('/tmp/revision-input-audit');audit.mkdir()
+          parts={}
+          for i in range(3):
+              name=f'.revision-{i:02}.b64';shutil.copy2(root/name,audit/name);parts[name]=(root/name).read_text().strip()
+          # Repair one identified transport insertion; byte hashes below remain decisive.
+          parts['.revision-01.b64']=parts['.revision-01.b64'].replace('H148799q/dzPOE','H148799q/zPOE')
+          correction=root/'.revision-corrections.json'
+          if correction.exists():
+              shutil.copy2(correction,audit/correction.name);patches=json.loads(correction.read_text())
+              for name in parts:
+                  for item in sorted((p for p in patches if p['part']==name),key=lambda x:x['start'],reverse=True):
+                      assert parts[name][item['start']:item['end']]==item['old']
+                      parts[name]=parts[name][:item['start']]+item['new']+parts[name][item['end']:]
+          raw=base64.b64decode(''.join(parts.values()),validate=True)
+          assert hashlib.sha256(raw).hexdigest()=='1c637c74843fd0ab86a4647d281ebcd6a56c8854cdb5f7e5f2af12e72c032b57','Transport SHA mismatch'
+          patch=gzip.decompress(raw)
+          assert hashlib.sha256(patch).hexdigest()=='ac6e054e9b7c346067514ab1785910d87bec7f53c183925060ee28852ff55bce'
+          p=pathlib.Path('/tmp/revision.patch');p.write_bytes(patch)
+          allowed={'README.md','interactive/README.md'}|{str(root/x) for x in ['README.md','VALIDATION.md','examples.cjs','capture.py','build.py','check.py','browser_qa.py','cases.json','construction_examples.cjs','construction_render.py','construction_checks.py']}
+          paths={row.split('\t')[-1] for row in subprocess.check_output(['git','apply','--numstat',str(p)],text=True).splitlines()}
+          assert paths==allowed
+          subprocess.run(['git','apply','--check',str(p)],check=True)
+          subprocess.run(['git','apply',str(p)],check=True)
+          pathlib.Path('/tmp/source-paths.json').write_text(json.dumps(sorted(allowed)))
+          print('Verified patch SHA-256; restored 13 reviewed source files.')
+          PY
+      - name: Install pinned dependencies
+        run: |
+          python -m pip install --disable-pip-version-check -r arrange/_support/requirements.txt -r interactive/animated_proof_guide/requirements.txt
+          python -m playwright install --with-deps chromium
+      - name: Build pinned visualizer and deterministic examples
+        run: |
+          git clone -q https://github.com/jcpaik/hexagon-cover-visual.git /tmp/revision-visualizer
+          git -C /tmp/revision-visualizer checkout 1cd468b26aed30d5ddcf1ffa501805bf9720482c
+          cd /tmp/revision-visualizer
+          npm ci
+          npm run build
+          npx tsc --noEmit false --module CommonJS --moduleResolution node --outDir /tmp/revision-cjs
+          cd "$GITHUB_WORKSPACE"
+          node interactive/animated_proof_guide/examples.cjs /tmp/revision-cjs /tmp/revision-examples.json
+      - name: Capture fifteen revised scenes from the actual live app
+        run: |
+          python interactive/animated_proof_guide/capture.py --examples /tmp/revision-examples.json --output interactive/animated_proof_guide --expected-dist /tmp/revision-visualizer/dist/assets --only vd1,vd2,replacement-minus,replacement-plus,bc-seven,bc-eight,d-seven,d-eight,bc-singleton,bc-build,d-build,area-cyclic,supplier-t3,supplier-vd1,area-max
+      - name: Validate GIFs, independent geometry, native readouts and browser UI
+        run: |
+          python interactive/animated_proof_guide/build.py
+          python interactive/animated_proof_guide/check.py --require-live
+          python interactive/animated_proof_guide/browser_qa.py --folder interactive/animated_proof_guide --output /tmp/revision-qa
+      - name: Preserve existing proof and replay exact certificates
+        run: |
+          python proof/check.py
+          python arrange/_support/verify_inline_proofs.py
+          python arrange/_support/verify_readability_preservation.py
+          (cd proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation && python verify_mixed_overlap_core_derivation.py && python verify_global_core_positivity.py)
+          python interactive/generate.py --dependency-graph --check
+          python interactive/generate.py --trace-assets --check
+          python interactive/check.py
+          git diff --check
+      - name: Package byte-hashed delivery without publishing
+        run: |
+          python - <<'PY'
+          import hashlib,json,os,pathlib,shutil,subprocess
+          root=pathlib.Path('interactive/animated_proof_guide')
+          cap=json.loads((root/'capture.json').read_text());qa=json.loads(pathlib.Path('/tmp/revision-qa/browser-checks.json').read_text())
+          assert qa['passed']
+          revised=[s for s in cap['scenes'] if s.get('revision')==2];assert len(revised)==15
+          assert len(cap['scenes'])==40 and sum(s['frameCount'] for s in cap['scenes'])==818
+          v=root/'VALIDATION.md';v.write_text(v.read_text()+f'\n## Completed capture checks\n\nRead-only live capture and all source/browser checks above passed in workflow run `{os.environ["GITHUB_RUN_ID"]}`. Final remote publication and pinned manuscript rebuilds are checked separately on the final branch head.\n')
+          paths=set(json.loads(pathlib.Path('/tmp/source-paths.json').read_text()))|{str(root/x) for x in ['index.html','capture.json']}
+          for s in revised:
+              paths|={str(root/'assets'/f'{s["id"]}.{ext}') for ext in ['gif','png']}
+              paths.add(str(root/'snapshots'/f'{s["id"]}.json'))
+          assert len(paths)==60
+          # Retained scenes must keep their exact earlier bytes.
+          baseline='d135943fec66a92f0d1cdc4d75fc7ca36e0da89e'
+          for s in cap['scenes']:
+              if s.get('revision')==2:continue
+              for name in [f'assets/{s["id"]}.gif',f'assets/{s["id"]}.png',f'snapshots/{s["id"]}.json']:
+                  path=root/name;assert path.read_bytes()==subprocess.check_output(['git','show',baseline+':'+str(path)])
+          output=pathlib.Path('/tmp/revision-delivery');delivery=output/'delivery';delivery.mkdir(parents=True)
+          manifest=[]
+          for name in sorted(paths):
+              path=pathlib.Path(name);assert not path.is_symlink();data=path.read_bytes()
+              dst=delivery/path;dst.parent.mkdir(parents=True,exist_ok=True);dst.write_bytes(data);dst.chmod(0o644)
+              manifest.append({'path':name,'bytes':len(data),'sha256':hashlib.sha256(data).hexdigest(),'gitBlob':hashlib.sha1(b'blob '+str(len(data)).encode()+b'\0'+data).hexdigest(),'mode':'100644'})
+          (output/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
+          shutil.copytree('/tmp/revision-qa',output/'qa');shutil.copy2('/tmp/revision-examples.json',output/'examples.json')
+          print('MANIFEST_SHA256',hashlib.sha256((output/'manifest.json').read_bytes()).hexdigest())
+          print('DELIVERY_FILES',len(manifest))
+          PY
+      - name: Upload input audit and diagnostic QA
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: construction-revision-input-audit
+          path: |
+            /tmp/revision-input-audit
+            /tmp/revision-qa
+          include-hidden-files: true
+          if-no-files-found: error
+      - name: Upload verified revision for inspection
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: construction-revision-verified
+          path: /tmp/revision-delivery
+          include-hidden-files: true
+          if-no-files-found: error
