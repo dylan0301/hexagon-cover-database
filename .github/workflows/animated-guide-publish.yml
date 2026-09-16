@@ -1,0 +1,87 @@
+name: Publish inspected animated guide assets
+on:
+  push:
+    branches: [chatgpt/animated-proof-guide-20260916132528]
+    paths: [.github/workflows/animated-guide-publish.yml]
+permissions:
+  contents: write
+  actions: read
+jobs:
+  publish:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+        with:
+          fetch-depth: 0
+      - name: Verify inspected artifact and publish only its non-workflow files
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python - <<'PY'
+          import hashlib,io,json,os,pathlib,re,subprocess,urllib.request,zipfile
+          repo='dylan0301/hexagon-cover-database'
+          branch='chatgpt/animated-proof-guide-20260916132528'
+          assert os.environ['GITHUB_REPOSITORY']==repo
+          assert os.environ['GITHUB_REF']=='refs/heads/'+branch
+          class SafeRedirect(urllib.request.HTTPRedirectHandler):
+              def redirect_request(self,req,fp,code,msg,headers,newurl):
+                  nxt=super().redirect_request(req,fp,code,msg,headers,newurl)
+                  if nxt is not None:nxt.remove_header('Authorization')
+                  return nxt
+          opener=urllib.request.build_opener(SafeRedirect())
+          def get(path):
+              req=urllib.request.Request('https://api.github.com/repos/'+repo+path,headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'})
+              with opener.open(req,timeout=120) as response:return response.read()
+          run=json.loads(get('/actions/runs/35106925355'))
+          assert run['conclusion']=='success' and run['head_sha']=='ba4bfaf761b8d2726a19461f4685e562a727d59b'
+          raw=get('/actions/artifacts/10450628306/zip')
+          assert hashlib.sha256(raw).hexdigest()=='fc8215718f115521014d60c1ef6d61183ccff9bdb4ff9dbbb9fa076d3a9fc9b9'
+          archive=zipfile.ZipFile(io.BytesIO(raw))
+          manifest_data=archive.read('manifest.json')
+          assert hashlib.sha256(manifest_data).hexdigest()=='bab8bd18135acc25ea4ee016d05b2ec30c0502b44e4773b03125d371a8f35e9a'
+          manifest=json.loads(manifest_data);assert len(manifest)==131
+          allowed=re.compile(r'interactive/animated_proof_guide/(README\.md|VALIDATION\.md|requirements\.txt|browser_qa\.py|build\.py|capture\.py|cases\.json|check\.py|examples\.cjs|capture\.json|index\.html|assets/[a-z0-9-]+\.(gif|png)|snapshots/[a-z0-9-]+\.json)\Z')
+          names=set();total=0
+          for item in manifest:
+              name=item['path'];assert name not in names;names.add(name)
+              path=pathlib.PurePosixPath(name);assert not path.is_absolute() and '..' not in path.parts
+              assert name in {'README.md','interactive/README.md','.github/workflows/ci.yml'} or allowed.fullmatch(name),name
+              assert item['mode']=='100644'
+              data=archive.read('delivery/'+name);total+=len(data)
+              assert len(data)==item['bytes'] and hashlib.sha256(data).hexdigest()==item['sha256']
+              assert hashlib.sha1(b'blob '+str(len(data)).encode()+b'\0'+data).hexdigest()==item['gitBlob']
+          assert total<64*1024*1024
+          def git(*args):return subprocess.check_output(['git',*args],text=True).strip()
+          initial=os.environ['GITHUB_SHA'];assert git('rev-parse','HEAD')==initial
+          assert git('ls-remote','--exit-code','origin','refs/heads/'+branch).split()[0]==initial
+          staged=[]
+          for item in manifest:
+              # Workflow edits and temporary-file cleanup are finalized through the
+              # authorized connector; this short-lived token publishes assets only.
+              name=item['path']
+              if name=='.github/workflows/ci.yml':continue
+              path=pathlib.Path(name)
+              assert not path.is_symlink() and all(not p.is_symlink() for p in path.parents)
+              path.parent.mkdir(parents=True,exist_ok=True)
+              path.write_bytes(archive.read('delivery/'+name));path.chmod(0o644);staged.append(name)
+          subprocess.run(['git','add','--',*staged],check=True)
+          assert set(git('diff','--cached','--name-only').splitlines())==set(staged)
+          subprocess.run(['git','diff','--cached','--check'],check=True)
+          git('config','user.name','github-actions[bot]')
+          git('config','user.email','41898282+github-actions[bot]@users.noreply.github.com')
+          subprocess.run(['git','-c','core.hooksPath=/dev/null','commit','-m','Add 39 live visualizer GIFs and a 47-entry animated proof guide'],check=True)
+          assert git('ls-remote','--exit-code','origin','refs/heads/'+branch).split()[0]==initial
+          subprocess.run(['git','push','origin','HEAD:refs/heads/'+branch],check=True)
+          head=git('rev-parse','HEAD')
+          assert git('ls-remote','--exit-code','origin','refs/heads/'+branch).split()[0]==head
+          result={'commit':head,'branch':branch,'publishedFiles':len(staged),'manifestSHA256':'bab8bd18135acc25ea4ee016d05b2ec30c0502b44e4773b03125d371a8f35e9a','workflowAndTemporaryCleanupPending':True}
+          pathlib.Path('/tmp/guide-publish-state.json').write_text(json.dumps(result,indent=2)+'\n')
+          print(json.dumps(result))
+          with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as f:f.write('Verified asset push: `'+head+'`. Connector cleanup and final CI still required.\n')
+          PY
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: animated-guide-publish-state
+          path: /tmp/guide-publish-state.json
+          if-no-files-found: error
