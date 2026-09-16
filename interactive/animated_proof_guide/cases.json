@@ -1,0 +1,885 @@
+{
+  "schema": 1,
+  "proofRevision": "3b927c996d7641b20887dc56c1fa741cac674256",
+  "visualizerRevision": "1cd468b26aed30d5ddcf1ffa501805bf9720482c",
+  "groups": [
+    "BC",
+    "D",
+    "Replacement",
+    "F",
+    "Budgets",
+    "Routing",
+    "Geometry",
+    "Tools"
+  ],
+  "cards": [
+    {
+      "id": "bc-one",
+      "scene": "bc-seven",
+      "group": "BC",
+      "title": "BC • one selected gap",
+      "hypothesis": "A gap is selected on e0; T1,...,T5 are nonsupercritical. The C midpoint is M0.",
+      "construction": "Fix M0, two gap endpoints, and total radial endpoints on r2,r3,r4. There are at most six points.",
+      "argument": "The original boundary cover supplies B5 > 1−M0(B0) > B0/2. Every open candidate containing the fixed set is excluded. T0 need not be supercritical.",
+      "scope": "Capacity-derived radial substitutes from the app, not measured total endpoints of an original cover. All six local source families are feasible, but the global covering adapter is not verified.",
+      "source": "arrange/paper_draft/fixed_witness/06_fixed_witness_body.tex",
+      "labels": [
+        "prop:new-nplus-one-all-vd0",
+        "thm:center-aligned-path"
+      ],
+      "related": [
+        "bc-two",
+        "bc-singleton",
+        "bc-build",
+        "bc-ce1",
+        "bc-ce2"
+      ]
+    },
+    {
+      "id": "bc-two",
+      "scene": "bc-eight",
+      "group": "BC",
+      "title": "BC • two incident gaps",
+      "hypothesis": "The selected gap is on e0; e5 also has a gap. Only e1,...,e4 must be gap-free.",
+      "construction": "Use exactly the same selected-gap six-point recipe. No extra points are needed for the second gap.",
+      "argument": "The tail transfer is obtained from the original cover, before the candidate changes. The candidate is not assumed to cover the discarded gap.",
+      "scope": "Capacity-derived radial substitutes from the app, not measured total endpoints of an original cover. All six local source families are feasible, but the global covering adapter is not verified.",
+      "source": "arrange/paper_draft/fixed_witness/06_fixed_witness_body.tex",
+      "labels": [
+        "lem:shared-gap-anchor-transfer",
+        "prop:new-nplus-one-all-vd0"
+      ],
+      "related": [
+        "bc-one",
+        "bc-build"
+      ]
+    },
+    {
+      "id": "bc-singleton",
+      "scene": "bc-singleton",
+      "group": "BC",
+      "title": "BC • a singleton is still a gap",
+      "hypothesis": "B0 = 1−A1. The two endpoint handles coincide but remain distinct handles.",
+      "construction": "The animation opens a short gap and returns to equality. The red ring marks the singleton.",
+      "argument": "Closed V triangles reach the endpoint; original open V triangles do not. Equality cannot be treated as a strict overlap or as a shared selected handoff.",
+      "scope": "Capacity-derived radial substitutes from the app, not measured total endpoints of an original cover. All six local source families are feasible, but the global covering adapter is not verified.",
+      "source": "arrange/paper_draft/02_structure_and_common_geometry.tex",
+      "labels": [
+        "lem:gap-exhaustion"
+      ],
+      "related": [
+        "bc-one",
+        "source-exact"
+      ]
+    },
+    {
+      "id": "bc-build",
+      "scene": "bc-build",
+      "group": "BC",
+      "title": "BC • construct, then enclose",
+      "hypothesis": "Fix the original local data before choosing any enclosing C candidate.",
+      "construction": "Reveal the two gap endpoints and M0, then the three radial witnesses. Intermediate fits are visibly labeled subsets.",
+      "argument": "The origin is already in the hull of a gap point and the radial points on r2,r4. It is not a seventh independent witness.",
+      "scope": "Capacity-derived radial substitutes from the app, not measured total endpoints of an original cover. All six local source families are feasible, but the global covering adapter is not verified.",
+      "source": "arrange/paper_draft/fixed_witness/06_fixed_witness_body.tex",
+      "labels": [
+        "lem:fixed-origin-in-hull",
+        "prop:new-nplus-one-all-vd0"
+      ],
+      "related": [
+        "calipers",
+        "bc-ce1",
+        "bc-ce2"
+      ]
+    },
+    {
+      "id": "bc-ce1",
+      "scene": "ce1",
+      "group": "BC",
+      "title": "BC • candidate CE1 return branch",
+      "hypothesis": "An arbitrary open unit candidate contains the fixed BC witnesses and meets one boundary edge.",
+      "construction": "This clip isolates a genuine CE1 candidate shape. Consult BC construction for the fixed witness set.",
+      "argument": "The CE1 return calculation contradicts the propagated strict path bounds. Witness coordinates do not move when the candidate changes.",
+      "scope": "This clip shows the candidate class only; it does not depict an impossible CE1 enclosure of all BC witnesses.",
+      "source": "arrange/paper_draft/D_nonzero_gap_finite_enclosure_optimization.tex",
+      "labels": [
+        "lem:appendix-fixed-transverse"
+      ],
+      "related": [
+        "bc-build",
+        "center-ce1"
+      ]
+    },
+    {
+      "id": "bc-ce2",
+      "scene": "ce2",
+      "group": "BC",
+      "title": "BC • candidate CE2 threshold branch",
+      "hypothesis": "An arbitrary open unit candidate contains the fixed BC witnesses and meets two adjacent boundary edges.",
+      "construction": "This clip isolates a genuine CE2 candidate shape; its two boundary intervals are visible.",
+      "argument": "The signed-center threshold calculation excludes this candidate class. CE1 and CE2 are different calculation branches, not different BC witness recipes.",
+      "scope": "This clip shows the candidate class only; it is not a BC counterexample.",
+      "source": "arrange/paper_draft/D_nonzero_gap_finite_enclosure_optimization.tex",
+      "labels": [
+        "lem:appendix-fixed-transverse"
+      ],
+      "related": [
+        "bc-build",
+        "center-ce2"
+      ]
+    },
+    {
+      "id": "d-t3-one",
+      "scene": "d-seven",
+      "group": "D",
+      "title": "D • T3-like supplier, one gap",
+      "hypothesis": "The unique supercritical role is off the C midpoint. A center-based T3-like role supplies its neighboring midpoint.",
+      "construction": "Use O, epsilon V1, Y(a), Y(1−beta), with Y(t)=(1−t)V0+tV5. The same four-point set works for both gap ranks.",
+      "argument": "The T3-like local tail calculation supplies the size and ratio bounds; the common geometric four-point theorem then excludes every open unit enclosure.",
+      "scope": "The app verifies the four-point geometric inequalities. Its epsilon is capacity-derived; it is not the endpoint epsilon of the separate actual-supplier animation.",
+      "source": "arrange/paper_draft/fixed_witness/06_fixed_witness_body.tex",
+      "labels": [
+        "thm:fixed-four-point-rescuer",
+        "prop:new-one-t3-terminal"
+      ],
+      "related": [
+        "supplier-t3",
+        "d-geometry"
+      ]
+    },
+    {
+      "id": "d-t3-two",
+      "scene": "d-eight",
+      "group": "D",
+      "title": "D • T3-like supplier, two gaps",
+      "hypothesis": "The unique supercritical role is off the C midpoint. A center-based T3-like role supplies its neighboring midpoint.",
+      "construction": "Use O, epsilon V1, Y(a), Y(1−beta), with Y(t)=(1−t)V0+tV5. The same four-point set works for both gap ranks.",
+      "argument": "The T3-like local tail calculation supplies the size and ratio bounds; the common geometric four-point theorem then excludes every open unit enclosure.",
+      "scope": "The app verifies the four-point geometric inequalities. Its epsilon is capacity-derived; it is not the endpoint epsilon of the separate actual-supplier animation.",
+      "source": "arrange/paper_draft/fixed_witness/06_fixed_witness_body.tex",
+      "labels": [
+        "thm:fixed-four-point-rescuer",
+        "prop:new-one-t3-terminal"
+      ],
+      "related": [
+        "supplier-t3",
+        "d-geometry"
+      ]
+    },
+    {
+      "id": "d-vd1-one",
+      "scene": "d-seven",
+      "group": "D",
+      "title": "D • Vd1 supplier, one gap",
+      "hypothesis": "The unique supercritical role is off the C midpoint. A center-based Vd1 role supplies its neighboring midpoint.",
+      "construction": "Use O, epsilon V1, Y(a), Y(1−beta), with Y(t)=(1−t)V0+tV5. The same four-point set works for both gap ranks.",
+      "argument": "The Vd1 local tail calculation supplies the size and ratio bounds; the common geometric four-point theorem then excludes every open unit enclosure.",
+      "scope": "The app verifies the four-point geometric inequalities. Its epsilon is capacity-derived; it is not the endpoint epsilon of the separate actual-supplier animation.",
+      "source": "arrange/paper_draft/fixed_witness/06_fixed_witness_body.tex",
+      "labels": [
+        "thm:fixed-four-point-rescuer",
+        "prop:new-one-vd-assembly"
+      ],
+      "related": [
+        "supplier-vd1",
+        "d-geometry"
+      ]
+    },
+    {
+      "id": "d-vd1-two",
+      "scene": "d-eight",
+      "group": "D",
+      "title": "D • Vd1 supplier, two gaps",
+      "hypothesis": "The unique supercritical role is off the C midpoint. A center-based Vd1 role supplies its neighboring midpoint.",
+      "construction": "Use O, epsilon V1, Y(a), Y(1−beta), with Y(t)=(1−t)V0+tV5. The same four-point set works for both gap ranks.",
+      "argument": "The Vd1 local tail calculation supplies the size and ratio bounds; the common geometric four-point theorem then excludes every open unit enclosure.",
+      "scope": "The app verifies the four-point geometric inequalities. Its epsilon is capacity-derived; it is not the endpoint epsilon of the separate actual-supplier animation.",
+      "source": "arrange/paper_draft/fixed_witness/06_fixed_witness_body.tex",
+      "labels": [
+        "thm:fixed-four-point-rescuer",
+        "prop:new-one-vd-assembly"
+      ],
+      "related": [
+        "supplier-vd1",
+        "d-geometry"
+      ]
+    },
+    {
+      "id": "supplier-t3",
+      "scene": "supplier-t3",
+      "group": "D",
+      "title": "T3-like • actual supported interval",
+      "hypothesis": "The original open supplier at V0 contains M1. Its positive trace on r1 is [c,u] in the closed triangle.",
+      "construction": "The magenta annotation marks the actual interval. Set epsilon=1−u using this original triangle—not a translated majorant.",
+      "argument": "The numerical example checks A0+epsilon≤1 and A0/(A0+epsilon)≤1−M_c^sup. The global adapter additionally uses radial coverage and the tail path.",
+      "scope": "A real local unit triangle, not a jointly realized seven-triangle covering configuration. Original open containment is checked numerically with positive clearance. Magenta is an added interval annotation, not an additional coverer.",
+      "source": "arrange/paper_draft/D_nonzero_gap_finite_enclosure_optimization.tex",
+      "labels": [
+        "lem:appendix-t3-supported-tail"
+      ],
+      "related": [
+        "d-geometry",
+        "v-t3"
+      ]
+    },
+    {
+      "id": "supplier-vd1",
+      "scene": "supplier-vd1",
+      "group": "D",
+      "title": "Vd1 • actual supported interval",
+      "hypothesis": "The original open supplier at V0 contains M1. Its positive trace on r1 is [c,u] in the closed triangle.",
+      "construction": "The magenta annotation marks the actual interval. Set epsilon=1−u using this original triangle—not a translated majorant.",
+      "argument": "The numerical example checks A0+epsilon≤1 and A0/(A0+epsilon)≤1−M_c^sup. The global adapter additionally uses radial coverage and the tail path.",
+      "scope": "A real local unit triangle, not a jointly realized seven-triangle covering configuration. Original open containment is checked numerically with positive clearance. Magenta is an added interval annotation, not an additional coverer.",
+      "source": "arrange/paper_draft/D_nonzero_gap_finite_enclosure_optimization.tex",
+      "labels": [
+        "lem:appendix-vd1-supported-tail"
+      ],
+      "related": [
+        "d-geometry",
+        "v-vd1"
+      ]
+    },
+    {
+      "id": "d-geometry",
+      "scene": "d-build",
+      "group": "D",
+      "title": "D • the reusable four-point obstruction",
+      "hypothesis": "a≥0, epsilon>0, beta≥0; s=a+epsilon≤1; a≤epsilon; beta≤epsilon/s.",
+      "construction": "Reveal O and Y(a), then Y(1−beta), then epsilon V1. The full fit uses four points and no disk.",
+      "argument": "The convex combination [epsilon Y(a)+a epsilon V1]/s = (epsilon/s)V0 forces M0 into any open unit candidate. The two boundary constraints then conflict.",
+      "scope": "The app verifies the four-point geometric inequalities. Its epsilon is capacity-derived; it is not the endpoint epsilon of the separate actual-supplier animation.",
+      "source": "arrange/paper_draft/fixed_witness/06_fixed_witness_body.tex",
+      "labels": [
+        "thm:fixed-four-point-rescuer"
+      ],
+      "related": [
+        "supplier-t3",
+        "supplier-vd1",
+        "calipers"
+      ]
+    },
+    {
+      "id": "replacement-minus",
+      "scene": "replacement-minus",
+      "group": "Replacement",
+      "title": "Vd1 replacement • p2≤1/2",
+      "hypothesis": "An away Vd1 supplier has a center-free shared edge. Replacement preserves the skeleton, not necessarily H or gap rank.",
+      "construction": "Use p1=0.20, epsilon=0.02 and p2 near 0.35. The first triangle uses the minus chart; the second uses the minus chart.",
+      "argument": "Both new actual boundary sums equal 1−epsilon=0.98; both roles have no adjacent support. With the scalar margins verified, the replacement removes the unique supercritical role, contradicting N0.",
+      "scope": "These are actual replacement output triangles. The full original impossible input cover is not constructed. Both charts are retained and separately validated.",
+      "source": "arrange/paper_draft/D_nonzero_gap_finite_enclosure_optimization.tex",
+      "labels": [
+        "prop:appendix-vd1-two-chart-replacement"
+      ],
+      "related": [
+        "n0-gap",
+        "replacement-plus"
+      ]
+    },
+    {
+      "id": "replacement-plus",
+      "scene": "replacement-plus",
+      "group": "Replacement",
+      "title": "Vd1 replacement • p2>1/2",
+      "hypothesis": "An away Vd1 supplier has a center-free shared edge. Replacement preserves the skeleton, not necessarily H or gap rank.",
+      "construction": "Use p1=0.20, epsilon=0.02 and p2 near 0.65. The first triangle uses the minus chart; the second uses the plus chart.",
+      "argument": "Both new actual boundary sums equal 1−epsilon=0.98; both roles have no adjacent support. With the scalar margins verified, the replacement removes the unique supercritical role, contradicting N0.",
+      "scope": "These are actual replacement output triangles. The full original impossible input cover is not constructed. Both charts are retained and separately validated.",
+      "source": "arrange/paper_draft/D_nonzero_gap_finite_enclosure_optimization.tex",
+      "labels": [
+        "prop:appendix-vd1-two-chart-replacement"
+      ],
+      "related": [
+        "n0-gap",
+        "replacement-minus"
+      ]
+    },
+    {
+      "id": "f-frontier",
+      "scene": "f-frontier",
+      "group": "F",
+      "title": "F • the exact nine frontier witnesses",
+      "hypothesis": "No actual gaps and exactly one actual supercritical V role, normalized to V4. Choose a,b>0 with a+b>1 and a²+ab+b²<1.",
+      "construction": "Six common-pair radial points plus Q−,Q0,Q+. The outer points are first circle intersections; Q0 is the line junction.",
+      "argument": "All nine witnesses are forced into U_C under the hypothetical cover. The disk inside the radial hexagon supplies a convenient comparison set.",
+      "scope": "Canonical witness coordinates and floating-point calipers. No numerical fit or sampled source union substitutes for the exact enclosure proof.",
+      "source": "arrange/paper_draft/06_finite_enclosure_full.tex",
+      "labels": [
+        "thm:reader-zero-gap-obstruction",
+        "eq:reader-witness-set"
+      ],
+      "related": [
+        "f-newton",
+        "f-disk",
+        "f-asymmetric-left",
+        "f-asymmetric-right"
+      ]
+    },
+    {
+      "id": "f-newton",
+      "scene": "f-newton",
+      "group": "F",
+      "title": "F • Newton inner A, B, C",
+      "hypothesis": "Use the hard range c*>2/3, illustrated near (a,b)=(0.55,0.58).",
+      "construction": "Take exactly one Newton step from the junction. A lies between Q0 and Q−, B=Q0, C lies between Q0 and Q+.",
+      "argument": "Convexity gives disk+{A,B,C} ⊆ conv(K_Newton) ⊆ conv(K_frontier). This reduces the support geometry without changing the six radial coordinates.",
+      "scope": "Canonical witness coordinates and floating-point calipers. No numerical fit or sampled source union substitutes for the exact enclosure proof.",
+      "source": "arrange/paper_draft/E_zero_gap_nine_point_optimization.tex",
+      "labels": [
+        "lem:technical-newton-reduction"
+      ],
+      "related": [
+        "f-comparison",
+        "contact-ab",
+        "contact-bc",
+        "contact-tangent-a",
+        "contact-tangent-c"
+      ]
+    },
+    {
+      "id": "f-comparison",
+      "scene": "f-inner-comparison",
+      "group": "F",
+      "title": "F • frontier versus Newton, with data fixed",
+      "hypothesis": "Keep a=0.55, b=0.58 and all six boundary handles fixed.",
+      "construction": "Switch the app between frontier Q−,Q0,Q+ and Newton A,B,C. Only the last three witness slots change.",
+      "argument": "The change is an inner reduction, not a new root solve and not merely renaming Q points. The displayed side always fits the actual selected finite set.",
+      "scope": "Canonical witness coordinates and floating-point calipers. No numerical fit or sampled source union substitutes for the exact enclosure proof.",
+      "source": "arrange/paper_draft/E_zero_gap_nine_point_optimization.tex",
+      "labels": [
+        "lem:technical-newton-reduction"
+      ],
+      "related": [
+        "f-frontier",
+        "f-newton"
+      ]
+    },
+    {
+      "id": "f-disk",
+      "scene": "f-disk",
+      "group": "F",
+      "title": "F • easy range: the disk alone",
+      "hypothesis": "c*≤2/3; this animation uses (a,b) near (0.53,0.51).",
+      "construction": "The radial hexagon contains the disk of radius r*=sqrt(3)(1−c*)/2. All six radial witnesses stay enabled.",
+      "argument": "The disk alone has least enclosure side 2sqrt(3)r*=3(1−c*)≥1. Frontier details and the four-contact certificate are unnecessary in this range.",
+      "scope": "Canonical witness coordinates and floating-point calipers. No numerical fit or sampled source union substitutes for the exact enclosure proof.",
+      "source": "arrange/paper_draft/06_finite_enclosure_full.tex",
+      "labels": [
+        "thm:reader-witness-enclosure"
+      ],
+      "related": [
+        "f-newton",
+        "f-build"
+      ]
+    },
+    {
+      "id": "contact-ab",
+      "scene": "f-contact-ab",
+      "group": "F",
+      "title": "Hard range • AB",
+      "hypothesis": "c*>2/3. Work with the smaller comparison set: the disk plus Newton A,B,C.",
+      "construction": "The magenta line is the exposed point–point contact AB. Its normal is checked numerically against the disk and all three inner points in every frame.",
+      "argument": "AB and BC give the two line contacts; the two outer tangencies give the other contacts. The support-cell lemma makes the list exhaustive only after this exposed-hull geometry is proved. Exact tangent inequalities still require the certificate.",
+      "scope": "A labeled annotation is added to the genuine app canvas. It supports disk+{A,B,C}, not the full six-point radial hexagon. The automatic finite-point enclosing triangle is hidden.",
+      "source": "arrange/paper_draft/E_zero_gap_nine_point_optimization.tex",
+      "labels": [
+        "prop:technical-four-contact-geometry",
+        "lem:appendix-witness-enclosure-calculation"
+      ],
+      "related": [
+        "f-newton",
+        "calipers"
+      ]
+    },
+    {
+      "id": "contact-bc",
+      "scene": "f-contact-bc",
+      "group": "F",
+      "title": "Hard range • BC",
+      "hypothesis": "c*>2/3. Work with the smaller comparison set: the disk plus Newton A,B,C.",
+      "construction": "The magenta line is the exposed point–point contact BC. Its normal is checked numerically against the disk and all three inner points in every frame.",
+      "argument": "AB and BC give the two line contacts; the two outer tangencies give the other contacts. The support-cell lemma makes the list exhaustive only after this exposed-hull geometry is proved. Exact tangent inequalities still require the certificate.",
+      "scope": "A labeled annotation is added to the genuine app canvas. It supports disk+{A,B,C}, not the full six-point radial hexagon. The automatic finite-point enclosing triangle is hidden.",
+      "source": "arrange/paper_draft/E_zero_gap_nine_point_optimization.tex",
+      "labels": [
+        "prop:technical-four-contact-geometry",
+        "lem:appendix-witness-enclosure-calculation"
+      ],
+      "related": [
+        "f-newton",
+        "calipers"
+      ]
+    },
+    {
+      "id": "contact-tangent-a",
+      "scene": "f-contact-tangent-a",
+      "group": "F",
+      "title": "Hard range • outer tangent at A",
+      "hypothesis": "c*>2/3. Work with the smaller comparison set: the disk plus Newton A,B,C.",
+      "construction": "The magenta line is the exposed point–disk contact outer tangent at A. Its normal is checked numerically against the disk and all three inner points in every frame.",
+      "argument": "AB and BC give the two line contacts; the two outer tangencies give the other contacts. The support-cell lemma makes the list exhaustive only after this exposed-hull geometry is proved. Exact tangent inequalities still require the certificate.",
+      "scope": "A labeled annotation is added to the genuine app canvas. It supports disk+{A,B,C}, not the full six-point radial hexagon. The automatic finite-point enclosing triangle is hidden.",
+      "source": "arrange/paper_draft/E_zero_gap_nine_point_optimization.tex",
+      "labels": [
+        "prop:technical-four-contact-geometry",
+        "lem:appendix-witness-enclosure-calculation"
+      ],
+      "related": [
+        "f-newton",
+        "calipers"
+      ]
+    },
+    {
+      "id": "contact-tangent-c",
+      "scene": "f-contact-tangent-c",
+      "group": "F",
+      "title": "Hard range • outer tangent at C",
+      "hypothesis": "c*>2/3. Work with the smaller comparison set: the disk plus Newton A,B,C.",
+      "construction": "The magenta line is the exposed point–disk contact outer tangent at C. Its normal is checked numerically against the disk and all three inner points in every frame.",
+      "argument": "AB and BC give the two line contacts; the two outer tangencies give the other contacts. The support-cell lemma makes the list exhaustive only after this exposed-hull geometry is proved. Exact tangent inequalities still require the certificate.",
+      "scope": "A labeled annotation is added to the genuine app canvas. It supports disk+{A,B,C}, not the full six-point radial hexagon. The automatic finite-point enclosing triangle is hidden.",
+      "source": "arrange/paper_draft/E_zero_gap_nine_point_optimization.tex",
+      "labels": [
+        "prop:technical-four-contact-geometry",
+        "lem:appendix-witness-enclosure-calculation"
+      ],
+      "related": [
+        "f-newton",
+        "calipers"
+      ]
+    },
+    {
+      "id": "f-asymmetric-left",
+      "scene": "f-asymmetric-left",
+      "group": "F",
+      "title": "F • asymmetric left example",
+      "hypothesis": "Same zero-gap, one-supercritical branch; (0.64,0.50) lies in the strict (a,b) domain.",
+      "construction": "Use the full nine Newton witnesses while moving one input slightly. The other example exchanges a and b.",
+      "argument": "Reflection exchanges the outer roles. It does not justify discarding a tangent or replacing the joint disk-plus-three-point obstruction by three one-point tests.",
+      "scope": "Canonical witness coordinates and floating-point calipers. No numerical fit or sampled source union substitutes for the exact enclosure proof.",
+      "source": "arrange/paper_draft/E_zero_gap_nine_point_optimization.tex",
+      "labels": [
+        "lem:appendix-witness-enclosure-calculation"
+      ],
+      "related": [
+        "f-asymmetric-right"
+      ]
+    },
+    {
+      "id": "f-asymmetric-right",
+      "scene": "f-asymmetric-right",
+      "group": "F",
+      "title": "F • asymmetric right example",
+      "hypothesis": "Same zero-gap, one-supercritical branch; (0.50,0.64) lies in the strict (a,b) domain.",
+      "construction": "Use the full nine Newton witnesses while moving one input slightly. The other example exchanges a and b.",
+      "argument": "Reflection exchanges the outer roles. It does not justify discarding a tangent or replacing the joint disk-plus-three-point obstruction by three one-point tests.",
+      "scope": "Canonical witness coordinates and floating-point calipers. No numerical fit or sampled source union substitutes for the exact enclosure proof.",
+      "source": "arrange/paper_draft/E_zero_gap_nine_point_optimization.tex",
+      "labels": [
+        "lem:appendix-witness-enclosure-calculation"
+      ],
+      "related": [
+        "f-asymmetric-left"
+      ]
+    },
+    {
+      "id": "f-build",
+      "scene": "f-build",
+      "group": "F",
+      "title": "F • six radial points, then three inner points",
+      "hypothesis": "Start with the common-pair radial hexagon.",
+      "construction": "Reveal B=Q0, then A and C. Intermediate triangle fits are subset fits.",
+      "argument": "The optional disk is a comparison overlay, not a tenth witness. Removing radial points removes the guarantee that their hull contains this disk.",
+      "scope": "Canonical witness coordinates and floating-point calipers. No numerical fit or sampled source union substitutes for the exact enclosure proof.",
+      "source": "arrange/paper_draft/06_finite_enclosure_full.tex",
+      "labels": [
+        "cor:new-uniform-common-pair-forcing"
+      ],
+      "related": [
+        "f-newton",
+        "calipers"
+      ]
+    },
+    {
+      "id": "area-cyclic",
+      "scene": "area-cyclic",
+      "group": "Budgets",
+      "title": "Zero gaps, N+≥2 • cyclic area loss",
+      "hypothesis": "This example has six actual open V triangles covering the entire boundary, with N+=2 and strict overlaps. It does not cover H.",
+      "construction": "Handoffs start at [0.45,0.52,0.48,0.55,0.50,0.46]. Actual reaches are chosen 0.003 beyond each selected demand.",
+      "argument": "Two ascents give total normalized outside loss > 4m²+(1−m)²+1/4 = 5(m−1/5)²+21/20 > 1. Thus V inside area <5; adding one unit C triangle cannot cover normalized area 6.",
+      "scope": "Actual source triangles, their positive boundary overlaps, N+ and clipped areas are checked in every frame. This is a valid boundary-only example, not a full cover.",
+      "source": "arrange/paper_draft/05_area_loss_full.tex",
+      "labels": [
+        "lem:cyclic-area-loss",
+        "prop:area-branches"
+      ],
+      "related": [
+        "area-i-small",
+        "area-i-large",
+        "area-ii"
+      ]
+    },
+    {
+      "id": "area-i-small",
+      "scene": "area-nonsupercritical",
+      "group": "Budgets",
+      "title": "Type I • nonsupercritical",
+      "hypothesis": "Selected (a,b)=(0.30,0.50); actual reaches may be slightly larger.",
+      "construction": "Use the paper’s Type-I half-plane orientation chart, with strictly positive corner clearance. The entire unit triangle is visible.",
+      "argument": "The local square-loss lower bound is min(a,b)². The normalized outside area printed in the clip is measured for this one triangle, not a claimed optimum.",
+      "scope": "A real local unit triangle, not a jointly realized seven-triangle covering configuration. Original open containment is checked numerically with positive clearance.",
+      "source": "arrange/paper_draft/C_area_loss_optimization.tex",
+      "labels": [
+        "eq:type-I-loss",
+        "lem:appendix-local-square-loss"
+      ],
+      "related": [
+        "area-cyclic"
+      ]
+    },
+    {
+      "id": "area-i-large",
+      "scene": "area-supercritical",
+      "group": "Budgets",
+      "title": "Type I • supercritical, a≤b",
+      "hypothesis": "Selected (a,b)=(0.55,0.58); the actual boundary sum is strictly larger than one.",
+      "construction": "Use the paper’s Type-I half-plane orientation chart, with strictly positive corner clearance. The entire unit triangle is visible.",
+      "argument": "The local square-loss lower bound is max(a,b)². The normalized outside area printed in the clip is measured for this one triangle, not a claimed optimum.",
+      "scope": "A real local unit triangle, not a jointly realized seven-triangle covering configuration. Original open containment is checked numerically with positive clearance.",
+      "source": "arrange/paper_draft/C_area_loss_optimization.tex",
+      "labels": [
+        "eq:type-I-loss",
+        "lem:appendix-local-square-loss"
+      ],
+      "related": [
+        "area-cyclic"
+      ]
+    },
+    {
+      "id": "area-i-reflected",
+      "scene": "area-reflected",
+      "group": "Budgets",
+      "title": "Type I • supercritical, b≤a",
+      "hypothesis": "Reflect the previous selected pair to (a,b)=(0.58,0.55).",
+      "construction": "Use the paper’s Type-I half-plane orientation chart, with strictly positive corner clearance. The entire unit triangle is visible.",
+      "argument": "The local square-loss lower bound is max(a,b)². The normalized outside area printed in the clip is measured for this one triangle, not a claimed optimum.",
+      "scope": "A real local unit triangle, not a jointly realized seven-triangle covering configuration. Original open containment is checked numerically with positive clearance.",
+      "source": "arrange/paper_draft/C_area_loss_optimization.tex",
+      "labels": [
+        "eq:type-I-loss",
+        "lem:appendix-local-square-loss"
+      ],
+      "related": [
+        "area-cyclic"
+      ]
+    },
+    {
+      "id": "area-ii",
+      "scene": "area-type-ii",
+      "group": "Budgets",
+      "title": "Type II • necessarily nonsupercritical",
+      "hypothesis": "The second orientation sector uses A=0.25, B=0.35 and t near 0.4.",
+      "construction": "The source is generated directly from the Type-II affine slack equations, not classified by its appearance.",
+      "argument": "Here A+B≤sqrt(1−t+t²)≤1. Consequently this orientation type cannot occur in the supercritical subcase. Its local minimum-square-loss estimate handles the remaining range.",
+      "scope": "A real local unit triangle, not a jointly realized seven-triangle covering configuration. Original open containment is checked numerically with positive clearance.",
+      "source": "arrange/paper_draft/C_area_loss_optimization.tex",
+      "labels": [
+        "eq:area-type-II-reaches",
+        "eq:type-II-loss"
+      ],
+      "related": [
+        "area-cyclic",
+        "area-i-large"
+      ]
+    },
+    {
+      "id": "skeleton-budget",
+      "scene": "skeleton-budget",
+      "group": "Budgets",
+      "title": "Gapped routing • skeleton count k≥3",
+      "hypothesis": "C is CE1/CE2 with a unique midpoint. Put k=N+ + Nsp; supercritical and positive-support roles are disjoint.",
+      "construction": "The example has three supercritical roles and no positive-support roles; k=3. It visibly fails to cover the skeleton.",
+      "argument": "C contributes <3/2, each of the k distinguished V roles <3/2, the others ≤2. Total <(27−k)/2≤12, contradicting any open cover of the length-12 skeleton.",
+      "scope": "A real local unit triangle, not a jointly realized seven-triangle covering configuration. Original open containment is checked numerically with positive clearance. Counts and actual trace lengths are separately checked; a plotted example is not the general length proof.",
+      "source": "arrange/paper_draft/03_trace_bounds.tex",
+      "labels": [
+        "thm:common-skeleton-count"
+      ],
+      "related": [
+        "vd2-budget",
+        "route"
+      ]
+    },
+    {
+      "id": "vd2-budget",
+      "scene": "vd2",
+      "group": "Budgets",
+      "title": "Off-center Vd2 supplier • perimeter exit",
+      "hypothesis": "N+=1; a Vd2 role contains an adjacent midpoint.",
+      "construction": "The local clip shows an actual Vd2 source containing M1. It is not a D four-point construction.",
+      "argument": "Its boundary contribution is <1/3. Together with the C bound <1/2, the supercritical bound 2/sqrt(3), and four noncritical bounds ≤1, the total is <6.",
+      "scope": "A real local unit triangle, not a jointly realized seven-triangle covering configuration. Original open containment is checked numerically with positive clearance.",
+      "source": "arrange/paper_draft/03_trace_bounds.tex",
+      "labels": [
+        "prop:ce2-vd2-midpoint-length"
+      ],
+      "related": [
+        "v-vd2",
+        "skeleton-budget"
+      ]
+    },
+    {
+      "id": "n0-gap",
+      "scene": "bc-seven",
+      "group": "Routing",
+      "title": "N0 • a gap present",
+      "hypothesis": "Assume every actual V role is nonsupercritical and at least one actual gap exists.",
+      "construction": "Use the center-aligned BC path argument. The displayed BC geometry explains the shared witness mechanism.",
+      "argument": "This proves that every skeleton cover has N+≥1. Replacement later invokes this result; the N0 proof does not invoke replacement.",
+      "scope": "The reused BC clip illustrates the mechanism only. Its lower-bound inputs are not a certification that all six actual reaches satisfy N+=0.",
+      "source": "arrange/paper_draft/fixed_witness/06_fixed_witness_body.tex",
+      "labels": [
+        "thm:fixed-nzero"
+      ],
+      "related": [
+        "bc-one",
+        "replacement-minus",
+        "replacement-plus"
+      ]
+    },
+    {
+      "id": "n0-no-gap",
+      "scene": "bc-singleton",
+      "group": "Routing",
+      "title": "N0 • no gaps",
+      "hypothesis": "Assume N+=0 and the six original open V roles cover every boundary point.",
+      "construction": "Strict overlaps would give 6 < sum(Ai+Bi) ≤ 6. The accompanying gap-closing clip explains why equality is not an open overlap.",
+      "argument": "This branch closes immediately by summing actual reaches. A singleton cannot be silently removed to produce a counterexample.",
+      "scope": "The clip is an endpoint diagnostic, not a purported no-gap N+=0 realization.",
+      "source": "arrange/paper_draft/fixed_witness/06_fixed_witness_body.tex",
+      "labels": [
+        "thm:fixed-nzero"
+      ],
+      "related": [
+        "bc-singleton",
+        "n0-gap"
+      ]
+    },
+    {
+      "id": "center-ce0",
+      "scene": "ce0",
+      "group": "Geometry",
+      "title": "CE0 • the center triangle",
+      "hypothesis": "O is strictly inside the unit C triangle.",
+      "construction": "Count positive-length boundary intervals, not isolated touching points. There are no boundary intervals.",
+      "argument": "The center meets at most two adjacent boundary edges. CE1 and CE2 have a unique contained radial midpoint; gap rank is a different classification.",
+      "scope": "A real local unit triangle, not a jointly realized seven-triangle covering configuration. Original open containment is checked numerically with positive clearance.",
+      "source": "arrange/paper_draft/02_structure_and_common_geometry.tex",
+      "labels": [
+        "prop:ce-classification",
+        "prop:unique-center-midpoint"
+      ],
+      "related": [
+        "bc-ce1",
+        "bc-ce2"
+      ]
+    },
+    {
+      "id": "center-ce1",
+      "scene": "ce1",
+      "group": "Geometry",
+      "title": "CE1 • the center triangle",
+      "hypothesis": "O is strictly inside the unit C triangle.",
+      "construction": "Count positive-length boundary intervals, not isolated touching points. The source keeps this class throughout the motion.",
+      "argument": "The center meets at most two adjacent boundary edges. CE1 and CE2 have a unique contained radial midpoint; gap rank is a different classification.",
+      "scope": "A real local unit triangle, not a jointly realized seven-triangle covering configuration. Original open containment is checked numerically with positive clearance.",
+      "source": "arrange/paper_draft/02_structure_and_common_geometry.tex",
+      "labels": [
+        "prop:ce-classification",
+        "prop:unique-center-midpoint"
+      ],
+      "related": [
+        "bc-ce1",
+        "bc-ce2"
+      ]
+    },
+    {
+      "id": "center-ce2",
+      "scene": "ce2",
+      "group": "Geometry",
+      "title": "CE2 • the center triangle",
+      "hypothesis": "O is strictly inside the unit C triangle.",
+      "construction": "Count positive-length boundary intervals, not isolated touching points. The source keeps this class throughout the motion.",
+      "argument": "The center meets at most two adjacent boundary edges. CE1 and CE2 have a unique contained radial midpoint; gap rank is a different classification.",
+      "scope": "A real local unit triangle, not a jointly realized seven-triangle covering configuration. Original open containment is checked numerically with positive clearance.",
+      "source": "arrange/paper_draft/02_structure_and_common_geometry.tex",
+      "labels": [
+        "prop:ce-classification",
+        "prop:unique-center-midpoint"
+      ],
+      "related": [
+        "bc-ce1",
+        "bc-ce2"
+      ]
+    },
+    {
+      "id": "v-vd0-one",
+      "scene": "vd0-one",
+      "group": "Geometry",
+      "title": "Vd0 • (o,n)=(1,0)",
+      "hypothesis": "o=1 triangle vertices lie outside H; n=0 adjacent radial segments have positive-length trace. The own radial segment is not counted in n.",
+      "construction": "The local pose, assigned-vertex clearance, outside-vertex count and adjacent intervals are checked numerically.",
+      "argument": "These are normalized V types, not subdivisions to repeat throughout BC or F. Actual supercriticality is always A+B>1, independently of selected lowercase demands.",
+      "scope": "A real local unit triangle, not a jointly realized seven-triangle covering configuration. Original open containment is checked numerically with positive clearance.",
+      "source": "arrange/paper_draft/02_structure_and_common_geometry.tex",
+      "labels": [
+        "prop:vd-corner-normal-form"
+      ],
+      "related": [
+        "route"
+      ]
+    },
+    {
+      "id": "v-vd0-two",
+      "scene": "vd0-two",
+      "group": "Geometry",
+      "title": "Vd0 • (o,n)=(2,0)",
+      "hypothesis": "o=2 triangle vertices lie outside H; n=0 adjacent radial segments have positive-length trace. The own radial segment is not counted in n.",
+      "construction": "The local pose, assigned-vertex clearance, outside-vertex count and adjacent intervals are checked numerically.",
+      "argument": "These are normalized V types, not subdivisions to repeat throughout BC or F. Actual supercriticality is always A+B>1, independently of selected lowercase demands.",
+      "scope": "A real local unit triangle, not a jointly realized seven-triangle covering configuration. Original open containment is checked numerically with positive clearance.",
+      "source": "arrange/paper_draft/02_structure_and_common_geometry.tex",
+      "labels": [
+        "prop:vd-corner-normal-form"
+      ],
+      "related": [
+        "route"
+      ]
+    },
+    {
+      "id": "v-vd1",
+      "scene": "vd1",
+      "group": "Geometry",
+      "title": "Vd1 • one adjacent support",
+      "hypothesis": "o=1 triangle vertices lie outside H; n=1 adjacent radial segments have positive-length trace. The own radial segment is not counted in n.",
+      "construction": "The local pose, assigned-vertex clearance, outside-vertex count and adjacent intervals are checked numerically.",
+      "argument": "These are normalized V types, not subdivisions to repeat throughout BC or F. Actual supercriticality is always A+B>1, independently of selected lowercase demands.",
+      "scope": "A real local unit triangle, not a jointly realized seven-triangle covering configuration. Original open containment is checked numerically with positive clearance.",
+      "source": "arrange/paper_draft/02_structure_and_common_geometry.tex",
+      "labels": [
+        "prop:vd-corner-normal-form"
+      ],
+      "related": [
+        "route"
+      ]
+    },
+    {
+      "id": "v-vd2",
+      "scene": "vd2",
+      "group": "Geometry",
+      "title": "Vd2 • two adjacent supports",
+      "hypothesis": "o=1 triangle vertices lie outside H; n=2 adjacent radial segments have positive-length trace. The own radial segment is not counted in n.",
+      "construction": "The local pose, assigned-vertex clearance, outside-vertex count and adjacent intervals are checked numerically.",
+      "argument": "These are normalized V types, not subdivisions to repeat throughout BC or F. Actual supercriticality is always A+B>1, independently of selected lowercase demands.",
+      "scope": "A real local unit triangle, not a jointly realized seven-triangle covering configuration. Original open containment is checked numerically with positive clearance.",
+      "source": "arrange/paper_draft/02_structure_and_common_geometry.tex",
+      "labels": [
+        "prop:vd-corner-normal-form"
+      ],
+      "related": [
+        "route"
+      ]
+    },
+    {
+      "id": "v-t3",
+      "scene": "t3",
+      "group": "Geometry",
+      "title": "T3-like • (o,n)=(2,1)",
+      "hypothesis": "o=2 triangle vertices lie outside H; n=1 adjacent radial segments have positive-length trace. The own radial segment is not counted in n.",
+      "construction": "The local pose, assigned-vertex clearance, outside-vertex count and adjacent intervals are checked numerically.",
+      "argument": "These are normalized V types, not subdivisions to repeat throughout BC or F. Actual supercriticality is always A+B>1, independently of selected lowercase demands.",
+      "scope": "A real local unit triangle, not a jointly realized seven-triangle covering configuration. Original open containment is checked numerically with positive clearance.",
+      "source": "arrange/paper_draft/02_structure_and_common_geometry.tex",
+      "labels": [
+        "prop:vd-corner-normal-form"
+      ],
+      "related": [
+        "supplier-t3"
+      ]
+    },
+    {
+      "id": "raw-normalization",
+      "scene": "raw-normalization",
+      "group": "Geometry",
+      "title": "Raw (3,0) • exact trace normalization",
+      "hypothesis": "A raw triangle has all three vertices outside H and no adjacent radial support.",
+      "construction": "Keep the Type-I orientation and alpha+beta fixed, and translate to the (2,0) endpoint. Both actual boundary reaches remain constant.",
+      "argument": "The same wedge cut gives the same open and closed traces in H. This is different from a T3-like translated majorant, which enlarges a trace rather than preserving the original open role.",
+      "scope": "A real local unit triangle, not a jointly realized seven-triangle covering configuration. Original open containment is checked numerically with positive clearance. This clip illustrates the proved translation; it does not remove the raw (3,0) normalization step from the paper.",
+      "source": "arrange/paper_draft/A_structural_shared_local_signed_center_optimization.tex",
+      "labels": [
+        "lem:app-vd0-trace-normalization-calculation"
+      ],
+      "related": [
+        "v-vd0-two"
+      ]
+    },
+    {
+      "id": "calipers",
+      "scene": "f-build",
+      "group": "Tools",
+      "title": "Finite calipers • what the universal lemma does",
+      "hypothesis": "A fixed finite point set, or a disk together with fixed points, is given.",
+      "construction": "The app’s fitted triangle uses hull-edge calipers for the selected finite points. The disk overlay is not part of this numerical fit.",
+      "argument": "Translation and scale are removed by the support gauge. Polygon minima occur at point–point ties; disk-plus-point minima also test point–disk ties and a genuine disk-only orientation. The tool does not prove that witnesses are forced into C.",
+      "scope": "This clip illustrates selection and fitting, not the general theorem’s proof. A disk-only value is not an unconditional candidate if points protrude.",
+      "source": "arrange/paper_draft/06_finite_enclosure_full.tex",
+      "labels": [
+        "prop:new-enclosure-gauge",
+        "lem:support-cell-rotation",
+        "thm:cert-caliper",
+        "prop:new-disk-finite-caliper"
+      ],
+      "related": [
+        "f-build",
+        "contact-ab",
+        "contact-tangent-a"
+      ]
+    },
+    {
+      "id": "source-exact",
+      "scene": "bc-source",
+      "group": "Tools",
+      "title": "Exact source endpoints • not planar clipping",
+      "hypothesis": "At a gap, the relevant actual source reach equals its stopping endpoint. At a shared handoff, the prescribed reach is only a lower demand.",
+      "construction": "Switch to the live source-family explorer. The main canvas displays one selected role’s sampled family together with independently constructed witnesses.",
+      "argument": "Restricting the family of triangles is not equivalent to subtracting the boundary from an ordinary AB union. Pixels do not certify exact edge membership or global witness exclusion.",
+      "scope": "Shading is a numerical subset of an infinite source family. Unshaded pixels are not an exclusion proof; boundary gap annotations are separate.",
+      "source": "arrange/paper_draft/06_finite_enclosure_full.tex",
+      "labels": [
+        "subsec:trace-exact-ab-envelopes"
+      ],
+      "related": [
+        "source-difference",
+        "bc-singleton"
+      ]
+    },
+    {
+      "id": "source-difference",
+      "scene": "source-difference",
+      "group": "Tools",
+      "title": "An interior difference • explicit diagnostic",
+      "hypothesis": "The isolated app demo uses (a,b)=(3/4,1/8) and query point (19/40,3/20).",
+      "construction": "Compare the app’s endpoint-relaxed and actual-endpoint-fixed panels. The live BC handles and witnesses remain unchanged while the isolated demo is active.",
+      "argument": "The relaxed family supplies a validated source; the exact family has a lower-bound enclosing side about 1.0429 > 1. Thus removing endpoints can change interior membership, not merely boundary membership.",
+      "scope": "This is a separate local diagnostic, not one of the terminal covering cases. Its numerical inspector is not promoted into a new exact proof certificate.",
+      "source": "VISUALIZER:docs/SOURCE_EXPLORER.md",
+      "labels": [],
+      "related": [
+        "source-exact"
+      ]
+    }
+  ]
+}

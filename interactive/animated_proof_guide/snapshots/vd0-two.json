@@ -1,0 +1,196 @@
+{
+  "cForm": "triangle",
+  "cUnionCeFilter": "both",
+  "target": "S",
+  "targetTPoints": [
+    {
+      "id": "t1",
+      "t": 0.3,
+      "fixed": false
+    }
+  ],
+  "tool": "move",
+  "strictEps": 0,
+  "selectedTriangleId": "V0",
+  "triangles": [
+    {
+      "id": "C",
+      "center": {
+        "x": 0,
+        "y": 0
+      },
+      "angle": 0,
+      "fixed": true,
+      "hidden": true,
+      "midpointConstraints": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "edgePointConstraint": null,
+      "vd0": {
+        "enabled": false,
+        "mode": "max-c",
+        "rawSources": {}
+      }
+    },
+    {
+      "id": "V0",
+      "center": {
+        "x": 1.005,
+        "y": 0
+      },
+      "angle": 1.5707963267948966,
+      "fixed": true,
+      "hidden": false,
+      "midpointConstraints": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "edgePointConstraint": null,
+      "vd0": {
+        "enabled": false,
+        "mode": "max-c",
+        "rawSources": {}
+      }
+    },
+    {
+      "id": "V1",
+      "center": {
+        "x": 0.39,
+        "y": 0.6754998149518622
+      },
+      "angle": 1.0471975511965976,
+      "fixed": true,
+      "hidden": true,
+      "midpointConstraints": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "edgePointConstraint": null,
+      "vd0": {
+        "enabled": false,
+        "mode": "max-c",
+        "rawSources": {}
+      }
+    },
+    {
+      "id": "V2",
+      "center": {
+        "x": -0.39,
+        "y": 0.6754998149518622
+      },
+      "angle": 2.0943951023931953,
+      "fixed": true,
+      "hidden": true,
+      "midpointConstraints": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "edgePointConstraint": null,
+      "vd0": {
+        "enabled": false,
+        "mode": "max-c",
+        "rawSources": {}
+      }
+    },
+    {
+      "id": "V3",
+      "center": {
+        "x": -0.78,
+        "y": 0
+      },
+      "angle": 3.141592653589793,
+      "fixed": true,
+      "hidden": true,
+      "midpointConstraints": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "edgePointConstraint": null,
+      "vd0": {
+        "enabled": false,
+        "mode": "max-c",
+        "rawSources": {}
+      }
+    },
+    {
+      "id": "V4",
+      "center": {
+        "x": -0.39,
+        "y": -0.6754998149518622
+      },
+      "angle": 4.1887902047863905,
+      "fixed": true,
+      "hidden": true,
+      "midpointConstraints": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "edgePointConstraint": null,
+      "vd0": {
+        "enabled": false,
+        "mode": "max-c",
+        "rawSources": {}
+      }
+    },
+    {
+      "id": "V5",
+      "center": {
+        "x": 0.39,
+        "y": -0.6754998149518622
+      },
+      "angle": 5.235987755982989,
+      "fixed": true,
+      "hidden": true,
+      "midpointConstraints": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "edgePointConstraint": null,
+      "vd0": {
+        "enabled": false,
+        "mode": "max-c",
+        "rawSources": {}
+      }
+    }
+  ],
+  "labels": [],
+  "selectedSegments": [],
+  "pointSeeds": [],
+  "selectedPointSeedId": null,
+  "status": "Free mode ready.",
+  "sampling": {
+    "v": [],
+    "c": [],
+    "rejected": []
+  },
+  "version": 8
+}

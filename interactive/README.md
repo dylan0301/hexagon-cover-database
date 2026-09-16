@@ -4,6 +4,11 @@
 The files in this directory are explanatory interfaces, not proof
 certificates.
 
+- **[Animated proof guide](animated_proof_guide/README.md):** 39 live-visualizer GIFs,
+  47 case/subcase explanations, snapshots, and reproducible capture scripts.
+  Download the folder and open `animated_proof_guide/index.html` locally; GitHub
+  displays the HTML source rather than deploying it.
+
 - `readable_proof_dependency_graph.html`: clickable canonical formal-statement graph
   (the legacy filename is retained for stable links),
   routing table, case cards, and embedded figures;

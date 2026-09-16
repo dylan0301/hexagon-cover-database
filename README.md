@@ -1,5 +1,8 @@
 # Hexagon Covering Proof Corpus
 
+**Animated companion:** [case-by-case GIF guide](interactive/animated_proof_guide/README.md)
+with 39 visualizer animations and 47 case/subcase explanations.
+
 This repository contains the proof that seven open unit equilateral triangles
 do not cover a regular hexagon of side length one.
 
