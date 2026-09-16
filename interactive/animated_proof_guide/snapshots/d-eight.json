@@ -274,7 +274,11 @@
           "epsilon": 1e-06
         }
       },
-      "disabledPointIds": [],
+      "disabledPointIds": [
+        "O",
+        "G0",
+        "G1"
+      ],
       "regionVisible": [
         true,
         true,

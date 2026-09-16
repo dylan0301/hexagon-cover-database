@@ -10,7 +10,8 @@ from __future__ import annotations
 import argparse, copy, hashlib, io, json, math, re, textwrap
 from datetime import datetime, timezone
 from pathlib import Path
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, ImageChops
+from construction_render import draw_narrative, apply_area_controls, area_panels
 from playwright.sync_api import sync_playwright
 
 URL = 'https://hexagon-cover-visual.surge.sh/'
@@ -29,7 +30,9 @@ def wrap(draw, text, width, face):
     if line: lines.append(line)
     return lines
 
-def decorate(image, scene, frame, index, total):
+def decorate(image, scene, frame, index, total, panels=None):
+    if scene.get("revision")==2:
+        return draw_narrative(image,scene,frame,index,total,panels)
     # Only headers/captions and explicitly identified supporting-line annotations
     # are added. The geometry image itself comes from the deployed app canvas.
     image = image.convert('RGB').resize((600,600), Image.Resampling.LANCZOS)
@@ -73,13 +76,14 @@ def main():
     # Shared clips carry neutral geometry titles, never a supplier classification
     # that the capacity-only witness inputs do not establish.
     titles.update({'ce0':'Center class CE0','ce1':'Center class CE1','ce2':'Center class CE2',
-      'bc-seven':'BC: one selected gap','bc-eight':'BC: two incident gaps',
-      'd-seven':'D: one-gap four-point construction','d-eight':'D: two-gap four-point construction',
+      'bc-seven':'BC: diagonal points / one-gap data','bc-eight':'BC: diagonal points / two-gap data',
+      'd-seven':'D: radial point / one-gap data','d-eight':'D: radial point / two-gap data',
       'vd1':'Local Vd1: M1 lies inside','vd2':'Local Vd2: M1 lies inside',
       't3':'Local T3-like: M1 lies inside'})
     chosen=set(args.only.split(',')) if args.only else None
     scenes=[s for s in data['scenes'] if not chosen or s['id'] in chosen]
     errors=[];records=[]
+    previous=json.loads((out/'capture.json').read_text()) if chosen and (out/'capture.json').exists() else None
     with sync_playwright() as p:
         browser=p.chromium.launch(**({'executable_path':'/usr/bin/chromium','args':['--no-sandbox']} if args.offline_root else {}))
         page=browser.new_page(viewport={'width':1450,'height':1050},device_scale_factor=1)
@@ -108,6 +112,7 @@ def main():
         for scene in scenes:
             scene['title']=titles.get(scene['id'],scene['id'].replace('-',' ').title())
             images=[];frame_records=[];canvas_hashes=[];snapshots=[]
+            if page.locator('#atlas-area-css').count():page.locator('#atlas-area-css').evaluate('(e)=>e.remove()')
             for i,frame in enumerate(scene['frames']):
                 # Uniform capture-only zoom keeps whole Free-mode triangles inside the
                 # fixed 600-pixel app viewport. No coordinates or geometry are altered.
@@ -142,9 +147,19 @@ def main():
                         if scene['id']=='source-difference':
                             is_demo='Return to live inputs' in page.locator('[data-s3-demo]').inner_text()
                             if is_demo!=bool(frame.get('demo')):page.locator('[data-s3-demo]').evaluate('(e)=>e.click()')
-                        side=float(page.locator('[data-strategy3-side]').inner_text())
-                        assert abs(side-frame['metrics']['side'])<1.1e-6,(scene['id'],side,frame['metrics']['side'])
+                        side_text=page.locator('[data-strategy3-side]').inner_text()
+                        if frame['metrics']['side'] is None:assert side_text.strip() in ('—','n/a','unavailable','undefined'),side_text
+                        else:
+                            side=float(side_text)
+                            assert abs(side-frame['metrics']['side'])<1.1e-6,(scene['id'],side,frame['metrics']['side'])
                     snapshots.append({'kind':'controller','state':restored})
+                panels=None;area_values=None
+                if frame.get('areaControls'):
+                    area_values=apply_area_controls(page,frame)
+                    snapshots[-1]={'kind':'area-controls','state':{'schema':1,'kind':'hexagon-area-control-recipe','visualizerRevision':data['visualizerRevision'],**frame['areaControls']}}
+                    # After native pointer edits, zoom out uniformly for complete triangles.
+                    page.locator('#canvas').evaluate('(c)=>{window._atlasZoom=.74;c.getContext("2d").setTransform(1,0,0,1,0,0);}')
+                    page.evaluate('window.dispatchEvent(new Event("resize"))')
                 page.wait_for_timeout(50)
                 # Canvas pixels settle after the queued requestAnimationFrame render.
                 page.evaluate('()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))')
@@ -158,22 +173,42 @@ def main():
                     for j,line in enumerate(display.splitlines()):d.text((12,355+34*j),line,font=font(17),fill='#142c42')
                     if frame.get('demo'):assert '1.042' in info or '1.043' in info,info
                 else:image=Image.open(io.BytesIO(page.locator('#canvas').screenshot())).convert('RGB');info=''
+                if frame.get('areaControls'):panels=area_panels(page,scene['mode'])
                 canvas_hashes.append(hashlib.sha256(image.tobytes()).hexdigest())
-                images.append(decorate(image,scene,frame,i,len(scene['frames'])))
-                frame_records.append({'frame':i,'caption':frame['caption'],'metrics':frame['metrics'],'contact':frame.get('contact'),'supplier':frame.get('supplier'),'view':frame.get('view'),'layers':frame.get('layers'),'demo':frame.get('demo'),**({'inspectorText':info} if info else {})})
-            assert len(set(canvas_hashes))>=2,f'{scene["id"]}: the captured geometry never changes'
+                images.append(decorate(image,scene,frame,i,len(scene['frames']),panels))
+                frame_records.append({'frame':i,'caption':frame['caption'],'metrics':frame['metrics'],'narrative':frame.get('narrative'),'areaControls':frame.get('areaControls'),'nativeAreaReadouts':area_values,'contact':frame.get('contact'),'supplier':frame.get('supplier'),'view':frame.get('view'),'layers':frame.get('layers'),'demo':frame.get('demo'),**({'inspectorText':info} if info else {})})
+            assert len(set(canvas_hashes))>=(1 if scene.get('revision')==2 else 2),f'{scene["id"]}: the captured geometry never changes'
             assert not errors,errors
-            name=scene['id'];poster_index=len(images)-1
+            name=scene['id'];poster_index=scene.get('posterIndex',len(images)-1)
             if name=='source-difference':poster_index=7
             images[poster_index].save(out/'assets'/f'{name}.png',optimize=True)
             quantized=[im.quantize(colors=128,method=Image.Quantize.MEDIANCUT) for im in images]
-            durations=[220]*len(images);durations[0]=800;durations[-1]=1000
+            durations=[300 if scene.get('revision')==2 else 220]*len(images);durations[0]=1200 if scene.get('revision')==2 else 800;durations[-1]=1800 if scene.get('revision')==2 else 1000
+            if scene.get('revision')==2:
+                for k in [7,15,23]:
+                    if k<len(durations):durations[k]=650
             quantized[0].save(out/'assets'/f'{name}.gif',save_all=True,append_images=quantized[1:],duration=durations,loop=0,optimize=True,disposal=2)
             snap=snapshots[poster_index];(out/'snapshots'/f'{name}.json').write_text(json.dumps(snap['state'],indent=2)+'\n')
-            records.append({'id':name,'mode':scene['mode'],'title':scene['title'],'snapshotKind':snap['kind'],'frameCount':len(images),'durationMs':sum(durations),'captureZoom':.72 if scene['mode']=='free' else 1,'canvasDistinctFrames':len(set(canvas_hashes)),'frames':frame_records})
+            records.append({'id':name,'mode':scene['mode'],'title':scene['title'],'snapshotKind':snap['kind'],'frameCount':len(images),'durationMs':sum(durations),'captureZoom':.72 if scene['mode']=='free' else .74 if scene['mode'] in ('max-area','area-conj') else 1,'canvasDistinctFrames':len(set(canvas_hashes)),'frames':frame_records,'revision':scene.get('revision',1),'pixelSize':list(images[0].size),'motion':scene.get('motion'),'posterIndex':poster_index,'captureProvenance':provenance.copy()})
+            if scene.get('revision')==2:
+                region=(15,82,615,682)
+                ref=images[0].crop(region)
+                fractions=[]
+                for img in images:
+                    diff=ImageChops.difference(ref,img.crop(region)).convert('L').point(lambda x:255 if x>25 else 0)
+                    fractions.append(sum(diff.getdata())/(255*600*600))
+                records[-1]['visibleGeometryChange']=max(fractions)
+                assert max(fractions)>.003,(name,'No appreciable geometry/annotation change',max(fractions))
             print(f'Captured {name}: {len(set(canvas_hashes))} geometry frames',flush=True)
         provenance['pageErrors']=errors
         browser.close()
+    if previous:
+        old_provenance=previous['provenance']
+        for row in previous['scenes']:row.setdefault('captureProvenance',old_provenance)
+        updates={r['id']:r for r in records};merged=[]
+        for row in previous['scenes']:merged.append(updates.pop(row['id'],row))
+        merged.extend(updates.values());records=merged
+        provenance['retainedEarlierCaptures']=old_provenance.get('capturedAt')
     (out/'capture.json').write_text(json.dumps({'provenance':provenance,'scenes':records},indent=2)+'\n')
 
 if __name__=='__main__':main()

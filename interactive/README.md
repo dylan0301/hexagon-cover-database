@@ -4,8 +4,8 @@
 The files in this directory are explanatory interfaces, not proof
 certificates.
 
-- **[Animated proof guide](animated_proof_guide/README.md):** 39 live-visualizer GIFs,
-  47 case/subcase explanations, snapshots, and reproducible capture scripts.
+- **[Animated proof guide](animated_proof_guide/README.md):** 40 live-visualizer GIFs,
+  48 case/subcase explanations, snapshots, and reproducible capture scripts.
   Download the folder and open `animated_proof_guide/index.html` locally; GitHub
   displays the HTML source rather than deploying it.
 

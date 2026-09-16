@@ -40,10 +40,10 @@
     {
       "id": "V0",
       "center": {
-        "x": 0.5800000000000001,
-        "y": 0
+        "x": 0.632,
+        "y": 0.036
       },
-      "angle": 0.6632251157578452,
+      "angle": 0.7853981633974483,
       "fixed": true,
       "hidden": false,
       "midpointConstraints": [

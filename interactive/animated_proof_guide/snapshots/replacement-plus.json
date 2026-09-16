@@ -40,10 +40,10 @@
     {
       "id": "V0",
       "center": {
-        "x": 0.61,
-        "y": 0.13279056191361394
+        "x": 0.632,
+        "y": 0.036
       },
-      "angle": -2.220446049250313e-16,
+      "angle": 0.7853981633974483,
       "fixed": true,
       "hidden": false,
       "midpointConstraints": [
@@ -64,12 +64,12 @@
     {
       "id": "V1",
       "center": {
-        "x": 0.3450000000000002,
-        "y": 0.5917840259193664
+        "x": 0.39,
+        "y": 0.6754998149518622
       },
-      "angle": -2.0943951023931957,
+      "angle": 1.0471975511965976,
       "fixed": true,
-      "hidden": false,
+      "hidden": true,
       "midpointConstraints": [
         false,
         false,

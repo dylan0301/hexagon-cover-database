@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "kind": "hexagon-area-control-recipe",
+  "visualizerRevision": "1cd468b26aed30d5ddcf1ffa501805bf9720482c",
+  "mode": "max-area",
+  "quality": "high",
+  "a": 0.57,
+  "b": 0.56
+}

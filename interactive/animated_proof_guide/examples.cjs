@@ -224,8 +224,9 @@ scenes.push({id:'skeleton-budget',mode:'free',frames:zs.map(z=>{
  const L=Object.values(ts).reduce((s,t)=>s+length(t),0);assert(L<12);
  const mids=V.filter(v=>clearance({x:v.x/2,y:v.y/2},ts.C)>=0).length;assert.equal(mids,1);
  return {free:freeSnapshot(ts),metrics:{actualNplus:nplus,actualNsp:nsp,centerMidpoints:mids,actualTotalTraceLength:L,upperBudget:12,roles},caption:`k=N+ + Nsp=3; sum of actual skeleton traces=${L.toFixed(4)} < 12. This is not a skeleton cover.`};})});
+require('./construction_examples.cjs')({scenes,mod,copy,V,O,trace,role,verts,clearance,dist,freeSnapshot,replacement,poseFromVertices});
 // Data checks are redundant with the app's feasibility tests on purpose.
-for(const s of scenes){assert.equal(s.frames.length,N);for(const f of s.frames){if(f.free){for(const t of f.free.triangles.filter(t=>!t.hidden)){const v=verts(t);assert(v.every((p,i)=>Math.abs(dist(p,v[(i+1)%3])-1)<1e-9));}}}}
-const output={schema:1,proofRevision:'3b927c996d7641b20887dc56c1fa741cac674256',visualizerRevision:'1cd468b26aed30d5ddcf1ffa501805bf9720482c',framesPerScene:N,poses,easyRangeParameters:easy,scenes};
+for(const s of scenes){assert(s.frames.length>=14);for(const f of s.frames){if(f.free){for(const t of f.free.triangles.filter(t=>!t.hidden)){const v=verts(t);assert(v.every((p,i)=>Math.abs(dist(p,v[(i+1)%3])-1)<1e-9));}}}}
+const output={schema:1,proofRevision:'3b927c996d7641b20887dc56c1fa741cac674256',visualizerRevision:'1cd468b26aed30d5ddcf1ffa501805bf9720482c',framesPerScene:null,poses,easyRangeParameters:easy,scenes};
 fs.writeFileSync(process.argv[3],JSON.stringify(output,null,2)+'\n');
-console.log(`Validated ${scenes.length} local scenes, ${scenes.length*N} states. Easy F: ${easy}.`);
+console.log(`Validated ${scenes.length} local scenes, ${scenes.reduce((n,s)=>n+s.frames.length,0)} states. Easy F: ${easy}.`);
