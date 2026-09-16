@@ -1,0 +1,74 @@
+name: Publish inspected construction revision
+on:
+  push:
+    branches: [chatgpt/animated-proof-guide-20260916132528]
+    paths: [.github/workflows/animated-guide-revision-publish.yml]
+permissions:
+  contents: write
+  actions: read
+jobs:
+  publish:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+        with:
+          fetch-depth: 0
+      - name: Verify inspected artifact and publish its sixty allowlisted files
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python - <<'PY'
+          import hashlib,io,json,os,pathlib,subprocess,urllib.request,zipfile
+          repo='dylan0301/hexagon-cover-database';branch='chatgpt/animated-proof-guide-20260916132528'
+          assert os.environ['GITHUB_REPOSITORY']==repo and os.environ['GITHUB_REF']=='refs/heads/'+branch
+          class SafeRedirect(urllib.request.HTTPRedirectHandler):
+              def redirect_request(self,req,fp,code,msg,headers,newurl):
+                  nxt=super().redirect_request(req,fp,code,msg,headers,newurl)
+                  if nxt is not None:nxt.remove_header('Authorization')
+                  return nxt
+          opener=urllib.request.build_opener(SafeRedirect())
+          def get(path):
+              req=urllib.request.Request('https://api.github.com/repos/'+repo+path,headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'})
+              with opener.open(req,timeout=120) as response:return response.read()
+          run=json.loads(get('/actions/runs/35115923752'))
+          assert run['conclusion']=='success' and run['head_sha']=='fad5867956b54cc5f7b15e17a7fb3bef1600bd21'
+          raw=get('/actions/artifacts/10454458782/zip')
+          assert hashlib.sha256(raw).hexdigest()=='c08fd8426cd4024c6f400da387eed0ea36a0c61d4c7678762f3d4d383c04cf5f'
+          archive=zipfile.ZipFile(io.BytesIO(raw));md=archive.read('manifest.json')
+          assert hashlib.sha256(md).hexdigest()=='ef999370808bd1ce3e2922a3ee115b3bce7c759103f3b36c8a16d78b4c850bbd'
+          manifest=json.loads(md);assert len(manifest)==60
+          root='interactive/animated_proof_guide/'
+          allowed={'README.md','interactive/README.md'}|{root+x for x in ['README.md','VALIDATION.md','examples.cjs','capture.py','build.py','check.py','browser_qa.py','cases.json','construction_examples.cjs','construction_render.py','construction_checks.py','index.html','capture.json']}
+          scenes='vd1 vd2 replacement-minus replacement-plus bc-seven bc-eight d-seven d-eight bc-singleton bc-build d-build area-cyclic supplier-t3 supplier-vd1 area-max'.split()
+          for scene in scenes:allowed|={root+'assets/'+scene+'.gif',root+'assets/'+scene+'.png',root+'snapshots/'+scene+'.json'}
+          assert len(allowed)==60 and {r['path'] for r in manifest}==allowed
+          total=0
+          for r in manifest:
+              p=pathlib.PurePosixPath(r['path']);assert not p.is_absolute() and '..' not in p.parts and r['mode']=='100644'
+              data=archive.read('delivery/'+r['path']);total+=len(data)
+              assert len(data)==r['bytes'] and hashlib.sha256(data).hexdigest()==r['sha256']
+              assert hashlib.sha1(b'blob '+str(len(data)).encode()+b'\0'+data).hexdigest()==r['gitBlob']
+          assert total<64*1024*1024
+          def git(*args):return subprocess.check_output(['git',*args],text=True).strip()
+          initial=os.environ['GITHUB_SHA'];assert git('rev-parse','HEAD')==initial
+          assert git('ls-remote','--exit-code','origin','refs/heads/'+branch).split()[0]==initial
+          for r in manifest:
+              p=pathlib.Path(r['path']);assert not p.is_symlink() and all(not x.is_symlink() for x in p.parents)
+              p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(archive.read('delivery/'+r['path']));p.chmod(0o644)
+          subprocess.run(['git','add','--',*sorted(allowed)],check=True)
+          assert set(git('diff','--cached','--name-only').splitlines())==allowed
+          subprocess.run(['git','diff','--cached','--check'],check=True)
+          git('config','user.name','github-actions[bot]');git('config','user.email','41898282+github-actions[bot]@users.noreply.github.com')
+          subprocess.run(['git','-c','core.hooksPath=/dev/null','commit','-m','Explain diagonal witness construction, show Vd1 inputs, and use native area modes'],check=True)
+          assert git('ls-remote','--exit-code','origin','refs/heads/'+branch).split()[0]==initial
+          subprocess.run(['git','push','origin','HEAD:refs/heads/'+branch],check=True)
+          head=git('rev-parse','HEAD');assert git('ls-remote','--exit-code','origin','refs/heads/'+branch).split()[0]==head
+          result={'commit':head,'branch':branch,'publishedFiles':60,'manifestSHA256':'ef999370808bd1ce3e2922a3ee115b3bce7c759103f3b36c8a16d78b4c850bbd','temporaryCleanupPending':True}
+          pathlib.Path('/tmp/revision-publish-state.json').write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result))
+          PY
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: construction-revision-publish-state
+          path: /tmp/revision-publish-state.json
+          if-no-files-found: error
