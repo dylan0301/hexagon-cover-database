@@ -63,6 +63,9 @@ jobs:
       - name: Audit self-contained interactive pages
         run: python interactive/check.py
 
+      - name: Check animated proof guide assets and case coverage
+        run: python interactive/animated_proof_guide/check.py --require-live
+
       - name: Check changed-file whitespace
         env:
           PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
