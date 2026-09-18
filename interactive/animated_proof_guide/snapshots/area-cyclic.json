@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "kind": "hexagon-area-control-recipe",
+  "visualizerRevision": "1cd468b26aed30d5ddcf1ffa501805bf9720482c",
+  "mode": "area-conj",
+  "quality": "high",
+  "handoffs": [
+    0.43925925925925924,
+    0.4792592592592592,
+    0.45925925925925926,
+    0.49925925925925924,
+    0.46925925925925926,
+    0.44925925925925925
+  ]
+}
