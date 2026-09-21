@@ -1,0 +1,45 @@
+name: BC D branch delivery
+on:
+  push:
+    branches: [chatgpt/bc-d-finite-calipers-20260922]
+    paths: ['.github/workflows/bc-d-delivery.yml', 'arrange/_support/bc_d_delivery.py', 'arrange/_support/bc_d_payload.json']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inventory:
+    if: github.ref == 'refs/heads/chatgpt/bc-d-finite-calipers-20260922'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+        with:
+          persist-credentials: false
+      - name: Inspect current integration interfaces
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          print('=== PATHS ===')
+          for base in ['interactive/proof_trees','interactive/animated_proof_guide','arrange/paper_draft/inline_proofs','arrange/paper_draft/reading_guide']:
+              print(base)
+              print('\n'.join(str(p) for p in Path(base).rglob('*') if p.is_file() and p.suffix in {'.md','.py','.json','.tex'}))
+          print('=== INLINE STRUCTURE ===')
+          p=Path('arrange/paper_draft/inline_proofs/05_nonzero_gap.tex')
+          for i,line in enumerate(p.read_text().splitlines(),1):
+              if re.search(r'\\(?:subsection|input|label)|begin\{(?:theorem|lemma|proposition)\}',line): print(i,line)
+          print('=== CHECK INTERFACES ===')
+          for name in ['proof/check.py','arrange/_support/verify_inline_proofs.py','interactive/check.py']:
+              print('FILE',name)
+              lines=Path(name).read_text().splitlines()
+              keys=('2612','six-point','six point','six points','CE1','ce1','fixed-transverse','reverse-path','six_point','4, 6','6, 4','fixed-four-point','selected-gap','BC','readability','fixed_witness','required')
+              spans=set()
+              for i,line in enumerate(lines):
+                  if any(k in line for k in keys): spans.update(range(max(0,i-2),min(len(lines),i+5)))
+              for i in sorted(spans): print(i+1,lines[i])
+          print('=== INTERACTIVE CONFIG HEADS ===')
+          for name in ['interactive/animated_proof_guide/generate.py','interactive/animated_proof_guide/check.py','interactive/_support/generate_dependency_graph.py']:
+              p=Path(name)
+              if p.exists():
+                  print('FILE',name)
+                  print('\n'.join(p.read_text().splitlines()[:100]))
+          PY
