@@ -4,6 +4,14 @@
 The files in this directory are explanatory interfaces, not proof
 certificates.
 
+- **[Self-contained linked proof trees](proof_trees/README.md):** 28 Markdown
+  pages separating the main argument from long calculations. Every argument
+  page defines its local terminology, including neighboring suppliers, support,
+  gaps, reaches, and candidate triangles. Start with
+  [the newcomer introduction](proof_trees/START.md) or open any tree directly.
+  The midpoint proofs remain expanded. The folder includes a reproducible
+  offline HTML viewer generator and link/definition checks.
+
 - **[Animated proof guide](animated_proof_guide/README.md):** 40 live-visualizer GIFs,
   48 case/subcase explanations, snapshots, and reproducible capture scripts.
   Download the folder and open `animated_proof_guide/index.html` locally; GitHub
@@ -25,6 +33,7 @@ python interactive/generate.py --dependency-graph --check
 python interactive/generate.py --trace-assets
 python interactive/generate.py --trace-assets --check
 python interactive/check.py
+python interactive/proof_trees/check.py
 ```
 
 The `--trace-assets` flag regenerates the standalone trace-exact explorer,

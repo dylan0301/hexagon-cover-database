@@ -1,0 +1,27 @@
+name: Linked proof-tree checks
+
+on:
+  pull_request:
+    paths:
+      - 'interactive/proof_trees/**'
+      - '.github/workflows/proof-tree-checks.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'interactive/proof_trees/**'
+      - '.github/workflows/proof-tree-checks.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  links-and-definitions:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - name: Check page links, local definitions, and midpoint expansion
+        run: python interactive/proof_trees/check.py
