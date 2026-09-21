@@ -2,44 +2,84 @@ name: BC D branch delivery
 on:
   push:
     branches: [chatgpt/bc-d-finite-calipers-20260922]
-    paths: ['.github/workflows/bc-d-delivery.yml', 'arrange/_support/bc_d_delivery.py', 'arrange/_support/bc_d_payload.json']
+    paths: ['.github/workflows/bc-d-delivery.yml', 'arrange/_support/bc_d_hotfix.py']
   workflow_dispatch:
 permissions:
   contents: read
 jobs:
-  inventory:
+  validate:
     if: github.ref == 'refs/heads/chatgpt/bc-d-finite-calipers-20260922'
     runs-on: ubuntu-24.04
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
         with:
           persist-credentials: false
-      - name: Inspect current integration interfaces
+          fetch-depth: 0
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22'
+      - name: Install declared source-audit dependencies
+        run: python -m pip install -r arrange/_support/requirements.txt
+      - name: Verify and apply branch payload
         run: |
           python - <<'PY'
           from pathlib import Path
-          import re
-          print('=== PATHS ===')
-          for base in ['interactive/proof_trees','interactive/animated_proof_guide','arrange/paper_draft/inline_proofs','arrange/paper_draft/reading_guide']:
-              print(base)
-              print('\n'.join(str(p) for p in Path(base).rglob('*') if p.is_file() and p.suffix in {'.md','.py','.json','.tex'}))
-          print('=== INLINE STRUCTURE ===')
-          p=Path('arrange/paper_draft/inline_proofs/05_nonzero_gap.tex')
-          for i,line in enumerate(p.read_text().splitlines(),1):
-              if re.search(r'\\(?:subsection|input|label)|begin\{(?:theorem|lemma|proposition)\}',line): print(i,line)
-          print('=== CHECK INTERFACES ===')
-          for name in ['proof/check.py','arrange/_support/verify_inline_proofs.py','interactive/check.py']:
-              print('FILE',name)
-              lines=Path(name).read_text().splitlines()
-              keys=('2612','six-point','six point','six points','CE1','ce1','fixed-transverse','reverse-path','six_point','4, 6','6, 4','fixed-four-point','selected-gap','BC','readability','fixed_witness','required')
-              spans=set()
-              for i,line in enumerate(lines):
-                  if any(k in line for k in keys): spans.update(range(max(0,i-2),min(len(lines),i+5)))
-              for i in sorted(spans): print(i+1,lines[i])
-          print('=== INTERACTIVE CONFIG HEADS ===')
-          for name in ['interactive/animated_proof_guide/generate.py','interactive/animated_proof_guide/check.py','interactive/_support/generate_dependency_graph.py']:
-              p=Path(name)
-              if p.exists():
-                  print('FILE',name)
-                  print('\n'.join(p.read_text().splitlines()[:100]))
+          import base64,hashlib,json,lzma,subprocess
+          folder=Path('arrange/_support/bc_d_transport')
+          manifest=json.loads((folder/'manifest.json').read_text())
+          assert manifest['base_commit']=='083d7fc08bf0918547c8d1624407924604b32e04'
+          parts=[]
+          for name in manifest['parts']:
+              assert name in ['part00.b64','part01.b64','part02.b64','part03.b64']
+              raw=(folder/name).read_bytes()
+              assert hashlib.sha256(raw).hexdigest()==manifest['part_sha256'][name],name
+              parts.append(raw.decode().strip())
+          encoded=''.join(parts); archive=base64.b64decode(encoded,validate=True)
+          assert hashlib.sha256(archive).hexdigest()=='273ae9520cdaa0230851998598533e8ce5e79898be9eebc7b50d713d7ffa6835'
+          files=json.loads(lzma.decompress(archive))
+          assert set(files)==set(manifest['files'])
+          for name,text in files.items():
+              assert name.startswith(('proof/','arrange/','interactive/')) and '..' not in Path(name).parts
+              assert hashlib.sha256(text.encode()).hexdigest()==manifest['files'][name],name
+          manifest['archive_base64']=encoded
+          Path('arrange/_support/bc_d_payload.json').write_text(json.dumps(manifest))
+          Path('arrange/_support/bc_d_delivery.py').write_text(files['arrange/_support/bc_d_delivery.py'])
+          hotfix=Path('arrange/_support/bc_d_hotfix.py')
+          if hotfix.exists():subprocess.run(['python',str(hotfix)],check=True)
+          Path('/tmp/bc_d_delivery.py').write_text(Path('arrange/_support/bc_d_delivery.py').read_text())
+          subprocess.run(['python','/tmp/bc_d_delivery.py'],check=True)
           PY
+      - name: Generate updated views
+        run: |
+          python interactive/generate.py --dependency-graph
+          python interactive/animated_proof_guide/build.py
+          cd interactive/proof_trees
+          npm ci
+          python build.py
+      - name: Run source and interactive audits
+        run: |
+          set +e
+          status=0
+          for command in \
+            'python proof/check.py' \
+            'python arrange/_support/verify_inline_proofs.py' \
+            'python arrange/_support/verify_readability_preservation.py' \
+            'python interactive/generate.py --dependency-graph --check' \
+            'python interactive/generate.py --trace-assets --check' \
+            'python interactive/check.py' \
+            'python interactive/proof_trees/check.py --html' \
+            'python interactive/animated_proof_guide/check.py --require-live' \
+            'git diff --check'; do
+            echo "=== $command ==="
+            bash -c "$command" || status=1
+          done
+          exit "$status"
+      - name: Inventory changed paths
+        if: always()
+        run: |
+          git status --short
+          git diff --stat
