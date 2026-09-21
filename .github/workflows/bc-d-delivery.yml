@@ -23,7 +23,10 @@ jobs:
         with:
           node-version: '22'
       - name: Install declared source-audit dependencies
-        run: python -m pip install -r arrange/_support/requirements.txt
+        run: |
+          python -m pip install -r arrange/_support/requirements.txt -r interactive/proof_trees/requirements.txt
+          cd interactive/proof_trees
+          npm install --no-save --no-package-lock --ignore-scripts mathjax-full@3.2.2
       - name: Verify and apply branch payload
         run: |
           python - <<'PY'
@@ -57,10 +60,9 @@ jobs:
         run: |
           python interactive/generate.py --dependency-graph
           python interactive/animated_proof_guide/build.py
-          cd interactive/proof_trees
-          npm ci
-          python build.py
+          python interactive/proof_trees/build.py
       - name: Run source and interactive audits
+        if: ${{ !cancelled() }}
         run: |
           set +e
           status=0
@@ -78,8 +80,18 @@ jobs:
             bash -c "$command" || status=1
           done
           exit "$status"
-      - name: Inventory changed paths
+      - name: Collect credential-free audit snapshot
         if: always()
         run: |
           git status --short
           git diff --stat
+          mkdir -p /tmp/bc-audit
+          git bundle create /tmp/bc-audit/base.bundle HEAD
+          tar --exclude=.git --exclude=node_modules --exclude=__pycache__ --exclude='*.pyc' -czf /tmp/bc-audit/worktree.tar.gz .
+          sha256sum /tmp/bc-audit/*
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        if: always()
+        with:
+          name: bc-d-audit-snapshot
+          path: /tmp/bc-audit
+          retention-days: 2
