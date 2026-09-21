@@ -1,0 +1,29 @@
+{
+  "base_commit": "083d7fc08bf0918547c8d1624407924604b32e04",
+  "archive_sha256": "273ae9520cdaa0230851998598533e8ce5e79898be9eebc7b50d713d7ffa6835",
+  "parts": [
+    "part00.b64",
+    "part01.b64",
+    "part02.b64",
+    "part03.b64"
+  ],
+  "part_sha256": {
+    "part00.b64": "de8bb374f0cdcc132044345fdd840b1787a45e363ff551822cbc69f761eaafdd",
+    "part01.b64": "e6c6e6e09dd18f498e49cd2b2de0ead7d01c96c92e6b2566eacdd97beb60ddd1",
+    "part02.b64": "f44aea99e841f644b5f59381c6c8c4d69f9ee9f72c8bba60ac81ef1a2f59ea83",
+    "part03.b64": "3ae1f830b0e21e32aeaf5839fed89567ecadc4f8f3ff8cc0e28bc80fa14292c6"
+  },
+  "files": {
+    "interactive/bc_d_finite_calipers.html": "3c77a10c59435a1a00707ae79a0072ff23c8f7b7f97085f90b5b7ecc2c96a8a6",
+    "interactive/_support/requirements-browser.txt": "df7696acf1e200684a962c8b7cb25363273b8239093235e68bb3f60231a9799f",
+    "interactive/_support/check_bc_d_viewer.py": "7da7990ac5f45c9e9b081ca1d5e9fb4dca836a7843050aa5bce8bfef5a35d7a1",
+    "proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2615_slack_sensitive_radial_envelope.md": "d93f677fa8afb7155f6da32ae4a439a27d3e0118c6a314d1010b0a6b9bb42877",
+    "proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/verify_bc_envelope.py": "019bdf55214d1773e45fafd11d6753653c690bcf8ab90873d1a9b726ef3c7011",
+    "proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2616_bc_d_finite_calipers.md": "a214e1c646494a07761a03d905023934651535275579c8414409c6a8d41a85e9",
+    "proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/verify_finite_calipers.py": "8e8bc61e4d8bc615c03c80e66375203c2cd0b33d55934a06e9820131b16652ec",
+    "proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/verify_bc_capacity_calculus.py": "aaab8d6b3bf69df10e57ed7cb0446776d03411f42b51cbbbfb04361f5aa39c64",
+    "arrange/paper_draft/fixed_witness/D_bc_capacity_envelope.tex": "c42bde162fbb6e5ff7dfb0318e35b294615f7be5becf05680c260cc37f93e5b4",
+    "arrange/paper_draft/fixed_witness/D_bc_finite_calipers.tex": "79097f00857d784259ad200d642e5a49a26ef6506a93e31258e4c864aefe729e",
+    "arrange/_support/bc_d_delivery.py": "e9385f618f63f62050a249b7463928fd74738ac934d4dafac9182a5e6483c008"
+  }
+}
