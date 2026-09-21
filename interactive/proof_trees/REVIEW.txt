@@ -1,0 +1,39 @@
+Self-containment revision, 2026-09-21
+
+Mathematical source snapshot: c9baa75d090ee888fa85b575bdfb061f244197d0.
+The guide is a presentation layer, not an independent certificate verification.
+
+Changes:
+- Every argument and calculation page supplies its own essential terminology.
+- Supplier is defined by OPEN midpoint containment at an adjacent vertex.
+  Positive-length support alone is explicitly distinguished from supplying.
+- The newcomer page and glossary explain the problem, role labels, geometry,
+  actual versus selected reaches, gaps, skeleton, witnesses, candidate scope,
+  radial frontiers/capacities, coordinate charts, and certificate terminology.
+- BC and D explain path and interval coordinates before using them.
+- D states its actual ratio hypothesis; D-CALC defines the candidate side
+  parameters and preserves the separate T3-like and Vd1 input verifications.
+- The three midpoint proofs stay expanded. Replacement preserves the skeleton,
+  not necessarily the interior or gap count. F still needs full coverage.
+- The Markdown links remain real relative links; generated HTML has the same
+  content plus local-definition panels and Start here / Glossary shortcuts.
+
+Validation performed locally:
+- check.py --html: 28 pages; 304 local links; 105 pinned proof-source links;
+  all 28 pages reachable; 1938 rendered MathML expressions; no MathML errors.
+- build.py --check: generated HTML exactly matches its Markdown/template input.
+- Chromium DOM-loaded standalone HTML: all 28 routes visited; D -> D-CALC ->
+  Back, glossary navigation, and local-definition panels checked; no browser
+  errors and zero external runtime requests. The environment blocks file://
+  navigation, so browser testing injected the exact generated HTML document.
+- Source, generator, and checks do not modify numbered mathematical proofs,
+  exact certificate data, or either manuscript.
+
+Full repository checks are delegated to the existing pull-request CI; they
+were not run locally because the working container could not resolve GitHub
+for a repository clone. The new read-only workflow checks these guide pages.
+The completed delivery report states the actual remote CI status separately.
+
+Maintained files are the Markdown pages, template, build script, and checks.
+The generated index.html is included in downloadable bundles, not tracked;
+USING.md gives exact rebuild commands for a repository checkout.
