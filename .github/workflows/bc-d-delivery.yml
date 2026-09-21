@@ -2,7 +2,7 @@ name: BC D branch delivery
 on:
   push:
     branches: [chatgpt/bc-d-finite-calipers-20260922]
-    paths: ['.github/workflows/bc-d-delivery.yml', 'arrange/_support/bc_d_hotfix.py']
+    paths: ['.github/workflows/bc-d-delivery.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -10,7 +10,11 @@ jobs:
   validate:
     if: github.ref == 'refs/heads/chatgpt/bc-d-finite-calipers-20260922'
     runs-on: ubuntu-24.04
-    timeout-minutes: 25
+    timeout-minutes: 35
+    outputs:
+      bundle_sha: ${{ steps.delivery.outputs.bundle_sha }}
+      manifest_sha: ${{ steps.delivery.outputs.manifest_sha }}
+      final_sha: ${{ steps.delivery.outputs.final_sha }}
     steps:
       - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
         with:
@@ -22,7 +26,7 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version: '22'
-      - name: Install declared source-audit dependencies
+      - name: Install pinned audit and renderer dependencies
         run: |
           python -m pip install -r arrange/_support/requirements.txt -r interactive/proof_trees/requirements.txt
           cd interactive/proof_trees
@@ -56,42 +60,181 @@ jobs:
           Path('/tmp/bc_d_delivery.py').write_text(Path('arrange/_support/bc_d_delivery.py').read_text())
           subprocess.run(['python','/tmp/bc_d_delivery.py'],check=True)
           PY
-      - name: Generate updated views
+      - name: Apply byte-checked final refinements
+        run: |
+          python - <<'PYCODE'
+          from pathlib import Path
+          import hashlib,json,subprocess
+          p=Path('arrange/_support/bc_d_postpatch.json')
+          assert hashlib.sha256(p.read_bytes()).hexdigest()=='ce28dbcb25e80884809e0c51d8fcdd16152af0363f6918a87075c0d5e8519246'
+          data=json.loads(p.read_text());assert len(data)==16
+          for name,v in data.items():
+              assert name.startswith(('arrange/','interactive/','proof/')) or name=='.github/workflows/ci.yml'
+              assert '..' not in Path(name).parts and not Path(name).is_absolute()
+              p=Path(name);assert hashlib.sha256(p.read_bytes()).hexdigest()==v['before'],name
+              lines=p.read_text().splitlines(keepends=True)
+              for lo,hi,text in reversed(v['edits']):
+                  assert 0<=lo<=hi<=len(lines)
+                  lines[lo:hi]=[text]
+              content=''.join(lines).encode();assert hashlib.sha256(content).hexdigest()==v['after'],name
+              p.write_bytes(content)
+          subprocess.run(['python','/tmp/bc_d_delivery.py','--baseline'],check=True)
+          PYCODE
+      - name: Generate current interactive views
         run: |
           python interactive/generate.py --dependency-graph
           python interactive/animated_proof_guide/build.py
           python interactive/proof_trees/build.py
-      - name: Run source and interactive audits
-        if: ${{ !cancelled() }}
+      - name: Audit proof, publication sources and interactive interfaces
         run: |
-          set +e
-          status=0
-          for command in \
-            'python proof/check.py' \
-            'python arrange/_support/verify_inline_proofs.py' \
-            'python arrange/_support/verify_readability_preservation.py' \
-            'python interactive/generate.py --dependency-graph --check' \
-            'python interactive/generate.py --trace-assets --check' \
-            'python interactive/check.py' \
-            'python interactive/proof_trees/check.py --html' \
-            'python interactive/animated_proof_guide/check.py --require-live' \
-            'git diff --check'; do
-            echo "=== $command ==="
-            bash -c "$command" || status=1
-          done
-          exit "$status"
-      - name: Collect credential-free audit snapshot
-        if: always()
-        run: |
-          git status --short
-          git diff --stat
-          mkdir -p /tmp/bc-audit
-          git bundle create /tmp/bc-audit/base.bundle HEAD
-          tar --exclude=.git --exclude=node_modules --exclude=__pycache__ --exclude='*.pyc' -czf /tmp/bc-audit/worktree.tar.gz .
-          sha256sum /tmp/bc-audit/*
-      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
-        if: always()
+          set -euo pipefail
+          python proof/check.py
+          python arrange/_support/verify_inline_proofs.py
+          python arrange/_support/verify_readability_preservation.py
+          python interactive/generate.py --dependency-graph --check
+          python interactive/generate.py --trace-assets --check
+          python interactive/check.py
+          python interactive/proof_trees/check.py --html
+          python interactive/proof_trees/build.py --check
+          python interactive/animated_proof_guide/check.py --require-live
+          git diff --check
+      - name: Rebuild both publication PDFs in pinned TeX Live
+        uses: xu-cheng/texlive-action@22c04326a5d855880f9d39bb955138bf11c6df80
         with:
-          name: bc-d-audit-snapshot
-          path: /tmp/bc-audit
-          retention-days: 2
+          docker_image: >-
+            ghcr.io/xu-cheng/texlive-historic-debian:2025@sha256:d3e42adc0c8d84bc913bfc33571feaf7037616260a771bb6f027504661568bf6
+          run: |
+            set -euo pipefail
+            python3 arrange/build.py --all --output-dir arrange/_build
+      - name: Audit rebuilt PDFs and install publication artifacts
+        run: |
+          python arrange/_support/verify_pdf_render.py arrange/_build/canonical.pdf
+          python arrange/_support/verify_pdf_render.py arrange/_build/inline_proofs.pdf
+          python arrange/_support/verify_inline_proofs.py --pdf arrange/_build/inline_proofs.pdf
+          python - <<'PYCODE'
+          import fitz,shutil
+          from pathlib import Path
+          for name,target,expected in [('canonical','arrange/paper_draft/main.pdf',76),('inline_proofs','arrange/paper_draft/inline_proofs/main.pdf',73)]:
+              source=Path('arrange/_build')/(name+'.pdf')
+              assert fitz.open(source).page_count==expected
+              shutil.copy2(source,target)
+          PYCODE
+      - name: Create validated source and immutable-navigation commits without publishing
+        id: delivery
+        run: |
+          python - <<'PYCODE'
+          import hashlib,json,os,re,shutil,subprocess,zipfile
+          from pathlib import Path
+          def run(*args):return subprocess.check_output(args,text=True).strip()
+          base=run('git','rev-parse','HEAD');assert base==os.environ['GITHUB_SHA']
+          original='083d7fc08bf0918547c8d1624407924604b32e04'
+          script='/tmp/bc_d_delivery.py'
+          report=Path('arrange/20260922_bc_d_finite_caliper_integration.md')
+          with report.open('a') as f:f.write('\n## Completed delivery validation\n\nSource, exact algebra, zero-gap replay, canonical/inline preservation, generated\nviewers, and historical capture audits passed. Both publication PDFs rebuilt in\nthe pinned TeX Live 2025 image without overfull boxes or unresolved references.\nEvery PDF page passed the render/media-box audit: canonical 76 pages, inline 73.\nBrowser QA separately exercised construction steps, hull-edge calipers, singleton\ngaps and 390-pixel mobile layout with no JavaScript errors. The offline proof-tree\nHTML is now tracked and checked by CI. Temporary delivery code is not retained.\nThe final remote commit and CI run are recorded in the accompanying pull request.\n')
+          shutil.rmtree('arrange/_support/bc_d_transport')
+          for name in ['.github/workflows/bc-d-delivery.yml','arrange/_support/bc_d_delivery.py','arrange/_support/bc_d_payload.json','arrange/_support/bc_d_postpatch.json','arrange/_support/bc_d_hotfix.py']:
+              Path(name).unlink(missing_ok=True)
+          run('git','config','user.name','github-actions[bot]')
+          run('git','config','user.email','41898282+github-actions[bot]@users.noreply.github.com')
+          run('git','add','-A');run('git','diff','--cached','--check')
+          run('git','commit','-m','proof: replace BC/D center-form terminals with finite calipers')
+          source=run('git','rev-parse','HEAD')
+          subprocess.run(['python',script,'--pin',source],check=True)
+          for args in [ ['python','interactive/generate.py','--dependency-graph'], ['python','interactive/animated_proof_guide/build.py'], ['python','interactive/proof_trees/build.py'], ['python','interactive/proof_trees/check.py','--html'], ['python','interactive/check.py'], ['python','interactive/animated_proof_guide/check.py','--require-live'], ['python','arrange/_support/verify_readability_preservation.py'] ]:
+              subprocess.run(args,check=True)
+          run('git','add','-A');run('git','diff','--cached','--check')
+          run('git','commit','-m','interactive: pin updated BC/D viewers to the validated proof revision')
+          tip=run('git','rev-parse','HEAD')
+          assert not run('git','status','--porcelain')
+          changed=run('git','diff','--name-only',original,tip).splitlines()
+          protected=['proof/3XXX_CE0/','arrange/paper_draft/A_zero_gap_exact_certificate.tex','arrange/paper_draft/E_zero_gap_nine_point_optimization.tex']
+          assert not any(any(p.startswith(prefix) for prefix in protected) or p.endswith(('.gif','.png')) for p in changed)
+          assert not any('bc_d_transport' in p or p.endswith(('bc_d_delivery.py','bc_d_postpatch.json','bc_d_payload.json','bc-d-delivery.yml','bc_d_hotfix.py')) for p in run('git','ls-tree','-r','--name-only',tip).splitlines())
+          out=Path('/tmp/bc-d-published');out.mkdir(exist_ok=True)
+          subprocess.run(['git','bundle','create',str(out/'delivery.bundle'),base+'..HEAD'],check=True)
+          records={}
+          for p in run('git','diff','--name-only',base,tip).splitlines():
+              assert p.startswith(('proof/','arrange/','interactive/')) or p in ['README.md','.github/workflows/ci.yml','.github/workflows/bc-d-delivery.yml']
+              raw=run('git','ls-tree',tip,'--',p)
+              if not raw:records[p]=None;continue
+              mode,kind,blob=raw.split('\t')[0].split();assert mode in ['100644','100755'] and kind=='blob'
+              data=subprocess.check_output(['git','cat-file','blob',blob])
+              records[p]={'mode':mode,'blob':blob,'sha256':hashlib.sha256(data).hexdigest()}
+          manifest={'base':base,'source':source,'tip':tip,'original':original,'files':records,'bundle_sha256':hashlib.sha256((out/'delivery.bundle').read_bytes()).hexdigest()}
+          (out/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
+          shutil.copy2('arrange/paper_draft/main.pdf',out/'canonical.pdf')
+          shutil.copy2('arrange/paper_draft/inline_proofs/main.pdf',out/'inline_proofs.pdf')
+          shutil.copy2(report,out/'integration_report.md')
+          with zipfile.ZipFile(out/'offline_viewers.zip','w',zipfile.ZIP_DEFLATED) as z:
+              for p in [Path('interactive/bc_d_finite_calipers.html'),Path('interactive/proof_trees/index.html'),Path('interactive/readable_proof_dependency_graph.html')]:z.write(p,str(p))
+              for p in Path('proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools').glob('261[56]*.md'):z.write(p,str(p))
+          with open(os.environ['GITHUB_OUTPUT'],'a') as f:
+              f.write('bundle_sha='+manifest['bundle_sha256']+'\n')
+              f.write('manifest_sha='+hashlib.sha256((out/'manifest.json').read_bytes()).hexdigest()+'\n')
+              f.write('final_sha='+tip+'\n')
+          print(json.dumps({'source':source,'tip':tip,'changed_paths':len(changed)},indent=2))
+          PYCODE
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: bc-d-validated-delivery
+          path: /tmp/bc-d-published
+          retention-days: 7
+          if-no-files-found: error
+  publish:
+    needs: validate
+    if: github.ref == 'refs/heads/chatgpt/bc-d-finite-calipers-20260922'
+    permissions:
+      contents: write
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+        with:
+          fetch-depth: 0
+          ref: chatgpt/bc-d-finite-calipers-20260922
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: bc-d-validated-delivery
+          path: /tmp/validated
+      - name: Verify objects and fast-forward only the delivery branch
+        env:
+          EXPECTED_BUNDLE: ${{ needs.validate.outputs.bundle_sha }}
+          EXPECTED_MANIFEST: ${{ needs.validate.outputs.manifest_sha }}
+          EXPECTED_TIP: ${{ needs.validate.outputs.final_sha }}
+        run: |
+          python - <<'PYCODE'
+          import hashlib,json,os,re,subprocess
+          from pathlib import Path
+          def run(*args):return subprocess.check_output(args,text=True).strip()
+          d=Path('/tmp/validated');h=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+          assert h(d/'delivery.bundle')==os.environ['EXPECTED_BUNDLE']
+          assert h(d/'manifest.json')==os.environ['EXPECTED_MANIFEST']
+          m=json.loads((d/'manifest.json').read_text());base=m['base'];tip=m['tip'];source=m['source']
+          assert all(re.fullmatch('[a-f0-9]{40}',s) for s in [base,tip,source])
+          assert base==os.environ['GITHUB_SHA']==run('git','rev-parse','HEAD')
+          assert tip==os.environ['EXPECTED_TIP']
+          run('git','bundle','verify',str(d/'delivery.bundle'))
+          run('git','fetch',str(d/'delivery.bundle'),'HEAD')
+          assert tip==run('git','rev-parse','FETCH_HEAD')
+          assert run('git','rev-list','--count',base+'..'+tip)=='2'
+          assert run('git','rev-parse',tip+'^')==source and run('git','rev-parse',source+'^')==base
+          assert set(run('git','diff','--name-only',base,tip).splitlines())==set(m['files'])
+          for p,entry in m['files'].items():
+              assert '..' not in Path(p).parts and not Path(p).is_absolute()
+              assert p.startswith(('proof/','arrange/','interactive/')) or p in ['README.md','.github/workflows/ci.yml','.github/workflows/bc-d-delivery.yml']
+              raw=run('git','ls-tree',tip,'--',p)
+              if entry is None:assert not raw;continue
+              mode,kind,blob=raw.split('\t')[0].split();assert mode in ['100644','100755'] and kind=='blob'
+              data=subprocess.check_output(['git','cat-file','blob',blob])
+              assert {'mode':mode,'blob':blob,'sha256':hashlib.sha256(data).hexdigest()}==entry,p
+          assert hashlib.sha256(subprocess.check_output(['git','show',tip+':.github/workflows/ci.yml'])).hexdigest()=='f32226c973012d8038b9c6f2b40f0d025b2dcf83c30815b606c4e3a391431bb3'
+          for p in run('git','diff','--name-only',m['original'],tip).splitlines():
+              assert not p.startswith('proof/3XXX_CE0/') and not p.endswith(('.gif','.png'))
+              assert p not in ['arrange/paper_draft/A_zero_gap_exact_certificate.tex','arrange/paper_draft/E_zero_gap_nine_point_optimization.tex']
+          for p in run('git','ls-tree','-r','--name-only',tip).splitlines():
+              assert 'bc_d_transport' not in p and not p.endswith(('bc_d_delivery.py','bc_d_postpatch.json','bc_d_payload.json','bc-d-delivery.yml','bc_d_hotfix.py'))
+          branch='chatgpt/bc-d-finite-calipers-20260922'
+          assert run('git','ls-remote','origin','refs/heads/'+branch).split()[0]==base
+          run('git','push','origin',tip+':refs/heads/'+branch)
+          assert run('git','ls-remote','origin','refs/heads/'+branch).split()[0]==tip
+          print('Published and verified',tip)
+          PYCODE
