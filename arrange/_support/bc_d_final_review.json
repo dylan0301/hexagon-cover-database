@@ -1,0 +1,42 @@
+{
+  "arrange/README.md": {
+    "before": "336e6ca5bff9a9f699da67304b645b4a25ebf3c366a3323fa6dd2835a6eb238e",
+    "replacements": [
+      {
+        "old": "| Nonzero-gap finite enclosure | `2008b`, `2612`--`2614`, `2609`, `4102_new`, `4130_new`, `4143_new`, `4144_new` |",
+        "new": "| Nonzero-gap finite enclosure | `2008b`, `2612`--`2616`, `4130_new`, `4143_new`, `4144_new`; `4102_new` retained only as a historical alternative |"
+      }
+    ],
+    "after": "28e8ffad11a6d15789812ba68264aebe3bae0455308752388bd3f42acaabb0e8"
+  },
+  "interactive/proof_trees/D.md": {
+    "before": "ddadf80b1fb576ad098097a908a9af35d418f865b838e7b9b5eb569d73178881",
+    "replacements": [
+      {
+        "old": "Its capacity input is [2615](https://github.com/dylan0301/hexagon-cover-database/blob/c9baa75d090ee888fa85b575bdfb061f244197d0/proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2615_slack_sensitive_radial_envelope.md).",
+        "new": "The D terminal does not depend on the BC capacity-envelope lemma. The original supplier adapters remain responsible for forcing its four points and establishing the ratio."
+      }
+    ],
+    "after": "8f5c868ec359ceb806b83660446b043bf441c807d0408ef8e5a8c3e1cf71403b"
+  },
+  "interactive/bc_d_finite_calipers.html": {
+    "before": "3c77a10c59435a1a00707ae79a0072ff23c8f7b7f97085f90b5b7ecc2c96a8a6",
+    "replacements": [
+      {
+        "old": "for(const p of points){const q=xy(p.p);el('circle'",
+        "new": "const labels=[];for(const p of points){const same=labels.find(q=>Math.hypot(...sub(q.p,p.p))<1e-12);if(same)same.name+=' = '+p.name;else labels.push({p:p.p,name:p.name});}for(const p of labels){const q=xy(p.p);el('circle'"
+      }
+    ],
+    "after": "208647248625e0d8de254db9197a58fd64d3bc227bdead0450d953ca5066f6fe"
+  },
+  "interactive/proof_trees/requirements.txt": {
+    "before": "03d49da5fc6f2e7534e45892bcb14c0ef99ae1bd67b381a5078f24ee5d9bf551",
+    "replacements": [
+      {
+        "old": "networkx==3.4.2\n",
+        "new": ""
+      }
+    ],
+    "after": "b8ec2aec18b94ec2d283aca27f797019cb4ecb90201670e60ce590cc02332801"
+  }
+}
