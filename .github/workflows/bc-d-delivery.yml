@@ -13,15 +13,11 @@ jobs:
       - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
         with:
           persist-credentials: false
-      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
-        with:
-          python-version: '3.12'
-      - name: Compare exact source and line patch
+      - name: Inspect pinned exact certificate and delivery helper
         run: |
-          python - <<'PY'
+          python3 - <<'PY'
           from pathlib import Path
-          import base64,hashlib,json,lzma,sys
-          print(sys.version)
+          import base64,hashlib,json,lzma
           folder=Path('arrange/_support/bc_d_transport')
           manifest=json.loads((folder/'manifest.json').read_text())
           archive=base64.b64decode(''.join((folder/p).read_text().strip() for p in manifest['parts']),validate=True)
@@ -29,19 +25,18 @@ jobs:
           files=json.loads(lzma.decompress(archive))
           patch=Path('arrange/_support/bc_d_postpatch.json')
           assert hashlib.sha256(patch.read_bytes()).hexdigest()=='ce28dbcb25e80884809e0c51d8fcdd16152af0363f6918a87075c0d5e8519246'
-          name='arrange/paper_draft/fixed_witness/D_bc_capacity_envelope.tex'
-          v=json.loads(patch.read_text())[name]
-          source=files[name]
-          print('before',hashlib.sha256(source.encode()).hexdigest(),v['before'])
-          assert hashlib.sha256(source.encode()).hexdigest()==v['before']
-          lines=source.splitlines(keepends=True)
-          for lo,hi,text in reversed(v['edits']):
-              print('edit',lo,hi,repr(text))
-              assert 0<=lo<=hi<=len(lines)
-              lines[lo:hi]=[text]
-          content=''.join(lines).encode()
-          actual=hashlib.sha256(content).hexdigest()
-          print('after',actual,v['after'])
-          print('OUTPUT BASE64',base64.b64encode(content).decode())
-          assert actual==v['after']
+          patches=json.loads(patch.read_text())
+          for name in files:
+              if name.endswith(('verify_bc_d_calipers.py','bc_d_delivery.py')):
+                  source=files[name]
+                  if name in patches:
+                      v=patches[name]
+                      assert hashlib.sha256(source.encode()).hexdigest()==v['before']
+                      lines=source.splitlines(keepends=True)
+                      for lo,hi,text in reversed(v['edits']):
+                          lines[lo:hi]=[text]
+                      source=''.join(lines)
+                      assert hashlib.sha256(source.encode()).hexdigest()==v['after']
+                  print('SOURCE',name,hashlib.sha256(source.encode()).hexdigest())
+                  print(source)
           PY
