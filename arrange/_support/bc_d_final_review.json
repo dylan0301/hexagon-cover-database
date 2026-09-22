@@ -5,9 +5,13 @@
       {
         "old": "| Nonzero-gap finite enclosure | `2008b`, `2612`--`2614`, `2609`, `4102_new`, `4130_new`, `4143_new`, `4144_new` |",
         "new": "| Nonzero-gap finite enclosure | `2008b`, `2612`--`2616`, `4130_new`, `4143_new`, `4144_new`; `4102_new` retained only as a historical alternative |"
+      },
+      {
+        "old": "The readability revision has 73 pages. Each of its 83 theorem, lemma, proposition, and corollary",
+        "new": "The BC/D revision has 73 pages. Each of its 82 theorem, lemma, proposition, and corollary"
       }
     ],
-    "after": "28e8ffad11a6d15789812ba68264aebe3bae0455308752388bd3f42acaabb0e8"
+    "after": "0bd997c2370955d4584b8b5fac3a65851b8c46d5f83580599bfdd280f900c937"
   },
   "interactive/proof_trees/D.md": {
     "before": "ddadf80b1fb576ad098097a908a9af35d418f865b838e7b9b5eb569d73178881",
@@ -38,5 +42,31 @@
       }
     ],
     "after": "b8ec2aec18b94ec2d283aca27f797019cb4ecb90201670e60ce590cc02332801"
+  },
+  "arrange/paper_draft/inline_proofs/README.md": {
+    "before": "493d3aa352bf9af86867516c51dfb10de5f4c88a69cd863bbcb117e35a25ed14",
+    "replacements": [
+      {
+        "old": "Its 83 formal results",
+        "new": "Its 82 formal results"
+      },
+      {
+        "old": "The numbered mathematical sources and exact certificate data are unchanged.",
+        "new": "The numbered sources include the approved five-point BC and four-point D replacement.\nThe exact zero-gap certificate data are unchanged."
+      },
+      {
+        "old": "The 97 canonical statement entries become 83 statements",
+        "new": "The 96 current canonical statement entries become 82 statements"
+      },
+      {
+        "old": "All 81 retained canonical proof bodies",
+        "new": "All 80 retained canonical proof bodies"
+      },
+      {
+        "old": "The readability review preserves all 83 proof environments against the\npre-review baseline. Its layout also prevents a final displayed equation from\nseparating a statement from the start of its proof. The 73-page count includes\nthat protection; no proof was removed to achieve a page target.",
+        "new": "The approved BC/D inventory contains 82 immediate proof environments. The prior\nreadability baseline is archived, and the revised inventory is protected by the\nsame source-regression audit. This mathematical replacement is not described as\nan unchanged pre-review proof. The layout keeps each statement with the start\nof its proof; the 73-page edition has no shortening target."
+      }
+    ],
+    "after": "5c5699cce4cfba544975143a110fe1e64fecb3c539eaa992d28eed36e9d3b109"
   }
 }
