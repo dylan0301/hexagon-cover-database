@@ -1,0 +1,220 @@
+name: Validate and publish reviewed shortening
+on:
+  push:
+    branches: [chatgpt/reusable-lemmas-shortening-20260922232121]
+    paths: [.github/workflows/shortening-publish.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: reviewed-shortening-delivery
+  cancel-in-progress: false
+env:
+  SOURCE_DATE_EPOCH: '946684800'
+  FORCE_SOURCE_DATE: '1'
+  TZ: UTC
+  DELIVERY_BRANCH: chatgpt/reusable-lemmas-shortening-20260922232121
+jobs:
+  validate:
+    if: github.ref == 'refs/heads/chatgpt/reusable-lemmas-shortening-20260922232121'
+    runs-on: ubuntu-24.04
+    outputs:
+      manifest_sha: ${{ steps.package.outputs.manifest_sha }}
+    steps:
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22'
+      - name: Apply exact allowlisted source patch
+        run: |
+          python - <<'PY'
+          import base64, hashlib, json, lzma, os, subprocess
+          from pathlib import Path, PurePosixPath
+          encoded = ''.join(Path(f'.github/shortening-payload-{i}.b64').read_text().strip() for i in range(4)) + '\n'
+          assert hashlib.sha256(encoded.encode()).hexdigest() == '5c9420dae8697ce8d3f4b819d1e8b73d54f043e603c9aa22516b52a0b0110740', 'payload hash mismatch'
+          p = json.loads(lzma.decompress(base64.b64decode(encoded)))
+          assert p['version'] == 1 and p['branch'] == os.environ['DELIVERY_BRANCH']
+          assert p['base_commit'] == '6ddafc97d20b57a76874610f3fc0d5f9273b0264'
+          subprocess.run(['git','merge-base','--is-ancestor',p['base_commit'],'HEAD'], check=True)
+          assert len(p['files']) == 41
+          def digest(path):
+              return hashlib.sha256(path.read_bytes()).hexdigest() if path.exists() else None
+          for name, item in p['files'].items():
+              path = Path(name)
+              assert not path.is_absolute() and '..' not in path.parts
+              assert name == 'README.md' or name == '.github/workflows/ci.yml' or path.parts[0] in {'proof','arrange','interactive'}
+              assert not any(x.is_symlink() for x in [path, *path.parents])
+              assert item['mode'] in {'100644','100755'}
+              assert digest(path) == item['before_sha256'], name
+          patch = Path('/tmp/reviewed-shortening.patch')
+          patch.write_text(p['patch'])
+          subprocess.run(['git','apply','--index','--whitespace=error-all',str(patch)], check=True)
+          assert set(subprocess.check_output(['git','diff','--cached','--name-only']).decode().splitlines()) == set(p['files'])
+          for name,item in p['files'].items():
+              path = Path(name)
+              assert digest(path) == item['after_sha256'], name
+              if path.exists():
+                  assert ('100755' if path.stat().st_mode & 0o111 else '100644') == item['mode'], name
+          Path('/tmp/reviewed-shortening.json').write_text(json.dumps(p))
+          print('Verified and applied all 41 source paths.')
+          PY
+      - name: Install pinned audit and renderer dependencies
+        run: |
+          python -m pip install --disable-pip-version-check -r arrange/_support/requirements.txt -r interactive/proof_trees/requirements.txt
+          cd interactive/proof_trees
+          npm install --no-save --no-package-lock --ignore-scripts mathjax-full@3.2.2
+      - name: Regenerate affected dependency graph
+        run: |
+          python interactive/generate.py --dependency-graph
+          git add interactive/readable_proof_dependency_graph.html
+      - name: Run complete source and exact-certificate checks
+        run: |
+          set -euo pipefail
+          python interactive/proof_trees/check.py --html
+          python interactive/proof_trees/build.py --check
+          python proof/check.py
+          python arrange/_support/verify_inline_proofs.py
+          python arrange/_support/verify_readability_preservation.py
+          cd proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation
+          python verify_mixed_overlap_core_derivation.py
+          python verify_global_core_positivity.py
+          cd "$GITHUB_WORKSPACE"
+          python interactive/generate.py --dependency-graph --check
+          python interactive/generate.py --trace-assets --check
+          python interactive/check.py
+          python interactive/animated_proof_guide/check.py --require-live
+          git diff --cached --check
+      - name: Build both papers in pinned TeX Live 2025
+        uses: xu-cheng/texlive-action@22c04326a5d855880f9d39bb955138bf11c6df80
+        with:
+          docker_image: ghcr.io/xu-cheng/texlive-historic-debian:2025@sha256:d3e42adc0c8d84bc913bfc33571feaf7037616260a771bb6f027504661568bf6
+          run: |
+            set -euo pipefail
+            python3 arrange/build.py --all --output-dir arrange/_build
+      - name: Verify publication PDFs
+        run: |
+          python arrange/_support/verify_pdf_render.py arrange/_build/canonical.pdf
+          python arrange/_support/verify_pdf_render.py arrange/_build/inline_proofs.pdf
+          python arrange/_support/verify_inline_proofs.py --pdf arrange/_build/inline_proofs.pdf
+          python - <<'PY'
+          import fitz, shutil
+          for src,dst,expected in [('arrange/_build/canonical.pdf','arrange/paper_draft/main.pdf',70),('arrange/_build/inline_proofs.pdf','arrange/paper_draft/inline_proofs/main.pdf',68)]:
+              doc = fitz.open(src)
+              assert len(doc) == expected, (src,len(doc),expected)
+              print(src, len(doc), 'pages;', sum(len(p.get_text()) for p in doc), 'text characters')
+              doc.close()
+              shutil.copyfile(src,dst)
+          PY
+      - name: Package only validated bytes and manifest
+        id: package
+        run: |
+          python - <<'PY'
+          import hashlib, json, os, subprocess, tarfile
+          from pathlib import Path
+          p = json.loads(Path('/tmp/reviewed-shortening.json').read_text())
+          files = p['files']
+          generated = ['interactive/readable_proof_dependency_graph.html','arrange/paper_draft/main.pdf','arrange/paper_draft/inline_proofs/main.pdf']
+          for name in generated:
+              before = subprocess.check_output(['git','show','HEAD:'+name])
+              files[name] = {'before_sha256':hashlib.sha256(before).hexdigest(),'after_sha256':hashlib.sha256(Path(name).read_bytes()).hexdigest(),'mode':'100644'}
+          assert set(subprocess.check_output(['git','diff','--name-only','HEAD']).decode().splitlines()) == set(files)
+          for name,item in files.items():
+              path = Path(name)
+              actual = hashlib.sha256(path.read_bytes()).hexdigest() if path.exists() else None
+              assert actual == item['after_sha256'], name
+              if path.exists():
+                  assert path.is_file() and not path.is_symlink()
+                  assert ('100755' if path.stat().st_mode & 0o111 else '100644') == item['mode'], name
+                  data = path.read_bytes()
+                  item['git_blob_sha'] = hashlib.sha1(b'blob '+str(len(data)).encode()+b'\0'+data).hexdigest()
+              else:
+                  item['git_blob_sha'] = None
+          out = Path('/tmp/shortening-publication'); out.mkdir()
+          manifest = {'branch':p['branch'],'workflow_sha':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],'pages':{'canonical':70,'inline':68},'files':files,'validation':'All source checks, both exact certificates, pinned builds and PDF checks passed.'}
+          raw = (json.dumps(manifest,indent=2,sort_keys=True)+'\n').encode()
+          (out/'publication_manifest.json').write_bytes(raw)
+          with tarfile.open(out/'publication.tar.gz','w:gz') as archive:
+              for name,item in sorted(files.items()):
+                  if item['after_sha256'] is not None:
+                      archive.add(name,arcname=name,recursive=False)
+          sha = hashlib.sha256(raw).hexdigest()
+          with open(os.environ['GITHUB_OUTPUT'],'a') as f: f.write('manifest_sha='+sha+'\n')
+          print('Manifest SHA-256:',sha)
+          print('Validated paths:',len(files))
+          PY
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: shortening-validated-publication
+          path: /tmp/shortening-publication/
+          retention-days: 7
+          if-no-files-found: error
+  publish:
+    needs: validate
+    if: github.ref == 'refs/heads/chatgpt/reusable-lemmas-shortening-20260922232121'
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: shortening-validated-publication
+          path: /tmp/shortening-publication
+      - name: Publish allowlisted non-workflow files without force
+        env:
+          EXPECTED_MANIFEST_SHA: ${{ needs.validate.outputs.manifest_sha }}
+        run: |
+          python - <<'PY'
+          import hashlib,json,os,subprocess,tarfile
+          from pathlib import Path
+          root = Path('/tmp/shortening-publication')
+          raw = (root/'publication_manifest.json').read_bytes()
+          assert hashlib.sha256(raw).hexdigest() == os.environ['EXPECTED_MANIFEST_SHA']
+          m = json.loads(raw)
+          branch = os.environ['DELIVERY_BRANCH']
+          assert m['branch'] == branch and m['workflow_sha'] == os.environ['GITHUB_SHA']
+          remote = subprocess.check_output(['git','ls-remote','origin','refs/heads/'+branch]).decode().split()[0]
+          assert remote == os.environ['GITHUB_SHA'], 'Branch changed during validation; refuse publication.'
+          files = m['files']
+          assert len(files) == 44
+          names = sorted(name for name in files if not name.startswith('.github/'))
+          with tarfile.open(root/'publication.tar.gz','r:gz') as archive:
+              assert {v.name for v in archive.getmembers()} == {n for n,v in files.items() if v['after_sha256'] is not None}
+              for name in names:
+                  path = Path(name); item = files[name]
+                  assert not path.is_absolute() and '..' not in path.parts
+                  assert name == 'README.md' or path.parts[0] in {'proof','arrange','interactive'}
+                  assert not any(x.is_symlink() for x in [path,*path.parents])
+                  before = hashlib.sha256(path.read_bytes()).hexdigest() if path.exists() else None
+                  assert before == item['before_sha256'], name
+                  if item['after_sha256'] is None:
+                      path.unlink()
+                  else:
+                      member = archive.getmember(name)
+                      assert member.isfile()
+                      data = archive.extractfile(member).read()
+                      assert hashlib.sha256(data).hexdigest() == item['after_sha256'], name
+                      path.parent.mkdir(parents=True,exist_ok=True)
+                      path.write_bytes(data)
+                      path.chmod(0o755 if item['mode'] == '100755' else 0o644)
+          subprocess.run(['git','add','--',*names],check=True)
+          assert set(subprocess.check_output(['git','diff','--cached','--name-only']).decode().splitlines()) == set(names)
+          subprocess.run(['git','diff','--cached','--check'],check=True)
+          subprocess.run(['git','config','user.name','github-actions[bot]'],check=True)
+          subprocess.run(['git','config','user.email','41898282+github-actions[bot]@users.noreply.github.com'],check=True)
+          subprocess.run(['git','commit','-m','Extract reusable enclosure lemmas and shorten both papers'],check=True)
+          subprocess.run(['git','push','origin','HEAD:refs/heads/'+branch],check=True)
+          sha = subprocess.check_output(['git','rev-parse','HEAD']).decode().strip()
+          with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as f:
+              f.write('Validated non-workflow publication commit: `'+sha+'`.\n\nConnector cleanup and final CI remain required.\n')
+          print('Publication commit:',sha)
+          PY
