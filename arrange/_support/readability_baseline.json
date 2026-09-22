@@ -1,18 +1,20 @@
 {
-  "base_commit": "a98c71c12f1b521a1e58353e56b11474e1ec4f9b",
+  "base_commit": "083d7fc08bf0918547c8d1624407924604b32e04",
+  "revision": "20260922-bc-d-finite-calipers",
+  "reason": "User-approved mathematical replacement of BC/D terminals, not an editorial-only revision.",
+  "prior_baseline_sha256": "2f4d9ff8f7d63ce54236acaee35344487436adcb5784120328b6a838630a8721",
   "canonical": {
-    "proof_environments": 96,
-    "sha256": "a0bfe8a65a61dd20d36cfc3dccb2e2232c570396c9cd60756a026346f5392d1e",
-    "statements": 97
+    "statements": 96,
+    "proof_environments": 95,
+    "sha256": "889f9d1898240f1e84d5b0a554fa3b1b850fd5fd3e0cf7e425fe66b874c75d6e"
   },
-  "explanation": "Original mathematical inventory; only the two explicit wording substitutions in the verifier are allowed. These hashes are regression checks, not formal proof certificates.",
   "inline": {
-    "proof_environments": 83,
-    "sha256": "f8a21fa5e5c856051eb484ad4b356547b0bef53ffff3c14428a9f4bf8c9e480d",
-    "statements": 83
+    "statements": 82,
+    "proof_environments": 82,
+    "sha256": "f47f75017761f79b96bb12988752c41b47b40060bf9cd32de5c2007ab90f0a6e"
   },
   "proof_corpus": {
-    "files": 365,
-    "sha256": "40914cba949c794d6a2006c1627aada2860b53f457380c019c4b14bb8dc8f48d"
+    "files": 370,
+    "sha256": "943acf220af9fca01277201817a3824f0bdb96b539543678e0f4b5a5f8941167"
   }
 }

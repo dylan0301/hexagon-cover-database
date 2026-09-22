@@ -2,7 +2,7 @@
 """Exact checks supporting the B/C unification report.
 
 These checks verify identities and an explicit counterexample to dropping the
-boundary-transfer hypothesis. They do not replace the inherited CE1/CE2 proofs.
+boundary-transfer hypothesis. The historical tail counterexample remains; new BC/D proofs are audited separately in 2615--2616.
 Requires SymPy. All sign checks below use rational outward intervals, not floats.
 """
 from __future__ import annotations
@@ -150,22 +150,24 @@ print(f'ALL {len(checked)} EXACT CHECKS PASSED')
 from pathlib import Path
 import hashlib
 ROOT = Path(__file__).resolve().parents[3]
+# Approved BC/D mathematical revision: these four statements/proofs changed.
+# Original supplier and replacement file pins below remain untouched.
 PRESERVED_SECTIONS = [('proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2612_fixed_witness_unification.md',
   '## 6. Family D:',
   '## 7.',
-  'dad6e3e829e8730f1973f20c5950cd2874078e0fbdeb39aa3239ed367d5d9946'),
+  '301ba09ca31bcf03f82ffa470b55aac4cb6597df138cc1dda1fed784200d95d3'),
  ('proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2610_finite_enclosure_terminal_interfaces.md',
   '## 5. D:',
   '## 6. F:',
-  'e6b126f12ae4a5965d2f2b2824ab1303d6257631ea623d25576d827103af9236'),
+  '206b2a035b4e23a8d7ee3394ae49806b1e513437ba1f8b934faa67595bebba49'),
  ('arrange/paper_draft/fixed_witness/D_fixed_witness_extensions.tex',
   '\\begin{lemma}[Fixed four-point supported-rescuer proof]',
   '\\end{proof}',
-  '1374d2f084fba4548299c1d7d1f886a67cd1884828b1f700dadf726eb34a0c99'),
+  'adc8fdd0873705d154509a673d4f36cbdcec0d7ee7833b80f499e46e9d52141b'),
  ('arrange/paper_draft/fixed_witness/06_fixed_witness_body.tex',
   '\\begin{theorem}[Four-point rescuer geometry]',
   '\\end{proof}',
-  'b97ac11a9da8d6ce24b4adc3cf19844ff62f3cc58805520d3693e7efe03122d3')]
+  'ba95d0f59e60deddb76dbe83f17479b898169eabcdee947aac47539a34c25f37')]
 for path, start, end, digest in PRESERVED_SECTIONS:
     text = (ROOT / path).read_text(encoding="utf-8")
     section = text[text.index(start):text.index(end, text.index(start))]

@@ -16,7 +16,7 @@
 
 ## Tree
 
-- **Boundary-length ledger — sources [2500](https://github.com/dylan0301/hexagon-cover-database/blob/c9baa75d090ee888fa85b575bdfb061f244197d0/proof/2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md) and [2531](https://github.com/dylan0301/hexagon-cover-database/blob/c9baa75d090ee888fa85b575bdfb061f244197d0/proof/2XXX_geometric_lemmas/25XX_length_bounds/2531_length_budget_corollaries.md).**
+- **Boundary-length ledger — sources [2500](https://github.com/dylan0301/hexagon-cover-database/blob/f7fe2f89cde04903cba8ba347bd0645abee9b905/proof/2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md) and [2531](https://github.com/dylan0301/hexagon-cover-database/blob/f7fe2f89cde04903cba8ba347bd0645abee9b905/proof/2XXX_geometric_lemmas/25XX_length_bounds/2531_length_budget_corollaries.md).**
     - CE1: at most $\sqrt3/2-3/4$.
     - CE2: strictly below $1/2$.
     - Nonsupercritical vertex role: at most $1$.
@@ -25,20 +25,20 @@
     - T3-like: strictly below $1$.
     - Vd2 containing a neighboring midpoint: strictly below $1/3$.
     - Used by [\[LENGTH\]](../LENGTH.md) to separate the counted classes and by [\[PERIMETER\]](../PERIMETER.md) to close the Vd2 case.
-- **Skeleton-length ledger — sources [2510](https://github.com/dylan0301/hexagon-cover-database/blob/c9baa75d090ee888fa85b575bdfb061f244197d0/proof/2XXX_geometric_lemmas/25XX_length_bounds/2510_skeleton_length_bounds.md) and [2531](https://github.com/dylan0301/hexagon-cover-database/blob/c9baa75d090ee888fa85b575bdfb061f244197d0/proof/2XXX_geometric_lemmas/25XX_length_bounds/2531_length_budget_corollaries.md).**
+- **Skeleton-length ledger — sources [2510](https://github.com/dylan0301/hexagon-cover-database/blob/f7fe2f89cde04903cba8ba347bd0645abee9b905/proof/2XXX_geometric_lemmas/25XX_length_bounds/2510_skeleton_length_bounds.md) and [2531](https://github.com/dylan0301/hexagon-cover-database/blob/f7fe2f89cde04903cba8ba347bd0645abee9b905/proof/2XXX_geometric_lemmas/25XX_length_bounds/2531_length_budget_corollaries.md).**
     - CE1/CE2 center, supercritical roles, and positive-support roles each contribute strictly below $3/2$.
     - Remaining nonsupercritical Vd0 roles contribute at most $2$.
     - Add these bounds only after checking that the counted classes are disjoint — [\[LENGTH\]](../LENGTH.md).
-- **Exterior-area ledger — source [2400](https://github.com/dylan0301/hexagon-cover-database/blob/c9baa75d090ee888fa85b575bdfb061f244197d0/proof/2XXX_geometric_lemmas/24XX_area_loss/2400_zero_gap_area_loss_interface.md) and its local square-loss dependency.**
+- **Exterior-area ledger — source [2400](https://github.com/dylan0301/hexagon-cover-database/blob/f7fe2f89cde04903cba8ba347bd0645abee9b905/proof/2XXX_geometric_lemmas/24XX_area_loss/2400_zero_gap_area_loss_interface.md) and its local square-loss dependency.**
     - Every realized selected pair satisfies $G_i\ge\min(a_i,b_i)^2$.
     - A selected supercritical pair satisfies $G_i\ge\max(a_i,b_i)^2$.
     - Used in the short cyclic aggregation in [\[AREA\]](../AREA.md).
-- **Open-cover budget — source [2532](https://github.com/dylan0301/hexagon-cover-database/blob/c9baa75d090ee888fa85b575bdfb061f244197d0/proof/2XXX_geometric_lemmas/25XX_length_bounds/2532_open_cover_budget.md).**
+- **Open-cover budget — source [2532](https://github.com/dylan0301/hexagon-cover-database/blob/f7fe2f89cde04903cba8ba347bd0645abee9b905/proof/2XXX_geometric_lemmas/25XX_length_bounds/2532_open_cover_budget.md).**
     - Keep the appropriate strictness when turning local estimates into a covering contradiction.
     - Length and area are different measures; do not treat either as an extra finite-witness family.
 
 ---
 
-**Proof sources:** [2500](https://github.com/dylan0301/hexagon-cover-database/blob/c9baa75d090ee888fa85b575bdfb061f244197d0/proof/2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md) · [2510](https://github.com/dylan0301/hexagon-cover-database/blob/c9baa75d090ee888fa85b575bdfb061f244197d0/proof/2XXX_geometric_lemmas/25XX_length_bounds/2510_skeleton_length_bounds.md) · [2531](https://github.com/dylan0301/hexagon-cover-database/blob/c9baa75d090ee888fa85b575bdfb061f244197d0/proof/2XXX_geometric_lemmas/25XX_length_bounds/2531_length_budget_corollaries.md) · [2400](https://github.com/dylan0301/hexagon-cover-database/blob/c9baa75d090ee888fa85b575bdfb061f244197d0/proof/2XXX_geometric_lemmas/24XX_area_loss/2400_zero_gap_area_loss_interface.md) · [2532](https://github.com/dylan0301/hexagon-cover-database/blob/c9baa75d090ee888fa85b575bdfb061f244197d0/proof/2XXX_geometric_lemmas/25XX_length_bounds/2532_open_cover_budget.md). All source links are pinned to the same repository snapshot.
+**Proof sources:** [2500](https://github.com/dylan0301/hexagon-cover-database/blob/f7fe2f89cde04903cba8ba347bd0645abee9b905/proof/2XXX_geometric_lemmas/25XX_length_bounds/2500_boundary_length_bounds.md) · [2510](https://github.com/dylan0301/hexagon-cover-database/blob/f7fe2f89cde04903cba8ba347bd0645abee9b905/proof/2XXX_geometric_lemmas/25XX_length_bounds/2510_skeleton_length_bounds.md) · [2531](https://github.com/dylan0301/hexagon-cover-database/blob/f7fe2f89cde04903cba8ba347bd0645abee9b905/proof/2XXX_geometric_lemmas/25XX_length_bounds/2531_length_budget_corollaries.md) · [2400](https://github.com/dylan0301/hexagon-cover-database/blob/f7fe2f89cde04903cba8ba347bd0645abee9b905/proof/2XXX_geometric_lemmas/24XX_area_loss/2400_zero_gap_area_loss_interface.md) · [2532](https://github.com/dylan0301/hexagon-cover-database/blob/f7fe2f89cde04903cba8ba347bd0645abee9b905/proof/2XXX_geometric_lemmas/25XX_length_bounds/2532_open_cover_budget.md). All source links are pinned to the same repository snapshot.
 
 [\[MAIN\]](../README.md) Return to the main tree.

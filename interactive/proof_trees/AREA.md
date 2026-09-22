@@ -42,6 +42,6 @@ Keep the aggregation above in the main explanation: it is short. The calculation
 
 ---
 
-**Proof sources:** [2400](https://github.com/dylan0301/hexagon-cover-database/blob/c9baa75d090ee888fa85b575bdfb061f244197d0/proof/2XXX_geometric_lemmas/24XX_area_loss/2400_zero_gap_area_loss_interface.md) · [2532](https://github.com/dylan0301/hexagon-cover-database/blob/c9baa75d090ee888fa85b575bdfb061f244197d0/proof/2XXX_geometric_lemmas/25XX_length_bounds/2532_open_cover_budget.md). All source links are pinned to the same repository snapshot.
+**Proof sources:** [2400](https://github.com/dylan0301/hexagon-cover-database/blob/f7fe2f89cde04903cba8ba347bd0645abee9b905/proof/2XXX_geometric_lemmas/24XX_area_loss/2400_zero_gap_area_loss_interface.md) · [2532](https://github.com/dylan0301/hexagon-cover-database/blob/f7fe2f89cde04903cba8ba347bd0645abee9b905/proof/2XXX_geometric_lemmas/25XX_length_bounds/2532_open_cover_budget.md). All source links are pinned to the same repository snapshot.
 
 [\[MAIN\]](README.md) Return to the main tree.

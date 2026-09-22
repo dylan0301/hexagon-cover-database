@@ -41,6 +41,6 @@ Type I is the alternative coordinate form $F=\alpha+y-tx\ge0$, $G=\beta+x-(1-t)y
 
 ---
 
-**Proof sources:** [1201](https://github.com/dylan0301/hexagon-cover-database/blob/c9baa75d090ee888fa85b575bdfb061f244197d0/proof/1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md) · [2613](https://github.com/dylan0301/hexagon-cover-database/blob/c9baa75d090ee888fa85b575bdfb061f244197d0/proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2613_midpoint_supplier_reduction.md). All source links are pinned to the same repository snapshot.
+**Proof sources:** [1201](https://github.com/dylan0301/hexagon-cover-database/blob/f7fe2f89cde04903cba8ba347bd0645abee9b905/proof/1XXX_foundations/12XX_V_triangle/1201_V_triangle_types.md) · [2613](https://github.com/dylan0301/hexagon-cover-database/blob/f7fe2f89cde04903cba8ba347bd0645abee9b905/proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2613_midpoint_supplier_reduction.md). All source links are pinned to the same repository snapshot.
 
 [\[MAIN\]](README.md) Return to the main tree.

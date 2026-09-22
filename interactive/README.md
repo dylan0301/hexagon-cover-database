@@ -47,3 +47,7 @@ because its HTML already contains the complete data payload and offers it as a
 download. The trace-explorer preset JSON remains a tracked standalone artifact.
 The explorer and every generated or static image are explanatory only and
 have no proof-authority status.
+
+## Current BC/D calipers
+
+[BC/D finite-caliper viewer](bc_d_finite_calipers.html): standalone five-point BC and four-point D constructions, staged witnesses, and hull-edge support triangles. [Proof trees](proof_trees/index.html) and the dependency graph use the new 2615--2616 route. Archived live six-point recordings remain explicitly labeled in the animated guide.

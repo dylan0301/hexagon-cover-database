@@ -33,7 +33,7 @@
     - Move all three sides inward slightly to obtain a smaller closed equilateral triangle still containing $K$.
     - Hence $\Lambda(K)<1$, a contradiction.
 - **The active witness families.**
-    - [\[BC\]](BC.md): at most six points; skeleton coverage suffices; no disk.
+    - [\[BC\]](BC.md): at most five points; skeleton coverage suffices; no disk.
     - [\[D\]](D.md): at most four points; skeleton coverage suffices; no disk.
     - [\[F\]](F.md): at most nine points; uses full-hexagon coverage; a disk is obtained by convexity from six radial points.
 
@@ -43,6 +43,6 @@ For the spoke $r_i$, let $\gamma_i$ be the maximum of the own radial reach and t
 
 ---
 
-**Proof sources:** [2610](https://github.com/dylan0301/hexagon-cover-database/blob/c9baa75d090ee888fa85b575bdfb061f244197d0/proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2610_finite_enclosure_terminal_interfaces.md) · [2612](https://github.com/dylan0301/hexagon-cover-database/blob/c9baa75d090ee888fa85b575bdfb061f244197d0/proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2612_fixed_witness_unification.md) · [31058](https://github.com/dylan0301/hexagon-cover-database/blob/c9baa75d090ee888fa85b575bdfb061f244197d0/proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31058_center_independent_direct_nine_point_obstruction.md). All source links are pinned to the same repository snapshot.
+**Proof sources:** [2610](https://github.com/dylan0301/hexagon-cover-database/blob/f7fe2f89cde04903cba8ba347bd0645abee9b905/proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2610_finite_enclosure_terminal_interfaces.md) · [2612](https://github.com/dylan0301/hexagon-cover-database/blob/f7fe2f89cde04903cba8ba347bd0645abee9b905/proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2612_fixed_witness_unification.md) · [31058](https://github.com/dylan0301/hexagon-cover-database/blob/f7fe2f89cde04903cba8ba347bd0645abee9b905/proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31058_center_independent_direct_nine_point_obstruction.md). All source links are pinned to the same repository snapshot.
 
 [\[MAIN\]](README.md) Return to the main tree.

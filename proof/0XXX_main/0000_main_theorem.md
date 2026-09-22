@@ -71,8 +71,9 @@ the length interface
 [`2531`](../2XXX_geometric_lemmas/25XX_length_bounds/2531_length_budget_corollaries.md),
 and the finite-witness interface
 [`2610`](../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2610_finite_enclosure_terminal_interfaces.md).
-The shared neighboring bound has the direct proof `2008b`; the conditional
-CE1 return and exact zero-gap certificate remain local dependencies.
+The shared neighboring bound has the direct proof `2008b`. The active BC/D
+terminals use the envelope and finite calipers in `2615`--`2616`; the CE1
+return is historical. The exact zero-gap certificate remains unchanged.
 
 By N0 in
 [`2612`](../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2612_fixed_witness_unification.md),
@@ -95,7 +96,7 @@ uses N0 and the skeleton budget to give $N_+=1$ and $N_{\rm sp}\le1$.
 Write $\sigma$ for the unique supercritical index.
 
 If $\sigma=k$, apply the center-aligned path theorem in `2612`, Theorem 7.0:
-one six-point construction using either selected actual gap. Its five
+one five-point construction using either selected actual gap. Its five
 nonsupercritical path roles need no
 V-type refinement.
 

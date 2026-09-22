@@ -101,7 +101,7 @@ tracked.
 
 ## Compressed proof route
 
-The three active finite-witness families BC/D/F use at most 6/4/9 points.
+The three active finite-witness families BC/D/F use at most 5/4/9 points.
 Only F uses a disk in the minimal route. The seven-point complementary-gap
 construction A is retained as an optional independent proof. N0 now uses the
 center-aligned BC theorem, not A. Nonsupercritical path roles are never
@@ -113,17 +113,7 @@ frontier and exact boundary propagation identities. `2613` gives one
 midpoint-supplier reduction for CE1/CE2; `2614` gives the two-vertex scalar
 replacement with both charts and all strict margins. The two rescuer charts
 supply only local inputs to D. `2532` separates the common open-cover budget
-from the distinct length and area estimates. The CE1 selected return and
-exact zero-gap certificate remain intact.
-
-## Unified selected-gap BC proof
-
-`2018b` proves the shared-anchor boundary transfer
-$B_5>1-M_0(B_0)>B_0/2$. `2612`, Theorem 5.1, uses this scalar input
-and four middle handoffs to exclude the same six-point set for either gap
-rank. The pure enclosure theorem explicitly retains the tail premise;
-original perimeter coverage supplies it before a candidate is introduced.
-The D construction, local rescuer proofs, and zero-gap certificate are unchanged.
+from the distinct length and area estimates. The CE1 return remains historical; the exact zero-gap certificate is unchanged.
 
 ## Reading-order and self-containment review
 
@@ -142,3 +132,9 @@ and a staged explanation of the zero-gap enclosure. The reviewer report is
 Run `python arrange/_support/verify_readability_preservation.py` to compare the
 formal statements, complete proof environments, and proof/certificate corpus
 with the pre-review baseline.
+
+## Five-point BC and four-point D calipers
+
+The active selected-gap obstruction uses **at most five points**, two different own-ray capacity pairs, and an explicit neighboring-supplier clipping. The D geometric theorem uses **four points and only a ratio bound**. Both terminal enclosure proofs use finite hull-edge calipers rather than the signed center normal form. The new numbered sources are [2615](proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2615_slack_sensitive_radial_envelope.md) and [2616](proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2616_bc_d_finite_calipers.md).
+
+The [standalone BC/D caliper viewer](interactive/bc_d_finite_calipers.html) constructs the current point sets. Historical live six-point visualizer recordings are explicitly labeled in the animated guide; their provenance is not rewritten. Structural midpoint classification, the original supplier charts, replacement, and the zero-gap certificate remain separate.

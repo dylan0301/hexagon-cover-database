@@ -44,7 +44,7 @@ This page defines the specialized vocabulary. Individual argument pages repeat t
     - **Candidate:** any open unit equilateral triangle being tested for containment of the same fixed witnesses. It is not automatically a replacement C triangle completing the old cover.
     - **Convex hull $\operatorname{conv}(K)$:** all convex combinations of points of $K$, meaning averages with nonnegative coefficients summing to $1$. A triangle containing $K$ contains its convex hull.
     - **$\Lambda(K)$:** the smallest side length of a closed equilateral triangle containing nonempty compact $K$ (closed and bounded here). For finite $K$, open unit containment gives $\Lambda(K)<1$ by moving all sides slightly inward.
-    - **BC, D, F:** historical names for witness arguments using at most six, four, and nine points. D is not a disk. F obtains an auxiliary disk from a convex hull; BC and D use no disk.
+    - **BC, D, F:** historical names for witness arguments using at most five, four, and nine points. D is not a disk. F obtains an auxiliary disk from a convex hull; BC and D use no disk.
     - **Total radial frontier:** the endpoint closest to $O$ of all V contributions on a spoke, including both neighboring contributors. It is missed by the open V triangles. Its definition and endpoint proof are in [WITNESS](WITNESS.md).
     - **Capacity/envelope:** a bound on how far a triangle can reach while meeting specified boundary demands. $c_{\max}(p,q)$ is maximal own-spoke reach; $C_+(p,q),C_-(p,q)$ are the two neighboring-spoke versions. They are optimization functions, not extra covering triangles.
 - **How the estimates are organized.**

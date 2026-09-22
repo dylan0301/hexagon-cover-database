@@ -12,9 +12,12 @@ now proves N0 through BC and keeps A as an independent alternative.
 The exact cubic capacity `2008` and T3-like one-ascent area proofs remain
 available in the repository but are not needed by the minimum paper.
 
-The CE1 selected calculations in `4102` are retained in tail-input form: the first local step is used
-before recovering the third own demand, and the full return is invoked only
-after all three demands are established. The active CE2 transverse thresholds,
-the distinct rescuer charts, both replacement templates, all singleton gaps,
-and the exact zero-gap certificate remain necessary as stated. An exact
-symbolic identity check is not a substitute for those written hypotheses.
+The active nonzero-gap terminals now use `2615` (slack-sensitive envelope and
+coupled capacity inequality) and `2616` (finite calipers). BC has at most five
+forced points, with the explicit correction $\widehat t=\min(t,A_3)$;
+D uses a ratio-only four-point lemma. Neither terminal calls the signed-center
+normal form or `4102`. The historical CE1 return remains available separately.
+The structural midpoint classification, distinct supplier charts, both replacement
+templates, singleton gaps, and exact zero-gap certificate remain unchanged.
+Exact identity scripts audit the algebra; they do not replace the written
+analytic domain reductions or constitute proof-assistant formalization.

@@ -36,7 +36,7 @@ A **tree** is a hierarchy of statements and their reasons. A bracketed label is 
     - Nonzero-gap count [\[LENGTH\]](LENGTH.md) and routing [\[SUPPLIER\]](SUPPLIER.md).
     - Finish with [\[D\]](D.md), [\[PERIMETER\]](PERIMETER.md), or [\[REPLACEMENT\]](REPLACEMENT.md) as required.
 - **Scope and provenance.**
-    - All repository source links are pinned to `c9baa75d090ee888fa85b575bdfb061f244197d0`.
+    - All repository source links are pinned to `f7fe2f89cde04903cba8ba347bd0645abee9b905`.
     - This is a presentation layer built from the discussed repository proof, not an independent full proof audit.
     - This directory is maintained in the repository under `interactive/proof_trees/`. Uploading HTML to GitHub does not itself deploy a website; GitHub displays its source.
 
@@ -85,6 +85,6 @@ python check.py --html
 python build.py --check
 ```
 
-Then open the generated `index.html`. Build dependencies are pinned; only the build needs Python, Node, and the installed packages. The generated file embeds the pages and MathML and does not use external scripts or fonts. It is intentionally ignored by Git; the Markdown, renderer, and checks are the maintained source. A supplied release/download bundle can include the generated file.
+Then open the generated `index.html`. Build dependencies are pinned; only the build needs Python, Node, and the installed packages. The generated file embeds the pages and MathML and does not use external scripts or fonts. It is tracked alongside the Markdown and checked against a deterministic rebuild in CI. The Markdown, renderer, and mathematical proof sources remain authoritative.
 
 Use the **Start here** and **Glossary** buttons for vocabulary. Each page's **Terms used here** panel is open initially and can be folded once familiar. The expansion state of each page is remembered during that browser session.

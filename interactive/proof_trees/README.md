@@ -11,7 +11,7 @@
 - **Neighboring support and supplier.** The neighboring spokes for a V triangle at $V_i$ are $r_{i-1},r_{i+1}$. It has **positive adjacent support** if its closure meets one of those spokes in an interval of positive length. A **neighboring supplier of $M_j$** is specifically a triangle $U_i$ with $i=j-1$ or $j+1$ and $M_j\in U_i$. “Rescuer” means the same thing here. Supplying a midpoint implies positive support by openness; positive support alone does not imply supplying that midpoint. $N_{\rm sp}$ counts V triangles having positive adjacent support.
 - **Type labels.** CE0, CE1, CE2 count the boundary edges met by $T_C$ in positive length; they do not count gaps. For a V triangle let $o$ count its vertices outside $H$, and $n$ its neighboring spokes met in positive length. Vd0 means $n=0$; Vd1 means $(o,n)=(1,1)$; Vd2 means $(1,2)$; T3-like means $(2,1)$. The names are labels, not additional assumptions.
 - **Indices used in the case split.** $k$ is the index of the unique midpoint $M_k$ contained by $U_C$ when a gap exists. After the count reduction, $\sigma$ is the unique supercritical index. When $\sigma\ne k$, $\tau$ names the unique neighboring supplier, so $\tau\in\{\sigma-1,\sigma+1\}$ and $M_\sigma\in U_\tau$. “At $k$” means based at vertex $V_k$, not physically located at midpoint $M_k$.
-- **Page names.** BC, D, and F are historical labels for contradictions using at most six, four, and nine fixed points. N0 is the theorem excluding $N_+=0$, not a new numerical variable. A **calculation leaf** states an exact lemma's inputs and output, while leaving its long derivation in the linked numbered proof source.
+- **Page names.** BC, D, and F are historical labels for contradictions using at most five, four, and nine fixed points. N0 is the theorem excluding $N_+=0$, not a new numerical variable. A **calculation leaf** states an exact lemma's inputs and output, while leaving its long derivation in the linked numbered proof source.
 
 New to the proof? [START](START.md) explains the problem and vocabulary without assuming the role names. Every argument page repeats its local setup.
 
@@ -30,7 +30,7 @@ New to the proof? [START](START.md) explains the problem and vocabulary without 
         - Prove the midpoint containment and exclusion facts — [\[MIDPOINTS\]](MIDPOINTS.md).
     - **2. Establish N0: a skeleton cover must have $N_+\ge1$** — [\[N0\]](N0.md).
         - With no gaps: sum the strict boundary overlaps.
-        - With a gap: use the center-aligned six-point obstruction [\[BC\]](BC.md).
+        - With a gap: use the center-aligned five-point obstruction [\[BC\]](BC.md).
     - **3. Split by boundary gaps.**
         - **No boundary gaps.**
             - $N_+=1$: force the nine-point obstruction [\[F\]](F.md).
@@ -56,8 +56,12 @@ New to the proof? [START](START.md) explains the problem and vocabulary without 
 
 ## Scope
 
-This is a linked presentation of the repository's proof, not a new proof or an independent verification of all calculation leaves. The presentation follows repository snapshot `c9baa75d090ee888fa85b575bdfb061f244197d0`, checked on **2026-09-21**. This directory is the presentation layer; numbered proof sources remain the mathematical authority.
+This is a linked presentation of the repository's proof, not a new proof or an independent verification of all calculation leaves. The presentation follows repository snapshot `f7fe2f89cde04903cba8ba347bd0645abee9b905`, checked on **2026-09-22**. This directory is the presentation layer; numbered proof sources remain the mathematical authority.
 
 ---
 
-**Proof sources:** [0000](https://github.com/dylan0301/hexagon-cover-database/blob/c9baa75d090ee888fa85b575bdfb061f244197d0/proof/0XXX_main/0000_main_theorem.md) · [0003](https://github.com/dylan0301/hexagon-cover-database/blob/c9baa75d090ee888fa85b575bdfb061f244197d0/proof/0XXX_main/0003_reusable_lemma_catalog.md) · [2613](https://github.com/dylan0301/hexagon-cover-database/blob/c9baa75d090ee888fa85b575bdfb061f244197d0/proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2613_midpoint_supplier_reduction.md). All source links are pinned to the same repository snapshot.
+**Proof sources:** [0000](https://github.com/dylan0301/hexagon-cover-database/blob/f7fe2f89cde04903cba8ba347bd0645abee9b905/proof/0XXX_main/0000_main_theorem.md) · [0003](https://github.com/dylan0301/hexagon-cover-database/blob/f7fe2f89cde04903cba8ba347bd0645abee9b905/proof/0XXX_main/0003_reusable_lemma_catalog.md) · [2613](https://github.com/dylan0301/hexagon-cover-database/blob/f7fe2f89cde04903cba8ba347bd0645abee9b905/proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2613_midpoint_supplier_reduction.md). All source links are pinned to the same repository snapshot.
+
+## BC/D terminal revision
+
+[BC](BC.md) now uses at most five forced points and the nonuniform capacity envelope. [D](D.md) uses a ratio-only four-point caliper lemma. The original midpoint/supplier classification remains; no terminal candidate center normal form or CE1 return is required.

@@ -21,7 +21,7 @@
 - **Keep the distinction between actual and selected quantities.**
     - Actual supercriticality is $A_i+B_i>1$.
     - Selected supercriticality is $a_i+b_i>1$, equivalently $x_i>x_{i-1}$.
-- **Use the precise conclusion of source [1214](https://github.com/dylan0301/hexagon-cover-database/blob/c9baa75d090ee888fa85b575bdfb061f244197d0/proof/1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md).**
+- **Use the precise conclusion of source [1214](https://github.com/dylan0301/hexagon-cover-database/blob/f7fe2f89cde04903cba8ba347bd0645abee9b905/proof/1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md).**
     - If there is exactly one actual supercritical role, a strict selection preserves its index and gives one selected ascent.
     - If there are at least two actual supercritical roles, a strict selection can retain at least two selected ascents.
     - Strict overlap provides positive margins; arbitrary endpoint selections are not a substitute.
@@ -31,6 +31,6 @@
 
 ---
 
-**Proof sources:** [1214](https://github.com/dylan0301/hexagon-cover-database/blob/c9baa75d090ee888fa85b575bdfb061f244197d0/proof/1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md) · [2400](https://github.com/dylan0301/hexagon-cover-database/blob/c9baa75d090ee888fa85b575bdfb061f244197d0/proof/2XXX_geometric_lemmas/24XX_area_loss/2400_zero_gap_area_loss_interface.md) · [31058](https://github.com/dylan0301/hexagon-cover-database/blob/c9baa75d090ee888fa85b575bdfb061f244197d0/proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31058_center_independent_direct_nine_point_obstruction.md). All source links are pinned to the same repository snapshot.
+**Proof sources:** [1214](https://github.com/dylan0301/hexagon-cover-database/blob/f7fe2f89cde04903cba8ba347bd0645abee9b905/proof/1XXX_foundations/12XX_V_triangle/1214_strict_boundary_handoff_selection.md) · [2400](https://github.com/dylan0301/hexagon-cover-database/blob/f7fe2f89cde04903cba8ba347bd0645abee9b905/proof/2XXX_geometric_lemmas/24XX_area_loss/2400_zero_gap_area_loss_interface.md) · [31058](https://github.com/dylan0301/hexagon-cover-database/blob/f7fe2f89cde04903cba8ba347bd0645abee9b905/proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31058_center_independent_direct_nine_point_obstruction.md). All source links are pinned to the same repository snapshot.
 
 [\[MAIN\]](../README.md) Return to the main tree.

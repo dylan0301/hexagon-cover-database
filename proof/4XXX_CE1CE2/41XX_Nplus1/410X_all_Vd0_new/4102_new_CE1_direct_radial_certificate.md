@@ -2,6 +2,8 @@
 
 Status: Proven
 
+Historical alternative: the active BC terminal is now the five-point finite-caliper proof in `2616`, with the envelope in `2615`. This return calculation is preserved for provenance, not used by the current terminal.
+
 This note isolates the CE1 tail-input return used by the unified six-point
 BC theorem. It works with actual reaches on $T_4,T_3,T_2,T_1$, a supplied
 boundary floor at $T_4$, and radial information only at $T_4,T_3,T_2$.

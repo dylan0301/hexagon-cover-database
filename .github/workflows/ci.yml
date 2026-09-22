@@ -37,7 +37,16 @@ jobs:
           node-version: '22'
 
       - name: Install pinned audit dependencies
-        run: python -m pip install --disable-pip-version-check -r arrange/_support/requirements.txt
+        run: python -m pip install --disable-pip-version-check -r arrange/_support/requirements.txt -r interactive/proof_trees/requirements.txt
+
+      - name: Install pinned proof-tree renderer
+        working-directory: interactive/proof_trees
+        run: npm install --no-save --no-package-lock --ignore-scripts mathjax-full@3.2.2
+
+      - name: Check proof-tree source and generated offline viewer
+        run: |
+          python interactive/proof_trees/check.py --html
+          python interactive/proof_trees/build.py --check
 
       - name: Check proof and manuscript source interfaces
         run: python proof/check.py
@@ -45,7 +54,7 @@ jobs:
       - name: Check inline proof order and preservation
         run: python arrange/_support/verify_inline_proofs.py
 
-      - name: Preserve pre-review statements and complete proof calculations
+      - name: Check the reviewed mathematical inventory and complete proof calculations
         run: python arrange/_support/verify_readability_preservation.py
 
       - name: Replay exact zero-gap derivation and positivity certificates

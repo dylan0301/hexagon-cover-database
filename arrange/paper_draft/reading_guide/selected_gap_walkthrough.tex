@@ -1,36 +1,11 @@
-\readerheading{Reading the six points.}
-There are three sources of containment, which should be kept separate:
-\begin{center}
-\small
-\renewcommand{\arraystretch}{1.15}
-\begin{tabular}{@{}p{.43\linewidth}p{.49\linewidth}@{}}
-\toprule
-Points & Why the original C triangle contains them \\
-\midrule
-$M_0$ & Structural anchor: the distinguished C midpoint. \\
-$X_0(B_0),\ X_0(1-A_1)$ & The endpoints of the actual gap $J_0$;
-all open V triangles miss them. \\
-$\widehat P_2,\widehat P_3,\widehat P_4$ & Total radial endpoints,
-including all permitted neighboring traces. \\
-\bottomrule
-\end{tabular}
-\end{center}
-A singleton gap merely makes the two boundary points coincide. No distinctness
-assumption is needed.
-
-The center $O$ is not an additional seventh point. To see this explicitly,
-put $t=B_0$ and $G=X_0(t)$. The positive-coefficient identity
-\[
- G+\frac{1-t}{d_2}\widehat P_2+\frac1{d_4}\widehat P_4=0
-\]
-from \zcref{lem:fixed-origin-in-hull}, after division by the sum of its
-coefficients, expresses $O$ as a convex combination of three listed points.
-Thus any open candidate containing the six points also contains $O$.
-
-The enclosure proof now varies that candidate, not the points. Its gap
-anchors force a positive boundary trace, so the candidate has one of the
-two nonzero center types. The four gap-free middle edges propagate demands
-along the original nonsupercritical path. The original tail bound
-$B_5\ge B_0/2$ supplies the last input even when the candidate does not cover
-the other incident edge. The two candidate calculations then show that
-these demands cannot coexist with the candidate's radial exits.
+\readerheading{The five-point selected-gap construction.}
+Set $x=B_0$, $y=1-A_1$, and $z=B_3$. The two boundary pairs
+$(1-y,z)$ and $(1-z,x/2)$ are different; they preserve the shared boundary
+parameter $z$ instead of replacing all path data by a uniform minimum.
+Their capacity deficits give $r$ and $t$. The five witnesses are
+$M_0,X_0(x),X_0(y),rV_2,\min(t,A_3)V_4$.
+There is no point on $r_3$, although $B_3$ remains part of the construction.
+The cap by $A_3$ handles a neighboring supplier. When it is active,
+a pair of witnesses already has distance greater than one; otherwise five
+hull-edge calipers prove the obstruction. Singleton gaps merely identify
+$X_0(x)$ and $X_0(y)$.

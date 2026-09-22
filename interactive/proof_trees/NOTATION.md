@@ -32,7 +32,7 @@ This is an index of symbols, not required prior reading. Each argument page supp
 - **Witnesses and enclosure.**
     - $\widehat P_i$: total radial frontier including neighboring contributions — [\[WITNESS\]](WITNESS.md).
     - $\Lambda(K)$: least side length of a closed equilateral triangle containing compact $K$.
-    - BC, D, F: active witness families of at most six, four, and nine points.
+    - BC, D, F: active witness families of at most five, four, and nine points.
     - The letter D in a page label names a witness family; it is not a disk.
 - **Coverage strength.**
     - Skeleton coverage: perimeter plus the six spokes.
@@ -42,6 +42,6 @@ This is an index of symbols, not required prior reading. Each argument page supp
 
 ---
 
-**Proof sources:** [0000](https://github.com/dylan0301/hexagon-cover-database/blob/c9baa75d090ee888fa85b575bdfb061f244197d0/proof/0XXX_main/0000_main_theorem.md) · [2610](https://github.com/dylan0301/hexagon-cover-database/blob/c9baa75d090ee888fa85b575bdfb061f244197d0/proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2610_finite_enclosure_terminal_interfaces.md) · [2612](https://github.com/dylan0301/hexagon-cover-database/blob/c9baa75d090ee888fa85b575bdfb061f244197d0/proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2612_fixed_witness_unification.md). All source links are pinned to the same repository snapshot.
+**Proof sources:** [0000](https://github.com/dylan0301/hexagon-cover-database/blob/f7fe2f89cde04903cba8ba347bd0645abee9b905/proof/0XXX_main/0000_main_theorem.md) · [2610](https://github.com/dylan0301/hexagon-cover-database/blob/f7fe2f89cde04903cba8ba347bd0645abee9b905/proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2610_finite_enclosure_terminal_interfaces.md) · [2612](https://github.com/dylan0301/hexagon-cover-database/blob/f7fe2f89cde04903cba8ba347bd0645abee9b905/proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2612_fixed_witness_unification.md). All source links are pinned to the same repository snapshot.
 
 [\[MAIN\]](README.md) Return to the main tree.

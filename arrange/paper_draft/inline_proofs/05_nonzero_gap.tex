@@ -273,8 +273,7 @@ Vd1, Vd2, or T3-like crossing does not change any witness coordinate.
 \label{subsec:trace-exact-ab-envelopes}
 
 Each witness set is fixed from the original V triangles before an
-arbitrary enclosing candidate is chosen. The candidate's center parameters
-are recomputed, but its witness points are not. Gap endpoints are supplied
+arbitrary enclosing candidate is chosen. The finite calipers vary their support orientation, but the witness points do not. Gap endpoints are supplied
 by \zcref{lem:gap-exhaustion}; radial witnesses use the total endpoints,
 including all permitted neighboring traces.
 
@@ -304,510 +303,10 @@ witness construction. BC handles the center-aligned case. For an off-center
 supercritical role, its midpoint supplier leads to D, replacement, or the
 Vd2 perimeter obstruction.
 
-\subsection{Exact direct output formulas}
-\label{subsec:new-direct-output-formulas}
+\input{fixed_witness/D_bc_capacity_envelope}
+\input{fixed_witness/D_bc_finite_calipers}
 
-The following outgoing capacities follow from
-\zcref{prop:new-exact-local-set} and supply the CE1 return.
-
-The next formulas quantify the boundary--interior tradeoff along a path.
-A large radial demand can make a large incoming boundary reach incompatible
-with a large outgoing one. Only the selected admissible branch may be used:
-a formal root of a quadratic is not automatically the boundary capacity.
-The threshold and return arguments that follow use precisely these outputs.
-
-For a nonsupercritical triangle with incoming reach at least $a$ and radial
-reach at least $c$, let
-\[
- \mathcal B_c(a)=
- \max\{b:(a,b,c)\text{ is admissible and }a+b\le1\}.
-\]
-This is the outgoing capacity of a single triangle.
-
-For $1/2<c\le\sqrt3/2$, put
-\[
- h_c=\frac{2c}{1+\sqrt{16c^2-3}}.
-\]
-For $\sqrt3/2<c<1$, put
-\[
- \ell(c)=\frac c2\left(1-\sqrt{4c^2-3}\right),
- \qquad r(c)=c-\ell(c).
-\]
-Also set
-\[
- \mathcal Q_-(a,c)=\frac{\sqrt{a^2-ac+c^2}}c-a,
-\]
-\[
- \mathcal Q_+(a,c)=
- \frac{2(1-a^2)c^2}
- {2ac^2+c+
- \sqrt{(2ac^2+c)^2-4(1-c^2)(1-a^2)c^2}}.
-\]
-
-\begin{proposition}[Four direct high-radial outputs]
-\label{prop:new-four-direct-outputs}
-For $1/2<c\le\sqrt3/2$,
-\[
- \mathcal B_c(a)=
- \begin{cases}
-  1-a,&0\le a\le1-c,\\
-  \mathcal Q_+(a,c),&1-c<a<h_c,\\
-  h_c,&a=h_c,\\
-  \mathcal Q_-(a,c),&h_c<a<c,\\
-  1-a,&c\le a\le1.
- \end{cases}
-\]
-For $\sqrt3/2<c<1$,
-\[
- \mathcal B_c(a)=
- \begin{cases}
-  1-a,&0\le a\le1-c,\\
-  \mathcal Q_+(a,c),&1-c<a\le\ell(c),\\
-  \ell(c),&\ell(c)<a<r(c),\\
-  \mathcal Q_-(a,c),&r(c)\le a<c,\\
-  1-a,&c\le a\le1.
- \end{cases}
-\]
-At $a=\ell(c)$, the selected value is $r(c)$; immediately to the right it is
-$\ell(c)$.
-\end{proposition}
-
-\begin{proof}
-Since $c>1/2$, any containing V triangle contains the radial midpoint.
-Therefore $a+b\le1$, and the supercritical cell of \zcref{prop:new-exact-local-set} is absent.  On the cap $b=1-a$, the $T$-cell
-inequality becomes
-\[
- M(c-M)\le0,
-\]
-where $M=\max\{a,b\}$.  Thus the linear cap is feasible exactly when
-$a\le1-c$ or $a\ge c$.
-
-Off the linear cap, a maximal point lies on $F_L=0$ or $F_T=0$.  The selected
-$L$-cell equation has the two ordered roots $\ell(c),r(c)$; the selector
-$q\le0$ retains the smaller coordinate.  The ordered halves of $F_T=0$ give
-$\mathcal Q_+$ and $\mathcal Q_-$.  Their equality boundary $a=b$ is $h_c$ in the low-radial
-range, while their $q=0$ boundaries are
-$(\ell(c),r(c))$ and $(r(c),\ell(c))$ in the high range.  These conditions
-produce the two displayed formulas.
-
-The formal other root in the $\mathcal Q_+$ quadratic violates the geometric selector
-$c\le2\max\{a,b\}$ and is discarded.  At the high-range junction, the
-selected $T$-cell point has value $r(c)$, whereas the adjacent selected
-$L$-cell point has value $\ell(c)$; this is the genuine downward jump stated
-above.
-\end{proof}
-
-\subsection{High-radial and selected-chord calculations}
-
-For
-\[
- 0<e<1-\frac{\sqrt3}{2},
-\]
-define the selected low root
-\begin{equation}
- \epsilon(e)=\frac{1-e}{2}
- \left(1-\sqrt{4(1-e)^2-3}\right).
-\label{eq:selected-low-root}
-\end{equation}
-It satisfies
-\begin{equation}
- e<\epsilon(e),\qquad
- \epsilon(e)<\frac{2e}{1-2e},
-\label{eq:selected-low-root-basic-bounds}
-\end{equation}
-and, for $e\le1/8$,
-\begin{equation}
- \epsilon(e)\le2e+5e^2.
-\label{eq:selected-low-root-small-bound}
-\end{equation}
-These follow by substituting the proposed upper bounds in the selected
-quadratic and checking its sign.
-
-\begin{lemma}[Direct high-radial threshold]
-\label{lem:new-direct-threshold}
-Let $0<e<1-\sqrt3/2$. A nonsupercritical V triangle has incoming boundary reach $A$ and
-outgoing boundary reach $B$.  If
-\[
- C\ge1-e,
- \qquad
- A>\epsilon(e),
-\]
-then
-\[
- \boxed{B\le\epsilon(e).}
-\]
-\end{lemma}
-
-\begin{proof}
-The condition $C>1/2$ forces $A+B\le1$.  In the exact cells of
-\zcref{prop:new-exact-local-set}, the only selected component with
-$A>\epsilon(e)$ has $B\le\epsilon(e)$; equivalently the two roots of the
-selected $T$-cell quadratic separate the feasible fiber.  The selector
-$c\le2\max\{A,B\}$ removes the formal high root.
-\end{proof}
-
-\begin{lemma}[Selected-arc chord bounds]
-\label{lem:new-selected-chords}
-Put $c=1-e$, with $0<e<1/4$, and define
-$q_*(p)=1-\mathcal Q_+(p,c)$ on the selected branch. Its right endpoint is
-\[
- (p_e,q_e)=
- \begin{cases}
- (\epsilon(e),e+\epsilon(e)),&c>h,\\
- (h_c,1-h_c),&c\le h,
- \end{cases}
- \qquad h=\sqrt3/2.
-\]
-The function $q_*$ is increasing and concave on $[e,p_e]$, with
-$q_*(e)=e$. Thus, for $e<p\le p_e$,
-\[
- q_*(p)\ge p+\lambda_e(p-e),\qquad
- \lambda_e=\frac{q_e-p_e}{p_e-e}.
-\]
-One has $\lambda_e>1-4e$ when $0<e<1-h$, and
-$\lambda_e>1-5e$ throughout $0<e<1/4$.
-A following actual incoming reach $q$, forced by a weak boundary handoff,
-satisfies $q\ge q_*(p)$; equality is not assumed for actual reaches.
-\end{lemma}
-\begin{proof}
-The selected boundary is parametrized by
-\[
- q_*=e+cx,\qquad p=e+cx-1+\sqrt{1-x+x^2}.
-\]
-Indeed its selected quadratic gives
-$x(1-x)=(q_*-p)(2-q_*+p)$. If $p=p(x)$, then
-\[
- p'(x)=c+\frac{2x-1}{2\sqrt{1-x+x^2}}\ge c-\frac12>0,
- \qquad p''(x)=\frac3{4(1-x+x^2)^{3/2}}>0
-\]
-on the selected interval $0\le x\le1$.
-Hence $dq_*/dp>0$ and $d^2q_*/dp^2=-cp''/(p')^3<0$.
-The endpoint formulas follow from \zcref{prop:new-four-direct-outputs},
-and concavity places the graph above its endpoint chord.
-For $c>h$,
-\[
- \lambda_e=\frac e{\epsilon(e)-e}
- >\frac{1-2e}{1+2e}>1-4e,
-\]
-using \eqref{eq:selected-low-root-basic-bounds}.
-For $3/4<c\le h$, the formula for $h_c$ gives
-\[
- h_c\le\frac3{2(1+\sqrt6)}<\frac7{16},\qquad
- \lambda_e>\frac2{7-16e}>1-5e.
-\]
-For the first bound, $h_c$ decreases with $c$ on this interval and
-$17^2<49\cdot6$. For the second, $e\ge1-h>1/8$, and
-$80e^2-51e+5<0$ on $[1/8,1/4]$: it decreases there and has value
-$-1/8$ at $1/8$.
-Finally the preceding outgoing reach is at most $\mathcal Q_+(p,c)$;
-a weak handoff therefore gives $q\ge1-\mathcal Q_+(p,c)$.
-\end{proof}
-
-\subsection{CE1 reverse-path calculation}
-
-\label{subsec:new-ce1-direct-certificate}
-
-The first lemma uses only the $T_4$ radial demand. The full return adds
-the $T_3$ and $T_2$ demands; BC establishes them before using the latter.
-
-Use the signed center parameters of \zcref{prop:signed-center-normal-form},
-with $w=1-R$, $A=\alpha$, and $D=\delta$.
-Assume
-\begin{equation}
- A>0,
- \qquad D>0,
- \qquad A+wD<P,
- \qquad D+RA\ge P.
- \label{eq:ce1-center-assumptions}
-\end{equation}
-Put
-\begin{equation}
- X=R-D,
- \qquad m=\frac AR,
- \qquad h_0=\frac{\eta+A+D}{2R}.
- \label{eq:ce1-auxiliary-parameters}
-\end{equation}
-
-\begin{lemma}[First CE1 return step]
-\label{lem:ce1-first-return-step}
-Assume \eqref{eq:ce1-center-assumptions}, and let
-$T_1,\ldots,T_4$ be nonsupercritical V triangles of arbitrary types,
-with actual reaches satisfying
-\begin{equation}
- A_1\ge X,\qquad B_i+A_{i+1}\ge1\ (1\le i\le3),\qquad B_4\ge h_0.
- \label{eq:ce1-b4-floor}
-\end{equation}
-If $C_4\ge1-A$, then the reflected $T_4$ state lies on the selected
-$\mathcal Q_+$ component and
-\begin{equation}
- B_3>L_1,\qquad L_1=(2-4A)h_0-(1-4A)A.
- \label{eq:ce1-first-chord}
-\end{equation}
-No own-radial demand at $T_2$ or $T_3$ is assumed.
-\end{lemma}
-
-\begin{proof}
-The sign difference in \zcref{eq:ce1-center-assumptions} gives
-\[
- RD>wA,
-\]
-so the center exit on $r_3$ is $m=A/R$.  Moreover
-\begin{equation}
- 0<A<P<\frac18,
- \qquad 0<D<\frac R2,
- \qquad 0<m<\frac w2<\frac12.
- \label{eq:ce1-small-parameters}
-\end{equation}
-We first record
-\begin{equation}
- \epsilon(A)<X,
- \qquad h_0>A.
- \label{eq:ce1-root-height}
-\end{equation}
-Indeed, $A+wD<P$ and $D=R-X$ give $A<wX-\eta$.  Convexity of
-\[
- wX-\frac{X}{2(1+X)}
-\]
-on $R/2<X<R$ gives
-\[
- A<\frac{X}{2(1+X)}.
-\]
-The selected-root bound
-\zcref{eq:selected-low-root-basic-bounds} yields $\epsilon(A)<X$.  Also
-\[
- 2R(h_0-A)=\eta+D+(1-2R)A>0;
-\]
-when $R>1/2$, use $A<P=\eta E$ for the last sign.
-
-The assumed transverse radial reach at $T_4$ is at least $1-A$.  Apply the
-exact local catalogue to the reflected boundary pair $(B_4,A_4)$.  If the
-local point is not on the selected $\mathcal Q_+$ component, the constant, $\mathcal Q_-$,
-and linear components together with \zcref{eq:ce1-root-height} give
-\[
- 1-A_4\ge1-\epsilon(A)>1-X.
-\]
-The center-free edges then carry this lower bound backward to
-$B_1>1-X$, contradicting $A_1\ge X$ and $A_1+B_1\le1$.
-
-Hence the $T_4$ state is selected $\mathcal Q_+$. The selected-chord estimate
-\zcref{lem:new-selected-chords} and the supplied floor $B_4\ge h_0$
-give \zcref{eq:ce1-first-chord}.
-\end{proof}
-
-\begin{proposition}[CE1 tail-input three-transverse obstruction]
-\label{prop:new-ce1-direct-certificate}
-Under the domain, path, and tail hypotheses of
-\zcref{lem:ce1-first-return-step}, the additional own-radial demands
-\begin{equation}
- C_4\ge1-A,\qquad C_3\ge1-m,\qquad C_2\ge1-D
- \label{eq:ce1-radial-hypotheses}
-\end{equation}
-are incompatible.
-\end{proposition}
-
-
-\begin{proof}
-Apply \zcref{lem:ce1-first-return-step}. The selected-state condition forces
-\begin{equation}
- \boxed{X>\frac12.}
- \label{eq:ce1-X-half}
-\end{equation}
-To see this, selectedness gives
-\[
- h_0\le\epsilon(A)<\frac{2A}{1-2A}.
-\]
-If $X\le1/2$, the lower CE1 inequality gives
-\[
- 2Rh_0=\eta+A+D\ge w(R+A).
-\]
-Consequently
-\[
- f_R(A)<0,
- \qquad
- f_R(z)=w(R+z)(1-2z)-4Rz.
-\]
-The quadratic is strictly concave and $f_R(0)>0$.  If $R\le1/2$, then
-\[
- f_R(P)\ge\frac{1-E}{2}
- (6E^3-2E^2-5E+2)>0.
-\]
-If $R>1/2$, then $A<A_*=w/2-\eta$ and
-\[
- f_R(A_*)=\frac{1-E}{2}(E+11R-3ER-5)>0.
-\]
-Concavity contradicts $f_R(A)<0$ in both cases, proving
-\zcref{eq:ce1-X-half}.  Thus
-\begin{equation}
- m<\frac w2<\frac14.
- \label{eq:ce1-m-quarter}
-\end{equation}
-
-If $B_3\ge1/2$, then $B_3>1-X$ and the preceding immediate contradiction
-applies.  Assume $B_3<1/2$.  At $T_3$ the reflected incoming reach is
-$B_3>h_0>m$, while its assumed transverse radial reach is at least $1-m$.
-If this state is not selected $\mathcal Q_+$, the exact local catalogue gives
-\[
- B_2\ge1-B_3>\frac12>1-X,
-\]
-and the remaining center-free edge again contradicts $T_1$.
-
-Thus both $T_4$ and $T_3$ are selected $\mathcal Q_+$.  A second use of
-\zcref{lem:new-selected-chords} gives
-\[
- B_2>(2-5m)B_3-(1-5m)m.
-\]
-Since $2-5m>0$, \zcref{eq:ce1-first-chord} yields
-\begin{equation}
- \boxed{
- B_2>L_2,
- \qquad
- L_2=(2-5m)L_1-(1-5m)m.
- }
- \label{eq:ce1-second-chord}
-\end{equation}
-
-\input{figures/finite_enclosure/fe07_ce1_reverse_path}
-
-We now prove the scalar estimate
-\begin{equation}
- \boxed{
- D<\frac1{10},
- \qquad
- L_2>2D+3D^2>\epsilon(D),
- \qquad
- \epsilon(D)<X.
- }
- \label{eq:ce1-scalar-estimate}
-\end{equation}
-The $T_4$ selected-state inequality and
-\zcref{eq:selected-low-root-small-bound} give
-\begin{equation}
- D\le D_h:=A(4R-1)+10RA^2-\eta.
- \label{eq:ce1-Dh}
-\end{equation}
-If $D\ge1/10$, then $A+wD<P$ gives
-\[
- A<\overline A=\frac{w(5R-1)}{10}.
-\]
-The right side of \zcref{eq:ce1-Dh} is increasing in $A$, while
-$\eta>Rw/2$, so
-\[
- D<U(R):=\overline A(4R-1)+10R\overline A^2-\frac{Rw}{2}.
-\]
-Direct expansion gives
-\[
- \frac1{10}-U(R)=-\frac R{10}P_4(R),
-\]
-where
-\[
- P_4(R)=25R^4-60R^3+26R^2+22R-14.
-\]
-For $y=2R-1\in(0,1)$,
-\[
- 16P_4(R)
- =25y^4-20y^3-106y^2+124y-39
- \le-101y^2+124y-39<0.
-\]
-Hence $U(R)<1/10$, a contradiction.  This proves $D<1/10$.
-
-Put
-\[
- \Psi(D)=L_2-2D-3D^2,
- \qquad
- J(D)=L_2-\frac{23}{10}D.
-\]
-Since $D<1/10$,
-\[
- \Psi(D)-J(D)=3D\left(\frac1{10}-D\right)>0.
-\]
-For fixed $R,A$, differentiation of \zcref{eq:ce1-second-chord} gives
-\[
- J'(D)=\frac{S(R,A)}{10R^2},
-\]
-where
-\[
- S(R,A)=100A^2-(40R+50)A+R(20-23R).
-\]
-The nonempty interval $P-RA\le D\le D_h$ implies
-\[
- A>\frac{4Rw}{25R-4}=:A_*.
-\]
-On the relevant interval $\partial S/\partial A<-45$, and
-\[
- S(R,A)<S(R,A_*)
- =-\frac{Rq_3(R)}{(25R-4)^2},
-\]
-where
-\[
- q_3(R)=8775R^3-14260R^2+7928R-1120.
-\]
-For $y=2R-1$,
-\[
- 8q_3(R)=8775y^3-2195y^2+997y+3007>0.
-\]
-Thus $J$ decreases with $D$, so $J(D)\ge J(D_h)$.
-
-At $D=D_h$, one has $h_0=2A+5A^2$.  If $L_{2,h}$ is the corresponding
-value, then
-\[
- L_{2,h}-A(1+4R)=\frac{A}{R^2}Q(R,A),
-\]
-where
-\begin{align*}
-Q(R,A)={}&100A^3R-40A^2R^2-30A^2R+12AR^2-15AR+5A\\
-&-4R^3+5R^2-R.
-\end{align*}
-This polynomial is concave in $A$ on $0\le A\le Rw/2$.  Its endpoint
-values are
-\[
- Q(R,0)=Rw(4R-1)>0
-\]
-and
-\[
- Q\left(R,\frac{Rw}{2}\right)
- =\frac{Rw}{2}
- (25R^5-30R^4+20R^3-3R^2-7R+3)>0.
-\]
-The last positivity follows after putting $y=2R-1$:
-\[
- 32p(R)=25y^5+65y^4+90y^3+106y^2-35y+5>0.
-\]
-Hence $L_{2,h}>A(1+4R)$.
-
-Finally $A<P=\eta E$, $A<Rw/2$, and $1/E>1+Rw/2$ give
-\[
- \frac{D_h}{A}
- <C_*:=4R-2+5R^2w-\frac{Rw}{2}.
-\]
-Moreover
-\[
- 1+4R-\frac{23}{10}C_*
- =\frac{230R^3-253R^2-81R+112}{20}>0.
-\]
-Thus $J(D_h)>0$, so
-\[
- L_2>2D+3D^2.
-\]
-Substitution in the selected-root quadratic gives
-$\epsilon(D)<2D+3D^2$, and the argument
-proving $\epsilon(A)<X$ also gives $\epsilon(D)<X$.  This proves
-\zcref{eq:ce1-scalar-estimate}.
-
-The assumed transverse radial reach at $T_2$ is at least $1-D$.  Since
-$B_2>\epsilon(D)$, \zcref{lem:new-direct-threshold}, applied after
-reflection, gives
-\[
- A_2\le\epsilon(D).
-\]
-Coverage of $e_{1,2}$ therefore forces
-\[
- B_1\ge1-A_2\ge1-\epsilon(D)>1-X,
-\]
-contradicting $A_1\ge X$ and $A_1+B_1\le1$. Thus the tail-input
-boundary and radial hypotheses are incompatible.
-\end{proof}
-
-\subsection{A selected gap forces six points (BC)}
+\subsection{A selected gap forces five points (BC)}
 
 Normalize the center midpoint to $M_0$ and choose any actual gap, reflected
 to $J_0$. The other incident edge $e_{5,0}$ may or may not contain a gap.
@@ -844,134 +343,63 @@ is explicit. In the covering application, the preceding lemma establishes
 it for the original roles before an arbitrary enclosing candidate is chosen.
 We do not assume that the candidate also covers the discarded gap.
 
-Define
+Define the two nonuniform comparison pairs and radii by
 \[
- K_{BC}:=\{M_0,X_0(B_0),X_0(1-A_1),
-             \widehat P_2,\widehat P_3,\widehat P_4\}.
+ x=B_0,\qquad y=1-A_1,\qquad z=B_3.
 \]
-The midpoint is a structural anchor belonging to the original open C
-triangle. The other points are missed by the V triangles. The origin is
-implicit by \zcref{lem:fixed-origin-in-hull}; the construction uses at most
-six points even though a candidate must also contain $O$.
-
+\[
+ r=1-c_{\max}(1-y,z),\qquad t=1-c_{\max}(1-z,x/2).
+\]
+Put $\widehat t=\min\{t,A_3\}$ and fix
+\[
+ K_{BC}:=\{M_0,X_0(x),X_0(y),rV_2,\widehat tV_4\}.
+\]
+There are at most five points, including singleton gaps. The midpoint is a
+structural anchor; the other points are missed by every open V role.
+The origin is implicit by \zcref{lem:fixed-origin-in-hull}. The cap by $A_3$
+controls the remaining neighboring supplier on $r_4$; it is not silently dropped.
 
 \input{reading_guide/selected_gap_walkthrough}
 
-\begin{theorem}[Unified six-point selected-gap enclosure]
+\begin{theorem}[Unified five-point selected-gap enclosure]
 \label{prop:new-nplus-one-all-vd0}
 \label{lem:appendix-fixed-transverse}
-
 Suppose $J_0$ is an actual gap, $A_i+B_i\le1$ for $1\le i\le5$, and
 \[
  B_i+A_{i+1}>1\quad(1\le i\le4),\qquad B_5\ge B_0/2.
 \]
-Then $\Lambda(K_{BC})\ge1$. Under skeleton coverage with distinguished
+Then $\Lambda(K_{BC})>1$. Under skeleton coverage with distinguished
 C midpoint $M_0$, the fixed set $K_{BC}$ lies in $U_C$.
 There is no condition on the gap status of $e_{5,0}$ or supercriticality
 of $T_0$, and no type restriction on the nonsupercritical path.
 \end{theorem}
 \begin{proof}
-Suppose an open unit candidate $U'$ contains $K_{BC}$. Its origin is implicit
-in the witness hull, and $M_0$ fixes the unique-midpoint normalization.
-Write its signed parameters as $R,W,E,\eta,P,\alpha,\delta$ and put
+The boundary-deficit identities give increasing $A_1,\ldots,A_5$ and
+decreasing $B_1,\ldots,B_5$. Thus $0<x\le y<1$ and $x/2\le z\le y$.
+Put $\rho_i=1-c_{\max}(A_i,B_i)$. Apply
+\zcref{lem:new-common-pair-domination} at each neighboring triangle's own pair.
+Since $\rho_i\le\min(A_i,B_i)$, path monotonicity bounds the total inward
+reach on $r_i$ by
 \[
- X=R-\delta,\qquad Q=\frac{\eta+\alpha+\delta}{2R}.
+ 1-\min\{\rho_i,A_{i-1},B_{i+1}\}\qquad(i=2,3,4).
 \]
-The two selected gap endpoints give $B_0>2Q$ and $A_1>X$.
-The explicit tail premise gives $B_5\ge B_0/2>Q$.
-The four middle gap-free edges and nonsupercriticality imply
-\begin{equation}
- A_1<A_2<A_3<A_4<A_5,\qquad
- A_i>X,\quad B_i>Q\quad(1\le i\le5).
-\label{eq:fixed-path-boundary}
-\end{equation}
-The pair $(X,Q)$ is positive and has sum below one because it is strictly
-dominated by a nonsupercritical actual pair.
+The bounded-frontier statement of \zcref{lem:fixed-total-radial-forcing}
+therefore forces the corresponding points into $U_C$.
+The bounds $(A_2,B_2)\ge(1-y,z)$ imply
+$r\le\rho_2$, $r\le A_1$, and $r\le B_3$. Hence $rV_2$ is safe.
+Similarly $(A_4,B_4)\ge(1-z,x/2)$ gives $t\le\rho_4$, and
+$t\le x/2\le B_5$; clipping by $A_3$ makes $\widehat tV_4$ safe.
+The gap endpoints follow from \zcref{lem:gap-exhaustion}, and the midpoint
+belongs to $U_C$ by hypothesis. All witnesses are fixed before enclosure is tested.
 
-\emph{CE2 candidates.} Use the selected high-radial root
+If $A_3\ge t$, apply \zcref{lem:bc-five-point}. Otherwise $A_3<t$ and
+$A_3\ge A_1=1-y$, so
 \[
- e(d)=\frac{1-d}{2}\left(1-\sqrt{4(1-d)^2-3}\right).
+ \|X_0(y)-A_3V_4\|^2\ge
+ \|X_0(y)-(1-y)V_4\|^2=1+(1-y)(2-y)>1.
 \]
-The strict CE2 center inequalities give
-\begin{equation}
- X>e(\alpha),\qquad \min\{e(\alpha),e(\delta)\}<Q.
-\label{eq:fixed-ce2-thresholds}
-\end{equation}
-For completeness, $WX>\eta+\alpha$, and testing the low-root equation at
-this bound reduces the first assertion to
-\[
- \pi(t)=(\eta+t)(1-2t)-2Wt>0\qquad(0\le t\le P).
-\]
-The polynomial is concave, $\pi(0)=\eta>0$, and
-$\pi(P)=\eta(\eta+2ER^2)>0$. For the second assertion put
-$T=\alpha+\delta$. The weighted sum of the two strict center inequalities
-gives $T<\eta/E$. With $d=\min\{\alpha,\delta\}$,
-\[
- \min\{e(\alpha),e(\delta)\}
- <\frac{2d}{1-2d}\le\frac{T}{1-T}<Q.
-\]
-The final comparison follows from concavity of
-$\chi(T)=(\eta+T)(1-T)-2RT$, positive at zero and at $\eta/E$, where it
-has value $\eta(E-R)^2/E^2$.
-
-If $e(\alpha)<Q$, both coordinates of $(X,Q)$ exceed $e(\alpha)$.
-The high-radial threshold therefore gives
-$c_{\max}(X,Q)<1-\alpha$. Otherwise
-$e(\delta)<Q\le e(\alpha)<X$ and it gives
-$c_{\max}(X,Q)<1-\delta$. Common-pair domination and \zcref{eq:fixed-path-boundary} bound all local
-contributors on $r_4$ in the first case and $r_2$ in the second. Thus the
-candidate misses the corresponding fixed total endpoint.
-
-\emph{CE1 candidates.} Now $R\alpha+\delta\ge P$ and
-$\alpha+W\delta<P$. Set $m=\alpha/R$; the transverse exits are
-$\alpha,m,\delta$ on $r_4,r_3,r_2$. Combining the two signed inequalities
-gives $E^2\alpha<RP$, so $m<\eta/E$. Also
-\[
- X>\frac{R}{1+E}>\frac{\eta}{E}>m,
- \qquad 2R(Q-m)=\eta+\delta-\alpha>0.
-\]
-Here $E>W$ proves the middle inequality, and $\alpha<P=E\eta<\eta$
-proves the last sign. Consequently
-\begin{equation}
- \min\{X,Q\}>m>\alpha.
-\label{eq:fixed-ce1-neighbor-floor}
-\end{equation}
-The neighboring capacities on $r_4,r_3$ are therefore below the candidate's
-required demands. Fixed-endpoint containment and
-\zcref{lem:appendix-fixed-total-endpoint} recover
-\begin{equation}
- C_4>1-\alpha,\qquad C_3>1-m.
-\label{eq:fixed-ce1-first-demands}
-\end{equation}
-
-Apply \zcref{lem:ce1-first-return-step} with $h_0=Q$.
-The path inequalities give $B_4>Q$, and only the recovered demand
-$C_4>1-\alpha$ is needed. Thus
-\[
- B_3>L_1,\qquad L_1=(2-4\alpha)Q-(1-4\alpha)\alpha.
-\]
-The identity
-\begin{equation}
- R(L_1-\delta)
- =(1-2\alpha)\eta+(W-2\alpha)(\alpha+\delta)+4R\alpha^2>0
-\label{eq:fixed-ce1-bridge}
-\end{equation}
-follows by expansion, with every sign justified by
-$0<\alpha<P<\min\{1/2,W/2\}$. Hence $B_3>\delta$.
-Backward path monotonicity gives $B_1>B_3>\delta$, and
-$A_1,A_3>X>\delta$. Both neighbors of $r_2$ have capacities below
-$1-\delta$. Candidate containment now recovers
-\begin{equation}
- C_2>1-\delta.
-\label{eq:fixed-ce1-third-demand}
-\end{equation}
-All three own-radial hypotheses of
-\zcref{prop:new-ce1-direct-certificate} now hold. Its conclusion contradicts
-$A_1>X$ and nonsupercriticality, excluding CE1 as well.
-Under skeleton coverage, the C midpoint and the actual gap endpoints lie
-in $U_C$ by the midpoint property and gap forcing. The three total radial
-endpoints lie in $U_C$ by \zcref{lem:fixed-total-radial-forcing}.
-Thus $K_{BC}\subset U_C$ in the covering application.
+The diameter obstruction gives $\Lambda(K_{BC})>1$ in this case also.
+No signed center coordinates or CE1 return are used in this enclosure argument.
 \end{proof}
 
 \begin{theorem}[Center-aligned path obstruction]
@@ -1039,42 +467,42 @@ independently of any V type or covering configuration.
 \begin{theorem}[Four-point rescuer geometry]
 \label{thm:fixed-four-point-rescuer}
 \label{lem:appendix-fixed-four-point}
-
 Suppose $a\ge0$, $\varepsilon>0$, $\beta\ge0$, and
 \[
- s=a+\varepsilon\le1,\qquad a\le\varepsilon,\qquad
- \beta\le\frac{\varepsilon}{s}.
+ s=a+\varepsilon,\qquad \beta\le\frac{\varepsilon}{s}.
 \]
 Then
 \[
  \Lambda\{O,\varepsilon V_1,Y(a),Y(1-\beta)\}\ge1.
 \]
+Neither $a\le\varepsilon$ nor $s\le1$ is required by this geometric statement.
 \end{theorem}
 \begin{proof}
-If $a=0$ or $\beta=0$, the set contains $O$ and a hexagon vertex at distance
-one, so it cannot lie in an open unit equilateral triangle. Otherwise
-suppose a candidate contains the four points. The identity
+If $a=0$, the set contains $O,V_0$, at distance one. If $s\ge1$, then
 \[
- \frac{\varepsilon}{s}Y(a)+\frac a s(\varepsilon V_1)
- =\frac{\varepsilon}{s}V_0
+ \|Y(a)-\varepsilon V_1\|^2=1-s+s^2\ge1.
 \]
-puts $(\varepsilon/s)V_0$ in it, and
-$\varepsilon/s\ge1/2$ puts $M_0$ in it by convexity with $O$.
-The candidate has a positive boundary trace and unique midpoint $M_0$.
-Use the left-active reflected signed normal form when needed; a positive
-right-edge trace is not an extra hypothesis. The left trace has endpoints
-$k/W,R+\alpha$, and the exit on $r_1$ is $\delta/R$, with
-$k=\eta+\alpha+\delta$ and $\eta,\alpha,\delta>0$.
-Containment of $Y(a)$ and $\varepsilon V_1$ gives
+These are diameter obstructions. Otherwise put $v=a/s$, so $0<s,v<1$.
+The ratio gives $1-\beta\ge v$, while $a=sv\le v$. Hence $Y(v)$ lies
+on $[Y(a),Y(1-\beta)]$. By convexity it suffices to enclose the quadrilateral,
+in cyclic order,
 \[
- Wa>k,\qquad \delta>R\varepsilon,
+ O,\qquad Q=Y(v),\qquad A=Y(sv),\qquad P=s(1-v)V_1.
 \]
-so $\alpha<a-Rs$ and $R<a/s$. Since $s\le1$,
+With $h=\sqrt3/2$, its outward edge normals may be chosen as
 \[
- R+\alpha<a+R(1-s)\le a/s.
+ (-hv,v/2-1),\quad v(1-s)(h,-1/2),\quad
+ (hs,1-s/2),\quad s(1-v)(-h,1/2).
 \]
-Containment of $Y(1-\beta)$ would require $1-\beta<R+\alpha$, whereas
-$\beta\le\varepsilon/s$ gives $1-\beta\ge a/s$. This is impossible.
+The maximizing triples in each direction and its two $120$-degree rotations
+are $(O,A,P)$, $(A,P,O)$, $(A,O,Q)$, and $(O,Q,A)$, respectively.
+The resulting caliper sides are
+\[
+ \frac1{\sqrt{1-v+v^2}},\qquad 1+s(1-v),\qquad
+ \frac1{\sqrt{1-s+s^2}},\qquad 1+v(1-s).
+\]
+All exceed one for $0<s,v<1$. The finite-caliper theorem
+\zcref{thm:cert-caliper} completes the nondegenerate case.
 \end{proof}
 
 \input{reading_guide/four_point_explanation}

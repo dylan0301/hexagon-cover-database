@@ -9,7 +9,7 @@ are not subdivided by V type in the path theorems. The local admissibility
 formulas, connected-component selectors, and conditional CE1 return estimates
 remain the inherited lemmas stated below; no numerical test replaces them.
 
-The active witness families are BC (six points), D (four points), and
+The active witness families are BC (five points), D (four points), and
 the unchanged zero-gap F (nine points). A (seven points) and B (four
 points) are retained as independent alternatives, not dependencies of N0. The
 counts are upper bounds, not assertions of minimality. A and F use disks
@@ -277,217 +277,70 @@ $\|\widehat P_4\|>\alpha$, contradicting its exit on $r_4$. The witnesses
 have stayed fixed; only the comparison pair $(p,q)$ came from the candidate.
 Thus every open unit candidate is excluded. $\square$
 
-## 5. Family BC: one selected gap and a five-role nonsupercritical path
+## 5. Family BC: five points from a selected gap
 
-### Theorem 5.1. Unified six-point selected-gap enclosure
+### Theorem 5.1. Unified five-point selected-gap enclosure
 
 Assume $J_0$ is an actual gap, $A_i+B_i\le1$ for $1\le i\le5$, and
+$$B_i+A_{i+1}>1\quad(1\le i\le4),\qquad B_5\ge B_0/2.$$
+Define $f(a,b)=1-c_{\max}(a,b)$ and
+$$x=B_0,\quad y=1-A_1,\quad z=B_3,\qquad
+r=f(1-y,z),\quad t=f(1-z,x/2),\quad\widehat t=\min(t,A_3),$$
+$$K_{BC}=\{M_0,X_0(x),X_0(y),rV_2,\widehat tV_4\}.$$
+Then $\Lambda(K_{BC})>1$. Under skeleton coverage with distinguished
+C midpoint $M_0$, the fixed set belongs to $U_C$.
+There is no condition on the other incident gap or on the type of any
+nonsupercritical path role. The count is at most five, allowing $x=y$.
 
-$$
-B_i+A_{i+1}>1\quad(1\le i\le4),\qquad B_5\ge B_0/2.
-$$
+**Proof.** Lemma 2.5 gives increasing $A$ and decreasing $B$, hence
+$0<x\le y<1$ and $x/2\le z\le y$. Write $\rho_i=1-c_{\max}(A_i,B_i)$.
+Applying $C_\pm\le1-\min(A,B)$ at each neighbor's own pair and using
+$\rho_i\le\min(A_i,B_i)$ gives the safe radius
+$\min\{\rho_i,A_{i-1},B_{i+1}\}$ on $r_i$. Corollary 2.2a forces it.
+The pair bounds $(A_2,B_2)\ge(1-y,z)$ give
+$r\le\rho_2,A_1,B_3$. Similarly $(A_4,B_4)\ge(1-z,x/2)$ gives
+$t\le\rho_4$ and $t\le x/2\le B_5$. Clipping by $A_3$ controls the
+remaining neighbor. Gap endpoints and the midpoint are already in $U_C$.
 
-There is no assumption on the gap status of $e_{5,0}$. The scalar tail
-inequality is an explicit hypothesis of this pure enclosure theorem.
-Define
+If $A_3\ge t$, the five-point caliper theorem in
+[2616](2616_bc_d_finite_calipers.md), Theorem 2.1, applies. If $A_3<t$,
+then $A_3\ge1-y$ and
+$$\|X_0(y)-A_3V_4\|^2\ge1+(1-y)(2-y)>1.$$
+Thus either finite calipers or diameter gives $\Lambda(K_{BC})>1$.
+The coupled capacity inequality and reusable rational envelope are proved in
+[2615](2615_slack_sensitive_radial_envelope.md). $\square$
 
-$$
-K_{BC}=\{M_0,X_0(B_0),X_0(1-A_1),
-             \widehat P_2,\widehat P_3,\widehat P_4\}. \tag{12}
-$$
-
-Then $\Lambda(K_{BC})\ge1$. Under skeleton coverage with the C triangle's
-distinguished midpoint $M_0$, one has $K_{BC}\subset U_C$. The five path roles
-may have arbitrary V types; $T_0$ need not be supercritical. No disk is used.
-The former name $K_C$ denotes this same six-point set in compatibility
-sources. For original perimeter covers the shared-anchor lemma
-[`2018b`](../20XX_V_triangle_geometry/2018b_shared_gap_anchor_transfer.md)
-supplies $B_5>B_0/2$, even with a second gap. For the old pure one-gap
-hypothesis it follows from $B_5+A_0>1$ and $A_0\le M_0(B_0)$.
-
-### 5.1 Candidate normalization and the scalar tail input
-
-Forcing follows from Lemmas 2.1--2.2 and the structural C midpoint. Suppose
-an arbitrary open unit triangle $U'$ contains (12). Lemma 2.4 implies
-$O\in U'$. The midpoint anchor fixes $M_0$ as the unique midpoint. Use the
-candidate's signed form as in Section 4, but now allow CE1 or CE2. Put
-
-$$
-X=R-\delta,\qquad Q=\frac{\eta+\alpha+\delta}{2R}. \tag{13}
-$$
-
-The gap endpoints give $B_0>2Q$ and $A_1>X$. The explicit scalar input
-therefore gives
-
-$$
-B_5\ge B_0/2>Q. \tag{14}
-$$
-
-The four middle gap-free edges and nonsupercriticality imply
-
-$$
-A_1<A_2<A_3<A_4<A_5,\qquad B_1>B_2>B_3>B_4>B_5,
-$$
-
-$$
-A_i>X,\qquad B_i>Q\qquad(1\le i\le5). \tag{15}
-$$
-
-Only these boundary inequalities are used below.
-
-### 5.2 CE2 candidates
-
-For $0<d<1-h$, write
-
-$$
-e(d)=\frac{1-d}{2}\left(1-\sqrt{4(1-d)^2-3}\right).
-$$
-
-The high-radial threshold of `2004` excludes an admissible nonsupercritical
-pair with both coordinates above $e(d)$ at demand $1-d$. The CE2 center estimates are proved directly in Section 8 below:
-
-$$
-X>e(\alpha),\qquad \min\{e(\alpha),e(\delta)\}<Q. \tag{16}
-$$
-
-The pair $(X,Q)$ is positive with sum below one, by (15). If
-$e(\alpha)<Q$, both coordinates exceed $e(\alpha)$, so
-$c_{\max}(X,Q)<1-\alpha$. Otherwise
-$e(\delta)<Q\le e(\alpha)<X$, so $c_{\max}(X,Q)<1-\delta$.
-Using (1) and (15), the first case gives
-$\gamma_4\le c_{\max}(X,Q)<1-\alpha$, and the second gives the analogous
-bound for $\gamma_2$ and $\delta$. Each contradicts containment of the
-corresponding fixed total endpoint in the candidate. CE2 is excluded.
-
-### 5.3 CE1: recover the first two own-radial demands
-
-Now $R\alpha+\delta\ge P$ and $\alpha+W\delta<P$. Put $m=\alpha/R$.
-The inherited signed exits are
-
-$$
-d_4'=\alpha,\qquad d_3'=m,\qquad d_2'=\delta. \tag{17}
-$$
-
-Combining the two signed inequalities yields $E^2\alpha<RP$, hence
-$m<\eta/E$. Moreover
-
-$$
-X>\frac{R}{1+E}>\frac{\eta}{E}>m.
-$$
-
-For the first inequality use $\delta<P/W=ER/(1+E)$; the second is
-$E>W$ after using $\eta=RW/(1+E)$. Finally
-
-$$
-2R(Q-m)=\eta+\delta-\alpha>0,
-$$
-
-because $\alpha<P=E\eta<\eta$. Therefore
-
-$$
-\mu:=\min\{X,Q\}>m>\alpha. \tag{18}
-$$
-
-Both boundary reaches of every neighbor relevant to $r_4,r_3$ exceed
-$\mu$. Equation (1) bounds their neighboring endpoints below the required
-radial demands. Candidate containment and Lemma 2.3 now give
-
-$$
-C_4>1-\alpha,\qquad C_3>1-m. \tag{19}
-$$
-
-### 5.4 Recover the third demand before invoking the full return
-
-Use only the first $T_4$ step of the local CE1 return in
-[`4102`](../../4XXX_CE1CE2/41XX_Nplus1/410X_all_Vd0_new/4102_new_CE1_direct_radial_certificate.md).
-Use its tail-input first step with $B_4>Q$, the middle handoffs, and
-the radial bound at $T_4$, but not the bounds at $T_3,T_2$.
-A nonselected local branch immediately gives the boundary contradiction at
-$T_1$. On the surviving selected branch it gives
-
-$$
-B_3>L_1,\qquad L_1=(2-4\alpha)Q-(1-4\alpha)\alpha. \tag{20}
-$$
-
-The additional identity needed for type independence is
-
-$$
-R(L_1-\delta)
-=(1-2\alpha)\eta+(W-2\alpha)(\alpha+\delta)+4R\alpha^2>0. \tag{21}
-$$
-
-Every sign follows from $0<\alpha<P<\min\{1/2,W/2\}$. Thus $B_3>\delta$,
-and (15) with backward monotonicity gives $B_1>B_3>\delta$ and
-$A_1,A_3>X>\delta$. Both neighbors of $r_2$ therefore have neighboring
-capacity strictly below $1-\delta$. Candidate containment of
-$\widehat P_2$ and Lemma 2.3 give
-
-$$
-C_2>1-\delta. \tag{22}
-$$
-
-We have now proved all three own-radial hypotheses of the full tail-input
-`4102` return. Its algebra uses the actual boundary pairs,
-nonsupercriticality, $B_4\ge Q$, and these radial demands, not Vd0
-locality or a fifth handoff. It gives $B_1>1-X$, contradicting
-$A_1>X$ and $A_1+B_1\le1$. This excludes CE1 and proves Theorem 5.1. $\square$
-
-The conditional selected-branch hypotheses in `4102` must be retained.
-In particular, $\delta<1/10$ is used only after the surviving selected
-conditions have been established; it is not a consequence of the bare CE1
-signed domain. The first $T_4$ step above is invoked before the full return,
-so no radial hypothesis is assumed in order to prove itself.
+The tail premise is retained explicitly; original perimeter coverage supplies
+$B_5>B_0/2$ by [2018b](../20XX_V_triangle_geometry/2018b_shared_gap_anchor_transfer.md).
+The point on $r_3$ is unnecessary, but its boundary parameter $B_3$ is retained.
+The old six-point set $K_C=\{M_0,X_0(B_0),X_0(1-A_1),\widehat P_2,\widehat P_3,\widehat P_4\}$
+remains an obstructing compatibility set: the new five points lie in its
+convex hull by the bounded-frontier and origin-hull lemmas. It is not the active
+witness recipe. The CE1 return and CE2 thresholds are historical alternatives,
+not dependencies of Theorem 5.1.
 
 ## 6. Family D: four-point supported-rescuer geometry
 
 ### Theorem 6.1. Four-point enclosure lemma
 
-Let $Y(t)=(1-t)V_0+tV_5=X_5(1-t)$. Suppose
+Let $Y(t)=(1-t)V_0+tV_5$. If $a\ge0$, $\varepsilon>0$, $\beta\ge0$, and
+$$\beta\le\frac{\varepsilon}{a+\varepsilon},$$
+then $\Lambda\{O,\varepsilon V_1,Y(a),Y(1-\beta)\}\ge1$.
+The conditions $a\le\varepsilon$ and $a+\varepsilon\le1$ are not needed.
 
-$$
-a\ge0,\quad \varepsilon>0,\quad \beta\ge0,\quad
-s=a+\varepsilon\le1,\quad a\le\varepsilon,\quad
-\beta\le\frac{\varepsilon}{s}.
-$$
+**Proof.** If $a=0$, the set contains $O,V_0$. Put $s=a+\varepsilon$.
+For $s\ge1$, the squared distance between $Y(a)$ and $\varepsilon V_1$
+is $1-s+s^2\ge1$. Otherwise let $v=a/s$, so $0<s,v<1$.
+The ratio condition places $Y(v)$ on $[Y(a),Y(1-\beta)]$.
+The smaller quadrilateral $O,Y(v),Y(sv),s(1-v)V_1$ has four caliper sides
+$$\frac1{\sqrt{1-v+v^2}},\quad1+s(1-v),\quad
+\frac1{\sqrt{1-s+s^2}},\quad1+v(1-s).$$
+All exceed one. The complete normals and support triples are in
+[2616](2616_bc_d_finite_calipers.md), Theorem 4.1. $\square$
 
-Then the fixed geometric set
-
-$$
-K_D(a,\varepsilon,\beta)=
-\{O,\varepsilon V_1,Y(a),Y(1-\beta)\} \tag{23}
-$$
-
-satisfies $\Lambda(K_D)\ge1$. No disk is used.
-
-**Proof.** If $a=0$ or $\beta=0$, the set contains the origin and a hexagon
-vertex at distance one and cannot lie in an open unit triangle. Otherwise
-suppose an open unit candidate contains (23). The identity
-
-$$
-\frac{\varepsilon}{s}Y(a)+\frac a s(\varepsilon V_1)
-=\frac{\varepsilon}{s}V_0 \tag{24}
-$$
-
-and $\varepsilon/s\ge1/2$ force $M_0$ into it. It also contains $O$ and
-an interior point of a boundary edge openly. The exactly-one-midpoint
-normal form applies. Use its left-active reflected form if necessary; no
-positive right trace is assumed here. In the signed side-slack coordinates,
-its left trace has candidate endpoints $k/W$ and $R+\alpha$, and its exit
-on $r_1$ is $\delta/R$, with $\eta,\alpha,\delta>0$.
-Containment of $Y(a)$ and $\varepsilon V_1$ gives
-
-$$
-Wa>k=\eta+\alpha+\delta,\qquad \delta>R\varepsilon.
-$$
-
-Therefore $\alpha<a-Rs$ and $R<a/s$. Since $s\le1$,
-
-$$
-R+\alpha<a+R(1-s)\le a/s.
-$$
-
-Containment of the other boundary point requires $1-\beta<R+\alpha$,
-whereas the hypothesis gives $1-\beta\ge a/s$. Contradiction. $\square$
+Size estimates are retained below when they help force the original gap
+endpoints. Their use in the placement adapter is distinct from the stronger
+geometric enclosure theorem.
 
 ### Lemma 6.1a. Common scalar ratio test
 
@@ -571,8 +424,7 @@ roles with $N_+=0$.
 $\sum_i\omega_i=-\sum_i s_i\le0$. With a nonzero gap, every role is
 nonsupercritical, so Theorem 7.0 applies. $\square$
 
-N0 uses BC, not optional A or B. This is acyclic: the BC proof uses the conditional CE1
-local return and demand recovery, not N0, replacement, or a placement theorem.
+N0 uses BC, not optional A or B. This is acyclic: BC uses the local capacity envelope and finite calipers in 2615--2616, not N0, replacement, or a placement theorem.
 
 A replacement that preserves the skeleton and produces six nonsupercritical
 roles can therefore finish by N0. Its input gap count need not equal its
@@ -581,7 +433,10 @@ charts and all strict overlap margins. N0 uses actual output reaches, not
 selected replacement lower bounds. The zero-gap nine-point theorem cannot
 replace N0, because its asymmetric points require full-hexagon coverage.
 
-## 8. Retained CE2 threshold calculation used in (16)
+## 8. Historical center estimates (not an active BC dependency)
+
+The following retained estimates belong to the former six-point proof. The current Theorem 5.1 uses 2615--2616.
+
 
 This calculation is included here so that the old all-Vd0 `4103` can become
 a compatibility wrapper without creating a circular reference.
