@@ -229,10 +229,10 @@ if [row.get("id") for row in graph.get("finiteRows", [])] != [
 
 # New active families must have their fixed-point proof owners in the graph.
 fixed_required = {
-    "lem:fixed-total-radial-forcing", "lem:fixed-origin-in-hull",
+    "lem:fixed-total-radial-forcing", "cor:clipped-radial-forcing",
     "thm:fixed-four-point-rescuer", "lem:bc-slack-envelope", "lem:bc-coupled-capacity", "lem:bc-five-point",
     "lem:shared-corner-chart", "lem:compact-cover-margin",
-    "lem:appendix-fixed-transverse", "lem:appendix-fixed-four-point",
+    "prop:new-nplus-one-all-vd0", "cor:new-uniform-common-pair-forcing",
     "lem:direct-neighbor-diagonal", "lem:support-cell-rotation",
     "thm:center-aligned-path", "lem:midpoint-supplier",
     "lem:two-vertex-replacement", "lem:open-cover-budget",
@@ -267,10 +267,16 @@ def terminal_dependencies(start):
         if node in seen:continue
         seen.add(node);todo.extend(by_id.get(node,{}).get("deps",[]))
     return seen
-for terminal in ["lem:bc-five-point","lem:appendix-fixed-four-point"]:
+for terminal in ["lem:bc-five-point","thm:fixed-four-point-rescuer"]:
     forbidden={"prop:signed-center-normal-form","lem:ce1-first-return-step","prop:new-ce1-direct-certificate"}
     if terminal_dependencies(terminal)&forbidden:
         raise SystemExit("BC/D terminal reintroduced the retired center-normal-form route")
+if {"lem:bc-coupled-capacity", "lem:bc-capacity-tools"} & terminal_dependencies("lem:bc-five-point"):
+    raise SystemExit("capacity-free BC geometry incorrectly depends on capacities")
+if "lem:bc-coupled-capacity" not in terminal_dependencies("prop:new-nplus-one-all-vd0"):
+    raise SystemExit("BC covering application omits its capacity input")
+if "cor:clipped-radial-forcing" not in terminal_dependencies("cor:new-uniform-common-pair-forcing"):
+    raise SystemExit("uniform forcing must reuse clipped radial forcing")
 if not fixed_required <= actual_node_ids:
     raise SystemExit("dependency graph omits fixed-witness proof owners")
 

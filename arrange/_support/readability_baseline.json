@@ -1,20 +1,20 @@
 {
-  "base_commit": "083d7fc08bf0918547c8d1624407924604b32e04",
-  "revision": "20260922-bc-d-finite-calipers",
-  "reason": "User-approved mathematical replacement of BC/D terminals, not an editorial-only revision.",
-  "prior_baseline_sha256": "2f4d9ff8f7d63ce54236acaee35344487436adcb5784120328b6a838630a8721",
+  "base_commit": "a4f44a8b52c5097e07b82d2e4dec7efb83dd80e4",
+  "revision": "20260923-reusable-lemmas-shortening",
+  "reason": "User-approved reusable-lemma extraction and deletion of redundant manuscript content; new exact/source contracts and preserved hard proof sections are checked separately.",
+  "prior_baseline_sha256": "2a26f2cefbaa7e53338fb2a86fcbb8d6fb26a057c0f3e66312a31199c7cdc169",
   "canonical": {
-    "statements": 96,
-    "proof_environments": 95,
-    "sha256": "889f9d1898240f1e84d5b0a554fa3b1b850fd5fd3e0cf7e425fe66b874c75d6e"
+    "statements": 88,
+    "proof_environments": 87,
+    "sha256": "b44ab75d81cd53b88c105787a053d954eb801aad6eb132988bc4b5d0434d8da8"
   },
   "inline": {
-    "statements": 82,
-    "proof_environments": 82,
-    "sha256": "f47f75017761f79b96bb12988752c41b47b40060bf9cd32de5c2007ab90f0a6e"
+    "statements": 78,
+    "proof_environments": 78,
+    "sha256": "4652244c275a57c2f304aae66b89849f0805af5723ff66d140b763cf1b67d654"
   },
   "proof_corpus": {
-    "files": 370,
-    "sha256": "943acf220af9fca01277201817a3824f0bdb96b539543678e0f4b5a5f8941167"
+    "files": 371,
+    "sha256": "1a37639ce4c40558d7eb7361c3ed6817904dbe7b3697d95d76b746fdfdc140a8"
   }
 }

@@ -10,7 +10,7 @@ Status: Reference
 | [2609](2609_simplified_finite_enclosure_lemmas.md) | calipers and CE2 short-ray calculation |
 | [2610](2610_finite_enclosure_terminal_interfaces.md) | three active witness interfaces BC/D/F |
 | [2611](2611_four_contact_disk_enclosure.md) | exposed four-contact geometry and paired radius transfer |
-| [2612](2612_fixed_witness_unification.md) | fixed frontiers, path identities, BC, D, N0 |
+| [2612](2612_fixed_witness_unification.md) | total endpoints, clipped/uniform forcing, path identities, BC, D, N0 |
 | [2613](2613_midpoint_supplier_reduction.md) | one nonzero-gap placement reduction |
 | [2614](2614_two_vertex_replacement.md) | scalar two-vertex replacement |
 
@@ -20,5 +20,5 @@ disk theorem is not the same as the four-point supported-rescuer theorem.
 
 ## New active nonzero-gap tools
 
-- [2615: slack-sensitive envelope and coupled capacity inequality](2615_slack_sensitive_radial_envelope.md).
-- [2616: five-point BC and strengthened four-point D calipers](2616_bc_d_finite_calipers.md).
+- [2615: shared deficit bound, chord envelope, coupled capacity inequality](2615_slack_sensitive_radial_envelope.md).
+- [2616: capacity-free five-point threshold and ratio-only four-point D](2616_bc_d_finite_calipers.md).

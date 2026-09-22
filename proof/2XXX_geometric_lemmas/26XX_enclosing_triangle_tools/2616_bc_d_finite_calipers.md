@@ -23,21 +23,23 @@ It suffices to test the outward normals to the nonzero hull edges.
 This is the finite-point theorem, not a numerical orientation scan.
 Compact containment in an open unit triangle implies $\Lambda(F)<1$.
 
-Write $C_0(a,b)=c_{\max}(a,b)$ for the own-ray **capacity function**, not the
-actual reach $C_i$ of an original triangle. Put $f(a,b)=1-C_0(a,b)$.
+Write $c_{\max}(a,b)$ for the own-ray **capacity function**, not the
+actual reach $C_i$ of an original triangle. Put $f(a,b)=1-c_{\max}(a,b)$.
 The inequalities in [2008b](../20XX_V_triangle_geometry/2008b_direct_neighbor_domination.md)
-give $C_\pm(a,b)\le1-\min(a,b)\le C_0(a,b)$ and antitonicity of capacity.
+give $C_\pm(a,b)\le1-\min(a,b)\le c_{\max}(a,b)$ and antitonicity of capacity.
 
 ## 2. Five-point geometric theorem
 
-**Theorem 2.1.** Suppose $0<x\le y<1$ and $x/2\le z\le y$. Put
-$$r=f(1-y,z),\qquad t=f(1-z,x/2),$$
-$$F_5=\{M_0,G_x,G_y,rV_2,tV_4\}.$$
-Then $\Lambda(F_5)>1$. The count is at most five, since $x=y$ is permitted.
+**Theorem 2.1 (capacity-free threshold criterion).** Suppose
+$$0<x\le y<1,\qquad0<r\le\min(y,1-y),\qquad0<t\le x/2.$$
+Put $k=y-r$ and $F_5=\{M_0,G_x,G_y,rV_2,tV_4\}$. Then
+$$\Lambda(F_5)>1\quad\Longleftrightarrow\quad
+r+t+\max\{1/2,1-x(1-k)\}>\sqrt{1-k+k^2}.$$
+No capacity or auxiliary parameter $z$ enters this statement. It is a
+criterion at side one, not a claim that this caliper always minimizes
+$\Lambda$. The count is at most five, since $x=y$ is permitted.
 
-**Proof.** The deficit bounds give
-$$0<r\le\min(y,1-y),\qquad0<t\le x/2.$$
-Write $M=M_0$, $P=rV_2$, $Q=tV_4$, and $k=y-r$. In coordinates these are
+**Proof.** Write $M=M_0$, $P=rV_2$, $Q=tV_4$, and $k=y-r$. In coordinates these are
 $$M=(1/2,0),\quad G_x=(1-x/2,hx),\quad G_y=(1-y/2,hy),$$
 $$P=(-r/2,hr),\quad Q=(-t/2,-ht).$$
 For $x<y$ the hull order is $M,G_x,G_y,P,Q$. Consecutive signed cross
@@ -75,13 +77,21 @@ and
 $$g(v)^2-(1+v+v^2)=\frac{v^2}{4(1+v)^2}>0.$$
 Thus $L_4>1$.
 
-Finally [2615](2615_slack_sensitive_radial_envelope.md) proves
+Thus four calipers always exceed one, and only $L_3$ can cross the unit
+threshold. Finite-caliper completeness proves both directions of the
+criterion. When $x=y$, discard the zero edge $G_xG_y$; the other four
+calculations remain valid. $\square$
+
+**Corollary 2.2 (capacity instance).** For $0<x\le y<1$ and $x/2\le z\le y$,
+let $r=f(1-y,z)$ and $t=f(1-z,x/2)$. Then $\Lambda(F_5)>1$.
+
+**Proof.** The deficit bounds of [2615](2615_slack_sensitive_radial_envelope.md)
+give the geometric hypotheses, and its coupled inequality gives
 $$2(r+t)>(1-y+r)(2x-y+r).$$
 Equivalently $r+t>(1-k)(x-k/2)$. Therefore
 $$r+t+\max\{1/2,1-x(1-k)\}>1-k/2+k^2/2\ge\sqrt{1-k+k^2},$$
-where the last squared difference is $k^2(1-k)^2/4$. Thus $L_3>1$ also.
-Every nonzero hull-edge caliper exceeds one, including the singleton-gap
-case. This proves the theorem. $\square$
+where the last squared difference is $k^2(1-k)^2/4$. Apply Theorem 2.1.
+$\square$
 
 ## 3. Five fixed witnesses from the original BC configuration
 
@@ -98,13 +108,9 @@ C midpoint $M_0$, these fixed points all belong to $U_C$.
 
 **Proof.** Path monotonicity gives increasing $A_1,\ldots,A_5$ and decreasing
 $B_1,\ldots,B_5$. Consequently $0<x\le y<1$ and $x/2\le z\le y$.
-Let $\rho_i=f(A_i,B_i)$. Applied at each neighbor's own pair, the comparison
-$C_\pm\le1-\min(A,B)$ bounds the actual total inward reach on $r_i$ by
-$$1-\min\{\rho_i,\min(A_{i-1},B_{i-1}),\min(A_{i+1},B_{i+1})\}.$$
-Using $\rho_i\le\min(A_i,B_i)$ and path monotonicity, this is
-$$1-\min\{\rho_i,A_{i-1},B_{i+1}\}.$$
-The bounded-frontier lemma of [2612](2612_fixed_witness_unification.md)
-therefore forces that latter radius times $V_i$ into $U_C$.
+Let $\rho_i=f(A_i,B_i)$. The clipped-path consequence in
+[2612](2612_fixed_witness_unification.md), Corollary 2.2b, forces every
+radius up to $\min\{\rho_i,A_{i-1},B_{i+1}\}$ into $U_C$.
 
 Since $(A_2,B_2)\ge(1-y,z)$, antitonicity gives $r\le\rho_2$; also
 $r\le1-y=A_1$ and $r\le z=B_3$. Thus $rV_2$ is missed by every open V role.
@@ -113,7 +119,7 @@ $t\le x/2\le B_5$. Clipping by $A_3$ makes $\widehat tV_4$ safe for the
 remaining neighboring supplier. The two gap endpoints and the midpoint
 are already in $U_C$ under the theorem's covering hypotheses.
 
-If $A_3\ge t$, Theorem 2.1 applies directly. If $A_3<t$, then
+If $A_3\ge t$, Corollary 2.2 applies directly. If $A_3<t$, then
 $A_3\ge A_1=1-y$, and
 $$\|G_y-A_3V_4\|^2\ge\|G_y-(1-y)V_4\|^2=1+(1-y)(2-y)>1.$$
 The diameter obstruction completes this case. Thus the five fixed points

@@ -18,9 +18,9 @@ authority for theorem status and hypotheses; the manuscript is the
 publication layer.
 
 `paper_draft/inline_proofs/main.tex` is an additional edition with no
-appendices. The BC/D revision has 73 pages. Each of its 82 theorem, lemma, proposition, and corollary
+appendices. The reusable-lemma revision has 68 pages. Each of its 78 theorem, lemma, proposition, and corollary
 statements is immediately followed by its proof. It integrates all the
-canonical proof calculations, consolidates 14 repeated statement entries,
+canonical proof calculations, consolidates ten remaining repeated statement entries,
 and places the main theorem and scaling corollary at the end. The certificate
 explanation is part of the zero-gap argument; the authenticated data and
 verifiers remain accompanying files. See
@@ -65,11 +65,12 @@ proof-free command writes `arrange/paper_draft/proof_free.pdf`; it removes
 formal proof environments while retaining prose and calculations outside
 those environments.
 
-The BC/D finite-caliper revision has 76 canonical pages and 73 inline-proof pages
-(previously 69 and 64). The canonical CI guard is 73--78 pages. Page dimensions,
-font family, and margins are unchanged; reader headings and proof-start page
-break protection are improved. The older proof-free export is not the
-reader-facing publication artifact for this revision.
+The reusable-lemma revision has 70 canonical pages and 68 inline-proof pages,
+compared with 76 and 73 before shortening. The canonical CI guard is 68--72
+pages. Page dimensions, fonts, and margins are unchanged. The reduction comes
+from reusable forcing and threshold lemmas, deleted duplicate calculations
+and wrappers, a single final assembly, and removal of example galleries.
+The gallery image files remain available to interactive companions.
 
 The build commands use a temporary source copy, so LaTeX intermediates do not
 pollute the source directory. Both tracked edition PDFs are publication
@@ -89,7 +90,8 @@ The self-midpoint obstruction is a corollary of the exact admissible set.
 A shared corner chart supplies both incidence geometry and area loss.
 
 BC now uses five fixed points, two nonuniform capacity pairs, and a rational
-envelope followed by five finite calipers. Neighboring suppliers are controlled
+envelope followed by a capacity-free threshold criterion: four calipers are
+automatically above one, and only one requires the capacity inequality. Neighboring suppliers are controlled
 before enclosure; the only clipped radial witness gives a diameter exit.
 D uses four finite calipers under a ratio-only geometric hypothesis. The CE1
 return is historical, not an active terminal dependency. Both replacement
@@ -109,3 +111,13 @@ classifications, which now appear in common geometry. Shared passages in
 `paper_draft/reading_guide/` explain coverage scope, fixed witnesses, candidate
 enclosures, replacement, and the zero-gap comparison sets. The approved mathematical inventory is protected by the readability-preservation
 audit; its prior baseline is archived for this explicit mathematical revision.
+
+## Reusable-lemma shortening
+
+See [the exact change report](20260923_reusable_lemmas_shortening_report.md).
+BC and F now share the radial-deficit estimate; clipped BC radii and uniform
+F radii use one total-endpoint forcing lemma. The canonical paper no longer
+prints the old six-point witness table, generic unused M_c(a), candidate-demand
+recovery, the unused CE2 total-slack lemma, or duplicate baseline proofs.
+The dependency graph follows the surviving primary results and distinguishes
+capacity-free geometry from its capacity-dependent covering application.

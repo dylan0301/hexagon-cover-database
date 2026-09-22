@@ -1,8 +1,6 @@
 % Derived from numbered source 2615; all analytic domain reductions are included.
 \subsection{Slack-sensitive local capacity bounds}
-Write $C_0(a,b)=c_{\max}(a,b)$ and $f(a,b)=1-C_0(a,b)$ for $a+b\le1$.
-The subscript in $C_0$ denotes the own-ray capacity, not the actual reach of $T_0$.
-Let \(h=\sqrt3/2\). For \(0\le m\le1/2\), define
+Use the radial deficit $f(a,b)=1-c_{\max}(a,b)$. For \(0\le m\le1/2\), define
 
 \[
 \ell(m)=1-c(m),\qquad c(m)\in[h,1],
@@ -28,28 +26,15 @@ q(m)\le\ell(m)\le f(a,b)\le m.
 \]
 For $m\le3/8$, also $b(m)\le\ell(m)$. The function $\ell$ is concave,
 $\ell(m)\le m/2$, and $g(m)=m+\ell(m)$ is strictly increasing.
-For $a\ge1/2$ and $b\le a$, the two capacity branches meet at $1-a=g(b)$;
+For $0\le b\le a$ and $a+b\le1$, the two capacity branches meet at $1-a=g(b)$;
 each branch of $f$ is concave separately in either coordinate.
 \end{lemma}
 \begin{proof}
 Use the local formula in \zcref{prop:new-exact-local-set}. The bound
 $f(a,b)\le\min(a,b)$ and monotonicity follow from
 \zcref{lem:new-common-pair-domination}.
-\readerheading{Deficit bounds}
-
-For \(a+b\le1\), with \(m=\min(a,b)\),
-
-\[
-\boxed{q(m)\le\ell(m)\le f(a,b)\le m.}
-\]
-
-Moreover,
-
-\[
-\boxed{b(m)\le\ell(m)\quad(0\le m\le3/8).}
-\]
-
-The upper bound \(f\le m\) is equivalent to the known own-ray bound \(C_0(a,b)\ge1-m\). To see \(C_0(a,b)\le c(m)\), first suppose \(m\le h/2\). The diagonal pair \((m,m)\) belongs to the quartic cell, because its cell polynomial is \(m^2(16m^2-3)\le0\). Thus \(C_0(a,b)\le C_0(m,m)=c(m)\). If \(m\ge h/2\), antitonicity gives \(C_0(a,b)\le C_0(h/2,h/2)=h\le c(m)\).
+\readerheading{Deficit bounds.}
+The upper bound \(f\le m\) is equivalent to the known own-ray bound \(c_{\max}(a,b)\ge1-m\). To see \(c_{\max}(a,b)\le c(m)\), first suppose \(m\le h/2\). The diagonal pair \((m,m)\) belongs to the quartic cell, because its cell polynomial is \(m^2(16m^2-3)\le0\). Thus \(c_{\max}(a,b)\le c_{\max}(m,m)=c(m)\). If \(m\ge h/2\), antitonicity gives \(c_{\max}(a,b)\le c_{\max}(h/2,h/2)=h\le c(m)\).
 
 For completeness, both lower bounds are certified by substitution in the quartic. For \(v=1/2-m\),
 
@@ -110,7 +95,7 @@ g(3/8)\ge3/8+b(3/8)=81/160>1/2.
 
 Consequently \(g(z)\le1/2\) implies \(z<3/8\).
 
-For \(a\ge1/2\), \(0\le b\le a\), and \(a+b\le1\), the exact capacity formula can be written
+For \(0\le b\le a\) and \(a+b\le1\), the exact capacity formula can be written
 
 \[
 f(a,b)=
@@ -151,57 +136,20 @@ Then
 The envelope is exact at $\delta=0$ and is not asserted with these coefficients for $m>3/8$.
 \end{lemma}
 \begin{proof}
-Use \zcref{lem:bc-capacity-tools}.
-If \(m=0\), the assertion is immediate. Otherwise write \(M=1-m-\delta\) and use the baseline bound \(f(M,m)\ge\ell(m)\ge b(m)\). For \(\delta\ge b(m)\), the affine entry is at most \(b(m)\), so nothing more is needed.
-
-For \(0\le\delta\le b(m)\), we have
-
+For $0<\beta\le m$, a function with $F(0)=m$, $F\ge\beta$, and
+concavity on $[0,\beta]$ satisfies
 \[
-M+m=1-\delta\ge1-b(m)\ge1-\ell(m)=c(m).
+ F(\delta)\ge\max\{\beta,m-(m-\beta)\delta/\beta\}:
 \]
-
-Thus the selected triangular branch applies. On this interval,
-
-\[
-F_m(\delta)=f(1-m-\delta,m)
-\]
-
-is concave, by \zcref{lem:bc-capacity-tools}; here \(M\ge m\) since \(m\le3/8\) and \(1-m-b(m)>m\). Its endpoint values satisfy
-
-\[
-F_m(0)=m,\qquad F_m(b(m))\ge b(m).
-\]
-
-The chord inequality therefore gives
-
-\[
-F_m(\delta)\ge m-\frac{m-b(m)}{b(m)}\delta
- =m-\frac{5+4m}{5-4m}\delta.
-\]
-
-This proves the rational envelope.
-
-The baseline bound used here can be audited without a root computation. For \(F(c,m)=c^4-c^2+mc-m^2\),
-
-\[
-F(1-b(m),m)=\frac{m^2}{10000}H(m),
-\]
-
-where
-
-\[
-H(m)=256m^6-1280m^5+4960m^4-11600m^3+20625m^2-21000m+5500.
-\]
-
-On \([0,3/8]\),
-
-\[
-H'(m)\le1536(3/8)^5+19840(3/8)^3+41250(3/8)-21000
- =-286311/64<0,
-\]
-
-while \(H(3/8)=3049/1024>0\). Also \(1-b(m)>\sqrt3/2\), where \(F\) increases with \(c\). This proves \(b(m)\le\ell(m)\).
-
+the affine term is the chord lower bound before $\beta$ and is at most
+$\beta$ afterward. Apply this principle with $\beta=b(m)$ and
+$F(\delta)=f(1-m-\delta,m)$; $m=0$ is immediate.
+The shared bound \zcref{lem:bc-capacity-tools} gives $F\ge\ell(m)\ge b(m)$.
+For $0\le\delta\le b(m)$, the first coordinate is at least $m$
+(since $1-2m-b(m)\ge19/160>0$), while $1-\delta\ge1-\ell(m)=c(m)$.
+Thus the selected triangular branch applies and is concave on this interval.
+Since $F(0)=m$ and $(m-b(m))/b(m)=(5+4m)/(5-4m)$,
+the chord bound is exactly the asserted envelope.
 \end{proof}
 \begin{lemma}[Coupled nonuniform capacity inequality]
 \label{lem:bc-coupled-capacity}
@@ -218,7 +166,7 @@ Then
 Put
 
 \[
-u=x/2,\qquad f(a,b)=1-C_0(a,b),
+u=x/2,\qquad f(a,b)=1-c_{\max}(a,b),
 \]
 
 so the domain is
@@ -247,7 +195,7 @@ Use the local bounds and branchwise concavity of \zcref{lem:bc-capacity-tools} a
 
 \readerheading{The region $y\ge1/2$}
 
-Put \(a=1-y\le1/2\). Then \(u\le(1-a)/2\), \(u\le z\le1-a\). Use the radius monotonicity above and the lower bounds the deficit bounds above.
+Put \(a=1-y\le1/2\). Then \(u\le(1-a)/2\), \(u\le z\le1-a\). Use the radius monotonicity above and the deficit bounds above.
 
 If \(z\ge a\) and \(z\le1-u\), we may use \(r=q(a)\), \(t=q(u)\). The resulting expression is concave in \(u\); its endpoint at \(u=0\) is visibly nonnegative, and its endpoint at \(u=(1-a)/2\) is
 

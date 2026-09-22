@@ -92,28 +92,20 @@ $\conv\{(-m,0),(1-m,0),(1-m,1)\}$. Reflection gives $C_-$.
 \begin{lemma}[Common-pair domination]
 \label{lem:new-common-pair-domination}
 \label{lem:appendix-common-pair-domination}
-
-If
+If $p,q\ge0$ and $p+q\le1$, then
 \[
- p,q\ge0,
- \qquad
- p+q\le1,
-\]
-then
-\[
- C_+(p,q),C_-(p,q)
- \le1-\min\{p,q\}\le c_{\max}(p,q).
+ C_+(p,q),C_-(p,q)\le1-\min\{p,q\}\le c_{\max}(p,q).
 \]
 \end{lemma}
 \begin{proof}
-Put $m=\min(p,q)$. By convexity, any triangle containing the $p,q$
-boundary anchors also contains the shorter $m,m$ anchors. Hence
-\zcref{lem:direct-neighbor-diagonal} gives $C_\pm(p,q)\le1-m$.
-If $q=m$, the unit triangle used for equality contains
-$(p,0)$, $(0,q)$, and $(1-q,1-q)$ because $p\le1-q$.
-The last point is on the
-own ray, so $c_{\max}(p,q)\ge1-q$. Reflect for $p=m$.
-Increasing an anchor shrinks the feasible family, giving antitonicity.
+Put $m=\min(p,q)$. Convexity shortens the boundary anchors to $(m,m)$,
+so \zcref{lem:direct-neighbor-diagonal} gives $C_\pm(p,q)\le1-m$.
+For the own-ray bound, use coordinates with origin $V_0$ and basis
+$V_5-V_0,V_1-V_0$. If $q=m$, the unit triangle
+$\conv\{(-m,0),(1-m,0),(1-m,1)\}$ contains the origin, $(p,0)$,
+$(0,m)$, and the own-ray point $(1-m,1-m)$, since $p\le1-m$.
+Thus $c_{\max}(p,q)\ge1-m$; reflect if $p=m$.
+Increasing an anchor shrinks the feasible family, so capacities are antitone.
 \end{proof}
 
 \begin{definition}[Fixed total radial endpoint]
@@ -133,140 +125,71 @@ triangle on $r_i$, rather than just the endpoint of the own V triangle.
 This distinction is essential when a nonsupercritical V triangle supports
 an adjacent radial segment.
 
-\begin{lemma}[Fixed radial forcing and demand recovery]
+\begin{lemma}[Total-endpoint radial forcing]
 \label{lem:fixed-total-radial-forcing}
 \label{lem:appendix-fixed-total-endpoint}
-
-One has $0<d_i<1$ and $\widehat P_i\notin\bigcup_jU_j$. Under skeleton
-coverage, $\widehat P_i\in U_C$. More generally, for every
-$\gamma_i\le\Gamma\le1$, the point $(1-\Gamma)V_i$ is missed by every
-open V triangle and is center-forced under skeleton coverage.
-If an arbitrary open unit candidate $U'$
-contains $O$ and $\widehat P_i$, and its exit on $r_i$ is $d_i'$ measured
-from $O$, then $\gamma_i>1-d_i'$. If both neighboring endpoints are at most
-$1-d_i'$, it follows that
-\[
- C_i>1-d_i'.
-\]
-It is sufficient that each neighboring V triangle be nonsupercritical with
-both actual boundary reaches greater than $d_i'$.
+One has $0<d_i<1$, and every $sV_i$ with $0\le s\le d_i$ is missed
+by all open V triangles. Under skeleton coverage these points belong to $U_C$.
 \end{lemma}
 \begin{proof}
-No closed V triangle contains $O$: its distinguished vertex is interior
-and at distance one from $O$, so moving that vertex slightly away from $O$
-inside the open triangle would contradict diameter one. Each own trace has
-positive length. Hence $0<\gamma_i<1$ and $0<d_i<1$.
-
-If a local open role contained $Z_i(\gamma_i)$, openness would give a point
-$Z_i(c)$ with $c>\gamma_i$ in that role. A role with no positive neighboring
-trace would acquire one; otherwise its maximal endpoint would increase.
-Both contradict the definition of $\gamma_i$. The nonlocal roles are
-excluded by
+No closed V triangle contains $O$: moving its interior distinguished vertex
+slightly away from $O$ would contradict diameter one. Each own trace has
+positive length, so $0<\gamma_i<1$ and $0<d_i<1$.
+For $0<s\le d_i$, containment of $sV_i$ in a local open role would extend
+its trace to an inward parameter strictly above $1-s\ge\gamma_i$.
+This contradicts maximality, including the case of an absent positive
+neighboring trace. Nonlocal roles are excluded by
 \[
- \|d_iV_i-V_{i\pm2}\|^2=1+d_i+d_i^2>1,
- \qquad \|d_iV_i-V_{i+3}\|=1+d_i>1.
+ \|sV_i-V_{i\pm2}\|^2=1+s+s^2>1,
+ \qquad \|sV_i-V_{i+3}\|=1+s>1.
 \]
-Thus every total endpoint is missed by all open V roles. For
-$\gamma_i\le\Gamma<1$, the same proof with $d=1-\Gamma$ excludes
-$(1-\Gamma)V_i$: openness would give a local endpoint strictly above
-$\Gamma\ge\gamma_i$. For $\Gamma=1$, the point is $O$, which was already
-excluded even from the closed V triangles.
-
-Now let an arbitrary open unit candidate contain $O$ and $\widehat P_i$.
-If its radial exit is $d_i'$, open containment gives $d_i<d_i'$ and hence
-$\gamma_i>1-d_i'$. If both neighboring endpoints are at most $1-d_i'$,
-the own term must realize this strict demand. For a nonsupercritical
-neighbor with both actual boundary reaches above $d_i'$, the bound
-$C_\pm(A_j,B_j)\le1-\min\{A_j,B_j\}<1-d_i'$ excludes its contribution.
-No skeleton-cover hypothesis for this new candidate is used.
+The case $s=0$ is the already-excluded center. Skeleton coverage supplies $U_C$.
 \end{proof}
 
-Let selected lower bounds satisfy
+\begin{corollary}[Clipped radial forcing]
+\label{cor:clipped-radial-forcing}
+For $j=i-1,i,i+1$, let $0\le a_j\le A_j$, $0\le b_j\le B_j$, and
+$a_j+b_j\le1$. Define
 \[
- 0\le a_j\le A_j,
- \qquad
- 0\le b_j\le B_j
- \qquad(0\le j\le5),
+ s_i:=\min\{f(a_i,b_i),a_{i-1},b_{i-1},a_{i+1},b_{i+1}\}.
 \]
-\[
- a_j^2+a_jb_j+b_j^2\le1
- \qquad(0\le j\le5).
-\]
-A neighboring term is used only when the actual V triangle has the
-corresponding positive radial trace:
-\[
- \Haus(T_{i-1}\cap r_i)>0
- \Longrightarrow a_{i-1}+b_{i-1}\le1,
-\]
-\[
- \Haus(T_{i+1}\cap r_i)>0
- \Longrightarrow a_{i+1}+b_{i+1}\le1.
-\]
-Define
-\[
- \Gamma_i:=\max\Bigl(
- \{c_{\max}(a_i,b_i)\}
- \cup\{C_+(a_{i-1},b_{i-1}):\Haus(T_{i-1}\cap r_i)>0\}
-\]
-\[
- {}\hspace{35mm}\cup
- \{C_-(a_{i+1},b_{i+1}):\Haus(T_{i+1}\cap r_i)>0\}
- \Bigr),
- \qquad
- D_i:=(1-\Gamma_i)V_i.
-\]
-The points \(D_i\) are the radial witnesses used below.
-
-\input{reading_guide/actual_and_bounded_frontiers}
-
-\begin{lemma}[Type-aware radial forcing]
-\label{lem:new-type-aware-radial-forcing}
-For every \(i\),
-\[
- D_i\in r_i\subseteq S,
- \qquad
- D_i\notin\bigcup_{j=0}^5U_j.
-\]
-Consequently,
-\[
- S\subseteq U_C\cup\bigcup_{j=0}^5U_j
- \Longrightarrow D_i\in U_C.
-\]
-\end{lemma}
-
+Every $sV_i$ with $0\le s\le s_i$ is missed by all open V triangles.
+For actual reaches on a gap-free nonsupercritical path, this simplifies to
+\begin{equation}
+ s_i=\min\{f(A_i,B_i),A_{i-1},B_{i+1}\}.
+ \label{eq:clipped-path-radius}
+\end{equation}
+\end{corollary}
 \begin{proof}
-The variational capacities give $\gamma_i\le\Gamma_i\le1$, including
-only actual positive adjacent traces. Apply
-\zcref{lem:fixed-total-radial-forcing}. The point $O$ when $\Gamma_i=1$
-is handled by that lemma as well; no positive-distance claim is made there.
+The own endpoint is at most $1-f(a_i,b_i)$. By common-pair domination,
+each positive neighboring endpoint is at most $1-\min(a_j,b_j)$;
+an absent trace contributes zero. Hence $\gamma_i\le1-s_i$ and
+\zcref{lem:fixed-total-radial-forcing} applies. On a gap-free
+nonsupercritical path, $A$ increases and $B$ decreases by the boundary
+deficit identities. Together with $f(A_i,B_i)\le\min(A_i,B_i)$, these
+inequalities remove $B_{i-1}$ and $A_{i+1}$ from the minimum.
 \end{proof}
 
-
+The actual radius $d_i$ comes from maximal traces; $s_i\le d_i$ is a
+certified lower bound. Neither may be replaced by the own-ray radius
+without accounting for neighboring suppliers.
 
 \begin{corollary}[Uniform common-pair radial forcing]
 \label{cor:new-uniform-common-pair-forcing}
-Suppose $p,q\ge0$, $p+q\le1$, and
-\[
- p\le a_i\le A_i,\qquad q\le b_i\le B_i\quad(0\le i\le5),
- \qquad 0<c_*:=c_{\max}(p,q)<1.
-\]
-Then $(1-c_*)V_i\notin\bigcup_{j=0}^5U_j$ for every $i$, without a
-restriction on the normalized V types. Under a hypothetical cover of $H$,
+Suppose $p,q\ge0$, $p+q\le1$, $p\le A_i$, $q\le B_i$ for every $i$,
+and $0<c_*:=c_{\max}(p,q)<1$. Then $(1-c_*)V_i$ is missed by all
+open V triangles, without a restriction on their normalized types.
+Under skeleton coverage,
 \[
  (1-c_*)V_i\in U_C\quad(0\le i\le5),
  \qquad \mathbb B(O,h(1-c_*))\subset U_C.
 \]
 \end{corollary}
-
 \begin{proof}
-Reselect each boundary pair as $(p,q)$, using convexity.
-\zcref[S]{lem:new-type-aware-radial-forcing} applies to these common bounds,
-including only the actual positive neighboring traces.
-By \zcref{lem:new-common-pair-domination}, every included $C_+$ or $C_-$
-term is at most $c_*$, while the own-ray term equals $c_*$. Hence each
-maximum is exactly $c_*$ and the forced points are the stated symmetric
-ones. Their convex hull contains the displayed disk. In particular, a
-Vd1, Vd2, or T3-like crossing does not change any witness coordinate.
+Use the selected pair $(p,q)$ at every vertex in
+\zcref{cor:clipped-radial-forcing}. Since $f(p,q)\le\min(p,q)$,
+the clipped radius equals $1-c_*$. Convexity of $U_C$ supplies the
+inner hexagon and its displayed inscribed disk.
 \end{proof}
 
 \subsection{Fixed witnesses and candidate enclosures}
@@ -277,24 +200,9 @@ arbitrary enclosing candidate is chosen. The finite calipers vary their support 
 by \zcref{lem:gap-exhaustion}; radial witnesses use the total endpoints,
 including all permitted neighboring traces.
 
-\begin{lemma}[The origin is implicit in the path witnesses]
-\label{lem:fixed-origin-in-hull}
-For $G=X_0(t)$, $0<t<1$, and $d_2,d_4>0$,
-\[
- G+\frac{1-t}{d_2}(d_2V_2)+\frac1{d_4}(d_4V_4)=0.
-\]
-Consequently $O\in\conv\{G,d_2V_2,d_4V_4\}$.
-\end{lemma}
 
-\begin{proof}
-Use $V_2=V_1-V_0$ and $V_4=-V_1$, and normalize the three positive
-coefficients to sum to one.
-\end{proof}
 
-The three constructions are summarized after they have been defined. Normalize the C midpoint to
-$M_0$ in the nonzero-gap cases, and write $\sigma$ for the unique
-supercritical index when $N_+=1$. Counts are upper bounds, allowing
-coincident gap endpoints.
+
 
 
 
@@ -356,7 +264,7 @@ Put $\widehat t=\min\{t,A_3\}$ and fix
 \]
 There are at most five points, including singleton gaps. The midpoint is a
 structural anchor; the other points are missed by every open V role.
-The origin is implicit by \zcref{lem:fixed-origin-in-hull}. The cap by $A_3$
+The cap by $A_3$
 controls the remaining neighboring supplier on $r_4$; it is not silently dropped.
 
 \input{reading_guide/selected_gap_walkthrough}
@@ -376,15 +284,8 @@ of $T_0$, and no type restriction on the nonsupercritical path.
 \begin{proof}
 The boundary-deficit identities give increasing $A_1,\ldots,A_5$ and
 decreasing $B_1,\ldots,B_5$. Thus $0<x\le y<1$ and $x/2\le z\le y$.
-Put $\rho_i=1-c_{\max}(A_i,B_i)$. Apply
-\zcref{lem:new-common-pair-domination} at each neighboring triangle's own pair.
-Since $\rho_i\le\min(A_i,B_i)$, path monotonicity bounds the total inward
-reach on $r_i$ by
-\[
- 1-\min\{\rho_i,A_{i-1},B_{i+1}\}\qquad(i=2,3,4).
-\]
-The bounded-frontier statement of \zcref{lem:fixed-total-radial-forcing}
-therefore forces the corresponding points into $U_C$.
+Put $\rho_i=f(A_i,B_i)$. By \zcref{cor:clipped-radial-forcing},
+the safe radii are $\min\{\rho_i,A_{i-1},B_{i+1}\}$ for $i=2,3,4$.
 The bounds $(A_2,B_2)\ge(1-y,z)$ imply
 $r\le\rho_2$, $r\le A_1$, and $r\le B_3$. Hence $rV_2$ is safe.
 Similarly $(A_4,B_4)\ge(1-z,x/2)$ gives $t\le\rho_4$, and
@@ -392,7 +293,7 @@ $t\le x/2\le B_5$; clipping by $A_3$ makes $\widehat tV_4$ safe.
 The gap endpoints follow from \zcref{lem:gap-exhaustion}, and the midpoint
 belongs to $U_C$ by hypothesis. All witnesses are fixed before enclosure is tested.
 
-If $A_3\ge t$, apply \zcref{lem:bc-five-point}. Otherwise $A_3<t$ and
+If $A_3\ge t$, apply the capacity instance of \zcref{lem:bc-five-point}. Otherwise $A_3<t$ and
 $A_3\ge A_1=1-y$, so
 \[
  \|X_0(y)-A_3V_4\|^2\ge
@@ -713,21 +614,7 @@ The two local verifications are
 \zcref{lem:appendix-t3-supported-tail,lem:appendix-vd1-supported-tail};
 the enclosure step does not distinguish one from two gaps.
 
-\begin{proposition}[T3-like supported-rescuer terminal]
-\label{prop:new-one-t3-terminal}
-Suppose $N_+=1$, there is exactly one T3-like role and no Vd1/Vd2 role,
-and there is at least one actual gap. Then the skeleton is not covered.
-\end{proposition}
-\begin{proof}
-The center-aligned case is excluded by \zcref{thm:center-aligned-path}.
-In the remaining case, \zcref{lem:midpoint-supplier}
-puts the T3-like supplier at the center midpoint and, after reflection,
-the supercritical role at $T_1$. The actual-or-bounded frontier forces
-$\varepsilon V_1$ into $U_C$, and radial coverage gives $C_1\ge c$.
-The local calculation \zcref{lem:appendix-t3-supported-tail} gives the
-remaining ratio and size bounds. Apply the common adapter
-\zcref{lem:new-rescuer-tail-budget}.
-\end{proof}
+
 
 \input{figures/finite_enclosure/fe08_t3_rescuer}
 \FloatBarrier
@@ -934,24 +821,4 @@ $1-\varepsilon<1$. The resulting skeleton cover contradicts N0.
 The original C triangle is fixed; its class and the input gap rank were
 not used in the construction. This operation does not claim to preserve
 coverage of the interior of $H$.
-\end{proof}
-
-\subsection{Completing the nonzero-gap cases}
-
-\begin{proposition}[One-Vd placement assembly]
-\label{prop:new-one-vd-assembly}
-Suppose the C triangle is CE1 or CE2, $N_+=1$, exactly one V triangle
-is Vd1 or Vd2, and there is an actual gap. The skeleton is not covered.
-\end{proposition}
-\begin{proof}
-An additional positive-support role closes by the skeleton budget.
-Otherwise \zcref{lem:midpoint-supplier} gives the unique supplier or the
-center-aligned placement. The latter closes by
-\zcref{thm:center-aligned-path}. A Vd2 supplier closes by
-\zcref{prop:ce2-vd2-midpoint-length}. A center-based Vd1 supplier has its
-endpoint forced by the common frontier and $C_1\ge c$ by radial coverage;
-\zcref{lem:appendix-vd1-supported-tail,lem:new-rescuer-tail-budget}
-then give D. An away Vd1 supplier has a center-free shared edge, so
-\zcref{prop:appendix-vd1-two-chart-replacement} applies and contradicts N0.
-The latter preserves only the skeleton, not all of $H$ or the input gap rank.
 \end{proof}

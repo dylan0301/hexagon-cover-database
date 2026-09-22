@@ -1,6 +1,6 @@
 # Paper with proofs following statements
 
-This 73-page additional edition has no appendices. Its 82 formal results each have
+This 68-page additional edition has no appendices. Its 78 formal results each have
 an immediate proof. The introduction announces the main result; the formal
 main theorem and scaling corollary conclude the paper. Both editions share the new geometric overview and witness explanations.
 The numbered sources include the approved five-point BC and four-point D replacement.
@@ -29,21 +29,18 @@ Common geometry includes the corner charts, exact-trace normalization,
 strict handoffs, admissible cells, and signed-center normal form. Supporting
 results precede their use; definitions precede the calculations using them.
 
-The 96 current canonical statement entries become 82 statements by consolidating
-14 repeated entries. [source_map.json](source_map.json) records the merges
-against canonical revision `9447b27ae5b5feefefb2209fd45cd7c1a4de4292`.
-Each merged statement retains both original statement labels. The two repeated
-zero-gap equation targets are redirected to the single retained equations;
-the map records these reference aliases explicitly.
+The shortened canonical manuscript has 88 formal statements; this edition has
+78, consolidating the ten remaining duplicate entries. The source map records
+those merges and equation aliases. Four formerly separate body/appendix pairs
+were already merged in the canonical edition during this shortening.
 
-All 80 retained canonical proof bodies are checked against the new edition.
-Type-aware references and whitespace may change. Three documented prose edits
-remove a forward consequence referral, defer reach notation until after
-normalization, and include the four-point convex combination in its full proof.
-The BC proof also includes the original covering-forcing conclusion. The
-detached main proof is preserved, and its scaling deduction becomes the
-corollary's separate immediate proof. These are editorial regression checks,
-not a proof-assistant verification of the mathematics.
+The correspondence audit checks 76 retained canonical proof bodies against
+this edition, and checks that all 78 results have immediate proofs. Reviewed
+changes to the common forcing argument, BC threshold criterion, and shared
+BC/F bound are recorded in the shortening report; they are not described as
+unchanged pre-refactor text. The D four-caliper proof remains byte-pinned to
+its former appendix proof. Raw (3,0) normalization, both replacement charts,
+and the original supplier calculations retain their preservation checks.
 
 The exact certificate's reduction, signs, checking rules, immutable source
 link, transcript digest, and provenance are included in the zero-gap section.
@@ -64,8 +61,8 @@ of its proof and places shared figures at their source positions. Run
 `python arrange/_support/verify_inline_proofs.py --pdf arrange/_build/inline_proofs.pdf`
 to check the rendered proof count, appendix referrals, and separated proof starts.
 
-The approved BC/D inventory contains 82 immediate proof environments. The prior
-readability baseline is archived, and the revised inventory is protected by the
-same source-regression audit. This mathematical replacement is not described as
-an unchanged pre-review proof. The layout keeps each statement with the start
-of its proof; the 73-page edition has no shortening target.
+The reusable-lemma inventory contains 78 immediate proof environments. Its
+pre-shortening baseline is archived alongside the older readability baseline.
+The current inventory is protected by the same source-regression audit; this
+is a reviewed mathematical refactor, not merely proof relocation. Font sizes,
+page dimensions, and margins are unchanged.

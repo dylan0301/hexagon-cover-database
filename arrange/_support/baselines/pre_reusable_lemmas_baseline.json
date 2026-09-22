@@ -1,0 +1,20 @@
+{
+  "base_commit": "083d7fc08bf0918547c8d1624407924604b32e04",
+  "revision": "20260922-bc-d-finite-calipers",
+  "reason": "User-approved mathematical replacement of BC/D terminals, not an editorial-only revision.",
+  "prior_baseline_sha256": "2f4d9ff8f7d63ce54236acaee35344487436adcb5784120328b6a838630a8721",
+  "canonical": {
+    "statements": 96,
+    "proof_environments": 95,
+    "sha256": "889f9d1898240f1e84d5b0a554fa3b1b850fd5fd3e0cf7e425fe66b874c75d6e"
+  },
+  "inline": {
+    "statements": 82,
+    "proof_environments": 82,
+    "sha256": "f47f75017761f79b96bb12988752c41b47b40060bf9cd32de5c2007ab90f0a6e"
+  },
+  "proof_corpus": {
+    "files": 370,
+    "sha256": "943acf220af9fca01277201817a3824f0bdb96b539543678e0f4b5a5f8941167"
+  }
+}

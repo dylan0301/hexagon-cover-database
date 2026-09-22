@@ -55,26 +55,11 @@ $\conv\{(-m,0),(1-m,0),(1-m,1)\}$. Reflection gives $C_-$.
 \end{proof}
 
 
-\begin{lemma}[Solved common-pair comparison]
-\label{lem:appendix-common-pair-domination}
-The inequalities in \zcref{lem:new-common-pair-domination} hold.
-\end{lemma}
 
-\begin{proof}
-Put $m=\min(p,q)$. By convexity, any triangle containing the $p,q$
-boundary anchors also contains the shorter $m,m$ anchors. Hence
-\zcref{lem:direct-neighbor-diagonal} gives $C_\pm(p,q)\le1-m$.
-If $q=m$, the unit triangle used for equality contains
-$(p,0)$, $(0,q)$, and $(1-q,1-q)$ because $p\le1-q$.
-The last point is on the
-own ray, so $c_{\max}(p,q)\ge1-q$. Reflect for $p=m$.
-Increasing an anchor shrinks the feasible family, giving antitonicity.
-\end{proof}
 
 \input{fixed_witness/D_bc_capacity_envelope}
 \input{fixed_witness/D_bc_finite_calipers}
 
-\input{fixed_witness/D_fixed_witness_extensions}
 
 \subsection{The supported-rescuer adapter}
 
@@ -113,9 +98,10 @@ contrary to compact containment in $U_C$.
 
 \begin{lemma}[Solved T3-like supported-tail adapter]
 \label{lem:appendix-t3-supported-tail}
-Under the off-center supplier placement of
-\zcref{prop:new-one-t3-terminal}, the actual supported interval satisfies
-the hypotheses of \zcref{lem:new-rescuer-tail-budget}.
+Assume a nonzero-gap skeleton cover has center midpoint $M_0$, a T3-like
+role $T_0$ supplying $M_1$, uniquely supercritical $T_1$, and nonsupercritical
+Vd0 roles at the other four vertices. The actual supported interval
+satisfies the hypotheses of \zcref{lem:new-rescuer-tail-budget}.
 \end{lemma}
 \begin{proof}
 Normalize $T_0$ as the T3-like supplier of $M_1$, with uniquely
