@@ -1,0 +1,28 @@
+{
+  "review_run": 35738552404,
+  "review_head": "f6ba4670cd47f989cba101c456b5cd9360ebe596",
+  "manifest_sha256": "c165f61c7d401b4cfa8c686182423f48201004ac2be00ef6b38a9a86ca77ea64",
+  "source_zip_sha256": "ce3272cfa94c449bace9677f5b3cf76c2bc63756ac06baeecf2b52a8c815bd15",
+  "pdf_sha256": {
+    "canonical": "ca1155b50a7256ae4a5531a41ee268eb9b3c665d453fa8187f0bb58defc3d2ab",
+    "inline_proofs": "ef178bb0634083b029905010147bed823d40ae3b702643141c4e46ff0f9c513b"
+  },
+  "pages": {
+    "canonical": 76,
+    "inline_proofs": 73
+  },
+  "visually_reviewed_pdf_pages": {
+    "canonical": [
+      47,
+      52,
+      53,
+      54
+    ],
+    "inline_proofs": [
+      44
+    ]
+  },
+  "browser_checks": 16,
+  "browser_page_errors": 0,
+  "reviewed_viewer_sha256": "208647248625e0d8de254db9197a58fd64d3bc227bdead0450d953ca5066f6fe"
+}
