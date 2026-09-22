@@ -115,7 +115,7 @@ def publish(out):
         mode,kind,blob=raw.split('\t')[0].split();assert mode in ['100644','100755'] and kind=='blob'
         data=subprocess.check_output(['git','cat-file','blob',blob])
         assert expected=={'mode':mode,'blob':blob,'sha256':hashlib.sha256(data).hexdigest()},p
-    assert hashlib.sha256(subprocess.check_output(['git','show',tip+':.github/workflows/ci.yml'])).hexdigest()=='f32226c973012d8038b9c6f2b40f0d025b2dcf83c30815b606c4e3a3914319cd64'
+    assert hashlib.sha256(subprocess.check_output(['git','show',tip+':.github/workflows/ci.yml'])).hexdigest()=='f32226c973012d8038b9c6f2b40f0d025b2dcf83c30815b606c4e3a391431bb3'
     names=run('git','ls-tree','-r','--name-only',tip).splitlines()
     assert not any(p in TEMP or '/bc_d_transport/' in p for p in names)
     call('git','fetch','origin',BRANCH)
