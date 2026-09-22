@@ -82,6 +82,8 @@ jobs:
           python interactive/generate.py --dependency-graph
           python interactive/animated_proof_guide/build.py
           python interactive/proof_trees/build.py
+      - name: Stage the generated dependency graph as the intended revision
+        run: git add -- interactive/readable_proof_dependency_graph.html
       - name: Audit integrated proof and interactive interfaces
         run: |
           set -euo pipefail
@@ -96,7 +98,9 @@ jobs:
             python interactive/proof_trees/check.py --html
             python interactive/proof_trees/build.py --check
             python interactive/animated_proof_guide/check.py --require-live
+            (cd proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation && python verify_mixed_overlap_core_derivation.py && python verify_global_core_positivity.py)
             git diff --check
+            git diff --cached --check
           } 2>&1 | tee /tmp/bc-d-review/source-audit.log
       - name: Build both publication editions in pinned TeX Live
         uses: xu-cheng/texlive-action@22c04326a5d855880f9d39bb955138bf11c6df80
@@ -148,7 +152,7 @@ jobs:
               if p.exists():
                   (out/(name+'.pdf')).write_bytes(p.read_bytes())
           Path(out/'manifest.json').write_text(json.dumps({'head':os.environ['GITHUB_SHA'],'files':records},indent=2)+'\n')
-          Path(out/'working-diff.patch').write_bytes(subprocess.check_output(['git','diff','--binary']))
+          Path(out/'working-diff.patch').write_bytes(subprocess.check_output(['git','diff','HEAD','--binary']))
           print('Snapshot files:',len(records))
           PY
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
