@@ -166,3 +166,7 @@ not an input substituted into the Vd1 replacement lemma.
 Area Conj moves all six shared handoffs by 0.58. Max Area sweeps a by 0.49 and b
 by 0.44. Their native best-found area values are lower estimates of true maxima;
 associated loss values are upper estimates of minimum loss, not certificates.
+
+## Current BC/D terminals and historical capture provenance
+
+The active proof uses at most five points for BC and four for D, with finite calipers and the reusable rational envelope. Open [the current caliper viewer](../bc_d_finite_calipers.html) for the new construction. The existing live GIFs, snapshots, capture metrics, and their pinned capture revisions are retained unchanged as historical visualizer footage. They must not be mistaken for an updated five-point app capture. `activeProofRevision` records the current mathematical source separately.

@@ -26,11 +26,10 @@ for a,b in [
  ('lem:support-cell-rotation','prop:new-disk-finite-caliper'),
  ('prop:vd-corner-normal-form','lem:app-supercritical-skeleton-calculation'),
  ('lem:vd1-forward-orientation','prop:appendix-vd1-two-chart-replacement'),
- ('prop:new-four-direct-outputs','lem:new-selected-chords'),
- ('eq:selected-low-root','lem:ce1-first-return-step'),
- ('lem:new-selected-chords','lem:ce1-first-return-step'),
- ('lem:ce1-first-return-step','eq:fixed-ce1-third-demand'),
- ('eq:ce1-second-chord','fig:ce1-reverse-path'),
+ ('lem:bc-capacity-tools','lem:bc-slack-envelope'),
+ ('lem:bc-slack-envelope','lem:bc-coupled-capacity'),
+ ('lem:bc-coupled-capacity','lem:bc-five-point'),
+ ('lem:bc-five-point','lem:appendix-fixed-transverse'),
  ('eq:four-contact-residuals','fig:zero-gap-four-contacts')]:
  check(a+' before '+b,full.index('\\label{'+a+'}')<full.index('\\label{'+b+'}'))
 main=(PAPER/'main.tex').read_text()

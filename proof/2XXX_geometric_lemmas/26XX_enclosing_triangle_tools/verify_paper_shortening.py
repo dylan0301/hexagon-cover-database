@@ -46,20 +46,17 @@ for raw, start, end, digest in PRESERVED_SECTIONS:
 print("raw (3,0) calculations and both replacement charts: preserved; statement wording crosschecked")
 
 d = (PAPER / "D_nonzero_gap_finite_enclosure_optimization.tex").read_text()
-first = re.search(r"\\begin\{lemma\}\[First CE1 return step\](.*?)\\end\{lemma\}", d, re.S)
-assert first is not None
-assert "C_4\\ge1-A" in first.group(1)
-assert not re.search(r"C_[23]\s*\\ge",first.group(1))
-fixed = (PAPER / "fixed_witness/D_fixed_witness_extensions.tex").read_text()
-a = fixed.index("\\zcref{lem:ce1-first-return-step}")
-b = fixed.index("\\label{eq:fixed-ce1-third-demand}", a)
-c = fixed.index("\\zcref{prop:new-ce1-direct-certificate}", b)
-assert a < b < c
-print("CE1 first-step / third-demand / full-return order: OK")
+assert "D_bc_capacity_envelope" in d and "D_bc_finite_calipers" in d
+assert "First CE1 return step" not in d
+fixed=(PAPER / "fixed_witness/D_fixed_witness_extensions.tex").read_text()
+assert "lem:bc-five-point" in fixed and "thm:cert-caliper" in fixed
+assert "prop:signed-center-normal-form" not in fixed
+assert "prop:new-ce1-direct-certificate" not in fixed
+print("BC/D terminal calipers replace the historical center-normal-form route: OK")
 
 body = (PAPER / "fixed_witness/06_fixed_witness_body.tex").read_text()
 assert "B_5\\ge B_0/2" in body
-assert "\\widehat P_2,\\widehat P_3,\\widehat P_4" in body
+assert "rV_2,\\widehat tV_4" in body and "\\widehat t=\\min\\{t,A_3\\}" in body
 assert "C_i>1-d_i'" in (PAPER / "06_finite_enclosure_full.tex").read_text()
 for name in ("optional_B.tex", "06_fixed_zero_gap_coordinates.tex"):
     assert not (PAPER / "fixed_witness" / name).exists()

@@ -15,5 +15,10 @@ Status: Reference
 | [2614](2614_two_vertex_replacement.md) | scalar two-vertex replacement |
 
 Alternatives A and B are retained but are not dependencies of N0.
-The shared boundary input is `2018b`; the BC theorem uses at most six points. A four-contact
+The shared boundary input is `2018b`; the BC theorem uses at most five points. A four-contact
 disk theorem is not the same as the four-point supported-rescuer theorem.
+
+## New active nonzero-gap tools
+
+- [2615: slack-sensitive envelope and coupled capacity inequality](2615_slack_sensitive_radial_envelope.md).
+- [2616: five-point BC and strengthened four-point D calipers](2616_bc_d_finite_calipers.md).

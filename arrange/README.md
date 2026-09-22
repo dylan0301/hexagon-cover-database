@@ -18,7 +18,7 @@ authority for theorem status and hypotheses; the manuscript is the
 publication layer.
 
 `paper_draft/inline_proofs/main.tex` is an additional edition with no
-appendices. The readability revision has 73 pages. Each of its 83 theorem, lemma, proposition, and corollary
+appendices. The BC/D revision has 73 pages. Each of its 82 theorem, lemma, proposition, and corollary
 statements is immediately followed by its proof. It integrates all the
 canonical proof calculations, consolidates 14 repeated statement entries,
 and places the main theorem and scaling corollary at the end. The certificate
@@ -40,7 +40,7 @@ arguments. These assets explain the geometry; they are not proof authorities.
 | Common geometry | `1001`-`1214`, `2004`, `2008b`, `2100`, `2109` |
 | Trace-length method | `2500`, `2510`, `2530`--`2532` and routed terminals |
 | Area-loss method | `3205`, `2400` (T3-like alternative retained outside the paper) |
-| Nonzero-gap finite enclosure | `2008b`, `2612`--`2614`, `2609`, `4102_new`, `4130_new`, `4143_new`, `4144_new` |
+| Nonzero-gap finite enclosure | `2008b`, `2612`--`2616`, `4130_new`, `4143_new`, `4144_new`; `4102_new` retained only as a historical alternative |
 | Zero-gap nine-point theorem | `31050`-`31059` and `3105X_computation` |
 | Exhaustive completion | `0000` |
 
@@ -65,7 +65,7 @@ proof-free command writes `arrange/paper_draft/proof_free.pdf`; it removes
 formal proof environments while retaining prose and calculations outside
 those environments.
 
-The readability revision has 75 canonical pages and 73 inline-proof pages
+The BC/D finite-caliper revision has 76 canonical pages and 73 inline-proof pages
 (previously 69 and 64). The canonical CI guard is 73--78 pages. Page dimensions,
 font family, and margins are unchanged; reader headings and proof-start page
 break protection are improved. The older proof-free export is not the
@@ -88,10 +88,13 @@ calculation. All actual reaches are defined after that normalization.
 The self-midpoint obstruction is a corollary of the exact admissible set.
 A shared corner chart supplies both incidence geometry and area loss.
 
-The first CE1 return step is stated independently of the T2/T3 own-radial
-demands. BC uses it to recover the final demand before invoking the full
-return. The supported-rescuer calculation has one common four-point ending,
-and both replacement charts and their strict margins remain intact.
+BC now uses five fixed points, two nonuniform capacity pairs, and a rational
+envelope followed by five finite calipers. Neighboring suppliers are controlled
+before enclosure; the only clipped radial witness gives a diameter exit.
+D uses four finite calipers under a ratio-only geometric hypothesis. The CE1
+return is historical, not an active terminal dependency. Both replacement
+charts and their strict margins remain intact. See
+[the integration report](20260922_bc_d_finite_caliper_integration.md).
 
 See `20260909_paper_shortening_implementation_report.md` for the removal
 packages and preservation contracts. The subsequent reading-order repair
@@ -104,5 +107,5 @@ See [the reviewer report](20260913_readability_review_report.md). The canonical
 introduction explains the boundary/interior tradeoff before the detailed
 classifications, which now appear in common geometry. Shared passages in
 `paper_draft/reading_guide/` explain coverage scope, fixed witnesses, candidate
-enclosures, replacement, and the zero-gap comparison sets. The original
-mathematical inventory is protected by the new readability-preservation audit.
+enclosures, replacement, and the zero-gap comparison sets. The approved mathematical inventory is protected by the readability-preservation
+audit; its prior baseline is archived for this explicit mathematical revision.

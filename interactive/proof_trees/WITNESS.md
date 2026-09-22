@@ -33,7 +33,7 @@
     - Move all three sides inward slightly to obtain a smaller closed equilateral triangle still containing $K$.
     - Hence $\Lambda(K)<1$, a contradiction.
 - **The active witness families.**
-    - [\[BC\]](BC.md): at most six points; skeleton coverage suffices; no disk.
+    - [\[BC\]](BC.md): at most five points; skeleton coverage suffices; no disk.
     - [\[D\]](D.md): at most four points; skeleton coverage suffices; no disk.
     - [\[F\]](F.md): at most nine points; uses full-hexagon coverage; a disk is obtained by convexity from six radial points.
 

@@ -28,12 +28,6 @@
         "their open and closed traces, and therefore $A_i,B_i,C_i$ and\n$A_i+B_i>1$, are unchanged.",
         "their open and closed traces, and therefore their maximal reaches, are\nunchanged. In particular, the sum of the two boundary reaches is unchanged."
       ]
-    ],
-    "lem:appendix-fixed-four-point": [
-      [
-        "The convex combination in\nthe theorem's body proof puts",
-        "The identity\n\\[\n \\frac{\\varepsilon}{s}Y(a)+\\frac a s(\\varepsilon V_1)\n =\\frac{\\varepsilon}{s}V_0\n\\]\nputs"
-      ]
     ]
   },
   "equation_aliases": {
@@ -55,5 +49,6 @@
     ]
   },
   "readability_revision_base": "a98c71c12f1b521a1e58353e56b11474e1ec4f9b",
-  "readability_note": "The canonical edition now shares the inline wording for the vertex dictionary and normalization consequence; their old inter-edition substitutions are no longer needed. No mathematical hypothesis or conclusion is changed."
+  "readability_note": "The canonical edition now shares the inline wording for the vertex dictionary and normalization consequence; their old inter-edition substitutions are no longer needed. No mathematical hypothesis or conclusion is changed.",
+  "bc_d_revision": "Five-point BC, ratio-only four-point D; shared full local capacity and caliper proofs."
 }

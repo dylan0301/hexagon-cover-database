@@ -4,8 +4,7 @@
 \label{subsec:trace-exact-ab-envelopes}
 
 Each witness set is fixed from the original V triangles before an
-arbitrary enclosing candidate is chosen. The candidate's center parameters
-are recomputed, but its witness points are not. Gap endpoints are supplied
+arbitrary enclosing candidate is chosen. The finite calipers vary their support orientation, but the witness points do not. Gap endpoints are supplied
 by \zcref{lem:gap-exhaustion}; radial witnesses use the total endpoints,
 including all permitted neighboring traces.
 
@@ -35,7 +34,7 @@ witness construction. BC handles the center-aligned case. For an off-center
 supercritical role, its midpoint supplier leads to D, replacement, or the
 Vd2 perimeter obstruction.
 
-\subsection{A selected gap forces six points (BC)}
+\subsection{A selected gap forces five points (BC)}
 
 Normalize the center midpoint to $M_0$ and choose any actual gap, reflected
 to $J_0$. The other incident edge $e_{5,0}$ may or may not contain a gap.
@@ -72,37 +71,40 @@ is explicit. In the covering application, the preceding lemma establishes
 it for the original roles before an arbitrary enclosing candidate is chosen.
 We do not assume that the candidate also covers the discarded gap.
 
-Define
+Define the two nonuniform comparison pairs and radii by
 \[
- K_{BC}:=\{M_0,X_0(B_0),X_0(1-A_1),
-             \widehat P_2,\widehat P_3,\widehat P_4\}.
+ x=B_0,\qquad y=1-A_1,\qquad z=B_3.
 \]
-The midpoint is a structural anchor belonging to the original open C
-triangle. The other points are missed by the V triangles. The origin is
-implicit by \zcref{lem:fixed-origin-in-hull}; the construction uses at most
-six points even though a candidate must also contain $O$.
-
+\[
+ r=1-c_{\max}(1-y,z),\qquad t=1-c_{\max}(1-z,x/2).
+\]
+Put $\widehat t=\min\{t,A_3\}$ and fix
+\[
+ K_{BC}:=\{M_0,X_0(x),X_0(y),rV_2,\widehat tV_4\}.
+\]
+There are at most five points, including singleton gaps. The midpoint is a
+structural anchor; the other points are missed by every open V role.
+The origin is implicit by \zcref{lem:fixed-origin-in-hull}. The cap by $A_3$
+controls the remaining neighboring supplier on $r_4$; it is not silently dropped.
 
 \input{reading_guide/selected_gap_walkthrough}
 
-\begin{theorem}[Unified six-point selected-gap enclosure]
+\begin{theorem}[Unified five-point selected-gap enclosure]
 \label{prop:new-nplus-one-all-vd0}
 Suppose $J_0$ is an actual gap, $A_i+B_i\le1$ for $1\le i\le5$, and
 \[
  B_i+A_{i+1}>1\quad(1\le i\le4),\qquad B_5\ge B_0/2.
 \]
-Then $\Lambda(K_{BC})\ge1$. Under skeleton coverage with distinguished
+Then $\Lambda(K_{BC})>1$. Under skeleton coverage with distinguished
 C midpoint $M_0$, the fixed set $K_{BC}$ lies in $U_C$.
 There is no condition on the gap status of $e_{5,0}$ or supercriticality
 of $T_0$, and no type restriction on the nonsupercritical path.
 \end{theorem}
 \begin{proof}
-Forcing uses the two actual gap endpoints, the three total radial
-endpoints, and the C midpoint. The origin-hull identity then puts $O$ in
-any open candidate containing $K_{BC}$. Its signed parameters turn the
-gap anchors and tail bound into a common pair of strict boundary lower
-bounds along the path. The CE2 threshold and CE1 return calculations in
-\zcref{lem:appendix-fixed-transverse} exclude both candidate classes.
+The path bounds and neighboring-capacity estimates force both radial witnesses,
+with the explicit clipping by $A_3$. The proof in
+\zcref{lem:appendix-fixed-transverse} then uses the five-point caliper theorem
+or a diameter obstruction. It does not normalize an enclosing center triangle.
 \end{proof}
 
 \begin{theorem}[Center-aligned path obstruction]
@@ -170,26 +172,19 @@ independently of any V type or covering configuration.
 \label{thm:fixed-four-point-rescuer}
 Suppose $a\ge0$, $\varepsilon>0$, $\beta\ge0$, and
 \[
- s=a+\varepsilon\le1,\qquad a\le\varepsilon,\qquad
- \beta\le\frac{\varepsilon}{s}.
+ s=a+\varepsilon,\qquad \beta\le\frac{\varepsilon}{s}.
 \]
 Then
 \[
  \Lambda\{O,\varepsilon V_1,Y(a),Y(1-\beta)\}\ge1.
 \]
+Neither $a\le\varepsilon$ nor $s\le1$ is required by this geometric statement.
 \end{theorem}
 \begin{proof}
-The convex combination
-\[
- \frac{\varepsilon}{s}Y(a)+\frac a s(\varepsilon V_1)
- =\frac{\varepsilon}{s}V_0
-\]
-forces $M_0$ into any open unit candidate containing the four points.
-The signed-center calculation then places the far endpoint of its left
-boundary trace strictly below $a/s$, whereas containment of $Y(1-\beta)$
-requires that endpoint to exceed $1-\beta\ge a/s$.
-The signed parameters and endpoint cases are given in
-\zcref{lem:appendix-fixed-four-point}.
+The cases $a=0$ or $s\ge1$ have a diameter obstruction. Otherwise put
+$v=a/s$ and replace the farther boundary point by $Y(v)$ inside the same hull.
+The four caliper evaluations in \zcref{lem:appendix-fixed-four-point}
+all exceed one. No center normal form is needed.
 \end{proof}
 
 \input{reading_guide/four_point_explanation}

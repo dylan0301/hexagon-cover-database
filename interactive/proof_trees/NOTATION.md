@@ -32,7 +32,7 @@ This is an index of symbols, not required prior reading. Each argument page supp
 - **Witnesses and enclosure.**
     - $\widehat P_i$: total radial frontier including neighboring contributions — [\[WITNESS\]](WITNESS.md).
     - $\Lambda(K)$: least side length of a closed equilateral triangle containing compact $K$.
-    - BC, D, F: active witness families of at most six, four, and nine points.
+    - BC, D, F: active witness families of at most five, four, and nine points.
     - The letter D in a page label names a witness family; it is not a disk.
 - **Coverage strength.**
     - Skeleton coverage: perimeter plus the six spokes.

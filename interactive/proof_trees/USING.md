@@ -85,6 +85,6 @@ python check.py --html
 python build.py --check
 ```
 
-Then open the generated `index.html`. Build dependencies are pinned; only the build needs Python, Node, and the installed packages. The generated file embeds the pages and MathML and does not use external scripts or fonts. It is intentionally ignored by Git; the Markdown, renderer, and checks are the maintained source. A supplied release/download bundle can include the generated file.
+Then open the generated `index.html`. Build dependencies are pinned; only the build needs Python, Node, and the installed packages. The generated file embeds the pages and MathML and does not use external scripts or fonts. It is tracked alongside the Markdown and checked against a deterministic rebuild in CI. The Markdown, renderer, and mathematical proof sources remain authoritative.
 
 Use the **Start here** and **Glossary** buttons for vocabulary. Each page's **Terms used here** panel is open initially and can be folded once familiar. The expansion state of each page is remembered during that browser session.

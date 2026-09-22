@@ -19,13 +19,14 @@
       "group": "BC",
       "title": "BC • one selected gap • radial construction",
       "hypothesis": "A gap is selected on e0; T1,...,T5 are nonsupercritical. The C midpoint is M0.",
-      "construction": "Only D2, D3 and D4 are constructed. First keep the boundary data fixed: compare the own capacity and both adjacent capacities, take Gamma_i as their maximum, and place D_i=(1−Gamma_i)V_i. Then a separately labeled NEW INPUT sweep moves the final radial points by more than 0.20 hexagon-side units. No boundary witness or enclosing triangle is animated.",
-      "argument": "The original boundary cover supplies B5 > 1−M0(B0) > B0/2. Every open candidate containing the fixed set is excluded. T0 need not be supercritical.",
-      "scope": "The app supplies conservative capacity bounds, not measured endpoints of a single original cover. A scanning marker is not a witness. All six restricted source families and construction conditions remain checked. The first phase uses fixed inputs; the final phase explicitly changes the input and constructs a new witness set. ",
-      "source": "arrange/paper_draft/fixed_witness/06_fixed_witness_body.tex",
+      "construction": "Historical six-point browser construction. Only D2, D3 and D4 are constructed. First keep the boundary data fixed: compare the own capacity and both adjacent capacities, take Gamma_i as their maximum, and place D_i=(1−Gamma_i)V_i. Then a separately labeled NEW INPUT sweep moves the final radial points by more than 0.20 hexagon-side units. No boundary witness or enclosing triangle is animated.",
+      "argument": "Current proof: two different boundary pairs give five forced witnesses, with explicit clipping by A_3. Clipping gives diameter; otherwise five calipers close through the coupled capacity inequality. There is no CE1 return or candidate CE1/CE2 split.",
+      "scope": "HISTORICAL LIVE RECORDING: the displayed six-point visualizer interface is retained, not relabeled as the new five-point construction. Use the current standalone BC/D caliper viewer linked above. The app supplies conservative capacity bounds, not measured endpoints of a single original cover. A scanning marker is not a witness. All six restricted source families and construction conditions remain checked. The first phase uses fixed inputs; the final phase explicitly changes the input and constructs a new witness set. ",
+      "source": "proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2616_bc_d_finite_calipers.md",
       "labels": [
         "prop:new-nplus-one-all-vd0",
-        "thm:center-aligned-path"
+        "lem:bc-five-point",
+        "lem:bc-slack-envelope"
       ],
       "related": [
         "bc-two",
@@ -41,13 +42,14 @@
       "group": "BC",
       "title": "BC • two incident gaps • radial construction",
       "hypothesis": "The selected gap is on e0; e5 also has a gap. Only e1,...,e4 must be gap-free.",
-      "construction": "Only D2, D3 and D4 are constructed. First keep the boundary data fixed: compare the own capacity and both adjacent capacities, take Gamma_i as their maximum, and place D_i=(1−Gamma_i)V_i. Then a separately labeled NEW INPUT sweep moves the final radial points by more than 0.20 hexagon-side units. No boundary witness or enclosing triangle is animated.",
-      "argument": "The tail transfer is obtained from the original cover, before the candidate changes. The candidate is not assumed to cover the discarded gap.",
-      "scope": "The app supplies conservative capacity bounds, not measured endpoints of a single original cover. A scanning marker is not a witness. All six restricted source families and construction conditions remain checked. The first phase uses fixed inputs; the final phase explicitly changes the input and constructs a new witness set. ",
-      "source": "arrange/paper_draft/fixed_witness/06_fixed_witness_body.tex",
+      "construction": "Historical six-point browser construction. Only D2, D3 and D4 are constructed. First keep the boundary data fixed: compare the own capacity and both adjacent capacities, take Gamma_i as their maximum, and place D_i=(1−Gamma_i)V_i. Then a separately labeled NEW INPUT sweep moves the final radial points by more than 0.20 hexagon-side units. No boundary witness or enclosing triangle is animated.",
+      "argument": "Current proof: two different boundary pairs give five forced witnesses, with explicit clipping by A_3. Clipping gives diameter; otherwise five calipers close through the coupled capacity inequality. There is no CE1 return or candidate CE1/CE2 split.",
+      "scope": "HISTORICAL LIVE RECORDING: the displayed six-point visualizer interface is retained, not relabeled as the new five-point construction. Use the current standalone BC/D caliper viewer linked above. The app supplies conservative capacity bounds, not measured endpoints of a single original cover. A scanning marker is not a witness. All six restricted source families and construction conditions remain checked. The first phase uses fixed inputs; the final phase explicitly changes the input and constructs a new witness set. ",
+      "source": "proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2616_bc_d_finite_calipers.md",
       "labels": [
-        "lem:shared-gap-anchor-transfer",
-        "prop:new-nplus-one-all-vd0"
+        "prop:new-nplus-one-all-vd0",
+        "lem:bc-five-point",
+        "lem:bc-slack-envelope"
       ],
       "related": [
         "bc-one",
@@ -60,12 +62,14 @@
       "group": "BC",
       "title": "BC • a singleton is still a gap • radial construction",
       "hypothesis": "B0 = 1−A1. The two endpoint handles coincide but remain distinct handles.",
-      "construction": "Only D2, D3 and D4 are constructed. First keep the boundary data fixed: compare the own capacity and both adjacent capacities, take Gamma_i as their maximum, and place D_i=(1−Gamma_i)V_i. Then a separately labeled NEW INPUT sweep moves the final radial points by more than 0.20 hexagon-side units. No boundary witness or enclosing triangle is animated.",
-      "argument": "Closed V triangles reach the endpoint; original open V triangles do not. Equality cannot be treated as a strict overlap or as a shared selected handoff.",
-      "scope": "The app supplies conservative capacity bounds, not measured endpoints of a single original cover. A scanning marker is not a witness. All six restricted source families and construction conditions remain checked. The first phase uses fixed inputs; the final phase explicitly changes the input and constructs a new witness set. The selected gap remains a genuine two-handle singleton throughout; it is not an ordinary shared handoff.",
-      "source": "arrange/paper_draft/02_structure_and_common_geometry.tex",
+      "construction": "Historical six-point browser construction. Only D2, D3 and D4 are constructed. First keep the boundary data fixed: compare the own capacity and both adjacent capacities, take Gamma_i as their maximum, and place D_i=(1−Gamma_i)V_i. Then a separately labeled NEW INPUT sweep moves the final radial points by more than 0.20 hexagon-side units. No boundary witness or enclosing triangle is animated.",
+      "argument": "Current proof: two different boundary pairs give five forced witnesses, with explicit clipping by A_3. Clipping gives diameter; otherwise five calipers close through the coupled capacity inequality. There is no CE1 return or candidate CE1/CE2 split.",
+      "scope": "HISTORICAL LIVE RECORDING: the displayed six-point visualizer interface is retained, not relabeled as the new five-point construction. Use the current standalone BC/D caliper viewer linked above. The app supplies conservative capacity bounds, not measured endpoints of a single original cover. A scanning marker is not a witness. All six restricted source families and construction conditions remain checked. The first phase uses fixed inputs; the final phase explicitly changes the input and constructs a new witness set. The selected gap remains a genuine two-handle singleton throughout; it is not an ordinary shared handoff.",
+      "source": "proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2616_bc_d_finite_calipers.md",
       "labels": [
-        "lem:gap-exhaustion"
+        "prop:new-nplus-one-all-vd0",
+        "lem:bc-five-point",
+        "lem:bc-slack-envelope"
       ],
       "related": [
         "bc-one",
@@ -78,13 +82,14 @@
       "group": "BC",
       "title": "BC • construct the ACTUAL diagonal endpoints",
       "hypothesis": "Fix six local open unit V triangles with their assigned vertices inside. On each target radial segment r_i, only the own role and the two adjacent roles can contribute positive traces.",
-      "construction": "Work through r2, r3 and r4. Intersect the actual own triangle with the diagonal, then add the actual adjacent-triangle traces. Take the largest inward parameter gamma_i and place P-hat_i=(1−gamma_i)V_i. On r2 the neighbor reaches farther than the own triangle: the own endpoint alone would give the wrong witness.",
-      "argument": "The innermost endpoint is outside every open V triangle. Under the separate skeleton-cover assumption it must therefore lie in U_C. These fixed actual endpoints, not the scanning marker and not a family maximum, are the diagonal points in the BC construction.",
-      "scope": "A local construction demonstration, not a configuration satisfying the entire impossible BC covering hypothesis. Endpoint coordinates are recomputed from these six actual triangles; all six are tested for exclusion. Boundary witnesses and enclosing triangles are deliberately omitted.",
-      "source": "arrange/paper_draft/fixed_witness/06_fixed_witness_body.tex",
+      "construction": "Historical six-point browser construction. Work through r2, r3 and r4. Intersect the actual own triangle with the diagonal, then add the actual adjacent-triangle traces. Take the largest inward parameter gamma_i and place P-hat_i=(1−gamma_i)V_i. On r2 the neighbor reaches farther than the own triangle: the own endpoint alone would give the wrong witness.",
+      "argument": "Current proof: two different boundary pairs give five forced witnesses, with explicit clipping by A_3. Clipping gives diameter; otherwise five calipers close through the coupled capacity inequality. There is no CE1 return or candidate CE1/CE2 split.",
+      "scope": "HISTORICAL LIVE RECORDING: the displayed six-point visualizer interface is retained, not relabeled as the new five-point construction. Use the current standalone BC/D caliper viewer linked above. A local construction demonstration, not a configuration satisfying the entire impossible BC covering hypothesis. Endpoint coordinates are recomputed from these six actual triangles; all six are tested for exclusion. Boundary witnesses and enclosing triangles are deliberately omitted.",
+      "source": "proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2616_bc_d_finite_calipers.md",
       "labels": [
-        "lem:fixed-origin-in-hull",
-        "prop:new-nplus-one-all-vd0"
+        "prop:new-nplus-one-all-vd0",
+        "lem:bc-five-point",
+        "lem:bc-slack-envelope"
       ],
       "related": [
         "calipers",
@@ -98,12 +103,14 @@
       "group": "BC",
       "title": "BC • candidate CE1 return branch",
       "hypothesis": "An arbitrary open unit candidate contains the fixed BC witnesses and meets one boundary edge.",
-      "construction": "This clip isolates a genuine CE1 candidate shape. Consult BC construction for the fixed witness set.",
-      "argument": "The CE1 return calculation contradicts the propagated strict path bounds. Witness coordinates do not move when the candidate changes.",
-      "scope": "This clip shows the candidate class only; it does not depict an impossible CE1 enclosure of all BC witnesses.",
-      "source": "arrange/paper_draft/D_nonzero_gap_finite_enclosure_optimization.tex",
+      "construction": "Historical six-point browser construction. This clip isolates a genuine CE1 candidate shape. Consult BC construction for the fixed witness set.",
+      "argument": "Current proof: two different boundary pairs give five forced witnesses, with explicit clipping by A_3. Clipping gives diameter; otherwise five calipers close through the coupled capacity inequality. There is no CE1 return or candidate CE1/CE2 split.",
+      "scope": "HISTORICAL LIVE RECORDING: the displayed six-point visualizer interface is retained, not relabeled as the new five-point construction. Use the current standalone BC/D caliper viewer linked above. This clip shows the candidate class only; it does not depict an impossible CE1 enclosure of all BC witnesses.",
+      "source": "proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2616_bc_d_finite_calipers.md",
       "labels": [
-        "lem:appendix-fixed-transverse"
+        "prop:new-nplus-one-all-vd0",
+        "lem:bc-five-point",
+        "lem:bc-slack-envelope"
       ],
       "related": [
         "bc-build",
@@ -116,12 +123,14 @@
       "group": "BC",
       "title": "BC • candidate CE2 threshold branch",
       "hypothesis": "An arbitrary open unit candidate contains the fixed BC witnesses and meets two adjacent boundary edges.",
-      "construction": "This clip isolates a genuine CE2 candidate shape; its two boundary intervals are visible.",
-      "argument": "The signed-center threshold calculation excludes this candidate class. CE1 and CE2 are different calculation branches, not different BC witness recipes.",
-      "scope": "This clip shows the candidate class only; it is not a BC counterexample.",
-      "source": "arrange/paper_draft/D_nonzero_gap_finite_enclosure_optimization.tex",
+      "construction": "Historical six-point browser construction. This clip isolates a genuine CE2 candidate shape; its two boundary intervals are visible.",
+      "argument": "Current proof: two different boundary pairs give five forced witnesses, with explicit clipping by A_3. Clipping gives diameter; otherwise five calipers close through the coupled capacity inequality. There is no CE1 return or candidate CE1/CE2 split.",
+      "scope": "HISTORICAL LIVE RECORDING: the displayed six-point visualizer interface is retained, not relabeled as the new five-point construction. Use the current standalone BC/D caliper viewer linked above. This clip shows the candidate class only; it is not a BC counterexample.",
+      "source": "proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2616_bc_d_finite_calipers.md",
       "labels": [
-        "lem:appendix-fixed-transverse"
+        "prop:new-nplus-one-all-vd0",
+        "lem:bc-five-point",
+        "lem:bc-slack-envelope"
       ],
       "related": [
         "bc-build",
@@ -135,12 +144,12 @@
       "title": "D • T3-like supplier, one gap",
       "hypothesis": "The unique supercritical role is off the C midpoint. A center-based T3-like role supplies its neighboring midpoint.",
       "construction": "Construct only the radial point on r1. Compare the own and both neighboring capacity bounds, take their maximum Gamma_1, and measure 1−Gamma_1 from O. A separate NEW INPUT phase moves this point by approximately 0.17–0.20 hexagon-side units. The boundary witnesses and enclosing triangle are hidden.",
-      "argument": "The T3-like local tail calculation supplies the size and ratio bounds; the common geometric four-point theorem then excludes every open unit enclosure.",
-      "scope": "This is the app’s capacity-derived radial substitute, not the actual supplier endpoint. All six local source families and the full D inequalities are checked even though only a diagonal point is shown. Use the separate actual-supplier clip for c, u and epsilon=1−u; these parameters must not be silently identified across different examples.",
-      "source": "arrange/paper_draft/fixed_witness/06_fixed_witness_body.tex",
+      "argument": "The current geometric theorem uses only the ratio beta <= epsilon/(a+epsilon). Diameter handles endpoint regimes; otherwise four hull-edge calipers exclude enclosure. The supplier chart still forces the original points.",
+      "scope": "The four-point geometry in this historical recording is unchanged; its terminal proof is now finite calipers, not signed center parameters. This is the app’s capacity-derived radial substitute, not the actual supplier endpoint. All six local source families and the full D inequalities are checked even though only a diagonal point is shown. Use the separate actual-supplier clip for c, u and epsilon=1−u; these parameters must not be silently identified across different examples.",
+      "source": "proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2616_bc_d_finite_calipers.md",
       "labels": [
         "thm:fixed-four-point-rescuer",
-        "prop:new-one-t3-terminal"
+        "lem:appendix-fixed-four-point"
       ],
       "related": [
         "supplier-t3",
@@ -154,12 +163,12 @@
       "title": "D • T3-like supplier, two gaps",
       "hypothesis": "The unique supercritical role is off the C midpoint. A center-based T3-like role supplies its neighboring midpoint.",
       "construction": "Construct only the radial point on r1. Compare the own and both neighboring capacity bounds, take their maximum Gamma_1, and measure 1−Gamma_1 from O. A separate NEW INPUT phase moves this point by approximately 0.17–0.20 hexagon-side units. The boundary witnesses and enclosing triangle are hidden.",
-      "argument": "The T3-like local tail calculation supplies the size and ratio bounds; the common geometric four-point theorem then excludes every open unit enclosure.",
-      "scope": "This is the app’s capacity-derived radial substitute, not the actual supplier endpoint. All six local source families and the full D inequalities are checked even though only a diagonal point is shown. Use the separate actual-supplier clip for c, u and epsilon=1−u; these parameters must not be silently identified across different examples.",
-      "source": "arrange/paper_draft/fixed_witness/06_fixed_witness_body.tex",
+      "argument": "The current geometric theorem uses only the ratio beta <= epsilon/(a+epsilon). Diameter handles endpoint regimes; otherwise four hull-edge calipers exclude enclosure. The supplier chart still forces the original points.",
+      "scope": "The four-point geometry in this historical recording is unchanged; its terminal proof is now finite calipers, not signed center parameters. This is the app’s capacity-derived radial substitute, not the actual supplier endpoint. All six local source families and the full D inequalities are checked even though only a diagonal point is shown. Use the separate actual-supplier clip for c, u and epsilon=1−u; these parameters must not be silently identified across different examples.",
+      "source": "proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2616_bc_d_finite_calipers.md",
       "labels": [
         "thm:fixed-four-point-rescuer",
-        "prop:new-one-t3-terminal"
+        "lem:appendix-fixed-four-point"
       ],
       "related": [
         "supplier-t3",
@@ -173,12 +182,12 @@
       "title": "D • Vd1 supplier, one gap",
       "hypothesis": "The unique supercritical role is off the C midpoint. A center-based Vd1 role supplies its neighboring midpoint.",
       "construction": "Construct only the radial point on r1. Compare the own and both neighboring capacity bounds, take their maximum Gamma_1, and measure 1−Gamma_1 from O. A separate NEW INPUT phase moves this point by approximately 0.17–0.20 hexagon-side units. The boundary witnesses and enclosing triangle are hidden.",
-      "argument": "The Vd1 local tail calculation supplies the size and ratio bounds; the common geometric four-point theorem then excludes every open unit enclosure.",
-      "scope": "This is the app’s capacity-derived radial substitute, not the actual supplier endpoint. All six local source families and the full D inequalities are checked even though only a diagonal point is shown. Use the separate actual-supplier clip for c, u and epsilon=1−u; these parameters must not be silently identified across different examples.",
-      "source": "arrange/paper_draft/fixed_witness/06_fixed_witness_body.tex",
+      "argument": "The current geometric theorem uses only the ratio beta <= epsilon/(a+epsilon). Diameter handles endpoint regimes; otherwise four hull-edge calipers exclude enclosure. The supplier chart still forces the original points.",
+      "scope": "The four-point geometry in this historical recording is unchanged; its terminal proof is now finite calipers, not signed center parameters. This is the app’s capacity-derived radial substitute, not the actual supplier endpoint. All six local source families and the full D inequalities are checked even though only a diagonal point is shown. Use the separate actual-supplier clip for c, u and epsilon=1−u; these parameters must not be silently identified across different examples.",
+      "source": "proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2616_bc_d_finite_calipers.md",
       "labels": [
         "thm:fixed-four-point-rescuer",
-        "prop:new-one-vd-assembly"
+        "lem:appendix-fixed-four-point"
       ],
       "related": [
         "supplier-vd1",
@@ -192,12 +201,12 @@
       "title": "D • Vd1 supplier, two gaps",
       "hypothesis": "The unique supercritical role is off the C midpoint. A center-based Vd1 role supplies its neighboring midpoint.",
       "construction": "Construct only the radial point on r1. Compare the own and both neighboring capacity bounds, take their maximum Gamma_1, and measure 1−Gamma_1 from O. A separate NEW INPUT phase moves this point by approximately 0.17–0.20 hexagon-side units. The boundary witnesses and enclosing triangle are hidden.",
-      "argument": "The Vd1 local tail calculation supplies the size and ratio bounds; the common geometric four-point theorem then excludes every open unit enclosure.",
-      "scope": "This is the app’s capacity-derived radial substitute, not the actual supplier endpoint. All six local source families and the full D inequalities are checked even though only a diagonal point is shown. Use the separate actual-supplier clip for c, u and epsilon=1−u; these parameters must not be silently identified across different examples.",
-      "source": "arrange/paper_draft/fixed_witness/06_fixed_witness_body.tex",
+      "argument": "The current geometric theorem uses only the ratio beta <= epsilon/(a+epsilon). Diameter handles endpoint regimes; otherwise four hull-edge calipers exclude enclosure. The supplier chart still forces the original points.",
+      "scope": "The four-point geometry in this historical recording is unchanged; its terminal proof is now finite calipers, not signed center parameters. This is the app’s capacity-derived radial substitute, not the actual supplier endpoint. All six local source families and the full D inequalities are checked even though only a diagonal point is shown. Use the separate actual-supplier clip for c, u and epsilon=1−u; these parameters must not be silently identified across different examples.",
+      "source": "proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2616_bc_d_finite_calipers.md",
       "labels": [
         "thm:fixed-four-point-rescuer",
-        "prop:new-one-vd-assembly"
+        "lem:appendix-fixed-four-point"
       ],
       "related": [
         "supplier-vd1",
@@ -247,11 +256,12 @@
       "title": "D • construct P_T from the supplier trace",
       "hypothesis": "An actual open T3-like supplier at V0 contains M1. Parametrize r1 by Z1(s)=(1−s)V1, and let [c,u] be the original closed supplier trace.",
       "construction": "Scan from V1 to the entry parameter c, continue through the supported interval to the inward endpoint u, then reverse the origin and measure epsilon=1−u from O. Only the diagonal point P_T=epsilon V1 is constructed.",
-      "argument": "The inward stopping endpoint is not contained in the open supplier. The covering adapter, with its remaining hypotheses, forces this point into U_C. It is the radial ingredient of the same four-point obstruction for either gap rank.",
-      "scope": "Actual original supplier geometry; not a translated majorant or a capacity-family optimizer. The full four-point lemma remains in the linked paper, but the clip intentionally omits its two boundary witnesses and enclosing fit.",
-      "source": "arrange/paper_draft/fixed_witness/06_fixed_witness_body.tex",
+      "argument": "The current geometric theorem uses only the ratio beta <= epsilon/(a+epsilon). Diameter handles endpoint regimes; otherwise four hull-edge calipers exclude enclosure. The supplier chart still forces the original points.",
+      "scope": "The four-point geometry in this historical recording is unchanged; its terminal proof is now finite calipers, not signed center parameters. Actual original supplier geometry; not a translated majorant or a capacity-family optimizer. The full four-point lemma remains in the linked paper, but the clip intentionally omits its two boundary witnesses and enclosing fit.",
+      "source": "proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2616_bc_d_finite_calipers.md",
       "labels": [
-        "thm:fixed-four-point-rescuer"
+        "thm:fixed-four-point-rescuer",
+        "lem:appendix-fixed-four-point"
       ],
       "related": [
         "supplier-t3",
@@ -655,12 +665,14 @@
       "group": "Routing",
       "title": "N0 • a gap present",
       "hypothesis": "Assume every actual V role is nonsupercritical and at least one actual gap exists.",
-      "construction": "Use the center-aligned BC path argument. The displayed BC geometry explains the shared witness mechanism.",
-      "argument": "This proves that every skeleton cover has N+≥1. Replacement later invokes this result; the N0 proof does not invoke replacement.",
-      "scope": "The reused BC clip illustrates the mechanism only. Its lower-bound inputs are not a certification that all six actual reaches satisfy N+=0.",
-      "source": "arrange/paper_draft/fixed_witness/06_fixed_witness_body.tex",
+      "construction": "Historical six-point browser construction. Use the center-aligned BC path argument. The displayed BC geometry explains the shared witness mechanism.",
+      "argument": "Current proof: two different boundary pairs give five forced witnesses, with explicit clipping by A_3. Clipping gives diameter; otherwise five calipers close through the coupled capacity inequality. There is no CE1 return or candidate CE1/CE2 split.",
+      "scope": "HISTORICAL LIVE RECORDING: the displayed six-point visualizer interface is retained, not relabeled as the new five-point construction. Use the current standalone BC/D caliper viewer linked above. The reused BC clip illustrates the mechanism only. Its lower-bound inputs are not a certification that all six actual reaches satisfy N+=0.",
+      "source": "proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2616_bc_d_finite_calipers.md",
       "labels": [
-        "thm:fixed-nzero"
+        "prop:new-nplus-one-all-vd0",
+        "lem:bc-five-point",
+        "lem:bc-slack-envelope"
       ],
       "related": [
         "bc-one",
@@ -900,5 +912,7 @@
         "source-exact"
       ]
     }
-  ]
+  ],
+  "activeProofRevision": "083d7fc08bf0918547c8d1624407924604b32e04",
+  "activeProofNote": "Current BC/D terminals use five/four-point calipers. capture.json and all historical live GIF/snapshot provenance are unchanged."
 }

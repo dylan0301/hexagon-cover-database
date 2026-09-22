@@ -230,7 +230,7 @@ if [row.get("id") for row in graph.get("finiteRows", [])] != [
 # New active families must have their fixed-point proof owners in the graph.
 fixed_required = {
     "lem:fixed-total-radial-forcing", "lem:fixed-origin-in-hull",
-    "thm:fixed-four-point-rescuer", "lem:ce1-first-return-step",
+    "thm:fixed-four-point-rescuer", "lem:bc-slack-envelope", "lem:bc-coupled-capacity", "lem:bc-five-point",
     "lem:shared-corner-chart", "lem:compact-cover-margin",
     "lem:appendix-fixed-transverse", "lem:appendix-fixed-four-point",
     "lem:direct-neighbor-diagonal", "lem:support-cell-rotation",
@@ -260,9 +260,17 @@ retired_nodes = {"thm:new-complementary-gap", "thm:new-ce2-short-ray",
                  "lem:appendix-adjacent-vd-separation"}
 if retired_nodes & actual_node_ids:
     raise SystemExit("retired alternatives remain in the canonical graph")
-first_deps = set(by_id["lem:ce1-first-return-step"].get("deps", []))
-if "prop:new-ce1-direct-certificate" in first_deps:
-    raise SystemExit("the first CE1 step must not depend on the full return")
+def terminal_dependencies(start):
+    seen=set();todo=[start]
+    while todo:
+        node=todo.pop()
+        if node in seen:continue
+        seen.add(node);todo.extend(by_id.get(node,{}).get("deps",[]))
+    return seen
+for terminal in ["lem:bc-five-point","lem:appendix-fixed-four-point"]:
+    forbidden={"prop:signed-center-normal-form","lem:ce1-first-return-step","prop:new-ce1-direct-certificate"}
+    if terminal_dependencies(terminal)&forbidden:
+        raise SystemExit("BC/D terminal reintroduced the retired center-normal-form route")
 if not fixed_required <= actual_node_ids:
     raise SystemExit("dependency graph omits fixed-witness proof owners")
 
@@ -278,6 +286,7 @@ canonical_statement_sources = {'01_introduction.tex',
  'B_trace_length_optimization.tex',
  'C_area_loss_optimization.tex',
  'D_fixed_witness_extensions.tex',
+ 'D_bc_capacity_envelope.tex', 'D_bc_finite_calipers.tex',
  'D_nonzero_gap_finite_enclosure_optimization.tex',
  'E_zero_gap_nine_point_optimization.tex'}
 statement_sources = {

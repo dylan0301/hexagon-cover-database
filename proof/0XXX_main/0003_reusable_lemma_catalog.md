@@ -29,14 +29,16 @@ V-type pattern, selects BC, D, replacement, or the Vd2 perimeter exit.
 | `2612` | actual/bounded frontier, boundary identities, BC, D, and BC-based N0 |
 | `2613` | unique midpoint supplier and center-free away edge, CE1/CE2 |
 | `2614` | two-vertex scalar replacement, separate charts, five strict margins |
-| `4102` | conditional CE1 return; first step precedes third-demand recovery |
+| `2615` | slack-sensitive rational envelope and coupled capacity inequality |
+| `2616` | five-point BC forcing/calipers and ratio-only four-point D lemma |
+| `4102` | historical conditional CE1 return; not an active BC/D dependency |
 | `4130_new`, `4143_new` | distinct T3-like and Vd1 local ratio calculations before D |
 | `4144_new` | Vd1 scalar inputs to `2614`, then N0 |
 | `31050`--`31059` | unchanged asymmetric witnesses and exact zero-gap certificate |
 
 ## Three active witness sets
 
-BC has at most six points, D at most four, and F at most nine.
+BC has at most five points, D at most four, and F at most nine.
 The same selected-gap BC set is used for one or two gaps. Optional B
 retains the former four-point refinement but is not a dependency of N0. Only F uses a disk in the minimal route. A, with at most seven
 points and a disk, remains an independent complementary-gap alternative.
@@ -57,3 +59,7 @@ singleton gap, or CE1 conditional hypothesis is removed by this compression.
 - [Fixed witness proofs](../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2612_fixed_witness_unification.md)
 - [Midpoint supplier](../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2613_midpoint_supplier_reduction.md)
 - [Scalar replacement](../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2614_two_vertex_replacement.md)
+
+## BC/D finite-caliper revision
+
+`2615` owns the reusable slack-sensitive rational radial envelope and the coupled two-pair inequality. `2616` owns the five-point BC calipers, explicit neighbor clipping, and the ratio-only four-point D theorem. The active terminal counts are 5/4/9; structural center incidence and supplier placement remain separate.

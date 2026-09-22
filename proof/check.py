@@ -466,6 +466,13 @@ if result.returncode:
 else:
     print(result.stdout.strip())
 
+# New normal-form-free terminal algebra and source contracts.
+for script in ["verify_bc_envelope.py","verify_bc_capacity_calculus.py","verify_finite_calipers.py"]:
+    checker=ROOT / "proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools" / script
+    result=subprocess.run([sys.executable,str(checker)],cwd=ROOT,text=True,capture_output=True)
+    if result.returncode:fail(result.stdout+result.stderr)
+    else:print(result.stdout.strip())
+
 if ERRORS:
     print("proof/check.py: FAILED", file=sys.stderr)
     for error in ERRORS:

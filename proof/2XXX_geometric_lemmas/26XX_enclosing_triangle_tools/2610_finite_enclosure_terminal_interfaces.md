@@ -79,31 +79,31 @@ $K_B\subset U_C$. The origin is implicit in the convex hull, and no disk
 is used. This includes $N_+=0$ and $N_+=1$ with supercritical $T_0$,
 without a V-type split on the five-role path.
 
-## 4. BC: one selected incident gap, at most six points
+## 4. BC: one selected incident gap, at most five points
 
 Suppose $J_0$ is an actual gap, $T_1,\ldots,T_5$ are nonsupercritical,
-and the four middle edges $e_{1,2},\ldots,e_{4,5}$ are gap-free. Set
+the four middle edges are gap-free, and $B_5\ge B_0/2$.
+Put $f(a,b)=1-c_{\max}(a,b)$ and
+$$x=B_0,\quad y=1-A_1,\quad z=B_3,\quad
+r=f(1-y,z),\quad t=f(1-z,x/2),\quad\widehat t=\min(t,A_3).$$
+Then the active fixed set is
+$$K_{BC}=\{M_0,X_0(x),X_0(y),rV_2,\widehat tV_4\}.$$
+Theorem 5.1 of [2612](2612_fixed_witness_unification.md) proves
+$K_{BC}\subset U_C$ under the covering hypotheses and $\Lambda(K_{BC})>1$.
+The two nonuniform pairs retain $B_3$ but require no point on $r_3$.
+Neighboring capacities are compared at each role's own pair; the clipping
+by $A_3$ is explicit. If it is active, diameter suffices. Otherwise the
+five-point theorem in [2616](2616_bc_d_finite_calipers.md) applies.
+Its coupled inequality is proved using the rational envelope in
+[2615](2615_slack_sensitive_radial_envelope.md).
 
-$$
-K_{BC}=\{M_0,X_0(B_0),X_0(1-A_1),
-\widehat P_2,\widehat P_3,\widehat P_4\}.
-$$
-
-The pure enclosure theorem `2612`, Theorem 5.1, assumes explicitly
-$B_5\ge B_0/2$ and proves $\Lambda(K_{BC})\ge1$. Original perimeter
-coverage supplies the stronger $B_5>1-M_0(B_0)>B_0/2$ by
-[`2018b`](../20XX_V_triangle_geometry/2018b_shared_gap_anchor_transfer.md).
-Under skeleton coverage with distinguished C midpoint $M_0$, the same
-fixed set lies in $U_C$. No disk is used. With two gaps either gap may
-be selected and reflected to $J_0$; no boundary point from the other gap
-is placed in the witness set.
-
-The tail floor replaces the fifth handoff in the old C proof. The CE1
-first-step and full-return interfaces in `4102` now take $B_4\ge Q$
-directly; all selected-branch conditions and own-demand recovery remain.
-CE2 uses the transverse thresholds of `2612`, not the separate optional
-B short-ray theorem. Nonsupercritical V types do not split the construction.
-The name $K_C$ remains a compatibility alias for this six-point set.
+Original perimeter coverage supplies the tail bound by
+[2018b](../20XX_V_triangle_geometry/2018b_shared_gap_anchor_transfer.md).
+Either incident gap may be selected; singleton gaps are included, and no
+point from the unselected gap is added. There is no disk or V-type split.
+The old six-point $K_C$ remains a compatibility consequence, not the active
+recipe. Neither CE2 threshold estimates nor the CE1 return is an active
+terminal dependency.
 
 ## 5. D: supported rescuer, at most four points
 
@@ -131,7 +131,7 @@ K_D=\{O,\varepsilon V_1,Y(A_0),Y(1-B_5)\}\subset U_C,
 \qquad \Lambda(K_D)\ge1.
 $$
 
-No disk is used. The same geometric four-point lemma applies to the
+The geometric theorem now needs only $a\ge0$, $\varepsilon>0$, $\beta\ge0$, and $\beta\le\varepsilon/(a+\varepsilon)$; four calipers prove it in [2616](2616_bc_d_finite_calipers.md). Size bounds above remain adapter inputs for original-gap forcing, not extra hypotheses of the geometric theorem. No disk is used. The same geometric four-point lemma applies to the
 T3-like local calculation in
 [`4130_new`](../../4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like_new/4130_new_T3_like_finite_enclosure.md)
 and the Vd1 calculation in
@@ -196,8 +196,6 @@ midpoint has one adjacent positive-support supplier:
 The new scalar replacement is
 [`2614`](2614_two_vertex_replacement.md). Its two vertex charts, template
 split, and all five strict preservation margins are explicit. The
-CE1 three-transverse return, the CE2 transverse thresholds, the separate
-rescuer chart inequalities, and the exact zero-gap certificate remain
-independent local responsibilities. The old one-Vd audit is a compatibility
+BC capacity envelope and finite-caliper proof, separate rescuer chart inequalities, and exact zero-gap certificate have independent proof owners. The former CE1 return and CE2 thresholds are historical alternatives. The old one-Vd audit is a compatibility
 assembly, not a second placement proof. Length and area are still different
 obstruction methods, not additional finite-witness recipes.

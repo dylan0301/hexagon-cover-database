@@ -1,9 +1,10 @@
 # Paper with proofs following statements
 
-This 73-page additional edition has no appendices. Its 83 formal results each have
+This 73-page additional edition has no appendices. Its 82 formal results each have
 an immediate proof. The introduction announces the main result; the formal
 main theorem and scaling corollary conclude the paper. Both editions share the new geometric overview and witness explanations.
-The numbered mathematical sources and exact certificate data are unchanged.
+The numbered sources include the approved five-point BC and four-point D replacement.
+The exact zero-gap certificate data are unchanged.
 
 From the repository root:
 
@@ -28,14 +29,14 @@ Common geometry includes the corner charts, exact-trace normalization,
 strict handoffs, admissible cells, and signed-center normal form. Supporting
 results precede their use; definitions precede the calculations using them.
 
-The 97 canonical statement entries become 83 statements by consolidating
+The 96 current canonical statement entries become 82 statements by consolidating
 14 repeated entries. [source_map.json](source_map.json) records the merges
 against canonical revision `9447b27ae5b5feefefb2209fd45cd7c1a4de4292`.
 Each merged statement retains both original statement labels. The two repeated
 zero-gap equation targets are redirected to the single retained equations;
 the map records these reference aliases explicitly.
 
-All 81 retained canonical proof bodies are checked against the new edition.
+All 80 retained canonical proof bodies are checked against the new edition.
 Type-aware references and whitespace may change. Three documented prose edits
 remove a forward consequence referral, defer reach notation until after
 normalization, and include the four-point convex combination in its full proof.
@@ -63,7 +64,8 @@ of its proof and places shared figures at their source positions. Run
 `python arrange/_support/verify_inline_proofs.py --pdf arrange/_build/inline_proofs.pdf`
 to check the rendered proof count, appendix referrals, and separated proof starts.
 
-The readability review preserves all 83 proof environments against the
-pre-review baseline. Its layout also prevents a final displayed equation from
-separating a statement from the start of its proof. The 73-page count includes
-that protection; no proof was removed to achieve a page target.
+The approved BC/D inventory contains 82 immediate proof environments. The prior
+readability baseline is archived, and the revised inventory is protected by the
+same source-regression audit. This mathematical replacement is not described as
+an unchanged pre-review proof. The layout keeps each statement with the start
+of its proof; the 73-page edition has no shortening target.

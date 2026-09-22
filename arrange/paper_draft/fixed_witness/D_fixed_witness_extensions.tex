@@ -37,109 +37,39 @@ No skeleton-cover hypothesis for this new candidate is used.
 \end{proof}
 
 
-\begin{lemma}[Fixed six-point transverse enclosure]
+\begin{lemma}[Fixed five-point selected-gap enclosure]
 \label{lem:appendix-fixed-transverse}
 The set $K_{BC}$ in \zcref{prop:new-nplus-one-all-vd0} has
-$\Lambda(K_{BC})\ge1$ for arbitrary V types on the nonsupercritical path.
+$\Lambda(K_{BC})>1$ for arbitrary V types on the nonsupercritical path,
+and is forced into $U_C$ under the stated skeleton-cover hypotheses.
 \end{lemma}
 \begin{proof}
-Suppose an open unit candidate $U'$ contains $K_{BC}$. Its origin is implicit
-in the witness hull, and $M_0$ fixes the unique-midpoint normalization.
-Write its signed parameters as $R,W,E,\eta,P,\alpha,\delta$ and put
+The boundary-deficit identities give increasing $A_1,\ldots,A_5$ and
+decreasing $B_1,\ldots,B_5$. Thus $0<x\le y<1$ and $x/2\le z\le y$.
+Put $\rho_i=1-c_{\max}(A_i,B_i)$. Apply
+\zcref{lem:new-common-pair-domination} at each neighboring triangle's own pair.
+Since $\rho_i\le\min(A_i,B_i)$, path monotonicity bounds the total inward
+reach on $r_i$ by
 \[
- X=R-\delta,\qquad Q=\frac{\eta+\alpha+\delta}{2R}.
+ 1-\min\{\rho_i,A_{i-1},B_{i+1}\}\qquad(i=2,3,4).
 \]
-The two selected gap endpoints give $B_0>2Q$ and $A_1>X$.
-The explicit tail premise gives $B_5\ge B_0/2>Q$.
-The four middle gap-free edges and nonsupercriticality imply
-\begin{equation}
- A_1<A_2<A_3<A_4<A_5,\qquad
- A_i>X,\quad B_i>Q\quad(1\le i\le5).
-\label{eq:fixed-path-boundary}
-\end{equation}
-The pair $(X,Q)$ is positive and has sum below one because it is strictly
-dominated by a nonsupercritical actual pair.
+The bounded-frontier statement of \zcref{lem:fixed-total-radial-forcing}
+therefore forces the corresponding points into $U_C$.
+The bounds $(A_2,B_2)\ge(1-y,z)$ imply
+$r\le\rho_2$, $r\le A_1$, and $r\le B_3$. Hence $rV_2$ is safe.
+Similarly $(A_4,B_4)\ge(1-z,x/2)$ gives $t\le\rho_4$, and
+$t\le x/2\le B_5$; clipping by $A_3$ makes $\widehat tV_4$ safe.
+The gap endpoints follow from \zcref{lem:gap-exhaustion}, and the midpoint
+belongs to $U_C$ by hypothesis. All witnesses are fixed before enclosure is tested.
 
-\emph{CE2 candidates.} Use the selected high-radial root
+If $A_3\ge t$, apply \zcref{lem:bc-five-point}. Otherwise $A_3<t$ and
+$A_3\ge A_1=1-y$, so
 \[
- e(d)=\frac{1-d}{2}\left(1-\sqrt{4(1-d)^2-3}\right).
+ \|X_0(y)-A_3V_4\|^2\ge
+ \|X_0(y)-(1-y)V_4\|^2=1+(1-y)(2-y)>1.
 \]
-The strict CE2 center inequalities give
-\begin{equation}
- X>e(\alpha),\qquad \min\{e(\alpha),e(\delta)\}<Q.
-\label{eq:fixed-ce2-thresholds}
-\end{equation}
-For completeness, $WX>\eta+\alpha$, and testing the low-root equation at
-this bound reduces the first assertion to
-\[
- \pi(t)=(\eta+t)(1-2t)-2Wt>0\qquad(0\le t\le P).
-\]
-The polynomial is concave, $\pi(0)=\eta>0$, and
-$\pi(P)=\eta(\eta+2ER^2)>0$. For the second assertion put
-$T=\alpha+\delta$. The weighted sum of the two strict center inequalities
-gives $T<\eta/E$. With $d=\min\{\alpha,\delta\}$,
-\[
- \min\{e(\alpha),e(\delta)\}
- <\frac{2d}{1-2d}\le\frac{T}{1-T}<Q.
-\]
-The final comparison follows from concavity of
-$\chi(T)=(\eta+T)(1-T)-2RT$, positive at zero and at $\eta/E$, where it
-has value $\eta(E-R)^2/E^2$.
-
-If $e(\alpha)<Q$, both coordinates of $(X,Q)$ exceed $e(\alpha)$.
-The high-radial threshold therefore gives
-$c_{\max}(X,Q)<1-\alpha$. Otherwise
-$e(\delta)<Q\le e(\alpha)<X$ and it gives
-$c_{\max}(X,Q)<1-\delta$. Common-pair domination and \zcref{eq:fixed-path-boundary} bound all local
-contributors on $r_4$ in the first case and $r_2$ in the second. Thus the
-candidate misses the corresponding fixed total endpoint.
-
-\emph{CE1 candidates.} Now $R\alpha+\delta\ge P$ and
-$\alpha+W\delta<P$. Set $m=\alpha/R$; the transverse exits are
-$\alpha,m,\delta$ on $r_4,r_3,r_2$. Combining the two signed inequalities
-gives $E^2\alpha<RP$, so $m<\eta/E$. Also
-\[
- X>\frac{R}{1+E}>\frac{\eta}{E}>m,
- \qquad 2R(Q-m)=\eta+\delta-\alpha>0.
-\]
-Here $E>W$ proves the middle inequality, and $\alpha<P=E\eta<\eta$
-proves the last sign. Consequently
-\begin{equation}
- \min\{X,Q\}>m>\alpha.
-\label{eq:fixed-ce1-neighbor-floor}
-\end{equation}
-The neighboring capacities on $r_4,r_3$ are therefore below the candidate's
-required demands. Fixed-endpoint containment and
-\zcref{lem:appendix-fixed-total-endpoint} recover
-\begin{equation}
- C_4>1-\alpha,\qquad C_3>1-m.
-\label{eq:fixed-ce1-first-demands}
-\end{equation}
-
-Apply \zcref{lem:ce1-first-return-step} with $h_0=Q$.
-The path inequalities give $B_4>Q$, and only the recovered demand
-$C_4>1-\alpha$ is needed. Thus
-\[
- B_3>L_1,\qquad L_1=(2-4\alpha)Q-(1-4\alpha)\alpha.
-\]
-The identity
-\begin{equation}
- R(L_1-\delta)
- =(1-2\alpha)\eta+(W-2\alpha)(\alpha+\delta)+4R\alpha^2>0
-\label{eq:fixed-ce1-bridge}
-\end{equation}
-follows by expansion, with every sign justified by
-$0<\alpha<P<\min\{1/2,W/2\}$. Hence $B_3>\delta$.
-Backward path monotonicity gives $B_1>B_3>\delta$, and
-$A_1,A_3>X>\delta$. Both neighbors of $r_2$ have capacities below
-$1-\delta$. Candidate containment now recovers
-\begin{equation}
- C_2>1-\delta.
-\label{eq:fixed-ce1-third-demand}
-\end{equation}
-All three own-radial hypotheses of
-\zcref{prop:new-ce1-direct-certificate} now hold. Its conclusion contradicts
-$A_1>X$ and nonsupercriticality, excluding CE1 as well.
+The diameter obstruction gives $\Lambda(K_{BC})>1$ in this case also.
+No signed center coordinates or CE1 return are used in this enclosure argument.
 \end{proof}
 
 \begin{lemma}[Fixed four-point supported-rescuer proof]
@@ -147,24 +77,29 @@ $A_1>X$ and nonsupercriticality, excluding CE1 as well.
 The geometric statement of \zcref{thm:fixed-four-point-rescuer} holds.
 \end{lemma}
 \begin{proof}
-If $a=0$ or $\beta=0$, the set contains $O$ and a hexagon vertex at distance
-one, so it cannot lie in an open unit equilateral triangle. Otherwise
-suppose a candidate contains the four points. The convex combination in
-the theorem's body proof puts $(\varepsilon/s)V_0$ in it, and
-$\varepsilon/s\ge1/2$ puts $M_0$ in it by convexity with $O$.
-The candidate has a positive boundary trace and unique midpoint $M_0$.
-Use the left-active reflected signed normal form when needed; a positive
-right-edge trace is not an extra hypothesis. The left trace has endpoints
-$k/W,R+\alpha$, and the exit on $r_1$ is $\delta/R$, with
-$k=\eta+\alpha+\delta$ and $\eta,\alpha,\delta>0$.
-Containment of $Y(a)$ and $\varepsilon V_1$ gives
+If $a=0$, the set contains $O,V_0$, at distance one. If $s\ge1$, then
 \[
- Wa>k,\qquad \delta>R\varepsilon,
+ \|Y(a)-\varepsilon V_1\|^2=1-s+s^2\ge1.
 \]
-so $\alpha<a-Rs$ and $R<a/s$. Since $s\le1$,
+These are diameter obstructions. Otherwise put $v=a/s$, so $0<s,v<1$.
+The ratio gives $1-\beta\ge v$, while $a=sv\le v$. Hence $Y(v)$ lies
+on $[Y(a),Y(1-\beta)]$. By convexity it suffices to enclose the quadrilateral,
+in cyclic order,
 \[
- R+\alpha<a+R(1-s)\le a/s.
+ O,\qquad Q=Y(v),\qquad A=Y(sv),\qquad P=s(1-v)V_1.
 \]
-Containment of $Y(1-\beta)$ would require $1-\beta<R+\alpha$, whereas
-$\beta\le\varepsilon/s$ gives $1-\beta\ge a/s$. This is impossible.
+With $h=\sqrt3/2$, its outward edge normals may be chosen as
+\[
+ (-hv,v/2-1),\quad v(1-s)(h,-1/2),\quad
+ (hs,1-s/2),\quad s(1-v)(-h,1/2).
+\]
+The maximizing triples in each direction and its two $120$-degree rotations
+are $(O,A,P)$, $(A,P,O)$, $(A,O,Q)$, and $(O,Q,A)$, respectively.
+The resulting caliper sides are
+\[
+ \frac1{\sqrt{1-v+v^2}},\qquad 1+s(1-v),\qquad
+ \frac1{\sqrt{1-s+s^2}},\qquad 1+v(1-s).
+\]
+All exceed one for $0<s,v<1$. The finite-caliper theorem
+\zcref{thm:cert-caliper} completes the nondegenerate case.
 \end{proof}

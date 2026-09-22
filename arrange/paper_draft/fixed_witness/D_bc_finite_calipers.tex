@@ -1,0 +1,65 @@
+% Five fixed points, not a candidate-center classification.
+\subsection{The five-point finite-caliper obstruction}
+\begin{lemma}[Five-point nonuniform caliper obstruction]
+\label{lem:bc-five-point}
+Let $0<x\le y<1$ and $x/2\le z\le y$. Put
+\[
+ r=1-c_{\max}(1-y,z),\qquad t=1-c_{\max}(1-z,x/2),\qquad
+ G_w=(1-w)V_0+wV_1.
+\]
+Then
+\[
+ \Lambda\{M_0,G_x,G_y,rV_2,tV_4\}>1.
+\]
+The two gap witnesses may coincide.
+\end{lemma}
+\begin{proof}
+By \zcref{lem:bc-capacity-tools},
+$0<r\le\min(y,1-y)$ and $0<t\le x/2$.
+Put $M=M_0$, $P=rV_2$, $Q=tV_4$, and $k=y-r$. For $x<y$ their hull
+has cyclic order $M,G_x,G_y,P,Q$. Direct consecutive cross products are
+positive under these bounds. Apply \zcref{thm:cert-caliper}; the five
+outward-edge orientations have the following side lengths:
+\begin{align*}
+L_1&=\frac{1-x+2xy+\max\{r(1-2x),2tx\}}{\sqrt{1-2x+4x^2}},\\
+L_2&=1+r+t,\\
+L_3&=\frac{r+t+\max\{1/2,1-x(1-k)\}}{\sqrt{1-k+k^2}},\\
+L_4&=\frac{rt+t+ry+\max\{r/2,r-(r+t)x,t^2\}}{\sqrt{r^2+rt+t^2}},\\
+L_5&=\frac{1+t+2ty+\max\{r,2t^2\}}{\sqrt{1+2t+4t^2}}.
+\end{align*}
+They correspond to $MG_x,G_xG_y,G_yP,PQ,QM$, respectively. To obtain
+each value, rotate its outward normal twice through $120$ degrees and
+sum the largest point projections. In particular, at $G_yP$ one may take
+$n=(-hk,1-k/2)$, where $h=\sqrt3/2$. Its squared norm is $1-k+k^2$,
+and its three supports divided by $h$ are $r$, $t$, and
+$\max\{1/2,1-x(1-k)\}$. When $x=y$, omit the zero edge $G_xG_y$;
+the four remaining calculations hold without a limiting strictness argument.
+
+Four orientations are elementary. Clearly $L_2>1$.
+The numerator of $L_1$ exceeds $1-x+2x^2$, and
+\[
+ (1-x+2x^2)^2-(1-2x+4x^2)=x^2(2x-1)^2\ge0.
+\]
+Thus $L_1>1$. Since $y\ge x\ge2t$,
+\[
+ (1+t+2t^2)^2-(1+2t+4t^2)=t^2(1+2t)^2>0
+\]
+gives $L_5>1$.
+For $L_4$, put $v=t/r>0$, use $y\ge x$, and discard the $t^2$ entry:
+\[
+ L_4\ge\frac{t+v+x+\max\{1/2,1-(1+v)x\}}{\sqrt{1+v+v^2}}.
+\]
+The piecewise-linear expression in $x$ is minimized at $1/[2(1+v)]$.
+With $g(v)=v+1/2+1/[2(1+v)]$,
+\[
+ g(v)^2-(1+v+v^2)=\frac{v^2}{4(1+v)^2}>0,
+\]
+so $L_4>1$.
+Finally \zcref{lem:bc-coupled-capacity} gives
+$r+t>(1-k)(x-k/2)$. Hence
+\[
+ r+t+\max\{1/2,1-x(1-k)\}>1-k/2+k^2/2\ge\sqrt{1-k+k^2},
+\]
+the last squared difference being $k^2(1-k)^2/4$.
+Thus $L_3>1$ and every nonzero hull-edge caliper is excluded.
+\end{proof}
