@@ -44,7 +44,7 @@ jobs:
           from pathlib import Path
           import hashlib
           for name,expected in {
-              'arrange/_support/bc_d_finish.py':'6c976aced3b889d363d938bd9ce686fdabb8fdc95cb09ffb07fb98e709f540cc',
+              'arrange/_support/bc_d_finish.py':'7303222e37fd060cef451e5d7752f3d98dbcf866ac0e435c21b46e788f490c12',
               'arrange/_support/bc_d_review_approval.json':'403f57b696fd3f962e083872902bb28579ed94f0f3fc1dcc250dc06d618c5576',
               'arrange/_support/bc_d_final_review.json':'fedc7eca553c413061afc7d75d4467f4372f28be6d1094f0e6d7ee81438e9262'
           }.items():
@@ -175,6 +175,6 @@ jobs:
           python - <<'PYCODE'
           from pathlib import Path
           import hashlib
-          assert hashlib.sha256(Path('arrange/_support/bc_d_finish.py').read_bytes()).hexdigest()=='6c976aced3b889d363d938bd9ce686fdabb8fdc95cb09ffb07fb98e709f540cc'
+          assert hashlib.sha256(Path('arrange/_support/bc_d_finish.py').read_bytes()).hexdigest()=='7303222e37fd060cef451e5d7752f3d98dbcf866ac0e435c21b46e788f490c12'
           PYCODE
           python arrange/_support/bc_d_finish.py publish /tmp/validated
