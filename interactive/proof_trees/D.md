@@ -46,6 +46,6 @@ This proof neither forces a candidate midpoint nor introduces signed center para
 
 ## Proof sources
 
-The active terminal is [2616](https://github.com/dylan0301/hexagon-cover-database/blob/c9baa75d090ee888fa85b575bdfb061f244197d0/proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2616_bc_d_finite_calipers.md).
+The active terminal is [2616](https://github.com/dylan0301/hexagon-cover-database/blob/f7fe2f89cde04903cba8ba347bd0645abee9b905/proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2616_bc_d_finite_calipers.md).
 The D terminal does not depend on the BC capacity-envelope lemma. The original supplier adapters remain responsible for forcing its four points and establishing the ratio.
 The entire page is explanatory; numbered sources supply proof authority.

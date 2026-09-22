@@ -14,7 +14,7 @@ import re
 from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parent
-PIN = 'c9baa75d090ee888fa85b575bdfb061f244197d0'
+PIN = 'f7fe2f89cde04903cba8ba347bd0645abee9b905'
 
 class ViewerParser(HTMLParser):
     def __init__(self):

@@ -21,8 +21,8 @@
     - In the two adjacent vertex charts, let $a,c$ be the first role's incoming boundary and own-radial reaches to preserve.
     - Let $B$ be the second role's outgoing boundary reach, and $r$ the radial demand needed to overlap the unchanged center.
     - Verify $a<1/2$, $a+c<1$, $a+B<1$, and $r<\max\{1-a,1-B\}$.
-    - Placement-specific verification: source [4144](https://github.com/dylan0301/hexagon-cover-database/blob/c9baa75d090ee888fa85b575bdfb061f244197d0/proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4144_new_two_chart_replacement_and_router.md).
-- **Choose strict parameters — source [2614](https://github.com/dylan0301/hexagon-cover-database/blob/c9baa75d090ee888fa85b575bdfb061f244197d0/proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2614_two_vertex_replacement.md).**
+    - Placement-specific verification: source [4144](https://github.com/dylan0301/hexagon-cover-database/blob/f7fe2f89cde04903cba8ba347bd0645abee9b905/proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4144_new_two_chart_replacement_and_router.md).
+- **Choose strict parameters — source [2614](https://github.com/dylan0301/hexagon-cover-database/blob/f7fe2f89cde04903cba8ba347bd0645abee9b905/proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2614_two_vertex_replacement.md).**
     - Choose $a<p_2<1-B$ with $\max\{p_2,1-p_2\}>r$.
     - Choose $a<p_1<\min\{p_2,1/2,1-c\}$.
     - Choose $\varepsilon>0$ smaller than all five quantities:
@@ -51,6 +51,6 @@
 
 ---
 
-**Proof sources:** [2614](https://github.com/dylan0301/hexagon-cover-database/blob/c9baa75d090ee888fa85b575bdfb061f244197d0/proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2614_two_vertex_replacement.md) · [4144](https://github.com/dylan0301/hexagon-cover-database/blob/c9baa75d090ee888fa85b575bdfb061f244197d0/proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4144_new_two_chart_replacement_and_router.md). All source links are pinned to the same repository snapshot.
+**Proof sources:** [2614](https://github.com/dylan0301/hexagon-cover-database/blob/f7fe2f89cde04903cba8ba347bd0645abee9b905/proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2614_two_vertex_replacement.md) · [4144](https://github.com/dylan0301/hexagon-cover-database/blob/f7fe2f89cde04903cba8ba347bd0645abee9b905/proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4144_new_two_chart_replacement_and_router.md). All source links are pinned to the same repository snapshot.
 
 [\[MAIN\]](../README.md) Return to the main tree.

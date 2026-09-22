@@ -61,6 +61,6 @@ If $T_C$ and $T_1$ both miss $M_1$, but $M_1\in U_0$, then **$U_0$ supplies $M_1
 
 ---
 
-**Proof sources:** [2613](https://github.com/dylan0301/hexagon-cover-database/blob/c9baa75d090ee888fa85b575bdfb061f244197d0/proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2613_midpoint_supplier_reduction.md) · [2531](https://github.com/dylan0301/hexagon-cover-database/blob/c9baa75d090ee888fa85b575bdfb061f244197d0/proof/2XXX_geometric_lemmas/25XX_length_bounds/2531_length_budget_corollaries.md) · [2614](https://github.com/dylan0301/hexagon-cover-database/blob/c9baa75d090ee888fa85b575bdfb061f244197d0/proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2614_two_vertex_replacement.md). All source links are pinned to the same repository snapshot.
+**Proof sources:** [2613](https://github.com/dylan0301/hexagon-cover-database/blob/f7fe2f89cde04903cba8ba347bd0645abee9b905/proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2613_midpoint_supplier_reduction.md) · [2531](https://github.com/dylan0301/hexagon-cover-database/blob/f7fe2f89cde04903cba8ba347bd0645abee9b905/proof/2XXX_geometric_lemmas/25XX_length_bounds/2531_length_budget_corollaries.md) · [2614](https://github.com/dylan0301/hexagon-cover-database/blob/f7fe2f89cde04903cba8ba347bd0645abee9b905/proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2614_two_vertex_replacement.md). All source links are pinned to the same repository snapshot.
 
 [\[MAIN\]](README.md) Return to the main tree.

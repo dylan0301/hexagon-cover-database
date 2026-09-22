@@ -26,7 +26,7 @@ MAIN = PAPER / "main.tex"
 OUT_HTML = ROOT / "interactive" / "readable_proof_dependency_graph.html"
 OUT_JSON = ROOT / "interactive" / "readable_proof_dependency_data.json"
 REPORT = ROOT / "arrange" / "README.md"
-BRANCH = "main"
+BRANCH = "f7fe2f89cde04903cba8ba347bd0645abee9b905"
 REPOSITORY = "dylan0301/hexagon-cover-database"
 
 ENV_RE = re.compile(

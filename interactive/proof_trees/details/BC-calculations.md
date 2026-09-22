@@ -40,6 +40,6 @@ The other four calipers are evaluated explicitly in 2616; finite calipers are ex
 
 ## Proof sources
 
-The active terminal is [2616](https://github.com/dylan0301/hexagon-cover-database/blob/c9baa75d090ee888fa85b575bdfb061f244197d0/proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2616_bc_d_finite_calipers.md).
-Its capacity input is [2615](https://github.com/dylan0301/hexagon-cover-database/blob/c9baa75d090ee888fa85b575bdfb061f244197d0/proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2615_slack_sensitive_radial_envelope.md).
+The active terminal is [2616](https://github.com/dylan0301/hexagon-cover-database/blob/f7fe2f89cde04903cba8ba347bd0645abee9b905/proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2616_bc_d_finite_calipers.md).
+Its capacity input is [2615](https://github.com/dylan0301/hexagon-cover-database/blob/f7fe2f89cde04903cba8ba347bd0645abee9b905/proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2615_slack_sensitive_radial_envelope.md).
 The entire page is explanatory; numbered sources supply proof authority.

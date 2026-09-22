@@ -56,11 +56,11 @@ New to the proof? [START](START.md) explains the problem and vocabulary without 
 
 ## Scope
 
-This is a linked presentation of the repository's proof, not a new proof or an independent verification of all calculation leaves. The presentation follows repository snapshot `c9baa75d090ee888fa85b575bdfb061f244197d0`, checked on **2026-09-22**. This directory is the presentation layer; numbered proof sources remain the mathematical authority.
+This is a linked presentation of the repository's proof, not a new proof or an independent verification of all calculation leaves. The presentation follows repository snapshot `f7fe2f89cde04903cba8ba347bd0645abee9b905`, checked on **2026-09-22**. This directory is the presentation layer; numbered proof sources remain the mathematical authority.
 
 ---
 
-**Proof sources:** [0000](https://github.com/dylan0301/hexagon-cover-database/blob/c9baa75d090ee888fa85b575bdfb061f244197d0/proof/0XXX_main/0000_main_theorem.md) · [0003](https://github.com/dylan0301/hexagon-cover-database/blob/c9baa75d090ee888fa85b575bdfb061f244197d0/proof/0XXX_main/0003_reusable_lemma_catalog.md) · [2613](https://github.com/dylan0301/hexagon-cover-database/blob/c9baa75d090ee888fa85b575bdfb061f244197d0/proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2613_midpoint_supplier_reduction.md). All source links are pinned to the same repository snapshot.
+**Proof sources:** [0000](https://github.com/dylan0301/hexagon-cover-database/blob/f7fe2f89cde04903cba8ba347bd0645abee9b905/proof/0XXX_main/0000_main_theorem.md) · [0003](https://github.com/dylan0301/hexagon-cover-database/blob/f7fe2f89cde04903cba8ba347bd0645abee9b905/proof/0XXX_main/0003_reusable_lemma_catalog.md) · [2613](https://github.com/dylan0301/hexagon-cover-database/blob/f7fe2f89cde04903cba8ba347bd0645abee9b905/proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2613_midpoint_supplier_reduction.md). All source links are pinned to the same repository snapshot.
 
 ## BC/D terminal revision
 
