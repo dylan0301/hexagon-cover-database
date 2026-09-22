@@ -3,40 +3,158 @@ on:
   push:
     branches: [chatgpt/bc-d-finite-calipers-20260922]
     paths: ['.github/workflows/bc-d-delivery.yml']
+  workflow_dispatch:
 permissions:
   contents: read
 jobs:
-  diagnose:
+  validate:
     if: github.ref == 'refs/heads/chatgpt/bc-d-finite-calipers-20260922'
     runs-on: ubuntu-24.04
+    timeout-minutes: 35
     steps:
       - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
         with:
           persist-credentials: false
-      - name: Inspect pinned exact certificate and delivery helper
+          fetch-depth: 0
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22'
+      - name: Install audit dependencies
         run: |
-          python3 - <<'PY'
+          python -m pip install -r arrange/_support/requirements.txt -r interactive/proof_trees/requirements.txt
+          cd interactive/proof_trees
+          npm install --no-save --no-package-lock --ignore-scripts mathjax-full@3.2.2
+      - name: Verify and apply pinned migration
+        run: |
+          python - <<'PY'
           from pathlib import Path
-          import base64,hashlib,json,lzma
+          import base64,hashlib,json,lzma,subprocess
           folder=Path('arrange/_support/bc_d_transport')
           manifest=json.loads((folder/'manifest.json').read_text())
-          archive=base64.b64decode(''.join((folder/p).read_text().strip() for p in manifest['parts']),validate=True)
+          assert manifest['base_commit']=='083d7fc08bf0918547c8d1624407924604b32e04'
+          parts=[]
+          for name in manifest['parts']:
+              assert name in ['part00.b64','part01.b64','part02.b64','part03.b64']
+              raw=(folder/name).read_bytes()
+              assert hashlib.sha256(raw).hexdigest()==manifest['part_sha256'][name],name
+              parts.append(raw.decode().strip())
+          encoded=''.join(parts)
+          archive=base64.b64decode(encoded,validate=True)
           assert hashlib.sha256(archive).hexdigest()=='273ae9520cdaa0230851998598533e8ce5e79898be9eebc7b50d713d7ffa6835'
           files=json.loads(lzma.decompress(archive))
-          patch=Path('arrange/_support/bc_d_postpatch.json')
-          assert hashlib.sha256(patch.read_bytes()).hexdigest()=='ce28dbcb25e80884809e0c51d8fcdd16152af0363f6918a87075c0d5e8519246'
-          patches=json.loads(patch.read_text())
-          for name in files:
-              if name.endswith(('verify_bc_d_calipers.py','bc_d_delivery.py')):
-                  source=files[name]
-                  if name in patches:
-                      v=patches[name]
-                      assert hashlib.sha256(source.encode()).hexdigest()==v['before']
-                      lines=source.splitlines(keepends=True)
-                      for lo,hi,text in reversed(v['edits']):
-                          lines[lo:hi]=[text]
-                      source=''.join(lines)
-                      assert hashlib.sha256(source.encode()).hexdigest()==v['after']
-                  print('SOURCE',name,hashlib.sha256(source.encode()).hexdigest())
-                  print(source)
+          assert set(files)==set(manifest['files'])
+          for name,text in files.items():
+              assert name.startswith(('proof/','arrange/','interactive/')) and '..' not in Path(name).parts
+              assert hashlib.sha256(text.encode()).hexdigest()==manifest['files'][name],name
+          manifest['archive_base64']=encoded
+          Path('arrange/_support/bc_d_payload.json').write_text(json.dumps(manifest))
+          Path('arrange/_support/bc_d_delivery.py').write_text(files['arrange/_support/bc_d_delivery.py'])
+          hotfix=Path('arrange/_support/bc_d_hotfix.py')
+          if hotfix.exists():
+              subprocess.run(['python',str(hotfix)],check=True)
+          Path('/tmp/bc_d_delivery.py').write_bytes(Path('arrange/_support/bc_d_delivery.py').read_bytes())
+          subprocess.run(['python','/tmp/bc_d_delivery.py'],check=True)
+          p=Path('arrange/_support/bc_d_postpatch.json')
+          assert hashlib.sha256(p.read_bytes()).hexdigest()=='ce28dbcb25e80884809e0c51d8fcdd16152af0363f6918a87075c0d5e8519246'
+          data=json.loads(p.read_text())
+          assert len(data)==16
+          for name,v in data.items():
+              assert name.startswith(('arrange/','interactive/','proof/')) or name=='.github/workflows/ci.yml'
+              assert '..' not in Path(name).parts and not Path(name).is_absolute()
+              p=Path(name)
+              assert hashlib.sha256(p.read_bytes()).hexdigest()==v['before'],name
+              lines=p.read_text().splitlines(keepends=True)
+              for lo,hi,text in reversed(v['edits']):
+                  assert 0<=lo<=hi<=len(lines)
+                  lines[lo:hi]=[text]
+              content=''.join(lines).encode()
+              assert hashlib.sha256(content).hexdigest()==v['after'],name
+              p.write_bytes(content)
+          requirements=Path('interactive/proof_trees/requirements.txt')
+          assert 'networkx==3.4.2' in requirements.read_text()
+          subprocess.run(['python','/tmp/bc_d_delivery.py','--baseline'],check=True)
           PY
+      - name: Generate current interactive views
+        run: |
+          python interactive/generate.py --dependency-graph
+          python interactive/animated_proof_guide/build.py
+          python interactive/proof_trees/build.py
+      - name: Audit integrated proof and interactive interfaces
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/bc-d-review
+          {
+            python proof/check.py
+            python arrange/_support/verify_inline_proofs.py
+            python arrange/_support/verify_readability_preservation.py
+            python interactive/generate.py --dependency-graph --check
+            python interactive/generate.py --trace-assets --check
+            python interactive/check.py
+            python interactive/proof_trees/check.py --html
+            python interactive/proof_trees/build.py --check
+            python interactive/animated_proof_guide/check.py --require-live
+            git diff --check
+          } 2>&1 | tee /tmp/bc-d-review/source-audit.log
+      - name: Build both publication editions in pinned TeX Live
+        uses: xu-cheng/texlive-action@22c04326a5d855880f9d39bb955138bf11c6df80
+        with:
+          docker_image: >-
+            ghcr.io/xu-cheng/texlive-historic-debian:2025@sha256:d3e42adc0c8d84bc913bfc33571feaf7037616260a771bb6f027504661568bf6
+          run: |
+            set -euo pipefail
+            python3 arrange/build.py --all --output-dir arrange/_build
+      - name: Audit rebuilt PDFs
+        run: |
+          set -euo pipefail
+          {
+            python arrange/_support/verify_pdf_render.py arrange/_build/canonical.pdf
+            python arrange/_support/verify_pdf_render.py arrange/_build/inline_proofs.pdf
+            python arrange/_support/verify_inline_proofs.py --pdf arrange/_build/inline_proofs.pdf
+          } 2>&1 | tee /tmp/bc-d-review/pdf-audit.log
+          python - <<'PY'
+          import fitz,shutil,json
+          from pathlib import Path
+          counts={}
+          for name,target in [('canonical','arrange/paper_draft/main.pdf'),('inline_proofs','arrange/paper_draft/inline_proofs/main.pdf')]:
+              source=Path('arrange/_build')/(name+'.pdf')
+              counts[name]=fitz.open(source).page_count
+              shutil.copy2(source,target)
+              shutil.copy2(source,Path('/tmp/bc-d-review')/(name+'.pdf'))
+          Path('/tmp/bc-d-review/page_counts.json').write_text(json.dumps(counts,indent=2)+'\n')
+          print(counts)
+          PY
+      - name: Export exact source snapshot for independent review
+        if: always()
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib,json,os,subprocess,zipfile
+          out=Path('/tmp/bc-d-review');out.mkdir(exist_ok=True)
+          paths=subprocess.check_output(['git','ls-files','-c','-o','--exclude-standard','-z']).decode().split('\0')
+          records={}
+          with zipfile.ZipFile(out/'source-review.zip','w',zipfile.ZIP_DEFLATED) as z:
+              for name in sorted(set(paths)):
+                  p=Path(name)
+                  if not name or not p.is_file() or any(x in p.parts for x in ['node_modules','__pycache__','bc_d_transport']):continue
+                  if p.suffix.lower() in ['.gif','.png','.jpg','.jpeg','.pdf']:continue
+                  if name.endswith(('bc_d_payload.json','bc_d_postpatch.json')):continue
+                  raw=p.read_bytes();z.writestr(name,raw)
+                  records[name]=hashlib.sha256(raw).hexdigest()
+          for name in ['canonical','inline_proofs']:
+              p=Path('arrange/_build')/(name+'.pdf')
+              if p.exists():
+                  (out/(name+'.pdf')).write_bytes(p.read_bytes())
+          Path(out/'manifest.json').write_text(json.dumps({'head':os.environ['GITHUB_SHA'],'files':records},indent=2)+'\n')
+          Path(out/'working-diff.patch').write_bytes(subprocess.check_output(['git','diff','--binary']))
+          print('Snapshot files:',len(records))
+          PY
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        if: always()
+        with:
+          name: bc-d-review
+          path: /tmp/bc-d-review
+          retention-days: 7
+          if-no-files-found: error
