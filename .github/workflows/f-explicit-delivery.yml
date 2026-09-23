@@ -1,12 +1,22 @@
-name: Temporary F integration transport
+name: Temporary F validated publication
 on:
   push:
     branches: [chatgpt/f-explicit-comparison-20260923155000]
-    paths: [.github/workflows/f-explicit-delivery.yml]
+    paths: [.github/workflows/f-explicit-delivery.yml, '.github/f-explicit-payload/**']
 permissions:
   contents: read
+concurrency:
+  group: f-explicit-delivery
+  cancel-in-progress: false
+env:
+  SOURCE_DATE_EPOCH: '946684800'
+  FORCE_SOURCE_DATE: '1'
+  TZ: UTC
+  F_BRANCH: chatgpt/f-explicit-comparison-20260923155000
+  F_PAYLOAD_SHA: 41e03a6d3c16b596d7341d272194d9a7164b98af69938c63e1ec1abd8bf9b1c9
+  F_ALLOW_SHA: 05a17d939f701053d9b6491eb60a0804d0c9a3b2215ed5782e9cae1912b071f7
 jobs:
-  snapshot:
+  validate:
     if: github.ref == 'refs/heads/chatgpt/f-explicit-comparison-20260923155000'
     runs-on: ubuntu-24.04
     steps:
@@ -14,13 +24,192 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
-      - name: Archive the reviewed source revision only
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22'
+      - name: Apply only hash-approved source edits
         run: |
-          git archive --format=tar e255ed51d54c3f005dc9c5764e8ee3736cd06946 > /tmp/F-base.tar
-          sha256sum /tmp/F-base.tar
+          python - <<'PY'
+          import hashlib,json,lzma,os,subprocess
+          from pathlib import Path,PurePosixPath
+          digest=lambda b:hashlib.sha256(b).hexdigest()
+          assert os.environ['GITHUB_REF']=='refs/heads/'+os.environ['F_BRANCH']
+          parts=sorted(Path('.github/f-explicit-payload').glob('*.part'))
+          assert [p.name for p in parts]==[f'{i:02d}.part' for i in range(8)]
+          blob=b''.join(p.read_bytes() for p in parts)
+          assert digest(blob)==os.environ['F_PAYLOAD_SHA']
+          raw=lzma.decompress(blob);assert len(raw)<1000000
+          d=json.loads(raw)
+          assert d['base']=='e255ed51d54c3f005dc9c5764e8ee3736cd06946'
+          assert d['branch']==os.environ['F_BRANCH']
+          assert subprocess.check_output(['git','rev-parse',d['base']+'^{tree}'],text=True).strip()==d['base_tree']
+          names=[f['path'] for f in d['files']]
+          allowed=sorted(names+d['generated'])
+          assert len(allowed)==len(set(allowed))
+          assert digest('\n'.join(allowed).encode())==os.environ['F_ALLOW_SHA']
+          for name in allowed:
+              p=PurePosixPath(name)
+              assert not p.is_absolute() and '..' not in p.parts and p.parts[0] in {'.github','arrange','interactive','proof','README.md'}
+              assert not Path(name).is_symlink()
+          updates={u['path']:u for u in d['updates']};assert set(updates)==set(names)
+          for f in d['files']:
+              p=Path(f['path']);u=updates[f['path']]
+              if f['before'] is None:
+                  assert not p.exists();text=u['text']
+              else:
+                  assert p.is_file() and digest(p.read_bytes())==f['before'],f['path']
+                  lines=p.read_text().splitlines(keepends=True);last=0
+                  for i,j,text in u['edits']:
+                      assert last<=i<=j<=len(lines);last=j
+                  for i,j,text in reversed(u['edits']):lines[i:j]=[text]
+                  text=''.join(lines)
+              data=text.encode();assert digest(data)==f['sha256'] and len(data)==f['bytes'],f['path']
+              assert f['mode'] in {'100644','100755'}
+              p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(data)
+              p.chmod(0o755 if f['mode']=='100755' else 0o644)
+          Path('/tmp/F-approved.json').write_text(json.dumps({k:v for k,v in d.items() if k!='updates'}))
+          subprocess.run(['git','add','-N','--',*names],check=True)
+          print('Applied and byte-verified',len(names),'source files')
+          PY
+      - name: Install pinned dependencies
+        run: |
+          python -m pip install --disable-pip-version-check -r arrange/_support/requirements.txt -r interactive/proof_trees/requirements.txt
+          (cd interactive/proof_trees && npm install --no-save --no-package-lock --ignore-scripts mathjax-full@3.2.2)
+      - name: Regenerate affected offline publications
+        run: |
+          python interactive/generate.py --dependency-graph
+          python interactive/proof_trees/build.py
+          git add -N interactive/readable_proof_dependency_graph.html interactive/proof_trees/index.html
+      - name: Check all proof and viewer sources
+        run: |
+          python proof/check.py
+          python arrange/_support/verify_inline_proofs.py
+          python arrange/_support/verify_readability_preservation.py
+          python interactive/generate.py --dependency-graph --check
+          python interactive/generate.py --trace-assets --check
+          python interactive/check.py
+          python interactive/proof_trees/check.py --html
+          python interactive/proof_trees/build.py --check
+          python interactive/animated_proof_guide/check.py --require-live
+          git diff --check
+      - name: Replay active and historical exact certificates
+        working-directory: proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation
+        run: |
+          python verify_explicit_stage.py --output /tmp/F-explicit.json
+          cmp /tmp/F-explicit.json explicit_verification.json
+          python verify_mixed_overlap_core_derivation.py
+          python verify_global_core_positivity.py
+      - name: Rebuild both publications in pinned TeX Live 2025
+        uses: xu-cheng/texlive-action@22c04326a5d855880f9d39bb955138bf11c6df80
+        with:
+          docker_image: ghcr.io/xu-cheng/texlive-historic-debian:2025@sha256:d3e42adc0c8d84bc913bfc33571feaf7037616260a771bb6f027504661568bf6
+          run: |
+            set -euo pipefail
+            python3 arrange/build.py --all --output-dir arrange/_build
+      - name: Audit pinned PDFs and assemble allowlisted artifact
+        run: |
+          python arrange/_support/verify_pdf_render.py arrange/_build/canonical.pdf
+          python arrange/_support/verify_pdf_render.py arrange/_build/inline_proofs.pdf
+          python arrange/_support/verify_inline_proofs.py --pdf arrange/_build/inline_proofs.pdf
+          python - <<'PY'
+          import hashlib,json,os,shutil,subprocess,stat
+          from pathlib import Path
+          import fitz
+          digest=lambda b:hashlib.sha256(b).hexdigest()
+          d=json.loads(Path('/tmp/F-approved.json').read_text())
+          pages={}
+          for src,dst in [('canonical.pdf','main.pdf'),('inline_proofs.pdf','inline_proofs/main.pdf')]:
+              p=Path('arrange/_build')/src
+              with fitz.open(p) as doc:pages[src]=len(doc)
+              shutil.copyfile(p,Path('arrange/paper_draft')/dst)
+          assert 65<=pages['canonical.pdf']<=69,pages
+          rec={'base_revision':d['base'],'delivery_input_sha':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],
+               'branch':os.environ['F_BRANCH'],'pinned_tex_image':'ghcr.io/xu-cheng/texlive-historic-debian:2025@sha256:d3e42adc0c8d84bc913bfc33571feaf7037616260a771bb6f027504661568bf6',
+               'pages':pages,'checks':'All preceding source, exact active/historical, generated-file and PDF checks passed in this read-only job.',
+               'scope':'Computational/algebraic and source validation, not formal verification of the upstream geometry. Final branch CI is separate.'}
+          Path('arrange/_support/f_explicit_publication_validation.json').write_text(json.dumps(rec,indent=2)+'\n')
+          approved={f['path']:f for f in d['files']}
+          allowed=sorted(list(approved)+d['generated'])
+          assert digest('\n'.join(allowed).encode())==os.environ['F_ALLOW_SHA']
+          for name,f in approved.items():assert digest(Path(name).read_bytes())==f['sha256'],name
+          subprocess.run(['git','add','-N','--',*allowed],check=True)
+          modified=set(subprocess.check_output(['git','diff','--name-only','HEAD'],text=True).splitlines())
+          assert modified<=set(allowed),sorted(modified-set(allowed))
+          subprocess.run(['git','diff','--check'],check=True)
+          out=Path('/tmp/F-validated');(out/'files').mkdir(parents=True)
+          records=[]
+          for name in allowed:
+              p=Path(name);assert p.is_file() and not p.is_symlink()
+              data=p.read_bytes();mode=approved[name]['mode'] if name in approved else '100644'
+              q=out/'files'/name;q.parent.mkdir(parents=True,exist_ok=True);q.write_bytes(data)
+              records.append({'path':name,'sha256':digest(data),'bytes':len(data),'mode':mode,
+                              'git_blob_sha':hashlib.sha1(f'blob {len(data)}\0'.encode()+data).hexdigest()})
+          manifest={'base':d['base'],'branch':os.environ['F_BRANCH'],'input_sha':os.environ['GITHUB_SHA'],
+                    'allowlist_sha256':os.environ['F_ALLOW_SHA'],'records':records}
+          (out/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
+          print('Validated pinned publications and',len(records),'allowlisted files:',pages)
+          PY
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
-          name: F-reviewed-base
-          path: /tmp/F-base.tar
+          name: F-validated-publication
+          path: /tmp/F-validated
+          include-hidden-files: true
           if-no-files-found: error
-          retention-days: 3
+          retention-days: 7
+  publish:
+    needs: validate
+    if: github.ref == 'refs/heads/chatgpt/f-explicit-comparison-20260923155000'
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+        with:
+          ref: chatgpt/f-explicit-comparison-20260923155000
+          fetch-depth: 0
+      - name: Download this run's read-only validated artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh run download "$GITHUB_RUN_ID" --repo "$GITHUB_REPOSITORY" --name F-validated-publication --dir /tmp/F-validated
+      - name: Verify bytes and publish only to the delivery branch
+        run: |
+          python - <<'PY'
+          import hashlib,json,os,subprocess
+          from pathlib import Path,PurePosixPath
+          digest=lambda b:hashlib.sha256(b).hexdigest()
+          branch=os.environ['F_BRANCH'];assert branch=='chatgpt/f-explicit-comparison-20260923155000'
+          assert os.environ['GITHUB_REF']=='refs/heads/'+branch
+          head=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
+          assert head==os.environ['GITHUB_SHA'],'Target branch advanced; stop instead of forcing'
+          root=Path('/tmp/F-validated');d=json.loads((root/'manifest.json').read_text())
+          assert d['input_sha']==head and d['branch']==branch
+          names=[r['path'] for r in d['records']]
+          assert len(names)==len(set(names))
+          assert digest('\n'.join(sorted(names)).encode())==os.environ['F_ALLOW_SHA']==d['allowlist_sha256']
+          writes=[]
+          for r in d['records']:
+              name=r['path'];rel=PurePosixPath(name)
+              assert not rel.is_absolute() and '..' not in rel.parts
+              src=root/'files'/name;assert src.is_file() and not src.is_symlink()
+              data=src.read_bytes();assert len(data)==r['bytes'] and digest(data)==r['sha256']
+              assert r['mode'] in {'100644','100755'}
+              if name=='.github/workflows/ci.yml':continue
+              assert not name.startswith('.github/'),'Workflow changes require connector finalization'
+              dst=Path(name);assert not dst.is_symlink()
+              dst.parent.mkdir(parents=True,exist_ok=True);dst.write_bytes(data)
+              dst.chmod(0o755 if r['mode']=='100755' else 0o644);writes.append(name)
+          subprocess.run(['git','add','--',*writes],check=True)
+          actual=set(subprocess.check_output(['git','diff','--cached','--name-only'],text=True).splitlines())
+          assert actual<=set(writes)
+          subprocess.run(['git','diff','--cached','--check'],check=True)
+          subprocess.run(['git','config','user.name','github-actions[bot]'],check=True)
+          subprocess.run(['git','config','user.email','41898282+github-actions[bot]@users.noreply.github.com'],check=True)
+          subprocess.run(['git','commit','-m','Integrate Case F fixed-start witnesses and explicit-comparison proof'],check=True)
+          subprocess.run(['git','push','origin','HEAD:refs/heads/'+branch],check=True)
+          print('Publication commit:',subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip())
+          print('Connector finalization must update ci.yml, remove temporary delivery files, and trigger final PR CI.')
+          PY
