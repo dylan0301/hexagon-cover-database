@@ -14,7 +14,13 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
-      - name: Archive only source diagnostics
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22'
+      - name: Apply hash-checked source payload and preserve source-only snapshots
         run: |
           python - <<'PY'
           import hashlib,json,lzma,subprocess,tarfile,io
@@ -22,31 +28,44 @@ jobs:
           h=lambda b:hashlib.sha256(b).hexdigest()
           blob=b''.join(p.read_bytes() for p in sorted(Path('.github/f-explicit-payload').glob('*.part')))
           assert h(blob)=='41e03a6d3c16b596d7341d272194d9a7164b98af69938c63e1ec1abd8bf9b1c9'
-          d=json.loads(lzma.decompress(blob));before={f['path']:f for f in d['files']}
-          archive=tarfile.open('/tmp/F-source-diagnostic.tar','w')
-          for name in ['proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/verify_quarter_envelope_revision.py','arrange/_support/quarter_envelope_preservation.json']:
-              b=Path(name).read_bytes();print('BEFORE',name,len(b.splitlines()),h(b))
-              t=tarfile.TarInfo('before/'+name);t.size=len(b);archive.addfile(t,io.BytesIO(b))
+          d=json.loads(lzma.decompress(blob)); before={f['path']:f for f in d['files']}
+          Path('/tmp/F-debug').mkdir()
+          Path('/tmp/F-debug/payload.json').write_text(json.dumps(d))
+          subprocess.run(['git','archive','--format=tar','--output=/tmp/F-debug/base.tar',d['base']],check=True)
           for u in d['updates']:
-              p=Path(u['path']);r=before[u['path']]
+              p=Path(u['path']); r=before[u['path']]
               if r['before'] is None: text=u['text']
               else:
                   assert h(p.read_bytes())==r['before'],str(p)
                   lines=p.read_text().splitlines(keepends=True)
-                  for i,j,text in reversed(u['edits']):lines[i:j]=[text]
+                  for i,j,text in reversed(u['edits']): lines[i:j]=[text]
                   text=''.join(lines)
-              data=text.encode();assert h(data)==r['sha256'],str(p)
-              p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(data)
-          paths=['proof/check.py','proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/verify_quarter_envelope_revision.py','arrange/_support/quarter_envelope_preservation.json','arrange/paper_draft/E_zero_gap_nine_point_optimization.tex','arrange/paper_draft/A_zero_gap_exact_certificate.tex','arrange/paper_draft/inline_proofs/06_zero_gap.tex']
-          for name in paths:
-              b=Path(name).read_bytes();print('AFTER',name,len(b.splitlines()),h(b))
-              t=tarfile.TarInfo('after/'+name);t.size=len(b);archive.addfile(t,io.BytesIO(b))
-          archive.close()
-          print(subprocess.check_output(['git','rev-parse','HEAD'],text=True))
+              data=text.encode(); assert h(data)==r['sha256'],str(p)
+              p.parent.mkdir(parents=True,exist_ok=True); p.write_bytes(data)
+          subprocess.run(['git','add','-N','--',*[f['path'] for f in d['files']]],check=True)
+          PY
+      - name: Install dependencies
+        run: |
+          python -m pip install -r arrange/_support/requirements.txt -r interactive/proof_trees/requirements.txt
+          (cd interactive/proof_trees && npm install --no-save --no-package-lock --ignore-scripts mathjax-full@3.2.2)
+      - name: Collect all source check results without changing publication gates
+        run: |
+          python - <<'PY'
+          import subprocess,json
+          from pathlib import Path
+          commands=['python interactive/generate.py --dependency-graph','python interactive/proof_trees/build.py','git add -N interactive/readable_proof_dependency_graph.html interactive/proof_trees/index.html','python proof/check.py','python arrange/_support/verify_inline_proofs.py','python arrange/_support/verify_readability_preservation.py','python interactive/generate.py --dependency-graph --check','python interactive/generate.py --trace-assets --check','python interactive/check.py','python interactive/proof_trees/check.py --html','python interactive/proof_trees/build.py --check','python interactive/animated_proof_guide/check.py --require-live','git diff --check']
+          results=[]
+          for i,cmd in enumerate(commands):
+              p=subprocess.run(cmd.split(),text=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
+              Path(f'/tmp/F-debug/{i:02d}.log').write_text(p.stdout)
+              results.append({'command':cmd,'returncode':p.returncode,'tail':p.stdout[-3000:]})
+              print(cmd, p.returncode, p.stdout[-500:],flush=True)
+          Path('/tmp/F-debug/results.json').write_text(json.dumps(results,indent=2))
           PY
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        if: always()
         with:
-          name: F-source-diagnostic
-          path: /tmp/F-source-diagnostic.tar
+          name: F-delivery-repair-diagnostics
+          path: /tmp/F-debug
           retention-days: 3
           if-no-files-found: error
