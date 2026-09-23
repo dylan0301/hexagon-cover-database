@@ -78,11 +78,13 @@ jobs:
         run: |
           python -m pip install --disable-pip-version-check -r arrange/_support/requirements.txt -r interactive/proof_trees/requirements.txt
           (cd interactive/proof_trees && npm install --no-save --no-package-lock --ignore-scripts mathjax-full@3.2.2)
-      - name: Regenerate affected offline publications
+      - name: Regenerate and establish candidate artifact index
         run: |
           python interactive/generate.py --dependency-graph
           python interactive/proof_trees/build.py
-          git add -N interactive/readable_proof_dependency_graph.html interactive/proof_trees/index.html
+          # --check compares regenerated files against the index. Stage the approved
+          # candidate artifacts first, then independently regenerate them below.
+          git add -- interactive/readable_proof_dependency_graph.html interactive/proof_trees/index.html
       - name: Check all proof and viewer sources
         run: |
           python proof/check.py
@@ -95,6 +97,7 @@ jobs:
           python interactive/proof_trees/build.py --check
           python interactive/animated_proof_guide/check.py --require-live
           git diff --check
+          git diff --cached --check
       - name: Replay active and historical exact certificates
         working-directory: proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation
         run: |
@@ -109,18 +112,17 @@ jobs:
           run: |
             set -euo pipefail
             python3 arrange/build.py --all --output-dir arrange/_build
-      - name: Audit pinned PDFs and assemble allowlisted artifact
+      - name: Audit PDFs and package only allowlisted bytes
         run: |
           python arrange/_support/verify_pdf_render.py arrange/_build/canonical.pdf
           python arrange/_support/verify_pdf_render.py arrange/_build/inline_proofs.pdf
           python arrange/_support/verify_inline_proofs.py --pdf arrange/_build/inline_proofs.pdf
           python - <<'PY'
-          import hashlib,json,os,shutil,subprocess,stat
+          import hashlib,json,os,shutil,subprocess
           from pathlib import Path
           import fitz
           digest=lambda b:hashlib.sha256(b).hexdigest()
-          d=json.loads(Path('/tmp/F-approved.json').read_text())
-          pages={}
+          d=json.loads(Path('/tmp/F-approved.json').read_text());pages={}
           for src,dst in [('canonical.pdf','main.pdf'),('inline_proofs.pdf','inline_proofs/main.pdf')]:
               p=Path('arrange/_build')/src
               with fitz.open(p) as doc:pages[src]=len(doc)
@@ -128,29 +130,25 @@ jobs:
           assert 65<=pages['canonical.pdf']<=69,pages
           rec={'base_revision':d['base'],'delivery_input_sha':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],
                'branch':os.environ['F_BRANCH'],'pinned_tex_image':'ghcr.io/xu-cheng/texlive-historic-debian:2025@sha256:d3e42adc0c8d84bc913bfc33571feaf7037616260a771bb6f027504661568bf6',
-               'pages':pages,'checks':'All preceding source, exact active/historical, generated-file and PDF checks passed in this read-only job.',
+               'pages':pages,'checks':'All source, active/historical exact, generated-file and PDF checks passed in the read-only validation job.',
                'scope':'Computational/algebraic and source validation, not formal verification of the upstream geometry. Final branch CI is separate.'}
           Path('arrange/_support/f_explicit_publication_validation.json').write_text(json.dumps(rec,indent=2)+'\n')
-          approved={f['path']:f for f in d['files']}
-          allowed=sorted(list(approved)+d['generated'])
+          approved={f['path']:f for f in d['files']};allowed=sorted(list(approved)+d['generated'])
           assert digest('\n'.join(allowed).encode())==os.environ['F_ALLOW_SHA']
           for name,f in approved.items():assert digest(Path(name).read_bytes())==f['sha256'],name
           subprocess.run(['git','add','-N','--',*allowed],check=True)
           modified=set(subprocess.check_output(['git','diff','--name-only','HEAD'],text=True).splitlines())
           assert modified<=set(allowed),sorted(modified-set(allowed))
-          subprocess.run(['git','diff','--check'],check=True)
-          out=Path('/tmp/F-validated');(out/'files').mkdir(parents=True)
-          records=[]
+          subprocess.run(['git','diff','HEAD','--check'],check=True)
+          out=Path('/tmp/F-validated');(out/'files').mkdir(parents=True);records=[]
           for name in allowed:
               p=Path(name);assert p.is_file() and not p.is_symlink()
               data=p.read_bytes();mode=approved[name]['mode'] if name in approved else '100644'
               q=out/'files'/name;q.parent.mkdir(parents=True,exist_ok=True);q.write_bytes(data)
               records.append({'path':name,'sha256':digest(data),'bytes':len(data),'mode':mode,
                               'git_blob_sha':hashlib.sha1(f'blob {len(data)}\0'.encode()+data).hexdigest()})
-          manifest={'base':d['base'],'branch':os.environ['F_BRANCH'],'input_sha':os.environ['GITHUB_SHA'],
-                    'allowlist_sha256':os.environ['F_ALLOW_SHA'],'records':records}
-          (out/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
-          print('Validated pinned publications and',len(records),'allowlisted files:',pages)
+          (out/'manifest.json').write_text(json.dumps({'base':d['base'],'branch':os.environ['F_BRANCH'],'input_sha':os.environ['GITHUB_SHA'],'allowlist_sha256':os.environ['F_ALLOW_SHA'],'records':records},indent=2)+'\n')
+          print('Validated',len(records),'allowlisted files:',pages)
           PY
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
@@ -175,7 +173,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: gh run download "$GITHUB_RUN_ID" --repo "$GITHUB_REPOSITORY" --name F-validated-publication --dir /tmp/F-validated
-      - name: Verify bytes and publish only to the delivery branch
+      - name: Verify validated bytes and publish only to the delivery branch
         run: |
           python - <<'PY'
           import hashlib,json,os,subprocess
@@ -187,8 +185,7 @@ jobs:
           assert head==os.environ['GITHUB_SHA'],'Target branch advanced; stop instead of forcing'
           root=Path('/tmp/F-validated');d=json.loads((root/'manifest.json').read_text())
           assert d['input_sha']==head and d['branch']==branch
-          names=[r['path'] for r in d['records']]
-          assert len(names)==len(set(names))
+          names=[r['path'] for r in d['records']];assert len(names)==len(set(names))
           assert digest('\n'.join(sorted(names)).encode())==os.environ['F_ALLOW_SHA']==d['allowlist_sha256']
           writes=[]
           for r in d['records']:
@@ -211,5 +208,5 @@ jobs:
           subprocess.run(['git','commit','-m','Integrate Case F fixed-start witnesses and explicit-comparison proof'],check=True)
           subprocess.run(['git','push','origin','HEAD:refs/heads/'+branch],check=True)
           print('Publication commit:',subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip())
-          print('Connector finalization must update ci.yml, remove temporary delivery files, and trigger final PR CI.')
+          print('Connector finalization must update ci.yml and remove temporary delivery files.')
           PY
