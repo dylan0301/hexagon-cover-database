@@ -1,0 +1,213 @@
+name: Temporary quarter-envelope pinned validation and publication
+on:
+  push:
+    branches: [chatgpt/quarter-envelope-simplification-20260923045806]
+    paths: [.github/workflows/quarter-envelope-publish.yml]
+permissions:
+  contents: read
+concurrency:
+  group: quarter-envelope-publication
+  cancel-in-progress: false
+env:
+  SOURCE_DATE_EPOCH: '946684800'
+  FORCE_SOURCE_DATE: '1'
+  TZ: UTC
+  DELIVERY_BRANCH: chatgpt/quarter-envelope-simplification-20260923045806
+  BASELINE_SHA: c7373742f8975d24a18456f458c8e1208a9b454b
+  PAYLOAD_SHA: 3cf80baebc8fe8556bc63d6dc02928801ca4d76c2307fde80265fa42557f7ced
+jobs:
+  validate:
+    if: github.repository == 'dylan0301/hexagon-cover-database' && github.ref == 'refs/heads/chatgpt/quarter-envelope-simplification-20260923045806'
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    outputs:
+      manifest_sha: ${{ steps.seal.outputs.manifest_sha }}
+    steps:
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22'
+      - name: Apply only the sealed reviewed source delta
+        run: |
+          python - <<'PY'
+          import base64,hashlib,json,lzma,os,pathlib,subprocess
+          sha=lambda b:hashlib.sha256(b).hexdigest()
+          chunks=[pathlib.Path(f'arrange/_support/quarter-envelope-payload-{i}.b64').read_text().strip() for i in range(3)]
+          packed=base64.b64decode(''.join(chunks),validate=True)
+          assert sha(packed)=='89d0e8d7c32e73f61a263bdfa204ea21913a493fc06a13a83dfd1ef152d58cf8'
+          raw=lzma.decompress(packed)
+          assert sha(raw)==os.environ['PAYLOAD_SHA']
+          data=json.loads(raw)
+          assert data['baseline']==os.environ['BASELINE_SHA'] and len(data['files'])==32
+          assert subprocess.check_output(['git','rev-parse',data['baseline']+'^{tree}']).decode().strip()=='ca9c2359d5a3d072eeabdb5f8e646e0eb4ee01f8'
+          for name,row in data['files'].items():
+              p=pathlib.Path(name)
+              assert not p.is_absolute() and '..' not in p.parts and p.parts[0] in ('README.md','proof','arrange','interactive')
+              assert not p.is_symlink() and row['mode'] in ('100644','100755')
+              old=p.read_bytes() if p.exists() else b''
+              assert (sha(old) if old else None)==row['before'],name
+              lines=old.decode('utf-8').splitlines(keepends=True)
+              new=''.join(piece if isinstance(piece,str) else ''.join(lines[piece[0]:piece[1]]) for piece in row['pieces']).encode('utf-8')
+              assert sha(new)==row['after'],name
+              p.parent.mkdir(parents=True,exist_ok=True)
+              p.write_bytes(new);p.chmod(int(row['mode'][-3:],8))
+          assert subprocess.check_output(['git','hash-object','.github/workflows/ci.yml']).decode().strip()=='b8b3d4d7b151799d884815d7ef92f0c1c5ebb239'
+          pathlib.Path(os.environ['RUNNER_TEMP'],'sealed-source.json').write_bytes(raw)
+          subprocess.run(['git','add','--',*data['files']],check=True)
+          print('Verified and applied',len(data['files']),'reviewed source paths')
+          PY
+      - name: Install pinned source and rendering dependencies
+        run: |
+          python -m pip install --disable-pip-version-check -r arrange/_support/requirements.txt -r interactive/proof_trees/requirements.txt
+          cd interactive/proof_trees
+          npm install --no-save --no-package-lock --ignore-scripts mathjax-full@3.2.2
+      - name: Generate and check the affected dependency graph
+        run: |
+          python interactive/generate.py --dependency-graph
+          git add interactive/readable_proof_dependency_graph.html
+          python interactive/generate.py --dependency-graph --check
+      - name: Check proof sources and both manuscript editions
+        run: |
+          python proof/check.py
+          python arrange/_support/verify_inline_proofs.py
+          python arrange/_support/verify_readability_preservation.py
+      - name: Replay both unchanged exact zero-gap certificates
+        working-directory: proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation
+        run: |
+          python verify_mixed_overlap_core_derivation.py
+          python verify_global_core_positivity.py
+      - name: Check untouched images and interactive companions
+        run: |
+          python interactive/generate.py --trace-assets --check
+          python interactive/check.py
+          python interactive/proof_trees/check.py --html
+          python interactive/proof_trees/build.py --check
+          python interactive/animated_proof_guide/check.py --require-live
+          git diff --cached --check
+          git diff --check
+      - name: Build both papers in pinned TeX Live 2025
+        uses: xu-cheng/texlive-action@22c04326a5d855880f9d39bb955138bf11c6df80
+        with:
+          docker_image: >-
+            ghcr.io/xu-cheng/texlive-historic-debian:2025@sha256:d3e42adc0c8d84bc913bfc33571feaf7037616260a771bb6f027504661568bf6
+          run: |
+            set -euo pipefail
+            python3 arrange/build.py --all --output-dir arrange/_build
+      - name: Audit every rendered page and install the verified PDFs
+        run: |
+          python arrange/_support/verify_pdf_render.py arrange/_build/canonical.pdf
+          python arrange/_support/verify_pdf_render.py arrange/_build/inline_proofs.pdf
+          python arrange/_support/verify_inline_proofs.py --pdf arrange/_build/inline_proofs.pdf
+          python - <<'PY'
+          import fitz,pathlib,shutil
+          for src,dest,pages in [('arrange/_build/canonical.pdf','arrange/paper_draft/main.pdf',67),('arrange/_build/inline_proofs.pdf','arrange/paper_draft/inline_proofs/main.pdf',65)]:
+              doc=fitz.open(src)
+              assert doc.page_count==pages,(src,doc.page_count,pages)
+              print(src,doc.page_count,'pages',sum(len(p.get_text()) for p in doc),'text characters')
+              shutil.copyfile(src,dest)
+          PY
+      - name: Seal exact publication files and modes
+        id: seal
+        run: |
+          python - <<'PY'
+          import hashlib,json,os,pathlib,shutil,subprocess
+          sha=lambda b:hashlib.sha256(b).hexdigest()
+          tmp=pathlib.Path(os.environ['RUNNER_TEMP'])
+          raw=(tmp/'sealed-source.json').read_bytes();assert sha(raw)==os.environ['PAYLOAD_SHA']
+          source=json.loads(raw)
+          generated={'interactive/readable_proof_dependency_graph.html','arrange/paper_draft/main.pdf','arrange/paper_draft/inline_proofs/main.pdf'}
+          paths=set(source['files'])|generated|{'.github/workflows/ci.yml'}
+          changed=set(subprocess.check_output(['git','diff','--name-only',os.environ['BASELINE_SHA']]).decode().splitlines())
+          temporary={'.github/workflows/quarter-envelope-transfer.yml','.github/workflows/quarter-envelope-publish.yml'}|{f'arrange/_support/quarter-envelope-payload-{i}.b64' for i in range(3)}
+          assert changed==paths|temporary,(changed-paths-temporary,paths-changed)
+          out=tmp/'quarter-envelope-publication';out.mkdir()
+          manifest={'baseline':os.environ['BASELINE_SHA'],'payload_sha256':os.environ['PAYLOAD_SHA'],'validation_head':os.environ['GITHUB_SHA'],'files':{}}
+          for name in sorted(paths):
+              p=pathlib.Path(name);b=p.read_bytes();mode='100755' if p.stat().st_mode&0o111 else '100644'
+              if name in source['files']:
+                  assert sha(b)==source['files'][name]['after'] and mode==source['files'][name]['mode'],name
+              old=subprocess.run(['git','show',os.environ['BASELINE_SHA']+':'+name],capture_output=True)
+              before=sha(old.stdout) if old.returncode==0 else None
+              manifest['files'][name]={'before':before,'sha256':sha(b),'mode':mode,'git_blob':hashlib.sha1(b'blob '+str(len(b)).encode()+b'\0'+b).hexdigest()}
+              target=out/'files'/name;target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(b)
+          manifest_bytes=(json.dumps(manifest,indent=2)+'\n').encode()
+          (out/'manifest.json').write_bytes(manifest_bytes)
+          with open(os.environ['GITHUB_OUTPUT'],'a') as f:f.write('manifest_sha='+sha(manifest_bytes)+'\n')
+          print('SEALED',len(paths),'paths; manifest SHA256',sha(manifest_bytes))
+          PY
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: quarter-envelope-validated-publication
+          path: ${{ runner.temp }}/quarter-envelope-publication
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 7
+  publish:
+    needs: validate
+    if: github.repository == 'dylan0301/hexagon-cover-database' && github.ref == 'refs/heads/chatgpt/quarter-envelope-simplification-20260923045806'
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+        with:
+          ref: chatgpt/quarter-envelope-simplification-20260923045806
+          fetch-depth: 0
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: quarter-envelope-validated-publication
+          path: ${{ runner.temp }}/quarter-envelope-publication
+      - name: Publish only validated bytes on the unchanged delivery branch
+        env:
+          MANIFEST_SHA: ${{ needs.validate.outputs.manifest_sha }}
+          VALIDATED_HEAD: ${{ github.sha }}
+        run: |
+          python3 - <<'PY'
+          import base64,hashlib,json,lzma,os,pathlib,subprocess
+          sha=lambda b:hashlib.sha256(b).hexdigest()
+          assert subprocess.check_output(['git','rev-parse','HEAD']).decode().strip()==os.environ['VALIDATED_HEAD'],'branch advanced; refusing stale publication'
+          out=pathlib.Path(os.environ['RUNNER_TEMP'])/'quarter-envelope-publication'
+          raw=(out/'manifest.json').read_bytes();assert sha(raw)==os.environ['MANIFEST_SHA']
+          manifest=json.loads(raw)
+          assert manifest['baseline']==os.environ['BASELINE_SHA'] and manifest['payload_sha256']==os.environ['PAYLOAD_SHA'] and manifest['validation_head']==os.environ['VALIDATED_HEAD']
+          packed=base64.b64decode(''.join(pathlib.Path(f'arrange/_support/quarter-envelope-payload-{i}.b64').read_text().strip() for i in range(3)),validate=True)
+          sealed=lzma.decompress(packed);assert sha(sealed)==os.environ['PAYLOAD_SHA']
+          allowed=set(json.loads(sealed)['files'])|{'interactive/readable_proof_dependency_graph.html','arrange/paper_draft/main.pdf','arrange/paper_draft/inline_proofs/main.pdf','.github/workflows/ci.yml'}
+          assert set(manifest['files'])==allowed
+          for name,row in manifest['files'].items():
+              p=pathlib.Path(name)
+              assert not p.is_absolute() and '..' not in p.parts and not p.is_symlink()
+              assert row['mode'] in ('100644','100755')
+              content=(out/'files'/name).read_bytes();assert sha(content)==row['sha256'],name
+              old=p.read_bytes() if p.exists() else b''
+              current=sha(old) if p.exists() else None
+              assert current==row['before'] or (name=='.github/workflows/ci.yml' and current==row['sha256']),name
+              # The permanent workflow was already updated through the connector.
+              if name=='.github/workflows/ci.yml':
+                  assert current==row['sha256'];continue
+              p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(content);p.chmod(int(row['mode'][-3:],8))
+          subprocess.run(['git','add','--',*sorted(allowed)],check=True)
+          staged=set(subprocess.check_output(['git','diff','--cached','--name-only']).decode().splitlines())
+          assert staged==allowed-{'.github/workflows/ci.yml'},staged^allowed
+          subprocess.run(['git','diff','--cached','--check'],check=True)
+          subprocess.run(['git','-c','user.name=github-actions[bot]','-c','user.email=41898282+github-actions[bot]@users.noreply.github.com','commit','-m','Simplify BC envelope, factor D ratios, and shorten preliminary F bounds'],check=True)
+          subprocess.run(['git','push','origin','HEAD:refs/heads/'+os.environ['DELIVERY_BRANCH']],check=True)
+          commit=subprocess.check_output(['git','rev-parse','HEAD']).decode().strip()
+          tree=subprocess.check_output(['git','rev-parse','HEAD^{tree}']).decode().strip()
+          receipt={'commit':commit,'tree':tree,'branch':os.environ['DELIVERY_BRANCH'],'manifest_sha256':os.environ['MANIFEST_SHA'],'temporary_files_retained_for_connector_cleanup':True}
+          (pathlib.Path(os.environ['RUNNER_TEMP'])/'quarter-envelope-receipt.json').write_text(json.dumps(receipt,indent=2)+'\n')
+          print(json.dumps(receipt,indent=2))
+          PY
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: quarter-envelope-publication-receipt
+          path: ${{ runner.temp }}/quarter-envelope-receipt.json
+          if-no-files-found: error
+          retention-days: 7
