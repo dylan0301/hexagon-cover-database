@@ -47,7 +47,10 @@ assert "\\Longleftrightarrow" in statement
 assert "not a" in statement and "minimizes" in statement
 cap=(PAPER/"fixed_witness/D_bc_capacity_envelope.tex").read_text()
 assert "H'(m)" not in cap and "H(m)" not in cap
-assert "19/160" in cap
+legacy=(ROOT/"proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2615a_wide_range_slack_envelope.md").read_text()
+assert "19/160" in legacy
+assert "m=\\min(a,b)\\le1/4" in cap
+assert "15/38" in cap and "-18325/1024" in cap
 for rel in ("E_zero_gap_nine_point_optimization.tex", "inline_proofs/06_zero_gap.tex"):
     text=(PAPER/rel).read_text()
     assert "lem:bc-capacity-tools" in text

@@ -18,7 +18,7 @@ authority for theorem status and hypotheses; the manuscript is the
 publication layer.
 
 `paper_draft/inline_proofs/main.tex` is an additional edition with no
-appendices. The reusable-lemma revision has 68 pages. Each of its 78 theorem, lemma, proposition, and corollary
+appendices. The quarter-envelope revision has 65 pages. Each of its 79 theorem, lemma, proposition, and corollary
 statements is immediately followed by its proof. It integrates all the
 canonical proof calculations, consolidates ten remaining repeated statement entries,
 and places the main theorem and scaling corollary at the end. The certificate
@@ -65,9 +65,9 @@ proof-free command writes `arrange/paper_draft/proof_free.pdf`; it removes
 formal proof environments while retaining prose and calculations outside
 those environments.
 
-The reusable-lemma revision has 70 canonical pages and 68 inline-proof pages,
-compared with 76 and 73 before shortening. The canonical CI guard is 68--72
-pages. Page dimensions, fonts, and margins are unchanged. The reduction comes
+The quarter-envelope revision has 67 canonical pages and 65 inline-proof pages,
+compared with 70 and 68 after reusable-lemma shortening (76 and 73 before it).
+The canonical CI guard is 65--69 pages. Page dimensions, fonts, and margins are unchanged. The reduction comes
 from reusable forcing and threshold lemmas, deleted duplicate calculations
 and wrappers, a single final assembly, and removal of example galleries.
 The gallery image files remain available to interactive companions.
@@ -121,3 +121,17 @@ prints the old six-point witness table, generic unused M_c(a), candidate-demand
 recovery, the unused CE2 total-slack lemma, or duplicate baseline proofs.
 The dependency graph follows the surviving primary results and distinguishes
 capacity-free geometry from its capacity-dependent covering application.
+
+## Quarter-range envelope and ratio revision
+
+See [the implementation report](20260923_quarter_envelope_revision_report.md).
+Source 2615 proves the unchanged coupled BC theorem through the explicit
+quarter-range envelope, retaining the exact witness radii. The prior wider
+3/8-range envelope is retained separately in source 2615a, not silently
+restated on a smaller domain. Both local D adapters keep their original
+endpoint and size conditions but use shorter factored ratio estimates.
+The new strict own-ray lemma feeds the preliminary F radial bound, not the
+terminal exact certificate. The approved inventory now has 89 canonical and
+79 inline formal statements; 77 complete proof bodies are matched between
+editions. The previous inventory and the two intentionally replaced supplier
+hashes are archived; all other preservation contracts remain enabled.

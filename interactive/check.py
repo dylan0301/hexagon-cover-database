@@ -236,7 +236,7 @@ fixed_required = {
     "lem:direct-neighbor-diagonal", "lem:support-cell-rotation",
     "thm:center-aligned-path", "lem:midpoint-supplier",
     "lem:two-vertex-replacement", "lem:open-cover-budget",
-    "lem:shared-gap-anchor-transfer",
+    "lem:shared-gap-anchor-transfer", "lem:strict-own-ray-positive-slack",
 }
 actual_node_ids = {node["id"] for node in graph.get("nodes", [])}
 if [row.get("id") for row in graph.get("routingRows", [])] != [f"R{i}" for i in range(6)]:
@@ -277,6 +277,10 @@ if "lem:bc-coupled-capacity" not in terminal_dependencies("prop:new-nplus-one-al
     raise SystemExit("BC covering application omits its capacity input")
 if "cor:clipped-radial-forcing" not in terminal_dependencies("cor:new-uniform-common-pair-forcing"):
     raise SystemExit("uniform forcing must reuse clipped radial forcing")
+if "lem:strict-own-ray-positive-slack" not in terminal_dependencies("lem:symmetric-core-witness"):
+    raise SystemExit("F radial bound omits the strict own-ray input")
+if "lem:bc-capacity-tools" not in terminal_dependencies("lem:symmetric-core-witness"):
+    raise SystemExit("F radial bound omits the shared positive deficit")
 if not fixed_required <= actual_node_ids:
     raise SystemExit("dependency graph omits fixed-witness proof owners")
 

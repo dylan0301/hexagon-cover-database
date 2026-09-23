@@ -1,156 +1,101 @@
-% Derived from numbered source 2615; all analytic domain reductions are included.
-\subsection{Slack-sensitive local capacity bounds}
-Use the radial deficit $f(a,b)=1-c_{\max}(a,b)$. For \(0\le m\le1/2\), define
-
+% Active elementary proof from numbered source 2615.
+\subsection{Elementary local capacity bounds}
+Write $f(a,b)=1-c_{\max}(a,b)$ for $a,b\ge0$, $a+b\le1$, and put
+$m=\min(a,b)$. Let $h=\sqrt3/2$ and let $c(m)\in[h,1]$ be the root of
 \[
-\ell(m)=1-c(m),\qquad c(m)\in[h,1],
+ F(C,m)=C^4-C^2+mC-m^2=0,\qquad \ell(m)=1-c(m).
 \]
-
-where \(c(m)\) is the unique root in this interval of
-
+It is unique because $F_C>0$ on $[h,1]$,
+$F(h,m)=-(m-h/2)^2\le0$, and $F(1,m)=m(1-m)\ge0$.
+Define
 \[
-F(c,m):=c^4-c^2+mc-m^2=0.
+ q(m)=\frac{m(1-m)}2,\qquad
+ \beta(m)=\frac{2m}{4+3m},\qquad \kappa(m)=1+\frac32m.
 \]
-
-Also set
-
-\[
-q(m)=\frac{m(1-m)}2,\qquad b(m)=\frac m2-\frac25m^2.
-\]
-
-\begin{lemma}[Own-ray deficit bounds and branchwise concavity]
+\begin{lemma}[Own-ray deficit bounds]
 \label{lem:bc-capacity-tools}
 For $a,b\ge0$, $a+b\le1$, and $m=\min(a,b)$,
 \[
-q(m)\le\ell(m)\le f(a,b)\le m.
+ q(m)\le\ell(m)\le f(a,b)\le m.
 \]
-For $m\le3/8$, also $b(m)\le\ell(m)$. The function $\ell$ is concave,
-$\ell(m)\le m/2$, and $g(m)=m+\ell(m)$ is strictly increasing.
-For $0\le b\le a$ and $a+b\le1$, the two capacity branches meet at $1-a=g(b)$;
-each branch of $f$ is concave separately in either coordinate.
+For $m\le1/4$, also $\beta(m)\le\ell(m)$ and $\beta(m)\ge q(m)$.
 \end{lemma}
 \begin{proof}
-Use the local formula in \zcref{prop:new-exact-local-set}. The bound
-$f(a,b)\le\min(a,b)$ and monotonicity follow from
-\zcref{lem:new-common-pair-domination}.
-\readerheading{Deficit bounds.}
-The upper bound \(f\le m\) is equivalent to the known own-ray bound \(c_{\max}(a,b)\ge1-m\). To see \(c_{\max}(a,b)\le c(m)\), first suppose \(m\le h/2\). The diagonal pair \((m,m)\) belongs to the quartic cell, because its cell polynomial is \(m^2(16m^2-3)\le0\). Thus \(c_{\max}(a,b)\le c_{\max}(m,m)=c(m)\). If \(m\ge h/2\), antitonicity gives \(c_{\max}(a,b)\le c_{\max}(h/2,h/2)=h\le c(m)\).
+The upper bound and capacity antitonicity follow from
+\zcref{lem:new-common-pair-domination}. By the selected local formula
+\zcref{prop:new-exact-local-set}, for $m\le h/2$ the diagonal pair lies
+in the quartic cell (its cell polynomial is $m^2(16m^2-3)\le0$), so
+$c_{\max}(a,b)\le c_{\max}(m,m)=c(m)$. For $m\ge h/2$,
+antitonicity gives $c_{\max}(a,b)\le c_{\max}(h/2,h/2)=h\le c(m)$.
+Thus $f(a,b)\ge\ell(m)$.
 
-For completeness, both lower bounds are certified by substitution in the quartic. For \(v=1/2-m\),
-
+For $c=c(m)$, the root equation and a factorization give
 \[
-\begin{split}
-\frac{1024F(1-q(m),m)}{m^2}
-={}&64v^6+64v^5+496v^4+480v^3\\
-&+1276v^2+644v+33.
-\end{split}
+ \ell c^2(1+c)=m(c-m),
 \]
-
-For \(v=3/8-m\),
-
 \[
-\begin{split}
-\frac{10240000F(1-b(m),m)}{m^2}={}&262144v^6+720896v^5+3174400v^4\\
-&+5826560v^3+11428800v^2+9721776v+3049.
-\end{split}
+ 2(c-m)-(1-m)c^2(1+c)
+ =(1-c)\bigl((1-m)c(c+2)-2m\bigr)\ge0.
 \]
+The bracket is at least
+$\tfrac12\cdot\tfrac34\cdot\tfrac{11}4-1=1/32$, since $c\ge h>3/4$
+and $m\le1/2$. Division by $c^2(1+c)>0$ proves $\ell\ge q(m)$.
 
-All coefficients are positive. The tested values of \(c\) exceed \(h\), and \(F_c=4c^3-2c+m>0\) on \([h,1]\). Hence these nonnegative quartic values prove both displayed lower bounds. At \(m=0\), take the continuous limits.
-
-\readerheading{Concavity and the transition function}
-
-Let \(D_0=4c^3-2c+m\). Implicit differentiation gives
-
+For the stronger bound on $m\le1/4$, put
 \[
-\ell'(m)=\frac{c-2m}{D_0},
+ B(m)=81m^4+405m^3+656m^2+272m-128.
 \]
-
+Direct substitution gives
 \[
-\ell''(m)=-\frac{2\{8c^2m(c-m)+c^2-cm+m^2\}}{D_0^3}<0.
+ F(1-\beta(m),m)=-\frac{m^2B(m)}{(4+3m)^4}.
 \]
-
-Thus \(\ell\) is concave and, since \(\ell(0)=0\) and \(\ell'(0)=1/2\),
-
-\[
-\ell(m)\le m/2.
-\]
-
-It is increasing on \([0,3/8]\). The function
-
-\[
-g(m)=m+\ell(m)
-\]
-
-is strictly increasing on \([0,1/2]\), because
-
-\[
-g'(m)=\frac{4c^3-c-m}{D_0}>0.
-\]
-
-Also,
-
-\[
-g(3/8)\ge3/8+b(3/8)=81/160>1/2.
-\]
-
-Consequently \(g(z)\le1/2\) implies \(z<3/8\).
-
-For \(0\le b\le a\) and \(a+b\le1\), the exact capacity formula can be written
-
-\[
-f(a,b)=
-\begin{cases}
-\ell(b),&1-a\ge g(b),\\
-1-a\,j(a+b),&1-a\le g(b),
-\end{cases}
-\]
-
-where
-
-\[
-j(s)=\frac2{1+\sqrt{4s^2-3}}.
-\]
-
-The expressions agree at the transition; the second expression is used only in its real selected domain. This branch formula follows from the exact quartic/triangular cell formula. Indeed, its cell polynomial at sum \(s\) is \(F(s,b)\), whose selected zero is \(s=c(b)\).
-
-Each branch of \(f\) is concave separately in either argument while the larger argument remains the first one. For the triangular branch, \(j''(s)>0\). If \(D=\sqrt{4s^2-3}\in(0,1]\), then
-
-\[
-2j'(s)+\frac s2j''(s)
-=\frac{4s(-2D^3-4D^2+9D+3)}{D^3(1+D)^3}>0.
-\]
-
-The numerator bracket is at least \(3D+3\). Since \(a\ge(a+b)/2\), \(\partial_a^2[a\,j(a+b)]>0\); also \(\partial_b^2[a\,j(a+b)]=a j''(a+b)>0\). Negating these derivatives proves the asserted branchwise concavity. The quartic branch is constant in the first argument and concave in the second.
-
+The polynomial $B$ is increasing and $B(1/4)=-3163/256<0$.
+Also $1-\beta(m)\ge17/19>h$. Monotonicity of $F$ in $C$ implies
+$\beta(m)\le\ell(m)$. Finally
+$\beta(m)-q(m)=m^2(3m+1)/(2(3m+4))\ge0$. At $m=0$ all bounds are immediate.
 \end{proof}
-\begin{lemma}[Slack-sensitive rational envelope]
+
+\begin{lemma}[Quarter-range slack envelope]
 \label{lem:bc-slack-envelope}
-For $a,b\ge0$, $a+b\le1$, $m=\min(a,b)\le3/8$, and $\delta=1-a-b$, put
+For $a,b\ge0$, $a+b\le1$, $m=\min(a,b)\le1/4$, and $\delta=1-a-b$,
 \[
-b(m)=\frac m2-\frac25m^2,\qquad K(m)=\frac{5+4m}{5-4m}.
+ f(a,b)\ge\max\{\beta(m),\ m-\kappa(m)\delta\}.
 \]
-Then
-\[
- f(a,b)\ge\max\{b(m),m-K(m)\delta\}.
-\]
-The envelope is exact at $\delta=0$ and is not asserted with these coefficients for $m>3/8$.
+The two entries meet at $\delta=\beta(m)$. This estimate is asserted only
+on $m\le1/4$; the broader historical envelope is not needed here.
 \end{lemma}
 \begin{proof}
-For $0<\beta\le m$, a function with $F(0)=m$, $F\ge\beta$, and
-concavity on $[0,\beta]$ satisfies
+Since $m-\kappa(m)\beta(m)=\beta(m)$, the baseline in
+\zcref{lem:bc-capacity-tools} proves the claim for $\delta\ge\beta(m)$.
+The case $m=0$ is immediate. Suppose $m>0$ and $0<\delta\le\beta(m)$.
+Put $M=1-m-\delta$. Then $M\ge m$ (indeed
+$1-2m-\beta(m)\ge15/38>0$) and $1-\delta\ge1-\beta(m)\ge c(m)$.
+The selected triangular branch of \zcref{prop:new-exact-local-set}
+therefore applies: the capacity is the smaller root of
 \[
- F(\delta)\ge\max\{\beta,m-(m-\beta)\delta/\beta\}:
+ H(C)=\bigl((1-\delta)^2-1\bigr)C^2+MC-M^2.
 \]
-the affine term is the chord lower bound before $\beta$ and is at most
-$\beta$ afterward. Apply this principle with $\beta=b(m)$ and
-$F(\delta)=f(1-m-\delta,m)$; $m=0$ is immediate.
-The shared bound \zcref{lem:bc-capacity-tools} gives $F\ge\ell(m)\ge b(m)$.
-For $0\le\delta\le b(m)$, the first coordinate is at least $m$
-(since $1-2m-b(m)\ge19/160>0$), while $1-\delta\ge1-\ell(m)=c(m)$.
-Thus the selected triangular branch applies and is concave on this interval.
-Since $F(0)=m$ and $(m-b(m))/b(m)=(5+4m)/(5-4m)$,
-the chord bound is exactly the asserted envelope.
+At $\overline C=1-m+\kappa(m)\delta$, expansion gives
+$H(\overline C)=\delta N_m(\delta)/4$, where
+\[
+\begin{split}
+ N_m(\delta)={}&(3m+2)^2\delta^3-10m(3m+2)\delta^2\\
+ &+(28m^2-22m-20)\delta+14m(1-m).
+\end{split}
+\]
+Because $\delta\le\beta(m)\le m/2\le1/8$,
+\[
+ N_m'(\delta)\le3(11/4)^2(1/8)^2+7/4-20=-18325/1024<0.
+\]
+At the right endpoint,
+\[
+ N_m(\beta(m))=-\frac{2mB(m)}{(4+3m)^3}>0.
+\]
+Thus $H(\overline C)>0$. The quadratic is concave and the capacity is
+its selected smaller root, so $c_{\max}(M,m)<\overline C$. This proves
+the affine lower bound. At $\delta=0$, the exact capacity is $1-m$.
 \end{proof}
+
 \begin{lemma}[Coupled nonuniform capacity inequality]
 \label{lem:bc-coupled-capacity}
 If $0<x\le y<1$ and $x/2\le z\le y$, put
@@ -163,242 +108,126 @@ Then
 \]
 \end{lemma}
 \begin{proof}
-Put
-
+Put $u=x/2$ and
 \[
-u=x/2,\qquad f(a,b)=1-c_{\max}(a,b),
+ P(y,r,t)=2(r+t)-(1-y+r)(4u-y+r).
 \]
-
-so the domain is
-
+The domain is $0<u$, $2u\le y<1$, $u\le z\le y$ and
+$0<r,t\le1/2$. By \zcref{lem:bc-capacity-tools},
 \[
-0<u,\quad 2u\le y<1,\quad u\le z\le y,
+ P_r=1-4u+2y-2r\ge1-2r\ge0,\qquad P_t=2.
 \]
+Hence valid lower bounds on either radius may be substituted. These are
+scalar comparisons; the exact witness radii are not changed.
 
-and the desired positive quantity is
-
-\[
-P(y,r,t):=2(r+t)-(1-y+r)(4u-y+r).
-\]
-
-Both arguments of each capacity are nonnegative and have sum at most one. In particular, \(0<r,t\le1/2\). At fixed \(u,y\),
-
-\[
-P_r=1-4u+2y-2r\ge1-2r\ge0,\qquad P_t=2.
-\]
-
-Therefore lower bounds on either radius may be substituted throughout.
-
-Use the local bounds and branchwise concavity of \zcref{lem:bc-capacity-tools} and the rational envelope \zcref{lem:bc-slack-envelope}.
-
-\readerheading{Easy parameter regions}
-
-\readerheading{The region $y\ge1/2$}
-
-Put \(a=1-y\le1/2\). Then \(u\le(1-a)/2\), \(u\le z\le1-a\). Use the radius monotonicity above and the deficit bounds above.
-
-If \(z\ge a\) and \(z\le1-u\), we may use \(r=q(a)\), \(t=q(u)\). The resulting expression is concave in \(u\); its endpoint at \(u=0\) is visibly nonnegative, and its endpoint at \(u=(1-a)/2\) is
-
-\[
-\frac{(1-a)^3(1+a)}4>0.
-\]
-
-If \(z\ge a\) and \(z\ge1-u\), then \(r,t\ge q(a)\), because \(a\le1-z\le u\le1/2\). After this replacement the expression decreases with \(u\), and at \(u=(1-a)/2\) it equals
-
-\[
-\frac{a(1-a)(a^2-a+2)}4>0.
-\]
-
-If \(z\le a\), then \(r,t\ge q(u)\). The resulting expression is concave in \(a\) on
-
-\[
-u\le a\le\min\{1/2,1-2u\}.
-\]
-
-Its possible endpoint values are
-
+\readerheading{Easy regions.}
+First let $y\ge1/2$ and put $a=1-y$. Then $0<a\le1/2$,
+$u\le(1-a)/2$, and $u\le z\le1-a$.
+If $z\ge a$ and $z\le1-u$, substitute $q(a),q(u)$.
+The expression is concave in $u$; at $u=0$ it equals
+$2q(a)+(a+q(a))(1-a-q(a))>0$, and at $u=(1-a)/2$ it equals
+$(1-a)^3(1+a)/4>0$.
+If $z\ge a$ and $z\ge1-u$, both radii are at least $q(a)$ because
+$a\le1-z\le u\le1/2$ and $q$ is increasing. The substituted expression
+decreases with $u$ and at $u=(1-a)/2$ equals
+$a(1-a)(a^2-a+2)/4>0$.
+If $z\le a$, both radii are at least $q(u)$. The expression is concave
+in $a\in[u,\min(1/2,1-2u)]$, with endpoint values
 \[
 \begin{array}{c|c|c}
-a& P\text{ after replacement}&\text{range}\\\hline
-u&\frac u4(14-43u+14u^2-u^3)&0\le u\le1/3\\
-1/2&\frac14(1-17u^2+10u^3-u^4)&0\le u\le1/4\\
-1-2u&\frac u4(-u^3+2u^2+9u-2)&1/4\le u\le1/3.
+a&P\text{ after substitution}&u\text{ range}\\\hline
+u&u(14-43u+14u^2-u^3)/4&(0,1/3]\\
+1/2&(1-17u^2+10u^3-u^4)/4&(0,1/4]\\
+1-2u&u(-u^3+2u^2+9u-2)/4&[1/4,1/3].
 \end{array}
 \]
+The three brackets respectively decrease to $32/27$, decrease to
+$23/256$, and increase from $23/64$, so all are positive.
 
-The three polynomial brackets are positive. The first decreases to \(32/27\), the second decreases to \(23/256\), and the third increases from \(23/64\), respectively. This proves the region.
-
-\readerheading{The region $y\le1/2$, $z\ge2u$}
-
-Here \(r\ge q(z)\) and \(t\ge q(u)\). The replaced expression increases with \(y\), so set \(y=z\). It is then concave in \(u\in[0,z/2]\). Its value at zero is positive, and its value at \(u=z/2\) is
-
+Now let $y\le1/2$ and $z\ge2u$. Substitute $q(z),q(u)$.
+The result increases with $y$, so set $y=z$; it is then concave in
+$u\in[0,z/2]$. The value at zero is positive, and the value at
+$u=z/2$ is $z^3(2-z)/4>0$.
+Finally, for $y\le1/2$ and $1/4\le z\le2u$, the same substitution
+allows $y=2u$, giving
 \[
-\frac{z^3(2-z)}4>0.
+ P\ge q(z)(1-q(z))-u+3u^2
+ \ge\frac3{32}\frac{29}{32}-\frac1{12}=\frac5{3072}>0.
 \]
+Here $q(z)(1-q(z))$ increases on $[1/4,1/2]$ and
+$-u+3u^2=3(u-1/6)^2-1/12$.
 
-\readerheading{Reduction of the remaining region to three transitions}
-
-It remains to consider
-
+\readerheading{The remaining region and its switches.}
+It remains to treat
 \[
-0<u\le1/4,\quad u\le z\le2u\le y\le1/2.
+ 0<u\le1/4,\quad u\le z\le\min(2u,1/4),\quad 2u\le y\le1/2.
 \]
-
-The first arguments of both capacities are their larger arguments, so \zcref{lem:bc-capacity-tools} applies throughout.
-
-Fix \(u,z\) and vary \(y\). In the triangular branch, \(r''(y)\le0\), and direct differentiation gives
-
+The smaller capacity coordinates are $z$ and $u$. By
+\zcref{lem:bc-slack-envelope} compare with
 \[
-\frac{d^2P}{dy^2}
-=(1-4u+2y-2r)r''-2(1-r')^2\le0.
+ R_0=\max\{\beta(z),z-\kappa(z)(y-z)\},\qquad
+ T_0=\max\{\beta(u),u-\kappa(u)(z-u)\}.
 \]
-
-In the quartic branch \(r\) is constant and \(dP/dy=1+4u+2r-2y>0\). Hence it suffices to check \(y=2u\), the already-proved endpoint \(y=1/2\), or the transition \(y=g(z)\), whenever it belongs to the interval.
-
-On \(y=2u\),
-
+Put $g(v)=v+\beta(v)$, an increasing rational function. The switches are
+$y=g(z)$ and $z=g(u)$.
+For fixed $u,z$, the affine branch of $R_0$ gives
 \[
-P=r(1-r)+2t-2u(1-2u).
+ \frac{d^2}{dy^2}P(y,R_0,T_0)=-2(1+\kappa(z))^2<0.
 \]
+The baseline branch gives $dP/dy=1+4u+2\beta(z)-2y>0$.
+Since $g(z)\le g(1/4)=27/76<1/2$, only $y=2u$ or $y=g(z)$
+needs to be checked, whenever the latter belongs to the domain.
 
-The function \(r(1-r)\) is concave and increasing for \(0\le r\le1/2\). By branchwise concavity of both radii, the displayed relation is concave on each interval in \(z\) separated by \(g(z)=2u\) and \(z=g(u)\). Thus its minimum is at \(z=u\), \(z=2u\), or one of these transitions. At \(z=u\), \(t=u\), so the displayed relation is \(r(1-r)+4u^2>0\). At \(z=2u\), \(r=2u\), so it is \(2t>0\).
-
-On \(y=g(z)\), we have \(r=\ell(z)\) and \(z<3/8\), and
-
+On $y=2u$,
 \[
-P=2\ell(z)+2t-(1-z)(4u-z).
+ P=R_0(1-R_0)+2T_0-2u(1-2u).
 \]
-
-The allowed interval for \(u\) is \([z/2,g(z)/2]\). This expression is branchwise concave in \(u\), with its only possible switch at \(z=g(u)\). Its endpoints are the already-checked case \(z=2u\) and the first transition below. Therefore only these three configurations remain:
-
+Split the $z$ interval at $g(z)=2u$ and $z=g(u)$.
+The function $\beta(z)(1-\beta(z))$ is concave, since $\beta$ is concave
+and $v(1-v)$ is increasing and concave on $[0,1/2]$.
+On the other branch,
 \[
-\begin{array}{c|l}
-\mathrm A& y=2u=g(z),\ r=\ell(z),\\
-\mathrm B& y=2u,\ z=g(u),\ t=\ell(u),\\
-\mathrm C& y=g(z),\ z=g(u),\ r=\ell(z),\ t=\ell(u).
-\end{array}
+ R=2z+\tfrac32z^2-2u-3uz,\qquad R'=2+3z-3u\ge2,\qquad R''=3.
 \]
-
-This is an exhaustive reduction by concavity, not an assumption that capacities always lie at transitions.
-
-\readerheading{Exact transition checks}
-
-\readerheading{Transition A: one rational bound, no subdivision}
-
-Here
-
+Where it is active, $0<R\le z\le1/4$, so
 \[
-y=2u=z+r,\qquad r=\ell(z),\qquad 0<z<3/8,
+ (R(1-R))''=3(1-2R)-2(R')^2\le-5<0.
 \]
+As $T_0$ is affine or constant on each piece, $P$ is piecewise concave.
+At $z=u$ it equals $\beta(u)(1-\beta(u))+4u^2>0$; at $z=2u$ it
+is $2T_0>0$. The endpoint $z=1/4$ is covered by the easy-region bound,
+since the comparison radii dominate the $q$ bounds. Only the switches remain.
 
-and
-
+On $y=g(z)$,
 \[
-P=2t-z(1-z-2r).
+ P=2\beta(z)+2T_0-(1-z)(4u-z),\qquad z/2\le u\le g(z)/2.
 \]
+Its $u$ derivative on the baseline branch is
+$16/(4+3u)^2-4(1-z)\le-2<0$; on the other branch it is $6u+z>0$.
+Thus the minimum lies at an endpoint or $z=g(u)$. The endpoints are
+$z=2u$, already checked, and transition A below. The ordering of switches
+is not assumed; coincident switches are included.
 
-Apply \zcref{lem:bc-slack-envelope} to the second capacity, whose smaller coordinate is \(u\) and whose slack is \(z-u\):
-
+\readerheading{Three transition checks.}
+In A, $y=2u=g(z)$. Using the affine entry as a lower bound for $T_0$ gives
 \[
-t\ge u-K(u)(z-u).
+ P\ge\frac{z^2(9z^2+36z+44)}{4(3z+4)^2}>0.
 \]
-
-Therefore
-
+In B, $y=2u$ and $z=g(u)$, so $T_0=\beta(u)$. If $R_B$ denotes the
+affine entry of $R_0$, then
 \[
-P\ge 2\{u-K(u)(z-u)\}-z(1-z-2r),\qquad u=(z+r)/2.
+ R_B-u(1-2u)=\frac{u^2(9u^2+6u+4)}{2(3u+4)^2}>0.
 \]
-
-This expression increases with \(r\). Indeed, at fixed \(z\),
-
+Since $v(1-v)$ increases on $[0,1/2]$,
 \[
-\frac{d}{du}\{u-K(u)(z-u)\}
- =\frac{10(5-4z)}{(5-4u)^2}>0,
+ P\ge\frac{u^2(1+19u-4u^2-12u^3)}{3u+4}>0,
 \]
-
-and the remaining contribution to the \(r\)-derivative is \(2z>0\). Replace \(r\) by \(b(z)\). Exact simplification gives
-
+where $4u^2+12u^3\le7/16$.
+In C, $y=g(z)$ and $z=g(u)$, direct substitution gives
 \[
-\boxed{
- P\ge
- \frac{z^2(75-230z+100z^2-16z^3)}{5(25-15z+4z^2)}>0.
-}
+ P=\frac{3u^2(81u^4+441u^3+768u^2+460u+48)}
+ {(3u+2)(3u+4)^2(3u+8)}>0.
 \]
-
-The cubic in the numerator is decreasing on \([0,3/8]\), with value \(63/32>0\) at \(3/8\). This treats the whole transition in one calculation. The former split at \(z=1/4\) and its degree-eight certificate are unnecessary.
-
-\readerheading{Transition B: one rational bound, no subdivision}
-
-Write
-
-\[
-v=\ell(u),\qquad z=u+v,\qquad t=v,\qquad0<u\le1/4.
-\]
-
-Then
-
-\[
-P=r(1-r)+2v-2u(1-2u).
-\]
-
-Since \(z\le3u/2\le3/8\), \zcref{lem:bc-slack-envelope} applies to the first capacity and gives
-
-\[
-r\ge R(u,v):=u+v-K(u+v)(u-v).
-\]
-
-On \(b(u)\le v\le u/2\),
-
-\[
-\frac{\partial R}{\partial v}
- =\frac{10(5-8u)}{(5-4u-4v)^2}>0.
-\]
-
-Furthermore,
-
-\[
-R(u,b(u))=\frac{u(25-80u+16u^2)}{(5-2u)(5-4u)}>0,
-\]
-
-and \(R(u,v)\le u+v\le3/8\). Thus substituting \(R\) for \(r\), and then \(b(u)\) for \(v\), can only decrease the expression. We obtain
-
-\[
-\boxed{
- P\ge
- \frac{u^2(625+4500u-18400u^2+5440u^3-256u^4)}
- {5(5-2u)^2(5-4u)^2}>0.
-}
-\]
-
-On \(0\le u\le1/4\), the quartic numerator bracket is at least
-
-\[
-625+4500u-4600u-1=624-100u\ge599.
-\]
-
-No split at \(u=1/6\) is needed, and both former degree-six and degree-seven certificates are removed.
-
-\readerheading{Transition C}
-
-Again write \(v=\ell(u)\), \(z=u+v\). Now \(r=\ell(z)\), and
-
-\[
-P=2(r+v)-(1-z)(4u-z).
-\]
-
-We have \(z\le3u/2\le3/8\). First replace \(r\) by \(b(z)\). The resulting expression, as a function of \(v\) with \(z=u+v\), has positive derivative
-
-\[
-4+4u-\frac{18}{5}(u+v)>0.
-\]
-
-Thus replace \(v\) by \(v_0=b(u)\), and \(z\) by \(z_0=u+v_0\), obtaining
-
-\[
-P\ge2\{b(z_0)+v_0\}-(1-z_0)(4u-z_0)
-=\frac{u^2}{500}(175+280u-144u^2)>0.
-\]
-
-All three transitions are proved. The exhaustive concavity reduction and the easy regions therefore establish the coupled inequality throughout its stated domain.
-
+These regions and transitions are exhaustive. Monotonicity in the radii
+therefore proves the inequality for the exact capacities.
 \end{proof}

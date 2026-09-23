@@ -288,26 +288,14 @@ Consequently $U_C$ contains the centered closed disk
 \end{lemma}
 
 \begin{proof}
-On the $C_L$ branch, $C_L(m)<1$ because the defining polynomial is positive
-at $1$; if $s<\sqrt3/2$, then $c_*\ge\sqrt3/2>s>1-m$, while if
-$s\ge\sqrt3/2$ its value at $s$ is $\chi\le0$, so $c_*\ge s>1-m$.
-On the other branch put $E=\sqrt{4s^2-3}$.  The selector gives
-$sE>M-m$, whence $c_*<s<1$.  Moreover, with
-\[
- A_*=\frac{2M}{1-m}-1,
-\]
-one has
-\[
- A_*^2-E^2=
- \frac{4(1-s)\{(1-m)(1-2m)+m(2-m)(1-s)\}}{(1-m)^2}>0.
-\]
-Thus $A_*>E$ and $c_*>1-m$.  This proves
-\eqref{eq:cstar-bounds}.
-
-Every selected pair dominates $(p,q)$ by
-\zcref{lem:ab-extreme-jump}. Apply
-\zcref{cor:new-uniform-common-pair-forcing} to obtain the six forced
-points and their inscribed disk.
+The complementary pair is positive and has $p+q<1$.
+With $m=\min(p,q)$ and $c_*=c_{\max}(p,q)$, \zcref{lem:bc-capacity-tools} gives
+$1-c_*\ge m(1-m)/2>0$, while
+\zcref{lem:strict-own-ray-positive-slack} gives $1-c_*<m$.
+Hence $0<c_*<1$ and $c_*>1-m$.
+Every selected pair dominates $(p,q)$ by \zcref{lem:ab-extreme-jump}.
+Apply \zcref{cor:new-uniform-common-pair-forcing} to obtain the unchanged
+six radial points and their inscribed disk.
 \end{proof}
 
 We next define the three asymmetric witnesses.  At $V_4$ use local

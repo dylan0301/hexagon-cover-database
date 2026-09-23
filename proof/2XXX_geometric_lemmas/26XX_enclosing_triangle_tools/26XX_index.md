@@ -20,5 +20,6 @@ disk theorem is not the same as the four-point supported-rescuer theorem.
 
 ## New active nonzero-gap tools
 
-- [2615: shared deficit bound, chord envelope, coupled capacity inequality](2615_slack_sensitive_radial_envelope.md).
+- [2615: shared deficit bound, quarter-range envelope, coupled capacity inequality](2615_slack_sensitive_radial_envelope.md).
 - [2616: capacity-free five-point threshold and ratio-only four-point D](2616_bc_d_finite_calipers.md).
+- [2615a: retained wider-range slack envelope (independent)](2615a_wide_range_slack_envelope.md).

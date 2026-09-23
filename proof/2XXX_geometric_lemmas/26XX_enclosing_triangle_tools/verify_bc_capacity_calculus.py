@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Exact algebra audit for the accompanying proof of inequality (19).
+"""Retained wider-range algebra (2615a); the active quarter-range proof
+is audited by verify_quarter_envelope_revision.py.
+
+Exact algebra audit for the accompanying proof of inequality (19).
 
 Requirements: Python 3.10+ and SymPy.
 This verifies the polynomial identities and rational sign certificates used

@@ -147,3 +147,15 @@ The five-point BC threshold is now capacity-free; total-endpoint forcing
 supplies both clipped-path and uniform witnesses; BC and F share one deficit
 estimate. Duplicate wrappers and calculations are removed without changing
 raw (3,0) normalization, replacement charts, or exact zero-gap certificates.
+
+### Quarter-range envelope and factored rescuer ratios
+
+The [next revision report](arrange/20260923_quarter_envelope_revision_report.md)
+records the further 70-to-67-page canonical and 68-to-65-page inline changes.
+The exact five-point BC witnesses now use a polynomially proved quarter-range
+comparison envelope with linear slack coefficient; no implicit-root derivatives
+are needed in the active coupling proof. The T3-like and Vd1 ratio estimates
+are factored directly, and a strict own-ray lemma shortens the preliminary F
+bound. Witness counts remain 5/4/9, clipping is unchanged, and both replacement
+charts and exact zero-gap data retain byte-preservation checks. The wider
+historical envelope remains available separately in numbered source 2615a.

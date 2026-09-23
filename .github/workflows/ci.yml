@@ -130,7 +130,7 @@ jobs:
           import fitz
 
           bounds = {
-              Path("arrange/_build/canonical.pdf"): (68, 72),
+              Path("arrange/_build/canonical.pdf"): (65, 69),
           }
           for path, (lower, upper) in bounds.items():
               pages = fitz.open(path).page_count
