@@ -1,6 +1,6 @@
 # Paper with proofs following statements
 
-This 68-page additional edition has no appendices. Its 78 formal results each have
+This 65-page additional edition has no appendices. Its 79 formal results each have
 an immediate proof. The introduction announces the main result; the formal
 main theorem and scaling corollary conclude the paper. Both editions share the new geometric overview and witness explanations.
 The numbered sources include the approved five-point BC and four-point D replacement.
@@ -29,18 +29,20 @@ Common geometry includes the corner charts, exact-trace normalization,
 strict handoffs, admissible cells, and signed-center normal form. Supporting
 results precede their use; definitions precede the calculations using them.
 
-The shortened canonical manuscript has 88 formal statements; this edition has
-78, consolidating the ten remaining duplicate entries. The source map records
+The shortened canonical manuscript has 89 formal statements; this edition has
+79, consolidating the ten remaining duplicate entries. The source map records
 those merges and equation aliases. Four formerly separate body/appendix pairs
 were already merged in the canonical edition during this shortening.
 
-The correspondence audit checks 76 retained canonical proof bodies against
-this edition, and checks that all 78 results have immediate proofs. Reviewed
+The correspondence audit checks 77 retained canonical proof bodies against
+this edition, and checks that all 79 results have immediate proofs. Reviewed
 changes to the common forcing argument, BC threshold criterion, and shared
 BC/F bound are recorded in the shortening report; they are not described as
 unchanged pre-refactor text. The D four-caliper proof remains byte-pinned to
 its former appendix proof. Raw (3,0) normalization, both replacement charts,
-and the original supplier calculations retain their preservation checks.
+and the unchanged local endpoint calculations retain their preservation checks.
+The two supplier ratio arguments are intentionally replaced by factorizations;
+their before/after hashes and actual-endpoint contracts are recorded separately.
 
 The exact certificate's reduction, signs, checking rules, immutable source
 link, transcript digest, and provenance are included in the zero-gap section.
@@ -61,8 +63,13 @@ of its proof and places shared figures at their source positions. Run
 `python arrange/_support/verify_inline_proofs.py --pdf arrange/_build/inline_proofs.pdf`
 to check the rendered proof count, appendix referrals, and separated proof starts.
 
-The reusable-lemma inventory contains 78 immediate proof environments. Its
-pre-shortening baseline is archived alongside the older readability baseline.
+The quarter-envelope inventory contains 79 immediate proof environments. Its
+pre-revision baseline is archived alongside the older readability baselines.
 The current inventory is protected by the same source-regression audit; this
 is a reviewed mathematical refactor, not merely proof relocation. Font sizes,
 page dimensions, and margins are unchanged.
+
+The [quarter-envelope report](../../20260923_quarter_envelope_revision_report.md)
+records the polynomial BC comparison proof, factored T3-like/Vd1 ratios, and
+strict own-ray lemma used by F. The exact BC/D/F witnesses, the capacity-free
+five-point threshold, four-point calipers, and exact certificate are unchanged.

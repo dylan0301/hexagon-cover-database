@@ -82,3 +82,23 @@ coordinatewise antitonicity as well. $\square$
 
 The comparison is valid as an upper bound for every permitted adjacent trace.
 It does not assert that a triangle of a particular V type has that trace.
+
+
+## 3. Strict own-ray bound with positive slack
+
+If $a,b>0$ and $a+b<1$, then
+$$c_{\max}(a,b)>1-\min(a,b).$$
+Put $m=\min(a,b)$, $M=\max(a,b)$, and $\delta=1-a-b>0$.
+Section 2 gives the non-strict bound. The selected local formula in
+[2004](2004_admissible_set.md) has quartic polynomial
+$F(C,m)=C^4-C^2+mC-m^2$ and triangular polynomial
+$H(C)=((1-\delta)^2-1)C^2+MC-M^2$. They satisfy
+$$
+F(1-m,m)=-m((1-m)^3+m^2)<0,
+$$
+$$
+H(1-m)=-\delta((1-m)(1-2m)+m(2-m)\delta)<0.
+$$
+Neither selected branch can equal $1-m$, which proves strictness.
+This excludes an equality for the already selected geometric capacity;
+it does not choose a connected component from an unrestricted polynomial sign.

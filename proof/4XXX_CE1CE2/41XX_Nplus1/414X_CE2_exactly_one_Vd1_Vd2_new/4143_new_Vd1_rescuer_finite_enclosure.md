@@ -162,71 +162,36 @@ a\le F(t,c)\le F(1,c)
 \tag{11}
 \]
 
-A direct squaring calculation gives
+Put $\varepsilon=1-u$. Direct substitution in (2) gives
+$$
+\varepsilon=\varepsilon_0+\frac at,\qquad
+\varepsilon_0=\frac{2t+1-c(t+1)-d}{t}>0.
+$$
+Indeed, $d<t+1$ implies
+$t\varepsilon_0>(1-c)t-c\ge1-2c\ge0$.
+The function $v/(v+\varepsilon_0+v/t)$ is increasing for $v\ge0$,
+and $\varepsilon_0+F(t,c)/t=1/2$. With $x=a/(a+\varepsilon)$,
+$$
+x\le\frac{F(t,c)}{F(t,c)+1/2}\le2F(t,c)\le2L(c)
+<4c-\frac32,
+$$
+where $\sqrt3<7/4$ supplies the strict final comparison. Thus
+$0<x<1/2$ and $c>(3+2x)/8$. By monotonicity in $c$,
+$$
+x^2+(c-2)x+c>
+Q_{(3+2x)/8}(x)=\frac{(1-2x)(3-5x)}8>0.
+$$
+The scalar test in `2612` gives $x\le1-M_c^{\rm sup}$.
 
-\[
-2L(c)\le1-M.
-\tag{12}
-\]
-
-Indeed, (12) is equivalent to
-
-\[
-20c^2+(18\sqrt3-52)c+47-24\sqrt3\ge0,
-\]
-
-and the quadratic is decreasing on \([0,1/2]\) with positive value
-\(26-15\sqrt3\) at \(1/2\).  Since \(a\ge0\), (11)--(12) imply the first
-inequality in (9).
-
-For the ratio, direct substitution in (2) gives
-
-\[
-\varepsilon
-=
-\varepsilon_0+\frac at,
-\qquad
-\varepsilon_0
-=
-\frac{2t+1-c(t+1)-d}{t}>0.
-\tag{13}
-\]
-
-The map
-
-\[
-z\longmapsto
-\frac{z}{z+\varepsilon_0+z/t}
-\]
-
-is increasing for \(z\ge0\), while
-
-\[
-\varepsilon_0+\frac{F(t,c)}{t}=\frac12.
-\]
-
-Using (10)--(12),
-
-\[
-\frac{a}{a+\varepsilon}
-\le
-\frac{F(t,c)}{F(t,c)+1/2}
-\le
-\frac{L(c)}{L(c)+1/2}
-\le
-2L(c)
-\le1-M.
-\]
-
-This proves (9).
-
-Finally, the Vd half-unit cap gives \(a<1/2\), and (3) gives
-\(\varepsilon\le1/2\).  Thus
-
-\[
-a+\varepsilon<1.
-\tag{14}
-\]
+Positive forward support also gives
+$$
+(t+1)a+tb<(t+1)(d-1)-t^2<d-1,
+$$
+since $d<t+1$. Hence $u>a$, so
+$$a+\varepsilon=1+a-u<1.$$
+In particular $a\le a/(a+\varepsilon)=x$, which also proves the
+first inequality in (9). Thus both stated bounds, the size condition,
+and the original interval endpoints are preserved, with no radical squaring.
 
 ## 3. Apply the common fixed-witness interface
 

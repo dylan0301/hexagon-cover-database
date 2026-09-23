@@ -42,5 +42,7 @@
   "readability_note": "The canonical edition now shares the inline wording for the vertex dictionary and normalization consequence; their old inter-edition substitutions are no longer needed. No mathematical hypothesis or conclusion is changed.",
   "bc_d_revision": "Five-point BC, ratio-only four-point D; shared full local capacity and caliper proofs.",
   "shortening_revision_base": "a4f44a8b52c5097e07b82d2e4dec7efb83dd80e4",
-  "shortening_note": "Four duplicate enclosure wrappers consolidated in the canonical paper; total-endpoint/path/uniform forcing, capacity-free five-point threshold, and shared BC/F deficit estimate. Obsolete assembly wrappers and unused calculations removed; exact certificate unchanged."
+  "shortening_note": "Four duplicate enclosure wrappers consolidated in the canonical paper; total-endpoint/path/uniform forcing, capacity-free five-point threshold, and shared BC/F deficit estimate. Obsolete assembly wrappers and unused calculations removed; exact certificate unchanged.",
+  "quarter_envelope_revision_base": "c7373742f8975d24a18456f458c8e1208a9b454b",
+  "quarter_envelope_note": "Exact witnesses unchanged; shared quarter-range capacity proof, factored T3-like/Vd1 ratios, and strict positive-slack own-ray bound synchronized in both editions."
 }

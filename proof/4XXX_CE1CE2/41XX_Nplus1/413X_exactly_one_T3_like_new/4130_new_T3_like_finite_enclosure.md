@@ -52,29 +52,18 @@ a+\varepsilon=1-t<1,\qquad
 c=x+\theta+\frac{\alpha_T}{1-t}>x+\theta.
 $$
 
-The midpoint inequalities imply
-
+Since $z<1$, one has $\theta>t/2$. Also
+$a+t=x+(1-x)t>1/2$ and $0<x<c<1/2$, so
 $$
-\frac{1-4\theta+\theta^2}{2(1-2\theta)}<x<1/2-\theta.
+\theta>\frac{t}{2}>\frac{1-2x}{4(1-x)}.
 $$
-
-For the lower endpoint use $t=\theta(2-\theta)/(1-\theta^2)$.
-Let $Q_\theta(x)=2x^2+(\theta-1)x+\theta$.
-When $0<\theta\le1/5$, the lower endpoint is to the right of the vertex,
-and substitution gives
-
+The quadratic $Q_c(x)=x^2+(c-2)x+c$ increases with $c$. Therefore
 $$
-Q_\theta(x)\ge
-\frac{\theta(1-5\theta+11\theta^2-\theta^3)}{2(1-2\theta)^2}\ge0.
+Q_c(x)>2x^2+(\theta-1)x+\theta
+>\frac{(1-2x)(4x^2-3x+1)}{4(1-x)}>0.
 $$
-
-For $1/5\le\theta<1/2$, its unrestricted minimum is
-$(10\theta-1-\theta^2)/8>0$. Hence
-
-$$
-x^2+(c-2)x+c
-=Q_\theta(x)+\frac{\alpha_T}{1-t}(x+1)>0.
-$$
+The last factor is positive because
+$4x^2-3x+1=4(x-3/8)^2+7/16$. No subdivision at $\theta=1/5$ is needed.
 
 Here $0<x,c<1/2$. By the scalar ratio test of `2612`,
 

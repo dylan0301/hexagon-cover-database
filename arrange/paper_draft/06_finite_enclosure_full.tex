@@ -283,6 +283,32 @@ Thus $c_{\max}(p,q)\ge1-m$; reflect if $p=m$.
 Increasing an anchor shrinks the feasible family, so capacities are antitone.
 \end{proof}
 
+\begin{lemma}[Strict own-ray bound with positive slack]
+\label{lem:strict-own-ray-positive-slack}
+If $a,b>0$ and $a+b<1$, then
+\[
+ c_{\max}(a,b)>1-\min(a,b).
+\]
+\end{lemma}
+\begin{proof}
+Put $m=\min(a,b)$, $M=\max(a,b)$, and $\delta=1-a-b>0$.
+By \zcref{lem:new-common-pair-domination}, $c_{\max}(a,b)\ge1-m$.
+The exact local formula \zcref{prop:new-exact-local-set} has two branches. In the quartic branch, the defining polynomial
+$F(C,m)=C^4-C^2+mC-m^2$ satisfies
+\[
+ F(1-m,m)=-m\bigl((1-m)^3+m^2\bigr)<0.
+\]
+In the triangular branch, the polynomial
+$H(C)=((1-\delta)^2-1)C^2+MC-M^2$ satisfies
+\[
+ H(1-m)=-\delta\bigl((1-m)(1-2m)+m(2-m)\delta\bigr)<0.
+\]
+Thus equality with $1-m$ is impossible on either selected capacity branch.
+The non-strict bound proves the strict inequality. This argument does not
+select a geometric component from a polynomial sign; it excludes equality
+for the capacity already specified by the exact local theorem.
+\end{proof}
+
 \begin{definition}[Fixed total radial endpoint]
 \label{def:fixed-total-radial-endpoint}
 Parametrize $r_i$ by $Z_i(c)=(1-c)V_i$, measured from $V_i$ toward $O$.

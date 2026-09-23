@@ -26,7 +26,7 @@ MAIN = PAPER / "main.tex"
 OUT_HTML = ROOT / "interactive" / "readable_proof_dependency_graph.html"
 OUT_JSON = ROOT / "interactive" / "readable_proof_dependency_data.json"
 REPORT = ROOT / "arrange" / "README.md"
-BRANCH = "chatgpt/reusable-lemmas-shortening-20260922232121"
+BRANCH = "chatgpt/quarter-envelope-simplification-20260923045806"
 REPOSITORY = "dylan0301/hexagon-cover-database"
 
 ENV_RE = re.compile(
@@ -230,16 +230,16 @@ CASE_META = {'cor:clipped-radial-forcing': {'cases': ['BC path and uniform F con
                                  'detail': 'Forces the three parameter-dependent frontier '
                                            'witnesses Q_-,Q_0,Q_+ into U_C.'},
  'lem:bc-capacity-tools': {'cases': ['BC/D finite-caliper revision'],
-                           'detail': 'Local deficit bounds and branchwise concavity.'},
+                           'detail': 'Factored shared deficit bound and stronger baseline on m<=1/4.'},
  'lem:bc-coupled-capacity': {'cases': ['BC/D finite-caliper revision'],
-                             'detail': 'Analytic two-pair inequality; complete concavity reduction '
+                             'detail': 'Unchanged exact-radius inequality; explicit quarter-range transitions '
                                        'and exact endpoint bounds.'},
  'lem:bc-five-point': {'cases': ['Any five points satisfying the geometric bounds'],
                        'detail': 'Capacity-free unit-threshold criterion: four calipers always '
                                  'exceed one; one is decisive.'},
  'lem:bc-slack-envelope': {'cases': ['BC/D finite-caliper revision'],
-                           'detail': 'Reusable rational envelope depending on the smaller boundary '
-                                     'reach and the boundary slack.'},
+                           'detail': 'Quarter-range envelope beta=2m/(4+3m), kappa=1+3m/2; '
+                                     'm<=1/4 only, proved by a cubic sign test.'},
  'lem:compact-cover-margin': {'cases': ['Scaling equivalence and finite enclosure'],
                               'detail': 'One positive compact margin supplies both uses of '
                                         'shrinking.'},
@@ -359,7 +359,8 @@ MANUAL_DEPS = {'cor:clipped-radial-forcing': ['lem:boundary-deficit-identities',
  'lem:shared-gap-anchor-transfer': ['lem:gap-exhaustion', 'lem:signed-diameter-transfer'],
  'lem:supercritical-skeleton-cap': ['prop:new-exact-local-set'],
  'lem:support-cell-rotation': ['prop:new-enclosure-gauge'],
- 'lem:symmetric-core-witness': ['cor:new-uniform-common-pair-forcing',
+ 'lem:strict-own-ray-positive-slack': ['lem:new-common-pair-domination', 'prop:new-exact-local-set'],
+ 'lem:symmetric-core-witness': ['lem:strict-own-ray-positive-slack', 'lem:bc-capacity-tools', 'cor:new-uniform-common-pair-forcing',
                                 'lem:ab-extreme-jump',
                                 'prop:new-exact-local-set'],
  'lem:t3-nonsupercritical': ['prop:t3-translation'],

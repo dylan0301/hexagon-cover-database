@@ -29,7 +29,8 @@ V-type pattern, selects BC, D, replacement, or the Vd2 perimeter exit.
 | `2612` | one total-endpoint lemma, clipped-path/uniform corollaries, boundary identities, BC/D and N0 |
 | `2613` | unique midpoint supplier and center-free away edge, CE1/CE2 |
 | `2614` | two-vertex scalar replacement, separate charts, five strict margins |
-| `2615` | shared radial-deficit bound (BC and F), chord envelope, coupled capacity inequality |
+| `2615` | shared radial-deficit bound (BC and F), quarter-range polynomial envelope, coupled capacity inequality |
+| `2615a` | independent wider-range envelope on $m\le3/8$; not an active BC input |
 | `2616` | capacity-free five-point threshold criterion, capacity instance, BC clipping, ratio-only D |
 | `4102` | historical conditional CE1 return; not an active BC/D dependency |
 | `4130_new`, `4143_new` | distinct T3-like and Vd1 local ratio calculations before D |

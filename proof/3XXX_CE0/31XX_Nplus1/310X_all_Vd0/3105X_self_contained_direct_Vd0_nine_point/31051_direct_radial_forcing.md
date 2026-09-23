@@ -175,70 +175,12 @@ c_*>1-m.
 \tag{14}
 $$
 
-On the $C_L$ branch, $c_*\ge h>0$, while the polynomial in (12) has value
-$m(1-m)>0$ at $1$. The selected root is therefore strictly below $1$.
-
-Suppose instead that $\chi>0$. Since $pq\le s^2/4$,
-
-$$
-\chi\le s^2\left(s^2-\frac34\right),
-$$
-
-so $s>h$. Put $E=\sqrt{4s^2-3}$. The identity
-
-$$
-s^2E^2-(M-m)^2=4\chi>0
-$$
-
-gives $sE>M-m$. Hence
-
-$$
-s(1+E)>s+M-m=2M,
-$$
-
-and (13) gives $0<c_*<s<1$. This proves the first part of (14).
-
-For the second part, first suppose $\chi\le0$. If $s<h$, then
-
-$$
-c_*\ge h>s>1-m.
-$$
-
-If $s\ge h$, the polynomial in (12), evaluated at $s$, is
-
-$$
-s^4-s^2+ms-m^2=s^4-s^2+mM=\chi\le0.
-$$
-
-Its unique selected root and its positive value at $1$ imply
-$c_*\ge s>1-m$.
-
-Finally suppose $\chi>0$, retain $E$, put $t=1-s$, and define
-
-$$
-A_*=\frac{2M}{1-m}-1.
-$$
-
-Here $A_*>0$: indeed $2s>2h>1+m$, so
-$2M=2(s-m)>1-m$. Direct expansion gives
-
-$$
-A_*^2-E^2
-=
-\frac{4t\left\{(1-m)(1-2m)+m(2-m)t\right\}}{(1-m)^2}>0.
-$$
-
-Thus $A_*>E$, and
-
-$$
-\frac{c_*}{1-m}
-=
-\frac{2M}{(1-m)(1+E)}
-=
-\frac{1+A_*}{1+E}>1.
-$$
-
-This completes the proof of (14).
+The positive complementary pair has $p+q<1$. The shared deficit bound in
+[2615](../../../../2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2615_slack_sensitive_radial_envelope.md)
+gives $1-c_*\ge m(1-m)/2>0$. The strict positive-slack own-ray bound in
+[2008b](../../../../2XXX_geometric_lemmas/20XX_V_triangle_geometry/2008b_direct_neighbor_domination.md),
+Section 3, gives $1-c_*<m$. Hence (14) holds, with the same exact value
+$c_*$ and the same branch selectors as in (13).
 
 ## 3. Direct radial-forcing theorem
 

@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Exact algebra audit for the rational envelope and simplified BC checks.
+"""Retained wider-range algebra (2615a); the active quarter-range proof
+is audited by verify_quarter_envelope_revision.py.
+
+Exact algebra audit for the rational envelope and simplified BC checks.
 
 Requires SymPy. Run: python verify.py
 This audits identities and rational sign bounds. The accompanying PROOF.md

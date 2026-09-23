@@ -64,9 +64,9 @@ def main() -> None:
         print(f'{name}: {current["statements"]} statements and '
               f'{current["proof_environments"]} complete proof environments preserved')
     if corpus_fingerprint(ROOT) != baseline['proof_corpus']:
-        raise SystemExit('Numbered proof / certificate corpus differs from the approved reusable-lemma baseline')
-    print(f'Proof corpus: {baseline["proof_corpus"]["files"]} files match the approved reusable-lemma baseline')
-    print('Reviewed source preservation: PASS (approved reusable-lemma revision; prior baselines archived)')
+        raise SystemExit('Numbered proof / certificate corpus differs from the approved quarter-envelope baseline')
+    print(f'Proof corpus: {baseline["proof_corpus"]["files"]} files match the approved quarter-envelope baseline')
+    print('Reviewed source preservation: PASS (approved quarter-envelope revision; prior baselines archived)')
 
 if __name__ == '__main__':
     main()

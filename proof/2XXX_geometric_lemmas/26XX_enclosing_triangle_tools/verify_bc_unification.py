@@ -151,7 +151,8 @@ from pathlib import Path
 import hashlib
 ROOT = Path(__file__).resolve().parents[3]
 # Approved BC/D mathematical revision: these four statements/proofs changed.
-# Original supplier and replacement file pins below remain untouched.
+# Supplier pins below are intentionally updated for the reviewed factored ratio proofs;
+# the replacement-file pin and both D geometry pins are unchanged.
 PRESERVED_SECTIONS = [('proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2612_fixed_witness_unification.md',
   '## 6. Family D:',
   '## 7.',
@@ -174,9 +175,9 @@ assert hashlib.sha256(d_body[d_start:d_end].encode()).hexdigest() == "5027caa5e9
 PRESERVED_FILES = [('proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4144_new_two_chart_replacement_and_router.md',
   '4e2ad6e6f6e63427695193cff07ccd228e7dc0b5ec80086f5fb8b52dc2d16821'),
  ('proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4143_new_Vd1_rescuer_finite_enclosure.md',
-  'c1dfec8125ff4e0dc94fccb90f60b2a79d4f5c07d61853762b74dacc17913696'),
+  '1c1acc1708adc4d1434db1a15a3a2c833b5f620509ad87b786509d9f3d650f12'),
  ('proof/4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like_new/4130_new_T3_like_finite_enclosure.md',
-  '9c07b83683d951e82faed7235aba49ce9da298f67afbed2fd4d14220df7f8215')]
+  '7c98f559456b334067ba7a32e3def9726003829f979421fda4ab348cd6a07c74')]
 for path, digest in PRESERVED_FILES:
     assert hashlib.sha256((ROOT / path).read_bytes()).hexdigest() == digest, path
 core = (ROOT / "proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2612_fixed_witness_unification.md").read_text()

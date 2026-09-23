@@ -1,20 +1,20 @@
 {
-  "base_commit": "a4f44a8b52c5097e07b82d2e4dec7efb83dd80e4",
-  "revision": "20260923-reusable-lemmas-shortening",
-  "reason": "User-approved reusable-lemma extraction and deletion of redundant manuscript content; new exact/source contracts and preserved hard proof sections are checked separately.",
-  "prior_baseline_sha256": "2a26f2cefbaa7e53338fb2a86fcbb8d6fb26a057c0f3e66312a31199c7cdc169",
+  "base_commit": "c7373742f8975d24a18456f458c8e1208a9b454b",
+  "revision": "20260923-quarter-envelope-and-ratio-simplification",
+  "reason": "User-approved quarter-range polynomial envelope, unchanged coupled theorem/witnesses, factored T3-like/Vd1 ratios, and strict own-ray preliminary F bound. Unchanged geometry/certificate files and reviewed adapter changes have separate hash/source contracts.",
+  "prior_baseline_sha256": "583e9c5b29c99945b8169c78dfecff2b9698b5910ce8b44dec8f6c2a13f53efc",
   "canonical": {
-    "statements": 88,
-    "proof_environments": 87,
-    "sha256": "b44ab75d81cd53b88c105787a053d954eb801aad6eb132988bc4b5d0434d8da8"
+    "statements": 89,
+    "proof_environments": 88,
+    "sha256": "bbbd93807b81476c9024231425c68d0aa226bb22dc99e2ae90be83d55fe554ec"
   },
   "inline": {
-    "statements": 78,
-    "proof_environments": 78,
-    "sha256": "4652244c275a57c2f304aae66b89849f0805af5723ff66d140b763cf1b67d654"
+    "statements": 79,
+    "proof_environments": 79,
+    "sha256": "6cb8d25ae3c523076713b8c1e05a6f5530ea1557661e7020db9c4d5a82c35e00"
   },
   "proof_corpus": {
-    "files": 371,
-    "sha256": "1a37639ce4c40558d7eb7361c3ed6817904dbe7b3697d95d76b746fdfdc140a8"
+    "files": 373,
+    "sha256": "c1e2e9d6290b55841af8164ea747ade0f0cf9aceebaa8768474307bc2b805965"
   }
 }

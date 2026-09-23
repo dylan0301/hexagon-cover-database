@@ -108,6 +108,32 @@ Thus $c_{\max}(p,q)\ge1-m$; reflect if $p=m$.
 Increasing an anchor shrinks the feasible family, so capacities are antitone.
 \end{proof}
 
+\begin{lemma}[Strict own-ray bound with positive slack]
+\label{lem:strict-own-ray-positive-slack}
+If $a,b>0$ and $a+b<1$, then
+\[
+ c_{\max}(a,b)>1-\min(a,b).
+\]
+\end{lemma}
+\begin{proof}
+Put $m=\min(a,b)$, $M=\max(a,b)$, and $\delta=1-a-b>0$.
+By \zcref{lem:new-common-pair-domination}, $c_{\max}(a,b)\ge1-m$.
+The exact local formula \zcref{prop:new-exact-local-set} has two branches. In the quartic branch, the defining polynomial
+$F(C,m)=C^4-C^2+mC-m^2$ satisfies
+\[
+ F(1-m,m)=-m\bigl((1-m)^3+m^2\bigr)<0.
+\]
+In the triangular branch, the polynomial
+$H(C)=((1-\delta)^2-1)C^2+MC-M^2$ satisfies
+\[
+ H(1-m)=-\delta\bigl((1-m)(1-2m)+m(2-m)\delta\bigr)<0.
+\]
+Thus equality with $1-m$ is impossible on either selected capacity branch.
+The non-strict bound proves the strict inequality. This argument does not
+select a geometric component from a polynomial sign; it excludes equality
+for the capacity already specified by the exact local theorem.
+\end{proof}
+
 \begin{definition}[Fixed total radial endpoint]
 \label{def:fixed-total-radial-endpoint}
 Parametrize $r_i$ by $Z_i(c)=(1-c)V_i$, measured from $V_i$ toward $O$.
@@ -465,13 +491,9 @@ Vd0 roles at the other four vertices. The actual supported interval
 satisfies the hypotheses of \zcref{lem:new-rescuer-tail-budget}.
 \end{lemma}
 \begin{proof}
-Normalize $T_0$ as the T3-like supplier of $M_1$, with uniquely
-supercritical $T_1$ and all remaining roles nonsupercritical Vd0.
-Use the original Type-II chart \eqref{eq:orientation-type-II}, writing
-its positive first slack as $\alpha_T$ and its actual reach $\beta$ as
-$a=A_0$. Thus $0<t<1$ and $z=\sqrt{1-t+t^2}$.
-On $r_1$, whose coordinates are $(1,s)$, direct substitution gives the
-actual interval $c\le s\le u$, where
+Use the original Type-II chart \eqref{eq:orientation-type-II}, with
+positive first slack $\alpha_T$ and actual reach $a=A_0$.
+Thus $0<t<1$, $z=\sqrt{1-t+t^2}$, and substitution on $r_1$ gives
 \begin{equation}
  c=\frac{1+\alpha_T+a-z}{1-t},\qquad
  u=a+t,\qquad \varepsilon=1-u.
@@ -479,111 +501,78 @@ actual interval $c\le s\le u$, where
 \end{equation}
 Open midpoint containment gives $0<c<1/2<u<1$.
 The supercritical own role ends before the midpoint and the other roles
-have no positive trace on $r_1$. Hence $u$ is its total radial frontier:
-$P_T=\varepsilon V_1\in U_C$ by
-\zcref{lem:fixed-total-radial-forcing}. Coverage of the near endpoint $c$
-gives $C_1\ge c$, since the center exits before $M_1$.
+have no positive trace on $r_1$. Thus $u$ is the total radial frontier:
+$\varepsilon V_1\in U_C$ by \zcref{lem:fixed-total-radial-forcing}.
+Coverage of the near endpoint gives $C_1\ge c$, since the center exits
+before $M_1$.
 
-Put
-\[
- x=\frac a{1-t},\qquad \theta=\frac t{1+z}.
-\]
-Then $0<\theta<1/2$, because $z>t$, and
+Put $x=a/(1-t)$ and $\theta=t/(1+z)$. Then
 \begin{equation}
  a+\varepsilon=1-t<1,\qquad
- c=x+\theta+\frac{\alpha_T}{1-t}>x+\theta,
- \qquad \frac a{a+\varepsilon}=x.
+ c=x+\theta+\frac{\alpha_T}{1-t}>x+\theta,\qquad
+ \frac a{a+\varepsilon}=x.
  \label{eq:t3-actual-ratio}
 \end{equation}
-The midpoint bounds imply
+In particular $0<x<c<1/2$. Since $z<1$ and
+$x+(1-x)t=a+t>1/2$,
 \[
- \frac{1-4\theta+\theta^2}{2(1-2\theta)}<x<\frac12-\theta,
+ \theta>\frac t2>\frac{1-2x}{4(1-x)}.
 \]
-using $t=\theta(2-\theta)/(1-\theta^2)$ for the lower endpoint.
-For $0<\theta\le1/5$, this interval lies to the right of the vertex of
-$Q_\theta(x)=2x^2+(\theta-1)x+\theta$, and
+The quadratic $Q_c(x)=x^2+(c-2)x+c$ increases with $c$, so
 \[
- Q_\theta(x)\ge
- \frac{\theta(1-5\theta+11\theta^2-\theta^3)}
- {2(1-2\theta)^2}\ge0.
+ Q_c(x)>2x^2+(\theta-1)x+\theta
+ >\frac{(1-2x)(4x^2-3x+1)}{4(1-x)}>0.
 \]
-For $1/5\le\theta<1/2$, its unrestricted minimum is
-$(10\theta-1-\theta^2)/8>0$.
-Consequently
-\[
- x^2+(c-2)x+c
- =Q_\theta(x)+\frac{\alpha_T}{1-t}(x+1)>0.
-\]
-Here $0<x,c<1/2$, so \zcref{lem:rescuer-ratio-test} gives
-$x\le1-M_c^{\rm sup}$. Together with \eqref{eq:t3-actual-ratio} and
-the forced endpoint, these are the common D hypotheses.
-Setting $\alpha_T=0$ would give only a lower bound on the actual near
-endpoint; that translation is not made in this argument.
+Here $4x^2-3x+1=4(x-3/8)^2+7/16$.
+The scalar rescuer test \zcref{lem:rescuer-ratio-test} gives $x\le1-M_c^{\rm sup}$.
+Together with the actual size relation and the forced endpoint, these
+are exactly the common D hypotheses. No translated near endpoint is used.
 \end{proof}
 
 \begin{lemma}[Solved Vd1 supported-tail adapter]
 \label{lem:appendix-vd1-supported-tail}
 In the center-based Vd1 supplier placement, with $M_1\in U_0$ and
 $T_1$ uniquely supercritical, the actual corner data imply the size and
-ratio inequalities required by
-\zcref{lem:new-rescuer-tail-budget}.
+ratio inequalities required by \zcref{lem:new-rescuer-tail-budget}.
 \end{lemma}
-
 \begin{proof}
 Set $a=A_0$, $b=B_0$. By \zcref{lem:vd1-forward-orientation}, the
-original Vd1 corner parameter satisfies $t\ge1$. Let
+original corner parameter satisfies $t\ge1$. Put
 $d=\sqrt{t^2+t+1}$ and write the actual supported interval as $[c,u]$.
-Open midpoint containment gives $0<c<1/2<u<1$. Then
+Then $0<c<1/2<u<1$ and
 \[
- c=\frac{t(1-b)}{t+1},
- \qquad
+ c=\frac{t(1-b)}{t+1},\qquad
  u=\frac{d-a-tb-1}{t}.
 \]
-The midpoint condition gives
-\[
- a+tb\le d-1-\frac t2.
-\]
-Eliminating $tb=t-c(t+1)$ gives
+The midpoint condition and $tb=t-c(t+1)$ imply
 \[
  a\le F(t,c):=d-1-\frac{3t}{2}+c(t+1).
 \]
-For fixed $c\le1/2$, the function $F$ decreases with $t$, so
+Since $d'<1$ and $c<1/2$, $F$ decreases with $t$, so
 \[
- a\le F(1,c)=\sqrt3-\frac52+2c=:L(c).
+ a\le F(t,c)\le F(1,c)=\sqrt3-\frac52+2c=:L(c).
 \]
-The inequality $2L(c)\le1-M_c^{\rm sup}$ reduces to
+Put $\varepsilon=1-u$. Direct substitution gives
 \[
- 20c^2+(18\sqrt3-52)c+47-24\sqrt3\ge0,
+ \varepsilon=\varepsilon_0+\frac at,\qquad
+ \varepsilon_0=\frac{2t+1-c(t+1)-d}{t}>0.
 \]
-whose derivative is negative on $[0,1/2]$ and whose value at $1/2$ is
-$26-15\sqrt3>0$. The unsquared right side
-$12-4\sqrt3-9c$ is positive there, so this squaring preserves the
-inequality. Hence
+For the last sign, $d<t+1$ gives
+$t\varepsilon_0>(1-c)t-c\ge1-2c>0$.
+The function $v/(v+\varepsilon_0+v/t)$ increases for $v\ge0$, and
+$\varepsilon_0+F(t,c)/t=1/2$. Hence, with $x=a/(a+\varepsilon)$,
 \[
- a\le1-M_c^{\rm sup}.
+ x\le\frac{F(t,c)}{F(t,c)+1/2}\le2F(t,c)\le2L(c)
+ <4c-\frac32,
 \]
+using $\sqrt3<7/4$. Thus $0<x<1/2$ and $c>(3+2x)/8$. Therefore
+\[
+ x^2+(c-2)x+c>
+ x^2+\left(\frac{3+2x}{8}-2\right)x+\frac{3+2x}{8}
+ =\frac{(1-2x)(3-5x)}8>0.
+\]
+The scalar rescuer test \zcref{lem:rescuer-ratio-test} proves $x\le1-M_c^{\rm sup}$.
 
-Put $\varepsilon=1-u$.  Direct substitution gives
-\[
- \varepsilon=\varepsilon_0+\frac at,
- \qquad
- \varepsilon_0=
- \frac{2t+1-c(t+1)-d}{t}>0.
-\]
-The map
-\[
- z\longmapsto
- \frac{z}{z+\varepsilon_0+z/t}
-\]
-is increasing, while
-$\varepsilon_0+F(t,c)/t=1/2$.  Therefore
-\[
- \frac{a}{a+\varepsilon}
- \le
- \frac{F(t,c)}{F(t,c)+1/2}
- \le2L(c)
- \le1-M_c^{\rm sup}.
-\]
 Positive forward support also gives
 \[
  (t+1)a+tb<(t+1)(d-1)-t^2<d-1,
@@ -591,8 +580,7 @@ Positive forward support also gives
 because $d<t+1$. Thus $u>a$ and $a+\varepsilon=1+a-u<1$.
 As in the T3-like placement, $u$ is the total frontier and the near
 endpoint is supplied by $T_1$, so $\varepsilon V_1\in U_C$ and
-$C_1\ge c$. The size and ratio requirements of the common rescuer
-lemma have now all been verified.
+$C_1\ge c$. These are all the common D hypotheses.
 \end{proof}
 
 For the covering application, let $T_0$ supply $M_1$, with supported

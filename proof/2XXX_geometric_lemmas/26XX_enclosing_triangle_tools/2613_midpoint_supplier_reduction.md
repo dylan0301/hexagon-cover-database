@@ -56,6 +56,7 @@ Vd0, so the stated endpoint exclusions do not assume absent support silently.
 For the away supplier, the shared edge $e_{\tau,\sigma}$ is not incident
 with $k$. Both possible positive C traces are incident with $k$, so that
 shared edge is center-free. This proves the replacement input in both CE1
-and CE2. The two center classes are not identified: BC has one witness set and
-two internal sign-domain verifications, using the CE2 transverse thresholds
-and the CE1 tail-input selected return.
+and CE2. The CE1 and CE2 structural placement information is retained. Once the
+original-cover witnesses are forced, the terminal BC enclosure is excluded
+by the five-point threshold and its nonuniform capacity instance, rather
+than separate CE1/CE2 terminal sign-domain calculations.

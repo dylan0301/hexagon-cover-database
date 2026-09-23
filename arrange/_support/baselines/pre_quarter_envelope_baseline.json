@@ -1,0 +1,20 @@
+{
+  "base_commit": "a4f44a8b52c5097e07b82d2e4dec7efb83dd80e4",
+  "revision": "20260923-reusable-lemmas-shortening",
+  "reason": "User-approved reusable-lemma extraction and deletion of redundant manuscript content; new exact/source contracts and preserved hard proof sections are checked separately.",
+  "prior_baseline_sha256": "2a26f2cefbaa7e53338fb2a86fcbb8d6fb26a057c0f3e66312a31199c7cdc169",
+  "canonical": {
+    "statements": 88,
+    "proof_environments": 87,
+    "sha256": "b44ab75d81cd53b88c105787a053d954eb801aad6eb132988bc4b5d0434d8da8"
+  },
+  "inline": {
+    "statements": 78,
+    "proof_environments": 78,
+    "sha256": "4652244c275a57c2f304aae66b89849f0805af5723ff66d140b763cf1b67d654"
+  },
+  "proof_corpus": {
+    "files": 371,
+    "sha256": "1a37639ce4c40558d7eb7361c3ed6817904dbe7b3697d95d76b746fdfdc140a8"
+  }
+}
