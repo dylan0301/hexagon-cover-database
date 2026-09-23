@@ -1,0 +1,26 @@
+name: Temporary F integration transport
+on:
+  push:
+    branches: [chatgpt/f-explicit-comparison-20260923155000]
+    paths: [.github/workflows/f-explicit-delivery.yml]
+permissions:
+  contents: read
+jobs:
+  snapshot:
+    if: github.ref == 'refs/heads/chatgpt/f-explicit-comparison-20260923155000'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Archive the reviewed source revision only
+        run: |
+          git archive --format=tar e255ed51d54c3f005dc9c5764e8ee3736cd06946 > /tmp/F-base.tar
+          sha256sum /tmp/F-base.tar
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: F-reviewed-base
+          path: /tmp/F-base.tar
+          if-no-files-found: error
+          retention-days: 3
