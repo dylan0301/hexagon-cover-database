@@ -1,1 +1,0 @@
-Remote diagnostic archive confirmed that all inspected post-application sources match the locally validated bytes. Replay the unchanged, hash-approved payload at this branch head; no preservation test or mathematical assertion has been weakened.
