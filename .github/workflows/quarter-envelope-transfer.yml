@@ -1,0 +1,27 @@
+name: Temporary quarter-envelope source snapshot
+on:
+  push:
+    branches: [chatgpt/quarter-envelope-simplification-20260923045806]
+    paths: [.github/workflows/quarter-envelope-transfer.yml]
+permissions:
+  contents: read
+jobs:
+  snapshot:
+    if: github.repository == 'dylan0301/hexagon-cover-database' && github.ref == 'refs/heads/chatgpt/quarter-envelope-simplification-20260923045806'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+        with:
+          ref: c7373742f8975d24a18456f458c8e1208a9b454b
+          persist-credentials: false
+      - name: Archive the verified baseline only
+        run: |
+          test "$(git rev-parse HEAD)" = c7373742f8975d24a18456f458c8e1208a9b454b
+          git archive --format=tar.gz HEAD > /tmp/hexagon-baseline.tar.gz
+          sha256sum /tmp/hexagon-baseline.tar.gz
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: quarter-envelope-baseline
+          path: /tmp/hexagon-baseline.tar.gz
+          retention-days: 2
+          if-no-files-found: error
