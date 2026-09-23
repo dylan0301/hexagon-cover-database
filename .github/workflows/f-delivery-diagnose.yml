@@ -1,0 +1,52 @@
+name: Temporary F source diagnosis
+on:
+  push:
+    branches: [chatgpt/f-explicit-comparison-20260923155000]
+    paths: [.github/workflows/f-delivery-diagnose.yml]
+permissions:
+  contents: read
+jobs:
+  diagnose:
+    if: github.ref == 'refs/heads/chatgpt/f-explicit-comparison-20260923155000'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Archive only source diagnostics
+        run: |
+          python - <<'PY'
+          import hashlib,json,lzma,subprocess,tarfile,io
+          from pathlib import Path
+          h=lambda b:hashlib.sha256(b).hexdigest()
+          blob=b''.join(p.read_bytes() for p in sorted(Path('.github/f-explicit-payload').glob('*.part')))
+          assert h(blob)=='41e03a6d3c16b596d7341d272194d9a7164b98af69938c63e1ec1abd8bf9b1c9'
+          d=json.loads(lzma.decompress(blob));before={f['path']:f for f in d['files']}
+          archive=tarfile.open('/tmp/F-source-diagnostic.tar','w')
+          for name in ['proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/verify_quarter_envelope_revision.py','arrange/_support/quarter_envelope_preservation.json']:
+              b=Path(name).read_bytes();print('BEFORE',name,len(b.splitlines()),h(b))
+              t=tarfile.TarInfo('before/'+name);t.size=len(b);archive.addfile(t,io.BytesIO(b))
+          for u in d['updates']:
+              p=Path(u['path']);r=before[u['path']]
+              if r['before'] is None: text=u['text']
+              else:
+                  assert h(p.read_bytes())==r['before'],str(p)
+                  lines=p.read_text().splitlines(keepends=True)
+                  for i,j,text in reversed(u['edits']):lines[i:j]=[text]
+                  text=''.join(lines)
+              data=text.encode();assert h(data)==r['sha256'],str(p)
+              p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(data)
+          paths=['proof/check.py','proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/verify_quarter_envelope_revision.py','arrange/_support/quarter_envelope_preservation.json','arrange/paper_draft/E_zero_gap_nine_point_optimization.tex','arrange/paper_draft/A_zero_gap_exact_certificate.tex','arrange/paper_draft/inline_proofs/06_zero_gap.tex']
+          for name in paths:
+              b=Path(name).read_bytes();print('AFTER',name,len(b.splitlines()),h(b))
+              t=tarfile.TarInfo('after/'+name);t.size=len(b);archive.addfile(t,io.BytesIO(b))
+          archive.close()
+          print(subprocess.check_output(['git','rev-parse','HEAD'],text=True))
+          PY
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: F-source-diagnostic
+          path: /tmp/F-source-diagnostic.tar
+          retention-days: 3
+          if-no-files-found: error
