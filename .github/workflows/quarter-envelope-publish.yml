@@ -14,7 +14,8 @@ env:
   TZ: UTC
   DELIVERY_BRANCH: chatgpt/quarter-envelope-simplification-20260923045806
   BASELINE_SHA: c7373742f8975d24a18456f458c8e1208a9b454b
-  PAYLOAD_SHA: 3cf80baebc8fe8556bc63d6dc02928801ca4d76c2307fde80265fa42557f7ced
+  TRANSPORT_SHA: 3cf80baebc8fe8556bc63d6dc02928801ca4d76c2307fde80265fa42557f7ced
+  PAYLOAD_SHA: c154754c71ee96b67a6a25d3fa9e515f353597fade06d8a6ed4a3ef7ae385469
 jobs:
   validate:
     if: github.repository == 'dylan0301/hexagon-cover-database' && github.ref == 'refs/heads/chatgpt/quarter-envelope-simplification-20260923045806'
@@ -43,7 +44,7 @@ jobs:
           packed=base64.b64decode(''.join(chunks),validate=True)
           assert sha(packed)=='89d0e8d7c32e73f61a263bdfa204ea21913a493fc06a13a83dfd1ef152d58cf8'
           raw=lzma.decompress(packed)
-          assert sha(raw)==os.environ['PAYLOAD_SHA']
+          assert sha(raw)==os.environ['TRANSPORT_SHA']
           data=json.loads(raw)
           assert data['baseline']==os.environ['BASELINE_SHA'] and len(data['files'])==32
           assert subprocess.check_output(['git','rev-parse',data['baseline']+'^{tree}']).decode().strip()=='ca9c2359d5a3d072eeabdb5f8e646e0eb4ee01f8'
@@ -63,6 +64,26 @@ jobs:
           subprocess.run(['git','add','--',*data['files']],check=True)
           print('Verified and applied',len(data['files']),'reviewed source paths')
           PY
+      - name: Apply reviewed report-only whitespace correction
+        run: |
+          python - <<'PYFIX'
+          import hashlib,json,os,pathlib
+          sha=lambda b:hashlib.sha256(b).hexdigest()
+          source=pathlib.Path(os.environ['RUNNER_TEMP'])/'sealed-source.json'
+          raw=source.read_bytes();assert sha(raw)==os.environ['TRANSPORT_SHA']
+          data=json.loads(raw)
+          name='arrange/20260923_quarter_envelope_revision_report.md'
+          p=pathlib.Path(name);old=p.read_bytes();row=data['files'][name]
+          assert sha(old)==row['after'] and old.count(b'  \n')==3
+          new=old.replace(b'  \n',b'\n')
+          assert sha(new)=='8c032c922f1d1d08300278eb7bbff83e709b8d4e5c8ab39da402aa7693d679a9'
+          row['pieces']=[part.replace('  \n','\n') if isinstance(part,str) else part for part in row['pieces']]
+          row['after']=sha(new)
+          effective=json.dumps(data,separators=(',',':'),ensure_ascii=False).encode()
+          assert sha(effective)==os.environ['PAYLOAD_SHA']
+          p.write_bytes(new);source.write_bytes(effective)
+          PYFIX
+          git add arrange/20260923_quarter_envelope_revision_report.md
       - name: Install pinned source and rendering dependencies
         run: |
           python -m pip install --disable-pip-version-check -r arrange/_support/requirements.txt -r interactive/proof_trees/requirements.txt
@@ -178,7 +199,7 @@ jobs:
           manifest=json.loads(raw)
           assert manifest['baseline']==os.environ['BASELINE_SHA'] and manifest['payload_sha256']==os.environ['PAYLOAD_SHA'] and manifest['validation_head']==os.environ['VALIDATED_HEAD']
           packed=base64.b64decode(''.join(pathlib.Path(f'arrange/_support/quarter-envelope-payload-{i}.b64').read_text().strip() for i in range(3)),validate=True)
-          sealed=lzma.decompress(packed);assert sha(sealed)==os.environ['PAYLOAD_SHA']
+          sealed=lzma.decompress(packed);assert sha(sealed)==os.environ['TRANSPORT_SHA']
           allowed=set(json.loads(sealed)['files'])|{'interactive/readable_proof_dependency_graph.html','arrange/paper_draft/main.pdf','arrange/paper_draft/inline_proofs/main.pdf','.github/workflows/ci.yml'}
           assert set(manifest['files'])==allowed
           for name,row in manifest['files'].items():
