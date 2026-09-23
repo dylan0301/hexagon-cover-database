@@ -120,6 +120,14 @@ its two normals.
 
 \end{proof}
 
+For a lower bound at a candidate normal $N$, it is enough to choose
+$p_0,p_1,p_2\in\conv F$ and use
+\[
+ W_F(N)\ge\sum_{j=0}^2\langle p_j,\mathsf R^jN\rangle.
+\]
+Thus the maximizing point need not be identified in every direction.
+The candidate orientation list must still be exhaustive.
+
 \begin{proposition}[Disk--finite-set calipers]
 \label{prop:new-disk-finite-caliper}
 Let $\rho>0$, $P=\{p_1,\ldots,p_m\}\subset\mathbb R^2$, and
@@ -219,11 +227,8 @@ put
  c_{\max}(a,b):=
  \max\{c\in[0,1]:(a,b,c)\in\mathcal A\}.
 \]
-For \(0\le a,c\le1\), also put
-\[
- M_c(a):=\max\{b\in[0,1]:(a,b,c)\in\mathcal A\}.
-\]
-In particular, the \emph{diameter envelope} is
+Write $f(a,b):=1-c_{\max}(a,b)$ for the radial deficit when $a+b\le1$.
+The \emph{diameter envelope} is
 \begin{equation}
  M_0(x)=\frac{-x+\sqrt{4-3x^2}}2\qquad(0\le x\le1).
  \label{eq:diameter-envelope-definition}
@@ -261,22 +266,21 @@ The direct four-caliper proof is \zcref{lem:direct-neighbor-diagonal}.
 
 \begin{lemma}[Common-pair domination]
 \label{lem:new-common-pair-domination}
-If
+\label{lem:appendix-common-pair-domination}
+If $p,q\ge0$ and $p+q\le1$, then
 \[
- p,q\ge0,
- \qquad
- p+q\le1,
-\]
-then
-\[
- C_+(p,q),C_-(p,q)
- \le1-\min\{p,q\}\le c_{\max}(p,q).
+ C_+(p,q),C_-(p,q)\le1-\min\{p,q\}\le c_{\max}(p,q).
 \]
 \end{lemma}
-
 \begin{proof}
-This is the direct diagonal-capacity comparison in
-\zcref{lem:appendix-common-pair-domination}.
+Put $m=\min(p,q)$. Convexity shortens the boundary anchors to $(m,m)$,
+so \zcref{lem:direct-neighbor-diagonal} gives $C_\pm(p,q)\le1-m$.
+For the own-ray bound, use coordinates with origin $V_0$ and basis
+$V_5-V_0,V_1-V_0$. If $q=m$, the unit triangle
+$\conv\{(-m,0),(1-m,0),(1-m,1)\}$ contains the origin, $(p,0)$,
+$(0,m)$, and the own-ray point $(1-m,1-m)$, since $p\le1-m$.
+Thus $c_{\max}(p,q)\ge1-m$; reflect if $p=m$.
+Increasing an anchor shrinks the feasible family, so capacities are antitone.
 \end{proof}
 
 \begin{definition}[Fixed total radial endpoint]
@@ -296,117 +300,71 @@ triangle on $r_i$, rather than just the endpoint of the own V triangle.
 This distinction is essential when a nonsupercritical V triangle supports
 an adjacent radial segment.
 
-\begin{lemma}[Fixed radial forcing and demand recovery]
+\begin{lemma}[Total-endpoint radial forcing]
 \label{lem:fixed-total-radial-forcing}
-One has $0<d_i<1$ and $\widehat P_i\notin\bigcup_jU_j$. Under skeleton
-coverage, $\widehat P_i\in U_C$. More generally, for every
-$\gamma_i\le\Gamma\le1$, the point $(1-\Gamma)V_i$ is missed by every
-open V triangle and is center-forced under skeleton coverage.
-If an arbitrary open unit candidate $U'$
-contains $O$ and $\widehat P_i$, and its exit on $r_i$ is $d_i'$ measured
-from $O$, then $\gamma_i>1-d_i'$. If both neighboring endpoints are at most
-$1-d_i'$, it follows that
-\[
- C_i>1-d_i'.
-\]
-It is sufficient that each neighboring V triangle be nonsupercritical with
-both actual boundary reaches greater than $d_i'$.
+\label{lem:appendix-fixed-total-endpoint}
+One has $0<d_i<1$, and every $sV_i$ with $0\le s\le d_i$ is missed
+by all open V triangles. Under skeleton coverage these points belong to $U_C$.
 \end{lemma}
-
 \begin{proof}
-A local open triangle containing the total endpoint would extend its trace
-farther toward $O$. Nonlocal triangles are excluded by diameter. The last
-assertion follows from common-pair domination, which bounds a neighboring
-endpoint by $1-\min\{A_j,B_j\}$. The full endpoint and strictness argument
-is in \zcref{lem:appendix-fixed-total-endpoint}.
+No closed V triangle contains $O$: moving its interior distinguished vertex
+slightly away from $O$ would contradict diameter one. Each own trace has
+positive length, so $0<\gamma_i<1$ and $0<d_i<1$.
+For $0<s\le d_i$, containment of $sV_i$ in a local open role would extend
+its trace to an inward parameter strictly above $1-s\ge\gamma_i$.
+This contradicts maximality, including the case of an absent positive
+neighboring trace. Nonlocal roles are excluded by
+\[
+ \|sV_i-V_{i\pm2}\|^2=1+s+s^2>1,
+ \qquad \|sV_i-V_{i+3}\|=1+s>1.
+\]
+The case $s=0$ is the already-excluded center. Skeleton coverage supplies $U_C$.
 \end{proof}
 
-Let selected lower bounds satisfy
+\begin{corollary}[Clipped radial forcing]
+\label{cor:clipped-radial-forcing}
+For $j=i-1,i,i+1$, let $0\le a_j\le A_j$, $0\le b_j\le B_j$, and
+$a_j+b_j\le1$. Define
 \[
- 0\le a_j\le A_j,
- \qquad
- 0\le b_j\le B_j
- \qquad(0\le j\le5),
+ s_i:=\min\{f(a_i,b_i),a_{i-1},b_{i-1},a_{i+1},b_{i+1}\}.
 \]
-\[
- a_j^2+a_jb_j+b_j^2\le1
- \qquad(0\le j\le5).
-\]
-A neighboring term is used only when the actual V triangle has the
-corresponding positive radial trace:
-\[
- \Haus(T_{i-1}\cap r_i)>0
- \Longrightarrow a_{i-1}+b_{i-1}\le1,
-\]
-\[
- \Haus(T_{i+1}\cap r_i)>0
- \Longrightarrow a_{i+1}+b_{i+1}\le1.
-\]
-Define
-\[
- \Gamma_i:=\max\Bigl(
- \{c_{\max}(a_i,b_i)\}
- \cup\{C_+(a_{i-1},b_{i-1}):\Haus(T_{i-1}\cap r_i)>0\}
-\]
-\[
- {}\hspace{35mm}\cup
- \{C_-(a_{i+1},b_{i+1}):\Haus(T_{i+1}\cap r_i)>0\}
- \Bigr),
- \qquad
- D_i:=(1-\Gamma_i)V_i.
-\]
-The points \(D_i\) are the radial witnesses used below.
-
-\input{reading_guide/actual_and_bounded_frontiers}
-
-\begin{lemma}[Type-aware radial forcing]
-\label{lem:new-type-aware-radial-forcing}
-For every \(i\),
-\[
- D_i\in r_i\subseteq S,
- \qquad
- D_i\notin\bigcup_{j=0}^5U_j.
-\]
-Consequently,
-\[
- S\subseteq U_C\cup\bigcup_{j=0}^5U_j
- \Longrightarrow D_i\in U_C.
-\]
-\end{lemma}
-
+Every $sV_i$ with $0\le s\le s_i$ is missed by all open V triangles.
+For actual reaches on a gap-free nonsupercritical path, this simplifies to
+\begin{equation}
+ s_i=\min\{f(A_i,B_i),A_{i-1},B_{i+1}\}.
+ \label{eq:clipped-path-radius}
+\end{equation}
+\end{corollary}
 \begin{proof}
-The variational capacities give $\gamma_i\le\Gamma_i\le1$, including
-only actual positive adjacent traces. Apply
-\zcref{lem:fixed-total-radial-forcing}. The point $O$ when $\Gamma_i=1$
-is handled by that lemma as well; no positive-distance claim is made there.
+The own endpoint is at most $1-f(a_i,b_i)$. By common-pair domination,
+each positive neighboring endpoint is at most $1-\min(a_j,b_j)$;
+an absent trace contributes zero. Hence $\gamma_i\le1-s_i$ and
+\zcref{lem:fixed-total-radial-forcing} applies. On a gap-free
+nonsupercritical path, $A$ increases and $B$ decreases by the boundary
+deficit identities. Together with $f(A_i,B_i)\le\min(A_i,B_i)$, these
+inequalities remove $B_{i-1}$ and $A_{i+1}$ from the minimum.
 \end{proof}
 
-
+The actual radius $d_i$ comes from maximal traces; $s_i\le d_i$ is a
+certified lower bound. Neither may be replaced by the own-ray radius
+without accounting for neighboring suppliers.
 
 \begin{corollary}[Uniform common-pair radial forcing]
 \label{cor:new-uniform-common-pair-forcing}
-Suppose $p,q\ge0$, $p+q\le1$, and
-\[
- p\le a_i\le A_i,\qquad q\le b_i\le B_i\quad(0\le i\le5),
- \qquad 0<c_*:=c_{\max}(p,q)<1.
-\]
-Then $(1-c_*)V_i\notin\bigcup_{j=0}^5U_j$ for every $i$, without a
-restriction on the normalized V types. Under a hypothetical cover of $H$,
+Suppose $p,q\ge0$, $p+q\le1$, $p\le A_i$, $q\le B_i$ for every $i$,
+and $0<c_*:=c_{\max}(p,q)<1$. Then $(1-c_*)V_i$ is missed by all
+open V triangles, without a restriction on their normalized types.
+Under skeleton coverage,
 \[
  (1-c_*)V_i\in U_C\quad(0\le i\le5),
  \qquad \mathbb B(O,h(1-c_*))\subset U_C.
 \]
 \end{corollary}
-
 \begin{proof}
-Reselect each boundary pair as $(p,q)$, using convexity.
-Lemma~\ref{lem:new-type-aware-radial-forcing} applies to these common bounds,
-including only the actual positive neighboring traces.
-By \zcref{lem:new-common-pair-domination}, every included $C_+$ or $C_-$
-term is at most $c_*$, while the own-ray term equals $c_*$. Hence each
-maximum is exactly $c_*$ and the forced points are the stated symmetric
-ones. Their convex hull contains the displayed disk. In particular, a
-Vd1, Vd2, or T3-like crossing does not change any witness coordinate.
+Use the selected pair $(p,q)$ at every vertex in
+\zcref{cor:clipped-radial-forcing}. Since $f(p,q)\le\min(p,q)$,
+the clipped radius equals $1-c_*$. Convexity of $U_C$ supplies the
+inner hexagon and its displayed inscribed disk.
 \end{proof}
 
 
@@ -575,25 +533,3 @@ The construction gives the compact containment
 \end{proof}
 
 \subsection{Summary of the fixed witnesses}
-
-\begingroup
-\small
-\renewcommand{\arraystretch}{1.18}
-\setlength{\tabcolsep}{3pt}
-\begin{longtable}{@{}p{.29\textwidth}p{.44\textwidth}p{.18\textwidth}@{}}
-\caption{Fixed finite-enclosure recipes. Ordinary nonsupercritical V triangles
-are not subdivided by type.}\label{tab:finite-enclosure-subcases}\\
-\toprule
-Conditions & Fixed witness set & Disk and count\\
-\midrule
-\endfirsthead
-\toprule Conditions & Fixed witness set & Disk and count\\\midrule
-\endhead
-BC: at least one incident gap; $T_1,\ldots,T_5$ nonsupercritical &
-$\{M_0,X_0(B_0),X_0(1-A_1),\widehat P_2,\widehat P_3,\widehat P_4\}$ & No disk; at most 6\\
-D: center-based T3-like or Vd1 rescuer; one or two gaps &
-$\{O,\varepsilon V_1,Y(A_0),Y(1-B_5)\}$ & No disk; at most 4\\
-F: zero gaps, $N_+=1$ & The nine-point set $K_F$ & Disk; at most 9\\
-\bottomrule
-\end{longtable}
-\endgroup

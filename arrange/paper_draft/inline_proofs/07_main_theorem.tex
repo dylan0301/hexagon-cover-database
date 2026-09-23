@@ -1,6 +1,6 @@
 \section{Completion of the Proof}\label{sec:assembly}
 
-We use BC for the selected-gap six-point construction, D for the supported-
+We use BC for the selected-gap five-point construction, D for the supported-
 midpoint four-point construction, and F for the zero-gap nine-point
 construction, defined in Sections~\ref{sec:finite-enclosure} and
 \ref{sec:strategy4-reader}.
@@ -38,7 +38,7 @@ preserves the skeleton and ends at N0, without preserving number of gaps.}
 The rows are disjoint and exhaustive: separate zero from nonzero gaps,
 then $N_+=0$, and finally the displayed high-count condition.
 Lemma~\ref{lem:midpoint-supplier} resolves the last row. BC uses the same
-selected-gap witness in CE1 and CE2, with separate candidate calculations.
+selected-gap witness and finite-caliper calculation in CE1 and CE2.
 
 \begin{theorem}[Main theorem]
 \label{thm:main}
@@ -48,18 +48,22 @@ length one.
 \begin{proof}
 Suppose seven open unit equilateral triangles cover $H$.
 By \zcref{thm:fixed-nzero}, $N_+\ge1$.
-With no gaps, the nine-point obstruction \zcref{thm:reader-zero-gap-obstruction}
-excludes $N_+=1$, and \zcref{prop:area-branches} excludes $N_+\ge2$.
+With no gaps, \zcref{thm:reader-zero-gap-obstruction} excludes $N_+=1$,
+and \zcref{prop:area-branches} excludes $N_+\ge2$.
 
-With a gap, \zcref{lem:midpoint-supplier} gives
-$N_+=1,N_{\rm sp}\le1$. Let $M_k$ be the C midpoint and $\sigma$
-the supercritical index. The case $\sigma=k$ is excluded by
-\zcref{thm:center-aligned-path}. Otherwise $M_\sigma$ has a unique
-adjacent positive-support supplier. A T3-like supplier is center-based
-and is excluded by \zcref{prop:new-one-t3-terminal}; a Vd2 supplier
-is excluded by \zcref{prop:ce2-vd2-midpoint-length}. For Vd1, a
-center-based supplier uses D, whereas an away supplier admits replacement
-followed by N0, as proved in \zcref{prop:new-one-vd-assembly}.
+With a gap, \zcref{lem:midpoint-supplier} leaves $N_+=1,N_{\rm sp}\le1$.
+Let $M_k$ be the C midpoint and $\sigma$ the supercritical index.
+If $\sigma=k$, apply \zcref{thm:center-aligned-path}.
+Otherwise the supercritical midpoint has a unique adjacent supplier.
+A T3-like supplier is center-based. In either center-based T3-like or
+Vd1 placement, the corresponding actual-endpoint calculation
+\zcref{lem:appendix-t3-supported-tail,lem:appendix-vd1-supported-tail}
+and the common adapter \zcref{lem:new-rescuer-tail-budget} give D.
+A Vd2 supplier is excluded by \zcref{prop:ce2-vd2-midpoint-length}.
+An away Vd1 supplier has a center-free shared edge; the two-chart
+replacement \zcref{prop:appendix-vd1-two-chart-replacement} yields a
+skeleton cover with $N'_+=0$, contradicting N0. This uses BC to prove
+N0 before replacement, not replacement to prove N0.
 Thus no cover exists.
 \end{proof}
 

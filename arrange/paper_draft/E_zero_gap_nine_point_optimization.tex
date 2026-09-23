@@ -686,18 +686,9 @@ two normalized left sides in \eqref{eq:adjacent-overlaps} is
  d=\frac{\mathcal A+U(2m-1)+D(\mathcal A+U)}{2\rho},
  \qquad \mathcal A=1-m+m^2.                      \label{eq:adjacent-d}
 \end{equation}
-On the $C_L$ sheet, write $F_L(z)=z^4-z^2+mz-m^2$.  This defining
-polynomial evaluated at
-$r=1-m/2+m^2/2$ is
-\[
- F_L(r)=\frac{m^2(m-1)}{16}
- (m^5-3m^4+11m^3-17m^2+28m-12)>0.
-\]
-Indeed the polynomial in parentheses is increasing on $(0,1/2)$ and has
-value $-33/32$ at $1/2$; its derivative is
-$28-34m+m^2(5m^2-12m+33)>0$.  Since
-$F_L(h)=-(m-h/2)^2\le0$ and the selected
-root is unique, $2c_*-1\le\mathcal A$.  Put
+Apply \zcref{lem:bc-capacity-tools} to the complementary pair $(m,M)$.
+Its shared deficit bound gives
+$2c_*-1\le1-m+m^2=\mathcal A$. On the $C_L$ sheet, put
 \[
  X_0=\mathcal A+U,
  \qquad

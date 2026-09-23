@@ -48,7 +48,8 @@ print("raw (3,0) calculations and both replacement charts: preserved; statement 
 d = (PAPER / "D_nonzero_gap_finite_enclosure_optimization.tex").read_text()
 assert "D_bc_capacity_envelope" in d and "D_bc_finite_calipers" in d
 assert "First CE1 return step" not in d
-fixed=(PAPER / "fixed_witness/D_fixed_witness_extensions.tex").read_text()
+fixed=(PAPER / "fixed_witness/06_fixed_witness_body.tex").read_text()
+assert not (PAPER / "fixed_witness/D_fixed_witness_extensions.tex").exists()
 assert "lem:bc-five-point" in fixed and "thm:cert-caliper" in fixed
 assert "prop:signed-center-normal-form" not in fixed
 assert "prop:new-ce1-direct-certificate" not in fixed
@@ -57,7 +58,11 @@ print("BC/D terminal calipers replace the historical center-normal-form route: O
 body = (PAPER / "fixed_witness/06_fixed_witness_body.tex").read_text()
 assert "B_5\\ge B_0/2" in body
 assert "rV_2,\\widehat tV_4" in body and "\\widehat t=\\min\\{t,A_3\\}" in body
-assert "C_i>1-d_i'" in (PAPER / "06_finite_enclosure_full.tex").read_text()
+radial = (PAPER / "06_finite_enclosure_full.tex").read_text()
+assert "C_i>1-d_i'" not in radial
+for label in ("lem:fixed-total-radial-forcing", "cor:clipped-radial-forcing",
+              "eq:clipped-path-radius", "cor:new-uniform-common-pair-forcing"):
+    assert "\\label{" + label + "}" in radial, label
 for name in ("optional_B.tex", "06_fixed_zero_gap_coordinates.tex"):
     assert not (PAPER / "fixed_witness" / name).exists()
 for label in ("cor:ce1-five-handoff-return", "lem:appendix-ktr-ce2",

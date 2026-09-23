@@ -132,7 +132,7 @@ g(3/8)\ge3/8+b(3/8)=81/160>1/2.\tag{D}
 \]
 Consequently \(g(z)\le1/2\) implies \(z<3/8\).
 
-For \(a\ge1/2\), \(0\le b\le a\), and \(a+b\le1\), the exact capacity
+For \(0\le b\le a\) and \(a+b\le1\), the exact capacity
 formula can be written
 \[
 f(a,b)=
@@ -184,6 +184,12 @@ This envelope is exact at \(a+b=1\). Its two branches meet at the explicit
 slack \(\delta=b(m)\), rather than at an implicitly defined quartic root.
 It is not asserted with the same coefficients when \(m>3/8\).
 
+**Chord principle.** If $0<\beta\le m$, $F(0)=m$, $F\ge\beta$, and
+$F$ is concave on $[0,\beta]$, then
+$$F(\delta)\ge\max\{\beta,m-(m-\beta)\delta/\beta\}.$$
+Before $\beta$ this is the chord inequality; afterward the affine term is
+at most $\beta$. Only concavity on that first interval is required.
+
 **Proof.** If \(m=0\), the assertion is immediate. Otherwise write
 \(M=1-m-\delta\) and use the baseline bound \(f(M,m)\ge\ell(m)\ge b(m)\).
 For \(\delta\ge b(m)\), the affine entry is at most \(b(m)\), so nothing
@@ -198,7 +204,9 @@ Thus the selected triangular branch applies. On this interval,
  F_m(\delta)=f(1-m-\delta,m)
 \]
 is concave, as established in Section 1.2; here \(M\ge m\) since
-\(m\le3/8\) and \(1-m-b(m)>m\).
+\(m\le3/8\) and \(1-2m-b(m)\ge19/160>0\).
+No assumption $M\ge1/2$ is needed: the ordered-domain derivative proof
+in Section 1.2 applies.
 Its endpoint values satisfy
 \[
  F_m(0)=m,\qquad F_m(b(m))\ge b(m).
@@ -209,23 +217,6 @@ The chord inequality therefore gives
  =m-\frac{5+4m}{5-4m}\delta.
 \]
 This proves (RE).
-
-The baseline bound used here can be audited without a root computation.
-For \(F(c,m)=c^4-c^2+mc-m^2\),
-\[
- F(1-b(m),m)=\frac{m^2}{10000}H(m),
-\]
-where
-\[
- H(m)=256m^6-1280m^5+4960m^4-11600m^3+20625m^2-21000m+5500.
-\]
-On \([0,3/8]\),
-\[
- H'(m)\le1536(3/8)^5+19840(3/8)^3+41250(3/8)-21000
- =-286311/64<0,
-\]
-while \(H(3/8)=3049/1024>0\). Also \(1-b(m)>\sqrt3/2\), where
-\(F\) increases with \(c\). This proves \(b(m)\le\ell(m)\).
 
 ## 2. Easy parameter regions
 

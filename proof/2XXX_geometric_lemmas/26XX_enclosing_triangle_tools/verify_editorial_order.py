@@ -19,8 +19,8 @@ for a,b in [
  ('eq:diameter-envelope-definition','lem:shared-gap-anchor-transfer'),
  ('eq:supercritical-envelope-definition','thm:fixed-four-point-rescuer'),
  ('lem:new-common-pair-domination','lem:fixed-total-radial-forcing'),
- ('thm:fixed-four-point-rescuer','tab:finite-enclosure-subcases'),
- ('eq:reader-witness-set','tab:finite-enclosure-subcases'),
+ ('lem:fixed-total-radial-forcing','cor:clipped-radial-forcing'),
+ ('cor:clipped-radial-forcing','eq:clipped-path-radius'),
  ('lem:shared-corner-chart','lem:app-vd0-trace-normalization-calculation'),
  ('eq:orientation-type-II','lem:app-t3-translation-calculation'),
  ('lem:support-cell-rotation','prop:new-disk-finite-caliper'),
@@ -29,9 +29,11 @@ for a,b in [
  ('lem:bc-capacity-tools','lem:bc-slack-envelope'),
  ('lem:bc-slack-envelope','lem:bc-coupled-capacity'),
  ('lem:bc-coupled-capacity','lem:bc-five-point'),
- ('lem:bc-five-point','lem:appendix-fixed-transverse'),
  ('eq:four-contact-residuals','fig:zero-gap-four-contacts')]:
  check(a+' before '+b,full.index('\\label{'+a+'}')<full.index('\\label{'+b+'}'))
+inline=expand(PAPER/'inline_proofs/main.tex')
+check('inline geometry before BC application',inline.index('\\label{lem:bc-five-point}')<inline.index('\\label{lem:appendix-fixed-transverse}'))
+check('obsolete witness table removed', 'tab:finite-enclosure-subcases' not in full+inline)
 main=(PAPER/'main.tex').read_text()
 for typ in ('lemma','proposition','corollary','definition','remark'):
  check('reference type '+typ,'\\newaliascnt{'+typ+'}{theorem}' in main and '\\aliascntresetthe{'+typ+'}' in main)

@@ -8,24 +8,9 @@ arbitrary enclosing candidate is chosen. The finite calipers vary their support 
 by \zcref{lem:gap-exhaustion}; radial witnesses use the total endpoints,
 including all permitted neighboring traces.
 
-\begin{lemma}[The origin is implicit in the path witnesses]
-\label{lem:fixed-origin-in-hull}
-For $G=X_0(t)$, $0<t<1$, and $d_2,d_4>0$,
-\[
- G+\frac{1-t}{d_2}(d_2V_2)+\frac1{d_4}(d_4V_4)=0.
-\]
-Consequently $O\in\conv\{G,d_2V_2,d_4V_4\}$.
-\end{lemma}
 
-\begin{proof}
-Use $V_2=V_1-V_0$ and $V_4=-V_1$, and normalize the three positive
-coefficients to sum to one.
-\end{proof}
 
-The three constructions are summarized after they have been defined. Normalize the C midpoint to
-$M_0$ in the nonzero-gap cases, and write $\sigma$ for the unique
-supercritical index when $N_+=1$. Counts are upper bounds, allowing
-coincident gap endpoints.
+
 
 
 
@@ -84,13 +69,14 @@ Put $\widehat t=\min\{t,A_3\}$ and fix
 \]
 There are at most five points, including singleton gaps. The midpoint is a
 structural anchor; the other points are missed by every open V role.
-The origin is implicit by \zcref{lem:fixed-origin-in-hull}. The cap by $A_3$
+The cap by $A_3$
 controls the remaining neighboring supplier on $r_4$; it is not silently dropped.
 
 \input{reading_guide/selected_gap_walkthrough}
 
 \begin{theorem}[Unified five-point selected-gap enclosure]
 \label{prop:new-nplus-one-all-vd0}
+\label{lem:appendix-fixed-transverse}
 Suppose $J_0$ is an actual gap, $A_i+B_i\le1$ for $1\le i\le5$, and
 \[
  B_i+A_{i+1}>1\quad(1\le i\le4),\qquad B_5\ge B_0/2.
@@ -101,10 +87,25 @@ There is no condition on the gap status of $e_{5,0}$ or supercriticality
 of $T_0$, and no type restriction on the nonsupercritical path.
 \end{theorem}
 \begin{proof}
-The path bounds and neighboring-capacity estimates force both radial witnesses,
-with the explicit clipping by $A_3$. The proof in
-\zcref{lem:appendix-fixed-transverse} then uses the five-point caliper theorem
-or a diameter obstruction. It does not normalize an enclosing center triangle.
+The boundary-deficit identities give increasing $A_1,\ldots,A_5$ and
+decreasing $B_1,\ldots,B_5$. Thus $0<x\le y<1$ and $x/2\le z\le y$.
+Put $\rho_i=f(A_i,B_i)$. By \zcref{cor:clipped-radial-forcing},
+the safe radii are $\min\{\rho_i,A_{i-1},B_{i+1}\}$ for $i=2,3,4$.
+The bounds $(A_2,B_2)\ge(1-y,z)$ imply
+$r\le\rho_2$, $r\le A_1$, and $r\le B_3$. Hence $rV_2$ is safe.
+Similarly $(A_4,B_4)\ge(1-z,x/2)$ gives $t\le\rho_4$, and
+$t\le x/2\le B_5$; clipping by $A_3$ makes $\widehat tV_4$ safe.
+The gap endpoints follow from \zcref{lem:gap-exhaustion}, and the midpoint
+belongs to $U_C$ by hypothesis. All witnesses are fixed before enclosure is tested.
+
+If $A_3\ge t$, apply the capacity instance of \zcref{lem:bc-five-point}. Otherwise $A_3<t$ and
+$A_3\ge A_1=1-y$, so
+\[
+ \|X_0(y)-A_3V_4\|^2\ge
+ \|X_0(y)-(1-y)V_4\|^2=1+(1-y)(2-y)>1.
+\]
+The diameter obstruction gives $\Lambda(K_{BC})>1$ in this case also.
+No signed center coordinates or CE1 return are used in this enclosure argument.
 \end{proof}
 
 \begin{theorem}[Center-aligned path obstruction]
@@ -170,6 +171,7 @@ independently of any V type or covering configuration.
 
 \begin{theorem}[Four-point rescuer geometry]
 \label{thm:fixed-four-point-rescuer}
+\label{lem:appendix-fixed-four-point}
 Suppose $a\ge0$, $\varepsilon>0$, $\beta\ge0$, and
 \[
  s=a+\varepsilon,\qquad \beta\le\frac{\varepsilon}{s}.
@@ -181,10 +183,31 @@ Then
 Neither $a\le\varepsilon$ nor $s\le1$ is required by this geometric statement.
 \end{theorem}
 \begin{proof}
-The cases $a=0$ or $s\ge1$ have a diameter obstruction. Otherwise put
-$v=a/s$ and replace the farther boundary point by $Y(v)$ inside the same hull.
-The four caliper evaluations in \zcref{lem:appendix-fixed-four-point}
-all exceed one. No center normal form is needed.
+If $a=0$, the set contains $O,V_0$, at distance one. If $s\ge1$, then
+\[
+ \|Y(a)-\varepsilon V_1\|^2=1-s+s^2\ge1.
+\]
+These are diameter obstructions. Otherwise put $v=a/s$, so $0<s,v<1$.
+The ratio gives $1-\beta\ge v$, while $a=sv\le v$. Hence $Y(v)$ lies
+on $[Y(a),Y(1-\beta)]$. By convexity it suffices to enclose the quadrilateral,
+in cyclic order,
+\[
+ O,\qquad Q=Y(v),\qquad A=Y(sv),\qquad P=s(1-v)V_1.
+\]
+With $h=\sqrt3/2$, its outward edge normals may be chosen as
+\[
+ (-hv,v/2-1),\quad v(1-s)(h,-1/2),\quad
+ (hs,1-s/2),\quad s(1-v)(-h,1/2).
+\]
+The maximizing triples in each direction and its two $120$-degree rotations
+are $(O,A,P)$, $(A,P,O)$, $(A,O,Q)$, and $(O,Q,A)$, respectively.
+The resulting caliper sides are
+\[
+ \frac1{\sqrt{1-v+v^2}},\qquad 1+s(1-v),\qquad
+ \frac1{\sqrt{1-s+s^2}},\qquad 1+v(1-s).
+\]
+All exceed one for $0<s,v<1$. The finite-caliper theorem
+\zcref{thm:cert-caliper} completes the nondegenerate case.
 \end{proof}
 
 \input{reading_guide/four_point_explanation}
@@ -220,43 +243,9 @@ The two local verifications are
 \zcref{lem:appendix-t3-supported-tail,lem:appendix-vd1-supported-tail};
 the enclosure step does not distinguish one from two gaps.
 
-\begin{proposition}[T3-like supported-rescuer terminal]
-\label{prop:new-one-t3-terminal}
-Suppose $N_+=1$, there is exactly one T3-like role and no Vd1/Vd2 role,
-and there is at least one actual gap. Then the skeleton is not covered.
-\end{proposition}
-\begin{proof}
-The center-aligned case is excluded by \zcref{thm:center-aligned-path}.
-In the remaining case, \zcref{lem:midpoint-supplier}
-puts the T3-like supplier at the center midpoint and, after reflection,
-the supercritical role at $T_1$. The actual-or-bounded frontier forces
-$\varepsilon V_1$ into $U_C$, and radial coverage gives $C_1\ge c$.
-The local calculation \zcref{lem:appendix-t3-supported-tail} gives the
-remaining ratio and size bounds. Apply the common adapter
-\zcref{lem:new-rescuer-tail-budget}.
-\end{proof}
+
 
 \input{figures/finite_enclosure/fe08_t3_rescuer}
 \FloatBarrier
 
 \input{reading_guide/replacement_scope}
-
-\subsection{Completing the nonzero-gap cases}
-
-\begin{proposition}[One-Vd placement assembly]
-\label{prop:new-one-vd-assembly}
-Suppose the C triangle is CE1 or CE2, $N_+=1$, exactly one V triangle
-is Vd1 or Vd2, and there is an actual gap. The skeleton is not covered.
-\end{proposition}
-\begin{proof}
-An additional positive-support role closes by the skeleton budget.
-Otherwise \zcref{lem:midpoint-supplier} gives the unique supplier or the
-center-aligned placement. The latter closes by
-\zcref{thm:center-aligned-path}. A Vd2 supplier closes by
-\zcref{prop:ce2-vd2-midpoint-length}. A center-based Vd1 supplier has its
-endpoint forced by the common frontier and $C_1\ge c$ by radial coverage;
-\zcref{lem:appendix-vd1-supported-tail,lem:new-rescuer-tail-budget}
-then give D. An away Vd1 supplier has a center-free shared edge, so
-\zcref{prop:appendix-vd1-two-chart-replacement} applies and contradicts N0.
-The latter preserves only the skeleton, not all of $H$ or the input gap rank.
-\end{proof}

@@ -160,18 +160,17 @@ PRESERVED_SECTIONS = [('proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tool
   '## 5. D:',
   '## 6. F:',
   '206b2a035b4e23a8d7ee3394ae49806b1e513437ba1f8b934faa67595bebba49'),
- ('arrange/paper_draft/fixed_witness/D_fixed_witness_extensions.tex',
-  '\\begin{lemma}[Fixed four-point supported-rescuer proof]',
-  '\\end{proof}',
-  'adc8fdd0873705d154509a673d4f36cbdcec0d7ee7833b80f499e46e9d52141b'),
- ('arrange/paper_draft/fixed_witness/06_fixed_witness_body.tex',
-  '\\begin{theorem}[Four-point rescuer geometry]',
-  '\\end{proof}',
-  'ba95d0f59e60deddb76dbe83f17479b898169eabcdee947aac47539a34c25f37')]
+]
 for path, start, end, digest in PRESERVED_SECTIONS:
     text = (ROOT / path).read_text(encoding="utf-8")
     section = text[text.index(start):text.index(end, text.index(start))]
     assert hashlib.sha256(section.encode()).hexdigest() == digest, path
+# The full D proof moved from the deleted duplicate wrapper into its theorem.
+# Its bytes, not just its resulting statement, remain pinned to the old proof.
+d_body = (ROOT / "arrange/paper_draft/fixed_witness/06_fixed_witness_body.tex").read_text()
+d_start = d_body.index("\\begin{proof}", d_body.index("Four-point rescuer geometry"))
+d_end = d_body.index("\\end{proof}", d_start)
+assert hashlib.sha256(d_body[d_start:d_end].encode()).hexdigest() == "5027caa5e9225db94eca98efd4da3013f8a75af4f7a14faac718ba70c098b26a"
 PRESERVED_FILES = [('proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4144_new_two_chart_replacement_and_router.md',
   '4e2ad6e6f6e63427695193cff07ccd228e7dc0b5ec80086f5fb8b52dc2d16821'),
  ('proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4143_new_Vd1_rescuer_finite_enclosure.md',

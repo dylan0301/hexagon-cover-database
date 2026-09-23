@@ -96,8 +96,9 @@ $$
  d_i=1-\gamma_i,\qquad \widehat P_i=d_iV_i. \tag{5}
 $$
 
-Then $0<d_i<1$ and $\widehat P_i\notin\bigcup_jU_j$. In particular,
-skeleton coverage forces $\widehat P_i\in U_C$.
+Then $0<d_i<1$ and every $sV_i$ with $0\le s\le d_i$ is missed by
+all open V roles. In particular, skeleton coverage forces the entire
+closed segment $[O,\widehat P_i]$ into $U_C$.
 
 **Proof.** No $T_j$ contains $O$: its interior point $V_j$ is at distance
 one from $O$, and moving $V_j$ a little away from $O$ within $U_j$ would
@@ -111,7 +112,9 @@ $$
 \|d_iV_i-V_{i+3}\|=1+d_i>1.
 $$
 
-Hence no nonlocal role contains the point either. $\square$
+Hence no nonlocal role contains the point either. The same argument
+works for $0<s<d_i$: a local role there would exceed its maximal inward
+endpoint. The point $s=0$ was excluded from all closed V roles above. $\square$
 
 ### Corollary 2.2a. One actual-or-bounded radial frontier
 
@@ -128,6 +131,32 @@ placement the supporting interval reaches the midpoint, the supercritical
 own role stops before it, and every other contributor is absent; hence its
 O-side endpoint is the actual total frontier. This does not assert that
 arbitrary interior points of an inscribed disk are V-excluded.
+
+### Corollary 2.2b. Clipped and uniform radial forcing
+
+Put $f(a,b)=1-c_{\max}(a,b)$. Choose lower bounds
+$0\le a_j\le A_j$, $0\le b_j\le B_j$, $a_j+b_j\le1$ for
+$j=i-1,i,i+1$. Then every radius up to
+$$s_i=\min\{f(a_i,b_i),a_{i-1},b_{i-1},a_{i+1},b_{i+1}\}$$
+is missed by every open V role and is center-forced under skeleton coverage.
+On a gap-free nonsupercritical actual path, this simplifies to
+$$s_i=\min\{f(A_i,B_i),A_{i-1},B_{i+1}\}.$$
+For common selected lower bounds $(p,q)$ at all six vertices,
+$f(p,q)V_i$ are all forced, and their convex hull contains the disk of
+radius $h f(p,q)$ centered at $O$.
+
+**Proof.** The own endpoint is at most $c_{\max}(a_i,b_i)$; each
+neighboring endpoint is at most $1-\min(a_j,b_j)$ by (1). Thus
+$\gamma_i\le1-s_i$, and Lemma 2.2 applies. For actual gap-free paths,
+$A$ increases and $B$ decreases by Lemma 2.5; together with
+$f(A_i,B_i)\le\min(A_i,B_i)$ this removes the redundant terms.
+For common $(p,q)$, (1) gives $f(p,q)\le\min(p,q)$, so the minimum is
+$f(p,q)$. Convexity gives the inner regular hexagon and its inscribed disk.
+$\square$
+
+The next two lemmas remain auxiliary compatibility results for older
+witness packages. Neither candidate-demand recovery nor origin-in-hull
+normalization is a dependency of the current five-point BC proof or paper.
 
 ### Lemma 2.3. Candidate containment recovers an own demand
 

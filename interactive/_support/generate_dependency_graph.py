@@ -26,7 +26,7 @@ MAIN = PAPER / "main.tex"
 OUT_HTML = ROOT / "interactive" / "readable_proof_dependency_graph.html"
 OUT_JSON = ROOT / "interactive" / "readable_proof_dependency_data.json"
 REPORT = ROOT / "arrange" / "README.md"
-BRANCH = "f7fe2f89cde04903cba8ba347bd0645abee9b905"
+BRANCH = "chatgpt/reusable-lemmas-shortening-20260922232121"
 REPOSITORY = "dylan0301/hexagon-cover-database"
 
 ENV_RE = re.compile(
@@ -190,12 +190,7 @@ def group_for(node: dict[str, Any]) -> str:
         ) from exc
 
 
-ROUTING_NODES = {'cor:expanded-closed',
- 'prop:area-branches',
- 'prop:new-nplus-zero-gap-closures',
- 'prop:new-one-t3-terminal',
- 'prop:new-one-vd-assembly',
- 'thm:main'}
+ROUTING_NODES = {'prop:area-branches', 'prop:new-nplus-zero-gap-closures', 'cor:expanded-closed', 'thm:main'}
 CASE_TERMINALS = {'prop:ce2-vd2-midpoint-length',
  'prop:new-nplus-one-all-vd0',
  'thm:reader-witness-enclosure',
@@ -221,246 +216,227 @@ def role_for(node_id: str) -> str:
     return "Reusable theorem / lemma"
 
 
-CASE_META = {'cor:expanded-closed': {'cases': ['Every L>1 in the scaled closed formulation'],
-                         'detail': 'Compactness and scaling transfer the main open-triangle theorem.'},
- 'lem:ab-extreme-jump': {'cases': ['Row F: zero gap, exactly one supercritical role; arbitrary V types'],
-                         'detail': 'Identifies the strict handoff minimum and maximum and the common '
-                                   'boundary pair.'},
+CASE_META = {'cor:clipped-radial-forcing': {'cases': ['BC path and uniform F construction'],
+                                'detail': 'One safe radial minimum, with all neighboring suppliers '
+                                          'accounted for; uniform forcing is a corollary.'},
+ 'cor:expanded-closed': {'cases': ['Every L>1 in the scaled closed formulation'],
+                         'detail': 'Compactness and scaling transfer the main open-triangle '
+                                   'theorem.'},
+ 'lem:ab-extreme-jump': {'cases': ['Row F: zero gap, exactly one supercritical role; arbitrary V '
+                                   'types'],
+                         'detail': 'Identifies the strict handoff minimum and maximum and the '
+                                   'common boundary pair.'},
  'lem:asymmetric-core-witness': {'cases': ['Row F'],
-                                 'detail': 'Forces the three parameter-dependent frontier witnesses '
-                                           'Q_-,Q_0,Q_+ into U_C.'},
+                                 'detail': 'Forces the three parameter-dependent frontier '
+                                           'witnesses Q_-,Q_0,Q_+ into U_C.'},
+ 'lem:bc-capacity-tools': {'cases': ['BC/D finite-caliper revision'],
+                           'detail': 'Local deficit bounds and branchwise concavity.'},
+ 'lem:bc-coupled-capacity': {'cases': ['BC/D finite-caliper revision'],
+                             'detail': 'Analytic two-pair inequality; complete concavity reduction '
+                                       'and exact endpoint bounds.'},
+ 'lem:bc-five-point': {'cases': ['Any five points satisfying the geometric bounds'],
+                       'detail': 'Capacity-free unit-threshold criterion: four calipers always '
+                                 'exceed one; one is decisive.'},
+ 'lem:bc-slack-envelope': {'cases': ['BC/D finite-caliper revision'],
+                           'detail': 'Reusable rational envelope depending on the smaller boundary '
+                                     'reach and the boundary slack.'},
  'lem:compact-cover-margin': {'cases': ['Scaling equivalence and finite enclosure'],
-                              'detail': 'One positive compact margin supplies both uses of shrinking.'},
+                              'detail': 'One positive compact margin supplies both uses of '
+                                        'shrinking.'},
  'lem:direct-neighbor-diagonal': {'cases': ['0<=m<=1/2'],
-                                  'detail': 'C_+(m,m)=C_-(m,m)=1-m by four calipers; no cubic capacity '
-                                            'formula.'},
- 'lem:fixed-origin-in-hull': {'cases': ['BC'],
-                              'detail': 'A boundary point and two total radial endpoints contain O in their '
-                                        'convex hull.'},
- 'lem:fixed-total-radial-forcing': {'cases': ['BC, arbitrary V types'],
-                                    'detail': 'Fixed actual total endpoints and maximum-to-own-demand '
-                                              'recovery.'},
+                                  'detail': 'C_+(m,m)=C_-(m,m)=1-m by four calipers; no cubic '
+                                            'capacity formula.'},
+ 'lem:fixed-total-radial-forcing': {'cases': ['BC, D, F; arbitrary V types'],
+                                    'detail': 'The whole segment from O to the actual total '
+                                              'endpoint misses every open V role.'},
  'lem:gap-exhaustion': {'cases': ['N_gap=0', 'N_gap=1', 'N_gap=2'],
-                        'detail': 'Relates actual open boundary traces to the complete gap split, including '
-                                  'singleton gaps.'},
+                        'detail': 'Relates actual open boundary traces to the complete gap split, '
+                                  'including singleton gaps.'},
  'lem:midpoint-supplier': {'cases': ['Nonzero gaps after N0 and skeleton count'],
-                           'detail': 'One supercritical role and at most one positive-support supplier; '
-                                     'shared CE1/CE2 placement proof.'},
+                           'detail': 'One supercritical role and at most one positive-support '
+                                     'supplier; shared CE1/CE2 placement proof.'},
  'lem:new-rescuer-tail-budget': {'cases': ['D adapter, either gap rank'],
-                                 'detail': 'Endpoint ratio and ordinary-path monotonicity force the '
-                                           'four-point set.'},
+                                 'detail': 'Endpoint ratio and ordinary-path monotonicity force '
+                                           'the four-point set.'},
  'lem:shared-corner-chart': {'cases': ['Local geometry and area loss'],
-                             'detail': 'One closed-containment wedge chart, with strict interior slacks '
-                                       'stated separately.'},
+                             'detail': 'One closed-containment wedge chart, with strict interior '
+                                       'slacks stated separately.'},
  'lem:shared-gap-anchor-transfer': {'cases': ['Original perimeter cover; either incident gap rank'],
-                                    'detail': 'A shared gap anchor yields B_5>1-M_0(B_0)>B_0/2, before any '
-                                              'candidate is introduced.'},
+                                    'detail': 'A shared gap anchor yields B_5>1-M_0(B_0)>B_0/2, '
+                                              'before any candidate is introduced.'},
  'lem:symmetric-core-witness': {'cases': ['Row F'],
-                                'detail': 'Common c_max/C_+/C_- domination forces the same six radial points '
-                                          'for arbitrary V types.'},
- 'lem:two-vertex-replacement': {'cases': ['Center-free adjacent pair with four scalar inequalities'],
-                                'detail': 'Two separate vertex charts and five strict preservation margins; '
-                                          'skeleton only.'},
+                                'detail': 'Common c_max/C_+/C_- domination forces the same six '
+                                          'radial points for arbitrary V types.'},
+ 'lem:two-vertex-replacement': {'cases': ['Center-free adjacent pair with four scalar '
+                                          'inequalities'],
+                                'detail': 'Two separate vertex charts and five strict preservation '
+                                          'margins; skeleton only.'},
  'prop:area-branches': {'cases': ['R2: zero gap, N_+>=2'],
-                        'detail': 'Only the unconditional square loss and multiple-ascent cyclic sum are '
-                                  'active.'},
+                        'detail': 'Only the unconditional square loss and multiple-ascent cyclic '
+                                  'sum are active.'},
  'prop:ce-classification': {'cases': ['CE0', 'CE1', 'CE2'],
-                            'detail': 'Classifies the C triangle by the number of positive boundary-edge '
-                                      'traces.'},
+                            'detail': 'Classifies the C triangle by the number of positive '
+                                      'boundary-edge traces.'},
  'prop:new-disk-finite-caliper': {'cases': ['A centered disk plus finitely many forced points'],
-                                  'detail': 'A minimizing side has a point--point contact, a point--disk '
-                                            'tangent contact, or a disk-only support regime.'},
- 'prop:new-nplus-one-all-vd0': {'cases': ['BC: selected-gap nonsupercritical path, arbitrary V types'],
-                                'detail': 'Five fixed points from two nonuniform capacity pairs; explicit '
-                                          'neighbor clipping, then diameter or finite calipers.'},
+                                  'detail': 'A minimizing side has a point--point contact, a '
+                                            'point--disk tangent contact, or a disk-only support '
+                                            'regime.'},
+ 'prop:new-nplus-one-all-vd0': {'cases': ['BC/D finite-caliper revision'],
+                                'detail': 'Original-role forcing with one explicit clipping.'},
  'prop:new-nplus-zero-gap-closures': {'cases': ['N0: every skeleton cover'],
                                       'detail': 'Zero gaps by strict overlaps; nonzero gaps by the '
-                                                'center-aligned BC theorem. A is not a dependency.'},
- 'prop:new-one-t3-terminal': {'cases': ['R5; center-aligned or center-based T3-like supplier'],
-                              'detail': 'Center-aligned BC or the common D adapter.'},
- 'prop:new-one-vd-assembly': {'cases': ['R5; CE1/CE2 one-Vd supplier'],
-                              'detail': 'BC, center-based D, away replacement then N0, or Vd2 perimeter '
-                                        'exit.'},
+                                                'center-aligned BC theorem. A is not a '
+                                                'dependency.'},
  'prop:technical-four-contact-geometry': {'cases': ['Row F, c_*>2/3'],
-                                          'detail': 'Proves the convex chain, ray order, and two analytic '
-                                                    'supporting-line bounds.'},
+                                          'detail': 'Proves the convex chain, ray order, and two '
+                                                    'analytic supporting-line bounds.'},
  'prop:vertex-classification': {'cases': ['Vd0', 'Vd1', 'Vd2', 'T3-like'],
                                 'detail': 'The normalized exhaustive V-role classification.'},
  'thm:center-aligned-path': {'cases': ['Nonzero gaps; all V roles except the center-index role '
                                        'nonsupercritical'],
-                             'detail': 'Five-point BC for either gap rank; original perimeter coverage '
-                                       'supplies the tail bound.'},
- 'thm:fixed-four-point-rescuer': {'cases': ['D: T3-like or Vd1 rescuer, both gap ranks'],
-                                  'detail': 'Ratio-only four-point theorem; diameter cases and four '
-                                            'hull-edge calipers, with no center normal form.'},
+                             'detail': 'Five-point BC for either gap rank; original perimeter '
+                                       'coverage supplies the tail bound.'},
+ 'thm:fixed-four-point-rescuer': {'cases': ['BC/D finite-caliper revision'],
+                                  'detail': 'Four D calipers and diameter endpoint cases.'},
  'thm:main': {'cases': ['All routing rows R0-R5'],
               'detail': 'N0; zero-gap F/area; nonzero-gap midpoint supplier.'},
  'thm:paper-exact-mixed-certificate': {'cases': ['Row F, c_*>2/3, paired disk-tangent residuals'],
-                                       'detail': 'Exact integer/Bernstein certificate; no floating-point or '
-                                                 'interval arithmetic.'},
- 'thm:reader-witness-enclosure': {'cases': ['Row F: zero gap, N_+=1, arbitrary V types; any CE0/CE1/CE2'],
-                                  'detail': 'The exact nine-point witness set has enclosure number at least '
-                                            'one.'},
+                                       'detail': 'Exact integer/Bernstein certificate; no '
+                                                 'floating-point or interval arithmetic.'},
+ 'thm:reader-witness-enclosure': {'cases': ['Row F: zero gap, N_+=1, arbitrary V types; any '
+                                            'CE0/CE1/CE2'],
+                                  'detail': 'The exact nine-point witness set has enclosure number '
+                                            'at least one.'},
  'thm:reader-zero-gap-obstruction': {'cases': ['Row F / routing row R1'],
-                                     'detail': 'The nine forced points cannot be contained in the open unit '
-                                               'C triangle.'},
+                                     'detail': 'The nine forced points cannot be contained in the '
+                                               'open unit C triangle.'},
  'thm:strict-ab-union': {'cases': ['Row F: unique strict supercritical role'],
-                         'detail': 'Exact disk/half-plane description of the strict AB-union frontier.'},
- 'lem:bc-capacity-tools': {'cases': ['BC/D finite-caliper revision'],
-                           'detail': 'Local deficit bounds and branchwise concavity.'},
- 'lem:bc-slack-envelope': {'cases': ['BC/D finite-caliper revision'],
-                           'detail': 'Reusable rational envelope depending on the smaller boundary reach and '
-                                     'the boundary slack.'},
- 'lem:bc-coupled-capacity': {'cases': ['BC/D finite-caliper revision'],
-                             'detail': 'Analytic two-pair inequality; complete concavity reduction and exact '
-                                       'endpoint bounds.'},
- 'lem:bc-five-point': {'cases': ['BC/D finite-caliper revision'],
-                       'detail': 'Five hull-edge calipers exclude the fixed geometric five-point set.'},
- 'lem:appendix-fixed-transverse': {'cases': ['BC/D finite-caliper revision'],
-                                   'detail': 'Original-role forcing with one explicit clipping.'},
- 'lem:appendix-fixed-four-point': {'cases': ['BC/D finite-caliper revision'],
-                                   'detail': 'Four D calipers and diameter endpoint cases.'}}
+                         'detail': 'Exact disk/half-plane description of the strict AB-union '
+                                   'frontier.'}}
 
-MANUAL_DEPS = {'cor:expanded-closed': ['thm:main', 'prop:open-closed-scaled'],
- 'cor:new-uniform-common-pair-forcing': ['lem:new-type-aware-radial-forcing',
-                                         'lem:new-common-pair-domination'],
+MANUAL_DEPS = {'cor:clipped-radial-forcing': ['lem:boundary-deficit-identities',
+                                'lem:fixed-total-radial-forcing',
+                                'lem:new-common-pair-domination'],
+ 'cor:expanded-closed': ['prop:open-closed-scaled', 'thm:main'],
+ 'cor:new-uniform-common-pair-forcing': ['cor:clipped-radial-forcing'],
  'lem:ab-extreme-jump': ['prop:strict-handoffs'],
  'lem:app-local-wedge-calculation': ['lem:shared-corner-chart'],
  'lem:app-self-midpoint-caliper': ['prop:new-exact-local-set'],
- 'lem:appendix-common-pair-domination': ['lem:direct-neighbor-diagonal'],
- 'lem:appendix-fixed-transverse': ['lem:bc-five-point',
-                                   'lem:new-common-pair-domination',
-                                   'lem:fixed-total-radial-forcing',
-                                   'lem:boundary-deficit-identities',
-                                   'lem:gap-exhaustion'],
  'lem:appendix-local-square-loss': ['lem:shared-corner-chart'],
- 'lem:asymmetric-core-witness': ['thm:strict-ab-union', 'lem:fixed-line-signs'],
- 'lem:center-skeleton-cap': ['prop:unique-center-midpoint', 'prop:signed-center-normal-form'],
+ 'lem:asymmetric-core-witness': ['lem:fixed-line-signs', 'thm:strict-ab-union'],
+ 'lem:bc-capacity-tools': ['lem:new-common-pair-domination', 'prop:new-exact-local-set'],
+ 'lem:bc-coupled-capacity': ['lem:bc-capacity-tools', 'lem:bc-slack-envelope'],
+ 'lem:bc-five-point': ['thm:cert-caliper'],
+ 'lem:bc-slack-envelope': ['lem:bc-capacity-tools'],
+ 'lem:center-skeleton-cap': ['prop:signed-center-normal-form', 'prop:unique-center-midpoint'],
  'lem:compact-cover-margin': [],
  'lem:cyclic-area-loss': ['thm:local-square-loss'],
  'lem:direct-neighbor-diagonal': ['lem:support-cell-rotation'],
- 'lem:fixed-line-signs': ['thm:strict-ab-union', 'lem:ab-extreme-jump'],
- 'lem:fixed-origin-in-hull': [],
- 'lem:fixed-total-radial-forcing': ['lem:appendix-fixed-total-endpoint', 'lem:new-common-pair-domination'],
- 'lem:four-contact-formula': ['prop:new-disk-finite-caliper', 'prop:technical-four-contact-geometry'],
+ 'lem:fixed-line-signs': ['lem:ab-extreme-jump', 'thm:strict-ab-union'],
+ 'lem:fixed-total-radial-forcing': [],
+ 'lem:four-contact-formula': ['prop:new-disk-finite-caliper',
+                              'prop:technical-four-contact-geometry'],
  'lem:gap-exhaustion': ['lem:distinct-roles', 'prop:ce-classification'],
- 'lem:midpoint-supplier': ['prop:new-nplus-zero-gap-closures',
-                           'thm:common-skeleton-count',
-                           'lem:positive-support-rescuer',
+ 'lem:midpoint-supplier': ['lem:positive-support-rescuer',
                            'lem:self-midpoint',
+                           'prop:new-nplus-zero-gap-closures',
+                           'prop:signed-center-normal-form',
                            'prop:vertex-classification',
-                           'prop:signed-center-normal-form'],
- 'lem:new-common-pair-domination': ['lem:appendix-common-pair-domination'],
- 'lem:new-rescuer-tail-budget': ['thm:fixed-four-point-rescuer',
+                           'thm:common-skeleton-count'],
+ 'lem:new-common-pair-domination': ['lem:direct-neighbor-diagonal'],
+ 'lem:new-rescuer-tail-budget': ['lem:boundary-deficit-identities',
                                  'prop:new-exact-local-set',
-                                 'lem:boundary-deficit-identities'],
- 'lem:new-type-aware-radial-forcing': ['lem:fixed-total-radial-forcing'],
+                                 'thm:fixed-four-point-rescuer'],
  'lem:no-support-skeleton-cap': ['thm:boundary-trace-table'],
  'lem:paired-radius-transfer': [],
- 'lem:paper-branchwise-cbar': ['prop:new-exact-local-set', 'lem:ab-extreme-jump'],
- 'lem:paper-residual-to-tangency': ['lem:paper-branchwise-cbar',
-                                    'lem:technical-newton-reduction',
-                                    'lem:paired-radius-transfer'],
- 'lem:positive-support-rescuer': ['prop:unique-center-midpoint', 'lem:self-midpoint'],
+ 'lem:paper-branchwise-cbar': ['lem:ab-extreme-jump', 'prop:new-exact-local-set'],
+ 'lem:paper-residual-to-tangency': ['lem:paired-radius-transfer',
+                                    'lem:paper-branchwise-cbar',
+                                    'lem:technical-newton-reduction'],
+ 'lem:positive-support-rescuer': ['lem:self-midpoint', 'prop:unique-center-midpoint'],
  'lem:positive-support-skeleton-cap': ['lem:center-skeleton-cap'],
  'lem:shared-corner-chart': [],
  'lem:shared-gap-anchor-transfer': ['lem:gap-exhaustion', 'lem:signed-diameter-transfer'],
  'lem:supercritical-skeleton-cap': ['prop:new-exact-local-set'],
  'lem:support-cell-rotation': ['prop:new-enclosure-gauge'],
- 'lem:symmetric-core-witness': ['lem:ab-extreme-jump',
-                                'prop:new-exact-local-set',
-                                'cor:new-uniform-common-pair-forcing'],
+ 'lem:symmetric-core-witness': ['cor:new-uniform-common-pair-forcing',
+                                'lem:ab-extreme-jump',
+                                'prop:new-exact-local-set'],
  'lem:t3-nonsupercritical': ['prop:t3-translation'],
- 'lem:technical-newton-reduction': ['lem:fixed-line-signs', 'lem:asymmetric-core-witness'],
+ 'lem:technical-newton-reduction': ['lem:asymmetric-core-witness', 'lem:fixed-line-signs'],
  'lem:vd2-neighbor-midpoint-cap': ['prop:vd-corner-normal-form'],
- 'prop:appendix-vd1-two-chart-replacement': ['lem:two-vertex-replacement',
-                                             'lem:appendix-half-square-admissibility'],
- 'prop:area-branches': ['prop:strict-handoffs', 'lem:cyclic-area-loss'],
+ 'prop:appendix-vd1-two-chart-replacement': ['lem:appendix-half-square-admissibility',
+                                             'lem:two-vertex-replacement'],
+ 'prop:area-branches': ['lem:cyclic-area-loss', 'prop:strict-handoffs'],
  'prop:ce-classification': ['lem:distinct-roles'],
- 'prop:ce2-vd2-midpoint-length': ['lem:vd2-neighbor-midpoint-cap',
-                                  'thm:boundary-trace-table',
-                                  'lem:open-cover-budget'],
+ 'prop:ce2-vd2-midpoint-length': ['lem:open-cover-budget',
+                                  'lem:vd2-neighbor-midpoint-cap',
+                                  'thm:boundary-trace-table'],
  'prop:new-disk-finite-caliper': ['lem:support-cell-rotation'],
  'prop:new-enclosure-gauge': [],
- 'prop:new-exact-local-set': ['prop:new-enclosure-gauge', 'lem:support-cell-rotation'],
- 'prop:new-nplus-one-all-vd0': ['lem:appendix-fixed-transverse',
-                                'lem:fixed-origin-in-hull',
-                                'lem:gap-exhaustion',
-                                'lem:fixed-total-radial-forcing'],
- 'prop:new-nplus-zero-gap-closures': ['lem:gap-exhaustion',
-                                      'thm:center-aligned-path',
-                                      'lem:boundary-deficit-identities'],
- 'prop:new-one-t3-terminal': ['lem:midpoint-supplier',
-                              'thm:center-aligned-path',
-                              'lem:appendix-t3-supported-tail',
-                              'lem:new-rescuer-tail-budget',
-                              'lem:fixed-total-radial-forcing'],
- 'prop:new-one-vd-assembly': ['lem:midpoint-supplier',
-                              'thm:center-aligned-path',
-                              'lem:appendix-vd1-supported-tail',
-                              'lem:new-rescuer-tail-budget',
-                              'prop:appendix-vd1-two-chart-replacement',
-                              'prop:ce2-vd2-midpoint-length'],
+ 'prop:new-exact-local-set': ['lem:support-cell-rotation', 'prop:new-enclosure-gauge'],
+ 'prop:new-nplus-one-all-vd0': ['cor:clipped-radial-forcing',
+                                'lem:bc-capacity-tools',
+                                'lem:bc-coupled-capacity',
+                                'lem:bc-five-point',
+                                'lem:boundary-deficit-identities',
+                                'lem:gap-exhaustion'],
+ 'prop:new-nplus-zero-gap-closures': ['lem:boundary-deficit-identities',
+                                      'lem:gap-exhaustion',
+                                      'thm:center-aligned-path'],
  'prop:signed-center-normal-form': ['prop:ce-classification'],
  'prop:strict-handoffs': ['lem:gap-exhaustion'],
- 'prop:technical-four-contact-geometry': ['lem:technical-newton-reduction', 'prop:new-exact-local-set'],
+ 'prop:technical-four-contact-geometry': ['lem:technical-newton-reduction',
+                                          'prop:new-exact-local-set'],
  'prop:unique-center-midpoint': ['prop:signed-center-normal-form'],
  'prop:vd-corner-normal-form': ['prop:vertex-classification'],
  'prop:vd0-exact-trace-normalization': ['lem:local-wedge'],
  'prop:vertex-classification': ['lem:local-wedge', 'prop:vd0-exact-trace-normalization'],
  'thm:boundary-trace-table': ['cor:signed-center-boundary',
-                              'prop:vd-corner-normal-form',
-                              'lem:reach-initial-segments'],
- 'thm:center-aligned-path': ['lem:shared-gap-anchor-transfer',
+                              'lem:reach-initial-segments',
+                              'prop:vd-corner-normal-form'],
+ 'thm:center-aligned-path': ['lem:compact-cover-margin',
+                             'lem:shared-gap-anchor-transfer',
                              'prop:new-nplus-one-all-vd0',
-                             'prop:signed-center-normal-form',
-                             'lem:compact-cover-margin'],
- 'thm:cert-caliper': ['prop:new-enclosure-gauge', 'lem:support-cell-rotation'],
+                             'prop:signed-center-normal-form'],
+ 'thm:cert-caliper': ['lem:support-cell-rotation', 'prop:new-enclosure-gauge'],
  'thm:common-skeleton-count': ['lem:center-skeleton-cap',
-                               'lem:positive-support-skeleton-cap',
                                'lem:no-support-skeleton-cap',
+                               'lem:positive-support-skeleton-cap',
                                'lem:supercritical-skeleton-cap'],
- 'thm:fixed-four-point-rescuer': ['lem:appendix-fixed-four-point'],
+ 'thm:fixed-four-point-rescuer': ['thm:cert-caliper'],
  'thm:local-square-loss': ['lem:appendix-local-square-loss'],
- 'thm:main': ['prop:new-nplus-zero-gap-closures',
-              'prop:area-branches',
-              'thm:reader-zero-gap-obstruction',
-              'lem:midpoint-supplier',
-              'thm:center-aligned-path',
-              'prop:new-one-t3-terminal',
-              'prop:new-one-vd-assembly',
-              'prop:ce2-vd2-midpoint-length',
+ 'thm:main': ['lem:appendix-t3-supported-tail',
+              'lem:appendix-vd1-supported-tail',
               'lem:distinct-roles',
+              'lem:gap-exhaustion',
+              'lem:midpoint-supplier',
+              'lem:new-rescuer-tail-budget',
+              'prop:appendix-vd1-two-chart-replacement',
+              'prop:area-branches',
               'prop:ce-classification',
+              'prop:ce2-vd2-midpoint-length',
+              'prop:new-nplus-zero-gap-closures',
               'prop:vertex-classification',
-              'lem:gap-exhaustion'],
- 'thm:paper-exact-mixed-certificate': ['lem:paper-branchwise-cbar', 'lem:paper-residual-to-tangency'],
- 'thm:reader-witness-enclosure': ['lem:symmetric-core-witness',
-                                  'lem:asymmetric-core-witness',
+              'thm:center-aligned-path',
+              'thm:reader-zero-gap-obstruction'],
+ 'thm:paper-exact-mixed-certificate': ['lem:paper-branchwise-cbar',
+                                       'lem:paper-residual-to-tangency'],
+ 'thm:reader-witness-enclosure': ['lem:asymmetric-core-witness',
+                                  'lem:four-contact-formula',
+                                  'lem:symmetric-core-witness',
                                   'lem:technical-newton-reduction',
                                   'prop:technical-four-contact-geometry',
-                                  'lem:four-contact-formula',
                                   'thm:paper-exact-mixed-certificate'],
- 'thm:reader-zero-gap-obstruction': ['thm:reader-witness-enclosure', 'lem:compact-cover-margin'],
- 'thm:strict-ab-union': ['thm:cert-caliper', 'lem:ab-extreme-jump'],
- 'lem:bc-capacity-tools': ['prop:new-exact-local-set', 'lem:new-common-pair-domination'],
- 'lem:bc-slack-envelope': ['lem:bc-capacity-tools'],
- 'lem:bc-coupled-capacity': ['lem:bc-capacity-tools', 'lem:bc-slack-envelope'],
- 'lem:bc-five-point': ['thm:cert-caliper', 'lem:bc-coupled-capacity', 'lem:bc-capacity-tools'],
- 'lem:appendix-fixed-four-point': ['thm:cert-caliper']}
+ 'thm:reader-zero-gap-obstruction': ['lem:compact-cover-margin', 'thm:reader-witness-enclosure'],
+ 'thm:strict-ab-union': ['lem:ab-extreme-jump', 'thm:cert-caliper']}
 
 # These appendix references identify the body interface supplied by the
 # calculation; they point to a consumer rather than a logical prerequisite.
 # Equation labels inside a body theorem are aliases of that theorem node, so
 # those equation citations require the same treatment.
 CONSUMER_BACKLINKS = {('lem:app-center-edge-separation', 'prop:ce-classification'),
- ('lem:appendix-common-pair-domination', 'lem:new-common-pair-domination'),
- ('lem:appendix-fixed-four-point', 'thm:fixed-four-point-rescuer'),
- ('lem:appendix-fixed-total-endpoint', 'lem:fixed-total-radial-forcing'),
- ('lem:appendix-fixed-transverse', 'prop:new-nplus-one-all-vd0'),
- ('lem:appendix-local-square-loss', 'thm:local-square-loss'),
- ('lem:appendix-t3-supported-tail', 'prop:new-one-t3-terminal'),
- ('prop:appendix-vd1-two-chart-replacement', 'prop:new-one-vd-assembly')}
+ ('lem:appendix-local-square-loss', 'thm:local-square-loss')}
 
 ROUTING_ROWS = [['R0',
   '0',
@@ -492,8 +468,9 @@ ROUTING_ROWS = [['R0',
   'CE1/CE2',
   ['lem:midpoint-supplier',
    'thm:center-aligned-path',
-   'prop:new-one-t3-terminal',
-   'prop:new-one-vd-assembly'],
+   'lem:new-rescuer-tail-budget',
+   'prop:appendix-vd1-two-chart-replacement',
+   'prop:ce2-vd2-midpoint-length'],
   'midpoint supplier: BC, D, replacement or Vd2 length']]
 
 FINITE_ROWS = [{'case': 'one or two incident gaps; T_1,...,T_5 nonsupercritical; distinguished M_0',
@@ -582,7 +559,7 @@ add_proof_ref(
         "prop:new-enclosure-gauge",
         "prop:new-exact-local-set",
         "prop:new-neighbor-ray-formula",
-        "lem:new-type-aware-radial-forcing",
+        "cor:clipped-radial-forcing",
         "lem:new-common-pair-domination",
         "lem:new-disk-point-formula",
         "thm:new-complementary-gap",
@@ -605,7 +582,7 @@ add_proof_ref(
 )
 add_proof_ref(
     {
-        "lem:new-type-aware-radial-forcing",
+        "cor:clipped-radial-forcing",
         "lem:new-common-pair-domination",
         "cor:new-uniform-common-pair-forcing",
         "thm:new-complementary-gap",
@@ -720,7 +697,7 @@ for zero_id in {
 
 
 add_proof_ref(
-    {"lem:direct-neighbor-diagonal", "lem:new-common-pair-domination", "lem:appendix-common-pair-domination"},
+    {"lem:direct-neighbor-diagonal", "lem:new-common-pair-domination", "lem:new-common-pair-domination"},
     "2008b direct neighboring domination",
     "proof/2XXX_geometric_lemmas/20XX_V_triangle_geometry/2008b_direct_neighbor_domination.md",
 )
@@ -975,7 +952,7 @@ def main() -> None:
 
 
 add_proof_ref(
-    set(['lem:appendix-fixed-four-point', 'lem:appendix-fixed-total-endpoint', 'lem:appendix-fixed-transverse', 'lem:appendix-fixed-two-gap', 'lem:fixed-origin-in-hull', 'lem:fixed-total-radial-forcing', 'prop:new-nplus-one-all-vd0', 'prop:new-nplus-zero-gap-closures', 'thm:fixed-four-point-rescuer', 'thm:new-ce2-short-ray']),
+    set(['thm:fixed-four-point-rescuer', 'lem:fixed-total-radial-forcing', 'prop:new-nplus-one-all-vd0', 'lem:appendix-fixed-two-gap', 'lem:fixed-origin-in-hull', 'lem:fixed-total-radial-forcing', 'prop:new-nplus-one-all-vd0', 'prop:new-nplus-zero-gap-closures', 'thm:fixed-four-point-rescuer', 'thm:new-ce2-short-ray']),
     '2612 fixed finite witnesses and nonsupercritical paths',
     'proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2612_fixed_witness_unification.md',
 )

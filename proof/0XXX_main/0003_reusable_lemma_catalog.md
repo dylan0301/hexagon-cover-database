@@ -26,11 +26,11 @@ V-type pattern, selects BC, D, replacement, or the Vd2 perimeter exit.
 | `2530`, `2531` | geometric perimeter and skeleton budgets |
 | `2532` | strict connected open-cover budget for length or area |
 | `2607`, `2609`, `2611` | one support-cell rotation lemma; exposed contacts and paired radius transfer |
-| `2612` | actual/bounded frontier, boundary identities, BC, D, and BC-based N0 |
+| `2612` | one total-endpoint lemma, clipped-path/uniform corollaries, boundary identities, BC/D and N0 |
 | `2613` | unique midpoint supplier and center-free away edge, CE1/CE2 |
 | `2614` | two-vertex scalar replacement, separate charts, five strict margins |
-| `2615` | slack-sensitive rational envelope and coupled capacity inequality |
-| `2616` | five-point BC forcing/calipers and ratio-only four-point D lemma |
+| `2615` | shared radial-deficit bound (BC and F), chord envelope, coupled capacity inequality |
+| `2616` | capacity-free five-point threshold criterion, capacity instance, BC clipping, ratio-only D |
 | `4102` | historical conditional CE1 return; not an active BC/D dependency |
 | `4130_new`, `4143_new` | distinct T3-like and Vd1 local ratio calculations before D |
 | `4144_new` | Vd1 scalar inputs to `2614`, then N0 |
@@ -63,3 +63,12 @@ singleton gap, or CE1 conditional hypothesis is removed by this compression.
 ## BC/D finite-caliper revision
 
 `2615` owns the reusable slack-sensitive rational radial envelope and the coupled two-pair inequality. `2616` owns the five-point BC calipers, explicit neighbor clipping, and the ratio-only four-point D theorem. The active terminal counts are 5/4/9; structural center incidence and supplier placement remain separate.
+
+## September 2026 shortening
+
+The BC geometry is independent of the capacities: four calipers are always
+above one, and a single caliper determines the unit threshold. The uniform
+F radii and clipped BC path radii are corollaries of the same total-endpoint
+forcing lemma. The bound $f(a,b)\ge m(1-m)/2$ is reused in F rather than
+reproved there. Original supplier geometry, raw $(3,0)$ normalization, and
+exact zero-gap certificates remain unchanged.

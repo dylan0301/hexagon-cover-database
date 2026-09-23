@@ -10,10 +10,6 @@
     "lem:center-skeleton-cap": "lem:app-center-skeleton-cap-calculation",
     "lem:supercritical-skeleton-cap": "lem:app-supercritical-skeleton-calculation",
     "thm:local-square-loss": "lem:appendix-local-square-loss",
-    "lem:fixed-total-radial-forcing": "lem:appendix-fixed-total-endpoint",
-    "prop:new-nplus-one-all-vd0": "lem:appendix-fixed-transverse",
-    "thm:fixed-four-point-rescuer": "lem:appendix-fixed-four-point",
-    "lem:new-common-pair-domination": "lem:appendix-common-pair-domination",
     "thm:reader-witness-enclosure": "lem:appendix-witness-enclosure-calculation"
   },
   "editorial_proof_replacements": {
@@ -35,12 +31,6 @@
     "eq:reader-ab-domain": "eq:ab-strict-domain"
   },
   "editorial_statement_replacements": {
-    "lem:appendix-t3-supported-tail": [
-      [
-        "Under the off-center supplier placement of\n\\zcref{prop:new-one-t3-terminal}, the actual supported interval satisfies\nthe hypotheses of \\zcref{lem:new-rescuer-tail-budget}.",
-        "Assume a nonzero-gap skeleton cover has center midpoint $M_0$, a T3-like\nrole $T_0$ supplying $M_1$, uniquely supercritical $T_1$, and nonsupercritical\nVd0 roles at the other four vertices. The actual supported interval\nsatisfies the hypotheses of \\zcref{lem:new-rescuer-tail-budget}."
-      ]
-    ],
     "lem:ab-extreme-jump": [
       [
         "and every selected V triangle obeys",
@@ -50,5 +40,7 @@
   },
   "readability_revision_base": "a98c71c12f1b521a1e58353e56b11474e1ec4f9b",
   "readability_note": "The canonical edition now shares the inline wording for the vertex dictionary and normalization consequence; their old inter-edition substitutions are no longer needed. No mathematical hypothesis or conclusion is changed.",
-  "bc_d_revision": "Five-point BC, ratio-only four-point D; shared full local capacity and caliper proofs."
+  "bc_d_revision": "Five-point BC, ratio-only four-point D; shared full local capacity and caliper proofs.",
+  "shortening_revision_base": "a4f44a8b52c5097e07b82d2e4dec7efb83dd80e4",
+  "shortening_note": "Four duplicate enclosure wrappers consolidated in the canonical paper; total-endpoint/path/uniform forcing, capacity-free five-point threshold, and shared BC/F deficit estimate. Obsolete assembly wrappers and unused calculations removed; exact certificate unchanged."
 }

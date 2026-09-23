@@ -546,12 +546,6 @@ coordinatewise down-closedness.  Solving the three selected frontier
 equations gives \eqref{eq:radial-envelope}.
 \end{proof}
 
-For later variational use, the raw forward envelope retains its established
-notation
-\[
- M_c(a):=\max\{b\in[0,1]:(a,b,c)\in\mathcal A\}.
-\]
-No closed-form evaluation of $M_c$ is needed in the geometric body.
 
 \subsection{Self-midpoint corollary}
 
@@ -757,21 +751,7 @@ midpoint formula.  Interior containment of $O$ in the original open triangle
 makes all three side slacks positive, so $\alpha,\delta>0$.
 \end{proof}
 
-\begin{lemma}[CE2 total slack]
-\label{lem:new-signed-ce2-total-slack}
-In the CE2 sign range, with $T:=\alpha+\delta$,
-\begin{equation}
- T<\frac{\eta}{E}.
- \label{eq:signed-total-slack}
-\end{equation}
-\end{lemma}
 
-\begin{proof}
-The CE2 inequalities are
-$\alpha+W\delta<P$ and $R\alpha+\delta<P$.  Multiply them by $W$ and $R$
-and add.  Since $W+R^2=W^2+R=E^2$, this gives
-$E^2T<P=E\eta$.
-\end{proof}
 
 \begin{corollary}[Common center-boundary formula]
 \label{cor:signed-center-boundary}

@@ -138,3 +138,12 @@ with the pre-review baseline.
 The active selected-gap obstruction uses **at most five points**, two different own-ray capacity pairs, and an explicit neighboring-supplier clipping. The D geometric theorem uses **four points and only a ratio bound**. Both terminal enclosure proofs use finite hull-edge calipers rather than the signed center normal form. The new numbered sources are [2615](proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2615_slack_sensitive_radial_envelope.md) and [2616](proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2616_bc_d_finite_calipers.md).
 
 The [standalone BC/D caliper viewer](interactive/bc_d_finite_calipers.html) constructs the current point sets. Historical live six-point visualizer recordings are explicitly labeled in the animated guide; their provenance is not rewritten. Structural midpoint classification, the original supplier charts, replacement, and the zero-gap certificate remain separate.
+
+### Reusable lemmas and shorter manuscripts
+
+The [shortening report](arrange/20260923_reusable_lemmas_shortening_report.md)
+records the 76-to-70-page canonical and 73-to-68-page inline revisions.
+The five-point BC threshold is now capacity-free; total-endpoint forcing
+supplies both clipped-path and uniform witnesses; BC and F share one deficit
+estimate. Duplicate wrappers and calculations are removed without changing
+raw (3,0) normalization, replacement charts, or exact zero-gap certificates.

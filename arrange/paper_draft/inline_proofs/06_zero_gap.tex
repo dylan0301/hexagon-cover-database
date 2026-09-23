@@ -731,18 +731,9 @@ two normalized left sides in \eqref{eq:adjacent-overlaps} is
  d=\frac{\mathcal A+U(2m-1)+D(\mathcal A+U)}{2\rho},
  \qquad \mathcal A=1-m+m^2.                      \label{eq:adjacent-d}
 \end{equation}
-On the $C_L$ sheet, write $F_L(z)=z^4-z^2+mz-m^2$.  This defining
-polynomial evaluated at
-$r=1-m/2+m^2/2$ is
-\[
- F_L(r)=\frac{m^2(m-1)}{16}
- (m^5-3m^4+11m^3-17m^2+28m-12)>0.
-\]
-Indeed the polynomial in parentheses is increasing on $(0,1/2)$ and has
-value $-33/32$ at $1/2$; its derivative is
-$28-34m+m^2(5m^2-12m+33)>0$.  Since
-$F_L(h)=-(m-h/2)^2\le0$ and the selected
-root is unique, $2c_*-1\le\mathcal A$.  Put
+Apply \zcref{lem:bc-capacity-tools} to the complementary pair $(m,M)$.
+Its shared deficit bound gives
+$2c_*-1\le1-m+m^2=\mathcal A$. On the $C_L$ sheet, put
 \[
  X_0=\mathcal A+U,
  \qquad
@@ -1346,22 +1337,3 @@ The construction gives the compact containment
 \(\Lambda(K_{\rm wit}(a,b))\ge1\).  This contradicts
 \zcref{lem:compact-cover-margin}.
 \end{proof}
-
-\begin{table}[H]
-\centering\small
-\renewcommand{\arraystretch}{1.18}
-\setlength{\tabcolsep}{3pt}
-\caption{Fixed finite-enclosure recipes. Ordinary nonsupercritical V triangles
-are not subdivided by type.}\label{tab:finite-enclosure-subcases}
-\begin{tabular}{@{}p{.29\textwidth}p{.44\textwidth}p{.18\textwidth}@{}}
-\toprule
-Conditions & Fixed witness set & Disk and count\\
-\midrule
-BC: at least one incident gap; $T_1,\ldots,T_5$ nonsupercritical &
-$\{M_0,X_0(B_0),X_0(1-A_1),\widehat P_2,\widehat P_3,\widehat P_4\}$ & No disk; at most 6\\
-D: center-based T3-like or Vd1 rescuer; one or two gaps &
-$\{O,\varepsilon V_1,Y(A_0),Y(1-B_5)\}$ & No disk; at most 4\\
-F: zero gaps, $N_+=1$ & The nine-point set $K_F$ & Disk; at most 9\\
-\bottomrule
-\end{tabular}
-\end{table}
