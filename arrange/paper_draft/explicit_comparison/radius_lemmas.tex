@@ -1,0 +1,94 @@
+\begin{lemma}[A rational upper-start Newton deficit]
+\label{lem:f-rational-newton-deficit}
+Let $0<m<1/2$, $h=\sqrt3/2$, and let $C_L(m)$ be the unique root in
+$[h,1]$ of $F_m(c)=c^4-c^2+mc-m^2$.
+Set $\omega=m(1-m)$ and $c_0=1-\omega/2$. Then
+\[
+ r(m):=1-c_0+\frac{F_m(c_0)}{F_m'(c_0)}
+ =\frac{\omega(4-\omega)(3\omega^2-4\omega+4)}
+ {8(4+2m-10\omega+6\omega^2-\omega^3)}
+\]
+satisfies
+\[
+0<\omega/2<r(m)\le1-C_L(m)<m.
+\]
+\end{lemma}
+\begin{proof}
+One has $c_0\ge7/8>h$ and
+\[
+ F_m(c_0)=\frac{m^2(1-m)}{16}P(m),\qquad
+ P(m)=12-28m+17m^2-11m^3+3m^4-m^5.
+\]
+On $[0,1/2]$, $P'\le-28+17+3/2=-19/2$ and
+$P(1/2)=33/32>0$. Thus $F_m(c_0)>0$.
+The polynomial $F_m$ is increasing and strictly convex on $[h,1]$,
+so $c_0>C_L(m)$ and its tangent zero
+$c_1=c_0-F_m(c_0)/F_m'(c_0)$ satisfies
+$C_L(m)\le c_1<c_0$. This proves the first bounds.
+If $1-m<h$, then $C_L(m)>1-m$ immediately. Otherwise it follows from
+\[
+ F_m(1-m)=-m((1-m)^3+m^2)<0.
+\]
+The displayed rational formula follows by substitution; its denominator
+factor $4+2m-10\omega+6\omega^2-\omega^3=2F_m'(c_0)$ is positive.
+\end{proof}
+
+\begin{lemma}[Uniform affine radius envelope]
+\label{lem:f-uniform-affine-radius-envelope}
+\label{lem:paper-branchwise-cbar}
+In the strict F domain, put $U=a+b-1$, $m=\min(1-a,1-b)$, and let
+$c_*$ be the exact common-pair capacity. For any
+$0<r\le1-C_L(m)$, define
+\[
+ E_r(m,U)=r+(m-r)\left(1-\frac Ur\right)_+
+ =\max\left\{r,m-\frac{m-r}{r}U\right\}.
+\]
+Then
+\[
+ 1-c_*\ge E_r(m,U).
+\]
+In particular, the rational function in
+Lemma~\ref{lem:f-rational-newton-deficit} gives one explicit radius recipe
+without testing the original capacity-branch selector.
+\end{lemma}
+\begin{proof}
+Reflect to $a\ge b$ and set $s=1-U$, $C=C_L(m)$. The exact capacity
+formula is $c_*=C$ on the quartic branch and
+\[
+ g_m(s)=\frac{2(s-m)}{1+\sqrt{4s^2-3}}
+\]
+on the triangular branch. On the latter, its selector
+$\chi=F_m(s)>0$ gives $s>h$ because
+$\chi\le s^4-3s^2/4$, and hence $s>C$.
+Writing $E=\sqrt{4s^2-3}$,
+\[
+ g_m'(s)=\frac{2(E-3+4ms)}{E(1+E)^2}\le0
+ \qquad(C<s\le1).
+\]
+The root equation gives
+$m/C=(1\pm\sqrt{4C^2-3})/2$, and substitution shows $g_m(C)\le C$.
+Thus $c_*\le C$ on both branches, so $1-c_*\ge r$.
+
+It remains to consider $0<U<r$. Here $s>1-r\ge C$, so the triangular
+formula applies. On the analytic interval $s\in[1-r,1]$,
+\[
+ g_m''(s)=\frac{8\{s(3+9E-2E^2)-m(3+9E+2E^3)\}}
+ {E^3(1+E)^3}>0.
+\]
+Indeed $m/s\le1/\sqrt3<2/3$ and
+\[
+ (3+9E-2E^2)-\frac23(3+9E+2E^3)
+ =1+3E-2E^2-\frac43E^3\ge\frac23
+ \quad(0\le E\le1),
+\]
+since the last cubic is concave and lies above its endpoint chord.
+Endpoint cases follow by continuity. Therefore $U\mapsto g_m(1-U)$
+is convex. Its endpoint bounds are
+$g_m(1)=1-m$ and $g_m(1-r)\le C\le1-r$.
+The chord inequality gives
+\[
+ c_*\le(1-U/r)(1-m)+(U/r)(1-r),
+\]
+which is the claimed affine bound. Combining it with $1-c_*\ge r$
+proves the result.
+\end{proof}

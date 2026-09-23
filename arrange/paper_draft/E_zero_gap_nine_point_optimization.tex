@@ -326,160 +326,154 @@ Let $\lambda_-$ and $\mu_+$ be their first roots; explicitly,
  -\frac23\sqrt{9(\delta+a\gamma)^2-9a^2+9a-6}.
 \end{align*}
 
+\begin{lemma}[Normalized two-coefficient bounds]
+\label{lem:F-normal-pair-bounds}
+Suppose $x,y>0$, $x^2+xy+y^2=1$, $r>1$, $0<c<1$, and
+$rx+cy=1$. Then
+\[
+ 0<x,y<1,\qquad cx<\frac1{\sqrt3},\qquad x-y<2(1-c).
+\]
+\end{lemma}
+\begin{proof}
+Since $cy<1-x$ and $1-x^2=y(x+y)$,
+\[
+ c<\frac{1-x}{y}=\frac{x+y}{1+x}.
+\]
+Consequently
+\[
+ cx<\frac{x(x+y)}{1+x}\le\frac{x+y}{2}\le\frac1{\sqrt3}.
+\]
+The last inequality follows from
+$1=x^2+xy+y^2\ge3(x+y)^2/4$.
+Also $1-c>(1-y)/(1+x)$. If $x<y$, the second claimed
+bound is immediate; otherwise
+\[
+ x-y\le1-y<(1+x)(1-c)<2(1-c).
+\]
+\end{proof}
+
 \begin{lemma}[Moving adjacent-triangle signs]
 \label{lem:fixed-line-signs}
 Throughout \eqref{eq:ab-strict-domain},
 \begin{equation}
- \lambda_*<\lambda_-<h^{-1},\qquad
- \mu_*<\mu_+<h^{-1}.                            \label{eq:first-root-order}
+ \lambda_*<1/\sqrt3<\lambda_-<h^{-1},\qquad
+ \mu_*<1/\sqrt3<\mu_+<h^{-1}.
+ \label{eq:first-root-order}
 \end{equation}
-Moreover $J_u,J_v<1/2$.  The point $L_+(\mu_+)$ satisfies
+Moreover $J_u,J_v<1/2$. The point $L_+(\mu_+)$ satisfies the stronger bound
 \[
- (L_+(\mu_+))_u+(L_+(\mu_+))_v<3-2a,
+ (L_+(\mu_+))_u+(L_+(\mu_+))_v<2-a<3-2a,
 \]
-and the reflected bound holds for $L_-(\lambda_-)$.  Writing
+and the reflected bound holds for $L_-(\lambda_-)$. Writing
 $F(P,t)=\mathsf q(P-Z_5(t))-1$, one has, for every $t\in[1-a,b]$,
 \begin{equation}
  F(L_+(\mu_+),t)\ge0,\qquad F(J,t)>0,\qquad
- F(L_-(\lambda_-),t)>0.                           \label{eq:moving-right-signs}
+ F(L_-(\lambda_-),t)>0.
+ \label{eq:moving-right-signs}
 \end{equation}
-Under the reflection
-$(u,v,a,b)\leftrightarrow(v,u,b,a)$, the analogous signs hold for every
-$y\in[1-b,a]$: the first-root point $L_-(\lambda_-)$ has nonnegative sign
-against $Z_3(y)$, and the other two witnesses have strictly positive sign.
+Under the reflection $(u,v,a,b)\leftrightarrow(v,u,b,a)$,
+the analogous signs hold for every $y\in[1-b,a]$: the first-root point
+$L_-(\lambda_-)$ has nonnegative sign against $Z_3(y)$, and the other
+two witnesses have strictly positive sign.
 \end{lemma}
 
 \begin{proof}
-Put
+Put $U=a+b-1$, $z=a-b$, and normalize the line coefficients by
 \[
- U=a+b-1,\qquad z=a-b,\qquad
- D^2=z^2+6U+3U^2.
+ x=\alpha/h,\quad y=\beta/h,\quad
+ w=\delta/h,\quad v=\gamma/h.
 \]
-Then $0<U<1/6$ and $z^2<\Omega:=1-6U-3U^2$.  We give the
-fixed-line calculation for the circle centered at
-$E_+=(2-a,1-a)$; reflection gives the calculation for $E_-$.  Put
+Direct substitution in their definitions gives
 \[
- F(P,t)=\mathsf q(P-(1+t,t))-1,\qquad t_0=1-a,
+ x^2+xy+y^2=w^2+wv+v^2=1,
+ \qquad (a+b)x+by=(a+b)w+av=1.
 \]
-so this circle is $F(P,t_0)=0$.  At the junction, exact expansion gives
-\[
- (D+3)^2F(J,t_0)=3D(z^2+Uz+1-3U)+P_J,
-\]
-where
-\[
- P_J=z^4+5z^2+6Uz^2+3U^2z^2+9Uz+3U+15U^2>0;
-\]
-indeed $z^2+Uz+1-3U\ge1-3U-U^2/4>0$, and
-$5z^2+9Uz+15U^2$ is positive definite.  Thus $F(J,t_0)>0$.
-Also
-\[
- J_u+J_v=\frac{(1+U)(3-D)}{3+D}<1.
-\]
-Indeed this inequality is $3U<D(2+U)$, which follows from
-$D^2\ge3U(2+U)$ and $(2+U)^3>3U$.  Since
-\[
- \frac{\partial F}{\partial t}(P,t)=1+2t-P_u-P_v,
-\]
-$F(J,t)$ is strictly increasing for $t\ge0$, and therefore is positive
-throughout $[1-a,b]$.
+All four coefficients are positive. Also
+$0<U<2/\sqrt3-1<1/6$ and $0<D<1$.
+Lemma~\ref{lem:F-normal-pair-bounds} therefore gives
+\begin{equation}
+ bx<1/\sqrt3,\qquad aw<1/\sqrt3,\qquad
+ x-y<2(1-b),\qquad w-v<2(1-a).
+ \label{eq:F-normal-pair-consequences}
+\end{equation}
 
-On the opposite line $L_-$, the derivative at the junction, after
-multiplication by a positive factor, has at $t=1-a$ the numerator
+Reparametrize the two frontier lines by $k=h\lambda$ and $k=h\mu$:
 \[
- N_0=D(9+3z^2+6Uz-9U^2)+P_0,
+ P_-(k)=(b-yk,xk),\qquad P_+(k)=(wk,a-vk).
 \]
-where
+Their common junction parameter is
 \[
-\begin{aligned}
- P_0={}&18U^3+6U^2z^2+63U^2+18Uz^2+18Uz+54U\\
-      &+2z^4+9z^2+9.
-\end{aligned}
+ k_*:=h\lambda_*=h\mu_*=
+ \frac{2\rho}{D+3}=\frac{D^2+3}{2(D+3)},
+ \qquad \frac38<k_*<\frac12.
 \]
-The coefficient of $D$ is at least $9-6U-9U^2>0$, while
-$P_0\ge9+54U-18U>0$.  Hence $N_0>0$.  At the other endpoint $t=b$, the
-corresponding numerator is
+The circle restrictions become
 \[
- N_1=D(9+3z^2+6U-3U^2)+P_1,
+ \begin{aligned}
+ f_b(k)&:=\mathsf q(P_-(k)-E_-)-1
+       =k^2-3(1-Ux)k+3b^2-3b+2,\\
+ f_a(k)&:=\mathsf q(P_+(k)-E_+)-1
+       =k^2-3(1-Uw)k+3a^2-3a+2.
+ \end{aligned}
 \]
-where
+For the first quadratic,
 \[
-\begin{aligned}
- P_1={}&9U^4-3U^3z+45U^3+9U^2z^2-6U^2z+72U^2\\
-      &-Uz^3+21Uz^2+9Uz+45U+2z^4+9z^2+9.
-\end{aligned}
+ f_b(1/2)=3(b-1/2)^2+\tfrac32Ux>0,
+ \qquad f_b'(1/2)=-2+3Ux<-\tfrac32.
 \]
-Its $D$-coefficient is positive and, using $|z|<1$,
+Moreover
 \[
- P_1\ge9+45U-9U-U-6U^2-3U^3>0.
+ f_b(1)=3\{Ux-b(1-b)\}<0,
 \]
-The junction derivative is affine in $t$, so it is positive throughout
-$[1-a,b]$.  Since the restriction of $F$ to $L_-$ is a convex quadratic,
-is positive at the junction, and is increasing there, it has no intersection
-on the opposite line side for any actual adjacent handoff.
+since $\rho=1+U(1+a)-b(1-b)<1$ and $x<1<1+a$.
+Thus its first root $k_-=h\lambda_-$ lies in $(1/2,1)$.
+The reflected calculation gives $k_+=h\mu_+\in(1/2,1)$.
+Both quadratics decrease on $[k_*,1/2]$, so
+\[
+ f_b(k_*)>f_b(1/2)>0,\qquad f_a(k_*)>f_a(1/2)>0.
+\]
+This proves the root ordering and the positive junction values without
+expanding a junction polynomial.
 
-On the correct line $L_+$, the value at its outer endpoint $h^{-1}$ has,
-after multiplication by a positive factor, numerator
+For the junction coordinates, use
 \[
- A_*=P_2-4DU(1+U+z),
+ D^2-(3U-z)^2=6U(1+z-U)>0,\qquad
+ D^2-(3U+z)^2=6U(1-z-U)>0.
 \]
-where
+The first identity implies $3U-z<D(1+2a)$, which is exactly
+$J_u<1/2$; the second gives $J_v<1/2$. Hence $J_u+J_v<1$.
+Because
 \[
-\begin{aligned}
- P_2={}&3U^4+6U^3z+6U^3+4U^2z^2+12U^2z+12U^2\\
-      &+2Uz^3+6Uz^2+2Uz+6U+z^4+2z^2-3.
-\end{aligned}
+ \partial_tF(P,t)=1+2t-P_u-P_v,
 \]
-For fixed $U$, replace the odd powers of $z$ by $x=|z|$.  The resulting
-polynomial $P_2^+(U,x)$ satisfies
-\[
- \partial_xP_2^+
- =2(3U^3+4U^2x+6U^2+3Ux^2+6Ux+U+2x^3+2x)>0,
-\]
-and therefore its supremum for $z^2<\Omega$ occurs at $x=\sqrt\Omega$.
-There
-\[
- P_2^+(U,\sqrt\Omega)=4U(U+\sqrt\Omega-3)<0.
-\]
-As $1+U+z=2a>0$, this gives $A_*<0$.  The positive junction value and
-negative endpoint value force the first root strictly between them, proving
-the $L_+$ half of \eqref{eq:first-root-order}; reflection proves the other
-half.
+$F(J,t)$ is strictly increasing for $t\ge0$.
+Its value at $t=1-a$ is $f_a(k_*)>0$, proving the junction sign.
 
-For the coordinate bounds, the exact identities
+On the opposite line, direct differentiation gives
 \[
- D^2-(3U-z)^2=6U(1+z-U),\qquad
- D^2-(3U+z)^2=6U(1-z-U)
+ \frac{d}{dk}F(P_-(k),t)
+ =2k+(1-b)(2y+x)+t(y-x).
 \]
-give $J_u,J_v<1/2$.  It remains to control the coordinate sum along $L_+$.
-For $E=L_+(h^{-1})$, the sign of $3-2a-E_u-E_v$ is the sign of
+For $k\ge k_*$ and $t\in[1-a,b]$, this is at least
 \[
- D(6U+2z+6)+B(U,z),
+ 2k-bx>\frac34-\frac1{\sqrt3}>0.
 \]
-where
+Thus $F(P_-(k_-),t)>F(J,t)>0$ throughout the handoff interval.
+
+On the correct line, $0<k_+<1$ and \eqref{eq:F-normal-pair-consequences}
+give
 \[
-\begin{aligned}
- B(U,z)={}&-9U^3-9U^2z-9U^2-3Uz^2-18Uz+3U\\
-          &-3z^3+3z^2-3z+3.
-\end{aligned}
+ (P_+(k_+))_u+(P_+(k_+))_v
+ =a+k_+(w-v)<2-a.
 \]
-Here
+Indeed, if $w-v<0$ the sum is below $a<2-a$; otherwise it is below
+$a+2(1-a)$. Therefore, for $t\ge1-a$,
 \[
- B_z=-3(3z^2+2Uz+6U-2z+3U^2+1)<0,
+ \partial_tF(P_+(k_+),t)>1+2(1-a)-(2-a)=1-a>0.
 \]
-because the quadratic in parentheses has discriminant
-$-32U^2-80U-8<0$.  Hence its minimum on $z^2<\Omega$ is at
-$z=\sqrt\Omega$, where
-$B(U,\sqrt\Omega)=6(1-3U-\sqrt\Omega)>0$ because
-$(1-3U)^2-\Omega=12U^2$.  Thus $E_u+E_v<3-2a$.
-Also $J_u+J_v<1<3-2a$, and the coordinate sum is affine on the
-line segment, so the same strict bound holds at the first root.  Now
-\[
- \frac{\partial F}{\partial t}(P,t)=1+2t-P_u-P_v.
-\]
-Since $F(L_+(\mu_+),1-a)=0$, the coordinate-sum bound makes its $t$-derivative
-strictly positive for $t\ge1-a$.  Together with the no-opposite-line result,
-this proves \eqref{eq:moving-right-signs}.  Reflection gives both the bound on
-$L_-$ and the complete $Z_3(y)$ statement.
+As $F(P_+(k_+),1-a)=f_a(k_+)=0$, its sign is nonnegative
+throughout the interval and positive away from its left endpoint.
+Reflection proves all the remaining assertions.
 \end{proof}
 
 Define the local and global witnesses by
@@ -501,8 +495,12 @@ and consequently all three witnesses belong to $U_C$.
 \end{lemma}
 
 \begin{proof}
-The root order and positivity of the line coordinates give
-$0<u,v<1$ for all three points.  Each point has local coordinates in $\mathcal R_{AB}^{\rm loc}(b,a)$ and hence
+Put $\bar\alpha=\alpha/h$, $\bar\beta=\beta/h$, and $\bar\gamma=\gamma/h$.
+Write $x=\bar\alpha$, $y=\bar\beta$. The coefficient identities give
+$\rho-1=(y-b)(x+y-b)/x^2$. Since $x+y>1>b$, one has $y<b$;
+reflection gives $\bar\gamma<a$. Thus both outer line endpoints at
+$k=1$ have coordinates in $(0,1)^2$. The junction and the two first-root
+points lie on the intervening open segments, so $0<u,v<1$ for all three points.  Each point has local coordinates in $\mathcal R_{AB}^{\rm loc}(b,a)$ and hence
 lies in a closed unit triangle containing $V_4$, so
 $\mathsf q(u,v)\le1$; hence
 $|u-v|<1$ and all three points lie in $\interior(H)$.
@@ -560,49 +558,52 @@ three interior witnesses into $U_C$.
 Together with \zcref{lem:symmetric-core-witness}, this proves the
 containment $K_{\rm wit}(a,b)\subset U_C$ used in the body.
 
-\subsection{Newton inner reduction}
+\subsection{Fixed-start Newton inner reduction}
 
-Here the frontier points have already been forced. The next step makes
-only the enclosure lower bound easier to verify: it moves the two outer
-points toward the middle point, so the candidate's containment is preserved
-by convexity. The tangent intercept from one Newton step gives exact
-rational expressions while remaining on the inner side of the first root.
+The three frontier witnesses have already been forced into $U_C$.
+We move the outer two toward the junction only for the enclosure
+comparison.  These inner points belong to $U_C$ by convexity; they need
+not be missed by every V triangle.
 
-For the nontrivial regime $c_*>2/3$, we first remove the square radicals in
-the first-root witnesses.  Normalize
-$\bar\alpha=\alpha/h$, and similarly for the other three coefficients, and
-put
+Write $U=a+b-1$ and normalize
+$\bar\alpha=\alpha/h$, and similarly for the other three coefficients.
+For $k=h\lambda$ and $k=h\mu$, the circle restrictions are
 \[
- \xi=\lambda/h,\quad \zeta=\mu/h,\quad
- \xi_*=\zeta_*=\frac{8\rho}{3(D+3)}.
+ \begin{aligned}
+ f_b(k)&=k^2-3(1-U\bar\alpha)k+3b^2-3b+2,\\
+ f_a(k)&=k^2-3(1-U\bar\delta)k+3a^2-3a+2.
+ \end{aligned}
 \]
-Define $\widetilde g_-(x)=g_-(hx)$ and
-$\widetilde g_+(x)=g_+(hx)$ from \eqref{eq:witness-quadratics}.
-Take one Newton step at the junction:
+The preceding root bounds place $1/2$ strictly between the junction
+parameter and either first root.  A Newton step from this fixed value gives
 \[
- \widehat\xi_-=\xi_*-\frac{\widetilde g_-(\xi_*)}{\widetilde g_-'(\xi_*)},\qquad
- \widehat\zeta_+=\zeta_*-\frac{\widetilde g_+(\zeta_*)}{\widetilde g_+'(\zeta_*)}.
+ \widehat k_b=\frac{1+3(b-1/2)^2}{2-3U\bar\alpha},\qquad
+ \widehat k_a=\frac{1+3(a-1/2)^2}{2-3U\bar\delta}.
 \]
-Define the global Newton vectors by
-\begin{align*}
- A&=\Psi_4\left(b-\frac34\bar\beta\widehat\xi_-,
-          \frac34\bar\alpha\widehat\xi_-\right),\\
+The denominators exceed $3/2$.  To keep the line-parameter notation set
+$\widehat\xi_-=4\widehat k_b/3$ and
+$\widehat\zeta_+=4\widehat k_a/3$.  Define the global points
+\[
+ \begin{aligned}
+ A&=\Psi_4(b-\bar\beta\widehat k_b,
+                     \bar\alpha\widehat k_b),\\
  B&=\Psi_4(J),\\
- C&=\Psi_4\left(\frac34\bar\delta\widehat\zeta_+,
-          a-\frac34\bar\gamma\widehat\zeta_+\right),
-\end{align*}
-All norms and cross products below are taken in these global vectors.
+ C&=\Psi_4(\bar\delta\widehat k_a,
+                     a-\bar\gamma\widehat k_a).
+ \end{aligned}
+\]
+All subsequent norms and determinants refer to these global vectors.
 
-\begin{lemma}[Newton inner reduction]
+\begin{lemma}[Fixed-start Newton inner reduction]
 \label{lem:technical-newton-reduction}
-Their local coordinates are rational in $a,b,D$, and their global
-coordinates are rational over $\mathbb Q(\sqrt3)$ in those variables. They satisfy
+The local coordinates are rational in $a,b,D$, and the global coordinates
+are rational over $\mathbb Q(\sqrt3)$ in those variables.  One has
 \[
  A\in(Q_0,Q_-),\qquad C\in(Q_0,Q_+).
 \]
-Consequently
+Consequently, for the actual disk $\mathcal D_\eta$,
 \[
- \widehat K=\conv(\mathcal D_\eta\cup\{A,B,C\}),
+ \widehat K=\conv(\mathcal D_\eta\cup\{A,B,C\})
 \]
 satisfies
 \begin{equation}
@@ -611,15 +612,21 @@ satisfies
  \label{eq:reader-newton-reduction}
 \end{equation}
 \end{lemma}
-
 \begin{proof}
-Each rescaled quadratic $\widetilde g_-,\widetilde g_+$ is strictly convex,
-positive, and decreasing at
-the junction.  Its tangent zero therefore lies strictly between the
-junction and its first root.  This gives the two open-segment inclusions.
-The normalized coefficients and Newton quotients are rational in $a,b,D$;
-applying $\Psi_4$ gives the stated global field. Convexity proves the containment.
+Each quadratic is positive and decreasing at $k=1/2$, and has positive
+second derivative. Its tangent zero is therefore strictly between
+$1/2$ and its first root.  The junction is before $1/2$ by
+\zcref{lem:fixed-line-signs}.  This proves both open-segment inclusions.
+The displayed formulas are rational in the stated fields, and convexity
+proves the set inclusion.
 \end{proof}
+
+These points lie farther along the two segments than the earlier
+junction-start Newton points: for a positive decreasing convex quadratic,
+the Newton map has derivative $ff''/(f')^2>0$ before the first root.
+The four-contact proof below uses only the segment inclusions and the
+unchanged supporting lines; its geometric reasoning is therefore unchanged.
+The old algebraic certificate is not reused for the new point formulas.
 
 \subsection{Ordered convex chain and supporting-line bounds}
 
@@ -888,11 +895,10 @@ $0<\eta<h/3$, and it suffices to enclose $\widehat K$ by
 \zcref{eq:reader-newton-reduction}. The line contacts satisfy
 \zcref{eq:four-contact-line-tests}.
 
-\zcref{thm:paper-exact-mixed-certificate} proves the unchanged eight
-integer-polynomial signs at the rational radius
-$0<\bar\eta=h(1-\bar c)\le\eta$. The Gram factors and paired transfer in
-\zcref{lem:paper-residual-to-tangency} turn those signs into
-$P_A(\eta),P_C(\eta)\ge0$. Thus both tangent sums in
+\zcref{thm:paper-exact-mixed-certificate} proves the paired residual
+signs for the fixed-start points at $0<e_0\le1-c_*$.  The Gram identities
+and actual-radius transfer in \zcref{lem:paper-residual-to-tangency}
+give $P_A(\eta),P_C(\eta)\ge0$. Thus both tangent sums in
 \zcref{eq:four-contact-tangent-tests} are at least $h$ as well.
 All four contacts in \zcref{eq:four-contact-minimum} have support sum at
 least $h$. Therefore

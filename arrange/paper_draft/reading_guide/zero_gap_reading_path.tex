@@ -15,7 +15,7 @@ by its open interior.
 The convex hull of the six radial points contains a disk. Replacing those
 six points by this disk gives a smaller comparison set. In the nontrivial
 range, the two outer frontier points are then moved inward by a single
-Newton step. Convexity keeps these comparison points inside any candidate
+Newton step at the fixed line parameter $k=1/2$. Convexity keeps these comparison points inside any candidate
 containing the original witnesses. These are exact inner comparisons,
 not numerical approximations to a covering configuration.
 
@@ -27,3 +27,10 @@ inequalities are reduced to the exact polynomial certificate. At the end,
 the comparison set requires side at least one, contradicting its containment
 in the open C triangle. The calculations below justify each of these stages;
 the certificate enters only at the last one.
+
+\readerheading{Active tangent calculation.}
+The two outer comparison points use the fixed-start formulas, not the older
+junction-start formulas. The exact coefficient comparisons and radius envelope
+are specified in \zcref{thm:paper-exact-mixed-certificate}.
+The actual disk is unchanged; the smaller scalar radius is used only for
+initially checking the tangent residuals.

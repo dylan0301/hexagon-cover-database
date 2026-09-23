@@ -1,23 +1,14 @@
 {
   "baseline": "c7373742f8975d24a18456f458c8e1208a9b454b",
-  "reviewed_supplier_hash_changes": {
-    "proof/4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like_new/4130_new_T3_like_finite_enclosure.md": {
-      "after": "7c98f559456b334067ba7a32e3def9726003829f979421fda4ab348cd6a07c74",
-      "before": "9c07b83683d951e82faed7235aba49ce9da298f67afbed2fd4d14220df7f8215"
-    },
-    "proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4143_new_Vd1_rescuer_finite_enclosure.md": {
-      "after": "1c1acc1708adc4d1434db1a15a3a2c833b5f620509ad87b786509d9f3d650f12",
-      "before": "c1dfec8125ff4e0dc94fccb90f60b2a79d4f5c07d61853762b74dacc17913696"
-    }
-  },
   "unchanged_files": {
-    "arrange/paper_draft/A_zero_gap_exact_certificate.tex": "87d0416648df477362526e7c530f90307a20a131874ee25f89acbc7c6961cb43",
     "arrange/paper_draft/fixed_witness/06_fixed_witness_body.tex": "edf8ccd6149b26abeb025f94f222d80c0e7a4d13f70908d21ea8cb5e441ebaf7",
     "arrange/paper_draft/fixed_witness/D_bc_finite_calipers.tex": "855655d04cda6f2bdbaa972a0be221746bf2fcdf3c380fff0c02a5555bfdf1c8",
-    "arrange/paper_draft/inline_proofs/main.tex": "050f80339535521642185682ef58a5e4b9c4c81b4df62bbf6145a7b75d669cae",
-    "arrange/paper_draft/main.tex": "a7d7d8f58b4106f1e18d83121b5f8211467b31f70778593c8ebfb5c4e7f65705",
-    "proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2614_two_vertex_replacement.md": "b1ddfcee79e051af0707dd2551ce394e2780003c82fe369959b5c1464a36e2c0",
     "proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2616_bc_d_finite_calipers.md": "fde76b8227e35f63870ccdb5aa6e4027934116560d5fab65ace46b3af48b5f19",
+    "proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2614_two_vertex_replacement.md": "b1ddfcee79e051af0707dd2551ce394e2780003c82fe369959b5c1464a36e2c0",
+    "proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4144_new_two_chart_replacement_and_router.md": "4e2ad6e6f6e63427695193cff07ccd228e7dc0b5ec80086f5fb8b52dc2d16821",
+    "arrange/paper_draft/A_zero_gap_exact_certificate.tex": "b92cb08c2c20b12526ccde64d91e7474098f174a49467577f60b10ad3183933f",
+    "arrange/paper_draft/main.tex": "a7d7d8f58b4106f1e18d83121b5f8211467b31f70778593c8ebfb5c4e7f65705",
+    "arrange/paper_draft/inline_proofs/main.tex": "050f80339535521642185682ef58a5e4b9c4c81b4df62bbf6145a7b75d669cae",
     "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/certificate_provenance.json": "9cb34f38f3f60b4d3a7a6c2fc648b1fc746757add44a23010764a9e849efc947",
     "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/mixed_overlap_core_data_00.py": "5bd1d99dc760e36663f9f798cab66394fcd9cbcc7a4f311bbce1671bf775b57f",
     "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/mixed_overlap_core_data_01.py": "036b39b0793f417e4b0a504ddc853b2e0557589c5d2529eb058aa8941dca45d4",
@@ -28,7 +19,16 @@
     "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/mixed_overlap_core_polynomials.py": "909ad03bb38703e1b2867b81d086f817c432b694c90c28e7a77d410648e6c360",
     "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/verify_four_contact_identities.py": "61853f30508cd6ea311b00c47a091066d18939791ddafd3d5ff9d28b181e5131",
     "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/verify_global_core_positivity.py": "0a4e698debd00fc4d93a3e32c1ae21853d9bd5ad279cdd660a31bee05f93b04e",
-    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/verify_mixed_overlap_core_derivation.py": "3bafd92ff69ef61630198f3e2efcd370a5d639d4583037ac13b53ea2732ab770",
-    "proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4144_new_two_chart_replacement_and_router.md": "4e2ad6e6f6e63427695193cff07ccd228e7dc0b5ec80086f5fb8b52dc2d16821"
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/verify_mixed_overlap_core_derivation.py": "3bafd92ff69ef61630198f3e2efcd370a5d639d4583037ac13b53ea2732ab770"
+  },
+  "reviewed_supplier_hash_changes": {
+    "proof/4XXX_CE1CE2/41XX_Nplus1/414X_CE2_exactly_one_Vd1_Vd2_new/4143_new_Vd1_rescuer_finite_enclosure.md": {
+      "before": "c1dfec8125ff4e0dc94fccb90f60b2a79d4f5c07d61853762b74dacc17913696",
+      "after": "1c1acc1708adc4d1434db1a15a3a2c833b5f620509ad87b786509d9f3d650f12"
+    },
+    "proof/4XXX_CE1CE2/41XX_Nplus1/413X_exactly_one_T3_like_new/4130_new_T3_like_finite_enclosure.md": {
+      "before": "9c07b83683d951e82faed7235aba49ce9da298f67afbed2fd4d14220df7f8215",
+      "after": "7c98f559456b334067ba7a32e3def9726003829f979421fda4ab348cd6a07c74"
+    }
   }
 }

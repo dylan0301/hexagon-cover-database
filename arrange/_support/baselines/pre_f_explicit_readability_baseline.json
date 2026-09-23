@@ -1,0 +1,20 @@
+{
+  "base_commit": "c7373742f8975d24a18456f458c8e1208a9b454b",
+  "revision": "20260923-quarter-envelope-and-ratio-simplification",
+  "reason": "User-approved quarter-range polynomial envelope, unchanged coupled theorem/witnesses, factored T3-like/Vd1 ratios, and strict own-ray preliminary F bound. Unchanged geometry/certificate files and reviewed adapter changes have separate hash/source contracts.",
+  "prior_baseline_sha256": "583e9c5b29c99945b8169c78dfecff2b9698b5910ce8b44dec8f6c2a13f53efc",
+  "canonical": {
+    "statements": 89,
+    "proof_environments": 88,
+    "sha256": "bbbd93807b81476c9024231425c68d0aa226bb22dc99e2ae90be83d55fe554ec"
+  },
+  "inline": {
+    "statements": 79,
+    "proof_environments": 79,
+    "sha256": "6cb8d25ae3c523076713b8c1e05a6f5530ea1557661e7020db9c4d5a82c35e00"
+  },
+  "proof_corpus": {
+    "files": 373,
+    "sha256": "c1e2e9d6290b55841af8164ea747ade0f0cf9aceebaa8768474307bc2b805965"
+  }
+}

@@ -44,5 +44,7 @@
   "shortening_revision_base": "a4f44a8b52c5097e07b82d2e4dec7efb83dd80e4",
   "shortening_note": "Four duplicate enclosure wrappers consolidated in the canonical paper; total-endpoint/path/uniform forcing, capacity-free five-point threshold, and shared BC/F deficit estimate. Obsolete assembly wrappers and unused calculations removed; exact certificate unchanged.",
   "quarter_envelope_revision_base": "c7373742f8975d24a18456f458c8e1208a9b454b",
-  "quarter_envelope_note": "Exact witnesses unchanged; shared quarter-range capacity proof, factored T3-like/Vd1 ratios, and strict positive-slack own-ray bound synchronized in both editions."
+  "quarter_envelope_note": "Exact witnesses unchanged; shared quarter-range capacity proof, factored T3-like/Vd1 ratios, and strict positive-slack own-ray bound synchronized in both editions.",
+  "f_explicit_revision_base": "e255ed51d54c3f005dc9c5764e8ee3736cd06946",
+  "f_explicit_note": "Fixed-start F geometry and explicit coefficient comparisons synchronized by a shared certificate body. Historical transcript unchanged, no longer active."
 }

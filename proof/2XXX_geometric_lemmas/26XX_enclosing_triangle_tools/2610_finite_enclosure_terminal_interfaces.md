@@ -199,3 +199,10 @@ split, and all five strict preservation margins are explicit. The
 BC capacity envelope and finite-caliper proof, separate rescuer chart inequalities, and exact zero-gap certificate have independent proof owners. The former CE1 return and CE2 thresholds are historical alternatives. The old one-Vd audit is a compatibility
 assembly, not a second placement proof. Length and area are still different
 obstruction methods, not additional finite-witness recipes.
+
+## Fixed-start F update
+
+The active disk-plus-three-point tangent calculation is [3105b](../../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105b_explicit_comparison_enclosure.md).
+It preserves the nine forced points and uses fixed-start inner points, one
+rational radius envelope, and explicit low-degree comparisons with exact
+coefficient bounds. The older transcript is a historical alternative.

@@ -29,6 +29,11 @@ This note proves all eight polynomial signs by three fixed analytic charts
 and twenty global positive-basis identities.  It uses no interval arithmetic,
 adaptive subdivision, pruning, or branch-and-bound.
 
+> Historical alternative: this note retains the junction-start points and original
+> radius/transcript. The active fixed-start proof is [3105b_explicit_comparison_enclosure.md](3105b_explicit_comparison_enclosure.md).
+> Its stated historical calculations are preserved; they are not certificates for
+> the different fixed-start formulas.
+
 ## 1. Exact closed cells
 
 Put

@@ -1,8 +1,9 @@
-This is the algebraic verification stage of the enclosure proof. The input
-is the parameter domain and the residual inequalities derived from the
-supporting-contact geometry, not a list of sampled covers. The finite data
-encode exact identities and positivity certificates; the replay programs
-check those identities using exact arithmetic. The geometric reduction and
-the validity of its domain remain part of the written proof. A successful
-replay certifies the specified polynomial step, not an independent formal
-verification of the entire theorem.
+\readerheading{What the exact computation proves.}
+The actual disk and original frontier witnesses are fixed geometrically.
+The active calculation uses fixed-start Newton points and explicit cubic or
+quadratic comparisons. It regenerates every polynomial and checks rational
+coefficient error bounds, including the remaining boundary Taylor estimates.
+There is no stored SOS witness or Bernstein-transcript input for this route.
+This is still a computer-assisted inequality proof, not a formal verification
+of the geometric forcing lemmas. The historical two-program transcript is
+retained separately and is not relabeled for the new points.

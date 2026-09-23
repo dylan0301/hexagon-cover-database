@@ -51,3 +51,10 @@ have no proof-authority status.
 ## Current BC/D calipers
 
 [BC/D finite-caliper viewer](bc_d_finite_calipers.html): standalone five-point BC and four-point D constructions, staged witnesses, and hull-edge support triangles. [Proof trees](proof_trees/index.html) and the dependency graph use the new 2615--2616 route. Archived live six-point recordings remain explicitly labeled in the animated guide.
+
+## Active Case F point construction
+
+The [fixed-start F viewer](f_explicit_comparison.html) implements the new $k=1/2$ Newton formulas.
+The old F GIFs and cap-chain explorer retain historical junction-start points;
+they are illustrations of that earlier construction, not the active certificate.
+The new numerical viewer is also not a universal proof.

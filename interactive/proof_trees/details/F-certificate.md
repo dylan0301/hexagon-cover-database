@@ -24,7 +24,7 @@
     - Define the fixed $Q_-,Q_0,Q_+$ from the strict two-parameter domain.
     - Prove exclusion from every vertex role using handoffs, fixed-line signs, and distance bounds.
 - **Inner-point construction — source [31054](https://github.com/dylan0301/hexagon-cover-database/blob/f7fe2f89cde04903cba8ba347bd0645abee9b905/proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31054_four_cap_enclosure_reduction.md).**
-    - Use exactly constructed inner points $A\in(Q_0,Q_-)$, $B=Q_0$, $C\in(Q_0,Q_+)$.
+    - Use the fixed-start ($k=1/2$) Newton inner points $A\in(Q_0,Q_-)$, $B=Q_0$, $C\in(Q_0,Q_+)$.
     - Verify that $A,B,C$ occur consecutively on the relevant convex boundary, and $d_{AB},d_{BC}\ge h-2\eta>\eta$.
     - Here $h=\sqrt3/2$ and $\eta$ is the actual comparison-disk radius.
 - **Four-contact theorem — source [2611](https://github.com/dylan0301/hexagon-cover-database/blob/f7fe2f89cde04903cba8ba347bd0645abee9b905/proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2611_four_contact_disk_enclosure.md).**
@@ -32,7 +32,7 @@
     - The two point–point contacts have support sum at least $h$.
 - **Two tangent residuals — sources [31055](https://github.com/dylan0301/hexagon-cover-database/blob/f7fe2f89cde04903cba8ba347bd0645abee9b905/proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31055_rational_radial_envelopes_and_mixed_reduction.md) and [31056](https://github.com/dylan0301/hexagon-cover-database/blob/f7fe2f89cde04903cba8ba347bd0645abee9b905/proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31056_global_analytic_mixed_positivity.md).**
     - First replace the actual radius by a suitable rigorously bounded comparison radius. Then rewrite the tangent inequalities using dot products and squared lengths (the Gram calculation).
-    - Prove the required eight polynomial signs using twenty exact Bernstein-basis identities on three explicitly specified parameter regions (charts). A Bernstein-basis identity writes the polynomial in basis functions nonnegative on that region; nonnegative coefficients certify its sign. The coefficients and domains are retained in the numbered source, not inferred from sampled values.
+    - Use the single rational radius envelope and reduce to one ordered residual. The active exact proof uses one cubic endpoint comparison, four quadratic mixed-derivative comparisons, a cubic curvature comparison, and retained increment/Taylor bounds. Chebyshev coefficient sums and reconstruction identities are checked over the rationals; no separately stored SOS or Bernstein witness is an input.
     - The radius-transfer lemma proves that the two tangent inequalities remain valid when passing from the comparison radius to the actual radius $\eta$.
     - Sampling, interval scans, or a floating-point plot do not replace these exact identities.
 - **Terminal assembly — source [31057](https://github.com/dylan0301/hexagon-cover-database/blob/f7fe2f89cde04903cba8ba347bd0645abee9b905/proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31057_terminal_nine_point_enclosure.md).**
@@ -45,3 +45,11 @@
 **Proof sources:** [31057](https://github.com/dylan0301/hexagon-cover-database/blob/f7fe2f89cde04903cba8ba347bd0645abee9b905/proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31057_terminal_nine_point_enclosure.md) · [31058](https://github.com/dylan0301/hexagon-cover-database/blob/f7fe2f89cde04903cba8ba347bd0645abee9b905/proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31058_center_independent_direct_nine_point_obstruction.md) · [2611](https://github.com/dylan0301/hexagon-cover-database/blob/f7fe2f89cde04903cba8ba347bd0645abee9b905/proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2611_four_contact_disk_enclosure.md). All source links are pinned to the same repository snapshot.
 
 [\[MAIN\]](../README.md) Return to the main tree.
+
+## Active source and scope
+
+The current source is [3105b](https://github.com/dylan0301/hexagon-cover-database/blob/chatgpt/f-explicit-comparison-20260923155000/proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105b_explicit_comparison_enclosure.md); the older pinned `31054`--`31056` links
+above identify the historical junction-start proof. The original frontier points
+are unchanged; the comparison points and auxiliary radius change together.
+The actual disk is retained for exposed-hull geometry and line contacts.
+[Current numerical viewer](https://github.com/dylan0301/hexagon-cover-database/blob/chatgpt/f-explicit-comparison-20260923155000/interactive/f_explicit_comparison.html); it is not a proof.

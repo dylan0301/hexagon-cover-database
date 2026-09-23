@@ -135,3 +135,22 @@ terminal exact certificate. The approved inventory now has 89 canonical and
 79 inline formal statements; 77 complete proof bodies are matched between
 editions. The previous inventory and the two intentionally replaced supplier
 hashes are archived; all other preservation contracts remain enabled.
+
+## Case F explicit-comparison revision
+
+The active fixed-start Case F calculation is [3105b_explicit_comparison_enclosure.md](../proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105b_explicit_comparison_enclosure.md).
+The original nine witnesses and actual disk are unchanged. The tangent proof
+uses explicit cubic/quadratic comparisons and exact coefficient budgets, with
+remaining degree-27 boundary Taylor work. It no longer reads an SOS witness file
+or a Bernstein transcript. The old exact programs remain historical CI checks.
+
+Run the active calculation from the repository root:
+
+```bash
+python proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/verify_explicit_stage.py --output /tmp/F-explicit.json
+```
+
+The new [fixed-start viewer](../interactive/f_explicit_comparison.html)
+is a numerical illustration, not a proof. Older F Newton/cap-chain captures
+are labeled historical. See `arrange/20260924_f_explicit_comparison_integration.md`
+for the integration and validation record.

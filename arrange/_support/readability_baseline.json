@@ -1,20 +1,22 @@
 {
   "base_commit": "c7373742f8975d24a18456f458c8e1208a9b454b",
-  "revision": "20260923-quarter-envelope-and-ratio-simplification",
-  "reason": "User-approved quarter-range polynomial envelope, unchanged coupled theorem/witnesses, factored T3-like/Vd1 ratios, and strict own-ray preliminary F bound. Unchanged geometry/certificate files and reviewed adapter changes have separate hash/source contracts.",
-  "prior_baseline_sha256": "583e9c5b29c99945b8169c78dfecff2b9698b5910ce8b44dec8f6c2a13f53efc",
   "canonical": {
-    "statements": 89,
-    "proof_environments": 88,
-    "sha256": "bbbd93807b81476c9024231425c68d0aa226bb22dc99e2ae90be83d55fe554ec"
+    "proof_environments": 92,
+    "sha256": "3851cf3ea4ed7dc1c3e976c84ed5993d6e077b192d58a8a8a62cc831490c37ec",
+    "statements": 93
   },
+  "f_explicit_revision_base": "e255ed51d54c3f005dc9c5764e8ee3736cd06946",
+  "f_explicit_revision_note": "Intentional fixed-start F proof revision; previous complete baseline archived. No other mathematical branch changed.",
   "inline": {
-    "statements": 79,
-    "proof_environments": 79,
-    "sha256": "6cb8d25ae3c523076713b8c1e05a6f5530ea1557661e7020db9c4d5a82c35e00"
+    "proof_environments": 83,
+    "sha256": "91a22a54b1f04b8f68c75e00a5855cc78961703c965b6edaff723b76fe41cc7a",
+    "statements": 83
   },
+  "prior_baseline_sha256": "583e9c5b29c99945b8169c78dfecff2b9698b5910ce8b44dec8f6c2a13f53efc",
   "proof_corpus": {
-    "files": 373,
-    "sha256": "c1e2e9d6290b55841af8164ea747ade0f0cf9aceebaa8768474307bc2b805965"
-  }
+    "files": 378,
+    "sha256": "734efcfe635617a4ab2eee2102c8db04403d47f746811f5ce9b68f4811999c4a"
+  },
+  "reason": "User-approved quarter-range polynomial envelope, unchanged coupled theorem/witnesses, factored T3-like/Vd1 ratios, and strict own-ray preliminary F bound. Unchanged geometry/certificate files and reviewed adapter changes have separate hash/source contracts.",
+  "revision": "20260923-quarter-envelope-and-ratio-simplification"
 }

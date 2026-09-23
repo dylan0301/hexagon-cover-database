@@ -26,7 +26,7 @@ MAIN = PAPER / "main.tex"
 OUT_HTML = ROOT / "interactive" / "readable_proof_dependency_graph.html"
 OUT_JSON = ROOT / "interactive" / "readable_proof_dependency_data.json"
 REPORT = ROOT / "arrange" / "README.md"
-BRANCH = "chatgpt/quarter-envelope-simplification-20260923045806"
+BRANCH = "chatgpt/f-explicit-comparison-20260923155000"
 REPOSITORY = "dylan0301/hexagon-cover-database"
 
 ENV_RE = re.compile(
@@ -88,6 +88,8 @@ SOURCE_GROUPS = {'01_introduction.tex': 'Body 1: introduction',
  'optional_B.tex': 'Appendix D: nonzero-gap optimization',
  'D_bc_capacity_envelope.tex': 'Appendix D: nonzero-gap optimization',
  'D_bc_finite_calipers.tex': 'Appendix D: nonzero-gap optimization'}
+
+SOURCE_GROUPS.update({'certificate_body.tex': 'Appendix F: exact certificate', 'radius_lemmas.tex': 'Appendix F: exact certificate'})
 
 
 def rel(path: Path) -> str:
@@ -301,7 +303,7 @@ CASE_META = {'cor:clipped-radial-forcing': {'cases': ['BC path and uniform F con
  'thm:main': {'cases': ['All routing rows R0-R5'],
               'detail': 'N0; zero-gap F/area; nonzero-gap midpoint supplier.'},
  'thm:paper-exact-mixed-certificate': {'cases': ['Row F, c_*>2/3, paired disk-tangent residuals'],
-                                       'detail': 'Exact integer/Bernstein certificate; no '
+                                       'detail': 'Explicit low-degree comparisons with exact coefficient bounds; no '
                                                  'floating-point or interval arithmetic.'},
  'thm:reader-witness-enclosure': {'cases': ['Row F: zero gap, N_+=1, arbitrary V types; any '
                                             'CE0/CE1/CE2'],
@@ -431,6 +433,23 @@ MANUAL_DEPS = {'cor:clipped-radial-forcing': ['lem:boundary-deficit-identities',
                                   'thm:paper-exact-mixed-certificate'],
  'thm:reader-zero-gap-obstruction': ['lem:compact-cover-margin', 'thm:reader-witness-enclosure'],
  'thm:strict-ab-union': ['lem:ab-extreme-jump', 'thm:cert-caliper']}
+
+
+MANUAL_DEPS.pop('lem:paper-branchwise-cbar', None)
+MANUAL_DEPS['lem:paper-residual-to-tangency'] = ['lem:paired-radius-transfer','lem:technical-newton-reduction']
+MANUAL_DEPS['thm:paper-exact-mixed-certificate'] = ['lem:f-uniform-affine-radius-envelope', 'lem:f-explicit-comparison-bounds', 'lem:f-boundary-comparisons']
+MANUAL_DEPS['lem:f-rational-newton-deficit'] = ['prop:new-exact-local-set']
+MANUAL_DEPS['lem:f-uniform-affine-radius-envelope'] = ['lem:f-rational-newton-deficit', 'prop:new-exact-local-set']
+MANUAL_DEPS['lem:f-explicit-comparison-bounds'] = ['lem:technical-newton-reduction']
+MANUAL_DEPS['lem:f-boundary-comparisons'] = ['lem:f-explicit-comparison-bounds']
+CERTIFICATE_NODES.update({'lem:f-rational-newton-deficit','lem:f-uniform-affine-radius-envelope','lem:f-explicit-comparison-bounds','lem:f-boundary-comparisons'})
+CASE_META.update({
+ 'lem:F-normal-pair-bounds': {'cases':['F frontier parameters'], 'detail':'Two normalized coefficient inequalities replace moving-junction expansions.'},
+ 'lem:f-rational-newton-deficit': {'cases':['0<m<1/2'], 'detail':'One upper-start Newton step bounds the quartic deficit.'},
+ 'lem:f-uniform-affine-radius-envelope': {'cases':['Both F capacity branches'], 'detail':'One rational lower radius and a convexity/chord argument.'},
+ 'lem:f-explicit-comparison-bounds': {'cases':['Fixed-start tangent algebra'], 'detail':'Explicit cubic and quadratic models, exact coefficient budgets, and analytic identities; computer-assisted.'},
+ 'lem:f-boundary-comparisons': {'cases':['Constant and affine envelope endpoints'], 'detail':'Coordinatewise monotonicity and exact degree-27 Taylor comparisons.'}
+})
 
 # These appendix references identify the body interface supplied by the
 # calculation; they point to a consumer rather than a logical prerequisite.

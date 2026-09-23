@@ -45,7 +45,7 @@
     - **CALCULATION LEAF:** witness construction and exclusions — [\[F-CALC\]](details/F-certificate.md).
 - **Exclude enclosure of the disk and three points.**
     - If $c_*\le2/3$, the disk alone requires enclosing side at least $3(1-c_*)\ge1$.
-    - Otherwise choose inner points $A\in(Q_0,Q_-)$, $B=Q_0$, $C\in(Q_0,Q_+)$.
+    - Otherwise use a Newton step at the fixed parameter $k=1/2$ to choose inner points $A\in(Q_0,Q_-)$, $B=Q_0$, $C\in(Q_0,Q_+)$.
         - Their disk-plus-triangle hull is contained in the original witness hull.
         - **CALCULATION LEAF:** exact inner-point construction and line bounds — [\[F-CALC\]](details/F-certificate.md).
     - Reduce minimum enclosing triangles to four relevant contacts — [\[CALIPERS\]](CALIPERS.md).
@@ -55,7 +55,7 @@
         - An exposed disk tangent through $C$.
     - Each contact requires side length at least $1$.
         - Point–point contacts use supporting-line bounds.
-        - Point–disk contacts use the exact polynomial positivity certificate.
+        - Point–disk contacts use explicit cubic/quadratic comparisons and exact rational coefficient bounds, followed by actual-radius transfer.
         - **CALCULATION LEAF:** the finite exact certificate — [\[F-CALC\]](details/F-certificate.md).
 - **Finish by the common compact-open contradiction** — [\[WITNESS\]](WITNESS.md).
 
@@ -68,3 +68,10 @@ The nine directly forced points are $D_0,\ldots,D_5,Q_-,Q_0,Q_+$. The disk is an
 **Proof sources:** [31058](https://github.com/dylan0301/hexagon-cover-database/blob/f7fe2f89cde04903cba8ba347bd0645abee9b905/proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31058_center_independent_direct_nine_point_obstruction.md) · [31057](https://github.com/dylan0301/hexagon-cover-database/blob/f7fe2f89cde04903cba8ba347bd0645abee9b905/proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31057_terminal_nine_point_enclosure.md) · [2611](https://github.com/dylan0301/hexagon-cover-database/blob/f7fe2f89cde04903cba8ba347bd0645abee9b905/proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2611_four_contact_disk_enclosure.md). All source links are pinned to the same repository snapshot.
 
 [\[MAIN\]](README.md) Return to the main tree.
+
+## Current calculation
+
+[3105b](https://github.com/dylan0301/hexagon-cover-database/blob/chatgpt/f-explicit-comparison-20260923155000/proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105b_explicit_comparison_enclosure.md) is the active fixed-start source. The pinned older source links
+above preserve historical provenance. [Current viewer](https://github.com/dylan0301/hexagon-cover-database/blob/chatgpt/f-explicit-comparison-20260923155000/interactive/f_explicit_comparison.html).
+No stored SOS witness or Bernstein transcript is used in the active route;
+coefficient and Taylor checks still form part of its proof.
