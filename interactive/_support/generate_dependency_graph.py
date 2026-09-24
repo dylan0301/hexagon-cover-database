@@ -26,7 +26,7 @@ MAIN = PAPER / "main.tex"
 OUT_HTML = ROOT / "interactive" / "readable_proof_dependency_graph.html"
 OUT_JSON = ROOT / "interactive" / "readable_proof_dependency_data.json"
 REPORT = ROOT / "arrange" / "README.md"
-BRANCH = "chatgpt/f-explicit-comparison-20260923155000"
+BRANCH = "chatgpt/math-audit-fixes-20260924092000"
 REPOSITORY = "dylan0301/hexagon-cover-database"
 
 ENV_RE = re.compile(

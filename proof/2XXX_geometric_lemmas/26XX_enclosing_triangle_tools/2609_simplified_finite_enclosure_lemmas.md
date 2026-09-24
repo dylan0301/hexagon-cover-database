@@ -113,9 +113,9 @@ $$
 \tag{2}
 $$
 
-Thus a least enclosing equilateral triangle may be chosen so that one side
-either contains two points of $P$, or is tangent to the disk and contains one
-point of $P$.
+Outside the disk-only alternative, a least enclosing equilateral triangle
+may be chosen so that one side either contains two distinct points of $P$,
+or is tangent to the disk and contains one point of $P$.
 
 ### Proof
 

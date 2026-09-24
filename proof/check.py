@@ -479,6 +479,15 @@ result=subprocess.run([sys.executable,str(checker)],cwd=ROOT,text=True,capture_o
 if result.returncode: fail(result.stdout+result.stderr)
 else: print(result.stdout.strip())
 
+# Exact regressions for the three narrowly scoped mathematical review repairs.
+checker = ROOT / "arrange/_support/verify_math_audit_fixes.py"
+result = subprocess.run([sys.executable, str(checker)], cwd=ROOT,
+                        text=True, capture_output=True)
+if result.returncode:
+    fail(result.stdout + result.stderr)
+else:
+    print(result.stdout.strip())
+
 if ERRORS:
     print("proof/check.py: FAILED", file=sys.stderr)
     for error in ERRORS:

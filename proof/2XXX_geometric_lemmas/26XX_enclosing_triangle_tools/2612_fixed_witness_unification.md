@@ -440,9 +440,9 @@ impossible.
 gap edges to $e_{5,0},e_{0,1}$. Select either actual gap and reflect if
 necessary so that it is $J_0$; the four middle edges are gap-free. Original
 perimeter coverage and `2018b` give $B_5>B_0/2$. Theorem 5.1 therefore
-applies with the same six-point set, whether or not the other incident
-edge is also a gap. All six points belong to $U_C$, contradicting
-$\Lambda(K_{BC})\ge1$ and compact-open containment. $\square$
+applies with the same five-point set $K_{BC}$, whether or not the other
+incident edge is also a gap. All five points belong to $U_C$, contradicting
+$\Lambda(K_{BC})>1$ and compact-open containment. $\square$
 
 ### Theorem 7.1. N0
 
