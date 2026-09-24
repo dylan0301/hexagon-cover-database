@@ -15,6 +15,12 @@ from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parent
 PIN = 'f7fe2f89cde04903cba8ba347bd0645abee9b905'
+F_REVISION = 'chatgpt/f-explicit-comparison-20260923155000'
+F_PATHS = {
+    'proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105b_explicit_comparison_enclosure.md',
+    'interactive/f_explicit_comparison.html',
+}
+
 
 class ViewerParser(HTMLParser):
     def __init__(self):
@@ -50,7 +56,11 @@ def check(with_html: bool=False) -> dict:
             if u.scheme:
                 if 'github.com/dylan0301/hexagon-cover-database/blob/' in url:
                     sources+=1
-                    if '/blob/'+PIN+'/' not in url: errors.append(name+': unpinned proof source')
+                    if '/blob/'+PIN+'/' not in url:
+                        prefix='https://github.com/dylan0301/hexagon-cover-database/blob/'+F_REVISION+'/'
+                        allowed=(name in {'F.md','details/F-certificate.md'} and
+                                 url.startswith(prefix) and url[len(prefix):] in F_PATHS)
+                        if not allowed: errors.append(name+': undeclared revision proof source')
                 continue
             if not u.path: continue
             target=(p.parent/unquote(u.path)).resolve()

@@ -170,3 +170,10 @@ associated loss values are upper estimates of minimum loss, not certificates.
 ## Current BC/D terminals and historical capture provenance
 
 The active proof uses at most five points for BC and four for D, with finite calipers and the reusable rational envelope. Open [the current caliper viewer](../bc_d_finite_calipers.html) for the new construction. The existing live GIFs, snapshots, capture metrics, and their pinned capture revisions are retained unchanged as historical visualizer footage. They must not be mistaken for an updated five-point app capture. `activeProofRevision` records the current mathematical source separately.
+
+## Active Case F point construction
+
+The [fixed-start F viewer](../f_explicit_comparison.html) implements the new $k=1/2$ Newton formulas.
+The old F GIFs and cap-chain explorer retain historical junction-start points;
+they are illustrations of that earlier construction, not the active certificate.
+The new numerical viewer is also not a universal proof.

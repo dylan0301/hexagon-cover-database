@@ -473,6 +473,12 @@ for script in ["verify_bc_envelope.py","verify_bc_capacity_calculus.py","verify_
     if result.returncode:fail(result.stdout+result.stderr)
     else:print(result.stdout.strip())
 
+# Active fixed-start F source contract, distinct from the exact algebra replay.
+checker=provenance.parent / "verify_f_explicit_interfaces.py"
+result=subprocess.run([sys.executable,str(checker)],cwd=ROOT,text=True,capture_output=True)
+if result.returncode: fail(result.stdout+result.stderr)
+else: print(result.stdout.strip())
+
 if ERRORS:
     print("proof/check.py: FAILED", file=sys.stderr)
     for error in ERRORS:

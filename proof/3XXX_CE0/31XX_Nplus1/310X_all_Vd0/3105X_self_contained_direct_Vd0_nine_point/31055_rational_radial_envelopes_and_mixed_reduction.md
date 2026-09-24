@@ -11,6 +11,11 @@ names are retained; the geometric conclusion now uses
 The eight signs are proved in
 [`31056`](31056_global_analytic_mixed_positivity.md).
 
+> Historical alternative: this note retains the junction-start points and original
+> radius/transcript. The active fixed-start proof is [3105b_explicit_comparison_enclosure.md](3105b_explicit_comparison_enclosure.md).
+> Its stated historical calculations are preserved; they are not certificates for
+> the different fixed-start formulas.
+
 ## 1. Domain and exact radial cells
 
 Assume

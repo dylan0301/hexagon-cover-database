@@ -1,0 +1,10 @@
+{
+  "base": "e255ed51d54c3f005dc9c5764e8ee3736cd06946",
+  "changes": [
+    {
+      "path": "arrange/paper_draft/A_zero_gap_exact_certificate.tex",
+      "prior_sha256": "b92cb08c2c20b12526ccde64d91e7474098f174a49467577f60b10ad3183933f",
+      "f_revision_sha256": "87d0416648df477362526e7c530f90307a20a131874ee25f89acbc7c6961cb43"
+    }
+  ]
+}

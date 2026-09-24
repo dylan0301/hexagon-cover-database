@@ -509,7 +509,7 @@ For the enclosure calculation use the compact comparison set
 
 \readerheading{Why four contacts suffice in the hard range.}
 The additional geometric step is not another general enclosure
-formula. The Newton inner reduction moves the two outer frontier
+formula. The fixed-start Newton inner reduction moves the two outer frontier
 witnesses inward, preserving the candidate's containment by convexity.
 Their convex hull with the disk has an exposed three-point chain;
 its two successive point--point lines and two outer disk tangencies
@@ -533,10 +533,10 @@ $K_{\rm wit}(a,b)$ satisfies
 
 \begin{proof}
 The disk closes the range \(c_*\le2/3\).  For \(c_*>2/3\), the Newton inner
-points reduce the enclosure to four supporting contacts: the lines through
+points, constructed from the fixed parameter $k=1/2$, reduce the enclosure to four supporting contacts: the lines through
 two consecutive points and the two exposed disk tangencies. The line bounds
-are analytic; the paired tangent residuals use the exact certificate and
-simultaneous radius transfer.  The complete calculation is
+are analytic; the paired tangent residuals use explicit low-degree comparisons with exact
+coefficient bounds and simultaneous radius transfer.  The complete calculation is
 \zcref{lem:appendix-witness-enclosure-calculation}.
 \end{proof}
 

@@ -1,0 +1,216 @@
+{
+  "active_program_sha256": "d8cb71952decbd91dad07a0c1241ee554d06ffd96c775b95004dd08d17b08c3d",
+  "base": "e255ed51d54c3f005dc9c5764e8ee3736cd06946",
+  "branch": "chatgpt/f-explicit-comparison-20260923155000",
+  "changes": {
+    ".github/workflows/ci.yml": {
+      "after": "06cff7b2e214488e714d11268499d07eb84910f74324f3a89f7d31dbb01e1abd",
+      "before": "9fbb59512cb2c0bfeb2a039b2329720d345c85d17da7c3440c4981fe2308a819"
+    },
+    "README.md": {
+      "after": "0f898fe40c00485ceab3f235d33c219876846d64b2e7b84d9d346767f00ce572",
+      "before": "a68fae71f62cc1c75bfe5b62780ff11abc94c5575996d917cf0989735a3d3d14"
+    },
+    "arrange/20260924_f_explicit_comparison_integration.md": {
+      "after": "90a3f4a50fd1831e998b7cb9c467c0b466ad2c1e93308880e49ba0cc0d7c863b",
+      "before": null
+    },
+    "arrange/README.md": {
+      "after": "9e6f4a5bb7fe017b6f7bfdc1cf610400d42a9cac21e8555518df198a7dced4ae",
+      "before": "eed9850d63a08ddcfc5f83bd56e86611febd3e6e289db79a46b1309212ec5fe7"
+    },
+    "arrange/_support/baselines/pre_f_explicit_quarter_envelope_preservation.json": {
+      "after": "148bd7c63d71dc0177cfeb88031894df92702c5a289c0118c395aa085bb02e4b",
+      "before": null
+    },
+    "arrange/_support/baselines/pre_f_explicit_readability_baseline.json": {
+      "after": "f36cbd90833e10277846e4967d2cdfc61345091e0ae67132d9e0f1c474d28efd",
+      "before": null
+    },
+    "arrange/_support/f_explicit_prior_hash_changes.json": {
+      "after": "63210b117c5942ea92bcf797858e793153ec456ac4b556898747e801f4c77cb4",
+      "before": null
+    },
+    "arrange/_support/quarter_envelope_preservation.json": {
+      "after": "aa9ef5e17af0f2bde02198313ef735e89c8fa1217a977daf3cc3142e34c67cc5",
+      "before": "148bd7c63d71dc0177cfeb88031894df92702c5a289c0118c395aa085bb02e4b"
+    },
+    "arrange/_support/readability_baseline.json": {
+      "after": "82b74444032edd17489f068ff80f532cdbb76ba355ccbbb968fde19f1c2b92d3",
+      "before": "f36cbd90833e10277846e4967d2cdfc61345091e0ae67132d9e0f1c474d28efd"
+    },
+    "arrange/_support/verify_readability_preservation.py": {
+      "after": "9d35e49a6d466750649645c6b0d447272b20418a7f5c416a58b54538e23d2e4a",
+      "before": "dba53c32a7149127dbab6073b102fc6d1f0409420f86ddd552337f84ac1e2f64"
+    },
+    "arrange/paper_draft/06_finite_enclosure_full.tex": {
+      "after": "df83ef2f831cbc08c6ccc2c0f947a113f78e30f0115c28b8b94c449ffa94b4eb",
+      "before": "6e8fb5b6dda027e89d22495a176dd46656d753bf196e123025dadabb5db5e105"
+    },
+    "arrange/paper_draft/A_zero_gap_exact_certificate.tex": {
+      "after": "87d0416648df477362526e7c530f90307a20a131874ee25f89acbc7c6961cb43",
+      "before": "b92cb08c2c20b12526ccde64d91e7474098f174a49467577f60b10ad3183933f"
+    },
+    "arrange/paper_draft/E_zero_gap_nine_point_optimization.tex": {
+      "after": "1add982b668f1addb72bb5568a78fa3e1d55d36a2add6d5cbb24eecf885178c5",
+      "before": "69d822f831cbc9c22ea697e7eb3f4058f84c2b3a723272e17dba7118250da628"
+    },
+    "arrange/paper_draft/explicit_comparison/certificate_body.tex": {
+      "after": "ef78f04cdae7c6b3899a0d1545929d01a1f99a240896460671edcc181cd8657d",
+      "before": null
+    },
+    "arrange/paper_draft/explicit_comparison/radius_lemmas.tex": {
+      "after": "4e0fd7f42abe24bb356f093ef5a08d77b58fe56dffa9f316e74fd56d6687d32c",
+      "before": null
+    },
+    "arrange/paper_draft/inline_proofs/06_zero_gap.tex": {
+      "after": "12491a8b23a445fb13bdc5c04a907c1f9ab359ba8ec5a5276e3574030a666e3d",
+      "before": "756b1f39b951815d12da24e0ab212bef4048f00ec17e2bce70c554c43281b7bb"
+    },
+    "arrange/paper_draft/inline_proofs/source_map.json": {
+      "after": "3d0a459cbc9c3b421742a1ef4644165aa22d2e959be13b36caa929b7db477fd3",
+      "before": "d35c9bcfada92863b159ab6842616f835fc577ffcfe29fe3bb64f7d5e057308c"
+    },
+    "arrange/paper_draft/reading_guide/certificate_scope.tex": {
+      "after": "d0a76d8f3ef7bcc86c7b62758c8a121d9a4cd093b1f58bfb1097150c65a06356",
+      "before": "4076bdd64736835001f57a10a94593d548b696225a8b09f3609afa352d074159"
+    },
+    "arrange/paper_draft/reading_guide/nine_points_and_comparison_set.tex": {
+      "after": "03ae0a6f6039bfb0639dab34acc8ccab3ffef96d96df3c9109bd6ed3adc9ae26",
+      "before": "9f6dc0abf4152badfcadc552b35fb3cf6b8a6fd22eb181b0c66c827a1a40325a"
+    },
+    "arrange/paper_draft/reading_guide/zero_gap_reading_path.tex": {
+      "after": "0ffc85575cd333461aa0b4d009c8ccab5b6f163d65896906075e53ba367b0117",
+      "before": "0c890ab109dc5fc3327541b8ac405bc58a3aa9e37ae637e1742e792c610211ce"
+    },
+    "interactive/README.md": {
+      "after": "adf91ac2316ca98a6738b6ebe72a2bc5836fe3161cb28de0edf2e8a3a8c0d18e",
+      "before": "6d0f1e2c44a2ae492e4aabcae48f72b2237753273ed48b6171a2387fd4515cd5"
+    },
+    "interactive/_support/check_f_explicit_viewer.py": {
+      "after": "b610513d6cf9295801be451d98af3f49f9a51c4c19e28d0d2604b0e9c1324551",
+      "before": null
+    },
+    "interactive/_support/generate_dependency_graph.py": {
+      "after": "f4f47a30193c379f0be3400717cce0f1407466201308944747fd4c561c827a75",
+      "before": "05fd0205cf1eed955f35a13ebc80751bfc95854374b569da21739748d651794b"
+    },
+    "interactive/animated_proof_guide/README.md": {
+      "after": "e51e54f75b23f61f3579eb1bded07a84e74e5374b335e4408c287575c4a6465b",
+      "before": "b024ff77b20c4982241d297f3667786ccd8822a647e01645e665db60fe1bc049"
+    },
+    "interactive/animated_proof_guide/build.py": {
+      "after": "ede9383410184c69a4b0fd8c2922dda4a216d5583c41f867ebc37ac50b77a9de",
+      "before": "a6c89c69a39dc144e4a35f1029b12c9cc79c1f6721cc44127e28f78d02c043af"
+    },
+    "interactive/animated_proof_guide/index.html": {
+      "after": "0f72105b333973074fa19bf4b571096c06b85a45629e9ee902730d7eec87bb0c",
+      "before": "2ef6cb86b93db979585bee323c697388a2aeec3e2ed8ded1a6ee53287bdb5669"
+    },
+    "interactive/check.py": {
+      "after": "0607b18961537a041686bc94186ac9143a13e5150044a6ae13757bb184b24b59",
+      "before": "bb16236f2ea1e13740bc3252b962ba96b21f9f66e837152d396f1ee7a7269181"
+    },
+    "interactive/f_explicit_comparison.html": {
+      "after": "6634007651d689ed5a1fb008eb97fe9d4402e049bb80a11cfc61343139970fa8",
+      "before": null
+    },
+    "interactive/proof_trees/F.md": {
+      "after": "979b16d14ba3be4f55e324a285966fc5952919da2f52f39e07fbde2627493f1a",
+      "before": "ff805f13f16153d78c556914676a7b9bfb90baa7c2025af1f0995a1f64cda7c0"
+    },
+    "interactive/proof_trees/check.py": {
+      "after": "0b95268fd28746a365ab134596f9f898e3407c8db55614a185e9901b4b2399dc",
+      "before": "3d7866d9fcc8bcacb4f7c0391842e802888302c149f7c2d4221eddb8a84b88e6"
+    },
+    "interactive/proof_trees/details/F-certificate.md": {
+      "after": "7cc8a9eb592ccfa380cbcf934238e327d164fa7f9091e57fb17948dd0d91a72e",
+      "before": "7a33800bc6553ae35bcd4d8d665549dfdd1064df615d657ec196be49967869e0"
+    },
+    "interactive/zero_gap_nine_point_demo.html": {
+      "after": "8040f2c228126c75676e7dba0af56ba2c4270a0f2dff856112a8ba4017be4e2c",
+      "before": "61c90c2e3190cdc0b30c112e4897cef646dfab45cd4596f2c30f2c3f19ee72c7"
+    },
+    "proof/0XXX_main/0003_reusable_lemma_catalog.md": {
+      "after": "4473709a36893e1373d8eaa121460bb3a79615df4a43a3d57c14cfeb5add8161",
+      "before": "6b56f1fd24966ad2b67a9cd7a9095439d0dac059163d4b98fada36a43a1ae6b3"
+    },
+    "proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2610_finite_enclosure_terminal_interfaces.md": {
+      "after": "f9329afdaa86065849ed3e53ba641db3f4111ccf0e5a6a99f8ee9eac1fc6f80c",
+      "before": "7d25b5a2d415becb99c0e65ae0676b0395dd3d7c2dacbe3b5a99ff1d97ec91d6"
+    },
+    "proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/verify_editorial_order.py": {
+      "after": "420fe400eab20f76a99a145cddcdadbcd5ca85eceb56595e8bc9f41b4f2c9f81",
+      "before": "b7aaf5992c5e15f14e4153b5ca4d1f90074a4cfa524fb07dfea0ecbb39fc18cb"
+    },
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31050_self_contained_direct_Vd0_nine_point_index.md": {
+      "after": "607160bca798c1878a43bc743d9dd134887107bb17205e03ddb622316978e5e7",
+      "before": "9642edcf256319c241454583432b5ed3064cb8aa563d0b5d25e8d3b5ce072cbe"
+    },
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31052_fixed_line_circle_signs.md": {
+      "after": "7d556f584c97665e4cb43e011cdfc87972c450fdcbaf3a36473c6bb39759edad",
+      "before": "bc4d9617965b58f17fae2e255914abae0ef40774e4712c0d2e1cf6c4d291a782"
+    },
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31054_four_cap_enclosure_reduction.md": {
+      "after": "716936184ece6b6766cc5d8722d1232a333404f5e183d5c6461d6621808595a3",
+      "before": "24b0a5f96b10c200faf9169f6916375451f4b4a226c15cf43a3d8281d12a0c06"
+    },
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31055_rational_radial_envelopes_and_mixed_reduction.md": {
+      "after": "1a8e462270e03ec505e31dc2b64c148061b6d1c3825cd35099894bb94ebf51bb",
+      "before": "625bcac3067e542db819b7196b1809adb827ce4bae1f4151a3a2ee815a412181"
+    },
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31056_global_analytic_mixed_positivity.md": {
+      "after": "119424e528ca3ef0751b245d7472a4981f8dac7609fe7eaa814499f7fa63aed7",
+      "before": "ed6fb69e98482064dff6dc8f0f2e1dcdab6527586e993514c191de7ffe2f89c8"
+    },
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/31057_terminal_nine_point_enclosure.md": {
+      "after": "3f824a7dcd70902a41bf10734f961c2b954e186b5e9cc6c0c03a68f256f19646",
+      "before": "c5c26480751a41cde2ce39cf23fe5db469f46977af8004a7ccc9ae15ff1ac32d"
+    },
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/explicit_verification.json": {
+      "after": "314bfc2512263731cc674009a4c37f87205447664bb7ab3162936f8370739cbf",
+      "before": null
+    },
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/mathematical_supplement.md": {
+      "after": "af85d19a9d1ba9c82b23a8a762f97f3626aeba032d5c3fcdad6f47c368c1354f",
+      "before": null
+    },
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/verify_explicit_stage.py": {
+      "after": "d8cb71952decbd91dad07a0c1241ee554d06ffd96c775b95004dd08d17b08c3d",
+      "before": null
+    },
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/verify_f_explicit_interfaces.py": {
+      "after": "6cdbdaf8d6218112a5acf48c4fb77dd1cdea6810086e10c00b5d29c369d9a0e0",
+      "before": null
+    },
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105b_explicit_comparison_enclosure.md": {
+      "after": "84138f9899703fa4b9116052e98359e197d66d0c15b90b1441812fa0da582bd6",
+      "before": null
+    },
+    "proof/check.py": {
+      "after": "0064f38ac9b4c3f0aa94a65684cc0c9373fb59a4005052194f637af6e1fdac11",
+      "before": "1e7ab38ce3e82e9046e708750c07179f0785f14b3d055eda1bb6daa9c93d5515"
+    }
+  },
+  "note": "Changes describe final reviewed source bytes; generated artifacts and publication evidence are covered separately.",
+  "protected_legacy": {
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/certificate_provenance.json": "9cb34f38f3f60b4d3a7a6c2fc648b1fc746757add44a23010764a9e849efc947",
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/mixed_overlap_core_data_00.py": "5bd1d99dc760e36663f9f798cab66394fcd9cbcc7a4f311bbce1671bf775b57f",
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/mixed_overlap_core_data_01.py": "036b39b0793f417e4b0a504ddc853b2e0557589c5d2529eb058aa8941dca45d4",
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/mixed_overlap_core_data_02.py": "090e037a9c9eebf24c792d97131cf8b58383801263b9d8171b99b938aac7443c",
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/mixed_overlap_core_data_03.py": "74a5cffe4fc11f86e28aab4b3ee669b078609b8e342ac2430d4b9de6e53924e4",
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/mixed_overlap_core_data_04.py": "2fe2c6207a0159881a2674048f6cd0f0e48c337aff94302af544173202fa858b",
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/mixed_overlap_core_data_05.py": "7b5f4722e9cca37123672de7a5d722d07268790938ff538792bbfd7767285f9b",
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/mixed_overlap_core_polynomials.py": "909ad03bb38703e1b2867b81d086f817c432b694c90c28e7a77d410648e6c360",
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/verify_four_contact_identities.py": "61853f30508cd6ea311b00c47a091066d18939791ddafd3d5ff9d28b181e5131",
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/verify_global_core_positivity.py": "0a4e698debd00fc4d93a3e32c1ae21853d9bd5ad279cdd660a31bee05f93b04e",
+    "proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation/verify_mixed_overlap_core_derivation.py": "3bafd92ff69ef61630198f3e2efcd370a5d639d4583037ac13b53ea2732ab770"
+  },
+  "snapshot_exclusions": [
+    "arrange/_support/f_explicit_integration_manifest.json",
+    "arrange/paper_draft/inline_proofs/main.pdf",
+    "arrange/paper_draft/main.pdf",
+    "interactive/proof_trees/index.html",
+    "interactive/readable_proof_dependency_graph.html"
+  ]
+}

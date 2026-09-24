@@ -7,8 +7,8 @@ branch, independently of the C class and normalized V types. It treats six
 open V roles that cover the full boundary and have exactly one supercritical
 actual row. Historical Vd0 filenames and directory names are retained for
 citation and certificate stability.  Six radial witnesses and three asymmetric
-witnesses are forced directly into the center role, and an exact four-contact
-certificate proves that no open unit equilateral triangle can contain them.
+witnesses are forced directly into the center role, and an exact fixed-start four-contact
+calculation proves that no open unit equilateral triangle can contain them.
 
 The proof notes below are self-contained relative to the earlier `310X`
 packages.  They cite only one another and the proved foundational and
@@ -23,9 +23,9 @@ this index.
 | [`31051_direct_radial_forcing.md`](31051_direct_radial_forcing.md) | Proven | Forces the six common radial witnesses out of every actual vertex role. |
 | [`31052_fixed_line_circle_signs.md`](31052_fixed_line_circle_signs.md) | Proven | Proves the exact first-root, moving-circle, coordinate, and reflected sign inequalities. |
 | [`31053_direct_asymmetric_witness_forcing.md`](31053_direct_asymmetric_witness_forcing.md) | Proven | Defines the three asymmetric witnesses and excludes them from all six actual vertex roles. |
-| [`31054_four_cap_enclosure_reduction.md`](31054_four_cap_enclosure_reduction.md) | Proven | Reduces enclosure to four supporting contacts and proves the two adjacent line bounds analytically. |
-| [`31055_rational_radial_envelopes_and_mixed_reduction.md`](31055_rational_radial_envelopes_and_mixed_reduction.md) | Proven | Replaces the exact radial value by rational envelopes and reduces paired tangent residuals to eight integer-polynomial signs. |
-| [`31056_global_analytic_mixed_positivity.md`](31056_global_analytic_mixed_positivity.md) | Proven | Proves the eight signs on three fixed charts by twenty global Bernstein identities. |
+| [`31054_four_cap_enclosure_reduction.md`](31054_four_cap_enclosure_reduction.md) | Proven | Historical junction-start construction; the two frontier line bounds are also used by the fixed-start route. |
+| [`31055_rational_radial_envelopes_and_mixed_reduction.md`](31055_rational_radial_envelopes_and_mixed_reduction.md) | Proven | Replaces the exact radial value by rational envelopes and reduces paired tangent residuals to eight integer-polynomial signs for the historical junction-start route. |
+| [`31056_global_analytic_mixed_positivity.md`](31056_global_analytic_mixed_positivity.md) | Proven | Historical alternative: proves the original eight signs on three fixed charts by twenty global Bernstein identities. |
 | [`31057_terminal_nine_point_enclosure.md`](31057_terminal_nine_point_enclosure.md) | Proven | Assembles the exact terminal inequality $\Lambda(K_{\mathrm{wit}})\ge1$. |
 | [`31058_center_independent_direct_nine_point_obstruction.md`](31058_center_independent_direct_nine_point_obstruction.md) | Proven | Gives the reusable center-class-independent all-boundary contradiction. |
 | [`31059_CE0_Nplus1_all_Vd0_completion.md`](31059_CE0_Nplus1_all_Vd0_completion.md) | Proven | Closes the CE0, $N_+=1$ branch for arbitrary V types. |
@@ -35,6 +35,19 @@ The package-local directory [`3105X_computation/`](3105X_computation/)
 contains the exact symbolic derivation audit, the nonadaptive global
 Bernstein verifier, and its canonical integer-polynomial transcript.  These
 are supporting certificate artifacts rather than separate proof-status notes.
+
+## Active fixed-start route
+
+The active terminal is [3105b_explicit_comparison_enclosure.md](3105b_explicit_comparison_enclosure.md), with complete mathematical details in
+[`3105X_computation/mathematical_supplement.md`](3105X_computation/mathematical_supplement.md)
+and the standalone `verify_explicit_stage.py`. The original nine forced witnesses,
+actual disk, and contact geometry are unchanged. The inner points, auxiliary
+radius, and exact inequality proof are changed together. The new proof uses
+explicit cubic/quadratic comparisons, canonical Chebyshev coefficient bounds,
+and retained Taylor comparisons; it is not a computer-free proof.
+
+`31054`--`31056` and the two old verifiers remain historical regression material,
+not active proof inputs for the new point formulas.
 
 ## Proved external dependencies
 

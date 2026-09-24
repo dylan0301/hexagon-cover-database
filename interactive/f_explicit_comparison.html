@@ -1,0 +1,60 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Case F — fixed-start comparison</title>
+<style>body{margin:0;background:#f5f6f3;color:#202a31;font:16px/1.5 system-ui,sans-serif}main{max-width:1180px;margin:auto;padding:28px}h1{font-size:30px;margin:0 0 12px}h2{font-size:20px}.layout{display:grid;grid-template-columns:minmax(320px,1.25fr) minmax(290px,1fr);gap:24px}.card{padding:20px;background:white;border:1px solid #d4dcd8;border-radius:10px}svg{width:100%;height:auto}label{display:block;margin:16px 0 5px}input[type=range]{width:100%;min-height:34px}button,a{min-height:36px}button{padding:6px 12px;margin:4px}table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}td,th{text-align:left;padding:7px;border-bottom:1px solid #dde3df}code{overflow-wrap:anywhere}.note{border-left:4px solid #167483;padding:10px 14px;background:#e8f2f2}.subtle{color:#52646a}.legend span{display:inline-block;margin:5px 12px 5px 0}.dot{width:10px;height:10px;display:inline-block;border-radius:50%}.box{margin:16px 0}a{color:#00667a}@media(max-width:780px){.layout{grid-template-columns:1fr}main{padding:16px}}</style></head><body><main>
+<h1>Case F: the fixed-start disk–three-point comparison</h1>
+<p class="note"><strong>Numerical illustration, not a proof.</strong> The exact proof is <code>3105b_explicit_comparison_enclosure.md</code> and <code>verify_explicit_stage.py</code>. The actual forced disk is kept; <em>e₀</em> is only the comparison parameter for the tangent residual.</p>
+<p><a href="proof_trees/index.html#F">Proof tree</a> · <a href="readable_proof_dependency_graph.html">Dependency graph</a> · <a href="../arrange/paper_draft/main.pdf">Canonical paper</a> · <a href="zero_gap_nine_point_demo.html">Historical junction-start explorer</a></p>
+<div class="layout"><section class="card"><svg id="plot" viewBox="-1.15 -1.15 2.3 2.3" role="img" aria-label="Hexagon, forced disk, exact frontier witnesses and fixed-start inner points"></svg><div class="legend"><span><i class="dot" style="background:#b96818"></i>Exact frontier Q−, Q₀, Q+</span><span><i class="dot" style="background:#156c8b"></i>Fixed-start A, B, C</span><span><i class="dot" style="background:#408860"></i>Six radial points and actual disk</span></div><p class="subtle">Rotated coordinates place V₄ at the right. The inner points lie on Q₀Q− and Q₀Q+; only the original nine points are directly forced out of every open V triangle.</p></section>
+<section class="card"><h2>Strict feasible parameters</h2><label for="m">Complementary minimum m: <output id="mv"></output></label><input id="m" type="range" min="0.01" max="0.495" step="0.0005" value="0.4215"><label for="v">Supercritical excess U as a fraction of its feasible maximum: <output id="vv"></output></label><input id="v" type="range" min="0.001" max="0.999" step="0.001" value="0.96"><button id="symmetric">Near symmetric transition</button><button id="asymmetric">Asymmetric hard example</button><label><input type="checkbox" id="old"> Show historical junction-start points</label><div id="regime" class="note box"></div><table><thead><tr><th>Quantity</th><th>Value</th></tr></thead><tbody id="values"></tbody></table><p class="subtle">The sliders enforce a ≥ b, a+b&gt;1 and a²+ab+b²&lt;1. c* is evaluated by the selected exact capacity formula (with numerical root bisection on its quartic branch).</p></section></div>
+<section class="card box"><h2>What changed in the proof</h2><p>The Newton step starts at the fixed line parameter k=1/2, rather than the moving junction. The uniform rational radius bound works across both capacity branches. Explicit cubic and quadratic comparisons replace the old sparse Bernstein transcript; exact coefficient, curvature and Taylor checks remain.</p><p>The four support contacts are the two lines AB, BC and the exposed disk tangencies through A and C. The old eight-polynomial certificate is not used for the new points. The historical GIFs and older explorer are illustrations of the older junction-start construction, not the active certificate.</p></section>
+</main>
+<script id="f-model">
+'use strict';
+const H=Math.sqrt(3)/2;
+const norm2=p=>p[0]*p[0]+p[1]*p[1];
+const dot=(p,q)=>p[0]*q[0]+p[1]*q[1];
+const cross=(p,q)=>p[0]*q[1]-p[1]*q[0];
+const rot=p=>[-p[0]/2-H*p[1],H*p[0]-p[1]/2];
+const negrot=p=>[-p[0]/2+H*p[1],-H*p[0]-p[1]/2];
+const local=(u,v)=>[1-(u+v)/2,H*(u-v)];
+function capacity(m,U){const M=1-U-m,s=1-U,chi=s**4-s*s+m*M;
+ if(chi>0)return 2*M/(1+Math.sqrt(Math.max(0,4*s*s-3)));
+ let lo=H,hi=1;for(let i=0;i<65;i++){const c=(lo+hi)/2,f=c**4-c*c+m*c-m*m;if(f>0)hi=c;else lo=c;}return (lo+hi)/2;}
+function model(m,v){
+ if(!(m>0&&m<0.5&&v>0&&v<1))throw new RangeError('Strict parameter range');
+ const umax=Math.min(1-2*m,2*m*(1-m)/(1+m+Math.sqrt(1+6*m-3*m*m)));
+ const U=v*umax,a=1-m,b=m+U,rho=a*a+a*b+b*b,D=Math.sqrt(4*rho-3);
+ const alpha=(b+2*a-b*D)/(2*rho),beta=(b-a+(a+b)*D)/(2*rho);
+ const delta=(2*b+a-a*D)/(2*rho),gamma=(-b+a+(a+b)*D)/(2*rho);
+ const ks=2*rho/(D+3),fm=k=>k*k-3*(1-U*alpha)*k+3*b*b-3*b+2,fp=k=>k*k-3*(1-U*delta)*k+3*a*a-3*a+2;
+ const root=(t,c)=>2*c/(t+Math.sqrt(Math.max(0,t*t-4*c)));
+ const km=root(3*(1-U*alpha),3*b*b-3*b+2),kp=root(3*(1-U*delta),3*a*a-3*a+2);
+ const kb=(1+3*(b-0.5)**2)/(2-3*U*alpha),ka=(1+3*(a-0.5)**2)/(2-3*U*delta);
+ const pm=k=>local(b-beta*k,alpha*k),pp=k=>local(delta*k,a-gamma*k);
+ const A=pm(kb),B=pm(ks),C=pp(ka),Qm=pm(km),Qp=pp(kp);
+ const oldA=pm(ks-fm(ks)/(2*ks-3*(1-U*alpha))),oldC=pp(ks-fp(ks)/(2*ks-3*(1-U*delta)));
+ const c=capacity(m,U),es=1-c,eta=H*es,w=m*(1-m),r=w*(4-w)*(3*w*w-4*w+4)/(8*(4+2*m-10*w+6*w*w-w**3));
+ const e0=Math.max(r,m-(m-r)*U/r),Y=negrot(C),det=cross(Y,A)/H;
+ const q=(X,Z,e)=>det*det-norm2([(1-2*e)*X[0]-e*Z[0],(1-2*e)*X[1]-e*Z[1]]);
+ function support(n){return Math.max(eta,dot(A,n),dot(B,n),dot(C,n));}
+ function sum(n){return support(n)+support(rot(n))+support(rot(rot(n)));}
+ const line=(p,q)=>{const dx=q[0]-p[0],dy=q[1]-p[1],len=Math.hypot(dx,dy);return [dy/len,-dx/len];};
+ const tangent=(p,sgn)=>{const n=norm2(p),rad=Math.sqrt(Math.max(0,n-eta*eta));return [(eta*p[0]-sgn*rad*p[1])/n,(eta*p[1]+sgn*rad*p[0])/n];};
+ const contacts=[line(A,B),line(B,C),tangent(A,-1),tangent(C,1)].map(n=>sum(n)/H);
+ return {m,v,U,a,b,rho,D,ks,km,kp,kb,ka,A,B,C,Qm,Qp,oldA,oldC,c,es,eta,r,e0,qA:q(A,Y,e0),qC:q(Y,A,e0),contacts};
+}
+if(typeof module!=='undefined')module.exports={model,H};
+</script>
+<script>
+const ns='http://www.w3.org/2000/svg',plot=document.getElementById('plot');
+function el(tag,attrs){const e=document.createElementNS(ns,tag);for(const [k,v]of Object.entries(attrs))e.setAttribute(k,v);plot.appendChild(e);return e;}
+function point(p,name,color,r=.018){el('circle',{cx:p[0],cy:-p[1],r,fill:color});const t=el('text',{x:p[0]+.028,y:-p[1]-.025,'font-size':'.047',fill:color});t.textContent=name;}
+function update(){const m=+document.getElementById('m').value,v=+document.getElementById('v').value,z=model(m,v);plot.replaceChildren();const hex=Array.from({length:6},(_,i)=>[Math.cos(i*Math.PI/3),Math.sin(i*Math.PI/3)]);el('polygon',{points:hex.map(p=>`${p[0]},${-p[1]}`).join(' '),fill:'#fafbf8',stroke:'#7a8a86','stroke-width':'.006'});el('circle',{cx:0,cy:0,r:z.eta,fill:'#d9eddf',stroke:'#408860','stroke-width':'.008'});for(const p of hex){el('line',{x1:0,y1:0,x2:p[0],y2:-p[1],stroke:'#d8e2de','stroke-width':'.003'});point([z.es*p[0],z.es*p[1]],'','#408860',.009);}el('polyline',{points:[z.Qm,z.B,z.Qp].map(p=>`${p[0]},${-p[1]}`).join(' '),fill:'none',stroke:'#b96818','stroke-width':'.009'});el('polyline',{points:[z.A,z.B,z.C].map(p=>`${p[0]},${-p[1]}`).join(' '),fill:'none',stroke:'#156c8b','stroke-width':'.011'});point(z.Qm,'Q−','#b96818');point(z.Qp,'Q+','#b96818');point(z.A,'A','#156c8b',.014);point(z.B,'B = Q₀','#156c8b',.014);point(z.C,'C','#156c8b',.014);point([0,0],'O','#34464b',.009);if(document.getElementById('old').checked){point(z.oldA,'old A','#8b689d',.008);point(z.oldC,'old C','#8b689d',.008);}
+ document.getElementById('mv').textContent=m.toFixed(4);document.getElementById('vv').textContent=(100*v).toFixed(1)+'%';
+ const rows=[['a, b',z.a.toFixed(7)+', '+z.b.toFixed(7)],['U',z.U],['ρ',z.rho],['c*',z.c],['Actual e* = 1 − c*',z.es],['Comparison e₀',z.e0],['k junction / fixed start',z.ks.toFixed(7)+' / 0.5'],['Fixed-start k_b / k_a',z.kb.toFixed(7)+' / '+z.ka.toFixed(7)]];
+ if(z.e0<=1/3){rows.push(['Q_X(e₀)',z.qA],['Q_Y(e₀)',z.qC]);}rows.push(['Minimum four-contact side',Math.min(...z.contacts)]);
+ document.getElementById('values').innerHTML=rows.map(([k,x])=>`<tr><td>${k}</td><td>${typeof x==='number'?x.toPrecision(9):x}</td></tr>`).join('');
+ document.getElementById('regime').textContent=z.es>=1/3?'Disk-only range: the actual disk alone requires side at least 1.':'Hard range: the actual disk and three fixed-start points are tested at four supporting contacts.';
+}
+for(const id of ['m','v','old'])document.getElementById(id).addEventListener('input',update);
+document.getElementById('symmetric').onclick=()=>{document.getElementById('m').value=.433;document.getElementById('v').value=.999;update();};document.getElementById('asymmetric').onclick=()=>{document.getElementById('m').value=.4215;document.getElementById('v').value=.96;update();};update();
+</script></body></html>

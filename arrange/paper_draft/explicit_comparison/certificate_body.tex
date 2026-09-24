@@ -1,0 +1,403 @@
+% Active Case F certificate: fixed-start points and explicit comparisons.
+% This source is shared verbatim by the canonical and immediate-proof editions.
+The frontier witnesses remain $Q_-,Q_0,Q_+$.  The comparison points $A,B,C$
+are the fixed-start Newton points of
+\zcref{lem:technical-newton-reduction}; they are not additional forced
+frontier witnesses.  The actual disk has radius $\eta=h(1-c_*)$.
+Only the tangent-residual calculation uses a smaller scalar radius.
+The construction below replaces the former sparse Bernstein transcript,
+not the geometric forcing or the two straight-line contact estimates.
+It remains an exact computer-assisted argument.
+The five new comparison checks use $383$ Chebyshev coefficients, the curvature
+comparison uses $113$, and the two increment comparisons use $208$ nonconstant
+coefficients; the boundary Taylor and identity checks are additional.
+The historical junction-start transcript and its two exact programs remain
+unchanged regression material, not inputs for these new point formulas.
+
+
+\Fcertificateheading{A single rational radius envelope}
+Reflect so that $a\ge b$ and set
+\[
+ \begin{gathered}
+ m=1-a,\quad U=a+b-1,\quad a=1-m,\quad b=m+U,\\
+ \omega=m(1-m),\qquad b_0=\omega/2.
+ \end{gathered}
+\]
+Here $U$ is a scalar, not an open triangle $U_i$.
+The quartic capacity root $C_L(m)$ was defined in
+\zcref{eq:core-cstar}.  We first obtain a rational lower bound for
+$1-C_L(m)$, then extend it to both capacity branches.
+
+\input{explicit_comparison/radius_lemmas}
+
+For this choice of $r$ put
+\begin{equation}
+ \kappa=\frac{m-r}{r},\qquad
+ e_0=\max\{r,m-\kappa U\},\qquad e_*=1-c_*.
+ \label{eq:f-uniform-radius}
+\end{equation}
+Thus $0<b_0\le r\le e_0\le e_*$, $r<m$, and $r\le1-h<1/6$.
+The slope satisfies
+\begin{equation}
+ 1+\frac m2+2m^2\le\kappa\le3,
+ \qquad \ell(m):=\frac{1+5m}{2}\le\kappa.
+ \label{eq:f-slope-bounds}
+\end{equation}
+For the upper bound use $r\ge m(1-m)/2$.  For the lower bound write
+$r=N_r/L_r$, using the positive numerator and denominator in
+\zcref{lem:f-rational-newton-deficit}.  Exact expansion gives
+\[
+ mL_r-N_r-(1+m/2+2m^2)N_r=\frac{m^3}{2}H_7(m),
+\]
+where
+\[
+ H_7(m)=4+m(164-249m)+m^3(312-238m)
+            +m^5(136-45m)+12m^7>0.
+\]
+Finally $1+m/2+2m^2-\ell(m)=2(m-1/2)^2$.
+
+\Fcertificateheading{One residual and its exact polynomial definition}
+Let $X=A$, $Y=\mathsf R^{-1}C$, and set
+\[
+ N_X=\|X\|^2,\quad N_Y=\|Y\|^2,\quad
+ \nu=\langle X,Y\rangle,\quad
+ \Delta_0=\frac{\operatorname{cross}(Y,X)}h.
+\]
+The ordered-chain geometry makes $\Delta_0>0$.  The Gram identity is
+\begin{equation}
+ h^2\Delta_0^2=N_XN_Y-\nu^2.
+ \label{eq:certificate-Gram}
+\end{equation}
+For $t=1-2e$ define
+\begin{equation}
+ Q_X(e)=\Delta_0^2-\|tX-eY\|^2,\qquad
+ Q_Y(e)=\Delta_0^2-\|tY-eX\|^2.
+ \label{eq:certificate-Q}
+\end{equation}
+These are tangent residuals, not the frontier points $Q_j$.
+
+Use barred coefficients $\bar\alpha=\alpha/h$, and similarly for the
+other three frontier coefficients.  Put
+\[
+ A_1=\rho\bar\alpha,\quad B_1=\rho\bar\beta,\quad
+ D_1=\rho\bar\delta,\quad G_1=\rho\bar\gamma,
+ \qquad \rho=a^2+ab+b^2,
+\]
+\[
+ n_b=12b^2-12b+7,\quad n_a=12a^2-12a+7,
+ \qquad E_b=8\rho-12UA_1,\quad E_a=8\rho-12UD_1,
+\]
+\[
+ \begin{aligned}
+ J_b&=(1-2b)E_b+(A_1+2B_1)n_b,& L_b&=E_b-A_1n_b,\\
+ J_a&=(1-2a)E_a+(D_1+2G_1)n_a,& L_a&=E_a-D_1n_a.
+ \end{aligned}
+\]
+The denominators satisfy $E_a,E_b>6\rho>0$.
+In an orthonormal frame the two vectors are
+\[
+ X=(-J_b/(2E_b),-hL_b/E_b),\qquad
+ Y=(-J_a/(2E_a),hL_a/E_a).
+\]
+Consequently $4E_a^2E_b^2Q_X(e)$ equals
+\[
+ \begin{aligned}
+ \mathcal N(D,e)={}&(J_bL_a+J_aL_b)^2
+ -((1-2e)J_bE_a-eJ_aE_b)^2\\
+ &-3((1-2e)L_bE_a+eL_aE_b)^2.
+ \end{aligned}
+\]
+Reducing modulo $D^2=K:=4\rho-3$ defines, by exact polynomial division,
+\begin{equation}
+ \operatorname{rem}\mathcal N=2\rho^2(\mathcal A+D\mathcal B),\qquad
+ \Pi=(1+3K)\mathcal A+K(3+K)\mathcal B.
+ \label{eq:f-explicit-polynomials}
+\end{equation}
+Both $\mathcal B$ and $\Pi$ are quadratic in $e$.  Thus
+\[
+ Q_X(e)=\frac{\rho^2}{2E_a^2E_b^2}(\mathcal A+D\mathcal B).
+\]
+No independently stored coefficient table defines these polynomials.
+
+\begin{lemma}[Radius transfer to the actual tangencies]
+\label{lem:paper-residual-to-tangency}
+If $0<e_0\le e_*<1/3$ and $Q_X(e_0),Q_Y(e_0)\ge0$, then the two
+actual-radius tangent contact sums in
+\zcref{eq:four-contact-tangent-tests} are at least $h$.
+\end{lemma}
+\begin{proof}
+Apply \zcref{lem:paired-radius-transfer} to $X,Y,\Delta_0$.
+This gives $Q_X(e_*),Q_Y(e_*)\ge0$.  The Gram identity gives
+\begin{equation}
+ P_A(he)=h^2N_XQ_X(e).
+ \label{eq:certificate-PA}
+\end{equation}
+\begin{equation}
+ P_C(he)=h^2N_YQ_Y(e).
+ \label{eq:certificate-PC}
+\end{equation}
+The positive determinant sign and the unsquared implication after
+\zcref{eq:four-contact-residuals} give the two support bounds.
+Only the residual is tested at $e_0$; the disk in the line-contact and
+exposed-hull arguments remains the actual disk of radius $he_*$.
+\end{proof}
+
+\Fcertificateheading{Explicit low-degree comparisons}
+For $s,t\in[-1,1]$ write $m=(1+s)/4$, $U=(1+t)/12$.
+The elementary Chebyshev recurrence
+\[
+ T_0(z)=1,\quad T_1(z)=z,\quad T_{n+1}(z)=2zT_n(z)-T_{n-1}(z)
+\]
+gives $|T_n(z)|\le1$ on $[-1,1]$.
+If $F-g=\sum c_{ij}T_i(s)T_j(t)$, then
+\begin{equation}
+ |F-g|\le\sum_{i,j}|c_{ij}|.
+ \label{eq:f-chebyshev-budget}
+\end{equation}
+The coefficients are computed over $\mathbb Q$, using the exact power
+conversion and then checking reconstruction.  Thus each displayed error
+budget below is a finite rational inequality, not a sampling claim.
+
+\begin{lemma}[Explicit algebraic comparison bounds]
+\label{lem:f-explicit-comparison-bounds}
+On $\mathcal R=[0,1/2]\times[0,1/6]$ the polynomials defined by
+\zcref{eq:f-explicit-polynomials} satisfy
+\[
+ \mathcal B(m,U,b_0)>4,\quad \mathcal B(m,U,m)>210,
+ \quad \mathcal B_{ee}<-5600.
+\]
+Put
+\[
+ \begin{aligned}
+ H_1&=-\Pi_{Uee},&
+ H_2&=\Pi_{UUe}(m,U,0)-2\Pi_{Uee},\\
+ H_3&=\Pi_{UUe}(m,U,1/3)-2\Pi_{Uee},&
+ H_4&=\Pi_{Ue}(m,U,1/3).
+ \end{aligned}
+\]
+Then $H_1>250000$, $H_2>500000$, $H_3>550000$, and $H_4>20000$.
+Moreover
+\[
+ -\Pi_{UU}(m,U,1/3)+2\ell\Pi_{Ue}(m,U,1/3)-\ell^2\Pi_{ee}>21500.
+\]
+Writing $x=1-2m$, one also has
+\[
+ \begin{split}
+ \Pi_U(m,U,b_0)\ge{}&140+503x+\frac{6265}{2}x^2\\
+ &+25000(U-b_0)\qquad(U\ge b_0),
+ \end{split}
+\]
+\[
+ \Pi_U(m,U,1/3)>10700\qquad(m\ge1/3).
+\]
+On the strict physical domain, $N_X\ge N_Y$ and $\Pi_{ee}<0$.
+The latter sign also holds on $0<U\le r(m)$.
+\end{lemma}
+\begin{proof}
+We specify the certificate rather than an existence assertion for a sum
+of squares.  The four normalized targets $H_i/1000$ have the quadratic
+models
+\[
+ \begin{aligned}
+ G_1={}&130s^2+80st-124s+52t^2+100t+454,\\
+ G_2={}&466s^2+414st+124s+238t^2+771t+1379,\\
+ G_3={}&286s^2+228st-202s+154t^2+348t+1090,\\
+ G_4={}&18s^2+4st-14s+6t^2+17t+44.
+ \end{aligned}
+\]
+Their exact Chebyshev error sums are bounded, respectively, by
+$70,300,176,8$.  For $G=as^2+bst+cs+dt^2+jt+k$ complete the square as
+\[
+ G=a\left(s+\frac{bt+c}{2a}\right)^2
+       +\gamma(t+1)^2+\delta(t+1)+L,
+\]
+where
+\[
+ \gamma=d-\frac{b^2}{4a},\quad
+ \delta=j-\frac{bc}{2a}-2\gamma,\quad
+ L=k-j+d-\frac{(c-b)^2}{4a}.
+\]
+For the four models $\gamma,\delta>0$, and
+\[
+ L=\frac{21188}{65},\quad\frac{373211}{466},\quad
+   \frac{210031}{286},\quad\frac{57}{2},
+\]
+respectively.  Subtracting the error budgets proves the four bounds.
+
+For $\mathcal B(m,U,b_0)$ use the cubic
+\[
+ \begin{split}
+ 10g={}&-292s^3+556s^2t+1504s^2+364st^2-317st-1795s\\
+       &-28t^3+272t^2-389t+804.
+ \end{split}
+\]
+Its exact error is less than $17/2$.  On $s\le0$, $g_{ss}>0$ and
+$g_s(0,t)<0$, so $g(s,t)\ge g(0,t)\ge387/10$.
+On $0\le s\le1$, the affine matrix $10(\nabla^2g-8I)$ has positive
+upper-left entry and determinant at all four corners.  Its determinant
+values are $55687,1026919,82551,23383$.  Convexity of the
+positive-semidefinite cone gives $\nabla^2g\succeq8I$.
+At $(2/3,1/3)$ the value is $383/30$ and gradient is
+$(13/45,-35/18)$.  Completing a square gives
+$g\ge1623259/129600>25/2$, hence $\mathcal B(m,U,b_0)>4$.
+The other two $\mathcal B$ bounds follow by exact coefficient grouping
+in $x=1-2m\in[0,1]$, $6U\in[0,1]$.
+
+For the curvature target divided by $100$, use
+\[
+ \begin{split}
+ g_c={}&76s^3-160s^2t-184s^2+104st^2+226st-132s\\
+       &-8t^3-34t^2+283t+788.
+ \end{split}
+\]
+The exact Chebyshev error is less than $55$.
+Setting $X_0=1-s$, $Y_0=1+t$ and grouping nonnegative products on
+$[0,2]^2$ gives
+\[
+ g_c\ge277-37X_0+52X_0^2
+ =270+52(X_0-37/104)^2+87/208>270.
+\]
+This proves the curvature bound.  The first-derivative comparison uses
+the polynomial increment
+\[
+ R(m,U)=\frac{\Pi_U(m,U,b_0)-\Pi_U(m,0,b_0)}{U},
+\]
+with its polynomial value at zero.  Two fixed-chart quadratic lower
+models prove $R>25000$; the exact intercept grouping gives
+$\Pi_U(m,0,b_0)\ge-2985+503x+12515x^2/2$.
+Substituting $b_0=(1-x^2)/8$ proves the stated restricted estimate.
+Grouping the $U$ coefficients for $m\ge1/3$ proves the bound $10700$.
+
+For clarity, the two physical-domain signs are not claimed on an
+unnecessary larger algebraic domain.  Exact norm subtraction factors as
+\[
+ N_X-N_Y=\frac{8U(a-b)\rho^2}{E_a^2E_b^2}\mathcal H(D,U).
+\]
+The explicit power-grouping proof gives
+$\mathcal H\ge1261/162$ on $0\le U\le D^2/6$, $0\le D\le1$.
+Also the definition of $\Pi$ has the weighted-conjugate identity
+\[
+ \Pi=\frac{(1+D)^3\mathcal N(D,e)+(1-D)^3\mathcal N(-D,e)}{4\rho^2}.
+\]
+Each numerator is a constant minus two squares of affine functions of
+$e$, so $\Pi_{ee}<0$ for the physical $0<D<1$.
+On $0<U\le r$, one has $K(m,U)<1$: at $c=C_L(m)$,
+$K(m,1-c)-1=4(c-1)(c^3+c^2+c-2)<0$, and $K$ increases in $U$.
+
+All expansions, power groupings, model reconstruction identities and
+rational error bounds just specified are reproduced by the accompanying
+\nolinkurl{verify_explicit_stage.py}.  The complete identities and
+coefficient bounds, including the two increment models, are printed in
+its colocated mathematical supplement.  This verifier uses no optimizer,
+no stored SOS witness, no subdivision search, and no floating-point sign
+test.  These finite coefficient computations are part of the proof;
+they do not audit the preceding geometric forcing lemmas.
+\end{proof}
+
+\begin{lemma}[Boundary estimates and coordinatewise monotonicity]
+\label{lem:f-boundary-comparisons}
+For $0\le m\le1/2$,
+\[
+ \Pi(m,r,r)>\frac{1063}{1700}.
+\]
+The affine-branch left endpoints obey
+\[
+ \Pi(m,0,m)>0\quad(m\le1/3),
+\]
+\[
+ \Pi(m,U,1/3)\ge4096/27
+ \quad\bigl(m\ge1/3,\ U\ge(m-1/3)/3\bigr).
+\]
+Moreover $\Pi_e\ge1152$ on $\mathcal R\times[0,1/3]$.
+\end{lemma}
+\begin{proof}
+At $U=0$, $x=1-2m$, exact factorization gives
+\[
+ \Pi_e(m,0,1/3)=\frac83(x^2+3)
+ (21x^8+130x^6+289x^4+712x^2+144)\ge1152,
+\]
+and $\Pi_{ee}(m,0,e)<0$.  The positive $\Pi_{Ue}$ bound in
+\zcref{lem:f-explicit-comparison-bounds} extends this to the whole
+rectangle.  In particular $\Pi$ is increasing in both $U,e$ when
+$U\ge b_0$ and $b_0\le e\le1/3$.
+
+Put $q(m)=-9m^2/10+98m/125-3711/100000$.
+The exact degree-eight comparison proves $b_0\le q\le r$ for
+$1/5\le m\le1/2$.  Thus
+\[
+ \Pi(m,r,r)\ge
+ \begin{cases}
+ \Pi(m,b_0,b_0)>103,&m\le1/5,\\
+ \Pi(m,q,q)>1063/1700,&m\ge1/5.
+ \end{cases}
+\]
+The second polynomial has degree $27$.  With $x=m-41/100$, its explicit
+Taylor coefficient bounds yield
+\[
+ \Pi(m,q,q)>16/25-10|x|+1700x^2\ge1063/1700.
+\]
+The first interval and the comparison $q\le r$ also use exact rational
+coefficient bounds, reproduced in the same standalone verifier and
+printed supplement.  They are not consequences of numerical fitting.
+The parameter $q$ is only an auxiliary boundary comparison; it does not
+replace $r$, $e_0$, or the actual disk.
+
+For $m\le1/3$, the factor $(2m-1)^2$ can be removed from
+$\Pi(m,0,m)$, and grouping higher negative powers under lower positive
+powers on $0\le1-3m\le1$ proves positivity.
+For $m\ge1/3$, put $x=1-2m\in[0,1/3]$.  Direct expansion gives
+$\Pi(m,0,1/3)\ge-96+6688x^2/3$.  Integrating
+$\Pi_U(m,U,1/3)>10700$ to $U\ge(1-3x)/18$ gives a decreasing
+quadratic whose minimum is $4096/27$.
+\end{proof}
+
+\begin{theorem}[Explicit disk-tangent certificate]
+\label{thm:paper-exact-mixed-certificate}
+On the strict F domain, if $e_0\le1/3$, then
+\[
+ Q_X(e_0)>0,\qquad Q_Y(e_0)>0.
+\]
+The assertion uses the fixed-start comparison points, not the old
+junction-start Newton points.
+\end{theorem}
+\begin{proof}
+Concavity of $\mathcal B$ and its endpoint bounds give
+$\mathcal B(m,U,e)>4$ on $b_0\le e\le m$, hence at $e=e_0$.
+The elementary identity
+\[
+ D(1+3D^2)-D^2(3+D^2)=D(1-D)^3\ge0
+\]
+therefore gives
+\[
+ \mathcal A+D\mathcal B\ge\frac{\Pi}{1+3K}.
+\]
+It suffices to prove $\Pi(m,U,e_0)>0$.
+
+For $U\ge r$, $e_0=r$; the restricted derivative estimate and
+$\Pi_{Ue}>0$ give $\Pi_U(m,U,r)>0$.  The boundary estimate at $U=r$
+settles this range.
+For $U\le r$, put $f(U)=\Pi(m,U,m-\kappa U)$ and
+$S_k(e)=\Pi_{UU}-2k\Pi_{Ue}+k^2\Pi_{ee}$.
+For $0\le e\le1/3$ and the actual $\kappa\ge1$,
+\[
+ \partial_eS_\kappa=(1-3e)H_2+3eH_3+2(\kappa-1)H_1>0.
+\]
+On the integration path, $\Pi_{ee}<0$ and $\Pi_{Ue}>0$, so
+$\partial_kS_k<0$ for $k\ge0$.  Consequently
+\[
+ f''(U)=S_\kappa(e)\le S_\kappa(1/3)
+ \le S_{\ell(m)}(1/3)<-21500.
+\]
+The right endpoint is $U=r$.  The left endpoint is zero if $m\le1/3$;
+otherwise it is $U_3=(m-1/3)/\kappa\ge(m-1/3)/3$.
+All endpoint values are positive by
+\zcref{lem:f-boundary-comparisons}.  Concavity proves positivity
+throughout the interval.
+
+Thus $Q_X(e_0)>0$.  Exact subtraction gives
+\[
+ Q_Y(e)-Q_X(e)=(1-e)(1-3e)(N_X-N_Y)\ge0
+ \qquad(0\le e\le1/3),
+\]
+using the established norm ordering.  This proves both signs.
+\end{proof}

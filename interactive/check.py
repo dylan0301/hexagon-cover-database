@@ -298,7 +298,8 @@ canonical_statement_sources = {'01_introduction.tex',
  'D_fixed_witness_extensions.tex',
  'D_bc_capacity_envelope.tex', 'D_bc_finite_calipers.tex',
  'D_nonzero_gap_finite_enclosure_optimization.tex',
- 'E_zero_gap_nine_point_optimization.tex'}
+ 'E_zero_gap_nine_point_optimization.tex',
+ 'certificate_body.tex', 'radius_lemmas.tex'}
 statement_sources = {
     Path(node["source"]).name for node in graph.get("nodes", [])
 }
@@ -338,3 +339,6 @@ for obsolete in [
         raise SystemExit(f"obsolete interactive file remains: {obsolete}")
 
 print("interactive/check.py: OK")
+
+# Fixed-start F illustration checks; diagnostics are not a geometric proof.
+subprocess.run([__import__("sys").executable,str(ROOT/"interactive/_support/check_f_explicit_viewer.py")],check=True)

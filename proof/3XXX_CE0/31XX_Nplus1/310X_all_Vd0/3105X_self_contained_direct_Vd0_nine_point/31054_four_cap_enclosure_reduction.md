@@ -10,6 +10,11 @@ lemmas are in [`2611`](../../../../2XXX_geometric_lemmas/26XX_enclosing_triangle
 [`31056`](31056_global_analytic_mixed_positivity.md).
 The historical filename is retained to preserve incoming links.
 
+> Historical alternative: this note retains the junction-start points and original
+> radius/transcript. The active fixed-start proof is [3105b_explicit_comparison_enclosure.md](3105b_explicit_comparison_enclosure.md).
+> Its stated historical calculations are preserved; they are not certificates for
+> the different fixed-start formulas.
+
 ## 1. Domain and support formula
 
 Assume

@@ -73,3 +73,10 @@ F radii and clipped BC path radii are corollaries of the same total-endpoint
 forcing lemma. The bound $f(a,b)\ge m(1-m)/2$ is reused in F rather than
 reproved there. Original supplier geometry, raw $(3,0)$ normalization, and
 exact zero-gap certificates remain unchanged.
+
+## Fixed-start F update
+
+The active disk-plus-three-point tangent calculation is [3105b](../3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105b_explicit_comparison_enclosure.md).
+It preserves the nine forced points and uses fixed-start inner points, one
+rational radius envelope, and explicit low-degree comparisons with exact
+coefficient bounds. The older transcript is a historical alternative.
