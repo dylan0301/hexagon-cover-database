@@ -1,0 +1,181 @@
+name: Mathematical audit delivery (temporary)
+on:
+  push:
+    branches: ['chatgpt/math-audit-fixes-20260924092000']
+    paths:
+      - '.github/workflows/math-audit-delivery.yml'
+      - 'arrange/_support/math_audit_delivery.patch.gz'
+      - 'arrange/_support/math_audit_delivery_manifest.json'
+permissions:
+  contents: read
+concurrency:
+  group: math-audit-delivery-20260924
+  cancel-in-progress: false
+env:
+  SOURCE_DATE_EPOCH: '946684800'
+  FORCE_SOURCE_DATE: '1'
+  TZ: UTC
+  DELIVERY_BRANCH: chatgpt/math-audit-fixes-20260924092000
+jobs:
+  validate:
+    if: github.repository == 'dylan0301/hexagon-cover-database' && github.ref == 'refs/heads/chatgpt/math-audit-fixes-20260924092000'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Authenticate and apply the reviewed source patch
+        run: |
+          python3 - <<'PY'
+          import gzip,hashlib,json,subprocess
+          from pathlib import Path
+          manifest=Path('arrange/_support/math_audit_delivery_manifest.json')
+          assert hashlib.sha256(manifest.read_bytes()).hexdigest()=='f3539136efaff43218edff1f2f9d0c26c2d7d744f0b6b169388719db93900b54'
+          data=json.loads(manifest.read_text())
+          subprocess.run(['git','merge-base','--is-ancestor',data['base_commit'],'HEAD'],check=True)
+          for name,item in data['files'].items():
+              p=Path(name)
+              assert not p.is_symlink(),name
+              assert (hashlib.sha256(p.read_bytes()).hexdigest() if p.exists() else None)==item['before'],name
+          patch=gzip.decompress(Path('arrange/_support/math_audit_delivery.patch.gz').read_bytes())
+          assert hashlib.sha256(patch).hexdigest()==data['patch_sha256']
+          subprocess.run(['git','apply','--check','-'],input=patch,check=True)
+          subprocess.run(['git','apply','-'],input=patch,check=True)
+          for name,item in data['files'].items():
+              assert hashlib.sha256(Path(name).read_bytes()).hexdigest()==item['after'],name
+          subprocess.run(['git','diff','--check'],check=True)
+          print('Reviewed patch: exact before/after bytes authenticated')
+          PY
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22'
+      - name: Install repository-pinned dependencies
+        run: |
+          python -m pip install --disable-pip-version-check -r arrange/_support/requirements.txt -r interactive/proof_trees/requirements.txt
+          cd interactive/proof_trees
+          npm install --no-save --no-package-lock --ignore-scripts mathjax-full@3.2.2
+      - name: Source, exact regressions, and inter-edition preservation
+        run: |
+          set -euo pipefail
+          python proof/check.py
+          python arrange/_support/verify_inline_proofs.py
+          python arrange/_support/verify_readability_preservation.py
+          python interactive/proof_trees/check.py --html
+          python interactive/proof_trees/build.py --check
+      - name: Replay the active F proof and both historical exact certificates
+        working-directory: proof/3XXX_CE0/31XX_Nplus1/310X_all_Vd0/3105X_self_contained_direct_Vd0_nine_point/3105X_computation
+        run: |
+          set -euo pipefail
+          python verify_mixed_overlap_core_derivation.py
+          python verify_global_core_positivity.py
+          python verify_explicit_stage.py --output /tmp/F-explicit-audit.json
+      - name: Generate and validate the affected dependency viewer
+        run: |
+          set -euo pipefail
+          python interactive/generate.py --dependency-graph
+          git add -- interactive/readable_proof_dependency_graph.html
+          python interactive/generate.py --dependency-graph --check
+          python interactive/generate.py --trace-assets --check
+          python interactive/check.py
+          python interactive/animated_proof_guide/check.py --require-live
+      - name: Rebuild both publications in pinned TeX Live 2025
+        uses: xu-cheng/texlive-action@22c04326a5d855880f9d39bb955138bf11c6df80
+        with:
+          docker_image: ghcr.io/xu-cheng/texlive-historic-debian:2025@sha256:d3e42adc0c8d84bc913bfc33571feaf7037616260a771bb6f027504661568bf6
+          run: |
+            set -euo pipefail
+            python3 arrange/build.py --all --output-dir arrange/_build
+      - name: Verify publication rendering and prepare byte-pinned payload
+        run: |
+          set -euo pipefail
+          python arrange/_support/verify_pdf_render.py arrange/_build/canonical.pdf
+          python arrange/_support/verify_pdf_render.py arrange/_build/inline_proofs.pdf
+          python arrange/_support/verify_inline_proofs.py --pdf arrange/_build/inline_proofs.pdf
+          python - <<'PY'
+          import hashlib,json,os,shutil,subprocess
+          from pathlib import Path
+          import fitz
+          data=json.loads(Path('arrange/_support/math_audit_delivery_manifest.json').read_text())
+          outputs={'arrange/paper_draft/main.pdf':('arrange/_build/canonical.pdf',69),
+                   'arrange/paper_draft/inline_proofs/main.pdf':('arrange/_build/inline_proofs.pdf',67)}
+          for dst,(src,count) in outputs.items():
+              with fitz.open(src) as doc: assert doc.page_count==count,(src,doc.page_count)
+              shutil.copyfile(src,dst)
+          allowed=set(data['files'])|set(data['generated'])
+          changed=set(subprocess.check_output(['git','diff','HEAD','--name-only'],text=True).splitlines())
+          untracked=set(subprocess.check_output(['git','ls-files','--others','--exclude-standard'],text=True).splitlines())
+          assert changed|untracked==allowed,sorted((changed|untracked)^allowed)
+          for name,item in data['files'].items():
+              assert hashlib.sha256(Path(name).read_bytes()).hexdigest()==item['after'],name
+          subprocess.run(['git','diff','--check','HEAD'],check=True)
+          destination=Path('/tmp/math-audit-validated');destination.mkdir()
+          records={}
+          for name in sorted(allowed):
+              p=Path(name);assert p.is_file() and not p.is_symlink(),name
+              target=destination/'files'/name;target.parent.mkdir(parents=True,exist_ok=True)
+              shutil.copyfile(p,target)
+              mode='100755' if p.stat().st_mode & 0o111 else '100644'
+              records[name]={'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'mode':mode}
+          (destination/'manifest.json').write_text(json.dumps({'source_sha':os.environ['GITHUB_SHA'],'files':records},indent=2,sort_keys=True)+'\n')
+          print(json.dumps(records,indent=2,sort_keys=True))
+          PY
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: math-audit-validated-delivery
+          path: /tmp/math-audit-validated/
+          if-no-files-found: error
+          retention-days: 7
+  publish:
+    needs: validate
+    if: github.repository == 'dylan0301/hexagon-cover-database' && github.ref == 'refs/heads/chatgpt/math-audit-fixes-20260924092000'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 1
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: math-audit-validated-delivery
+          path: /tmp/math-audit-validated
+      - name: Publish only the authenticated allowlisted bytes
+        run: |
+          set -euo pipefail
+          test "$(git ls-remote origin "refs/heads/$DELIVERY_BRANCH" | cut -f1)" = "$GITHUB_SHA"
+          python3 - <<'PY'
+          import hashlib,json,os,shutil,subprocess
+          from pathlib import Path
+          control=Path('arrange/_support/math_audit_delivery_manifest.json')
+          assert hashlib.sha256(control.read_bytes()).hexdigest()=='f3539136efaff43218edff1f2f9d0c26c2d7d744f0b6b169388719db93900b54'
+          data=json.loads(control.read_text());allowed=set(data['files'])|set(data['generated'])
+          payload=Path('/tmp/math-audit-validated');manifest=json.loads((payload/'manifest.json').read_text())
+          assert manifest['source_sha']==os.environ['GITHUB_SHA']
+          assert set(manifest['files'])==allowed
+          assert {p.relative_to(payload/'files').as_posix() for p in (payload/'files').rglob('*') if p.is_file()}==allowed
+          for name,item in manifest['files'].items():
+              source=payload/'files'/name;dest=Path(name)
+              assert not source.is_symlink() and not dest.is_symlink(),name
+              digest=hashlib.sha256(source.read_bytes()).hexdigest()
+              assert digest==item['sha256'],name
+              if name in data['files']: assert digest==data['files'][name]['after'],name
+              assert item['mode'] in ('100644','100755'),name
+              dest.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(source,dest)
+              dest.chmod(0o755 if item['mode']=='100755' else 0o644)
+          subprocess.run(['git','add','--',*sorted(allowed)],check=True)
+          actual=set(subprocess.check_output(['git','diff','--cached','--name-only'],text=True).splitlines())
+          assert actual==allowed,sorted(actual^allowed)
+          subprocess.run(['git','diff','--cached','--check'],check=True)
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Correct area coordinates, disk-only contact scope, and BC witness count'
+          git push origin "HEAD:refs/heads/$DELIVERY_BRANCH"
+          git rev-parse HEAD

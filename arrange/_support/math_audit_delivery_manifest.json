@@ -1,0 +1,63 @@
+{
+  "base_commit": "9dfeadea2ae47f184e650dd8966f191173043943",
+  "files": {
+    "arrange/20260924_mathematical_audit_corrections.md": {
+      "after": "ba6d8ced912513c2c4243da076c54b8290675a3877ecaee3be74a53764e4aff5",
+      "before": null
+    },
+    "arrange/_support/math_audit_fixes.json": {
+      "after": "0b59df47c4125fbaec26adc2434320d2c562ec48cecf85ec24fe981c8d7564e6",
+      "before": null
+    },
+    "arrange/_support/verify_math_audit_fixes.py": {
+      "after": "3b0b75711a4aff7c008ddd942efdbb665401a34c6dc7f44eca26eb7854069038",
+      "before": null
+    },
+    "arrange/_support/verify_readability_preservation.py": {
+      "after": "2bd86bef832c1c70db6bed23f984b9b23012cdca1abfaf9ac75060be7a7c9c8b",
+      "before": "9d35e49a6d466750649645c6b0d447272b20418a7f5c416a58b54538e23d2e4a"
+    },
+    "arrange/paper_draft/06_finite_enclosure_full.tex": {
+      "after": "e34196cdd7beafa9eb739a3bfe690861449771900a598bb03241bcbd200795ef",
+      "before": "df83ef2f831cbc08c6ccc2c0f947a113f78e30f0115c28b8b94c449ffa94b4eb"
+    },
+    "arrange/paper_draft/C_area_loss_optimization.tex": {
+      "after": "8b97fda53b5662e69c975786a689ef6a3e78b99ae270d0e86da67917ff9b472e",
+      "before": "864d93e748feaf27c9d71cd5465450a38b423ab77d24edc9a613a40c5c872f81"
+    },
+    "arrange/paper_draft/inline_proofs/02_common_geometry.tex": {
+      "after": "ffaf7cabd84378b95d20c222422882c8cb37324f629192c2b91b6fc8a458c393",
+      "before": "ee92a6d3009786690c6adaba5b4822f917657113bba206784af8ca076d71bf1e"
+    },
+    "arrange/paper_draft/inline_proofs/04_area_loss.tex": {
+      "after": "12bf772a3a8d9aa2569029c90e3da28df3c6d3e42f538ea0ca9af9d009b6698b",
+      "before": "e46ba304238bacefafcfdd01e721ce4610ebbc36b288c991511ebaef48f4bdf8"
+    },
+    "interactive/_support/generate_dependency_graph.py": {
+      "after": "4bc7f42b26d23d6454c6b936f8a25916bb4b53770fc25c830a0b635ab0cb7dab",
+      "before": "f4f47a30193c379f0be3400717cce0f1407466201308944747fd4c561c827a75"
+    },
+    "proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2609_simplified_finite_enclosure_lemmas.md": {
+      "after": "759eb458c63c9cae4e3497f1d06e1ea7193f3210373ebb7243f9c508397f4e98",
+      "before": "467293c990e6b68dab2f4c553b2cac913ef48cf1b41ae4956c57e89a07089b5b"
+    },
+    "proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2612_fixed_witness_unification.md": {
+      "after": "e3ccaa03045f5730ba2c5f4cd05e9d9bd1dd88fc9bd239e78c6b38da7b02ffa3",
+      "before": "09cafee2930ec8e68c83a1781e795f1dc6f81218f94da10fe9559ddd043ae33a"
+    },
+    "proof/3XXX_CE0/32XX_Nplus_ge2/3205_unconditional_local_square_loss.md": {
+      "after": "142c7e5fb9e7f7dbfb56cbb65f003d0b64a1afc6741d883944d804c864f20da2",
+      "before": "eb88ba542454cd8fa39d12ae8ffdb12fb342217aed57a03938abba8d3a1007fc"
+    },
+    "proof/check.py": {
+      "after": "09e3add28249e88192ffeedf43d86aec4203039051570c7ec5c51a7db4e61dd8",
+      "before": "0064f38ac9b4c3f0aa94a65684cc0c9373fb59a4005052194f637af6e1fdac11"
+    }
+  },
+  "generated": [
+    "interactive/readable_proof_dependency_graph.html",
+    "arrange/paper_draft/main.pdf",
+    "arrange/paper_draft/inline_proofs/main.pdf"
+  ],
+  "patch_sha256": "0c97067a60939bc8ada85c07e43ecb9d5e91dbed74444d26bde80a7376c100a3"
+}
