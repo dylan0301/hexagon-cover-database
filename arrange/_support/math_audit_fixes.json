@@ -1,0 +1,46 @@
+{
+  "base_commit": "9dfeadea2ae47f184e650dd8966f191173043943",
+  "formal_text_edits": [
+    {
+      "after": "For fixed $t$, these inequalities describe the image of $T\\cap W$ in the\nfixed simplex $\\{U,V\\ge0,\\ U+V\\le z\\}$. Lowering $\\alpha$ or $\\beta$\nenlarges that image, not necessarily the physical intersection $T\\cap W$.\nThe Jacobian magnitude $D$ is independent of these slacks, so the retained\nEuclidean area is nondecreasing. Thus the outside loss is minimized at\n$\\alpha=tb$, $\\beta=(1-t)a$. At that placement the portion outside $W$\n",
+      "before": "For fixed $t$, lowering $\\alpha$ or $\\beta$ therefore enlarges $T\\cap W$.\nThe outside loss is minimized at\n$\\alpha=tb$, $\\beta=(1-t)a$.  At that placement the portion outside $W$\n",
+      "name": "area-coordinate-comparison"
+    },
+    {
+      "after": "Outside the disk-only alternative, a least enclosing equilateral triangle\ncan be chosen so that one side contains two distinct points of $P$, or is\ntangent to the disk and contains one point of $P$.\n",
+      "before": "Thus one side of a least enclosing equilateral triangle either contains two\npoints, or is tangent to the disk and contains one point.\n",
+      "name": "disk-only-contact-scope"
+    }
+  ],
+  "purpose": "Three reviewed precision corrections only. Exact before/after hashes authorize the seven changed proof/manuscript files; the earlier readability baseline is NOT replaced.",
+  "reviewed_files": {
+    "arrange/paper_draft/06_finite_enclosure_full.tex": {
+      "after_sha256": "e34196cdd7beafa9eb739a3bfe690861449771900a598bb03241bcbd200795ef",
+      "before_sha256": "df83ef2f831cbc08c6ccc2c0f947a113f78e30f0115c28b8b94c449ffa94b4eb"
+    },
+    "arrange/paper_draft/C_area_loss_optimization.tex": {
+      "after_sha256": "8b97fda53b5662e69c975786a689ef6a3e78b99ae270d0e86da67917ff9b472e",
+      "before_sha256": "864d93e748feaf27c9d71cd5465450a38b423ab77d24edc9a613a40c5c872f81"
+    },
+    "arrange/paper_draft/inline_proofs/02_common_geometry.tex": {
+      "after_sha256": "ffaf7cabd84378b95d20c222422882c8cb37324f629192c2b91b6fc8a458c393",
+      "before_sha256": "ee92a6d3009786690c6adaba5b4822f917657113bba206784af8ca076d71bf1e"
+    },
+    "arrange/paper_draft/inline_proofs/04_area_loss.tex": {
+      "after_sha256": "12bf772a3a8d9aa2569029c90e3da28df3c6d3e42f538ea0ca9af9d009b6698b",
+      "before_sha256": "e46ba304238bacefafcfdd01e721ce4610ebbc36b288c991511ebaef48f4bdf8"
+    },
+    "proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2609_simplified_finite_enclosure_lemmas.md": {
+      "after_sha256": "759eb458c63c9cae4e3497f1d06e1ea7193f3210373ebb7243f9c508397f4e98",
+      "before_sha256": "467293c990e6b68dab2f4c553b2cac913ef48cf1b41ae4956c57e89a07089b5b"
+    },
+    "proof/2XXX_geometric_lemmas/26XX_enclosing_triangle_tools/2612_fixed_witness_unification.md": {
+      "after_sha256": "e3ccaa03045f5730ba2c5f4cd05e9d9bd1dd88fc9bd239e78c6b38da7b02ffa3",
+      "before_sha256": "09cafee2930ec8e68c83a1781e795f1dc6f81218f94da10fe9559ddd043ae33a"
+    },
+    "proof/3XXX_CE0/32XX_Nplus_ge2/3205_unconditional_local_square_loss.md": {
+      "after_sha256": "142c7e5fb9e7f7dbfb56cbb65f003d0b64a1afc6741d883944d804c864f20da2",
+      "before_sha256": "eb88ba542454cd8fa39d12ae8ffdb12fb342217aed57a03938abba8d3a1007fc"
+    }
+  }
+}

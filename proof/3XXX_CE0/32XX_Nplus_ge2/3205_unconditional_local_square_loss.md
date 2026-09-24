@@ -266,7 +266,10 @@ $$
 
 For fixed $t$, increasing either $\alpha$ or $\beta$ raises both right-hand
 sides and shrinks the portion of the fixed $(U,V)$ simplex corresponding to
-$T\cap W$.  Hence the outside area is minimized at
+$T\cap W$. The Jacobian magnitude $D$ is independent of these slacks, so
+Euclidean retained area is $\sqrt3/(2D)$ times the area of that image.
+This is an area comparison, not an inclusion between the physical
+intersections $T\cap W$. Hence the outside area is minimized at
 
 $$
 \alpha_0=tb,
